@@ -17,7 +17,7 @@ struct AddWordView: View {
                         wordCellView
                         definitionCellView
                         partOfSpeechCellView
-                        phoneticsCellView
+//                        phoneticsCellView
                     }
                     .background(Color.surface)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -75,14 +75,15 @@ struct AddWordView: View {
     @ViewBuilder
     var partOfSpeechCellView: some View {
         var cases: [PartOfSpeech] {
-            if let result = viewModel.resultWordDetails {
-                return result.meanings
-                    .compactMap {
-                        PartOfSpeech(rawValue: $0.partOfSpeech)
-                    }
-            } else {
+//            if let result = viewModel.resultWordDetails {
+//                return result.meanings
+//                    .compactMap {
+//                        PartOfSpeech(rawValue: $0.partOfSpeech)
+//                    }
+//                    .removingDuplicates(by: \.rawValue)
+//            } else {
                 return PartOfSpeech.allCases
-            }
+//            }
         }
         CellWrapper("Part of speech") {
             Menu {
@@ -102,28 +103,26 @@ struct AddWordView: View {
         }
     }
 
-    @ViewBuilder
-    var phoneticsCellView: some View {
-        if let phonetic = viewModel.resultWordDetails?.phonetic {
-            CellWrapper("Phonetics") {
-                Text(phonetic)
-            } trailingContent: {
-                Button {
-                    viewModel.speakInputWord()
-                } label: {
-                    Image(systemName: "speaker.wave.2.fill")
-                        .font(.title3)
-                }
-                .buttonStyle(.borderedProminent)
-            }
-        }
-    }
+//    @ViewBuilder
+//    var phoneticsCellView: some View {
+//        if let phonetic = viewModel.resultWordDetails?.phonetic {
+//            CellWrapper("Phonetics") {
+//                Text(phonetic)
+//            } trailingContent: {
+//                Button {
+//                    viewModel.speakInputWord()
+//                } label: {
+//                    Image(systemName: "speaker.wave.2.fill")
+//                        .font(.title3)
+//                }
+//                .buttonStyle(.borderedProminent)
+//            }
+//        }
+//    }
 
     @ViewBuilder
     var definitionsSectionView: some View {
-        if let meaning = viewModel.resultWordDetails?.meanings.first(where: {
-            $0.partOfSpeech == viewModel.partOfSpeech?.rawValue
-        }) {
+        if viewModel.definitions.isNotEmpty {
             VStack(alignment: .leading, spacing: 12) {
                 Text("Select a definition")
                     .font(.callout)
@@ -132,33 +131,31 @@ struct AddWordView: View {
                     .padding(.horizontal, 16)
                     .padding(.top, 16)
 
-                ForEach(Array(meaning.definitions.enumerated()), id: \.offset) { offset, element in
+                ForEach(Array(viewModel.definitions.enumerated()), id: \.offset) { offset, definition in
                     FormWithDivider {
-                        if element.definition.isNotEmpty {
-                            CellWrapper("Definition \(offset + 1)") {
-                                Text(element.definition)
-                                    .multilineTextAlignment(.leading)
-                            } onTapAction: {
-                                viewModel.descriptionField = element.definition
-                                viewModel.partOfSpeech = .init(rawValue: meaning.partOfSpeech) ?? .unknown
-                                UIApplication.shared.endEditing()
-                            }
+                        CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech?.rawValue ?? "")") {
+                            Text(definition.text!.removingHTMLTags())
+                                .multilineTextAlignment(.leading)
+                        } onTapAction: {
+                            viewModel.descriptionField = definition.text!
+                            viewModel.partOfSpeech = definition.partOfSpeech
+                            UIApplication.shared.endEditing()
                         }
-                        if let example = element.example {
-                            CellWrapper("Example") {
-                                Text(example)
-                            }
-                        }
-                        if element.synonyms.isNotEmpty {
-                            CellWrapper("Synonyms") {
-                                Text(element.synonyms.joined(separator: ", "))
-                            }
-                        }
-                        if element.antonyms.isNotEmpty {
-                            CellWrapper("Antonyms") {
-                                Text(element.antonyms.joined(separator: ", "))
-                            }
-                        }
+//                        if let example = element.example {
+//                            CellWrapper("Example") {
+//                                Text(example)
+//                            }
+//                        }
+//                        if element.synonyms.isNotEmpty {
+//                            CellWrapper("Synonyms") {
+//                                Text(element.synonyms.joined(separator: ", "))
+//                            }
+//                        }
+//                        if element.antonyms.isNotEmpty {
+//                            CellWrapper("Antonyms") {
+//                                Text(element.antonyms.joined(separator: ", "))
+//                            }
+//                        }
                     }
                     .background(Color.surface)
                     .clipShape(RoundedRectangle(cornerRadius: 12))

@@ -5,24 +5,24 @@ final class AddWordViewModel: ObservableObject {
 
     @Published var status: FetchingStatus = .blank
     @Published var inputWord = ""
-    @Published var resultWordDetails: WordElement?
+    @Published var definitions: [WordDefinition] = []
     @Published var descriptionField = ""
     @Published var partOfSpeech: PartOfSpeech?
     @Published var showingAlert = false
 
-    private let dictionaryApiService: DictionaryApiServiceInterface
+    private let wordnikApiService: WordnikApiServiceInterface
     private let wordsProvider: WordsProviderInterface
     private let speechSynthesizer: SpeechSynthesizerInterface
     private var cancellables = Set<AnyCancellable>()
 
     init(
         inputWord: String = "",
-        dictionaryApiService: DictionaryApiServiceInterface,
+        wordnikApiService: WordnikApiServiceInterface,
         wordsProvider: WordsProviderInterface,
         speechSynthesizer: SpeechSynthesizerInterface
     ) {
         self.inputWord = inputWord
-        self.dictionaryApiService = dictionaryApiService
+        self.wordnikApiService = wordnikApiService
         self.wordsProvider = wordsProvider
         self.speechSynthesizer = speechSynthesizer
 
@@ -36,14 +36,14 @@ final class AddWordViewModel: ObservableObject {
         Task { @MainActor in
             status = .loading
             do {
-                let words = try await dictionaryApiService.getWords(for: inputWord)
-                resultWordDetails = words.first
-                if let firstMeaning = words.first?.meanings.first {
-                    descriptionField = firstMeaning.definitions.first?.definition ?? ""
-                    partOfSpeech = PartOfSpeech.init(rawValue: firstMeaning.partOfSpeech) ?? .unknown
-                }
+                let definitions = try await wordnikApiService.getDefinitions(
+                    for: inputWord.lowercased(),
+                    params: .init()
+                )
+                self.definitions = definitions.filter { $0.text != nil }
                 status = .ready
             } catch {
+                print(error)
                 status = .error
             }
         }
@@ -55,7 +55,7 @@ final class AddWordViewModel: ObservableObject {
                 word: inputWord.capitalizingFirstLetter(),
                 definition: descriptionField.capitalizingFirstLetter(),
                 partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
-                phonetic: resultWordDetails?.phonetic
+                phonetic: nil
             )
             wordsProvider.saveContext()
         } else {

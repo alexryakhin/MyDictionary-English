@@ -56,6 +56,18 @@ extension Collection {
     var nilIfEmpty: Self? {
         isNotEmpty ? self : nil
     }
+
+    func removingDuplicates<T: Hashable>(by keyPath: KeyPath<Element, T>) -> [Element] {
+        var seen: Set<T> = []
+        var result: [Element] = []
+        for element in self {
+            if !seen.contains(element[keyPath: keyPath]) {
+                seen.insert(element[keyPath: keyPath])
+                result.append(element)
+            }
+        }
+        return result
+    }
 }
 
 extension String {
@@ -74,5 +86,29 @@ extension String {
 
     static func join(_ substrings: String?..., separator: String = "") -> String {
         return String(substrings, separator: separator)
+    }
+
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+
+    /// Removes all tags enclosed in `< >`
+    func removingHTMLTags() -> String {
+        let pattern = "<[^>]+>" // Matches anything inside < >
+        return self.replacingOccurrences(of: pattern, with: "", options: .regularExpression)
+    }
+}
+
+extension Data {
+    var prettyPrintedJSONString: String? {
+        guard let jsonObject = try? JSONSerialization.jsonObject(with: self, options: []),
+              let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted]),
+              let prettyJSON = String(data: data, encoding: .utf8)
+        else { return nil }
+        return prettyJSON
     }
 }

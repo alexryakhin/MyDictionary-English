@@ -41,7 +41,7 @@ final class UIAssembly: Assembly, Identifiable {
         container.register(AddWordView.self) { resolver, inputWord in
             let viewModel = AddWordViewModel(
                 inputWord: inputWord,
-                dictionaryApiService: resolver ~> DictionaryApiServiceInterface.self,
+                wordnikApiService: resolver ~> WordnikApiServiceInterface.self,
                 wordsProvider: resolver ~> WordsProviderInterface.self,
                 speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
             )

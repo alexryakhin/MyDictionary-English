@@ -18,9 +18,9 @@ struct WordsListView: View {
     }
 
     var body: some View {
-        NavigationSplitView(columnVisibility: $columnVisibility) {
-            List(selection: $selectedWord) {
-                if !viewModel.wordsFiltered.isEmpty {
+        if viewModel.words.isNotEmpty {
+            NavigationSplitView(columnVisibility: $columnVisibility) {
+                List(selection: $selectedWord) {
                     Section {
                         ForEach(viewModel.wordsFiltered) { word in
                             NavigationLink(value: word) {
@@ -42,65 +42,69 @@ struct WordsListView: View {
                         }
                     }
                     .id(contextDidSaveDate)
-                }
-                if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
-                    Button {
-                        addItem()
-                    } label: {
-                        Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
+
+                    if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
+                        Button {
+                            addItem()
+                        } label: {
+                            Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
+                        }
                     }
                 }
-            }
-            .listStyle(.insetGrouped)
-            .overlay {
-                if viewModel.words.isEmpty {
-                    EmptyListView(
-                        label: "No words yet",
-                        description: "Begin to add words to your list by tapping on plus icon in upper left corner"
-                    ) {
-                        Button("Add your first word!", action: addItem)
-                            .buttonStyle(.borderedProminent)
+                .listStyle(.insetGrouped)
+                .if(viewModel.words.isNotEmpty, transform: { view in
+                    view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
+                })
+                .navigationTitle("Words")
+                .listStyle(.insetGrouped)
+                .toolbar {
+                    if viewModel.words.isNotEmpty {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            EditButton()
+                        }
+                    }
+                    ToolbarItem {
+                        Button(action: addItem) {
+                            Label("Add Item", systemImage: "plus")
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Menu {
+                            filterMenu
+                            sortMenu
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                        }
                     }
                 }
-            }
-            .if(viewModel.words.isNotEmpty, transform: { view in
-                view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
-            })
-            .navigationTitle("Words")
-            .listStyle(.insetGrouped)
-            .toolbar {
-                if viewModel.words.isNotEmpty {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButton()
-                    }
+                .sheet(isPresented: $isShowingAddSheet) {
+                    resolver.resolve(AddWordView.self, argument: viewModel.searchText)!
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Menu {
-                        filterMenu
-                        sortMenu
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
-                    }
+            } detail: {
+                if let selectedWord {
+                    resolver ~> (WordDetailsView.self, selectedWord)
+                } else {
+                    Text("Select a word")
                 }
             }
-            .sheet(isPresented: $isShowingAddSheet) {
-                resolver.resolve(AddWordView.self, argument: viewModel.searchText)!
+            .navigationSplitViewStyle(.balanced)
+            .onReceive(NotificationCenter.default.coreDataDidSavePublisher) { _ in
+                contextDidSaveDate = .now
             }
-        } detail: {
-            if let selectedWord {
-                resolver ~> (WordDetailsView.self, selectedWord)
-            } else {
-                Text("Select a word")
+        } else {
+            NavigationStack {
+                EmptyListView(
+                    label: "No words yet",
+                    description: "Begin to add words to your list by tapping on plus icon in upper left corner"
+                ) {
+                    Button("Add your first word!", action: addItem)
+                        .buttonStyle(.borderedProminent)
+                }
+                .navigationTitle("Words")
+                .sheet(isPresented: $isShowingAddSheet) {
+                    resolver.resolve(AddWordView.self, argument: viewModel.searchText)!
+                }
             }
-        }
-        .navigationSplitViewStyle(.balanced)
-        .onReceive(NotificationCenter.default.coreDataDidSavePublisher) { _ in
-            contextDidSaveDate = .now
         }
     }
 

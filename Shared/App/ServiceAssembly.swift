@@ -13,8 +13,8 @@ final class ServiceAssembly: Assembly, Identifiable {
     var id: String = "ServiceAssembly"
 
     func assemble(container: Container) {
-        container.register(DictionaryApiServiceInterface.self) { _ in
-            DictionaryApiService()
+        container.register(WordnikApiServiceInterface.self) { _ in
+            WordnikApiService()
         }
         .inObjectScope(.container)
 
