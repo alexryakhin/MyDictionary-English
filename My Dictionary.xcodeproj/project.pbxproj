@@ -114,6 +114,20 @@
 		53F0551A2D68F50300764003 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F055192D68F4FF00764003 /* View+Extension.swift */; };
 		53F0551D2D68FCBA00764003 /* WordListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0551C2D68FCBA00764003 /* WordListCellView.swift */; };
 		53F0551F2D6902BC00764003 /* WordsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0551E2D6902BC00764003 /* WordsListCellView.swift */; };
+		53F3C8542D6D8734001A1C63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53F3C8532D6D8734001A1C63 /* GoogleService-Info.plist */; };
+		53F3C8552D6D8734001A1C63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53F3C8532D6D8734001A1C63 /* GoogleService-Info.plist */; };
+		53F3C8582D6D8A23001A1C63 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 53F3C8572D6D8A23001A1C63 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		53F3C85A2D6D8A23001A1C63 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53F3C8592D6D8A23001A1C63 /* FirebaseCrashlytics */; };
+		53F3C85C2D6D8A23001A1C63 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 53F3C85B2D6D8A23001A1C63 /* FirebasePerformance */; };
+		53F3C85E2D6D8A23001A1C63 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 53F3C85D2D6D8A23001A1C63 /* FirebaseRemoteConfig */; };
+		53F3C8602D6D8AEC001A1C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C85F2D6D8AEC001A1C63 /* AppDelegate.swift */; };
+		53F3C8612D6D8AEC001A1C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C85F2D6D8AEC001A1C63 /* AppDelegate.swift */; };
+		53F3C8632D6D8B87001A1C63 /* CrashlyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C8622D6D8B87001A1C63 /* CrashlyticsService.swift */; };
+		53F3C8642D6D8B87001A1C63 /* CrashlyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C8622D6D8B87001A1C63 /* CrashlyticsService.swift */; };
+		53F3C8682D6D8BFB001A1C63 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C8672D6D8BFB001A1C63 /* AnalyticsService.swift */; };
+		53F3C8692D6D8BFB001A1C63 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C8672D6D8BFB001A1C63 /* AnalyticsService.swift */; };
+		53F3C86C2D6D8C28001A1C63 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C86B2D6D8C28001A1C63 /* AnalyticsEvent.swift */; };
+		53F3C86D2D6D8C28001A1C63 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C86B2D6D8C28001A1C63 /* AnalyticsEvent.swift */; };
 		9781DC0028D8E28400CFBC60 /* DictionarySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9781DBFF28D8E28400CFBC60 /* DictionarySettings.swift */; };
 		C0183964279C97E60034ED37 /* IdiomsListViewMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03908CB279C51A20056968B /* IdiomsListViewMacOS.swift */; };
 		C0183965279C98380034ED37 /* IdiomDetailsViewMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03908D9279C940E0056968B /* IdiomDetailsViewMacOS.swift */; };
@@ -211,6 +225,11 @@
 		53F055192D68F4FF00764003 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		53F0551C2D68FCBA00764003 /* WordListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListCellView.swift; sourceTree = "<group>"; };
 		53F0551E2D6902BC00764003 /* WordsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListCellView.swift; sourceTree = "<group>"; };
+		53F3C8532D6D8734001A1C63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		53F3C85F2D6D8AEC001A1C63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		53F3C8622D6D8B87001A1C63 /* CrashlyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsService.swift; sourceTree = "<group>"; };
+		53F3C8672D6D8BFB001A1C63 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		53F3C86B2D6D8C28001A1C63 /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		9781DBFF28D8E28400CFBC60 /* DictionarySettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionarySettings.swift; sourceTree = "<group>"; };
 		C0358EF5279A84F800E9C452 /* IdiomsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdiomsListView.swift; sourceTree = "<group>"; };
 		C0358EF7279A8BCD00E9C452 /* WordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsViewModel.swift; sourceTree = "<group>"; };
@@ -234,7 +253,11 @@
 			files = (
 				51423CF2270DE658006B94CB /* CloudKit.framework in Frameworks */,
 				53DEC1992D65A79700C9BDB2 /* Swinject in Frameworks */,
+				53F3C85C2D6D8A23001A1C63 /* FirebasePerformance in Frameworks */,
+				53F3C85E2D6D8A23001A1C63 /* FirebaseRemoteConfig in Frameworks */,
+				53F3C85A2D6D8A23001A1C63 /* FirebaseCrashlytics in Frameworks */,
 				53DEC19E2D65A7C900C9BDB2 /* SwinjectAutoregistration in Frameworks */,
+				53F3C8582D6D8A23001A1C63 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +320,7 @@
 				53081CF62BFA5E7400964305 /* docs */,
 				51423CF3270DEBD4006B94CB /* MyDictionaryInfo.plist */,
 				51423CEF270DE64E006B94CB /* My Dictionary (iOS).entitlements */,
+				53F3C8532D6D8734001A1C63 /* GoogleService-Info.plist */,
 				C0D377C4279984C900BE0726 /* iOS */,
 				51423CC9270DE476006B94CB /* Shared */,
 				51423CDB270DE477006B94CB /* macOS */,
@@ -308,13 +332,11 @@
 		51423CC9270DE476006B94CB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				5342318A2D6CD6D100F9FDEB /* BaseApiService */,
-				534231802D6CD2F200F9FDEB /* WordnikApiService */,
 				53EE84C42D69C4BA00C4566F /* Helpers */,
 				53DEC1A12D65A7FF00C9BDB2 /* App */,
 				51332CC227117216004686D2 /* Models */,
 				51332CC32711721C004686D2 /* ViewModel */,
-				517366DA270EB7CF0073651A /* Managers */,
+				517366DA270EB7CF0073651A /* Services */,
 				51423CCF270DE477006B94CB /* Assets.xcassets */,
 				51423CCA270DE477006B94CB /* My_Dictionary.xcdatamodeld */,
 			);
@@ -353,14 +375,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		517366DA270EB7CF0073651A /* Managers */ = {
+		517366DA270EB7CF0073651A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				53F3C86A2D6D8C20001A1C63 /* Firebase */,
+				53F3C8662D6D8BAB001A1C63 /* API */,
+				53F3C8652D6D8B8D001A1C63 /* Providers */,
 				51423CCE270DE477006B94CB /* CoreDataContainer.swift */,
-				53DEC1AB2D65AB0700C9BDB2 /* WordsProvider.swift */,
-				53DEC1B12D65B2E700C9BDB2 /* IdiomsProvider.swift */,
 			);
-			path = Managers;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		517366DB270EB7FA0073651A /* Onboarding */ = {
@@ -472,6 +495,7 @@
 			isa = PBXGroup;
 			children = (
 				51423CCC270DE477006B94CB /* MyDictionaryApp.swift */,
+				53F3C85F2D6D8AEC001A1C63 /* AppDelegate.swift */,
 				53DEC1A22D65A81200C9BDB2 /* ServiceAssembly.swift */,
 				53DEC1A32D65A81200C9BDB2 /* UIAssembly.swift */,
 				53DEC1A42D65A81200C9BDB2 /* DIContainer.swift */,
@@ -500,6 +524,34 @@
 				53EE84CD2D6A353400C4566F /* CustomTextField.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		53F3C8652D6D8B8D001A1C63 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				53DEC1AB2D65AB0700C9BDB2 /* WordsProvider.swift */,
+				53DEC1B12D65B2E700C9BDB2 /* IdiomsProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		53F3C8662D6D8BAB001A1C63 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5342318A2D6CD6D100F9FDEB /* BaseApiService */,
+				534231802D6CD2F200F9FDEB /* WordnikApiService */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		53F3C86A2D6D8C20001A1C63 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				53F3C8672D6D8BFB001A1C63 /* AnalyticsService.swift */,
+				53F3C8622D6D8B87001A1C63 /* CrashlyticsService.swift */,
+				53F3C86B2D6D8C28001A1C63 /* AnalyticsEvent.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		9781DBFE28D8E27000CFBC60 /* Settings */ = {
@@ -605,6 +657,10 @@
 			packageProductDependencies = (
 				53DEC1982D65A79700C9BDB2 /* Swinject */,
 				53DEC19D2D65A7C900C9BDB2 /* SwinjectAutoregistration */,
+				53F3C8572D6D8A23001A1C63 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				53F3C8592D6D8A23001A1C63 /* FirebaseCrashlytics */,
+				53F3C85B2D6D8A23001A1C63 /* FirebasePerformance */,
+				53F3C85D2D6D8A23001A1C63 /* FirebaseRemoteConfig */,
 			);
 			productName = "My Dictionary (iOS)";
 			productReference = 51423CD4270DE477006B94CB /* My Dictionary.app */;
@@ -659,6 +715,7 @@
 				53DEC1972D65A79700C9BDB2 /* XCRemoteSwiftPackageReference "Swinject" */,
 				53DEC19C2D65A7C900C9BDB2 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
 				53F0551B2D68F8FF00764003 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				53F3C8562D6D8A23001A1C63 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 51423CD5270DE477006B94CB /* Products */;
 			projectDirPath = "";
@@ -677,6 +734,7 @@
 			files = (
 				02D769D62AC2BE6100E32328 /* Launch Screen.storyboard in Resources */,
 				51423CE5270DE477006B94CB /* Assets.xcassets in Resources */,
+				53F3C8542D6D8734001A1C63 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +743,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51423CE6270DE477006B94CB /* Assets.xcassets in Resources */,
+				53F3C8552D6D8734001A1C63 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,8 +805,10 @@
 				534231822D6CD30600F9FDEB /* WordnikApiPath.swift in Sources */,
 				534231992D6CD80100F9FDEB /* WordDefinition.swift in Sources */,
 				51EBFBE9270F4A7E0066782B /* AddWordView.swift in Sources */,
+				53F3C8602D6D8AEC001A1C63 /* AppDelegate.swift in Sources */,
 				023A3DDE2AC9710800C8F68A /* UDKeys.swift in Sources */,
 				02523C672AEECC1A007E9A2D /* TabBarItem.swift in Sources */,
+				53F3C8632D6D8B87001A1C63 /* CrashlyticsService.swift in Sources */,
 				513CBC66271099D800A2F4EC /* SpellingQuizView.swift in Sources */,
 				51423CDF270DE477006B94CB /* MyDictionaryApp.swift in Sources */,
 				53A1E0482D672A6F000024CC /* AddIdiomViewModel.swift in Sources */,
@@ -757,6 +818,7 @@
 				023A3DD92AC96D8D00C8F68A /* SettingsView.swift in Sources */,
 				C0358EF6279A84F800E9C452 /* IdiomsListView.swift in Sources */,
 				513CBC64271099CF00A2F4EC /* ChooseDefinitionView.swift in Sources */,
+				53F3C86C2D6D8C28001A1C63 /* AnalyticsEvent.swift in Sources */,
 				53F0551D2D68FCBA00764003 /* WordListCellView.swift in Sources */,
 				C0358EF8279A8BCD00E9C452 /* WordsViewModel.swift in Sources */,
 				51423CE1270DE477006B94CB /* WordsListView.swift in Sources */,
@@ -779,6 +841,7 @@
 				53DEC1A52D65A81200C9BDB2 /* DIContainer.swift in Sources */,
 				5342319F2D6CEBC300F9FDEB /* CustomQueryParam.swift in Sources */,
 				53DEC1A62D65A81200C9BDB2 /* ServiceAssembly.swift in Sources */,
+				53F3C8692D6D8BFB001A1C63 /* AnalyticsService.swift in Sources */,
 				53DEC1BB2D65C7D200C9BDB2 /* WordDetailsViewModel.swift in Sources */,
 				534231852D6CD32800F9FDEB /* DefinitionsQueryParams.swift in Sources */,
 				53DEC1A72D65A81200C9BDB2 /* UIAssembly.swift in Sources */,
@@ -826,9 +889,11 @@
 				534231982D6CD80100F9FDEB /* WordDefinition.swift in Sources */,
 				53DEC1B32D65B2E700C9BDB2 /* IdiomsProvider.swift in Sources */,
 				5342318D2D6CD6E000F9FDEB /* ApiPath.swift in Sources */,
+				53F3C8642D6D8B87001A1C63 /* CrashlyticsService.swift in Sources */,
 				02523C682AEECC1A007E9A2D /* TabBarItem.swift in Sources */,
 				534231862D6CD32800F9FDEB /* DefinitionsQueryParams.swift in Sources */,
 				53A1E0472D672A6F000024CC /* AddIdiomViewModel.swift in Sources */,
+				53F3C86D2D6D8C28001A1C63 /* AnalyticsEvent.swift in Sources */,
 				02523C652AEEC897007E9A2D /* Quiz.swift in Sources */,
 				517366FB270F31030073651A /* WordDetailsViewMacOS.swift in Sources */,
 				53DEC1B92D65C0D700C9BDB2 /* FetchingStatus.swift in Sources */,
@@ -854,10 +919,12 @@
 				53EE84C32D69C4AF00C4566F /* UDKeys.swift in Sources */,
 				534231962D6CD75600F9FDEB /* ApiError.swift in Sources */,
 				C0D377C22799833700BE0726 /* SortingCase.swift in Sources */,
+				53F3C8682D6D8BFB001A1C63 /* AnalyticsService.swift in Sources */,
 				534231882D6CD37A00F9FDEB /* WordnikApiService.swift in Sources */,
 				51719138270F71850077B3C8 /* ExtensionsMacOS.swift in Sources */,
 				534231922D6CD72500F9FDEB /* BaseApiService.swift in Sources */,
 				023A3DDC2AC96E0700C8F68A /* SettingsViewModel.swift in Sources */,
+				53F3C8612D6D8AEC001A1C63 /* AppDelegate.swift in Sources */,
 				53EE84C82D69D92100C4566F /* IdiomsListCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1178,6 +1245,14 @@
 				minimumVersion = 0.58.2;
 			};
 		};
+		53F3C8562D6D8A23001A1C63 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1200,6 +1275,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53DEC19C2D65A7C900C9BDB2 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */;
 			productName = SwinjectAutoregistration;
+		};
+		53F3C8572D6D8A23001A1C63 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53F3C8562D6D8A23001A1C63 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		53F3C8592D6D8A23001A1C63 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53F3C8562D6D8A23001A1C63 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		53F3C85B2D6D8A23001A1C63 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53F3C8562D6D8A23001A1C63 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		53F3C85D2D6D8A23001A1C63 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53F3C8562D6D8A23001A1C63 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
 		};
 /* End XCSwiftPackageProductDependency section */
 

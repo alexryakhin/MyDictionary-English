@@ -1,9 +1,11 @@
 import SwiftUI
 import Swinject
 import SwinjectAutoregistration
+import Firebase
 
 @main
 struct MyDictionaryApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     let resolver: Resolver
 
