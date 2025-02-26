@@ -102,8 +102,11 @@ final class UIAssembly: Assembly, Identifiable {
             return ChooseDefinitionView(viewModel: viewModel)
         }
 
-        container.register(SettingsView.self) { _ in
-            let viewModel = SettingsViewModel()
+        container.register(SettingsView.self) { resolver in
+            let viewModel = SettingsViewModel(
+                wordsProvider: resolver ~> WordsProviderInterface.self,
+                coreDataContainer: resolver ~>  CoreDataContainerInterface.self
+            )
             return SettingsView(viewModel: viewModel)
         }
     }

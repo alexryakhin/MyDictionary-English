@@ -1,4 +1,5 @@
 import SwiftUI
+import UniformTypeIdentifiers
 import Swinject
 import SwinjectAutoregistration
 
@@ -39,10 +40,15 @@ struct SettingsView: View {
                     }
                 }
 
-                // MARK: - Export
+                // MARK: - Import & Export
 
                 Section {
-                    Text("Export")
+                    Button("Import words") {
+                        viewModel.isImporting = true
+                    }
+                    Button("Export words") {
+                        viewModel.exportWords()
+                    }
                 }
             }
             .navigationTitle("Settings")
@@ -52,6 +58,23 @@ struct SettingsView: View {
                     .font(.footnote)
                     .foregroundColor(.secondary)
                     .padding(16)
+            }
+            .sheet(item: $viewModel.exportWordsUrl) { url in
+                ShareSheet(activityItems: [url])
+            }
+            .fileImporter(
+                isPresented: $viewModel.isImporting,
+                allowedContentTypes: [UTType.commaSeparatedText],
+                allowsMultipleSelection: false
+            ) { result in
+                switch result {
+                case .success(let urls):
+                    if let url = urls.first {
+                        viewModel.importWords(from: url)
+                    }
+                case .failure(let error):
+                    print("❌ File import error: \(error.localizedDescription)")
+                }
             }
         }
     }

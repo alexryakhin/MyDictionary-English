@@ -112,3 +112,13 @@ extension Data {
         return prettyJSON
     }
 }
+
+extension Date {
+    var csvString: String {
+        ISO8601DateFormatter().string(from: self)
+    }
+}
+
+extension URL: @retroactive Identifiable {
+    public var id: String { absoluteString }
+}

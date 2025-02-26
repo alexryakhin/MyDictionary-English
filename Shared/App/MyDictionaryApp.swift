@@ -5,7 +5,9 @@ import Firebase
 
 @main
 struct MyDictionaryApp: App {
+    #if os(iOS)
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    #endif
 
     let resolver: Resolver
 

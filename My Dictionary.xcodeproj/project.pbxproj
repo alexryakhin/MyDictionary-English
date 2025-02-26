@@ -69,6 +69,9 @@
 		5342319C2D6CDCC600F9FDEB /* PartOfSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342319A2D6CDCC600F9FDEB /* PartOfSpeech.swift */; };
 		5342319E2D6CEBC300F9FDEB /* CustomQueryParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342319D2D6CEBC300F9FDEB /* CustomQueryParam.swift */; };
 		5342319F2D6CEBC300F9FDEB /* CustomQueryParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342319D2D6CEBC300F9FDEB /* CustomQueryParam.swift */; };
+		5365770E2D6ED97800CDD945 /* CSVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5365770D2D6ED97800CDD945 /* CSVManager.swift */; };
+		5365770F2D6ED97800CDD945 /* CSVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5365770D2D6ED97800CDD945 /* CSVManager.swift */; };
+		536577112D6EDEFE00CDD945 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536577102D6EDEFE00CDD945 /* ShareSheet.swift */; };
 		5395A2212D65EFC90098BD07 /* Idiom+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395A21D2D65EFC90098BD07 /* Idiom+CoreDataClass.swift */; };
 		5395A2232D65EFC90098BD07 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395A21F2D65EFC90098BD07 /* Word+CoreDataClass.swift */; };
 		5395A2252D65EFC90098BD07 /* Idiom+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395A21D2D65EFC90098BD07 /* Idiom+CoreDataClass.swift */; };
@@ -121,7 +124,6 @@
 		53F3C85C2D6D8A23001A1C63 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 53F3C85B2D6D8A23001A1C63 /* FirebasePerformance */; };
 		53F3C85E2D6D8A23001A1C63 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 53F3C85D2D6D8A23001A1C63 /* FirebaseRemoteConfig */; };
 		53F3C8602D6D8AEC001A1C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C85F2D6D8AEC001A1C63 /* AppDelegate.swift */; };
-		53F3C8612D6D8AEC001A1C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C85F2D6D8AEC001A1C63 /* AppDelegate.swift */; };
 		53F3C8632D6D8B87001A1C63 /* CrashlyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C8622D6D8B87001A1C63 /* CrashlyticsService.swift */; };
 		53F3C8642D6D8B87001A1C63 /* CrashlyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C8622D6D8B87001A1C63 /* CrashlyticsService.swift */; };
 		53F3C8682D6D8BFB001A1C63 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3C8672D6D8BFB001A1C63 /* AnalyticsService.swift */; };
@@ -200,6 +202,8 @@
 		534231972D6CD7FA00F9FDEB /* WordDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDefinition.swift; sourceTree = "<group>"; };
 		5342319A2D6CDCC600F9FDEB /* PartOfSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOfSpeech.swift; sourceTree = "<group>"; };
 		5342319D2D6CEBC300F9FDEB /* CustomQueryParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomQueryParam.swift; sourceTree = "<group>"; };
+		5365770D2D6ED97800CDD945 /* CSVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVManager.swift; sourceTree = "<group>"; };
+		536577102D6EDEFE00CDD945 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		5395A21D2D65EFC90098BD07 /* Idiom+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Idiom+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5395A21F2D65EFC90098BD07 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		53A1E0462D672A6F000024CC /* AddIdiomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIdiomViewModel.swift; sourceTree = "<group>"; };
@@ -382,6 +386,7 @@
 				53F3C8662D6D8BAB001A1C63 /* API */,
 				53F3C8652D6D8B8D001A1C63 /* Providers */,
 				51423CCE270DE477006B94CB /* CoreDataContainer.swift */,
+				5365770D2D6ED97800CDD945 /* CSVManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -495,7 +500,6 @@
 			isa = PBXGroup;
 			children = (
 				51423CCC270DE477006B94CB /* MyDictionaryApp.swift */,
-				53F3C85F2D6D8AEC001A1C63 /* AppDelegate.swift */,
 				53DEC1A22D65A81200C9BDB2 /* ServiceAssembly.swift */,
 				53DEC1A32D65A81200C9BDB2 /* UIAssembly.swift */,
 				53DEC1A42D65A81200C9BDB2 /* DIContainer.swift */,
@@ -522,6 +526,7 @@
 				53F055192D68F4FF00764003 /* View+Extension.swift */,
 				02FB1B922AC0B6FF0019D265 /* EmptyListView.swift */,
 				53EE84CD2D6A353400C4566F /* CustomTextField.swift */,
+				536577102D6EDEFE00CDD945 /* ShareSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -632,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				C0D377BC27997D7000BE0726 /* Extensions(iOS).swift */,
+				53F3C85F2D6D8AEC001A1C63 /* AppDelegate.swift */,
 				02FB1B8E2AC07DA80019D265 /* SpeechSynthesizer.swift */,
 			);
 			path = Helpers;
@@ -800,6 +806,7 @@
 				C03908D7279C8B340056968B /* Extensions.swift in Sources */,
 				02FB1B8F2AC07DA80019D265 /* SpeechSynthesizer.swift in Sources */,
 				53DEC1B82D65C0D700C9BDB2 /* FetchingStatus.swift in Sources */,
+				5365770E2D6ED97800CDD945 /* CSVManager.swift in Sources */,
 				51423CE3270DE477006B94CB /* CoreDataContainer.swift in Sources */,
 				5342319C2D6CDCC600F9FDEB /* PartOfSpeech.swift in Sources */,
 				534231822D6CD30600F9FDEB /* WordnikApiPath.swift in Sources */,
@@ -835,6 +842,7 @@
 				C0D377BD27997D7000BE0726 /* Extensions(iOS).swift in Sources */,
 				C03908C6279C062A0056968B /* QuizzesViewModel.swift in Sources */,
 				53F0551A2D68F50300764003 /* View+Extension.swift in Sources */,
+				536577112D6EDEFE00CDD945 /* ShareSheet.swift in Sources */,
 				C0D377BF27997FDC00BE0726 /* FilterCase.swift in Sources */,
 				534231932D6CD72500F9FDEB /* BaseApiService.swift in Sources */,
 				C03908C4279C06080056968B /* IdiomsViewModel.swift in Sources */,
@@ -904,6 +912,7 @@
 				C03908C7279C065C0056968B /* WordsViewModel.swift in Sources */,
 				C0183965279C98380034ED37 /* IdiomDetailsViewMacOS.swift in Sources */,
 				519B8A9F27119D7F003E5EDD /* QuizzesViewMacOS.swift in Sources */,
+				5365770F2D6ED97800CDD945 /* CSVManager.swift in Sources */,
 				5171913A270F74F20077B3C8 /* SidebarItem.swift in Sources */,
 				C03908D8279C8B340056968B /* Extensions.swift in Sources */,
 				C03908C9279C065C0056968B /* QuizzesViewModel.swift in Sources */,
@@ -924,7 +933,6 @@
 				51719138270F71850077B3C8 /* ExtensionsMacOS.swift in Sources */,
 				534231922D6CD72500F9FDEB /* BaseApiService.swift in Sources */,
 				023A3DDC2AC96E0700C8F68A /* SettingsViewModel.swift in Sources */,
-				53F3C8612D6D8AEC001A1C63 /* AppDelegate.swift in Sources */,
 				53EE84C82D69D92100C4566F /* IdiomsListCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

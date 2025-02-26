@@ -15,14 +15,14 @@ public class Word: NSManagedObject, Identifiable {
         return NSFetchRequest<Word>(entityName: "Word")
     }
 
+    @NSManaged public var wordItself: String?
     @NSManaged public var definition: String?
-    @NSManaged public var examples: Data?
-    @NSManaged public var id: UUID?
-    @NSManaged public var isFavorite: Bool
     @NSManaged public var partOfSpeech: String?
     @NSManaged public var phonetic: String?
+    @NSManaged public var id: UUID?
     @NSManaged public var timestamp: Date?
-    @NSManaged public var wordItself: String?
+    @NSManaged public var isFavorite: Bool
+    @NSManaged public var examples: Data?
 
     public var examplesDecoded: [String] {
         guard let examples,
