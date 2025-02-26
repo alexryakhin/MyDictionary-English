@@ -29,7 +29,7 @@ struct QuizzesView: View {
             .overlay {
                 if viewModel.words.count < 10 {
                     EmptyListView(
-                        label: "No words in your list",
+                        label: viewModel.words.isEmpty ? "No words in your list" : "Not enough words",
                         description: "Add at least 10 words to your list to play!"
                     )
                 }

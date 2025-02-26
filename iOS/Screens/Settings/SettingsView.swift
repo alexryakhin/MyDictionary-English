@@ -14,42 +14,48 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                // MARK: - Review section
-
-                if viewModel.isShowingRating {
-                    Section {
-                        Button {
-                            requestReview()
-                        } label: {
-                            Label {
-                                Text("Rate the app")
-                            } icon: {
-                                Image(systemName: "star.fill")
-                                    .symbolRenderingMode(.palette)
-                                    .foregroundStyle(Color.yellow)
-                            }
-                        }
-                    }
-                }
-
                 // MARK: - Idioms Tab
 
                 Section {
                     Toggle(isOn: $viewModel.isShowingIdioms) {
-                        Text("Showing Idioms Tab")
+                        Label("Show Idioms Tab", systemImage: "scroll")
                     }
                 }
 
                 // MARK: - Import & Export
 
                 Section {
-                    Button("Import words") {
+                    Button {
                         viewModel.isImporting = true
+                    } label: {
+                        Label("Import words", systemImage: "square.and.arrow.down")
                     }
-                    Button("Export words") {
+                    Button {
                         viewModel.exportWords()
+                    } label: {
+                        Label("Export words", systemImage: "square.and.arrow.up")
                     }
                 }
+
+                // MARK: - Review section
+
+                Section {
+                    Button {
+                        UIApplication.shared.open(GlobalConstant.buyMeACoffeeUrl)
+                    } label: {
+                        Label("Buy Me a Coffee", systemImage: "cup.and.saucer.fill")
+                            .foregroundColor(.orange)
+                    }
+                    if viewModel.isShowingRating {
+                        Button {
+                            requestReview()
+                        } label: {
+                            Label("Rate the app", systemImage: "star.fill")
+                                .foregroundStyle(Color.yellow)
+                        }
+                    }
+                }
+
             }
             .navigationTitle("Settings")
             .listStyle(.insetGrouped)
