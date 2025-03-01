@@ -27,7 +27,10 @@ struct IdiomsListView: View {
                                 )
                             }
                         }
-                        .onDelete(perform: viewModel.deleteIdiom)
+                        .onDelete { offsets in
+                            viewModel.deleteIdiom(atOffsets: offsets)
+                        // TODO: selectedIdiom = nil
+                        }
                     } header: {
                         if let title = viewModel.filterState.title {
                             Text(title)
@@ -83,8 +86,8 @@ struct IdiomsListView: View {
                 resolver.resolve(AddIdiomView.self, argument: viewModel.searchText)!
             })
         } detail: {
-            if let selectedIdiom {
-                resolver ~> (IdiomDetailsView.self, selectedIdiom)
+            if selectedIdiom != nil {
+                resolver ~> (IdiomDetailsView.self, $selectedIdiom)
             } else {
                 Text("Select an idiom")
             }

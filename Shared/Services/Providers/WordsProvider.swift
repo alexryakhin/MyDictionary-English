@@ -63,7 +63,6 @@ final class WordsProvider: WordsProviderInterface {
         // every time core data gets updated, call fetchWords()
         NotificationCenter.default.mergeChangesObjectIDsPublisher
             .combineLatest(NotificationCenter.default.coreDataDidSavePublisher)
-            .throttle(for: 1, scheduler: RunLoop.main, latest: true)
             .sink { [weak self] _ in
                 self?.fetchWords()
             }

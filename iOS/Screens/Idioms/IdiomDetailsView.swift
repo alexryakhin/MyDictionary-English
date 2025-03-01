@@ -12,13 +12,13 @@ struct IdiomDetailsView: View {
     var body: some View {
         List {
             Section {
-                Text(viewModel.idiom.idiomItself ?? "")
+                Text(viewModel.idiom?.idiomItself ?? "")
                     .font(.system(.headline, design: .rounded))
             } header: {
                 Text("Idiom")
             } footer: {
                 Button {
-                    viewModel.speak(viewModel.idiom.idiomItself)
+                    viewModel.speak(viewModel.idiom?.idiomItself)
                 } label: {
                     Image(systemName: "speaker.wave.2.fill")
                     Text("Listen")
@@ -33,7 +33,7 @@ struct IdiomDetailsView: View {
                 Text("Definition")
             } footer: {
                 Button {
-                    viewModel.speak(viewModel.idiom.definition)
+                    viewModel.speak(viewModel.idiom?.definition)
                 } label: {
                     Image(systemName: "speaker.wave.2.fill")
                     Text("Listen")
@@ -55,7 +55,7 @@ struct IdiomDetailsView: View {
                     Text("Add example")
                 }
 
-                ForEach(viewModel.idiom.examplesDecoded, id: \.self) { example in
+                ForEach(viewModel.idiom?.examplesDecoded ?? [], id: \.self) { example in
                     Text(example)
                 }
                 .onDelete(perform: viewModel.removeExample)
@@ -87,7 +87,7 @@ struct IdiomDetailsView: View {
                 Button {
                     viewModel.toggleFavorite()
                 } label: {
-                    Image(systemName: viewModel.idiom.isFavorite
+                    Image(systemName: viewModel.idiom?.isFavorite ?? false
                           ? "heart.fill"
                           : "heart"
                     )

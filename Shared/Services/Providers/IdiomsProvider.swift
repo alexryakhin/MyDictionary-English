@@ -61,7 +61,6 @@ final class IdiomsProvider: IdiomsProviderInterface {
         // every time core data gets updated, call fetchIdioms()
         NotificationCenter.default.mergeChangesObjectIDsPublisher
             .combineLatest(NotificationCenter.default.coreDataDidSavePublisher)
-            .throttle(for: 1, scheduler: RunLoop.main, latest: true)
             .sink { [weak self] _ in
                 self?.fetchIdioms()
             }
