@@ -2,16 +2,23 @@ import SwiftUI
 import Combine
 import CoreData
 
-final class WordsViewModel: DefaultPageViewModel {
+final class WordsListViewModel: DefaultPageViewModel {
 
-    private let wordsProvider: WordsProviderInterface
-    private let wordsManager: WordsManagerInterface
-    private var cancellables = Set<AnyCancellable>()
+    enum Output {
+        case showAddWord
+        case showWordDetails(UUID)
+    }
+
+    var onOutput: ((Output) -> Void)?
 
     @Published var words: [Word] = []
     @Published var sortingState: SortingCase = .def
     @Published var filterState: FilterCase = .none
     @Published var searchText = ""
+
+    private let wordsProvider: WordsProviderInterface
+    private let wordsManager: WordsManagerInterface
+    private var cancellables = Set<AnyCancellable>()
 
     var wordsFiltered: [Word] {
         switch filterState {

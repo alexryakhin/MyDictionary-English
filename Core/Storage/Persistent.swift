@@ -8,14 +8,12 @@ import Combine
 
 enum Property {
     case environment(AppEnvironment)
-    case fcmToken(String)
     case lastUsedAppVersion(String)
     case isOnboardingAlreadyShown(Bool)
 }
 
 enum PropertyKey {
     static let environment = "Environment"
-    static let fcmToken = "FcmToken"
     static let lastUsedAppVersion = "LastUsedAppVersion"
     static let isOnboardingAlreadyShown = "IsOnboardingAlreadyShown"
 }
@@ -25,7 +23,6 @@ protocol Persistent: AnyObject {
     func set(_ property: Property)
 
     var environment: AppEnvironment { get }
-    var fcmToken: String? { get }
 
     // Auth Properties
     var lastUsedAppVersion: String? { get }
@@ -36,7 +33,6 @@ protocol Persistent: AnyObject {
 final class PersistentLayer: Persistent {
 
     var environment: AppEnvironment
-    var fcmToken: String?
 
     var lastUsedAppVersion: String?
 
@@ -61,7 +57,6 @@ final class PersistentLayer: Persistent {
             #endif
         }
 
-        fcmToken = userDefaultsStorage.loadString(forKey: PropertyKey.fcmToken)
         lastUsedAppVersion = userDefaultsStorage.loadString(forKey: PropertyKey.lastUsedAppVersion)
         isOnboardingFlowShown = userDefaultsStorage.loadBool(forKey: PropertyKey.isOnboardingAlreadyShown)
     }
@@ -71,9 +66,6 @@ final class PersistentLayer: Persistent {
         case .environment(let environment):
             self.environment = environment
             userDefaultsStorage.save(string: environment.name, forKey: PropertyKey.environment)
-        case .fcmToken(let fcmToken):
-            self.fcmToken = fcmToken
-            userDefaultsStorage.save(string: fcmToken, forKey: PropertyKey.fcmToken)
         case .isOnboardingAlreadyShown(let isShown):
             isOnboardingFlowShown = isShown
             userDefaultsStorage.save(bool: isShown, forKey: PropertyKey.isOnboardingAlreadyShown)

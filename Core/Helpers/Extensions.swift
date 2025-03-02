@@ -82,5 +82,5 @@ extension Date {
 }
 
 extension URL: @retroactive Identifiable {
-    var id: String { absoluteString }
+    public var id: String { absoluteString }
 }

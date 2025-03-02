@@ -17,12 +17,29 @@ enum TabBarItem: String, CaseIterable, Identifiable {
         }
     }
 
-    var icon: String {
+    var image: String {
         switch self {
         case .words: "textformat.abc"
         case .idioms: "scroll"
         case .quizzes: "a.magnify"
         case .settings: "gearshape"
         }
+    }
+
+    var selectedImage: String {
+        switch self {
+        case .words: "textformat.abc.fill"
+        case .idioms: "scroll.fill"
+        case .quizzes: "a.magnify.fill"
+        case .settings: "gearshape.fill"
+        }
+    }
+
+    var item: UITabBarItem {
+        UITabBarItem(
+            title: title,
+            image: .init(systemName: image),
+            selectedImage: .init(systemName: selectedImage)
+        )
     }
 }

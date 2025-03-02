@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class BaseNavigationBar: UINavigationBar {
+class BaseNavigationBar: UINavigationBar {
 
     // MARK: - Init
     

@@ -11,19 +11,21 @@ import Combine
 final class WordsListViewController: PageViewController<WordsListView> {
 
     enum Event {
-        case openWordDetails(config: RecipeDetailsPageViewModel.Config)
+        case showAddWord
+        case openWordDetails(UUID)
     }
+
     var onEvent: ((Event) -> Void)?
 
     // MARK: - Private properties
 
-    private let viewModel: MainPageViewModel
+    private let viewModel: WordsListViewModel
 
     // MARK: - Initialization
 
-    init(viewModel: MainPageViewModel) {
+    init(viewModel: WordsListViewModel) {
         self.viewModel = viewModel
-        super.init(rootView: MainPageView(viewModel: viewModel))
+        super.init(rootView: WordsListView(viewModel: viewModel))
     }
 
     required init?(coder: NSCoder) {
@@ -32,19 +34,19 @@ final class WordsListViewController: PageViewController<WordsListView> {
 
     override func setup() {
         super.setup()
-        tabBarItem = TabBarItem.main.item
+        tabBarItem = TabBarItem.words.item
         setupBindings()
     }
 
     // MARK: - Private Methods
 
     private func setupBindings() {
-        viewModel.onEvent = { [weak self] event in
-            switch event {
-            case .openRecipeDetails(let config):
-                self?.onEvent?(.openRecipeDetails(config: config))
-            case .openSearchScreen:
-                self?.onEvent?(.openSearchScreen)
+        viewModel.onOutput = { [weak self] output in
+            switch output {
+            case .showAddWord:
+                self?.onEvent?(.showAddWord)
+            case .showWordDetails(let uuid):
+                self?.onEvent?(.openWordDetails(uuid))
             }
         }
     }

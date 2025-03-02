@@ -7,93 +7,81 @@ import SwinjectAutoregistration
 struct WordsListView: PageView {
 
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
-    @ObservedObject var viewModel: WordsViewModel
+    @ObservedObject var viewModel: WordsListViewModel
     @State private var columnVisibility = NavigationSplitViewVisibility.all
     @State private var isShowingAddSheet = false
     @State private var selectedWord: Word?
     @State private var contextDidSaveDate = Date.now
 
-    init(viewModel: WordsViewModel) {
+    init(viewModel: WordsListViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
 
     var contentView: some View {
         if viewModel.words.isNotEmpty {
-            NavigationSplitView(columnVisibility: $columnVisibility) {
-                List(selection: $selectedWord) {
-                    Section {
-                        ForEach(viewModel.wordsFiltered) { word in
-                            NavigationLink(value: word) {
-                                WordListCellView(model: .init(
-                                    word: word.wordItself ?? "word",
-                                    isFavorite: word.isFavorite,
-                                    partOfSpeech: word.partOfSpeech ?? "")
-                                )
-                            }
-                        }
-                        .onDelete(perform: viewModel.deleteWord)
-                    } header: {
-                        if let title = viewModel.filterState.title {
-                            Text(title)
-                        }
-                    } footer: {
-                        if !viewModel.wordsFiltered.isEmpty {
-                            Text(viewModel.wordsCount)
+            List(selection: $selectedWord) {
+                Section {
+                    ForEach(viewModel.wordsFiltered) { word in
+                        NavigationLink(value: word) {
+                            WordListCellView(model: .init(
+                                word: word.wordItself ?? "word",
+                                isFavorite: word.isFavorite,
+                                partOfSpeech: word.partOfSpeech ?? "")
+                            )
                         }
                     }
-                    .id(contextDidSaveDate)
+                    .onDelete(perform: viewModel.deleteWord)
+                } header: {
+                    if let title = viewModel.filterState.title {
+                        Text(title)
+                    }
+                } footer: {
+                    if !viewModel.wordsFiltered.isEmpty {
+                        Text(viewModel.wordsCount)
+                    }
+                }
+                .id(contextDidSaveDate)
 
-                    if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
-                        Button {
-                            addItem()
-                        } label: {
-                            Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
-                        }
+                if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
+                    Button {
+                        addItem()
+                    } label: {
+                        Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
                     }
-                }
-                .listStyle(.insetGrouped)
-                .if(viewModel.words.isNotEmpty, transform: { view in
-                    view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
-                })
-                .navigationTitle("Words")
-                .listStyle(.insetGrouped)
-                .toolbar {
-                    if viewModel.words.isNotEmpty {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            EditButton()
-                        }
-                    }
-                    ToolbarItem {
-                        Button(action: addItem) {
-                            Label("Add Item", systemImage: "plus")
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Menu {
-                            filterMenu
-                            sortMenu
-                        } label: {
-                            Image(systemName: "ellipsis.circle")
-                        }
-                    }
-                }
-                .sheet(isPresented: $isShowingAddSheet) {
-                    resolver.resolve(AddWordView.self, argument: viewModel.searchText)!
-                }
-                .background {
-                    Color.white.opacity(0.01)
-                        .onTapGesture {
-                            selectedWord = nil
-                        }
-                }
-            } detail: {
-                if selectedWord != nil {
-                    resolver ~> (WordDetailsView.self, $selectedWord)
-                } else {
-                    Text("Select a word")
                 }
             }
-            .navigationSplitViewStyle(.balanced)
+            .listStyle(.insetGrouped)
+            .if(viewModel.words.isNotEmpty, transform: { view in
+                view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
+            })
+            .navigationTitle("Words")
+            .listStyle(.insetGrouped)
+            .toolbar {
+                if viewModel.words.isNotEmpty {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
+                }
+                ToolbarItem {
+                    Button(action: addItem) {
+                        Label("Add Item", systemImage: "plus")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Menu {
+                        filterMenu
+                        sortMenu
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                    }
+                }
+            }
+            .background {
+                Color.white.opacity(0.01)
+                    .onTapGesture {
+                        selectedWord = nil
+                    }
+            }
             .onReceive(NotificationCenter.default.coreDataDidSavePublisher) { _ in
                 contextDidSaveDate = .now
             }
@@ -107,9 +95,6 @@ struct WordsListView: PageView {
                         .buttonStyle(.borderedProminent)
                 }
                 .navigationTitle("Words")
-                .sheet(isPresented: $isShowingAddSheet) {
-                    resolver.resolve(AddWordView.self, argument: viewModel.searchText)!
-                }
             }
         }
     }

@@ -1,6 +1,6 @@
 // swiftlint:disable final_class
 /// Abstract coordinator class
-open class BaseCoordinator: CoordinatorInterface {
+class BaseCoordinator: CoordinatorInterface {
 
     typealias DefaultFinishHandler = () -> Void
 

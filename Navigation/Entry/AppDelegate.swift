@@ -8,10 +8,9 @@
 import Foundation
 import UIKit
 import Firebase
-//import FirebaseMessaging
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate/*, MessagingDelegate*/ {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     // Called when the app finishes launching
     func application(
@@ -25,11 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         DIContainer.shared.assemble(assembly: ServiceAssembly())
         // Initialize Firebase
          FirebaseApp.configure()
-
-        // Set up Firebase Cloud Messaging delegate
-        // Messaging.messaging().delegate = self
-
-//        requestNotificationAuthorization(application: application)
 
         return true
     }
@@ -63,12 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         fault("Failed to register for remote notifications: \(error.localizedDescription)")
     }
-
-    // Called when Firebase Messaging refreshes the token
-    // func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        // print("Firebase registration token: \(String(describing: fcmToken))")
-        // Here, you would typically send the token to your server for later use
-    // }
 
     // Handle notification while app is in the foreground
     nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

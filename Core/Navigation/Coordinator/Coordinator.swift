@@ -9,7 +9,7 @@ import Swinject
 import SwinjectAutoregistration
 import UIKit
 
-open class Coordinator: BaseCoordinator, RoutableCoordinator {
+class Coordinator: BaseCoordinator, RoutableCoordinator {
 
     static let resolver: Resolver = DIContainer.shared.resolver
     let resolver: Resolver = DIContainer.shared.resolver

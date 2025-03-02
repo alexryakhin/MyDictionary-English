@@ -6,7 +6,7 @@
 //
 import Foundation
 
-open class DefaultPageViewModel: PageViewModel<DefaultLoaderProps, DefaultPlaceholderProps, DefaultErrorProps> {
+class DefaultPageViewModel: PageViewModel<DefaultLoaderProps, DefaultPlaceholderProps, DefaultErrorProps> {
 
     @Published var isShowingSnack: Bool = false
     @Published var snackModel = SnackModel(title: .empty, style: .default)

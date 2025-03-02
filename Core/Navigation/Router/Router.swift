@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-open class Router: NSObject, RouterInterface {
+class Router: NSObject, RouterInterface {
     
     var rootController: UINavigationController?
     private var completions: [UIViewController: () -> Void]

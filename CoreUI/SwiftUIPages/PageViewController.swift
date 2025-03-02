@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 import class Combine.AnyCancellable
 
-open class PageViewController<Content: PageView>: UIHostingController<Content> {
+class PageViewController<Content: PageView>: UIHostingController<Content> {
 
     var onSearchSubmit: ((String) -> Void)?
     var onSearchCancel: (() -> Void)?

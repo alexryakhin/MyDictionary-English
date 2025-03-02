@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-open class PageViewModel<
+class PageViewModel<
     LoaderProps,
     PlaceholderProps,
     ErrorProps
