@@ -33,7 +33,8 @@ final class UIAssembly: Assembly, Identifiable {
 
         container.register(WordsListView.self) { resolver in
             let viewModel = WordsViewModel(
-                wordsProvider: resolver ~> WordsProviderInterface.self
+                wordsProvider: resolver ~> WordsProviderInterface.self,
+                wordsManager: resolver ~> WordsManagerInterface.self
             )
             return WordsListView(viewModel: viewModel)
         }
@@ -42,8 +43,7 @@ final class UIAssembly: Assembly, Identifiable {
             let viewModel = AddWordViewModel(
                 inputWord: inputWord,
                 wordnikApiService: resolver ~> WordnikApiServiceInterface.self,
-                wordsProvider: resolver ~> WordsProviderInterface.self,
-                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+                wordsManager: resolver ~> WordsManagerInterface.self
             )
             return AddWordView(viewModel: viewModel)
         }
@@ -51,15 +51,15 @@ final class UIAssembly: Assembly, Identifiable {
         container.register(WordDetailsView.self) { resolver, word in
             let viewModel = WordDetailsViewModel(
                 word: word,
-                wordsProvider: resolver ~> WordsProviderInterface.self,
-                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+                wordsManager: resolver ~> WordsManagerInterface.self
             )
             return WordDetailsView(viewModel: viewModel)
         }
 
         container.register(IdiomsListView.self) { resolver in
             let viewModel = IdiomsViewModel(
-                idiomsProvider: resolver ~> IdiomsProviderInterface.self
+                idiomsProvider: resolver ~> IdiomsProviderInterface.self,
+                idiomsManager: resolver ~> IdiomsManagerInterface.self
             )
             return IdiomsListView(viewModel: viewModel)
         }
@@ -67,7 +67,7 @@ final class UIAssembly: Assembly, Identifiable {
         container.register(AddIdiomView.self) { resolver, inputText in
             let viewModel = AddIdiomViewModel(
                 inputText: inputText,
-                idiomsProvider: resolver ~> IdiomsProviderInterface.self
+                idiomsManager: resolver ~> IdiomsManagerInterface.self
             )
             return AddIdiomView(viewModel: viewModel)
         }
@@ -75,8 +75,7 @@ final class UIAssembly: Assembly, Identifiable {
         container.register(IdiomDetailsView.self) { resolver, idiom in
             let viewModel = IdiomDetailsViewModel(
                 idiom: idiom,
-                idiomsProvider: resolver ~> IdiomsProviderInterface.self,
-                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+                idiomsManager: resolver ~> IdiomsManagerInterface.self
             )
             return IdiomDetailsView(viewModel: viewModel)
         }
@@ -104,8 +103,7 @@ final class UIAssembly: Assembly, Identifiable {
 
         container.register(SettingsView.self) { resolver in
             let viewModel = SettingsViewModel(
-                wordsProvider: resolver ~> WordsProviderInterface.self,
-                coreDataContainer: resolver ~>  CoreDataContainerInterface.self
+                wordsProvider: resolver ~> WordsProviderInterface.self
             )
             return SettingsView(viewModel: viewModel)
         }
@@ -125,8 +123,7 @@ final class UIAssembly: Assembly, Identifiable {
             let viewModel = AddWordViewModel(
                 inputWord: inputWord,
                 dictionaryApiService: resolver ~> DictionaryApiServiceInterface.self,
-                wordsProvider: resolver ~> WordsProviderInterface.self,
-                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+                wordsProvider: resolver ~> WordsProviderInterface.self
             )
             return AddWordView(viewModel: viewModel)
         }
@@ -134,8 +131,7 @@ final class UIAssembly: Assembly, Identifiable {
         container.register(WordDetailsView.self) { (resolver: Resolver, word: Word) in
             let viewModel = WordDetailsViewModel(
                 word: word,
-                wordsProvider: resolver ~> WordsProviderInterface.self,
-                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+                wordsProvider: resolver ~> WordsProviderInterface.self
             )
             return WordDetailsView(viewModel: viewModel)
         }
@@ -158,8 +154,7 @@ final class UIAssembly: Assembly, Identifiable {
         container.register(IdiomDetailsView.self) { resolver, idiom in
             let viewModel = IdiomDetailsViewModel(
                 idiom: idiom,
-                idiomsProvider: resolver ~> IdiomsProviderInterface.self,
-                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+                idiomsProvider: resolver ~> IdiomsProviderInterface.self
             )
             return IdiomDetailsView(viewModel: viewModel)
         }

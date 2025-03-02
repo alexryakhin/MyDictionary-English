@@ -18,27 +18,23 @@ final class ServiceAssembly: Assembly, Identifiable {
         }
         .inObjectScope(.container)
 
-        container.register(SpeechSynthesizerInterface.self) { _ in
-            SpeechSynthesizer()
+        container.register(WordsProviderInterface.self) { _ in
+            WordsProvider()
         }
         .inObjectScope(.container)
 
-        container.register(CoreDataContainerInterface.self) { _ in
-            CoreDataContainer()
+        container.register(WordsManagerInterface.self) { _ in
+            WordsManager()
         }
         .inObjectScope(.container)
 
-        container.register(WordsProviderInterface.self) { resolver in
-            WordsProvider(
-                coreDataContainer: resolver ~> CoreDataContainerInterface.self
-            )
+        container.register(IdiomsProviderInterface.self) { _ in
+            IdiomsProvider()
         }
         .inObjectScope(.container)
 
-        container.register(IdiomsProviderInterface.self) { resolver in
-            IdiomsProvider(
-                coreDataContainer: resolver ~> CoreDataContainerInterface.self
-            )
+        container.register(IdiomsManagerInterface.self) { _ in
+            IdiomsManager()
         }
         .inObjectScope(.container)
     }

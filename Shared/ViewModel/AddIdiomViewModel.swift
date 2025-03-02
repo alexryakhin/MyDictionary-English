@@ -8,27 +8,35 @@
 import Combine
 import SwiftUI
 
-final class AddIdiomViewModel: ObservableObject {
+final class AddIdiomViewModel: ViewModel {
     @Published var inputText: String = ""
     @Published var inputDefinition: String = ""
     @Published var isShowingAlert = false
 
-    private let idiomsProvider: IdiomsProviderInterface
+    private let idiomsManager: IdiomsManagerInterface
 
     init(
         inputText: String,
-        idiomsProvider: IdiomsProviderInterface
+        idiomsManager: IdiomsManagerInterface
     ) {
         self.inputText = inputText
-        self.idiomsProvider = idiomsProvider
+        self.idiomsManager = idiomsManager
     }
 
     func addIdiom() {
         if !inputText.isEmpty, !inputDefinition.isEmpty {
-            idiomsProvider.addNewIdiom(inputText, definition: inputDefinition)
-            idiomsProvider.saveContext()
+            idiomsManager.addNewIdiom(inputText, definition: inputDefinition)
+            saveContext()
         } else {
             isShowingAlert = true
+        }
+    }
+
+    private func saveContext() {
+        do {
+            try idiomsManager.saveContext()
+        } catch {
+            handleError(error)
         }
     }
 }

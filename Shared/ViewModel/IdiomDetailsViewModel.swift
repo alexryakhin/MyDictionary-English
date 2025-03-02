@@ -3,42 +3,41 @@ import SwiftUI
 import Combine
 import CoreData
 
-final class IdiomDetailsViewModel: ObservableObject {
+final class IdiomDetailsViewModel: ViewModel {
 
     @Binding var idiom: Idiom?
     @Published var isShowAddExample = false
     @Published var definitionTextFieldStr = ""
     @Published var exampleTextFieldStr = ""
 
-    private let idiomsProvider: IdiomsProviderInterface
-    private let speechSynthesizer: SpeechSynthesizerInterface
+    private let idiomsManager: IdiomsManagerInterface
+    private let speechSynthesizer = SpeechSynthesizer.shared
 
     private var cancellables = Set<AnyCancellable>()
 
     init(
         idiom: Binding<Idiom?>,
-        idiomsProvider: IdiomsProviderInterface,
-        speechSynthesizer: SpeechSynthesizerInterface
+        idiomsManager: IdiomsManagerInterface
     ) {
         self._idiom = idiom
-        self.idiomsProvider = idiomsProvider
-        self.speechSynthesizer = speechSynthesizer
+        self.idiomsManager = idiomsManager
         self.definitionTextFieldStr = idiom.wrappedValue?.definition ?? ""
+        super.init()
         setupBindings()
     }
 
     /// Removes selected idiom from Core Data
     func deleteCurrentIdiom() {
         guard let idiom else { return }
-        idiomsProvider.deleteIdiom(idiom)
-        idiomsProvider.saveContext()
+        idiomsManager.deleteIdiom(idiom)
+        saveContext()
         self.idiom = nil
     }
 
     func addExample() {
         do {
             try idiom?.addExample(exampleTextFieldStr)
-            idiomsProvider.saveContext()
+            saveContext()
             exampleTextFieldStr = ""
             isShowAddExample = false
         } catch {
@@ -49,7 +48,7 @@ final class IdiomDetailsViewModel: ObservableObject {
     func removeExample(_ example: String) {
         do {
             try idiom?.removeExample(example)
-            idiomsProvider.saveContext()
+            saveContext()
         } catch {
             handleError(error)
         }
@@ -58,7 +57,7 @@ final class IdiomDetailsViewModel: ObservableObject {
     func removeExample(atOffsets offsets: IndexSet) {
         do {
             try idiom?.removeExample(atOffsets: offsets)
-            idiomsProvider.saveContext()
+            saveContext()
         } catch {
             handleError(error)
         }
@@ -72,29 +71,25 @@ final class IdiomDetailsViewModel: ObservableObject {
 
     func toggleFavorite() {
         idiom?.isFavorite.toggle()
-        idiomsProvider.saveContext()
+        saveContext()
     }
 
     private func setupBindings() {
-        idiomsProvider.idiomsErrorPublisher
-            .receive(on: RunLoop.main)
-            .sink { [weak self] error in
-                self?.handleError(error)
-            }
-            .store(in: &cancellables)
-
         $definitionTextFieldStr
             .removeDuplicates()
             .debounce(for: 1, scheduler: RunLoop.main)
             .sink { [weak self] text in
                 self?.idiom?.definition = text
-                self?.idiomsProvider.saveContext()
+                self?.saveContext()
             }
             .store(in: &cancellables)
     }
 
-    private func handleError(_ error: Error) {
-        // TODO: show snack
-        print(error.localizedDescription)
+    private func saveContext() {
+        do {
+            try idiomsManager.saveContext()
+        } catch {
+            handleError(error)
+        }
     }
 }

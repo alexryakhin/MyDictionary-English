@@ -1,13 +1,13 @@
 import Foundation
 import AVFoundation
 
-protocol SpeechSynthesizerInterface {
-    func speak(_ text: String)
-}
+struct SpeechSynthesizer {
 
-final class SpeechSynthesizer: SpeechSynthesizerInterface {
+    static let shared = SpeechSynthesizer()
 
     private let speechSynthesizer = AVSpeechSynthesizer()
+
+    private init() {}
 
     func speak(_ text: String) {
         guard !speechSynthesizer.isSpeaking else { return }

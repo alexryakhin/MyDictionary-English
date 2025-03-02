@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-final class ChooseDefinitionViewModel: ObservableObject {
+final class ChooseDefinitionViewModel: ViewModel {
     @Published var words: [Word] = []
     @Published var correctAnswerIndex = Int.random(in: 0...2)
     @Published var isCorrectAnswer = true
@@ -22,6 +22,7 @@ final class ChooseDefinitionViewModel: ObservableObject {
 
     init(wordsProvider: WordsProviderInterface) {
         self.wordsProvider = wordsProvider
+        super.init()
         setupBindings()
     }
 

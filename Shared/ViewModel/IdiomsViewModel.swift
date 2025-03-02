@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 import CoreData
 
-final class IdiomsViewModel: ObservableObject {
+final class IdiomsViewModel: ViewModel {
 
     @Published var idioms: [Idiom] = []
     @Published var sortingState: SortingCase = .def
@@ -10,11 +10,16 @@ final class IdiomsViewModel: ObservableObject {
     @Published var searchText = ""
 
     private let idiomsProvider: IdiomsProviderInterface
+    private let idiomsManager: IdiomsManagerInterface
     private var cancellables = Set<AnyCancellable>()
 
-    init(idiomsProvider: IdiomsProviderInterface) {
+    init(
+        idiomsProvider: IdiomsProviderInterface,
+        idiomsManager: IdiomsManagerInterface
+    ) {
         self.idiomsProvider = idiomsProvider
-
+        self.idiomsManager = idiomsManager
+        super.init()
         setupBindings()
     }
 
@@ -33,11 +38,6 @@ final class IdiomsViewModel: ObservableObject {
                 self?.filterState = value.isEmpty ? .none : .search
             }
             .store(in: &cancellables)
-    }
-
-    func addNewIdiom(text: String, definition: String) {
-        idiomsProvider.addNewIdiom(text, definition: definition)
-        idiomsProvider.saveContext()
     }
 
     // MARK: Removing from CD
@@ -66,8 +66,8 @@ final class IdiomsViewModel: ObservableObject {
 
     /// Removes given word from Core Data
     func deleteIdiom(_ idiom: Idiom) {
-        idiomsProvider.deleteIdiom(idiom)
-        idiomsProvider.saveContext()
+        idiomsManager.deleteIdiom(idiom)
+        saveContext()
     }
 
     // MARK: Sorting
@@ -94,6 +94,14 @@ final class IdiomsViewModel: ObservableObject {
             })
         case .partOfSpeech:
             break
+        }
+    }
+
+    private func saveContext() {
+        do {
+            try idiomsManager.saveContext()
+        } catch {
+            handleError(error)
         }
     }
 }

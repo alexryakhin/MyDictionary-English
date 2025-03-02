@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-final class QuizzesViewModel: ObservableObject {
+final class QuizzesViewModel: ViewModel {
     @Published var words: [Word] = []
 
     private let wordsProvider: WordsProviderInterface
@@ -9,6 +9,7 @@ final class QuizzesViewModel: ObservableObject {
 
     init(wordsProvider: WordsProviderInterface) {
         self.wordsProvider = wordsProvider
+        super.init()
         setupBindings()
     }
 

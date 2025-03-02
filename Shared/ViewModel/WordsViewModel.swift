@@ -2,9 +2,10 @@ import SwiftUI
 import Combine
 import CoreData
 
-final class WordsViewModel: ObservableObject {
+final class WordsViewModel: ViewModel {
 
     private let wordsProvider: WordsProviderInterface
+    private let wordsManager: WordsManagerInterface
     private var cancellables = Set<AnyCancellable>()
 
     @Published var words: [Word] = []
@@ -42,8 +43,13 @@ final class WordsViewModel: ObservableObject {
         }
     }
 
-    init(wordsProvider: WordsProviderInterface) {
+    init(
+        wordsProvider: WordsProviderInterface,
+        wordsManager: WordsManagerInterface
+    ) {
         self.wordsProvider = wordsProvider
+        self.wordsManager = wordsManager
+        super.init()
         setupBindings()
     }
 
@@ -62,16 +68,6 @@ final class WordsViewModel: ObservableObject {
                 self?.filterState = value.isEmpty ? .none : .search
             }
             .store(in: &cancellables)
-    }
-
-    func addNewWord(word: String, definition: String, partOfSpeech: String, phonetic: String?) {
-        wordsProvider.addNewWord(
-            word: word,
-            definition: definition,
-            partOfSpeech: partOfSpeech,
-            phonetic: phonetic
-        )
-        wordsProvider.saveContext()
     }
 
     func deleteWord(offsets: IndexSet) {
@@ -98,8 +94,8 @@ final class WordsViewModel: ObservableObject {
     }
 
     func delete(word: Word) {
-        wordsProvider.delete(word: word)
-        wordsProvider.saveContext()
+        wordsManager.delete(word: word)
+        saveContext()
     }
 
     func selectFilterState(_ filterState: FilterCase) {
@@ -132,6 +128,14 @@ final class WordsViewModel: ObservableObject {
             words.sort(by: { word1, word2 in
                 word1.partOfSpeech! < word2.partOfSpeech!
             })
+        }
+    }
+
+    private func saveContext() {
+        do {
+            try wordsManager.saveContext()
+        } catch {
+            handleError(error)
         }
     }
 }

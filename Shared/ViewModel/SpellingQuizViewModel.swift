@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-final class SpellingQuizViewModel: ObservableObject {
+final class SpellingQuizViewModel: ViewModel {
     @Published var words: [Word] = []
 
     @Published var randomWord: Word?
@@ -21,6 +21,7 @@ final class SpellingQuizViewModel: ObservableObject {
 
     init(wordsProvider: WordsProviderInterface) {
         self.wordsProvider = wordsProvider
+        super.init()
         setupBindings()
     }
 

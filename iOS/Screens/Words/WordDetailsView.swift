@@ -12,10 +12,10 @@ struct WordDetailsView: View {
         List {
             Section {
                 HStack {
-                    Text("[\(viewModel.word.phonetic ?? "No transcription")]")
+                    Text("[\(viewModel.word?.phonetic ?? "No transcription")]")
                     Spacer()
                     Button {
-                        viewModel.speak(viewModel.word.wordItself)
+                        viewModel.speak(viewModel.word?.wordItself)
                     } label: {
                         Image(systemName: "speaker.wave.2.fill")
                     }
@@ -25,7 +25,7 @@ struct WordDetailsView: View {
             }
 
             Section {
-                Text(viewModel.word.partOfSpeech ?? "")
+                Text(viewModel.word?.partOfSpeech ?? "")
                     .contextMenu {
                         ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
                             Button {
@@ -45,7 +45,7 @@ struct WordDetailsView: View {
                 Text("Definition")
             } footer: {
                 Button {
-                    viewModel.speak(viewModel.word.definition)
+                    viewModel.speak(viewModel.word?.definition)
                 } label: {
                     Image(systemName: "speaker.wave.2.fill")
                     Text("Listen")
@@ -61,7 +61,7 @@ struct WordDetailsView: View {
                     Text("Add example")
                 }
 
-                ForEach(viewModel.word.examplesDecoded, id: \.self) { example in
+                ForEach(viewModel.word?.examplesDecoded ?? [], id: \.self) { example in
                     Text(example)
                 }
                 .onDelete(perform: viewModel.removeExample)
@@ -88,7 +88,7 @@ struct WordDetailsView: View {
             }
         }
         .listStyle(.insetGrouped)
-        .navigationTitle(viewModel.word.wordItself ?? "")
+        .navigationTitle(viewModel.word?.wordItself ?? "")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -102,7 +102,7 @@ struct WordDetailsView: View {
                 Button {
                     viewModel.toggleFavorite()
                 } label: {
-                    Image(systemName: viewModel.word.isFavorite
+                    Image(systemName: viewModel.word?.isFavorite ?? false
                           ? "heart.fill"
                           : "heart"
                     )

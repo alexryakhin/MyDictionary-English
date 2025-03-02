@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-final class AddWordViewModel: ObservableObject {
+final class AddWordViewModel: ViewModel {
 
     @Published var status: FetchingStatus = .blank
     @Published var inputWord = ""
@@ -11,21 +11,20 @@ final class AddWordViewModel: ObservableObject {
     @Published var showingAlert = false
 
     private let wordnikApiService: WordnikApiServiceInterface
-    private let wordsProvider: WordsProviderInterface
-    private let speechSynthesizer: SpeechSynthesizerInterface
+    private let wordsManager: WordsManagerInterface
+    private let speechSynthesizer = SpeechSynthesizer.shared
     private var cancellables = Set<AnyCancellable>()
 
     init(
         inputWord: String = "",
         wordnikApiService: WordnikApiServiceInterface,
-        wordsProvider: WordsProviderInterface,
-        speechSynthesizer: SpeechSynthesizerInterface
+        wordsManager: WordsManagerInterface
     ) {
         self.inputWord = inputWord
         self.wordnikApiService = wordnikApiService
-        self.wordsProvider = wordsProvider
-        self.speechSynthesizer = speechSynthesizer
+        self.wordsManager = wordsManager
 
+        super.init()
         setupBindings()
         if !inputWord.isEmpty {
             fetchData()
@@ -51,13 +50,13 @@ final class AddWordViewModel: ObservableObject {
 
     func saveWord() {
         if !inputWord.isEmpty, !descriptionField.isEmpty {
-            wordsProvider.addNewWord(
+            wordsManager.addNewWord(
                 word: inputWord.capitalizingFirstLetter(),
                 definition: descriptionField.capitalizingFirstLetter(),
                 partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
                 phonetic: nil
             )
-            wordsProvider.saveContext()
+            saveContext()
         } else {
             showingAlert = true
         }
@@ -78,5 +77,13 @@ final class AddWordViewModel: ObservableObject {
                 self?.fetchData()
             }
             .store(in: &cancellables)
+    }
+
+    private func saveContext() {
+        do {
+            try wordsManager.saveContext()
+        } catch {
+            handleError(error)
+        }
     }
 }

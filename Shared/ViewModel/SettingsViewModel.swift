@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 import StoreKit
 
-final class SettingsViewModel: ObservableObject {
+final class SettingsViewModel: ViewModel {
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
     @AppStorage(UDKeys.isShowingIdioms) var isShowingIdioms: Bool = false
 
@@ -10,18 +10,17 @@ final class SettingsViewModel: ObservableObject {
     @Published var isImporting = false
     @Published var importFileURL: URL?
 
-    private let coreDataContainer: CoreDataContainerInterface
+    private let coreDataContainer = CoreDataContainer.shared
     private let wordsProvider: WordsProviderInterface
 
     private var words: [Word] = []
     private var cancellables: Set<AnyCancellable> = []
 
     init(
-        wordsProvider: WordsProviderInterface,
-        coreDataContainer: CoreDataContainerInterface
+        wordsProvider: WordsProviderInterface
     ) {
         self.wordsProvider = wordsProvider
-        self.coreDataContainer = coreDataContainer
+        super.init()
         setupBindings()
     }
 
@@ -47,8 +46,7 @@ final class SettingsViewModel: ObservableObject {
                 context: coreDataContainer.viewContext
             )
         } catch {
-            // TODO: show error
-            print(error)
+            handleError(error)
         }
     }
 }

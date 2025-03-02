@@ -80,9 +80,15 @@ struct WordsListView: View {
                 .sheet(isPresented: $isShowingAddSheet) {
                     resolver.resolve(AddWordView.self, argument: viewModel.searchText)!
                 }
+                .background {
+                    Color.white.opacity(0.01)
+                        .onTapGesture {
+                            selectedWord = nil
+                        }
+                }
             } detail: {
-                if let selectedWord {
-                    resolver ~> (WordDetailsView.self, selectedWord)
+                if selectedWord != nil {
+                    resolver ~> (WordDetailsView.self, $selectedWord)
                 } else {
                     Text("Select a word")
                 }

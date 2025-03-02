@@ -1,17 +1,16 @@
 import CoreData
 
-protocol CoreDataContainerInterface {
-    var viewContext: NSManagedObjectContext { get }
-}
+struct CoreDataContainer {
 
-final class CoreDataContainer: CoreDataContainerInterface {
+    static let shared = CoreDataContainer()
+
     private let container: NSPersistentCloudKitContainer
 
     var viewContext: NSManagedObjectContext {
         container.viewContext
     }
 
-    init() {
+    private init() {
         container = NSPersistentCloudKitContainer(name: "My_Dictionary")
         container.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
