@@ -1,0 +1,66 @@
+import os
+
+enum LogEventLevel: String {
+    case memory
+    case debug
+    case info
+    case warn
+    case error
+    case important
+    case none
+
+    var level: Int {
+        switch self {
+        case .debug, .memory:
+            return 0
+        case .info:
+            return 1
+        case .warn:
+            return 2
+        case .error:
+            return 3
+        case .important:
+            return 4
+        case .none:
+            return 7
+        }
+    }
+
+    var osLogType: OSLogType {
+        switch self {
+        case .debug, .memory:
+            return .debug
+        case .info:
+            return .info
+        case .warn:
+            return .error
+        case .error:
+            return .fault
+        case .important:
+            return .info
+        case .none:
+            return .debug
+        }
+    }
+
+    var prefixEmoji: String {
+        switch self {
+        case .memory:
+            return ""
+        case .debug:
+            return "🔵"
+        case .info:
+            return "🟢"
+        case .warn:
+            return "🟡"
+        case .error:
+            return "🔴"
+        case .important:
+            return "🟣"
+        case .none:
+            return ""
+        }
+    }
+
+    var name: String { rawValue.uppercased() }
+}

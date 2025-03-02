@@ -1,5 +1,5 @@
 {
-  "originHash" : "5519fcf546aa5e496c6f1974dccfd74ffaa24b8ef97433ae578ea2eb4b046faa",
+  "originHash" : "02fbc0aa35fbeb27bbe26a07b2745893ae7fc6b78dae7af55ebc36cadaf1a0d4",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -125,6 +125,15 @@
       "state" : {
         "revision" : "7a3d77f3dd9f91d5cea138e52c20cfceabf352de",
         "version" : "0.58.2"
+      }
+    },
+    {
+      "identity" : "swiftuisnackbar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/zaniluca/SwiftUISnackbar",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ff5132c91e3a3855af679e648b95c8ab60c5eeb1"
       }
     },
     {
