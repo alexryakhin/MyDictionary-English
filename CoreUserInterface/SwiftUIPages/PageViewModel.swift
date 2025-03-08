@@ -66,23 +66,23 @@ open class PageViewModel<
         }
     }
 
-    func defaultPageErrorHandler(_ error: CoreError, action: @escaping VoidHandler) {
+    open func defaultPageErrorHandler(_ error: CoreError, action: @escaping VoidHandler) {
         assertionFailure()
     }
 
-    func presentErrorPage(withProps errorProps: ErrorProps) {
+    open func presentErrorPage(withProps errorProps: ErrorProps) {
         assertionFailure()
     }
 
-    func presentErrorSnack(_ error: CoreError, action: @escaping VoidHandler) {
+    open func presentErrorSnack(_ error: CoreError, action: @escaping VoidHandler) {
         assertionFailure()
     }
 
-    func loadingStarted() {
+    open func loadingStarted() {
         assertionFailure()
     }
 
-    func showSnack(withModel: SnackModel) {
+    open func showSnack(withModel: SnackModel) {
         assertionFailure()
     }
 }

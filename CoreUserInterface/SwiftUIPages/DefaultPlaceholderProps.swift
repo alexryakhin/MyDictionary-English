@@ -9,5 +9,14 @@ import Foundation
 
 public struct DefaultPlaceholderProps: Equatable {
 
-    public init() { }
+    let title: String?
+    let subtitle: String?
+
+    public init(
+        title: String? = nil,
+        subtitle: String? = nil
+    ) {
+        self.title = title
+        self.subtitle = subtitle
+    }
 }

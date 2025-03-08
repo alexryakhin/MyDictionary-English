@@ -6,8 +6,16 @@
 //
 
 import SwiftUI
+import CoreUserInterface
 
-struct WordListCellView: View {
+struct WordListCellView: ConfigurableView {
+
+    struct Model {
+        let word: String
+        let isFavorite: Bool
+        let partOfSpeech: String
+    }
+
     var model: Model
 
     var body: some View {
@@ -23,11 +31,5 @@ struct WordListCellView: View {
             Text(model.partOfSpeech)
                 .foregroundColor(.secondary)
         }
-    }
-
-    struct Model {
-        let word: String
-        let isFavorite: Bool
-        let partOfSpeech: String
     }
 }

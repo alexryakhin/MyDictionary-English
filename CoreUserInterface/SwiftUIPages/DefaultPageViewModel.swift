@@ -15,7 +15,7 @@ open class DefaultPageViewModel: PageViewModel<DefaultLoaderProps, DefaultPlaceh
     @Published public var isShowingSnack: Bool = false
     @Published public var snackModel = SnackModel(title: .empty, style: .default)
 
-    override func defaultPageErrorHandler(_ error: CoreError, action: @escaping VoidHandler) {
+    override public func defaultPageErrorHandler(_ error: CoreError, action: @escaping VoidHandler) {
         let props: DefaultErrorProps? = switch error {
         case .networkError(let error):
                 .common(message: error.description, action: action)
@@ -33,20 +33,20 @@ open class DefaultPageViewModel: PageViewModel<DefaultLoaderProps, DefaultPlaceh
         }
     }
 
-    override func presentErrorPage(withProps errorProps: DefaultErrorProps) {
+    public override func presentErrorPage(withProps errorProps: DefaultErrorProps) {
         additionalState = .error(errorProps)
     }
 
-    override func presentErrorSnack(_ error: CoreError, action: @escaping VoidHandler) {
+    public override func presentErrorSnack(_ error: CoreError, action: @escaping VoidHandler) {
         snackModel = .init(title: "Ooops, something went wrong", text: error.description, style: .error, actionText: "Try again", action: action)
         isShowingSnack = true
     }
 
-    override func loadingStarted() {
+    public override func loadingStarted() {
         additionalState = .loading()
     }
 
-    override func showSnack(withModel model: SnackModel) {
+    public override func showSnack(withModel model: SnackModel) {
         snackModel = model
         isShowingSnack = true
     }

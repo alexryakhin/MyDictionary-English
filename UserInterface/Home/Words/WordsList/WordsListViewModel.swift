@@ -12,6 +12,15 @@ import Services
 import Combine
 
 public class WordsListViewModel: DefaultPageViewModel {
+
+    enum Input {
+        case showAddWord
+        case showWordDetails(UUID)
+        case deleteWord(IndexSet)
+        case selectFilterState(FilterCase)
+        case selectSortingState(SortingCase)
+    }
+
     enum Output {
         case showAddWord
         case showWordDetails(UUID)
@@ -19,10 +28,9 @@ public class WordsListViewModel: DefaultPageViewModel {
 
     var onOutput: ((Output) -> Void)?
 
-    @Published var words: [CoreWord] = []
-    @Published var sortingState: SortingCase = .def
-    @Published var filterState: FilterCase = .none
-    @Published var isSearchActive: Bool = false
+    @Published private(set) var words: [CoreWord] = []
+    @Published private(set) var sortingState: SortingCase = .def
+    @Published private(set) var filterState: FilterCase = .none
     @Published var searchText = ""
 
     private let wordsProvider: WordsProviderInterface
@@ -66,15 +74,36 @@ public class WordsListViewModel: DefaultPageViewModel {
         self.wordsProvider = wordsProvider
         self.wordsManager = wordsManager
         super.init()
+        loadingStarted()
         setupBindings()
+    }
+
+    func handle(_ input: Input) {
+        switch input {
+        case .showAddWord:
+            onOutput?(.showAddWord)
+        case .showWordDetails(let id):
+            onOutput?(.showWordDetails(id))
+        case .deleteWord(let offsets):
+            deleteWord(offsets: offsets)
+        case .selectFilterState(let filter):
+            selectFilterState(filter)
+        case .selectSortingState(let sorting):
+            selectSortingState(sorting)
+        }
     }
 
     private func setupBindings() {
         wordsProvider.wordsPublisher
             .receive(on: RunLoop.main)
             .sink { [weak self] words in
-                self?.words = words
-                self?.sortWords()
+                if words.isNotEmpty {
+                    self?.words = words
+                    self?.sortWords()
+                    self?.resetAdditionalState()
+                } else {
+                    self?.additionalState = .placeholder()
+                }
             }
             .store(in: &cancellables)
 
@@ -86,7 +115,7 @@ public class WordsListViewModel: DefaultPageViewModel {
             .store(in: &cancellables)
     }
 
-    func deleteWord(offsets: IndexSet) {
+    private func deleteWord(offsets: IndexSet) {
         switch filterState {
         case .none:
             offsets.map { words[$0] }.forEach { [weak self] word in
@@ -103,7 +132,7 @@ public class WordsListViewModel: DefaultPageViewModel {
         }
     }
 
-    func deleteWord(with id: UUID) {
+    private func deleteWord(with id: UUID) {
         do {
             try wordsManager.delete(with: id)
             saveContext()
@@ -112,19 +141,19 @@ public class WordsListViewModel: DefaultPageViewModel {
         }
     }
 
-    func selectFilterState(_ filterState: FilterCase) {
+    private func selectFilterState(_ filterState: FilterCase) {
         self.filterState = filterState
         sortWords()
     }
 
     // MARK: - Sorting
 
-    func selectSortingState(_ sortingState: SortingCase) {
+    private func selectSortingState(_ sortingState: SortingCase) {
         self.sortingState = sortingState
         sortWords()
     }
 
-    func sortWords() {
+    private func sortWords() {
         switch sortingState {
         case .def:
             words.sort(by: { lhs, rhs in

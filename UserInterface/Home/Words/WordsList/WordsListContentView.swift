@@ -13,76 +13,78 @@ import StoreKit
 
 public struct WordsListContentView: PageView {
 
-    @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
-    @ObservedObject public var viewModel: WordsListViewModel
+    public typealias ViewModel = WordsListViewModel
 
-    public init(viewModel: WordsListViewModel) {
+    @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
+    @ObservedObject public var viewModel: ViewModel
+
+    public init(viewModel: ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
 
     public var contentView: some View {
-        if viewModel.words.isNotEmpty {
-            List {
-                Section {
-                    ForEach(viewModel.wordsFiltered) { word in
-                        WordListCellView(model: .init(
+        List {
+            Section {
+                ForEach(viewModel.wordsFiltered) { word in
+                    WordListCellView(
+                        model: .init(
                             word: word.word,
                             isFavorite: word.isFavorite,
-                            partOfSpeech: word.partOfSpeech)
+                            partOfSpeech: word.partOfSpeech
                         )
-                    }
-                    .onDelete(perform: viewModel.deleteWord)
-                } header: {
-                    if let title = viewModel.filterState.title {
-                        Text(title)
-                    }
-                } footer: {
-                    if !viewModel.wordsFiltered.isEmpty {
-                        Text(viewModel.wordsCount)
-                    }
+                    )
                 }
+                .onDelete {
+                    viewModel.handle(.deleteWord($0))
+                }
+            } header: {
+                if let title = viewModel.filterState.title {
+                    Text(title)
+                }
+            } footer: {
+                if !viewModel.wordsFiltered.isEmpty {
+                    Text(viewModel.wordsCount)
+                }
+            }
 
-                if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
-                    Button {
-                        addItem()
-                    } label: {
-                        Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
-                    }
+            if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
+                Button(action: addItem) {
+                    Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
                 }
             }
-            .listStyle(.insetGrouped)
-            .if(viewModel.words.isNotEmpty, transform: { view in
-                view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
-            })
-            .navigationTitle("Words")
-            .toolbar {
-                if viewModel.words.isNotEmpty {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButton()
-                    }
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Menu {
-                        filterMenu
-                        sortMenu
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
-                    }
+        }
+        .listStyle(.insetGrouped)
+        .if(viewModel.words.isNotEmpty, transform: { view in
+            view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
+        })
+        .navigationTitle(TabBarItem.words.title)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                EditButton()
+            }
+            ToolbarItem {
+                Button(action: addItem) {
+                    Label("Add Item", systemImage: "plus")
                 }
             }
-        } else {
-            EmptyListView(
-                label: "No words yet",
-                description: "Begin to add words to your list by tapping on plus icon in upper left corner"
-            ) {
-                Button("Add your first word!", action: addItem)
-                    .buttonStyle(.borderedProminent)
+            ToolbarItem(placement: .navigationBarLeading) {
+                Menu {
+                    filterMenu
+                    sortMenu
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                }
             }
+        }
+    }
+
+    public func placeholderView(props: PageState.PlaceholderProps) -> some View {
+        EmptyListView(
+            label: "No words yet",
+            description: "Begin to add words to your list by tapping on plus icon in upper left corner"
+        ) {
+            Button("Add your first word!", action: addItem)
+                .buttonStyle(.borderedProminent)
         }
     }
 
@@ -91,13 +93,14 @@ public struct WordsListContentView: PageView {
             SKStoreReviewController.requestReview()
             isShowingRating = false
         }
+        viewModel.handle(.showAddWord)
     }
 
     private var filterMenu: some View {
         Menu {
             Button {
                 withAnimation {
-                    viewModel.filterState = .none
+                    viewModel.handle(.selectFilterState(.none))
                 }
             } label: {
                 if viewModel.filterState == .none {
@@ -107,7 +110,7 @@ public struct WordsListContentView: PageView {
             }
             Button {
                 withAnimation {
-                    viewModel.filterState = .favorite
+                    viewModel.handle(.selectFilterState(.favorite))
                 }
             } label: {
                 if viewModel.filterState == .favorite {
@@ -128,7 +131,7 @@ public struct WordsListContentView: PageView {
         Menu {
             Button {
                 withAnimation {
-                    viewModel.selectSortingState(.def)
+                    viewModel.handle(.selectSortingState(.def))
                 }
             } label: {
                 if viewModel.sortingState == .def {
@@ -138,7 +141,7 @@ public struct WordsListContentView: PageView {
             }
             Button {
                 withAnimation {
-                    viewModel.selectSortingState(.name)
+                    viewModel.handle(.selectSortingState(.name))
                 }
             } label: {
                 if viewModel.sortingState == .name {
@@ -148,7 +151,7 @@ public struct WordsListContentView: PageView {
             }
             Button {
                 withAnimation {
-                    viewModel.selectSortingState(.partOfSpeech)
+                    viewModel.handle(.selectSortingState(.partOfSpeech))
                 }
             } label: {
                 if viewModel.sortingState == .partOfSpeech {

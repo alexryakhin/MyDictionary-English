@@ -8,13 +8,13 @@
 import SwiftUI
 
 public struct EmptyListView<Actions: View>: View {
-    private let label: String
-    private let description: String
+    private let label: String?
+    private let description: String?
     private let actions: () -> Actions
 
     public init(
-        label: String,
-        description: String,
+        label: String?,
+        description: String?,
         @ViewBuilder actions: @escaping () -> Actions = { EmptyView() }
     ) {
         self.label = label
@@ -28,21 +28,30 @@ public struct EmptyListView<Actions: View>: View {
             if #available(iOS 17.0, *) {
                 ContentUnavailableView(
                     label: {
-                        Text(label)
+                        Text(label ?? "Empty here")
                     },
                     description: {
-                        Text(description)
+                        if let description {
+                            Text(description)
+                        }
                     },
                     actions: actions
                 )
             } else {
-                Text(description)
-                    .padding(20)
-                    .multilineTextAlignment(.center)
-                    .lineSpacing(10)
-                    .font(.title3)
-                    .foregroundColor(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
+                VStack(spacing: 12) {
+                    Text(label ?? "Empty here")
+                        .multilineTextAlignment(.center)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    if let description {
+                        Text(description)
+                            .multilineTextAlignment(.center)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    actions()
+                }
+                .padding(16)
             }
         }
     }

@@ -23,8 +23,8 @@ public protocol PageView: View {
 
     @ViewBuilder var contentView: ContentView { get }
     @ViewBuilder func loaderView(props: PageState.LoaderProps) -> LoaderView
-    @ViewBuilder func placeholderView(props: PageState.PlaceholderProps) -> ErrorView
-    @ViewBuilder func errorView(props: PageState.ErrorProps) -> PlaceholderView
+    @ViewBuilder func placeholderView(props: PageState.PlaceholderProps) -> PlaceholderView
+    @ViewBuilder func errorView(props: PageState.ErrorProps) -> ErrorView
 }
 
 public extension PageView {
@@ -60,15 +60,18 @@ public extension PageView {
             )
     }
 
-    @ViewBuilder func loaderView(props: PageState.LoaderProps) -> some View {
+    @ViewBuilder
+    func loaderView(props: PageState.LoaderProps) -> some View {
         PageLoadingView(props: props)
     }
 
-    @ViewBuilder func placeholderView(props: PageState.PlaceholderProps) -> some View {
-        EmptyStateView(title: "There is nothing here")
+    @ViewBuilder
+    func placeholderView(props: PageState.PlaceholderProps) -> some View {
+        EmptyListView(label: props.title, description: props.subtitle)
     }
 
-    @ViewBuilder func errorView(props: PageState.ErrorProps) -> some View {
+    @ViewBuilder
+    func errorView(props: PageState.ErrorProps) -> some View {
         PageErrorView(props: props)
     }
 }
