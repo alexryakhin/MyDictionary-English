@@ -1,11 +1,18 @@
+//
+//  FilterCase.swift
+//  My Dictionary
+//
+//  Created by Aleksandr Riakhin on 3/8/25.
+//
+
 import Foundation
 
-enum FilterCase {
+public enum FilterCase {
     case none
     case favorite
     case search
 
-    var title: String? {
+    public var title: String? {
         switch self {
         case .none:
             return nil

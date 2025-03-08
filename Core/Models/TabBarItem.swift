@@ -1,14 +1,22 @@
-import SwiftUI
+//
+//  TabBarItem.swift
+//  My Dictionary
+//
+//  Created by Aleksandr Riakhin on 3/8/25.
+//
 
-enum TabBarItem: String, CaseIterable, Identifiable {
+import Foundation
+import UIKit
+
+public enum TabBarItem: String, CaseIterable, Identifiable {
     case words
     case idioms
     case quizzes
     case settings
 
-    var id: String { rawValue }
+    public var id: String { rawValue }
 
-    var title: String {
+    public var title: String {
         switch self {
         case .words: "Words"
         case .idioms: "Idioms"
@@ -17,7 +25,7 @@ enum TabBarItem: String, CaseIterable, Identifiable {
         }
     }
 
-    var image: String {
+    public var image: String {
         switch self {
         case .words: "textformat.abc"
         case .idioms: "scroll"
@@ -26,7 +34,7 @@ enum TabBarItem: String, CaseIterable, Identifiable {
         }
     }
 
-    var selectedImage: String {
+    public var selectedImage: String {
         switch self {
         case .words: "textformat.abc.fill"
         case .idioms: "scroll.fill"
@@ -35,7 +43,7 @@ enum TabBarItem: String, CaseIterable, Identifiable {
         }
     }
 
-    var item: UITabBarItem {
+    public var item: UITabBarItem {
         UITabBarItem(
             title: title,
             image: .init(systemName: image),

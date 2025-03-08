@@ -1,6 +1,13 @@
+//
+//  SortingCase.swift
+//  My Dictionary
+//
+//  Created by Aleksandr Riakhin on 3/8/25.
+//
+
 import Foundation
 
-enum SortingCase: String {
+public enum SortingCase: String {
     case def = "Default"
     case name = "Name"
     case partOfSpeech = "Part of Speech"
