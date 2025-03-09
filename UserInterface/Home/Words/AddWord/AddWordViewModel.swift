@@ -19,12 +19,12 @@ public final class AddWordViewModel: DefaultPageViewModel {
 
     var onOutput: ((Output) -> Void)?
 
-    @Published var status: FetchingStatus = .blank
+    @Published private(set) var status: FetchingStatus = .blank
     @Published var inputWord = ""
-    @Published var definitions: [WordDefinition] = []
+    @Published private(set) var definitions: [WordDefinition] = []
     @Published var selectedDefinition: WordDefinition?
     @Published var descriptionField = ""
-    @Published var pronunciation: String?
+    @Published private(set) var pronunciation: String?
     @Published var partOfSpeech: PartOfSpeech?
 
     private let wordnikAPIService: WordnikAPIServiceInterface
@@ -127,7 +127,7 @@ public final class AddWordViewModel: DefaultPageViewModel {
             .ifNotNil()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] definition in
-                self?.descriptionField = definition.text!
+                self?.descriptionField = definition.text
                 self?.partOfSpeech = definition.partOfSpeech
             }
             .store(in: &cancellables)

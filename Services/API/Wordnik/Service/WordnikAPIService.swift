@@ -41,11 +41,12 @@ public final class WordnikAPIService: BaseAPIService, WordnikAPIServiceInterface
             ),
             customParams: [.apiKey]
         )
-        return response.map {
-            .init(
-                partOfSpeech: $0.partOfSpeech,
-                text: $0.text,
-                examples: ($0.exampleUses ?? []).map(\.text)
+        return response.compactMap {
+            guard let partOfSpeech = $0.partOfSpeech?.coreValue, let text = $0.text?.removingHTMLTags() else { return nil }
+            return .init(
+                partOfSpeech: partOfSpeech,
+                text: text,
+                examples: ($0.exampleUses ?? []).map { $0.text.removingHTMLTags() }
             )
         }
     }
@@ -62,9 +63,11 @@ public final class WordnikAPIService: BaseAPIService, WordnikAPIServiceInterface
             customParams: [.apiKey]
         )
 
-        if let first = pronunciations.first(where: { pronunciation in
+        if let ipa = pronunciations.first(where: { pronunciation in
             pronunciation.rawType == "IPA"
         }) {
+            return ipa.raw
+        } else if let first = pronunciations.first {
             return first.raw
         } else {
             throw CoreError.networkError(.noData)

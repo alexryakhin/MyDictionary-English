@@ -17,7 +17,7 @@ public struct WordDetailsContentView: PageView {
         List {
             Section {
                 HStack {
-                    Text("[\(viewModel.word.phonetic?.nilIfEmpty ?? "No transcription")]")
+                    Text("\(viewModel.word.phonetic?.nilIfEmpty ?? "No transcription")")
                     Spacer()
                     Button {
                         viewModel.handle(.speak(viewModel.word.word))

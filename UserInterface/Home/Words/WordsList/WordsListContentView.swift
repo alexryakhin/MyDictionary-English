@@ -41,6 +41,12 @@ public struct WordsListContentView: PageView {
                 .onDelete {
                     viewModel.handle(.deleteWord($0))
                 }
+
+                if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
+                    Button(action: addItem) {
+                        Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
+                    }
+                }
             } header: {
                 if let title = viewModel.filterState.title {
                     Text(title)
@@ -48,12 +54,6 @@ public struct WordsListContentView: PageView {
             } footer: {
                 if !viewModel.wordsFiltered.isEmpty {
                     Text(viewModel.wordsCount)
-                }
-            }
-
-            if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
-                Button(action: addItem) {
-                    Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
                 }
             }
         }

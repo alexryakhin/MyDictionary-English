@@ -31,11 +31,9 @@ public struct AddWordContentView: PageView {
                 }
                 .editModeDisabling()
             }
-            .background(
-                Color(.background)
-                    .ignoresSafeArea()
-                    .editModeDisabling()
-            )
+            .background {
+                Color.background.ignoresSafeArea()
+            }
             .navigationBarTitle("Add new word")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -47,6 +45,7 @@ public struct AddWordContentView: PageView {
                     }
                 }
             }
+            .editModeDisabling()
         }
     }
 
@@ -70,20 +69,9 @@ public struct AddWordContentView: PageView {
 
     @ViewBuilder
     var partOfSpeechCellView: some View {
-        var cases: [PartOfSpeech] {
-//            if let result = viewModel.resultWordDetails {
-//                return result.meanings
-//                    .compactMap {
-//                        PartOfSpeech(rawValue: $0.partOfSpeech)
-//                    }
-//                    .removingDuplicates(by: \.rawValue)
-//            } else {
-                return PartOfSpeech.allCases
-//            }
-        }
         CellWrapper("Part of speech") {
             Menu {
-                ForEach(cases, id: \.self) { partCase in
+                ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
                     Button {
                         viewModel.partOfSpeech = partCase
                     } label: {
@@ -129,28 +117,24 @@ public struct AddWordContentView: PageView {
 
                 ForEach(Array(viewModel.definitions.enumerated()), id: \.offset) { offset, definition in
                     FormWithDivider {
-                        CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech?.rawValue ?? "")") {
-                            Text(definition.text!.removingHTMLTags())
+                        CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech.rawValue)") {
+                            Text(definition.text)
                                 .multilineTextAlignment(.leading)
-                        } onTapAction: {
-                            viewModel.selectedDefinition = definition
-                            UIApplication.shared.endEditing()
+                                .foregroundColor(.primary)
+                        } trailingContent: {
+                            checkboxImage(definition.id)
+                                .onTap {
+                                    definitionSelected(definition)
+                                }
+                        }
+                        .onTapGesture {
+                            definitionSelected(definition)
                         }
                         ForEach(definition.examples, id: \.self) { example in
                             CellWrapper("Example") {
                                 Text(example)
                             }
                         }
-//                        if element.synonyms.isNotEmpty {
-//                            CellWrapper("Synonyms") {
-//                                Text(element.synonyms.joined(separator: ", "))
-//                            }
-//                        }
-//                        if element.antonyms.isNotEmpty {
-//                            CellWrapper("Antonyms") {
-//                                Text(element.antonyms.joined(separator: ", "))
-//                            }
-//                        }
                     }
                     .background(Color.surfaceBackground)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -158,5 +142,17 @@ public struct AddWordContentView: PageView {
                 }
             }
         }
+    }
+
+    @ViewBuilder
+    private func checkboxImage(_ currentId: UUID) -> some View {
+        let isSelected = currentId == viewModel.selectedDefinition?.id
+        Image(systemName: isSelected ? "checkmark.square.fill" : "square")
+            .frame(sideLength: 20)
+    }
+
+    private func definitionSelected(_ definition: WordDefinition) {
+        viewModel.selectedDefinition = definition
+        UIApplication.shared.endEditing()
     }
 }

@@ -9,13 +9,13 @@ import Foundation
 
 public struct WordDefinition: Identifiable {
     public let id = UUID()
-    public let partOfSpeech: PartOfSpeech?
-    public let text: String?
+    public let partOfSpeech: PartOfSpeech
+    public let text: String
     public let examples: [String]
 
     public init(
-        partOfSpeech: PartOfSpeech?,
-        text: String?,
+        partOfSpeech: PartOfSpeech,
+        text: String,
         examples: [String] = []
     ) {
         self.partOfSpeech = partOfSpeech
