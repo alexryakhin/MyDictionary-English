@@ -119,23 +119,24 @@ public class WordsListViewModel: DefaultPageViewModel {
         switch filterState {
         case .none:
             offsets.map { words[$0] }.forEach { [weak self] word in
-                self?.deleteWord(with: word.id)
+                self?.deleteWord(word)
             }
         case .favorite:
             offsets.map { favoriteWords[$0] }.forEach { [weak self] word in
-                self?.deleteWord(with: word.id)
+                self?.deleteWord(word)
             }
         case .search:
             offsets.map { searchResults[$0] }.forEach { [weak self] word in
-                self?.deleteWord(with: word.id)
+                self?.deleteWord(word)
             }
         @unknown default:
             fatalError("Unhandled event")
         }
     }
 
-    private func deleteWord(with id: UUID) {
-        wordsProvider.delete(with: id)
+    private func deleteWord(_ wordModel: Word) {
+        AnalyticsService.shared.logEvent(.wordRemoved(word: wordModel.word))
+        wordsProvider.delete(with: wordModel.id)
     }
 
     private func selectFilterState(_ filterState: FilterCase) {

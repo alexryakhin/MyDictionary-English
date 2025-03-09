@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53310BA22D7E20D600C1DE8B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BA12D7E20D600C1DE8B /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		53310BA82D7E20D600C1DE8B /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */; };
+		53310BA92D7E211500C1DE8B /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
+		53310BAA2D7E211500C1DE8B /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BC92D7E238900C1DE8B /* FirebaseCore */; };
+		53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */; };
 		53E9A7E92D7C3E07007E9F28 /* UserInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7E32D7C3E07007E9F28 /* UserInterface.framework */; };
 		53E9A7EA2D7C3E07007E9F28 /* UserInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7E32D7C3E07007E9F28 /* UserInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		53E9A8002D7C3FE4007E9F28 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
-		53E9A8012D7C3FE4007E9F28 /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9A8112D7C3FF1007E9F28 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
 		53E9A8122D7C3FF1007E9F28 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9A8182D7C4019007E9F28 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
@@ -185,8 +189,8 @@
 				53E9A9B72D7C41DE007E9F28 /* CoreUserInterface.framework in Embed Frameworks */,
 				53E9A9FF2D7C439B007E9F28 /* Shared.framework in Embed Frameworks */,
 				53E9A9CC2D7C428E007E9F28 /* CoreNavigation.framework in Embed Frameworks */,
-				53E9A8012D7C3FE4007E9F28 /* Services.framework in Embed Frameworks */,
 				53E9A8122D7C3FF1007E9F28 /* Core.framework in Embed Frameworks */,
+				53310BAA2D7E211500C1DE8B /* Services.framework in Embed Frameworks */,
 				53E9A7EA2D7C3E07007E9F28 /* UserInterface.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -416,11 +420,13 @@
 			files = (
 				53E9A9CB2D7C428E007E9F28 /* CoreNavigation.framework in Frameworks */,
 				53E9A9B62D7C41DE007E9F28 /* CoreUserInterface.framework in Frameworks */,
-				53E9A8002D7C3FE4007E9F28 /* Services.framework in Frameworks */,
+				53310BA92D7E211500C1DE8B /* Services.framework in Frameworks */,
 				53E9A9FE2D7C439B007E9F28 /* Shared.framework in Frameworks */,
 				53E9A8112D7C3FF1007E9F28 /* Core.framework in Frameworks */,
 				53E9A9AA2D7C41B1007E9F28 /* SwinjectAutoregistration in Frameworks */,
 				53E9A7E92D7C3E07007E9F28 /* UserInterface.framework in Frameworks */,
+				53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */,
+				53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */,
 				53E9A9A72D7C414A007E9F28 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,6 +461,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E9A8212D7C4029007E9F28 /* Core.framework in Frameworks */,
+				53310BA22D7E20D600C1DE8B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				53310BA82D7E20D600C1DE8B /* FirebaseRemoteConfig in Frameworks */,
 				53E9AA132D7C43B2007E9F28 /* Shared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,6 +621,8 @@
 			packageProductDependencies = (
 				53E9A9A62D7C414A007E9F28 /* Swinject */,
 				53E9A9A92D7C41B1007E9F28 /* SwinjectAutoregistration */,
+				53310BC92D7E238900C1DE8B /* FirebaseCore */,
+				53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */,
 			);
 			productName = "My Dictionary";
 			productReference = 53E9A7542D7C3383007E9F28 /* My Dictionary.app */;
@@ -713,6 +723,8 @@
 			);
 			name = Services;
 			packageProductDependencies = (
+				53310BA12D7E20D600C1DE8B /* FirebaseAnalyticsWithoutAdIdSupport */,
+				53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */,
 			);
 			productName = Services;
 			productReference = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */;
@@ -875,6 +887,7 @@
 			packageReferences = (
 				53E9A9A52D7C414A007E9F28 /* XCRemoteSwiftPackageReference "Swinject" */,
 				53E9A9A82D7C41B1007E9F28 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
+				53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 53E9A7552D7C3383007E9F28 /* Products */;
@@ -1410,7 +1423,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1450,7 +1463,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1490,7 +1503,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1531,7 +1544,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1571,7 +1584,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1612,7 +1625,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1653,7 +1666,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1695,7 +1708,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1734,7 +1747,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1773,7 +1786,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1812,7 +1825,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1851,7 +1864,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1971,6 +1984,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.9.0;
+			};
+		};
 		53E9A9A52D7C414A007E9F28 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject";
@@ -1990,6 +2011,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		53310BA12D7E20D600C1DE8B /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		53310BC92D7E238900C1DE8B /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		53E9A9A62D7C414A007E9F28 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 53E9A9A52D7C414A007E9F28 /* XCRemoteSwiftPackageReference "Swinject" */;

@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import SwiftUISnackbar
 
 public protocol PageView: View {
     associatedtype ContentView: View

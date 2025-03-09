@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import Services
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +16,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        FirebaseApp.configure()
+        AnalyticsService.shared.logEvent(.appOpened)
         return true
     }
 

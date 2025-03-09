@@ -10,6 +10,7 @@ import CoreUserInterface
 import CoreNavigation
 import Core
 import StoreKit
+import Services
 
 public struct WordsListContentView: PageView {
 
@@ -28,6 +29,7 @@ public struct WordsListContentView: PageView {
                 ForEach(viewModel.wordsFiltered) { wordModel in
                     Button {
                         viewModel.handle(.showWordDetails(word: wordModel))
+                        AnalyticsService.shared.logEvent(.wordOpened(word: wordModel.word))
                     } label: {
                         WordListCellView(
                             model: .init(
@@ -43,7 +45,10 @@ public struct WordsListContentView: PageView {
                 }
 
                 if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
-                    Button(action: addItem) {
+                    Button {
+                        AnalyticsService.shared.logEvent(.addWordFromSearchTapped(word: viewModel.searchText))
+                        addItem()
+                    } label: {
                         Text("Add `\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))`")
                     }
                 }
@@ -66,7 +71,10 @@ public struct WordsListContentView: PageView {
                 EditButton()
             }
             ToolbarItem {
-                Button(action: addItem) {
+                Button {
+                    AnalyticsService.shared.logEvent(.addWordTapped)
+                    addItem()
+                } label: {
                     Label("Add Item", systemImage: "plus")
                 }
             }
