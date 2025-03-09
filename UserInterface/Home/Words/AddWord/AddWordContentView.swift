@@ -153,6 +153,7 @@ public struct AddWordContentView: PageView {
 
     private func definitionSelected(_ definition: WordDefinition) {
         viewModel.handle(.selectDefinition(definition))
+        HapticManager.shared.triggerSelection()
         UIApplication.shared.endEditing()
     }
 }

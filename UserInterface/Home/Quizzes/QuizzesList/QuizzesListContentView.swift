@@ -25,8 +25,19 @@ public struct QuizzesListContentView: PageView {
         List {
             Section {
                 ForEach(Quiz.allCases) { quiz in
-                    Button(quiz.title) {
+                    Button {
                         viewModel.handle(.showQuiz(quiz))
+                        HapticManager.shared.triggerSelection()
+                    } label: {
+                        HStack(spacing: 8) {
+                            Text(quiz.title)
+                                .bold()
+                                .foregroundColor(.primary)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            Image(systemName: "chevron.right")
+                                .frame(sideLength: 12)
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
             } footer: {

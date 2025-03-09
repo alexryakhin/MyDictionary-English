@@ -48,6 +48,7 @@ open class PageViewModel<
         actionText: String? = nil,
         action: @escaping VoidHandler = {}
     ) {
+        HapticManager.shared.triggerNotification(type: .error)
         guard let errorWithContext = error as? CoreError else {
             logError("Unexpectedly receive `Error` which is not `CoreError`, \(error)")
             return

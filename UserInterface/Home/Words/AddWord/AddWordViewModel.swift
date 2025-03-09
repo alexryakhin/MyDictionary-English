@@ -107,6 +107,7 @@ public final class AddWordViewModel: DefaultPageViewModel {
                     phonetic: pronunciation,
                     examples: selectedDefinition?.examples ?? []
                 )
+                HapticManager.shared.triggerNotification(type: .success)
                 onOutput?(.finish)
             } catch {
                 errorReceived(error, displayType: .alert)

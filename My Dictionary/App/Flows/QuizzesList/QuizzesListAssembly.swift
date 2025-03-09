@@ -18,5 +18,21 @@ final class QuizzesListAssembly: Assembly, Identifiable {
             let controller = QuizzesListViewController(viewModel: viewModel)
             return controller
         }
+
+        container.register(SpellingQuizViewController.self) { resolver in
+            let viewModel = SpellingQuizViewModel(
+                wordsProvider: resolver ~> WordsProviderInterface.self
+            )
+            let controller = SpellingQuizViewController(viewModel: viewModel)
+            return controller
+        }
+
+        container.register(ChooseDefinitionQuizViewController.self) { resolver in
+            let viewModel = ChooseDefinitionQuizViewModel(
+                wordsProvider: resolver ~> WordsProviderInterface.self
+            )
+            let controller = ChooseDefinitionQuizViewController(viewModel: viewModel)
+            return controller
+        }
     }
 }

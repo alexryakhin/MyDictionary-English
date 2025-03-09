@@ -31,6 +31,53 @@ final class QuizzesListCoordinator: Coordinator {
 
     private func showMainController() {
         let controller = resolver ~> QuizzesListViewController.self
+
+        controller.onEvent = { [weak self] event in
+            switch event {
+            case .showQuiz(let quiz):
+                switch quiz {
+                case .spelling:
+                    self?.showSpellingQuiz()
+                case .chooseDefinitions:
+                    self?.showChooseDefinitionsQuiz()
+                @unknown default:
+                    fatalError("Unsupported quiz type")
+                }
+            @unknown default:
+                fatalError("Unsupported event")
+            }
+        }
+
         navController.addChild(controller)
+    }
+
+    private func showSpellingQuiz() {
+        let controller = resolver ~> SpellingQuizViewController.self
+
+        controller.onEvent = { [weak self] event in
+            switch event {
+            case .finish:
+                self?.innerRouter.popToRootModule(animated: true)
+            @unknown default:
+                fatalError("Unsupported event")
+            }
+        }
+
+        innerRouter.push(controller)
+    }
+
+    private func showChooseDefinitionsQuiz() {
+        let controller = resolver ~> ChooseDefinitionQuizViewController.self
+
+        controller.onEvent = { [weak self] event in
+            switch event {
+            case .finish:
+                self?.innerRouter.popToRootModule(animated: true)
+            @unknown default:
+                fatalError("Unsupported event")
+            }
+        }
+
+        innerRouter.push(controller)
     }
 }

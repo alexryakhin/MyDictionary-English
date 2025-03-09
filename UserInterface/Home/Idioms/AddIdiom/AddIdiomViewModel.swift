@@ -46,6 +46,7 @@ public final class AddIdiomViewModel: DefaultPageViewModel {
                     inputIdiom,
                     definition: descriptionField
                 )
+                HapticManager.shared.triggerNotification(type: .success)
                 onOutput?(.finish)
             } catch {
                 errorReceived(error, displayType: .alert)
