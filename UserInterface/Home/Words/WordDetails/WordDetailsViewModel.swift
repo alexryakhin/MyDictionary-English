@@ -23,10 +23,11 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
 
     var onOutput: ((Output) -> Void)?
 
-    @Published private(set) var word: Word
-    @Published private(set) var isShowAddExample = false
     @Published var definitionTextFieldStr = ""
     @Published var exampleTextFieldStr = ""
+
+    @Published private(set) var word: Word
+    @Published private(set) var isShowAddExample = false
 
     // MARK: - Private Properties
 
@@ -83,7 +84,7 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
         wordDetailsManager.errorPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
-                self?.errorReceived(error, displayType: self?.word == nil ? .page : .snack)
+                self?.errorReceived(error, displayType: self?.word == nil ? .page : .alert)
             }
             .store(in: &cancellables)
 

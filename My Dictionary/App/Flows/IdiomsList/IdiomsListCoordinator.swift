@@ -36,8 +36,8 @@ final class IdiomsListCoordinator: Coordinator {
             switch event {
             case .showIdiomDetails(let idiom):
                 self?.showIdiomDetails(with: idiom)
-            case .showAddIdiom:
-                break
+            case .showAddIdiom(let searchText):
+                self?.showAddIdiom(searchText: searchText)
             @unknown default:
                 fatalError("Unhandled event")
             }
@@ -58,5 +58,18 @@ final class IdiomsListCoordinator: Coordinator {
         }
 
         innerRouter.push(controller)
+    }
+
+    public func showAddIdiom(searchText: String) {
+        let controller = resolver.resolve(AddIdiomViewController.self, argument: searchText)!
+        controller.onEvent = { [weak controller] event in
+            switch event {
+            case .finish:
+                controller?.dismiss(animated: true)
+            @unknown default:
+                fatalError("Unhandled event")
+            }
+        }
+        router.present(controller)
     }
 }

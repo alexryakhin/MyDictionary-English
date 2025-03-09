@@ -36,8 +36,8 @@ final class WordsListCoordinator: Coordinator {
             switch event {
             case .openWordDetails(let word):
                 self?.showWordDetails(with: word)
-            case .showAddWord:
-                self?.showAddWord()
+            case .showAddWord(let searchText):
+                self?.showAddWord(searchText: searchText)
             @unknown default:
                 fatalError("Unhandled event")
             }
@@ -60,8 +60,8 @@ final class WordsListCoordinator: Coordinator {
         innerRouter.push(controller)
     }
 
-    public func showAddWord() {
-        let controller = resolver ~> AddWordViewController.self
+    public func showAddWord(searchText: String) {
+        let controller = resolver.resolve(AddWordViewController.self, argument: searchText)!
         controller.onEvent = { [weak controller] event in
             switch event {
             case .finish:

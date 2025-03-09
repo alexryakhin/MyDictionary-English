@@ -13,7 +13,7 @@ import Core
 public final class IdiomsListViewController: PageViewController<IdiomsListContentView> {
 
     public enum Event {
-        case showAddIdiom
+        case showAddIdiom(searchText: String)
         case showIdiomDetails(idiom: Idiom)
     }
 
@@ -50,8 +50,8 @@ public final class IdiomsListViewController: PageViewController<IdiomsListConten
     private func setupBindings() {
         viewModel.onOutput = { [weak self] output in
             switch output {
-            case .showAddIdiom:
-                self?.onEvent?(.showAddIdiom)
+            case .showAddIdiom(let searchText):
+                self?.onEvent?(.showAddIdiom(searchText: searchText))
             case .showIdiomDetails(let idiom):
                 self?.onEvent?(.showIdiomDetails(idiom: idiom))
             }

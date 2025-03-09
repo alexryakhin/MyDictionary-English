@@ -22,16 +22,17 @@ public class WordsListViewModel: DefaultPageViewModel {
     }
 
     enum Output {
-        case showAddWord
+        case showAddWord(searchText: String)
         case showWordDetails(word: Word)
     }
 
     var onOutput: ((Output) -> Void)?
 
+    @Published var searchText = ""
+
     @Published private(set) var words: [Word] = []
     @Published private(set) var sortingState: SortingCase = .def
     @Published private(set) var filterState: FilterCase = .none
-    @Published var searchText = ""
 
     private let wordsProvider: WordsProviderInterface
     private var cancellables = Set<AnyCancellable>()
@@ -44,6 +45,8 @@ public class WordsListViewModel: DefaultPageViewModel {
             return favoriteWords
         case .search:
             return searchResults
+        @unknown default:
+            fatalError("Unhandled event")
         }
     }
 
@@ -78,7 +81,7 @@ public class WordsListViewModel: DefaultPageViewModel {
     func handle(_ input: Input) {
         switch input {
         case .showAddWord:
-            onOutput?(.showAddWord)
+            onOutput?(.showAddWord(searchText: searchText))
         case .showWordDetails(let word):
             onOutput?(.showWordDetails(word: word))
         case .deleteWord(let offsets):
@@ -126,6 +129,8 @@ public class WordsListViewModel: DefaultPageViewModel {
             offsets.map { searchResults[$0] }.forEach { [weak self] word in
                 self?.deleteWord(with: word.id)
             }
+        @unknown default:
+            fatalError("Unhandled event")
         }
     }
 
@@ -159,6 +164,8 @@ public class WordsListViewModel: DefaultPageViewModel {
             words.sort(by: { lhs, rhs in
                 lhs.partOfSpeech < rhs.partOfSpeech
             })
+        @unknown default:
+            fatalError("Unhandled event")
         }
     }
 }

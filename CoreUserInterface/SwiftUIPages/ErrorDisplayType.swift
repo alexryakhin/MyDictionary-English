@@ -8,9 +8,7 @@
 import Foundation
 
 public enum ErrorDisplayType {
-    case page
-    case snack
     case none
-//    case alert
-//    case window
+    case page
+    case alert
 }

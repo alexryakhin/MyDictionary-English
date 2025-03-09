@@ -44,20 +44,17 @@ public extension PageView {
                     }
                 }
             }
-            .snackbar(
-                isShowing: Binding(
-                    get: { viewModel.isShowingSnack },
-                    set: { viewModel.isShowingSnack = $0 }
-                ),
-                title: viewModel.snackModel.title,
-                text: viewModel.snackModel.text,
-                style: viewModel.snackModel.style,
-                actionText: viewModel.snackModel.actionText,
-                dismissOnTap: viewModel.snackModel.dismissOnTap,
-                dismissAfter: viewModel.snackModel.dismissAfter,
-                extraBottomPadding: viewModel.snackModel.extraBottomPadding,
-                action: viewModel.snackModel.action
-            )
+            .alert(isPresented: .init(get: {
+                viewModel.isShowingAlert
+            }, set: { newValue in
+                viewModel.isShowingAlert = newValue
+            })) {
+                Alert(
+                    title: Text(viewModel.alertModel.title),
+                    message: viewModel.alertModel.message != nil ? Text(viewModel.alertModel.message!) : nil,
+                    dismissButton: .default(Text(viewModel.alertModel.actionText ?? "OK"), action: viewModel.alertModel.action)
+                )
+            }
     }
 
     @ViewBuilder

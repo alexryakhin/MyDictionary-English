@@ -12,8 +12,8 @@ import Shared
 
 open class DefaultPageViewModel: PageViewModel<DefaultLoaderProps, DefaultPlaceholderProps, DefaultErrorProps> {
 
-    @Published public var isShowingSnack: Bool = false
-    @Published public var snackModel = SnackModel(title: .empty, style: .default)
+    @Published public var isShowingAlert: Bool = false
+    @Published public var alertModel = AlertModel(title: .empty)
 
     override public func defaultPageErrorHandler(_ error: CoreError, action: @escaping VoidHandler) {
         let props: DefaultErrorProps? = switch error {
@@ -37,17 +37,12 @@ open class DefaultPageViewModel: PageViewModel<DefaultLoaderProps, DefaultPlaceh
         additionalState = .error(errorProps)
     }
 
-    public override func presentErrorSnack(_ error: CoreError, action: @escaping VoidHandler) {
-        snackModel = .init(title: "Ooops, something went wrong", text: error.description, style: .error, actionText: "Try again", action: action)
-        isShowingSnack = true
-    }
-
     public override func loadingStarted() {
         additionalState = .loading()
     }
 
-    public override func showSnack(withModel model: SnackModel) {
-        snackModel = model
-        isShowingSnack = true
+    public override func showAlert(withModel model: AlertModel) {
+        alertModel = model
+        isShowingAlert = true
     }
 }

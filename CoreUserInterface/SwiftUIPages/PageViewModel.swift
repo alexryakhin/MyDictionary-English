@@ -45,6 +45,7 @@ open class PageViewModel<
     public func errorReceived(
         _ error: Error,
         displayType: ErrorDisplayType,
+        actionText: String? = nil,
         action: @escaping VoidHandler = {}
     ) {
         guard let errorWithContext = error as? CoreError else {
@@ -58,13 +59,21 @@ open class PageViewModel<
     public func defaultErrorReceived(
         _ error: CoreError,
         displayType: ErrorDisplayType,
+        actionText: String? = nil,
         action: @escaping VoidHandler
     ) {
         switch displayType {
         case .page:
             defaultPageErrorHandler(error, action: action)
-        case .snack:
-            presentErrorSnack(error, action: action)
+        case .alert:
+            showAlert(
+                withModel: .init(
+                    title: "Error",
+                    message: error.description,
+                    actionText: actionText,
+                    action: action
+                )
+            )
         case .none:
             return
         }
@@ -78,15 +87,11 @@ open class PageViewModel<
         assertionFailure()
     }
 
-    open func presentErrorSnack(_ error: CoreError, action: @escaping VoidHandler) {
-        assertionFailure()
-    }
-
     open func loadingStarted() {
         assertionFailure()
     }
 
-    open func showSnack(withModel: SnackModel) {
+    open func showAlert(withModel model: AlertModel) {
         assertionFailure()
     }
 }

@@ -39,8 +39,6 @@
 		53E9AA142D7C43B2007E9F28 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9AA172D7C43B6007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
 		53E9AA182D7C43B6007E9F28 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		53E9AA952D7C92CA007E9F28 /* SwiftUISnackbar in Frameworks */ = {isa = PBXBuildFile; productRef = 53E9AA942D7C92CA007E9F28 /* SwiftUISnackbar */; };
-		53E9AA9E2D7C93C1007E9F28 /* SwiftUISnackbar in Frameworks */ = {isa = PBXBuildFile; productRef = 53E9AA9D2D7C93C1007E9F28 /* SwiftUISnackbar */; };
 		53E9AACE2D7CA5A1007E9F28 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
 		53E9AACF2D7CA5A1007E9F28 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9AAD32D7CA84F007E9F28 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 53E9AAD22D7CA84F007E9F28 /* README.md */; };
@@ -423,7 +421,6 @@
 				53E9A8112D7C3FF1007E9F28 /* Core.framework in Frameworks */,
 				53E9A9AA2D7C41B1007E9F28 /* SwinjectAutoregistration in Frameworks */,
 				53E9A7E92D7C3E07007E9F28 /* UserInterface.framework in Frameworks */,
-				53E9AA952D7C92CA007E9F28 /* SwiftUISnackbar in Frameworks */,
 				53E9A9A72D7C414A007E9F28 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,7 +473,6 @@
 			files = (
 				53E9AA092D7C43A7007E9F28 /* Shared.framework in Frameworks */,
 				53E9AACE2D7CA5A1007E9F28 /* Core.framework in Frameworks */,
-				53E9AA9E2D7C93C1007E9F28 /* SwiftUISnackbar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,7 +613,6 @@
 			packageProductDependencies = (
 				53E9A9A62D7C414A007E9F28 /* Swinject */,
 				53E9A9A92D7C41B1007E9F28 /* SwinjectAutoregistration */,
-				53E9AA942D7C92CA007E9F28 /* SwiftUISnackbar */,
 			);
 			productName = "My Dictionary";
 			productReference = 53E9A7542D7C3383007E9F28 /* My Dictionary.app */;
@@ -769,7 +764,6 @@
 			);
 			name = CoreUserInterface;
 			packageProductDependencies = (
-				53E9AA9D2D7C93C1007E9F28 /* SwiftUISnackbar */,
 			);
 			productName = CoreUserInterface;
 			productReference = 53E9A9B02D7C41DE007E9F28 /* CoreUserInterface.framework */;
@@ -881,7 +875,6 @@
 			packageReferences = (
 				53E9A9A52D7C414A007E9F28 /* XCRemoteSwiftPackageReference "Swinject" */,
 				53E9A9A82D7C41B1007E9F28 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
-				53E9AA932D7C92CA007E9F28 /* XCRemoteSwiftPackageReference "SwiftUISnackbar" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 53E9A7552D7C3383007E9F28 /* Products */;
@@ -1994,14 +1987,6 @@
 				minimumVersion = 2.9.1;
 			};
 		};
-		53E9AA932D7C92CA007E9F28 /* XCRemoteSwiftPackageReference "SwiftUISnackbar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/zaniluca/SwiftUISnackbar";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2024,16 +2009,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53E9A9A82D7C41B1007E9F28 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */;
 			productName = SwinjectAutoregistration;
-		};
-		53E9AA942D7C92CA007E9F28 /* SwiftUISnackbar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 53E9AA932D7C92CA007E9F28 /* XCRemoteSwiftPackageReference "SwiftUISnackbar" */;
-			productName = SwiftUISnackbar;
-		};
-		53E9AA9D2D7C93C1007E9F28 /* SwiftUISnackbar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 53E9AA932D7C92CA007E9F28 /* XCRemoteSwiftPackageReference "SwiftUISnackbar" */;
-			productName = SwiftUISnackbar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -13,7 +13,7 @@ import Core
 public final class WordsListViewController: PageViewController<WordsListContentView> {
 
     public enum Event {
-        case showAddWord
+        case showAddWord(searchText: String)
         case openWordDetails(word: Word)
     }
 
@@ -50,8 +50,8 @@ public final class WordsListViewController: PageViewController<WordsListContentV
     private func setupBindings() {
         viewModel.onOutput = { [weak self] output in
             switch output {
-            case .showAddWord:
-                self?.onEvent?(.showAddWord)
+            case .showAddWord(let searchText):
+                self?.onEvent?(.showAddWord(searchText: searchText))
             case .showWordDetails(let word):
                 self?.onEvent?(.openWordDetails(word: word))
             }

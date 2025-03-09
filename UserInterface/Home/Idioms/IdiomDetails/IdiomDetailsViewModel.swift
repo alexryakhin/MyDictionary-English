@@ -80,7 +80,7 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
         idiomDetailsManager.errorPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
-                self?.errorReceived(error, displayType: self?.idiom == nil ? .page : .snack)
+                self?.errorReceived(error, displayType: self?.idiom == nil ? .page : .alert)
             }
             .store(in: &cancellables)
 

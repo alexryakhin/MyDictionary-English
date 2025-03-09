@@ -29,8 +29,9 @@ final class WordsListAssembly: Assembly, Identifiable {
             return controller
         }
 
-        container.register(AddWordViewController.self) { resolver in
+        container.register(AddWordViewController.self) { resolver, searchWord in
             let viewModel = AddWordViewModel(
+                inputWord: searchWord,
                 wordnikAPIService: resolver ~> WordnikAPIServiceInterface.self,
                 addWordManager: resolver ~> AddWordManagerInterface.self,
                 speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self

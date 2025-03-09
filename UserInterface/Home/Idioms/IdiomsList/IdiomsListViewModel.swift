@@ -19,7 +19,7 @@ public class IdiomsListViewModel: DefaultPageViewModel {
     }
 
     enum Output {
-        case showAddIdiom
+        case showAddIdiom(searchText: String)
         case showIdiomDetails(idiom: Idiom)
     }
 
@@ -43,7 +43,7 @@ public class IdiomsListViewModel: DefaultPageViewModel {
     func handle(_ input: Input) {
         switch input {
         case .showAddIdiom:
-            onOutput?(.showAddIdiom)
+            onOutput?(.showAddIdiom(searchText: searchText))
         case .showIdiomDetails(let idiom):
             onOutput?(.showIdiomDetails(idiom: idiom))
         }

@@ -71,14 +71,14 @@ public struct AddWordContentView: PageView {
     var partOfSpeechCellView: some View {
         CellWrapper("Part of speech") {
             Menu {
-                ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
+                ForEach(PartOfSpeech.allCases, id: \.self) { partOfSpeech in
                     Button {
-                        viewModel.partOfSpeech = partCase
+                        viewModel.handle(.selectPartOfSpeech(partOfSpeech))
                     } label: {
-                        if viewModel.partOfSpeech == partCase {
+                        if viewModel.partOfSpeech == partOfSpeech {
                             Image(systemName: "checkmark")
                         }
-                        Text(partCase.rawValue)
+                        Text(partOfSpeech.rawValue)
                     }
                 }
             } label: {
@@ -152,7 +152,7 @@ public struct AddWordContentView: PageView {
     }
 
     private func definitionSelected(_ definition: WordDefinition) {
-        viewModel.selectedDefinition = definition
+        viewModel.handle(.selectDefinition(definition))
         UIApplication.shared.endEditing()
     }
 }

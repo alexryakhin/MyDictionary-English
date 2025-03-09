@@ -11,6 +11,8 @@ public final class AddWordViewModel: DefaultPageViewModel {
         case save
         case fetchData
         case speakInputWord
+        case selectPartOfSpeech(PartOfSpeech)
+        case selectDefinition(WordDefinition)
     }
 
     enum Output {
@@ -19,13 +21,14 @@ public final class AddWordViewModel: DefaultPageViewModel {
 
     var onOutput: ((Output) -> Void)?
 
-    @Published private(set) var status: FetchingStatus = .blank
     @Published var inputWord = ""
-    @Published private(set) var definitions: [WordDefinition] = []
-    @Published var selectedDefinition: WordDefinition?
     @Published var descriptionField = ""
+
+    @Published private(set) var status: FetchingStatus = .blank
+    @Published private(set) var definitions: [WordDefinition] = []
+    @Published private(set) var selectedDefinition: WordDefinition?
     @Published private(set) var pronunciation: String?
-    @Published var partOfSpeech: PartOfSpeech?
+    @Published private(set) var partOfSpeech: PartOfSpeech?
 
     private let wordnikAPIService: WordnikAPIServiceInterface
     private let addWordManager: AddWordManagerInterface
@@ -58,6 +61,10 @@ public final class AddWordViewModel: DefaultPageViewModel {
             fetchData()
         case .speakInputWord:
             speechSynthesizer.speak(inputWord)
+        case .selectPartOfSpeech(let partOfSpeech):
+            self.partOfSpeech = partOfSpeech
+        case .selectDefinition(let definition):
+            self.selectedDefinition = definition
         }
     }
 
@@ -73,11 +80,13 @@ public final class AddWordViewModel: DefaultPageViewModel {
                     for: inputWord.lowercased(),
                     params: .init()
                 )
-                self.definitions = try await definitions.filter { $0.text != nil }
+                self.definitions = try await definitions
                 self.pronunciation = try await pronunciation
                 status = .ready
             } catch {
-                errorReceived(error, displayType: .snack)
+                errorReceived(error, displayType: .alert, actionText: "Retry") { [weak self] in
+                    self?.fetchData()
+                }
                 status = .error
             }
         }
@@ -85,7 +94,7 @@ public final class AddWordViewModel: DefaultPageViewModel {
 
     private func saveWord() {
         guard inputWord.isCorrect else {
-            errorReceived(CoreError.internalError(.inputIsNotAWord), displayType: .snack)
+            errorReceived(CoreError.internalError(.inputIsNotAWord), displayType: .alert)
             return
         }
 
@@ -100,10 +109,10 @@ public final class AddWordViewModel: DefaultPageViewModel {
                 )
                 onOutput?(.finish)
             } catch {
-                errorReceived(error, displayType: .snack)
+                errorReceived(error, displayType: .alert)
             }
         } else {
-            errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .snack)
+            errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
         }
     }
 

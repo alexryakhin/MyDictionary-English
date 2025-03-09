@@ -28,5 +28,14 @@ final class IdiomsListAssembly: Assembly, Identifiable {
             let controller = IdiomDetailsViewController(viewModel: viewModel)
             return controller
         }
+
+        container.register(AddIdiomViewController.self) { resolver, searchIdiom in
+            let viewModel = AddIdiomViewModel(
+                inputIdiom: searchIdiom,
+                addIdiomManager: resolver ~> AddIdiomManagerInterface.self
+            )
+            let controller = AddIdiomViewController(viewModel: viewModel)
+            return controller
+        }
     }
 }
