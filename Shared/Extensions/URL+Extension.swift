@@ -23,3 +23,7 @@ public extension URL {
         self = URL(string: string)!
     }
 }
+
+extension URL: @retroactive Identifiable {
+    public var id: String { absoluteString }
+}

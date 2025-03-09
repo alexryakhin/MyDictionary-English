@@ -58,20 +58,12 @@ final class ServicesAssembly: Assembly, Identifiable {
 
 //        container.autoregister(FeatureToggleServiceInterface.self, initializer: FeatureToggleService.init)
 //            .inObjectScope(.container)
-//
-//        container.register(NetworkServiceInterface.self) { resolver in
-//            NetworkService(
-//                featureToggleService: resolver ~> FeatureToggleServiceInterface.self,
-//                errorParser: ErrorParser()
-//            )
-//        }.inObjectScope(.container)
 
-//        container.register(SpoonacularNetworkServiceInterface.self) { resolver in
-//            SpoonacularNetworkService(
-//                networkService: resolver ~> NetworkServiceInterface.self,
-//                apiKeyManager: resolver ~> SpoonacularAPIKeyManagerInterface.self
-//            )
-//        }.inObjectScope(.container)
+        container.register(WordnikAPIServiceInterface.self) { resolver in
+            WordnikAPIService(
+                decoder: resolver ~> JSONDecoder.self
+            )
+        }.inObjectScope(.container)
 
         container.register(SpeechSynthesizerInterface.self) { resolver in
             SpeechSynthesizer()

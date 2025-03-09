@@ -36,7 +36,6 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
     ) {
         self.idiomId = idiomId
         self.coreDataService = coreDataService
-        setupBindings()
         fetchIdiom()
     }
 
@@ -74,16 +73,6 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
         saveContext()
     }
 
-    private func setupBindings() {
-        // every time core data gets updated, call fetchIdioms()
-        NotificationCenter.default.mergeChangesObjectIDsPublisher
-            .combineLatest(NotificationCenter.default.coreDataDidSavePublisher)
-            .sink { [weak self] _ in
-                self?.fetchIdiom()
-            }
-            .store(in: &cancellables)
-    }
-
     private func fetchIdiom() {
         let fetchRequest: NSFetchRequest<CDIdiom> = CDIdiom.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", idiomId as CVarArg)
@@ -100,6 +89,7 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
     private func saveContext() {
         do {
             try coreDataService.saveContext()
+            _idiomPublisher.send(cdIdiom?.coreModel)
         } catch {
             errorPublisher.send(.internalError(.removingIdiomFailed))
         }

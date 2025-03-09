@@ -70,6 +70,23 @@ public extension View {
             self
         }
     }
+
+    @ViewBuilder
+    func ifLet<T, Result: View>(_ value: T?, transform: (Self, T) -> Result) -> some View {
+        if let value = value {
+            transform(self, value)
+        } else {
+            self
+        }
+    }
+
+    func onTap(_ onTap: @escaping () -> Void) -> some View {
+        Button {
+            onTap()
+        } label: {
+            self
+        }
+    }
 }
 
 public extension Image {

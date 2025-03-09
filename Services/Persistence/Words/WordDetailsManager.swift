@@ -37,7 +37,6 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
     ) {
         self.wordId = wordId
         self.coreDataService = coreDataService
-        setupBindings()
         fetchWord()
     }
 
@@ -80,16 +79,6 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
         saveContext()
     }
 
-    private func setupBindings() {
-        // every time core data gets updated, call fetchWords()
-        NotificationCenter.default.mergeChangesObjectIDsPublisher
-            .combineLatest(NotificationCenter.default.coreDataDidSavePublisher)
-            .sink { [weak self] _ in
-                self?.fetchWord()
-            }
-            .store(in: &cancellables)
-    }
-
     private func fetchWord() {
         let fetchRequest: NSFetchRequest<CDWord> = CDWord.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", wordId as CVarArg)
@@ -106,6 +95,7 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
     private func saveContext() {
         do {
             try coreDataService.saveContext()
+            _wordPublisher.send(cdWord?.coreModel)
         } catch {
             errorPublisher.send(.internalError(.removingWordFailed))
         }

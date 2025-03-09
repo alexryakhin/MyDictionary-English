@@ -60,3 +60,9 @@ public extension DateFormatter {
         return date(from: string)
     }
 }
+
+public extension Date {
+    var csvString: String {
+        ISO8601DateFormatter().string(from: self)
+    }
+}

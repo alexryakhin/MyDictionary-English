@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import class UIKit.UITextChecker
 
 public extension String {
 
@@ -44,4 +45,30 @@ public extension String {
 public extension Optional where Wrapped == String {
     var orEmpty: String { self ?? "" }
     var isEmpty: Bool { self?.isEmpty ?? true }
+}
+
+public extension String {
+    var isCorrect: Bool {
+        let checker = UITextChecker()
+        let range = NSRange(location: 0, length: self.utf16.count)
+        let misspelledRange = checker.rangeOfMisspelledWord(in: self, range: range, startingAt: 0, wrap: false, language: "en")
+        return misspelledRange.location == NSNotFound
+    }
+}
+
+public extension String {
+
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+
+    /// Removes all tags enclosed in `< >`
+    func removingHTMLTags() -> String {
+        let pattern = "<[^>]+>" // Matches anything inside < >
+        return self.replacingOccurrences(of: pattern, with: "", options: .regularExpression)
+    }
 }

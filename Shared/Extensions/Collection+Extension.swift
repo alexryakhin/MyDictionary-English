@@ -44,3 +44,17 @@ public extension Sequence {
         }
     }
 }
+
+public extension Collection {
+    func removingDuplicates<T: Hashable>(by keyPath: KeyPath<Element, T>) -> [Element] {
+        var seen: Set<T> = []
+        var result: [Element] = []
+        for element in self {
+            if !seen.contains(element[keyPath: keyPath]) {
+                seen.insert(element[keyPath: keyPath])
+                result.append(element)
+            }
+        }
+        return result
+    }
+}

@@ -28,5 +28,15 @@ final class WordsListAssembly: Assembly, Identifiable {
             let controller = WordDetailsViewController(viewModel: viewModel)
             return controller
         }
+
+        container.register(AddWordViewController.self) { resolver in
+            let viewModel = AddWordViewModel(
+                wordnikAPIService: resolver ~> WordnikAPIServiceInterface.self,
+                addWordManager: resolver ~> AddWordManagerInterface.self,
+                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+            )
+            let controller = AddWordViewController(viewModel: viewModel)
+            return controller
+        }
     }
 }

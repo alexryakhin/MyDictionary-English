@@ -37,7 +37,7 @@ final class WordsListCoordinator: Coordinator {
             case .openWordDetails(let word):
                 self?.showWordDetails(with: word)
             case .showAddWord:
-                break
+                self?.showAddWord()
             @unknown default:
                 fatalError("Unhandled event")
             }
@@ -58,5 +58,18 @@ final class WordsListCoordinator: Coordinator {
         }
 
         innerRouter.push(controller)
+    }
+
+    public func showAddWord() {
+        let controller = resolver ~> AddWordViewController.self
+        controller.onEvent = { [weak controller] event in
+            switch event {
+            case .finish:
+                controller?.dismiss(animated: true)
+            @unknown default:
+                fatalError("Unhandled event")
+            }
+        }
+        router.present(controller)
     }
 }

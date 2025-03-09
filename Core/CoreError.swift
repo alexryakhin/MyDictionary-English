@@ -23,6 +23,7 @@ public enum CoreError: Error {
         case missingAPIKey
         case decodingError
         case invalidURL
+        case noData
 
         public var description: String {
             switch self {
@@ -33,6 +34,7 @@ public enum CoreError: Error {
             case .missingAPIKey: "Missing API key"
             case .decodingError: "Decoding error"
             case .invalidURL: "Invalid URL"
+            case .noData: "No data"
             }
         }
     }
@@ -73,6 +75,8 @@ public enum CoreError: Error {
         case savingIdiomExampleFailed
         case removingIdiomFailed
         case savingIdiomFailed
+        case inputIsNotAWord
+        case inputCannotBeEmpty
 
         public var description: String {
             switch self {
@@ -92,6 +96,10 @@ public enum CoreError: Error {
                 return "Error removing idiom"
             case .savingIdiomFailed:
                 return "Error saving idiom"
+            case .inputIsNotAWord:
+                return "Input is not a word"
+            case .inputCannotBeEmpty:
+                return "Input cannot be empty"
             }
         }
     }

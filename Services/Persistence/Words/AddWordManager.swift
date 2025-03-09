@@ -25,6 +25,9 @@ public final class AddWordManager: AddWordManagerInterface {
         newWord.partOfSpeech = partOfSpeech
         newWord.phonetic = phonetic
         newWord.timestamp = Date()
+        for example in examples {
+            try? newWord.addExample(example)
+        }
         try coreDataService.saveContext()
     }
 }
