@@ -60,8 +60,19 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
         case .removeExample(let offsets):
             idiomDetailsManager.removeExample(atOffsets: offsets)
         case .deleteIdiom:
-            idiomDetailsManager.deleteIdiom()
-            onOutput?(.finish)
+            showAlert(
+                withModel: .init(
+                    title: "Delete idiom",
+                    message: "Are you sure you want to delete this idiom?",
+                    actionText: "Cancel",
+                    destructiveActionText: "Delete",
+                    action: {},
+                    destructiveAction: { [weak self] in
+                        self?.idiomDetailsManager.deleteIdiom()
+                        self?.onOutput?(.finish)
+                    }
+                )
+            )
         }
     }
 

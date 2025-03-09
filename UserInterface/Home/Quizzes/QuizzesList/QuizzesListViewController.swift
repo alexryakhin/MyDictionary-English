@@ -35,12 +35,9 @@ public final class QuizzesListViewController: PageViewController<QuizzesListCont
 
     override public func setup() {
         super.setup()
-        tabBarItem = TabBarItem.quizzes.item
         setupBindings()
-    }
-
-    public override func setupNavigationBar(animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        tabBarItem = TabBarItem.quizzes.item
+        navigationItem.title = TabBarItem.quizzes.title
     }
 
     // MARK: - Private Methods

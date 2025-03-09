@@ -58,33 +58,4 @@ public struct EmptyStateView: View {
         .padding(16)
         .multilineTextAlignment(.center)
     }
-
-    public static let nothingFound = Self(
-        imageSystemName: "flashlight.off.circle.fill",
-        title: "Nothing Found",
-        subtitle: "We couldn't find any recipes that match your search.",
-        instructions: "Try using different keywords or adjusting your filters."
-    )
-
-    public static let searchPlaceholder = Self(
-        imageSystemName: "magnifyingglass.circle.fill",
-        title: "Start searching for recipes",
-        instructions: "Try typing an ingredient or dish name to find new recipes."
-    )
-
-    public static let ingredientsSearchPlaceholder = Self(
-        imageSystemName: "magnifyingglass.circle.fill",
-        title: "Start searching for ingredients",
-        instructions: "Try typing an ingredient name into the search bar."
-    )
-
-    public static let savedRecipesPlaceholder = Self(
-        imageSystemName: "bookmark.circle.fill",
-        title: "No Saved Recipes",
-        subtitle: "You haven't saved any recipes yet. Save some to get started."
-    )
-}
-
-#Preview {
-    EmptyStateView.nothingFound
 }

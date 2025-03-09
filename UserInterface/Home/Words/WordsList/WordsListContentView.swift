@@ -61,7 +61,6 @@ public struct WordsListContentView: PageView {
         .if(viewModel.words.isNotEmpty, transform: { view in
             view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
         })
-        .navigationTitle(TabBarItem.words.title)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 EditButton()

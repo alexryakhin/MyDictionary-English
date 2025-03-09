@@ -49,11 +49,36 @@ public extension PageView {
             }, set: { newValue in
                 viewModel.isShowingAlert = newValue
             })) {
-                Alert(
-                    title: Text(viewModel.alertModel.title),
-                    message: viewModel.alertModel.message != nil ? Text(viewModel.alertModel.message!) : nil,
-                    dismissButton: .default(Text(viewModel.alertModel.actionText ?? "OK"), action: viewModel.alertModel.action)
-                )
+                if let message = viewModel.alertModel.message,
+                   let actionText = viewModel.alertModel.actionText,
+                   let destructiveActionText = viewModel.alertModel.destructiveActionText
+                {
+                    return Alert(
+                        title: Text(viewModel.alertModel.title),
+                        message: Text(message),
+                        primaryButton: .destructive(Text(destructiveActionText), action: viewModel.alertModel.destructiveAction),
+                        secondaryButton: .cancel(Text(actionText), action: viewModel.alertModel.action)
+                    )
+                } else if let message = viewModel.alertModel.message,
+                          let actionText = viewModel.alertModel.actionText
+                {
+                    return Alert(
+                        title: Text(viewModel.alertModel.title),
+                        message: Text(message),
+                        dismissButton: .default(Text(actionText), action: viewModel.alertModel.action)
+                    )
+                } else if let message = viewModel.alertModel.message {
+                    return Alert(
+                        title: Text(viewModel.alertModel.title),
+                        message: Text(message),
+                        dismissButton: .default(Text("OK"))
+                    )
+                } else {
+                    return Alert(
+                        title: Text(viewModel.alertModel.title),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
             }
     }
 

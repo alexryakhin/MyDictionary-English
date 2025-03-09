@@ -29,10 +29,6 @@ public final class SpellingQuizViewController: PageViewController<SpellingQuizCo
     override public func setup() {
         super.setup()
         setupBindings()
-    }
-
-    public override func setupNavigationBar(animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
         title = "Spelling"
     }
 

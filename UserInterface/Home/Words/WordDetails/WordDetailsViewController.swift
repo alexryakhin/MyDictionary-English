@@ -29,12 +29,6 @@ public final class WordDetailsViewController: PageViewController<WordDetailsCont
     override public func setup() {
         super.setup()
         setupBindings()
-    }
-
-    public override func setupNavigationBar(animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = viewModel.word.word
     }
 

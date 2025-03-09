@@ -64,8 +64,19 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
         case .removeExample(let offsets):
             wordDetailsManager.removeExample(atOffsets: offsets)
         case .deleteWord:
-            wordDetailsManager.deleteWord()
-            onOutput?(.finish)
+            showAlert(
+                withModel: .init(
+                    title: "Delete word",
+                    message: "Are you sure you want to delete this word?",
+                    actionText: "Cancel",
+                    destructiveActionText: "Delete",
+                    action: {},
+                    destructiveAction: { [weak self] in
+                        self?.wordDetailsManager.deleteWord()
+                        self?.onOutput?(.finish)
+                    }
+                )
+            )
         }
     }
 

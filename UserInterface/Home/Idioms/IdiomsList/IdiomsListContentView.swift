@@ -62,7 +62,6 @@ public struct IdiomsListContentView: PageView {
         .if(viewModel.idioms.isNotEmpty, transform: { view in
             view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
         })
-        .navigationTitle(TabBarItem.idioms.title)
         .listStyle(.insetGrouped)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

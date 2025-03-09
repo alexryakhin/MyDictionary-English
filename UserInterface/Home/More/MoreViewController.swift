@@ -27,12 +27,9 @@ public final class MoreViewController: PageViewController<MoreContentView> {
 
     override public func setup() {
         super.setup()
-        tabBarItem = TabBarItem.more.item
         setupBindings()
-    }
-
-    public override func setupNavigationBar(animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        tabBarItem = TabBarItem.more.item
+        navigationItem.title = TabBarItem.more.title
     }
 
     // MARK: - Private Methods

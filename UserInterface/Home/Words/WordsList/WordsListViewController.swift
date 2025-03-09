@@ -36,12 +36,9 @@ public final class WordsListViewController: PageViewController<WordsListContentV
 
     override public func setup() {
         super.setup()
-        tabBarItem = TabBarItem.words.item
         setupBindings()
-    }
-
-    public override func setupNavigationBar(animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        tabBarItem = TabBarItem.words.item
+        navigationItem.title = TabBarItem.words.title
     }
 
     // MARK: - Private Methods

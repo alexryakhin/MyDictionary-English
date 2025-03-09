@@ -36,12 +36,9 @@ public final class IdiomsListViewController: PageViewController<IdiomsListConten
 
     override public func setup() {
         super.setup()
-        tabBarItem = TabBarItem.idioms.item
         setupBindings()
-    }
-
-    public override func setupNavigationBar(animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        tabBarItem = TabBarItem.idioms.item
+        navigationItem.title = TabBarItem.idioms.title
     }
 
     // MARK: - Private Methods

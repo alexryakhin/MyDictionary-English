@@ -45,7 +45,6 @@ public struct QuizzesListContentView: PageView {
             }
         }
         .listStyle(.insetGrouped)
-        .navigationTitle(TabBarItem.quizzes.title)
     }
 
     public func placeholderView(props: PageState.PlaceholderProps) -> some View {

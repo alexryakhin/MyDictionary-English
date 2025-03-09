@@ -31,13 +31,16 @@ open class PageViewController<Content: PageView>: UIHostingController<Content> {
         fatalError("init(coder:) has not been implemented")
     }
 
-    open func setupNavigationBar(animated: Bool) { }
+    open func setupNavigationBar(animated: Bool) {
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
     open func setup() {
         view.backgroundColor = .systemBackground
     }
 
-    public final func setupSearchBar(placeholder: String = "Search recipes") {
+    public final func setupSearchBar(placeholder: String = "Search words") {
         // Initialize the search controller
         let searchController = BaseSearchController()
         searchController.obscuresBackgroundDuringPresentation = false

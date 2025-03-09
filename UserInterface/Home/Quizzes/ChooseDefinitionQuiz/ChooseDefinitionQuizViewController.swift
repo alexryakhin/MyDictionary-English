@@ -29,10 +29,6 @@ public final class ChooseDefinitionQuizViewController: PageViewController<Choose
     override public func setup() {
         super.setup()
         setupBindings()
-    }
-
-    public override func setupNavigationBar(animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
         title = "Choose Definition"
     }
 
