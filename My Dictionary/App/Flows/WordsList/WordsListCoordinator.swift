@@ -39,7 +39,7 @@ final class WordsListCoordinator: Coordinator {
             case .showAddWord:
                 break
             @unknown default:
-                break
+                fatalError("Unhandled event")
             }
         }
         navController.addChild(controller)
@@ -47,6 +47,16 @@ final class WordsListCoordinator: Coordinator {
 
     private func showWordDetails(with word: Word) {
         let controller = resolver ~> (WordDetailsViewController.self, word)
+
+        controller.onEvent = { [weak self] event in
+            switch event {
+            case .finish:
+                self?.innerRouter.popToRootModule(animated: true)
+            @unknown default:
+                fatalError("Unhandled event")
+            }
+        }
+
         innerRouter.push(controller)
     }
 }

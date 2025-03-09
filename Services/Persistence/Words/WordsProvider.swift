@@ -5,12 +5,12 @@ import Core
 
 public protocol WordsProviderInterface {
     var wordsPublisher: AnyPublisher<[Word], Never> { get }
-    var wordsErrorPublisher: AnyPublisher<CoreError, Never> { get }
+    var wordsErrorPublisher: PassthroughSubject<CoreError, Never> { get }
 
     /// Fetches latest data from Core Data
     func fetchWords()
     /// Removes a given word from the Core Data
-    func delete(with id: UUID) throws
+    func delete(with id: UUID)
 }
 
 public final class WordsProvider: WordsProviderInterface {
@@ -18,13 +18,9 @@ public final class WordsProvider: WordsProviderInterface {
     public var wordsPublisher: AnyPublisher<[Word], Never> {
         _wordsPublisher.eraseToAnyPublisher()
     }
-
-    public var wordsErrorPublisher: AnyPublisher<CoreError, Never> {
-        _wordsErrorPublisher.eraseToAnyPublisher()
-    }
+    public let wordsErrorPublisher = PassthroughSubject<CoreError, Never>()
 
     private let _wordsPublisher = CurrentValueSubject<[Word], Never>([])
-    private let _wordsErrorPublisher = PassthroughSubject<CoreError, Never>()
     private let coreDataService: CoreDataServiceInterface
     private var cancellable = Set<AnyCancellable>()
 
@@ -41,12 +37,12 @@ public final class WordsProvider: WordsProviderInterface {
             let words = try coreDataService.context.fetch(request)
             _wordsPublisher.send(words.compactMap(\.coreModel))
         } catch {
-            _wordsErrorPublisher.send(.storageError(.readFailed))
+            wordsErrorPublisher.send(.storageError(.readFailed))
         }
     }
 
     /// Removes a given word from the Core Data
-    public func delete(with id: UUID) throws {
+    public func delete(with id: UUID) {
         let fetchRequest: NSFetchRequest<CDWord> = CDWord.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
 
@@ -58,7 +54,7 @@ public final class WordsProvider: WordsProviderInterface {
                 throw CoreError.internalError(.removingWordFailed)
             }
         } catch {
-            throw CoreError.internalError(.removingWordFailed)
+            wordsErrorPublisher.send(.internalError(.removingWordFailed))
         }
     }
 

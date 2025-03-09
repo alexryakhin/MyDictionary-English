@@ -5,16 +5,15 @@ import Services
 import Shared
 import Combine
 
-public final class WordDetailsViewModel: DefaultPageViewModel {
+public final class IdiomDetailsViewModel: DefaultPageViewModel {
 
     enum Input {
         case speak(String?)
         case toggleFavorite
-        case updatePartOfSpeech(String)
         case toggleShowAddExample
         case addExample
         case removeExample(IndexSet)
-        case deleteWord
+        case deleteIdiom
     }
 
     enum Output {
@@ -23,26 +22,26 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
 
     var onOutput: ((Output) -> Void)?
 
-    @Published private(set) var word: Word
+    @Published private(set) var idiom: Idiom
     @Published private(set) var isShowAddExample = false
     @Published var definitionTextFieldStr = ""
     @Published var exampleTextFieldStr = ""
 
     // MARK: - Private Properties
 
-    private let wordDetailsManager: WordDetailsManagerInterface
+    private let idiomDetailsManager: IdiomDetailsManagerInterface
     private let speechSynthesizer: SpeechSynthesizerInterface
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Initialization
 
     public init(
-        word: Word,
-        wordDetailsManager: WordDetailsManagerInterface,
+        idiom: Idiom,
+        idiomDetailsManager: IdiomDetailsManagerInterface,
         speechSynthesizer: SpeechSynthesizerInterface
     ) {
-        self.word = word
-        self.wordDetailsManager = wordDetailsManager
+        self.idiom = idiom
+        self.idiomDetailsManager = idiomDetailsManager
         self.speechSynthesizer = speechSynthesizer
         super.init()
         setupBindings()
@@ -53,17 +52,15 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
         case .speak(let text):
             speak(text)
         case .toggleFavorite:
-            wordDetailsManager.toggleFavorite()
-        case .updatePartOfSpeech(let value):
-            wordDetailsManager.updatePartOfSpeech(value)
+            idiomDetailsManager.toggleFavorite()
         case .toggleShowAddExample:
             isShowAddExample.toggle()
         case .addExample:
             addExample()
         case .removeExample(let offsets):
-            wordDetailsManager.removeExample(atOffsets: offsets)
-        case .deleteWord:
-            wordDetailsManager.deleteWord()
+            idiomDetailsManager.removeExample(atOffsets: offsets)
+        case .deleteIdiom:
+            idiomDetailsManager.deleteIdiom()
             onOutput?(.finish)
         }
     }
@@ -71,19 +68,19 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
     // MARK: - Private Methods
 
     private func setupBindings() {
-        wordDetailsManager.wordPublisher
+        idiomDetailsManager.idiomPublisher
             .ifNotNil()
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] word in
-                self?.word = word
-                self?.definitionTextFieldStr = word.definition
+            .sink { [weak self] idiom in
+                self?.idiom = idiom
+                self?.definitionTextFieldStr = idiom.definition
             }
             .store(in: &cancellables)
 
-        wordDetailsManager.errorPublisher
+        idiomDetailsManager.errorPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
-                self?.errorReceived(error, displayType: self?.word == nil ? .page : .snack)
+                self?.errorReceived(error, displayType: self?.idiom == nil ? .page : .snack)
             }
             .store(in: &cancellables)
 
@@ -91,13 +88,13 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
             .removeDuplicates()
             .debounce(for: 1, scheduler: RunLoop.main)
             .sink { [weak self] text in
-                self?.wordDetailsManager.updateDefinition(text)
+                self?.idiomDetailsManager.updateDefinition(text)
             }
             .store(in: &cancellables)
     }
 
     private func addExample() {
-        wordDetailsManager.addExample(exampleTextFieldStr)
+        idiomDetailsManager.addExample(exampleTextFieldStr)
         exampleTextFieldStr = ""
         isShowAddExample = false
     }

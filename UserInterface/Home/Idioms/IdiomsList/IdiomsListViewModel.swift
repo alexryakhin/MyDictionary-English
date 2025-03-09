@@ -15,12 +15,12 @@ public class IdiomsListViewModel: DefaultPageViewModel {
 
     enum Input {
         case showAddIdiom
-        case showIdiomDetails(UUID)
+        case showIdiomDetails(idiom: Idiom)
     }
 
     enum Output {
         case showAddIdiom
-        case showIdiomDetails(UUID)
+        case showIdiomDetails(idiom: Idiom)
     }
 
     var onOutput: ((Output) -> Void)?
@@ -31,15 +31,10 @@ public class IdiomsListViewModel: DefaultPageViewModel {
     @Published var searchText = ""
 
     private let idiomsProvider: IdiomsProviderInterface
-    private let idiomsManager: IdiomsManagerInterface
     private var cancellables = Set<AnyCancellable>()
 
-    public init(
-        idiomsProvider: IdiomsProviderInterface,
-        idiomsManager: IdiomsManagerInterface
-    ) {
+    public init(idiomsProvider: IdiomsProviderInterface) {
         self.idiomsProvider = idiomsProvider
-        self.idiomsManager = idiomsManager
         super.init()
         loadingStarted()
         setupBindings()
@@ -49,8 +44,8 @@ public class IdiomsListViewModel: DefaultPageViewModel {
         switch input {
         case .showAddIdiom:
             onOutput?(.showAddIdiom)
-        case .showIdiomDetails(let id):
-            onOutput?(.showIdiomDetails(id))
+        case .showIdiomDetails(let idiom):
+            onOutput?(.showIdiomDetails(idiom: idiom))
         }
     }
 
@@ -94,14 +89,9 @@ public class IdiomsListViewModel: DefaultPageViewModel {
         }
     }
 
-    /// Removes given word from Core Data
+    /// Removes given idiom from Core Data
     func deleteIdiom(with id: UUID) {
-        do {
-            try idiomsManager.deleteIdiom(with: id)
-            saveContext()
-        } catch {
-            errorReceived(error, displayType: .snack)
-        }
+        idiomsProvider.delete(with: id)
     }
 
     // MARK: Sorting
@@ -128,14 +118,6 @@ public class IdiomsListViewModel: DefaultPageViewModel {
             })
         case .partOfSpeech:
             break
-        }
-    }
-
-    private func saveContext() {
-        do {
-            try idiomsManager.saveContext()
-        } catch {
-            errorReceived(error, displayType: .snack)
         }
     }
 }

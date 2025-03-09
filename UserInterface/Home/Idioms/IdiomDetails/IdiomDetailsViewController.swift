@@ -1,47 +1,41 @@
-//
-//  IdiomsListViewController.swift
-//  My Dictionary
-//
-//  Created by Aleksandr Riakhin on 3/8/25.
-//
-
 import UIKit
 import SwiftUI
 import CoreUserInterface
 import Core
 
-public final class IdiomsListViewController: PageViewController<IdiomsListContentView> {
+public final class IdiomDetailsViewController: PageViewController<IdiomDetailsContentView> {
 
     public enum Event {
-        case showAddIdiom
-        case showIdiomDetails(idiom: Idiom)
+        case finish
     }
 
     public var onEvent: ((Event) -> Void)?
 
     // MARK: - Private properties
 
-    private let viewModel: IdiomsListViewModel
+    private let viewModel: IdiomDetailsViewModel
 
     // MARK: - Initialization
 
-    public init(viewModel: IdiomsListViewModel) {
+    public init(viewModel: IdiomDetailsViewModel) {
         self.viewModel = viewModel
-        super.init(rootView: IdiomsListContentView(viewModel: viewModel))
+        super.init(rootView: IdiomDetailsContentView(viewModel: viewModel))
     }
 
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     override public func setup() {
         super.setup()
-        tabBarItem = TabBarItem.idioms.item
         setupBindings()
     }
 
     public override func setupNavigationBar(animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = "Details"
         resetNavBarAppearance()
     }
 
@@ -50,10 +44,7 @@ public final class IdiomsListViewController: PageViewController<IdiomsListConten
     private func setupBindings() {
         viewModel.onOutput = { [weak self] output in
             switch output {
-            case .showAddIdiom:
-                self?.onEvent?(.showAddIdiom)
-            case .showIdiomDetails(let idiom):
-                self?.onEvent?(.showIdiomDetails(idiom: idiom))
+            case .finish: self?.onEvent?(.finish)
             }
         }
     }

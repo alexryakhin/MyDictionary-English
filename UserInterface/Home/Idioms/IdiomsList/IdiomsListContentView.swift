@@ -26,12 +26,16 @@ public struct IdiomsListContentView: PageView {
             if !idiomsToShow().isEmpty {
                 Section {
                     ForEach(idiomsToShow()) { idiomModel in
-                        IdiomListCellView(
-                            model: .init(
-                                idiom: idiomModel.idiom,
-                                isFavorite: idiomModel.isFavorite
+                        Button {
+                            viewModel.handle(.showIdiomDetails(idiom: idiomModel))
+                        } label: {
+                            IdiomListCellView(
+                                model: .init(
+                                    idiom: idiomModel.idiom,
+                                    isFavorite: idiomModel.isFavorite
+                                )
                             )
-                        )
+                        }
                     }
                     .onDelete { offsets in
                         viewModel.deleteIdiom(atOffsets: offsets)

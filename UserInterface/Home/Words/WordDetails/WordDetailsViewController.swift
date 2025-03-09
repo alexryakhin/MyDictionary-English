@@ -44,7 +44,7 @@ public final class WordDetailsViewController: PageViewController<WordDetailsCont
     private func setupBindings() {
         viewModel.onOutput = { [weak self] output in
             switch output {
-                // handle output
+            case .finish: self?.onEvent?(.finish)
             }
         }
     }

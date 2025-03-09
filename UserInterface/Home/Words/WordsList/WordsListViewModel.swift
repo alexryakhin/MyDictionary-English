@@ -130,11 +130,7 @@ public class WordsListViewModel: DefaultPageViewModel {
     }
 
     private func deleteWord(with id: UUID) {
-        do {
-            try wordsProvider.delete(with: id)
-        } catch {
-            errorReceived(error, displayType: .snack)
-        }
+        wordsProvider.delete(with: id)
     }
 
     private func selectFilterState(_ filterState: FilterCase) {

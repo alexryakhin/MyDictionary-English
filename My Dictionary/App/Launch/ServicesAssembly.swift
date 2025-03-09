@@ -106,10 +106,18 @@ final class ServicesAssembly: Assembly, Identifiable {
         }
         .inObjectScope(.container)
 
-        container.register(IdiomsManagerInterface.self) { resolver in
-            IdiomsManager(coreDataService: resolver ~> CoreDataServiceInterface.self)
+        container.register(AddIdiomManagerInterface.self) { resolver in
+            AddIdiomManager(coreDataService: resolver ~> CoreDataServiceInterface.self)
         }
-        .inObjectScope(.container)
+        .inObjectScope(.transient)
+
+        container.register(IdiomDetailsManagerInterface.self) { resolver, idiomId in
+            IdiomDetailsManager(
+                idiomId: idiomId,
+                coreDataService: resolver ~> CoreDataServiceInterface.self
+            )
+        }
+        .inObjectScope(.transient)
     }
 
     func loaded(resolver: Resolver) {

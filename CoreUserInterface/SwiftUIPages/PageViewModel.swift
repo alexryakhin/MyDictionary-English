@@ -28,6 +28,10 @@ open class PageViewModel<
 
     public init() { }
 
+    deinit {
+        logInfo("DEINIT: \(String(describing: type(of: self)))")
+    }
+
     public func setState(_ newState: PageState) {
         additionalState = newState
     }

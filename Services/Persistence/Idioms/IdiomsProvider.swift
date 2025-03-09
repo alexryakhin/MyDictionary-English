@@ -5,10 +5,12 @@ import Core
 
 public protocol IdiomsProviderInterface {
     var idiomsPublisher: AnyPublisher<[Idiom], Never> { get }
-    var idiomsErrorPublisher: AnyPublisher<CoreError, Never> { get }
+    var idiomsErrorPublisher: PassthroughSubject<CoreError, Never> { get }
 
     /// Fetches latest data from Core Data
     func fetchIdioms()
+    /// Removes a given idiom from the Core Data
+    func delete(with id: UUID)
 }
 
 public final class IdiomsProvider: IdiomsProviderInterface {
@@ -17,12 +19,9 @@ public final class IdiomsProvider: IdiomsProviderInterface {
         _idiomsPublisher.eraseToAnyPublisher()
     }
 
-    public var idiomsErrorPublisher: AnyPublisher<CoreError, Never> {
-        _idiomsErrorPublisher.eraseToAnyPublisher()
-    }
+    public let idiomsErrorPublisher = PassthroughSubject<CoreError, Never>()
 
     private let _idiomsPublisher = CurrentValueSubject<[Idiom], Never>([])
-    private let _idiomsErrorPublisher = PassthroughSubject<CoreError, Never>()
     private let coreDataService: CoreDataServiceInterface
     private var cancellable = Set<AnyCancellable>()
 
@@ -39,9 +38,27 @@ public final class IdiomsProvider: IdiomsProviderInterface {
             let idioms = try coreDataService.context.fetch(request)
             _idiomsPublisher.send(idioms.compactMap(\.coreModel))
         } catch {
-            _idiomsErrorPublisher.send(.storageError(.readFailed))
+            idiomsErrorPublisher.send(.storageError(.readFailed))
         }
     }
+
+    /// Removes a given idiom from the Core Data
+    public func delete(with id: UUID) {
+        let fetchRequest: NSFetchRequest<CDIdiom> = CDIdiom.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+
+        do {
+            if let object = try coreDataService.context.fetch(fetchRequest).first {
+                coreDataService.context.delete(object)
+                try coreDataService.saveContext()
+            } else {
+                throw CoreError.internalError(.removingIdiomFailed)
+            }
+        } catch {
+            idiomsErrorPublisher.send(.internalError(.removingIdiomFailed))
+        }
+    }
+
 
     private func setupBindings() {
         // every time core data gets updated, call fetchIdioms()

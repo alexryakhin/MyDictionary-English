@@ -32,6 +32,31 @@ final class IdiomsListCoordinator: Coordinator {
 
     private func showMainController() {
         let controller = resolver ~> IdiomsListViewController.self
+        controller.onEvent = { [weak self] event in
+            switch event {
+            case .showIdiomDetails(let idiom):
+                self?.showIdiomDetails(with: idiom)
+            case .showAddIdiom:
+                break
+            @unknown default:
+                fatalError("Unhandled event")
+            }
+        }
         navController.addChild(controller)
+    }
+
+    private func showIdiomDetails(with idiom: Idiom) {
+        let controller = resolver ~> (IdiomDetailsViewController.self, idiom)
+
+        controller.onEvent = { [weak self] event in
+            switch event {
+            case .finish:
+                self?.innerRouter.popToRootModule(animated: true)
+            @unknown default:
+                fatalError("Unhandled event")
+            }
+        }
+
+        innerRouter.push(controller)
     }
 }

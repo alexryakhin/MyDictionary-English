@@ -13,10 +13,19 @@ final class IdiomsListAssembly: Assembly, Identifiable {
 
         container.register(IdiomsListViewController.self) { resolver in
             let viewModel = IdiomsListViewModel(
-                idiomsProvider: resolver ~> IdiomsProviderInterface.self,
-                idiomsManager: resolver ~> IdiomsManagerInterface.self
+                idiomsProvider: resolver ~> IdiomsProviderInterface.self
             )
             let controller = IdiomsListViewController(viewModel: viewModel)
+            return controller
+        }
+
+        container.register(IdiomDetailsViewController.self) { resolver, idiom in
+            let viewModel = IdiomDetailsViewModel(
+                idiom: idiom,
+                idiomDetailsManager: resolver.resolve(IdiomDetailsManagerInterface.self, argument: idiom.id)!,
+                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+            )
+            let controller = IdiomDetailsViewController(viewModel: viewModel)
             return controller
         }
     }
