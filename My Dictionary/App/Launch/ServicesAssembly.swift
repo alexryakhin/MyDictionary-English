@@ -75,6 +75,11 @@ final class ServicesAssembly: Assembly, Identifiable {
         }
         .inObjectScope(.container)
 
+        container.register(CSVManagerInterface.self) { resolver in
+            CSVManager(coreDataService: resolver ~> CoreDataServiceInterface.self)
+        }
+        .inObjectScope(.container)
+
         container.register(WordsProviderInterface.self) { resolver in
             WordsProvider(coreDataService: resolver ~> CoreDataServiceInterface.self)
         }

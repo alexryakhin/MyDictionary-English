@@ -8,7 +8,7 @@
 public struct Word: Identifiable {
     public let word: String
     public let definition: String
-    public let partOfSpeech: String
+    public let partOfSpeech: PartOfSpeech
     public let phonetic: String?
     public let id: UUID
     public let timestamp: Date
@@ -18,7 +18,7 @@ public struct Word: Identifiable {
     public init(
         word: String,
         definition: String,
-        partOfSpeech: String,
+        partOfSpeech: PartOfSpeech,
         phonetic: String? = nil,
         id: UUID,
         timestamp: Date,

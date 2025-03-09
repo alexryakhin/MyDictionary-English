@@ -49,7 +49,7 @@ open class PageViewModel<
         action: @escaping VoidHandler = {}
     ) {
         guard let errorWithContext = error as? CoreError else {
-            print("Unexpectedly receive `Error` which is not `CoreError`")
+            logError("Unexpectedly receive `Error` which is not `CoreError`, \(error)")
             return
         }
         defaultErrorReceived(errorWithContext, displayType: displayType, action: action)

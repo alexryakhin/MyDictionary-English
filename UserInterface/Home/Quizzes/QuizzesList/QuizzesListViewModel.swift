@@ -24,6 +24,7 @@ public class QuizzesListViewModel: DefaultPageViewModel {
     var onOutput: ((Output) -> Void)?
 
     @Published var words: [Word] = []
+
     private let wordsProvider: WordsProviderInterface
     private var cancellables: Set<AnyCancellable> = []
 

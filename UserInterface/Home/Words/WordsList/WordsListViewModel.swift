@@ -162,7 +162,7 @@ public class WordsListViewModel: DefaultPageViewModel {
             })
         case .partOfSpeech:
             words.sort(by: { lhs, rhs in
-                lhs.partOfSpeech < rhs.partOfSpeech
+                lhs.partOfSpeech.rawValue < rhs.partOfSpeech.rawValue
             })
         @unknown default:
             fatalError("Unhandled event")

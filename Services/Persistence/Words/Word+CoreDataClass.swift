@@ -54,7 +54,7 @@ final class CDWord: NSManagedObject, Identifiable {
         return Word(
             word: wordItself,
             definition: definition,
-            partOfSpeech: partOfSpeech,
+            partOfSpeech: .init(rawValue: partOfSpeech) ?? .unknown,
             phonetic: phonetic,
             id: id,
             timestamp: timestamp,

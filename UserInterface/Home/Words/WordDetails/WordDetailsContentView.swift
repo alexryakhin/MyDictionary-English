@@ -30,7 +30,7 @@ public struct WordDetailsContentView: PageView {
             }
 
             Section {
-                Text(viewModel.word.partOfSpeech)
+                Text(viewModel.word.partOfSpeech.rawValue)
                     .contextMenu {
                         ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
                             Button {

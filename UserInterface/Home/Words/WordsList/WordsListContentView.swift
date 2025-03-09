@@ -33,7 +33,7 @@ public struct WordsListContentView: PageView {
                             model: .init(
                                 word: wordModel.word,
                                 isFavorite: wordModel.isFavorite,
-                                partOfSpeech: wordModel.partOfSpeech
+                                partOfSpeech: wordModel.partOfSpeech.rawValue
                             )
                         )
                     }
@@ -44,7 +44,7 @@ public struct WordsListContentView: PageView {
 
                 if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
                     Button(action: addItem) {
-                        Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
+                        Text("Add `\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))`")
                     }
                 }
             } header: {

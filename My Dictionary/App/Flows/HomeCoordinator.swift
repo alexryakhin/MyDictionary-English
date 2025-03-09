@@ -22,13 +22,15 @@ final class HomeCoordinator: Coordinator {
         let wordsListNavigationController = assignWordsListCoordinator()
         let idiomsListNavigationController = assignIdiomsListCoordinator()
         let quizzesListNavigationController = assignQuizzesListCoordinator()
+        let moreNavigationController = assignMoreCoordinator()
 
         let controller = resolver ~> TabController.self
 
         controller.controllers = [
             wordsListNavigationController,
             idiomsListNavigationController,
-            quizzesListNavigationController
+            quizzesListNavigationController,
+            moreNavigationController
         ]
 
         router.setRootModule(controller)
@@ -86,5 +88,23 @@ final class HomeCoordinator: Coordinator {
         }
 
         return quizzesListNavigationController
+    }
+
+    private func assignMoreCoordinator() -> NavigationController {
+        DIContainer.shared.assemble(assembly: MoreAssembly())
+
+        // QuizzesList flow coordinator
+        guard let moreCoordinator = child(ofType: MoreCoordinator.self)
+                ?? resolver.resolve(MoreCoordinator.self, argument: router)
+        else { fatalError("Unable to instantiate MoreCoordinator") }
+        moreCoordinator.start()
+
+        let moreNavigationController = moreCoordinator.navController
+
+        if !contains(child: MoreCoordinator.self) {
+            addDependency(moreCoordinator)
+        }
+
+        return moreNavigationController
     }
 }
