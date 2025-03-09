@@ -25,7 +25,6 @@ final public class BaseSearchController: UISearchController, UISearchBarDelegate
 
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        resetNavBarAppearance()
     }
 
     private func customizeSearchBar() {

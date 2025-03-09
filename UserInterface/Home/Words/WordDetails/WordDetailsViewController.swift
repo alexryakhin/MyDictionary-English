@@ -36,7 +36,6 @@ public final class WordDetailsViewController: PageViewController<WordDetailsCont
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = viewModel.word.word
-        resetNavBarAppearance()
     }
 
     // MARK: - Private Methods

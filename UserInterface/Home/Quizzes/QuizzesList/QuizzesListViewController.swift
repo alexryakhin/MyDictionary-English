@@ -41,7 +41,6 @@ public final class QuizzesListViewController: PageViewController<QuizzesListCont
 
     public override func setupNavigationBar(animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
-        resetNavBarAppearance()
     }
 
     // MARK: - Private Methods

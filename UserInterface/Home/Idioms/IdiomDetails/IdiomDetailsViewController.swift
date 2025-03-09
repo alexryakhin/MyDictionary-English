@@ -34,9 +34,9 @@ public final class IdiomDetailsViewController: PageViewController<IdiomDetailsCo
     public override func setupNavigationBar(animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = "Details"
-        resetNavBarAppearance()
     }
 
     // MARK: - Private Methods

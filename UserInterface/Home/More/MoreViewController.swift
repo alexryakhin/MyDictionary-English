@@ -33,7 +33,6 @@ public final class MoreViewController: PageViewController<MoreContentView> {
 
     public override func setupNavigationBar(animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
-        resetNavBarAppearance()
     }
 
     // MARK: - Private Methods

@@ -42,7 +42,6 @@ public final class IdiomsListViewController: PageViewController<IdiomsListConten
 
     public override func setupNavigationBar(animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
-        resetNavBarAppearance()
     }
 
     // MARK: - Private Methods

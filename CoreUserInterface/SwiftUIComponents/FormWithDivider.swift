@@ -33,7 +33,7 @@ public struct FormWithDivider<Content: View>: View {
         @ViewBuilder
         func body(children: _VariadicView.Children) -> some View {
             let last = children.last?.id
-            LazyVStack(spacing: 0) {
+            VStack(spacing: 0) {
                 ForEach(children) { child in
                     child
                     if child.id != last {

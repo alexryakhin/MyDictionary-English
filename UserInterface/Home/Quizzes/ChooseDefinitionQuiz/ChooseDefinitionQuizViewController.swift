@@ -34,7 +34,6 @@ public final class ChooseDefinitionQuizViewController: PageViewController<Choose
     public override func setupNavigationBar(animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Choose Definition"
-        resetNavBarAppearance()
     }
 
     // MARK: - Private Methods

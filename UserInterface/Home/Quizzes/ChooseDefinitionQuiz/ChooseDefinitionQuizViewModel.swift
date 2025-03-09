@@ -62,7 +62,9 @@ public final class ChooseDefinitionQuizViewModel: DefaultPageViewModel {
         wordsProvider.wordsPublisher
             .first()
             .receive(on: DispatchQueue.main)
-            .assign(to: \.words, on: self)
+            .sink { [weak self] in
+                self?.words = $0.shuffled()
+            }
             .store(in: &cancellables)
     }
 }

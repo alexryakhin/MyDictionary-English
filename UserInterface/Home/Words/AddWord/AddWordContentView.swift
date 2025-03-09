@@ -16,7 +16,7 @@ public struct AddWordContentView: PageView {
     public var contentView: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 16) {
+                LazyVStack(spacing: 16) {
                     FormWithDivider {
                         wordCellView
                         definitionCellView
@@ -107,7 +107,7 @@ public struct AddWordContentView: PageView {
     @ViewBuilder
     var definitionsSectionView: some View {
         if viewModel.definitions.isNotEmpty {
-            VStack(alignment: .leading, spacing: 12) {
+            LazyVStack(alignment: .leading, spacing: 12) {
                 Text("Select a definition")
                     .font(.callout)
                     .bold()
@@ -115,7 +115,7 @@ public struct AddWordContentView: PageView {
                     .padding(.horizontal, 16)
                     .padding(.top, 16)
 
-                ForEach(Array(viewModel.definitions.enumerated()), id: \.offset) { offset, definition in
+                ForEach(Array(viewModel.definitions.enumerated()), id: \.element.id) { offset, definition in
                     FormWithDivider {
                         CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech.rawValue)") {
                             Text(definition.text)

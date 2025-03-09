@@ -27,11 +27,6 @@ open class PageViewController<Content: PageView>: UIHostingController<Content> {
         setupNavigationBar(animated: animated)
     }
 
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setupNavigationBar(animated: animated)
-    }
-
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -42,7 +42,6 @@ public final class WordsListViewController: PageViewController<WordsListContentV
 
     public override func setupNavigationBar(animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
-        resetNavBarAppearance()
     }
 
     // MARK: - Private Methods
