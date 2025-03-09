@@ -1,11 +1,11 @@
+import Swinject
+import SwinjectAutoregistration
 import UserInterface
 import Core
 import CoreUserInterface
-import Shared
-import Swinject
-import Services
 import CoreNavigation
-import SwinjectAutoregistration
+import Services
+import Shared
 
 final class HomeAssembly: Assembly, Identifiable {
 

@@ -1,47 +1,41 @@
-//
-//  ViewController.swift
-//  My Dictionary
-//
-//  Created by Aleksandr Riakhin on 3/8/25.
-//
-
 import UIKit
 import SwiftUI
 import CoreUserInterface
 import Core
 
-public final class WordsListViewController: PageViewController<WordsListContentView> {
+public final class WordDetailsViewController: PageViewController<WordDetailsContentView> {
 
     public enum Event {
-        case showAddWord
-        case openWordDetails(word: Word)
+        case finish
     }
 
     public var onEvent: ((Event) -> Void)?
 
     // MARK: - Private properties
 
-    private let viewModel: WordsListViewModel
+    private let viewModel: WordDetailsViewModel
 
     // MARK: - Initialization
 
-    public init(viewModel: WordsListViewModel) {
+    public init(viewModel: WordDetailsViewModel) {
         self.viewModel = viewModel
-        super.init(rootView: WordsListContentView(viewModel: viewModel))
+        super.init(rootView: WordDetailsContentView(viewModel: viewModel))
     }
 
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     override public func setup() {
         super.setup()
-        tabBarItem = TabBarItem.words.item
         setupBindings()
     }
 
     public override func setupNavigationBar(animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = viewModel.word.word
         resetNavBarAppearance()
     }
 
@@ -50,10 +44,7 @@ public final class WordsListViewController: PageViewController<WordsListContentV
     private func setupBindings() {
         viewModel.onOutput = { [weak self] output in
             switch output {
-            case .showAddWord:
-                self?.onEvent?(.showAddWord)
-            case .showWordDetails(let word):
-                self?.onEvent?(.openWordDetails(word: word))
+                // handle output
             }
         }
     }

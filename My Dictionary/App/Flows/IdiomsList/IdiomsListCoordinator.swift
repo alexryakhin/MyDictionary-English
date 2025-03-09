@@ -1,10 +1,11 @@
-import Combine
 import Swinject
 import SwinjectAutoregistration
-import CoreNavigation
-import CoreUserInterface
-import UIKit
 import UserInterface
+import Core
+import CoreUserInterface
+import CoreNavigation
+import Services
+import UIKit
 
 final class IdiomsListCoordinator: Coordinator {
 

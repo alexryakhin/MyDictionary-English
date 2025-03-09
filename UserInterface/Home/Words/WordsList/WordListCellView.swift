@@ -19,9 +19,10 @@ struct WordListCellView: ConfigurableView {
     var model: Model
 
     var body: some View {
-        HStack {
+        HStack(spacing: 8) {
             Text(model.word)
                 .bold()
+                .foregroundColor(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             if model.isFavorite {
                 Image(systemName: "heart.fill")
@@ -29,6 +30,10 @@ struct WordListCellView: ConfigurableView {
                     .foregroundColor(.accentColor)
             }
             Text(model.partOfSpeech)
+                .foregroundColor(.secondary)
+
+            Image(systemName: "chevron.right")
+                .frame(sideLength: 12)
                 .foregroundColor(.secondary)
         }
     }

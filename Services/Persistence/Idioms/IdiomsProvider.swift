@@ -4,7 +4,7 @@ import CoreData
 import Core
 
 public protocol IdiomsProviderInterface {
-    var idiomsPublisher: AnyPublisher<[CoreIdiom], Never> { get }
+    var idiomsPublisher: AnyPublisher<[Idiom], Never> { get }
     var idiomsErrorPublisher: AnyPublisher<CoreError, Never> { get }
 
     /// Fetches latest data from Core Data
@@ -13,7 +13,7 @@ public protocol IdiomsProviderInterface {
 
 public final class IdiomsProvider: IdiomsProviderInterface {
 
-    public var idiomsPublisher: AnyPublisher<[CoreIdiom], Never> {
+    public var idiomsPublisher: AnyPublisher<[Idiom], Never> {
         _idiomsPublisher.eraseToAnyPublisher()
     }
 
@@ -21,7 +21,7 @@ public final class IdiomsProvider: IdiomsProviderInterface {
         _idiomsErrorPublisher.eraseToAnyPublisher()
     }
 
-    private let _idiomsPublisher = CurrentValueSubject<[CoreIdiom], Never>([])
+    private let _idiomsPublisher = CurrentValueSubject<[Idiom], Never>([])
     private let _idiomsErrorPublisher = PassthroughSubject<CoreError, Never>()
     private let coreDataService: CoreDataServiceInterface
     private var cancellable = Set<AnyCancellable>()
@@ -34,7 +34,7 @@ public final class IdiomsProvider: IdiomsProviderInterface {
 
     /// Fetches latest data from Core Data
     public func fetchIdioms() {
-        let request = NSFetchRequest<Idiom>(entityName: "Idiom")
+        let request = NSFetchRequest<CDIdiom>(entityName: "Idiom")
         do {
             let idioms = try coreDataService.context.fetch(request)
             _idiomsPublisher.send(idioms.compactMap(\.coreModel))

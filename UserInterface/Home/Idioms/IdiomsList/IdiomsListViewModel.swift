@@ -25,7 +25,7 @@ public class IdiomsListViewModel: DefaultPageViewModel {
 
     var onOutput: ((Output) -> Void)?
 
-    @Published var idioms: [CoreIdiom] = []
+    @Published var idioms: [Idiom] = []
     @Published var sortingState: SortingCase = .def
     @Published var filterState: FilterCase = .none
     @Published var searchText = ""
@@ -105,11 +105,11 @@ public class IdiomsListViewModel: DefaultPageViewModel {
     }
 
     // MARK: Sorting
-    var favoriteIdioms: [CoreIdiom] {
+    var favoriteIdioms: [Idiom] {
         idioms.filter { $0.isFavorite }
     }
 
-    var searchResults: [CoreIdiom] {
+    var searchResults: [Idiom] {
         idioms.filter { model in
             guard !searchText.isEmpty else { return true }
             return model.idiom.localizedStandardContains(searchText)

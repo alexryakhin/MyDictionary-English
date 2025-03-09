@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 import Core
 
-@objc(Idiom)
-final class Idiom: NSManagedObject, Identifiable {
-    @nonobjc class func fetchRequest() -> NSFetchRequest<Idiom> {
-        return NSFetchRequest<Idiom>(entityName: "Idiom")
+@objc(CDIdiom)
+final class CDIdiom: NSManagedObject, Identifiable {
+    @nonobjc class func fetchRequest() -> NSFetchRequest<CDIdiom> {
+        return NSFetchRequest<CDIdiom>(entityName: "Idiom")
     }
 
     @NSManaged var definition: String?
@@ -55,9 +55,9 @@ final class Idiom: NSManagedObject, Identifiable {
         self.examples = newExamplesData
     }
 
-    var coreModel: CoreIdiom? {
+    var coreModel: Idiom? {
         guard let idiomItself, let definition, let id, let timestamp else { return nil }
-        return CoreIdiom(
+        return Idiom(
             idiom: idiomItself,
             definition: definition,
             id: id,

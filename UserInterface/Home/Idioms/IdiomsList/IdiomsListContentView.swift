@@ -91,7 +91,7 @@ public struct IdiomsListContentView: PageView {
         viewModel.handle(.showAddIdiom)
     }
 
-    private func idiomsToShow() -> [CoreIdiom] {
+    private func idiomsToShow() -> [Idiom] {
         switch viewModel.filterState {
         case .none:
             return viewModel.idioms

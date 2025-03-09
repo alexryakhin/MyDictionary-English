@@ -1,11 +1,10 @@
 import Swinject
 import SwinjectAutoregistration
+import UserInterface
+import Core
 import CoreUserInterface
 import CoreNavigation
-import Core
-import UserInterface
 import Services
-import Combine
 
 final class HomeCoordinator: Coordinator {
 

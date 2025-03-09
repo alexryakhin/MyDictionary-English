@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 import Core
 
-@objc(Word)
-final class Word: NSManagedObject, Identifiable {
-    @nonobjc class func fetchRequest() -> NSFetchRequest<Word> {
-        return NSFetchRequest<Word>(entityName: "Word")
+@objc(CDWord)
+final class CDWord: NSManagedObject, Identifiable {
+    @nonobjc class func fetchRequest() -> NSFetchRequest<CDWord> {
+        return NSFetchRequest<CDWord>(entityName: "Word")
     }
 
     @NSManaged var wordItself: String?
@@ -30,16 +30,6 @@ final class Word: NSManagedObject, Identifiable {
               let decodedData = try? JSONDecoder().decode([String].self, from: examples)
         else { return [] }
         return decodedData
-    }
-
-    func removeExample(_ example: String) throws {
-        var examples = examplesDecoded
-        guard let index = examples.firstIndex(of: example) else {
-            throw CoreError.internalError(.removingWordExampleFailed)
-        }
-        examples.remove(at: index)
-        let newExamplesData = try JSONEncoder().encode(examples)
-        self.examples = newExamplesData
     }
 
     func removeExample(atOffsets offsets: IndexSet) throws {
@@ -59,9 +49,9 @@ final class Word: NSManagedObject, Identifiable {
         self.examples = newExamplesData
     }
 
-    var coreModel: CoreWord? {
-        guard let wordItself, let definition, let partOfSpeech, let phonetic, let id, let timestamp else { return nil }
-        return CoreWord(
+    var coreModel: Word? {
+        guard let wordItself, let definition, let partOfSpeech, let id, let timestamp else { return nil }
+        return Word(
             word: wordItself,
             definition: definition,
             partOfSpeech: partOfSpeech,

@@ -15,7 +15,7 @@ public class WordsListViewModel: DefaultPageViewModel {
 
     enum Input {
         case showAddWord
-        case showWordDetails(UUID)
+        case showWordDetails(word: Word)
         case deleteWord(IndexSet)
         case selectFilterState(FilterCase)
         case selectSortingState(SortingCase)
@@ -23,21 +23,20 @@ public class WordsListViewModel: DefaultPageViewModel {
 
     enum Output {
         case showAddWord
-        case showWordDetails(UUID)
+        case showWordDetails(word: Word)
     }
 
     var onOutput: ((Output) -> Void)?
 
-    @Published private(set) var words: [CoreWord] = []
+    @Published private(set) var words: [Word] = []
     @Published private(set) var sortingState: SortingCase = .def
     @Published private(set) var filterState: FilterCase = .none
     @Published var searchText = ""
 
     private let wordsProvider: WordsProviderInterface
-    private let wordsManager: WordsManagerInterface
     private var cancellables = Set<AnyCancellable>()
 
-    var wordsFiltered: [CoreWord] {
+    var wordsFiltered: [Word] {
         switch filterState {
         case .none:
             return words
@@ -48,11 +47,11 @@ public class WordsListViewModel: DefaultPageViewModel {
         }
     }
 
-    var favoriteWords: [CoreWord] {
+    var favoriteWords: [Word] {
         words.filter { $0.isFavorite }
     }
 
-    var searchResults: [CoreWord] {
+    var searchResults: [Word] {
         words.filter { word in
             guard !searchText.isEmpty else { return true }
             return word.word.localizedStandardContains(searchText)
@@ -68,11 +67,9 @@ public class WordsListViewModel: DefaultPageViewModel {
     }
 
     public init(
-        wordsProvider: WordsProviderInterface,
-        wordsManager: WordsManagerInterface
+        wordsProvider: WordsProviderInterface
     ) {
         self.wordsProvider = wordsProvider
-        self.wordsManager = wordsManager
         super.init()
         loadingStarted()
         setupBindings()
@@ -82,8 +79,8 @@ public class WordsListViewModel: DefaultPageViewModel {
         switch input {
         case .showAddWord:
             onOutput?(.showAddWord)
-        case .showWordDetails(let id):
-            onOutput?(.showWordDetails(id))
+        case .showWordDetails(let word):
+            onOutput?(.showWordDetails(word: word))
         case .deleteWord(let offsets):
             deleteWord(offsets: offsets)
         case .selectFilterState(let filter):
@@ -134,8 +131,7 @@ public class WordsListViewModel: DefaultPageViewModel {
 
     private func deleteWord(with id: UUID) {
         do {
-            try wordsManager.delete(with: id)
-            saveContext()
+            try wordsProvider.delete(with: id)
         } catch {
             errorReceived(error, displayType: .snack)
         }
@@ -167,14 +163,6 @@ public class WordsListViewModel: DefaultPageViewModel {
             words.sort(by: { lhs, rhs in
                 lhs.partOfSpeech < rhs.partOfSpeech
             })
-        }
-    }
-
-    private func saveContext() {
-        do {
-            try wordsManager.saveContext()
-        } catch {
-            errorReceived(error, displayType: .snack)
         }
     }
 }

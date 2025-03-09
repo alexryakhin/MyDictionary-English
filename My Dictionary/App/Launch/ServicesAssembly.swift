@@ -73,6 +73,11 @@ final class ServicesAssembly: Assembly, Identifiable {
 //            )
 //        }.inObjectScope(.container)
 
+        container.register(SpeechSynthesizerInterface.self) { resolver in
+            SpeechSynthesizer()
+        }
+        .inObjectScope(.container)
+
         container.register(CoreDataServiceInterface.self) { resolver in
             CoreDataService()
         }
@@ -83,10 +88,18 @@ final class ServicesAssembly: Assembly, Identifiable {
         }
         .inObjectScope(.container)
 
-        container.register(WordsManagerInterface.self) { resolver in
-            WordsManager(coreDataService: resolver ~> CoreDataServiceInterface.self)
+        container.register(WordDetailsManagerInterface.self) { resolver, wordId in
+            WordDetailsManager(
+                wordId: wordId,
+                coreDataService: resolver ~> CoreDataServiceInterface.self
+            )
         }
-        .inObjectScope(.container)
+        .inObjectScope(.transient)
+
+        container.register(AddWordManagerInterface.self) { resolver in
+            AddWordManager(coreDataService: resolver ~> CoreDataServiceInterface.self)
+        }
+        .inObjectScope(.transient)
 
         container.register(IdiomsProviderInterface.self) { resolver in
             IdiomsProvider(coreDataService: resolver ~> CoreDataServiceInterface.self)

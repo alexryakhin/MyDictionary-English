@@ -22,7 +22,7 @@ public final class IdiomsManager: IdiomsManagerInterface {
     }
 
     public func addNewIdiom(_ text: String, definition: String) {
-        let newIdiom = Idiom(context: coreDataService.context)
+        let newIdiom = CDIdiom(context: coreDataService.context)
         newIdiom.id = UUID()
         newIdiom.idiomItself = text
         newIdiom.definition = definition
@@ -30,7 +30,7 @@ public final class IdiomsManager: IdiomsManagerInterface {
     }
 
     public func deleteIdiom(with id: UUID) throws {
-        let fetchRequest: NSFetchRequest<Idiom> = Idiom.fetchRequest()
+        let fetchRequest: NSFetchRequest<CDIdiom> = CDIdiom.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
 
         do {

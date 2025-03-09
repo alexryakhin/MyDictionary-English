@@ -25,14 +25,18 @@ public struct WordsListContentView: PageView {
     public var contentView: some View {
         List {
             Section {
-                ForEach(viewModel.wordsFiltered) { word in
-                    WordListCellView(
-                        model: .init(
-                            word: word.word,
-                            isFavorite: word.isFavorite,
-                            partOfSpeech: word.partOfSpeech
+                ForEach(viewModel.wordsFiltered) { wordModel in
+                    Button {
+                        viewModel.handle(.showWordDetails(word: wordModel))
+                    } label: {
+                        WordListCellView(
+                            model: .init(
+                                word: wordModel.word,
+                                isFavorite: wordModel.isFavorite,
+                                partOfSpeech: wordModel.partOfSpeech
+                            )
                         )
-                    )
+                    }
                 }
                 .onDelete {
                     viewModel.handle(.deleteWord($0))

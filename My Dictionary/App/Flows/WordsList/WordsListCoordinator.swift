@@ -5,6 +5,7 @@ import CoreNavigation
 import CoreUserInterface
 import UIKit
 import UserInterface
+import Core
 
 final class WordsListCoordinator: Coordinator {
 
@@ -31,6 +32,21 @@ final class WordsListCoordinator: Coordinator {
 
     private func showMainController() {
         let controller = resolver ~> WordsListViewController.self
+        controller.onEvent = { [weak self] event in
+            switch event {
+            case .openWordDetails(let word):
+                self?.showWordDetails(with: word)
+            case .showAddWord:
+                break
+            @unknown default:
+                break
+            }
+        }
         navController.addChild(controller)
+    }
+
+    private func showWordDetails(with word: Word) {
+        let controller = resolver ~> (WordDetailsViewController.self, word)
+        innerRouter.push(controller)
     }
 }

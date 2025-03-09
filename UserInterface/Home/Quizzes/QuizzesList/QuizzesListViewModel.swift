@@ -23,7 +23,7 @@ public class QuizzesListViewModel: DefaultPageViewModel {
 
     var onOutput: ((Output) -> Void)?
 
-    @Published var words: [CoreWord] = []
+    @Published var words: [Word] = []
     private let wordsProvider: WordsProviderInterface
     private var cancellables: Set<AnyCancellable> = []
 
@@ -46,8 +46,8 @@ public class QuizzesListViewModel: DefaultPageViewModel {
         wordsProvider.wordsPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] words in
-                if words.isNotEmpty {
-                    self?.words = words
+                self?.words = words
+                if words.count >= 10 {
                     self?.resetAdditionalState()
                 } else {
                     self?.additionalState = .placeholder()
