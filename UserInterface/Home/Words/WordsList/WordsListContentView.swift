@@ -17,6 +17,7 @@ public struct WordsListContentView: PageView {
     public typealias ViewModel = WordsListViewModel
 
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
+    @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
     @Environment(\.requestReview) var requestReview
     @ObservedObject public var viewModel: ViewModel
 
@@ -90,6 +91,11 @@ public struct WordsListContentView: PageView {
         }
         .onAppear {
             AnalyticsService.shared.logEvent(.wordsListOpened)
+        }
+        .sheet(isPresented: $isShowingOnboarding) {
+            isShowingOnboarding = false
+        } content: {
+            OnboardingView()
         }
     }
 

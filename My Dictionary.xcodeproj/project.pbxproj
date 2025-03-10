@@ -9,45 +9,29 @@
 /* Begin PBXBuildFile section */
 		53310BA82D7E20D600C1DE8B /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */; };
 		53310BA92D7E211500C1DE8B /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
-		53310BAA2D7E211500C1DE8B /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BC92D7E238900C1DE8B /* FirebaseCore */; };
 		53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */; };
 		53310BF42D7E9E7800C1DE8B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BF32D7E9E7800C1DE8B /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		53E9A7E92D7C3E07007E9F28 /* UserInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7E32D7C3E07007E9F28 /* UserInterface.framework */; };
-		53E9A7EA2D7C3E07007E9F28 /* UserInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7E32D7C3E07007E9F28 /* UserInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9A8112D7C3FF1007E9F28 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
-		53E9A8122D7C3FF1007E9F28 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9A8182D7C4019007E9F28 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
-		53E9A8192D7C4019007E9F28 /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9A81D2D7C401C007E9F28 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
-		53E9A81E2D7C401C007E9F28 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9A8212D7C4029007E9F28 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
-		53E9A8222D7C4029007E9F28 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9A9A72D7C414A007E9F28 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 53E9A9A62D7C414A007E9F28 /* Swinject */; };
 		53E9A9AA2D7C41B1007E9F28 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 53E9A9A92D7C41B1007E9F28 /* SwinjectAutoregistration */; };
 		53E9A9B62D7C41DE007E9F28 /* CoreUserInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9B02D7C41DE007E9F28 /* CoreUserInterface.framework */; };
-		53E9A9B72D7C41DE007E9F28 /* CoreUserInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9B02D7C41DE007E9F28 /* CoreUserInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9A9CB2D7C428E007E9F28 /* CoreNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9C52D7C428E007E9F28 /* CoreNavigation.framework */; };
-		53E9A9CC2D7C428E007E9F28 /* CoreNavigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9C52D7C428E007E9F28 /* CoreNavigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9A9EE2D7C4332007E9F28 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 53E9A9ED2D7C4332007E9F28 /* Swinject */; };
 		53E9A9F02D7C4335007E9F28 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 53E9A9EF2D7C4335007E9F28 /* SwinjectAutoregistration */; };
 		53E9A9FE2D7C439B007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
-		53E9A9FF2D7C439B007E9F28 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9AA042D7C43A1007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
-		53E9AA052D7C43A2007E9F28 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9AA092D7C43A7007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
-		53E9AA0A2D7C43A7007E9F28 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9AA0E2D7C43AD007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
-		53E9AA0F2D7C43AD007E9F28 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9AA132D7C43B2007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
-		53E9AA142D7C43B2007E9F28 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9AA172D7C43B6007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
-		53E9AA182D7C43B6007E9F28 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9AACE2D7CA5A1007E9F28 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
-		53E9AACF2D7CA5A1007E9F28 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9AAD32D7CA84F007E9F28 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 53E9AAD22D7CA84F007E9F28 /* README.md */; };
 		53E9AC0A2D7CC0EC007E9F28 /* CoreUserInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9B02D7C41DE007E9F28 /* CoreUserInterface.framework */; };
-		53E9AC0B2D7CC0EC007E9F28 /* CoreUserInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9B02D7C41DE007E9F28 /* CoreUserInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,85 +162,6 @@
 			remoteInfo = CoreUserInterface;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		53E9A7DB2D7C3D0D007E9F28 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				53E9A9B72D7C41DE007E9F28 /* CoreUserInterface.framework in Embed Frameworks */,
-				53E9A9FF2D7C439B007E9F28 /* Shared.framework in Embed Frameworks */,
-				53E9A9CC2D7C428E007E9F28 /* CoreNavigation.framework in Embed Frameworks */,
-				53E9A8122D7C3FF1007E9F28 /* Core.framework in Embed Frameworks */,
-				53310BAA2D7E211500C1DE8B /* Services.framework in Embed Frameworks */,
-				53E9A7EA2D7C3E07007E9F28 /* UserInterface.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		53E9A81C2D7C4019007E9F28 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				53E9AC0B2D7CC0EC007E9F28 /* CoreUserInterface.framework in Embed Frameworks */,
-				53E9A8192D7C4019007E9F28 /* Services.framework in Embed Frameworks */,
-				53E9AA182D7C43B6007E9F28 /* Shared.framework in Embed Frameworks */,
-				53E9A81E2D7C401C007E9F28 /* Core.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		53E9A8252D7C4029007E9F28 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				53E9A8222D7C4029007E9F28 /* Core.framework in Embed Frameworks */,
-				53E9AA142D7C43B2007E9F28 /* Shared.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		53E9AA082D7C43A2007E9F28 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				53E9AA052D7C43A2007E9F28 /* Shared.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		53E9AA0D2D7C43A7007E9F28 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				53E9AA0A2D7C43A7007E9F28 /* Shared.framework in Embed Frameworks */,
-				53E9AACF2D7CA5A1007E9F28 /* Core.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		53E9AA122D7C43AD007E9F28 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				53E9AA0F2D7C43AD007E9F28 /* Shared.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		53E9A7542D7C3383007E9F28 /* My Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Dictionary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -601,7 +506,6 @@
 				53E9A7502D7C3383007E9F28 /* Sources */,
 				53E9A7512D7C3383007E9F28 /* Frameworks */,
 				53E9A7522D7C3383007E9F28 /* Resources */,
-				53E9A7DB2D7C3D0D007E9F28 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -682,7 +586,6 @@
 				53E9A7DF2D7C3E07007E9F28 /* Sources */,
 				53E9A7E02D7C3E07007E9F28 /* Frameworks */,
 				53E9A7E12D7C3E07007E9F28 /* Resources */,
-				53E9A81C2D7C4019007E9F28 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -710,7 +613,6 @@
 				53E9A7F62D7C3FE4007E9F28 /* Sources */,
 				53E9A7F72D7C3FE4007E9F28 /* Frameworks */,
 				53E9A7F82D7C3FE4007E9F28 /* Resources */,
-				53E9A8252D7C4029007E9F28 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -738,7 +640,6 @@
 				53E9A8072D7C3FF1007E9F28 /* Sources */,
 				53E9A8082D7C3FF1007E9F28 /* Frameworks */,
 				53E9A8092D7C3FF1007E9F28 /* Resources */,
-				53E9AA122D7C43AD007E9F28 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -763,7 +664,6 @@
 				53E9A9AC2D7C41DE007E9F28 /* Sources */,
 				53E9A9AD2D7C41DE007E9F28 /* Frameworks */,
 				53E9A9AE2D7C41DE007E9F28 /* Resources */,
-				53E9AA0D2D7C43A7007E9F28 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -789,7 +689,6 @@
 				53E9A9C12D7C428E007E9F28 /* Sources */,
 				53E9A9C22D7C428E007E9F28 /* Frameworks */,
 				53E9A9C32D7C428E007E9F28 /* Resources */,
-				53E9AA082D7C43A2007E9F28 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1141,16 +1040,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary/My_Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary/Resources/Assets.xcassets";
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "My Dictionary/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1175,16 +1075,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary/My_Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary/Resources/Assets.xcassets";
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "My Dictionary/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1432,7 +1333,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.UserInterface;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.UserInterface";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1472,7 +1373,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.UserInterface;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.UserInterface";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1512,7 +1413,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.Services;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Services";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1553,7 +1454,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.Services;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Services";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1593,7 +1494,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.Core;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Core";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1634,7 +1535,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.Core;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Core";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1675,7 +1576,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.CoreUserInterface;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.CoreUserInterface";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1717,7 +1618,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.CoreUserInterface;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.CoreUserInterface";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1756,7 +1657,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.CoreNavigation;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.CoreNavigation";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1795,7 +1696,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.CoreNavigation;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.CoreNavigation";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1834,7 +1735,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.Shared;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Shared";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1873,7 +1774,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dor.Shared;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Shared";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
