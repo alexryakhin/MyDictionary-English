@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-import Services
+import struct Services.AnalyticsService
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {

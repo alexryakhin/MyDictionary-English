@@ -51,14 +51,18 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
         switch input {
         case .speak(let text):
             speak(text)
+            AnalyticsService.shared.logEvent(.listenToIdiomTapped)
         case .toggleFavorite:
             idiomDetailsManager.toggleFavorite()
+            AnalyticsService.shared.logEvent(.idiomFavoriteTapped(isFavorite: idiom.isFavorite))
         case .toggleShowAddExample:
             isShowAddExample.toggle()
         case .addExample:
             addExample()
+            AnalyticsService.shared.logEvent(.idiomExampleAdded)
         case .removeExample(let offsets):
             idiomDetailsManager.removeExample(atOffsets: offsets)
+            AnalyticsService.shared.logEvent(.idiomExampleRemoved)
         case .deleteIdiom:
             showAlert(
                 withModel: .init(
@@ -69,6 +73,7 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
                     action: {},
                     destructiveAction: { [weak self] in
                         self?.idiomDetailsManager.deleteIdiom()
+                        AnalyticsService.shared.logEvent(.idiomRemoved)
                         self?.onOutput?(.finish)
                     }
                 )

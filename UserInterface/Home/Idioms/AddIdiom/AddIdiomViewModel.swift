@@ -47,6 +47,7 @@ public final class AddIdiomViewModel: DefaultPageViewModel {
                     definition: descriptionField
                 )
                 HapticManager.shared.triggerNotification(type: .success)
+                AnalyticsService.shared.logEvent(.idiomAdded)
                 onOutput?(.finish)
             } catch {
                 errorReceived(error, displayType: .alert)

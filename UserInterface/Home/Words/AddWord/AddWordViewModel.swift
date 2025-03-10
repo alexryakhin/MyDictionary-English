@@ -72,6 +72,7 @@ public final class AddWordViewModel: DefaultPageViewModel {
         Task { @MainActor in
             status = .loading
             do {
+                AnalyticsService.shared.logEvent(.wordFetchedData(word: inputWord.lowercased()))
                 async let definitions = try wordnikAPIService.getDefinitions(
                     for: inputWord.lowercased(),
                     params: .init()
@@ -108,6 +109,7 @@ public final class AddWordViewModel: DefaultPageViewModel {
                     examples: selectedDefinition?.examples ?? []
                 )
                 HapticManager.shared.triggerNotification(type: .success)
+                AnalyticsService.shared.logEvent(.wordAdded(word: inputWord))
                 onOutput?(.finish)
             } catch {
                 errorReceived(error, displayType: .alert)

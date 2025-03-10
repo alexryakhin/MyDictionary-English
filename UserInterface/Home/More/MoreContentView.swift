@@ -4,6 +4,8 @@ import CoreNavigation
 import Core
 import Shared
 import UniformTypeIdentifiers
+import StoreKit
+import struct Services.AnalyticsService
 
 public struct MoreContentView: PageView {
 
@@ -40,11 +42,13 @@ public struct MoreContentView: PageView {
             Section {
                 Button {
                     UIApplication.shared.open(GlobalConstant.twitterUrl)
+                    AnalyticsService.shared.logEvent(.twitterButtonTapped)
                 } label: {
                     Label("Follow on X", systemImage: "bird")
                 }
                 Button {
                     UIApplication.shared.open(GlobalConstant.instagramUrl)
+                    AnalyticsService.shared.logEvent(.instagramButtonTapped)
                 } label: {
                     Label("Follow on Instagram", systemImage: "camera")
                 }
@@ -57,6 +61,7 @@ public struct MoreContentView: PageView {
             Section {
                 Button {
                     UIApplication.shared.open(GlobalConstant.buyMeACoffeeUrl)
+                    AnalyticsService.shared.logEvent(.buyMeACoffeeTapped)
                 } label: {
                     Label("Buy Me a Coffee", systemImage: "cup.and.saucer.fill")
                         .foregroundColor(.orange)
@@ -78,11 +83,13 @@ public struct MoreContentView: PageView {
             Section {
                 Button {
                     viewModel.isImporting = true
+                    AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
                 } label: {
                     Label("Import words", systemImage: "square.and.arrow.down")
                 }
                 Button {
                     viewModel.exportWords()
+                    AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
                 } label: {
                     Label("Export words", systemImage: "square.and.arrow.up")
                 }
@@ -109,6 +116,9 @@ public struct MoreContentView: PageView {
             case .failure(let error):
                 viewModel.errorReceived(error, displayType: .alert)
             }
+        }
+        .onAppear {
+            AnalyticsService.shared.logEvent(.moreOpened)
         }
     }
 }

@@ -44,8 +44,10 @@ public class IdiomsListViewModel: DefaultPageViewModel {
         switch input {
         case .showAddIdiom:
             onOutput?(.showAddIdiom(searchText: searchText))
+            AnalyticsService.shared.logEvent(.addIdiomTapped)
         case .showIdiomDetails(let idiom):
             onOutput?(.showIdiomDetails(idiom: idiom))
+            AnalyticsService.shared.logEvent(.idiomOpened)
         }
     }
 
@@ -92,6 +94,7 @@ public class IdiomsListViewModel: DefaultPageViewModel {
     /// Removes given idiom from Core Data
     func deleteIdiom(with id: UUID) {
         idiomsProvider.delete(with: id)
+        AnalyticsService.shared.logEvent(.idiomRemoved)
     }
 
     // MARK: Sorting

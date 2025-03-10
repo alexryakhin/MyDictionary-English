@@ -2,12 +2,15 @@ import SwiftUI
 import CoreUserInterface
 import CoreNavigation
 import Core
+import struct Services.AnalyticsService
 
 public struct IdiomDetailsContentView: PageView {
 
     public typealias ViewModel = IdiomDetailsViewModel
 
     @ObservedObject public var viewModel: ViewModel
+    @FocusState private var isDefinitionFocused: Bool
+    @FocusState private var isAddExampleFocused: Bool
 
     public init(viewModel: IdiomDetailsViewModel) {
         self.viewModel = viewModel
@@ -32,9 +35,21 @@ public struct IdiomDetailsContentView: PageView {
 
             Section {
                 TextEditor(text: $viewModel.definitionTextFieldStr)
-                    .frame(height: 200)
+                    .frame(height: 150)
+                    .focused($isDefinitionFocused)
             } header: {
-                Text("Definition")
+                HStack {
+                    Text("Definition")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    if isDefinitionFocused {
+                        Button {
+                            UIApplication.shared.endEditing()
+                            AnalyticsService.shared.logEvent(.definitionChanged)
+                        } label: {
+                            Text("Done")
+                        }
+                    }
+                }
             } footer: {
                 Button {
                     viewModel.handle(.speak(viewModel.idiom.definition))
@@ -44,21 +59,8 @@ public struct IdiomDetailsContentView: PageView {
                 }
                 .foregroundColor(.accentColor)
             }
-            Section {
-                Button {
-                    if !viewModel.isShowAddExample {
-                        withAnimation {
-                            viewModel.handle(.toggleShowAddExample)
-                        }
-                    } else {
-                        withAnimation(.easeInOut) {
-                            viewModel.handle(.addExample)
-                        }
-                    }
-                } label: {
-                    Text("Add example")
-                }
 
+            Section {
                 ForEach(viewModel.idiom.examples, id: \.self) { example in
                     Text(example)
                 }
@@ -67,15 +69,34 @@ public struct IdiomDetailsContentView: PageView {
                 }
 
                 if viewModel.isShowAddExample {
-                    TextField("Type an example here", text: $viewModel.exampleTextFieldStr, onCommit: {
-                        withAnimation(.easeInOut) {
+                    TextField("Type an example here", text: $viewModel.exampleTextFieldStr)
+                        .onSubmit {
                             viewModel.handle(.addExample)
                         }
-                    })
-                    .submitLabel(.done)
+                        .submitLabel(.done)
+                        .focused($isAddExampleFocused)
+                } else {
+                    Button {
+                        withAnimation {
+                            viewModel.handle(.toggleShowAddExample)
+                        }
+                    } label: {
+                        Text("Add example")
+                    }
                 }
             } header: {
-                Text("Examples")
+                HStack {
+                    Text("Examples")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    if isAddExampleFocused {
+                        Button {
+                            UIApplication.shared.endEditing()
+                            viewModel.handle(.addExample)
+                        } label: {
+                            Text("Done")
+                        }
+                    }
+                }
             }
         }
         .listStyle(.insetGrouped)

@@ -2,6 +2,7 @@ import SwiftUI
 import CoreUserInterface
 import CoreNavigation
 import Core
+import struct Services.AnalyticsService
 
 public struct ChooseDefinitionQuizContentView: PageView {
 
@@ -45,6 +46,9 @@ public struct ChooseDefinitionQuizContentView: PageView {
                 }
             }
             .listStyle(.insetGrouped)
+            .onAppear {
+                AnalyticsService.shared.logEvent(.definitionQuizOpened)
+            }
         }
     }
 }

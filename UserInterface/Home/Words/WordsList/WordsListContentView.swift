@@ -10,13 +10,14 @@ import CoreUserInterface
 import CoreNavigation
 import Core
 import StoreKit
-import Services
+import struct Services.AnalyticsService
 
 public struct WordsListContentView: PageView {
 
     public typealias ViewModel = WordsListViewModel
 
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
+    @Environment(\.requestReview) var requestReview
     @ObservedObject public var viewModel: ViewModel
 
     public init(viewModel: ViewModel) {
@@ -87,6 +88,9 @@ public struct WordsListContentView: PageView {
                 }
             }
         }
+        .onAppear {
+            AnalyticsService.shared.logEvent(.wordsListOpened)
+        }
     }
 
     public func placeholderView(props: PageState.PlaceholderProps) -> some View {
@@ -101,7 +105,7 @@ public struct WordsListContentView: PageView {
 
     private func addItem() {
         if isShowingRating && viewModel.words.count > 15 {
-            SKStoreReviewController.requestReview()
+            requestReview()
             isShowingRating = false
         }
         viewModel.handle(.showAddWord)

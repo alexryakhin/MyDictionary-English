@@ -55,14 +55,18 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
             speak(text)
         case .toggleFavorite:
             wordDetailsManager.toggleFavorite()
+            AnalyticsService.shared.logEvent(.wordFavoriteTapped(isFavorite: word.isFavorite))
         case .updatePartOfSpeech(let value):
             wordDetailsManager.updatePartOfSpeech(value)
+            AnalyticsService.shared.logEvent(.partOfSpeechChanged)
         case .toggleShowAddExample:
             isShowAddExample.toggle()
         case .addExample:
             addExample()
+            AnalyticsService.shared.logEvent(.wordExampleAdded)
         case .removeExample(let offsets):
             wordDetailsManager.removeExample(atOffsets: offsets)
+            AnalyticsService.shared.logEvent(.wordExampleRemoved)
         case .deleteWord:
             showAlert(
                 withModel: .init(

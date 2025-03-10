@@ -28,12 +28,17 @@ public final class ChooseDefinitionQuizViewModel: DefaultPageViewModel {
 
     private let wordsProvider: WordsProviderInterface
     private var cancellables: Set<AnyCancellable> = []
+    private var wordsPlayedCount: Int = 0
 
     public init(wordsProvider: WordsProviderInterface) {
         self.wordsProvider = wordsProvider
         self.correctAnswerIndex = Int.random(in: 0...2)
         super.init()
         setupBindings()
+    }
+
+    deinit {
+        AnalyticsService.shared.logEvent(.definitionQuizClosed(wordsPlayed: wordsPlayedCount))
     }
 
     func handle(_ input: Input) {
@@ -51,9 +56,12 @@ public final class ChooseDefinitionQuizViewModel: DefaultPageViewModel {
             words.shuffle()
             correctAnswerIndex = Int.random(in: 0...2)
             HapticManager.shared.triggerNotification(type: .success)
+            wordsPlayedCount += 1
+            AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected(isCorrect: true))
         } else {
             isCorrectAnswer = false
             HapticManager.shared.triggerNotification(type: .error)
+            AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected(isCorrect: false))
         }
     }
 

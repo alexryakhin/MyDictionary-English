@@ -9,7 +9,7 @@ import SwiftUI
 import CoreUserInterface
 import CoreNavigation
 import Core
-import StoreKit
+import struct Services.AnalyticsService
 
 public struct QuizzesListContentView: PageView {
 
@@ -45,6 +45,9 @@ public struct QuizzesListContentView: PageView {
             }
         }
         .listStyle(.insetGrouped)
+        .onAppear {
+            AnalyticsService.shared.logEvent(.quizzesOpened)
+        }
     }
 
     public func placeholderView(props: PageState.PlaceholderProps) -> some View {

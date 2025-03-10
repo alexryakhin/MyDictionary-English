@@ -9,7 +9,7 @@ import SwiftUI
 import CoreUserInterface
 import CoreNavigation
 import Core
-import StoreKit
+import struct Services.AnalyticsService
 
 public struct IdiomsListContentView: PageView {
 
@@ -80,6 +80,9 @@ public struct IdiomsListContentView: PageView {
                     Image(systemName: "ellipsis.circle")
                 }
             }
+        }
+        .onAppear {
+            AnalyticsService.shared.logEvent(.idiomsListOpened)
         }
     }
 

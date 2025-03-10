@@ -135,13 +135,14 @@ public class WordsListViewModel: DefaultPageViewModel {
     }
 
     private func deleteWord(_ wordModel: Word) {
-        AnalyticsService.shared.logEvent(.wordRemoved(word: wordModel.word))
         wordsProvider.delete(with: wordModel.id)
+        AnalyticsService.shared.logEvent(.wordRemoved(word: wordModel.word))
     }
 
     private func selectFilterState(_ filterState: FilterCase) {
         self.filterState = filterState
         sortWords()
+        AnalyticsService.shared.logEvent(.wordsListFilterSelected(filter: filterState.rawValue))
     }
 
     // MARK: - Sorting
@@ -149,6 +150,7 @@ public class WordsListViewModel: DefaultPageViewModel {
     private func selectSortingState(_ sortingState: SortingCase) {
         self.sortingState = sortingState
         sortWords()
+        AnalyticsService.shared.logEvent(.wordsListSortingSelected(sorting: sortingState.rawValue))
     }
 
     private func sortWords() {

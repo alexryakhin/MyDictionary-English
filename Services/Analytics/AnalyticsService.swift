@@ -6,6 +6,7 @@
 //
 
 import FirebaseAnalytics
+import Shared
 
 public protocol AnalyticsServiceInterface {
     func logEvent(_ event: AnalyticsEvent)
@@ -19,5 +20,6 @@ public struct AnalyticsService: AnalyticsServiceInterface {
 
     public func logEvent(_ event: AnalyticsEvent) {
         Analytics.logEvent(event.rawValue, parameters: event.parameters)
+        logInfo("Analytics log event: \(event.rawValue)")
     }
 }

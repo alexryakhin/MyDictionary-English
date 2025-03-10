@@ -27,11 +27,16 @@ public final class SpellingQuizViewModel: DefaultPageViewModel {
 
     private let wordsProvider: WordsProviderInterface
     private var cancellables: Set<AnyCancellable> = []
+    private var wordsPlayedCount: Int = 0
 
     public init(wordsProvider: WordsProviderInterface) {
         self.wordsProvider = wordsProvider
         super.init()
         setupBindings()
+    }
+
+    deinit {
+        AnalyticsService.shared.logEvent(.spellingQuizClosed(wordsPlayed: wordsPlayedCount))
     }
 
     func handle(_ input: Input) {
@@ -59,10 +64,13 @@ public final class SpellingQuizViewModel: DefaultPageViewModel {
                 self.randomWord = nil
             }
             HapticManager.shared.triggerNotification(type: .success)
+            wordsPlayedCount += 1
+            AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed(isCorrect: true))
         } else {
             isCorrectAnswer = false
             attemptCount += 1
             HapticManager.shared.triggerNotification(type: .error)
+            AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed(isCorrect: false))
         }
     }
 

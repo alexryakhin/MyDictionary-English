@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum FilterCase {
+public enum FilterCase: String {
     case none
     case favorite
     case search

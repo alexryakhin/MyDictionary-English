@@ -2,6 +2,7 @@ import SwiftUI
 import CoreUserInterface
 import CoreNavigation
 import Core
+import struct Services.AnalyticsService
 
 public struct SpellingQuizContentView: PageView {
 
@@ -60,6 +61,9 @@ public struct SpellingQuizContentView: PageView {
                 }
             }
             .listStyle(.insetGrouped)
+            .onAppear {
+                AnalyticsService.shared.logEvent(.spellingQuizOpened)
+            }
         } else {
             EmptyListView(
                 label: "Congratulations!",

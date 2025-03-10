@@ -2,6 +2,7 @@ import SwiftUI
 import CoreUserInterface
 import CoreNavigation
 import Core
+import struct Services.AnalyticsService
 
 public struct AddWordContentView: PageView {
 
@@ -124,11 +125,11 @@ public struct AddWordContentView: PageView {
                         } trailingContent: {
                             checkboxImage(definition.id)
                                 .onTap {
-                                    definitionSelected(definition)
+                                    definitionSelected(definition, index: offset)
                                 }
                         }
                         .onTapGesture {
-                            definitionSelected(definition)
+                            definitionSelected(definition, index: offset)
                         }
                         ForEach(definition.examples, id: \.self) { example in
                             CellWrapper("Example") {
@@ -151,9 +152,10 @@ public struct AddWordContentView: PageView {
             .frame(sideLength: 20)
     }
 
-    private func definitionSelected(_ definition: WordDefinition) {
+    private func definitionSelected(_ definition: WordDefinition, index: Int) {
         viewModel.handle(.selectDefinition(definition))
         HapticManager.shared.triggerSelection()
         UIApplication.shared.endEditing()
+        AnalyticsService.shared.logEvent(.definitionSelected(word: viewModel.inputWord, number: index))
     }
 }

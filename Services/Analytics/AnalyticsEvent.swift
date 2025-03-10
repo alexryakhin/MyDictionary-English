@@ -13,13 +13,13 @@ public enum AnalyticsEvent {
     case wordsListOpened
     case idiomsListOpened
     case quizzesOpened
-    case settingsOpened
+    case moreOpened
 
     case wordsListFilterSelected(filter: String)
     case wordsListSortingSelected(sorting: String)
 
     case addWordTapped
-    case wordSearched(word: String)
+    case wordFetchedData(word: String)
     case addWordFromSearchTapped(word: String)
     case definitionSelected(word: String, number: Int)
     case wordAdded(word: String)
@@ -33,6 +33,7 @@ public enum AnalyticsEvent {
     case partOfSpeechChanged
     case wordFavoriteTapped(isFavorite: Bool)
 
+    case addIdiomTapped
     case idiomAdded
     case idiomOpened
     case idiomRemoved
@@ -48,7 +49,9 @@ public enum AnalyticsEvent {
     case definitionQuizAnswerSelected(isCorrect: Bool)
     case definitionQuizClosed(wordsPlayed: Int)
 
-    case showIdiomsSwitched(isOn: Bool)
+    case buyMeACoffeeTapped
+    case twitterButtonTapped
+    case instagramButtonTapped
     case exportToCSVButtonTapped
     case importFromCSVButtonTapped
 
@@ -58,11 +61,11 @@ public enum AnalyticsEvent {
         case .wordsListOpened: "wordsListOpened"
         case .idiomsListOpened: "idiomsListOpened"
         case .quizzesOpened: "quizzesOpened"
-        case .settingsOpened: "settingsOpened"
+        case .moreOpened: "moreOpened"
         case .wordsListFilterSelected: "wordsListFilterSelected"
         case .wordsListSortingSelected: "wordsListSortingSelected"
         case .addWordTapped: "addWordTapped"
-        case .wordSearched: "wordSearched"
+        case .wordFetchedData: "wordFetchedData"
         case .addWordFromSearchTapped: "addWordFromSearchTapped"
         case .definitionSelected: "definitionSelected"
         case .wordAdded: "wordAdded"
@@ -75,6 +78,7 @@ public enum AnalyticsEvent {
         case .definitionChanged: "definitionChanged"
         case .partOfSpeechChanged: "partOfSpeechChanged"
         case .wordFavoriteTapped: "wordFavoriteTapped"
+        case .addIdiomTapped: "addIdiomTapped"
         case .idiomAdded: "idiomAdded"
         case .idiomOpened: "idiomOpened"
         case .idiomRemoved: "idiomRemoved"
@@ -88,7 +92,9 @@ public enum AnalyticsEvent {
         case .definitionQuizOpened: "definitionQuizOpened"
         case .definitionQuizAnswerSelected: "definitionQuizAnswerSelected"
         case .definitionQuizClosed: "definitionQuizClosed"
-        case .showIdiomsSwitched: "showIdiomsSwitched"
+        case .buyMeACoffeeTapped: "buyMeACoffeeTapped"
+        case .twitterButtonTapped: "twitterButtonTapped"
+        case .instagramButtonTapped: "instagramButtonTapped"
         case .exportToCSVButtonTapped: "exportToCSVButtonTapped"
         case .importFromCSVButtonTapped: "importFromCSVButtonTapped"
         }
@@ -102,7 +108,7 @@ public enum AnalyticsEvent {
             ["filter": filter]
         case .wordsListSortingSelected(let sorting):
             ["sorting": sorting]
-        case .wordSearched(let word):
+        case .wordFetchedData(let word):
             ["word": word]
         case .addWordFromSearchTapped(let word):
             ["word": word]
@@ -126,8 +132,6 @@ public enum AnalyticsEvent {
             ["isCorrect": isCorrect]
         case .definitionQuizClosed(let wordsPlayed):
             ["wordsPlayed": wordsPlayed]
-        case .showIdiomsSwitched(let isOn):
-            ["isOn": isOn]
         default:
             nil
         }

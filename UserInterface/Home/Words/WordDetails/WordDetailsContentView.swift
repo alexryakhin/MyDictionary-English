@@ -2,12 +2,15 @@ import SwiftUI
 import CoreUserInterface
 import CoreNavigation
 import Core
+import struct Services.AnalyticsService
 
 public struct WordDetailsContentView: PageView {
 
     public typealias ViewModel = WordDetailsViewModel
 
     @ObservedObject public var viewModel: ViewModel
+    @FocusState private var isDefinitionFocused: Bool
+    @FocusState private var isAddExampleFocused: Bool
 
     public init(viewModel: WordDetailsViewModel) {
         self.viewModel = viewModel
@@ -21,6 +24,7 @@ public struct WordDetailsContentView: PageView {
                     Spacer()
                     Button {
                         viewModel.handle(.speak(viewModel.word.word))
+                        AnalyticsService.shared.logEvent(.listenToWordTapped)
                     } label: {
                         Image(systemName: "speaker.wave.2.fill")
                     }
@@ -45,28 +49,34 @@ public struct WordDetailsContentView: PageView {
             }
 
             Section {
-                TextField("Definition", text: $viewModel.definitionTextFieldStr)
-                    .submitLabel(.done)
+                TextEditor(text: $viewModel.definitionTextFieldStr)
+                    .frame(height: 150)
+                    .focused($isDefinitionFocused)
             } header: {
-                Text("Definition")
+                HStack {
+                    Text("Definition")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    if isDefinitionFocused {
+                        Button {
+                            UIApplication.shared.endEditing()
+                            AnalyticsService.shared.logEvent(.definitionChanged)
+                        } label: {
+                            Text("Done")
+                        }
+                    }
+                }
             } footer: {
                 Button {
                     viewModel.handle(.speak(viewModel.word.definition))
+                    AnalyticsService.shared.logEvent(.listenToDefinitionTapped)
                 } label: {
                     Image(systemName: "speaker.wave.2.fill")
                     Text("Listen")
                 }
                 .foregroundColor(.accentColor)
             }
-            Section {
-                Button {
-                    withAnimation {
-                        viewModel.handle(.toggleShowAddExample)
-                    }
-                } label: {
-                    Text("Add example")
-                }
 
+            Section {
                 ForEach(viewModel.word.examples, id: \.self) { example in
                     Text(example)
                 }
@@ -80,18 +90,28 @@ public struct WordDetailsContentView: PageView {
                             viewModel.handle(.addExample)
                         }
                         .submitLabel(.done)
+                        .focused($isAddExampleFocused)
+                } else {
+                    Button {
+                        withAnimation {
+                            viewModel.handle(.toggleShowAddExample)
+                        }
+                    } label: {
+                        Text("Add example")
+                    }
                 }
             } header: {
-                Text("Examples")
-            } footer: {
-                if viewModel.isShowAddExample {
-                    Button {
-                        viewModel.handle(.addExample)
-                    } label: {
-                        Image(systemName: "checkmark")
-                        Text("Save")
+                HStack {
+                    Text("Examples")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    if isAddExampleFocused {
+                        Button {
+                            UIApplication.shared.endEditing()
+                            viewModel.handle(.addExample)
+                        } label: {
+                            Text("Done")
+                        }
                     }
-                    .foregroundColor(.accentColor)
                 }
             }
         }
@@ -116,6 +136,5 @@ public struct WordDetailsContentView: PageView {
                 }
             }
         }
-        .scrollDismissesKeyboard(.interactively)
     }
 }
