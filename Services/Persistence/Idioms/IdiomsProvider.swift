@@ -23,7 +23,7 @@ public final class IdiomsProvider: IdiomsProviderInterface {
 
     private let _idiomsPublisher = CurrentValueSubject<[Idiom], Never>([])
     private let coreDataService: CoreDataServiceInterface
-    private var cancellable = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
 
     public init(coreDataService: CoreDataServiceInterface) {
         self.coreDataService = coreDataService
@@ -67,6 +67,14 @@ public final class IdiomsProvider: IdiomsProviderInterface {
             .sink { [weak self] _ in
                 self?.fetchIdioms()
             }
-            .store(in: &cancellable)
+            .store(in: &cancellables)
+
+        NotificationCenter.default.eventChangedPublisher
+            .sink { [weak self] _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    self?.fetchIdioms()
+                }
+            }
+            .store(in: &cancellables)
     }
 }

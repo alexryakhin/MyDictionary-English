@@ -6,6 +6,7 @@
 //
 
 import Combine
+import CoreData
 
 extension NotificationCenter {
     var coreDataDidSavePublisher: Publishers.ReceiveOn<NotificationCenter.Publisher, DispatchQueue> {
@@ -13,5 +14,8 @@ extension NotificationCenter {
     }
     var mergeChangesObjectIDsPublisher: Publishers.ReceiveOn<NotificationCenter.Publisher, DispatchQueue> {
         return publisher(for: .NSManagedObjectContextDidMergeChangesObjectIDs).receive(on: DispatchQueue.main)
+    }
+    var eventChangedPublisher: Publishers.ReceiveOn<NotificationCenter.Publisher, DispatchQueue> {
+        return publisher(for: NSPersistentCloudKitContainer.eventChangedNotification).receive(on: DispatchQueue.main)
     }
 }

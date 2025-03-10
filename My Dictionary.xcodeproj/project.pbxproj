@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		53310BA82D7E20D600C1DE8B /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */; };
-		53310BA92D7E211500C1DE8B /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
 		53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BC92D7E238900C1DE8B /* FirebaseCore */; };
 		53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */; };
 		53310BF42D7E9E7800C1DE8B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BF32D7E9E7800C1DE8B /* FirebaseAnalyticsWithoutAdIdSupport */; };
-		53E9A7E92D7C3E07007E9F28 /* UserInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7E32D7C3E07007E9F28 /* UserInterface.framework */; };
-		53E9A8112D7C3FF1007E9F28 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
+		53310D772D7EB4CF00C1DE8B /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
+		53310D782D7EB4CF00C1DE8B /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53310D7A2D7EB4D000C1DE8B /* CoreNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9C52D7C428E007E9F28 /* CoreNavigation.framework */; };
+		53310D7B2D7EB4D000C1DE8B /* CoreNavigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9C52D7C428E007E9F28 /* CoreNavigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53310D7C2D7EB4D200C1DE8B /* CoreUserInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9B02D7C41DE007E9F28 /* CoreUserInterface.framework */; };
+		53310D7D2D7EB4D200C1DE8B /* CoreUserInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9B02D7C41DE007E9F28 /* CoreUserInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53310D7E2D7EB4D300C1DE8B /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
+		53310D7F2D7EB4D300C1DE8B /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53310D802D7EB4D400C1DE8B /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
+		53310D812D7EB4D400C1DE8B /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53310D822D7EB4D500C1DE8B /* UserInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7E32D7C3E07007E9F28 /* UserInterface.framework */; };
+		53310D832D7EB4D500C1DE8B /* UserInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7E32D7C3E07007E9F28 /* UserInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E9A8182D7C4019007E9F28 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
 		53E9A81D2D7C401C007E9F28 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
 		53E9A8212D7C4029007E9F28 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
 		53E9A9A72D7C414A007E9F28 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 53E9A9A62D7C414A007E9F28 /* Swinject */; };
 		53E9A9AA2D7C41B1007E9F28 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 53E9A9A92D7C41B1007E9F28 /* SwinjectAutoregistration */; };
-		53E9A9B62D7C41DE007E9F28 /* CoreUserInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9B02D7C41DE007E9F28 /* CoreUserInterface.framework */; };
-		53E9A9CB2D7C428E007E9F28 /* CoreNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9C52D7C428E007E9F28 /* CoreNavigation.framework */; };
 		53E9A9EE2D7C4332007E9F28 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 53E9A9ED2D7C4332007E9F28 /* Swinject */; };
 		53E9A9F02D7C4335007E9F28 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 53E9A9EF2D7C4335007E9F28 /* SwinjectAutoregistration */; };
-		53E9A9FE2D7C439B007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
 		53E9AA042D7C43A1007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
 		53E9AA092D7C43A7007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
 		53E9AA0E2D7C43AD007E9F28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
@@ -162,6 +168,25 @@
 			remoteInfo = CoreUserInterface;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		53310D792D7EB4CF00C1DE8B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				53310D812D7EB4D400C1DE8B /* Shared.framework in Embed Frameworks */,
+				53310D832D7EB4D500C1DE8B /* UserInterface.framework in Embed Frameworks */,
+				53310D7D2D7EB4D200C1DE8B /* CoreUserInterface.framework in Embed Frameworks */,
+				53310D782D7EB4CF00C1DE8B /* Core.framework in Embed Frameworks */,
+				53310D7F2D7EB4D300C1DE8B /* Services.framework in Embed Frameworks */,
+				53310D7B2D7EB4D000C1DE8B /* CoreNavigation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		53E9A7542D7C3383007E9F28 /* My Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Dictionary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -323,15 +348,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53E9A9CB2D7C428E007E9F28 /* CoreNavigation.framework in Frameworks */,
-				53E9A9B62D7C41DE007E9F28 /* CoreUserInterface.framework in Frameworks */,
-				53310BA92D7E211500C1DE8B /* Services.framework in Frameworks */,
-				53E9A9FE2D7C439B007E9F28 /* Shared.framework in Frameworks */,
-				53E9A8112D7C3FF1007E9F28 /* Core.framework in Frameworks */,
+				53310D7A2D7EB4D000C1DE8B /* CoreNavigation.framework in Frameworks */,
+				53310D822D7EB4D500C1DE8B /* UserInterface.framework in Frameworks */,
+				53310D772D7EB4CF00C1DE8B /* Core.framework in Frameworks */,
 				53E9A9AA2D7C41B1007E9F28 /* SwinjectAutoregistration in Frameworks */,
-				53E9A7E92D7C3E07007E9F28 /* UserInterface.framework in Frameworks */,
+				53310D7C2D7EB4D200C1DE8B /* CoreUserInterface.framework in Frameworks */,
+				53310D802D7EB4D400C1DE8B /* Shared.framework in Frameworks */,
 				53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */,
 				53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */,
+				53310D7E2D7EB4D300C1DE8B /* Services.framework in Frameworks */,
 				53E9A9A72D7C414A007E9F28 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +531,7 @@
 				53E9A7502D7C3383007E9F28 /* Sources */,
 				53E9A7512D7C3383007E9F28 /* Frameworks */,
 				53E9A7522D7C3383007E9F28 /* Resources */,
+				53310D792D7EB4CF00C1DE8B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1040,7 +1066,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary/My_Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary/Resources/Assets.xcassets";
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1062,6 +1088,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1075,7 +1102,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary/My_Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary/Resources/Assets.xcassets";
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1097,6 +1124,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1237,6 +1265,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1259,6 +1288,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1280,6 +1310,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1301,6 +1332,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1339,6 +1371,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1379,6 +1412,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1419,6 +1453,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1460,6 +1495,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1500,6 +1536,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1541,6 +1578,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1582,6 +1620,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1624,6 +1663,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1663,6 +1703,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1702,6 +1743,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1741,6 +1783,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1780,6 +1823,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;

@@ -22,7 +22,7 @@ public final class WordsProvider: WordsProviderInterface {
 
     private let _wordsPublisher = CurrentValueSubject<[Word], Never>([])
     private let coreDataService: CoreDataServiceInterface
-    private var cancellable = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
 
     public init(coreDataService: CoreDataServiceInterface) {
         self.coreDataService = coreDataService
@@ -65,6 +65,15 @@ public final class WordsProvider: WordsProviderInterface {
             .sink { [weak self] _ in
                 self?.fetchWords()
             }
-            .store(in: &cancellable)
+            .store(in: &cancellables)
+
+
+        NotificationCenter.default.eventChangedPublisher
+            .sink { [weak self] _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    self?.fetchWords()
+                }
+            }
+            .store(in: &cancellables)
     }
 }
