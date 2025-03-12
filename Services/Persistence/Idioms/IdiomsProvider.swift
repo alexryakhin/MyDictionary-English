@@ -59,21 +59,12 @@ public final class IdiomsProvider: IdiomsProviderInterface {
         }
     }
 
-
     private func setupBindings() {
-        // every time core data gets updated, call fetchIdioms()
-        NotificationCenter.default.mergeChangesObjectIDsPublisher
-            .combineLatest(NotificationCenter.default.coreDataDidSavePublisher)
+        NotificationCenter.default.eventChangedPublisher
+            .combineLatest(NotificationCenter.default.coreDataDidSaveObjectIDsPublisher)
+            .debounce(for: .seconds(0.3), scheduler: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.fetchIdioms()
-            }
-            .store(in: &cancellables)
-
-        NotificationCenter.default.eventChangedPublisher
-            .sink { [weak self] _ in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    self?.fetchIdioms()
-                }
             }
             .store(in: &cancellables)
     }

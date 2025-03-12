@@ -9,13 +9,10 @@ import Combine
 import CoreData
 
 extension NotificationCenter {
-    var coreDataDidSavePublisher: Publishers.ReceiveOn<NotificationCenter.Publisher, DispatchQueue> {
-        return publisher(for: .NSManagedObjectContextDidSave).receive(on: DispatchQueue.main)
+    var coreDataDidSaveObjectIDsPublisher: NotificationCenter.Publisher {
+        publisher(for: .NSManagedObjectContextDidSaveObjectIDs)
     }
-    var mergeChangesObjectIDsPublisher: Publishers.ReceiveOn<NotificationCenter.Publisher, DispatchQueue> {
-        return publisher(for: .NSManagedObjectContextDidMergeChangesObjectIDs).receive(on: DispatchQueue.main)
-    }
-    var eventChangedPublisher: Publishers.ReceiveOn<NotificationCenter.Publisher, DispatchQueue> {
-        return publisher(for: NSPersistentCloudKitContainer.eventChangedNotification).receive(on: DispatchQueue.main)
+    var eventChangedPublisher: NotificationCenter.Publisher {
+        publisher(for: NSPersistentCloudKitContainer.eventChangedNotification)
     }
 }
