@@ -36,6 +36,21 @@ final class MoreCoordinator: Coordinator {
 
     private func showMainController() {
         let controller = resolver ~> MoreViewController.self
-         navController.addChild(controller)
+
+        controller.onEvent = { [weak self] event in
+            switch event {
+            case .showAboutApp:
+                self?.showAboutApp()
+            @unknown default:
+                fatalError()
+            }
+        }
+
+        navController.addChild(controller)
+    }
+
+    private func showAboutApp() {
+        let controller = resolver ~> AboutAppViewController.self
+        router.push(controller)
     }
 }

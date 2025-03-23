@@ -21,61 +21,19 @@ public struct MoreContentView: PageView {
 
     public var contentView: some View {
         List {
-            // MARK: - About
+
+            // MARK: - Settings
 
             Section {
-                Text("I created this app because I could not find something that I wanted. It is a simple word list manager that allows you to search for words and add their definitions along them without actually translating into a native language. I find this best to learn English. Hope it will work for you as well. If you have any questions, or want to suggest a feature, please reach out to me on the links below. Thank you for using my app!")
-                    .multilineTextAlignment(.leading)
-                HStack(spacing: 8) {
-                    Text("App version:")
-                        .bold()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text(GlobalConstant.currentFullAppVersion)
-                        .foregroundColor(.secondary)
-                }
-            } header: {
-                Text("About")
-            }
-
-            // MARK: - Follow Me
-
-            Section {
-                Button {
-                    UIApplication.shared.open(GlobalConstant.twitterUrl)
-                    AnalyticsService.shared.logEvent(.twitterButtonTapped)
-                } label: {
-                    Label("Follow on X", systemImage: "bird")
-                }
-                Button {
-                    UIApplication.shared.open(GlobalConstant.instagramUrl)
-                    AnalyticsService.shared.logEvent(.instagramButtonTapped)
-                } label: {
-                    Label("Follow on Instagram", systemImage: "camera")
-                }
-            } header: {
-                Text("Follow Me")
-            }
-
-            // MARK: - Review section
-
-            Section {
-                Button {
-                    UIApplication.shared.open(GlobalConstant.buyMeACoffeeUrl)
-                    AnalyticsService.shared.logEvent(.buyMeACoffeeTapped)
-                } label: {
-                    Label("Buy Me a Coffee", systemImage: "cup.and.saucer.fill")
-                        .foregroundColor(.orange)
-                }
-                if viewModel.isShowingRating {
-                    Button {
-                        requestReview()
-                    } label: {
-                        Label("Rate the app", systemImage: "star.fill")
-                            .foregroundStyle(Color.yellow)
+                Picker("Accent", selection: $viewModel.selectedTTSLanguage) {
+                    ForEach(TTSLanguage.allCases) { language in
+                        Text(language.title)
+                            .tag(language)
                     }
                 }
+                .pickerStyle(.menu)
             } header: {
-                Text("Support")
+                Text("Settings")
             }
 
             // MARK: - Import & Export

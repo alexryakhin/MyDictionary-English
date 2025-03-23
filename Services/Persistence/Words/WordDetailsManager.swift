@@ -76,7 +76,7 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
     public func deleteWord() {
         guard let cdWord else { return }
         coreDataService.context.delete(cdWord)
-        AnalyticsService.shared.logEvent(.wordRemoved(word: cdWord.wordItself.orEmpty))
+        AnalyticsService.shared.logEvent(.wordRemoved)
         saveContext()
     }
 

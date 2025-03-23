@@ -22,10 +22,10 @@ public struct IdiomsListContentView: PageView {
     }
 
     public var contentView: some View {
-        List {
-            if !idiomsToShow().isEmpty {
-                Section {
-                    ForEach(idiomsToShow()) { idiomModel in
+        ScrollView {
+            CustomSectionView(header: filterStateTitle, footer: idiomsCount) {
+                if filteredIdioms.isNotEmpty {
+                    ListWithDivider(filteredIdioms) { idiomModel in
                         Button {
                             viewModel.handle(.showIdiomDetails(idiom: idiomModel))
                         } label: {
@@ -35,38 +35,40 @@ public struct IdiomsListContentView: PageView {
                                     isFavorite: idiomModel.isFavorite
                                 )
                             )
+                            .padding(vertical: 12, horizontal: 16)
+                            .background(Color.surface)
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                    viewModel.handle(.deleteIdiom(idiom: idiomModel))
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
                         }
                     }
-                    .onDelete { offsets in
-                        viewModel.deleteIdiom(atOffsets: offsets)
-                    }
-                } header: {
-                    if let title = viewModel.filterState.title {
-                        Text(title)
-                    }
-                } footer: {
-                    if !idiomsToShow().isEmpty {
-                        Text(idiomsCount)
+                    .clippedWithBackground(.surface)
+                }
+
+                if viewModel.filterState == .search && filteredIdioms.count < 10 {
+                    Button {
+                        addItem()
+                    } label: {
+                        Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .clippedWithPaddingAndBackground(.surface)
                     }
                 }
             }
-            if viewModel.filterState == .search && idiomsToShow().count < 10 {
-                Button {
-                    addItem()
-                } label: {
-                    Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
-                }
-            }
+            .padding(vertical: 12, horizontal: 16)
         }
-        .listStyle(.insetGrouped)
+        .animation(.default, value: viewModel.sortingState)
+        .animation(.default, value: viewModel.filterState)
+        .animation(.default, value: viewModel.idioms)
+        .background(Color.background)
         .if(viewModel.idioms.isNotEmpty, transform: { view in
             view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
         })
-        .listStyle(.insetGrouped)
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
-            }
             ToolbarItem {
                 Button(action: addItem) {
                     Label("Add Item", systemImage: "plus")
@@ -98,7 +100,7 @@ public struct IdiomsListContentView: PageView {
         viewModel.handle(.showAddIdiom)
     }
 
-    private func idiomsToShow() -> [Idiom] {
+    private var filteredIdioms: [Idiom] {
         switch viewModel.filterState {
         case .none:
             return viewModel.idioms
@@ -109,75 +111,71 @@ public struct IdiomsListContentView: PageView {
         }
     }
 
-    private var idiomsCount: String {
-        if idiomsToShow().count == 1 {
+    private var filterStateTitle: LocalizedStringKey {
+        switch viewModel.filterState {
+        case .none:
+            return "All idioms"
+        case .favorite:
+            return "Favorites"
+        case .search:
+            return "Found"
+        }
+    }
+
+    private var idiomsCount: LocalizedStringKey? {
+        guard filteredIdioms.isNotEmpty else {
+            return nil
+        }
+        if filteredIdioms.count == 1 {
             return "1 idiom"
         } else {
-            return "\(idiomsToShow().count) idioms"
+            return "\(filteredIdioms.count) idioms"
         }
     }
 
     private var filterMenu: some View {
         Menu {
             Button {
-                withAnimation {
-                    viewModel.filterState = .none
-                }
+                viewModel.handle(.changeFilter(to: .none))
             } label: {
-                if viewModel.filterState == .none {
-                    Image(systemName: "checkmark")
-                }
-                Text("None")
+                Label("None", systemImage: viewModel.filterState == .none
+                      ? "checkmark.circle.fill"
+                      : "circle"
+                )
             }
             Button {
-                withAnimation {
-                    viewModel.filterState = .favorite
-                }
+                viewModel.handle(.changeFilter(to: .favorite))
             } label: {
-                if viewModel.filterState == .favorite {
-                    Image(systemName: "checkmark")
-                }
-                Text("Favorites")
+                Label("Favorites", systemImage: viewModel.filterState == .favorite
+                    ? "checkmark.circle.fill"
+                    : "circle"
+                )
             }
         } label: {
-            Label {
-                Text("Filter By")
-            } icon: {
-                Image(systemName: "paperclip")
-            }
+            Label("Filter By", systemImage: "paperclip")
         }
     }
 
     private var sortMenu: some View {
         Menu {
             Button {
-                withAnimation {
-                    viewModel.sortingState = .def
-                    viewModel.sortIdioms()
-                }
+                viewModel.handle(.changeSorting(to: .def))
             } label: {
-                if viewModel.sortingState == .def {
-                    Image(systemName: "checkmark")
-                }
-                Text("Default")
+                Label("Default", systemImage: viewModel.sortingState == .def
+                      ? "checkmark.circle.fill"
+                      : "circle"
+                )
             }
             Button {
-                withAnimation {
-                    viewModel.sortingState = .name
-                    viewModel.sortIdioms()
-                }
+                viewModel.handle(.changeSorting(to: .name))
             } label: {
-                if viewModel.sortingState == .name {
-                    Image(systemName: "checkmark")
-                }
-                Text("Name")
+                Label("Name", systemImage: viewModel.sortingState == .name
+                      ? "checkmark.circle.fill"
+                      : "circle"
+                )
             }
         } label: {
-            Label {
-                Text("Sort By")
-            } icon: {
-                Image(systemName: "arrow.up.arrow.down")
-            }
+            Label("Sort By", systemImage: "arrow.up.arrow.down")
         }
     }
 }

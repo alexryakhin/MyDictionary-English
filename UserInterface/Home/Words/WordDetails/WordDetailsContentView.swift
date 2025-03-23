@@ -23,7 +23,7 @@ public struct WordDetailsContentView: PageView {
                     Text("\(viewModel.word.phonetic?.nilIfEmpty ?? "No transcription")")
                     Spacer()
                     Button {
-                        viewModel.handle(.speak(viewModel.word.word))
+                        viewModel.handle(.play(viewModel.word.word))
                         AnalyticsService.shared.logEvent(.listenToWordTapped)
                     } label: {
                         Image(systemName: "speaker.wave.2.fill")
@@ -66,7 +66,7 @@ public struct WordDetailsContentView: PageView {
                 }
             } footer: {
                 Button {
-                    viewModel.handle(.speak(viewModel.word.definition))
+                    viewModel.handle(.play(viewModel.word.definition))
                     AnalyticsService.shared.logEvent(.listenToDefinitionTapped)
                 } label: {
                     Image(systemName: "speaker.wave.2.fill")

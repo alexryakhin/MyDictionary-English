@@ -9,14 +9,16 @@ import SwiftUI
 public final class MoreViewModel: DefaultPageViewModel {
 
     enum Input {
+        case showAboutApp
     }
 
     enum Output {
+        case showAboutApp
     }
 
     var onOutput: ((Output) -> Void)?
 
-    @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
+    @AppStorage(UDKeys.selectedTTSLanguage) var selectedTTSLanguage: TTSLanguage = .enUS
 
     @Published var isImporting = false
     @Published var importFileURL: URL?
@@ -36,6 +38,13 @@ public final class MoreViewModel: DefaultPageViewModel {
         self.csvManager = csvManager
         super.init()
         setupBindings()
+    }
+
+    func handle(_ input: Input) {
+        switch input {
+        case .showAboutApp:
+            onOutput?(.showAboutApp)
+        }
     }
 
     private func setupBindings() {

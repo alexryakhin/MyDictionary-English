@@ -23,7 +23,7 @@ final class WordsListAssembly: Assembly, Identifiable {
             let viewModel = WordDetailsViewModel(
                 word: word,
                 wordDetailsManager: resolver.resolve(WordDetailsManagerInterface.self, argument: word.id)!,
-                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+                ttsPlayer: resolver ~> TTSPlayerInterface.self
             )
             let controller = WordDetailsViewController(viewModel: viewModel)
             return controller
@@ -34,7 +34,7 @@ final class WordsListAssembly: Assembly, Identifiable {
                 inputWord: searchWord,
                 wordnikAPIService: resolver ~> WordnikAPIServiceInterface.self,
                 addWordManager: resolver ~> AddWordManagerInterface.self,
-                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+                ttsPlayer: resolver ~> TTSPlayerInterface.self
             )
             let controller = AddWordViewController(viewModel: viewModel)
             return controller

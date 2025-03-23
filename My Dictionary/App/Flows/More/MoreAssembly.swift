@@ -22,6 +22,12 @@ final class MoreAssembly: Assembly, Identifiable {
             let controller = MoreViewController(viewModel: viewModel)
             return controller
         }
+
+        container.register(AboutAppViewController.self) { resolver in
+            let viewModel = AboutAppViewModel(arg: 0)
+            let controller = AboutAppViewController(viewModel: viewModel)
+            return controller
+        }
     }
 
     func loaded(resolver: Resolver) {

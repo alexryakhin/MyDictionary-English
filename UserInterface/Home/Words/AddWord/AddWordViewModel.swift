@@ -10,7 +10,7 @@ public final class AddWordViewModel: DefaultPageViewModel {
     enum Input {
         case save
         case fetchData
-        case speakInputWord
+        case playInputWord
         case selectPartOfSpeech(PartOfSpeech)
         case selectDefinition(WordDefinition)
     }
@@ -32,19 +32,19 @@ public final class AddWordViewModel: DefaultPageViewModel {
 
     private let wordnikAPIService: WordnikAPIServiceInterface
     private let addWordManager: AddWordManagerInterface
-    private let speechSynthesizer: SpeechSynthesizerInterface
+    private let ttsPlayer: TTSPlayerInterface
     private var cancellables = Set<AnyCancellable>()
 
     public init(
         inputWord: String = "",
         wordnikAPIService: WordnikAPIServiceInterface,
         addWordManager: AddWordManagerInterface,
-        speechSynthesizer: SpeechSynthesizerInterface
+        ttsPlayer: TTSPlayerInterface
     ) {
         self.inputWord = inputWord
         self.wordnikAPIService = wordnikAPIService
         self.addWordManager = addWordManager
-        self.speechSynthesizer = speechSynthesizer
+        self.ttsPlayer = ttsPlayer
 
         super.init()
         setupBindings()
@@ -59,8 +59,8 @@ public final class AddWordViewModel: DefaultPageViewModel {
             saveWord()
         case .fetchData:
             fetchData()
-        case .speakInputWord:
-            speechSynthesizer.speak(inputWord)
+        case .playInputWord:
+            play(inputWord)
         case .selectPartOfSpeech(let partOfSpeech):
             self.partOfSpeech = partOfSpeech
         case .selectDefinition(let definition):
@@ -72,7 +72,7 @@ public final class AddWordViewModel: DefaultPageViewModel {
         Task { @MainActor in
             status = .loading
             do {
-                AnalyticsService.shared.logEvent(.wordFetchedData(word: inputWord.lowercased()))
+                AnalyticsService.shared.logEvent(.wordFetchedData)
                 async let definitions = try wordnikAPIService.getDefinitions(
                     for: inputWord.lowercased(),
                     params: .init()
@@ -109,7 +109,7 @@ public final class AddWordViewModel: DefaultPageViewModel {
                     examples: selectedDefinition?.examples ?? []
                 )
                 HapticManager.shared.triggerNotification(type: .success)
-                AnalyticsService.shared.logEvent(.wordAdded(word: inputWord))
+                AnalyticsService.shared.logEvent(.wordAdded)
                 onOutput?(.finish)
             } catch {
                 errorReceived(error, displayType: .alert)
@@ -119,8 +119,16 @@ public final class AddWordViewModel: DefaultPageViewModel {
         }
     }
 
-    private func speakInputWord() {
-        speechSynthesizer.speak(inputWord)
+    private func play(_ text: String?) {
+        Task { @MainActor in
+            guard let text else { return }
+
+            do {
+                try await ttsPlayer.play(text)
+            } catch {
+                errorReceived(error, displayType: .alert)
+            }
+        }
     }
 
     private func setupBindings() {

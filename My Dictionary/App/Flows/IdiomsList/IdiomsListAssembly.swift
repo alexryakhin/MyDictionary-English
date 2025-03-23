@@ -23,7 +23,7 @@ final class IdiomsListAssembly: Assembly, Identifiable {
             let viewModel = IdiomDetailsViewModel(
                 idiom: idiom,
                 idiomDetailsManager: resolver.resolve(IdiomDetailsManagerInterface.self, argument: idiom.id)!,
-                speechSynthesizer: resolver ~> SpeechSynthesizerInterface.self
+                ttsPlayer: resolver ~> TTSPlayerInterface.self
             )
             let controller = IdiomDetailsViewController(viewModel: viewModel)
             return controller

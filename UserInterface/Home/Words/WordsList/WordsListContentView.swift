@@ -31,7 +31,7 @@ public struct WordsListContentView: PageView {
                 ForEach(viewModel.wordsFiltered) { wordModel in
                     Button {
                         viewModel.handle(.showWordDetails(word: wordModel))
-                        AnalyticsService.shared.logEvent(.wordOpened(word: wordModel.word))
+                        AnalyticsService.shared.logEvent(.wordOpened)
                     } label: {
                         WordListCellView(
                             model: .init(
@@ -48,16 +48,14 @@ public struct WordsListContentView: PageView {
 
                 if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
                     Button {
-                        AnalyticsService.shared.logEvent(.addWordFromSearchTapped(word: viewModel.searchText))
+                        AnalyticsService.shared.logEvent(.addWordFromSearchTapped)
                         addItem()
                     } label: {
                         Text("Add `\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))`")
                     }
                 }
             } header: {
-                if let title = viewModel.filterState.title {
-                    Text(title)
-                }
+                Text(filterStateTitle)
             } footer: {
                 if !viewModel.wordsFiltered.isEmpty {
                     Text(viewModel.wordsCount)
@@ -116,6 +114,17 @@ public struct WordsListContentView: PageView {
             isShowingRating = false
         }
         viewModel.handle(.showAddWord)
+    }
+
+    private var filterStateTitle: LocalizedStringKey {
+        switch viewModel.filterState {
+        case .none:
+            return "All words"
+        case .favorite:
+            return "Favorites"
+        case .search:
+            return "Found"
+        }
     }
 
     private var filterMenu: some View {

@@ -76,6 +76,9 @@ public enum CoreError: Error {
         case savingIdiomFailed
         case inputIsNotAWord
         case inputCannotBeEmpty
+        case deviceMutedOrVolumeTooLow
+        case cannotPlayAudio
+        case cannotSetupAudioSession
 
         public var description: String {
             switch self {
@@ -97,6 +100,12 @@ public enum CoreError: Error {
                 return "Input is not a word"
             case .inputCannotBeEmpty:
                 return "Input cannot be empty"
+            case .deviceMutedOrVolumeTooLow:
+                return "Device muted or volume too low"
+            case .cannotPlayAudio:
+                return "Cannot play audio"
+            case .cannotSetupAudioSession:
+                return "Cannot setup audio session"
             }
         }
     }

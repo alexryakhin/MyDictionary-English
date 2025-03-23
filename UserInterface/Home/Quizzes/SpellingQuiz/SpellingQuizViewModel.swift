@@ -36,7 +36,7 @@ public final class SpellingQuizViewModel: DefaultPageViewModel {
     }
 
     deinit {
-        AnalyticsService.shared.logEvent(.spellingQuizClosed(wordsPlayed: wordsPlayedCount))
+        AnalyticsService.shared.logEvent(.spellingQuizClosed)
     }
 
     func handle(_ input: Input) {
@@ -65,12 +65,12 @@ public final class SpellingQuizViewModel: DefaultPageViewModel {
             }
             HapticManager.shared.triggerNotification(type: .success)
             wordsPlayedCount += 1
-            AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed(isCorrect: true))
+            AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed)
         } else {
             isCorrectAnswer = false
             attemptCount += 1
             HapticManager.shared.triggerNotification(type: .error)
-            AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed(isCorrect: false))
+            AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed)
         }
     }
 

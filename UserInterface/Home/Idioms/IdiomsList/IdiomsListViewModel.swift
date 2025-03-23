@@ -16,6 +16,9 @@ public class IdiomsListViewModel: DefaultPageViewModel {
     enum Input {
         case showAddIdiom
         case showIdiomDetails(idiom: Idiom)
+        case deleteIdiom(idiom: Idiom)
+        case changeSorting(to: SortingCase)
+        case changeFilter(to: FilterCase)
     }
 
     enum Output {
@@ -26,8 +29,8 @@ public class IdiomsListViewModel: DefaultPageViewModel {
     var onOutput: ((Output) -> Void)?
 
     @Published var idioms: [Idiom] = []
-    @Published var sortingState: SortingCase = .def
-    @Published var filterState: FilterCase = .none
+    @Published private(set) var sortingState: SortingCase = .def
+    @Published private(set) var filterState: FilterCase = .none
     @Published var searchText = ""
 
     private let idiomsProvider: IdiomsProviderInterface
@@ -48,6 +51,25 @@ public class IdiomsListViewModel: DefaultPageViewModel {
         case .showIdiomDetails(let idiom):
             onOutput?(.showIdiomDetails(idiom: idiom))
             AnalyticsService.shared.logEvent(.idiomOpened)
+        case .deleteIdiom(let idiom):
+            showAlert(
+                withModel: .init(
+                    title: "Delete idiom",
+                    message: "Are you sure you want to delete this idiom?",
+                    actionText: "Cancel",
+                    destructiveActionText: "Delete",
+                    action: {
+                    },
+                    destructiveAction: { [weak self, idiom] in
+                        self?.deleteIdiom(with: idiom.id)
+                    }
+                )
+            )
+        case .changeSorting(let sortingState):
+            self.sortingState = sortingState
+            sortIdioms()
+        case .changeFilter(let filterState):
+            self.filterState = filterState
         }
     }
 
@@ -73,26 +95,8 @@ public class IdiomsListViewModel: DefaultPageViewModel {
             .store(in: &cancellables)
     }
 
-    // MARK: Removing from CD
-    func deleteIdiom(atOffsets offsets: IndexSet) {
-        switch filterState {
-        case .none:
-            offsets.map { idioms[$0] }.forEach { [weak self] idiom in
-                self?.deleteIdiom(with: idiom.id)
-            }
-        case .favorite:
-            offsets.map { favoriteIdioms[$0] }.forEach { [weak self] idiom in
-                self?.deleteIdiom(with: idiom.id)
-            }
-        case .search:
-            offsets.map { searchResults[$0] }.forEach { [weak self] idiom in
-                self?.deleteIdiom(with: idiom.id)
-            }
-        }
-    }
-
     /// Removes given idiom from Core Data
-    func deleteIdiom(with id: String) {
+    private func deleteIdiom(with id: String) {
         idiomsProvider.delete(with: id)
         AnalyticsService.shared.logEvent(.idiomRemoved)
     }
@@ -109,7 +113,7 @@ public class IdiomsListViewModel: DefaultPageViewModel {
         }
     }
 
-    func sortIdioms() {
+    private func sortIdioms() {
         switch sortingState {
         case .def:
             idioms.sort(by: { lhs, rhs in

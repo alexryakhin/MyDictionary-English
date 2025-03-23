@@ -38,7 +38,7 @@ public final class ChooseDefinitionQuizViewModel: DefaultPageViewModel {
     }
 
     deinit {
-        AnalyticsService.shared.logEvent(.definitionQuizClosed(wordsPlayed: wordsPlayedCount))
+        AnalyticsService.shared.logEvent(.definitionQuizClosed)
     }
 
     func handle(_ input: Input) {
@@ -57,11 +57,11 @@ public final class ChooseDefinitionQuizViewModel: DefaultPageViewModel {
             correctAnswerIndex = Int.random(in: 0...2)
             HapticManager.shared.triggerNotification(type: .success)
             wordsPlayedCount += 1
-            AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected(isCorrect: true))
+            AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected)
         } else {
             isCorrectAnswer = false
             HapticManager.shared.triggerNotification(type: .error)
-            AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected(isCorrect: false))
+            AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected)
         }
     }
 

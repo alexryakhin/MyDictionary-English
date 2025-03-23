@@ -8,7 +8,7 @@ import Combine
 public final class WordDetailsViewModel: DefaultPageViewModel {
 
     enum Input {
-        case speak(String?)
+        case play(String?)
         case toggleFavorite
         case updatePartOfSpeech(String)
         case toggleShowAddExample
@@ -32,7 +32,7 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
     // MARK: - Private Properties
 
     private let wordDetailsManager: WordDetailsManagerInterface
-    private let speechSynthesizer: SpeechSynthesizerInterface
+    private let ttsPlayer: TTSPlayerInterface
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Initialization
@@ -40,22 +40,22 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
     public init(
         word: Word,
         wordDetailsManager: WordDetailsManagerInterface,
-        speechSynthesizer: SpeechSynthesizerInterface
+        ttsPlayer: TTSPlayerInterface
     ) {
         self.word = word
         self.wordDetailsManager = wordDetailsManager
-        self.speechSynthesizer = speechSynthesizer
+        self.ttsPlayer = ttsPlayer
         super.init()
         setupBindings()
     }
 
     func handle(_ input: Input) {
         switch input {
-        case .speak(let text):
-            speak(text)
+        case .play(let text):
+            play(text)
         case .toggleFavorite:
             wordDetailsManager.toggleFavorite()
-            AnalyticsService.shared.logEvent(.wordFavoriteTapped(isFavorite: word.isFavorite))
+            AnalyticsService.shared.logEvent(.wordFavoriteTapped)
         case .updatePartOfSpeech(let value):
             wordDetailsManager.updatePartOfSpeech(value)
             AnalyticsService.shared.logEvent(.partOfSpeechChanged)
@@ -118,9 +118,15 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
         isShowAddExample = false
     }
 
-    private func speak(_ text: String?) {
-        if let text {
-            speechSynthesizer.speak(text)
+    private func play(_ text: String?) {
+        Task { @MainActor in
+            guard let text else { return }
+
+            do {
+                try await ttsPlayer.play(text)
+            } catch {
+                errorReceived(error, displayType: .alert)
+            }
         }
     }
 }

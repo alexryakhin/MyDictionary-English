@@ -10,11 +10,13 @@ import SwiftUI
 public struct CustomSectionView<Content: View, HeaderTrainingContent: View>: View {
 
     private var header: LocalizedStringKey
-    private var headerTrailingContent: () -> HeaderTrainingContent
+    private var footer: LocalizedStringKey?
     private var content: () -> Content
+    private var headerTrailingContent: () -> HeaderTrainingContent
 
     public init(
         header: LocalizedStringKey,
+        footer: LocalizedStringKey? = nil,
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder headerTrailingContent: @escaping () -> HeaderTrainingContent = { EmptyView() }
     ) {
@@ -35,6 +37,12 @@ public struct CustomSectionView<Content: View, HeaderTrainingContent: View>: Vie
                 .textCase(.uppercase)
                 .font(.footnote)
                 .padding(.horizontal, 12)
+            } footer: {
+                if let footer {
+                    Text(footer)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
             }
         }
     }

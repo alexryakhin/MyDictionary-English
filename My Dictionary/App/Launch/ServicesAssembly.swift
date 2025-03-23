@@ -65,8 +65,8 @@ final class ServicesAssembly: Assembly, Identifiable {
             )
         }.inObjectScope(.container)
 
-        container.register(SpeechSynthesizerInterface.self) { resolver in
-            SpeechSynthesizer()
+        container.register(TTSPlayerInterface.self) { resolver in
+            TTSPlayer()
         }
         .inObjectScope(.container)
 

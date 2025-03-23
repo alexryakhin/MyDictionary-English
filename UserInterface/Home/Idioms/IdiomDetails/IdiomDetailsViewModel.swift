@@ -8,7 +8,7 @@ import Combine
 public final class IdiomDetailsViewModel: DefaultPageViewModel {
 
     enum Input {
-        case speak(String?)
+        case play(String?)
         case toggleFavorite
         case addExample(String)
         case updateExample(at: Int, text: String)
@@ -27,7 +27,7 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
     // MARK: - Private Properties
 
     private let idiomDetailsManager: IdiomDetailsManagerInterface
-    private let speechSynthesizer: SpeechSynthesizerInterface
+    private let ttsPlayer: TTSPlayerInterface
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Initialization
@@ -35,23 +35,23 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
     public init(
         idiom: Idiom,
         idiomDetailsManager: IdiomDetailsManagerInterface,
-        speechSynthesizer: SpeechSynthesizerInterface
+        ttsPlayer: TTSPlayerInterface
     ) {
         self.idiom = idiom
         self.idiomDetailsManager = idiomDetailsManager
-        self.speechSynthesizer = speechSynthesizer
+        self.ttsPlayer = ttsPlayer
         super.init()
         setupBindings()
     }
 
     func handle(_ input: Input) {
         switch input {
-        case .speak(let text):
-            speak(text)
+        case .play(let text):
+            play(text)
             AnalyticsService.shared.logEvent(.listenToIdiomTapped)
         case .toggleFavorite:
             idiom.isFavorite.toggle()
-            AnalyticsService.shared.logEvent(.idiomFavoriteTapped(isFavorite: idiom.isFavorite))
+            AnalyticsService.shared.logEvent(.idiomFavoriteTapped)
         case .addExample(let example):
             guard !example.isEmpty else {
                 errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
@@ -106,9 +106,15 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
             .store(in: &cancellables)
     }
 
-    private func speak(_ text: String?) {
-        if let text {
-            speechSynthesizer.speak(text)
+    private func play(_ text: String?) {
+        Task { @MainActor in
+            guard let text else { return }
+
+            do {
+                try await ttsPlayer.play(text)
+            } catch {
+                errorReceived(error, displayType: .alert)
+            }
         }
     }
 }

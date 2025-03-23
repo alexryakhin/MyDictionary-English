@@ -94,7 +94,7 @@ public struct AddWordContentView: PageView {
                 Text(pronunciation)
             } trailingContent: {
                 Button {
-                    viewModel.handle(.speakInputWord)
+                    viewModel.handle(.playInputWord)
                 } label: {
                     Image(systemName: "speaker.wave.2.fill")
                         .font(.title3)
@@ -154,6 +154,6 @@ public struct AddWordContentView: PageView {
         viewModel.handle(.selectDefinition(definition))
         HapticManager.shared.triggerSelection()
         UIApplication.shared.endEditing()
-        AnalyticsService.shared.logEvent(.definitionSelected(word: viewModel.inputWord, number: index))
+        AnalyticsService.shared.logEvent(.definitionSelected)
     }
 }

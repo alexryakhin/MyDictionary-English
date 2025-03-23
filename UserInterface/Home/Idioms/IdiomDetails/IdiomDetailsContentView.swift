@@ -78,7 +78,7 @@ public struct IdiomDetailsContentView: PageView {
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    viewModel.handle(.speak(viewModel.idiom.idiom))
+                    viewModel.handle(.play(viewModel.idiom.idiom))
                 }
             }
         }
@@ -97,7 +97,7 @@ public struct IdiomDetailsContentView: PageView {
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    viewModel.handle(.speak(viewModel.idiom.definition))
+                    viewModel.handle(.play(viewModel.idiom.definition))
                 }
             }
         }
