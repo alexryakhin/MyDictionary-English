@@ -1,6 +1,5 @@
 import SwiftUI
 import CoreUserInterface
-import CoreNavigation
 import Core
 
 public struct AddIdiomContentView: PageView {
