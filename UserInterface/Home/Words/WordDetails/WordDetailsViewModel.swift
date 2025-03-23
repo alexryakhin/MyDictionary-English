@@ -80,7 +80,9 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
                     message: "Are you sure you want to delete this word?",
                     actionText: "Cancel",
                     destructiveActionText: "Delete",
-                    action: {},
+                    action: {
+                        AnalyticsService.shared.logEvent(.wordRemovingCanceled)
+                    },
                     destructiveAction: { [weak self] in
                         self?.wordDetailsManager.deleteWord()
                         self?.onOutput?(.finish)

@@ -110,7 +110,7 @@ public struct AddWordContentView: PageView {
             switch viewModel.status {
             case .loading:
                 LazyVStack {
-                    ForEach(0..<2) { _ in
+                    ForEach(0..<3) { _ in
                         ShimmerView(height: 100)
                     }
                 }

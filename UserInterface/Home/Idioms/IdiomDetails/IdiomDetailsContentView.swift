@@ -43,6 +43,7 @@ public struct IdiomDetailsContentView: PageView {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
                     viewModel.handle(.toggleFavorite)
+                    AnalyticsService.shared.logEvent(.idiomFavoriteTapped)
                 } label: {
                     Image(systemName: viewModel.idiom.isFavorite
                           ? "heart.fill"
@@ -54,12 +55,13 @@ public struct IdiomDetailsContentView: PageView {
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
             TextField("Example", text: $exampleTextFieldStr)
             Button("Cancel", role: .cancel) {
-
+                AnalyticsService.shared.logEvent(.idiomExampleChangingCanceled)
             }
             Button("Save") {
                 viewModel.handle(.updateExample(at: index, text: exampleTextFieldStr))
                 editingExampleIndex = nil
                 exampleTextFieldStr = .empty
+                AnalyticsService.shared.logEvent(.idiomExampleChanged)
             }
         }
     }
@@ -93,11 +95,12 @@ public struct IdiomDetailsContentView: PageView {
             if isDefinitionFocused {
                 SectionHeaderButton("Done") {
                     isDefinitionFocused = false
-                    AnalyticsService.shared.logEvent(.definitionChanged)
+                    AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
                     viewModel.handle(.play(viewModel.idiom.definition))
+                    AnalyticsService.shared.logEvent(.idiomDefinitionPlayed)
                 }
             }
         }
@@ -114,18 +117,21 @@ public struct IdiomDetailsContentView: PageView {
                         .contextMenu {
                             Button {
                                 viewModel.handle(.play(example))
+                                AnalyticsService.shared.logEvent(.idiomExamplePlayed)
                             } label: {
                                 Label("Listen", systemImage: "speaker.wave.2.fill")
                             }
                             Button {
                                 exampleTextFieldStr = example
                                 editingExampleIndex = index
+                                AnalyticsService.shared.logEvent(.idiomExampleChangeButtonTapped)
                             } label: {
                                 Label("Edit", systemImage: "pencil")
                             }
                             Section {
                                 Button(role: .destructive) {
                                     viewModel.handle(.removeExample(at: index))
+                                    AnalyticsService.shared.logEvent(.idiomExampleRemoved)
                                 } label: {
                                     Label("Delete", systemImage: "trash")
                                 }
@@ -142,6 +148,7 @@ public struct IdiomDetailsContentView: PageView {
                                 viewModel.handle(.addExample(exampleTextFieldStr))
                                 isAddingExample = false
                                 exampleTextFieldStr = .empty
+                                AnalyticsService.shared.logEvent(.idiomExampleAdded)
                             } label: {
                                 Image(systemName: "checkmark.rectangle.portrait.fill")
                             }
@@ -152,6 +159,7 @@ public struct IdiomDetailsContentView: PageView {
                     Button("Add example", systemImage: "plus") {
                         withAnimation {
                             isAddingExample.toggle()
+                            AnalyticsService.shared.logEvent(.idiomAddExampleTapped)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

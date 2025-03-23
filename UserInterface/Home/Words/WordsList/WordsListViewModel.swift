@@ -115,8 +115,20 @@ public class WordsListViewModel: DefaultPageViewModel {
     }
 
     private func deleteWord(_ wordModel: Word) {
-        wordsProvider.delete(with: wordModel.id)
-        AnalyticsService.shared.logEvent(.wordRemoved)
+        showAlert(
+            withModel: .init(
+                title: "Delete word",
+                message: "Are you sure you want to delete this word?",
+                actionText: "Cancel",
+                destructiveActionText: "Delete",
+                action: {
+                    AnalyticsService.shared.logEvent(.wordRemovingCanceled)
+                },
+                destructiveAction: { [weak self, wordModel] in
+                    self?.wordsProvider.delete(with: wordModel.id)
+                }
+            )
+        )
     }
 
     private func selectFilterState(_ filterState: FilterCase) {

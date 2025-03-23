@@ -52,19 +52,7 @@ public class IdiomsListViewModel: DefaultPageViewModel {
             onOutput?(.showIdiomDetails(idiom: idiom))
             AnalyticsService.shared.logEvent(.idiomOpened)
         case .deleteIdiom(let idiom):
-            showAlert(
-                withModel: .init(
-                    title: "Delete idiom",
-                    message: "Are you sure you want to delete this idiom?",
-                    actionText: "Cancel",
-                    destructiveActionText: "Delete",
-                    action: {
-                    },
-                    destructiveAction: { [weak self, idiom] in
-                        self?.deleteIdiom(with: idiom.id)
-                    }
-                )
-            )
+            deleteIdiom(with: idiom.id)
         case .changeSorting(let sortingState):
             self.sortingState = sortingState
             sortIdioms()
@@ -97,8 +85,21 @@ public class IdiomsListViewModel: DefaultPageViewModel {
 
     /// Removes given idiom from Core Data
     private func deleteIdiom(with id: String) {
-        idiomsProvider.delete(with: id)
-        AnalyticsService.shared.logEvent(.idiomRemoved)
+        showAlert(
+            withModel: .init(
+                title: "Delete idiom",
+                message: "Are you sure you want to delete this idiom?",
+                actionText: "Cancel",
+                destructiveActionText: "Delete",
+                action: {
+                    AnalyticsService.shared.logEvent(.idiomRemovingCanceled)
+                },
+                destructiveAction: { [weak self, id] in
+                    self?.idiomsProvider.delete(with: id)
+                    AnalyticsService.shared.logEvent(.idiomRemoved)
+                }
+            )
+        )
     }
 
     // MARK: Sorting

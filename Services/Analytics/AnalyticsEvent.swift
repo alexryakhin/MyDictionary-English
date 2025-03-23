@@ -26,25 +26,40 @@ public enum AnalyticsEvent: String {
     case wordAdded
     case wordOpened
     case wordRemoved
+    case wordRemovingCanceled
     case listenToWordTapped
     case listenToDefinitionTapped
     case wordExampleAdded
     case wordExampleUpdated
     case wordExampleRemoved
-    case definitionChanged
+    case wordExamplePlayed
+    case wordExampleChangeButtonTapped
+    case wordExampleChanged
+    case wordExampleChangingCanceled
+    case wordDefinitionChanged
+    case wordDefinitionPlayed
     case partOfSpeechChanged
     case wordFavoriteTapped
+    case wordAddExampleTapped
 
     case addIdiomTapped
     case idiomAdded
     case idiomOpened
+    case idiomDefinitionChanged
+    case idiomDefinitionPlayed
     case idiomChanged
     case idiomRemoved
+    case idiomRemovingCanceled
     case listenToIdiomTapped
     case idiomFavoriteTapped
     case idiomExampleAdded
     case idiomExampleUpdated
     case idiomExampleRemoved
+    case idiomExamplePlayed
+    case idiomExampleChangeButtonTapped
+    case idiomExampleChanged
+    case idiomExampleChangingCanceled
+    case idiomAddExampleTapped
 
     case spellingQuizOpened
     case spellingQuizAnswerConfirmed

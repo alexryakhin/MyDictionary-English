@@ -76,7 +76,9 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
                     message: "Are you sure you want to delete this idiom?",
                     actionText: "Cancel",
                     destructiveActionText: "Delete",
-                    action: {},
+                    action: {
+                        AnalyticsService.shared.logEvent(.idiomRemovingCanceled)
+                    },
                     destructiveAction: { [weak self] in
                         self?.idiomDetailsManager.deleteIdiom()
                         AnalyticsService.shared.logEvent(.idiomRemoved)

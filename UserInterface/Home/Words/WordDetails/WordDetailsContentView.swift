@@ -44,6 +44,7 @@ public struct WordDetailsContentView: PageView {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
                     viewModel.handle(.toggleFavorite)
+                    AnalyticsService.shared.logEvent(.wordFavoriteTapped)
                 } label: {
                     Image(systemName: viewModel.word.isFavorite
                           ? "heart.fill"
@@ -55,12 +56,13 @@ public struct WordDetailsContentView: PageView {
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
             TextField("Example", text: $exampleTextFieldStr)
             Button("Cancel", role: .cancel) {
-
+                AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
             }
             Button("Save") {
                 viewModel.handle(.updateExample(at: index, text: exampleTextFieldStr))
                 editingExampleIndex = nil
                 exampleTextFieldStr = .empty
+                AnalyticsService.shared.logEvent(.wordExampleChanged)
             }
         }
     }
@@ -109,11 +111,12 @@ public struct WordDetailsContentView: PageView {
             if isDefinitionFocused {
                 SectionHeaderButton("Done") {
                     isDefinitionFocused = false
-                    AnalyticsService.shared.logEvent(.definitionChanged)
+                    AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
                     viewModel.handle(.play(viewModel.word.definition))
+                    AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
             }
         }
@@ -130,18 +133,21 @@ public struct WordDetailsContentView: PageView {
                         .contextMenu {
                             Button {
                                 viewModel.handle(.play(example))
+                                AnalyticsService.shared.logEvent(.wordExamplePlayed)
                             } label: {
                                 Label("Listen", systemImage: "speaker.wave.2.fill")
                             }
                             Button {
                                 exampleTextFieldStr = example
                                 editingExampleIndex = index
+                                AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
                             } label: {
                                 Label("Edit", systemImage: "pencil")
                             }
                             Section {
                                 Button(role: .destructive) {
                                     viewModel.handle(.removeExample(at: index))
+                                    AnalyticsService.shared.logEvent(.wordExampleRemoved)
                                 } label: {
                                     Label("Delete", systemImage: "trash")
                                 }
@@ -158,6 +164,7 @@ public struct WordDetailsContentView: PageView {
                                 viewModel.handle(.addExample(exampleTextFieldStr))
                                 isAddingExample = false
                                 exampleTextFieldStr = .empty
+                                AnalyticsService.shared.logEvent(.wordExampleAdded)
                             } label: {
                                 Image(systemName: "checkmark.rectangle.portrait.fill")
                             }
@@ -168,6 +175,7 @@ public struct WordDetailsContentView: PageView {
                     Button("Add example", systemImage: "plus") {
                         withAnimation {
                             isAddingExample.toggle()
+                            AnalyticsService.shared.logEvent(.wordAddExampleTapped)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
