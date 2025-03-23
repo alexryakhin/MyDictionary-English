@@ -49,8 +49,7 @@ public struct WordDetailsContentView: PageView {
             }
 
             Section {
-                TextEditor(text: $viewModel.definitionTextFieldStr)
-                    .frame(height: 150)
+                TextField("Definition", text: $viewModel.definitionTextFieldStr, axis: .vertical)
                     .focused($isDefinitionFocused)
             } header: {
                 HStack {
@@ -85,7 +84,7 @@ public struct WordDetailsContentView: PageView {
                 }
 
                 if viewModel.isShowAddExample {
-                    TextField("Type an example here", text: $viewModel.exampleTextFieldStr)
+                    TextField("Type an example here", text: $viewModel.exampleTextFieldStr, axis: .vertical)
                         .onSubmit {
                             viewModel.handle(.addExample)
                         }

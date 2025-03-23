@@ -38,7 +38,6 @@ public final class CSVManager: CSVManagerInterface {
 
         for wordModel in wordModels {
             let date: String = wordModel.timestamp.csvString
-            let id: String = wordModel.id.uuidString
             let csvRow = [
                 wordModel.word,
                 wordModel.definition,
@@ -46,7 +45,7 @@ public final class CSVManager: CSVManagerInterface {
                 wordModel.phonetic ?? "",
                 wordModel.isFavorite ? "true" : "false",
                 date,
-                id,
+                wordModel.id,
                 wordModel.examples.joined(separator: ";")
             ]
                 .map { "\"\($0)\"" } // Wrap in quotes to handle commas in data

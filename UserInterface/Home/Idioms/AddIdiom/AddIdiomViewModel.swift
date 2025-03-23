@@ -18,7 +18,7 @@ public final class AddIdiomViewModel: DefaultPageViewModel {
     var onOutput: ((Output) -> Void)?
 
     @Published var inputIdiom = ""
-    @Published var descriptionField = ""
+    @Published var definitionField = ""
 
     private let addIdiomManager: AddIdiomManagerInterface
     private var cancellables = Set<AnyCancellable>()
@@ -40,11 +40,11 @@ public final class AddIdiomViewModel: DefaultPageViewModel {
     }
 
     private func saveIdiom() {
-        if !inputIdiom.isEmpty, !descriptionField.isEmpty {
+        if !inputIdiom.isEmpty, !definitionField.isEmpty {
             do {
                 try addIdiomManager.addNewIdiom(
                     inputIdiom,
-                    definition: descriptionField
+                    definition: definitionField
                 )
                 HapticManager.shared.triggerNotification(type: .success)
                 AnalyticsService.shared.logEvent(.idiomAdded)

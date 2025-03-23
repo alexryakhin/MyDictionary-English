@@ -3,7 +3,7 @@ import SwiftUI
 import CoreUserInterface
 import Core
 
-public final class ChooseDefinitionQuizViewController: PageViewController<ChooseDefinitionQuizContentView> {
+public final class ChooseDefinitionQuizViewController: PageViewController<ChooseDefinitionQuizContentView>, NavigationBarVisible {
 
     public enum Event {
         case finish

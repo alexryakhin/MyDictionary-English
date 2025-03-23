@@ -3,7 +3,7 @@ import SwiftUI
 import CoreUserInterface
 import Core
 
-public final class MoreViewController: PageViewController<MoreContentView> {
+public final class MoreViewController: PageViewController<MoreContentView>, NavigationBarVisible {
 
     public enum Event {
     }

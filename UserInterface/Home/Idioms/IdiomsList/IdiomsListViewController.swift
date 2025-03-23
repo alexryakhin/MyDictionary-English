@@ -10,7 +10,7 @@ import SwiftUI
 import CoreUserInterface
 import Core
 
-public final class IdiomsListViewController: PageViewController<IdiomsListContentView> {
+public final class IdiomsListViewController: PageViewController<IdiomsListContentView>, NavigationBarVisible {
 
     public enum Event {
         case showAddIdiom(searchText: String)

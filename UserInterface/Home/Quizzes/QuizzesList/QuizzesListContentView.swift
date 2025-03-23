@@ -53,7 +53,8 @@ public struct QuizzesListContentView: PageView {
     public func placeholderView(props: PageState.PlaceholderProps) -> some View {
         EmptyListView(
             label: viewModel.words.isEmpty ? "No words in your list" : "Not enough words",
-            description: "Add at least 10 words to your list to play!"
+            description: "Add at least 10 words to your list to play!",
+            background: .background
         )
     }
 }

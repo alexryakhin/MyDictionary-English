@@ -92,7 +92,7 @@ public class IdiomsListViewModel: DefaultPageViewModel {
     }
 
     /// Removes given idiom from Core Data
-    func deleteIdiom(with id: UUID) {
+    func deleteIdiom(with id: String) {
         idiomsProvider.delete(with: id)
         AnalyticsService.shared.logEvent(.idiomRemoved)
     }

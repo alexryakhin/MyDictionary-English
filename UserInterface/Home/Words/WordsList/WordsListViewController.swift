@@ -10,7 +10,7 @@ import SwiftUI
 import CoreUserInterface
 import Core
 
-public final class WordsListViewController: PageViewController<WordsListContentView> {
+public final class WordsListViewController: PageViewController<WordsListContentView>, NavigationBarVisible {
 
     public enum Event {
         case showAddWord(searchText: String)

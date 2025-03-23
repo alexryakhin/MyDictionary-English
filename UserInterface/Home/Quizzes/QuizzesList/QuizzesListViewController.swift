@@ -10,7 +10,7 @@ import SwiftUI
 import CoreUserInterface
 import Core
 
-public final class QuizzesListViewController: PageViewController<QuizzesListContentView> {
+public final class QuizzesListViewController: PageViewController<QuizzesListContentView>, NavigationBarVisible {
 
     public enum Event {
         case showQuiz(Quiz)

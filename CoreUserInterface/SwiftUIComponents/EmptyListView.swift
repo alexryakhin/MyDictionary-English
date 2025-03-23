@@ -10,21 +10,24 @@ import SwiftUI
 public struct EmptyListView<Actions: View>: View {
     private let label: String?
     private let description: String?
+    private let background: Color
     private let actions: () -> Actions
 
     public init(
         label: String?,
         description: String?,
+        background: Color,
         @ViewBuilder actions: @escaping () -> Actions = { EmptyView() }
     ) {
         self.label = label
         self.description = description
+        self.background = background
         self.actions = actions
     }
 
     public var body: some View {
         ZStack {
-            Color.systemBackground.ignoresSafeArea()
+            background.ignoresSafeArea()
             if #available(iOS 17.0, *) {
                 ContentUnavailableView(
                     label: {
@@ -60,6 +63,7 @@ public struct EmptyListView<Actions: View>: View {
 #Preview {
     EmptyListView(
         label: "No idioms yet",
-        description: "Begin to add idioms to your list by tapping on plus icon in upper left corner"
+        description: "Begin to add idioms to your list by tapping on plus icon in upper left corner",
+        background: .background
     )
 }

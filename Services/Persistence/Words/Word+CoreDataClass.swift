@@ -56,7 +56,7 @@ final class CDWord: NSManagedObject, Identifiable {
             definition: definition,
             partOfSpeech: .init(rawValue: partOfSpeech) ?? .unknown,
             phonetic: phonetic,
-            id: id,
+            id: id.uuidString,
             timestamp: timestamp,
             examples: examplesDecoded,
             isFavorite: isFavorite

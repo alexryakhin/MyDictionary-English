@@ -3,7 +3,7 @@ import SwiftUI
 import CoreUserInterface
 import Core
 
-public final class SpellingQuizViewController: PageViewController<SpellingQuizContentView> {
+public final class SpellingQuizViewController: PageViewController<SpellingQuizContentView>, NavigationBarVisible {
 
     public enum Event {
         case finish

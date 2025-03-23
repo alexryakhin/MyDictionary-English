@@ -89,7 +89,8 @@ public struct IdiomsListContentView: PageView {
     public func placeholderView(props: PageState.PlaceholderProps) -> some View {
         EmptyListView(
             label: "No idioms yet!",
-            description: "Begin to add idioms to your list by tapping on plus icon in upper left corner"
+            description: "Begin to add idioms to your list by tapping on plus icon in upper left corner",
+            background: .background
         )
     }
 

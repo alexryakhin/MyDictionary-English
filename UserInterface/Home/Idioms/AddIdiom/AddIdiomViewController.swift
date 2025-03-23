@@ -3,7 +3,7 @@ import SwiftUI
 import CoreUserInterface
 import Core
 
-public final class AddIdiomViewController: PageViewController<AddIdiomContentView> {
+public final class AddIdiomViewController: PageViewController<AddIdiomContentView>, NavigationBarVisible {
 
     public enum Event {
         case finish

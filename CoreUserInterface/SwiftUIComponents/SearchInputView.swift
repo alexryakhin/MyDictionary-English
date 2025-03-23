@@ -40,7 +40,7 @@ public struct SearchInputView: View {
                     .frame(width: 20.5, height: 18.5)
                     .foregroundColor(.secondaryLabel)
 
-                TextField(text: $text) {
+                TextField(text: $text, axis: .vertical) {
                     Text(placeholder)
                         .foregroundColor(.secondaryLabel)
                 }

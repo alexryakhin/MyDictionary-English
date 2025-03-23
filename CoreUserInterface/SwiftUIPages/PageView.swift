@@ -88,7 +88,7 @@ public extension PageView {
 
     @ViewBuilder
     func placeholderView(props: PageState.PlaceholderProps) -> some View {
-        EmptyListView(label: props.title, description: props.subtitle)
+        EmptyListView(label: props.title, description: props.subtitle, background: .background)
     }
 
     @ViewBuilder

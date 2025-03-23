@@ -24,6 +24,11 @@ open class PageViewController<Content: PageView>: UIHostingController<Content> {
 
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if self is NavigationBarHidden {
+            navigationController?.setNavigationBarHidden(true, animated: animated)
+        } else if self is NavigationBarVisible {
+            navigationController?.setNavigationBarHidden(false, animated: animated)
+        }
         setupNavigationBar(animated: animated)
     }
 

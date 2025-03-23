@@ -24,9 +24,8 @@ public struct AddWordContentView: PageView {
                         partOfSpeechCellView
                         phoneticsCellView
                     }
-                    .background(Color.surfaceBackground)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .padding(.horizontal)
+                    .clippedWithBackground(.surface)
+                    .padding(.horizontal, 16)
 
                     definitionsSectionView
                 }
@@ -137,8 +136,7 @@ public struct AddWordContentView: PageView {
                             }
                         }
                     }
-                    .background(Color.surfaceBackground)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .clippedWithBackground(.surface)
                     .padding(.horizontal, 16)
                 }
             }
@@ -146,7 +144,7 @@ public struct AddWordContentView: PageView {
     }
 
     @ViewBuilder
-    private func checkboxImage(_ currentId: UUID) -> some View {
+    private func checkboxImage(_ currentId: String) -> some View {
         let isSelected = currentId == viewModel.selectedDefinition?.id
         Image(systemName: isSelected ? "checkmark.square.fill" : "square")
             .frame(sideLength: 20)

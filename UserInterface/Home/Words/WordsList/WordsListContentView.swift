@@ -102,7 +102,8 @@ public struct WordsListContentView: PageView {
     public func placeholderView(props: PageState.PlaceholderProps) -> some View {
         EmptyListView(
             label: "No words yet",
-            description: "Begin to add words to your list by tapping on plus icon in upper left corner"
+            description: "Begin to add words to your list by tapping on plus icon in upper left corner",
+            background: .background
         ) {
             Button("Add your first word!", action: addItem)
                 .buttonStyle(.borderedProminent)

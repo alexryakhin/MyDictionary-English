@@ -8,7 +8,7 @@
 import Foundation
 
 public struct WordDefinition: Identifiable {
-    public let id = UUID()
+    public let id: String = UUID().uuidString
     public let partOfSpeech: PartOfSpeech
     public let text: String
     public let examples: [String]

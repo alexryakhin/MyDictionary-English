@@ -104,3 +104,30 @@ public extension UIApplication {
     }
 }
 
+public extension View {
+    func clippedWithBackground(_ color: Color) -> some View {
+        self
+            .background(color)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+
+    func clippedWithBackground(_ material: Material) -> some View {
+        self
+            .background(material)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+
+    func clippedWithPaddingAndBackground(_ color: Color) -> some View {
+        self
+            .padding(vertical: 12, horizontal: 16)
+            .background(color)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+
+    func clippedWithPaddingAndBackground(_ material: Material) -> some View {
+        self
+            .padding(vertical: 12, horizontal: 16)
+            .background(material)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+}

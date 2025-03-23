@@ -71,8 +71,7 @@ public enum CoreError: Error {
         case savingWordExampleFailed
         case removingWordFailed
         case savingWordFailed
-        case removingIdiomExampleFailed
-        case savingIdiomExampleFailed
+        case updatingIdiomExamplesFailed
         case removingIdiomFailed
         case savingIdiomFailed
         case inputIsNotAWord
@@ -88,10 +87,8 @@ public enum CoreError: Error {
                 return "Error removing word"
             case .savingWordFailed:
                 return "Error saving word"
-            case .removingIdiomExampleFailed:
-                return "Error removing idiom example"
-            case .savingIdiomExampleFailed:
-                return "Error saving idiom example"
+            case .updatingIdiomExamplesFailed:
+                return "Error updating idiom examples"
             case .removingIdiomFailed:
                 return "Error removing idiom"
             case .savingIdiomFailed:

@@ -37,11 +37,12 @@ public struct SpellingQuizContentView: PageView {
 
                 Section {
                     HStack {
-                        TextField("Type here", text: $viewModel.answerTextField, onCommit: {
+                        TextField("Type here", text: $viewModel.answerTextField, axis: .vertical)
+                        .onSubmit {
                             withAnimation {
                                 viewModel.handle(.confirmAnswer)
                             }
-                        })
+                        }
                         Spacer()
                         Text(randomWord.partOfSpeech.rawValue).foregroundColor(.secondary)
                     }
@@ -67,7 +68,8 @@ public struct SpellingQuizContentView: PageView {
         } else {
             EmptyListView(
                 label: "Congratulations!",
-                description: "You got all your words!"
+                description: "You got all your words!",
+                background: .background
             ) {
                 Button("Go back") {
                     viewModel.handle(.dismiss)

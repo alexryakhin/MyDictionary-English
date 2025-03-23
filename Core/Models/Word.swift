@@ -10,7 +10,7 @@ public struct Word: Identifiable {
     public let definition: String
     public let partOfSpeech: PartOfSpeech
     public let phonetic: String?
-    public let id: UUID
+    public let id: String
     public let timestamp: Date
     public let examples: [String]
     public let isFavorite: Bool
@@ -20,7 +20,7 @@ public struct Word: Identifiable {
         definition: String,
         partOfSpeech: PartOfSpeech,
         phonetic: String? = nil,
-        id: UUID,
+        id: String,
         timestamp: Date,
         examples: [String],
         isFavorite: Bool

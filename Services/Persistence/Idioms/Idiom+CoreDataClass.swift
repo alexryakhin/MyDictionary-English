@@ -28,30 +28,8 @@ final class CDIdiom: NSManagedObject, Identifiable {
         return decodedData
     }
 
-    func removeExample(_ example: String) throws {
-        var examples = examplesDecoded
-        guard let index = examples.firstIndex(of: example) else {
-            throw CoreError.internalError(.removingIdiomExampleFailed)
-        }
-        examples.remove(at: index)
+    func updateExamples(_ examples: [String]) throws {
         let newExamplesData = try JSONEncoder().encode(examples)
-        self.examples = newExamplesData
-    }
-
-    func removeExample(atOffsets offsets: IndexSet) throws {
-        var examples = examplesDecoded
-        examples.remove(atOffsets: offsets)
-
-        let newExamplesData = try JSONEncoder().encode(examples)
-        self.examples = newExamplesData
-    }
-
-    func addExample(_ example: String) throws {
-        guard !example.isEmpty else {
-            throw CoreError.internalError(.savingIdiomExampleFailed)
-        }
-        let newExamples = examplesDecoded + [example]
-        let newExamplesData = try JSONEncoder().encode(newExamples)
         self.examples = newExamplesData
     }
 
@@ -60,7 +38,7 @@ final class CDIdiom: NSManagedObject, Identifiable {
         return Idiom(
             idiom: idiomItself,
             definition: definition,
-            id: id,
+            id: id.uuidString,
             timestamp: timestamp,
             examples: examplesDecoded,
             isFavorite: isFavorite

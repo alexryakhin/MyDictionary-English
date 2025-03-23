@@ -8,10 +8,7 @@ public protocol IdiomDetailsManagerInterface {
     var idiomPublisher: AnyPublisher<Idiom?, Never> { get }
     var errorPublisher: PassthroughSubject<CoreError, Never> { get }
 
-    func toggleFavorite()
-    func updateDefinition(_ definition: String)
-    func addExample(_ example: String)
-    func removeExample(atOffsets offsets: IndexSet)
+    func updateIdiom(_ idiom: Idiom)
     /// Removes a given idiom from the Core Data
     func deleteIdiom()
 }
@@ -23,7 +20,7 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
     }
     public let errorPublisher = PassthroughSubject<CoreError, Never>()
 
-    private let idiomId: UUID
+    private let idiomId: String
     private let coreDataService: CoreDataServiceInterface
 
     private let _idiomPublisher = CurrentValueSubject<Idiom?, Never>(nil)
@@ -31,7 +28,7 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
     private var cancellables: Set<AnyCancellable> = []
 
     public init(
-        idiomId: UUID,
+        idiomId: String,
         coreDataService: CoreDataServiceInterface
     ) {
         self.idiomId = idiomId
@@ -39,30 +36,14 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
         fetchIdiom()
     }
 
-    public func toggleFavorite() {
-        cdIdiom?.isFavorite.toggle()
-        saveContext()
-    }
-
-    public func updateDefinition(_ definition: String) {
-        cdIdiom?.definition = definition
-        saveContext()
-    }
-
-    public func addExample(_ example: String) {
+    public func updateIdiom(_ idiom: Idiom) {
+        cdIdiom?.idiomItself = idiom.idiom
+        cdIdiom?.definition = idiom.definition
+        cdIdiom?.isFavorite = idiom.isFavorite
         do {
-            try cdIdiom?.addExample(example)
+           try cdIdiom?.updateExamples(idiom.examples)
         } catch {
-            errorPublisher.send(.internalError(.savingIdiomExampleFailed))
-        }
-        saveContext()
-    }
-
-    public func removeExample(atOffsets offsets: IndexSet) {
-        do {
-            try cdIdiom?.removeExample(atOffsets: offsets)
-        } catch {
-            errorPublisher.send(.internalError(.removingIdiomExampleFailed))
+            errorPublisher.send(.internalError(.updatingIdiomExamplesFailed))
         }
         saveContext()
     }
@@ -75,7 +56,7 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
 
     private func fetchIdiom() {
         let fetchRequest: NSFetchRequest<CDIdiom> = CDIdiom.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", idiomId as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", idiomId)
         do {
             if let cdIdiom: CDIdiom = try coreDataService.context.fetch(fetchRequest).first {
                 self.cdIdiom = cdIdiom
@@ -89,7 +70,6 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
     private func saveContext() {
         do {
             try coreDataService.saveContext()
-            _idiomPublisher.send(cdIdiom?.coreModel)
         } catch {
             errorPublisher.send(.internalError(.removingIdiomFailed))
         }

@@ -24,7 +24,7 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
     }
     public let errorPublisher = PassthroughSubject<CoreError, Never>()
 
-    private let wordId: UUID
+    private let wordId: String
     private let coreDataService: CoreDataServiceInterface
 
     private let _wordPublisher = CurrentValueSubject<Word?, Never>(nil)
@@ -32,7 +32,7 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
     private var cancellables: Set<AnyCancellable> = []
 
     public init(
-        wordId: UUID,
+        wordId: String,
         coreDataService: CoreDataServiceInterface
     ) {
         self.wordId = wordId
@@ -82,7 +82,7 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
 
     private func fetchWord() {
         let fetchRequest: NSFetchRequest<CDWord> = CDWord.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", wordId as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", wordId)
         do {
             if let cdWord: CDWord = try coreDataService.context.fetch(fetchRequest).first {
                 self.cdWord = cdWord

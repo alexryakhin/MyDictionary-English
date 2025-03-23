@@ -36,10 +36,12 @@ public enum AnalyticsEvent {
     case addIdiomTapped
     case idiomAdded
     case idiomOpened
+    case idiomChanged
     case idiomRemoved
     case listenToIdiomTapped
     case idiomFavoriteTapped(isFavorite: Bool)
     case idiomExampleAdded
+    case idiomExampleUpdated
     case idiomExampleRemoved
 
     case spellingQuizOpened
@@ -81,10 +83,12 @@ public enum AnalyticsEvent {
         case .addIdiomTapped: "addIdiomTapped"
         case .idiomAdded: "idiomAdded"
         case .idiomOpened: "idiomOpened"
+        case .idiomChanged: "idiomChanged"
         case .idiomRemoved: "idiomRemoved"
         case .listenToIdiomTapped: "listenToIdiomTapped"
         case .idiomFavoriteTapped: "idiomFavoriteTapped"
         case .idiomExampleAdded: "idiomExampleAdded"
+        case .idiomExampleUpdated: "idiomExampleUpdated"
         case .idiomExampleRemoved: "idiomExampleRemoved"
         case .spellingQuizOpened: "spellingQuizOpened"
         case .spellingQuizAnswerConfirmed: "spellingQuizAnswerConfirmed"

@@ -56,7 +56,7 @@ public final class MoreViewModel: DefaultPageViewModel {
         do {
             try csvManager.importWordsFromCSV(
                 url: url,
-                currentWordIds: words.compactMap(\.id).map(\.uuidString)
+                currentWordIds: words.compactMap(\.id)
             )
         } catch {
             errorReceived(error, displayType: .alert)

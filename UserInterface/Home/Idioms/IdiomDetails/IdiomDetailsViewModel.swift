@@ -10,9 +10,9 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
     enum Input {
         case speak(String?)
         case toggleFavorite
-        case toggleShowAddExample
-        case addExample
-        case removeExample(IndexSet)
+        case addExample(String)
+        case updateExample(at: Int, text: String)
+        case removeExample(at: Int)
         case deleteIdiom
     }
 
@@ -22,10 +22,7 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
 
     var onOutput: ((Output) -> Void)?
 
-    @Published private(set) var idiom: Idiom
-    @Published private(set) var isShowAddExample = false
-    @Published var definitionTextFieldStr = ""
-    @Published var exampleTextFieldStr = ""
+    @Published var idiom: Idiom
 
     // MARK: - Private Properties
 
@@ -53,15 +50,24 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
             speak(text)
             AnalyticsService.shared.logEvent(.listenToIdiomTapped)
         case .toggleFavorite:
-            idiomDetailsManager.toggleFavorite()
+            idiom.isFavorite.toggle()
             AnalyticsService.shared.logEvent(.idiomFavoriteTapped(isFavorite: idiom.isFavorite))
-        case .toggleShowAddExample:
-            isShowAddExample.toggle()
-        case .addExample:
-            addExample()
+        case .addExample(let example):
+            guard !example.isEmpty else {
+                errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
+                return
+            }
+            idiom.examples.append(example)
             AnalyticsService.shared.logEvent(.idiomExampleAdded)
-        case .removeExample(let offsets):
-            idiomDetailsManager.removeExample(atOffsets: offsets)
+        case .updateExample(let index, let example):
+            guard !example.isEmpty else {
+                errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
+                return
+            }
+            idiom.examples[index] = example
+            AnalyticsService.shared.logEvent(.idiomExampleUpdated)
+        case .removeExample(let index):
+            idiom.examples.remove(at: index)
             AnalyticsService.shared.logEvent(.idiomExampleRemoved)
         case .deleteIdiom:
             showAlert(
@@ -84,15 +90,6 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
     // MARK: - Private Methods
 
     private func setupBindings() {
-        idiomDetailsManager.idiomPublisher
-            .ifNotNil()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] idiom in
-                self?.idiom = idiom
-                self?.definitionTextFieldStr = idiom.definition
-            }
-            .store(in: &cancellables)
-
         idiomDetailsManager.errorPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
@@ -100,19 +97,13 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
             }
             .store(in: &cancellables)
 
-        $definitionTextFieldStr
+        $idiom
             .removeDuplicates()
             .debounce(for: 1, scheduler: RunLoop.main)
-            .sink { [weak self] text in
-                self?.idiomDetailsManager.updateDefinition(text)
+            .sink { [weak self] idiom in
+                self?.idiomDetailsManager.updateIdiom(idiom)
             }
             .store(in: &cancellables)
-    }
-
-    private func addExample() {
-        idiomDetailsManager.addExample(exampleTextFieldStr)
-        exampleTextFieldStr = ""
-        isShowAddExample = false
     }
 
     private func speak(_ text: String?) {

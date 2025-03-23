@@ -3,7 +3,7 @@ import SwiftUI
 import CoreUserInterface
 import Core
 
-public final class WordDetailsViewController: PageViewController<WordDetailsContentView> {
+public final class WordDetailsViewController: PageViewController<WordDetailsContentView>, NavigationBarVisible {
 
     public enum Event {
         case finish

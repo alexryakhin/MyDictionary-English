@@ -10,7 +10,7 @@ public protocol IdiomsProviderInterface {
     /// Fetches latest data from Core Data
     func fetchIdioms()
     /// Removes a given idiom from the Core Data
-    func delete(with id: UUID)
+    func delete(with id: String)
 }
 
 public final class IdiomsProvider: IdiomsProviderInterface {
@@ -43,9 +43,9 @@ public final class IdiomsProvider: IdiomsProviderInterface {
     }
 
     /// Removes a given idiom from the Core Data
-    public func delete(with id: UUID) {
+    public func delete(with id: String) {
         let fetchRequest: NSFetchRequest<CDIdiom> = CDIdiom.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
 
         do {
             if let object = try coreDataService.context.fetch(fetchRequest).first {
@@ -60,9 +60,7 @@ public final class IdiomsProvider: IdiomsProviderInterface {
     }
 
     private func setupBindings() {
-        NotificationCenter.default.eventChangedPublisher
-            .combineLatest(NotificationCenter.default.coreDataDidSaveObjectIDsPublisher)
-            .debounce(for: .seconds(0.3), scheduler: DispatchQueue.main)
+        coreDataService.dataUpdatedPublisher
             .sink { [weak self] _ in
                 self?.fetchIdioms()
             }

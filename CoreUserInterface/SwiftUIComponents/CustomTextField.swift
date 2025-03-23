@@ -30,7 +30,8 @@ public struct CustomTextField: View {
 
     public var body: some View {
         HStack(spacing: 8) {
-            TextField(placeholder, text: text, onCommit: onCommit)
+            TextField(placeholder, text: text, axis: .vertical)
+                .onSubmit(onCommit)
                 .submitLabel(submitLabel)
                 .focused($isFocused)
 
