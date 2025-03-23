@@ -21,6 +21,7 @@ public struct CustomSectionView<Content: View, HeaderTrainingContent: View>: Vie
         @ViewBuilder headerTrailingContent: @escaping () -> HeaderTrainingContent = { EmptyView() }
     ) {
         self.header = header
+        self.footer = footer
         self.content = content
         self.headerTrailingContent = headerTrailingContent
     }
@@ -40,8 +41,10 @@ public struct CustomSectionView<Content: View, HeaderTrainingContent: View>: Vie
             } footer: {
                 if let footer {
                     Text(footer)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.caption)
                         .foregroundColor(.secondary)
+                        .padding(.horizontal, 12)
                 }
             }
         }

@@ -10,13 +10,14 @@ import CoreUserInterface
 import CoreNavigation
 import Services
 import Combine
+import SwiftUI
 
 public class WordsListViewModel: DefaultPageViewModel {
 
     enum Input {
         case showAddWord
         case showWordDetails(word: Word)
-        case deleteWord(IndexSet)
+        case deleteWord(word: Word)
         case selectFilterState(FilterCase)
         case selectSortingState(SortingCase)
     }
@@ -61,7 +62,7 @@ public class WordsListViewModel: DefaultPageViewModel {
         }
     }
 
-    var wordsCount: String {
+    var wordsCount: LocalizedStringKey {
         if wordsFiltered.count == 1 {
             return "1 word"
         } else {
@@ -69,9 +70,7 @@ public class WordsListViewModel: DefaultPageViewModel {
         }
     }
 
-    public init(
-        wordsProvider: WordsProviderInterface
-    ) {
+    public init(wordsProvider: WordsProviderInterface) {
         self.wordsProvider = wordsProvider
         super.init()
         loadingStarted()
@@ -84,8 +83,8 @@ public class WordsListViewModel: DefaultPageViewModel {
             onOutput?(.showAddWord(searchText: searchText))
         case .showWordDetails(let word):
             onOutput?(.showWordDetails(word: word))
-        case .deleteWord(let offsets):
-            deleteWord(offsets: offsets)
+        case .deleteWord(let word):
+            deleteWord(word)
         case .selectFilterState(let filter):
             selectFilterState(filter)
         case .selectSortingState(let sorting):
@@ -113,25 +112,6 @@ public class WordsListViewModel: DefaultPageViewModel {
                 self?.filterState = value.isEmpty ? .none : .search
             }
             .store(in: &cancellables)
-    }
-
-    private func deleteWord(offsets: IndexSet) {
-        switch filterState {
-        case .none:
-            offsets.map { words[$0] }.forEach { [weak self] word in
-                self?.deleteWord(word)
-            }
-        case .favorite:
-            offsets.map { favoriteWords[$0] }.forEach { [weak self] word in
-                self?.deleteWord(word)
-            }
-        case .search:
-            offsets.map { searchResults[$0] }.forEach { [weak self] word in
-                self?.deleteWord(word)
-            }
-        @unknown default:
-            fatalError("Unhandled event")
-        }
     }
 
     private func deleteWord(_ wordModel: Word) {

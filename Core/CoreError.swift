@@ -67,8 +67,7 @@ public enum CoreError: Error {
     }
 
     public enum InternalError: Error {
-        case removingWordExampleFailed
-        case savingWordExampleFailed
+        case updatingWordExamplesFailed
         case removingWordFailed
         case savingWordFailed
         case updatingIdiomExamplesFailed
@@ -82,10 +81,8 @@ public enum CoreError: Error {
 
         public var description: String {
             switch self {
-            case .removingWordExampleFailed:
-                return "Error removing word example"
-            case .savingWordExampleFailed:
-                return "Error saving word example"
+            case .updatingWordExamplesFailed:
+                return "Error updating word examples"
             case .removingWordFailed:
                 return "Error removing word"
             case .savingWordFailed:

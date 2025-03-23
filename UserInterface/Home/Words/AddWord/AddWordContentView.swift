@@ -17,7 +17,7 @@ public struct AddWordContentView: PageView {
     public var contentView: some View {
         NavigationView {
             ScrollView {
-                LazyVStack(spacing: 16) {
+                LazyVStack(spacing: 24) {
                     FormWithDivider {
                         wordCellView
                         definitionCellView
@@ -25,10 +25,10 @@ public struct AddWordContentView: PageView {
                         phoneticsCellView
                     }
                     .clippedWithBackground(.surface)
-                    .padding(.horizontal, 16)
 
                     definitionsSectionView
                 }
+                .padding(.horizontal, 16)
                 .editModeDisabling()
             }
             .background {
@@ -51,7 +51,7 @@ public struct AddWordContentView: PageView {
 
     var wordCellView: some View {
         CellWrapper("Word") {
-            CustomTextField("Type a word", text: $viewModel.inputWord, submitLabel: .search) {
+            CustomTextField("Type a word", text: $viewModel.inputWord) {
                 if viewModel.inputWord.isNotEmpty && viewModel.inputWord.isCorrect {
                     viewModel.handle(.fetchData)
                 }
@@ -106,15 +106,21 @@ public struct AddWordContentView: PageView {
 
     @ViewBuilder
     var definitionsSectionView: some View {
-        if viewModel.definitions.isNotEmpty {
-            LazyVStack(alignment: .leading, spacing: 12) {
-                Text("Select a definition")
-                    .font(.callout)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 16)
-                    .padding(.top, 16)
-
+        CustomSectionView(header: "Select a definition") {
+            switch viewModel.status {
+            case .loading:
+                LazyVStack {
+                    ForEach(0..<2) { _ in
+                        ShimmerView(height: 100)
+                    }
+                }
+            case .error:
+                EmptyListView(
+                    description: "There is an error loading definitions. Please try again.",
+                    background: .clear
+                )
+                .clippedWithPaddingAndBackground(.surface)
+            case .ready:
                 ForEach(Array(viewModel.definitions.enumerated()), id: \.element.id) { offset, definition in
                     FormWithDivider {
                         CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech.rawValue)") {
@@ -137,8 +143,13 @@ public struct AddWordContentView: PageView {
                         }
                     }
                     .clippedWithBackground(.surface)
-                    .padding(.horizontal, 16)
                 }
+            case .blank:
+                EmptyListView(
+                    description: "Start typing a word to find its definitions",
+                    background: .clear
+                )
+                .clippedWithPaddingAndBackground(.surface)
             }
         }
     }

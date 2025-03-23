@@ -9,112 +9,29 @@ public struct WordDetailsContentView: PageView {
     public typealias ViewModel = WordDetailsViewModel
 
     @ObservedObject public var viewModel: ViewModel
+    @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
     @FocusState private var isAddExampleFocused: Bool
+    @State private var isAddingExample = false
+    @State private var editingExampleIndex: Int?
+    @State private var exampleTextFieldStr = ""
 
     public init(viewModel: WordDetailsViewModel) {
         self.viewModel = viewModel
     }
 
     public var contentView: some View {
-        List {
-            Section {
-                HStack {
-                    Text("\(viewModel.word.phonetic?.nilIfEmpty ?? "No transcription")")
-                    Spacer()
-                    Button {
-                        viewModel.handle(.play(viewModel.word.word))
-                        AnalyticsService.shared.logEvent(.listenToWordTapped)
-                    } label: {
-                        Image(systemName: "speaker.wave.2.fill")
-                    }
-                }
-            } header: {
-                Text("Phonetics")
+        ScrollView {
+            LazyVStack(spacing: 24) {
+                transcriptionSectionView
+                partOfSpeechSectionView
+                definitionSectionView
+                examplesSectionView
             }
-
-            Section {
-                Text(viewModel.word.partOfSpeech.rawValue)
-                    .contextMenu {
-                        ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
-                            Button {
-                                viewModel.handle(.updatePartOfSpeech(partCase.rawValue))
-                            } label: {
-                                Text(partCase.rawValue)
-                            }
-                        }
-                    }
-            } header: {
-                Text("Part Of Speech")
-            }
-
-            Section {
-                TextField("Definition", text: $viewModel.definitionTextFieldStr, axis: .vertical)
-                    .focused($isDefinitionFocused)
-            } header: {
-                HStack {
-                    Text("Definition")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    if isDefinitionFocused {
-                        Button {
-                            UIApplication.shared.endEditing()
-                            AnalyticsService.shared.logEvent(.definitionChanged)
-                        } label: {
-                            Text("Done")
-                        }
-                    }
-                }
-            } footer: {
-                Button {
-                    viewModel.handle(.play(viewModel.word.definition))
-                    AnalyticsService.shared.logEvent(.listenToDefinitionTapped)
-                } label: {
-                    Image(systemName: "speaker.wave.2.fill")
-                    Text("Listen")
-                }
-                .foregroundColor(.accentColor)
-            }
-
-            Section {
-                ForEach(viewModel.word.examples, id: \.self) { example in
-                    Text(example)
-                }
-                .onDelete {
-                    viewModel.handle(.removeExample($0))
-                }
-
-                if viewModel.isShowAddExample {
-                    TextField("Type an example here", text: $viewModel.exampleTextFieldStr, axis: .vertical)
-                        .onSubmit {
-                            viewModel.handle(.addExample)
-                        }
-                        .submitLabel(.done)
-                        .focused($isAddExampleFocused)
-                } else {
-                    Button {
-                        withAnimation {
-                            viewModel.handle(.toggleShowAddExample)
-                        }
-                    } label: {
-                        Text("Add example")
-                    }
-                }
-            } header: {
-                HStack {
-                    Text("Examples")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    if isAddExampleFocused {
-                        Button {
-                            UIApplication.shared.endEditing()
-                            viewModel.handle(.addExample)
-                        } label: {
-                            Text("Done")
-                        }
-                    }
-                }
-            }
+            .padding(vertical: 12, horizontal: 16)
+            .animation(.default, value: viewModel.word)
         }
-        .listStyle(.insetGrouped)
+        .background(Color.background)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -134,6 +51,130 @@ public struct WordDetailsContentView: PageView {
                     )
                 }
             }
+        }
+        .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
+            TextField("Example", text: $exampleTextFieldStr)
+            Button("Cancel", role: .cancel) {
+
+            }
+            Button("Save") {
+                viewModel.handle(.updateExample(at: index, text: exampleTextFieldStr))
+                editingExampleIndex = nil
+                exampleTextFieldStr = .empty
+            }
+        }
+    }
+
+    private var transcriptionSectionView: some View {
+        CustomSectionView(header: "Transcription") {
+            TextField("Transcription", text: $viewModel.word.phonetic, axis: .vertical)
+                .focused($isPhoneticsFocused)
+                .clippedWithPaddingAndBackground(.surface)
+        } headerTrailingContent: {
+            if isPhoneticsFocused {
+                SectionHeaderButton("Done") {
+                    isPhoneticsFocused = false
+                }
+            } else {
+                SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                    viewModel.handle(.play(viewModel.word.word))
+                }
+            }
+        }
+    }
+
+    private var partOfSpeechSectionView: some View {
+        CustomSectionView(header: "Part Of Speech") {
+            Text(viewModel.word.partOfSpeech.rawValue)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .clippedWithPaddingAndBackground(.surface)
+                .contextMenu {
+                    ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
+                        Button {
+                            viewModel.handle(.updatePartOfSpeech(partCase))
+                        } label: {
+                            Text(partCase.rawValue)
+                        }
+                    }
+                }
+        }
+    }
+
+    private var definitionSectionView: some View {
+        CustomSectionView(header: "Definition") {
+            TextField("Definition", text: $viewModel.word.definition, axis: .vertical)
+                .focused($isDefinitionFocused)
+                .clippedWithPaddingAndBackground(.surface)
+        } headerTrailingContent: {
+            if isDefinitionFocused {
+                SectionHeaderButton("Done") {
+                    isDefinitionFocused = false
+                    AnalyticsService.shared.logEvent(.definitionChanged)
+                }
+            } else {
+                SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                    viewModel.handle(.play(viewModel.word.definition))
+                }
+            }
+        }
+    }
+
+    private var examplesSectionView: some View {
+        CustomSectionView(header: "Examples") {
+            FormWithDivider {
+                ForEach(Array(viewModel.word.examples.enumerated()), id: \.offset) { index, example in
+                    Text(example)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(vertical: 12, horizontal: 16)
+                        .background(.surface)
+                        .contextMenu {
+                            Button {
+                                viewModel.handle(.play(example))
+                            } label: {
+                                Label("Listen", systemImage: "speaker.wave.2.fill")
+                            }
+                            Button {
+                                exampleTextFieldStr = example
+                                editingExampleIndex = index
+                            } label: {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            Section {
+                                Button(role: .destructive) {
+                                    viewModel.handle(.removeExample(at: index))
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
+                        }
+                }
+                if isAddingExample {
+                    HStack {
+                        TextField("Type an example here", text: $exampleTextFieldStr, axis: .vertical)
+                            .focused($isAddExampleFocused)
+
+                        if isAddExampleFocused {
+                            Button {
+                                viewModel.handle(.addExample(exampleTextFieldStr))
+                                isAddingExample = false
+                                exampleTextFieldStr = .empty
+                            } label: {
+                                Image(systemName: "checkmark.rectangle.portrait.fill")
+                            }
+                        }
+                    }
+                    .padding(vertical: 12, horizontal: 16)
+                } else {
+                    Button("Add example", systemImage: "plus") {
+                        withAnimation {
+                            isAddingExample.toggle()
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(vertical: 12, horizontal: 16)
+                }
+            }
+            .clippedWithBackground(.surface)
         }
     }
 }

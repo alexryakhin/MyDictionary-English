@@ -29,6 +29,7 @@ public enum AnalyticsEvent: String {
     case listenToWordTapped
     case listenToDefinitionTapped
     case wordExampleAdded
+    case wordExampleUpdated
     case wordExampleRemoved
     case definitionChanged
     case partOfSpeechChanged

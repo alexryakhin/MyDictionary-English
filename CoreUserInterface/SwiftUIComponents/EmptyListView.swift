@@ -14,9 +14,9 @@ public struct EmptyListView<Actions: View>: View {
     private let actions: () -> Actions
 
     public init(
-        label: String?,
-        description: String?,
-        background: Color,
+        label: String? = nil,
+        description: String? = nil,
+        background: Color = .clear,
         @ViewBuilder actions: @escaping () -> Actions = { EmptyView() }
     ) {
         self.label = label
@@ -31,7 +31,9 @@ public struct EmptyListView<Actions: View>: View {
             if #available(iOS 17.0, *) {
                 ContentUnavailableView(
                     label: {
-                        Text(label ?? "Empty here")
+                        if let label {
+                            Text(label)
+                        }
                     },
                     description: {
                         if let description {
@@ -42,10 +44,12 @@ public struct EmptyListView<Actions: View>: View {
                 )
             } else {
                 VStack(spacing: 12) {
-                    Text(label ?? "Empty here")
-                        .multilineTextAlignment(.center)
-                        .font(.headline)
-                        .foregroundColor(.primary)
+                    if let label {
+                        Text(label)
+                            .multilineTextAlignment(.center)
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                    }
                     if let description {
                         Text(description)
                             .multilineTextAlignment(.center)

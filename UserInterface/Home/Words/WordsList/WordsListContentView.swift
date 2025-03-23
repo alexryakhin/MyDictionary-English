@@ -26,50 +26,51 @@ public struct WordsListContentView: PageView {
     }
 
     public var contentView: some View {
-        List {
-            Section {
-                ForEach(viewModel.wordsFiltered) { wordModel in
-                    Button {
-                        viewModel.handle(.showWordDetails(word: wordModel))
-                        AnalyticsService.shared.logEvent(.wordOpened)
-                    } label: {
-                        WordListCellView(
-                            model: .init(
-                                word: wordModel.word,
-                                isFavorite: wordModel.isFavorite,
-                                partOfSpeech: wordModel.partOfSpeech.rawValue
+        ScrollView {
+            CustomSectionView(header: filterStateTitle, footer: viewModel.wordsCount) {
+                if viewModel.wordsFiltered.isNotEmpty {
+                    ListWithDivider(viewModel.wordsFiltered) { wordModel in
+                        Button {
+                            viewModel.handle(.showWordDetails(word: wordModel))
+                        } label: {
+                            WordListCellView(
+                                model: .init(
+                                    word: wordModel.word,
+                                    isFavorite: wordModel.isFavorite,
+                                    partOfSpeech: wordModel.partOfSpeech.rawValue
+                                )
                             )
-                        )
+                            .padding(vertical: 12, horizontal: 16)
+                            .background(Color.surface)
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                    viewModel.handle(.deleteWord(word: wordModel))
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
+                        }
                     }
-                }
-                .onDelete {
-                    viewModel.handle(.deleteWord($0))
+                    .clippedWithBackground(.surface)
                 }
 
                 if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
                     Button {
-                        AnalyticsService.shared.logEvent(.addWordFromSearchTapped)
                         addItem()
                     } label: {
-                        Text("Add `\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))`")
+                        Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .clippedWithPaddingAndBackground(.surface)
                     }
                 }
-            } header: {
-                Text(filterStateTitle)
-            } footer: {
-                if !viewModel.wordsFiltered.isEmpty {
-                    Text(viewModel.wordsCount)
-                }
             }
+            .padding(vertical: 12, horizontal: 16)
         }
-        .listStyle(.insetGrouped)
+        .background(Color.background)
         .if(viewModel.words.isNotEmpty, transform: { view in
             view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
         })
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
-            }
             ToolbarItem {
                 Button {
                     AnalyticsService.shared.logEvent(.addWordTapped)
@@ -130,24 +131,20 @@ public struct WordsListContentView: PageView {
     private var filterMenu: some View {
         Menu {
             Button {
-                withAnimation {
-                    viewModel.handle(.selectFilterState(.none))
-                }
+                viewModel.handle(.selectFilterState(.none))
             } label: {
-                if viewModel.filterState == .none {
-                    Image(systemName: "checkmark")
-                }
-                Text("None")
+                Label("None", systemImage: viewModel.filterState == .none
+                      ? "checkmark.circle.fill"
+                      : "circle"
+                )
             }
             Button {
-                withAnimation {
-                    viewModel.handle(.selectFilterState(.favorite))
-                }
+                viewModel.handle(.selectFilterState(.favorite))
             } label: {
-                if viewModel.filterState == .favorite {
-                    Image(systemName: "checkmark")
-                }
-                Text("Favorites")
+                Label("Favorites", systemImage: viewModel.filterState == .favorite
+                      ? "checkmark.circle.fill"
+                      : "circle"
+                )
             }
         } label: {
             Label {
@@ -161,36 +158,29 @@ public struct WordsListContentView: PageView {
     private var sortMenu: some View {
         Menu {
             Button {
-                withAnimation {
-                    viewModel.handle(.selectSortingState(.def))
-                }
+                viewModel.handle(.selectSortingState(.def))
             } label: {
-                if viewModel.sortingState == .def {
-                    Image(systemName: "checkmark")
-                }
-                Text("Default")
+                Label("Default", systemImage: viewModel.sortingState == .def
+                      ? "checkmark.circle.fill"
+                      : "circle"
+                )
             }
             Button {
-                withAnimation {
-                    viewModel.handle(.selectSortingState(.name))
-                }
+                viewModel.handle(.selectSortingState(.name))
             } label: {
-                if viewModel.sortingState == .name {
-                    Image(systemName: "checkmark")
-                }
-                Text("Name")
+                Label("Name", systemImage: viewModel.sortingState == .name
+                      ? "checkmark.circle.fill"
+                      : "circle"
+                )
             }
             Button {
-                withAnimation {
-                    viewModel.handle(.selectSortingState(.partOfSpeech))
-                }
+                viewModel.handle(.selectSortingState(.partOfSpeech))
             } label: {
-                if viewModel.sortingState == .partOfSpeech {
-                    Image(systemName: "checkmark")
-                }
-                Text("Part of speech")
+                Label("Part of speech", systemImage: viewModel.sortingState == .partOfSpeech
+                      ? "checkmark.circle.fill"
+                      : "circle"
+                )
             }
-
         } label: {
             Label {
                 Text("Sort By")

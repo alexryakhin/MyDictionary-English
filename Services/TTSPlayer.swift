@@ -1,5 +1,5 @@
 //
-//  SpeechSynthesizer.swift
+//  TTSPlayer.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin on 3/9/25.
@@ -26,9 +26,13 @@ public final class TTSPlayer: TTSPlayerInterface {
     public init() {}
 
     public func play(_ text: String) async throws(CoreError) {
+        guard text.isNotEmpty else { return }
+
         let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=\(escapedText)&tl=\(selectedTTLLanguage.rawValue)"
         guard let url = URL(string: urlString) else { return }
+
+        guard player?.isPlaying == false || player == nil else { return }
 
         let _ = try setupAudioSession()
         let temporaryDownloadURL = try await temporaryDownloadURL(for: url)

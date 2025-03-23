@@ -20,7 +20,6 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
     }
     public let errorPublisher = PassthroughSubject<CoreError, Never>()
 
-    private let idiomId: String
     private let coreDataService: CoreDataServiceInterface
 
     private let _idiomPublisher = CurrentValueSubject<Idiom?, Never>(nil)
@@ -31,9 +30,8 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
         idiomId: String,
         coreDataService: CoreDataServiceInterface
     ) {
-        self.idiomId = idiomId
         self.coreDataService = coreDataService
-        fetchIdiom()
+        fetchIdiom(with: idiomId)
     }
 
     public func updateIdiom(_ idiom: Idiom) {
@@ -54,9 +52,9 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
         saveContext()
     }
 
-    private func fetchIdiom() {
+    private func fetchIdiom(with id: String) {
         let fetchRequest: NSFetchRequest<CDIdiom> = CDIdiom.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", idiomId)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
         do {
             if let cdIdiom: CDIdiom = try coreDataService.context.fetch(fetchRequest).first {
                 self.cdIdiom = cdIdiom

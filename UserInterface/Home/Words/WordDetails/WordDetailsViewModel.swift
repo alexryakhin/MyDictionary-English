@@ -10,10 +10,10 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
     enum Input {
         case play(String?)
         case toggleFavorite
-        case updatePartOfSpeech(String)
-        case toggleShowAddExample
-        case addExample
-        case removeExample(IndexSet)
+        case updatePartOfSpeech(PartOfSpeech)
+        case addExample(String)
+        case updateExample(at: Int, text: String)
+        case removeExample(at: Int)
         case deleteWord
     }
 
@@ -23,11 +23,8 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
 
     var onOutput: ((Output) -> Void)?
 
-    @Published var definitionTextFieldStr = ""
-    @Published var exampleTextFieldStr = ""
 
-    @Published private(set) var word: Word
-    @Published private(set) var isShowAddExample = false
+    @Published var word: Word
 
     // MARK: - Private Properties
 
@@ -54,18 +51,27 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
         case .play(let text):
             play(text)
         case .toggleFavorite:
-            wordDetailsManager.toggleFavorite()
+            word.isFavorite.toggle()
             AnalyticsService.shared.logEvent(.wordFavoriteTapped)
         case .updatePartOfSpeech(let value):
-            wordDetailsManager.updatePartOfSpeech(value)
+            word.partOfSpeech = value
             AnalyticsService.shared.logEvent(.partOfSpeechChanged)
-        case .toggleShowAddExample:
-            isShowAddExample.toggle()
-        case .addExample:
-            addExample()
+        case .addExample(let example):
+            guard !example.isEmpty else {
+                errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
+                return
+            }
+            word.examples.append(example)
             AnalyticsService.shared.logEvent(.wordExampleAdded)
-        case .removeExample(let offsets):
-            wordDetailsManager.removeExample(atOffsets: offsets)
+        case .updateExample(let index, let example):
+            guard !example.isEmpty else {
+                errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
+                return
+            }
+            word.examples[index] = example
+            AnalyticsService.shared.logEvent(.wordExampleUpdated)
+        case .removeExample(let index):
+            word.examples.remove(at: index)
             AnalyticsService.shared.logEvent(.wordExampleRemoved)
         case .deleteWord:
             showAlert(
@@ -87,15 +93,6 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
     // MARK: - Private Methods
 
     private func setupBindings() {
-        wordDetailsManager.wordPublisher
-            .ifNotNil()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] word in
-                self?.word = word
-                self?.definitionTextFieldStr = word.definition
-            }
-            .store(in: &cancellables)
-
         wordDetailsManager.errorPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
@@ -103,19 +100,13 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
             }
             .store(in: &cancellables)
 
-        $definitionTextFieldStr
+        $word
             .removeDuplicates()
             .debounce(for: 1, scheduler: RunLoop.main)
-            .sink { [weak self] text in
-                self?.wordDetailsManager.updateDefinition(text)
+            .sink { [weak self] word in
+                self?.wordDetailsManager.updateWord(word)
             }
             .store(in: &cancellables)
-    }
-
-    private func addExample() {
-        wordDetailsManager.addExample(exampleTextFieldStr)
-        exampleTextFieldStr = ""
-        isShowAddExample = false
     }
 
     private func play(_ text: String?) {

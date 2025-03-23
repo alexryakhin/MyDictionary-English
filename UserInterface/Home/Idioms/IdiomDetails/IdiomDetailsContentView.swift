@@ -113,15 +113,22 @@ public struct IdiomDetailsContentView: PageView {
                         .background(.surface)
                         .contextMenu {
                             Button {
+                                viewModel.handle(.play(example))
+                            } label: {
+                                Label("Listen", systemImage: "speaker.wave.2.fill")
+                            }
+                            Button {
                                 exampleTextFieldStr = example
                                 editingExampleIndex = index
                             } label: {
                                 Label("Edit", systemImage: "pencil")
                             }
-                            Button(role: .destructive) {
-                                viewModel.handle(.removeExample(at: index))
-                            } label: {
-                                Label("Delete", systemImage: "trash")
+                            Section {
+                                Button(role: .destructive) {
+                                    viewModel.handle(.removeExample(at: index))
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
                             }
                         }
                 }

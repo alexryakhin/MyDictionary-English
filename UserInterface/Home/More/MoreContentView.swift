@@ -25,7 +25,7 @@ public struct MoreContentView: PageView {
             // MARK: - Settings
 
             Section {
-                Picker("Accent", selection: $viewModel.selectedTTSLanguage) {
+                Picker("Selected Accent", selection: $viewModel.selectedTTSLanguage) {
                     ForEach(TTSLanguage.allCases) { language in
                         Text(language.title)
                             .tag(language)
@@ -55,6 +55,18 @@ public struct MoreContentView: PageView {
                 Text("Import / Export")
             } footer: {
                 Text("Please note that import and export only work with files created by this app.")
+            }
+
+            // MARK: - About app
+
+            Section {
+                Button {
+                    viewModel.handle(.showAboutApp)
+                } label: {
+                    Label("About app", systemImage: "info.square")
+                }
+            } header: {
+                Text("About app")
             }
         }
         .listStyle(.insetGrouped)

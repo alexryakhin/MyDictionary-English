@@ -12,9 +12,9 @@ extension TTSLanguage {
     public var title: LocalizedStringKey {
         switch self {
         case .en:
-            return "British English"
+            return "British"
         case .enUS:
-            return "American English"
+            return "American"
         }
     }
 }

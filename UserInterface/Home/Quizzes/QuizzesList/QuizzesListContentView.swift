@@ -31,7 +31,6 @@ public struct QuizzesListContentView: PageView {
                     } label: {
                         HStack(spacing: 8) {
                             Text(quiz.title)
-                                .bold()
                                 .foregroundColor(.primary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             Image(systemName: "chevron.right")

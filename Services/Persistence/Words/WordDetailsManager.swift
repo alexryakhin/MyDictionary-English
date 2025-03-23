@@ -8,11 +8,7 @@ public protocol WordDetailsManagerInterface {
     var wordPublisher: AnyPublisher<Word?, Never> { get }
     var errorPublisher: PassthroughSubject<CoreError, Never> { get }
 
-    func toggleFavorite()
-    func updateDefinition(_ definition: String)
-    func updatePartOfSpeech(_ partOfSpeech: String)
-    func addExample(_ example: String)
-    func removeExample(atOffsets offsets: IndexSet)
+    func updateWord(_ word: Word)
     /// Removes a given word from the Core Data
     func deleteWord()
 }
@@ -24,7 +20,6 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
     }
     public let errorPublisher = PassthroughSubject<CoreError, Never>()
 
-    private let wordId: String
     private let coreDataService: CoreDataServiceInterface
 
     private let _wordPublisher = CurrentValueSubject<Word?, Never>(nil)
@@ -35,9 +30,8 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
         wordId: String,
         coreDataService: CoreDataServiceInterface
     ) {
-        self.wordId = wordId
         self.coreDataService = coreDataService
-        fetchWord()
+        fetchWord(with: wordId)
     }
 
     public func toggleFavorite() {
@@ -45,30 +39,15 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
         saveContext()
     }
 
-    public func updateDefinition(_ definition: String) {
-        cdWord?.definition = definition
-        saveContext()
-    }
-
-    public func updatePartOfSpeech(_ partOfSpeech: String) {
-        cdWord?.partOfSpeech = partOfSpeech
-        saveContext()
-    }
-
-    public func addExample(_ example: String) {
+    public func updateWord(_ word: Word) {
+        cdWord?.isFavorite = word.isFavorite
+        cdWord?.phonetic = word.phonetic
+        cdWord?.partOfSpeech = word.partOfSpeech.rawValue
+        cdWord?.definition = word.definition
         do {
-            try cdWord?.addExample(example)
+           try cdWord?.updateExamples(word.examples)
         } catch {
-            errorPublisher.send(.internalError(.savingWordExampleFailed))
-        }
-        saveContext()
-    }
-
-    public func removeExample(atOffsets offsets: IndexSet) {
-        do {
-            try cdWord?.removeExample(atOffsets: offsets)
-        } catch {
-            errorPublisher.send(.internalError(.removingWordExampleFailed))
+            errorPublisher.send(.internalError(.updatingWordExamplesFailed))
         }
         saveContext()
     }
@@ -80,9 +59,9 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
         saveContext()
     }
 
-    private func fetchWord() {
+    private func fetchWord(with id: String) {
         let fetchRequest: NSFetchRequest<CDWord> = CDWord.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", wordId)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
         do {
             if let cdWord: CDWord = try coreDataService.context.fetch(fetchRequest).first {
                 self.cdWord = cdWord
@@ -96,7 +75,6 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
     private func saveContext() {
         do {
             try coreDataService.saveContext()
-            _wordPublisher.send(cdWord?.coreModel)
         } catch {
             errorPublisher.send(.internalError(.removingWordFailed))
         }

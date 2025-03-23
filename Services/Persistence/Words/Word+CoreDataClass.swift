@@ -32,20 +32,8 @@ final class CDWord: NSManagedObject, Identifiable {
         return decodedData
     }
 
-    func removeExample(atOffsets offsets: IndexSet) throws {
-        var examples = examplesDecoded
-        examples.remove(atOffsets: offsets)
-
+    func updateExamples(_ examples: [String]) throws {
         let newExamplesData = try JSONEncoder().encode(examples)
-        self.examples = newExamplesData
-    }
-
-    func addExample(_ example: String) throws {
-        guard !example.isEmpty else {
-            throw CoreError.internalError(.savingWordExampleFailed)
-        }
-        let newExamples = examplesDecoded + [example]
-        let newExamplesData = try JSONEncoder().encode(newExamples)
         self.examples = newExamplesData
     }
 
@@ -55,7 +43,7 @@ final class CDWord: NSManagedObject, Identifiable {
             word: wordItself,
             definition: definition,
             partOfSpeech: .init(rawValue: partOfSpeech) ?? .unknown,
-            phonetic: phonetic,
+            phonetic: phonetic ?? .empty,
             id: id.uuidString,
             timestamp: timestamp,
             examples: examplesDecoded,
