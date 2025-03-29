@@ -34,14 +34,17 @@ public final class TTSPlayer: TTSPlayerInterface {
 
         guard player?.isPlaying == false || player == nil else { return }
 
+        #if os(iOS)
         let _ = try setupAudioSession()
+        #endif
         let temporaryDownloadURL = try await temporaryDownloadURL(for: url)
         try await play(from: temporaryDownloadURL)
     }
 
+    #if os(iOS)
     private func setupAudioSession() throws(CoreError) -> AVAudioSession {
         let session = AVAudioSession.sharedInstance()
-        do {    
+        do {
             try session.setCategory(.playback)
             try session.setActive(true)
             return session
@@ -49,6 +52,7 @@ public final class TTSPlayer: TTSPlayerInterface {
             throw .internalError(.cannotSetupAudioSession)
         }
     }
+    #endif
 
     private func temporaryDownloadURL(for url: URL) async throws(CoreError) -> URL {
         let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy)

@@ -6,7 +6,11 @@
 //
 
 import Foundation
+#if os(iOS)
 import class UIKit.UITextChecker
+#elseif os(macOS)
+import class AppKit.NSSpellChecker
+#endif
 
 public extension String {
 
@@ -49,10 +53,16 @@ public extension Optional where Wrapped == String {
 
 public extension String {
     var isCorrect: Bool {
+#if os(iOS)
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: self.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: self, range: range, startingAt: 0, wrap: false, language: "en")
         return misspelledRange.location == NSNotFound
+#elseif os(macOS)
+        let checker = NSSpellChecker.shared
+        let misspelledRange = checker.checkSpelling(of: self, startingAt: 0)
+        return misspelledRange.location == NSNotFound
+#endif
     }
 }
 

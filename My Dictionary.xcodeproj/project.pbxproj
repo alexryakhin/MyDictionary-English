@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530D2C4D2D983A1E0040C247 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530D2C4C2D983A1E0040C247 /* CloudKit.framework */; };
+		530D2C532D983E720040C247 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2C522D983E720040C247 /* FirebaseCore */; };
+		530D2C552D983E780040C247 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2C542D983E780040C247 /* FirebaseCrashlytics */; };
+		530D2C772D9844B40040C247 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
+		530D2C782D9844B40040C247 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		530D2C7C2D9846250040C247 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
+		530D2C7D2D9846250040C247 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		530D2C802D9846290040C247 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
+		530D2C812D9846290040C247 /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		530D2C952D98474E0040C247 /* CoreUserInterface__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530D2C8F2D98474E0040C247 /* CoreUserInterface__macOS_.framework */; };
+		530D2C962D98474E0040C247 /* CoreUserInterface__macOS_.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 530D2C8F2D98474E0040C247 /* CoreUserInterface__macOS_.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		530D2CA62D9847680040C247 /* UserInterface__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530D2CA02D9847680040C247 /* UserInterface__macOS_.framework */; };
+		530D2CA72D9847680040C247 /* UserInterface__macOS_.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 530D2CA02D9847680040C247 /* UserInterface__macOS_.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		530D2CAC2D98477F0040C247 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
+		530D2CB12D9847820040C247 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
+		530D2CB52D98479C0040C247 /* CoreUserInterface__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530D2C8F2D98474E0040C247 /* CoreUserInterface__macOS_.framework */; };
+		530D2CBA2D9847A20040C247 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
+		530D2CBF2D9847AD0040C247 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
+		530D2CC02D9847AD0040C247 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		530D2CC42D9847B00040C247 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
+		530D2CC52D9847B00040C247 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53310BA82D7E20D600C1DE8B /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */; };
 		53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BC92D7E238900C1DE8B /* FirebaseCore */; };
 		53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */; };
@@ -41,6 +62,83 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		530D2C792D9844B40040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E9A9F72D7C439B007E9F28;
+			remoteInfo = Shared;
+		};
+		530D2C7E2D9846250040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E9A80A2D7C3FF1007E9F28;
+			remoteInfo = Core;
+		};
+		530D2C822D9846290040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E9A7F92D7C3FE4007E9F28;
+			remoteInfo = Services;
+		};
+		530D2C932D98474E0040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 530D2C8E2D98474E0040C247;
+			remoteInfo = CoreUserInterfaceMacOS;
+		};
+		530D2CA42D9847680040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 530D2C9F2D9847680040C247;
+			remoteInfo = UserInterfaceMacOS;
+		};
+		530D2CAE2D98477F0040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E9A80A2D7C3FF1007E9F28;
+			remoteInfo = Core;
+		};
+		530D2CB32D9847820040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E9A9F72D7C439B007E9F28;
+			remoteInfo = Shared;
+		};
+		530D2CB72D98479C0040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 530D2C8E2D98474E0040C247;
+			remoteInfo = CoreUserInterfaceMacOS;
+		};
+		530D2CBC2D9847A20040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E9A7F92D7C3FE4007E9F28;
+			remoteInfo = Services;
+		};
+		530D2CC12D9847AD0040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E9A80A2D7C3FF1007E9F28;
+			remoteInfo = Core;
+		};
+		530D2CC62D9847B00040C247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E9A9F72D7C439B007E9F28;
+			remoteInfo = Shared;
+		};
 		53E9A76F2D7C3384007E9F28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 53E9A74C2D7C3383007E9F28 /* Project object */;
@@ -170,6 +268,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		530D2C7B2D9844B40040C247 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				530D2C962D98474E0040C247 /* CoreUserInterface__macOS_.framework in Embed Frameworks */,
+				530D2C782D9844B40040C247 /* Shared.framework in Embed Frameworks */,
+				530D2CA72D9847680040C247 /* UserInterface__macOS_.framework in Embed Frameworks */,
+				530D2C812D9846290040C247 /* Services.framework in Embed Frameworks */,
+				530D2C7D2D9846250040C247 /* Core.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		530D2CC32D9847AD0040C247 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				530D2CC02D9847AD0040C247 /* Core.framework in Embed Frameworks */,
+				530D2CC52D9847B00040C247 /* Shared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		53310D792D7EB4CF00C1DE8B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +314,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		530D2C332D9836920040C247 /* My Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Dictionary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		530D2C4C2D983A1E0040C247 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		530D2C8F2D98474E0040C247 /* CoreUserInterface__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreUserInterface__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		530D2CA02D9847680040C247 /* UserInterface__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserInterface__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E9A7542D7C3383007E9F28 /* My Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Dictionary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E9A76E2D7C3384007E9F28 /* My DictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My DictionaryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E9A7782D7C3384007E9F28 /* My DictionaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My DictionaryUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +331,43 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		530D2C482D9838CB0040C247 /* Exceptions for "Services" folder in "My Dictionary" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Persistence/My_Dictionary.xcdatamodeld,
+			);
+			target = 53E9A7532D7C3383007E9F28 /* My Dictionary */;
+		};
+		530D2C4B2D9839410040C247 /* Exceptions for "Services" folder in "My Dictionary (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Persistence/My_Dictionary.xcdatamodeld,
+			);
+			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
+		};
+		530D2C4F2D983A8C0040C247 /* Exceptions for "My Dictionary (macOS)" folder in "My Dictionary (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Resources/My Dictionary (macOS)/Resources/Info.plist",
+			);
+			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
+		};
+		530D2CAB2D9847680040C247 /* Exceptions for "UserInterface (macOS)" folder in "UserInterface (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Settings/DictionarySettings.swift,
+				Settings/SettingsViewModel.swift,
+			);
+			target = 530D2C9F2D9847680040C247 /* UserInterface (macOS) */;
+		};
+		530D2CC92D9848D10040C247 /* Exceptions for "UserInterface (macOS)" folder in "My Dictionary (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Settings/DictionarySettings.swift,
+				Settings/SettingsViewModel.swift,
+			);
+			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
+		};
 		53E9A7802D7C3385007E9F28 /* Exceptions for "My Dictionary" folder in "My Dictionary" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -268,6 +434,28 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		530D2C342D9836920040C247 /* My Dictionary (macOS) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				530D2C4F2D983A8C0040C247 /* Exceptions for "My Dictionary (macOS)" folder in "My Dictionary (macOS)" target */,
+			);
+			path = "My Dictionary (macOS)";
+			sourceTree = "<group>";
+		};
+		530D2C902D98474E0040C247 /* CoreUserInterface (macOS) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "CoreUserInterface (macOS)";
+			sourceTree = "<group>";
+		};
+		530D2CA12D9847680040C247 /* UserInterface (macOS) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				530D2CC92D9848D10040C247 /* Exceptions for "UserInterface (macOS)" folder in "My Dictionary (macOS)" target */,
+				530D2CAB2D9847680040C247 /* Exceptions for "UserInterface (macOS)" folder in "UserInterface (macOS)" target */,
+			);
+			path = "UserInterface (macOS)";
+			sourceTree = "<group>";
+		};
 		53E9A7562D7C3383007E9F28 /* My Dictionary */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -299,6 +487,8 @@
 		53E9A7FB2D7C3FE4007E9F28 /* Services */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				530D2C482D9838CB0040C247 /* Exceptions for "Services" folder in "My Dictionary" target */,
+				530D2C4B2D9839410040C247 /* Exceptions for "Services" folder in "My Dictionary (macOS)" target */,
 				53E9A8052D7C3FE4007E9F28 /* Exceptions for "Services" folder in "Services" target */,
 			);
 			path = Services;
@@ -344,6 +534,41 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		530D2C302D9836920040C247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				530D2C552D983E780040C247 /* FirebaseCrashlytics in Frameworks */,
+				530D2C952D98474E0040C247 /* CoreUserInterface__macOS_.framework in Frameworks */,
+				530D2C532D983E720040C247 /* FirebaseCore in Frameworks */,
+				530D2CA62D9847680040C247 /* UserInterface__macOS_.framework in Frameworks */,
+				530D2C4D2D983A1E0040C247 /* CloudKit.framework in Frameworks */,
+				530D2C7C2D9846250040C247 /* Core.framework in Frameworks */,
+				530D2C802D9846290040C247 /* Services.framework in Frameworks */,
+				530D2C772D9844B40040C247 /* Shared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		530D2C8C2D98474E0040C247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				530D2CBF2D9847AD0040C247 /* Core.framework in Frameworks */,
+				530D2CC42D9847B00040C247 /* Shared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		530D2C9D2D9847680040C247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				530D2CB52D98479C0040C247 /* CoreUserInterface__macOS_.framework in Frameworks */,
+				530D2CAC2D98477F0040C247 /* Core.framework in Frameworks */,
+				530D2CBA2D9847A20040C247 /* Services.framework in Frameworks */,
+				530D2CB12D9847820040C247 /* Shared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		53E9A7512D7C3383007E9F28 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,6 +671,9 @@
 				53E9A9C62D7C428E007E9F28 /* CoreNavigation */,
 				53E9A9F92D7C439B007E9F28 /* Shared */,
 				53E9A7E42D7C3E07007E9F28 /* UserInterface */,
+				530D2C342D9836920040C247 /* My Dictionary (macOS) */,
+				530D2C902D98474E0040C247 /* CoreUserInterface (macOS) */,
+				530D2CA12D9847680040C247 /* UserInterface (macOS) */,
 				53E9A7552D7C3383007E9F28 /* Products */,
 				53E9A8172D7C4019007E9F28 /* Frameworks */,
 				53E9AAD22D7CA84F007E9F28 /* README.md */,
@@ -465,6 +693,9 @@
 				53E9A9B02D7C41DE007E9F28 /* CoreUserInterface.framework */,
 				53E9A9C52D7C428E007E9F28 /* CoreNavigation.framework */,
 				53E9A9F82D7C439B007E9F28 /* Shared.framework */,
+				530D2C332D9836920040C247 /* My Dictionary.app */,
+				530D2C8F2D98474E0040C247 /* CoreUserInterface__macOS_.framework */,
+				530D2CA02D9847680040C247 /* UserInterface__macOS_.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -472,6 +703,7 @@
 		53E9A8172D7C4019007E9F28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				530D2C4C2D983A1E0040C247 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -479,6 +711,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		530D2C8A2D98474E0040C247 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		530D2C9B2D9847680040C247 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		53E9A7DE2D7C3E07007E9F28 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -524,6 +770,89 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		530D2C322D9836920040C247 /* My Dictionary (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 530D2C462D9836930040C247 /* Build configuration list for PBXNativeTarget "My Dictionary (macOS)" */;
+			buildPhases = (
+				530D2C2F2D9836920040C247 /* Sources */,
+				530D2C302D9836920040C247 /* Frameworks */,
+				530D2C312D9836920040C247 /* Resources */,
+				530D2C7B2D9844B40040C247 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				530D2C7A2D9844B40040C247 /* PBXTargetDependency */,
+				530D2C7F2D9846250040C247 /* PBXTargetDependency */,
+				530D2C832D9846290040C247 /* PBXTargetDependency */,
+				530D2C942D98474E0040C247 /* PBXTargetDependency */,
+				530D2CA52D9847680040C247 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				530D2C342D9836920040C247 /* My Dictionary (macOS) */,
+			);
+			name = "My Dictionary (macOS)";
+			packageProductDependencies = (
+				530D2C522D983E720040C247 /* FirebaseCore */,
+				530D2C542D983E780040C247 /* FirebaseCrashlytics */,
+			);
+			productName = "My Dictionary (macOS)";
+			productReference = 530D2C332D9836920040C247 /* My Dictionary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		530D2C8E2D98474E0040C247 /* CoreUserInterface (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 530D2C972D98474E0040C247 /* Build configuration list for PBXNativeTarget "CoreUserInterface (macOS)" */;
+			buildPhases = (
+				530D2C8A2D98474E0040C247 /* Headers */,
+				530D2C8B2D98474E0040C247 /* Sources */,
+				530D2C8C2D98474E0040C247 /* Frameworks */,
+				530D2C8D2D98474E0040C247 /* Resources */,
+				530D2CC32D9847AD0040C247 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				530D2CC22D9847AD0040C247 /* PBXTargetDependency */,
+				530D2CC72D9847B00040C247 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				530D2C902D98474E0040C247 /* CoreUserInterface (macOS) */,
+			);
+			name = "CoreUserInterface (macOS)";
+			packageProductDependencies = (
+			);
+			productName = CoreUserInterfaceMacOS;
+			productReference = 530D2C8F2D98474E0040C247 /* CoreUserInterface__macOS_.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		530D2C9F2D9847680040C247 /* UserInterface (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 530D2CA82D9847680040C247 /* Build configuration list for PBXNativeTarget "UserInterface (macOS)" */;
+			buildPhases = (
+				530D2C9B2D9847680040C247 /* Headers */,
+				530D2C9C2D9847680040C247 /* Sources */,
+				530D2C9D2D9847680040C247 /* Frameworks */,
+				530D2C9E2D9847680040C247 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				530D2CAF2D98477F0040C247 /* PBXTargetDependency */,
+				530D2CB42D9847820040C247 /* PBXTargetDependency */,
+				530D2CB82D98479C0040C247 /* PBXTargetDependency */,
+				530D2CBD2D9847A20040C247 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				530D2CA12D9847680040C247 /* UserInterface (macOS) */,
+			);
+			name = "UserInterface (macOS)";
+			packageProductDependencies = (
+			);
+			productName = UserInterfaceMacOS;
+			productReference = 530D2CA02D9847680040C247 /* UserInterface__macOS_.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		53E9A7532D7C3383007E9F28 /* My Dictionary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53E9A7812D7C3385007E9F28 /* Build configuration list for PBXNativeTarget "My Dictionary" */;
@@ -766,6 +1095,15 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					530D2C322D9836920040C247 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					530D2C8E2D98474E0040C247 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					530D2C9F2D9847680040C247 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					53E9A7532D7C3383007E9F28 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -820,6 +1158,7 @@
 			projectRoot = "";
 			targets = (
 				53E9A7532D7C3383007E9F28 /* My Dictionary */,
+				530D2C322D9836920040C247 /* My Dictionary (macOS) */,
 				53E9A76D2D7C3384007E9F28 /* My DictionaryTests */,
 				53E9A7772D7C3384007E9F28 /* My DictionaryUITests */,
 				53E9A7E22D7C3E07007E9F28 /* UserInterface */,
@@ -828,11 +1167,34 @@
 				53E9A9AF2D7C41DE007E9F28 /* CoreUserInterface */,
 				53E9A9C42D7C428E007E9F28 /* CoreNavigation */,
 				53E9A9F72D7C439B007E9F28 /* Shared */,
+				530D2C8E2D98474E0040C247 /* CoreUserInterface (macOS) */,
+				530D2C9F2D9847680040C247 /* UserInterface (macOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		530D2C312D9836920040C247 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		530D2C8D2D98474E0040C247 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		530D2C9E2D9847680040C247 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		53E9A7522D7C3383007E9F28 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -900,6 +1262,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		530D2C2F2D9836920040C247 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		530D2C8B2D98474E0040C247 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		530D2C9C2D9847680040C247 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		53E9A7502D7C3383007E9F28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -966,6 +1349,61 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		530D2C7A2D9844B40040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E9A9F72D7C439B007E9F28 /* Shared */;
+			targetProxy = 530D2C792D9844B40040C247 /* PBXContainerItemProxy */;
+		};
+		530D2C7F2D9846250040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E9A80A2D7C3FF1007E9F28 /* Core */;
+			targetProxy = 530D2C7E2D9846250040C247 /* PBXContainerItemProxy */;
+		};
+		530D2C832D9846290040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E9A7F92D7C3FE4007E9F28 /* Services */;
+			targetProxy = 530D2C822D9846290040C247 /* PBXContainerItemProxy */;
+		};
+		530D2C942D98474E0040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 530D2C8E2D98474E0040C247 /* CoreUserInterface (macOS) */;
+			targetProxy = 530D2C932D98474E0040C247 /* PBXContainerItemProxy */;
+		};
+		530D2CA52D9847680040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 530D2C9F2D9847680040C247 /* UserInterface (macOS) */;
+			targetProxy = 530D2CA42D9847680040C247 /* PBXContainerItemProxy */;
+		};
+		530D2CAF2D98477F0040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E9A80A2D7C3FF1007E9F28 /* Core */;
+			targetProxy = 530D2CAE2D98477F0040C247 /* PBXContainerItemProxy */;
+		};
+		530D2CB42D9847820040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E9A9F72D7C439B007E9F28 /* Shared */;
+			targetProxy = 530D2CB32D9847820040C247 /* PBXContainerItemProxy */;
+		};
+		530D2CB82D98479C0040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 530D2C8E2D98474E0040C247 /* CoreUserInterface (macOS) */;
+			targetProxy = 530D2CB72D98479C0040C247 /* PBXContainerItemProxy */;
+		};
+		530D2CBD2D9847A20040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E9A7F92D7C3FE4007E9F28 /* Services */;
+			targetProxy = 530D2CBC2D9847A20040C247 /* PBXContainerItemProxy */;
+		};
+		530D2CC22D9847AD0040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E9A80A2D7C3FF1007E9F28 /* Core */;
+			targetProxy = 530D2CC12D9847AD0040C247 /* PBXContainerItemProxy */;
+		};
+		530D2CC72D9847B00040C247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E9A9F72D7C439B007E9F28 /* Shared */;
+			targetProxy = 530D2CC62D9847B00040C247 /* PBXContainerItemProxy */;
+		};
 		53E9A7702D7C3384007E9F28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 53E9A7532D7C3383007E9F28 /* My Dictionary */;
@@ -1059,12 +1497,224 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		530D2C442D9836930040C247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/Resources/MyDictionary.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary\\ (macOS)/Resources/Assets.xcassets";
+				DEVELOPMENT_TEAM = 69S862NXBP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "My Dictionary (macOS)/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "My Dictionary";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
+				MARKETING_VERSION = 3.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary";
+				PRODUCT_NAME = "My Dictionary";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		530D2C452D9836930040C247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/Resources/MyDictionary.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary\\ (macOS)/Resources/Assets.xcassets";
+				DEVELOPMENT_TEAM = 69S862NXBP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "My Dictionary (macOS)/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "My Dictionary";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
+				MARKETING_VERSION = 3.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary";
+				PRODUCT_NAME = "My Dictionary";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		530D2C982D98474E0040C247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 69S862NXBP;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.CoreUserInterfaceMacOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		530D2C992D98474E0040C247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 69S862NXBP;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.CoreUserInterfaceMacOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		530D2CA92D9847680040C247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 69S862NXBP;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.UserInterfaceMacOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		530D2CAA2D9847680040C247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 69S862NXBP;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.UserInterfaceMacOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		53E9A7822D7C3385007E9F28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "My Dictionary/My_Dictionary.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "My Dictionary/Resources/My_Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary/Resources/Assets.xcassets";
@@ -1100,7 +1750,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "My Dictionary/My_Dictionary.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "My Dictionary/Resources/My_Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary/Resources/Assets.xcassets";
@@ -1444,13 +2094,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Services";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1486,13 +2138,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Services";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1527,13 +2181,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Core";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1569,13 +2225,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Core";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1611,13 +2269,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.CoreUserInterface";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1654,13 +2314,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.CoreUserInterface";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1774,13 +2436,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Shared";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1814,13 +2478,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary.Shared";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1836,6 +2502,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		530D2C462D9836930040C247 /* Build configuration list for PBXNativeTarget "My Dictionary (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				530D2C442D9836930040C247 /* Debug */,
+				530D2C452D9836930040C247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		530D2C972D98474E0040C247 /* Build configuration list for PBXNativeTarget "CoreUserInterface (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				530D2C982D98474E0040C247 /* Debug */,
+				530D2C992D98474E0040C247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		530D2CA82D9847680040C247 /* Build configuration list for PBXNativeTarget "UserInterface (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				530D2CA92D9847680040C247 /* Debug */,
+				530D2CAA2D9847680040C247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		53E9A74F2D7C3383007E9F28 /* Build configuration list for PBXProject "My Dictionary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1956,6 +2649,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		530D2C522D983E720040C247 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		530D2C542D983E780040C247 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
