@@ -6,14 +6,19 @@
 //
 
 import SwiftUI
+import Shared
 import Firebase
 import UserInterface__macOS_
 
 @main
 struct MyDictionaryApp: App {
 
+    let diContainer: DIContainer
+
     init() {
         FirebaseApp.configure()
+        diContainer = DIContainer.shared
+        diContainer.assemble(assembly: ServicesAssembly())
     }
 
     var body: some Scene {

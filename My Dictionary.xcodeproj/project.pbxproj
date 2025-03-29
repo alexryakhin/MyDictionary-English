@@ -28,6 +28,10 @@
 		530D2CC02D9847AD0040C247 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		530D2CC42D9847B00040C247 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
 		530D2CC52D9847B00040C247 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		530D2CCD2D985E560040C247 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2CCC2D985E560040C247 /* Swinject */; };
+		530D2CCF2D985E5A0040C247 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2CCE2D985E5A0040C247 /* SwinjectAutoregistration */; };
+		530D2D422D9870D40040C247 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2D412D9870D40040C247 /* Swinject */; };
+		530D2D442D9870F80040C247 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2D432D9870F80040C247 /* Swinject */; };
 		53310BA82D7E20D600C1DE8B /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */; };
 		53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BC92D7E238900C1DE8B /* FirebaseCore */; };
 		53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */; };
@@ -543,7 +547,9 @@
 				530D2C532D983E720040C247 /* FirebaseCore in Frameworks */,
 				530D2CA62D9847680040C247 /* UserInterface__macOS_.framework in Frameworks */,
 				530D2C4D2D983A1E0040C247 /* CloudKit.framework in Frameworks */,
+				530D2CCD2D985E560040C247 /* Swinject in Frameworks */,
 				530D2C7C2D9846250040C247 /* Core.framework in Frameworks */,
+				530D2CCF2D985E5A0040C247 /* SwinjectAutoregistration in Frameworks */,
 				530D2C802D9846290040C247 /* Services.framework in Frameworks */,
 				530D2C772D9844B40040C247 /* Shared.framework in Frameworks */,
 			);
@@ -563,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				530D2CB52D98479C0040C247 /* CoreUserInterface__macOS_.framework in Frameworks */,
+				530D2D442D9870F80040C247 /* Swinject in Frameworks */,
 				530D2CAC2D98477F0040C247 /* Core.framework in Frameworks */,
 				530D2CBA2D9847A20040C247 /* Services.framework in Frameworks */,
 				530D2CB12D9847820040C247 /* Shared.framework in Frameworks */,
@@ -653,6 +660,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				530D2D422D9870D40040C247 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +803,8 @@
 			packageProductDependencies = (
 				530D2C522D983E720040C247 /* FirebaseCore */,
 				530D2C542D983E780040C247 /* FirebaseCrashlytics */,
+				530D2CCC2D985E560040C247 /* Swinject */,
+				530D2CCE2D985E5A0040C247 /* SwinjectAutoregistration */,
 			);
 			productName = "My Dictionary (macOS)";
 			productReference = 530D2C332D9836920040C247 /* My Dictionary.app */;
@@ -848,6 +858,7 @@
 			);
 			name = "UserInterface (macOS)";
 			packageProductDependencies = (
+				530D2D432D9870F80040C247 /* Swinject */,
 			);
 			productName = UserInterfaceMacOS;
 			productReference = 530D2CA02D9847680040C247 /* UserInterface__macOS_.framework */;
@@ -1080,6 +1091,7 @@
 			);
 			name = Shared;
 			packageProductDependencies = (
+				530D2D412D9870D40040C247 /* Swinject */,
 			);
 			productName = Shared;
 			productReference = 53E9A9F82D7C439B007E9F28 /* Shared.framework */;
@@ -2658,6 +2670,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		530D2CCC2D985E560040C247 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53E9A9A52D7C414A007E9F28 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		530D2CCE2D985E5A0040C247 /* SwinjectAutoregistration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53E9A9A82D7C41B1007E9F28 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */;
+			productName = SwinjectAutoregistration;
+		};
+		530D2D412D9870D40040C247 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53E9A9A52D7C414A007E9F28 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		530D2D432D9870F80040C247 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53E9A9A52D7C414A007E9F28 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 		53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */ = {
 			isa = XCSwiftPackageProductDependency;

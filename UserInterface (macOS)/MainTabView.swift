@@ -4,8 +4,8 @@ import CoreUserInterface__macOS_
 public struct MainTabView: View {
 
     @State private var selectedSidebarItem: SidebarItem = .words
-//    @StateObject private var wordsViewModel = WordsViewModel()
-//    @StateObject private var idiomsViewModel = IdiomsViewModel()
+    @StateObject private var wordsViewModel = WordsViewModel()
+    @StateObject private var idiomsViewModel = IdiomsViewModel()
 //    @StateObject private var quizzesViewModel = QuizzesViewModel()
 
     public init() { }
@@ -35,11 +35,10 @@ public struct MainTabView: View {
         } content: {
             switch selectedSidebarItem {
             case .words:
-                Text("WordsListView")
-//                WordsListView(viewModel: wordsViewModel)
+                WordsListView(viewModel: _wordsViewModel)
             case .idioms:
-                Text("IdiomsListView")
-//                IdiomsListView(viewModel: idiomsViewModel)
+//                Text("IdiomsListView")
+                IdiomsListView(viewModel: _idiomsViewModel)
             case .quizzes:
                 Text("QuizzesView")
 //                QuizzesView(viewModel: quizzesViewModel)
@@ -47,11 +46,11 @@ public struct MainTabView: View {
         } detail: {
             switch selectedSidebarItem {
             case .words:
-//                if wordsViewModel.selectedWord == nil {
+                if wordsViewModel.selectedWord == nil {
                     Text("Select an item")
-//                } else {
-//                    WordDetailsView(viewModel: wordsViewModel)
-//                }
+                } else {
+                    WordDetailsView(viewModel: wordsViewModel)
+                }
             case .idioms:
                 Text("Select an item")
             case .quizzes:
