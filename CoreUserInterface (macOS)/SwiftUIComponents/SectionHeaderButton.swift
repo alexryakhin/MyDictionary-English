@@ -31,5 +31,6 @@ public struct SectionHeaderButton: View {
                 .textCase(.uppercase)
                 .font(.footnote)
         }
+        .buttonStyle(.borderless)
     }
 }

@@ -8,31 +8,59 @@ import Shared
 final class IdiomsViewModel: DefaultPageViewModel {
 
     enum Input {
-        case selectIdiom(Idiom)
+        // List
+        case selectIdiom(id: String)
+        case deselectIdiom
+        case deleteIdiom(atOffsets: IndexSet)
+        case changeSorting(to: SortingCase)
+        case changeFilter(to: FilterCase)
+
+        // Details
+        case updateIdiom(text: String)
+        case updateDefinition(definition: String)
+        case updateCDIdiom
+        case play(text: String?)
+        case deleteCurrentIdiom
+        case toggleFavorite
+        case addExample(String)
+        case updateExample(at: Int, text: String)
+        case removeExample(at: Int)
     }
 
-    @Published var idioms: [Idiom] = []
-    @Published var sortingState: SortingCase = .def
-    @Published var filterState: FilterCase = .none
     @Published var searchText = ""
-    @Published private(set) var selectedIdiom: Idiom? {
+    @Published private(set) var idioms: [Idiom] = []
+    @Published private(set) var sortingState: SortingCase = .def
+    @Published private(set) var filterState: FilterCase = .none
+    @Published private(set) var selectedIdiom: Idiom?
+    @Published private(set) var selectedIdiomId: String? {
         didSet {
-            if let selectedIdiom {
-                idiomDetailsManager = DIContainer.shared.resolver.resolve(IdiomDetailsManagerInterface.self, argument: selectedIdiom.id)!
+            if let selectedIdiomId {
+                idiomDetailsManager = DIContainer.shared.resolver.resolve(IdiomDetailsManagerInterface.self, argument: selectedIdiomId)!
             } else {
                 idiomDetailsManager = nil
             }
         }
     }
 
-    @Published var isShowAddExample = false
-    @Published var definitionTextFieldStr = ""
-    @Published var exampleTextFieldStr = ""
-
     private let idiomsProvider: IdiomsProviderInterface
     private let ttsPlayer: TTSPlayerInterface
-    private var idiomDetailsManager: IdiomDetailsManagerInterface?
+    private var idiomDetailsManager: IdiomDetailsManagerInterface? {
+        didSet {
+            if let idiomDetailsManager {
+                idiomDetailsSubscription = idiomDetailsManager.idiomPublisher
+                    .receive(on: DispatchQueue.main)
+                    .sink { [weak self] idiom in
+                        self?.selectedIdiom = idiom
+                        AnalyticsService.shared.logEvent(.idiomOpened)
+                    }
+            } else {
+                idiomDetailsSubscription = nil
+                selectedIdiom = nil
+            }
+        }
+    }
     private var cancellables = Set<AnyCancellable>()
+    private var idiomDetailsSubscription: AnyCancellable?
 
     override init() {
         self.idiomsProvider = DIContainer.shared.resolver.resolve(IdiomsProviderInterface.self)!
@@ -43,10 +71,40 @@ final class IdiomsViewModel: DefaultPageViewModel {
 
     func handle(_ input: Input) {
         switch input {
-        case .selectIdiom(let idiom):
+        // MARK: List
+        case .selectIdiom(let id):
             Task { @MainActor in
-                selectedIdiom = idiom
+                selectedIdiomId = id
             }
+        case .deselectIdiom:
+            selectedIdiomId = nil
+        case .deleteIdiom(let offsets):
+            deleteIdiom(atOffsets: offsets)
+        case .changeSorting(let sortingState):
+            self.sortingState = sortingState
+            sortIdioms()
+        case .changeFilter(let filterState):
+            self.filterState = filterState
+
+        // MARK: Details
+        case .updateIdiom(let idiomText):
+            selectedIdiom?.idiom = idiomText
+        case .updateDefinition(let definition):
+            selectedIdiom?.definition = definition
+        case .updateCDIdiom:
+            updateCDIdiom()
+        case .play(let text):
+            play(text)
+        case .deleteCurrentIdiom:
+            deleteCurrentIdiom()
+        case .toggleFavorite:
+            toggleFavorite()
+        case .addExample(let example):
+            addExample(example: example)
+        case .updateExample(let index, let example):
+            updateExample(index: index, example: example)
+        case .removeExample(let index):
+            removeExample(index: index)
         }
     }
 
@@ -54,8 +112,7 @@ final class IdiomsViewModel: DefaultPageViewModel {
         idiomsProvider.idiomsPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] idioms in
-                self?.idioms = idioms
-                self?.sortIdioms()
+                self?.updateIdioms(idioms)
             }
             .store(in: &cancellables)
 
@@ -67,33 +124,53 @@ final class IdiomsViewModel: DefaultPageViewModel {
             .store(in: &cancellables)
     }
 
-    // MARK: Removing from CD
-    func deleteIdiom(atOffsets offsets: IndexSet) {
+    private func updateIdioms(_ idioms: [Idiom]) {
+        self.idioms = idioms
+        sortIdioms()
+        if let selectedIdiom = idioms.first(where: { $0.id == selectedIdiomId }) {
+            self.selectedIdiom = selectedIdiom
+        } else {
+            selectedIdiom = nil
+        }
+    }
+
+    private func deleteIdiom(atOffsets offsets: IndexSet) {
         switch filterState {
         case .none:
-            withAnimation {
-                offsets.map { idioms[$0] }.forEach { [weak self] idiom in
-                    self?.deleteIdiom(idiom)
-                }
+            offsets.map { idioms[$0] }.forEach { [weak self] idiom in
+                self?.deleteIdiom(idiom)
             }
         case .favorite:
-            withAnimation {
-                offsets.map { favoriteIdioms[$0] }.forEach { [weak self] idiom in
-                    self?.deleteIdiom(idiom)
-                }
+            offsets.map { favoriteIdioms[$0] }.forEach { [weak self] idiom in
+                self?.deleteIdiom(idiom)
             }
         case .search:
-            withAnimation {
-                offsets.map { searchResults[$0] }.forEach { [weak self] idiom in
-                    self?.deleteIdiom(idiom)
-                }
+            offsets.map { searchResults[$0] }.forEach { [weak self] idiom in
+                self?.deleteIdiom(idiom)
             }
+        @unknown default:
+            fatalError("Unsupported filter state")
         }
     }
 
     /// Removes given word from Core Data
-    func deleteIdiom(_ idiom: Idiom) {
-        idiomsProvider.delete(with: idiom.id)
+    private func deleteIdiom(_ idiom: Idiom, completion: VoidHandler? = nil) {
+        showAlert(
+            withModel: .init(
+                title: "Delete idiom",
+                message: "Are you sure you want to delete this idiom?",
+                actionText: "Cancel",
+                destructiveActionText: "Delete",
+                action: {
+                    AnalyticsService.shared.logEvent(.idiomRemovingCanceled)
+                },
+                destructiveAction: { [weak self] in
+                    self?.idiomsProvider.delete(with: idiom.id)
+                    AnalyticsService.shared.logEvent(.idiomRemoved)
+                    completion?()
+                }
+            )
+        )
     }
 
     // MARK: Sorting
@@ -108,7 +185,7 @@ final class IdiomsViewModel: DefaultPageViewModel {
         }
     }
 
-    func sortIdioms() {
+    private func sortIdioms() {
         switch sortingState {
         case .def:
             idioms.sort(by: { lhs, rhs in
@@ -120,26 +197,47 @@ final class IdiomsViewModel: DefaultPageViewModel {
             })
         case .partOfSpeech:
             break
+        @unknown default:
+            fatalError("Unknown sorting state")
         }
     }
 }
 
-extension IdiomsViewModel {
-    func removeExample(atIndex index: Int) {
+// MARK: - Details
+private extension IdiomsViewModel {
+    func updateCDIdiom() {
+        if let selectedIdiom {
+            idiomDetailsManager?.updateIdiom(selectedIdiom)
+        }
+    }
+
+    func addExample(example: String) {
+        guard !example.isEmpty else {
+            errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
+            return
+        }
+        selectedIdiom?.examples.append(example)
+        updateCDIdiom()
+        AnalyticsService.shared.logEvent(.idiomExampleAdded)
+    }
+
+    func updateExample(index: Int, example: String) {
+        guard !example.isEmpty else {
+            errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
+            return
+        }
+        selectedIdiom?.examples[index] = example
+        updateCDIdiom()
+        AnalyticsService.shared.logEvent(.idiomExampleUpdated)
+    }
+
+    func removeExample(index: Int) {
         selectedIdiom?.examples.remove(at: index)
+        updateCDIdiom()
+        AnalyticsService.shared.logEvent(.idiomExampleRemoved)
     }
 
-    func removeExample(atOffsets offsets: IndexSet) {
-        selectedIdiom?.examples.remove(atOffsets: offsets)
-    }
-
-    func saveExample() {
-        selectedIdiom?.examples.append(exampleTextFieldStr)
-        exampleTextFieldStr = ""
-        isShowAddExample = false
-    }
-
-    func speak(_ text: String?) {
+    func play(_ text: String?) {
         Task {
             if let text {
                 do {
@@ -153,11 +251,13 @@ extension IdiomsViewModel {
 
     func deleteCurrentIdiom() {
         guard let selectedIdiom else { return }
-        idiomsProvider.delete(with: selectedIdiom.id)
-        self.selectedIdiom = nil
+        deleteIdiom(selectedIdiom) { [weak self] in
+            self?.selectedIdiom = nil
+        }
     }
 
     func toggleFavorite() {
         selectedIdiom?.isFavorite.toggle()
+        updateCDIdiom()
     }
 }

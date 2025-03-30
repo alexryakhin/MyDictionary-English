@@ -42,14 +42,14 @@ open class DefaultPageViewModel: PageViewModel<DefaultLoaderProps, DefaultPlaceh
     }
 
     public override func showAlert(withModel model: AlertModel) {
-//        if isShowingAlert {
-//            isShowingAlert = false
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
-//                self?.showAlert(withModel: model)
-//            })
-//            return
-//        }
+        if isShowingAlert {
+            isShowingAlert = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
+                self?.showAlert(withModel: model)
+            })
+            return
+        }
         alertModel = model
-        isShowingAlert.toggle()
+        isShowingAlert = true
     }
 }

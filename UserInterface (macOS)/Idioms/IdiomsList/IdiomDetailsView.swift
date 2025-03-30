@@ -2,6 +2,7 @@ import SwiftUI
 import Core
 import CoreUserInterface__macOS_
 import Shared
+import Services
 
 struct IdiomDetailsView: PageView {
 
@@ -12,131 +13,188 @@ struct IdiomDetailsView: PageView {
         _viewModel.wrappedValue
     }
 
-    @State private var isEditing = false
+    @FocusState private var isIdiomInputFocused: Bool
+    @FocusState private var isDefinitionFieldFocused: Bool
+    @FocusState private var isAddExampleFocused: Bool
+    @State private var isAddingExample = false
+    @State private var editingExampleIndex: Int?
+    @State private var exampleTextFieldStr = ""
 
     init(viewModel: StateObject<ViewModel>) {
         self._viewModel = viewModel
     }
 
     var contentView: some View {
-        VStack {
-            title
-            content
+        ScrollView {
+            LazyVStack(spacing: 16) {
+                idiomSectionView
+                definitionSectionView
+                examplesSectionView
+            }
+            .padding(vertical: 12, horizontal: 16)
         }
-        .padding(16)
-        .navigationTitle(viewModel.selectedIdiom?.idiom ?? "")
         .toolbar {
             Button(role: .destructive) {
-                viewModel.deleteCurrentIdiom()
+                viewModel.handle(.deleteCurrentIdiom)
             } label: {
                 Image(systemName: "trash")
+                    .foregroundStyle(.red)
             }
 
             Button {
-                viewModel.toggleFavorite()
+                viewModel.handle(.toggleFavorite)
             } label: {
                 Image(systemName: "\(viewModel.selectedIdiom?.isFavorite == true ? "heart.fill" : "heart")")
                     .foregroundColor(.accentColor)
             }
-
-            Button(isEditing ? "Save" : "Edit") {
-                isEditing.toggle()
-            }
         }
-    }
-
-    // MARK: - Title
-
-    private var title: some View {
-        HStack {
-            Text(viewModel.selectedIdiom?.idiom ?? "")
-                .font(.title)
-                .bold()
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-            Button {
-                viewModel.speak(viewModel.selectedIdiom?.idiom)
-            } label: {
-                Image(systemName: "speaker.wave.2.fill")
+        .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
+            TextField("Example", text: $exampleTextFieldStr)
+            Button("Cancel", role: .cancel) {
+                AnalyticsService.shared.logEvent(.idiomExampleChangingCanceled)
+            }
+            Button("Save") {
+                viewModel.handle(.updateExample(at: index, text: exampleTextFieldStr))
+                editingExampleIndex = nil
+                exampleTextFieldStr = .empty
+                AnalyticsService.shared.logEvent(.idiomExampleChanged)
             }
         }
     }
 
     // MARK: - Primary Content
 
-    private var content: some View {
-        ScrollView {
-            HStack {
-                if isEditing {
-                    Text("Definition: ").bold()
-                    TextEditor(text: _viewModel.projectedValue.definitionTextFieldStr)
-                        .padding(1)
-                        .background(Color.secondary.opacity(0.4))
-                } else {
-                    Text("Definition: ").bold()
-                    + Text(viewModel.selectedIdiom?.definition ?? "")
+    private var idiomSectionView: some View {
+        CustomSectionView(header: "Idiom") {
+            let text = Binding {
+                viewModel.selectedIdiom?.idiom ?? ""
+            } set: {
+                viewModel.handle(.updateIdiom(text: $0))
+            }
+            TextField("Idiom", text: text, axis: .vertical)
+                .textFieldStyle(.plain)
+                .font(.system(.headline, design: .rounded))
+                .focused($isIdiomInputFocused)
+                .onSubmit {
+                    isIdiomInputFocused = false
+                    viewModel.handle(.updateCDIdiom)
                 }
-                Spacer()
-                Button {
-                    viewModel.speak(viewModel.selectedIdiom?.definition)
-                } label: {
-                    Image(systemName: "speaker.wave.2.fill")
+                .clippedWithPaddingAndBackground(.textBackgroundColor)
+        } headerTrailingContent: {
+            if isIdiomInputFocused {
+                SectionHeaderButton("Done") {
+                    isIdiomInputFocused = false
+                    viewModel.handle(.updateCDIdiom)
+                }
+            } else {
+                SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                    viewModel.handle(.play(text: viewModel.selectedIdiom?.idiom))
                 }
             }
+        }
+    }
 
-            Divider()
-
-            VStack(alignment: .leading) {
-                let examples = viewModel.selectedIdiom?.examples ?? []
-                HStack {
-                    Text("Examples:").bold()
-                    Spacer()
-                    if !examples.isEmpty {
-                        Button {
-                            withAnimation {
-                                viewModel.isShowAddExample = true
-                            }
-                        } label: {
-                            Text("Add example")
-                        }
-                    }
+    private var definitionSectionView: some View {
+        CustomSectionView(header: "Definition") {
+            let text = Binding {
+                viewModel.selectedIdiom?.definition ?? ""
+            } set: {
+                viewModel.handle(.updateDefinition(definition: $0))
+            }
+            TextField("Definition", text: text, axis: .vertical)
+                .textFieldStyle(.plain)
+                .focused($isDefinitionFieldFocused)
+                .onSubmit {
+                    isDefinitionFieldFocused = false
+                    viewModel.handle(.updateCDIdiom)
                 }
+                .clippedWithPaddingAndBackground(.textBackgroundColor)
+        } headerTrailingContent: {
+            if isDefinitionFieldFocused {
+                SectionHeaderButton("Done") {
+                    isDefinitionFieldFocused = false
+                    viewModel.handle(.updateCDIdiom)
+                }
+            } else {
+                SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                    viewModel.handle(.play(text: viewModel.selectedIdiom?.definition))
+                }
+            }
+        }
+    }
 
-                if !examples.isEmpty {
-                    ForEach(Array(examples.enumerated()), id: \.offset) { offset, element in
-                        if !isEditing {
-                            Text("\(offset + 1). \(examples[offset])")
-                        } else {
-                            HStack {
-                                Button {
-                                    viewModel.removeExample(atIndex: offset)
+    @ViewBuilder
+    private var examplesSectionView: some View {
+        let examples = viewModel.selectedIdiom?.examples ?? []
+        CustomSectionView(header: "Examples") {
+            FormWithDivider {
+                ForEach(Array(examples.enumerated()), id: \.offset) { index, example in
+                    Text(example)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(vertical: 12, horizontal: 16)
+                        .background(Color.textBackgroundColor)
+                        .contextMenu {
+                            Button {
+                                viewModel.handle(.play(text: example))
+                                AnalyticsService.shared.logEvent(.idiomExamplePlayed)
+                            } label: {
+                                Label("Listen", systemImage: "speaker.wave.2.fill")
+                            }
+                            Button {
+                                exampleTextFieldStr = example
+                                editingExampleIndex = index
+                                AnalyticsService.shared.logEvent(.idiomExampleChangeButtonTapped)
+                            } label: {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            Section {
+                                Button(role: .destructive) {
+                                    withAnimation {
+                                        viewModel.handle(.removeExample(at: index))
+                                        AnalyticsService.shared.logEvent(.idiomExampleRemoved)
+                                    }
                                 } label: {
-                                    Image(systemName: "trash")
+                                    Label("Delete", systemImage: "trash")
                                 }
-                                Text("\(offset + 1). \(examples[offset])")
                             }
                         }
-                    }
-                } else {
-                    HStack {
-                        Text("No examples yet..")
-                        Button {
-                            withAnimation {
-                                viewModel.isShowAddExample = true
-                            }
-                        } label: {
-                            Text("Add example")
-                        }
-                    }
                 }
+                if isAddingExample {
+                    HStack {
+                        TextField("Type an example here", text: $exampleTextFieldStr, axis: .vertical)
+                            .textFieldStyle(.plain)
+                            .focused($isAddExampleFocused)
 
-                if viewModel.isShowAddExample {
-                    TextField("Type an example here", text: _viewModel.projectedValue.exampleTextFieldStr, onCommit: {
-                        viewModel.saveExample()
-                    })
-                    .textFieldStyle(.roundedBorder)
+                        if isAddExampleFocused {
+                            Button {
+                                viewModel.handle(.addExample(exampleTextFieldStr))
+                                isAddingExample = false
+                                exampleTextFieldStr = .empty
+                                AnalyticsService.shared.logEvent(.idiomExampleAdded)
+                            } label: {
+                                Image(systemName: "checkmark.rectangle.portrait.fill")
+                                    .font(.title3)
+                                    .foregroundColor(.accentColor)
+                            }
+                            .buttonStyle(.borderless)
+                        }
+                    }
+                    .padding(vertical: 12, horizontal: 16)
+                } else {
+                    Button {
+                        withAnimation {
+                            isAddingExample.toggle()
+                            AnalyticsService.shared.logEvent(.idiomAddExampleTapped)
+                        }
+                    } label: {
+                        Label("Add example", systemImage: "plus")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .buttonStyle(.borderless)
+                    .padding(vertical: 12, horizontal: 16)
                 }
             }
+            .clippedWithBackground(.textBackgroundColor)
         }
     }
 }

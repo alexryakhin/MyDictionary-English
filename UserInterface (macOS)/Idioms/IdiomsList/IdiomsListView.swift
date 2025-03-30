@@ -2,6 +2,7 @@ import SwiftUI
 import Core
 import CoreUserInterface__macOS_
 import Shared
+import Services
 
 struct IdiomsListView: PageView {
 
@@ -19,19 +20,24 @@ struct IdiomsListView: PageView {
     }
 
     var contentView: some View {
-        List(selection: Binding {
-            viewModel.selectedIdiom
-        } set: { newValue in
-            if let newValue {
-                viewModel.handle(.selectIdiom(newValue))
+        let selection = Binding {
+            viewModel.selectedIdiomId
+        } set: { idiomId in
+            if let idiomId {
+                viewModel.handle(.selectIdiom(id: idiomId))
             }
-        }) {
-            ForEach(idiomsToShow()) { idiom in
+        }
+
+        List(selection: selection) {
+            ForEach(filteredIdioms) { idiom in
                 IdiomsListCellView(idiom: idiom)
-                    .tag(idiom)
+                    .tag(idiom.id)
+            }
+            .onDelete {
+                viewModel.handle(.deleteIdiom(atOffsets: $0))
             }
 
-            if viewModel.filterState == .search && idiomsToShow().count < 10 {
+            if viewModel.filterState == .search && filteredIdioms.count < 10 {
                 Button {
                     showAddView()
                 } label: {
@@ -40,12 +46,15 @@ struct IdiomsListView: PageView {
             }
         }
         .scrollContentBackground(.hidden)
+        .animation(.default, value: viewModel.sortingState)
+        .animation(.default, value: viewModel.filterState)
+        .animation(.default, value: viewModel.idioms)
         .safeAreaInset(edge: .top) {
             toolbar
                 .background(.regularMaterial)
         }
         .safeAreaInset(edge: .bottom) {
-            if !idiomsToShow().isEmpty {
+            if !filteredIdioms.isEmpty {
                 Text(idiomCount)
                     .font(.footnote)
                     .foregroundColor(.secondary)
@@ -61,7 +70,7 @@ struct IdiomsListView: PageView {
             AddIdiomView(inputText: viewModel.searchText)
         }
         .onDisappear {
-//            viewModel.selectedIdiom = nil
+            viewModel.handle(.deselectIdiom)
         }
     }
 
@@ -94,25 +103,25 @@ struct IdiomsListView: PageView {
     }
 
     private var idiomCount: String {
-        if idiomsToShow().count == 1 {
+        if filteredIdioms.count == 1 {
             return "1 idiom"
         } else {
-            return "\(idiomsToShow().count) idioms"
+            return "\(filteredIdioms.count) idioms"
         }
     }
 
     private func showAddView() {
         isShowingAddView = true
+        AnalyticsService.shared.logEvent(.addIdiomTapped)
     }
 
-    private func idiomsToShow() -> [Idiom] {
+    private var filteredIdioms: [Idiom] {
         switch viewModel.filterState {
-        case .none:
-            return viewModel.idioms
-        case .favorite:
-            return viewModel.favoriteIdioms
-        case .search:
-            return viewModel.searchResults
+        case .none: viewModel.idioms
+        case .favorite: viewModel.favoriteIdioms
+        case .search: viewModel.searchResults
+        @unknown default:
+            fatalError("Unknown filter state: \(viewModel.filterState)")
         }
     }
 
@@ -120,10 +129,7 @@ struct IdiomsListView: PageView {
         Menu {
             Section {
                 Button {
-                    withAnimation {
-                        viewModel.sortingState = .def
-                        viewModel.sortIdioms()
-                    }
+                    viewModel.handle(.changeSorting(to: .def))
                 } label: {
                     if viewModel.sortingState == .def {
                         Image(systemName: "checkmark")
@@ -131,10 +137,7 @@ struct IdiomsListView: PageView {
                     Text("Default")
                 }
                 Button {
-                    withAnimation {
-                        viewModel.sortingState = .name
-                        viewModel.sortIdioms()
-                    }
+                    viewModel.handle(.changeSorting(to: .name))
                 } label: {
                     if viewModel.sortingState == .name {
                         Image(systemName: "checkmark")
@@ -147,9 +150,7 @@ struct IdiomsListView: PageView {
 
             Section {
                 Button {
-                    withAnimation {
-                        viewModel.filterState = .none
-                    }
+                    viewModel.handle(.changeFilter(to: .none))
                 } label: {
                     if viewModel.filterState == .none {
                         Image(systemName: "checkmark")
@@ -157,9 +158,7 @@ struct IdiomsListView: PageView {
                     Text("None")
                 }
                 Button {
-                    withAnimation {
-                        viewModel.filterState = .favorite
-                    }
+                    viewModel.handle(.changeFilter(to: .favorite))
                 } label: {
                     if viewModel.filterState == .favorite {
                         Image(systemName: "checkmark")
@@ -169,7 +168,6 @@ struct IdiomsListView: PageView {
             } header: {
                 Text("Filter by")
             }
-
         } label: {
             Image(systemName: "arrow.up.arrow.down")
             Text(viewModel.sortingState.rawValue)
