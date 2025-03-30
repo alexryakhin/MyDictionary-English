@@ -18,7 +18,8 @@ public protocol PageView: View {
 
     typealias PageState = AdditionalPageState<DefaultLoaderProps, DefaultPlaceholderProps, DefaultErrorProps>
 
-    var viewModel: StateObject<ViewModel> { get set }
+    var _viewModel: StateObject<ViewModel> { get set }
+    var viewModel: ViewModel { get }
 
     @ViewBuilder var contentView: ContentView { get }
     @ViewBuilder func loaderView(props: PageState.LoaderProps) -> LoaderView
@@ -27,11 +28,12 @@ public protocol PageView: View {
 }
 
 public extension PageView {
+
     @ViewBuilder
     var body: some View {
         contentView
             .overlay {
-                if let additionalState = viewModel.wrappedValue.additionalState {
+                if let additionalState = viewModel.additionalState {
                     Color.windowBackgroundColor.ignoresSafeArea()
                     switch additionalState {
                     case .loading(let props):
@@ -43,34 +45,34 @@ public extension PageView {
                     }
                 }
             }
-            .alert(isPresented: viewModel.projectedValue.isShowingAlert) {
-                if let message = viewModel.wrappedValue.alertModel.message,
-                   let actionText = viewModel.wrappedValue.alertModel.actionText,
-                   let destructiveActionText = viewModel.wrappedValue.alertModel.destructiveActionText
+            .alert(isPresented: _viewModel.projectedValue.isShowingAlert) {
+                if let message = viewModel.alertModel.message,
+                   let actionText = viewModel.alertModel.actionText,
+                   let destructiveActionText = viewModel.alertModel.destructiveActionText
                 {
                     return Alert(
-                        title: Text(viewModel.wrappedValue.alertModel.title),
+                        title: Text(viewModel.alertModel.title),
                         message: Text(message),
-                        primaryButton: .destructive(Text(destructiveActionText), action: viewModel.wrappedValue.alertModel.destructiveAction),
-                        secondaryButton: .cancel(Text(actionText), action: viewModel.wrappedValue.alertModel.action)
+                        primaryButton: .destructive(Text(destructiveActionText), action: viewModel.alertModel.destructiveAction),
+                        secondaryButton: .cancel(Text(actionText), action: viewModel.alertModel.action)
                     )
-                } else if let message = viewModel.wrappedValue.alertModel.message,
-                          let actionText = viewModel.wrappedValue.alertModel.actionText
+                } else if let message = viewModel.alertModel.message,
+                          let actionText = viewModel.alertModel.actionText
                 {
                     return Alert(
-                        title: Text(viewModel.wrappedValue.alertModel.title),
+                        title: Text(viewModel.alertModel.title),
                         message: Text(message),
-                        dismissButton: .default(Text(actionText), action: viewModel.wrappedValue.alertModel.action)
+                        dismissButton: .default(Text(actionText), action: viewModel.alertModel.action)
                     )
-                } else if let message = viewModel.wrappedValue.alertModel.message {
+                } else if let message = viewModel.alertModel.message {
                     return Alert(
-                        title: Text(viewModel.wrappedValue.alertModel.title),
+                        title: Text(viewModel.alertModel.title),
                         message: Text(message),
                         dismissButton: .default(Text("OK"))
                     )
                 } else {
                     return Alert(
-                        title: Text(viewModel.wrappedValue.alertModel.title),
+                        title: Text(viewModel.alertModel.title),
                         dismissButton: .default(Text("OK"))
                     )
                 }

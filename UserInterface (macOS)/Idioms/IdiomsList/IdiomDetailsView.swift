@@ -5,13 +5,17 @@ import Shared
 
 struct IdiomDetailsView: PageView {
 
-    typealias ViewModel = IdiomDetailsViewModel
+    typealias ViewModel = IdiomsViewModel
 
-    var viewModel: StateObject<ViewModel>
+    var _viewModel: StateObject<ViewModel>
+    var viewModel: ViewModel {
+        _viewModel.wrappedValue
+    }
+
     @State private var isEditing = false
 
-    init(idiom: Idiom) {
-        viewModel = StateObject(wrappedValue: IdiomDetailsViewModel(idiom: idiom))
+    init(viewModel: StateObject<ViewModel>) {
+        self._viewModel = viewModel
     }
 
     var contentView: some View {
@@ -20,18 +24,18 @@ struct IdiomDetailsView: PageView {
             content
         }
         .padding(16)
-        .navigationTitle(viewModel.wrappedValue.idiom.idiom)
+        .navigationTitle(viewModel.selectedIdiom?.idiom ?? "")
         .toolbar {
             Button(role: .destructive) {
-                viewModel.wrappedValue.deleteCurrentIdiom()
+                viewModel.deleteCurrentIdiom()
             } label: {
                 Image(systemName: "trash")
             }
 
             Button {
-                viewModel.wrappedValue.toggleFavorite()
+                viewModel.toggleFavorite()
             } label: {
-                Image(systemName: "\(viewModel.wrappedValue.idiom.isFavorite == true ? "heart.fill" : "heart")")
+                Image(systemName: "\(viewModel.selectedIdiom?.isFavorite == true ? "heart.fill" : "heart")")
                     .foregroundColor(.accentColor)
             }
 
@@ -45,13 +49,13 @@ struct IdiomDetailsView: PageView {
 
     private var title: some View {
         HStack {
-            Text(viewModel.wrappedValue.idiom.idiom)
+            Text(viewModel.selectedIdiom?.idiom ?? "")
                 .font(.title)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
 
             Button {
-                viewModel.wrappedValue.speak(viewModel.wrappedValue.idiom.idiom)
+                viewModel.speak(viewModel.selectedIdiom?.idiom)
             } label: {
                 Image(systemName: "speaker.wave.2.fill")
             }
@@ -65,16 +69,16 @@ struct IdiomDetailsView: PageView {
             HStack {
                 if isEditing {
                     Text("Definition: ").bold()
-                    TextEditor(text: viewModel.projectedValue.definitionTextFieldStr)
+                    TextEditor(text: _viewModel.projectedValue.definitionTextFieldStr)
                         .padding(1)
                         .background(Color.secondary.opacity(0.4))
                 } else {
                     Text("Definition: ").bold()
-                    + Text(viewModel.wrappedValue.idiom.definition)
+                    + Text(viewModel.selectedIdiom?.definition ?? "")
                 }
                 Spacer()
                 Button {
-                    viewModel.wrappedValue.speak(viewModel.wrappedValue.idiom.definition)
+                    viewModel.speak(viewModel.selectedIdiom?.definition)
                 } label: {
                     Image(systemName: "speaker.wave.2.fill")
                 }
@@ -83,14 +87,14 @@ struct IdiomDetailsView: PageView {
             Divider()
 
             VStack(alignment: .leading) {
-                let examples = viewModel.wrappedValue.idiom.examples
+                let examples = viewModel.selectedIdiom?.examples ?? []
                 HStack {
                     Text("Examples:").bold()
                     Spacer()
                     if !examples.isEmpty {
                         Button {
                             withAnimation {
-                                viewModel.wrappedValue.isShowAddExample = true
+                                viewModel.isShowAddExample = true
                             }
                         } label: {
                             Text("Add example")
@@ -105,7 +109,7 @@ struct IdiomDetailsView: PageView {
                         } else {
                             HStack {
                                 Button {
-                                    viewModel.wrappedValue.removeExample(atIndex: offset)
+                                    viewModel.removeExample(atIndex: offset)
                                 } label: {
                                     Image(systemName: "trash")
                                 }
@@ -118,7 +122,7 @@ struct IdiomDetailsView: PageView {
                         Text("No examples yet..")
                         Button {
                             withAnimation {
-                                viewModel.wrappedValue.isShowAddExample = true
+                                viewModel.isShowAddExample = true
                             }
                         } label: {
                             Text("Add example")
@@ -126,9 +130,9 @@ struct IdiomDetailsView: PageView {
                     }
                 }
 
-                if viewModel.wrappedValue.isShowAddExample {
-                    TextField("Type an example here", text: viewModel.projectedValue.exampleTextFieldStr, onCommit: {
-                        viewModel.wrappedValue.addExample()
+                if viewModel.isShowAddExample {
+                    TextField("Type an example here", text: _viewModel.projectedValue.exampleTextFieldStr, onCommit: {
+                        viewModel.saveExample()
                     })
                     .textFieldStyle(.roundedBorder)
                 }

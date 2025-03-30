@@ -4,61 +4,66 @@ import CoreUserInterface__macOS_
 
 struct AddIdiomView: PageView {
 
+    @Environment(\.dismiss) var dismiss
+
     typealias ViewModel = AddIdiomViewModel
 
-    @Environment(\.dismiss) var dismiss
-    var viewModel: StateObject<AddIdiomViewModel>
+    var _viewModel: StateObject<ViewModel>
+    var viewModel: ViewModel {
+        _viewModel.wrappedValue
+    }
 
     init(inputText: String) {
-        viewModel = StateObject(wrappedValue: AddIdiomViewModel(inputText: inputText))
+        _viewModel = StateObject(wrappedValue: ViewModel(inputText: inputText))
     }
 
     var contentView: some View {
-        VStack {
-            HStack {
-                Text("Add new idiom").font(.title2).bold()
-                Spacer()
+        ScrollViewWithCustomNavBar {
+            VStack(spacing: 16) {
+                CustomSectionView(header: "Idiom") {
+                    TextField("Idiom", text: _viewModel.projectedValue.inputText, axis: .vertical)
+                        .textFieldStyle(.plain)
+                        .clippedWithPaddingAndBackground(.textBackgroundColor)
+                }
+                CustomSectionView(header: "Definition") {
+                    TextField("Definition", text: _viewModel.projectedValue.inputDefinition, axis: .vertical)
+                        .textFieldStyle(.plain)
+                        .clippedWithPaddingAndBackground(.textBackgroundColor)
+                }
+            }
+            .padding(vertical: 12, horizontal: 16)
+        } navigationBar: {
+            HStack(spacing: 12) {
+                Text("Add new idiom")
+                    .font(.title2)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Button {
                     dismiss()
                 } label: {
-                    Text("Close")
+                    Image(systemName: "xmark.app.fill")
+                        .font(.title2)
                 }
+                .buttonStyle(.borderless)
             }
-            HStack {
-                Text("IDIOM")
-                    .font(.system(.caption, design: .rounded))
-                    .foregroundColor(.secondary)
-                Spacer()
-            }
-            .padding(.top)
-            TextField("Idiom", text: viewModel.projectedValue.inputText)
-                .textFieldStyle(.roundedBorder)
-            HStack {
-                Text("DEFINITION")
-                    .font(.system(.caption, design: .rounded))
-                    .foregroundColor(.secondary)
-                Spacer()
-            }
-            .padding(.top)
-            TextEditor(text: viewModel.projectedValue.inputDefinition)
-                .padding(1)
-                .background(Color.secondary.opacity(0.4))
-            Button {
-                viewModel.wrappedValue.addIdiom()
-                dismiss()
-            } label: {
-                Text("Save")
-                    .bold()
-            }
+            .padding(vertical: 12, horizontal: 16)
         }
-        .frame(width: 500, height: 300)
-        .padding(16)
-//        .alert(isPresented: viewModel.isShowingAlert) {
-//            Alert(
-//                title: Text("Ooops..."),
-//                message: Text("You should enter an idiom and its definition before saving it"),
-//                dismissButton: .default(Text("Got it"))
-//            )
-//        }
+        .safeAreaInset(edge: .bottom) {
+            Button {
+                viewModel.addIdiom()
+            } label: {
+                Label("Save", systemImage: "checkmark.square.fill")
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(vertical: 8, horizontal: 16)
+            }
+            .buttonStyle(.borderedProminent)
+            .padding(vertical: 12, horizontal: 16)
+            .gradientStyle(.bottomButton)
+        }
+        .frame(width: 350, height: 500)
+        .background(Color.windowBackgroundColor)
+        .onReceive(viewModel.dismissPublisher) { _ in
+            dismiss()
+        }
     }
 }

@@ -21,6 +21,7 @@ open class PageViewModel<
     // MARK: - Properties
 
     @Published public var additionalState: PageState?
+    public let dismissPublisher: PassthroughSubject<Void, Never> = .init()
 
     // MARK: - Private Properties
 
@@ -68,7 +69,7 @@ open class PageViewModel<
         case .alert:
             showAlert(
                 withModel: .init(
-                    title: "Error",
+                    title: "Ooops...",
                     message: error.description,
                     actionText: actionText,
                     action: action
@@ -77,6 +78,10 @@ open class PageViewModel<
         case .none:
             return
         }
+    }
+
+    public func dismiss() {
+        dismissPublisher.send()
     }
 
     open func defaultPageErrorHandler(_ error: CoreError, action: @escaping VoidHandler) {

@@ -6,7 +6,7 @@ public struct MainTabView: View {
     @State private var selectedSidebarItem: SidebarItem = .words
     @StateObject private var wordsViewModel = WordsViewModel()
     @StateObject private var idiomsViewModel = IdiomsViewModel()
-//    @StateObject private var quizzesViewModel = QuizzesViewModel()
+    @StateObject private var quizzesViewModel = QuizzesViewModel()
 
     public init() { }
 
@@ -37,11 +37,9 @@ public struct MainTabView: View {
             case .words:
                 WordsListView(viewModel: _wordsViewModel)
             case .idioms:
-//                Text("IdiomsListView")
                 IdiomsListView(viewModel: _idiomsViewModel)
             case .quizzes:
-                Text("QuizzesView")
-//                QuizzesView(viewModel: quizzesViewModel)
+                QuizzesView(viewModel: _quizzesViewModel)
             }
         } detail: {
             switch selectedSidebarItem {
@@ -52,7 +50,11 @@ public struct MainTabView: View {
                     WordDetailsView(viewModel: wordsViewModel)
                 }
             case .idioms:
-                Text("Select an item")
+                if idiomsViewModel.selectedIdiom == nil {
+                    Text("Select an item")
+                } else {
+                    IdiomDetailsView(viewModel: _idiomsViewModel)
+                }
             case .quizzes:
                 Text("Select an item")
             }

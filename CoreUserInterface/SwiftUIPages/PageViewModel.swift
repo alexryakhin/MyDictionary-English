@@ -69,7 +69,7 @@ open class PageViewModel<
         case .alert:
             showAlert(
                 withModel: .init(
-                    title: "Error",
+                    title: "Ooops...",
                     message: error.description,
                     actionText: actionText,
                     action: action

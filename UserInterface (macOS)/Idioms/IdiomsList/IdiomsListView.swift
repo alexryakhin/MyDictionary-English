@@ -7,36 +7,39 @@ struct IdiomsListView: PageView {
 
     typealias ViewModel = IdiomsViewModel
 
-    var viewModel: StateObject<ViewModel>
+    var _viewModel: StateObject<ViewModel>
+    var viewModel: ViewModel {
+        _viewModel.wrappedValue
+    }
+
     @State private var isShowingAddView = false
-    @State private var selectedIdiom: Idiom?
+
+    init(viewModel: StateObject<ViewModel>) {
+        self._viewModel = viewModel
+    }
 
     var contentView: some View {
-        ScrollView(showsIndicators: false) {
-            ListWithDivider(idiomsToShow()) { idiom in
-                NavigationLink {
-                    IdiomDetailsView(idiom: idiom)
-                } label: {
-                    IdiomsListCellView(
-                        model: .init(
-                            idiom: idiom.idiom,
-                            isFavorite: idiom.isFavorite,
-                            isSelected: selectedIdiom?.id == idiom.id
-                        ) {
-                            selectedIdiom = idiom
-                        }
-                    )
-                }
+        List(selection: Binding {
+            viewModel.selectedIdiom
+        } set: { newValue in
+            if let newValue {
+                viewModel.handle(.selectIdiom(newValue))
+            }
+        }) {
+            ForEach(idiomsToShow()) { idiom in
+                IdiomsListCellView(idiom: idiom)
+                    .tag(idiom)
             }
 
-            if viewModel.wrappedValue.filterState == .search && idiomsToShow().count < 10 {
+            if viewModel.filterState == .search && idiomsToShow().count < 10 {
                 Button {
                     showAddView()
                 } label: {
-                    Text("Add '\(viewModel.wrappedValue.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
+                    Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
                 }
             }
         }
+        .scrollContentBackground(.hidden)
         .safeAreaInset(edge: .top) {
             toolbar
                 .background(.regularMaterial)
@@ -53,12 +56,12 @@ struct IdiomsListView: PageView {
         }
         .navigationTitle("Idioms")
         .sheet(isPresented: $isShowingAddView) {
-            viewModel.wrappedValue.searchText = ""
+            viewModel.searchText = ""
         } content: {
-            AddIdiomView(inputText: viewModel.wrappedValue.searchText)
+            AddIdiomView(inputText: viewModel.searchText)
         }
         .onDisappear {
-            selectedIdiom = nil
+//            viewModel.selectedIdiom = nil
         }
     }
 
@@ -78,7 +81,7 @@ struct IdiomsListView: PageView {
             HStack(spacing: 8) {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
-                TextField("Search", text: viewModel.projectedValue.searchText)
+                TextField("Search", text: _viewModel.projectedValue.searchText)
                     .textFieldStyle(.plain)
             }
             .padding(.vertical, 4)
@@ -103,13 +106,13 @@ struct IdiomsListView: PageView {
     }
 
     private func idiomsToShow() -> [Idiom] {
-        switch viewModel.wrappedValue.filterState {
+        switch viewModel.filterState {
         case .none:
-            return viewModel.wrappedValue.idioms
+            return viewModel.idioms
         case .favorite:
-            return viewModel.wrappedValue.favoriteIdioms
+            return viewModel.favoriteIdioms
         case .search:
-            return viewModel.wrappedValue.searchResults
+            return viewModel.searchResults
         }
     }
 
@@ -118,22 +121,22 @@ struct IdiomsListView: PageView {
             Section {
                 Button {
                     withAnimation {
-                        viewModel.wrappedValue.sortingState = .def
-                        viewModel.wrappedValue.sortIdioms()
+                        viewModel.sortingState = .def
+                        viewModel.sortIdioms()
                     }
                 } label: {
-                    if viewModel.wrappedValue.sortingState == .def {
+                    if viewModel.sortingState == .def {
                         Image(systemName: "checkmark")
                     }
                     Text("Default")
                 }
                 Button {
                     withAnimation {
-                        viewModel.wrappedValue.sortingState = .name
-                        viewModel.wrappedValue.sortIdioms()
+                        viewModel.sortingState = .name
+                        viewModel.sortIdioms()
                     }
                 } label: {
-                    if viewModel.wrappedValue.sortingState == .name {
+                    if viewModel.sortingState == .name {
                         Image(systemName: "checkmark")
                     }
                     Text("Name")
@@ -145,20 +148,20 @@ struct IdiomsListView: PageView {
             Section {
                 Button {
                     withAnimation {
-                        viewModel.wrappedValue.filterState = .none
+                        viewModel.filterState = .none
                     }
                 } label: {
-                    if viewModel.wrappedValue.filterState == .none {
+                    if viewModel.filterState == .none {
                         Image(systemName: "checkmark")
                     }
                     Text("None")
                 }
                 Button {
                     withAnimation {
-                        viewModel.wrappedValue.filterState = .favorite
+                        viewModel.filterState = .favorite
                     }
                 } label: {
-                    if viewModel.wrappedValue.filterState == .favorite {
+                    if viewModel.filterState == .favorite {
                         Image(systemName: "checkmark")
                     }
                     Text("Favorites")
@@ -169,7 +172,7 @@ struct IdiomsListView: PageView {
 
         } label: {
             Image(systemName: "arrow.up.arrow.down")
-            Text(viewModel.wrappedValue.sortingState.rawValue)
+            Text(viewModel.sortingState.rawValue)
         }
     }
 }

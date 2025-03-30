@@ -7,41 +7,45 @@ struct WordsListView: PageView {
 
     typealias ViewModel = WordsViewModel
 
-    var viewModel: StateObject<ViewModel>
     @State private var isShowingAddView = false
 
-    var _viewModel: ViewModel {
-        viewModel.wrappedValue
+    var _viewModel: StateObject<ViewModel>
+    var viewModel: ViewModel {
+        _viewModel.wrappedValue
+    }
+
+    init(viewModel: StateObject<ViewModel>) {
+        self._viewModel = viewModel
     }
 
     var contentView: some View {
-        List(selection: viewModel.projectedValue.selectedWord) {
-            ForEach(_viewModel.wordsFiltered) { word in
+        List(selection: _viewModel.projectedValue.selectedWord) {
+            ForEach(viewModel.wordsFiltered) { word in
                 WordsListCellView(
                     model: .init(
                         word: word.word,
                         partOfSpeech: word.partOfSpeech.rawValue,
                         isFavorite: word.isFavorite,
-                        isSelected: _viewModel.selectedWord?.id == word.id
+                        isSelected: viewModel.selectedWord?.id == word.id
                     )
                 )
                 .tag(word)
             }
             .onDelete { offsets in
-                _viewModel.deleteWord(offsets: offsets)
+                viewModel.deleteWord(offsets: offsets)
             }
 
-            if _viewModel.filterState == .search && _viewModel.wordsFiltered.count < 10 {
+            if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
                 Button {
                     isShowingAddView = true
                 } label: {
-                    Text("Add '\(_viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
+                    Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
                 }
             }
         }
-        .animation(.default, value: _viewModel.wordsFiltered)
+        .animation(.default, value: viewModel.wordsFiltered)
         .onDisappear {
-            _viewModel.selectedWord = nil
+            viewModel.selectedWord = nil
         }
         .scrollContentBackground(.hidden)
         .safeAreaInset(edge: .top) {
@@ -49,8 +53,8 @@ struct WordsListView: PageView {
                 .background(.regularMaterial)
         }
         .safeAreaInset(edge: .bottom) {
-            if !_viewModel.wordsFiltered.isEmpty {
-                Text(_viewModel.wordsCount)
+            if !viewModel.wordsFiltered.isEmpty {
+                Text(viewModel.wordsCount)
                     .font(.footnote)
                     .foregroundColor(.secondary)
                     .frame(maxWidth: .infinity)
@@ -60,9 +64,9 @@ struct WordsListView: PageView {
         }
         .navigationTitle("Words")
         .sheet(isPresented: $isShowingAddView) {
-            _viewModel.searchText = ""
+            viewModel.searchText = ""
         } content: {
-            AddWordView(inputWord: _viewModel.searchText)
+            AddWordView(inputWord: viewModel.searchText)
         }
     }
 
@@ -82,7 +86,7 @@ struct WordsListView: PageView {
             HStack(spacing: 8) {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
-                TextField("Search", text: viewModel.projectedValue.searchText)
+                TextField("Search", text: _viewModel.projectedValue.searchText)
                     .textFieldStyle(.plain)
             }
             .padding(.vertical, 4)
@@ -100,25 +104,25 @@ struct WordsListView: PageView {
         Menu {
             Section {
                 Button {
-                    _viewModel.selectSortingState(.def)
+                    viewModel.selectSortingState(.def)
                 } label: {
-                    if _viewModel.sortingState == .def {
+                    if viewModel.sortingState == .def {
                         Image(systemName: "checkmark")
                     }
                     Text("Default")
                 }
                 Button {
-                    _viewModel.selectSortingState(.name)
+                    viewModel.selectSortingState(.name)
                 } label: {
-                    if _viewModel.sortingState == .name {
+                    if viewModel.sortingState == .name {
                         Image(systemName: "checkmark")
                     }
                     Text("Name")
                 }
                 Button {
-                    _viewModel.selectSortingState(.partOfSpeech)
+                    viewModel.selectSortingState(.partOfSpeech)
                 } label: {
-                    if _viewModel.sortingState == .partOfSpeech {
+                    if viewModel.sortingState == .partOfSpeech {
                         Image(systemName: "checkmark")
                     }
                     Text("Part of speech")
@@ -129,17 +133,17 @@ struct WordsListView: PageView {
 
             Section {
                 Button {
-                    _viewModel.selectFilterState(.none)
+                    viewModel.selectFilterState(.none)
                 } label: {
-                    if _viewModel.filterState == .none {
+                    if viewModel.filterState == .none {
                         Image(systemName: "checkmark")
                     }
                     Text("None")
                 }
                 Button {
-                    _viewModel.selectFilterState(.favorite)
+                    viewModel.selectFilterState(.favorite)
                 } label: {
-                    if _viewModel.filterState == .favorite {
+                    if viewModel.filterState == .favorite {
                         Image(systemName: "checkmark")
                     }
                     Text("Favorites")
@@ -150,7 +154,7 @@ struct WordsListView: PageView {
 
         } label: {
             Image(systemName: "arrow.up.arrow.down")
-            Text(_viewModel.sortingState.rawValue)
+            Text(viewModel.sortingState.rawValue)
         }
     }
 }

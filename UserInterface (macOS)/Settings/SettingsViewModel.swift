@@ -1,49 +1,53 @@
 import SwiftUI
 import Combine
 import StoreKit
+import Core
+import Services
+import CoreUserInterface__macOS_
+import Shared
 
-final class SettingsViewModel: ObservableObject {
-//    @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
-//
-//    @Published var exportWordsUrl: URL?
-//    @Published var isImporting = false
-//    @Published var importFileURL: URL?
+final class SettingsViewModel: DefaultPageViewModel {
+    @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
 
-//    private let coreDataContainer = CoreDataContainer.shared
-//    private let wordsProvider: WordsProviderInterface
-//
-//    private var words: [Word] = []
-//    private var cancellables: Set<AnyCancellable> = []
+    @Published var exportWordsUrl: URL?
+    @Published var isImporting = false
+    @Published var importFileURL: URL?
 
-//    override init() {
-//        self.wordsProvider = WordsProvider.shared
-//        super.init()
-//        setupBindings()
-//    }
+    private let wordsProvider: WordsProviderInterface
+    private let csvManager: CSVManagerInterface
 
-//    private func setupBindings() {
-//        wordsProvider.wordsPublisher
-//            .receive(on: RunLoop.main)
-//            .assign(to: \.words, on: self)
-//            .store(in: &cancellables)
-//    }
+    private var words: [Word] = []
+    private var cancellables: Set<AnyCancellable> = []
 
-//    func exportWords() {
-//        guard !words.isEmpty else { return }
-//        Task { @MainActor in
-//            exportWordsUrl = CSVManager.shared.exportWordsToCSV(words: words)
-//        }
-//    }
-//
-//    func importWords(from url: URL) {
-//        do {
-//            try CSVManager.shared.importWordsFromCSV(
-//                url: url,
-//                currentWordIds: words.compactMap(\.id).map(\.uuidString),
-//                context: coreDataContainer.viewContext
-//            )
-//        } catch {
-//            handleError(error)
-//        }
-//    }
+    override init() {
+        self.wordsProvider = DIContainer.shared.resolver.resolve(WordsProviderInterface.self)!
+        self.csvManager = DIContainer.shared.resolver.resolve(CSVManagerInterface.self)!
+        super.init()
+        setupBindings()
+    }
+
+    private func setupBindings() {
+        wordsProvider.wordsPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.words, on: self)
+            .store(in: &cancellables)
+    }
+
+    func exportWords() {
+        guard !words.isEmpty else { return }
+        Task { @MainActor in
+            exportWordsUrl = csvManager.exportWordsToCSV(wordModels: words)
+        }
+    }
+
+    func importWords(from url: URL) {
+        do {
+            try csvManager.importWordsFromCSV(
+                url: url,
+                currentWordIds: words.compactMap(\.id)
+            )
+        } catch {
+            errorReceived(error, displayType: .alert)
+        }
+    }
 }

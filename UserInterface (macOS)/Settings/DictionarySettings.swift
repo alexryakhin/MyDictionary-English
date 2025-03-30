@@ -1,11 +1,19 @@
 import SwiftUI
+import Core
+import CoreUserInterface__macOS_
+import Shared
 
-struct DictionarySettings: View {
+struct DictionarySettings: PageView {
+    typealias ViewModel = SettingsViewModel
+
     @Environment(\.requestReview) var requestReview
 
-    @StateObject private var viewModel = SettingsViewModel()
+    var _viewModel = StateObject(wrappedValue: ViewModel())
+    var viewModel: ViewModel {
+        _viewModel.wrappedValue
+    }
 
-    var body: some View {
+    var contentView: some View {
         Form {
             Button {
                 requestReview()
