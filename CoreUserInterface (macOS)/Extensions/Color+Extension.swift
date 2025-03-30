@@ -117,4 +117,16 @@ public extension Color {
     static var scrubberTexturedBackground: Self {
         NSColor.scrubberTexturedBackground.swiftUIColor
     }
+
+    // Assets
+
+    static var backgroundColor: Self {
+        Color("BackgroundColor")
+    }
+    static var surfaceColor: Self {
+        Color("SurfaceColor")
+    }
+    static var textFieldColor: Self {
+        Color("TextFieldColor")
+    }
 }

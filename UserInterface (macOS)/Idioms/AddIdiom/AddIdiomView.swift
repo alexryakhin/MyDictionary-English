@@ -23,12 +23,12 @@ struct AddIdiomView: PageView {
                 CustomSectionView(header: "Idiom") {
                     TextField("Idiom", text: _viewModel.projectedValue.inputText, axis: .vertical)
                         .textFieldStyle(.plain)
-                        .clippedWithPaddingAndBackground(.textBackgroundColor)
+                        .clippedWithPaddingAndBackground(.surfaceColor)
                 }
                 CustomSectionView(header: "Definition") {
                     TextField("Definition", text: _viewModel.projectedValue.inputDefinition, axis: .vertical)
                         .textFieldStyle(.plain)
-                        .clippedWithPaddingAndBackground(.textBackgroundColor)
+                        .clippedWithPaddingAndBackground(.surfaceColor)
                 }
             }
             .padding(vertical: 12, horizontal: 16)
@@ -58,10 +58,14 @@ struct AddIdiomView: PageView {
             }
             .buttonStyle(.borderedProminent)
             .padding(vertical: 12, horizontal: 16)
-            .gradientStyle(.bottomButton)
+            .colorWithGradient(
+                offset: 0,
+                interpolation: 0.2,
+                direction: .down
+            )
         }
         .frame(width: 350, height: 500)
-        .background(Color.windowBackgroundColor)
+        .background(Color.backgroundColor)
         .onReceive(viewModel.dismissPublisher) { _ in
             dismiss()
         }

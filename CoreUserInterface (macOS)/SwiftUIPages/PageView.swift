@@ -34,7 +34,7 @@ public extension PageView {
         contentView
             .overlay {
                 if let additionalState = viewModel.additionalState {
-                    Color.windowBackgroundColor.ignoresSafeArea()
+                    Color.backgroundColor.ignoresSafeArea()
                     switch additionalState {
                     case .loading(let props):
                         loaderView(props: props)
@@ -86,7 +86,7 @@ public extension PageView {
 
     @ViewBuilder
     func placeholderView(props: PageState.PlaceholderProps) -> some View {
-        EmptyListView(label: props.title, description: props.subtitle, background: .windowBackgroundColor)
+        EmptyListView(label: props.title, description: props.subtitle, background: .backgroundColor)
     }
 
     @ViewBuilder

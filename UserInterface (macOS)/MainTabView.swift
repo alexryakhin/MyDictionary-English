@@ -47,7 +47,7 @@ public struct MainTabView: View {
                 if wordsViewModel.selectedWord == nil {
                     Text("Select an item")
                 } else {
-                    WordDetailsView(viewModel: wordsViewModel)
+                    WordDetailsView(viewModel: _wordsViewModel)
                 }
             case .idioms:
                 if idiomsViewModel.selectedIdiom == nil {
@@ -60,5 +60,6 @@ public struct MainTabView: View {
             }
         }
         .fontDesign(.rounded)
+        .background(Color.backgroundColor)
     }
 }

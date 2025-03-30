@@ -32,6 +32,8 @@
 		530D2CCF2D985E5A0040C247 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2CCE2D985E5A0040C247 /* SwinjectAutoregistration */; };
 		530D2D422D9870D40040C247 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2D412D9870D40040C247 /* Swinject */; };
 		530D2D442D9870F80040C247 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2D432D9870F80040C247 /* Swinject */; };
+		530D2F742D99508E0040C247 /* Glur in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2F732D99508E0040C247 /* Glur */; };
+		530D2F762D9950960040C247 /* Glur in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2F752D9950960040C247 /* Glur */; };
 		53310BA82D7E20D600C1DE8B /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */; };
 		53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BC92D7E238900C1DE8B /* FirebaseCore */; };
 		53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */; };
@@ -570,6 +572,7 @@
 			files = (
 				530D2CB52D98479C0040C247 /* CoreUserInterface__macOS_.framework in Frameworks */,
 				530D2D442D9870F80040C247 /* Swinject in Frameworks */,
+				530D2F762D9950960040C247 /* Glur in Frameworks */,
 				530D2CAC2D98477F0040C247 /* Core.framework in Frameworks */,
 				530D2CBA2D9847A20040C247 /* Services.framework in Frameworks */,
 				530D2CB12D9847820040C247 /* Shared.framework in Frameworks */,
@@ -612,6 +615,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E9AC0A2D7CC0EC007E9F28 /* CoreUserInterface.framework in Frameworks */,
+				530D2F742D99508E0040C247 /* Glur in Frameworks */,
 				53E9A8182D7C4019007E9F28 /* Services.framework in Frameworks */,
 				53E9AA172D7C43B6007E9F28 /* Shared.framework in Frameworks */,
 				53E9A81D2D7C401C007E9F28 /* Core.framework in Frameworks */,
@@ -859,6 +863,7 @@
 			name = "UserInterface (macOS)";
 			packageProductDependencies = (
 				530D2D432D9870F80040C247 /* Swinject */,
+				530D2F752D9950960040C247 /* Glur */,
 			);
 			productName = UserInterfaceMacOS;
 			productReference = 530D2CA02D9847680040C247 /* UserInterface__macOS_.framework */;
@@ -966,6 +971,7 @@
 			);
 			name = UserInterface;
 			packageProductDependencies = (
+				530D2F732D99508E0040C247 /* Glur */,
 			);
 			productName = UserInterface;
 			productReference = 53E9A7E32D7C3E07007E9F28 /* UserInterface.framework */;
@@ -1163,6 +1169,7 @@
 				53E9A9A52D7C414A007E9F28 /* XCRemoteSwiftPackageReference "Swinject" */,
 				53E9A9A82D7C41B1007E9F28 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
 				53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				530D2F722D99508E0040C247 /* XCRemoteSwiftPackageReference "Glur" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 53E9A7552D7C3383007E9F28 /* Products */;
@@ -2638,6 +2645,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		530D2F722D99508E0040C247 /* XCRemoteSwiftPackageReference "Glur" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joogps/Glur";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 		53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -2694,6 +2709,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53E9A9A52D7C414A007E9F28 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		530D2F732D99508E0040C247 /* Glur */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 530D2F722D99508E0040C247 /* XCRemoteSwiftPackageReference "Glur" */;
+			productName = Glur;
+		};
+		530D2F752D9950960040C247 /* Glur */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 530D2F722D99508E0040C247 /* XCRemoteSwiftPackageReference "Glur" */;
+			productName = Glur;
 		};
 		53310BA72D7E20D600C1DE8B /* FirebaseRemoteConfig */ = {
 			isa = XCSwiftPackageProductDependency;

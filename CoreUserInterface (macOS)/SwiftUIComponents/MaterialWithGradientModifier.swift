@@ -1,24 +1,25 @@
 //
-//  AdaptiveGradientStyleModifier.swift
-//  RepsCount
+//  MaterialWithGradientModifier.swift
+//  My Dictionary
 //
-//  Created by Aleksandr Riakhin on 3/16/25.
+//  Created by Aleksandr Riakhin on 3/30/25.
 //
-
 import SwiftUI
 
-struct AdaptiveGradientStyleModifier: ViewModifier {
-    @Environment(\.colorScheme) private var colorScheme
+struct MaterialWithGradientModifier: ViewModifier {
 
-    var color: Color
+    var material: Material
     var offset: CGFloat
     var interpolation: CGFloat
     var direction: GradientDirection
 
     func body(content: Content) -> some View {
         content
-            .background(color)
-            .mask(gradientMask)
+            .background {
+                Color.clear
+                    .backgroundMaterial(material)
+                    .mask(gradientMask)
+            }
     }
 
     var gradientMask: some View {
@@ -45,8 +46,8 @@ public extension View {
     ///   - offset: The distance from the view's edge to where the effect begins, relative to the view's size.
     ///   - interpolation: The distance from the offset to where the effect is fully applied, relative to the view's size.
     ///   - direction: The direction in which the effect is applied.
-    func colorWithGradient(
-        color: Color = .backgroundColor,
+    func materialWithGradient(
+        material: Material = .thin,
         offset: CGFloat = 0.1,
         interpolation: CGFloat = 0.3,
         direction: GradientDirection = .down
@@ -55,8 +56,8 @@ public extension View {
         let interpolation: CGFloat = min(max(interpolation, 0), 1)
 
         return modifier(
-            AdaptiveGradientStyleModifier(
-                color: color,
+            MaterialWithGradientModifier(
+                material: material,
                 offset: offset,
                 interpolation: interpolation,
                 direction: direction

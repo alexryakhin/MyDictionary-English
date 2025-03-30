@@ -68,6 +68,6 @@ public struct EmptyListView<Actions: View>: View {
     EmptyListView(
         label: "No idioms yet",
         description: "Begin to add idioms to your list by tapping on plus icon in upper left corner",
-        background: .windowBackgroundColor
+        background: .backgroundColor
     )
 }

@@ -7,11 +7,28 @@ struct WordsListView: PageView {
 
     typealias ViewModel = WordsViewModel
 
-    @State private var isShowingAddView = false
-
     var _viewModel: StateObject<ViewModel>
     var viewModel: ViewModel {
         _viewModel.wrappedValue
+    }
+
+    @State private var isShowingAddView = false
+
+    private var wordsFiltered: [Word] {
+        switch viewModel.filterState {
+        case .none: viewModel.words
+        case .favorite: viewModel.favoriteWords
+        case .search: viewModel.searchResults
+        @unknown default: fatalError("Unknown filter state")
+        }
+    }
+
+    private var wordsCount: String {
+        switch wordsFiltered.count {
+        case 0: "No words"
+        case 1: "1 word"
+        default: "\(wordsFiltered.count) words"
+        }
     }
 
     init(viewModel: StateObject<ViewModel>) {
@@ -19,8 +36,16 @@ struct WordsListView: PageView {
     }
 
     var contentView: some View {
-        List(selection: _viewModel.projectedValue.selectedWord) {
-            ForEach(viewModel.wordsFiltered) { word in
+        let selection = Binding {
+            viewModel.selectedWordId
+        } set: { wordID in
+            if let wordID {
+                viewModel.handle(.selectWord(wordID: wordID))
+            }
+        }
+
+        List(selection: selection) {
+            ForEach(wordsFiltered) { word in
                 WordsListCellView(
                     model: .init(
                         word: word.word,
@@ -32,34 +57,46 @@ struct WordsListView: PageView {
                 .tag(word)
             }
             .onDelete { offsets in
-                viewModel.deleteWord(offsets: offsets)
+                viewModel.handle(.deleteWord(atOffsets: offsets))
             }
 
-            if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
+            if viewModel.filterState == .search && wordsFiltered.count < 10 {
                 Button {
                     isShowingAddView = true
                 } label: {
-                    Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
+                    Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
                 }
+                .buttonStyle(.borderless)
             }
         }
-        .animation(.default, value: viewModel.wordsFiltered)
+        .background(Color.backgroundColor)
+        .animation(.default, value: wordsFiltered)
+        .animation(.default, value: viewModel.filterState)
+        .animation(.default, value: viewModel.sortingState)
         .onDisappear {
-            viewModel.selectedWord = nil
+            viewModel.handle(.deselectWord)
         }
         .scrollContentBackground(.hidden)
         .safeAreaInset(edge: .top) {
             toolbar
-                .background(.regularMaterial)
+                .colorWithGradient(
+                    offset: 0,
+                    interpolation: 0.1,
+                    direction: .up
+                )
         }
         .safeAreaInset(edge: .bottom) {
-            if !viewModel.wordsFiltered.isEmpty {
-                Text(viewModel.wordsCount)
+            if !wordsFiltered.isEmpty {
+                Text(wordsCount)
                     .font(.footnote)
                     .foregroundColor(.secondary)
                     .frame(maxWidth: .infinity)
                     .padding(12)
-                    .background(.regularMaterial)
+                    .colorWithGradient(
+                        offset: 0,
+                        interpolation: 0.2,
+                        direction: .down
+                    )
             }
         }
         .navigationTitle("Words")
@@ -91,8 +128,13 @@ struct WordsListView: PageView {
             }
             .padding(.vertical, 4)
             .padding(.horizontal, 8)
-            .background(.separator)
+            .background(Color.textFieldColor)
             .clipShape(RoundedRectangle(cornerRadius: 4))
+            .background {
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(lineWidth: 2)
+                    .foregroundStyle(Color.separatorColor)
+            }
         }
         .padding(.vertical, 12)
         .padding(.horizontal, 16)
@@ -104,7 +146,7 @@ struct WordsListView: PageView {
         Menu {
             Section {
                 Button {
-                    viewModel.selectSortingState(.def)
+                    viewModel.handle(.selectSortingState(.def))
                 } label: {
                     if viewModel.sortingState == .def {
                         Image(systemName: "checkmark")
@@ -112,7 +154,7 @@ struct WordsListView: PageView {
                     Text("Default")
                 }
                 Button {
-                    viewModel.selectSortingState(.name)
+                    viewModel.handle(.selectSortingState(.name))
                 } label: {
                     if viewModel.sortingState == .name {
                         Image(systemName: "checkmark")
@@ -120,7 +162,7 @@ struct WordsListView: PageView {
                     Text("Name")
                 }
                 Button {
-                    viewModel.selectSortingState(.partOfSpeech)
+                    viewModel.handle(.selectSortingState(.partOfSpeech))
                 } label: {
                     if viewModel.sortingState == .partOfSpeech {
                         Image(systemName: "checkmark")
@@ -133,7 +175,7 @@ struct WordsListView: PageView {
 
             Section {
                 Button {
-                    viewModel.selectFilterState(.none)
+                    viewModel.handle(.selectFilterState(.none))
                 } label: {
                     if viewModel.filterState == .none {
                         Image(systemName: "checkmark")
@@ -141,7 +183,7 @@ struct WordsListView: PageView {
                     Text("None")
                 }
                 Button {
-                    viewModel.selectFilterState(.favorite)
+                    viewModel.handle(.selectFilterState(.favorite))
                 } label: {
                     if viewModel.filterState == .favorite {
                         Image(systemName: "checkmark")

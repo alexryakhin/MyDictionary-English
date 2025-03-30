@@ -19,7 +19,6 @@ struct QuizzesListCellView: View {
         }
         .padding(.vertical, 12)
         .padding(.horizontal, 16)
-        .background(model.backgroundColor)
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .onTapGesture(perform: model.onTap)
     }

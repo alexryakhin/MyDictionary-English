@@ -8,58 +8,67 @@ import Core
 
 final class WordsViewModel: DefaultPageViewModel {
 
-    private let wordsProvider: WordsProviderInterface
-    private var wordDetailsManager: WordDetailsManagerInterface?
-    private let ttsPlayer: TTSPlayerInterface
-    private var cancellables = Set<AnyCancellable>()
+    enum Input {
+        // MARK: Words List
+        case selectWord(wordID: String)
+        case deselectWord
+        case deleteWord(atOffsets: IndexSet)
+        case selectFilterState(FilterCase)
+        case selectSortingState(SortingCase)
 
-    @Published var words: [Word] = []
-    @Published var selectedWord: Word? {
+        // MARK: Word Details
+        case updateTranscription(text: String)
+        case updateDefinition(definition: String)
+        case updateCDWord
+        case play(String?)
+        case toggleFavorite
+        case updatePartOfSpeech(PartOfSpeech)
+        case addExample(String)
+        case updateExample(at: Int, text: String)
+        case removeExample(at: Int)
+        case deleteCurrentWord
+    }
+
+    // MARK: - Public properties
+
+    @Published var searchText = ""
+    @Published private(set) var words: [Word] = []
+    @Published private(set) var selectedWord: Word?
+    @Published private(set) var selectedWordId: String? {
         didSet {
-            if let selectedWord {
-                wordDetailsManager = DIContainer.shared.resolver.resolve(WordDetailsManagerInterface.self, argument: selectedWord.id)!
+            if let selectedWordId {
+                wordDetailsManager = DIContainer.shared.resolver.resolve(WordDetailsManagerInterface.self, argument: selectedWordId)!
             } else {
                 wordDetailsManager = nil
             }
         }
     }
-    @Published var sortingState: SortingCase = .def
-    @Published var filterState: FilterCase = .none
-    @Published var searchText = ""
+    @Published private(set) var sortingState: SortingCase = .def
+    @Published private(set) var filterState: FilterCase = .none
 
-    @Published var isShowAddExample = false
-    @Published var definitionTextFieldStr = ""
-    @Published var exampleTextFieldStr = ""
+    // MARK: - Private properties
 
-    var wordsFiltered: [Word] {
-        switch filterState {
-        case .none:
-            return words
-        case .favorite:
-            return favoriteWords
-        case .search:
-            return searchResults
+    private let wordsProvider: WordsProviderInterface
+    private let ttsPlayer: TTSPlayerInterface
+    private var wordDetailsManager: WordDetailsManagerInterface? {
+        didSet {
+            if let wordDetailsManager {
+                wordDetailsSubscription = wordDetailsManager.wordPublisher
+                    .receive(on: DispatchQueue.main)
+                    .sink { [weak self] word in
+                        self?.selectedWord = word
+                        AnalyticsService.shared.logEvent(.wordOpened)
+                    }
+            } else {
+                wordDetailsSubscription = nil
+                selectedWord = nil
+            }
         }
     }
+    private var cancellables = Set<AnyCancellable>()
+    private var wordDetailsSubscription: AnyCancellable?
 
-    var favoriteWords: [Word] {
-        words.filter { $0.isFavorite }
-    }
-
-    var searchResults: [Word] {
-        words.filter { [weak self] word in
-            guard let self, !searchText.isEmpty else { return true }
-            return word.word.localizedStandardContains(searchText)
-        }
-    }
-
-    var wordsCount: String {
-        if wordsFiltered.count == 1 {
-            return "1 word"
-        } else {
-            return "\(wordsFiltered.count) words"
-        }
-    }
+    // MARK: - Init
 
     override init() {
         self.wordsProvider = DIContainer.shared.resolver.resolve(WordsProviderInterface.self)!
@@ -68,12 +77,49 @@ final class WordsViewModel: DefaultPageViewModel {
         setupBindings()
     }
 
+    func handle(_ input: Input) {
+        switch input {
+        case .selectWord(let wordID):
+            Task { @MainActor in
+                selectedWordId = wordID
+            }
+        case .deselectWord:
+            selectedWordId = nil
+        case .deleteWord(let offsets):
+            deleteWord(offsets: offsets)
+        case .selectFilterState(let filter):
+            selectFilterState(filter)
+        case .selectSortingState(let sorting):
+            selectSortingState(sorting)
+
+        case .updateTranscription(let text):
+            selectedWord?.phonetic = text
+        case .updateDefinition(let definition):
+            selectedWord?.definition = definition
+        case .updateCDWord:
+            updateCDWord()
+        case .play(let text):
+            play(text: text)
+        case .toggleFavorite:
+            toggleFavorite()
+        case .updatePartOfSpeech(let value):
+            updatePartOfSpeech(value)
+        case .addExample(let example):
+            addExample(example)
+        case .updateExample(let index, let example):
+            updateExample(at: index, text: example)
+        case .removeExample(let index):
+            removeExample(at: index)
+        case .deleteCurrentWord:
+            deleteCurrentWord()
+        }
+    }
+
     private func setupBindings() {
         wordsProvider.wordsPublisher
             .receive(on: RunLoop.main)
             .sink { [weak self] words in
-                self?.words = words
-                self?.sortWords()
+                self?.updateWords(words)
             }
             .store(in: &cancellables)
 
@@ -85,31 +131,61 @@ final class WordsViewModel: DefaultPageViewModel {
             .store(in: &cancellables)
     }
 
+    private func updateWords(_ words: [Word]) {
+        self.words = words
+        sortWords()
+        if let selectedWord = words.first(where: { $0.id == selectedWordId }) {
+            self.selectedWord = selectedWord
+        } else {
+            selectedWord = nil
+        }
+    }
+}
+
+// MARK: - Words List
+
+private extension WordsViewModel {
     func deleteWord(offsets: IndexSet) {
         switch filterState {
         case .none:
             withAnimation {
                 offsets.map { words[$0] }.forEach { [weak self] word in
-                    self?.delete(word: word)
+                    self?.deleteWord(withID: word.id)
                 }
             }
         case .favorite:
             withAnimation {
                 offsets.map { favoriteWords[$0] }.forEach { [weak self] word in
-                    self?.delete(word: word)
+                    self?.deleteWord(withID: word.id)
                 }
             }
         case .search:
             withAnimation {
                 offsets.map { searchResults[$0] }.forEach { [weak self] word in
-                    self?.delete(word: word)
+                    self?.deleteWord(withID: word.id)
                 }
             }
+        @unknown default:
+            fatalError("Unknown filter state")
         }
     }
 
-    func delete(word: Word) {
-        wordsProvider.delete(with: word.id)
+    func deleteWord(withID id: String, completion: VoidHandler? = nil) {
+        showAlert(
+            withModel: .init(
+                title: "Delete word",
+                message: "Are you sure you want to delete this word?",
+                actionText: "Cancel",
+                destructiveActionText: "Delete",
+                action: {
+                    AnalyticsService.shared.logEvent(.wordRemovingCanceled)
+                },
+                destructiveAction: { [weak self] in
+                    self?.wordsProvider.delete(with: id)
+                    completion?()
+                }
+            )
+        )
     }
 
     func selectFilterState(_ filterState: FilterCase) {
@@ -142,26 +218,17 @@ final class WordsViewModel: DefaultPageViewModel {
             words.sort(by: { word1, word2 in
                 word1.partOfSpeech.rawValue < word2.partOfSpeech.rawValue
             })
+        @unknown default:
+            fatalError("Unknown sorting case")
         }
     }
 }
 
-extension WordsViewModel {
-    func removeExample(atIndex index: Int) {
-        selectedWord?.examples.remove(at: index)
-    }
+// MARK: - Word Details
 
-    func removeExample(atOffsets offsets: IndexSet) {
-        selectedWord?.examples.remove(atOffsets: offsets)
-    }
+private extension WordsViewModel {
 
-    func saveExample() {
-        selectedWord?.examples.append(exampleTextFieldStr)
-        exampleTextFieldStr = ""
-        isShowAddExample = false
-    }
-
-    func speak(_ text: String?) {
+    func play(text: String?) {
         Task {
             if let text {
                 do {
@@ -173,16 +240,68 @@ extension WordsViewModel {
         }
     }
 
-    func changePartOfSpeech(_ partOfSpeech: PartOfSpeech) {
+    func toggleFavorite() {
+        selectedWord?.isFavorite.toggle()
+        updateCDWord()
+        AnalyticsService.shared.logEvent(.wordFavoriteTapped)
+    }
+
+    func updatePartOfSpeech(_ partOfSpeech: PartOfSpeech) {
         selectedWord?.partOfSpeech = partOfSpeech
+        updateCDWord()
+        AnalyticsService.shared.logEvent(.partOfSpeechChanged)
+    }
+
+    func addExample(_ example: String) {
+        guard !example.isEmpty else {
+            errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
+            return
+        }
+        selectedWord?.examples.append(example)
+        updateCDWord()
+        AnalyticsService.shared.logEvent(.wordExampleAdded)
+    }
+
+    func updateExample(at index: Int, text: String) {
+        guard !text.isEmpty else {
+            errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
+            return
+        }
+        selectedWord?.examples[index] = text
+        updateCDWord()
+        AnalyticsService.shared.logEvent(.wordExampleUpdated)
+    }
+
+    func removeExample(at index: Int) {
+        selectedWord?.examples.remove(at: index)
+        updateCDWord()
+        AnalyticsService.shared.logEvent(.wordExampleRemoved)
     }
 
     func deleteCurrentWord() {
-        wordDetailsManager?.deleteWord()
-        self.selectedWord = nil
+        if let selectedWord {
+            deleteWord(withID: selectedWord.id) { [weak self] in
+                self?.selectedWord = nil
+            }
+        }
     }
 
-    func toggleFavorite() {
-        selectedWord?.isFavorite.toggle()
+    func updateCDWord() {
+        if let selectedWord {
+            wordDetailsManager?.updateWord(selectedWord)
+        }
+    }
+}
+
+extension WordsViewModel {
+    var favoriteWords: [Word] {
+        words.filter { $0.isFavorite }
+    }
+
+    var searchResults: [Word] {
+        words.filter { [weak self] word in
+            guard let self, !searchText.isEmpty else { return true }
+            return word.word.localizedStandardContains(searchText)
+        }
     }
 }

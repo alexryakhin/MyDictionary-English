@@ -1,156 +1,220 @@
 import SwiftUI
 import Core
 import CoreUserInterface__macOS_
+import Services
 
-struct WordDetailsView: View {
-    @ObservedObject var viewModel: WordsViewModel
-    @State private var isEditing = false
+struct WordDetailsView: PageView {
 
-    var body: some View {
-        VStack {
-            title
-            content
+    typealias ViewModel = WordsViewModel
+
+    var _viewModel: StateObject<ViewModel>
+    var viewModel: ViewModel {
+        _viewModel.wrappedValue
+    }
+
+    @FocusState private var isPhoneticsFocused: Bool
+    @FocusState private var isDefinitionFocused: Bool
+    @FocusState private var isAddExampleFocused: Bool
+    @State private var isAddingExample = false
+    @State private var editingExampleIndex: Int?
+    @State private var exampleTextFieldStr = ""
+
+    init(viewModel: StateObject<ViewModel>) {
+        self._viewModel = viewModel
+    }
+
+    public var contentView: some View {
+        ScrollViewWithCustomNavBar {
+            LazyVStack(spacing: 24) {
+                transcriptionSectionView
+                partOfSpeechSectionView
+                definitionSectionView
+                examplesSectionView
+            }
+            .padding(vertical: 12, horizontal: 16)
+        } navigationBar: {
+            if let selectedWord = viewModel.selectedWord {
+                Text(selectedWord.word)
+                    .font(.largeTitle)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(vertical: 12, horizontal: 16)
+                    .padding(.top, 24)
+            }
         }
-        .padding(16)
-        .navigationTitle(viewModel.selectedWord?.word ?? "")
+        .background(Color.backgroundColor)
         .toolbar {
             Button(role: .destructive) {
-                viewModel.deleteCurrentWord()
+                viewModel.handle(.deleteCurrentWord)
             } label: {
                 Image(systemName: "trash")
+                    .foregroundStyle(.red)
             }
 
             Button {
-                viewModel.toggleFavorite()
+                viewModel.handle(.toggleFavorite)
             } label: {
                 Image(systemName: "\(viewModel.selectedWord?.isFavorite == true ? "heart.fill" : "heart")")
                     .foregroundColor(.accentColor)
             }
-
-            Button(isEditing ? "Save" : "Edit") {
-                isEditing.toggle()
+        }
+        .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
+            TextField("Example", text: $exampleTextFieldStr)
+            Button("Cancel", role: .cancel) {
+                AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
+            }
+            Button("Save") {
+                viewModel.handle(.updateExample(at: index, text: exampleTextFieldStr))
+                editingExampleIndex = nil
+                exampleTextFieldStr = .empty
+                AnalyticsService.shared.logEvent(.wordExampleChanged)
             }
         }
     }
 
-    // MARK: - Title
-
-    private var title: some View {
-        Text(viewModel.selectedWord?.word ?? "")
-            .font(.title)
-            .bold()
-            .frame(maxWidth: .infinity, alignment: .leading)
+    private var transcriptionSectionView: some View {
+        CustomSectionView(header: "Transcription") {
+            let text = Binding {
+                viewModel.selectedWord?.phonetic ?? ""
+            } set: {
+                viewModel.handle(.updateTranscription(text: $0))
+            }
+            TextField("Transcription", text: text, axis: .vertical)
+                .textFieldStyle(.plain)
+                .focused($isPhoneticsFocused)
+                .clippedWithPaddingAndBackground(.surfaceColor)
+        } headerTrailingContent: {
+            if isPhoneticsFocused {
+                SectionHeaderButton("Done") {
+                    isPhoneticsFocused = false
+                    viewModel.handle(.updateCDWord)
+                }
+            } else {
+                SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                    viewModel.handle(.play(viewModel.selectedWord?.word))
+                }
+            }
+        }
     }
 
-    // MARK: - Primary Content
-
-    private var content: some View {
-        ScrollView {
-            HStack {
-                Text("Phonetics: ").bold()
-                + Text("[\(viewModel.selectedWord?.phonetic ?? "No transcription")]")
-                Spacer()
-                Button {
-                    viewModel.speak(viewModel.selectedWord?.word)
-                } label: {
-                    Image(systemName: "speaker.wave.2.fill")
-                }
-            }
-
-            Divider()
-
-            HStack {
-                if !isEditing {
-                    Text("Part Of Speech: ").bold()
-                    + Text(viewModel.selectedWord?.partOfSpeech.rawValue ?? "")
-                } else {
-                    Picker(selection: Binding(get: {
-                        viewModel.selectedWord?.partOfSpeech ?? .unknown
-                    }, set: { newValue in
-                        viewModel.changePartOfSpeech(newValue)
-                    }), label: Text("Part of Speech").bold()) {
-                        ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
-                            Text(partCase.rawValue)
-                                .tag(partCase.rawValue)
+    private var partOfSpeechSectionView: some View {
+        CustomSectionView(header: "Part Of Speech") {
+            Menu {
+                ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
+                    Button {
+                        viewModel.handle(.updatePartOfSpeech(partCase))
+                    } label: {
+                        Text(partCase.rawValue)
+                        if viewModel.selectedWord?.partOfSpeech == partCase {
+                            Image(systemName: "checkmark")
                         }
                     }
                 }
-                Spacer()
+            } label: {
+                Text(viewModel.selectedWord?.partOfSpeech.rawValue ?? "")
             }
+            .buttonStyle(.borderless)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .clippedWithPaddingAndBackground(.surfaceColor)
+        }
+    }
 
-            Divider()
-
-            HStack {
-                if isEditing {
-                    Text("Definition: ").bold()
-                    TextField("Definition", text: $viewModel.definitionTextFieldStr)
-                        .textFieldStyle(.roundedBorder)
-                } else {
-                    Text("Definition: ").bold()
-                    + Text(viewModel.selectedWord?.definition ?? "")
+    private var definitionSectionView: some View {
+        CustomSectionView(header: "Definition") {
+            let text = Binding {
+                viewModel.selectedWord?.definition ?? ""
+            } set: {
+                viewModel.handle(.updateDefinition(definition: $0))
+            }
+            TextField("Definition", text: text, axis: .vertical)
+                .textFieldStyle(.plain)
+                .focused($isDefinitionFocused)
+                .clippedWithPaddingAndBackground(.surfaceColor)
+        } headerTrailingContent: {
+            if isDefinitionFocused {
+                SectionHeaderButton("Done") {
+                    isDefinitionFocused = false
+                    viewModel.handle(.updateCDWord)
+                    AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                 }
-                Spacer()
-                Button {
-                    viewModel.speak(viewModel.selectedWord?.definition)
-                } label: {
-                    Image(systemName: "speaker.wave.2.fill")
+            } else {
+                SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                    viewModel.handle(.play(viewModel.selectedWord?.definition))
+                    AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
             }
+        }
+    }
 
-            Divider()
-
-            VStack(alignment: .leading) {
-                let examples = viewModel.selectedWord?.examples ?? []
-                HStack {
-                    Text("Examples:").bold()
-                    Spacer()
-                    if !examples.isEmpty {
-                        Button {
-                            withAnimation {
-                                viewModel.isShowAddExample = true
+    private var examplesSectionView: some View {
+        CustomSectionView(header: "Examples") {
+            let examples = viewModel.selectedWord?.examples ?? []
+            FormWithDivider {
+                ForEach(Array(examples.enumerated()), id: \.offset) { index, example in
+                    Text(example)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(vertical: 12, horizontal: 16)
+                        .background(Color.surfaceColor)
+                        .contextMenu {
+                            Button {
+                                viewModel.handle(.play(example))
+                                AnalyticsService.shared.logEvent(.wordExamplePlayed)
+                            } label: {
+                                Label("Listen", systemImage: "speaker.wave.2.fill")
                             }
-                        } label: {
-                            Text("Add example")
-                        }
-                    }
-                }
-
-                if !examples.isEmpty {
-                    ForEach(Array(examples.enumerated()), id: \.offset) { offset, element in
-                        if !isEditing {
-                            Text("\(offset + 1). \(examples[offset])")
-                        } else {
-                            HStack {
-                                Button {
-                                    viewModel.removeExample(atIndex: offset)
+                            Button {
+                                exampleTextFieldStr = example
+                                editingExampleIndex = index
+                                AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
+                            } label: {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            Section {
+                                Button(role: .destructive) {
+                                    viewModel.handle(.removeExample(at: index))
+                                    AnalyticsService.shared.logEvent(.wordExampleRemoved)
                                 } label: {
-                                    Image(systemName: "trash")
+                                    Label("Delete", systemImage: "trash")
                                 }
-                                Text("\(offset + 1). \(examples[offset])")
                             }
                         }
-                    }
-                } else {
-                    HStack {
-                        Text("No examples yet..")
-                        Button {
-                            withAnimation {
-                                viewModel.isShowAddExample = true
-                            }
-                        } label: {
-                            Text("Add example")
-                        }
-                    }
                 }
-                if viewModel.isShowAddExample {
-                    TextField("Type an example here", text: $viewModel.exampleTextFieldStr, onCommit: {
-                        withAnimation(.easeInOut) {
-                            viewModel.saveExample()
+                if isAddingExample {
+                    HStack {
+                        TextField("Type an example here", text: $exampleTextFieldStr, axis: .vertical)
+                            .textFieldStyle(.plain)
+                            .focused($isAddExampleFocused)
+
+                        if isAddExampleFocused {
+                            Button {
+                                viewModel.handle(.addExample(exampleTextFieldStr))
+                                isAddingExample = false
+                                exampleTextFieldStr = .empty
+                                AnalyticsService.shared.logEvent(.wordExampleAdded)
+                            } label: {
+                                Image(systemName: "checkmark.rectangle.portrait.fill")
+                                    .font(.title3)
+                                    .foregroundColor(.accentColor)
+                            }
+                            .buttonStyle(.borderless)
                         }
-                    })
-                    .textFieldStyle(.roundedBorder)
+                    }
+                    .padding(vertical: 12, horizontal: 16)
+                } else {
+                    Button {
+                        withAnimation {
+                            isAddingExample.toggle()
+                            AnalyticsService.shared.logEvent(.wordAddExampleTapped)
+                        }
+                    } label: {
+                        Label("Add example", systemImage: "plus")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .buttonStyle(.borderless)
+                    .padding(vertical: 12, horizontal: 16)
                 }
             }
+            .clippedWithBackground(.surfaceColor)
         }
     }
 }

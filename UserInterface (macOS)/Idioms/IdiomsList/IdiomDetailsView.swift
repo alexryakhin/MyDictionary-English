@@ -25,14 +25,22 @@ struct IdiomDetailsView: PageView {
     }
 
     var contentView: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             LazyVStack(spacing: 16) {
                 idiomSectionView
                 definitionSectionView
                 examplesSectionView
             }
             .padding(vertical: 12, horizontal: 16)
+        } navigationBar: {
+            Text("Details")
+                .font(.largeTitle)
+                .bold()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(vertical: 12, horizontal: 16)
+                .padding(.top, 24)
         }
+        .background(Color.backgroundColor)
         .toolbar {
             Button(role: .destructive) {
                 viewModel.handle(.deleteCurrentIdiom)
@@ -79,10 +87,10 @@ struct IdiomDetailsView: PageView {
                     isIdiomInputFocused = false
                     viewModel.handle(.updateCDIdiom)
                 }
-                .clippedWithPaddingAndBackground(.textBackgroundColor)
+                .clippedWithPaddingAndBackground(.surfaceColor)
         } headerTrailingContent: {
             if isIdiomInputFocused {
-                SectionHeaderButton("Done") {
+                SectionHeaderButton("Save") {
                     isIdiomInputFocused = false
                     viewModel.handle(.updateCDIdiom)
                 }
@@ -108,10 +116,10 @@ struct IdiomDetailsView: PageView {
                     isDefinitionFieldFocused = false
                     viewModel.handle(.updateCDIdiom)
                 }
-                .clippedWithPaddingAndBackground(.textBackgroundColor)
+                .clippedWithPaddingAndBackground(.surfaceColor)
         } headerTrailingContent: {
             if isDefinitionFieldFocused {
-                SectionHeaderButton("Done") {
+                SectionHeaderButton("Save") {
                     isDefinitionFieldFocused = false
                     viewModel.handle(.updateCDIdiom)
                 }
@@ -132,7 +140,7 @@ struct IdiomDetailsView: PageView {
                     Text(example)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 12, horizontal: 16)
-                        .background(Color.textBackgroundColor)
+                        .background(Color.surfaceColor)
                         .contextMenu {
                             Button {
                                 viewModel.handle(.play(text: example))
@@ -194,7 +202,7 @@ struct IdiomDetailsView: PageView {
                     .padding(vertical: 12, horizontal: 16)
                 }
             }
-            .clippedWithBackground(.textBackgroundColor)
+            .clippedWithBackground(.surfaceColor)
         }
     }
 }

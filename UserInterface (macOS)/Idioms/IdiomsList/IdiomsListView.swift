@@ -41,17 +41,23 @@ struct IdiomsListView: PageView {
                 Button {
                     showAddView()
                 } label: {
-                    Text("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
+                    Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
                 }
+                .buttonStyle(.borderless)
             }
         }
+        .background(Color.backgroundColor)
         .scrollContentBackground(.hidden)
         .animation(.default, value: viewModel.sortingState)
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.idioms)
         .safeAreaInset(edge: .top) {
             toolbar
-                .background(.regularMaterial)
+                .colorWithGradient(
+                    offset: 0,
+                    interpolation: 0.1,
+                    direction: .up
+                )
         }
         .safeAreaInset(edge: .bottom) {
             if !filteredIdioms.isEmpty {
@@ -60,7 +66,11 @@ struct IdiomsListView: PageView {
                     .foregroundColor(.secondary)
                     .frame(maxWidth: .infinity)
                     .padding(12)
-                    .background(.regularMaterial)
+                    .colorWithGradient(
+                        offset: 0,
+                        interpolation: 0.2,
+                        direction: .down
+                    )
             }
         }
         .navigationTitle("Idioms")
@@ -95,18 +105,23 @@ struct IdiomsListView: PageView {
             }
             .padding(.vertical, 4)
             .padding(.horizontal, 8)
-            .background(.separator)
+            .background(Color.textFieldColor)
             .clipShape(RoundedRectangle(cornerRadius: 4))
+            .background {
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(lineWidth: 2)
+                    .foregroundStyle(Color.separatorColor)
+            }
         }
         .padding(.vertical, 12)
         .padding(.horizontal, 16)
     }
 
     private var idiomCount: String {
-        if filteredIdioms.count == 1 {
-            return "1 idiom"
-        } else {
-            return "\(filteredIdioms.count) idioms"
+        switch filteredIdioms.count {
+        case 0: "No idioms"
+        case 1: "1 idiom"
+        default: "\(filteredIdioms.count) idioms"
         }
     }
 
