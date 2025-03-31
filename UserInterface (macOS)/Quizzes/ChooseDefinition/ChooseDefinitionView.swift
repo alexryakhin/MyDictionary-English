@@ -7,27 +7,30 @@ struct ChooseDefinitionView: PageView {
 
     typealias ViewModel = ChooseDefinitionViewModel
 
-    var _viewModel: StateObject<ViewModel>
+    var _viewModel = StateObject(wrappedValue: ChooseDefinitionViewModel())
     var viewModel: ViewModel {
         _viewModel.wrappedValue
     }
 
-    init(viewModel: StateObject<ViewModel>) {
-        self._viewModel = viewModel
-    }
-
     var contentView: some View {
         if !viewModel.words.isEmpty {
-            VStack {
-                Spacer().frame(height: 100)
+            VStack(spacing: 12) {
+                Spacer()
+                    .frame(height: 100)
 
-                Text(viewModel.words[viewModel.correctAnswerIndex].word)
-                    .font(.largeTitle)
-                    .bold()
-                Text(viewModel.words[viewModel.correctAnswerIndex].partOfSpeech.rawValue)
-                    .foregroundColor(.secondary)
+                VStack(spacing: 4) {
+                    Text(viewModel.words[viewModel.correctAnswerIndex].word)
+                        .font(.largeTitle)
+                        .bold()
+                    Text(viewModel.words[viewModel.correctAnswerIndex].partOfSpeech.rawValue)
+                        .foregroundColor(.secondary)
+                    SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                        viewModel.handle(.playWord)
+                    }
+                }
 
                 Spacer()
+
                 Text("Choose from the given definitions below")
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -36,22 +39,26 @@ struct ChooseDefinitionView: PageView {
                     Text(viewModel.words[index].definition)
                         .foregroundColor(.primary)
                         .frame(width: 300)
-                        .padding(16)
-                        .background(Color.secondary.opacity(0.3))
-                        .cornerRadius(15)
-                        .padding(3)
+                        .clippedWithPaddingAndBackground(.surfaceColor)
                         .onTapGesture {
-                            viewModel.answerSelected(index)
+                            withAnimation {
+                                viewModel.handle(.selectAnswer(index))
+                            }
                         }
                 }
 
-                Text(viewModel.isCorrectAnswer ? "" : "Incorrect. Try Again")
-                Spacer().frame(height: 100)
+                if !viewModel.isCorrectAnswer {
+                    Text("Incorrect. Try Again")
+                        .foregroundStyle(.secondary)
+                }
+
+                Spacer()
+                    .frame(height: 100)
             }
             .ignoresSafeArea()
             .navigationTitle("Choose Definition")
             .onAppear {
-                viewModel.correctAnswerIndex = Int.random(in: 0...2)
+                viewModel.handle(.setRandomIndex)
             }
         }
     }

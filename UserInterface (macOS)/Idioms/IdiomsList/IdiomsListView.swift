@@ -32,6 +32,7 @@ struct IdiomsListView: PageView {
             ForEach(filteredIdioms) { idiom in
                 IdiomsListCellView(idiom: idiom)
                     .tag(idiom.id)
+                    .id(idiom.id)
             }
             .onDelete {
                 viewModel.handle(.deleteIdiom(atOffsets: $0))
@@ -47,7 +48,9 @@ struct IdiomsListView: PageView {
             }
         }
         .background(Color.backgroundColor)
+        .listStyle(.plain)
         .scrollContentBackground(.hidden)
+        .scrollIndicators(.hidden)
         .animation(.default, value: viewModel.sortingState)
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.idioms)
@@ -97,21 +100,7 @@ struct IdiomsListView: PageView {
                         .foregroundColor(.accentColor)
                 }
             }
-            HStack(spacing: 8) {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(.gray)
-                TextField("Search", text: _viewModel.projectedValue.searchText)
-                    .textFieldStyle(.plain)
-            }
-            .padding(.vertical, 4)
-            .padding(.horizontal, 8)
-            .background(Color.textFieldColor)
-            .clipShape(RoundedRectangle(cornerRadius: 4))
-            .background {
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(lineWidth: 2)
-                    .foregroundStyle(Color.separatorColor)
-            }
+            SearchField(text: _viewModel.projectedValue.searchText)
         }
         .padding(.vertical, 12)
         .padding(.horizontal, 16)

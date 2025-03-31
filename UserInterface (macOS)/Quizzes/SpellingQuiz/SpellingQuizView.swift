@@ -7,13 +7,9 @@ struct SpellingQuizView: PageView {
 
     typealias ViewModel = SpellingQuizViewModel
 
-    var _viewModel: StateObject<ViewModel>
+    var _viewModel = StateObject(wrappedValue: SpellingQuizViewModel())
     var viewModel: ViewModel {
         _viewModel.wrappedValue
-    }
-
-    init(viewModel: StateObject<ViewModel>) {
-        self._viewModel = viewModel
     }
 
     private var incorrectMessage: String {
@@ -27,7 +23,7 @@ struct SpellingQuizView: PageView {
     }
 
     var contentView: some View {
-        VStack {
+        VStack(spacing: 12) {
             Spacer().frame(height: 100)
 
             Text(viewModel.randomWord?.definition ?? "Error")
@@ -41,31 +37,34 @@ struct SpellingQuizView: PageView {
 
             Spacer()
 
-            VStack {
+            VStack(spacing: 8) {
                 Text("Guess the word and then spell it correctly in a text field below")
                     .foregroundColor(.secondary).font(.caption)
 
                 HStack {
-                    TextField("Answer", text: _viewModel.projectedValue.answerTextField, onCommit: {
-                        viewModel.confirmAnswer()
-                    })
-                    .frame(maxWidth: 300)
-                    .multilineTextAlignment(.center)
-                    .textFieldStyle(.plain)
+                    TextField("Answer", text: _viewModel.projectedValue.answerTextField, axis: .vertical)
+                        .onSubmit {
+                            viewModel.confirmAnswer()
+                        }
+                        .textFieldStyle(.plain)
+                        .frame(maxWidth: 300)
+                        .multilineTextAlignment(.center)
                 }
-                .padding(.vertical, 8)
-                .padding(.horizontal)
-                .background(Color.primary.opacity(0.15))
-                .cornerRadius(8)
+                .clippedWithPaddingAndBackground(.surfaceColor)
                 .padding(.horizontal, 20)
             }
-            Text(viewModel.isCorrectAnswer ? "" : incorrectMessage)
+            
+            if !viewModel.isCorrectAnswer {
+                Text(incorrectMessage)
+                    .foregroundStyle(.secondary)
+            }
 
             Button {
                 viewModel.confirmAnswer()
             } label: {
                 Text("Confirm answer")
             }
+            .buttonStyle(.borderedProminent)
             .disabled(viewModel.answerTextField.isEmpty)
 
             Spacer().frame(height: 100)

@@ -7,19 +7,29 @@ import Shared
 
 final class AddWordViewModel: DefaultPageViewModel {
 
-    @Published var status: FetchingStatus = .blank
+    enum Input {
+        case save
+        case fetchData
+        case playInputWord
+        case selectPartOfSpeech(PartOfSpeech)
+        case selectDefinition(WordDefinition)
+    }
+
     @Published var inputWord = ""
-    @Published var definitions: [WordDefinition] = []
     @Published var descriptionField = ""
-    @Published var partOfSpeech: PartOfSpeech?
-    @Published var showingAlert = false
+
+    @Published private(set) var status: FetchingStatus = .blank
+    @Published private(set) var definitions: [WordDefinition] = []
+    @Published private(set) var selectedDefinition: WordDefinition?
+    @Published private(set) var pronunciation: String?
+    @Published private(set) var partOfSpeech: PartOfSpeech?
 
     private let wordnikAPIService: WordnikAPIServiceInterface
     private let addWordManager: AddWordManagerInterface
     private let ttsPlayer: TTSPlayerInterface
     private var cancellables = Set<AnyCancellable>()
 
-    init(inputWord: String = "") {
+    public init(inputWord: String = "") {
         self.inputWord = inputWord
         self.wordnikAPIService = DIContainer.shared.resolver.resolve(WordnikAPIServiceInterface.self)!
         self.addWordManager = DIContainer.shared.resolver.resolve(AddWordManagerInterface.self)!
@@ -32,41 +42,77 @@ final class AddWordViewModel: DefaultPageViewModel {
         }
     }
 
-    func fetchData() {
+    func handle(_ input: Input) {
+        switch input {
+        case .save:
+            saveWord()
+        case .fetchData:
+            fetchData()
+        case .playInputWord:
+            play(inputWord)
+        case .selectPartOfSpeech(let partOfSpeech):
+            self.partOfSpeech = partOfSpeech
+        case .selectDefinition(let definition):
+            self.selectedDefinition = definition
+        }
+    }
+
+    private func fetchData() {
         Task { @MainActor in
             status = .loading
             do {
-                let definitions = try await wordnikAPIService.getDefinitions(
+                AnalyticsService.shared.logEvent(.wordFetchedData)
+                async let definitions = try wordnikAPIService.getDefinitions(
                     for: inputWord.lowercased(),
                     params: .init()
                 )
-                self.definitions = definitions
+                async let pronunciation = try wordnikAPIService.getPronunciation(
+                    for: inputWord.lowercased(),
+                    params: .init()
+                )
+                self.definitions = try await definitions
+                self.pronunciation = try await pronunciation
                 status = .ready
             } catch {
-                print(error)
+                errorReceived(error, displayType: .alert, actionText: "Retry") { [weak self] in
+                    self?.fetchData()
+                }
                 status = .error
             }
         }
     }
 
-    func saveWord() {
+    private func saveWord() {
+        guard inputWord.isCorrect else {
+            errorReceived(CoreError.internalError(.inputIsNotAWord), displayType: .alert)
+            return
+        }
+
         if !inputWord.isEmpty, !descriptionField.isEmpty {
-            try? addWordManager.addNewWord(
-                word: inputWord.capitalizingFirstLetter(),
-                definition: descriptionField.capitalizingFirstLetter(),
-                partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
-                phonetic: nil,
-                examples: []
-            )
+            do {
+                try addWordManager.addNewWord(
+                    word: inputWord.capitalizingFirstLetter(),
+                    definition: descriptionField.capitalizingFirstLetter(),
+                    partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
+                    phonetic: pronunciation,
+                    examples: selectedDefinition?.examples ?? []
+                )
+                AnalyticsService.shared.logEvent(.wordAdded)
+                dismiss()
+            } catch {
+                errorReceived(error, displayType: .alert)
+            }
         } else {
-            showingAlert = true
+            errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
         }
     }
 
-    func speakInputWord() {
-        Task {
+    private func play(_ text: String?) {
+        Task { @MainActor in
+            guard let text else { return }
+
             do {
-                try await ttsPlayer.play(inputWord)
+                try await ttsPlayer.play(text)
             } catch {
                 errorReceived(error, displayType: .alert)
             }
@@ -82,6 +128,15 @@ final class AddWordViewModel: DefaultPageViewModel {
             .sink { [weak self] _ in
                 guard self?.status != .loading else { return }
                 self?.fetchData()
+            }
+            .store(in: &cancellables)
+
+        $selectedDefinition
+            .ifNotNil()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] definition in
+                self?.descriptionField = definition.text
+                self?.partOfSpeech = definition.partOfSpeech
             }
             .store(in: &cancellables)
     }

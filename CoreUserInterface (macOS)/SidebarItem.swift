@@ -7,23 +7,17 @@ public enum SidebarItem: Hashable, CaseIterable {
 
     public var title: String {
         switch self {
-        case .words:
-            return "Words"
-        case .idioms:
-            return "Idioms"
-        case .quizzes:
-            return "Quizzes"
+        case .words: "Words"
+        case .idioms: "Idioms"
+        case .quizzes: "Quizzes"
         }
     }
 
-    public var image: Image {
+    public var imageSystemName: String {
         switch self {
-        case .words:
-            return Image(systemName: "textformat.abc")
-        case .idioms:
-            return Image(systemName: "scroll")
-        case .quizzes:
-            return Image(systemName: "a.magnify")
+        case .words: "textformat.abc"
+        case .idioms: "scroll"
+        case .quizzes: "a.magnify"
         }
     }
 }

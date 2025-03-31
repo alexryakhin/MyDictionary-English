@@ -14,8 +14,8 @@ public struct ShimmerConfig {
     public init(
         lineHeight: CGFloat = 20,
         lineSpacing: CGFloat = 4,
-        baseColor: Color = Color.secondary.opacity(0.5),
-        highlightColor: Color = Color.secondary.opacity(0.3),
+        baseColor: Color = Color.secondary.opacity(0.1),
+        highlightColor: Color = Color.secondary.opacity(0.2),
         cornerRadius: CGFloat = 16,
         animationDuration: TimeInterval = 1,
         highlightMaxWidth: CGFloat = 200,
@@ -36,8 +36,8 @@ public struct ShimmerConfig {
     public static func custom(
         lineHeight: CGFloat = 20,
         lineSpacing: CGFloat = 4,
-        baseColor: Color = Color.secondary.opacity(0.5),
-        highlightColor: Color = Color.secondary.opacity(0.3),
+        baseColor: Color = Color.secondary.opacity(0.1),
+        highlightColor: Color = Color.secondary.opacity(0.2),
         cornerRadius: CGFloat = 16,
         animationDuration: TimeInterval = 1,
         highlightMaxWidth: CGFloat = 200,

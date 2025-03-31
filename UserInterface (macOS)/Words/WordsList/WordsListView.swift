@@ -46,15 +46,9 @@ struct WordsListView: PageView {
 
         List(selection: selection) {
             ForEach(wordsFiltered) { word in
-                WordsListCellView(
-                    model: .init(
-                        word: word.word,
-                        partOfSpeech: word.partOfSpeech.rawValue,
-                        isFavorite: word.isFavorite,
-                        isSelected: viewModel.selectedWord?.id == word.id
-                    )
-                )
-                .tag(word)
+                WordsListCellView(word: word)
+                    .tag(word.id)
+                    .id(word.id)
             }
             .onDelete { offsets in
                 viewModel.handle(.deleteWord(atOffsets: offsets))
@@ -69,6 +63,9 @@ struct WordsListView: PageView {
                 .buttonStyle(.borderless)
             }
         }
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
+        .scrollIndicators(.hidden)
         .background(Color.backgroundColor)
         .animation(.default, value: wordsFiltered)
         .animation(.default, value: viewModel.filterState)
@@ -76,7 +73,6 @@ struct WordsListView: PageView {
         .onDisappear {
             viewModel.handle(.deselectWord)
         }
-        .scrollContentBackground(.hidden)
         .safeAreaInset(edge: .top) {
             toolbar
                 .colorWithGradient(
@@ -120,21 +116,7 @@ struct WordsListView: PageView {
                         .foregroundColor(.accentColor)
                 }
             }
-            HStack(spacing: 8) {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(.gray)
-                TextField("Search", text: _viewModel.projectedValue.searchText)
-                    .textFieldStyle(.plain)
-            }
-            .padding(.vertical, 4)
-            .padding(.horizontal, 8)
-            .background(Color.textFieldColor)
-            .clipShape(RoundedRectangle(cornerRadius: 4))
-            .background {
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(lineWidth: 2)
-                    .foregroundStyle(Color.separatorColor)
-            }
+            SearchField(text: _viewModel.projectedValue.searchText)
         }
         .padding(.vertical, 12)
         .padding(.horizontal, 16)

@@ -1,140 +1,188 @@
 import SwiftUI
+import Core
+import Shared
+import CoreUserInterface__macOS_
+import Services
 
-struct AddWordView: View {
+struct AddWordView: PageView {
+
+    typealias ViewModel = AddWordViewModel
+
     @Environment(\.dismiss) var dismiss
-    @StateObject private var viewModel: AddWordViewModel
-    @State private var wordClassSelection = 0
-
-    init(inputWord: String) {
-        _viewModel = StateObject(wrappedValue: AddWordViewModel(inputWord: inputWord))
+    var _viewModel: StateObject<ViewModel>
+    var viewModel: ViewModel {
+        _viewModel.wrappedValue
     }
 
-    var body: some View {
-        VStack {
-            HStack {
-                Text("Add new word").font(.title2).bold()
-                Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Close")
+    init(inputWord: String) {
+        _viewModel = StateObject(wrappedValue: ViewModel(inputWord: inputWord))
+    }
+
+    public var contentView: some View {
+        ScrollViewWithCustomNavBar {
+            LazyVStack(spacing: 24) {
+                FormWithDivider {
+                    wordCellView
+                    definitionCellView
+                    partOfSpeechCellView
+                    phoneticsCellView
                 }
+                .clippedWithBackground(.surfaceColor)
+
+                definitionsSectionView
             }
-            HStack {
-                TextField("Enter the word", text: $viewModel.inputWord, onCommit: {
-                    viewModel.fetchData()
-                })
-                .textFieldStyle(.roundedBorder)
-
-                Button {
-                    viewModel.fetchData()
-                } label: {
-                    Text("Get definitions")
-                }
-            }
-            TextField("Enter definition", text: $viewModel.descriptionField)
-                .textFieldStyle(.roundedBorder)
-
-//            if viewModel.resultWordDetails == nil {
-//                Picker(selection: $viewModel.partOfSpeech, label: Text("Part of Speech")) {
-//                    ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
-//                        Text(partCase.rawValue)
-//                    }
-//                }
-//            }
-
-//            if viewModel.resultWordDetails != nil && viewModel.status == .ready {
-//                VStack {
-//                    Picker(selection: $wordClassSelection, label: Text("Part of Speech")) {
-//                        ForEach(viewModel.resultWordDetails!.meanings.indices, id: \.self) { index in
-//                            Text("\(viewModel.resultWordDetails!.meanings[index].partOfSpeech)")
-//                        }
-//                    }
-//                    .onChange(of: wordClassSelection) { newValue in
-//                        if let value = viewModel.resultWordDetails?.meanings[newValue].partOfSpeech {
-//                            viewModel.partOfSpeech = .init(rawValue: value) ?? .unknown
-//                        }
-//                    }
-//
-//                    if viewModel.resultWordDetails!.phonetic != nil {
-//                        HStack(spacing: 0) {
-//                            Text("Phonetic: ").bold()
-//                            Text(viewModel.resultWordDetails!.phonetic ?? "")
-//                            Spacer()
-//                            Button {
-//                                viewModel.speakInputWord()
-//                            } label: {
-//                                Image(systemName: "speaker.wave.2.fill")
-//                            }
-//                        }
-//                    }
-//
-//                    TabView {
-//                        ForEach(viewModel.resultWordDetails!.meanings[wordClassSelection].definitions.indices, id: \.self) { index in
-//                            ScrollView {
-//                                VStack(alignment: .leading) {
-//                                    if !definitions[index].definition.isEmpty {
-//                                        Divider()
-//                                        HStack {
-//                                            Text("Definition \(index + 1): ").bold()
-//                                            + Text(definitions[index].definition)
-//                                        }
-//                                        .onTapGesture {
-//                                            viewModel.descriptionField = definitions[index].definition
-//                                        }
-//                                    }
-//                                    if definitions[index].example != nil {
-//                                        Divider()
-//                                        Text("Example: ").bold()
-//                                        + Text(definitions[index].example!)
-//                                    }
-//                                    if !definitions[index].synonyms.isEmpty {
-//                                        Divider()
-//                                        Text("Synonyms: ").bold()
-//                                        + Text(definitions[index].synonyms.joined(separator: ", "))
-//                                    }
-//                                    if !definitions[index].antonyms.isEmpty {
-//                                        Divider()
-//                                        Text("Antonyms: ").bold()
-//                                        + Text(definitions[index].antonyms.joined(separator: ", "))
-//                                    }
-//                                }
-//                            }
-//                            .tabItem {
-//                                Text("\(index + 1)")
-//                            }
-//                            .padding(.horizontal)
-//                        }
-//                    }
-//                }
-//            } else if viewModel.status == .loading {
-//                VStack {
-//                    Spacer().frame(height: 50)
-//                    ProgressView()
-//                    Spacer()
-//                }
-//            } else {
-//                Spacer()
-//            }
-
-            Button {
-                viewModel.saveWord()
-                if !viewModel.showingAlert {
-                    dismiss()
-                }
-            } label: {
-                Text("Save")
+            .padding(.horizontal, 16)
+        } navigationBar: {
+            HStack(spacing: 12) {
+                Text("Add new word")
+                    .font(.title2)
                     .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.app.fill")
+                        .font(.title2)
+                }
+                .buttonStyle(.borderless)
             }
+            .padding(vertical: 12, horizontal: 16)
         }
-        .frame(width: 600, height: 500)
-        .padding(16)
-        .alert(isPresented: $viewModel.showingAlert) {
-            Alert(
-                title: Text("Ooops..."),
-                message: Text("You should enter a word and its definition before saving it"),
-                dismissButton: .default(Text("Got it"))
+        .safeAreaInset(edge: .bottom) {
+            Button {
+                viewModel.handle(.save)
+            } label: {
+                Label("Save", systemImage: "checkmark.square.fill")
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(vertical: 8, horizontal: 16)
+            }
+            .buttonStyle(.borderedProminent)
+            .padding(vertical: 12, horizontal: 16)
+            .colorWithGradient(
+                offset: 0,
+                interpolation: 0.2,
+                direction: .down
             )
         }
+        .frame(width: 500, height: 500)
+        .background(Color.backgroundColor)
+        .onReceive(viewModel.dismissPublisher) { _ in
+            dismiss()
+        }
+    }
+
+    var wordCellView: some View {
+        CellWrapper("Word") {
+            CustomTextField("Type a word", text: _viewModel.projectedValue.inputWord) {
+                if viewModel.inputWord.isNotEmpty && viewModel.inputWord.isCorrect {
+                    viewModel.handle(.fetchData)
+                }
+            }
+            .autocorrectionDisabled()
+        }
+    }
+
+    var definitionCellView: some View {
+        CellWrapper("Definition") {
+            CustomTextField("Enter definition", text: _viewModel.projectedValue.descriptionField)
+                .autocorrectionDisabled()
+        }
+    }
+
+    @ViewBuilder
+    var partOfSpeechCellView: some View {
+        CellWrapper("Part of speech") {
+            Menu {
+                ForEach(PartOfSpeech.allCases, id: \.self) { partOfSpeech in
+                    Button {
+                        viewModel.handle(.selectPartOfSpeech(partOfSpeech))
+                    } label: {
+                        if viewModel.partOfSpeech == partOfSpeech {
+                            Image(systemName: "checkmark")
+                        }
+                        Text(partOfSpeech.rawValue)
+                    }
+                }
+            } label: {
+                Text(viewModel.partOfSpeech?.rawValue ?? "Select a value")
+            }
+            .buttonStyle(.borderless)
+        }
+    }
+
+    @ViewBuilder
+    var phoneticsCellView: some View {
+        if let pronunciation = viewModel.pronunciation {
+            CellWrapper("Pronunciation") {
+                Text(pronunciation)
+            } trailingContent: {
+                Button {
+                    viewModel.handle(.playInputWord)
+                } label: {
+                    Label("Listen", systemImage: "speaker.wave.2.fill")
+                }
+                .buttonStyle(.borderedProminent)
+            }
+        }
+    }
+
+    @ViewBuilder
+    var definitionsSectionView: some View {
+        CustomSectionView(header: "Select a definition") {
+            switch viewModel.status {
+            case .loading:
+                LazyVStack {
+                    ForEach(0..<3) { _ in
+                        ShimmerView(height: 100)
+                    }
+                }
+            case .error:
+                EmptyListView(
+                    description: "There is an error loading definitions. Please try again.",
+                    background: .clear
+                )
+                .clippedWithPaddingAndBackground(.surfaceColor)
+            case .ready:
+                ForEach(Array(viewModel.definitions.enumerated()), id: \.element.id) { offset, definition in
+                    FormWithDivider {
+                        CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech.rawValue)") {
+                            Text(definition.text)
+                                .multilineTextAlignment(.leading)
+                                .foregroundColor(.primary)
+                        } trailingContent: {
+                            checkboxImage(definition.id)
+                                .foregroundColor(.accentColor)
+                        }
+                        .onTapGesture {
+                            definitionSelected(definition, index: offset)
+                        }
+                        ForEach(definition.examples, id: \.self) { example in
+                            CellWrapper("Example") {
+                                Text(example)
+                            }
+                        }
+                    }
+                    .clippedWithBackground(.surfaceColor)
+                }
+            case .blank:
+                EmptyListView(
+                    description: "Start typing a word to find its definitions",
+                    background: .clear
+                )
+                .clippedWithPaddingAndBackground(.surfaceColor)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func checkboxImage(_ currentId: String) -> some View {
+        let isSelected = currentId == viewModel.selectedDefinition?.id
+        Image(systemName: isSelected ? "checkmark.square.fill" : "square")
+            .frame(sideLength: 20)
+    }
+
+    private func definitionSelected(_ definition: WordDefinition, index: Int) {
+        viewModel.handle(.selectDefinition(definition))
+        AnalyticsService.shared.logEvent(.definitionSelected)
     }
 }

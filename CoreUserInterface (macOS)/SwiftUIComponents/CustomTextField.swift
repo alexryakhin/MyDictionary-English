@@ -34,6 +34,7 @@ public struct CustomTextField: View {
                 .onSubmit(onCommit)
                 .submitLabel(submitLabel)
                 .focused($isFocused)
+                .textFieldStyle(.plain)
 
             if isFocused && text.wrappedValue.isNotEmpty {
                 Button {
@@ -41,6 +42,7 @@ public struct CustomTextField: View {
                 } label: {
                     Image(systemName: "xmark.circle.fill")
                 }
+                .buttonStyle(.borderless)
                 .foregroundStyle(.secondary)
             }
         }

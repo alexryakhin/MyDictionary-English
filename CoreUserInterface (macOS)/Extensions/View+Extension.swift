@@ -69,6 +69,7 @@ public extension View {
         } label: {
             self
         }
+        .buttonStyle(.borderless)
     }
 }
 

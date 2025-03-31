@@ -34,7 +34,7 @@ final class SpellingQuizViewModel: DefaultPageViewModel {
               let wordIndex = words.firstIndex(where: { $0.id == randomWord.id })
         else { return }
 
-        if answerTextField.trimmed == randomWord.word.trimmed {
+        if answerTextField.lowercased().trimmed == randomWord.word.lowercased().trimmed {
             isCorrectAnswer = true
             answerTextField = ""
             words.remove(at: wordIndex)

@@ -351,13 +351,6 @@
 			);
 			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
 		};
-		530D2C4F2D983A8C0040C247 /* Exceptions for "My Dictionary (macOS)" folder in "My Dictionary (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Resources/My Dictionary (macOS)/Resources/Info.plist",
-			);
-			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
-		};
 		530D2CAB2D9847680040C247 /* Exceptions for "UserInterface (macOS)" folder in "UserInterface (macOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -442,9 +435,6 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		530D2C342D9836920040C247 /* My Dictionary (macOS) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				530D2C4F2D983A8C0040C247 /* Exceptions for "My Dictionary (macOS)" folder in "My Dictionary (macOS)" target */,
-			);
 			path = "My Dictionary (macOS)";
 			sourceTree = "<group>";
 		};

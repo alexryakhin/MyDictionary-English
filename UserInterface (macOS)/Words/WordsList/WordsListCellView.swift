@@ -6,31 +6,25 @@
 //
 
 import SwiftUI
+import Core
 
 struct WordsListCellView: View {
-    var model: Model
+    var word: Word
 
     var body: some View {
         HStack(spacing: 8) {
-            Text(model.word)
+            Text(word.word)
                 .bold()
                 .foregroundColor(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            if model.isFavorite {
+            if word.isFavorite {
                 Image(systemName: "heart.fill")
                     .font(.caption)
                     .foregroundColor(.accentColor)
             }
-            Text(model.partOfSpeech)
+            Text(word.partOfSpeech.rawValue)
                 .foregroundColor(.secondary)
         }
         .padding(.vertical, 4)
-    }
-
-    struct Model {
-        let word: String
-        let partOfSpeech: String
-        let isFavorite: Bool
-        let isSelected: Bool
     }
 }
