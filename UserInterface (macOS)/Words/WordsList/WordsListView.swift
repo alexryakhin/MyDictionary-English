@@ -71,33 +71,63 @@ struct WordsListView: PageView {
         .animation(.default, value: wordsFiltered)
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.sortingState)
-        .safeAreaInset(edge: .top) {
-            toolbar
-                .colorWithGradient(
-                    offset: 0,
-                    interpolation: 0.1,
-                    direction: .up
-                )
-        }
-        .safeAreaInset(edge: .bottom) {
-            if !wordsFiltered.isEmpty {
-                Text(wordsCount)
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-                    .frame(maxWidth: .infinity)
-                    .padding(12)
-                    .colorWithGradient(
-                        offset: 0,
-                        interpolation: 0.2,
-                        direction: .down
-                    )
-            }
-        }
+//        .safeAreaInset(edge: .top) {
+//            toolbar
+//                .colorWithGradient(
+//                    offset: 0,
+//                    interpolation: 0.1,
+//                    direction: .up
+//                )
+//        }
+//        .safeAreaInset(edge: .bottom) {
+//            if !wordsFiltered.isEmpty {
+//                Text(wordsCount)
+//                    .font(.footnote)
+//                    .foregroundColor(.secondary)
+//                    .frame(maxWidth: .infinity)
+//                    .padding(12)
+//                    .colorWithGradient(
+//                        offset: 0,
+//                        interpolation: 0.2,
+//                        direction: .down
+//                    )
+//            }
+//        }
         .navigationTitle("Words")
+        .navigationSubtitle(wordsCount)
+        .searchable(text: _viewModel.projectedValue.searchText, placement: .automatic)
         .sheet(isPresented: $isShowingAddView) {
             viewModel.searchText = ""
         } content: {
             AddWordView(inputWord: viewModel.searchText)
+        }
+        .toolbar {
+            // Title
+            ToolbarItem(placement: .automatic) {
+                HStack(spacing: 16) {
+//                    Text("Words")
+//                        .font(.title2)
+//                        .fontWeight(.semibold)
+
+//                    Picker("Sort", selection: $sortOption) {
+//                        Text("Default").tag(SortOption.default)
+//                        Text("A–Z").tag(SortOption.alphabetical)
+//                    }
+//                    .pickerStyle(.menu)
+
+                    Button {
+                        // Action
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                    }
+
+                    Button {
+                        // Add new word
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
         }
     }
 
@@ -114,7 +144,6 @@ struct WordsListView: PageView {
                         .foregroundColor(.accentColor)
                 }
             }
-            SearchField(text: _viewModel.projectedValue.searchText)
         }
         .padding(.vertical, 12)
         .padding(.horizontal, 16)

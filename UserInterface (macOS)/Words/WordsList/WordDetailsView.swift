@@ -24,25 +24,27 @@ struct WordDetailsView: PageView {
     }
 
     public var contentView: some View {
-        ScrollViewWithCustomNavBar {
-            LazyVStack(spacing: 24) {
-                transcriptionSectionView
-                partOfSpeechSectionView
-                definitionSectionView
-                examplesSectionView
-            }
-            .padding(vertical: 12, horizontal: 16)
-        } navigationBar: {
+        VStack(spacing: 0) {
             if let selectedWord = viewModel.selectedWord {
                 Text(selectedWord.word)
                     .font(.largeTitle)
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(vertical: 12, horizontal: 16)
-                    .padding(.top, 24)
+                    .padding(.top, 8)
+
+                Divider()
+            }
+            ScrollView {
+                LazyVStack(spacing: 24) {
+                    transcriptionSectionView
+                    partOfSpeechSectionView
+                    definitionSectionView
+                    examplesSectionView
+                }
+                .padding(vertical: 12, horizontal: 16)
             }
         }
-        .background(Color.backgroundColor)
         .toolbar {
             Button(role: .destructive) {
                 viewModel.handle(.deleteCurrentWord)

@@ -78,6 +78,7 @@ struct IdiomsListView: PageView {
             }
         }
         .navigationTitle("Idioms")
+        .searchable(text: _viewModel.projectedValue.searchText, placement: .automatic)
         .sheet(isPresented: $isShowingAddView) {
             viewModel.searchText = ""
         } content: {
@@ -98,7 +99,6 @@ struct IdiomsListView: PageView {
                         .foregroundColor(.accentColor)
                 }
             }
-            SearchField(text: _viewModel.projectedValue.searchText)
         }
         .padding(vertical: 12, horizontal: 16)
     }

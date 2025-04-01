@@ -22,7 +22,6 @@ public struct MainTabView: View {
                 .frame(minWidth: 500)
         }
         .fontDesign(.rounded)
-        .background(Color.backgroundColor)
         .frame(minHeight: 500)
     }
 
@@ -72,12 +71,14 @@ public struct MainTabView: View {
         case .words:
             if wordsViewModel.selectedWord == nil {
                 Text("Select a word")
+                    .toolbar(content: toolbarPlaceholder)
             } else {
                 WordDetailsView(viewModel: _wordsViewModel)
             }
         case .idioms:
             if idiomsViewModel.selectedIdiom == nil {
                 Text("Select an idiom")
+                    .toolbar(content: toolbarPlaceholder)
             } else {
                 IdiomDetailsView(viewModel: _idiomsViewModel)
             }
@@ -98,5 +99,24 @@ public struct MainTabView: View {
         default:
             Text("Select a quiz")
         }
+    }
+
+    @ViewBuilder
+    private func toolbarPlaceholder() -> some View {
+        Button {
+            // no action
+        } label: {
+            Image(systemName: "trash")
+                .foregroundStyle(.secondary)
+        }
+        .disabled(true)
+
+        Button {
+            // no action
+        } label: {
+            Image(systemName: "heart")
+                .foregroundColor(.secondary)
+        }
+        .disabled(true)
     }
 }
