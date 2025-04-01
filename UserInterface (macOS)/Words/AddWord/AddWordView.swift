@@ -139,7 +139,15 @@ struct AddWordView: PageView {
             case .error:
                 EmptyListView(
                     description: "There is an error loading definitions. Please try again.",
-                    background: .clear
+                    background: .clear,
+                    actions: {
+                        Button {
+                            viewModel.handle(.fetchData)
+                        } label: {
+                            Label("Retry", systemImage: "magnifyingglass")
+                        }
+                        .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                    }
                 )
                 .clippedWithPaddingAndBackground(.surfaceColor)
             case .ready:
@@ -153,6 +161,7 @@ struct AddWordView: PageView {
                             checkboxImage(definition.id)
                                 .foregroundColor(.accentColor)
                         }
+                        .background(Color.surfaceColor)
                         .onTapGesture {
                             definitionSelected(definition, index: offset)
                         }
@@ -166,8 +175,16 @@ struct AddWordView: PageView {
                 }
             case .blank:
                 EmptyListView(
-                    description: "Start typing a word to find its definitions",
-                    background: .clear
+                    description: "Type a word and press enter to search for definitions.",
+                    background: .clear,
+                    actions: {
+                        Button {
+                            viewModel.handle(.fetchData)
+                        } label: {
+                            Label("Search", systemImage: "magnifyingglass")
+                        }
+                        .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                    }
                 )
                 .clippedWithPaddingAndBackground(.surfaceColor)
             }

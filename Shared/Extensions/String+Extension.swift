@@ -60,9 +60,35 @@ public extension String {
         return misspelledRange.location == NSNotFound
 #elseif os(macOS)
         let checker = NSSpellChecker.shared
-        let misspelledRange = checker.checkSpelling(of: self, startingAt: 0)
-        return misspelledRange.location == NSNotFound
+        var wordCount: Int = 0
+        let range = checker.checkSpelling(of: self, startingAt: 0, language: "en", wrap: false, inSpellDocumentWithTag: 0, wordCount: &wordCount)
+        return range.location == NSNotFound
 #endif
+    }
+
+    var isValidEnglishWordOrPhrase: Bool {
+        // 1. Must have at least two characters
+        guard self.count > 1 else { return false }
+
+        // 2. Reject camelCase and PascalCase (e.g., "newWord", "NewWord")
+        let camelCasePattern = #"(?<=[a-z])(?=[A-Z])"#
+        if self.range(of: camelCasePattern, options: .regularExpression) != nil {
+            return false
+        }
+
+        // 3. Check if each word is a valid English word and only contains letters
+        let words = self.components(separatedBy: .whitespaces).filter { !$0.isEmpty }
+        guard !words.isEmpty else { return false }
+
+        let letterCharacterSet = CharacterSet.letters
+
+        for word in words {
+            if word.count < 2 { return false } // too short
+            if word.rangeOfCharacter(from: letterCharacterSet.inverted) != nil { return false } // contains digits or symbols
+            if !word.isCorrect { return false } // not an English word
+        }
+
+        return true
     }
 }
 

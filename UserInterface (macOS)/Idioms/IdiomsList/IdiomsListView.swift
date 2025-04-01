@@ -20,19 +20,19 @@ struct IdiomsListView: PageView {
     }
 
     var contentView: some View {
-        let selection = Binding {
-            viewModel.selectedIdiomId
-        } set: { idiomId in
-            if let idiomId {
-                viewModel.handle(.selectIdiom(id: idiomId))
-            }
-        }
-
-        List(selection: selection) {
+        List {
             ForEach(filteredIdioms) { idiom in
-                IdiomsListCellView(idiom: idiom)
-                    .tag(idiom.id)
-                    .id(idiom.id)
+                Button {
+                    viewModel.handle(.selectIdiom(id: idiom.id))
+                } label: {
+                    IdiomsListCellView(
+                        idiom: idiom,
+                        isSelected: viewModel.selectedIdiomId == idiom.id
+                    )
+                }
+                .buttonStyle(.borderless)
+                .id(idiom.id)
+                .listRowBackground(viewModel.selectedIdiomId == idiom.id ? Color.selectedContentBackgroundColor : Color.clear)
             }
             .onDelete {
                 viewModel.handle(.deleteIdiom(atOffsets: $0))
@@ -45,15 +45,16 @@ struct IdiomsListView: PageView {
                     Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
                 }
                 .buttonStyle(.borderless)
+                .padding(vertical: 4, horizontal: 8)
+                .multilineTextAlignment(.leading)
             }
         }
-        .background(Color.backgroundColor)
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .scrollIndicators(.hidden)
-        .animation(.default, value: viewModel.sortingState)
+        .background(Color.backgroundColor)
+        .animation(.default, value: filteredIdioms)
         .animation(.default, value: viewModel.filterState)
-        .animation(.default, value: viewModel.idioms)
+        .animation(.default, value: viewModel.sortingState)
         .safeAreaInset(edge: .top) {
             toolbar
                 .colorWithGradient(
@@ -82,9 +83,6 @@ struct IdiomsListView: PageView {
         } content: {
             AddIdiomView(inputText: viewModel.searchText)
         }
-        .onDisappear {
-            viewModel.handle(.deselectIdiom)
-        }
     }
 
     // MARK: - Toolbar
@@ -102,8 +100,7 @@ struct IdiomsListView: PageView {
             }
             SearchField(text: _viewModel.projectedValue.searchText)
         }
-        .padding(.vertical, 12)
-        .padding(.horizontal, 16)
+        .padding(vertical: 12, horizontal: 16)
     }
 
     private var idiomCount: String {

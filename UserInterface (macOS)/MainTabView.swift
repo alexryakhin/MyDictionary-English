@@ -13,13 +13,17 @@ public struct MainTabView: View {
     public var body: some View {
         NavigationSplitView {
             tabsView
+                .frame(minWidth: 160)
         } content: {
             tabContentView
+                .frame(minWidth: 250)
         } detail: {
             tabDetailView
+                .frame(minWidth: 500)
         }
         .fontDesign(.rounded)
         .background(Color.backgroundColor)
+        .frame(minHeight: 500)
     }
 
     private var tabsView: some View {
@@ -37,6 +41,14 @@ public struct MainTabView: View {
                     .bold()
                     .padding(.vertical, 16)
             }
+        }
+        .safeAreaInset(edge: .bottom) {
+            SettingsButton {
+                Label("Settings", systemImage: "gearshape.fill")
+                    .padding(vertical: 8, horizontal: 12)
+                    .font(.title3)
+            }
+            .padding(vertical: 12, horizontal: 16)
         }
     }
 
@@ -59,13 +71,13 @@ public struct MainTabView: View {
         switch selectedSidebarItem {
         case .words:
             if wordsViewModel.selectedWord == nil {
-                Text("Select an item")
+                Text("Select a word")
             } else {
                 WordDetailsView(viewModel: _wordsViewModel)
             }
         case .idioms:
             if idiomsViewModel.selectedIdiom == nil {
-                Text("Select an item")
+                Text("Select an idiom")
             } else {
                 IdiomDetailsView(viewModel: _idiomsViewModel)
             }
@@ -84,7 +96,7 @@ public struct MainTabView: View {
         case .chooseDefinitions:
             ChooseDefinitionView()
         default:
-            Text("Select an item")
+            Text("Select a quiz")
         }
     }
 }

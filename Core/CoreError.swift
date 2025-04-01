@@ -78,6 +78,9 @@ public enum CoreError: Error {
         case deviceMutedOrVolumeTooLow
         case cannotPlayAudio
         case cannotSetupAudioSession
+        case exportFailed
+        case importFailed
+        case cannotAccessSecurityScopedResource
 
         public var description: String {
             switch self {
@@ -103,6 +106,12 @@ public enum CoreError: Error {
                 return "Cannot play audio"
             case .cannotSetupAudioSession:
                 return "Cannot setup audio session"
+            case .exportFailed:
+                return "Export failed"
+            case .importFailed:
+                return "Import failed"
+            case .cannotAccessSecurityScopedResource:
+                return "Cannot access security scoped resource"
             }
         }
     }

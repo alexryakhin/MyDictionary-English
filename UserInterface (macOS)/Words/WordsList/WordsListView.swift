@@ -36,19 +36,19 @@ struct WordsListView: PageView {
     }
 
     var contentView: some View {
-        let selection = Binding {
-            viewModel.selectedWordId
-        } set: { wordID in
-            if let wordID {
-                viewModel.handle(.selectWord(wordID: wordID))
-            }
-        }
-
-        List(selection: selection) {
+        List {
             ForEach(wordsFiltered) { word in
-                WordsListCellView(word: word)
-                    .tag(word.id)
-                    .id(word.id)
+                Button {
+                    viewModel.handle(.selectWord(wordID: word.id))
+                } label: {
+                    WordsListCellView(
+                        word: word,
+                        isSelected: viewModel.selectedWordId == word.id
+                    )
+                }
+                .buttonStyle(.borderless)
+                .id(word.id)
+                .listRowBackground(viewModel.selectedWordId == word.id ? Color.selectedContentBackgroundColor : Color.clear)
             }
             .onDelete { offsets in
                 viewModel.handle(.deleteWord(atOffsets: offsets))
@@ -61,18 +61,16 @@ struct WordsListView: PageView {
                     Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
                 }
                 .buttonStyle(.borderless)
+                .padding(vertical: 4, horizontal: 8)
+                .multilineTextAlignment(.leading)
             }
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .scrollIndicators(.hidden)
         .background(Color.backgroundColor)
         .animation(.default, value: wordsFiltered)
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.sortingState)
-        .onDisappear {
-            viewModel.handle(.deselectWord)
-        }
         .safeAreaInset(edge: .top) {
             toolbar
                 .colorWithGradient(

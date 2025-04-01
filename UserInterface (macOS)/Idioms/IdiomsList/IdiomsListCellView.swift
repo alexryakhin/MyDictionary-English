@@ -7,22 +7,24 @@
 
 import SwiftUI
 import Core
+import CoreUserInterface__macOS_
 
 struct IdiomsListCellView: View {
     var idiom: Idiom
+    var isSelected: Bool
 
     var body: some View {
         HStack(spacing: 8) {
             Text(idiom.idiom)
                 .bold()
-                .foregroundColor(.primary)
+                .foregroundColor(isSelected ? .white : .primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             if idiom.isFavorite {
                 Image(systemName: "heart.fill")
                     .font(.caption)
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(isSelected ? .white : .accentColor)
             }
         }
-        .padding(.vertical, 4)
+        .padding(vertical: 4, horizontal: 8)
     }
 }

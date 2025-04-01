@@ -7,24 +7,26 @@
 
 import SwiftUI
 import Core
+import CoreUserInterface__macOS_
 
 struct WordsListCellView: View {
     var word: Word
+    var isSelected: Bool
 
     var body: some View {
         HStack(spacing: 8) {
             Text(word.word)
                 .bold()
-                .foregroundColor(.primary)
+                .foregroundColor(isSelected ? .white : .primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             if word.isFavorite {
                 Image(systemName: "heart.fill")
                     .font(.caption)
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(isSelected ? .white : .accentColor)
             }
             Text(word.partOfSpeech.rawValue)
-                .foregroundColor(.secondary)
+                .foregroundColor(isSelected ? .white.opacity(0.8) : .secondary)
         }
-        .padding(.vertical, 4)
+        .padding(vertical: 4, horizontal: 8)
     }
 }

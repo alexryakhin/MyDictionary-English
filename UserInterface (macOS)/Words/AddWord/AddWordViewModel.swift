@@ -59,9 +59,12 @@ final class AddWordViewModel: DefaultPageViewModel {
 
     private func fetchData() {
         Task { @MainActor in
-            status = .loading
+            reset()
             do {
-                AnalyticsService.shared.logEvent(.wordFetchedData)
+                guard inputWord.isValidEnglishWordOrPhrase else {
+                    throw CoreError.internalError(.inputIsNotAWord)
+                }
+                status = .loading
                 async let definitions = try wordnikAPIService.getDefinitions(
                     for: inputWord.lowercased(),
                     params: .init()
@@ -73,6 +76,7 @@ final class AddWordViewModel: DefaultPageViewModel {
                 self.definitions = try await definitions
                 self.pronunciation = try await pronunciation
                 status = .ready
+                AnalyticsService.shared.logEvent(.wordFetchedData)
             } catch {
                 errorReceived(error, displayType: .alert, actionText: "Retry") { [weak self] in
                     self?.fetchData()
@@ -123,11 +127,11 @@ final class AddWordViewModel: DefaultPageViewModel {
         $inputWord
             .dropFirst()
             .removeDuplicates()
-            .debounce(for: 1, scheduler: RunLoop.main)
-            .filter { $0.isNotEmpty && $0.isCorrect }
-            .sink { [weak self] _ in
-                guard self?.status != .loading else { return }
-                self?.fetchData()
+            .map(\.isEmpty)
+            .sink { [weak self] isEmpty in
+                if isEmpty {
+                    self?.reset()
+                }
             }
             .store(in: &cancellables)
 
@@ -139,5 +143,16 @@ final class AddWordViewModel: DefaultPageViewModel {
                 self?.partOfSpeech = definition.partOfSpeech
             }
             .store(in: &cancellables)
+    }
+
+    private func reset() {
+        withAnimation { [weak self] in
+            self?.descriptionField = ""
+            self?.status = .blank
+            self?.definitions = []
+            self?.selectedDefinition = nil
+            self?.pronunciation = nil
+            self?.partOfSpeech = nil
+        }
     }
 }
