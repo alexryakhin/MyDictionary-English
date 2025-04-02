@@ -25,9 +25,7 @@
 		530D2CB52D98479C0040C247 /* CoreUserInterface__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530D2C8F2D98474E0040C247 /* CoreUserInterface__macOS_.framework */; };
 		530D2CBA2D9847A20040C247 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A7FA2D7C3FE4007E9F28 /* Services.framework */; };
 		530D2CBF2D9847AD0040C247 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; };
-		530D2CC02D9847AD0040C247 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A80B2D7C3FF1007E9F28 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		530D2CC42D9847B00040C247 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; };
-		530D2CC52D9847B00040C247 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E9A9F82D7C439B007E9F28 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		530D2CCD2D985E560040C247 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2CCC2D985E560040C247 /* Swinject */; };
 		530D2CCF2D985E5A0040C247 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2CCE2D985E5A0040C247 /* SwinjectAutoregistration */; };
 		530D2D422D9870D40040C247 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2D412D9870D40040C247 /* Swinject */; };
@@ -285,18 +283,6 @@
 				530D2CA72D9847680040C247 /* UserInterface__macOS_.framework in Embed Frameworks */,
 				530D2C812D9846290040C247 /* Services.framework in Embed Frameworks */,
 				530D2C7D2D9846250040C247 /* Core.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		530D2CC32D9847AD0040C247 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				530D2CC02D9847AD0040C247 /* Core.framework in Embed Frameworks */,
-				530D2CC52D9847B00040C247 /* Shared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -814,7 +800,6 @@
 				530D2C8B2D98474E0040C247 /* Sources */,
 				530D2C8C2D98474E0040C247 /* Frameworks */,
 				530D2C8D2D98474E0040C247 /* Resources */,
-				530D2CC32D9847AD0040C247 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1516,7 +1501,7 @@
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/Resources/MyDictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary\\ (macOS)/Resources/Assets.xcassets";
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1548,7 +1533,7 @@
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/Resources/MyDictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary\\ (macOS)/Resources/Assets.xcassets";
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				ENABLE_HARDENED_RUNTIME = YES;
