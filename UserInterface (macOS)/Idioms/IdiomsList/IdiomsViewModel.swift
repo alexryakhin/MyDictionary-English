@@ -12,8 +12,6 @@ final class IdiomsViewModel: DefaultPageViewModel {
         case selectIdiom(id: String)
         case deselectIdiom
         case deleteIdiom(atOffsets: IndexSet)
-        case changeSorting(to: SortingCase)
-        case changeFilter(to: FilterCase)
 
         // Details
         case updateIdiom(text: String)
@@ -28,9 +26,14 @@ final class IdiomsViewModel: DefaultPageViewModel {
     }
 
     @Published var searchText = ""
+    @Published var filterState: FilterCase = .none
+    @Published var sortingState: SortingCase = .latest {
+        didSet {
+            sortIdioms()
+        }
+    }
+
     @Published private(set) var idioms: [Idiom] = []
-    @Published private(set) var sortingState: SortingCase = .def
-    @Published private(set) var filterState: FilterCase = .none
     @Published private(set) var selectedIdiom: Idiom?
     @Published private(set) var selectedIdiomId: String? {
         didSet {
@@ -80,11 +83,6 @@ final class IdiomsViewModel: DefaultPageViewModel {
             selectedIdiomId = nil
         case .deleteIdiom(let offsets):
             deleteIdiom(atOffsets: offsets)
-        case .changeSorting(let sortingState):
-            self.sortingState = sortingState
-            sortIdioms()
-        case .changeFilter(let filterState):
-            self.filterState = filterState
 
         // MARK: Details
         case .updateIdiom(let idiomText):
@@ -187,11 +185,15 @@ final class IdiomsViewModel: DefaultPageViewModel {
 
     private func sortIdioms() {
         switch sortingState {
-        case .def:
+        case .earliest:
             idioms.sort(by: { lhs, rhs in
                 lhs.timestamp < rhs.timestamp
             })
-        case .name:
+        case .latest:
+            idioms.sort(by: { lhs, rhs in
+                lhs.timestamp > rhs.timestamp
+            })
+        case .alphabetically:
             idioms.sort(by: { lhs, rhs in
                 lhs.idiom < rhs.idiom
             })

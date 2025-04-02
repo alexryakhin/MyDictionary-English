@@ -29,10 +29,14 @@ public struct MainTabView: View {
         List(selection: $selectedSidebarItem) {
             Section {
                 ForEach(SidebarItem.allCases, id: \.self) { item in
-                    Label(item.title, systemImage: item.imageSystemName)
-                        .tag(item)
-                        .padding(.vertical, 8)
-                        .font(.title3)
+                    HStack(spacing: 8) {
+                        Image(systemName: item.imageSystemName)
+                        Text(item.title)
+                    }
+                    .tag(item)
+                    .font(.title3)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.vertical, 8)
                 }
             } header: {
                 Text("My Dictionary")
@@ -44,10 +48,11 @@ public struct MainTabView: View {
         .safeAreaInset(edge: .bottom) {
             SettingsButton {
                 Label("Settings", systemImage: "gearshape.fill")
-                    .padding(vertical: 8, horizontal: 12)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(vertical: 10, horizontal: 8)
                     .font(.title3)
             }
-            .padding(vertical: 12, horizontal: 16)
+            .padding(vertical: 8, horizontal: 12)
         }
     }
 

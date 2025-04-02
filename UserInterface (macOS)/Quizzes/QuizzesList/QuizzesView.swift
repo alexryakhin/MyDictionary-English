@@ -38,7 +38,7 @@ struct QuizzesView: PageView {
         .onDisappear {
             viewModel.handle(.deselectQuiz)
         }
-        .background(Color.backgroundColor)
+        .background(Color.textBackgroundColor)
     }
 }
 

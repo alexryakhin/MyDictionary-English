@@ -32,7 +32,13 @@ struct WordDetailsView: PageView {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(vertical: 12, horizontal: 16)
                     .padding(.top, 8)
-
+                    .contextMenu {
+                        Button("Copy") {
+                            let pasteboard = NSPasteboard.general
+                            pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
+                            pasteboard.setString(selectedWord.word, forType: .string)
+                        }
+                    }
                 Divider()
             }
             ScrollView {

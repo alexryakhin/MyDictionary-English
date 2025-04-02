@@ -18,55 +18,12 @@ struct SettingsView: PageView {
 
     var contentView: some View {
         ScrollView {
-
-            // MARK: - Settings
-
-            Section {
-                Menu {
-                    ForEach(TTSLanguage.allCases, id: \.self) { language in
-                        Button(language.title) {
-                            viewModel.selectedTTSLanguage = language
-                        }
-                    }
-                } label: {
-                    Label("Selected Accent", systemImage: "globe")
-                }
-            } header: {
-                Text("Settings")
+            VStack(spacing: 24) {
+                settingsSectionView
+                importExportSectionView
+                aboutSectionView
             }
-
-            // MARK: - Import & Export
-
-            Section {
-                Button {
-                    viewModel.isImporting = true
-                    AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
-                } label: {
-                    Label("Import words", systemImage: "square.and.arrow.down")
-                }
-                Button {
-                    viewModel.exportWords()
-                    AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
-                } label: {
-                    Label("Export words", systemImage: "square.and.arrow.up")
-                }
-            } header: {
-                Text("Import / Export")
-            } footer: {
-                Text("Please note that import and export only work with files created by this app.")
-            }
-
-            // MARK: - About app
-
-            Section {
-                Button {
-                    openWindow(id: WindowID.about)
-                } label: {
-                    Label("About app", systemImage: "info.square")
-                }
-            } header: {
-                Text("About app")
-            }
+            .padding(vertical: 12, horizontal: 16)
         }
         .fileImporter(
             isPresented: _viewModel.projectedValue.isImporting,
@@ -85,8 +42,59 @@ struct SettingsView: PageView {
         .onAppear {
             AnalyticsService.shared.logEvent(.moreOpened)
         }
-        .frame(width: 350, height: 500)
-        .background(Color.backgroundColor)
+        .frame(width: 400, height: 500)
+    }
+
+    // MARK: - Settings
+    private var settingsSectionView: some View {
+        CustomSectionView(header: "Settings") {
+            FormWithDivider {
+                CellWrapper {
+                    Picker(selection: _viewModel.projectedValue.selectedTTSLanguage) {
+                        ForEach(TTSLanguage.allCases) { language in
+                            Text(language.title)
+                                .tag(language)
+                        }
+                    } label: {
+                        Text("Selected Accent")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .pickerStyle(.menu)
+                    .buttonStyle(.borderless)
+                }
+            }
+            .clippedWithBackground(.surfaceColor)
+        }
+    }
+
+    // MARK: - Import & Export
+    private var importExportSectionView: some View {
+        CustomSectionView(
+            header: "Import / Export",
+            footer: "Please note that import and export only work with files created by this app."
+        ) {
+            FormWithDivider {
+                ListButton("Import words", systemImage: "square.and.arrow.down") {
+                    viewModel.isImporting = true
+                    AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
+                }
+                ListButton("Export words", systemImage: "square.and.arrow.up") {
+                    viewModel.exportWords()
+                    AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
+                }
+            }
+            .clippedWithBackground(.surfaceColor)
+        }
+    }
+
+    // MARK: - About app
+    private var aboutSectionView: some View {
+        CustomSectionView(header: "About app") {
+            ListButton("About app", systemImage: "info.square") {
+                openWindow(id: WindowID.about)
+            }
+            .clippedWithBackground(.surfaceColor)
+        }
     }
 }
 

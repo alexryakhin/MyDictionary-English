@@ -13,8 +13,6 @@ final class WordsViewModel: DefaultPageViewModel {
         case selectWord(wordID: String)
         case deselectWord
         case deleteWord(atOffsets: IndexSet)
-        case selectFilterState(FilterCase)
-        case selectSortingState(SortingCase)
 
         // MARK: Word Details
         case updateTranscription(text: String)
@@ -43,8 +41,12 @@ final class WordsViewModel: DefaultPageViewModel {
             }
         }
     }
-    @Published private(set) var sortingState: SortingCase = .def
-    @Published private(set) var filterState: FilterCase = .none
+    @Published var sortingState: SortingCase = .latest {
+        didSet {
+            sortWords()
+        }
+    }
+    @Published var filterState: FilterCase = .none
 
     // MARK: - Private properties
 
@@ -87,10 +89,6 @@ final class WordsViewModel: DefaultPageViewModel {
             selectedWordId = nil
         case .deleteWord(let offsets):
             deleteWord(offsets: offsets)
-        case .selectFilterState(let filter):
-            selectFilterState(filter)
-        case .selectSortingState(let sorting):
-            selectSortingState(sorting)
 
         case .updateTranscription(let text):
             selectedWord?.phonetic = text
@@ -188,29 +186,19 @@ private extension WordsViewModel {
         )
     }
 
-    func selectFilterState(_ filterState: FilterCase) {
-        withAnimation { [weak self] in
-            self?.filterState = filterState
-            self?.sortWords()
-        }
-    }
-
     // MARK: - Sorting
-
-    func selectSortingState(_ sortingState: SortingCase) {
-        withAnimation { [weak self] in
-            self?.sortingState = sortingState
-            self?.sortWords()
-        }
-    }
 
     func sortWords() {
         switch sortingState {
-        case .def:
+        case .earliest:
             words.sort(by: { word1, word2 in
                 word1.timestamp < word2.timestamp
             })
-        case .name:
+        case .latest:
+            words.sort(by: { word1, word2 in
+                word1.timestamp > word2.timestamp
+            })
+        case .alphabetically:
             words.sort(by: { word1, word2 in
                 word1.word < word2.word
             })

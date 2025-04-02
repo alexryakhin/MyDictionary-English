@@ -40,7 +40,7 @@ struct IdiomsListView: PageView {
 
             if viewModel.filterState == .search && filteredIdioms.count < 10 {
                 Button {
-                    showAddView()
+                    isShowingAddView = true
                 } label: {
                     Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
                 }
@@ -51,56 +51,50 @@ struct IdiomsListView: PageView {
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .background(Color.backgroundColor)
+        .background(Color.textBackgroundColor)
+        .navigationTitle("Idioms")
+        .navigationSubtitle(idiomCount)
         .animation(.default, value: filteredIdioms)
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.sortingState)
-        .safeAreaInset(edge: .top) {
-            toolbar
-                .colorWithGradient(
-                    offset: 0,
-                    interpolation: 0.1,
-                    direction: .up
-                )
-        }
-        .safeAreaInset(edge: .bottom) {
-            if !filteredIdioms.isEmpty {
-                Text(idiomCount)
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-                    .frame(maxWidth: .infinity)
-                    .padding(12)
-                    .colorWithGradient(
-                        offset: 0,
-                        interpolation: 0.2,
-                        direction: .down
-                    )
-            }
-        }
-        .navigationTitle("Idioms")
         .searchable(text: _viewModel.projectedValue.searchText, placement: .automatic)
         .sheet(isPresented: $isShowingAddView) {
             viewModel.searchText = ""
         } content: {
             AddIdiomView(inputText: viewModel.searchText)
         }
-    }
-
-    // MARK: - Toolbar
-
-    private var toolbar: some View {
-        VStack(spacing: 8) {
-            HStack(spacing: 8) {
-                sortMenu
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                Menu {
+                    Picker(selection: _viewModel.projectedValue.sortingState) {
+                        ForEach(SortingCase.idiomsSortingCases, id: \.self) { item in
+                            Text(item.rawValue)
+                                .tag(item)
+                        }
+                    } label: {
+                        Text("Sort")
+                    }
+                    Picker(selection: _viewModel.projectedValue.filterState) {
+                        ForEach(FilterCase.availableCases, id: \.self) { item in
+                            Text(item.rawValue)
+                                .tag(item)
+                        }
+                    } label: {
+                        Text("Filter")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                }
+                .menuIndicator(.hidden)
+            }
+            ToolbarItem(placement: .automatic) {
                 Button {
-                    showAddView()
+                    isShowingAddView = true
                 } label: {
                     Image(systemName: "plus")
-                        .foregroundColor(.accentColor)
                 }
             }
         }
-        .padding(vertical: 12, horizontal: 16)
     }
 
     private var idiomCount: String {
@@ -111,11 +105,6 @@ struct IdiomsListView: PageView {
         }
     }
 
-    private func showAddView() {
-        isShowingAddView = true
-        AnalyticsService.shared.logEvent(.addIdiomTapped)
-    }
-
     private var filteredIdioms: [Idiom] {
         switch viewModel.filterState {
         case .none: viewModel.idioms
@@ -123,55 +112,6 @@ struct IdiomsListView: PageView {
         case .search: viewModel.searchResults
         @unknown default:
             fatalError("Unknown filter state: \(viewModel.filterState)")
-        }
-    }
-
-    private var sortMenu: some View {
-        Menu {
-            Section {
-                Button {
-                    viewModel.handle(.changeSorting(to: .def))
-                } label: {
-                    if viewModel.sortingState == .def {
-                        Image(systemName: "checkmark")
-                    }
-                    Text("Default")
-                }
-                Button {
-                    viewModel.handle(.changeSorting(to: .name))
-                } label: {
-                    if viewModel.sortingState == .name {
-                        Image(systemName: "checkmark")
-                    }
-                    Text("Name")
-                }
-            } header: {
-                Text("Sort by")
-            }
-
-            Section {
-                Button {
-                    viewModel.handle(.changeFilter(to: .none))
-                } label: {
-                    if viewModel.filterState == .none {
-                        Image(systemName: "checkmark")
-                    }
-                    Text("None")
-                }
-                Button {
-                    viewModel.handle(.changeFilter(to: .favorite))
-                } label: {
-                    if viewModel.filterState == .favorite {
-                        Image(systemName: "checkmark")
-                    }
-                    Text("Favorites")
-                }
-            } header: {
-                Text("Filter by")
-            }
-        } label: {
-            Image(systemName: "arrow.up.arrow.down")
-            Text(viewModel.sortingState.rawValue)
         }
     }
 }

@@ -41,10 +41,10 @@ struct MyDictionaryApp: App {
             }
         }
 
-        // Note the id "about" here
         Window("About My Dictionary", id: WindowID.about) {
             AboutView()
         }
+        .defaultSize(width: 600, height: 600)
 
         Settings {
             SettingsView()

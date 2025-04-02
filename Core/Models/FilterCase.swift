@@ -8,7 +8,9 @@
 import Foundation
 
 public enum FilterCase: String {
-    case none
-    case favorite
-    case search
+    case none = "Disabled"
+    case favorite = "Favorite"
+    case search = "Search"
+
+    public static let availableCases: [FilterCase] = [.none, .favorite]
 }

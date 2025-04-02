@@ -25,22 +25,14 @@ struct IdiomDetailsView: PageView {
     }
 
     var contentView: some View {
-        ScrollViewWithCustomNavBar {
+        ScrollView {
             LazyVStack(spacing: 16) {
                 idiomSectionView
                 definitionSectionView
                 examplesSectionView
             }
             .padding(vertical: 12, horizontal: 16)
-        } navigationBar: {
-            Text("Details")
-                .font(.largeTitle)
-                .bold()
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(vertical: 12, horizontal: 16)
-                .padding(.top, 24)
         }
-        .background(Color.backgroundColor)
         .toolbar {
             Button(role: .destructive) {
                 viewModel.handle(.deleteCurrentIdiom)
