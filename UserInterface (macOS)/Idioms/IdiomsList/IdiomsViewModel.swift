@@ -54,7 +54,6 @@ final class IdiomsViewModel: DefaultPageViewModel {
                     .receive(on: DispatchQueue.main)
                     .sink { [weak self] idiom in
                         self?.selectedIdiom = idiom
-                        AnalyticsService.shared.logEvent(.idiomOpened)
                     }
             } else {
                 idiomDetailsSubscription = nil

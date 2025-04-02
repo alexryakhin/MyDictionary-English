@@ -65,6 +65,9 @@ struct SettingsView: PageView {
             }
             .clippedWithBackground(.surfaceColor)
         }
+        .onChange(of: viewModel.selectedTTSLanguage) { _ in
+            AnalyticsService.shared.logEvent(.languageAccentChanged)
+        }
     }
 
     // MARK: - Import & Export
@@ -92,6 +95,7 @@ struct SettingsView: PageView {
         CustomSectionView(header: "About app") {
             ListButton("About app", systemImage: "info.square") {
                 openWindow(id: WindowID.about)
+                AnalyticsService.shared.logEvent(.aboutAppTapped)
             }
             .clippedWithBackground(.surfaceColor)
         }

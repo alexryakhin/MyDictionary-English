@@ -54,6 +54,7 @@ struct WordDetailsView: PageView {
         .toolbar {
             Button(role: .destructive) {
                 viewModel.handle(.deleteCurrentWord)
+                AnalyticsService.shared.logEvent(.removeWordMenuButtonTapped)
             } label: {
                 Image(systemName: "trash")
                     .foregroundStyle(.red)
@@ -61,6 +62,7 @@ struct WordDetailsView: PageView {
 
             Button {
                 viewModel.handle(.toggleFavorite)
+                AnalyticsService.shared.logEvent(.wordFavoriteTapped)
             } label: {
                 Image(systemName: "\(viewModel.selectedWord?.isFavorite == true ? "heart.fill" : "heart")")
                     .foregroundColor(.accentColor)
@@ -96,10 +98,12 @@ struct WordDetailsView: PageView {
                 SectionHeaderButton("Done") {
                     isPhoneticsFocused = false
                     viewModel.handle(.updateCDWord)
+                    AnalyticsService.shared.logEvent(.wordPhoneticsChanged)
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
                     viewModel.handle(.play(viewModel.selectedWord?.word))
+                    AnalyticsService.shared.logEvent(.wordPlayed)
                 }
             }
         }
@@ -111,6 +115,7 @@ struct WordDetailsView: PageView {
                 ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
                     Button {
                         viewModel.handle(.updatePartOfSpeech(partCase))
+                        AnalyticsService.shared.logEvent(.partOfSpeechChanged)
                     } label: {
                         Text(partCase.rawValue)
                         if viewModel.selectedWord?.partOfSpeech == partCase {
@@ -180,7 +185,6 @@ struct WordDetailsView: PageView {
                             Section {
                                 Button(role: .destructive) {
                                     viewModel.handle(.removeExample(at: index))
-                                    AnalyticsService.shared.logEvent(.wordExampleRemoved)
                                 } label: {
                                     Label("Delete", systemImage: "trash")
                                 }

@@ -24,6 +24,7 @@ struct IdiomsListView: PageView {
             ForEach(filteredIdioms) { idiom in
                 Button {
                     viewModel.handle(.selectIdiom(id: idiom.id))
+                    AnalyticsService.shared.logEvent(.idiomOpened)
                 } label: {
                     IdiomsListCellView(
                         idiom: idiom,
@@ -36,11 +37,13 @@ struct IdiomsListView: PageView {
             }
             .onDelete {
                 viewModel.handle(.deleteIdiom(atOffsets: $0))
+                AnalyticsService.shared.logEvent(.idiomDeleteSwipeAction)
             }
 
             if viewModel.filterState == .search && filteredIdioms.count < 10 {
                 Button {
                     isShowingAddView = true
+                    AnalyticsService.shared.logEvent(.addIdiomTappedFromSearch)
                 } label: {
                     Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
                 }
@@ -90,10 +93,20 @@ struct IdiomsListView: PageView {
             ToolbarItem(placement: .automatic) {
                 Button {
                     isShowingAddView = true
+                    AnalyticsService.shared.logEvent(.addIdiomTapped)
                 } label: {
                     Image(systemName: "plus")
                 }
             }
+        }
+        .onAppear {
+            AnalyticsService.shared.logEvent(.idiomsListOpened)
+        }
+        .onChange(of: viewModel.sortingState) { _ in
+            AnalyticsService.shared.logEvent(.idiomsListSortingSelected)
+        }
+        .onChange(of: viewModel.filterState) { _ in
+            AnalyticsService.shared.logEvent(.idiomsListFilterSelected)
         }
     }
 

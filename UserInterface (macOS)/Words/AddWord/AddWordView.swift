@@ -40,6 +40,7 @@ struct AddWordView: PageView {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Button {
                     dismiss()
+                    AnalyticsService.shared.logEvent(.closeAddWordTapped)
                 } label: {
                     Image(systemName: "xmark.app.fill")
                         .font(.title2)
@@ -51,6 +52,7 @@ struct AddWordView: PageView {
         .safeAreaInset(edge: .bottom) {
             Button {
                 viewModel.handle(.save)
+                AnalyticsService.shared.logEvent(.saveWordTapped)
             } label: {
                 Label("Save", systemImage: "checkmark.square.fill")
                     .frame(maxWidth: .infinity, alignment: .center)
@@ -68,6 +70,9 @@ struct AddWordView: PageView {
         .background(Color.backgroundColor)
         .onReceive(viewModel.dismissPublisher) { _ in
             dismiss()
+        }
+        .onAppear {
+            AnalyticsService.shared.logEvent(.addWordOpened)
         }
     }
 

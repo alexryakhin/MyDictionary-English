@@ -59,7 +59,6 @@ final class WordsViewModel: DefaultPageViewModel {
                     .receive(on: DispatchQueue.main)
                     .sink { [weak self] word in
                         self?.selectedWord = word
-                        AnalyticsService.shared.logEvent(.wordOpened)
                     }
             } else {
                 wordDetailsSubscription = nil
@@ -180,6 +179,7 @@ private extension WordsViewModel {
                 },
                 destructiveAction: { [weak self] in
                     self?.wordsProvider.delete(with: id)
+                    AnalyticsService.shared.logEvent(.wordRemoved)
                     completion?()
                 }
             )
@@ -231,13 +231,11 @@ private extension WordsViewModel {
     func toggleFavorite() {
         selectedWord?.isFavorite.toggle()
         updateCDWord()
-        AnalyticsService.shared.logEvent(.wordFavoriteTapped)
     }
 
     func updatePartOfSpeech(_ partOfSpeech: PartOfSpeech) {
         selectedWord?.partOfSpeech = partOfSpeech
         updateCDWord()
-        AnalyticsService.shared.logEvent(.partOfSpeechChanged)
     }
 
     func addExample(_ example: String) {

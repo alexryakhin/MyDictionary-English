@@ -89,6 +89,7 @@ public struct AboutView: View {
                 if isShowingRating {
                     ListButton("Rate the app", systemImage: "star.fill", foregroundColor: .yellow) {
                         requestReview()
+                        AnalyticsService.shared.logEvent(.requestReviewTapped)
                     }
                 }
             }

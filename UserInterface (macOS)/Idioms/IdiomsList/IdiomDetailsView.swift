@@ -36,6 +36,7 @@ struct IdiomDetailsView: PageView {
         .toolbar {
             Button(role: .destructive) {
                 viewModel.handle(.deleteCurrentIdiom)
+                AnalyticsService.shared.logEvent(.removeIdiomMenuButtonTapped)
             } label: {
                 Image(systemName: "trash")
                     .foregroundStyle(.red)
@@ -43,6 +44,7 @@ struct IdiomDetailsView: PageView {
 
             Button {
                 viewModel.handle(.toggleFavorite)
+                AnalyticsService.shared.logEvent(.idiomFavoriteTapped)
             } label: {
                 Image(systemName: "\(viewModel.selectedIdiom?.isFavorite == true ? "heart.fill" : "heart")")
                     .foregroundColor(.accentColor)
@@ -57,7 +59,6 @@ struct IdiomDetailsView: PageView {
                 viewModel.handle(.updateExample(at: index, text: exampleTextFieldStr))
                 editingExampleIndex = nil
                 exampleTextFieldStr = .empty
-                AnalyticsService.shared.logEvent(.idiomExampleChanged)
             }
         }
     }
@@ -78,6 +79,7 @@ struct IdiomDetailsView: PageView {
                 .onSubmit {
                     isIdiomInputFocused = false
                     viewModel.handle(.updateCDIdiom)
+                    AnalyticsService.shared.logEvent(.idiomChanged)
                 }
                 .clippedWithPaddingAndBackground(.surfaceColor)
         } headerTrailingContent: {
@@ -85,10 +87,12 @@ struct IdiomDetailsView: PageView {
                 SectionHeaderButton("Save") {
                     isIdiomInputFocused = false
                     viewModel.handle(.updateCDIdiom)
+                    AnalyticsService.shared.logEvent(.idiomChanged)
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
                     viewModel.handle(.play(text: viewModel.selectedIdiom?.idiom))
+                    AnalyticsService.shared.logEvent(.idiomPlayed)
                 }
             }
         }
@@ -107,6 +111,7 @@ struct IdiomDetailsView: PageView {
                 .onSubmit {
                     isDefinitionFieldFocused = false
                     viewModel.handle(.updateCDIdiom)
+                    AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
                 .clippedWithPaddingAndBackground(.surfaceColor)
         } headerTrailingContent: {
@@ -114,10 +119,12 @@ struct IdiomDetailsView: PageView {
                 SectionHeaderButton("Save") {
                     isDefinitionFieldFocused = false
                     viewModel.handle(.updateCDIdiom)
+                    AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
                     viewModel.handle(.play(text: viewModel.selectedIdiom?.definition))
+                    AnalyticsService.shared.logEvent(.idiomDefinitionPlayed)
                 }
             }
         }
@@ -151,7 +158,6 @@ struct IdiomDetailsView: PageView {
                                 Button(role: .destructive) {
                                     withAnimation {
                                         viewModel.handle(.removeExample(at: index))
-                                        AnalyticsService.shared.logEvent(.idiomExampleRemoved)
                                     }
                                 } label: {
                                     Label("Delete", systemImage: "trash")
@@ -170,7 +176,6 @@ struct IdiomDetailsView: PageView {
                                 viewModel.handle(.addExample(exampleTextFieldStr))
                                 isAddingExample = false
                                 exampleTextFieldStr = .empty
-                                AnalyticsService.shared.logEvent(.idiomExampleAdded)
                             } label: {
                                 Image(systemName: "checkmark.rectangle.portrait.fill")
                                     .font(.title3)

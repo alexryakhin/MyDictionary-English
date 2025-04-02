@@ -20,15 +20,17 @@ public enum AnalyticsEvent: String {
     case wordsListSortingSelected
 
     case addWordTapped
+    case addWordOpened
+    case closeAddWordTapped
+    case saveWordTapped
     case wordFetchedData
     case addWordFromSearchTapped
     case definitionSelected
     case wordAdded
     case wordOpened
+    case wordPlayed
     case wordRemoved
     case wordRemovingCanceled
-    case listenToWordTapped
-    case listenToDefinitionTapped
     case wordExampleAdded
     case wordExampleUpdated
     case wordExampleRemoved
@@ -41,10 +43,20 @@ public enum AnalyticsEvent: String {
     case partOfSpeechChanged
     case wordFavoriteTapped
     case wordAddExampleTapped
+    case removeWordMenuButtonTapped
+    case wordPhoneticsChanged
+
+    case idiomsListFilterSelected
+    case idiomsListSortingSelected
 
     case addIdiomTapped
+    case addIdiomTappedFromSearch
+    case addIdiomOpened
+    case closeAddIdiomTapped
+    case saveIdiomTapped
     case idiomAdded
     case idiomOpened
+    case idiomPlayed
     case idiomDefinitionChanged
     case idiomDefinitionPlayed
     case idiomChanged
@@ -57,22 +69,24 @@ public enum AnalyticsEvent: String {
     case idiomExampleRemoved
     case idiomExamplePlayed
     case idiomExampleChangeButtonTapped
-    case idiomExampleChanged
     case idiomExampleChangingCanceled
     case idiomAddExampleTapped
+    case removeIdiomMenuButtonTapped
+    case idiomDeleteSwipeAction
 
     case spellingQuizOpened
     case spellingQuizAnswerConfirmed
-    case spellingQuizClosed
     case definitionQuizOpened
     case definitionQuizAnswerSelected
-    case definitionQuizClosed
 
     case buyMeACoffeeTapped
     case twitterButtonTapped
     case instagramButtonTapped
     case exportToCSVButtonTapped
     case importFromCSVButtonTapped
+    case languageAccentChanged
+    case aboutAppTapped
+    case requestReviewTapped
 
     var parameters: [String: Any]? {
         switch self {

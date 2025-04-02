@@ -2,6 +2,7 @@ import SwiftUI
 import CoreUserInterface__macOS_
 import Shared
 import Core
+import Services
 
 struct WordsListView: PageView {
 
@@ -40,6 +41,7 @@ struct WordsListView: PageView {
             ForEach(wordsFiltered) { word in
                 Button {
                     viewModel.handle(.selectWord(wordID: word.id))
+                    AnalyticsService.shared.logEvent(.wordOpened)
                 } label: {
                     WordsListCellView(
                         word: word,
@@ -110,6 +112,15 @@ struct WordsListView: PageView {
                     Image(systemName: "plus")
                 }
             }
+        }
+        .onAppear {
+            AnalyticsService.shared.logEvent(.wordsListOpened)
+        }
+        .onChange(of: viewModel.sortingState) { _ in
+            AnalyticsService.shared.logEvent(.wordsListSortingSelected)
+        }
+        .onChange(of: viewModel.filterState) { _ in
+            AnalyticsService.shared.logEvent(.wordsListFilterSelected)
         }
     }
 }

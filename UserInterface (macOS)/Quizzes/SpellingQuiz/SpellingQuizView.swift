@@ -2,6 +2,7 @@ import SwiftUI
 import Core
 import CoreUserInterface__macOS_
 import Shared
+import Services
 
 struct SpellingQuizView: PageView {
 
@@ -45,6 +46,7 @@ struct SpellingQuizView: PageView {
                     TextField("Answer", text: _viewModel.projectedValue.answerTextField, axis: .vertical)
                         .onSubmit {
                             viewModel.confirmAnswer()
+                            AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed)
                         }
                         .textFieldStyle(.plain)
                         .frame(maxWidth: 300)
@@ -61,6 +63,7 @@ struct SpellingQuizView: PageView {
 
             Button {
                 viewModel.confirmAnswer()
+                AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed)
             } label: {
                 Text("Confirm answer")
             }
@@ -71,5 +74,8 @@ struct SpellingQuizView: PageView {
 
         }
         .navigationTitle("Spelling")
+        .onAppear {
+            AnalyticsService.shared.logEvent(.spellingQuizOpened)
+        }
     }
 }

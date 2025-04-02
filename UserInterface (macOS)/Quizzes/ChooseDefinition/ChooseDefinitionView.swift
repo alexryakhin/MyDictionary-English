@@ -2,6 +2,7 @@ import SwiftUI
 import Core
 import CoreUserInterface__macOS_
 import Shared
+import Services
 
 struct ChooseDefinitionView: PageView {
 
@@ -43,6 +44,7 @@ struct ChooseDefinitionView: PageView {
                         .onTapGesture {
                             withAnimation {
                                 viewModel.handle(.selectAnswer(index))
+                                AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected)
                             }
                         }
                 }
@@ -59,6 +61,7 @@ struct ChooseDefinitionView: PageView {
             .navigationTitle("Choose Definition")
             .onAppear {
                 viewModel.handle(.setRandomIndex)
+                AnalyticsService.shared.logEvent(.definitionQuizOpened)
             }
         }
     }

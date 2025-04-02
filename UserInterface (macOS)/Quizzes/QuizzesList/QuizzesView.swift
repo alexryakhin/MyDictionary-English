@@ -2,6 +2,7 @@ import SwiftUI
 import Core
 import CoreUserInterface__macOS_
 import Shared
+import Services
 
 struct QuizzesView: PageView {
 
@@ -39,6 +40,9 @@ struct QuizzesView: PageView {
             viewModel.handle(.deselectQuiz)
         }
         .background(Color.textBackgroundColor)
+        .onAppear {
+            AnalyticsService.shared.logEvent(.quizzesOpened)
+        }
     }
 }
 

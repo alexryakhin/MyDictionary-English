@@ -1,6 +1,7 @@
 import SwiftUI
 import Shared
 import CoreUserInterface__macOS_
+import Services
 
 struct AddIdiomView: PageView {
 
@@ -40,6 +41,7 @@ struct AddIdiomView: PageView {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Button {
                     dismiss()
+                    AnalyticsService.shared.logEvent(.closeAddIdiomTapped)
                 } label: {
                     Image(systemName: "xmark.app.fill")
                         .font(.title2)
@@ -51,6 +53,7 @@ struct AddIdiomView: PageView {
         .safeAreaInset(edge: .bottom) {
             Button {
                 viewModel.addIdiom()
+                AnalyticsService.shared.logEvent(.saveIdiomTapped)
             } label: {
                 Label("Save", systemImage: "checkmark.square.fill")
                     .frame(maxWidth: .infinity, alignment: .center)
@@ -68,6 +71,9 @@ struct AddIdiomView: PageView {
         .background(Color.backgroundColor)
         .onReceive(viewModel.dismissPublisher) { _ in
             dismiss()
+        }
+        .onAppear {
+            AnalyticsService.shared.logEvent(.addIdiomOpened)
         }
     }
 }

@@ -27,6 +27,7 @@ final class AddIdiomViewModel: DefaultPageViewModel {
     func addIdiom() {
         do {
             try idiomsManager.addNewIdiom(inputText, definition: inputDefinition)
+            AnalyticsService.shared.logEvent(.idiomAdded)
             dismiss()
         } catch {
             errorReceived(error, displayType: .alert)
