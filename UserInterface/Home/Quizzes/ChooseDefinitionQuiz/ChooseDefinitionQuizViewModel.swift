@@ -36,10 +36,6 @@ public final class ChooseDefinitionQuizViewModel: DefaultPageViewModel {
         setupBindings()
     }
 
-    deinit {
-        AnalyticsService.shared.logEvent(.definitionQuizClosed)
-    }
-
     func handle(_ input: Input) {
         switch input {
         case .answerSelected(let index):

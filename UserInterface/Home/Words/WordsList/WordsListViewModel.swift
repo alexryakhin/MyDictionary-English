@@ -17,8 +17,6 @@ public class WordsListViewModel: DefaultPageViewModel {
         case showAddWord
         case showWordDetails(word: Word)
         case deleteWord(word: Word)
-        case selectFilterState(FilterCase)
-        case selectSortingState(SortingCase)
     }
 
     enum Output {
@@ -31,8 +29,18 @@ public class WordsListViewModel: DefaultPageViewModel {
     @Published var searchText = ""
 
     @Published private(set) var words: [Word] = []
-    @Published private(set) var sortingState: SortingCase = .def
-    @Published private(set) var filterState: FilterCase = .none
+    @Published var sortingState: SortingCase = .latest {
+        didSet {
+            sortWords()
+            AnalyticsService.shared.logEvent(.wordsListSortingSelected)
+        }
+    }
+    @Published var filterState: FilterCase = .none {
+        didSet {
+            sortWords()
+            AnalyticsService.shared.logEvent(.wordsListFilterSelected)
+        }
+    }
 
     private let wordsProvider: WordsProviderInterface
     private var cancellables = Set<AnyCancellable>()
@@ -84,10 +92,6 @@ public class WordsListViewModel: DefaultPageViewModel {
             onOutput?(.showWordDetails(word: word))
         case .deleteWord(let word):
             deleteWord(word)
-        case .selectFilterState(let filter):
-            selectFilterState(filter)
-        case .selectSortingState(let sorting):
-            selectSortingState(sorting)
         }
     }
 
@@ -130,27 +134,19 @@ public class WordsListViewModel: DefaultPageViewModel {
         )
     }
 
-    private func selectFilterState(_ filterState: FilterCase) {
-        self.filterState = filterState
-        sortWords()
-        AnalyticsService.shared.logEvent(.wordsListFilterSelected)
-    }
-
     // MARK: - Sorting
-
-    private func selectSortingState(_ sortingState: SortingCase) {
-        self.sortingState = sortingState
-        sortWords()
-        AnalyticsService.shared.logEvent(.wordsListSortingSelected)
-    }
 
     private func sortWords() {
         switch sortingState {
-        case .def:
+        case .earliest:
             words.sort(by: { lhs, rhs in
                 lhs.timestamp < rhs.timestamp
             })
-        case .name:
+        case .latest:
+            words.sort(by: { lhs, rhs in
+                lhs.timestamp > rhs.timestamp
+            })
+        case .alphabetically:
             words.sort(by: { lhs, rhs in
                 lhs.word < rhs.word
             })

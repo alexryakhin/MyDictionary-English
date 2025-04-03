@@ -9,7 +9,7 @@ import SwiftUI
 import CoreUserInterface
 import Core
 import StoreKit
-import struct Services.AnalyticsService
+import Services
 
 public struct WordsListContentView: PageView {
 
@@ -80,8 +80,20 @@ public struct WordsListContentView: PageView {
             }
             ToolbarItem(placement: .navigationBarLeading) {
                 Menu {
-                    filterMenu
-                    sortMenu
+                    Picker("Sort", selection: _viewModel.projectedValue.sortingState) {
+                        ForEach(SortingCase.allCases, id: \.self) { item in
+                            Text(item.rawValue)
+                                .tag(item)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    Picker("Filter", selection: _viewModel.projectedValue.filterState) {
+                        ForEach(FilterCase.availableCases, id: \.self) { item in
+                            Text(item.rawValue)
+                                .tag(item)
+                        }
+                    }
+                    .pickerStyle(.menu)
                 } label: {
                     Image(systemName: "ellipsis.circle")
                 }
@@ -124,68 +136,6 @@ public struct WordsListContentView: PageView {
             return "Favorites"
         case .search:
             return "Found"
-        }
-    }
-
-    private var filterMenu: some View {
-        Menu {
-            Button {
-                viewModel.handle(.selectFilterState(.none))
-            } label: {
-                Label("None", systemImage: viewModel.filterState == .none
-                      ? "checkmark.circle.fill"
-                      : "circle"
-                )
-            }
-            Button {
-                viewModel.handle(.selectFilterState(.favorite))
-            } label: {
-                Label("Favorites", systemImage: viewModel.filterState == .favorite
-                      ? "checkmark.circle.fill"
-                      : "circle"
-                )
-            }
-        } label: {
-            Label {
-                Text("Filter By")
-            } icon: {
-                Image(systemName: "paperclip")
-            }
-        }
-    }
-
-    private var sortMenu: some View {
-        Menu {
-            Button {
-                viewModel.handle(.selectSortingState(.def))
-            } label: {
-                Label("Default", systemImage: viewModel.sortingState == .def
-                      ? "checkmark.circle.fill"
-                      : "circle"
-                )
-            }
-            Button {
-                viewModel.handle(.selectSortingState(.name))
-            } label: {
-                Label("Name", systemImage: viewModel.sortingState == .name
-                      ? "checkmark.circle.fill"
-                      : "circle"
-                )
-            }
-            Button {
-                viewModel.handle(.selectSortingState(.partOfSpeech))
-            } label: {
-                Label("Part of speech", systemImage: viewModel.sortingState == .partOfSpeech
-                      ? "checkmark.circle.fill"
-                      : "circle"
-                )
-            }
-        } label: {
-            Label {
-                Text("Sort By")
-            } icon: {
-                Image(systemName: "arrow.up.arrow.down")
-            }
         }
     }
 }

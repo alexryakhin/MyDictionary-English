@@ -1,7 +1,7 @@
 import SwiftUI
 import CoreUserInterface
 import Core
-import struct Services.AnalyticsService
+import Services
 
 public struct WordDetailsContentView: PageView {
 

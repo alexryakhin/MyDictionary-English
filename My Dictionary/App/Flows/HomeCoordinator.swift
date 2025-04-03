@@ -5,6 +5,7 @@ import Core
 import CoreUserInterface
 import CoreNavigation
 import Services
+import Shared
 
 final class HomeCoordinator: Coordinator {
 

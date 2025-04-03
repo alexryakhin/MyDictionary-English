@@ -1,7 +1,7 @@
 import SwiftUI
 import CoreUserInterface
 import Core
-import struct Services.AnalyticsService
+import Services
 
 public struct IdiomDetailsContentView: PageView {
 
@@ -60,7 +60,7 @@ public struct IdiomDetailsContentView: PageView {
                 viewModel.handle(.updateExample(at: index, text: exampleTextFieldStr))
                 editingExampleIndex = nil
                 exampleTextFieldStr = .empty
-                AnalyticsService.shared.logEvent(.idiomExampleChanged)
+                AnalyticsService.shared.logEvent(.idiomExampleUpdated)
             }
         }
     }

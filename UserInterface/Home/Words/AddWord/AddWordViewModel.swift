@@ -3,6 +3,7 @@ import CoreUserInterface
 import Services
 import Shared
 import Combine
+import SwiftUI
 
 public final class AddWordViewModel: DefaultPageViewModel {
 
@@ -69,8 +70,12 @@ public final class AddWordViewModel: DefaultPageViewModel {
 
     private func fetchData() {
         Task { @MainActor in
-            status = .loading
+            reset()
             do {
+                guard inputWord.isValidEnglishWordOrPhrase else {
+                    throw CoreError.internalError(.inputIsNotAWord)
+                }
+                status = .loading
                 AnalyticsService.shared.logEvent(.wordFetchedData)
                 async let definitions = try wordnikAPIService.getDefinitions(
                     for: inputWord.lowercased(),
@@ -134,11 +139,11 @@ public final class AddWordViewModel: DefaultPageViewModel {
         $inputWord
             .dropFirst()
             .removeDuplicates()
-            .debounce(for: 1, scheduler: RunLoop.main)
-            .filter { $0.isNotEmpty && $0.isCorrect }
-            .sink { [weak self] _ in
-                guard self?.status != .loading else { return }
-                self?.fetchData()
+            .map(\.isEmpty)
+            .sink { [weak self] isEmpty in
+                if isEmpty {
+                    self?.reset()
+                }
             }
             .store(in: &cancellables)
 
@@ -150,5 +155,16 @@ public final class AddWordViewModel: DefaultPageViewModel {
                 self?.partOfSpeech = definition.partOfSpeech
             }
             .store(in: &cancellables)
+    }
+
+    private func reset() {
+        withAnimation { [weak self] in
+            self?.descriptionField = ""
+            self?.status = .blank
+            self?.definitions = []
+            self?.selectedDefinition = nil
+            self?.pronunciation = nil
+            self?.partOfSpeech = nil
+        }
     }
 }

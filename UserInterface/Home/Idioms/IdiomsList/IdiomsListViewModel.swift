@@ -16,8 +16,6 @@ public class IdiomsListViewModel: DefaultPageViewModel {
         case showAddIdiom
         case showIdiomDetails(idiom: Idiom)
         case deleteIdiom(idiom: Idiom)
-        case changeSorting(to: SortingCase)
-        case changeFilter(to: FilterCase)
     }
 
     enum Output {
@@ -28,8 +26,18 @@ public class IdiomsListViewModel: DefaultPageViewModel {
     var onOutput: ((Output) -> Void)?
 
     @Published var idioms: [Idiom] = []
-    @Published private(set) var sortingState: SortingCase = .def
-    @Published private(set) var filterState: FilterCase = .none
+    @Published var sortingState: SortingCase = .latest {
+        didSet {
+            sortIdioms()
+            AnalyticsService.shared.logEvent(.idiomsListSortingSelected)
+        }
+    }
+    @Published var filterState: FilterCase = .none {
+        didSet {
+            sortIdioms()
+            AnalyticsService.shared.logEvent(.idiomsListFilterSelected)
+        }
+    }
     @Published var searchText = ""
 
     private let idiomsProvider: IdiomsProviderInterface
@@ -52,11 +60,6 @@ public class IdiomsListViewModel: DefaultPageViewModel {
             AnalyticsService.shared.logEvent(.idiomOpened)
         case .deleteIdiom(let idiom):
             deleteIdiom(with: idiom.id)
-        case .changeSorting(let sortingState):
-            self.sortingState = sortingState
-            sortIdioms()
-        case .changeFilter(let filterState):
-            self.filterState = filterState
         }
     }
 
@@ -115,11 +118,15 @@ public class IdiomsListViewModel: DefaultPageViewModel {
 
     private func sortIdioms() {
         switch sortingState {
-        case .def:
+        case .earliest:
             idioms.sort(by: { lhs, rhs in
                 lhs.timestamp < rhs.timestamp
             })
-        case .name:
+        case .latest:
+            idioms.sort(by: { lhs, rhs in
+                lhs.timestamp > rhs.timestamp
+            })
+        case .alphabetically:
             idioms.sort(by: { lhs, rhs in
                 lhs.idiom < rhs.idiom
             })

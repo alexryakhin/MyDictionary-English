@@ -3,7 +3,7 @@ import CoreUserInterface
 import Core
 import StoreKit
 import Shared
-import struct Services.AnalyticsService
+import Services
 
 public struct AboutAppContentView: PageView {
 

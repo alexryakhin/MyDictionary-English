@@ -4,7 +4,7 @@ import Core
 import Shared
 import UniformTypeIdentifiers
 import StoreKit
-import struct Services.AnalyticsService
+import Services
 
 public struct MoreContentView: PageView {
 

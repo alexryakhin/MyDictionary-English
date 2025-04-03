@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreUserInterface
 import Core
-import struct Services.AnalyticsService
+import Services
 
 public struct IdiomsListContentView: PageView {
 
@@ -75,8 +75,22 @@ public struct IdiomsListContentView: PageView {
             }
             ToolbarItem(placement: .navigationBarLeading) {
                 Menu {
-                    filterMenu
-                    sortMenu
+                    Picker(selection: _viewModel.projectedValue.sortingState) {
+                        ForEach(SortingCase.idiomsSortingCases, id: \.self) { item in
+                            Text(item.rawValue)
+                                .tag(item)
+                        }
+                    } label: {
+                        Text("Sort")
+                    }
+                    Picker(selection: _viewModel.projectedValue.filterState) {
+                        ForEach(FilterCase.availableCases, id: \.self) { item in
+                            Text(item.rawValue)
+                                .tag(item)
+                        }
+                    } label: {
+                        Text("Filter")
+                    }
                 } label: {
                     Image(systemName: "ellipsis.circle")
                 }
@@ -129,52 +143,6 @@ public struct IdiomsListContentView: PageView {
             return "1 idiom"
         } else {
             return "\(filteredIdioms.count) idioms"
-        }
-    }
-
-    private var filterMenu: some View {
-        Menu {
-            Button {
-                viewModel.handle(.changeFilter(to: .none))
-            } label: {
-                Label("None", systemImage: viewModel.filterState == .none
-                      ? "checkmark.circle.fill"
-                      : "circle"
-                )
-            }
-            Button {
-                viewModel.handle(.changeFilter(to: .favorite))
-            } label: {
-                Label("Favorites", systemImage: viewModel.filterState == .favorite
-                    ? "checkmark.circle.fill"
-                    : "circle"
-                )
-            }
-        } label: {
-            Label("Filter By", systemImage: "paperclip")
-        }
-    }
-
-    private var sortMenu: some View {
-        Menu {
-            Button {
-                viewModel.handle(.changeSorting(to: .def))
-            } label: {
-                Label("Default", systemImage: viewModel.sortingState == .def
-                      ? "checkmark.circle.fill"
-                      : "circle"
-                )
-            }
-            Button {
-                viewModel.handle(.changeSorting(to: .name))
-            } label: {
-                Label("Name", systemImage: viewModel.sortingState == .name
-                      ? "checkmark.circle.fill"
-                      : "circle"
-                )
-            }
-        } label: {
-            Label("Sort By", systemImage: "arrow.up.arrow.down")
         }
     }
 }

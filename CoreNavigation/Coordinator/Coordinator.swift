@@ -8,6 +8,7 @@
 import Swinject
 import SwinjectAutoregistration
 import UIKit
+import Shared
 
 open class Coordinator: BaseCoordinator, RoutableCoordinator {
 

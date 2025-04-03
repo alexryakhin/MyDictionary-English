@@ -1,7 +1,7 @@
 import SwiftUI
 import CoreUserInterface
 import Core
-import struct Services.AnalyticsService
+import Services
 
 public struct AddWordContentView: PageView {
 
@@ -50,7 +50,7 @@ public struct AddWordContentView: PageView {
 
     var wordCellView: some View {
         CellWrapper("Word") {
-            CustomTextField("Type a word", text: $viewModel.inputWord) {
+            CustomTextField("Type a word", text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
                 if viewModel.inputWord.isNotEmpty && viewModel.inputWord.isCorrect {
                     viewModel.handle(.fetchData)
                 }
@@ -116,7 +116,16 @@ public struct AddWordContentView: PageView {
             case .error:
                 EmptyListView(
                     description: "There is an error loading definitions. Please try again.",
-                    background: .clear
+                    background: .clear,
+                    actions: {
+                        Button {
+                            viewModel.handle(.fetchData)
+                        } label: {
+                            Label("Retry", systemImage: "magnifyingglass")
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                    }
                 )
                 .clippedWithPaddingAndBackground(.surface)
             case .ready:
@@ -145,8 +154,17 @@ public struct AddWordContentView: PageView {
                 }
             case .blank:
                 EmptyListView(
-                    description: "Start typing a word to find its definitions",
-                    background: .clear
+                    description: "Type a word and press 'Search' to find its definitions",
+                    background: .clear,
+                    actions: {
+                        Button {
+                            viewModel.handle(.fetchData)
+                        } label: {
+                            Label("Search", systemImage: "magnifyingglass")
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                    }
                 )
                 .clippedWithPaddingAndBackground(.surface)
             }

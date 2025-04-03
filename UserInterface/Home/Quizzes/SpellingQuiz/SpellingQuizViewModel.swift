@@ -34,10 +34,6 @@ public final class SpellingQuizViewModel: DefaultPageViewModel {
         setupBindings()
     }
 
-    deinit {
-        AnalyticsService.shared.logEvent(.spellingQuizClosed)
-    }
-
     func handle(_ input: Input) {
         switch input {
         case .confirmAnswer:
