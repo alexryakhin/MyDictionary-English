@@ -10,10 +10,10 @@ final class SettingsViewModel: BaseViewModel {
     @Published var isImporting = false
     @Published var importFileURL: URL?
 
-    private let wordsProvider: WordsProviderInterface
-    private let csvManager: CSVManagerInterface
+    private let wordsProvider: WordsProvider
+    private let csvManager: CSVManager
 
-    private var words: [Word] = []
+    private var words: [CDWord] = []
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
@@ -24,7 +24,7 @@ final class SettingsViewModel: BaseViewModel {
     }
 
     private func setupBindings() {
-        wordsProvider.wordsPublisher
+        wordsProvider.$words
             .receive(on: RunLoop.main)
             .assign(to: \.words, on: self)
             .store(in: &cancellables)
@@ -40,7 +40,7 @@ final class SettingsViewModel: BaseViewModel {
         do {
             try csvManager.importWordsFromCSV(
                 url: url,
-                currentWordIds: words.compactMap(\.id)
+                currentWordIds: words.compactMap { $0.id?.uuidString }
             )
             showAlert(withModel: .init(title: "Import Successful", message: "Words imported successfully"))
         } catch {

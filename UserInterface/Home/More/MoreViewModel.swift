@@ -4,14 +4,8 @@ import SwiftUI
 final class MoreViewModel: BaseViewModel {
 
     enum Input {
-        case showAboutApp
+        // No navigation inputs needed
     }
-
-    enum Output {
-        case showAboutApp
-    }
-
-    var onOutput: ((Output) -> Void)?
 
     @AppStorage(UDKeys.selectedTTSLanguage) var selectedTTSLanguage: TTSLanguage = .enUS
 
@@ -19,31 +13,25 @@ final class MoreViewModel: BaseViewModel {
     @Published var importFileURL: URL?
     @Published var exportWordsUrl: URL?
 
-    private let wordsProvider: WordsProviderInterface
-    private let csvManager: CSVManagerInterface
+    private let wordsProvider: WordsProvider
+    private let csvManager: CSVManager
 
-    private var words: [Word] = []
+    private var words: [CDWord] = []
     private var cancellables: Set<AnyCancellable> = []
 
-    init(
-        wordsProvider: WordsProviderInterface,
-        csvManager: CSVManagerInterface
-    ) {
-        self.wordsProvider = wordsProvider
-        self.csvManager = csvManager
+    override init() {
+        self.wordsProvider = ServiceManager.shared.wordsProvider
+        self.csvManager = ServiceManager.shared.csvManager
         super.init()
         setupBindings()
     }
 
     func handle(_ input: Input) {
-        switch input {
-        case .showAboutApp:
-            onOutput?(.showAboutApp)
-        }
+        // No navigation handling needed
     }
 
     private func setupBindings() {
-        wordsProvider.wordsPublisher
+        wordsProvider.$words
             .receive(on: RunLoop.main)
             .assign(to: \.words, on: self)
             .store(in: &cancellables)
@@ -60,7 +48,7 @@ final class MoreViewModel: BaseViewModel {
         do {
             try csvManager.importWordsFromCSV(
                 url: url,
-                currentWordIds: words.compactMap(\.id)
+                currentWordIds: words.compactMap { $0.id?.uuidString }
             )
         } catch {
             errorReceived(error, displayType: .alert)

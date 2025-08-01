@@ -8,24 +8,15 @@
 import Combine
 import SwiftUI
 
-class WordsListViewModel: BaseViewModel {
+final class WordsListViewModel: BaseViewModel {
 
     enum Input {
-        case showAddWord
-        case showWordDetails(word: Word)
-        case deleteWord(word: Word)
+        case deleteWord(word: CDWord)
     }
-
-    enum Output {
-        case showAddWord(searchText: String)
-        case showWordDetails(word: Word)
-    }
-
-    var onOutput: ((Output) -> Void)?
 
     @Published var searchText = ""
 
-    @Published private(set) var words: [Word] = []
+    @Published private(set) var words: [CDWord] = []
     @Published var sortingState: SortingCase = .latest {
         didSet {
             sortWords()
@@ -39,10 +30,10 @@ class WordsListViewModel: BaseViewModel {
         }
     }
 
-    private let wordsProvider: WordsProviderInterface
+    private let wordsProvider: WordsProvider
     private var cancellables = Set<AnyCancellable>()
 
-    var wordsFiltered: [Word] {
+    var wordsFiltered: [CDWord] {
         switch filterState {
         case .none:
             return words
@@ -55,14 +46,14 @@ class WordsListViewModel: BaseViewModel {
         }
     }
 
-    var favoriteWords: [Word] {
+    var favoriteWords: [CDWord] {
         words.filter { $0.isFavorite }
     }
 
-    var searchResults: [Word] {
+    var searchResults: [CDWord] {
         words.filter { word in
             guard !searchText.isEmpty else { return true }
-            return word.word.localizedStandardContains(searchText)
+            return word.wordItself?.localizedStandardContains(searchText) ?? false
         }
     }
 
@@ -82,23 +73,17 @@ class WordsListViewModel: BaseViewModel {
 
     func handle(_ input: Input) {
         switch input {
-        case .showAddWord:
-            onOutput?(.showAddWord(searchText: searchText))
-        case .showWordDetails(let word):
-            onOutput?(.showWordDetails(word: word))
         case .deleteWord(let word):
             deleteWord(word)
         }
     }
 
     private func setupBindings() {
-        wordsProvider.wordsPublisher
+        wordsProvider.$words
             .receive(on: RunLoop.main)
             .sink { [weak self] words in
-                if words.isNotEmpty {
-                    self?.words = words
-                    self?.sortWords()
-                }
+                self?.words = words
+                self?.sortWords()
             }
             .store(in: &cancellables)
 
@@ -110,7 +95,7 @@ class WordsListViewModel: BaseViewModel {
             .store(in: &cancellables)
     }
 
-    private func deleteWord(_ wordModel: Word) {
+    private func deleteWord(_ wordModel: CDWord) {
         showAlert(
             withModel: .init(
                 title: "Delete word",
@@ -121,7 +106,8 @@ class WordsListViewModel: BaseViewModel {
                     AnalyticsService.shared.logEvent(.wordRemovingCanceled)
                 },
                 destructiveAction: { [weak self, wordModel] in
-                    self?.wordsProvider.delete(with: wordModel.id)
+                    guard let id = wordModel.id?.uuidString else { return }
+                    self?.wordsProvider.delete(with: id)
                 }
             )
         )
@@ -133,19 +119,19 @@ class WordsListViewModel: BaseViewModel {
         switch sortingState {
         case .earliest:
             words.sort(by: { lhs, rhs in
-                lhs.timestamp < rhs.timestamp
+                (lhs.timestamp ?? Date()) < (rhs.timestamp ?? Date())
             })
         case .latest:
             words.sort(by: { lhs, rhs in
-                lhs.timestamp > rhs.timestamp
+                (lhs.timestamp ?? Date()) > (rhs.timestamp ?? Date())
             })
         case .alphabetically:
             words.sort(by: { lhs, rhs in
-                lhs.word < rhs.word
+                (lhs.wordItself ?? "") < (rhs.wordItself ?? "")
             })
         case .partOfSpeech:
             words.sort(by: { lhs, rhs in
-                lhs.partOfSpeech.rawValue < rhs.partOfSpeech.rawValue
+                (lhs.partOfSpeech ?? "") < (rhs.partOfSpeech ?? "")
             })
         @unknown default:
             fatalError("Unhandled event")

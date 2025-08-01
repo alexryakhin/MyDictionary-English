@@ -9,9 +9,9 @@ final class QuizzesViewModel: BaseViewModel {
     }
 
     @Published private(set) var selectedQuiz: Quiz?
-    @Published private(set) var words: [Word] = []
+    @Published private(set) var words: [CDWord] = []
 
-    private let wordsProvider: WordsProviderInterface
+    private let wordsProvider: WordsProvider
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
@@ -33,7 +33,7 @@ final class QuizzesViewModel: BaseViewModel {
 
     /// Fetches latest data from Core Data
     private func setupBindings() {
-        wordsProvider.wordsPublisher
+        wordsProvider.$words
             .receive(on: DispatchQueue.main)
             .sink { [weak self] words in
                 self?.words = words

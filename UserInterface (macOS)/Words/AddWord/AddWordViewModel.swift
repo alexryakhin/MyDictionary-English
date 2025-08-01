@@ -20,9 +20,9 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var pronunciation: String?
     @Published private(set) var partOfSpeech: PartOfSpeech?
 
-    private let wordnikAPIService: WordnikAPIServiceInterface
-    private let addWordManager: AddWordManagerInterface
-    private let ttsPlayer: TTSPlayerInterface
+    private let wordnikAPIService: WordnikAPIService
+    private let addWordManager: AddWordManager
+    private let ttsPlayer: TTSPlayer
     private var cancellables = Set<AnyCancellable>()
 
     init(inputWord: String = "") {

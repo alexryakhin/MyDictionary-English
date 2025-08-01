@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct IdiomsListCellView: View {
-    var idiom: Idiom
+    var idiom: CDIdiom
     var isSelected: Bool
 
     var body: some View {
         HStack(spacing: 8) {
-            Text(idiom.idiom)
+            Text(idiom.idiomItself ?? "")
                 .bold()
                 .foregroundColor(isSelected ? .white : .primary)
                 .frame(maxWidth: .infinity, alignment: .leading)

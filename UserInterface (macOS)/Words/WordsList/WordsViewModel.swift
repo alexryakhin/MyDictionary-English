@@ -26,17 +26,9 @@ final class WordsViewModel: BaseViewModel {
     // MARK: - properties
 
     @Published var searchText = ""
-    @Published private(set) var words: [Word] = []
-    @Published private(set) var selectedWord: Word?
-    @Published private(set) var selectedWordId: String? {
-        didSet {
-            if let selectedWordId {
-                wordDetailsManager = ServiceManager.shared.createWordDetailsManager(wordId: selectedWordId)
-            } else {
-                wordDetailsManager = nil
-            }
-        }
-    }
+    @Published private(set) var words: [CDWord] = []
+    @Published private(set) var selectedWord: CDWord?
+    @Published private(set) var selectedWordId: String?
     @Published var sortingState: SortingCase = .latest {
         didSet {
             sortWords()
@@ -46,22 +38,10 @@ final class WordsViewModel: BaseViewModel {
 
     // MARK: - Private properties
 
-    private let wordsProvider: WordsProviderInterface
-    private let ttsPlayer: TTSPlayerInterface
-    private var wordDetailsManager: WordDetailsManagerInterface? {
-        didSet {
-            if let wordDetailsManager {
-                wordDetailsSubscription = wordDetailsManager.wordPublisher
-                    .receive(on: DispatchQueue.main)
-                    .sink { [weak self] word in
-                        self?.selectedWord = word
-                    }
-            } else {
-                wordDetailsSubscription = nil
-                selectedWord = nil
-            }
-        }
-    }
+    private let wordsProvider: WordsProvider
+    private let ttsPlayer: TTSPlayer
+    private let coreDataService: CoreDataService
+    // No longer need wordDetailsManager since we work directly with Core Data objects
     private var cancellables = Set<AnyCancellable>()
     private var wordDetailsSubscription: AnyCancellable?
 
@@ -70,6 +50,7 @@ final class WordsViewModel: BaseViewModel {
     override init() {
         self.wordsProvider = ServiceManager.shared.wordsProvider
         self.ttsPlayer = ServiceManager.shared.ttsPlayer
+        self.coreDataService = ServiceManager.shared.coreDataService
         super.init()
         setupBindings()
     }
@@ -109,7 +90,7 @@ final class WordsViewModel: BaseViewModel {
     }
 
     private func setupBindings() {
-        wordsProvider.wordsPublisher
+        wordsProvider.$words
             .receive(on: RunLoop.main)
             .sink { [weak self] words in
                 self?.updateWords(words)
@@ -124,10 +105,10 @@ final class WordsViewModel: BaseViewModel {
             .store(in: &cancellables)
     }
 
-    private func updateWords(_ words: [Word]) {
+    private func updateWords(_ words: [CDWord]) {
         self.words = words
         sortWords()
-        if let selectedWord = words.first(where: { $0.id == selectedWordId }) {
+        if let selectedWord = words.first(where: { $0.id?.uuidString == selectedWordId }) {
             self.selectedWord = selectedWord
         } else {
             selectedWord = nil
@@ -143,19 +124,22 @@ private extension WordsViewModel {
         case .none:
             withAnimation {
                 offsets.map { words[$0] }.forEach { [weak self] word in
-                    self?.deleteWord(withID: word.id)
+                    guard let id = word.id?.uuidString else { return }
+                    self?.deleteWord(withID: id)
                 }
             }
         case .favorite:
             withAnimation {
                 offsets.map { favoriteWords[$0] }.forEach { [weak self] word in
-                    self?.deleteWord(withID: word.id)
+                    guard let id = word.id?.uuidString else { return }
+                    self?.deleteWord(withID: id)
                 }
             }
         case .search:
             withAnimation {
                 offsets.map { searchResults[$0] }.forEach { [weak self] word in
-                    self?.deleteWord(withID: word.id)
+                    guard let id = word.id?.uuidString else { return }
+                    self?.deleteWord(withID: id)
                 }
             }
         @unknown default:
@@ -188,19 +172,19 @@ private extension WordsViewModel {
         switch sortingState {
         case .earliest:
             words.sort(by: { word1, word2 in
-                word1.timestamp < word2.timestamp
+                (word1.timestamp ?? Date()) < (word2.timestamp ?? Date())
             })
         case .latest:
             words.sort(by: { word1, word2 in
-                word1.timestamp > word2.timestamp
+                (word1.timestamp ?? Date()) > (word2.timestamp ?? Date())
             })
         case .alphabetically:
             words.sort(by: { word1, word2 in
-                word1.word < word2.word
+                (word1.wordItself ?? "") < (word2.wordItself ?? "")
             })
         case .partOfSpeech:
             words.sort(by: { word1, word2 in
-                word1.partOfSpeech.rawValue < word2.partOfSpeech.rawValue
+                (word1.partOfSpeech ?? "") < (word2.partOfSpeech ?? "")
             })
         @unknown default:
             fatalError("Unknown sorting case")
@@ -230,7 +214,7 @@ private extension WordsViewModel {
     }
 
     func updatePartOfSpeech(_ partOfSpeech: PartOfSpeech) {
-        selectedWord?.partOfSpeech = partOfSpeech
+        selectedWord?.partOfSpeech = partOfSpeech.rawValue
         updateCDWord()
     }
 
@@ -239,7 +223,9 @@ private extension WordsViewModel {
             errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
             return
         }
-        selectedWord?.examples.append(example)
+        var currentExamples = selectedWord?.examplesDecoded ?? []
+        currentExamples.append(example)
+        try? selectedWord?.updateExamples(currentExamples)
         updateCDWord()
         AnalyticsService.shared.logEvent(.wordExampleAdded)
     }
@@ -249,20 +235,25 @@ private extension WordsViewModel {
             errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
             return
         }
-        selectedWord?.examples[index] = text
+        var currentExamples = selectedWord?.examplesDecoded ?? []
+        currentExamples[index] = text
+        try? selectedWord?.updateExamples(currentExamples)
         updateCDWord()
         AnalyticsService.shared.logEvent(.wordExampleUpdated)
     }
 
     func removeExample(at index: Int) {
-        selectedWord?.examples.remove(at: index)
+        var currentExamples = selectedWord?.examplesDecoded ?? []
+        currentExamples.remove(at: index)
+        try? selectedWord?.updateExamples(currentExamples)
         updateCDWord()
         AnalyticsService.shared.logEvent(.wordExampleRemoved)
     }
 
     func deleteCurrentWord() {
         if let selectedWord {
-            deleteWord(withID: selectedWord.id) { [weak self] in
+            guard let id = selectedWord.id?.uuidString else { return }
+            deleteWord(withID: id) { [weak self] in
                 self?.selectedWord = nil
             }
         }
@@ -270,20 +261,25 @@ private extension WordsViewModel {
 
     func updateCDWord() {
         if let selectedWord {
-            wordDetailsManager?.updateWord(selectedWord)
+            // Save context directly since the word is already updated
+            do {
+                try coreDataService.saveContext()
+            } catch {
+                errorReceived(CoreError.internalError(.savingWordFailed), displayType: .alert)
+            }
         }
     }
 }
 
 extension WordsViewModel {
-    var favoriteWords: [Word] {
+    var favoriteWords: [CDWord] {
         words.filter { $0.isFavorite }
     }
 
-    var searchResults: [Word] {
+    var searchResults: [CDWord] {
         words.filter { [weak self] word in
             guard let self, !searchText.isEmpty else { return true }
-            return word.word.localizedStandardContains(searchText)
+            return word.wordItself?.localizedStandardContains(searchText) ?? false
         }
     }
 }

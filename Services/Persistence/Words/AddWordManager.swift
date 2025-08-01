@@ -10,9 +10,9 @@ protocol AddWordManagerInterface {
 
 final class AddWordManager: AddWordManagerInterface {
 
-    private let coreDataService: CoreDataServiceInterface
+    private let coreDataService: CoreDataService
 
-    init(coreDataService: CoreDataServiceInterface) {
+    init(coreDataService: CoreDataService) {
         self.coreDataService = coreDataService
     }
 

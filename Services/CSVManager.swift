@@ -13,7 +13,7 @@ import SwiftUI
 protocol CSVManagerInterface {
 
     /// Export Core Data words to a CSV file
-    func exportWordsToCSV(wordModels: [Word]) -> URL?
+    func exportWordsToCSV(wordModels: [CDWord]) -> URL?
 
     /// Import a CSV file and save words to Core Data
     func importWordsFromCSV(url: URL, currentWordIds: [String]) throws
@@ -21,30 +21,38 @@ protocol CSVManagerInterface {
 
 final class CSVManager: CSVManagerInterface {
 
-    private let coreDataService: CoreDataServiceInterface
+    private let coreDataService: CoreDataService
 
-    init(coreDataService: CoreDataServiceInterface) {
+    init(coreDataService: CoreDataService) {
         self.coreDataService = coreDataService
     }
 
     /// Export Core Data words to a CSV file
-    func exportWordsToCSV(wordModels: [Word]) -> URL? {
+    func exportWordsToCSV(wordModels: [CDWord]) -> URL? {
         let fileName = "MyDictionaryExport.csv"
         let filePath = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
 
         var csvString = "word,definition,partOfSpeech,phonetic,is_favorite,timestamp,id,examples\n"
 
         for wordModel in wordModels {
-            let date: String = wordModel.timestamp.csvString
+            let date: String = (wordModel.timestamp ?? Date()).csvString
+            let word = wordModel.wordItself ?? ""
+            let definition = wordModel.definition ?? ""
+            let partOfSpeech = wordModel.partOfSpeech ?? ""
+            let phonetic = wordModel.phonetic ?? ""
+            let isFavorite = wordModel.isFavorite ? "true" : "false"
+            let id = wordModel.id?.uuidString ?? ""
+            let examples = wordModel.examplesDecoded.joined(separator: ";")
+            
             let csvRow = [
-                wordModel.word,
-                wordModel.definition,
-                wordModel.partOfSpeech.rawValue,
-                wordModel.phonetic ?? "",
-                wordModel.isFavorite ? "true" : "false",
+                word,
+                definition,
+                partOfSpeech,
+                phonetic,
+                isFavorite,
                 date,
-                wordModel.id,
-                wordModel.examples.joined(separator: ";")
+                id,
+                examples
             ]
                 .map { "\"\($0)\"" } // Wrap in quotes to handle commas in data
                 .joined(separator: ",")

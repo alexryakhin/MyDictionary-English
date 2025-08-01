@@ -75,8 +75,12 @@ enum AnalyticsEvent: String {
 
     case spellingQuizOpened
     case spellingQuizAnswerConfirmed
+    case spellingQuizWordSkipped
+    case spellingQuizRestarted
     case definitionQuizOpened
     case definitionQuizAnswerSelected
+    case definitionQuizWordSkipped
+    case definitionQuizRestarted
 
     case buyMeACoffeeTapped
     case twitterButtonTapped

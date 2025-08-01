@@ -16,16 +16,16 @@ final class ChooseDefinitionViewModel: BaseViewModel {
         case setRandomIndex
     }
 
-    @Published private(set) var words: [Word] = []
+    @Published private(set) var words: [CDWord] = []
     @Published private(set) var correctAnswerIndex = Int.random(in: 0...2)
     @Published private(set) var isCorrectAnswer = true
 
-    private var correctWord: Word {
+    private var correctWord: CDWord {
         words[correctAnswerIndex]
     }
 
-    private let wordsProvider: WordsProviderInterface
-    private let ttsPlayer: TTSPlayerInterface
+    private let wordsProvider: WordsProvider
+    private let ttsPlayer: TTSPlayer
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
@@ -40,7 +40,7 @@ final class ChooseDefinitionViewModel: BaseViewModel {
         case .selectAnswer(let index):
             answerSelected(index)
         case .playWord:
-            play(correctWord.word)
+            play(correctWord.wordItself)
         case .setRandomIndex:
             correctAnswerIndex = Int.random(in: 0...2)
         }
@@ -58,7 +58,7 @@ final class ChooseDefinitionViewModel: BaseViewModel {
 
     /// Fetches latest data from Core Data
     private func setupBindings() {
-        wordsProvider.wordsPublisher
+        wordsProvider.$words
             .first()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] words in

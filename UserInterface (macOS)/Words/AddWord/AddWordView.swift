@@ -63,7 +63,7 @@ struct AddWordView: View {
             )
         }
         .frame(width: 500, height: 500)
-        .background(Color.backgroundColor)
+        .background(.primary)
         .onReceive(viewModel.dismissPublisher) { _ in
             dismiss()
         }
@@ -138,18 +138,18 @@ struct AddWordView: View {
                     }
                 }
             case .error:
-                EmptyListView(
-                    description: "There is an error loading definitions. Please try again.",
-                    background: .clear,
-                    actions: {
-                        Button {
-                            viewModel.handle(.fetchData)
-                        } label: {
-                            Label("Retry", systemImage: "magnifyingglass")
-                        }
-                        .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                ContentUnavailableView(
+                    "Error Loading Definitions",
+                    systemImage: "exclamationmark.triangle",
+                    description: Text("There is an error loading definitions. Please try again.")
+                ) {
+                    Button {
+                        viewModel.handle(.fetchData)
+                    } label: {
+                        Label("Retry", systemImage: "magnifyingglass")
                     }
-                )
+                    .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                }
                 .clippedWithPaddingAndBackground(.surfaceColor)
             case .ready:
                 ForEach(Array(viewModel.definitions.enumerated()), id: \.element.id) { offset, definition in
@@ -162,7 +162,7 @@ struct AddWordView: View {
                             checkboxImage(definition.id)
                                 .foregroundColor(.accentColor)
                         }
-                        .background(Color.surfaceColor)
+                        .clippedWithBackground()
                         .onTapGesture {
                             definitionSelected(definition, index: offset)
                         }
@@ -175,18 +175,18 @@ struct AddWordView: View {
                     .clippedWithBackground(.surfaceColor)
                 }
             case .blank:
-                EmptyListView(
-                    description: "Type a word and press enter to search for definitions.",
-                    background: .clear,
-                    actions: {
-                        Button {
-                            viewModel.handle(.fetchData)
-                        } label: {
-                            Label("Search", systemImage: "magnifyingglass")
-                        }
-                        .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                ContentUnavailableView(
+                    "No Definitions Found",
+                    systemImage: "textformat",
+                    description: Text("Type a word and press enter to search for definitions.")
+                ) {
+                    Button {
+                        viewModel.handle(.fetchData)
+                    } label: {
+                        Label("Search", systemImage: "magnifyingglass")
                     }
-                )
+                    .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                }
                 .clippedWithPaddingAndBackground(.surfaceColor)
             }
         }

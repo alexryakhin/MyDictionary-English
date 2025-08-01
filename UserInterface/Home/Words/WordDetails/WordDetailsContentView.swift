@@ -1,19 +1,22 @@
 import SwiftUI
+import Combine
 
 struct WordDetailsContentView: View {
 
-    typealias ViewModel = WordDetailsViewModel
+    @StateObject var word: CDWord
+    @Environment(\.dismiss) private var dismiss
 
-    @ObservedObject var viewModel: ViewModel
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
     @FocusState private var isAddExampleFocused: Bool
     @State private var isAddingExample = false
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
+    @State private var isShowingAlert = false
+    @State private var alertModel = AlertModel(title: .empty)
 
-    init(viewModel: WordDetailsViewModel) {
-        self.viewModel = viewModel
+    init(word: CDWord) {
+        self._word = StateObject(wrappedValue: word)
     }
 
     var body: some View {
@@ -25,13 +28,14 @@ struct WordDetailsContentView: View {
                 examplesSectionView
             }
             .padding(vertical: 12, horizontal: 16)
-            .animation(.default, value: viewModel.word)
+            .animation(.default, value: word)
         }
-        .background(Color.background)
+        .navigationTitle(word.wordItself ?? "")
+        .background(Color(.systemGroupedBackground))
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    viewModel.handle(.deleteWord)
+                    showDeleteAlert()
                 } label: {
                     Image(systemName: "trash")
                         .foregroundColor(.red)
@@ -39,13 +43,15 @@ struct WordDetailsContentView: View {
             }
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
-                    viewModel.handle(.toggleFavorite)
+                    word.isFavorite.toggle()
+                    saveContext()
                     AnalyticsService.shared.logEvent(.wordFavoriteTapped)
                 } label: {
-                    Image(systemName: viewModel.word.isFavorite
+                    Image(systemName: word.isFavorite
                           ? "heart.fill"
                           : "heart"
                     )
+                    .animation(.easeInOut(duration: 0.2), value: word.isFavorite)
                 }
             }
         }
@@ -55,19 +61,34 @@ struct WordDetailsContentView: View {
                 AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
             }
             Button("Save") {
-                viewModel.handle(.updateExample(at: index, text: exampleTextFieldStr))
+                updateExample(at: index, text: exampleTextFieldStr)
                 editingExampleIndex = nil
                 exampleTextFieldStr = .empty
                 AnalyticsService.shared.logEvent(.wordExampleChanged)
             }
         }
+        .alert(isPresented: $isShowingAlert) {
+            Alert(
+                title: Text(alertModel.title),
+                message: Text(alertModel.message ?? ""),
+                primaryButton: .default(Text(alertModel.actionText ?? "OK")) {
+                    alertModel.action?()
+                },
+                secondaryButton: .destructive(Text(alertModel.destructiveActionText ?? "Delete")) {
+                    alertModel.destructiveAction?()
+                }
+            )
+        }
     }
 
     private var transcriptionSectionView: some View {
         CustomSectionView(header: "Transcription") {
-            TextField("Transcription", text: $viewModel.word.phonetic, axis: .vertical)
+            TextField("Transcription", text: Binding(
+                get: { word.phonetic ?? "" },
+                set: { word.phonetic = $0 }
+            ), axis: .vertical)
                 .focused($isPhoneticsFocused)
-                .clippedWithPaddingAndBackground(.surface)
+                .clippedWithPaddingAndBackground()
         } headerTrailingContent: {
             if isPhoneticsFocused {
                 SectionHeaderButton("Done") {
@@ -75,7 +96,7 @@ struct WordDetailsContentView: View {
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    viewModel.handle(.play(viewModel.word.word))
+                    play(word.wordItself)
                 }
             }
         }
@@ -83,13 +104,13 @@ struct WordDetailsContentView: View {
 
     private var partOfSpeechSectionView: some View {
         CustomSectionView(header: "Part Of Speech") {
-            Text(viewModel.word.partOfSpeech.rawValue)
+            Text(word.partOfSpeech ?? "")
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .clippedWithPaddingAndBackground(.surface)
+                .clippedWithPaddingAndBackground()
                 .contextMenu {
                     ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
                         Button {
-                            viewModel.handle(.updatePartOfSpeech(partCase))
+                            updatePartOfSpeech(partCase)
                         } label: {
                             Text(partCase.rawValue)
                         }
@@ -100,9 +121,12 @@ struct WordDetailsContentView: View {
 
     private var definitionSectionView: some View {
         CustomSectionView(header: "Definition") {
-            TextField("Definition", text: $viewModel.word.definition, axis: .vertical)
+            TextField("Definition", text: Binding(
+                get: { word.definition ?? "" },
+                set: { word.definition = $0 }
+            ), axis: .vertical)
                 .focused($isDefinitionFocused)
-                .clippedWithPaddingAndBackground(.surface)
+                .clippedWithPaddingAndBackground()
         } headerTrailingContent: {
             if isDefinitionFocused {
                 SectionHeaderButton("Done") {
@@ -111,7 +135,7 @@ struct WordDetailsContentView: View {
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    viewModel.handle(.play(viewModel.word.definition))
+                    play(word.definition)
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
             }
@@ -121,14 +145,13 @@ struct WordDetailsContentView: View {
     private var examplesSectionView: some View {
         CustomSectionView(header: "Examples") {
             FormWithDivider {
-                ForEach(Array(viewModel.word.examples.enumerated()), id: \.offset) { index, example in
+                ForEach(Array(word.examplesDecoded.enumerated()), id: \.offset) { index, example in
                     Text(example)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(vertical: 12, horizontal: 16)
-                        .background(.surface)
+                        .clippedWithPaddingAndBackground()
                         .contextMenu {
                             Button {
-                                viewModel.handle(.play(example))
+                                play(example)
                                 AnalyticsService.shared.logEvent(.wordExamplePlayed)
                             } label: {
                                 Label("Listen", systemImage: "speaker.wave.2.fill")
@@ -142,7 +165,7 @@ struct WordDetailsContentView: View {
                             }
                             Section {
                                 Button(role: .destructive) {
-                                    viewModel.handle(.removeExample(at: index))
+                                    removeExample(at: index)
                                     AnalyticsService.shared.logEvent(.wordExampleRemoved)
                                 } label: {
                                     Label("Delete", systemImage: "trash")
@@ -157,7 +180,7 @@ struct WordDetailsContentView: View {
 
                         if isAddExampleFocused {
                             Button {
-                                viewModel.handle(.addExample(exampleTextFieldStr))
+                                addExample(exampleTextFieldStr)
                                 isAddingExample = false
                                 exampleTextFieldStr = .empty
                                 AnalyticsService.shared.logEvent(.wordExampleAdded)
@@ -178,7 +201,81 @@ struct WordDetailsContentView: View {
                     .padding(vertical: 12, horizontal: 16)
                 }
             }
-            .clippedWithBackground(.surface)
+            .clippedWithBackground()
         }
+    }
+
+    // MARK: - Private Methods
+
+    private func saveContext() {
+        do {
+            try ServiceManager.shared.coreDataService.saveContext()
+        } catch {
+            // Handle error if needed
+        }
+    }
+
+    private func play(_ text: String?) {
+        Task { @MainActor in
+            guard let text else { return }
+
+            do {
+                try await ServiceManager.shared.ttsPlayer.play(text)
+            } catch {
+                // Handle error if needed
+            }
+        }
+    }
+
+    private func updatePartOfSpeech(_ value: PartOfSpeech) {
+        word.partOfSpeech = value.rawValue
+        saveContext()
+        AnalyticsService.shared.logEvent(.partOfSpeechChanged)
+    }
+
+    private func addExample(_ example: String) {
+        guard !example.isEmpty else { return }
+        var currentExamples = word.examplesDecoded
+        currentExamples.append(example)
+        try? word.updateExamples(currentExamples)
+        saveContext()
+    }
+
+    private func updateExample(at index: Int, text: String) {
+        guard !text.isEmpty else { return }
+        var currentExamples = word.examplesDecoded
+        currentExamples[index] = text
+        try? word.updateExamples(currentExamples)
+        saveContext()
+    }
+
+    private func removeExample(at index: Int) {
+        var currentExamples = word.examplesDecoded
+        currentExamples.remove(at: index)
+        try? word.updateExamples(currentExamples)
+        saveContext()
+    }
+
+    private func showDeleteAlert() {
+        alertModel = AlertModel(
+            title: "Delete word",
+            message: "Are you sure you want to delete this word?",
+            actionText: "Cancel",
+            destructiveActionText: "Delete",
+            action: {
+                AnalyticsService.shared.logEvent(.wordRemovingCanceled)
+            },
+            destructiveAction: {
+                deleteWord()
+                dismiss()
+            }
+        )
+        isShowingAlert = true
+    }
+
+    private func deleteWord() {
+        ServiceManager.shared.coreDataService.context.delete(word)
+        saveContext()
+        AnalyticsService.shared.logEvent(.wordRemoved)
     }
 }

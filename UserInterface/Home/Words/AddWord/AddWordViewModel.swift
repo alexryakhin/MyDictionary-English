@@ -11,12 +11,6 @@ final class AddWordViewModel: BaseViewModel {
         case selectDefinition(WordDefinition)
     }
 
-    enum Output {
-        case finish
-    }
-
-    var onOutput: ((Output) -> Void)?
-
     @Published var inputWord = ""
     @Published var descriptionField = ""
 
@@ -26,9 +20,9 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var pronunciation: String?
     @Published private(set) var partOfSpeech: PartOfSpeech?
 
-    private let wordnikAPIService: WordnikAPIServiceInterface
-    private let addWordManager: AddWordManagerInterface
-    private let ttsPlayer: TTSPlayerInterface
+    private let wordnikAPIService: WordnikAPIService
+    private let addWordManager: AddWordManager
+    private let ttsPlayer: TTSPlayer
     private var cancellables = Set<AnyCancellable>()
 
     init(inputWord: String = "") {
@@ -105,7 +99,7 @@ final class AddWordViewModel: BaseViewModel {
                 )
                 HapticManager.shared.triggerNotification(type: .success)
                 AnalyticsService.shared.logEvent(.wordAdded)
-                onOutput?(.finish)
+                dismissPublisher.send()
             } catch {
                 errorReceived(error, displayType: .alert)
             }

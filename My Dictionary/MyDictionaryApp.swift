@@ -12,16 +12,9 @@ import Firebase
 struct MyDictionaryApp: App {
 
     @StateObject private var wordsViewModel = WordsListViewModel()
-    @StateObject private var idiomsViewModel = IdiomsListViewModel(
-        idiomsProvider: ServiceManager.shared.idiomsProvider
-    )
-    @StateObject private var quizzesViewModel = QuizzesListViewModel(
-        wordsProvider: ServiceManager.shared.wordsProvider
-    )
-    @StateObject private var moreViewModel = MoreViewModel(
-        wordsProvider: ServiceManager.shared.wordsProvider,
-        csvManager: ServiceManager.shared.csvManager
-    )
+    @StateObject private var idiomsViewModel = IdiomsListViewModel()
+    @StateObject private var quizzesViewModel = QuizzesListViewModel()
+    @StateObject private var moreViewModel = MoreViewModel()
 
     init() {
         FirebaseApp.configure()

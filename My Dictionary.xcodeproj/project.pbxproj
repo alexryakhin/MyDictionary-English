@@ -47,6 +47,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		532C16862E3CCC6B00552599 /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DeviceHelper.swift,
+			);
+			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
+		};
 		53E9A7802D7C3385007E9F28 /* Exceptions for "My Dictionary" folder in "My Dictionary" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -102,6 +109,9 @@
 		};
 		53E9A9F92D7C439B007E9F28 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				532C16862E3CCC6B00552599 /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */,
+			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
@@ -337,7 +347,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary";
 				PRODUCT_NAME = "My Dictionary";
@@ -369,7 +379,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary";
 				PRODUCT_NAME = "My Dictionary";
@@ -402,6 +412,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 3.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -438,6 +449,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 3.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary";
 				PRODUCT_NAME = "$(TARGET_NAME)";

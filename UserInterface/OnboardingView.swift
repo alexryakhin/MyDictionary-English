@@ -12,7 +12,7 @@ struct OnboardingView: View {
 
     var body: some View {
         ZStack {
-            Color(.background)
+            Color(.systemGroupedBackground)
                 .ignoresSafeArea()
             VStack {
                 Text("Welcome to\nMy Dictionary")

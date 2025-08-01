@@ -9,9 +9,9 @@ protocol AddIdiomManagerInterface {
 }
 
 final class AddIdiomManager: AddIdiomManagerInterface {
-    private let coreDataService: CoreDataServiceInterface
+    private let coreDataService: CoreDataService
 
-    init(coreDataService: CoreDataServiceInterface) {
+    init(coreDataService: CoreDataService) {
         self.coreDataService = coreDataService
     }
 

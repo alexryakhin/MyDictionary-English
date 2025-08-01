@@ -23,7 +23,7 @@ struct WordDetailsView: View {
     var body: some View {
         VStack(spacing: 0) {
             if let selectedWord = viewModel.selectedWord {
-                Text(selectedWord.word)
+                Text(selectedWord.wordItself ?? "")
                     .font(.largeTitle)
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -33,7 +33,7 @@ struct WordDetailsView: View {
                         Button("Copy") {
                             let pasteboard = NSPasteboard.general
                             pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
-                            pasteboard.setString(selectedWord.word, forType: .string)
+                            pasteboard.setString(selectedWord.wordItself ?? "", forType: .string)
                         }
                     }
                 Divider()
@@ -59,10 +59,10 @@ struct WordDetailsView: View {
 
             Button {
                 viewModel.handle(.toggleFavorite)
-                AnalyticsService.shared.logEvent(.wordFavoriteTapped)
             } label: {
                 Image(systemName: "\(viewModel.selectedWord?.isFavorite == true ? "heart.fill" : "heart")")
                     .foregroundColor(.accentColor)
+                    .animation(.easeInOut(duration: 0.2), value: viewModel.selectedWord?.isFavorite)
             }
         }
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
@@ -99,7 +99,7 @@ struct WordDetailsView: View {
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    viewModel.handle(.play(viewModel.selectedWord?.word))
+                    viewModel.handle(.play(viewModel.selectedWord?.wordItself))
                     AnalyticsService.shared.logEvent(.wordPlayed)
                 }
             }
@@ -115,13 +115,13 @@ struct WordDetailsView: View {
                         AnalyticsService.shared.logEvent(.partOfSpeechChanged)
                     } label: {
                         Text(partCase.rawValue)
-                        if viewModel.selectedWord?.partOfSpeech == partCase {
+                        if viewModel.selectedWord?.partOfSpeech == partCase.rawValue {
                             Image(systemName: "checkmark")
                         }
                     }
                 }
             } label: {
-                Text(viewModel.selectedWord?.partOfSpeech.rawValue ?? "")
+                Text(viewModel.selectedWord?.partOfSpeech ?? "")
             }
             .buttonStyle(.borderless)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -158,13 +158,12 @@ struct WordDetailsView: View {
 
     private var examplesSectionView: some View {
         CustomSectionView(header: "Examples") {
-            let examples = viewModel.selectedWord?.examples ?? []
+            let examples = viewModel.selectedWord?.examplesDecoded ?? []
             FormWithDivider {
                 ForEach(Array(examples.enumerated()), id: \.offset) { index, example in
                     Text(example)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(vertical: 12, horizontal: 16)
-                        .background(Color.surfaceColor)
+                        .clippedWithPaddingAndBackground()
                         .contextMenu {
                             Button {
                                 viewModel.handle(.play(example))

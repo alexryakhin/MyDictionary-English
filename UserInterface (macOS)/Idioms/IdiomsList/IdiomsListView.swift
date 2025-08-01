@@ -19,17 +19,17 @@ struct IdiomsListView: View {
         List {
             ForEach(filteredIdioms) { idiom in
                 Button {
-                    viewModel.handle(.selectIdiom(id: idiom.id))
+                    viewModel.handle(.selectIdiom(id: idiom.id?.uuidString ?? ""))
                     AnalyticsService.shared.logEvent(.idiomOpened)
                 } label: {
                     IdiomsListCellView(
                         idiom: idiom,
-                        isSelected: viewModel.selectedIdiomId == idiom.id
+                        isSelected: viewModel.selectedIdiomId == idiom.id?.uuidString
                     )
                 }
                 .buttonStyle(.borderless)
-                .id(idiom.id)
-                .listRowBackground(viewModel.selectedIdiomId == idiom.id ? Color.selectedContentBackgroundColor : Color.clear)
+                .id(idiom.id?.uuidString ?? "")
+                .listRowBackground(viewModel.selectedIdiomId == idiom.id?.uuidString ? Color.selectedContentBackgroundColor : Color.clear)
             }
             .onDelete {
                 viewModel.handle(.deleteIdiom(atOffsets: $0))
@@ -103,6 +103,18 @@ struct IdiomsListView: View {
         }
         .onChange(of: viewModel.filterState) { _ in
             AnalyticsService.shared.logEvent(.idiomsListFilterSelected)
+        }
+        .alert(isPresented: $viewModel.isShowingAlert) {
+            Alert(
+                title: Text(viewModel.alertModel.title),
+                message: Text(viewModel.alertModel.message ?? ""),
+                primaryButton: .default(Text(viewModel.alertModel.actionText ?? "OK")) {
+                    viewModel.alertModel.action?()
+                },
+                secondaryButton: viewModel.alertModel.destructiveActionText != nil ? .destructive(Text(viewModel.alertModel.destructiveActionText!)) {
+                    viewModel.alertModel.destructiveAction?()
+                } : .cancel()
+            )
         }
     }
 

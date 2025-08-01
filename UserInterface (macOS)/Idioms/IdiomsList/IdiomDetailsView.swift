@@ -40,10 +40,10 @@ struct IdiomDetailsView: View {
 
             Button {
                 viewModel.handle(.toggleFavorite)
-                AnalyticsService.shared.logEvent(.idiomFavoriteTapped)
             } label: {
                 Image(systemName: "\(viewModel.selectedIdiom?.isFavorite == true ? "heart.fill" : "heart")")
                     .foregroundColor(.accentColor)
+                    .animation(.easeInOut(duration: 0.2), value: viewModel.selectedIdiom?.isFavorite)
             }
         }
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
@@ -87,7 +87,7 @@ struct IdiomDetailsView: View {
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    viewModel.handle(.play(text: viewModel.selectedIdiom?.idiom))
+                    viewModel.handle(.play(text: viewModel.selectedIdiom?.idiomItself))
                     AnalyticsService.shared.logEvent(.idiomPlayed)
                 }
             }
@@ -128,14 +128,13 @@ struct IdiomDetailsView: View {
 
     @ViewBuilder
     private var examplesSectionView: some View {
-        let examples = viewModel.selectedIdiom?.examples ?? []
+        let examples = viewModel.selectedIdiom?.examplesDecoded ?? []
         CustomSectionView(header: "Examples") {
             FormWithDivider {
                 ForEach(Array(examples.enumerated()), id: \.offset) { index, example in
                     Text(example)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(vertical: 12, horizontal: 16)
-                        .background(Color.surfaceColor)
+                        .clippedWithPaddingAndBackground()
                         .contextMenu {
                             Button {
                                 viewModel.handle(.play(text: example))

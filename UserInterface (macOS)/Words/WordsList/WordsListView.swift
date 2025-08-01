@@ -11,7 +11,7 @@ struct WordsListView: View {
 
     @State private var isShowingAddView = false
 
-    private var wordsFiltered: [Word] {
+    private var wordsFiltered: [CDWord] {
         switch viewModel.filterState {
         case .none: viewModel.words
         case .favorite: viewModel.favoriteWords
@@ -36,17 +36,18 @@ struct WordsListView: View {
         List {
             ForEach(wordsFiltered) { word in
                 Button {
-                    viewModel.handle(.selectWord(wordID: word.id))
+                    guard let id = word.id?.uuidString else { return }
+                    viewModel.handle(.selectWord(wordID: id))
                     AnalyticsService.shared.logEvent(.wordOpened)
                 } label: {
                     WordsListCellView(
                         word: word,
-                        isSelected: viewModel.selectedWordId == word.id
+                        isSelected: viewModel.selectedWordId == word.id?.uuidString
                     )
                 }
                 .buttonStyle(.borderless)
                 .id(word.id)
-                .listRowBackground(viewModel.selectedWordId == word.id ? Color.selectedContentBackgroundColor : Color.clear)
+                .listRowBackground(viewModel.selectedWordId == word.id?.uuidString ? Color.selectedContentBackgroundColor : Color.clear)
             }
             .onDelete { offsets in
                 viewModel.handle(.deleteWord(atOffsets: offsets))
@@ -117,6 +118,18 @@ struct WordsListView: View {
         }
         .onChange(of: viewModel.filterState) { _ in
             AnalyticsService.shared.logEvent(.wordsListFilterSelected)
+        }
+        .alert(isPresented: $viewModel.isShowingAlert) {
+            Alert(
+                title: Text(viewModel.alertModel.title),
+                message: Text(viewModel.alertModel.message ?? ""),
+                primaryButton: .default(Text(viewModel.alertModel.actionText ?? "OK")) {
+                    viewModel.alertModel.action?()
+                },
+                secondaryButton: viewModel.alertModel.destructiveActionText != nil ? .destructive(Text(viewModel.alertModel.destructiveActionText!)) {
+                    viewModel.alertModel.destructiveAction?()
+                } : .cancel()
+            )
         }
     }
 }

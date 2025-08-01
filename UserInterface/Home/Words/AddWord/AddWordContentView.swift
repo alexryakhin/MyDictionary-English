@@ -4,10 +4,11 @@ struct AddWordContentView: View {
 
     typealias ViewModel = AddWordViewModel
 
-    @ObservedObject var viewModel: ViewModel
+    @Environment(\.dismiss) var dismiss
+    @StateObject var viewModel: ViewModel
 
-    init(viewModel: AddWordViewModel) {
-        self.viewModel = viewModel
+    init(inputWord: String = "") {
+        self._viewModel = StateObject(wrappedValue: AddWordViewModel(inputWord: inputWord))
     }
 
     var body: some View {
@@ -20,7 +21,7 @@ struct AddWordContentView: View {
                         partOfSpeechCellView
                         phoneticsCellView
                     }
-                    .clippedWithBackground(.surface)
+                    .clippedWithBackground()
 
                     definitionsSectionView
                 }
@@ -28,7 +29,7 @@ struct AddWordContentView: View {
                 .editModeDisabling()
             }
             .background {
-                Color.background.ignoresSafeArea()
+                Color(.systemGroupedBackground).ignoresSafeArea()
             }
             .navigationBarTitle("Add new word")
             .toolbar {
@@ -42,6 +43,9 @@ struct AddWordContentView: View {
                 }
             }
             .editModeDisabling()
+            .onReceive(viewModel.dismissPublisher) { _ in
+                dismiss()
+            }
         }
     }
 
@@ -111,20 +115,22 @@ struct AddWordContentView: View {
                     }
                 }
             case .error:
-                EmptyListView(
-                    description: "There is an error loading definitions. Please try again.",
-                    background: .clear,
-                    actions: {
-                        Button {
-                            viewModel.handle(.fetchData)
-                        } label: {
-                            Label("Retry", systemImage: "magnifyingglass")
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                ContentUnavailableView {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.largeTitle)
+                    Text("Error Loading Definitions")
+                } description: {
+                    Text("There is an error loading definitions. Please try again.")
+                } actions: {
+                    Button {
+                        viewModel.handle(.fetchData)
+                    } label: {
+                        Label("Retry", systemImage: "magnifyingglass")
                     }
-                )
-                .clippedWithPaddingAndBackground(.surface)
+                    .buttonStyle(.borderedProminent)
+                    .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                }
+                .clippedWithPaddingAndBackground()
             case .ready:
                 ForEach(Array(viewModel.definitions.enumerated()), id: \.element.id) { offset, definition in
                     FormWithDivider {
@@ -147,23 +153,23 @@ struct AddWordContentView: View {
                             }
                         }
                     }
-                    .clippedWithBackground(.surface)
+                    .clippedWithBackground()
                 }
             case .blank:
-                EmptyListView(
-                    description: "Type a word and press 'Search' to find its definitions",
-                    background: .clear,
-                    actions: {
-                        Button {
-                            viewModel.handle(.fetchData)
-                        } label: {
-                            Label("Search", systemImage: "magnifyingglass")
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                ContentUnavailableView {
+                    EmptyView()
+                } description: {
+                    Text("Type a word and press 'Search' to find its definitions")
+                } actions: {
+                    Button {
+                        viewModel.handle(.fetchData)
+                    } label: {
+                        Label("Search", systemImage: "magnifyingglass")
                     }
-                )
-                .clippedWithPaddingAndBackground(.surface)
+                    .buttonStyle(.borderedProminent)
+                    .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
+                }
+                .clippedWithPaddingAndBackground()
             }
         }
     }

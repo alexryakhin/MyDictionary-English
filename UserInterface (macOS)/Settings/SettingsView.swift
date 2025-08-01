@@ -38,6 +38,18 @@ struct SettingsView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.moreOpened)
         }
+        .alert(isPresented: $viewModel.isShowingAlert) {
+            Alert(
+                title: Text(viewModel.alertModel.title),
+                message: Text(viewModel.alertModel.message ?? ""),
+                primaryButton: .default(Text(viewModel.alertModel.actionText ?? "OK")) {
+                    viewModel.alertModel.action?()
+                },
+                secondaryButton: viewModel.alertModel.destructiveActionText != nil ? .destructive(Text(viewModel.alertModel.destructiveActionText!)) {
+                    viewModel.alertModel.destructiveAction?()
+                } : .cancel()
+            )
+        }
         .frame(width: 400, height: 500)
     }
 

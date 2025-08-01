@@ -2,28 +2,15 @@ import SwiftUI
 import Combine
 import CoreData
 
-protocol WordsProviderInterface {
-    var wordsPublisher: AnyPublisher<[Word], Never> { get }
-    var wordsErrorPublisher: PassthroughSubject<CoreError, Never> { get }
+final class WordsProvider: ObservableObject {
 
-    /// Fetches latest data from Core Data
-    func fetchWords()
-    /// Removes a given word from the Core Data
-    func delete(with id: String)
-}
-
-final class WordsProvider: WordsProviderInterface {
-
-    var wordsPublisher: AnyPublisher<[Word], Never> {
-        _wordsPublisher.eraseToAnyPublisher()
-    }
+    @Published var words: [CDWord] = []
     let wordsErrorPublisher = PassthroughSubject<CoreError, Never>()
 
-    private let _wordsPublisher = CurrentValueSubject<[Word], Never>([])
-    private let coreDataService: CoreDataServiceInterface
+    private let coreDataService: CoreDataService
     private var cancellables = Set<AnyCancellable>()
 
-    init(coreDataService: CoreDataServiceInterface) {
+    init(coreDataService: CoreDataService) {
         self.coreDataService = coreDataService
         setupBindings()
         fetchWords()
@@ -34,7 +21,7 @@ final class WordsProvider: WordsProviderInterface {
         let request = NSFetchRequest<CDWord>(entityName: "Word")
         do {
             let words = try coreDataService.context.fetch(request)
-            _wordsPublisher.send(words.compactMap(\.coreModel))
+            self.words = words
         } catch {
             wordsErrorPublisher.send(.storageError(.readFailed))
         }
@@ -49,6 +36,8 @@ final class WordsProvider: WordsProviderInterface {
             if let object = try coreDataService.context.fetch(fetchRequest).first {
                 coreDataService.context.delete(object)
                 try coreDataService.saveContext()
+                // Manually refresh the words list after deletion
+                fetchWords()
             } else {
                 throw CoreError.internalError(.removingWordFailed)
             }

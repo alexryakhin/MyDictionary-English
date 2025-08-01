@@ -13,60 +13,73 @@ struct IdiomsListContentView: View {
 
     @ObservedObject var viewModel: ViewModel
 
+    @State private var showingAddIdiom = false
+
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
 
     var body: some View {
-        ScrollView {
-            CustomSectionView(header: filterStateTitle, footer: idiomsCount) {
-                if filteredIdioms.isNotEmpty {
-                    ListWithDivider(filteredIdioms) { idiomModel in
-                        Button {
-                            viewModel.handle(.showIdiomDetails(idiom: idiomModel))
-                        } label: {
-                            IdiomListCellView(
-                                model: .init(
-                                    idiom: idiomModel.idiom,
-                                    isFavorite: idiomModel.isFavorite
+        Group {
+            if filteredIdioms.isNotEmpty {
+                ScrollView {
+                    CustomSectionView(header: filterStateTitle, footer: idiomsCount) {
+                        ListWithDivider(filteredIdioms) { idiomModel in
+                            NavigationLink {
+                                IdiomDetailsContentView(idiom: idiomModel)
+                            } label: {
+                                IdiomListCellView(
+                                    model: .init(
+                                        idiom: idiomModel.idiomItself ?? "",
+                                        isFavorite: idiomModel.isFavorite
+                                    )
                                 )
-                            )
-                            .padding(vertical: 12, horizontal: 16)
-                            .background(Color.surface)
-                            .contextMenu {
-                                Button(role: .destructive) {
-                                    viewModel.handle(.deleteIdiom(idiom: idiomModel))
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
+                                .clippedWithPaddingAndBackground()
+                                .contextMenu {
+                                    Button(role: .destructive) {
+                                        viewModel.handle(.deleteIdiom(idiom: idiomModel))
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
                                 }
                             }
                         }
+                        .clippedWithBackground()
                     }
-                    .clippedWithBackground(.surface)
-                }
 
-                if viewModel.filterState == .search && filteredIdioms.count < 10 {
-                    Button {
-                        addItem()
-                    } label: {
-                        Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .clippedWithPaddingAndBackground(.surface)
+                    if viewModel.filterState == .search && filteredIdioms.count < 10 {
+                        Button {
+                            showingAddIdiom.toggle()
+                        } label: {
+                            Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .clippedWithPaddingAndBackground()
+                        }
                     }
                 }
+                .padding(vertical: 12, horizontal: 16)
+                .animation(.default, value: viewModel.sortingState)
+            } else {
+                ContentUnavailableView(
+                    "No idioms yet",
+                    systemImage: "quote.bubble",
+                    description: Text("Begin to add idioms to your list by tapping on plus icon in upper left corner")
+                )
+                .background(Color(.systemGroupedBackground))
             }
-            .padding(vertical: 12, horizontal: 16)
         }
-        .animation(.default, value: viewModel.sortingState)
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.idioms)
-        .background(Color.background)
+        .background(Color(.systemGroupedBackground))
+        .navigationTitle("Idioms")
         .if(viewModel.idioms.isNotEmpty, transform: { view in
             view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
         })
         .toolbar {
             ToolbarItem {
-                Button(action: addItem) {
+                Button {
+                    showingAddIdiom = true
+                } label: {
                     Label("Add Item", systemImage: "plus")
                 }
             }
@@ -96,15 +109,25 @@ struct IdiomsListContentView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.idiomsListOpened)
         }
+        .sheet(isPresented: $showingAddIdiom) {
+            AddIdiomContentView(inputIdiom: viewModel.searchText)
+        }
+        .alert(isPresented: $viewModel.isShowingAlert) {
+            Alert(
+                title: Text(viewModel.alertModel.title),
+                message: Text(viewModel.alertModel.message ?? ""),
+                primaryButton: .default(Text(viewModel.alertModel.actionText ?? "OK")) {
+                    viewModel.alertModel.action?()
+                },
+                secondaryButton: viewModel.alertModel.destructiveActionText != nil ? .destructive(Text(viewModel.alertModel.destructiveActionText!)) {
+                    viewModel.alertModel.destructiveAction?()
+                } : .cancel()
+            )
+        }
+
     }
 
-
-
-    private func addItem() {
-        viewModel.handle(.showAddIdiom)
-    }
-
-    private var filteredIdioms: [Idiom] {
+    private var filteredIdioms: [CDIdiom] {
         switch viewModel.filterState {
         case .none:
             return viewModel.idioms

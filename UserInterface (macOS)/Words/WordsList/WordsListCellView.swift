@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct WordsListCellView: View {
-    var word: Word
+    var word: CDWord
     var isSelected: Bool
 
     var body: some View {
         HStack(spacing: 8) {
-            Text(word.word)
+            Text(word.wordItself ?? "")
                 .bold()
                 .foregroundColor(isSelected ? .white : .primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -22,7 +22,7 @@ struct WordsListCellView: View {
                     .font(.caption)
                     .foregroundColor(isSelected ? .white : .accentColor)
             }
-            Text(word.partOfSpeech.rawValue)
+            Text(word.partOfSpeech ?? "")
                 .foregroundColor(isSelected ? .white.opacity(0.8) : .secondary)
         }
         .padding(vertical: 4, horizontal: 8)

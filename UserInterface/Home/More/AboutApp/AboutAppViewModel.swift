@@ -7,12 +7,6 @@ final class AboutAppViewModel: BaseViewModel {
         // Input actions from the view
     }
 
-    enum Output {
-        // Output actions to pass to the view controller
-    }
-
-    var onOutput: ((Output) -> Void)?
-
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
 
     // MARK: - Private Properties
@@ -21,7 +15,7 @@ final class AboutAppViewModel: BaseViewModel {
 
     // MARK: - Initialization
 
-    init(arg: Int) {
+    override init() {
         super.init()
         setupBindings()
     }

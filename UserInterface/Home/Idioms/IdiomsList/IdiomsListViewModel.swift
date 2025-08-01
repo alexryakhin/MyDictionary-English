@@ -12,19 +12,10 @@ import Combine
 final class IdiomsListViewModel: BaseViewModel {
 
     enum Input {
-        case showAddIdiom
-        case showIdiomDetails(idiom: Idiom)
-        case deleteIdiom(idiom: Idiom)
+        case deleteIdiom(idiom: CDIdiom)
     }
 
-    enum Output {
-        case showAddIdiom(searchText: String)
-        case showIdiomDetails(idiom: Idiom)
-    }
-
-    var onOutput: ((Output) -> Void)?
-
-    @Published var idioms: [Idiom] = []
+    @Published var idioms: [CDIdiom] = []
     @Published var sortingState: SortingCase = .latest {
         didSet {
             sortIdioms()
@@ -39,36 +30,28 @@ final class IdiomsListViewModel: BaseViewModel {
     }
     @Published var searchText = ""
 
-    private let idiomsProvider: IdiomsProviderInterface
+    private let idiomsProvider: IdiomsProvider
     private var cancellables = Set<AnyCancellable>()
 
-    init(idiomsProvider: IdiomsProviderInterface) {
-        self.idiomsProvider = idiomsProvider
+    override init() {
+        self.idiomsProvider = ServiceManager.shared.idiomsProvider
         super.init()
         setupBindings()
     }
 
     func handle(_ input: Input) {
         switch input {
-        case .showAddIdiom:
-            onOutput?(.showAddIdiom(searchText: searchText))
-            AnalyticsService.shared.logEvent(.addIdiomTapped)
-        case .showIdiomDetails(let idiom):
-            onOutput?(.showIdiomDetails(idiom: idiom))
-            AnalyticsService.shared.logEvent(.idiomOpened)
         case .deleteIdiom(let idiom):
-            deleteIdiom(with: idiom.id)
+            deleteIdiom(with: idiom.id?.uuidString ?? "")
         }
     }
 
     private func setupBindings() {
-        idiomsProvider.idiomsPublisher
+        idiomsProvider.$idioms
             .receive(on: DispatchQueue.main)
             .sink { [weak self] idioms in
-                if idioms.isNotEmpty {
-                    self?.idioms = idioms
-                    self?.sortIdioms()
-                }
+                self?.idioms = idioms
+                self?.sortIdioms()
             }
             .store(in: &cancellables)
 
@@ -100,14 +83,14 @@ final class IdiomsListViewModel: BaseViewModel {
     }
 
     // MARK: Sorting
-    var favoriteIdioms: [Idiom] {
+    var favoriteIdioms: [CDIdiom] {
         idioms.filter { $0.isFavorite }
     }
 
-    var searchResults: [Idiom] {
+    var searchResults: [CDIdiom] {
         idioms.filter { model in
             guard !searchText.isEmpty else { return true }
-            return model.idiom.localizedStandardContains(searchText)
+            return model.idiomItself?.localizedStandardContains(searchText) ?? false
         }
     }
 
@@ -115,15 +98,15 @@ final class IdiomsListViewModel: BaseViewModel {
         switch sortingState {
         case .earliest:
             idioms.sort(by: { lhs, rhs in
-                lhs.timestamp < rhs.timestamp
+                (lhs.timestamp ?? Date()) < (rhs.timestamp ?? Date())
             })
         case .latest:
             idioms.sort(by: { lhs, rhs in
-                lhs.timestamp > rhs.timestamp
+                (lhs.timestamp ?? Date()) > (rhs.timestamp ?? Date())
             })
         case .alphabetically:
             idioms.sort(by: { lhs, rhs in
-                lhs.idiom < rhs.idiom
+                (lhs.idiomItself ?? "") < (rhs.idiomItself ?? "")
             })
         case .partOfSpeech:
             break

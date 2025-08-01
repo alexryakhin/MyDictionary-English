@@ -2,14 +2,13 @@ import SwiftUI
 
 struct AddIdiomContentView: View {
 
-    typealias ViewModel = AddIdiomViewModel
-
-    @ObservedObject var viewModel: ViewModel
+    @Environment(\.dismiss) var dismiss
+    @StateObject var viewModel: AddIdiomViewModel
     @FocusState private var isIdiomInputFocused: Bool
     @FocusState private var isDefinitionInputFocused: Bool
 
-    init(viewModel: AddIdiomViewModel) {
-        self.viewModel = viewModel
+    init(inputIdiom: String = "") {
+        self._viewModel = StateObject(wrappedValue: AddIdiomViewModel(inputIdiom: inputIdiom))
     }
 
     var body: some View {
@@ -21,7 +20,7 @@ struct AddIdiomContentView: View {
                 }
                 .padding(vertical: 12, horizontal: 16)
             }
-            .background(Color.background)
+            .background(Color(.systemGroupedBackground))
             .navigationBarTitle("Add new idiom")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -33,6 +32,9 @@ struct AddIdiomContentView: View {
                     }
                 }
             }
+            .onReceive(viewModel.dismissPublisher) { _ in
+                dismiss()
+            }
         }
     }
 
@@ -40,7 +42,7 @@ struct AddIdiomContentView: View {
         CustomSectionView(header: "Idiom") {
             TextField("Idiom", text: $viewModel.inputIdiom, axis: .vertical)
                 .focused($isIdiomInputFocused)
-                .clippedWithPaddingAndBackground(.surface)
+                .clippedWithPaddingAndBackground()
         } headerTrailingContent: {
             if isIdiomInputFocused {
                 SectionHeaderButton("Done") {
@@ -54,7 +56,7 @@ struct AddIdiomContentView: View {
         CustomSectionView(header: "Definition") {
             TextField("Definition", text: $viewModel.definitionField, axis: .vertical)
                 .focused($isDefinitionInputFocused)
-                .clippedWithPaddingAndBackground(.surface)
+                .clippedWithPaddingAndBackground()
         } headerTrailingContent: {
             if isDefinitionInputFocused {
                 SectionHeaderButton("Done") {

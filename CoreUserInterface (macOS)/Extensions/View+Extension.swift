@@ -83,26 +83,26 @@ extension Image {
 }
 
 extension View {
-    func clippedWithBackground(_ color: Color) -> some View {
+    func clippedWithBackground(_ color: Color = Color(.secondarySystemFill)) -> some View {
         self
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func clippedWithBackground(_ material: Material) -> some View {
+    func clippedWithBackgroundMaterial(_ material: Material = .regularMaterial) -> some View {
         self
             .background(material)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func clippedWithPaddingAndBackground(_ color: Color) -> some View {
+    func clippedWithPaddingAndBackground(_ color: Color = Color(.secondarySystemFill)) -> some View {
         self
             .padding(vertical: 12, horizontal: 16)
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func clippedWithPaddingAndBackground(_ material: Material) -> some View {
+    func clippedWithPaddingAndBackgroundMaterial(_ material: Material = .regularMaterial) -> some View {
         self
             .padding(vertical: 12, horizontal: 16)
             .background(material)

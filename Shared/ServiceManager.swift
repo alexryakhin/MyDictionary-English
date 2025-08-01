@@ -52,46 +52,38 @@ final class ServiceManager {
         return decoder
     }()
     
-    lazy var wordnikAPIService: WordnikAPIServiceInterface = {
+        lazy var wordnikAPIService: WordnikAPIService = {
         WordnikAPIService(decoder: jsonDecoder)
     }()
-    
-    lazy var ttsPlayer: TTSPlayerInterface = {
+
+    lazy var ttsPlayer: TTSPlayer = {
         TTSPlayer()
     }()
-    
-    lazy var coreDataService: CoreDataServiceInterface = {
-        CoreDataService()
+
+    lazy var coreDataService: CoreDataService = {
+        CoreDataService.shared
     }()
-    
-    lazy var csvManager: CSVManagerInterface = {
+
+    lazy var csvManager: CSVManager = {
         CSVManager(coreDataService: coreDataService)
     }()
     
-    lazy var wordsProvider: WordsProviderInterface = {
+    lazy var wordsProvider: WordsProvider = {
         WordsProvider(coreDataService: coreDataService)
     }()
     
-    lazy var idiomsProvider: IdiomsProviderInterface = {
+    lazy var idiomsProvider: IdiomsProvider = {
         IdiomsProvider(coreDataService: coreDataService)
     }()
     
     // MARK: - Factory Methods
-    
-    func createWordDetailsManager(wordId: String) -> WordDetailsManagerInterface {
-        WordDetailsManager(wordId: wordId, coreDataService: coreDataService)
-    }
-    
-    func createAddWordManager() -> AddWordManagerInterface {
+
+    func createAddWordManager() -> AddWordManager {
         AddWordManager(coreDataService: coreDataService)
     }
-    
-    func createAddIdiomManager() -> AddIdiomManagerInterface {
+
+    func createAddIdiomManager() -> AddIdiomManager {
         AddIdiomManager(coreDataService: coreDataService)
-    }
-    
-    func createIdiomDetailsManager(idiomId: String) -> IdiomDetailsManagerInterface {
-        IdiomDetailsManager(idiomId: idiomId, coreDataService: coreDataService)
     }
     
     private init() {}

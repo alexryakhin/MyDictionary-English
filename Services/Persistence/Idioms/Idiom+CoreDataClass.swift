@@ -32,15 +32,5 @@ final class CDIdiom: NSManagedObject, Identifiable {
         self.examples = newExamplesData
     }
 
-    var coreModel: Idiom? {
-        guard let idiomItself, let definition, let id, let timestamp else { return nil }
-        return Idiom(
-            idiom: idiomItself,
-            definition: definition,
-            id: id.uuidString,
-            timestamp: timestamp,
-            examples: examplesDecoded,
-            isFavorite: isFavorite
-        )
-    }
+    // coreModel property removed - using CDIdiom directly
 }

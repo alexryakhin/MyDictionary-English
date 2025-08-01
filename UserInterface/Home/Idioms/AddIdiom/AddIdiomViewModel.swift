@@ -6,12 +6,6 @@ final class AddIdiomViewModel: BaseViewModel {
         case save
     }
 
-    enum Output {
-        case finish
-    }
-
-    var onOutput: ((Output) -> Void)?
-
     @Published var inputIdiom = ""
     @Published var definitionField = ""
 
@@ -40,7 +34,7 @@ final class AddIdiomViewModel: BaseViewModel {
                 )
                 HapticManager.shared.triggerNotification(type: .success)
                 AnalyticsService.shared.logEvent(.idiomAdded)
-                onOutput?(.finish)
+                dismissPublisher.send()
             } catch {
                 errorReceived(error, displayType: .alert)
             }

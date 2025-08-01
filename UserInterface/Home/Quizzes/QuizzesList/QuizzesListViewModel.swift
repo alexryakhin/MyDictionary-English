@@ -8,39 +8,30 @@
 import Foundation
 import Combine
 
-class QuizzesListViewModel: BaseViewModel {
+final class QuizzesListViewModel: BaseViewModel {
 
     enum Input {
-        case showQuiz(Quiz)
+        // No navigation inputs needed
     }
 
-    enum Output {
-        case showQuiz(Quiz)
-    }
+    @Published var words: [CDWord] = []
 
-    var onOutput: ((Output) -> Void)?
-
-    @Published var words: [Word] = []
-
-    private let wordsProvider: WordsProviderInterface
+    private let wordsProvider: WordsProvider
     private var cancellables: Set<AnyCancellable> = []
 
-    init(wordsProvider: WordsProviderInterface) {
-        self.wordsProvider = wordsProvider
+    override init() {
+        self.wordsProvider = ServiceManager.shared.wordsProvider
         super.init()
         setupBindings()
     }
 
     func handle(_ input: Input) {
-        switch input {
-        case .showQuiz(let quiz):
-            onOutput?(.showQuiz(quiz))
-        }
+        // No navigation handling needed
     }
 
     /// Fetches latest data from Core Data
     private func setupBindings() {
-        wordsProvider.wordsPublisher
+        wordsProvider.$words
             .receive(on: DispatchQueue.main)
             .sink { [weak self] words in
                 self?.words = words

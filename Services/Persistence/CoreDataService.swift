@@ -8,14 +8,9 @@
 import CoreData
 import Combine
 
-protocol CoreDataServiceInterface {
-    var dataUpdatedPublisher: PassthroughSubject<Void, Never> { get }
-    var context: NSManagedObjectContext { get }
+final class CoreDataService {
 
-    func saveContext() throws(CoreError)
-}
-
-class CoreDataService: CoreDataServiceInterface {
+    static let shared = CoreDataService()
 
     let dataUpdatedPublisher = PassthroughSubject<Void, Never>()
 
@@ -41,7 +36,7 @@ class CoreDataService: CoreDataServiceInterface {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init() {
+    private init() {
         setupBindings()
     }
 

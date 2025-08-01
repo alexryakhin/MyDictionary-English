@@ -5,18 +5,11 @@ struct AboutAppContentView: View {
 
     @Environment(\.requestReview) var requestReview
 
-    typealias ViewModel = AboutAppViewModel
-
-    @ObservedObject var viewModel: ViewModel
-
-    init(viewModel: AboutAppViewModel) {
-        self.viewModel = viewModel
-    }
+    @StateObject var viewModel = AboutAppViewModel()
 
     var body: some View {
         List {
             // MARK: - About
-
             Section {
                 Text("I created this app because I could not find something that I wanted.\n\nIt is a simple word list manager that allows you to search for words and add their definitions along them without actually translating into a native language.\n\nI find this best to learn English. Hope it will work for you as well.\n\nIf you have any questions, or want to suggest a feature, please reach out to me on the links below. Thank you for using my app!")
                     .multilineTextAlignment(.leading)
@@ -74,6 +67,7 @@ struct AboutAppContentView: View {
             }
         }
         .listStyle(.insetGrouped)
+        .navigationTitle("About")
         .onAppear {
             AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
         }

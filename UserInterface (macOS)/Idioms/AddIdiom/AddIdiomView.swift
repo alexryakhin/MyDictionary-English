@@ -65,7 +65,7 @@ struct AddIdiomView: View {
             )
         }
         .frame(width: 350, height: 500)
-        .background(Color.backgroundColor)
+        .background(Color(.systemGroupedBackground)Color)
         .onReceive(viewModel.dismissPublisher) { _ in
             dismiss()
         }

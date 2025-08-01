@@ -9,14 +9,14 @@ import SwiftUI
 import Combine
 
 final class SpellingQuizViewModel: BaseViewModel {
-    @Published var words: [Word] = []
+    @Published var words: [CDWord] = []
 
-    @Published var randomWord: Word?
+    @Published var randomWord: CDWord?
     @Published var answerTextField = ""
     @Published var isCorrectAnswer = true
     @Published var attemptCount = 0
 
-    private let wordsProvider: WordsProviderInterface
+    private let wordsProvider: WordsProvider
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
@@ -30,7 +30,7 @@ final class SpellingQuizViewModel: BaseViewModel {
               let wordIndex = words.firstIndex(where: { $0.id == randomWord.id })
         else { return }
 
-        if answerTextField.lowercased().trimmed == randomWord.word.lowercased().trimmed {
+        if answerTextField.lowercased().trimmed == (randomWord.wordItself?.lowercased().trimmed ?? "") {
             isCorrectAnswer = true
             answerTextField = ""
             words.remove(at: wordIndex)
@@ -48,7 +48,7 @@ final class SpellingQuizViewModel: BaseViewModel {
 
     /// Fetches latest data from Core Data
     private func setupBindings() {
-        wordsProvider.wordsPublisher
+        wordsProvider.$words
             .first()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] words in

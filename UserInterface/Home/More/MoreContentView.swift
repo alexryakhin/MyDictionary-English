@@ -16,7 +16,6 @@ struct MoreContentView: View {
 
     var body: some View {
         List {
-
             // MARK: - Settings
 
             Section {
@@ -55,8 +54,8 @@ struct MoreContentView: View {
             // MARK: - About app
 
             Section {
-                Button {
-                    viewModel.handle(.showAboutApp)
+                NavigationLink {
+                    AboutAppContentView()
                 } label: {
                     Label("About app", systemImage: "info.square")
                 }
@@ -64,6 +63,7 @@ struct MoreContentView: View {
                 Text("About app")
             }
         }
+        .navigationTitle("More")
         .listStyle(.insetGrouped)
         .sheet(item: $viewModel.exportWordsUrl) { url in
             ShareSheet(activityItems: [url])

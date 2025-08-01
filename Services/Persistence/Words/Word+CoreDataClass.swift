@@ -31,22 +31,12 @@ final class CDWord: NSManagedObject, Identifiable {
         return decodedData
     }
 
+    var partOfSpeechDecoded: PartOfSpeech {
+        PartOfSpeech(rawValue: partOfSpeech ?? "") ?? .unknown
+    }
+
     func updateExamples(_ examples: [String]) throws {
         let newExamplesData = try JSONEncoder().encode(examples)
         self.examples = newExamplesData
-    }
-
-    var coreModel: Word? {
-        guard let wordItself, let definition, let partOfSpeech, let id, let timestamp else { return nil }
-        return Word(
-            word: wordItself,
-            definition: definition,
-            partOfSpeech: .init(rawValue: partOfSpeech) ?? .unknown,
-            phonetic: phonetic ?? .empty,
-            id: id.uuidString,
-            timestamp: timestamp,
-            examples: examplesDecoded,
-            isFavorite: isFavorite
-        )
     }
 }

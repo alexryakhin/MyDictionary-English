@@ -37,8 +37,8 @@ extension View {
     }
 
     func padding(
-        vertical: CGFloat = 0,
-        horizontal: CGFloat = 0
+        vertical: CGFloat,
+        horizontal: CGFloat
     ) -> some View {
         self
             .padding(.vertical, vertical)
@@ -105,26 +105,26 @@ extension UIApplication {
 }
 
 extension View {
-    func clippedWithBackground(_ color: Color) -> some View {
+    func clippedWithBackground(_ color: Color = Color(.secondarySystemGroupedBackground)) -> some View {
         self
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func clippedWithBackground(_ material: Material) -> some View {
+    func clippedWithBackgroundMaterial(_ material: Material = .regularMaterial) -> some View {
         self
             .background(material)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func clippedWithPaddingAndBackground(_ color: Color) -> some View {
+    func clippedWithPaddingAndBackground(_ color: Color = Color(.secondarySystemGroupedBackground)) -> some View {
         self
             .padding(vertical: 12, horizontal: 16)
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func clippedWithPaddingAndBackground(_ material: Material) -> some View {
+    func clippedWithPaddingAndBackgroundMaterial(_ material: Material = .regularMaterial) -> some View {
         self
             .padding(vertical: 12, horizontal: 16)
             .background(material)

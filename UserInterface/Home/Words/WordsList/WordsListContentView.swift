@@ -17,52 +17,64 @@ struct WordsListContentView: View {
     @Environment(\.requestReview) var requestReview
     @ObservedObject var viewModel: ViewModel
 
+    @State private var showingAddWord = false
+    @State private var selectedWord: CDWord?
+
     init(viewModel: ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
 
     var body: some View {
-        ScrollView {
-            CustomSectionView(header: filterStateTitle, footer: viewModel.wordsCount) {
-                if viewModel.wordsFiltered.isNotEmpty {
-                    ListWithDivider(viewModel.wordsFiltered) { wordModel in
-                        Button {
-                            viewModel.handle(.showWordDetails(word: wordModel))
-                        } label: {
-                            WordListCellView(
-                                model: .init(
-                                    word: wordModel.word,
-                                    isFavorite: wordModel.isFavorite,
-                                    partOfSpeech: wordModel.partOfSpeech.rawValue
+        Group {
+            if viewModel.wordsFiltered.isNotEmpty {
+                ScrollView {
+                    CustomSectionView(header: filterStateTitle, footer: viewModel.wordsCount) {
+                        ListWithDivider(viewModel.wordsFiltered) { wordModel in
+                            NavigationLink {
+                                WordDetailsContentView(word: wordModel)
+                            } label: {
+                                WordListCellView(
+                                    model: .init(
+                                        word: wordModel.wordItself ?? "",
+                                        isFavorite: wordModel.isFavorite,
+                                        partOfSpeech: wordModel.partOfSpeech ?? ""
+                                    )
                                 )
-                            )
-                            .padding(vertical: 12, horizontal: 16)
-                            .background(Color.surface)
-                            .contextMenu {
-                                Button(role: .destructive) {
-                                    viewModel.handle(.deleteWord(word: wordModel))
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
+                                .clippedWithPaddingAndBackground()
+                                .contextMenu {
+                                    Button(role: .destructive) {
+                                        viewModel.handle(.deleteWord(word: wordModel))
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
                                 }
                             }
                         }
+                        .clippedWithBackground()
                     }
-                    .clippedWithBackground(.surface)
-                }
+                    .padding(vertical: 12, horizontal: 16)
 
-                if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
-                    Button {
-                        addItem()
-                    } label: {
-                        Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .clippedWithPaddingAndBackground(.surface)
+                    if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
+                        Button {
+                            showingAddWord.toggle()
+                        } label: {
+                            Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .clippedWithPaddingAndBackground()
+                        }
                     }
                 }
+                .background(Color(.systemGroupedBackground).ignoresSafeArea())
+            } else {
+                ContentUnavailableView(
+                    "No words yet",
+                    systemImage: "textformat",
+                    description: Text("Begin to add words to your list by tapping on plus icon in upper left corner")
+                )
+                .background(Color(.systemGroupedBackground))
             }
-            .padding(vertical: 12, horizontal: 16)
         }
-        .background(Color.background)
+        .navigationTitle("Words")
         .if(viewModel.words.isNotEmpty, transform: { view in
             view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
         })
@@ -70,7 +82,7 @@ struct WordsListContentView: View {
             ToolbarItem {
                 Button {
                     AnalyticsService.shared.logEvent(.addWordTapped)
-                    addItem()
+                    showingAddWord = true
                 } label: {
                     Label("Add Item", systemImage: "plus")
                 }
@@ -104,14 +116,22 @@ struct WordsListContentView: View {
         } content: {
             OnboardingView()
         }
-    }
-
-    private func addItem() {
-        if isShowingRating && viewModel.words.count > 15 {
-            requestReview()
-            isShowingRating = false
+        .sheet(isPresented: $showingAddWord) {
+            AddWordContentView(inputWord: viewModel.searchText)
         }
-        viewModel.handle(.showAddWord)
+        .alert(isPresented: $viewModel.isShowingAlert) {
+            Alert(
+                title: Text(viewModel.alertModel.title),
+                message: Text(viewModel.alertModel.message ?? ""),
+                primaryButton: .default(Text(viewModel.alertModel.actionText ?? "OK")) {
+                    viewModel.alertModel.action?()
+                },
+                secondaryButton: viewModel.alertModel.destructiveActionText != nil ? .destructive(Text(viewModel.alertModel.destructiveActionText!)) {
+                    viewModel.alertModel.destructiveAction?()
+                } : .cancel()
+            )
+        }
+
     }
 
     private var filterStateTitle: LocalizedStringKey {

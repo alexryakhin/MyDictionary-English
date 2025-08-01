@@ -15,6 +15,7 @@ enum ErrorDisplayType {
     case none
 }
 
+@MainActor
 open class BaseViewModel: ObservableObject {
     
     @Published var isShowingAlert: Bool = false

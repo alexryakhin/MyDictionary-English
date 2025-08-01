@@ -2,29 +2,15 @@ import SwiftUI
 import Combine
 import CoreData
 
-protocol IdiomsProviderInterface {
-    var idiomsPublisher: AnyPublisher<[Idiom], Never> { get }
-    var idiomsErrorPublisher: PassthroughSubject<CoreError, Never> { get }
+final class IdiomsProvider: ObservableObject {
 
-    /// Fetches latest data from Core Data
-    func fetchIdioms()
-    /// Removes a given idiom from the Core Data
-    func delete(with id: String)
-}
-
-final class IdiomsProvider: IdiomsProviderInterface {
-
-    var idiomsPublisher: AnyPublisher<[Idiom], Never> {
-        _idiomsPublisher.eraseToAnyPublisher()
-    }
-
+    @Published var idioms: [CDIdiom] = []
     let idiomsErrorPublisher = PassthroughSubject<CoreError, Never>()
 
-    private let _idiomsPublisher = CurrentValueSubject<[Idiom], Never>([])
-    private let coreDataService: CoreDataServiceInterface
+    private let coreDataService: CoreDataService
     private var cancellables = Set<AnyCancellable>()
 
-    init(coreDataService: CoreDataServiceInterface) {
+    init(coreDataService: CoreDataService) {
         self.coreDataService = coreDataService
         setupBindings()
         fetchIdioms()
@@ -35,7 +21,7 @@ final class IdiomsProvider: IdiomsProviderInterface {
         let request = NSFetchRequest<CDIdiom>(entityName: "Idiom")
         do {
             let idioms = try coreDataService.context.fetch(request)
-            _idiomsPublisher.send(idioms.compactMap(\.coreModel))
+            self.idioms = idioms
         } catch {
             idiomsErrorPublisher.send(.storageError(.readFailed))
         }
@@ -50,6 +36,8 @@ final class IdiomsProvider: IdiomsProviderInterface {
             if let object = try coreDataService.context.fetch(fetchRequest).first {
                 coreDataService.context.delete(object)
                 try coreDataService.saveContext()
+                // Manually refresh the idioms list after deletion
+                fetchIdioms()
             } else {
                 throw CoreError.internalError(.removingIdiomFailed)
             }
