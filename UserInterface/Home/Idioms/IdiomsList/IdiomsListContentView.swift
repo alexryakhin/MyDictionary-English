@@ -20,57 +20,49 @@ struct IdiomsListContentView: View {
     }
 
     var body: some View {
-        Group {
+        List(selection: $viewModel.selectedIdiom) {
             if filteredIdioms.isNotEmpty {
-                ScrollView {
-                    CustomSectionView(header: filterStateTitle, footer: idiomsCount) {
-                        ListWithDivider(filteredIdioms) { idiomModel in
-                            NavigationLink {
-                                IdiomDetailsContentView(idiom: idiomModel)
-                            } label: {
-                                IdiomListCellView(
-                                    model: .init(
-                                        idiom: idiomModel.idiomItself ?? "",
-                                        isFavorite: idiomModel.isFavorite
-                                    )
-                                )
-                                .clippedWithPaddingAndBackground()
-                                .contextMenu {
-                                    Button(role: .destructive) {
-                                        viewModel.handle(.deleteIdiom(idiom: idiomModel))
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
+                Section {
+                    ForEach(filteredIdioms) { idiomModel in
+                        IdiomListCellView(idiom: idiomModel)
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                    viewModel.handle(.deleteIdiom(idiom: idiomModel))
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
                                 }
                             }
-                        }
-                        .clippedWithBackground()
+                            .tag(idiomModel)
                     }
-
-                    if viewModel.filterState == .search && filteredIdioms.count < 10 {
-                        Button {
-                            showingAddIdiom.toggle()
-                        } label: {
-                            Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .clippedWithPaddingAndBackground()
-                        }
-                    }
+                } header: {
+                    Text(filterStateTitle)
+                } footer: {
+                    Text(idiomsCount)
                 }
-                .padding(vertical: 12, horizontal: 16)
-                .animation(.default, value: viewModel.sortingState)
-            } else {
+            }
+
+            if viewModel.filterState == .search && filteredIdioms.count < 10 {
+                Button {
+                    showingAddIdiom.toggle()
+                } label: {
+                    Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .clippedWithPaddingAndBackground()
+                }
+            }
+        }
+        .animation(.default, value: viewModel.sortingState)
+        .overlay {
+            if !filteredIdioms.isNotEmpty {
                 ContentUnavailableView(
                     "No idioms yet",
                     systemImage: "quote.bubble",
                     description: Text("Begin to add idioms to your list by tapping on plus icon in upper left corner")
                 )
-                .background(Color(.systemGroupedBackground))
             }
         }
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.idioms)
-        .background(Color(.systemGroupedBackground))
         .navigationTitle("Idioms")
         .if(viewModel.idioms.isNotEmpty, transform: { view in
             view.searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
@@ -124,7 +116,6 @@ struct IdiomsListContentView: View {
                 } : .cancel()
             )
         }
-
     }
 
     private var filteredIdioms: [CDIdiom] {
@@ -138,7 +129,7 @@ struct IdiomsListContentView: View {
         }
     }
 
-    private var filterStateTitle: LocalizedStringKey {
+    private var filterStateTitle: String {
         switch viewModel.filterState {
         case .none:
             return "All idioms"
@@ -149,10 +140,7 @@ struct IdiomsListContentView: View {
         }
     }
 
-    private var idiomsCount: LocalizedStringKey? {
-        guard filteredIdioms.isNotEmpty else {
-            return nil
-        }
+    private var idiomsCount: String {
         if filteredIdioms.count == 1 {
             return "1 idiom"
         } else {

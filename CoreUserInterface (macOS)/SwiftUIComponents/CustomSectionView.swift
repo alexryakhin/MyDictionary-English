@@ -9,14 +9,14 @@ import SwiftUI
 
 struct CustomSectionView<Content: View, HeaderTrainingContent: View>: View {
 
-    private var header: LocalizedStringKey
-    private var footer: LocalizedStringKey?
+    private var header: String
+    private var footer: String?
     private var content: () -> Content
     private var headerTrailingContent: () -> HeaderTrainingContent
 
     init(
-        header: LocalizedStringKey,
-        footer: LocalizedStringKey? = nil,
+        header: String,
+        footer: String? = nil,
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder headerTrailingContent: @escaping () -> HeaderTrainingContent = { EmptyView() }
     ) {

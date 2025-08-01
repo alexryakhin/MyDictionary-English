@@ -11,13 +11,13 @@ struct CustomTextField: View {
 
     @FocusState private var isFocused: Bool
 
-    private let placeholder: LocalizedStringKey
+    private let placeholder: String
     private let text: Binding<String>
     private let submitLabel: SubmitLabel
     private let onCommit: () -> Void
 
     init(
-        _ placeholder: LocalizedStringKey,
+        _ placeholder: String,
         text: Binding<String>,
         submitLabel: SubmitLabel = .done,
         onCommit: @escaping () -> Void = {}

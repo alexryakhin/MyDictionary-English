@@ -46,9 +46,21 @@ struct MainTabView: View {
             }
             .tag(TabBarItem.words)
 
-            NavigationView {
+            NavigationSplitView(columnVisibility: .constant(.all)) {
                 IdiomsListContentView(viewModel: idiomsViewModel)
+            } detail: {
+                if let selectedIdiom = idiomsViewModel.selectedIdiom {
+                    IdiomDetailsContentView(idiom: selectedIdiom)
+                        .id(idiomsViewModel.selectedIdiom?.id)
+                } else {
+                    ContentUnavailableView(
+                        "No Idiom Selected",
+                        systemImage: "quote.bubble",
+                        description: Text("Select an idiom from the list to view its details")
+                    )
+                }
             }
+            .navigationSplitViewStyle(.balanced)
             .tabItem {
                 Label(
                     TabBarItem.idioms.title,
@@ -60,6 +72,7 @@ struct MainTabView: View {
             NavigationView {
                 QuizzesListContentView(viewModel: quizzesViewModel)
             }
+            .navigationSplitViewStyle(.balanced)
             .tabItem {
                 Label(
                     TabBarItem.quizzes.title,

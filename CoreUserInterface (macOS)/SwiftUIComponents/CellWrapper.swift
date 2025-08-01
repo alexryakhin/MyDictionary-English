@@ -10,14 +10,14 @@ import SwiftUI
 struct CellWrapper<LeadingContent: View, MainContent: View, TrailingContent: View>: View {
     @Environment(\.isEnabled) var isEnabled: Bool
 
-    private let label: LocalizedStringKey?
+    private let label: String?
     private let leadingContent: () -> LeadingContent
     private let mainContent: () -> MainContent
     private let trailingContent: () -> TrailingContent
     private let onTapAction: (() -> Void)?
 
     init(
-        _ label: LocalizedStringKey? = nil,
+        _ label: String? = nil,
         @ViewBuilder leadingContent: @escaping () -> LeadingContent = { EmptyView() },
         @ViewBuilder mainContent: @escaping () -> MainContent,
         @ViewBuilder trailingContent: @escaping () -> TrailingContent = { EmptyView() },

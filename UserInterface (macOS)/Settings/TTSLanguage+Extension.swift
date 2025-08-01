@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension TTSLanguage {
-    var title: LocalizedStringKey {
+    var title: String {
         switch self {
         case .en:
             return "British"

@@ -8,45 +8,51 @@ struct ChooseDefinitionQuizContentView: View {
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        if viewModel.words.isNotEmpty {
-            if !viewModel.isQuizComplete {
-                VStack(spacing: 0) {
-                    // Header with progress
-                    headerView
+        ZStack {
+            Color(.systemGroupedBackground)
+                .ignoresSafeArea()
 
-                    ScrollView {
-                        VStack(spacing: 24) {
-                            // Word Card
-                            wordCard
+            if viewModel.words.isNotEmpty {
+                if !viewModel.isQuizComplete {
+                    VStack(spacing: 0) {
+                        // Header with progress
+                        headerView
 
-                            // Options Section
-                            optionsSection
+                        ScrollView {
+                            VStack(spacing: 16) {
+                                // Word Card
+                                wordCard
 
-                            // Action Buttons
-                            actionButtons
+                                // Options Section
+                                optionsSection
+
+                                // Action Buttons
+                                actionButtons
+                            }
+                            .padding(16)
                         }
-                        .padding(24)
                     }
+                    .navigationTitle("Definition Quiz")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .onAppear {
+                        AnalyticsService.shared.logEvent(.definitionQuizOpened)
+                    }
+                } else {
+                    // Completion View
+                    completionView
+                        .if(isPad) { view in
+                            view.frame(maxWidth: 500, alignment: .center)
+                        }
                 }
-                .background(Color(.systemGroupedBackground))
-                .navigationTitle("Definition Quiz")
-                .navigationBarTitleDisplayMode(.inline)
-                .onAppear {
-                    AnalyticsService.shared.logEvent(.definitionQuizOpened)
-                }
-            } else {
-                // Completion View
-                completionView
             }
         }
     }
 
     private var headerView: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 6) {
             // Progress Bar
             ProgressView(value: Double(viewModel.correctAnswers), total: Double(viewModel.totalQuestions))
                 .progressViewStyle(.linear)
-                .tint(.green)
                 .padding(.horizontal, 24)
             
             HStack {
@@ -78,8 +84,11 @@ struct ChooseDefinitionQuizContentView: View {
             }
             .padding(.horizontal, 24)
         }
-        .padding(.vertical, 16)
-        .background(.ultraThinMaterial)
+        .background(Color(.systemGroupedBackground))
+        .padding(.bottom, 6)
+        .overlay(alignment: .bottom) {
+            Divider()
+        }
     }
 
     private var wordCard: some View {
@@ -116,8 +125,7 @@ struct ChooseDefinitionQuizContentView: View {
             }
         }
         .padding(20)
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
@@ -155,39 +163,35 @@ struct ChooseDefinitionQuizContentView: View {
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
-                        .padding(16)
-                        .background(Color(.systemBackground))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .clippedWithPaddingAndBackground(backgroundColor(for: index))
                         .overlay(
                             RoundedRectangle(cornerRadius: 12)
-                                .stroke(Color(.systemGray4), lineWidth: 1)
+                                .stroke(borderColor(for: index), lineWidth: 2)
                         )
                     }
                     .buttonStyle(.plain)
-                    .disabled(viewModel.selectedAnswerIndex != nil)
+                    .disabled(viewModel.answerFeedback != .none)
                 }
             }
             
-            if !viewModel.isCorrectAnswer && viewModel.selectedAnswerIndex != nil {
+            if case .incorrect = viewModel.answerFeedback {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundColor(.orange)
+                        .foregroundColor(.red)
                     
-                    Text("Incorrect. Try Again")
+                    Text("Incorrect! Moving to next question...")
                         .font(.caption)
-                        .foregroundColor(.orange)
+                        .foregroundColor(.red)
                     
                     Spacer()
                 }
-                .padding(.horizontal, 12)
-                .padding(.vertical, 8)
-                .background(.orange.opacity(0.1))
+                .padding(vertical: 8, horizontal: 12)
+                .background(.red.opacity(0.1))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             }
         }
         .padding(20)
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground(Color(.secondarySystemGroupedBackground))
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
@@ -198,17 +202,11 @@ struct ChooseDefinitionQuizContentView: View {
                     viewModel.handle(.skipWord)
                 }
             } label: {
-                HStack {
-                    Image(systemName: "arrow.right.circle")
-                    Text("Skip Word (-25 points)")
-                        .fontWeight(.medium)
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(.ultraThinMaterial)
-                .foregroundColor(.primary)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+                Label("Skip Word (-25 points)", systemImage: "arrow.right.circle")
+                    .padding(8)
             }
+            .foregroundStyle(.secondary)
+            .buttonStyle(.bordered)
         }
     }
 
@@ -281,8 +279,7 @@ struct ChooseDefinitionQuizContentView: View {
                     .font(.body)
                 }
                 .padding(24)
-                .background(Color(.systemBackground))
-                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .clippedWithBackground()
                 .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
             }
             .padding(.horizontal, 32)
@@ -317,5 +314,27 @@ struct ChooseDefinitionQuizContentView: View {
             Spacer()
         }
         .background(Color(.systemGroupedBackground))
+    }
+
+    private func backgroundColor(for index: Int) -> Color {
+        switch viewModel.answerFeedback {
+        case .none:
+            return Color(.tertiarySystemGroupedBackground)
+        case .correct(let correctIndex):
+            return index == correctIndex ? Color.green.opacity(0.2) : Color(.tertiarySystemGroupedBackground)
+        case .incorrect(let incorrectIndex):
+            return index == incorrectIndex ? Color.red.opacity(0.2) : Color(.tertiarySystemGroupedBackground)
+        }
+    }
+
+    private func borderColor(for index: Int) -> Color {
+        switch viewModel.answerFeedback {
+        case .none:
+            return Color(.clear)
+        case .correct(let correctIndex):
+            return index == correctIndex ? Color.green : Color(.clear)
+        case .incorrect(let incorrectIndex):
+            return index == incorrectIndex ? Color.red : Color(.clear)
+        }
     }
 }

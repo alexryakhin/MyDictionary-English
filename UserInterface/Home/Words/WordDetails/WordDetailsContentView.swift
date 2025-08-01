@@ -93,6 +93,7 @@ struct WordDetailsContentView: View {
             if isPhoneticsFocused {
                 SectionHeaderButton("Done") {
                     isPhoneticsFocused = false
+                    saveContext()
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
@@ -132,6 +133,7 @@ struct WordDetailsContentView: View {
                 SectionHeaderButton("Done") {
                     isDefinitionFocused = false
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
+                    saveContext()
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {

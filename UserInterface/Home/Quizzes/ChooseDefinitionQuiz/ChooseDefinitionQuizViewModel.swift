@@ -1,6 +1,12 @@
 import Foundation
 import Combine
 
+enum AnswerFeedback: Equatable {
+    case none
+    case correct(Int)
+    case incorrect(Int)
+}
+
 final class ChooseDefinitionQuizViewModel: BaseViewModel {
 
     enum Input {
@@ -14,6 +20,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     @Published private(set) var correctAnswerIndex: Int
     @Published private(set) var isCorrectAnswer = true
     @Published private(set) var selectedAnswerIndex: Int?
+    @Published private(set) var answerFeedback: AnswerFeedback = .none
 
     var correctWord: CDWord {
         words[correctAnswerIndex]
@@ -35,6 +42,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     private var cancellables: Set<AnyCancellable> = []
     private var originalWords: [CDWord] = []
     private var usedWords: Set<CDWord> = []
+    private var feedbackTimer: Timer?
 
     init(wordsProvider: WordsProvider) {
         self.wordsProvider = wordsProvider
@@ -61,6 +69,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         
         if correctWord.id == words[index].id {
             // Correct answer
+            answerFeedback = .correct(index)
             isCorrectAnswer = true
             correctAnswers += 1
             currentStreak += 1
@@ -72,20 +81,21 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             // Update score
             score += 100
             
-            // Check if quiz is complete
-            if usedWords.count >= originalWords.count {
-                isQuizComplete = true
-            } else {
-                // Get next question
-                getNextQuestion()
-            }
+            // Move to next question after delay
+            scheduleNextQuestion()
             
             HapticManager.shared.triggerNotification(type: .success)
             AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected)
         } else {
-            // Incorrect answer
+            // Incorrect answer - automatic penalty and progression
+            answerFeedback = .incorrect(index)
             isCorrectAnswer = false
             currentStreak = 0 // Reset streak on wrong answer
+            score = max(0, score - 25) // Penalty
+            questionsAnswered += 1
+            
+            // Move to next question after delay
+            scheduleNextQuestion()
             
             HapticManager.shared.triggerNotification(type: .error)
             AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected)
@@ -131,12 +141,17 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     }
     
     private func restartQuiz() {
+        // Clear any pending timer
+        feedbackTimer?.invalidate()
+        feedbackTimer = nil
+        
         // Reset all game state
         originalWords = originalWords.shuffled()
         words = Array(originalWords.prefix(3))
         correctAnswerIndex = Int.random(in: 0...2)
         selectedAnswerIndex = nil
         isCorrectAnswer = true
+        answerFeedback = .none
         correctAnswers = 0
         totalQuestions = originalWords.count
         score = 0
@@ -162,5 +177,32 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
                 self?.totalQuestions = words.count
             }
             .store(in: &cancellables)
+    }
+
+    private func scheduleNextQuestion() {
+        // Clear any existing timer
+        feedbackTimer?.invalidate()
+        
+        // Schedule next question after 1.5 seconds
+        feedbackTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.moveToNextQuestion()
+            }
+        }
+    }
+    
+    private func moveToNextQuestion() {
+        // Reset feedback
+        answerFeedback = .none
+        selectedAnswerIndex = nil
+        isCorrectAnswer = true
+        
+        // Check if quiz is complete
+        if usedWords.count >= originalWords.count {
+            isQuizComplete = true
+        } else {
+            // Get next question
+            getNextQuestion()
+        }
     }
 }

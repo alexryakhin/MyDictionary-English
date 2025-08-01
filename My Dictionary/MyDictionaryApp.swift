@@ -16,6 +16,8 @@ struct MyDictionaryApp: App {
     @StateObject private var quizzesViewModel = QuizzesListViewModel()
     @StateObject private var moreViewModel = MoreViewModel()
 
+    @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
+
     init() {
         FirebaseApp.configure()
         AnalyticsService.shared.logEvent(.appOpened)
@@ -30,6 +32,11 @@ struct MyDictionaryApp: App {
                 moreViewModel: moreViewModel
             )
             .fontDesign(.rounded)
+            .sheet(isPresented: $isShowingOnboarding) {
+                isShowingOnboarding = false
+            } content: {
+                OnboardingView()
+            }
         }
     }
 } 

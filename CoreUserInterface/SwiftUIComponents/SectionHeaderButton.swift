@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SectionHeaderButton: View {
 
-    private let titleKey: LocalizedStringKey
+    private let titleKey: String
     private let systemImage: String
     private let action: () -> Void
 
     init(
-        _ titleKey: LocalizedStringKey,
+        _ titleKey: String,
         systemImage: String = .empty,
         action: @escaping () -> Void
     ) {

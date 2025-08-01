@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ListButton: View {
-    private let titleKey: LocalizedStringKey
+    private let titleKey: String
     private let systemImageName: String
     private let foregroundColor: Color
     private let action: VoidHandler
 
     init(
-        _ titleKey: LocalizedStringKey,
+        _ titleKey: String,
         systemImage name: String,
         foregroundColor: Color = .accentColor,
         action: @escaping VoidHandler

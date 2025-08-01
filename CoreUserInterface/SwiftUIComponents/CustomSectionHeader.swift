@@ -9,9 +9,9 @@ import SwiftUI
 
 struct CustomSectionHeader: View {
 
-    private let text: LocalizedStringKey
+    private let text: String
 
-    init(text: LocalizedStringKey) {
+    init(text: String) {
         self.text = text
     }
 

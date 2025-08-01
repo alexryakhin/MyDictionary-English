@@ -93,6 +93,7 @@ struct IdiomDetailsContentView: View {
             if isIdiomInputFocused {
                 SectionHeaderButton("Done") {
                     isIdiomInputFocused = false
+                    saveContext()
                     AnalyticsService.shared.logEvent(.idiomChanged)
                 }
             } else {
@@ -115,6 +116,7 @@ struct IdiomDetailsContentView: View {
             if isDefinitionFocused {
                 SectionHeaderButton("Done") {
                     isDefinitionFocused = false
+                    saveContext()
                     AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
             } else {

@@ -13,7 +13,6 @@ struct WordsListContentView: View {
     typealias ViewModel = WordsListViewModel
 
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
-    @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
     @Environment(\.requestReview) var requestReview
     @ObservedObject var viewModel: ViewModel
 
@@ -25,22 +24,24 @@ struct WordsListContentView: View {
 
     var body: some View {
         List(selection: $viewModel.selectedWord) {
-            Section {
-                ForEach(viewModel.wordsFiltered) { wordModel in
-                    WordListCellView(word: wordModel)
-                        .contextMenu {
-                            Button(role: .destructive) {
-                                viewModel.handle(.deleteWord(word: wordModel))
-                            } label: {
-                                Label("Delete", systemImage: "trash")
+            if viewModel.wordsFiltered.isNotEmpty {
+                Section {
+                    ForEach(viewModel.wordsFiltered) { wordModel in
+                        WordListCellView(word: wordModel)
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                    viewModel.handle(.deleteWord(word: wordModel))
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
                             }
-                        }
-                        .tag(wordModel)
+                            .tag(wordModel)
+                    }
+                } header: {
+                    Text(filterStateTitle)
+                } footer: {
+                    Text(viewModel.wordsCount)
                 }
-            } header: {
-                Text(filterStateTitle)
-            } footer: {
-                Text(viewModel.wordsCount)
             }
 
             if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
@@ -97,11 +98,6 @@ struct WordsListContentView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.wordsListOpened)
         }
-        .sheet(isPresented: $isShowingOnboarding) {
-            isShowingOnboarding = false
-        } content: {
-            OnboardingView()
-        }
         .sheet(isPresented: $showingAddWord) {
             AddWordContentView(inputWord: viewModel.searchText)
         }
@@ -117,10 +113,9 @@ struct WordsListContentView: View {
                 } : .cancel()
             )
         }
-
     }
 
-    private var filterStateTitle: LocalizedStringKey {
+    private var filterStateTitle: String {
         switch viewModel.filterState {
         case .none:
             return "All words"

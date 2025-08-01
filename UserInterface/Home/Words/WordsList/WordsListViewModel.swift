@@ -57,7 +57,7 @@ final class WordsListViewModel: BaseViewModel {
         }
     }
 
-    var wordsCount: LocalizedStringKey {
+    var wordsCount: String {
         if wordsFiltered.count == 1 {
             return "1 word"
         } else {

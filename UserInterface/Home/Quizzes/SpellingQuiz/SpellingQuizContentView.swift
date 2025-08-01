@@ -40,11 +40,10 @@ struct SpellingQuizContentView: View {
     }
 
     private var headerView: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 6) {
             // Progress Bar
             ProgressView(value: Double(viewModel.correctAnswers), total: Double(viewModel.totalQuestions))
                 .progressViewStyle(.linear)
-                .tint(.blue)
                 .padding(.horizontal, 24)
             
             HStack {
@@ -76,8 +75,11 @@ struct SpellingQuizContentView: View {
             }
             .padding(.horizontal, 24)
         }
-        .padding(.vertical, 16)
-        .background(.ultraThinMaterial)
+        .background(Color(.systemGroupedBackground))
+        .padding(.bottom, 6)
+        .overlay(alignment: .bottom) {
+            Divider()
+        }
     }
 
     private var definitionCard: some View {
@@ -132,7 +134,7 @@ struct SpellingQuizContentView: View {
             }
         }
         .padding(20)
-        .background(Color(.systemBackground))
+        .background(Color(.secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
@@ -158,8 +160,9 @@ struct SpellingQuizContentView: View {
             }
             
             TextField("Type the word here...", text: $viewModel.answerTextField, axis: .vertical)
-                .textFieldStyle(.roundedBorder)
-                .font(.body)
+                .padding(vertical: 8, horizontal: 12)
+                .background(Color(.tertiarySystemGroupedBackground))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
                 .onSubmit {
                     withAnimation(.easeInOut(duration: 0.3)) {
                         viewModel.handle(.confirmAnswer)
@@ -184,7 +187,7 @@ struct SpellingQuizContentView: View {
             }
         }
         .padding(20)
-        .background(Color(.systemBackground))
+        .background(Color(.secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
@@ -196,17 +199,12 @@ struct SpellingQuizContentView: View {
                     viewModel.handle(.confirmAnswer)
                 }
             } label: {
-                HStack {
-                    Image(systemName: "checkmark.circle.fill")
-                    Text("Submit Answer")
-                        .fontWeight(.semibold)
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(viewModel.answerTextField.isEmpty ? .gray.opacity(0.3) : .blue)
-                .foregroundColor(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+                Label("Submit Answer", systemImage: "checkmark.circle.fill")
+                    .fontWeight(.semibold)
+                    .frame(maxWidth: .infinity)
+                    .padding(8)
             }
+            .buttonStyle(.borderedProminent)
             .disabled(viewModel.answerTextField.isEmpty)
             
             Button {
@@ -214,22 +212,17 @@ struct SpellingQuizContentView: View {
                     viewModel.handle(.skipWord)
                 }
             } label: {
-                HStack {
-                    Image(systemName: "arrow.right.circle")
-                    Text("Skip Word (-25 points)")
-                        .fontWeight(.medium)
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(.ultraThinMaterial)
-                .foregroundColor(.primary)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+                Label("Skip Word (-25 points)", systemImage: "arrow.right.circle")
+                    .frame(maxWidth: .infinity)
+                    .padding(8)
             }
+            .foregroundStyle(.secondary)
+            .buttonStyle(.bordered)
         }
     }
 
     private var completionView: some View {
-        VStack(spacing: 32) {
+        VStack(spacing: 0) {
             Spacer()
             
             VStack(spacing: 24) {
@@ -297,41 +290,38 @@ struct SpellingQuizContentView: View {
                     .font(.body)
                 }
                 .padding(24)
-                .background(Color(.systemBackground))
+                .background(Color(.secondarySystemGroupedBackground))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
             }
             .padding(.horizontal, 32)
-            
+
+            Spacer()
+
             VStack(spacing: 12) {
                 Button {
                     viewModel.handle(.restartQuiz)
                 } label: {
                     Label("Try Again", systemImage: "arrow.clockwise")
-                        .font(.headline)
                         .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.blue.gradient)
-                        .foregroundColor(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .font(.headline)
+                        .padding(8)
                 }
-                
+                .buttonStyle(.borderedProminent)
+
                 Button {
                     dismiss()
                 } label: {
                     Label("Back to Quizzes", systemImage: "chevron.left")
-                        .font(.body)
                         .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.ultraThinMaterial)
-                        .foregroundColor(.primary)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .padding(8)
                 }
+                .foregroundStyle(.secondary)
+                .buttonStyle(.bordered)
             }
             .padding(.horizontal, 32)
-            
-            Spacer()
         }
+        .padding(.vertical, 16)
         .background(Color(.systemGroupedBackground))
     }
 

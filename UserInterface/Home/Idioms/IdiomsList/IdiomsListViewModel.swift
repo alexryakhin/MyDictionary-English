@@ -16,6 +16,7 @@ final class IdiomsListViewModel: BaseViewModel {
     }
 
     @Published var idioms: [CDIdiom] = []
+    @Published var selectedIdiom: CDIdiom?
     @Published var sortingState: SortingCase = .latest {
         didSet {
             sortIdioms()

@@ -67,6 +67,7 @@ final class SpellingQuizViewModel: BaseViewModel {
             currentStreak += 1
             bestStreak = max(bestStreak, currentStreak)
             wordsPlayed.append(randomWord)
+            isShowingHint = false // Reset hint for next question
             
             // Update score (bonus for fewer attempts)
             let attemptBonus = max(0, 3 - attemptCount) * 10

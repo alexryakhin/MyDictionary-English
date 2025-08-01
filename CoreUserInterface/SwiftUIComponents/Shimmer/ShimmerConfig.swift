@@ -14,8 +14,8 @@ struct ShimmerConfig {
     init(
         lineHeight: CGFloat = 20,
         lineSpacing: CGFloat = 4,
-        baseColor: Color = UIColor.secondarySystemFill.swiftUIColor,
-        highlightColor: Color = UIColor.tertiarySystemFill.swiftUIColor,
+        baseColor: Color = Color(.secondarySystemFill),
+        highlightColor: Color = Color(.tertiarySystemFill),
         cornerRadius: CGFloat = 16,
         animationDuration: TimeInterval = 1,
         highlightMaxWidth: CGFloat = 200,
@@ -36,8 +36,8 @@ struct ShimmerConfig {
     static func custom(
         lineHeight: CGFloat = 20,
         lineSpacing: CGFloat = 4,
-        baseColor: Color = UIColor.secondarySystemFill.swiftUIColor,
-        highlightColor: Color = UIColor.tertiarySystemFill.swiftUIColor,
+        baseColor: Color = Color(.secondarySystemFill),
+        highlightColor: Color = Color(.tertiarySystemFill),
         cornerRadius: CGFloat = 16,
         animationDuration: TimeInterval = 1,
         highlightMaxWidth: CGFloat = 200,
