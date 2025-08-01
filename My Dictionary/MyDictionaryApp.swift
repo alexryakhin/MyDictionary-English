@@ -29,6 +29,7 @@ struct MyDictionaryApp: App {
                 quizzesViewModel: quizzesViewModel,
                 moreViewModel: moreViewModel
             )
+            .fontDesign(.rounded)
         }
     }
 } 

@@ -18,60 +18,46 @@ struct WordsListContentView: View {
     @ObservedObject var viewModel: ViewModel
 
     @State private var showingAddWord = false
-    @State private var selectedWord: CDWord?
 
     init(viewModel: ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
 
     var body: some View {
-        Group {
-            if viewModel.wordsFiltered.isNotEmpty {
-                ScrollView {
-                    CustomSectionView(header: filterStateTitle, footer: viewModel.wordsCount) {
-                        ListWithDivider(viewModel.wordsFiltered) { wordModel in
-                            NavigationLink {
-                                WordDetailsContentView(word: wordModel)
+        List(selection: $viewModel.selectedWord) {
+            Section {
+                ForEach(viewModel.wordsFiltered) { wordModel in
+                    WordListCellView(word: wordModel)
+                        .contextMenu {
+                            Button(role: .destructive) {
+                                viewModel.handle(.deleteWord(word: wordModel))
                             } label: {
-                                WordListCellView(
-                                    model: .init(
-                                        word: wordModel.wordItself ?? "",
-                                        isFavorite: wordModel.isFavorite,
-                                        partOfSpeech: wordModel.partOfSpeech ?? ""
-                                    )
-                                )
-                                .clippedWithPaddingAndBackground()
-                                .contextMenu {
-                                    Button(role: .destructive) {
-                                        viewModel.handle(.deleteWord(word: wordModel))
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
+                                Label("Delete", systemImage: "trash")
                             }
                         }
-                        .clippedWithBackground()
-                    }
-                    .padding(vertical: 12, horizontal: 16)
-
-                    if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
-                        Button {
-                            showingAddWord.toggle()
-                        } label: {
-                            Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .clippedWithPaddingAndBackground()
-                        }
-                    }
+                        .tag(wordModel)
                 }
-                .background(Color(.systemGroupedBackground).ignoresSafeArea())
-            } else {
+            } header: {
+                Text(filterStateTitle)
+            } footer: {
+                Text(viewModel.wordsCount)
+            }
+
+            if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
+                Button {
+                    showingAddWord.toggle()
+                } label: {
+                    Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
+                }
+            }
+        }
+        .overlay {
+            if !viewModel.wordsFiltered.isNotEmpty {
                 ContentUnavailableView(
                     "No words yet",
                     systemImage: "textformat",
                     description: Text("Begin to add words to your list by tapping on plus icon in upper left corner")
                 )
-                .background(Color(.systemGroupedBackground))
             }
         }
         .navigationTitle("Words")

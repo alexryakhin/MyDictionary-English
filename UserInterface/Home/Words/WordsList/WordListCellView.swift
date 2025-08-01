@@ -7,28 +7,26 @@
 
 import SwiftUI
 
-struct WordListCellView: ConfigurableView {
+struct WordListCellView: View {
 
-    struct Model {
-        let word: String
-        let isFavorite: Bool
-        let partOfSpeech: String
+    @StateObject var word: CDWord
+
+    init(word: CDWord) {
+        self._word = StateObject(wrappedValue: word)
     }
-
-    var model: Model
 
     var body: some View {
         HStack(spacing: 8) {
-            Text(model.word)
+            Text(word.wordItself ?? "")
                 .bold()
                 .foregroundColor(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            if model.isFavorite {
+            if word.isFavorite {
                 Image(systemName: "heart.fill")
                     .font(.caption)
                     .foregroundColor(.accentColor)
             }
-            Text(model.partOfSpeech)
+            Text(word.partOfSpeechDecoded.rawValue)
                 .foregroundColor(.secondary)
 
             Image(systemName: "chevron.right")

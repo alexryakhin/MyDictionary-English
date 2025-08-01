@@ -15,7 +15,7 @@ final class WordsListViewModel: BaseViewModel {
     }
 
     @Published var searchText = ""
-
+    @Published var selectedWord: CDWord?
     @Published private(set) var words: [CDWord] = []
     @Published var sortingState: SortingCase = .latest {
         didSet {
@@ -91,6 +91,13 @@ final class WordsListViewModel: BaseViewModel {
         $searchText
             .sink { [weak self] value in
                 self?.filterState = value.isEmpty ? .none : .search
+            }
+            .store(in: &cancellables)
+
+        $selectedWord
+            .compactMap { $0 }
+            .sink { _ in
+                AnalyticsService.shared.logEvent(.wordOpened)
             }
             .store(in: &cancellables)
     }

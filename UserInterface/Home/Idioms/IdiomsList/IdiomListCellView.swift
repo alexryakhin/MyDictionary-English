@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IdiomListCellView: ConfigurableView {
+struct IdiomListCellView: View {
     var model: Model
 
     var body: some View {
