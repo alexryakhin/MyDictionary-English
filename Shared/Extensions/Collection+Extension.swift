@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension Collection {
+extension Collection {
 
     var isNotEmpty: Bool { !isEmpty }
 
@@ -24,7 +24,7 @@ public extension Collection {
     }
 }
 
-public extension Collection where Element: Equatable {
+extension Collection where Element: Equatable {
 
     var removedDuplicates: [Element] {
        var uniqueElements: [Element] = []
@@ -35,7 +35,7 @@ public extension Collection where Element: Equatable {
     }
 }
 
-public extension Sequence {
+extension Sequence {
     @inlinable func `if`(_ condition: Bool, transform: (Self) -> Self) -> Self {
         if condition {
             transform(self)
@@ -45,7 +45,7 @@ public extension Sequence {
     }
 }
 
-public extension Collection {
+extension Collection {
     func removingDuplicates<T: Hashable>(by keyPath: KeyPath<Element, T>) -> [Element] {
         var seen: Set<T> = []
         var result: [Element] = []

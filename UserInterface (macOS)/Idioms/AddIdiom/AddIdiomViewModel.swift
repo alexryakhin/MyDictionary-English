@@ -7,11 +7,8 @@
 
 import Combine
 import SwiftUI
-import Services
-import CoreUserInterface__macOS_
-import Shared
 
-final class AddIdiomViewModel: DefaultPageViewModel {
+final class AddIdiomViewModel: BaseViewModel {
     @Published var inputText: String = ""
     @Published var inputDefinition: String = ""
 
@@ -21,14 +18,14 @@ final class AddIdiomViewModel: DefaultPageViewModel {
         inputText: String
     ) {
         self.inputText = inputText
-        self.idiomsManager = DIContainer.shared.resolver.resolve(AddIdiomManagerInterface.self)!
+        self.idiomsManager = ServiceManager.shared.createAddIdiomManager()
     }
 
     func addIdiom() {
         do {
             try idiomsManager.addNewIdiom(inputText, definition: inputDefinition)
             AnalyticsService.shared.logEvent(.idiomAdded)
-            dismiss()
+            dismissPublisher.send()
         } catch {
             errorReceived(error, displayType: .alert)
         }

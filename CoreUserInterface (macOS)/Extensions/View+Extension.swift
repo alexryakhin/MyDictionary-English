@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public extension View {
+extension View {
     @ViewBuilder func hidden(_ shouldHide: Bool) -> some View {
         switch shouldHide {
         case true: self.hidden()
@@ -73,7 +73,7 @@ public extension View {
     }
 }
 
-public extension Image {
+extension Image {
     func frame(sideLength: CGFloat) -> some View {
         self
             .resizable()
@@ -82,7 +82,7 @@ public extension Image {
     }
 }
 
-public extension View {
+extension View {
     func clippedWithBackground(_ color: Color) -> some View {
         self
             .background(color)

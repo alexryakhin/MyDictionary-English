@@ -1,13 +1,10 @@
 import SwiftUI
-import CoreUserInterface
-import Core
-import Services
 
-public struct WordDetailsContentView: PageView {
+struct WordDetailsContentView: View {
 
-    public typealias ViewModel = WordDetailsViewModel
+    typealias ViewModel = WordDetailsViewModel
 
-    @ObservedObject public var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
     @FocusState private var isAddExampleFocused: Bool
@@ -15,11 +12,11 @@ public struct WordDetailsContentView: PageView {
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
 
-    public init(viewModel: WordDetailsViewModel) {
+    init(viewModel: WordDetailsViewModel) {
         self.viewModel = viewModel
     }
 
-    public var contentView: some View {
+    var body: some View {
         ScrollView {
             LazyVStack(spacing: 24) {
                 transcriptionSectionView

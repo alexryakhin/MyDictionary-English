@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
+struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
 
     private let content: () -> Content
     private let navigationBar: () -> NavigationBar
@@ -17,7 +17,7 @@ public struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: Vi
         min(max(-scrollOffset / 20, 0), 1)
     }
 
-    public init(
+    init(
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder navigationBar: @escaping () -> NavigationBar
     ) {
@@ -25,7 +25,7 @@ public struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: Vi
         self.navigationBar = navigationBar
     }
 
-    public var body: some View {
+    var body: some View {
         ScrollView {
             content()
                 .background(GeometryReader { geometry in

@@ -1,11 +1,7 @@
 import SwiftUI
 import Combine
-import Core
-import Services
-import CoreUserInterface__macOS_
-import Shared
 
-final class QuizzesViewModel: DefaultPageViewModel {
+final class QuizzesViewModel: BaseViewModel {
 
     enum Input {
         case selectQuiz(Quiz)
@@ -19,7 +15,7 @@ final class QuizzesViewModel: DefaultPageViewModel {
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
-        self.wordsProvider = DIContainer.shared.resolver.resolve(WordsProviderInterface.self)!
+        self.wordsProvider = ServiceManager.shared.wordsProvider
         super.init()
         setupBindings()
     }
@@ -41,16 +37,7 @@ final class QuizzesViewModel: DefaultPageViewModel {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] words in
                 self?.words = words
-                if words.count < 10 {
-                    self?.additionalState = .placeholder(
-                        .init(
-                            title: "Not enough words",
-                            subtitle: "Add at least 10 words to play!"
-                        )
-                    )
-                } else {
-                    self?.resetAdditionalState()
-                }
+                // Words loaded successfully
             }
             .store(in: &cancellables)
     }

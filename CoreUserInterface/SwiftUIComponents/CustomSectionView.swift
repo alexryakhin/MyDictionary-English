@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-public struct CustomSectionView<Content: View, HeaderTrainingContent: View>: View {
+struct CustomSectionView<Content: View, HeaderTrainingContent: View>: View {
 
     private var header: LocalizedStringKey
     private var footer: LocalizedStringKey?
     private var content: () -> Content
     private var headerTrailingContent: () -> HeaderTrainingContent
 
-    public init(
+    init(
         header: LocalizedStringKey,
         footer: LocalizedStringKey? = nil,
         @ViewBuilder content: @escaping () -> Content,
@@ -26,7 +26,7 @@ public struct CustomSectionView<Content: View, HeaderTrainingContent: View>: Vie
         self.headerTrailingContent = headerTrailingContent
     }
 
-    public var body: some View {
+    var body: some View {
         VStack(spacing: 8) {
             Section {
                 content()

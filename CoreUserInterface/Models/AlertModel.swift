@@ -6,17 +6,16 @@
 //
 
 import SwiftUI
-import Shared
 
-public struct AlertModel {
-    public let title: String
-    public let message: String?
-    public let actionText: String?
-    public let destructiveActionText: String?
-    public let action: VoidHandler?
-    public let destructiveAction: VoidHandler?
+struct AlertModel {
+    let title: String
+    let message: String?
+    let actionText: String?
+    let destructiveActionText: String?
+    let action: VoidHandler?
+    let destructiveAction: VoidHandler?
 
-    public init(
+    init(
         title: String,
         message: String? = nil,
         actionText: String? = nil,

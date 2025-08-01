@@ -5,13 +5,10 @@
 //  Created by Aleksandr Riakhin on 3/8/25.
 //
 
-import Core
-import CoreUserInterface
-import Services
 import Combine
 import SwiftUI
 
-public class WordsListViewModel: DefaultPageViewModel {
+class WordsListViewModel: BaseViewModel {
 
     enum Input {
         case showAddWord
@@ -77,10 +74,9 @@ public class WordsListViewModel: DefaultPageViewModel {
         }
     }
 
-    public init(wordsProvider: WordsProviderInterface) {
-        self.wordsProvider = wordsProvider
+    override init() {
+        self.wordsProvider = ServiceManager.shared.wordsProvider
         super.init()
-        loadingStarted()
         setupBindings()
     }
 
@@ -102,9 +98,6 @@ public class WordsListViewModel: DefaultPageViewModel {
                 if words.isNotEmpty {
                     self?.words = words
                     self?.sortWords()
-                    self?.resetAdditionalState()
-                } else {
-                    self?.additionalState = .placeholder()
                 }
             }
             .store(in: &cancellables)

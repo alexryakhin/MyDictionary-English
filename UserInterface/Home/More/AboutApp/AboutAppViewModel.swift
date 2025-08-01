@@ -1,11 +1,7 @@
-import Core
-import CoreUserInterface
-import Services
-import Shared
 import Combine
 import SwiftUI
 
-public final class AboutAppViewModel: DefaultPageViewModel {
+final class AboutAppViewModel: BaseViewModel {
 
     enum Input {
         // Input actions from the view
@@ -25,7 +21,7 @@ public final class AboutAppViewModel: DefaultPageViewModel {
 
     // MARK: - Initialization
 
-    public init(arg: Int) {
+    init(arg: Int) {
         super.init()
         setupBindings()
     }

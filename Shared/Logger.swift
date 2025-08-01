@@ -7,17 +7,17 @@
 
 import Foundation
 
-public func logInfo(_ messages: String...) {
+func logInfo(_ messages: String...) {
     let concatenatedMessage = messages.joined(separator: " ")
     print("🔹 \(concatenatedMessage)")
 }
 
-public func logWarning(_ messages: String...) {
+func logWarning(_ messages: String...) {
     let concatenatedMessage = messages.joined(separator: " ")
     print("⚠️ \(concatenatedMessage)")
 }
 
-public func logError(_ messages: String...) {
+func logError(_ messages: String...) {
     let concatenatedMessage = messages.joined(separator: " ")
     print("❌ \(concatenatedMessage)")
 }

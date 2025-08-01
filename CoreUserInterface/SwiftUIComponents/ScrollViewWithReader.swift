@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-public struct ScrollViewWithReader<Content: View>: View {
+struct ScrollViewWithReader<Content: View>: View {
     @Binding private var scrollOffset: CGFloat
     private let axis: Axis.Set
     private let showsIndicators: Bool
     private let content: () -> Content
 
-    public init(
+    init(
         scrollOffset: Binding<CGFloat>,
         axis: Axis.Set = .vertical,
         showsIndicators: Bool = true,
@@ -25,7 +25,7 @@ public struct ScrollViewWithReader<Content: View>: View {
         self.content = content
     }
     
-    public var body: some View {
+    var body: some View {
         ScrollView(axis, showsIndicators: showsIndicators) {
             content()
                 .background(GeometryReader { geometry in

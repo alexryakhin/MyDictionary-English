@@ -7,8 +7,8 @@
 
 import Foundation
 
-public enum UDKeys {
-    public static let isShowingRating = "isShowingRating"
-    public static let isShowingOnboarding = "isShowingOnboarding"
-    public static let selectedTTSLanguage = "selectedTTSLanguage"
+enum UDKeys {
+    static let isShowingRating = "isShowingRating"
+    static let isShowingOnboarding = "isShowingOnboarding"
+    static let selectedTTSLanguage = "selectedTTSLanguage"
 }

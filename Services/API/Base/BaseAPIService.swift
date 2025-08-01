@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Core
 
-public protocol APIServiceInterface {
+protocol APIServiceInterface {
     var baseURL: String { get }
     var apiKey: String { get }
 
@@ -22,7 +21,7 @@ open class BaseAPIService: APIServiceInterface {
 
     private let decoder: JSONDecoder
 
-    public init(decoder: JSONDecoder) {
+    init(decoder: JSONDecoder) {
         self.decoder = decoder
     }
 
@@ -41,7 +40,7 @@ open class BaseAPIService: APIServiceInterface {
     }
 
     /// Generic method to fetch and decode data from any API
-    public func fetchData<T: Decodable, P: APIPath>(from path: P, customParams: [CustomQueryParameter]) async throws -> T {
+    func fetchData<T: Decodable, P: APIPath>(from path: P, customParams: [CustomQueryParameter]) async throws -> T {
         let url = try buildURL(for: path, customParams: customParams)
         let (data, _) = try await URLSession.shared.data(from: url)
         #if DEBUG

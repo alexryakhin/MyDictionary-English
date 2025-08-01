@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Shared
 
-public enum AnalyticsEvent: String {
+enum AnalyticsEvent: String {
     case appOpened
     case wordsListOpened
     case idiomsListOpened

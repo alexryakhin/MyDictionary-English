@@ -6,7 +6,7 @@
 //
 import UIKit
 
-public extension UIApplication {
+extension UIApplication {
 
     class var currentWindow: UIWindow? {
         return UIApplication
@@ -21,14 +21,14 @@ public extension UIApplication {
     }
 }
 
-public extension UIWindow {
+extension UIWindow {
 
     static let safeAreaInsets: UIEdgeInsets = UIApplication.currentWindow?.safeAreaInsets ?? .zero
     static let safeAreaBottomInset: CGFloat = safeAreaInsets.bottom
     static let safeAreaTopInset: CGFloat = safeAreaInsets.top
 }
 
-public extension UIScreen {
+extension UIScreen {
 
     static var size: CGSize {
         return UIScreen.main.bounds.size

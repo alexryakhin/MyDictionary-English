@@ -1,12 +1,8 @@
 import SwiftUI
 import Combine
 import StoreKit
-import Core
-import Services
-import CoreUserInterface__macOS_
-import Shared
 
-final class SettingsViewModel: DefaultPageViewModel {
+final class SettingsViewModel: BaseViewModel {
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
     @AppStorage(UDKeys.selectedTTSLanguage) var selectedTTSLanguage: TTSLanguage = .enUS
 
@@ -21,8 +17,8 @@ final class SettingsViewModel: DefaultPageViewModel {
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
-        self.wordsProvider = DIContainer.shared.resolver.resolve(WordsProviderInterface.self)!
-        self.csvManager = DIContainer.shared.resolver.resolve(CSVManagerInterface.self)!
+        self.wordsProvider = ServiceManager.shared.wordsProvider
+        self.csvManager = ServiceManager.shared.csvManager
         super.init()
         setupBindings()
     }

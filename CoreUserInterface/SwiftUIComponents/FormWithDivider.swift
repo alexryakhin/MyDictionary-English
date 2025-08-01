@@ -8,12 +8,12 @@
 import SwiftUI
 
 /// A custom view that mimics a Form and adds dividers between each element.
-public struct FormWithDivider<Content: View>: View {
+struct FormWithDivider<Content: View>: View {
 
     private let content: Content
     private let dividerLeadingPadding: CGFloat
 
-    public init(
+    init(
         dividerLeadingPadding: CGFloat = 16,
         @ViewBuilder content: () -> Content
     ) {
@@ -21,7 +21,7 @@ public struct FormWithDivider<Content: View>: View {
         self.dividerLeadingPadding = dividerLeadingPadding
     }
 
-    public var body: some View {
+    var body: some View {
         _VariadicView.Tree(FormWithDividerLayout(dividerLeadingPadding: dividerLeadingPadding)) {
             content
         }

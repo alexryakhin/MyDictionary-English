@@ -1,11 +1,7 @@
 import SwiftUI
 import Combine
-import Core
-import Services
-import CoreUserInterface__macOS_
-import Shared
 
-final class IdiomsViewModel: DefaultPageViewModel {
+final class IdiomsViewModel: BaseViewModel {
 
     enum Input {
         // List
@@ -38,7 +34,7 @@ final class IdiomsViewModel: DefaultPageViewModel {
     @Published private(set) var selectedIdiomId: String? {
         didSet {
             if let selectedIdiomId {
-                idiomDetailsManager = DIContainer.shared.resolver.resolve(IdiomDetailsManagerInterface.self, argument: selectedIdiomId)!
+                idiomDetailsManager = ServiceManager.shared.createIdiomDetailsManager(idiomId: selectedIdiomId)
             } else {
                 idiomDetailsManager = nil
             }
@@ -65,8 +61,8 @@ final class IdiomsViewModel: DefaultPageViewModel {
     private var idiomDetailsSubscription: AnyCancellable?
 
     override init() {
-        self.idiomsProvider = DIContainer.shared.resolver.resolve(IdiomsProviderInterface.self)!
-        self.ttsPlayer = DIContainer.shared.resolver.resolve(TTSPlayerInterface.self)!
+        self.idiomsProvider = ServiceManager.shared.idiomsProvider
+        self.ttsPlayer = ServiceManager.shared.ttsPlayer
         super.init()
         setupBindings()
     }

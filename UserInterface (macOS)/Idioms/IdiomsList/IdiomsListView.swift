@@ -1,10 +1,6 @@
 import SwiftUI
-import Core
-import CoreUserInterface__macOS_
-import Shared
-import Services
 
-struct IdiomsListView: PageView {
+struct IdiomsListView: View {
 
     typealias ViewModel = IdiomsViewModel
 
@@ -19,7 +15,7 @@ struct IdiomsListView: PageView {
         self._viewModel = viewModel
     }
 
-    var contentView: some View {
+    var body: some View {
         List {
             ForEach(filteredIdioms) { idiom in
                 Button {

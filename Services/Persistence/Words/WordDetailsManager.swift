@@ -1,9 +1,8 @@
 import SwiftUI
 import Combine
 import CoreData
-import Core
 
-public protocol WordDetailsManagerInterface {
+protocol WordDetailsManagerInterface {
 
     var wordPublisher: AnyPublisher<Word?, Never> { get }
     var errorPublisher: PassthroughSubject<CoreError, Never> { get }
@@ -13,12 +12,12 @@ public protocol WordDetailsManagerInterface {
     func deleteWord()
 }
 
-public final class WordDetailsManager: WordDetailsManagerInterface {
+final class WordDetailsManager: WordDetailsManagerInterface {
 
-    public var wordPublisher: AnyPublisher<Word?, Never> {
+    var wordPublisher: AnyPublisher<Word?, Never> {
         _wordPublisher.eraseToAnyPublisher()
     }
-    public let errorPublisher = PassthroughSubject<CoreError, Never>()
+    let errorPublisher = PassthroughSubject<CoreError, Never>()
 
     private let coreDataService: CoreDataServiceInterface
 
@@ -26,7 +25,7 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
     private var cdWord: CDWord?
     private var cancellables: Set<AnyCancellable> = []
 
-    public init(
+    init(
         wordId: String,
         coreDataService: CoreDataServiceInterface
     ) {
@@ -34,12 +33,12 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
         fetchWord(with: wordId)
     }
 
-    public func toggleFavorite() {
+    func toggleFavorite() {
         cdWord?.isFavorite.toggle()
         saveContext()
     }
 
-    public func updateWord(_ word: Word) {
+    func updateWord(_ word: Word) {
         cdWord?.isFavorite = word.isFavorite
         cdWord?.phonetic = word.phonetic
         cdWord?.partOfSpeech = word.partOfSpeech.rawValue
@@ -52,7 +51,7 @@ public final class WordDetailsManager: WordDetailsManagerInterface {
         saveContext()
     }
 
-    public func deleteWord() {
+    func deleteWord() {
         guard let cdWord else { return }
         coreDataService.context.delete(cdWord)
         AnalyticsService.shared.logEvent(.wordRemoved)

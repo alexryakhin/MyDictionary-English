@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension Numeric {
+extension Numeric {
     @inlinable func `if`(_ condition: Bool, transform: (Self) -> Self) -> Self {
         if condition {
             transform(self)

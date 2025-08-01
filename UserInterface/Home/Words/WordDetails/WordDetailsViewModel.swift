@@ -1,10 +1,7 @@
-import Core
-import CoreUserInterface
-import Services
-import Shared
+import Foundation
 import Combine
 
-public final class WordDetailsViewModel: DefaultPageViewModel {
+final class WordDetailsViewModel: BaseViewModel {
 
     enum Input {
         case play(String?)
@@ -33,14 +30,10 @@ public final class WordDetailsViewModel: DefaultPageViewModel {
 
     // MARK: - Initialization
 
-    public init(
-        word: Word,
-        wordDetailsManager: WordDetailsManagerInterface,
-        ttsPlayer: TTSPlayerInterface
-    ) {
+    init(word: Word) {
         self.word = word
-        self.wordDetailsManager = wordDetailsManager
-        self.ttsPlayer = ttsPlayer
+        self.wordDetailsManager = ServiceManager.shared.createWordDetailsManager(wordId: word.id)
+        self.ttsPlayer = ServiceManager.shared.ttsPlayer
         super.init()
         setupBindings()
     }

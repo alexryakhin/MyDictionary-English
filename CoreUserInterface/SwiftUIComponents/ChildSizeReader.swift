@@ -1,10 +1,10 @@
 import SwiftUI
 
-public struct ChildSizeReader<Content: View>: View {
+struct ChildSizeReader<Content: View>: View {
     @Binding private var size: CGSize
     private let content: () -> Content
 
-    public init(
+    init(
         size: Binding<CGSize>,
         content: @escaping () -> Content
     ) {
@@ -12,7 +12,7 @@ public struct ChildSizeReader<Content: View>: View {
         self.content = content
     }
 
-    public var body: some View {
+    var body: some View {
         ZStack {
             content()
                 .background(

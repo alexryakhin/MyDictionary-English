@@ -1,10 +1,7 @@
-import Core
-import CoreUserInterface
-import Services
-import Shared
+import Foundation
 import Combine
 
-public final class IdiomDetailsViewModel: DefaultPageViewModel {
+final class IdiomDetailsViewModel: BaseViewModel {
 
     enum Input {
         case play(String?)
@@ -31,14 +28,10 @@ public final class IdiomDetailsViewModel: DefaultPageViewModel {
 
     // MARK: - Initialization
 
-    public init(
-        idiom: Idiom,
-        idiomDetailsManager: IdiomDetailsManagerInterface,
-        ttsPlayer: TTSPlayerInterface
-    ) {
+    init(idiom: Idiom) {
         self.idiom = idiom
-        self.idiomDetailsManager = idiomDetailsManager
-        self.ttsPlayer = ttsPlayer
+        self.idiomDetailsManager = ServiceManager.shared.createIdiomDetailsManager(idiomId: idiom.id)
+        self.ttsPlayer = ServiceManager.shared.ttsPlayer
         super.init()
         setupBindings()
     }

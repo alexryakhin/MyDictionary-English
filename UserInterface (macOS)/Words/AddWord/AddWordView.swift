@@ -1,10 +1,6 @@
 import SwiftUI
-import Core
-import Shared
-import CoreUserInterface__macOS_
-import Services
 
-struct AddWordView: PageView {
+struct AddWordView: View {
 
     typealias ViewModel = AddWordViewModel
 
@@ -18,7 +14,7 @@ struct AddWordView: PageView {
         _viewModel = StateObject(wrappedValue: ViewModel(inputWord: inputWord))
     }
 
-    public var contentView: some View {
+    var body: some View {
         ScrollViewWithCustomNavBar {
             LazyVStack(spacing: 24) {
                 FormWithDivider {

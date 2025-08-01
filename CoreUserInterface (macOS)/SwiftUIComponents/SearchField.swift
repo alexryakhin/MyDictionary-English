@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-public struct SearchField: View {
+struct SearchField: View {
 
     private var text: Binding<String>
 
-    public init(text: Binding<String>) {
+    init(text: Binding<String>) {
         self.text = text
     }
 
-    public var body: some View {
+    var body: some View {
         HStack(spacing: 8) {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.gray)

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreUserInterface
 
 struct OnboardingView: View {
     @Environment(\.dismiss) var dismiss

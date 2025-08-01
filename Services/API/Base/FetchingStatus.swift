@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum FetchingStatus {
+enum FetchingStatus {
     case blank
     case ready
     case loading

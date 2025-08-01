@@ -7,15 +7,15 @@
 
 import Foundation
 
-public struct Idiom: Identifiable, Hashable {
-    public let id: String
-    public var idiom: String
-    public var definition: String
-    public let timestamp: Date
-    public var examples: [String]
-    public var isFavorite: Bool
+struct Idiom: Identifiable, Hashable {
+    let id: String
+    var idiom: String
+    var definition: String
+    let timestamp: Date
+    var examples: [String]
+    var isFavorite: Bool
 
-    public init(
+    init(
         idiom: String,
         definition: String,
         id: String,

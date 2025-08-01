@@ -7,12 +7,8 @@
 
 import SwiftUI
 import Combine
-import Core
-import Services
-import CoreUserInterface__macOS_
-import Shared
 
-final class ChooseDefinitionViewModel: DefaultPageViewModel {
+final class ChooseDefinitionViewModel: BaseViewModel {
 
     enum Input {
         case selectAnswer(Int)
@@ -33,8 +29,8 @@ final class ChooseDefinitionViewModel: DefaultPageViewModel {
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
-        self.wordsProvider = DIContainer.shared.resolver.resolve(WordsProviderInterface.self)!
-        self.ttsPlayer = DIContainer.shared.resolver.resolve(TTSPlayerInterface.self)!
+        self.wordsProvider = ServiceManager.shared.wordsProvider
+        self.ttsPlayer = ServiceManager.shared.ttsPlayer
         super.init()
         setupBindings()
     }

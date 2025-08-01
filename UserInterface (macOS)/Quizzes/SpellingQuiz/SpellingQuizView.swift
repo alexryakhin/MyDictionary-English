@@ -1,10 +1,6 @@
 import SwiftUI
-import Core
-import CoreUserInterface__macOS_
-import Shared
-import Services
 
-struct SpellingQuizView: PageView {
+struct SpellingQuizView: View {
 
     typealias ViewModel = SpellingQuizViewModel
 
@@ -23,7 +19,7 @@ struct SpellingQuizView: PageView {
         }
     }
 
-    var contentView: some View {
+    var body: some View {
         VStack(spacing: 12) {
             Spacer().frame(height: 100)
 

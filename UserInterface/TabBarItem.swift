@@ -8,15 +8,15 @@
 import Foundation
 import UIKit
 
-public enum TabBarItem: String, CaseIterable, Identifiable {
+enum TabBarItem: String, CaseIterable, Identifiable {
     case words
     case idioms
     case quizzes
     case more
 
-    public var id: String { rawValue }
+    var id: String { rawValue }
 
-    public var title: String {
+    var title: String {
         switch self {
         case .words: "Words"
         case .idioms: "Idioms"
@@ -25,7 +25,7 @@ public enum TabBarItem: String, CaseIterable, Identifiable {
         }
     }
 
-    public var image: String {
+    var image: String {
         switch self {
         case .words: "textformat.abc"
         case .idioms: "scroll"
@@ -34,7 +34,7 @@ public enum TabBarItem: String, CaseIterable, Identifiable {
         }
     }
 
-    public var selectedImage: String {
+    var selectedImage: String {
         switch self {
         case .words: "textformat.abc.fill"
         case .idioms: "scroll.fill"
@@ -43,7 +43,7 @@ public enum TabBarItem: String, CaseIterable, Identifiable {
         }
     }
 
-    public var item: UITabBarItem {
+    var item: UITabBarItem {
         UITabBarItem(
             title: title,
             image: .init(systemName: image),

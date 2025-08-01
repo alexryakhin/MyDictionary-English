@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
-import Shared
 
-public struct ListButton: View {
+struct ListButton: View {
     private let titleKey: LocalizedStringKey
     private let systemImageName: String
     private let foregroundColor: Color
     private let action: VoidHandler
 
-    public init(
+    init(
         _ titleKey: LocalizedStringKey,
         systemImage name: String,
         foregroundColor: Color = .accentColor,
@@ -26,7 +25,7 @@ public struct ListButton: View {
         self.action = action
     }
 
-    public var body: some View {
+    var body: some View {
         CellWrapper {
             Button(action: action) {
                 Label(titleKey, systemImage: systemImageName)

@@ -1,10 +1,6 @@
 import SwiftUI
-import CoreUserInterface__macOS_
-import Shared
-import Core
-import Services
 
-struct WordsListView: PageView {
+struct WordsListView: View {
 
     typealias ViewModel = WordsViewModel
 
@@ -36,7 +32,7 @@ struct WordsListView: PageView {
         self._viewModel = viewModel
     }
 
-    var contentView: some View {
+    var body: some View {
         List {
             ForEach(wordsFiltered) { word in
                 Button {

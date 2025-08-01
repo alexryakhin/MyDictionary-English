@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreData
-import Core
 
 @objc(CDIdiom)
 final class CDIdiom: NSManagedObject, Identifiable {

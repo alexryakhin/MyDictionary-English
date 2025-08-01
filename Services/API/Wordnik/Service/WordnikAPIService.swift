@@ -6,15 +6,13 @@
 //
 
 import Foundation
-import Shared
-import Core
 
-public protocol WordnikAPIServiceInterface {
+protocol WordnikAPIServiceInterface {
     /// Return definitions for a word
     func getDefinitions(
         for word: String,
         params: DefinitionsQueryParams?
-    ) async throws -> [Core.WordDefinition]
+    ) async throws -> [WordDefinition]
 
     /// Return a pronunciation for a word
     func getPronunciation(
@@ -25,16 +23,16 @@ public protocol WordnikAPIServiceInterface {
 
 // MARK: - WordnikAPIService
 
-public final class WordnikAPIService: BaseAPIService, WordnikAPIServiceInterface {
+final class WordnikAPIService: BaseAPIService, WordnikAPIServiceInterface {
 
-    override public var baseURL: String { "https://api.wordnik.com/v4" }
-    override public var apiKey: String { GlobalConstant.wordnikAPIKey }
+    override var baseURL: String { "https://api.wordnik.com/v4" }
+    override var apiKey: String { GlobalConstant.wordnikAPIKey }
 
-    public func getDefinitions(
+    func getDefinitions(
         for word: String,
         params: DefinitionsQueryParams?
-    ) async throws -> [Core.WordDefinition] {
-        let response: [WordDefinition] = try await fetchData(
+    ) async throws -> [WordDefinition] {
+        let response: [WordDefinitionDTO] = try await fetchData(
             from: WordnikAPIPath.definitions(
                 word: word,
                 params: params
@@ -51,7 +49,7 @@ public final class WordnikAPIService: BaseAPIService, WordnikAPIServiceInterface
         }
     }
 
-    public func getPronunciation(
+    func getPronunciation(
         for word: String,
         params: PronunciationsQueryParams?
     ) async throws -> String {

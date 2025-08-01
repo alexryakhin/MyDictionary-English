@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreData
-import Core
 
 @objc(CDWord)
 final class CDWord: NSManagedObject, Identifiable {

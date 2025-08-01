@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct SearchInputView: View {
+struct SearchInputView: View {
 
     @Binding private var text: String
     @Binding private var state: InputState
@@ -11,7 +11,7 @@ public struct SearchInputView: View {
     private let textContentType: NSTextContentType?
     private let onSubmit: (() -> Void)?
 
-    public init(
+    init(
         text: Binding<String>,
         state: Binding<InputState> = .constant(.pending),
         isFocused: Binding<Bool> = .constant(false),
@@ -27,7 +27,7 @@ public struct SearchInputView: View {
         self.onSubmit = onSubmit
     }
 
-    public var body: some View {
+    var body: some View {
         HStack(spacing: 0) {
 
             HStack {

@@ -6,21 +6,18 @@
 //
 
 import SwiftUI
-import CoreUserInterface
-import Core
-import Services
 
-public struct IdiomsListContentView: PageView {
+struct IdiomsListContentView: View {
 
-    public typealias ViewModel = IdiomsListViewModel
+    typealias ViewModel = IdiomsListViewModel
 
-    @ObservedObject public var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
 
-    public init(viewModel: ViewModel) {
+    init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
 
-    public var contentView: some View {
+    var body: some View {
         ScrollView {
             CustomSectionView(header: filterStateTitle, footer: idiomsCount) {
                 if filteredIdioms.isNotEmpty {
@@ -101,13 +98,7 @@ public struct IdiomsListContentView: PageView {
         }
     }
 
-    public func placeholderView(props: PageState.PlaceholderProps) -> some View {
-        EmptyListView(
-            label: "No idioms yet!",
-            description: "Begin to add idioms to your list by tapping on plus icon in upper left corner",
-            background: .background
-        )
-    }
+
 
     private func addItem() {
         viewModel.handle(.showAddIdiom)

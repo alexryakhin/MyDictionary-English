@@ -7,11 +7,11 @@
 
 import Foundation
 
-public enum SortingCase: String, CaseIterable {
+enum SortingCase: String, CaseIterable {
     case latest = "Latest first"
     case earliest = "Earliest first"
     case alphabetically = "Alphabetically"
     case partOfSpeech = "By Part of Speech"
 
-    public static let idiomsSortingCases: [SortingCase] = [.latest, .earliest, .alphabetically]
+    static let idiomsSortingCases: [SortingCase] = [.latest, .earliest, .alphabetically]
 }

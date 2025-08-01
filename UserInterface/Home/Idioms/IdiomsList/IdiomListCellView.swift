@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreUserInterface
 
 struct IdiomListCellView: ConfigurableView {
     var model: Model

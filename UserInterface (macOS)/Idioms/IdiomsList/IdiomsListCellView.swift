@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import Core
-import CoreUserInterface__macOS_
 
 struct IdiomsListCellView: View {
     var idiom: Idiom

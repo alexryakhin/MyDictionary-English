@@ -7,10 +7,10 @@
 
 import Foundation
 
-public struct DefinitionsQueryParams {
-    public var limit: Int?
-    public var includeRelated: Bool? = false
-    public var includeTags: Bool? = false
+struct DefinitionsQueryParams {
+    var limit: Int?
+    var includeRelated: Bool? = false
+    var includeTags: Bool? = false
 
     var queryItems: [URLQueryItem] {
         var items: [URLQueryItem] = []
@@ -26,7 +26,7 @@ public struct DefinitionsQueryParams {
         return items
     }
 
-    public init(limit: Int? = nil, includeRelated: Bool? = nil, includeTags: Bool? = nil) {
+    init(limit: Int? = nil, includeRelated: Bool? = nil, includeTags: Bool? = nil) {
         self.limit = limit
         self.includeRelated = includeRelated
         self.includeTags = includeTags

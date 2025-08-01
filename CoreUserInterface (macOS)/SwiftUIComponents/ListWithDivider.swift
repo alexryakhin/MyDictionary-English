@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Has a built-in divider between each element, except the last element.
-public struct ListWithDivider<
+struct ListWithDivider<
     Data: RandomAccessCollection,
     Content: View
 >: View {
@@ -17,7 +17,7 @@ public struct ListWithDivider<
     private let dividerLeadingPadding: CGFloat
     private let content: (Data.Element) -> Content
 
-    public init(
+    init(
         _ data: Data,
         dividerLeadingPadding: CGFloat = 16,
         @ViewBuilder content: @escaping (Data.Element) -> Content
@@ -27,7 +27,7 @@ public struct ListWithDivider<
         self.dividerLeadingPadding = dividerLeadingPadding
     }
 
-    public var body: some View {
+    var body: some View {
         LazyVStack(spacing: 0) {
             ForEach(Array(data.enumerated()), id: \.offset) { index, item in
                 let lastIndex = data.count - 1

@@ -1,10 +1,6 @@
 import SwiftUI
-import Core
-import CoreUserInterface__macOS_
-import Shared
-import Services
 
-struct QuizzesView: PageView {
+struct QuizzesView: View {
 
     typealias ViewModel = QuizzesViewModel
 
@@ -17,7 +13,7 @@ struct QuizzesView: PageView {
         self._viewModel = viewModel
     }
 
-    var contentView: some View {
+    var body: some View {
         let selection = Binding {
             viewModel.selectedQuiz
         } set: { quiz in

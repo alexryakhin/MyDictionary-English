@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-public enum InputState: Equatable {
+enum InputState: Equatable {
     case pending
     case error
     case focused
 
-    public var rawValue: Int {
+    var rawValue: Int {
         switch self {
         case .pending: return 0
         case .error: return 1
@@ -20,14 +20,14 @@ public enum InputState: Equatable {
         }
     }
 
-    public var backgroundColor: Color {
+    var backgroundColor: Color {
         switch self {
         case .pending, .focused: .underPageBackgroundColor
         case .error: .red
         }
     }
 
-    public static func == (lhs: Self, rhs: Self) -> Bool {
+    static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.rawValue == rhs.rawValue
     }
 }

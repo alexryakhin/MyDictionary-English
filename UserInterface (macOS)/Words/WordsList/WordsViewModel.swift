@@ -1,12 +1,8 @@
 import SwiftUI
 import Combine
 import CoreData
-import CoreUserInterface__macOS_
-import Services
-import Shared
-import Core
 
-final class WordsViewModel: DefaultPageViewModel {
+final class WordsViewModel: BaseViewModel {
 
     enum Input {
         // MARK: Words List
@@ -27,7 +23,7 @@ final class WordsViewModel: DefaultPageViewModel {
         case deleteCurrentWord
     }
 
-    // MARK: - Public properties
+    // MARK: - properties
 
     @Published var searchText = ""
     @Published private(set) var words: [Word] = []
@@ -35,7 +31,7 @@ final class WordsViewModel: DefaultPageViewModel {
     @Published private(set) var selectedWordId: String? {
         didSet {
             if let selectedWordId {
-                wordDetailsManager = DIContainer.shared.resolver.resolve(WordDetailsManagerInterface.self, argument: selectedWordId)!
+                wordDetailsManager = ServiceManager.shared.createWordDetailsManager(wordId: selectedWordId)
             } else {
                 wordDetailsManager = nil
             }
@@ -72,8 +68,8 @@ final class WordsViewModel: DefaultPageViewModel {
     // MARK: - Init
 
     override init() {
-        self.wordsProvider = DIContainer.shared.resolver.resolve(WordsProviderInterface.self)!
-        self.ttsPlayer = DIContainer.shared.resolver.resolve(TTSPlayerInterface.self)!
+        self.wordsProvider = ServiceManager.shared.wordsProvider
+        self.ttsPlayer = ServiceManager.shared.ttsPlayer
         super.init()
         setupBindings()
     }

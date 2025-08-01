@@ -6,21 +6,17 @@
 //
 
 import SwiftUI
-import Shared
-import Core
-import CoreUserInterface__macOS_
-import Services
 import StoreKit
 
-public struct AboutView: View {
+struct AboutView: View {
 
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
     @Environment(\.openURL) var openURL
     @Environment(\.requestReview) var requestReview
 
-    public init() {}
+    init() {}
 
-    public var body: some View {
+    var body: some View {
         ScrollView {
             VStack(spacing: 24) {
                 aboutSectionView

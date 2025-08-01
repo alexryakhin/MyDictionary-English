@@ -1,9 +1,8 @@
 import SwiftUI
 import Combine
 import CoreData
-import Core
 
-public protocol WordsProviderInterface {
+protocol WordsProviderInterface {
     var wordsPublisher: AnyPublisher<[Word], Never> { get }
     var wordsErrorPublisher: PassthroughSubject<CoreError, Never> { get }
 
@@ -13,25 +12,25 @@ public protocol WordsProviderInterface {
     func delete(with id: String)
 }
 
-public final class WordsProvider: WordsProviderInterface {
+final class WordsProvider: WordsProviderInterface {
 
-    public var wordsPublisher: AnyPublisher<[Word], Never> {
+    var wordsPublisher: AnyPublisher<[Word], Never> {
         _wordsPublisher.eraseToAnyPublisher()
     }
-    public let wordsErrorPublisher = PassthroughSubject<CoreError, Never>()
+    let wordsErrorPublisher = PassthroughSubject<CoreError, Never>()
 
     private let _wordsPublisher = CurrentValueSubject<[Word], Never>([])
     private let coreDataService: CoreDataServiceInterface
     private var cancellables = Set<AnyCancellable>()
 
-    public init(coreDataService: CoreDataServiceInterface) {
+    init(coreDataService: CoreDataServiceInterface) {
         self.coreDataService = coreDataService
         setupBindings()
         fetchWords()
     }
 
     /// Fetches latest data from Core Data
-    public func fetchWords() {
+    func fetchWords() {
         let request = NSFetchRequest<CDWord>(entityName: "Word")
         do {
             let words = try coreDataService.context.fetch(request)
@@ -42,7 +41,7 @@ public final class WordsProvider: WordsProviderInterface {
     }
 
     /// Removes a given word from the Core Data
-    public func delete(with id: String) {
+    func delete(with id: String) {
         let fetchRequest: NSFetchRequest<CDWord> = CDWord.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
 

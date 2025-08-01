@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-public struct SectionHeaderButton: View {
+struct SectionHeaderButton: View {
 
     private let titleKey: LocalizedStringKey
     private let systemImage: String
     private let action: () -> Void
 
-    public init(
+    init(
         _ titleKey: LocalizedStringKey,
         systemImage: String = .empty,
         action: @escaping () -> Void
@@ -23,7 +23,7 @@ public struct SectionHeaderButton: View {
         self.action = action
     }
 
-    public var body: some View {
+    var body: some View {
         Button {
             action()
         } label: {

@@ -1,10 +1,7 @@
-import Core
-import CoreUserInterface
-import Services
-import Shared
+import Foundation
 import Combine
 
-public final class SpellingQuizViewModel: DefaultPageViewModel {
+final class SpellingQuizViewModel: BaseViewModel {
 
     enum Input {
         case confirmAnswer
@@ -28,7 +25,7 @@ public final class SpellingQuizViewModel: DefaultPageViewModel {
     private var cancellables: Set<AnyCancellable> = []
     private var wordsPlayedCount: Int = 0
 
-    public init(wordsProvider: WordsProviderInterface) {
+    init(wordsProvider: WordsProviderInterface) {
         self.wordsProvider = wordsProvider
         super.init()
         setupBindings()

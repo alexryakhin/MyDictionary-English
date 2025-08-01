@@ -1,11 +1,7 @@
 import SwiftUI
-import Core
-import CoreUserInterface__macOS_
-import Shared
-import Services
 import UniformTypeIdentifiers
 
-struct SettingsView: PageView {
+struct SettingsView: View {
     typealias ViewModel = SettingsViewModel
 
     @Environment(\.requestReview) var requestReview
@@ -16,7 +12,7 @@ struct SettingsView: PageView {
         _viewModel.wrappedValue
     }
 
-    var contentView: some View {
+    var body: some View {
         ScrollView {
             VStack(spacing: 24) {
                 settingsSectionView

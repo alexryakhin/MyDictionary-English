@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public extension View {
+extension View {
     func editModeDisablingLayerView() -> some View {
         self.background(
             VStack {
@@ -89,7 +89,7 @@ public extension View {
     }
 }
 
-public extension Image {
+extension Image {
     func frame(sideLength: CGFloat) -> some View {
         self
             .resizable()
@@ -98,13 +98,13 @@ public extension Image {
     }
 }
 
-public extension UIApplication {
+extension UIApplication {
     func endEditing() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
-public extension View {
+extension View {
     func clippedWithBackground(_ color: Color) -> some View {
         self
             .background(color)

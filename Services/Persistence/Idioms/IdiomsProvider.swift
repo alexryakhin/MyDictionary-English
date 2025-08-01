@@ -1,9 +1,8 @@
 import SwiftUI
 import Combine
 import CoreData
-import Core
 
-public protocol IdiomsProviderInterface {
+protocol IdiomsProviderInterface {
     var idiomsPublisher: AnyPublisher<[Idiom], Never> { get }
     var idiomsErrorPublisher: PassthroughSubject<CoreError, Never> { get }
 
@@ -13,26 +12,26 @@ public protocol IdiomsProviderInterface {
     func delete(with id: String)
 }
 
-public final class IdiomsProvider: IdiomsProviderInterface {
+final class IdiomsProvider: IdiomsProviderInterface {
 
-    public var idiomsPublisher: AnyPublisher<[Idiom], Never> {
+    var idiomsPublisher: AnyPublisher<[Idiom], Never> {
         _idiomsPublisher.eraseToAnyPublisher()
     }
 
-    public let idiomsErrorPublisher = PassthroughSubject<CoreError, Never>()
+    let idiomsErrorPublisher = PassthroughSubject<CoreError, Never>()
 
     private let _idiomsPublisher = CurrentValueSubject<[Idiom], Never>([])
     private let coreDataService: CoreDataServiceInterface
     private var cancellables = Set<AnyCancellable>()
 
-    public init(coreDataService: CoreDataServiceInterface) {
+    init(coreDataService: CoreDataServiceInterface) {
         self.coreDataService = coreDataService
         setupBindings()
         fetchIdioms()
     }
 
     /// Fetches latest data from Core Data
-    public func fetchIdioms() {
+    func fetchIdioms() {
         let request = NSFetchRequest<CDIdiom>(entityName: "Idiom")
         do {
             let idioms = try coreDataService.context.fetch(request)
@@ -43,7 +42,7 @@ public final class IdiomsProvider: IdiomsProviderInterface {
     }
 
     /// Removes a given idiom from the Core Data
-    public func delete(with id: String) {
+    func delete(with id: String) {
         let fetchRequest: NSFetchRequest<CDIdiom> = CDIdiom.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
 

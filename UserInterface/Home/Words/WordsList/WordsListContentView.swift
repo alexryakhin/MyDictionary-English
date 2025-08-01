@@ -6,25 +6,22 @@
 //
 
 import SwiftUI
-import CoreUserInterface
-import Core
 import StoreKit
-import Services
 
-public struct WordsListContentView: PageView {
+struct WordsListContentView: View {
 
-    public typealias ViewModel = WordsListViewModel
+    typealias ViewModel = WordsListViewModel
 
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
     @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
     @Environment(\.requestReview) var requestReview
-    @ObservedObject public var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
 
-    public init(viewModel: ViewModel) {
+    init(viewModel: ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
 
-    public var contentView: some View {
+    var body: some View {
         ScrollView {
             CustomSectionView(header: filterStateTitle, footer: viewModel.wordsCount) {
                 if viewModel.wordsFiltered.isNotEmpty {
@@ -106,17 +103,6 @@ public struct WordsListContentView: PageView {
             isShowingOnboarding = false
         } content: {
             OnboardingView()
-        }
-    }
-
-    public func placeholderView(props: PageState.PlaceholderProps) -> some View {
-        EmptyListView(
-            label: "No words yet",
-            description: "Begin to add words to your list by tapping on plus icon in upper left corner",
-            background: .background
-        ) {
-            Button("Add your first word!", action: addItem)
-                .buttonStyle(.borderedProminent)
         }
     }
 

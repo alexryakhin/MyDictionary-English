@@ -1,6 +1,6 @@
 import SwiftUI
 
-public extension View {
+extension View {
 
     func shimmering(
         multiline: Bool = false,
@@ -23,7 +23,7 @@ public extension View {
     }
 }
 
-public extension String {
+extension String {
 
     static func placeholder(length: Int) -> Self {
         String(repeating: "M", count: length)

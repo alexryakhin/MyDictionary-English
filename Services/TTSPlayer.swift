@@ -7,13 +7,12 @@
 
 import Foundation
 import AVFoundation
-import Core
 
-public protocol TTSPlayerInterface {
+protocol TTSPlayerInterface {
     func play(_ text: String) async throws(CoreError)
 }
 
-public final class TTSPlayer: TTSPlayerInterface {
+final class TTSPlayer: TTSPlayerInterface {
 
     private var player: AVAudioPlayer?
     private var selectedTTLLanguage: TTSLanguage {
@@ -23,9 +22,9 @@ public final class TTSPlayer: TTSPlayerInterface {
         return TTSLanguage(rawValue: languageCode) ?? .enUS
     }
 
-    public init() {}
+    init() {}
 
-    public func play(_ text: String) async throws(CoreError) {
+    func play(_ text: String) async throws(CoreError) {
         guard text.isNotEmpty else { return }
 
         let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""

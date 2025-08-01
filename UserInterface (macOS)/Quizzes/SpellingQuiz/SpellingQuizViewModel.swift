@@ -7,12 +7,8 @@
 
 import SwiftUI
 import Combine
-import Core
-import Services
-import CoreUserInterface__macOS_
-import Shared
 
-final class SpellingQuizViewModel: DefaultPageViewModel {
+final class SpellingQuizViewModel: BaseViewModel {
     @Published var words: [Word] = []
 
     @Published var randomWord: Word?
@@ -24,7 +20,7 @@ final class SpellingQuizViewModel: DefaultPageViewModel {
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
-        self.wordsProvider = DIContainer.shared.resolver.resolve(WordsProviderInterface.self)!
+        self.wordsProvider = ServiceManager.shared.wordsProvider
         super.init()
         setupBindings()
     }

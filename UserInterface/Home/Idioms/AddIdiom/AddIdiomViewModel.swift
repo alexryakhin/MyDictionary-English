@@ -1,10 +1,6 @@
-import Core
-import CoreUserInterface
-import Services
-import Shared
 import Combine
 
-public final class AddIdiomViewModel: DefaultPageViewModel {
+final class AddIdiomViewModel: BaseViewModel {
 
     enum Input {
         case save
@@ -22,12 +18,9 @@ public final class AddIdiomViewModel: DefaultPageViewModel {
     private let addIdiomManager: AddIdiomManagerInterface
     private var cancellables = Set<AnyCancellable>()
 
-    public init(
-        inputIdiom: String = "",
-        addIdiomManager: AddIdiomManagerInterface
-    ) {
+    init(inputIdiom: String = "") {
         self.inputIdiom = inputIdiom
-        self.addIdiomManager = addIdiomManager
+        self.addIdiomManager = ServiceManager.shared.createAddIdiomManager()
         super.init()
     }
 

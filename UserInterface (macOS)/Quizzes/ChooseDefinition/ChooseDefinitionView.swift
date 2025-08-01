@@ -1,10 +1,6 @@
 import SwiftUI
-import Core
-import CoreUserInterface__macOS_
-import Shared
-import Services
 
-struct ChooseDefinitionView: PageView {
+struct ChooseDefinitionView: View {
 
     typealias ViewModel = ChooseDefinitionViewModel
 
@@ -13,7 +9,7 @@ struct ChooseDefinitionView: PageView {
         _viewModel.wrappedValue
     }
 
-    var contentView: some View {
+    var body: some View {
         if !viewModel.words.isEmpty {
             VStack(spacing: 12) {
                 Spacer()

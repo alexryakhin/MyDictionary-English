@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-public enum GradientDirection: Int {
+enum GradientDirection: Int {
     case down = 0
     case up = 1
     case right = 2

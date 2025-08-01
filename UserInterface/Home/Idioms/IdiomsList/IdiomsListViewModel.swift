@@ -5,12 +5,11 @@
 //  Created by Aleksandr Riakhin on 3/8/25.
 //
 
-import Core
-import CoreUserInterface
-import Services
+import Foundation
 import Combine
 
-public class IdiomsListViewModel: DefaultPageViewModel {
+@MainActor
+final class IdiomsListViewModel: BaseViewModel {
 
     enum Input {
         case showAddIdiom
@@ -43,10 +42,9 @@ public class IdiomsListViewModel: DefaultPageViewModel {
     private let idiomsProvider: IdiomsProviderInterface
     private var cancellables = Set<AnyCancellable>()
 
-    public init(idiomsProvider: IdiomsProviderInterface) {
+    init(idiomsProvider: IdiomsProviderInterface) {
         self.idiomsProvider = idiomsProvider
         super.init()
-        loadingStarted()
         setupBindings()
     }
 
@@ -70,9 +68,6 @@ public class IdiomsListViewModel: DefaultPageViewModel {
                 if idioms.isNotEmpty {
                     self?.idioms = idioms
                     self?.sortIdioms()
-                    self?.resetAdditionalState()
-                } else {
-                    self?.additionalState = .placeholder()
                 }
             }
             .store(in: &cancellables)

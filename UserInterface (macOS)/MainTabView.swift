@@ -1,16 +1,15 @@
 import SwiftUI
-import CoreUserInterface__macOS_
 
-public struct MainTabView: View {
+struct MainTabView: View {
 
     @State private var selectedSidebarItem: SidebarItem = .words
     @StateObject private var wordsViewModel = WordsViewModel()
     @StateObject private var idiomsViewModel = IdiomsViewModel()
     @StateObject private var quizzesViewModel = QuizzesViewModel()
 
-    public init() { }
+    init() { }
 
-    public var body: some View {
+    var body: some View {
         NavigationSplitView {
             tabsView
                 .frame(minWidth: 160)

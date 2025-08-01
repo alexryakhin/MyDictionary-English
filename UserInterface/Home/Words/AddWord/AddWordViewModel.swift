@@ -1,11 +1,7 @@
-import Core
-import CoreUserInterface
-import Services
-import Shared
 import Combine
 import SwiftUI
 
-public final class AddWordViewModel: DefaultPageViewModel {
+final class AddWordViewModel: BaseViewModel {
 
     enum Input {
         case save
@@ -35,16 +31,11 @@ public final class AddWordViewModel: DefaultPageViewModel {
     private let ttsPlayer: TTSPlayerInterface
     private var cancellables = Set<AnyCancellable>()
 
-    public init(
-        inputWord: String = "",
-        wordnikAPIService: WordnikAPIServiceInterface,
-        addWordManager: AddWordManagerInterface,
-        ttsPlayer: TTSPlayerInterface
-    ) {
+    init(inputWord: String = "") {
         self.inputWord = inputWord
-        self.wordnikAPIService = wordnikAPIService
-        self.addWordManager = addWordManager
-        self.ttsPlayer = ttsPlayer
+        self.wordnikAPIService = ServiceManager.shared.wordnikAPIService
+        self.addWordManager = ServiceManager.shared.createAddWordManager()
+        self.ttsPlayer = ServiceManager.shared.ttsPlayer
 
         super.init()
         setupBindings()
@@ -148,7 +139,7 @@ public final class AddWordViewModel: DefaultPageViewModel {
             .store(in: &cancellables)
 
         $selectedDefinition
-            .ifNotNil()
+            .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] definition in
                 self?.descriptionField = definition.text

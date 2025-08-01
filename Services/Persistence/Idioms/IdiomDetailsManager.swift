@@ -1,9 +1,8 @@
 import SwiftUI
 import Combine
 import CoreData
-import Core
 
-public protocol IdiomDetailsManagerInterface {
+protocol IdiomDetailsManagerInterface {
 
     var idiomPublisher: AnyPublisher<Idiom?, Never> { get }
     var errorPublisher: PassthroughSubject<CoreError, Never> { get }
@@ -13,12 +12,12 @@ public protocol IdiomDetailsManagerInterface {
     func deleteIdiom()
 }
 
-public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
+final class IdiomDetailsManager: IdiomDetailsManagerInterface {
 
-    public var idiomPublisher: AnyPublisher<Idiom?, Never> {
+    var idiomPublisher: AnyPublisher<Idiom?, Never> {
         _idiomPublisher.eraseToAnyPublisher()
     }
-    public let errorPublisher = PassthroughSubject<CoreError, Never>()
+    let errorPublisher = PassthroughSubject<CoreError, Never>()
 
     private let coreDataService: CoreDataServiceInterface
 
@@ -26,7 +25,7 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
     private var cdIdiom: CDIdiom?
     private var cancellables: Set<AnyCancellable> = []
 
-    public init(
+    init(
         idiomId: String,
         coreDataService: CoreDataServiceInterface
     ) {
@@ -34,7 +33,7 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
         fetchIdiom(with: idiomId)
     }
 
-    public func updateIdiom(_ idiom: Idiom) {
+    func updateIdiom(_ idiom: Idiom) {
         cdIdiom?.idiomItself = idiom.idiom
         cdIdiom?.definition = idiom.definition
         cdIdiom?.isFavorite = idiom.isFavorite
@@ -46,7 +45,7 @@ public final class IdiomDetailsManager: IdiomDetailsManagerInterface {
         saveContext()
     }
 
-    public func deleteIdiom() {
+    func deleteIdiom() {
         guard let cdIdiom else { return }
         coreDataService.context.delete(cdIdiom)
         saveContext()

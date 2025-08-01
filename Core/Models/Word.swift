@@ -5,17 +5,19 @@
 //  Created by Aleksandr Riakhin on 3/8/25.
 //
 
-public struct Word: Identifiable, Hashable {
-    public let word: String
-    public var definition: String
-    public var partOfSpeech: PartOfSpeech
-    public var phonetic: String
-    public let id: String
-    public let timestamp: Date
-    public var examples: [String]
-    public var isFavorite: Bool
+import Foundation
 
-    public init(
+struct Word: Identifiable, Hashable {
+    let word: String
+    var definition: String
+    var partOfSpeech: PartOfSpeech
+    var phonetic: String
+    let id: String
+    let timestamp: Date
+    var examples: [String]
+    var isFavorite: Bool
+
+    init(
         word: String,
         definition: String,
         partOfSpeech: PartOfSpeech,

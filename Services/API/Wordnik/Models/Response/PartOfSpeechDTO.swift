@@ -1,14 +1,13 @@
 //
-//  PartOfSpeech.swift
+//  PartOfSpeechDTO.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin on 3/9/25.
 //
 
 import Foundation
-import Core
 
-enum PartOfSpeech: String, Decodable {
+enum PartOfSpeechDTO: String, Decodable {
     case noun
     case adjective
     case verb
@@ -39,13 +38,13 @@ enum PartOfSpeech: String, Decodable {
     case unknown // Handles unexpected values
 
     /// Custom initializer that prevents decoding from failing.
-    public init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let rawValue = try container.decode(String.self)
-        self = PartOfSpeech(rawValue: rawValue) ?? .unknown
+        self = PartOfSpeechDTO(rawValue: rawValue) ?? .unknown
     }
 
-    var coreValue: Core.PartOfSpeech {
+    var coreValue: PartOfSpeech {
         switch self {
         case .adjective: .adjective
         case .adverb: .adverb

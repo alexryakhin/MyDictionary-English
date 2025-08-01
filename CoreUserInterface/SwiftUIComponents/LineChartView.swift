@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-public struct LineChartView: View {
-    public struct Value: Identifiable {
-        public let id: Int = UUID().hashValue
-        public let title: String
-        public let color: Color
-        public let percentage: Double
+struct LineChartView: View {
+    struct Value: Identifiable {
+        let id: Int = UUID().hashValue
+        let title: String
+        let color: Color
+        let percentage: Double
 
-        public init(title: String, color: Color, percentage: Double) {
+        init(title: String, color: Color, percentage: Double) {
             self.title = title
             self.color = color
             self.percentage = percentage
@@ -24,7 +24,7 @@ public struct LineChartView: View {
     private let values: [Value]
     private let showsDescription: Bool
 
-    public init(
+    init(
         values: [Value],
         showsDescription: Bool = true
     ) {
@@ -34,7 +34,7 @@ public struct LineChartView: View {
 
     private let gridItemLayout = [GridItem(.adaptive(minimum: 100, maximum: 200), spacing: 8)]
 
-    public var body: some View {
+    var body: some View {
         VStack(spacing: 16) {
             // Stock Distribution Progress Bar
             GeometryReader { geometry in

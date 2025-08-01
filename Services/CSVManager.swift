@@ -9,10 +9,8 @@ import Foundation
 import UniformTypeIdentifiers
 import CoreData
 import SwiftUI
-import Core
-import Shared
 
-public protocol CSVManagerInterface {
+protocol CSVManagerInterface {
 
     /// Export Core Data words to a CSV file
     func exportWordsToCSV(wordModels: [Word]) -> URL?
@@ -21,16 +19,16 @@ public protocol CSVManagerInterface {
     func importWordsFromCSV(url: URL, currentWordIds: [String]) throws
 }
 
-public final class CSVManager: CSVManagerInterface {
+final class CSVManager: CSVManagerInterface {
 
     private let coreDataService: CoreDataServiceInterface
 
-    public init(coreDataService: CoreDataServiceInterface) {
+    init(coreDataService: CoreDataServiceInterface) {
         self.coreDataService = coreDataService
     }
 
     /// Export Core Data words to a CSV file
-    public func exportWordsToCSV(wordModels: [Word]) -> URL? {
+    func exportWordsToCSV(wordModels: [Word]) -> URL? {
         let fileName = "MyDictionaryExport.csv"
         let filePath = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
 
@@ -64,7 +62,7 @@ public final class CSVManager: CSVManagerInterface {
     }
 
     /// Import a CSV file and save words to Core Data
-    public func importWordsFromCSV(url: URL, currentWordIds: [String]) throws {
+    func importWordsFromCSV(url: URL, currentWordIds: [String]) throws {
         let fileContents = try String(contentsOf: url)
         let rows = fileContents.components(separatedBy: "\n").dropFirst() // Remove header
 

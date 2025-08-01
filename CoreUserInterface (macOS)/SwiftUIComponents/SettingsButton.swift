@@ -8,15 +8,15 @@
 import SwiftUI
 import AppKit
 
-public struct SettingsButton<Label: View>: View {
+struct SettingsButton<Label: View>: View {
 
     private let label: () -> Label
 
-    public init(@ViewBuilder label: @escaping () -> Label) {
+    init(@ViewBuilder label: @escaping () -> Label) {
         self.label = label
     }
 
-    public var body: some View {
+    var body: some View {
         if #available(macOS 14.0, *) {
             SettingsLink(label: label)
         } else {

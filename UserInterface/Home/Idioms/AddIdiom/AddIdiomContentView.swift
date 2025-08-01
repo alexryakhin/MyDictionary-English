@@ -1,20 +1,18 @@
 import SwiftUI
-import CoreUserInterface
-import Core
 
-public struct AddIdiomContentView: PageView {
+struct AddIdiomContentView: View {
 
-    public typealias ViewModel = AddIdiomViewModel
+    typealias ViewModel = AddIdiomViewModel
 
-    @ObservedObject public var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     @FocusState private var isIdiomInputFocused: Bool
     @FocusState private var isDefinitionInputFocused: Bool
 
-    public init(viewModel: AddIdiomViewModel) {
+    init(viewModel: AddIdiomViewModel) {
         self.viewModel = viewModel
     }
 
-    public var contentView: some View {
+    var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 24) {

@@ -1,11 +1,7 @@
 import SwiftUI
 import Combine
-import Core
-import Services
-import CoreUserInterface__macOS_
-import Shared
 
-final class AddWordViewModel: DefaultPageViewModel {
+final class AddWordViewModel: BaseViewModel {
 
     enum Input {
         case save
@@ -29,11 +25,11 @@ final class AddWordViewModel: DefaultPageViewModel {
     private let ttsPlayer: TTSPlayerInterface
     private var cancellables = Set<AnyCancellable>()
 
-    public init(inputWord: String = "") {
+    init(inputWord: String = "") {
         self.inputWord = inputWord
-        self.wordnikAPIService = DIContainer.shared.resolver.resolve(WordnikAPIServiceInterface.self)!
-        self.addWordManager = DIContainer.shared.resolver.resolve(AddWordManagerInterface.self)!
-        self.ttsPlayer = DIContainer.shared.resolver.resolve(TTSPlayerInterface.self)!
+        self.wordnikAPIService = ServiceManager.shared.wordnikAPIService
+        self.addWordManager = ServiceManager.shared.createAddWordManager()
+        self.ttsPlayer = ServiceManager.shared.ttsPlayer
 
         super.init()
         setupBindings()
@@ -102,7 +98,7 @@ final class AddWordViewModel: DefaultPageViewModel {
                     examples: selectedDefinition?.examples ?? []
                 )
                 AnalyticsService.shared.logEvent(.wordAdded)
-                dismiss()
+                dismissPublisher.send()
             } catch {
                 errorReceived(error, displayType: .alert)
             }
@@ -136,7 +132,7 @@ final class AddWordViewModel: DefaultPageViewModel {
             .store(in: &cancellables)
 
         $selectedDefinition
-            .ifNotNil()
+            .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] definition in
                 self?.descriptionField = definition.text

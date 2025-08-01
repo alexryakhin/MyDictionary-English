@@ -12,7 +12,7 @@ import class UIKit.UITextChecker
 import class AppKit.NSSpellChecker
 #endif
 
-public extension String {
+extension String {
 
     init(_ substrings: String?..., separator: String = "") {
         self = substrings.compactMap { $0 }.joined(separator: separator)
@@ -46,12 +46,12 @@ public extension String {
     var nilIfEmpty: String? { isNotEmpty ? self : nil }
 }
 
-public extension Optional where Wrapped == String {
+extension Optional where Wrapped == String {
     var orEmpty: String { self ?? "" }
     var isEmpty: Bool { self?.isEmpty ?? true }
 }
 
-public extension String {
+extension String {
     var isCorrect: Bool {
 #if os(iOS)
         let checker = UITextChecker()
@@ -92,7 +92,7 @@ public extension String {
     }
 }
 
-public extension String {
+extension String {
 
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()

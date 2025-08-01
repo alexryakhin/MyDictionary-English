@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-public struct CustomSectionHeader: View {
+struct CustomSectionHeader: View {
 
     private let text: LocalizedStringKey
 
-    public init(text: LocalizedStringKey) {
+    init(text: LocalizedStringKey) {
         self.text = text
     }
 
-    public var body: some View {
+    var body: some View {
         Text(text)
             .textCase(.uppercase)
             .font(.footnote)

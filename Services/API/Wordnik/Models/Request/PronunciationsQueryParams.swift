@@ -7,8 +7,8 @@
 
 import Foundation
 
-public struct PronunciationsQueryParams {
-    public var limit: Int?
+struct PronunciationsQueryParams {
+    var limit: Int?
 
     var queryItems: [URLQueryItem] {
         var items: [URLQueryItem] = [URLQueryItem(name: "typeFormat", value: "IPA")]
@@ -18,7 +18,7 @@ public struct PronunciationsQueryParams {
         return items
     }
 
-    public init(limit: Int? = nil) {
+    init(limit: Int? = nil) {
         self.limit = limit
     }
 }

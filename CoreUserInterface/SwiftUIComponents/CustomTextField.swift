@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct CustomTextField: View {
+struct CustomTextField: View {
 
     @FocusState private var isFocused: Bool
 
@@ -17,7 +17,7 @@ public struct CustomTextField: View {
     private let axis: Axis
     private let onCommit: () -> Void
 
-    public init(
+    init(
         _ placeholder: LocalizedStringKey,
         text: Binding<String>,
         submitLabel: SubmitLabel = .done,
@@ -31,7 +31,7 @@ public struct CustomTextField: View {
         self.onCommit = onCommit
     }
 
-    public var body: some View {
+    var body: some View {
         HStack(spacing: 8) {
             TextField(placeholder, text: text, axis: axis)
                 .onSubmit(onCommit)

@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-public struct StarRatingLabel: View {
+struct StarRatingLabel: View {
     private let score: Double
 
-    public init(score: Int) {
+    init(score: Int) {
         self.score = Double(score)
     }
 
-    public init(score: Double) {
+    init(score: Double) {
         self.score = score
     }
 
-    public var rating: Double {
+    var rating: Double {
         return (score / 100.0) * 5.0
     }
 
-    public var body: some View {
+    var body: some View {
         Label(
             title: {
                 Text(String(format: "%.1f", rating))

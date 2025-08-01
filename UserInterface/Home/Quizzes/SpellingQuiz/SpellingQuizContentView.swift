@@ -1,13 +1,10 @@
 import SwiftUI
-import CoreUserInterface
-import Core
-import Services
 
-public struct SpellingQuizContentView: PageView {
+struct SpellingQuizContentView: View {
 
-    public typealias ViewModel = SpellingQuizViewModel
+    typealias ViewModel = SpellingQuizViewModel
 
-    @ObservedObject public var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
 
     private var incorrectMessage: String {
         guard let randomWord = viewModel.randomWord else { return "" }
@@ -19,11 +16,11 @@ public struct SpellingQuizContentView: PageView {
         }
     }
 
-    public init(viewModel: SpellingQuizViewModel) {
+    init(viewModel: SpellingQuizViewModel) {
         self.viewModel = viewModel
     }
 
-    public var contentView: some View {
+    var body: some View {
         if let randomWord = viewModel.randomWord {
             List {
                 Section {

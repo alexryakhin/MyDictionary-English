@@ -1,19 +1,16 @@
 import SwiftUI
-import CoreUserInterface
-import Core
-import Services
 
-public struct ChooseDefinitionQuizContentView: PageView {
+struct ChooseDefinitionQuizContentView: View {
 
-    public typealias ViewModel = ChooseDefinitionQuizViewModel
+    typealias ViewModel = ChooseDefinitionQuizViewModel
 
-    @ObservedObject public var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
 
-    public init(viewModel: ChooseDefinitionQuizViewModel) {
+    init(viewModel: ChooseDefinitionQuizViewModel) {
         self.viewModel = viewModel
     }
 
-    public var contentView: some View {
+    var body: some View {
         if !viewModel.words.isEmpty {
             List {
                 Section {

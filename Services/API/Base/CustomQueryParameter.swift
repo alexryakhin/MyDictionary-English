@@ -5,6 +5,6 @@
 //  Created by Aleksandr Riakhin on 3/9/25.
 //
 
-public enum CustomQueryParameter {
+enum CustomQueryParameter {
     case apiKey
 }

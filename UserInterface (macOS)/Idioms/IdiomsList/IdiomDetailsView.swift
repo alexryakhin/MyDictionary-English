@@ -1,10 +1,6 @@
 import SwiftUI
-import Core
-import CoreUserInterface__macOS_
-import Shared
-import Services
 
-struct IdiomDetailsView: PageView {
+struct IdiomDetailsView: View {
 
     typealias ViewModel = IdiomsViewModel
 
@@ -24,7 +20,7 @@ struct IdiomDetailsView: PageView {
         self._viewModel = viewModel
     }
 
-    var contentView: some View {
+    var body: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
                 idiomSectionView

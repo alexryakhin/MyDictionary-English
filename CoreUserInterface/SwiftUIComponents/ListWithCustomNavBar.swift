@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct ListWithCustomNavBar<Data: RandomAccessCollection, CellView: View, NavigationBar: View>: View where Data.Element: Identifiable {
+struct ListWithCustomNavBar<Data: RandomAccessCollection, CellView: View, NavigationBar: View>: View where Data.Element: Identifiable {
 
     private let data: Data
     private let cellView: (Data.Element) -> CellView
@@ -19,7 +19,7 @@ public struct ListWithCustomNavBar<Data: RandomAccessCollection, CellView: View,
         min(max(-(scrollOffset-navBarSize.height-UIWindow.safeAreaTopInset-16) / 20, 0), 1)
     }
 
-    public init(
+    init(
         _ data: Data,
         @ViewBuilder cellView: @escaping (Data.Element) -> CellView,
         @ViewBuilder navigationBar: @escaping () -> NavigationBar
@@ -29,7 +29,7 @@ public struct ListWithCustomNavBar<Data: RandomAccessCollection, CellView: View,
         self.navigationBar = navigationBar
     }
 
-    public var body: some View {
+    var body: some View {
         List(data) { element in
             cellView(element)
                 .if(data.first?.id == element.id, transform: { cell in

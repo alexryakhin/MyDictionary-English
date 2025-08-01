@@ -1,9 +1,6 @@
 import SwiftUI
-import Shared
-import CoreUserInterface__macOS_
-import Services
 
-struct AddIdiomView: PageView {
+struct AddIdiomView: View {
 
     @Environment(\.dismiss) var dismiss
 
@@ -18,7 +15,7 @@ struct AddIdiomView: PageView {
         _viewModel = StateObject(wrappedValue: ViewModel(inputText: inputText))
     }
 
-    var contentView: some View {
+    var body: some View {
         ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 CustomSectionView(header: "Idiom") {

@@ -1,19 +1,16 @@
 import SwiftUI
-import CoreUserInterface
-import Core
-import Services
 
-public struct AddWordContentView: PageView {
+struct AddWordContentView: View {
 
-    public typealias ViewModel = AddWordViewModel
+    typealias ViewModel = AddWordViewModel
 
-    @ObservedObject public var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
 
-    public init(viewModel: AddWordViewModel) {
+    init(viewModel: AddWordViewModel) {
         self.viewModel = viewModel
     }
 
-    public var contentView: some View {
+    var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 24) {

@@ -38,7 +38,7 @@ struct MaterialWithGradientModifier: ViewModifier {
     }
 }
 
-public extension View {
+extension View {
     /// A modifier that applies a gradient blur effect to the view.
     ///
     /// - Parameters:

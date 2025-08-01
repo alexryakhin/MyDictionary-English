@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension Double {
+extension Double {
     private var currencyFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency

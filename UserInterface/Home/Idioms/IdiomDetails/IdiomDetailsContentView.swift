@@ -1,13 +1,10 @@
 import SwiftUI
-import CoreUserInterface
-import Core
-import Services
 
-public struct IdiomDetailsContentView: PageView {
+struct IdiomDetailsContentView: View {
 
-    public typealias ViewModel = IdiomDetailsViewModel
+    typealias ViewModel = IdiomDetailsViewModel
 
-    @ObservedObject public var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     @FocusState private var isIdiomInputFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
     @FocusState private var isAddExampleFocused: Bool
@@ -15,11 +12,11 @@ public struct IdiomDetailsContentView: PageView {
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
 
-    public init(viewModel: IdiomDetailsViewModel) {
+    init(viewModel: IdiomDetailsViewModel) {
         self.viewModel = viewModel
     }
 
-    public var contentView: some View {
+    var body: some View {
         ScrollView {
             LazyVStack(spacing: 24) {
                 idiomSectionView

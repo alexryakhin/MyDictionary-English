@@ -1,11 +1,7 @@
-import Core
-import CoreUserInterface
-import Services
-import Shared
 import Combine
 import SwiftUI
 
-public final class MoreViewModel: DefaultPageViewModel {
+final class MoreViewModel: BaseViewModel {
 
     enum Input {
         case showAboutApp
@@ -29,7 +25,7 @@ public final class MoreViewModel: DefaultPageViewModel {
     private var words: [Word] = []
     private var cancellables: Set<AnyCancellable> = []
 
-    public init(
+    init(
         wordsProvider: WordsProviderInterface,
         csvManager: CSVManagerInterface
     ) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension DateFormatter {
+extension DateFormatter {
 
     enum DateType: String {
 
@@ -61,7 +61,7 @@ public extension DateFormatter {
     }
 }
 
-public extension Date {
+extension Date {
     var csvString: String {
         ISO8601DateFormatter().string(from: self)
     }

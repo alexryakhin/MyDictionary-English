@@ -7,13 +7,13 @@
 
 import Foundation
 
-public struct WordDefinition: Identifiable {
-    public let id: String = UUID().uuidString
-    public let partOfSpeech: PartOfSpeech
-    public let text: String
-    public let examples: [String]
+struct WordDefinition: Identifiable {
+    let id: String = UUID().uuidString
+    let partOfSpeech: PartOfSpeech
+    let text: String
+    let examples: [String]
 
-    public init(
+    init(
         partOfSpeech: PartOfSpeech,
         text: String,
         examples: [String] = []

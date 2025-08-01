@@ -6,21 +6,18 @@
 //
 
 import SwiftUI
-import CoreUserInterface
-import Core
-import Services
 
-public struct QuizzesListContentView: PageView {
+struct QuizzesListContentView: View {
 
-    public typealias ViewModel = QuizzesListViewModel
+    typealias ViewModel = QuizzesListViewModel
 
-    @ObservedObject public var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
 
-    public init(viewModel: ViewModel) {
+    init(viewModel: ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
 
-    public var contentView: some View {
+    var body: some View {
         List {
             Section {
                 ForEach(Quiz.allCases) { quiz in
@@ -48,11 +45,5 @@ public struct QuizzesListContentView: PageView {
         }
     }
 
-    public func placeholderView(props: PageState.PlaceholderProps) -> some View {
-        EmptyListView(
-            label: viewModel.words.isEmpty ? "No words in your list" : "Not enough words",
-            description: "Add at least 10 words to your list to play!",
-            background: .background
-        )
-    }
+
 }

@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-public struct EmptyListView<Actions: View>: View {
+struct EmptyListView<Actions: View>: View {
     private let label: String?
     private let description: String?
     private let background: Color
     private let actions: () -> Actions
 
-    public init(
+    init(
         label: String? = nil,
         description: String? = nil,
         background: Color = .clear,
@@ -25,7 +25,7 @@ public struct EmptyListView<Actions: View>: View {
         self.actions = actions
     }
 
-    public var body: some View {
+    var body: some View {
         ZStack {
             background.ignoresSafeArea()
             if #available(iOS 17.0, *) {

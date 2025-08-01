@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct CellWrapper<LeadingContent: View, MainContent: View, TrailingContent: View>: View {
+struct CellWrapper<LeadingContent: View, MainContent: View, TrailingContent: View>: View {
     @Environment(\.isEnabled) var isEnabled: Bool
 
     private let label: LocalizedStringKey?
@@ -16,7 +16,7 @@ public struct CellWrapper<LeadingContent: View, MainContent: View, TrailingConte
     private let trailingContent: () -> TrailingContent
     private let onTapAction: (() -> Void)?
 
-    public init(
+    init(
         _ label: LocalizedStringKey? = nil,
         @ViewBuilder leadingContent: @escaping () -> LeadingContent = { EmptyView() },
         @ViewBuilder mainContent: @escaping () -> MainContent,
@@ -30,7 +30,7 @@ public struct CellWrapper<LeadingContent: View, MainContent: View, TrailingConte
         self.onTapAction = onTapAction
     }
 
-    public var body: some View {
+    var body: some View {
         HStack(spacing: 12) {
             leadingContent()
             VStack(alignment: .leading, spacing: 4) {

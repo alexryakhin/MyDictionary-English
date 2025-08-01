@@ -1,23 +1,19 @@
 import SwiftUI
-import CoreUserInterface
-import Core
 import StoreKit
-import Shared
-import Services
 
-public struct AboutAppContentView: PageView {
+struct AboutAppContentView: View {
 
     @Environment(\.requestReview) var requestReview
 
-    public typealias ViewModel = AboutAppViewModel
+    typealias ViewModel = AboutAppViewModel
 
-    @ObservedObject public var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
 
-    public init(viewModel: AboutAppViewModel) {
+    init(viewModel: AboutAppViewModel) {
         self.viewModel = viewModel
     }
 
-    public var contentView: some View {
+    var body: some View {
         List {
             // MARK: - About
 

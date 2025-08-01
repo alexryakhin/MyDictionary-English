@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension URL {
+extension URL {
 
     func queryParams() -> [String: String]? {
         guard let urlComponents = URLComponents(

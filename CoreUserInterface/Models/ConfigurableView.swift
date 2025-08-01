@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public protocol ConfigurableView: View {
+protocol ConfigurableView: View {
     associatedtype Model
 
     var model: Model { get }

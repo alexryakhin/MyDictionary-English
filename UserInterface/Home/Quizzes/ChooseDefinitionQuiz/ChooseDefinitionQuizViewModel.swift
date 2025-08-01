@@ -1,10 +1,7 @@
-import Core
-import CoreUserInterface
-import Services
-import Shared
+import Foundation
 import Combine
 
-public final class ChooseDefinitionQuizViewModel: DefaultPageViewModel {
+final class ChooseDefinitionQuizViewModel: BaseViewModel {
 
     enum Input {
         case answerSelected(Int)
@@ -29,7 +26,7 @@ public final class ChooseDefinitionQuizViewModel: DefaultPageViewModel {
     private var cancellables: Set<AnyCancellable> = []
     private var wordsPlayedCount: Int = 0
 
-    public init(wordsProvider: WordsProviderInterface) {
+    init(wordsProvider: WordsProviderInterface) {
         self.wordsProvider = wordsProvider
         self.correctAnswerIndex = Int.random(in: 0...2)
         super.init()

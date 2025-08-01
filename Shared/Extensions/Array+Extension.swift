@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension Array {
+extension Array {
 
     func contains<T>(_: T.Type) -> Bool {
         return contains(where: { $0 is T })

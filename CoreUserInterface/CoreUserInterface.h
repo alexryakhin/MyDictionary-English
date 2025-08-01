@@ -13,6 +13,6 @@ FOUNDATION_EXPORT double CoreUserInterfaceVersionNumber;
 //! Project version string for CoreUserInterface.
 FOUNDATION_EXPORT const unsigned char CoreUserInterfaceVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <CoreUserInterface/PublicHeader.h>
+// In this header, you should import all the headers of your framework using statements like #import <CoreUserInterface/PublicHeader.h>
 
 

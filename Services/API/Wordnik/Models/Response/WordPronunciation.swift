@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Core
 
 struct WordPronunciation: Decodable {
     let raw: String

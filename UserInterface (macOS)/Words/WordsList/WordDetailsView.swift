@@ -1,9 +1,6 @@
 import SwiftUI
-import Core
-import CoreUserInterface__macOS_
-import Services
 
-struct WordDetailsView: PageView {
+struct WordDetailsView: View {
 
     typealias ViewModel = WordsViewModel
 
@@ -23,7 +20,7 @@ struct WordDetailsView: PageView {
         self._viewModel = viewModel
     }
 
-    public var contentView: some View {
+    var body: some View {
         VStack(spacing: 0) {
             if let selectedWord = viewModel.selectedWord {
                 Text(selectedWord.word)

@@ -1,11 +1,11 @@
 import SwiftUI
 
-public enum SidebarItem: Hashable, CaseIterable {
+enum SidebarItem: Hashable, CaseIterable {
     case words
     case idioms
     case quizzes
 
-    public var title: String {
+    var title: String {
         switch self {
         case .words: "Words"
         case .idioms: "Idioms"
@@ -13,7 +13,7 @@ public enum SidebarItem: Hashable, CaseIterable {
         }
     }
 
-    public var imageSystemName: String {
+    var imageSystemName: String {
         switch self {
         case .words: "textformat.abc"
         case .idioms: "scroll"

@@ -5,12 +5,10 @@
 //  Created by Aleksandr Riakhin on 3/8/25.
 //
 
-import Core
-import CoreUserInterface
-import Services
+import Foundation
 import Combine
 
-public class QuizzesListViewModel: DefaultPageViewModel {
+class QuizzesListViewModel: BaseViewModel {
 
     enum Input {
         case showQuiz(Quiz)
@@ -27,10 +25,9 @@ public class QuizzesListViewModel: DefaultPageViewModel {
     private let wordsProvider: WordsProviderInterface
     private var cancellables: Set<AnyCancellable> = []
 
-    public init(wordsProvider: WordsProviderInterface) {
+    init(wordsProvider: WordsProviderInterface) {
         self.wordsProvider = wordsProvider
         super.init()
-        loadingStarted()
         setupBindings()
     }
 
@@ -47,11 +44,6 @@ public class QuizzesListViewModel: DefaultPageViewModel {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] words in
                 self?.words = words
-                if words.count >= 10 {
-                    self?.resetAdditionalState()
-                } else {
-                    self?.additionalState = .placeholder()
-                }
             }
             .store(in: &cancellables)
     }

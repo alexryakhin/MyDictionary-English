@@ -6,21 +6,20 @@
 //
 
 import CoreData
-import Core
 import Combine
 
-public protocol CoreDataServiceInterface {
+protocol CoreDataServiceInterface {
     var dataUpdatedPublisher: PassthroughSubject<Void, Never> { get }
     var context: NSManagedObjectContext { get }
 
     func saveContext() throws(CoreError)
 }
 
-public class CoreDataService: CoreDataServiceInterface {
+class CoreDataService: CoreDataServiceInterface {
 
-    public let dataUpdatedPublisher = PassthroughSubject<Void, Never>()
+    let dataUpdatedPublisher = PassthroughSubject<Void, Never>()
 
-    public var context: NSManagedObjectContext {
+    var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
 
@@ -42,11 +41,11 @@ public class CoreDataService: CoreDataServiceInterface {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    public init() {
+    init() {
         setupBindings()
     }
 
-    public func saveContext() throws(CoreError) {
+    func saveContext() throws(CoreError) {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

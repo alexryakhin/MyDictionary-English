@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-public extension ScrollView {
+extension ScrollView {
     @ViewBuilder
     func scrollTargetBehaviorIfAvailable() -> some View {
         if #available(macOS 14, *) {
@@ -17,7 +17,7 @@ public extension ScrollView {
     }
 }
 
-public extension List {
+extension List {
     @ViewBuilder
     func scrollContentBackgroundIfAvailable(_ visibility: Visibility) -> some View {
         if #available(iOS 16, *) {
@@ -28,7 +28,7 @@ public extension List {
     }
 }
 
-public extension View {
+extension View {
     @ViewBuilder
     func scrollTargetLayoutIfAvailable() -> some View {
         if #available(macOS 14, *) {

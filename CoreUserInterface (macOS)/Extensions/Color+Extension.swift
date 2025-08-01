@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-public extension NSColor {
+extension NSColor {
     var swiftUIColor: Color {
         Color(nsColor: self)
     }
 }
 
-public extension Color {
+extension Color {
     static var lightGray: Self {
         NSColor.lightGray.swiftUIColor
     }
