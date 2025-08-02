@@ -21,6 +21,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.dor.mydictionary.core.Idiom
 import com.dor.mydictionary.core.SortOrder
 import com.dor.mydictionary.ui.theme.Typography
+import com.dor.mydictionary.ui.screens.idioms.addIdiom.AddIdiomSheet
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -35,6 +36,7 @@ fun IdiomsListScreen(
     
     var showSortDialog by remember { mutableStateOf(false) }
     var showFilterDialog by remember { mutableStateOf(false) }
+    var showAddIdiomDialog by remember { mutableStateOf(false) }
     var showDeleteDialog by remember { mutableStateOf<Idiom?>(null) }
 
     Scaffold(
@@ -50,6 +52,16 @@ fun IdiomsListScreen(
                     }
                 }
             )
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = { showAddIdiomDialog = true }
+            ) {
+                Icon(
+                    Icons.Default.Add,
+                    contentDescription = "Add Idiom"
+                )
+            }
         }
     ) { innerPadding ->
         Column(
@@ -165,6 +177,23 @@ fun IdiomsListScreen(
                 }
             }
         )
+    }
+
+    // Add Idiom Dialog
+    if (showAddIdiomDialog) {
+        ModalBottomSheet(
+            modifier = Modifier.statusBarsPadding(),
+            onDismissRequest = { showAddIdiomDialog = false },
+            sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+        ) {
+            AddIdiomSheet(
+                onDismiss = { showAddIdiomDialog = false },
+                onSave = { idiom ->
+                    viewModel.addIdiom(idiom)
+                    showAddIdiomDialog = false
+                }
+            )
+        }
     }
 
     // Error Dialog

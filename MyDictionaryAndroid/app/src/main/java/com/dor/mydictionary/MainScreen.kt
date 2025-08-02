@@ -31,6 +31,7 @@ import com.dor.mydictionary.ui.screens.more.screen.MoreScreen
 import com.dor.mydictionary.ui.screens.quizzes.list.QuizzesScreen
 import com.dor.mydictionary.ui.screens.words.wordsList.WordsListScreen
 import com.dor.mydictionary.ui.screens.words.wordDetails.WordDetailsScreen
+import com.dor.mydictionary.ui.screens.idioms.idiomDetails.IdiomDetailsScreen
 
 @Composable
 fun MainScreen() {
@@ -125,7 +126,13 @@ fun MainScreen() {
                         animationSpec = tween(300)
                     )
                 }
-            ) { IdiomsListScreen() }
+            ) { 
+                IdiomsListScreen(
+                    onNavigateToIdiomDetails = { idiomId ->
+                        navController.navigate("idiom_details/$idiomId")
+                    }
+                ) 
+            }
             composable(
                 route = TabItem.Quizzes.route,
                 enterTransition = {
@@ -218,6 +225,48 @@ fun MainScreen() {
                     onNavigateBack = { navController.popBackStack() },
                     onNavigateToAddWord = { 
                         // TODO: Navigate to edit word screen
+                        navController.popBackStack()
+                    }
+                )
+            }
+            
+            // Idiom Details route
+            composable(
+                route = "idiom_details/{idiomId}",
+                arguments = listOf(
+                    androidx.navigation.navArgument("idiomId") { type = NavType.StringType }
+                ),
+                enterTransition = {
+                    slideIntoContainer(
+                        towards = SlideDirection.Left,
+                        animationSpec = tween(300)
+                    )
+                },
+                exitTransition = {
+                    slideOutOfContainer(
+                        towards = SlideDirection.Left,
+                        animationSpec = tween(300)
+                    )
+                },
+                popEnterTransition = {
+                    slideIntoContainer(
+                        towards = SlideDirection.Right,
+                        animationSpec = tween(300)
+                    )
+                },
+                popExitTransition = {
+                    slideOutOfContainer(
+                        towards = SlideDirection.Right,
+                        animationSpec = tween(300)
+                    )
+                }
+            ) { backStackEntry ->
+                val idiomId = backStackEntry.arguments?.getString("idiomId") ?: ""
+                IdiomDetailsScreen(
+                    idiomId = idiomId,
+                    onNavigateBack = { navController.popBackStack() },
+                    onNavigateToAddIdiom = { 
+                        // TODO: Navigate to edit idiom screen
                         navController.popBackStack()
                     }
                 )

@@ -39,9 +39,25 @@ class IdiomManager @Inject constructor(
     }
 
     suspend fun addIdiom(idiom: Idiom): Idiom {
-        val newIdiom = idiom.copy(id = UUID.randomUUID().toString())
-        storage.insert(IdiomEntity.fromIdiom(newIdiom))
-        return newIdiom
+        // Check if an idiom with the same content already exists
+        val existingIdioms = storage.getAll()
+        val duplicate = existingIdioms.find { 
+            it.idiomItself.equals(idiom.idiomItself, ignoreCase = true) 
+        }
+        
+        if (duplicate != null) {
+            // Return the existing idiom instead of creating a duplicate
+            return duplicate.toIdiom()
+        }
+        
+        // Use the existing ID if provided, otherwise generate a new one
+        val finalIdiom = if (idiom.id.isBlank()) {
+            idiom.copy(id = UUID.randomUUID().toString())
+        } else {
+            idiom
+        }
+        storage.insert(IdiomEntity.fromIdiom(finalIdiom))
+        return finalIdiom
     }
 
     suspend fun updateIdiom(idiom: Idiom) {

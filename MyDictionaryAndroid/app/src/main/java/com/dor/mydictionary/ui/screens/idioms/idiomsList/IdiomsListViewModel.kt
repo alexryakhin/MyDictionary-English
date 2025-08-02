@@ -102,7 +102,7 @@ class IdiomsListViewModel @Inject constructor(
     fun addIdiom(idiom: Idiom) {
         viewModelScope.launch {
             try {
-                idiomManager.addIdiom(idiom)
+                val savedIdiom = idiomManager.addIdiom(idiom)
                 loadIdioms() // Reload to reflect changes
             } catch (e: Exception) {
                 _uiState.update { 
