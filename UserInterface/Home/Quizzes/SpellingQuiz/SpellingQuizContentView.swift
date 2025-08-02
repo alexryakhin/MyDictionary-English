@@ -168,13 +168,46 @@ struct SpellingQuizContentView: View {
                 .padding(vertical: 8, horizontal: 12)
                 .background(Color(.tertiarySystemGroupedBackground))
                 .clipShape(RoundedRectangle(cornerRadius: 12))
+                .disabled(viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3)
                 .onSubmit {
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        viewModel.handle(.confirmAnswer)
+                    if !viewModel.isShowingCorrectAnswer && viewModel.attemptCount < 3 {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            viewModel.handle(.confirmAnswer)
+                        }
                     }
                 }
             
-            if !viewModel.isCorrectAnswer && viewModel.attemptCount > 0 {
+            if viewModel.isShowingCorrectAnswer {
+                HStack {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundColor(.green)
+                    
+                    Text(["Correct!", "Well done!", "Keep up the good work!"].randomElement() ?? "Correct!")
+                        .font(.caption)
+                        .foregroundColor(.green)
+                    
+                    Spacer()
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(.green.opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+            } else if viewModel.attemptCount >= 3 {
+                HStack {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundColor(.red)
+                    
+                    Text("The correct word is '\(viewModel.randomWord?.wordItself ?? "")'. Moving to next word...")
+                        .font(.caption)
+                        .foregroundColor(.red)
+                    
+                    Spacer()
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(.red.opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+            } else if !viewModel.isCorrectAnswer && viewModel.attemptCount > 0 {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundColor(.orange)
@@ -201,17 +234,30 @@ struct SpellingQuizContentView: View {
         VStack(spacing: 12) {
             Button {
                 withAnimation(.easeInOut(duration: 0.3)) {
-                    viewModel.handle(.confirmAnswer)
+                    if viewModel.isShowingCorrectAnswer {
+                        viewModel.handle(.nextWord)
+                    } else if viewModel.attemptCount >= 3 {
+                        viewModel.handle(.skipWord)
+                    } else {
+                        viewModel.handle(.confirmAnswer)
+                    }
                 }
             } label: {
-                Label("Submit Answer", systemImage: "checkmark.circle.fill")
-                    .fontWeight(.semibold)
-                    .frame(maxWidth: .infinity)
-                    .padding(8)
+                if viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3 {
+                    Label("Next Word", systemImage: "arrow.right.circle.fill")
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                } else {
+                    Label("Submit Answer", systemImage: "checkmark.circle.fill")
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                }
             }
             .buttonStyle(.borderedProminent)
             .disabled(viewModel.answerTextField.isEmpty)
-            
+
             Button {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     viewModel.handle(.skipWord)
@@ -223,6 +269,7 @@ struct SpellingQuizContentView: View {
             }
             .foregroundStyle(.secondary)
             .buttonStyle(.bordered)
+            .disabled(viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3)
         }
     }
 

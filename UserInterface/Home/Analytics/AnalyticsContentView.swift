@@ -121,11 +121,15 @@ struct AnalyticsContentView: View {
                 
                 Spacer()
                 
-                Button("View All") {
-                    // TODO: Navigate to detailed results
+                if viewModel.quizSessions.count > 3 {
+                    NavigationLink {
+                        QuizResultsDetailView()
+                    } label: {
+                        Text("View All")
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                    }
                 }
-                .font(.caption)
-                .foregroundColor(.blue)
             }
             
             if viewModel.quizSessions.isEmpty {
@@ -136,7 +140,7 @@ struct AnalyticsContentView: View {
                 )
             } else {
                 LazyVStack(spacing: 12) {
-                    ForEach(viewModel.quizSessions.prefix(5)) { session in
+                    ForEach(viewModel.quizSessions.prefix(3)) { session in
                         QuizResultRow(session: session)
                     }
                 }

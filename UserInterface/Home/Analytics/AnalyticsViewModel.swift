@@ -73,8 +73,7 @@ final class AnalyticsViewModel: BaseViewModel {
     }
     
     var vocabularyGrowthData: [VocabularyLineChart.Model] {
-        // Get actual quiz sessions and words to create realistic growth data
-        let sessions = quizAnalyticsService.getQuizSessions(limit: 100)
+        // Get words to create vocabulary growth data
         let words = quizAnalyticsService.getAllWords()
         let calendar = Calendar.current
         let today = Date()
@@ -89,21 +88,7 @@ final class AnalyticsViewModel: BaseViewModel {
                     return calendar.compare(wordDate, to: date, toGranularity: .day) != .orderedDescending
                 }.count
                 
-                // Count sessions on this date
-                let sessionsOnDate = sessions.filter { session in
-                    guard let sessionDate = session.date else { return false }
-                    return calendar.isDate(sessionDate, inSameDayAs: date)
-                }
-                
-                // Calculate words learned from sessions on this date
-                let wordsLearnedFromSessions = sessionsOnDate.reduce(0) { total, session in
-                    total + Int(session.totalWords)
-                }
-                
-                // Total words for this date = words added by this date + words learned from sessions
-                let totalWords = wordsAddedByDate + wordsLearnedFromSessions
-                
-                data.append(VocabularyLineChart.Model(date: date, count: totalWords))
+                data.append(VocabularyLineChart.Model(date: date, count: wordsAddedByDate))
             }
         }
         

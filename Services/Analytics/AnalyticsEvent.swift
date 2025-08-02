@@ -15,6 +15,7 @@ enum AnalyticsEvent: String {
     case analyticsOpened
     case settingsOpened
     case aboutAppScreenOpened
+    case quizResultsDetailOpened
 
     case wordsListFilterSelected
     case wordsListSortingSelected

@@ -6,6 +6,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     enum Input {
         case confirmAnswer
         case skipWord
+        case nextWord
         case restartQuiz
         case dismiss
     }
@@ -16,6 +17,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var randomWord: CDWord?
     @Published private(set) var isCorrectAnswer = true
     @Published private(set) var attemptCount = 0
+    @Published private(set) var isShowingCorrectAnswer = false
     
     // Game progress tracking
     @Published private(set) var correctAnswers = 0
@@ -51,6 +53,8 @@ final class SpellingQuizViewModel: BaseViewModel {
             confirmAnswer()
         case .skipWord:
             skipWord()
+        case .nextWord:
+            proceedToNextWord()
         case .restartQuiz:
             restartQuiz()
         case .dismiss:
@@ -64,10 +68,9 @@ final class SpellingQuizViewModel: BaseViewModel {
         else { return }
 
         if answerTextField.lowercased().trimmed == (randomWord.wordItself?.lowercased().trimmed ?? "") {
-            // Correct answer
+            // Correct answer - show success message
             isCorrectAnswer = true
-            answerTextField = ""
-            words.remove(at: wordIndex)
+            isShowingCorrectAnswer = true
             attemptCount = 0
             correctAnswers += 1
             currentStreak += 1
@@ -80,14 +83,6 @@ final class SpellingQuizViewModel: BaseViewModel {
             let attemptBonus = max(0, 3 - attemptCount) * 10
             score += 100 + attemptBonus
             
-            if !words.isEmpty {
-                self.randomWord = words.randomElement()
-            } else {
-                self.randomWord = nil
-                isQuizComplete = true
-                saveQuizSession()
-            }
-            
             HapticManager.shared.triggerNotification(type: .success)
             AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed)
         } else {
@@ -99,6 +94,11 @@ final class SpellingQuizViewModel: BaseViewModel {
             // Show hint after 2 attempts
             if attemptCount >= 2 {
                 isShowingHint = true
+            }
+            
+            // After 3 attempts, mark word as needs review
+            if attemptCount >= 3 {
+                updateWordDifficultyLevel(word: randomWord, level: 2)
             }
             
             HapticManager.shared.triggerNotification(type: .error)
@@ -120,7 +120,8 @@ final class SpellingQuizViewModel: BaseViewModel {
         // Penalty for skipping
         score = max(0, score - 25)
         currentStreak = 0
-        
+        answerTextField = ""
+
         // Check if quiz is complete
         if words.isEmpty {
             self.randomWord = nil
@@ -162,6 +163,7 @@ final class SpellingQuizViewModel: BaseViewModel {
         correctWordIds = []
         isQuizComplete = false
         isShowingHint = false
+        isShowingCorrectAnswer = false
         currentStreak = 0
         sessionStartTime = Date()
         
@@ -186,6 +188,26 @@ final class SpellingQuizViewModel: BaseViewModel {
         
         // Check and schedule notifications after quiz completion
         ServiceManager.shared.notificationService.checkAndScheduleNotifications()
+    }
+
+    private func proceedToNextWord() {
+        guard let randomWord,
+              let wordIndex = words.firstIndex(where: { $0.id == randomWord.id })
+        else { return }
+        
+        // Clear the answer field and remove the current word
+        answerTextField = ""
+        words.remove(at: wordIndex)
+        isShowingCorrectAnswer = false
+        
+        // Move to next word or complete quiz
+        if !words.isEmpty {
+            self.randomWord = words.randomElement()
+        } else {
+            self.randomWord = nil
+            isQuizComplete = true
+            saveQuizSession()
+        }
     }
 
     /// Fetches latest data from Core Data
