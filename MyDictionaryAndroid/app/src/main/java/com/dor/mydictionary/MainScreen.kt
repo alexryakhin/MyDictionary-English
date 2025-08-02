@@ -28,10 +28,11 @@ import androidx.compose.animation.core.tween
 import com.dor.mydictionary.ui.TabItem
 import com.dor.mydictionary.ui.screens.idioms.idiomsList.IdiomsListScreen
 import com.dor.mydictionary.ui.screens.more.screen.MoreScreen
-import com.dor.mydictionary.ui.screens.quizzes.list.QuizzesScreen
 import com.dor.mydictionary.ui.screens.words.wordsList.WordsListScreen
 import com.dor.mydictionary.ui.screens.words.wordDetails.WordDetailsScreen
 import com.dor.mydictionary.ui.screens.idioms.idiomDetails.IdiomDetailsScreen
+import com.dor.mydictionary.ui.screens.quizzes.quizzesList.QuizzesListScreen
+import com.dor.mydictionary.ui.screens.quizzes.spellingQuiz.SpellingQuizScreen
 
 @Composable
 fun MainScreen() {
@@ -159,7 +160,16 @@ fun MainScreen() {
                         animationSpec = tween(300)
                     )
                 }
-            ) { QuizzesScreen() }
+            ) { 
+                QuizzesListScreen(
+                    onNavigateToSpellingQuiz = {
+                        navController.navigate("spelling_quiz")
+                    },
+                    onNavigateToChooseDefinitionQuiz = {
+                        navController.navigate("choose_definition_quiz")
+                    }
+                ) 
+            }
             composable(
                 route = TabItem.More.route,
                 enterTransition = {
@@ -269,6 +279,40 @@ fun MainScreen() {
                         // TODO: Navigate to edit idiom screen
                         navController.popBackStack()
                     }
+                )
+            }
+            
+            // Spelling Quiz route
+            composable(
+                route = "spelling_quiz",
+                enterTransition = {
+                    slideIntoContainer(
+                        towards = SlideDirection.Left,
+                        animationSpec = tween(300)
+                    )
+                },
+                exitTransition = {
+                    slideOutOfContainer(
+                        towards = SlideDirection.Left,
+                        animationSpec = tween(300)
+                    )
+                },
+                popEnterTransition = {
+                    slideIntoContainer(
+                        towards = SlideDirection.Right,
+                        animationSpec = tween(300)
+                    )
+                },
+                popExitTransition = {
+                    slideOutOfContainer(
+                        towards = SlideDirection.Right,
+                        animationSpec = tween(300)
+                    )
+                }
+            ) {
+                SpellingQuizScreen(
+                    onNavigateBack = { navController.popBackStack() },
+                    onQuizComplete = { navController.popBackStack() }
                 )
             }
         }

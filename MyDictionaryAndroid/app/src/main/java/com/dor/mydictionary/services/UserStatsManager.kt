@@ -86,4 +86,45 @@ class UserStatsManager @Inject constructor(
         val diffInDays = diffInMillis / (24 * 60 * 60 * 1000)
         return diffInDays <= 1
     }
+
+    suspend fun getUserStats(): UserStats {
+        return getCurrentStats() ?: createInitialStats()
+    }
+
+    suspend fun updatePracticeSettings(hardWordsOnly: Boolean, wordsPerSession: Int) {
+        val currentStats = getUserStats()
+        val updatedStats = currentStats.copy(
+            practiceHardWordsOnly = hardWordsOnly,
+            wordsPerSession = wordsPerSession
+        )
+        updateStats(updatedStats)
+    }
+
+    suspend fun incrementQuizzesCompleted() {
+        val currentStats = getUserStats()
+        val updatedStats = currentStats.copy(
+            totalSessions = currentStats.totalSessions + 1
+        )
+        updateStats(updatedStats)
+    }
+
+    suspend fun updateStreak() {
+        val currentStats = getUserStats()
+        val today = Date()
+        val lastPractice = currentStats.lastPracticeDate
+        val newCurrentStreak = if (lastPractice != null && isConsecutiveDay(lastPractice, today)) {
+            currentStats.currentStreak + 1
+        } else {
+            1
+        }
+        
+        val newLongestStreak = maxOf(currentStats.longestStreak, newCurrentStreak)
+        
+        val updatedStats = currentStats.copy(
+            currentStreak = newCurrentStreak,
+            lastPracticeDate = today,
+            longestStreak = newLongestStreak
+        )
+        updateStats(updatedStats)
+    }
 } 

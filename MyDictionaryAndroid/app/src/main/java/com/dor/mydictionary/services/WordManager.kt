@@ -67,4 +67,8 @@ class WordManager @Inject constructor(
         localStorage.update(WordEntity.fromWord(updatedWord))
         return updatedWord
     }
+
+    suspend fun getHardWords(): List<Word> {
+        return localStorage.getAll().filter { it.difficultyLevel > 0 }.map { it.toWord() }
+    }
 }

@@ -11,5 +11,7 @@ data class UserStats(
     val totalPracticeTime: Double,
     val totalSessions: Int,
     val totalWordsStudied: Int,
-    val vocabularySize: Int
+    val vocabularySize: Int,
+    val practiceHardWordsOnly: Boolean = false,
+    val wordsPerSession: Int = 10
 ) 

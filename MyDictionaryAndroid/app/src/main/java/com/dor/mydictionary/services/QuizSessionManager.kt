@@ -52,4 +52,31 @@ class QuizSessionManager @Inject constructor(
     suspend fun deleteQuizSession(quizSession: QuizSession) {
         storage.delete(QuizSessionEntity.fromQuizSession(quizSession))
     }
+
+    suspend fun getRecentSessions(limit: Int): List<QuizSession> {
+        return storage.getRecent(limit).map { it.toQuizSession() }
+    }
+
+    suspend fun saveQuizSession(
+        id: String,
+        quizType: String,
+        totalQuestions: Int,
+        correctAnswers: Int,
+        timestamp: Date
+    ): QuizSession {
+        val quizSession = QuizSession(
+            id = id,
+            quizType = quizType,
+            date = timestamp,
+            score = correctAnswers,
+            totalWords = totalQuestions,
+            correctAnswers = correctAnswers,
+            accuracy = if (totalQuestions > 0) correctAnswers.toDouble() / totalQuestions else 0.0,
+            duration = 0.0,
+            wordsPracticed = emptyList()
+        )
+        
+        storage.insert(QuizSessionEntity.fromQuizSession(quizSession))
+        return quizSession
+    }
 } 

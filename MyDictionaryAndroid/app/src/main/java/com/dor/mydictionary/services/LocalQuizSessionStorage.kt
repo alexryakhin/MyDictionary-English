@@ -29,4 +29,7 @@ interface LocalQuizSessionStorage {
 
     @Query("SELECT * FROM quiz_sessions WHERE date >= :startDate ORDER BY date DESC")
     suspend fun getFromDate(startDate: java.util.Date): List<QuizSessionEntity>
+
+    @Query("SELECT * FROM quiz_sessions ORDER BY date DESC LIMIT :limit")
+    suspend fun getRecent(limit: Int): List<QuizSessionEntity>
 } 

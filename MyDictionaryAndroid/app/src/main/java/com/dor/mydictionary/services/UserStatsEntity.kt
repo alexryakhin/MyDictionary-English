@@ -15,7 +15,9 @@ data class UserStatsEntity(
     val totalPracticeTime: Double,
     val totalSessions: Int,
     val totalWordsStudied: Int,
-    val vocabularySize: Int
+    val vocabularySize: Int,
+    val practiceHardWordsOnly: Boolean = false,
+    val wordsPerSession: Int = 10
 ) {
     fun toUserStats(): UserStats = UserStats(
         id = id,
@@ -26,7 +28,9 @@ data class UserStatsEntity(
         totalPracticeTime = totalPracticeTime,
         totalSessions = totalSessions,
         totalWordsStudied = totalWordsStudied,
-        vocabularySize = vocabularySize
+        vocabularySize = vocabularySize,
+        practiceHardWordsOnly = practiceHardWordsOnly,
+        wordsPerSession = wordsPerSession
     )
     
     companion object {
@@ -39,7 +43,9 @@ data class UserStatsEntity(
             totalPracticeTime = userStats.totalPracticeTime,
             totalSessions = userStats.totalSessions,
             totalWordsStudied = userStats.totalWordsStudied,
-            vocabularySize = userStats.vocabularySize
+            vocabularySize = userStats.vocabularySize,
+            practiceHardWordsOnly = userStats.practiceHardWordsOnly,
+            wordsPerSession = userStats.wordsPerSession
         )
     }
 } 

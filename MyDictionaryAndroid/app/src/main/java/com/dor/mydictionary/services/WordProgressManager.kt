@@ -87,4 +87,21 @@ class WordProgressManager @Inject constructor(
     suspend fun deleteWordProgress(wordProgress: WordProgress) {
         storage.delete(WordProgressEntity.fromWordProgress(wordProgress))
     }
+
+    suspend fun incrementCorrectAnswers(wordId: String) {
+        recordQuizAttempt(wordId, isCorrect = true, responseTime = 0.0)
+    }
+
+    suspend fun incrementIncorrectAnswers(wordId: String) {
+        recordQuizAttempt(wordId, isCorrect = false, responseTime = 0.0)
+    }
+
+    suspend fun markAsNeedsReview(wordId: String) {
+        val currentProgress = getByWordId(wordId) ?: createWordProgress(wordId)
+        val updatedProgress = currentProgress.copy(
+            masteryLevel = "needsReview",
+            lastPracticed = Date()
+        )
+        updateWordProgress(updatedProgress)
+    }
 } 
