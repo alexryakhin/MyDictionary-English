@@ -64,6 +64,8 @@ struct MainTabView: View {
             IdiomsListView(viewModel: _idiomsViewModel)
         case .quizzes:
             QuizzesView(viewModel: _quizzesViewModel)
+        case .progress:
+            ProgressAnalyticsView()
         @unknown default:
             fatalError("Unsupported sidebar item: \(selectedSidebarItem)")
         }
@@ -73,21 +75,27 @@ struct MainTabView: View {
     private var tabDetailView: some View {
         switch selectedSidebarItem {
         case .words:
-            if wordsViewModel.selectedWord == nil {
+            if let selectedWord = wordsViewModel.selectedWord {
+                WordDetailsView(viewModel: _wordsViewModel)
+                    .id(selectedWord.id)
+            } else {
                 Text("Select a word")
                     .toolbar(content: toolbarPlaceholder)
-            } else {
-                WordDetailsView(viewModel: _wordsViewModel)
             }
         case .idioms:
-            if idiomsViewModel.selectedIdiom == nil {
+            if let selectedIdiom = idiomsViewModel.selectedIdiom {
+                IdiomDetailsView(viewModel: _idiomsViewModel)
+                    .id(selectedIdiom.id)
+            } else {
                 Text("Select an idiom")
                     .toolbar(content: toolbarPlaceholder)
-            } else {
-                IdiomDetailsView(viewModel: _idiomsViewModel)
             }
         case .quizzes:
             selectedQuizView
+        case .progress:
+            Text("Progress Overview")
+                .font(.title)
+                .foregroundColor(.secondary)
         @unknown default:
             fatalError("Unsupported sidebar item: \(selectedSidebarItem)")
         }
@@ -97,9 +105,9 @@ struct MainTabView: View {
     private var selectedQuizView: some View {
         switch quizzesViewModel.selectedQuiz {
         case .spelling:
-            SpellingQuizView()
+            SpellingQuizView(wordCount: Int(quizzesViewModel.practiceWordCount))
         case .chooseDefinition:
-            ChooseDefinitionView()
+            ChooseDefinitionView(wordCount: Int(quizzesViewModel.practiceWordCount))
         default:
             Text("Select a quiz")
         }

@@ -23,7 +23,7 @@ struct AddWordView: View {
                     partOfSpeechCellView
                     phoneticsCellView
                 }
-                .clippedWithBackground(.surfaceColor)
+                .clippedWithBackground()
 
                 definitionsSectionView
             }
@@ -138,11 +138,12 @@ struct AddWordView: View {
                     }
                 }
             case .error:
-                ContentUnavailableView(
-                    "Error Loading Definitions",
-                    systemImage: "exclamationmark.triangle",
-                    description: Text("There is an error loading definitions. Please try again.")
-                ) {
+                ContentUnavailableView {
+                    Image(systemName: "exclamationmark.triangle")
+                    Text("Error Loading Definitions")
+                } description: {
+                    Text("There is an error loading definitions. Please try again.")
+                } actions: {
                     Button {
                         viewModel.handle(.fetchData)
                     } label: {
@@ -150,7 +151,7 @@ struct AddWordView: View {
                     }
                     .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
                 }
-                .clippedWithPaddingAndBackground(.surfaceColor)
+                .clippedWithPaddingAndBackground()
             case .ready:
                 ForEach(Array(viewModel.definitions.enumerated()), id: \.element.id) { offset, definition in
                     FormWithDivider {
@@ -172,14 +173,15 @@ struct AddWordView: View {
                             }
                         }
                     }
-                    .clippedWithBackground(.surfaceColor)
+                    .clippedWithBackground()
                 }
             case .blank:
-                ContentUnavailableView(
-                    "No Definitions Found",
-                    systemImage: "textformat",
-                    description: Text("Type a word and press enter to search for definitions.")
-                ) {
+                ContentUnavailableView {
+                    Image(systemName: "textformat")
+                    Text("No Definitions Found")
+                } description: {
+                    Text("Type a word and press enter to search for definitions.")
+                } actions: {
                     Button {
                         viewModel.handle(.fetchData)
                     } label: {
@@ -187,7 +189,7 @@ struct AddWordView: View {
                     }
                     .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
                 }
-                .clippedWithPaddingAndBackground(.surfaceColor)
+                .clippedWithPaddingAndBackground()
             }
         }
     }

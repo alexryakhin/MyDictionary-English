@@ -5,6 +5,7 @@
 //  Created by Aleksandr Riakhin on 3/9/25.
 //
 
+#if os(iOS)
 import UIKit
 
 struct HapticManager {
@@ -31,3 +32,4 @@ struct HapticManager {
         generator.selectionChanged()
     }
 }
+#endif

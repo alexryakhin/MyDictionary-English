@@ -22,7 +22,7 @@ enum InputState: Equatable {
 
     var backgroundColor: Color {
         switch self {
-        case .pending, .focused: .underPageBackgroundColor
+        case .pending, .focused: Color(.underPageBackgroundColor)
         case .error: .red
         }
     }

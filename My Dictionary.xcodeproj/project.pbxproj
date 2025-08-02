@@ -54,6 +54,20 @@
 			);
 			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
 		};
+		532C18602E3E1E2600552599 /* Exceptions for "CoreUserInterface" folder in "My Dictionary (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SwiftUIComponents/VocabularyLineChart.swift,
+			);
+			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
+		};
+		532C18622E3E1E5B00552599 /* Exceptions for "UserInterface" folder in "My Dictionary (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Home/Tags/TagManagementViewModel.swift,
+			);
+			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
+		};
 		53E9A7802D7C3385007E9F28 /* Exceptions for "My Dictionary" folder in "My Dictionary" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -89,6 +103,9 @@
 		};
 		53E9A7E42D7C3E07007E9F28 /* UserInterface */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				532C18622E3E1E5B00552599 /* Exceptions for "UserInterface" folder in "My Dictionary (macOS)" target */,
+			);
 			path = UserInterface;
 			sourceTree = "<group>";
 		};
@@ -104,6 +121,9 @@
 		};
 		53E9A9B12D7C41DE007E9F28 /* CoreUserInterface */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				532C18602E3E1E2600552599 /* Exceptions for "CoreUserInterface" folder in "My Dictionary (macOS)" target */,
+			);
 			path = CoreUserInterface;
 			sourceTree = "<group>";
 		};

@@ -15,6 +15,9 @@ struct SettingsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
+                notificationSettingsSectionView
+                practiceSettingsSectionView
+                tagManagementSectionView
                 settingsSectionView
                 importExportSectionView
                 aboutSectionView
@@ -35,10 +38,13 @@ struct SettingsView: View {
                 viewModel.errorReceived(error, displayType: .alert)
             }
         }
-        .onAppear {
-            AnalyticsService.shared.logEvent(.moreOpened)
+        .sheet(isPresented: _viewModel.projectedValue.isShowingTagManagement) {
+            TagManagementView()
         }
-        .alert(isPresented: $viewModel.isShowingAlert) {
+        .onAppear {
+            AnalyticsService.shared.logEvent(.settingsOpened)
+        }
+        .alert(isPresented: _viewModel.projectedValue.isShowingAlert) {
             Alert(
                 title: Text(viewModel.alertModel.title),
                 message: Text(viewModel.alertModel.message ?? ""),
@@ -50,7 +56,119 @@ struct SettingsView: View {
                 } : .cancel()
             )
         }
-        .frame(width: 400, height: 500)
+        .frame(width: 400, height: 600)
+    }
+
+    // MARK: - Notification Settings
+    private var notificationSettingsSectionView: some View {
+        CustomSectionView(header: "Notifications") {
+            FormWithDivider {
+                CellWrapper {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Daily Reminders")
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Text("Get reminded to practice daily")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        Toggle("", isOn: _viewModel.projectedValue.dailyRemindersEnabled)
+                            .labelsHidden()
+                            .onChange(of: viewModel.dailyRemindersEnabled) { newValue in
+                                viewModel.handle(.dailyRemindersToggled(newValue))
+                            }
+                    }
+                }
+                
+                CellWrapper {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Difficult Words Alerts")
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Text("Get notified about words that need review")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        Toggle("", isOn: _viewModel.projectedValue.difficultWordsAlertsEnabled)
+                            .labelsHidden()
+                            .onChange(of: viewModel.difficultWordsAlertsEnabled) { newValue in
+                                viewModel.handle(.difficultWordsAlertsToggled(newValue))
+                            }
+                    }
+                }
+            }
+            .clippedWithBackground()
+        }
+    }
+
+    // MARK: - Practice Settings
+    private var practiceSettingsSectionView: some View {
+        CustomSectionView(header: "Practice Settings") {
+            FormWithDivider {
+                CellWrapper {
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("Words per session")
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Spacer()
+                            Text("\(Int(viewModel.practiceWordCount))")
+                                .font(.caption)
+                                .foregroundColor(.blue)
+                                .fontWeight(.medium)
+                        }
+                        
+                        Slider(
+                            value: _viewModel.projectedValue.practiceWordCount,
+                            in: 5...50,
+                            step: 5
+                        )
+                        .accentColor(.blue)
+                    }
+                }
+                
+                CellWrapper {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Practice hard words only")
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Text("Focus on words that need review")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        Toggle("", isOn: _viewModel.projectedValue.practiceHardWordsOnly)
+                            .labelsHidden()
+                            .disabled(!viewModel.hasHardWords)
+                    }
+                }
+            }
+            .clippedWithBackground()
+        }
+    }
+
+    // MARK: - Tag Management
+    private var tagManagementSectionView: some View {
+        CustomSectionView(header: "Tag Management") {
+            FormWithDivider {
+                ListButton("Manage Tags", systemImage: "tag") {
+                    viewModel.handle(.tagManagementTapped)
+                    AnalyticsService.shared.logEvent(.tagManagementOpened)
+                }
+            }
+            .clippedWithBackground()
+        }
     }
 
     // MARK: - Settings
@@ -71,7 +189,7 @@ struct SettingsView: View {
                     .buttonStyle(.borderless)
                 }
             }
-            .clippedWithBackground(.surfaceColor)
+            .clippedWithBackground()
         }
         .onChange(of: viewModel.selectedTTSLanguage) { _ in
             AnalyticsService.shared.logEvent(.languageAccentChanged)
@@ -94,7 +212,7 @@ struct SettingsView: View {
                     AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
                 }
             }
-            .clippedWithBackground(.surfaceColor)
+            .clippedWithBackground()
         }
     }
 
@@ -105,7 +223,7 @@ struct SettingsView: View {
                 openWindow(id: WindowID.about)
                 AnalyticsService.shared.logEvent(.aboutAppTapped)
             }
-            .clippedWithBackground(.surfaceColor)
+            .clippedWithBackground()
         }
     }
 }

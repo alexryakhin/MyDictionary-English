@@ -29,7 +29,7 @@ struct IdiomsListView: View {
                 }
                 .buttonStyle(.borderless)
                 .id(idiom.id?.uuidString ?? "")
-                .listRowBackground(viewModel.selectedIdiomId == idiom.id?.uuidString ? Color.selectedContentBackgroundColor : Color.clear)
+                .listRowBackground(viewModel.selectedIdiomId == idiom.id?.uuidString ? Color.secondary : Color.clear)
             }
             .onDelete {
                 viewModel.handle(.deleteIdiom(atOffsets: $0))
@@ -50,7 +50,7 @@ struct IdiomsListView: View {
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .background(Color.textBackgroundColor)
+        .background(Color(.textBackgroundColor))
         .navigationTitle("Idioms")
         .navigationSubtitle(idiomCount)
         .animation(.default, value: filteredIdioms)
@@ -104,7 +104,7 @@ struct IdiomsListView: View {
         .onChange(of: viewModel.filterState) { _ in
             AnalyticsService.shared.logEvent(.idiomsListFilterSelected)
         }
-        .alert(isPresented: $viewModel.isShowingAlert) {
+        .alert(isPresented: _viewModel.projectedValue.isShowingAlert) {
             Alert(
                 title: Text(viewModel.alertModel.title),
                 message: Text(viewModel.alertModel.message ?? ""),
@@ -126,7 +126,7 @@ struct IdiomsListView: View {
         }
     }
 
-    private var filteredIdioms: [Idiom] {
+    private var filteredIdioms: [CDIdiom] {
         switch viewModel.filterState {
         case .none: viewModel.idioms
         case .favorite: viewModel.favoriteIdioms

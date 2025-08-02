@@ -46,7 +46,7 @@ extension View {
     ///   - interpolation: The distance from the offset to where the effect is fully applied, relative to the view's size.
     ///   - direction: The direction in which the effect is applied.
     func colorWithGradient(
-        color: Color = .backgroundColor,
+        color: Color = Color(.windowBackgroundColor),
         offset: CGFloat = 0.1,
         interpolation: CGFloat = 0.3,
         direction: GradientDirection = .down

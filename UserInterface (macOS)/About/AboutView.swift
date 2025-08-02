@@ -50,7 +50,7 @@ struct AboutView: View {
                     }
                 }
             }
-            .clippedWithBackground(.surfaceColor)
+            .clippedWithBackground()
         }
     }
 
@@ -70,7 +70,7 @@ struct AboutView: View {
                     AnalyticsService.shared.logEvent(.instagramButtonTapped)
                 }
             }
-            .clippedWithBackground(.surfaceColor)
+            .clippedWithBackground()
         }
     }
 
@@ -89,7 +89,7 @@ struct AboutView: View {
                     }
                 }
             }
-            .clippedWithBackground(.surfaceColor)
+            .clippedWithBackground()
         }
     }
 }

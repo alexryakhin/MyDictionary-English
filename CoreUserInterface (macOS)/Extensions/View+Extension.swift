@@ -16,25 +16,12 @@ extension View {
     }
 
     func padding(
-        vertical: CGFloat = 0,
-        horizontal: CGFloat = 0
+        vertical: CGFloat,
+        horizontal: CGFloat
     ) -> some View {
         self
             .padding(.vertical, vertical)
             .padding(.horizontal, horizontal)
-    }
-
-    func padding(
-        top: CGFloat = 0,
-        leading: CGFloat = 0,
-        bottom: CGFloat = 0,
-        trailing: CGFloat = 0
-    ) -> some View {
-        self
-            .padding(.top, top)
-            .padding(.leading, leading)
-            .padding(.bottom, bottom)
-            .padding(.trailing, trailing)
     }
 
     func backgroundColor(_ color: Color) -> some View {

@@ -142,6 +142,13 @@ private extension WordsViewModel {
                     self?.deleteWord(withID: id)
                 }
             }
+        case .new, .inProgress, .needsReview, .mastered:
+            withAnimation {
+                offsets.map { wordsFiltered[$0] }.forEach { [weak self] word in
+                    guard let id = word.id?.uuidString else { return }
+                    self?.deleteWord(withID: id)
+                }
+            }
         @unknown default:
             fatalError("Unknown filter state")
         }
@@ -280,6 +287,19 @@ extension WordsViewModel {
         words.filter { [weak self] word in
             guard let self, !searchText.isEmpty else { return true }
             return word.wordItself?.localizedStandardContains(searchText) ?? false
+        }
+    }
+    
+    var wordsFiltered: [CDWord] {
+        switch filterState {
+        case .none: words
+        case .favorite: favoriteWords
+        case .search: searchResults
+        case .new: words.filter { $0.difficultyLevel == 0 }
+        case .inProgress: words.filter { $0.difficultyLevel == 1 }
+        case .needsReview: words.filter { $0.difficultyLevel == 2 }
+        case .mastered: words.filter { $0.difficultyLevel == 3 }
+        @unknown default: fatalError("Unknown filter state")
         }
     }
 }

@@ -21,12 +21,12 @@ struct AddIdiomView: View {
                 CustomSectionView(header: "Idiom") {
                     TextField("Idiom", text: _viewModel.projectedValue.inputText, axis: .vertical)
                         .textFieldStyle(.plain)
-                        .clippedWithPaddingAndBackground(.surfaceColor)
+                        .clippedWithPaddingAndBackground()
                 }
                 CustomSectionView(header: "Definition") {
                     TextField("Definition", text: _viewModel.projectedValue.inputDefinition, axis: .vertical)
                         .textFieldStyle(.plain)
-                        .clippedWithPaddingAndBackground(.surfaceColor)
+                        .clippedWithPaddingAndBackground()
                 }
             }
             .padding(vertical: 12, horizontal: 16)
@@ -65,7 +65,7 @@ struct AddIdiomView: View {
             )
         }
         .frame(width: 350, height: 500)
-        .background(Color(.systemGroupedBackground)Color)
+        .background(Color(.windowBackgroundColor))
         .onReceive(viewModel.dismissPublisher) { _ in
             dismiss()
         }

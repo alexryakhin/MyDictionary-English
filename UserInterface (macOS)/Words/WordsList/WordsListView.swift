@@ -12,12 +12,7 @@ struct WordsListView: View {
     @State private var isShowingAddView = false
 
     private var wordsFiltered: [CDWord] {
-        switch viewModel.filterState {
-        case .none: viewModel.words
-        case .favorite: viewModel.favoriteWords
-        case .search: viewModel.searchResults
-        @unknown default: fatalError("Unknown filter state")
-        }
+        viewModel.wordsFiltered
     }
 
     private var wordsCount: String {
@@ -47,7 +42,7 @@ struct WordsListView: View {
                 }
                 .buttonStyle(.borderless)
                 .id(word.id)
-                .listRowBackground(viewModel.selectedWordId == word.id?.uuidString ? Color.selectedContentBackgroundColor : Color.clear)
+                .listRowBackground(viewModel.selectedWordId == word.id?.uuidString ? Color(.selectedContentBackgroundColor) : Color.clear)
             }
             .onDelete { offsets in
                 viewModel.handle(.deleteWord(atOffsets: offsets))
@@ -66,7 +61,7 @@ struct WordsListView: View {
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .background(Color.textBackgroundColor)
+        .background(Color(.textBackgroundColor))
         .animation(.default, value: wordsFiltered)
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.sortingState)
@@ -119,7 +114,7 @@ struct WordsListView: View {
         .onChange(of: viewModel.filterState) { _ in
             AnalyticsService.shared.logEvent(.wordsListFilterSelected)
         }
-        .alert(isPresented: $viewModel.isShowingAlert) {
+        .alert(isPresented: _viewModel.projectedValue.isShowingAlert) {
             Alert(
                 title: Text(viewModel.alertModel.title),
                 message: Text(viewModel.alertModel.message ?? ""),

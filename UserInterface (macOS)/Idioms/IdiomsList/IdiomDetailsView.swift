@@ -64,7 +64,7 @@ struct IdiomDetailsView: View {
     private var idiomSectionView: some View {
         CustomSectionView(header: "Idiom") {
             let text = Binding {
-                viewModel.selectedIdiom?.idiom ?? ""
+                viewModel.selectedIdiom?.idiomItself ?? ""
             } set: {
                 viewModel.handle(.updateIdiom(text: $0))
             }
@@ -77,7 +77,7 @@ struct IdiomDetailsView: View {
                     viewModel.handle(.updateCDIdiom)
                     AnalyticsService.shared.logEvent(.idiomChanged)
                 }
-                .clippedWithPaddingAndBackground(.surfaceColor)
+                .clippedWithPaddingAndBackground()
         } headerTrailingContent: {
             if isIdiomInputFocused {
                 SectionHeaderButton("Save") {
@@ -109,7 +109,7 @@ struct IdiomDetailsView: View {
                     viewModel.handle(.updateCDIdiom)
                     AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
-                .clippedWithPaddingAndBackground(.surfaceColor)
+                .clippedWithPaddingAndBackground()
         } headerTrailingContent: {
             if isDefinitionFieldFocused {
                 SectionHeaderButton("Save") {
@@ -194,7 +194,7 @@ struct IdiomDetailsView: View {
                     .padding(vertical: 12, horizontal: 16)
                 }
             }
-            .clippedWithBackground(.surfaceColor)
+            .clippedWithBackground()
         }
     }
 }

@@ -10,6 +10,8 @@ final class QuizzesViewModel: BaseViewModel {
 
     @Published private(set) var selectedQuiz: Quiz?
     @Published private(set) var words: [CDWord] = []
+    @AppStorage(UDKeys.practiceWordCount) var practiceWordCount: Double = 10
+    @AppStorage(UDKeys.practiceHardWordsOnly) var showingHardWordsOnly = false
 
     private let wordsProvider: WordsProvider
     private var cancellables: Set<AnyCancellable> = []
@@ -40,5 +42,18 @@ final class QuizzesViewModel: BaseViewModel {
                 // Words loaded successfully
             }
             .store(in: &cancellables)
+    }
+    
+    // MARK: - Computed Properties
+    
+    var filteredWords: [CDWord] {
+        if showingHardWordsOnly {
+            return words.filter { $0.difficultyLevel == 2 } // needsReview
+        }
+        return words
+    }
+    
+    var hasHardWords: Bool {
+        return words.contains { $0.difficultyLevel == 2 }
     }
 }

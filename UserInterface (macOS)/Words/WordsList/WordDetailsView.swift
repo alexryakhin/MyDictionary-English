@@ -89,7 +89,7 @@ struct WordDetailsView: View {
             TextField("Transcription", text: text, axis: .vertical)
                 .textFieldStyle(.plain)
                 .focused($isPhoneticsFocused)
-                .clippedWithPaddingAndBackground(.surfaceColor)
+                .clippedWithPaddingAndBackground()
         } headerTrailingContent: {
             if isPhoneticsFocused {
                 SectionHeaderButton("Done") {
@@ -125,7 +125,7 @@ struct WordDetailsView: View {
             }
             .buttonStyle(.borderless)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .clippedWithPaddingAndBackground(.surfaceColor)
+            .clippedWithPaddingAndBackground()
         }
     }
 
@@ -139,7 +139,7 @@ struct WordDetailsView: View {
             TextField("Definition", text: text, axis: .vertical)
                 .textFieldStyle(.plain)
                 .focused($isDefinitionFocused)
-                .clippedWithPaddingAndBackground(.surfaceColor)
+                .clippedWithPaddingAndBackground()
         } headerTrailingContent: {
             if isDefinitionFocused {
                 SectionHeaderButton("Done") {
@@ -222,7 +222,7 @@ struct WordDetailsView: View {
                     .padding(vertical: 12, horizontal: 16)
                 }
             }
-            .clippedWithBackground(.surfaceColor)
+            .clippedWithBackground()
         }
     }
 }

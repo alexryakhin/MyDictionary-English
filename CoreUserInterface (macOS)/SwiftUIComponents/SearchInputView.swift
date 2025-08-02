@@ -35,11 +35,11 @@ struct SearchInputView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20.5, height: 18.5)
-                    .foregroundColor(.secondaryLabelColor)
+                    .foregroundStyle(.secondary)
 
                 TextField(text: $text, axis: .vertical) {
                     Text(placeholder)
-                        .foregroundColor(.secondaryLabelColor)
+                        .foregroundStyle(.secondary)
                 }
                 .submitLabel(.search)
                 .textContentType(textContentType)
@@ -59,7 +59,7 @@ struct SearchInputView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 16, height: 16)
-                            .foregroundColor(.secondaryLabelColor)
+                            .foregroundStyle(.secondary)
                     }
                 }
             }

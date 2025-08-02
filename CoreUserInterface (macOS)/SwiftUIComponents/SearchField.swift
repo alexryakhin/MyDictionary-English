@@ -24,12 +24,12 @@ struct SearchField: View {
         }
         .padding(.vertical, 4)
         .padding(.horizontal, 8)
-        .background(Color.textFieldColor)
+        .background(Color(.textBackgroundColor))
         .clipShape(RoundedRectangle(cornerRadius: 4))
         .background {
             RoundedRectangle(cornerRadius: 4)
                 .stroke(lineWidth: 2)
-                .foregroundStyle(Color.separatorColor)
+                .foregroundStyle(.secondary)
         }
     }
 }
