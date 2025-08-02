@@ -1,6 +1,6 @@
 package com.dor.mydictionary.ui.screens.words.wordsList
 
-import AddWordSheet
+import com.dor.mydictionary.ui.screens.words.addWord.AddWordSheet
 import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -63,6 +63,7 @@ import com.dor.mydictionary.ui.theme.Typography
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WordsListScreen(
+    onNavigateToWordDetails: (String) -> Unit = {},
     viewModel: WordsListViewModel = hiltViewModel()
 ) {
     val words by viewModel.uiState.collectAsState()
@@ -134,7 +135,7 @@ fun WordsListScreen(
                         word = word,
                         onClick = {
                             Log.d("${word.wordItself} Word tapped", "DEBUG50")
-                            // TODO: Navigate to word details
+                            onNavigateToWordDetails(word.id)
                         },
                         onFavoriteClick = {
                             Log.d("${word.wordItself} Favorite clicked", "DEBUG50")

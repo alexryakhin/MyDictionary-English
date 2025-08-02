@@ -21,6 +21,10 @@ class WordManager @Inject constructor(
         return localStorage.getById(id)?.toWord()
     }
 
+    suspend fun getWordById(id: String): Word? {
+        return localStorage.getById(id)?.toWord()
+    }
+
     suspend fun addWord(
         wordItself: String,
         definition: String,
