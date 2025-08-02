@@ -8,42 +8,55 @@
 import Foundation
 import UIKit
 
-enum TabBarItem: String, CaseIterable, Identifiable {
+enum TabBarItem: CaseIterable {
     case words
     case idioms
     case quizzes
     case analytics
-    case more
-
-    var id: String { rawValue }
+    case settings
 
     var title: String {
         switch self {
-        case .words: "Words"
-        case .idioms: "Idioms"
-        case .quizzes: "Quizzes"
-        case .analytics: "Progress"
-        case .more: "More"
+        case .words:
+            return "Words"
+        case .idioms:
+            return "Idioms"
+        case .quizzes:
+            return "Quizzes"
+        case .analytics:
+            return "Progress"
+        case .settings:
+            return "Settings"
         }
     }
 
     var image: String {
         switch self {
-        case .words: "textformat.abc"
-        case .idioms: "scroll"
-        case .quizzes: "a.magnify"
-        case .analytics: "chart.line.uptrend.xyaxis"
-        case .more: "ellipsis.circle"
+        case .words:
+            return "textformat"
+        case .idioms:
+            return "quote.bubble"
+        case .quizzes:
+            return "brain.head.profile"
+        case .analytics:
+            return "chart.line.uptrend.xyaxis"
+        case .settings:
+            return "gearshape"
         }
     }
 
     var selectedImage: String {
         switch self {
-        case .words: "textformat.abc.fill"
-        case .idioms: "scroll.fill"
-        case .quizzes: "a.magnify.fill"
-        case .analytics: "chart.line.uptrend.xyaxis.fill"
-        case .more: "ellipsis.circle.fill"
+        case .words:
+            return "textformat"
+        case .idioms:
+            return "quote.bubble.fill"
+        case .quizzes:
+            return "brain.head.profile"
+        case .analytics:
+            return "chart.line.uptrend.xyaxis"
+        case .settings:
+            return "gearshape.fill"
         }
     }
 

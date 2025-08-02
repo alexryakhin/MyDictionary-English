@@ -13,7 +13,7 @@ enum AnalyticsEvent: String {
     case idiomsListOpened
     case quizzesOpened
     case analyticsOpened
-    case moreOpened
+    case settingsOpened
     case aboutAppScreenOpened
 
     case wordsListFilterSelected

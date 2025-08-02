@@ -31,6 +31,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     @Published private(set) var totalQuestions = 0
     @Published private(set) var score = 0
     @Published private(set) var wordsPlayed: [CDWord] = []
+    @Published private(set) var correctWordIds: [String] = []
     @Published private(set) var isQuizComplete = false
     
     // Game state
@@ -39,13 +40,16 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     @Published private(set) var questionsAnswered = 0
 
     private let wordsProvider: WordsProvider
+    private let quizAnalyticsService: QuizAnalyticsService
     private var cancellables: Set<AnyCancellable> = []
     private var originalWords: [CDWord] = []
     private var usedWords: Set<CDWord> = []
     private var feedbackTimer: Timer?
+    private var sessionStartTime: Date = Date()
 
     init(wordsProvider: WordsProvider) {
         self.wordsProvider = wordsProvider
+        self.quizAnalyticsService = QuizAnalyticsService.shared
         self.correctAnswerIndex = Int.random(in: 0...2)
         super.init()
         setupBindings()
@@ -75,6 +79,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             currentStreak += 1
             bestStreak = max(bestStreak, currentStreak)
             wordsPlayed.append(correctWord)
+            correctWordIds.append(correctWord.id?.uuidString ?? "")
             usedWords.insert(correctWord)
             questionsAnswered += 1
             
@@ -114,6 +119,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         // Check if quiz is complete
         if usedWords.count >= originalWords.count {
             isQuizComplete = true
+            saveQuizSession()
         } else {
             // Get next question
             getNextQuestion()
@@ -137,6 +143,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         } else {
             // Not enough words left, quiz is complete
             isQuizComplete = true
+            saveQuizSession()
         }
     }
     
@@ -156,10 +163,12 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         totalQuestions = originalWords.count
         score = 0
         wordsPlayed = []
+        correctWordIds = []
         isQuizComplete = false
         currentStreak = 0
         questionsAnswered = 0
         usedWords.removeAll()
+        sessionStartTime = Date()
         
         HapticManager.shared.triggerNotification(type: .success)
         AnalyticsService.shared.logEvent(.definitionQuizRestarted)
@@ -200,9 +209,29 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         // Check if quiz is complete
         if usedWords.count >= originalWords.count {
             isQuizComplete = true
+            saveQuizSession()
         } else {
             // Get next question
             getNextQuestion()
         }
+    }
+    
+    private func saveQuizSession() {
+        let duration = Date().timeIntervalSince(sessionStartTime)
+        let accuracy = totalQuestions > 0 ? Double(correctAnswers) / Double(totalQuestions) : 0.0
+        
+        quizAnalyticsService.saveQuizSession(
+            quizType: "definition",
+            score: score,
+            correctAnswers: correctAnswers,
+            totalWords: totalQuestions,
+            duration: duration,
+            accuracy: accuracy,
+            wordsPracticed: wordsPlayed,
+            correctWordIds: correctWordIds
+        )
+        
+        // Check and schedule notifications after quiz completion
+        ServiceManager.shared.notificationService.checkAndScheduleNotifications()
     }
 }

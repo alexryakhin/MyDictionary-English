@@ -12,28 +12,39 @@ struct AnalyticsContentView: View {
     @StateObject private var viewModel = AnalyticsViewModel()
     
     var body: some View {
-        NavigationView {
-            ScrollView {
+        ScrollView {
+            if viewModel.isLoading {
+                VStack(spacing: 16) {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                    Text("Loading progress data...")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(100)
+            } else {
                 LazyVStack(spacing: 24) {
                     // Progress Overview
                     progressOverviewSection
-                    
+
                     // Quiz Results Table
                     quizResultsSection
-                    
+
                     // Vocabulary Growth Chart
                     vocabularyGrowthSection
                 }
                 .padding(24)
             }
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle("Progress")
-            .refreshable {
-                viewModel.refreshData()
-            }
-            .onAppear {
-                AnalyticsService.shared.logEvent(.analyticsOpened)
-            }
+        }
+        .background(Color(.systemGroupedBackground))
+        .navigationTitle("Progress")
+        .refreshable {
+            viewModel.refreshData()
+        }
+        .onAppear {
+            AnalyticsService.shared.logEvent(.analyticsOpened)
+            viewModel.loadData()
         }
     }
     
@@ -141,24 +152,38 @@ struct AnalyticsContentView: View {
     
     private var vocabularyGrowthSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Vocabulary Growth")
-                .font(.headline)
-                .fontWeight(.semibold)
-            
-            // Mock chart - will be replaced with real chart
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.blue.opacity(0.1))
-                .frame(height: 200)
-                .overlay(
-                    VStack {
-                        Image(systemName: "chart.line.uptrend.xyaxis")
-                            .font(.largeTitle)
-                            .foregroundColor(.blue)
-                        Text("Vocabulary Growth Chart")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+            HStack {
+                Text("Vocabulary Growth")
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
+                    ForEach(TimePeriod.allCases, id: \.self) { period in
+                        Text(period.displayName).tag(period)
                     }
+                }
+                .pickerStyle(.segmented)
+                .frame(width: 200)
+            }
+            
+            if viewModel.vocabularyGrowthData.isEmpty {
+                ContentUnavailableView(
+                    "No Growth Data Yet",
+                    systemImage: "chart.line.uptrend.xyaxis",
+                    description: Text("Complete quizzes to see your vocabulary growth over time")
                 )
+            } else {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Last \(viewModel.selectedTimePeriod.displayName.lowercased())")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    
+                    VocabularyLineChart(data: viewModel.vocabularyGrowthData)
+                        .frame(height: 200)
+                }
+            }
         }
         .padding(20)
         .background(Color(.systemBackground))
@@ -257,4 +282,4 @@ struct QuizResultRow: View {
         .background(Color(.systemGray6))
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }
-} 
+}

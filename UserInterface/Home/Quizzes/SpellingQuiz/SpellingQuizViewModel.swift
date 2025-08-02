@@ -22,6 +22,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var totalQuestions = 0
     @Published private(set) var score = 0
     @Published private(set) var wordsPlayed: [CDWord] = []
+    @Published private(set) var correctWordIds: [String] = []
     @Published private(set) var isQuizComplete = false
     
     // Game state
@@ -30,11 +31,14 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var bestStreak = 0
 
     private let wordsProvider: WordsProvider
+    private let quizAnalyticsService: QuizAnalyticsService
     private var cancellables: Set<AnyCancellable> = []
     private var originalWords: [CDWord] = []
+    private var sessionStartTime: Date = Date()
 
     init(wordsProvider: WordsProvider) {
         self.wordsProvider = wordsProvider
+        self.quizAnalyticsService = QuizAnalyticsService.shared
         super.init()
         setupBindings()
     }
@@ -67,6 +71,7 @@ final class SpellingQuizViewModel: BaseViewModel {
             currentStreak += 1
             bestStreak = max(bestStreak, currentStreak)
             wordsPlayed.append(randomWord)
+            correctWordIds.append(randomWord.id?.uuidString ?? "")
             isShowingHint = false // Reset hint for next question
             
             // Update score (bonus for fewer attempts)
@@ -78,6 +83,7 @@ final class SpellingQuizViewModel: BaseViewModel {
             } else {
                 self.randomWord = nil
                 isQuizComplete = true
+                saveQuizSession()
             }
             
             HapticManager.shared.triggerNotification(type: .success)
@@ -134,12 +140,33 @@ final class SpellingQuizViewModel: BaseViewModel {
         totalQuestions = originalWords.count
         score = 0
         wordsPlayed = []
+        correctWordIds = []
         isQuizComplete = false
         isShowingHint = false
         currentStreak = 0
+        sessionStartTime = Date()
         
         HapticManager.shared.triggerNotification(type: .success)
         AnalyticsService.shared.logEvent(.spellingQuizRestarted)
+    }
+    
+    private func saveQuizSession() {
+        let duration = Date().timeIntervalSince(sessionStartTime)
+        let accuracy = totalQuestions > 0 ? Double(correctAnswers) / Double(totalQuestions) : 0.0
+        
+        quizAnalyticsService.saveQuizSession(
+            quizType: "spelling",
+            score: score,
+            correctAnswers: correctAnswers,
+            totalWords: totalQuestions,
+            duration: duration,
+            accuracy: accuracy,
+            wordsPracticed: wordsPlayed,
+            correctWordIds: correctWordIds
+        )
+        
+        // Check and schedule notifications after quiz completion
+        ServiceManager.shared.notificationService.checkAndScheduleNotifications()
     }
 
     /// Fetches latest data from Core Data

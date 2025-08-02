@@ -26,85 +26,66 @@ struct MainTabView: View {
 
     var body: some View {
         TabView(selection: $navigationManager.selectedTab) {
-            NavigationSplitView(columnVisibility: .constant(.all)) {
+            // Words Tab
+            NavigationSplitView {
                 WordsListContentView(viewModel: wordsViewModel)
             } detail: {
                 if let selectedWord = wordsViewModel.selectedWord {
                     WordDetailsContentView(word: selectedWord)
-                        .id(wordsViewModel.selectedWord?.id)
+                        .id(selectedWord.id)
                 } else {
-                    ContentUnavailableView(
-                        "No Word Selected",
-                        systemImage: "textformat",
-                        description: Text("Select a word from the list to view its details")
-                    )
+                    Text("Select a word")
+                        .foregroundColor(.secondary)
                 }
             }
-            .navigationSplitViewStyle(.balanced)
             .tabItem {
-                Label(
-                    TabBarItem.words.title,
-                    systemImage: TabBarItem.words.image
-                )
+                Label(TabBarItem.words.title, systemImage: TabBarItem.words.image)
             }
             .tag(TabBarItem.words)
 
-            NavigationSplitView(columnVisibility: .constant(.all)) {
+            // Idioms Tab
+            NavigationSplitView {
                 IdiomsListContentView(viewModel: idiomsViewModel)
             } detail: {
                 if let selectedIdiom = idiomsViewModel.selectedIdiom {
                     IdiomDetailsContentView(idiom: selectedIdiom)
-                        .id(idiomsViewModel.selectedIdiom?.id)
+                        .id(selectedIdiom.id)
                 } else {
-                    ContentUnavailableView(
-                        "No Idiom Selected",
-                        systemImage: "quote.bubble",
-                        description: Text("Select an idiom from the list to view its details")
-                    )
+                    Text("Select an idiom")
+                        .foregroundColor(.secondary)
                 }
             }
-            .navigationSplitViewStyle(.balanced)
             .tabItem {
-                Label(
-                    TabBarItem.idioms.title,
-                    systemImage: TabBarItem.idioms.image
-                )
+                Label(TabBarItem.idioms.title, systemImage: TabBarItem.idioms.image)
             }
             .tag(TabBarItem.idioms)
 
+            // Quizzes Tab
             NavigationView {
                 QuizzesListContentView(viewModel: quizzesViewModel)
             }
-            .navigationSplitViewStyle(.balanced)
             .tabItem {
-                Label(
-                    TabBarItem.quizzes.title,
-                    systemImage: TabBarItem.quizzes.image
-                )
+                Label(TabBarItem.quizzes.title, systemImage: TabBarItem.quizzes.image)
             }
             .tag(TabBarItem.quizzes)
 
+            // Progress Tab
             NavigationView {
                 AnalyticsContentView()
             }
             .tabItem {
-                Label(
-                    TabBarItem.analytics.title,
-                    systemImage: TabBarItem.analytics.image
-                )
+                Label(TabBarItem.analytics.title, systemImage: TabBarItem.analytics.image)
             }
             .tag(TabBarItem.analytics)
 
+            // Settings Tab
             NavigationView {
                 MoreContentView(viewModel: moreViewModel)
             }
             .tabItem {
-                Label(
-                    TabBarItem.more.title,
-                    systemImage: TabBarItem.more.image
-                )
+                Label(TabBarItem.settings.title, systemImage: TabBarItem.settings.image)
             }
-            .tag(TabBarItem.more)
+            .tag(TabBarItem.settings)
         }
     }
 

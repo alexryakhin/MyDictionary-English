@@ -80,6 +80,10 @@ final class ServiceManager {
         TagService(coreDataService: coreDataService)
     }()
     
+    lazy var notificationService: NotificationService = {
+        NotificationService()
+    }()
+    
     // MARK: - Factory Methods
 
     func createAddWordManager() -> AddWordManager {

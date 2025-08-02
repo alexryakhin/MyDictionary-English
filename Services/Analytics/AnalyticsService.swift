@@ -35,11 +35,13 @@ final class QuizAnalyticsService {
     
     func saveQuizSession(
         quizType: String,
-        totalWords: Int,
-        correctAnswers: Int,
         score: Int,
+        correctAnswers: Int,
+        totalWords: Int,
         duration: TimeInterval,
-        wordsPracticed: [String]
+        accuracy: Double,
+        wordsPracticed: [CDWord],
+        correctWordIds: [String] = []
     ) {
         let session = CDQuizSession(context: coreDataService.context)
         session.id = UUID()
@@ -49,12 +51,17 @@ final class QuizAnalyticsService {
         session.correctAnswers = Int32(correctAnswers)
         session.score = Int32(score)
         session.duration = duration
-        session.accuracy = totalWords > 0 ? Double(correctAnswers) / Double(totalWords) : 0.0
-        session.wordsPracticed = try? JSONEncoder().encode(wordsPracticed)
+        session.accuracy = accuracy
+        
+        // Encode words practiced as word IDs
+        let wordIds = wordsPracticed.compactMap { $0.id?.uuidString }
+        session.wordsPracticed = try? JSONEncoder().encode(wordIds)
         
         // Update word progress for each practiced word
-        for wordId in wordsPracticed {
-            updateWordProgress(wordId: wordId, wasCorrect: true) // This will be refined
+        for word in wordsPracticed {
+            let wordId = word.id?.uuidString ?? ""
+            let wasCorrect = correctWordIds.contains(wordId)
+            updateWordProgress(wordId: wordId, wasCorrect: wasCorrect)
         }
         
         // Update user stats
@@ -207,6 +214,18 @@ final class QuizAnalyticsService {
             return try coreDataService.context.fetch(request)
         } catch {
             print("❌ Failed to fetch word progress: \(error)")
+            return []
+        }
+    }
+    
+    func getAllWords() -> [CDWord] {
+        let request = CDWord.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
+        
+        do {
+            return try coreDataService.context.fetch(request)
+        } catch {
+            print("❌ Failed to fetch all words: \(error)")
             return []
         }
     }

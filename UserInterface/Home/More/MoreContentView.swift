@@ -65,6 +65,52 @@ struct MoreContentView: View {
                 Text("Create and manage tags to organize your words.")
             }
 
+            // MARK: - Notifications
+
+            Section {
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Daily Reminders")
+                            .font(.body)
+                            .fontWeight(.medium)
+                        Text("Get reminded at 8 PM if you haven't opened the app")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    Toggle("", isOn: $viewModel.dailyRemindersEnabled)
+                        .labelsHidden()
+                        .onChange(of: viewModel.dailyRemindersEnabled) { _ in
+                            viewModel.updateNotificationSettings()
+                        }
+                }
+                
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Difficult Words")
+                            .font(.body)
+                            .fontWeight(.medium)
+                        Text("Get reminded at 4 PM to practice difficult words")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    Toggle("", isOn: $viewModel.difficultWordsEnabled)
+                        .labelsHidden()
+                        .onChange(of: viewModel.difficultWordsEnabled) { _ in
+                            viewModel.updateNotificationSettings()
+                        }
+                }
+            } header: {
+                Text("Notifications")
+            } footer: {
+                Text("Daily reminders only send if you haven't opened the app that day.")
+            }
+
             // MARK: - About app
 
             Section {
@@ -77,7 +123,7 @@ struct MoreContentView: View {
                 Text("About app")
             }
         }
-        .navigationTitle("More")
+        .navigationTitle("Settings")
         .listStyle(.insetGrouped)
         .sheet(item: $viewModel.exportWordsUrl) { url in
             ShareSheet(activityItems: [url])
@@ -100,7 +146,7 @@ struct MoreContentView: View {
             }
         }
         .onAppear {
-            AnalyticsService.shared.logEvent(.moreOpened)
+            AnalyticsService.shared.logEvent(.settingsOpened)
         }
     }
 }
