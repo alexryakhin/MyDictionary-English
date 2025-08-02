@@ -24,6 +24,9 @@ class WordsListViewModel @Inject constructor(
     private val _currentFilter = MutableStateFlow(FilterOption.ALL)
     val currentFilter = _currentFilter.asStateFlow()
 
+    private val _searchText = MutableStateFlow("")
+    val searchText = _searchText.asStateFlow()
+
     private val _uiState = MutableStateFlow<List<Word>>(emptyList())
     val uiState = _uiState.asStateFlow()
 
@@ -74,6 +77,11 @@ class WordsListViewModel @Inject constructor(
         applyFilterAndSort()
     }
 
+    fun setSearchText(text: String) {
+        _searchText.value = text
+        applyFilterAndSort()
+    }
+
     private fun applyFilterAndSort() {
         viewModelScope.launch {
             val allWords = wordManager.getAllWords()
@@ -82,13 +90,24 @@ class WordsListViewModel @Inject constructor(
     }
 
     private fun applyFilterAndSort(words: List<Word>): List<Word> {
+        // Apply search filter
+        val searchFiltered = if (_searchText.value.isEmpty()) {
+            words
+        } else {
+            words.filter { word ->
+                word.wordItself.contains(_searchText.value, ignoreCase = true) ||
+                word.definition.contains(_searchText.value, ignoreCase = true)
+            }
+        }
+
+        // Apply additional filters
         val filteredWords = when (_currentFilter.value) {
-            FilterOption.ALL -> words
-            FilterOption.FAVORITES -> words.filter { it.isFavorite }
-            FilterOption.NEW -> words.filter { it.difficultyLevel == 0 }
-            FilterOption.IN_PROGRESS -> words.filter { it.difficultyLevel == 1 }
-            FilterOption.NEEDS_REVIEW -> words.filter { it.difficultyLevel == 2 }
-            FilterOption.MASTERED -> words.filter { it.difficultyLevel == 3 }
+            FilterOption.ALL -> searchFiltered
+            FilterOption.FAVORITES -> searchFiltered.filter { it.isFavorite }
+            FilterOption.NEW -> searchFiltered.filter { it.difficultyLevel == 0 }
+            FilterOption.IN_PROGRESS -> searchFiltered.filter { it.difficultyLevel == 1 }
+            FilterOption.NEEDS_REVIEW -> searchFiltered.filter { it.difficultyLevel == 2 }
+            FilterOption.MASTERED -> searchFiltered.filter { it.difficultyLevel == 3 }
         }
 
         return when (_sortOrder.value) {

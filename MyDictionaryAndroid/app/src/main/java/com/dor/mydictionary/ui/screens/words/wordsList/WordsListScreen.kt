@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,9 +25,11 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.FilterList
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Sort
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -39,6 +42,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -68,6 +72,7 @@ fun WordsListScreen(
 ) {
     val words by viewModel.uiState.collectAsState(initial = emptyList())
     val sortOrder by viewModel.sortOrder.collectAsState(initial = SortOrder.Latest)
+    val searchText by viewModel.searchText.collectAsState(initial = "")
     var showAddWordDialog by remember { mutableStateOf(false) }
     var showFilterDialog by remember { mutableStateOf(false) }
     var showSortDialog by remember { mutableStateOf(false) }
@@ -108,6 +113,20 @@ fun WordsListScreen(
         Column(
             modifier = Modifier.padding(innerPadding)
         ) {
+            // Search bar
+            SearchBar(
+                query = searchText,
+                onQueryChange = { viewModel.setSearchText(it) },
+                onSearch = { },
+                active = false,
+                onActiveChange = { },
+                placeholder = { Text("Search words...") },
+                leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            ) { }
+
             // Filter chips
             FilterChipsRow(
                 selectedFilter = selectedFilter,
@@ -119,27 +138,41 @@ fun WordsListScreen(
             
             Spacer(modifier = Modifier.height(8.dp))
             
+            // Words count
+            Text(
+                text = "${words.size} word${if (words.size != 1) "s" else ""}",
+                style = Typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+            
             // Words list
-            LazyColumn(
-                contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 16.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                items(words) { word ->
-                    WordCard(
-                        word = word,
-                        onClick = {
-                            Log.d("${word.wordItself} Word tapped", "DEBUG50")
-                            onNavigateToWordDetails(word.id)
-                        },
-                        onFavoriteClick = {
-                            Log.d("${word.wordItself} Favorite clicked", "DEBUG50")
-                            viewModel.toggleFavorite(word.id)
-                        },
-                        onDeleteClick = {
-                            Log.d("${word.wordItself} Delete clicked", "DEBUG50")
-                            viewModel.removeWord(word.id)
-                        }
-                    )
+            if (words.isEmpty()) {
+                EmptyStateView()
+            } else {
+                LazyColumn(
+                    contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    items(words) { word ->
+                        WordCard(
+                            word = word,
+                            onClick = {
+                                Log.d("${word.wordItself} Word tapped", "DEBUG50")
+                                onNavigateToWordDetails(word.id)
+                            },
+                            onFavoriteClick = {
+                                Log.d("${word.wordItself} Favorite clicked", "DEBUG50")
+                                viewModel.toggleFavorite(word.id)
+                            },
+                            onDeleteClick = {
+                                Log.d("${word.wordItself} Delete clicked", "DEBUG50")
+                                viewModel.removeWord(word.id)
+                            }
+                        )
+                    }
                 }
             }
         }
@@ -335,4 +368,35 @@ enum class FilterOption(val displayName: String) {
     IN_PROGRESS("In Progress"),
     NEEDS_REVIEW("Needs Review"),
     MASTERED("Mastered")
+}
+
+@Composable
+private fun EmptyStateView() {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Icon(
+                Icons.Default.Book,
+                contentDescription = null,
+                modifier = Modifier.size(64.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Text(
+                text = "No words yet",
+                style = Typography.headlineSmall,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Text(
+                text = "Begin to add words to your list by tapping on plus icon in upper right corner",
+                style = Typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = 32.dp)
+            )
+        }
+    }
 }
