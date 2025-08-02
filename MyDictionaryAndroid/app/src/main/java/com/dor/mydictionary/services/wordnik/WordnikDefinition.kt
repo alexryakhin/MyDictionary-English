@@ -73,13 +73,15 @@ data class ExampleUseDto(
 data class WordnikDefinitionDto(
     @SerializedName("text") val text: String?,
     @SerializedName("partOfSpeech") val partOfSpeech: String?,
-    @SerializedName("exampleUses") val exampleUses: List<ExampleUseDto>?
+    @SerializedName("exampleUses") val exampleUses: List<ExampleUseDto>?,
+    @SerializedName("attributionText") val attributionText: String? = null
 ) {
     fun toDomain(): WordnikDefinition {
         return WordnikDefinition(
             definitionText = text.orEmpty().removeHtmlTags(),
             partOfSpeech = WordnikPartOfSpeech.fromRawValue(partOfSpeech).toCore(),
-            examples = exampleUses?.map { it.text.removeHtmlTags() }.orEmpty()
+            examples = exampleUses?.map { it.text.removeHtmlTags() }.orEmpty(),
+            pronunciation = null // TODO: Get pronunciation from separate API call
         )
     }
 }
@@ -87,5 +89,6 @@ data class WordnikDefinitionDto(
 data class WordnikDefinition(
     val definitionText: String,
     val partOfSpeech: PartOfSpeech,
-    val examples: List<String>
+    val examples: List<String>,
+    val pronunciation: String? = null
 )

@@ -20,47 +20,88 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddWordViewModel @Inject constructor(
-    private val wordnikService: WordnikService
+    private val wordnikService: WordnikService,
+    private val wordManager: WordManager
 ) : ViewModel() {
 
     var wordInput by mutableStateOf("")
     var definitionInput by mutableStateOf("")
     var selectedPartOfSpeech by mutableStateOf<PartOfSpeech>(PartOfSpeech.Unknown)
-
     var transcription by mutableStateOf<String>("")
     var wordnikResults by mutableStateOf<List<WordnikDefinition>>(emptyList())
     var status by mutableStateOf(FetchingStatus.Blank)
+    var selectedDefinitionIndex by mutableStateOf<Int?>(null)
 
     fun searchWordnik() {
+        if (wordInput.trim().isEmpty()) return
+        
         viewModelScope.launch {
             status = FetchingStatus.Loading
             try {
-                val results = wordnikService.getDefinitions(wordInput)
+                val results = wordnikService.getDefinitions(wordInput.trim())
                 wordnikResults = results
+                
+                // Auto-fill the first definition if available
+                if (results.isNotEmpty()) {
+                    val firstDefinition = results.first()
+                    definitionInput = firstDefinition.definitionText
+                    selectedPartOfSpeech = firstDefinition.partOfSpeech
+                    transcription = firstDefinition.pronunciation ?: ""
+                    selectedDefinitionIndex = 0
+                }
+                
+                status = FetchingStatus.Ready
                 Log.d("Wordnik results", results.toString())
             } catch (e: Exception) {
                 wordnikResults = emptyList()
                 status = FetchingStatus.Error
-            } finally {
-                status = FetchingStatus.Ready
+                Log.e("Wordnik error", "Error fetching definitions", e)
             }
         }
     }
 
+    fun selectDefinition(index: Int, definition: WordnikDefinition) {
+        selectedDefinitionIndex = index
+        definitionInput = definition.definitionText
+        selectedPartOfSpeech = definition.partOfSpeech
+        transcription = definition.pronunciation ?: ""
+    }
+
+    fun playPronunciation() {
+        // TODO: Implement TTS playback
+        Log.d("TTS", "Playing pronunciation for: $wordInput")
+    }
+
     fun saveWord(completion: (Word) -> Unit) {
+        if (wordInput.trim().isEmpty() || definitionInput.trim().isEmpty()) return
+        
         val word = Word(
             wordItself = wordInput.trim(),
             definition = definitionInput.trim(),
             partOfSpeech = selectedPartOfSpeech,
-            phonetic = transcription,
+            phonetic = transcription.takeIf { it.isNotEmpty() },
             id = UUID.randomUUID().toString(),
             timestamp = Date(),
+            examples = emptyList(), // TODO: Add examples from selected definition
             isFavorite = false,
-            examples = emptyList(), // You can pull this from WordnikResult later
             difficultyLevel = 0
         )
-        completion(word)
-        reset()
+        
+        viewModelScope.launch {
+            try {
+                wordManager.addWord(
+                    wordItself = word.wordItself,
+                    definition = word.definition,
+                    partOfSpeech = word.partOfSpeech,
+                    phonetic = word.phonetic,
+                    examples = word.examples
+                )
+                completion(word)
+                reset()
+            } catch (e: Exception) {
+                Log.e("Save word", "Error saving word", e)
+            }
+        }
     }
 
     private fun reset() {
@@ -70,5 +111,6 @@ class AddWordViewModel @Inject constructor(
         transcription = ""
         wordnikResults = emptyList()
         status = FetchingStatus.Blank
+        selectedDefinitionIndex = null
     }
 }
