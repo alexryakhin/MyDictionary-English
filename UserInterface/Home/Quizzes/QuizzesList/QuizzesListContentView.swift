@@ -13,7 +13,6 @@ struct QuizzesListContentView: View {
 
     @ObservedObject var viewModel: ViewModel
     @StateObject private var navigationManager: NavigationManager = .shared
-    @State private var showingHardWordsOnly = false
     @State private var practiceWordCount: Double = 10
 
     init(viewModel: ViewModel) {
@@ -54,8 +53,9 @@ struct QuizzesListContentView: View {
                         
                         Spacer()
                         
-                        Toggle("", isOn: $showingHardWordsOnly)
+                        Toggle("", isOn: $viewModel.showingHardWordsOnly)
                             .labelsHidden()
+                            .disabled(!viewModel.hasHardWords)
                     }
                     
                     Divider()
@@ -96,17 +96,16 @@ struct QuizzesListContentView: View {
 
             // Quiz Types Section
             Section {
-                ForEach(Quiz.allCases) { quiz in
-                    NavigationLink {
-                        switch quiz {
-                        case .spelling:
-                            SpellingQuizContentView()
-                        case .chooseDefinitions:
-                            ChooseDefinitionQuizContentView()
-                        }
-                    } label: {
-                        QuizCardView(quiz: quiz)
-                    }
+                NavigationLink {
+                    SpellingQuizContentView(wordCount: Int(practiceWordCount))
+                } label: {
+                    QuizCardView(quiz: .spelling)
+                }
+
+                NavigationLink {
+                    ChooseDefinitionQuizContentView(wordCount: Int(practiceWordCount))
+                } label: {
+                    QuizCardView(quiz: .chooseDefinition)
                 }
             } header: {
                 Text("Quiz Types")
@@ -213,7 +212,7 @@ extension Quiz {
         switch self {
         case .spelling:
             return .blue
-        case .chooseDefinitions:
+        case .chooseDefinition:
             return .green
         }
     }
@@ -222,7 +221,7 @@ extension Quiz {
         switch self {
         case .spelling:
             return "pencil.and.outline"
-        case .chooseDefinitions:
+        case .chooseDefinition:
             return "list.bullet.circle"
         }
     }
@@ -231,7 +230,7 @@ extension Quiz {
         switch self {
         case .spelling:
             return "Test your spelling skills by typing words from definitions"
-        case .chooseDefinitions:
+        case .chooseDefinition:
             return "Choose the correct definition for given words"
         }
     }

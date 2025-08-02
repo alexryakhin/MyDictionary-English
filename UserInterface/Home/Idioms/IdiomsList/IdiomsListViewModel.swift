@@ -23,7 +23,7 @@ final class IdiomsListViewModel: BaseViewModel {
             AnalyticsService.shared.logEvent(.idiomsListSortingSelected)
         }
     }
-    @Published var filterState: FilterCase = .none {
+    @Published var filterState: IdiomFilterCase = .none {
         didSet {
             sortIdioms()
             AnalyticsService.shared.logEvent(.idiomsListFilterSelected)

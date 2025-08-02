@@ -12,6 +12,7 @@ enum CoreError: Error {
     case storageError(StorageError)
     case validationError(ValidationError)
     case internalError(InternalError)
+    case analyticsError(AnalyticsError)
     case unknownError
 
     // Nested enum for Network Errors
@@ -127,6 +128,35 @@ enum CoreError: Error {
             }
         }
     }
+    
+    enum AnalyticsError: Error {
+        case wordProgressUpdateFailed
+        case wordDifficultyUpdateFailed
+        case quizSessionSaveFailed
+        case userStatsUpdateFailed
+        case invalidWordId
+        case wordNotFound
+        case progressCalculationFailed
+        
+        var description: String {
+            switch self {
+            case .wordProgressUpdateFailed:
+                return "Failed to update word progress"
+            case .wordDifficultyUpdateFailed:
+                return "Failed to update word difficulty level"
+            case .quizSessionSaveFailed:
+                return "Failed to save quiz session"
+            case .userStatsUpdateFailed:
+                return "Failed to update user statistics"
+            case .invalidWordId:
+                return "Invalid word ID"
+            case .wordNotFound:
+                return "Word not found"
+            case .progressCalculationFailed:
+                return "Failed to calculate progress"
+            }
+        }
+    }
 
     var description: String {
         switch self {
@@ -134,6 +164,7 @@ enum CoreError: Error {
         case .storageError(let error): error.description
         case .validationError(let error): error.description
         case .internalError(let error): error.description
+        case .analyticsError(let error): error.description
         case .unknownError: "Unknown error"
         }
     }

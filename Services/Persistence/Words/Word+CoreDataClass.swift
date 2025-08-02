@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI // Added for Color
 
 @objc(CDWord)
 final class CDWord: NSManagedObject, Identifiable {
@@ -24,6 +25,7 @@ final class CDWord: NSManagedObject, Identifiable {
     @NSManaged var isFavorite: Bool
     @NSManaged var examples: Data?
     @NSManaged var tags: NSSet?
+    @NSManaged var difficultyLevel: Int32
 
     var examplesDecoded: [String] {
         guard let examples,
@@ -34,6 +36,40 @@ final class CDWord: NSManagedObject, Identifiable {
 
     var partOfSpeechDecoded: PartOfSpeech {
         PartOfSpeech(rawValue: partOfSpeech ?? "") ?? .unknown
+    }
+    
+    var difficultyLabel: String {
+        switch difficultyLevel {
+        case 0:
+            return "new"
+        case 1:
+            return "inProgress"
+        case 2:
+            return "needsReview"
+        case 3:
+            return "mastered"
+        default:
+            return "new"
+        }
+    }
+    
+    var difficultyColor: Color {
+        switch difficultyLevel {
+        case 0:
+            return .secondary
+        case 1:
+            return .orange
+        case 2:
+            return .red
+        case 3:
+            return .green
+        default:
+            return .secondary
+        }
+    }
+    
+    var shouldShowDifficultyLabel: Bool {
+        return difficultyLevel > 0
     }
 
     var tagsArray: [CDTag] {

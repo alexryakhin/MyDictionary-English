@@ -27,6 +27,7 @@ struct WordDetailsContentView: View {
                 transcriptionSectionView
                 partOfSpeechSectionView
                 definitionSectionView
+                difficultySectionView
                 tagsSectionView
                 examplesSectionView
             }
@@ -150,6 +151,39 @@ struct WordDetailsContentView: View {
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
             }
+        }
+    }
+
+    private var difficultySectionView: some View {
+        CustomSectionView(header: "Difficulty") {
+            HStack {
+                Text(getCurrentDifficulty().displayName)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Spacer()
+                
+                Button("Change") {
+                    // TODO: Show difficulty picker
+                }
+                .font(.caption)
+                .foregroundColor(.blue)
+            }
+            .clippedWithPaddingAndBackground()
+        }
+    }
+    
+    private func getCurrentDifficulty() -> Difficulty {
+        switch word.difficultyLevel {
+        case 0:
+            return .new
+        case 1:
+            return .inProgress
+        case 2:
+            return .needsReview
+        case 3:
+            return .mastered
+        default:
+            return .new
         }
     }
 

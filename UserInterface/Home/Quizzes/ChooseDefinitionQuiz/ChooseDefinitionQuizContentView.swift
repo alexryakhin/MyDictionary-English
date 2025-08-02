@@ -2,10 +2,15 @@ import SwiftUI
 
 struct ChooseDefinitionQuizContentView: View {
 
-    @StateObject private var viewModel = ChooseDefinitionQuizViewModel(
-        wordsProvider: ServiceManager.shared.wordsProvider
-    )
+    @StateObject private var viewModel: ChooseDefinitionQuizViewModel
     @Environment(\.dismiss) private var dismiss
+
+    init(wordCount: Int) {
+        self._viewModel = StateObject(wrappedValue: ChooseDefinitionQuizViewModel(
+            wordsProvider: ServiceManager.shared.wordsProvider,
+            wordCount: wordCount
+        ))
+    }
 
     var body: some View {
         ZStack {

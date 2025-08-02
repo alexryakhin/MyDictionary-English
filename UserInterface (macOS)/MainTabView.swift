@@ -98,7 +98,7 @@ struct MainTabView: View {
         switch quizzesViewModel.selectedQuiz {
         case .spelling:
             SpellingQuizView()
-        case .chooseDefinitions:
+        case .chooseDefinition:
             ChooseDefinitionView()
         default:
             Text("Select a quiz")

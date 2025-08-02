@@ -80,8 +80,6 @@ final class AnalyticsViewModel: BaseViewModel {
         let today = Date()
         var data: [VocabularyLineChart.Model] = []
         
-        print("📊 Chart Debug: Found \(words.count) words and \(sessions.count) quiz sessions")
-        
         // Create data for selected time period
         for i in 0..<selectedTimePeriod.days {
             if let date = calendar.date(byAdding: .day, value: -i, to: today) {
@@ -106,16 +104,11 @@ final class AnalyticsViewModel: BaseViewModel {
                 let totalWords = wordsAddedByDate + wordsLearnedFromSessions
                 
                 data.append(VocabularyLineChart.Model(date: date, count: totalWords))
-                
-                if wordsAddedByDate > 0 {
-                    print("📅 \(date.formatted(date: .abbreviated, time: .omitted)): Added \(wordsAddedByDate) words")
-                }
             }
         }
         
         // If no real data, create mock data based on current vocabulary size
         if data.allSatisfy({ $0.count == 0 }) {
-            print("📊 Chart Debug: No real data found, using mock data")
             let currentSize = progressSummary?.vocabularySize ?? 0
             for i in 0..<selectedTimePeriod.days {
                 if let date = calendar.date(byAdding: .day, value: -i, to: today) {
@@ -125,7 +118,6 @@ final class AnalyticsViewModel: BaseViewModel {
             }
         }
         
-        print("📊 Chart Debug: Final data points: \(data.count)")
         return data
     }
 } 

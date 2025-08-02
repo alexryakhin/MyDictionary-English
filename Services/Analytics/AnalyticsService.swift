@@ -70,7 +70,7 @@ final class QuizAnalyticsService {
         do {
             try coreDataService.saveContext()
         } catch {
-            print("❌ Failed to save quiz session: \(error)")
+            print("❌ Failed to save quiz session: \(CoreError.analyticsError(.quizSessionSaveFailed))")
         }
     }
     
@@ -101,14 +101,19 @@ final class QuizAnalyticsService {
             }
             
             // Update mastery level based on performance
-            updateMasteryLevel(for: progress)
+            try updateMasteryLevel(for: progress)
             
         } catch {
             print("❌ Failed to update word progress: \(error)")
+            // You could send this error to a logging service or analytics
         }
     }
     
-    private func updateMasteryLevel(for progress: CDWordProgress) {
+    private func updateMasteryLevel(for progress: CDWordProgress) throws {
+        guard let wordId = progress.wordId else { 
+            throw CoreError.analyticsError(.invalidWordId)
+        }
+        
         let totalAttempts = progress.totalAttempts
         let correctAttempts = progress.correctAttempts
         let consecutiveCorrect = progress.consecutiveCorrect
@@ -117,14 +122,40 @@ final class QuizAnalyticsService {
         
         if accuracy >= 0.9 && consecutiveCorrect >= 5 {
             progress.masteryLevel = "mastered"
+            try updateWordDifficultyLevel(wordId: wordId, level: 3)
         } else if accuracy >= 0.7 {
             progress.masteryLevel = "inProgress"
+            try updateWordDifficultyLevel(wordId: wordId, level: 1)
         } else {
             progress.masteryLevel = "needsReview"
+            try updateWordDifficultyLevel(wordId: wordId, level: 2)
         }
         
         // Calculate difficulty score (0-1, higher = more difficult)
         progress.difficultyScore = 1.0 - accuracy
+    }
+    
+    private func updateWordDifficultyLevel(wordId: String, level: Int32) throws {
+        guard let uuid = UUID(uuidString: wordId) else { 
+            throw CoreError.analyticsError(.invalidWordId)
+        }
+        
+        let request = CDWord.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", uuid as CVarArg)
+        
+        do {
+            if let word = try coreDataService.context.fetch(request).first {
+                word.difficultyLevel = level
+            } else {
+                throw CoreError.analyticsError(.wordNotFound)
+            }
+        } catch {
+            if let coreError = error as? CoreError {
+                throw coreError
+            } else {
+                throw CoreError.analyticsError(.wordDifficultyUpdateFailed)
+            }
+        }
     }
     
     // MARK: - User Stats Management
@@ -218,6 +249,19 @@ final class QuizAnalyticsService {
         }
     }
     
+    func getWordProgress(for wordId: String) -> CDWordProgress? {
+        let request = CDWordProgress.fetchRequest()
+        request.predicate = NSPredicate(format: "wordId == %@", wordId)
+        request.fetchLimit = 1
+        
+        do {
+            return try coreDataService.context.fetch(request).first
+        } catch {
+            print("❌ Failed to fetch word progress for \(wordId): \(error)")
+            return nil
+        }
+    }
+    
     func getAllWords() -> [CDWord] {
         let request = CDWord.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
@@ -231,12 +275,13 @@ final class QuizAnalyticsService {
     }
     
     func getProgressSummary() -> ProgressSummary {
-        let wordProgress = getWordProgress()
+        let words = getAllWords()
         let userStats = getUserStats()
         
-        let inProgress = wordProgress.filter { $0.masteryLevel == "inProgress" }.count
-        let mastered = wordProgress.filter { $0.masteryLevel == "mastered" }.count
-        let needsReview = wordProgress.filter { $0.masteryLevel == "needsReview" }.count
+        // Calculate progress from word difficulty levels
+        let inProgress = words.filter { $0.difficultyLevel == 1 }.count
+        let mastered = words.filter { $0.difficultyLevel == 3 }.count
+        let needsReview = words.filter { $0.difficultyLevel == 2 }.count
         
         return ProgressSummary(
             inProgress: inProgress,

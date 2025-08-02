@@ -2,10 +2,15 @@ import SwiftUI
 
 struct SpellingQuizContentView: View {
 
-    @StateObject private var viewModel = SpellingQuizViewModel(
-        wordsProvider: ServiceManager.shared.wordsProvider
-    )
+    @StateObject private var viewModel: SpellingQuizViewModel
     @Environment(\.dismiss) private var dismiss
+
+    init(wordCount: Int) {
+        self._viewModel = StateObject(wrappedValue: SpellingQuizViewModel(
+            wordsProvider: ServiceManager.shared.wordsProvider,
+            wordCount: wordCount
+        ))
+    }
 
     var body: some View {
         if !viewModel.isQuizComplete {

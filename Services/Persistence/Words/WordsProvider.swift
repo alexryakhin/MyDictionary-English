@@ -15,6 +15,12 @@ final class WordsProvider: ObservableObject {
         setupBindings()
         fetchWords()
     }
+    
+    // Convenience initializer for filtered words (e.g., hard words only)
+    init(words: [CDWord]) {
+        self.coreDataService = ServiceManager.shared.coreDataService
+        self.words = words
+    }
 
     /// Fetches latest data from Core Data
     func fetchWords() {

@@ -29,6 +29,17 @@ struct WordListCellView: View {
                 }
                 Text(word.partOfSpeechDecoded.rawValue)
                     .foregroundColor(.secondary)
+                
+                // Difficulty label
+                if word.shouldShowDifficultyLabel {
+                    Text(word.difficultyLabel)
+                        .font(.caption2)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(word.difficultyColor.opacity(0.2))
+                        .foregroundColor(word.difficultyColor)
+                        .clipShape(Capsule())
+                }
 
                 Image(systemName: "chevron.right")
                     .frame(sideLength: 12)

@@ -15,6 +15,7 @@ final class QuizzesListViewModel: BaseViewModel {
     }
 
     @Published var words: [CDWord] = []
+    @Published var showingHardWordsOnly = false
 
     private let wordsProvider: WordsProvider
     private var cancellables: Set<AnyCancellable> = []
@@ -27,6 +28,19 @@ final class QuizzesListViewModel: BaseViewModel {
 
     func handle(_ input: Input) {
         // No navigation handling needed
+    }
+    
+    // MARK: - Computed Properties
+    
+    var filteredWords: [CDWord] {
+        if showingHardWordsOnly {
+            return words.filter { $0.difficultyLevel == 2 } // needsReview
+        }
+        return words
+    }
+    
+    var hasHardWords: Bool {
+        return words.contains { $0.difficultyLevel == 2 }
     }
 
     /// Fetches latest data from Core Data

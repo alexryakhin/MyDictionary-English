@@ -32,13 +32,15 @@ final class SpellingQuizViewModel: BaseViewModel {
 
     private let wordsProvider: WordsProvider
     private let quizAnalyticsService: QuizAnalyticsService
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancellables = Set<AnyCancellable>()
     private var originalWords: [CDWord] = []
     private var sessionStartTime: Date = Date()
+    private let wordCount: Int
 
-    init(wordsProvider: WordsProvider) {
+    init(wordsProvider: WordsProvider, wordCount: Int = 10) {
         self.wordsProvider = wordsProvider
         self.quizAnalyticsService = QuizAnalyticsService.shared
+        self.wordCount = wordCount
         super.init()
         setupBindings()
     }
@@ -107,18 +109,25 @@ final class SpellingQuizViewModel: BaseViewModel {
     private func skipWord() {
         guard let randomWord else { return }
         
-        // Move word to end of list for later
+        // Mark skipped word as needs review
+        updateWordDifficultyLevel(word: randomWord, level: 2)
+        
+        // Remove word from list (don't move to end)
         if let wordIndex = words.firstIndex(where: { $0.id == randomWord.id }) {
-            let skippedWord = words.remove(at: wordIndex)
-            words.append(skippedWord)
+            words.remove(at: wordIndex)
         }
         
         // Penalty for skipping
         score = max(0, score - 25)
         currentStreak = 0
         
-        // Get next word
-        if !words.isEmpty {
+        // Check if quiz is complete
+        if words.isEmpty {
+            self.randomWord = nil
+            isQuizComplete = true
+            saveQuizSession()
+        } else {
+            // Get next word
             self.randomWord = words.randomElement()
             attemptCount = 0
             isCorrectAnswer = true
@@ -129,15 +138,25 @@ final class SpellingQuizViewModel: BaseViewModel {
         AnalyticsService.shared.logEvent(.spellingQuizWordSkipped)
     }
     
+    private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
+        word.difficultyLevel = level
+        do {
+            try ServiceManager.shared.coreDataService.saveContext()
+        } catch {
+            print("❌ Failed to update word difficulty level: \(error)")
+        }
+    }
+    
     private func restartQuiz() {
         // Reset all game state
-        words = originalWords.shuffled()
+        let limitedWords = Array(originalWords.shuffled().prefix(wordCount))
+        words = limitedWords
         randomWord = words.randomElement()
         answerTextField = ""
         isCorrectAnswer = true
         attemptCount = 0
         correctAnswers = 0
-        totalQuestions = originalWords.count
+        totalQuestions = limitedWords.count
         score = 0
         wordsPlayed = []
         correctWordIds = []
@@ -176,9 +195,11 @@ final class SpellingQuizViewModel: BaseViewModel {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] words in
                 self?.originalWords = words
-                self?.words = words.shuffled()
+                // Limit words to the selected count
+                let limitedWords = Array(words.shuffled().prefix(self?.wordCount ?? 10))
+                self?.words = limitedWords
                 self?.randomWord = self?.words.randomElement()
-                self?.totalQuestions = words.count
+                self?.totalQuestions = limitedWords.count
             }
             .store(in: &cancellables)
     }

@@ -47,6 +47,14 @@ final class WordsListViewModel: BaseViewModel {
             return searchResults
         case .tag:
             return tagFilteredWords
+        case .new:
+            return words.filter { $0.difficultyLevel == 0 }
+        case .inProgress:
+            return words.filter { $0.difficultyLevel == 1 }
+        case .needsReview:
+            return words.filter { $0.difficultyLevel == 2 }
+        case .mastered:
+            return words.filter { $0.difficultyLevel == 3 }
         @unknown default:
             fatalError("Unhandled event")
         }
@@ -88,6 +96,14 @@ final class WordsListViewModel: BaseViewModel {
             return "Search Results"
         case .tag:
             return selectedTag?.name ?? "Tagged Words"
+        case .new:
+            return "New Words"
+        case .inProgress:
+            return "Words In Progress"
+        case .needsReview:
+            return "Words Needing Review"
+        case .mastered:
+            return "Mastered Words"
         @unknown default:
             return "Words"
         }

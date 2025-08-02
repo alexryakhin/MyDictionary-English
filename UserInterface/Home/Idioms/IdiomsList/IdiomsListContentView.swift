@@ -86,7 +86,7 @@ struct IdiomsListContentView: View {
                         Text("Sort")
                     }
                     Picker(selection: _viewModel.projectedValue.filterState) {
-                        ForEach(FilterCase.availableCases, id: \.self) { item in
+                        ForEach(IdiomFilterCase.availableCases, id: \.self) { item in
                             Text(item.rawValue)
                                 .tag(item)
                         }
@@ -120,23 +120,23 @@ struct IdiomsListContentView: View {
 
     private var filteredIdioms: [CDIdiom] {
         switch viewModel.filterState {
-        case .none, .tag:
-            return viewModel.idioms
         case .favorite:
             return viewModel.favoriteIdioms
         case .search:
             return viewModel.searchResults
+        default:
+            return viewModel.idioms
         }
     }
 
     private var filterStateTitle: String {
         switch viewModel.filterState {
-        case .none, .tag:
-            return "All idioms"
         case .favorite:
             return "Favorites"
         case .search:
             return "Found"
+        default:
+            return "All idioms"
         }
     }
 

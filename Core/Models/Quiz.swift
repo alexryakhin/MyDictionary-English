@@ -9,7 +9,7 @@ import Foundation
 
 enum Quiz: String, CaseIterable, Identifiable {
     case spelling
-    case chooseDefinitions
+    case chooseDefinition
 
     var id: String { rawValue }
 
@@ -17,8 +17,8 @@ enum Quiz: String, CaseIterable, Identifiable {
         switch self {
         case .spelling:
             return "Spelling"
-        case .chooseDefinitions:
-            return "Choose definitions"
+        case .chooseDefinition:
+            return "Choose definition"
         }
     }
 }

@@ -39,6 +39,7 @@
     </entity>
     <entity name="Word" representedClassName="CDWord" syncable="YES">
         <attribute name="definition" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="difficultyLevel" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="examples" optional="YES" attributeType="Binary"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>

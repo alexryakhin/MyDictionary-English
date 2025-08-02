@@ -63,9 +63,9 @@ struct WordsListContentView: View {
             .overlay {
                 if !viewModel.wordsFiltered.isNotEmpty {
                     ContentUnavailableView(
-                        "No words yet",
-                        systemImage: "textformat",
-                        description: Text("Begin to add words to your list by tapping on plus icon in upper left corner")
+                        viewModel.filterState.emptyStateTitle,
+                        systemImage: viewModel.filterState.emptyStateIcon,
+                        description: Text(viewModel.filterState.emptyStateDescription)
                     )
                 }
             }
@@ -91,7 +91,6 @@ struct WordsListContentView: View {
                                 .tag(item)
                         }
                     }
-                    .pickerStyle(.menu)
                 } label: {
                     Image(systemName: "arrow.up.arrow.down")
                 }

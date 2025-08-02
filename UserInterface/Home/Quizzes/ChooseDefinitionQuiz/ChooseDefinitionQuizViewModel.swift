@@ -41,15 +41,17 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
 
     private let wordsProvider: WordsProvider
     private let quizAnalyticsService: QuizAnalyticsService
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancellables = Set<AnyCancellable>()
     private var originalWords: [CDWord] = []
     private var usedWords: Set<CDWord> = []
     private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
+    private let wordCount: Int
 
-    init(wordsProvider: WordsProvider) {
+    init(wordsProvider: WordsProvider, wordCount: Int = 10) {
         self.wordsProvider = wordsProvider
         self.quizAnalyticsService = QuizAnalyticsService.shared
+        self.wordCount = wordCount
         self.correctAnswerIndex = Int.random(in: 0...2)
         super.init()
         setupBindings()
@@ -108,6 +110,9 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     }
     
     private func skipWord() {
+        // Mark current word as needs review
+        updateWordDifficultyLevel(word: correctWord, level: 2)
+        
         // Move current word to end for later
         usedWords.insert(correctWord)
         questionsAnswered += 1
@@ -116,8 +121,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         score = max(0, score - 25)
         currentStreak = 0
         
-        // Check if quiz is complete
-        if usedWords.count >= originalWords.count {
+        // Check if quiz is complete (use wordCount instead of originalWords.count)
+        if questionsAnswered >= wordCount {
             isQuizComplete = true
             saveQuizSession()
         } else {
@@ -127,6 +132,15 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         
         HapticManager.shared.triggerNotification(type: .warning)
         AnalyticsService.shared.logEvent(.definitionQuizWordSkipped)
+    }
+    
+    private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
+        word.difficultyLevel = level
+        do {
+            try ServiceManager.shared.coreDataService.saveContext()
+        } catch {
+            print("❌ Failed to update word difficulty level: \(error)")
+        }
     }
     
     private func getNextQuestion() {
@@ -154,13 +168,14 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         
         // Reset all game state
         originalWords = originalWords.shuffled()
-        words = Array(originalWords.prefix(3))
+        let limitedWords = Array(originalWords.prefix(wordCount))
+        words = Array(limitedWords.prefix(3))
         correctAnswerIndex = Int.random(in: 0...2)
         selectedAnswerIndex = nil
         isCorrectAnswer = true
         answerFeedback = .none
         correctAnswers = 0
-        totalQuestions = originalWords.count
+        totalQuestions = limitedWords.count
         score = 0
         wordsPlayed = []
         correctWordIds = []
@@ -181,9 +196,11 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] words in
                 self?.originalWords = words.shuffled()
-                self?.words = Array(self?.originalWords.prefix(3) ?? [])
+                // Limit words to the selected count
+                let limitedWords = Array(self?.originalWords.prefix(self?.wordCount ?? 10) ?? [])
+                self?.words = Array(limitedWords.prefix(3))
                 self?.correctAnswerIndex = Int.random(in: 0...2)
-                self?.totalQuestions = words.count
+                self?.totalQuestions = limitedWords.count
             }
             .store(in: &cancellables)
     }
@@ -206,8 +223,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         selectedAnswerIndex = nil
         isCorrectAnswer = true
         
-        // Check if quiz is complete
-        if usedWords.count >= originalWords.count {
+        // Check if quiz is complete (use wordCount instead of originalWords.count)
+        if questionsAnswered >= wordCount {
             isQuizComplete = true
             saveQuizSession()
         } else {
