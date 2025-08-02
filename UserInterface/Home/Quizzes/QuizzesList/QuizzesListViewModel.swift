@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 final class QuizzesListViewModel: BaseViewModel {
 
@@ -15,7 +16,7 @@ final class QuizzesListViewModel: BaseViewModel {
     }
 
     @Published var words: [CDWord] = []
-    @Published var showingHardWordsOnly = false
+    @AppStorage(UDKeys.practiceHardWordsOnly) var showingHardWordsOnly = false
 
     private let wordsProvider: WordsProvider
     private var cancellables: Set<AnyCancellable> = []

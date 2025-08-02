@@ -8,26 +8,29 @@
 import SwiftUI
 
 struct WordsListCellView: View {
-    var word: CDWord
-    var isSelected: Bool
+    @StateObject private var word: CDWord
+
+    init(word: CDWord) {
+        self._word = StateObject(wrappedValue: word)
+    }
 
     var body: some View {
         HStack(spacing: 8) {
             Text(word.wordItself ?? "")
                 .bold()
-                .foregroundColor(isSelected ? .white : .primary)
+                .foregroundStyle(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             HStack(spacing: 4) {
                 if word.isFavorite {
                     Image(systemName: "heart.fill")
                         .font(.caption)
-                        .foregroundColor(isSelected ? .white : .accentColor)
+                        .foregroundStyle(.primary)
                 }
                 
                 Text(word.partOfSpeech ?? "")
-                    .foregroundColor(isSelected ? .white.opacity(0.8) : .secondary)
-                
+                    .foregroundStyle(.secondary)
+
                 // Difficulty label
                 if word.shouldShowDifficultyLabel {
                     Text(word.difficultyLabel)
@@ -35,7 +38,7 @@ struct WordsListCellView: View {
                         .padding(.horizontal, 4)
                         .padding(.vertical, 2)
                         .background(word.difficultyColor.opacity(0.2))
-                        .foregroundColor(word.difficultyColor)
+                        .foregroundStyle(word.difficultyColor)
                         .clipShape(Capsule())
                 }
             }

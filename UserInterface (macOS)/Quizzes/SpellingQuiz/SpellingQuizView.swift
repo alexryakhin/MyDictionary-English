@@ -56,12 +56,12 @@ struct SpellingQuizView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Progress: \(viewModel.correctAnswers)/\(viewModel.totalQuestions)")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     
                     if viewModel.currentStreak > 0 {
                         Text("🔥 Streak: \(viewModel.currentStreak)")
                             .font(.caption)
-                            .foregroundColor(.orange)
+                            .foregroundStyle(.orange)
                             .fontWeight(.medium)
                     }
                 }
@@ -72,11 +72,11 @@ struct SpellingQuizView: View {
                     Text("Score: \(viewModel.score)")
                         .font(.caption)
                         .fontWeight(.medium)
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                     
                     Text("Best: \(viewModel.bestStreak)")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
             }
             .padding(.horizontal, 24)
@@ -93,7 +93,7 @@ struct SpellingQuizView: View {
             HStack {
                 Image(systemName: "text.quote")
                     .font(.title2)
-                    .foregroundColor(.blue)
+                    .foregroundStyle(.blue)
                 
                 Text("Definition")
                     .font(.headline)
@@ -114,7 +114,7 @@ struct SpellingQuizView: View {
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(.blue.opacity(0.1))
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                         .clipShape(Capsule())
                     
                     Spacer()
@@ -125,11 +125,11 @@ struct SpellingQuizView: View {
             if viewModel.isShowingHint, let randomWord = viewModel.randomWord {
                 HStack {
                     Image(systemName: "lightbulb.fill")
-                        .foregroundColor(.yellow)
+                        .foregroundStyle(.yellow)
                     
                     Text("Hint: The word starts with '\(randomWord.wordItself?.prefix(1).uppercased() ?? "")'")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     
                     Spacer()
                 }
@@ -150,7 +150,7 @@ struct SpellingQuizView: View {
             HStack {
                 Image(systemName: "pencil.and.outline")
                     .font(.title2)
-                    .foregroundColor(.green)
+                    .foregroundStyle(.green)
                 
                 Text("Your Answer")
                     .font(.headline)
@@ -161,7 +161,7 @@ struct SpellingQuizView: View {
                 if viewModel.attemptCount > 0 {
                     Text("Attempt \(viewModel.attemptCount)")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
             }
             
@@ -181,11 +181,11 @@ struct SpellingQuizView: View {
             if viewModel.isShowingCorrectAnswer {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.green)
+                        .foregroundStyle(.green)
                     
                     Text(["Correct!", "Well done!", "Keep up the good work!"].randomElement() ?? "Correct!")
                         .font(.caption)
-                        .foregroundColor(.green)
+                        .foregroundStyle(.green)
                     
                     Spacer()
                 }
@@ -196,11 +196,11 @@ struct SpellingQuizView: View {
             } else if viewModel.attemptCount >= 3 {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundColor(.red)
+                        .foregroundStyle(.red)
                     
                     Text("The correct word is '\(viewModel.randomWord?.wordItself ?? "")'. Moving to next word...")
                         .font(.caption)
-                        .foregroundColor(.red)
+                        .foregroundStyle(.red)
                     
                     Spacer()
                 }
@@ -211,11 +211,11 @@ struct SpellingQuizView: View {
             } else if !viewModel.isCorrectAnswer && viewModel.attemptCount > 0 {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundColor(.orange)
+                        .foregroundStyle(.orange)
                     
                     Text("Try again")
                         .font(.caption)
-                        .foregroundColor(.orange)
+                        .foregroundStyle(.orange)
                     
                     Spacer()
                 }
@@ -288,7 +288,7 @@ struct SpellingQuizView: View {
                     Image(systemName: "checkmark")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                 }
                 
                 VStack(spacing: 12) {
@@ -298,7 +298,7 @@ struct SpellingQuizView: View {
                     
                     Text("Great job! You've completed the spelling quiz.")
                         .font(.body)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                 }
                 
@@ -314,7 +314,7 @@ struct SpellingQuizView: View {
                             Spacer()
                             Text("\(viewModel.score)")
                                 .fontWeight(.bold)
-                                .foregroundColor(.blue)
+                                .foregroundStyle(.blue)
                         }
                         
                         HStack {
@@ -329,7 +329,7 @@ struct SpellingQuizView: View {
                             Spacer()
                             Text("\(viewModel.bestStreak)")
                                 .fontWeight(.medium)
-                                .foregroundColor(.orange)
+                                .foregroundStyle(.orange)
                         }
                         
                         HStack {
@@ -337,7 +337,7 @@ struct SpellingQuizView: View {
                             Spacer()
                             Text("\(Int((Double(viewModel.correctAnswers) / Double(viewModel.totalQuestions)) * 100))%")
                                 .fontWeight(.medium)
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                         }
                     }
                     .font(.body)

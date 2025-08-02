@@ -63,7 +63,7 @@ struct AddWordView: View {
             )
         }
         .frame(width: 500, height: 500)
-        .background(.primary)
+        .background(Color(.windowBackgroundColor))
         .onReceive(viewModel.dismissPublisher) { _ in
             dismiss()
         }
@@ -158,10 +158,10 @@ struct AddWordView: View {
                         CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech.rawValue)") {
                             Text(definition.text)
                                 .multilineTextAlignment(.leading)
-                                .foregroundColor(.primary)
+                                .foregroundStyle(.primary)
                         } trailingContent: {
                             checkboxImage(definition.id)
-                                .foregroundColor(.accentColor)
+                                .foregroundStyle(.accent)
                         }
                         .clippedWithBackground()
                         .onTapGesture {
@@ -177,8 +177,7 @@ struct AddWordView: View {
                 }
             case .blank:
                 ContentUnavailableView {
-                    Image(systemName: "textformat")
-                    Text("No Definitions Found")
+                    EmptyView()
                 } description: {
                     Text("Type a word and press enter to search for definitions.")
                 } actions: {

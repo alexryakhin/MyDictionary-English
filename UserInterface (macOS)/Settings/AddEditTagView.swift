@@ -58,7 +58,7 @@ struct AddEditTagView: View {
                         
                         Text("Choose a descriptive name for your tag")
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .padding(20)
                     .background(Color(.secondarySystemFill))
@@ -83,7 +83,7 @@ struct AddEditTagView: View {
                         
                         Text("Select a color to help identify your tag")
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .padding(20)
                     .background(Color(.secondarySystemFill))
@@ -131,7 +131,7 @@ struct ColorSelectionButton: View {
                     )
                     .overlay(
                         Image(systemName: "checkmark")
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .font(.caption)
                             .fontWeight(.bold)
                             .opacity(isSelected ? 1 : 0)
@@ -139,7 +139,7 @@ struct ColorSelectionButton: View {
                 
                 Text(color.displayName)
                     .font(.caption)
-                    .foregroundColor(isSelected ? .primary : .secondary)
+                    .foregroundStyle(isSelected ? .primary : .secondary)
             }
         }
         .buttonStyle(.plain)

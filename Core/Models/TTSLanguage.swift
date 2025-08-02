@@ -12,4 +12,13 @@ enum TTSLanguage: String, CaseIterable, Identifiable, Hashable {
     var id: String {
         rawValue
     }
+
+    var title: String {
+        switch self {
+        case .en:
+            return "British"
+        case .enUS:
+            return "American"
+        }
+    }
 }

@@ -8,13 +8,15 @@ final class MoreViewModel: BaseViewModel {
     }
 
     @AppStorage(UDKeys.selectedTTSLanguage) var selectedTTSLanguage: TTSLanguage = .enUS
+    @AppStorage(UDKeys.dailyRemindersEnabled) var dailyRemindersEnabled: Bool = false
+    @AppStorage(UDKeys.difficultWordsAlertsEnabled) var difficultWordsEnabled: Bool = false
+    @AppStorage(UDKeys.practiceWordCount) var practiceWordCount: Double = 10
+    @AppStorage(UDKeys.practiceHardWordsOnly) var practiceHardWordsOnly: Bool = false
 
     @Published var isImporting = false
     @Published var importFileURL: URL?
     @Published var exportWordsUrl: URL?
     @Published var showingTagManagement = false
-    @Published var dailyRemindersEnabled = false
-    @Published var difficultWordsEnabled = false
 
     private let wordsProvider: WordsProvider
     private let csvManager: CSVManager
@@ -29,7 +31,6 @@ final class MoreViewModel: BaseViewModel {
         self.notificationService = ServiceManager.shared.notificationService
         super.init()
         setupBindings()
-        loadNotificationSettings()
     }
 
     func handle(_ input: Input) {
@@ -41,6 +42,12 @@ final class MoreViewModel: BaseViewModel {
             .receive(on: RunLoop.main)
             .assign(to: \.words, on: self)
             .store(in: &cancellables)
+    }
+    
+    // MARK: - Computed Properties
+    
+    var hasHardWords: Bool {
+        return words.contains { $0.difficultyLevel == 2 }
     }
 
     func exportWords() {
@@ -71,15 +78,7 @@ final class MoreViewModel: BaseViewModel {
         }
     }
     
-    private func loadNotificationSettings() {
-        dailyRemindersEnabled = UserDefaults.standard.bool(forKey: "dailyRemindersEnabled")
-        difficultWordsEnabled = UserDefaults.standard.bool(forKey: "difficultWordsEnabled")
-    }
-    
     func updateNotificationSettings() {
-        UserDefaults.standard.set(dailyRemindersEnabled, forKey: "dailyRemindersEnabled")
-        UserDefaults.standard.set(difficultWordsEnabled, forKey: "difficultWordsEnabled")
-        
         // Only request permission and schedule notifications if user enables a toggle
         if dailyRemindersEnabled || difficultWordsEnabled {
             Task {
@@ -91,8 +90,6 @@ final class MoreViewModel: BaseViewModel {
                     await MainActor.run {
                         dailyRemindersEnabled = false
                         difficultWordsEnabled = false
-                        UserDefaults.standard.set(false, forKey: "dailyRemindersEnabled")
-                        UserDefaults.standard.set(false, forKey: "difficultWordsEnabled")
                     }
                 }
             }

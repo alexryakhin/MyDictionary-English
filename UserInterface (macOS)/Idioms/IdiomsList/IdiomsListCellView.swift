@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct IdiomsListCellView: View {
-    var idiom: CDIdiom
-    var isSelected: Bool
+    @StateObject private var idiom: CDIdiom
+
+    init(idiom: CDIdiom) {
+        self._idiom = StateObject(wrappedValue: idiom)
+    }
 
     var body: some View {
         HStack(spacing: 8) {
             Text(idiom.idiomItself ?? "")
                 .bold()
-                .foregroundColor(isSelected ? .white : .primary)
+                .foregroundStyle(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             if idiom.isFavorite {
                 Image(systemName: "heart.fill")
                     .font(.caption)
-                    .foregroundColor(isSelected ? .white : .accentColor)
+                    .foregroundStyle(.accent)
             }
         }
         .padding(vertical: 4, horizontal: 8)

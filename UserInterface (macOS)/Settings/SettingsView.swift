@@ -71,7 +71,7 @@ struct SettingsView: View {
                                 .fontWeight(.medium)
                             Text("Get reminded to practice daily")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                         
                         Spacer()
@@ -92,7 +92,7 @@ struct SettingsView: View {
                                 .fontWeight(.medium)
                             Text("Get notified about words that need review")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                         
                         Spacer()
@@ -122,7 +122,7 @@ struct SettingsView: View {
                             Spacer()
                             Text("\(Int(viewModel.practiceWordCount))")
                                 .font(.caption)
-                                .foregroundColor(.blue)
+                                .foregroundStyle(.blue)
                                 .fontWeight(.medium)
                         }
                         
@@ -143,7 +143,7 @@ struct SettingsView: View {
                                 .fontWeight(.medium)
                             Text("Focus on words that need review")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                         
                         Spacer()
@@ -173,7 +173,7 @@ struct SettingsView: View {
 
     // MARK: - Settings
     private var settingsSectionView: some View {
-        CustomSectionView(header: "Settings") {
+        CustomSectionView(header: "Voice over accent") {
             FormWithDivider {
                 CellWrapper {
                     Picker(selection: _viewModel.projectedValue.selectedTTSLanguage) {

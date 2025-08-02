@@ -56,12 +56,12 @@ struct ChooseDefinitionView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Progress: \(viewModel.correctAnswers)/\(viewModel.totalQuestions)")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     
                     if viewModel.currentStreak > 0 {
                         Text("🔥 Streak: \(viewModel.currentStreak)")
                             .font(.caption)
-                            .foregroundColor(.orange)
+                            .foregroundStyle(.orange)
                             .fontWeight(.medium)
                     }
                 }
@@ -72,11 +72,11 @@ struct ChooseDefinitionView: View {
                     Text("Score: \(viewModel.score)")
                         .font(.caption)
                         .fontWeight(.medium)
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                     
                     Text("Best: \(viewModel.bestStreak)")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
             }
             .padding(.horizontal, 24)
@@ -93,7 +93,7 @@ struct ChooseDefinitionView: View {
             HStack {
                 Image(systemName: "text.quote")
                     .font(.title2)
-                    .foregroundColor(.blue)
+                    .foregroundStyle(.blue)
                 
                 Text("Word")
                     .font(.headline)
@@ -106,7 +106,7 @@ struct ChooseDefinitionView: View {
                 } label: {
                     Image(systemName: "speaker.wave.2.fill")
                         .font(.title3)
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                         .frame(width: 40, height: 40)
                         .background(.blue.opacity(0.1))
                         .clipShape(Circle())
@@ -126,7 +126,7 @@ struct ChooseDefinitionView: View {
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(.blue.opacity(0.1))
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                         .clipShape(Capsule())
                 }
             }
@@ -142,7 +142,7 @@ struct ChooseDefinitionView: View {
             HStack {
                 Image(systemName: "list.bullet")
                     .font(.title2)
-                    .foregroundColor(.green)
+                    .foregroundStyle(.green)
                 
                 Text("Choose the correct definition")
                     .font(.headline)
@@ -169,11 +169,11 @@ struct ChooseDefinitionView: View {
             if viewModel.isShowingAnswerFeedback {
                 HStack {
                     Image(systemName: viewModel.isCorrectAnswer ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
-                        .foregroundColor(viewModel.isCorrectAnswer ? .green : .red)
+                        .foregroundStyle(viewModel.isCorrectAnswer ? .green : .red)
                     
                     Text(viewModel.answerFeedback)
                         .font(.caption)
-                        .foregroundColor(viewModel.isCorrectAnswer ? .green : .red)
+                        .foregroundStyle(viewModel.isCorrectAnswer ? .green : .red)
                     
                     Spacer()
                 }
@@ -218,7 +218,7 @@ struct ChooseDefinitionView: View {
                     Image(systemName: "checkmark")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                 }
                 
                 VStack(spacing: 12) {
@@ -228,7 +228,7 @@ struct ChooseDefinitionView: View {
                     
                     Text("Great job! You've completed the choose definition quiz.")
                         .font(.body)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                 }
                 
@@ -244,7 +244,7 @@ struct ChooseDefinitionView: View {
                             Spacer()
                             Text("\(viewModel.score)")
                                 .fontWeight(.bold)
-                                .foregroundColor(.blue)
+                                .foregroundStyle(.blue)
                         }
                         
                         HStack {
@@ -259,7 +259,7 @@ struct ChooseDefinitionView: View {
                             Spacer()
                             Text("\(viewModel.bestStreak)")
                                 .fontWeight(.medium)
-                                .foregroundColor(.orange)
+                                .foregroundStyle(.orange)
                         }
                         
                         HStack {
@@ -267,7 +267,7 @@ struct ChooseDefinitionView: View {
                             Spacer()
                             Text("\(Int((Double(viewModel.correctAnswers) / Double(viewModel.totalQuestions)) * 100))%")
                                 .fontWeight(.medium)
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                         }
                     }
                     .font(.body)
@@ -311,13 +311,13 @@ struct AnswerOptionButton: View {
                 Text(definition)
                     .font(.body)
                     .multilineTextAlignment(.leading)
-                    .foregroundColor(foregroundColor)
+                    .foregroundStyle(foregroundColor)
                 
                 Spacer()
                 
                 if isSelected || isCorrect {
                     Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
-                        .foregroundColor(isCorrect ? .green : .red)
+                        .foregroundStyle(isCorrect ? .green : .red)
                         .font(.title3)
                 }
             }

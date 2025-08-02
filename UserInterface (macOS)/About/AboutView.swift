@@ -46,7 +46,7 @@ struct AboutView: View {
                             .bold()
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Text(GlobalConstant.currentFullAppVersion)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                 }
             }

@@ -2,12 +2,8 @@ import SwiftUI
 
 struct IdiomDetailsView: View {
 
-    typealias ViewModel = IdiomsViewModel
-
-    var _viewModel: StateObject<ViewModel>
-    var viewModel: ViewModel {
-        _viewModel.wrappedValue
-    }
+    @StateObject var idiom: CDIdiom
+    @Environment(\.dismiss) private var dismiss
 
     @FocusState private var isIdiomInputFocused: Bool
     @FocusState private var isDefinitionFieldFocused: Bool
@@ -16,22 +12,39 @@ struct IdiomDetailsView: View {
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
 
-    init(viewModel: StateObject<ViewModel>) {
-        self._viewModel = viewModel
+    init(idiom: CDIdiom) {
+        self._idiom = StateObject(wrappedValue: idiom)
     }
 
     var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 16) {
-                idiomSectionView
-                definitionSectionView
-                examplesSectionView
+        VStack(spacing: 0) {
+            Text(idiom.idiomItself ?? "")
+                .font(.largeTitle)
+                .bold()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(vertical: 12, horizontal: 16)
+                .padding(.top, 8)
+                .contextMenu {
+                    Button("Copy") {
+                        let pasteboard = NSPasteboard.general
+                        pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
+                        pasteboard.setString(idiom.idiomItself ?? "", forType: .string)
+                    }
+                }
+            Divider()
+            
+            ScrollView {
+                LazyVStack(spacing: 16) {
+                    idiomSectionView
+                    definitionSectionView
+                    examplesSectionView
+                }
+                .padding(vertical: 12, horizontal: 16)
             }
-            .padding(vertical: 12, horizontal: 16)
         }
         .toolbar {
             Button(role: .destructive) {
-                viewModel.handle(.deleteCurrentIdiom)
+                deleteIdiom()
                 AnalyticsService.shared.logEvent(.removeIdiomMenuButtonTapped)
             } label: {
                 Image(systemName: "trash")
@@ -39,11 +52,13 @@ struct IdiomDetailsView: View {
             }
 
             Button {
-                viewModel.handle(.toggleFavorite)
+                idiom.isFavorite.toggle()
+                saveContext()
+                AnalyticsService.shared.logEvent(.idiomFavoriteTapped)
             } label: {
-                Image(systemName: "\(viewModel.selectedIdiom?.isFavorite == true ? "heart.fill" : "heart")")
-                    .foregroundColor(.accentColor)
-                    .animation(.easeInOut(duration: 0.2), value: viewModel.selectedIdiom?.isFavorite)
+                Image(systemName: "\(idiom.isFavorite ? "heart.fill" : "heart")")
+                    .foregroundStyle(.accent)
+                    .animation(.easeInOut(duration: 0.2), value: idiom.isFavorite)
             }
         }
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
@@ -52,7 +67,7 @@ struct IdiomDetailsView: View {
                 AnalyticsService.shared.logEvent(.idiomExampleChangingCanceled)
             }
             Button("Save") {
-                viewModel.handle(.updateExample(at: index, text: exampleTextFieldStr))
+                updateExample(at: index, text: exampleTextFieldStr)
                 editingExampleIndex = nil
                 exampleTextFieldStr = .empty
             }
@@ -64,9 +79,11 @@ struct IdiomDetailsView: View {
     private var idiomSectionView: some View {
         CustomSectionView(header: "Idiom") {
             let text = Binding {
-                viewModel.selectedIdiom?.idiomItself ?? ""
+                idiom.idiomItself ?? ""
             } set: {
-                viewModel.handle(.updateIdiom(text: $0))
+                idiom.idiomItself = $0
+                saveContext()
+                AnalyticsService.shared.logEvent(.idiomChanged)
             }
             TextField("Idiom", text: text, axis: .vertical)
                 .textFieldStyle(.plain)
@@ -74,7 +91,7 @@ struct IdiomDetailsView: View {
                 .focused($isIdiomInputFocused)
                 .onSubmit {
                     isIdiomInputFocused = false
-                    viewModel.handle(.updateCDIdiom)
+                    saveContext()
                     AnalyticsService.shared.logEvent(.idiomChanged)
                 }
                 .clippedWithPaddingAndBackground()
@@ -82,12 +99,12 @@ struct IdiomDetailsView: View {
             if isIdiomInputFocused {
                 SectionHeaderButton("Save") {
                     isIdiomInputFocused = false
-                    viewModel.handle(.updateCDIdiom)
+                    saveContext()
                     AnalyticsService.shared.logEvent(.idiomChanged)
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    viewModel.handle(.play(text: viewModel.selectedIdiom?.idiomItself))
+                    play(text: idiom.idiomItself)
                     AnalyticsService.shared.logEvent(.idiomPlayed)
                 }
             }
@@ -97,16 +114,18 @@ struct IdiomDetailsView: View {
     private var definitionSectionView: some View {
         CustomSectionView(header: "Definition") {
             let text = Binding {
-                viewModel.selectedIdiom?.definition ?? ""
+                idiom.definition ?? ""
             } set: {
-                viewModel.handle(.updateDefinition(definition: $0))
+                idiom.definition = $0
+                saveContext()
+                AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
             }
             TextField("Definition", text: text, axis: .vertical)
                 .textFieldStyle(.plain)
                 .focused($isDefinitionFieldFocused)
                 .onSubmit {
                     isDefinitionFieldFocused = false
-                    viewModel.handle(.updateCDIdiom)
+                    saveContext()
                     AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
                 .clippedWithPaddingAndBackground()
@@ -114,12 +133,12 @@ struct IdiomDetailsView: View {
             if isDefinitionFieldFocused {
                 SectionHeaderButton("Save") {
                     isDefinitionFieldFocused = false
-                    viewModel.handle(.updateCDIdiom)
+                    saveContext()
                     AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    viewModel.handle(.play(text: viewModel.selectedIdiom?.definition))
+                    play(text: idiom.definition)
                     AnalyticsService.shared.logEvent(.idiomDefinitionPlayed)
                 }
             }
@@ -128,7 +147,7 @@ struct IdiomDetailsView: View {
 
     @ViewBuilder
     private var examplesSectionView: some View {
-        let examples = viewModel.selectedIdiom?.examplesDecoded ?? []
+        let examples = idiom.examplesDecoded ?? []
         CustomSectionView(header: "Examples") {
             FormWithDivider {
                 ForEach(Array(examples.enumerated()), id: \.offset) { index, example in
@@ -137,7 +156,7 @@ struct IdiomDetailsView: View {
                         .clippedWithPaddingAndBackground()
                         .contextMenu {
                             Button {
-                                viewModel.handle(.play(text: example))
+                                play(text: example)
                                 AnalyticsService.shared.logEvent(.idiomExamplePlayed)
                             } label: {
                                 Label("Listen", systemImage: "speaker.wave.2.fill")
@@ -152,7 +171,7 @@ struct IdiomDetailsView: View {
                             Section {
                                 Button(role: .destructive) {
                                     withAnimation {
-                                        viewModel.handle(.removeExample(at: index))
+                                        removeExample(at: index)
                                     }
                                 } label: {
                                     Label("Delete", systemImage: "trash")
@@ -168,13 +187,13 @@ struct IdiomDetailsView: View {
 
                         if isAddExampleFocused {
                             Button {
-                                viewModel.handle(.addExample(exampleTextFieldStr))
+                                addExample(exampleTextFieldStr)
                                 isAddingExample = false
                                 exampleTextFieldStr = .empty
                             } label: {
                                 Image(systemName: "checkmark.rectangle.portrait.fill")
                                     .font(.title3)
-                                    .foregroundColor(.accentColor)
+                                    .foregroundStyle(.accent)
                             }
                             .buttonStyle(.borderless)
                         }
@@ -196,5 +215,60 @@ struct IdiomDetailsView: View {
             }
             .clippedWithBackground()
         }
+    }
+
+    // MARK: - Helper Functions
+
+    private func saveContext() {
+        do {
+            try ServiceManager.shared.coreDataService.saveContext()
+        } catch {
+            print("❌ Failed to save context: \(error)")
+        }
+    }
+
+    private func play(text: String?) {
+        Task {
+            if let text = text {
+                do {
+                    try await ServiceManager.shared.ttsPlayer.play(text)
+                } catch {
+                    print("❌ Failed to play text: \(error)")
+                }
+            }
+        }
+    }
+
+    private func addExample(_ text: String) {
+        guard !text.isEmpty else { return }
+        var currentExamples = idiom.examplesDecoded
+        currentExamples.append(text)
+        try? idiom.updateExamples(currentExamples)
+        saveContext()
+        AnalyticsService.shared.logEvent(.idiomExampleAdded)
+    }
+
+    private func updateExample(at index: Int, text: String) {
+        guard !text.isEmpty else { return }
+        var currentExamples = idiom.examplesDecoded
+        currentExamples[index] = text
+        try? idiom.updateExamples(currentExamples)
+        saveContext()
+        AnalyticsService.shared.logEvent(.idiomExampleUpdated)
+    }
+
+    private func removeExample(at index: Int) {
+        var currentExamples = idiom.examplesDecoded
+        currentExamples.remove(at: index)
+        try? idiom.updateExamples(currentExamples)
+        saveContext()
+        AnalyticsService.shared.logEvent(.idiomExampleRemoved)
+    }
+
+    private func deleteIdiom() {
+        ServiceManager.shared.coreDataService.context.delete(idiom)
+        saveContext()
+        dismiss()
+        AnalyticsService.shared.logEvent(.idiomRemoved)
     }
 }

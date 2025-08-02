@@ -27,7 +27,7 @@ struct MoreContentView: View {
                 }
                 .pickerStyle(.menu)
             } header: {
-                Text("Settings")
+                Text("Voice over accent")
             }
 
             // MARK: - Import & Export
@@ -109,6 +109,58 @@ struct MoreContentView: View {
                 Text("Notifications")
             } footer: {
                 Text("Daily reminders only send if you haven't opened the app that day.")
+            }
+
+            // MARK: - Practice Settings
+
+            Section {
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack {
+                        Text("Words per Session")
+                            .font(.body)
+                            .fontWeight(.medium)
+                        Spacer()
+                        Text("\(Int(viewModel.practiceWordCount))")
+                            .font(.body)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.blue)
+                    }
+                    
+                    Slider(value: $viewModel.practiceWordCount, in: 5...50, step: 5)
+                        .accentColor(.blue)
+                    
+                    HStack {
+                        Text("5")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                        Text("50")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .padding(.vertical, 4)
+                
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Practice Hard Words Only")
+                            .font(.body)
+                            .fontWeight(.medium)
+                        Text("Focus on words that need review")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    Toggle("", isOn: $viewModel.practiceHardWordsOnly)
+                        .labelsHidden()
+                        .disabled(!viewModel.hasHardWords)
+                }
+            } header: {
+                Text("Practice Settings")
+            } footer: {
+                Text("Configure your quiz experience")
             }
 
             // MARK: - About app

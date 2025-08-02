@@ -4,31 +4,11 @@ import CoreData
 
 final class WordsViewModel: BaseViewModel {
 
-    enum Input {
-        // MARK: Words List
-        case selectWord(wordID: String)
-        case deselectWord
-        case deleteWord(atOffsets: IndexSet)
-
-        // MARK: Word Details
-        case updateTranscription(text: String)
-        case updateDefinition(definition: String)
-        case updateCDWord
-        case play(String?)
-        case toggleFavorite
-        case updatePartOfSpeech(PartOfSpeech)
-        case addExample(String)
-        case updateExample(at: Int, text: String)
-        case removeExample(at: Int)
-        case deleteCurrentWord
-    }
-
     // MARK: - properties
 
     @Published var searchText = ""
     @Published private(set) var words: [CDWord] = []
-    @Published private(set) var selectedWord: CDWord?
-    @Published private(set) var selectedWordId: String?
+    @Published var selectedWord: CDWord?
     @Published var sortingState: SortingCase = .latest {
         didSet {
             sortWords()
@@ -55,70 +35,6 @@ final class WordsViewModel: BaseViewModel {
         setupBindings()
     }
 
-    func handle(_ input: Input) {
-        switch input {
-        case .selectWord(let wordID):
-            Task { @MainActor in
-                selectedWordId = wordID
-            }
-        case .deselectWord:
-            selectedWordId = nil
-        case .deleteWord(let offsets):
-            deleteWord(offsets: offsets)
-
-        case .updateTranscription(let text):
-            selectedWord?.phonetic = text
-        case .updateDefinition(let definition):
-            selectedWord?.definition = definition
-        case .updateCDWord:
-            updateCDWord()
-        case .play(let text):
-            play(text: text)
-        case .toggleFavorite:
-            toggleFavorite()
-        case .updatePartOfSpeech(let value):
-            updatePartOfSpeech(value)
-        case .addExample(let example):
-            addExample(example)
-        case .updateExample(let index, let example):
-            updateExample(at: index, text: example)
-        case .removeExample(let index):
-            removeExample(at: index)
-        case .deleteCurrentWord:
-            deleteCurrentWord()
-        }
-    }
-
-    private func setupBindings() {
-        wordsProvider.$words
-            .receive(on: RunLoop.main)
-            .sink { [weak self] words in
-                self?.updateWords(words)
-            }
-            .store(in: &cancellables)
-
-        // React to the search input from a user
-        $searchText
-            .sink { [weak self] value in
-                self?.filterState = value.isEmpty ? .none : .search
-            }
-            .store(in: &cancellables)
-    }
-
-    private func updateWords(_ words: [CDWord]) {
-        self.words = words
-        sortWords()
-        if let selectedWord = words.first(where: { $0.id?.uuidString == selectedWordId }) {
-            self.selectedWord = selectedWord
-        } else {
-            selectedWord = nil
-        }
-    }
-}
-
-// MARK: - Words List
-
-private extension WordsViewModel {
     func deleteWord(offsets: IndexSet) {
         switch filterState {
         case .none:
@@ -173,6 +89,44 @@ private extension WordsViewModel {
         )
     }
 
+    private func setupBindings() {
+        wordsProvider.$words
+            .receive(on: RunLoop.main)
+            .sink { [weak self] words in
+                self?.updateWords(words)
+            }
+            .store(in: &cancellables)
+
+        // React to the search input from a user
+        $searchText
+            .sink { [weak self] value in
+                self?.filterState = value.isEmpty ? .none : .search
+            }
+            .store(in: &cancellables)
+
+        $selectedWord
+            .compactMap { $0 }
+            .sink { _ in
+                AnalyticsService.shared.logEvent(.wordOpened)
+            }
+            .store(in: &cancellables)
+    }
+
+    private func updateWords(_ words: [CDWord]) {
+        self.words = words
+        sortWords()
+        if let selectedWord = words.first(where: { $0.id?.uuidString == selectedWord?.id?.uuidString }) {
+            self.selectedWord = selectedWord
+        } else {
+            selectedWord = nil
+        }
+    }
+}
+
+// MARK: - Words List
+
+private extension WordsViewModel {
+
     // MARK: - Sorting
 
     func sortWords() {
@@ -195,85 +149,6 @@ private extension WordsViewModel {
             })
         @unknown default:
             fatalError("Unknown sorting case")
-        }
-    }
-}
-
-// MARK: - Word Details
-
-private extension WordsViewModel {
-
-    func play(text: String?) {
-        Task {
-            if let text {
-                do {
-                    try await ttsPlayer.play(text)
-                } catch {
-                    errorReceived(error, displayType: .alert)
-                }
-            }
-        }
-    }
-
-    func toggleFavorite() {
-        selectedWord?.isFavorite.toggle()
-        updateCDWord()
-    }
-
-    func updatePartOfSpeech(_ partOfSpeech: PartOfSpeech) {
-        selectedWord?.partOfSpeech = partOfSpeech.rawValue
-        updateCDWord()
-    }
-
-    func addExample(_ example: String) {
-        guard !example.isEmpty else {
-            errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
-            return
-        }
-        var currentExamples = selectedWord?.examplesDecoded ?? []
-        currentExamples.append(example)
-        try? selectedWord?.updateExamples(currentExamples)
-        updateCDWord()
-        AnalyticsService.shared.logEvent(.wordExampleAdded)
-    }
-
-    func updateExample(at index: Int, text: String) {
-        guard !text.isEmpty else {
-            errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
-            return
-        }
-        var currentExamples = selectedWord?.examplesDecoded ?? []
-        currentExamples[index] = text
-        try? selectedWord?.updateExamples(currentExamples)
-        updateCDWord()
-        AnalyticsService.shared.logEvent(.wordExampleUpdated)
-    }
-
-    func removeExample(at index: Int) {
-        var currentExamples = selectedWord?.examplesDecoded ?? []
-        currentExamples.remove(at: index)
-        try? selectedWord?.updateExamples(currentExamples)
-        updateCDWord()
-        AnalyticsService.shared.logEvent(.wordExampleRemoved)
-    }
-
-    func deleteCurrentWord() {
-        if let selectedWord {
-            guard let id = selectedWord.id?.uuidString else { return }
-            deleteWord(withID: id) { [weak self] in
-                self?.selectedWord = nil
-            }
-        }
-    }
-
-    func updateCDWord() {
-        if let selectedWord {
-            // Save context directly since the word is already updated
-            do {
-                try coreDataService.saveContext()
-            } catch {
-                errorReceived(CoreError.internalError(.savingWordFailed), displayType: .alert)
-            }
         }
     }
 }

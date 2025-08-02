@@ -16,6 +16,8 @@ struct WordDetailsContentView: View {
     @State private var alertModel = AlertModel(title: .empty)
     @State private var showingTagSelection = false
     @State private var availableTags: [CDTag] = []
+    @State private var showingDifficultyPicker = false
+    @State private var selectedDifficulty: Difficulty = .new
 
     init(word: CDWord) {
         self._word = StateObject(wrappedValue: word)
@@ -163,12 +165,82 @@ struct WordDetailsContentView: View {
                 Spacer()
                 
                 Button("Change") {
-                    // TODO: Show difficulty picker
+                    selectedDifficulty = getCurrentDifficulty()
+                    showingDifficultyPicker = true
                 }
                 .font(.caption)
                 .foregroundColor(.blue)
             }
             .clippedWithPaddingAndBackground()
+        }
+        .sheet(isPresented: $showingDifficultyPicker) {
+            difficultyPickerView
+        }
+    }
+    
+    private var difficultyPickerView: some View {
+        NavigationView {
+            VStack(spacing: 20) {
+                Text("Select Difficulty Level")
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                
+                VStack(spacing: 12) {
+                    ForEach(Difficulty.allCases, id: \.self) { difficulty in
+                        Button {
+                            selectedDifficulty = difficulty
+                        } label: {
+                            HStack {
+                                Text(difficulty.displayName)
+                                    .font(.body)
+                                    .foregroundColor(selectedDifficulty == difficulty ? .white : .primary)
+                                
+                                Spacer()
+                                
+                                if selectedDifficulty == difficulty {
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(.white)
+                                }
+                            }
+                            .padding()
+                            .background(selectedDifficulty == difficulty ? Color.blue : Color(.secondarySystemGroupedBackground))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .padding(.horizontal)
+                
+                Spacer()
+                
+                HStack(spacing: 16) {
+                    Button("Cancel") {
+                        showingDifficultyPicker = false
+                    }
+                    .buttonStyle(.bordered)
+                    
+                    Button("Save") {
+                        updateDifficulty()
+                        showingDifficultyPicker = false
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding()
+            }
+            .padding()
+            .navigationTitle("Difficulty")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+    
+    private func updateDifficulty() {
+        word.difficultyLevel = selectedDifficulty.level
+        
+        do {
+            try ServiceManager.shared.coreDataService.saveContext()
+            AnalyticsService.shared.logEvent(.wordDifficultyChanged)
+        } catch {
+            print("❌ Failed to update word difficulty: \(error)")
         }
     }
     

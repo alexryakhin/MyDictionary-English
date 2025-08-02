@@ -14,10 +14,10 @@ struct QuizzesListCellView: View {
         HStack(spacing: 8) {
             Text(quiz.title)
                 .bold()
-                .foregroundColor(.primary)
+                .foregroundStyle(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Image(systemName: "chevron.right")
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .padding(vertical: 12, horizontal: 16)
     }

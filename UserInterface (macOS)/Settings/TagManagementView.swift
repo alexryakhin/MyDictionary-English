@@ -76,7 +76,7 @@ struct TagManagementView: View {
                 
                 Text("Tags help you organize your words.\nEach word can have up to 5 tags.")
                     .font(.body)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .lineSpacing(4)
             }
@@ -90,7 +90,7 @@ struct TagManagementView: View {
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(.blue.gradient)
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
             .padding(.horizontal, 32)
@@ -111,7 +111,7 @@ struct TagManagementView: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(.blue.gradient)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
                 .buttonStyle(.plain)
@@ -156,7 +156,7 @@ struct TagRowView: View {
                 
                 Text("\(tag.wordsArray.count) words")
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             
             Spacer()
@@ -168,7 +168,7 @@ struct TagRowView: View {
                 } label: {
                     Image(systemName: "pencil")
                         .font(.caption)
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                         .frame(width: 32, height: 32)
                         .background(.blue.opacity(0.1))
                         .clipShape(Circle())
@@ -180,7 +180,7 @@ struct TagRowView: View {
                 } label: {
                     Image(systemName: "trash")
                         .font(.caption)
-                        .foregroundColor(.red)
+                        .foregroundStyle(.red)
                         .frame(width: 32, height: 32)
                         .background(.red.opacity(0.1))
                         .clipShape(Circle())

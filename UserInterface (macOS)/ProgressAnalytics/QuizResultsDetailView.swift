@@ -49,7 +49,7 @@ struct QuizResultDetailRow: View {
                     if let date = session.date {
                         Text(date.formatted(date: .abbreviated, time: .shortened))
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                 }
                 
@@ -59,7 +59,7 @@ struct QuizResultDetailRow: View {
                 Text("\(session.score)")
                     .font(.title2)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
                     .background(scoreColor.gradient)
@@ -98,11 +98,11 @@ struct QuizResultDetailRow: View {
                     Text("Words Practiced")
                         .font(.caption)
                         .fontWeight(.medium)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     
                     Text("\(wordIds.count) words")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
             }
         }
@@ -133,7 +133,7 @@ struct StatItem: View {
         VStack(spacing: 4) {
             Image(systemName: icon)
                 .font(.caption)
-                .foregroundColor(color)
+                .foregroundStyle(color)
             
             Text(value)
                 .font(.caption)
@@ -141,7 +141,7 @@ struct StatItem: View {
             
             Text(title)
                 .font(.caption2)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
     }

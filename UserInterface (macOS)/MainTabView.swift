@@ -59,9 +59,9 @@ struct MainTabView: View {
     private var tabContentView: some View {
         switch selectedSidebarItem {
         case .words:
-            WordsListView(viewModel: _wordsViewModel)
+            WordsListView(viewModel: wordsViewModel)
         case .idioms:
-            IdiomsListView(viewModel: _idiomsViewModel)
+            IdiomsListView(viewModel: idiomsViewModel)
         case .quizzes:
             QuizzesView(viewModel: _quizzesViewModel)
         case .progress:
@@ -76,7 +76,7 @@ struct MainTabView: View {
         switch selectedSidebarItem {
         case .words:
             if let selectedWord = wordsViewModel.selectedWord {
-                WordDetailsView(viewModel: _wordsViewModel)
+                WordDetailsView(word: selectedWord)
                     .id(selectedWord.id)
             } else {
                 Text("Select a word")
@@ -84,7 +84,7 @@ struct MainTabView: View {
             }
         case .idioms:
             if let selectedIdiom = idiomsViewModel.selectedIdiom {
-                IdiomDetailsView(viewModel: _idiomsViewModel)
+                IdiomDetailsView(idiom: selectedIdiom)
                     .id(selectedIdiom.id)
             } else {
                 Text("Select an idiom")
@@ -95,7 +95,7 @@ struct MainTabView: View {
         case .progress:
             Text("Progress Overview")
                 .font(.title)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         @unknown default:
             fatalError("Unsupported sidebar item: \(selectedSidebarItem)")
         }
@@ -127,7 +127,7 @@ struct MainTabView: View {
             // no action
         } label: {
             Image(systemName: "heart")
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .disabled(true)
     }

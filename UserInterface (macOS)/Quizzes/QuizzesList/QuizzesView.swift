@@ -50,7 +50,7 @@ struct QuizzesView: View {
                     
                     Text("\(Int(viewModel.practiceWordCount))")
                         .font(.caption)
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                         .frame(width: 30)
                 }
                 
@@ -66,7 +66,7 @@ struct QuizzesView: View {
                     if !viewModel.hasHardWords {
                         Text("(No hard words available)")
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                 }
             }
@@ -107,7 +107,7 @@ struct QuizzesView: View {
                      "You need at least **10 words** in your list to start taking quizzes.\n\nCurrently you have **0 words**." :
                      "You need at least **10 words** in your list to start taking quizzes.\n\nCurrently you have **\(viewModel.words.count) words**.")
                     .font(.body)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .lineSpacing(4)
             }
@@ -122,7 +122,7 @@ struct QuizzesView: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(.blue.gradient)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
                 
@@ -130,7 +130,7 @@ struct QuizzesView: View {
                      "Quizzes help you test your knowledge and reinforce learning!" :
                      "You're \(10 - viewModel.words.count) words away from unlocking quizzes!")
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
             }
             .padding(.horizontal, 32)

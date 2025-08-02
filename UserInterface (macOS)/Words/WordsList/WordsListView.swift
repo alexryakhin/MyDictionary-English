@@ -2,13 +2,7 @@ import SwiftUI
 
 struct WordsListView: View {
 
-    typealias ViewModel = WordsViewModel
-
-    var _viewModel: StateObject<ViewModel>
-    var viewModel: ViewModel {
-        _viewModel.wrappedValue
-    }
-
+    @ObservedObject private var viewModel: WordsViewModel
     @State private var isShowingAddView = false
 
     private var wordsFiltered: [CDWord] {
@@ -23,29 +17,18 @@ struct WordsListView: View {
         }
     }
 
-    init(viewModel: StateObject<ViewModel>) {
-        self._viewModel = viewModel
+    init(viewModel: WordsViewModel) {
+        self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
 
     var body: some View {
-        List {
+        List(selection: $viewModel.selectedWord) {
             ForEach(wordsFiltered) { word in
-                Button {
-                    guard let id = word.id?.uuidString else { return }
-                    viewModel.handle(.selectWord(wordID: id))
-                    AnalyticsService.shared.logEvent(.wordOpened)
-                } label: {
-                    WordsListCellView(
-                        word: word,
-                        isSelected: viewModel.selectedWordId == word.id?.uuidString
-                    )
-                }
-                .buttonStyle(.borderless)
-                .id(word.id)
-                .listRowBackground(viewModel.selectedWordId == word.id?.uuidString ? Color(.selectedContentBackgroundColor) : Color.clear)
+                WordsListCellView(word: word)
+                    .tag(word)
             }
             .onDelete { offsets in
-                viewModel.handle(.deleteWord(atOffsets: offsets))
+                viewModel.deleteWord(offsets: offsets)
             }
 
             if viewModel.filterState == .search && wordsFiltered.count < 10 {

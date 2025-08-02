@@ -19,7 +19,7 @@ struct ProgressAnalyticsView: View {
                         .scaleEffect(1.5)
                     Text("Loading progress data...")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(100)
@@ -127,7 +127,7 @@ struct ProgressAnalyticsView: View {
                     } label: {
                         Text("View All")
                             .font(.caption)
-                            .foregroundColor(.blue)
+                            .foregroundStyle(.blue)
                     }
                 }
             }
@@ -182,7 +182,7 @@ struct ProgressAnalyticsView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Last \(viewModel.selectedTimePeriod.displayName.lowercased())")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     
                     VocabularyLineChart(data: viewModel.vocabularyGrowthData)
                         .frame(height: 200)
@@ -208,7 +208,7 @@ struct ProgressCard: View {
         VStack(spacing: 8) {
             Image(systemName: icon)
                 .font(.title2)
-                .foregroundColor(color)
+                .foregroundStyle(color)
             
             Text(value)
                 .font(.title2)
@@ -216,7 +216,7 @@ struct ProgressCard: View {
             
             Text(title)
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
         .padding(16)
@@ -234,7 +234,7 @@ struct StatCard: View {
         VStack(spacing: 4) {
             Image(systemName: icon)
                 .font(.caption)
-                .foregroundColor(.blue)
+                .foregroundStyle(.blue)
             
             Text(value)
                 .font(.caption)
@@ -242,7 +242,7 @@ struct StatCard: View {
             
             Text(title)
                 .font(.caption2)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
     }
@@ -261,7 +261,7 @@ struct QuizResultRow: View {
                 if let date = session.date {
                     Text(date.formatted(date: .abbreviated, time: .shortened))
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
             }
             
@@ -271,11 +271,11 @@ struct QuizResultRow: View {
                 Text("\(session.score)")
                     .font(.headline)
                     .fontWeight(.bold)
-                    .foregroundColor(scoreColor)
+                    .foregroundStyle(scoreColor)
                 
                 Text("\(session.correctAnswers)/\(session.totalWords)")
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
         }
         .padding(12)

@@ -2,37 +2,21 @@ import SwiftUI
 
 struct IdiomsListView: View {
 
-    typealias ViewModel = IdiomsViewModel
-
-    var _viewModel: StateObject<ViewModel>
-    var viewModel: ViewModel {
-        _viewModel.wrappedValue
-    }
-
+    @ObservedObject private var viewModel: IdiomsViewModel
     @State private var isShowingAddView = false
 
-    init(viewModel: StateObject<ViewModel>) {
-        self._viewModel = viewModel
+    init(viewModel: IdiomsViewModel) {
+        self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
 
     var body: some View {
-        List {
+        List(selection: $viewModel.selectedIdiom) {
             ForEach(filteredIdioms) { idiom in
-                Button {
-                    viewModel.handle(.selectIdiom(id: idiom.id?.uuidString ?? ""))
-                    AnalyticsService.shared.logEvent(.idiomOpened)
-                } label: {
-                    IdiomsListCellView(
-                        idiom: idiom,
-                        isSelected: viewModel.selectedIdiomId == idiom.id?.uuidString
-                    )
-                }
-                .buttonStyle(.borderless)
-                .id(idiom.id?.uuidString ?? "")
-                .listRowBackground(viewModel.selectedIdiomId == idiom.id?.uuidString ? Color.secondary : Color.clear)
+                IdiomsListCellView(idiom: idiom)
+                    .tag(idiom)
             }
             .onDelete {
-                viewModel.handle(.deleteIdiom(atOffsets: $0))
+                viewModel.deleteIdiom(atOffsets: $0)
                 AnalyticsService.shared.logEvent(.idiomDeleteSwipeAction)
             }
 

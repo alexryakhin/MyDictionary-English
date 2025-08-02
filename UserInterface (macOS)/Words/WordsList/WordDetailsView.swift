@@ -2,12 +2,8 @@ import SwiftUI
 
 struct WordDetailsView: View {
 
-    typealias ViewModel = WordsViewModel
-
-    var _viewModel: StateObject<ViewModel>
-    var viewModel: ViewModel {
-        _viewModel.wrappedValue
-    }
+    @StateObject var word: CDWord
+    @Environment(\.dismiss) private var dismiss
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
@@ -15,34 +11,36 @@ struct WordDetailsView: View {
     @State private var isAddingExample = false
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
+    @State private var showingDifficultyPicker = false
+    @State private var selectedDifficulty: Difficulty = .new
 
-    init(viewModel: StateObject<ViewModel>) {
-        self._viewModel = viewModel
+    init(word: CDWord) {
+        self._word = StateObject(wrappedValue: word)
     }
 
     var body: some View {
         VStack(spacing: 0) {
-            if let selectedWord = viewModel.selectedWord {
-                Text(selectedWord.wordItself ?? "")
-                    .font(.largeTitle)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(vertical: 12, horizontal: 16)
-                    .padding(.top, 8)
-                    .contextMenu {
-                        Button("Copy") {
-                            let pasteboard = NSPasteboard.general
-                            pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
-                            pasteboard.setString(selectedWord.wordItself ?? "", forType: .string)
-                        }
+            Text(word.wordItself ?? "")
+                .font(.largeTitle)
+                .bold()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(vertical: 12, horizontal: 16)
+                .padding(.top, 8)
+                .contextMenu {
+                    Button("Copy") {
+                        let pasteboard = NSPasteboard.general
+                        pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
+                        pasteboard.setString(word.wordItself ?? "", forType: .string)
                     }
-                Divider()
-            }
+                }
+            Divider()
+            
             ScrollView {
                 LazyVStack(spacing: 24) {
                     transcriptionSectionView
                     partOfSpeechSectionView
                     definitionSectionView
+                    difficultySectionView
                     examplesSectionView
                 }
                 .padding(vertical: 12, horizontal: 16)
@@ -50,7 +48,7 @@ struct WordDetailsView: View {
         }
         .toolbar {
             Button(role: .destructive) {
-                viewModel.handle(.deleteCurrentWord)
+                deleteWord()
                 AnalyticsService.shared.logEvent(.removeWordMenuButtonTapped)
             } label: {
                 Image(systemName: "trash")
@@ -58,11 +56,13 @@ struct WordDetailsView: View {
             }
 
             Button {
-                viewModel.handle(.toggleFavorite)
+                word.isFavorite.toggle()
+                saveContext()
+                AnalyticsService.shared.logEvent(.wordFavoriteTapped)
             } label: {
-                Image(systemName: "\(viewModel.selectedWord?.isFavorite == true ? "heart.fill" : "heart")")
-                    .foregroundColor(.accentColor)
-                    .animation(.easeInOut(duration: 0.2), value: viewModel.selectedWord?.isFavorite)
+                Image(systemName: "\(word.isFavorite ? "heart.fill" : "heart")")
+                    .foregroundStyle(.accent)
+                    .animation(.easeInOut(duration: 0.2), value: word.isFavorite)
             }
         }
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
@@ -71,20 +71,25 @@ struct WordDetailsView: View {
                 AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
             }
             Button("Save") {
-                viewModel.handle(.updateExample(at: index, text: exampleTextFieldStr))
+                updateExample(at: index, text: exampleTextFieldStr)
                 editingExampleIndex = nil
                 exampleTextFieldStr = .empty
                 AnalyticsService.shared.logEvent(.wordExampleChanged)
             }
+        }
+        .sheet(isPresented: $showingDifficultyPicker) {
+            difficultyPickerView
         }
     }
 
     private var transcriptionSectionView: some View {
         CustomSectionView(header: "Transcription") {
             let text = Binding {
-                viewModel.selectedWord?.phonetic ?? ""
+                word.phonetic ?? ""
             } set: {
-                viewModel.handle(.updateTranscription(text: $0))
+                word.phonetic = $0
+                saveContext()
+                AnalyticsService.shared.logEvent(.wordPhoneticsChanged)
             }
             TextField("Transcription", text: text, axis: .vertical)
                 .textFieldStyle(.plain)
@@ -94,12 +99,12 @@ struct WordDetailsView: View {
             if isPhoneticsFocused {
                 SectionHeaderButton("Done") {
                     isPhoneticsFocused = false
-                    viewModel.handle(.updateCDWord)
+                    saveContext()
                     AnalyticsService.shared.logEvent(.wordPhoneticsChanged)
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    viewModel.handle(.play(viewModel.selectedWord?.wordItself))
+                    play(word.wordItself)
                     AnalyticsService.shared.logEvent(.wordPlayed)
                 }
             }
@@ -111,17 +116,18 @@ struct WordDetailsView: View {
             Menu {
                 ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
                     Button {
-                        viewModel.handle(.updatePartOfSpeech(partCase))
+                        word.partOfSpeech = partCase.rawValue
+                        saveContext()
                         AnalyticsService.shared.logEvent(.partOfSpeechChanged)
                     } label: {
                         Text(partCase.rawValue)
-                        if viewModel.selectedWord?.partOfSpeech == partCase.rawValue {
+                        if word.partOfSpeech == partCase.rawValue {
                             Image(systemName: "checkmark")
                         }
                     }
                 }
             } label: {
-                Text(viewModel.selectedWord?.partOfSpeech ?? "")
+                Text(word.partOfSpeech ?? "")
             }
             .buttonStyle(.borderless)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -132,9 +138,11 @@ struct WordDetailsView: View {
     private var definitionSectionView: some View {
         CustomSectionView(header: "Definition") {
             let text = Binding {
-                viewModel.selectedWord?.definition ?? ""
+                word.definition ?? ""
             } set: {
-                viewModel.handle(.updateDefinition(definition: $0))
+                word.definition = $0
+                saveContext()
+                AnalyticsService.shared.logEvent(.wordDefinitionChanged)
             }
             TextField("Definition", text: text, axis: .vertical)
                 .textFieldStyle(.plain)
@@ -144,21 +152,118 @@ struct WordDetailsView: View {
             if isDefinitionFocused {
                 SectionHeaderButton("Done") {
                     isDefinitionFocused = false
-                    viewModel.handle(.updateCDWord)
+                    saveContext()
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    viewModel.handle(.play(viewModel.selectedWord?.definition))
+                    play(word.definition)
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
             }
         }
     }
 
+    private var difficultySectionView: some View {
+        CustomSectionView(header: "Difficulty") {
+            HStack {
+                Text(getCurrentDifficulty().displayName)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Spacer()
+                
+                Button("Change") {
+                    selectedDifficulty = getCurrentDifficulty()
+                    showingDifficultyPicker = true
+                }
+                .font(.caption)
+                .foregroundStyle(.blue)
+            }
+            .clippedWithPaddingAndBackground()
+        }
+    }
+    
+    private var difficultyPickerView: some View {
+        VStack(spacing: 20) {
+            Text("Select Difficulty Level")
+                .font(.headline)
+                .fontWeight(.semibold)
+            
+            VStack(spacing: 12) {
+                ForEach(Difficulty.allCases, id: \.self) { difficulty in
+                    Button {
+                        selectedDifficulty = difficulty
+                    } label: {
+                        HStack {
+                            Text(difficulty.displayName)
+                                .font(.body)
+                                .foregroundStyle(selectedDifficulty == difficulty ? .white : .primary)
+                            
+                            Spacer()
+                            
+                            if selectedDifficulty == difficulty {
+                                Image(systemName: "checkmark")
+                                    .foregroundStyle(.white)
+                            }
+                        }
+                        .padding()
+                        .background(selectedDifficulty == difficulty ? Color.blue : Color(.secondarySystemFill))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal)
+            
+            Spacer()
+            
+            HStack(spacing: 16) {
+                Button("Cancel") {
+                    showingDifficultyPicker = false
+                }
+                .buttonStyle(.bordered)
+                
+                Button("Save") {
+                    updateDifficulty()
+                    showingDifficultyPicker = false
+                }
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
+        }
+        .padding()
+        .frame(width: 400, height: 300)
+    }
+    
+    private func getCurrentDifficulty() -> Difficulty {
+        switch word.difficultyLevel {
+        case 0:
+            return .new
+        case 1:
+            return .inProgress
+        case 2:
+            return .needsReview
+        case 3:
+            return .mastered
+        default:
+            return .new
+        }
+    }
+    
+    private func updateDifficulty() {
+        word.difficultyLevel = selectedDifficulty.level
+        
+        do {
+            try ServiceManager.shared.coreDataService.saveContext()
+            AnalyticsService.shared.logEvent(.wordDifficultyChanged)
+        } catch {
+            print("❌ Failed to update word difficulty: \(error)")
+        }
+    }
+
     private var examplesSectionView: some View {
         CustomSectionView(header: "Examples") {
-            let examples = viewModel.selectedWord?.examplesDecoded ?? []
+            let examples = word.examplesDecoded ?? []
             FormWithDivider {
                 ForEach(Array(examples.enumerated()), id: \.offset) { index, example in
                     Text(example)
@@ -166,7 +271,7 @@ struct WordDetailsView: View {
                         .clippedWithPaddingAndBackground()
                         .contextMenu {
                             Button {
-                                viewModel.handle(.play(example))
+                                play(example)
                                 AnalyticsService.shared.logEvent(.wordExamplePlayed)
                             } label: {
                                 Label("Listen", systemImage: "speaker.wave.2.fill")
@@ -180,7 +285,7 @@ struct WordDetailsView: View {
                             }
                             Section {
                                 Button(role: .destructive) {
-                                    viewModel.handle(.removeExample(at: index))
+                                    removeExample(at: index)
                                 } label: {
                                     Label("Delete", systemImage: "trash")
                                 }
@@ -195,14 +300,14 @@ struct WordDetailsView: View {
 
                         if isAddExampleFocused {
                             Button {
-                                viewModel.handle(.addExample(exampleTextFieldStr))
+                                addExample(exampleTextFieldStr)
                                 isAddingExample = false
                                 exampleTextFieldStr = .empty
                                 AnalyticsService.shared.logEvent(.wordExampleAdded)
                             } label: {
                                 Image(systemName: "checkmark.rectangle.portrait.fill")
                                     .font(.title3)
-                                    .foregroundColor(.accentColor)
+                                    .foregroundStyle(.accent)
                             }
                             .buttonStyle(.borderless)
                         }
@@ -223,6 +328,55 @@ struct WordDetailsView: View {
                 }
             }
             .clippedWithBackground()
+        }
+    }
+
+    private func deleteWord() {
+        ServiceManager.shared.coreDataService.context.delete(word)
+        saveContext()
+        AnalyticsService.shared.logEvent(.wordRemoved)
+    }
+
+    private func saveContext() {
+        do {
+            try ServiceManager.shared.coreDataService.saveContext()
+        } catch {
+            print("❌ Failed to save context: \(error)")
+        }
+    }
+
+    private func addExample(_ example: String) {
+        guard !example.isEmpty else { return }
+        var currentExamples = word.examplesDecoded
+        currentExamples.append(example)
+        try? word.updateExamples(currentExamples)
+        saveContext()
+    }
+
+    private func updateExample(at index: Int, text: String) {
+        guard !text.isEmpty else { return }
+        var currentExamples = word.examplesDecoded
+        currentExamples[index] = text
+        try? word.updateExamples(currentExamples)
+        saveContext()
+    }
+
+    private func removeExample(at index: Int) {
+        var currentExamples = word.examplesDecoded
+        currentExamples.remove(at: index)
+        try? word.updateExamples(currentExamples)
+        saveContext()
+    }
+
+    private func play(_ text: String?) {
+        Task { @MainActor in
+            guard let text else { return }
+
+            do {
+                try await ServiceManager.shared.ttsPlayer.play(text)
+            } catch {
+                // Handle error if needed
+            }
         }
     }
 }

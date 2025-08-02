@@ -13,7 +13,7 @@ struct QuizzesListContentView: View {
 
     @ObservedObject var viewModel: ViewModel
     @StateObject private var navigationManager: NavigationManager = .shared
-    @State private var practiceWordCount: Double = 10
+    @AppStorage(UDKeys.practiceWordCount) var practiceWordCount: Double = 10
 
     init(viewModel: ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
