@@ -18,7 +18,7 @@ class WordsListViewModel @Inject constructor(
     private val wordManager: WordManager
 ) : ViewModel() {
 
-    private val _sortOrder = MutableStateFlow(SortOrder.ByTimestampNewestFirst)
+    private val _sortOrder = MutableStateFlow(SortOrder.Latest)
     val sortOrder = _sortOrder.asStateFlow()
 
     private val _currentFilter = MutableStateFlow(FilterOption.ALL)
@@ -92,56 +92,10 @@ class WordsListViewModel @Inject constructor(
         }
 
         return when (_sortOrder.value) {
-            SortOrder.ByTimestampNewestFirst -> filteredWords.sortedByDescending { it.timestamp }
-            SortOrder.ByTimestampOldestFirst -> filteredWords.sortedBy { it.timestamp }
-            SortOrder.AlphabeticalAZ -> filteredWords.sortedBy { it.wordItself }
-            SortOrder.AlphabeticalZA -> filteredWords.sortedByDescending { it.wordItself }
-        }
-    }
-
-    fun addSampleData() {
-        viewModelScope.launch {
-            val sampleWords = listOf(
-                Word(
-                    wordItself = "Ephemeral",
-                    definition = "Lasting for a very short time; transitory.",
-                    partOfSpeech = com.dor.mydictionary.core.PartOfSpeech.Adjective,
-                    phonetic = "ɪˈfem(ə)rəl",
-                    id = "1",
-                    timestamp = java.util.Date(),
-                    examples = listOf("The ephemeral beauty of sunset", "Ephemeral fame"),
-                    isFavorite = true,
-                    difficultyLevel = 2
-                ),
-                Word(
-                    wordItself = "Serendipity",
-                    definition = "The occurrence and development of events by chance in a happy or beneficial way.",
-                    partOfSpeech = com.dor.mydictionary.core.PartOfSpeech.Noun,
-                    phonetic = "ˌserənˈdipədē",
-                    id = "2",
-                    timestamp = java.util.Date(),
-                    examples = listOf("Finding that book was pure serendipity"),
-                    isFavorite = false,
-                    difficultyLevel = 1
-                ),
-                Word(
-                    wordItself = "Ubiquitous",
-                    definition = "Present, appearing, or found everywhere.",
-                    partOfSpeech = com.dor.mydictionary.core.PartOfSpeech.Adjective,
-                    phonetic = "yo͞oˈbikwədəs",
-                    id = "3",
-                    timestamp = java.util.Date(),
-                    examples = listOf("Ubiquitous computing devices"),
-                    isFavorite = true,
-                    difficultyLevel = 3
-                )
-            )
-
-            sampleWords.forEach { word ->
-                wordManager.updateWord(word)
-            }
-
-            loadWords()
+            SortOrder.Latest -> filteredWords.sortedByDescending { it.timestamp }
+            SortOrder.Earliest -> filteredWords.sortedBy { it.timestamp }
+            SortOrder.Alphabetical -> filteredWords.sortedBy { it.wordItself }
+            SortOrder.ReverseAlphabetical -> filteredWords.sortedByDescending { it.wordItself }
         }
     }
 }

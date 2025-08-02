@@ -29,7 +29,7 @@ fun WordDetailsScreen(
     onNavigateToAddWord: () -> Unit,
     viewModel: WordDetailsViewModel = hiltViewModel()
 ) {
-    val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsState(initial = WordDetailsUiState())
     
     LaunchedEffect(wordId) {
         viewModel.loadWord(wordId)

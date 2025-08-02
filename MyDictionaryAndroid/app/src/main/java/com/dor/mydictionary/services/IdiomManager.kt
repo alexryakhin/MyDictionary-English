@@ -38,6 +38,12 @@ class IdiomManager @Inject constructor(
         return idiom
     }
 
+    suspend fun addIdiom(idiom: Idiom): Idiom {
+        val newIdiom = idiom.copy(id = UUID.randomUUID().toString())
+        storage.insert(IdiomEntity.fromIdiom(newIdiom))
+        return newIdiom
+    }
+
     suspend fun updateIdiom(idiom: Idiom) {
         storage.update(IdiomEntity.fromIdiom(idiom))
     }

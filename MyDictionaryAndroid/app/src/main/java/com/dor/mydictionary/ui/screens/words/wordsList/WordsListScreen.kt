@@ -66,8 +66,8 @@ fun WordsListScreen(
     onNavigateToWordDetails: (String) -> Unit = {},
     viewModel: WordsListViewModel = hiltViewModel()
 ) {
-    val words by viewModel.uiState.collectAsState()
-    val sortOrder by viewModel.sortOrder.collectAsState()
+    val words by viewModel.uiState.collectAsState(initial = emptyList())
+    val sortOrder by viewModel.sortOrder.collectAsState(initial = SortOrder.Latest)
     var showAddWordDialog by remember { mutableStateOf(false) }
     var showFilterDialog by remember { mutableStateOf(false) }
     var showSortDialog by remember { mutableStateOf(false) }
@@ -78,12 +78,6 @@ fun WordsListScreen(
             TopAppBar(
                 title = { Text("Words", style = Typography.displaySmall) },
                 actions = {
-                    IconButton(onClick = { viewModel.addSampleData() }) {
-                        Icon(
-                            Icons.Default.Add,
-                            contentDescription = "Add Sample Data"
-                        )
-                    }
                     IconButton(onClick = { showSortDialog = true }) {
                         Icon(
                             Icons.Default.Sort,
