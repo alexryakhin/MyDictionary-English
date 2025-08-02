@@ -33,6 +33,7 @@ import com.dor.mydictionary.ui.screens.words.wordDetails.WordDetailsScreen
 import com.dor.mydictionary.ui.screens.idioms.idiomDetails.IdiomDetailsScreen
 import com.dor.mydictionary.ui.screens.quizzes.quizzesList.QuizzesListScreen
 import com.dor.mydictionary.ui.screens.quizzes.spellingQuiz.SpellingQuizScreen
+import com.dor.mydictionary.ui.screens.quizzes.chooseDefinitionQuiz.ChooseDefinitionQuizScreen
 
 @Composable
 fun MainScreen() {
@@ -311,6 +312,40 @@ fun MainScreen() {
                 }
             ) {
                 SpellingQuizScreen(
+                    onNavigateBack = { navController.popBackStack() },
+                    onQuizComplete = { navController.popBackStack() }
+                )
+            }
+            
+            // Choose Definition Quiz route
+            composable(
+                route = "choose_definition_quiz",
+                enterTransition = {
+                    slideIntoContainer(
+                        towards = SlideDirection.Left,
+                        animationSpec = tween(300)
+                    )
+                },
+                exitTransition = {
+                    slideOutOfContainer(
+                        towards = SlideDirection.Left,
+                        animationSpec = tween(300)
+                    )
+                },
+                popEnterTransition = {
+                    slideIntoContainer(
+                        towards = SlideDirection.Right,
+                        animationSpec = tween(300)
+                    )
+                },
+                popExitTransition = {
+                    slideOutOfContainer(
+                        towards = SlideDirection.Right,
+                        animationSpec = tween(300)
+                    )
+                }
+            ) {
+                ChooseDefinitionQuizScreen(
                     onNavigateBack = { navController.popBackStack() },
                     onQuizComplete = { navController.popBackStack() }
                 )
