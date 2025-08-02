@@ -14,6 +14,8 @@ struct WordDetailsContentView: View {
     @State private var exampleTextFieldStr = ""
     @State private var isShowingAlert = false
     @State private var alertModel = AlertModel(title: .empty)
+    @State private var showingTagSelection = false
+    @State private var availableTags: [CDTag] = []
 
     init(word: CDWord) {
         self._word = StateObject(wrappedValue: word)
@@ -25,6 +27,7 @@ struct WordDetailsContentView: View {
                 transcriptionSectionView
                 partOfSpeechSectionView
                 definitionSectionView
+                tagsSectionView
                 examplesSectionView
             }
             .padding(vertical: 12, horizontal: 16)
@@ -55,6 +58,9 @@ struct WordDetailsContentView: View {
                 }
             }
         }
+        .sheet(isPresented: $showingTagSelection) {
+            WordTagSelectionView(word: word, availableTags: availableTags)
+        }
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
             TextField("Example", text: $exampleTextFieldStr)
             Button("Cancel", role: .cancel) {
@@ -66,6 +72,9 @@ struct WordDetailsContentView: View {
                 exampleTextFieldStr = .empty
                 AnalyticsService.shared.logEvent(.wordExampleChanged)
             }
+        }
+        .onAppear {
+            loadTags()
         }
         .alert(isPresented: $isShowingAlert) {
             Alert(
@@ -140,6 +149,31 @@ struct WordDetailsContentView: View {
                     play(word.definition)
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
+            }
+        }
+    }
+
+    private var tagsSectionView: some View {
+        CustomSectionView(header: "Tags") {
+            if word.tagsArray.isEmpty {
+                Text("No tags added yet.")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .clippedWithPaddingAndBackground()
+            } else {
+                LazyVStack(spacing: 8) {
+                    ForEach(word.tagsArray, id: \.id) { tag in
+                        TagView(tag: tag)
+                            .onTapGesture {
+                                removeTag(tag)
+                            }
+                    }
+                }
+                .clippedWithBackground()
+            }
+        } headerTrailingContent: {
+            SectionHeaderButton("Add Tag", systemImage: "plus") {
+                availableTags = ServiceManager.shared.tagService.getAllTags()
+                showingTagSelection = true
             }
         }
     }
@@ -279,5 +313,41 @@ struct WordDetailsContentView: View {
         ServiceManager.shared.coreDataService.context.delete(word)
         saveContext()
         AnalyticsService.shared.logEvent(.wordRemoved)
+    }
+
+    private func loadTags() {
+        availableTags = ServiceManager.shared.tagService.getAllTags()
+    }
+
+    private func removeTag(_ tag: CDTag) {
+        try? ServiceManager.shared.tagService.removeTagFromWord(tag, word: word)
+        saveContext()
+        AnalyticsService.shared.logEvent(.tagRemovedFromWord)
+    }
+}
+
+struct TagView: View {
+    let tag: CDTag
+    
+    var body: some View {
+        HStack(spacing: 8) {
+            Circle()
+                .fill(tag.colorValue.color)
+                .frame(width: 12, height: 12)
+            
+            Text(tag.name ?? "")
+                .font(.body)
+                .fontWeight(.medium)
+            
+            Spacer()
+            
+            Image(systemName: "xmark")
+                .font(.caption)
+                .foregroundColor(.secondary)
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        .background(tag.colorValue.color.opacity(0.1))
+        .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

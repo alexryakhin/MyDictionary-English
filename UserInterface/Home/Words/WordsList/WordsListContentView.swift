@@ -23,42 +23,51 @@ struct WordsListContentView: View {
     }
 
     var body: some View {
-        List(selection: $viewModel.selectedWord) {
-            if viewModel.wordsFiltered.isNotEmpty {
-                Section {
-                    ForEach(viewModel.wordsFiltered) { wordModel in
-                        WordListCellView(word: wordModel)
-                            .contextMenu {
-                                Button(role: .destructive) {
-                                    viewModel.handle(.deleteWord(word: wordModel))
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
+        VStack(spacing: 0) {
+            // Tag Filter Section
+            if viewModel.words.isNotEmpty {
+                TagFilterView(viewModel: viewModel)
+                    .padding(.vertical, 8)
+            }
+            
+            // Words List
+            List(selection: $viewModel.selectedWord) {
+                if viewModel.wordsFiltered.isNotEmpty {
+                    Section {
+                        ForEach(viewModel.wordsFiltered) { wordModel in
+                            WordListCellView(word: wordModel)
+                                .contextMenu {
+                                    Button(role: .destructive) {
+                                        viewModel.handle(.deleteWord(word: wordModel))
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
                                 }
-                            }
-                            .tag(wordModel)
+                                .tag(wordModel)
+                        }
+                    } header: {
+                        Text(viewModel.filterStateTitle)
+                    } footer: {
+                        Text(viewModel.wordsCount)
                     }
-                } header: {
-                    Text(filterStateTitle)
-                } footer: {
-                    Text(viewModel.wordsCount)
                 }
-            }
 
-            if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
-                Button {
-                    showingAddWord.toggle()
-                } label: {
-                    Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
+                if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
+                    Button {
+                        showingAddWord.toggle()
+                    } label: {
+                        Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
+                    }
                 }
             }
-        }
-        .overlay {
-            if !viewModel.wordsFiltered.isNotEmpty {
-                ContentUnavailableView(
-                    "No words yet",
-                    systemImage: "textformat",
-                    description: Text("Begin to add words to your list by tapping on plus icon in upper left corner")
-                )
+            .overlay {
+                if !viewModel.wordsFiltered.isNotEmpty {
+                    ContentUnavailableView(
+                        "No words yet",
+                        systemImage: "textformat",
+                        description: Text("Begin to add words to your list by tapping on plus icon in upper left corner")
+                    )
+                }
             }
         }
         .navigationTitle("Words")
@@ -83,15 +92,8 @@ struct WordsListContentView: View {
                         }
                     }
                     .pickerStyle(.menu)
-                    Picker("Filter", selection: _viewModel.projectedValue.filterState) {
-                        ForEach(FilterCase.availableCases, id: \.self) { item in
-                            Text(item.rawValue)
-                                .tag(item)
-                        }
-                    }
-                    .pickerStyle(.menu)
                 } label: {
-                    Image(systemName: "ellipsis.circle")
+                    Image(systemName: "arrow.up.arrow.down")
                 }
             }
         }
@@ -99,7 +101,7 @@ struct WordsListContentView: View {
             AnalyticsService.shared.logEvent(.wordsListOpened)
         }
         .sheet(isPresented: $showingAddWord) {
-            AddWordContentView(inputWord: viewModel.searchText)
+            AddWordContentView()
         }
         .alert(isPresented: $viewModel.isShowingAlert) {
             Alert(
@@ -112,17 +114,6 @@ struct WordsListContentView: View {
                     viewModel.alertModel.destructiveAction?()
                 } : .cancel()
             )
-        }
-    }
-
-    private var filterStateTitle: String {
-        switch viewModel.filterState {
-        case .none:
-            return "All words"
-        case .favorite:
-            return "Favorites"
-        case .search:
-            return "Found"
         }
     }
 }

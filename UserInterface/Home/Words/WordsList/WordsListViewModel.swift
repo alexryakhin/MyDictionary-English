@@ -12,6 +12,7 @@ final class WordsListViewModel: BaseViewModel {
 
     enum Input {
         case deleteWord(word: CDWord)
+        case filterChanged(FilterCase, tag: CDTag? = nil)
     }
 
     @Published var searchText = ""
@@ -29,8 +30,11 @@ final class WordsListViewModel: BaseViewModel {
             AnalyticsService.shared.logEvent(.wordsListFilterSelected)
         }
     }
+    @Published var selectedTag: CDTag?
+    @Published private(set) var availableTags: [CDTag] = []
 
     private let wordsProvider: WordsProvider
+    private let tagService: TagService
     private var cancellables = Set<AnyCancellable>()
 
     var wordsFiltered: [CDWord] {
@@ -41,6 +45,8 @@ final class WordsListViewModel: BaseViewModel {
             return favoriteWords
         case .search:
             return searchResults
+        case .tag:
+            return tagFilteredWords
         @unknown default:
             fatalError("Unhandled event")
         }
@@ -56,6 +62,13 @@ final class WordsListViewModel: BaseViewModel {
             return word.wordItself?.localizedStandardContains(searchText) ?? false
         }
     }
+    
+    var tagFilteredWords: [CDWord] {
+        guard let selectedTag = selectedTag else { return words }
+        return words.filter { word in
+            word.tagsArray.contains { $0.id == selectedTag.id }
+        }
+    }
 
     var wordsCount: String {
         if wordsFiltered.count == 1 {
@@ -64,17 +77,37 @@ final class WordsListViewModel: BaseViewModel {
             return "\(wordsFiltered.count) words"
         }
     }
+    
+    var filterStateTitle: String {
+        switch filterState {
+        case .none:
+            return "All Words"
+        case .favorite:
+            return "Favorite Words"
+        case .search:
+            return "Search Results"
+        case .tag:
+            return selectedTag?.name ?? "Tagged Words"
+        @unknown default:
+            return "Words"
+        }
+    }
 
     override init() {
         self.wordsProvider = ServiceManager.shared.wordsProvider
+        self.tagService = ServiceManager.shared.tagService
         super.init()
         setupBindings()
+        loadTags()
     }
 
     func handle(_ input: Input) {
         switch input {
         case .deleteWord(let word):
             deleteWord(word)
+        case .filterChanged(let filter, let tag):
+            filterState = filter
+            selectedTag = tag
         }
     }
 
@@ -100,6 +133,10 @@ final class WordsListViewModel: BaseViewModel {
                 AnalyticsService.shared.logEvent(.wordOpened)
             }
             .store(in: &cancellables)
+    }
+    
+    private func loadTags() {
+        availableTags = tagService.getAllTags()
     }
 
     private func deleteWord(_ wordModel: CDWord) {

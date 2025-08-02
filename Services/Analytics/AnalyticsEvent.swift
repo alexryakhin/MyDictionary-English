@@ -83,6 +83,13 @@ enum AnalyticsEvent: String {
     case definitionQuizWordSkipped
     case definitionQuizRestarted
 
+    case tagCreated
+    case tagUpdated
+    case tagDeleted
+    case tagAddedToWord
+    case tagRemovedFromWord
+    case tagManagementOpened
+
     case buyMeACoffeeTapped
     case twitterButtonTapped
     case instagramButtonTapped

@@ -20,6 +20,7 @@ struct AddWordContentView: View {
                         definitionCellView
                         partOfSpeechCellView
                         phoneticsCellView
+                        tagsCellView
                     }
                     .clippedWithBackground()
 
@@ -45,6 +46,9 @@ struct AddWordContentView: View {
             .editModeDisabling()
             .onReceive(viewModel.dismissPublisher) { _ in
                 dismiss()
+            }
+            .sheet(isPresented: $viewModel.showingTagSelection) {
+                TagSelectionView(viewModel: viewModel)
             }
         }
     }
@@ -101,6 +105,35 @@ struct AddWordContentView: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
+        }
+    }
+    
+    @ViewBuilder
+    var tagsCellView: some View {
+        CellWrapper("Tags") {
+            if viewModel.selectedTags.isEmpty {
+                Text("No tags selected")
+                    .foregroundColor(.secondary)
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(viewModel.selectedTags, id: \.id) { tag in
+                            TagChip(tag: tag) {
+                                viewModel.handle(.toggleTag(tag))
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 4)
+                }
+            }
+        } trailingContent: {
+            Button {
+                viewModel.handle(.showTagSelection)
+            } label: {
+                Image(systemName: "plus")
+                    .font(.title3)
+            }
+            .buttonStyle(.borderedProminent)
         }
     }
 
@@ -186,5 +219,34 @@ struct AddWordContentView: View {
         HapticManager.shared.triggerSelection()
         UIApplication.shared.endEditing()
         AnalyticsService.shared.logEvent(.definitionSelected)
+    }
+}
+
+struct TagChip: View {
+    let tag: CDTag
+    let onRemove: () -> Void
+    
+    var body: some View {
+        HStack(spacing: 4) {
+            Circle()
+                .fill(tag.colorValue.color)
+                .frame(width: 8, height: 8)
+            
+            Text(tag.name ?? "")
+                .font(.caption)
+                .fontWeight(.medium)
+            
+            Button {
+                onRemove()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding(.horizontal, 8)
+        .padding(.vertical, 4)
+        .background(tag.colorValue.color.opacity(0.1))
+        .clipShape(Capsule())
     }
 }

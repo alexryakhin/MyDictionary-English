@@ -9,6 +9,8 @@ final class AddWordViewModel: BaseViewModel {
         case playInputWord
         case selectPartOfSpeech(PartOfSpeech)
         case selectDefinition(WordDefinition)
+        case toggleTag(CDTag)
+        case showTagSelection
     }
 
     @Published var inputWord = ""
@@ -19,10 +21,14 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var selectedDefinition: WordDefinition?
     @Published private(set) var pronunciation: String?
     @Published private(set) var partOfSpeech: PartOfSpeech?
+    @Published var selectedTags: [CDTag] = []
+    @Published var showingTagSelection = false
+    @Published private(set) var availableTags: [CDTag] = []
 
     private let wordnikAPIService: WordnikAPIService
     private let addWordManager: AddWordManager
     private let ttsPlayer: TTSPlayer
+    private let tagService: TagService
     private var cancellables = Set<AnyCancellable>()
 
     init(inputWord: String = "") {
@@ -30,9 +36,11 @@ final class AddWordViewModel: BaseViewModel {
         self.wordnikAPIService = ServiceManager.shared.wordnikAPIService
         self.addWordManager = ServiceManager.shared.createAddWordManager()
         self.ttsPlayer = ServiceManager.shared.ttsPlayer
+        self.tagService = ServiceManager.shared.tagService
 
         super.init()
         setupBindings()
+        loadTags()
         if !inputWord.isEmpty {
             fetchData()
         }
@@ -50,6 +58,10 @@ final class AddWordViewModel: BaseViewModel {
             self.partOfSpeech = partOfSpeech
         case .selectDefinition(let definition):
             self.selectedDefinition = definition
+        case .toggleTag(let tag):
+            toggleTag(tag)
+        case .showTagSelection:
+            showingTagSelection = true
         }
     }
 
@@ -95,7 +107,8 @@ final class AddWordViewModel: BaseViewModel {
                     definition: descriptionField.capitalizingFirstLetter(),
                     partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
                     phonetic: pronunciation,
-                    examples: selectedDefinition?.examples ?? []
+                    examples: selectedDefinition?.examples ?? [],
+                    tags: selectedTags
                 )
                 HapticManager.shared.triggerNotification(type: .success)
                 AnalyticsService.shared.logEvent(.wordAdded)
@@ -150,6 +163,23 @@ final class AddWordViewModel: BaseViewModel {
             self?.selectedDefinition = nil
             self?.pronunciation = nil
             self?.partOfSpeech = nil
+            self?.selectedTags = []
+        }
+    }
+    
+    private func loadTags() {
+        availableTags = tagService.getAllTags()
+    }
+    
+    private func toggleTag(_ tag: CDTag) {
+        if selectedTags.contains(where: { $0.id == tag.id }) {
+            selectedTags.removeAll { $0.id == tag.id }
+        } else {
+            if selectedTags.count < 5 {
+                selectedTags.append(tag)
+            } else {
+                errorReceived(CoreError.internalError(.maxTagsReached), displayType: .alert)
+            }
         }
     }
 }

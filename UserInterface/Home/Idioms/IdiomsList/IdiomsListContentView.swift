@@ -120,7 +120,7 @@ struct IdiomsListContentView: View {
 
     private var filteredIdioms: [CDIdiom] {
         switch viewModel.filterState {
-        case .none:
+        case .none, .tag:
             return viewModel.idioms
         case .favorite:
             return viewModel.favoriteIdioms
@@ -131,7 +131,7 @@ struct IdiomsListContentView: View {
 
     private var filterStateTitle: String {
         switch viewModel.filterState {
-        case .none:
+        case .none, .tag:
             return "All idioms"
         case .favorite:
             return "Favorites"

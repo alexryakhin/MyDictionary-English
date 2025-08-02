@@ -12,6 +12,7 @@ final class MoreViewModel: BaseViewModel {
     @Published var isImporting = false
     @Published var importFileURL: URL?
     @Published var exportWordsUrl: URL?
+    @Published var showingTagManagement = false
 
     private let wordsProvider: WordsProvider
     private let csvManager: CSVManager

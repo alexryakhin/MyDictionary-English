@@ -23,6 +23,7 @@ final class CDWord: NSManagedObject, Identifiable {
     @NSManaged var timestamp: Date?
     @NSManaged var isFavorite: Bool
     @NSManaged var examples: Data?
+    @NSManaged var tags: NSSet?
 
     var examplesDecoded: [String] {
         guard let examples,
@@ -33,6 +34,11 @@ final class CDWord: NSManagedObject, Identifiable {
 
     var partOfSpeechDecoded: PartOfSpeech {
         PartOfSpeech(rawValue: partOfSpeech ?? "") ?? .unknown
+    }
+
+    var tagsArray: [CDTag] {
+        let set = tags as? Set<CDTag> ?? []
+        return Array(set).sorted { $0.name ?? "" < $1.name ?? "" }
     }
 
     func updateExamples(_ examples: [String]) throws {

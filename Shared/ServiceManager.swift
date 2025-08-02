@@ -76,6 +76,10 @@ final class ServiceManager {
         IdiomsProvider(coreDataService: coreDataService)
     }()
     
+    lazy var tagService: TagService = {
+        TagService(coreDataService: coreDataService)
+    }()
+    
     // MARK: - Factory Methods
 
     func createAddWordManager() -> AddWordManager {

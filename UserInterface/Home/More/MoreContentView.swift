@@ -51,6 +51,20 @@ struct MoreContentView: View {
                 Text("Please note that import and export only work with files created by this app.")
             }
 
+            // MARK: - Tag Management
+
+            Section {
+                Button {
+                    viewModel.showingTagManagement = true
+                } label: {
+                    Label("Manage Tags", systemImage: "tag")
+                }
+            } header: {
+                Text("Organization")
+            } footer: {
+                Text("Create and manage tags to organize your words.")
+            }
+
             // MARK: - About app
 
             Section {
@@ -67,6 +81,9 @@ struct MoreContentView: View {
         .listStyle(.insetGrouped)
         .sheet(item: $viewModel.exportWordsUrl) { url in
             ShareSheet(activityItems: [url])
+        }
+        .sheet(isPresented: $viewModel.showingTagManagement) {
+            TagManagementView()
         }
         .fileImporter(
             isPresented: $viewModel.isImporting,

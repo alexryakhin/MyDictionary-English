@@ -81,6 +81,10 @@ enum CoreError: Error {
         case exportFailed
         case importFailed
         case cannotAccessSecurityScopedResource
+        case tagAlreadyExists
+        case tagAlreadyAssigned
+        case tagNotAssigned
+        case maxTagsReached
 
         var description: String {
             switch self {
@@ -112,6 +116,14 @@ enum CoreError: Error {
                 return "Import failed"
             case .cannotAccessSecurityScopedResource:
                 return "Cannot access security scoped resource"
+            case .tagAlreadyExists:
+                return "Tag already exists"
+            case .tagAlreadyAssigned:
+                return "Tag is already assigned to this word"
+            case .tagNotAssigned:
+                return "Tag is not assigned to this word"
+            case .maxTagsReached:
+                return "Maximum of 5 tags per word reached"
             }
         }
     }
