@@ -61,26 +61,35 @@ fun QuizzesListScreen(
                 )
             }
 
-            // Spelling Quiz Card
-            item {
-                QuizCard(
-                    title = "Spelling Quiz",
-                    description = "Test your spelling skills by typing words correctly",
-                    icon = Icons.Default.Edit,
-                    isEnabled = uiState.practiceSettings.wordsPerSession > 0,
-                    onClick = onNavigateToSpellingQuiz
-                )
-            }
+            // Check if user has enough words
+            if (uiState.availableWordsCount < 10) {
+                item {
+                    NotEnoughWordsCard(
+                        availableWords = uiState.availableWordsCount
+                    )
+                }
+            } else {
+                // Spelling Quiz Card
+                item {
+                    QuizCard(
+                        title = "Spelling Quiz",
+                        description = "Test your spelling skills by typing words correctly",
+                        icon = Icons.Default.Edit,
+                        isEnabled = uiState.practiceSettings.wordsPerSession > 0,
+                        onClick = onNavigateToSpellingQuiz
+                    )
+                }
 
-            // Choose Definition Quiz Card
-            item {
-                QuizCard(
-                    title = "Choose Definition",
-                    description = "Select the correct definition for each word",
-                    icon = Icons.Default.List,
-                    isEnabled = uiState.practiceSettings.wordsPerSession > 0,
-                    onClick = onNavigateToChooseDefinitionQuiz
-                )
+                // Choose Definition Quiz Card
+                item {
+                    QuizCard(
+                        title = "Choose Definition",
+                        description = "Select the correct definition for each word",
+                        icon = Icons.Default.List,
+                        isEnabled = uiState.practiceSettings.wordsPerSession > 0,
+                        onClick = onNavigateToChooseDefinitionQuiz
+                    )
+                }
             }
 
             // Recent Results Section
@@ -344,10 +353,56 @@ private fun PracticeSettingsDialog(
     )
 }
 
+@Composable
+private fun NotEnoughWordsCard(availableWords: Int) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant
+        )
+    ) {
+        Column(
+            modifier = Modifier.padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Icon(
+                Icons.Default.Book,
+                contentDescription = null,
+                modifier = Modifier.size(48.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            
+            Text(
+                text = "Not Enough Words",
+                style = Typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            
+            Text(
+                text = "You need at least 10 words to start quizzes. You currently have $availableWords words.",
+                style = Typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+            )
+            
+            Text(
+                text = "Add more words to your vocabulary to unlock quizzes!",
+                style = Typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+            )
+        }
+    }
+}
+
 data class QuizzesListUiState(
     val practiceSettings: PracticeSettings = PracticeSettings(),
     val recentQuizResults: List<QuizResult> = emptyList(),
     val showPracticeSettings: Boolean = false,
+    val availableWordsCount: Int = 0,
     val isLoading: Boolean = false,
     val error: String? = null
 )

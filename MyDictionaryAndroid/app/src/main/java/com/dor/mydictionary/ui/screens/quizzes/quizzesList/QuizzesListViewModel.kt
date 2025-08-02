@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dor.mydictionary.services.QuizSessionManager
 import com.dor.mydictionary.services.UserStatsManager
+import com.dor.mydictionary.services.WordManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,7 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class QuizzesListViewModel @Inject constructor(
     private val quizSessionManager: QuizSessionManager,
-    private val userStatsManager: UserStatsManager
+    private val userStatsManager: UserStatsManager,
+    private val wordManager: WordManager
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(QuizzesListUiState())
@@ -26,6 +28,7 @@ class QuizzesListViewModel @Inject constructor(
     init {
         loadRecentQuizResults()
         loadPracticeSettings()
+        loadAvailableWordsCount()
     }
 
     fun togglePracticeSettings() {
@@ -120,6 +123,23 @@ class QuizzesListViewModel @Inject constructor(
     private fun formatDate(date: Date): String {
         val formatter = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
         return formatter.format(date)
+    }
+
+    private fun loadAvailableWordsCount() {
+        viewModelScope.launch {
+            try {
+                val userStats = userStatsManager.getUserStats()
+                val availableWords = if (userStats.practiceHardWordsOnly) {
+                    wordManager.getHardWords()
+                } else {
+                    wordManager.getAllWords()
+                }
+                
+                _uiState.update { it.copy(availableWordsCount = availableWords.size) }
+            } catch (e: Exception) {
+                _uiState.update { it.copy(availableWordsCount = 0) }
+            }
+        }
     }
 
     fun clearError() {
