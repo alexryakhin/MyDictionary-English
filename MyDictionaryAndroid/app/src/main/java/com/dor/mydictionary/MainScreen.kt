@@ -27,13 +27,14 @@ import androidx.compose.animation.core.tween
 
 import com.dor.mydictionary.ui.TabItem
 import com.dor.mydictionary.ui.screens.idioms.idiomsList.IdiomsListScreen
-import com.dor.mydictionary.ui.screens.more.screen.MoreScreen
+import com.dor.mydictionary.ui.screens.settings.SettingsScreen
 import com.dor.mydictionary.ui.screens.words.wordsList.WordsListScreen
 import com.dor.mydictionary.ui.screens.words.wordDetails.WordDetailsScreen
 import com.dor.mydictionary.ui.screens.idioms.idiomDetails.IdiomDetailsScreen
 import com.dor.mydictionary.ui.screens.quizzes.quizzesList.QuizzesListScreen
 import com.dor.mydictionary.ui.screens.quizzes.spellingQuiz.SpellingQuizScreen
 import com.dor.mydictionary.ui.screens.quizzes.chooseDefinitionQuiz.ChooseDefinitionQuizScreen
+import com.dor.mydictionary.ui.screens.progress.ProgressAnalyticsScreen
 
 @Composable
 fun MainScreen() {
@@ -70,31 +71,7 @@ fun MainScreen() {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(
-                route = TabItem.Words.route,
-                enterTransition = {
-                    slideIntoContainer(
-                        towards = SlideDirection.Left,
-                        animationSpec = tween(300)
-                    )
-                },
-                exitTransition = {
-                    slideOutOfContainer(
-                        towards = SlideDirection.Left,
-                        animationSpec = tween(300)
-                    )
-                },
-                popEnterTransition = {
-                    slideIntoContainer(
-                        towards = SlideDirection.Right,
-                        animationSpec = tween(300)
-                    )
-                },
-                popExitTransition = {
-                    slideOutOfContainer(
-                        towards = SlideDirection.Right,
-                        animationSpec = tween(300)
-                    )
-                }
+                route = TabItem.Words.route
             ) { 
                 WordsListScreen(
                     onNavigateToWordDetails = { wordId ->
@@ -103,31 +80,7 @@ fun MainScreen() {
                 ) 
             }
             composable(
-                route = TabItem.Idioms.route,
-                enterTransition = {
-                    slideIntoContainer(
-                        towards = SlideDirection.Left,
-                        animationSpec = tween(300)
-                    )
-                },
-                exitTransition = {
-                    slideOutOfContainer(
-                        towards = SlideDirection.Left,
-                        animationSpec = tween(300)
-                    )
-                },
-                popEnterTransition = {
-                    slideIntoContainer(
-                        towards = SlideDirection.Right,
-                        animationSpec = tween(300)
-                    )
-                },
-                popExitTransition = {
-                    slideOutOfContainer(
-                        towards = SlideDirection.Right,
-                        animationSpec = tween(300)
-                    )
-                }
+                route = TabItem.Idioms.route
             ) { 
                 IdiomsListScreen(
                     onNavigateToIdiomDetails = { idiomId ->
@@ -136,31 +89,7 @@ fun MainScreen() {
                 ) 
             }
             composable(
-                route = TabItem.Quizzes.route,
-                enterTransition = {
-                    slideIntoContainer(
-                        towards = SlideDirection.Left,
-                        animationSpec = tween(300)
-                    )
-                },
-                exitTransition = {
-                    slideOutOfContainer(
-                        towards = SlideDirection.Left,
-                        animationSpec = tween(300)
-                    )
-                },
-                popEnterTransition = {
-                    slideIntoContainer(
-                        towards = SlideDirection.Right,
-                        animationSpec = tween(300)
-                    )
-                },
-                popExitTransition = {
-                    slideOutOfContainer(
-                        towards = SlideDirection.Right,
-                        animationSpec = tween(300)
-                    )
-                }
+                route = TabItem.Quizzes.route
             ) { 
                 QuizzesListScreen(
                     onNavigateToSpellingQuiz = {
@@ -171,33 +100,28 @@ fun MainScreen() {
                     }
                 ) 
             }
+            
             composable(
-                route = TabItem.More.route,
-                enterTransition = {
-                    slideIntoContainer(
-                        towards = SlideDirection.Left,
-                        animationSpec = tween(300)
-                    )
-                },
-                exitTransition = {
-                    slideOutOfContainer(
-                        towards = SlideDirection.Left,
-                        animationSpec = tween(300)
-                    )
-                },
-                popEnterTransition = {
-                    slideIntoContainer(
-                        towards = SlideDirection.Right,
-                        animationSpec = tween(300)
-                    )
-                },
-                popExitTransition = {
-                    slideOutOfContainer(
-                        towards = SlideDirection.Right,
-                        animationSpec = tween(300)
-                    )
-                }
-            ) { MoreScreen() }
+                route = TabItem.Progress.route
+            ) { 
+                ProgressAnalyticsScreen(
+                    onNavigateToQuizResults = {
+                        navController.navigate("quiz_results")
+                    }
+                ) 
+            }
+            composable(
+                route = TabItem.Settings.route
+            ) { 
+                SettingsScreen(
+                    onNavigateToTagManagement = {
+                        // TODO: Navigate to tag management
+                    },
+                    onNavigateToAbout = {
+                        // TODO: Navigate to about screen
+                    }
+                ) 
+            }
             
             // Word Details route
             composable(

@@ -17,7 +17,10 @@ data class UserStatsEntity(
     val totalWordsStudied: Int,
     val vocabularySize: Int,
     val practiceHardWordsOnly: Boolean = false,
-    val wordsPerSession: Int = 10
+    val wordsPerSession: Int = 10,
+    val dailyRemindersEnabled: Boolean = false,
+    val difficultWordsAlertsEnabled: Boolean = false,
+    val selectedTTSLanguage: String = "English (US)"
 ) {
     fun toUserStats(): UserStats = UserStats(
         id = id,
@@ -30,7 +33,10 @@ data class UserStatsEntity(
         totalWordsStudied = totalWordsStudied,
         vocabularySize = vocabularySize,
         practiceHardWordsOnly = practiceHardWordsOnly,
-        wordsPerSession = wordsPerSession
+        wordsPerSession = wordsPerSession,
+        dailyRemindersEnabled = dailyRemindersEnabled,
+        difficultWordsAlertsEnabled = difficultWordsAlertsEnabled,
+        selectedTTSLanguage = selectedTTSLanguage
     )
     
     companion object {
@@ -45,7 +51,10 @@ data class UserStatsEntity(
             totalWordsStudied = userStats.totalWordsStudied,
             vocabularySize = userStats.vocabularySize,
             practiceHardWordsOnly = userStats.practiceHardWordsOnly,
-            wordsPerSession = userStats.wordsPerSession
+            wordsPerSession = userStats.wordsPerSession,
+            dailyRemindersEnabled = userStats.dailyRemindersEnabled,
+            difficultWordsAlertsEnabled = userStats.difficultWordsAlertsEnabled,
+            selectedTTSLanguage = userStats.selectedTTSLanguage
         )
     }
 } 
