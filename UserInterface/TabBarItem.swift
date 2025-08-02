@@ -12,6 +12,7 @@ enum TabBarItem: String, CaseIterable, Identifiable {
     case words
     case idioms
     case quizzes
+    case analytics
     case more
 
     var id: String { rawValue }
@@ -21,6 +22,7 @@ enum TabBarItem: String, CaseIterable, Identifiable {
         case .words: "Words"
         case .idioms: "Idioms"
         case .quizzes: "Quizzes"
+        case .analytics: "Progress"
         case .more: "More"
         }
     }
@@ -30,6 +32,7 @@ enum TabBarItem: String, CaseIterable, Identifiable {
         case .words: "textformat.abc"
         case .idioms: "scroll"
         case .quizzes: "a.magnify"
+        case .analytics: "chart.line.uptrend.xyaxis"
         case .more: "ellipsis.circle"
         }
     }
@@ -39,6 +42,7 @@ enum TabBarItem: String, CaseIterable, Identifiable {
         case .words: "textformat.abc.fill"
         case .idioms: "scroll.fill"
         case .quizzes: "a.magnify.fill"
+        case .analytics: "chart.line.uptrend.xyaxis.fill"
         case .more: "ellipsis.circle.fill"
         }
     }

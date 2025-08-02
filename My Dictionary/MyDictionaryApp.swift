@@ -14,6 +14,7 @@ struct MyDictionaryApp: App {
     @StateObject private var wordsViewModel = WordsListViewModel()
     @StateObject private var idiomsViewModel = IdiomsListViewModel()
     @StateObject private var quizzesViewModel = QuizzesListViewModel()
+    @StateObject private var analyticsViewModel = AnalyticsViewModel()
     @StateObject private var moreViewModel = MoreViewModel()
 
     @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
@@ -29,6 +30,7 @@ struct MyDictionaryApp: App {
                 wordsViewModel: wordsViewModel,
                 idiomsViewModel: idiomsViewModel,
                 quizzesViewModel: quizzesViewModel,
+                analyticsViewModel: analyticsViewModel,
                 moreViewModel: moreViewModel
             )
             .fontDesign(.rounded)
@@ -37,6 +39,7 @@ struct MyDictionaryApp: App {
             } content: {
                 OnboardingView()
             }
+            .tint(.accent)
         }
     }
 } 

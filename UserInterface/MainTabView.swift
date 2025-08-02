@@ -5,6 +5,7 @@ struct MainTabView: View {
     @ObservedObject var wordsViewModel: WordsListViewModel
     @ObservedObject var idiomsViewModel: IdiomsListViewModel
     @ObservedObject var quizzesViewModel: QuizzesListViewModel
+    @ObservedObject var analyticsViewModel: AnalyticsViewModel
     @ObservedObject var moreViewModel: MoreViewModel
 
     @StateObject var navigationManager: NavigationManager = .shared
@@ -13,11 +14,13 @@ struct MainTabView: View {
         wordsViewModel: WordsListViewModel,
         idiomsViewModel: IdiomsListViewModel,
         quizzesViewModel: QuizzesListViewModel,
+        analyticsViewModel: AnalyticsViewModel,
         moreViewModel: MoreViewModel
     ) {
         self._wordsViewModel = ObservedObject(wrappedValue: wordsViewModel)
         self._idiomsViewModel = ObservedObject(wrappedValue: idiomsViewModel)
         self._quizzesViewModel = ObservedObject(wrappedValue: quizzesViewModel)
+        self._analyticsViewModel = ObservedObject(wrappedValue: analyticsViewModel)
         self._moreViewModel = ObservedObject(wrappedValue: moreViewModel)
     }
 
@@ -80,6 +83,17 @@ struct MainTabView: View {
                 )
             }
             .tag(TabBarItem.quizzes)
+
+            NavigationView {
+                AnalyticsContentView()
+            }
+            .tabItem {
+                Label(
+                    TabBarItem.analytics.title,
+                    systemImage: TabBarItem.analytics.image
+                )
+            }
+            .tag(TabBarItem.analytics)
 
             NavigationView {
                 MoreContentView(viewModel: moreViewModel)

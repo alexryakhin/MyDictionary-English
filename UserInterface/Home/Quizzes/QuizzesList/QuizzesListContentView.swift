@@ -13,6 +13,8 @@ struct QuizzesListContentView: View {
 
     @ObservedObject var viewModel: ViewModel
     @StateObject private var navigationManager: NavigationManager = .shared
+    @State private var showingHardWordsOnly = false
+    @State private var practiceWordCount: Double = 10
 
     init(viewModel: ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
@@ -36,6 +38,63 @@ struct QuizzesListContentView: View {
 
     private var quizzesList: some View {
         List {
+            // Practice Settings Section
+            Section {
+                VStack(spacing: 16) {
+                    // Hard Words Toggle
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Practice Hard Words Only")
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Text("Focus on words that need review")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        Toggle("", isOn: $showingHardWordsOnly)
+                            .labelsHidden()
+                    }
+                    
+                    Divider()
+                    
+                    // Word Count Slider
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("Words per Session")
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Spacer()
+                            Text("\(Int(practiceWordCount))")
+                                .font(.body)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.blue)
+                        }
+                        
+                        Slider(value: $practiceWordCount, in: 5...50, step: 5)
+                            .accentColor(.blue)
+                        
+                        HStack {
+                            Text("5")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            Spacer()
+                            Text("50")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
+                .padding(.vertical, 8)
+            } header: {
+                Text("Practice Settings")
+            } footer: {
+                Text("Configure your quiz experience")
+            }
+
+            // Quiz Types Section
             Section {
                 ForEach(Quiz.allCases) { quiz in
                     NavigationLink {
@@ -49,6 +108,8 @@ struct QuizzesListContentView: View {
                         QuizCardView(quiz: quiz)
                     }
                 }
+            } header: {
+                Text("Quiz Types")
             } footer: {
                 Text("All words are from your list.")
             }
