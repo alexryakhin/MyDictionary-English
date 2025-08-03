@@ -168,7 +168,7 @@ struct ChooseDefinitionQuizContentView: View {
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
-                        .clippedWithPaddingAndBackground(backgroundColor(for: index))
+                        .clippedWithPaddingAndBackground(color: backgroundColor(for: index))
                         .overlay(
                             RoundedRectangle(cornerRadius: 12)
                                 .stroke(borderColor(for: index), lineWidth: 2)

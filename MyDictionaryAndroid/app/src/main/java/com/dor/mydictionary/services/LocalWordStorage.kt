@@ -6,9 +6,13 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface LocalWordStorage {
+    @Query("SELECT * FROM words ORDER BY timestamp DESC")
+    fun getAllFlow(): Flow<List<WordEntity>>
+
     @Query("SELECT * FROM words ORDER BY timestamp DESC")
     suspend fun getAll(): List<WordEntity>
 

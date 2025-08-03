@@ -104,16 +104,16 @@ extension View {
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func clippedWithPaddingAndBackground(_ color: Color = Color(.secondarySystemGroupedBackground)) -> some View {
+    func clippedWithPaddingAndBackground(padding: CGFloat = 16, color: Color = Color(.secondarySystemGroupedBackground)) -> some View {
         self
-            .padding(vertical: 12, horizontal: 16)
+            .padding(padding)
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func clippedWithPaddingAndBackgroundMaterial(_ material: Material = .regularMaterial) -> some View {
+    func clippedWithPaddingAndBackgroundMaterial(padding: CGFloat = 16, material: Material = .regularMaterial) -> some View {
         self
-            .padding(vertical: 12, horizontal: 16)
+            .padding(padding)
             .background(material)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }

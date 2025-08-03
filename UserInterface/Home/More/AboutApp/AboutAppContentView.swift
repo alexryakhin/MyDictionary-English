@@ -24,6 +24,20 @@ struct AboutAppContentView: View {
                 Text("About app")
             }
 
+            // MARK: - Features
+            Section {
+                VStack(alignment: .leading, spacing: 8) {
+                    FeatureRow(text: "Add and organize words with definitions")
+                    FeatureRow(text: "Practice with quizzes and spelling exercises")
+                    FeatureRow(text: "Track your learning progress")
+                    FeatureRow(text: "Import and export your word collection")
+                    FeatureRow(text: "Customize your learning experience")
+                    FeatureRow(text: "Voice pronunciation support")
+                }
+            } header: {
+                Text("Features")
+            }
+
             // MARK: - Follow Me
 
             Section {
@@ -70,6 +84,20 @@ struct AboutAppContentView: View {
         .navigationTitle("About")
         .onAppear {
             AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
+        }
+    }
+}
+
+struct FeatureRow: View {
+    let text: String
+    
+    var body: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "checkmark")
+                .foregroundColor(.blue)
+                .font(.system(size: 14))
+            Text(text)
+                .font(.body)
         }
     }
 }

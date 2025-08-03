@@ -2,8 +2,10 @@ package com.dor.mydictionary.services
 
 import android.content.Context
 import android.net.Uri
+import android.util.Log
 import com.dor.mydictionary.core.Word
 import com.dor.mydictionary.core.PartOfSpeech
+import com.dor.mydictionary.services.WordManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -20,7 +22,8 @@ import javax.inject.Singleton
 
 @Singleton
 class CSVManager @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val wordManager: WordManager
 ) {
     
     suspend fun importWordsFromCSV(uri: Uri, currentWordIds: List<String>): List<Word> = withContext(Dispatchers.IO) {
@@ -55,18 +58,36 @@ class CSVManager @Inject constructor(
             val lines = csvContent.lines()
             if (lines.isEmpty()) return@withContext 0
             
+            Log.d("CSVManager", "Found ${lines.size} lines")
+            
+            // Get current word IDs to avoid duplicates
+            val currentWordIds = wordManager.getAllWords().map { it.id }.toSet()
+            Log.d("CSVManager", "Current word count: ${currentWordIds.size}")
+            
             // Skip header line
-            lines.drop(1).forEach { line ->
+            lines.drop(1).forEachIndexed { index, line ->
                 if (line.isNotEmpty()) {
-                    val word = parseCSVLine(line, emptyList())
-                    word?.let { words.add(it) }
+                    Log.d("CSVManager", "Processing line ${index + 1}: ${line.take(50)}...")
+                    val word = parseCSVLine(line, currentWordIds.toList())
+                    word?.let { 
+                        words.add(it)
+                        Log.d("CSVManager", "Successfully parsed word: ${it.wordItself}")
+                    } ?: Log.d("CSVManager", "Failed to parse line ${index + 1}")
                 }
             }
             
-            // TODO: Save words to database
-            // For now, just return the count
+            Log.d("CSVManager", "Parsed ${words.size} words")
+            
+            // Save words to database
+            words.forEach { word ->
+                wordManager.addWord(word)
+                Log.d("CSVManager", "Saved word: ${word.wordItself}")
+            }
+            
+            Log.d("CSVManager", "Successfully imported ${words.size} words")
             words.size
         } catch (e: Exception) {
+            Log.e("CSVManager", "CSV Import Error: ${e.message}", e)
             throw Exception("Failed to import CSV content: ${e.message}")
         }
     }
@@ -116,7 +137,12 @@ class CSVManager @Inject constructor(
     private fun parseCSVLine(line: String, currentWordIds: List<String>): Word? {
         try {
             val parts = parseCSVLineParts(line)
-            if (parts.size < 8) return null
+            Log.d("CSVManager", "Line has ${parts.size} parts")
+            
+            if (parts.size < 8) {
+                Log.d("CSVManager", "Not enough parts (expected 8, got ${parts.size})")
+                return null
+            }
             
             val wordText = parts[0].removeSurrounding("\"")
             val definition = parts[1].removeSurrounding("\"")
@@ -127,8 +153,13 @@ class CSVManager @Inject constructor(
             val id = parts[6].removeSurrounding("\"")
             val examples = parts[7].removeSurrounding("\"").split(";").filter { it.isNotEmpty() }
             
+            Log.d("CSVManager", "Parsed word='$wordText', id='$id', partOfSpeech='$partOfSpeech'")
+            
             // Skip if word already exists
-            if (currentWordIds.contains(id)) return null
+            if (currentWordIds.contains(id)) {
+                Log.d("CSVManager", "Word with ID $id already exists, skipping")
+                return null
+            }
             
             return Word(
                 id = id,
@@ -142,6 +173,7 @@ class CSVManager @Inject constructor(
                 difficultyLevel = 0 // Default to new difficulty level
             )
         } catch (e: Exception) {
+            Log.e("CSVManager", "CSV Parse Error: ${e.message}", e)
             return null
         }
     }

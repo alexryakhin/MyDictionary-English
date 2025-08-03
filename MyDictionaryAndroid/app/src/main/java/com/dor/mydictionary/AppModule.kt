@@ -110,8 +110,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCSVManager(@ApplicationContext context: Context): CSVManager {
-        return CSVManager(context)
+    fun provideCSVManager(@ApplicationContext context: Context, wordManager: WordManager): CSVManager {
+        return CSVManager(context, wordManager)
     }
 
     @Provides

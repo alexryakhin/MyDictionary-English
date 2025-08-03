@@ -10,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -31,21 +32,24 @@ class WordsListViewModel @Inject constructor(
     val uiState = _uiState.asStateFlow()
 
     init {
-        loadWords()
-    }
-
-    fun loadWords() {
+        // Use reactive Flow to automatically update when database changes
         viewModelScope.launch {
-            val allWords = wordManager.getAllWords()
-            _uiState.value = applyFilterAndSort(allWords)
+            combine(
+                wordManager.getAllWordsFlow(),
+                _sortOrder,
+                _currentFilter,
+                _searchText
+            ) { words, sortOrder, filter, searchText ->
+                applyFilterAndSort(words, sortOrder, filter, searchText)
+            }.collect { filteredWords ->
+                _uiState.value = filteredWords
+            }
         }
     }
 
     fun addWord(word: Word) {
         viewModelScope.launch {
             wordManager.updateWord(word)
-            val allWords = wordManager.getAllWords()
-            _uiState.value = applyFilterAndSort(allWords)
         }
     }
 
@@ -53,8 +57,6 @@ class WordsListViewModel @Inject constructor(
         viewModelScope.launch {
             val word = _uiState.value.find { it.id == id }
             word?.let { wordManager.deleteWord(it) }
-            val allWords = wordManager.getAllWords()
-            _uiState.value = applyFilterAndSort(allWords)
         }
     }
 
@@ -62,46 +64,39 @@ class WordsListViewModel @Inject constructor(
         viewModelScope.launch {
             val word = _uiState.value.find { it.id == id }
             word?.let { wordManager.toggleFavorite(it) }
-            val allWords = wordManager.getAllWords()
-            _uiState.value = applyFilterAndSort(allWords)
         }
     }
 
     fun setSortOrder(order: SortOrder) {
         _sortOrder.value = order
-        applyFilterAndSort()
     }
 
     fun setFilter(filter: FilterOption) {
         _currentFilter.value = filter
-        applyFilterAndSort()
     }
 
     fun setSearchText(text: String) {
         _searchText.value = text
-        applyFilterAndSort()
     }
 
-    private fun applyFilterAndSort() {
-        viewModelScope.launch {
-            val allWords = wordManager.getAllWords()
-            _uiState.value = applyFilterAndSort(allWords)
-        }
-    }
-
-    private fun applyFilterAndSort(words: List<Word>): List<Word> {
+    private fun applyFilterAndSort(
+        words: List<Word>,
+        sortOrder: SortOrder,
+        filter: FilterOption,
+        searchText: String
+    ): List<Word> {
         // Apply search filter
-        val searchFiltered = if (_searchText.value.isEmpty()) {
+        val searchFiltered = if (searchText.isEmpty()) {
             words
         } else {
             words.filter { word ->
-                word.wordItself.contains(_searchText.value, ignoreCase = true) ||
-                word.definition.contains(_searchText.value, ignoreCase = true)
+                word.wordItself.contains(searchText, ignoreCase = true) ||
+                word.definition.contains(searchText, ignoreCase = true)
             }
         }
 
         // Apply additional filters
-        val filteredWords = when (_currentFilter.value) {
+        val filteredWords = when (filter) {
             FilterOption.ALL -> searchFiltered
             FilterOption.FAVORITES -> searchFiltered.filter { it.isFavorite }
             FilterOption.NEW -> searchFiltered.filter { it.difficultyLevel == 0 }
@@ -110,7 +105,7 @@ class WordsListViewModel @Inject constructor(
             FilterOption.MASTERED -> searchFiltered.filter { it.difficultyLevel == 3 }
         }
 
-        return when (_sortOrder.value) {
+        return when (sortOrder) {
             SortOrder.Latest -> filteredWords.sortedByDescending { it.timestamp }
             SortOrder.Earliest -> filteredWords.sortedBy { it.timestamp }
             SortOrder.Alphabetical -> filteredWords.sortedBy { it.wordItself }

@@ -1,7 +1,13 @@
 package com.dor.mydictionary.ui.screens.settings
 
+import android.Manifest
+import android.content.pm.PackageManager
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.ui.platform.LocalContext
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -28,6 +34,20 @@ fun SettingsScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = SettingsUiState())
     var showTTSLanguagePicker by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+
+    // Permission launcher for storage access
+    val permissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        android.util.Log.d("SettingsScreen", "Permission result: $isGranted")
+        if (isGranted) {
+            android.util.Log.d("SettingsScreen", "Permission granted, calling importWords")
+            viewModel.importWords()
+        } else {
+            android.util.Log.d("SettingsScreen", "Permission denied")
+        }
+    }
 
     LaunchedEffect(Unit) {
         viewModel.loadSettings()
@@ -86,7 +106,35 @@ fun SettingsScreen(
             // Import/Export Section
             item {
                 ImportExportSection(
-                    onImportWords = { viewModel.importWords() },
+                    onImportWords = { 
+                        android.util.Log.d("SettingsScreen", "Import button tapped!")
+                        
+                        // Check if we're on Android 13+ (API 33+)
+                        val isAndroid13Plus = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU
+                        android.util.Log.d("SettingsScreen", "Android version: ${android.os.Build.VERSION.SDK_INT}, isAndroid13Plus: $isAndroid13Plus")
+                        
+                        if (isAndroid13Plus) {
+                            // For Android 13+, file picker handles permissions automatically
+                            android.util.Log.d("SettingsScreen", "Android 13+, calling importWords directly")
+                            viewModel.importWords()
+                        } else {
+                            // For older versions, check permission first
+                            val hasPermission = ContextCompat.checkSelfPermission(
+                                context,
+                                Manifest.permission.READ_EXTERNAL_STORAGE
+                            ) == PackageManager.PERMISSION_GRANTED
+                            
+                            android.util.Log.d("SettingsScreen", "Older Android, has permission: $hasPermission")
+                            
+                            if (hasPermission) {
+                                android.util.Log.d("SettingsScreen", "Permission granted, calling importWords")
+                                viewModel.importWords()
+                            } else {
+                                android.util.Log.d("SettingsScreen", "Requesting permission")
+                                permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+                            }
+                        }
+                    },
                     onExportWords = { viewModel.exportWords() }
                 )
             }
@@ -113,25 +161,46 @@ fun SettingsScreen(
         )
     }
 
-    // Export Dialog
-    if (uiState.shouldShowExportDialog) {
-        AlertDialog(
-            onDismissRequest = { viewModel.clearExportDialog() },
-            title = { Text("Export Words") },
-            text = { 
-                Text(
-                    "CSV content generated successfully. " +
-                    "Copy this content and save it as a .csv file:\n\n" +
-                    uiState.exportCsvContent?.take(500) + 
-                    if ((uiState.exportCsvContent?.length ?: 0) > 500) "..." else ""
-                )
-            },
-            confirmButton = {
-                TextButton(onClick = { viewModel.clearExportDialog() }) {
-                    Text("OK")
-                }
-            }
-        )
+    // File Picker Launchers
+    val importLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri ->
+        android.util.Log.d("SettingsScreen", "Import launcher callback. URI: $uri")
+        // Check if the selected file is a CSV file
+        if (uri != null) {
+            val fileName = uri.lastPathSegment ?: ""
+            val uriString = uri.toString()
+            android.util.Log.d("SettingsScreen", "Selected file: $fileName")
+            android.util.Log.d("SettingsScreen", "Full URI: $uriString")
+            
+            // Accept any file and let the CSV parser validate the content
+            android.util.Log.d("SettingsScreen", "Accepting any file, calling handleImportFileSelected")
+            viewModel.handleImportFileSelected(uri)
+        } else {
+            android.util.Log.d("SettingsScreen", "No URI selected, calling handleImportFileSelected with null")
+            viewModel.handleImportFileSelected(null)
+        }
+    }
+
+    val exportLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.CreateDocument("text/csv")
+    ) { uri ->
+        viewModel.handleExportFileSelected(uri)
+    }
+
+    // Launch file pickers when needed
+    LaunchedEffect(uiState.shouldShowImportPicker) {
+        android.util.Log.d("SettingsScreen", "LaunchedEffect triggered. shouldShowImportPicker: ${uiState.shouldShowImportPicker}")
+        if (uiState.shouldShowImportPicker) {
+            android.util.Log.d("SettingsScreen", "Launching import launcher")
+            importLauncher.launch("*/*")
+        }
+    }
+
+    LaunchedEffect(uiState.shouldShowExportPicker) {
+        if (uiState.shouldShowExportPicker) {
+            exportLauncher.launch("MyDictionaryExport.csv")
+        }
     }
 
     // Error Dialog
@@ -411,5 +480,7 @@ data class SettingsUiState(
     val isLoading: Boolean = false,
     val error: String? = null,
     val shouldShowExportDialog: Boolean = false,
-    val exportCsvContent: String? = null
+    val exportCsvContent: String? = null,
+    val shouldShowImportPicker: Boolean = false,
+    val shouldShowExportPicker: Boolean = false
 ) 

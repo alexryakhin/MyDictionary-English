@@ -1,5 +1,6 @@
 package com.dor.mydictionary.ui.screens.settings
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dor.mydictionary.services.UserStatsManager
@@ -57,6 +58,8 @@ class SettingsViewModel @Inject constructor(
             }
         }
     }
+
+
 
     fun setDailyRemindersEnabled(enabled: Boolean) {
         viewModelScope.launch {
@@ -154,18 +157,17 @@ class SettingsViewModel @Inject constructor(
     }
 
     fun importWords() {
+        Log.d("SettingsViewModel", "importWords() called")
         viewModelScope.launch {
             try {
+                Log.d("SettingsViewModel", "Starting import process")
                 _uiState.update { it.copy(isLoading = true, error = null) }
                 
-                // For now, show a message about file picker integration
-                _uiState.update { 
-                    it.copy(
-                        isLoading = false,
-                        error = "Import functionality will be available in the next update with proper file picker integration."
-                    ) 
-                }
+                // Signal that we need to show file picker
+                Log.d("SettingsViewModel", "Setting shouldShowImportPicker = true")
+                _uiState.update { it.copy(shouldShowImportPicker = true, isLoading = false) }
             } catch (e: Exception) {
+                Log.e("SettingsViewModel", "Import failed: ${e.message}", e)
                 _uiState.update {
                     it.copy(
                         error = "Failed to import words: ${e.message}",
@@ -194,10 +196,10 @@ class SettingsViewModel @Inject constructor(
                 
                 val csvContent = csvManager.exportWordsToCSV(allWords)
                 
-                // For now, show the CSV content in a dialog
+                // Signal that we need to show file picker
                 _uiState.update { 
                     it.copy(
-                        shouldShowExportDialog = true, 
+                        shouldShowExportPicker = true, 
                         exportCsvContent = csvContent,
                         isLoading = false
                     ) 
@@ -213,16 +215,111 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
-    // TODO: Implement file picker integration for import
-    // For now, this method is not used as we show a message instead
     fun handleImportFileSelected(uri: android.net.Uri?) {
-        // This will be implemented when file picker is integrated
+        viewModelScope.launch {
+            try {
+                _uiState.update { it.copy(shouldShowImportPicker = false, isLoading = true, error = null) }
+                
+                if (uri == null) {
+                    _uiState.update { 
+                        it.copy(
+                            isLoading = false,
+                            error = "Please select a valid CSV file (.csv extension)"
+                        ) 
+                    }
+                    return@launch
+                }
+                
+                val fileContent = filePickerService.readFileContent(uri)
+                if (fileContent == null) {
+                    _uiState.update { 
+                        it.copy(
+                            error = "Failed to read file content. Please make sure the file is a valid CSV file.",
+                            isLoading = false
+                        ) 
+                    }
+                    return@launch
+                }
+                
+                // Import words from CSV content
+                Log.d("SettingsViewModel", "Starting CSV import with content length: ${fileContent.length}")
+                try {
+                    val importedWords = csvManager.importWordsFromCSV(fileContent)
+                    Log.d("SettingsViewModel", "Import completed, imported $importedWords words")
+                    
+                    _uiState.update { 
+                        it.copy(
+                            isLoading = false,
+                            error = "Successfully imported $importedWords words"
+                        ) 
+                    }
+                } catch (e: Exception) {
+                    Log.e("SettingsViewModel", "Import failed: ${e.message}", e)
+                    _uiState.update { 
+                        it.copy(
+                            isLoading = false,
+                            error = "Import failed: ${e.message}"
+                        ) 
+                    }
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        error = "Failed to import words: ${e.message}",
+                        isLoading = false
+                    )
+                }
+            }
+        }
     }
 
-    // TODO: Implement file picker integration for export
-    // For now, this method is not used as we show the CSV content in a dialog
     fun handleExportFileSelected(uri: android.net.Uri?) {
-        // This will be implemented when file picker is integrated
+        viewModelScope.launch {
+            try {
+                _uiState.update { it.copy(shouldShowExportPicker = false, isLoading = true, error = null) }
+                
+                if (uri == null) {
+                    _uiState.update { it.copy(isLoading = false) }
+                    return@launch
+                }
+                
+                val csvContent = _uiState.value.exportCsvContent
+                if (csvContent == null) {
+                    _uiState.update { 
+                        it.copy(
+                            error = "No CSV content to export",
+                            isLoading = false
+                        ) 
+                    }
+                    return@launch
+                }
+                
+                val success = filePickerService.writeFileContent(uri, csvContent)
+                
+                if (success) {
+                    _uiState.update { 
+                        it.copy(
+                            isLoading = false,
+                            error = "Words exported successfully"
+                        ) 
+                    }
+                } else {
+                    _uiState.update { 
+                        it.copy(
+                            error = "Failed to write file",
+                            isLoading = false
+                        ) 
+                    }
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        error = "Failed to export words: ${e.message}",
+                        isLoading = false
+                    )
+                }
+            }
+        }
     }
 
     fun clearError() {

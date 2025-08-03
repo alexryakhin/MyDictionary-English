@@ -22,9 +22,8 @@ struct AnalyticsContentView: View {
                         .foregroundColor(.secondary)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(100)
             } else {
-                LazyVStack(spacing: 24) {
+                LazyVStack(spacing: 16) {
                     // Progress Overview
                     progressOverviewSection
 
@@ -34,7 +33,7 @@ struct AnalyticsContentView: View {
                     // Vocabulary Growth Chart
                     vocabularyGrowthSection
                 }
-                .padding(24)
+                .padding(16)
             }
         }
         .background(Color(.systemGroupedBackground))
@@ -56,11 +55,10 @@ struct AnalyticsContentView: View {
                 .font(.headline)
                 .fontWeight(.semibold)
             
-            LazyVGrid(columns: [
-                GridItem(.flexible()),
-                GridItem(.flexible()),
-                GridItem(.flexible())
-            ], spacing: 16) {
+            LazyVGrid(
+                columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 3),
+                spacing: 12
+            ) {
                 ProgressCard(
                     title: "In Progress",
                     value: "\(viewModel.progressSummary?.inProgress ?? 0)",
@@ -81,22 +79,19 @@ struct AnalyticsContentView: View {
                     color: .orange,
                     icon: "exclamationmark.triangle"
                 )
-            }
-            
-            // Stats Row
-            HStack(spacing: 16) {
+
                 StatCard(
                     title: "Practice Time",
                     value: viewModel.totalPracticeTimeFormatted,
                     icon: "clock.fill"
                 )
-                
+
                 StatCard(
                     title: "Accuracy",
                     value: viewModel.averageAccuracyFormatted,
                     icon: "target"
                 )
-                
+
                 StatCard(
                     title: "Sessions",
                     value: "\(viewModel.progressSummary?.totalSessions ?? 0)",
@@ -104,9 +99,7 @@ struct AnalyticsContentView: View {
                 )
             }
         }
-        .padding(20)
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithPaddingAndBackground()
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
     
@@ -146,9 +139,7 @@ struct AnalyticsContentView: View {
                 }
             }
         }
-        .padding(20)
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithPaddingAndBackground()
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
     
@@ -168,8 +159,7 @@ struct AnalyticsContentView: View {
                         Text(period.displayName).tag(period)
                     }
                 }
-                .pickerStyle(.segmented)
-                .frame(width: 200)
+                .pickerStyle(.menu)
             }
             
             if viewModel.vocabularyGrowthData.isEmpty {
@@ -189,9 +179,7 @@ struct AnalyticsContentView: View {
                 }
             }
         }
-        .padding(20)
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithPaddingAndBackground()
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 }
@@ -220,10 +208,8 @@ struct ProgressCard: View {
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
         }
-        .frame(maxWidth: .infinity)
-        .padding(16)
-        .background(color.opacity(0.1))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .clippedWithPaddingAndBackground(padding: 12, color: color.opacity(0.1))
     }
 }
 
@@ -247,10 +233,8 @@ struct StatCard: View {
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
         }
-        .frame(maxWidth: .infinity)
-        .padding(12)
-        .background(Color(.systemGray6))
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .clippedWithPaddingAndBackground(color: Color(.tertiarySystemGroupedBackground))
     }
 }
 
