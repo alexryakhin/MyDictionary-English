@@ -9,6 +9,7 @@ final class AddWordViewModel: BaseViewModel {
         case playInputWord
         case selectPartOfSpeech(PartOfSpeech)
         case selectDefinition(WordDefinition)
+        case selectInputLanguage(InputLanguage)
     }
 
     @Published var inputWord = ""
@@ -25,6 +26,7 @@ final class AddWordViewModel: BaseViewModel {
     private let ttsPlayer: TTSPlayer
     private let translationService: TranslationService
     private let localeLanguageCode: String
+    @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .auto
     private var detectedLanguageCode: String?
     private var cancellables = Set<AnyCancellable>()
 
@@ -55,6 +57,8 @@ final class AddWordViewModel: BaseViewModel {
             self.partOfSpeech = partOfSpeech
         case .selectDefinition(let definition):
             self.selectedDefinition = definition
+        case .selectInputLanguage(let language):
+            selectedInputLanguage = language
         }
     }
 
@@ -76,11 +80,20 @@ final class AddWordViewModel: BaseViewModel {
                 if isSingleWord {
                     // Always translate single words to English for API lookup
                     AnalyticsService.shared.logEvent(.translationRequested)
-                    let translationResponse = try await translationService.translateToEnglish(inputWord)
+                    
+                    let translationResponse: TranslationResponse
+                    if selectedInputLanguage.isAuto {
+                        // Auto-detect language
+                        translationResponse = try await translationService.translateToEnglish(inputWord)
+                    } else {
+                        // Use selected language
+                        translationResponse = try await translationService.translateFromLanguage(inputWord, from: selectedInputLanguage.languageCode)
+                    }
+                    
                     wordToSearch = translationResponse.text
                     self.detectedLanguageCode = translationResponse.languageCode
-                    // Only request pronunciation if the detected language is NOT English
-                    shouldRequestPronunciation = translationResponse.languageCode != "en"
+                    // Only request pronunciation if the detected language IS English
+                    shouldRequestPronunciation = translationResponse.languageCode == "en"
                 } else {
                     // Use original input for multi-word phrases
                     wordToSearch = inputWord

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TagFilterView: View {
-    @ObservedObject var viewModel: WordsListViewModel
+    @ObservedObject var viewModel: WordListViewModel
     @State private var showingTagManagement = false
     
     var body: some View {
@@ -135,5 +135,5 @@ struct FilterChip: View {
 }
 
 #Preview {
-    TagFilterView(viewModel: WordsListViewModel())
+    TagFilterView(viewModel: WordListViewModel())
 } 

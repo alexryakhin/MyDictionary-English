@@ -11,8 +11,8 @@ import Firebase
 @main
 struct MyDictionaryApp: App {
 
-    @StateObject private var wordsViewModel = WordsListViewModel()
-    @StateObject private var idiomsViewModel = IdiomsListViewModel()
+    @StateObject private var wordsViewModel = WordListViewModel()
+    @StateObject private var idiomsViewModel = IdiomListViewModel()
     @StateObject private var quizzesViewModel = QuizzesListViewModel()
     @StateObject private var analyticsViewModel = AnalyticsViewModel()
     @StateObject private var settingsViewModel = SettingsViewModel()

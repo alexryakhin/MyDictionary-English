@@ -1,5 +1,5 @@
 //
-//  IdiomsListCellView.swift
+//  IdiomListCellView.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin on 2/22/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IdiomsListCellView: View {
+struct IdiomListCellView: View {
     @StateObject private var idiom: CDIdiom
 
     init(idiom: CDIdiom) {

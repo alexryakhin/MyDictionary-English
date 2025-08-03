@@ -1,5 +1,5 @@
 //
-//  IdiomsListContentView.swift
+//  IdiomListContentView.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin on 3/8/25.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct IdiomsListContentView: View {
+struct IdiomListContentView: View {
 
-    typealias ViewModel = IdiomsListViewModel
+    typealias ViewModel = IdiomListViewModel
 
     @ObservedObject var viewModel: ViewModel
 

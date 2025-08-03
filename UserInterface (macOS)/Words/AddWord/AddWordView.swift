@@ -19,6 +19,7 @@ struct AddWordView: View {
             LazyVStack(spacing: 24) {
                 FormWithDivider {
                     wordCellView
+                    inputLanguageCellView
                     definitionCellView
                     partOfSpeechCellView
                     phoneticsCellView
@@ -80,6 +81,34 @@ struct AddWordView: View {
                 }
             }
             .autocorrectionDisabled()
+        }
+    }
+    
+    var inputLanguageCellView: some View {
+        CellWrapper("Input Language") {
+            Menu {
+                ForEach(InputLanguage.allCases, id: \.self) { language in
+                    Button {
+                        viewModel.handle(.selectInputLanguage(language))
+                    } label: {
+                        HStack {
+                            Text(language.displayName)
+                            if viewModel.selectedInputLanguage == language {
+                                Image(systemName: "checkmark")
+                            }
+                        }
+                    }
+                }
+            } label: {
+                HStack {
+                    Text(viewModel.selectedInputLanguage.displayName)
+                    Spacer()
+                    Image(systemName: "chevron.down")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            .buttonStyle(.borderless)
         }
     }
 

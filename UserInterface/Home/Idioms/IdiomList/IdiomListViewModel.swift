@@ -1,5 +1,5 @@
 //
-//  IdiomsListViewModel.swift
+//  IdiomListViewModel.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin on 3/8/25.
@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 @MainActor
-final class IdiomsListViewModel: BaseViewModel {
+final class IdiomListViewModel: BaseViewModel {
 
     enum Input {
         case deleteIdiom(idiom: CDIdiom)

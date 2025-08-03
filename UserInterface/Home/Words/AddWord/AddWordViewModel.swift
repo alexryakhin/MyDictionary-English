@@ -11,6 +11,7 @@ final class AddWordViewModel: BaseViewModel {
         case selectDefinition(WordDefinition)
         case toggleTag(CDTag)
         case showTagSelection
+        case selectInputLanguage(InputLanguage)
     }
 
     @Published var inputWord = ""
@@ -27,6 +28,7 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var isTranslating: Bool = false
     @Published private(set) var translatedDefinitions: [WordDefinition] = []
     @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
+    @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .auto
     private var detectedLanguageCode: String?
 
     private let wordnikAPIService: WordnikAPIService
@@ -75,6 +77,8 @@ final class AddWordViewModel: BaseViewModel {
             toggleTag(tag)
         case .showTagSelection:
             showingTagSelection = true
+        case .selectInputLanguage(let language):
+            selectedInputLanguage = language
         }
     }
 
@@ -97,11 +101,20 @@ final class AddWordViewModel: BaseViewModel {
                     // Always translate single words to English for API lookup
                     isTranslating = true
                     AnalyticsService.shared.logEvent(.translationRequested)
-                    let translationResponse = try await translationService.translateToEnglish(inputWord)
+                    
+                    let translationResponse: TranslationResponse
+                    if selectedInputLanguage.isAuto {
+                        // Auto-detect language
+                        translationResponse = try await translationService.translateToEnglish(inputWord)
+                    } else {
+                        // Use selected language
+                        translationResponse = try await translationService.translateFromLanguage(inputWord, from: selectedInputLanguage.languageCode)
+                    }
+                    
                     wordToSearch = translationResponse.text
                     self.detectedLanguageCode = translationResponse.languageCode
-                    // Only request pronunciation if the detected language is NOT English
-                    shouldRequestPronunciation = translationResponse.languageCode != "en"
+                    // Only request pronunciation if the detected language IS English
+                    shouldRequestPronunciation = translationResponse.languageCode == "en"
                     isTranslating = false
                 } else {
                     // Use original input for multi-word phrases

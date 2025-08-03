@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct WordsListView: View {
+struct WordListView: View {
 
     @ObservedObject private var viewModel: WordsViewModel
     @State private var isShowingAddView = false
@@ -24,7 +24,7 @@ struct WordsListView: View {
     var body: some View {
         List(selection: $viewModel.selectedWord) {
             ForEach(wordsFiltered) { word in
-                WordsListCellView(word: word)
+                WordListCellView(word: word)
                     .tag(word)
             }
             .onDelete { offsets in

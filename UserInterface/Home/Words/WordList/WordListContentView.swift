@@ -1,5 +1,5 @@
 //
-//  WordsListContentView.swift
+//  WordListContentView.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin on 3/8/25.
@@ -8,9 +8,9 @@
 import SwiftUI
 import StoreKit
 
-struct WordsListContentView: View {
+struct WordListContentView: View {
 
-    typealias ViewModel = WordsListViewModel
+    typealias ViewModel = WordListViewModel
 
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
     @Environment(\.requestReview) var requestReview

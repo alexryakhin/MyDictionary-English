@@ -21,7 +21,7 @@ class TranslationTest {
             print("   Input: 'bonjour'")
             print("   Translated: '\(response.text)'")
             print("   Detected language: '\(response.languageCode)'")
-            print("   Should request pronunciation: \(response.languageCode != "en")")
+            print("   Should request pronunciation: \(response.languageCode == "en")")
         } catch {
             print("❌ French word test failed: \(error)")
         }
@@ -33,7 +33,7 @@ class TranslationTest {
             print("   Input: 'hello'")
             print("   Translated: '\(response.text)'")
             print("   Detected language: '\(response.languageCode)'")
-            print("   Should request pronunciation: \(response.languageCode != "en")")
+            print("   Should request pronunciation: \(response.languageCode == "en")")
         } catch {
             print("❌ English word test failed: \(error)")
         }

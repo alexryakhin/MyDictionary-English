@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct IdiomsListView: View {
+struct IdiomListView: View {
 
     @ObservedObject private var viewModel: IdiomsViewModel
     @State private var isShowingAddView = false
@@ -12,7 +12,7 @@ struct IdiomsListView: View {
     var body: some View {
         List(selection: $viewModel.selectedIdiom) {
             ForEach(filteredIdioms) { idiom in
-                IdiomsListCellView(idiom: idiom)
+                IdiomListCellView(idiom: idiom)
                     .tag(idiom)
             }
             .onDelete {

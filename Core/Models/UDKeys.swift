@@ -21,4 +21,5 @@ enum UDKeys {
     
     // Translation Settings
     static let translateDefinitions = "translateDefinitions"
+    static let inputLanguage = "inputLanguage"
 }

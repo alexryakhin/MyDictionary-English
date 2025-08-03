@@ -1,5 +1,5 @@
 //
-//  WordsListViewModel.swift
+//  WordListViewModel.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin on 3/8/25.
@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-final class WordsListViewModel: BaseViewModel {
+final class WordListViewModel: BaseViewModel {
 
     enum Input {
         case deleteWord(word: CDWord)

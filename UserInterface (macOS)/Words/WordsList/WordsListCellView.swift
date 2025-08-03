@@ -1,5 +1,5 @@
 //
-//  WordsListCellView.swift
+//  WordListCellView.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin on 2/21/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WordsListCellView: View {
+struct WordListCellView: View {
     @StateObject private var word: CDWord
 
     init(word: CDWord) {

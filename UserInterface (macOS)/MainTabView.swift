@@ -59,9 +59,9 @@ struct MainTabView: View {
     private var tabContentView: some View {
         switch selectedSidebarItem {
         case .words:
-            WordsListView(viewModel: wordsViewModel)
+            WordListView(viewModel: wordsViewModel)
         case .idioms:
-            IdiomsListView(viewModel: idiomsViewModel)
+            IdiomListView(viewModel: idiomsViewModel)
         case .quizzes:
             QuizzesView(viewModel: _quizzesViewModel)
         case .progress:

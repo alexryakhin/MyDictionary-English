@@ -2,8 +2,8 @@ import SwiftUI
 
 struct MainTabView: View {
 
-    @ObservedObject var wordsViewModel: WordsListViewModel
-    @ObservedObject var idiomsViewModel: IdiomsListViewModel
+    @ObservedObject var wordsViewModel: WordListViewModel
+    @ObservedObject var idiomsViewModel: IdiomListViewModel
     @ObservedObject var quizzesViewModel: QuizzesListViewModel
     @ObservedObject var analyticsViewModel: AnalyticsViewModel
     @ObservedObject var settingsViewModel: SettingsViewModel
@@ -11,8 +11,8 @@ struct MainTabView: View {
     @StateObject var navigationManager: NavigationManager = .shared
 
     init(
-        wordsViewModel: WordsListViewModel,
-        idiomsViewModel: IdiomsListViewModel,
+        wordsViewModel: WordListViewModel,
+        idiomsViewModel: IdiomListViewModel,
         quizzesViewModel: QuizzesListViewModel,
         analyticsViewModel: AnalyticsViewModel,
         settingsViewModel: SettingsViewModel
@@ -28,7 +28,7 @@ struct MainTabView: View {
         TabView(selection: $navigationManager.selectedTab) {
             // Words Tab
             NavigationSplitView {
-                WordsListContentView(viewModel: wordsViewModel)
+                WordListContentView(viewModel: wordsViewModel)
             } detail: {
                 if let selectedWord = wordsViewModel.selectedWord {
                     WordDetailsContentView(word: selectedWord)
@@ -45,7 +45,7 @@ struct MainTabView: View {
 
             // Idioms Tab
             NavigationSplitView {
-                IdiomsListContentView(viewModel: idiomsViewModel)
+                IdiomListContentView(viewModel: idiomsViewModel)
             } detail: {
                 if let selectedIdiom = idiomsViewModel.selectedIdiom {
                     IdiomDetailsContentView(idiom: selectedIdiom)
