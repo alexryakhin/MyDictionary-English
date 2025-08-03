@@ -13,6 +13,7 @@ enum CoreError: Error {
     case validationError(ValidationError)
     case internalError(InternalError)
     case analyticsError(AnalyticsError)
+    case translationError(TranslationError)
     case unknownError
 
     // Nested enum for Network Errors
@@ -158,6 +159,26 @@ enum CoreError: Error {
         }
     }
 
+    enum TranslationError: Error, LocalizedError {
+        case invalidURL
+        case networkError
+        case invalidResponse
+        case translationFailed
+
+        var description: String {
+            switch self {
+            case .invalidURL:
+                return "Invalid translation URL"
+            case .networkError:
+                return "Network error during translation"
+            case .invalidResponse:
+                return "Invalid response from translation service"
+            case .translationFailed:
+                return "Translation failed"
+            }
+        }
+    }
+
     var description: String {
         switch self {
         case .networkError(let error): error.description
@@ -165,6 +186,7 @@ enum CoreError: Error {
         case .validationError(let error): error.description
         case .internalError(let error): error.description
         case .analyticsError(let error): error.description
+        case .translationError(let error): error.description
         case .unknownError: "Unknown error"
         }
     }

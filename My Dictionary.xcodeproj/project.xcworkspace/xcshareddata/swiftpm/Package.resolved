@@ -1,5 +1,5 @@
 {
-  "originHash" : "1a0fe5723ae5946f639c8a2f05efcde74051ed90ffdd5f506f17caa78955a0c1",
+  "originHash" : "cc0bc65b6cf962622ccf0977ae4516b96dff6ad3fb5919011d7657b99c1f91d9",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -125,6 +125,15 @@
       "state" : {
         "revision" : "d72aed98f8253ec1aa9ea1141e28150f408cf17f",
         "version" : "1.29.0"
+      }
+    },
+    {
+      "identity" : "swiftui-flow",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tevelee/SwiftUI-Flow.git",
+      "state" : {
+        "revision" : "d227f999b2894ab737ef5786d9b14d02d3e5362e",
+        "version" : "3.1.1"
       }
     }
   ],

@@ -26,6 +26,7 @@ final class CDWord: NSManagedObject, Identifiable {
     @NSManaged var examples: Data?
     @NSManaged var tags: NSSet?
     @NSManaged var difficultyLevel: Int32
+    @NSManaged var languageCode: String?
 
     var examplesDecoded: [String] {
         guard let examples,
@@ -70,6 +71,18 @@ final class CDWord: NSManagedObject, Identifiable {
     
     var shouldShowDifficultyLabel: Bool {
         return difficultyLevel > 0
+    }
+    
+    var languageDisplayName: String {
+        guard
+            let languageCode,
+            let language = Locale.current.localizedString(forLanguageCode: languageCode)
+        else { return "Unknown" }
+        return language.capitalized
+    }
+    
+    var shouldShowLanguageLabel: Bool {
+        return languageCode != nil && languageCode != "en"
     }
 
     var tagsArray: [CDTag] {

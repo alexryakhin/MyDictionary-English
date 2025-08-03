@@ -76,18 +76,7 @@ fun SettingsScreen(
                     onDifficultWordsAlertsToggled = { viewModel.setDifficultWordsAlertsEnabled(it) }
                 )
             }
-
-            // Practice Settings Section - MOVED TO QUIZZES LIST SCREEN
-            // item {
-            //     PracticeSettingsSection(
-            //         practiceWordCount = uiState.practiceWordCount,
-            //         practiceHardWordsOnly = uiState.practiceHardWordsOnly,
-            //         hasHardWords = uiState.hasHardWords,
-            //         onPracticeWordCountChanged = { viewModel.setPracticeWordCount(it) },
-            //         onPracticeHardWordsOnlyToggled = { viewModel.setPracticeHardWordsOnly(it) }
-            //     )
-            // }
-
+            
             // Tag Management Section
             item {
                 TagManagementSection(

@@ -10,6 +10,7 @@
 		530D2C4D2D983A1E0040C247 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530D2C4C2D983A1E0040C247 /* CloudKit.framework */; };
 		530D2C532D983E720040C247 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2C522D983E720040C247 /* FirebaseCore */; };
 		530D2C552D983E780040C247 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 530D2C542D983E780040C247 /* FirebaseCrashlytics */; };
+		5321A2E32E3FADEF0066DFC4 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 5321A2E22E3FADEF0066DFC4 /* Flow */; };
 		532C151F2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 532C151E2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		532C15212E3CC39600552599 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 532C15202E3CC39600552599 /* FirebaseAnalytics */; };
 		53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BC92D7E238900C1DE8B /* FirebaseCore */; };
@@ -93,6 +94,11 @@
 			path = "UserInterface (macOS)";
 			sourceTree = "<group>";
 		};
+		5321A6042E3FC2D20066DFC4 /* Localization */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		53E9A7562D7C3383007E9F28 /* My Dictionary */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -158,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5321A2E32E3FADEF0066DFC4 /* Flow in Frameworks */,
 				53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */,
 				532C151F2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */,
@@ -170,6 +177,7 @@
 		53E9A74B2D7C3383007E9F28 = {
 			isa = PBXGroup;
 			children = (
+				5321A6042E3FC2D20066DFC4 /* Localization */,
 				53E9A7562D7C3383007E9F28 /* My Dictionary */,
 				53E9A7FB2D7C3FE4007E9F28 /* Services */,
 				53E9A80C2D7C3FF1007E9F28 /* Core */,
@@ -223,6 +231,7 @@
 				530D2C342D9836920040C247 /* My Dictionary (macOS) */,
 				530D2C902D98474E0040C247 /* CoreUserInterface (macOS) */,
 				530D2CA12D9847680040C247 /* UserInterface (macOS) */,
+				5321A6042E3FC2D20066DFC4 /* Localization */,
 				53E9A7FB2D7C3FE4007E9F28 /* Services */,
 				53E9A80C2D7C3FF1007E9F28 /* Core */,
 				53E9A9F92D7C439B007E9F28 /* Shared */,
@@ -251,6 +260,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				5321A6042E3FC2D20066DFC4 /* Localization */,
 				53E9A7562D7C3383007E9F28 /* My Dictionary */,
 				53E9A7E42D7C3E07007E9F28 /* UserInterface */,
 				53E9A7FB2D7C3FE4007E9F28 /* Services */,
@@ -263,6 +273,7 @@
 				53310BC92D7E238900C1DE8B /* FirebaseCore */,
 				53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */,
 				532C151E2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				5321A2E22E3FADEF0066DFC4 /* Flow */,
 			);
 			productName = "My Dictionary";
 			productReference = 53E9A7542D7C3383007E9F28 /* My Dictionary.app */;
@@ -292,12 +303,14 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 53E9A74B2D7C3383007E9F28;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				530D2F722D99508E0040C247 /* XCRemoteSwiftPackageReference "Glur" */,
+				5321A2E12E3FADEF0066DFC4 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 53E9A7552D7C3383007E9F28 /* Products */;
@@ -488,6 +501,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -551,6 +565,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -643,6 +658,14 @@
 				minimumVersion = 1.0.4;
 			};
 		};
+		5321A2E12E3FADEF0066DFC4 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tevelee/SwiftUI-Flow.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 		53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -663,6 +686,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		5321A2E22E3FADEF0066DFC4 /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5321A2E12E3FADEF0066DFC4 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
+			productName = Flow;
 		};
 		532C151E2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;

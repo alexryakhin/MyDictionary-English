@@ -41,6 +41,7 @@ struct WordDetailsView: View {
                     partOfSpeechSectionView
                     definitionSectionView
                     difficultySectionView
+                    languageSectionView
                     examplesSectionView
                 }
                 .padding(vertical: 12, horizontal: 16)
@@ -180,6 +181,29 @@ struct WordDetailsView: View {
                 .foregroundStyle(.blue)
             }
             .clippedWithPaddingAndBackground()
+        }
+    }
+
+    @ViewBuilder
+    private var languageSectionView: some View {
+        if word.shouldShowLanguageLabel {
+            CustomSectionView(header: "Language") {
+                HStack {
+                    Text(word.languageDisplayName)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    if let languageCode = word.languageCode {
+                        Text(languageCode.uppercased())
+                            .font(.caption2)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.blue.opacity(0.2))
+                            .foregroundColor(.blue)
+                            .clipShape(Capsule())
+                    }
+                }
+                .clippedWithPaddingAndBackground()
+            }
         }
     }
     

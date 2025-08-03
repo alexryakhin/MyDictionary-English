@@ -23,6 +23,9 @@ final class AddWordViewModel: BaseViewModel {
     private let wordnikAPIService: WordnikAPIService
     private let addWordManager: AddWordManager
     private let ttsPlayer: TTSPlayer
+    private let translationService: TranslationService
+    private let localeLanguageCode: String
+    private var detectedLanguageCode: String?
     private var cancellables = Set<AnyCancellable>()
 
     init(inputWord: String = "") {
@@ -30,6 +33,8 @@ final class AddWordViewModel: BaseViewModel {
         self.wordnikAPIService = ServiceManager.shared.wordnikAPIService
         self.addWordManager = ServiceManager.shared.createAddWordManager()
         self.ttsPlayer = ServiceManager.shared.ttsPlayer
+        self.translationService = GoogleTranslateService()
+        self.localeLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
 
         super.init()
         setupBindings()
@@ -57,23 +62,56 @@ final class AddWordViewModel: BaseViewModel {
         Task { @MainActor in
             reset()
             do {
-                guard inputWord.isValidEnglishWordOrPhrase else {
-                    throw CoreError.internalError(.inputIsNotAWord)
-                }
                 status = .loading
-                async let definitions = try wordnikAPIService.getDefinitions(
-                    for: inputWord.lowercased(),
-                    params: .init()
-                )
-                async let pronunciation = try wordnikAPIService.getPronunciation(
-                    for: inputWord.lowercased(),
-                    params: .init()
-                )
-                self.definitions = try await definitions
-                self.pronunciation = try await pronunciation
-                status = .ready
+
+                // Check if input is single word for translation
+                let isSingleWord = inputWord.trimmingCharacters(in: .whitespacesAndNewlines)
+                    .components(separatedBy: .whitespaces)
+                    .count == 1
+
+                let wordToSearch: String
+                let shouldRequestPronunciation: Bool
+                let detectedLanguageCode: String
+
+                if isSingleWord {
+                    // Always translate single words to English for API lookup
+                    AnalyticsService.shared.logEvent(.translationRequested)
+                    let translationResponse = try await translationService.translateToEnglish(inputWord)
+                    wordToSearch = translationResponse.text
+                    self.detectedLanguageCode = translationResponse.languageCode
+                    // Only request pronunciation if the detected language is NOT English
+                    shouldRequestPronunciation = translationResponse.languageCode != "en"
+                } else {
+                    // Use original input for multi-word phrases
+                    wordToSearch = inputWord
+                    self.detectedLanguageCode = "en" // Assume English for multi-word phrases
+                    shouldRequestPronunciation = true // Always request for multi-word phrases
+                }
+
                 AnalyticsService.shared.logEvent(.wordFetchedData)
+
+                // Fetch definitions from Wordnik
+                async let definitions = try wordnikAPIService.getDefinitions(
+                    for: wordToSearch.lowercased(),
+                    params: .init()
+                )
+                
+                // Conditionally fetch pronunciation based on detected language
+                let pronunciation: String?
+                if shouldRequestPronunciation {
+                    pronunciation = try await wordnikAPIService.getPronunciation(
+                        for: wordToSearch.lowercased(),
+                        params: .init()
+                    )
+                } else {
+                    pronunciation = nil
+                }
+
+                self.definitions = try await definitions
+                self.pronunciation = pronunciation
+                status = .ready
             } catch {
+                AnalyticsService.shared.logEvent(.translationFailed)
                 errorReceived(error, displayType: .alert, actionText: "Retry") { [weak self] in
                     self?.fetchData()
                 }
@@ -83,19 +121,18 @@ final class AddWordViewModel: BaseViewModel {
     }
 
     private func saveWord() {
-        guard inputWord.isCorrect else {
-            errorReceived(CoreError.internalError(.inputIsNotAWord), displayType: .alert)
-            return
-        }
-
         if !inputWord.isEmpty, !descriptionField.isEmpty {
             do {
+                // Get the detected language code from the translation response
+                let languageCode = detectedLanguageCode ?? "en"
+                
                 try addWordManager.addNewWord(
                     word: inputWord.capitalizingFirstLetter(),
                     definition: descriptionField.capitalizingFirstLetter(),
                     partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
                     phonetic: pronunciation,
-                    examples: selectedDefinition?.examples ?? []
+                    examples: selectedDefinition?.examples ?? [],
+                    languageCode: languageCode
                 )
                 AnalyticsService.shared.logEvent(.wordAdded)
                 dismissPublisher.send()

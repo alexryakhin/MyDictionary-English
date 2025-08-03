@@ -9,26 +9,20 @@ import Foundation
 import AVFoundation
 
 protocol TTSPlayerInterface {
-    func play(_ text: String) async throws(CoreError)
+    func play(_ text: String, targetLanguage: String?) async throws(CoreError)
 }
 
 final class TTSPlayer: TTSPlayerInterface {
 
     private var player: AVAudioPlayer?
-    private var selectedTTLLanguage: TTSLanguage {
-        guard let languageCode = UserDefaults.standard.string(forKey: UDKeys.selectedTTSLanguage) else {
-            return .enUS
-        }
-        return TTSLanguage(rawValue: languageCode) ?? .enUS
-    }
 
     init() {}
 
-    func play(_ text: String) async throws(CoreError) {
+    func play(_ text: String, targetLanguage: String?) async throws(CoreError) {
         guard text.isNotEmpty else { return }
 
         let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=\(escapedText)&tl=\(selectedTTLLanguage.rawValue)"
+        let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=\(escapedText)&tl=\(targetLanguage ?? "en")"
         guard let url = URL(string: urlString) else { return }
 
         guard player?.isPlaying == false || player == nil else { return }

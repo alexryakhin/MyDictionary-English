@@ -206,7 +206,10 @@ struct IdiomDetailsContentView: View {
             guard let text else { return }
 
             do {
-                try await ServiceManager.shared.ttsPlayer.play(text)
+                try await ServiceManager.shared.ttsPlayer.play(
+                    text,
+                    targetLanguage: Locale.current.language.languageCode?.identifier
+                )
             } catch {
                 // Handle error if needed
             }

@@ -75,7 +75,7 @@ struct AddWordView: View {
     var wordCellView: some View {
         CellWrapper("Word") {
             CustomTextField("Type a word", text: _viewModel.projectedValue.inputWord) {
-                if viewModel.inputWord.isNotEmpty && viewModel.inputWord.isCorrect {
+                if viewModel.inputWord.isNotEmpty {
                     viewModel.handle(.fetchData)
                 }
             }
@@ -149,7 +149,6 @@ struct AddWordView: View {
                     } label: {
                         Label("Retry", systemImage: "magnifyingglass")
                     }
-                    .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
                 }
                 .clippedWithPaddingAndBackground()
             case .ready:
@@ -186,7 +185,6 @@ struct AddWordView: View {
                     } label: {
                         Label("Search", systemImage: "magnifyingglass")
                     }
-                    .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
                 }
                 .clippedWithPaddingAndBackground()
             }

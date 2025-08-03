@@ -17,8 +17,8 @@ struct SettingsView: View {
             VStack(spacing: 24) {
                 notificationSettingsSectionView
                 practiceSettingsSectionView
+                translationSettingsSectionView
                 tagManagementSectionView
-                settingsSectionView
                 importExportSectionView
                 aboutSectionView
             }
@@ -109,6 +109,38 @@ struct SettingsView: View {
         }
     }
 
+    // MARK: - Translation Settings
+    private var translationSettingsSectionView: some View {
+        // Only show if user's locale is not English
+        if !GlobalConstant.isEnglishLanguage {
+            CustomSectionView(header: "Translation Settings") {
+                CellWrapper {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Translate Definitions")
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Text("Show definitions in your native language")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        Spacer()
+
+                        Toggle("", isOn: _viewModel.projectedValue.translateDefinitions)
+                            .labelsHidden()
+                            .onChange(of: viewModel.translateDefinitions) { newValue in
+                                AnalyticsService.shared.logEvent(newValue ? .definitionTranslationEnabled : .definitionTranslationDisabled)
+                            }
+                    }
+                }
+                .clippedWithBackground()
+            }
+        } else {
+            EmptyView()
+        }
+    }
+
     // MARK: - Practice Settings
     private var practiceSettingsSectionView: some View {
         CustomSectionView(header: "Practice Settings") {
@@ -168,31 +200,6 @@ struct SettingsView: View {
                 }
             }
             .clippedWithBackground()
-        }
-    }
-
-    // MARK: - Settings
-    private var settingsSectionView: some View {
-        CustomSectionView(header: "Voice over accent") {
-            FormWithDivider {
-                CellWrapper {
-                    Picker(selection: _viewModel.projectedValue.selectedTTSLanguage) {
-                        ForEach(TTSLanguage.allCases) { language in
-                            Text(language.title)
-                                .tag(language)
-                        }
-                    } label: {
-                        Text("Selected Accent")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .pickerStyle(.menu)
-                    .buttonStyle(.borderless)
-                }
-            }
-            .clippedWithBackground()
-        }
-        .onChange(of: viewModel.selectedTTSLanguage) { _ in
-            AnalyticsService.shared.logEvent(.languageAccentChanged)
         }
     }
 

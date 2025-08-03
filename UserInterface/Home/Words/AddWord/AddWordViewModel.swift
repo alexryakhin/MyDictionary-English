@@ -24,11 +24,17 @@ final class AddWordViewModel: BaseViewModel {
     @Published var selectedTags: [CDTag] = []
     @Published var showingTagSelection = false
     @Published private(set) var availableTags: [CDTag] = []
+    @Published private(set) var isTranslating: Bool = false
+    @Published private(set) var translatedDefinitions: [WordDefinition] = []
+    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
+    private var detectedLanguageCode: String?
 
     private let wordnikAPIService: WordnikAPIService
     private let addWordManager: AddWordManager
     private let ttsPlayer: TTSPlayer
     private let tagService: TagService
+    private let translationService: TranslationService
+    private let localeLanguageCode: String
     private var cancellables = Set<AnyCancellable>()
 
     init(inputWord: String = "") {
@@ -37,6 +43,13 @@ final class AddWordViewModel: BaseViewModel {
         self.addWordManager = ServiceManager.shared.createAddWordManager()
         self.ttsPlayer = ServiceManager.shared.ttsPlayer
         self.tagService = ServiceManager.shared.tagService
+        self.translationService = GoogleTranslateService()
+        self.localeLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
+
+        // Force translateDefinitions to false for English locales
+        if GlobalConstant.isEnglishLanguage {
+            self.translateDefinitions = false
+        }
 
         super.init()
         setupBindings()
@@ -69,23 +82,66 @@ final class AddWordViewModel: BaseViewModel {
         Task { @MainActor in
             reset()
             do {
-                guard inputWord.isValidEnglishWordOrPhrase else {
-                    throw CoreError.internalError(.inputIsNotAWord)
-                }
                 status = .loading
+
+                // Check if input is single word for translation
+                let isSingleWord = inputWord.trimmingCharacters(in: .whitespacesAndNewlines)
+                    .components(separatedBy: .whitespaces)
+                    .count == 1
+
+                let wordToSearch: String
+                let shouldRequestPronunciation: Bool
+                let detectedLanguageCode: String
+
+                if isSingleWord {
+                    // Always translate single words to English for API lookup
+                    isTranslating = true
+                    AnalyticsService.shared.logEvent(.translationRequested)
+                    let translationResponse = try await translationService.translateToEnglish(inputWord)
+                    wordToSearch = translationResponse.text
+                    self.detectedLanguageCode = translationResponse.languageCode
+                    // Only request pronunciation if the detected language is NOT English
+                    shouldRequestPronunciation = translationResponse.languageCode != "en"
+                    isTranslating = false
+                } else {
+                    // Use original input for multi-word phrases
+                    wordToSearch = inputWord
+                    self.detectedLanguageCode = "en" // Assume English for multi-word phrases
+                    shouldRequestPronunciation = true // Always request for multi-word phrases
+                }
+
                 AnalyticsService.shared.logEvent(.wordFetchedData)
+
+                // Fetch definitions from Wordnik
                 async let definitions = try wordnikAPIService.getDefinitions(
-                    for: inputWord.lowercased(),
+                    for: wordToSearch.lowercased(),
                     params: .init()
                 )
-                async let pronunciation = try wordnikAPIService.getPronunciation(
-                    for: inputWord.lowercased(),
-                    params: .init()
-                )
+                
+                // Conditionally fetch pronunciation based on detected language
+                let pronunciation: String?
+                if shouldRequestPronunciation {
+                    pronunciation = try await wordnikAPIService.getPronunciation(
+                        for: wordToSearch.lowercased(),
+                        params: .init()
+                    )
+                } else {
+                    pronunciation = nil
+                }
+
                 self.definitions = try await definitions
-                self.pronunciation = try await pronunciation
+                self.pronunciation = pronunciation
+
+                // Only translate definitions if:
+                // 1. User's locale is not English
+                // 2. translateDefinitions setting is enabled
+                if !GlobalConstant.isEnglishLanguage && translateDefinitions {
+                    await translateDefinitions()
+                }
+
                 status = .ready
             } catch {
+                AnalyticsService.shared.logEvent(.translationFailed)
                 errorReceived(error, displayType: .alert, actionText: "Retry") { [weak self] in
                     self?.fetchData()
                 }
@@ -95,20 +151,19 @@ final class AddWordViewModel: BaseViewModel {
     }
 
     private func saveWord() {
-        guard inputWord.isCorrect else {
-            errorReceived(CoreError.internalError(.inputIsNotAWord), displayType: .alert)
-            return
-        }
-
         if !inputWord.isEmpty, !descriptionField.isEmpty {
             do {
+                // Get the detected language code from the translation response
+                let languageCode = detectedLanguageCode ?? "en"
+                
                 try addWordManager.addNewWord(
                     word: inputWord.capitalizingFirstLetter(),
                     definition: descriptionField.capitalizingFirstLetter(),
                     partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
                     phonetic: pronunciation,
                     examples: selectedDefinition?.examples ?? [],
-                    tags: selectedTags
+                    tags: selectedTags,
+                    languageCode: languageCode
                 )
                 HapticManager.shared.triggerNotification(type: .success)
                 AnalyticsService.shared.logEvent(.wordAdded)
@@ -126,7 +181,8 @@ final class AddWordViewModel: BaseViewModel {
             guard let text else { return }
 
             do {
-                try await ttsPlayer.play(text)
+                // Here playing is only for English words anyway
+                try await ttsPlayer.play(text, targetLanguage: "en")
             } catch {
                 errorReceived(error, displayType: .alert)
             }
@@ -166,11 +222,65 @@ final class AddWordViewModel: BaseViewModel {
             self?.selectedTags = []
         }
     }
-    
+
     private func loadTags() {
         availableTags = tagService.getAllTags()
     }
-    
+
+    private func translateDefinitions() async {
+        // Only translate if not English locale and setting is enabled
+        guard !GlobalConstant.isEnglishLanguage && translateDefinitions else { return }
+
+        isTranslating = true
+        AnalyticsService.shared.logEvent(.translationRequested)
+
+        // Limit to 5 definitions for translation
+        let definitionsToTranslate = Array(definitions.prefix(5))
+
+        var translatedDefinitions: [WordDefinition] = []
+
+        // Translate each definition concurrently and maintain order
+        await withTaskGroup(of: (Int, WordDefinition?).self) { group in
+            for (index, definition) in definitionsToTranslate.enumerated() {
+                group.addTask {
+                    do {
+                        let translatedText = try await self.translationService.translateDefinition(
+                            definition.text,
+                            to: self.localeLanguageCode
+                        )
+
+                        let translatedDefinition = WordDefinition(
+                            partOfSpeech: definition.partOfSpeech,
+                            text: translatedText,
+                            examples: definition.examples
+                        )
+
+                        return (index, translatedDefinition)
+                    } catch {
+                        // Fallback to original definition if translation fails
+                        return (index, definition)
+                    }
+                }
+            }
+
+            // Collect results and maintain original order
+            var orderedResults: [(Int, WordDefinition?)] = []
+            for await (index, translatedDefinition) in group {
+                orderedResults.append((index, translatedDefinition))
+            }
+            
+            // Sort by the original index to maintain order
+            orderedResults.sort { $0.0 < $1.0 }
+            
+            // Extract the translated definitions in correct order
+            translatedDefinitions = orderedResults.compactMap { $0.1 }
+        }
+
+        self.translatedDefinitions = translatedDefinitions
+        isTranslating = false
+        AnalyticsService.shared.logEvent(.translationCompleted)
+    }
+
     private func toggleTag(_ tag: CDTag) {
         if selectedTags.contains(where: { $0.id == tag.id }) {
             selectedTags.removeAll { $0.id == tag.id }

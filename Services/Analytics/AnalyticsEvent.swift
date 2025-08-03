@@ -100,6 +100,13 @@ enum AnalyticsEvent: String {
     case languageAccentChanged
     case aboutAppTapped
     case requestReviewTapped
+    
+    // Translation Events
+    case translationRequested
+    case translationCompleted
+    case translationFailed
+    case definitionTranslationEnabled
+    case definitionTranslationDisabled
 
     var parameters: [String: Any]? {
         switch self {

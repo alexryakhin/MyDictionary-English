@@ -41,6 +41,16 @@ struct WordsListCellView: View {
                         .foregroundStyle(word.difficultyColor)
                         .clipShape(Capsule())
                 }
+                
+                if let languageCode = word.languageCode {
+                    Text(languageCode.uppercased())
+                        .font(.caption2)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.blue.opacity(0.2))
+                        .foregroundColor(.blue)
+                        .clipShape(Capsule())
+                }
             }
         }
         .padding(vertical: 4, horizontal: 8)

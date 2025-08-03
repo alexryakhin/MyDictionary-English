@@ -15,7 +15,7 @@ struct MyDictionaryApp: App {
     @StateObject private var idiomsViewModel = IdiomsListViewModel()
     @StateObject private var quizzesViewModel = QuizzesListViewModel()
     @StateObject private var analyticsViewModel = AnalyticsViewModel()
-    @StateObject private var moreViewModel = MoreViewModel()
+    @StateObject private var settingsViewModel = SettingsViewModel()
 
     @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
 
@@ -45,7 +45,7 @@ struct MyDictionaryApp: App {
                 idiomsViewModel: idiomsViewModel,
                 quizzesViewModel: quizzesViewModel,
                 analyticsViewModel: analyticsViewModel,
-                moreViewModel: moreViewModel
+                settingsViewModel: settingsViewModel
             )
             .fontDesign(.rounded)
             .sheet(isPresented: $isShowingOnboarding) {

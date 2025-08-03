@@ -2,20 +2,27 @@ import SwiftUI
 import UniformTypeIdentifiers
 import StoreKit
 
-struct MoreContentView: View {
+struct SettingsContentView: View {
 
     @Environment(\.requestReview) var requestReview
+    @ObservedObject private var viewModel: SettingsViewModel
+    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
 
-    typealias ViewModel = MoreViewModel
-
-    @ObservedObject var viewModel: ViewModel
-
-    init(viewModel: MoreViewModel) {
+    init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
     }
 
     var body: some View {
         List {
+
+            // MARK: - Translate Definitions
+            if !GlobalConstant.isEnglishLanguage {
+                Section {
+                    Toggle("Show definitions in your native language", isOn: $translateDefinitions)
+                } header: {
+                    Text("Translate Definitions")
+                }
+            }
 
             // MARK: - Notifications
 
@@ -75,20 +82,6 @@ struct MoreContentView: View {
                 Text("Organization")
             } footer: {
                 Text("Create and manage tags to organize your words.")
-            }
-
-            // MARK: - Selected Accent
-
-            Section {
-                Picker("Selected Accent", selection: $viewModel.selectedTTSLanguage) {
-                    ForEach(TTSLanguage.allCases) { language in
-                        Text(language.title)
-                            .tag(language)
-                    }
-                }
-                .pickerStyle(.menu)
-            } header: {
-                Text("Voice over accent")
             }
 
             // MARK: - Import & Export

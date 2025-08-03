@@ -43,6 +43,7 @@
         <attribute name="examples" optional="YES" attributeType="Binary"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="languageCode" optional="YES" attributeType="String" defaultValueString="en"/>
         <attribute name="partOfSpeech" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="phonetic" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

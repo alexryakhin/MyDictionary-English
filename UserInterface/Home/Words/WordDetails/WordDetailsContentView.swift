@@ -30,6 +30,7 @@ struct WordDetailsContentView: View {
                 partOfSpeechSectionView
                 definitionSectionView
                 difficultySectionView
+                languageSectionView
                 tagsSectionView
                 examplesSectionView
             }
@@ -109,7 +110,7 @@ struct WordDetailsContentView: View {
                 }
             } else {
                 SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
-                    play(word.wordItself)
+                    play(word.wordItself, isWord: true)
                 }
             }
         }
@@ -175,6 +176,29 @@ struct WordDetailsContentView: View {
         }
         .sheet(isPresented: $showingDifficultyPicker) {
             difficultyPickerView
+        }
+    }
+
+    @ViewBuilder
+    private var languageSectionView: some View {
+        if word.shouldShowLanguageLabel {
+            CustomSectionView(header: "Language") {
+                HStack {
+                    Text(word.languageDisplayName)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    if let languageCode = word.languageCode {
+                        Text(languageCode.uppercased())
+                            .font(.caption2)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.blue.opacity(0.2))
+                            .foregroundColor(.blue)
+                            .clipShape(Capsule())
+                    }
+                }
+                .clippedWithPaddingAndBackground()
+            }
         }
     }
     
@@ -357,12 +381,17 @@ struct WordDetailsContentView: View {
         }
     }
 
-    private func play(_ text: String?) {
+    private func play(_ text: String?, isWord: Bool = false) {
         Task { @MainActor in
             guard let text else { return }
 
             do {
-                try await ServiceManager.shared.ttsPlayer.play(text)
+                try await ServiceManager.shared.ttsPlayer.play(
+                    text,
+                    targetLanguage: isWord
+                    ? word.languageCode
+                    : Locale.current.language.languageCode?.identifier
+                )
             } catch {
                 // Handle error if needed
             }

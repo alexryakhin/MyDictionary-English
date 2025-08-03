@@ -1,13 +1,12 @@
 import Combine
 import SwiftUI
 
-final class MoreViewModel: BaseViewModel {
+final class SettingsViewModel: BaseViewModel {
 
     enum Input {
         // No navigation inputs needed
     }
 
-    @AppStorage(UDKeys.selectedTTSLanguage) var selectedTTSLanguage: TTSLanguage = .enUS
     @AppStorage(UDKeys.dailyRemindersEnabled) var dailyRemindersEnabled: Bool = false
     @AppStorage(UDKeys.difficultWordsAlertsEnabled) var difficultWordsEnabled: Bool = false
     @AppStorage(UDKeys.practiceWordCount) var practiceWordCount: Double = 10

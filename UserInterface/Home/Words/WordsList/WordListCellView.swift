@@ -40,6 +40,17 @@ struct WordListCellView: View {
                         .foregroundColor(word.difficultyColor)
                         .clipShape(Capsule())
                 }
+                
+                // Language label
+                if let languageCode = word.languageCode {
+                    Text(languageCode.uppercased())
+                        .font(.caption2)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.blue.opacity(0.2))
+                        .foregroundColor(.blue)
+                        .clipShape(Capsule())
+                }
 
                 Image(systemName: "chevron.right")
                     .frame(sideLength: 12)

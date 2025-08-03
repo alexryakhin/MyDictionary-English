@@ -32,7 +32,7 @@ final class CSVManager: CSVManagerInterface {
         let fileName = "MyDictionaryExport.csv"
         let filePath = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
 
-        var csvString = "word,definition,partOfSpeech,phonetic,is_favorite,timestamp,id,examples\n"
+        var csvString = "word,definition,partOfSpeech,phonetic,is_favorite,timestamp,id,examples,languageCode\n"
 
         for wordModel in wordModels {
             let date: String = (wordModel.timestamp ?? Date()).csvString
@@ -43,6 +43,7 @@ final class CSVManager: CSVManagerInterface {
             let isFavorite = wordModel.isFavorite ? "true" : "false"
             let id = wordModel.id?.uuidString ?? ""
             let examples = wordModel.examplesDecoded.joined(separator: ";")
+            let languageCode = wordModel.languageCode ?? "en"
             
             let csvRow = [
                 word,
@@ -52,7 +53,8 @@ final class CSVManager: CSVManagerInterface {
                 isFavorite,
                 date,
                 id,
-                examples
+                examples,
+                languageCode
             ]
                 .map { "\"\($0)\"" } // Wrap in quotes to handle commas in data
                 .joined(separator: ",")
@@ -77,7 +79,7 @@ final class CSVManager: CSVManagerInterface {
         for row in rows where !row.isEmpty {
             let columns = parseCSVRow(row)
 
-            guard columns.count == 8, currentWordIds.contains(columns[6]) == false else { continue }
+            guard columns.count >= 8, currentWordIds.contains(columns[6]) == false else { continue }
 
             let newWord = CDWord(context: coreDataService.context)
             newWord.wordItself = columns[0]
@@ -91,6 +93,13 @@ final class CSVManager: CSVManagerInterface {
             let examplesArray = columns[7].components(separatedBy: ";")
             let examplesData = try JSONEncoder().encode(examplesArray)
             newWord.examples = examplesData
+            
+            // Handle languageCode (new field, might not exist in old CSV files)
+            if columns.count > 8 {
+                newWord.languageCode = columns[8]
+            } else {
+                newWord.languageCode = "en" // Default for old CSV files
+            }
         }
 
         try coreDataService.saveContext()

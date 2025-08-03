@@ -56,7 +56,7 @@ struct AddWordContentView: View {
     var wordCellView: some View {
         CellWrapper("Word") {
             CustomTextField("Type a word", text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
-                if viewModel.inputWord.isNotEmpty && viewModel.inputWord.isCorrect {
+                if viewModel.inputWord.isNotEmpty {
                     viewModel.handle(.fetchData)
                 }
             }
@@ -142,9 +142,22 @@ struct AddWordContentView: View {
         CustomSectionView(header: "Select a definition") {
             switch viewModel.status {
             case .loading:
-                LazyVStack {
-                    ForEach(0..<3) { _ in
-                        ShimmerView(height: 100)
+                VStack(spacing: 16) {
+                    LazyVStack {
+                        ForEach(0..<3) { _ in
+                            ShimmerView(height: 100)
+                        }
+                    }
+                    
+                    if viewModel.isTranslating {
+                        HStack {
+                            ProgressView()
+                                .scaleEffect(0.8)
+                            Text(GlobalConstant.isEnglishLanguage ? "Translating word..." : "Translating definitions...")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.top, 8)
                     }
                 }
             case .error:
@@ -161,16 +174,28 @@ struct AddWordContentView: View {
                         Label("Retry", systemImage: "magnifyingglass")
                     }
                     .buttonStyle(.borderedProminent)
-                    .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
                 }
                 .clippedWithPaddingAndBackground()
             case .ready:
-                ForEach(Array(viewModel.definitions.enumerated()), id: \.element.id) { offset, definition in
+                let definitionsToShow = (!GlobalConstant.isEnglishLanguage && viewModel.translateDefinitions) ?
+                    viewModel.translatedDefinitions : viewModel.definitions
+                
+                ForEach(Array(definitionsToShow.enumerated()), id: \.element.id) { offset, definition in
                     FormWithDivider {
                         CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech.rawValue)") {
-                            Text(definition.text)
-                                .multilineTextAlignment(.leading)
-                                .foregroundColor(.primary)
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(definition.text)
+                                    .multilineTextAlignment(.leading)
+                                    .foregroundColor(.primary)
+                                
+                                // Show original definition if translated (only for non-English locales)
+                                if !GlobalConstant.isEnglishLanguage && viewModel.translateDefinitions && offset < viewModel.definitions.count {
+                                    Text(viewModel.definitions[offset].text)
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                        .italic()
+                                }
+                            }
                         } trailingContent: {
                             checkboxImage(definition.id)
                                 .onTap {
@@ -180,9 +205,13 @@ struct AddWordContentView: View {
                         .onTapGesture {
                             definitionSelected(definition, index: offset)
                         }
-                        ForEach(definition.examples, id: \.self) { example in
-                            CellWrapper("Example") {
-                                Text(example)
+                        
+                        // Show examples from original definition
+                        if offset < viewModel.definitions.count {
+                            ForEach(viewModel.definitions[offset].examples, id: \.self) { example in
+                                CellWrapper("Example") {
+                                    Text(example)
+                                }
                             }
                         }
                     }
@@ -200,7 +229,6 @@ struct AddWordContentView: View {
                         Label("Search", systemImage: "magnifyingglass")
                     }
                     .buttonStyle(.borderedProminent)
-                    .disabled(!viewModel.inputWord.isValidEnglishWordOrPhrase)
                 }
                 .clippedWithPaddingAndBackground()
             }

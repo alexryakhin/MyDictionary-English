@@ -11,11 +11,11 @@ final class SettingsViewModel: BaseViewModel {
     }
     
     @AppStorage(UDKeys.isShowingRating) var isShowingRating: Bool = true
-    @AppStorage(UDKeys.selectedTTSLanguage) var selectedTTSLanguage: TTSLanguage = .enUS
     @AppStorage(UDKeys.dailyRemindersEnabled) var dailyRemindersEnabled: Bool = false
     @AppStorage(UDKeys.difficultWordsAlertsEnabled) var difficultWordsAlertsEnabled: Bool = false
     @AppStorage(UDKeys.practiceWordCount) var practiceWordCount: Double = 10
     @AppStorage(UDKeys.practiceHardWordsOnly) var practiceHardWordsOnly: Bool = false
+    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
 
     @Published var exportWordsUrl: URL?
     @Published var isImporting = false
@@ -102,7 +102,7 @@ final class SettingsViewModel: BaseViewModel {
     var hasHardWords: Bool {
         return words.contains { $0.difficultyLevel == 2 }
     }
-
+    
     func importWords(from url: URL) {
         guard url.startAccessingSecurityScopedResource() else {
             errorReceived(CoreError.internalError(.cannotAccessSecurityScopedResource), displayType: .alert)
