@@ -1,6 +1,8 @@
 package com.dor.mydictionary.services
 
 import com.dor.mydictionary.core.UserStats
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import java.util.Date
 import java.util.UUID
 import javax.inject.Inject
@@ -89,6 +91,22 @@ class UserStatsManager @Inject constructor(
 
     suspend fun getUserStats(): UserStats {
         return getCurrentStats() ?: createInitialStats()
+    }
+
+    fun getUserStatsFlow(): Flow<UserStats> {
+        return storage.getCurrentFlow().map { entity ->
+            entity?.toUserStats() ?: UserStats(
+                id = UUID.randomUUID().toString(),
+                averageAccuracy = 0.0,
+                currentStreak = 0,
+                lastPracticeDate = null,
+                longestStreak = 0,
+                totalPracticeTime = 0.0,
+                totalSessions = 0,
+                totalWordsStudied = 0,
+                vocabularySize = 0
+            )
+        }
     }
 
     suspend fun updatePracticeSettings(hardWordsOnly: Boolean, wordsPerSession: Int) {

@@ -33,13 +33,18 @@ class ProgressAnalyticsViewModel @Inject constructor(
         viewModelScope.launch {
             combine(
                 wordManager.getAllWordsFlow(),
+                userStatsManager.getUserStatsFlow(),
                 _uiState.map { it.selectedPeriod }
-            ) { allWords, selectedPeriod ->
-                // Calculate stats based on current words
-                val totalWords = allWords.size
-                val inProgress = (totalWords * 0.3).toInt()
-                val mastered = (totalWords * 0.5).toInt()
-                val needsReview = (totalWords * 0.2).toInt()
+            ) { allWords, userStats, selectedPeriod ->
+                // Calculate progress based on word difficulty levels (like iOS)
+                val inProgress = allWords.count { it.difficultyLevel == 1 }
+                val mastered = allWords.count { it.difficultyLevel == 3 }
+                val needsReview = allWords.count { it.difficultyLevel == 2 }
+                
+                // Get practice stats from user stats
+                val totalPracticeTime = userStats.totalPracticeTime / 60.0 // Convert to minutes
+                val averageAccuracy = userStats.averageAccuracy * 100 // Convert to percentage
+                val totalSessions = userStats.totalSessions
                 
                 // Generate chart data for current period based on actual word count
                 val chartData = generateVocabularyGrowthData(selectedPeriod, allWords)
@@ -50,6 +55,9 @@ class ProgressAnalyticsViewModel @Inject constructor(
                         inProgress = inProgress,
                         mastered = mastered,
                         needsReview = needsReview,
+                        totalPracticeTime = totalPracticeTime,
+                        averageAccuracy = averageAccuracy,
+                        totalSessions = totalSessions,
                         vocabularyGrowthData = chartData
                     )
                 }
