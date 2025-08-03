@@ -1,5 +1,6 @@
 package com.dor.mydictionary.ui.screens.settings
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -15,6 +16,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dor.mydictionary.ui.theme.Typography
+import com.dor.mydictionary.ui.views.TTSLanguagePickerDialog
+import com.dor.mydictionary.ui.views.TTSLanguage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -24,6 +27,7 @@ fun SettingsScreen(
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = SettingsUiState())
+    var showTTSLanguagePicker by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         viewModel.loadSettings()
@@ -75,7 +79,7 @@ fun SettingsScreen(
             item {
                 VoiceAccentSection(
                     selectedTTSLanguage = uiState.selectedTTSLanguage,
-                    onTTSLanguageChanged = { viewModel.setSelectedTTSLanguage(it) }
+                    onTTSLanguagePickerTapped = { showTTSLanguagePicker = true }
                 )
             }
 
@@ -94,6 +98,40 @@ fun SettingsScreen(
                 )
             }
         }
+    }
+
+    // TTS Language Picker Dialog
+    if (showTTSLanguagePicker) {
+        val selectedLanguage = TTSLanguage.fromCode(uiState.selectedTTSLanguage)
+        TTSLanguagePickerDialog(
+            languages = TTSLanguage.values().toList(),
+            selectedLanguage = selectedLanguage,
+            onLanguageSelected = { language ->
+                viewModel.setSelectedTTSLanguage(language.code)
+            },
+            onDismiss = { showTTSLanguagePicker = false }
+        )
+    }
+
+    // Export Dialog
+    if (uiState.shouldShowExportDialog) {
+        AlertDialog(
+            onDismissRequest = { viewModel.clearExportDialog() },
+            title = { Text("Export Words") },
+            text = { 
+                Text(
+                    "CSV content generated successfully. " +
+                    "Copy this content and save it as a .csv file:\n\n" +
+                    uiState.exportCsvContent?.take(500) + 
+                    if ((uiState.exportCsvContent?.length ?: 0) > 500) "..." else ""
+                )
+            },
+            confirmButton = {
+                TextButton(onClick = { viewModel.clearExportDialog() }) {
+                    Text("OK")
+                }
+            }
+        )
     }
 
     // Error Dialog
@@ -217,7 +255,7 @@ private fun TagManagementSection(
 @Composable
 private fun VoiceAccentSection(
     selectedTTSLanguage: String,
-    onTTSLanguageChanged: (String) -> Unit
+    onTTSLanguagePickerTapped: () -> Unit
 ) {
     SettingsSection(
         title = "Voice over accent"
@@ -232,9 +270,7 @@ private fun VoiceAccentSection(
                     contentDescription = "Select accent"
                 )
             },
-            onClick = {
-                // TODO: Show language picker dialog
-            }
+            onClick = onTTSLanguagePickerTapped
         )
     }
 }
@@ -324,7 +360,14 @@ private fun SettingsRow(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 8.dp)
+            .then(
+                if (onClick != null) {
+                    Modifier.clickable { onClick() }
+                } else {
+                    Modifier
+                }
+            ),
         verticalAlignment = Alignment.CenterVertically
     ) {
         icon?.let {
@@ -366,5 +409,7 @@ data class SettingsUiState(
     val hasHardWords: Boolean = false,
     val selectedTTSLanguage: String = "English (US)",
     val isLoading: Boolean = false,
-    val error: String? = null
+    val error: String? = null,
+    val shouldShowExportDialog: Boolean = false,
+    val exportCsvContent: String? = null
 ) 

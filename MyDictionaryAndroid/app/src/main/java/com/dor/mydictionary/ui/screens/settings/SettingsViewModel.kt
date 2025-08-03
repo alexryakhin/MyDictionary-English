@@ -4,6 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dor.mydictionary.services.UserStatsManager
 import com.dor.mydictionary.services.WordManager
+import com.dor.mydictionary.services.NotificationService
+import com.dor.mydictionary.services.CSVManager
+import com.dor.mydictionary.services.FilePickerService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,7 +18,10 @@ import javax.inject.Inject
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
     private val userStatsManager: UserStatsManager,
-    private val wordManager: WordManager
+    private val wordManager: WordManager,
+    private val notificationService: NotificationService,
+    private val csvManager: CSVManager,
+    private val filePickerService: FilePickerService
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(SettingsUiState())
@@ -55,17 +61,24 @@ class SettingsViewModel @Inject constructor(
     fun setDailyRemindersEnabled(enabled: Boolean) {
         viewModelScope.launch {
             try {
-                val userStats = userStatsManager.getUserStats()
-                val updatedStats = userStats.copy(dailyRemindersEnabled = enabled)
-                userStatsManager.updateStats(updatedStats)
+                userStatsManager.updateNotificationSettings(
+                    dailyRemindersEnabled = enabled,
+                    difficultWordsAlertsEnabled = _uiState.value.difficultWordsAlertsEnabled
+                )
                 
                 _uiState.update { it.copy(dailyRemindersEnabled = enabled) }
                 
-                // TODO: Handle notification permissions and scheduling
                 if (enabled) {
-                    // Request notification permission and schedule notifications
+                    val granted = notificationService.requestPermission()
+                    if (granted) {
+                        notificationService.scheduleDailyReminder()
+                    } else {
+                        _uiState.update { it.copy(dailyRemindersEnabled = false) }
+                        _uiState.update { it.copy(error = "Please enable notifications in system settings to receive daily reminders.") }
+                        return@launch
+                    }
                 } else {
-                    // Cancel notifications
+                    notificationService.cancelAllNotifications()
                 }
             } catch (e: Exception) {
                 _uiState.update { it.copy(error = "Failed to update daily reminders: ${e.message}") }
@@ -76,17 +89,24 @@ class SettingsViewModel @Inject constructor(
     fun setDifficultWordsAlertsEnabled(enabled: Boolean) {
         viewModelScope.launch {
             try {
-                val userStats = userStatsManager.getUserStats()
-                val updatedStats = userStats.copy(difficultWordsAlertsEnabled = enabled)
-                userStatsManager.updateStats(updatedStats)
+                userStatsManager.updateNotificationSettings(
+                    dailyRemindersEnabled = _uiState.value.dailyRemindersEnabled,
+                    difficultWordsAlertsEnabled = enabled
+                )
                 
                 _uiState.update { it.copy(difficultWordsAlertsEnabled = enabled) }
                 
-                // TODO: Handle notification permissions and scheduling
                 if (enabled) {
-                    // Request notification permission and schedule notifications
+                    val granted = notificationService.requestPermission()
+                    if (granted) {
+                        notificationService.scheduleDifficultWordsAlert()
+                    } else {
+                        _uiState.update { it.copy(difficultWordsAlertsEnabled = false) }
+                        _uiState.update { it.copy(error = "Please enable notifications in system settings to receive difficult words alerts.") }
+                        return@launch
+                    }
                 } else {
-                    // Cancel notifications
+                    notificationService.cancelAllNotifications()
                 }
             } catch (e: Exception) {
                 _uiState.update { it.copy(error = "Failed to update difficult words alerts: ${e.message}") }
@@ -125,10 +145,7 @@ class SettingsViewModel @Inject constructor(
     fun setSelectedTTSLanguage(language: String) {
         viewModelScope.launch {
             try {
-                val userStats = userStatsManager.getUserStats()
-                val updatedStats = userStats.copy(selectedTTSLanguage = language)
-                userStatsManager.updateStats(updatedStats)
-                
+                userStatsManager.updateTTSLanguage(language)
                 _uiState.update { it.copy(selectedTTSLanguage = language) }
             } catch (e: Exception) {
                 _uiState.update { it.copy(error = "Failed to update TTS language: ${e.message}") }
@@ -141,15 +158,13 @@ class SettingsViewModel @Inject constructor(
             try {
                 _uiState.update { it.copy(isLoading = true, error = null) }
                 
-                // TODO: Implement CSV import functionality
-                // This would involve:
-                // 1. Opening file picker
-                // 2. Reading CSV file
-                // 3. Parsing and importing words
-                // 4. Updating database
-                
-                _uiState.update { it.copy(isLoading = false) }
-                _uiState.update { it.copy(error = "Import functionality not yet implemented") }
+                // For now, show a message about file picker integration
+                _uiState.update { 
+                    it.copy(
+                        isLoading = false,
+                        error = "Import functionality will be available in the next update with proper file picker integration."
+                    ) 
+                }
             } catch (e: Exception) {
                 _uiState.update {
                     it.copy(
@@ -177,14 +192,16 @@ class SettingsViewModel @Inject constructor(
                     return@launch
                 }
                 
-                // TODO: Implement CSV export functionality
-                // This would involve:
-                // 1. Converting words to CSV format
-                // 2. Creating file
-                // 3. Saving to device
+                val csvContent = csvManager.exportWordsToCSV(allWords)
                 
-                _uiState.update { it.copy(isLoading = false) }
-                _uiState.update { it.copy(error = "Export functionality not yet implemented") }
+                // For now, show the CSV content in a dialog
+                _uiState.update { 
+                    it.copy(
+                        shouldShowExportDialog = true, 
+                        exportCsvContent = csvContent,
+                        isLoading = false
+                    ) 
+                }
             } catch (e: Exception) {
                 _uiState.update {
                     it.copy(
@@ -196,7 +213,23 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
+    // TODO: Implement file picker integration for import
+    // For now, this method is not used as we show a message instead
+    fun handleImportFileSelected(uri: android.net.Uri?) {
+        // This will be implemented when file picker is integrated
+    }
+
+    // TODO: Implement file picker integration for export
+    // For now, this method is not used as we show the CSV content in a dialog
+    fun handleExportFileSelected(uri: android.net.Uri?) {
+        // This will be implemented when file picker is integrated
+    }
+
     fun clearError() {
         _uiState.update { it.copy(error = null) }
+    }
+
+    fun clearExportDialog() {
+        _uiState.update { it.copy(shouldShowExportDialog = false, exportCsvContent = null) }
     }
 } 

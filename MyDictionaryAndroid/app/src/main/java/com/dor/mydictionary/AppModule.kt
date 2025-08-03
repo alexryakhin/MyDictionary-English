@@ -15,6 +15,9 @@ import com.dor.mydictionary.services.TagManager
 import com.dor.mydictionary.services.QuizSessionManager
 import com.dor.mydictionary.services.UserStatsManager
 import com.dor.mydictionary.services.WordProgressManager
+import com.dor.mydictionary.services.NotificationService
+import com.dor.mydictionary.services.CSVManager
+import com.dor.mydictionary.services.FilePickerService
 import com.dor.mydictionary.services.wordnik.WordnikApi
 import dagger.Module
 import dagger.Provides
@@ -97,6 +100,24 @@ object AppModule {
     @Provides
     fun provideWordProgressManager(storage: LocalWordProgressStorage): WordProgressManager {
         return WordProgressManager(storage)
+    }
+
+    @Provides
+    @Singleton
+    fun provideNotificationService(@ApplicationContext context: Context): NotificationService {
+        return NotificationService(context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCSVManager(@ApplicationContext context: Context): CSVManager {
+        return CSVManager(context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFilePickerService(@ApplicationContext context: Context): FilePickerService {
+        return FilePickerService(context)
     }
 
     @Provides

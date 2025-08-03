@@ -1,24 +1,15 @@
 package com.dor.mydictionary.core
 
 enum class TagColor(val rawValue: String) {
-    Red("red"),
-    Pink("pink"),
-    Purple("purple"),
-    DeepPurple("deepPurple"),
-    Indigo("indigo"),
     Blue("blue"),
-    LightBlue("lightBlue"),
-    Cyan("cyan"),
-    Teal("teal"),
+    Red("red"),
     Green("green"),
-    LightGreen("lightGreen"),
-    Lime("lime"),
-    Yellow("yellow"),
     Orange("orange"),
-    DeepOrange("deepOrange"),
-    Brown("brown"),
+    Purple("purple"),
+    Pink("pink"),
+    Yellow("yellow"),
     Grey("grey");
-    
+
     companion object {
         fun fromRawValue(rawValue: String): TagColor {
             return values().find { it.rawValue == rawValue } ?: Blue

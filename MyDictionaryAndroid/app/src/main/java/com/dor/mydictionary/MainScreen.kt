@@ -28,6 +28,8 @@ import androidx.compose.animation.core.tween
 import com.dor.mydictionary.ui.TabItem
 import com.dor.mydictionary.ui.screens.idioms.idiomsList.IdiomsListScreen
 import com.dor.mydictionary.ui.screens.settings.SettingsScreen
+import com.dor.mydictionary.ui.screens.settings.tagManagement.TagManagementScreen
+import com.dor.mydictionary.ui.screens.about.AboutScreen
 import com.dor.mydictionary.ui.screens.words.wordsList.WordsListScreen
 import com.dor.mydictionary.ui.screens.words.wordDetails.WordDetailsScreen
 import com.dor.mydictionary.ui.screens.idioms.idiomDetails.IdiomDetailsScreen
@@ -115,10 +117,10 @@ fun MainScreen() {
             ) { 
                 SettingsScreen(
                     onNavigateToTagManagement = {
-                        // TODO: Navigate to tag management
+                        navController.navigate("tag_management")
                     },
                     onNavigateToAbout = {
-                        // TODO: Navigate to about screen
+                        navController.navigate("about")
                     }
                 ) 
             }
@@ -272,6 +274,48 @@ fun MainScreen() {
                 ChooseDefinitionQuizScreen(
                     onNavigateBack = { navController.popBackStack() },
                     onQuizComplete = { navController.popBackStack() }
+                )
+            }
+
+            // Tag Management route
+            composable(
+                route = "tag_management"
+            ) {
+                TagManagementScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
+
+            // About route
+            composable(
+                route = "about",
+                enterTransition = {
+                    slideIntoContainer(
+                        towards = SlideDirection.Left,
+                        animationSpec = tween(300)
+                    )
+                },
+                exitTransition = {
+                    slideOutOfContainer(
+                        towards = SlideDirection.Left,
+                        animationSpec = tween(300)
+                    )
+                },
+                popEnterTransition = {
+                    slideIntoContainer(
+                        towards = SlideDirection.Right,
+                        animationSpec = tween(300)
+                    )
+                },
+                popExitTransition = {
+                    slideOutOfContainer(
+                        towards = SlideDirection.Right,
+                        animationSpec = tween(300)
+                    )
+                }
+            ) {
+                AboutScreen(
+                    onNavigateBack = { navController.popBackStack() }
                 )
             }
         }

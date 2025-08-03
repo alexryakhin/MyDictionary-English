@@ -127,4 +127,24 @@ class UserStatsManager @Inject constructor(
         )
         updateStats(updatedStats)
     }
+
+    suspend fun updateNotificationSettings(
+        dailyRemindersEnabled: Boolean,
+        difficultWordsAlertsEnabled: Boolean
+    ) {
+        val currentStats = getUserStats()
+        val updatedStats = currentStats.copy(
+            dailyRemindersEnabled = dailyRemindersEnabled,
+            difficultWordsAlertsEnabled = difficultWordsAlertsEnabled
+        )
+        updateStats(updatedStats)
+    }
+
+    suspend fun updateTTSLanguage(selectedTTSLanguage: String) {
+        val currentStats = getUserStats()
+        val updatedStats = currentStats.copy(
+            selectedTTSLanguage = selectedTTSLanguage
+        )
+        updateStats(updatedStats)
+    }
 } 
