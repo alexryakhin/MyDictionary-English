@@ -62,9 +62,16 @@ final class AnalyticsViewModel: BaseViewModel {
     // MARK: - Computed Properties
     
     var totalPracticeTimeFormatted: String {
-        guard let summary = progressSummary else { return "0 min" }
-        let minutes = Int(summary.totalPracticeTime / 60)
-        return "\(minutes) min"
+        guard let summary = progressSummary else { return "0min" }
+        
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        formatter.maximumUnitCount = 2
+        formatter.zeroFormattingBehavior = .dropAll
+        
+        let timeInterval = summary.totalPracticeTime
+        return formatter.string(from: timeInterval) ?? "0min"
     }
     
     var averageAccuracyFormatted: String {

@@ -33,30 +33,16 @@ class SpellingQuizViewModel @Inject constructor(
     private var currentSessionId: String? = null
     private var sessionStartTime: Date = Date()
 
-    fun startQuiz() {
+    fun startQuiz(wordsPerSession: Int = 10) {
+        _uiState.update { it.copy(isLoading = true, error = null) }
+        
         viewModelScope.launch {
             try {
-                Log.d("SpellingQuizViewModel", "Starting quiz...")
-                _uiState.update { it.copy(isLoading = true, error = null) }
+                Log.d("SpellingQuizViewModel", "Starting quiz with $wordsPerSession words")
                 
-                // Get practice settings
-                Log.d("SpellingQuizViewModel", "Getting user stats...")
-                val userStats = userStatsManager.getUserStats()
-                val wordsPerSession = userStats.wordsPerSession
-                val hardWordsOnly = userStats.practiceHardWordsOnly
-                
-                Log.d("SpellingQuizViewModel", "Getting words... wordsPerSession=$wordsPerSession, hardWordsOnly=$hardWordsOnly")
-                // Get words for quiz
-                val availableWords = if (hardWordsOnly) {
-                    wordManager.getHardWords()
-                } else {
-                    wordManager.getAllWords()
-                }
-                
-                Log.d("SpellingQuizViewModel", "Available words count: ${availableWords.size}")
-                
+                // Get available words
+                val availableWords = wordManager.getAllWords()
                 if (availableWords.isEmpty()) {
-                    Log.w("SpellingQuizViewModel", "No words available for quiz")
                     _uiState.update { 
                         it.copy(
                             error = "No words available for quiz",
@@ -66,7 +52,7 @@ class SpellingQuizViewModel @Inject constructor(
                     return@launch
                 }
                 
-                // Store original words and select random words for the quiz
+                // Select random words for the quiz
                 originalWords = availableWords
                 quizWords = availableWords.shuffled().take(wordsPerSession).toMutableList()
                 
@@ -78,19 +64,25 @@ class SpellingQuizViewModel @Inject constructor(
                 
                 _uiState.update { 
                     it.copy(
+                        isLoading = false,
+                        currentWord = null,
+                        userInput = "",
                         currentQuestionIndex = 0,
                         totalQuestions = quizWords.size,
                         score = 0,
                         progress = 0f,
-                        correctAnswers = 0,
-                        currentStreak = 0,
-                        bestStreak = 0,
+                        isWordRevealed = false,
+                        isAnswerCorrect = null,
+                        isQuizComplete = false,
                         attemptCount = 0,
                         isShowingCorrectAnswer = false,
-                        isShowingHint = false,
+                        correctAnswers = 0,
                         wordsPlayed = emptyList(),
                         correctWordIds = emptyList(),
-                        isLoading = false
+                        isShowingHint = false,
+                        currentStreak = 0,
+                        bestStreak = 0,
+                        accuracyContributions = emptyMap()
                     )
                 }
                 
@@ -127,6 +119,17 @@ class SpellingQuizViewModel @Inject constructor(
             val newBestStreak = maxOf(currentState.bestStreak, newCurrentStreak)
             val newCorrectAnswers = currentState.correctAnswers + 1
             
+            // Calculate accuracy contribution based on attempts
+            val accuracyContribution = when (newAttemptCount) {
+                0 -> 1.0 // First attempt: 100% accuracy
+                1 -> 0.75 // Second attempt: 75% accuracy (25% reduction)
+                2 -> 0.5 // Third attempt: 50% accuracy (50% reduction)
+                else -> 0.5 // Any more attempts: 50% accuracy
+            }
+            
+            // Debug logging for accuracy contribution
+            Log.d("SpellingQuizViewModel", "Word ${currentWord.wordItself}: attempts=$newAttemptCount, contribution=$accuracyContribution")
+            
             // Calculate score with attempt bonus (bonus for fewer attempts)
             val attemptBonus = maxOf(0, 3 - newAttemptCount) * 10
             val newScore = currentState.score + 100 + attemptBonus
@@ -142,11 +145,12 @@ class SpellingQuizViewModel @Inject constructor(
                     score = newScore,
                     isShowingHint = false,
                     wordsPlayed = it.wordsPlayed + currentWord,
-                    correctWordIds = it.correctWordIds + currentWord.id
+                    correctWordIds = it.correctWordIds + currentWord.id,
+                    accuracyContributions = it.accuracyContributions + (currentWord.id to accuracyContribution)
                 )
             }
             
-            // Update word progress
+            // Update word progress (this will also update difficulty level)
             viewModelScope.launch {
                 try {
                     wordProgressManager.incrementCorrectAnswers(currentWord.id)
@@ -165,6 +169,7 @@ class SpellingQuizViewModel @Inject constructor(
                     attemptCount = newAttemptCount,
                     currentStreak = newCurrentStreak,
                     isShowingHint = newAttemptCount >= 2
+                    // DON'T add to wordsPlayed here - only when answered correctly, skipped, or failed
                 )
             }
             
@@ -175,6 +180,26 @@ class SpellingQuizViewModel @Inject constructor(
                         wordProgressManager.markAsNeedsReview(currentWord.id)
                     } catch (e: Exception) {
                         Log.e("SpellingQuizViewModel", "Failed to mark word for review: ${e.message}")
+                    }
+                }
+                
+                // Add word to accuracy contributions with 0% accuracy (failed after 3 attempts)
+                _uiState.update { 
+                    it.copy(
+                        wordsPlayed = it.wordsPlayed + currentWord, // Add to played list when failed
+                        accuracyContributions = it.accuracyContributions + (currentWord.id to 0.0)
+                    )
+                }
+                
+                // Debug logging for failed word
+                Log.d("SpellingQuizViewModel", "Word ${currentWord.wordItself}: FAILED after 3 attempts, contribution=0.0")
+            } else {
+                // Record incorrect attempt
+                viewModelScope.launch {
+                    try {
+                        wordProgressManager.incrementIncorrectAnswers(currentWord.id)
+                    } catch (e: Exception) {
+                        Log.e("SpellingQuizViewModel", "Failed to record incorrect attempt: ${e.message}")
                     }
                 }
             }
@@ -211,9 +236,14 @@ class SpellingQuizViewModel @Inject constructor(
                 userInput = "",
                 attemptCount = 0,
                 isShowingCorrectAnswer = false,
-                isShowingHint = false
+                isShowingHint = false,
+                wordsPlayed = it.wordsPlayed + currentWord, // Add word to played list when skipped
+                accuracyContributions = it.accuracyContributions + (currentWord.id to 0.0) // 0% accuracy for skipped words
             )
         }
+        
+        // Debug logging for skipped word
+        Log.d("SpellingQuizViewModel", "Word ${currentWord.wordItself}: SKIPPED, contribution=0.0")
         
         // Check if quiz is complete
         if (quizWords.isEmpty()) {
@@ -301,19 +331,32 @@ class SpellingQuizViewModel @Inject constructor(
         
         viewModelScope.launch {
             try {
-                // Save quiz session
+                // Calculate actual duration and accuracy
+                val duration = (Date().time - sessionStartTime.time) / 1000.0 // Convert to seconds
+                val accuracy = if (currentState.wordsPlayed.isNotEmpty()) {
+                    // Calculate accuracy based on contributions
+                    val totalAccuracyContribution = currentState.accuracyContributions.values.sum()
+                    val averageAccuracy = totalAccuracyContribution / currentState.wordsPlayed.size
+                    averageAccuracy
+                } else 0.0
+                
+                // Debug logging
+                Log.d("SpellingQuizViewModel", "Quiz completion: correctAnswers=${currentState.correctAnswers}, wordsPlayed=${currentState.wordsPlayed.size}, accuracy=$accuracy, score=${currentState.score}")
+                Log.d("SpellingQuizViewModel", "Accuracy contributions: ${currentState.accuracyContributions}")
+                Log.d("SpellingQuizViewModel", "Accuracy calculation: totalContribution=${currentState.accuracyContributions.values.sum()}, wordsPlayed=${currentState.wordsPlayed.size}, finalAccuracy=$accuracy")
+                Log.d("SpellingQuizViewModel", "Duration calculation: sessionStartTime=$sessionStartTime, endTime=${Date()}, duration=${duration} seconds (${duration/60.0} minutes)")
+                
+                // Save quiz session with actual data
                 currentSessionId?.let { sessionId ->
-                    val duration = Date().time - sessionStartTime.time
-                    val accuracy = if (currentState.totalQuestions > 0) {
-                        currentState.correctAnswers.toDouble() / currentState.totalQuestions.toDouble()
-                    } else 0.0
-                    
                     quizSessionManager.saveQuizSession(
                         id = sessionId,
                         quizType = "Spelling Quiz",
-                        totalQuestions = currentState.totalQuestions,
+                        totalQuestions = currentState.wordsPlayed.size, // Use words actually played
                         correctAnswers = currentState.correctAnswers,
-                        timestamp = Date()
+                        timestamp = Date(),
+                        duration = duration,
+                        accuracy = accuracy,
+                        score = currentState.score // Pass the actual score
                     )
                 }
                 
@@ -349,13 +392,60 @@ class SpellingQuizViewModel @Inject constructor(
                 correctWordIds = emptyList(),
                 isShowingHint = false,
                 currentStreak = 0,
-                bestStreak = 0
+                bestStreak = 0,
+                accuracyContributions = emptyMap()
             )
         }
     }
 
     fun clearError() {
         _uiState.update { it.copy(error = null) }
+    }
+
+    fun saveCurrentProgress() {
+        val currentState = _uiState.value
+        
+        // Only save if quiz is in progress and has words played
+        if (!currentState.isQuizComplete && currentState.wordsPlayed.isNotEmpty()) {
+            Log.d("SpellingQuizViewModel", "Early exit detected: saving current progress")
+            viewModelScope.launch {
+                try {
+                    // Calculate actual duration and accuracy
+                    val duration = (Date().time - sessionStartTime.time) / 1000.0 // Convert to seconds
+                    val accuracy = if (currentState.wordsPlayed.isNotEmpty()) {
+                        // Calculate accuracy based on contributions
+                        val totalAccuracyContribution = currentState.accuracyContributions.values.sum()
+                        val averageAccuracy = totalAccuracyContribution / currentState.wordsPlayed.size
+                        averageAccuracy
+                    } else 0.0
+                    
+                    // Debug logging
+                    Log.d("SpellingQuizViewModel", "Early exit: correctAnswers=${currentState.correctAnswers}, wordsPlayed=${currentState.wordsPlayed.size}, accuracy=$accuracy, score=${currentState.score}")
+                    Log.d("SpellingQuizViewModel", "Duration calculation: sessionStartTime=$sessionStartTime, endTime=${Date()}, duration=${duration} seconds (${duration/60.0} minutes)")
+                    
+                    // Save quiz session with current data
+                    currentSessionId?.let { sessionId ->
+                        quizSessionManager.saveQuizSession(
+                            id = sessionId,
+                            quizType = "Spelling Quiz",
+                            totalQuestions = currentState.wordsPlayed.size, // Use words actually played
+                            correctAnswers = currentState.correctAnswers,
+                            timestamp = Date(),
+                            duration = duration,
+                            accuracy = accuracy,
+                            score = currentState.score // Pass the actual score
+                        )
+                    }
+                    
+                    // Update user stats
+                    userStatsManager.incrementQuizzesCompleted()
+                    userStatsManager.updateStreak()
+                    
+                } catch (e: Exception) {
+                    Log.e("SpellingQuizViewModel", "Failed to save current progress: ${e.message}", e)
+                }
+            }
+        }
     }
 
     private fun loadFirstWord() {

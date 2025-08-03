@@ -7,7 +7,8 @@ import java.util.UUID
 import javax.inject.Inject
 
 class WordProgressManager @Inject constructor(
-    private val storage: LocalWordProgressStorage
+    private val storage: LocalWordProgressStorage,
+    private val wordManager: WordManager
 ) {
     suspend fun getAllWordProgress(): List<WordProgress> {
         return storage.getAll().map { it.toWordProgress() }
@@ -61,16 +62,20 @@ class WordProgressManager @Inject constructor(
                 responseTime
             }
             
-            // Calculate difficulty score (0.0 to 1.0, higher = more difficult)
+            // Calculate accuracy and difficulty score
             val accuracy = if (newTotalAttempts > 0) newCorrectAttempts.toDouble() / newTotalAttempts else 0.0
             val newDifficultyScore = 1.0 - accuracy
             
-            // Determine mastery level
+            // Determine mastery level (matching iOS logic exactly)
             val newMasteryLevel = when {
-                accuracy >= 0.9 && newConsecutiveCorrect >= 5 -> "mastered"
+                accuracy >= 0.9 && newCorrectAttempts > 10 -> "mastered"
                 accuracy >= 0.7 -> "inProgress"
-                accuracy < 0.5 -> "needsReview"
-                else -> "new"
+                else -> "needsReview"
+            }
+            
+            // Debug logging for mastery
+            if (newMasteryLevel == "mastered") {
+                Log.d("WordProgressManager", "Word $wordId mastered! accuracy=$accuracy, correctAttempts=$newCorrectAttempts")
             }
             
             val updatedProgress = currentProgress.copy(
@@ -84,8 +89,30 @@ class WordProgressManager @Inject constructor(
             )
             
             updateWordProgress(updatedProgress)
+            
+            // Update word difficulty level based on mastery level
+            updateWordDifficultyLevel(wordId, newMasteryLevel)
+            
         } catch (e: Exception) {
             Log.e("WordProgressManager", "Failed to record quiz attempt: ${e.message}", e)
+        }
+    }
+
+    private suspend fun updateWordDifficultyLevel(wordId: String, masteryLevel: String) {
+        try {
+            val word = wordManager.getById(wordId) ?: return
+            
+            val difficultyLevel = when (masteryLevel) {
+                "mastered" -> 3
+                "inProgress" -> 1
+                "needsReview" -> 2
+                else -> 0
+            }
+            
+            wordManager.updateDifficulty(word, difficultyLevel)
+            
+        } catch (e: Exception) {
+            Log.e("WordProgressManager", "Failed to update word difficulty level: ${e.message}", e)
         }
     }
 
@@ -117,8 +144,12 @@ class WordProgressManager @Inject constructor(
                 lastPracticed = Date()
             )
             updateWordProgress(updatedProgress)
+            
+            // Update word difficulty level to needsReview (level 2)
+            val word = wordManager.getById(wordId)
+            word?.let { wordManager.updateDifficulty(it, 2) }
+            
         } catch (e: Exception) {
-            // Log error but don't crash the app
             Log.e("WordProgressManager", "Failed to mark word as needs review: ${e.message}", e)
         }
     }

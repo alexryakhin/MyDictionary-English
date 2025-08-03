@@ -73,8 +73,8 @@ object AppModule {
     }
 
     @Provides
-    fun provideWordManager(storage: LocalWordStorage): WordManager {
-        return WordManager(storage)
+    fun provideWordManager(storage: LocalWordStorage, userStatsManager: UserStatsManager): WordManager {
+        return WordManager(storage, userStatsManager)
     }
 
     @Provides
@@ -88,8 +88,8 @@ object AppModule {
     }
 
     @Provides
-    fun provideQuizSessionManager(storage: LocalQuizSessionStorage): QuizSessionManager {
-        return QuizSessionManager(storage)
+    fun provideQuizSessionManager(storage: LocalQuizSessionStorage, userStatsManager: UserStatsManager): QuizSessionManager {
+        return QuizSessionManager(storage, userStatsManager)
     }
 
     @Provides
@@ -98,8 +98,8 @@ object AppModule {
     }
 
     @Provides
-    fun provideWordProgressManager(storage: LocalWordProgressStorage): WordProgressManager {
-        return WordProgressManager(storage)
+    fun provideWordProgressManager(storage: LocalWordProgressStorage, wordManager: WordManager): WordProgressManager {
+        return WordProgressManager(storage, wordManager)
     }
 
     @Provides

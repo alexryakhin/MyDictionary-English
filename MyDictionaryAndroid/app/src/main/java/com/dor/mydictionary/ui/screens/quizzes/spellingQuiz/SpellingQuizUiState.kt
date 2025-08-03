@@ -23,5 +23,6 @@ data class SpellingQuizUiState(
     val correctWordIds: List<String> = emptyList(),
     val isShowingHint: Boolean = false,
     val currentStreak: Int = 0,
-    val bestStreak: Int = 0
+    val bestStreak: Int = 0,
+    val accuracyContributions: Map<String, Double> = emptyMap() // Track accuracy contribution per word
 ) 

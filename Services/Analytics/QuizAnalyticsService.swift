@@ -1,5 +1,5 @@
 //
-//  AnalyticsService.swift
+//  QuizAnalyticsService.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin on 2/25/25.
@@ -120,7 +120,7 @@ final class QuizAnalyticsService {
         
         let accuracy = totalAttempts > 0 ? Double(correctAttempts) / Double(totalAttempts) : 0.0
         
-        if accuracy >= 0.9 && consecutiveCorrect >= 5 {
+        if accuracy >= 0.9 && correctAttempts > 10 {
             progress.masteryLevel = "mastered"
             try updateWordDifficultyLevel(wordId: wordId, level: 3)
         } else if accuracy >= 0.7 {
@@ -183,6 +183,8 @@ final class QuizAnalyticsService {
             stats.totalSessions += 1
             stats.totalWordsStudied += session.totalWords
             stats.lastPracticeDate = Date()
+            
+            print("🔹 iOS Practice time: currentTotal=\(stats.totalPracticeTime) seconds, newSession=\(session.duration) seconds, newTotal=\(stats.totalPracticeTime) seconds (\(stats.totalPracticeTime/60.0) minutes)")
             
             // Update accuracy
             let totalSessions = Double(stats.totalSessions)

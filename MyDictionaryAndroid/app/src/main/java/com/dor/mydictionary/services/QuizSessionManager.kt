@@ -6,7 +6,8 @@ import java.util.UUID
 import javax.inject.Inject
 
 class QuizSessionManager @Inject constructor(
-    private val storage: LocalQuizSessionStorage
+    private val storage: LocalQuizSessionStorage,
+    private val userStatsManager: UserStatsManager
 ) {
     suspend fun getAllQuizSessions(): List<QuizSession> {
         return storage.getAll().map { it.toQuizSession() }
@@ -46,6 +47,14 @@ class QuizSessionManager @Inject constructor(
         )
         
         storage.insert(QuizSessionEntity.fromQuizSession(quizSession))
+        
+        // Update user stats with this practice session
+        userStatsManager.updatePracticeSession(
+            accuracy = accuracy,
+            practiceTime = duration,
+            wordsStudied = totalWords
+        )
+        
         return quizSession
     }
 
@@ -62,21 +71,37 @@ class QuizSessionManager @Inject constructor(
         quizType: String,
         totalQuestions: Int,
         correctAnswers: Int,
-        timestamp: Date
+        timestamp: Date,
+        duration: Double = 0.0,
+        accuracy: Double? = null,
+        score: Int = 0
     ): QuizSession {
+        val calculatedAccuracy = accuracy ?: if (totalQuestions > 0) correctAnswers.toDouble() / totalQuestions else 0.0
+        
+        // Debug logging
+        android.util.Log.d("QuizSessionManager", "Saving quiz session: accuracy=$calculatedAccuracy, totalQuestions=$totalQuestions, correctAnswers=$correctAnswers, score=$score")
+        
         val quizSession = QuizSession(
             id = id,
             quizType = quizType,
             date = timestamp,
-            score = correctAnswers,
+            score = score, // Use actual score
             totalWords = totalQuestions,
             correctAnswers = correctAnswers,
-            accuracy = if (totalQuestions > 0) correctAnswers.toDouble() / totalQuestions else 0.0,
-            duration = 0.0,
+            accuracy = calculatedAccuracy,
+            duration = duration,
             wordsPracticed = emptyList()
         )
         
         storage.insert(QuizSessionEntity.fromQuizSession(quizSession))
+        
+        // Update user stats with this practice session
+        userStatsManager.updatePracticeSession(
+            accuracy = calculatedAccuracy,
+            practiceTime = duration,
+            wordsStudied = totalQuestions
+        )
+        
         return quizSession
     }
 } 

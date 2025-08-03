@@ -238,8 +238,9 @@ fun MainScreen() {
                 }
             ) {
                 SpellingQuizScreen(
-                    onNavigateBack = { navController.popBackStack() },
-                    onQuizComplete = { navController.popBackStack() }
+                    wordsPerSession = 10,
+                    onQuizComplete = { navController.popBackStack() },
+                    onNavigateToQuizResults = { navController.navigate("quiz_results") }
                 )
             }
             

@@ -42,9 +42,15 @@ class ProgressAnalyticsViewModel @Inject constructor(
                 val needsReview = allWords.count { it.difficultyLevel == 2 }
                 
                 // Get practice stats from user stats
-                val totalPracticeTime = userStats.totalPracticeTime / 60.0 // Convert to minutes
-                val averageAccuracy = userStats.averageAccuracy * 100 // Convert to percentage
+                val totalPracticeTimeSeconds = userStats.totalPracticeTime
+                val totalPracticeTimeFormatted = formatDuration(totalPracticeTimeSeconds)
+                val averageAccuracy = userStats.averageAccuracy // Already a decimal (0.0 to 1.0)
                 val totalSessions = userStats.totalSessions
+                
+                // Debug logging
+                android.util.Log.d("ProgressAnalytics", "UserStats: accuracy=${userStats.averageAccuracy}, sessions=${userStats.totalSessions}, practiceTime=${userStats.totalPracticeTime}")
+                android.util.Log.d("ProgressAnalytics", "Calculated: averageAccuracy=$averageAccuracy, totalSessions=$totalSessions, totalPracticeTime=$totalPracticeTimeFormatted")
+                android.util.Log.d("ProgressAnalytics", "Practice time: raw=${userStats.totalPracticeTime} seconds, formatted=$totalPracticeTimeFormatted")
                 
                 // Generate chart data for current period based on actual word count
                 val chartData = generateVocabularyGrowthData(selectedPeriod, allWords)
@@ -55,7 +61,7 @@ class ProgressAnalyticsViewModel @Inject constructor(
                         inProgress = inProgress,
                         mastered = mastered,
                         needsReview = needsReview,
-                        totalPracticeTime = totalPracticeTime,
+                        totalPracticeTime = totalPracticeTimeFormatted,
                         averageAccuracy = averageAccuracy,
                         totalSessions = totalSessions,
                         vocabularyGrowthData = chartData
@@ -110,7 +116,7 @@ class ProgressAnalyticsViewModel @Inject constructor(
                 it.copy(
                     averageAccuracy = userStats.averageAccuracy,
                     totalSessions = userStats.totalSessions,
-                    totalPracticeTime = userStats.totalPracticeTime
+                    totalPracticeTime = formatDuration(userStats.totalPracticeTime)
                 )
             }
         } catch (e: Exception) {
@@ -128,8 +134,9 @@ class ProgressAnalyticsViewModel @Inject constructor(
             val results = recentSessions.map { session ->
                 QuizResult(
                     quizType = session.quizType,
-                    score = session.correctAnswers,
+                    score = session.score, // Use actual score, not correctAnswers
                     totalWords = session.totalWords,
+                    accuracy = session.accuracy, // Include accuracy
                     date = formatDate(session.date)
                 )
             }
@@ -281,6 +288,18 @@ class ProgressAnalyticsViewModel @Inject constructor(
     private fun formatDate(date: Date): String {
         val formatter = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
         return formatter.format(date)
+    }
+
+    private fun formatDuration(seconds: Double): String {
+        val totalSeconds = seconds.toLong()
+        val hours = totalSeconds / 3600
+        val minutes = (totalSeconds % 3600) / 60
+        
+        return when {
+            hours > 0 -> "${hours}h ${minutes}min"
+            minutes > 0 -> "${minutes}min"
+            else -> "0min"
+        }
     }
 
     fun clearError() {

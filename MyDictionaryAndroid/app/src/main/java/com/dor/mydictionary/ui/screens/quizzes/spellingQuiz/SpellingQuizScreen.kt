@@ -1,5 +1,6 @@
 package com.dor.mydictionary.ui.screens.quizzes.spellingQuiz
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -28,14 +29,23 @@ import kotlinx.coroutines.delay
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SpellingQuizScreen(
-    onNavigateBack: () -> Unit,
-    onQuizComplete: () -> Unit,
-    viewModel: SpellingQuizViewModel = hiltViewModel()
+    wordsPerSession: Int = 10,
+    onQuizComplete: () -> Unit = {},
+    onNavigateToQuizResults: () -> Unit = {}
 ) {
-    val uiState by viewModel.uiState.collectAsState(initial = SpellingQuizUiState())
+    val viewModel: SpellingQuizViewModel = hiltViewModel()
+    val uiState by viewModel.uiState.collectAsState()
+    
+    // Handle back press to save progress
+    BackHandler {
+        if (!uiState.isQuizComplete && uiState.wordsPlayed.isNotEmpty()) {
+            viewModel.saveCurrentProgress()
+        }
+    }
 
+    // Handle navigation when user exits early
     LaunchedEffect(Unit) {
-        viewModel.startQuiz()
+        viewModel.startQuiz(wordsPerSession)
     }
 
     Scaffold(
@@ -43,7 +53,16 @@ fun SpellingQuizScreen(
             TopAppBar(
                 title = { Text("Spelling Quiz", style = Typography.displaySmall) },
                 navigationIcon = {
-                    IconButton(onClick = onNavigateBack) {
+                    IconButton(
+                        onClick = {
+                            // Save progress if quiz is in progress
+                            if (!uiState.isQuizComplete && uiState.wordsPlayed.isNotEmpty()) {
+                                viewModel.saveCurrentProgress()
+                            }
+                            // Navigate back
+                            onQuizComplete()
+                        }
+                    ) {
                         Icon(
                             Icons.Default.ArrowBack, 
                             contentDescription = "Navigate back"
@@ -113,9 +132,10 @@ fun SpellingQuizScreen(
                     item {
                         QuizCompleteSection(
                             score = uiState.score,
-                            totalQuestions = uiState.totalQuestions,
+                            totalQuestions = uiState.wordsPlayed.size, // Use words actually played
                             correctAnswers = uiState.correctAnswers,
                             bestStreak = uiState.bestStreak,
+                            accuracyContributions = uiState.accuracyContributions, // Pass accuracy contributions
                             onFinish = {
                                 viewModel.finishQuiz()
                                 onQuizComplete()
@@ -551,6 +571,7 @@ fun QuizCompleteSection(
     totalQuestions: Int,
     correctAnswers: Int,
     bestStreak: Int,
+    accuracyContributions: Map<String, Double>, // Fix parameter type
     onFinish: () -> Unit,
     onRestart: () -> Unit
 ) {
@@ -659,10 +680,20 @@ fun QuizCompleteSection(
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             Text("Accuracy")
+                            val accuracyPercentage = if (totalQuestions > 0) (accuracyContributions.values.sum() * 100 / totalQuestions).toInt() else 0
                             Text(
-                                text = "${(correctAnswers * 100 / totalQuestions)}%",
+                                text = "$accuracyPercentage%",
                                 fontWeight = FontWeight.Medium,
                                 color = Color(0xFF4CAF50)
+                            )
+                        }
+                        
+                        // Debug info (can be removed later)
+                        if (totalQuestions > 0) {
+                            Text(
+                                text = "Debug: contributions=${accuracyContributions.values.toList()}, total=${accuracyContributions.values.sum()}, avg=${accuracyContributions.values.sum() / totalQuestions}",
+                                style = Typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }

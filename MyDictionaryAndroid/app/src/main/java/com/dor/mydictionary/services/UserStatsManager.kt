@@ -51,13 +51,15 @@ class UserStatsManager @Inject constructor(
         val newTotalSessions = currentStats.totalSessions + 1
         val newTotalPracticeTime = currentStats.totalPracticeTime + practiceTime
         val newTotalWordsStudied = currentStats.totalWordsStudied + wordsStudied
-        
+
         // Calculate new average accuracy
         val newAverageAccuracy = if (newTotalSessions > 0) {
             ((currentStats.averageAccuracy * currentStats.totalSessions) + accuracy) / newTotalSessions
         } else {
             accuracy
         }
+        
+        // Debug logging
         
         // Update streak logic
         val today = Date()

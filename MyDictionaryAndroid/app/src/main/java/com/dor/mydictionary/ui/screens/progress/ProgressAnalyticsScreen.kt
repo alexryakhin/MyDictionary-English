@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dor.mydictionary.ui.components.VocabularyLineChart
 import com.dor.mydictionary.ui.theme.Typography
+import java.text.NumberFormat
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -129,7 +130,7 @@ private fun ProgressOverviewSection(
     inProgress: Int,
     mastered: Int,
     needsReview: Int,
-    totalPracticeTime: Double,
+    totalPracticeTime: String,
     averageAccuracy: Double,
     totalSessions: Int
 ) {
@@ -204,7 +205,7 @@ private fun ProgressOverviewSection(
                     ) {
                         StatCard(
                             title = "Practice Time",
-                            value = "${totalPracticeTime.toInt()} min",
+                            value = totalPracticeTime,
                             icon = Icons.Default.Timer
                         )
                     }
@@ -426,13 +427,13 @@ private fun QuizResultRow(result: QuizResult) {
                 horizontalAlignment = Alignment.End
             ) {
                 Text(
-                    text = "${result.score} pts",
+                    text = "${NumberFormat.getNumberInstance().format(result.score)} pts",
                     style = Typography.bodyMedium,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.primary
                 )
                 Text(
-                    text = "${(result.score.toFloat() / result.totalWords * 100).toInt()}%",
+                    text = "${(result.accuracy * 100).toInt()}%",
                     style = Typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -562,7 +563,7 @@ data class ProgressAnalyticsUiState(
     val inProgress: Int = 0,
     val mastered: Int = 0,
     val needsReview: Int = 0,
-    val totalPracticeTime: Double = 0.0,
+    val totalPracticeTime: String = "0min",
     val averageAccuracy: Double = 0.0,
     val totalSessions: Int = 0,
     val vocabularyGrowthData: List<ChartDataPoint> = emptyList(),
@@ -581,6 +582,7 @@ data class QuizResult(
     val quizType: String,
     val score: Int,
     val totalWords: Int,
+    val accuracy: Double,
     val date: String
 )
 

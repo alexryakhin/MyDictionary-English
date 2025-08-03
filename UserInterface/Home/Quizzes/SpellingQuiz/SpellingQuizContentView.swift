@@ -38,6 +38,12 @@ struct SpellingQuizContentView: View {
             .onAppear {
                 AnalyticsService.shared.logEvent(.spellingQuizOpened)
             }
+            .onDisappear {
+                // Handle early exit - save current progress if quiz is in progress
+                if !viewModel.isQuizComplete && viewModel.wordsPlayed.count > 0 {
+                    viewModel.handle(.dismiss)
+                }
+            }
         } else {
             // Completion View
             completionView
@@ -234,10 +240,8 @@ struct SpellingQuizContentView: View {
         VStack(spacing: 12) {
             Button {
                 withAnimation(.easeInOut(duration: 0.3)) {
-                    if viewModel.isShowingCorrectAnswer {
+                    if viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3 {
                         viewModel.handle(.nextWord)
-                    } else if viewModel.attemptCount >= 3 {
-                        viewModel.handle(.skipWord)
                     } else {
                         viewModel.handle(.confirmAnswer)
                     }
@@ -319,7 +323,7 @@ struct SpellingQuizContentView: View {
                         HStack {
                             Text("Correct Answers")
                             Spacer()
-                            Text("\(viewModel.correctAnswers)/\(viewModel.totalQuestions)")
+                            Text("\(viewModel.correctAnswers)/\(viewModel.wordsPlayed.count)")
                                 .fontWeight(.medium)
                         }
                         
@@ -334,9 +338,20 @@ struct SpellingQuizContentView: View {
                         HStack {
                             Text("Accuracy")
                             Spacer()
-                            Text("\(Int((Double(viewModel.correctAnswers) / Double(viewModel.totalQuestions)) * 100))%")
+                            Text("\(Int(calculateAccuracy()))%")
                                 .fontWeight(.medium)
                                 .foregroundColor(.green)
+                        }
+                        
+                        // Debug info (can be removed later)
+                        if viewModel.wordsPlayed.count > 0 {
+                            HStack {
+                                Text("Debug")
+                                Spacer()
+                                Text("contributions: \(viewModel.accuracyContributions.values.map { String(format: "%.2f", $0) }.joined(separator: ", "))")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
                     .font(.body)
@@ -385,5 +400,18 @@ struct SpellingQuizContentView: View {
         } else {
             return "Incorrect. Try again"
         }
+    }
+
+    private func calculateAccuracy() -> Double {
+        let wordsPlayedCount = Double(viewModel.wordsPlayed.count)
+        
+        if wordsPlayedCount == 0 {
+            return 0.0
+        }
+        
+        // Calculate accuracy based on contributions
+        let totalAccuracyContribution = viewModel.accuracyContributions.values.reduce(0, +)
+        let averageAccuracy = totalAccuracyContribution / wordsPlayedCount
+        return averageAccuracy * 100
     }
 }

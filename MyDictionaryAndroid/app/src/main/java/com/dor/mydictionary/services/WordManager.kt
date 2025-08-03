@@ -9,7 +9,8 @@ import java.util.UUID
 import javax.inject.Inject
 
 class WordManager @Inject constructor(
-    private val localStorage: LocalWordStorage
+    private val localStorage: LocalWordStorage,
+    private val userStatsManager: UserStatsManager
 ) {
     suspend fun getAllWords(): List<Word> {
         return localStorage.getAll().map { it.toWord() }
@@ -53,11 +54,16 @@ class WordManager @Inject constructor(
         )
         
         localStorage.insert(WordEntity.fromWord(word))
+        
+        // Update vocabulary size in user stats
+        updateVocabularySize()
+        
         return word
     }
 
     suspend fun addWord(word: Word) {
         localStorage.insert(WordEntity.fromWord(word))
+        updateVocabularySize()
     }
 
     suspend fun updateWord(word: Word) {
@@ -66,6 +72,7 @@ class WordManager @Inject constructor(
 
     suspend fun deleteWord(word: Word) {
         localStorage.delete(WordEntity.fromWord(word))
+        updateVocabularySize()
     }
 
     suspend fun toggleFavorite(word: Word): Word {
@@ -83,4 +90,59 @@ class WordManager @Inject constructor(
     suspend fun getHardWords(): List<Word> {
         return localStorage.getAll().filter { it.difficultyLevel > 0 }.map { it.toWord() }
     }
+
+    suspend fun getWordsByDifficultyLevel(difficultyLevel: Int): List<Word> {
+        return localStorage.getAll().filter { it.difficultyLevel == difficultyLevel }.map { it.toWord() }
+    }
+
+    suspend fun getNewWords(): List<Word> {
+        return getWordsByDifficultyLevel(0)
+    }
+
+    suspend fun getInProgressWords(): List<Word> {
+        return getWordsByDifficultyLevel(1)
+    }
+
+    suspend fun getNeedsReviewWords(): List<Word> {
+        return getWordsByDifficultyLevel(2)
+    }
+
+    suspend fun getMasteredWords(): List<Word> {
+        return getWordsByDifficultyLevel(3)
+    }
+
+    suspend fun getProgressSummary(): ProgressSummary {
+        val allWords = getAllWords()
+        
+        val newWords = allWords.count { it.difficultyLevel == 0 }
+        val inProgressWords = allWords.count { it.difficultyLevel == 1 }
+        val needsReviewWords = allWords.count { it.difficultyLevel == 2 }
+        val masteredWords = allWords.count { it.difficultyLevel == 3 }
+        
+        return ProgressSummary(
+            newWords = newWords,
+            inProgressWords = inProgressWords,
+            needsReviewWords = needsReviewWords,
+            masteredWords = masteredWords,
+            totalWords = allWords.size
+        )
+    }
+
+    private suspend fun updateVocabularySize() {
+        try {
+            val allWords = getAllWords()
+            userStatsManager.updateVocabularySize(allWords.size)
+        } catch (e: Exception) {
+            // Log error but don't crash
+            android.util.Log.e("WordManager", "Failed to update vocabulary size: ${e.message}")
+        }
+    }
 }
+
+data class ProgressSummary(
+    val newWords: Int,
+    val inProgressWords: Int,
+    val needsReviewWords: Int,
+    val masteredWords: Int,
+    val totalWords: Int
+)
