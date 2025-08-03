@@ -1,5 +1,6 @@
 package com.dor.mydictionary.services
 
+import android.util.Log
 import com.dor.mydictionary.core.WordProgress
 import java.util.Date
 import java.util.UUID
@@ -46,42 +47,46 @@ class WordProgressManager @Inject constructor(
         isCorrect: Boolean,
         responseTime: Double
     ) {
-        val currentProgress = getByWordId(wordId) ?: createWordProgress(wordId)
-        
-        val newTotalAttempts = currentProgress.totalAttempts + 1
-        val newCorrectAttempts = if (isCorrect) currentProgress.correctAttempts + 1 else currentProgress.correctAttempts
-        val newConsecutiveCorrect = if (isCorrect) currentProgress.consecutiveCorrect + 1 else 0
-        
-        // Calculate new average response time
-        val newAverageResponseTime = if (newTotalAttempts > 0) {
-            ((currentProgress.averageResponseTime * currentProgress.totalAttempts) + responseTime) / newTotalAttempts
-        } else {
-            responseTime
+        try {
+            val currentProgress = getByWordId(wordId) ?: createWordProgress(wordId)
+            
+            val newTotalAttempts = currentProgress.totalAttempts + 1
+            val newCorrectAttempts = if (isCorrect) currentProgress.correctAttempts + 1 else currentProgress.correctAttempts
+            val newConsecutiveCorrect = if (isCorrect) currentProgress.consecutiveCorrect + 1 else 0
+            
+            // Calculate new average response time
+            val newAverageResponseTime = if (newTotalAttempts > 0) {
+                ((currentProgress.averageResponseTime * currentProgress.totalAttempts) + responseTime) / newTotalAttempts
+            } else {
+                responseTime
+            }
+            
+            // Calculate difficulty score (0.0 to 1.0, higher = more difficult)
+            val accuracy = if (newTotalAttempts > 0) newCorrectAttempts.toDouble() / newTotalAttempts else 0.0
+            val newDifficultyScore = 1.0 - accuracy
+            
+            // Determine mastery level
+            val newMasteryLevel = when {
+                accuracy >= 0.9 && newConsecutiveCorrect >= 5 -> "mastered"
+                accuracy >= 0.7 -> "inProgress"
+                accuracy < 0.5 -> "needsReview"
+                else -> "new"
+            }
+            
+            val updatedProgress = currentProgress.copy(
+                averageResponseTime = newAverageResponseTime,
+                consecutiveCorrect = newConsecutiveCorrect,
+                correctAttempts = newCorrectAttempts,
+                difficultyScore = newDifficultyScore,
+                lastPracticed = Date(),
+                masteryLevel = newMasteryLevel,
+                totalAttempts = newTotalAttempts
+            )
+            
+            updateWordProgress(updatedProgress)
+        } catch (e: Exception) {
+            Log.e("WordProgressManager", "Failed to record quiz attempt: ${e.message}", e)
         }
-        
-        // Calculate difficulty score (0.0 to 1.0, higher = more difficult)
-        val accuracy = if (newTotalAttempts > 0) newCorrectAttempts.toDouble() / newTotalAttempts else 0.0
-        val newDifficultyScore = 1.0 - accuracy
-        
-        // Determine mastery level
-        val newMasteryLevel = when {
-            accuracy >= 0.9 && newConsecutiveCorrect >= 5 -> "mastered"
-            accuracy >= 0.7 -> "inProgress"
-            accuracy < 0.5 -> "needsReview"
-            else -> "new"
-        }
-        
-        val updatedProgress = currentProgress.copy(
-            averageResponseTime = newAverageResponseTime,
-            consecutiveCorrect = newConsecutiveCorrect,
-            correctAttempts = newCorrectAttempts,
-            difficultyScore = newDifficultyScore,
-            lastPracticed = Date(),
-            masteryLevel = newMasteryLevel,
-            totalAttempts = newTotalAttempts
-        )
-        
-        updateWordProgress(updatedProgress)
     }
 
     suspend fun deleteWordProgress(wordProgress: WordProgress) {
@@ -89,19 +94,32 @@ class WordProgressManager @Inject constructor(
     }
 
     suspend fun incrementCorrectAnswers(wordId: String) {
-        recordQuizAttempt(wordId, isCorrect = true, responseTime = 0.0)
+        try {
+            recordQuizAttempt(wordId, isCorrect = true, responseTime = 0.0)
+        } catch (e: Exception) {
+            Log.e("WordProgressManager", "Failed to increment correct answers: ${e.message}", e)
+        }
     }
 
     suspend fun incrementIncorrectAnswers(wordId: String) {
-        recordQuizAttempt(wordId, isCorrect = false, responseTime = 0.0)
+        try {
+            recordQuizAttempt(wordId, isCorrect = false, responseTime = 0.0)
+        } catch (e: Exception) {
+            Log.e("WordProgressManager", "Failed to increment incorrect answers: ${e.message}", e)
+        }
     }
 
     suspend fun markAsNeedsReview(wordId: String) {
-        val currentProgress = getByWordId(wordId) ?: createWordProgress(wordId)
-        val updatedProgress = currentProgress.copy(
-            masteryLevel = "needsReview",
-            lastPracticed = Date()
-        )
-        updateWordProgress(updatedProgress)
+        try {
+            val currentProgress = getByWordId(wordId) ?: createWordProgress(wordId)
+            val updatedProgress = currentProgress.copy(
+                masteryLevel = "needsReview",
+                lastPracticed = Date()
+            )
+            updateWordProgress(updatedProgress)
+        } catch (e: Exception) {
+            // Log error but don't crash the app
+            Log.e("WordProgressManager", "Failed to mark word as needs review: ${e.message}", e)
+        }
     }
 } 

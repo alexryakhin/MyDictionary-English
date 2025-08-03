@@ -6,3 +6,6 @@ xcuserdata
 My Dictionary.xcodeproj/project.xcworkspace/xcuserdata/xander1100001.xcuserdatad/UserInterfaceState.xcuserstate
 Shared/GlobalConstant.swift
 MyDictionaryAndroid/app/src/main/java/com/dor/mydictionary/services/SensitiveConstant.kt
+MyDictionaryAndroid/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+MyDictionaryAndroid/.gradle/8.11.1/fileHashes
+MyDictionaryAndroid/.gradle/8.11.1/executionHistory

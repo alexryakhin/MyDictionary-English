@@ -1,5 +1,6 @@
 package com.dor.mydictionary.ui.screens.quizzes.spellingQuiz
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dor.mydictionary.core.Word
@@ -73,9 +74,10 @@ class SpellingQuizViewModel @Inject constructor(
                     )
                 }
                 
-                loadNextWord()
+                loadFirstWord()
                 
             } catch (e: Exception) {
+                Log.e("SpellingQuizViewModel", "startQuiz error: ${e.message}", e)
                 _uiState.update { 
                     it.copy(
                         error = "Failed to start quiz: ${e.message}",
@@ -134,6 +136,40 @@ class SpellingQuizViewModel @Inject constructor(
         }
         
         loadNextWord()
+    }
+
+    fun loadFirstWord() {
+        try {
+            if (quizWords.isNotEmpty()) {
+                val firstWord = quizWords[0]
+                _uiState.update { 
+                    it.copy(
+                        currentWord = firstWord,
+                        currentQuestionIndex = 0,
+                        userInput = "",
+                        isWordRevealed = false,
+                        isAnswerCorrect = null,
+                        progress = 1f / quizWords.size
+                    )
+                }
+            } else {
+                Log.w("SpellingQuizViewModel", "No quiz words available")
+                _uiState.update { 
+                    it.copy(
+                        error = "No words available for quiz",
+                        isLoading = false
+                    )
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("SpellingQuizViewModel", "loadFirstWord error: ${e.message}", e)
+            _uiState.update { 
+                it.copy(
+                    error = "Failed to load first word: ${e.message}",
+                    isLoading = false
+                )
+            }
+        }
     }
 
     fun loadNextWord() {

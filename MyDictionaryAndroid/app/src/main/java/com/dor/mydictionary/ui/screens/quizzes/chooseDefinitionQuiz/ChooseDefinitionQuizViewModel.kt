@@ -1,5 +1,6 @@
 package com.dor.mydictionary.ui.screens.quizzes.chooseDefinitionQuiz
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dor.mydictionary.core.Word
@@ -77,9 +78,10 @@ class ChooseDefinitionQuizViewModel @Inject constructor(
                     )
                 }
                 
-                loadNextWord()
+                loadFirstWord()
                 
             } catch (e: Exception) {
+                Log.e("ChooseDefinitionQuizViewModel", "startQuiz error: ${e.message}", e)
                 _uiState.update { 
                     it.copy(
                         error = "Failed to start quiz: ${e.message}",
@@ -140,6 +142,27 @@ class ChooseDefinitionQuizViewModel @Inject constructor(
         }
         
         loadNextWord()
+    }
+
+    fun loadFirstWord() {
+        if (quizWords.isNotEmpty()) {
+            val firstWord = quizWords[0]
+            val options = generateOptions(firstWord)
+            val correctAnswerIndex = options.indexOf(firstWord.definition)
+            
+            _uiState.update { 
+                it.copy(
+                    currentWord = firstWord,
+                    currentQuestionIndex = 0,
+                    options = options,
+                    selectedOption = null,
+                    correctAnswerIndex = correctAnswerIndex,
+                    isAnswerSubmitted = false,
+                    isAnswerCorrect = false,
+                    progress = 1f / quizWords.size
+                )
+            }
+        }
     }
 
     fun loadNextWord() {

@@ -1,5 +1,6 @@
 package com.dor.mydictionary.ui.screens.quizzes.spellingQuiz
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardActions
@@ -12,13 +13,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dor.mydictionary.core.Word
+import com.dor.mydictionary.core.PartOfSpeech
 import com.dor.mydictionary.ui.theme.Typography
+import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,11 +39,12 @@ fun SpellingQuizScreen(
 
     LaunchedEffect(Unit) {
         viewModel.startQuiz()
-        focusRequester.requestFocus()
     }
 
     LaunchedEffect(uiState.currentWord) {
         if (uiState.currentWord != null) {
+            // Small delay to ensure the input field is properly composed
+            delay(100)
             focusRequester.requestFocus()
         }
     }
@@ -47,79 +55,76 @@ fun SpellingQuizScreen(
                 title = { Text("Spelling Quiz", style = Typography.displaySmall) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
-                    }
-                },
-                actions = {
-                    IconButton(onClick = { viewModel.skipWord() }) {
-                        Icon(Icons.Default.SkipNext, contentDescription = "Skip Word")
+                        Icon(
+                            Icons.Default.ArrowBack, 
+                            contentDescription = "Navigate back"
+                        )
                     }
                 }
             )
         }
     ) { innerPadding ->
-        LazyColumn(
+        Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+                .padding(innerPadding)
         ) {
-            // Progress Section
-            item {
-                ProgressSection(
-                    currentQuestion = uiState.currentQuestionIndex + 1,
-                    totalQuestions = uiState.totalQuestions,
-                    progress = uiState.progress
-                )
-            }
-
-            // Current Word Section
-            uiState.currentWord?.let { word ->
-                item {
-                    WordSection(
-                        word = word,
-                        isRevealed = uiState.isWordRevealed
-                    )
-                }
-
-                // Input Section
-                item {
-                    InputSection(
-                        userInput = uiState.userInput,
-                        onInputChange = { viewModel.setUserInput(it) },
-                        onSubmit = { viewModel.submitAnswer() },
-                        isCorrect = uiState.isAnswerCorrect,
-                        isRevealed = uiState.isWordRevealed,
-                        focusRequester = focusRequester
-                    )
-                }
-
-                // Feedback Section
-                if (uiState.isWordRevealed) {
+            // Header with progress
+            HeaderSection(
+                currentQuestion = uiState.currentQuestionIndex + 1,
+                totalQuestions = uiState.totalQuestions,
+                progress = uiState.progress,
+                score = uiState.score
+            )
+            
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.spacedBy(24.dp)
+            ) {
+                // Definition Card
+                uiState.currentWord?.let { word ->
                     item {
-                        uiState.isAnswerCorrect?.let {
-                            FeedbackSection(
-                                isCorrect = it,
-                                correctAnswer = word.wordItself,
-                                userAnswer = uiState.userInput
-                            )
-                        }
+                        DefinitionCard(word = word)
+                    }
+
+                    // Answer Section
+                    item {
+                        AnswerSection(
+                            userInput = uiState.userInput,
+                            onInputChange = { viewModel.setUserInput(it) },
+                            onSubmit = { viewModel.submitAnswer() },
+                            isCorrect = uiState.isAnswerCorrect,
+                            isRevealed = uiState.isWordRevealed,
+                            focusRequester = focusRequester
+                        )
+                    }
+
+                    // Action Buttons
+                    item {
+                        ActionButtonsSection(
+                            isAnswerSubmitted = uiState.isWordRevealed,
+                            isCorrect = uiState.isAnswerCorrect,
+                            userInput = uiState.userInput,
+                            onConfirmAnswer = { viewModel.submitAnswer() },
+                            onNextWord = { viewModel.loadNextWord() },
+                            onSkipWord = { viewModel.skipWord() }
+                        )
                     }
                 }
-            }
 
-            // Quiz Complete Section
-            if (uiState.isQuizComplete) {
-                item {
-                    QuizCompleteSection(
-                        score = uiState.score,
-                        totalQuestions = uiState.totalQuestions,
-                        onFinish = {
-                            viewModel.finishQuiz()
-                            onQuizComplete()
-                        }
-                    )
+                // Quiz Complete Section
+                if (uiState.isQuizComplete) {
+                    item {
+                        QuizCompleteSection(
+                            score = uiState.score,
+                            totalQuestions = uiState.totalQuestions,
+                            onFinish = {
+                                viewModel.finishQuiz()
+                                onQuizComplete()
+                            }
+                        )
+                    }
                 }
             }
         }
@@ -141,95 +146,146 @@ fun SpellingQuizScreen(
 }
 
 @Composable
-private fun ProgressSection(
+fun HeaderSection(
     currentQuestion: Int,
     totalQuestions: Int,
-    progress: Float
+    progress: Float,
+    score: Int
 ) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.surface)
+            .padding(vertical = 6.dp)
     ) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+        // Progress Bar
+        LinearProgressIndicator(
+            progress = progress,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp),
+            color = MaterialTheme.colorScheme.primary,
+            trackColor = MaterialTheme.colorScheme.surfaceVariant
+        )
+        
+        // Stats Row
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp, vertical = 8.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+            // Left side - Progress and Streak
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(
+                    text = "Progress: $currentQuestion/$totalQuestions",
+                    style = Typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                
+                // TODO: Add streak when available
+                // Text(
+                //     text = "🔥 Streak: 3",
+                //     style = Typography.bodySmall,
+                //     color = Color(0xFFFF9800),
+                //     fontWeight = FontWeight.Medium
+                // )
+            }
+            
+            // Right side - Score and Best
+            Column(
+                horizontalAlignment = Alignment.End,
+                verticalArrangement = Arrangement.spacedBy(2.dp)
             ) {
                 Text(
-                    text = "Question $currentQuestion of $totalQuestions",
-                    style = Typography.titleMedium,
-                    fontWeight = FontWeight.Bold
+                    text = "Score: $score",
+                    style = Typography.bodySmall,
+                    fontWeight = FontWeight.Medium,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                
+                // TODO: Add best streak when available
+                // Text(
+                //     text = "Best: 5",
+                //     style = Typography.bodySmall,
+                //     color = MaterialTheme.colorScheme.onSurfaceVariant
+                // )
+            }
+        }
+        
+        Divider(
+            modifier = Modifier.padding(top = 6.dp),
+            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.2f)
+        )
+    }
+}
+
+@Composable
+fun DefinitionCard(word: Word) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant
+        )
+    ) {
+        Column(
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            // Header with icon and title
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.FormatQuote,
+                    contentDescription = "Definition icon",
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(24.dp)
                 )
                 
                 Text(
-                    text = "${(progress * 100).toInt()}%",
-                    style = Typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.primary
+                    text = "Definition",
+                    style = Typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold
                 )
+                
+                Spacer(modifier = Modifier)
             }
             
-            LinearProgressIndicator(
-                progress = progress,
-                modifier = Modifier.fillMaxWidth(),
-                color = MaterialTheme.colorScheme.primary
-            )
-        }
-    }
-}
-
-@Composable
-private fun WordSection(
-    word: Word,
-    isRevealed: Boolean
-) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-    ) {
-        Column(
-            modifier = Modifier.padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
+            // Definition text
             Text(
-                text = "Spell this word:",
+                text = word.definition,
                 style = Typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                lineHeight = 24.sp
             )
             
-            if (isRevealed) {
-                Text(
-                    text = word.wordItself,
-                    style = Typography.headlineLarge,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary
-                )
-            } else {
-                Text(
-                    text = "? ? ? ? ?",
-                    style = Typography.headlineLarge,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-            
-            if (word.definition.isNotEmpty()) {
-                Text(
-                    text = word.definition,
-                    style = Typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+            // Part of speech chip
+            if (word.partOfSpeech != PartOfSpeech.Unknown) {
+                Row {
+                    Surface(
+                        shape = MaterialTheme.shapes.small,
+                        color = MaterialTheme.colorScheme.primary.copy(alpha = 0.1f)
+                    ) {
+                        Text(
+                            text = word.partOfSpeech.rawValue,
+                            style = Typography.bodySmall,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                    
+                    Spacer(modifier = Modifier)
+                }
             }
         }
     }
 }
 
 @Composable
-private fun InputSection(
+private fun AnswerSection(
     userInput: String,
     onInputChange: (String) -> Unit,
     onSubmit: () -> Unit,
@@ -237,183 +293,329 @@ private fun InputSection(
     isRevealed: Boolean,
     focusRequester: FocusRequester
 ) {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
-        OutlinedTextField(
-            value = userInput,
-            onValueChange = onInputChange,
-            label = { Text("Type the word") },
-            placeholder = { Text("Enter your answer") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .focusRequester(focusRequester),
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Text,
-                imeAction = ImeAction.Done
-            ),
-            keyboardActions = KeyboardActions(
-                onDone = { onSubmit() }
-            ),
-            enabled = !isRevealed,
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = when (isCorrect) {
-                    true -> MaterialTheme.colorScheme.primary
-                    false -> MaterialTheme.colorScheme.error
-                    null -> MaterialTheme.colorScheme.primary
-                },
-                unfocusedBorderColor = when (isCorrect) {
-                    true -> MaterialTheme.colorScheme.primary
-                    false -> MaterialTheme.colorScheme.error
-                    null -> MaterialTheme.colorScheme.outline
-                }
-            )
-        )
-        
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-            if (!isRevealed) {
-                Button(
-                    onClick = onSubmit,
-                    enabled = userInput.isNotBlank(),
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Text("Submit")
-                }
-            } else {
-                Button(
-                    onClick = onSubmit,
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Text("Next Word")
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun FeedbackSection(
-    isCorrect: Boolean,
-    correctAnswer: String,
-    userAnswer: String
-) {
     Card(
         modifier = Modifier.fillMaxWidth(),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (isCorrect) 
-                MaterialTheme.colorScheme.primaryContainer 
-            else 
-                MaterialTheme.colorScheme.errorContainer
+            containerColor = MaterialTheme.colorScheme.surfaceVariant
         )
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
+            // Header with icon and title
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 Icon(
-                    if (isCorrect) Icons.Default.Check else Icons.Default.Close,
-                    contentDescription = null,
-                    tint = if (isCorrect) 
-                        MaterialTheme.colorScheme.onPrimaryContainer 
-                    else 
-                        MaterialTheme.colorScheme.onErrorContainer
+                    imageVector = Icons.Default.Edit,
+                    contentDescription = "Answer input icon",
+                    tint = Color(0xFF4CAF50),
+                    modifier = Modifier.size(24.dp)
                 )
+                
                 Text(
-                    text = if (isCorrect) "Correct!" else "Incorrect",
+                    text = "Your Answer",
                     style = Typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = if (isCorrect) 
-                        MaterialTheme.colorScheme.onPrimaryContainer 
-                    else 
-                        MaterialTheme.colorScheme.onErrorContainer
+                    fontWeight = FontWeight.SemiBold
                 )
+                
+                Spacer(modifier = Modifier)
             }
             
-            if (!isCorrect) {
-                Text(
-                    text = "Your answer: $userAnswer",
-                    style = Typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onErrorContainer
+            // Text input field
+            OutlinedTextField(
+                value = userInput,
+                onValueChange = onInputChange,
+                placeholder = { Text("Type the word here...") },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .focusRequester(focusRequester),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Done
+                ),
+                keyboardActions = KeyboardActions(
+                    onDone = { onSubmit() }
+                ),
+                enabled = !isRevealed,
+                singleLine = true,
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    unfocusedBorderColor = MaterialTheme.colorScheme.outline
                 )
-                Text(
-                    text = "Correct answer: $correctAnswer",
-                    style = Typography.bodyMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onErrorContainer
-                )
+            )
+            
+            // Feedback messages
+            if (isRevealed) {
+                when {
+                    isCorrect == true -> {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            modifier = Modifier
+                                .padding(horizontal = 12.dp, vertical = 8.dp)
+                                .background(
+                                    color = Color(0xFF4CAF50).copy(alpha = 0.1f),
+                                    shape = MaterialTheme.shapes.small
+                                )
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.CheckCircle,
+                                contentDescription = "Correct answer",
+                                tint = Color(0xFF4CAF50)
+                            )
+                            Text(
+                                text = listOf("Correct!", "Well done!", "Keep up the good work!").random(),
+                                style = Typography.bodySmall,
+                                color = Color(0xFF4CAF50)
+                            )
+                            Spacer(modifier = Modifier)
+                        }
+                    }
+                    isCorrect == false -> {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            modifier = Modifier
+                                .padding(horizontal = 12.dp, vertical = 8.dp)
+                                .background(
+                                    color = Color(0xFFFF9800).copy(alpha = 0.1f),
+                                    shape = MaterialTheme.shapes.small
+                                )
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Warning,
+                                contentDescription = "Incorrect answer",
+                                tint = Color(0xFFFF9800)
+                            )
+                            Text(
+                                text = "Incorrect. Try again",
+                                style = Typography.bodySmall,
+                                color = Color(0xFFFF9800)
+                            )
+                            Spacer(modifier = Modifier)
+                        }
+                    }
+                }
             }
         }
     }
 }
 
 @Composable
-private fun QuizCompleteSection(
+fun ActionButtonsSection(
+    isAnswerSubmitted: Boolean,
+    isCorrect: Boolean?,
+    userInput: String,
+    onConfirmAnswer: () -> Unit,
+    onNextWord: () -> Unit,
+    onSkipWord: () -> Unit
+) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        // Primary button
+        Button(
+            onClick = if (isAnswerSubmitted) onNextWord else onConfirmAnswer,
+            enabled = if (isAnswerSubmitted) true else userInput.isNotBlank(),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = if (isAnswerSubmitted) Icons.Default.ArrowForward else Icons.Default.Check,
+                    contentDescription = if (isAnswerSubmitted) "Next word" else "Submit answer",
+                    modifier = Modifier.size(20.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = if (isAnswerSubmitted) "Next Word" else "Submit Answer",
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
+        }
+        
+        // Skip button
+        OutlinedButton(
+            onClick = onSkipWord,
+            enabled = !isAnswerSubmitted,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Default.SkipNext,
+                    contentDescription = "Skip word",
+                    modifier = Modifier.size(20.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("Skip Word (-25 points)")
+            }
+        }
+    }
+}
+
+@Composable
+fun QuizCompleteSection(
     score: Int,
     totalQuestions: Int,
     onFinish: () -> Unit
 ) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.weight(1f))
+        
         Column(
-            modifier = Modifier.padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-            Icon(
-                Icons.Default.Star,
-                contentDescription = null,
-                modifier = Modifier.size(64.dp),
-                tint = MaterialTheme.colorScheme.primary
-            )
+            // Success Icon
+            Surface(
+                shape = CircleShape,
+                color = Color(0xFF4CAF50),
+                modifier = Modifier.size(80.dp)
+            ) {
+                Icon(
+                    Icons.Default.Check,
+                    contentDescription = "Quiz completed successfully",
+                    modifier = Modifier
+                        .size(40.dp)
+                        .padding(20.dp),
+                    tint = Color.White
+                )
+            }
             
-            Text(
-                text = "Quiz Complete!",
-                style = Typography.headlineMedium,
-                fontWeight = FontWeight.Bold
-            )
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Text(
+                    text = "Quiz Complete!",
+                    style = Typography.headlineLarge,
+                    fontWeight = FontWeight.Bold
+                )
+                
+                Text(
+                    text = "Great job! You've completed the spelling quiz.",
+                    style = Typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
+                )
+            }
             
-            Text(
-                text = "You got $score out of $totalQuestions correct",
-                style = Typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            
-            Text(
-                text = "${(score * 100 / totalQuestions)}%",
-                style = Typography.displaySmall,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary
-            )
-            
+            // Results Card
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant
+                )
+            ) {
+                Column(
+                    modifier = Modifier.padding(24.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    Text(
+                        text = "Your Results",
+                        style = Typography.titleMedium,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text("Final Score")
+                            Text(
+                                text = "$score",
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        }
+                        
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text("Correct Answers")
+                            Text(
+                                text = "$score/$totalQuestions",
+                                fontWeight = FontWeight.Medium
+                            )
+                        }
+                        
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text("Accuracy")
+                            Text(
+                                text = "${(score * 100 / totalQuestions)}%",
+                                fontWeight = FontWeight.Medium,
+                                color = Color(0xFF4CAF50)
+                            )
+                        }
+                    }
+                }
+            }
+        }
+        
+        Spacer(modifier = Modifier.weight(1f))
+        
+        // Action Buttons
+        Column(
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Button(
                 onClick = onFinish,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Finish")
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        Icons.Default.Refresh,
+                        contentDescription = "Try again",
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Try Again")
+                }
+            }
+            
+            OutlinedButton(
+                onClick = onFinish,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        Icons.Default.ArrowBack,
+                        contentDescription = "Back to quizzes",
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Back to Quizzes")
+                }
             }
         }
     }
 }
 
-data class SpellingQuizUiState(
-    val currentWord: Word? = null,
-    val userInput: String = "",
-    val currentQuestionIndex: Int = 0,
-    val totalQuestions: Int = 0,
-    val score: Int = 0,
-    val progress: Float = 0f,
-    val isWordRevealed: Boolean = false,
-    val isAnswerCorrect: Boolean? = null,
-    val isQuizComplete: Boolean = false,
-    val isLoading: Boolean = false,
-    val error: String? = null
-) 
+ 
