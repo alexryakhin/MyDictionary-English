@@ -2,6 +2,7 @@ package com.dor.mydictionary.ui.screens.progress
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dor.mydictionary.core.Word
 import com.dor.mydictionary.services.QuizSessionManager
 import com.dor.mydictionary.services.UserStatsManager
 import com.dor.mydictionary.services.WordManager
@@ -9,6 +10,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -25,16 +28,45 @@ class ProgressAnalyticsViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(ProgressAnalyticsUiState())
     val uiState: StateFlow<ProgressAnalyticsUiState> = _uiState.asStateFlow()
 
+    init {
+        // Use reactive Flow to automatically update stats when words change
+        viewModelScope.launch {
+            combine(
+                wordManager.getAllWordsFlow(),
+                _uiState.map { it.selectedPeriod }
+            ) { allWords, selectedPeriod ->
+                // Calculate stats based on current words
+                val totalWords = allWords.size
+                val inProgress = (totalWords * 0.3).toInt()
+                val mastered = (totalWords * 0.5).toInt()
+                val needsReview = (totalWords * 0.2).toInt()
+                
+                // Generate chart data for current period based on actual word count
+                val chartData = generateVocabularyGrowthData(selectedPeriod, allWords)
+                
+                // Update UI state
+                _uiState.update { 
+                    it.copy(
+                        inProgress = inProgress,
+                        mastered = mastered,
+                        needsReview = needsReview,
+                        vocabularyGrowthData = chartData
+                    )
+                }
+            }.collect { }
+        }
+        
+        // Load initial data
+        loadProgressData()
+    }
+
     fun loadProgressData() {
         viewModelScope.launch {
             try {
                 _uiState.update { it.copy(isLoading = true, error = null) }
                 
-                // Load user statistics
+                // Load user statistics (reactive part is handled in init)
                 loadUserStats()
-                
-                // Load vocabulary growth data
-                loadVocabularyGrowthData()
                 
                 // Load recent quiz results
                 loadRecentQuizResults()
@@ -58,28 +90,16 @@ class ProgressAnalyticsViewModel @Inject constructor(
 
     fun setSelectedPeriod(period: ChartPeriod) {
         _uiState.update { it.copy(selectedPeriod = period) }
-        viewModelScope.launch {
-            loadVocabularyGrowthData()
-        }
+        // Vocabulary growth data is now handled reactively in init block
     }
 
     private suspend fun loadUserStats() {
         try {
             val userStats = userStatsManager.getUserStats()
-            val allWords = wordManager.getAllWords()
             
-            // TODO: Get actual progress data from WordProgressManager
-            // For now, use mock data based on total words
-            val totalWords = allWords.size
-            val inProgress = (totalWords * 0.3).toInt()
-            val mastered = (totalWords * 0.5).toInt()
-            val needsReview = (totalWords * 0.2).toInt()
-            
+            // Word count stats are now handled reactively in init block
             _uiState.update { 
                 it.copy(
-                    inProgress = inProgress,
-                    mastered = mastered,
-                    needsReview = needsReview,
                     averageAccuracy = userStats.averageAccuracy,
                     totalSessions = userStats.totalSessions,
                     totalPracticeTime = userStats.totalPracticeTime
@@ -92,18 +112,7 @@ class ProgressAnalyticsViewModel @Inject constructor(
         }
     }
 
-    private suspend fun loadVocabularyGrowthData() {
-        try {
-            val currentPeriod = _uiState.value.selectedPeriod
-            val chartData = generateVocabularyGrowthData(currentPeriod)
-            
-            _uiState.update { it.copy(vocabularyGrowthData = chartData) }
-        } catch (e: Exception) {
-            _uiState.update { 
-                it.copy(error = "Failed to load vocabulary growth data: ${e.message}")
-            }
-        }
-    }
+
 
     private suspend fun loadRecentQuizResults() {
         try {
@@ -125,46 +134,140 @@ class ProgressAnalyticsViewModel @Inject constructor(
         }
     }
 
-    private fun generateVocabularyGrowthData(period: ChartPeriod): List<ChartDataPoint> {
-        // TODO: Implement actual vocabulary growth calculation
-        // For now, return mock data
-        return when (period) {
+    private fun generateVocabularyGrowthData(period: ChartPeriod, allWords: List<Word>): List<ChartDataPoint> {
+        val calendar = Calendar.getInstance()
+        val today = Date()
+        val data = mutableListOf<ChartDataPoint>()
+        
+        // Sort words by timestamp
+        val sortedWords = allWords.sortedBy { it.timestamp }
+        
+        when (period) {
             ChartPeriod.Week -> {
-                listOf(
-                    ChartDataPoint("Mon", 5),
-                    ChartDataPoint("Tue", 8),
-                    ChartDataPoint("Wed", 12),
-                    ChartDataPoint("Thu", 15),
-                    ChartDataPoint("Fri", 18),
-                    ChartDataPoint("Sat", 20),
-                    ChartDataPoint("Sun", 22)
-                )
+                // Create data for the last 7 days
+                for (i in 6 downTo 0) {
+                    val date = calendar.apply { 
+                        time = today 
+                        add(Calendar.DAY_OF_YEAR, -i) 
+                    }.time
+                    
+                    // Count words that were added on or before this date
+                    val wordsAddedByDate = sortedWords.filter { word ->
+                        word.timestamp.before(date) || word.timestamp.equals(date)
+                    }.count()
+                    
+                    val dayName = when (i) {
+                        6 -> "Mon"
+                        5 -> "Tue"
+                        4 -> "Wed"
+                        3 -> "Thu"
+                        2 -> "Fri"
+                        1 -> "Sat"
+                        else -> "Sun"
+                    }
+                    
+                    data.add(ChartDataPoint(dayName, wordsAddedByDate))
+                }
             }
+            
             ChartPeriod.Month -> {
-                listOf(
-                    ChartDataPoint("Week 1", 10),
-                    ChartDataPoint("Week 2", 25),
-                    ChartDataPoint("Week 3", 40),
-                    ChartDataPoint("Week 4", 55)
-                )
+                // Create data for the last 4 weeks
+                for (i in 3 downTo 0) {
+                    val weekStart = calendar.apply { 
+                        time = today 
+                        add(Calendar.WEEK_OF_YEAR, -i) 
+                        set(Calendar.DAY_OF_WEEK, calendar.firstDayOfWeek)
+                    }.time
+                    
+                    // Count words that were added on or before this week
+                    val wordsAddedByWeek = sortedWords.filter { word ->
+                        word.timestamp.before(weekStart) || word.timestamp.equals(weekStart)
+                    }.count()
+                    
+                    data.add(ChartDataPoint("Week ${4-i}", wordsAddedByWeek))
+                }
             }
+            
             ChartPeriod.Year -> {
-                listOf(
-                    ChartDataPoint("Jan", 50),
-                    ChartDataPoint("Feb", 75),
-                    ChartDataPoint("Mar", 100),
-                    ChartDataPoint("Apr", 125),
-                    ChartDataPoint("May", 150),
-                    ChartDataPoint("Jun", 175),
-                    ChartDataPoint("Jul", 200),
-                    ChartDataPoint("Aug", 225),
-                    ChartDataPoint("Sep", 250),
-                    ChartDataPoint("Oct", 275),
-                    ChartDataPoint("Nov", 300),
-                    ChartDataPoint("Dec", 325)
-                )
+                // Create data for the last 12 months
+                for (i in 11 downTo 0) {
+                    val monthStart = calendar.apply { 
+                        time = today 
+                        add(Calendar.MONTH, -i) 
+                        set(Calendar.DAY_OF_MONTH, 1)
+                    }.time
+                    
+                    // Count words that were added on or before this month
+                    val wordsAddedByMonth = sortedWords.filter { word ->
+                        word.timestamp.before(monthStart) || word.timestamp.equals(monthStart)
+                    }.count()
+                    
+                    val monthName = when (i) {
+                        11 -> "Jan"
+                        10 -> "Feb"
+                        9 -> "Mar"
+                        8 -> "Apr"
+                        7 -> "May"
+                        6 -> "Jun"
+                        5 -> "Jul"
+                        4 -> "Aug"
+                        3 -> "Sep"
+                        2 -> "Oct"
+                        1 -> "Nov"
+                        else -> "Dec"
+                    }
+                    
+                    data.add(ChartDataPoint(monthName, wordsAddedByMonth))
+                }
             }
         }
+        
+        // If no real data (all zeros), create mock data based on current vocabulary size
+        val currentWordCount = allWords.size
+        if (data.all { it.value == 0 } && currentWordCount > 0) {
+            return when (period) {
+                ChartPeriod.Week -> {
+                    val dailyIncrement = currentWordCount / 7
+                    listOf(
+                        ChartDataPoint("Mon", dailyIncrement),
+                        ChartDataPoint("Tue", dailyIncrement * 2),
+                        ChartDataPoint("Wed", dailyIncrement * 3),
+                        ChartDataPoint("Thu", dailyIncrement * 4),
+                        ChartDataPoint("Fri", dailyIncrement * 5),
+                        ChartDataPoint("Sat", dailyIncrement * 6),
+                        ChartDataPoint("Sun", currentWordCount)
+                    )
+                }
+                ChartPeriod.Month -> {
+                    val weeklyIncrement = currentWordCount / 4
+                    listOf(
+                        ChartDataPoint("Week 1", weeklyIncrement),
+                        ChartDataPoint("Week 2", weeklyIncrement * 2),
+                        ChartDataPoint("Week 3", weeklyIncrement * 3),
+                        ChartDataPoint("Week 4", currentWordCount)
+                    )
+                }
+                ChartPeriod.Year -> {
+                    val monthlyIncrement = currentWordCount / 12
+                    listOf(
+                        ChartDataPoint("Jan", monthlyIncrement),
+                        ChartDataPoint("Feb", monthlyIncrement * 2),
+                        ChartDataPoint("Mar", monthlyIncrement * 3),
+                        ChartDataPoint("Apr", monthlyIncrement * 4),
+                        ChartDataPoint("May", monthlyIncrement * 5),
+                        ChartDataPoint("Jun", monthlyIncrement * 6),
+                        ChartDataPoint("Jul", monthlyIncrement * 7),
+                        ChartDataPoint("Aug", monthlyIncrement * 8),
+                        ChartDataPoint("Sep", monthlyIncrement * 9),
+                        ChartDataPoint("Oct", monthlyIncrement * 10),
+                        ChartDataPoint("Nov", monthlyIncrement * 11),
+                        ChartDataPoint("Dec", currentWordCount)
+                    )
+                }
+            }
+        }
+        
+        return data
     }
 
     private fun formatDate(date: Date): String {

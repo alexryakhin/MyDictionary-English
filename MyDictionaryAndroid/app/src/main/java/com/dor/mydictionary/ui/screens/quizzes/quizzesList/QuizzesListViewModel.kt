@@ -9,6 +9,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -28,7 +30,22 @@ class QuizzesListViewModel @Inject constructor(
     init {
         loadRecentQuizResults()
         loadPracticeSettings()
-        loadAvailableWordsCount()
+        
+        // Use reactive Flow to automatically update available words count
+        viewModelScope.launch {
+            combine(
+                wordManager.getAllWordsFlow(),
+                _uiState.map { it.practiceSettings.hardWordsOnly }
+            ) { allWords, hardWordsOnly ->
+                if (hardWordsOnly) {
+                    allWords.filter { it.difficultyLevel > 0 }.size
+                } else {
+                    allWords.size
+                }
+            }.collect { availableWordsCount ->
+                _uiState.update { it.copy(availableWordsCount = availableWordsCount) }
+            }
+        }
     }
 
     fun togglePracticeSettings() {
@@ -125,22 +142,7 @@ class QuizzesListViewModel @Inject constructor(
         return formatter.format(date)
     }
 
-    private fun loadAvailableWordsCount() {
-        viewModelScope.launch {
-            try {
-                val userStats = userStatsManager.getUserStats()
-                val availableWords = if (userStats.practiceHardWordsOnly) {
-                    wordManager.getHardWords()
-                } else {
-                    wordManager.getAllWords()
-                }
-                
-                _uiState.update { it.copy(availableWordsCount = availableWords.size) }
-            } catch (e: Exception) {
-                _uiState.update { it.copy(availableWordsCount = 0) }
-            }
-        }
-    }
+
 
     fun clearError() {
         _uiState.update { it.copy(error = null) }

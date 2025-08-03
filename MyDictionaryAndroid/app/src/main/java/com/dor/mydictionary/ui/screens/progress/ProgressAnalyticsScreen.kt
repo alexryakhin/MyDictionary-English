@@ -25,6 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.dor.mydictionary.ui.components.VocabularyLineChart
 import com.dor.mydictionary.ui.theme.Typography
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -42,12 +43,7 @@ fun ProgressAnalyticsScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Progress", style = Typography.displaySmall) },
-                actions = {
-                    IconButton(onClick = { viewModel.refreshData() }) {
-                        Icon(Icons.Default.Refresh, contentDescription = "Refresh")
-                    }
-                }
+                title = { Text("Progress", style = Typography.displaySmall) }
             )
         }
     ) { innerPadding ->
@@ -77,8 +73,8 @@ fun ProgressAnalyticsScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding),
-                contentPadding = PaddingValues(24.dp),
-                verticalArrangement = Arrangement.spacedBy(24.dp)
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 // Progress Overview Section
                 item {
@@ -141,7 +137,7 @@ private fun ProgressOverviewSection(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
-            modifier = Modifier.padding(20.dp),
+            modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Text(
@@ -150,66 +146,71 @@ private fun ProgressOverviewSection(
                 fontWeight = FontWeight.SemiBold
             )
 
-            // Progress Cards Grid
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            // Progress Cards Grid - 3x2 grid like iOS
+            Column(
+                verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Box(modifier = Modifier.weight(1f)) {
-                    ProgressCard(
-                        title = "In Progress",
-                        value = "$inProgress",
-                        color = MaterialTheme.colorScheme.primary,
-                        icon = Icons.Default.Schedule
-                    )
+                // First row - Progress cards
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Box(modifier = Modifier.weight(1f)) {
+                        ProgressCard(
+                            title = "In Progress",
+                            value = "$inProgress",
+                            color = Color(0xFF2196F3), // Blue
+                            icon = Icons.Default.Schedule
+                        )
+                    }
+                    
+                    Box(modifier = Modifier.weight(1f)) {
+                        ProgressCard(
+                            title = "Mastered",
+                            value = "$mastered",
+                            color = Color(0xFF4CAF50), // Green
+                            icon = Icons.Default.CheckCircle
+                        )
+                    }
+                    
+                    Box(modifier = Modifier.weight(1f)) {
+                        ProgressCard(
+                            title = "Need Review",
+                            value = "$needsReview",
+                            color = Color(0xFFFF9800), // Orange
+                            icon = Icons.Default.Warning
+                        )
+                    }
                 }
-                
-                Box(modifier = Modifier.weight(1f)) {
-                    ProgressCard(
-                        title = "Mastered",
-                        value = "$mastered",
-                        color = MaterialTheme.colorScheme.primary,
-                        icon = Icons.Default.CheckCircle
-                    )
-                }
-                
-                Box(modifier = Modifier.weight(1f)) {
-                    ProgressCard(
-                        title = "Need Review",
-                        value = "$needsReview",
-                        color = MaterialTheme.colorScheme.primary,
-                        icon = Icons.Default.Warning
-                    )
-                }
-            }
 
-            // Stats Row
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                Box(modifier = Modifier.weight(1f)) {
-                    StatCard(
-                        title = "Practice Time",
-                        value = "${totalPracticeTime.toInt()} min",
-                        icon = Icons.Default.Timer
-                    )
-                }
-                
-                Box(modifier = Modifier.weight(1f)) {
-                    StatCard(
-                        title = "Accuracy",
-                        value = "${(averageAccuracy * 100).toInt()}%",
-                        icon = Icons.Default.TrackChanges
-                    )
-                }
-                
-                Box(modifier = Modifier.weight(1f)) {
-                    StatCard(
-                        title = "Sessions",
-                        value = "$totalSessions",
-                        icon = Icons.Default.PlayCircle
-                    )
+                // Second row - Stat cards
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Box(modifier = Modifier.weight(1f)) {
+                        StatCard(
+                            title = "Practice Time",
+                            value = "${totalPracticeTime.toInt()} min",
+                            icon = Icons.Default.Timer
+                        )
+                    }
+                    
+                    Box(modifier = Modifier.weight(1f)) {
+                        StatCard(
+                            title = "Accuracy",
+                            value = "${(averageAccuracy * 100).toInt()}%",
+                            icon = Icons.Default.TrackChanges
+                        )
+                    }
+                    
+                    Box(modifier = Modifier.weight(1f)) {
+                        StatCard(
+                            title = "Sessions",
+                            value = "$totalSessions",
+                            icon = Icons.Default.PlayCircle
+                        )
+                    }
                 }
             }
         }
@@ -223,28 +224,39 @@ private fun ProgressCard(
     color: Color,
     icon: ImageVector
 ) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = color.copy(alpha = 0.1f)
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            modifier = Modifier.size(24.dp),
-            tint = color
-        )
-        
-        Text(
-            text = value,
-            style = Typography.titleLarge,
-            fontWeight = FontWeight.Bold
-        )
-        
-        Text(
-            text = title,
-            style = Typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        Column(
+            modifier = Modifier.padding(12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                modifier = Modifier.size(24.dp),
+                tint = color
+            )
+            
+            Text(
+                text = value,
+                style = Typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                color = color
+            )
+            
+            Text(
+                text = title,
+                style = Typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
 
@@ -254,28 +266,38 @@ private fun StatCard(
     value: String,
     icon: ImageVector
 ) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            modifier = Modifier.size(16.dp),
-            tint = MaterialTheme.colorScheme.primary
-        )
-        
-        Text(
-            text = value,
-            style = Typography.bodySmall,
-            fontWeight = FontWeight.Medium
-        )
-        
-        Text(
-            text = title,
-            style = Typography.bodySmall.copy(fontSize = 10.sp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        Column(
+            modifier = Modifier.padding(12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                modifier = Modifier.size(20.dp),
+                tint = MaterialTheme.colorScheme.primary
+            )
+            
+            Text(
+                text = value,
+                style = Typography.titleSmall,
+                fontWeight = FontWeight.SemiBold
+            )
+            
+            Text(
+                text = title,
+                style = Typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
 
@@ -289,7 +311,7 @@ private fun QuizResultsSection(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
-            modifier = Modifier.padding(20.dp),
+            modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Row(
@@ -340,7 +362,7 @@ private fun QuizResultsSection(
                             text = "Complete your first quiz to see results here",
                             style = Typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                            textAlign = TextAlign.Center
                         )
                     }
                 }
@@ -359,53 +381,51 @@ private fun QuizResultsSection(
 
 @Composable
 private fun QuizResultRow(result: QuizResult) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(12.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        Column {
-            Text(
-                text = result.quizType.capitalize(),
-                style = Typography.titleSmall,
-                fontWeight = FontWeight.Medium
-            )
-            Text(
-                text = result.date,
-                style = Typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        }
-        
-        Column(
-            horizontalAlignment = Alignment.End
+        Row(
+            modifier = Modifier.padding(12.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = "${result.score}",
-                style = Typography.titleSmall,
-                fontWeight = FontWeight.Bold,
-                color = getScoreColor(result.score, result.totalWords)
-            )
-            Text(
-                text = "${result.score}/${result.totalWords}",
-                style = Typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+            Column {
+                Text(
+                    text = result.quizType.capitalize(),
+                    style = Typography.bodyMedium,
+                    fontWeight = FontWeight.Medium
+                )
+                Text(
+                    text = result.date,
+                    style = Typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            
+            Column(
+                horizontalAlignment = Alignment.End
+            ) {
+                Text(
+                    text = "${result.score} pts",
+                    style = Typography.bodyMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                Text(
+                    text = "${(result.score.toFloat() / result.totalWords * 100).toInt()}%",
+                    style = Typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
         }
     }
 }
 
-@Composable
-private fun getScoreColor(score: Int, totalWords: Int): Color {
-    val accuracy = if (totalWords > 0) score.toFloat() / totalWords else 0f
-    return when {
-        accuracy >= 0.8f -> MaterialTheme.colorScheme.primary
-        accuracy >= 0.6f -> Color(0xFFFF9800) // Orange
-        else -> MaterialTheme.colorScheme.error
-    }
-}
+
 
 @Composable
 private fun VocabularyGrowthSection(
@@ -418,7 +438,7 @@ private fun VocabularyGrowthSection(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
-            modifier = Modifier.padding(20.dp),
+            modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Row(
@@ -432,13 +452,38 @@ private fun VocabularyGrowthSection(
                     fontWeight = FontWeight.SemiBold
                 )
                 
-                Row {
-                    ChartPeriod.values().forEach { period ->
-                        FilterChip(
-                            onClick = { onPeriodChanged(period) },
-                            label = { Text(period.displayName) },
-                            selected = selectedPeriod == period
+                // Dropdown menu like iOS
+                var expanded by remember { mutableStateOf(false) }
+                Box {
+                    TextButton(
+                        onClick = { expanded = true }
+                    ) {
+                        Text(
+                            text = selectedPeriod.displayName,
+                            style = Typography.bodySmall,
+                            color = MaterialTheme.colorScheme.primary
                         )
+                        Icon(
+                            Icons.Default.ArrowDropDown,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp),
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                    
+                    DropdownMenu(
+                        expanded = expanded,
+                        onDismissRequest = { expanded = false }
+                    ) {
+                        ChartPeriod.values().forEach { period ->
+                            DropdownMenuItem(
+                                text = { Text(period.displayName) },
+                                onClick = {
+                                    onPeriodChanged(period)
+                                    expanded = false
+                                }
+                            )
+                        }
                     }
                 }
             }
@@ -453,19 +498,10 @@ private fun VocabularyGrowthSection(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     
-                    // TODO: Implement actual chart component
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(200.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "Chart: ${chartData.size} data points",
-                            style = Typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
+                    VocabularyLineChart(
+                        data = chartData,
+                        modifier = Modifier.fillMaxWidth()
+                    )
                 }
             } else {
                 Box(
@@ -493,7 +529,7 @@ private fun VocabularyGrowthSection(
                             text = "Complete quizzes to see your vocabulary growth over time",
                             style = Typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                            textAlign = TextAlign.Center
                         )
                     }
                 }
