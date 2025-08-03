@@ -11,8 +11,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.text.font.FontWeight
@@ -35,18 +33,9 @@ fun SpellingQuizScreen(
     viewModel: SpellingQuizViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = SpellingQuizUiState())
-    val focusRequester = remember { FocusRequester() }
 
     LaunchedEffect(Unit) {
         viewModel.startQuiz()
-    }
-
-    LaunchedEffect(uiState.currentWord) {
-        if (uiState.currentWord != null) {
-            // Small delay to ensure the input field is properly composed
-            delay(100)
-            focusRequester.requestFocus()
-        }
     }
 
     Scaffold(
@@ -71,10 +60,12 @@ fun SpellingQuizScreen(
         ) {
             // Header with progress
             HeaderSection(
-                currentQuestion = uiState.currentQuestionIndex + 1,
+                currentQuestion = uiState.correctAnswers,
                 totalQuestions = uiState.totalQuestions,
                 progress = uiState.progress,
-                score = uiState.score
+                score = uiState.score,
+                currentStreak = uiState.currentStreak,
+                bestStreak = uiState.bestStreak
             )
             
             LazyColumn(
@@ -85,7 +76,10 @@ fun SpellingQuizScreen(
                 // Definition Card
                 uiState.currentWord?.let { word ->
                     item {
-                        DefinitionCard(word = word)
+                        DefinitionCard(
+                            word = word,
+                            isShowingHint = uiState.isShowingHint
+                        )
                     }
 
                     // Answer Section
@@ -95,16 +89,17 @@ fun SpellingQuizScreen(
                             onInputChange = { viewModel.setUserInput(it) },
                             onSubmit = { viewModel.submitAnswer() },
                             isCorrect = uiState.isAnswerCorrect,
-                            isRevealed = uiState.isWordRevealed,
-                            focusRequester = focusRequester
+                            isRevealed = uiState.isShowingCorrectAnswer,
+                            attemptCount = uiState.attemptCount,
+                            currentWord = word
                         )
                     }
 
                     // Action Buttons
                     item {
                         ActionButtonsSection(
-                            isAnswerSubmitted = uiState.isWordRevealed,
-                            isCorrect = uiState.isAnswerCorrect,
+                            isAnswerSubmitted = uiState.isShowingCorrectAnswer,
+                            attemptCount = uiState.attemptCount,
                             userInput = uiState.userInput,
                             onConfirmAnswer = { viewModel.submitAnswer() },
                             onNextWord = { viewModel.loadNextWord() },
@@ -119,9 +114,14 @@ fun SpellingQuizScreen(
                         QuizCompleteSection(
                             score = uiState.score,
                             totalQuestions = uiState.totalQuestions,
+                            correctAnswers = uiState.correctAnswers,
+                            bestStreak = uiState.bestStreak,
                             onFinish = {
                                 viewModel.finishQuiz()
                                 onQuizComplete()
+                            },
+                            onRestart = {
+                                viewModel.restartQuiz()
                             }
                         )
                     }
@@ -150,7 +150,9 @@ fun HeaderSection(
     currentQuestion: Int,
     totalQuestions: Int,
     progress: Float,
-    score: Int
+    score: Int,
+    currentStreak: Int,
+    bestStreak: Int
 ) {
     Column(
         modifier = Modifier
@@ -184,13 +186,14 @@ fun HeaderSection(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 
-                // TODO: Add streak when available
-                // Text(
-                //     text = "🔥 Streak: 3",
-                //     style = Typography.bodySmall,
-                //     color = Color(0xFFFF9800),
-                //     fontWeight = FontWeight.Medium
-                // )
+                if (currentStreak > 0) {
+                    Text(
+                        text = "🔥 Streak: $currentStreak",
+                        style = Typography.bodySmall,
+                        color = Color(0xFFFF9800),
+                        fontWeight = FontWeight.Medium
+                    )
+                }
             }
             
             // Right side - Score and Best
@@ -205,12 +208,11 @@ fun HeaderSection(
                     color = MaterialTheme.colorScheme.primary
                 )
                 
-                // TODO: Add best streak when available
-                // Text(
-                //     text = "Best: 5",
-                //     style = Typography.bodySmall,
-                //     color = MaterialTheme.colorScheme.onSurfaceVariant
-                // )
+                Text(
+                    text = "Best: $bestStreak",
+                    style = Typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
         }
         
@@ -222,7 +224,7 @@ fun HeaderSection(
 }
 
 @Composable
-fun DefinitionCard(word: Word) {
+fun DefinitionCard(word: Word, isShowingHint: Boolean) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
@@ -280,6 +282,32 @@ fun DefinitionCard(word: Word) {
                     Spacer(modifier = Modifier)
                 }
             }
+            
+            // Hint section
+            if (isShowingHint) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    modifier = Modifier
+                        .padding(horizontal = 12.dp, vertical = 8.dp)
+                        .background(
+                            color = Color(0xFFFFEB3B).copy(alpha = 0.1f),
+                            shape = MaterialTheme.shapes.small
+                        )
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Lightbulb,
+                        contentDescription = "Hint",
+                        tint = Color(0xFFFFEB3B)
+                    )
+                    Text(
+                        text = "Hint: The word starts with '${word.wordItself.firstOrNull()?.uppercase() ?: ""}'",
+                        style = Typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(modifier = Modifier)
+                }
+            }
         }
     }
 }
@@ -291,7 +319,8 @@ private fun AnswerSection(
     onSubmit: () -> Unit,
     isCorrect: Boolean?,
     isRevealed: Boolean,
-    focusRequester: FocusRequester
+    attemptCount: Int,
+    currentWord: Word
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -323,6 +352,14 @@ private fun AnswerSection(
                 )
                 
                 Spacer(modifier = Modifier)
+                
+                if (attemptCount > 0) {
+                    Text(
+                        text = "Attempt $attemptCount",
+                        style = Typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             }
             
             // Text input field
@@ -331,16 +368,19 @@ private fun AnswerSection(
                 onValueChange = onInputChange,
                 placeholder = { Text("Type the word here...") },
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .focusRequester(focusRequester),
+                    .fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Done
                 ),
                 keyboardActions = KeyboardActions(
-                    onDone = { onSubmit() }
+                    onDone = { 
+                        if (!isRevealed && attemptCount < 3) {
+                            onSubmit()
+                        }
+                    }
                 ),
-                enabled = !isRevealed,
+                enabled = !isRevealed && attemptCount < 3,
                 singleLine = true,
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = MaterialTheme.colorScheme.primary,
@@ -349,55 +389,81 @@ private fun AnswerSection(
             )
             
             // Feedback messages
-            if (isRevealed) {
-                when {
-                    isCorrect == true -> {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                            modifier = Modifier
-                                .padding(horizontal = 12.dp, vertical = 8.dp)
-                                .background(
-                                    color = Color(0xFF4CAF50).copy(alpha = 0.1f),
-                                    shape = MaterialTheme.shapes.small
-                                )
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.CheckCircle,
-                                contentDescription = "Correct answer",
-                                tint = Color(0xFF4CAF50)
+            when {
+                isRevealed && isCorrect == true -> {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier
+                            .padding(horizontal = 12.dp, vertical = 8.dp)
+                            .background(
+                                color = Color(0xFF4CAF50).copy(alpha = 0.1f),
+                                shape = MaterialTheme.shapes.small
                             )
-                            Text(
-                                text = listOf("Correct!", "Well done!", "Keep up the good work!").random(),
-                                style = Typography.bodySmall,
-                                color = Color(0xFF4CAF50)
-                            )
-                            Spacer(modifier = Modifier)
-                        }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.CheckCircle,
+                            contentDescription = "Correct answer",
+                            tint = Color(0xFF4CAF50)
+                        )
+                        Text(
+                            text = listOf("Correct!", "Well done!", "Keep up the good work!").random(),
+                            style = Typography.bodySmall,
+                            color = Color(0xFF4CAF50)
+                        )
+                        Spacer(modifier = Modifier)
                     }
-                    isCorrect == false -> {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                            modifier = Modifier
-                                .padding(horizontal = 12.dp, vertical = 8.dp)
-                                .background(
-                                    color = Color(0xFFFF9800).copy(alpha = 0.1f),
-                                    shape = MaterialTheme.shapes.small
-                                )
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Warning,
-                                contentDescription = "Incorrect answer",
-                                tint = Color(0xFFFF9800)
+                }
+                attemptCount >= 3 -> {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier
+                            .padding(horizontal = 12.dp, vertical = 8.dp)
+                            .background(
+                                color = Color(0xFFF44336).copy(alpha = 0.1f),
+                                shape = MaterialTheme.shapes.small
                             )
-                            Text(
-                                text = "Incorrect. Try again",
-                                style = Typography.bodySmall,
-                                color = Color(0xFFFF9800)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Warning,
+                            contentDescription = "Maximum attempts reached",
+                            tint = Color(0xFFF44336)
+                        )
+                        Text(
+                            text = "The correct word is '${currentWord.wordItself}'. Moving to next word...",
+                            style = Typography.bodySmall,
+                            color = Color(0xFFF44336)
+                        )
+                        Spacer(modifier = Modifier)
+                    }
+                }
+                isCorrect == false && attemptCount > 0 -> {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier
+                            .padding(horizontal = 12.dp, vertical = 8.dp)
+                            .background(
+                                color = Color(0xFFFF9800).copy(alpha = 0.1f),
+                                shape = MaterialTheme.shapes.small
                             )
-                            Spacer(modifier = Modifier)
-                        }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Warning,
+                            contentDescription = "Incorrect answer",
+                            tint = Color(0xFFFF9800)
+                        )
+                        Text(
+                            text = if (attemptCount > 2) {
+                                "Your word is '${currentWord.wordItself.trim()}'. Try harder :)"
+                            } else {
+                                "Incorrect. Try again"
+                            },
+                            style = Typography.bodySmall,
+                            color = Color(0xFFFF9800)
+                        )
+                        Spacer(modifier = Modifier)
                     }
                 }
             }
@@ -408,7 +474,7 @@ private fun AnswerSection(
 @Composable
 fun ActionButtonsSection(
     isAnswerSubmitted: Boolean,
-    isCorrect: Boolean?,
+    attemptCount: Int,
     userInput: String,
     onConfirmAnswer: () -> Unit,
     onNextWord: () -> Unit,
@@ -419,8 +485,16 @@ fun ActionButtonsSection(
     ) {
         // Primary button
         Button(
-            onClick = if (isAnswerSubmitted) onNextWord else onConfirmAnswer,
-            enabled = if (isAnswerSubmitted) true else userInput.isNotBlank(),
+            onClick = when {
+                isAnswerSubmitted -> onNextWord
+                attemptCount >= 3 -> onNextWord
+                else -> onConfirmAnswer
+            },
+            enabled = when {
+                isAnswerSubmitted -> true
+                attemptCount >= 3 -> true
+                else -> userInput.isNotBlank()
+            },
             modifier = Modifier.fillMaxWidth()
         ) {
             Row(
@@ -428,13 +502,22 @@ fun ActionButtonsSection(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    imageVector = if (isAnswerSubmitted) Icons.Default.ArrowForward else Icons.Default.Check,
-                    contentDescription = if (isAnswerSubmitted) "Next word" else "Submit answer",
+                    imageVector = when {
+                        isAnswerSubmitted || attemptCount >= 3 -> Icons.Default.ArrowForward
+                        else -> Icons.Default.Check
+                    },
+                    contentDescription = when {
+                        isAnswerSubmitted || attemptCount >= 3 -> "Next word"
+                        else -> "Submit answer"
+                    },
                     modifier = Modifier.size(20.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = if (isAnswerSubmitted) "Next Word" else "Submit Answer",
+                    text = when {
+                        isAnswerSubmitted || attemptCount >= 3 -> "Next Word"
+                        else -> "Submit Answer"
+                    },
                     fontWeight = FontWeight.SemiBold
                 )
             }
@@ -443,7 +526,7 @@ fun ActionButtonsSection(
         // Skip button
         OutlinedButton(
             onClick = onSkipWord,
-            enabled = !isAnswerSubmitted,
+            enabled = !isAnswerSubmitted && attemptCount < 3,
             modifier = Modifier.fillMaxWidth()
         ) {
             Row(
@@ -466,7 +549,10 @@ fun ActionButtonsSection(
 fun QuizCompleteSection(
     score: Int,
     totalQuestions: Int,
-    onFinish: () -> Unit
+    correctAnswers: Int,
+    bestStreak: Int,
+    onFinish: () -> Unit,
+    onRestart: () -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -551,8 +637,20 @@ fun QuizCompleteSection(
                         ) {
                             Text("Correct Answers")
                             Text(
-                                text = "$score/$totalQuestions",
+                                text = "$correctAnswers/$totalQuestions",
                                 fontWeight = FontWeight.Medium
+                            )
+                        }
+                        
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text("Best Streak")
+                            Text(
+                                text = "$bestStreak",
+                                fontWeight = FontWeight.Medium,
+                                color = Color(0xFFFF9800)
                             )
                         }
                         
@@ -562,7 +660,7 @@ fun QuizCompleteSection(
                         ) {
                             Text("Accuracy")
                             Text(
-                                text = "${(score * 100 / totalQuestions)}%",
+                                text = "${(correctAnswers * 100 / totalQuestions)}%",
                                 fontWeight = FontWeight.Medium,
                                 color = Color(0xFF4CAF50)
                             )
@@ -580,7 +678,7 @@ fun QuizCompleteSection(
             modifier = Modifier.fillMaxWidth()
         ) {
             Button(
-                onClick = onFinish,
+                onClick = onRestart,
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Row(
