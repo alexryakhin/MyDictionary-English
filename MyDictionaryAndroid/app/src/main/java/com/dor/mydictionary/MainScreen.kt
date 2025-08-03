@@ -94,11 +94,14 @@ fun MainScreen() {
                 route = TabItem.Quizzes.route
             ) { 
                 QuizzesListScreen(
-                    onNavigateToSpellingQuiz = {
-                        navController.navigate("spelling_quiz")
+                    onNavigateToSpellingQuiz = { wordCount, hardWordsOnly ->
+                        navController.navigate("spelling_quiz/$wordCount/$hardWordsOnly")
                     },
-                    onNavigateToChooseDefinitionQuiz = {
-                        navController.navigate("choose_definition_quiz")
+                    onNavigateToChooseDefinitionQuiz = { wordCount, hardWordsOnly ->
+                        navController.navigate("choose_definition_quiz/$wordCount/$hardWordsOnly")
+                    },
+                    onNavigateToWords = {
+                        navController.navigate(TabItem.Words.route)
                     }
                 ) 
             }
@@ -211,7 +214,11 @@ fun MainScreen() {
             
             // Spelling Quiz route
             composable(
-                route = "spelling_quiz",
+                route = "spelling_quiz/{wordCount}/{hardWordsOnly}",
+                arguments = listOf(
+                    androidx.navigation.navArgument("wordCount") { type = NavType.IntType },
+                    androidx.navigation.navArgument("hardWordsOnly") { type = NavType.BoolType }
+                ),
                 enterTransition = {
                     slideIntoContainer(
                         towards = SlideDirection.Left,
@@ -236,9 +243,12 @@ fun MainScreen() {
                         animationSpec = tween(300)
                     )
                 }
-            ) {
+            ) { backStackEntry ->
+                val wordCount = backStackEntry.arguments?.getInt("wordCount") ?: 10
+                val hardWordsOnly = backStackEntry.arguments?.getBoolean("hardWordsOnly") ?: false
                 SpellingQuizScreen(
-                    wordsPerSession = 10,
+                    wordsPerSession = wordCount,
+                    hardWordsOnly = hardWordsOnly,
                     onQuizComplete = { navController.popBackStack() },
                     onNavigateToQuizResults = { navController.navigate("quiz_results") }
                 )
@@ -246,7 +256,11 @@ fun MainScreen() {
             
             // Choose Definition Quiz route
             composable(
-                route = "choose_definition_quiz",
+                route = "choose_definition_quiz/{wordCount}/{hardWordsOnly}",
+                arguments = listOf(
+                    androidx.navigation.navArgument("wordCount") { type = NavType.IntType },
+                    androidx.navigation.navArgument("hardWordsOnly") { type = NavType.BoolType }
+                ),
                 enterTransition = {
                     slideIntoContainer(
                         towards = SlideDirection.Left,
@@ -271,8 +285,12 @@ fun MainScreen() {
                         animationSpec = tween(300)
                     )
                 }
-            ) {
+            ) { backStackEntry ->
+                val wordCount = backStackEntry.arguments?.getInt("wordCount") ?: 10
+                val hardWordsOnly = backStackEntry.arguments?.getBoolean("hardWordsOnly") ?: false
                 ChooseDefinitionQuizScreen(
+                    wordCount = wordCount,
+                    hardWordsOnly = hardWordsOnly,
                     onNavigateBack = { navController.popBackStack() },
                     onQuizComplete = { navController.popBackStack() }
                 )

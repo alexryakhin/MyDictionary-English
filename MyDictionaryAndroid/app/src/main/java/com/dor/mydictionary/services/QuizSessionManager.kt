@@ -74,7 +74,8 @@ class QuizSessionManager @Inject constructor(
         timestamp: Date,
         duration: Double = 0.0,
         accuracy: Double? = null,
-        score: Int = 0
+        score: Int = 0,
+        wordsPracticed: List<String> = emptyList()
     ): QuizSession {
         val calculatedAccuracy = accuracy ?: if (totalQuestions > 0) correctAnswers.toDouble() / totalQuestions else 0.0
         
@@ -90,7 +91,7 @@ class QuizSessionManager @Inject constructor(
             correctAnswers = correctAnswers,
             accuracy = calculatedAccuracy,
             duration = duration,
-            wordsPracticed = emptyList()
+            wordsPracticed = wordsPracticed
         )
         
         storage.insert(QuizSessionEntity.fromQuizSession(quizSession))

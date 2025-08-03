@@ -15,6 +15,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.min
+import android.util.Log
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,112 +30,85 @@ class QuizzesListViewModel @Inject constructor(
     val uiState: StateFlow<QuizzesListUiState> = _uiState.asStateFlow()
 
     init {
-        loadRecentQuizResults()
-        loadPracticeSettings()
-        
-        // Use reactive Flow to automatically update available words count
+        // Initialize with words count immediately
         viewModelScope.launch {
-            combine(
-                wordManager.getAllWordsFlow(),
-                _uiState.map { it.practiceSettings.hardWordsOnly }
-            ) { allWords, hardWordsOnly ->
-                if (hardWordsOnly) {
-                    allWords.filter { it.difficultyLevel > 0 }.size
-                } else {
-                    allWords.size
+            wordManager.getAllWordsFlow().collect { allWords ->
+                val hardWordsCount = allWords.filter { it.difficultyLevel == 2 }.size
+                val totalWordsCount = allWords.size
+                val currentState = _uiState.value
+                val hardWordsOnly = currentState.practiceSettings.hardWordsOnly
+                val availableWordsCount = if (hardWordsOnly) hardWordsCount else totalWordsCount
+                
+                Log.d("QuizzesListViewModel", "Total words: $totalWordsCount, Hard words: $hardWordsCount, Hard words only: $hardWordsOnly, Available words: $availableWordsCount")
+                
+                val maxWords = min(availableWordsCount, 50)
+                val minWords = if (hardWordsOnly) 1 else 10
+                val validatedWordsPerSession = currentState.practiceSettings.wordsPerSession.coerceIn(minWords, maxWords)
+                
+                _uiState.update { 
+                    it.copy(
+                        availableWordsCount = availableWordsCount,
+                        hardWordsCount = hardWordsCount,
+                        practiceSettings = it.practiceSettings.copy(
+                            availableWordsCount = availableWordsCount,
+                            wordsPerSession = validatedWordsPerSession
+                        )
+                    )
                 }
-            }.collect { availableWordsCount ->
-                _uiState.update { it.copy(availableWordsCount = availableWordsCount) }
             }
         }
     }
 
-    fun togglePracticeSettings() {
-        _uiState.update { it.copy(showPracticeSettings = !it.showPracticeSettings) }
-    }
-
     fun toggleHardWordsOnly() {
-        _uiState.update { 
+        val currentHardWordsOnly = _uiState.value.practiceSettings.hardWordsOnly
+        Log.d("QuizzesListViewModel", "Toggling hard words only from $currentHardWordsOnly to ${!currentHardWordsOnly}")
+        _uiState.update {
             it.copy(
                 practiceSettings = it.practiceSettings.copy(
                     hardWordsOnly = !it.practiceSettings.hardWordsOnly
                 )
             )
         }
-        savePracticeSettings()
+        
+        // Update available words count when hard words setting changes
+        viewModelScope.launch {
+            val allWords = wordManager.getAllWords()
+            val hardWordsCount = allWords.filter { it.difficultyLevel == 2 }.size
+            val totalWordsCount = allWords.size
+            val newHardWordsOnly = !currentHardWordsOnly
+            val availableWordsCount = if (newHardWordsOnly) hardWordsCount else totalWordsCount
+            
+            Log.d("QuizzesListViewModel", "After toggle - Total words: $totalWordsCount, Hard words: $hardWordsCount, Hard words only: $newHardWordsOnly, Available words: $availableWordsCount")
+            
+            val maxWords = min(availableWordsCount, 50)
+            val minWords = if (newHardWordsOnly) 1 else 10
+            val validatedWordsPerSession = _uiState.value.practiceSettings.wordsPerSession.coerceIn(minWords, maxWords)
+            
+            _uiState.update { 
+                it.copy(
+                    availableWordsCount = availableWordsCount,
+                    hardWordsCount = hardWordsCount,
+                    practiceSettings = it.practiceSettings.copy(
+                        availableWordsCount = availableWordsCount,
+                        wordsPerSession = validatedWordsPerSession
+                    )
+                )
+            }
+        }
     }
 
     fun setWordsPerSession(count: Int) {
+        val currentState = _uiState.value
+        val maxWords = min(currentState.availableWordsCount, 50)
+        val minWords = if (currentState.practiceSettings.hardWordsOnly) 1 else 10
+        val validatedCount = count.coerceIn(minWords, maxWords)
+        
         _uiState.update { 
             it.copy(
                 practiceSettings = it.practiceSettings.copy(
-                    wordsPerSession = count
+                    wordsPerSession = validatedCount
                 )
             )
-        }
-        savePracticeSettings()
-    }
-
-    private fun loadRecentQuizResults() {
-        viewModelScope.launch {
-            try {
-                val recentSessions = quizSessionManager.getRecentSessions(limit = 10)
-                val results = recentSessions.map { session ->
-                    QuizResult(
-                        quizType = session.quizType,
-                        score = session.correctAnswers,
-                        totalWords = session.totalWords,
-                        date = formatDate(session.date)
-                    )
-                }
-                _uiState.update { it.copy(recentQuizResults = results) }
-            } catch (e: Exception) {
-                _uiState.update { 
-                    it.copy(error = "Failed to load recent results: ${e.message}")
-                }
-            }
-        }
-    }
-
-    private fun loadPracticeSettings() {
-        viewModelScope.launch {
-            try {
-                val userStats = userStatsManager.getUserStats()
-                _uiState.update { 
-                    it.copy(
-                        practiceSettings = PracticeSettings(
-                            hardWordsOnly = userStats.practiceHardWordsOnly,
-                            wordsPerSession = userStats.wordsPerSession
-                        )
-                    )
-                }
-            } catch (e: Exception) {
-                // Use default settings if loading fails
-                _uiState.update { 
-                    it.copy(
-                        practiceSettings = PracticeSettings(
-                            hardWordsOnly = false,
-                            wordsPerSession = 10
-                        )
-                    )
-                }
-            }
-        }
-    }
-
-    private fun savePracticeSettings() {
-        viewModelScope.launch {
-            try {
-                val currentSettings = _uiState.value.practiceSettings
-                userStatsManager.updatePracticeSettings(
-                    hardWordsOnly = currentSettings.hardWordsOnly,
-                    wordsPerSession = currentSettings.wordsPerSession
-                )
-            } catch (e: Exception) {
-                _uiState.update { 
-                    it.copy(error = "Failed to save practice settings: ${e.message}")
-                }
-            }
         }
     }
 
@@ -141,8 +116,6 @@ class QuizzesListViewModel @Inject constructor(
         val formatter = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
         return formatter.format(date)
     }
-
-
 
     fun clearError() {
         _uiState.update { it.copy(error = null) }

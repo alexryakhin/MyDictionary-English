@@ -16,7 +16,68 @@ struct MoreContentView: View {
 
     var body: some View {
         List {
-            // MARK: - Settings
+
+            // MARK: - Notifications
+
+            Section {
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Daily Reminders")
+                            .font(.body)
+                            .fontWeight(.medium)
+                        Text("Get reminded at 8 PM if you haven't opened the app")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Spacer()
+
+                    Toggle("", isOn: $viewModel.dailyRemindersEnabled)
+                        .labelsHidden()
+                        .onChange(of: viewModel.dailyRemindersEnabled) {
+                            viewModel.updateNotificationSettings()
+                        }
+                }
+
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Difficult Words")
+                            .font(.body)
+                            .fontWeight(.medium)
+                        Text("Get reminded at 4 PM to practice difficult words")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Spacer()
+
+                    Toggle("", isOn: $viewModel.difficultWordsEnabled)
+                        .labelsHidden()
+                        .onChange(of: viewModel.difficultWordsEnabled) {
+                            viewModel.updateNotificationSettings()
+                        }
+                }
+            } header: {
+                Text("Notifications")
+            } footer: {
+                Text("Daily reminders only send if you haven't opened the app that day.")
+            }
+
+            // MARK: - Tag Management
+
+            Section {
+                Button {
+                    viewModel.showingTagManagement = true
+                } label: {
+                    Label("Manage Tags", systemImage: "tag")
+                }
+            } header: {
+                Text("Organization")
+            } footer: {
+                Text("Create and manage tags to organize your words.")
+            }
+
+            // MARK: - Selected Accent
 
             Section {
                 Picker("Selected Accent", selection: $viewModel.selectedTTSLanguage) {
@@ -49,118 +110,6 @@ struct MoreContentView: View {
                 Text("Import / Export")
             } footer: {
                 Text("Please note that import and export only work with files created by this app.")
-            }
-
-            // MARK: - Tag Management
-
-            Section {
-                Button {
-                    viewModel.showingTagManagement = true
-                } label: {
-                    Label("Manage Tags", systemImage: "tag")
-                }
-            } header: {
-                Text("Organization")
-            } footer: {
-                Text("Create and manage tags to organize your words.")
-            }
-
-            // MARK: - Notifications
-
-            Section {
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Daily Reminders")
-                            .font(.body)
-                            .fontWeight(.medium)
-                        Text("Get reminded at 8 PM if you haven't opened the app")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    Spacer()
-                    
-                    Toggle("", isOn: $viewModel.dailyRemindersEnabled)
-                        .labelsHidden()
-                        .onChange(of: viewModel.dailyRemindersEnabled) { _ in
-                            viewModel.updateNotificationSettings()
-                        }
-                }
-                
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Difficult Words")
-                            .font(.body)
-                            .fontWeight(.medium)
-                        Text("Get reminded at 4 PM to practice difficult words")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    Spacer()
-                    
-                    Toggle("", isOn: $viewModel.difficultWordsEnabled)
-                        .labelsHidden()
-                        .onChange(of: viewModel.difficultWordsEnabled) { _ in
-                            viewModel.updateNotificationSettings()
-                        }
-                }
-            } header: {
-                Text("Notifications")
-            } footer: {
-                Text("Daily reminders only send if you haven't opened the app that day.")
-            }
-
-            // MARK: - Practice Settings
-
-            Section {
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        Text("Words per Session")
-                            .font(.body)
-                            .fontWeight(.medium)
-                        Spacer()
-                        Text("\(Int(viewModel.practiceWordCount))")
-                            .font(.body)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.blue)
-                    }
-                    
-                    Slider(value: $viewModel.practiceWordCount, in: 5...50, step: 5)
-                        .accentColor(.blue)
-                    
-                    HStack {
-                        Text("5")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                        Text("50")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .padding(.vertical, 4)
-                
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Practice Hard Words Only")
-                            .font(.body)
-                            .fontWeight(.medium)
-                        Text("Focus on words that need review")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    Spacer()
-                    
-                    Toggle("", isOn: $viewModel.practiceHardWordsOnly)
-                        .labelsHidden()
-                        .disabled(!viewModel.hasHardWords)
-                }
-            } header: {
-                Text("Practice Settings")
-            } footer: {
-                Text("Configure your quiz experience")
             }
 
             // MARK: - About app

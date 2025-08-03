@@ -16,9 +16,9 @@ enum Quiz: String, CaseIterable, Identifiable {
     var title: String {
         switch self {
         case .spelling:
-            return "Spelling"
+            return "Spelling Quiz"
         case .chooseDefinition:
-            return "Choose definition"
+            return "Choose Definition"
         }
     }
 }

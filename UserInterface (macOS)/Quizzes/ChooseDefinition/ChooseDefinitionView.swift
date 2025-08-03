@@ -48,13 +48,13 @@ struct ChooseDefinitionView: View {
     private var headerView: some View {
         VStack(spacing: 6) {
             // Progress Bar
-            ProgressView(value: Double(viewModel.correctAnswers), total: Double(viewModel.totalQuestions))
+            ProgressView(value: Double(viewModel.questionsAnswered), total: Double(viewModel.totalQuestions))
                 .progressViewStyle(.linear)
                 .padding(.horizontal, 24)
             
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Progress: \(viewModel.correctAnswers)/\(viewModel.totalQuestions)")
+                    Text("Progress: \(viewModel.questionsAnswered)/\(viewModel.totalQuestions)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     

@@ -32,6 +32,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var currentStreak = 0
     @Published private(set) var bestStreak = 0
     @Published private(set) var accuracyContributions: [String: Double] = [:] // Track accuracy contribution per word
+    @Published private(set) var errorMessage: String?
 
     private let wordsProvider: WordsProvider
     private let quizAnalyticsService: QuizAnalyticsService
@@ -39,11 +40,17 @@ final class SpellingQuizViewModel: BaseViewModel {
     private var originalWords: [CDWord] = []
     private var sessionStartTime: Date = Date()
     private let wordCount: Int
+    private let hardWordsOnly: Bool
 
-    init(wordsProvider: WordsProvider, wordCount: Int = 10) {
+    init(
+        wordsProvider: WordsProvider,
+        wordCount: Int,
+        hardWordsOnly: Bool
+    ) {
         self.wordsProvider = wordsProvider
         self.quizAnalyticsService = QuizAnalyticsService.shared
         self.wordCount = wordCount
+        self.hardWordsOnly = hardWordsOnly
         super.init()
         setupBindings()
     }
@@ -250,12 +257,27 @@ final class SpellingQuizViewModel: BaseViewModel {
             .first()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] words in
-                self?.originalWords = words
+                guard let self else { return }
+                
+                // Filter words based on hardWordsOnly setting
+                let filteredWords = hardWordsOnly ? words.filter { $0.difficultyLevel == 2 } : words
+                
+                // Check if we have enough words after filtering
+                let minRequiredWords = hardWordsOnly ? 1 : self.wordCount
+                if filteredWords.count < minRequiredWords {
+                    // Not enough words available after filtering
+                    self.errorMessage = hardWordsOnly ? 
+                        "No difficult words available for quiz" :
+                        "Not enough words available. Need at least \(minRequiredWords) words for the quiz."
+                    return
+                }
+                
+                self.originalWords = filteredWords.shuffled()
                 // Limit words to the selected count
-                let limitedWords = Array(words.shuffled().prefix(self?.wordCount ?? 10))
-                self?.words = limitedWords
-                self?.randomWord = self?.words.randomElement()
-                self?.totalQuestions = limitedWords.count
+                let limitedWords = Array(self.originalWords.prefix(self.wordCount))
+                self.words = limitedWords
+                self.randomWord = self.words.randomElement()
+                self.totalQuestions = limitedWords.count
             }
             .store(in: &cancellables)
     }

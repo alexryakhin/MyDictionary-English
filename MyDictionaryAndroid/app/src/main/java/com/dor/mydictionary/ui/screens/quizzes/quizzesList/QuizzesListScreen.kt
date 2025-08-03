@@ -15,12 +15,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dor.mydictionary.ui.theme.Typography
+import kotlin.math.max
+import kotlin.math.min
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun QuizzesListScreen(
-    onNavigateToSpellingQuiz: () -> Unit = {},
-    onNavigateToChooseDefinitionQuiz: () -> Unit = {},
+    onNavigateToSpellingQuiz: (Int, Boolean) -> Unit = { _, _ -> },
+    onNavigateToChooseDefinitionQuiz: (Int, Boolean) -> Unit = { _, _ -> },
+    onNavigateToWords: () -> Unit = {},
     viewModel: QuizzesListViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = QuizzesListUiState())
@@ -28,11 +31,11 @@ fun QuizzesListScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Quizzes", style = Typography.displaySmall) },
-                actions = {
-                    IconButton(onClick = { viewModel.togglePracticeSettings() }) {
-                        Icon(Icons.Default.Settings, contentDescription = "Practice Settings")
-                    }
+                title = {
+                    Text(
+                        "Quizzes",
+                        style = Typography.displaySmall
+                    )
                 }
             )
         }
@@ -47,9 +50,12 @@ fun QuizzesListScreen(
             // Practice Settings Section
             item {
                 PracticeSettingsSection(
-                    practiceSettings = uiState.practiceSettings,
-                    onToggleHardWordsOnly = { viewModel.toggleHardWordsOnly() },
-                    onToggleWordsPerSession = { count -> viewModel.setWordsPerSession(count) }
+                    practiceWordCount = uiState.practiceSettings.wordsPerSession,
+                    practiceHardWordsOnly = uiState.practiceSettings.hardWordsOnly,
+                    hasHardWords = uiState.hardWordsCount > 0,
+                    availableWordsCount = uiState.availableWordsCount,
+                    onPracticeWordCountChanged = { viewModel.setWordsPerSession(it) },
+                    onPracticeHardWordsOnlyToggled = { viewModel.toggleHardWordsOnly() }
                 )
             }
 
@@ -63,10 +69,18 @@ fun QuizzesListScreen(
             }
 
             // Check if user has enough words
-            if (uiState.availableWordsCount < 10) {
+            if (uiState.availableWordsCount < 10 && !uiState.practiceSettings.hardWordsOnly) {
                 item {
                     NotEnoughWordsCard(
-                        availableWords = uiState.availableWordsCount
+                        availableWords = uiState.availableWordsCount,
+                        onNavigateToWords = onNavigateToWords
+                    )
+                }
+            } else if (uiState.practiceSettings.hardWordsOnly && uiState.availableWordsCount < 1) {
+                item {
+                    NotEnoughHardWordsCard(
+                        availableHardWords = uiState.availableWordsCount,
+                        onNavigateToWords = onNavigateToWords
                     )
                 }
             } else {
@@ -77,7 +91,7 @@ fun QuizzesListScreen(
                         description = "Test your spelling skills by typing words correctly",
                         icon = Icons.Default.Edit,
                         isEnabled = uiState.practiceSettings.wordsPerSession > 0,
-                        onClick = onNavigateToSpellingQuiz
+                        onClick = { onNavigateToSpellingQuiz(uiState.practiceSettings.wordsPerSession, uiState.practiceSettings.hardWordsOnly) }
                     )
                 }
 
@@ -88,60 +102,210 @@ fun QuizzesListScreen(
                         description = "Select the correct definition for each word",
                         icon = Icons.Default.List,
                         isEnabled = uiState.practiceSettings.wordsPerSession > 0,
-                        onClick = onNavigateToChooseDefinitionQuiz
+                        onClick = { onNavigateToChooseDefinitionQuiz(uiState.practiceSettings.wordsPerSession, uiState.practiceSettings.hardWordsOnly) }
                     )
-                }
-            }
-
-            // Recent Results Section
-            if (uiState.recentQuizResults.isNotEmpty()) {
-                item {
-                    Text(
-                        text = "Recent Results",
-                        style = Typography.titleLarge,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
-
-                items(uiState.recentQuizResults.take(3)) { result ->
-                    QuizResultCard(
-                        quizType = result.quizType,
-                        score = result.score,
-                        totalWords = result.totalWords,
-                        date = result.date
-                    )
-                }
-
-                if (uiState.recentQuizResults.size > 3) {
-                    item {
-                        TextButton(
-                            onClick = { /* TODO: Navigate to full results */ },
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Text("View All Results")
-                        }
-                    }
                 }
             }
         }
     }
+}
 
-    // Practice Settings Dialog
-    if (uiState.showPracticeSettings) {
-        PracticeSettingsDialog(
-            practiceSettings = uiState.practiceSettings,
-            onToggleHardWordsOnly = { viewModel.toggleHardWordsOnly() },
-            onToggleWordsPerSession = { count -> viewModel.setWordsPerSession(count) },
-            onDismiss = { viewModel.togglePracticeSettings() }
+@Composable
+private fun NotEnoughWordsCard(
+    availableWords: Int,
+    onNavigateToWords: () -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant
         )
+    ) {
+        Column(
+            modifier = Modifier.padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Icon(
+                Icons.Default.Book,
+                contentDescription = null,
+                modifier = Modifier.size(48.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            
+            Text(
+                text = "Not Enough Words",
+                style = Typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            
+            Text(
+                text = "You need at least 10 words to start quizzes. You currently have $availableWords words.",
+                style = Typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+            )
+            
+            Text(
+                text = "Add more words to your vocabulary to unlock quizzes!",
+                style = Typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+            )
+            
+            Button(
+                onClick = onNavigateToWords,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Add More Words")
+            }
+        }
+    }
+}
+
+@Composable
+private fun NotEnoughHardWordsCard(
+    availableHardWords: Int,
+    onNavigateToWords: () -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant
+        )
+    ) {
+        Column(
+            modifier = Modifier.padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Icon(
+                Icons.Default.Star,
+                contentDescription = null,
+                modifier = Modifier.size(48.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            
+            Text(
+                text = "No Hard Words Available",
+                style = Typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            
+            Text(
+                text = "You need at least 1 hard word to practice in hard words mode. You currently have $availableHardWords hard words.",
+                style = Typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+            )
+            
+            Text(
+                text = "Answer some words incorrectly to create hard words for practice!",
+                style = Typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+            )
+            
+            Button(
+                onClick = onNavigateToWords,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Add Hard Words")
+            }
+        }
     }
 }
 
 @Composable
 private fun PracticeSettingsSection(
-    practiceSettings: PracticeSettings,
-    onToggleHardWordsOnly: () -> Unit,
-    onToggleWordsPerSession: (Int) -> Unit
+    practiceWordCount: Int,
+    practiceHardWordsOnly: Boolean,
+    hasHardWords: Boolean,
+    availableWordsCount: Int,
+    onPracticeWordCountChanged: (Int) -> Unit,
+    onPracticeHardWordsOnlyToggled: (Boolean) -> Unit
+) {
+    SettingsSection(
+        title = "Practice Settings"
+    ) {
+        SettingsRow(
+            title = "Words per session",
+            subtitle = if (availableWordsCount < 10 && !practiceHardWordsOnly) {
+                "Need at least 10 words to practice"
+            } else if (practiceHardWordsOnly) {
+                "Number of words to practice in each session (1-${min(availableWordsCount, 50)})"
+            } else {
+                "Number of words to practice in each session (10-${min(availableWordsCount, 50)})"
+            },
+            icon = Icons.Default.TextIncrease,
+            trailing = {
+                Text(
+                    text = "$practiceWordCount",
+                    style = Typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.Medium
+                )
+            }
+        )
+        
+        Column(
+            modifier = Modifier.padding(horizontal = 16.dp)
+        ) {
+            if (availableWordsCount >= 10 || practiceHardWordsOnly) {
+                val maxWords = if (practiceHardWordsOnly) {
+                    min(availableWordsCount, 50)
+                } else {
+                    min(availableWordsCount, 50)
+                }
+                val minWords = if (practiceHardWordsOnly) 1 else 10
+                val range = maxWords - minWords
+                val steps = if (range > 0) max(0, range / 5 - 1) else 0 // No steps if range is 0
+                
+                Slider(
+                    value = practiceWordCount.toFloat(),
+                    onValueChange = { onPracticeWordCountChanged(it.toInt()) },
+                    valueRange = minWords.toFloat()..maxWords.toFloat(),
+                    steps = steps,
+                    enabled = !practiceHardWordsOnly // Disable when hard words only is enabled
+                )
+            } else {
+                Text(
+                    text = "Add more words to your vocabulary to enable practice settings",
+                    style = Typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                )
+            }
+        }
+        
+        SettingsRow(
+            title = "Practice hard words only",
+            subtitle = if (hasHardWords) {
+                "Focus on words that need review"
+            } else {
+                "No words need review yet"
+            },
+            icon = Icons.Default.Star,
+            trailing = {
+                Switch(
+                    checked = practiceHardWordsOnly,
+                    onCheckedChange = onPracticeHardWordsOnlyToggled,
+                    enabled = hasHardWords
+                )
+            }
+        )
+    }
+}
+
+@Composable
+private fun SettingsSection(
+    title: String,
+    footer: String? = null,
+    content: @Composable () -> Unit
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -149,45 +313,76 @@ private fun PracticeSettingsSection(
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Text(
-                text = "Practice Settings",
+                text = title,
                 style = Typography.titleMedium,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.SemiBold
             )
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
+            
+            content()
+            
+            footer?.let {
                 Text(
-                    text = "Hard words only",
-                    style = Typography.bodyMedium
-                )
-                Switch(
-                    checked = practiceSettings.hardWordsOnly,
-                    onCheckedChange = { onToggleHardWordsOnly() }
-                )
-            }
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "Words per session",
-                    style = Typography.bodyMedium
-                )
-                Text(
-                    text = "${practiceSettings.wordsPerSession}",
-                    style = Typography.bodyMedium,
-                    fontWeight = FontWeight.Bold
+                    text = it,
+                    style = Typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun SettingsRow(
+    title: String,
+    subtitle: String? = null,
+    icon: ImageVector? = null,
+    trailing: @Composable (() -> Unit)? = null,
+    onClick: (() -> Unit)? = null
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp)
+            .then(
+                if (onClick != null) {
+                    Modifier.clickable { onClick() }
+                } else {
+                    Modifier
+                }
+            ),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        icon?.let {
+            Icon(
+                imageVector = it,
+                contentDescription = null,
+                modifier = Modifier.size(24.dp),
+                tint = MaterialTheme.colorScheme.primary
+            )
+            Spacer(modifier = Modifier.width(12.dp))
+        }
+        
+        Column(
+            modifier = Modifier.weight(1f)
+        ) {
+            Text(
+                text = title,
+                style = Typography.bodyMedium,
+                fontWeight = FontWeight.Medium
+            )
+            subtitle?.let {
+                Text(
+                    text = it,
+                    style = Typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+        
+        trailing?.invoke()
     }
 }
 
@@ -254,165 +449,20 @@ private fun QuizCard(
     }
 }
 
-@Composable
-private fun QuizResultCard(
-    quizType: String,
-    score: Int,
-    totalWords: Int,
-    date: String
-) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
-    ) {
-        Row(
-            modifier = Modifier.padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column {
-                Text(
-                    text = quizType,
-                    style = Typography.titleSmall,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
-                    text = date,
-                    style = Typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
 
-            Column(
-                horizontalAlignment = Alignment.End
-            ) {
-                Text(
-                    text = "$score/$totalWords",
-                    style = Typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary
-                )
-                Text(
-                    text = "${(score * 100 / totalWords)}%",
-                    style = Typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun PracticeSettingsDialog(
-    practiceSettings: PracticeSettings,
-    onToggleHardWordsOnly: () -> Unit,
-    onToggleWordsPerSession: (Int) -> Unit,
-    onDismiss: () -> Unit
-) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text("Practice Settings") },
-        text = {
-            Column(
-                verticalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text("Hard words only")
-                    Switch(
-                        checked = practiceSettings.hardWordsOnly,
-                        onCheckedChange = { onToggleHardWordsOnly() }
-                    )
-                }
-
-                Column {
-                    Text(
-                        text = "Words per session",
-                        style = Typography.bodyMedium
-                    )
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
-                    ) {
-                        listOf(5, 10, 15, 20).forEach { count ->
-                            FilterChip(
-                                onClick = { onToggleWordsPerSession(count) },
-                                label = { Text("$count") },
-                                selected = practiceSettings.wordsPerSession == count
-                            )
-                        }
-                    }
-                }
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Done")
-            }
-        }
-    )
-}
-
-@Composable
-private fun NotEnoughWordsCard(availableWords: Int) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
-        )
-    ) {
-        Column(
-            modifier = Modifier.padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            Icon(
-                Icons.Default.Book,
-                contentDescription = null,
-                modifier = Modifier.size(48.dp),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            
-            Text(
-                text = "Not Enough Words",
-                style = Typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            
-            Text(
-                text = "You need at least 10 words to start quizzes. You currently have $availableWords words.",
-                style = Typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center
-            )
-            
-            Text(
-                text = "Add more words to your vocabulary to unlock quizzes!",
-                style = Typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center
-            )
-        }
-    }
-}
 
 data class QuizzesListUiState(
     val practiceSettings: PracticeSettings = PracticeSettings(),
-    val recentQuizResults: List<QuizResult> = emptyList(),
-    val showPracticeSettings: Boolean = false,
     val availableWordsCount: Int = 0,
+    val hardWordsCount: Int = 0,
     val isLoading: Boolean = false,
     val error: String? = null
 )
 
 data class PracticeSettings(
     val hardWordsOnly: Boolean = false,
-    val wordsPerSession: Int = 10
+    val wordsPerSession: Int = 10,
+    val availableWordsCount: Int = 0
 )
 
 data class QuizResult(

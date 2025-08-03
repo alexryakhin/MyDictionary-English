@@ -77,16 +77,16 @@ fun SettingsScreen(
                 )
             }
 
-            // Practice Settings Section
-            item {
-                PracticeSettingsSection(
-                    practiceWordCount = uiState.practiceWordCount,
-                    practiceHardWordsOnly = uiState.practiceHardWordsOnly,
-                    hasHardWords = uiState.hasHardWords,
-                    onPracticeWordCountChanged = { viewModel.setPracticeWordCount(it) },
-                    onPracticeHardWordsOnlyToggled = { viewModel.setPracticeHardWordsOnly(it) }
-                )
-            }
+            // Practice Settings Section - MOVED TO QUIZZES LIST SCREEN
+            // item {
+            //     PracticeSettingsSection(
+            //         practiceWordCount = uiState.practiceWordCount,
+            //         practiceHardWordsOnly = uiState.practiceHardWordsOnly,
+            //         hasHardWords = uiState.hasHardWords,
+            //         onPracticeWordCountChanged = { viewModel.setPracticeWordCount(it) },
+            //         onPracticeHardWordsOnlyToggled = { viewModel.setPracticeHardWordsOnly(it) }
+            //     )
+            // }
 
             // Tag Management Section
             item {
@@ -248,57 +248,6 @@ private fun NotificationSettingsSection(
                 Switch(
                     checked = difficultWordsAlertsEnabled,
                     onCheckedChange = onDifficultWordsAlertsToggled
-                )
-            }
-        )
-    }
-}
-
-@Composable
-private fun PracticeSettingsSection(
-    practiceWordCount: Int,
-    practiceHardWordsOnly: Boolean,
-    hasHardWords: Boolean,
-    onPracticeWordCountChanged: (Int) -> Unit,
-    onPracticeHardWordsOnlyToggled: (Boolean) -> Unit
-) {
-    SettingsSection(
-        title = "Practice Settings"
-    ) {
-        SettingsRow(
-            title = "Words per session",
-            subtitle = "Number of words to practice in each session",
-            icon = Icons.Default.TextIncrease,
-            trailing = {
-                Text(
-                    text = "$practiceWordCount",
-                    style = Typography.bodySmall,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.Medium
-                )
-            }
-        )
-        
-        Column(
-            modifier = Modifier.padding(horizontal = 16.dp)
-        ) {
-            Slider(
-                value = practiceWordCount.toFloat(),
-                onValueChange = { onPracticeWordCountChanged(it.toInt()) },
-                valueRange = 5f..50f,
-                steps = 8 // 5, 10, 15, 20, 25, 30, 35, 40, 45, 50
-            )
-        }
-        
-        SettingsRow(
-            title = "Practice hard words only",
-            subtitle = "Focus on words that need review",
-            icon = Icons.Default.Star,
-            trailing = {
-                Switch(
-                    checked = practiceHardWordsOnly,
-                    onCheckedChange = onPracticeHardWordsOnlyToggled,
-                    enabled = hasHardWords
                 )
             }
         )

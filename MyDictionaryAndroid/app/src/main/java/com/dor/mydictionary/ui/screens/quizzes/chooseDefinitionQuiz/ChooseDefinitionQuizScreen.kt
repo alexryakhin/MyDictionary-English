@@ -1,23 +1,71 @@
 package com.dor.mydictionary.ui.screens.quizzes.chooseDefinitionQuiz
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.RadioButtonUnchecked
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.SkipNext
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.TextFields
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.Typography
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.dor.mydictionary.core.PartOfSpeech
 import com.dor.mydictionary.core.Word
-import com.dor.mydictionary.ui.theme.Typography
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChooseDefinitionQuizScreen(
+    wordCount: Int = 10,
+    hardWordsOnly: Boolean = false,
     onNavigateBack: () -> Unit,
     onQuizComplete: () -> Unit,
     viewModel: ChooseDefinitionQuizViewModel = hiltViewModel()
@@ -25,22 +73,27 @@ fun ChooseDefinitionQuizScreen(
     val uiState by viewModel.uiState.collectAsState(initial = ChooseDefinitionQuizUiState())
 
     LaunchedEffect(Unit) {
-        viewModel.startQuiz()
+        viewModel.startQuiz(wordCount, hardWordsOnly)
+    }
+
+    // Handle cleanup when screen disappears
+    DisposableEffect(Unit) {
+        onDispose {
+            viewModel.cleanupOnDisappear()
+        }
     }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Choose Definition", style = Typography.displaySmall) },
+                title = { Text("Choose Definition") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back")
                     }
                 },
                 actions = {
-                    IconButton(onClick = { viewModel.skipWord() }) {
-                        Icon(Icons.Default.SkipNext, contentDescription = "Skip Word")
-                    }
+                    // Skip button moved to action buttons section
                 }
             )
         }
@@ -57,7 +110,11 @@ fun ChooseDefinitionQuizScreen(
                 ProgressSection(
                     currentQuestion = uiState.currentQuestionIndex + 1,
                     totalQuestions = uiState.totalQuestions,
-                    progress = uiState.progress
+                    progress = uiState.progress,
+                    correctAnswers = uiState.correctAnswers,
+                    currentStreak = uiState.currentStreak,
+                    bestStreak = uiState.bestStreak,
+                    score = uiState.score
                 )
             }
 
@@ -78,27 +135,23 @@ fun ChooseDefinitionQuizScreen(
                     )
                 }
 
-                // Submit Button
+                // Action Buttons (Skip button)
                 if (!uiState.isAnswerSubmitted) {
                     item {
-                        SubmitButton(
-                            isEnabled = uiState.selectedOption != null,
-                            onSubmit = { viewModel.submitAnswer() }
+                        ActionButtonsSection(
+                            onSkipWord = { viewModel.skipWord() }
                         )
                     }
-                } else {
-                    // Feedback Section
+                }
+
+                // Feedback Section (shown immediately after answer selection)
+                if (uiState.isAnswerSubmitted) {
                     item {
                         FeedbackSection(
                             isCorrect = uiState.isAnswerCorrect,
                             correctAnswer = uiState.options[uiState.correctAnswerIndex],
                             selectedAnswer = uiState.selectedOption?.let { uiState.options[it] }
                         )
-                    }
-
-                    // Next Button
-                    item {
-                        NextButton(onNext = { viewModel.loadNextWord() })
                     }
                 }
             }
@@ -109,9 +162,14 @@ fun ChooseDefinitionQuizScreen(
                     QuizCompleteSection(
                         score = uiState.score,
                         totalQuestions = uiState.totalQuestions,
+                        correctAnswers = uiState.correctAnswers,
+                        bestStreak = uiState.bestStreak,
                         onFinish = {
                             viewModel.finishQuiz()
                             onQuizComplete()
+                        },
+                        onRestart = {
+                            viewModel.restartQuiz()
                         }
                     )
                 }
@@ -138,41 +196,72 @@ fun ChooseDefinitionQuizScreen(
 private fun ProgressSection(
     currentQuestion: Int,
     totalQuestions: Int,
-    progress: Float
+    progress: Float,
+    correctAnswers: Int,
+    currentStreak: Int,
+    bestStreak: Int,
+    score: Int
 ) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    Column(
+        modifier = Modifier
+            .background(MaterialTheme.colorScheme.surface)
+            .padding(bottom = 6.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+        // Progress Bar
+        LinearProgressIndicator(
+            progress = progress,
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp),
+            color = MaterialTheme.colorScheme.primary
+        )
+        
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+            Column(
+                verticalArrangement = Arrangement.spacedBy(2.dp)
             ) {
                 Text(
-                    text = "Question $currentQuestion of $totalQuestions",
-                    style = Typography.titleMedium,
-                    fontWeight = FontWeight.Bold
+                    text = "Progress: $currentQuestion/$totalQuestions",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                
+                if (currentStreak > 0) {
+                    Text(
+                        text = "🔥 Streak: $currentStreak",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+            }
+            
+            Spacer(modifier = Modifier)
+            
+            Column(
+                verticalArrangement = Arrangement.spacedBy(2.dp),
+                horizontalAlignment = Alignment.End,
+                modifier = Modifier.padding(horizontal = 24.dp)
+            ) {
+                Text(
+                    text = "Score: $score",
+                    style = MaterialTheme.typography.bodySmall,
+                    fontWeight = FontWeight.Medium,
+                    color = MaterialTheme.colorScheme.primary
                 )
                 
                 Text(
-                    text = "${(progress * 100).toInt()}%",
-                    style = Typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.primary
+                    text = "Best: $bestStreak",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
-            
-            LinearProgressIndicator(
-                progress = progress,
-                modifier = Modifier.fillMaxWidth(),
-                color = MaterialTheme.colorScheme.primary
-            )
         }
     }
+
 }
 
 @Composable
@@ -182,27 +271,60 @@ private fun WordSection(word: Word) {
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(
-            modifier = Modifier.padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Text(
-                text = "Choose the correct definition for:",
-                style = Typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    Icons.Default.TextFields,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                    tint = MaterialTheme.colorScheme.primary
+                )
+                
+                Spacer(modifier = Modifier.width(8.dp))
+                
+                Text(
+                    text = "Word",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold
+                )
+                
+                Spacer(modifier = Modifier)
+            }
             
             Text(
                 text = word.wordItself,
-                style = Typography.headlineLarge,
+                style = MaterialTheme.typography.headlineLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
             )
             
+            if (word.partOfSpeech != PartOfSpeech.Unknown) {
+                Row() {
+                    Text(
+                        text = word.partOfSpeech.name,
+                        style = MaterialTheme.typography.bodySmall,
+                        modifier = Modifier
+                            .padding(horizontal = 8.dp, vertical = 4.dp)
+                            .background(
+                                MaterialTheme.colorScheme.primary.copy(alpha = 0.1f),
+                                shape = CircleShape
+                            )
+                            .padding(horizontal = 8.dp, vertical = 4.dp),
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    
+                    Spacer(modifier = Modifier)
+                }
+            }
+            
             if (word.phonetic?.isNotEmpty() == true) {
                 Text(
                     text = "/${word.phonetic}/",
-                    style = Typography.bodyMedium,
+                    style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
@@ -219,19 +341,52 @@ private fun OptionsSection(
     correctAnswerIndex: Int
 ) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        options.forEachIndexed { index, option ->
-            OptionCard(
-                text = option,
-                isSelected = selectedOption == index,
-                isCorrect = if (isAnswerSubmitted) index == correctAnswerIndex else null,
-                isIncorrect = if (isAnswerSubmitted) selectedOption == index && index != correctAnswerIndex else null,
-                onClick = { onOptionSelected(index) },
-                enabled = !isAnswerSubmitted
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                Icons.Default.List,
+                contentDescription = null,
+                modifier = Modifier.size(24.dp),
+                tint = MaterialTheme.colorScheme.primary
             )
+            
+            Spacer(modifier = Modifier.width(8.dp))
+            
+            Text(
+                text = "Choose the Correct Definition",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold
+            )
+            
+            Spacer(modifier = Modifier)
+        }
+        
+        Column(
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier
+                .padding(20.dp)
+                .background(
+                    MaterialTheme.colorScheme.surface,
+                    shape = RoundedCornerShape(12.dp)
+                )
+                .shadow(elevation = 2.dp)
+        ) {
+            options.forEachIndexed { index, option ->
+                OptionCard(
+                    text = option,
+                    isSelected = selectedOption == index,
+                    isCorrect = if (isAnswerSubmitted) index == correctAnswerIndex else null,
+                    isIncorrect = if (isAnswerSubmitted) selectedOption == index && index != correctAnswerIndex else null,
+                    onClick = { onOptionSelected(index) },
+                    enabled = selectedOption == null && !isAnswerSubmitted
+                )
+            }
         }
     }
+
 }
 
 @Composable
@@ -260,10 +415,11 @@ private fun OptionCard(
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = backgroundColor),
-        border = androidx.compose.foundation.BorderStroke(
+        border = BorderStroke(
             width = 2.dp,
             color = borderColor
-        )
+        ),
+        shape = RoundedCornerShape(12.dp)
     ) {
         Row(
             modifier = Modifier
@@ -297,24 +453,48 @@ private fun OptionCard(
             
             Text(
                 text = text,
-                style = Typography.bodyMedium,
-                modifier = Modifier.weight(1f)
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f),
+                maxLines = 3
+            )
+            
+            Spacer(modifier = Modifier.width(8.dp))
+            
+            Icon(
+                Icons.Default.ChevronRight,
+                contentDescription = null,
+                modifier = Modifier.size(16.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }
 }
 
 @Composable
-private fun SubmitButton(
-    isEnabled: Boolean,
-    onSubmit: () -> Unit
+private fun ActionButtonsSection(
+    onSkipWord: () -> Unit
 ) {
-    Button(
-        onClick = onSubmit,
-        enabled = isEnabled,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Text("Submit Answer")
+    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Button(
+            onClick = onSkipWord,
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.surface
+            )
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    Icons.Default.SkipNext,
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("Skip Word (-25 points)")
+            }
+        }
     }
 }
 
@@ -351,7 +531,7 @@ private fun FeedbackSection(
                 )
                 Text(
                     text = if (isCorrect) "Correct!" else "Incorrect",
-                    style = Typography.titleMedium,
+                    style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = if (isCorrect) 
                         MaterialTheme.colorScheme.onPrimaryContainer 
@@ -363,14 +543,14 @@ private fun FeedbackSection(
             if (!isCorrect && selectedAnswer != null) {
                 Text(
                     text = "Your answer: $selectedAnswer",
-                    style = Typography.bodyMedium,
+                    style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onErrorContainer
                 )
             }
             
             Text(
                 text = "Correct answer: $correctAnswer",
-                style = Typography.bodyMedium,
+                style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold,
                 color = if (isCorrect) 
                     MaterialTheme.colorScheme.onPrimaryContainer 
@@ -381,64 +561,174 @@ private fun FeedbackSection(
     }
 }
 
-@Composable
-private fun NextButton(onNext: () -> Unit) {
-    Button(
-        onClick = onNext,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Text("Next Word")
-    }
-}
+
 
 @Composable
 private fun QuizCompleteSection(
     score: Int,
     totalQuestions: Int,
-    onFinish: () -> Unit
+    correctAnswers: Int,
+    bestStreak: Int,
+    onFinish: () -> Unit,
+    onRestart: () -> Unit
 ) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-    ) {
+    Column(verticalArrangement = Arrangement.spacedBy(32.dp)) {
+        Spacer(modifier = Modifier)
+
         Column(
-            modifier = Modifier.padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(24.dp),
+            modifier = Modifier
+                .padding(horizontal = 32.dp)
         ) {
-            Icon(
-                Icons.Default.Star,
-                contentDescription = null,
-                modifier = Modifier.size(64.dp),
-                tint = MaterialTheme.colorScheme.primary
-            )
+            // Success Icon
+            Box(
+                modifier = Modifier
+                    .size(80.dp)
+                    .background(
+                        MaterialTheme.colorScheme.primary,
+                        shape = CircleShape
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    Icons.Default.Check,
+                    contentDescription = null,
+                    modifier = Modifier.size(32.dp),
+                    tint = MaterialTheme.colorScheme.onPrimary
+                )
+            }
             
-            Text(
-                text = "Quiz Complete!",
-                style = Typography.headlineMedium,
-                fontWeight = FontWeight.Bold
-            )
+            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                Text(
+                    text = "Quiz Complete!",
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontWeight = FontWeight.Bold
+                )
+                
+                Text(
+                    text = "Great job! You've completed the definition quiz.",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
+                )
+            }
             
-            Text(
-                text = "You got $score out of $totalQuestions correct",
-                style = Typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            
-            Text(
-                text = "${(score * 100 / totalQuestions)}%",
-                style = Typography.displaySmall,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary
-            )
+            // Score Card
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(24.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    Text(
+                        text = "Your Results",
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text("Final Score")
+                            Text(
+                                text = "$score",
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        }
+                        
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text("Correct Answers")
+                            Text(
+                                text = "$correctAnswers/$totalQuestions",
+                                fontWeight = FontWeight.Medium
+                            )
+                        }
+                        
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text("Best Streak")
+                            Text(
+                                text = "$bestStreak",
+                                fontWeight = FontWeight.Medium,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        }
+                        
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text("Accuracy")
+                            Text(
+                                text = "${if (totalQuestions > 0) (correctAnswers * 100 / totalQuestions) else 0}%",
+                                fontWeight = FontWeight.Medium,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        }
+                    }
+                }
+            }
+        }
+        
+        Column(
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier
+                .padding(horizontal = 32.dp)
+        ) {
+            Button(
+                onClick = onRestart,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        Icons.Default.Refresh,
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Try Again")
+                }
+            }
             
             Button(
                 onClick = onFinish,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.surface
+                )
             ) {
-                Text("Finish")
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        Icons.Default.ArrowBack,
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Back to Quizzes")
+                }
             }
         }
+
+        
+        Spacer(modifier = Modifier)
     }
 }
 
@@ -455,5 +745,9 @@ data class ChooseDefinitionQuizUiState(
     val isAnswerCorrect: Boolean = false,
     val isQuizComplete: Boolean = false,
     val isLoading: Boolean = false,
-    val error: String? = null
+    val error: String? = null,
+    val correctAnswers: Int = 0,
+    val currentStreak: Int = 0,
+    val bestStreak: Int = 0,
+    val questionsAnswered: Int = 0
 ) 

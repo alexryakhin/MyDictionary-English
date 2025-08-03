@@ -21,7 +21,14 @@ struct QuizzesListContentView: View {
 
     var body: some View {
         Group {
-            if viewModel.words.count >= 10 {
+            if viewModel.showingHardWordsOnly {
+                // Show quizzes when hard words mode is enabled, even with just one hard word
+                if viewModel.filteredWords.count >= 1 {
+                    quizzesList
+                } else {
+                    insufficientHardWordsPlaceholder
+                }
+            } else if viewModel.words.count >= 10 {
                 // Show quizzes when user has enough words
                 quizzesList
             } else {
@@ -46,7 +53,7 @@ struct QuizzesListContentView: View {
                             Text("Practice Hard Words Only")
                                 .font(.body)
                                 .fontWeight(.medium)
-                            Text("Focus on words that need review")
+                            Text(viewModel.hasHardWords ? "Focus on words that need review" : "No words need review yet")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -73,15 +80,27 @@ struct QuizzesListContentView: View {
                                 .foregroundColor(.blue)
                         }
                         
-                        Slider(value: $practiceWordCount, in: 5...50, step: 5)
+                        let availableWords = viewModel.showingHardWordsOnly ? viewModel.filteredWords : viewModel.words
+                        let maxWords = min(50, max(1, availableWords.count)) // Allow minimum of 1 word
+                        let minWords = viewModel.showingHardWordsOnly ? 1 : 10 // Allow 1 word for hard words mode
+                        let subtitle = viewModel.showingHardWordsOnly ?
+                            "Number of words to practice in each session (1-\(maxWords))" :
+                            "Number of words to practice in each session (10-\(maxWords))"
+                        
+                        Text(subtitle)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        Slider(value: $practiceWordCount, in: Double(minWords)...Double(maxWords), step: 1)
                             .accentColor(.blue)
+                            .disabled(viewModel.showingHardWordsOnly) // Disable when hard words only is enabled
                         
                         HStack {
-                            Text("5")
+                            Text("\(minWords)")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             Spacer()
-                            Text("50")
+                            Text("\(maxWords)")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -97,13 +116,13 @@ struct QuizzesListContentView: View {
             // Quiz Types Section
             Section {
                 NavigationLink {
-                    SpellingQuizContentView(wordCount: Int(practiceWordCount))
+                    SpellingQuizContentView(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly)
                 } label: {
                     QuizCardView(quiz: .spelling)
                 }
 
                 NavigationLink {
-                    ChooseDefinitionQuizContentView(wordCount: Int(practiceWordCount))
+                    ChooseDefinitionQuizContentView(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly)
                 } label: {
                     QuizCardView(quiz: .chooseDefinition)
                 }
@@ -130,9 +149,7 @@ struct QuizzesListContentView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                 
-                Text(viewModel.words.isEmpty ? 
-                     "You need at least **10 words** in your list to start taking quizzes.\n\nCurrently you have **0 words**." :
-                     "You need at least **10 words** in your list to start taking quizzes.\n\nCurrently you have **\(viewModel.words.count) words**.")
+                Text("You need at least 10 words to start quizzes. You currently have \(viewModel.words.count) words.")
                     .font(.body)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -156,6 +173,53 @@ struct QuizzesListContentView: View {
                 Text(viewModel.words.isEmpty ? 
                      "Quizzes help you test your knowledge and reinforce learning!" :
                      "You're \(10 - viewModel.words.count) words away from unlocking quizzes!")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.horizontal, 32)
+            
+            Spacer()
+        }
+        .background(Color(.systemGroupedBackground))
+    }
+
+    private var insufficientHardWordsPlaceholder: some View {
+        VStack(spacing: 24) {
+            Spacer()
+            
+            VStack(spacing: 16) {
+                Image(systemName: "brain.head.profile")
+                    .font(.system(size: 60))
+                    .foregroundStyle(.blue.gradient)
+                
+                Text("Keep Adding Hard Words!")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                
+                Text("You need at least 1 hard word to practice in hard words mode. You currently have \(viewModel.filteredWords.count) hard words.")
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .lineSpacing(4)
+            }
+            .padding(.horizontal, 32)
+            
+            VStack(spacing: 12) {
+                Button {
+                    navigationManager.switchToTab(.words)
+                } label: {
+                    Label("Add Hard Words", systemImage: "plus.circle.fill")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(.blue.gradient)
+                        .foregroundColor(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                
+                Text("Answer some words incorrectly to create hard words for practice!")
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -229,9 +293,9 @@ extension Quiz {
     var description: String {
         switch self {
         case .spelling:
-            return "Test your spelling skills by typing words from definitions"
+            return "Test your spelling skills by typing words correctly"
         case .chooseDefinition:
-            return "Choose the correct definition for given words"
+            return "Select the correct definition for each word"
         }
     }
 }

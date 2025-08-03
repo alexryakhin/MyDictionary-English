@@ -5,15 +5,55 @@ struct SpellingQuizContentView: View {
     @StateObject private var viewModel: SpellingQuizViewModel
     @Environment(\.dismiss) private var dismiss
 
-    init(wordCount: Int) {
+    init(wordCount: Int, hardWordsOnly: Bool = false) {
         self._viewModel = StateObject(wrappedValue: SpellingQuizViewModel(
             wordsProvider: ServiceManager.shared.wordsProvider,
-            wordCount: wordCount
+            wordCount: wordCount,
+            hardWordsOnly: hardWordsOnly
         ))
     }
 
     var body: some View {
-        if !viewModel.isQuizComplete {
+        if let errorMessage = viewModel.errorMessage {
+            // Error state
+            VStack(spacing: 24) {
+                Spacer()
+                
+                VStack(spacing: 16) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .font(.system(size: 60))
+                        .foregroundStyle(.red.gradient)
+                    
+                    Text("Quiz Unavailable")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                    
+                    Text(errorMessage)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(4)
+                }
+                .padding(.horizontal, 32)
+                
+                Button {
+                    dismiss()
+                } label: {
+                    Label("Back to Quizzes", systemImage: "chevron.left")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(.blue.gradient)
+                        .foregroundColor(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                .padding(.horizontal, 32)
+                
+                Spacer()
+            }
+            .background(Color(.systemGroupedBackground))
+        } else if !viewModel.isQuizComplete {
             VStack(spacing: 0) {
                 // Header with progress
                 headerView
@@ -53,13 +93,13 @@ struct SpellingQuizContentView: View {
     private var headerView: some View {
         VStack(spacing: 6) {
             // Progress Bar
-            ProgressView(value: Double(viewModel.correctAnswers), total: Double(viewModel.totalQuestions))
+            ProgressView(value: Double(viewModel.wordsPlayed.count), total: Double(viewModel.totalQuestions))
                 .progressViewStyle(.linear)
                 .padding(.horizontal, 24)
             
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Progress: \(viewModel.correctAnswers)/\(viewModel.totalQuestions)")
+                    Text("Progress: \(viewModel.wordsPlayed.count + 1)/\(viewModel.totalQuestions)")
                         .font(.caption)
                         .foregroundColor(.secondary)
                     

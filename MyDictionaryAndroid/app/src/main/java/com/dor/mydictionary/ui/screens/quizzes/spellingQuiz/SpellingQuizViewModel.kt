@@ -33,19 +33,29 @@ class SpellingQuizViewModel @Inject constructor(
     private var currentSessionId: String? = null
     private var sessionStartTime: Date = Date()
 
-    fun startQuiz(wordsPerSession: Int = 10) {
+    fun startQuiz(wordsPerSession: Int = 10, hardWordsOnly: Boolean = false) {
         _uiState.update { it.copy(isLoading = true, error = null) }
         
         viewModelScope.launch {
             try {
-                Log.d("SpellingQuizViewModel", "Starting quiz with $wordsPerSession words")
+                Log.d("SpellingQuizViewModel", "Starting quiz with $wordsPerSession words, hardWordsOnly: $hardWordsOnly")
                 
-                // Get available words
-                val availableWords = wordManager.getAllWords()
-                if (availableWords.isEmpty()) {
+                // Get available words based on hard words setting
+                val allAvailableWords = wordManager.getAllWords()
+                val filteredWords = if (hardWordsOnly) {
+                    allAvailableWords.filter { it.difficultyLevel == 2 }
+                } else {
+                    allAvailableWords
+                }
+                
+                if (filteredWords.isEmpty()) {
                     _uiState.update { 
                         it.copy(
-                            error = "No words available for quiz",
+                            error = if (hardWordsOnly) {
+                                "No words need review yet"
+                            } else {
+                                "No words available for quiz"
+                            },
                             isLoading = false
                         )
                     }
@@ -53,8 +63,9 @@ class SpellingQuizViewModel @Inject constructor(
                 }
                 
                 // Select random words for the quiz
-                originalWords = availableWords
-                quizWords = availableWords.shuffled().take(wordsPerSession).toMutableList()
+                originalWords = filteredWords
+                val wordsToTake = if (hardWordsOnly) minOf(wordsPerSession, filteredWords.size) else wordsPerSession
+                quizWords = filteredWords.shuffled().take(wordsToTake).toMutableList()
                 
                 Log.d("SpellingQuizViewModel", "Selected ${quizWords.size} words for quiz")
                 
@@ -130,9 +141,8 @@ class SpellingQuizViewModel @Inject constructor(
             // Debug logging for accuracy contribution
             Log.d("SpellingQuizViewModel", "Word ${currentWord.wordItself}: attempts=$newAttemptCount, contribution=$accuracyContribution")
             
-            // Calculate score with attempt bonus (bonus for fewer attempts)
-            val attemptBonus = maxOf(0, 3 - newAttemptCount) * 10
-            val newScore = currentState.score + 100 + attemptBonus
+            // Calculate score (always +100 for correct answers)
+            val newScore = currentState.score + 100
             
             _uiState.update { 
                 it.copy(
@@ -350,13 +360,14 @@ class SpellingQuizViewModel @Inject constructor(
                 currentSessionId?.let { sessionId ->
                     quizSessionManager.saveQuizSession(
                         id = sessionId,
-                        quizType = "Spelling Quiz",
+                        quizType = "spelling",
                         totalQuestions = currentState.wordsPlayed.size, // Use words actually played
                         correctAnswers = currentState.correctAnswers,
                         timestamp = Date(),
                         duration = duration,
                         accuracy = accuracy,
-                        score = currentState.score // Pass the actual score
+                        score = currentState.score, // Pass the actual score
+                        wordsPracticed = currentState.wordsPlayed.map { it.id }
                     )
                 }
                 
@@ -427,13 +438,14 @@ class SpellingQuizViewModel @Inject constructor(
                     currentSessionId?.let { sessionId ->
                         quizSessionManager.saveQuizSession(
                             id = sessionId,
-                            quizType = "Spelling Quiz",
+                            quizType = "spelling",
                             totalQuestions = currentState.wordsPlayed.size, // Use words actually played
                             correctAnswers = currentState.correctAnswers,
                             timestamp = Date(),
                             duration = duration,
                             accuracy = accuracy,
-                            score = currentState.score // Pass the actual score
+                            score = currentState.score, // Pass the actual score
+                            wordsPracticed = currentState.wordsPlayed.map { it.id }
                         )
                     }
                     

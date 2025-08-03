@@ -30,6 +30,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun SpellingQuizScreen(
     wordsPerSession: Int = 10,
+    hardWordsOnly: Boolean = false,
     onQuizComplete: () -> Unit = {},
     onNavigateToQuizResults: () -> Unit = {}
 ) {
@@ -45,7 +46,7 @@ fun SpellingQuizScreen(
 
     // Handle navigation when user exits early
     LaunchedEffect(Unit) {
-        viewModel.startQuiz(wordsPerSession)
+        viewModel.startQuiz(wordsPerSession, hardWordsOnly)
     }
 
     Scaffold(
