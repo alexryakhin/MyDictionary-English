@@ -1,12 +1,16 @@
 import SwiftUI
 import UniformTypeIdentifiers
 import StoreKit
+import FirebaseAuth
 
 struct SettingsContentView: View {
 
     @Environment(\.requestReview) var requestReview
     @ObservedObject private var viewModel: SettingsViewModel
     @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
+    @StateObject private var authService = AuthenticationService.shared
+    @State private var showingAuthentication = false
+    @State private var showingSignOutConfirmation = false
 
     init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
@@ -70,6 +74,55 @@ struct SettingsContentView: View {
                 Text("Daily reminders only send if you haven't opened the app that day.")
             }
 
+            // MARK: - Word Lists & Sync
+
+            Section {
+                if authService.isSignedIn {
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Signed in as")
+                                    .font(.body)
+                                    .fontWeight(.medium)
+                                Text(authService.displayName ?? authService.userEmail ?? "Anonymous")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            
+                            Spacer()
+                            
+                            Button("Sign Out") {
+                                HapticManager.shared.triggerSelection()
+                                showingSignOutConfirmation = true
+                            }
+                            .font(.caption)
+                            .foregroundColor(.red)
+                            .buttonStyle(.plain)
+                        }
+                    }
+                } else {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Button {
+                            showingAuthentication = true
+                        } label: {
+                            Label("Sign in to sync word lists", systemImage: "person.circle")
+                        }
+                        
+                        Text("Local mode - words saved on this device only")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            } header: {
+                Text("Word Lists & Sync")
+            } footer: {
+                if authService.isSignedIn {
+                    Text("Your word lists are synced across all your devices.")
+                } else {
+                    Text("Sign in to create and share word lists with others.")
+                }
+            }
+
             // MARK: - Tag Management
 
             Section {
@@ -81,7 +134,7 @@ struct SettingsContentView: View {
             } header: {
                 Text("Organization")
             } footer: {
-                Text("Create and manage tags to organize your words.")
+                Text("Create and manage tags to organize your words, and add collaborators to share words with.")
             }
 
             // MARK: - Import & Export
@@ -125,6 +178,28 @@ struct SettingsContentView: View {
         .sheet(isPresented: $viewModel.showingTagManagement) {
             TagManagementView()
         }
+        .sheet(isPresented: $showingAuthentication) {
+            AuthenticationView()
+        }
+        .overlay {
+            if showingSignOutConfirmation {
+                ZStack {
+                    Color.black.opacity(0.3)
+                        .ignoresSafeArea()
+                        .onTapGesture {
+                            showingSignOutConfirmation = false
+                        }
+                    
+                    SignOutAlertView {
+                        Task {
+                            try? await authService.signOut()
+                        }
+                    }
+                }
+                .transition(.opacity)
+                .animation(.easeInOut(duration: 0.2), value: showingSignOutConfirmation)
+            }
+        }
         .fileImporter(
             isPresented: $viewModel.isImporting,
             allowedContentTypes: [UTType.commaSeparatedText],
@@ -141,6 +216,18 @@ struct SettingsContentView: View {
         }
         .onAppear {
             AnalyticsService.shared.logEvent(.settingsOpened)
+        }
+        .alert(isPresented: $viewModel.isShowingAlert) {
+            Alert(
+                title: Text(viewModel.alertModel.title),
+                message: Text(viewModel.alertModel.message ?? ""),
+                primaryButton: .default(Text(viewModel.alertModel.actionText ?? "OK")) {
+                    viewModel.alertModel.action?()
+                },
+                secondaryButton: viewModel.alertModel.destructiveActionText != nil ? .destructive(Text(viewModel.alertModel.destructiveActionText!)) {
+                    viewModel.alertModel.destructiveAction?()
+                } : .cancel()
+            )
         }
     }
 }

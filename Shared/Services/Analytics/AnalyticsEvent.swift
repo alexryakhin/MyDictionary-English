@@ -108,6 +108,16 @@ enum AnalyticsEvent: String {
     case definitionTranslationEnabled
     case definitionTranslationDisabled
 
+    // Authentication Events
+    case signInWithGoogleTapped
+    case signInWithAppleTapped
+    case signInAnonymouslyTapped
+    case signOutTapped
+    case accountLinkingOpened
+    case googleAccountLinked
+    case appleAccountLinked
+    case accountLinkingFailed
+
     var parameters: [String: Any]? {
         switch self {
         case .appOpened:
