@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "893718973950",
+    "project_id": "my-dictionary-english",
+    "storage_bucket": "my-dictionary-english.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893718973950:android:f2524af0b7d95cd1f344af",
+        "android_client_info": {
+          "package_name": "com.dor.mydictionary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893718973950-mi068mld8c7png177n9a9pf0h3fojafo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANIi4BSP-1-6HkHHCMNUu5bLpMYYV09fA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893718973950-mi068mld8c7png177n9a9pf0h3fojafo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "893718973950-5av1vtgnpdjue8848ked462oika10dqd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dor.My-Dictionary",
+                "app_store_id": "1588418793"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

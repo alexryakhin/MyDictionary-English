@@ -9,9 +9,9 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
-    <key>CFBundleDisplayName</key>
-    <string>My Dictionary</string>
-    <key>CFBundleName</key>
-    <string>My Dictionary</string>
+	<key>CFBundleDisplayName</key>
+	<string>My Dictionary</string>
+	<key>CFBundleName</key>
+	<string>My Dictionary</string>
 </dict>
 </plist>

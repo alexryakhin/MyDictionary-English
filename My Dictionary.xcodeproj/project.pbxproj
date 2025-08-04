@@ -15,6 +15,16 @@
 		532C15212E3CC39600552599 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 532C15202E3CC39600552599 /* FirebaseAnalytics */; };
 		53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BC92D7E238900C1DE8B /* FirebaseCore */; };
 		53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */; };
+		5370F6822E4052E3009238EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6812E4052E3009238EB /* FirebaseAuth */; };
+		5370F6842E4052E8009238EB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6832E4052E8009238EB /* FirebaseFirestore */; };
+		5370F6862E4052ED009238EB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6852E4052ED009238EB /* FirebaseStorage */; };
+		5370F6882E4052F1009238EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6872E4052F1009238EB /* FirebaseAuth */; };
+		5370F68A2E4052F5009238EB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6892E4052F5009238EB /* FirebaseFirestore */; };
+		5370F68C2E4052F9009238EB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F68B2E4052F9009238EB /* FirebaseStorage */; };
+		5370F68F2E405358009238EB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F68E2E405358009238EB /* GoogleSignIn */; };
+		5370F6912E405358009238EB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6902E405358009238EB /* GoogleSignInSwift */; };
+		5370F6932E4053C1009238EB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6922E4053C1009238EB /* GoogleSignIn */; };
+		5370F6952E4053C6009238EB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6942E4053C6009238EB /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,32 +61,43 @@
 		532C16862E3CCC6B00552599 /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				DeviceHelper.swift,
+				Services/Persistence/My_Dictionary.xcdatamodeld,
 			);
 			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
 		};
-		532C18602E3E1E2600552599 /* Exceptions for "CoreUserInterface" folder in "My Dictionary (macOS)" target */ = {
+		5370F5712E4050A4009238EB /* Exceptions for "My Dictionary" folder in "My Dictionary (macOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				SwiftUIComponents/VocabularyLineChart.swift,
+				CoreUserInterface/SwiftUIComponents/VocabularyLineChart.swift,
+				UserInterface/Home/Tags/TagManagementViewModel.swift,
 			);
 			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
 		};
-		532C18622E3E1E5B00552599 /* Exceptions for "UserInterface" folder in "My Dictionary (macOS)" target */ = {
+		5370F6722E4050C1009238EB /* Exceptions for "Shared" folder in "My Dictionary" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Home/Tags/TagManagementViewModel.swift,
-			);
-			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
-		};
-		53E9A7802D7C3385007E9F28 /* Exceptions for "My Dictionary" folder in "My Dictionary" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
+				Services/Persistence/My_Dictionary.xcdatamodeld,
 			);
 			target = 53E9A7532D7C3383007E9F28 /* My Dictionary */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		5370F6732E4050C1009238EB /* Exceptions for "Shared" folder in "Compile Sources" phase from "My Dictionary" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 53E9A7502D7C3383007E9F28 /* Sources */;
+			membershipExceptions = (
+				Services/Persistence/My_Dictionary.xcdatamodeld,
+			);
+		};
+		5370F6742E4050C1009238EB /* Exceptions for "Shared" folder in "Compile Sources" phase from "My Dictionary (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 530D2C2F2D9836920040C247 /* Sources */;
+			membershipExceptions = (
+				Services/Persistence/My_Dictionary.xcdatamodeld,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		530D2C342D9836920040C247 /* My Dictionary (macOS) */ = {
@@ -84,59 +105,21 @@
 			path = "My Dictionary (macOS)";
 			sourceTree = "<group>";
 		};
-		530D2C902D98474E0040C247 /* CoreUserInterface (macOS) */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "CoreUserInterface (macOS)";
-			sourceTree = "<group>";
-		};
-		530D2CA12D9847680040C247 /* UserInterface (macOS) */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "UserInterface (macOS)";
-			sourceTree = "<group>";
-		};
-		5321A6042E3FC2D20066DFC4 /* Localization */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Localization;
-			sourceTree = "<group>";
-		};
 		53E9A7562D7C3383007E9F28 /* My Dictionary */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				53E9A7802D7C3385007E9F28 /* Exceptions for "My Dictionary" folder in "My Dictionary" target */,
+				5370F5712E4050A4009238EB /* Exceptions for "My Dictionary" folder in "My Dictionary (macOS)" target */,
 			);
 			path = "My Dictionary";
-			sourceTree = "<group>";
-		};
-		53E9A7E42D7C3E07007E9F28 /* UserInterface */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				532C18622E3E1E5B00552599 /* Exceptions for "UserInterface" folder in "My Dictionary (macOS)" target */,
-			);
-			path = UserInterface;
-			sourceTree = "<group>";
-		};
-		53E9A7FB2D7C3FE4007E9F28 /* Services */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Services;
-			sourceTree = "<group>";
-		};
-		53E9A80C2D7C3FF1007E9F28 /* Core */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Core;
-			sourceTree = "<group>";
-		};
-		53E9A9B12D7C41DE007E9F28 /* CoreUserInterface */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				532C18602E3E1E2600552599 /* Exceptions for "CoreUserInterface" folder in "My Dictionary (macOS)" target */,
-			);
-			path = CoreUserInterface;
 			sourceTree = "<group>";
 		};
 		53E9A9F92D7C439B007E9F28 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				5370F6722E4050C1009238EB /* Exceptions for "Shared" folder in "My Dictionary" target */,
+				5370F6732E4050C1009238EB /* Exceptions for "Shared" folder in "Compile Sources" phase from "My Dictionary" target */,
 				532C16862E3CCC6B00552599 /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */,
+				5370F6742E4050C1009238EB /* Exceptions for "Shared" folder in "Compile Sources" phase from "My Dictionary (macOS)" target */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -153,10 +136,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5370F6952E4053C6009238EB /* GoogleSignInSwift in Frameworks */,
 				530D2C552D983E780040C247 /* FirebaseCrashlytics in Frameworks */,
+				5370F6932E4053C1009238EB /* GoogleSignIn in Frameworks */,
+				5370F6882E4052F1009238EB /* FirebaseAuth in Frameworks */,
 				530D2C532D983E720040C247 /* FirebaseCore in Frameworks */,
 				532C15212E3CC39600552599 /* FirebaseAnalytics in Frameworks */,
+				5370F68C2E4052F9009238EB /* FirebaseStorage in Frameworks */,
 				530D2C4D2D983A1E0040C247 /* CloudKit.framework in Frameworks */,
+				5370F68A2E4052F5009238EB /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,10 +152,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5370F6912E405358009238EB /* GoogleSignInSwift in Frameworks */,
 				5321A2E32E3FADEF0066DFC4 /* Flow in Frameworks */,
+				5370F68F2E405358009238EB /* GoogleSignIn in Frameworks */,
+				5370F6822E4052E3009238EB /* FirebaseAuth in Frameworks */,
 				53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */,
 				532C151F2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				5370F6862E4052ED009238EB /* FirebaseStorage in Frameworks */,
 				53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */,
+				5370F6842E4052E8009238EB /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,16 +170,9 @@
 		53E9A74B2D7C3383007E9F28 = {
 			isa = PBXGroup;
 			children = (
-				5321A6042E3FC2D20066DFC4 /* Localization */,
 				53E9A7562D7C3383007E9F28 /* My Dictionary */,
-				53E9A7FB2D7C3FE4007E9F28 /* Services */,
-				53E9A80C2D7C3FF1007E9F28 /* Core */,
-				53E9A9B12D7C41DE007E9F28 /* CoreUserInterface */,
 				53E9A9F92D7C439B007E9F28 /* Shared */,
-				53E9A7E42D7C3E07007E9F28 /* UserInterface */,
 				530D2C342D9836920040C247 /* My Dictionary (macOS) */,
-				530D2C902D98474E0040C247 /* CoreUserInterface (macOS) */,
-				530D2CA12D9847680040C247 /* UserInterface (macOS) */,
 				53E9A7552D7C3383007E9F28 /* Products */,
 				53E9A8172D7C4019007E9F28 /* Frameworks */,
 				53E9AAD22D7CA84F007E9F28 /* README.md */,
@@ -229,11 +215,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				530D2C342D9836920040C247 /* My Dictionary (macOS) */,
-				530D2C902D98474E0040C247 /* CoreUserInterface (macOS) */,
-				530D2CA12D9847680040C247 /* UserInterface (macOS) */,
-				5321A6042E3FC2D20066DFC4 /* Localization */,
-				53E9A7FB2D7C3FE4007E9F28 /* Services */,
-				53E9A80C2D7C3FF1007E9F28 /* Core */,
 				53E9A9F92D7C439B007E9F28 /* Shared */,
 			);
 			name = "My Dictionary (macOS)";
@@ -241,6 +222,11 @@
 				530D2C522D983E720040C247 /* FirebaseCore */,
 				530D2C542D983E780040C247 /* FirebaseCrashlytics */,
 				532C15202E3CC39600552599 /* FirebaseAnalytics */,
+				5370F6872E4052F1009238EB /* FirebaseAuth */,
+				5370F6892E4052F5009238EB /* FirebaseFirestore */,
+				5370F68B2E4052F9009238EB /* FirebaseStorage */,
+				5370F6922E4053C1009238EB /* GoogleSignIn */,
+				5370F6942E4053C6009238EB /* GoogleSignInSwift */,
 			);
 			productName = "My Dictionary (macOS)";
 			productReference = 530D2C332D9836920040C247 /* My Dictionary.app */;
@@ -260,12 +246,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5321A6042E3FC2D20066DFC4 /* Localization */,
 				53E9A7562D7C3383007E9F28 /* My Dictionary */,
-				53E9A7E42D7C3E07007E9F28 /* UserInterface */,
-				53E9A7FB2D7C3FE4007E9F28 /* Services */,
-				53E9A80C2D7C3FF1007E9F28 /* Core */,
-				53E9A9B12D7C41DE007E9F28 /* CoreUserInterface */,
 				53E9A9F92D7C439B007E9F28 /* Shared */,
 			);
 			name = "My Dictionary";
@@ -274,6 +255,11 @@
 				53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */,
 				532C151E2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				5321A2E22E3FADEF0066DFC4 /* Flow */,
+				5370F6812E4052E3009238EB /* FirebaseAuth */,
+				5370F6832E4052E8009238EB /* FirebaseFirestore */,
+				5370F6852E4052ED009238EB /* FirebaseStorage */,
+				5370F68E2E405358009238EB /* GoogleSignIn */,
+				5370F6902E405358009238EB /* GoogleSignInSwift */,
 			);
 			productName = "My Dictionary";
 			productReference = 53E9A7542D7C3383007E9F28 /* My Dictionary.app */;
@@ -311,6 +297,7 @@
 				53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				530D2F722D99508E0040C247 /* XCRemoteSwiftPackageReference "Glur" */,
 				5321A2E12E3FADEF0066DFC4 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
+				5370F68D2E405358009238EB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 53E9A7552D7C3383007E9F28 /* Products */;
@@ -372,7 +359,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "My Dictionary (macOS)/Resources/Info.plist";
+				INFOPLIST_FILE = "My Dictionary (macOS)/macOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "My Dictionary";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -404,7 +391,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "My Dictionary (macOS)/Resources/Info.plist";
+				INFOPLIST_FILE = "My Dictionary (macOS)/macOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "My Dictionary";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -433,7 +420,7 @@
 				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary/Resources/Assets.xcassets";
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "My Dictionary/Info.plist";
+				INFOPLIST_FILE = "My Dictionary/iOS-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -470,7 +457,7 @@
 				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary/Resources/Assets.xcassets";
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "My Dictionary/Info.plist";
+				INFOPLIST_FILE = "My Dictionary/iOS-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -674,6 +661,14 @@
 				minimumVersion = 11.9.0;
 			};
 		};
+		5370F68D2E405358009238EB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -711,6 +706,56 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		5370F6812E4052E3009238EB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		5370F6832E4052E8009238EB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		5370F6852E4052ED009238EB /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		5370F6872E4052F1009238EB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		5370F6892E4052F5009238EB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		5370F68B2E4052F9009238EB /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		5370F68E2E405358009238EB /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5370F68D2E405358009238EB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		5370F6902E405358009238EB /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5370F68D2E405358009238EB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		5370F6922E4053C1009238EB /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5370F68D2E405358009238EB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		5370F6942E4053C6009238EB /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5370F68D2E405358009238EB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
