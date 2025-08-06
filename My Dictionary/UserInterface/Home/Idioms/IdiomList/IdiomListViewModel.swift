@@ -31,11 +31,10 @@ final class IdiomListViewModel: BaseViewModel {
     }
     @Published var searchText = ""
 
-    private let idiomsProvider: IdiomsProvider
+    private let idiomsProvider: IdiomsProvider = .shared
     private var cancellables = Set<AnyCancellable>()
 
     override init() {
-        self.idiomsProvider = ServiceManager.shared.idiomsProvider
         super.init()
         setupBindings()
     }

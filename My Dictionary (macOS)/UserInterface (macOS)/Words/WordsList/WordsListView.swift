@@ -97,17 +97,5 @@ struct WordListView: View {
         .onChange(of: viewModel.filterState) { _ in
             AnalyticsService.shared.logEvent(.wordsListFilterSelected)
         }
-        .alert(isPresented: _viewModel.projectedValue.isShowingAlert) {
-            Alert(
-                title: Text(viewModel.alertModel.title),
-                message: Text(viewModel.alertModel.message ?? ""),
-                primaryButton: .default(Text(viewModel.alertModel.actionText ?? "OK")) {
-                    viewModel.alertModel.action?()
-                },
-                secondaryButton: viewModel.alertModel.destructiveActionText != nil ? .destructive(Text(viewModel.alertModel.destructiveActionText!)) {
-                    viewModel.alertModel.destructiveAction?()
-                } : .cancel()
-            )
-        }
     }
 }

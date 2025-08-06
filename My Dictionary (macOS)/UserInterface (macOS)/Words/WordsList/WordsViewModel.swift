@@ -18,9 +18,9 @@ final class WordsViewModel: BaseViewModel {
 
     // MARK: - Private properties
 
-    private let wordsProvider: WordsProvider
-    private let ttsPlayer: TTSPlayer
-    private let coreDataService: CoreDataService
+    private let wordsProvider: WordsProvider = .shared
+    private let ttsPlayer: TTSPlayer = .shared
+    private let coreDataService: CoreDataService = .shared
     // No longer need wordDetailsManager since we work directly with Core Data objects
     private var cancellables = Set<AnyCancellable>()
     private var wordDetailsSubscription: AnyCancellable?
@@ -28,9 +28,6 @@ final class WordsViewModel: BaseViewModel {
     // MARK: - Init
 
     override init() {
-        self.wordsProvider = ServiceManager.shared.wordsProvider
-        self.ttsPlayer = ServiceManager.shared.ttsPlayer
-        self.coreDataService = ServiceManager.shared.coreDataService
         super.init()
         setupBindings()
     }
@@ -108,6 +105,15 @@ final class WordsViewModel: BaseViewModel {
             .compactMap { $0 }
             .sink { _ in
                 AnalyticsService.shared.logEvent(.wordOpened)
+            }
+            .store(in: &cancellables)
+        
+        // Observe real-time updates from DataSyncService
+        DataSyncService.shared.$realTimeUpdateReceived
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                print("🔄 [WordsViewModel] Real-time update received, refreshing words")
+                self?.wordsProvider.fetchWords()
             }
             .store(in: &cancellables)
     }

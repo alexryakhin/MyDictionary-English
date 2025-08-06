@@ -12,8 +12,6 @@ struct IdiomDetailsContentView: View {
     @State private var isAddingExample = false
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
-    @State private var isShowingAlert = false
-    @State private var alertModel = AlertModel(title: .empty)
 
     init(idiom: CDIdiom) {
         self._idiom = StateObject(wrappedValue: idiom)
@@ -52,19 +50,6 @@ struct IdiomDetailsContentView: View {
                     .animation(.easeInOut(duration: 0.2), value: idiom.isFavorite)
                 }
             }
-        }
-        // Removed dismissPublisher - we'll handle dismissal in the delete action
-        .alert(isPresented: $isShowingAlert) {
-            Alert(
-                title: Text(alertModel.title),
-                message: Text(alertModel.message ?? ""),
-                primaryButton: .default(Text(alertModel.actionText ?? "OK")) {
-                    alertModel.action?()
-                },
-                secondaryButton: .destructive(Text(alertModel.destructiveActionText ?? "Delete")) {
-                    alertModel.destructiveAction?()
-                }
-            )
         }
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
             TextField("Example", text: $exampleTextFieldStr)
@@ -195,7 +180,7 @@ struct IdiomDetailsContentView: View {
 
     private func saveContext() {
         do {
-            try ServiceManager.shared.coreDataService.saveContext()
+            try CoreDataService.shared.saveContext()
         } catch {
             // Handle error if needed
         }
@@ -206,7 +191,7 @@ struct IdiomDetailsContentView: View {
             guard let text else { return }
 
             do {
-                try await ServiceManager.shared.ttsPlayer.play(
+                try await TTSPlayer.shared.play(
                     text,
                     targetLanguage: Locale.current.language.languageCode?.identifier
                 )
@@ -240,7 +225,7 @@ struct IdiomDetailsContentView: View {
     }
 
     private func showDeleteAlert() {
-        alertModel = AlertModel(
+        let alertModel = AlertModel(
             title: "Delete idiom",
             message: "Are you sure you want to delete this idiom?",
             actionText: "Cancel",
@@ -253,11 +238,11 @@ struct IdiomDetailsContentView: View {
                 dismiss()
             }
         )
-        isShowingAlert = true
+        AlertCenter.shared.showAlert(with: alertModel)
     }
 
     private func deleteIdiom() {
-        ServiceManager.shared.coreDataService.context.delete(idiom)
+        CoreDataService.shared.context.delete(idiom)
         saveContext()
         AnalyticsService.shared.logEvent(.idiomRemoved)
     }

@@ -2,18 +2,13 @@ import SwiftUI
 import Combine
 import CoreData
 
-protocol AddIdiomManagerInterface {
+final class AddIdiomManager {
 
-    /// Creates a new idiom into the Core Data (does not save the data)
-    func addNewIdiom(_ idiom: String, definition: String) throws(CoreError)
-}
+    static let shared = AddIdiomManager()
 
-final class AddIdiomManager: AddIdiomManagerInterface {
-    private let coreDataService: CoreDataService
+    private let coreDataService: CoreDataService = .shared
 
-    init(coreDataService: CoreDataService) {
-        self.coreDataService = coreDataService
-    }
+    private init() {}
 
     func addNewIdiom(_ text: String, definition: String) throws(CoreError) {
         guard text.isNotEmpty && definition.isNotEmpty else {

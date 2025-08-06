@@ -39,16 +39,14 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var currentStreak = 0
     @Published private(set) var bestStreak = 0
 
-    private let wordsProvider: WordsProvider
-    private let quizAnalyticsService: QuizAnalyticsService
+    private let wordsProvider: WordsProvider = .shared
+    private let quizAnalyticsService: QuizAnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
     private var originalWords: [CDWord] = []
     private var sessionStartTime: Date = Date()
     private let wordCount: Int
 
-    init(wordsProvider: WordsProvider, wordCount: Int = 10) {
-        self.wordsProvider = wordsProvider
-        self.quizAnalyticsService = QuizAnalyticsService.shared
+    init(wordCount: Int = 10) {
         self.wordCount = wordCount
         super.init()
         setupBindings()
@@ -166,7 +164,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
         word.difficultyLevel = level
         do {
-            try ServiceManager.shared.coreDataService.saveContext()
+            try CoreDataService.shared.saveContext()
         } catch {
             print("❌ Failed to update word difficulty level: \(error)")
         }

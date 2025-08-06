@@ -221,7 +221,7 @@ struct IdiomDetailsView: View {
 
     private func saveContext() {
         do {
-            try ServiceManager.shared.coreDataService.saveContext()
+            try CoreDataService.shared.saveContext()
         } catch {
             print("❌ Failed to save context: \(error)")
         }
@@ -266,7 +266,7 @@ struct IdiomDetailsView: View {
     }
 
     private func deleteIdiom() {
-        ServiceManager.shared.coreDataService.context.delete(idiom)
+        CoreDataService.shared.context.delete(idiom)
         saveContext()
         dismiss()
         AnalyticsService.shared.logEvent(.idiomRemoved)

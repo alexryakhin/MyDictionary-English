@@ -18,7 +18,10 @@ protocol TranslationService {
     func translateDefinition(_ definition: String, to languageCode: String) async throws(CoreError) -> String
 }
 
-class GoogleTranslateService: TranslationService {
+final class GoogleTranslateService: TranslationService {
+
+    static let shared: TranslationService = GoogleTranslateService()
+
     private let baseURL = "https://translate.googleapis.com/translate_a/single"
 
     func translateToEnglish(_ word: String) async throws(CoreError) -> TranslationResponse {

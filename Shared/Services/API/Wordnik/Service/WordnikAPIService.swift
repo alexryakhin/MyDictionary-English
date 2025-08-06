@@ -25,8 +25,12 @@ protocol WordnikAPIServiceInterface {
 
 final class WordnikAPIService: BaseAPIService, WordnikAPIServiceInterface {
 
+    static let shared = WordnikAPIService()
+
     override var baseURL: String { "https://api.wordnik.com/v4" }
     override var apiKey: String { GlobalConstant.wordnikAPIKey }
+
+    private override init() {}
 
     func getDefinitions(
         for word: String,

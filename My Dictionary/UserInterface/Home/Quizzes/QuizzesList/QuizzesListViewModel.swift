@@ -18,11 +18,10 @@ final class QuizzesListViewModel: BaseViewModel {
     @Published var words: [CDWord] = []
     @AppStorage(UDKeys.practiceHardWordsOnly) var showingHardWordsOnly = false
 
-    private let wordsProvider: WordsProvider
+    private let wordsProvider: WordsProvider = .shared
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
-        self.wordsProvider = ServiceManager.shared.wordsProvider
         super.init()
         setupBindings()
     }

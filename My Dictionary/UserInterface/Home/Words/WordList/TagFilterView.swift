@@ -133,7 +133,3 @@ struct FilterChip: View {
         }
     }
 }
-
-#Preview {
-    TagFilterView(viewModel: WordListViewModel())
-} 

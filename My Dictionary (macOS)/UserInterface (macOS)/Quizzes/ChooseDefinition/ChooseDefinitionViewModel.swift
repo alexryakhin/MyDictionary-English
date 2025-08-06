@@ -41,18 +41,15 @@ final class ChooseDefinitionViewModel: BaseViewModel {
     @Published private(set) var bestStreak = 0
     @Published private(set) var questionsAnswered = 0
 
-    private let wordsProvider: WordsProvider
-    private let quizAnalyticsService: QuizAnalyticsService
-    private let ttsPlayer: TTSPlayer
+    private let wordsProvider: WordsProvider = .shared
+    private let quizAnalyticsService: QuizAnalyticsService = .shared
+    private let ttsPlayer: TTSPlayer = .shared
     private var cancellables = Set<AnyCancellable>()
     private var originalWords: [CDWord] = []
     private var sessionStartTime: Date = Date()
     private let wordCount: Int
 
     init(wordsProvider: WordsProvider, wordCount: Int = 10) {
-        self.wordsProvider = wordsProvider
-        self.quizAnalyticsService = QuizAnalyticsService.shared
-        self.ttsPlayer = ServiceManager.shared.ttsPlayer
         self.wordCount = wordCount
         super.init()
         setupBindings()
@@ -198,7 +195,7 @@ final class ChooseDefinitionViewModel: BaseViewModel {
     private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
         word.difficultyLevel = level
         do {
-            try ServiceManager.shared.coreDataService.saveContext()
+            try CoreDataService.shared.saveContext()
         } catch {
             print("❌ Failed to update word difficulty level: \(error)")
         }

@@ -7,7 +7,6 @@ struct ChooseDefinitionQuizContentView: View {
 
     init(wordCount: Int, hardWordsOnly: Bool = false) {
         self._viewModel = StateObject(wrappedValue: ChooseDefinitionQuizViewModel(
-            wordsProvider: ServiceManager.shared.wordsProvider,
             wordCount: wordCount,
             hardWordsOnly: hardWordsOnly
         ))

@@ -42,8 +42,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     @Published private(set) var questionsAnswered = 0
     @Published private(set) var errorMessage: String?
 
-    private let wordsProvider: WordsProvider
-    private let quizAnalyticsService: QuizAnalyticsService
+    private let wordsProvider: WordsProvider = .shared
+    private let quizAnalyticsService: QuizAnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
     private var originalWords: [CDWord] = []
     private var usedWords: Set<CDWord> = []
@@ -51,12 +51,9 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     private var sessionStartTime: Date = Date()
 
     init(
-        wordsProvider: WordsProvider,
         wordCount: Int,
         hardWordsOnly: Bool
     ) {
-        self.wordsProvider = wordsProvider
-        self.quizAnalyticsService = QuizAnalyticsService.shared
         self.wordCount = wordCount
         self.hardWordsOnly = hardWordsOnly
         self.correctAnswerIndex = Int.random(in: 0...2)
@@ -147,7 +144,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
         word.difficultyLevel = level
         do {
-            try ServiceManager.shared.coreDataService.saveContext()
+            try CoreDataService.shared.saveContext()
         } catch {
             print("❌ Failed to update word difficulty level: \(error)")
         }
@@ -266,7 +263,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         
         // Schedule next question after 1.5 seconds
         feedbackTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { [weak self] _ in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 self?.moveToNextQuestion()
             }
         }
@@ -298,7 +295,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         )
         
         // Check and schedule notifications after quiz completion
-        ServiceManager.shared.notificationService.checkAndScheduleNotifications()
+        NotificationService.shared.checkAndScheduleNotifications()
     }
 
     private func scheduleQuizCompletion() {
@@ -308,7 +305,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         
         // Schedule quiz completion after 1.5 seconds
         feedbackTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { [weak self] _ in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 self?.isQuizComplete = true
                 self?.saveQuizSession()
             }

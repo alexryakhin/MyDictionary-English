@@ -34,8 +34,8 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var accuracyContributions: [String: Double] = [:] // Track accuracy contribution per word
     @Published private(set) var errorMessage: String?
 
-    private let wordsProvider: WordsProvider
-    private let quizAnalyticsService: QuizAnalyticsService
+    private let wordsProvider: WordsProvider = .shared
+    private let quizAnalyticsService: QuizAnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
     private var originalWords: [CDWord] = []
     private var sessionStartTime: Date = Date()
@@ -43,12 +43,9 @@ final class SpellingQuizViewModel: BaseViewModel {
     private let hardWordsOnly: Bool
 
     init(
-        wordsProvider: WordsProvider,
         wordCount: Int,
         hardWordsOnly: Bool
     ) {
-        self.wordsProvider = wordsProvider
-        self.quizAnalyticsService = QuizAnalyticsService.shared
         self.wordCount = wordCount
         self.hardWordsOnly = hardWordsOnly
         super.init()
@@ -175,7 +172,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
         word.difficultyLevel = level
         do {
-            try ServiceManager.shared.coreDataService.saveContext()
+            try CoreDataService.shared.saveContext()
         } catch {
             print("❌ Failed to update word difficulty level: \(error)")
         }
@@ -225,7 +222,7 @@ final class SpellingQuizViewModel: BaseViewModel {
         )
         
         // Check and schedule notifications after quiz completion
-        ServiceManager.shared.notificationService.checkAndScheduleNotifications()
+        NotificationService.shared.checkAndScheduleNotifications()
     }
 
     private func proceedToNextWord() {

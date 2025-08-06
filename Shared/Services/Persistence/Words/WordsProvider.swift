@@ -4,27 +4,23 @@ import CoreData
 
 final class WordsProvider: ObservableObject {
 
+    static let shared = WordsProvider()
+
     @Published var words: [CDWord] = []
     let wordsErrorPublisher = PassthroughSubject<CoreError, Never>()
 
-    private let coreDataService: CoreDataService
+    private let coreDataService: CoreDataService = .shared
+    private let authenticationService = AuthenticationService.shared
     private var cancellables = Set<AnyCancellable>()
 
-    init(coreDataService: CoreDataService) {
-        self.coreDataService = coreDataService
+    private init() {
         setupBindings()
         fetchWords()
-    }
-    
-    // Convenience initializer for filtered words (e.g., hard words only)
-    init(words: [CDWord]) {
-        self.coreDataService = ServiceManager.shared.coreDataService
-        self.words = words
     }
 
     /// Fetches latest data from Core Data
     func fetchWords() {
-        let request = NSFetchRequest<CDWord>(entityName: "Word")
+        let request = CDWord.fetchRequest()
         do {
             let words = try coreDataService.context.fetch(request)
             self.words = words
@@ -33,22 +29,45 @@ final class WordsProvider: ObservableObject {
         }
     }
 
-    /// Removes a given word from the Core Data
-    func delete(with id: String) {
-        let fetchRequest: NSFetchRequest<CDWord> = CDWord.fetchRequest()
+    /// Removes a word with given ID from the Core Data
+    func deleteWord(with id: String) {
+        let fetchRequest = CDWord.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
 
         do {
-            if let object = try coreDataService.context.fetch(fetchRequest).first {
-                coreDataService.context.delete(object)
-                try coreDataService.saveContext()
-                // Manually refresh the words list after deletion
-                fetchWords()
-            } else {
+            guard let word = try coreDataService.context.fetch(fetchRequest).first else {
                 throw CoreError.internalError(.removingWordFailed)
             }
+
+            // Delete from Firestore for real-time updates
+            if authenticationService.isSignedIn, let userId = authenticationService.userId {
+                DataSyncService.shared.deleteWordFromFirestore(wordId: id, userId: userId) { [weak self] result in
+                    switch result {
+                    case .success:
+                        print("✅ [WordDetails] Word deleted from Firestore immediately")
+                        // Delete from Core Data
+                        self?.coreDataService.context.delete(word)
+                        try? self?.coreDataService.saveContext()
+                        AnalyticsService.shared.logEvent(.wordRemoved)
+                    case .failure(let error):
+                        AlertCenter.shared.showAlert(with: .error(
+                            title: "Word deletion failed",
+                            message: error.localizedDescription
+                        ))
+                        print("❌ [WordDetails] Failed to delete word from Firestore: \(error.localizedDescription)")
+                    }
+                }
+            } else {
+                // Delete from Core Data
+                coreDataService.context.delete(word)
+                try coreDataService.saveContext()
+                AnalyticsService.shared.logEvent(.wordRemoved)
+            }
         } catch {
-            wordsErrorPublisher.send(.internalError(.removingWordFailed))
+            AlertCenter.shared.showAlert(with: .error(
+                title: "Word deletion failed",
+                message: error.localizedDescription
+            ))
         }
     }
 

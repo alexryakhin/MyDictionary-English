@@ -41,13 +41,21 @@ final class CoreDataService {
     }
 
     func saveContext() throws(CoreError) {
+        print("🔍 [CoreDataService] saveContext called")
         let context = persistentContainer.viewContext
+        print("📝 [CoreDataService] Context has changes: \(context.hasChanges)")
+        
         if context.hasChanges {
             do {
+                print("💾 [CoreDataService] Attempting to save context")
                 try context.save()
+                print("✅ [CoreDataService] Context saved successfully")
             } catch {
+                print("❌ [CoreDataService] Error saving context: \(error.localizedDescription)")
                 throw .storageError(.saveFailed)
             }
+        } else {
+            print("ℹ️ [CoreDataService] No changes to save")
         }
     }
 

@@ -24,7 +24,7 @@ final class IdiomsViewModel: BaseViewModel {
     override init() {
         self.idiomsProvider = ServiceManager.shared.idiomsProvider
         self.ttsPlayer = ServiceManager.shared.ttsPlayer
-        self.coreDataService = ServiceManager.shared.coreDataService
+        self.coreDataService = CoreDataService.shared
         super.init()
         setupBindings()
     }

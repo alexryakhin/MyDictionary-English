@@ -17,6 +17,10 @@ struct WordListContentView: View {
     @ObservedObject var viewModel: ViewModel
 
     @State private var showingAddWord = false
+    @State private var showingAddSharedDictionary = false
+    @State private var showingAddExistingWordToShared = false
+    @State private var selectedWordForShared: CDWord?
+    @StateObject private var dictionaryService = DictionaryService.shared
 
     init(viewModel: ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
@@ -32,11 +36,42 @@ struct WordListContentView: View {
             
             // Words List
             List(selection: $viewModel.selectedWord) {
+                // Shared Dictionaries Section
+                if AuthenticationService.shared.isSignedIn && !dictionaryService.sharedDictionaries.isEmpty {
+                    Section("Shared Dictionaries") {
+                        ForEach(dictionaryService.sharedDictionaries) { dictionary in
+                            NavigationLink {
+                                SharedDictionaryWordsView(dictionary: dictionary)
+                            } label: {
+                                HStack {
+                                    Image(systemName: "person.2")
+                                        .foregroundColor(.blue)
+                                    VStack(alignment: .leading) {
+                                        Text(dictionary.name)
+                                            .font(.headline)
+                                        Text("\(dictionary.collaborators.count) collaborators")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 if viewModel.wordsFiltered.isNotEmpty {
                     Section {
                         ForEach(viewModel.wordsFiltered) { wordModel in
                             WordListCellView(word: wordModel)
                                 .contextMenu {
+                                    if AuthenticationService.shared.isSignedIn {
+                                        Button {
+                                            selectedWordForShared = wordModel
+                                            showingAddExistingWordToShared = true
+                                        } label: {
+                                            Label("Add to Shared Dictionary", systemImage: "person.2")
+                                        }
+                                    }
+                                    
                                     Button(role: .destructive) {
                                         viewModel.handle(.deleteWord(word: wordModel))
                                     } label: {
@@ -76,9 +111,21 @@ struct WordListContentView: View {
         })
         .toolbar {
             ToolbarItem {
-                Button {
-                    AnalyticsService.shared.logEvent(.addWordTapped)
-                    showingAddWord = true
+                Menu {
+                    Button {
+                        AnalyticsService.shared.logEvent(.addWordTapped)
+                        showingAddWord = true
+                    } label: {
+                        Label("Add Word", systemImage: "plus")
+                    }
+                    
+                    if AuthenticationService.shared.isSignedIn {
+                        Button {
+                            showingAddSharedDictionary = true
+                        } label: {
+                            Label("Create Shared Dictionary", systemImage: "person.2")
+                        }
+                    }
                 } label: {
                     Label("Add Item", systemImage: "plus")
                 }
@@ -102,17 +149,13 @@ struct WordListContentView: View {
         .sheet(isPresented: $showingAddWord) {
             AddWordContentView()
         }
-        .alert(isPresented: $viewModel.isShowingAlert) {
-            Alert(
-                title: Text(viewModel.alertModel.title),
-                message: Text(viewModel.alertModel.message ?? ""),
-                primaryButton: .default(Text(viewModel.alertModel.actionText ?? "OK")) {
-                    viewModel.alertModel.action?()
-                },
-                secondaryButton: viewModel.alertModel.destructiveActionText != nil ? .destructive(Text(viewModel.alertModel.destructiveActionText!)) {
-                    viewModel.alertModel.destructiveAction?()
-                } : .cancel()
-            )
+        .sheet(isPresented: $showingAddSharedDictionary) {
+            AddSharedDictionaryView()
+        }
+        .sheet(isPresented: $showingAddExistingWordToShared) {
+            if let word = selectedWordForShared {
+                AddExistingWordToSharedView(word: word)
+            }
         }
     }
 }

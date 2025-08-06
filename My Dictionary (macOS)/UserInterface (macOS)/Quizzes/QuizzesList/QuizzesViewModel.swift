@@ -13,11 +13,10 @@ final class QuizzesViewModel: BaseViewModel {
     @AppStorage(UDKeys.practiceWordCount) var practiceWordCount: Double = 10
     @AppStorage(UDKeys.practiceHardWordsOnly) var showingHardWordsOnly = false
 
-    private let wordsProvider: WordsProvider
+    private let wordsProvider: WordsProvider = .shared
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
-        self.wordsProvider = ServiceManager.shared.wordsProvider
         super.init()
         setupBindings()
     }

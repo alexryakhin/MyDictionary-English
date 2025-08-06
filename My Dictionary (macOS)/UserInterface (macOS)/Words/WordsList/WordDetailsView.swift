@@ -278,7 +278,7 @@ struct WordDetailsView: View {
         word.difficultyLevel = selectedDifficulty.level
         
         do {
-            try ServiceManager.shared.coreDataService.saveContext()
+            try CoreDataService.shared.saveContext()
             AnalyticsService.shared.logEvent(.wordDifficultyChanged)
         } catch {
             print("❌ Failed to update word difficulty: \(error)")
@@ -356,14 +356,28 @@ struct WordDetailsView: View {
     }
 
     private func deleteWord() {
-        ServiceManager.shared.coreDataService.context.delete(word)
-        saveContext()
-        AnalyticsService.shared.logEvent(.wordRemoved)
+        guard let id = word.id?.uuidString else { return }
+        WordsProvider.shared.deleteWord(with: id)
     }
 
     private func saveContext() {
         do {
-            try ServiceManager.shared.coreDataService.saveContext()
+            // Mark word as unsynced when it's modified and update updatedAt
+            word.isSynced = false
+            word.updatedAt = Date()
+            try CoreDataService.shared.saveContext()
+            
+            // Immediately sync to Firestore for real-time updates
+            if let userId = AuthenticationService.shared.userId {
+                DataSyncService.shared.syncWordToFirestore(word: word, userId: userId) { result in
+                    switch result {
+                    case .success:
+                        print("✅ [WordDetails] Word synced to Firestore immediately")
+                    case .failure(let error):
+                        print("❌ [WordDetails] Failed to sync word to Firestore: \(error.localizedDescription)")
+                    }
+                }
+            }
         } catch {
             print("❌ Failed to save context: \(error)")
         }

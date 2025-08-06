@@ -9,24 +9,13 @@ import Foundation
 import CoreData
 import Combine
 
-protocol TagServiceInterface {
-    func getAllTags() -> [CDTag]
-    func createTag(name: String, color: TagColor) throws
-    func deleteTag(_ tag: CDTag) throws
-    func updateTag(_ tag: CDTag, name: String, color: TagColor) throws
-    func addTagToWord(_ tag: CDTag, word: CDWord) throws
-    func removeTagFromWord(_ tag: CDTag, word: CDWord) throws
-    func getWordsForTag(_ tag: CDTag) -> [CDWord]
-    func getTagsForWord(_ word: CDWord) -> [CDTag]
-    func isWordTagged(_ word: CDWord, with tag: CDTag) -> Bool
-}
+final class TagService {
 
-final class TagService: TagServiceInterface {
-    private let coreDataService: CoreDataService
-    
-    init(coreDataService: CoreDataService) {
-        self.coreDataService = coreDataService
-    }
+    static let shared = TagService()
+
+    private let coreDataService: CoreDataService = .shared
+
+    private init() {}
     
     // MARK: - Tag Management
     

@@ -131,6 +131,14 @@ struct SettingsContentView: View {
                 } label: {
                     Label("Manage Tags", systemImage: "tag")
                 }
+                
+                if authService.isSignedIn {
+                    Button {
+                        viewModel.showingSharedDictionaries = true
+                    } label: {
+                        Label("Shared Dictionaries", systemImage: "person.2")
+                    }
+                }
             } header: {
                 Text("Organization")
             } footer: {
@@ -178,6 +186,9 @@ struct SettingsContentView: View {
         .sheet(isPresented: $viewModel.showingTagManagement) {
             TagManagementView()
         }
+        .sheet(isPresented: $viewModel.showingSharedDictionaries) {
+            SharedDictionariesListView()
+        }
         .sheet(isPresented: $showingAuthentication) {
             AuthenticationView()
         }
@@ -216,18 +227,6 @@ struct SettingsContentView: View {
         }
         .onAppear {
             AnalyticsService.shared.logEvent(.settingsOpened)
-        }
-        .alert(isPresented: $viewModel.isShowingAlert) {
-            Alert(
-                title: Text(viewModel.alertModel.title),
-                message: Text(viewModel.alertModel.message ?? ""),
-                primaryButton: .default(Text(viewModel.alertModel.actionText ?? "OK")) {
-                    viewModel.alertModel.action?()
-                },
-                secondaryButton: viewModel.alertModel.destructiveActionText != nil ? .destructive(Text(viewModel.alertModel.destructiveActionText!)) {
-                    viewModel.alertModel.destructiveAction?()
-                } : .cancel()
-            )
         }
     }
 }

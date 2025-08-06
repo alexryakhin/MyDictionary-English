@@ -106,7 +106,3 @@ struct ColorSelectionButton: View {
         .buttonStyle(.plain)
     }
 }
-
-#Preview {
-    AddEditTagView(viewModel: TagManagementViewModel())
-} 

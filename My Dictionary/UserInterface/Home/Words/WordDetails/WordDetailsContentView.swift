@@ -12,8 +12,6 @@ struct WordDetailsContentView: View {
     @State private var isAddingExample = false
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
-    @State private var isShowingAlert = false
-    @State private var alertModel = AlertModel(title: .empty)
     @State private var showingTagSelection = false
     @State private var availableTags: [CDTag] = []
     @State private var showingDifficultyPicker = false
@@ -79,18 +77,6 @@ struct WordDetailsContentView: View {
         }
         .onAppear {
             loadTags()
-        }
-        .alert(isPresented: $isShowingAlert) {
-            Alert(
-                title: Text(alertModel.title),
-                message: Text(alertModel.message ?? ""),
-                primaryButton: .default(Text(alertModel.actionText ?? "OK")) {
-                    alertModel.action?()
-                },
-                secondaryButton: .destructive(Text(alertModel.destructiveActionText ?? "Delete")) {
-                    alertModel.destructiveAction?()
-                }
-            )
         }
     }
 
@@ -261,7 +247,7 @@ struct WordDetailsContentView: View {
         word.difficultyLevel = selectedDifficulty.level
         
         do {
-            try ServiceManager.shared.coreDataService.saveContext()
+            try CoreDataService.shared.saveContext()
             AnalyticsService.shared.logEvent(.wordDifficultyChanged)
         } catch {
             print("❌ Failed to update word difficulty: \(error)")
@@ -302,7 +288,7 @@ struct WordDetailsContentView: View {
             }
         } headerTrailingContent: {
             SectionHeaderButton("Add Tag", systemImage: "plus") {
-                availableTags = ServiceManager.shared.tagService.getAllTags()
+                availableTags = TagService.shared.getAllTags()
                 showingTagSelection = true
             }
         }
@@ -375,7 +361,22 @@ struct WordDetailsContentView: View {
 
     private func saveContext() {
         do {
-            try ServiceManager.shared.coreDataService.saveContext()
+            // Mark word as unsynced when it's modified and update updatedAt
+            word.isSynced = false
+            word.updatedAt = Date()
+            try CoreDataService.shared.saveContext()
+            
+            // Immediately sync to Firestore for real-time updates
+            if let userId = AuthenticationService.shared.userId {
+                DataSyncService.shared.syncWordToFirestore(word: word, userId: userId) { result in
+                    switch result {
+                    case .success:
+                        print("✅ [WordDetails] Word synced to Firestore immediately")
+                    case .failure(let error):
+                        print("❌ [WordDetails] Failed to sync word to Firestore: \(error.localizedDescription)")
+                    }
+                }
+            }
         } catch {
             // Handle error if needed
         }
@@ -386,7 +387,7 @@ struct WordDetailsContentView: View {
             guard let text else { return }
 
             do {
-                try await ServiceManager.shared.ttsPlayer.play(
+                try await TTSPlayer.shared.play(
                     text,
                     targetLanguage: isWord
                     ? word.languageCode
@@ -428,7 +429,7 @@ struct WordDetailsContentView: View {
     }
 
     private func showDeleteAlert() {
-        alertModel = AlertModel(
+        let alertModel = AlertModel(
             title: "Delete word",
             message: "Are you sure you want to delete this word?",
             actionText: "Cancel",
@@ -441,21 +442,20 @@ struct WordDetailsContentView: View {
                 dismiss()
             }
         )
-        isShowingAlert = true
+        AlertCenter.shared.showAlert(with: alertModel)
     }
 
     private func deleteWord() {
-        ServiceManager.shared.coreDataService.context.delete(word)
-        saveContext()
-        AnalyticsService.shared.logEvent(.wordRemoved)
+        guard let id = word.id?.uuidString else { return }
+        WordsProvider.shared.deleteWord(with: id)
     }
 
     private func loadTags() {
-        availableTags = ServiceManager.shared.tagService.getAllTags()
+        availableTags = TagService.shared.getAllTags()
     }
 
     private func removeTag(_ tag: CDTag) {
-        try? ServiceManager.shared.tagService.removeTagFromWord(tag, word: word)
+        try? TagService.shared.removeTagFromWord(tag, word: word)
         saveContext()
         AnalyticsService.shared.logEvent(.tagRemovedFromWord)
     }

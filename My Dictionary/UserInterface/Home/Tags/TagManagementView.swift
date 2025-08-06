@@ -55,11 +55,6 @@ struct TagManagementView: View {
             } message: {
                 Text("Are you sure you want to delete this tag? This action cannot be undone.")
             }
-            .alert("Error", isPresented: $viewModel.showingErrorAlert) {
-                Button("OK") { }
-            } message: {
-                Text(viewModel.errorMessage)
-            }
         }
     }
 }
@@ -110,7 +105,3 @@ struct TagRowView: View {
         .padding(.vertical, 4)
     }
 }
-
-#Preview {
-    TagManagementView()
-} 

@@ -9,12 +9,11 @@ final class AddIdiomViewModel: BaseViewModel {
     @Published var inputIdiom = ""
     @Published var definitionField = ""
 
-    private let addIdiomManager: AddIdiomManagerInterface
+    private let addIdiomManager: AddIdiomManager = .shared
     private var cancellables = Set<AnyCancellable>()
 
     init(inputIdiom: String = "") {
         self.inputIdiom = inputIdiom
-        self.addIdiomManager = ServiceManager.shared.createAddIdiomManager()
         super.init()
     }
 

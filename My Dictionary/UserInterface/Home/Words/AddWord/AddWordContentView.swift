@@ -6,6 +6,8 @@ struct AddWordContentView: View {
 
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: ViewModel
+    @State private var showingDictionarySelection = false
+    @State private var selectedDictionaryId: String? = nil
 
     init(inputWord: String = "") {
         self._viewModel = StateObject(wrappedValue: AddWordViewModel(inputWord: inputWord))
@@ -35,9 +37,21 @@ struct AddWordContentView: View {
             }
             .navigationBarTitle("Add new word")
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingDictionarySelection = true
+                    } label: {
+                        HStack {
+                            Image(systemName: selectedDictionaryId == nil ? "person" : "person.2")
+                            Text(selectedDictionaryId == nil ? "Private" : "Shared")
+                        }
+                        .font(.caption)
+                    }
+                }
+                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        viewModel.handle(.save)
+                        viewModel.handle(.saveToSharedDictionary(selectedDictionaryId))
                     } label: {
                         Text("Save")
                             .font(.system(.headline, design: .rounded))
@@ -50,6 +64,11 @@ struct AddWordContentView: View {
             }
             .sheet(isPresented: $viewModel.showingTagSelection) {
                 TagSelectionView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $showingDictionarySelection) {
+                SharedDictionarySelectionView { dictionaryId in
+                    selectedDictionaryId = dictionaryId
+                }
             }
         }
     }

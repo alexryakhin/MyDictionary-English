@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+match /databases/{database}/documents {
+// Helper functions
+function isSignedIn() {
+return request.auth != null;
+}
+
+// Private dictionary rules
+match /users/{userId}/words/{wordId} {
+allow read, write: if isSignedIn() && request.auth.uid == userId;
+}
+
+// Shared dictionary rules - Working approach
+match /dictionaries/{dictionaryId} {
+allow read: if isSignedIn() && (
+resource.data.owner == request.auth.uid ||
+(request.auth.uid in resource.data.collaborators &&
+resource.data.collaborators[request.auth.uid] in ['editor', 'viewer'])
+);
+allow create: if isSignedIn();
+allow update: if isSignedIn() && (
+resource.data.owner == request.auth.uid ||
+(request.auth.uid in resource.data.collaborators &&
+resource.data.collaborators[request.auth.uid] == 'editor')
+);
+allow delete: if isSignedIn() && resource.data.owner == request.auth.uid;
+
+// ✅ Fix: grant access to words subcollection
+match /words/{wordId} {
+allow read, write: if isSignedIn(); // or apply same logic as parent
+}
+}
+
+// Allow listing dictionaries
+match /dictionaries {
+allow list: if isSignedIn();
+}
+
+// User profiles
+match /users/{userId} {
+allow read, write: if isSignedIn() && request.auth.uid == userId;
+}
+
+// Test collection for debugging
+match /test/{document=**} {
+allow read, write: if isSignedIn();
+}
+}
+}

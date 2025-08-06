@@ -84,14 +84,3 @@ struct SignOutAlertView: View {
         .padding(.horizontal, 40)
     }
 }
-
-#Preview {
-    ZStack {
-        Color.gray.opacity(0.3)
-            .ignoresSafeArea()
-        
-        SignOutAlertView {
-            print("Sign out confirmed")
-        }
-    }
-} 

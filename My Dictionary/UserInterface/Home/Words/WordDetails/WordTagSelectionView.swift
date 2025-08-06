@@ -11,11 +11,9 @@ struct WordTagSelectionView: View {
     @ObservedObject var word: CDWord
     let availableTags: [CDTag]
     @Environment(\.dismiss) private var dismiss
-    @State private var showingErrorAlert = false
-    @State private var errorMessage = ""
-    
-    private let tagService = ServiceManager.shared.tagService
-    
+
+    private let tagService = TagService.shared
+
     var body: some View {
         NavigationView {
             List {
@@ -48,11 +46,6 @@ struct WordTagSelectionView: View {
                     }
                 }
             }
-            .alert("Error", isPresented: $showingErrorAlert) {
-                Button("OK") { }
-            } message: {
-                Text(errorMessage)
-            }
         }
     }
     
@@ -71,18 +64,6 @@ struct WordTagSelectionView: View {
     }
     
     private func handleError(_ error: Error) {
-        if let coreError = error as? CoreError {
-            errorMessage = coreError.description
-        } else {
-            errorMessage = error.localizedDescription
-        }
-        showingErrorAlert = true
+        AlertCenter.shared.showAlert(with: .error(title: "Tag Error", message: error.localizedDescription))
     }
 }
-
-#Preview {
-    WordTagSelectionView(
-        word: CDWord(),
-        availableTags: []
-    )
-} 

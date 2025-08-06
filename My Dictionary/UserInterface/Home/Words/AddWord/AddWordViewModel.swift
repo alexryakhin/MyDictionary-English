@@ -5,6 +5,7 @@ final class AddWordViewModel: BaseViewModel {
 
     enum Input {
         case save
+        case saveToSharedDictionary(String?)
         case fetchData
         case playInputWord
         case selectPartOfSpeech(PartOfSpeech)
@@ -31,21 +32,16 @@ final class AddWordViewModel: BaseViewModel {
     @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .auto
     private var detectedLanguageCode: String?
 
-    private let wordnikAPIService: WordnikAPIService
-    private let addWordManager: AddWordManager
-    private let ttsPlayer: TTSPlayer
-    private let tagService: TagService
-    private let translationService: TranslationService
+    private let wordnikAPIService: WordnikAPIService = .shared
+    private let addWordManager: AddWordManager = .shared
+    private let ttsPlayer: TTSPlayer = .shared
+    private let tagService: TagService = .shared
+    private let translationService = GoogleTranslateService.shared
     private let localeLanguageCode: String
     private var cancellables = Set<AnyCancellable>()
 
     init(inputWord: String = "") {
         self.inputWord = inputWord
-        self.wordnikAPIService = ServiceManager.shared.wordnikAPIService
-        self.addWordManager = ServiceManager.shared.createAddWordManager()
-        self.ttsPlayer = ServiceManager.shared.ttsPlayer
-        self.tagService = ServiceManager.shared.tagService
-        self.translationService = GoogleTranslateService()
         self.localeLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
 
         // Force translateDefinitions to false for English locales
@@ -65,6 +61,8 @@ final class AddWordViewModel: BaseViewModel {
         switch input {
         case .save:
             saveWord()
+        case .saveToSharedDictionary(let dictionaryId):
+            saveWordToDictionary(dictionaryId)
         case .fetchData:
             fetchData()
         case .playInputWord:
@@ -143,7 +141,7 @@ final class AddWordViewModel: BaseViewModel {
                 }
 
                 self.definitions = try await definitions
-                self.pronunciation = pronunciation
+                self.pronunciation = pronunciation ?? ""
 
                 // Only translate definitions if:
                 // 1. User's locale is not English
@@ -164,28 +162,102 @@ final class AddWordViewModel: BaseViewModel {
     }
 
     private func saveWord() {
+        saveWordToDictionary(nil)
+    }
+    
+    private func saveWordToDictionary(_ dictionaryId: String?) {
+        print("🔍 [AddWordViewModel] saveWordToDictionary called")
+        print("📝 [AddWordViewModel] inputWord: '\(inputWord)'")
+        print("📝 [AddWordViewModel] descriptionField: '\(descriptionField)'")
+        print("📝 [AddWordViewModel] dictionaryId: \(dictionaryId ?? "nil (private)")")
+        
         if !inputWord.isEmpty, !descriptionField.isEmpty {
             do {
                 // Get the detected language code from the translation response
                 let languageCode = detectedLanguageCode ?? "en"
+                print("🌐 [AddWordViewModel] Language code: \(languageCode)")
                 
-                try addWordManager.addNewWord(
-                    word: inputWord.capitalizingFirstLetter(),
-                    definition: descriptionField.capitalizingFirstLetter(),
-                    partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
-                    phonetic: pronunciation,
-                    examples: selectedDefinition?.examples ?? [],
-                    tags: selectedTags,
-                    languageCode: languageCode
-                )
-                HapticManager.shared.triggerNotification(type: .success)
-                AnalyticsService.shared.logEvent(.wordAdded)
-                dismissPublisher.send()
+                if let dictionaryId = dictionaryId {
+                    // Save to shared dictionary
+                    print("💾 [AddWordViewModel] Saving to shared dictionary: \(dictionaryId)")
+                    saveWordToSharedDictionary(dictionaryId, languageCode: languageCode)
+                } else {
+                    // Save to private dictionary
+                    print("💾 [AddWordViewModel] Calling addWordManager.addNewWord")
+                    try addWordManager.addNewWord(
+                        word: inputWord.capitalizingFirstLetter(),
+                        definition: descriptionField.capitalizingFirstLetter(),
+                        partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
+                        phonetic: pronunciation,
+                        examples: selectedDefinition?.examples ?? [],
+                        tags: selectedTags,
+                        languageCode: languageCode
+                    )
+                    HapticManager.shared.triggerNotification(type: .success)
+                    AnalyticsService.shared.logEvent(.wordAdded)
+                    dismissPublisher.send()
+
+                    print("✅ [AddWordViewModel] Word saved to private dictionary")
+                    
+                    // Manually trigger sync to Firestore
+                    if let userId = AuthenticationService.shared.userId {
+                        print("🔄 [AddWordViewModel] Manually triggering sync to Firestore")
+                        DataSyncService.shared.syncPrivateDictionaryToFirestore(userId: userId) { result in
+                            switch result {
+                            case .success:
+                                print("✅ [AddWordViewModel] Manual sync completed successfully")
+                            case .failure(let error):
+                                print("❌ [AddWordViewModel] Manual sync failed: \(error.localizedDescription)")
+                            }
+                        }
+                    } else {
+                        print("❌ [AddWordViewModel] No userId available for manual sync")
+                    }
+                }
             } catch {
+                print("❌ [AddWordViewModel] Error saving word: \(error.localizedDescription)")
                 errorReceived(error, displayType: .alert)
             }
         } else {
+            print("❌ [AddWordViewModel] Input validation failed")
             errorReceived(CoreError.internalError(.inputCannotBeEmpty), displayType: .alert)
+        }
+    }
+    
+    private func saveWordToSharedDictionary(_ dictionaryId: String, languageCode: String) {
+        let word = Word(
+            id: UUID().uuidString,
+            wordItself: inputWord.capitalizingFirstLetter(),
+            definition: descriptionField.capitalizingFirstLetter(),
+            partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
+            phonetic: pronunciation,
+            examples: selectedDefinition?.examples ?? [],
+            tags: selectedTags.map { $0.name ?? "" },
+            difficultyLevel: 0,
+            languageCode: languageCode,
+            isFavorite: false,
+            timestamp: Date(),
+            updatedAt: Date(),
+            isSynced: true
+        )
+        
+        DictionaryService.shared.addWordToSharedDictionary(
+            dictionaryId: dictionaryId,
+            word: word
+        ) { [weak self] result in
+            switch result {
+            case .success:
+                HapticManager.shared.triggerNotification(type: .success)
+                AnalyticsService.shared.logEvent(.wordAddedToSharedDictionary)
+                self?.dismissPublisher.send()
+                print("✅ [AddWordViewModel] Word saved to shared dictionary successfully")
+            case .failure(let error):
+                HapticManager.shared.triggerNotification(type: .error)
+                print("❌ [AddWordViewModel] Error saving to shared dictionary: \(error.localizedDescription)")
+                DispatchQueue.main.async { [weak self] in
+                    self?.errorReceived(error, displayType: .alert)
+                }
+            }
         }
     }
 
@@ -230,7 +302,7 @@ final class AddWordViewModel: BaseViewModel {
             self?.status = .blank
             self?.definitions = []
             self?.selectedDefinition = nil
-            self?.pronunciation = nil
+            self?.pronunciation = ""
             self?.partOfSpeech = nil
             self?.selectedTags = []
         }

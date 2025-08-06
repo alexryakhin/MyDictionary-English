@@ -8,15 +8,13 @@
 import Foundation
 import AVFoundation
 
-protocol TTSPlayerInterface {
-    func play(_ text: String, targetLanguage: String?) async throws(CoreError)
-}
+final class TTSPlayer {
 
-final class TTSPlayer: TTSPlayerInterface {
+    static let shared = TTSPlayer()
 
     private var player: AVAudioPlayer?
 
-    init() {}
+    private init() {}
 
     func play(_ text: String, targetLanguage: String?) async throws(CoreError) {
         guard text.isNotEmpty else { return }

@@ -77,7 +77,3 @@ struct TagSelectionRow: View {
         .buttonStyle(.plain)
     }
 }
-
-#Preview {
-    TagSelectionView(viewModel: AddWordViewModel())
-} 

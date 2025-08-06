@@ -9,7 +9,6 @@ struct SpellingQuizView: View {
 
     init(wordCount: Int) {
         self._viewModel = StateObject(wrappedValue: SpellingQuizViewModel(
-            wordsProvider: ServiceManager.shared.wordsProvider,
             wordCount: wordCount
         ))
     }

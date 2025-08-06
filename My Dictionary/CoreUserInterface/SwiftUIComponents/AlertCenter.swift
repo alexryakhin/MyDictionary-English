@@ -1,0 +1,79 @@
+//
+//  AlertCenter.swift
+//  My Dictionary
+//
+//  Created by Alexander Riakhin on 8/7/25.
+//
+
+import UIKit
+
+final class AlertCenter {
+
+    static let shared = AlertCenter()
+
+    private var isPresentingAlert: Bool = false
+
+    private init() {}
+
+    func showAlert(with model: AlertModel) {
+        assert(Thread.isMainThread)
+
+        guard let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+              let window = scene.windows.first(where: { $0.isKeyWindow })
+        else { return }
+
+        let alertController = UIAlertController(
+            title: model.title,
+            message: model.message,
+            preferredStyle: model.style
+        )
+
+        if let action = model.action, let actionText = model.actionText {
+            alertController.addAction(.init(title: actionText, style: .cancel) { [weak self] _ in
+                action()
+                self?.isPresentingAlert = false
+            })
+        }
+
+        if let additionalAction = model.additionalAction, let additionalActionText = model.additionalActionText {
+            alertController.addAction(.init(title: additionalActionText, style: .default) { [weak self] _ in
+                additionalAction()
+                self?.isPresentingAlert = false
+            })
+        }
+
+        if let destructiveAction = model.destructiveAction, let destructiveActionText = model.destructiveActionText {
+            alertController.addAction(.init(title: destructiveActionText, style: .destructive) { [weak self] _ in
+                destructiveAction()
+                self?.isPresentingAlert = false
+            })
+        }
+
+        if model.actionText == nil && model.additionalActionText == nil && model.destructiveActionText == nil {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self, weak alertController] in
+                alertController?.dismiss(animated: true)
+                self?.isPresentingAlert = false
+            }
+        }
+
+        guard !isPresentingAlert else { return }
+
+        if let topController = topViewController(for: window.rootViewController), topController.presentedViewController == nil {
+            topController.present(alertController, animated: true)
+            isPresentingAlert = true
+        } else {
+            print("⚠️ AlertCenter: Already presenting something. Alert skipped.")
+        }
+    }
+
+    // MARK: - Helper
+
+    private func topViewController(for root: UIViewController?) -> UIViewController? {
+        var top = root
+        while let presented = top?.presentedViewController {
+            top = presented
+        }
+        return top
+    }
+}

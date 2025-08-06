@@ -10,22 +10,13 @@ import UniformTypeIdentifiers
 import CoreData
 import SwiftUI
 
-protocol CSVManagerInterface {
+final class CSVManager {
 
-    /// Export Core Data words to a CSV file
-    func exportWordsToCSV(wordModels: [CDWord]) -> URL?
+    static let shared = CSVManager()
 
-    /// Import a CSV file and save words to Core Data
-    func importWordsFromCSV(url: URL, currentWordIds: [String]) throws
-}
+    private let coreDataService: CoreDataService = .shared
 
-final class CSVManager: CSVManagerInterface {
-
-    private let coreDataService: CoreDataService
-
-    init(coreDataService: CoreDataService) {
-        self.coreDataService = coreDataService
-    }
+    private init() {}
 
     /// Export Core Data words to a CSV file
     func exportWordsToCSV(wordModels: [CDWord]) -> URL? {

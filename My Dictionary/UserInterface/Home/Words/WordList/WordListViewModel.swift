@@ -33,8 +33,8 @@ final class WordListViewModel: BaseViewModel {
     @Published var selectedTag: CDTag?
     @Published private(set) var availableTags: [CDTag] = []
 
-    private let wordsProvider: WordsProvider
-    private let tagService: TagService
+    private let wordsProvider: WordsProvider = .shared
+    private let tagService: TagService = .shared
     private var cancellables = Set<AnyCancellable>()
 
     var wordsFiltered: [CDWord] {
@@ -110,8 +110,6 @@ final class WordListViewModel: BaseViewModel {
     }
 
     override init() {
-        self.wordsProvider = ServiceManager.shared.wordsProvider
-        self.tagService = ServiceManager.shared.tagService
         super.init()
         setupBindings()
         loadTags()
@@ -149,6 +147,15 @@ final class WordListViewModel: BaseViewModel {
                 AnalyticsService.shared.logEvent(.wordOpened)
             }
             .store(in: &cancellables)
+        
+        // Observe real-time updates from DataSyncService
+        DataSyncService.shared.$realTimeUpdateReceived
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                print("🔄 [WordListViewModel] Real-time update received, refreshing words")
+                self?.wordsProvider.fetchWords()
+            }
+            .store(in: &cancellables)
     }
     
     private func loadTags() {
@@ -167,7 +174,7 @@ final class WordListViewModel: BaseViewModel {
                 },
                 destructiveAction: { [weak self, wordModel] in
                     guard let id = wordModel.id?.uuidString else { return }
-                    self?.wordsProvider.delete(with: id)
+                    self?.wordsProvider.deleteWord(with: id)
                 }
             )
         )

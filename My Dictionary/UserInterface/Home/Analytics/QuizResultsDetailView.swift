@@ -131,7 +131,3 @@ struct StatItem: View {
         .frame(maxWidth: .infinity)
     }
 }
-
-#Preview {
-    QuizResultsDetailView()
-} 

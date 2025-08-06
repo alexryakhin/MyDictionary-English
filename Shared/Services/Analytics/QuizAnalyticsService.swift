@@ -26,7 +26,7 @@ final class AnalyticsService {
 final class QuizAnalyticsService {
     static let shared = QuizAnalyticsService()
     
-    private let coreDataService = ServiceManager.shared.coreDataService
+    private let coreDataService = CoreDataService.shared
     private var cancellables = Set<AnyCancellable>()
     
     private init() {}

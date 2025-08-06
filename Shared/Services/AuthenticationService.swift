@@ -58,14 +58,27 @@ final class AuthenticationService: ObservableObject {
     // MARK: - Authentication State Management
 
     private func setupAuthStateListener() {
+        print("🔍 [AuthenticationService] Setting up auth state listener")
         Auth.auth().addStateDidChangeListener { [weak self] _, user in
-            DispatchQueue.main.async {
+            print("📡 [AuthenticationService] Auth state changed - user: \(user?.uid ?? "nil")")
+            
+            DispatchQueue.main.async { [weak self] in
                 if let user = user {
+                    print("✅ [AuthenticationService] User signed in: \(user.uid)")
                     self?.currentUser = user
                     self?.authenticationState = .signedIn
+                    
+                    // Start real-time listener for private dictionary
+                    print("🔊 [AuthenticationService] Starting real-time listener for user: \(user.uid)")
+                    DataSyncService.shared.startPrivateDictionaryListener(userId: user.uid)
                 } else {
+                    print("❌ [AuthenticationService] User signed out")
                     self?.currentUser = nil
                     self?.authenticationState = .signedOut
+                    
+                    // Stop real-time listener when user signs out
+                    print("🔊 [AuthenticationService] Stopping real-time listener")
+                    DataSyncService.shared.stopPrivateDictionaryListener()
                 }
             }
         }
@@ -74,8 +87,8 @@ final class AuthenticationService: ObservableObject {
     // MARK: - Google Sign-In
 
     func signInWithGoogle() async throws {
-        DispatchQueue.main.async {
-            self.authenticationState = .loading
+        DispatchQueue.main.async { [weak self] in
+            self?.authenticationState = .loading
         }
 
         guard let clientID = FirebaseApp.app()?.options.clientID else {
@@ -105,14 +118,14 @@ final class AuthenticationService: ObservableObject {
 
             let authResult = try await Auth.auth().signIn(with: credential)
 
-            DispatchQueue.main.async {
-                self.currentUser = authResult.user
-                self.authenticationState = .signedIn
+            DispatchQueue.main.async { [weak self] in
+                self?.currentUser = authResult.user
+                self?.authenticationState = .signedIn
             }
 
         } catch {
-            DispatchQueue.main.async {
-                self.authenticationState = .signedOut
+            DispatchQueue.main.async { [weak self] in
+                self?.authenticationState = .signedOut
             }
             throw AuthenticationError.signInFailed
         }
@@ -121,8 +134,8 @@ final class AuthenticationService: ObservableObject {
     // MARK: - Sign In with Apple
 
     func signInWithApple() async throws {
-        DispatchQueue.main.async {
-            self.authenticationState = .loading
+        DispatchQueue.main.async { [weak self] in
+            self?.authenticationState = .loading
         }
 
         do {
@@ -157,14 +170,14 @@ final class AuthenticationService: ObservableObject {
 
             let authResult = try await Auth.auth().signIn(with: credential)
 
-            DispatchQueue.main.async {
-                self.currentUser = authResult.user
-                self.authenticationState = .signedIn
+            DispatchQueue.main.async { [weak self] in
+                self?.currentUser = authResult.user
+                self?.authenticationState = .signedIn
             }
 
         } catch {
-            DispatchQueue.main.async {
-                self.authenticationState = .signedOut
+            DispatchQueue.main.async { [weak self] in
+                self?.authenticationState = .signedOut
             }
             throw AuthenticationError.signInFailed
         }
@@ -286,7 +299,11 @@ final class AuthenticationService: ObservableObject {
     }
 
     var userId: String? {
-        return Auth.auth().currentUser?.uid
+        let uid = Auth.auth().currentUser?.uid
+        print("🔍 [AuthenticationService] userId called, returning: \(uid ?? "nil")")
+        print("🔍 [AuthenticationService] Current auth state: \(authenticationState)")
+        print("🔍 [AuthenticationService] Current user: \(currentUser?.uid ?? "nil")")
+        return uid
     }
 
     var userEmail: String? {

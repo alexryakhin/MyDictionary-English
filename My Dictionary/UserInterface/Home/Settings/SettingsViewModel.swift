@@ -16,18 +16,16 @@ final class SettingsViewModel: BaseViewModel {
     @Published var importFileURL: URL?
     @Published var exportWordsUrl: URL?
     @Published var showingTagManagement = false
+    @Published var showingSharedDictionaries = false
 
-    private let wordsProvider: WordsProvider
-    private let csvManager: CSVManager
-    private let notificationService: NotificationService
+    private let wordsProvider: WordsProvider = .shared
+    private let csvManager: CSVManager = .shared
+    private let notificationService: NotificationService = .shared
 
     private var words: [CDWord] = []
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
-        self.wordsProvider = ServiceManager.shared.wordsProvider
-        self.csvManager = ServiceManager.shared.csvManager
-        self.notificationService = ServiceManager.shared.notificationService
         super.init()
         setupBindings()
     }
@@ -69,10 +67,10 @@ final class SettingsViewModel: BaseViewModel {
     
     func requestNotificationPermission() {
         Task {
-            let granted = await ServiceManager.shared.notificationService.requestPermission()
+            let granted = await NotificationService.shared.requestPermission()
             if granted {
                 // Schedule notifications for today
-                ServiceManager.shared.notificationService.scheduleNotificationsForToday()
+                NotificationService.shared.scheduleNotificationsForToday()
             }
         }
     }

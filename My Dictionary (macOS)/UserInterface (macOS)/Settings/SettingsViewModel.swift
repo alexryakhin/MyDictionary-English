@@ -22,17 +22,14 @@ final class SettingsViewModel: BaseViewModel {
     @Published var importFileURL: URL?
     @Published var isShowingTagManagement = false
 
-    private let wordsProvider: WordsProvider
-    private let csvManager: CSVManager
-    private let notificationService: NotificationService
+    private let wordsProvider: WordsProvider = .shared
+    private let csvManager: CSVManager = .shared
+    private let notificationService: NotificationService = .shared
 
     private var words: [CDWord] = []
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
-        self.wordsProvider = ServiceManager.shared.wordsProvider
-        self.csvManager = ServiceManager.shared.csvManager
-        self.notificationService = ServiceManager.shared.notificationService
         super.init()
         setupBindings()
     }

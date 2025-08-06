@@ -4,21 +4,22 @@ import CoreData
 
 final class IdiomsProvider: ObservableObject {
 
+    static let shared = IdiomsProvider()
+
     @Published var idioms: [CDIdiom] = []
     let idiomsErrorPublisher = PassthroughSubject<CoreError, Never>()
 
-    private let coreDataService: CoreDataService
+    private let coreDataService: CoreDataService = .shared
     private var cancellables = Set<AnyCancellable>()
 
-    init(coreDataService: CoreDataService) {
-        self.coreDataService = coreDataService
+    private init() {
         setupBindings()
         fetchIdioms()
     }
 
     /// Fetches latest data from Core Data
     func fetchIdioms() {
-        let request = NSFetchRequest<CDIdiom>(entityName: "Idiom")
+        let request = CDIdiom.fetchRequest()
         do {
             let idioms = try coreDataService.context.fetch(request)
             self.idioms = idioms
@@ -29,7 +30,7 @@ final class IdiomsProvider: ObservableObject {
 
     /// Removes a given idiom from the Core Data
     func delete(with id: String) {
-        let fetchRequest: NSFetchRequest<CDIdiom> = CDIdiom.fetchRequest()
+        let fetchRequest = CDIdiom.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
 
         do {

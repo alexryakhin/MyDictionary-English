@@ -28,6 +28,7 @@ enum AnalyticsEvent: String {
     case addWordFromSearchTapped
     case definitionSelected
     case wordAdded
+    case wordAddedToSharedDictionary
     case wordOpened
     case wordPlayed
     case wordRemoved

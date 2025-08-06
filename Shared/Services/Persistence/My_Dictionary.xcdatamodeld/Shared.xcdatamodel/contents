@@ -47,7 +47,9 @@
         <attribute name="partOfSpeech" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="phonetic" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="wordItself" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="isSynced" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="words" inverseEntity="Tag"/>
     </entity>
     <entity name="WordProgress" representedClassName="CDWordProgress" syncable="YES">

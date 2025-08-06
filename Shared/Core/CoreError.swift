@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CoreError: Error {
+enum CoreError: Error, LocalizedError {
     case networkError(NetworkError)
     case storageError(StorageError)
     case validationError(ValidationError)
@@ -17,7 +17,7 @@ enum CoreError: Error {
     case unknownError
 
     // Nested enum for Network Errors
-    enum NetworkError: Error {
+    enum NetworkError: Error, LocalizedError {
         case timeout
         case serverUnreachable
         case invalidResponse(statusCode: Int? = nil)
@@ -27,7 +27,8 @@ enum CoreError: Error {
         case invalidURL
         case noData
 
-        var description: String {
+
+        var errorDescription: String? {
             switch self {
             case .timeout: "Timeout"
             case .serverUnreachable: "Server unreachable"
@@ -42,12 +43,12 @@ enum CoreError: Error {
     }
 
     // StorageError and ValidationError can follow a similar pattern if needed
-    enum StorageError: Error {
+    enum StorageError: Error, LocalizedError {
         case saveFailed
         case readFailed
         case dataCorrupted
 
-        var description: String {
+        var errorDescription: String? {
             switch self {
             case .saveFailed: "Save failed"
             case .readFailed: "Read failed"
@@ -56,11 +57,11 @@ enum CoreError: Error {
         }
     }
 
-    enum ValidationError: Error {
+    enum ValidationError: Error, LocalizedError {
         case invalidInput(field: String)
         case missingField(field: String)
 
-        var description: String {
+        var errorDescription: String? {
             switch self {
             case .invalidInput(field: let field): "Invalid input for field: \(field)"
             case .missingField(field: let field): "Missing field: \(field)"
@@ -68,7 +69,7 @@ enum CoreError: Error {
         }
     }
 
-    enum InternalError: Error {
+    enum InternalError: Error, LocalizedError {
         case updatingWordExamplesFailed
         case removingWordFailed
         case savingWordFailed
@@ -88,7 +89,7 @@ enum CoreError: Error {
         case tagNotAssigned
         case maxTagsReached
 
-        var description: String {
+        var errorDescription: String? {
             switch self {
             case .updatingWordExamplesFailed:
                 return "Error updating word examples"
@@ -130,7 +131,7 @@ enum CoreError: Error {
         }
     }
     
-    enum AnalyticsError: Error {
+    enum AnalyticsError: Error, LocalizedError {
         case wordProgressUpdateFailed
         case wordDifficultyUpdateFailed
         case quizSessionSaveFailed
@@ -139,7 +140,7 @@ enum CoreError: Error {
         case wordNotFound
         case progressCalculationFailed
         
-        var description: String {
+        var errorDescription: String? {
             switch self {
             case .wordProgressUpdateFailed:
                 return "Failed to update word progress"
@@ -165,7 +166,7 @@ enum CoreError: Error {
         case invalidResponse
         case translationFailed
 
-        var description: String {
+        var errorDescription: String? {
             switch self {
             case .invalidURL:
                 return "Invalid translation URL"
@@ -179,14 +180,14 @@ enum CoreError: Error {
         }
     }
 
-    var description: String {
+    var errorDescription: String? {
         switch self {
-        case .networkError(let error): error.description
-        case .storageError(let error): error.description
-        case .validationError(let error): error.description
-        case .internalError(let error): error.description
-        case .analyticsError(let error): error.description
-        case .translationError(let error): error.description
+        case .networkError(let error): error.errorDescription
+        case .storageError(let error): error.errorDescription
+        case .validationError(let error): error.errorDescription
+        case .internalError(let error): error.errorDescription
+        case .analyticsError(let error): error.errorDescription
+        case .translationError(let error): error.errorDescription
         case .unknownError: "Unknown error"
         }
     }

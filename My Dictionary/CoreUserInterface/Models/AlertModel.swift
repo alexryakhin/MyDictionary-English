@@ -7,7 +7,16 @@
 
 import SwiftUI
 
-struct AlertModel {
+struct AlertModel: Equatable {
+    static func == (lhs: AlertModel, rhs: AlertModel) -> Bool {
+        lhs.title == rhs.title
+        && lhs.message == rhs.message
+        && lhs.actionText == rhs.actionText
+        && lhs.destructiveActionText == rhs.destructiveActionText
+        && lhs.additionalActionText == rhs.additionalActionText
+        && lhs.alertType == rhs.alertType
+    }
+    
     let title: String
     let message: String?
     let actionText: String?
@@ -17,6 +26,7 @@ struct AlertModel {
     let destructiveAction: VoidHandler?
     let additionalAction: VoidHandler?
     let alertType: AlertType
+    let style: UIAlertController.Style
 
     enum AlertType {
         case info
@@ -35,7 +45,8 @@ struct AlertModel {
         action: VoidHandler? = nil,
         destructiveAction: VoidHandler? = nil,
         additionalAction: VoidHandler? = nil,
-        alertType: AlertType = .info
+        alertType: AlertType = .info,
+        style: UIAlertController.Style = .alert
     ) {
         self.title = title
         self.message = message
@@ -46,6 +57,7 @@ struct AlertModel {
         self.destructiveAction = destructiveAction
         self.additionalAction = additionalAction
         self.alertType = alertType
+        self.style = style
     }
 
     // MARK: - Convenience Initializers

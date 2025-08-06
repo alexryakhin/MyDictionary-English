@@ -13,6 +13,8 @@
 		5321A2E32E3FADEF0066DFC4 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 5321A2E22E3FADEF0066DFC4 /* Flow */; };
 		532C151F2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 532C151E2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		532C15212E3CC39600552599 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 532C15202E3CC39600552599 /* FirebaseAnalytics */; };
+		5330097B2E43895E00C3057B /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 5330097A2E43895E00C3057B /* FirebaseFunctions */; };
+		5330097D2E43896100C3057B /* FirebaseFunctionsCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 5330097C2E43896100C3057B /* FirebaseFunctionsCombine-Community */; };
 		53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BC92D7E238900C1DE8B /* FirebaseCore */; };
 		53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53310BCB2D7E238F00C1DE8B /* FirebaseCrashlytics */; };
 		5370F6822E4052E3009238EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6812E4052E3009238EB /* FirebaseAuth */; };
@@ -55,16 +57,10 @@
 		530D2C4C2D983A1E0040C247 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		53E9A7542D7C3383007E9F28 /* My Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Dictionary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E9AAD22D7CA84F007E9F28 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		53FA60FD2E44715100CE4292 /* firestore.rules */ = {isa = PBXFileReference; explicitFileType = text.script.sh; path = firestore.rules; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		532C16862E3CCC6B00552599 /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Services/Persistence/My_Dictionary.xcdatamodeld,
-			);
-			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
-		};
 		5370F5712E4050A4009238EB /* Exceptions for "My Dictionary" folder in "My Dictionary (macOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -73,31 +69,7 @@
 			);
 			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
 		};
-		5370F6722E4050C1009238EB /* Exceptions for "Shared" folder in "My Dictionary" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Services/Persistence/My_Dictionary.xcdatamodeld,
-			);
-			target = 53E9A7532D7C3383007E9F28 /* My Dictionary */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		5370F6732E4050C1009238EB /* Exceptions for "Shared" folder in "Compile Sources" phase from "My Dictionary" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 53E9A7502D7C3383007E9F28 /* Sources */;
-			membershipExceptions = (
-				Services/Persistence/My_Dictionary.xcdatamodeld,
-			);
-		};
-		5370F6742E4050C1009238EB /* Exceptions for "Shared" folder in "Compile Sources" phase from "My Dictionary (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 530D2C2F2D9836920040C247 /* Sources */;
-			membershipExceptions = (
-				Services/Persistence/My_Dictionary.xcdatamodeld,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		530D2C342D9836920040C247 /* My Dictionary (macOS) */ = {
@@ -115,12 +87,6 @@
 		};
 		53E9A9F92D7C439B007E9F28 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5370F6722E4050C1009238EB /* Exceptions for "Shared" folder in "My Dictionary" target */,
-				5370F6732E4050C1009238EB /* Exceptions for "Shared" folder in "Compile Sources" phase from "My Dictionary" target */,
-				532C16862E3CCC6B00552599 /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */,
-				5370F6742E4050C1009238EB /* Exceptions for "Shared" folder in "Compile Sources" phase from "My Dictionary (macOS)" target */,
-			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
@@ -159,7 +125,9 @@
 				53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */,
 				532C151F2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				5370F6862E4052ED009238EB /* FirebaseStorage in Frameworks */,
+				5330097B2E43895E00C3057B /* FirebaseFunctions in Frameworks */,
 				53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */,
+				5330097D2E43896100C3057B /* FirebaseFunctionsCombine-Community in Frameworks */,
 				5370F6842E4052E8009238EB /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +145,7 @@
 				53E9A8172D7C4019007E9F28 /* Frameworks */,
 				53E9AAD22D7CA84F007E9F28 /* README.md */,
 				53E9AAD82D7CA867007E9F28 /* docs */,
+				53FA60FD2E44715100CE4292 /* firestore.rules */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,6 +229,8 @@
 				5370F6852E4052ED009238EB /* FirebaseStorage */,
 				5370F68E2E405358009238EB /* GoogleSignIn */,
 				5370F6902E405358009238EB /* GoogleSignInSwift */,
+				5330097A2E43895E00C3057B /* FirebaseFunctions */,
+				5330097C2E43896100C3057B /* FirebaseFunctionsCombine-Community */,
 			);
 			productName = "My Dictionary";
 			productReference = 53E9A7542D7C3383007E9F28 /* My Dictionary.app */;
@@ -696,6 +667,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		5330097A2E43895E00C3057B /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		5330097C2E43896100C3057B /* FirebaseFunctionsCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFunctionsCombine-Community";
 		};
 		53310BC92D7E238900C1DE8B /* FirebaseCore */ = {
 			isa = XCSwiftPackageProductDependency;

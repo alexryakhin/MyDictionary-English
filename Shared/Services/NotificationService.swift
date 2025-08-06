@@ -9,24 +9,14 @@ import Foundation
 import UserNotifications
 import CoreData
 
-protocol NotificationServiceInterface {
-    func requestPermission() async -> Bool
-    func scheduleDailyReminder()
-    func scheduleDifficultWordsReminder()
-    func cancelAllNotifications()
-    func checkAndScheduleNotifications()
-    func scheduleNotificationsForToday()
-    func cancelDailyReminder()
-}
+final class NotificationService {
 
-final class NotificationService: NotificationServiceInterface {
-    private let quizAnalyticsService: QuizAnalyticsService
-    private let tagService: TagService
-    
-    init() {
-        self.quizAnalyticsService = QuizAnalyticsService.shared
-        self.tagService = ServiceManager.shared.tagService
-    }
+    static let shared = NotificationService()
+
+    private let quizAnalyticsService: QuizAnalyticsService = .shared
+    private let tagService = TagService.shared
+
+    private init() {}
     
     func requestPermission() async -> Bool {
         do {

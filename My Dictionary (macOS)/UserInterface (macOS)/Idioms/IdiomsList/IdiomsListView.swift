@@ -88,18 +88,6 @@ struct IdiomListView: View {
         .onChange(of: viewModel.filterState) { _ in
             AnalyticsService.shared.logEvent(.idiomsListFilterSelected)
         }
-        .alert(isPresented: _viewModel.projectedValue.isShowingAlert) {
-            Alert(
-                title: Text(viewModel.alertModel.title),
-                message: Text(viewModel.alertModel.message ?? ""),
-                primaryButton: .default(Text(viewModel.alertModel.actionText ?? "OK")) {
-                    viewModel.alertModel.action?()
-                },
-                secondaryButton: viewModel.alertModel.destructiveActionText != nil ? .destructive(Text(viewModel.alertModel.destructiveActionText!)) {
-                    viewModel.alertModel.destructiveAction?()
-                } : .cancel()
-            )
-        }
     }
 
     private var idiomCount: String {

@@ -9,7 +9,6 @@ struct ChooseDefinitionView: View {
 
     init(wordCount: Int) {
         self._viewModel = StateObject(wrappedValue: ChooseDefinitionViewModel(
-            wordsProvider: ServiceManager.shared.wordsProvider,
             wordCount: wordCount
         ))
     }

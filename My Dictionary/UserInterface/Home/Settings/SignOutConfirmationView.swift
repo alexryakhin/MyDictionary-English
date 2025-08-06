@@ -120,9 +120,3 @@ struct SignOutConfirmationView: View {
         .presentationDragIndicator(.visible)
     }
 }
-
-#Preview {
-    SignOutConfirmationView {
-        print("Sign out confirmed")
-    }
-} 

@@ -22,16 +22,13 @@ final class TagManagementViewModel: BaseViewModel {
     @Published private(set) var tags: [CDTag] = []
     @Published var showingAddEditSheet = false
     @Published var showingDeleteAlert = false
-    @Published var showingErrorAlert = false
-    @Published var errorMessage = ""
     @Published var editingTag: CDTag?
     @Published var isEditing = false
     
-    private let tagService: TagService
+    private let tagService: TagService = .shared
     private var cancellables = Set<AnyCancellable>()
     
     override init() {
-        self.tagService = ServiceManager.shared.tagService
         super.init()
         loadTags()
         AnalyticsService.shared.logEvent(.tagManagementOpened)
@@ -104,11 +101,6 @@ final class TagManagementViewModel: BaseViewModel {
     }
     
     private func handleError(_ error: Error) {
-        if let coreError = error as? CoreError {
-            errorMessage = coreError.description
-        } else {
-            errorMessage = error.localizedDescription
-        }
-        showingErrorAlert = true
+        AlertCenter.shared.showAlert(with: .error(title: "Tag Management Error", message: error.localizedDescription))
     }
 } 

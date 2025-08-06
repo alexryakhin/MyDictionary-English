@@ -19,11 +19,7 @@ open class BaseAPIService: APIServiceInterface {
     open var baseURL: String { fatalError("baseURL must be overridden") }
     open var apiKey: String { fatalError("apiKey must be overridden") }
 
-    private let decoder: JSONDecoder
-
-    init(decoder: JSONDecoder) {
-        self.decoder = decoder
-    }
+    init() {}
 
     func buildURL<P: APIPath>(for path: P, customParams: [CustomQueryParameter]) throws -> URL {
         var components = URLComponents(string: baseURL + path.path)
@@ -48,6 +44,6 @@ open class BaseAPIService: APIServiceInterface {
             print("DEBUG50\nURL: \(url)\nPath: \(path.path)\nJSON: \(string)\\")
         }
         #endif
-        return try decoder.decode(T.self, from: data)
+        return try JSONDecoder().decode(T.self, from: data)
     }
 }
