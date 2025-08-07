@@ -20,10 +20,10 @@ struct AddCollaboratorView: View {
             Form {
                 Section(header: Text("Collaborator Details")) {
                     TextField("Email Address", text: $email)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
-                    
+                        .autocorrectionDisabled()
+
                     Picker("Role", selection: $role) {
                         Text("Editor").tag("editor")
                         Text("Viewer").tag("viewer")

@@ -1,50 +1,54 @@
 rules_version = '2';
 service cloud.firestore {
-match /databases/{database}/documents {
-// Helper functions
-function isSignedIn() {
-return request.auth != null;
-}
+  match /databases/{database}/documents {
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    // Private dictionary rules
+    match /users/{userId}/words/{wordId} {
+      allow read, write: if isSignedIn() && request.auth.uid == userId;
+    }
+    
+    // Shared dictionary rules - Allow reading all shared dictionaries for any authenticated user
+    match /dictionaries/{dictionaryId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update: if isSignedIn() && (
+        resource.data.owner == request.auth.uid ||
+        (resource.data.collaborators != null && 
+         request.auth.uid in resource.data.collaborators &&
+         resource.data.collaborators[request.auth.uid] == 'editor')
+      );
+      allow delete: if isSignedIn() && resource.data.owner == request.auth.uid;
 
-// Private dictionary rules
-match /users/{userId}/words/{wordId} {
-allow read, write: if isSignedIn() && request.auth.uid == userId;
-}
-
-// Shared dictionary rules - Working approach
-match /dictionaries/{dictionaryId} {
-allow read: if isSignedIn() && (
-resource.data.owner == request.auth.uid ||
-(request.auth.uid in resource.data.collaborators &&
-resource.data.collaborators[request.auth.uid] in ['editor', 'viewer'])
-);
-allow create: if isSignedIn();
-allow update: if isSignedIn() && (
-resource.data.owner == request.auth.uid ||
-(request.auth.uid in resource.data.collaborators &&
-resource.data.collaborators[request.auth.uid] == 'editor')
-);
-allow delete: if isSignedIn() && resource.data.owner == request.auth.uid;
-
-// ✅ Fix: grant access to words subcollection
-match /words/{wordId} {
-allow read, write: if isSignedIn(); // or apply same logic as parent
-}
-}
-
-// Allow listing dictionaries
-match /dictionaries {
-allow list: if isSignedIn();
-}
-
-// User profiles
-match /users/{userId} {
-allow read, write: if isSignedIn() && request.auth.uid == userId;
-}
-
-// Test collection for debugging
-match /test/{document=**} {
-allow read, write: if isSignedIn();
-}
-}
-}
+      // ✅ Allow reading words in shared dictionaries for any authenticated user
+      match /words/{wordId} {
+        allow read: if isSignedIn();
+        allow write: if isSignedIn() && (
+          get(/databases/$(database)/documents/dictionaries/$(dictionaryId)).data.owner == request.auth.uid ||
+          (get(/databases/$(database)/documents/dictionaries/$(dictionaryId)).data.collaborators != null && 
+           request.auth.uid in get(/databases/$(database)/documents/dictionaries/$(dictionaryId)).data.collaborators &&
+           get(/databases/$(database)/documents/dictionaries/$(dictionaryId)).data.collaborators[request.auth.uid] == 'editor')
+        );
+      }
+    }
+    
+    // Allow listing dictionaries - users can list all dictionaries
+    // Individual document access is still controlled by the document rules
+    match /dictionaries {
+      allow list: if isSignedIn();
+    }
+    
+    // User profiles
+    match /users/{userId} {
+      allow read, write: if isSignedIn() && request.auth.uid == userId;
+    }
+    
+    // Test collection for debugging
+    match /test/{document=**} {
+      allow read, write: if isSignedIn();
+    }
+  }
+} 

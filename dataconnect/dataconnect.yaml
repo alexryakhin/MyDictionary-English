@@ -1,0 +1,12 @@
+specVersion: "v1"
+serviceId: "mydictionary-english"
+location: "eur3"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "mydictionary-english-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]

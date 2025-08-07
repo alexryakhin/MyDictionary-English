@@ -66,7 +66,6 @@ struct WordListContentView: View {
                                     if AuthenticationService.shared.isSignedIn {
                                         Button {
                                             selectedWordForShared = wordModel
-                                            showingAddExistingWordToShared = true
                                         } label: {
                                             Label("Add to Shared Dictionary", systemImage: "person.2")
                                         }
@@ -152,10 +151,8 @@ struct WordListContentView: View {
         .sheet(isPresented: $showingAddSharedDictionary) {
             AddSharedDictionaryView()
         }
-        .sheet(isPresented: $showingAddExistingWordToShared) {
-            if let word = selectedWordForShared {
-                AddExistingWordToSharedView(word: word)
-            }
+        .sheet(item: $selectedWordForShared) { word in
+            AddExistingWordToSharedView(word: word)
         }
     }
 }

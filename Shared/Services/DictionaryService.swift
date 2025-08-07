@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseFunctions
+import FirebaseAuth
 import Combine
 
 final class DictionaryService: ObservableObject {
@@ -16,7 +17,7 @@ final class DictionaryService: ObservableObject {
 
     private let coreDataService = CoreDataService.shared
     private let db = Firestore.firestore()
-    private let functions = Functions.functions()
+    private let functions = Functions.functions(region: "europe-west3")
     private var cancellables = Set<AnyCancellable>()
     private var listeners: [String: ListenerRegistration] = [:]
     
@@ -53,7 +54,7 @@ final class DictionaryService: ObservableObject {
     }
     
     private init() {
-        setupSharedDictionariesListener()
+        setupAuthenticationListener()
     }
     
     // MARK: - Shared Dictionary Management
@@ -107,21 +108,23 @@ final class DictionaryService: ObservableObject {
             return
         }
         
-        isLoading = true
+        print("🔍 [DictionaryService] addCollaborator called with dictionaryId: \(dictionaryId), email: \(email), role: \(role)")
         
-        functions.httpsCallable("addCollaborator").call([
+        let data: [String: Any] = [
             "dictionaryId": dictionaryId,
             "email": email,
             "role": role
-        ]) { [weak self] result, error in
-            DispatchQueue.main.async { [weak self] in
-                self?.isLoading = false
-            }
-            
-            if let error = error {
-                completion(.failure(error))
-            } else {
+        ]
+        
+        // Use Firebase SDK now that IAM permissions are set
+        CloudFunctionsService.shared.callFunction("addCollaborator", data: data, forceTokenRefresh: true) { (result: Result<EmptyResponse, Error>) in
+            switch result {
+            case .success:
+                print("✅ [DictionaryService] Collaborator added successfully")
                 completion(.success(()))
+            case .failure(let error):
+                print("❌ [DictionaryService] Failed to add collaborator: \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
     }
@@ -132,20 +135,22 @@ final class DictionaryService: ObservableObject {
             return
         }
         
-        isLoading = true
+        print("🔍 [DictionaryService] removeCollaborator called with dictionaryId: \(dictionaryId), userId: \(userId)")
         
-        functions.httpsCallable("removeCollaborator").call([
+        let data: [String: Any] = [
             "dictionaryId": dictionaryId,
             "userId": userId
-        ]) { [weak self] result, error in
-            DispatchQueue.main.async { [weak self] in
-                self?.isLoading = false
-            }
-            
-            if let error = error {
-                completion(.failure(error))
-            } else {
+        ]
+        
+        // Use Firebase SDK now that IAM permissions are set
+        CloudFunctionsService.shared.callFunction("removeCollaborator", data: data) { (result: Result<EmptyResponse, Error>) in
+            switch result {
+            case .success:
+                print("✅ [DictionaryService] Collaborator removed successfully")
                 completion(.success(()))
+            case .failure(let error):
+                print("❌ [DictionaryService] Failed to remove collaborator: \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
     }
@@ -247,13 +252,14 @@ final class DictionaryService: ObservableObject {
         print("📝 [DictionaryService] Word data: \(wordData)")
         
         docRef.setData(wordData) { error in
-            print("📤 [DictionaryService] setData completion called for word")
+            print("📤 [DictionaryService] setData completion called for word: \(word.wordItself)")
             
             if let error = error {
                 print("❌ [DictionaryService] Error adding word: \(error.localizedDescription)")
                 completion(.failure(error))
             } else {
                 print("✅ [DictionaryService] Word added successfully to dictionary: \(dictionaryId)")
+                print("📄 [DictionaryService] Word document path: \(docRef.path)")
                 completion(.success(()))
             }
         }
@@ -320,45 +326,106 @@ final class DictionaryService: ObservableObject {
 //        }
 //    }
     
+    // MARK: - Authentication Listener
+    
+    private func setupAuthenticationListener() {
+        print("🔍 [DictionaryService] Setting up authentication listener")
+        
+        // Listen to authentication state changes
+        AuthenticationService.shared.$authenticationState
+            .sink { [weak self] state in
+                print("🔍 [DictionaryService] Authentication state changed to: \(state)")
+                
+                switch state {
+                case .signedIn:
+                    print("✅ [DictionaryService] User signed in, setting up shared dictionaries listener")
+                    self?.setupSharedDictionariesListener()
+                case .signedOut:
+                    print("❌ [DictionaryService] User signed out, clearing shared dictionaries")
+                    DispatchQueue.main.async { [weak self] in
+                        self?.sharedDictionaries = []
+                    }
+                    self?.stopAllListeners()
+                case .loading:
+                    print("🔄 [DictionaryService] Authentication loading...")
+                }
+            }
+            .store(in: &cancellables)
+        
+        // Also check if user is already authenticated when the service starts
+        // This handles the case where the app starts with an authenticated user
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            if let userId = AuthenticationService.shared.userId {
+                print("🔍 [DictionaryService] User already authenticated with ID: \(userId), setting up listener")
+                self?.setupSharedDictionariesListener()
+            } else {
+                print("🔍 [DictionaryService] No authenticated user found on startup")
+            }
+        }
+    }
+    
     // MARK: - Real-time Listeners
     
     func setupSharedDictionariesListener() {
         print("🔍 [DictionaryService] setupSharedDictionariesListener called")
         
+        // Stop existing listeners first
+        stopAllListeners()
+        
+        // Check both userId and authentication state
         guard let userId = AuthenticationService.shared.userId else { 
             print("❌ [DictionaryService] No userId found in AuthenticationService")
             return 
         }
         
+        // Additional check to ensure user is properly authenticated
+        guard AuthenticationService.shared.authenticationState == .signedIn else {
+            print("❌ [DictionaryService] User not properly authenticated. State: \(AuthenticationService.shared.authenticationState)")
+            return
+        }
+        
         print("👤 [DictionaryService] User ID: \(userId)")
-        print("📡 [DictionaryService] Setting up listener for dictionaries collection")
+        print("✅ [DictionaryService] Authentication state: \(AuthenticationService.shared.authenticationState)")
         
-        // Query dictionaries where user is a collaborator
-        let collaboratorQuery = db
-            .collection("dictionaries")
-            .whereField("collaborators.\(userId)", isNotEqualTo: "")
-
-        // Query dictionaries where user is the owner
-        let ownerQuery = db
-            .collection("dictionaries")
-            .whereField("owner", isEqualTo: userId)
-        
-        // Combine both queries
-        let collaboratorListener = collaboratorQuery.addSnapshotListener { [weak self] snapshot, error in
-            self?.handleDictionariesSnapshot(snapshot, error: error, userId: userId, isOwnerQuery: false)
+        // Force token refresh before setting up listener
+        print("🔄 [DictionaryService] Forcing token refresh...")
+        Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { [weak self] token, error in
+            if let error = error {
+                print("❌ [DictionaryService] Token refresh failed: \(error.localizedDescription)")
+                return
+            }
+            
+            if let token = token {
+                print("✅ [DictionaryService] Token refreshed successfully")
+            } else {
+                print("❌ [DictionaryService] No token received after refresh")
+                return
+            }
+            
+                            DispatchQueue.main.async {
+                    print("📡 [DictionaryService] Setting up listener for dictionaries collection")
+                    
+                    // Use a single query to get all dictionaries and filter on client side
+                    // This avoids complex nested field queries that might cause permission issues
+                    let allDictionariesQuery = self?.db
+                        .collection("dictionaries")
+                    
+                    let listener = allDictionariesQuery?.addSnapshotListener { [weak self] snapshot, error in
+                        self?.handleDictionariesSnapshot(snapshot, error: error, userId: userId)
+                    }
+                    
+                    // Store listener for cleanup
+                    if let listener = listener {
+                        self?.listeners["dictionaries"] = listener
+                    }
+                }
         }
-        
-        let ownerListener = ownerQuery.addSnapshotListener { [weak self] snapshot, error in
-            self?.handleDictionariesSnapshot(snapshot, error: error, userId: userId, isOwnerQuery: true)
-        }
-        
-                // Store listeners for cleanup
-        listeners["collaborator"] = collaboratorListener
-        listeners["owner"] = ownerListener
     }
     
-    private func handleDictionariesSnapshot(_ snapshot: QuerySnapshot?, error: Error?, userId: String, isOwnerQuery: Bool) {
-        print("📡 [DictionaryService] Snapshot listener triggered (isOwnerQuery: \(isOwnerQuery))")
+
+    
+    private func handleDictionariesSnapshot(_ snapshot: QuerySnapshot?, error: Error?, userId: String) {
+        print("📡 [DictionaryService] Snapshot listener triggered")
         
         if let error = error {
             print("❌ [DictionaryService] Error in snapshot listener: \(error.localizedDescription)")
@@ -375,7 +442,8 @@ final class DictionaryService: ObservableObject {
         
         print("📄 [DictionaryService] Found \(documents.count) documents in snapshot")
         
-        let dictionaries = documents.compactMap { doc -> SharedDictionary? in
+        // Filter dictionaries on client side based on user permissions
+        let userDictionaries = documents.compactMap { doc -> SharedDictionary? in
             let data = doc.data()
             print("📄 [DictionaryService] Document \(doc.documentID) data: \(data)")
             
@@ -387,39 +455,40 @@ final class DictionaryService: ObservableObject {
                 return nil
             }
             
-            let dictionary = SharedDictionary(
-                id: doc.documentID,
-                name: name,
-                owner: owner,
-                collaborators: collaborators,
-                createdAt: createdAt.dateValue()
-            )
-            print("✅ [DictionaryService] Created SharedDictionary: \(dictionary.name)")
-            return dictionary
+            // Check if user has access to this dictionary
+            let isOwner = owner == userId
+            let isCollaborator = collaborators[userId] != nil
+            
+            if isOwner || isCollaborator {
+                let dictionary = SharedDictionary(
+                    id: doc.documentID,
+                    name: name,
+                    owner: owner,
+                    collaborators: collaborators,
+                    createdAt: createdAt.dateValue()
+                )
+                print("✅ [DictionaryService] User has access to dictionary: \(dictionary.name) (Owner: \(isOwner), Collaborator: \(isCollaborator))")
+                return dictionary
+            } else {
+                print("❌ [DictionaryService] User does not have access to dictionary: \(name)")
+                return nil
+            }
         }
         
-        print("📄 [DictionaryService] Parsed \(dictionaries.count) dictionaries")
+        print("📄 [DictionaryService] User has access to \(userDictionaries.count) dictionaries")
         
-        // Combine dictionaries from both queries and remove duplicates
+        // Update the shared dictionaries
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            var allDictionaries = self.sharedDictionaries
-            
-            // Add new dictionaries, avoiding duplicates
-            for dictionary in dictionaries {
-                if !allDictionaries.contains(where: { $0.id == dictionary.id }) {
-                    allDictionaries.append(dictionary)
-                }
-            }
-            
-            // Sort by creation date
-            self.sharedDictionaries = allDictionaries.sorted { $0.createdAt > $1.createdAt }
+            self.sharedDictionaries = userDictionaries.sorted { $0.createdAt > $1.createdAt }
             print("📱 [DictionaryService] Updated sharedDictionaries with \(self.sharedDictionaries.count) items")
         }
     }
     
     func listenToSharedDictionaryWords(dictionaryId: String, callback: @escaping ([Word]) -> Void) {
+        print("🔍 [DictionaryService] listenToSharedDictionaryWords called for dictionary: \(dictionaryId)")
+        
         // Remove existing listener for this dictionary
         stopListening(dictionaryId: dictionaryId)
         let context = coreDataService.context
@@ -429,15 +498,25 @@ final class DictionaryService: ObservableObject {
             .document(dictionaryId)
             .collection("words")
             .addSnapshotListener { [weak self] snapshot, error in
-                guard let self = self else { return }
-                guard let documents = snapshot?.documents else {
-                    print("❌ [DictionaryService] Error fetching shared dictionary words: \(error?.localizedDescription ?? "Unknown")")
+                print("📡 [DictionaryService] Snapshot listener triggered for dictionary: \(dictionaryId)")
+                
+                if let error = error {
+                    print("❌ [DictionaryService] Error fetching shared dictionary words: \(error.localizedDescription)")
                     return
                 }
+                
+                guard let documents = snapshot?.documents else {
+                    print("📄 [DictionaryService] No documents found in snapshot for dictionary: \(dictionaryId)")
+                    return
+                }
+                
+                print("📄 [DictionaryService] Found \(documents.count) words in dictionary: \(dictionaryId)")
                 
                 let words = documents.compactMap {
                     Word.fromFirestoreDictionary($0.data(), id: $0.documentID)
                 }
+
+                print("✅ [DictionaryService] Parsed \(words.count) words from Firestore")
 
                 context.perform {
                     for word in words {
@@ -460,16 +539,18 @@ final class DictionaryService: ObservableObject {
                         } else {
                             let entity = word.toCoreDataEntity()
                             // Sync tags separately
-                            self.syncTags(word: word, entity: entity)
+                            self?.syncTags(word: word, entity: entity)
                         }
                     }
                     
                     try? context.save()
+                    print("📱 [DictionaryService] Calling callback with \(words.count) words")
                     callback(words)
                 }
             }
         
         listeners[dictionaryId] = listener
+        print("✅ [DictionaryService] Listener set up for dictionary: \(dictionaryId)")
     }
     
     func stopListening(dictionaryId: String) {
@@ -529,6 +610,7 @@ enum DictionaryError: LocalizedError {
     case permissionDenied
     case dictionaryNotFound
     case networkError
+    case userNotAuthenticated
     
     var errorDescription: String? {
         switch self {
@@ -540,6 +622,8 @@ enum DictionaryError: LocalizedError {
             return "Dictionary not found"
         case .networkError:
             return "Network error occurred"
+        case .userNotAuthenticated:
+            return "User must be authenticated"
         }
     }
 } 
