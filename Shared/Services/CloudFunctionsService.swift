@@ -20,7 +20,6 @@ final class CloudFunctionsService: ObservableObject {
     // private let functions = Functions.functions()
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var isLoading = false
     @Published var errorMessage: String?
     
     private init() {}
@@ -79,10 +78,6 @@ final class CloudFunctionsService: ObservableObject {
             print("✅ [CloudFunctionsService] Got fresh token: \(token.prefix(50))...")
             print("🔍 [CloudFunctionsService] Token length: \(token.count)")
 
-            DispatchQueue.main.async { [weak self] in
-                self?.isLoading = true
-            }
-
             // Try Firebase SDK first, then fallback to manual HTTP
             self?.tryFirebaseSDKFirst(functionName: functionName, data: data, token: token, completion: completion)
         }
@@ -109,10 +104,6 @@ final class CloudFunctionsService: ObservableObject {
             } else {
                 print("✅ [CloudFunctionsService] Firebase SDK call successful")
                 
-                DispatchQueue.main.async { [weak self] in
-                    self?.isLoading = false
-                }
-
                 // Try to decode the result
                 if let data = result?.data as? [String: Any],
                    let jsonData = try? JSONSerialization.data(withJSONObject: data),
@@ -168,10 +159,6 @@ final class CloudFunctionsService: ObservableObject {
         }
         
         URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
-            DispatchQueue.main.async { [weak self] in
-                self?.isLoading = false
-            }
-            
             if let error = error {
                 print("❌ [CloudFunctionsService] Network error: \(error.localizedDescription)")
                 completion(.failure(error))

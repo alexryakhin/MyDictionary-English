@@ -31,7 +31,7 @@ open class BaseViewModel: ObservableObject {
     func errorReceived(
         _ error: Error,
         displayType: ErrorDisplayType = .alert,
-        actionText: String? = nil,
+        actionText: String = "OK",
         action: @escaping VoidHandler = {}
     ) {
         #if os(iOS)

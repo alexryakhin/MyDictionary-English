@@ -129,7 +129,9 @@ final class WordListViewModel: BaseViewModel {
         wordsProvider.$words
             .receive(on: RunLoop.main)
             .sink { [weak self] words in
-                self?.words = words
+                // Filter out shared words from the main word list
+                let privateWords = words.filter { !$0.isSharedWord }
+                self?.words = privateWords
                 self?.sortWords()
             }
             .store(in: &cancellables)
@@ -149,7 +151,7 @@ final class WordListViewModel: BaseViewModel {
             .store(in: &cancellables)
         
         // Observe real-time updates from DataSyncService
-        DataSyncService.shared.$realTimeUpdateReceived
+        DataSyncService.shared.realTimeUpdateReceived
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
                 print("🔄 [WordListViewModel] Real-time update received, refreshing words")
@@ -174,7 +176,7 @@ final class WordListViewModel: BaseViewModel {
                 },
                 destructiveAction: { [weak self, wordModel] in
                     guard let id = wordModel.id?.uuidString else { return }
-                    self?.wordsProvider.deleteWord(with: id)
+                    try? self?.wordsProvider.deleteWord(with: id)
                 }
             )
         )

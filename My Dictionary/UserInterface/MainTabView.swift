@@ -27,16 +27,8 @@ struct MainTabView: View {
     var body: some View {
         TabView(selection: $navigationManager.selectedTab) {
             // Words Tab
-            NavigationSplitView {
+            NavigationView {
                 WordListContentView(viewModel: wordsViewModel)
-            } detail: {
-                if let selectedWord = wordsViewModel.selectedWord {
-                    WordDetailsContentView(word: selectedWord)
-                        .id(selectedWord.id)
-                } else {
-                    Text("Select a word")
-                        .foregroundColor(.secondary)
-                }
             }
             .tabItem {
                 Label(TabBarItem.words.title, systemImage: TabBarItem.words.image)
@@ -44,16 +36,8 @@ struct MainTabView: View {
             .tag(TabBarItem.words)
 
             // Idioms Tab
-            NavigationSplitView {
+            NavigationView {
                 IdiomListContentView(viewModel: idiomsViewModel)
-            } detail: {
-                if let selectedIdiom = idiomsViewModel.selectedIdiom {
-                    IdiomDetailsContentView(idiom: selectedIdiom)
-                        .id(selectedIdiom.id)
-                } else {
-                    Text("Select an idiom")
-                        .foregroundColor(.secondary)
-                }
             }
             .tabItem {
                 Label(TabBarItem.idioms.title, systemImage: TabBarItem.idioms.image)
@@ -87,35 +71,7 @@ struct MainTabView: View {
             }
             .tag(TabBarItem.settings)
         }
-    }
-
-    // MARK: - iPad Navigation
-    
-    @ViewBuilder
-    private var sidebarView: some View {
-        List {
-            Section("My Dictionary") {
-                NavigationLink("Words", value: NavigationItem.words)
-                NavigationLink("Idioms", value: NavigationItem.idioms)
-                NavigationLink("Quizzes", value: NavigationItem.quizzes)
-                NavigationLink("More", value: NavigationItem.more)
-            }
-        }
-        .navigationTitle("My Dictionary")
-    }
-    
-    @ViewBuilder
-    private var contentView: some View {
-        // Content area for iPad - could be empty or show a placeholder
-        Text("Select an item from the sidebar")
-            .foregroundColor(.secondary)
-    }
-    
-    @ViewBuilder
-    private var detailView: some View {
-        // Detail area for iPad - could be empty or show a placeholder
-        Text("Select an item from the sidebar")
-            .foregroundColor(.secondary)
+        .environment(\.horizontalSizeClass, .compact)
     }
 }
 

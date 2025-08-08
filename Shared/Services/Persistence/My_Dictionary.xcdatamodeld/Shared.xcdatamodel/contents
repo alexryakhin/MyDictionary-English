@@ -50,6 +50,8 @@
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="wordItself" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="isSynced" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="ownerId" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="sharedDictionaryId" optional="YES" attributeType="String" defaultValueString=""/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="words" inverseEntity="Tag"/>
     </entity>
     <entity name="WordProgress" representedClassName="CDWordProgress" syncable="YES">

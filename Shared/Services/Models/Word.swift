@@ -23,6 +23,11 @@ struct Word: Codable, Identifiable {
     let timestamp: Date // Created at date
     let updatedAt: Date // Last updated date
     let isSynced: Bool
+    let sharedDictionaryId: String?
+    
+    var isSharedWord: Bool {
+        return !(sharedDictionaryId?.isEmpty ?? true)
+    }
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -38,6 +43,7 @@ struct Word: Codable, Identifiable {
         case timestamp
         case updatedAt
         case isSynced
+        case sharedDictionaryId
     }
 
     func toFirestoreDictionary() -> [String: Any] {
@@ -53,7 +59,8 @@ struct Word: Codable, Identifiable {
             "isFavorite": isFavorite,
             "timestamp": Timestamp(date: timestamp),
             "updatedAt": Timestamp(date: updatedAt),
-            "isSynced": isSynced
+            "isSynced": isSynced,
+            "sharedDictionaryId": sharedDictionaryId ?? ""
         ]
         print("📝 [Word] toFirestoreDictionary called for word '\(wordItself)', returning: \(dict)")
         return dict
@@ -75,6 +82,7 @@ struct Word: Codable, Identifiable {
         // Handle optional fields
         let isSynced = data["isSynced"] as? Bool ?? false
         let updatedAt = data["updatedAt"] as? Timestamp ?? timestamp // Fallback to timestamp if updatedAt not present
+        let sharedDictionaryId = data["sharedDictionaryId"] as? String
         
         return Word(
             id: id,
@@ -89,7 +97,8 @@ struct Word: Codable, Identifiable {
             isFavorite: isFavorite,
             timestamp: timestamp.dateValue(),
             updatedAt: updatedAt.dateValue(),
-            isSynced: isSynced
+            isSynced: isSynced,
+            sharedDictionaryId: sharedDictionaryId
         )
     }
 }
@@ -117,6 +126,7 @@ extension Word {
         self.timestamp = timestamp
         self.updatedAt = entity.updatedAt ?? timestamp // Use updatedAt if available, otherwise fallback to timestamp
         self.isSynced = entity.isSynced
+        self.sharedDictionaryId = entity.sharedDictionaryId
     }
 
     func toCoreDataEntity() -> CDWord {
@@ -133,6 +143,7 @@ extension Word {
         entity.timestamp = timestamp
         entity.updatedAt = updatedAt
         entity.isSynced = isSynced
+        entity.sharedDictionaryId = sharedDictionaryId
         return entity
     }
 } 

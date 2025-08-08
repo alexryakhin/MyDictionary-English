@@ -74,6 +74,14 @@ extension View {
             self
         }
     }
+
+    func errorReceived(title: String = "Error", _ error: Error) {
+        AlertCenter.shared.showAlert(with: .error(title: title, message: error.localizedDescription))
+    }
+
+    func showAlertWithMessage(_ message: String) {
+        AlertCenter.shared.showAlert(with: .error(title: "Ooops!", message: message))
+    }
 }
 
 extension Image {

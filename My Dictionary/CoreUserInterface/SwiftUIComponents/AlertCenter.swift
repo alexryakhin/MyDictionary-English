@@ -16,6 +16,9 @@ final class AlertCenter {
     private init() {}
 
     func showAlert(with model: AlertModel) {
+        if !Thread.isMainThread {
+            print("❌ [AlertCenter] Must be called from main thread, model: \(model)")
+        }
         assert(Thread.isMainThread)
 
         guard let scene = UIApplication.shared.connectedScenes

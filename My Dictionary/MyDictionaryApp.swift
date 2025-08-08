@@ -18,6 +18,8 @@ struct MyDictionaryApp: App {
     @StateObject private var settingsViewModel = SettingsViewModel()
 
     @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
+    @AppStorage(UDKeys.dailyRemindersEnabled) var dailyRemindersEnabled: Bool = false
+    @AppStorage(UDKeys.difficultWordsEnabled) var difficultWordsEnabled: Bool = false
 
     init() {
         FirebaseApp.configure()
@@ -39,11 +41,11 @@ struct MyDictionaryApp: App {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             if let userId = AuthenticationService.shared.userId {
                 print("🔄 [App] Triggering initial sync from Firestore for userId: \(userId)")
-                DataSyncService.shared.syncFirestoreToCoreData(userId: userId) { result in
-                    switch result {
-                    case .success:
+                Task {
+                    do {
+                        try await DataSyncService.shared.syncFirestoreToCoreData(userId: userId)
                         print("✅ [App] Initial sync from Firestore completed successfully")
-                    case .failure(let error):
+                    } catch {
                         print("❌ [App] Initial sync from Firestore failed: \(error.localizedDescription)")
                     }
                 }
@@ -51,9 +53,6 @@ struct MyDictionaryApp: App {
                 // Start real-time listener for existing user
                 print("🔊 [App] Starting real-time listener for existing user: \(userId)")
                 DataSyncService.shared.startPrivateDictionaryListener(userId: userId)
-                
-                // Migrate existing words to include updatedAt field
-                DataSyncService.shared.migrateExistingWords()
             } else {
                 print("❌ [App] No userId available for initial sync")
             }
@@ -64,9 +63,6 @@ struct MyDictionaryApp: App {
         notificationService.markAppAsOpened()
 
         // Only schedule notifications if user has enabled them
-        let dailyRemindersEnabled = UserDefaults.standard.bool(forKey: "dailyRemindersEnabled")
-        let difficultWordsEnabled = UserDefaults.standard.bool(forKey: "difficultWordsEnabled")
-        
         if dailyRemindersEnabled || difficultWordsEnabled {
             Task {
                 await notificationService.requestPermission()

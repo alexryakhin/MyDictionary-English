@@ -13,6 +13,7 @@ enum UDKeys {
     
     // Notification Settings
     static let dailyRemindersEnabled = "dailyRemindersEnabled"
+    static let difficultWordsEnabled = "difficultWordsEnabled"
     static let difficultWordsAlertsEnabled = "difficultWordsAlertsEnabled"
     
     // Practice Settings

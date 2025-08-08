@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct SharedDictionaryDetailsView: View {
+
+    @Environment(\.dismiss) var dismiss
+
     @StateObject var dictionaryService: DictionaryService = .shared
     @StateObject var authenticationService: AuthenticationService = .shared
-    let dictionary: DictionaryService.SharedDictionary
     @State private var showingAddCollaborator = false
-    @State private var showingDeleteAlert = false
-    @State private var errorMessage: String?
-    @Environment(\.dismiss) var dismiss
-    
+
+    let dictionary: DictionaryService.SharedDictionary
+
     var body: some View {
         List {
             Section(header: Text("Dictionary Info")) {
@@ -36,7 +37,7 @@ struct SharedDictionaryDetailsView: View {
                 HStack {
                     Text("Your Role")
                     Spacer()
-                    Text(dictionary.userRole?.capitalized ?? "Unknown")
+                    Text(dictionary.userRole?.displayValue ?? "Unknown")
                         .foregroundColor(.secondary)
                 }
                 
@@ -59,7 +60,7 @@ struct SharedDictionaryDetailsView: View {
                 ForEach(Array(dictionary.collaborators.keys.sorted()), id: \.self) { userId in
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(userId == dictionary.owner ? "Owner" : dictionary.collaborators[userId]?.capitalized ?? "Unknown")
+                            Text(dictionary.collaborators[userId]?.displayValue ?? "Unknown")
                                 .font(.headline)
                             Text(userId)
                                 .font(.caption)
@@ -70,14 +71,17 @@ struct SharedDictionaryDetailsView: View {
 
                         if dictionary.canEdit && userId != authenticationService.userId {
                             Menu {
-                                if dictionary.collaborators[userId] == "viewer" {
-                                    Button("Make Editor") {
-                                        updateRole(userId: userId, role: "editor")
-                                    }
-                                } else {
+                                switch dictionary.collaborators[userId] {
+                                case .editor:
                                     Button("Make Viewer") {
-                                        updateRole(userId: userId, role: "viewer")
+                                        updateRole(userId: userId, role: .viewer)
                                     }
+                                case .viewer:
+                                    Button("Make Editor") {
+                                        updateRole(userId: userId, role: .editor)
+                                    }
+                                default:
+                                    EmptyView()
                                 }
 
                                 Button("Remove", role: .destructive) {
@@ -101,69 +105,61 @@ struct SharedDictionaryDetailsView: View {
             if dictionary.canEdit {
                 Section {
                     Button("Delete Dictionary", role: .destructive) {
-                        showingDeleteAlert = true
+                        AlertCenter.shared.showAlert(
+                            with: .deleteConfirmation(
+                                title: "Delete Dictionary",
+                                message: "Are you sure you want to delete this shared dictionary? This action cannot be undone.",
+                                onDelete: {
+                                    deleteDictionary()
+                                }
+                            )
+                        )
                     }
-                }
-            }
-
-            if let errorMessage = errorMessage {
-                Section {
-                    Text(errorMessage)
-                        .foregroundColor(.red)
                 }
             }
         }
         .navigationTitle("Dictionary Details")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("Done") {
-                    dismiss()
-                }
-            }
-        }
         .sheet(isPresented: $showingAddCollaborator) {
             AddCollaboratorView(dictionaryId: dictionary.id)
         }
-        .alert("Delete Dictionary", isPresented: $showingDeleteAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("Delete", role: .destructive) {
-                deleteDictionary()
-            }
-        } message: {
-            Text("Are you sure you want to delete this shared dictionary? This action cannot be undone.")
-        }
     }
     
-    private func updateRole(userId: String, role: String) {
-        dictionaryService.updateCollaboratorRole(dictionaryId: dictionary.id, userId: userId, role: role) { result in
-            switch result {
-            case .success:
-                errorMessage = nil
-            case .failure(let error):
-                errorMessage = error.localizedDescription
+    private func updateRole(userId: String, role: CollaboratorRole) {
+        Task {
+            do {
+                try await dictionaryService.updateCollaboratorRole(
+                    dictionaryId: dictionary.id,
+                    userId: userId,
+                    role: role
+                )
+            } catch {
+                errorReceived(error)
             }
         }
     }
     
     private func removeCollaborator(userId: String) {
-        dictionaryService.removeCollaborator(dictionaryId: dictionary.id, userId: userId) { result in
-            switch result {
-            case .success:
-                errorMessage = nil
-            case .failure(let error):
-                errorMessage = error.localizedDescription
+        Task {
+            do {
+                try await dictionaryService.removeCollaborator(
+                    dictionaryId: dictionary.id,
+                    userId: userId
+                )
+            } catch {
+                errorReceived(error)
             }
         }
     }
     
     private func deleteDictionary() {
-        dictionaryService.deleteSharedDictionary(dictionaryId: dictionary.id) { result in
-            switch result {
-            case .success:
-                dismiss()
-            case .failure(let error):
-                errorMessage = error.localizedDescription
+        Task {
+            do {
+                try await dictionaryService.deleteSharedDictionary(
+                    dictionaryId: dictionary.id
+                )
+            } catch {
+                errorReceived(error)
             }
         }
     }

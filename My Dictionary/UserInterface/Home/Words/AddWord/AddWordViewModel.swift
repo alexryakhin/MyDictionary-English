@@ -37,6 +37,9 @@ final class AddWordViewModel: BaseViewModel {
     private let ttsPlayer: TTSPlayer = .shared
     private let tagService: TagService = .shared
     private let translationService = GoogleTranslateService.shared
+    private let dictionaryService = DictionaryService.shared
+    private let dataSyncService = DataSyncService.shared
+
     private let localeLanguageCode: String
     private var cancellables = Set<AnyCancellable>()
 
@@ -202,11 +205,12 @@ final class AddWordViewModel: BaseViewModel {
                     // Manually trigger sync to Firestore
                     if let userId = AuthenticationService.shared.userId {
                         print("🔄 [AddWordViewModel] Manually triggering sync to Firestore")
-                        DataSyncService.shared.syncPrivateDictionaryToFirestore(userId: userId) { result in
-                            switch result {
-                            case .success:
+                        Task {
+                            do {
+                                try await dataSyncService.syncPrivateDictionaryToFirestore(userId: userId)
                                 print("✅ [AddWordViewModel] Manual sync completed successfully")
-                            case .failure(let error):
+                            } catch {
+                                errorReceived(error, displayType: .alert)
                                 print("❌ [AddWordViewModel] Manual sync failed: \(error.localizedDescription)")
                             }
                         }
@@ -238,25 +242,21 @@ final class AddWordViewModel: BaseViewModel {
             isFavorite: false,
             timestamp: Date(),
             updatedAt: Date(),
-            isSynced: true
+            isSynced: true,
+            sharedDictionaryId: dictionaryId
         )
-        
-        DictionaryService.shared.addWordToSharedDictionary(
-            dictionaryId: dictionaryId,
-            word: word
-        ) { [weak self] result in
-            switch result {
-            case .success:
+
+        Task {
+            do {
+                try await dictionaryService.addWordToSharedDictionary(
+                    dictionaryId: dictionaryId,
+                    word: word
+                )
                 HapticManager.shared.triggerNotification(type: .success)
                 AnalyticsService.shared.logEvent(.wordAddedToSharedDictionary)
-                self?.dismissPublisher.send()
-                print("✅ [AddWordViewModel] Word saved to shared dictionary successfully")
-            case .failure(let error):
-                HapticManager.shared.triggerNotification(type: .error)
-                print("❌ [AddWordViewModel] Error saving to shared dictionary: \(error.localizedDescription)")
-                DispatchQueue.main.async { [weak self] in
-                    self?.errorReceived(error, displayType: .alert)
-                }
+                dismissPublisher.send()
+            } catch {
+                errorReceived(error, displayType: .alert)
             }
         }
     }

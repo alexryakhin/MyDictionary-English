@@ -9,8 +9,9 @@ struct AddWordContentView: View {
     @State private var showingDictionarySelection = false
     @State private var selectedDictionaryId: String? = nil
 
-    init(inputWord: String = "") {
+    init(inputWord: String = "", selectedDictionaryId: String? = nil) {
         self._viewModel = StateObject(wrappedValue: AddWordViewModel(inputWord: inputWord))
+        self._selectedDictionaryId = State(initialValue: selectedDictionaryId)
     }
 
     var body: some View {

@@ -99,7 +99,7 @@ struct AlertModel: Equatable {
         title: String,
         message: String? = nil,
         actionText: String = "OK",
-        action: VoidHandler? = nil
+        action: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
             title: title,

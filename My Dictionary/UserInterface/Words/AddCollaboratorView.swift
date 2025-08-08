@@ -11,10 +11,9 @@ struct AddCollaboratorView: View {
     @StateObject var dictionaryService: DictionaryService = .shared
     let dictionaryId: String
     @State private var email = ""
-    @State private var role = "editor"
-    @State private var errorMessage: String?
+    @State private var role: CollaboratorRole = .editor
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -25,12 +24,14 @@ struct AddCollaboratorView: View {
                         .autocorrectionDisabled()
 
                     Picker("Role", selection: $role) {
-                        Text("Editor").tag("editor")
-                        Text("Viewer").tag("viewer")
+                        ForEach(CollaboratorRole.allCases, id: \.self) { role in
+                            Text(role.displayValue)
+                                .tag(role.rawValue)
+                        }
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
-                
+
                 Section(header: Text("Role Permissions")) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Editor:")
@@ -40,7 +41,7 @@ struct AddCollaboratorView: View {
                         Text("• Can manage dictionary settings")
                     }
                     .foregroundColor(.secondary)
-                    
+
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Viewer:")
                             .font(.headline)
@@ -50,19 +51,12 @@ struct AddCollaboratorView: View {
                     }
                     .foregroundColor(.secondary)
                 }
-                
-                if let errorMessage = errorMessage {
-                    Section {
-                        Text(errorMessage)
-                            .foregroundColor(.red)
-                    }
-                }
-                
+
                 Section {
                     Button("Add Collaborator") {
                         addCollaborator()
                     }
-                    .disabled(email.isEmpty || dictionaryService.isLoading)
+                    .disabled(email.isEmpty)
                 }
             }
             .navigationTitle("Add Collaborator")
@@ -74,34 +68,29 @@ struct AddCollaboratorView: View {
                     }
                 }
             }
-            .overlay {
-                if dictionaryService.isLoading {
-                    ProgressView("Adding...")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color.black.opacity(0.3))
-                }
-            }
         }
     }
-    
+
     private func addCollaborator() {
         guard !email.isEmpty else {
-            errorMessage = "Email address is required"
+            showAlertWithMessage("Email address is required")
             return
         }
-        
+
         guard email.contains("@") else {
-            errorMessage = "Please enter a valid email address"
+            showAlertWithMessage("Please enter a valid email address")
             return
         }
-        
-        dictionaryService.addCollaborator(dictionaryId: dictionaryId, email: email.trimmingCharacters(in: .whitespacesAndNewlines), role: role) { result in
-            switch result {
-            case .success:
-                errorMessage = nil
+        Task {
+            do {
+                try await dictionaryService.addCollaborator(
+                    dictionaryId: dictionaryId,
+                    email: email.trimmingCharacters(in: .whitespacesAndNewlines),
+                    role: role
+                )
                 dismiss()
-            case .failure(let error):
-                errorMessage = error.localizedDescription
+            } catch {
+                errorReceived(error)
             }
         }
     }

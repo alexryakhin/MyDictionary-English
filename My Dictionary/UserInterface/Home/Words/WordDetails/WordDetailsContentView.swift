@@ -5,6 +5,9 @@ struct WordDetailsContentView: View {
 
     @StateObject var word: CDWord
     @Environment(\.dismiss) private var dismiss
+    
+    // Optional dictionary parameter for shared words
+    let dictionary: DictionaryService.SharedDictionary?
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
@@ -16,9 +19,12 @@ struct WordDetailsContentView: View {
     @State private var availableTags: [CDTag] = []
     @State private var showingDifficultyPicker = false
     @State private var selectedDifficulty: Difficulty = .new
+    @StateObject private var dictionaryService = DictionaryService.shared
+    @StateObject private var authenticationService = AuthenticationService.shared
 
-    init(word: CDWord) {
+    init(word: CDWord, dictionary: DictionaryService.SharedDictionary? = nil) {
         self._word = StateObject(wrappedValue: word)
+        self.dictionary = dictionary
     }
 
     var body: some View {
@@ -360,25 +366,29 @@ struct WordDetailsContentView: View {
     // MARK: - Private Methods
 
     private func saveContext() {
-        do {
-            // Mark word as unsynced when it's modified and update updatedAt
+        Task {
             word.isSynced = false
             word.updatedAt = Date()
-            try CoreDataService.shared.saveContext()
-            
-            // Immediately sync to Firestore for real-time updates
-            if let userId = AuthenticationService.shared.userId {
-                DataSyncService.shared.syncWordToFirestore(word: word, userId: userId) { result in
-                    switch result {
-                    case .success:
-                        print("✅ [WordDetails] Word synced to Firestore immediately")
-                    case .failure(let error):
-                        print("❌ [WordDetails] Failed to sync word to Firestore: \(error.localizedDescription)")
+
+            do {
+                try CoreDataService.shared.saveContext()
+                if word.isSharedWord, let dictionary = dictionary {
+                    // Sync shared word to shared dictionary
+                    if let wordModel = Word(from: word) {
+                        try await dictionaryService.updateWordInSharedDictionary(
+                            dictionaryId: dictionary.id,
+                            word: wordModel
+                        )
                     }
+                } else if let userId = authenticationService.userId {
+                    try await DataSyncService.shared.syncWordToFirestore(
+                        word: word,
+                        userId: userId
+                    )
                 }
+            } catch {
+                errorReceived(error)
             }
-        } catch {
-            // Handle error if needed
         }
     }
 
@@ -429,25 +439,43 @@ struct WordDetailsContentView: View {
     }
 
     private func showDeleteAlert() {
-        let alertModel = AlertModel(
-            title: "Delete word",
-            message: "Are you sure you want to delete this word?",
-            actionText: "Cancel",
-            destructiveActionText: "Delete",
-            action: {
-                AnalyticsService.shared.logEvent(.wordRemovingCanceled)
-            },
-            destructiveAction: {
-                deleteWord()
-                dismiss()
-            }
+        AlertCenter.shared.showAlert(
+            with: .deleteConfirmation(
+                title: "Delete word",
+                message: "Are you sure you want to delete this word?",
+                onCancel: {
+                    AnalyticsService.shared.logEvent(.wordRemovingCanceled)
+                },
+                onDelete: {
+                    deleteWord()
+                    dismiss()
+                }
+            )
         )
-        AlertCenter.shared.showAlert(with: alertModel)
     }
 
     private func deleteWord() {
         guard let id = word.id?.uuidString else { return }
-        WordsProvider.shared.deleteWord(with: id)
+        
+        Task { @MainActor in
+            if word.isSharedWord, let dictionary = dictionary {
+                // Delete from shared dictionary
+                do {
+                    try await dictionaryService.deleteWordFromSharedDictionary(
+                        dictionaryId: dictionary.id,
+                        wordId: id
+                    )
+                    print("✅ [WordDetails] Shared word deleted successfully")
+                    HapticManager.shared.triggerNotification(type: .success)
+                } catch {
+                    print("❌ [WordDetails] Failed to delete shared word: \(error.localizedDescription)")
+                    errorReceived(title: "Delete failed", error)
+                }
+            } else {
+                // Delete private word
+                try? WordsProvider.shared.deleteWord(with: id)
+            }
+        }
     }
 
     private func loadTags() {

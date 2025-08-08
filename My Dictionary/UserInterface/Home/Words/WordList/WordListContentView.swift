@@ -35,7 +35,7 @@ struct WordListContentView: View {
             }
             
             // Words List
-            List(selection: $viewModel.selectedWord) {
+            List {
                 // Shared Dictionaries Section
                 if AuthenticationService.shared.isSignedIn && !dictionaryService.sharedDictionaries.isEmpty {
                     Section("Shared Dictionaries") {
@@ -61,23 +61,25 @@ struct WordListContentView: View {
                 if viewModel.wordsFiltered.isNotEmpty {
                     Section {
                         ForEach(viewModel.wordsFiltered) { wordModel in
-                            WordListCellView(word: wordModel)
-                                .contextMenu {
-                                    if AuthenticationService.shared.isSignedIn {
-                                        Button {
-                                            selectedWordForShared = wordModel
+                            NavigationLink {
+                                WordDetailsContentView(word: wordModel)
+                            } label: {
+                                WordListCellView(word: wordModel)
+                                    .contextMenu {
+                                        if AuthenticationService.shared.isSignedIn && !wordModel.isSharedWord {
+                                            Button {
+                                                selectedWordForShared = wordModel
+                                            } label: {
+                                                Label("Add to Shared Dictionary", systemImage: "person.2")
+                                            }
+                                        }
+                                        Button(role: .destructive) {
+                                            viewModel.handle(.deleteWord(word: wordModel))
                                         } label: {
-                                            Label("Add to Shared Dictionary", systemImage: "person.2")
+                                            Label("Delete", systemImage: "trash")
                                         }
                                     }
-                                    
-                                    Button(role: .destructive) {
-                                        viewModel.handle(.deleteWord(word: wordModel))
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
-                                .tag(wordModel)
+                            }
                         }
                     } header: {
                         Text(viewModel.filterStateTitle)

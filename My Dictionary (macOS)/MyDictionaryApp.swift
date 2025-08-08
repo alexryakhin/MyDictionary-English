@@ -32,9 +32,6 @@ struct MyDictionaryApp: App {
                 // Start real-time listener for existing user
                 print("🔊 [App] Starting real-time listener for existing user: \(userId)")
                 DataSyncService.shared.startPrivateDictionaryListener(userId: userId)
-                
-                // Migrate existing words to include updatedAt field
-                DataSyncService.shared.migrateExistingWords()
             } else {
                 print("❌ [App] No userId available for initial sync")
             }
