@@ -46,17 +46,24 @@ struct QuizzesListView: View {
     private var quizzesList: some View {
         ScrollView {
             // Practice Settings Section
-            Section {
-                VStack(spacing: 16) {
+            CustomSectionView(
+                header: "Practice Settings",
+                footer: "Configure your quiz experience"
+            ) {
+                VStack(spacing: 8) {
                     // Hard Words Toggle
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Practice Hard Words Only")
                                 .font(.body)
                                 .fontWeight(.medium)
-                            Text(viewModel.hasHardWords ? "Focus on words that need review" : "No words need review yet")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
+                            Text(
+                                viewModel.hasHardWords 
+                                ? "Focus on words that need review"
+                                : "No words need review yet"
+                            )
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                         }
                         
                         Spacer()
@@ -65,9 +72,8 @@ struct QuizzesListView: View {
                             .labelsHidden()
                             .disabled(!viewModel.hasHardWords)
                     }
-                    
-                    Divider()
-                    
+                    .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
+
                     // Word Count Slider
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
@@ -106,33 +112,34 @@ struct QuizzesListView: View {
                                 .foregroundColor(.secondary)
                         }
                     }
+                    .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
                 }
-                .padding(.vertical, 8)
-            } header: {
-                Text("Practice Settings")
-            } footer: {
-                Text("Configure your quiz experience")
+                .padding(.bottom, 12)
             }
+            .padding(.horizontal, 16)
 
             // Quiz Types Section
-            Section {
-                Button {
-                    viewModel.output.send(.showSpellingQuiz(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly))
-                } label: {
-                    QuizCardView(quiz: .spelling)
-                }
+            CustomSectionView(header: "Quiz Types", footer: "All words are from your list.") {
+                VStack(spacing: 8) {
+                    Button {
+                        viewModel.output.send(.showSpellingQuiz(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly))
+                    } label: {
+                        QuizCardView(quiz: .spelling)
+                    }
+                    .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
 
-                Button {
-                    viewModel.output.send(.showChooseDefinitionQuiz(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly))
-                } label: {
-                    QuizCardView(quiz: .chooseDefinition)
+                    Button {
+                        viewModel.output.send(.showChooseDefinitionQuiz(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly))
+                    } label: {
+                        QuizCardView(quiz: .chooseDefinition)
+                    }
+                    .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
                 }
-            } header: {
-                Text("Quiz Types")
-            } footer: {
-                Text("All words are from your list.")
+                .padding(.bottom, 12)
             }
+            .padding(.horizontal, 16)
         }
+        .background(Color(.systemGroupedBackground))
     }
 
     private var insufficientWordsPlaceholder: some View {

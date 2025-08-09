@@ -55,37 +55,20 @@ struct ChooseDefinitionQuizContentView: View {
                     
                     Spacer()
                 }
-                .background(Color(.systemGroupedBackground))
             } else if viewModel.words.isNotEmpty {
                 if !viewModel.isQuizComplete {
-                    VStack(spacing: 0) {
-                        // Header with progress
-                        headerView
+                    ScrollView {
+                        VStack(spacing: 16) {
+                            // Word Card
+                            wordCard
 
-                        ScrollView {
-                            VStack(spacing: 16) {
-                                // Word Card
-                                wordCard
+                            // Options Section
+                            optionsSection
 
-                                // Options Section
-                                optionsSection
-
-                                // Action Buttons
-                                actionButtons
-                            }
-                            .padding(16)
+                            // Action Buttons
+                            actionButtons
                         }
-                    }
-                    .navigationTitle("Definition Quiz")
-                    .navigationBarTitleDisplayMode(.inline)
-                    .onAppear {
-                        AnalyticsService.shared.logEvent(.definitionQuizOpened)
-                    }
-                    .onDisappear {
-                        // Handle early exit - save current progress if quiz is in progress
-                        if !viewModel.isQuizComplete && viewModel.wordsPlayed.count > 0 {
-                            viewModel.handle(.saveSession)
-                        }
+                        .padding(.horizontal, 16)
                     }
                 } else {
                     // Completion View
@@ -96,6 +79,29 @@ struct ChooseDefinitionQuizContentView: View {
                 }
             }
         }
+        .navigation(
+            title: "Definition Quiz",
+            mode: .inline,
+            trailingContent: {
+                HeaderButton(text: "Exit") {
+                    viewModel.handle(.saveSession)
+                    dismiss()
+                }
+            },
+            bottomContent: { headerView }
+        )
+        .onAppear {
+            AnalyticsService.shared.logEvent(.definitionQuizOpened)
+        }
+        .onDisappear {
+            // Handle early exit - save current progress if quiz is in progress
+            if !viewModel.isQuizComplete && viewModel.wordsPlayed.count > 0 {
+                viewModel.handle(.saveSession)
+            }
+        }
+        .onReceive(viewModel.dismissPublisher) {
+            dismiss()
+        }
     }
 
     private var headerView: some View {
@@ -103,8 +109,7 @@ struct ChooseDefinitionQuizContentView: View {
             // Progress Bar
             ProgressView(value: Double(viewModel.questionsAnswered), total: Double(viewModel.wordCount))
                 .progressViewStyle(.linear)
-                .padding(.horizontal, 24)
-            
+
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Progress: \(viewModel.questionsAnswered)/\(viewModel.wordCount)")
@@ -132,12 +137,6 @@ struct ChooseDefinitionQuizContentView: View {
                         .foregroundColor(.secondary)
                 }
             }
-            .padding(.horizontal, 24)
-        }
-        .background(Color(.systemGroupedBackground))
-        .padding(.bottom, 6)
-        .overlay(alignment: .bottom) {
-            Divider()
         }
     }
 
@@ -166,7 +165,7 @@ struct ChooseDefinitionQuizContentView: View {
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
-                        .background(.green.opacity(0.1))
+                        .background(.green.opacity(0.2))
                         .foregroundColor(.green)
                         .clipShape(Capsule())
                     
@@ -213,7 +212,7 @@ struct ChooseDefinitionQuizContentView: View {
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
-                        .clippedWithPaddingAndBackground(backgroundColor(for: index))
+                        .clippedWithPaddingAndBackground(backgroundColor(for: index), cornerRadius: 12)
                         .overlay(
                             RoundedRectangle(cornerRadius: 12)
                                 .stroke(borderColor(for: index), lineWidth: 2)
@@ -236,7 +235,7 @@ struct ChooseDefinitionQuizContentView: View {
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
-                .background(.red.opacity(0.1))
+                .background(.red.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             }
         }

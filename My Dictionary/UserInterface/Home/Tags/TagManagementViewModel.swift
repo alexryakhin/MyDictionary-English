@@ -30,7 +30,7 @@ final class TagManagementViewModel: BaseViewModel {
     
     override init() {
         super.init()
-        loadTags()
+        setupBindings()
         AnalyticsService.shared.logEvent(.tagManagementOpened)
     }
     
@@ -62,15 +62,19 @@ final class TagManagementViewModel: BaseViewModel {
             updateTag(tag, name: name, color: color)
         }
     }
-    
-    private func loadTags() {
-        tags = tagService.getAllTags()
+
+    private func setupBindings() {
+        tagService.$tags
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] tags in
+                self?.tags = tags
+            }
+            .store(in: &cancellables)
     }
-    
+
     private func createTag(name: String, color: TagColor) {
         do {
             try tagService.createTag(name: name, color: color)
-            loadTags()
             showingAddEditSheet = false
             AnalyticsService.shared.logEvent(.tagCreated)
         } catch {
@@ -81,7 +85,6 @@ final class TagManagementViewModel: BaseViewModel {
     private func updateTag(_ tag: CDTag, name: String, color: TagColor) {
         do {
             try tagService.updateTag(tag, name: name, color: color)
-            loadTags()
             showingAddEditSheet = false
             AnalyticsService.shared.logEvent(.tagUpdated)
         } catch {
@@ -92,7 +95,6 @@ final class TagManagementViewModel: BaseViewModel {
     private func deleteTag(_ tag: CDTag) {
         do {
             try tagService.deleteTag(tag)
-            loadTags()
             editingTag = nil
             AnalyticsService.shared.logEvent(.tagDeleted)
         } catch {

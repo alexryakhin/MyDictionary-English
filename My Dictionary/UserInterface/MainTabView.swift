@@ -78,7 +78,8 @@ struct MainTabView: View {
             }
         }
         .padding(vertical: 12, horizontal: 16)
-        .clippedWithBackgroundMaterial(.ultraThinMaterial, showShadow: true)
+        .clippedWithBackgroundMaterial(.ultraThinMaterial)
+        .shadow(radius: 2)
         .padding(8)
     }
     

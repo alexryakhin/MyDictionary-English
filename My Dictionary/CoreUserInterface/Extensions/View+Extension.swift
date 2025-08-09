@@ -109,7 +109,7 @@ extension View {
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
-                $0.shadow(color: Color(.separator), radius: 2)
+                $0.shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
 
@@ -122,7 +122,7 @@ extension View {
             .background(material)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
-                $0.shadow(color: Color(.separator), radius: 2)
+                $0.shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
 
@@ -136,7 +136,7 @@ extension View {
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
-                $0.shadow(color: Color(.separator), radius: 2)
+                $0.shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
 
@@ -150,7 +150,7 @@ extension View {
             .background(material)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
-                $0.shadow(color: Color(.separator), radius: 2)
+                $0.shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
 }

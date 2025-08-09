@@ -27,23 +27,20 @@ struct WordListCellView: View {
                         .font(.caption)
                         .foregroundColor(.accentColor)
                 }
-                Text(word.partOfSpeechDecoded.rawValue)
-                    .foregroundColor(.secondary)
-                
+
                 // Difficulty label
                 if word.shouldShowDifficultyLabel {
-                    Text(word.difficultyLabel)
-                        .font(.caption2)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
-                        .background(word.difficultyColor.opacity(0.2))
-                        .foregroundColor(word.difficultyColor)
-                        .clipShape(Capsule())
+                    Image(systemName: word.difficulty.imageName)
+                        .font(.caption)
+                        .foregroundStyle(word.difficulty.color)
                 }
-                
+
+                Text(word.partOfSpeechDecoded.rawValue)
+                    .foregroundColor(.secondary)
+
                 // Language label
-                if let languageCode = word.languageCode {
-                    Text(languageCode.uppercased())
+                if word.shouldShowLanguageLabel, let code = word.languageCode {
+                    Text(code.uppercased())
                         .font(.caption2)
                         .padding(.horizontal, 6)
                         .padding(.vertical, 2)
@@ -62,14 +59,19 @@ struct WordListCellView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 4) {
                         ForEach(word.tagsArray, id: \.id) { tag in
-                            TagChip(tag: tag) {
-                                // No action needed for read-only display
-                            }
+                            Text(tag.name ?? "")
+                                .font(.caption2)
+                                .padding(vertical: 2, horizontal: 4)
+                                .background(tag.colorValue.color.opacity(0.2))
+                                .foregroundStyle(tag.colorValue.color)
+                                .clipShape(Capsule())
                         }
                     }
-                    .padding(.horizontal, 4)
                 }
+                .scrollClipDisabled()
             }
         }
+        .padding(vertical: 12, horizontal: 16)
+        .background(Color(.secondarySystemGroupedBackground))
     }
 }

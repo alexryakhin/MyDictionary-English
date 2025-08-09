@@ -15,57 +15,55 @@ struct AddCollaboratorView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Collaborator Details")) {
-                    TextField("Email Address", text: $email)
-                        .keyboardType(.emailAddress)
-                        .autocapitalization(.none)
-                        .autocorrectionDisabled()
+        Form {
+            Section(header: Text("Collaborator Details")) {
+                TextField("Email Address", text: $email)
+                    .keyboardType(.emailAddress)
+                    .autocapitalization(.none)
+                    .autocorrectionDisabled()
 
-                    Picker("Role", selection: $role) {
-                        ForEach(CollaboratorRole.allCases, id: \.self) { role in
-                            Text(role.displayValue)
-                                .tag(role.rawValue)
-                        }
+                Picker("Role", selection: $role) {
+                    ForEach(CollaboratorRole.allCases, id: \.self) { role in
+                        Text(role.displayValue)
+                            .tag(role.rawValue)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
                 }
-
-                Section(header: Text("Role Permissions")) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Editor:")
-                            .font(.headline)
-                        Text("• Can add, edit, and delete words")
-                        Text("• Can invite other collaborators")
-                        Text("• Can manage dictionary settings")
-                    }
-                    .foregroundColor(.secondary)
-
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Viewer:")
-                            .font(.headline)
-                        Text("• Can view all words")
-                        Text("• Cannot make changes")
-                        Text("• Cannot invite others")
-                    }
-                    .foregroundColor(.secondary)
-                }
-
-                Section {
-                    Button("Add Collaborator") {
-                        addCollaborator()
-                    }
-                    .disabled(email.isEmpty)
-                }
+                .pickerStyle(SegmentedPickerStyle())
             }
-            .navigationTitle("Add Collaborator")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
+
+            Section(header: Text("Role Permissions")) {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Editor:")
+                        .font(.headline)
+                    Text("• Can add, edit, and delete words")
+                    Text("• Can invite other collaborators")
+                    Text("• Can manage dictionary settings")
+                }
+                .foregroundColor(.secondary)
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Viewer:")
+                        .font(.headline)
+                    Text("• Can view all words")
+                    Text("• Cannot make changes")
+                    Text("• Cannot invite others")
+                }
+                .foregroundColor(.secondary)
+            }
+
+            Section {
+                Button("Add Collaborator") {
+                    addCollaborator()
+                }
+                .disabled(email.isEmpty)
+            }
+        }
+        .navigationTitle("Add Collaborator")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Cancel") {
+                    dismiss()
                 }
             }
         }

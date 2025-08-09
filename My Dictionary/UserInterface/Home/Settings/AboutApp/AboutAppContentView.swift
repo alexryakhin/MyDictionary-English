@@ -81,7 +81,7 @@ struct AboutAppContentView: View {
             }
         }
         .listStyle(.insetGrouped)
-        .navigationTitle("About")
+        .navigation(title: "About", mode: .large)
         .onAppear {
             AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
         }

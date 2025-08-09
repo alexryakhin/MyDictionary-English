@@ -6,43 +6,66 @@
 //
 
 import SwiftUI
+import Flow
 
 struct TagSelectionView: View {
-    @ObservedObject var viewModel: AddWordViewModel
     @Environment(\.dismiss) private var dismiss
-    
+    @StateObject private var tagService: TagService = .shared
+    @State private var isShowingAddTagSheet: Bool = false
+
+    @Binding var selectedTags: [CDTag]
+
     var body: some View {
-        NavigationView {
-            List {
-                Section {
-                    ForEach(viewModel.availableTags) { tag in
-                        TagSelectionRow(
-                            tag: tag,
-                            isSelected: viewModel.selectedTags.contains { $0.id == tag.id }
-                        ) {
-                            viewModel.handle(.toggleTag(tag))
+        ScrollView {
+            CustomSectionView(
+                header: "Select Tags",
+                footer: "You can select up to 5 tags per word. Tap a tag to select or deselect it."
+            ) {
+                if tagService.tags.isEmpty {
+                    ContentUnavailableView(
+                        "No Quiz Results Yet",
+                        systemImage: "chart.bar",
+                        description: Text("Complete your first quiz to see results here")
+                    )
+                    .padding(16)
+                    HeaderButton(text: "Create tags", icon: "tag", style: .borderedProminent) {
+                        isShowingAddTagSheet.toggle()
+                    }
+                } else {
+                    HFlow(alignment: .top, spacing: 8) {
+                        ForEach(tagService.tags) { tag in
+                            let isSelected = selectedTags.contains { $0.id == tag.id }
+                            HeaderButton(
+                                text: tag.name.orEmpty,
+                                style: isSelected ? .borderedProminent : .bordered
+                            ) {
+                                if let index = selectedTags.firstIndex(where: { $0.id == tag.id }) {
+                                    selectedTags.remove(at: index)
+                                } else {
+                                    selectedTags.append(tag)
+                                }
+                            }
+                            .tint(tag.colorValue.color)
                         }
                     }
-                } header: {
-                    Text("Select Tags")
-                } footer: {
-                    Text("You can select up to 5 tags per word. Tap a tag to select or deselect it.")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 12)
                 }
             }
-            .navigationTitle("Add Tags")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
-                        dismiss()
-                    }
+            .padding(16)
+        }
+        .background(Color(.systemGroupedBackground))
+        .navigation(
+            title: "Add Tags",
+            mode: .inline,
+            trailingContent: {
+                HeaderButton(text: "Done", icon: "checkmark") {
+                    dismiss()
                 }
             }
+        )
+        .sheet(isPresented: $isShowingAddTagSheet) {
+            AddEditTagView(viewModel: .init())
         }
     }
 }

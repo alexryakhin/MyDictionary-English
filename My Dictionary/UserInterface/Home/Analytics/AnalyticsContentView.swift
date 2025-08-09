@@ -45,7 +45,7 @@ struct ProgressCard: View {
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .clippedWithPaddingAndBackground(color.opacity(0.1))
+        .clippedWithPaddingAndBackground(color.opacity(0.15), cornerRadius: 16)
     }
 }
 
@@ -70,7 +70,7 @@ struct StatCard: View {
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground))
+        .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
     }
 }
 
@@ -103,7 +103,6 @@ struct QuizResultRow: View {
             }
         }
         .padding(12)
-        .background(Color(.systemGray6))
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .clippedWithBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 12)
     }
 }

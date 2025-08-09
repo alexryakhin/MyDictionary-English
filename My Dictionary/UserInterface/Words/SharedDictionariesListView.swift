@@ -58,22 +58,30 @@ struct SharedDictionariesListView: View {
                 }
             }
         }
-        .navigationTitle("Shared Dictionaries")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("Done") {
-                    dismiss()
+        .navigation(
+            title: "Shared Dictionaries",
+            mode: .large,
+            trailingContent: {
+                HStack {
+                    Button("Done") {
+                        dismiss()
+                    }
+                    .buttonStyle(.bordered)
+                    .clipShape(Capsule())
+                    
+                    Button {
+                        showingAddDictionary = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 16, height: 16)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .clipShape(Capsule())
                 }
             }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    showingAddDictionary = true
-                } label: {
-                    Image(systemName: "plus")
-                }
-            }
-        }
+        )
         .sheet(isPresented: $showingAddDictionary) {
             AddSharedDictionaryView()
         }

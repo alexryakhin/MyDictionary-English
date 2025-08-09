@@ -29,7 +29,7 @@ struct TagFilterView: View {
                         FilterChip(
                             title: "Favorite",
                             isSelected: viewModel.filterState == .favorite,
-                            color: .red
+                            color: .accentColor
                         ) {
                             viewModel.handle(.filterChanged(.favorite))
                         }
@@ -91,7 +91,7 @@ struct TagFilterView: View {
                             .foregroundColor(.blue)
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
-                            .background(Color.blue.opacity(0.1))
+                            .background(Color.blue.opacity(0.2))
                             .clipShape(Capsule())
                         }
                     }
@@ -99,9 +99,7 @@ struct TagFilterView: View {
                 .scrollClipDisabled()
             }
             .sheet(isPresented: $showingTagManagement) {
-                NavigationView {
-                    TagManagementView()
-                }
+                TagManagementView()
             }
         }
     }
@@ -122,7 +120,7 @@ struct FilterChip: View {
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
                 .background(
-                    isSelected ? color : color.opacity(0.1)
+                    isSelected ? color : color.opacity(0.2)
                 )
                 .clipShape(Capsule())
         }

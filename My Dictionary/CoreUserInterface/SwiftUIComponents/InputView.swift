@@ -59,36 +59,32 @@ public struct InputView: View {
                         UIApplication.shared.endEditing()
                         onSubmit?()
                     }
-                    .overlay(alignment: .trailing) {
-                        if isFocused, !text.isEmpty {
-                            Button {
-                                HapticManager.shared.triggerImpact(style: .light)
-                                text = ""
-                            } label: {
-                                Image(systemName: "xmark.circle.fill")
-                                    .font(.callout)
-                            }
-                            .foregroundStyle(.secondary)
-                        }
-                    }
                     .onChange(of: isFocused) { newValue in
                         withAnimation {
                             showsTrailingButton = newValue
                         }
                     }
+                if isFocused, !text.isEmpty {
+                    Button {
+                        HapticManager.shared.triggerImpact(style: .light)
+                        text = ""
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.callout)
+                    }
+                    .foregroundStyle(.secondary)
+                }
             }
-            .padding(vertical: 6, horizontal: 8)
-            .background(.accent.opacity(0.1))
+            .padding(vertical: 8, horizontal: 12)
+            .background(.accent.opacity(0.15))
             .clipShape(Capsule())
 
             if showsTrailingButton, let trailingButtonLabel {
-                Button(trailingButtonLabel) {
+                HeaderButton(text: trailingButtonLabel, font: .body) {
                     HapticManager.shared.triggerImpact(style: .light)
                     UIApplication.shared.endEditing()
                     onTrailingButtonTap?()
                 }
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
                 .transition(.move(edge: .trailing))
                 .opacity(isFocused ? 1 : 0)
             }

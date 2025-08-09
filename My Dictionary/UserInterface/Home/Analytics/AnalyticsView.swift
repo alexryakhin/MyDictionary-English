@@ -27,7 +27,7 @@ struct AnalyticsView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                LazyVStack(spacing: 16) {
+                LazyVStack(spacing: 24) {
                     // Progress Overview
                     progressOverviewSection
 
@@ -37,7 +37,7 @@ struct AnalyticsView: View {
                     // Vocabulary Growth Chart
                     vocabularyGrowthSection
                 }
-                .padding(16)
+                .padding(.horizontal, 16)
             }
         }
         .background(Color(.systemGroupedBackground))
@@ -54,11 +54,7 @@ struct AnalyticsView: View {
     // MARK: - Progress Overview Section
     
     private var progressOverviewSection: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Progress Overview")
-                .font(.headline)
-                .fontWeight(.semibold)
-            
+        CustomSectionView(header: "Overview") {
             LazyVGrid(
                 columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 3),
                 spacing: 12
@@ -69,14 +65,14 @@ struct AnalyticsView: View {
                     color: .blue,
                     icon: "clock"
                 )
-                
+
                 ProgressCard(
                     title: "Mastered",
                     value: "\(viewModel.progressSummary?.mastered ?? 0)",
                     color: .green,
                     icon: "checkmark.circle"
                 )
-                
+
                 ProgressCard(
                     title: "Need Review",
                     value: "\(viewModel.progressSummary?.needsReview ?? 0)",
@@ -103,32 +99,12 @@ struct AnalyticsView: View {
                 )
             }
         }
-        .clippedWithPaddingAndBackground(Color(.secondarySystemGroupedBackground))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
     
     // MARK: - Quiz Results Section
     
     private var quizResultsSection: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack {
-                Text("Recent Quiz Results")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                
-                Spacer()
-                
-                if viewModel.quizSessions.count > 3 {
-                    Button {
-                        viewModel.output.send(.showQuizResultsDetail)
-                    } label: {
-                        Text("View All")
-                            .font(.caption)
-                            .foregroundColor(.blue)
-                    }
-                }
-            }
-            
+        CustomSectionView(header: "Recent Quiz Results") {
             if viewModel.quizSessions.isEmpty {
                 ContentUnavailableView(
                     "No Quiz Results Yet",
@@ -142,30 +118,17 @@ struct AnalyticsView: View {
                     }
                 }
             }
+        } trailingContent: {
+            HeaderButton(text: "View All") {
+                viewModel.output.send(.showQuizResultsDetail)
+            }
         }
-        .clippedWithPaddingAndBackground(Color(.secondarySystemGroupedBackground))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
     
     // MARK: - Vocabulary Growth Section
     
     private var vocabularyGrowthSection: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack {
-                Text("Vocabulary Growth")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                
-                Spacer()
-                
-                Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
-                    ForEach(TimePeriod.allCases, id: \.self) { period in
-                        Text(period.displayName).tag(period)
-                    }
-                }
-                .pickerStyle(.menu)
-            }
-            
+        CustomSectionView(header: "Vocabulary Growth") {
             if viewModel.vocabularyGrowthData.isEmpty {
                 ContentUnavailableView(
                     "No Growth Data Yet",
@@ -177,13 +140,20 @@ struct AnalyticsView: View {
                     Text("Last \(viewModel.selectedTimePeriod.displayName.lowercased())")
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    
+
                     VocabularyLineChart(data: viewModel.vocabularyGrowthData)
                         .frame(height: 200)
                 }
             }
+        } trailingContent: {
+            Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
+                ForEach(TimePeriod.allCases, id: \.self) { period in
+                    Text(period.displayName).tag(period)
+                }
+            }
+            .pickerStyle(.menu)
+            .buttonStyle(.bordered)
+            .clipShape(Capsule())
         }
-        .clippedWithPaddingAndBackground(Color(.secondarySystemGroupedBackground))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 }

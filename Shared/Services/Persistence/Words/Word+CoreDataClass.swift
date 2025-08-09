@@ -43,40 +43,25 @@ final class CDWord: NSManagedObject, Identifiable {
         PartOfSpeech(rawValue: partOfSpeech ?? "") ?? .unknown
     }
     
-    var difficultyLabel: String {
+    var difficulty: Difficulty {
         switch difficultyLevel {
         case 0:
-            return "new"
+            return .new
         case 1:
-            return "inProgress"
+            return .inProgress
         case 2:
-            return "needsReview"
+            return .needsReview
         case 3:
-            return "mastered"
+            return .mastered
         default:
-            return "new"
+            return .new
         }
     }
-    
-    var difficultyColor: Color {
-        switch difficultyLevel {
-        case 0:
-            return .secondary
-        case 1:
-            return .orange
-        case 2:
-            return .red
-        case 3:
-            return .green
-        default:
-            return .secondary
-        }
-    }
-    
+
     var shouldShowDifficultyLabel: Bool {
         return difficultyLevel > 0
     }
-    
+
     var languageDisplayName: String {
         guard
             let languageCode,
@@ -86,7 +71,7 @@ final class CDWord: NSManagedObject, Identifiable {
     }
     
     var shouldShowLanguageLabel: Bool {
-        return languageCode != nil && languageCode != "en"
+        return languageCode?.nilIfEmpty != nil && languageCode != "en"
     }
     
     var isSharedWord: Bool {

@@ -28,29 +28,23 @@ struct IdiomDetailsContentView: View {
             .animation(.default, value: idiom)
         }
         .background(Color(.systemGroupedBackground))
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
+        .navigation(
+            title: "Idiom Details",
+            mode: .inline,
+            showsBackButton: true,
+            trailingContent: {
+                HeaderButton(icon: "trash") {
                     showDeleteAlert()
-                } label: {
-                    Image(systemName: "trash")
-                        .foregroundColor(.red)
                 }
-            }
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
+                .tint(.red)
+                HeaderButton(icon: idiom.isFavorite ? "heart.fill" : "heart") {
                     idiom.isFavorite.toggle()
                     saveContext()
                     AnalyticsService.shared.logEvent(.idiomFavoriteTapped)
-                } label: {
-                    Image(systemName: idiom.isFavorite
-                          ? "heart.fill"
-                          : "heart"
-                    )
-                    .animation(.easeInOut(duration: 0.2), value: idiom.isFavorite)
                 }
+                .animation(.easeInOut(duration: 0.2), value: idiom.isFavorite)
             }
-        }
+        )
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
             TextField("Example", text: $exampleTextFieldStr)
             Button("Cancel", role: .cancel) {
@@ -74,15 +68,15 @@ struct IdiomDetailsContentView: View {
                 .font(.system(.headline, design: .rounded))
                 .focused($isIdiomInputFocused)
                 .clippedWithPaddingAndBackground()
-        } headerTrailingContent: {
+        } trailingContent: {
             if isIdiomInputFocused {
-                SectionHeaderButton("Done") {
+                HeaderButton(text: "Done") {
                     isIdiomInputFocused = false
                     saveContext()
                     AnalyticsService.shared.logEvent(.idiomChanged)
                 }
             } else {
-                SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
                     play(idiom.idiomItself)
                 }
             }
@@ -97,15 +91,15 @@ struct IdiomDetailsContentView: View {
             ), axis: .vertical)
                 .focused($isDefinitionFocused)
                 .clippedWithPaddingAndBackground()
-        } headerTrailingContent: {
+        } trailingContent: {
             if isDefinitionFocused {
-                SectionHeaderButton("Done") {
+                HeaderButton(text: "Done") {
                     isDefinitionFocused = false
                     saveContext()
                     AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
             } else {
-                SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
                     play(idiom.definition)
                     AnalyticsService.shared.logEvent(.idiomDefinitionPlayed)
                 }

@@ -17,7 +17,7 @@ struct SignOutAlertView: View {
             VStack(spacing: 12) {
                 ZStack {
                     Circle()
-                        .fill(Color.blue.opacity(0.1))
+                        .fill(Color.blue.opacity(0.2))
                         .frame(width: 60, height: 60)
                     
                     Image(systemName: "person.crop.circle.badge.minus")
@@ -80,7 +80,7 @@ struct SignOutAlertView: View {
         .padding(24)
         .background(Color(.systemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
+        .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
         .padding(.horizontal, 40)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Difficulty: String, CaseIterable {
     case new = "new"
@@ -26,16 +27,12 @@ enum Difficulty: String, CaseIterable {
         }
     }
     
-    var color: String {
+    var color: Color {
         switch self {
-        case .new:
-            return "secondary"
-        case .inProgress:
-            return "orange"
-        case .needsReview:
-            return "red"
-        case .mastered:
-            return "green"
+        case .new: .blue
+        case .inProgress: .orange
+        case .needsReview: .red
+        case .mastered: .accent
         }
     }
     
@@ -51,4 +48,17 @@ enum Difficulty: String, CaseIterable {
             return 3
         }
     }
-} 
+
+    var imageName: String {
+        switch self {
+        case .new:
+            return "sparkles"
+        case .inProgress:
+            return "clock.fill"
+        case .needsReview:
+            return "exclamationmark.triangle.fill"
+        case .mastered:
+            return "checkmark.circle.fill"
+        }
+    }
+}

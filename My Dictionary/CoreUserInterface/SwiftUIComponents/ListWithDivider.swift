@@ -15,16 +15,19 @@ struct ListWithDivider<
 
     private let data: Data
     private let dividerLeadingPadding: CGFloat
+    private let dividerTrailingPadding: CGFloat
     private let content: (Data.Element) -> Content
 
     init(
         _ data: Data,
         dividerLeadingPadding: CGFloat = 16,
+        dividerTrailingPadding: CGFloat = 16,
         @ViewBuilder content: @escaping (Data.Element) -> Content
     ) {
         self.data = data
         self.content = content
         self.dividerLeadingPadding = dividerLeadingPadding
+        self.dividerTrailingPadding = dividerTrailingPadding
     }
 
     var body: some View {
@@ -36,6 +39,7 @@ struct ListWithDivider<
                     if index != lastIndex {
                         Divider()
                             .padding(.leading, dividerLeadingPadding)
+                            .padding(.trailing, dividerTrailingPadding)
                     }
                 }
             }

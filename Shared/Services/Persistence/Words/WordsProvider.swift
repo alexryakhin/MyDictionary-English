@@ -26,7 +26,10 @@ final class WordsProvider: ObservableObject {
 
         if authenticationService.isSignedIn {
             // Filter words owned by current user (both private and shared)
-            self.words = allWords.filter { $0.ownerId == authenticationService.userId }
+            self.words = allWords.filter {
+                $0.ownerId == authenticationService.userId
+                || (!$0.isSharedWord && $0.ownerId?.nilIfEmpty == nil)
+            }
 
             // Filter shared words (words in shared dictionaries)
             self.sharedWords = allWords.filter { $0.isSharedWord }

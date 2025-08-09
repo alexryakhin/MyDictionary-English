@@ -23,169 +23,207 @@ struct SettingsView: View {
     }
 
     var body: some View {
-        List {
-
-            // MARK: - Translate Definitions
-            if !GlobalConstant.isEnglishLanguage {
-                Section {
-                    Toggle("Show definitions in your native language", isOn: $translateDefinitions)
-                } header: {
-                    Text("Translate Definitions")
-                }
-            }
-
-            // MARK: - Notifications
-
-            Section {
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Daily Reminders")
-                            .font(.body)
-                            .fontWeight(.medium)
-                        Text("Get reminded at 8 PM if you haven't opened the app")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+        ScrollView {
+            VStack(spacing: 16) {
+                // MARK: - Translate Definitions
+                if !GlobalConstant.isEnglishLanguage {
+                    CustomSectionView(header: "Translate Definitions") {
+                        Toggle("Show definitions in your native language", isOn: $translateDefinitions)
                     }
-
-                    Spacer()
-
-                    Toggle("", isOn: $viewModel.dailyRemindersEnabled)
-                        .labelsHidden()
-                        .onChange(of: viewModel.dailyRemindersEnabled) {
-                            viewModel.updateNotificationSettings()
+                } else {
+                    CustomSectionView(header: "Accent") {
+                        HStack {
+                            Text("Select accent")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            Picker("Select accent", selection: $viewModel.selectedEnglishAccent) {
+                                ForEach(EnglishAccent.allCases, id: \.self) {
+                                    Text($0.displayName).tag($0)
+                                }
+                            }
+                            .buttonStyle(.bordered)
+                            .clipShape(.capsule)
                         }
-                }
-
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Difficult Words")
-                            .font(.body)
-                            .fontWeight(.medium)
-                        Text("Get reminded at 4 PM to practice difficult words")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
                     }
-
-                    Spacer()
-
-                    Toggle("", isOn: $viewModel.difficultWordsEnabled)
-                        .labelsHidden()
-                        .onChange(of: viewModel.difficultWordsEnabled) {
-                            viewModel.updateNotificationSettings()
-                        }
                 }
-            } header: {
-                Text("Notifications")
-            } footer: {
-                Text("Daily reminders only send if you haven't opened the app that day.")
-            }
 
-            // MARK: - Word Lists & Sync
+                // MARK: - Notifications
 
-            Section {
-                if authService.isSignedIn {
-                    VStack(alignment: .leading, spacing: 8) {
+                CustomSectionView(
+                    header: "Notifications",
+                    footer: "Daily reminders only send if you haven't opened the app that day."
+                ) {
+                    VStack(spacing: 8) {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Signed in as")
+                                Text("Daily Reminders")
                                     .font(.body)
                                     .fontWeight(.medium)
-                                Text(authService.displayName ?? authService.userEmail ?? "Anonymous")
+                                Text("Get reminded at 8 PM if you haven't opened the app")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
-                            
+
                             Spacer()
-                            
-                            Button("Sign Out") {
-                                HapticManager.shared.triggerSelection()
-                                showingSignOutConfirmation = true
+
+                            Toggle("", isOn: $viewModel.dailyRemindersEnabled)
+                                .labelsHidden()
+                                .onChange(of: viewModel.dailyRemindersEnabled) {
+                                    viewModel.updateNotificationSettings()
+                                }
+                        }
+
+                        HStack {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Difficult Words")
+                                    .font(.body)
+                                    .fontWeight(.medium)
+                                Text("Get reminded at 4 PM to practice difficult words")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
                             }
-                            .font(.caption)
-                            .foregroundColor(.red)
-                            .buttonStyle(.plain)
+
+                            Spacer()
+
+                            Toggle("", isOn: $viewModel.difficultWordsEnabled)
+                                .labelsHidden()
+                                .onChange(of: viewModel.difficultWordsEnabled) {
+                                    viewModel.updateNotificationSettings()
+                                }
                         }
                     }
-                } else {
-                    VStack(alignment: .leading, spacing: 8) {
+                    .padding(.bottom, 12)
+                }
+
+                // MARK: - Word Lists & Sync
+
+                CustomSectionView(
+                    header: "Word Lists & Sync",
+                    footer: authService.isSignedIn
+                    ? "Your word lists are synced across all your devices."
+                    : "Sign in to create and share word lists with others."
+                ) {
+                    if authService.isSignedIn {
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Signed in as")
+                                        .font(.body)
+                                        .fontWeight(.medium)
+                                    Text(authService.displayName ?? authService.userEmail ?? "Anonymous")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+
+                                Spacer()
+
+                                HeaderButton(text: "Sign Out", font: .caption) {
+                                    HapticManager.shared.triggerSelection()
+                                    showingSignOutConfirmation = true
+                                }
+                                .tint(.red)
+                            }
+                        }
+                        .padding(.bottom, 12)
+                    } else {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Button {
+                                viewModel.output.send(.showAuthentication)
+                            } label: {
+                                Label("Sign in to sync word lists", systemImage: "person.circle")
+                                    .padding(6)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.bordered)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+
+                            Text("Local mode - words saved on this device only")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.bottom, 12)
+                    }
+                }
+
+                // MARK: - Tag Management
+
+                CustomSectionView(
+                    header: "Organization",
+                    footer: "Create and manage tags to organize your words, and add collaborators to share words with."
+                ) {
+                    VStack(spacing: 8) {
                         Button {
-                            viewModel.output.send(.showAuthentication)
+                            viewModel.output.send(.showTagManagement)
                         } label: {
-                            Label("Sign in to sync word lists", systemImage: "person.circle")
+                            Label("Manage Tags", systemImage: "tag")
+                                .padding(6)
+                                .frame(maxWidth: .infinity)
                         }
-                        
-                        Text("Local mode - words saved on this device only")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                        .buttonStyle(.bordered)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+
+                        if authService.isSignedIn {
+                            Button {
+                                viewModel.output.send(.showSharedDictionaries)
+                            } label: {
+                                Label("Shared Dictionaries", systemImage: "person.2")
+                                    .padding(6)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.bordered)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                        }
                     }
+                    .padding(.bottom, 12)
                 }
-            } header: {
-                Text("Word Lists & Sync")
-            } footer: {
-                if authService.isSignedIn {
-                    Text("Your word lists are synced across all your devices.")
-                } else {
-                    Text("Sign in to create and share word lists with others.")
-                }
-            }
 
-            // MARK: - Tag Management
+                // MARK: - Import & Export
 
-            Section {
-                Button {
-                    viewModel.output.send(.showTagManagement)
-                } label: {
-                    Label("Manage Tags", systemImage: "tag")
+                CustomSectionView(
+                    header: "Import / Export",
+                    footer: "Please note that import and export only work with files created by this app."
+                ) {
+                    VStack(spacing: 8) {
+                        Button {
+                            viewModel.isImporting = true
+                            AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
+                        } label: {
+                            Label("Import words", systemImage: "square.and.arrow.down")
+                                .padding(6)
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.bordered)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        Button {
+                            viewModel.exportWords()
+                            AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
+                        } label: {
+                            Label("Export words", systemImage: "square.and.arrow.up")
+                                .padding(6)
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.bordered)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                    }
+                    .padding(.bottom, 12)
                 }
-                
-                if authService.isSignedIn {
+
+                // MARK: - About app
+
+                CustomSectionView(
+                    header: "About app"
+                ) {
                     Button {
-                        viewModel.output.send(.showSharedDictionaries)
+                        viewModel.output.send(.showAboutApp)
                     } label: {
-                        Label("Shared Dictionaries", systemImage: "person.2")
+                        Label("About app", systemImage: "info.square")
                     }
                 }
-            } header: {
-                Text("Organization")
-            } footer: {
-                Text("Create and manage tags to organize your words, and add collaborators to share words with.")
             }
-
-            // MARK: - Import & Export
-
-            Section {
-                Button {
-                    viewModel.isImporting = true
-                    AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
-                } label: {
-                    Label("Import words", systemImage: "square.and.arrow.down")
-                }
-                Button {
-                    viewModel.exportWords()
-                    AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
-                } label: {
-                    Label("Export words", systemImage: "square.and.arrow.up")
-                }
-            } header: {
-                Text("Import / Export")
-            } footer: {
-                Text("Please note that import and export only work with files created by this app.")
-            }
-
-            // MARK: - About app
-
-            Section {
-                Button {
-                    viewModel.output.send(.showAboutApp)
-                } label: {
-                    Label("About app", systemImage: "info.square")
-                }
-            } header: {
-                Text("About app")
-            }
+            .padding(.horizontal, 16)
         }
+        .background(Color(.systemGroupedBackground))
+        .multilineTextAlignment(.leading)
         .navigation(title: "Settings", mode: .large)
-        .listStyle(.insetGrouped)
         .sheet(item: $viewModel.exportWordsUrl) { url in
             ShareSheet(activityItems: [url])
         }

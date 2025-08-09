@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import Flow
 
 struct WordDetailsContentView: View {
 
@@ -16,11 +17,11 @@ struct WordDetailsContentView: View {
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
     @State private var showingTagSelection = false
-    @State private var availableTags: [CDTag] = []
     @State private var showingDifficultyPicker = false
     @State private var selectedDifficulty: Difficulty = .new
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var authenticationService = AuthenticationService.shared
+    @StateObject private var tagService = TagService.shared
 
     init(word: CDWord, dictionary: DictionaryService.SharedDictionary? = nil) {
         self._word = StateObject(wrappedValue: word)
@@ -29,7 +30,7 @@ struct WordDetailsContentView: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 24) {
+            LazyVStack(spacing: 12) {
                 transcriptionSectionView
                 partOfSpeechSectionView
                 definitionSectionView
@@ -41,33 +42,33 @@ struct WordDetailsContentView: View {
             .padding(vertical: 12, horizontal: 16)
             .animation(.default, value: word)
         }
-        .navigationTitle(word.wordItself ?? "")
         .background(Color(.systemGroupedBackground))
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
+        .navigation(
+            title: "Word Details",
+            mode: .inline,
+            showsBackButton: true,
+            trailingContent: {
+                HeaderButton(icon: "trash") {
                     showDeleteAlert()
-                } label: {
-                    Image(systemName: "trash")
-                        .foregroundColor(.red)
                 }
-            }
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
+                .tint(.red)
+                HeaderButton(icon: word.isFavorite ? "heart.fill" : "heart") {
                     word.isFavorite.toggle()
                     saveContext()
                     AnalyticsService.shared.logEvent(.wordFavoriteTapped)
-                } label: {
-                    Image(systemName: word.isFavorite
-                          ? "heart.fill"
-                          : "heart"
-                    )
-                    .animation(.easeInOut(duration: 0.2), value: word.isFavorite)
                 }
+                .animation(.easeInOut(duration: 0.2), value: word.isFavorite)
+            },
+            bottomContent: {
+                Text(word.wordItself ?? "")
+                    .font(.largeTitle)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+                    .bold()
             }
-        }
+        )
         .sheet(isPresented: $showingTagSelection) {
-            WordTagSelectionView(word: word, availableTags: availableTags)
+            WordTagSelectionView(word: word)
         }
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
             TextField("Example", text: $exampleTextFieldStr)
@@ -81,27 +82,24 @@ struct WordDetailsContentView: View {
                 AnalyticsService.shared.logEvent(.wordExampleChanged)
             }
         }
-        .onAppear {
-            loadTags()
-        }
     }
 
     private var transcriptionSectionView: some View {
-        CustomSectionView(header: "Transcription") {
+        CustomSectionView(header: "Transcription", headerFontStyle: .stealth) {
             TextField("Transcription", text: Binding(
                 get: { word.phonetic ?? "" },
                 set: { word.phonetic = $0 }
             ), axis: .vertical)
                 .focused($isPhoneticsFocused)
-                .clippedWithPaddingAndBackground()
-        } headerTrailingContent: {
+                .fontWeight(.semibold)
+        } trailingContent: {
             if isPhoneticsFocused {
-                SectionHeaderButton("Done") {
+                HeaderButton(text: "Done") {
                     isPhoneticsFocused = false
                     saveContext()
                 }
             } else {
-                SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
                     play(word.wordItself, isWord: true)
                 }
             }
@@ -109,39 +107,45 @@ struct WordDetailsContentView: View {
     }
 
     private var partOfSpeechSectionView: some View {
-        CustomSectionView(header: "Part Of Speech") {
+        CustomSectionView(header: "Part Of Speech", headerFontStyle: .stealth) {
             Text(word.partOfSpeech ?? "")
+                .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .clippedWithPaddingAndBackground()
-                .contextMenu {
-                    ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
-                        Button {
-                            updatePartOfSpeech(partCase)
-                        } label: {
-                            Text(partCase.rawValue)
-                        }
+        } trailingContent: {
+            Menu {
+                ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
+                    Button {
+                        updatePartOfSpeech(partCase)
+                    } label: {
+                        Text(partCase.rawValue)
                     }
                 }
+            } label: {
+                Text("Edit")
+                    .font(.caption)
+            }
+            .buttonStyle(.bordered)
+            .clipShape(Capsule())
         }
     }
 
     private var definitionSectionView: some View {
-        CustomSectionView(header: "Definition") {
+        CustomSectionView(header: "Definition", headerFontStyle: .stealth) {
             TextField("Definition", text: Binding(
                 get: { word.definition ?? "" },
                 set: { word.definition = $0 }
             ), axis: .vertical)
                 .focused($isDefinitionFocused)
-                .clippedWithPaddingAndBackground()
-        } headerTrailingContent: {
+                .fontWeight(.semibold)
+        } trailingContent: {
             if isDefinitionFocused {
-                SectionHeaderButton("Done") {
+                HeaderButton(text: "Done") {
                     isDefinitionFocused = false
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                     saveContext()
                 }
             } else {
-                SectionHeaderButton("Listen", systemImage: "speaker.wave.2.fill") {
+                HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
                     play(word.definition)
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
@@ -150,21 +154,18 @@ struct WordDetailsContentView: View {
     }
 
     private var difficultySectionView: some View {
-        CustomSectionView(header: "Difficulty") {
-            HStack {
-                Text(getCurrentDifficulty().displayName)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                Spacer()
-                
-                Button("Change") {
-                    selectedDifficulty = getCurrentDifficulty()
-                    showingDifficultyPicker = true
-                }
-                .font(.caption)
-                .foregroundColor(.blue)
+        CustomSectionView(header: "Difficulty", headerFontStyle: .stealth) {
+            let difficulty = getCurrentDifficulty()
+            Label(difficulty.displayName, systemImage: difficulty.imageName)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundStyle(difficulty.color)
+                .fontWeight(.semibold)
+        } trailingContent: {
+            HeaderButton(text: "Change", style: .bordered) {
+                selectedDifficulty = getCurrentDifficulty()
+                showingDifficultyPicker = true
             }
-            .clippedWithPaddingAndBackground()
+            .tint(.blue)
         }
         .sheet(isPresented: $showingDifficultyPicker) {
             difficultyPickerView
@@ -174,7 +175,7 @@ struct WordDetailsContentView: View {
     @ViewBuilder
     private var languageSectionView: some View {
         if word.shouldShowLanguageLabel {
-            CustomSectionView(header: "Language") {
+            CustomSectionView(header: "Language", headerFontStyle: .stealth) {
                 HStack {
                     Text(word.languageDisplayName)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -189,64 +190,50 @@ struct WordDetailsContentView: View {
                             .clipShape(Capsule())
                     }
                 }
-                .clippedWithPaddingAndBackground()
             }
         }
     }
     
     private var difficultyPickerView: some View {
-        NavigationView {
-            VStack(spacing: 20) {
-                Text("Select Difficulty Level")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                
-                VStack(spacing: 12) {
-                    ForEach(Difficulty.allCases, id: \.self) { difficulty in
-                        Button {
+        ScrollView {
+            VStack(spacing: 12) {
+                ForEach(Difficulty.allCases, id: \.self) { difficulty in
+                    Button {
+                        withAnimation {
                             selectedDifficulty = difficulty
-                        } label: {
-                            HStack {
-                                Text(difficulty.displayName)
-                                    .font(.body)
-                                    .foregroundColor(selectedDifficulty == difficulty ? .white : .primary)
-                                
-                                Spacer()
-                                
-                                if selectedDifficulty == difficulty {
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(.white)
-                                }
-                            }
-                            .padding()
-                            .background(selectedDifficulty == difficulty ? Color.blue : Color(.secondarySystemGroupedBackground))
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
                         }
-                        .buttonStyle(.plain)
+                    } label: {
+                        HStack {
+                            Label(difficulty.displayName, systemImage: difficulty.imageName)
+                                .foregroundStyle(selectedDifficulty == difficulty ? .white : difficulty.color)
+
+                            Spacer()
+
+                            if selectedDifficulty == difficulty {
+                                Image(systemName: "checkmark")
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        .clippedWithPaddingAndBackground(
+                            selectedDifficulty == difficulty
+                            ? difficulty.color
+                            : difficulty.color.opacity(0.2)
+                        )
                     }
+                    .buttonStyle(.plain)
                 }
-                .padding(.horizontal)
-                
-                Spacer()
-                
-                HStack(spacing: 16) {
-                    Button("Cancel") {
-                        showingDifficultyPicker = false
-                    }
-                    .buttonStyle(.bordered)
-                    
-                    Button("Save") {
-                        updateDifficulty()
-                        showingDifficultyPicker = false
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-                .padding()
             }
             .padding()
-            .navigationTitle("Difficulty")
-            .navigationBarTitleDisplayMode(.inline)
         }
+        .background(Color(.systemGroupedBackground))
+        .navigation(title: "Select Difficulty Level", mode: .inline, trailingContent: {
+            HeaderButton(text: "Save", style: .borderedProminent, font: .body) {
+                updateDifficulty()
+                showingDifficultyPicker = false
+            }
+            .bold()
+        })
+        .presentationDetents([.medium])
     }
     
     private func updateDifficulty() {
@@ -276,90 +263,119 @@ struct WordDetailsContentView: View {
     }
 
     private var tagsSectionView: some View {
-        CustomSectionView(header: "Tags") {
+        CustomSectionView(header: "Tags", headerFontStyle: .stealth) {
             if word.tagsArray.isEmpty {
                 Text("No tags added yet.")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .clippedWithPaddingAndBackground()
             } else {
-                LazyVStack(spacing: 8) {
-                    ForEach(word.tagsArray, id: \.id) { tag in
-                        TagView(tag: tag)
-                            .onTapGesture {
-                                removeTag(tag)
-                            }
+                HFlow(alignment: .top, spacing: 8) {
+                    ForEach(word.tagsArray) { tag in
+                        HeaderButton(
+                            text: tag.name.orEmpty,
+                            style: .borderedProminent,
+                            action: {}
+                        )
+                        .tint(tag.colorValue.color)
                     }
                 }
-                .clippedWithBackground()
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-        } headerTrailingContent: {
-            SectionHeaderButton("Add Tag", systemImage: "plus") {
-                availableTags = TagService.shared.getAllTags()
+        } trailingContent: {
+            HeaderButton(text: "Add Tag", icon: "plus") {
                 showingTagSelection = true
             }
         }
     }
 
     private var examplesSectionView: some View {
-        CustomSectionView(header: "Examples") {
-            FormWithDivider {
-                ForEach(Array(word.examplesDecoded.enumerated()), id: \.offset) { index, example in
-                    Text(example)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .clippedWithPaddingAndBackground()
-                        .contextMenu {
-                            Button {
-                                play(example)
-                                AnalyticsService.shared.logEvent(.wordExamplePlayed)
-                            } label: {
-                                Label("Listen", systemImage: "speaker.wave.2.fill")
-                            }
-                            Button {
-                                exampleTextFieldStr = example
-                                editingExampleIndex = index
-                                AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
-                            } label: {
-                                Label("Edit", systemImage: "pencil")
-                            }
-                            Section {
-                                Button(role: .destructive) {
-                                    removeExample(at: index)
-                                    AnalyticsService.shared.logEvent(.wordExampleRemoved)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                            }
-                        }
-                }
-                if isAddingExample {
-                    HStack {
-                        TextField("Type an example here", text: $exampleTextFieldStr, axis: .vertical)
-                            .focused($isAddExampleFocused)
+        CustomSectionView(
+            header: "Examples",
+            headerFontStyle: .stealth,
+            hPadding: 0
+        ) {
+            if word.examplesDecoded.isNotEmpty {
+                FormWithDivider {
+                    ForEach(Array(word.examplesDecoded.enumerated()), id: \.offset) { index, example in
+                        HStack {
+                            Text(example)
+                                .frame(maxWidth: .infinity, alignment: .leading)
 
-                        if isAddExampleFocused {
-                            Button {
-                                addExample(exampleTextFieldStr)
-                                isAddingExample = false
-                                exampleTextFieldStr = .empty
-                                AnalyticsService.shared.logEvent(.wordExampleAdded)
+                            Menu {
+                                Button {
+                                    play(example)
+                                    AnalyticsService.shared.logEvent(.wordExamplePlayed)
+                                } label: {
+                                    Label("Listen", systemImage: "speaker.wave.2.fill")
+                                }
+                                Button {
+                                    exampleTextFieldStr = example
+                                    editingExampleIndex = index
+                                    AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
+                                } label: {
+                                    Label("Edit", systemImage: "pencil")
+                                }
+                                Section {
+                                    Button(role: .destructive) {
+                                        removeExample(at: index)
+                                        AnalyticsService.shared.logEvent(.wordExampleRemoved)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                }
                             } label: {
-                                Image(systemName: "checkmark.rectangle.portrait.fill")
+                                Image(systemName: "ellipsis")
+                                    .foregroundStyle(.secondary)
+                                    .padding(6)
+                                    .background(Color.black.opacity(0.01))
                             }
                         }
+                        .padding(vertical: 12, horizontal: 16)
+                        .contentShape(RoundedRectangle(cornerRadius: 16))
                     }
-                    .padding(vertical: 12, horizontal: 16)
-                } else {
-                    Button("Add example", systemImage: "plus") {
-                        withAnimation {
-                            isAddingExample.toggle()
-                            AnalyticsService.shared.logEvent(.wordAddExampleTapped)
-                        }
-                    }
+                }
+            } else {
+                Text("No examples yet")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(vertical: 12, horizontal: 16)
+                    .padding(.horizontal, 16)
+            }
+
+            if isAddingExample {
+                InputView(
+                    "Type an example here",
+                    submitLabel: .done,
+                    text: $exampleTextFieldStr,
+                    onSubmit: {
+                        addExample(exampleTextFieldStr)
+                        isAddingExample = false
+                        exampleTextFieldStr = .empty
+                        AnalyticsService.shared.logEvent(.wordExampleAdded)
+                    },
+                    trailingButtonLabel: "Cancel"
+                ) {
+                    // On cancel
+                    isAddExampleFocused = false
+                    isAddingExample = false
+                    exampleTextFieldStr = .empty
+                }
+                .padding(.top, 12)
+                .padding(.horizontal, 16)
+            }
+        } trailingContent: {
+            if isAddingExample {
+                HeaderButton(text: "Save", icon: "checkmark") {
+                    addExample(exampleTextFieldStr)
+                    isAddingExample = false
+                    exampleTextFieldStr = .empty
+                    AnalyticsService.shared.logEvent(.wordExampleAdded)
+                }
+            } else {
+                HeaderButton(text: "Add example", icon: "plus") {
+                    withAnimation {
+                        isAddingExample.toggle()
+                        AnalyticsService.shared.logEvent(.wordAddExampleTapped)
+                    }
                 }
             }
-            .clippedWithBackground()
         }
     }
 
@@ -478,10 +494,6 @@ struct WordDetailsContentView: View {
         }
     }
 
-    private func loadTags() {
-        availableTags = TagService.shared.getAllTags()
-    }
-
     private func removeTag(_ tag: CDTag) {
         try? TagService.shared.removeTagFromWord(tag, word: word)
         saveContext()
@@ -510,7 +522,7 @@ struct TagView: View {
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
-        .background(tag.colorValue.color.opacity(0.1))
+        .background(tag.colorValue.color.opacity(0.2))
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

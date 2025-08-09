@@ -54,7 +54,6 @@ final class AddWordViewModel: BaseViewModel {
 
         super.init()
         setupBindings()
-        loadTags()
         if !inputWord.isEmpty {
             fetchData()
         }
@@ -294,6 +293,13 @@ final class AddWordViewModel: BaseViewModel {
                 self?.partOfSpeech = definition.partOfSpeech
             }
             .store(in: &cancellables)
+
+        tagService.$tags
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] tags in
+                self?.availableTags = tags
+            }
+            .store(in: &cancellables)
     }
 
     private func reset() {
@@ -306,10 +312,6 @@ final class AddWordViewModel: BaseViewModel {
             self?.partOfSpeech = nil
             self?.selectedTags = []
         }
-    }
-
-    private func loadTags() {
-        availableTags = tagService.getAllTags()
     }
 
     private func translateDefinitions() async {

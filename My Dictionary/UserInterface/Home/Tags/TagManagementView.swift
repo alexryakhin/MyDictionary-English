@@ -10,39 +10,48 @@ import SwiftUI
 struct TagManagementView: View {
     @StateObject private var viewModel = TagManagementViewModel()
     @Environment(\.dismiss) private var dismiss
-    
+
     var body: some View {
-        List {
-                Section {
-                    ForEach(viewModel.tags) { tag in
+        ScrollView {
+            CustomSectionView(
+                header: "Tags",
+                footer: "Tags help you organize your words. Each word can have up to 5 tags.",
+                hPadding: 0
+            ) {
+                if viewModel.tags.isNotEmpty {
+                    ListWithDivider(viewModel.tags) { tag in
                         TagRowView(tag: tag) {
                             viewModel.handle(.editTag(tag))
                         } onDelete: {
                             viewModel.handle(.deleteTag(tag))
                         }
+                        .padding(vertical: 8, horizontal: 16)
                     }
-                } header: {
-                    Text("Tags")
-                } footer: {
-                    Text("Tags help you organize your words. Each word can have up to 5 tags.")
+                } else {
+                    ContentUnavailableView(
+                        "No Tags added yet",
+                        systemImage: "tag.fill",
+                        description: Text("Add your first tag by tapping the button above.")
+                    )
+                }
+            } trailingContent: {
+                HeaderButton(text: "Add Tag", icon: "plus", style: .borderedProminent) {
+                    viewModel.handle(.addTag)
+                }
+                .fontWeight(.semibold)
+            }
+            .padding(16)
+        }
+        .background(Color(.systemGroupedBackground))
+        .navigation(
+            title: "Manage Tags",
+            mode: .inline,
+            trailingContent: {
+                HeaderButton(icon: "xmark") {
+                    dismiss()
                 }
             }
-            .navigationTitle("Manage Tags")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Done") {
-                        dismiss()
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        viewModel.handle(.addTag)
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                }
-        }
+        )
         .sheet(isPresented: $viewModel.showingAddEditSheet) {
             AddEditTagView(viewModel: viewModel)
         }
@@ -61,45 +70,43 @@ struct TagRowView: View {
     let tag: CDTag
     let onEdit: () -> Void
     let onDelete: () -> Void
-    
+
     var body: some View {
         HStack {
             // Tag Color Indicator
             Circle()
                 .fill(tag.colorValue.color)
                 .frame(width: 12, height: 12)
-            
+
             // Tag Name
             VStack(alignment: .leading, spacing: 2) {
                 Text(tag.name ?? "")
                     .font(.body)
                     .fontWeight(.medium)
-                
+
                 Text("\(tag.wordsArray.count) words")
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
-            
-            Spacer()
-            
-            // Edit Button
-            Button {
-                onEdit()
-            } label: {
-                Image(systemName: "pencil")
-                    .foregroundColor(.blue)
-            }
-            .buttonStyle(.plain)
 
-            // Delete Button
-            Button {
-                onDelete()
+            Spacer()
+
+            Menu {
+                Button {
+                    onEdit()
+                } label: {
+                    Label("Edit", systemImage: "pencil")
+                }
+                Button(role: .destructive) {
+                    onDelete()
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
             } label: {
-                Image(systemName: "trash")
-                    .foregroundColor(.red)
+                Image(systemName: "ellipsis")
             }
-            .buttonStyle(.plain)
+            .foregroundStyle(.secondary)
+            .contentShape(Rectangle())
         }
-        .padding(.vertical, 4)
     }
 }

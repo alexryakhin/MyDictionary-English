@@ -32,31 +32,33 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
                 VStack(spacing: mode == .large ? 12 : 8) {
                     HStack(spacing: 2) {
                         if showsBackButton {
-                            Button {
+                            HeaderButton(
+                                icon: "chevron.left",
+                                style: .bordered
+                            ) {
                                 dismiss()
-                            } label: {
-                                Image(systemName: "chevron.left")
-                                    .foregroundStyle(.secondary)
-                                    .frame(width: 16, height: 16)
                             }
-                            .buttonStyle(.bordered)
-                            .clipShape(Capsule())
                             .padding(.trailing, 6)
                         }
                         Text(title)
                             .font(mode == .inline ? .headline : .largeTitle)
                             .bold()
                             .foregroundStyle(.primary)
+                            .lineLimit(1)
 
                         Spacer()
 
-                        trailingContent()
-                            .fixedSize()
+                        HStack(spacing: 6) {
+                            trailingContent()
+                                .fixedSize()
+                                .lineLimit(1)
+                        }
                     }
 
                     bottomContent()
                 }
-                .clippedWithPaddingAndBackgroundMaterial(.ultraThinMaterial, showShadow: true)
+                .clippedWithPaddingAndBackgroundMaterial(.ultraThinMaterial)
+                .shadow(radius: 2)
                 .padding(vertical: vPadding, horizontal: hPadding)
             }
     }
@@ -84,4 +86,4 @@ extension View {
             )
         )
     }
-} 
+}

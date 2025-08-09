@@ -212,15 +212,15 @@ struct AlertModel: Equatable {
     var backgroundColor: Color {
         switch alertType {
         case .info:
-            return Color(.systemBlue).opacity(0.1)
+            return Color(.systemBlue).opacity(0.2)
         case .warning:
-            return Color(.systemOrange).opacity(0.1)
+            return Color(.systemOrange).opacity(0.2)
         case .error:
-            return Color(.systemRed).opacity(0.1)
+            return Color(.systemRed).opacity(0.2)
         case .confirmation:
-            return Color(.systemBlue).opacity(0.1)
+            return Color(.systemBlue).opacity(0.2)
         case .choice:
-            return Color(.systemBlue).opacity(0.1)
+            return Color(.systemBlue).opacity(0.2)
         }
     }
 }

@@ -22,11 +22,11 @@ struct WordListView: View {
     }
 
     var body: some View {
-        List {
+        ScrollView {
             // Shared Dictionaries Section
             if AuthenticationService.shared.isSignedIn && !dictionaryService.sharedDictionaries.isEmpty {
-                Section("Shared Dictionaries") {
-                    ForEach(dictionaryService.sharedDictionaries) { dictionary in
+                CustomSectionView(header: "Shared Dictionaries") {
+                    ListWithDivider(dictionaryService.sharedDictionaries, dividerLeadingPadding: .zero) { dictionary in
                         Button {
                             viewModel.output.send(.showSharedDictionary(dictionary))
                         } label: {
@@ -49,14 +49,38 @@ struct WordListView: View {
                         .buttonStyle(.plain)
                     }
                 }
+                .padding(.horizontal, 16)
             }
-            if viewModel.wordsFiltered.isNotEmpty {
-                Section {
-                    ForEach(viewModel.wordsFiltered) { wordModel in
+
+            // MARK: - button to add a word from search input
+            if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
+                Button {
+                    viewModel.output.send(.showAddWord)
+                } label: {
+                    Label(
+                        "Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'",
+                        systemImage: "plus"
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(6)
+                }
+                .buttonStyle(.bordered)
+                .clipShape(RoundedRectangle(cornerRadius: 24))
+                .padding(.horizontal, 16)
+            }
+
+            CustomSectionView(
+                header: viewModel.filterStateTitle,
+                footer: viewModel.wordsCount,
+                hPadding: 0
+            ) {
+                if viewModel.wordsFiltered.isNotEmpty {
+                    ListWithDivider(viewModel.wordsFiltered) { wordModel in
                         Button {
                             viewModel.output.send(.showWordDetails(wordModel))
                         } label: {
                             WordListCellView(word: wordModel)
+                                .id(wordModel.id)
                         }
                         .buttonStyle(.plain)
                         .contextMenu {
@@ -74,30 +98,25 @@ struct WordListView: View {
                             }
                         }
                     }
-                } header: {
-                    Text(viewModel.filterStateTitle)
-                } footer: {
-                    Text(viewModel.wordsCount)
+                } else {
+                    ContentUnavailableView(
+                        viewModel.filterState.emptyStateTitle,
+                        systemImage: viewModel.filterState.emptyStateIcon,
+                        description: Text(viewModel.filterState.emptyStateDescription)
+                    )
+                    .padding(.vertical, 24)
                 }
-            }
-
-            if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
-                Button {
+            } trailingContent: {
+                HeaderButton(text: "Add Word", icon: "plus") {
+                    AnalyticsService.shared.logEvent(.addWordTapped)
                     viewModel.output.send(.showAddWord)
-                } label: {
-                    Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
                 }
             }
+            .padding(.horizontal, 16)
         }
-        .overlay {
-            if !viewModel.wordsFiltered.isNotEmpty {
-                ContentUnavailableView(
-                    viewModel.filterState.emptyStateTitle,
-                    systemImage: viewModel.filterState.emptyStateIcon,
-                    description: Text(viewModel.filterState.emptyStateDescription)
-                )
-            }
-        }
+        .animation(.default, value: viewModel.wordsFiltered)
+        .animation(.default, value: viewModel.filterState)
+        .animation(.default, value: viewModel.sortingState)
         .navigation(
             title: "Words",
             mode: .large,

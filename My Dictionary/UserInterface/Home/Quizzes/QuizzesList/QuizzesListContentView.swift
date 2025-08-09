@@ -55,6 +55,7 @@ struct QuizCardView: View {
                 .foregroundColor(.secondary)
         }
         .padding(.vertical, 4)
+        .multilineTextAlignment(.leading)
     }
 }
 

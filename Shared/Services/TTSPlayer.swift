@@ -7,20 +7,29 @@
 
 import Foundation
 import AVFoundation
+import SwiftUI
 
-final class TTSPlayer {
+final class TTSPlayer: ObservableObject {
 
     static let shared = TTSPlayer()
 
     private var player: AVAudioPlayer?
+    @AppStorage(UDKeys.selectedEnglishAccent) private var selectedEnglishAccent: EnglishAccent = .american
 
     private init() {}
 
     func play(_ text: String, targetLanguage: String?) async throws(CoreError) {
-        guard text.isNotEmpty else { return }
+        guard text.isNotEmpty, player == nil || !player!.isPlaying else { return }
+
+        var tl: String?
+        if targetLanguage == nil || targetLanguage == "en" {
+            tl = selectedEnglishAccent.localeCode
+        } else {
+            tl = targetLanguage
+        }
 
         let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=\(escapedText)&tl=\(targetLanguage ?? "en")"
+        let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=\(escapedText)&tl=\(tl ?? selectedEnglishAccent.localeCode)"
         guard let url = URL(string: urlString) else { return }
 
         guard player?.isPlaying == false || player == nil else { return }

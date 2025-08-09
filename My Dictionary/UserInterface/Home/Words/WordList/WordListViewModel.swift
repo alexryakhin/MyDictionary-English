@@ -122,7 +122,6 @@ final class WordListViewModel: BaseViewModel {
     override init() {
         super.init()
         setupBindings()
-        loadTags()
     }
 
     func handle(_ input: Input) {
@@ -159,7 +158,14 @@ final class WordListViewModel: BaseViewModel {
                 AnalyticsService.shared.logEvent(.wordOpened)
             }
             .store(in: &cancellables)
-        
+
+        tagService.$tags
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] tags in
+                self?.availableTags = tags
+            }
+            .store(in: &cancellables)
+
         // Observe real-time updates from DataSyncService
         DataSyncService.shared.realTimeUpdateReceived
             .receive(on: RunLoop.main)
@@ -168,10 +174,6 @@ final class WordListViewModel: BaseViewModel {
                 self?.wordsProvider.fetchWords()
             }
             .store(in: &cancellables)
-    }
-    
-    private func loadTags() {
-        availableTags = tagService.getAllTags()
     }
 
     private func deleteWord(_ wordModel: CDWord) {

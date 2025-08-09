@@ -52,28 +52,36 @@ struct SpellingQuizContentView: View {
                 Spacer()
             }
             .background(Color(.systemGroupedBackground))
+            .onReceive(viewModel.dismissPublisher) {
+                dismiss()
+            }
         } else if !viewModel.isQuizComplete {
-            VStack(spacing: 0) {
-                // Header with progress
-                headerView
-                
-                ScrollView {
-                    VStack(spacing: 24) {
-                        // Definition Card
-                        definitionCard
-                        
-                        // Answer Section
-                        answerSection
-                        
-                        // Action Buttons
-                        actionButtons
-                    }
-                    .padding(24)
+            ScrollView {
+                VStack(spacing: 24) {
+                    // Definition Card
+                    definitionCard
+
+                    // Answer Section
+                    answerSection
+
+                    // Action Buttons
+                    actionButtons
                 }
+                .padding(.horizontal, 16)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Spelling Quiz")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigation(
+                title: "Spelling Quiz",
+                mode: .inline,
+                trailingContent: {
+                    HeaderButton(text: "Exit") {
+                        viewModel.handle(.dismiss)
+                    }
+                },
+                bottomContent: {
+                    headerView
+                }
+            )
             .onAppear {
                 AnalyticsService.shared.logEvent(.spellingQuizOpened)
             }
@@ -82,6 +90,9 @@ struct SpellingQuizContentView: View {
                 if !viewModel.isQuizComplete && viewModel.wordsPlayed.count > 0 {
                     viewModel.handle(.dismiss)
                 }
+            }
+            .onReceive(viewModel.dismissPublisher) {
+                dismiss()
             }
         } else {
             // Completion View
@@ -94,8 +105,7 @@ struct SpellingQuizContentView: View {
             // Progress Bar
             ProgressView(value: Double(viewModel.wordsPlayed.count), total: Double(viewModel.totalQuestions))
                 .progressViewStyle(.linear)
-                .padding(.horizontal, 24)
-            
+
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Progress: \(viewModel.wordsPlayed.count + 1)/\(viewModel.totalQuestions)")
@@ -123,12 +133,6 @@ struct SpellingQuizContentView: View {
                         .foregroundColor(.secondary)
                 }
             }
-            .padding(.horizontal, 24)
-        }
-        .background(Color(.systemGroupedBackground))
-        .padding(.bottom, 6)
-        .overlay(alignment: .bottom) {
-            Divider()
         }
     }
 
@@ -157,7 +161,7 @@ struct SpellingQuizContentView: View {
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
-                        .background(.blue.opacity(0.1))
+                        .background(.blue.opacity(0.2))
                         .foregroundColor(.blue)
                         .clipShape(Capsule())
                     
@@ -179,7 +183,7 @@ struct SpellingQuizContentView: View {
                 }
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
-                .background(.yellow.opacity(0.1))
+                .background(.yellow.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             }
         }
@@ -235,7 +239,7 @@ struct SpellingQuizContentView: View {
                 }
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
-                .background(.green.opacity(0.1))
+                .background(.green.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             } else if viewModel.attemptCount >= 3 {
                 HStack {
@@ -250,7 +254,7 @@ struct SpellingQuizContentView: View {
                 }
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
-                .background(.red.opacity(0.1))
+                .background(.red.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             } else if !viewModel.isCorrectAnswer && viewModel.attemptCount > 0 {
                 HStack {
@@ -265,7 +269,7 @@ struct SpellingQuizContentView: View {
                 }
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
-                .background(.orange.opacity(0.1))
+                .background(.orange.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             }
         }
@@ -429,6 +433,9 @@ struct SpellingQuizContentView: View {
         }
         .padding(.vertical, 16)
         .background(Color(.systemGroupedBackground))
+        .onReceive(viewModel.dismissPublisher) {
+            dismiss()
+        }
     }
 
     private var incorrectMessage: String {

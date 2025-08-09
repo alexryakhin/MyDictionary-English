@@ -45,9 +45,9 @@ struct AddIdiomView: View {
             TextField("Idiom", text: $viewModel.inputIdiom, axis: .vertical)
                 .focused($isIdiomInputFocused)
                 .clippedWithPaddingAndBackground()
-        } headerTrailingContent: {
+        } trailingContent: {
             if isIdiomInputFocused {
-                SectionHeaderButton("Done") {
+                HeaderButton(text: "Done") {
                     isIdiomInputFocused = false
                 }
             }
@@ -59,9 +59,9 @@ struct AddIdiomView: View {
             TextField("Definition", text: $viewModel.definitionField, axis: .vertical)
                 .focused($isDefinitionInputFocused)
                 .clippedWithPaddingAndBackground()
-        } headerTrailingContent: {
+        } trailingContent: {
             if isDefinitionInputFocused {
-                SectionHeaderButton("Done") {
+                HeaderButton(text: "Done") {
                     isDefinitionInputFocused = false
                 }
             }

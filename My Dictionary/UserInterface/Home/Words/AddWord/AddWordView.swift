@@ -9,6 +9,8 @@ struct AddWordView: View {
     @State private var showingDictionarySelection = false
     @State private var selectedDictionaryId: String? = nil
 
+    @StateObject private var authenticationService = AuthenticationService.shared
+
     init(viewModel: ViewModel, selectedDictionaryId: String? = nil) {
         self.viewModel = viewModel
         self._selectedDictionaryId = State(initialValue: selectedDictionaryId)
@@ -50,23 +52,26 @@ struct AddWordView: View {
                 .clipShape(Capsule())
             },
             bottomContent: {
-                HStack {
-                    Button {
-                        showingDictionarySelection = true
-                    } label: {
-                        HStack {
-                            Image(systemName: selectedDictionaryId == nil ? "person" : "person.2")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 16, height: 16)
-                            Text(selectedDictionaryId == nil ? "Private Dictionary" : "Shared Dictionary")
+                // TODO: PRO flag as well
+                if authenticationService.isSignedIn {
+                    HStack {
+                        Button {
+                            showingDictionarySelection = true
+                        } label: {
+                            HStack {
+                                Image(systemName: selectedDictionaryId == nil ? "person" : "person.2")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 16, height: 16)
+                                Text(selectedDictionaryId == nil ? "Private Dictionary" : "Shared Dictionary")
+                            }
+                            .font(.caption)
                         }
-                        .font(.caption)
-                    }
-                    .buttonStyle(.bordered)
-                    .clipShape(Capsule())
+                        .buttonStyle(.bordered)
+                        .clipShape(Capsule())
 
-                    Spacer()
+                        Spacer()
+                    }
                 }
             }
         )
@@ -75,7 +80,7 @@ struct AddWordView: View {
             dismiss()
         }
         .sheet(isPresented: $viewModel.showingTagSelection) {
-            TagSelectionView(viewModel: viewModel)
+            TagSelectionView(selectedTags: $viewModel.selectedTags)
         }
         .sheet(isPresented: $showingDictionarySelection) {
             SharedDictionarySelectionView { dictionaryId in
@@ -151,17 +156,13 @@ struct AddWordView: View {
 
     @ViewBuilder
     var phoneticsCellView: some View {
-        if let pronunciation = viewModel.pronunciation {
+        if let pronunciation = viewModel.pronunciation?.nilIfEmpty {
             CellWrapper("Pronunciation") {
                 Text(pronunciation)
             } trailingContent: {
-                Button {
+                HeaderButton(icon: "speaker.wave.2.fill") {
                     viewModel.handle(.playInputWord)
-                } label: {
-                    Image(systemName: "speaker.wave.2.fill")
-                        .font(.title3)
                 }
-                .buttonStyle(.borderedProminent)
             }
         }
     }
@@ -185,19 +186,15 @@ struct AddWordView: View {
                 }
             }
         } trailingContent: {
-            Button {
+            HeaderButton(icon: "plus") {
                 viewModel.handle(.showTagSelection)
-            } label: {
-                Image(systemName: "plus")
-                    .font(.title3)
             }
-            .buttonStyle(.borderedProminent)
         }
     }
 
     @ViewBuilder
     var definitionsSectionView: some View {
-        CustomSectionView(header: "Select a definition") {
+        CustomSectionView(header: "Select a definition", hPadding: .zero) {
             switch viewModel.status {
             case .loading:
                 VStack(spacing: 16) {
@@ -218,6 +215,7 @@ struct AddWordView: View {
                         .padding(.top, 8)
                     }
                 }
+                .padding(.horizontal, 16)
             case .error:
                 ContentUnavailableView {
                     Image(systemName: "exclamationmark.triangle")
@@ -234,46 +232,48 @@ struct AddWordView: View {
                     .buttonStyle(.borderedProminent)
                 }
                 .clippedWithPaddingAndBackground()
+                .padding(.horizontal, 16)
             case .ready:
                 let definitionsToShow = (!GlobalConstant.isEnglishLanguage && viewModel.translateDefinitions) ?
                     viewModel.translatedDefinitions : viewModel.definitions
-                
-                ForEach(Array(definitionsToShow.enumerated()), id: \.element.id) { offset, definition in
-                    FormWithDivider {
-                        CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech.rawValue)") {
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text(definition.text)
-                                    .multilineTextAlignment(.leading)
-                                    .foregroundColor(.primary)
-                                
-                                // Show original definition if translated (only for non-English locales)
-                                if !GlobalConstant.isEnglishLanguage && viewModel.translateDefinitions && offset < viewModel.definitions.count {
-                                    Text(viewModel.definitions[offset].text)
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                        .italic()
+
+                FormWithDivider {
+                    ForEach(Array(definitionsToShow.enumerated()), id: \.element.id) { offset, definition in
+                        FormWithDivider {
+                            CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech.rawValue)") {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    Text(definition.text)
+                                        .multilineTextAlignment(.leading)
+                                        .foregroundColor(.primary)
+
+                                    // Show original definition if translated (only for non-English locales)
+                                    if !GlobalConstant.isEnglishLanguage && viewModel.translateDefinitions && offset < viewModel.definitions.count {
+                                        Text(viewModel.definitions[offset].text)
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                            .italic()
+                                    }
                                 }
+                            } trailingContent: {
+                                checkboxImage(definition.id)
+                                    .onTap {
+                                        definitionSelected(definition, index: offset)
+                                    }
                             }
-                        } trailingContent: {
-                            checkboxImage(definition.id)
-                                .onTap {
-                                    definitionSelected(definition, index: offset)
-                                }
-                        }
-                        .onTapGesture {
-                            definitionSelected(definition, index: offset)
-                        }
-                        
-                        // Show examples from original definition
-                        if offset < viewModel.definitions.count {
-                            ForEach(viewModel.definitions[offset].examples, id: \.self) { example in
-                                CellWrapper("Example") {
-                                    Text(example)
+                            .onTapGesture {
+                                definitionSelected(definition, index: offset)
+                            }
+
+                            // Show examples from original definition
+                            if offset < viewModel.definitions.count {
+                                ForEach(viewModel.definitions[offset].examples, id: \.self) { example in
+                                    CellWrapper("Example") {
+                                        Text(example)
+                                    }
                                 }
                             }
                         }
                     }
-                    .clippedWithBackground()
                 }
             case .blank:
                 ContentUnavailableView {
@@ -332,7 +332,7 @@ struct TagChip: View {
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 4)
-        .background(tag.colorValue.color.opacity(0.1))
+        .background(tag.colorValue.color.opacity(0.2))
         .clipShape(Capsule())
     }
 }

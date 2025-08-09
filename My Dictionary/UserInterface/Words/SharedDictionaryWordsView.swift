@@ -72,30 +72,39 @@ struct SharedDictionaryWordsView: View {
                 .listStyle(.plain)
             }
         }
-        .navigationTitle(dictionary.name)
-        .navigationBarTitleDisplayMode(.large)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                NavigationLink {
-                    SharedDictionaryDetailsView(dictionary: dictionary)
-                } label: {
-                    Image(systemName: "info.circle")
-                }
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                if dictionary.canEdit {
-                    Button {
-                        showingAddWord = true
+        .navigation(
+            title: dictionary.name,
+            mode: .large,
+            trailingContent: {
+                HStack {
+                    NavigationLink {
+                        SharedDictionaryDetailsView(dictionary: dictionary)
                     } label: {
-                        Image(systemName: "plus")
+                        Image(systemName: "info.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 16, height: 16)
+                    }
+                    .buttonStyle(.bordered)
+                    .clipShape(Capsule())
+                    
+                    if dictionary.canEdit {
+                        Button {
+                            showingAddWord = true
+                        } label: {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 16, height: 16)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .clipShape(Capsule())
                     }
                 }
             }
-        }
+        )
         .sheet(isPresented: $showingAddWord) {
-            NavigationView {
-                AddWordContentView(selectedDictionaryId: dictionary.id)
-            }
+            AddWordContentView(selectedDictionaryId: dictionary.id)
         }
         .onAppear {
             dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionary.id)
@@ -125,21 +134,17 @@ struct SharedDictionaryWordCell: View {
                         .font(.caption)
                         .foregroundColor(.accentColor)
                 }
-                
-                Text(word.partOfSpeech ?? "")
-                    .foregroundColor(.secondary)
-                
+
                 // Difficulty label
                 if word.difficultyLevel > 0 {
-                    Text(word.difficultyLabel)
-                        .font(.caption2)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
-                        .background(word.difficultyColor.opacity(0.2))
-                        .foregroundColor(word.difficultyColor)
-                        .clipShape(Capsule())
+                    Image(systemName: word.difficulty.imageName)
+                        .font(.caption)
+                        .foregroundStyle(word.difficulty.color)
                 }
-                
+
+                Text(word.partOfSpeech ?? "")
+                    .foregroundColor(.secondary)
+
                 // Language label
                 Text((word.languageCode ?? "en").uppercased())
                     .font(.caption2)
@@ -168,7 +173,7 @@ struct SharedDictionaryWordCell: View {
                                 .font(.caption)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
-                                .background(Color.blue.opacity(0.1))
+                                .background(Color.blue.opacity(0.2))
                                 .foregroundColor(.blue)
                                 .clipShape(Capsule())
                         }

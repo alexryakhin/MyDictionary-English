@@ -51,27 +51,22 @@ final class TabManager: ObservableObject {
         let willSetIndex = tabOrder.firstIndex(of: willSetTab) ?? 0
         let currentIndex = tabOrder.firstIndex(of: currentTab) ?? 0
         let didSetIndex = tabOrder.firstIndex(of: didSetTab) ?? 0
-        
-        print("🔄 Transition: willSet=\(willSetTab)(\(willSetIndex)), current=\(currentTab)(\(currentIndex)), didSet=\(didSetTab)(\(didSetIndex))")
-        
+
         // Use willSet vs current to determine direction
         if willSetIndex > currentIndex {
             // Moving right (to higher index)
-            print("➡️ Moving right: \(currentTab) → \(willSetTab)")
             return .asymmetric(
                 insertion: .move(edge: .trailing),
                 removal: .move(edge: .leading)
             )
         } else if willSetIndex < currentIndex {
             // Moving left (to lower index)
-            print("⬅️ Moving left: \(currentTab) → \(willSetTab)")
             return .asymmetric(
                 insertion: .move(edge: .leading),
                 removal: .move(edge: .trailing)
             )
         } else {
             // Same tab
-            print("🔄 Same tab")
             return .identity
         }
     }

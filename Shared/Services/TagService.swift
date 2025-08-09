@@ -9,25 +9,29 @@ import Foundation
 import CoreData
 import Combine
 
-final class TagService {
+final class TagService: ObservableObject {
 
     static let shared = TagService()
 
-    private let coreDataService: CoreDataService = .shared
+    @Published var tags: [CDTag] = []
 
-    private init() {}
+    private let coreDataService: CoreDataService = .shared
+    private var cancellables: Set<AnyCancellable> = []
+
+    private init() {
+        setupBindings()
+    }
     
     // MARK: - Tag Management
     
-    func getAllTags() -> [CDTag] {
+    func getAllTags() {
         let request = CDTag.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         do {
-            return try coreDataService.context.fetch(request)
+            tags = try coreDataService.context.fetch(request)
         } catch {
             print("Error fetching tags: \(error)")
-            return []
         }
     }
     
@@ -125,4 +129,19 @@ final class TagService {
     func isWordTagged(_ word: CDWord, with tag: CDTag) -> Bool {
         return word.tagsArray.contains { $0.id == tag.id }
     }
-} 
+
+    private func setupBindings() {
+        coreDataService.dataUpdatedPublisher
+            .sink { [weak self] _ in
+                self?.getAllTags()
+            }
+            .store(in: &cancellables)
+
+        // Also listen to real-time updates from DataSyncService
+        DataSyncService.shared.realTimeUpdateReceived
+            .sink { [weak self] _ in
+                self?.getAllTags()
+            }
+            .store(in: &cancellables)
+    }
+}

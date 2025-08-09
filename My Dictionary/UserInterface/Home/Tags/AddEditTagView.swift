@@ -15,18 +15,18 @@ struct AddEditTagView: View {
     @State private var selectedColor: TagColor = .blue
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section {
-                    TextField("Tag Name", text: $tagName)
-                        .textFieldStyle(.roundedBorder)
-                } header: {
-                    Text("Tag Name")
-                } footer: {
-                    Text("Choose a descriptive name for your tag")
+        ScrollView {
+            VStack(spacing: 16) {
+                CustomSectionView(header: "Tag Name", footer: "Choose a descriptive name for your tag") {
+                    TextField("Type tag name...", text: $tagName)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+                        .textContentType(.username)
+                        .padding(12)
+                        .clippedWithBackground(.accent.opacity(0.2), cornerRadius: 12)
+                        .padding(.bottom, 12)
                 }
-                
-                Section {
+                CustomSectionView(header: "Tag Color", footer: "Select a color to help identify your tag") {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 12) {
                         ForEach(TagColor.allCases, id: \.self) { color in
                             ColorSelectionButton(
@@ -38,32 +38,37 @@ struct AddEditTagView: View {
                         }
                     }
                     .padding(.vertical, 8)
-                } header: {
-                    Text("Tag Color")
-                } footer: {
-                    Text("Select a color to help identify your tag")
                 }
             }
-            .navigationTitle(viewModel.isEditing ? "Edit Tag" : "New Tag")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
-                        saveTag()
-                    }
-                    .disabled(tagName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            .padding(16)
+        }
+        .background(Color(.systemGroupedBackground))
+        .navigation(
+            title: viewModel.isEditing ? "Edit Tag" : "New Tag",
+            mode: .inline,
+            trailingContent: {
+                HeaderButton(icon: "xmark") {
+                    dismiss()
                 }
             }
-            .onAppear {
-                if let editingTag = viewModel.editingTag {
-                    tagName = editingTag.name ?? ""
-                    selectedColor = editingTag.colorValue
-                }
+        )
+        .safeAreaInset(edge: .bottom) {
+            Button {
+                saveTag()
+            } label: {
+                Text("Save")
+                    .fontWeight(.semibold)
+                    .padding(12)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .clipShape(RoundedRectangle(cornerRadius: 24))
+            .padding(12)
+        }
+        .onAppear {
+            if let editingTag = viewModel.editingTag {
+                tagName = editingTag.name ?? ""
+                selectedColor = editingTag.colorValue
             }
         }
     }
