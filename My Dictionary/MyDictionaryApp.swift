@@ -11,13 +11,6 @@ import Firebase
 @main
 struct MyDictionaryApp: App {
 
-    @StateObject private var wordsViewModel = WordListViewModel()
-    @StateObject private var idiomsViewModel = IdiomListViewModel()
-    @StateObject private var quizzesViewModel = QuizzesListViewModel()
-    @StateObject private var analyticsViewModel = AnalyticsViewModel()
-    @StateObject private var settingsViewModel = SettingsViewModel()
-
-    @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
     @AppStorage(UDKeys.dailyRemindersEnabled) var dailyRemindersEnabled: Bool = false
     @AppStorage(UDKeys.difficultWordsEnabled) var difficultWordsEnabled: Bool = false
 
@@ -73,20 +66,9 @@ struct MyDictionaryApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainTabView(
-                wordsViewModel: wordsViewModel,
-                idiomsViewModel: idiomsViewModel,
-                quizzesViewModel: quizzesViewModel,
-                analyticsViewModel: analyticsViewModel,
-                settingsViewModel: settingsViewModel
-            )
-            .fontDesign(.rounded)
-            .sheet(isPresented: $isShowingOnboarding) {
-                isShowingOnboarding = false
-            } content: {
-                OnboardingView()
-            }
-            .tint(.accent)
+            MainTabView()
+                .fontDesign(.rounded)
+                .tint(.accent)
         }
     }
 } 

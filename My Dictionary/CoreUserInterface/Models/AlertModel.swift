@@ -67,7 +67,7 @@ struct AlertModel: Equatable {
         title: String,
         message: String? = nil,
         actionText: String = "OK",
-        action: VoidHandler? = nil
+        action: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
             title: title,
@@ -83,7 +83,7 @@ struct AlertModel: Equatable {
         title: String,
         message: String? = nil,
         actionText: String = "OK",
-        action: VoidHandler? = nil
+        action: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
             title: title,
@@ -116,8 +116,8 @@ struct AlertModel: Equatable {
         message: String? = nil,
         cancelText: String = "Cancel",
         confirmText: String = "Confirm",
-        onCancel: VoidHandler? = nil,
-        onConfirm: VoidHandler? = nil
+        onCancel: @escaping VoidHandler = {},
+        onConfirm: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
             title: title,
@@ -137,7 +137,7 @@ struct AlertModel: Equatable {
         cancelText: String = "Cancel",
         primaryText: String,
         secondaryText: String,
-        onCancel: VoidHandler? = nil,
+        onCancel: @escaping VoidHandler = {},
         onPrimary: VoidHandler? = nil,
         onSecondary: VoidHandler? = nil
     ) -> AlertModel {
@@ -160,8 +160,8 @@ struct AlertModel: Equatable {
         message: String? = nil,
         cancelText: String = "Cancel",
         deleteText: String = "Delete",
-        onCancel: VoidHandler? = nil,
-        onDelete: VoidHandler? = nil
+        onCancel: @escaping VoidHandler = {},
+        onDelete: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
             title: title,

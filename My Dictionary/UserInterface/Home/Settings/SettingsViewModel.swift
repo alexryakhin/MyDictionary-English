@@ -3,14 +3,21 @@ import SwiftUI
 
 final class SettingsViewModel: BaseViewModel {
 
+    enum Output {
+        case showAboutApp
+        case showTagManagement
+        case showSharedDictionaries
+        case showAuthentication
+    }
+
     enum Input {
         // No navigation inputs needed
     }
 
+    var output = PassthroughSubject<Output, Never>()
+
     @AppStorage(UDKeys.dailyRemindersEnabled) var dailyRemindersEnabled: Bool = false
     @AppStorage(UDKeys.difficultWordsAlertsEnabled) var difficultWordsEnabled: Bool = false
-    @AppStorage(UDKeys.practiceWordCount) var practiceWordCount: Double = 10
-    @AppStorage(UDKeys.practiceHardWordsOnly) var practiceHardWordsOnly: Bool = false
 
     @Published var isImporting = false
     @Published var importFileURL: URL?

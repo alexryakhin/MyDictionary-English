@@ -11,12 +11,19 @@ import SwiftUI
 
 final class QuizzesListViewModel: BaseViewModel {
 
+    enum Output {
+        case showSpellingQuiz(wordCount: Int, hardWordsOnly: Bool)
+        case showChooseDefinitionQuiz(wordCount: Int, hardWordsOnly: Bool)
+    }
+
     enum Input {
         // No navigation inputs needed
     }
 
+    var output = PassthroughSubject<Output, Never>()
+
     @Published var words: [CDWord] = []
-    @AppStorage(UDKeys.practiceHardWordsOnly) var showingHardWordsOnly = false
+    @Published var showingHardWordsOnly = false
 
     private let wordsProvider: WordsProvider = .shared
     private var cancellables: Set<AnyCancellable> = []
@@ -46,7 +53,7 @@ final class QuizzesListViewModel: BaseViewModel {
     /// Fetches latest data from Core Data
     private func setupBindings() {
         wordsProvider.$words
-            .receive(on: DispatchQueue.main)
+            .receive(on: RunLoop.main)
             .sink { [weak self] words in
                 self?.words = words
             }

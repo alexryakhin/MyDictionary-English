@@ -266,7 +266,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				530D2F722D99508E0040C247 /* XCRemoteSwiftPackageReference "Glur" */,
 				5321A2E12E3FADEF0066DFC4 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
 				5370F68D2E405358009238EB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
@@ -608,14 +607,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		530D2F722D99508E0040C247 /* XCRemoteSwiftPackageReference "Glur" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/joogps/Glur";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.4;
-			};
-		};
 		5321A2E12E3FADEF0066DFC4 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tevelee/SwiftUI-Flow.git";

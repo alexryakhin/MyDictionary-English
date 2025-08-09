@@ -15,6 +15,7 @@ final class CSVManager {
     static let shared = CSVManager()
 
     private let coreDataService: CoreDataService = .shared
+    private let authenticationService: AuthenticationService = .shared
 
     private init() {}
 
@@ -66,6 +67,7 @@ final class CSVManager {
     func importWordsFromCSV(url: URL, currentWordIds: [String]) throws {
         let fileContents = try String(contentsOf: url)
         let rows = fileContents.components(separatedBy: "\n").dropFirst() // Remove header
+        var count = 0
 
         for row in rows where !row.isEmpty {
             let columns = parseCSVRow(row)
@@ -80,6 +82,7 @@ final class CSVManager {
             newWord.isFavorite = (columns[4].lowercased() == "true")
             newWord.timestamp = ISO8601DateFormatter().date(from: columns[5]) ?? Date()
             newWord.id = UUID(uuidString: columns[6])
+            newWord.ownerId = authenticationService.userId
 
             let examplesArray = columns[7].components(separatedBy: ";")
             let examplesData = try JSONEncoder().encode(examplesArray)
@@ -91,9 +94,19 @@ final class CSVManager {
             } else {
                 newWord.languageCode = "en" // Default for old CSV files
             }
-        }
 
-        try coreDataService.saveContext()
+            count += 1
+        }
+        if count > 0 {
+            try coreDataService.saveContext()
+            DispatchQueue.main.async {
+                AlertCenter.shared.showAlert(with: .info(title: "Import successful", message: "\(count) words have been imported successfully"))
+            }
+        } else {
+            DispatchQueue.main.async {
+                AlertCenter.shared.showAlert(with: .info(title: "No words imported", message: "We couldn't find any new words to import"))
+            }
+        }
     }
 
     /// Helper function to properly parse a CSV row

@@ -17,8 +17,7 @@ struct AuthenticationView: View {
     @State private var showingAccountLinking = false
 
     var body: some View {
-        NavigationView {
-            VStack(spacing: 32) {
+        VStack(spacing: 32) {
                 Spacer()
 
                 // Header
@@ -103,14 +102,13 @@ struct AuthenticationView: View {
                             .scaleEffect(0.8)
                     }
                 }
-            }
-            .navigationTitle("Sign In")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
+        }
+        .navigationTitle("Sign In")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Cancel") {
+                    dismiss()
                 }
             }
         }

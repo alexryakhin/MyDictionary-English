@@ -12,68 +12,61 @@ struct TagFilterView: View {
     @State private var showingTagManagement = false
     
     var body: some View {
-        VStack(spacing: 8) {
-            // Difficulty Filters
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
-                    // All Words Filter
-                    FilterChip(
-                        title: "All Words",
-                        isSelected: viewModel.filterState == .none,
-                        color: .blue
-                    ) {
-                        viewModel.handle(.filterChanged(.none))
-                    }
-                    
-                    // Favorite Words Filter
-                    FilterChip(
-                        title: "Favorite",
-                        isSelected: viewModel.filterState == .favorite,
-                        color: .red
-                    ) {
-                        viewModel.handle(.filterChanged(.favorite))
-                    }
-                    
-                    // Difficulty Filters
-                    FilterChip(
-                        title: "New",
-                        isSelected: viewModel.filterState == .new,
-                        color: .secondary
-                    ) {
-                        viewModel.handle(.filterChanged(.new))
-                    }
-                    
-                    FilterChip(
-                        title: "In Progress",
-                        isSelected: viewModel.filterState == .inProgress,
-                        color: .orange
-                    ) {
-                        viewModel.handle(.filterChanged(.inProgress))
-                    }
-                    
-                    FilterChip(
-                        title: "Needs Review",
-                        isSelected: viewModel.filterState == .needsReview,
-                        color: .red
-                    ) {
-                        viewModel.handle(.filterChanged(.needsReview))
-                    }
-                    
-                    FilterChip(
-                        title: "Mastered",
-                        isSelected: viewModel.filterState == .mastered,
-                        color: .green
-                    ) {
-                        viewModel.handle(.filterChanged(.mastered))
-                    }
-                }
-                .padding(.horizontal, 16)
-            }
-            
-            // Tag Filters (if any tags exist)
-            if !viewModel.availableTags.isEmpty {
+        if viewModel.words.isNotEmpty {
+            VStack(spacing: 8) {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 12) {
+                    HStack(spacing: 8) {
+                        // All Words Filter
+                        FilterChip(
+                            title: "All Words",
+                            isSelected: viewModel.filterState == .none,
+                            color: .blue
+                        ) {
+                            viewModel.handle(.filterChanged(.none))
+                        }
+
+                        // Favorite Words Filter
+                        FilterChip(
+                            title: "Favorite",
+                            isSelected: viewModel.filterState == .favorite,
+                            color: .red
+                        ) {
+                            viewModel.handle(.filterChanged(.favorite))
+                        }
+
+                        // Difficulty Filters
+                        FilterChip(
+                            title: "New",
+                            isSelected: viewModel.filterState == .new,
+                            color: .secondary
+                        ) {
+                            viewModel.handle(.filterChanged(.new))
+                        }
+
+                        FilterChip(
+                            title: "In Progress",
+                            isSelected: viewModel.filterState == .inProgress,
+                            color: .orange
+                        ) {
+                            viewModel.handle(.filterChanged(.inProgress))
+                        }
+
+                        FilterChip(
+                            title: "Needs Review",
+                            isSelected: viewModel.filterState == .needsReview,
+                            color: .red
+                        ) {
+                            viewModel.handle(.filterChanged(.needsReview))
+                        }
+
+                        FilterChip(
+                            title: "Mastered",
+                            isSelected: viewModel.filterState == .mastered,
+                            color: .green
+                        ) {
+                            viewModel.handle(.filterChanged(.mastered))
+                        }
+
                         // Tag Filters
                         ForEach(viewModel.availableTags, id: \.id) { tag in
                             FilterChip(
@@ -84,7 +77,7 @@ struct TagFilterView: View {
                                 viewModel.handle(.filterChanged(.tag, tag: tag))
                             }
                         }
-                        
+
                         // Add Tag Button
                         Button {
                             showingTagManagement = true
@@ -102,12 +95,14 @@ struct TagFilterView: View {
                             .clipShape(Capsule())
                         }
                     }
-                    .padding(.horizontal, 16)
+                }
+                .scrollClipDisabled()
+            }
+            .sheet(isPresented: $showingTagManagement) {
+                NavigationView {
+                    TagManagementView()
                 }
             }
-        }
-        .sheet(isPresented: $showingTagManagement) {
-            TagManagementView()
         }
     }
 }

@@ -43,7 +43,7 @@ struct SpellingQuizContentView: View {
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(.blue.gradient)
+                        .background(.accent.gradient)
                         .foregroundColor(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }

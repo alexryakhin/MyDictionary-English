@@ -1,5 +1,5 @@
 {
-  "originHash" : "100ba12a2475a29ecf4a00a6065ba39ec49723300b466f08d62deda9a3e52a21",
+  "originHash" : "f1b9745b17778e82ab21db4f7c7b436b22da7619655e92f4906c37833b38aa8c",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -35,15 +35,6 @@
       "state" : {
         "revision" : "eb523407e4293568ed55590728205c359cbecc5b",
         "version" : "11.9.0"
-      }
-    },
-    {
-      "identity" : "glur",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/joogps/Glur",
-      "state" : {
-        "revision" : "9e00ff79da318f2c78b749b1027e54a9d4de2e33",
-        "version" : "1.0.4"
       }
     },
     {

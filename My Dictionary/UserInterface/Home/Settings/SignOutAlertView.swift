@@ -78,7 +78,7 @@ struct SignOutAlertView: View {
             }
         }
         .padding(24)
-        .background(Color(.systemBackground))
+        .background(Color(.systemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
         .padding(.horizontal, 40)

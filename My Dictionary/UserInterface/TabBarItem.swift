@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 enum TabBarItem: CaseIterable {
     case words
@@ -58,13 +57,5 @@ enum TabBarItem: CaseIterable {
         case .settings:
             return "gearshape.fill"
         }
-    }
-
-    var item: UITabBarItem {
-        UITabBarItem(
-            title: title,
-            image: .init(systemName: image),
-            selectedImage: .init(systemName: selectedImage)
-        )
     }
 }

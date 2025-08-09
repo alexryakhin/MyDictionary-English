@@ -93,7 +93,9 @@ struct SharedDictionaryWordsView: View {
             }
         }
         .sheet(isPresented: $showingAddWord) {
-            AddWordContentView(selectedDictionaryId: dictionary.id)
+            NavigationView {
+                AddWordContentView(selectedDictionaryId: dictionary.id)
+            }
         }
         .onAppear {
             dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionary.id)

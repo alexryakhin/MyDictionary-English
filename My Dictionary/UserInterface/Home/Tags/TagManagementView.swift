@@ -12,8 +12,7 @@ struct TagManagementView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        NavigationView {
-            List {
+        List {
                 Section {
                     ForEach(viewModel.tags) { tag in
                         TagRowView(tag: tag) {
@@ -43,18 +42,17 @@ struct TagManagementView: View {
                         Image(systemName: "plus")
                     }
                 }
+        }
+        .sheet(isPresented: $viewModel.showingAddEditSheet) {
+            AddEditTagView(viewModel: viewModel)
+        }
+        .alert("Delete Tag", isPresented: $viewModel.showingDeleteAlert) {
+            Button("Cancel", role: .cancel) { }
+            Button("Delete", role: .destructive) {
+                viewModel.handle(.confirmDeleteTag)
             }
-            .sheet(isPresented: $viewModel.showingAddEditSheet) {
-                AddEditTagView(viewModel: viewModel)
-            }
-            .alert("Delete Tag", isPresented: $viewModel.showingDeleteAlert) {
-                Button("Cancel", role: .cancel) { }
-                Button("Delete", role: .destructive) {
-                    viewModel.handle(.confirmDeleteTag)
-                }
-            } message: {
-                Text("Are you sure you want to delete this tag? This action cannot be undone.")
-            }
+        } message: {
+            Text("Are you sure you want to delete this tag? This action cannot be undone.")
         }
     }
 }

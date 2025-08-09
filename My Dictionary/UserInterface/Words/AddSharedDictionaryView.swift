@@ -14,8 +14,7 @@ struct AddSharedDictionaryView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        NavigationView {
-            Form {
+        Form {
                 Section(header: Text("Dictionary Details")) {
                     TextField("Dictionary Name", text: $name)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -27,14 +26,13 @@ struct AddSharedDictionaryView: View {
                     }
                     .disabled(name.isEmpty)
                 }
-            }
-            .navigationTitle("New Shared Dictionary")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
+        }
+        .navigationTitle("New Shared Dictionary")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Cancel") {
+                    dismiss()
                 }
             }
         }

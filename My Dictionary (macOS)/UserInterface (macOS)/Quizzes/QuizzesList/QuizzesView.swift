@@ -96,7 +96,7 @@ struct QuizzesView: View {
             VStack(spacing: 16) {
                 Image(systemName: "brain.head.profile")
                     .font(.system(size: 60))
-                    .foregroundStyle(.blue.gradient)
+                    .foregroundStyle(.accent.gradient)
                 
                 Text(viewModel.words.isEmpty ? "Start Building Your Vocabulary!" : "Keep Adding Words!")
                     .font(.title2)
@@ -121,7 +121,7 @@ struct QuizzesView: View {
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(.blue.gradient)
+                        .background(.accent.gradient)
                         .foregroundStyle(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }

@@ -21,8 +21,7 @@ struct AddExistingWordToSharedView: View {
     }
 
     var body: some View {
-        NavigationView {
-            ScrollView {
+        ScrollView {
                 VStack(spacing: 20) {
                     // Word Info Card
                     VStack(alignment: .leading, spacing: 12) {
@@ -113,30 +112,28 @@ struct AddExistingWordToSharedView: View {
                 .onAppear {
                     dictionaryService.setupSharedDictionariesListener()
                 }
-
-            }
-            .safeAreaInset(edge: .bottom) {
-                VStack(spacing: 12) {
-                    Button {
-                        addWordToSelectedDictionary()
-                    } label: {
-                        HStack {
-                            Image(systemName: "plus")
-                            Text("Add to Shared Dictionary")
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(selectedDictionaryId != nil ? Color.blue : Color.gray)
-                        .foregroundColor(.white)
-                        .cornerRadius(12)
+        }
+        .safeAreaInset(edge: .bottom) {
+            VStack(spacing: 12) {
+                Button {
+                    addWordToSelectedDictionary()
+                } label: {
+                    HStack {
+                        Image(systemName: "plus")
+                        Text("Add to Shared Dictionary")
                     }
-                    .disabled(selectedDictionaryId == nil)
-
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                    .foregroundColor(.secondary)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(selectedDictionaryId != nil ? Color.blue : Color.gray)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
                 }
+                .disabled(selectedDictionaryId == nil)
+
+                Button("Cancel") {
+                    dismiss()
+                }
+                .foregroundColor(.secondary)
             }
         }
     }

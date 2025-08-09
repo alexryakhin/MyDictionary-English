@@ -24,11 +24,15 @@ final class WordsProvider: ObservableObject {
         let allWords = (try? coreDataService.context.fetch(request)) ?? []
         print("📊 [WordsProvider]Fetched \(allWords.count) total words")
 
-        // Filter words owned by current user (both private and shared)
-        self.words = allWords.filter { $0.ownerId == authenticationService.userId }
+        if authenticationService.isSignedIn {
+            // Filter words owned by current user (both private and shared)
+            self.words = allWords.filter { $0.ownerId == authenticationService.userId }
 
-        // Filter shared words (words in shared dictionaries)
-        self.sharedWords = allWords.filter { $0.isSharedWord }
+            // Filter shared words (words in shared dictionaries)
+            self.sharedWords = allWords.filter { $0.isSharedWord }
+        } else {
+            self.words = allWords
+        }
 
         print("📊 [WordsProvider] Fetched \(self.words.count) owned words and \(self.sharedWords.count) shared words")
     }

@@ -26,7 +26,7 @@ final class DictionaryService: ObservableObject {
     @Published var sharedDictionaries: [SharedDictionary] = []
     @Published var errorMessage: String?
 
-    struct SharedDictionary: Identifiable, Codable {
+    struct SharedDictionary: Identifiable, Codable, Hashable {
         let id: String
         let name: String
         let owner: String

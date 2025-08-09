@@ -100,29 +100,57 @@ extension UIApplication {
 }
 
 extension View {
-    func clippedWithBackground(_ color: Color = Color(.secondarySystemGroupedBackground)) -> some View {
+    func clippedWithBackground(
+        _ color: Color = Color(.secondarySystemGroupedBackground),
+        cornerRadius: CGFloat = 24,
+        showShadow: Bool = false
+    ) -> some View {
         self
             .background(color)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .if(showShadow) {
+                $0.shadow(color: Color(.separator), radius: 2)
+            }
     }
 
-    func clippedWithBackgroundMaterial(_ material: Material = .regularMaterial) -> some View {
+    func clippedWithBackgroundMaterial(
+        _ material: Material = .ultraThinMaterial,
+        cornerRadius: CGFloat = 24,
+        showShadow: Bool = false
+    ) -> some View {
         self
             .background(material)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .if(showShadow) {
+                $0.shadow(color: Color(.separator), radius: 2)
+            }
     }
 
-    func clippedWithPaddingAndBackground(padding: CGFloat = 16, color: Color = Color(.secondarySystemGroupedBackground)) -> some View {
+    func clippedWithPaddingAndBackground(
+        _ color: Color = Color(.secondarySystemGroupedBackground),
+        cornerRadius: CGFloat = 24,
+        showShadow: Bool = false
+    ) -> some View {
         self
-            .padding(padding)
+            .padding(16)
             .background(color)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .if(showShadow) {
+                $0.shadow(color: Color(.separator), radius: 2)
+            }
     }
 
-    func clippedWithPaddingAndBackgroundMaterial(padding: CGFloat = 16, material: Material = .regularMaterial) -> some View {
+    func clippedWithPaddingAndBackgroundMaterial(
+        _ material: Material = .ultraThinMaterial,
+        cornerRadius: CGFloat = 24,
+        showShadow: Bool = false
+    ) -> some View {
         self
-            .padding(padding)
+            .padding(16)
             .background(material)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .if(showShadow) {
+                $0.shadow(color: Color(.separator), radius: 2)
+            }
     }
 }

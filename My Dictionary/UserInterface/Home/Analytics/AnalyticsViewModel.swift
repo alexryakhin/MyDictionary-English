@@ -32,6 +32,12 @@ enum TimePeriod: CaseIterable {
 
 final class AnalyticsViewModel: BaseViewModel {
     
+    enum Output {
+        case showQuizResultsDetail
+    }
+
+    var output = PassthroughSubject<Output, Never>()
+    
     @Published private(set) var progressSummary: ProgressSummary?
     @Published private(set) var quizSessions: [CDQuizSession] = []
     @Published private(set) var isLoading = false

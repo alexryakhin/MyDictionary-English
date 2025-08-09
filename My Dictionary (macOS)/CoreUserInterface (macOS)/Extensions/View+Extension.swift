@@ -76,7 +76,7 @@ extension View {
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func clippedWithBackgroundMaterial(_ material: Material = .regularMaterial) -> some View {
+    func clippedWithBackgroundMaterial(_ material: Material = .ultraThinMaterial) -> some View {
         self
             .background(material)
             .clipShape(RoundedRectangle(cornerRadius: 16))
@@ -89,7 +89,7 @@ extension View {
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func clippedWithPaddingAndBackgroundMaterial(padding: CGFloat = 16, material: Material = .regularMaterial) -> some View {
+    func clippedWithPaddingAndBackgroundMaterial(padding: CGFloat = 16, material: Material = .ultraThinMaterial) -> some View {
         self
             .padding(padding)
             .background(material)

@@ -68,7 +68,7 @@ struct TagManagementView: View {
             VStack(spacing: 16) {
                 Image(systemName: "tag")
                     .font(.system(size: 60))
-                    .foregroundStyle(.blue.gradient)
+                    .foregroundStyle(.accent.gradient)
                 
                 Text("No Tags Yet")
                     .font(.title2)
@@ -89,7 +89,7 @@ struct TagManagementView: View {
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(.blue.gradient)
+                    .background(.accent.gradient)
                     .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
@@ -110,7 +110,7 @@ struct TagManagementView: View {
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(.blue.gradient)
+                        .background(.accent.gradient)
                         .foregroundStyle(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
