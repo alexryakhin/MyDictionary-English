@@ -124,6 +124,8 @@ enum AnalyticsEvent: String {
     case subscriptionPurchased
     case subscriptionRestored
     case subscriptionCancelled
+    case subscriptionError
+    case paywallPresented
     
     // Collaborative Features Events
     case sharedWordLiked

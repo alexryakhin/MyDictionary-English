@@ -113,7 +113,7 @@ final class SubscriptionService: ObservableObject {
         return
         #endif
         
-        let configuration = Configuration.Builder(withAPIKey: "appl_qTlDIApNdWUjhHvAXnBPyGdYFgx")
+        let configuration = Configuration.Builder(withAPIKey: AppConfig.RevenueCat.publicSDKKey)
             .with(storeKitVersion: .storeKit2)
             .build()
         
@@ -212,32 +212,11 @@ final class SubscriptionService: ObservableObject {
         isLoading = false
     }
     
-    // MARK: - Feature Access
-    
-    func hasAccess(to feature: SubscriptionFeature) -> Bool {
-        return isProUser
-    }
-    
-    func canUseGoogleSync() -> Bool {
-        return hasAccess(to: .googleSync)
-    }
-    
-    func canExportUnlimitedWords() -> Bool {
-        return hasAccess(to: .unlimitedExport)
-    }
-    
-    func canCreateSharedDictionaries() -> Bool {
-        return hasAccess(to: .createSharedDictionaries)
-    }
-    
-    func canAccessAdvancedAnalytics() -> Bool {
-        return hasAccess(to: .advancedAnalytics)
-    }
     
     // MARK: - Export Limits
     
     func getExportLimit() -> Int {
-        return canExportUnlimitedWords() ? Int.max : 50
+        return isProUser ? Int.max : AppConfig.Features.freeUserExportLimit
     }
     
     func canExportWords(_ count: Int) -> Bool {

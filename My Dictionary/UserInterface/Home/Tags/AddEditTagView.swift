@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import RevenueCatUI
 
 struct AddEditTagView: View {
-    @ObservedObject var viewModel: TagManagementViewModel
     @Environment(\.dismiss) private var dismiss
-    
+
+    @StateObject var subscriptionService: SubscriptionService = .shared
+    @ObservedObject var viewModel: TagManagementViewModel
+
     @State private var tagName = ""
     @State private var selectedColor: TagColor = .blue
-    
+    @State private var isShowingPaywall: Bool = false
+
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
@@ -23,7 +27,7 @@ struct AddEditTagView: View {
                         .textInputAutocapitalization(.never)
                         .textContentType(.username)
                         .padding(12)
-                        .clippedWithBackground(.accent.opacity(0.2), cornerRadius: 12)
+                        .clippedWithBackground(Color(.tertiarySystemFill), cornerRadius: 12)
                         .padding(.bottom, 12)
                 }
                 CustomSectionView(header: "Tag Color", footer: "Select a color to help identify your tag") {
@@ -54,7 +58,11 @@ struct AddEditTagView: View {
         )
         .safeAreaInset(edge: .bottom) {
             Button {
-                saveTag()
+                if subscriptionService.isProUser {
+                    saveTag()
+                } else {
+                    isShowingPaywall = true
+                }
             } label: {
                 Text("Save")
                     .fontWeight(.semibold)
@@ -70,6 +78,9 @@ struct AddEditTagView: View {
                 tagName = editingTag.name ?? ""
                 selectedColor = editingTag.colorValue
             }
+        }
+        .sheet(isPresented: $isShowingPaywall) {
+            PaywallView()
         }
     }
     

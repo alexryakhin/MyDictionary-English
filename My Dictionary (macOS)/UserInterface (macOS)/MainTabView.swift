@@ -131,4 +131,5 @@ struct MainTabView: View {
         }
         .disabled(true)
     }
+    .withPaywall()
 }

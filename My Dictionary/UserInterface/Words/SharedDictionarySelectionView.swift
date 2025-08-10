@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import RevenueCatUI
 
 struct SharedDictionarySelectionView: View {
     @Environment(\.dismiss) private var dismiss
 
+    @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var dictionaryService = DictionaryService.shared
     @State private var selectedDictionaryId: String? = nil
     @State private var showingAddDictionary = false
@@ -137,7 +139,12 @@ struct SharedDictionarySelectionView: View {
             }
         )
         .sheet(isPresented: $showingAddDictionary) {
-            AddSharedDictionaryView()
+            if subscriptionService.isProUser {
+                AddSharedDictionaryView()
+                    .presentationCornerRadius(24)
+            } else {
+                PaywallView()
+            }
         }
         .onAppear {
             dictionaryService.setupSharedDictionariesListener()

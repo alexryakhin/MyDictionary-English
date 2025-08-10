@@ -1,4 +1,5 @@
 import SwiftUI
+import RevenueCatUI
 
 struct MainTabView: View {
 
@@ -17,6 +18,7 @@ struct MainTabView: View {
     @AppStorage(UDKeys.showIdiomsTab) var showIdiomsTab: Bool = true
     @StateObject var tabManager: TabManager = .shared
     @StateObject var authenticationService: AuthenticationService = .shared
+    @StateObject var subscriptionService: SubscriptionService = .shared
 
     var body: some View {
         NavigationStack(path: $navigationPath) {
@@ -60,6 +62,7 @@ struct MainTabView: View {
             .onReceive(tabManager.popToRootPublisher) {
                 navigationPath.removeLast(navigationPath.count)
             }
+            .withPaywall()
         }
     }
 
@@ -97,7 +100,12 @@ struct MainTabView: View {
         case .addWord:
             AddWordContentView()
         case .addSharedDictionary:
-            AddSharedDictionaryView()
+            if subscriptionService.isProUser {
+                AddSharedDictionaryView()
+                    .presentationCornerRadius(24)
+            } else {
+                PaywallView()
+            }
         case .addIdiom:
             AddIdiomContentView()
         case .quizResultsDetail:

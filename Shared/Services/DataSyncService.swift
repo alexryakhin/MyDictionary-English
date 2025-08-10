@@ -43,8 +43,7 @@ final class DataSyncService: ObservableObject {
         }
         
         // Check if user has Pro subscription for Google sync
-        let subscriptionService = SubscriptionService.shared
-        guard subscriptionService.canUseGoogleSync() else {
+        guard SubscriptionService.shared.isProUser else {
             print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
             throw DataSyncError.subscriptionRequired
         }

@@ -214,8 +214,7 @@ final class AuthenticationService: ObservableObject {
         }
         
         // Check if user has Pro subscription for Google sync
-        let subscriptionService = SubscriptionService.shared
-        guard subscriptionService.canUseGoogleSync() else {
+        guard SubscriptionService.shared.isProUser else {
             throw AuthenticationError.subscriptionRequired
         }
 

@@ -76,7 +76,7 @@ public struct InputView: View {
                 }
             }
             .padding(vertical: 8, horizontal: 12)
-            .background(.accent.opacity(0.15))
+            .background(Color(.tertiarySystemFill))
             .clipShape(Capsule())
 
             if showsTrailingButton, let trailingButtonLabel {

@@ -30,6 +30,9 @@
 		539839692E48D9AC006ECF2D /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 539839682E48D9AC006ECF2D /* ReceiptParser */; };
 		5398396B2E48D9AC006ECF2D /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 5398396A2E48D9AC006ECF2D /* RevenueCat */; };
 		5398396D2E48D9AC006ECF2D /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5398396C2E48D9AC006ECF2D /* RevenueCatUI */; };
+		5398397B2E48EAA3006ECF2D /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 5398397A2E48EAA3006ECF2D /* RevenueCat */; };
+		5398397D2E48EAA8006ECF2D /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5398397C2E48EAA8006ECF2D /* RevenueCatUI */; };
+		5398397F2E48EAAC006ECF2D /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 5398397E2E48EAAC006ECF2D /* ReceiptParser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,8 +110,11 @@
 			files = (
 				5370F6952E4053C6009238EB /* GoogleSignInSwift in Frameworks */,
 				530D2C552D983E780040C247 /* FirebaseCrashlytics in Frameworks */,
+				5398397B2E48EAA3006ECF2D /* RevenueCat in Frameworks */,
+				5398397D2E48EAA8006ECF2D /* RevenueCatUI in Frameworks */,
 				5370F6932E4053C1009238EB /* GoogleSignIn in Frameworks */,
 				5370F6882E4052F1009238EB /* FirebaseAuth in Frameworks */,
+				5398397F2E48EAAC006ECF2D /* ReceiptParser in Frameworks */,
 				530D2C532D983E720040C247 /* FirebaseCore in Frameworks */,
 				532C15212E3CC39600552599 /* FirebaseAnalytics in Frameworks */,
 				5370F68C2E4052F9009238EB /* FirebaseStorage in Frameworks */,
@@ -202,6 +208,9 @@
 				5370F68B2E4052F9009238EB /* FirebaseStorage */,
 				5370F6922E4053C1009238EB /* GoogleSignIn */,
 				5370F6942E4053C6009238EB /* GoogleSignInSwift */,
+				5398397A2E48EAA3006ECF2D /* RevenueCat */,
+				5398397C2E48EAA8006ECF2D /* RevenueCatUI */,
+				5398397E2E48EAAC006ECF2D /* ReceiptParser */,
 			);
 			productName = "My Dictionary (macOS)";
 			productReference = 530D2C332D9836920040C247 /* My Dictionary.app */;
@@ -761,6 +770,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = RevenueCatUI;
+		};
+		5398397A2E48EAA3006ECF2D /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		5398397C2E48EAA8006ECF2D /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
+		};
+		5398397E2E48EAAC006ECF2D /* ReceiptParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = ReceiptParser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

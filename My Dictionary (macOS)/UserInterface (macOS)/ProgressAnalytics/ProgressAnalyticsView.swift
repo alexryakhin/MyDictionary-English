@@ -35,6 +35,11 @@ struct ProgressAnalyticsView: View {
                     vocabularyGrowthSection
                 }
                 .padding(24)
+                .blurOverlay(
+                    isActive: !SubscriptionService.shared.canAccessAdvancedAnalytics(),
+                    message: "Upgrade to Pro to access advanced analytics and detailed insights",
+                    style: .natural
+                )
             }
         }
         .background(Color(.windowBackgroundColor))

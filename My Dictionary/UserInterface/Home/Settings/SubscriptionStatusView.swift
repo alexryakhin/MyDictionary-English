@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RevenueCatUI
 
 struct SubscriptionStatusView: View {
     @StateObject private var subscriptionService = SubscriptionService.shared
@@ -21,9 +22,7 @@ struct SubscriptionStatusView: View {
         }
         .padding(.bottom, 12)
         .sheet(isPresented: $showingSubscriptionView) {
-            NavigationView {
-                SubscriptionView()
-            }
+            PaywallView()
         }
     }
     

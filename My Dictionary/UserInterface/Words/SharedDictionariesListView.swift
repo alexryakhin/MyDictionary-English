@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import RevenueCatUI
 
 struct SharedDictionariesListView: View {
     @Environment(\.dismiss) private var dismiss
 
+    @StateObject private var paywallService = PaywallService.shared
+    @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var dictionaryService = DictionaryService.shared
     @State private var showingAddDictionary = false
     @Binding var navigationPath: NavigationPath
@@ -62,7 +65,11 @@ struct SharedDictionariesListView: View {
                 }
             } trailingContent: {
                 HeaderButton(text: "Add", icon: "plus", style: .borderedProminent) {
-                    showingAddDictionary = true
+                    if subscriptionService.isProUser {
+                        showingAddDictionary = true
+                    } else {
+                        paywallService.isShowingPaywall = true
+                    }
                 }
             }
             .padding(.horizontal, 16)
@@ -77,8 +84,12 @@ struct SharedDictionariesListView: View {
             showsBackButton: true
         )
         .sheet(isPresented: $showingAddDictionary) {
-            AddSharedDictionaryView()
-                .presentationCornerRadius(24)
+            if subscriptionService.isProUser {
+                AddSharedDictionaryView()
+                    .presentationCornerRadius(24)
+            } else {
+                PaywallView()
+            }
         }
         .onAppear {
             dictionaryService.setupSharedDictionariesListener()

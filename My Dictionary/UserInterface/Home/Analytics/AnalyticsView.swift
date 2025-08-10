@@ -9,8 +9,9 @@ import SwiftUI
 
 struct AnalyticsView: View {
     
-    @ObservedObject var viewModel: AnalyticsViewModel
-    
+    @StateObject private var subscriptionService: SubscriptionService = .shared
+    @ObservedObject private var viewModel: AnalyticsViewModel
+
     init(viewModel: AnalyticsViewModel) {
         self.viewModel = viewModel
     }
@@ -55,48 +56,47 @@ struct AnalyticsView: View {
     
     private var progressOverviewSection: some View {
         CustomSectionView(header: "Overview") {
-            LazyVGrid(
-                columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 3),
-                spacing: 12
-            ) {
-                ProgressCard(
-                    title: "In Progress",
-                    value: "\(viewModel.progressSummary?.inProgress ?? 0)",
-                    color: .orange,
-                    icon: "clock"
-                )
+            VStack(spacing: 12) {
+                HStack(spacing: 12) {
+                    ProgressCard(
+                        title: "In Progress",
+                        value: "\(viewModel.progressSummary?.inProgress ?? 0)",
+                        color: .orange,
+                        icon: "clock"
+                    )
+                    ProgressCard(
+                        title: "Mastered",
+                        value: "\(viewModel.progressSummary?.mastered ?? 0)",
+                        color: .green,
+                        icon: "checkmark.circle"
+                    )
+                    ProgressCard(
+                        title: "Need Review",
+                        value: "\(viewModel.progressSummary?.needsReview ?? 0)",
+                        color: .red,
+                        icon: "exclamationmark.triangle"
+                    )
+                }
+                HStack(spacing: 12) {
+                    StatCard(
+                        title: "Practice Time",
+                        value: viewModel.totalPracticeTimeFormatted,
+                        icon: "clock.fill"
+                    )
 
-                ProgressCard(
-                    title: "Mastered",
-                    value: "\(viewModel.progressSummary?.mastered ?? 0)",
-                    color: .green,
-                    icon: "checkmark.circle"
-                )
+                    StatCard(
+                        title: "Accuracy",
+                        value: viewModel.averageAccuracyFormatted,
+                        icon: "target"
+                    )
 
-                ProgressCard(
-                    title: "Need Review",
-                    value: "\(viewModel.progressSummary?.needsReview ?? 0)",
-                    color: .red,
-                    icon: "exclamationmark.triangle"
-                )
-
-                StatCard(
-                    title: "Practice Time",
-                    value: viewModel.totalPracticeTimeFormatted,
-                    icon: "clock.fill"
-                )
-
-                StatCard(
-                    title: "Accuracy",
-                    value: viewModel.averageAccuracyFormatted,
-                    icon: "target"
-                )
-
-                StatCard(
-                    title: "Sessions",
-                    value: "\(viewModel.progressSummary?.totalSessions ?? 0)",
-                    icon: "play.circle"
-                )
+                    StatCard(
+                        title: "Sessions",
+                        value: "\(viewModel.progressSummary?.totalSessions ?? 0)",
+                        icon: "play.circle"
+                    )
+                }
+                .reservedForPro(message: "Upgrade to Pro to see full progress details.")
             }
         }
     }
@@ -120,7 +120,11 @@ struct AnalyticsView: View {
             }
         } trailingContent: {
             HeaderButton(text: "View All") {
-                viewModel.output.send(.showQuizResultsDetail)
+                if subscriptionService.isProUser {
+                    viewModel.output.send(.showQuizResultsDetail)
+                } else {
+                    PaywallService.shared.isShowingPaywall = true
+                }
             }
         }
     }
@@ -144,16 +148,19 @@ struct AnalyticsView: View {
                     VocabularyLineChart(data: viewModel.vocabularyGrowthData)
                         .frame(height: 200)
                 }
+                .reservedForPro(message: "Upgrade to Pro to see full vocabulary growth details.")
             }
         } trailingContent: {
-            Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
-                ForEach(TimePeriod.allCases, id: \.self) { period in
-                    Text(period.displayName).tag(period)
+            if subscriptionService.isProUser {
+                Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
+                    ForEach(TimePeriod.allCases, id: \.self) { period in
+                        Text(period.displayName).tag(period)
+                    }
                 }
+                .pickerStyle(.menu)
+                .buttonStyle(.bordered)
+                .clipShape(Capsule())
             }
-            .pickerStyle(.menu)
-            .buttonStyle(.bordered)
-            .clipShape(Capsule())
         }
     }
 }

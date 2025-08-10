@@ -16,6 +16,8 @@ struct SettingsView: View {
     @ObservedObject var viewModel: SettingsViewModel
     @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
     @StateObject private var authenticationService = AuthenticationService.shared
+    @StateObject private var subscriptionService = SubscriptionService.shared
+    @StateObject private var paywallService = PaywallService.shared
 
     init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
@@ -205,7 +207,11 @@ struct SettingsView: View {
                 ) {
                     VStack(spacing: 8) {
                         Button {
-                            viewModel.isImporting = true
+                            if subscriptionService.isProUser {
+                                viewModel.isImporting = true
+                            } else {
+                                paywallService.isShowingPaywall = true
+                            }
                             AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
                         } label: {
                             Label("Import words", systemImage: "square.and.arrow.down")
@@ -215,7 +221,11 @@ struct SettingsView: View {
                         .buttonStyle(.bordered)
                         .clipShape(RoundedRectangle(cornerRadius: 16))
                         Button {
-                            viewModel.exportWords()
+                            if subscriptionService.isProUser {
+                                viewModel.exportWords()
+                            } else {
+                                paywallService.isShowingPaywall = true
+                            }
                             AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
                         } label: {
                             Label("Export words", systemImage: "square.and.arrow.up")
@@ -224,6 +234,14 @@ struct SettingsView: View {
                         }
                         .buttonStyle(.bordered)
                         .clipShape(RoundedRectangle(cornerRadius: 16))
+                        
+                        if !subscriptionService.isProUser {
+                            Text("Free users can export up to \(AppConfig.Features.freeUserExportLimit) words")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.top, 4)
+                        }
                     }
                     .padding(.bottom, 12)
                 }

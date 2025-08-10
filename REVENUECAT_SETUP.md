@@ -85,16 +85,29 @@ The project already includes RevenueCat as a dependency. If you need to add it m
 .package(url: "https://github.com/RevenueCat/purchases-ios.git", from: "4.0.0")
 ```
 
-### 3.2 Update API Key
-Replace the placeholder API key in `SubscriptionService.swift`:
+### 3.2 Update API Keys
+
+#### Step 1: Get Your API Keys
+1. Go to [RevenueCat Dashboard](https://app.revenuecat.com/)
+2. Select your project
+3. Go to **Project Settings** → **API Keys**
+4. Copy your **Public SDK Key** (starts with `appl_`)
+
+#### Step 2: Configure Your App
+1. Copy `Shared/Config/AppConfig.template.swift` to `Shared/Config/AppConfig.swift`
+2. Replace the placeholder values with your actual API keys:
 
 ```swift
-Purchases.configure(
-    with: Configuration.Builder(withAPIKey: "YOUR_ACTUAL_API_KEY")
-        .with(usesStoreKit2IfAvailable: true)
-        .build()
-)
+struct RevenueCat {
+    static let publicSDKKey = "appl_YOUR_ACTUAL_PUBLIC_SDK_KEY"
+    static let secretAPIKey = "sk_YOUR_ACTUAL_SECRET_API_KEY"
+}
 ```
+
+**Important Security Notes:**
+- The **Public SDK Key** is safe to include in your app code
+- The **Secret API Key** should only be used for server-side operations
+- Never commit `AppConfig.swift` to version control (it's already in `.gitignore`)
 
 ### 3.3 Verify Implementation
 The following files have been created/modified:

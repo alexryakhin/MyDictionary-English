@@ -73,6 +73,7 @@ extension View {
         } label: {
             self
         }
+        .buttonStyle(.plain)
     }
 
     func errorReceived(title: String = "Error", _ error: Error) {
