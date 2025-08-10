@@ -30,6 +30,8 @@ struct IdiomListCellView: View {
                 .frame(sideLength: 12)
                 .foregroundStyle(.secondary)
         }
+        .padding(vertical: 12, horizontal: 16)
+        .background(Color(.secondarySystemGroupedBackground))
     }
 
     struct Model {

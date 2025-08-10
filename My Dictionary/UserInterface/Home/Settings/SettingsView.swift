@@ -42,6 +42,8 @@ struct SettingsView: View {
                             .buttonStyle(.bordered)
                             .clipShape(.capsule)
                         }
+                        .padding(vertical: 12, horizontal: 16)
+                        .clippedWithBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
                     }
                 }
 
@@ -49,10 +51,9 @@ struct SettingsView: View {
 
                 CustomSectionView(
                     header: "Notifications",
-                    footer: "Daily reminders only send if you haven't opened the app that day.",
-                    hPadding: .zero
+                    footer: "Daily reminders only send if you haven't opened the app that day."
                 ) {
-                    FormWithDivider {
+                    VStack(spacing: 8) {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("Daily Reminders")
@@ -72,6 +73,7 @@ struct SettingsView: View {
                                 }
                         }
                         .padding(vertical: 12, horizontal: 16)
+                        .clippedWithBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
 
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
@@ -92,6 +94,7 @@ struct SettingsView: View {
                                 }
                         }
                         .padding(vertical: 12, horizontal: 16)
+                        .clippedWithBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
                     }
                     .padding(.bottom, 12)
                 }
@@ -125,6 +128,8 @@ struct SettingsView: View {
                                 .tint(.red)
                             }
                         }
+                        .padding(vertical: 12, horizontal: 16)
+                        .clippedWithBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
                         .padding(.bottom, 12)
                     } else {
                         VStack(alignment: .leading, spacing: 8) {
@@ -137,10 +142,6 @@ struct SettingsView: View {
                             }
                             .buttonStyle(.bordered)
                             .clipShape(RoundedRectangle(cornerRadius: 16))
-
-                            Text("Local mode - words saved on this device only")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
                         }
                         .padding(.bottom, 12)
                     }
@@ -153,6 +154,17 @@ struct SettingsView: View {
                     footer: "Create and manage tags to organize your words, and add collaborators to share words with."
                 ) {
                     VStack(spacing: 8) {
+                        HStack {
+                            Text("Show Idioms Tab")
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Spacer()
+                            Toggle("Show Idioms Tab", isOn: $viewModel.showIdiomsTab)
+                                .labelsHidden()
+                        }
+                        .padding(vertical: 12, horizontal: 16)
+                        .clippedWithBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
+
                         Button {
                             viewModel.output.send(.showTagManagement)
                         } label: {

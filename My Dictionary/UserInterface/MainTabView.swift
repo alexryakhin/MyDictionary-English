@@ -106,8 +106,8 @@ struct MainTabView: View {
             ChooseDefinitionQuizContentView(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
         case .wordDetails(let config):
             WordDetailsContentView(config: config)
-        case .addExistingWordToShared(let config):
-            AddExistingWordToSharedView(config: config)
+        case .addExistingWordToShared(let word):
+            AddExistingWordToSharedView(word: word)
         case .idiomDetails(let idiom):
             IdiomDetailsContentView(idiom: idiom)
         case .sharedDictionaryWords(let dictionary):

@@ -85,9 +85,11 @@ final class CSVManager {
             newWord.ownerId = authenticationService.userId
 
             let examplesArray = columns[7].components(separatedBy: ";")
-            let examplesData = try JSONEncoder().encode(examplesArray)
-            newWord.examples = examplesData
-            
+            if examplesArray.isNotEmpty {
+                let examplesData = try JSONEncoder().encode(examplesArray)
+                newWord.examples = examplesData
+            }
+
             // Handle languageCode (new field, might not exist in old CSV files)
             if columns.count > 8 {
                 newWord.languageCode = columns[8]

@@ -10,7 +10,9 @@ import Foundation
 enum UDKeys {
     static let isShowingRating = "isShowingRating"
     static let isShowingOnboarding = "isShowingOnboarding"
-    
+
+    static let showIdiomsTab = "showIdiomsTab"
+
     // Notification Settings
     static let dailyRemindersEnabled = "dailyRemindersEnabled"
     static let difficultWordsEnabled = "difficultWordsEnabled"

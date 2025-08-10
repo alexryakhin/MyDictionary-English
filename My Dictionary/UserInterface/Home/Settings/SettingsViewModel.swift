@@ -18,6 +18,7 @@ final class SettingsViewModel: BaseViewModel {
 
     @AppStorage(UDKeys.dailyRemindersEnabled) var dailyRemindersEnabled: Bool = false
     @AppStorage(UDKeys.difficultWordsAlertsEnabled) var difficultWordsEnabled: Bool = false
+    @AppStorage(UDKeys.showIdiomsTab) var showIdiomsTab: Bool = false
     @AppStorage(UDKeys.selectedEnglishAccent) var selectedEnglishAccent: EnglishAccent = .american
 
     @Published var isImporting = false

@@ -17,7 +17,7 @@ struct AuthenticationView: View {
     @State private var showingAccountLinking = false
 
     var body: some View {
-        VStack(spacing: 32) {
+        VStack(spacing: 0) {
                 Spacer()
 
                 // Header
@@ -103,15 +103,16 @@ struct AuthenticationView: View {
                     }
                 }
         }
-        .navigationTitle("Sign In")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Cancel") {
+        .groupedBackground()
+        .navigation(
+            title: "Sign In",
+            mode: .inline,
+            trailingContent: {
+                HeaderButton(text: "Cancel") {
                     dismiss()
                 }
             }
-        }
+        )
         .onChange(of: authService.authenticationState) { state in
             if state == .signedIn {
                 dismiss()

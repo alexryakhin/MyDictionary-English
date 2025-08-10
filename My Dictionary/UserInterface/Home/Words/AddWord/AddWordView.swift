@@ -83,7 +83,7 @@ struct AddWordView: View {
             TagSelectionView(selectedTags: $viewModel.selectedTags)
         }
         .sheet(isPresented: $showingDictionarySelection) {
-            SharedDictionarySelectionView { dictionaryId in
+            SharedDictionarySelectionView(selectedDictionaryId: selectedDictionaryId) { dictionaryId in
                 selectedDictionaryId = dictionaryId
             }
         }

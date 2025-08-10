@@ -84,7 +84,7 @@ extension View {
     }
 
     func groupedBackground() -> some View {
-        self.background(Color(.systemGroupedBackground))
+        self.background(Color(.systemGroupedBackground).ignoresSafeArea())
     }
 }
 

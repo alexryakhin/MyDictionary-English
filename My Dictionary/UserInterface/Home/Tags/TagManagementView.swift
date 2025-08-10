@@ -104,9 +104,10 @@ struct TagRowView: View {
                 }
             } label: {
                 Image(systemName: "ellipsis")
+                    .padding(4)
+                    .background(Color.gray.opacity(0.01))
             }
             .foregroundStyle(.secondary)
-            .contentShape(Rectangle())
         }
     }
 }

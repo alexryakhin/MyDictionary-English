@@ -19,7 +19,7 @@ struct IdiomDetailsContentView: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 24) {
+            LazyVStack(spacing: 12) {
                 idiomSectionView
                 definitionSectionView
                 examplesSectionView
@@ -60,14 +60,13 @@ struct IdiomDetailsContentView: View {
     }
 
     private var idiomSectionView: some View {
-        CustomSectionView(header: "Idiom") {
+        CustomSectionView(header: "Idiom", headerFontStyle: .stealth) {
             TextField("Idiom", text: Binding(
                 get: { idiom.idiomItself ?? "" },
                 set: { idiom.idiomItself = $0 }
             ), axis: .vertical)
                 .font(.system(.headline, design: .rounded))
                 .focused($isIdiomInputFocused)
-                .clippedWithPaddingAndBackground()
         } trailingContent: {
             if isIdiomInputFocused {
                 HeaderButton(text: "Done") {
@@ -84,13 +83,12 @@ struct IdiomDetailsContentView: View {
     }
 
     private var definitionSectionView: some View {
-        CustomSectionView(header: "Definition") {
+        CustomSectionView(header: "Definition", headerFontStyle: .stealth) {
             TextField("Definition", text: Binding(
                 get: { idiom.definition ?? "" },
                 set: { idiom.definition = $0 }
             ), axis: .vertical)
                 .focused($isDefinitionFocused)
-                .clippedWithPaddingAndBackground()
         } trailingContent: {
             if isDefinitionFocused {
                 HeaderButton(text: "Done") {
@@ -108,65 +106,94 @@ struct IdiomDetailsContentView: View {
     }
 
     private var examplesSectionView: some View {
-        CustomSectionView(header: "Examples") {
-            FormWithDivider {
-                ForEach(Array(idiom.examplesDecoded.enumerated()), id: \.offset) { index, example in
-                    Text(example)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .clippedWithPaddingAndBackground()
-                        .contextMenu {
-                            Button {
-                                play(example)
-                                AnalyticsService.shared.logEvent(.idiomExamplePlayed)
-                            } label: {
-                                Label("Listen", systemImage: "speaker.wave.2.fill")
-                            }
-                            Button {
-                                exampleTextFieldStr = example
-                                editingExampleIndex = index
-                                AnalyticsService.shared.logEvent(.idiomExampleChangeButtonTapped)
-                            } label: {
-                                Label("Edit", systemImage: "pencil")
-                            }
-                            Section {
-                                Button(role: .destructive) {
-                                    removeExample(at: index)
-                                    AnalyticsService.shared.logEvent(.idiomExampleRemoved)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                            }
-                        }
-                }
-                if isAddingExample {
-                    HStack {
-                        TextField("Type an example here", text: $exampleTextFieldStr, axis: .vertical)
-                            .focused($isAddExampleFocused)
+        CustomSectionView(
+            header: "Examples",
+            headerFontStyle: .stealth,
+            hPadding: 0
+        ) {
+            if idiom.examplesDecoded.isNotEmpty {
+                FormWithDivider {
+                    ForEach(Array(idiom.examplesDecoded.enumerated()), id: \.offset) { index, example in
+                        HStack {
+                            Text(example)
+                                .frame(maxWidth: .infinity, alignment: .leading)
 
-                        if isAddExampleFocused {
-                            Button {
-                                addExample(exampleTextFieldStr)
-                                isAddingExample = false
-                                exampleTextFieldStr = .empty
-                                AnalyticsService.shared.logEvent(.idiomExampleAdded)
+                            Menu {
+                                Button {
+                                    play(example)
+                                    AnalyticsService.shared.logEvent(.idiomExamplePlayed)
+                                } label: {
+                                    Label("Listen", systemImage: "speaker.wave.2.fill")
+                                }
+                                Button {
+                                    exampleTextFieldStr = example
+                                    editingExampleIndex = index
+                                    AnalyticsService.shared.logEvent(.idiomExampleChangeButtonTapped)
+                                } label: {
+                                    Label("Edit", systemImage: "pencil")
+                                }
+                                Section {
+                                    Button(role: .destructive) {
+                                        removeExample(at: index)
+                                        AnalyticsService.shared.logEvent(.idiomExampleRemoved)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                }
                             } label: {
-                                Image(systemName: "checkmark.rectangle.portrait.fill")
+                                Image(systemName: "ellipsis")
+                                    .foregroundStyle(.secondary)
+                                    .padding(6)
+                                    .background(Color.black.opacity(0.01))
                             }
                         }
+                        .padding(vertical: 12, horizontal: 16)
+                        .contentShape(RoundedRectangle(cornerRadius: 16))
                     }
-                    .padding(vertical: 12, horizontal: 16)
-                } else {
-                    Button("Add example", systemImage: "plus") {
-                        withAnimation {
-                            isAddingExample.toggle()
-                            AnalyticsService.shared.logEvent(.idiomAddExampleTapped)
-                        }
-                    }
+                }
+            } else {
+                Text("No examples yet")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(vertical: 12, horizontal: 16)
+                    .padding(.horizontal, 16)
+            }
+
+            if isAddingExample {
+                InputView(
+                    "Type an example here",
+                    submitLabel: .done,
+                    text: $exampleTextFieldStr,
+                    onSubmit: {
+                        addExample(exampleTextFieldStr)
+                        isAddingExample = false
+                        exampleTextFieldStr = .empty
+                        AnalyticsService.shared.logEvent(.idiomExampleAdded)
+                    },
+                    trailingButtonLabel: "Cancel"
+                ) {
+                    // On cancel
+                    isAddExampleFocused = false
+                    isAddingExample = false
+                    exampleTextFieldStr = .empty
+                }
+                .padding(.top, 12)
+                .padding(.horizontal, 16)
+            }
+        } trailingContent: {
+            if isAddingExample {
+                HeaderButton(text: "Save", icon: "checkmark") {
+                    addExample(exampleTextFieldStr)
+                    isAddingExample = false
+                    exampleTextFieldStr = .empty
+                    AnalyticsService.shared.logEvent(.idiomExampleAdded)
+                }
+            } else {
+                HeaderButton(text: "Add example", icon: "plus") {
+                    withAnimation {
+                        isAddingExample.toggle()
+                        AnalyticsService.shared.logEvent(.idiomAddExampleTapped)
+                    }
                 }
             }
-            .clippedWithBackground()
         }
     }
 
@@ -176,7 +203,7 @@ struct IdiomDetailsContentView: View {
         do {
             try CoreDataService.shared.saveContext()
         } catch {
-            // Handle error if needed
+            errorReceived(error)
         }
     }
 
@@ -190,7 +217,7 @@ struct IdiomDetailsContentView: View {
                     targetLanguage: Locale.current.language.languageCode?.identifier
                 )
             } catch {
-                // Handle error if needed
+                errorReceived(error)
             }
         }
     }
@@ -240,6 +267,4 @@ struct IdiomDetailsContentView: View {
         saveContext()
         AnalyticsService.shared.logEvent(.idiomRemoved)
     }
-
-    // Removed dismissPublisher - no longer needed
 }

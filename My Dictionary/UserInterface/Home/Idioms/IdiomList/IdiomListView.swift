@@ -18,94 +18,83 @@ struct IdiomListView: View {
     }
 
     var body: some View {
-        List {
-            if filteredIdioms.isNotEmpty {
-                Section {
-                    ForEach(filteredIdioms) { idiomModel in
-                        Button {
-                            viewModel.output.send(.showIdiomDetails(idiomModel))
-                        } label: {
-                            IdiomListCellView(idiom: idiomModel)
-                        }
-                        .buttonStyle(.plain)
-                        .contextMenu {
-                            Button(role: .destructive) {
-                                viewModel.handle(.deleteIdiom(idiom: idiomModel))
+        ScrollView {
+            VStack(spacing: 16) {
+                if viewModel.filterState == .search && filteredIdioms.count < 10 {
+                    Button {
+                        viewModel.output.send(.showAddIdiom)
+                    } label: {
+                        Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .clippedWithPaddingAndBackground()
+                    }
+                }
+
+                CustomSectionView(
+                    header: filterStateTitle,
+                    footer: idiomsCount,
+                    hPadding: .zero
+                ) {
+                    if filteredIdioms.isNotEmpty {
+                        ListWithDivider(filteredIdioms) { idiomModel in
+                            Button {
+                                viewModel.output.send(.showIdiomDetails(idiomModel))
                             } label: {
-                                Label("Delete", systemImage: "trash")
+                                IdiomListCellView(idiom: idiomModel)
+                                    .id(idiomModel.id)
+                            }
+                            .buttonStyle(.plain)
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                    viewModel.handle(.deleteIdiom(idiom: idiomModel))
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
                             }
                         }
-                        .tag(idiomModel)
+                    } else if viewModel.searchText.isNotEmpty {
+                        ContentUnavailableView(
+                            "No idioms found",
+                            systemImage: "magnifyingglass",
+                            description: Text("Add this idiom by tapping on the button above")
+                        )
+                    } else {
+                        ContentUnavailableView(
+                            "No idioms yet",
+                            systemImage: "quote.bubble",
+                            description: Text("Begin to add idioms to your list by tapping on plus icon in upper left corner")
+                        )
                     }
-                } header: {
-                    Text(filterStateTitle)
-                } footer: {
-                    Text(idiomsCount)
+                } trailingContent: {
+                    HeaderButton(text: "Add idiom", icon: "plus", style: .borderedProminent) {
+                        viewModel.output.send(.showAddIdiom)
+                    }
                 }
             }
-
-            if viewModel.filterState == .search && filteredIdioms.count < 10 {
-                Button {
-                    viewModel.output.send(.showAddIdiom)
-                } label: {
-                    Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .clippedWithPaddingAndBackground()
-                }
-            }
+            .padding(.horizontal, 16)
         }
         .groupedBackground()
-        .overlay {
-            if !filteredIdioms.isNotEmpty {
-                ContentUnavailableView(
-                    "No idioms yet",
-                    systemImage: "quote.bubble",
-                    description: Text("Begin to add idioms to your list by tapping on plus icon in upper left corner")
-                )
-                .groupedBackground()
-            }
-        }
         .navigation(
             title: "Idioms",
             mode: .large,
             trailingContent: {
-                HStack {
-                    Menu {
-                        Picker(selection: _viewModel.projectedValue.sortingState) {
-                            ForEach(SortingCase.idiomsSortingCases, id: \.self) { item in
-                                Text(item.rawValue)
-                                    .tag(item)
-                            }
-                        } label: {
-                            Text("Sort")
-                        }
-                        Picker(selection: _viewModel.projectedValue.filterState) {
-                            ForEach(IdiomFilterCase.availableCases, id: \.self) { item in
-                                Text(item.rawValue)
-                                    .tag(item)
-                            }
-                        } label: {
-                            Text("Filter")
+                HeaderButtonMenu(icon: "ellipsis.circle") {
+                    Picker(selection: _viewModel.projectedValue.sortingState) {
+                        ForEach(SortingCase.idiomsSortingCases, id: \.self) { item in
+                            Text(item.rawValue)
+                                .tag(item)
                         }
                     } label: {
-                        Image(systemName: "ellipsis.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 16, height: 16)
+                        Text("Sort")
                     }
-                    .buttonStyle(.bordered)
-                    .clipShape(Capsule())
-                    
-                    Button {
-                        viewModel.output.send(.showAddIdiom)
+                    Picker(selection: _viewModel.projectedValue.filterState) {
+                        ForEach(IdiomFilterCase.availableCases, id: \.self) { item in
+                            Text(item.rawValue)
+                                .tag(item)
+                        }
                     } label: {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 16, height: 16)
+                        Text("Filter")
                     }
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
                 }
             },
             bottomContent: {
