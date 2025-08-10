@@ -23,11 +23,11 @@ struct AnalyticsView: View {
                         .scaleEffect(1.5)
                     Text("Loading progress data...")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                LazyVStack(spacing: 24) {
+                LazyVStack(spacing: 16) {
                     // Progress Overview
                     progressOverviewSection
 
@@ -40,7 +40,7 @@ struct AnalyticsView: View {
                 .padding(.horizontal, 16)
             }
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(title: "Progress", mode: .large)
         .refreshable {
             viewModel.refreshData()
@@ -62,7 +62,7 @@ struct AnalyticsView: View {
                 ProgressCard(
                     title: "In Progress",
                     value: "\(viewModel.progressSummary?.inProgress ?? 0)",
-                    color: .blue,
+                    color: .orange,
                     icon: "clock"
                 )
 
@@ -76,7 +76,7 @@ struct AnalyticsView: View {
                 ProgressCard(
                     title: "Need Review",
                     value: "\(viewModel.progressSummary?.needsReview ?? 0)",
-                    color: .orange,
+                    color: .red,
                     icon: "exclamationmark.triangle"
                 )
 
@@ -139,7 +139,7 @@ struct AnalyticsView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Last \(viewModel.selectedTimePeriod.displayName.lowercased())")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
 
                     VocabularyLineChart(data: viewModel.vocabularyGrowthData)
                         .frame(height: 200)

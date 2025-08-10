@@ -37,7 +37,7 @@ struct CellWrapper<LeadingContent: View, MainContent: View, TrailingContent: Vie
                 if let label {
                     Text(label)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.leading)
                 }
                 mainContent()

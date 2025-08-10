@@ -17,12 +17,12 @@ struct SignOutConfirmationView: View {
             VStack(spacing: 16) {
                 ZStack {
                     Circle()
-                        .fill(Color.blue.opacity(0.2))
+                        .fill(Color.accent.opacity(0.2))
                         .frame(width: 80, height: 80)
 
                     Image(systemName: "person.crop.circle.badge.minus")
                         .font(.system(size: 32))
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.accent)
                 }
 
                 Text("Sign Out")
@@ -36,7 +36,7 @@ struct SignOutConfirmationView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
                         Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.green)
+                            .foregroundStyle(.green)
                             .font(.title3)
 
                         Text("Your words are safe")
@@ -46,7 +46,7 @@ struct SignOutConfirmationView: View {
 
                     Text("All your vocabulary words, definitions, and progress will remain on this device. You can continue using the app offline.")
                         .font(.body)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.leading)
                 }
                 .padding(.horizontal)
@@ -55,7 +55,7 @@ struct SignOutConfirmationView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
                         Image(systemName: "arrow.triangle.2.circlepath")
-                            .foregroundColor(.orange)
+                            .foregroundStyle(.orange)
                             .font(.title3)
 
                         Text("Cloud sync will be disabled")
@@ -65,7 +65,7 @@ struct SignOutConfirmationView: View {
 
                     Text("Word lists and shared data will be cleared. If you sign in with another account, your local words will be combined with the new account's data.")
                         .font(.body)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.leading)
                 }
                 .padding(.horizontal)
@@ -84,7 +84,7 @@ struct SignOutConfirmationView: View {
                         Text("Sign Out")
                     }
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
                     .background(Color.red)
@@ -96,7 +96,7 @@ struct SignOutConfirmationView: View {
                 } label: {
                     Text("Cancel")
                         .font(.headline)
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
                         .frame(maxWidth: .infinity)
                         .frame(height: 50)
                         .background(Color(.systemGray5))

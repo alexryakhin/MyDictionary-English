@@ -28,13 +28,13 @@ struct SettingsFlow: View {
     private func handleOutput(_ output: SettingsViewModel.Output) {
         switch output {
         case .showAboutApp:
-            navigationPath.append("about_app")
+            navigationPath.append(NavigationDestination.aboutApp)
         case .showTagManagement:
-            navigationPath.append("tag_management")
+            navigationPath.append(NavigationDestination.tagManagement)
         case .showSharedDictionaries:
-            navigationPath.append("shared_dictionaries")
+            navigationPath.append(NavigationDestination.sharedDictionariesList)
         case .showAuthentication:
-            navigationPath.append("authentication")
+            navigationPath.append(NavigationDestination.authentication)
         }
     }
 }

@@ -34,7 +34,7 @@ struct ChooseDefinitionQuizContentView: View {
                         
                         Text(errorMessage)
                             .font(.body)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
                             .lineSpacing(4)
                     }
@@ -48,7 +48,7 @@ struct ChooseDefinitionQuizContentView: View {
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(.accent.gradient)
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
                     .padding(.horizontal, 32)
@@ -114,12 +114,12 @@ struct ChooseDefinitionQuizContentView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Progress: \(viewModel.questionsAnswered)/\(viewModel.wordCount)")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     
                     if viewModel.currentStreak > 0 {
                         Text("🔥 Streak: \(viewModel.currentStreak)")
                             .font(.caption)
-                            .foregroundColor(.orange)
+                            .foregroundStyle(.orange)
                             .fontWeight(.medium)
                     }
                 }
@@ -130,11 +130,11 @@ struct ChooseDefinitionQuizContentView: View {
                     Text("Score: \(viewModel.score)")
                         .font(.caption)
                         .fontWeight(.medium)
-                        .foregroundColor(.green)
+                        .foregroundStyle(.green)
                     
                     Text("Best: \(viewModel.bestStreak)")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
             }
         }
@@ -145,7 +145,7 @@ struct ChooseDefinitionQuizContentView: View {
             HStack {
                 Image(systemName: "textformat")
                     .font(.title2)
-                    .foregroundColor(.green)
+                    .foregroundStyle(.green)
                 
                 Text("Word")
                     .font(.headline)
@@ -166,7 +166,7 @@ struct ChooseDefinitionQuizContentView: View {
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(.green.opacity(0.2))
-                        .foregroundColor(.green)
+                        .foregroundStyle(.green)
                         .clipShape(Capsule())
                     
                     Spacer()
@@ -183,7 +183,7 @@ struct ChooseDefinitionQuizContentView: View {
             HStack {
                 Image(systemName: "list.bullet.circle")
                     .font(.title2)
-                    .foregroundColor(.blue)
+                    .foregroundStyle(.accent)
                 
                 Text("Choose the Correct Definition")
                     .font(.headline)
@@ -202,7 +202,7 @@ struct ChooseDefinitionQuizContentView: View {
                         HStack {
                             Text(viewModel.words[index].definition ?? "")
                                 .font(.body)
-                                .foregroundColor(.primary)
+                                .foregroundStyle(.primary)
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(3)
                             
@@ -210,7 +210,7 @@ struct ChooseDefinitionQuizContentView: View {
                             
                             Image(systemName: "chevron.right")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                         .clippedWithPaddingAndBackground(backgroundColor(for: index), cornerRadius: 12)
                         .overlay(
@@ -226,11 +226,11 @@ struct ChooseDefinitionQuizContentView: View {
             if case .incorrect = viewModel.answerFeedback {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundColor(.red)
+                        .foregroundStyle(.red)
                     
                     Text("Incorrect! Moving to next question...")
                         .font(.caption)
-                        .foregroundColor(.red)
+                        .foregroundStyle(.red)
                     
                     Spacer()
                 }
@@ -273,7 +273,7 @@ struct ChooseDefinitionQuizContentView: View {
                     Image(systemName: "checkmark")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                 }
                 
                 VStack(spacing: 12) {
@@ -283,7 +283,7 @@ struct ChooseDefinitionQuizContentView: View {
                     
                     Text("Great job! You've completed the definition quiz.")
                         .font(.body)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                 }
                 
@@ -299,7 +299,7 @@ struct ChooseDefinitionQuizContentView: View {
                             Spacer()
                             Text("\(viewModel.score)")
                                 .fontWeight(.bold)
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                         }
                         
                         HStack {
@@ -314,7 +314,7 @@ struct ChooseDefinitionQuizContentView: View {
                             Spacer()
                             Text("\(viewModel.bestStreak)")
                                 .fontWeight(.medium)
-                                .foregroundColor(.orange)
+                                .foregroundStyle(.orange)
                         }
                         
                         HStack {
@@ -322,7 +322,7 @@ struct ChooseDefinitionQuizContentView: View {
                             Spacer()
                             Text("\(Int((Double(viewModel.correctAnswers) / Double(viewModel.wordsPlayed.count)) * 100))%")
                                 .fontWeight(.medium)
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                         }
                     }
                     .font(.body)
@@ -342,7 +342,7 @@ struct ChooseDefinitionQuizContentView: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(.green.gradient)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
                 
@@ -354,7 +354,7 @@ struct ChooseDefinitionQuizContentView: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(.ultraThinMaterial)
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
             }
@@ -362,7 +362,7 @@ struct ChooseDefinitionQuizContentView: View {
             
             Spacer()
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
     }
 
     private func backgroundColor(for index: Int) -> Color {

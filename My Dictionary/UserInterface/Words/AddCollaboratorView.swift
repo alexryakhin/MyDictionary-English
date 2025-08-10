@@ -8,64 +8,94 @@
 import SwiftUI
 
 struct AddCollaboratorView: View {
-    @StateObject var dictionaryService: DictionaryService = .shared
-    let dictionaryId: String
-    @State private var email = ""
-    @State private var role: CollaboratorRole = .editor
     @Environment(\.dismiss) var dismiss
 
-    var body: some View {
-        Form {
-            Section(header: Text("Collaborator Details")) {
-                TextField("Email Address", text: $email)
-                    .keyboardType(.emailAddress)
-                    .autocapitalization(.none)
-                    .autocorrectionDisabled()
+    @StateObject var dictionaryService: DictionaryService = .shared
+    @State private var email = ""
+    @State private var role: CollaboratorRole = .editor
+    @State private var isLoading = false
 
-                Picker("Role", selection: $role) {
-                    ForEach(CollaboratorRole.allCases, id: \.self) { role in
-                        Text(role.displayValue)
-                            .tag(role.rawValue)
+    let dictionaryId: String
+
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 16) {
+                CustomSectionView(header: "Collaborator Details") {
+                    VStack(spacing: 12) {
+                        TextField("Email Address", text: $email)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .autocorrectionDisabled()
+                            .padding(vertical: 8, horizontal: 12)
+                            .background(Color(.tertiarySystemGroupedBackground))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+
+                        Picker("Role", selection: $role) {
+                            ForEach(CollaboratorRole.allCases, id: \.self) { role in
+                                Text(role.displayValue)
+                                    .tag(role.rawValue)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
-            }
 
-            Section(header: Text("Role Permissions")) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Editor:")
-                        .font(.headline)
-                    Text("• Can add, edit, and delete words")
-                    Text("• Can invite other collaborators")
-                    Text("• Can manage dictionary settings")
-                }
-                .foregroundColor(.secondary)
+                CustomSectionView(header: "Role Permissions", hPadding: .zero) {
+                    FormWithDivider {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Editor:")
+                                .font(.headline)
+                            Text("• Can add, edit, and delete words")
+                            Text("• Can invite other collaborators")
+                            Text("• Can manage dictionary settings")
+                        }
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(vertical: 12, horizontal: 16)
 
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Viewer:")
-                        .font(.headline)
-                    Text("• Can view all words")
-                    Text("• Cannot make changes")
-                    Text("• Cannot invite others")
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Viewer:")
+                                .font(.headline)
+                            Text("• Can view all words")
+                            Text("• Cannot make changes")
+                            Text("• Cannot invite others")
+                        }
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(vertical: 12, horizontal: 16)
+                    }
                 }
-                .foregroundColor(.secondary)
             }
-
-            Section {
-                Button("Add Collaborator") {
-                    addCollaborator()
-                }
-                .disabled(email.isEmpty)
-            }
+            .padding(.horizontal, 16)
         }
-        .navigationTitle("Add Collaborator")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("Cancel") {
+        .groupedBackground()
+        .navigation(
+            title: "Add Collaborator",
+            mode: .inline,
+            trailingContent: {
+                HeaderButton(icon: "xmark") {
                     dismiss()
                 }
             }
+        )
+        .safeAreaInset(edge: .bottom) {
+            Button {
+                addCollaborator()
+            } label: {
+                Text("Add Collaborator")
+                    .font(.headline)
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity)
+                    .overlay {
+                        if isLoading {
+                            ProgressView()
+                        }
+                    }
+            }
+            .buttonStyle(.borderedProminent)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .disabled(email.isEmpty || isLoading)
+            .padding(vertical: 12, horizontal: 16)
         }
     }
 
@@ -79,7 +109,11 @@ struct AddCollaboratorView: View {
             showAlertWithMessage("Please enter a valid email address")
             return
         }
-        Task {
+        Task { @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
             do {
                 try await dictionaryService.addCollaborator(
                     dictionaryId: dictionaryId,

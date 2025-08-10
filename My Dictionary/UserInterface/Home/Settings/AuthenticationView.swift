@@ -24,7 +24,7 @@ struct AuthenticationView: View {
                 VStack(spacing: 16) {
                     Image(systemName: "person.circle.fill")
                         .font(.system(size: 80))
-                        .foregroundColor(.accentColor)
+                        .foregroundStyle(.accent)
 
                     Text("Sign in to sync your word lists")
                         .font(.title2)
@@ -33,7 +33,7 @@ struct AuthenticationView: View {
 
                     Text("Sign in to access your word lists across all your devices and collaborate with others.")
                         .font(.body)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 32)
                 }
@@ -85,7 +85,7 @@ struct AuthenticationView: View {
                         dismiss()
                     }
                     .font(.body)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                 }
                 .padding(.horizontal, 32)
 
@@ -95,7 +95,7 @@ struct AuthenticationView: View {
                 VStack(spacing: 8) {
                     Text("You can always sign in later from Settings")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
 
                     if authService.authenticationState == .loading {
                         ProgressView()
@@ -147,7 +147,7 @@ struct AuthenticationView: View {
                         .padding(.vertical, 8)
                         .padding(.horizontal, 12)
                         .background(Color.white)
-                        .foregroundColor(.black)
+                        .foregroundStyle(.black)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color(.systemGray4), lineWidth: 1)
@@ -176,7 +176,7 @@ struct AuthenticationView: View {
                         .padding(.vertical, 8)
                         .padding(.horizontal, 12)
                         .background(Color.black)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                     }
                     .disabled(authService.authenticationState == .loading)
@@ -186,10 +186,10 @@ struct AuthenticationView: View {
             if authService.hasGoogleAccount || authService.hasAppleAccount {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.green)
+                        .foregroundStyle(.green)
                     Text("Accounts linked successfully")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 .padding(.top, 4)
             }

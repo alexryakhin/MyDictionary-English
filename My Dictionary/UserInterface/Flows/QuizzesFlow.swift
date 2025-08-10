@@ -28,9 +28,9 @@ struct QuizzesFlow: View {
     private func handleOutput(_ output: QuizzesListViewModel.Output) {
         switch output {
         case .showSpellingQuiz(let wordCount, let hardWordsOnly):
-            navigationPath.append("spelling_quiz_\(wordCount)_\(hardWordsOnly)")
+            navigationPath.append(NavigationDestination.spellingQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly))
         case .showChooseDefinitionQuiz(let wordCount, let hardWordsOnly):
-            navigationPath.append("choose_definition_quiz_\(wordCount)_\(hardWordsOnly)")
+            navigationPath.append(NavigationDestination.chooseDefinitionQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly))
         }
     }
 }

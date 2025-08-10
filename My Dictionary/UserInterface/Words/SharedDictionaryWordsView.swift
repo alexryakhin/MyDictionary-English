@@ -13,8 +13,9 @@ struct SharedDictionaryWordsView: View {
     @State private var searchText = ""
     @State private var showingAddWord = false
 
-    let dictionary: DictionaryService.SharedDictionary
-    
+    @Binding var navigationPath: NavigationPath
+    @State var dictionary: SharedDictionary
+
     var filteredWords: [CDWord] {
         let sharedWordsForDictionary = wordsProvider.sharedWords.filter { $0.sharedDictionaryId == dictionary.id }
         
@@ -29,78 +30,69 @@ struct SharedDictionaryWordsView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            // Search Bar
-            if !filteredWords.isEmpty {
-                SearchBar(text: $searchText, placeholder: "Search words...")
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-            }
-
-            // Words List
-            if filteredWords.isEmpty {
-                ContentUnavailableView {
-                    Label("No words yet", systemImage: "textformat")
-                } description: {
-                    Text("Add words to this shared dictionary to get started")
-                } actions: {
+        ScrollView {
+            VStack(spacing: 16) {
+                CustomSectionView(
+                    header: "Words",
+                    footer: "\(filteredWords.count) words",
+                    hPadding: .zero
+                ) {
+                    // Words List
+                    if filteredWords.isEmpty {
+                        ContentUnavailableView(
+                            "No words yet",
+                            systemImage: "textformat",
+                            description: Text("Add words to this shared dictionary to get started")
+                        )
+                    } else if filteredWords.isEmpty {
+                        ContentUnavailableView(
+                            "No Results",
+                            systemImage: "magnifyingglass",
+                            description: Text("No words match your search")
+                        )
+                    } else {
+                        ListWithDivider(filteredWords) { word in
+                           Button {
+                               let config = WordDetailsContentView.Config(
+                                    word: word,
+                                    dictionary: dictionary
+                               )
+                               navigationPath.append(NavigationDestination.wordDetails(config))
+                           } label: {
+                               WordListCellView(word: word)
+                           }
+                           .buttonStyle(.plain)
+                       }
+                    }
+                } trailingContent: {
                     if dictionary.canEdit {
-                        Button {
+                        HeaderButton(text: "Add Word", icon: "plus", style: .borderedProminent) {
                             showingAddWord = true
-                        } label: {
-                            Label("Add Word", systemImage: "plus")
-                        }
-                        .buttonStyle(.borderedProminent)
-                    }
-                }
-            } else if filteredWords.isEmpty {
-                ContentUnavailableView(
-                    "No Results",
-                    systemImage: "magnifyingglass",
-                    description: Text("No words match your search")
-                )
-            } else {
-                List {
-                    ForEach(filteredWords) { word in
-                        NavigationLink {
-                            WordDetailsContentView(word: word, dictionary: dictionary)
-                        } label: {
-                            SharedDictionaryWordCell(word: word, dictionary: dictionary)
                         }
                     }
                 }
-                .listStyle(.plain)
             }
+            .padding(.horizontal, 16)
         }
+        .groupedBackground()
         .navigation(
             title: dictionary.name,
-            mode: .large,
+            mode: .inline,
+            showsBackButton: true,
             trailingContent: {
-                HStack {
-                    NavigationLink {
-                        SharedDictionaryDetailsView(dictionary: dictionary)
-                    } label: {
-                        Image(systemName: "info.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 16, height: 16)
-                    }
-                    .buttonStyle(.bordered)
-                    .clipShape(Capsule())
-                    
-                    if dictionary.canEdit {
-                        Button {
-                            showingAddWord = true
-                        } label: {
-                            Image(systemName: "plus")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 16, height: 16)
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(Capsule())
-                    }
+                Button {
+                    navigationPath.append(NavigationDestination.sharedDictionaryDetails(dictionary))
+                } label: {
+                    Image(systemName: "info.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16, height: 16)
                 }
+                .buttonStyle(.bordered)
+                .clipShape(Capsule())
+            },
+            bottomContent: {
+                InputView.searchView("Search words", searchText: $searchText)
             }
         )
         .sheet(isPresented: $showingAddWord) {
@@ -109,107 +101,15 @@ struct SharedDictionaryWordsView: View {
         .onAppear {
             dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionary.id)
         }
-    }
-}
-
-struct SharedDictionaryWordCell: View {
-    @StateObject private var word: CDWord
-    private let dictionary: DictionaryService.SharedDictionary
-
-    init(word: CDWord, dictionary: DictionaryService.SharedDictionary) {
-        self._word = StateObject(wrappedValue: word)
-        self.dictionary = dictionary
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack(spacing: 8) {
-                Text(word.wordItself ?? "")
-                    .bold()
-                    .foregroundColor(.primary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                if word.isFavorite {
-                    Image(systemName: "heart.fill")
-                        .font(.caption)
-                        .foregroundColor(.accentColor)
+        .onChange(of: dictionaryService.sharedDictionaries) { newValue in
+            if let dictionary = newValue.first(where: { $0.id == self.dictionary.id }) {
+                self.dictionary = dictionary
+                if !dictionary.canView {
+                    TabManager.shared.popToRootPublisher.send()
                 }
-
-                // Difficulty label
-                if word.difficultyLevel > 0 {
-                    Image(systemName: word.difficulty.imageName)
-                        .font(.caption)
-                        .foregroundStyle(word.difficulty.color)
-                }
-
-                Text(word.partOfSpeech ?? "")
-                    .foregroundColor(.secondary)
-
-                // Language label
-                Text((word.languageCode ?? "en").uppercased())
-                    .font(.caption2)
-                    .padding(.horizontal, 6)
-                    .padding(.vertical, 2)
-                    .background(Color.blue.opacity(0.2))
-                    .foregroundColor(.blue)
-                    .clipShape(Capsule())
-                
-                Image(systemName: "chevron.right")
-                    .frame(sideLength: 12)
-                    .foregroundColor(.secondary)
-            }
-            
-            Text(word.definition ?? "")
-                .font(.body)
-                .foregroundColor(.secondary)
-                .lineLimit(2)
-            
-            // Tags
-            if !word.tagsArray.isEmpty {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 4) {
-                        ForEach(word.tagsArray, id: \.id) { tag in
-                            Text(tag.name ?? "")
-                                .font(.caption)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(Color.blue.opacity(0.2))
-                                .foregroundColor(.blue)
-                                .clipShape(Capsule())
-                        }
-                    }
-                    .padding(.horizontal, 4)
-                }
+            } else {
+                TabManager.shared.popToRootPublisher.send()
             }
         }
-        .padding(.vertical, 4)
     }
 }
-
-struct SearchBar: View {
-    @Binding var text: String
-    let placeholder: String
-    
-    var body: some View {
-        HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(.secondary)
-            
-            TextField(placeholder, text: $text)
-                .textFieldStyle(.plain)
-            
-            if !text.isEmpty {
-                Button {
-                    text = ""
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.secondary)
-                }
-            }
-        }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 8)
-        .background(Color(.systemGray6))
-        .cornerRadius(10)
-    }
-} 

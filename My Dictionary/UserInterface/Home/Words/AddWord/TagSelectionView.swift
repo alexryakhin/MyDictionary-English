@@ -54,7 +54,7 @@ struct TagSelectionView: View {
             }
             .padding(16)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: "Add Tags",
             mode: .inline,
@@ -85,14 +85,14 @@ struct TagSelectionRow: View {
                 
                 // Tag Name
                 Text(tag.name ?? "")
-                    .foregroundColor(.primary)
+                    .foregroundStyle(.primary)
                 
                 Spacer()
                 
                 // Selection Indicator
                 if isSelected {
                     Image(systemName: "checkmark")
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.accent)
                         .fontWeight(.bold)
                 }
             }

@@ -28,7 +28,7 @@ struct AnalyticsFlow: View {
     private func handleOutput(_ output: AnalyticsViewModel.Output) {
         switch output {
         case .showQuizResultsDetail:
-            navigationPath.append("quiz_results_detail")
+            navigationPath.append(NavigationDestination.quizResultsDetail)
         }
     }
 }

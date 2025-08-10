@@ -15,8 +15,7 @@ struct SettingsView: View {
     @Environment(\.requestReview) var requestReview
     @ObservedObject var viewModel: SettingsViewModel
     @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
-    @StateObject private var authService = AuthenticationService.shared
-    @State private var showingSignOutConfirmation = false
+    @StateObject private var authenticationService = AuthenticationService.shared
 
     init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
@@ -50,9 +49,10 @@ struct SettingsView: View {
 
                 CustomSectionView(
                     header: "Notifications",
-                    footer: "Daily reminders only send if you haven't opened the app that day."
+                    footer: "Daily reminders only send if you haven't opened the app that day.",
+                    hPadding: .zero
                 ) {
-                    VStack(spacing: 8) {
+                    FormWithDivider {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("Daily Reminders")
@@ -60,7 +60,7 @@ struct SettingsView: View {
                                     .fontWeight(.medium)
                                 Text("Get reminded at 8 PM if you haven't opened the app")
                                     .font(.caption)
-                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
 
                             Spacer()
@@ -71,6 +71,7 @@ struct SettingsView: View {
                                     viewModel.updateNotificationSettings()
                                 }
                         }
+                        .padding(vertical: 12, horizontal: 16)
 
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
@@ -79,7 +80,7 @@ struct SettingsView: View {
                                     .fontWeight(.medium)
                                 Text("Get reminded at 4 PM to practice difficult words")
                                     .font(.caption)
-                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
 
                             Spacer()
@@ -90,6 +91,7 @@ struct SettingsView: View {
                                     viewModel.updateNotificationSettings()
                                 }
                         }
+                        .padding(vertical: 12, horizontal: 16)
                     }
                     .padding(.bottom, 12)
                 }
@@ -98,27 +100,27 @@ struct SettingsView: View {
 
                 CustomSectionView(
                     header: "Word Lists & Sync",
-                    footer: authService.isSignedIn
+                    footer: authenticationService.isSignedIn
                     ? "Your word lists are synced across all your devices."
                     : "Sign in to create and share word lists with others."
                 ) {
-                    if authService.isSignedIn {
+                    if authenticationService.isSignedIn {
                         VStack(alignment: .leading, spacing: 8) {
                             HStack {
                                 VStack(alignment: .leading, spacing: 4) {
                                     Text("Signed in as")
                                         .font(.body)
                                         .fontWeight(.medium)
-                                    Text(authService.displayName ?? authService.userEmail ?? "Anonymous")
+                                    Text(authenticationService.displayName ?? authenticationService.userEmail ?? "Anonymous")
                                         .font(.caption)
-                                        .foregroundColor(.secondary)
+                                        .foregroundStyle(.secondary)
                                 }
 
                                 Spacer()
 
                                 HeaderButton(text: "Sign Out", font: .caption) {
                                     HapticManager.shared.triggerSelection()
-                                    showingSignOutConfirmation = true
+                                    authenticationService.toggleSignOutView()
                                 }
                                 .tint(.red)
                             }
@@ -138,7 +140,7 @@ struct SettingsView: View {
 
                             Text("Local mode - words saved on this device only")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                         .padding(.bottom, 12)
                     }
@@ -161,7 +163,7 @@ struct SettingsView: View {
                         .buttonStyle(.bordered)
                         .clipShape(RoundedRectangle(cornerRadius: 16))
 
-                        if authService.isSignedIn {
+                        if authenticationService.isSignedIn {
                             Button {
                                 viewModel.output.send(.showSharedDictionaries)
                             } label: {
@@ -215,36 +217,21 @@ struct SettingsView: View {
                     Button {
                         viewModel.output.send(.showAboutApp)
                     } label: {
-                        Label("About app", systemImage: "info.square")
+                        Label("Learn more", systemImage: "info.circle")
+                            .padding(6)
+                            .frame(maxWidth: .infinity)
                     }
+                    .buttonStyle(.bordered)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
                 }
             }
             .padding(.horizontal, 16)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .multilineTextAlignment(.leading)
         .navigation(title: "Settings", mode: .large)
         .sheet(item: $viewModel.exportWordsUrl) { url in
             ShareSheet(activityItems: [url])
-        }
-        .overlay {
-            if showingSignOutConfirmation {
-                ZStack {
-                    Color.black.opacity(0.3)
-                        .ignoresSafeArea()
-                        .onTapGesture {
-                            showingSignOutConfirmation = false
-                        }
-                    
-                    SignOutAlertView {
-                        Task {
-                            try? await authService.signOut()
-                        }
-                    }
-                }
-                .transition(.opacity)
-                .animation(.easeInOut(duration: 0.2), value: showingSignOutConfirmation)
-            }
         }
         .fileImporter(
             isPresented: $viewModel.isImporting,

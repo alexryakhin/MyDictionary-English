@@ -14,28 +14,44 @@ struct AddSharedDictionaryView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        Form {
-                Section(header: Text("Dictionary Details")) {
-                    TextField("Dictionary Name", text: $name)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+        ScrollView {
+            VStack(spacing: 16) {
+                CustomSectionView(header: "Name") {
+                    TextField("Enter dictionary name", text: $name)
+                        .submitLabel(.done)
+                        .textContentType(.organizationName)
+                        .padding(vertical: 8, horizontal: 12)
+                        .background(Color(.tertiarySystemGroupedBackground))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
-
-                Section {
-                    Button("Create Shared Dictionary") {
-                        createDictionary()
-                    }
-                    .disabled(name.isEmpty)
-                }
+            }
+            .padding(.horizontal, 16)
         }
-        .navigationTitle("New Shared Dictionary")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("Cancel") {
+        .safeAreaInset(edge: .bottom) {
+            Button {
+                createDictionary()
+            } label: {
+                Text("Create Shared Dictionary")
+                    .font(.headline)
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity)
+            }
+            .disabled(name.isEmpty)
+            .buttonStyle(.borderedProminent)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .padding(vertical: 12, horizontal: 16)
+        }
+        .groupedBackground()
+        .navigation(
+            title: "New Shared Dictionary",
+            mode: .inline,
+            trailingContent: {
+                HeaderButton(icon: "xmark") {
                     dismiss()
                 }
             }
-        }
+        )
+        .presentationDetents([.medium])
     }
     
     private func createDictionary() {

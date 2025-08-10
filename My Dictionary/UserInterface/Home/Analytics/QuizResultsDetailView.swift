@@ -13,21 +13,26 @@ struct QuizResultsDetailView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        List {
-            if viewModel.quizSessions.isEmpty {
-                ContentUnavailableView(
-                    "No Quiz Results Yet",
-                    systemImage: "chart.bar",
-                    description: Text("Complete your first quiz to see detailed results here")
-                )
-                .listRowBackground(Color.clear)
-            } else {
-                ForEach(viewModel.quizSessions) { session in
-                    QuizResultDetailRow(session: session)
+        ScrollView {
+            CustomSectionView(header: "All Results", hPadding: .zero) {
+                if viewModel.quizSessions.isEmpty {
+                    ContentUnavailableView(
+                        "No Quiz Results Yet",
+                        systemImage: "chart.bar",
+                        description: Text("Complete your first quiz to see detailed results here")
+                    )
+                    .listRowBackground(Color.clear)
+                } else {
+                    ListWithDivider(viewModel.quizSessions) { session in
+                        QuizResultDetailRow(session: session)
+                            .id(session.id)
+                    }
                 }
             }
+            .padding(.horizontal, 16)
         }
-        .navigationTitle("Quiz Results")
+        .groupedBackground()
+        .navigation(title: "Quiz Results", mode: .inline, showsBackButton: true)
         .onAppear {
             AnalyticsService.shared.logEvent(.quizResultsDetailOpened)
             viewModel.loadData()
@@ -50,7 +55,7 @@ struct QuizResultDetailRow: View {
                     if let date = session.date {
                         Text(date.formatted(date: .abbreviated, time: .shortened))
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                 }
                 
@@ -60,7 +65,7 @@ struct QuizResultDetailRow: View {
                 Text("\(session.score)")
                     .font(.title2)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
                     .background(scoreColor.gradient)
@@ -80,7 +85,7 @@ struct QuizResultDetailRow: View {
                     title: "Correct",
                     value: "\(session.correctAnswers)/\(session.totalWords)",
                     icon: "checkmark.circle",
-                    color: .green
+                    color: .accent
                 )
                 
                 StatItem(
@@ -91,7 +96,7 @@ struct QuizResultDetailRow: View {
                 )
             }
         }
-        .padding(.vertical, 8)
+        .padding(vertical: 12, horizontal: 16)
     }
     
     private var scoreColor: Color {
@@ -118,7 +123,7 @@ struct StatItem: View {
         VStack(spacing: 4) {
             Image(systemName: icon)
                 .font(.caption)
-                .foregroundColor(color)
+                .foregroundStyle(color)
             
             Text(value)
                 .font(.caption)
@@ -126,7 +131,7 @@ struct StatItem: View {
             
             Text(title)
                 .font(.caption2)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
     }

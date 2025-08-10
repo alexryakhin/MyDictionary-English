@@ -25,7 +25,7 @@ struct SharedDictionarySelectionView: View {
                 } label: {
                     HStack {
                         Image(systemName: "person")
-                            .foregroundColor(.blue)
+                            .foregroundStyle(.blue)
                             .frame(width: 24)
 
                         VStack(alignment: .leading, spacing: 4) {
@@ -34,14 +34,14 @@ struct SharedDictionarySelectionView: View {
 
                             Text("Save to your personal dictionary")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
 
                         Spacer()
 
                         if selectedDictionaryId == nil {
                             Image(systemName: "checkmark")
-                                .foregroundColor(.blue)
+                                .foregroundStyle(.blue)
                         }
                     }
                 }
@@ -60,7 +60,7 @@ struct SharedDictionarySelectionView: View {
                         } label: {
                             HStack {
                                 Image(systemName: "person.2")
-                                    .foregroundColor(.green)
+                                    .foregroundStyle(.green)
                                     .frame(width: 24)
 
                                 VStack(alignment: .leading, spacing: 4) {
@@ -70,12 +70,12 @@ struct SharedDictionarySelectionView: View {
                                     HStack {
                                         Text("\(dictionary.collaborators.count) collaborators")
                                             .font(.caption)
-                                            .foregroundColor(.secondary)
+                                            .foregroundStyle(.secondary)
 
                                         if dictionary.isOwner {
                                             Text("Owner")
                                                 .font(.caption)
-                                                .foregroundColor(.green)
+                                                .foregroundStyle(.green)
                                                 .padding(.horizontal, 6)
                                                 .padding(.vertical, 2)
                                                 .background(Color.green.opacity(0.2))
@@ -88,7 +88,7 @@ struct SharedDictionarySelectionView: View {
 
                                 if selectedDictionaryId == dictionary.id {
                                     Image(systemName: "checkmark")
-                                        .foregroundColor(.blue)
+                                        .foregroundStyle(.blue)
                                 }
                             }
                         }
@@ -106,9 +106,9 @@ struct SharedDictionarySelectionView: View {
                     } label: {
                         HStack {
                             Image(systemName: "plus.circle")
-                                .foregroundColor(.blue)
+                                .foregroundStyle(.blue)
                             Text("Create Shared Dictionary")
-                                .foregroundColor(.blue)
+                                .foregroundStyle(.blue)
                         }
                     }
                 } header: {

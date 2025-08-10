@@ -28,9 +28,9 @@ struct IdiomsFlow: View {
     private func handleOutput(_ output: IdiomListViewModel.Output) {
         switch output {
         case .showIdiomDetails(let idiom):
-            navigationPath.append(idiom)
+            navigationPath.append(NavigationDestination.idiomDetails(idiom))
         case .showAddIdiom:
-            navigationPath.append("add_idiom")
+            navigationPath.append(NavigationDestination.addIdiom)
         }
     }
 }

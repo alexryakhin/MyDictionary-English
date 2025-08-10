@@ -29,7 +29,7 @@ struct StarRatingLabel: View {
             },
             icon: {
                 Image(systemName: "star.fill")
-                    .foregroundColor(.yellow)
+                    .foregroundStyle(.yellow)
             }
         )
     }

@@ -27,7 +27,7 @@ struct IdiomDetailsContentView: View {
             .padding(vertical: 12, horizontal: 16)
             .animation(.default, value: idiom)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: "Idiom Details",
             mode: .inline,

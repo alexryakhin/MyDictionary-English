@@ -26,34 +26,6 @@ final class DictionaryService: ObservableObject {
     @Published var sharedDictionaries: [SharedDictionary] = []
     @Published var errorMessage: String?
 
-    struct SharedDictionary: Identifiable, Codable, Hashable {
-        let id: String
-        let name: String
-        let owner: String
-        let collaborators: [String: CollaboratorRole]
-        let createdAt: Date
-
-        var userRole: CollaboratorRole? {
-            guard let userId = AuthenticationService.shared.userId else { return nil }
-            return collaborators[userId]
-        }
-
-        var canEdit: Bool {
-            guard let userId = AuthenticationService.shared.userId else { return false }
-            return owner == userId || collaborators[userId] == .editor
-        }
-
-        var canView: Bool {
-            guard let userId = AuthenticationService.shared.userId else { return false }
-            return owner == userId || collaborators[userId] != nil
-        }
-
-        var isOwner: Bool {
-            guard let userId = AuthenticationService.shared.userId else { return false }
-            return owner == userId
-        }
-    }
-
     struct SharedDictionaryDTO: Codable {
         let name: String
         let owner: String

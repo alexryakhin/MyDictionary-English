@@ -54,7 +54,7 @@ struct IdiomListView: View {
                 }
             }
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .overlay {
             if !filteredIdioms.isNotEmpty {
                 ContentUnavailableView(
@@ -62,7 +62,7 @@ struct IdiomListView: View {
                     systemImage: "quote.bubble",
                     description: Text("Begin to add idioms to your list by tapping on plus icon in upper left corner")
                 )
-                .background(Color(.systemGroupedBackground))
+                .groupedBackground()
             }
         }
         .navigation(

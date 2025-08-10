@@ -34,17 +34,17 @@ struct QuizCardView: View {
                 
                 Image(systemName: quiz.iconName)
                     .font(.title2)
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
             }
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(quiz.title)
                     .font(.headline)
-                    .foregroundColor(.primary)
+                    .foregroundStyle(.primary)
                 
                 Text(quiz.description)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .lineLimit(2)
             }
             
@@ -52,7 +52,7 @@ struct QuizCardView: View {
             
             Image(systemName: "chevron.right")
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .padding(.vertical, 4)
         .multilineTextAlignment(.leading)

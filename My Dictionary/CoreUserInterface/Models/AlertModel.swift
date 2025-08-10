@@ -196,15 +196,15 @@ struct AlertModel: Equatable {
     var iconColor: Color {
         switch alertType {
         case .info:
-            return .blue
+            return .accent
         case .warning:
             return .orange
         case .error:
             return .red
         case .confirmation:
-            return .blue
+            return .accent
         case .choice:
-            return .blue
+            return .accent
         }
     }
 

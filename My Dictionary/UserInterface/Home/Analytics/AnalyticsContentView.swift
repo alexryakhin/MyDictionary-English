@@ -32,16 +32,16 @@ struct ProgressCard: View {
         VStack(spacing: 8) {
             Image(systemName: icon)
                 .font(.title2)
-                .foregroundColor(color)
+                .foregroundStyle(color)
             
             Text(value)
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(color)
+                .foregroundStyle(color)
             
             Text(title)
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -58,15 +58,15 @@ struct StatCard: View {
         VStack(spacing: 8) {
             Image(systemName: icon)
                 .font(.title3)
-                .foregroundColor(.blue)
-            
+                .foregroundStyle(.accent)
+
             Text(value)
                 .font(.headline)
                 .fontWeight(.semibold)
             
             Text(title)
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -86,7 +86,7 @@ struct QuizResultRow: View {
                 
                 Text(session.date?.formatted(date: .abbreviated, time: .shortened) ?? "")
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             
             Spacer()
@@ -95,11 +95,11 @@ struct QuizResultRow: View {
                 Text("\(Int(session.score)) pts")
                     .font(.body)
                     .fontWeight(.semibold)
-                    .foregroundColor(.blue)
+                    .foregroundStyle(.accent)
                 
                 Text("\(Int(session.accuracy * 100))%")
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
         }
         .padding(12)

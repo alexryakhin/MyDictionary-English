@@ -17,7 +17,7 @@ struct WordsFlow: View {
     // MARK: - Body
 
     var body: some View {
-        WordListContentView(viewModel: viewModel)
+        WordListView(viewModel: viewModel)
             .onReceive(viewModel.output) { output in
                 handleOutput(output)
             }
@@ -28,15 +28,17 @@ struct WordsFlow: View {
     private func handleOutput(_ output: WordListViewModel.Output) {
         switch output {
         case .showWordDetails(let word):
-            navigationPath.append(word)
+            let config = WordDetailsContentView.Config(word: word, dictionary: nil)
+            navigationPath.append(NavigationDestination.wordDetails(config))
         case .showAddWord:
-            navigationPath.append("add_word")
+            navigationPath.append(NavigationDestination.addWord)
         case .showSharedDictionary(let dictionary):
-            navigationPath.append(dictionary)
+            navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
         case .showAddSharedDictionary:
-            navigationPath.append("add_shared_dictionary")
+            navigationPath.append(NavigationDestination.addSharedDictionary)
         case .showAddExistingWordToShared(let word):
-            navigationPath.append("add_existing_word_\(word.id?.uuidString ?? "")")
+            let config = AddExistingWordToSharedView.Config(word: word)
+            navigationPath.append(NavigationDestination.addExistingWordToShared(config))
         }
     }
 }

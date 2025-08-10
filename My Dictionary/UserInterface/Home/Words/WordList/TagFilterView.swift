@@ -88,7 +88,7 @@ struct TagFilterView: View {
                                 Text("Manage Tags")
                                     .font(.caption)
                             }
-                            .foregroundColor(.blue)
+                            .foregroundStyle(.blue)
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
                             .background(Color.blue.opacity(0.2))
@@ -116,7 +116,7 @@ struct FilterChip: View {
             Text(title)
                 .font(.caption)
                 .fontWeight(.medium)
-                .foregroundColor(isSelected ? .white : color)
+                .foregroundStyle(isSelected ? .white : color)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
                 .background(

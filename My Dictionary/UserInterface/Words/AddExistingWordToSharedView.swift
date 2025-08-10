@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct AddExistingWordToSharedView: View {
+
+    struct Config: Hashable {
+        let id = UUID()
+        let word: CDWord
+    }
+
     @Environment(\.dismiss) private var dismiss
 
     @State private var selectedDictionaryId: String? = nil
@@ -16,8 +22,8 @@ struct AddExistingWordToSharedView: View {
     @StateObject private var word: CDWord
     @StateObject private var dictionaryService = DictionaryService.shared
 
-    init(word: CDWord) {
-        self._word = StateObject(wrappedValue: word)
+    init(config: Config) {
+        self._word = StateObject(wrappedValue: config.word)
     }
 
     var body: some View {
@@ -27,7 +33,7 @@ struct AddExistingWordToSharedView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
                             Image(systemName: "textformat")
-                                .foregroundColor(.blue)
+                                .foregroundStyle(.accent)
                             Text("Word Details")
                                 .font(.headline)
                             Spacer()
@@ -40,12 +46,12 @@ struct AddExistingWordToSharedView: View {
 
                             Text(word.definition ?? "")
                                 .font(.body)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
 
                             if let phonetic = word.phonetic, !phonetic.isEmpty {
                                 Text("[\(phonetic)]")
                                     .font(.caption)
-                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
 
                             HStack {
@@ -53,12 +59,12 @@ struct AddExistingWordToSharedView: View {
                                     .font(.caption)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
-                                    .background(Color.blue.opacity(0.2))
+                                    .background(Color.accent.opacity(0.2))
                                     .cornerRadius(4)
 
                                 if word.isFavorite {
                                     Image(systemName: "star.fill")
-                                        .foregroundColor(.yellow)
+                                        .foregroundStyle(.yellow)
                                         .font(.caption)
                                 }
                             }
@@ -72,7 +78,7 @@ struct AddExistingWordToSharedView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
                             Image(systemName: "person.2")
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                             Text("Select Shared Dictionary")
                                 .font(.headline)
                             Spacer()
@@ -83,16 +89,16 @@ struct AddExistingWordToSharedView: View {
                         } label: {
                             HStack {
                                 Image(systemName: selectedDictionaryId == nil ? "person" : "person.2")
-                                    .foregroundColor(selectedDictionaryId == nil ? .blue : .green)
+                                    .foregroundStyle(selectedDictionaryId == nil ? .blue : .green)
 
                                 Text(selectedDictionaryId == nil ? "Select Dictionary" : "Dictionary Selected")
-                                    .foregroundColor(selectedDictionaryId == nil ? .blue : .primary)
+                                    .foregroundStyle(selectedDictionaryId == nil ? .blue : .primary)
 
                                 Spacer()
 
                                 Image(systemName: "chevron.right")
                                     .font(.caption)
-                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
                             .padding()
                             .background(Color(.systemGray6))
@@ -125,7 +131,7 @@ struct AddExistingWordToSharedView: View {
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(selectedDictionaryId != nil ? Color.blue : Color.gray)
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .cornerRadius(12)
                 }
                 .disabled(selectedDictionaryId == nil)
@@ -133,7 +139,7 @@ struct AddExistingWordToSharedView: View {
                 Button("Cancel") {
                     dismiss()
                 }
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
             }
         }
     }

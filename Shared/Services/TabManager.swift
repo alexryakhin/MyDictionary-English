@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 @MainActor
 final class TabManager: ObservableObject {
@@ -14,11 +15,11 @@ final class TabManager: ObservableObject {
 
     #if os(iOS)
     @Published var selectedTab: TabBarItem = .words
-    
+    let popToRootPublisher: PassthroughSubject<Void, Never> = .init()
+
     // Tab transition tracking
-    @Published private(set) var willSetTab: TabBarItem = .idioms
-    @Published private(set) var currentTab: TabBarItem = .words
-    @Published private(set) var didSetTab: TabBarItem = .idioms
+    @Published private(set) var willSetTab: TabBarItem = .words
+    @Published private(set) var currentTab: TabBarItem = .idioms
     #else
     @Published var selectedTab: SidebarItem = .words
     #endif
@@ -32,16 +33,11 @@ final class TabManager: ObservableObject {
         currentTab = selectedTab
         
         if animated {
-            withAnimation(.easeInOut(duration: 0.3)) {
+            withAnimation(.bouncy) {
                 selectedTab = tab
             }
         } else {
             selectedTab = tab
-        }
-        
-        // Use a slight delay to track didSet after transition starts
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-            self.didSetTab = tab
         }
     }
     
@@ -50,7 +46,6 @@ final class TabManager: ObservableObject {
         
         let willSetIndex = tabOrder.firstIndex(of: willSetTab) ?? 0
         let currentIndex = tabOrder.firstIndex(of: currentTab) ?? 0
-        let didSetIndex = tabOrder.firstIndex(of: didSetTab) ?? 0
 
         // Use willSet vs current to determine direction
         if willSetIndex > currentIndex {

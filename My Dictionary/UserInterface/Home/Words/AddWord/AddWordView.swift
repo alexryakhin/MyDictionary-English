@@ -121,7 +121,7 @@ struct AddWordView: View {
                     Spacer()
                     Image(systemName: "chevron.down")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
             }
         }
@@ -172,7 +172,7 @@ struct AddWordView: View {
         CellWrapper("Tags") {
             if viewModel.selectedTags.isEmpty {
                 Text("No tags selected")
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
@@ -210,7 +210,7 @@ struct AddWordView: View {
                                 .scaleEffect(0.8)
                             Text(GlobalConstant.isEnglishLanguage ? "Translating word..." : "Translating definitions...")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                         .padding(.top, 8)
                     }
@@ -244,13 +244,13 @@ struct AddWordView: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(definition.text)
                                         .multilineTextAlignment(.leading)
-                                        .foregroundColor(.primary)
+                                        .foregroundStyle(.primary)
 
                                     // Show original definition if translated (only for non-English locales)
                                     if !GlobalConstant.isEnglishLanguage && viewModel.translateDefinitions && offset < viewModel.definitions.count {
                                         Text(viewModel.definitions[offset].text)
                                             .font(.caption)
-                                            .foregroundColor(.secondary)
+                                            .foregroundStyle(.secondary)
                                             .italic()
                                     }
                                 }
@@ -327,7 +327,7 @@ struct TagChip: View {
             } label: {
                 Image(systemName: "xmark")
                     .font(.caption2)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
         }
         .padding(.horizontal, 8)

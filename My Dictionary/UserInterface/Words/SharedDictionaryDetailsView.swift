@@ -14,97 +14,100 @@ struct SharedDictionaryDetailsView: View {
     @StateObject var dictionaryService: DictionaryService = .shared
     @StateObject var authenticationService: AuthenticationService = .shared
     @State private var showingAddCollaborator = false
+    @State private var dictionary: SharedDictionary
 
-    let dictionary: DictionaryService.SharedDictionary
+    init(dictionary: SharedDictionary) {
+        _dictionary = .init(initialValue: dictionary)
+    }
 
     var body: some View {
-        List {
-            Section(header: Text("Dictionary Info")) {
-                HStack {
-                    Text("Name")
-                    Spacer()
-                    Text(dictionary.name)
-                        .foregroundColor(.secondary)
-                }
+        ScrollView {
+            VStack(spacing: 16) {
+                CustomSectionView(header: "Dictionary Info", hPadding: .zero) {
+                    FormWithDivider {
+                        HStack {
+                            Text("Name")
+                            Spacer()
+                            Text(dictionary.name)
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(vertical: 12, horizontal: 16)
 
-                HStack {
-                    Text("Created")
-                    Spacer()
-                    Text(dictionary.createdAt, style: .date)
-                        .foregroundColor(.secondary)
-                }
+                        HStack {
+                            Text("Created")
+                            Spacer()
+                            Text(dictionary.createdAt, style: .date)
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(vertical: 12, horizontal: 16)
 
-                HStack {
-                    Text("Your Role")
-                    Spacer()
-                    Text(dictionary.userRole?.displayValue ?? "Unknown")
-                        .foregroundColor(.secondary)
-                }
-                
-                NavigationLink {
-                    SharedDictionaryWordsView(dictionary: dictionary)
-                } label: {
-                    HStack {
-                        Image(systemName: "textformat")
-                            .foregroundColor(.blue)
-                        Text("View Words")
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                        HStack {
+                            Text("Your Role")
+                            Spacer()
+                            Text(dictionary.userRole?.displayValue ?? "Unknown")
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(vertical: 12, horizontal: 16)
                     }
                 }
-            }
 
-            Section(header: Text("Collaborators")) {
-                ForEach(Array(dictionary.collaborators.keys.sorted()), id: \.self) { userId in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(dictionary.collaborators[userId]?.displayValue ?? "Unknown")
-                                .font(.headline)
-                            Text(userId)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
+                CustomSectionView(header: "Collaborators", hPadding: .zero) {
+                    ListWithDivider(dictionary.collaborators.keys.sorted()) { userId in
+                        let role = dictionary.collaborators[userId]
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(role?.displayValue ?? "Unknown")
+                                    .font(.headline)
+                                Text(userId)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
 
-                        Spacer()
+                            Spacer()
 
-                        if dictionary.canEdit && userId != authenticationService.userId {
-                            Menu {
-                                switch dictionary.collaborators[userId] {
-                                case .editor:
-                                    Button("Make Viewer") {
-                                        updateRole(userId: userId, role: .viewer)
+                            if dictionary.canEdit && userId != authenticationService.userId && role != .owner {
+                                Menu {
+                                    switch role {
+                                    case .editor:
+                                        Button("Make Viewer") {
+                                            updateRole(userId: userId, role: .viewer)
+                                        }
+                                    case .viewer:
+                                        Button("Make Editor") {
+                                            updateRole(userId: userId, role: .editor)
+                                        }
+                                    default:
+                                        EmptyView()
                                     }
-                                case .viewer:
-                                    Button("Make Editor") {
-                                        updateRole(userId: userId, role: .editor)
-                                    }
-                                default:
-                                    EmptyView()
-                                }
 
-                                Button("Remove", role: .destructive) {
-                                    removeCollaborator(userId: userId)
+                                    Button("Remove", role: .destructive) {
+                                        removeCollaborator(userId: userId)
+                                    }
+                                } label: {
+                                    Image(systemName: "ellipsis.circle")
+                                        .foregroundStyle(.secondary)
                                 }
-                            } label: {
-                                Image(systemName: "ellipsis.circle")
-                                    .foregroundColor(.secondary)
+                            } else if userId == authenticationService.userId {
+                                Text("Me")
+                                    .font(.caption)
+                                    .padding(vertical: 2, horizontal: 6)
+                                    .background(.accent.opacity(0.1))
+                                    .foregroundStyle(.accent)
+                                    .clipShape(.capsule)
                             }
                         }
+                        .padding(vertical: 12, horizontal: 16)
+                    }
+                } trailingContent: {
+                    if dictionary.canEdit {
+                        HeaderButton(text: "Add", icon: "plus", style: .borderedProminent) {
+                            showingAddCollaborator = true
+                        }
                     }
                 }
 
-                if dictionary.canEdit {
-                    Button("Add Collaborator") {
-                        showingAddCollaborator = true
-                    }
-                }
-            }
-
-            if dictionary.canEdit {
-                Section {
-                    Button("Delete Dictionary", role: .destructive) {
+                if dictionary.isOwner {
+                    Button {
                         AlertCenter.shared.showAlert(
                             with: .deleteConfirmation(
                                 title: "Delete Dictionary",
@@ -114,14 +117,57 @@ struct SharedDictionaryDetailsView: View {
                                 }
                             )
                         )
+                    } label: {
+                        Text("Delete Dictionary")
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity)
                     }
+                    .tint(.red)
+                    .buttonStyle(.bordered)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                } else if let userId = authenticationService.userId{
+                    Button {
+                        AlertCenter.shared.showAlert(
+                            with: .deleteConfirmation(
+                                title: "Stop watching dictionary",
+                                message: "Are you sure you want to stop watching this shared dictionary?",
+                                deleteText: "Continue",
+                                onDelete: {
+                                    removeCollaborator(userId: userId)
+                                    dismiss()
+                                }
+                            )
+                        )
+                    } label: {
+                        Text("Stop watching")
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .tint(.red)
+                    .buttonStyle(.bordered)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
                 }
             }
+            .padding(.horizontal, 16)
         }
-        .navigationTitle("Dictionary Details")
-        .navigationBarTitleDisplayMode(.inline)
+        .groupedBackground()
+        .navigation(
+            title: "Dictionary Details",
+            mode: .inline,
+            showsBackButton: true
+        )
         .sheet(isPresented: $showingAddCollaborator) {
             AddCollaboratorView(dictionaryId: dictionary.id)
+        }
+        .onChange(of: dictionaryService.sharedDictionaries) { newValue in
+            if let dictionary = newValue.first(where: { $0.id == self.dictionary.id }) {
+                self.dictionary = dictionary
+                if !dictionary.canView {
+                    TabManager.shared.popToRootPublisher.send()
+                }
+            } else {
+                TabManager.shared.popToRootPublisher.send()
+            }
         }
     }
     
@@ -158,6 +204,7 @@ struct SharedDictionaryDetailsView: View {
                 try await dictionaryService.deleteSharedDictionary(
                     dictionaryId: dictionary.id
                 )
+                TabManager.shared.popToRootPublisher.send()
             } catch {
                 errorReceived(error)
             }

@@ -32,19 +32,20 @@ struct WordListView: View {
                         } label: {
                             HStack {
                                 Image(systemName: "person.2")
-                                    .foregroundColor(.blue)
+                                    .foregroundStyle(.accent)
                                 VStack(alignment: .leading) {
                                     Text(dictionary.name)
                                         .font(.headline)
                                     Text("\(dictionary.collaborators.count) collaborators")
                                         .font(.caption)
-                                        .foregroundColor(.secondary)
+                                        .foregroundStyle(.secondary)
                                 }
                                 Spacer()
                                 Image(systemName: "chevron.right")
                                     .font(.caption)
-                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
+                            .contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
                     }

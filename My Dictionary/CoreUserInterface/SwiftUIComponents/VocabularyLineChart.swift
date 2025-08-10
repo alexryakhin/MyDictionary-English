@@ -67,13 +67,13 @@ struct VocabularyLineChart: View {
             HStack {
                 Text("\(minValue) words")
                     .font(.caption2)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                 
                 Spacer()
                 
                 Text("\(maxValue) words")
                     .font(.caption2)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             .padding(.horizontal, 16)
         }

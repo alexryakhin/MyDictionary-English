@@ -42,7 +42,7 @@ struct TagManagementView: View {
             }
             .padding(16)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: "Manage Tags",
             mode: .inline,
@@ -86,7 +86,7 @@ struct TagRowView: View {
 
                 Text("\(tag.wordsArray.count) words")
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
 
             Spacer()

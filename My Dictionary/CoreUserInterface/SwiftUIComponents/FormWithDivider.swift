@@ -12,23 +12,32 @@ struct FormWithDivider<Content: View>: View {
 
     private let content: Content
     private let dividerLeadingPadding: CGFloat
+    private let dividerTrailingPadding: CGFloat
 
     init(
         dividerLeadingPadding: CGFloat = 16,
+        dividerTrailingPadding: CGFloat = 16,
         @ViewBuilder content: () -> Content
     ) {
         self.content = content()
         self.dividerLeadingPadding = dividerLeadingPadding
+        self.dividerTrailingPadding = dividerTrailingPadding
     }
 
     var body: some View {
-        _VariadicView.Tree(FormWithDividerLayout(dividerLeadingPadding: dividerLeadingPadding)) {
+        _VariadicView.Tree(
+            FormWithDividerLayout(
+                dividerLeadingPadding: dividerLeadingPadding,
+                dividerTrailingPadding: dividerTrailingPadding
+            )
+        ) {
             content
         }
     }
 
     struct FormWithDividerLayout: _VariadicView_MultiViewRoot {
         let dividerLeadingPadding: CGFloat
+        let dividerTrailingPadding: CGFloat
 
         @ViewBuilder
         func body(children: _VariadicView.Children) -> some View {
@@ -39,6 +48,7 @@ struct FormWithDivider<Content: View>: View {
                     if child.id != last {
                         Divider()
                             .padding(.leading, dividerLeadingPadding)
+                            .padding(.trailing, dividerTrailingPadding)
                     }
                 }
             }

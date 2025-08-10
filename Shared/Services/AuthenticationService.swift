@@ -11,6 +11,7 @@ import FirebaseCore
 import GoogleSignIn
 import AuthenticationServices
 import Combine
+import SwiftUI
 
 enum AuthenticationState {
     case signedOut
@@ -48,6 +49,7 @@ final class AuthenticationService: ObservableObject {
     @Published var authenticationState: AuthenticationState = .signedOut
     @Published var currentUser: User?
     @Published var isUploadingWords: Bool = false
+    @Published private(set) var showingSignOutView: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -269,26 +271,33 @@ final class AuthenticationService: ObservableObject {
     // MARK: - Sign Out
 
     // Sign out from Firebase and Google
-    func signOut() async throws {
-        DispatchQueue.main.async { [weak self] in
-            self?.authenticationState = .loading
+    func signOut() {
+        Task { @MainActor in
+            authenticationState = .loading
+
+            do {
+                try Auth.auth().signOut()
+                GIDSignIn.sharedInstance.signOut()
+
+                currentUser = nil
+                authenticationState = .signedOut
+                toggleSignOutView()
+
+                // Log analytics event
+                AnalyticsService.shared.logEvent(.signOutTapped)
+            } catch {
+                authenticationState = .signedIn
+                AlertCenter.shared.showAlert(with: .error(
+                    title: "Oh no!",
+                    message: "Something went wrong while signing out. Please try again later.")
+                )
+            }
         }
+    }
 
-        do {
-            try Auth.auth().signOut()
-            GIDSignIn.sharedInstance.signOut()
-
-            DispatchQueue.main.async { [weak self] in
-                self?.currentUser = nil
-                self?.authenticationState = .signedOut
-            }
-            // Log analytics event
-            AnalyticsService.shared.logEvent(.signOutTapped)
-        } catch {
-            DispatchQueue.main.async { [weak self] in
-                self?.authenticationState = .signedIn
-            }
-            throw AuthenticationError.signOutFailed
+    func toggleSignOutView() {
+        withAnimation {
+            showingSignOutView.toggle()
         }
     }
 

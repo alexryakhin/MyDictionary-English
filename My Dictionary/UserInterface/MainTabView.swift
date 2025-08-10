@@ -15,6 +15,7 @@ struct MainTabView: View {
     @State private var navigationPath = NavigationPath()
     @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
     @StateObject var tabManager: TabManager = .shared
+    @StateObject var authenticationService: AuthenticationService = .shared
 
     var body: some View {
         NavigationStack(path: $navigationPath) {
@@ -49,17 +50,14 @@ struct MainTabView: View {
             } content: {
                 OnboardingView()
             }
-            .navigationDestination(for: CDWord.self) { word in
-                WordDetailsContentView(word: word)
-            }
-            .navigationDestination(for: CDIdiom.self) { idiom in
-                IdiomDetailsContentView(idiom: idiom)
-            }
-            .navigationDestination(for: DictionaryService.SharedDictionary.self) { dictionary in
-                SharedDictionaryWordsView(dictionary: dictionary)
-            }
-            .navigationDestination(for: String.self) { destination in
+            .navigationDestination(for: NavigationDestination.self) { destination in
                 destinationView(for: destination)
+            }
+            .overlay {
+                SignOutView()
+            }
+            .onReceive(tabManager.popToRootPublisher) {
+                navigationPath.removeLast(navigationPath.count)
             }
         }
     }
@@ -84,47 +82,38 @@ struct MainTabView: View {
     }
     
     @ViewBuilder
-    private func destinationView(for destination: String) -> some View {
+    private func destinationView(for destination: NavigationDestination) -> some View {
         switch destination {
-        case "add_word":
+        case .addWord:
             AddWordContentView()
-        case "add_shared_dictionary":
+        case .addSharedDictionary:
             AddSharedDictionaryView()
-        case "add_idiom":
+        case .addIdiom:
             AddIdiomContentView()
-        case "quiz_results_detail":
+        case .quizResultsDetail:
             QuizResultsDetailView()
-        case "about_app":
+        case .aboutApp:
             AboutAppContentView()
-        case "tag_management":
+        case .tagManagement:
             TagManagementView()
-        case "shared_dictionaries":
-            SharedDictionariesListView()
-        case "authentication":
+        case .sharedDictionariesList:
+            SharedDictionariesListView(navigationPath: $navigationPath)
+        case .authentication:
             AuthenticationView()
-        case let destination where destination.hasPrefix("spelling_quiz_"):
-            let components = destination.components(separatedBy: "_")
-            if components.count >= 4,
-               let wordCount = Int(components[2]),
-               let hardWordsOnly = Bool(components[3]) {
-                SpellingQuizContentView(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
-            } else {
-                EmptyView()
-            }
-        case let destination where destination.hasPrefix("choose_definition_quiz_"):
-            let components = destination.components(separatedBy: "_")
-            if components.count >= 5,
-               let wordCount = Int(components[3]),
-               let hardWordsOnly = Bool(components[4]) {
-                ChooseDefinitionQuizContentView(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
-            } else {
-                EmptyView()
-            }
-        case let destination where destination.hasPrefix("add_existing_word_"):
-            // Handle add existing word to shared dictionary
-            EmptyView() // Placeholder for now
-        default:
-            EmptyView()
+        case .spellingQuiz(let wordCount, let hardWordsOnly):
+            SpellingQuizContentView(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
+        case .chooseDefinitionQuiz(let wordCount, let hardWordsOnly):
+            ChooseDefinitionQuizContentView(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
+        case .wordDetails(let config):
+            WordDetailsContentView(config: config)
+        case .addExistingWordToShared(let config):
+            AddExistingWordToSharedView(config: config)
+        case .idiomDetails(let idiom):
+            IdiomDetailsContentView(idiom: idiom)
+        case .sharedDictionaryWords(let dictionary):
+            SharedDictionaryWordsView(navigationPath: $navigationPath, dictionary: dictionary)
+        case .sharedDictionaryDetails(let dictionary):
+            SharedDictionaryDetailsView(dictionary: dictionary)
         }
     }
 }

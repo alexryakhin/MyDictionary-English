@@ -18,17 +18,17 @@ struct IdiomListCellView: View {
         HStack(spacing: 8) {
             Text(idiom.idiomItself ?? "")
                 .bold()
-                .foregroundColor(.primary)
+                .foregroundStyle(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             if idiom.isFavorite {
                 Image(systemName: "heart.fill")
                     .font(.caption)
-                    .foregroundColor(.accentColor)
+                    .foregroundStyle(.accent)
             }
 
             Image(systemName: "chevron.right")
                 .frame(sideLength: 12)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
     }
 

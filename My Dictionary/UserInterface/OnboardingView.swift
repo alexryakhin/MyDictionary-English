@@ -19,7 +19,7 @@ struct OnboardingView: View {
                     .multilineTextAlignment(.center)
                     .font(.largeTitle)
                     .bold()
-                    .foregroundColor(.primary)
+                    .foregroundStyle(.primary)
                     .padding(.top, 70)
 
                 Spacer()
@@ -29,15 +29,15 @@ struct OnboardingView: View {
                         HStack {
                             Image(systemName: oCase.icon)
                                 .frame(sideLength: 40)
-                                .foregroundColor(.accentColor)
+                                .foregroundStyle(.accent)
                                 .padding(16)
                             VStack(alignment: .leading, spacing: 5) {
                                 Text(oCase.title)
                                     .font(.headline)
-                                    .foregroundColor(.primary)
+                                    .foregroundStyle(.primary)
                                 Text(oCase.subTitle)
                                     .font(.system(size: 15))
-                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                                     .fixedSize(horizontal: false, vertical: true)
                             }
                         }

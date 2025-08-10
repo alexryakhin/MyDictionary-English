@@ -4,11 +4,17 @@ import Flow
 
 struct WordDetailsContentView: View {
 
+    struct Config: Hashable {
+        let id = UUID()
+        let word: CDWord
+        let dictionary: SharedDictionary?
+    }
+
     @StateObject var word: CDWord
     @Environment(\.dismiss) private var dismiss
     
     // Optional dictionary parameter for shared words
-    let dictionary: DictionaryService.SharedDictionary?
+    let dictionary: SharedDictionary?
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
@@ -23,9 +29,9 @@ struct WordDetailsContentView: View {
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var tagService = TagService.shared
 
-    init(word: CDWord, dictionary: DictionaryService.SharedDictionary? = nil) {
-        self._word = StateObject(wrappedValue: word)
-        self.dictionary = dictionary
+    init(config: Config) {
+        self._word = StateObject(wrappedValue: config.word)
+        self.dictionary = config.dictionary
     }
 
     var body: some View {
@@ -42,7 +48,7 @@ struct WordDetailsContentView: View {
             .padding(vertical: 12, horizontal: 16)
             .animation(.default, value: word)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: "Word Details",
             mode: .inline,
@@ -186,7 +192,7 @@ struct WordDetailsContentView: View {
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
                             .background(Color.blue.opacity(0.2))
-                            .foregroundColor(.blue)
+                            .foregroundStyle(.blue)
                             .clipShape(Capsule())
                     }
                 }
@@ -211,7 +217,7 @@ struct WordDetailsContentView: View {
 
                             if selectedDifficulty == difficulty {
                                 Image(systemName: "checkmark")
-                                    .foregroundColor(.white)
+                                    .foregroundStyle(.white)
                             }
                         }
                         .clippedWithPaddingAndBackground(
@@ -225,7 +231,7 @@ struct WordDetailsContentView: View {
             }
             .padding()
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(title: "Select Difficulty Level", mode: .inline, trailingContent: {
             HeaderButton(text: "Save", style: .borderedProminent, font: .body) {
                 updateDifficulty()
@@ -518,7 +524,7 @@ struct TagView: View {
             
             Image(systemName: "xmark")
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 8)

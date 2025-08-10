@@ -82,6 +82,10 @@ extension View {
     func showAlertWithMessage(_ message: String) {
         AlertCenter.shared.showAlert(with: .error(title: "Ooops!", message: message))
     }
+
+    func groupedBackground() -> some View {
+        self.background(Color(.systemGroupedBackground))
+    }
 }
 
 extension Image {

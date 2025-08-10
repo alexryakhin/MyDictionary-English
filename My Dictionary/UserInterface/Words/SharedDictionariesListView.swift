@@ -8,82 +8,74 @@
 import SwiftUI
 
 struct SharedDictionariesListView: View {
+    @Environment(\.dismiss) private var dismiss
+
     @StateObject private var dictionaryService = DictionaryService.shared
     @State private var showingAddDictionary = false
-    @Environment(\.dismiss) private var dismiss
-    
+    @Binding var navigationPath: NavigationPath
+
     var body: some View {
-        List {
-            if dictionaryService.sharedDictionaries.isEmpty {
-                ContentUnavailableView(
-                    "No Shared Dictionaries",
-                    systemImage: "person.2",
-                    description: Text("Create a shared dictionary to collaborate with others")
-                )
-            } else {
-                ForEach(dictionaryService.sharedDictionaries) { dictionary in
-                    NavigationLink {
-                        SharedDictionaryDetailsView(dictionary: dictionary)
-                    } label: {
-                        HStack {
-                            Image(systemName: "person.2")
-                                .foregroundColor(.blue)
-                                .frame(width: 24)
-                            
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(dictionary.name)
-                                    .font(.headline)
-                                
-                                HStack {
-                                    Text("\(dictionary.collaborators.count) collaborators")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                    
-                                    if dictionary.isOwner {
-                                        Text("Owner")
+        ScrollView {
+            CustomSectionView(header: "Dictionaries") {
+                if dictionaryService.sharedDictionaries.isEmpty {
+                    ContentUnavailableView(
+                        "No Shared Dictionaries",
+                        systemImage: "person.2",
+                        description: Text("Create a shared dictionary to collaborate with others")
+                    )
+                } else {
+                    ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in
+                        Button {
+                            navigationPath.append(NavigationDestination.sharedDictionaryDetails(dictionary))
+                        } label: {
+                            HStack {
+                                Image(systemName: "person.2")
+                                    .foregroundStyle(.accent)
+                                    .frame(width: 24)
+
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(dictionary.name)
+                                        .font(.headline)
+
+                                    HStack {
+                                        Text("\(dictionary.collaborators.count) collaborators")
                                             .font(.caption)
-                                            .foregroundColor(.green)
-                                            .padding(.horizontal, 6)
-                                            .padding(.vertical, 2)
-                                            .background(Color.green.opacity(0.2))
-                                            .cornerRadius(4)
+                                            .foregroundStyle(.secondary)
+
+                                        if dictionary.isOwner {
+                                            Text("Owner")
+                                                .font(.caption)
+                                                .foregroundStyle(.green)
+                                                .padding(.horizontal, 6)
+                                                .padding(.vertical, 2)
+                                                .background(Color.green.opacity(0.2))
+                                                .cornerRadius(4)
+                                        }
                                     }
                                 }
+
+                                Spacer()
                             }
-                            
-                            Spacer()
+                            .padding(.vertical, 4)
                         }
-                        .padding(.vertical, 4)
                     }
                 }
+            } trailingContent: {
+                HeaderButton(text: "Add", icon: "plus", style: .borderedProminent) {
+                    showingAddDictionary = true
+                }
             }
+            .padding(.horizontal, 16)
         }
+        .groupedBackground()
         .navigation(
             title: "Shared Dictionaries",
-            mode: .large,
-            trailingContent: {
-                HStack {
-                    Button("Done") {
-                        dismiss()
-                    }
-                    .buttonStyle(.bordered)
-                    .clipShape(Capsule())
-                    
-                    Button {
-                        showingAddDictionary = true
-                    } label: {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 16, height: 16)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
-                }
-            }
+            mode: .inline,
+            showsBackButton: true
         )
         .sheet(isPresented: $showingAddDictionary) {
             AddSharedDictionaryView()
+                .presentationCornerRadius(24)
         }
     }
 } 

@@ -19,7 +19,7 @@ struct AddIdiomView: View {
             }
             .padding(vertical: 12, horizontal: 16)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: "Add new idiom",
             mode: .inline,

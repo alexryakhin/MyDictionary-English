@@ -50,7 +50,7 @@ struct WordTagSelectionView: View {
             }
             .padding(16)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: "Add Tags",
             mode: .inline,

@@ -55,7 +55,7 @@ struct TabButton: View {
             }
             .frame(maxWidth: .infinity)
             .contentShape(Rectangle())
-            .foregroundStyle(foregroundColor)
+            .foregroundStyle(foregroundStyle)
         }
         .buttonStyle(.plain)
         .disabled(isDisabled)
@@ -64,7 +64,7 @@ struct TabButton: View {
     
     // MARK: - Computed Properties
     
-    private var foregroundColor: Color {
+    private var foregroundStyle: Color {
         if isDisabled {
             return Color.gray
         } else if isSelected {

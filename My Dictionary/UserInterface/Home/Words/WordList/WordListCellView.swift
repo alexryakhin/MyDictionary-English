@@ -20,12 +20,12 @@ struct WordListCellView: View {
             HStack(spacing: 8) {
                 Text(word.wordItself ?? "")
                     .bold()
-                    .foregroundColor(.primary)
+                    .foregroundStyle(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 if word.isFavorite {
                     Image(systemName: "heart.fill")
                         .font(.caption)
-                        .foregroundColor(.accentColor)
+                        .foregroundStyle(.accent)
                 }
 
                 // Difficulty label
@@ -36,7 +36,7 @@ struct WordListCellView: View {
                 }
 
                 Text(word.partOfSpeechDecoded.rawValue)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
 
                 // Language label
                 if word.shouldShowLanguageLabel, let code = word.languageCode {
@@ -45,13 +45,13 @@ struct WordListCellView: View {
                         .padding(.horizontal, 6)
                         .padding(.vertical, 2)
                         .background(Color.blue.opacity(0.2))
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                         .clipShape(Capsule())
                 }
 
                 Image(systemName: "chevron.right")
                     .frame(sideLength: 12)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             
             // Tags
@@ -61,7 +61,7 @@ struct WordListCellView: View {
                         ForEach(word.tagsArray, id: \.id) { tag in
                             Text(tag.name ?? "")
                                 .font(.caption2)
-                                .padding(vertical: 2, horizontal: 4)
+                                .padding(vertical: 2, horizontal: 6)
                                 .background(tag.colorValue.color.opacity(0.2))
                                 .foregroundStyle(tag.colorValue.color)
                                 .clipShape(Capsule())

@@ -42,7 +42,7 @@ struct AddEditTagView: View {
             }
             .padding(16)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: viewModel.isEditing ? "Edit Tag" : "New Tag",
             mode: .inline,
@@ -102,7 +102,7 @@ struct ColorSelectionButton: View {
                 )
                 .overlay(
                     Image(systemName: "checkmark")
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .font(.caption)
                         .fontWeight(.bold)
                         .opacity(isSelected ? 1 : 0)
