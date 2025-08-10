@@ -9,22 +9,21 @@ import SwiftUI
 
 struct SharedDictionaryWordsView: View {
     @StateObject private var dictionaryService = DictionaryService.shared
-    @StateObject private var wordsProvider = WordsProvider.shared
     @State private var searchText = ""
     @State private var showingAddWord = false
 
     @Binding var navigationPath: NavigationPath
     @State var dictionary: SharedDictionary
 
-    var filteredWords: [CDWord] {
-        let sharedWordsForDictionary = wordsProvider.sharedWords.filter { $0.sharedDictionaryId == dictionary.id }
+    var filteredWords: [SharedWord] {
+        let sharedWordsForDictionary = dictionaryService.sharedWords[dictionary.id] ?? []
         
         if searchText.isEmpty {
             return sharedWordsForDictionary
         } else {
             return sharedWordsForDictionary.filter { word in
-                word.wordItself?.localizedCaseInsensitiveContains(searchText) ?? false ||
-                word.definition?.localizedCaseInsensitiveContains(searchText) ?? false
+                word.wordItself.localizedCaseInsensitiveContains(searchText) ||
+                word.definition.localizedCaseInsensitiveContains(searchText)
             }
         }
     }
@@ -53,13 +52,10 @@ struct SharedDictionaryWordsView: View {
                     } else {
                         ListWithDivider(filteredWords) { word in
                            Button {
-                               let config = WordDetailsContentView.Config(
-                                    word: word,
-                                    dictionary: dictionary
-                               )
-                               navigationPath.append(NavigationDestination.wordDetails(config))
+                               navigationPath.append(NavigationDestination.sharedWordDetails(word, dictionaryId: dictionary.id))
                            } label: {
-                               WordListCellView(word: word)
+                               SharedWordListCellView(word: word)
+                                   .id(word.id)
                            }
                            .buttonStyle(.plain)
                        }
@@ -101,6 +97,9 @@ struct SharedDictionaryWordsView: View {
         .onAppear {
             dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionary.id)
         }
+        .refreshable {
+            await refreshDictionaryWords()
+        }
         .onChange(of: dictionaryService.sharedDictionaries) { newValue in
             if let dictionary = newValue.first(where: { $0.id == self.dictionary.id }) {
                 self.dictionary = dictionary
@@ -111,5 +110,17 @@ struct SharedDictionaryWordsView: View {
                 TabManager.shared.popToRootPublisher.send()
             }
         }
+    }
+    
+    private func refreshDictionaryWords() async {
+        print("🔄 [SharedDictionaryWordsView] Pull-to-refresh triggered for dictionary: \(dictionary.id)")
+        
+        // Force a refresh of the shared dictionary words
+        dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionary.id)
+        
+        // Add a small delay to ensure the refresh completes
+        try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
+        
+        print("✅ [SharedDictionaryWordsView] Pull-to-refresh completed for dictionary: \(dictionary.id)")
     }
 }

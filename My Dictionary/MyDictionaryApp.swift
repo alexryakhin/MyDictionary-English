@@ -16,19 +16,21 @@ struct MyDictionaryApp: App {
 
     init() {
         FirebaseApp.configure()
+        
+        // Configure Firestore for offline persistence
+        let db = Firestore.firestore()
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
+        settings.cacheSizeBytes = FirestoreCacheSizeUnlimited
+        db.settings = settings
+        
         AnalyticsService.shared.logEvent(.appOpened)
         
         // Debug Firebase configuration
         FirebaseDebugService.shared.checkFirebaseConfiguration()
         FirebaseDebugService.shared.checkAuthenticationStatus()
-        FirebaseDebugService.shared.testFirestoreWritePermissions()
         
-        // Test automatic sync trigger
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            print("🧪 [App] Testing automatic sync trigger...")
-            print("🧪 [App] DataSyncService.shared: \(DataSyncService.shared)")
-            NotificationCenter.default.post(name: .NSManagedObjectContextDidSave, object: nil)
-        }
+
         
         // Sync from Firestore on app startup and start real-time listener
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

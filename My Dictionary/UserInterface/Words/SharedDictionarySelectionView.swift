@@ -106,27 +106,23 @@ struct SharedDictionarySelectionView: View {
                             .buttonStyle(.plain)
                         }
                     }
-                }
-
-                if dictionaryService.sharedDictionaries.isEmpty {
-                    Section {
+                } else {
+                    CustomSectionView(
+                        header: "Shared Dictionaries",
+                        footer: "Create a shared dictionary to collaborate with others"
+                    ) {
                         Button {
                             showingAddDictionary = true
                         } label: {
-                            HStack {
-                                Image(systemName: "plus.circle")
-                                    .foregroundStyle(.blue)
-                                Text("Create Shared Dictionary")
-                                    .foregroundStyle(.blue)
-                            }
+                            Label("Create Shared Dictionary", systemImage: "plus.circle")
+                                .padding(.vertical, 8)
+                                .frame(maxWidth: .infinity)
                         }
-                    } header: {
-                        Text("Shared Dictionaries")
-                    } footer: {
-                        Text("Create a shared dictionary to collaborate with others")
+                        .buttonStyle(.bordered)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .padding(.bottom, 12)
                     }
                 }
-
             }
             .padding(.horizontal, 16)
         }

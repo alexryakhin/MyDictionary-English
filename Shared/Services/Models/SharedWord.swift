@@ -18,7 +18,12 @@ struct SharedWord: Codable, Hashable {
     let languageCode: String
     let timestamp: Date
     let updatedAt: Date
-    let sharedDictionaryId: String?
+
+    
+    // Collaborator information
+    let addedByEmail: String
+    let addedByDisplayName: String?
+    let addedAt: Date
     
     // MARK: - Initialization
     
@@ -32,7 +37,10 @@ struct SharedWord: Codable, Hashable {
         languageCode: String,
         timestamp: Date = Date(),
         updatedAt: Date = Date(),
-        sharedDictionaryId: String? = nil
+
+        addedByEmail: String,
+        addedByDisplayName: String? = nil,
+        addedAt: Date = Date()
     ) {
         self.id = id
         self.wordItself = wordItself
@@ -43,12 +51,15 @@ struct SharedWord: Codable, Hashable {
         self.languageCode = languageCode
         self.timestamp = timestamp
         self.updatedAt = updatedAt
-        self.sharedDictionaryId = sharedDictionaryId
+
+        self.addedByEmail = addedByEmail
+        self.addedByDisplayName = addedByDisplayName
+        self.addedAt = addedAt
     }
     
     // MARK: - Conversion from Word
     
-    init(from word: Word) {
+    init(from word: Word, addedByEmail: String, addedByDisplayName: String? = nil) {
         self.id = word.id
         self.wordItself = word.wordItself
         self.definition = word.definition
@@ -58,13 +69,37 @@ struct SharedWord: Codable, Hashable {
         self.languageCode = word.languageCode
         self.timestamp = word.timestamp
         self.updatedAt = word.updatedAt
-        self.sharedDictionaryId = word.sharedDictionaryId
+
+        self.addedByEmail = addedByEmail
+        self.addedByDisplayName = addedByDisplayName
+        self.addedAt = Date()
+    }
+
+    var shouldShowLanguageLabel: Bool {
+        return languageCode.nilIfEmpty != nil && languageCode != "en"
+    }
+
+    var languageDisplayName: String {
+        guard let language = Locale.current.localizedString(forLanguageCode: languageCode) else { return "Unknown" }
+        return language.capitalized
     }
     
+    var addedByDisplayText: String {
+        let name = addedByDisplayName ?? addedByEmail
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return "Added by \(name) on \(dateFormatter.string(from: addedAt))"
+    }
+    
+    var addedByShortText: String {
+        return addedByDisplayName ?? addedByEmail
+    }
+
     // MARK: - Firestore Conversion
     
     func toFirestoreDictionary() -> [String: Any] {
-        let dict: [String: Any] = [
+        var dict: [String: Any] = [
             "wordItself": wordItself,
             "definition": definition,
             "partOfSpeech": partOfSpeech,
@@ -73,8 +108,15 @@ struct SharedWord: Codable, Hashable {
             "languageCode": languageCode,
             "timestamp": Timestamp(date: timestamp),
             "updatedAt": Timestamp(date: updatedAt),
-            "sharedDictionaryId": sharedDictionaryId ?? ""
+
+            "addedByEmail": addedByEmail,
+            "addedAt": Timestamp(date: addedAt)
         ]
+        
+        if let addedByDisplayName = addedByDisplayName {
+            dict["addedByDisplayName"] = addedByDisplayName
+        }
+        
         print("📝 [SharedWord] toFirestoreDictionary called for word '\(wordItself)', returning: \(dict)")
         return dict
     }
@@ -85,13 +127,16 @@ struct SharedWord: Codable, Hashable {
               let partOfSpeech = data["partOfSpeech"] as? String,
               let examples = data["examples"] as? [String],
               let languageCode = data["languageCode"] as? String,
-              let timestamp = data["timestamp"] as? Timestamp else {
+              let timestamp = data["timestamp"] as? Timestamp,
+              let addedByEmail = data["addedByEmail"] as? String,
+              let addedAt = data["addedAt"] as? Timestamp else {
             return nil
         }
         
         // Handle optional fields
         let updatedAt = data["updatedAt"] as? Timestamp ?? timestamp
-        let sharedDictionaryId = data["sharedDictionaryId"] as? String
+
+        let addedByDisplayName = data["addedByDisplayName"] as? String
         
         return SharedWord(
             id: id,
@@ -103,28 +148,9 @@ struct SharedWord: Codable, Hashable {
             languageCode: languageCode,
             timestamp: timestamp.dateValue(),
             updatedAt: updatedAt.dateValue(),
-            sharedDictionaryId: sharedDictionaryId
+            addedByEmail: addedByEmail,
+            addedByDisplayName: addedByDisplayName,
+            addedAt: addedAt.dateValue()
         )
-    }
-    
-    // MARK: - Core Data Conversion
-    
-    func toCoreDataEntity() -> CDWord {
-        let entity = CDWord(context: CoreDataService.shared.context)
-        entity.id = UUID(uuidString: id)
-        entity.wordItself = wordItself
-        entity.definition = definition
-        entity.partOfSpeech = partOfSpeech
-        entity.phonetic = phonetic
-        try? entity.updateExamples(examples)
-        entity.difficultyLevel = 0 // Default for shared words
-        entity.languageCode = languageCode
-        entity.isFavorite = false // Default for shared words
-        entity.timestamp = timestamp
-        entity.updatedAt = updatedAt
-        entity.isSynced = true
-        entity.sharedDictionaryId = sharedDictionaryId
-        // Don't add tags for shared words
-        return entity
     }
 }

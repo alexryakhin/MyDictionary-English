@@ -39,8 +39,6 @@ struct SettingsView: View {
                                     Text($0.displayName).tag($0)
                                 }
                             }
-                            .buttonStyle(.bordered)
-                            .clipShape(.capsule)
                         }
                         .padding(vertical: 12, horizontal: 16)
                         .clippedWithBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)

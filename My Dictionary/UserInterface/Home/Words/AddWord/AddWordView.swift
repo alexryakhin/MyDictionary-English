@@ -25,7 +25,10 @@ struct AddWordView: View {
                     definitionCellView
                     partOfSpeechCellView
                     phoneticsCellView
-                    tagsCellView
+                    // Only show tags for private words (not shared dictionary)
+                    if selectedDictionaryId == nil {
+                        tagsCellView
+                    }
                 }
                 .clippedWithBackground()
 

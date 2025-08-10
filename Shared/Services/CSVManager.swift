@@ -65,6 +65,9 @@ final class CSVManager {
 
     /// Import a CSV file and save words to Core Data
     func importWordsFromCSV(url: URL, currentWordIds: [String]) throws {
+        guard url.startAccessingSecurityScopedResource() else {
+            throw CocoaError(.fileNoSuchFile)
+        }
         let fileContents = try String(contentsOf: url)
         let rows = fileContents.components(separatedBy: "\n").dropFirst() // Remove header
         var count = 0
@@ -82,9 +85,11 @@ final class CSVManager {
             newWord.isFavorite = (columns[4].lowercased() == "true")
             newWord.timestamp = ISO8601DateFormatter().date(from: columns[5]) ?? Date()
             newWord.id = UUID(uuidString: columns[6])
-            newWord.ownerId = authenticationService.userId
+            newWord.isSynced = false // Mark as unsynced to trigger Firebase sync
+            newWord.updatedAt = Date()
 
             let examplesArray = columns[7].components(separatedBy: ";")
+                .filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
             if examplesArray.isNotEmpty {
                 let examplesData = try JSONEncoder().encode(examplesArray)
                 newWord.examples = examplesData
@@ -93,8 +98,6 @@ final class CSVManager {
             // Handle languageCode (new field, might not exist in old CSV files)
             if columns.count > 8 {
                 newWord.languageCode = columns[8]
-            } else {
-                newWord.languageCode = "en" // Default for old CSV files
             }
 
             count += 1

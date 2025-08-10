@@ -48,51 +48,5 @@ final class FirebaseDebugService {
         }
     }
     
-    func testFirestoreWritePermissions() {
-        print("🔍 [FirebaseDebug] Testing Firestore write permissions...")
-        
-        guard let userId = Auth.auth().currentUser?.uid else {
-            print("❌ [FirebaseDebug] No authenticated user for write test")
-            return
-        }
-        
-        let db = Firestore.firestore()
-        let testData: [String: Any] = [
-            "test": true,
-            "timestamp": Timestamp(date: Date()),
-            "userId": userId
-        ]
-        
-        // Test write to private dictionary path
-        let privateDocRef = db.collection("users").document(userId)
-            
-            .collection("words").document("test-write")
-        
-        print("📝 [FirebaseDebug] Attempting to write to: \(privateDocRef.path)")
-        
-        // Add timeout
-        let timeoutTask = DispatchWorkItem {
-            print("⏰ [FirebaseDebug] Write test timed out after 10 seconds")
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: timeoutTask)
-        
-        privateDocRef.setData(testData) { error in
-            timeoutTask.cancel() // Cancel timeout if we get a response
-            
-            if let error = error {
-                print("❌ [FirebaseDebug] Write test failed: \(error.localizedDescription)")
-            } else {
-                print("✅ [FirebaseDebug] Write test successful")
-                
-                // Clean up the test document
-                privateDocRef.delete { error in
-                    if let error = error {
-                        print("⚠️ [FirebaseDebug] Failed to clean up test document: \(error.localizedDescription)")
-                    } else {
-                        print("🧹 [FirebaseDebug] Test document cleaned up")
-                    }
-                }
-            }
-        }
-    }
+
 } 

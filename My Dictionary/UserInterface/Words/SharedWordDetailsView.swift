@@ -1,20 +1,17 @@
+//
+//  SharedWordDetailsView.swift
+//  My Dictionary
+//
+//  Created by Alexander Riakhin on 8/1/25.
+//
+
 import SwiftUI
 import Combine
 import Flow
 
-struct WordDetailsContentView: View {
+struct SharedWordDetailsView: View {
 
-    struct Config: Hashable {
-        let id = UUID()
-        let word: CDWord
-        let dictionary: SharedDictionary?
-    }
-
-    @StateObject var word: CDWord
     @Environment(\.dismiss) private var dismiss
-    
-    // Optional dictionary parameter for shared words
-    let dictionary: SharedDictionary?
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
@@ -22,16 +19,25 @@ struct WordDetailsContentView: View {
     @State private var isAddingExample = false
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
-    @State private var showingTagSelection = false
-    @State private var showingDifficultyPicker = false
-    @State private var selectedDifficulty: Difficulty = .new
+
+    // Mutable state for editable fields
+    @State private var phoneticText: String = ""
+    @State private var definitionText: String = ""
+    @State private var examples: [String] = []
+    
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var authenticationService = AuthenticationService.shared
-    @StateObject private var tagService = TagService.shared
 
-    init(config: Config) {
-        self._word = StateObject(wrappedValue: config.word)
-        self.dictionary = config.dictionary
+    @State private var word: SharedWord
+    private let dictionaryId: String
+
+    init(word: SharedWord, dictionaryId: String) {
+        self._word = State(wrappedValue: word)
+        self.dictionaryId = dictionaryId
+        // Initialize mutable state with current word values
+        self._phoneticText = State(wrappedValue: word.phonetic ?? "")
+        self._definitionText = State(wrappedValue: word.definition)
+        self._examples = State(wrappedValue: word.examples)
     }
 
     var body: some View {
@@ -40,9 +46,8 @@ struct WordDetailsContentView: View {
                 transcriptionSectionView
                 partOfSpeechSectionView
                 definitionSectionView
-                difficultySectionView
+
                 languageSectionView
-                tagsSectionView
                 examplesSectionView
             }
             .padding(.horizontal, 16)
@@ -58,24 +63,15 @@ struct WordDetailsContentView: View {
                     showDeleteAlert()
                 }
                 .tint(.red)
-                HeaderButton(icon: word.isFavorite ? "heart.fill" : "heart") {
-                    word.isFavorite.toggle()
-                    saveContext()
-                    AnalyticsService.shared.logEvent(.wordFavoriteTapped)
-                }
-                .animation(.easeInOut(duration: 0.2), value: word.isFavorite)
             },
             bottomContent: {
-                Text(word.wordItself ?? "")
+                Text(word.wordItself)
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
                     .bold()
             }
         )
-        .sheet(isPresented: $showingTagSelection) {
-            WordTagSelectionView(word: word)
-        }
         .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
             TextField("Example", text: $exampleTextFieldStr)
             Button("Cancel", role: .cancel) {
@@ -92,17 +88,14 @@ struct WordDetailsContentView: View {
 
     private var transcriptionSectionView: some View {
         CustomSectionView(header: "Transcription", headerFontStyle: .stealth) {
-            TextField("Transcription", text: Binding(
-                get: { word.phonetic ?? "" },
-                set: { word.phonetic = $0 }
-            ), axis: .vertical)
+            TextField("Transcription", text: $phoneticText, axis: .vertical)
                 .focused($isPhoneticsFocused)
                 .fontWeight(.semibold)
         } trailingContent: {
             if isPhoneticsFocused {
                 HeaderButton(text: "Done") {
                     isPhoneticsFocused = false
-                    saveContext()
+                    savePhonetic()
                 }
             } else {
                 HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
@@ -114,7 +107,7 @@ struct WordDetailsContentView: View {
 
     private var partOfSpeechSectionView: some View {
         CustomSectionView(header: "Part Of Speech", headerFontStyle: .stealth) {
-            Text(word.partOfSpeech ?? "")
+            Text(word.partOfSpeech)
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
@@ -137,18 +130,15 @@ struct WordDetailsContentView: View {
 
     private var definitionSectionView: some View {
         CustomSectionView(header: "Definition", headerFontStyle: .stealth) {
-            TextField("Definition", text: Binding(
-                get: { word.definition ?? "" },
-                set: { word.definition = $0 }
-            ), axis: .vertical)
+            TextField("Definition", text: $definitionText, axis: .vertical)
                 .focused($isDefinitionFocused)
                 .fontWeight(.semibold)
         } trailingContent: {
             if isDefinitionFocused {
                 HeaderButton(text: "Done") {
                     isDefinitionFocused = false
+                    saveDefinition()
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
-                    saveContext()
                 }
             } else {
                 HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
@@ -159,24 +149,7 @@ struct WordDetailsContentView: View {
         }
     }
 
-    private var difficultySectionView: some View {
-        CustomSectionView(header: "Difficulty", headerFontStyle: .stealth) {
-            let difficulty = getCurrentDifficulty()
-            Label(difficulty.displayName, systemImage: difficulty.imageName)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundStyle(difficulty.color)
-                .fontWeight(.semibold)
-        } trailingContent: {
-            HeaderButton(text: "Change", style: .bordered) {
-                selectedDifficulty = getCurrentDifficulty()
-                showingDifficultyPicker = true
-            }
-            .tint(.blue)
-        }
-        .sheet(isPresented: $showingDifficultyPicker) {
-            difficultyPickerView
-        }
-    }
+
 
     @ViewBuilder
     private var languageSectionView: some View {
@@ -186,107 +159,19 @@ struct WordDetailsContentView: View {
                     Text(word.languageDisplayName)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                    if let languageCode = word.languageCode {
-                        Text(languageCode.uppercased())
-                            .font(.caption2)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 2)
-                            .background(Color.blue.opacity(0.2))
-                            .foregroundStyle(.blue)
-                            .clipShape(Capsule())
-                    }
+                    Text(word.languageCode.uppercased())
+                        .font(.caption2)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.blue.opacity(0.2))
+                        .foregroundStyle(.blue)
+                        .clipShape(Capsule())
                 }
             }
         }
     }
     
-    private var difficultyPickerView: some View {
-        ScrollView {
-            VStack(spacing: 12) {
-                ForEach(Difficulty.allCases, id: \.self) { difficulty in
-                    Button {
-                        withAnimation {
-                            selectedDifficulty = difficulty
-                        }
-                    } label: {
-                        HStack {
-                            Label(difficulty.displayName, systemImage: difficulty.imageName)
-                                .foregroundStyle(selectedDifficulty == difficulty ? .white : difficulty.color)
 
-                            Spacer()
-
-                            if selectedDifficulty == difficulty {
-                                Image(systemName: "checkmark")
-                                    .foregroundStyle(.white)
-                            }
-                        }
-                        .clippedWithPaddingAndBackground(
-                            selectedDifficulty == difficulty
-                            ? difficulty.color
-                            : difficulty.color.opacity(0.2)
-                        )
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-            .padding(.horizontal, 16)
-        }
-        .groupedBackground()
-        .navigation(title: "Select Difficulty Level", mode: .inline, trailingContent: {
-            HeaderButton(text: "Save", style: .borderedProminent, font: .body) {
-                updateDifficulty()
-                showingDifficultyPicker = false
-            }
-            .bold()
-        })
-        .presentationDetents([.medium])
-    }
-    
-    private func updateDifficulty() {
-        word.difficultyLevel = selectedDifficulty.level
-        saveContext()
-        AnalyticsService.shared.logEvent(.wordDifficultyChanged)
-    }
-    
-    private func getCurrentDifficulty() -> Difficulty {
-        switch word.difficultyLevel {
-        case 0:
-            return .new
-        case 1:
-            return .inProgress
-        case 2:
-            return .needsReview
-        case 3:
-            return .mastered
-        default:
-            return .new
-        }
-    }
-
-    private var tagsSectionView: some View {
-        CustomSectionView(header: "Tags", headerFontStyle: .stealth) {
-            if word.tagsArray.isEmpty {
-                Text("No tags added yet.")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            } else {
-                HFlow(alignment: .top, spacing: 8) {
-                    ForEach(word.tagsArray) { tag in
-                        HeaderButton(
-                            text: tag.name.orEmpty,
-                            style: .borderedProminent,
-                            action: {}
-                        )
-                        .tint(tag.colorValue.color)
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-            }
-        } trailingContent: {
-            HeaderButton(text: "Add Tag", icon: "plus") {
-                showingTagSelection = true
-            }
-        }
-    }
 
     private var examplesSectionView: some View {
         CustomSectionView(
@@ -294,9 +179,9 @@ struct WordDetailsContentView: View {
             headerFontStyle: .stealth,
             hPadding: 0
         ) {
-            if word.examplesDecoded.isNotEmpty {
+            if !examples.isEmpty {
                 FormWithDivider {
-                    ForEach(Array(word.examplesDecoded.enumerated()), id: \.offset) { index, example in
+                    ForEach(Array(examples.enumerated()), id: \.offset) { index, example in
                         HStack {
                             Text(example)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -382,30 +267,88 @@ struct WordDetailsContentView: View {
 
     // MARK: - Private Methods
 
-    private func saveContext() {
+    private func savePhonetic() {
         Task {
-            word.isSynced = false
-            word.updatedAt = Date()
-
-            do {
-                try CoreDataService.shared.saveContext()
-                if let dictionary = dictionary {
-                    // Sync shared word to shared dictionary
-                    if let wordModel = Word(from: word) {
-                        try await dictionaryService.updateWordInSharedDictionary(
-                            dictionaryId: dictionary.id,
-                            word: wordModel
-                        )
-                    }
-                } else if let userId = authenticationService.userId {
-                    try await DataSyncService.shared.syncWordToFirestore(
-                        word: word,
-                        userId: userId
-                    )
+            var updatedWord = word
+            updatedWord = SharedWord(
+                id: word.id,
+                wordItself: word.wordItself,
+                definition: word.definition,
+                partOfSpeech: word.partOfSpeech,
+                phonetic: phoneticText.isEmpty ? nil : phoneticText,
+                examples: word.examples,
+                languageCode: word.languageCode,
+                timestamp: word.timestamp,
+                updatedAt: Date(),
+                addedByEmail: word.addedByEmail,
+                addedByDisplayName: word.addedByDisplayName,
+                addedAt: word.addedAt
+            )
+            
+            await saveWordToFirebase(updatedWord)
+        }
+    }
+    
+    private func saveDefinition() {
+        Task {
+            var updatedWord = word
+            updatedWord = SharedWord(
+                id: word.id,
+                wordItself: word.wordItself,
+                definition: definitionText,
+                partOfSpeech: word.partOfSpeech,
+                phonetic: word.phonetic,
+                examples: word.examples,
+                languageCode: word.languageCode,
+                timestamp: word.timestamp,
+                updatedAt: Date(),
+                addedByEmail: word.addedByEmail,
+                addedByDisplayName: word.addedByDisplayName,
+                addedAt: word.addedAt
+            )
+            
+            await saveWordToFirebase(updatedWord)
+        }
+    }
+    
+    private func saveWordToFirebase(_ updatedWord: SharedWord) async {
+        
+        do {
+            // Update in-memory storage first
+            DispatchQueue.main.async {
+                if let index = self.dictionaryService.sharedWords[dictionaryId]?.firstIndex(where: { $0.id == self.word.id }) {
+                    self.dictionaryService.sharedWords[dictionaryId]?[index] = updatedWord
                 }
-            } catch {
-                errorReceived(error)
+                self.word = updatedWord
             }
+            
+            // Convert to Word and save to Firebase
+            let wordForFirebase = Word(
+                id: updatedWord.id,
+                wordItself: updatedWord.wordItself,
+                definition: updatedWord.definition,
+                partOfSpeech: updatedWord.partOfSpeech,
+                phonetic: updatedWord.phonetic,
+                examples: updatedWord.examples,
+                tags: [],
+                difficultyLevel: 0,
+                languageCode: updatedWord.languageCode,
+                isFavorite: false,
+                timestamp: updatedWord.timestamp,
+                updatedAt: updatedWord.updatedAt,
+                isSynced: true
+            )
+            
+            try await dictionaryService.updateWordInSharedDictionary(
+                dictionaryId: dictionaryId,
+                word: wordForFirebase
+            )
+            
+            print("✅ [SharedWordDetails] Word updated successfully")
+            HapticManager.shared.triggerNotification(type: .success)
+        } catch {
+            print("❌ [SharedWordDetails] Failed to update word: \(error.localizedDescription)")
+            errorReceived(title: "Update failed", error)
         }
     }
 
@@ -427,32 +370,48 @@ struct WordDetailsContentView: View {
     }
 
     private func updatePartOfSpeech(_ value: PartOfSpeech) {
-        word.partOfSpeech = value.rawValue
-        saveContext()
+        // Note: Part of speech is part of the shared word data, so we can't modify it
+        // This would need to be handled differently if editing is required
         AnalyticsService.shared.logEvent(.partOfSpeechChanged)
     }
 
     private func addExample(_ example: String) {
         guard !example.isEmpty else { return }
-        var currentExamples = word.examplesDecoded
-        currentExamples.append(example)
-        try? word.updateExamples(currentExamples)
-        saveContext()
+        examples.append(example)
+        saveExamples()
     }
 
     private func updateExample(at index: Int, text: String) {
-        guard !text.isEmpty else { return }
-        var currentExamples = word.examplesDecoded
-        currentExamples[index] = text
-        try? word.updateExamples(currentExamples)
-        saveContext()
+        guard !text.isEmpty, index < examples.count else { return }
+        examples[index] = text
+        saveExamples()
     }
 
     private func removeExample(at index: Int) {
-        var currentExamples = word.examplesDecoded
-        currentExamples.remove(at: index)
-        try? word.updateExamples(currentExamples)
-        saveContext()
+        guard index < examples.count else { return }
+        examples.remove(at: index)
+        saveExamples()
+    }
+    
+    private func saveExamples() {
+        Task {
+            let updatedWord = SharedWord(
+                id: word.id,
+                wordItself: word.wordItself,
+                definition: word.definition,
+                partOfSpeech: word.partOfSpeech,
+                phonetic: word.phonetic,
+                examples: examples,
+                languageCode: word.languageCode,
+                timestamp: word.timestamp,
+                updatedAt: Date(),
+                addedByEmail: word.addedByEmail,
+                addedByDisplayName: word.addedByDisplayName,
+                addedAt: word.addedAt
+            )
+            
+            await saveWordToFirebase(updatedWord)
+        }
     }
 
     private func showDeleteAlert() {
@@ -472,58 +431,28 @@ struct WordDetailsContentView: View {
     }
 
     private func deleteWord() {
-        guard let id = word.id?.uuidString else { return }
         
         Task { @MainActor in
-            if let dictionary = dictionary {
-                // Delete from shared dictionary
-                do {
-                    try await dictionaryService.deleteWordFromSharedDictionary(
-                        dictionaryId: dictionary.id,
-                        wordId: id
-                    )
-                    print("✅ [WordDetails] Shared word deleted successfully")
-                    HapticManager.shared.triggerNotification(type: .success)
-                } catch {
-                    print("❌ [WordDetails] Failed to delete shared word: \(error.localizedDescription)")
-                    errorReceived(title: "Delete failed", error)
-                }
-            } else {
-                // Delete private word
-                try? WordsProvider.shared.deleteWord(with: id)
+            do {
+                try await dictionaryService.deleteWordFromSharedDictionary(
+                    dictionaryId: dictionaryId,
+                    wordId: word.id
+                )
+                print("✅ [SharedWordDetails] Shared word deleted successfully")
+                HapticManager.shared.triggerNotification(type: .success)
+            } catch {
+                print("❌ [SharedWordDetails] Failed to delete shared word: \(error.localizedDescription)")
+                errorReceived(title: "Delete failed", error)
             }
         }
     }
-
-    private func removeTag(_ tag: CDTag) {
-        try? TagService.shared.removeTagFromWord(tag, word: word)
-        saveContext()
-        AnalyticsService.shared.logEvent(.tagRemovedFromWord)
-    }
-}
-
-struct TagView: View {
-    let tag: CDTag
     
-    var body: some View {
-        HStack(spacing: 8) {
-            Circle()
-                .fill(tag.colorValue.color)
-                .frame(width: 12, height: 12)
-            
-            Text(tag.name ?? "")
-                .font(.body)
-                .fontWeight(.medium)
-            
-            Spacer()
-            
-            Image(systemName: "xmark")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-        }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 8)
-        .background(tag.colorValue.color.opacity(0.2))
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+    private func errorReceived(title: String, _ error: Error) {
+        AlertCenter.shared.showAlert(
+            with: .error(
+                title: title,
+                message: error.localizedDescription
+            )
+        )
     }
 }

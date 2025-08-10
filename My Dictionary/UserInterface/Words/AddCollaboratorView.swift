@@ -12,6 +12,7 @@ struct AddCollaboratorView: View {
 
     @StateObject var dictionaryService: DictionaryService = .shared
     @State private var email = ""
+    @State private var name = ""
     @State private var role: CollaboratorRole = .editor
     @State private var isLoading = false
 
@@ -25,6 +26,14 @@ struct AddCollaboratorView: View {
                         TextField("Email Address", text: $email)
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
+                            .autocorrectionDisabled()
+                            .padding(vertical: 8, horizontal: 12)
+                            .background(Color(.tertiarySystemGroupedBackground))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+
+                        TextField("Name (optional)", text: $name)
+                            .keyboardType(.default)
+                            .autocapitalization(.words)
                             .autocorrectionDisabled()
                             .padding(vertical: 8, horizontal: 12)
                             .background(Color(.tertiarySystemGroupedBackground))
@@ -64,6 +73,15 @@ struct AddCollaboratorView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 12, horizontal: 16)
                     }
+                }
+                
+                CustomSectionView(header: "Note", hPadding: .zero) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("The collaborator will be added with the email and name you provide. They will need to sign in with the same email address to access the shared dictionary.")
+                    }
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(vertical: 12, horizontal: 16)
                 }
             }
             .padding(.horizontal, 16)
@@ -109,6 +127,7 @@ struct AddCollaboratorView: View {
             showAlertWithMessage("Please enter a valid email address")
             return
         }
+
         Task { @MainActor in
             isLoading = true
             defer {
@@ -117,7 +136,9 @@ struct AddCollaboratorView: View {
             do {
                 try await dictionaryService.addCollaborator(
                     dictionaryId: dictionaryId,
+                    userId: email.lowercased().replacingOccurrences(of: "@", with: "_").replacingOccurrences(of: ".", with: "_"),
                     email: email.trimmingCharacters(in: .whitespacesAndNewlines),
+                    displayName: name.isEmpty ? nil : name,
                     role: role
                 )
                 dismiss()
@@ -125,5 +146,23 @@ struct AddCollaboratorView: View {
                 errorReceived(error)
             }
         }
+    }
+    
+    private func showAlertWithMessage(_ message: String) {
+        AlertCenter.shared.showAlert(
+            with: .error(
+                title: "Error",
+                message: message
+            )
+        )
+    }
+    
+    private func errorReceived(_ error: Error) {
+        AlertCenter.shared.showAlert(
+            with: .error(
+                title: "Error",
+                message: error.localizedDescription
+            )
+        )
     }
 }

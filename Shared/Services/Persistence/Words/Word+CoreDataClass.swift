@@ -29,8 +29,6 @@ final class CDWord: NSManagedObject, Identifiable {
     @NSManaged var difficultyLevel: Int32
     @NSManaged var languageCode: String?
     @NSManaged var isSynced: Bool
-    @NSManaged var ownerId: String?
-    @NSManaged var sharedDictionaryId: String?
 
     var examplesDecoded: [String] {
         guard let examples,
@@ -72,10 +70,6 @@ final class CDWord: NSManagedObject, Identifiable {
     
     var shouldShowLanguageLabel: Bool {
         return languageCode?.nilIfEmpty != nil && languageCode != "en"
-    }
-    
-    var isSharedWord: Bool {
-        return !(sharedDictionaryId?.isEmpty ?? true)
     }
 
     var tagsArray: [CDTag] {

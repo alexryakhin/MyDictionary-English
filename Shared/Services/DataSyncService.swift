@@ -17,6 +17,13 @@ final class DataSyncService: ObservableObject {
     private let coreDataService = CoreDataService.shared
     private var cancellables = Set<AnyCancellable>()
     private var privateDictionaryListener: ListenerRegistration?
+    private var sharedDictionaryListeners: [String: ListenerRegistration] = [:]
+    private var hasInitializedSync: [String: Bool] = [:] // Track if we've done initial sync for each user
+    
+    // Configuration
+    private let maxBatchSize = 500 // Firestore batch limit
+    private let retryAttempts = 3
+    private let retryDelay: TimeInterval = 2.0
 
     let realTimeUpdateReceived = PassthroughSubject<Void, Never>()
 
@@ -47,54 +54,86 @@ final class DataSyncService: ObservableObject {
             return
         }
 
-        let batch = db.batch()
-        let totalWords = unsyncedWords.count
-        var processedWords = 0
-
-        print("🔄 [DataSyncService] Starting batch write to Firestore...")
-
-        for entity in unsyncedWords {
-            guard let word = Word(from: entity) else { 
-                print("⚠️ [DataSyncService] Failed to convert entity to Word, skipping...")
-                continue 
-            }
-            
-            print("🔄 [DataSyncService] Processing word: '\(word.wordItself)' (ID: \(word.id))")
-            
-            let docRef = db
-                .collection("users")
-                .document(userId)
-                .collection("words")
-                .document(word.id)
-
-            let firestoreData = word.toFirestoreDictionary()
-            print("🔄 [DataSyncService] Word data for Firestore: \(firestoreData)")
-            
-            batch.setData(firestoreData, forDocument: docRef)
-
-            processedWords += 1
-            print("🔄 [DataSyncService] Processed \(processedWords)/\(totalWords) words")
+        // Process in batches to avoid Firestore limits
+        let batches = stride(from: 0, to: unsyncedWords.count, by: maxBatchSize).map {
+            Array(unsyncedWords[$0..<min($0 + maxBatchSize, unsyncedWords.count)])
         }
 
-        print("🔄 [DataSyncService] Committing batch to Firestore...")
-        try await batch.commit()
+        print("🔄 [DataSyncService] Processing \(unsyncedWords.count) words in \(batches.count) batches")
 
-        print("✅ [DataSyncService] Batch commit successful, updating Core Data...")
-        await self.coreDataService.context.perform {
-            unsyncedWords.forEach { 
-                $0.isSynced = true
-                print("🔄 [DataSyncService] Marking word '\($0.wordItself ?? "unknown")' as synced")
-            }
+        for (batchIndex, batch) in batches.enumerated() {
+            print("🔄 [DataSyncService] Processing batch \(batchIndex + 1)/\(batches.count)")
             
+            let firestoreBatch = db.batch()
+            var processedWords = 0
+
+            for entity in batch {
+                guard let word = Word(from: entity) else { 
+                    print("⚠️ [DataSyncService] Failed to convert entity to Word, skipping...")
+                    continue 
+                }
+                
+                print("🔄 [DataSyncService] Processing word: '\(word.wordItself)' (ID: \(word.id))")
+                
+                let docRef = db
+                    .collection("users")
+                    .document(userId)
+                    .collection("words")
+                    .document(word.id)
+
+                let firestoreData = word.toFirestoreDictionary()
+                firestoreBatch.setData(firestoreData, forDocument: docRef)
+
+                processedWords += 1
+            }
+
+            // Commit batch with retry logic
+            try await commitBatchWithRetry(firestoreBatch, batchIndex: batchIndex)
+            
+            // Mark words as synced in Core Data
+            await coreDataService.context.perform {
+                batch.forEach { 
+                    $0.isSynced = true
+                    print("🔄 [DataSyncService] Marking word '\($0.wordItself ?? "unknown")' as synced")
+                }
+                
+                do {
+                    try self.coreDataService.context.save()
+                    print("✅ [DataSyncService] Batch \(batchIndex + 1) Core Data saved successfully")
+                } catch {
+                    print("❌ [DataSyncService] Failed to save Core Data for batch \(batchIndex + 1): \(error.localizedDescription)")
+                }
+            }
+        }
+
+        print("✅ [DataSyncService] Private dictionary sync to Firestore completed successfully!")
+        
+        // Mark that we've done initial sync for this user
+        hasInitializedSync[userId] = true
+        print("✅ [DataSyncService] Marked initial sync as complete for user: \(userId)")
+    }
+
+    private func commitBatchWithRetry(_ batch: WriteBatch, batchIndex: Int) async throws {
+        var lastError: Error?
+        
+        for attempt in 1...retryAttempts {
             do {
-                try self.coreDataService.context.save()
-                print("✅ [DataSyncService] Core Data saved successfully")
+                print("🔄 [DataSyncService] Committing batch \(batchIndex + 1) (attempt \(attempt)/\(retryAttempts))")
+                try await batch.commit()
+                print("✅ [DataSyncService] Batch \(batchIndex + 1) committed successfully")
+                return
             } catch {
-                print("❌ [DataSyncService] Failed to save Core Data: \(error.localizedDescription)")
+                lastError = error
+                print("❌ [DataSyncService] Batch \(batchIndex + 1) commit failed (attempt \(attempt)/\(retryAttempts)): \(error.localizedDescription)")
+                
+                if attempt < retryAttempts {
+                    print("🔄 [DataSyncService] Retrying batch \(batchIndex + 1) in \(retryDelay) seconds...")
+                    try await Task.sleep(nanoseconds: UInt64(retryDelay * 1_000_000_000))
+                }
             }
-            
-            print("✅ [DataSyncService] Private dictionary sync to Firestore completed successfully!")
         }
+        
+        throw DataSyncError.syncFailed
     }
 
     func syncFirestoreToCoreData(userId: String) async throws {
@@ -105,8 +144,7 @@ final class DataSyncService: ObservableObject {
             throw DataSyncError.invalidUserId
         }
 
-        let firestorePath = "users/\(userId)/privateDictionary/words/words"
-        print("📡 [DataSyncService] Fetching words from Firestore path: \(firestorePath)")
+        print("📡 [DataSyncService] Fetching words from Firestore...")
         
         let snapshot = try await db.collection("users").document(userId).collection("words").getDocuments()
         print("📡 [DataSyncService] Firestore query completed")
@@ -123,7 +161,6 @@ final class DataSyncService: ObservableObject {
 
             for doc in snapshot.documents {
                 print("🔄 [DataSyncService] Processing document: \(doc.documentID)")
-                print("🔄 [DataSyncService] Document data: \(doc.data())")
                 
                 guard let word = Word.fromFirestoreDictionary(doc.data(), id: doc.documentID) else { 
                     print("⚠️ [DataSyncService] Failed to convert document to Word, skipping...")
@@ -142,7 +179,6 @@ final class DataSyncService: ObservableObject {
                 } else {
                     print("🔄 [DataSyncService] Creating new word in Core Data: '\(word.wordItself)'")
                     let entity = word.toCoreDataEntity()
-                    entity.ownerId = userId  // Set owner for private words
                     self.syncTags(word: word, entity: entity)
                     newWordsCount += 1
                 }
@@ -170,9 +206,6 @@ final class DataSyncService: ObservableObject {
         // Remove existing listener if any
         stopPrivateDictionaryListener()
         
-        let firestorePath = "users/\(userId)/privateDictionary/words/words"
-        print("📡 [DataSyncService] Setting up listener for path: \(firestorePath)")
-        
         privateDictionaryListener = db.collection("users").document(userId)
             .collection("words")
             .addSnapshotListener { [weak self] snapshot, error in
@@ -187,8 +220,6 @@ final class DataSyncService: ObservableObject {
                 }
                 
                 print("🔊 [DataSyncService] Private dictionary real-time update received")
-                print("🔊 [DataSyncService] Snapshot metadata: \(snapshot?.metadata.description ?? "nil")")
-                print("🔊 [DataSyncService] Snapshot has pending writes: \(snapshot?.metadata.hasPendingWrites ?? false)")
                 
                 guard let documents = snapshot?.documents else {
                     print("📄 [DataSyncService] No documents in private dictionary update")
@@ -204,22 +235,27 @@ final class DataSyncService: ObservableObject {
                     // Get all current document IDs from the snapshot
                     let currentDocumentIds = Set(documents.map { $0.documentID })
                     
-                    // Check for deleted documents
-                    let fetchRequest = CDWord.fetchRequest()
-                                         let allLocalWords = ((try? self?.coreDataService.context.fetch(fetchRequest)) ?? [])
-                         .filter { $0.sharedDictionaryId?.isEmpty ?? true }
+                    // Only check for deleted documents if we have words in Firestore AND we've done initial sync
+                    // This prevents deletion of local words during initial sync when Firestore is empty
+                    if !documents.isEmpty && (self?.hasInitializedSync[userId] == true) {
+                        print("🔍 [DataSyncService] Checking for deleted documents in Firestore...")
+                        let fetchRequest = CDWord.fetchRequest()
+                        let allLocalWords = ((try? self?.coreDataService.context.fetch(fetchRequest)) ?? [])
 
-                    for localWord in allLocalWords {
-                        if let wordId = localWord.id?.uuidString, !currentDocumentIds.contains(wordId) {
-                            print("🗑️ [DataSyncService] Word deleted from Firestore, removing from local storage: '\(localWord.wordItself ?? "unknown")' (ID: \(wordId))")
-                            self?.coreDataService.context.delete(localWord)
-                            try? self?.coreDataService.context.save()
+                        for localWord in allLocalWords {
+                            if let wordId = localWord.id?.uuidString, !currentDocumentIds.contains(wordId) {
+                                print("🗑️ [DataSyncService] Word deleted from Firestore, removing from local storage: '\(localWord.wordItself ?? "unknown")' (ID: \(wordId))")
+                                self?.coreDataService.context.delete(localWord)
+                            }
                         }
+                    } else if documents.isEmpty {
+                        print("📄 [DataSyncService] Firestore is empty, skipping deletion check to preserve local words")
+                    } else {
+                        print("🔄 [DataSyncService] Initial sync not complete yet, skipping deletion check to preserve local words")
                     }
                     
                     for doc in documents {
                         print("🔄 [DataSyncService] Processing real-time document: \(doc.documentID)")
-                        print("🔄 [DataSyncService] Document data: \(doc.data())")
                         
                         guard let word = Word.fromFirestoreDictionary(doc.data(), id: doc.documentID) else { 
                             print("⚠️ [DataSyncService] Failed to convert real-time document to Word")
@@ -235,7 +271,6 @@ final class DataSyncService: ObservableObject {
                         } else {
                             print("🔄 [DataSyncService] Creating new word in real-time: '\(word.wordItself)'")
                             let entity = word.toCoreDataEntity()
-                            entity.ownerId = userId  // Set owner for private words
                             self?.syncTags(word: word, entity: entity)
                         }
                         
@@ -301,63 +336,15 @@ final class DataSyncService: ObservableObject {
         print("✅ [DataSyncService] Word deleted from Firestore successfully")
     }
 
-    // MARK: - Test Real-time Functionality
-    /*
-    func testRealTimeFunctionality(userId: String) {
-        print("🧪 [DataSyncService] Testing real-time functionality for userId: \(userId)")
-        
-        // First, start the listener
-        startPrivateDictionaryListener(userId: userId)
-        
-        // Then, add a test word to Firestore to trigger the listener
-        let testWord = Word(
-            id: UUID().uuidString,
-            wordItself: "test_word_\(Date().timeIntervalSince1970)",
-            definition: "A test word for real-time functionality",
-            partOfSpeech: "noun",
-            phonetic: "test",
-            examples: ["This is a test example"],
-            tags: ["test"],
-            difficultyLevel: 1,
-            languageCode: "en",
-            isFavorite: false,
-            timestamp: Date(),
-            isSynced: true
-        )
-        
-        print("🧪 [DataSyncService] Adding test word to Firestore: '\(testWord.wordItself)'")
-        
-        let docRef = db.collection("users").document(userId)
-            .collection("words").document(testWord.id)
-        
-        docRef.setData(testWord.toFirestoreDictionary()) { error in
-            if let error = error {
-                print("❌ [DataSyncService] Failed to add test word: \(error.localizedDescription)")
-            } else {
-                print("✅ [DataSyncService] Test word added successfully")
-                
-                // Remove the test word after a delay
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    print("🧪 [DataSyncService] Removing test word from Firestore")
-                    docRef.delete { error in
-                        if let error = error {
-                            print("❌ [DataSyncService] Failed to remove test word: \(error.localizedDescription)")
-                        } else {
-                            print("✅ [DataSyncService] Test word removed successfully")
-                        }
-                    }
-                }
-            }
-        }
-    }
-    */
-
     // MARK: - Shared Dictionary Sync
 
     func syncSharedDictionaryWords(dictionaryId: String) {
         print("🔊 [DataSyncService] Starting real-time listener for shared dictionary: \(dictionaryId)")
         
-        db.collection("dictionaries").document(dictionaryId).collection("words")
+        // Remove existing listener if any
+        stopSharedDictionaryListener(dictionaryId: dictionaryId)
+        
+        let listener = db.collection("dictionaries").document(dictionaryId).collection("words")
             .addSnapshotListener { [weak self] snapshot, error in
                 guard let self = self else { 
                     print("⚠️ [DataSyncService] Self is nil in shared dictionary listener")
@@ -394,17 +381,9 @@ final class DataSyncService: ObservableObject {
                     let currentDocumentIds = Set(documents.map { $0.documentID })
                     
                     // Check for deleted documents in shared dictionary
-                    let fetchRequest = CDWord.fetchRequest()
-                                         fetchRequest.predicate = NSPredicate(format: "sharedDictionaryId == %@", dictionaryId)
-                    let allLocalSharedWords = (try? context.fetch(fetchRequest)) ?? []
-                    print("DEBUG50 2 [DataSyncService] Found \(allLocalSharedWords.count) shared words in local storage")
-                    for localWord in allLocalSharedWords {
-                        if let wordId = localWord.id?.uuidString, !currentDocumentIds.contains(wordId) {
-                            print("🗑️ [DataSyncService] Word deleted from shared dictionary, removing from local storage: '\(localWord.wordItself ?? "unknown")' (ID: \(wordId))")
-                            context.delete(localWord)
-                            try? context.save()
-                        }
-                    }
+                    // Note: Since we removed sharedDictionaryId, we need to track shared words differently
+                    // For now, we'll skip deletion checks for shared dictionaries
+                    print("🔍 [DataSyncService] Skipping deletion checks for shared dictionary (sharedDictionaryId removed)")
                     
                     var newWordsCount = 0
                     var updatedWordsCount = 0
@@ -419,6 +398,8 @@ final class DataSyncService: ObservableObject {
                             print("🔄 [DataSyncService] Found existing shared word in Core Data: '\(existing.wordItself ?? "unknown")'")
                             if word.updatedAt >= existing.updatedAt ?? Date.distantPast {
                                 print("🔄 [DataSyncService] Updating existing shared word with newer or equal data")
+                                
+                                // Update all word data from remote (including preferences)
                                 existing.wordItself = word.wordItself
                                 existing.definition = word.definition
                                 existing.partOfSpeech = word.partOfSpeech
@@ -430,7 +411,8 @@ final class DataSyncService: ObservableObject {
                                 existing.timestamp = word.timestamp
                                 existing.updatedAt = word.updatedAt
                                 existing.isSynced = true
-                                existing.sharedDictionaryId = dictionaryId
+
+                                
                                 self.syncTags(word: word, entity: existing)
                                 updatedWordsCount += 1
                             } else {
@@ -439,7 +421,6 @@ final class DataSyncService: ObservableObject {
                         } else {
                             print("🔄 [DataSyncService] Creating new shared word in Core Data: '\(word.wordItself)'")
                             let entity = word.toCoreDataEntity()
-                            entity.sharedDictionaryId = dictionaryId
                             self.syncTags(word: word, entity: entity)
                             newWordsCount += 1
                         }
@@ -453,7 +434,6 @@ final class DataSyncService: ObservableObject {
                         
                         // Update the WordsProvider
                         DispatchQueue.main.async {
-                            WordsProvider.shared.updateSharedWords(for: dictionaryId)
                             self.realTimeUpdateReceived.send()
                             print("🔄 [DataSyncService] Notified UI of shared dictionary update")
                         }
@@ -462,6 +442,21 @@ final class DataSyncService: ObservableObject {
                     }
                 }
             }
+        
+        // Store the listener for cleanup
+        sharedDictionaryListeners[dictionaryId] = listener
+    }
+
+    func stopSharedDictionaryListener(dictionaryId: String) {
+        print("🔊 [DataSyncService] Stopping shared dictionary listener for: \(dictionaryId)")
+        sharedDictionaryListeners[dictionaryId]?.remove()
+        sharedDictionaryListeners.removeValue(forKey: dictionaryId)
+    }
+
+    func stopAllSharedDictionaryListeners() {
+        print("🔊 [DataSyncService] Stopping all shared dictionary listeners")
+        sharedDictionaryListeners.values.forEach { $0.remove() }
+        sharedDictionaryListeners.removeAll()
     }
 
     // MARK: - Tag Syncing
@@ -511,8 +506,6 @@ final class DataSyncService: ObservableObject {
         
         print("🔄 [DataSyncService] Proceeding with merge (remote is newer or equal)")
 
-        print("🔄 [DataSyncService] Remote data is newer, merging fields...")
-
         // Field-level merging to preserve changes from multiple users
         if remote.wordItself != existing.wordItself {
             print("🔄 [DataSyncService] Updating wordItself: '\(existing.wordItself ?? "nil")' -> '\(remote.wordItself)'")
@@ -525,7 +518,7 @@ final class DataSyncService: ObservableObject {
         }
 
         if remote.partOfSpeech != existing.partOfSpeech {
-            print("🔄 [DataSyncService] Updating partOfSpeech: '\(existing.partOfSpeech ?? "nil")' -> '\(remote.definition)'")
+            print("🔄 [DataSyncService] Updating partOfSpeech: '\(existing.partOfSpeech ?? "nil")' -> '\(remote.partOfSpeech)'")
             existing.partOfSpeech = remote.partOfSpeech
         }
 
@@ -539,20 +532,21 @@ final class DataSyncService: ObservableObject {
             existing.languageCode = remote.languageCode
         }
 
+        // Update preferences from remote for all words
         if remote.isFavorite != existing.isFavorite {
             print("🔄 [DataSyncService] Updating isFavorite: \(existing.isFavorite) -> \(remote.isFavorite)")
             existing.isFavorite = remote.isFavorite
         }
-
-        // Merge arrays (examples and tags)
-        mergeExamples(existing: existing, remote: remote)
-        mergeTags(existing: existing, remote: remote)
 
         // Update difficulty level if changed
         if Int(remote.difficultyLevel) != Int(existing.difficultyLevel) {
             print("🔄 [DataSyncService] Updating difficultyLevel: \(existing.difficultyLevel) -> \(remote.difficultyLevel)")
             existing.difficultyLevel = Int32(remote.difficultyLevel)
         }
+
+        // Merge arrays (examples and tags)
+        mergeExamples(existing: existing, remote: remote)
+        mergeTags(existing: existing, remote: remote)
 
         // Update updatedAt to the latest
         existing.updatedAt = max(existing.updatedAt ?? Date.distantPast, remote.updatedAt)
@@ -621,7 +615,6 @@ final class DataSyncService: ObservableObject {
             print("🔄 [DataSyncService] Removing tag: '\(tag.name ?? "unknown")'")
             existing.removeFromTags(tag)
             coreDataService.context.delete(tag)
-            try? coreDataService.context.save()
         }
     }
 
@@ -681,6 +674,36 @@ final class DataSyncService: ObservableObject {
     }
 
     // MARK: - Migration Support
+    
+    func markExistingWordsAsUnsynced(userId: String) async {
+        print("🔄 [DataSyncService] Marking existing words as unsynced for user: \(userId)")
+        
+        await coreDataService.context.perform {
+                    let fetchRequest = CDWord.fetchRequest()
+            
+            do {
+                let existingWords = try self.coreDataService.context.fetch(fetchRequest)
+                print("🔄 [DataSyncService] Found \(existingWords.count) existing words to mark as unsynced")
+                
+                var markedCount = 0
+                for word in existingWords {
+                    if !word.isSynced {
+                        word.isSynced = false
+                        markedCount += 1
+                    }
+                }
+                
+                if markedCount > 0 {
+                    try self.coreDataService.context.save()
+                    print("✅ [DataSyncService] Marked \(markedCount) words as unsynced")
+                } else {
+                    print("ℹ️ [DataSyncService] No words needed to be marked as unsynced")
+                }
+            } catch {
+                print("❌ [DataSyncService] Failed to mark words as unsynced: \(error.localizedDescription)")
+            }
+        }
+    }
 
     func convertPrivateToSharedDictionary(userId: String, name: String) async throws {
         print("🔄 [DataSyncService] Converting private to shared dictionary...")
@@ -695,13 +718,24 @@ final class DataSyncService: ObservableObject {
             let dictRef = db.collection("dictionaries").document()
             let batch = db.batch()
 
+            // Create the dictionary document
             batch.setData([
                 "name": name,
                 "owner": userId,
-                "collaborators": [userId: CollaboratorRole.owner.rawValue],
                 "createdAt": Timestamp(date: Date())
             ], forDocument: dictRef)
 
+            // Add the owner as the first collaborator
+            let ownerCollaborator = Collaborator(
+                email: AuthenticationService.shared.userEmail ?? "Unknown",
+                displayName: AuthenticationService.shared.displayName,
+                role: .owner
+            )
+            
+            let collaboratorRef = dictRef.collection("collaborators").document(userId)
+            batch.setData(ownerCollaborator.toFirestoreDictionary(), forDocument: collaboratorRef)
+
+            // Add all words
             for word in words {
                 let wordRef = dictRef.collection("words").document(word.id)
                 batch.setData(word.toFirestoreDictionary(), forDocument: wordRef)
@@ -715,6 +749,15 @@ final class DataSyncService: ObservableObject {
             print("❌ [DataSyncService] Failed to fetch words for conversion: \(error.localizedDescription)")
             throw error
         }
+    }
+
+    // MARK: - Cleanup
+    
+    deinit {
+        print("🧹 [DataSyncService] Cleaning up DataSyncService")
+        stopPrivateDictionaryListener()
+        stopAllSharedDictionaryListeners()
+        cancellables.removeAll()
     }
 }
 

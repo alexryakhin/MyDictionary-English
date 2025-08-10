@@ -20,11 +20,11 @@ struct MyDictionaryApp: App {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             if let userId = AuthenticationService.shared.userId {
                 print("🔄 [App] Triggering initial sync from Firestore for userId: \(userId)")
-                DataSyncService.shared.syncFirestoreToCoreData(userId: userId) { result in
-                    switch result {
-                    case .success:
+                Task {
+                    do {
+                        try await DataSyncService.shared.syncFirestoreToCoreData(userId: userId)
                         print("✅ [App] Initial sync from Firestore completed successfully")
-                    case .failure(let error):
+                    } catch {
                         print("❌ [App] Initial sync from Firestore failed: \(error.localizedDescription)")
                     }
                 }

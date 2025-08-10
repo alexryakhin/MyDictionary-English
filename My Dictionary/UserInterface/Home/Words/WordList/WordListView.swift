@@ -23,36 +23,6 @@ struct WordListView: View {
 
     var body: some View {
         ScrollView {
-            // Shared Dictionaries Section
-            if AuthenticationService.shared.isSignedIn && !dictionaryService.sharedDictionaries.isEmpty {
-                CustomSectionView(header: "Shared Dictionaries") {
-                    ListWithDivider(dictionaryService.sharedDictionaries, dividerLeadingPadding: .zero) { dictionary in
-                        Button {
-                            viewModel.output.send(.showSharedDictionary(dictionary))
-                        } label: {
-                            HStack {
-                                Image(systemName: "person.2")
-                                    .foregroundStyle(.accent)
-                                VStack(alignment: .leading) {
-                                    Text(dictionary.name)
-                                        .font(.headline)
-                                    Text("\(dictionary.collaborators.count) collaborators")
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
-                                }
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                            .contentShape(Rectangle())
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-                .padding(.horizontal, 16)
-            }
-
             // MARK: - button to add a word from search input
             if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
                 Button {
@@ -85,7 +55,7 @@ struct WordListView: View {
                         }
                         .buttonStyle(.plain)
                         .contextMenu {
-                            if AuthenticationService.shared.isSignedIn && !wordModel.isSharedWord {
+                            if AuthenticationService.shared.isSignedIn {
                                 Button {
                                     viewModel.output.send(.showAddExistingWordToShared(wordModel))
                                 } label: {
@@ -108,7 +78,7 @@ struct WordListView: View {
                     .padding(.vertical, 24)
                 }
             } trailingContent: {
-                HeaderButton(text: "Add Word", icon: "plus") {
+                HeaderButton(text: "Add Word", icon: "plus", style: .borderedProminent) {
                     AnalyticsService.shared.logEvent(.addWordTapped)
                     viewModel.output.send(.showAddWord)
                 }
@@ -122,46 +92,19 @@ struct WordListView: View {
             title: "Words",
             mode: .large,
             trailingContent: {
-                HStack {
-                    Menu {
-                        Picker("Sort", selection: _viewModel.projectedValue.sortingState) {
-                            ForEach(SortingCase.allCases, id: \.self) { item in
-                                Text(item.rawValue)
-                                    .tag(item)
-                            }
+                HeaderButtonMenu(icon: "arrow.up.arrow.down") {
+                    Picker("Sort", selection: _viewModel.projectedValue.sortingState) {
+                        ForEach(SortingCase.allCases, id: \.self) { item in
+                            Text(item.rawValue)
+                                .tag(item)
                         }
-                    } label: {
-                        Image(systemName: "arrow.up.arrow.down")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 16, height: 16)
                     }
-                    .buttonStyle(.bordered)
-                    .clipShape(Capsule())
+                }
 
-                    Menu {
-                        Button {
-                            AnalyticsService.shared.logEvent(.addWordTapped)
-                            viewModel.output.send(.showAddWord)
-                        } label: {
-                            Label("Add Word", systemImage: "plus")
-                        }
-
-                        if AuthenticationService.shared.isSignedIn {
-                            Button {
-                                viewModel.output.send(.showAddSharedDictionary)
-                            } label: {
-                                Label("Create Shared Dictionary", systemImage: "person.2")
-                            }
-                        }
-                    } label: {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 16, height: 16)
+                if AuthenticationService.shared.isSignedIn {
+                    HeaderButton(icon: "person.2") {
+                        viewModel.output.send(.showSharedDictionaries)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
                 }
             },
             bottomContent: {

@@ -194,6 +194,8 @@ final class ChooseDefinitionViewModel: BaseViewModel {
     
     private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
         word.difficultyLevel = level
+        word.isSynced = false  // Mark as unsynced to trigger Firebase sync
+        word.updatedAt = Date()
         do {
             try CoreDataService.shared.saveContext()
         } catch {

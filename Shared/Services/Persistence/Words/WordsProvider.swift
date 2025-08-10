@@ -7,7 +7,6 @@ final class WordsProvider: ObservableObject {
     static let shared = WordsProvider()
 
     @Published var words: [CDWord] = []
-    @Published var sharedWords: [CDWord] = []
 
     private let coreDataService: CoreDataService = .shared
     private let authenticationService = AuthenticationService.shared
@@ -15,54 +14,14 @@ final class WordsProvider: ObservableObject {
 
     private init() {
         setupBindings()
-        fetchWords()
+        try? fetchWords()
     }
 
     /// Fetches latest data from Core Data
-    func fetchWords() {
+    func fetchWords() throws {
         let request = CDWord.fetchRequest()
-        let allWords = (try? coreDataService.context.fetch(request)) ?? []
-        print("📊 [WordsProvider]Fetched \(allWords.count) total words")
-
-        if authenticationService.isSignedIn {
-            // Filter words owned by current user (both private and shared)
-            self.words = allWords.filter {
-                $0.ownerId == authenticationService.userId
-                || (!$0.isSharedWord && $0.ownerId?.nilIfEmpty == nil)
-            }
-
-            // Filter shared words (words in shared dictionaries)
-            self.sharedWords = allWords.filter { $0.isSharedWord }
-        } else {
-            self.words = allWords
-        }
-
-        print("📊 [WordsProvider] Fetched \(self.words.count) owned words and \(self.sharedWords.count) shared words")
-    }
-    
-    /// Fetches shared words for a specific dictionary
-    func fetchSharedWords(for dictionaryId: String) -> [CDWord] {
-        let request = CDWord.fetchRequest()
-        request.predicate = NSPredicate(format: "sharedDictionaryId == %@", dictionaryId)
-        
-        do {
-            let sharedWords = try coreDataService.context.fetch(request)
-            print("📊 [WordsProvider] Fetched \(sharedWords.count) shared words for dictionary: \(dictionaryId)")
-            return sharedWords
-        } catch {
-            print("❌ [WordsProvider] Failed to fetch shared words: \(error.localizedDescription)")
-            return []
-        }
-    }
-    
-    /// Updates shared words for a specific dictionary
-    func updateSharedWords(for dictionaryId: String) {
-        let sharedWords = fetchSharedWords(for: dictionaryId)
-        DispatchQueue.main.async {
-            // Update the sharedWords array with the new data
-            self.sharedWords = sharedWords
-            print("📊 [WordsProvider] Updated shared words for dictionary \(dictionaryId): \(sharedWords.count) words")
-        }
+        words = try coreDataService.context.fetch(request)
+        print("✅ [WordDetails] Fetched words from Core Data, count: \(words.count)")
     }
 
     /// Removes a word with given ID from the Core Data
@@ -101,14 +60,14 @@ final class WordsProvider: ObservableObject {
     private func setupBindings() {
         coreDataService.dataUpdatedPublisher
             .sink { [weak self] _ in
-                self?.fetchWords()
+                try? self?.fetchWords()
             }
             .store(in: &cancellables)
         
         // Also listen to real-time updates from DataSyncService
         DataSyncService.shared.realTimeUpdateReceived
             .sink { [weak self] _ in
-                self?.fetchWords()
+                try? self?.fetchWords()
             }
             .store(in: &cancellables)
     }

@@ -7,7 +7,6 @@
 
 import Foundation
 import FirebaseFirestore
-import FirebaseFunctions
 import FirebaseAuth
 import Combine
 
@@ -15,22 +14,21 @@ final class DictionaryService: ObservableObject {
 
     static let shared = DictionaryService()
 
-    private let coreDataService = CoreDataService.shared
-    private let wordsProvider = WordsProvider.shared
-    private let authenticationService = AuthenticationService.shared
-    private let db = Firestore.firestore()
-    private let functions = Functions.functions(region: "europe-west3")
-    private var cancellables = Set<AnyCancellable>()
-    private var listeners: [String: ListenerRegistration] = [:]
+    // MARK: - Properties
 
     @Published var sharedDictionaries: [SharedDictionary] = []
+    @Published var sharedWords: [String: [SharedWord]] = [:] // dictionaryId -> [SharedWord]
     @Published var errorMessage: String?
 
-    struct SharedDictionaryDTO: Codable {
-        let name: String
-        let owner: String
-        let collaborators: [String: CollaboratorRole]
-    }
+    private let db = Firestore.firestore()
+    private let authenticationService = AuthenticationService.shared
+    private let wordsProvider = WordsProvider.shared
+    private let coreDataService = CoreDataService.shared
+    private var listeners: [String: ListenerRegistration] = [:]
+    private var cancellables = Set<AnyCancellable>()
+    private var collaboratorsCache: [String: [Collaborator]] = [:] // Cache collaborators by dictionary ID
+    private let cacheQueue = DispatchQueue(label: "com.mydictionary.collaboratorsCache", attributes: .concurrent)
+    private let listenersQueue = DispatchQueue(label: "com.mydictionary.listeners", attributes: .concurrent)
 
     private init() {
         setupAuthenticationListener()
@@ -47,21 +45,42 @@ final class DictionaryService: ObservableObject {
             throw DictionaryError.invalidInput
         }
 
-        let data: [String: Any] = [
+        // Get current user info
+        let currentUser = Auth.auth().currentUser
+        let ownerCollaborator = Collaborator(
+            email: currentUser?.email ?? "Unknown",
+            displayName: currentUser?.displayName,
+            role: .owner
+        )
+
+        let dictionaryData: [String: Any] = [
             "name": name,
             "owner": userId,
-            "collaborators": [userId: CollaboratorRole.owner.rawValue],
             "createdAt": Timestamp(date: .now)
         ]
 
-        print("📝 [DictionaryService] Creating dictionary with data: \(data)")
+        print("📝 [DictionaryService] Creating dictionary with data: \(dictionaryData)")
         let docRef = db
             .collection("dictionaries")
             .document()
         print("📄 [DictionaryService] Document reference: \(docRef.path)")
 
-        try await docRef.setData(data)
+        // Create the dictionary document
+        try await docRef.setData(dictionaryData)
+
+        // Add the owner as the first collaborator
+        // Store with email as document ID for easier lookup in security rules
+        let ownerEmail = currentUser?.email ?? "unknown"
+        try await docRef
+            .collection("collaborators")
+            .document(ownerEmail)
+            .setData(ownerCollaborator.toFirestoreDictionary())
+
         print("✅ [DictionaryService] Dictionary created successfully with ID: \(docRef.documentID)")
+
+        // Set up real-time listener for collaborators for the new dictionary
+        listenToDictionaryCollaborators(dictionaryId: docRef.documentID)
+
         return docRef.documentID
     }
 
@@ -72,44 +91,81 @@ final class DictionaryService: ObservableObject {
 
         print("🔍 [DictionaryService] addCollaborator called with dictionaryId: \(dictionaryId), email: \(email), role: \(role)")
 
-        let data: [String: Any] = [
-            "dictionaryId": dictionaryId,
-            "email": email,
-            "role": role.rawValue
-        ]
-
-        // Use Firebase SDK now that IAM permissions are set
-        let _: EmptyResponse = try await CloudFunctionsService.shared.callFunction("addCollaborator", data: data, forceTokenRefresh: true)
-        print("✅ [DictionaryService] Collaborator added successfully")
+        // First, we need to find the user by email
+        // This requires a user lookup service or a public user directory
+        // For now, we'll require the userId to be provided instead of email
+        throw DictionaryError.invalidInput
     }
 
-    func removeCollaborator(dictionaryId: String, userId: String) async throws {
-        guard !dictionaryId.isEmpty, !userId.isEmpty else {
+    func addCollaborator(dictionaryId: String, userId: String, email: String, displayName: String?, role: CollaboratorRole) async throws {
+        guard !dictionaryId.isEmpty, !userId.isEmpty, !email.isEmpty, role != .owner else {
             throw DictionaryError.invalidInput
         }
 
-        print("🔍 [DictionaryService] removeCollaborator called with dictionaryId: \(dictionaryId), userId: \(userId)")
+        print("🔍 [DictionaryService] addCollaborator called with dictionaryId: \(dictionaryId), userId: \(userId), email: \(email), role: \(role)")
 
-        let data: [String: Any] = [
-            "dictionaryId": dictionaryId,
-            "userId": userId
-        ]
+        let collaborator = Collaborator(
+            email: email,
+            displayName: displayName,
+            role: role
+        )
 
-        // Use Firebase SDK now that IAM permissions are set
-        let _: EmptyResponse = try await CloudFunctionsService.shared.callFunction("removeCollaborator", data: data)
+        try await db
+            .collection("dictionaries")
+            .document(dictionaryId)
+            .collection("collaborators")
+            .document(email)
+            .setData(collaborator.toFirestoreDictionary())
+
+        print("✅ [DictionaryService] Collaborator added successfully")
+    }
+
+    func removeCollaborator(dictionaryId: String, email: String) async throws {
+        guard !dictionaryId.isEmpty, !email.isEmpty else {
+            throw DictionaryError.invalidInput
+        }
+
+        print("🔍 [DictionaryService] removeCollaborator called with dictionaryId: \(dictionaryId), email: \(email)")
+
+        let docRef = db
+            .collection("dictionaries")
+            .document(dictionaryId)
+            .collection("collaborators")
+            .document(email)
+
+        print("📄 [DictionaryService] Attempting to delete collaborator document: \(docRef.path)")
+
+        try await docRef.delete()
+
+        print("✅ [DictionaryService] Collaborator document deleted from Firestore")
+
+        // Clear the collaborators cache for this dictionary to ensure fresh data
+        cacheQueue.async(flags: .barrier) {
+            self.collaboratorsCache.removeValue(forKey: dictionaryId)
+            print("🧹 [DictionaryService] Cleared collaborators cache for dictionary: \(dictionaryId)")
+        }
+
+        // Force a refresh of the shared dictionaries to ensure the UI updates
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            print("🔄 [DictionaryService] Forcing refresh of shared dictionaries listener")
+            self?.setupSharedDictionariesListener()
+        }
+
         print("✅ [DictionaryService] Collaborator removed successfully")
     }
 
-    func updateCollaboratorRole(dictionaryId: String, userId: String, role: CollaboratorRole) async throws {
-        guard !dictionaryId.isEmpty, !userId.isEmpty, role != .owner else {
+    func updateCollaboratorRole(dictionaryId: String, email: String, role: CollaboratorRole) async throws {
+        guard !dictionaryId.isEmpty, !email.isEmpty, role != .owner else {
             throw DictionaryError.invalidInput
         }
 
         try await db
             .collection("dictionaries")
             .document(dictionaryId)
+            .collection("collaborators")
+            .document(email)
             .updateData([
-                "collaborators.\(userId)": role.rawValue
+                "role": role.rawValue
             ])
     }
 
@@ -118,24 +174,65 @@ final class DictionaryService: ObservableObject {
             throw DictionaryError.invalidInput
         }
 
-        // Delete all words in the dictionary first
-        let snapshot = try await db
-            .collection("dictionaries")
-            .document(dictionaryId)
+        print("🗑️ [DictionaryService] deleteSharedDictionary called with dictionaryId: \(dictionaryId)")
+
+        let batch = db.batch()
+        let dictionaryRef = db.collection("dictionaries").document(dictionaryId)
+
+        // Delete all words in the dictionary
+        let wordsSnapshot = try await dictionaryRef
             .collection("words")
             .getDocuments()
 
-        let batch = db.batch()
+        print("🗑️ [DictionaryService] Deleting \(wordsSnapshot.documents.count) words from dictionary")
+        wordsSnapshot.documents.forEach { doc in
+            batch.deleteDocument(doc.reference)
+        }
 
-        // Delete all words
-        snapshot.documents.forEach { doc in
+        // Delete all collaborators
+        let collaboratorsSnapshot = try await dictionaryRef
+            .collection("collaborators")
+            .getDocuments()
+
+        print("🗑️ [DictionaryService] Deleting \(collaboratorsSnapshot.documents.count) collaborators from dictionary")
+        collaboratorsSnapshot.documents.forEach { doc in
             batch.deleteDocument(doc.reference)
         }
 
         // Delete the dictionary document
-        batch.deleteDocument(db.collection("dictionaries").document(dictionaryId))
+        batch.deleteDocument(dictionaryRef)
 
+        print("🗑️ [DictionaryService] Committing batch deletion to Firestore")
         try await batch.commit()
+        print("✅ [DictionaryService] Dictionary deleted from Firestore successfully")
+
+        // Clean up local state immediately
+        DispatchQueue.main.async { [weak self] in
+            // Remove from shared dictionaries array
+            self?.sharedDictionaries.removeAll { $0.id == dictionaryId }
+            print("🧹 [DictionaryService] Removed dictionary from local sharedDictionaries array")
+            
+            // Clear cache for this dictionary
+            self?.cacheQueue.async(flags: .barrier) {
+                self?.collaboratorsCache.removeValue(forKey: dictionaryId)
+                print("🧹 [DictionaryService] Cleared collaborators cache for deleted dictionary")
+            }
+            
+            // Stop listeners for this dictionary
+            self?.stopListening(dictionaryId: dictionaryId)
+            print("🧹 [DictionaryService] Stopped listeners for deleted dictionary")
+            
+            // Force a UI update
+            DispatchQueue.main.async {
+                print("🔄 [DictionaryService] Forcing UI update after dictionary deletion")
+            }
+        }
+
+        // Force a refresh of the shared dictionaries to ensure the real-time listener picks up the change
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            print("🔄 [DictionaryService] Forcing refresh of shared dictionaries listener after deletion")
+            self?.setupSharedDictionariesListener()
+        }
     }
 
     // MARK: - Word Management in Shared Dictionaries
@@ -148,7 +245,14 @@ final class DictionaryService: ObservableObject {
             throw DictionaryError.invalidInput
         }
 
-        let sharedWord = SharedWord(from: word)
+        print("📝 [DictionaryService] Creating SharedWord from Word")
+        let sharedWord = SharedWord(
+            from: word,
+            addedByEmail: authenticationService.userEmail ?? "Unknown",
+            addedByDisplayName: authenticationService.displayName
+        )
+        print("📝 [DictionaryService] SharedWord created: \(sharedWord)")
+
         let docRef = db
             .collection("dictionaries")
             .document(dictionaryId)
@@ -161,6 +265,7 @@ final class DictionaryService: ObservableObject {
         print("📝 [DictionaryService] SharedWord data: \(wordData)")
 
         do {
+            print("📝 [DictionaryService] Attempting to write to Firestore...")
             try await docRef.setData(wordData)
             print("✅ [DictionaryService] Word added successfully to dictionary: \(dictionaryId)")
             print("📄 [DictionaryService] Word document path: \(docRef.path)")
@@ -175,7 +280,11 @@ final class DictionaryService: ObservableObject {
             throw DictionaryError.invalidInput
         }
 
-        let sharedWord = SharedWord(from: word)
+        let sharedWord = SharedWord(
+            from: word,
+            addedByEmail: authenticationService.userEmail ?? "Unknown",
+            addedByDisplayName: authenticationService.displayName
+        )
         let docRef = db
             .collection("dictionaries")
             .document(dictionaryId)
@@ -197,44 +306,15 @@ final class DictionaryService: ObservableObject {
             .document(wordId)
 
         try await docRef.delete()
-        
-        // Check if this is the user's private word and handle accordingly
-        await handleLocalWordAfterSharedDeletion(wordId: wordId, dictionaryId: dictionaryId)
-    }
-    
-    private func handleLocalWordAfterSharedDeletion(wordId: String, dictionaryId: String) async {
-        let context = coreDataService.context
-        
-        await context.perform {
-            let fetchRequest = CDWord.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %@", wordId)
-            
-            guard let word = try? context.fetch(fetchRequest).first else {
-                print("❌ [DictionaryService] No word found with ID \(wordId)")
-                return
-            }
-            
-            // Check if this is the user's private word
-            // A word is private if it has an ownerId (user's word) and the sharedDictionaryId matches the one being deleted
-            let isUserPrivateWord = word.ownerId == self.authenticationService.userId && word.sharedDictionaryId == dictionaryId
-            
-            if isUserPrivateWord {
-                // This is the user's private word - just remove it from the shared dictionary
-                print("📝 [DictionaryService] Removing private word from shared dictionary: \(word.wordItself ?? "unknown")")
-                word.sharedDictionaryId = nil
-                word.isSynced = false // Mark for sync to update Firestore
-            } else {
-                // This is a shared word or not owned by the user - delete it entirely
-                print("🗑️ [DictionaryService] Deleting shared word entirely: \(word.wordItself ?? "unknown")")
-                context.delete(word)
-            }
-            
-            try? context.save()
-            
-            // Update the WordsProvider
-            DispatchQueue.main.async { [weak self] in
-                self?.wordsProvider.fetchWords()
-            }
+
+        // Remove from in-memory storage
+        DispatchQueue.main.async { [weak self] in
+            self?.sharedWords[dictionaryId]?.removeAll { $0.id == wordId }
+            print("🗑️ [DictionaryService] Removed shared word from in-memory storage: \(wordId)")
+
+            // Clean up orphaned preferences for this word
+
+            print("🧹 [DictionaryService] Cleaned up preferences for deleted shared word: \(wordId)")
         }
     }
 
@@ -253,11 +333,16 @@ final class DictionaryService: ObservableObject {
                     print("✅ [DictionaryService] User signed in, setting up shared dictionaries listener")
                     self?.setupSharedDictionariesListener()
                 case .signedOut:
-                    print("❌ [DictionaryService] User signed out, clearing shared dictionaries")
-                    DispatchQueue.main.async { [weak self] in
-                        self?.sharedDictionaries = []
+                    // Only clear if we don't have a user ID (true sign out)
+                    if self?.authenticationService.userId == nil {
+                        print("❌ [DictionaryService] User signed out, clearing shared dictionaries")
+                        DispatchQueue.main.async { [weak self] in
+                            self?.sharedDictionaries = []
+                        }
+                        self?.stopAllListeners()
+                    } else {
+                        print("⚠️ [DictionaryService] Authentication state is signedOut but user ID exists, keeping dictionaries")
                     }
-                    self?.stopAllListeners()
                 case .loading:
                     print("🔄 [DictionaryService] Authentication loading...")
                 }
@@ -266,13 +351,11 @@ final class DictionaryService: ObservableObject {
 
         // Also check if user is already authenticated when the service starts
         // This handles the case where the app starts with an authenticated user
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-            if let userId = self?.authenticationService.userId {
-                print("🔍 [DictionaryService] User already authenticated with ID: \(userId), setting up listener")
-                self?.setupSharedDictionariesListener()
-            } else {
-                print("🔍 [DictionaryService] No authenticated user found on startup")
-            }
+        if let userId = authenticationService.userId {
+            print("🔍 [DictionaryService] User already authenticated with ID: \(userId), setting up listener immediately")
+            setupSharedDictionariesListener()
+        } else {
+            print("🔍 [DictionaryService] No authenticated user found on startup - state: \(authenticationService.authenticationState)")
         }
     }
 
@@ -284,31 +367,80 @@ final class DictionaryService: ObservableObject {
         // Stop existing listeners first
         stopAllListeners()
 
-        // Check both userId and authentication state
+        // Check if user is properly authenticated
+        // Use userId as the primary check since it's more reliable
         guard let userId = authenticationService.userId else {
-            print("❌ [DictionaryService] No userId found in AuthenticationService")
-            return
-        }
-
-        // Additional check to ensure user is properly authenticated
-        guard authenticationService.authenticationState == .signedIn else {
-            print("❌ [DictionaryService] User not properly authenticated. State: \(authenticationService.authenticationState)")
+            print("❌ [DictionaryService] No user ID available")
             return
         }
 
         print("👤 [DictionaryService] User ID: \(userId)")
-        print("✅ [DictionaryService] Authentication state: \(authenticationService.authenticationState)")
+        print("🔍 [DictionaryService] Authentication state: \(authenticationService.authenticationState)")
+
+        // Pre-load cached data first
+        preloadCachedSharedDictionaries()
 
         // Use a single query to get all dictionaries and filter on client side
         // This avoids complex nested field queries that might cause permission issues
         let allDictionariesQuery = db.collection("dictionaries")
 
         let listener = allDictionariesQuery.addSnapshotListener { [weak self] snapshot, error in
+            print("📡 [DictionaryService] Main dictionaries snapshot listener triggered")
             self?.handleDictionariesSnapshot(snapshot, error: error, userId: userId)
         }
 
         // Store listener for cleanup
-        listeners["dictionaries"] = listener
+        listenersQueue.async(flags: .barrier) {
+            self.listeners["dictionaries"] = listener
+        }
+    }
+
+    // MARK: - Collaborators Listener
+
+    func listenToDictionaryCollaborators(dictionaryId: String) {
+        print("🔍 [DictionaryService] listenToDictionaryCollaborators called for dictionary: \(dictionaryId)")
+
+        // Stop existing listener for this dictionary's collaborators
+        let collaboratorListenerKey = "\(dictionaryId)_collaborators"
+        listenersQueue.sync {
+            listeners[collaboratorListenerKey]?.remove()
+        }
+
+        let collaboratorsQuery = db
+            .collection("dictionaries")
+            .document(dictionaryId)
+            .collection("collaborators")
+
+        let listener = collaboratorsQuery.addSnapshotListener { [weak self] snapshot, error in
+            print("📡 [DictionaryService] Collaborators snapshot listener triggered for dictionary: \(dictionaryId)")
+            self?.handleCollaboratorsSnapshot(snapshot, error: error, dictionaryId: dictionaryId)
+        }
+
+        listenersQueue.async(flags: .barrier) {
+            self.listeners[collaboratorListenerKey] = listener
+        }
+        print("✅ [DictionaryService] Collaborators listener set up for dictionary: \(dictionaryId)")
+    }
+
+    private func preloadCachedSharedDictionaries() {
+        print("🔄 [DictionaryService] Pre-loading cached shared dictionaries...")
+
+        let allDictionariesQuery = db.collection("dictionaries")
+
+        // Get cached data first (this will return immediately if cached)
+        allDictionariesQuery.getDocuments(source: .cache) { [weak self] snapshot, error in
+            if let error = error {
+                print("❌ [DictionaryService] Error loading cached dictionaries: \(error.localizedDescription)")
+                return
+            }
+
+            if let documents = snapshot?.documents, !documents.isEmpty {
+                print("📄 [DictionaryService] Found \(documents.count) cached dictionaries")
+                self?.handleDictionariesSnapshot(snapshot, error: nil, userId: self?.authenticationService.userId ?? "")
+            } else {
+                print("📄 [DictionaryService] No cached dictionaries found")
+            }
+        }
     }
 
     private func handleDictionariesSnapshot(_ snapshot: QuerySnapshot?, error: Error?, userId: String) {
@@ -324,166 +456,282 @@ final class DictionaryService: ObservableObject {
 
         guard let documents = snapshot?.documents else {
             print("📄 [DictionaryService] No documents found in snapshot")
+            // If no documents, clear all dictionaries
+            DispatchQueue.main.async { [weak self] in
+                self?.sharedDictionaries = []
+                print("🧹 [DictionaryService] Cleared all dictionaries due to empty snapshot")
+            }
             return
         }
 
         print("📄 [DictionaryService] Found \(documents.count) documents in snapshot")
+        print("🔍 [DictionaryService] Processing documents for user: \(userId)")
+        print("📄 [DictionaryService] Document IDs: \(documents.map { $0.documentID }.joined(separator: ", "))")
 
-        // Filter dictionaries on client side based on user permissions
-        let userDictionaries = documents.compactMap { doc -> SharedDictionary? in
-            var jsonObject = doc.data()
+        // Process dictionaries and load collaborators for each
+        Task {
+            var userDictionaries: [SharedDictionary] = []
+            let totalDocuments = documents.count
+            var processedCount = 0
 
-            guard
-                let createdAt = jsonObject.removeValue(forKey: "createdAt") as? Timestamp,
-                let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: []),
-                let response = try? JSONDecoder().decode(SharedDictionaryDTO.self, from: data)
-            else {
-                print("❌ [DictionaryService] Failed to parse document \(doc.documentID)")
-                return nil
+            for doc in documents {
+                guard let dictionary = SharedDictionary.fromFirestoreDictionary(doc.data(), id: doc.documentID) else {
+                    print("❌ [DictionaryService] Failed to parse document \(doc.documentID)")
+                    processedCount += 1
+                    continue
+                }
+
+                // Load collaborators for this dictionary
+                let collaborators = await loadCollaboratorsForDictionary(dictionaryId: doc.documentID)
+
+                // Check if user has access to this dictionary
+                let isOwner = dictionary.owner == userId
+                let userEmail = authenticationService.userEmail
+                let isCollaborator = userEmail != nil && collaborators.contains { $0.email == userEmail }
+
+                print("🔍 [DictionaryService] Access check for dictionary '\(dictionary.name)':")
+                print("   - User ID: \(userId)")
+                print("   - User Email: \(userEmail ?? "nil")")
+                print("   - Owner: \(dictionary.owner)")
+                print("   - Is Owner: \(isOwner)")
+                print("   - Collaborators: \(collaborators.map { "\($0.email)(\($0.role))" }.joined(separator: ", "))")
+                print("   - Is Collaborator: \(isCollaborator)")
+
+                if isOwner || isCollaborator {
+                    var updatedDictionary = dictionary
+                    updatedDictionary.collaborators = collaborators
+                    userDictionaries.append(updatedDictionary)
+                    print("✅ [DictionaryService] User has access to dictionary: \(dictionary.name) (Owner: \(isOwner), Collaborator: \(isCollaborator))")
+
+                    // Set up real-time listener for collaborators
+                    self.listenToDictionaryCollaborators(dictionaryId: doc.documentID)
+                } else {
+                    print("❌ [DictionaryService] User does not have access to dictionary: \(dictionary.name)")
+                }
+
+                processedCount += 1
             }
 
-            print("📄 [DictionaryService] Document \(doc.documentID) response: \(response)")
-
-            // Check if user has access to this dictionary
-            let isOwner = response.owner == userId
-            let isCollaborator = response.collaborators[userId] != nil
-
-            if isOwner || isCollaborator {
-                let dictionary = SharedDictionary(
-                    id: doc.documentID,
-                    name: response.name,
-                    owner: response.owner,
-                    collaborators: response.collaborators,
-                    createdAt: createdAt.dateValue()
-                )
-                print("✅ [DictionaryService] User has access to dictionary: \(dictionary.name) (Owner: \(isOwner), Collaborator: \(isCollaborator))")
-                return dictionary
-            } else {
-                print("❌ [DictionaryService] User does not have access to dictionary: \(response.name)")
-                return nil
+            // Update UI once after processing all dictionaries
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.sharedDictionaries = userDictionaries.sorted { $0.createdAt > $1.createdAt }
+                print("📱 [DictionaryService] Final update: \(self.sharedDictionaries.count) dictionaries loaded")
+                print("📱 [DictionaryService] Shared dictionaries: \(self.sharedDictionaries.map { "\($0.name) (ID: \($0.id))" }.joined(separator: ", "))")
             }
+
+            print("📄 [DictionaryService] Completed processing \(processedCount)/\(totalDocuments) dictionaries")
+        }
+    }
+
+    private func loadCollaboratorsForDictionary(dictionaryId: String) async -> [Collaborator] {
+        // Check cache first
+        let cachedCollaborators = cacheQueue.sync {
+            return collaboratorsCache[dictionaryId]
+        }
+        if let cachedCollaborators = cachedCollaborators {
+            print("📄 [DictionaryService] Using cached collaborators for dictionary: \(dictionaryId)")
+            return cachedCollaborators
         }
 
-        print("📄 [DictionaryService] User has access to \(userDictionaries.count) dictionaries")
+        do {
+            let snapshot = try await db
+                .collection("dictionaries")
+                .document(dictionaryId)
+                .collection("collaborators")
+                .getDocuments()
 
-        // Update the shared dictionaries
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
+            let collaborators = snapshot.documents.compactMap { doc in
+                Collaborator.fromFirestoreDictionary(doc.data())
+            }
 
-            self.sharedDictionaries = userDictionaries.sorted { $0.createdAt > $1.createdAt }
-            print("📱 [DictionaryService] Updated sharedDictionaries with \(self.sharedDictionaries.count) items")
+            // Cache the collaborators
+            cacheQueue.async(flags: .barrier) {
+                self.collaboratorsCache[dictionaryId] = collaborators
+            }
+            print("📄 [DictionaryService] Cached \(collaborators.count) collaborators for dictionary: \(dictionaryId)")
+
+            return collaborators
+        } catch {
+            print("❌ [DictionaryService] Error loading collaborators for dictionary \(dictionaryId): \(error.localizedDescription)")
+            return []
         }
     }
 
     func listenToSharedDictionaryWords(dictionaryId: String) {
         print("🔍 [DictionaryService] listenToSharedDictionaryWords called for dictionary: \(dictionaryId)")
 
-        // Remove existing listener for this dictionary
-        stopListening(dictionaryId: dictionaryId)
-        let context = coreDataService.context
+        // Stop existing listener for this dictionary
+        listenersQueue.sync {
+            listeners[dictionaryId]?.remove()
+        }
 
-        let listener = db
+        let wordsQuery = db
             .collection("dictionaries")
             .document(dictionaryId)
             .collection("words")
-            .addSnapshotListener { [weak self] snapshot, error in
-                print("📡 [DictionaryService] Snapshot listener triggered for dictionary: \(dictionaryId)")
 
-                if let error = error {
-                    print("❌ [DictionaryService] Error fetching shared dictionary words: \(error.localizedDescription)")
-                    return
-                }
+        // Pre-load cached words first
+        preloadCachedSharedWords(dictionaryId: dictionaryId)
 
-                guard let documents = snapshot?.documents else {
-                    print("📄 [DictionaryService] No documents found in snapshot for dictionary: \(dictionaryId)")
-                    return
-                }
+        let listener = wordsQuery.addSnapshotListener { [weak self] snapshot, error in
+            self?.handleSharedWordsSnapshot(snapshot, error: error, dictionaryId: dictionaryId)
+        }
 
-                print("📄 [DictionaryService] Found \(documents.count) words in dictionary: \(dictionaryId)")
+        listenersQueue.async(flags: .barrier) {
+            self.listeners[dictionaryId] = listener
+        }
 
-                let sharedWords = documents.compactMap {
-                    SharedWord.fromFirestoreDictionary($0.data(), id: $0.documentID)
-                }
+        // Also ensure collaborators listener is set up
+        listenToDictionaryCollaborators(dictionaryId: dictionaryId)
 
-                print("✅ [DictionaryService] Parsed \(sharedWords.count) shared words from Firestore")
-
-                context.perform {
-                    let fetchRequest = CDWord.fetchRequest()
-                    let allCoreDataWords: [CDWord] = (try? context.fetch(fetchRequest)) ?? []
-
-                    for sharedWord in sharedWords {
-                        if let existing = allCoreDataWords.first(where: { cdWord in
-                            cdWord.id?.uuidString == sharedWord.id
-                        }) {
-                            if sharedWord.timestamp > existing.timestamp ?? Date.distantPast {
-                                existing.wordItself = sharedWord.wordItself
-                                existing.definition = sharedWord.definition
-                                existing.partOfSpeech = sharedWord.partOfSpeech
-                                existing.phonetic = sharedWord.phonetic
-                                try? existing.updateExamples(sharedWord.examples)
-                                existing.difficultyLevel = 0 // Default for shared words
-                                existing.languageCode = sharedWord.languageCode
-                                existing.isFavorite = false // Default for shared words
-                                existing.timestamp = sharedWord.timestamp
-                                existing.isSynced = true
-                                existing.sharedDictionaryId = dictionaryId
-                                try? context.save()
-                            }
-                        } else {
-                            let entity = sharedWord.toCoreDataEntity()
-                            entity.sharedDictionaryId = dictionaryId
-                            // Don't sync tags for shared dictionary words
-                            try? context.save()
-                        }
-                    }
-
-                    // Check for deleted documents in shared dictionary
-                    let allLocalSharedWords = allCoreDataWords.filter { cdWord in
-                        cdWord.sharedDictionaryId == dictionaryId
-                    }
-                    print("DEBUG50 1 [DataSyncService] Found \(allLocalSharedWords.count) shared words in local storage")
-                    for localWord in allLocalSharedWords {
-                        if let wordId = localWord.id?.uuidString, !sharedWords.map(\.id).contains(wordId) {
-                            print("🗑️ [DataSyncService] Word deleted from shared dictionary: '\(localWord.wordItself ?? "unknown")' (ID: \(wordId))")
-                            
-                            // Check if this is the user's private word
-                            let isUserPrivateWord = localWord.ownerId == AuthenticationService.shared.userId
-
-                            if isUserPrivateWord {
-                                // This is the user's private word - just remove it from the shared dictionary
-                                print("📝 [DataSyncService] Removing private word from shared dictionary: \(localWord.wordItself ?? "unknown")")
-                                localWord.sharedDictionaryId = nil
-                                localWord.isSynced = false // Mark for sync to update Firestore
-                            } else {
-                                // This is a shared word or not owned by the user - delete it entirely
-                                print("🗑️ [DataSyncService] Deleting shared word entirely: \(localWord.wordItself ?? "unknown")")
-                                context.delete(localWord)
-                            }
-                            try? context.save()
-                        }
-                    }
-
-                    print("📱 [DictionaryService] Updated Core Data for dictionary: \(dictionaryId)")
-
-                    // Update the WordsProvider
-                    DispatchQueue.main.async { [weak self] in
-                        self?.wordsProvider.updateSharedWords(for: dictionaryId)
-                    }
-                }
-            }
-
-        listeners[dictionaryId] = listener
         print("✅ [DictionaryService] Listener set up for dictionary: \(dictionaryId)")
     }
 
+    private func preloadCachedSharedWords(dictionaryId: String) {
+        print("🔄 [DictionaryService] Pre-loading cached shared words for dictionary: \(dictionaryId)")
+
+        let wordsQuery = db
+            .collection("dictionaries")
+            .document(dictionaryId)
+            .collection("words")
+
+        // Get cached data first (this will return immediately if cached)
+        wordsQuery.getDocuments(source: .cache) { [weak self] snapshot, error in
+            if let error = error {
+                print("❌ [DictionaryService] Error loading cached words: \(error.localizedDescription)")
+                return
+            }
+
+            if let documents = snapshot?.documents, !documents.isEmpty {
+                print("📄 [DictionaryService] Found \(documents.count) cached words for dictionary: \(dictionaryId)")
+                self?.handleSharedWordsSnapshot(snapshot, error: nil, dictionaryId: dictionaryId)
+            } else {
+                print("📄 [DictionaryService] No cached words found for dictionary: \(dictionaryId)")
+            }
+        }
+    }
+
+    private func handleSharedWordsSnapshot(_ snapshot: QuerySnapshot?, error: Error?, dictionaryId: String) {
+        print("📡 [DictionaryService] Snapshot listener triggered for words in dictionary: \(dictionaryId)")
+
+        if let error = error {
+            print("❌ [DictionaryService] Error fetching shared dictionary words: \(error.localizedDescription)")
+            return
+        }
+
+        guard let documents = snapshot?.documents else {
+            print("📄 [DictionaryService] No documents found in snapshot for dictionary: \(dictionaryId)")
+            return
+        }
+
+        print("📄 [DictionaryService] Found \(documents.count) words in dictionary: \(dictionaryId)")
+
+        let sharedWords = documents.compactMap {
+            SharedWord.fromFirestoreDictionary($0.data(), id: $0.documentID)
+        }
+
+        print("✅ [DictionaryService] Parsed \(sharedWords.count) shared words from Firestore")
+
+        // Update in-memory storage
+        DispatchQueue.main.async { [weak self] in
+            let oldWordIds = Set(self?.sharedWords[dictionaryId]?.map { $0.id } ?? [])
+            let newWordIds = Set(sharedWords.map { $0.id })
+
+            // Find deleted word IDs
+            let deletedWordIds = oldWordIds.subtracting(newWordIds)
+
+            // Clean up preferences for deleted words
+            for wordId in deletedWordIds {
+
+                print("🧹 [DictionaryService] Cleaned up preferences for remotely deleted word: \(wordId)")
+            }
+
+            self?.sharedWords[dictionaryId] = sharedWords
+            print("📱 [DictionaryService] Updated in-memory shared words for dictionary: \(dictionaryId)")
+        }
+    }
+
+    private func handleCollaboratorsSnapshot(_ snapshot: QuerySnapshot?, error: Error?, dictionaryId: String) {
+        print("📡 [DictionaryService] Collaborators snapshot listener triggered for dictionary: \(dictionaryId)")
+
+        if let error = error {
+            print("❌ [DictionaryService] Error in collaborators snapshot listener: \(error.localizedDescription)")
+            return
+        }
+
+        guard let documents = snapshot?.documents else {
+            print("📄 [DictionaryService] No collaborator documents found in snapshot for dictionary: \(dictionaryId)")
+            return
+        }
+
+        print("📄 [DictionaryService] Found \(documents.count) collaborators in dictionary: \(dictionaryId)")
+
+        let collaborators = documents.compactMap { doc in
+            Collaborator.fromFirestoreDictionary(doc.data())
+        }
+
+        print("✅ [DictionaryService] Parsed \(collaborators.count) collaborators from Firestore")
+
+        // Update the collaborators cache
+        cacheQueue.async(flags: .barrier) {
+            self.collaboratorsCache[dictionaryId] = collaborators
+            print("📄 [DictionaryService] Updated collaborators cache for dictionary: \(dictionaryId) with \(collaborators.count) collaborators")
+        }
+
+        // Update the collaborators in the shared dictionaries
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+
+            if let index = self.sharedDictionaries.firstIndex(where: { $0.id == dictionaryId }) {
+                self.sharedDictionaries[index].collaborators = collaborators
+                print("📱 [DictionaryService] Updated collaborators for dictionary: \(dictionaryId)")
+
+                        // Check if current user lost access to this dictionary
+        if let email = self.authenticationService.userEmail {
+            let hasAccess = collaborators.contains { $0.email == email } ||
+            self.sharedDictionaries[index].owner == self.authenticationService.userId
+
+            print("🔍 [DictionaryService] Access check in collaborators snapshot for dictionary: \(dictionaryId)")
+            print("   - User Email: \(email)")
+            print("   - User ID: \(self.authenticationService.userId ?? "nil")")
+            print("   - Dictionary Owner: \(self.sharedDictionaries[index].owner)")
+            print("   - Collaborators: \(collaborators.map { $0.email }.joined(separator: ", "))")
+            print("   - Has Access: \(hasAccess)")
+
+            if !hasAccess {
+                print("🚫 [DictionaryService] User lost access to dictionary: \(dictionaryId), removing from list")
+                self.sharedDictionaries.remove(at: index)
+            }
+        }
+            }
+        }
+    }
+
     func stopListening(dictionaryId: String) {
-        listeners[dictionaryId]?.remove()
-        listeners.removeValue(forKey: dictionaryId)
+        // Stop words listener
+        listenersQueue.sync {
+            listeners[dictionaryId]?.remove()
+            listeners.removeValue(forKey: dictionaryId)
+        }
+
+        // Stop collaborators listener
+        let collaboratorListenerKey = "\(dictionaryId)_collaborators"
+        listenersQueue.sync {
+            listeners[collaboratorListenerKey]?.remove()
+            listeners.removeValue(forKey: collaboratorListenerKey)
+        }
     }
 
     func stopAllListeners() {
-        listeners.values.forEach { $0.remove() }
-        listeners.removeAll()
+        listenersQueue.sync {
+            listeners.values.forEach { $0.remove() }
+            listeners.removeAll()
+        }
+        cacheQueue.async(flags: .barrier) {
+            self.collaboratorsCache.removeAll()
+        }
+        print("🧹 [DictionaryService] Cleared all listeners and cache")
     }
 
     private func syncTags(word: Word, entity: CDWord) {
@@ -515,10 +763,12 @@ final class DictionaryService: ObservableObject {
     }
 
     func stopListening() {
-        for (_, listener) in listeners {
-            listener.remove()
+        listenersQueue.sync {
+            for (_, listener) in listeners {
+                listener.remove()
+            }
+            listeners.removeAll()
         }
-        listeners.removeAll()
     }
 
     func clearError() {

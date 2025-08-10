@@ -12,7 +12,10 @@ enum NavigationDestination: Hashable {
     case addWord
     case wordDetails(WordDetailsContentView.Config)
     case addExistingWordToShared(CDWord)
-
+    
+    // MARK: - Shared word destinations
+    case sharedWordDetails(SharedWord, dictionaryId: String)
+    
     // MARK: - Idiom-related destinations
     case addIdiom
     case idiomDetails(CDIdiom)

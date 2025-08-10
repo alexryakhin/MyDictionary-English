@@ -32,8 +32,8 @@ struct WordsFlow: View {
             navigationPath.append(NavigationDestination.wordDetails(config))
         case .showAddWord:
             navigationPath.append(NavigationDestination.addWord)
-        case .showSharedDictionary(let dictionary):
-            navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
+        case .showSharedDictionaries:
+            navigationPath.append(NavigationDestination.sharedDictionariesList)
         case .showAddSharedDictionary:
             navigationPath.append(NavigationDestination.addSharedDictionary)
         case .showAddExistingWordToShared(let word):

@@ -104,6 +104,7 @@ struct AddExistingWordToSharedView: View {
         }
         .safeAreaInset(edge: .bottom) {
             Button {
+                print("🔘 [AddExistingWordToSharedView] Button pressed!")
                 addWordToSelectedDictionary()
             } label: {
                 Label("Add to Shared Dictionary", systemImage: "plus")
@@ -130,24 +131,40 @@ struct AddExistingWordToSharedView: View {
                 isLoading = false
             }
 
-            word.sharedDictionaryId = selectedDictionaryId
+            print("🔍 [AddExistingWordToSharedView] Starting to add word to shared dictionary")
+            print("📝 [AddExistingWordToSharedView] Word: '\(word.wordItself ?? "nil")'")
+            print("📝 [AddExistingWordToSharedView] Selected dictionary ID: \(selectedDictionaryId ?? "nil")")
+            print("📝 [AddExistingWordToSharedView] Word language code: \(word.languageCode ?? "nil")")
 
-            guard
-                let dictionaryId = selectedDictionaryId,
-                let wordData = Word(from: word)
-            else {
-                word.sharedDictionaryId = nil
+            guard let dictionaryId = selectedDictionaryId else {
+                print("❌ [AddExistingWordToSharedView] No dictionary ID selected")
                 return
             }
+
+            guard let wordData = Word(from: word) else {
+                print("❌ [AddExistingWordToSharedView] Failed to convert CDWord to Word")
+                print("📝 [AddExistingWordToSharedView] CDWord details:")
+                print("  - ID: \(word.id?.uuidString ?? "nil")")
+                print("  - Word: \(word.wordItself ?? "nil")")
+                print("  - Definition: \(word.definition ?? "nil")")
+                print("  - Part of speech: \(word.partOfSpeech ?? "nil")")
+                print("  - Language code: \(word.languageCode ?? "nil")")
+                return
+            }
+
+            print("✅ [AddExistingWordToSharedView] Successfully converted CDWord to Word")
+            print("📝 [AddExistingWordToSharedView] Word data: \(wordData)")
 
             do {
                 try await dictionaryService.addWordToSharedDictionary(
                     dictionaryId: dictionaryId,
                     word: wordData
                 )
+                print("✅ [AddExistingWordToSharedView] Word added successfully to shared dictionary")
                 HapticManager.shared.triggerNotification(type: .success)
                 dismiss()
             } catch {
+                print("❌ [AddExistingWordToSharedView] Error adding word to shared dictionary: \(error.localizedDescription)")
                 AlertCenter.shared.showAlert(with: .error(
                     title: "Can't share word",
                     message: error.localizedDescription

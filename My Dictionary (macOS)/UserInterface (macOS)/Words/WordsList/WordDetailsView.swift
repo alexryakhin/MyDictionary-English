@@ -361,25 +361,22 @@ struct WordDetailsView: View {
     }
 
     private func saveContext() {
-        do {
+        Task {
             // Mark word as unsynced when it's modified and update updatedAt
             word.isSynced = false
             word.updatedAt = Date()
-            try CoreDataService.shared.saveContext()
             
-            // Immediately sync to Firestore for real-time updates
-            if let userId = AuthenticationService.shared.userId {
-                DataSyncService.shared.syncWordToFirestore(word: word, userId: userId) { result in
-                    switch result {
-                    case .success:
-                        print("✅ [WordDetails] Word synced to Firestore immediately")
-                    case .failure(let error):
-                        print("❌ [WordDetails] Failed to sync word to Firestore: \(error.localizedDescription)")
-                    }
+            do {
+                try CoreDataService.shared.saveContext()
+                
+                // Immediately sync to Firestore for real-time updates
+                if let userId = AuthenticationService.shared.userId {
+                    try await DataSyncService.shared.syncWordToFirestore(word: word, userId: userId)
+                    print("✅ [WordDetails] Word synced to Firestore immediately")
                 }
+            } catch {
+                print("❌ Failed to save context: \(error)")
             }
-        } catch {
-            print("❌ Failed to save context: \(error)")
         }
     }
 

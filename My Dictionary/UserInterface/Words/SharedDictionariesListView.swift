@@ -67,6 +67,9 @@ struct SharedDictionariesListView: View {
             }
             .padding(.horizontal, 16)
         }
+        .refreshable {
+            await refreshSharedDictionaries()
+        }
         .groupedBackground()
         .navigation(
             title: "Shared Dictionaries",
@@ -77,5 +80,20 @@ struct SharedDictionariesListView: View {
             AddSharedDictionaryView()
                 .presentationCornerRadius(24)
         }
+        .onAppear {
+            dictionaryService.setupSharedDictionariesListener()
+        }
+    }
+    
+    private func refreshSharedDictionaries() async {
+        print("🔄 [SharedDictionariesListView] Pull-to-refresh triggered")
+        
+        // Force a refresh of the shared dictionaries
+        dictionaryService.refreshSharedDictionaries()
+        
+        // Add a small delay to ensure the refresh completes
+        try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
+        
+        print("✅ [SharedDictionariesListView] Pull-to-refresh completed")
     }
 } 

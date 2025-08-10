@@ -70,9 +70,27 @@ final class AuthenticationService: ObservableObject {
                     self?.currentUser = user
                     self?.authenticationState = .signedIn
                     
-                    // Start real-time listener for private dictionary
-                    print("🔊 [AuthenticationService] Starting real-time listener for user: \(user.uid)")
-                    DataSyncService.shared.startPrivateDictionaryListener(userId: user.uid)
+                    // First mark existing words as unsynced, then sync to Firestore, then start real-time listener
+                    print("🔄 [AuthenticationService] Setting up sync for user: \(user.uid)")
+                    Task {
+                        do {
+                            // Mark existing words as unsynced so they get uploaded
+                            await DataSyncService.shared.markExistingWordsAsUnsynced(userId: user.uid)
+                            
+                            // Sync local words to Firestore
+                            try await DataSyncService.shared.syncPrivateDictionaryToFirestore(userId: user.uid)
+                            print("✅ [AuthenticationService] Local words synced to Firestore successfully")
+                            
+                            // Now start real-time listener after sync is complete
+                            print("🔊 [AuthenticationService] Starting real-time listener for user: \(user.uid)")
+                            DataSyncService.shared.startPrivateDictionaryListener(userId: user.uid)
+                        } catch {
+                            print("❌ [AuthenticationService] Failed to sync local words to Firestore: \(error.localizedDescription)")
+                            // Still start the listener even if sync fails
+                            print("🔊 [AuthenticationService] Starting real-time listener despite sync failure")
+                            DataSyncService.shared.startPrivateDictionaryListener(userId: user.uid)
+                        }
+                    }
                 } else {
                     print("❌ [AuthenticationService] User signed out")
                     self?.currentUser = nil
@@ -308,7 +326,8 @@ final class AuthenticationService: ObservableObject {
     }
 
     var userId: String? {
-        let uid = Auth.auth().currentUser?.uid
+        // Use the currentUser property which is properly synchronized with authentication state
+        let uid = currentUser?.uid
         print("🔍 [AuthenticationService] userId called, returning: \(uid ?? "nil")")
         print("🔍 [AuthenticationService] Current auth state: \(authenticationState)")
         print("🔍 [AuthenticationService] Current user: \(currentUser?.uid ?? "nil")")

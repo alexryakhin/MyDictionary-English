@@ -241,8 +241,7 @@ final class AddWordViewModel: BaseViewModel {
             isFavorite: false,
             timestamp: Date(),
             updatedAt: Date(),
-            isSynced: true,
-            sharedDictionaryId: dictionaryId
+            isSynced: true
         )
 
         Task {

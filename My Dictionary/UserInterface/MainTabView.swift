@@ -124,6 +124,8 @@ struct MainTabView: View {
             SharedDictionaryWordsView(navigationPath: $navigationPath, dictionary: dictionary)
         case .sharedDictionaryDetails(let dictionary):
             SharedDictionaryDetailsView(dictionary: dictionary)
+        case .sharedWordDetails(let word, let dictionaryId):
+            SharedWordDetailsView(word: word, dictionaryId: dictionaryId)
         }
     }
 }

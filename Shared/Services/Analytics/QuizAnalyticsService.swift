@@ -146,6 +146,8 @@ final class QuizAnalyticsService {
         do {
             if let word = try coreDataService.context.fetch(request).first {
                 word.difficultyLevel = level
+                word.isSynced = false  // Mark as unsynced to trigger Firebase sync
+                word.updatedAt = Date()
             } else {
                 throw CoreError.analyticsError(.wordNotFound)
             }

@@ -13,7 +13,7 @@ final class WordListViewModel: BaseViewModel {
     enum Output {
         case showWordDetails(CDWord)
         case showAddWord
-        case showSharedDictionary(SharedDictionary)
+        case showSharedDictionaries
         case showAddSharedDictionary
         case showAddExistingWordToShared(CDWord)
     }
@@ -138,9 +138,7 @@ final class WordListViewModel: BaseViewModel {
         wordsProvider.$words
             .receive(on: RunLoop.main)
             .sink { [weak self] words in
-                // Filter out shared words from the main word list
-                let privateWords = words.filter { !$0.isSharedWord }
-                self?.words = privateWords
+                self?.words = words
                 self?.sortWords()
             }
             .store(in: &cancellables)
@@ -171,7 +169,7 @@ final class WordListViewModel: BaseViewModel {
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
                 print("🔄 [WordListViewModel] Real-time update received, refreshing words")
-                self?.wordsProvider.fetchWords()
+                try? self?.wordsProvider.fetchWords()
             }
             .store(in: &cancellables)
     }

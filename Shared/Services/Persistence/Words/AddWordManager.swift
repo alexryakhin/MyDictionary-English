@@ -22,7 +22,6 @@ final class AddWordManager {
         newWord.phonetic = phonetic
         newWord.languageCode = languageCode
         newWord.timestamp = Date()
-        newWord.ownerId = authenticationService.userId
         newWord.isSynced = false // Mark as not synced initially
         print("📝 [AddWordManager] Created CDWord with id: \(newWord.id?.uuidString ?? "nil")")
         
