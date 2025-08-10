@@ -40,7 +40,7 @@ struct AddEditTagView: View {
                     .padding(.vertical, 8)
                 }
             }
-            .padding(16)
+            .padding(.horizontal, 16)
         }
         .groupedBackground()
         .navigation(

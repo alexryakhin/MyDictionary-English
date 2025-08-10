@@ -71,13 +71,15 @@ struct Word: Codable, Identifiable {
               let definition = data["definition"] as? String,
               let partOfSpeech = data["partOfSpeech"] as? String,
               let examples = data["examples"] as? [String],
-              let tags = data["tags"] as? [String],
               let difficultyLevel = data["difficultyLevel"] as? Int,
               let languageCode = data["languageCode"] as? String,
               let isFavorite = data["isFavorite"] as? Bool,
               let timestamp = data["timestamp"] as? Timestamp else {
             return nil
         }
+        
+        // Tags are optional for shared dictionary words
+        let tags = data["tags"] as? [String] ?? []
         
         // Handle optional fields
         let isSynced = data["isSynced"] as? Bool ?? false

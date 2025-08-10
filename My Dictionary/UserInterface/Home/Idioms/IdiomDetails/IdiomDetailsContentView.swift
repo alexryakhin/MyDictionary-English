@@ -24,7 +24,7 @@ struct IdiomDetailsContentView: View {
                 definitionSectionView
                 examplesSectionView
             }
-            .padding(vertical: 12, horizontal: 16)
+            .padding(.horizontal, 16)
             .animation(.default, value: idiom)
         }
         .groupedBackground()

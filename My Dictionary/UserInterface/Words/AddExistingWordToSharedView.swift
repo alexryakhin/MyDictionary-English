@@ -24,7 +24,7 @@ struct AddExistingWordToSharedView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
+            VStack(spacing: 16) {
                 // Word Info Card
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {

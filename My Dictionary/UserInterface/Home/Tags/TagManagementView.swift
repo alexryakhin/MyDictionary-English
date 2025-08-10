@@ -40,7 +40,7 @@ struct TagManagementView: View {
                 }
                 .fontWeight(.semibold)
             }
-            .padding(16)
+            .padding(.horizontal, 16)
         }
         .groupedBackground()
         .navigation(

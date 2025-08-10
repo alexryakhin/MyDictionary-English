@@ -235,7 +235,7 @@ final class AddWordViewModel: BaseViewModel {
             partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
             phonetic: pronunciation,
             examples: selectedDefinition?.examples ?? [],
-            tags: selectedTags.map { $0.name ?? "" },
+            tags: [], // Don't include tags for shared dictionary words
             difficultyLevel: 0,
             languageCode: languageCode,
             isFavorite: false,

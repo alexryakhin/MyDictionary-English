@@ -148,16 +148,17 @@ final class DictionaryService: ObservableObject {
             throw DictionaryError.invalidInput
         }
 
+        let sharedWord = SharedWord(from: word)
         let docRef = db
             .collection("dictionaries")
             .document(dictionaryId)
             .collection("words")
-            .document(word.id)
+            .document(sharedWord.id)
 
         print("📄 [DictionaryService] Word document reference: \(docRef.path)")
 
-        let wordData = word.toFirestoreDictionary()
-        print("📝 [DictionaryService] Word data: \(wordData)")
+        let wordData = sharedWord.toFirestoreDictionary()
+        print("📝 [DictionaryService] SharedWord data: \(wordData)")
 
         do {
             try await docRef.setData(wordData)
@@ -174,13 +175,14 @@ final class DictionaryService: ObservableObject {
             throw DictionaryError.invalidInput
         }
 
+        let sharedWord = SharedWord(from: word)
         let docRef = db
             .collection("dictionaries")
             .document(dictionaryId)
             .collection("words")
-            .document(word.id)
+            .document(sharedWord.id)
 
-        try await docRef.updateData(word.toFirestoreDictionary())
+        try await docRef.updateData(sharedWord.toFirestoreDictionary())
     }
 
     func deleteWordFromSharedDictionary(dictionaryId: String, wordId: String) async throws {
@@ -195,7 +197,45 @@ final class DictionaryService: ObservableObject {
             .document(wordId)
 
         try await docRef.delete()
-        try wordsProvider.deleteWord(with: wordId)
+        
+        // Check if this is the user's private word and handle accordingly
+        await handleLocalWordAfterSharedDeletion(wordId: wordId, dictionaryId: dictionaryId)
+    }
+    
+    private func handleLocalWordAfterSharedDeletion(wordId: String, dictionaryId: String) async {
+        let context = coreDataService.context
+        
+        await context.perform {
+            let fetchRequest = CDWord.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %@", wordId)
+            
+            guard let word = try? context.fetch(fetchRequest).first else {
+                print("❌ [DictionaryService] No word found with ID \(wordId)")
+                return
+            }
+            
+            // Check if this is the user's private word
+            // A word is private if it has an ownerId (user's word) and the sharedDictionaryId matches the one being deleted
+            let isUserPrivateWord = word.ownerId == self.authenticationService.userId && word.sharedDictionaryId == dictionaryId
+            
+            if isUserPrivateWord {
+                // This is the user's private word - just remove it from the shared dictionary
+                print("📝 [DictionaryService] Removing private word from shared dictionary: \(word.wordItself ?? "unknown")")
+                word.sharedDictionaryId = nil
+                word.isSynced = false // Mark for sync to update Firestore
+            } else {
+                // This is a shared word or not owned by the user - delete it entirely
+                print("🗑️ [DictionaryService] Deleting shared word entirely: \(word.wordItself ?? "unknown")")
+                context.delete(word)
+            }
+            
+            try? context.save()
+            
+            // Update the WordsProvider
+            DispatchQueue.main.async { [weak self] in
+                self?.wordsProvider.fetchWords()
+            }
+        }
     }
 
     // MARK: - Authentication Listener
@@ -361,39 +401,38 @@ final class DictionaryService: ObservableObject {
 
                 print("📄 [DictionaryService] Found \(documents.count) words in dictionary: \(dictionaryId)")
 
-                let words = documents.compactMap {
-                    Word.fromFirestoreDictionary($0.data(), id: $0.documentID)
+                let sharedWords = documents.compactMap {
+                    SharedWord.fromFirestoreDictionary($0.data(), id: $0.documentID)
                 }
 
-                print("✅ [DictionaryService] Parsed \(words.count) words from Firestore")
+                print("✅ [DictionaryService] Parsed \(sharedWords.count) shared words from Firestore")
 
                 context.perform {
                     let fetchRequest = CDWord.fetchRequest()
                     let allCoreDataWords: [CDWord] = (try? context.fetch(fetchRequest)) ?? []
 
-                    for word in words {
+                    for sharedWord in sharedWords {
                         if let existing = allCoreDataWords.first(where: { cdWord in
-                            cdWord.id?.uuidString == word.id
+                            cdWord.id?.uuidString == sharedWord.id
                         }) {
-                            if word.timestamp > existing.timestamp ?? Date.distantPast {
-                                existing.wordItself = word.wordItself
-                                existing.definition = word.definition
-                                existing.partOfSpeech = word.partOfSpeech
-                                existing.phonetic = word.phonetic
-                                try? existing.updateExamples(word.examples)
-                                existing.difficultyLevel = Int32(word.difficultyLevel)
-                                existing.languageCode = word.languageCode
-                                existing.isFavorite = word.isFavorite
-                                existing.timestamp = word.timestamp
+                            if sharedWord.timestamp > existing.timestamp ?? Date.distantPast {
+                                existing.wordItself = sharedWord.wordItself
+                                existing.definition = sharedWord.definition
+                                existing.partOfSpeech = sharedWord.partOfSpeech
+                                existing.phonetic = sharedWord.phonetic
+                                try? existing.updateExamples(sharedWord.examples)
+                                existing.difficultyLevel = 0 // Default for shared words
+                                existing.languageCode = sharedWord.languageCode
+                                existing.isFavorite = false // Default for shared words
+                                existing.timestamp = sharedWord.timestamp
                                 existing.isSynced = true
                                 existing.sharedDictionaryId = dictionaryId
                                 try? context.save()
                             }
                         } else {
-                            let entity = word.toCoreDataEntity()
+                            let entity = sharedWord.toCoreDataEntity()
                             entity.sharedDictionaryId = dictionaryId
-                            // Sync tags separately
-                            self?.syncTags(word: word, entity: entity)
+                            // Don't sync tags for shared dictionary words
                             try? context.save()
                         }
                     }
@@ -404,9 +443,22 @@ final class DictionaryService: ObservableObject {
                     }
                     print("DEBUG50 1 [DataSyncService] Found \(allLocalSharedWords.count) shared words in local storage")
                     for localWord in allLocalSharedWords {
-                        if let wordId = localWord.id?.uuidString, !words.map(\.id).contains(wordId) {
-                            print("🗑️ [DataSyncService] Word deleted from shared dictionary, removing from local storage: '\(localWord.wordItself ?? "unknown")' (ID: \(wordId))")
-                            context.delete(localWord)
+                        if let wordId = localWord.id?.uuidString, !sharedWords.map(\.id).contains(wordId) {
+                            print("🗑️ [DataSyncService] Word deleted from shared dictionary: '\(localWord.wordItself ?? "unknown")' (ID: \(wordId))")
+                            
+                            // Check if this is the user's private word
+                            let isUserPrivateWord = localWord.ownerId == AuthenticationService.shared.userId
+
+                            if isUserPrivateWord {
+                                // This is the user's private word - just remove it from the shared dictionary
+                                print("📝 [DataSyncService] Removing private word from shared dictionary: \(localWord.wordItself ?? "unknown")")
+                                localWord.sharedDictionaryId = nil
+                                localWord.isSynced = false // Mark for sync to update Firestore
+                            } else {
+                                // This is a shared word or not owned by the user - delete it entirely
+                                print("🗑️ [DataSyncService] Deleting shared word entirely: \(localWord.wordItself ?? "unknown")")
+                                context.delete(localWord)
+                            }
                             try? context.save()
                         }
                     }

@@ -14,6 +14,7 @@ struct MainTabView: View {
 
     @State private var navigationPath = NavigationPath()
     @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
+    @AppStorage(UDKeys.showIdiomsTab) var showIdiomsTab: Bool = true
     @StateObject var tabManager: TabManager = .shared
     @StateObject var authenticationService: AuthenticationService = .shared
 
@@ -62,9 +63,18 @@ struct MainTabView: View {
         }
     }
 
+    @ViewBuilder
     private var tabBarView: some View {
+        let tabCases = TabBarItem.allCases
+            .filter { tab in
+                if tab == .idioms {
+                    showIdiomsTab
+                } else {
+                    true
+                }
+            }
         HStack {
-            ForEach(TabBarItem.allCases, id: \.self) { tab in
+            ForEach(tabCases, id: \.self) { tab in
                 TabButton(
                     title: tab.title,
                     image: tab.image,

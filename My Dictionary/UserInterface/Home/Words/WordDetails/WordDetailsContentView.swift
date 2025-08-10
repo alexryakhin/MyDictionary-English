@@ -45,7 +45,7 @@ struct WordDetailsContentView: View {
                 tagsSectionView
                 examplesSectionView
             }
-            .padding(vertical: 12, horizontal: 16)
+            .padding(.horizontal, 16)
             .animation(.default, value: word)
         }
         .groupedBackground()
@@ -229,7 +229,7 @@ struct WordDetailsContentView: View {
                     .buttonStyle(.plain)
                 }
             }
-            .padding()
+            .padding(.horizontal, 16)
         }
         .groupedBackground()
         .navigation(title: "Select Difficulty Level", mode: .inline, trailingContent: {

@@ -13,11 +13,11 @@ struct AddIdiomView: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 24) {
+            LazyVStack(spacing: 16) {
                 idiomInputSectionView
                 definitionInputSectionView
             }
-            .padding(vertical: 12, horizontal: 16)
+            .padding(.horizontal, 16)
         }
         .groupedBackground()
         .navigation(
@@ -44,7 +44,7 @@ struct AddIdiomView: View {
         CustomSectionView(header: "Idiom") {
             TextField("Idiom", text: $viewModel.inputIdiom, axis: .vertical)
                 .focused($isIdiomInputFocused)
-                .clippedWithPaddingAndBackground()
+                .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 12)
         } trailingContent: {
             if isIdiomInputFocused {
                 HeaderButton(text: "Done") {
@@ -58,7 +58,7 @@ struct AddIdiomView: View {
         CustomSectionView(header: "Definition") {
             TextField("Definition", text: $viewModel.definitionField, axis: .vertical)
                 .focused($isDefinitionInputFocused)
-                .clippedWithPaddingAndBackground()
+                .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 12)
         } trailingContent: {
             if isDefinitionInputFocused {
                 HeaderButton(text: "Done") {

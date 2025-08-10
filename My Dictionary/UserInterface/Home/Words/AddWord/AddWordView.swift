@@ -18,7 +18,7 @@ struct AddWordView: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 24) {
+            LazyVStack(spacing: 16) {
                 FormWithDivider {
                     wordCellView
                     inputLanguageCellView

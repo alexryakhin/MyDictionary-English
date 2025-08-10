@@ -57,7 +57,7 @@ struct SpellingQuizContentView: View {
             }
         } else if !viewModel.isQuizComplete {
             ScrollView {
-                VStack(spacing: 24) {
+                VStack(spacing: 16) {
                     // Definition Card
                     definitionCard
 

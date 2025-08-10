@@ -23,14 +23,11 @@ struct TagSelectionView: View {
             ) {
                 if tagService.tags.isEmpty {
                     ContentUnavailableView(
-                        "No Quiz Results Yet",
-                        systemImage: "chart.bar",
-                        description: Text("Complete your first quiz to see results here")
+                        "No Tags Yet",
+                        systemImage: "tag",
+                        description: Text("Add a tag to start using it.")
                     )
-                    .padding(16)
-                    HeaderButton(text: "Create tags", icon: "tag", style: .borderedProminent) {
-                        isShowingAddTagSheet.toggle()
-                    }
+                    .padding(.vertical, 16)
                 } else {
                     HFlow(alignment: .top, spacing: 8) {
                         ForEach(tagService.tags) { tag in
@@ -51,8 +48,12 @@ struct TagSelectionView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 12)
                 }
+            } trailingContent: {
+                HeaderButton(text: "Create tags", icon: "tag", style: .borderedProminent) {
+                    isShowingAddTagSheet.toggle()
+                }
             }
-            .padding(16)
+            .padding(.horizontal, 16)
         }
         .groupedBackground()
         .navigation(
