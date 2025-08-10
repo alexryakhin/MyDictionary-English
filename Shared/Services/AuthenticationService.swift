@@ -25,6 +25,7 @@ enum AuthenticationError: LocalizedError {
     case userNotFound
     case networkError
     case accountLinkingFailed
+    case subscriptionRequired
 
     var errorDescription: String? {
         switch self {
@@ -38,6 +39,8 @@ enum AuthenticationError: LocalizedError {
             return "Network error. Please check your connection."
         case .accountLinkingFailed:
             return "Failed to link accounts. Please try again."
+        case .subscriptionRequired:
+            return "Pro subscription required for Google sync"
         }
     }
 }
@@ -208,6 +211,12 @@ final class AuthenticationService: ObservableObject {
     func linkGoogleAccount() async throws {
         guard let currentUser = Auth.auth().currentUser else {
             throw AuthenticationError.userNotFound
+        }
+        
+        // Check if user has Pro subscription for Google sync
+        let subscriptionService = SubscriptionService.shared
+        guard subscriptionService.canUseGoogleSync() else {
+            throw AuthenticationError.subscriptionRequired
         }
 
         guard let clientID = FirebaseApp.app()?.options.clientID else {

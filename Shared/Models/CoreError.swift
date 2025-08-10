@@ -84,6 +84,7 @@ enum CoreError: Error, LocalizedError {
         case exportFailed
         case importFailed
         case cannotAccessSecurityScopedResource
+        case exportLimitExceeded
         case tagAlreadyExists
         case tagAlreadyAssigned
         case tagNotAssigned
@@ -119,6 +120,8 @@ enum CoreError: Error, LocalizedError {
                 return "Import failed"
             case .cannotAccessSecurityScopedResource:
                 return "Cannot access security scoped resource"
+            case .exportLimitExceeded:
+                return "Export limit exceeded. Upgrade to Pro for unlimited exports."
             case .tagAlreadyExists:
                 return "Tag already exists"
             case .tagAlreadyAssigned:

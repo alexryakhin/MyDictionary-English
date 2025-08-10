@@ -118,6 +118,18 @@ enum AnalyticsEvent: String {
     case googleAccountLinked
     case appleAccountLinked
     case accountLinkingFailed
+    
+    // Subscription Events
+    case subscriptionScreenOpened
+    case subscriptionPurchased
+    case subscriptionRestored
+    case subscriptionCancelled
+    
+    // Collaborative Features Events
+    case sharedWordLiked
+    case sharedWordUnliked
+    case sharedWordDifficultyUpdated
+    case sharedWordStatsViewed
 
     var parameters: [String: Any]? {
         switch self {

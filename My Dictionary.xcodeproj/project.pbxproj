@@ -27,6 +27,9 @@
 		5370F6912E405358009238EB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6902E405358009238EB /* GoogleSignInSwift */; };
 		5370F6932E4053C1009238EB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6922E4053C1009238EB /* GoogleSignIn */; };
 		5370F6952E4053C6009238EB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6942E4053C6009238EB /* GoogleSignInSwift */; };
+		539839692E48D9AC006ECF2D /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 539839682E48D9AC006ECF2D /* ReceiptParser */; };
+		5398396B2E48D9AC006ECF2D /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 5398396A2E48D9AC006ECF2D /* RevenueCat */; };
+		5398396D2E48D9AC006ECF2D /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5398396C2E48D9AC006ECF2D /* RevenueCatUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -120,12 +123,15 @@
 			files = (
 				5370F6912E405358009238EB /* GoogleSignInSwift in Frameworks */,
 				5321A2E32E3FADEF0066DFC4 /* Flow in Frameworks */,
+				5398396D2E48D9AC006ECF2D /* RevenueCatUI in Frameworks */,
 				5370F68F2E405358009238EB /* GoogleSignIn in Frameworks */,
 				5370F6822E4052E3009238EB /* FirebaseAuth in Frameworks */,
 				53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */,
 				532C151F2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				539839692E48D9AC006ECF2D /* ReceiptParser in Frameworks */,
 				5370F6862E4052ED009238EB /* FirebaseStorage in Frameworks */,
 				5330097B2E43895E00C3057B /* FirebaseFunctions in Frameworks */,
+				5398396B2E48D9AC006ECF2D /* RevenueCat in Frameworks */,
 				53310BCA2D7E238900C1DE8B /* FirebaseCore in Frameworks */,
 				5330097D2E43896100C3057B /* FirebaseFunctionsCombine-Community in Frameworks */,
 				5370F6842E4052E8009238EB /* FirebaseFirestore in Frameworks */,
@@ -231,6 +237,9 @@
 				5370F6902E405358009238EB /* GoogleSignInSwift */,
 				5330097A2E43895E00C3057B /* FirebaseFunctions */,
 				5330097C2E43896100C3057B /* FirebaseFunctionsCombine-Community */,
+				539839682E48D9AC006ECF2D /* ReceiptParser */,
+				5398396A2E48D9AC006ECF2D /* RevenueCat */,
+				5398396C2E48D9AC006ECF2D /* RevenueCatUI */,
 			);
 			productName = "My Dictionary";
 			productReference = 53E9A7542D7C3383007E9F28 /* My Dictionary.app */;
@@ -268,6 +277,7 @@
 				53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5321A2E12E3FADEF0066DFC4 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
 				5370F68D2E405358009238EB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 53E9A7552D7C3383007E9F28 /* Products */;
@@ -631,6 +641,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.34.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -728,6 +746,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5370F68D2E405358009238EB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		539839682E48D9AC006ECF2D /* ReceiptParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = ReceiptParser;
+		};
+		5398396A2E48D9AC006ECF2D /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		5398396C2E48D9AC006ECF2D /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

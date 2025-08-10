@@ -44,6 +44,13 @@ final class DictionaryService: ObservableObject {
             print("❌ [DictionaryService] Invalid input - userId: \(userId), name: \(name)")
             throw DictionaryError.invalidInput
         }
+        
+        // Check if user has Pro subscription for creating shared dictionaries
+        let subscriptionService = SubscriptionService.shared
+        guard subscriptionService.canCreateSharedDictionaries() else {
+            print("❌ [DictionaryService] User does not have Pro subscription for creating shared dictionaries")
+            throw DictionaryError.subscriptionRequired
+        }
 
         // Get current user info
         let currentUser = Auth.auth().currentUser
@@ -774,6 +781,106 @@ final class DictionaryService: ObservableObject {
     func clearError() {
         errorMessage = nil
     }
+    
+    // MARK: - Collaborative Features
+    
+    func toggleLike(for wordId: String, in dictionaryId: String) async throws {
+        guard let userEmail = authenticationService.userEmail else {
+            throw DictionaryError.userNotAuthenticated
+        }
+        
+        print("🔍 [DictionaryService] toggleLike called for wordId: \(wordId), dictionaryId: \(dictionaryId)")
+        
+        let wordRef = db
+            .collection("dictionaries")
+            .document(dictionaryId)
+            .collection("words")
+            .document(wordId)
+        
+        // Get current word data
+        let wordDoc = try await wordRef.getDocument()
+        guard let wordData = wordDoc.data() else {
+            throw DictionaryError.dictionaryNotFound
+        }
+        
+        let currentLikes = wordData["likes"] as? [String: Bool] ?? [:]
+        let isCurrentlyLiked = currentLikes[userEmail] ?? false
+        
+        // Toggle the like status
+        var updatedLikes = currentLikes
+        updatedLikes[userEmail] = !isCurrentlyLiked
+        
+        // Update the document
+        try await wordRef.updateData([
+            "likes": updatedLikes
+        ])
+        
+        // Track analytics
+        if updatedLikes[userEmail] == true {
+            AnalyticsService.shared.logEvent(.sharedWordLiked)
+        } else {
+            AnalyticsService.shared.logEvent(.sharedWordUnliked)
+        }
+        
+        print("✅ [DictionaryService] Like toggled successfully for user: \(userEmail)")
+    }
+    
+    func updateDifficulty(for wordId: String, in dictionaryId: String, difficulty: Int) async throws {
+        guard let userEmail = authenticationService.userEmail else {
+            throw DictionaryError.userNotAuthenticated
+        }
+        
+        guard difficulty >= 0 && difficulty <= 3 else {
+            throw DictionaryError.invalidInput
+        }
+        
+        print("🔍 [DictionaryService] updateDifficulty called for wordId: \(wordId), dictionaryId: \(dictionaryId), difficulty: \(difficulty)")
+        
+        let wordRef = db
+            .collection("dictionaries")
+            .document(dictionaryId)
+            .collection("words")
+            .document(wordId)
+        
+        // Get current word data
+        let wordDoc = try await wordRef.getDocument()
+        guard let wordData = wordDoc.data() else {
+            throw DictionaryError.dictionaryNotFound
+        }
+        
+        let currentDifficulties = wordData["difficulties"] as? [String: Int] ?? [:]
+        var updatedDifficulties = currentDifficulties
+        updatedDifficulties[userEmail] = difficulty
+        
+        // Update the document
+        try await wordRef.updateData([
+            "difficulties": updatedDifficulties
+        ])
+        
+        // Track analytics
+        AnalyticsService.shared.logEvent(.sharedWordDifficultyUpdated)
+        
+        print("✅ [DictionaryService] Difficulty updated successfully for user: \(userEmail)")
+    }
+    
+    func getDifficultyStats(for wordId: String, in dictionaryId: String) async throws -> [String: Int] {
+        print("🔍 [DictionaryService] getDifficultyStats called for wordId: \(wordId), dictionaryId: \(dictionaryId)")
+        
+        let wordRef = db
+            .collection("dictionaries")
+            .document(dictionaryId)
+            .collection("words")
+            .document(wordId)
+        
+        let wordDoc = try await wordRef.getDocument()
+        guard let wordData = wordDoc.data() else {
+            throw DictionaryError.dictionaryNotFound
+        }
+        
+        let difficulties = wordData["difficulties"] as? [String: Int] ?? [:]
+        print("✅ [DictionaryService] Retrieved difficulty stats: \(difficulties)")
+        return difficulties
+    }
 }
 
 // MARK: - Errors
@@ -784,6 +891,7 @@ enum DictionaryError: LocalizedError {
     case dictionaryNotFound
     case networkError
     case userNotAuthenticated
+    case subscriptionRequired
 
     var errorDescription: String? {
         switch self {
@@ -797,6 +905,8 @@ enum DictionaryError: LocalizedError {
             return "Network error occurred"
         case .userNotAuthenticated:
             return "User must be authenticated"
+        case .subscriptionRequired:
+            return "Pro subscription required for this feature"
         }
     }
 }

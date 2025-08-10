@@ -58,6 +58,16 @@ final class SettingsViewModel: BaseViewModel {
 
     func exportWords() {
         guard !words.isEmpty else { return }
+        
+        let subscriptionService = SubscriptionService.shared
+        guard subscriptionService.canExportWords(words.count) else {
+            errorReceived(
+                CoreError.internalError(.exportLimitExceeded),
+                displayType: .alert
+            )
+            return
+        }
+        
         Task { @MainActor in
             exportWordsUrl = csvManager.exportWordsToCSV(wordModels: words)
         }

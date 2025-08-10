@@ -41,6 +41,13 @@ final class DataSyncService: ObservableObject {
             print("❌ [DataSyncService] Invalid userId provided")
             throw DataSyncError.invalidUserId
         }
+        
+        // Check if user has Pro subscription for Google sync
+        let subscriptionService = SubscriptionService.shared
+        guard subscriptionService.canUseGoogleSync() else {
+            print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
+            throw DataSyncError.subscriptionRequired
+        }
 
         // Only sync unsynced words (new words or words marked as unsynced)
         let fetchRequest = CDWord.fetchRequest()
@@ -767,6 +774,7 @@ enum DataSyncError: LocalizedError {
     case invalidUserId
     case networkError
     case syncFailed
+    case subscriptionRequired
 
     var errorDescription: String? {
         switch self {
@@ -776,6 +784,8 @@ enum DataSyncError: LocalizedError {
             return "Network error occurred"
         case .syncFailed:
             return "Sync failed"
+        case .subscriptionRequired:
+            return "Pro subscription required for Google sync"
         }
     }
 }

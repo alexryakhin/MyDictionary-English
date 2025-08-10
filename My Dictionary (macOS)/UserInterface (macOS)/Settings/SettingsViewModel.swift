@@ -120,6 +120,15 @@ final class SettingsViewModel: BaseViewModel {
 
     func exportWords() {
         guard !words.isEmpty else { return }
+        
+        let subscriptionService = SubscriptionService.shared
+        guard subscriptionService.canExportWords(words.count) else {
+            errorReceived(
+                CoreError.internalError(.exportLimitExceeded),
+                displayType: .alert
+            )
+            return
+        }
 
         let panel = NSSavePanel()
         panel.allowedContentTypes = [.commaSeparatedText]

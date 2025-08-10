@@ -21,6 +21,14 @@ final class CSVManager {
 
     /// Export Core Data words to a CSV file
     func exportWordsToCSV(wordModels: [CDWord]) -> URL? {
+        let subscriptionService = SubscriptionService.shared
+        
+        // Check export limit for free users
+        guard subscriptionService.canExportWords(wordModels.count) else {
+            print("❌ [CSVManager] Export limit exceeded: \(wordModels.count) words (limit: \(subscriptionService.getExportLimit()))")
+            return nil
+        }
+        
         let fileName = "MyDictionaryExport.csv"
         let filePath = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
 

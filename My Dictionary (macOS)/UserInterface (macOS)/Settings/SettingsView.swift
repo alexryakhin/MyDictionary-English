@@ -15,6 +15,7 @@ struct SettingsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
+                subscriptionSectionView
                 notificationSettingsSectionView
                 practiceSettingsSectionView
                 translationSettingsSectionView
@@ -45,6 +46,17 @@ struct SettingsView: View {
             AnalyticsService.shared.logEvent(.settingsOpened)
         }
         .frame(width: 400, height: 600)
+    }
+    
+    // MARK: - Subscription Settings
+    
+    private var subscriptionSectionView: some View {
+        CustomSectionView(
+            header: "Subscription",
+            footer: "Upgrade to Pro for unlimited features and cross-device sync."
+        ) {
+            SubscriptionStatusView()
+        }
     }
 
     // MARK: - Notification Settings

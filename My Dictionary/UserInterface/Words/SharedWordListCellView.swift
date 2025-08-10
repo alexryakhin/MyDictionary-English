@@ -55,6 +55,29 @@ struct SharedWordListCellView: View {
                         .foregroundStyle(.secondary)
                         .clipShape(Capsule())
                 }
+                
+                // Collaborative features
+                if word.likeCount > 0 {
+                    HStack(spacing: 4) {
+                        Image(systemName: "heart.fill")
+                            .font(.caption2)
+                            .foregroundStyle(.red)
+                        Text("\(word.likeCount)")
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                
+                if word.difficulties.count > 0 {
+                    HStack(spacing: 4) {
+                        Image(systemName: "chart.bar.fill")
+                            .font(.caption2)
+                            .foregroundStyle(.blue)
+                        Text(String(format: "%.1f", word.averageDifficulty))
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
+                }
 
                 Spacer()
 

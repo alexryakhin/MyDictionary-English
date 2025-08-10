@@ -97,6 +97,15 @@ struct SettingsView: View {
                     .padding(.bottom, 12)
                 }
 
+                // MARK: - Subscription
+                
+                CustomSectionView(
+                    header: "Subscription",
+                    footer: "Upgrade to Pro for unlimited features and cross-device sync."
+                ) {
+                    SubscriptionStatusView()
+                }
+                
                 // MARK: - Word Lists & Sync
 
                 CustomSectionView(

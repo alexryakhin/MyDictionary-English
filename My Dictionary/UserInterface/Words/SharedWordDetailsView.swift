@@ -49,6 +49,7 @@ struct SharedWordDetailsView: View {
 
                 languageSectionView
                 examplesSectionView
+                collaborativeFeaturesSection
             }
             .padding(.horizontal, 16)
             .animation(.default, value: word)
@@ -264,6 +265,120 @@ struct SharedWordDetailsView: View {
             }
         }
     }
+    
+    // MARK: - Collaborative Features Section
+    
+    private var collaborativeFeaturesSection: some View {
+        CustomSectionView(
+            header: "Collaborative Features",
+            headerFontStyle: .stealth
+        ) {
+            VStack(spacing: 16) {
+                // Like and difficulty controls
+                likeAndDifficultyControls
+                
+                // Stats summary
+                statsSummary
+                
+                // View detailed stats button
+                viewStatsButton
+            }
+        }
+    }
+    
+    private var likeAndDifficultyControls: some View {
+        VStack(spacing: 12) {
+            // Like button
+            HStack {
+                Button {
+                    toggleLike()
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: word.isLikedBy(authenticationService.userEmail ?? "") ? "heart.fill" : "heart")
+                            .foregroundStyle(word.isLikedBy(authenticationService.userEmail ?? "") ? .red : .secondary)
+                        
+                        Text(word.isLikedBy(authenticationService.userEmail ?? "") ? "Liked" : "Like")
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                    }
+                }
+                .buttonStyle(.plain)
+                
+                Spacer()
+                
+                Text("\(word.likeCount) likes")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            
+            // Difficulty selector
+            HStack {
+                Text("Your difficulty rating:")
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                
+                Spacer()
+                
+                Picker("Difficulty", selection: Binding(
+                    get: { word.getDifficultyFor(authenticationService.userEmail ?? "") },
+                    set: { updateDifficulty($0) }
+                )) {
+                    Text("New").tag(0)
+                    Text("In Progress").tag(1)
+                    Text("Needs Review").tag(2)
+                    Text("Mastered").tag(3)
+                }
+                .pickerStyle(.menu)
+                .font(.caption)
+            }
+        }
+        .padding(16)
+        .background(.background)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(.secondary.opacity(0.3), lineWidth: 1)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+    
+    private var statsSummary: some View {
+        HStack {
+            StatSummaryCard(
+                title: "Average Difficulty",
+                value: String(format: "%.1f", word.averageDifficulty),
+                icon: "chart.bar.fill"
+            )
+            
+            StatSummaryCard(
+                title: "Total Ratings",
+                value: "\(word.difficulties.count)",
+                icon: "person.2.fill"
+            )
+        }
+    }
+    
+    private var viewStatsButton: some View {
+        NavigationLink {
+            SharedWordDifficultyStatsView(word: word, dictionaryId: dictionaryId)
+        } label: {
+            HStack {
+                Image(systemName: "chart.bar.doc.horizontal")
+                Text("View Detailed Statistics")
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(16)
+            .background(.background)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(.secondary.opacity(0.3), lineWidth: 1)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
+        .buttonStyle(.plain)
+    }
 
     // MARK: - Private Methods
 
@@ -282,7 +397,9 @@ struct SharedWordDetailsView: View {
                 updatedAt: Date(),
                 addedByEmail: word.addedByEmail,
                 addedByDisplayName: word.addedByDisplayName,
-                addedAt: word.addedAt
+                addedAt: word.addedAt,
+                likes: word.likes,
+                difficulties: word.difficulties
             )
             
             await saveWordToFirebase(updatedWord)
@@ -304,7 +421,9 @@ struct SharedWordDetailsView: View {
                 updatedAt: Date(),
                 addedByEmail: word.addedByEmail,
                 addedByDisplayName: word.addedByDisplayName,
-                addedAt: word.addedAt
+                addedAt: word.addedAt,
+                likes: word.likes,
+                difficulties: word.difficulties
             )
             
             await saveWordToFirebase(updatedWord)
@@ -407,10 +526,36 @@ struct SharedWordDetailsView: View {
                 updatedAt: Date(),
                 addedByEmail: word.addedByEmail,
                 addedByDisplayName: word.addedByDisplayName,
-                addedAt: word.addedAt
+                addedAt: word.addedAt,
+                likes: word.likes,
+                difficulties: word.difficulties
             )
             
             await saveWordToFirebase(updatedWord)
+        }
+    }
+    
+    // MARK: - Collaborative Features Methods
+    
+    private func toggleLike() {
+        Task {
+            do {
+                try await dictionaryService.toggleLike(for: word.id, in: dictionaryId)
+                // The word will be updated via real-time listener
+            } catch {
+                print("❌ Failed to toggle like: \(error)")
+            }
+        }
+    }
+    
+    private func updateDifficulty(_ difficulty: Int) {
+        Task {
+            do {
+                try await dictionaryService.updateDifficulty(for: word.id, in: dictionaryId, difficulty: difficulty)
+                // The word will be updated via real-time listener
+            } catch {
+                print("❌ Failed to update difficulty: \(error)")
+            }
         }
     }
 
@@ -454,5 +599,37 @@ struct SharedWordDetailsView: View {
                 message: error.localizedDescription
             )
         )
+    }
+}
+
+// MARK: - StatSummaryCard
+
+struct StatSummaryCard: View {
+    let title: String
+    let value: String
+    let icon: String
+    
+    var body: some View {
+        VStack(spacing: 8) {
+            Image(systemName: icon)
+                .font(.title3)
+                .foregroundStyle(.accent)
+            
+            Text(value)
+                .font(.headline)
+                .fontWeight(.semibold)
+            
+            Text(title)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(12)
+        .background(.background)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(.secondary.opacity(0.3), lineWidth: 1)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

@@ -25,6 +25,10 @@ struct SharedWord: Codable, Hashable {
     let addedByDisplayName: String?
     let addedAt: Date
     
+    // Collaborative features
+    let likes: [String: Bool] // userEmail -> isLiked
+    let difficulties: [String: Int] // userEmail -> difficultyLevel (0-3)
+    
     // MARK: - Initialization
     
     init(
@@ -40,7 +44,9 @@ struct SharedWord: Codable, Hashable {
 
         addedByEmail: String,
         addedByDisplayName: String? = nil,
-        addedAt: Date = Date()
+        addedAt: Date = Date(),
+        likes: [String: Bool] = [:],
+        difficulties: [String: Int] = [:]
     ) {
         self.id = id
         self.wordItself = wordItself
@@ -55,6 +61,8 @@ struct SharedWord: Codable, Hashable {
         self.addedByEmail = addedByEmail
         self.addedByDisplayName = addedByDisplayName
         self.addedAt = addedAt
+        self.likes = likes
+        self.difficulties = difficulties
     }
     
     // MARK: - Conversion from Word
@@ -73,6 +81,8 @@ struct SharedWord: Codable, Hashable {
         self.addedByEmail = addedByEmail
         self.addedByDisplayName = addedByDisplayName
         self.addedAt = Date()
+        self.likes = [:]
+        self.difficulties = [:]
     }
 
     var shouldShowLanguageLabel: Bool {
@@ -95,6 +105,37 @@ struct SharedWord: Codable, Hashable {
     var addedByShortText: String {
         return addedByDisplayName ?? addedByEmail
     }
+    
+    // MARK: - Collaborative Features
+    
+    var likeCount: Int {
+        return likes.values.filter { $0 }.count
+    }
+    
+    var averageDifficulty: Double {
+        guard !difficulties.isEmpty else { return 0.0 }
+        let sum = difficulties.values.reduce(0, +)
+        return Double(sum) / Double(difficulties.count)
+    }
+    
+    func isLikedBy(_ userEmail: String) -> Bool {
+        return likes[userEmail] ?? false
+    }
+    
+    func getDifficultyFor(_ userEmail: String) -> Int {
+        return difficulties[userEmail] ?? 0
+    }
+    
+    func getDifficultyDisplayName(for userEmail: String) -> String {
+        let difficulty = getDifficultyFor(userEmail)
+        switch difficulty {
+        case 0: return "New"
+        case 1: return "In Progress"
+        case 2: return "Needs Review"
+        case 3: return "Mastered"
+        default: return "New"
+        }
+    }
 
     // MARK: - Firestore Conversion
     
@@ -110,7 +151,9 @@ struct SharedWord: Codable, Hashable {
             "updatedAt": Timestamp(date: updatedAt),
 
             "addedByEmail": addedByEmail,
-            "addedAt": Timestamp(date: addedAt)
+            "addedAt": Timestamp(date: addedAt),
+            "likes": likes,
+            "difficulties": difficulties
         ]
         
         if let addedByDisplayName = addedByDisplayName {
@@ -135,8 +178,11 @@ struct SharedWord: Codable, Hashable {
         
         // Handle optional fields
         let updatedAt = data["updatedAt"] as? Timestamp ?? timestamp
-
         let addedByDisplayName = data["addedByDisplayName"] as? String
+        
+        // Handle collaborative features (with defaults for backward compatibility)
+        let likes = data["likes"] as? [String: Bool] ?? [:]
+        let difficulties = data["difficulties"] as? [String: Int] ?? [:]
         
         return SharedWord(
             id: id,
@@ -150,7 +196,9 @@ struct SharedWord: Codable, Hashable {
             updatedAt: updatedAt.dateValue(),
             addedByEmail: addedByEmail,
             addedByDisplayName: addedByDisplayName,
-            addedAt: addedAt.dateValue()
+            addedAt: addedAt.dateValue(),
+            likes: likes,
+            difficulties: difficulties
         )
     }
 }
