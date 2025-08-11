@@ -55,7 +55,6 @@ struct AddWordView: View {
                 .clipShape(Capsule())
             },
             bottomContent: {
-                // TODO: PRO flag as well
                 if authenticationService.isSignedIn {
                     HStack {
                         Button {

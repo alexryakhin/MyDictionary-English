@@ -29,9 +29,16 @@ final class DictionaryService: ObservableObject {
     private var collaboratorsCache: [String: [Collaborator]] = [:] // Cache collaborators by dictionary ID
     private let cacheQueue = DispatchQueue(label: "com.mydictionary.collaboratorsCache", attributes: .concurrent)
     private let listenersQueue = DispatchQueue(label: "com.mydictionary.listeners", attributes: .concurrent)
+    private var lastUIUpdateTime: [String: Date] = [:] // Track last UI update time per dictionary
+    private let uiUpdateDebounceInterval: TimeInterval = 0.5 // Debounce UI updates by 500ms
 
     private init() {
         setupAuthenticationListener()
+    }
+    
+    deinit {
+        print("🧹 [DictionaryService] Deallocating DictionaryService")
+        stopAllListeners()
     }
 
     // MARK: - Shared Dictionary Management
@@ -147,11 +154,24 @@ final class DictionaryService: ObservableObject {
                 return
             }
             
-            // Get user's FCM token
-            let userDoc = try await db.collection("users").document(userEmail).getDocument()
-            guard let userData = userDoc.data(),
-                  let fcmToken = userData["fcmToken"] as? String else {
-                print("⚠️ [DictionaryService] No FCM token found for user: \(userEmail)")
+            // Get user's FCM token - try both email and userId as document ID
+            var fcmToken: String?
+            
+            // First try with email (as document ID)
+            let userDocByEmail = try await db.collection("users").document(userEmail).getDocument()
+            if let userData = userDocByEmail.data(),
+               let token = userData["fcmToken"] as? String {
+                fcmToken = token
+                print("📱 [DictionaryService] Found FCM token using email as document ID")
+            } else {
+                // If not found, try to find user by email in a different way
+                // This would require a users collection with email field
+                print("⚠️ [DictionaryService] No FCM token found for user email: \(userEmail)")
+                return
+            }
+            
+            guard let fcmToken = fcmToken else {
+                print("❌ [DictionaryService] No FCM token available for user: \(userEmail)")
                 return
             }
             
@@ -494,10 +514,14 @@ final class DictionaryService: ObservableObject {
     func listenToDictionaryCollaborators(dictionaryId: String) {
         print("🔍 [DictionaryService] listenToDictionaryCollaborators called for dictionary: \(dictionaryId)")
 
-        // Stop existing listener for this dictionary's collaborators
         let collaboratorListenerKey = "\(dictionaryId)_collaborators"
+        
+        // Check if listener already exists for this dictionary's collaborators
         listenersQueue.sync {
-            listeners[collaboratorListenerKey]?.remove()
+            if listeners[collaboratorListenerKey] != nil {
+                print("⚠️ [DictionaryService] Collaborators listener already exists for dictionary: \(dictionaryId), skipping setup")
+                return
+            }
         }
 
         let collaboratorsQuery = db
@@ -655,18 +679,18 @@ final class DictionaryService: ObservableObject {
     func listenToSharedDictionaryWords(dictionaryId: String) {
         print("🔍 [DictionaryService] listenToSharedDictionaryWords called for dictionary: \(dictionaryId)")
 
-        // Stop existing listener for this dictionary
+        // Check if listener already exists for this dictionary
         listenersQueue.sync {
-            listeners[dictionaryId]?.remove()
+            if listeners[dictionaryId] != nil {
+                print("⚠️ [DictionaryService] Listener already exists for dictionary: \(dictionaryId), skipping setup")
+                return
+            }
         }
 
         let wordsQuery = db
             .collection("dictionaries")
             .document(dictionaryId)
             .collection("words")
-
-        // Pre-load cached words first
-        preloadCachedSharedWords(dictionaryId: dictionaryId)
 
         let listener = wordsQuery.addSnapshotListener { [weak self] snapshot, error in
             self?.handleSharedWordsSnapshot(snapshot, error: error, dictionaryId: dictionaryId)
@@ -699,10 +723,23 @@ final class DictionaryService: ObservableObject {
 
             if let documents = snapshot?.documents, !documents.isEmpty {
                 print("📄 [DictionaryService] Found \(documents.count) cached words for dictionary: \(dictionaryId)")
-                self?.handleSharedWordsSnapshot(snapshot, error: nil, dictionaryId: dictionaryId)
+                // Don't trigger UI updates during preload - just cache the data
+                self?.cacheSharedWords(documents, dictionaryId: dictionaryId)
             } else {
                 print("📄 [DictionaryService] No cached words found for dictionary: \(dictionaryId)")
             }
+        }
+    }
+    
+    private func cacheSharedWords(_ documents: [QueryDocumentSnapshot], dictionaryId: String) {
+        let sharedWords = documents.compactMap {
+            SharedWord.fromFirestoreDictionary($0.data(), id: $0.documentID)
+        }
+        
+        // Update in-memory storage without triggering UI updates
+        DispatchQueue.main.async { [weak self] in
+            self?.sharedWords[dictionaryId] = sharedWords
+            print("📄 [DictionaryService] Cached \(sharedWords.count) words for dictionary: \(dictionaryId)")
         }
     }
 
@@ -773,32 +810,41 @@ final class DictionaryService: ObservableObject {
             print("📄 [DictionaryService] Updated collaborators cache for dictionary: \(dictionaryId) with \(collaborators.count) collaborators")
         }
 
-        // Update the collaborators in the shared dictionaries
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
+        // Update the collaborators in the shared dictionaries with debouncing
+        let now = Date()
+        let lastUpdate = lastUIUpdateTime[dictionaryId] ?? Date.distantPast
+        
+        if now.timeIntervalSince(lastUpdate) >= uiUpdateDebounceInterval {
+            lastUIUpdateTime[dictionaryId] = now
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
 
-            if let index = self.sharedDictionaries.firstIndex(where: { $0.id == dictionaryId }) {
-                self.sharedDictionaries[index].collaborators = collaborators
-                print("📱 [DictionaryService] Updated collaborators for dictionary: \(dictionaryId)")
+                if let index = self.sharedDictionaries.firstIndex(where: { $0.id == dictionaryId }) {
+                    self.sharedDictionaries[index].collaborators = collaborators
+                    print("📱 [DictionaryService] Updated collaborators for dictionary: \(dictionaryId)")
 
-                        // Check if current user lost access to this dictionary
-        if let email = self.authenticationService.userEmail {
-            let hasAccess = collaborators.contains { $0.email == email } ||
-            self.sharedDictionaries[index].owner == self.authenticationService.userId
+                    // Check if current user lost access to this dictionary
+                    if let email = self.authenticationService.userEmail {
+                        let hasAccess = collaborators.contains { $0.email == email } ||
+                        self.sharedDictionaries[index].owner == self.authenticationService.userId
 
-            print("🔍 [DictionaryService] Access check in collaborators snapshot for dictionary: \(dictionaryId)")
-            print("   - User Email: \(email)")
-            print("   - User ID: \(self.authenticationService.userId ?? "nil")")
-            print("   - Dictionary Owner: \(self.sharedDictionaries[index].owner)")
-            print("   - Collaborators: \(collaborators.map { $0.email }.joined(separator: ", "))")
-            print("   - Has Access: \(hasAccess)")
+                        print("🔍 [DictionaryService] Access check in collaborators snapshot for dictionary: \(dictionaryId)")
+                        print("   - User Email: \(email)")
+                        print("   - User ID: \(self.authenticationService.userId ?? "nil")")
+                        print("   - Dictionary Owner: \(self.sharedDictionaries[index].owner)")
+                        print("   - Collaborators: \(collaborators.map { $0.email }.joined(separator: ", "))")
+                        print("   - Has Access: \(hasAccess)")
 
-            if !hasAccess {
-                print("🚫 [DictionaryService] User lost access to dictionary: \(dictionaryId), removing from list")
-                self.sharedDictionaries.remove(at: index)
+                        if !hasAccess {
+                            print("🚫 [DictionaryService] User lost access to dictionary: \(dictionaryId), removing from list")
+                            self.sharedDictionaries.remove(at: index)
+                        }
+                    }
+                }
             }
-        }
-            }
+        } else {
+            print("⏱️ [DictionaryService] Debouncing UI update for dictionary: \(dictionaryId)")
         }
     }
 
@@ -815,6 +861,19 @@ final class DictionaryService: ObservableObject {
             listeners[collaboratorListenerKey]?.remove()
             listeners.removeValue(forKey: collaboratorListenerKey)
         }
+        
+        // Clear cache for this dictionary
+        cacheQueue.async(flags: .barrier) {
+            self.collaboratorsCache.removeValue(forKey: dictionaryId)
+        }
+        lastUIUpdateTime.removeValue(forKey: dictionaryId)
+        
+        // Clear shared words for this dictionary
+        DispatchQueue.main.async { [weak self] in
+            self?.sharedWords.removeValue(forKey: dictionaryId)
+        }
+        
+        print("🧹 [DictionaryService] Stopped listeners and cleared cache for dictionary: \(dictionaryId)")
     }
 
     func stopAllListeners() {
@@ -825,7 +884,14 @@ final class DictionaryService: ObservableObject {
         cacheQueue.async(flags: .barrier) {
             self.collaboratorsCache.removeAll()
         }
-        print("🧹 [DictionaryService] Cleared all listeners and cache")
+        lastUIUpdateTime.removeAll()
+        
+        // Clear shared words cache
+        DispatchQueue.main.async { [weak self] in
+            self?.sharedWords.removeAll()
+        }
+        
+        print("🧹 [DictionaryService] Cleared all listeners, cache, debounce tracking, and shared words")
     }
 
     private func syncTags(word: Word, entity: CDWord) {
@@ -854,6 +920,51 @@ final class DictionaryService: ObservableObject {
 
     func refreshSharedDictionaries() {
         setupSharedDictionariesListener()
+    }
+    
+    // MARK: - Testing Methods
+    
+    func testCollaboratorNotification(dictionaryId: String, targetEmail: String) async {
+        print("🧪 [DictionaryService] Testing collaborator notification for dictionary: \(dictionaryId), target: \(targetEmail)")
+        
+        do {
+            // Get the dictionary name
+            let dictionaryDoc = try await db.collection("dictionaries").document(dictionaryId).getDocument()
+            guard let dictionaryData = dictionaryDoc.data(),
+                  let dictionaryName = dictionaryData["name"] as? String else {
+                print("❌ [DictionaryService] Could not get dictionary name for test notification")
+                return
+            }
+            
+            // Get user's FCM token
+            let userDoc = try await db.collection("users").document(targetEmail).getDocument()
+            guard let userData = userDoc.data(),
+                  let fcmToken = userData["fcmToken"] as? String else {
+                print("⚠️ [DictionaryService] No FCM token found for test user: \(targetEmail)")
+                return
+            }
+            
+            // Send test notification via Firebase Functions
+            let notificationData: [String: Any] = [
+                "token": fcmToken,
+                "title": "Test Dictionary Invitation",
+                "body": "This is a test invitation to '\(dictionaryName)'",
+                "data": [
+                    "type": "collaborator_invitation",
+                    "dictionaryId": dictionaryId,
+                    "inviterName": "Test User",
+                    "dictionaryName": dictionaryName
+                ]
+            ]
+            
+            // Call Firebase Function to send notification
+            try await sendPushNotification(notificationData)
+            
+            print("✅ [DictionaryService] Test collaborator notification sent successfully")
+            
+        } catch {
+            print("❌ [DictionaryService] Failed to send test collaborator notification: \(error)")
+        }
     }
 
     func stopListening() {

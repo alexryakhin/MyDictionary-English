@@ -97,20 +97,38 @@ exports.onCollaboratorAdded = functions
             
             const dictionaryName = dictionaryDoc.data().name || 'Unknown Dictionary';
             
-            // Get user's FCM token
-            const userDoc = await admin.firestore()
+            // Get user's FCM token - try both email and userId as document ID
+            let fcmToken = null;
+            
+            // First try with email as document ID
+            const userDocByEmail = await admin.firestore()
                 .collection('users')
                 .doc(email)
                 .get();
                 
-            if (!userDoc.exists) {
-                console.log('User not found:', email);
-                return;
+            if (userDocByEmail.exists) {
+                fcmToken = userDocByEmail.data().fcmToken;
+                console.log('Found FCM token using email as document ID');
             }
             
-            const fcmToken = userDoc.data().fcmToken;
+            // If not found, try to find user by email in a different way
             if (!fcmToken) {
-                console.log('No FCM token for user:', email);
+                // Query users collection to find user by email field
+                const usersQuery = await admin.firestore()
+                    .collection('users')
+                    .where('email', '==', email)
+                    .limit(1)
+                    .get();
+                    
+                if (!usersQuery.empty) {
+                    const userDoc = usersQuery.docs[0];
+                    fcmToken = userDoc.data().fcmToken;
+                    console.log('Found FCM token using email field query');
+                }
+            }
+            
+            if (!fcmToken) {
+                console.log('No FCM token found for user:', email);
                 return;
             }
             
