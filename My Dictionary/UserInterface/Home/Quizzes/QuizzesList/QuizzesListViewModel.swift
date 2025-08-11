@@ -115,8 +115,8 @@ final class QuizzesListViewModel: BaseViewModel {
         quizWordsProvider.$availableWords
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
-                // Trigger UI update when words are loaded
-                print("🔄 [QuizzesListViewModel] Available words updated, count: \(self?.quizWordsProvider.availableWords.count ?? 0)")
+                // UI will automatically update when words change
+                // No need for explicit logging here to avoid console spam
             }
             .store(in: &cancellables)
     }

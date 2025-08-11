@@ -454,6 +454,8 @@ final class DictionaryService: ObservableObject {
                             self?.sharedDictionaries = []
                         }
                         self?.stopAllListeners()
+                        // Also reset QuizWordsProvider to prevent stale state
+                        QuizWordsProvider.shared.reset()
                     } else {
                         print("⚠️ [DictionaryService] Authentication state is signedOut but user ID exists, keeping dictionaries")
                     }
