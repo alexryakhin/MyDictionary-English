@@ -17,15 +17,15 @@ final class QuizzesListViewModel: BaseViewModel {
     }
 
     enum Input {
-        // No navigation inputs needed
+        case dictionarySelected(QuizDictionary)
     }
 
     var output = PassthroughSubject<Output, Never>()
 
-    @Published var words: [CDWord] = []
     @Published var showingHardWordsOnly = false
+    @Published var selectedDictionary: QuizDictionary = .privateDictionary
 
-    private let wordsProvider: WordsProvider = .shared
+    private let quizWordsProvider: QuizWordsProvider = .shared
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
@@ -34,28 +34,55 @@ final class QuizzesListViewModel: BaseViewModel {
     }
 
     func handle(_ input: Input) {
-        // No input handling needed
+        switch input {
+        case .dictionarySelected(let dictionary):
+            selectedDictionary = dictionary
+            quizWordsProvider.selectedDictionary = dictionary
+        }
     }
     
     // MARK: - Computed Properties
     
-    var filteredWords: [CDWord] {
+    var availableDictionaries: [QuizDictionary] {
+        return quizWordsProvider.availableDictionaries
+    }
+    
+    var words: [any QuizWord] {
+        return quizWordsProvider.availableWords
+    }
+    
+    var filteredWords: [any QuizWord] {
         if showingHardWordsOnly {
-            return words.filter { $0.difficultyLevel == 2 } // needsReview
+            return words.filter { $0.difficultyLevel == .needsReview }
         }
         return words
     }
     
     var hasHardWords: Bool {
-        return words.filter { $0.difficultyLevel == 2 }.count > 10
+        return words.filter { $0.difficultyLevel == .needsReview }.count > 10
+    }
+    
+    var hasEnoughWords: Bool {
+        return quizWordsProvider.hasEnoughWords(wordCount: 10, hardWordsOnly: showingHardWordsOnly)
+    }
+    
+    var insufficientWordsMessage: String {
+        if showingHardWordsOnly {
+            let hardWordsCount = quizWordsProvider.getHardWordsCount()
+            return "You need at least 1 hard word to practice in hard words mode. You currently have \(hardWordsCount) hard words."
+        } else {
+            let totalWords = quizWordsProvider.getTotalWordsCount()
+            return "You need at least 10 words to start quizzes. You currently have \(totalWords) words."
+        }
     }
 
     /// Fetches latest data from Core Data
     private func setupBindings() {
-        wordsProvider.$words
+        // Listen to quiz words provider changes
+        quizWordsProvider.$selectedDictionary
             .receive(on: RunLoop.main)
-            .sink { [weak self] words in
-                self?.words = words
+            .sink { [weak self] dictionary in
+                self?.selectedDictionary = dictionary
             }
             .store(in: &cancellables)
     }

@@ -311,7 +311,7 @@ struct SharedWordDetailsView: View {
                     .foregroundStyle(.secondary)
             }
             
-            // Difficulty selector
+            // Difficulty display (read-only)
             HStack {
                 Text("Your difficulty rating:")
                     .font(.subheadline)
@@ -319,17 +319,26 @@ struct SharedWordDetailsView: View {
                 
                 Spacer()
                 
-                Picker("Difficulty", selection: Binding(
-                    get: { word.getDifficultyFor(authenticationService.userEmail ?? "") },
-                    set: { updateDifficulty($0) }
-                )) {
-                    Text("New").tag(0)
-                    Text("In Progress").tag(1)
-                    Text("Needs Review").tag(2)
-                    Text("Mastered").tag(3)
+                let userDifficulty = word.getDifficultyFor(authenticationService.userEmail ?? "")
+                let difficultyLevel = Difficulty(score: userDifficulty)
+                
+                VStack(alignment: .trailing, spacing: 2) {
+                    Text(difficultyLevel.displayName)
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(difficultyLevel.color.opacity(0.2))
+                        .foregroundStyle(difficultyLevel.color)
+                        .clipShape(Capsule())
+                    
+                    Text("Score: \(userDifficulty)")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
                 }
-                .pickerStyle(.menu)
-                .font(.caption)
+                
+                Text("(Quiz-based)")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
             }
         }
         .padding(16)
@@ -450,7 +459,7 @@ struct SharedWordDetailsView: View {
                 phonetic: updatedWord.phonetic,
                 examples: updatedWord.examples,
                 tags: [],
-                difficultyLevel: 0,
+                difficultyScore: 0,
                 languageCode: updatedWord.languageCode,
                 isFavorite: false,
                 timestamp: updatedWord.timestamp,
@@ -548,17 +557,6 @@ struct SharedWordDetailsView: View {
         }
     }
     
-    private func updateDifficulty(_ difficulty: Int) {
-        Task {
-            do {
-                try await dictionaryService.updateDifficulty(for: word.id, in: dictionaryId, difficulty: difficulty)
-                // The word will be updated via real-time listener
-            } catch {
-                print("❌ Failed to update difficulty: \(error)")
-            }
-        }
-    }
-
     private func showDeleteAlert() {
         AlertCenter.shared.showAlert(
             with: .deleteConfirmation(

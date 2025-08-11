@@ -16,13 +16,13 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         case saveSession
     }
 
-    @Published private(set) var words: [CDWord] = []
+    @Published private(set) var words: [any QuizWord] = []
     @Published private(set) var correctAnswerIndex: Int
     @Published private(set) var isCorrectAnswer = true
     @Published private(set) var selectedAnswerIndex: Int?
     @Published private(set) var answerFeedback: AnswerFeedback = .none
 
-    var correctWord: CDWord {
+    var correctWord: any QuizWord {
         words[correctAnswerIndex]
     }
 
@@ -32,7 +32,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     // Game progress tracking
     @Published private(set) var correctAnswers = 0
     @Published private(set) var score = 0
-    @Published private(set) var wordsPlayed: [CDWord] = []
+    @Published private(set) var wordsPlayed: [any QuizWord] = []
     @Published private(set) var correctWordIds: [String] = []
     @Published private(set) var isQuizComplete = false
     
@@ -42,11 +42,11 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     @Published private(set) var questionsAnswered = 0
     @Published private(set) var errorMessage: String?
 
-    private let wordsProvider: WordsProvider = .shared
+    private let quizWordsProvider: QuizWordsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
-    private var originalWords: [CDWord] = []
-    private var usedWords: Set<CDWord> = []
+    private var originalWords: [any QuizWord] = []
+    private var usedWords: Set<String> = []
     private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
 
@@ -75,34 +75,49 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     }
 
     private func answerSelected(_ index: Int) {
+        guard !isQuizComplete else { return }
+        
         selectedAnswerIndex = index
         wordsPlayed.append(correctWord)
-        usedWords.insert(correctWord)
+        usedWords.insert(correctWord.quiz_id)
         questionsAnswered += 1
-
-        if correctWord.id == words[index].id {
+        
+        // Check if answer is correct
+        if correctWord.quiz_id == words[index].quiz_id {
             // Correct answer
             answerFeedback = .correct(index)
             isCorrectAnswer = true
             correctAnswers += 1
             currentStreak += 1
             bestStreak = max(bestStreak, currentStreak)
-            correctWordIds.append(correctWord.id?.uuidString ?? "")
-
-            // Update score
-            score += 100
-
+            
+            // Update word difficulty - add 5 points for correct answer
+            Task {
+                await updateWordDifficulty(correctWord, points: 5)
+            }
+            
+            // Add to correct word IDs for analytics
+            correctWordIds.append(correctWord.quiz_id)
+            
+            // Update quiz score - add 5 points for correct answer
+            score += 5
+            
             HapticManager.shared.triggerNotification(type: .success)
             AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected)
         } else {
-            // Incorrect answer - automatic penalty and progression
+            // Incorrect answer
             answerFeedback = .incorrect(index)
             isCorrectAnswer = false
             currentStreak = 0 // Reset streak on wrong answer
-            updateWordDifficultyLevel(word: correctWord, level: 2)
-            // Penalty
-            score = max(0, score - 25)
-
+            
+            // Update word difficulty - subtract 2 points for incorrect answer
+            Task {
+                await updateWordDifficulty(correctWord, points: -2)
+            }
+            
+            // Update quiz score - subtract 2 points for incorrect answer
+            score -= 2
+            
             HapticManager.shared.triggerNotification(type: .error)
             AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected)
         }
@@ -115,17 +130,31 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         }
     }
     
+    private func updateWordDifficulty(_ word: any QuizWord, points: Int) async {
+        if let sharedWord = word as? SharedWord {
+            // For shared words, use the async method
+            if let userEmail = AuthenticationService.shared.userEmail {
+                await sharedWord.quiz_updateDifficultyScoreForUser(points, userEmail: userEmail)
+            }
+        } else {
+            // For private words, use the sync method
+            word.quiz_updateDifficultyScore(points)
+        }
+    }
+    
     private func skipWord() {
-        // Mark current word as needs review
-        updateWordDifficultyLevel(word: correctWord, level: 2)
+        // Mark current word as needs review - subtract 2 points for skipping
+        Task {
+            await updateWordDifficulty(correctWord, points: -2)
+        }
         
         // Move current word to end for later and add to wordsPlayed
-        usedWords.insert(correctWord)
+        usedWords.insert(correctWord.quiz_id)
         wordsPlayed.append(correctWord)
         questionsAnswered += 1
         
-        // Penalty for skipping
-        score = max(0, score - 25)
+        // Update quiz score - subtract 2 points for skipping
+        score -= 2
         currentStreak = 0
         
         // Check if quiz is complete (use wordCount instead of originalWords.count)
@@ -141,17 +170,6 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         AnalyticsService.shared.logEvent(.definitionQuizWordSkipped)
     }
     
-    private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
-        word.difficultyLevel = level
-        word.isSynced = false  // Mark as unsynced to trigger Firebase sync
-        word.updatedAt = Date()
-        do {
-            try CoreDataService.shared.saveContext()
-        } catch {
-            print("❌ Failed to update word difficulty level: \(error)")
-        }
-    }
-    
     private func getNextQuestion() {
         // Check if we've reached the word count limit
         if questionsAnswered >= wordCount {
@@ -161,7 +179,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         }
         
         // Get the next word to use as correct answer (not used yet)
-        let availableCorrectWords = originalWords.filter { !usedWords.contains($0) }
+        let availableCorrectWords = originalWords.filter { !usedWords.contains($0.quiz_id) }
         
         if availableCorrectWords.isEmpty {
             // No more words to use as correct answers, quiz is complete
@@ -177,7 +195,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         var newWords = [correctWord]
         
         // Add 2 more words as incorrect options (can reuse words that aren't the correct word)
-        let remainingWords = originalWords.filter { $0.id != correctWord.id }
+        let remainingWords = originalWords.filter { $0.quiz_id != correctWord.quiz_id }
         if remainingWords.count >= 2 {
             let shuffledRemaining = remainingWords.shuffled()
             newWords.append(contentsOf: shuffledRemaining.prefix(2))
@@ -189,7 +207,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         // Ensure we always have exactly 3 words
         while newWords.count < 3 {
             // If we don't have enough words, reuse some words
-            let reusableWords = originalWords.filter { $0.id != correctWord.id }
+            let reusableWords = originalWords.filter { $0.quiz_id != correctWord.quiz_id }
             if let additionalWord = reusableWords.first {
                 newWords.append(additionalWord)
             }
@@ -198,7 +216,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         // Shuffle the options so correct answer isn't always first
         let correctWordInArray = newWords[0]
         newWords.shuffle()
-        correctAnswerIndex = newWords.firstIndex(of: correctWordInArray) ?? 0
+        correctAnswerIndex = newWords.firstIndex(where: { $0.quiz_id == correctWordInArray.quiz_id }) ?? 0
         words = newWords
         selectedAnswerIndex = nil
         isCorrectAnswer = true
@@ -233,30 +251,22 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
 
     /// Fetches latest data from Core Data
     private func setupBindings() {
-        wordsProvider.$words
-            .first()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] words in
-                guard let self else { return }
-                
-                // Filter words based on hardWordsOnly
-                let filteredWords = hardWordsOnly ? words.filter { $0.difficultyLevel == 2 } : words
-                
-                // Check if we have enough words after filtering
-                let minRequiredWords = hardWordsOnly ? 1 : self.wordCount // Allow 1 word for hard words mode
-                if filteredWords.count < minRequiredWords {
-                    // Not enough words available after filtering
-                    self.errorMessage = hardWordsOnly ? 
-                        "No difficult words available for quiz" :
-                        "Not enough words available. Need at least \(minRequiredWords) words for the quiz."
-                    return
-                }
-                
-                originalWords = filteredWords.shuffled()
-                // Set up the first question
-                self.getNextQuestion()
-            }
-            .store(in: &cancellables)
+        // Get words from the quiz words provider
+        let availableWords = quizWordsProvider.getWordsForQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
+        
+        // Check if we have enough words after filtering
+        let minRequiredWords = hardWordsOnly ? 1 : self.wordCount // Allow 1 word for hard words mode
+        if availableWords.count < minRequiredWords {
+            // Not enough words available after filtering
+            self.errorMessage = hardWordsOnly ? 
+                "No difficult words available for quiz" :
+                "Not enough words available. Need at least \(minRequiredWords) words for the quiz."
+            return
+        }
+        
+        originalWords = availableWords.shuffled()
+        // Set up the first question
+        self.getNextQuestion()
     }
 
     private func scheduleNextQuestion() {

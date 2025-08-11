@@ -26,7 +26,7 @@ final class CDWord: NSManagedObject, Identifiable {
     @NSManaged var isFavorite: Bool
     @NSManaged var examples: Data?
     @NSManaged var tags: NSSet?
-    @NSManaged var difficultyLevel: Int32
+    @NSManaged var difficultyScore: Int32
     @NSManaged var languageCode: String?
     @NSManaged var isSynced: Bool
 
@@ -40,24 +40,14 @@ final class CDWord: NSManagedObject, Identifiable {
     var partOfSpeechDecoded: PartOfSpeech {
         PartOfSpeech(rawValue: partOfSpeech ?? "") ?? .unknown
     }
-    
-    var difficulty: Difficulty {
-        switch difficultyLevel {
-        case 0:
-            return .new
-        case 1:
-            return .inProgress
-        case 2:
-            return .needsReview
-        case 3:
-            return .mastered
-        default:
-            return .new
-        }
+
+    // Computed property for difficulty level based on score
+    var difficultyLevel: Difficulty {
+        return Difficulty(score: Int(difficultyScore))
     }
 
     var shouldShowDifficultyLabel: Bool {
-        return difficultyLevel > 0
+        return difficultyLevel != .new
     }
 
     var languageDisplayName: String {

@@ -236,7 +236,7 @@ final class AddWordViewModel: BaseViewModel {
             phonetic: pronunciation,
             examples: selectedDefinition?.examples ?? [],
             tags: [], // Don't include tags for shared dictionary words
-            difficultyLevel: 0,
+            difficultyScore: 0,
             languageCode: languageCode,
             isFavorite: false,
             timestamp: Date(),

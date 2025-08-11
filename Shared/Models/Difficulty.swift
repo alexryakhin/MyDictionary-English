@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-enum Difficulty: String, CaseIterable {
-    case new = "new"
-    case inProgress = "inProgress"
-    case needsReview = "needsReview"
-    case mastered = "mastered"
+enum Difficulty: Hashable, CaseIterable {
+    case new
+    case inProgress
+    case needsReview
+    case mastered
     
     var displayName: String {
         switch self {
@@ -35,30 +35,30 @@ enum Difficulty: String, CaseIterable {
         case .mastered: .accent
         }
     }
-    
-    var level: Int32 {
-        switch self {
-        case .new:
-            return 0
-        case .inProgress:
-            return 1
-        case .needsReview:
-            return 2
-        case .mastered:
-            return 3
-        }
-    }
 
     var imageName: String {
         switch self {
         case .new:
-            return "sparkles"
+            return "plus.circle"
         case .inProgress:
-            return "clock.fill"
+            return "arrow.right.circle"
         case .needsReview:
-            return "exclamationmark.triangle.fill"
+            return "exclamationmark.triangle"
         case .mastered:
-            return "checkmark.circle.fill"
+            return "checkmark.circle"
+        }
+    }
+    
+    // Initialize from score
+    init(score: Int) {
+        if score < 0 {
+            self = .needsReview
+        } else if score >= 1 && score <= 49 {
+            self = .inProgress
+        } else if score >= 50 {
+            self = .mastered
+        } else {
+            self = .new
         }
     }
 }

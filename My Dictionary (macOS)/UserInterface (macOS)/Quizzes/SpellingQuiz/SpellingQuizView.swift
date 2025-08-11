@@ -263,7 +263,7 @@ struct SpellingQuizView: View {
                     viewModel.handle(.skipWord)
                 }
             } label: {
-                Label("Skip Word (-25 points)", systemImage: "arrow.right.circle")
+                Label("Skip Word (-2 points)", systemImage: "arrow.right.circle")
                     .frame(maxWidth: .infinity)
                     .padding(8)
             }

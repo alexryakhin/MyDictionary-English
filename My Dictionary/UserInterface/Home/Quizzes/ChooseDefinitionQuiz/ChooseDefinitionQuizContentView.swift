@@ -154,24 +154,19 @@ struct ChooseDefinitionQuizContentView: View {
                 Spacer()
             }
             
-            Text(viewModel.correctWord.wordItself ?? "")
+            Text(viewModel.correctWord.quiz_wordItself)
                 .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.leading)
             
-            if let partOfSpeech = viewModel.correctWord.partOfSpeech, !partOfSpeech.isEmpty {
-                HStack {
-                    Text(partOfSpeech)
-                        .font(.caption)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(.green.opacity(0.2))
-                        .foregroundStyle(.green)
-                        .clipShape(Capsule())
-                    
-                    Spacer()
-                }
-            }
+            Text(viewModel.correctWord.quiz_partOfSpeech)
+                .font(.caption)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+                .background(.green.opacity(0.2))
+                .foregroundStyle(.green)
+                .clipShape(Capsule())
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(20)
         .clippedWithBackground()
@@ -200,7 +195,7 @@ struct ChooseDefinitionQuizContentView: View {
                         }
                     } label: {
                         HStack {
-                            Text(viewModel.words[index].definition ?? "")
+                            Text(viewModel.words[index].quiz_definition)
                                 .font(.body)
                                 .foregroundStyle(.primary)
                                 .multilineTextAlignment(.leading)
@@ -251,7 +246,7 @@ struct ChooseDefinitionQuizContentView: View {
                     viewModel.handle(.skipWord)
                 }
             } label: {
-                Label("Skip Word (-25 points)", systemImage: "arrow.right.circle")
+                Label("Skip Word (-2 points)", systemImage: "arrow.right.circle")
                     .padding(8)
             }
             .foregroundStyle(.secondary)

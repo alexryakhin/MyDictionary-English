@@ -30,9 +30,9 @@ struct WordListCellView: View {
 
                 // Difficulty label
                 if word.shouldShowDifficultyLabel {
-                    Image(systemName: word.difficulty.imageName)
+                    Image(systemName: word.difficultyLevel.imageName)
                         .font(.caption)
-                        .foregroundStyle(word.difficulty.color)
+                        .foregroundStyle(word.difficultyLevel.color)
                 }
 
                 Text(word.partOfSpeechDecoded.rawValue)

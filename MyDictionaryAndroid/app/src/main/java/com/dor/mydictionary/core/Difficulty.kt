@@ -12,5 +12,14 @@ enum class Difficulty(val displayName: String, val level: Int, val color: Color)
         fun fromLevel(level: Int): Difficulty {
             return values().find { it.level == level } ?: New
         }
+        
+        fun fromScore(score: Int): Difficulty {
+            return when {
+                score < 0 -> NeedsReview
+                score >= 1 && score <= 49 -> InProgress
+                score >= 50 -> Mastered
+                else -> New
+            }
+        }
     }
 } 

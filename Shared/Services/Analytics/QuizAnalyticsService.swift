@@ -40,7 +40,7 @@ final class QuizAnalyticsService {
         totalWords: Int,
         duration: TimeInterval,
         accuracy: Double,
-        wordsPracticed: [CDWord],
+        wordsPracticed: [any QuizWord],
         correctWordIds: [String] = []
     ) {
         let session = CDQuizSession(context: coreDataService.context)
@@ -54,12 +54,12 @@ final class QuizAnalyticsService {
         session.accuracy = accuracy
         
         // Encode words practiced as word IDs
-        let wordIds = wordsPracticed.compactMap { $0.id?.uuidString }
+        let wordIds = wordsPracticed.map { $0.quiz_id }
         session.wordsPracticed = try? JSONEncoder().encode(wordIds)
         
         // Update word progress for each practiced word
         for word in wordsPracticed {
-            let wordId = word.id?.uuidString ?? ""
+            let wordId = word.quiz_id
             let wasCorrect = correctWordIds.contains(wordId)
             updateWordProgress(wordId: wordId, wasCorrect: wasCorrect)
         }
@@ -77,86 +77,18 @@ final class QuizAnalyticsService {
     // MARK: - Word Progress Management
     
     private func updateWordProgress(wordId: String, wasCorrect: Bool) {
-        let request = CDWordProgress.fetchRequest()
-        request.predicate = NSPredicate(format: "wordId == %@", wordId)
+        // Try to find the word in Core Data first (private words)
+        let fetchRequest = CDWord.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", wordId)
         
-        do {
-            let results = try coreDataService.context.fetch(request)
-            let progress = results.first ?? CDWordProgress(context: coreDataService.context)
-            
-            if progress.id == nil {
-                progress.id = UUID()
-                progress.wordId = wordId
-                progress.masteryLevel = "inProgress"
-            }
-            
-            progress.totalAttempts += 1
-            progress.lastPracticed = Date()
-            
-            if wasCorrect {
-                progress.correctAttempts += 1
-                progress.consecutiveCorrect += 1
-            } else {
-                progress.consecutiveCorrect = 0
-            }
-            
-            // Update mastery level based on performance
-            try updateMasteryLevel(for: progress)
-            
-        } catch {
-            print("❌ Failed to update word progress: \(error)")
-            // You could send this error to a logging service or analytics
-        }
-    }
-    
-    private func updateMasteryLevel(for progress: CDWordProgress) throws {
-        guard let wordId = progress.wordId else { 
-            throw CoreError.analyticsError(.invalidWordId)
-        }
-        
-        let totalAttempts = progress.totalAttempts
-        let correctAttempts = progress.correctAttempts
-        let consecutiveCorrect = progress.consecutiveCorrect
-        
-        let accuracy = totalAttempts > 0 ? Double(correctAttempts) / Double(totalAttempts) : 0.0
-        
-        if accuracy >= 0.9 && correctAttempts > 10 {
-            progress.masteryLevel = "mastered"
-            try updateWordDifficultyLevel(wordId: wordId, level: 3)
-        } else if accuracy >= 0.7 {
-            progress.masteryLevel = "inProgress"
-            try updateWordDifficultyLevel(wordId: wordId, level: 1)
+        if let word = try? coreDataService.context.fetch(fetchRequest).first {
+            // This is a private word - the difficulty score has already been updated by the QuizWord protocol
+            // Just ensure it's marked for sync
+            word.updatedAt = Date()
+            word.isSynced = false // Mark for sync
         } else {
-            progress.masteryLevel = "needsReview"
-            try updateWordDifficultyLevel(wordId: wordId, level: 2)
-        }
-        
-        // Calculate difficulty score (0-1, higher = more difficult)
-        progress.difficultyScore = 1.0 - accuracy
-    }
-    
-    private func updateWordDifficultyLevel(wordId: String, level: Int32) throws {
-        guard let uuid = UUID(uuidString: wordId) else { 
-            throw CoreError.analyticsError(.invalidWordId)
-        }
-        
-        let request = CDWord.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", uuid as CVarArg)
-        
-        do {
-            if let word = try coreDataService.context.fetch(request).first {
-                word.difficultyLevel = level
-                word.isSynced = false  // Mark as unsynced to trigger Firebase sync
-                word.updatedAt = Date()
-            } else {
-                throw CoreError.analyticsError(.wordNotFound)
-            }
-        } catch {
-            if let coreError = error as? CoreError {
-                throw coreError
-            } else {
-                throw CoreError.analyticsError(.wordDifficultyUpdateFailed)
-            }
+            // This is a shared word - the difficulty score has already been updated by the QuizWord protocol
+            print("📝 [QuizAnalyticsService] Word \(wordId) not found in Core Data - shared word difficulty score already updated")
         }
     }
     
@@ -283,10 +215,10 @@ final class QuizAnalyticsService {
         let userStats = getUserStats()
         
         // Calculate progress from word difficulty levels
-        let inProgress = words.filter { $0.difficultyLevel == 1 }.count
-        let mastered = words.filter { $0.difficultyLevel == 3 }.count
-        let needsReview = words.filter { $0.difficultyLevel == 2 }.count
-        
+        let inProgress = words.filter { $0.difficultyLevel == .inProgress }.count
+        let needsReview = words.filter { $0.difficultyLevel == .needsReview }.count
+        let mastered = words.filter { $0.difficultyLevel == .mastered }.count
+
         return ProgressSummary(
             inProgress: inProgress,
             mastered: mastered,

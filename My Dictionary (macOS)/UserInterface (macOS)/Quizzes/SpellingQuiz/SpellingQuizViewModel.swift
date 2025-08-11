@@ -140,8 +140,8 @@ final class SpellingQuizViewModel: BaseViewModel {
             words.remove(at: wordIndex)
         }
         
-        // Penalty for skipping
-        score = max(0, score - 25)
+        // Update quiz score - subtract 2 points for skipping
+        score -= 2
         currentStreak = 0
         answerTextField = ""
         

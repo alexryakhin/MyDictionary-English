@@ -23,8 +23,6 @@ struct WordDetailsContentView: View {
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
     @State private var showingTagSelection = false
-    @State private var showingDifficultyPicker = false
-    @State private var selectedDifficulty: Difficulty = .new
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var tagService = TagService.shared
@@ -161,20 +159,22 @@ struct WordDetailsContentView: View {
 
     private var difficultySectionView: some View {
         CustomSectionView(header: "Difficulty", headerFontStyle: .stealth) {
-            let difficulty = getCurrentDifficulty()
-            Label(difficulty.displayName, systemImage: difficulty.imageName)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundStyle(difficulty.color)
-                .fontWeight(.semibold)
-        } trailingContent: {
-            HeaderButton(text: "Change", style: .bordered) {
-                selectedDifficulty = getCurrentDifficulty()
-                showingDifficultyPicker = true
+            let difficulty = word.difficultyLevel
+            VStack(alignment: .leading, spacing: 4) {
+                Label(difficulty.displayName, systemImage: difficulty.imageName)
+                    .foregroundStyle(difficulty.color)
+                    .fontWeight(.semibold)
+                
+                Text("Score: \(word.difficultyScore)")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
-            .tint(.blue)
-        }
-        .sheet(isPresented: $showingDifficultyPicker) {
-            difficultyPickerView
+            .frame(maxWidth: .infinity, alignment: .leading)
+        } trailingContent: {
+            // Show info that difficulty can only be changed through quizzes
+            Text("Quiz-based")
+                .font(.caption)
+                .foregroundStyle(.secondary)
         }
     }
 
@@ -197,69 +197,6 @@ struct WordDetailsContentView: View {
                     }
                 }
             }
-        }
-    }
-    
-    private var difficultyPickerView: some View {
-        ScrollView {
-            VStack(spacing: 12) {
-                ForEach(Difficulty.allCases, id: \.self) { difficulty in
-                    Button {
-                        withAnimation {
-                            selectedDifficulty = difficulty
-                        }
-                    } label: {
-                        HStack {
-                            Label(difficulty.displayName, systemImage: difficulty.imageName)
-                                .foregroundStyle(selectedDifficulty == difficulty ? .white : difficulty.color)
-
-                            Spacer()
-
-                            if selectedDifficulty == difficulty {
-                                Image(systemName: "checkmark")
-                                    .foregroundStyle(.white)
-                            }
-                        }
-                        .clippedWithPaddingAndBackground(
-                            selectedDifficulty == difficulty
-                            ? difficulty.color
-                            : difficulty.color.opacity(0.2)
-                        )
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-            .padding(.horizontal, 16)
-        }
-        .groupedBackground()
-        .navigation(title: "Select Difficulty Level", mode: .inline, trailingContent: {
-            HeaderButton(text: "Save", style: .borderedProminent, font: .body) {
-                updateDifficulty()
-                showingDifficultyPicker = false
-            }
-            .bold()
-        })
-        .presentationDetents([.medium])
-    }
-    
-    private func updateDifficulty() {
-        word.difficultyLevel = selectedDifficulty.level
-        saveContext()
-        AnalyticsService.shared.logEvent(.wordDifficultyChanged)
-    }
-    
-    private func getCurrentDifficulty() -> Difficulty {
-        switch word.difficultyLevel {
-        case 0:
-            return .new
-        case 1:
-            return .inProgress
-        case 2:
-            return .needsReview
-        case 3:
-            return .mastered
-        default:
-            return .new
         }
     }
 

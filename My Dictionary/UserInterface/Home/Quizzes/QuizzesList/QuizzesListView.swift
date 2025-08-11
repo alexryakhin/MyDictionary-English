@@ -31,7 +31,7 @@ struct QuizzesListView: View {
                 } else {
                     insufficientHardWordsPlaceholder
                 }
-            } else if viewModel.words.count >= 10 {
+            } else if viewModel.hasEnoughWords {
                 // Show quizzes when user has enough words
                 quizzesList
             } else {
@@ -39,10 +39,36 @@ struct QuizzesListView: View {
                 insufficientWordsPlaceholder
             }
         }
-        .animation(.default, value: viewModel.words)
-        .navigation(title: "Quizzes", mode: .large)
+        .navigation(
+            title: "Quizzes",
+            mode: .large,
+            trailingContent: {
+                dictionaryPicker
+            }
+        )
         .onAppear {
             AnalyticsService.shared.logEvent(.quizzesOpened)
+        }
+    }
+    
+    private var dictionaryPicker: some View {
+        HeaderButtonMenu(
+            text: viewModel.selectedDictionary.name,
+            icon: viewModel.selectedDictionary.icon
+        ) {
+            ForEach(viewModel.availableDictionaries) { dictionary in
+                Button {
+                    viewModel.handle(.dictionarySelected(dictionary))
+                } label: {
+                    HStack {
+                        Image(systemName: dictionary.icon)
+                        Text(dictionary.name)
+                        Spacer()
+                        Text("\(dictionary.wordCount)")
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
         }
     }
     
@@ -174,7 +200,7 @@ struct QuizzesListView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                 
-                Text("You need at least 10 words to start quizzes. You currently have \(viewModel.words.count) words.")
+                Text(viewModel.insufficientWordsMessage)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -222,7 +248,7 @@ struct QuizzesListView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                 
-                Text("You need at least 1 hard word to practice in hard words mode. You currently have \(viewModel.filteredWords.count) hard words.")
+                Text(viewModel.insufficientWordsMessage)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)

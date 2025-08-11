@@ -441,7 +441,7 @@ final class DataSyncService: ObservableObject {
                                 existing.partOfSpeech = word.partOfSpeech
                                 existing.phonetic = word.phonetic
                                 try? existing.updateExamples(word.examples)
-                                existing.difficultyLevel = Int32(word.difficultyLevel)
+                                existing.difficultyScore = Int32(word.difficultyScore)
                                 existing.languageCode = word.languageCode
                                 existing.isFavorite = word.isFavorite
                                 existing.timestamp = word.timestamp
@@ -574,10 +574,10 @@ final class DataSyncService: ObservableObject {
             existing.isFavorite = remote.isFavorite
         }
 
-        // Update difficulty level if changed
-        if Int(remote.difficultyLevel) != Int(existing.difficultyLevel) {
-            print("🔄 [DataSyncService] Updating difficultyLevel: \(existing.difficultyLevel) -> \(remote.difficultyLevel)")
-            existing.difficultyLevel = Int32(remote.difficultyLevel)
+        // Update difficulty score if changed
+        if Int(remote.difficultyScore) != Int(existing.difficultyScore) {
+            print("🔄 [DataSyncService] Updating difficultyScore: \(existing.difficultyScore) -> \(remote.difficultyLevel)")
+            existing.difficultyScore = Int32(remote.difficultyScore)
         }
 
         // Merge arrays (examples and tags)

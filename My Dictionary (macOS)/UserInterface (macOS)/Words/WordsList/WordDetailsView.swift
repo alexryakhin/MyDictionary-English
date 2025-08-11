@@ -11,8 +11,6 @@ struct WordDetailsView: View {
     @State private var isAddingExample = false
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
-    @State private var showingDifficultyPicker = false
-    @State private var selectedDifficulty: Difficulty = .new
 
     init(word: CDWord) {
         self._word = StateObject(wrappedValue: word)
@@ -77,9 +75,6 @@ struct WordDetailsView: View {
                 exampleTextFieldStr = .empty
                 AnalyticsService.shared.logEvent(.wordExampleChanged)
             }
-        }
-        .sheet(isPresented: $showingDifficultyPicker) {
-            difficultyPickerView
         }
     }
 
@@ -168,17 +163,20 @@ struct WordDetailsView: View {
     private var difficultySectionView: some View {
         CustomSectionView(header: "Difficulty") {
             HStack {
-                Text(getCurrentDifficulty().displayName)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(word.difficultyLevel.displayName)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text("Score: \(word.difficultyScore)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
                 
                 Spacer()
                 
-                Button("Change") {
-                    selectedDifficulty = getCurrentDifficulty()
-                    showingDifficultyPicker = true
-                }
-                .font(.caption)
-                .foregroundStyle(.blue)
+                Text("Quiz-based")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
             .clippedWithPaddingAndBackground()
         }
@@ -198,90 +196,11 @@ struct WordDetailsView: View {
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
                             .background(Color.blue.opacity(0.2))
-                            .foregroundColor(.blue)
+                            .foregroundStyle(.blue)
                             .clipShape(Capsule())
                     }
                 }
-                .clippedWithPaddingAndBackground()
             }
-        }
-    }
-    
-    private var difficultyPickerView: some View {
-        VStack(spacing: 20) {
-            Text("Select Difficulty Level")
-                .font(.headline)
-                .fontWeight(.semibold)
-            
-            VStack(spacing: 12) {
-                ForEach(Difficulty.allCases, id: \.self) { difficulty in
-                    Button {
-                        selectedDifficulty = difficulty
-                    } label: {
-                        HStack {
-                            Text(difficulty.displayName)
-                                .font(.body)
-                                .foregroundStyle(selectedDifficulty == difficulty ? .white : .primary)
-                            
-                            Spacer()
-                            
-                            if selectedDifficulty == difficulty {
-                                Image(systemName: "checkmark")
-                                    .foregroundStyle(.white)
-                            }
-                        }
-                        .padding()
-                        .background(selectedDifficulty == difficulty ? Color.blue : Color(.secondarySystemFill))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-            .padding(.horizontal)
-            
-            Spacer()
-            
-            HStack(spacing: 16) {
-                Button("Cancel") {
-                    showingDifficultyPicker = false
-                }
-                .buttonStyle(.bordered)
-                
-                Button("Save") {
-                    updateDifficulty()
-                    showingDifficultyPicker = false
-                }
-                .buttonStyle(.borderedProminent)
-            }
-            .padding()
-        }
-        .padding()
-        .frame(width: 400, height: 300)
-    }
-    
-    private func getCurrentDifficulty() -> Difficulty {
-        switch word.difficultyLevel {
-        case 0:
-            return .new
-        case 1:
-            return .inProgress
-        case 2:
-            return .needsReview
-        case 3:
-            return .mastered
-        default:
-            return .new
-        }
-    }
-    
-    private func updateDifficulty() {
-        word.difficultyLevel = selectedDifficulty.level
-        
-        do {
-            try CoreDataService.shared.saveContext()
-            AnalyticsService.shared.logEvent(.wordDifficultyChanged)
-        } catch {
-            print("❌ Failed to update word difficulty: \(error)")
         }
     }
 

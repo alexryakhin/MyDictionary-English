@@ -13,8 +13,8 @@ final class SpellingQuizViewModel: BaseViewModel {
 
     @Published var answerTextField = ""
 
-    @Published private(set) var words: [CDWord] = []
-    @Published private(set) var randomWord: CDWord?
+    @Published private(set) var words: [any QuizWord] = []
+    @Published private(set) var randomWord: (any QuizWord)?
     @Published private(set) var isCorrectAnswer = true
     @Published private(set) var attemptCount = 0
     @Published private(set) var isShowingCorrectAnswer = false
@@ -23,7 +23,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var correctAnswers = 0
     @Published private(set) var totalQuestions = 0
     @Published private(set) var score = 0
-    @Published private(set) var wordsPlayed: [CDWord] = []
+    @Published private(set) var wordsPlayed: [any QuizWord] = []
     @Published private(set) var correctWordIds: [String] = []
     @Published private(set) var isQuizComplete = false
     
@@ -34,10 +34,10 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var accuracyContributions: [String: Double] = [:] // Track accuracy contribution per word
     @Published private(set) var errorMessage: String?
 
-    private let wordsProvider: WordsProvider = .shared
+    private let quizWordsProvider: QuizWordsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
-    private var originalWords: [CDWord] = []
+    private var originalWords: [any QuizWord] = []
     private var sessionStartTime: Date = Date()
     private let wordCount: Int
     private let hardWordsOnly: Bool
@@ -73,37 +73,39 @@ final class SpellingQuizViewModel: BaseViewModel {
 
     private func confirmAnswer() {
         guard let randomWord,
-              let wordIndex = words.firstIndex(where: { $0.id == randomWord.id })
+              let wordIndex = words.firstIndex(where: { $0.quiz_id == randomWord.quiz_id })
         else { return }
 
-        if answerTextField.lowercased().trimmed == (randomWord.wordItself?.lowercased().trimmed ?? "") {
-            // Correct answer - show success message
+        if answerTextField.lowercased().trimmed == (randomWord.quiz_wordItself.lowercased().trimmed) {
+            // Correct answer
             isCorrectAnswer = true
             isShowingCorrectAnswer = true
             correctAnswers += 1
             currentStreak += 1
             bestStreak = max(bestStreak, currentStreak)
+            
+            // Update word difficulty - add 5 points for correct answer
+            Task {
+                await updateWordDifficulty(randomWord, points: 5)
+            }
+            
             wordsPlayed.append(randomWord)
-            correctWordIds.append(randomWord.id?.uuidString ?? "")
+            correctWordIds.append(randomWord.quiz_id)
             isShowingHint = false // Reset hint for next question
             
             // Calculate accuracy contribution based on attempts
             let accuracyContribution: Double
-            switch attemptCount {
-            case 0:
-                accuracyContribution = 1.0 // First attempt: 100% accuracy
-            case 1:
-                accuracyContribution = 0.75 // Second attempt: 75% accuracy (25% reduction)
-            case 2:
-                accuracyContribution = 0.5 // Third attempt: 50% accuracy (50% reduction)
-            default:
+            if attemptCount == 0 {
+                accuracyContribution = 1.0 // Perfect on first try
+            } else if attemptCount == 1 {
+                accuracyContribution = 0.8 // Good on second try
+            } else {
                 accuracyContribution = 0.5 // Any more attempts: 50% accuracy
             }
-            accuracyContributions[randomWord.id?.uuidString ?? ""] = accuracyContribution
+            accuracyContributions[randomWord.quiz_id] = accuracyContribution
             
-            // Update score (bonus for fewer attempts)
-            let attemptBonus = max(0, 3 - attemptCount) * 10
-            score += 100 + attemptBonus
+            // Update quiz score - add 5 points for correct answer
+            score += 5
             attemptCount = 0
 
             HapticManager.shared.triggerNotification(type: .success)
@@ -120,11 +122,16 @@ final class SpellingQuizViewModel: BaseViewModel {
                 isShowingHint = true
             }
             
-            // After 3 attempts, mark word as needs review
+            // Update quiz score - subtract 2 points for each wrong attempt
+            score -= 2
+            
+            // After 3 attempts, mark word as needs review and add to played list
             if attemptCount >= 3 {
-                updateWordDifficultyLevel(word: randomWord, level: 2)
+                Task {
+                    await updateWordDifficulty(randomWord, points: -2)
+                }
                 wordsPlayed.append(randomWord) // Add to played list when failed
-                accuracyContributions[randomWord.id?.uuidString ?? ""] = 0.0 // 0% accuracy for failed words
+                accuracyContributions[randomWord.quiz_id] = 0.0 // 0% accuracy for failed words
             }
             
             HapticManager.shared.triggerNotification(type: .error)
@@ -135,20 +142,22 @@ final class SpellingQuizViewModel: BaseViewModel {
     private func skipWord() {
         guard let randomWord else { return }
         
-        // Mark skipped word as needs review
-        updateWordDifficultyLevel(word: randomWord, level: 2)
+        // Mark skipped word as needs review - subtract 2 points for skipping
+        Task {
+            await updateWordDifficulty(randomWord, points: -2)
+        }
         
         // Add word to played list when skipped
         wordsPlayed.append(randomWord)
-        accuracyContributions[randomWord.id?.uuidString ?? ""] = 0.0 // 0% accuracy for skipped words
+        accuracyContributions[randomWord.quiz_id] = 0.0 // 0% accuracy for skipped words
         
         // Remove word from list (don't move to end)
-        if let wordIndex = words.firstIndex(where: { $0.id == randomWord.id }) {
+        if let wordIndex = words.firstIndex(where: { $0.quiz_id == randomWord.quiz_id }) {
             words.remove(at: wordIndex)
         }
         
-        // Penalty for skipping
-        score = max(0, score - 25)
+        // Update quiz score - subtract 2 points for skipping
+        score -= 2
         currentStreak = 0
         answerTextField = ""
 
@@ -167,17 +176,6 @@ final class SpellingQuizViewModel: BaseViewModel {
         
         HapticManager.shared.triggerNotification(type: .warning)
         AnalyticsService.shared.logEvent(.spellingQuizWordSkipped)
-    }
-    
-    private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
-        word.difficultyLevel = level
-        word.isSynced = false  // Mark as unsynced to trigger Firebase sync
-        word.updatedAt = Date()
-        do {
-            try CoreDataService.shared.saveContext()
-        } catch {
-            print("❌ Failed to update word difficulty level: \(error)")
-        }
     }
     
     private func restartQuiz() {
@@ -229,7 +227,7 @@ final class SpellingQuizViewModel: BaseViewModel {
 
     private func proceedToNextWord() {
         guard let randomWord,
-              let wordIndex = words.firstIndex(where: { $0.id == randomWord.id })
+              let wordIndex = words.firstIndex(where: { $0.quiz_id == randomWord.quiz_id })
         else { return }
         
         // Clear the answer field and remove the current word
@@ -252,32 +250,36 @@ final class SpellingQuizViewModel: BaseViewModel {
 
     /// Fetches latest data from Core Data
     private func setupBindings() {
-        wordsProvider.$words
-            .first()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] words in
-                guard let self else { return }
-                
-                // Filter words based on hardWordsOnly setting
-                let filteredWords = hardWordsOnly ? words.filter { $0.difficultyLevel == 2 } : words
-                
-                // Check if we have enough words after filtering
-                let minRequiredWords = hardWordsOnly ? 1 : self.wordCount
-                if filteredWords.count < minRequiredWords {
-                    // Not enough words available after filtering
-                    self.errorMessage = hardWordsOnly ? 
-                        "No difficult words available for quiz" :
-                        "Not enough words available. Need at least \(minRequiredWords) words for the quiz."
-                    return
-                }
-                
-                self.originalWords = filteredWords.shuffled()
-                // Limit words to the selected count
-                let limitedWords = Array(self.originalWords.prefix(self.wordCount))
-                self.words = limitedWords
-                self.randomWord = self.words.randomElement()
-                self.totalQuestions = limitedWords.count
+        // Get words from the quiz words provider
+        let availableWords = quizWordsProvider.getWordsForQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
+        
+        // Check if we have enough words after filtering
+        let minRequiredWords = hardWordsOnly ? 1 : self.wordCount
+        if availableWords.count < minRequiredWords {
+            // Not enough words available after filtering
+            self.errorMessage = hardWordsOnly ? 
+                "No difficult words available for quiz" :
+                "Not enough words available. Need at least \(minRequiredWords) words for the quiz."
+            return
+        }
+        
+        self.originalWords = availableWords.shuffled()
+        // Limit words to the selected count
+        let limitedWords = Array(self.originalWords.prefix(self.wordCount))
+        self.words = limitedWords
+        self.randomWord = self.words.randomElement()
+        self.totalQuestions = limitedWords.count
+    }
+
+    private func updateWordDifficulty(_ word: any QuizWord, points: Int) async {
+        if let sharedWord = word as? SharedWord {
+            // For shared words, use the async method
+            if let userEmail = AuthenticationService.shared.userEmail {
+                await sharedWord.quiz_updateDifficultyScoreForUser(points, userEmail: userEmail)
             }
-            .store(in: &cancellables)
+        } else {
+            // For private words, use the sync method
+            word.quiz_updateDifficultyScore(points)
+        }
     }
 }

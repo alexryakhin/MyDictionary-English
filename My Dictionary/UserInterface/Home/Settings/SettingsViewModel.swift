@@ -53,7 +53,7 @@ final class SettingsViewModel: BaseViewModel {
     // MARK: - Computed Properties
     
     var hasHardWords: Bool {
-        return words.contains { $0.difficultyLevel == 2 }
+        return words.contains { $0.difficultyLevel == .needsReview }
     }
 
     func exportWords() {

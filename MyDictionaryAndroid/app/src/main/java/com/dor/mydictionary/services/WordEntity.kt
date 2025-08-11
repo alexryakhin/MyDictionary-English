@@ -17,7 +17,7 @@ data class WordEntity(
     val timestamp: Date,
     val isFavorite: Boolean,
     val examples: List<String>,
-    val difficultyLevel: Int
+    val difficultyScore: Int
 ) {
     fun toWord(): Word = Word(
         wordItself, 
@@ -28,7 +28,7 @@ data class WordEntity(
         timestamp, 
         examples, 
         isFavorite,
-        difficultyLevel
+        difficultyScore
     )
     
     companion object {
@@ -41,7 +41,7 @@ data class WordEntity(
             timestamp = word.timestamp,
             isFavorite = word.isFavorite,
             examples = word.examples,
-            difficultyLevel = word.difficultyLevel
+            difficultyScore = word.difficultyScore
         )
     }
 }

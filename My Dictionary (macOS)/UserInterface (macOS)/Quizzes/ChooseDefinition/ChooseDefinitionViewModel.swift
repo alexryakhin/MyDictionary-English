@@ -176,8 +176,8 @@ final class ChooseDefinitionViewModel: BaseViewModel {
             words.remove(at: index)
         }
         
-        // Penalty for skipping
-        score = max(0, score - 25)
+        // Update quiz score - subtract 2 points for skipping
+        score -= 2
         currentStreak = 0
         
         // Check if quiz is complete

@@ -58,13 +58,13 @@ final class WordListViewModel: BaseViewModel {
         case .tag:
             return tagFilteredWords
         case .new:
-            return words.filter { $0.difficultyLevel == 0 }
+            return words.filter { $0.difficultyLevel == .new }
         case .inProgress:
-            return words.filter { $0.difficultyLevel == 1 }
+            return words.filter { $0.difficultyLevel == .inProgress }
         case .needsReview:
-            return words.filter { $0.difficultyLevel == 2 }
+            return words.filter { $0.difficultyLevel == .needsReview }
         case .mastered:
-            return words.filter { $0.difficultyLevel == 3 }
+            return words.filter { $0.difficultyLevel == .mastered }
         @unknown default:
             fatalError("Unhandled event")
         }

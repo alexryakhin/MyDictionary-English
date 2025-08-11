@@ -72,8 +72,8 @@ fun WordDetailsScreen(
                 
                 item {
                     DifficultySection(
-                        difficulty = word.difficultyLevel.toDifficulty(),
-                        onDifficultyChanged = { viewModel.updateDifficulty(it) }
+                        difficulty = word.difficultyLevel,
+                        score = word.difficultyScore
                     )
                 }
                 
@@ -188,10 +188,8 @@ private fun WordHeaderSection(
 @Composable
 private fun DifficultySection(
     difficulty: Difficulty,
-    onDifficultyChanged: (Difficulty) -> Unit
+    score: Int
 ) {
-    var expanded by remember { mutableStateOf(false) }
-    
     Card(
         modifier = Modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
@@ -211,36 +209,34 @@ private fun DifficultySection(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                Column(
+                    verticalAlignment = Alignment.Start,
+                    horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
-                    DifficultyChip(difficulty = difficulty)
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        DifficultyChip(difficulty = difficulty)
+                        Text(
+                            text = difficulty.displayName,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+                    
                     Text(
-                        text = difficulty.displayName,
-                        style = MaterialTheme.typography.bodyMedium
+                        text = "Score: $score", // This will need to be updated to show actual score
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
                 
-                TextButton(onClick = { expanded = true }) {
-                    Text("Change")
-                }
+                Text(
+                    text = "Quiz-based",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
-        }
-    }
-    
-    DropdownMenu(
-        expanded = expanded,
-        onDismissRequest = { expanded = false }
-    ) {
-        Difficulty.entries.forEach { diff ->
-            DropdownMenuItem(
-                text = { Text(diff.displayName) },
-                onClick = {
-                    onDifficultyChanged(diff)
-                    expanded = false
-                }
-            )
         }
     }
 }
@@ -472,16 +468,6 @@ private fun AddTagDialog(
             }
         }
     )
-}
-
-private fun Int.toDifficulty(): Difficulty {
-    return when (this) {
-        0 -> Difficulty.New
-        1 -> Difficulty.InProgress
-        2 -> Difficulty.NeedsReview
-        3 -> Difficulty.Mastered
-        else -> Difficulty.New
-    }
 }
 
 private fun TagColor.toColor(): androidx.compose.ui.graphics.Color {

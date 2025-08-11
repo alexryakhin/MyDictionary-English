@@ -235,8 +235,8 @@ class SpellingQuizViewModel @Inject constructor(
             quizWords.removeAt(wordIndex)
         }
         
-        // Penalty for skipping
-        val newScore = maxOf(0, currentState.score - 25)
+        // Update quiz score - subtract 2 points for skipping
+        val newScore = currentState.score - 2
         val newCurrentStreak = 0 // Reset streak on skip
         
         _uiState.update { 

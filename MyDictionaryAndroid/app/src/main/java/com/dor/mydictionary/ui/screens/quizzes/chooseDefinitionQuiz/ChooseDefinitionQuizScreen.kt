@@ -492,7 +492,7 @@ private fun ActionButtonsSection(
                     modifier = Modifier.size(20.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
-                Text("Skip Word (-25 points)")
+                Text("Skip Word (-2 points)")
             }
         }
     }

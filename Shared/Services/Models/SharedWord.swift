@@ -11,24 +11,23 @@ import FirebaseFirestore
 struct SharedWord: Codable, Hashable {
     let id: String
     let wordItself: String
-    let definition: String
-    let partOfSpeech: String
-    let phonetic: String?
-    let examples: [String]
+    var definition: String
+    var partOfSpeech: String
+    var phonetic: String?
+    var examples: [String]
     let languageCode: String
     let timestamp: Date
     let updatedAt: Date
 
-    
     // Collaborator information
     let addedByEmail: String
     let addedByDisplayName: String?
     let addedAt: Date
     
     // Collaborative features
-    let likes: [String: Bool] // userEmail -> isLiked
-    let difficulties: [String: Int] // userEmail -> difficultyLevel (0-3)
-    
+    var likes: [String: Bool] // userEmail -> isLiked
+    var difficulties: [String: Int] // userEmail -> difficultyScore
+
     // MARK: - Initialization
     
     init(
@@ -41,7 +40,6 @@ struct SharedWord: Codable, Hashable {
         languageCode: String,
         timestamp: Date = Date(),
         updatedAt: Date = Date(),
-
         addedByEmail: String,
         addedByDisplayName: String? = nil,
         addedAt: Date = Date(),
@@ -149,7 +147,6 @@ struct SharedWord: Codable, Hashable {
             "languageCode": languageCode,
             "timestamp": Timestamp(date: timestamp),
             "updatedAt": Timestamp(date: updatedAt),
-
             "addedByEmail": addedByEmail,
             "addedAt": Timestamp(date: addedAt),
             "likes": likes,

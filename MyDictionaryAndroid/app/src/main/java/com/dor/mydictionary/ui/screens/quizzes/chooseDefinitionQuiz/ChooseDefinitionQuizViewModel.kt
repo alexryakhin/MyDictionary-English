@@ -212,7 +212,7 @@ class ChooseDefinitionQuizViewModel @Inject constructor(
         
         _uiState.update { 
             it.copy(
-                score = maxOf(0, it.score - 25),
+                score = it.score - 2, // Subtract 2 points for skipping
                 currentStreak = 0,
                 questionsAnswered = it.questionsAnswered + 1,
                 progress = wordsPlayed.size.toFloat() / wordCount

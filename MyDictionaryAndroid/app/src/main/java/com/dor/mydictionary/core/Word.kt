@@ -12,17 +12,14 @@ data class Word(
     val timestamp: Date,
     val examples: List<String>,
     val isFavorite: Boolean,
-    val difficultyLevel: Int
+    val difficultyScore: Int
 ) {
+    val difficultyLevel: Difficulty
+        get() = Difficulty.fromScore(difficultyScore)
+    
     val difficultyLabel: String
-        get() = when (difficultyLevel) {
-            0 -> "new"
-            1 -> "inProgress"
-            2 -> "needsReview"
-            3 -> "mastered"
-            else -> "new"
-        }
+        get() = difficultyLevel.displayName
     
     val shouldShowDifficultyLabel: Boolean
-        get() = difficultyLevel > 0
+        get() = difficultyScore > 0
 }

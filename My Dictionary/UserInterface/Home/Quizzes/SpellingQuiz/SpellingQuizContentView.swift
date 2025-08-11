@@ -150,12 +150,12 @@ struct SpellingQuizContentView: View {
                 Spacer()
             }
             
-            Text(viewModel.randomWord?.definition ?? "")
+            Text(viewModel.randomWord?.quiz_definition ?? "")
                 .font(.body)
                 .lineSpacing(4)
                 .multilineTextAlignment(.leading)
             
-            if let partOfSpeech = viewModel.randomWord?.partOfSpeech, !partOfSpeech.isEmpty {
+            if let partOfSpeech = viewModel.randomWord?.quiz_partOfSpeech, !partOfSpeech.isEmpty {
                 HStack {
                     Text(partOfSpeech)
                         .font(.caption)
@@ -175,7 +175,7 @@ struct SpellingQuizContentView: View {
                     Image(systemName: "lightbulb.fill")
                         .foregroundStyle(.yellow)
                     
-                    Text("Hint: The word starts with '\(randomWord.wordItself?.prefix(1).uppercased() ?? "")'")
+                    Text("Hint: The word starts with '\(randomWord.quiz_wordItself.prefix(1).uppercased())'")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
@@ -246,7 +246,7 @@ struct SpellingQuizContentView: View {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.red)
                     
-                    Text("The correct word is '\(viewModel.randomWord?.wordItself ?? "")'. Moving to next word...")
+                    Text("The correct word is '\(viewModel.randomWord?.quiz_wordItself ?? "")'. Moving to next word...")
                         .font(.caption)
                         .foregroundStyle(.red)
                     
@@ -310,7 +310,7 @@ struct SpellingQuizContentView: View {
                     viewModel.handle(.skipWord)
                 }
             } label: {
-                Label("Skip Word (-25 points)", systemImage: "arrow.right.circle")
+                Label("Skip Word (-2 points)", systemImage: "arrow.right.circle")
                     .frame(maxWidth: .infinity)
                     .padding(8)
             }
@@ -442,7 +442,7 @@ struct SpellingQuizContentView: View {
         guard let randomWord = viewModel.randomWord else { return "" }
 
         if viewModel.attemptCount > 2 {
-            return "Your word is '\(randomWord.wordItself?.trimmed ?? "")'. Try harder :)"
+            return "Your word is '\(randomWord.quiz_wordItself.trimmed)'. Try harder :)"
         } else {
             return "Incorrect. Try again"
         }

@@ -17,7 +17,7 @@ struct Word: Codable, Identifiable {
     let phonetic: String?
     let examples: [String]
     let tags: [String]
-    let difficultyLevel: Int
+    let difficultyScore: Int
     let languageCode: String
     let isFavorite: Bool
     let timestamp: Date // Created at date
@@ -32,12 +32,17 @@ struct Word: Codable, Identifiable {
         case phonetic
         case examples
         case tags
-        case difficultyLevel
+        case difficultyScore
         case languageCode
         case isFavorite
         case timestamp
         case updatedAt
         case isSynced
+    }
+    
+    // Computed property for difficulty level based on score
+    var difficultyLevel: Difficulty {
+        return Difficulty(score: difficultyScore)
     }
 
     func toFirestoreDictionary() -> [String: Any] {
@@ -48,7 +53,7 @@ struct Word: Codable, Identifiable {
             "phonetic": phonetic ?? "",
             "examples": examples,
             "tags": tags,
-            "difficultyLevel": difficultyLevel,
+            "difficultyScore": difficultyScore,
             "languageCode": languageCode,
             "isFavorite": isFavorite,
             "timestamp": Timestamp(date: timestamp),
@@ -64,7 +69,7 @@ struct Word: Codable, Identifiable {
               let definition = data["definition"] as? String,
               let partOfSpeech = data["partOfSpeech"] as? String,
               let examples = data["examples"] as? [String],
-              let difficultyLevel = data["difficultyLevel"] as? Int,
+              let difficultyScore = data["difficultyScore"] as? Int,
               let languageCode = data["languageCode"] as? String,
               let isFavorite = data["isFavorite"] as? Bool,
               let timestamp = data["timestamp"] as? Timestamp else {
@@ -86,7 +91,7 @@ struct Word: Codable, Identifiable {
             phonetic: data["phonetic"] as? String,
             examples: examples,
             tags: tags,
-            difficultyLevel: difficultyLevel,
+            difficultyScore: difficultyScore,
             languageCode: languageCode,
             isFavorite: isFavorite,
             timestamp: timestamp.dateValue(),
@@ -112,7 +117,7 @@ extension Word {
         self.phonetic = entity.phonetic
         self.examples = entity.examplesDecoded
         self.tags = entity.tagsArray.map { $0.name ?? "" }
-        self.difficultyLevel = Int(entity.difficultyLevel)
+        self.difficultyScore = Int(entity.difficultyScore)
         self.languageCode = entity.languageCode ?? "en" // Default to English if not set
         self.isFavorite = entity.isFavorite
         self.timestamp = timestamp
@@ -128,7 +133,7 @@ extension Word {
         entity.partOfSpeech = partOfSpeech
         entity.phonetic = phonetic
         try? entity.updateExamples(examples)
-        entity.difficultyLevel = Int32(difficultyLevel)
+        entity.difficultyScore = Int32(difficultyScore)
         entity.languageCode = languageCode
         entity.isFavorite = isFavorite
         entity.timestamp = timestamp

@@ -176,10 +176,10 @@ extension WordsViewModel {
         case .none: words
         case .favorite: favoriteWords
         case .search: searchResults
-        case .new: words.filter { $0.difficultyLevel == 0 }
-        case .inProgress: words.filter { $0.difficultyLevel == 1 }
-        case .needsReview: words.filter { $0.difficultyLevel == 2 }
-        case .mastered: words.filter { $0.difficultyLevel == 3 }
+        case .new: words.filter { $0.difficultyLevel == .new }
+        case .inProgress: words.filter { $0.difficultyLevel == .inProgress }
+        case .needsReview: words.filter { $0.difficultyLevel == .needsReview }
+        case .mastered: words.filter { $0.difficultyLevel == .mastered }
         @unknown default: fatalError("Unknown filter state")
         }
     }

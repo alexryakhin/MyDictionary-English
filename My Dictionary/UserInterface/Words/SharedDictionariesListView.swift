@@ -29,7 +29,7 @@ struct SharedDictionariesListView: View {
                 } else {
                     ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in
                         Button {
-                            navigationPath.append(NavigationDestination.sharedDictionaryDetails(dictionary))
+                            navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
                         } label: {
                             HStack {
                                 Image(systemName: "person.2")

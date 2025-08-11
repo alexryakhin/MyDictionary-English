@@ -76,29 +76,6 @@ class WordDetailsViewModel @Inject constructor(
         }
     }
 
-    fun updateDifficulty(difficulty: Difficulty) {
-        val currentWord = _uiState.value.word ?: return
-        
-        viewModelScope.launch {
-            try {
-                val difficultyLevel = when (difficulty) {
-                    Difficulty.New -> 0
-                    Difficulty.InProgress -> 1
-                    Difficulty.NeedsReview -> 2
-                    Difficulty.Mastered -> 3
-                }
-                
-                val updatedWord = currentWord.copy(difficultyLevel = difficultyLevel)
-                wordManager.updateWord(updatedWord)
-                _uiState.update { it.copy(word = updatedWord) }
-            } catch (e: Exception) {
-                _uiState.update { 
-                    it.copy(error = "Failed to update difficulty: ${e.message}")
-                }
-            }
-        }
-    }
-
     fun showAddTagDialog() {
         _uiState.update { it.copy(showingAddTagDialog = true) }
     }
