@@ -12,6 +12,7 @@ import GoogleSignIn
 import AuthenticationServices
 import Combine
 import SwiftUI
+import UserNotifications
 
 enum AuthenticationState {
     case signedOut
@@ -77,6 +78,9 @@ final class AuthenticationService: ObservableObject {
                     print("🔄 [AuthenticationService] Setting up sync for user: \(user.uid)")
                     Task {
                         do {
+                            // Request push notification permissions
+                            await self?.requestPushNotificationPermissions()
+                            
                             // Mark existing words as unsynced so they get uploaded
                             await DataSyncService.shared.markExistingWordsAsUnsynced(userId: user.uid)
                             
@@ -330,24 +334,19 @@ final class AuthenticationService: ObservableObject {
     // MARK: - User Management
 
     var isSignedIn: Bool {
-        return Auth.auth().currentUser != nil
+        return authenticationState == .signedIn
     }
 
     var userId: String? {
-        // Use the currentUser property which is properly synchronized with authentication state
-        let uid = currentUser?.uid
-        print("🔍 [AuthenticationService] userId called, returning: \(uid ?? "nil")")
-        print("🔍 [AuthenticationService] Current auth state: \(authenticationState)")
-        print("🔍 [AuthenticationService] Current user: \(currentUser?.uid ?? "nil")")
-        return uid
+        return currentUser?.uid
     }
 
     var userEmail: String? {
-        return Auth.auth().currentUser?.email
+        return currentUser?.email
     }
 
     var displayName: String? {
-        return Auth.auth().currentUser?.displayName
+        return currentUser?.displayName
     }
 
     var linkedProviders: [String] {
@@ -360,6 +359,29 @@ final class AuthenticationService: ObservableObject {
 
     var hasAppleAccount: Bool {
         return linkedProviders.contains("apple.com")
+    }
+
+    // MARK: - Push Notifications
+    
+    func requestPushNotificationPermissions() async {
+        print("🔔 [AuthenticationService] Requesting push notification permissions")
+        
+        do {
+            let granted = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
+            
+            if granted {
+                print("✅ [AuthenticationService] Push notification permissions granted")
+                
+                // Register for remote notifications
+                await MainActor.run {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            } else {
+                print("❌ [AuthenticationService] Push notification permissions denied")
+            }
+        } catch {
+            print("❌ [AuthenticationService] Failed to request push notification permissions: \(error)")
+        }
     }
 }
 

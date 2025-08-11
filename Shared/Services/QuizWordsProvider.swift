@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 /// Service that provides words for quizzes from both private and shared dictionaries
 final class QuizWordsProvider: ObservableObject {
@@ -22,9 +23,24 @@ final class QuizWordsProvider: ObservableObject {
     
     private init() {
         setupBindings()
+        // Force initial refresh to load dictionaries
+        refreshAvailableDictionaries()
     }
     
     // MARK: - Public Methods
+    
+    /// Forces a refresh of available dictionaries and words
+    func refreshAvailableDictionaries() {
+        print("🔄 [QuizWordsProvider] Forcing refresh of available dictionaries")
+        updateAvailableDictionaries()
+        updateAvailableWords()
+    }
+    
+    /// Manually loads words for a shared dictionary
+    func loadWordsForSharedDictionary(_ dictionary: SharedDictionary) {
+        print("🔄 [QuizWordsProvider] Manually loading words for shared dictionary: \(dictionary.name)")
+        dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionary.id)
+    }
     
     /// Gets words for a quiz based on the selected dictionary and filters
     /// - Parameters:
@@ -100,6 +116,14 @@ final class QuizWordsProvider: ObservableObject {
                 self?.updateAvailableWords()
             }
             .store(in: &cancellables)
+        
+        // Listen to app becoming active to refresh dictionaries
+        NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.refreshAvailableDictionaries()
+            }
+            .store(in: &cancellables)
     }
     
     private func updateAvailableDictionaries() {
@@ -110,12 +134,10 @@ final class QuizWordsProvider: ObservableObject {
             dictionaries.append(.privateDictionary)
         }
         
-        // Add shared dictionaries that have words
+        // Add ALL shared dictionaries that the user has access to
+        // Don't filter by word count - let the UI show placeholders when needed
         for dictionary in dictionaryService.sharedDictionaries {
-            let wordCount = dictionaryService.sharedWords[dictionary.id]?.count ?? 0
-            if wordCount > 0 {
-                dictionaries.append(.sharedDictionary(dictionary))
-            }
+            dictionaries.append(.sharedDictionary(dictionary))
         }
         
         availableDictionaries = dictionaries
@@ -130,8 +152,20 @@ final class QuizWordsProvider: ObservableObject {
         switch selectedDictionary {
         case .privateDictionary:
             availableWords = wordsProvider.words
+            print("📊 [QuizWordsProvider] Updated available words for private dictionary: \(wordsProvider.words.count) words")
         case .sharedDictionary(let dictionary):
-            availableWords = dictionaryService.sharedWords[dictionary.id] ?? []
+            // Get words from cache
+            let cachedWords = dictionaryService.sharedWords[dictionary.id] ?? []
+            print("📊 [QuizWordsProvider] Checking cached words for shared dictionary '\(dictionary.name)': \(cachedWords.count) words")
+            
+            // If no words are cached, trigger loading
+            if cachedWords.isEmpty {
+                print("🔄 [QuizWordsProvider] Loading words for shared dictionary: \(dictionary.name)")
+                dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionary.id)
+            }
+            
+            availableWords = cachedWords
+            print("📊 [QuizWordsProvider] Updated available words for shared dictionary '\(dictionary.name)': \(cachedWords.count) words")
         }
     }
 }

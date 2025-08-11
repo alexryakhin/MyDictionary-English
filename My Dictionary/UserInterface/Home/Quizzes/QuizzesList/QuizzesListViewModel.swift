@@ -14,6 +14,7 @@ final class QuizzesListViewModel: BaseViewModel {
     enum Output {
         case showSpellingQuiz(wordCount: Int, hardWordsOnly: Bool)
         case showChooseDefinitionQuiz(wordCount: Int, hardWordsOnly: Bool)
+        case showSharedDictionary(SharedDictionary)
     }
 
     enum Input {
@@ -38,6 +39,12 @@ final class QuizzesListViewModel: BaseViewModel {
         case .dictionarySelected(let dictionary):
             selectedDictionary = dictionary
             quizWordsProvider.selectedDictionary = dictionary
+            
+            // If it's a shared dictionary, ensure words are loaded
+            if case .sharedDictionary(let sharedDictionary) = dictionary {
+                print("🔄 [QuizzesListViewModel] Shared dictionary selected: \(sharedDictionary.name)")
+                quizWordsProvider.loadWordsForSharedDictionary(sharedDictionary)
+            }
         }
     }
     
@@ -63,16 +70,34 @@ final class QuizzesListViewModel: BaseViewModel {
     }
     
     var hasEnoughWords: Bool {
+        // For shared dictionaries, check if words are loaded and if there are enough
+        if case .sharedDictionary(let dictionary) = selectedDictionary {
+            let wordCount = quizWordsProvider.getTotalWordsCount()
+            let requiredCount = showingHardWordsOnly ? 1 : 10
+            return wordCount >= requiredCount
+        }
+        // For private dictionary, use the existing logic
         return quizWordsProvider.hasEnoughWords(wordCount: 10, hardWordsOnly: showingHardWordsOnly)
     }
     
     var insufficientWordsMessage: String {
-        if showingHardWordsOnly {
-            let hardWordsCount = quizWordsProvider.getHardWordsCount()
-            return "You need at least 1 hard word to practice in hard words mode. You currently have \(hardWordsCount) hard words."
-        } else {
+        if case .sharedDictionary(let dictionary) = selectedDictionary {
             let totalWords = quizWordsProvider.getTotalWordsCount()
-            return "You need at least 10 words to start quizzes. You currently have \(totalWords) words."
+            if showingHardWordsOnly {
+                let hardWordsCount = quizWordsProvider.getHardWordsCount()
+                return "The shared dictionary '\(dictionary.name)' needs at least 1 hard word to practice in hard words mode. It currently has \(hardWordsCount) hard words."
+            } else {
+                return "The shared dictionary '\(dictionary.name)' needs at least 10 words to start quizzes. It currently has \(totalWords) words."
+            }
+        } else {
+            // Private dictionary message
+            if showingHardWordsOnly {
+                let hardWordsCount = quizWordsProvider.getHardWordsCount()
+                return "You need at least 1 hard word to practice in hard words mode. You currently have \(hardWordsCount) hard words."
+            } else {
+                let totalWords = quizWordsProvider.getTotalWordsCount()
+                return "You need at least 10 words to start quizzes. You currently have \(totalWords) words."
+            }
         }
     }
 
@@ -83,6 +108,15 @@ final class QuizzesListViewModel: BaseViewModel {
             .receive(on: RunLoop.main)
             .sink { [weak self] dictionary in
                 self?.selectedDictionary = dictionary
+            }
+            .store(in: &cancellables)
+        
+        // Listen to available words changes (important for shared dictionaries)
+        quizWordsProvider.$availableWords
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                // Trigger UI update when words are loaded
+                print("🔄 [QuizzesListViewModel] Available words updated, count: \(self?.quizWordsProvider.availableWords.count ?? 0)")
             }
             .store(in: &cancellables)
     }

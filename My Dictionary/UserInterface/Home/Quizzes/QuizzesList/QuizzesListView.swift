@@ -195,10 +195,17 @@ struct QuizzesListView: View {
                     .font(.system(size: 60))
                     .foregroundStyle(.accent.gradient)
                 
-                Text(viewModel.words.isEmpty ? "Start Building Your Vocabulary!" : "Keep Adding Words!")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
+                if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
+                    Text("Shared Dictionary Needs More Words!")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                } else {
+                    Text(viewModel.words.isEmpty ? "Start Building Your Vocabulary!" : "Keep Adding Words!")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                }
                 
                 Text(viewModel.insufficientWordsMessage)
                     .font(.body)
@@ -209,24 +216,45 @@ struct QuizzesListView: View {
             .padding(.horizontal, 32)
             
             VStack(spacing: 12) {
-                Button {
-                    navigationManager.switchToTab(.words)
-                } label: {
-                    Label(viewModel.words.isEmpty ? "Add Your First Word" : "Add More Words", systemImage: "plus.circle.fill")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.accent.gradient)
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
+                    // For shared dictionaries, show different actions
+                    Button {
+                        viewModel.output.send(.showSharedDictionary(dictionary))
+                    } label: {
+                        Label("Add Words to Shared Dictionary", systemImage: "plus.circle.fill")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(.accent.gradient)
+                            .foregroundStyle(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                    }
+                    
+                    Text("Ask the dictionary owner to add more words, or switch to a different dictionary!")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                } else {
+                    // For private dictionary, show the original actions
+                    Button {
+                        navigationManager.switchToTab(.words)
+                    } label: {
+                        Label(viewModel.words.isEmpty ? "Add Your First Word" : "Add More Words", systemImage: "plus.circle.fill")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(.accent.gradient)
+                            .foregroundStyle(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                    }
+                    
+                    Text(viewModel.words.isEmpty ?
+                         "Quizzes help you test your knowledge and reinforce learning!" :
+                            "You're \(10 - viewModel.words.count) words away from unlocking quizzes!")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
                 }
-                
-                Text(viewModel.words.isEmpty ?
-                     "Quizzes help you test your knowledge and reinforce learning!" :
-                        "You're \(10 - viewModel.words.count) words away from unlocking quizzes!")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
             }
             .padding(.horizontal, 32)
             
@@ -243,10 +271,17 @@ struct QuizzesListView: View {
                     .font(.system(size: 60))
                     .foregroundStyle(.accent.gradient)
                 
-                Text("Keep Adding Hard Words!")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
+                if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
+                    Text("Shared Dictionary Needs Hard Words!")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                } else {
+                    Text("Keep Adding Hard Words!")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                }
                 
                 Text(viewModel.insufficientWordsMessage)
                     .font(.body)
@@ -257,22 +292,41 @@ struct QuizzesListView: View {
             .padding(.horizontal, 32)
             
             VStack(spacing: 12) {
-                Button {
-                    navigationManager.switchToTab(.words)
-                } label: {
-                    Label("Add Hard Words", systemImage: "plus.circle.fill")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.accent.gradient)
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
+                    Button {
+                        viewModel.output.send(.showSharedDictionary(dictionary))
+                    } label: {
+                        Label("Add Words to Shared Dictionary", systemImage: "plus.circle.fill")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(.accent.gradient)
+                            .foregroundStyle(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                    
+                    Text("Ask the dictionary owner to add more words, or practice some words incorrectly to create hard words!")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                } else {
+                    Button {
+                        navigationManager.switchToTab(.words)
+                    } label: {
+                        Label("Add Hard Words", systemImage: "plus.circle.fill")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(.accent.gradient)
+                            .foregroundStyle(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                    
+                    Text("Answer some words incorrectly to create hard words for practice!")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
                 }
-                
-                Text("Answer some words incorrectly to create hard words for practice!")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
             }
             .padding(.horizontal, 32)
             

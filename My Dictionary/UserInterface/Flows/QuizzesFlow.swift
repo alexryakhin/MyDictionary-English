@@ -31,6 +31,8 @@ struct QuizzesFlow: View {
             navigationPath.append(NavigationDestination.spellingQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly))
         case .showChooseDefinitionQuiz(let wordCount, let hardWordsOnly):
             navigationPath.append(NavigationDestination.chooseDefinitionQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly))
+        case .showSharedDictionary(let dictionary):
+            navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
         }
     }
 }
