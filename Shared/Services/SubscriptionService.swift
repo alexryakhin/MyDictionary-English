@@ -86,7 +86,7 @@ enum SubscriptionFeature: String, CaseIterable {
 
 // MARK: - Subscription Service
 
-final class SubscriptionService: ObservableObject {
+final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     static let shared = SubscriptionService()
     
     @Published private(set) var isProUser = false
@@ -96,7 +96,8 @@ final class SubscriptionService: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    private init() {
+    private override init() {
+        super.init()
         setupRevenueCat()
     }
     
@@ -118,6 +119,10 @@ final class SubscriptionService: ObservableObject {
             .build()
         
         Purchases.configure(with: configuration)
+        
+        // Set this service as the delegate to receive purchase updates
+        Purchases.shared.delegate = self
+        
         // Check initial subscription status
         Task { @MainActor in
             try await updateSubscriptionStatus(customerInfo: Purchases.shared.customerInfo())
@@ -125,13 +130,44 @@ final class SubscriptionService: ObservableObject {
         }
     }
     
+    // MARK: - RevenueCat Delegate Methods
+    
+    func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
+        print("🔔 [SubscriptionService] Received RevenueCat customer info update")
+        Task { @MainActor in
+            updateSubscriptionStatus(customerInfo: customerInfo)
+        }
+    }
+    
+    func purchases(_ purchases: Purchases, readyForPromotedProduct product: StoreProduct, purchase: @escaping StartPurchaseBlock) {
+        print("🔔 [SubscriptionService] Ready for promoted product: \(product.productIdentifier)")
+        purchase { transaction, customerInfo, error, isCompleted in
+            if let error = error {
+                print("❌ [SubscriptionService] Promoted purchase failed: \(error)")
+            } else {
+                print("✅ [SubscriptionService] Promoted purchase successful")
+            }
+        }
+    }
+    
     // MARK: - Subscription Status
     
     @MainActor
     private func updateSubscriptionStatus(customerInfo: CustomerInfo) {
+        let wasProUser = isProUser
         isProUser = !customerInfo.entitlements.active.isEmpty
         currentPlan = getCurrentPlan(from: customerInfo)
+        
         print("🔹 [SubscriptionService] Subscription status updated - isPro: \(isProUser)")
+        
+        // Log when subscription status changes
+        if wasProUser != isProUser {
+            if isProUser {
+                print("🎉 [SubscriptionService] User became Pro user!")
+            } else {
+                print("📉 [SubscriptionService] User lost Pro status")
+            }
+        }
     }
     
     private func getCurrentPlan(from customerInfo: CustomerInfo) -> SubscriptionPlan? {

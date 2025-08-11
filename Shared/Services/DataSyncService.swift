@@ -149,6 +149,12 @@ final class DataSyncService: ObservableObject {
             print("❌ [DataSyncService] Invalid userId for sync from Firestore")
             throw DataSyncError.invalidUserId
         }
+        
+        // Check if user has Pro subscription for Google sync
+        guard SubscriptionService.shared.isProUser else {
+            print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
+            throw DataSyncError.subscriptionRequired
+        }
 
         print("📡 [DataSyncService] Fetching words from Firestore...")
         
@@ -208,6 +214,12 @@ final class DataSyncService: ObservableObject {
 
     func startPrivateDictionaryListener(userId: String) {
         print("🔊 [DataSyncService] Starting real-time listener for private dictionary, userId: \(userId)")
+        
+        // Check if user has Pro subscription for Google sync
+        guard SubscriptionService.shared.isProUser else {
+            print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
+            return
+        }
         
         // Remove existing listener if any
         stopPrivateDictionaryListener()
@@ -311,6 +323,12 @@ final class DataSyncService: ObservableObject {
     func syncWordToFirestore(word: CDWord, userId: String) async throws {
         print("🔄 [DataSyncService] Syncing individual word to Firestore: '\(word.wordItself ?? "unknown")'")
         
+        // Check if user has Pro subscription for Google sync
+        guard SubscriptionService.shared.isProUser else {
+            print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
+            throw DataSyncError.subscriptionRequired
+        }
+        
         guard let wordModel = Word(from: word) else {
             print("❌ [DataSyncService] Failed to convert word to Word model")
             throw DataSyncError.syncFailed
@@ -334,6 +352,12 @@ final class DataSyncService: ObservableObject {
     func deleteWordFromFirestore(wordId: String, userId: String) async throws {
         print("🔄 [DataSyncService] Deleting word from Firestore: '\(wordId)'")
         
+        // Check if user has Pro subscription for Google sync
+        guard SubscriptionService.shared.isProUser else {
+            print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
+            throw DataSyncError.subscriptionRequired
+        }
+        
         let docRef = db.collection("users").document(userId)
             .collection("words").document(wordId)
         
@@ -346,6 +370,12 @@ final class DataSyncService: ObservableObject {
 
     func syncSharedDictionaryWords(dictionaryId: String) {
         print("🔊 [DataSyncService] Starting real-time listener for shared dictionary: \(dictionaryId)")
+        
+        // Check if user has Pro subscription for shared dictionaries
+        guard SubscriptionService.shared.isProUser else {
+            print("❌ [DataSyncService] User does not have Pro subscription for shared dictionaries")
+            return
+        }
         
         // Remove existing listener if any
         stopSharedDictionaryListener(dictionaryId: dictionaryId)
@@ -637,6 +667,12 @@ final class DataSyncService: ObservableObject {
                     print("⚠️ [DataSyncService] Cannot sync: self is nil or userId is nil")
                     return 
                 }
+                
+                // Check if user has Pro subscription for automatic sync
+                guard SubscriptionService.shared.isProUser else {
+                    print("ℹ️ [DataSyncService] Skipping auto-sync: user does not have Pro subscription")
+                    return
+                }
 
                 print("🔄 [DataSyncService] Core Data context saved, triggering sync to Firestore...")
                 // Sync to Firestore when Core Data changes
@@ -658,6 +694,12 @@ final class DataSyncService: ObservableObject {
                       let userId = AuthenticationService.shared.userId else { 
                     print("⚠️ [DataSyncService] Cannot sync after iCloud changes: self is nil or userId is nil")
                     return 
+                }
+                
+                // Check if user has Pro subscription for automatic sync
+                guard SubscriptionService.shared.isProUser else {
+                    print("ℹ️ [DataSyncService] Skipping post-iCloud sync: user does not have Pro subscription")
+                    return
                 }
 
                 print("🔄 [DataSyncService] iCloud content changes detected, waiting before sync...")
@@ -683,6 +725,12 @@ final class DataSyncService: ObservableObject {
     
     func markExistingWordsAsUnsynced(userId: String) async {
         print("🔄 [DataSyncService] Marking existing words as unsynced for user: \(userId)")
+        
+        // Check if user has Pro subscription for Google sync
+        guard SubscriptionService.shared.isProUser else {
+            print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
+            return
+        }
         
         await coreDataService.context.perform {
                     let fetchRequest = CDWord.fetchRequest()
@@ -714,6 +762,12 @@ final class DataSyncService: ObservableObject {
     func convertPrivateToSharedDictionary(userId: String, name: String) async throws {
         print("🔄 [DataSyncService] Converting private to shared dictionary...")
         print("🔄 [DataSyncService] UserId: \(userId), Name: \(name)")
+        
+        // Check if user has Pro subscription for Google sync
+        guard SubscriptionService.shared.isProUser else {
+            print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
+            throw DataSyncError.subscriptionRequired
+        }
         
         let fetchRequest = CDWord.fetchRequest()
 

@@ -179,6 +179,12 @@ final class DictionaryService: ObservableObject {
         guard !dictionaryId.isEmpty else {
             throw DictionaryError.invalidInput
         }
+        
+        // Check if user has Pro subscription for deleting shared dictionaries
+        guard SubscriptionService.shared.isProUser else {
+            print("❌ [DictionaryService] User does not have Pro subscription for deleting shared dictionaries")
+            throw DictionaryError.subscriptionRequired
+        }
 
         print("🗑️ [DictionaryService] deleteSharedDictionary called with dictionaryId: \(dictionaryId)")
 

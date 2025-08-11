@@ -34,7 +34,7 @@ final class QuizzesListViewModel: BaseViewModel {
     }
 
     func handle(_ input: Input) {
-        // No navigation handling needed
+        // No input handling needed
     }
     
     // MARK: - Computed Properties
@@ -47,7 +47,7 @@ final class QuizzesListViewModel: BaseViewModel {
     }
     
     var hasHardWords: Bool {
-        return words.contains { $0.difficultyLevel == 2 }
+        return words.filter { $0.difficultyLevel == 2 }.count > 10
     }
 
     /// Fetches latest data from Core Data

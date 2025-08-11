@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct QuizzesListView: View {
-
+    
     typealias ViewModel = QuizzesListViewModel
-
+    
     @ObservedObject private var viewModel: ViewModel
     @StateObject private var navigationManager: TabManager = .shared
     @AppStorage(UDKeys.practiceWordCount) private var practiceWordCount: Double = 10
-
+    
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
-
+    
     var body: some View {
         ZStack {
             Color(.systemGroupedBackground)
                 .ignoresSafeArea()
-
+            
             if viewModel.showingHardWordsOnly {
                 // Show quizzes when hard words mode is enabled, even with just one hard word
                 if viewModel.filteredWords.count >= 1 {
@@ -45,12 +45,15 @@ struct QuizzesListView: View {
             AnalyticsService.shared.logEvent(.quizzesOpened)
         }
     }
-
+    
     private var quizzesList: some View {
         ScrollView {
             VStack(spacing: 16) {
                 // Quiz Types Section
-                CustomSectionView(header: "Quiz Types", footer: "All words are from your list.") {
+                CustomSectionView(
+                    header: "Quiz Types",
+                    footer: "You can practice your own vocabulary, or select a shared dictionary that is already populated with words."
+                ) {
                     VStack(spacing: 8) {
                         Button {
                             viewModel.output.send(.showSpellingQuiz(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly))
@@ -58,94 +61,105 @@ struct QuizzesListView: View {
                             QuizCardView(quiz: .spelling)
                         }
                         .buttonStyle(.plain)
-                        .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
-
+                        .clippedWithPaddingAndBackground(
+                            Color(.tertiarySystemGroupedBackground),
+                            cornerRadius: 16
+                        )
+                        
                         Button {
                             viewModel.output.send(.showChooseDefinitionQuiz(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly))
                         } label: {
                             QuizCardView(quiz: .chooseDefinition)
                         }
                         .buttonStyle(.plain)
-                        .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
+                        .clippedWithPaddingAndBackground(
+                            Color(.tertiarySystemGroupedBackground),
+                            cornerRadius: 16
+                        )
                     }
                     .padding(.bottom, 12)
                 }
-
+                
                 // Practice Settings Section
-                CustomSectionView(
-                    header: "Practice Settings",
-                    footer: "Configure your quiz experience"
-                ) {
-                    VStack(spacing: 8) {
-                        // Hard Words Toggle
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Practice Hard Words Only")
-                                    .font(.body)
-                                    .fontWeight(.medium)
-                                Text(
-                                    viewModel.hasHardWords
-                                    ? "Focus on words that need review"
-                                    : "No words need review yet"
-                                )
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                            }
-
-                            Spacer()
-
-                            Toggle("", isOn: $viewModel.showingHardWordsOnly)
-                                .labelsHidden()
-                                .disabled(!viewModel.hasHardWords)
-                        }
-                        .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
-
-                        // Word Count Slider
-                        VStack(alignment: .leading, spacing: 8) {
+                if viewModel.words.count >= 20 {
+                    CustomSectionView(
+                        header: "Practice Settings",
+                        footer: "Configure your quiz experience"
+                    ) {
+                        VStack(spacing: 8) {
+                            // Hard Words Toggle
                             HStack {
-                                Text("Words per Session")
-                                    .font(.body)
-                                    .fontWeight(.medium)
-                                Spacer()
-                                Text("\(Int(practiceWordCount))")
-                                    .font(.body)
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.accent)
-                            }
-
-                            let availableWords = viewModel.showingHardWordsOnly ? viewModel.filteredWords : viewModel.words
-                            let maxWords = min(50, max(1, availableWords.count)) // Allow minimum of 1 word
-                            let minWords = viewModel.showingHardWordsOnly ? 1 : 10 // Allow 1 word for hard words mode
-                            let subtitle = viewModel.showingHardWordsOnly ?
-                                "Number of words to practice in each session (1-\(maxWords))" :
-                                "Number of words to practice in each session (10-\(maxWords))"
-
-                            Text(subtitle)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-
-                            Slider(value: $practiceWordCount, in: Double(minWords)...Double(maxWords), step: 1)
-                                .disabled(viewModel.showingHardWordsOnly) // Disable when hard words only is enabled
-
-                            HStack {
-                                Text("\(minWords)")
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Practice Hard Words Only")
+                                        .font(.body)
+                                        .fontWeight(.medium)
+                                    Text(
+                                        viewModel.hasHardWords
+                                        ? "Focus on words that need review"
+                                        : "Not enough words to review yet"
+                                    )
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
+                                }
+                                
                                 Spacer()
-                                Text("\(maxWords)")
+                                
+                                Toggle("", isOn: $viewModel.showingHardWordsOnly)
+                                    .labelsHidden()
+                                    .disabled(!viewModel.hasHardWords)
+                            }
+                            .clippedWithPaddingAndBackground(
+                                Color(.tertiarySystemGroupedBackground),
+                                cornerRadius: 16
+                            )
+                            
+                            // Word Count Slider
+                            VStack(alignment: .leading, spacing: 8) {
+                                HStack {
+                                    Text("Words per Session")
+                                        .font(.body)
+                                        .fontWeight(.medium)
+                                    Spacer()
+                                    Text("\(Int(practiceWordCount))")
+                                        .font(.body)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.accent)
+                                }
+                                
+                                let availableWords = viewModel.showingHardWordsOnly ? viewModel.filteredWords : viewModel.words
+                                let maxWords = min(50, max(10, availableWords.count))
+                                let minWords = 10
+                                let subtitle = "Number of words to practice in each session (10-\(maxWords))"
+                                
+                                Text(subtitle)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
+                                
+                                Slider(value: $practiceWordCount, in: Double(minWords)...Double(maxWords), step: 1)
+                                
+                                HStack {
+                                    Text("\(minWords)")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                    Spacer()
+                                    Text("\(maxWords)")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
                             }
+                            .clippedWithPaddingAndBackground(
+                                Color(.tertiarySystemGroupedBackground),
+                                cornerRadius: 16
+                            )
                         }
-                        .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
+                        .padding(.bottom, 12)
                     }
-                    .padding(.bottom, 12)
                 }
             }
             .padding(.horizontal, 16)
         }
     }
-
+    
     private var insufficientWordsPlaceholder: some View {
         VStack(spacing: 24) {
             Spacer()
@@ -154,7 +168,7 @@ struct QuizzesListView: View {
                 Image(systemName: "brain.head.profile")
                     .font(.system(size: 60))
                     .foregroundStyle(.accent.gradient)
-
+                
                 Text(viewModel.words.isEmpty ? "Start Building Your Vocabulary!" : "Keep Adding Words!")
                     .font(.title2)
                     .fontWeight(.bold)
@@ -181,19 +195,19 @@ struct QuizzesListView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 16))
                 }
                 
-                Text(viewModel.words.isEmpty ? 
+                Text(viewModel.words.isEmpty ?
                      "Quizzes help you test your knowledge and reinforce learning!" :
-                     "You're \(10 - viewModel.words.count) words away from unlocking quizzes!")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
+                        "You're \(10 - viewModel.words.count) words away from unlocking quizzes!")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
             }
             .padding(.horizontal, 32)
             
             Spacer()
         }
     }
-
+    
     private var insufficientHardWordsPlaceholder: some View {
         VStack(spacing: 24) {
             Spacer()
