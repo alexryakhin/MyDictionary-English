@@ -15,12 +15,15 @@ struct DebugView: View {
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var dictionaryService = DictionaryService.shared
-    
+    @StateObject private var paywallService = PaywallService.shared
+
     @State private var showingAlert = false
     @State private var alertMessage = ""
     @State private var fcmToken = "Loading..."
     @State private var userEmail = "Not signed in"
     @State private var userId = "Not signed in"
+    @State private var testNotificationEmail = ""
+    @State private var showingEmailInput = false
     
     var body: some View {
         NavigationView {
@@ -49,6 +52,21 @@ struct DebugView: View {
             Button("OK") { }
         } message: {
             Text(alertMessage)
+        }
+        .alert("Send Test Notification", isPresented: $showingEmailInput) {
+            TextField("Enter email address", text: $testNotificationEmail)
+                .textInputAutocapitalization(.never)
+                .autocorrectionDisabled()
+            
+            Button("Cancel", role: .cancel) {
+                testNotificationEmail = ""
+            }
+            
+            Button("Send") {
+                sendTestNotificationToUser()
+            }
+        } message: {
+            Text("Enter the email address of the user you want to send a test notification to.")
         }
     }
     
@@ -149,6 +167,35 @@ struct DebugView: View {
                 }
                 .buttonStyle(.bordered)
                 
+                Button("Sync Subscription to Firestore") {
+                    Task {
+                        await subscriptionService.syncSubscriptionStatus()
+                        showAlert("Subscription status synced to Firestore")
+                    }
+                }
+                .buttonStyle(.bordered)
+                
+                Button("Verify Subscription Ownership") {
+                    Task {
+                        let isOwner = await subscriptionService.verifySubscriptionOwnership()
+                        showAlert(isOwner ? "Subscription ownership verified ✅" : "Subscription ownership failed ❌")
+                    }
+                }
+                .buttonStyle(.bordered)
+                
+                Button("Check Pro Access") {
+                    let canAccess = subscriptionService.canAccessProFeatures()
+                    showAlert(canAccess ? "Can access Pro features ✅" : "Cannot access Pro features ❌")
+                }
+                .buttonStyle(.bordered)
+                
+                Button("Test Paywall (Auth Check)") {
+                    paywallService.presentPaywall(for: .createSharedDictionaries) { didSubscribe in
+                        showAlert(didSubscribe ? "User subscribed! 🎉" : "User dismissed paywall")
+                    }
+                }
+                .buttonStyle(.bordered)
+                
                 Button("Show Paywall") {
                     // This would need to be implemented based on your paywall service
                     showAlert("Paywall functionality needs to be implemented")
@@ -184,10 +231,17 @@ struct DebugView: View {
                 }
                 .buttonStyle(.bordered)
                 
+                Button("Send Test Notification to User") {
+                    showingEmailInput = true
+                }
+                .buttonStyle(.bordered)
+                
                 Button("Clear Dictionary Cache") {
                     clearDictionaryCache()
                 }
                 .buttonStyle(.bordered)
+                
+
             }
         }
     }
@@ -328,6 +382,36 @@ struct DebugView: View {
             )
             
             showAlert("Test push notification sent! Check your device.")
+        }
+    }
+    
+    private func sendTestNotificationToUser() {
+        guard !testNotificationEmail.isEmpty else {
+            showAlert("Please enter a valid email address")
+            return
+        }
+        
+        guard let firstDictionary = dictionaryService.sharedDictionaries.first else {
+            showAlert("No shared dictionaries available")
+            return
+        }
+        
+        Task {
+            do {
+                await dictionaryService.testCollaboratorNotification(
+                    dictionaryId: firstDictionary.id,
+                    targetEmail: testNotificationEmail
+                )
+                
+                DispatchQueue.main.async {
+                    showAlert("Test notification sent to \(testNotificationEmail)!")
+                    testNotificationEmail = ""
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    showAlert("Failed to send test notification: \(error.localizedDescription)")
+                }
+            }
         }
     }
     

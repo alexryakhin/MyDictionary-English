@@ -16,59 +16,87 @@ struct SharedDictionariesListView: View {
     @StateObject private var dictionaryService = DictionaryService.shared
     @State private var showingAddDictionary = false
     @Binding var navigationPath: NavigationPath
+    
+    private var userOwnedDictionaryCount: Int {
+        dictionaryService.getUserOwnedDictionaryCount()
+    }
 
     var body: some View {
         ScrollView {
-            CustomSectionView(header: "Dictionaries") {
-                if dictionaryService.sharedDictionaries.isEmpty {
-                    ContentUnavailableView(
-                        "No Shared Dictionaries",
-                        systemImage: "person.2",
-                        description: Text("Create a shared dictionary to collaborate with others")
-                    )
-                } else {
-                    ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in
-                        Button {
-                            navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
-                        } label: {
-                            HStack {
-                                Image(systemName: "person.2")
-                                    .foregroundStyle(.accent)
-                                    .frame(width: 24)
-
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text(dictionary.name)
-                                        .font(.headline)
-
-                                    HStack {
-                                        Text("\(dictionary.collaborators.count) collaborators")
-                                            .font(.caption)
-                                            .foregroundStyle(.secondary)
-
-                                        if dictionary.isOwner {
-                                            Text("Owner")
-                                                .font(.caption)
-                                                .foregroundStyle(.green)
-                                                .padding(.horizontal, 6)
-                                                .padding(.vertical, 2)
-                                                .background(Color.green.opacity(0.2))
-                                                .cornerRadius(4)
-                                        }
-                                    }
-                                }
-
-                                Spacer()
+            VStack(spacing: 16) {
+                // Show user's dictionary count and limit
+                if !subscriptionService.isProUser {
+                    CustomSectionView(header: "Your Dictionaries") {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("\(userOwnedDictionaryCount) of 1 dictionary created")
+                                .font(.headline)
+                            Text("Free users can create one shared dictionary")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    } trailingContent: {
+                        if userOwnedDictionaryCount >= 1 {
+                            HeaderButton(text: "Upgrade to Pro") {
+                                paywallService.isShowingPaywall = true
                             }
-                            .padding(.vertical, 4)
                         }
                     }
                 }
-            } trailingContent: {
-                HeaderButton(text: "Add", icon: "plus", style: .borderedProminent) {
-                    if subscriptionService.isProUser {
-                        showingAddDictionary = true
+
+                CustomSectionView(header: "Dictionaries") {
+                    if dictionaryService.sharedDictionaries.isEmpty {
+                        ContentUnavailableView(
+                            "No Shared Dictionaries",
+                            systemImage: "person.2",
+                            description: Text(
+                                dictionaryService.canCreateMoreSharedDictionaries()
+                                    ? "Create a shared dictionary to collaborate with others"
+                                    : "Free users can create one shared dictionary. Upgrade to Pro for unlimited dictionaries."
+                            )
+                        )
                     } else {
-                        paywallService.isShowingPaywall = true
+                        ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in
+                            Button {
+                                navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
+                            } label: {
+                                HStack {
+                                    Image(systemName: "person.2")
+                                        .foregroundStyle(.accent)
+                                        .frame(width: 24)
+
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text(dictionary.name)
+                                            .font(.headline)
+
+                                        HStack {
+                                            Text("\(dictionary.collaborators.count) collaborators")
+                                                .font(.caption)
+                                                .foregroundStyle(.secondary)
+
+                                            if dictionary.isOwner {
+                                                Text("Owner")
+                                                    .font(.caption)
+                                                    .foregroundStyle(.green)
+                                                    .padding(.horizontal, 6)
+                                                    .padding(.vertical, 2)
+                                                    .background(Color.green.opacity(0.2))
+                                                    .cornerRadius(4)
+                                            }
+                                        }
+                                    }
+
+                                    Spacer()
+                                }
+                                .padding(.vertical, 4)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                } trailingContent: {
+                    if dictionaryService.canCreateMoreSharedDictionaries() {
+                        HeaderButton(text: "Add", icon: "plus", style: .borderedProminent) {
+                            showingAddDictionary = true
+                        }
                     }
                 }
             }
@@ -84,11 +112,11 @@ struct SharedDictionariesListView: View {
             showsBackButton: true
         )
         .sheet(isPresented: $showingAddDictionary) {
-            if subscriptionService.isProUser {
+            if dictionaryService.canCreateMoreSharedDictionaries() {
                 AddSharedDictionaryView()
                     .presentationCornerRadius(24)
             } else {
-                PaywallView()
+                MyPaywallView()
             }
         }
         .onAppear {

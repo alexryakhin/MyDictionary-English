@@ -52,10 +52,11 @@ final class DictionaryService: ObservableObject {
             throw DictionaryError.invalidInput
         }
         
-        // Check if user has Pro subscription for creating shared dictionaries
-        guard SubscriptionService.shared.isProUser else {
-            print("❌ [DictionaryService] User does not have Pro subscription for creating shared dictionaries")
-            throw DictionaryError.subscriptionRequired
+        // Check if user can create shared dictionaries
+        let canCreate = await canUserCreateSharedDictionary(userId: userId)
+        guard canCreate else {
+            print("❌ [DictionaryService] User cannot create shared dictionaries - limit reached or subscription required")
+            throw DictionaryError.dictionaryLimitReached
         }
 
         // Get current user info
@@ -154,26 +155,15 @@ final class DictionaryService: ObservableObject {
                 return
             }
             
-            // Get user's FCM token - try both email and userId as document ID
-            var fcmToken: String?
-            
-            // First try with email (as document ID)
-            let userDocByEmail = try await db.collection("users").document(userEmail).getDocument()
-            if let userData = userDocByEmail.data(),
-               let token = userData["fcmToken"] as? String {
-                fcmToken = token
-                print("📱 [DictionaryService] Found FCM token using email as document ID")
-            } else {
-                // If not found, try to find user by email in a different way
-                // This would require a users collection with email field
+            // Get user's FCM token using email as document ID
+            let userDoc = try await db.collection("users").document(userEmail).getDocument()
+            guard let userData = userDoc.data(),
+                  let fcmToken = userData["fcmToken"] as? String else {
                 print("⚠️ [DictionaryService] No FCM token found for user email: \(userEmail)")
                 return
             }
             
-            guard let fcmToken = fcmToken else {
-                print("❌ [DictionaryService] No FCM token available for user: \(userEmail)")
-                return
-            }
+            print("📱 [DictionaryService] Found FCM token using email as document ID")
             
             // Send notification via Firebase Functions
             let notificationData: [String: Any] = [
@@ -282,10 +272,30 @@ final class DictionaryService: ObservableObject {
             throw DictionaryError.invalidInput
         }
         
-        // Check if user has Pro subscription for deleting shared dictionaries
-        guard SubscriptionService.shared.isProUser else {
-            print("❌ [DictionaryService] User does not have Pro subscription for deleting shared dictionaries")
-            throw DictionaryError.subscriptionRequired
+        // Check if user can delete this dictionary
+        // Pro users can delete any dictionary they own
+        // Free users can only delete their one shared dictionary
+        guard let userId = authenticationService.userId else {
+            throw DictionaryError.userNotAuthenticated
+        }
+        
+        // Find the dictionary to check ownership
+        guard let dictionary = sharedDictionaries.first(where: { $0.id == dictionaryId }) else {
+            throw DictionaryError.dictionaryNotFound
+        }
+        
+        // Check if user owns this dictionary
+        guard dictionary.owner == userId else {
+            throw DictionaryError.permissionDenied
+        }
+        
+        // Pro users can always delete, free users can only delete their one dictionary
+        if !SubscriptionService.shared.isProUser {
+            let userOwnedDictionaries = sharedDictionaries.filter { $0.owner == userId }
+            if userOwnedDictionaries.count > SubscriptionService.shared.getSharedDictionaryLimit() {
+                print("❌ [DictionaryService] Free user cannot delete dictionary - they have multiple dictionaries")
+                throw DictionaryError.subscriptionRequired
+            }
         }
 
         print("🗑️ [DictionaryService] deleteSharedDictionary called with dictionaryId: \(dictionaryId)")
@@ -924,6 +934,54 @@ final class DictionaryService: ObservableObject {
         setupSharedDictionariesListener()
     }
     
+    /// Checks if a user can create shared dictionaries
+    /// Free users can create 1 shared dictionary, Pro users can create unlimited
+    private func canUserCreateSharedDictionary(userId: String) async -> Bool {
+        // First check if user can access Pro features (must be authenticated)
+        guard SubscriptionService.shared.canAccessProFeatures() else {
+            print("❌ [DictionaryService] User cannot access Pro features - not authenticated or no subscription")
+            return false
+        }
+        
+        let userOwnedDictionaries = sharedDictionaries.filter { $0.owner == userId }
+        let canCreate = SubscriptionService.shared.canCreateMoreSharedDictionaries(currentCount: userOwnedDictionaries.count)
+        
+        print("🔍 [DictionaryService] Dictionary creation check:")
+        print("   - User ID: \(userId)")
+        print("   - Owned dictionaries: \(userOwnedDictionaries.count)")
+        print("   - Can access Pro features: \(SubscriptionService.shared.canAccessProFeatures())")
+        print("   - Can create: \(canCreate)")
+        
+        return canCreate
+    }
+    
+    /// Public method to check if user can create more shared dictionaries
+    /// Returns true if user can create, false if limit reached
+    func canCreateMoreSharedDictionaries() -> Bool {
+        guard let userId = authenticationService.userId else {
+            return false
+        }
+        
+        // First check if user can access Pro features (must be authenticated)
+        guard SubscriptionService.shared.canAccessProFeatures() else {
+            return false
+        }
+        
+        let userOwnedDictionaries = sharedDictionaries.filter { $0.owner == userId }
+        return SubscriptionService.shared.canCreateMoreSharedDictionaries(currentCount: userOwnedDictionaries.count)
+    }
+    
+    /// Returns the number of shared dictionaries the user owns
+    func getUserOwnedDictionaryCount() -> Int {
+        guard let userId = authenticationService.userId else {
+            return 0
+        }
+        
+        return sharedDictionaries.filter { $0.owner == userId }.count
+    }
+    
+
+    
     // MARK: - Testing Methods
     
     func testCollaboratorNotification(dictionaryId: String, targetEmail: String) async {
@@ -938,7 +996,7 @@ final class DictionaryService: ObservableObject {
                 return
             }
             
-            // Get user's FCM token
+            // Get user's FCM token using email as document ID
             let userDoc = try await db.collection("users").document(targetEmail).getDocument()
             guard let userData = userDoc.data(),
                   let fcmToken = userData["fcmToken"] as? String else {
@@ -1092,6 +1150,7 @@ enum DictionaryError: LocalizedError {
     case networkError
     case userNotAuthenticated
     case subscriptionRequired
+    case dictionaryLimitReached
 
     var errorDescription: String? {
         switch self {
@@ -1107,6 +1166,8 @@ enum DictionaryError: LocalizedError {
             return "User must be authenticated"
         case .subscriptionRequired:
             return "Pro subscription required for this feature"
+        case .dictionaryLimitReached:
+            return "You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries."
         }
     }
 }

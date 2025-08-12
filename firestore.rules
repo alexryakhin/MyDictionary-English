@@ -22,9 +22,17 @@ service cloud.firestore {
              exists(/databases/$(database)/documents/dictionaries/$(dictionaryId)/collaborators/$(request.auth.token.email));
     }
     
-    // Private dictionary rules
+    // User profile rules - allow reading/writing user documents by email
+    match /users/{email} {
+      allow read, write: if isSignedIn() && request.auth.token.email == email;
+    }
+    
+    // Private dictionary rules - use userId for words collection
+    // Only users with same userId AND pro subscription can access
     match /users/{userId}/words/{wordId} {
-      allow read, write: if isSignedIn() && request.auth.uid == userId;
+      allow read, write: if isSignedIn() && 
+        request.auth.uid == userId && 
+        get(/databases/$(database)/documents/users/$(request.auth.token.email)).data.subscriptionStatus == "pro";
     }
     
     // Shared dictionary rules
@@ -58,13 +66,7 @@ service cloud.firestore {
       allow list: if isSignedIn();
     }
     
-    // User profiles
-    match /users/{userId} {
-      allow read, write: if isSignedIn() && (
-        request.auth.uid == userId || 
-        request.auth.token.email == userId
-      );
-    }
+
     
     // Test collection for debugging
     match /test/{document=**} {

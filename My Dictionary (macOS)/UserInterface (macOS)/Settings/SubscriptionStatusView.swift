@@ -22,7 +22,7 @@ struct SubscriptionStatusView: View {
         }
         .padding(.bottom, 12)
         .sheet(isPresented: $showingSubscriptionView) {
-            PaywallView()
+            MyPaywallView()
         }
     }
     

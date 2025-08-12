@@ -80,7 +80,7 @@ struct AddEditTagView: View {
             }
         }
         .sheet(isPresented: $isShowingPaywall) {
-            PaywallView()
+            MyPaywallView()
         }
     }
     

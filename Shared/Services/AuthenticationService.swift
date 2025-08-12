@@ -81,6 +81,9 @@ final class AuthenticationService: ObservableObject {
                             // Request push notification permissions
                             await self?.requestPushNotificationPermissions()
                             
+                            // Set up RevenueCat App User ID for cross-platform subscription sharing
+                            await SubscriptionService.shared.setupAppUserID()
+                            
                             // Mark existing words as unsynced so they get uploaded
                             await DataSyncService.shared.markExistingWordsAsUnsynced(userId: user.uid)
                             
@@ -306,6 +309,9 @@ final class AuthenticationService: ObservableObject {
             authenticationState = .loading
 
             do {
+                // Log out from RevenueCat first to prevent subscription sharing
+                await SubscriptionService.shared.logoutFromRevenueCat()
+                
                 try Auth.auth().signOut()
                 GIDSignIn.sharedInstance.signOut()
 

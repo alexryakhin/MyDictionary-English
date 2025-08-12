@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import RevenueCat
 import RevenueCatUI
+import Combine
 
 // MARK: - Paywall Service
 
@@ -27,6 +28,7 @@ final class PaywallService: ObservableObject {
     
     private let subscriptionService = SubscriptionService.shared
     private var paywallCompletionHandler: ((Bool) -> Void)?
+    private var cancellables = Set<AnyCancellable>()
     
     private init() {}
     
@@ -43,6 +45,13 @@ final class PaywallService: ObservableObject {
             return
         }
         
+        // Check if user is authenticated before showing paywall
+        guard AuthenticationService.shared.isSignedIn else {
+            print("⚠️ [PaywallService] User not authenticated - showing sign-in alert")
+            showAuthenticationRequiredAlert(for: reason, completion: completion)
+            return
+        }
+        
         paywallPresentationReason = reason
         paywallCompletionHandler = completion
         isShowingPaywall = true
@@ -51,6 +60,79 @@ final class PaywallService: ObservableObject {
         AnalyticsService.shared.logEvent(.paywallPresented)
         
         print("💰 [PaywallService] Presenting paywall for reason: \(reason)")
+    }
+    
+    /// Shows an alert requiring authentication before accessing Pro features
+    private func showAuthenticationRequiredAlert(for reason: PaywallReason, completion: @escaping (Bool) -> Void) {
+        // Store completion handler for after authentication
+        paywallCompletionHandler = completion
+        paywallPresentationReason = reason
+        
+        // Show alert with sign-in options
+        let alert = UIAlertController(
+            title: "Sign In Required",
+            message: "You need to sign in to access Pro features like \(reason.title).",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Sign In", style: .default) { _ in
+            // Present sign-in options
+            self.presentSignInOptions()
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            // Call completion with false (user didn't proceed)
+            completion(false)
+        })
+        
+        // Present the alert
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            window.rootViewController?.present(alert, animated: true)
+        }
+    }
+    
+    /// Presents sign-in options to the user
+    private func presentSignInOptions() {
+        // Create sign-in view
+        let signInView = AuthenticationView()
+        let hostingController = UIHostingController(rootView: signInView)
+        hostingController.modalPresentationStyle = .fullScreen
+        
+        // Present sign-in view
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            window.rootViewController?.present(hostingController, animated: true) {
+                // After sign-in is presented, set up a listener for authentication state
+                self.setupAuthenticationListener()
+            }
+        }
+    }
+    
+    /// Sets up a listener to show paywall after successful authentication
+    private func setupAuthenticationListener() {
+        // Listen for authentication state changes
+        AuthenticationService.shared.$authenticationState
+            .sink { [weak self] state in
+                if state == .signedIn {
+                    // User signed in successfully, show paywall
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self?.showPaywallAfterAuthentication()
+                    }
+                }
+            }
+            .store(in: &cancellables)
+    }
+    
+    /// Shows the paywall after successful authentication
+    private func showPaywallAfterAuthentication() {
+        guard let reason = paywallPresentationReason else { return }
+        
+        print("✅ [PaywallService] User authenticated, showing paywall for: \(reason)")
+        isShowingPaywall = true
+        
+        // Track analytics
+        AnalyticsService.shared.logEvent(.paywallPresented)
     }
     
     /// Dismisses the paywall
@@ -75,6 +157,53 @@ final class PaywallService: ObservableObject {
         paywallCompletionHandler = nil
         
         print("💰 [PaywallService] Purchase completed, paywall dismissed")
+    }
+    
+    /// Handles restore purchases with authentication check
+    func handleRestorePurchases() async -> Bool {
+        // Check if user is authenticated before restoring
+        guard AuthenticationService.shared.isSignedIn else {
+            print("⚠️ [PaywallService] Cannot restore purchases - user not authenticated")
+            showAuthenticationRequiredAlertForRestore()
+            return false
+        }
+        
+        do {
+            let customerInfo = try await Purchases.shared.restorePurchases()
+            let hasActiveSubscription = !customerInfo.entitlements.active.isEmpty
+            
+            if hasActiveSubscription {
+                print("✅ [PaywallService] Purchases restored successfully")
+                return true
+            } else {
+                print("ℹ️ [PaywallService] No active subscriptions found")
+                return false
+            }
+        } catch {
+            print("❌ [PaywallService] Failed to restore purchases: \(error)")
+            return false
+        }
+    }
+    
+    /// Shows authentication alert when user tries to restore purchases without being signed in
+    private func showAuthenticationRequiredAlertForRestore() {
+        let alert = UIAlertController(
+            title: "Sign In Required",
+            message: "You need to sign in to restore your purchases.",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Sign In", style: .default) { _ in
+            self.presentSignInOptions()
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        // Present the alert
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            window.rootViewController?.present(alert, animated: true)
+        }
     }
 }
 
@@ -142,17 +271,29 @@ enum PaywallReason: String, CaseIterable {
 
 // MARK: - Paywall Modifier
 
+struct MyPaywallView: View {
+
+    @StateObject private var authenticationService = AuthenticationService.shared
+
+    var body: some View {
+        if authenticationService.isSignedIn {
+            PaywallView()
+        } else {
+            AuthenticationView(shownBeforePaywall: true)
+        }
+    }
+}
+
 struct PaywallModifier: ViewModifier {
     
     @StateObject private var paywallService = PaywallService.shared
     
     func body(content: Content) -> some View {
-        content
-            .sheet(isPresented: $paywallService.isShowingPaywall) {
-                PaywallView()
-                    .presentationDetents([.large])
-                    .presentationDragIndicator(.visible)
-            }
+        content.sheet(isPresented: $paywallService.isShowingPaywall) {
+            MyPaywallView()
+                .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
+        }
     }
 }
 

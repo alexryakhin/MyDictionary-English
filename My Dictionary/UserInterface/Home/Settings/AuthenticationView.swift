@@ -15,82 +15,90 @@ struct AuthenticationView: View {
     @StateObject private var authService = AuthenticationService.shared
     @Environment(\.dismiss) private var dismiss
     @State private var showingAccountLinking = false
+    let shownBeforePaywall: Bool
+
+    init(shownBeforePaywall: Bool = false) {
+        self.shownBeforePaywall = shownBeforePaywall
+    }
 
     var body: some View {
         VStack(spacing: 0) {
-                Spacer()
+            Spacer()
 
-                // Header
-                VStack(spacing: 16) {
-                    Image(systemName: "person.circle.fill")
-                        .font(.system(size: 80))
-                        .foregroundStyle(.accent)
+            // Header
+            VStack(spacing: 16) {
+                Image(systemName: "person.circle.fill")
+                    .font(.system(size: 80))
+                    .foregroundStyle(.accent)
 
-                    Text("Sign in to sync your word lists")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .multilineTextAlignment(.center)
+                Text(shownBeforePaywall ? "Sign in before subscribing" : "Sign in to sync your word lists")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
 
-                    Text("Sign in to access your word lists across all your devices and collaborate with others.")
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 32)
+                Text("Sign in to access your word lists across all your devices and collaborate with others.")
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+            }
+
+            Spacer()
+
+            // Sign in buttons
+            VStack(spacing: 16) {
+                // Google Sign-In Button
+                Button {
+                    AnalyticsService.shared.logEvent(.signInWithGoogleTapped)
+                    Task {
+                        await signInWithGoogle()
+                    }
+                } label: {
+                    Label {
+                        Text("Sign in with Google")
+                    } icon: {
+                        Image(.googleLogo).renderingMode(.template)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                }
+                .buttonStyle(.borderedProminent)
+                .frame(height: 50)
+                .disabled(authService.authenticationState == .loading)
+
+                // Sign In with Apple Button
+                SignInWithAppleButton(
+                    onRequest: { request in
+                        request.requestedScopes = [.fullName, .email]
+                    },
+                    onCompletion: { result in
+                        AnalyticsService.shared.logEvent(.signInWithAppleTapped)
+                        Task {
+                            await handleAppleSignIn(result)
+                        }
+                    }
+                )
+                .signInWithAppleButtonStyle(.black)
+                .frame(height: 50)
+                .disabled(authService.authenticationState == .loading)
+
+                // Account Linking (if already signed in)
+                if authService.isSignedIn {
+                    accountLinkingSection
                 }
 
-                Spacer()
-
-                // Sign in buttons
-                VStack(spacing: 16) {
-                    // Google Sign-In Button
-                    Button {
-                        AnalyticsService.shared.logEvent(.signInWithGoogleTapped)
-                        Task {
-                            await signInWithGoogle()
-                        }
-                    } label: {
-                        Label {
-                            Text("Sign in with Google")
-                        } icon: {
-                            Image(.googleLogo).renderingMode(.template)
-                        }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .frame(height: 50)
-                    .disabled(authService.authenticationState == .loading)
-
-                    // Sign In with Apple Button
-                    SignInWithAppleButton(
-                        onRequest: { request in
-                            request.requestedScopes = [.fullName, .email]
-                        },
-                        onCompletion: { result in
-                            AnalyticsService.shared.logEvent(.signInWithAppleTapped)
-                            Task {
-                                await handleAppleSignIn(result)
-                            }
-                        }
-                    )
-                    .signInWithAppleButtonStyle(.black)
-                    .frame(height: 50)
-                    .disabled(authService.authenticationState == .loading)
-
-                    // Account Linking (if already signed in)
-                    if authService.isSignedIn {
-                        accountLinkingSection
-                    }
-
+                if shownBeforePaywall {
                     Button("Skip for now") {
                         dismiss()
                     }
                     .font(.body)
                     .foregroundStyle(.secondary)
                 }
-                .padding(.horizontal, 32)
+            }
+            .padding(.horizontal, 32)
 
-                Spacer()
+            Spacer()
 
+            if shownBeforePaywall {
                 // Footer
                 VStack(spacing: 8) {
                     Text("You can always sign in later from Settings")
@@ -102,6 +110,7 @@ struct AuthenticationView: View {
                             .scaleEffect(0.8)
                     }
                 }
+            }
         }
         .groupedBackground()
         .navigation(

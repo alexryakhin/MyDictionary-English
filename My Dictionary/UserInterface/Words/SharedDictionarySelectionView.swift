@@ -111,14 +111,21 @@ struct SharedDictionarySelectionView: View {
                 } else {
                     CustomSectionView(
                         header: "Shared Dictionaries",
-                        footer: "Create a shared dictionary to collaborate with others"
+                        footer: dictionaryService.canCreateMoreSharedDictionaries() 
+                            ? "Create a shared dictionary to collaborate with others" 
+                            : "Free users can create one shared dictionary. Upgrade to Pro for unlimited dictionaries."
                     ) {
                         Button {
                             showingAddDictionary = true
                         } label: {
-                            Label("Create Shared Dictionary", systemImage: "plus.circle")
-                                .padding(.vertical, 8)
-                                .frame(maxWidth: .infinity)
+                            Label(
+                                dictionaryService.canCreateMoreSharedDictionaries() 
+                                    ? "Create Shared Dictionary" 
+                                    : "Upgrade to Pro for More",
+                                systemImage: dictionaryService.canCreateMoreSharedDictionaries() ? "plus.circle" : "crown"
+                            )
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.bordered)
                         .clipShape(RoundedRectangle(cornerRadius: 16))
@@ -139,11 +146,11 @@ struct SharedDictionarySelectionView: View {
             }
         )
         .sheet(isPresented: $showingAddDictionary) {
-            if subscriptionService.isProUser {
+            if dictionaryService.canCreateMoreSharedDictionaries() {
                 AddSharedDictionaryView()
                     .presentationCornerRadius(24)
             } else {
-                PaywallView()
+                MyPaywallView()
             }
         }
         .onAppear {

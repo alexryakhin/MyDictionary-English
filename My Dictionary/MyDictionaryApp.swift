@@ -129,35 +129,30 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     }
 
     private func saveFCMTokenToFirestore(_ token: String) async {
-        guard let userId = AuthenticationService.shared.userId else {
-            print("❌ [AppDelegate] No user ID available to save FCM token")
+        guard let userId = AuthenticationService.shared.userId,
+              let userEmail = AuthenticationService.shared.userEmail else {
+            print("❌ [AppDelegate] No user ID or email available to save FCM token")
             return
         }
 
         do {
             let db = Firestore.firestore()
-            let userEmail = AuthenticationService.shared.userEmail
-
-            // Save FCM token with user ID as document ID
-            try await db.collection("users").document(userId).setData([
+            
+            // Save FCM token with email as document ID (standardized approach)
+            try await db.collection("users").document(userEmail).setData([
                 "fcmToken": token,
                 "lastUpdated": FieldValue.serverTimestamp(),
                 "platform": "iOS",
-                "email": userEmail ?? "unknown"
+                "userId": userId,
+                "email": userEmail,
+                "name": AuthenticationService.shared.displayName ?? "Unknown",
+                "registrationDate": FieldValue.serverTimestamp(),
+                "subscriptionStatus": SubscriptionService.shared.isProUser ? "pro" : "free",
+                "subscriptionPlan": SubscriptionService.shared.currentPlan?.rawValue,
+                "subscriptionExpiryDate": nil // Will be updated when subscription changes
             ], merge: true)
-
-            // Also save with email as document ID for easier lookup in collaborator notifications
-            if let userEmail = userEmail {
-                try await db.collection("users").document(userEmail).setData([
-                    "fcmToken": token,
-                    "lastUpdated": FieldValue.serverTimestamp(),
-                    "platform": "iOS",
-                    "userId": userId
-                ], merge: true)
-                print("✅ [AppDelegate] FCM token saved for user: \(userId) and email: \(userEmail)")
-            } else {
-                print("✅ [AppDelegate] FCM token saved for user: \(userId)")
-            }
+            
+            print("✅ [AppDelegate] FCM token saved for user: \(userEmail)")
         } catch {
             print("❌ [AppDelegate] Failed to save FCM token: \(error)")
         }

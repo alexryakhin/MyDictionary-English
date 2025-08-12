@@ -104,7 +104,7 @@ struct MainTabView: View {
                 AddSharedDictionaryView()
                     .presentationCornerRadius(24)
             } else {
-                PaywallView()
+                MyPaywallView()
             }
         case .addIdiom:
             AddIdiomContentView()
