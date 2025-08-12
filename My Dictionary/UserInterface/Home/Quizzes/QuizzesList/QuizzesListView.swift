@@ -13,6 +13,7 @@ struct QuizzesListView: View {
     
     @ObservedObject private var viewModel: ViewModel
     @StateObject private var navigationManager: TabManager = .shared
+    @StateObject private var quizWordsProvider: QuizWordsProvider = .shared
     @AppStorage(UDKeys.practiceWordCount) private var practiceWordCount: Double = 10
     
     init(viewModel: ViewModel) {

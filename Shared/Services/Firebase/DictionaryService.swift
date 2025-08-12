@@ -555,6 +555,7 @@ final class DictionaryService: ObservableObject {
 
                     // Set up real-time listener for collaborators
                     self.listenToDictionaryCollaborators(dictionaryId: doc.documentID)
+                    self.listenToSharedDictionaryWords(dictionaryId: doc.documentID)
                 } else {
                     print("❌ [DictionaryService] User does not have access to dictionary: \(dictionary.name)")
                 }
@@ -958,10 +959,6 @@ final class DictionaryService: ObservableObject {
             throw DictionaryError.userNotAuthenticated
         }
         
-        guard difficulty >= 0 && difficulty <= 3 else {
-            throw DictionaryError.invalidInput
-        }
-        
         print("🔍 [DictionaryService] updateDifficulty called for wordId: \(wordId), dictionaryId: \(dictionaryId), difficulty: \(difficulty)")
         
         let wordRef = db
@@ -1014,6 +1011,25 @@ final class DictionaryService: ObservableObject {
         print("🔊 [DictionaryService] Stopping all shared dictionary listeners")
         sharedDictionaryListeners.values.forEach { $0.remove() }
         sharedDictionaryListeners.removeAll()
+    }
+    
+    func pauseAllListeners() {
+        print("🔇 [DictionaryService] Pausing all shared dictionary listeners")
+        sharedDictionaryListeners.values.forEach { $0.remove() }
+        sharedDictionaryListeners.removeAll()
+        sharedWordListeners.values.forEach { $0.remove() }
+        sharedWordListeners.removeAll()
+        listeners.values.forEach { $0.remove() }
+        listeners.removeAll()
+    }
+    
+    func resumeAllListeners() {
+        print("🔊 [DictionaryService] Resuming all shared dictionary listeners")
+        // Re-establish listeners for all active dictionaries
+        for dictionary in sharedDictionaries {
+            listenToSharedDictionaryWords(dictionaryId: dictionary.id)
+            listenToDictionaryCollaborators(dictionaryId: dictionary.id)
+        }
     }
 
     // MARK: - Individual Shared Word Listeners

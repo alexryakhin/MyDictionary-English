@@ -46,13 +46,34 @@ final class ChooseDefinitionViewModel: BaseViewModel {
     private let ttsPlayer: TTSPlayer = .shared
     private var cancellables = Set<AnyCancellable>()
     private var originalWords: [CDWord] = []
+    private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
     private let wordCount: Int
+    private let hardWordsOnly: Bool
 
-    init(wordsProvider: WordsProvider, wordCount: Int = 10) {
+    init(
+        wordCount: Int,
+        hardWordsOnly: Bool
+    ) {
         self.wordCount = wordCount
+        self.hardWordsOnly = hardWordsOnly
         super.init()
         setupBindings()
+        pauseSharedDictionaryListeners()
+    }
+    
+    deinit {
+        resumeSharedDictionaryListeners()
+    }
+    
+    private func pauseSharedDictionaryListeners() {
+        print("🔇 [macOS ChooseDefinitionViewModel] Pausing shared dictionary listeners during quiz")
+        DictionaryService.shared.pauseAllListeners()
+    }
+    
+    private func resumeSharedDictionaryListeners() {
+        print("🔊 [macOS ChooseDefinitionViewModel] Resuming shared dictionary listeners after quiz")
+        DictionaryService.shared.resumeAllListeners()
     }
 
     func handle(_ input: Input) {
@@ -99,8 +120,8 @@ final class ChooseDefinitionViewModel: BaseViewModel {
             answerFeedback = "Incorrect! Moving to next question..."
             
             // Mark word as needs review
-            updateWordDifficultyLevel(word: currentQuestion, level: 2)
-            
+            updateWordScore(word: currentQuestion, score: 2)
+
             AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected)
         }
         
@@ -169,8 +190,8 @@ final class ChooseDefinitionViewModel: BaseViewModel {
         guard let currentQuestion = currentQuestion else { return }
         
         // Mark skipped word as needs review
-        updateWordDifficultyLevel(word: currentQuestion, level: 2)
-        
+        updateWordScore(word: currentQuestion, score: 2)
+
         // Remove word from list
         if let index = words.firstIndex(where: { $0.id == currentQuestion.id }) {
             words.remove(at: index)
@@ -192,8 +213,8 @@ final class ChooseDefinitionViewModel: BaseViewModel {
         AnalyticsService.shared.logEvent(.definitionQuizWordSkipped)
     }
     
-    private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
-        word.difficultyLevel = level
+    private func updateWordScore(word: CDWord, score: Int32) {
+        word.difficultyScore = score
         word.isSynced = false  // Mark as unsynced to trigger Firebase sync
         word.updatedAt = Date()
         do {

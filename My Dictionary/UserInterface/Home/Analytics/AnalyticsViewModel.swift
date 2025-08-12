@@ -49,6 +49,28 @@ final class AnalyticsViewModel: BaseViewModel {
     override init() {
         super.init()
         loadData()
+        setupReactiveUpdates()
+    }
+    
+    private func setupReactiveUpdates() {
+        // Listen to Core Data changes
+        CoreDataService.shared.dataUpdatedPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                print("🔄 [AnalyticsViewModel] Core Data updated, refreshing progress summary")
+                self?.loadData()
+            }
+            .store(in: &cancellables)
+        
+        // Listen to shared dictionary changes with debouncing to prevent excessive refreshes
+        DictionaryService.shared.$sharedWords
+            .debounce(for: .seconds(1.0), scheduler: DispatchQueue.main)
+            .removeDuplicates() // Only trigger if the actual data changed
+            .sink { [weak self] _ in
+                print("🔄 [AnalyticsViewModel] Shared dictionaries updated, refreshing progress summary")
+                self?.loadData()
+            }
+            .store(in: &cancellables)
     }
     
     func loadData() {

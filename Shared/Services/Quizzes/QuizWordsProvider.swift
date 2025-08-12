@@ -20,8 +20,7 @@ final class QuizWordsProvider: ObservableObject {
     private lazy var wordsProvider: WordsProvider = .shared
     private lazy var dictionaryService: DictionaryService = .shared
     private var cancellables = Set<AnyCancellable>()
-    private var dictionariesWithListeners: Set<String> = [] // Track which dictionaries have listeners set up
-    
+
     private init() {
         // Defer setup to avoid initialization order issues
         DispatchQueue.main.async { [weak self] in
@@ -42,7 +41,6 @@ final class QuizWordsProvider: ObservableObject {
     /// Resets the service state (useful when user signs out/in)
     func reset() {
         print("🔄 [QuizWordsProvider] Resetting service state")
-        dictionariesWithListeners.removeAll()
         availableWords = []
         availableDictionaries = []
         selectedDictionary = .privateDictionary
@@ -95,15 +93,6 @@ final class QuizWordsProvider: ObservableObject {
     // MARK: - Private Methods
     
     private func setupBindings() {
-        // Listen to private words changes
-        wordsProvider.$words
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] words in
-                self?.updateAvailableDictionaries()
-                self?.updateAvailableWords()
-            }
-            .store(in: &cancellables)
-        
         // Listen to shared dictionaries changes
         dictionaryService.$sharedDictionaries
             .receive(on: DispatchQueue.main)
@@ -139,27 +128,13 @@ final class QuizWordsProvider: ObservableObject {
     }
     
     private func updateAvailableDictionaries() {
-        var dictionaries: [QuizDictionary] = []
-        
-        // Always add private dictionary if user has words
-        if !wordsProvider.words.isEmpty {
-            dictionaries.append(.privateDictionary)
-        }
-        
+        var dictionaries: [QuizDictionary] = [.privateDictionary]
+
         // Add ALL shared dictionaries that the user has access to
         // Don't filter by word count - let the UI show placeholders when needed
         for dictionary in dictionaryService.sharedDictionaries {
             dictionaries.append(.sharedDictionary(dictionary))
         }
-        
-        // Clean up listeners for dictionaries that are no longer available
-        let currentDictionaryIds = Set(dictionaryService.sharedDictionaries.map { $0.id })
-        let removedDictionaryIds = dictionariesWithListeners.subtracting(currentDictionaryIds)
-        for dictionaryId in removedDictionaryIds {
-            dictionariesWithListeners.remove(dictionaryId)
-            print("🧹 [QuizWordsProvider] Removed listener tracking for dictionary: \(dictionaryId)")
-        }
-        
         availableDictionaries = dictionaries
         
         // If current selection is no longer available, switch to private dictionary
@@ -177,29 +152,14 @@ final class QuizWordsProvider: ObservableObject {
             // Get words from cache
             let cachedWords = dictionaryService.sharedWords[dictionary.id] ?? []
             print("📊 [QuizWordsProvider] Checking cached words for shared dictionary '\(dictionary.name)': \(cachedWords.count) words")
-            
-            // If no words are cached and we haven't set up a listener yet, trigger loading
-            if cachedWords.isEmpty && !dictionariesWithListeners.contains(dictionary.id) {
-                print("🔄 [QuizWordsProvider] Loading words for shared dictionary: \(dictionary.name)")
-                setupListenerForDictionary(dictionary.id)
-            }
-            
+
             availableWords = cachedWords
             print("📊 [QuizWordsProvider] Updated available words for shared dictionary '\(dictionary.name)': \(cachedWords.count) words")
         }
     }
     
     private func setupListenerForDictionary(_ dictionaryId: String) {
-        // Only set up listener if we haven't already
-        guard !dictionariesWithListeners.contains(dictionaryId) else {
-            print("🔄 [QuizWordsProvider] Listener already set up for dictionary: \(dictionaryId), skipping")
-            return
-        }
-        
-        print("🔄 [QuizWordsProvider] Setting up new listener for dictionary: \(dictionaryId)")
         dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionaryId)
-        dictionariesWithListeners.insert(dictionaryId)
-        print("✅ [QuizWordsProvider] Successfully set up listener for dictionary: \(dictionaryId)")
     }
 }
 

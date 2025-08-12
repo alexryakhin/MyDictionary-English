@@ -165,12 +165,24 @@ extension SharedWord: QuizWord {
                     if words.contains(where: { $0.id == self.id }) {
                         let currentScore = self.getDifficultyFor(userEmail)
                         let newScore = calculateNewScore(currentScore: currentScore, pointsToAdd: points)
+                        print("🔹 [SharedWord] Updating difficulty for word '\(self.wordItself)' from \(currentScore) to \(newScore) in dictionary \(dictionaryId)")
                         try await dictionaryService.updateDifficulty(for: self.id, in: dictionaryId, difficulty: newScore)
+
+                        // Update local cache immediately for better UX
+                        if let wordIndex = dictionaryService.sharedWords[dictionaryId]?.firstIndex(where: { $0.id == self.id }) {
+                            var updatedWords = dictionaryService.sharedWords[dictionaryId] ?? []
+                            var updatedWord = updatedWords[wordIndex]
+                            updatedWord.difficulties[userEmail] = newScore
+                            updatedWords[wordIndex] = updatedWord
+                            dictionaryService.sharedWords[dictionaryId] = updatedWords
+                        }
+                        print("✅ [SharedWord] Difficulty updated successfully for word '\(self.wordItself)'")
                         break
                     }
                 }
             } catch {
-                print("❌ Failed to update shared word difficulty score: \(error)")
+                print("❌ [SharedWord] Failed to update difficulty score for word '\(self.wordItself)': \(error)")
+                // Consider showing a user-friendly error message
             }
         }
     }

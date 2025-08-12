@@ -86,9 +86,16 @@ final class QuizAnalyticsService {
             // Just ensure it's marked for sync
             word.updatedAt = Date()
             word.isSynced = false // Mark for sync
+            print("🔹 [QuizAnalyticsService] Private word '\(word.wordItself ?? "unknown")' marked for sync")
         } else {
-            // This is a shared word - the difficulty score has already been updated by the QuizWord protocol
-            print("📝 [QuizAnalyticsService] Word \(wordId) not found in Core Data - shared word difficulty score already updated")
+            // This is a shared word - check if it exists in shared dictionaries
+            let dictionaryService = DictionaryService.shared
+            let sharedWords = dictionaryService.sharedWords.values.flatMap { $0 }
+            if let sharedWord = sharedWords.first(where: { $0.id == wordId }) {
+                print("🔹 [QuizAnalyticsService] Shared word '\(sharedWord.wordItself)' difficulty score already updated via QuizWord protocol")
+            } else {
+                print("⚠️ [QuizAnalyticsService] Word \(wordId) not found in Core Data or shared dictionaries")
+            }
         }
     }
     
@@ -139,8 +146,16 @@ final class QuizAnalyticsService {
         let request = CDWord.fetchRequest()
         
         do {
-            let wordCount = try coreDataService.context.count(for: request)
-            stats.vocabularySize = Int32(wordCount)
+            let privateWordCount = try coreDataService.context.count(for: request)
+            
+            // Add shared dictionary words count
+            let dictionaryService = DictionaryService.shared
+            let sharedWordCount = dictionaryService.sharedWords.values.flatMap { $0 }.count
+            
+            let totalWordCount = privateWordCount + sharedWordCount
+            stats.vocabularySize = Int32(totalWordCount)
+            
+            print("🔹 [QuizAnalyticsService] Vocabulary size updated: \(privateWordCount) private + \(sharedWordCount) shared = \(totalWordCount) total")
         } catch {
             print("❌ Failed to update vocabulary size: \(error)")
         }
@@ -211,22 +226,49 @@ final class QuizAnalyticsService {
     }
     
     func getProgressSummary() -> ProgressSummary {
-        let words = getAllWords()
+        let privateWords = getAllWords()
         let userStats = getUserStats()
         
-        // Calculate progress from word difficulty levels
-        let inProgress = words.filter { $0.difficultyLevel == .inProgress }.count
-        let needsReview = words.filter { $0.difficultyLevel == .needsReview }.count
-        let mastered = words.filter { $0.difficultyLevel == .mastered }.count
+        // Get shared dictionary words
+        let dictionaryService = DictionaryService.shared
+        let sharedWords = dictionaryService.sharedWords.values.flatMap { $0 }
+        
+        // Calculate progress from private word difficulty levels
+        let privateInProgress = privateWords.filter { $0.difficultyLevel == .inProgress }.count
+        let privateNeedsReview = privateWords.filter { $0.difficultyLevel == .needsReview }.count
+        let privateMastered = privateWords.filter { $0.difficultyLevel == .mastered }.count
+        
+        // Calculate progress from shared word difficulty levels for current user
+        let userEmail = AuthenticationService.shared.userEmail
+        let sharedInProgress = sharedWords.filter { 
+            guard let email = userEmail else { return false }
+            return $0.getDifficultyFor(email) == 1 // inProgress
+        }.count
+        let sharedNeedsReview = sharedWords.filter { 
+            guard let email = userEmail else { return false }
+            return $0.getDifficultyFor(email) == 2 // needsReview
+        }.count
+        let sharedMastered = sharedWords.filter { 
+            guard let email = userEmail else { return false }
+            return $0.getDifficultyFor(email) == 3 // mastered
+        }.count
+        
+        // Combine private and shared word counts
+        let totalInProgress = privateInProgress + sharedInProgress
+        let totalNeedsReview = privateNeedsReview + sharedNeedsReview
+        let totalMastered = privateMastered + sharedMastered
+        
+        // Calculate total vocabulary size including shared words
+        let totalVocabularySize = privateWords.count + sharedWords.count
 
         return ProgressSummary(
-            inProgress: inProgress,
-            mastered: mastered,
-            needsReview: needsReview,
+            inProgress: totalInProgress,
+            mastered: totalMastered,
+            needsReview: totalNeedsReview,
             totalPracticeTime: userStats?.totalPracticeTime ?? 0,
             totalSessions: Int(userStats?.totalSessions ?? 0),
             averageAccuracy: userStats?.averageAccuracy ?? 0,
-            vocabularySize: Int(userStats?.vocabularySize ?? 0)
+            vocabularySize: totalVocabularySize
         )
     }
 }

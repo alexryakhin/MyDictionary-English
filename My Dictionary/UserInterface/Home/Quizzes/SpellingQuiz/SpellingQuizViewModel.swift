@@ -38,6 +38,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     private let quizAnalyticsService: QuizAnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
     private var originalWords: [any QuizWord] = []
+    private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
     private let wordCount: Int
     private let hardWordsOnly: Bool
@@ -50,6 +51,17 @@ final class SpellingQuizViewModel: BaseViewModel {
         self.hardWordsOnly = hardWordsOnly
         super.init()
         setupBindings()
+        pauseSharedDictionaryListeners()
+    }
+    
+    deinit {
+        print("🔊 [SpellingQuizViewModel] Resuming shared dictionary listeners after quiz")
+        DictionaryService.shared.resumeAllListeners()
+    }
+    
+    private func pauseSharedDictionaryListeners() {
+        print("🔇 [SpellingQuizViewModel] Pausing shared dictionary listeners during quiz")
+        DictionaryService.shared.pauseAllListeners()
     }
 
     func handle(_ input: Input) {
@@ -86,7 +98,7 @@ final class SpellingQuizViewModel: BaseViewModel {
             
             // Update word difficulty - add 5 points for correct answer
             Task {
-                await updateWordDifficulty(randomWord, points: 5)
+                await updateWordScore(randomWord, points: 5)
             }
             
             wordsPlayed.append(randomWord)
@@ -128,7 +140,7 @@ final class SpellingQuizViewModel: BaseViewModel {
             // After 3 attempts, mark word as needs review and add to played list
             if attemptCount >= 3 {
                 Task {
-                    await updateWordDifficulty(randomWord, points: -2)
+                    await updateWordScore(randomWord, points: -2)
                 }
                 wordsPlayed.append(randomWord) // Add to played list when failed
                 accuracyContributions[randomWord.quiz_id] = 0.0 // 0% accuracy for failed words
@@ -144,7 +156,7 @@ final class SpellingQuizViewModel: BaseViewModel {
         
         // Mark skipped word as needs review - subtract 2 points for skipping
         Task {
-            await updateWordDifficulty(randomWord, points: -2)
+            await updateWordScore(randomWord, points: -2)
         }
         
         // Add word to played list when skipped
@@ -271,7 +283,7 @@ final class SpellingQuizViewModel: BaseViewModel {
         self.totalQuestions = limitedWords.count
     }
 
-    private func updateWordDifficulty(_ word: any QuizWord, points: Int) async {
+    private func updateWordScore(_ word: any QuizWord, points: Int) async {
         if let sharedWord = word as? SharedWord {
             // For shared words, use the async method
             if let userEmail = AuthenticationService.shared.userEmail {

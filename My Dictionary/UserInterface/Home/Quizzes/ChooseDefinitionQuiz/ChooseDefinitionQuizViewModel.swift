@@ -59,6 +59,17 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         self.correctAnswerIndex = Int.random(in: 0...2)
         super.init()
         setupBindings()
+        pauseSharedDictionaryListeners()
+    }
+    
+    deinit {
+        print("🔊 [ChooseDefinitionQuizViewModel] Resuming shared dictionary listeners after quiz")
+        DictionaryService.shared.resumeAllListeners()
+    }
+    
+    private func pauseSharedDictionaryListeners() {
+        print("🔇 [ChooseDefinitionQuizViewModel] Pausing shared dictionary listeners during quiz")
+        DictionaryService.shared.pauseAllListeners()
     }
 
     func handle(_ input: Input) {
@@ -92,10 +103,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             bestStreak = max(bestStreak, currentStreak)
             
             // Update word difficulty - add 5 points for correct answer
-            Task {
-                await updateWordDifficulty(correctWord, points: 5)
-            }
-            
+            updateWordScore(correctWord, points: 5)
+
             // Add to correct word IDs for analytics
             correctWordIds.append(correctWord.quiz_id)
             
@@ -111,10 +120,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             currentStreak = 0 // Reset streak on wrong answer
             
             // Update word difficulty - subtract 2 points for incorrect answer
-            Task {
-                await updateWordDifficulty(correctWord, points: -2)
-            }
-            
+            updateWordScore(correctWord, points: -2)
+
             // Update quiz score - subtract 2 points for incorrect answer
             score -= 2
             
@@ -130,11 +137,11 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         }
     }
     
-    private func updateWordDifficulty(_ word: any QuizWord, points: Int) async {
+    private func updateWordScore(_ word: any QuizWord, points: Int) {
         if let sharedWord = word as? SharedWord {
             // For shared words, use the async method
             if let userEmail = AuthenticationService.shared.userEmail {
-                await sharedWord.quiz_updateDifficultyScoreForUser(points, userEmail: userEmail)
+                sharedWord.quiz_updateDifficultyScoreForUser(points, userEmail: userEmail)
             }
         } else {
             // For private words, use the sync method
@@ -144,10 +151,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     
     private func skipWord() {
         // Mark current word as needs review - subtract 2 points for skipping
-        Task {
-            await updateWordDifficulty(correctWord, points: -2)
-        }
-        
+        updateWordScore(correctWord, points: -2)
+
         // Move current word to end for later and add to wordsPlayed
         usedWords.insert(correctWord.quiz_id)
         wordsPlayed.append(correctWord)

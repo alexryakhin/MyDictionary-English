@@ -43,13 +43,34 @@ final class SpellingQuizViewModel: BaseViewModel {
     private let quizAnalyticsService: QuizAnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
     private var originalWords: [CDWord] = []
+    private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
     private let wordCount: Int
+    private let hardWordsOnly: Bool
 
-    init(wordCount: Int = 10) {
+    init(
+        wordCount: Int,
+        hardWordsOnly: Bool
+    ) {
         self.wordCount = wordCount
+        self.hardWordsOnly = hardWordsOnly
         super.init()
         setupBindings()
+        pauseSharedDictionaryListeners()
+    }
+    
+    deinit {
+        resumeSharedDictionaryListeners()
+    }
+    
+    private func pauseSharedDictionaryListeners() {
+        print("🔇 [macOS SpellingQuizViewModel] Pausing shared dictionary listeners during quiz")
+        DictionaryService.shared.pauseAllListeners()
+    }
+    
+    private func resumeSharedDictionaryListeners() {
+        print("🔊 [macOS SpellingQuizViewModel] Resuming shared dictionary listeners after quiz")
+        DictionaryService.shared.resumeAllListeners()
     }
 
     func handle(_ input: Input) {
@@ -102,7 +123,7 @@ final class SpellingQuizViewModel: BaseViewModel {
             
             // After 3 attempts, mark word as needs review
             if attemptCount >= 3 {
-                updateWordDifficultyLevel(word: randomWord, level: 2)
+                updateWordScore(word: randomWord, score: 2)
             }
             
             AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed)
@@ -133,8 +154,8 @@ final class SpellingQuizViewModel: BaseViewModel {
         guard let randomWord else { return }
         
         // Mark skipped word as needs review
-        updateWordDifficultyLevel(word: randomWord, level: 2)
-        
+        updateWordScore(word: randomWord, score: 2)
+
         // Remove word from list (don't move to end)
         if let wordIndex = words.firstIndex(where: { $0.id == randomWord.id }) {
             words.remove(at: wordIndex)
@@ -161,8 +182,8 @@ final class SpellingQuizViewModel: BaseViewModel {
         AnalyticsService.shared.logEvent(.spellingQuizWordSkipped)
     }
     
-    private func updateWordDifficultyLevel(word: CDWord, level: Int32) {
-        word.difficultyLevel = level
+    private func updateWordScore(word: CDWord, score: Int32) {
+        word.difficultyScore = score
         word.isSynced = false  // Mark as unsynced to trigger Firebase sync
         word.updatedAt = Date()
         do {
