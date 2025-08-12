@@ -52,6 +52,7 @@ struct MainTabView: View {
                 isShowingOnboarding = false
             } content: {
                 OnboardingView()
+                    .interactiveDismissDisabled()
             }
             .navigationDestination(for: NavigationDestination.self) { destination in
                 destinationView(for: destination)
