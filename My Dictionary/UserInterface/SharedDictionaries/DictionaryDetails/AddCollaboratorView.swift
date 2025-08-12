@@ -31,7 +31,7 @@ struct AddCollaboratorView: View {
                             .background(Color(.tertiarySystemGroupedBackground))
                             .clipShape(RoundedRectangle(cornerRadius: 12))
 
-                        TextField("Name (optional)", text: $name)
+                        TextField("Name", text: $name)
                             .keyboardType(.default)
                             .autocapitalization(.words)
                             .autocorrectionDisabled()
@@ -97,22 +97,14 @@ struct AddCollaboratorView: View {
             }
         )
         .safeAreaInset(edge: .bottom) {
-            Button {
+            ActionButton(
+                "Add Collaborator",
+                style: .borderedProminent,
+                isLoading: isLoading
+            ) {
                 addCollaborator()
-            } label: {
-                Text("Add Collaborator")
-                    .font(.headline)
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity)
-                    .overlay {
-                        if isLoading {
-                            ProgressView()
-                        }
-                    }
             }
-            .buttonStyle(.borderedProminent)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .disabled(email.isEmpty || isLoading)
+            .disabled(email.isEmpty && name.isEmpty)
             .padding(vertical: 12, horizontal: 16)
         }
     }

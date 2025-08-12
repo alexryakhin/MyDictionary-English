@@ -33,7 +33,7 @@ struct WordTagSelectionView: View {
                         ForEach(tagService.tags) { tag in
                             let isSelected = word.tagsArray.contains { $0.id == tag.id }
                             HeaderButton(
-                                text: tag.name.orEmpty,
+                                tag.name.orEmpty,
                                 style: isSelected ? .borderedProminent : .bordered
                             ) {
                                 toggleTag(tag)
@@ -45,7 +45,7 @@ struct WordTagSelectionView: View {
                     .padding(.bottom, 12)
                 }
             } trailingContent: {
-                HeaderButton(text: "Create tags", icon: "tag", style: .borderedProminent) {
+                HeaderButton("Create tags", icon: "tag", style: .borderedProminent) {
                     isShowingAddTagSheet.toggle()
                 }
             }
@@ -56,7 +56,7 @@ struct WordTagSelectionView: View {
             title: "Add Tags",
             mode: .inline,
             trailingContent: {
-                HeaderButton(text: "Done", icon: "checkmark") {
+                HeaderButton("Done", icon: "checkmark") {
                     dismiss()
                 }
             }

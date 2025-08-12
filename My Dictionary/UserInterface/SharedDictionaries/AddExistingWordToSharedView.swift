@@ -103,23 +103,16 @@ struct AddExistingWordToSharedView: View {
             dictionaryService.setupSharedDictionariesListener()
         }
         .safeAreaInset(edge: .bottom) {
-            Button {
+            ActionButton(
+                "Add to Shared Dictionary",
+                systemImage: "plus",
+                style: .borderedProminent,
+                isLoading: isLoading
+            ) {
                 print("🔘 [AddExistingWordToSharedView] Button pressed!")
                 addWordToSelectedDictionary()
-            } label: {
-                Label("Add to Shared Dictionary", systemImage: "plus")
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity)
-                    .overlay {
-                        if isLoading {
-                            ProgressView()
-                        }
-                    }
             }
-            .buttonStyle(.borderedProminent)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
             .disabled(selectedDictionaryId == nil)
-            .allowsHitTesting(!isLoading)
             .padding(vertical: 12, horizontal: 16)
         }
     }

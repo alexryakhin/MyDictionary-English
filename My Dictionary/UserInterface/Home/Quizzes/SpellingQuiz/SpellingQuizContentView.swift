@@ -74,7 +74,7 @@ struct SpellingQuizContentView: View {
                 title: "Spelling Quiz",
                 mode: .inline,
                 trailingContent: {
-                    HeaderButton(text: "Exit") {
+                    HeaderButton("Exit") {
                         viewModel.handle(.dismiss)
                     }
                 },

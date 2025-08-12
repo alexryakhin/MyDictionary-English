@@ -117,7 +117,7 @@ struct AuthenticationView: View {
             title: "Sign In",
             mode: .inline,
             trailingContent: {
-                HeaderButton(text: "Cancel") {
+                HeaderButton("Cancel") {
                     dismiss()
                 }
             }

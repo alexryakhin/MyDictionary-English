@@ -31,6 +31,9 @@ final class DictionaryService: ObservableObject {
     private let listenersQueue = DispatchQueue(label: "com.mydictionary.listeners", attributes: .concurrent)
     private var lastUIUpdateTime: [String: Date] = [:] // Track last UI update time per dictionary
     private let uiUpdateDebounceInterval: TimeInterval = 0.5 // Debounce UI updates by 500ms
+    private var sharedDictionaryListeners: [String: ListenerRegistration] = [:]
+    private var sharedWordListeners: [String: ListenerRegistration] = [:] // Add this line for individual word listeners
+    private var hasInitializedSync: [String: Bool] = [:] // Track if we've done initial sync for each user
 
     private init() {
         setupAuthenticationListener()
@@ -321,16 +324,11 @@ final class DictionaryService: ObservableObject {
         }
     }
 
-    func updateWordInSharedDictionary(dictionaryId: String, word: Word) async throws {
+    func updateWordInSharedDictionary(dictionaryId: String, sharedWord: SharedWord) async throws {
         guard !dictionaryId.isEmpty else {
             throw DictionaryError.invalidInput
         }
 
-        let sharedWord = SharedWord(
-            from: word,
-            addedByEmail: authenticationService.userEmail ?? "Unknown",
-            addedByDisplayName: authenticationService.displayName
-        )
         let docRef = db
             .collection("dictionaries")
             .document(dictionaryId)
@@ -820,6 +818,9 @@ final class DictionaryService: ObservableObject {
         }
         lastUIUpdateTime.removeAll()
         
+        // Stop all shared word listeners
+        stopAllSharedWordListeners()
+        
         // Clear shared words cache
         DispatchQueue.main.async { [weak self] in
             self?.sharedWords.removeAll()
@@ -894,23 +895,6 @@ final class DictionaryService: ObservableObject {
         }
         
         return sharedDictionaries.filter { $0.owner == userId }.count
-    }
-
-    // MARK: - Testing Methods
-    
-    func testCollaboratorNotification(dictionaryId: String, targetEmail: String) async {
-        print("🧪 [DictionaryService] Testing collaborator notification for dictionary: \(dictionaryId), target: \(targetEmail)")
-        
-        do {
-            // Instead of manually sending notifications, add the user as a collaborator
-            // This will trigger the Cloud Function automatically
-            try await addCollaborator(dictionaryId: dictionaryId, email: targetEmail)
-            
-            print("✅ [DictionaryService] Test collaborator added - notification will be sent by Cloud Function")
-            
-        } catch {
-            print("❌ [DictionaryService] Failed to add test collaborator: \(error)")
-        }
     }
 
     func stopListening() {
@@ -1024,6 +1008,73 @@ final class DictionaryService: ObservableObject {
         let difficulties = wordData["difficulties"] as? [String: Int] ?? [:]
         print("✅ [DictionaryService] Retrieved difficulty stats: \(difficulties)")
         return difficulties
+    }
+
+    func stopAllSharedDictionaryListeners() {
+        print("🔊 [DictionaryService] Stopping all shared dictionary listeners")
+        sharedDictionaryListeners.values.forEach { $0.remove() }
+        sharedDictionaryListeners.removeAll()
+    }
+
+    // MARK: - Individual Shared Word Listeners
+
+    func startSharedWordListener(dictionaryId: String, wordId: String, onUpdate: @escaping (SharedWord?) -> Void) {
+        print("🔊 [DictionaryService] Starting real-time listener for shared word: \(wordId) in dictionary: \(dictionaryId)")
+        
+        // Remove existing listener if any
+        stopSharedWordListener(dictionaryId: dictionaryId, wordId: wordId)
+        
+        let listenerKey = "\(dictionaryId)_\(wordId)"
+        let docRef = db
+            .collection("dictionaries")
+            .document(dictionaryId)
+            .collection("words")
+            .document(wordId)
+        
+        let listener = docRef.addSnapshotListener { [weak self] snapshot, error in
+            guard let self = self else { return }
+            
+            if let error = error {
+                print("❌ [DictionaryService] Shared word listener error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let document = snapshot else {
+                print("📄 [DictionaryService] Shared word document not found: \(wordId)")
+                onUpdate(nil)
+                return
+            }
+            
+            guard let data = document.data() else {
+                print("📄 [DictionaryService] Shared word document has no data: \(wordId)")
+                onUpdate(nil)
+                return
+            }
+            
+            if let sharedWord = SharedWord.fromFirestoreDictionary(data, id: wordId) {
+                print("🔄 [DictionaryService] Shared word updated: '\(sharedWord.wordItself)' (ID: \(wordId))")
+                onUpdate(sharedWord)
+            } else {
+                print("❌ [DictionaryService] Failed to parse shared word data: \(wordId)")
+                onUpdate(nil)
+            }
+        }
+        
+        // Store the listener for cleanup
+        sharedWordListeners[listenerKey] = listener
+    }
+
+    func stopSharedWordListener(dictionaryId: String, wordId: String) {
+        let listenerKey = "\(dictionaryId)_\(wordId)"
+        print("🔊 [DictionaryService] Stopping shared word listener for: \(listenerKey)")
+        sharedWordListeners[listenerKey]?.remove()
+        sharedWordListeners.removeValue(forKey: listenerKey)
+    }
+
+    func stopAllSharedWordListeners() {
+        print("🔊 [DictionaryService] Stopping all shared word listeners")
+        sharedWordListeners.values.forEach { $0.remove() }
+        sharedWordListeners.removeAll()
     }
 }
 

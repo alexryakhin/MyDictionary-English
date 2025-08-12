@@ -13,34 +13,34 @@ struct MainTabView: View {
 
     // MARK: - Properties
 
-    @State private var navigationPath = NavigationPath()
     @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
     @AppStorage(UDKeys.showIdiomsTab) var showIdiomsTab: Bool = true
+    @StateObject var navigationManager: NavigationManager = .shared
     @StateObject var tabManager: TabManager = .shared
     @StateObject var authenticationService: AuthenticationService = .shared
     @StateObject var subscriptionService: SubscriptionService = .shared
 
     var body: some View {
-        NavigationStack(path: $navigationPath) {
+        NavigationStack(path: $navigationManager.navigationPath) {
             ZStack {
                 Color(.systemGroupedBackground)
                     .ignoresSafeArea()
                 HStack {
                     switch tabManager.selectedTab {
                     case .words:
-                        WordsFlow(navigationPath: $navigationPath, viewModel: wordsViewModel)
+                        WordsFlow(viewModel: wordsViewModel)
                             .transition(tabManager.getSlideTransition())
                     case .idioms:
-                        IdiomsFlow(navigationPath: $navigationPath, viewModel: idiomsViewModel)
+                        IdiomsFlow(viewModel: idiomsViewModel)
                             .transition(tabManager.getSlideTransition())
                     case .quizzes:
-                        QuizzesFlow(navigationPath: $navigationPath, viewModel: quizzesViewModel)
+                        QuizzesFlow(viewModel: quizzesViewModel)
                             .transition(tabManager.getSlideTransition())
                     case .analytics:
-                        AnalyticsFlow(navigationPath: $navigationPath, viewModel: analyticsViewModel)
+                        AnalyticsFlow(viewModel: analyticsViewModel)
                             .transition(tabManager.getSlideTransition())
                     case .settings:
-                        SettingsFlow(navigationPath: $navigationPath, viewModel: settingsViewModel)
+                        SettingsFlow(viewModel: settingsViewModel)
                             .transition(tabManager.getSlideTransition())
                     }
                 }
@@ -58,9 +58,6 @@ struct MainTabView: View {
             }
             .overlay {
                 SignOutView()
-            }
-            .onReceive(tabManager.popToRootPublisher) {
-                navigationPath.removeLast(navigationPath.count)
             }
             .withPaywall()
         }
@@ -115,25 +112,27 @@ struct MainTabView: View {
         case .tagManagement:
             TagManagementView()
         case .sharedDictionariesList:
-            SharedDictionariesListView(navigationPath: $navigationPath)
+            SharedDictionariesListView()
         case .authentication:
             AuthenticationView()
         case .spellingQuiz(let wordCount, let hardWordsOnly):
             SpellingQuizContentView(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
         case .chooseDefinitionQuiz(let wordCount, let hardWordsOnly):
             ChooseDefinitionQuizContentView(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
-        case .wordDetails(let config):
-            WordDetailsContentView(config: config)
+        case .wordDetails(let word):
+            WordDetailsContentView(word: word)
         case .addExistingWordToShared(let word):
             AddExistingWordToSharedView(word: word)
         case .idiomDetails(let idiom):
             IdiomDetailsContentView(idiom: idiom)
         case .sharedDictionaryWords(let dictionary):
-            SharedDictionaryWordsView(navigationPath: $navigationPath, dictionary: dictionary)
+            SharedDictionaryWordsView(dictionary: dictionary)
         case .sharedDictionaryDetails(let dictionary):
             SharedDictionaryDetailsView(dictionary: dictionary)
         case .sharedWordDetails(let word, let dictionaryId):
             SharedWordDetailsView(word: word, dictionaryId: dictionaryId)
+        case .sharedWordDifficultyStats(let word, let dictionaryId):
+            SharedWordDifficultyStatsView(word: word, dictionaryId: dictionaryId)
         }
     }
 }

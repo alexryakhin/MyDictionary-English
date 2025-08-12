@@ -10,7 +10,7 @@ import Foundation
 enum NavigationDestination: Hashable {
     // MARK: - Word-related destinations
     case addWord
-    case wordDetails(WordDetailsContentView.Config)
+    case wordDetails(CDWord)
     case addExistingWordToShared(CDWord)
     
     // MARK: - Shared word destinations
@@ -30,7 +30,8 @@ enum NavigationDestination: Hashable {
     case sharedDictionaryWords(SharedDictionary)
     case sharedDictionaryDetails(SharedDictionary)
     case sharedDictionariesList
-    
+    case sharedWordDifficultyStats(word: SharedWord, dictionaryId: String)
+
     // MARK: - Settings destinations
     case aboutApp
     case tagManagement

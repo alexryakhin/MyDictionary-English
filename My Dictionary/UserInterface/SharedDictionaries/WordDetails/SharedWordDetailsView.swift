@@ -24,7 +24,7 @@ struct SharedWordDetailsView: View {
     @State private var phoneticText: String = ""
     @State private var definitionText: String = ""
     @State private var examples: [String] = []
-    
+
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var authenticationService = AuthenticationService.shared
 
@@ -85,6 +85,28 @@ struct SharedWordDetailsView: View {
                 AnalyticsService.shared.logEvent(.wordExampleChanged)
             }
         }
+        .onAppear {
+            // Start real-time listener for this specific word
+            dictionaryService.startSharedWordListener(
+                dictionaryId: dictionaryId,
+                wordId: word.id
+            ) { updatedWord in
+                guard let updatedWord else { return }
+                
+                // Update the word state on the main thread
+                DispatchQueue.main.async {
+                    self.word = updatedWord
+                    // Also update the local state variables to keep them in sync
+                    self.phoneticText = updatedWord.phonetic ?? ""
+                    self.definitionText = updatedWord.definition
+                    self.examples = updatedWord.examples
+                }
+            }
+        }
+        .onDisappear {
+            // Stop the real-time listener when leaving the view
+            dictionaryService.stopSharedWordListener(dictionaryId: dictionaryId, wordId: word.id)
+        }
     }
 
     private var transcriptionSectionView: some View {
@@ -94,12 +116,12 @@ struct SharedWordDetailsView: View {
                 .fontWeight(.semibold)
         } trailingContent: {
             if isPhoneticsFocused {
-                HeaderButton(text: "Done") {
+                HeaderButton("Done") {
                     isPhoneticsFocused = false
                     savePhonetic()
                 }
             } else {
-                HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
                     play(word.wordItself, isWord: true)
                 }
             }
@@ -136,21 +158,19 @@ struct SharedWordDetailsView: View {
                 .fontWeight(.semibold)
         } trailingContent: {
             if isDefinitionFocused {
-                HeaderButton(text: "Done") {
+                HeaderButton("Done") {
                     isDefinitionFocused = false
                     saveDefinition()
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                 }
             } else {
-                HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
                     play(word.definition)
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
             }
         }
     }
-
-
 
     @ViewBuilder
     private var languageSectionView: some View {
@@ -171,8 +191,6 @@ struct SharedWordDetailsView: View {
             }
         }
     }
-    
-
 
     private var examplesSectionView: some View {
         CustomSectionView(
@@ -249,14 +267,14 @@ struct SharedWordDetailsView: View {
             }
         } trailingContent: {
             if isAddingExample {
-                HeaderButton(text: "Save", icon: "checkmark") {
+                HeaderButton("Save", icon: "checkmark") {
                     addExample(exampleTextFieldStr)
                     isAddingExample = false
                     exampleTextFieldStr = .empty
                     AnalyticsService.shared.logEvent(.wordExampleAdded)
                 }
             } else {
-                HeaderButton(text: "Add example", icon: "plus") {
+                HeaderButton("Add example", icon: "plus") {
                     withAnimation {
                         isAddingExample.toggle()
                         AnalyticsService.shared.logEvent(.wordAddExampleTapped)
@@ -265,9 +283,9 @@ struct SharedWordDetailsView: View {
             }
         }
     }
-    
+
     // MARK: - Collaborative Features Section
-    
+
     private var collaborativeFeaturesSection: some View {
         CustomSectionView(
             header: "Collaborative Features",
@@ -276,16 +294,16 @@ struct SharedWordDetailsView: View {
             VStack(spacing: 16) {
                 // Like and difficulty controls
                 likeAndDifficultyControls
-                
+
                 // Stats summary
                 statsSummary
-                
+
                 // View detailed stats button
                 viewStatsButton
             }
         }
     }
-    
+
     private var likeAndDifficultyControls: some View {
         VStack(spacing: 12) {
             // Like button
@@ -296,32 +314,32 @@ struct SharedWordDetailsView: View {
                     HStack(spacing: 8) {
                         Image(systemName: word.isLikedBy(authenticationService.userEmail ?? "") ? "heart.fill" : "heart")
                             .foregroundStyle(word.isLikedBy(authenticationService.userEmail ?? "") ? .red : .secondary)
-                        
+
                         Text(word.isLikedBy(authenticationService.userEmail ?? "") ? "Liked" : "Like")
                             .font(.subheadline)
                             .fontWeight(.medium)
                     }
                 }
                 .buttonStyle(.plain)
-                
+
                 Spacer()
-                
+
                 Text("\(word.likeCount) likes")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
-            
+
             // Difficulty display (read-only)
             HStack {
                 Text("Your difficulty rating:")
                     .font(.subheadline)
                     .fontWeight(.medium)
-                
+
                 Spacer()
-                
+
                 let userDifficulty = word.getDifficultyFor(authenticationService.userEmail ?? "")
                 let difficultyLevel = Difficulty(score: userDifficulty)
-                
+
                 VStack(alignment: .trailing, spacing: 2) {
                     Text(difficultyLevel.displayName)
                         .font(.caption)
@@ -330,12 +348,12 @@ struct SharedWordDetailsView: View {
                         .background(difficultyLevel.color.opacity(0.2))
                         .foregroundStyle(difficultyLevel.color)
                         .clipShape(Capsule())
-                    
+
                     Text("Score: \(userDifficulty)")
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                 }
-                
+
                 Text("(Quiz-based)")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
@@ -349,7 +367,7 @@ struct SharedWordDetailsView: View {
         )
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
-    
+
     private var statsSummary: some View {
         HStack {
             StatSummaryCard(
@@ -357,7 +375,7 @@ struct SharedWordDetailsView: View {
                 value: String(format: "%.1f", word.averageDifficulty),
                 icon: "chart.bar.fill"
             )
-            
+
             StatSummaryCard(
                 title: "Total Ratings",
                 value: "\(word.difficulties.count)",
@@ -365,10 +383,15 @@ struct SharedWordDetailsView: View {
             )
         }
     }
-    
+
     private var viewStatsButton: some View {
-        NavigationLink {
-            SharedWordDifficultyStatsView(word: word, dictionaryId: dictionaryId)
+        Button {
+            NavigationManager.shared.navigationPath.append(
+                NavigationDestination.sharedWordDifficultyStats(
+                    word: word,
+                    dictionaryId: dictionaryId
+                )
+            )
         } label: {
             HStack {
                 Image(systemName: "chart.bar.doc.horizontal")
@@ -394,53 +417,20 @@ struct SharedWordDetailsView: View {
     private func savePhonetic() {
         Task {
             var updatedWord = word
-            updatedWord = SharedWord(
-                id: word.id,
-                wordItself: word.wordItself,
-                definition: word.definition,
-                partOfSpeech: word.partOfSpeech,
-                phonetic: phoneticText.isEmpty ? nil : phoneticText,
-                examples: word.examples,
-                languageCode: word.languageCode,
-                timestamp: word.timestamp,
-                updatedAt: Date(),
-                addedByEmail: word.addedByEmail,
-                addedByDisplayName: word.addedByDisplayName,
-                addedAt: word.addedAt,
-                likes: word.likes,
-                difficulties: word.difficulties
-            )
-            
+            updatedWord.phonetic = phoneticText
             await saveWordToFirebase(updatedWord)
         }
     }
-    
+
     private func saveDefinition() {
         Task {
             var updatedWord = word
-            updatedWord = SharedWord(
-                id: word.id,
-                wordItself: word.wordItself,
-                definition: definitionText,
-                partOfSpeech: word.partOfSpeech,
-                phonetic: word.phonetic,
-                examples: word.examples,
-                languageCode: word.languageCode,
-                timestamp: word.timestamp,
-                updatedAt: Date(),
-                addedByEmail: word.addedByEmail,
-                addedByDisplayName: word.addedByDisplayName,
-                addedAt: word.addedAt,
-                likes: word.likes,
-                difficulties: word.difficulties
-            )
-            
+            updatedWord.definition = definitionText
             await saveWordToFirebase(updatedWord)
         }
     }
-    
+
     private func saveWordToFirebase(_ updatedWord: SharedWord) async {
-        
         do {
             // Update in-memory storage first
             await MainActor.run {
@@ -452,28 +442,9 @@ struct SharedWordDetailsView: View {
                 word = updatedWord
             }
 
-            // Convert to Word and save to Firebase
-            let wordForFirebase = Word(
-                id: updatedWord.id,
-                wordItself: updatedWord.wordItself,
-                definition: updatedWord.definition,
-                partOfSpeech: updatedWord.partOfSpeech,
-                phonetic: updatedWord.phonetic,
-                examples: updatedWord.examples,
-                tags: [],
-                difficultyScore: 0,
-                languageCode: updatedWord.languageCode,
-                isFavorite: false,
-                timestamp: updatedWord.timestamp,
-                updatedAt: updatedWord.updatedAt,
-                isSynced: true
-            )
-            
-            try await dictionaryService.updateWordInSharedDictionary(
-                dictionaryId: dictionaryId,
-                word: wordForFirebase
-            )
-            
+            // Update Firebase directly with SharedWord
+            try await dictionaryService.updateWordInSharedDictionary(dictionaryId: dictionaryId, sharedWord: updatedWord)
+
             print("✅ [SharedWordDetails] Word updated successfully")
             HapticManager.shared.triggerNotification(type: .success)
         } catch {
@@ -500,9 +471,12 @@ struct SharedWordDetailsView: View {
     }
 
     private func updatePartOfSpeech(_ value: PartOfSpeech) {
-        // Note: Part of speech is part of the shared word data, so we can't modify it
-        // This would need to be handled differently if editing is required
-        AnalyticsService.shared.logEvent(.partOfSpeechChanged)
+        Task {
+            var updatedWord = word
+            updatedWord.partOfSpeech = value.rawValue
+            await saveWordToFirebase(updatedWord)
+            AnalyticsService.shared.logEvent(.partOfSpeechChanged)
+        }
     }
 
     private func addExample(_ example: String) {
@@ -522,43 +496,28 @@ struct SharedWordDetailsView: View {
         examples.remove(at: index)
         saveExamples()
     }
-    
+
     private func saveExamples() {
         Task {
-            let updatedWord = SharedWord(
-                id: word.id,
-                wordItself: word.wordItself,
-                definition: word.definition,
-                partOfSpeech: word.partOfSpeech,
-                phonetic: word.phonetic,
-                examples: examples,
-                languageCode: word.languageCode,
-                timestamp: word.timestamp,
-                updatedAt: Date(),
-                addedByEmail: word.addedByEmail,
-                addedByDisplayName: word.addedByDisplayName,
-                addedAt: word.addedAt,
-                likes: word.likes,
-                difficulties: word.difficulties
-            )
-            
+            var updatedWord = word
+            updatedWord.examples = examples
             await saveWordToFirebase(updatedWord)
         }
     }
-    
+
     // MARK: - Collaborative Features Methods
-    
+
     private func toggleLike() {
         Task {
             do {
                 try await dictionaryService.toggleLike(for: word.id, in: dictionaryId)
-                // The word will be updated via real-time listener
+                print("✅ [SharedWordDetails] Like toggled successfully")
             } catch {
                 print("❌ Failed to toggle like: \(error)")
             }
         }
     }
-    
+
     private func showDeleteAlert() {
         AlertCenter.shared.showAlert(
             with: .deleteConfirmation(
@@ -576,7 +535,6 @@ struct SharedWordDetailsView: View {
     }
 
     private func deleteWord() {
-        
         Task { @MainActor in
             do {
                 try await dictionaryService.deleteWordFromSharedDictionary(
@@ -591,7 +549,7 @@ struct SharedWordDetailsView: View {
             }
         }
     }
-    
+
     private func errorReceived(title: String, _ error: Error) {
         AlertCenter.shared.showAlert(
             with: .error(
@@ -608,17 +566,17 @@ struct StatSummaryCard: View {
     let title: String
     let value: String
     let icon: String
-    
+
     var body: some View {
         VStack(spacing: 8) {
             Image(systemName: icon)
                 .font(.title3)
                 .foregroundStyle(.accent)
-            
+
             Text(value)
                 .font(.headline)
                 .fontWeight(.semibold)
-            
+
             Text(title)
                 .font(.caption)
                 .foregroundStyle(.secondary)

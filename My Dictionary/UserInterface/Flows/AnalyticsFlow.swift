@@ -11,7 +11,7 @@ struct AnalyticsFlow: View {
 
     // MARK: - Properties
 
-    @Binding var navigationPath: NavigationPath
+    @StateObject private var navigationManager: NavigationManager = .shared
     @ObservedObject var viewModel: AnalyticsViewModel
 
     // MARK: - Body
@@ -28,7 +28,7 @@ struct AnalyticsFlow: View {
     private func handleOutput(_ output: AnalyticsViewModel.Output) {
         switch output {
         case .showQuizResultsDetail:
-            navigationPath.append(NavigationDestination.quizResultsDetail)
+            navigationManager.navigationPath.append(NavigationDestination.quizResultsDetail)
         }
     }
 }

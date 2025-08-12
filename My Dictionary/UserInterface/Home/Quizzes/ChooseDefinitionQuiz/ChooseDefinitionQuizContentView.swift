@@ -83,7 +83,7 @@ struct ChooseDefinitionQuizContentView: View {
             title: "Definition Quiz",
             mode: .inline,
             trailingContent: {
-                HeaderButton(text: "Exit") {
+                HeaderButton("Exit") {
                     viewModel.handle(.saveSession)
                     dismiss()
                 }

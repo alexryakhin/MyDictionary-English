@@ -15,7 +15,6 @@ final class TabManager: ObservableObject {
 
     #if os(iOS)
     @Published var selectedTab: TabBarItem = .words
-    let popToRootPublisher: PassthroughSubject<Void, Never> = .init()
 
     // Tab transition tracking
     @Published private(set) var willSetTab: TabBarItem = .words

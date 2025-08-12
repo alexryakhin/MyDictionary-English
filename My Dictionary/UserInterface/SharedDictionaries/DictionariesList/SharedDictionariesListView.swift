@@ -14,9 +14,9 @@ struct SharedDictionariesListView: View {
     @StateObject private var paywallService = PaywallService.shared
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var dictionaryService = DictionaryService.shared
+    @StateObject private var navigationManager: NavigationManager = .shared
     @State private var showingAddDictionary = false
-    @Binding var navigationPath: NavigationPath
-    
+
     private var userOwnedDictionaryCount: Int {
         dictionaryService.getUserOwnedDictionaryCount()
     }
@@ -37,14 +37,14 @@ struct SharedDictionariesListView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     } trailingContent: {
                         if userOwnedDictionaryCount >= 1 {
-                            HeaderButton(text: "Upgrade to Pro") {
+                            HeaderButton("Upgrade to Pro") {
                                 paywallService.isShowingPaywall = true
                             }
                         }
                     }
                 }
 
-                CustomSectionView(header: "Dictionaries") {
+                CustomSectionView(header: "Dictionaries", hPadding: .zero) {
                     if dictionaryService.sharedDictionaries.isEmpty {
                         ContentUnavailableView(
                             "No Shared Dictionaries",
@@ -54,44 +54,16 @@ struct SharedDictionariesListView: View {
                     } else {
                         ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in
                             Button {
-                                navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
+                                navigationManager.navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
                             } label: {
-                                HStack {
-                                    Image(systemName: "person.2")
-                                        .foregroundStyle(.accent)
-                                        .frame(width: 24)
-
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text(dictionary.name)
-                                            .font(.headline)
-
-                                        HStack {
-                                            Text("\(dictionary.collaborators.count) collaborators")
-                                                .font(.caption)
-                                                .foregroundStyle(.secondary)
-
-                                            if dictionary.isOwner {
-                                                Text("Owner")
-                                                    .font(.caption)
-                                                    .foregroundStyle(.green)
-                                                    .padding(.horizontal, 6)
-                                                    .padding(.vertical, 2)
-                                                    .background(Color.green.opacity(0.2))
-                                                    .cornerRadius(4)
-                                            }
-                                        }
-                                    }
-
-                                    Spacer()
-                                }
-                                .padding(.vertical, 4)
+                                SharedDictionariesListCellView(dictionary: dictionary)
                             }
                             .buttonStyle(.plain)
                         }
                     }
                 } trailingContent: {
                     if dictionaryService.canCreateMoreSharedDictionaries() {
-                        HeaderButton(text: "Add", icon: "plus", style: .borderedProminent) {
+                        HeaderButton("Add", icon: "plus", style: .borderedProminent) {
                             showingAddDictionary = true
                         }
                     }

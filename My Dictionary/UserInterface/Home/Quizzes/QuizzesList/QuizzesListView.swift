@@ -218,36 +218,28 @@ struct QuizzesListView: View {
             VStack(spacing: 12) {
                 if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
                     // For shared dictionaries, show different actions
-                    Button {
+                    ActionButton(
+                        "Add Words to Shared Dictionary",
+                        systemImage: "plus.circle.fill",
+                        style: .borderedProminent
+                    ) {
                         viewModel.output.send(.showSharedDictionary(dictionary))
-                    } label: {
-                        Label("Add Words to Shared Dictionary", systemImage: "plus.circle.fill")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(.accent.gradient)
-                            .foregroundStyle(.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
                     }
-                    
+
                     Text("Ask the dictionary owner to add more words, or switch to a different dictionary!")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                 } else {
                     // For private dictionary, show the original actions
-                    Button {
+                    ActionButton(
+                        viewModel.words.isEmpty ? "Add Your First Word" : "Add More Words",
+                        systemImage: "plus.circle.fill",
+                        style: .borderedProminent
+                    ) {
                         navigationManager.switchToTab(.words)
-                    } label: {
-                        Label(viewModel.words.isEmpty ? "Add Your First Word" : "Add More Words", systemImage: "plus.circle.fill")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(.accent.gradient)
-                            .foregroundStyle(.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
                     }
-                    
+
                     Text(viewModel.words.isEmpty ?
                          "Quizzes help you test your knowledge and reinforce learning!" :
                             "You're \(10 - viewModel.words.count) words away from unlocking quizzes!")

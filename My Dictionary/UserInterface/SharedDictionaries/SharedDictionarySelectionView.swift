@@ -111,24 +111,14 @@ struct SharedDictionarySelectionView: View {
                 } else {
                     CustomSectionView(
                         header: "Shared Dictionaries",
-                        footer: dictionaryService.canCreateMoreSharedDictionaries() 
-                            ? "Create a shared dictionary to collaborate with others" 
-                            : "Free users can create one shared dictionary. Upgrade to Pro for unlimited dictionaries."
+                        footer: "Create a shared dictionary to collaborate with others"
                     ) {
-                        Button {
+                        ActionButton(
+                            "Create Shared Dictionary",
+                            systemImage: "plus.circle"
+                        ) {
                             showingAddDictionary = true
-                        } label: {
-                            Label(
-                                dictionaryService.canCreateMoreSharedDictionaries() 
-                                    ? "Create Shared Dictionary" 
-                                    : "Upgrade to Pro for More",
-                                systemImage: dictionaryService.canCreateMoreSharedDictionaries() ? "plus.circle" : "crown"
-                            )
-                            .padding(.vertical, 8)
-                            .frame(maxWidth: .infinity)
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
                         .padding(.bottom, 12)
                     }
                 }
@@ -140,7 +130,7 @@ struct SharedDictionarySelectionView: View {
             title: "Select Dictionary",
             mode: .inline,
             trailingContent: {
-                HeaderButton(text: "Cancel") {
+                HeaderButton("Cancel") {
                     dismiss()
                 }
             }

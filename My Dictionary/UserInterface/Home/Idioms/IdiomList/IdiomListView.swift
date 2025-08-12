@@ -66,7 +66,7 @@ struct IdiomListView: View {
                         )
                     }
                 } trailingContent: {
-                    HeaderButton(text: "Add idiom", icon: "plus", style: .borderedProminent) {
+                    HeaderButton("Add idiom", icon: "plus", style: .borderedProminent) {
                         viewModel.output.send(.showAddIdiom)
                     }
                 }

@@ -61,10 +61,6 @@ struct DebugView: View {
             Button("Cancel", role: .cancel) {
                 testNotificationEmail = ""
             }
-
-            Button("Send") {
-                sendTestNotificationToUser()
-            }
         } message: {
             Text("Enter the email address of the user you want to send a test notification to.")
         }
@@ -273,16 +269,6 @@ struct DebugView: View {
                 }
                 .buttonStyle(.bordered)
 
-                Button("Test Add Collaborator") {
-                    testAddCollaborator()
-                }
-                .buttonStyle(.bordered)
-
-                Button("Test Push Notification") {
-                    testPushNotification()
-                }
-                .buttonStyle(.bordered)
-
                 Button("Send Test Notification to User") {
                     showingEmailInput = true
                 }
@@ -408,64 +394,6 @@ struct DebugView: View {
     }
 
     // MARK: - Dictionary Testing
-
-    private func testAddCollaborator() {
-        guard let currentEmail = authenticationService.userEmail else {
-            showAlert("No user email available")
-            return
-        }
-
-        // This is a test - you would need to implement actual collaborator addition
-        showAlert("Test collaborator addition would be implemented here")
-    }
-
-    private func testPushNotification() {
-        Task {
-            // Test with the first shared dictionary and current user
-            guard let firstDictionary = dictionaryService.sharedDictionaries.first,
-                  let userEmail = authenticationService.userEmail else {
-                showAlert("No shared dictionaries or user email available")
-                return
-            }
-
-            await dictionaryService.testCollaboratorNotification(
-                dictionaryId: firstDictionary.id,
-                targetEmail: userEmail
-            )
-
-            showAlert("Test push notification sent! Check your device.")
-        }
-    }
-
-    private func sendTestNotificationToUser() {
-        guard !testNotificationEmail.isEmpty else {
-            showAlert("Please enter a valid email address")
-            return
-        }
-
-        guard let firstDictionary = dictionaryService.sharedDictionaries.first else {
-            showAlert("No shared dictionaries available")
-            return
-        }
-
-        Task {
-            do {
-                await dictionaryService.testCollaboratorNotification(
-                    dictionaryId: firstDictionary.id,
-                    targetEmail: testNotificationEmail
-                )
-
-                DispatchQueue.main.async {
-                    showAlert("Test notification sent to \(testNotificationEmail)!")
-                    testNotificationEmail = ""
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    showAlert("Failed to send test notification: \(error.localizedDescription)")
-                }
-            }
-        }
-    }
 
     private func clearDictionaryCache() {
         // Clear the shared dictionaries cache

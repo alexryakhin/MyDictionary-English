@@ -11,7 +11,7 @@ struct WordsFlow: View {
 
     // MARK: - Properties
 
-    @Binding var navigationPath: NavigationPath
+    @StateObject private var navigationManager: NavigationManager = .shared
     @ObservedObject var viewModel: WordListViewModel
 
     // MARK: - Body
@@ -28,16 +28,15 @@ struct WordsFlow: View {
     private func handleOutput(_ output: WordListViewModel.Output) {
         switch output {
         case .showWordDetails(let word):
-            let config = WordDetailsContentView.Config(word: word, dictionary: nil)
-            navigationPath.append(NavigationDestination.wordDetails(config))
+            navigationManager.navigationPath.append(NavigationDestination.wordDetails(word))
         case .showAddWord:
-            navigationPath.append(NavigationDestination.addWord)
+            navigationManager.navigationPath.append(NavigationDestination.addWord)
         case .showSharedDictionaries:
-            navigationPath.append(NavigationDestination.sharedDictionariesList)
+            navigationManager.navigationPath.append(NavigationDestination.sharedDictionariesList)
         case .showAddSharedDictionary:
-            navigationPath.append(NavigationDestination.addSharedDictionary)
+            navigationManager.navigationPath.append(NavigationDestination.addSharedDictionary)
         case .showAddExistingWordToShared(let word):
-            navigationPath.append(NavigationDestination.addExistingWordToShared(word))
+            navigationManager.navigationPath.append(NavigationDestination.addExistingWordToShared(word))
         }
     }
 }

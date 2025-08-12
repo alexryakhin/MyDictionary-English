@@ -78,7 +78,7 @@ struct WordListView: View {
                     .padding(.vertical, 24)
                 }
             } trailingContent: {
-                HeaderButton(text: "Add Word", icon: "plus", style: .borderedProminent) {
+                HeaderButton("Add Word", icon: "plus", style: .borderedProminent) {
                     AnalyticsService.shared.logEvent(.addWordTapped)
                     viewModel.output.send(.showAddWord)
                 }

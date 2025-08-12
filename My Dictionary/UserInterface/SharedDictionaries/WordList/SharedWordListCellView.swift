@@ -12,32 +12,17 @@ struct SharedWordListCellView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(word.wordItself)
-                        .font(.headline)
-                        .foregroundStyle(.primary)
-
-                    Text(word.definition)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(2)
-                }
-
-                Spacer()
-
-                VStack(alignment: .trailing, spacing: 4) {
-                    // Favorite status removed - using simple word display
-
-                    if let phonetic = word.phonetic, !phonetic.isEmpty {
-                        Text("[\(phonetic)]")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                }
+            HStack(spacing: 8) {
+                Text(word.wordItself)
+                    .font(.headline)
+                    .foregroundStyle(.primary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Image(systemName: "chevron.right")
+                    .frame(sideLength: 12)
+                    .foregroundStyle(.secondary)
             }
 
-            HStack {
+            HStack(spacing: 8) {
                 Text(word.partOfSpeech)
                     .font(.caption)
                     .padding(.horizontal, 8)
@@ -85,13 +70,9 @@ struct SharedWordListCellView: View {
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
             }
-            // Add collaborator info below
-            Text(word.addedByDisplayText)
-                .font(.caption2)
-                .foregroundStyle(.tertiary)
-                .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.vertical, 8)
+        .padding(vertical: 12, horizontal: 16)
+        .background(Color(.secondarySystemGroupedBackground))
     }
 
     private var shouldShowLanguageLabel: Bool {

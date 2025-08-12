@@ -72,7 +72,14 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				CoreUserInterface/SwiftUIComponents/VocabularyLineChart.swift,
-				UserInterface/Home/Tags/TagManagementViewModel.swift,
+				UserInterface/Tags/TagManagementViewModel.swift,
+			);
+			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
+		};
+		53C9B9822E4AF60C00D5709B /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Services/Navigation/NavigationManager.swift,
 			);
 			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
 		};
@@ -94,6 +101,9 @@
 		};
 		53E9A9F92D7C439B007E9F28 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				53C9B9822E4AF60C00D5709B /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */,
+			);
 			path = Shared;
 			sourceTree = "<group>";
 		};

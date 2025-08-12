@@ -119,7 +119,7 @@ struct AnalyticsView: View {
                 }
             }
         } trailingContent: {
-            HeaderButton(text: "View All") {
+            HeaderButton("View All") {
                 if subscriptionService.isProUser {
                     viewModel.output.send(.showQuizResultsDetail)
                 } else {

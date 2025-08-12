@@ -13,9 +13,9 @@ import UserNotifications
 @main
 struct MyDictionaryApp: App {
 
-    #if DEBUG
+#if DEBUG
     @State private var isDebugViewPresented: Bool = false
-    #endif
+#endif
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
@@ -24,17 +24,17 @@ struct MyDictionaryApp: App {
             MainTabView()
                 .fontDesign(.rounded)
                 .tint(.accent)
-            #if DEBUG
+#if DEBUG
                 .onShake {
                     isDebugViewPresented = true
                 }
                 .sheet(isPresented: $isDebugViewPresented) {
                     DebugView()
                 }
-            #endif
+#endif
         }
     }
-} 
+}
 
 // MARK: - App Delegate for Push Notifications
 
@@ -121,10 +121,10 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         print("📱 [AppDelegate] Handling collaborator invitation for dictionary: \(dictionaryId)")
 
         // Navigate to the shared dictionary
-        // This will be implemented when we set up navigation
         DispatchQueue.main.async {
-            // TODO: Navigate to shared dictionary
-            print("📱 [AppDelegate] Should navigate to shared dictionary: \(dictionaryId)")
+            if let sharedDictionary = DictionaryService.shared.sharedDictionaries.first(where: { $0.id == dictionaryId }) {
+                NavigationManager.shared.navigationPath.append(NavigationDestination.sharedDictionaryWords(sharedDictionary))
+            }
         }
     }
 
@@ -132,7 +132,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
 
     // MARK: - Simulator Testing
 
-    #if DEBUG
+#if DEBUG
     func testLocalNotification() {
         print("🧪 [AppDelegate] Testing local notification on simulator")
 
@@ -159,7 +159,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
             }
         }
     }
-    #endif
+#endif
 
     // MARK: - App Lifecycle
 
@@ -173,56 +173,58 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         clearNotificationBadge()
     }
 
-        // MARK: - Notification Badge Management
-    
+    // MARK: - Notification Badge Management
+
     private func clearNotificationBadge() {
         DispatchQueue.main.async {
             UIApplication.shared.applicationIconBadgeNumber = 0
             print("🧹 [AppDelegate] Cleared notification badge")
         }
     }
-    
+
     // MARK: - App Services Setup
-    
+
     private func setupAppServices() {
         print("🔧 [AppDelegate] Setting up app services...")
-        
+
         // Configure Firebase
         FirebaseApp.configure()
-        
+
         // Configure Firestore for offline persistence
         let db = Firestore.firestore()
         let settings = FirestoreSettings()
         settings.isPersistenceEnabled = true
         settings.cacheSizeBytes = FirestoreCacheSizeUnlimited
         db.settings = settings
-        
+
         // Log analytics event
         AnalyticsService.shared.logEvent(.appOpened)
-        
+
+#if DEBUG
         // Debug Firebase configuration
         FirebaseDebugService.shared.checkFirebaseConfiguration()
         FirebaseDebugService.shared.checkAuthenticationStatus()
-        
+#endif
+
         // Setup notifications
         setupNotifications()
-        
+
         // Setup data sync
         setupDataSync()
-        
+
         print("✅ [AppDelegate] App services setup completed")
     }
-    
+
     private func setupNotifications() {
         let notificationService = NotificationService.shared
-        
+
         // Mark app as opened and cancel daily reminder
         notificationService.markAppAsOpened()
-        
+
         // Check if user has enabled notifications
         let dailyRemindersEnabled = UserDefaults.standard.bool(forKey: UDKeys.dailyRemindersEnabled)
         let difficultWordsEnabled = UserDefaults.standard.bool(forKey: UDKeys.difficultWordsEnabled)
-        
+
         // Only schedule notifications if user has enabled them
         if dailyRemindersEnabled || difficultWordsEnabled {
             Task {
@@ -231,7 +233,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
             }
         }
     }
-    
+
     private func setupDataSync() {
         // Sync from Firestore on app startup and start real-time listener
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -245,7 +247,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
                         print("❌ [AppDelegate] Initial sync from Firestore failed: \(error.localizedDescription)")
                     }
                 }
-                
+
                 // Start real-time listener for existing user
                 print("🔊 [AppDelegate] Starting real-time listener for existing user: \(userId)")
                 DataSyncService.shared.startPrivateDictionaryListener(userId: userId)

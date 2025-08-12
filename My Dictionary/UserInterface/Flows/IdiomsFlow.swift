@@ -11,7 +11,7 @@ struct IdiomsFlow: View {
 
     // MARK: - Properties
 
-    @Binding var navigationPath: NavigationPath
+    @StateObject private var navigationManager: NavigationManager = .shared
     @ObservedObject var viewModel: IdiomListViewModel
 
     // MARK: - Body
@@ -28,9 +28,9 @@ struct IdiomsFlow: View {
     private func handleOutput(_ output: IdiomListViewModel.Output) {
         switch output {
         case .showIdiomDetails(let idiom):
-            navigationPath.append(NavigationDestination.idiomDetails(idiom))
+            navigationManager.navigationPath.append(NavigationDestination.idiomDetails(idiom))
         case .showAddIdiom:
-            navigationPath.append(NavigationDestination.addIdiom)
+            navigationManager.navigationPath.append(NavigationDestination.addIdiom)
         }
     }
 }

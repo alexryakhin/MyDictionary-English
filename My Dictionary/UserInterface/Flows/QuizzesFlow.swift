@@ -11,7 +11,7 @@ struct QuizzesFlow: View {
 
     // MARK: - Properties
 
-    @Binding var navigationPath: NavigationPath
+    @StateObject private var navigationManager: NavigationManager = .shared
     @ObservedObject var viewModel: QuizzesListViewModel
 
     // MARK: - Body
@@ -28,11 +28,11 @@ struct QuizzesFlow: View {
     private func handleOutput(_ output: QuizzesListViewModel.Output) {
         switch output {
         case .showSpellingQuiz(let wordCount, let hardWordsOnly):
-            navigationPath.append(NavigationDestination.spellingQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly))
+            navigationManager.navigationPath.append(NavigationDestination.spellingQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly))
         case .showChooseDefinitionQuiz(let wordCount, let hardWordsOnly):
-            navigationPath.append(NavigationDestination.chooseDefinitionQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly))
+            navigationManager.navigationPath.append(NavigationDestination.chooseDefinitionQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly))
         case .showSharedDictionary(let dictionary):
-            navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
+            navigationManager.navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
         }
     }
 }

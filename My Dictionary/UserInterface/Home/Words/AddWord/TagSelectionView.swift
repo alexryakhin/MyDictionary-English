@@ -33,7 +33,7 @@ struct TagSelectionView: View {
                         ForEach(tagService.tags) { tag in
                             let isSelected = selectedTags.contains { $0.id == tag.id }
                             HeaderButton(
-                                text: tag.name.orEmpty,
+                                tag.name.orEmpty,
                                 style: isSelected ? .borderedProminent : .bordered
                             ) {
                                 if let index = selectedTags.firstIndex(where: { $0.id == tag.id }) {
@@ -49,7 +49,7 @@ struct TagSelectionView: View {
                     .padding(.bottom, 12)
                 }
             } trailingContent: {
-                HeaderButton(text: "Create tags", icon: "tag", style: .borderedProminent) {
+                HeaderButton("Create tags", icon: "tag", style: .borderedProminent) {
                     isShowingAddTagSheet.toggle()
                 }
             }
@@ -60,7 +60,7 @@ struct TagSelectionView: View {
             title: "Add Tags",
             mode: .inline,
             trailingContent: {
-                HeaderButton(text: "Done", icon: "checkmark") {
+                HeaderButton("Done", icon: "checkmark") {
                     dismiss()
                 }
             }

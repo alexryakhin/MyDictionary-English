@@ -11,7 +11,7 @@ struct SettingsFlow: View {
 
     // MARK: - Properties
 
-    @Binding var navigationPath: NavigationPath
+    @StateObject private var navigationManager: NavigationManager = .shared
     @ObservedObject var viewModel: SettingsViewModel
 
     // MARK: - Body
@@ -28,13 +28,13 @@ struct SettingsFlow: View {
     private func handleOutput(_ output: SettingsViewModel.Output) {
         switch output {
         case .showAboutApp:
-            navigationPath.append(NavigationDestination.aboutApp)
+            navigationManager.navigationPath.append(NavigationDestination.aboutApp)
         case .showTagManagement:
-            navigationPath.append(NavigationDestination.tagManagement)
+            navigationManager.navigationPath.append(NavigationDestination.tagManagement)
         case .showSharedDictionaries:
-            navigationPath.append(NavigationDestination.sharedDictionariesList)
+            navigationManager.navigationPath.append(NavigationDestination.sharedDictionariesList)
         case .showAuthentication:
-            navigationPath.append(NavigationDestination.authentication)
+            navigationManager.navigationPath.append(NavigationDestination.authentication)
         }
     }
 }

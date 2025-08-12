@@ -9,10 +9,10 @@ import SwiftUI
 
 struct SharedDictionaryWordsView: View {
     @StateObject private var dictionaryService = DictionaryService.shared
+    @StateObject private var navigationManager: NavigationManager = .shared
+
     @State private var searchText = ""
     @State private var showingAddWord = false
-
-    @Binding var navigationPath: NavigationPath
     @State var dictionary: SharedDictionary
 
     var filteredWords: [SharedWord] {
@@ -51,18 +51,16 @@ struct SharedDictionaryWordsView: View {
                         )
                     } else {
                         ListWithDivider(filteredWords) { word in
-                           Button {
-                               navigationPath.append(NavigationDestination.sharedWordDetails(word, dictionaryId: dictionary.id))
-                           } label: {
-                               SharedWordListCellView(word: word)
-                                   .id(word.id)
-                           }
-                           .buttonStyle(.plain)
+                            SharedWordListCellView(word: word)
+                                .id(word.id)
+                                .onTap {
+                                    navigationManager.navigationPath.append(NavigationDestination.sharedWordDetails(word, dictionaryId: dictionary.id))
+                                }
                        }
                     }
                 } trailingContent: {
                     if dictionary.canEdit {
-                        HeaderButton(text: "Add Word", icon: "plus", style: .borderedProminent) {
+                        HeaderButton("Add Word", icon: "plus", style: .borderedProminent) {
                             showingAddWord = true
                         }
                     }
@@ -76,16 +74,9 @@ struct SharedDictionaryWordsView: View {
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
-                Button {
-                    navigationPath.append(NavigationDestination.sharedDictionaryDetails(dictionary))
-                } label: {
-                    Image(systemName: "info.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 16, height: 16)
+                HeaderButton(icon: "info.circle") {
+                    navigationManager.navigationPath.append(NavigationDestination.sharedDictionaryDetails(dictionary))
                 }
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
             },
             bottomContent: {
                 InputView.searchView("Search words", searchText: $searchText)
@@ -104,10 +95,10 @@ struct SharedDictionaryWordsView: View {
             if let dictionary = newValue.first(where: { $0.id == self.dictionary.id }) {
                 self.dictionary = dictionary
                 if !dictionary.canView {
-                    TabManager.shared.popToRootPublisher.send()
+                    NavigationManager.shared.popToRoot()
                 }
             } else {
-                TabManager.shared.popToRootPublisher.send()
+                NavigationManager.shared.popToRoot()
             }
         }
     }

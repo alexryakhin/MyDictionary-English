@@ -47,16 +47,9 @@ struct OnboardingView: View {
 
                 Spacer()
 
-                Button {
+                ActionButton("Continue", style: .borderedProminent) {
                     dismiss()
-                } label: {
-                    Text("Continue")
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                        .padding(12)
-                        .cornerRadius(12)
                 }
-                .buttonStyle(.borderedProminent)
                 .padding(.horizontal, 16)
 
                 Spacer().frame(height: 40)

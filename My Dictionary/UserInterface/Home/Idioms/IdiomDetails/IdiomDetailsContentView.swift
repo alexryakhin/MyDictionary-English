@@ -69,13 +69,13 @@ struct IdiomDetailsContentView: View {
                 .focused($isIdiomInputFocused)
         } trailingContent: {
             if isIdiomInputFocused {
-                HeaderButton(text: "Done") {
+                HeaderButton("Done") {
                     isIdiomInputFocused = false
                     saveContext()
                     AnalyticsService.shared.logEvent(.idiomChanged)
                 }
             } else {
-                HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
                     play(idiom.idiomItself)
                 }
             }
@@ -91,13 +91,13 @@ struct IdiomDetailsContentView: View {
                 .focused($isDefinitionFocused)
         } trailingContent: {
             if isDefinitionFocused {
-                HeaderButton(text: "Done") {
+                HeaderButton("Done") {
                     isDefinitionFocused = false
                     saveContext()
                     AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
             } else {
-                HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
                     play(idiom.definition)
                     AnalyticsService.shared.logEvent(.idiomDefinitionPlayed)
                 }
@@ -180,14 +180,14 @@ struct IdiomDetailsContentView: View {
             }
         } trailingContent: {
             if isAddingExample {
-                HeaderButton(text: "Save", icon: "checkmark") {
+                HeaderButton("Save", icon: "checkmark") {
                     addExample(exampleTextFieldStr)
                     isAddingExample = false
                     exampleTextFieldStr = .empty
                     AnalyticsService.shared.logEvent(.idiomExampleAdded)
                 }
             } else {
-                HeaderButton(text: "Add example", icon: "plus") {
+                HeaderButton("Add example", icon: "plus") {
                     withAnimation {
                         isAddingExample.toggle()
                         AnalyticsService.shared.logEvent(.idiomAddExampleTapped)

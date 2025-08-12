@@ -113,7 +113,7 @@ struct SharedDictionaryDetailsView: View {
                         }
                     } trailingContent: {
                         if dictionary.canEdit {
-                            HeaderButton(text: "Add", icon: "plus", style: .borderedProminent) {
+                            HeaderButton("Add", icon: "plus", style: .borderedProminent) {
                                 showingAddCollaborator = true
                             }
                         }
@@ -198,7 +198,7 @@ struct SharedDictionaryDetailsView: View {
             // Check if user lost access to this dictionary
             if !newValue.contains(where: { $0.id == dictionaryId }) {
                 print("🚫 [SharedDictionaryDetailsView] Dictionary no longer accessible, popping to root")
-                TabManager.shared.popToRootPublisher.send()
+                NavigationManager.shared.popToRoot()
             }
         }
     }
@@ -238,7 +238,7 @@ struct SharedDictionaryDetailsView: View {
                     dictionaryId: dictionaryId
                 )
                 print("✅ [SharedDictionaryDetailsView] Dictionary deleted successfully, popping to root")
-                TabManager.shared.popToRootPublisher.send()
+                NavigationManager.shared.popToRoot()
             } catch {
                 print("❌ [SharedDictionaryDetailsView] Error deleting dictionary: \(error.localizedDescription)")
                 errorReceived(error)

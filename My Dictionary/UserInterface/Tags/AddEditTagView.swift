@@ -57,21 +57,14 @@ struct AddEditTagView: View {
             }
         )
         .safeAreaInset(edge: .bottom) {
-            Button {
+            ActionButton("Save", style: .borderedProminent) {
                 if subscriptionService.isProUser {
                     saveTag()
                 } else {
                     isShowingPaywall = true
                 }
-            } label: {
-                Text("Save")
-                    .fontWeight(.semibold)
-                    .padding(12)
-                    .frame(maxWidth: .infinity)
             }
-            .buttonStyle(.borderedProminent)
-            .clipShape(RoundedRectangle(cornerRadius: 24))
-            .padding(12)
+            .padding(vertical: 12, horizontal: 16)
         }
         .onAppear {
             if let editingTag = viewModel.editingTag {

@@ -21,7 +21,7 @@ struct HeaderButton: View {
     var action: () -> Void
 
     init(
-        text: String = "",
+        _ text: String = "",
         icon: String? = nil,
         style: Style = .bordered,
         font: Font = .footnote,

@@ -130,7 +130,7 @@ struct SettingsView: View {
 
                                 Spacer()
 
-                                HeaderButton(text: "Sign Out", font: .caption) {
+                                HeaderButton("Sign Out", font: .caption) {
                                     HapticManager.shared.triggerSelection()
                                     authenticationService.toggleSignOutView()
                                 }

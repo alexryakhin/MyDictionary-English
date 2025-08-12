@@ -4,17 +4,8 @@ import Flow
 
 struct WordDetailsContentView: View {
 
-    struct Config: Hashable {
-        let id = UUID()
-        let word: CDWord
-        let dictionary: SharedDictionary?
-    }
-
     @StateObject var word: CDWord
     @Environment(\.dismiss) private var dismiss
-    
-    // Optional dictionary parameter for shared words
-    let dictionary: SharedDictionary?
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
@@ -27,9 +18,8 @@ struct WordDetailsContentView: View {
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var tagService = TagService.shared
 
-    init(config: Config) {
-        self._word = StateObject(wrappedValue: config.word)
-        self.dictionary = config.dictionary
+    init(word: CDWord) {
+        self._word = StateObject(wrappedValue: word)
     }
 
     var body: some View {
@@ -98,12 +88,12 @@ struct WordDetailsContentView: View {
                 .fontWeight(.semibold)
         } trailingContent: {
             if isPhoneticsFocused {
-                HeaderButton(text: "Done") {
+                HeaderButton("Done") {
                     isPhoneticsFocused = false
                     saveContext()
                 }
             } else {
-                HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
                     play(word.wordItself, isWord: true)
                 }
             }
@@ -143,13 +133,13 @@ struct WordDetailsContentView: View {
                 .fontWeight(.semibold)
         } trailingContent: {
             if isDefinitionFocused {
-                HeaderButton(text: "Done") {
+                HeaderButton("Done") {
                     isDefinitionFocused = false
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                     saveContext()
                 }
             } else {
-                HeaderButton(text: "Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
                     play(word.definition)
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
@@ -209,7 +199,7 @@ struct WordDetailsContentView: View {
                 HFlow(alignment: .top, spacing: 8) {
                     ForEach(word.tagsArray) { tag in
                         HeaderButton(
-                            text: tag.name.orEmpty,
+                            tag.name.orEmpty,
                             style: .borderedProminent,
                             action: {}
                         )
@@ -219,7 +209,7 @@ struct WordDetailsContentView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         } trailingContent: {
-            HeaderButton(text: "Add Tag", icon: "plus") {
+            HeaderButton("Add Tag", icon: "plus") {
                 showingTagSelection = true
             }
         }
@@ -300,14 +290,14 @@ struct WordDetailsContentView: View {
             }
         } trailingContent: {
             if isAddingExample {
-                HeaderButton(text: "Save", icon: "checkmark") {
+                HeaderButton("Save", icon: "checkmark") {
                     addExample(exampleTextFieldStr)
                     isAddingExample = false
                     exampleTextFieldStr = .empty
                     AnalyticsService.shared.logEvent(.wordExampleAdded)
                 }
             } else {
-                HeaderButton(text: "Add example", icon: "plus") {
+                HeaderButton("Add example", icon: "plus") {
                     withAnimation {
                         isAddingExample.toggle()
                         AnalyticsService.shared.logEvent(.wordAddExampleTapped)
@@ -326,15 +316,7 @@ struct WordDetailsContentView: View {
 
             do {
                 try CoreDataService.shared.saveContext()
-                if let dictionary = dictionary {
-                    // Sync shared word to shared dictionary
-                    if let wordModel = Word(from: word) {
-                        try await dictionaryService.updateWordInSharedDictionary(
-                            dictionaryId: dictionary.id,
-                            word: wordModel
-                        )
-                    }
-                } else if let userId = authenticationService.userId {
+                if let userId = authenticationService.userId {
                     try await DataSyncService.shared.syncWordToFirestore(
                         word: word,
                         userId: userId
@@ -411,24 +393,11 @@ struct WordDetailsContentView: View {
     private func deleteWord() {
         guard let id = word.id?.uuidString else { return }
         
-        Task { @MainActor in
-            if let dictionary = dictionary {
-                // Delete from shared dictionary
-                do {
-                    try await dictionaryService.deleteWordFromSharedDictionary(
-                        dictionaryId: dictionary.id,
-                        wordId: id
-                    )
-                    print("✅ [WordDetails] Shared word deleted successfully")
-                    HapticManager.shared.triggerNotification(type: .success)
-                } catch {
-                    print("❌ [WordDetails] Failed to delete shared word: \(error.localizedDescription)")
-                    errorReceived(title: "Delete failed", error)
-                }
-            } else {
-                // Delete private word
-                try? WordsProvider.shared.deleteWord(with: id)
-            }
+        do {
+            try WordsProvider.shared.deleteWord(with: id)
+        } catch {
+            print("❌ [WordDetails] Failed to delete shared word: \(error.localizedDescription)")
+            errorReceived(title: "Delete failed", error)
         }
     }
 

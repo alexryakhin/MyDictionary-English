@@ -115,7 +115,7 @@ struct QuizzesView: View {
             
             VStack(spacing: 12) {
                 Button {
-                    // TODO: Navigate to words tab
+                    TabManager.shared.switchToTab(.words)
                 } label: {
                     Label(viewModel.words.isEmpty ? "Add Your First Word" : "Add More Words", systemImage: "plus.circle.fill")
                         .font(.headline)

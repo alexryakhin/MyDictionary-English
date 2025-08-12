@@ -5,6 +5,7 @@ import FirebaseCore
 import GoogleSignIn
 import AuthenticationServices
 
+#if DEBUG
 final class FirebaseDebugService {
     static let shared = FirebaseDebugService()
     
@@ -47,6 +48,5 @@ final class FirebaseDebugService {
             print("❌ [FirebaseDebug] No user is authenticated")
         }
     }
-    
-
 } 
+#endif
