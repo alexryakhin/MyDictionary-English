@@ -52,12 +52,11 @@ final class AnalyticsViewModel: BaseViewModel {
     }
     
     func loadData() {
-        isLoading = true
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.progressSummary = self?.quizAnalyticsService.getProgressSummary()
-            self?.quizSessions = self?.quizAnalyticsService.getQuizSessions() ?? []
-            self?.isLoading = false
+        Task { @MainActor in
+            isLoading = true
+            progressSummary = quizAnalyticsService.getProgressSummary()
+            quizSessions = quizAnalyticsService.getQuizSessions()
+            isLoading = false
         }
     }
     

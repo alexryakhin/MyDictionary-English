@@ -123,7 +123,7 @@ struct AuthenticationView: View {
             }
         )
         .onChange(of: authService.authenticationState) { state in
-            if state == .signedIn {
+            if state == .signedIn && !shownBeforePaywall {
                 dismiss()
             }
         }

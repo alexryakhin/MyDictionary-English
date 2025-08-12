@@ -443,13 +443,15 @@ struct SharedWordDetailsView: View {
         
         do {
             // Update in-memory storage first
-            DispatchQueue.main.async {
-                if let index = self.dictionaryService.sharedWords[dictionaryId]?.firstIndex(where: { $0.id == self.word.id }) {
-                    self.dictionaryService.sharedWords[dictionaryId]?[index] = updatedWord
+            await MainActor.run {
+                if let index = dictionaryService.sharedWords[dictionaryId]?.firstIndex(where: {
+                    $0.id == word.id
+                }) {
+                    dictionaryService.sharedWords[dictionaryId]?[index] = updatedWord
                 }
-                self.word = updatedWord
+                word = updatedWord
             }
-            
+
             // Convert to Word and save to Firebase
             let wordForFirebase = Word(
                 id: updatedWord.id,

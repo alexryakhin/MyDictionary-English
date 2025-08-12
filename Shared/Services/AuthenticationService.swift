@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseMessaging
+import FirebaseFirestore
 import FirebaseAuth
 import FirebaseCore
 import GoogleSignIn
@@ -67,49 +69,56 @@ final class AuthenticationService: ObservableObject {
         print("🔍 [AuthenticationService] Setting up auth state listener")
         Auth.auth().addStateDidChangeListener { [weak self] _, user in
             print("📡 [AuthenticationService] Auth state changed - user: \(user?.uid ?? "nil")")
-            
-            DispatchQueue.main.async { [weak self] in
-                if let user = user {
-                    print("✅ [AuthenticationService] User signed in: \(user.uid)")
-                    self?.currentUser = user
-                    self?.authenticationState = .signedIn
-                    
-                    // First mark existing words as unsynced, then sync to Firestore, then start real-time listener
-                    print("🔄 [AuthenticationService] Setting up sync for user: \(user.uid)")
-                    Task {
-                        do {
-                            // Request push notification permissions
-                            await self?.requestPushNotificationPermissions()
-                            
-                            // Set up RevenueCat App User ID for cross-platform subscription sharing
-                            await SubscriptionService.shared.setupAppUserID()
-                            
-                            // Mark existing words as unsynced so they get uploaded
-                            await DataSyncService.shared.markExistingWordsAsUnsynced(userId: user.uid)
-                            
-                            // Sync local words to Firestore
-                            try await DataSyncService.shared.syncPrivateDictionaryToFirestore(userId: user.uid)
-                            print("✅ [AuthenticationService] Local words synced to Firestore successfully")
-                            
-                            // Now start real-time listener after sync is complete
-                            print("🔊 [AuthenticationService] Starting real-time listener for user: \(user.uid)")
-                            DataSyncService.shared.startPrivateDictionaryListener(userId: user.uid)
-                        } catch {
-                            print("❌ [AuthenticationService] Failed to sync local words to Firestore: \(error.localizedDescription)")
-                            // Still start the listener even if sync fails
-                            print("🔊 [AuthenticationService] Starting real-time listener despite sync failure")
-                            DataSyncService.shared.startPrivateDictionaryListener(userId: user.uid)
-                        }
-                    }
-                } else {
-                    print("❌ [AuthenticationService] User signed out")
-                    self?.currentUser = nil
-                    self?.authenticationState = .signedOut
-                    
-                    // Stop real-time listener when user signs out
-                    print("🔊 [AuthenticationService] Stopping real-time listener")
-                    DataSyncService.shared.stopPrivateDictionaryListener()
+            self?.handleUser(user)
+        }
+    }
+
+    private func handleUser(_ user: User?) {
+        Task { @MainActor in
+            if let user = user {
+                print("✅ [AuthenticationService] User signed in: \(user.uid)")
+                currentUser = user
+                authenticationState = .signedIn
+
+                // First mark existing words as unsynced, then sync to Firestore, then start real-time listener
+                print("🔄 [AuthenticationService] Setting up sync for user: \(user.uid)")
+                do {
+                    // Request push notification permissions
+                    await requestPushNotificationPermissions()
+
+                    // Create/update user document in Firestore with all required fields
+                    await createUserDocument(user: user)
+
+                    // Set up RevenueCat App User ID for cross-platform subscription sharing
+                    await SubscriptionService.shared.setupAppUserID()
+
+                    // Mark existing words as unsynced so they get uploaded
+                    await DataSyncService.shared.markExistingWordsAsUnsynced(userId: user.uid)
+
+                    // Sync local words to Firestore
+                    try await DataSyncService.shared.syncPrivateDictionaryToFirestore(userId: user.uid)
+                    print("✅ [AuthenticationService] Local words synced to Firestore successfully")
+
+                    // Now start real-time listener after sync is complete
+                    print("🔊 [AuthenticationService] Starting real-time listener for user: \(user.uid)")
+                    DataSyncService.shared.startPrivateDictionaryListener(userId: user.uid)
+                } catch {
+                    print("❌ [AuthenticationService] Failed to sync local words to Firestore: \(error.localizedDescription)")
+                    // Still start the listener even if sync fails
+                    print("🔊 [AuthenticationService] Starting real-time listener despite sync failure")
+                    DataSyncService.shared.startPrivateDictionaryListener(userId: user.uid)
                 }
+            } else {
+                print("❌ [AuthenticationService] User signed out")
+                currentUser = nil
+                authenticationState = .signedOut
+
+                // Immediately reset subscription status when user signs out
+                SubscriptionService.shared.resetSubscriptionStatusOnSignOut()
+
+                // Stop real-time listener when user signs out
+                print("🔊 [AuthenticationService] Stopping real-time listener")
+                DataSyncService.shared.stopPrivateDictionaryListener()
             }
         }
     }
@@ -117,8 +126,8 @@ final class AuthenticationService: ObservableObject {
     // MARK: - Google Sign-In
 
     func signInWithGoogle() async throws {
-        DispatchQueue.main.async { [weak self] in
-            self?.authenticationState = .loading
+        await MainActor.run {
+            authenticationState = .loading
         }
 
         guard let clientID = FirebaseApp.app()?.options.clientID else {
@@ -128,9 +137,9 @@ final class AuthenticationService: ObservableObject {
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
 
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first,
-              let rootViewController = window.rootViewController else {
+        guard let windowScene = await UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = await windowScene.windows.first,
+              let rootViewController = await window.rootViewController else {
             throw AuthenticationError.signInFailed
         }
 
@@ -148,14 +157,14 @@ final class AuthenticationService: ObservableObject {
 
             let authResult = try await Auth.auth().signIn(with: credential)
 
-            DispatchQueue.main.async { [weak self] in
-                self?.currentUser = authResult.user
-                self?.authenticationState = .signedIn
+            await MainActor.run {
+                currentUser = authResult.user
+                authenticationState = .signedIn
             }
 
         } catch {
-            DispatchQueue.main.async { [weak self] in
-                self?.authenticationState = .signedOut
+            await MainActor.run {
+                authenticationState = .signedOut
             }
             throw AuthenticationError.signInFailed
         }
@@ -164,8 +173,8 @@ final class AuthenticationService: ObservableObject {
     // MARK: - Sign In with Apple
 
     func signInWithApple() async throws {
-        DispatchQueue.main.async { [weak self] in
-            self?.authenticationState = .loading
+        await MainActor.run {
+            authenticationState = .loading
         }
 
         do {
@@ -200,14 +209,14 @@ final class AuthenticationService: ObservableObject {
 
             let authResult = try await Auth.auth().signIn(with: credential)
 
-            DispatchQueue.main.async { [weak self] in
-                self?.currentUser = authResult.user
-                self?.authenticationState = .signedIn
+            await MainActor.run {
+                currentUser = authResult.user
+                authenticationState = .signedIn
             }
 
         } catch {
-            DispatchQueue.main.async { [weak self] in
-                self?.authenticationState = .signedOut
+            await MainActor.run {
+                authenticationState = .signedOut
             }
             throw AuthenticationError.signInFailed
         }
@@ -232,9 +241,9 @@ final class AuthenticationService: ObservableObject {
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
 
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first,
-              let rootViewController = window.rootViewController else {
+        guard let windowScene = await UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = await windowScene.windows.first,
+              let rootViewController = await window.rootViewController else {
             throw AuthenticationError.signInFailed
         }
 
@@ -387,6 +396,62 @@ final class AuthenticationService: ObservableObject {
             }
         } catch {
             print("❌ [AuthenticationService] Failed to request push notification permissions: \(error)")
+        }
+    }
+    
+    /// Creates or updates the user document in Firestore with all required fields
+    func createUserDocument(user: User) async {
+        guard let userEmail = user.email else {
+            print("❌ [AuthenticationService] No email available for user document creation")
+            return
+        }
+        
+        do {
+            let db = Firestore.firestore()
+            
+            // Get current FCM token if available
+            let fcmToken = Messaging.messaging().fcmToken
+            
+            // Create user document with all required fields
+            try await db.collection("users").document(userEmail).setData([
+                "userId": user.uid,
+                "email": userEmail,
+                "name": user.displayName ?? "Unknown",
+                "registrationDate": FieldValue.serverTimestamp(),
+                "lastUpdated": FieldValue.serverTimestamp(),
+                "platform": "iOS",
+                "fcmToken": fcmToken ?? "",
+                "subscriptionStatus": SubscriptionService.shared.isProUser ? "pro" : "free",
+                "subscriptionPlan": SubscriptionService.shared.currentPlan?.rawValue ?? "none",
+                "subscriptionExpiryDate": nil // Will be updated when subscription changes
+            ], merge: true)
+            
+            print("✅ [AuthenticationService] User document created/updated for: \(userEmail)")
+            
+        } catch {
+            print("❌ [AuthenticationService] Failed to create user document: \(error)")
+        }
+    }
+    
+    /// Updates the FCM token in the user's Firestore document
+    func updateFCMToken(_ token: String) async {
+        guard let userEmail = AuthenticationService.shared.userEmail else {
+            print("❌ [AuthenticationService] No user email available for FCM token update")
+            return
+        }
+        
+        do {
+            let db = Firestore.firestore()
+            
+            try await db.collection("users").document(userEmail).updateData([
+                "fcmToken": token,
+                "lastUpdated": FieldValue.serverTimestamp()
+            ])
+            
+            print("✅ [AuthenticationService] FCM token updated for user: \(userEmail)")
+            
+        } catch {
+            print("❌ [AuthenticationService] Failed to update FCM token: \(error)")
         }
     }
 }

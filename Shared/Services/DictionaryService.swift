@@ -133,90 +133,12 @@ final class DictionaryService: ObservableObject {
 
         print("✅ [DictionaryService] Collaborator added successfully")
         
-        // Send push notification to the new collaborator
-        await sendCollaboratorInvitationNotification(
-            to: email,
-            dictionaryId: dictionaryId,
-            inviterName: authenticationService.displayName ?? "Someone"
-        )
+        // Note: Push notification will be sent automatically by Cloud Function
+        // when the collaborator document is created in Firestore.
+        // The Cloud Function has proper permissions to read user FCM tokens.
     }
     
-    // MARK: - Push Notifications
-    
-    private func sendCollaboratorInvitationNotification(to userEmail: String, dictionaryId: String, inviterName: String) async {
-        print("🔔 [DictionaryService] Sending collaborator invitation notification to: \(userEmail)")
-        
-        do {
-            // Get the dictionary name
-            let dictionaryDoc = try await db.collection("dictionaries").document(dictionaryId).getDocument()
-            guard let dictionaryData = dictionaryDoc.data(),
-                  let dictionaryName = dictionaryData["name"] as? String else {
-                print("❌ [DictionaryService] Could not get dictionary name for notification")
-                return
-            }
-            
-            // Get user's FCM token using email as document ID
-            let userDoc = try await db.collection("users").document(userEmail).getDocument()
-            guard let userData = userDoc.data(),
-                  let fcmToken = userData["fcmToken"] as? String else {
-                print("⚠️ [DictionaryService] No FCM token found for user email: \(userEmail)")
-                return
-            }
-            
-            print("📱 [DictionaryService] Found FCM token using email as document ID")
-            
-            // Send notification via Firebase Functions
-            let notificationData: [String: Any] = [
-                "token": fcmToken,
-                "title": "New Dictionary Invitation",
-                "body": "\(inviterName) added you to '\(dictionaryName)'",
-                "data": [
-                    "type": "collaborator_invitation",
-                    "dictionaryId": dictionaryId,
-                    "inviterName": inviterName,
-                    "dictionaryName": dictionaryName
-                ]
-            ]
-            
-            // Call Firebase Function to send notification
-            try await sendPushNotification(notificationData)
-            
-            print("✅ [DictionaryService] Collaborator invitation notification sent successfully")
-            
-        } catch {
-            print("❌ [DictionaryService] Failed to send collaborator invitation notification: \(error)")
-        }
-    }
-    
-    private func sendPushNotification(_ notificationData: [String: Any]) async throws {
-        // Use Firebase Functions to send the notification
-        // Europe-3 region URL: https://europe-west3-my-dictionary-english.cloudfunctions.net/sendNotification
-        
-        guard let url = URL(string: "https://europe-west3-my-dictionary-english.cloudfunctions.net/sendNotification") else {
-            throw DictionaryError.networkError
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let jsonData = try JSONSerialization.data(withJSONObject: notificationData)
-        request.httpBody = jsonData
-        
-        let (data, response) = try await URLSession.shared.data(for: request)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw DictionaryError.networkError
-        }
-        
-        if httpResponse.statusCode != 200 {
-            let errorMessage = String(data: data, encoding: .utf8) ?? "Unknown error"
-            print("❌ [DictionaryService] Firebase Function error: \(errorMessage)")
-            throw DictionaryError.networkError
-        }
-        
-        print("✅ [DictionaryService] Push notification sent successfully via Firebase Function")
-    }
+
 
     func removeCollaborator(dictionaryId: String, email: String) async throws {
         guard !dictionaryId.isEmpty, !email.isEmpty else {
@@ -938,8 +860,8 @@ final class DictionaryService: ObservableObject {
     /// Free users can create 1 shared dictionary, Pro users can create unlimited
     private func canUserCreateSharedDictionary(userId: String) async -> Bool {
         // First check if user can access Pro features (must be authenticated)
-        guard SubscriptionService.shared.canAccessProFeatures() else {
-            print("❌ [DictionaryService] User cannot access Pro features - not authenticated or no subscription")
+        guard authenticationService.isSignedIn else {
+            print("❌ [DictionaryService] User cannot access Pro features - not authenticated")
             return false
         }
         
@@ -949,7 +871,6 @@ final class DictionaryService: ObservableObject {
         print("🔍 [DictionaryService] Dictionary creation check:")
         print("   - User ID: \(userId)")
         print("   - Owned dictionaries: \(userOwnedDictionaries.count)")
-        print("   - Can access Pro features: \(SubscriptionService.shared.canAccessProFeatures())")
         print("   - Can create: \(canCreate)")
         
         return canCreate
@@ -961,12 +882,7 @@ final class DictionaryService: ObservableObject {
         guard let userId = authenticationService.userId else {
             return false
         }
-        
-        // First check if user can access Pro features (must be authenticated)
-        guard SubscriptionService.shared.canAccessProFeatures() else {
-            return false
-        }
-        
+
         let userOwnedDictionaries = sharedDictionaries.filter { $0.owner == userId }
         return SubscriptionService.shared.canCreateMoreSharedDictionaries(currentCount: userOwnedDictionaries.count)
     }
@@ -979,51 +895,21 @@ final class DictionaryService: ObservableObject {
         
         return sharedDictionaries.filter { $0.owner == userId }.count
     }
-    
 
-    
     // MARK: - Testing Methods
     
     func testCollaboratorNotification(dictionaryId: String, targetEmail: String) async {
         print("🧪 [DictionaryService] Testing collaborator notification for dictionary: \(dictionaryId), target: \(targetEmail)")
         
         do {
-            // Get the dictionary name
-            let dictionaryDoc = try await db.collection("dictionaries").document(dictionaryId).getDocument()
-            guard let dictionaryData = dictionaryDoc.data(),
-                  let dictionaryName = dictionaryData["name"] as? String else {
-                print("❌ [DictionaryService] Could not get dictionary name for test notification")
-                return
-            }
+            // Instead of manually sending notifications, add the user as a collaborator
+            // This will trigger the Cloud Function automatically
+            try await addCollaborator(dictionaryId: dictionaryId, email: targetEmail)
             
-            // Get user's FCM token using email as document ID
-            let userDoc = try await db.collection("users").document(targetEmail).getDocument()
-            guard let userData = userDoc.data(),
-                  let fcmToken = userData["fcmToken"] as? String else {
-                print("⚠️ [DictionaryService] No FCM token found for test user: \(targetEmail)")
-                return
-            }
-            
-            // Send test notification via Firebase Functions
-            let notificationData: [String: Any] = [
-                "token": fcmToken,
-                "title": "Test Dictionary Invitation",
-                "body": "This is a test invitation to '\(dictionaryName)'",
-                "data": [
-                    "type": "collaborator_invitation",
-                    "dictionaryId": dictionaryId,
-                    "inviterName": "Test User",
-                    "dictionaryName": dictionaryName
-                ]
-            ]
-            
-            // Call Firebase Function to send notification
-            try await sendPushNotification(notificationData)
-            
-            print("✅ [DictionaryService] Test collaborator notification sent successfully")
+            print("✅ [DictionaryService] Test collaborator added - notification will be sent by Cloud Function")
             
         } catch {
-            print("❌ [DictionaryService] Failed to send test collaborator notification: \(error)")
+            print("❌ [DictionaryService] Failed to add test collaborator: \(error)")
         }
     }
 

@@ -24,7 +24,7 @@ struct DebugView: View {
     @State private var userId = "Not signed in"
     @State private var testNotificationEmail = ""
     @State private var showingEmailInput = false
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -57,11 +57,11 @@ struct DebugView: View {
             TextField("Enter email address", text: $testNotificationEmail)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
-            
+
             Button("Cancel", role: .cancel) {
                 testNotificationEmail = ""
             }
-            
+
             Button("Send") {
                 sendTestNotificationToUser()
             }
@@ -69,9 +69,9 @@ struct DebugView: View {
             Text("Enter the email address of the user you want to send a test notification to.")
         }
     }
-    
+
     // MARK: - View Sections
-    
+
     private var userInfoSection: some View {
         Section("User Information") {
             VStack(alignment: .leading, spacing: 8) {
@@ -82,7 +82,7 @@ struct DebugView: View {
                     Text(userEmail)
                         .foregroundStyle(.secondary)
                 }
-                
+
                 HStack {
                     Text("User ID:")
                         .fontWeight(.medium)
@@ -91,7 +91,7 @@ struct DebugView: View {
                         .foregroundStyle(.secondary)
                         .font(.caption)
                 }
-                
+
                 HStack {
                     Text("Auth State:")
                         .fontWeight(.medium)
@@ -99,7 +99,7 @@ struct DebugView: View {
                     Text("\(authenticationService.authenticationState)")
                         .foregroundStyle(.secondary)
                 }
-                
+
                 HStack {
                     Text("Pro User:")
                         .fontWeight(.medium)
@@ -110,7 +110,7 @@ struct DebugView: View {
             }
         }
     }
-    
+
     private var pushNotificationsSection: some View {
         Section("Push Notifications") {
             VStack(alignment: .leading, spacing: 8) {
@@ -122,25 +122,25 @@ struct DebugView: View {
                         .foregroundStyle(.secondary)
                         .font(.caption)
                 }
-                
+
                 Button("Copy FCM Token") {
                     UIPasteboard.general.string = fcmToken
                     showAlert("FCM Token copied to clipboard")
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Test Local Notification") {
                     testLocalNotification()
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Request Notification Permission") {
                     Task {
                         await authenticationService.requestPushNotificationPermissions()
                     }
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Check Notification Settings") {
                     checkNotificationSettings()
                 }
@@ -148,7 +148,7 @@ struct DebugView: View {
             }
         }
     }
-    
+
     private var subscriptionTestingSection: some View {
         Section("Subscription Testing") {
             VStack(alignment: .leading, spacing: 8) {
@@ -159,14 +159,14 @@ struct DebugView: View {
                     Text(subscriptionService.currentPlan?.rawValue ?? "None")
                         .foregroundStyle(.secondary)
                 }
-                
+
                 Button("Refresh Subscription Status") {
                     Task {
                         await subscriptionService.checkSubscriptionStatus()
                     }
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Sync Subscription to Firestore") {
                     Task {
                         await subscriptionService.syncSubscriptionStatus()
@@ -174,7 +174,7 @@ struct DebugView: View {
                     }
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Verify Subscription Ownership") {
                     Task {
                         let isOwner = await subscriptionService.verifySubscriptionOwnership()
@@ -182,20 +182,72 @@ struct DebugView: View {
                     }
                 }
                 .buttonStyle(.bordered)
-                
-                Button("Check Pro Access") {
-                    let canAccess = subscriptionService.canAccessProFeatures()
-                    showAlert(canAccess ? "Can access Pro features ✅" : "Cannot access Pro features ❌")
-                }
-                .buttonStyle(.bordered)
-                
+
                 Button("Test Paywall (Auth Check)") {
                     paywallService.presentPaywall(for: .createSharedDictionaries) { didSubscribe in
                         showAlert(didSubscribe ? "User subscribed! 🎉" : "User dismissed paywall")
                     }
                 }
                 .buttonStyle(.bordered)
-                
+
+                Button("Test Complete Auth Flow") {
+                    Task {
+                        await subscriptionService.setupAppUserID()
+                        showAlert("Auth flow successful! ✅")
+                    }
+                }
+                .buttonStyle(.bordered)
+
+                Button("Test Immediate Sign Out") {
+                    Task {
+                        // First check current status
+                        let wasPro = subscriptionService.isProUser
+
+                        // Simulate sign out
+                        subscriptionService.resetSubscriptionStatusOnSignOut()
+
+                        let isProNow = subscriptionService.isProUser
+                        showAlert("Before: \(wasPro ? "Pro" : "Free"), After: \(isProNow ? "Pro" : "Free")")
+                    }
+                }
+                .buttonStyle(.bordered)
+
+                Button("Create User Document") {
+                    Task {
+                        if let user = AuthenticationService.shared.currentUser {
+                            await AuthenticationService.shared.createUserDocument(user: user)
+                            showAlert("User document creation attempted")
+                        } else {
+                            showAlert("No authenticated user")
+                        }
+                    }
+                }
+
+                Button("Check User Document") {
+                    Task {
+                        guard let userEmail = AuthenticationService.shared.userEmail else {
+                            showAlert("No user email available")
+                            return
+                        }
+
+                        do {
+                            let db = Firestore.firestore()
+                            let doc = try await db.collection("users").document(userEmail).getDocument()
+
+                            if doc.exists {
+                                let data = doc.data() ?? [:]
+                                let fields = data.keys.sorted().joined(separator: ", ")
+                                showAlert("Document exists with fields: \(fields)")
+                            } else {
+                                showAlert("Document does not exist")
+                            }
+                        } catch {
+                            showAlert("Error checking document: \(error.localizedDescription)")
+                        }
+                    }
+                }
+                .buttonStyle(.bordered)
+
                 Button("Show Paywall") {
                     // This would need to be implemented based on your paywall service
                     showAlert("Paywall functionality needs to be implemented")
@@ -204,7 +256,7 @@ struct DebugView: View {
             }
         }
     }
-    
+
     private var dictionaryTestingSection: some View {
         Section("Dictionary Testing") {
             VStack(alignment: .leading, spacing: 8) {
@@ -215,37 +267,37 @@ struct DebugView: View {
                     Text("\(dictionaryService.sharedDictionaries.count)")
                         .foregroundStyle(.secondary)
                 }
-                
+
                 Button("Refresh Shared Dictionaries") {
                     dictionaryService.setupSharedDictionariesListener()
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Test Add Collaborator") {
                     testAddCollaborator()
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Test Push Notification") {
                     testPushNotification()
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Send Test Notification to User") {
                     showingEmailInput = true
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Clear Dictionary Cache") {
                     clearDictionaryCache()
                 }
                 .buttonStyle(.bordered)
-                
+
 
             }
         }
     }
-    
+
     private var firebaseTestingSection: some View {
         Section("Firebase Testing") {
             VStack(alignment: .leading, spacing: 8) {
@@ -253,12 +305,12 @@ struct DebugView: View {
                     testFirebaseConnection()
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Check Firestore Rules") {
                     testFirestoreRules()
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Clear Local Cache") {
                     clearLocalCache()
                 }
@@ -266,7 +318,7 @@ struct DebugView: View {
             }
         }
     }
-    
+
     private var appTestingSection: some View {
         Section("App Testing") {
             VStack(alignment: .leading, spacing: 8) {
@@ -274,12 +326,12 @@ struct DebugView: View {
                     resetAppState()
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Show App Info") {
                     showAppInfo()
                 }
                 .buttonStyle(.bordered)
-                
+
                 Button("Test Crash (Debug)") {
                     testCrash()
                 }
@@ -288,13 +340,13 @@ struct DebugView: View {
             }
         }
     }
-    
+
     // MARK: - Helper Methods
-    
+
     private func loadUserInfo() {
         userEmail = authenticationService.userEmail ?? "Not signed in"
         userId = authenticationService.userId ?? "Not signed in"
-        
+
         // Get FCM token
         Messaging.messaging().token { token, error in
             if let token = token {
@@ -306,14 +358,14 @@ struct DebugView: View {
             }
         }
     }
-    
+
     private func showAlert(_ message: String) {
         alertMessage = message
         showingAlert = true
     }
-    
+
     // MARK: - Push Notification Testing
-    
+
     private func testLocalNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Debug Test Notification"
@@ -324,10 +376,10 @@ struct DebugView: View {
             "type": "debug_test",
             "timestamp": Date().timeIntervalSince1970
         ]
-        
+
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: "debug-test", content: content, trigger: trigger)
-        
+
         UNUserNotificationCenter.current().add(request) { error in
             DispatchQueue.main.async {
                 if let error = error {
@@ -338,7 +390,7 @@ struct DebugView: View {
             }
         }
     }
-    
+
     private func checkNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             DispatchQueue.main.async {
@@ -354,19 +406,19 @@ struct DebugView: View {
             }
         }
     }
-    
+
     // MARK: - Dictionary Testing
-    
+
     private func testAddCollaborator() {
         guard let currentEmail = authenticationService.userEmail else {
             showAlert("No user email available")
             return
         }
-        
+
         // This is a test - you would need to implement actual collaborator addition
         showAlert("Test collaborator addition would be implemented here")
     }
-    
+
     private func testPushNotification() {
         Task {
             // Test with the first shared dictionary and current user
@@ -375,34 +427,34 @@ struct DebugView: View {
                 showAlert("No shared dictionaries or user email available")
                 return
             }
-            
+
             await dictionaryService.testCollaboratorNotification(
                 dictionaryId: firstDictionary.id,
                 targetEmail: userEmail
             )
-            
+
             showAlert("Test push notification sent! Check your device.")
         }
     }
-    
+
     private func sendTestNotificationToUser() {
         guard !testNotificationEmail.isEmpty else {
             showAlert("Please enter a valid email address")
             return
         }
-        
+
         guard let firstDictionary = dictionaryService.sharedDictionaries.first else {
             showAlert("No shared dictionaries available")
             return
         }
-        
+
         Task {
             do {
                 await dictionaryService.testCollaboratorNotification(
                     dictionaryId: firstDictionary.id,
                     targetEmail: testNotificationEmail
                 )
-                
+
                 DispatchQueue.main.async {
                     showAlert("Test notification sent to \(testNotificationEmail)!")
                     testNotificationEmail = ""
@@ -414,7 +466,7 @@ struct DebugView: View {
             }
         }
     }
-    
+
     private func clearDictionaryCache() {
         // Clear the shared dictionaries cache
         DispatchQueue.main.async {
@@ -422,9 +474,9 @@ struct DebugView: View {
             showAlert("Dictionary cache cleared")
         }
     }
-    
+
     // MARK: - Firebase Testing
-    
+
     private func testFirebaseConnection() {
         let db = Firestore.firestore()
         db.collection("test").document("connection").setData([
@@ -440,7 +492,7 @@ struct DebugView: View {
             }
         }
     }
-    
+
     private func testFirestoreRules() {
         // Test read access
         let db = Firestore.firestore()
@@ -454,21 +506,21 @@ struct DebugView: View {
             }
         }
     }
-    
+
     private func clearLocalCache() {
         // Clear various caches
         URLCache.shared.removeAllCachedResponses()
         showAlert("Local cache cleared")
     }
-    
+
     // MARK: - App Testing
-    
+
     private func resetAppState() {
         // Reset various app states
         UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         showAlert("App state reset (restart app to see changes)")
     }
-    
+
     private func showAppInfo() {
         let info = """
         App Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")
@@ -478,13 +530,13 @@ struct DebugView: View {
         """
         showAlert(info)
     }
-    
+
     private func testCrash() {
-        #if DEBUG
+#if DEBUG
         fatalError("Debug crash test")
-        #else
+#else
         showAlert("Crash test only available in debug builds")
-        #endif
+#endif
     }
 }
 #endif

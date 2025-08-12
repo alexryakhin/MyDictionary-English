@@ -84,6 +84,13 @@ exports.onCollaboratorAdded = functions
         console.log('New collaborator added:', { dictionaryId, email, collaboratorData });
         
         try {
+            // Check if this is the owner being added (skip notification for owner)
+            const role = collaboratorData.role || 'collaborator';
+            if (role === 'owner') {
+                console.log('Skipping notification for dictionary owner:', email);
+                return;
+            }
+            
             // Get the dictionary name
             const dictionaryDoc = await admin.firestore()
                 .collection('dictionaries')

@@ -110,7 +110,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         if let token = fcmToken {
             // Save FCM token to Firestore
             Task {
-                await saveFCMTokenToFirestore(token)
+                await AuthenticationService.shared.updateFCMToken(token)
             }
         }
     }
@@ -128,35 +128,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         }
     }
 
-    private func saveFCMTokenToFirestore(_ token: String) async {
-        guard let userId = AuthenticationService.shared.userId,
-              let userEmail = AuthenticationService.shared.userEmail else {
-            print("❌ [AppDelegate] No user ID or email available to save FCM token")
-            return
-        }
 
-        do {
-            let db = Firestore.firestore()
-            
-            // Save FCM token with email as document ID (standardized approach)
-            try await db.collection("users").document(userEmail).setData([
-                "fcmToken": token,
-                "lastUpdated": FieldValue.serverTimestamp(),
-                "platform": "iOS",
-                "userId": userId,
-                "email": userEmail,
-                "name": AuthenticationService.shared.displayName ?? "Unknown",
-                "registrationDate": FieldValue.serverTimestamp(),
-                "subscriptionStatus": SubscriptionService.shared.isProUser ? "pro" : "free",
-                "subscriptionPlan": SubscriptionService.shared.currentPlan?.rawValue,
-                "subscriptionExpiryDate": nil // Will be updated when subscription changes
-            ], merge: true)
-            
-            print("✅ [AppDelegate] FCM token saved for user: \(userEmail)")
-        } catch {
-            print("❌ [AppDelegate] Failed to save FCM token: \(error)")
-        }
-    }
 
     // MARK: - Simulator Testing
 

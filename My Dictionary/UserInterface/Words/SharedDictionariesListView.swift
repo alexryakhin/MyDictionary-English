@@ -34,6 +34,7 @@ struct SharedDictionariesListView: View {
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     } trailingContent: {
                         if userOwnedDictionaryCount >= 1 {
                             HeaderButton(text: "Upgrade to Pro") {
@@ -48,11 +49,7 @@ struct SharedDictionariesListView: View {
                         ContentUnavailableView(
                             "No Shared Dictionaries",
                             systemImage: "person.2",
-                            description: Text(
-                                dictionaryService.canCreateMoreSharedDictionaries()
-                                    ? "Create a shared dictionary to collaborate with others"
-                                    : "Free users can create one shared dictionary. Upgrade to Pro for unlimited dictionaries."
-                            )
+                            description: Text("Create a shared dictionary to collaborate with others")
                         )
                     } else {
                         ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in

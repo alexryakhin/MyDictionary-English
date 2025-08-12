@@ -159,11 +159,11 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             // Update subscription status after login
             await updateSubscriptionStatus(customerInfo: response.customerInfo)
 
-            // Verify subscription ownership
+            // Verify subscription ownership (but don't fail if verification fails)
             let isOwner = await verifySubscriptionOwnership()
             if !isOwner {
-                print("⚠️ [SubscriptionService] Subscription ownership verification failed")
-                return
+                print("⚠️ [SubscriptionService] Subscription ownership verification failed, but continuing...")
+                // Don't return here, let the user continue
             }
 
             // Sync to Firestore
@@ -175,15 +175,18 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     }
 
     /// Logs out the current user from RevenueCat to prevent subscription sharing
+    @MainActor
     func logoutFromRevenueCat() async {
         do {
             let customerInfo = try await Purchases.shared.logOut()
             print("✅ [SubscriptionService] Logged out from RevenueCat")
             print("📱 [SubscriptionService] Customer info after logout: \(customerInfo.originalAppUserId)")
 
-            // Reset subscription status
+            // Reset subscription status immediately
             isProUser = false
             currentPlan = nil
+            
+            print("📉 [SubscriptionService] User lost Pro status due to logout")
 
         } catch {
             print("❌ [SubscriptionService] Failed to logout from RevenueCat: \(error)")
@@ -256,12 +259,13 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             let customerInfo = try await Purchases.shared.customerInfo()
             let expiryDate = customerInfo.entitlements.active.values.first?.expirationDate
 
-            try await db.collection("users").document(userEmail).updateData([
+            // Use setData with merge to create document if it doesn't exist
+            try await db.collection("users").document(userEmail).setData([
                 "subscriptionStatus": isProUser ? "pro" : "free",
-                "subscriptionPlan": currentPlan?.rawValue,
+                "subscriptionPlan": currentPlan?.rawValue ?? "none",
                 "subscriptionExpiryDate": expiryDate,
                 "lastUpdated": FieldValue.serverTimestamp()
-            ])
+            ], merge: true)
 
             print("✅ [SubscriptionService] Subscription status synced to Firestore")
 
@@ -387,12 +391,41 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             
             // Check if the current App User ID matches the user's email
             let currentAppUserId = customerInfo.originalAppUserId
-            let isOwner = currentAppUserId == userEmail
+            
+            // For new logins, the App User ID might still be anonymous initially
+            // We need to check if the user has active subscriptions first
+            let hasActiveSubscription = !customerInfo.entitlements.active.isEmpty
             
             print("🔍 [SubscriptionService] Subscription ownership check:")
             print("   - Current App User ID: \(currentAppUserId)")
             print("   - User Email: \(userEmail)")
-            print("   - Is Owner: \(isOwner)")
+            print("   - Has Active Subscription: \(hasActiveSubscription)")
+            
+            // If user has no active subscription, they can't be an owner
+            if !hasActiveSubscription {
+                print("ℹ️ [SubscriptionService] No active subscription found")
+                return true // Allow this, no ownership conflict
+            }
+            
+            // If App User ID is still anonymous but user has subscription, 
+            // we need to complete the login process
+            if currentAppUserId.hasPrefix("$RCAnonymousID:") {
+                print("⚠️ [SubscriptionService] App User ID still anonymous, completing login...")
+                // Try to log in again to get the proper App User ID
+                let response = try await Purchases.shared.logIn(userEmail)
+                let newAppUserId = response.customerInfo.originalAppUserId
+                
+                if newAppUserId == userEmail {
+                    print("✅ [SubscriptionService] Login completed successfully")
+                    return true
+                } else {
+                    print("⚠️ [SubscriptionService] Login failed to set proper App User ID")
+                    return false
+                }
+            }
+            
+            // Check if App User ID matches email
+            let isOwner = currentAppUserId == userEmail
             
             if !isOwner {
                 print("⚠️ [SubscriptionService] Subscription ownership mismatch - logging out")
@@ -413,15 +446,37 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     private func isAnonymousUser() -> Bool {
         return !AuthenticationService.shared.isSignedIn || AuthenticationService.shared.userEmail == nil
     }
+
+    /// Immediately resets subscription status when user signs out
+    /// This ensures Pro features are immediately disabled
+    @MainActor
+    func resetSubscriptionStatusOnSignOut() {
+        print("🔄 [SubscriptionService] Resetting subscription status due to sign out")
+        isProUser = false
+        currentPlan = nil
+    }
     
-    /// Public method to check if user can access Pro features
-    /// This ensures only authenticated users with valid subscriptions can access Pro features
-    func canAccessProFeatures() -> Bool {
-        if isAnonymousUser() {
-            print("⚠️ [SubscriptionService] Anonymous user cannot access Pro features")
-            return false
+    /// Forces a refresh of subscription status and authentication check
+    /// Useful for debugging and ensuring UI is up to date
+    @MainActor
+    func forceRefreshSubscriptionStatus() {
+        print("🔄 [SubscriptionService] Force refreshing subscription status")
+        
+        // Check authentication status
+        let isAuthenticated = AuthenticationService.shared.isSignedIn
+        let hasEmail = AuthenticationService.shared.userEmail != nil
+        
+        if !isAuthenticated || !hasEmail {
+            print("⚠️ [SubscriptionService] User not authenticated - resetting to free")
+            isProUser = false
+            currentPlan = nil
+        } else {
+            print("✅ [SubscriptionService] User authenticated - checking subscription")
+            // Trigger a subscription check
+            Task {
+                await checkSubscriptionStatus()
+            }
         }
-        return isProUser
     }
 }
 
