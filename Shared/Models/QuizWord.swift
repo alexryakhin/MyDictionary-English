@@ -19,6 +19,7 @@ protocol QuizWord: Identifiable {
     var quiz_partOfSpeech: String { get }
     var quiz_difficultyScore: Int { get }
     var quiz_languageCode: String { get }
+    var quiz_timestamp: Date { get }
 
     var difficultyLevel: Difficulty { get }
 
@@ -63,6 +64,10 @@ extension CDWord: QuizWord {
     
     var quiz_languageCode: String {
         return self.languageCode ?? "en"
+    }
+
+    var quiz_timestamp: Date {
+        return self.timestamp ?? .now
     }
 
     func quiz_updateDifficultyScore(_ points: Int) {
@@ -135,7 +140,11 @@ extension SharedWord: QuizWord {
     var quiz_languageCode: String {
         return self.languageCode
     }
-    
+
+    var quiz_timestamp: Date {
+        return self.timestamp
+    }
+
     var difficultyLevel: Difficulty {
         if let userEmail = AuthenticationService.shared.userEmail {
             return Difficulty(score: self.getDifficultyFor(userEmail))

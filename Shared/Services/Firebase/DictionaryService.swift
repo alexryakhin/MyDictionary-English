@@ -213,15 +213,6 @@ final class DictionaryService: ObservableObject {
         guard dictionary.owner == userId else {
             throw DictionaryError.permissionDenied
         }
-        
-        // Pro users can always delete, free users can only delete their one dictionary
-        if !SubscriptionService.shared.isProUser {
-            let userOwnedDictionaries = sharedDictionaries.filter { $0.owner == userId }
-            if userOwnedDictionaries.count > SubscriptionService.shared.getSharedDictionaryLimit() {
-                print("❌ [DictionaryService] Free user cannot delete dictionary - they have multiple dictionaries")
-                throw DictionaryError.subscriptionRequired
-            }
-        }
 
         print("🗑️ [DictionaryService] deleteSharedDictionary called with dictionaryId: \(dictionaryId)")
 
@@ -1102,7 +1093,6 @@ enum DictionaryError: LocalizedError {
     case dictionaryNotFound
     case networkError
     case userNotAuthenticated
-    case subscriptionRequired
     case dictionaryLimitReached
 
     var errorDescription: String? {
@@ -1117,8 +1107,6 @@ enum DictionaryError: LocalizedError {
             return "Network error occurred"
         case .userNotAuthenticated:
             return "User must be authenticated"
-        case .subscriptionRequired:
-            return "Pro subscription required for this feature"
         case .dictionaryLimitReached:
             return "You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries."
         }

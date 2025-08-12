@@ -10,22 +10,14 @@ import SwiftUI
 struct SharedDictionaryWordsView: View {
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var navigationManager: NavigationManager = .shared
+    @StateObject private var viewModel: SharedWordListViewModel
 
-    @State private var searchText = ""
     @State private var showingAddWord = false
     @State var dictionary: SharedDictionary
 
-    var filteredWords: [SharedWord] {
-        let sharedWordsForDictionary = dictionaryService.sharedWords[dictionary.id] ?? []
-        
-        if searchText.isEmpty {
-            return sharedWordsForDictionary
-        } else {
-            return sharedWordsForDictionary.filter { word in
-                word.wordItself.localizedCaseInsensitiveContains(searchText) ||
-                word.definition.localizedCaseInsensitiveContains(searchText)
-            }
-        }
+    init(dictionary: SharedDictionary) {
+        self.dictionary = dictionary
+        self._viewModel = StateObject(wrappedValue: SharedWordListViewModel(dictionaryId: dictionary.id))
     }
     
     var body: some View {
@@ -33,24 +25,26 @@ struct SharedDictionaryWordsView: View {
             VStack(spacing: 16) {
                 CustomSectionView(
                     header: "Words",
-                    footer: "\(filteredWords.count) words",
+                    footer: "\(viewModel.wordsCount)",
                     hPadding: .zero
                 ) {
                     // Words List
-                    if filteredWords.isEmpty {
-                        ContentUnavailableView(
-                            "No words yet",
-                            systemImage: "textformat",
-                            description: Text("Add words to this shared dictionary to get started")
-                        )
-                    } else if filteredWords.isEmpty {
-                        ContentUnavailableView(
-                            "No Results",
-                            systemImage: "magnifyingglass",
-                            description: Text("No words match your search")
-                        )
+                    if viewModel.wordsFiltered.isEmpty {
+                        if viewModel.words.isEmpty {
+                            ContentUnavailableView(
+                                "No words yet",
+                                systemImage: "textformat",
+                                description: Text("Add words to this shared dictionary to get started")
+                            )
+                        } else {
+                            ContentUnavailableView(
+                                "No Results",
+                                systemImage: "magnifyingglass",
+                                description: Text("No words match your current filter")
+                            )
+                        }
                     } else {
-                        ListWithDivider(filteredWords) { word in
+                        ListWithDivider(viewModel.wordsFiltered) { word in
                             SharedWordListCellView(word: word)
                                 .id(word.id)
                                 .onTap {
@@ -79,7 +73,10 @@ struct SharedDictionaryWordsView: View {
                 }
             },
             bottomContent: {
-                InputView.searchView("Search words", searchText: $searchText)
+                VStack(spacing: 12) {
+                    InputView.searchView("Search words", searchText: $viewModel.searchText)
+                    SharedWordListFilterView(viewModel: viewModel)
+                }
             }
         )
         .sheet(isPresented: $showingAddWord) {

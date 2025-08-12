@@ -45,7 +45,7 @@ final class DataSyncService: ObservableObject {
         // Check if user has Pro subscription for Google sync
         guard SubscriptionService.shared.isProUser else {
             print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
-            throw DataSyncError.subscriptionRequired
+            return
         }
 
         // Only sync unsynced words (new words or words marked as unsynced)
@@ -153,7 +153,7 @@ final class DataSyncService: ObservableObject {
         // Check if user has Pro subscription for Google sync
         guard SubscriptionService.shared.isProUser else {
             print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
-            throw DataSyncError.subscriptionRequired
+            return
         }
 
         print("📡 [DataSyncService] Fetching words from Firestore...")
@@ -326,7 +326,7 @@ final class DataSyncService: ObservableObject {
         // Check if user has Pro subscription for Google sync
         guard SubscriptionService.shared.isProUser else {
             print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
-            throw DataSyncError.subscriptionRequired
+            return
         }
         
         guard let wordModel = Word(from: word) else {
@@ -355,7 +355,7 @@ final class DataSyncService: ObservableObject {
         // Check if user has Pro subscription for Google sync
         guard SubscriptionService.shared.isProUser else {
             print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
-            throw DataSyncError.subscriptionRequired
+            return
         }
         
         let docRef = db.collection("users").document(userId)
@@ -766,7 +766,7 @@ final class DataSyncService: ObservableObject {
         // Check if user has Pro subscription for Google sync
         guard SubscriptionService.shared.isProUser else {
             print("❌ [DataSyncService] User does not have Pro subscription for Google sync")
-            throw DataSyncError.subscriptionRequired
+            return
         }
         
         let fetchRequest = CDWord.fetchRequest()
@@ -827,7 +827,6 @@ enum DataSyncError: LocalizedError {
     case invalidUserId
     case networkError
     case syncFailed
-    case subscriptionRequired
 
     var errorDescription: String? {
         switch self {
@@ -837,8 +836,6 @@ enum DataSyncError: LocalizedError {
             return "Network error occurred"
         case .syncFailed:
             return "Sync failed"
-        case .subscriptionRequired:
-            return "Pro subscription required for Google sync"
         }
     }
 }

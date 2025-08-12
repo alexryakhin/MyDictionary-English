@@ -118,8 +118,11 @@ final class AnalyticsViewModel: BaseViewModel {
             if let date = calendar.date(byAdding: .day, value: -i, to: today) {
                 // Count words that were added on or before this date
                 let wordsAddedByDate = words.filter { word in
-                    guard let wordDate = word.timestamp else { return false }
-                    return calendar.compare(wordDate, to: date, toGranularity: .day) != .orderedDescending
+                    return calendar.compare(
+                        word.quiz_timestamp,
+                        to: date,
+                        toGranularity: .day
+                    ) != .orderedDescending
                 }.count
                 
                 data.append(VocabularyLineChart.Model(date: date, count: wordsAddedByDate))

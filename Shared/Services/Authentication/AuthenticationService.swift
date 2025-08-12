@@ -28,7 +28,6 @@ enum AuthenticationError: LocalizedError {
     case userNotFound
     case networkError
     case accountLinkingFailed
-    case subscriptionRequired
 
     var errorDescription: String? {
         switch self {
@@ -42,8 +41,6 @@ enum AuthenticationError: LocalizedError {
             return "Network error. Please check your connection."
         case .accountLinkingFailed:
             return "Failed to link accounts. Please try again."
-        case .subscriptionRequired:
-            return "Pro subscription required for Google sync"
         }
     }
 }
@@ -228,11 +225,6 @@ final class AuthenticationService: ObservableObject {
         guard let currentUser = Auth.auth().currentUser else {
             throw AuthenticationError.userNotFound
         }
-        
-        // Check if user has Pro subscription for Google sync
-        guard SubscriptionService.shared.isProUser else {
-            throw AuthenticationError.subscriptionRequired
-        }
 
         guard let clientID = FirebaseApp.app()?.options.clientID else {
             throw AuthenticationError.signInFailed
@@ -320,7 +312,7 @@ final class AuthenticationService: ObservableObject {
             do {
                 // Log out from RevenueCat first to prevent subscription sharing
                 await SubscriptionService.shared.logoutFromRevenueCat()
-                
+
                 try Auth.auth().signOut()
                 GIDSignIn.sharedInstance.signOut()
 
@@ -377,16 +369,16 @@ final class AuthenticationService: ObservableObject {
     }
 
     // MARK: - Push Notifications
-    
+
     func requestPushNotificationPermissions() async {
         print("🔔 [AuthenticationService] Requesting push notification permissions")
-        
+
         do {
             let granted = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
-            
+
             if granted {
                 print("✅ [AuthenticationService] Push notification permissions granted")
-                
+
                 // Register for remote notifications
                 await MainActor.run {
                     UIApplication.shared.registerForRemoteNotifications()
@@ -398,20 +390,20 @@ final class AuthenticationService: ObservableObject {
             print("❌ [AuthenticationService] Failed to request push notification permissions: \(error)")
         }
     }
-    
+
     /// Creates or updates the user document in Firestore with all required fields
     func createUserDocument(user: User) async {
         guard let userEmail = user.email else {
             print("❌ [AuthenticationService] No email available for user document creation")
             return
         }
-        
+
         do {
             let db = Firestore.firestore()
-            
+
             // Get current FCM token if available
             let fcmToken = Messaging.messaging().fcmToken
-            
+
             // Create user document with all required fields
             try await db.collection("users").document(userEmail).setData([
                 "userId": user.uid,
@@ -425,31 +417,31 @@ final class AuthenticationService: ObservableObject {
                 "subscriptionPlan": SubscriptionService.shared.currentPlan?.rawValue ?? "none",
                 "subscriptionExpiryDate": nil // Will be updated when subscription changes
             ], merge: true)
-            
+
             print("✅ [AuthenticationService] User document created/updated for: \(userEmail)")
-            
+
         } catch {
             print("❌ [AuthenticationService] Failed to create user document: \(error)")
         }
     }
-    
+
     /// Updates the FCM token in the user's Firestore document
     func updateFCMToken(_ token: String) async {
         guard let userEmail = AuthenticationService.shared.userEmail else {
             print("❌ [AuthenticationService] No user email available for FCM token update")
             return
         }
-        
+
         do {
             let db = Firestore.firestore()
-            
+
             try await db.collection("users").document(userEmail).updateData([
                 "fcmToken": token,
                 "lastUpdated": FieldValue.serverTimestamp()
             ])
-            
+
             print("✅ [AuthenticationService] FCM token updated for user: \(userEmail)")
-            
+
         } catch {
             print("❌ [AuthenticationService] Failed to update FCM token: \(error)")
         }

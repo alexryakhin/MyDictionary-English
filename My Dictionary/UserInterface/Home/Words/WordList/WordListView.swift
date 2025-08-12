@@ -113,7 +113,7 @@ struct WordListView: View {
                         "Search words...",
                         searchText: $viewModel.searchText
                     )
-                    TagFilterView(viewModel: viewModel)
+                    WordListFilterView(viewModel: viewModel)
                 }
             }
         )

@@ -36,6 +36,7 @@ struct WordListCellView: View {
                 }
 
                 Text(word.partOfSpeechDecoded.rawValue)
+                    .font(.subheadline)
                     .foregroundStyle(.secondary)
 
                 // Language label

@@ -213,16 +213,23 @@ final class QuizAnalyticsService {
         }
     }
     
-    func getAllWords() -> [CDWord] {
+    func getAllWords() -> [any QuizWord] {
         let request = CDWord.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
-        
+
+        var words: [any QuizWord] = []
+
         do {
-            return try coreDataService.context.fetch(request)
+            let coreDataWords = try coreDataService.context.fetch(request)
+            words.append(contentsOf: coreDataWords)
         } catch {
             print("❌ Failed to fetch all words: \(error)")
-            return []
         }
+
+        let sharedWords = DictionaryService.shared.sharedWords.values.flatMap { $0 }
+        words.append(contentsOf: sharedWords)
+
+        return words
     }
     
     func getProgressSummary() -> ProgressSummary {

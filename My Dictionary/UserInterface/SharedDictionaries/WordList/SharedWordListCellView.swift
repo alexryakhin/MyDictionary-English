@@ -17,30 +17,26 @@ struct SharedWordListCellView: View {
                     .font(.headline)
                     .foregroundStyle(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                Text(word.partOfSpeech)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
                 Image(systemName: "chevron.right")
                     .frame(sideLength: 12)
                     .foregroundStyle(.secondary)
             }
 
             HStack(spacing: 8) {
-                Text(word.partOfSpeech)
-                    .font(.caption)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(Color.accent.opacity(0.2))
-                    .foregroundStyle(.accent)
-                    .clipShape(Capsule())
-
-                if shouldShowLanguageLabel {
-                    Text(languageDisplayName)
-                        .font(.caption)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(Color.secondary.opacity(0.2))
-                        .foregroundStyle(.secondary)
-                        .clipShape(Capsule())
+                if word.difficulties.count > 0 {
+                    HStack(spacing: 4) {
+                        Image(systemName: "chart.bar.fill")
+                            .font(.caption2)
+                            .foregroundStyle(.blue)
+                        Text(String(format: "%.1f", word.averageDifficulty))
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
                 }
-                
+
                 // Collaborative features
                 if word.likeCount > 0 {
                     HStack(spacing: 4) {
@@ -52,16 +48,15 @@ struct SharedWordListCellView: View {
                             .foregroundStyle(.secondary)
                     }
                 }
-                
-                if word.difficulties.count > 0 {
-                    HStack(spacing: 4) {
-                        Image(systemName: "chart.bar.fill")
-                            .font(.caption2)
-                            .foregroundStyle(.blue)
-                        Text(String(format: "%.1f", word.averageDifficulty))
-                            .font(.caption2)
-                            .foregroundStyle(.secondary)
-                    }
+
+                if shouldShowLanguageLabel {
+                    Text(languageDisplayName)
+                        .font(.caption2)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.secondary.opacity(0.2))
+                        .foregroundStyle(.secondary)
+                        .clipShape(Capsule())
                 }
 
                 Spacer()
