@@ -446,6 +446,11 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     private func isAnonymousUser() -> Bool {
         return !AuthenticationService.shared.isSignedIn || AuthenticationService.shared.userEmail == nil
     }
+    
+    /// Checks if user can access advanced analytics features
+    func canAccessAdvancedAnalytics() -> Bool {
+        return isProUser
+    }
 
     /// Immediately resets subscription status when user signs out
     /// This ensures Pro features are immediately disabled

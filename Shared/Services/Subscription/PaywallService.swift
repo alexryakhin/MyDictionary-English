@@ -272,17 +272,24 @@ enum PaywallReason: String, CaseIterable {
 // MARK: - Paywall Modifier
 
 struct MyPaywallView: View {
-
     @StateObject private var authenticationService = AuthenticationService.shared
+    @StateObject private var subscriptionService = SubscriptionService.shared
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         if authenticationService.isSignedIn {
+            #if os(macOS)
+            MacOSPaywallView()
+            #else
             PaywallView()
+            #endif
         } else {
             AuthenticationView(shownBeforePaywall: true)
         }
     }
 }
+
+
 
 struct PaywallModifier: ViewModifier {
     
@@ -291,8 +298,10 @@ struct PaywallModifier: ViewModifier {
     func body(content: Content) -> some View {
         content.sheet(isPresented: $paywallService.isShowingPaywall) {
             MyPaywallView()
+                #if os(iOS)
                 .presentationDetents([.large])
                 .presentationDragIndicator(.visible)
+                #endif
         }
     }
 }

@@ -155,9 +155,7 @@ final class AddWordViewModel: BaseViewModel {
                 status = .ready
             } catch {
                 AnalyticsService.shared.logEvent(.translationFailed)
-                errorReceived(error, displayType: .alert, actionText: "Retry") { [weak self] in
-                    self?.fetchData()
-                }
+                errorReceived(error, displayType: .alert)
                 status = .error
             }
         }

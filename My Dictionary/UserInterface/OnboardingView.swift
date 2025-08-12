@@ -144,6 +144,7 @@ struct OnboardingView: View {
             .animation(.easeInOut(duration: 0.8).delay(0.3), value: animateContent)
             
             Spacer()
+            Spacer()
         }
         .padding(.horizontal, 32)
     }

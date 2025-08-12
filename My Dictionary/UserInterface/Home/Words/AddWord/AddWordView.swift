@@ -222,7 +222,7 @@ struct AddWordView: View {
                 ContentUnavailableView {
                     Image(systemName: "exclamationmark.triangle")
                         .font(.largeTitle)
-                    Text("Error Loading Definitions")
+                        .foregroundStyle(.orange)
                 } description: {
                     Text("There is an error loading definitions. Please try again.")
                 } actions: {
