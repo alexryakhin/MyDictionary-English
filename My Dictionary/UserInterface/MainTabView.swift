@@ -19,6 +19,7 @@ struct MainTabView: View {
     @StateObject var tabManager: TabManager = .shared
     @StateObject var authenticationService: AuthenticationService = .shared
     @StateObject var subscriptionService: SubscriptionService = .shared
+    @StateObject var sessionManager: SessionManager = .shared
 
     var body: some View {
         NavigationStack(path: $navigationManager.navigationPath) {
@@ -61,6 +62,21 @@ struct MainTabView: View {
                 SignOutView()
             }
             .withPaywall()
+            .sheet(isPresented: $sessionManager.showCoffeeBanner) {
+                CoffeeBanner(
+                    onBuyCoffee: {
+                        UIApplication.shared.open(GlobalConstant.buyMeACoffeeUrl)
+                        sessionManager.markCoffeeBannerShown()
+                        AnalyticsService.shared.logEvent(.coffeeBannerTapped)
+                    },
+                    onDismiss: {
+                        sessionManager.markCoffeeBannerDismissed()
+                        AnalyticsService.shared.logEvent(.coffeeBannerDismissed)
+                    }
+                )
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
+            }
         }
     }
 

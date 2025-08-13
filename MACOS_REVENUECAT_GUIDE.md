@@ -354,3 +354,4 @@ Your RevenueCat setup is now fully compatible with macOS! The key components are
 4. **Cross-platform subscription sharing** - Subscriptions work across iOS and macOS
 
 The custom macOS paywall provides the same functionality as RevenueCatUI.PaywallView but is designed specifically for the desktop experience with proper window sizing, native macOS styling, and desktop-appropriate interactions.
+

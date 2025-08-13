@@ -80,6 +80,14 @@ enum AnalyticsEvent: String {
     case spellingQuizOpened
     case spellingQuizAnswerConfirmed
     case spellingQuizWordSkipped
+    
+    // Rating Banner Events
+    case ratingBannerTapped
+    case ratingBannerDismissed
+    
+    // Coffee Banner Events
+    case coffeeBannerTapped
+    case coffeeBannerDismissed
     case spellingQuizRestarted
     case definitionQuizOpened
     case definitionQuizAnswerSelected

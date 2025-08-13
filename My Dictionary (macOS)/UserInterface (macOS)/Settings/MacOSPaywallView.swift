@@ -278,3 +278,4 @@ struct PlanCard: View {
 #Preview {
     MacOSPaywallView()
 }
+
