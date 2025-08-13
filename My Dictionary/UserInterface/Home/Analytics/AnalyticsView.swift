@@ -67,7 +67,7 @@ struct AnalyticsView: View {
                     ProgressCard(
                         title: "Mastered",
                         value: "\(viewModel.progressSummary?.mastered ?? 0)",
-                        color: .green,
+                        color: .accent,
                         icon: "checkmark.circle"
                     )
                     ProgressCard(
@@ -119,7 +119,7 @@ struct AnalyticsView: View {
                 }
             }
         } trailingContent: {
-            HeaderButton("View All") {
+            HeaderButton("View All", size: .small) {
                 if subscriptionService.isProUser {
                     viewModel.output.send(.showQuizResultsDetail)
                 } else {

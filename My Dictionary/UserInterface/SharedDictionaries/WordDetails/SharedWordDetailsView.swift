@@ -60,10 +60,14 @@ struct SharedWordDetailsView: View {
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
-                HeaderButton(icon: "trash") {
+                HeaderButton(icon: "trash", color: .red) {
                     showDeleteAlert()
                 }
-                .tint(.red)
+                HeaderButton(
+                    word.likeCount.formatted(),
+                    icon: word.isLikedBy(authenticationService.userEmail ?? "") ? "heart.fill" : "heart",
+                    action: toggleLike
+                )
             },
             bottomContent: {
                 Text(word.wordItself)
@@ -116,12 +120,12 @@ struct SharedWordDetailsView: View {
                 .fontWeight(.semibold)
         } trailingContent: {
             if isPhoneticsFocused {
-                HeaderButton("Done") {
+                HeaderButton("Done", size: .small) {
                     isPhoneticsFocused = false
                     savePhonetic()
                 }
             } else {
-                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill", size: .small) {
                     play(word.wordItself, isWord: true)
                 }
             }
@@ -134,7 +138,7 @@ struct SharedWordDetailsView: View {
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
-            Menu {
+            HeaderButtonMenu("Edit", size: .small) {
                 ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
                     Button {
                         updatePartOfSpeech(partCase)
@@ -142,12 +146,7 @@ struct SharedWordDetailsView: View {
                         Text(partCase.rawValue)
                     }
                 }
-            } label: {
-                Text("Edit")
-                    .font(.caption)
             }
-            .buttonStyle(.bordered)
-            .clipShape(Capsule())
         }
     }
 
@@ -158,13 +157,13 @@ struct SharedWordDetailsView: View {
                 .fontWeight(.semibold)
         } trailingContent: {
             if isDefinitionFocused {
-                HeaderButton("Done") {
+                HeaderButton("Done", size: .small) {
                     isDefinitionFocused = false
                     saveDefinition()
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                 }
             } else {
-                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill", size: .small) {
                     play(word.definition)
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
@@ -180,13 +179,11 @@ struct SharedWordDetailsView: View {
                     Text(word.languageDisplayName)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                    Text(word.languageCode.uppercased())
-                        .font(.caption2)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
-                        .background(Color.blue.opacity(0.2))
-                        .foregroundStyle(.blue)
-                        .clipShape(Capsule())
+                    TagView(
+                        text: word.languageCode.uppercased(),
+                        color: .blue,
+                        size: .mini
+                    )
                 }
             }
         }
@@ -267,14 +264,14 @@ struct SharedWordDetailsView: View {
             }
         } trailingContent: {
             if isAddingExample {
-                HeaderButton("Save", icon: "checkmark") {
+                HeaderButton("Save", icon: "checkmark", size: .small) {
                     addExample(exampleTextFieldStr)
                     isAddingExample = false
                     exampleTextFieldStr = .empty
                     AnalyticsService.shared.logEvent(.wordExampleAdded)
                 }
             } else {
-                HeaderButton("Add example", icon: "plus") {
+                HeaderButton("Add example", icon: "plus", size: .small) {
                     withAnimation {
                         isAddingExample.toggle()
                         AnalyticsService.shared.logEvent(.wordAddExampleTapped)
@@ -289,10 +286,11 @@ struct SharedWordDetailsView: View {
     private var collaborativeFeaturesSection: some View {
         CustomSectionView(
             header: "Collaborative Features",
-            headerFontStyle: .stealth
+            headerFontStyle: .stealth,
+            footer: word.addedByDisplayText
         ) {
-            VStack(spacing: 16) {
-                // Like and difficulty controls
+            VStack(spacing: 12) {
+                // User's stats
                 likeAndDifficultyControls
 
                 // Stats summary
@@ -301,115 +299,58 @@ struct SharedWordDetailsView: View {
                 // View detailed stats button
                 viewStatsButton
             }
+            .padding(.bottom, 12)
         }
     }
 
+    @ViewBuilder
     private var likeAndDifficultyControls: some View {
-        VStack(spacing: 12) {
-            // Like button
-            HStack {
-                Button {
-                    toggleLike()
-                } label: {
-                    HStack(spacing: 8) {
-                        Image(systemName: word.isLikedBy(authenticationService.userEmail ?? "") ? "heart.fill" : "heart")
-                            .foregroundStyle(word.isLikedBy(authenticationService.userEmail ?? "") ? .red : .secondary)
+        let userScore = word.getDifficultyFor(authenticationService.userEmail ?? "")
+        let userDifficulty = Difficulty(score: userScore)
 
-                        Text(word.isLikedBy(authenticationService.userEmail ?? "") ? "Liked" : "Like")
-                            .font(.subheadline)
-                            .fontWeight(.medium)
-                    }
-                }
-                .buttonStyle(.plain)
+        HStack(spacing: 12) {
+            StatSummaryCard(
+                title: "Your score",
+                value: userScore.formatted(),
+                icon: "trophy.fill"
+            )
 
-                Spacer()
-
-                Text("\(word.likeCount) likes")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-
-            // Difficulty display (read-only)
-            HStack {
-                Text("Your difficulty rating:")
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-
-                Spacer()
-
-                let userDifficulty = word.getDifficultyFor(authenticationService.userEmail ?? "")
-                let difficultyLevel = Difficulty(score: userDifficulty)
-
-                VStack(alignment: .trailing, spacing: 2) {
-                    Text(difficultyLevel.displayName)
-                        .font(.caption)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(difficultyLevel.color.opacity(0.2))
-                        .foregroundStyle(difficultyLevel.color)
-                        .clipShape(Capsule())
-
-                    Text("Score: \(userDifficulty)")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
-
-                Text("(Quiz-based)")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-            }
+            StatSummaryCard(
+                title: "Your status",
+                value: userDifficulty.displayName,
+                icon: userDifficulty.imageName
+            )
         }
-        .padding(16)
-        .background(.background)
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(.secondary.opacity(0.3), lineWidth: 1)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
     private var statsSummary: some View {
-        HStack {
+        HStack(spacing: 12) {
             StatSummaryCard(
-                title: "Average Difficulty",
-                value: String(format: "%.1f", word.averageDifficulty),
+                title: "Average Score",
+                value: word.averageDifficulty.formatted(),
                 icon: "chart.bar.fill"
             )
 
             StatSummaryCard(
                 title: "Total Ratings",
-                value: "\(word.difficulties.count)",
+                value: word.difficulties.count.formatted(),
                 icon: "person.2.fill"
             )
         }
     }
 
     private var viewStatsButton: some View {
-        Button {
+        ActionButton(
+            "View Detailed Statistics",
+            systemImage: "chart.bar.doc.horizontal"
+        ) {
             NavigationManager.shared.navigationPath.append(
                 NavigationDestination.sharedWordDifficultyStats(
                     word: word,
                     dictionaryId: dictionaryId
                 )
             )
-        } label: {
-            HStack {
-                Image(systemName: "chart.bar.doc.horizontal")
-                Text("View Detailed Statistics")
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            .padding(16)
-            .background(.background)
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(.secondary.opacity(0.3), lineWidth: 1)
-            )
-            .clipShape(RoundedRectangle(cornerRadius: 12))
         }
-        .buttonStyle(.plain)
     }
 
     // MARK: - Private Methods
@@ -562,32 +503,28 @@ struct SharedWordDetailsView: View {
 
 // MARK: - StatSummaryCard
 
-struct StatSummaryCard: View {
-    let title: String
-    let value: String
-    let icon: String
+extension SharedWordDetailsView {
+    struct StatSummaryCard: View {
+        let title: String
+        let value: String
+        let icon: String
 
-    var body: some View {
-        VStack(spacing: 8) {
-            Image(systemName: icon)
-                .font(.title3)
-                .foregroundStyle(.accent)
+        var body: some View {
+            VStack(spacing: 8) {
+                Image(systemName: icon)
+                    .font(.title3)
+                    .foregroundStyle(.accent)
 
-            Text(value)
-                .font(.headline)
-                .fontWeight(.semibold)
+                Text(value)
+                    .font(.headline)
+                    .fontWeight(.semibold)
 
-            Text(title)
-                .font(.caption)
-                .foregroundStyle(.secondary)
+                Text(title)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity)
+            .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
         }
-        .frame(maxWidth: .infinity)
-        .padding(12)
-        .background(.background)
-        .overlay(
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(.secondary.opacity(0.3), lineWidth: 1)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

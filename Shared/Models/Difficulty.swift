@@ -39,9 +39,9 @@ enum Difficulty: Hashable, CaseIterable {
     var imageName: String {
         switch self {
         case .new:
-            return "plus.circle"
+            return "sparkles"
         case .inProgress:
-            return "arrow.right.circle"
+            return "hourglass"
         case .needsReview:
             return "exclamationmark.triangle"
         case .mastered:

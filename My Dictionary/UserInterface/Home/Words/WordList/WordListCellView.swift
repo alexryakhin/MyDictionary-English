@@ -41,13 +41,7 @@ struct WordListCellView: View {
 
                 // Language label
                 if word.shouldShowLanguageLabel, let code = word.languageCode {
-                    Text(code.uppercased())
-                        .font(.caption2)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
-                        .background(Color.blue.opacity(0.2))
-                        .foregroundStyle(.blue)
-                        .clipShape(Capsule())
+                    TagView(text: code.uppercased(), color: .blue, size: .mini)
                 }
 
                 Image(systemName: "chevron.right")
@@ -60,12 +54,11 @@ struct WordListCellView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 4) {
                         ForEach(word.tagsArray, id: \.id) { tag in
-                            Text(tag.name ?? "")
-                                .font(.caption2)
-                                .padding(vertical: 2, horizontal: 6)
-                                .background(tag.colorValue.color.opacity(0.2))
-                                .foregroundStyle(tag.colorValue.color)
-                                .clipShape(Capsule())
+                            TagView(
+                                text: tag.name ?? "",
+                                color: tag.colorValue.color,
+                                size: .mini
+                            )
                         }
                     }
                 }

@@ -80,7 +80,7 @@ public struct InputView: View {
             .clipShape(Capsule())
 
             if showsTrailingButton, let trailingButtonLabel {
-                HeaderButton(trailingButtonLabel, font: .body) {
+                HeaderButton(trailingButtonLabel) {
                     HapticManager.shared.triggerImpact(style: .light)
                     UIApplication.shared.endEditing()
                     onTrailingButtonTap?()

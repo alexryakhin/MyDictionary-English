@@ -212,7 +212,7 @@ struct OnboardingView: View {
                     icon: "chart.line.uptrend.xyaxis",
                     title: "Progress Tracking",
                     description: "Visual insights into your vocabulary growth",
-                    color: .green
+                    color: .accent
                 )
                 .opacity(animateContent ? 1 : 0)
                 .offset(x: animateContent ? 0 : 50)
@@ -287,7 +287,10 @@ struct OnboardingView: View {
                 }
             }
             
-            ActionButton(currentStep == totalSteps - 1 ? "Get Started" : "Next", style: .borderedProminent) {
+            ActionButton(
+                currentStep == totalSteps - 1 ? "Get Started" : "Next",
+                style: .borderedProminent
+            ) {
                 if currentStep < totalSteps - 1 {
                     withAnimation(.easeInOut(duration: 0.3)) {
                         currentStep += 1

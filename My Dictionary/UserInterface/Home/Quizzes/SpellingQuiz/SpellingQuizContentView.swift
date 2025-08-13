@@ -36,16 +36,12 @@ struct SpellingQuizContentView: View {
                 }
                 .padding(.horizontal, 32)
                 
-                Button {
+                ActionButton(
+                    "Back to Quizzes",
+                    systemImage: "chevron.left",
+                    style: .borderedProminent
+                ) {
                     dismiss()
-                } label: {
-                    Label("Back to Quizzes", systemImage: "chevron.left")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.accent.gradient)
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
                 .padding(.horizontal, 32)
                 
@@ -156,17 +152,8 @@ struct SpellingQuizContentView: View {
                 .multilineTextAlignment(.leading)
             
             if let partOfSpeech = viewModel.randomWord?.quiz_partOfSpeech, !partOfSpeech.isEmpty {
-                HStack {
-                    Text(partOfSpeech)
-                        .font(.caption)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(.blue.opacity(0.2))
-                        .foregroundStyle(.blue)
-                        .clipShape(Capsule())
-                    
-                    Spacer()
-                }
+                TagView(text: partOfSpeech, color: .blue, size: .small, style: .regular)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             
             // Hint section
@@ -198,8 +185,8 @@ struct SpellingQuizContentView: View {
             HStack {
                 Image(systemName: "pencil.and.outline")
                     .font(.title2)
-                    .foregroundStyle(.green)
-                
+                    .foregroundStyle(.accent)
+
                 Text("Your Answer")
                     .font(.headline)
                     .fontWeight(.semibold)
@@ -229,17 +216,17 @@ struct SpellingQuizContentView: View {
             if viewModel.isShowingCorrectAnswer {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundStyle(.green)
-                    
+                        .foregroundStyle(.accent)
+
                     Text(["Correct!", "Well done!", "Keep up the good work!"].randomElement() ?? "Correct!")
                         .font(.caption)
-                        .foregroundStyle(.green)
-                    
+                        .foregroundStyle(.accent)
+
                     Spacer()
                 }
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
-                .background(.green.opacity(0.2))
+                .background(.accent.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             } else if viewModel.attemptCount >= 3 {
                 HStack {
@@ -279,44 +266,31 @@ struct SpellingQuizContentView: View {
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
+    @ViewBuilder
     private var actionButtons: some View {
+        let isMovingOnToNextWord = viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3
         VStack(spacing: 12) {
-            Button {
+            ActionButton(
+                isMovingOnToNextWord ? "Next Word" : "Submit Answer",
+                systemImage: isMovingOnToNextWord ? "arrow.right.circle.fill" : "checkmark.circle.fill",
+                style: .borderedProminent
+            ) {
                 withAnimation(.easeInOut(duration: 0.3)) {
-                    if viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3 {
+                    if isMovingOnToNextWord {
                         viewModel.handle(.nextWord)
                     } else {
                         viewModel.handle(.confirmAnswer)
                     }
                 }
-            } label: {
-                if viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3 {
-                    Label("Next Word", systemImage: "arrow.right.circle.fill")
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity)
-                        .padding(8)
-                } else {
-                    Label("Submit Answer", systemImage: "checkmark.circle.fill")
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity)
-                        .padding(8)
-                }
             }
-            .buttonStyle(.borderedProminent)
             .disabled(viewModel.answerTextField.isEmpty)
 
-            Button {
+            ActionButton("Skip Word (-2 points)", systemImage: "arrow.right.circle") {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     viewModel.handle(.skipWord)
                 }
-            } label: {
-                Label("Skip Word (-2 points)", systemImage: "arrow.right.circle")
-                    .frame(maxWidth: .infinity)
-                    .padding(8)
             }
-            .foregroundStyle(.secondary)
-            .buttonStyle(.bordered)
-            .disabled(viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3)
+            .disabled(isMovingOnToNextWord)
         }
     }
 
@@ -328,7 +302,7 @@ struct SpellingQuizContentView: View {
                 // Success Icon
                 ZStack {
                     Circle()
-                        .fill(.green.gradient)
+                        .fill(.accent.gradient)
                         .frame(width: 80, height: 80)
                     
                     Image(systemName: "checkmark")
@@ -383,7 +357,7 @@ struct SpellingQuizContentView: View {
                             Spacer()
                             Text("\(Int(calculateAccuracy()))%")
                                 .fontWeight(.medium)
-                                .foregroundStyle(.green)
+                                .foregroundStyle(.accent)
                         }
                         
                         // Debug info (can be removed later)
@@ -409,25 +383,12 @@ struct SpellingQuizContentView: View {
             Spacer()
 
             VStack(spacing: 12) {
-                Button {
+                ActionButton("Try Again", systemImage: "arrow.clockwise", style: .borderedProminent) {
                     viewModel.handle(.restartQuiz)
-                } label: {
-                    Label("Try Again", systemImage: "arrow.clockwise")
-                        .frame(maxWidth: .infinity)
-                        .font(.headline)
-                        .padding(8)
                 }
-                .buttonStyle(.borderedProminent)
-
-                Button {
+                ActionButton("Back to Quizzes", systemImage: "chevron.left") {
                     dismiss()
-                } label: {
-                    Label("Back to Quizzes", systemImage: "chevron.left")
-                        .frame(maxWidth: .infinity)
-                        .padding(8)
                 }
-                .foregroundStyle(.secondary)
-                .buttonStyle(.bordered)
             }
             .padding(.horizontal, 32)
         }

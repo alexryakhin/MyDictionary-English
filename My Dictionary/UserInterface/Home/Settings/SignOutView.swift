@@ -50,33 +50,14 @@ struct SignOutView: View {
 
                     // Buttons
                     VStack(spacing: 12) {
-                        Button {
-                            #if os(iOS)
-                            HapticManager.shared.triggerNotification(type: .success)
-                            #endif
+                        ActionButton("Sign Out", color: .red, style: .borderedProminent) {
                             authenticationService.signOut()
                             dismiss()
-                        } label: {
-                            Text("Sign Out")
-                                .font(.headline)
-                                .padding(6)
                         }
-                        .tint(.red)
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
 
-                        Button {
-                            #if os(iOS)
-                            HapticManager.shared.triggerSelection()
-                            #endif
+                        ActionButton("Cancel") {
                             authenticationService.toggleSignOutView()
-                        } label: {
-                            Text("Cancel")
-                                .font(.headline)
-                                .padding(6)
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
                     }
                 }
                 .padding(24)

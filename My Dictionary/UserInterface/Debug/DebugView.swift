@@ -39,7 +39,7 @@ struct DebugView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    HeaderButton("Done") {
                         dismiss()
                     }
                 }
@@ -58,7 +58,7 @@ struct DebugView: View {
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
 
-            Button("Cancel", role: .cancel) {
+           Button("Cancel", role: .cancel) {
                 testNotificationEmail = ""
             }
         } message: {
@@ -101,7 +101,7 @@ struct DebugView: View {
                         .fontWeight(.medium)
                     Spacer()
                     Text(subscriptionService.isProUser ? "Yes" : "No")
-                        .foregroundStyle(subscriptionService.isProUser ? .green : .red)
+                        .foregroundStyle(subscriptionService.isProUser ? .accent : .red)
                 }
             }
         }
@@ -119,28 +119,24 @@ struct DebugView: View {
                         .font(.caption)
                 }
 
-                Button("Copy FCM Token") {
+                HeaderButton("Copy FCM Token") {
                     UIPasteboard.general.string = fcmToken
                     showAlert("FCM Token copied to clipboard")
                 }
-                .buttonStyle(.bordered)
 
-                Button("Test Local Notification") {
+                HeaderButton("Test Local Notification") {
                     testLocalNotification()
                 }
-                .buttonStyle(.bordered)
 
-                Button("Request Notification Permission") {
+                HeaderButton("Request Notification Permission") {
                     Task {
                         await authenticationService.requestPushNotificationPermissions()
                     }
                 }
-                .buttonStyle(.bordered)
 
-                Button("Check Notification Settings") {
+                HeaderButton("Check Notification Settings") {
                     checkNotificationSettings()
                 }
-                .buttonStyle(.bordered)
             }
         }
     }
@@ -156,45 +152,40 @@ struct DebugView: View {
                         .foregroundStyle(.secondary)
                 }
 
-                Button("Refresh Subscription Status") {
+                HeaderButton("Refresh Subscription Status") {
                     Task {
                         await subscriptionService.checkSubscriptionStatus()
                     }
                 }
-                .buttonStyle(.bordered)
 
-                Button("Sync Subscription to Firestore") {
+                HeaderButton("Sync Subscription to Firestore") {
                     Task {
                         await subscriptionService.syncSubscriptionStatus()
                         showAlert("Subscription status synced to Firestore")
                     }
                 }
-                .buttonStyle(.bordered)
 
-                Button("Verify Subscription Ownership") {
+                HeaderButton("Verify Subscription Ownership") {
                     Task {
                         let isOwner = await subscriptionService.verifySubscriptionOwnership()
                         showAlert(isOwner ? "Subscription ownership verified ✅" : "Subscription ownership failed ❌")
                     }
                 }
-                .buttonStyle(.bordered)
 
-                Button("Test Paywall (Auth Check)") {
+                HeaderButton("Test Paywall (Auth Check)") {
                     paywallService.presentPaywall(for: .createSharedDictionaries) { didSubscribe in
                         showAlert(didSubscribe ? "User subscribed! 🎉" : "User dismissed paywall")
                     }
                 }
-                .buttonStyle(.bordered)
 
-                Button("Test Complete Auth Flow") {
+                HeaderButton("Test Complete Auth Flow") {
                     Task {
                         await subscriptionService.setupAppUserID()
                         showAlert("Auth flow successful! ✅")
                     }
                 }
-                .buttonStyle(.bordered)
 
-                Button("Test Immediate Sign Out") {
+                HeaderButton("Test Immediate Sign Out") {
                     Task {
                         // First check current status
                         let wasPro = subscriptionService.isProUser
@@ -206,9 +197,8 @@ struct DebugView: View {
                         showAlert("Before: \(wasPro ? "Pro" : "Free"), After: \(isProNow ? "Pro" : "Free")")
                     }
                 }
-                .buttonStyle(.bordered)
 
-                Button("Create User Document") {
+                HeaderButton("Create User Document") {
                     Task {
                         if let user = AuthenticationService.shared.currentUser {
                             await AuthenticationService.shared.createUserDocument(user: user)
@@ -219,7 +209,7 @@ struct DebugView: View {
                     }
                 }
 
-                Button("Check User Document") {
+                HeaderButton("Check User Document") {
                     Task {
                         guard let userEmail = AuthenticationService.shared.userEmail else {
                             showAlert("No user email available")
@@ -242,13 +232,11 @@ struct DebugView: View {
                         }
                     }
                 }
-                .buttonStyle(.bordered)
 
-                Button("Show Paywall") {
+                HeaderButton("Show Paywall") {
                     // This would need to be implemented based on your paywall service
                     showAlert("Paywall functionality needs to be implemented")
                 }
-                .buttonStyle(.bordered)
             }
         }
     }
@@ -264,20 +252,17 @@ struct DebugView: View {
                         .foregroundStyle(.secondary)
                 }
 
-                Button("Refresh Shared Dictionaries") {
+                HeaderButton("Refresh Shared Dictionaries") {
                     dictionaryService.setupSharedDictionariesListener()
                 }
-                .buttonStyle(.bordered)
 
-                Button("Send Test Notification to User") {
+                HeaderButton("Send Test Notification to User") {
                     showingEmailInput = true
                 }
-                .buttonStyle(.bordered)
 
-                Button("Clear Dictionary Cache") {
+                HeaderButton("Clear Dictionary Cache") {
                     clearDictionaryCache()
                 }
-                .buttonStyle(.bordered)
 
 
             }
@@ -287,20 +272,17 @@ struct DebugView: View {
     private var firebaseTestingSection: some View {
         Section("Firebase Testing") {
             VStack(alignment: .leading, spacing: 8) {
-                Button("Test Firebase Connection") {
+                HeaderButton("Test Firebase Connection") {
                     testFirebaseConnection()
                 }
-                .buttonStyle(.bordered)
 
-                Button("Check Firestore Rules") {
+                HeaderButton("Check Firestore Rules") {
                     testFirestoreRules()
                 }
-                .buttonStyle(.bordered)
 
-                Button("Clear Local Cache") {
+                HeaderButton("Clear Local Cache") {
                     clearLocalCache()
                 }
-                .buttonStyle(.bordered)
             }
         }
     }
@@ -308,20 +290,17 @@ struct DebugView: View {
     private var appTestingSection: some View {
         Section("App Testing") {
             VStack(alignment: .leading, spacing: 8) {
-                Button("Reset App State") {
+                HeaderButton("Reset App State") {
                     resetAppState()
                 }
-                .buttonStyle(.bordered)
 
-                Button("Show App Info") {
+                HeaderButton("Show App Info") {
                     showAppInfo()
                 }
-                .buttonStyle(.bordered)
 
-                Button("Test Crash (Debug)") {
+                HeaderButton("Test Crash (Debug)") {
                     testCrash()
                 }
-                .buttonStyle(.bordered)
                 .foregroundStyle(.red)
             }
         }

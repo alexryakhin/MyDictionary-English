@@ -225,7 +225,7 @@ struct ProgressCard: View {
         }
         .frame(maxWidth: .infinity)
         .padding(16)
-        .background(color.opacity(0.1))
+        .background(color.gradient.opacity(0.1))
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }

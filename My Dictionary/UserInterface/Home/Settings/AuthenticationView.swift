@@ -196,7 +196,7 @@ struct AuthenticationView: View {
             if authService.hasGoogleAccount || authService.hasAppleAccount {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundStyle(.green)
+                        .foregroundStyle(.accent)
                     Text("Accounts linked successfully")
                         .font(.caption)
                         .foregroundStyle(.secondary)

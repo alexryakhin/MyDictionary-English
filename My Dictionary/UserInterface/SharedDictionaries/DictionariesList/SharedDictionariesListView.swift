@@ -37,7 +37,7 @@ struct SharedDictionariesListView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     } trailingContent: {
                         if userOwnedDictionaryCount >= 1 {
-                            HeaderButton("Upgrade to Pro") {
+                            HeaderButton("Upgrade to Pro", size: .small) {
                                 paywallService.isShowingPaywall = true
                             }
                         }
@@ -53,17 +53,15 @@ struct SharedDictionariesListView: View {
                         )
                     } else {
                         ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in
-                            Button {
-                                navigationManager.navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
-                            } label: {
-                                SharedDictionariesListCellView(dictionary: dictionary)
-                            }
-                            .buttonStyle(.plain)
+                            SharedDictionariesListCellView(dictionary: dictionary)
+                                .onTap {
+                                    navigationManager.navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
+                                }
                         }
                     }
                 } trailingContent: {
                     if dictionaryService.canCreateMoreSharedDictionaries() {
-                        HeaderButton("Add", icon: "plus", style: .borderedProminent) {
+                        HeaderButton("Add", icon: "plus", size: .small, style: .borderedProminent) {
                             showingAddDictionary = true
                         }
                     }

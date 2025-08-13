@@ -66,7 +66,7 @@ extension Quiz {
         case .spelling:
             return .blue
         case .chooseDefinition:
-            return .green
+            return .accent
         }
     }
     

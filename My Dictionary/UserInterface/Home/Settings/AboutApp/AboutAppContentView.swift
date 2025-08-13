@@ -51,27 +51,15 @@ struct AboutAppContentView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .multilineTextAlignment(.leading)
 
-                        Button {
+                        ActionButton("X (Twitter)", systemImage: "bird") {
                             UIApplication.shared.open(GlobalConstant.twitterUrl)
                             AnalyticsService.shared.logEvent(.twitterButtonTapped)
-                        } label: {
-                            Label("X (Twitter)", systemImage: "bird")
-                                .padding(6)
-                                .frame(maxWidth: .infinity)
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
 
-                        Button {
+                        ActionButton("Instagram", systemImage: "camera") {
                             UIApplication.shared.open(GlobalConstant.instagramUrl)
                             AnalyticsService.shared.logEvent(.instagramButtonTapped)
-                        } label: {
-                            Label("Instagram", systemImage: "camera")
-                                .padding(6)
-                                .frame(maxWidth: .infinity)
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
                     }
                 }
 
@@ -79,29 +67,15 @@ struct AboutAppContentView: View {
 
                 CustomSectionView(header: "Support") {
                     VStack(spacing: 12) {
-                        Button {
+                        ActionButton("Buy Me a Coffee", systemImage: "cup.and.saucer.fill", color: .orange) {
                             UIApplication.shared.open(GlobalConstant.buyMeACoffeeUrl)
                             AnalyticsService.shared.logEvent(.buyMeACoffeeTapped)
-                        } label: {
-                            Label("Buy Me a Coffee", systemImage: "cup.and.saucer.fill")
-                                .padding(6)
-                                .frame(maxWidth: .infinity)
                         }
-                        .tint(.orange)
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
 
                         if viewModel.isShowingRating {
-                            Button {
+                            ActionButton("Rate the app", systemImage: "star.fill", color: .yellow) {
                                 requestReview()
-                            } label: {
-                                Label("Rate the app", systemImage: "star.fill")
-                                    .padding(6)
-                                    .frame(maxWidth: .infinity)
                             }
-                            .tint(.yellow)
-                            .buttonStyle(.bordered)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
                         }
                     }
                 }

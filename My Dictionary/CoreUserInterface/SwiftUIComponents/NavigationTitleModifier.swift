@@ -57,7 +57,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
 
                     bottomContent()
                 }
-                .clippedWithPaddingAndBackgroundMaterial(.ultraThinMaterial)
+                .clippedWithPaddingAndBackgroundMaterial(.ultraThinMaterial, cornerRadius: 32)
                 .shadow(radius: 2)
                 .padding(vertical: vPadding, horizontal: hPadding)
             }

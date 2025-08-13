@@ -34,18 +34,18 @@ struct WordTagSelectionView: View {
                             let isSelected = word.tagsArray.contains { $0.id == tag.id }
                             HeaderButton(
                                 tag.name.orEmpty,
+                                color: tag.colorValue.color,
                                 style: isSelected ? .borderedProminent : .bordered
                             ) {
                                 toggleTag(tag)
                             }
-                            .tint(tag.colorValue.color)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 12)
                 }
             } trailingContent: {
-                HeaderButton("Create tags", icon: "tag", style: .borderedProminent) {
+                HeaderButton("Create tags", icon: "tag", size: .small, style: .borderedProminent) {
                     isShowingAddTagSheet.toggle()
                 }
             }

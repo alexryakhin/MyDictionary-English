@@ -35,10 +35,9 @@ struct TagManagementView: View {
                     )
                 }
             } trailingContent: {
-                HeaderButton("Add Tag", icon: "plus", style: .borderedProminent) {
+                HeaderButton("Add Tag", icon: "plus", size: .small, style: .borderedProminent) {
                     viewModel.handle(.addTag)
                 }
-                .fontWeight(.semibold)
             }
             .padding(.horizontal, 16)
         }

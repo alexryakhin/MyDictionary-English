@@ -62,14 +62,12 @@ struct QuizResultDetailRow: View {
                 Spacer()
                 
                 // Score badge
-                Text("\(session.score)")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(scoreColor.gradient)
-                    .clipShape(Capsule())
+                TagView(
+                    text: session.score.formatted(),
+                    color: scoreColor,
+                    size: .large,
+                    style: .selected
+                )
             }
             
             // Stats row
@@ -101,7 +99,7 @@ struct QuizResultDetailRow: View {
     
     private var scoreColor: Color {
         let accuracy = session.accuracy
-        if accuracy >= 0.8 { return .green }
+        if accuracy >= 0.8 { return .accent }
         if accuracy >= 0.6 { return .orange }
         return .red
     }

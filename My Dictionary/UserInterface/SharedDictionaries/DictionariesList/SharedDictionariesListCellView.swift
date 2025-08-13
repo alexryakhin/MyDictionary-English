@@ -29,10 +29,10 @@ struct SharedDictionariesListCellView: View {
 
                         Text("Owner")
                             .font(.caption)
-                            .foregroundStyle(.green)
+                            .foregroundStyle(.accent)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
-                            .background(Color.green.opacity(0.2))
+                            .background(Color.accent.opacity(0.2))
                             .cornerRadius(4)
                     } else if let owner = dictionary.collaborators.first(where: { $0.role == .owner }) {
                         Text("Created by \(owner.displayNameOrEmail)")

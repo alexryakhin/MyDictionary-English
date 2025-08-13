@@ -54,7 +54,7 @@ struct SharedDictionaryWordsView: View {
                     }
                 } trailingContent: {
                     if dictionary.canEdit {
-                        HeaderButton("Add Word", icon: "plus", style: .borderedProminent) {
+                        HeaderButton("Add Word", icon: "plus", size: .small, style: .borderedProminent) {
                             showingAddWord = true
                         }
                     }

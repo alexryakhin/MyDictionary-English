@@ -94,7 +94,7 @@ struct ShimmerModifier: ViewModifier {
             .frame(width: 200, height: 60)
             .shimmering()
         ZStack {
-            Color.green
+            Color.accent
             Text("AB")
         }
         .frame(width: 56, height: 56)

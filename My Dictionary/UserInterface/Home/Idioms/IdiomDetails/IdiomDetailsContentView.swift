@@ -33,10 +33,9 @@ struct IdiomDetailsContentView: View {
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
-                HeaderButton(icon: "trash") {
+                HeaderButton(icon: "trash", color: .red) {
                     showDeleteAlert()
                 }
-                .tint(.red)
                 HeaderButton(icon: idiom.isFavorite ? "heart.fill" : "heart") {
                     idiom.isFavorite.toggle()
                     saveContext()
@@ -69,13 +68,13 @@ struct IdiomDetailsContentView: View {
                 .focused($isIdiomInputFocused)
         } trailingContent: {
             if isIdiomInputFocused {
-                HeaderButton("Done") {
+                HeaderButton("Done", size: .small) {
                     isIdiomInputFocused = false
                     saveContext()
                     AnalyticsService.shared.logEvent(.idiomChanged)
                 }
             } else {
-                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill", size: .small) {
                     play(idiom.idiomItself)
                 }
             }
@@ -91,13 +90,13 @@ struct IdiomDetailsContentView: View {
                 .focused($isDefinitionFocused)
         } trailingContent: {
             if isDefinitionFocused {
-                HeaderButton("Done") {
+                HeaderButton("Done", size: .small) {
                     isDefinitionFocused = false
                     saveContext()
                     AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
             } else {
-                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill", size: .small) {
                     play(idiom.definition)
                     AnalyticsService.shared.logEvent(.idiomDefinitionPlayed)
                 }
@@ -180,14 +179,14 @@ struct IdiomDetailsContentView: View {
             }
         } trailingContent: {
             if isAddingExample {
-                HeaderButton("Save", icon: "checkmark") {
+                HeaderButton("Save", icon: "checkmark", size: .small) {
                     addExample(exampleTextFieldStr)
                     isAddingExample = false
                     exampleTextFieldStr = .empty
                     AnalyticsService.shared.logEvent(.idiomExampleAdded)
                 }
             } else {
-                HeaderButton("Add example", icon: "plus") {
+                HeaderButton("Add example", icon: "plus", size: .small) {
                     withAnimation {
                         isAddingExample.toggle()
                         AnalyticsService.shared.logEvent(.idiomAddExampleTapped)

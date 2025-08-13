@@ -25,19 +25,12 @@ struct WordListView: View {
         ScrollView {
             // MARK: - button to add a word from search input
             if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
-                Button {
+                ActionButton(
+                    "Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'",
+                    systemImage: "plus"
+                ) {
                     viewModel.output.send(.showAddWord)
-                } label: {
-                    Label(
-                        "Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'",
-                        systemImage: "plus"
-                    )
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(6)
                 }
-                .buttonStyle(.bordered)
-                .clipShape(RoundedRectangle(cornerRadius: 24))
-                .padding(.horizontal, 16)
             }
 
             CustomSectionView(
@@ -47,27 +40,25 @@ struct WordListView: View {
             ) {
                 if viewModel.wordsFiltered.isNotEmpty {
                     ListWithDivider(viewModel.wordsFiltered) { wordModel in
-                        Button {
-                            viewModel.output.send(.showWordDetails(wordModel))
-                        } label: {
-                            WordListCellView(word: wordModel)
-                                .id(wordModel.id)
-                        }
-                        .buttonStyle(.plain)
-                        .contextMenu {
-                            if AuthenticationService.shared.isSignedIn {
-                                Button {
-                                    viewModel.output.send(.showAddExistingWordToShared(wordModel))
+                        WordListCellView(word: wordModel)
+                            .id(wordModel.id)
+                            .onTap {
+                                viewModel.output.send(.showWordDetails(wordModel))
+                            }
+                            .contextMenu {
+                                if AuthenticationService.shared.isSignedIn {
+                                    Button {
+                                        viewModel.output.send(.showAddExistingWordToShared(wordModel))
+                                    } label: {
+                                        Label("Add to Shared Dictionary", systemImage: "person.2")
+                                    }
+                                }
+                                Button(role: .destructive) {
+                                    viewModel.handle(.deleteWord(word: wordModel))
                                 } label: {
-                                    Label("Add to Shared Dictionary", systemImage: "person.2")
+                                    Label("Delete", systemImage: "trash")
                                 }
                             }
-                            Button(role: .destructive) {
-                                viewModel.handle(.deleteWord(word: wordModel))
-                            } label: {
-                                Label("Delete", systemImage: "trash")
-                            }
-                        }
                     }
                 } else {
                     ContentUnavailableView(
@@ -78,7 +69,7 @@ struct WordListView: View {
                     .padding(.vertical, 24)
                 }
             } trailingContent: {
-                HeaderButton("Add Word", icon: "plus", style: .borderedProminent) {
+                HeaderButton("Add Word", icon: "plus", size: .small, style: .borderedProminent) {
                     AnalyticsService.shared.logEvent(.addWordTapped)
                     viewModel.output.send(.showAddWord)
                 }

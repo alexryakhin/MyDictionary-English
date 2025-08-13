@@ -113,14 +113,14 @@ struct SharedDictionaryDetailsView: View {
                         }
                     } trailingContent: {
                         if dictionary.canEdit {
-                            HeaderButton("Add", icon: "plus", style: .borderedProminent) {
+                            HeaderButton("Add", icon: "plus", size: .small, style: .borderedProminent) {
                                 showingAddCollaborator = true
                             }
                         }
                     }
 
                     if dictionary.isOwner {
-                        Button {
+                        ActionButton("Delete Dictionary", color: .red) {
                             AlertCenter.shared.showAlert(
                                 with: .deleteConfirmation(
                                     title: "Delete Dictionary",
@@ -132,37 +132,21 @@ struct SharedDictionaryDetailsView: View {
                                 }
                                 )
                             )
-                        } label: {
-                            Text("Delete Dictionary")
-                                .padding(.vertical, 8)
-                                .frame(maxWidth: .infinity)
                         }
-                        .tint(.red)
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
                     } else if let userEmail = authenticationService.userEmail {
-                        Button {
+                        ActionButton("Stop watching", color: .red) {
                             AlertCenter.shared.showAlert(
                                 with: .deleteConfirmation(
                                     title: "Stop watching dictionary",
                                     message: "Are you sure you want to stop watching this shared dictionary?",
                                     deleteText: "Continue",
                                     onDelete: {
-                                        Task {
-                                            await removeCollaborator(email: userEmail)
-                                            dismiss()
-                                        }
+                                        removeCollaborator(email: userEmail)
+                                        dismiss()
                                     }
                                 )
                             )
-                        } label: {
-                            Text("Stop watching")
-                                .padding(.vertical, 8)
-                                .frame(maxWidth: .infinity)
                         }
-                        .tint(.red)
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
                     }
                 }
                 .padding(.horizontal, 16)

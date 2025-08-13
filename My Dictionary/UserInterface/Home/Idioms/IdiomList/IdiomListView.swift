@@ -21,12 +21,8 @@ struct IdiomListView: View {
         ScrollView {
             VStack(spacing: 16) {
                 if viewModel.filterState == .search && filteredIdioms.count < 10 {
-                    Button {
+                    ActionButton("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus") {
                         viewModel.output.send(.showAddIdiom)
-                    } label: {
-                        Label("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .clippedWithPaddingAndBackground()
                     }
                 }
 
@@ -66,7 +62,7 @@ struct IdiomListView: View {
                         )
                     }
                 } trailingContent: {
-                    HeaderButton("Add idiom", icon: "plus", style: .borderedProminent) {
+                    HeaderButton("Add idiom", icon: "plus", size: .small, style: .borderedProminent) {
                         viewModel.output.send(.showAddIdiom)
                     }
                 }

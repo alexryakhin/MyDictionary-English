@@ -25,7 +25,7 @@ struct AddIdiomView: View {
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
-                HeaderButton("Save", font: .headline) {
+                HeaderButton("Save", size: .medium) {
                     viewModel.handle(.save)
                 }
             }
@@ -42,7 +42,7 @@ struct AddIdiomView: View {
                 .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 12)
         } trailingContent: {
             if isIdiomInputFocused {
-                HeaderButton("Done") {
+                HeaderButton("Done", size: .small) {
                     isIdiomInputFocused = false
                 }
             }
@@ -56,7 +56,7 @@ struct AddIdiomView: View {
                 .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 12)
         } trailingContent: {
             if isDefinitionInputFocused {
-                HeaderButton("Done") {
+                HeaderButton("Done", size: .small) {
                     isDefinitionInputFocused = false
                 }
             }

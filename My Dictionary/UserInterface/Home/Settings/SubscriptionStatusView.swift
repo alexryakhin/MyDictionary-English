@@ -49,7 +49,7 @@ struct SubscriptionStatusView: View {
             Spacer()
             
             Image(systemName: "checkmark.circle.fill")
-                .foregroundStyle(.green)
+                .foregroundStyle(.accent)
                 .font(.title2)
         }
         .padding(vertical: 12, horizontal: 16)
@@ -78,17 +78,8 @@ struct SubscriptionStatusView: View {
                     .font(.title2)
             }
             
-            Button {
+            ActionButton("Upgrade to Pro") {
                 showingSubscriptionView = true
-            } label: {
-                Text("Upgrade to Pro")
-                    .font(.body)
-                    .fontWeight(.medium)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 8)
-                    .background(.accent)
-                    .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
             }
         }
         .padding(vertical: 12, horizontal: 16)

@@ -42,10 +42,9 @@ struct WordDetailsContentView: View {
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
-                HeaderButton(icon: "trash") {
+                HeaderButton(icon: "trash", color: .red) {
                     showDeleteAlert()
                 }
-                .tint(.red)
                 HeaderButton(icon: word.isFavorite ? "heart.fill" : "heart") {
                     word.isFavorite.toggle()
                     saveContext()
@@ -88,12 +87,12 @@ struct WordDetailsContentView: View {
                 .fontWeight(.semibold)
         } trailingContent: {
             if isPhoneticsFocused {
-                HeaderButton("Done") {
+                HeaderButton("Done", size: .small) {
                     isPhoneticsFocused = false
                     saveContext()
                 }
             } else {
-                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill", size: .small) {
                     play(word.wordItself, isWord: true)
                 }
             }
@@ -106,7 +105,7 @@ struct WordDetailsContentView: View {
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
-            Menu {
+            HeaderButtonMenu("Edit", size: .small) {
                 ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
                     Button {
                         updatePartOfSpeech(partCase)
@@ -114,12 +113,7 @@ struct WordDetailsContentView: View {
                         Text(partCase.rawValue)
                     }
                 }
-            } label: {
-                Text("Edit")
-                    .font(.caption)
             }
-            .buttonStyle(.bordered)
-            .clipShape(Capsule())
         }
     }
 
@@ -133,13 +127,13 @@ struct WordDetailsContentView: View {
                 .fontWeight(.semibold)
         } trailingContent: {
             if isDefinitionFocused {
-                HeaderButton("Done") {
+                HeaderButton("Done", size: .small) {
                     isDefinitionFocused = false
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                     saveContext()
                 }
             } else {
-                HeaderButton("Listen", icon: "speaker.wave.2.fill") {
+                HeaderButton("Listen", icon: "speaker.wave.2.fill", size: .small) {
                     play(word.definition)
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
@@ -177,13 +171,7 @@ struct WordDetailsContentView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     if let languageCode = word.languageCode {
-                        Text(languageCode.uppercased())
-                            .font(.caption2)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 2)
-                            .background(Color.blue.opacity(0.2))
-                            .foregroundStyle(.blue)
-                            .clipShape(Capsule())
+                        TagView(text: languageCode.uppercased(), color: .blue, size: .mini)
                     }
                 }
             }
@@ -200,16 +188,17 @@ struct WordDetailsContentView: View {
                     ForEach(word.tagsArray) { tag in
                         HeaderButton(
                             tag.name.orEmpty,
+                            color: tag.colorValue.color,
+                            size: .small,
                             style: .borderedProminent,
                             action: {}
                         )
-                        .tint(tag.colorValue.color)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         } trailingContent: {
-            HeaderButton("Add Tag", icon: "plus") {
+            HeaderButton("Add Tag", icon: "plus", size: .small) {
                 showingTagSelection = true
             }
         }
@@ -290,14 +279,14 @@ struct WordDetailsContentView: View {
             }
         } trailingContent: {
             if isAddingExample {
-                HeaderButton("Save", icon: "checkmark") {
+                HeaderButton("Save", icon: "checkmark", size: .small) {
                     addExample(exampleTextFieldStr)
                     isAddingExample = false
                     exampleTextFieldStr = .empty
                     AnalyticsService.shared.logEvent(.wordExampleAdded)
                 }
             } else {
-                HeaderButton("Add example", icon: "plus") {
+                HeaderButton("Add example", icon: "plus", size: .small) {
                     withAnimation {
                         isAddingExample.toggle()
                         AnalyticsService.shared.logEvent(.wordAddExampleTapped)
@@ -405,31 +394,5 @@ struct WordDetailsContentView: View {
         try? TagService.shared.removeTagFromWord(tag, word: word)
         saveContext()
         AnalyticsService.shared.logEvent(.tagRemovedFromWord)
-    }
-}
-
-struct TagView: View {
-    let tag: CDTag
-    
-    var body: some View {
-        HStack(spacing: 8) {
-            Circle()
-                .fill(tag.colorValue.color)
-                .frame(width: 12, height: 12)
-            
-            Text(tag.name ?? "")
-                .font(.body)
-                .fontWeight(.medium)
-            
-            Spacer()
-            
-            Image(systemName: "xmark")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-        }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 8)
-        .background(tag.colorValue.color.opacity(0.2))
-        .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

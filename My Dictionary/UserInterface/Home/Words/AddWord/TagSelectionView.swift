@@ -34,6 +34,8 @@ struct TagSelectionView: View {
                             let isSelected = selectedTags.contains { $0.id == tag.id }
                             HeaderButton(
                                 tag.name.orEmpty,
+                                color: tag.colorValue.color,
+                                size: .small,
                                 style: isSelected ? .borderedProminent : .bordered
                             ) {
                                 if let index = selectedTags.firstIndex(where: { $0.id == tag.id }) {
@@ -42,14 +44,13 @@ struct TagSelectionView: View {
                                     selectedTags.append(tag)
                                 }
                             }
-                            .tint(tag.colorValue.color)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 12)
                 }
             } trailingContent: {
-                HeaderButton("Create tags", icon: "tag", style: .borderedProminent) {
+                HeaderButton("Create tags", icon: "tag", size: .small, style: .borderedProminent) {
                     isShowingAddTagSheet.toggle()
                 }
             }

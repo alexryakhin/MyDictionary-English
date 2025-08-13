@@ -16,21 +16,23 @@ struct WordListFilterView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     // All Words Filter
-                    FilterChip(
-                        title: "All Words",
-                        isSelected: viewModel.filterState == .none,
-                        color: .blue
-                    ) {
+                    TagView(
+                        text: "All Words",
+                        color: .blue,
+                        style: viewModel.filterState == .none ? .selected : .regular
+                    )
+                    .onTap {
                         viewModel.handle(.filterChanged(.none))
                     }
 
                     // Favorite Words Filter - only show if there are favorite words
                     if !viewModel.favoriteWords.isEmpty {
-                        FilterChip(
-                            title: "Favorite",
-                            isSelected: viewModel.filterState == .favorite,
-                            color: .accentColor
-                        ) {
+                        TagView(
+                            text: "Favorite",
+                            color: .accentColor,
+                            style: viewModel.filterState == .favorite ? .selected : .regular
+                        )
+                        .onTap {
                             viewModel.handle(.filterChanged(.favorite))
                         }
                     }
@@ -38,44 +40,48 @@ struct WordListFilterView: View {
                     // Difficulty Filters - only show if there are words with that difficulty
                     let newWords = viewModel.words.filter { $0.difficultyLevel == .new }
                     if !newWords.isEmpty {
-                        FilterChip(
-                            title: "New",
-                            isSelected: viewModel.filterState == .new,
-                            color: .secondary
-                        ) {
+                        TagView(
+                            text: "New",
+                            color: .secondary,
+                            style: viewModel.filterState == .new ? .selected : .regular
+                        )
+                        .onTap {
                             viewModel.handle(.filterChanged(.new))
                         }
                     }
 
                     let inProgressWords = viewModel.words.filter { $0.difficultyLevel == .inProgress }
                     if !inProgressWords.isEmpty {
-                        FilterChip(
-                            title: "In Progress",
-                            isSelected: viewModel.filterState == .inProgress,
-                            color: .orange
-                        ) {
+                        TagView(
+                            text: "In Progress",
+                            color: .orange,
+                            style: viewModel.filterState == .inProgress ? .selected : .regular
+                        )
+                        .onTap {
                             viewModel.handle(.filterChanged(.inProgress))
                         }
                     }
 
                     let needsReviewWords = viewModel.words.filter { $0.difficultyLevel == .needsReview }
                     if !needsReviewWords.isEmpty {
-                        FilterChip(
-                            title: "Needs Review",
-                            isSelected: viewModel.filterState == .needsReview,
-                            color: .red
-                        ) {
+                        TagView(
+                            text: "Needs Review",
+                            color: .red,
+                            style: viewModel.filterState == .needsReview ? .selected : .regular
+                        )
+                        .onTap {
                             viewModel.handle(.filterChanged(.needsReview))
                         }
                     }
 
                     let masteredWords = viewModel.words.filter { $0.difficultyLevel == .mastered }
                     if !masteredWords.isEmpty {
-                        FilterChip(
-                            title: "Mastered",
-                            isSelected: viewModel.filterState == .mastered,
-                            color: .green
-                        ) {
+                        TagView(
+                            text: "Mastered",
+                            color: .accent,
+                            style: viewModel.filterState == .mastered ? .selected : .regular
+                        )
+                        .onTap {
                             viewModel.handle(.filterChanged(.mastered))
                         }
                     }
@@ -86,31 +92,25 @@ struct WordListFilterView: View {
                             word.tagsArray.contains { $0.id == tag.id }
                         }
                         if !wordsWithTag.isEmpty {
-                            FilterChip(
-                                title: tag.name ?? "",
-                                isSelected: viewModel.selectedTag?.id == tag.id,
-                                color: tag.colorValue.color
-                            ) {
+                            TagView(
+                                text: tag.name ?? "",
+                                color: tag.colorValue.color,
+                                style: viewModel.selectedTag?.id == tag.id ? .selected : .regular
+                            )
+                            .onTap {
                                 viewModel.handle(.filterChanged(.tag, tag: tag))
                             }
                         }
                     }
 
                     // Add Tag Button
-                    Button {
+                    TagView(
+                        text: "Manage Tags",
+                        systemImage: "plus",
+                        color: .blue
+                    )
+                    .onTap {
                         showingTagManagement = true
-                    } label: {
-                        HStack(spacing: 4) {
-                            Image(systemName: "plus")
-                                .font(.caption)
-                            Text("Manage Tags")
-                                .font(.caption)
-                        }
-                        .foregroundStyle(.blue)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(Color.blue.opacity(0.2))
-                        .clipShape(Capsule())
                     }
                 }
             }
@@ -118,28 +118,6 @@ struct WordListFilterView: View {
             .sheet(isPresented: $showingTagManagement) {
                 TagManagementView()
             }
-        }
-    }
-}
-
-struct FilterChip: View {
-    let title: String
-    let isSelected: Bool
-    let color: Color
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            Text(title)
-                .font(.caption)
-                .fontWeight(.medium)
-                .foregroundStyle(isSelected ? .white : color)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(
-                    isSelected ? color : color.opacity(0.2)
-                )
-                .clipShape(Capsule())
         }
     }
 }

@@ -25,18 +25,9 @@ struct QuizzesListView: View {
             Color(.systemGroupedBackground)
                 .ignoresSafeArea()
             
-            if viewModel.showingHardWordsOnly {
-                // Show quizzes when hard words mode is enabled, even with just one hard word
-                if viewModel.filteredWords.count >= 1 {
-                    quizzesList
-                } else {
-                    insufficientHardWordsPlaceholder
-                }
-            } else if viewModel.hasEnoughWords {
-                // Show quizzes when user has enough words
+            if viewModel.hasEnoughWords {
                 quizzesList
             } else {
-                // Show encouraging placeholder for users with < 10 words
                 insufficientWordsPlaceholder
             }
         }
@@ -54,8 +45,9 @@ struct QuizzesListView: View {
     
     private var dictionaryPicker: some View {
         HeaderButtonMenu(
-            text: viewModel.selectedDictionary.name,
-            icon: viewModel.selectedDictionary.icon
+            viewModel.selectedDictionary.name,
+            icon: viewModel.selectedDictionary.icon,
+            size: .small
         ) {
             ForEach(viewModel.availableDictionaries) { dictionary in
                 Button {
@@ -247,78 +239,6 @@ struct QuizzesListView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
-                }
-            }
-            .padding(.horizontal, 32)
-            
-            Spacer()
-        }
-    }
-    
-    private var insufficientHardWordsPlaceholder: some View {
-        VStack(spacing: 24) {
-            Spacer()
-            
-            VStack(spacing: 16) {
-                Image(systemName: "brain.head.profile")
-                    .font(.system(size: 60))
-                    .foregroundStyle(.accent.gradient)
-                
-                if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
-                    Text("Shared Dictionary Needs Hard Words!")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                } else {
-                    Text("Keep Adding Hard Words!")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                }
-                
-                Text(viewModel.insufficientWordsMessage)
-                    .font(.body)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-                    .lineSpacing(4)
-            }
-            .padding(.horizontal, 32)
-            
-            VStack(spacing: 12) {
-                if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
-                    Button {
-                        viewModel.output.send(.showSharedDictionary(dictionary))
-                    } label: {
-                        Label("Add Words to Shared Dictionary", systemImage: "plus.circle.fill")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(.accent.gradient)
-                            .foregroundStyle(.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
-                    }
-                    
-                    Text("Ask the dictionary owner to add more words, or practice some words incorrectly to create hard words!")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                } else {
-                    Button {
-                        navigationManager.switchToTab(.words)
-                    } label: {
-                        Label("Add Hard Words", systemImage: "plus.circle.fill")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(.accent.gradient)
-                            .foregroundStyle(.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
-                    }
-                    
-                    Text("Answer some words incorrectly to create hard words for practice!")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
                 }
             }
             .padding(.horizontal, 32)

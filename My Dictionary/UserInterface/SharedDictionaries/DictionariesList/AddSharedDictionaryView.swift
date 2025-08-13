@@ -11,6 +11,7 @@ struct AddSharedDictionaryView: View {
     @StateObject var dictionaryService: DictionaryService = .shared
     @StateObject var authenticationService: AuthenticationService = .shared
     @State private var name = ""
+    @State private var isLoading: Bool = false
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -28,17 +29,9 @@ struct AddSharedDictionaryView: View {
             .padding(.horizontal, 16)
         }
         .safeAreaInset(edge: .bottom) {
-            Button {
+            ActionButton("Create Shared Dictionary", isLoading: isLoading) {
                 createDictionary()
-            } label: {
-                Text("Create Shared Dictionary")
-                    .font(.headline)
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity)
             }
-            .disabled(name.isEmpty)
-            .buttonStyle(.borderedProminent)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
             .padding(vertical: 12, horizontal: 16)
         }
         .groupedBackground()
@@ -64,7 +57,9 @@ struct AddSharedDictionaryView: View {
             showAlertWithMessage("Please sign in to create a shared dictionary")
             return
         }
-        Task {
+        Task { @MainActor in
+            isLoading = true
+            defer { isLoading = false }
             do {
                 try await dictionaryService.createSharedDictionary(
                     userId: userId,

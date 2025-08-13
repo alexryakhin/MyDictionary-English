@@ -16,62 +16,75 @@ struct ActionButton: View {
 
     var text: String
     var systemImage: String?
+    var color: Color
     var style: Style
-    var font: Font
     var isLoading: Bool
     var action: () -> Void
 
     init(
         _ text: String,
         systemImage: String? = nil,
+        color: Color = .accent,
         style: Style = .bordered,
-        font: Font = .headline,
         isLoading: Bool = false,
         action: @escaping () -> Void
     ) {
         self.text = text
         self.systemImage = systemImage
+        self.color = color
         self.style = style
-        self.font = font
         self.isLoading = isLoading
         self.action = action
     }
 
     var body: some View {
         Button {
+            HapticManager.shared.triggerImpact(style: .medium)
             action()
         } label: {
-            if let systemImage {
-                Label(text, systemImage: systemImage)
-                    .font(font)
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity)
-                    .opacity(isLoading ? 0 : 1)
-                    .overlay {
-                        if isLoading {
-                            ProgressView()
-                        }
-                    }
-            } else {
+            HStack(spacing: 12) {
+                if let systemImage {
+                    Image(systemName: systemImage)
+                        .font(font)
+                        .frame(width: 16, height: 16)
+                }
                 Text(text)
                     .font(font)
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity)
-                    .opacity(isLoading ? 0 : 1)
-                    .overlay {
-                        if isLoading {
-                            ProgressView()
-                        }
-                    }
+            }
+            .padding(vertical: 12, horizontal: 16)
+            .foregroundStyle(foregroundStyle.gradient)
+            .opacity(isLoading ? 0 : 1)
+            .frame(maxWidth: .infinity)
+            .background(backgroundStyle.gradient)
+            .overlay {
+                if isLoading {
+                    ProgressView()
+                }
             }
         }
-        .if(style == .bordered) {
-            $0.buttonStyle(.bordered)
-        }
-        .if(style == .borderedProminent) {
-            $0.buttonStyle(.borderedProminent)
-        }
         .clipShape(RoundedRectangle(cornerRadius: 16))
+        .buttonStyle(.plain)
         .allowsHitTesting(!isLoading)
+    }
+
+    var foregroundStyle: Color {
+        switch style {
+        case .borderedProminent: .white
+        case .bordered: color
+        }
+    }
+
+    var backgroundStyle: Color {
+        switch style {
+        case .borderedProminent: color
+        case .bordered: color.opacity(0.2)
+        }
+    }
+
+    var font: Font {
+        switch style {
+        case .borderedProminent: .headline
+        case .bordered: .subheadline
+        }
     }
 }

@@ -9,6 +9,44 @@ import SwiftUI
 
 struct HeaderButton: View {
 
+    enum Size {
+        case small
+        case medium
+        case large
+
+        var hPadding: CGFloat {
+            switch self {
+            case .small: 12
+            case .medium: 12
+            case .large: 16
+            }
+        }
+
+        var vPadding: CGFloat {
+            switch self {
+            case .small: 6
+            case .medium: 8
+            case .large: 12
+            }
+        }
+
+        var font: Font {
+            switch self {
+            case .small: .system(.caption, design: .rounded, weight: .medium)
+            case .medium: .system(.subheadline, design: .rounded, weight: .medium)
+            case .large: .system(.title2, design: .rounded, weight: .bold)
+            }
+        }
+
+        var imageSize: CGFloat {
+            switch self {
+            case .small: 12
+            case .medium: 16
+            case .large: 20
+            }
+        }
+    }
+
     enum Style {
         case bordered
         case borderedProminent
@@ -16,47 +54,64 @@ struct HeaderButton: View {
 
     var text: String
     var icon: String?
+    var size: Size
     var style: Style
-    var font: Font
+    var color: Color
     var action: () -> Void
 
     init(
         _ text: String = "",
         icon: String? = nil,
+        color: Color = .accent,
+        size: Size = .medium,
         style: Style = .bordered,
-        font: Font = .footnote,
         action: @escaping () -> Void
     ) {
         self.text = text
         self.icon = icon
+        self.color = color
+        self.size = size
         self.style = style
-        self.font = font
         self.action = action
     }
 
     var body: some View {
         Button {
+            HapticManager.shared.triggerImpact(style: .soft)
             action()
         } label: {
-            if let icon {
-                if text.isEmpty {
+            HStack(spacing: 8) {
+                if let icon {
                     Image(systemName: icon)
-                        .frame(width: 16, height: 16)
-                } else {
-                    Label(text, systemImage: icon)
-                        .font(font)
+                        .font(size.font)
+                        .frame(width: size.imageSize, height: size.imageSize)
                 }
-            } else {
-                Text(text)
-                    .font(font)
+                if text.isNotEmpty {
+                    Text(text)
+                        .font(size.font)
+                }
             }
-        }
-        .if(style == .bordered) {
-            $0.buttonStyle(.bordered)
-        }
-        .if(style == .borderedProminent) {
-            $0.buttonStyle(.borderedProminent)
+            .padding(.horizontal, size.hPadding)
+            .padding(.vertical, size.vPadding)
+            .foregroundStyle(foregroundStyle.gradient)
+            .background(backgroundStyle.gradient)
         }
         .clipShape(Capsule())
+        .buttonStyle(.plain)
+        .animation(.easeInOut, value: style)
+    }
+
+    var foregroundStyle: Color {
+        switch style {
+        case .borderedProminent: .white
+        case .bordered: color
+        }
+    }
+
+    var backgroundStyle: Color {
+        switch style {
+        case .borderedProminent: color
+        case .bordered: color.opacity(0.2)
+        }
     }
 }

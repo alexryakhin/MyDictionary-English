@@ -45,35 +45,19 @@ struct AddWordView: View {
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
-                Button {
+                HeaderButton("Save", size: .medium, style: .borderedProminent) {
                     viewModel.handle(.saveToSharedDictionary(selectedDictionaryId))
-                } label: {
-                    Text("Save")
-                        .bold()
                 }
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
             },
             bottomContent: {
                 if authenticationService.isSignedIn {
-                    HStack {
-                        Button {
-                            showingDictionarySelection = true
-                        } label: {
-                            HStack {
-                                Image(systemName: selectedDictionaryId == nil ? "person" : "person.2")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 16, height: 16)
-                                Text(selectedDictionaryId == nil ? "Private Dictionary" : "Shared Dictionary")
-                            }
-                            .font(.caption)
-                        }
-                        .buttonStyle(.bordered)
-                        .clipShape(Capsule())
-
-                        Spacer()
+                    HeaderButton(
+                        selectedDictionaryId == nil ? "Private Dictionary" : "Shared Dictionary",
+                        icon: selectedDictionaryId == nil ? "person" : "person.2",
+                    ) {
+                        showingDictionarySelection = true
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
         )
@@ -162,7 +146,7 @@ struct AddWordView: View {
             CellWrapper("Pronunciation") {
                 Text(pronunciation)
             } trailingContent: {
-                HeaderButton(icon: "speaker.wave.2.fill") {
+                HeaderButton(icon: "speaker.wave.2.fill", size: .small) {
                     viewModel.handle(.playInputWord)
                 }
             }
@@ -179,8 +163,17 @@ struct AddWordView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(viewModel.selectedTags, id: \.id) { tag in
-                            TagChip(tag: tag) {
-                                viewModel.handle(.toggleTag(tag))
+                            Menu {
+                                Button("Remove", role: .destructive) {
+                                    viewModel.handle(.toggleTag(tag))
+                                }
+                            } label: {
+                                TagView(
+                                    text: tag.name.orEmpty,
+                                    color: tag.colorValue.color,
+                                    size: .small,
+                                    style: .selected
+                                )
                             }
                         }
                     }
@@ -188,7 +181,7 @@ struct AddWordView: View {
                 }
             }
         } trailingContent: {
-            HeaderButton(icon: "plus") {
+            HeaderButton(icon: "plus", size: .small) {
                 viewModel.handle(.showTagSelection)
             }
         }
@@ -226,12 +219,9 @@ struct AddWordView: View {
                 } description: {
                     Text("There is an error loading definitions. Please try again.")
                 } actions: {
-                    Button {
+                    HeaderButton("Retry", icon: "magnifyingglass", style: .borderedProminent) {
                         viewModel.handle(.fetchData)
-                    } label: {
-                        Label("Retry", systemImage: "magnifyingglass")
                     }
-                    .buttonStyle(.borderedProminent)
                 }
                 .clippedWithPaddingAndBackground()
                 .padding(.horizontal, 16)
@@ -283,12 +273,9 @@ struct AddWordView: View {
                 } description: {
                     Text("Type a word and press 'Search' to find its definitions")
                 } actions: {
-                    Button {
+                    HeaderButton("Search", icon: "magnifyingglass", style: .borderedProminent) {
                         viewModel.handle(.fetchData)
-                    } label: {
-                        Label("Search", systemImage: "magnifyingglass")
                     }
-                    .buttonStyle(.borderedProminent)
                 }
                 .clippedWithPaddingAndBackground()
             }
@@ -307,34 +294,5 @@ struct AddWordView: View {
         HapticManager.shared.triggerSelection()
         UIApplication.shared.endEditing()
         AnalyticsService.shared.logEvent(.definitionSelected)
-    }
-}
-
-struct TagChip: View {
-    let tag: CDTag
-    let onRemove: () -> Void
-    
-    var body: some View {
-        HStack(spacing: 4) {
-            Circle()
-                .fill(tag.colorValue.color)
-                .frame(width: 8, height: 8)
-            
-            Text(tag.name ?? "")
-                .font(.caption)
-                .fontWeight(.medium)
-            
-            Button {
-                onRemove()
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-            }
-        }
-        .padding(.horizontal, 8)
-        .padding(.vertical, 4)
-        .background(tag.colorValue.color.opacity(0.2))
-        .clipShape(Capsule())
     }
 }

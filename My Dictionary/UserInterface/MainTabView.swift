@@ -83,11 +83,12 @@ struct MainTabView: View {
                     isSelected: tabManager.selectedTab == tab
                 ) {
                     tabManager.switchToTab(tab)
+                    HapticManager.shared.triggerImpact(style: .soft)
                 }
             }
         }
         .padding(vertical: 12, horizontal: 16)
-        .clippedWithBackgroundMaterial(.ultraThinMaterial)
+        .clippedWithBackgroundMaterial(.ultraThinMaterial, cornerRadius: 32)
         .shadow(radius: 2)
         .padding(8)
     }

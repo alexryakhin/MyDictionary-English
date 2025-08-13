@@ -304,7 +304,7 @@ struct DifficultyBadge: View {
         case 0: return .blue
         case 1: return .orange
         case 2: return .red
-        case 3: return .green
+        case 3: return .accent
         default: return .blue
         }
     }

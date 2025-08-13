@@ -36,7 +36,7 @@ struct SignOutConfirmationView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
                         Image(systemName: "checkmark.circle.fill")
-                            .foregroundStyle(.green)
+                            .foregroundStyle(.accent)
                             .font(.title3)
 
                         Text("Your words are safe")
@@ -75,46 +75,22 @@ struct SignOutConfirmationView: View {
 
             // Action buttons
             VStack(spacing: 12) {
-                Button {
+                ActionButton(
+                    "Sign Out",
+                    systemImage: "rectangle.portrait.and.arrow.right",
+                    color: .red,
+                    style: .borderedProminent
+                ) {
                     onConfirm()
                     dismiss()
-                } label: {
-                    HStack {
-                        Image(systemName: "rectangle.portrait.and.arrow.right")
-                        Text("Sign Out")
-                    }
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .background(Color.red)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
 
-                Button {
+                ActionButton("Cancel") {
                     dismiss()
-                } label: {
-                    Text("Cancel")
-                        .font(.headline)
-                        .foregroundStyle(.primary)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 50)
-                        .background(Color(.systemGray5))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
             }
             .padding(.horizontal)
         }
         .padding(.vertical, 24)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Cancel") {
-                    dismiss()
-                }
-            }
-        }
-        .presentationDetents([.medium, .large])
-        .presentationDragIndicator(.visible)
     }
 }

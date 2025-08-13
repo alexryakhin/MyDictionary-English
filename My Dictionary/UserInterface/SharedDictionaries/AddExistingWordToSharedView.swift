@@ -51,13 +51,11 @@ struct AddExistingWordToSharedView: View {
                         }
 
                         HStack {
-                            Text(word.partOfSpeech ?? "unknown")
-                                .font(.caption)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(Color.accent.opacity(0.2))
-                                .foregroundStyle(.accent)
-                                .clipShape(Capsule())
+                            TagView(
+                                text: word.partOfSpeech ?? "unknown",
+                                color: .accent,
+                                size: .small
+                            )
 
                             if word.isFavorite {
                                 Image(systemName: "heart.fill")
@@ -75,7 +73,7 @@ struct AddExistingWordToSharedView: View {
                 } label: {
                     HStack {
                         Image(systemName: selectedDictionaryId == nil ? "person" : "person.2")
-                            .foregroundStyle(selectedDictionaryId == nil ? .blue : .green)
+                            .foregroundStyle(selectedDictionaryId == nil ? .blue : .accent)
 
                         Text(selectedDictionaryId == nil ? "Select Dictionary" : "Dictionary Selected")
                             .foregroundStyle(selectedDictionaryId == nil ? .blue : .primary)

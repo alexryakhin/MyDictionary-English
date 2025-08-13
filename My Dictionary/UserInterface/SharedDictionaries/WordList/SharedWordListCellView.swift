@@ -50,13 +50,7 @@ struct SharedWordListCellView: View {
                 }
 
                 if shouldShowLanguageLabel {
-                    Text(languageDisplayName)
-                        .font(.caption2)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
-                        .background(Color.secondary.opacity(0.2))
-                        .foregroundStyle(.secondary)
-                        .clipShape(Capsule())
+                    TagView(text: languageDisplayName, color: .blue, size: .mini)
                 }
 
                 Spacer()

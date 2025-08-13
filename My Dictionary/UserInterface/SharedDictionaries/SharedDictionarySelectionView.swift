@@ -71,7 +71,7 @@ struct SharedDictionarySelectionView: View {
                             } label: {
                                 HStack {
                                     Image(systemName: "person.2")
-                                        .foregroundStyle(.green)
+                                        .foregroundStyle(.accent)
                                         .frame(width: 24)
 
                                     VStack(alignment: .leading, spacing: 4) {
@@ -86,10 +86,10 @@ struct SharedDictionarySelectionView: View {
                                             if dictionary.isOwner {
                                                 Text("Owner")
                                                     .font(.caption)
-                                                    .foregroundStyle(.green)
+                                                    .foregroundStyle(.accent)
                                                     .padding(.horizontal, 6)
                                                     .padding(.vertical, 2)
-                                                    .background(Color.green.opacity(0.2))
+                                                    .background(Color.accent.opacity(0.2))
                                                     .cornerRadius(4)
                                             }
                                         }

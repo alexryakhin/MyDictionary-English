@@ -40,16 +40,8 @@ struct ChooseDefinitionQuizContentView: View {
                     }
                     .padding(.horizontal, 32)
                     
-                    Button {
+                    ActionButton("Back to Quizzes", systemImage: "chevron.left", style: .borderedProminent) {
                         dismiss()
-                    } label: {
-                        Label("Back to Quizzes", systemImage: "chevron.left")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(.accent.gradient)
-                            .foregroundStyle(.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
                     .padding(.horizontal, 32)
                     
@@ -130,8 +122,8 @@ struct ChooseDefinitionQuizContentView: View {
                     Text("Score: \(viewModel.score)")
                         .font(.caption)
                         .fontWeight(.medium)
-                        .foregroundStyle(.green)
-                    
+                        .foregroundStyle(.accent)
+
                     Text("Best: \(viewModel.bestStreak)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -145,8 +137,8 @@ struct ChooseDefinitionQuizContentView: View {
             HStack {
                 Image(systemName: "textformat")
                     .font(.title2)
-                    .foregroundStyle(.green)
-                
+                    .foregroundStyle(.accent)
+
                 Text("Word")
                     .font(.headline)
                     .fontWeight(.semibold)
@@ -158,15 +150,14 @@ struct ChooseDefinitionQuizContentView: View {
                 .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.leading)
-            
-            Text(viewModel.correctWord.quiz_partOfSpeech)
-                .font(.caption)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(.green.opacity(0.2))
-                .foregroundStyle(.green)
-                .clipShape(Capsule())
-                .frame(maxWidth: .infinity, alignment: .leading)
+
+            TagView(
+                text: viewModel.correctWord.quiz_partOfSpeech,
+                color: .accent,
+                size: .small,
+                style: .regular
+            )
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(20)
         .clippedWithBackground()
@@ -241,16 +232,11 @@ struct ChooseDefinitionQuizContentView: View {
 
     private var actionButtons: some View {
         VStack(spacing: 12) {
-            Button {
+            ActionButton("Skip Word (-2 points)", systemImage: "arrow.right.circle", color: .secondary) {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     viewModel.handle(.skipWord)
                 }
-            } label: {
-                Label("Skip Word (-2 points)", systemImage: "arrow.right.circle")
-                    .padding(8)
             }
-            .foregroundStyle(.secondary)
-            .buttonStyle(.bordered)
         }
     }
 
@@ -262,7 +248,7 @@ struct ChooseDefinitionQuizContentView: View {
                 // Success Icon
                 ZStack {
                     Circle()
-                        .fill(.green.gradient)
+                        .fill(.accent.gradient)
                         .frame(width: 80, height: 80)
                     
                     Image(systemName: "checkmark")
@@ -294,7 +280,7 @@ struct ChooseDefinitionQuizContentView: View {
                             Spacer()
                             Text("\(viewModel.score)")
                                 .fontWeight(.bold)
-                                .foregroundStyle(.green)
+                                .foregroundStyle(.accent)
                         }
                         
                         HStack {
@@ -317,7 +303,7 @@ struct ChooseDefinitionQuizContentView: View {
                             Spacer()
                             Text("\(Int((Double(viewModel.correctAnswers) / Double(viewModel.wordsPlayed.count)) * 100))%")
                                 .fontWeight(.medium)
-                                .foregroundStyle(.green)
+                                .foregroundStyle(.accent)
                         }
                     }
                     .font(.body)
@@ -329,28 +315,11 @@ struct ChooseDefinitionQuizContentView: View {
             .padding(.horizontal, 32)
             
             VStack(spacing: 12) {
-                Button {
+                ActionButton("Try Again", systemImage: "arrow.clockwise", style: .borderedProminent) {
                     viewModel.handle(.restartQuiz)
-                } label: {
-                    Label("Try Again", systemImage: "arrow.clockwise")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.green.gradient)
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
-                
-                Button {
+                ActionButton("Back to Quizzes", systemImage: "chevron.left") {
                     dismiss()
-                } label: {
-                    Label("Back to Quizzes", systemImage: "chevron.left")
-                        .font(.body)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.ultraThinMaterial)
-                        .foregroundStyle(.primary)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
             }
             .padding(.horizontal, 32)
@@ -365,7 +334,7 @@ struct ChooseDefinitionQuizContentView: View {
         case .none:
             return Color(.tertiarySystemGroupedBackground)
         case .correct(let correctIndex):
-            return index == correctIndex ? Color.green.opacity(0.2) : Color(.tertiarySystemGroupedBackground)
+            return index == correctIndex ? Color.accent.opacity(0.2) : Color(.tertiarySystemGroupedBackground)
         case .incorrect(let incorrectIndex):
             return index == incorrectIndex ? Color.red.opacity(0.2) : Color(.tertiarySystemGroupedBackground)
         }
@@ -376,7 +345,7 @@ struct ChooseDefinitionQuizContentView: View {
         case .none:
             return Color(.clear)
         case .correct(let correctIndex):
-            return index == correctIndex ? Color.green : Color(.clear)
+            return index == correctIndex ? Color.accent : Color(.clear)
         case .incorrect(let incorrectIndex):
             return index == incorrectIndex ? Color.red : Color(.clear)
         }

@@ -130,11 +130,10 @@ struct SettingsView: View {
 
                                 Spacer()
 
-                                HeaderButton("Sign Out", font: .caption) {
+                                HeaderButton("Sign Out", color: .red, size: .small) {
                                     HapticManager.shared.triggerSelection()
                                     authenticationService.toggleSignOutView()
                                 }
-                                .tint(.red)
                             }
                         }
                         .padding(vertical: 12, horizontal: 16)
@@ -142,15 +141,9 @@ struct SettingsView: View {
                         .padding(.bottom, 12)
                     } else {
                         VStack(alignment: .leading, spacing: 8) {
-                            Button {
+                            ActionButton("Sign in to sync word lists", systemImage: "person.circle") {
                                 viewModel.output.send(.showAuthentication)
-                            } label: {
-                                Label("Sign in to sync word lists", systemImage: "person.circle")
-                                    .padding(6)
-                                    .frame(maxWidth: .infinity)
                             }
-                            .buttonStyle(.bordered)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
                         }
                         .padding(.bottom, 12)
                     }
@@ -174,26 +167,14 @@ struct SettingsView: View {
                         .padding(vertical: 12, horizontal: 16)
                         .clippedWithBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
 
-                        Button {
+                        ActionButton("Manage Tags", systemImage: "tag") {
                             viewModel.output.send(.showTagManagement)
-                        } label: {
-                            Label("Manage Tags", systemImage: "tag")
-                                .padding(6)
-                                .frame(maxWidth: .infinity)
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
 
                         if authenticationService.isSignedIn {
-                            Button {
+                            ActionButton("Shared Dictionaries", systemImage: "person.2") {
                                 viewModel.output.send(.showSharedDictionaries)
-                            } label: {
-                                Label("Shared Dictionaries", systemImage: "person.2")
-                                    .padding(6)
-                                    .frame(maxWidth: .infinity)
                             }
-                            .buttonStyle(.bordered)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
                         }
                     }
                     .padding(.bottom, 12)
@@ -206,34 +187,23 @@ struct SettingsView: View {
                     footer: "Please note that import and export only work with files created by this app."
                 ) {
                     VStack(spacing: 8) {
-                        Button {
-                            if subscriptionService.isProUser {
+                        let wordsCount = WordsProvider.shared.words.count
+                        ActionButton("Import words", systemImage: "square.and.arrow.down") {
+                            if subscriptionService.isProUser || wordsCount < 50 {
                                 viewModel.isImporting = true
                             } else {
                                 paywallService.isShowingPaywall = true
                             }
                             AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
-                        } label: {
-                            Label("Import words", systemImage: "square.and.arrow.down")
-                                .padding(6)
-                                .frame(maxWidth: .infinity)
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                        Button {
-                            if subscriptionService.isProUser {
+                        ActionButton("Export words", systemImage: "square.and.arrow.up") {
+                            if subscriptionService.isProUser || wordsCount < 50 {
                                 viewModel.exportWords()
                             } else {
                                 paywallService.isShowingPaywall = true
                             }
                             AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
-                        } label: {
-                            Label("Export words", systemImage: "square.and.arrow.up")
-                                .padding(6)
-                                .frame(maxWidth: .infinity)
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
                         
                         if !subscriptionService.isProUser {
                             Text("Free users can export up to \(AppConfig.Features.freeUserExportLimit) words")
@@ -251,15 +221,9 @@ struct SettingsView: View {
                 CustomSectionView(
                     header: "About app"
                 ) {
-                    Button {
+                    ActionButton("Learn more", systemImage: "info.circle") {
                         viewModel.output.send(.showAboutApp)
-                    } label: {
-                        Label("Learn more", systemImage: "info.circle")
-                            .padding(6)
-                            .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.bordered)
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
                 }
             }
             .padding(.horizontal, 16)
