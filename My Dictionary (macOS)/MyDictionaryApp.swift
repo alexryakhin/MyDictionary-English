@@ -7,44 +7,27 @@
 
 import SwiftUI
 import Firebase
+import Combine
+import UserNotifications
 
 @main
 struct MyDictionaryApp: App {
 
     @Environment(\.openWindow) private var openWindow
+    @StateObject private var appInitializationManager = AppInitializationManager.shared
 
     init() {
         FirebaseApp.configure()
-        
-        // Sync from Firestore on app startup and start real-time listener
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            if let userId = AuthenticationService.shared.userId {
-                print("🔄 [App] Triggering initial sync from Firestore for userId: \(userId)")
-                Task {
-                    do {
-                        try await DataSyncService.shared.syncFirestoreToCoreData(userId: userId)
-                        print("✅ [App] Initial sync from Firestore completed successfully")
-                    } catch {
-                        print("❌ [App] Initial sync from Firestore failed: \(error.localizedDescription)")
-                    }
-                }
-                
-                // Start real-time listener for existing user
-                print("🔊 [App] Starting real-time listener for existing user: \(userId)")
-                DataSyncService.shared.startPrivateDictionaryListener(userId: userId)
-            } else {
-                print("❌ [App] No userId available for initial sync")
-            }
-        }
     }
 
     var body: some Scene {
         Window("My Dictionary", id: WindowID.main) {
-            MainTabView()
+            SideBarView()
                 .font(.system(.body, design: .rounded))
+                .frame(width: 900, height: 550)
+                .background(Color.systemGroupedBackground)
         }
-        .windowStyle(TitleBarWindowStyle())
-        .windowToolbarStyle(.unifiedCompact)
+        .windowResizability(.contentSize)
         .commands {
             CommandGroup(replacing: CommandGroupPlacement.appInfo) {
                 Button {
@@ -53,15 +36,35 @@ struct MyDictionaryApp: App {
                     Text("About My Dictionary")
                 }
             }
+            
+#if DEBUG
+            CommandGroup(after: CommandGroupPlacement.appInfo) {
+                Button {
+                    openWindow(id: WindowID.debug)
+                } label: {
+                    Text("Debug Panel")
+                }
+                .keyboardShortcut("d", modifiers: [.command, .shift])
+            }
+#endif
         }
+        .defaultSize(width: 900, height: 500)
 
         Window("About My Dictionary", id: WindowID.about) {
-            AboutView()
+            AboutAppView()
         }
         .defaultSize(width: 600, height: 600)
+
+#if DEBUG
+        Window("Debug Panel", id: WindowID.debug) {
+            DebugView()
+        }
+        .defaultSize(width: 600, height: 800)
+#endif
 
         Settings {
             SettingsView()
         }
+        .defaultSize(width: 500, height: 650)
     }
 }

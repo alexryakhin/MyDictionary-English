@@ -1,0 +1,77 @@
+//
+//  NavigationTitleModifier.swift
+//  My Dictionary
+//
+//  Created by Alexander Riakhin on 8/15/25.
+//
+
+import SwiftUI
+
+enum NavigationTitleMode {
+    case inline
+    case large
+}
+
+struct NavigationBarView<TrailingContent: View, BottomContent: View>: View {
+
+    @Environment(\.dismiss) var dismiss
+
+    let title: String
+    let mode: NavigationTitleMode
+    let vPadding: CGFloat
+    let hPadding: CGFloat
+    let showsDismissButton: Bool
+
+    @ViewBuilder let trailingContent: () -> TrailingContent
+    @ViewBuilder let bottomContent: () -> BottomContent
+
+    init(
+        title: String,
+        mode: NavigationTitleMode = .inline,
+        vPadding: CGFloat = 8,
+        hPadding: CGFloat = 12,
+        showsDismissButton: Bool = true,
+        @ViewBuilder trailingContent: @escaping () -> TrailingContent = { EmptyView() },
+        @ViewBuilder bottomContent: @escaping () -> BottomContent = { EmptyView() }
+    ) {
+        self.title = title
+        self.mode = mode
+        self.vPadding = vPadding
+        self.hPadding = hPadding
+        self.showsDismissButton = showsDismissButton
+        self.trailingContent = trailingContent
+        self.bottomContent = bottomContent
+    }
+
+    var body: some View {
+        VStack(spacing: mode == .large ? 12 : 8) {
+            HStack(spacing: 2) {
+                Text(title)
+                    .font(mode == .inline ? .headline : .largeTitle)
+                    .bold()
+                    .foregroundStyle(.primary)
+                    .lineLimit(1)
+
+                Spacer()
+
+                HStack(spacing: 6) {
+                    trailingContent()
+                        .fixedSize()
+                        .lineLimit(1)
+                    if showsDismissButton {
+                        HeaderButton(
+                            "Dismiss",
+                            style: .bordered
+                        ) {
+                            dismiss()
+                        }
+                    }
+                }
+            }
+
+            bottomContent()
+        }
+        .padding(vertical: vPadding, horizontal: hPadding)
+        .toolbar(.hidden, for: .windowToolbar)
+    }
+}

@@ -32,8 +32,9 @@
 		5398396B2E48D9AC006ECF2D /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 5398396A2E48D9AC006ECF2D /* RevenueCat */; };
 		5398396D2E48D9AC006ECF2D /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5398396C2E48D9AC006ECF2D /* RevenueCatUI */; };
 		5398397B2E48EAA3006ECF2D /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 5398397A2E48EAA3006ECF2D /* RevenueCat */; };
-		5398397D2E48EAA8006ECF2D /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5398397C2E48EAA8006ECF2D /* RevenueCatUI */; };
 		5398397F2E48EAAC006ECF2D /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 5398397E2E48EAAC006ECF2D /* ReceiptParser */; };
+		53C13D072E4ECFAA00622B37 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 53C13D062E4ECFAA00622B37 /* Flow */; };
+		53C13D0A2E4ED01F00622B37 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 53C13D092E4ED01F00622B37 /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,43 +68,19 @@
 		53FA60FD2E44715100CE4292 /* firestore.rules */ = {isa = PBXFileReference; explicitFileType = text.script.sh; path = firestore.rules; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5370F5712E4050A4009238EB /* Exceptions for "My Dictionary" folder in "My Dictionary (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				CoreUserInterface/SwiftUIComponents/VocabularyLineChart.swift,
-				UserInterface/Tags/TagManagementViewModel.swift,
-			);
-			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
-		};
-		53C9B9822E4AF60C00D5709B /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Services/Navigation/NavigationManager.swift,
-			);
-			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		530D2C342D9836920040C247 /* My Dictionary (macOS) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "My Dictionary (macOS)";
 			sourceTree = "<group>";
 		};
-		53E9A7562D7C3383007E9F28 /* My Dictionary */ = {
+		53E9A7562D7C3383007E9F28 /* My Dictionary (iOS) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5370F5712E4050A4009238EB /* Exceptions for "My Dictionary" folder in "My Dictionary (macOS)" target */,
-			);
-			path = "My Dictionary";
+			path = "My Dictionary (iOS)";
 			sourceTree = "<group>";
 		};
 		53E9A9F92D7C439B007E9F28 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				53C9B9822E4AF60C00D5709B /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */,
-			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
@@ -122,11 +99,12 @@
 				5370F6952E4053C6009238EB /* GoogleSignInSwift in Frameworks */,
 				530D2C552D983E780040C247 /* FirebaseCrashlytics in Frameworks */,
 				5398397B2E48EAA3006ECF2D /* RevenueCat in Frameworks */,
-				5398397D2E48EAA8006ECF2D /* RevenueCatUI in Frameworks */,
+				53C13D072E4ECFAA00622B37 /* Flow in Frameworks */,
 				5370F6932E4053C1009238EB /* GoogleSignIn in Frameworks */,
 				5370F6882E4052F1009238EB /* FirebaseAuth in Frameworks */,
 				5398397F2E48EAAC006ECF2D /* ReceiptParser in Frameworks */,
 				530D2C532D983E720040C247 /* FirebaseCore in Frameworks */,
+				53C13D0A2E4ED01F00622B37 /* FirebaseMessaging in Frameworks */,
 				532C15212E3CC39600552599 /* FirebaseAnalytics in Frameworks */,
 				5370F68C2E4052F9009238EB /* FirebaseStorage in Frameworks */,
 				530D2C4D2D983A1E0040C247 /* CloudKit.framework in Frameworks */,
@@ -162,7 +140,7 @@
 		53E9A74B2D7C3383007E9F28 = {
 			isa = PBXGroup;
 			children = (
-				53E9A7562D7C3383007E9F28 /* My Dictionary */,
+				53E9A7562D7C3383007E9F28 /* My Dictionary (iOS) */,
 				53E9A9F92D7C439B007E9F28 /* Shared */,
 				530D2C342D9836920040C247 /* My Dictionary (macOS) */,
 				53E9A7552D7C3383007E9F28 /* Products */,
@@ -221,8 +199,9 @@
 				5370F6922E4053C1009238EB /* GoogleSignIn */,
 				5370F6942E4053C6009238EB /* GoogleSignInSwift */,
 				5398397A2E48EAA3006ECF2D /* RevenueCat */,
-				5398397C2E48EAA8006ECF2D /* RevenueCatUI */,
 				5398397E2E48EAAC006ECF2D /* ReceiptParser */,
+				53C13D062E4ECFAA00622B37 /* Flow */,
+				53C13D092E4ED01F00622B37 /* FirebaseMessaging */,
 			);
 			productName = "My Dictionary (macOS)";
 			productReference = 530D2C332D9836920040C247 /* My Dictionary.app */;
@@ -242,7 +221,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				53E9A7562D7C3383007E9F28 /* My Dictionary */,
+				53E9A7562D7C3383007E9F28 /* My Dictionary (iOS) */,
 				53E9A9F92D7C439B007E9F28 /* Shared */,
 			);
 			name = "My Dictionary";
@@ -352,11 +331,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/Resources/MyDictionary.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/MyDictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary\\ (macOS)/Resources/Assets.xcassets";
+				DEVELOPMENT_ASSET_PATHS = Shared/Assets.xcassets;
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -384,11 +363,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/Resources/MyDictionary.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/MyDictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary\\ (macOS)/Resources/Assets.xcassets";
+				DEVELOPMENT_ASSET_PATHS = Shared/Assets.xcassets;
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -416,13 +395,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "My Dictionary/Resources/My_Dictionary.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "My Dictionary (iOS)/Resources/My_Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary/Resources/Assets.xcassets";
+				DEVELOPMENT_ASSET_PATHS = Shared/Assets.xcassets;
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "My Dictionary/iOS-Info.plist";
+				INFOPLIST_FILE = "My Dictionary (iOS)/iOS-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -453,13 +432,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "My Dictionary/Resources/My_Dictionary.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "My Dictionary (iOS)/Resources/My_Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "My\\ Dictionary/Resources/Assets.xcassets";
+				DEVELOPMENT_ASSET_PATHS = Shared/Assets.xcassets;
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "My Dictionary/iOS-Info.plist";
+				INFOPLIST_FILE = "My Dictionary (iOS)/iOS-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -794,15 +773,20 @@
 			package = 539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = RevenueCat;
 		};
-		5398397C2E48EAA8006ECF2D /* RevenueCatUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */;
-			productName = RevenueCatUI;
-		};
 		5398397E2E48EAAC006ECF2D /* ReceiptParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 539839672E48D9AC006ECF2D /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = ReceiptParser;
+		};
+		53C13D062E4ECFAA00622B37 /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5321A2E12E3FADEF0066DFC4 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
+			productName = Flow;
+		};
+		53C13D092E4ED01F00622B37 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

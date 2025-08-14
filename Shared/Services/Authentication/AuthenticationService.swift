@@ -15,6 +15,11 @@ import AuthenticationServices
 import Combine
 import SwiftUI
 import UserNotifications
+#if os(iOS)
+import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 enum AuthenticationState {
     case signedOut
@@ -77,6 +82,9 @@ final class AuthenticationService: ObservableObject {
                 currentUser = user
                 authenticationState = .signedIn
 
+                // Send authentication completed notification
+                NotificationCenter.default.post(name: .authenticationCompleted, object: nil)
+
                 // First mark existing words as unsynced, then sync to Firestore, then start real-time listener
                 print("🔄 [AuthenticationService] Setting up sync for user: \(user.uid)")
                 do {
@@ -134,14 +142,24 @@ final class AuthenticationService: ObservableObject {
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
 
+        #if os(iOS)
         guard let windowScene = await UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = await windowScene.windows.first,
               let rootViewController = await window.rootViewController else {
             throw AuthenticationError.signInFailed
         }
+        #elseif os(macOS)
+        guard let window = await NSApp.keyWindow else {
+            throw AuthenticationError.signInFailed
+        }
+        #endif
 
         do {
+            #if os(iOS)
             let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
+            #elseif os(macOS)
+            let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: window)
+            #endif
 
             guard let idToken = result.user.idToken?.tokenString else {
                 throw AuthenticationError.signInFailed
@@ -233,14 +251,25 @@ final class AuthenticationService: ObservableObject {
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
 
+        #if os(iOS)
         guard let windowScene = await UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = await windowScene.windows.first,
               let rootViewController = await window.rootViewController else {
             throw AuthenticationError.signInFailed
         }
+        #elseif os(macOS)
+        guard let window = await NSApp.keyWindow else {
+            throw AuthenticationError.signInFailed
+        }
+        let rootViewController = window.contentViewController
+        #endif
 
         do {
+            #if os(iOS)
             let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
+            #elseif os(macOS)
+            let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: window)
+            #endif
 
             guard let idToken = result.user.idToken?.tokenString else {
                 throw AuthenticationError.signInFailed
@@ -324,7 +353,7 @@ final class AuthenticationService: ObservableObject {
                 AnalyticsService.shared.logEvent(.signOutTapped)
             } catch {
                 authenticationState = .signedIn
-                AlertCenter.shared.showAlert(with: .error(
+                AlertCenter.shared.showAlert(with: .info(
                     title: "Oh no!",
                     message: "Something went wrong while signing out. Please try again later.")
                 )
@@ -380,9 +409,11 @@ final class AuthenticationService: ObservableObject {
                 print("✅ [AuthenticationService] Push notification permissions granted")
 
                 // Register for remote notifications
+                #if os(iOS)
                 await MainActor.run {
                     UIApplication.shared.registerForRemoteNotifications()
                 }
+                #endif
             } else {
                 print("❌ [AuthenticationService] Push notification permissions denied")
             }
@@ -411,7 +442,7 @@ final class AuthenticationService: ObservableObject {
                 "name": user.displayName ?? "Unknown",
                 "registrationDate": FieldValue.serverTimestamp(),
                 "lastUpdated": FieldValue.serverTimestamp(),
-                "platform": "iOS",
+                "platform": getCurrentPlatform(),
                 "fcmToken": fcmToken ?? "",
                 "subscriptionStatus": SubscriptionService.shared.isProUser ? "pro" : "free",
                 "subscriptionPlan": SubscriptionService.shared.currentPlan?.rawValue ?? "none",
@@ -446,6 +477,18 @@ final class AuthenticationService: ObservableObject {
             print("❌ [AuthenticationService] Failed to update FCM token: \(error)")
         }
     }
+    
+    // MARK: - Platform Detection
+    
+    private func getCurrentPlatform() -> String {
+        #if os(iOS)
+        return "iOS"
+        #elseif os(macOS)
+        return "macOS"
+        #else
+        return "Unknown"
+        #endif
+    }
 }
 
 // MARK: - Apple Sign-In Delegate
@@ -458,11 +501,20 @@ final class AppleSignInDelegate: NSObject, ASAuthorizationControllerDelegate, AS
     }
 
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        #if os(iOS)
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = windowScene.windows.first else {
             fatalError("No window found")
         }
         return window
+        #elseif os(macOS)
+        guard let window = NSApp.keyWindow else {
+            fatalError("No window found")
+        }
+        return window
+        #else
+        fatalError("Unsupported platform")
+        #endif
     }
 
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {

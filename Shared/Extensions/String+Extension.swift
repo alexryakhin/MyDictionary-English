@@ -6,11 +6,6 @@
 //
 
 import Foundation
-#if os(iOS)
-import class UIKit.UITextChecker
-#elseif os(macOS)
-import class AppKit.NSSpellChecker
-#endif
 
 extension String {
 

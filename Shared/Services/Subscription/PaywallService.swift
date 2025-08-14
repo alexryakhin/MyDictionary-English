@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 import RevenueCat
+#if os(iOS)
 import RevenueCatUI
+#endif
 import Combine
 
 // MARK: - Paywall Service
@@ -27,7 +29,7 @@ final class PaywallService: ObservableObject {
     // MARK: - Private Properties
     
     private let subscriptionService = SubscriptionService.shared
-    private var paywallCompletionHandler: ((Bool) -> Void)?
+    private var paywallCompletionHandler: (BoolHandler)?
     private var cancellables = Set<AnyCancellable>()
     
     private init() {}
@@ -38,7 +40,7 @@ final class PaywallService: ObservableObject {
     /// - Parameters:
     ///   - reason: The reason for showing the paywall
     ///   - completion: Called when the paywall is dismissed (true if user subscribed, false otherwise)
-    func presentPaywall(for reason: PaywallReason, completion: @escaping (Bool) -> Void = { _ in }) {
+    func presentPaywall(for reason: PaywallReason, completion: @escaping BoolHandler = { _ in }) {
         // Don't show paywall if user is already Pro
         guard !subscriptionService.isProUser else {
             completion(true)
@@ -63,50 +65,38 @@ final class PaywallService: ObservableObject {
     }
     
     /// Shows an alert requiring authentication before accessing Pro features
-    private func showAuthenticationRequiredAlert(for reason: PaywallReason, completion: @escaping (Bool) -> Void) {
+    private func showAuthenticationRequiredAlert(for reason: PaywallReason, completion: @escaping BoolHandler) {
         // Store completion handler for after authentication
         paywallCompletionHandler = completion
         paywallPresentationReason = reason
         
-        // Show alert with sign-in options
-        let alert = UIAlertController(
-            title: "Sign In Required",
-            message: "You need to sign in to access Pro features like \(reason.title).",
-            preferredStyle: .alert
+        // Show alert with sign-in options using cross-platform AlertCenter
+        AlertCenter.shared.showAlert(
+            with: .init(
+                title: "Sign In Required",
+                message: "You need to sign in to access Pro features like \(reason.title).",
+                actionText: "Sign In",
+                action: {
+                    // Present sign-in options
+                    self.presentSignInOptions()
+                }
+            )
         )
-        
-        alert.addAction(UIAlertAction(title: "Sign In", style: .default) { _ in
-            // Present sign-in options
-            self.presentSignInOptions()
-        })
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            // Call completion with false (user didn't proceed)
-            completion(false)
-        })
-        
-        // Present the alert
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = windowScene.windows.first {
-            window.rootViewController?.present(alert, animated: true)
-        }
     }
     
     /// Presents sign-in options to the user
     private func presentSignInOptions() {
-        // Create sign-in view
-        let signInView = AuthenticationView()
-        let hostingController = UIHostingController(rootView: signInView)
-        hostingController.modalPresentationStyle = .fullScreen
+        #if os(iOS)
+        // Use NavigationManager to present authentication view on iOS
+        NavigationManager.shared.navigationPath.append(NavigationDestination.authentication)
+        #else
+        // On macOS, just show the paywall directly since authentication is handled differently
+        // The MyPaywallView will handle showing AuthenticationView if needed
+        isShowingPaywall = true
+        #endif
         
-        // Present sign-in view
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = windowScene.windows.first {
-            window.rootViewController?.present(hostingController, animated: true) {
-                // After sign-in is presented, set up a listener for authentication state
-                self.setupAuthenticationListener()
-            }
-        }
+        // Set up a listener for authentication state
+        setupAuthenticationListener()
     }
     
     /// Sets up a listener to show paywall after successful authentication
@@ -187,23 +177,16 @@ final class PaywallService: ObservableObject {
     
     /// Shows authentication alert when user tries to restore purchases without being signed in
     private func showAuthenticationRequiredAlertForRestore() {
-        let alert = UIAlertController(
-            title: "Sign In Required",
-            message: "You need to sign in to restore your purchases.",
-            preferredStyle: .alert
+        AlertCenter.shared.showAlert(
+            with: .init(
+                title: "Sign In Required",
+                message: "You need to sign in to restore your purchases.",
+                actionText: "Sign In",
+                action: {
+                    self.presentSignInOptions()
+                }
+            )
         )
-        
-        alert.addAction(UIAlertAction(title: "Sign In", style: .default) { _ in
-            self.presentSignInOptions()
-        })
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        // Present the alert
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = windowScene.windows.first {
-            window.rootViewController?.present(alert, animated: true)
-        }
     }
 }
 
@@ -279,7 +262,7 @@ struct MyPaywallView: View {
     var body: some View {
         if authenticationService.isSignedIn {
             #if os(macOS)
-            MacOSPaywallView()
+            MacOSPaywall.ContentView()
             #else
             PaywallView()
             #endif

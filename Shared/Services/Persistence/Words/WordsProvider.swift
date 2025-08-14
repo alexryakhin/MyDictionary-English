@@ -33,6 +33,9 @@ final class WordsProvider: ObservableObject {
             print("❌ [WordDetails] No word found with ID \(id)")
             return
         }
+        if SideBarManager.shared.selectedWord == word {
+            SideBarManager.shared.selectedWord = nil
+        }
 
         // Delete from Firestore for real-time updates
         if authenticationService.isSignedIn, let userId = authenticationService.userId {

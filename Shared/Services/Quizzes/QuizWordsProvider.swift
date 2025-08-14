@@ -7,7 +7,9 @@
 
 import Foundation
 import Combine
+#if os(iOS)
 import UIKit
+#endif
 
 /// Service that provides words for quizzes from both private and shared dictionaries
 final class QuizWordsProvider: ObservableObject {
@@ -57,12 +59,12 @@ final class QuizWordsProvider: ObservableObject {
     ///   - wordCount: Number of words needed
     ///   - hardWordsOnly: Whether to only include difficult words
     /// - Returns: Array of words for the quiz
-    func getWordsForQuiz(wordCount: Int, hardWordsOnly: Bool = false) -> [any QuizWord] {
-        let filteredWords = hardWordsOnly
+    func getWordsForQuiz(with preset: QuizPreset) -> [any QuizWord] {
+        let filteredWords = preset.hardWordsOnly
         ? availableWords.filter { $0.difficultyLevel == .needsReview }
         : availableWords
 
-        return Array(filteredWords.shuffled().prefix(wordCount))
+        return Array(filteredWords.shuffled().prefix(preset.wordCount))
     }
     
     /// Checks if there are enough words available for a quiz
@@ -117,7 +119,8 @@ final class QuizWordsProvider: ObservableObject {
                 self?.updateAvailableWords()
             }
             .store(in: &cancellables)
-        
+
+        #if os(iOS)
         // Listen to app becoming active to refresh dictionaries
         NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
             .receive(on: DispatchQueue.main)
@@ -125,6 +128,7 @@ final class QuizWordsProvider: ObservableObject {
                 self?.refreshAvailableDictionaries()
             }
             .store(in: &cancellables)
+        #endif
     }
     
     private func updateAvailableDictionaries() {

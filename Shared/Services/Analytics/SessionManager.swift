@@ -7,7 +7,11 @@
 
 import Foundation
 import Combine
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 final class SessionManager: ObservableObject {
     static let shared = SessionManager()
@@ -150,7 +154,8 @@ final class SessionManager: ObservableObject {
     }
     
     // MARK: - App Lifecycle Observers
-    
+
+#if os(iOS)
     private func setupAppLifecycleObservers() {
         // Observe when app becomes active
         NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
@@ -159,7 +164,7 @@ final class SessionManager: ObservableObject {
                 self?.checkAndResetWeeklyFlags()
             }
             .store(in: &cancellables)
-        
+
         // Observe when app goes to background
         NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
             .sink { [weak self] _ in
@@ -167,7 +172,25 @@ final class SessionManager: ObservableObject {
             }
             .store(in: &cancellables)
     }
-    
+#elseif os(macOS)
+    private func setupAppLifecycleObservers() {
+        // Observe when app becomes active
+        NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)
+            .sink { [weak self] _ in
+                self?.resumeSession()
+                self?.checkAndResetWeeklyFlags()
+            }
+            .store(in: &cancellables)
+
+        // Observe when app goes to background
+        NotificationCenter.default.publisher(for: NSApplication.willResignActiveNotification)
+            .sink { [weak self] _ in
+                self?.pauseSession()
+            }
+            .store(in: &cancellables)
+    }
+#endif
+
     private func checkAndResetWeeklyFlags() {
         // Check if we need to reset weekly flags (every Monday)
         let calendar = Calendar.current
