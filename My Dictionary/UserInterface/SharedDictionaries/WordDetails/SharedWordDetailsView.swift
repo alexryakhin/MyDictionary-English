@@ -346,8 +346,7 @@ struct SharedWordDetailsView: View {
         ) {
             NavigationManager.shared.navigationPath.append(
                 NavigationDestination.sharedWordDifficultyStats(
-                    word: word,
-                    dictionaryId: dictionaryId
+                    word: word
                 )
             )
         }
@@ -523,7 +522,7 @@ extension SharedWordDetailsView {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .clippedWithPaddingAndBackground(Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
         }
     }

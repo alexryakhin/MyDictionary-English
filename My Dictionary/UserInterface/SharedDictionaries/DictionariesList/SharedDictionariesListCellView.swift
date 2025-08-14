@@ -13,10 +13,6 @@ struct SharedDictionariesListCellView: View {
 
     var body: some View {
         HStack {
-            Image(systemName: "person.2")
-                .foregroundStyle(.accent)
-                .frame(width: 24)
-
             VStack(alignment: .leading, spacing: 4) {
                 Text(dictionary.name)
                     .font(.headline)
@@ -27,13 +23,7 @@ struct SharedDictionariesListCellView: View {
                             .font(.caption)
                             .foregroundStyle(.secondary)
 
-                        Text("Owner")
-                            .font(.caption)
-                            .foregroundStyle(.accent)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 2)
-                            .background(Color.accent.opacity(0.2))
-                            .cornerRadius(4)
+                        TagView(text: "Owner", color: .accent, size: .mini)
                     } else if let owner = dictionary.collaborators.first(where: { $0.role == .owner }) {
                         Text("Created by \(owner.displayNameOrEmail)")
                             .font(.caption)

@@ -104,7 +104,7 @@ struct SpellingQuizContentView: View {
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Progress: \(viewModel.wordsPlayed.count + 1)/\(viewModel.totalQuestions)")
+                    Text("Progress: \(viewModel.wordsPlayed.count)/\(viewModel.totalQuestions)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
@@ -360,7 +360,7 @@ struct SpellingQuizContentView: View {
                                 .foregroundStyle(.accent)
                         }
                         
-                        // Debug info (can be removed later)
+                        #if DEBUG
                         if viewModel.wordsPlayed.count > 0 {
                             HStack {
                                 Text("Debug")
@@ -370,6 +370,7 @@ struct SpellingQuizContentView: View {
                                     .foregroundStyle(.secondary)
                             }
                         }
+                        #endif
                     }
                     .font(.body)
                 }

@@ -30,7 +30,7 @@ enum NavigationDestination: Hashable {
     case sharedDictionaryWords(SharedDictionary)
     case sharedDictionaryDetails(SharedDictionary)
     case sharedDictionariesList
-    case sharedWordDifficultyStats(word: SharedWord, dictionaryId: String)
+    case sharedWordDifficultyStats(word: SharedWord)
 
     // MARK: - Settings destinations
     case aboutApp
