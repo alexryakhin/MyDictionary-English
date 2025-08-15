@@ -89,6 +89,7 @@ enum CoreError: Error, LocalizedError {
         case tagAlreadyAssigned
         case tagNotAssigned
         case maxTagsReached
+        case authenticationRequired
 
         var errorDescription: String? {
             switch self {
@@ -130,6 +131,8 @@ enum CoreError: Error, LocalizedError {
                 return "Tag is not assigned to this word"
             case .maxTagsReached:
                 return "Maximum of 5 tags per word reached"
+            case .authenticationRequired:
+                return "Authentication required"
             }
         }
     }

@@ -168,7 +168,7 @@ extension View {
 
 func endEditing() {
     #if os(iOS)
-    endEditing()
+    UIApplication.shared.endEditing()
     #elseif os(macOS)
     NSApplication.shared.keyWindow?.makeFirstResponder(nil)
     #endif

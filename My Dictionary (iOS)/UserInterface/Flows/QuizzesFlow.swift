@@ -27,10 +27,10 @@ struct QuizzesFlow: View {
 
     private func handleOutput(_ output: QuizzesListViewModel.Output) {
         switch output {
-        case .showSpellingQuiz(let wordCount, let hardWordsOnly):
-            navigationManager.navigationPath.append(NavigationDestination.spellingQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly))
-        case .showChooseDefinitionQuiz(let wordCount, let hardWordsOnly):
-            navigationManager.navigationPath.append(NavigationDestination.chooseDefinitionQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly))
+        case .showSpellingQuiz(let preset):
+            navigationManager.navigationPath.append(NavigationDestination.spellingQuiz(preset))
+        case .showChooseDefinitionQuiz(let preset):
+            navigationManager.navigationPath.append(NavigationDestination.chooseDefinitionQuiz(preset))
         case .showSharedDictionary(let dictionary):
             navigationManager.navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
         }

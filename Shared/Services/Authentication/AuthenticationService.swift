@@ -97,21 +97,10 @@ final class AuthenticationService: ObservableObject {
                     // Set up RevenueCat App User ID for cross-platform subscription sharing
                     await SubscriptionService.shared.setupAppUserID()
 
-                    // Mark existing words as unsynced so they get uploaded
-                    await DataSyncService.shared.markExistingWordsAsUnsynced(userId: user.uid)
-
-                    // Sync local words to Firestore
-                    try await DataSyncService.shared.syncPrivateDictionaryToFirestore(userId: user.uid)
-                    print("✅ [AuthenticationService] Local words synced to Firestore successfully")
-
-                    // Now start real-time listener after sync is complete
-                    print("🔊 [AuthenticationService] Starting real-time listener for user: \(user.uid)")
-                    DataSyncService.shared.startPrivateDictionaryListener(userId: user.uid)
+                    // Manual sync mode - no automatic sync on sign in
+                    print("ℹ️ [AuthenticationService] Manual sync mode enabled - no automatic sync")
                 } catch {
-                    print("❌ [AuthenticationService] Failed to sync local words to Firestore: \(error.localizedDescription)")
-                    // Still start the listener even if sync fails
-                    print("🔊 [AuthenticationService] Starting real-time listener despite sync failure")
-                    DataSyncService.shared.startPrivateDictionaryListener(userId: user.uid)
+                    print("❌ [AuthenticationService] Failed to setup user: \(error.localizedDescription)")
                 }
             } else {
                 print("❌ [AuthenticationService] User signed out")
@@ -121,9 +110,8 @@ final class AuthenticationService: ObservableObject {
                 // Immediately reset subscription status when user signs out
                 SubscriptionService.shared.resetSubscriptionStatusOnSignOut()
 
-                // Stop real-time listener when user signs out
-                print("🔊 [AuthenticationService] Stopping real-time listener")
-                DataSyncService.shared.stopPrivateDictionaryListener()
+                // Manual sync mode - no listeners to stop
+                print("ℹ️ [AuthenticationService] Manual sync mode - no listeners")
             }
         }
     }

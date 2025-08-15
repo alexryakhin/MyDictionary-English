@@ -173,10 +173,8 @@ final class TagService: ObservableObject {
         tag.addToWords(word)
         try coreDataService.saveContext()
         
-        // Sync to Firestore
-        Task {
-            await syncWordToFirestore(word: word)
-        }
+        // Manual sync mode - no automatic sync when adding tags
+        print("ℹ️ [TagService] Manual sync mode - no automatic sync")
     }
     
     func removeTagFromWord(_ tag: CDTag, word: CDWord) throws {
@@ -187,36 +185,11 @@ final class TagService: ObservableObject {
         tag.removeFromWords(word)
         try coreDataService.saveContext()
         
-        // Sync to Firestore
-        Task {
-            await syncWordToFirestore(word: word)
-        }
+        // Manual sync mode - no automatic sync when removing tags
+        print("ℹ️ [TagService] Manual sync mode - no automatic sync")
     }
     
-    private func syncWordToFirestore(word: CDWord) async {
-        guard let userId = AuthenticationService.shared.userId else {
-            print("❌ [TagService] No authenticated user found for Firestore sync")
-            return
-        }
-        
-        guard let wordModel = Word(from: word) else {
-            print("⚠️ [TagService] Failed to convert word to model: \(word.wordItself ?? "unknown")")
-            return
-        }
-        
-        do {
-            let docRef = db
-                .collection("users")
-                .document(userId)
-                .collection("words")
-                .document(wordModel.id)
-            
-            try await docRef.setData(wordModel.toFirestoreDictionary())
-            print("✅ [TagService] Successfully synced word '\(wordModel.wordItself)' to Firestore")
-        } catch {
-            print("❌ [TagService] Failed to sync word to Firestore: \(error.localizedDescription)")
-        }
-    }
+    // No individual word sync in manual mode
     
     func getWordsForTag(_ tag: CDTag) -> [CDWord] {
         return tag.wordsArray
@@ -237,11 +210,6 @@ final class TagService: ObservableObject {
             }
             .store(in: &cancellables)
 
-        // Also listen to real-time updates from DataSyncService
-        DataSyncService.shared.realTimeUpdateReceived
-            .sink { [weak self] _ in
-                self?.getAllTags()
-            }
-            .store(in: &cancellables)
+        // No real-time updates in manual sync mode
     }
 }

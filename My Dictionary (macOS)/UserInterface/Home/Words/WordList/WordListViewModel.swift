@@ -156,14 +156,7 @@ final class WordListViewModel: BaseViewModel {
             }
             .store(in: &cancellables)
 
-        // Observe real-time updates from DataSyncService
-        DataSyncService.shared.realTimeUpdateReceived
-            .receive(on: RunLoop.main)
-            .sink { [weak self] _ in
-                print("🔄 [WordListViewModel] Real-time update received, refreshing words")
-                try? self?.wordsProvider.fetchWords()
-            }
-            .store(in: &cancellables)
+        // No real-time updates for private words in manual mode
     }
 
     private func deleteWord(_ wordModel: CDWord) {

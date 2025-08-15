@@ -103,24 +103,8 @@ final class AppInitializationManager: ObservableObject {
     }
     
     private func performDataSync() async {
-        if let userId = AuthenticationService.shared.userId {
-            print("🔄 [App] Triggering initial sync from Firestore for userId: \(userId)")
-            do {
-                try await DataSyncService.shared.syncFirestoreToCoreData(userId: userId)
-                print("✅ [App] Initial sync from Firestore completed successfully")
-                
-                // Start real-time listener for existing user
-                print("🔊 [App] Starting real-time listener for existing user: \(userId)")
-                DataSyncService.shared.startPrivateDictionaryListener(userId: userId)
-            } catch {
-                print("❌ [App] Initial sync from Firestore failed: \(error.localizedDescription)")
-                await MainActor.run {
-                    errorMessage = "Failed to sync data: \(error.localizedDescription)"
-                }
-            }
-        } else {
-            print("❌ [App] No userId available for initial sync")
-        }
+        // Manual sync mode - no automatic sync on app startup
+        print("ℹ️ [App] Manual sync mode enabled - no automatic sync on startup")
     }
     
     private func handleAuthenticationCompleted() {

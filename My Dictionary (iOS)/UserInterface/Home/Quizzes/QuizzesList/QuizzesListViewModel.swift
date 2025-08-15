@@ -12,8 +12,8 @@ import SwiftUI
 final class QuizzesListViewModel: BaseViewModel {
 
     enum Output {
-        case showSpellingQuiz(wordCount: Int, hardWordsOnly: Bool)
-        case showChooseDefinitionQuiz(wordCount: Int, hardWordsOnly: Bool)
+        case showSpellingQuiz(QuizPreset)
+        case showChooseDefinitionQuiz(QuizPreset)
         case showSharedDictionary(SharedDictionary)
     }
 

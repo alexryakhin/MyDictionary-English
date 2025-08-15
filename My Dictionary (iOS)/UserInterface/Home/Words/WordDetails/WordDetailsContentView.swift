@@ -305,12 +305,8 @@ struct WordDetailsContentView: View {
 
             do {
                 try CoreDataService.shared.saveContext()
-                if let userId = authenticationService.userId {
-                    try await DataSyncService.shared.syncWordToFirestore(
-                        word: word,
-                        userId: userId
-                    )
-                }
+                // Manual sync mode - no automatic sync when updating words
+                print("ℹ️ [WordDetails] Manual sync mode - no automatic sync")
             } catch {
                 errorReceived(error)
             }

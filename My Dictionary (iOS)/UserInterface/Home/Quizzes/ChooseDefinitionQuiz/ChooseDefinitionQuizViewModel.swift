@@ -20,8 +20,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         words[correctAnswerIndex]
     }
 
-    let wordCount: Int
-    let hardWordsOnly: Bool
+    let preset: QuizPreset
 
     // Game progress tracking
     @Published private(set) var correctAnswers = 0
@@ -44,12 +43,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
 
-    init(
-        wordCount: Int,
-        hardWordsOnly: Bool
-    ) {
-        self.wordCount = wordCount
-        self.hardWordsOnly = hardWordsOnly
+    init(preset: QuizPreset) {
+        self.preset = preset
         self.correctAnswerIndex = Int.random(in: 0...2)
         super.init()
         setupBindings()
@@ -124,7 +119,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         }
 
         // Check if quiz is complete immediately after answering
-        if questionsAnswered >= wordCount {
+        if questionsAnswered >= preset.wordCount {
             scheduleQuizCompletion()
         } else {
             scheduleNextQuestion()
@@ -157,7 +152,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         currentStreak = 0
         
         // Check if quiz is complete (use wordCount instead of originalWords.count)
-        if questionsAnswered >= wordCount {
+        if questionsAnswered >= preset.wordCount {
             isQuizComplete = true
             saveQuizSession()
         } else {
@@ -171,7 +166,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     
     private func getNextQuestion() {
         // Check if we've reached the word count limit
-        if questionsAnswered >= wordCount {
+        if questionsAnswered >= preset.wordCount {
             isQuizComplete = true
             saveQuizSession()
             return
@@ -251,15 +246,14 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     /// Fetches latest data from Core Data
     private func setupBindings() {
         // Get words from the quiz words provider
-        let availableWords = quizWordsProvider.getWordsForQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
-        
+        let availableWords = quizWordsProvider.getWordsForQuiz(with: preset)
+
         // Check if we have enough words after filtering
-        let minRequiredWords = hardWordsOnly ? 1 : self.wordCount // Allow 1 word for hard words mode
-        if availableWords.count < minRequiredWords {
+        if availableWords.count < preset.wordCount {
             // Not enough words available after filtering
-            self.errorMessage = hardWordsOnly ? 
+            self.errorMessage = preset.hardWordsOnly ? 
                 "No difficult words available for quiz" :
-                "Not enough words available. Need at least \(minRequiredWords) words for the quiz."
+                "Not enough words available. Need at least \(preset.wordCount) words for the quiz."
             return
         }
         

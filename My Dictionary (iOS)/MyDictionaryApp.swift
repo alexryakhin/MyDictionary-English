@@ -235,25 +235,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     }
 
     private func setupDataSync() {
-        // Sync from Firestore on app startup and start real-time listener
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            if let userId = AuthenticationService.shared.userId {
-                print("🔄 [AppDelegate] Triggering initial sync from Firestore for userId: \(userId)")
-                Task {
-                    do {
-                        try await DataSyncService.shared.syncFirestoreToCoreData(userId: userId)
-                        print("✅ [AppDelegate] Initial sync from Firestore completed successfully")
-                    } catch {
-                        print("❌ [AppDelegate] Initial sync from Firestore failed: \(error.localizedDescription)")
-                    }
-                }
-
-                // Start real-time listener for existing user
-                print("🔊 [AppDelegate] Starting real-time listener for existing user: \(userId)")
-                DataSyncService.shared.startPrivateDictionaryListener(userId: userId)
-            } else {
-                print("❌ [AppDelegate] No userId available for initial sync")
-            }
-        }
+        // Manual sync mode - no automatic sync on app startup
+        print("ℹ️ [AppDelegate] Manual sync mode enabled - no automatic sync on startup")
     }
 }

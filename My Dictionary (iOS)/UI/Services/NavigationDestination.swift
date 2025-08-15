@@ -21,8 +21,8 @@ enum NavigationDestination: Hashable {
     case idiomDetails(CDIdiom)
     
     // MARK: - Quiz-related destinations
-    case spellingQuiz(wordCount: Int, hardWordsOnly: Bool)
-    case chooseDefinitionQuiz(wordCount: Int, hardWordsOnly: Bool)
+    case spellingQuiz(QuizPreset)
+    case chooseDefinitionQuiz(QuizPreset)
     case quizResults(QuizResultsView.Model)
 
     // MARK: - Analytics destinations

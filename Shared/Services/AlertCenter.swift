@@ -30,7 +30,7 @@ final class AlertCenter {
         let alertController = UIAlertController(
             title: model.title,
             message: model.message,
-            preferredStyle: model.style
+            preferredStyle: .alert
         )
 
         if let action = model.action, let actionText = model.actionText {
@@ -41,12 +41,15 @@ final class AlertCenter {
         }
 
         if let additionalAction = model.additionalAction, let additionalActionText = model.additionalActionText {
-            alertController.addAction(
-                .init(
-                    title: additionalActionText,
-                    style: model.isDestructive ? .destructive : .default
-                ) { [weak self] _ in
+            alertController.addAction(.init(title: additionalActionText, style: .default) { [weak self] _ in
                 additionalAction()
+                self?.isPresentingAlert = false
+            })
+        }
+
+        if let destructiveAction = model.destructiveAction, let destructiveActionText = model.destructiveActionText {
+            alertController.addAction(.init(title: destructiveActionText, style: .destructive) { [weak self] _ in
+                destructiveAction()
                 self?.isPresentingAlert = false
             })
         }
@@ -70,17 +73,20 @@ final class AlertCenter {
         // For macOS, we'll use NSAlert
         let alert = NSAlert()
         alert.messageText = model.title
-        alert.informativeText = model.message ?? ""
+        alert.informativeText = model.message
         
         if let action = model.action, let actionText = model.actionText {
             alert.addButton(withTitle: actionText)
             alert.buttons.first?.keyEquivalent = "\r"
         }
-
-        if let additionalButton = model.additionalAction, let additionalActionText = model.additionalActionText {
-            let additionalButton = alert.addButton(withTitle: additionalActionText)
-            additionalButton.keyEquivalent = ""
-            additionalButton.hasDestructiveAction = model.isDestructive
+        
+        if let additionalAction = model.additionalAction, let additionalActionText = model.additionalActionText {
+            alert.addButton(withTitle: additionalActionText)
+        }
+        
+        if let destructiveAction = model.destructiveAction, let destructiveActionText = model.destructiveActionText {
+            let destructiveButton = alert.addButton(withTitle: destructiveActionText)
+            destructiveButton.keyEquivalent = ""
         }
         
         let response = alert.runModal()
@@ -89,6 +95,8 @@ final class AlertCenter {
             action()
         } else if response == .alertSecondButtonReturn, let additionalAction = model.additionalAction {
             additionalAction()
+        } else if response == .alertThirdButtonReturn, let destructiveAction = model.destructiveAction {
+            destructiveAction()
         }
         #endif
     }

@@ -199,21 +199,8 @@ final class AddWordViewModel: BaseViewModel {
 
                     print("✅ [AddWordViewModel] Word saved to private dictionary")
                     
-                    // Manually trigger sync to Firestore
-                    if let userId = AuthenticationService.shared.userId {
-                        print("🔄 [AddWordViewModel] Manually triggering sync to Firestore")
-                        Task {
-                            do {
-                                try await dataSyncService.syncPrivateDictionaryToFirestore(userId: userId)
-                                print("✅ [AddWordViewModel] Manual sync completed successfully")
-                            } catch {
-                                errorReceived(error)
-                                print("❌ [AddWordViewModel] Manual sync failed: \(error.localizedDescription)")
-                            }
-                        }
-                    } else {
-                        print("❌ [AddWordViewModel] No userId available for manual sync")
-                    }
+                    // Manual sync mode - no automatic sync when adding words
+                    print("ℹ️ [AddWordViewModel] Manual sync mode - no automatic sync")
                 }
             } catch {
                 print("❌ [AddWordViewModel] Error saving word: \(error.localizedDescription)")

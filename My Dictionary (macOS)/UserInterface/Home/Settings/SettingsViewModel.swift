@@ -155,4 +155,52 @@ final class SettingsViewModel: BaseViewModel {
             notificationService.cancelAllNotifications()
         }
     }
+    
+    // MARK: - Manual Sync Methods
+    
+    func uploadBackupToGoogle() {
+        guard let userEmail = AuthenticationService.shared.userEmail else {
+            errorReceived(CoreError.internalError(.authenticationRequired))
+            return
+        }
+        
+        Task {
+            do {
+                try await DataSyncService.shared.uploadBackupToGoogle(userEmail: userEmail)
+                await MainActor.run {
+                    showAlert(withModel: .info(
+                        title: "Upload Successful",
+                        message: "Your words have been successfully uploaded to Google."
+                    ))
+                }
+            } catch {
+                await MainActor.run {
+                    errorReceived(error)
+                }
+            }
+        }
+    }
+    
+    func downloadBackupFromGoogle() {
+        guard let userEmail = AuthenticationService.shared.userEmail else {
+            errorReceived(CoreError.internalError(.authenticationRequired))
+            return
+        }
+        
+        Task {
+            do {
+                try await DataSyncService.shared.downloadBackupFromGoogle(userEmail: userEmail)
+                await MainActor.run {
+                    showAlert(withModel: .info(
+                        title: "Download Successful",
+                        message: "Your words have been successfully downloaded from Google."
+                    ))
+                }
+            } catch {
+                await MainActor.run {
+                    errorReceived(error)
+                }
+            }
+        }
+    }
 }

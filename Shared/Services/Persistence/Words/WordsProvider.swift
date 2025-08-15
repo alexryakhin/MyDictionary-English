@@ -33,31 +33,18 @@ final class WordsProvider: ObservableObject {
             print("❌ [WordDetails] No word found with ID \(id)")
             return
         }
+        #if os(macOS)
         if SideBarManager.shared.selectedWord == word {
             SideBarManager.shared.selectedWord = nil
         }
-
-        // Delete from Firestore for real-time updates
-        if authenticationService.isSignedIn, let userId = authenticationService.userId {
-            Task {
-                do {
-                    try await DataSyncService.shared.deleteWordFromFirestore(wordId: id, userId: userId)
-                    print("✅ [WordDetails] Word deleted from Firestore immediately")
-                    // Delete from Core Data
-                    self.coreDataService.context.delete(word)
-                    try? self.coreDataService.saveContext()
-                    AnalyticsService.shared.logEvent(.wordRemoved)
-                } catch {
-                    print("❌ [WordDetails] Failed to delete word from Firestore: \(error.localizedDescription)")
-                    throw error
-                }
-            }
-        } else {
-            // Delete from Core Data
-            coreDataService.context.delete(word)
-            try? coreDataService.saveContext()
-            AnalyticsService.shared.logEvent(.wordRemoved)
-        }
+        #endif
+        // Manual sync mode - no automatic sync when deleting words
+        print("ℹ️ [WordDetails] Manual sync mode - no automatic sync")
+        
+        // Delete from Core Data
+        coreDataService.context.delete(word)
+        try? coreDataService.saveContext()
+        AnalyticsService.shared.logEvent(.wordRemoved)
     }
 
     private func setupBindings() {
@@ -67,11 +54,6 @@ final class WordsProvider: ObservableObject {
             }
             .store(in: &cancellables)
         
-        // Also listen to real-time updates from DataSyncService
-        DataSyncService.shared.realTimeUpdateReceived
-            .sink { [weak self] _ in
-                try? self?.fetchWords()
-            }
-            .store(in: &cancellables)
+        // No real-time updates in manual sync mode
     }
 }

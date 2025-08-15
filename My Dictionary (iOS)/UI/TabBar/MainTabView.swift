@@ -133,10 +133,10 @@ struct MainTabView: View {
             SharedDictionariesListView()
         case .authentication:
             AuthenticationView()
-        case .spellingQuiz(let wordCount, let hardWordsOnly):
-            SpellingQuizContentView(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
-        case .chooseDefinitionQuiz(let wordCount, let hardWordsOnly):
-            ChooseDefinitionQuizContentView(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
+        case .spellingQuiz(let preset):
+            SpellingQuizContentView(preset: preset)
+        case .chooseDefinitionQuiz(let preset):
+            ChooseDefinitionQuizContentView(preset: preset)
         case .quizResults(let model):
             QuizResultsView(model: model, onRestart: {
                 navigationManager.navigateBack()

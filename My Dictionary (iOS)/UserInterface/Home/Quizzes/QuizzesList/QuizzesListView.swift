@@ -74,7 +74,7 @@ struct QuizzesListView: View {
                 ) {
                     VStack(spacing: 8) {
                         Button {
-                            viewModel.output.send(.showSpellingQuiz(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly))
+                            viewModel.output.send(.showSpellingQuiz(.init(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly)))
                         } label: {
                             QuizCardView(quiz: .spelling)
                         }
@@ -85,7 +85,7 @@ struct QuizzesListView: View {
                         )
                         
                         Button {
-                            viewModel.output.send(.showChooseDefinitionQuiz(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly))
+                            viewModel.output.send(.showChooseDefinitionQuiz(.init(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly)))
                         } label: {
                             QuizCardView(quiz: .chooseDefinition)
                         }

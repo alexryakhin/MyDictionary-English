@@ -40,15 +40,10 @@ final class SpellingQuizViewModel: BaseViewModel {
     private var originalWords: [any QuizWord] = []
     private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
-    private let wordCount: Int
-    private let hardWordsOnly: Bool
+    private let preset: QuizPreset
 
-    init(
-        wordCount: Int,
-        hardWordsOnly: Bool
-    ) {
-        self.wordCount = wordCount
-        self.hardWordsOnly = hardWordsOnly
+    init(preset: QuizPreset) {
+        self.preset = preset
         super.init()
         setupBindings()
         pauseSharedDictionaryListeners()
@@ -192,7 +187,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     
     private func restartQuiz() {
         // Reset all game state
-        let limitedWords = Array(originalWords.shuffled().prefix(wordCount))
+        let limitedWords = Array(originalWords.shuffled().prefix(preset.wordCount))
         words = limitedWords
         randomWord = words.randomElement()
         answerTextField = ""
@@ -263,21 +258,20 @@ final class SpellingQuizViewModel: BaseViewModel {
     /// Fetches latest data from Core Data
     private func setupBindings() {
         // Get words from the quiz words provider
-        let availableWords = quizWordsProvider.getWordsForQuiz(wordCount: wordCount, hardWordsOnly: hardWordsOnly)
-        
+        let availableWords = quizWordsProvider.getWordsForQuiz(with: preset)
+
         // Check if we have enough words after filtering
-        let minRequiredWords = hardWordsOnly ? 1 : self.wordCount
-        if availableWords.count < minRequiredWords {
+        if availableWords.count < preset.wordCount {
             // Not enough words available after filtering
-            self.errorMessage = hardWordsOnly ? 
+            self.errorMessage = preset.hardWordsOnly ?
                 "No difficult words available for quiz" :
-                "Not enough words available. Need at least \(minRequiredWords) words for the quiz."
+                "Not enough words available. Need at least \(preset.wordCount) words for the quiz."
             return
         }
         
         self.originalWords = availableWords.shuffled()
         // Limit words to the selected count
-        let limitedWords = Array(self.originalWords.prefix(self.wordCount))
+        let limitedWords = Array(self.originalWords.prefix(self.preset.wordCount))
         self.words = limitedWords
         self.randomWord = self.words.randomElement()
         self.totalQuestions = limitedWords.count

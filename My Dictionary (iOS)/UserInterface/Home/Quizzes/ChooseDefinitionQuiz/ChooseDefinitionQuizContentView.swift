@@ -5,11 +5,8 @@ struct ChooseDefinitionQuizContentView: View {
     @StateObject private var viewModel: ChooseDefinitionQuizViewModel
     @Environment(\.dismiss) private var dismiss
 
-    init(wordCount: Int, hardWordsOnly: Bool = false) {
-        self._viewModel = StateObject(wrappedValue: ChooseDefinitionQuizViewModel(
-            wordCount: wordCount,
-            hardWordsOnly: hardWordsOnly
-        ))
+    init(preset: QuizPreset) {
+        self._viewModel = StateObject(wrappedValue: ChooseDefinitionQuizViewModel(preset: preset))
     }
 
     var body: some View {
@@ -99,12 +96,15 @@ struct ChooseDefinitionQuizContentView: View {
     private var headerView: some View {
         VStack(spacing: 6) {
             // Progress Bar
-            ProgressView(value: Double(viewModel.questionsAnswered), total: Double(viewModel.wordCount))
-                .progressViewStyle(.linear)
+            ProgressView(
+                value: Double(viewModel.questionsAnswered),
+                total: Double(viewModel.preset.wordCount)
+            )
+            .progressViewStyle(.linear)
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Progress: \(viewModel.questionsAnswered)/\(viewModel.wordCount)")
+                    Text("Progress: \(viewModel.questionsAnswered)/\(viewModel.preset.wordCount)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     

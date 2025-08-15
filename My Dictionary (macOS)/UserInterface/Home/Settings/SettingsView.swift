@@ -19,6 +19,7 @@ struct SettingsView: View {
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var paywallService = PaywallService.shared
+    @StateObject private var dataSyncService = DataSyncService.shared
 
     var body: some View {
         ScrollView {
@@ -110,31 +111,51 @@ struct SettingsView: View {
                 CustomSectionView(
                     header: "Word Lists & Sync",
                     footer: authenticationService.isSignedIn
-                    ? "Your word lists are synced across all your devices."
+                    ? "Manual sync mode: Use buttons below to upload/download your word lists to Google. Available to all users."
                     : "Sign in to create and share word lists with others."
                 ) {
                     if authenticationService.isSignedIn {
-                        VStack(alignment: .leading, spacing: 8) {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Signed in as")
-                                        .font(.body)
-                                        .fontWeight(.medium)
-                                    Text(authenticationService.displayName ?? authenticationService.userEmail ?? "Anonymous")
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
-                                }
+                        VStack(spacing: 8) {
 
-                                Spacer()
+                            VStack(alignment: .leading, spacing: 8) {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("Signed in as")
+                                            .font(.body)
+                                            .fontWeight(.medium)
+                                        Text(authenticationService.displayName ?? authenticationService.userEmail ?? "Anonymous")
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                    }
 
-                                HeaderButton("Sign Out", color: .red, size: .small) {
-                                    HapticManager.shared.triggerSelection()
-                                    authenticationService.toggleSignOutView()
+                                    Spacer()
+
+                                    HeaderButton("Sign Out", color: .red, size: .small) {
+                                        HapticManager.shared.triggerSelection()
+                                        authenticationService.toggleSignOutView()
+                                    }
                                 }
                             }
+                            .padding(vertical: 12, horizontal: 16)
+                            .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                            
+                            // Manual sync buttons
+                            ActionButton(
+                                "Upload backup to Google",
+                                systemImage: "icloud.and.arrow.up",
+                                isLoading: dataSyncService.isUploading
+                            ) {
+                                viewModel.uploadBackupToGoogle()
+                            }
+
+                            ActionButton(
+                                "Download backup from Google",
+                                systemImage: "icloud.and.arrow.down",
+                                isLoading: dataSyncService.isRestoring
+                            ) {
+                                viewModel.downloadBackupFromGoogle()
+                            }
                         }
-                        .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
                         .padding(.bottom, 12)
                     } else {
                         VStack(alignment: .leading, spacing: 8) {

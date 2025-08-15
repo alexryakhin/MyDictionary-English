@@ -12,40 +12,73 @@ struct AlertModel: Equatable {
         lhs.title == rhs.title
         && lhs.message == rhs.message
         && lhs.actionText == rhs.actionText
+        && lhs.destructiveActionText == rhs.destructiveActionText
         && lhs.additionalActionText == rhs.additionalActionText
-        && lhs.isDestructive == rhs.isDestructive
     }
     
     let title: String
     let message: String?
     let actionText: String?
+    let destructiveActionText: String?
     let additionalActionText: String?
-    let isDestructive: Bool
     let action: VoidHandler?
+    let destructiveAction: VoidHandler?
     let additionalAction: VoidHandler?
 
     init(
         title: String,
         message: String? = nil,
         actionText: String? = nil,
+        destructiveActionText: String? = nil,
         additionalActionText: String? = nil,
-        isDestructive: Bool = false,
         action: VoidHandler? = nil,
-        additionalAction: VoidHandler? = nil
+        destructiveAction: VoidHandler? = nil,
+        additionalAction: VoidHandler? = nil,
     ) {
         self.title = title
         self.message = message
         self.actionText = actionText
+        self.destructiveActionText = destructiveActionText
         self.additionalActionText = additionalActionText
-        self.isDestructive = isDestructive
         self.action = action
+        self.destructiveAction = destructiveAction
         self.additionalAction = additionalAction
     }
-
+    
     // MARK: - Convenience Initializers
 
     /// Simple info alert
     static func info(
+        title: String,
+        message: String? = nil,
+        actionText: String = "OK",
+        action: @escaping VoidHandler = {}
+    ) -> AlertModel {
+        return AlertModel(
+            title: title,
+            message: message,
+            actionText: actionText,
+            action: action
+        )
+    }
+
+    /// Warning alert
+    static func warning(
+        title: String,
+        message: String? = nil,
+        actionText: String = "OK",
+        action: @escaping VoidHandler = {}
+    ) -> AlertModel {
+        return AlertModel(
+            title: title,
+            message: message,
+            actionText: actionText,
+            action: action
+        )
+    }
+
+    /// Error alert
+    static func error(
         title: String,
         message: String? = nil,
         actionText: String = "OK",
@@ -72,9 +105,32 @@ struct AlertModel: Equatable {
             title: title,
             message: message,
             actionText: cancelText,
-            additionalActionText: confirmText,
+            destructiveActionText: confirmText,
             action: onCancel,
-            additionalAction: onConfirm
+            destructiveAction: onConfirm
+        )
+    }
+
+    /// Choice alert with three options
+    static func choice(
+        title: String,
+        message: String? = nil,
+        cancelText: String = "Cancel",
+        primaryText: String,
+        secondaryText: String,
+        onCancel: @escaping VoidHandler = {},
+        onPrimary: VoidHandler? = nil,
+        onSecondary: VoidHandler? = nil
+    ) -> AlertModel {
+        return AlertModel(
+            title: title,
+            message: message,
+            actionText: cancelText,
+            destructiveActionText: primaryText,
+            additionalActionText: secondaryText,
+            action: onCancel,
+            destructiveAction: onPrimary,
+            additionalAction: onSecondary
         )
     }
 
@@ -91,10 +147,9 @@ struct AlertModel: Equatable {
             title: title,
             message: message,
             actionText: cancelText,
-            additionalActionText: deleteText,
-            isDestructive: true,
+            destructiveActionText: deleteText,
             action: onCancel,
-            additionalAction: onDelete
+            destructiveAction: onDelete
         )
     }
 }

@@ -5,11 +5,8 @@ struct SpellingQuizContentView: View {
     @StateObject private var viewModel: SpellingQuizViewModel
     @Environment(\.dismiss) private var dismiss
 
-    init(wordCount: Int, hardWordsOnly: Bool = false) {
-        self._viewModel = StateObject(wrappedValue: SpellingQuizViewModel(
-            wordCount: wordCount,
-            hardWordsOnly: hardWordsOnly
-        ))
+    init(preset: QuizPreset) {
+        self._viewModel = StateObject(wrappedValue: SpellingQuizViewModel(preset: preset))
     }
 
     var body: some View {
