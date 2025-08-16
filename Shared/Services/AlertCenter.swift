@@ -70,33 +70,22 @@ final class AlertCenter {
             print("⚠️ AlertCenter: Already presenting something. Alert skipped.")
         }
         #elseif os(macOS)
-        // For macOS, we'll use NSAlert
-        let alert = NSAlert()
-        alert.messageText = model.title
-        alert.informativeText = model.message
-        
-        if let action = model.action, let actionText = model.actionText {
-            alert.addButton(withTitle: actionText)
-            alert.buttons.first?.keyEquivalent = "\r"
-        }
-        
-        if let additionalAction = model.additionalAction, let additionalActionText = model.additionalActionText {
-            alert.addButton(withTitle: additionalActionText)
-        }
-        
-        if let destructiveAction = model.destructiveAction, let destructiveActionText = model.destructiveActionText {
-            let destructiveButton = alert.addButton(withTitle: destructiveActionText)
-            destructiveButton.keyEquivalent = ""
-        }
-        
-        let response = alert.runModal()
-        
-        if response == .alertFirstButtonReturn, let action = model.action {
-            action()
-        } else if response == .alertSecondButtonReturn, let additionalAction = model.additionalAction {
-            additionalAction()
-        } else if response == .alertThirdButtonReturn, let destructiveAction = model.destructiveAction {
-            destructiveAction()
+        guard let parentWindow = NSApp.keyWindow else { return }
+        var dismiss: VoidHandler?
+        let rootView = AlertView(
+            model: model,
+            dismiss: {
+                dismiss?()
+            }
+        )
+        let hostingController = NSHostingController(rootView: rootView)
+        let targetSize = hostingController.view.fittingSize
+        let sheetWindow = NSWindow(contentViewController: hostingController)
+        sheetWindow.setContentSize(targetSize)
+        parentWindow.beginSheet(sheetWindow)
+        dismiss = { [weak parentWindow, weak sheetWindow] in
+            guard let parentWindow, let sheetWindow else { return }
+            parentWindow.endSheet(sheetWindow)
         }
         #endif
     }
