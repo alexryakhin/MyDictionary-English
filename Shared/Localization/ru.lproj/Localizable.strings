@@ -277,6 +277,27 @@
 "create_shared_dictionary" = "Создайте общий словарь для сотрудничества с другими";
 "collaborate_others" = "Сотрудничать с другими";
 "delete_dictionary" = "Удалить словарь";
+"your_dictionaries" = "Ваши словари";
+"dictionary_count_created" = "%d из 1 словаря создано";
+"free_users_one_dictionary" = "Бесплатные пользователи могут создать один общий словарь";
+"no_shared_dictionaries" = "Нет общих словарей";
+"create_shared_dictionary_collaborate" = "Создайте общий словарь для совместной работы с другими";
+"dictionaries" = "Словари";
+"add" = "Добавить";
+"name" = "Название";
+"enter_dictionary_name" = "Введите название словаря";
+"create_shared_dictionary" = "Создать общий словарь";
+"new_shared_dictionary" = "Новый общий словарь";
+"dictionary_name_required" = "Название словаря обязательно";
+"sign_in_to_create_shared_dictionary" = "Войдите в систему для создания общего словаря";
+"collaborators" = "%d участников";
+"owner" = "Владелец";
+"created_by" = "Создано %@";
+"no_words_yet" = "Пока нет слов";
+"add_words_to_shared_dictionary" = "Добавьте слова в этот общий словарь для начала";
+"no_results" = "Нет результатов";
+"no_words_match_filter" = "Нет слов, соответствующих текущему фильтру";
+"dictionary_details" = "Детали словаря";
 "private_dictionary" = "Приватный словарь";
 
 

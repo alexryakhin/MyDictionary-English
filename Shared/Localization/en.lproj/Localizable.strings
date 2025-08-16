@@ -277,6 +277,27 @@
 "create_shared_dictionary" = "Create a shared dictionary to collaborate with others";
 "collaborate_others" = "Collaborate with others";
 "delete_dictionary" = "Delete Dictionary";
+"your_dictionaries" = "Your Dictionaries";
+"dictionary_count_created" = "%d of 1 dictionary created";
+"free_users_one_dictionary" = "Free users can create one shared dictionary";
+"no_shared_dictionaries" = "No Shared Dictionaries";
+"create_shared_dictionary_collaborate" = "Create a shared dictionary to collaborate with others";
+"dictionaries" = "Dictionaries";
+"add" = "Add";
+"name" = "Name";
+"enter_dictionary_name" = "Enter dictionary name";
+"create_shared_dictionary" = "Create Shared Dictionary";
+"new_shared_dictionary" = "New Shared Dictionary";
+"dictionary_name_required" = "Dictionary name is required";
+"sign_in_to_create_shared_dictionary" = "Please sign in to create a shared dictionary";
+"collaborators" = "%d collaborators";
+"owner" = "Owner";
+"created_by" = "Created by %@";
+"no_words_yet" = "No words yet";
+"add_words_to_shared_dictionary" = "Add words to this shared dictionary to get started";
+"no_results" = "No Results";
+"no_words_match_filter" = "No words match your current filter";
+"dictionary_details" = "Dictionary Details";
 "private_dictionary" = "Private Dictionary";
 
 

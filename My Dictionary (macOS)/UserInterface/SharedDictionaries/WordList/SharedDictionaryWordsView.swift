@@ -26,23 +26,23 @@ struct SharedDictionaryWordsView: View {
         ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 CustomSectionView(
-                    header: "Words",
-                    footer: "\(viewModel.wordsCount)",
+                    header: Loc.words.localized,
+                    footer: viewModel.wordsCount,
                     hPadding: .zero
                 ) {
                     // Words List
                     if viewModel.wordsFiltered.isEmpty {
                         if viewModel.words.isEmpty {
                             ContentUnavailableView(
-                                "No words yet",
+                                Loc.noWordsYet.localized,
                                 systemImage: "textformat",
-                                description: Text("Add words to this shared dictionary to get started")
+                                description: Text(Loc.addWordsToSharedDictionary.localized)
                             )
                         } else {
                             ContentUnavailableView(
-                                "No Results",
+                                Loc.noResults.localized,
                                 systemImage: "magnifyingglass",
-                                description: Text("No words match your current filter")
+                                description: Text(Loc.noWordsMatchFilter.localized)
                             )
                         }
                     } else {
@@ -60,7 +60,7 @@ struct SharedDictionaryWordsView: View {
                     }
                 } trailingContent: {
                     if dictionary.canEdit {
-                        HeaderButton("Add Word", icon: "plus", size: .small, style: .borderedProminent) {
+                        HeaderButton(Loc.addWord.localized, icon: "plus", size: .small, style: .borderedProminent) {
                             showingAddWord = true
                         }
                     }
@@ -76,7 +76,7 @@ struct SharedDictionaryWordsView: View {
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.sortingState)
         .navigationTitle(dictionary.name)
-        .searchable(text: $viewModel.searchText, prompt: "Search words")
+        .searchable(text: $viewModel.searchText, prompt: Loc.searchWords.localized)
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 // Info button
@@ -85,7 +85,7 @@ struct SharedDictionaryWordsView: View {
                 } label: {
                     Image(systemName: "info.circle")
                 }
-                .help("Dictionary Details")
+                .help(Loc.dictionaryDetails.localized)
                 
                 // Add word button
                 if dictionary.canEdit {
@@ -94,7 +94,7 @@ struct SharedDictionaryWordsView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-                    .help("Add Word")
+                    .help(Loc.addWord.localized)
                 }
             }
         }

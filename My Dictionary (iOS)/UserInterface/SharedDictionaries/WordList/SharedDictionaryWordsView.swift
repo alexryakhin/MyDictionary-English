@@ -24,23 +24,23 @@ struct SharedDictionaryWordsView: View {
         ScrollView {
             VStack(spacing: 16) {
                 CustomSectionView(
-                    header: "Words",
-                    footer: "\(viewModel.wordsCount)",
+                    header: Loc.words.localized,
+                    footer: viewModel.wordsCount,
                     hPadding: .zero
                 ) {
                     // Words List
                     if viewModel.wordsFiltered.isEmpty {
                         if viewModel.words.isEmpty {
                             ContentUnavailableView(
-                                "No words yet",
+                                Loc.noWordsYet.localized,
                                 systemImage: "textformat",
-                                description: Text("Add words to this shared dictionary to get started")
+                                description: Text(Loc.addWordsToSharedDictionary.localized)
                             )
                         } else {
                             ContentUnavailableView(
-                                "No Results",
+                                Loc.noResults.localized,
                                 systemImage: "magnifyingglass",
-                                description: Text("No words match your current filter")
+                                description: Text(Loc.noWordsMatchFilter.localized)
                             )
                         }
                     } else {
@@ -54,7 +54,7 @@ struct SharedDictionaryWordsView: View {
                     }
                 } trailingContent: {
                     if dictionary.canEdit {
-                        HeaderButton("Add Word", icon: "plus", size: .small, style: .borderedProminent) {
+                        HeaderButton(Loc.addWord.localized, icon: "plus", size: .small, style: .borderedProminent) {
                             showingAddWord = true
                         }
                     }
@@ -77,7 +77,7 @@ struct SharedDictionaryWordsView: View {
             },
             bottomContent: {
                 VStack(spacing: 12) {
-                    InputView.searchView("Search words", searchText: $viewModel.searchText)
+                    InputView.searchView(Loc.searchWords.localized, searchText: $viewModel.searchText)
                     SharedWordListFilterView(viewModel: viewModel)
                 }
             }
