@@ -31,7 +31,7 @@ struct WordListView: View {
                 // MARK: - button to add a word from search input
                 if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
                     ActionButton(
-                        "Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'",
+                        Loc.addWord.localized(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines)),
                         systemImage: "plus"
                     ) {
                         viewModel.output.send(.showAddWord)
@@ -56,13 +56,13 @@ struct WordListView: View {
                                         Button {
                                             viewModel.output.send(.showAddExistingWordToShared(wordModel))
                                         } label: {
-                                            Label("Add to Shared Dictionary", systemImage: "person.2")
+                                            Label(Loc.addToSharedDictionary.localized, systemImage: "person.2")
                                         }
                                     }
                                     Button(role: .destructive) {
                                         viewModel.handle(.deleteWord(word: wordModel))
                                     } label: {
-                                        Label("Delete", systemImage: "trash")
+                                        Label(Loc.delete.localized, systemImage: "trash")
                                     }
                                 }
                         }
@@ -75,7 +75,7 @@ struct WordListView: View {
                         .padding(.vertical, 24)
                     }
                 } trailingContent: {
-                    HeaderButton("Add Word", icon: "plus", size: .small, style: .borderedProminent) {
+                    HeaderButton(Loc.addWord.localized, icon: "plus", size: .small, style: .borderedProminent) {
                         AnalyticsService.shared.logEvent(.addWordTapped)
                         viewModel.output.send(.showAddWord)
                     }
@@ -107,11 +107,11 @@ struct WordListView: View {
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.sortingState)
         .navigation(
-            title: "Words",
+            title: Loc.words.localized,
             mode: .large,
             trailingContent: {
                 HeaderButtonMenu(icon: "arrow.up.arrow.down") {
-                    Picker("Sort", selection: _viewModel.projectedValue.sortingState) {
+                    Picker(Loc.sort.localized, selection: _viewModel.projectedValue.sortingState) {
                         ForEach(SortingCase.allCases, id: \.self) { item in
                             Text(item.rawValue)
                                 .tag(item)
@@ -129,7 +129,7 @@ struct WordListView: View {
             bottomContent: {
                 VStack(spacing: 12) {
                     InputView.searchView(
-                        "Search words...",
+                        Loc.searchWords.localized,
                         searchText: $viewModel.searchText
                     )
                     WordListFilterView(viewModel: viewModel)
@@ -188,11 +188,11 @@ struct RatingBanner: View {
     let onDismiss: VoidHandler
 
     var body: some View {
-        CustomSectionView(header: "Impressive Vocabulary!") {
+        CustomSectionView(header: Loc.impressiveVocabulary.localized) {
             VStack(spacing: 16) {
                 // Header with achievement message
                 VStack(spacing: 8) {
-                    Text("You've built a collection of **\(wordCount) words**! Your dedication to learning is inspiring.")
+                    Text(Loc.impressiveVocabularyMessage.localized(wordCount))
                         .font(.subheadline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .multilineTextAlignment(.leading)
@@ -201,12 +201,12 @@ struct RatingBanner: View {
                 // Action buttons
                 VStack(spacing: 12) {
                     ActionButton(
-                        "Rate App",
+                        Loc.rateApp.localized,
                         systemImage: "star.circle.fill",
                         style: .borderedProminent,
                         action: onRate
                     )
-                    ActionButton("Maybe Later", action: onDismiss)
+                    ActionButton(Loc.maybeLater.localized, action: onDismiss)
                 }
             }
         } trailingContent: {

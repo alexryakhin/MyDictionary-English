@@ -5,3 +5,388 @@
   Created by Alexander Riakhin on 8/3/25.
   
 */
+
+// MARK: - Tab Bar
+"words" = "Слова";
+"idioms" = "Идиомы";
+"quizzes" = "Тесты";
+"progress" = "Прогресс";
+"settings" = "Настройки";
+
+// MARK: - Navigation Titles
+"word_details" = "Детали слова";
+"idiom_details" = "Детали идиомы";
+"add_tags" = "Добавить теги";
+"about" = "О приложении";
+"quiz_results" = "Результаты теста";
+"spelling_quiz" = "Тест на правописание";
+"definition_quiz" = "Тест на определение";
+
+// MARK: - Common Actions
+"done" = "Готово";
+"save" = "Сохранить";
+"save_word" = "Сохранить слово";
+"cancel" = "Отмена";
+"delete" = "Удалить";
+"edit" = "Редактировать";
+"add" = "Добавить";
+"next" = "Далее";
+"back" = "Назад";
+"exit" = "Выход";
+"ok" = "ОК";
+"yes" = "Да";
+"no" = "Нет";
+"try_again" = "Попробовать снова";
+"view_all" = "Посмотреть все";
+"listen" = "Слушать";
+"create" = "Создать";
+"manage" = "Управлять";
+"select" = "Выбрать";
+"select_word" = "Выберите слово";
+"select_idiom" = "Выберите идиому";
+"select_quiz" = "Выберите тест";
+"sign_out" = "Выйти";
+"sign_in" = "Войти";
+"upgrade" = "Обновить";
+"learn_more" = "Узнать больше";
+"copy" = "Копировать";
+"refresh" = "Обновить";
+"clear" = "Очистить";
+"reset" = "Сбросить";
+"test" = "Тест";
+"check" = "Проверить";
+"verify" = "Проверить";
+"show" = "Показать";
+"send" = "Отправить";
+"request" = "Запрос";
+"sync" = "Синхронизация";
+"upload" = "Загрузить";
+"download" = "Скачать";
+"import_words" = "Импорт слов";
+"export_words" = "Экспорт слов";
+"stop_watching" = "Перестать следить";
+"make_viewer" = "Сделать зрителем";
+"make_editor" = "Сделать редактором";
+"remove" = "Удалить";
+"skip_for_now" = "Пропустить пока";
+"link_google" = "Связать Google";
+"link_apple" = "Связать Apple";
+
+// MARK: - Onboarding
+"welcome_to" = "Добро пожаловать в";
+"my_dictionary" = "Мой Словарь";
+"personal_vocabulary_companion" = "Ваш личный помощник по словарю";
+"build_your_vocabulary" = "Создавайте свой словарь";
+"personalized_learning" = "Персонализированное обучение";
+"youre_all_set" = "Вы готовы!";
+"start_building_vocabulary" = "Начните создавать свой словарь сегодня и наблюдайте за ростом ваших языковых навыков.";
+"get_started" = "Начать";
+"next_step" = "Далее";
+"personal_word_list" = "Личный список слов";
+"create_organize_vocabulary" = "Создавайте и организуйте свои собственные коллекции слов с пользовательскими определениями и примерами";
+"find_definitions" = "Найти определения";
+"comprehensive_definitions" = "Получите подробные определения с несколькими значениями и контекстами";
+"collect_idioms" = "Собирать идиомы";
+"learn_practice_idioms" = "Изучайте и практикуйте идиомы и выражения со всего мира";
+"smart_quizzes" = "Умные тесты";
+"adaptive_quizzes" = "Адаптивные тесты, которые учатся на вашем прогрессе";
+"progress_tracking" = "Отслеживание прогресса";
+"visual_insights" = "Визуальные данные о росте вашего словаря";
+"collaborative_learning" = "Совместное обучение";
+"share_dictionaries" = "Делитесь словарями с друзьями и семьей";
+
+// MARK: - Words
+"add_word" = "Добавить слово";
+"add_your_first_word" = "Добавить первое слово";
+"add_more_words" = "Добавить больше слов";
+"add_to_shared_dictionary" = "Добавить в общий словарь";
+"add_new_word" = "Добавить новое слово";
+"delete_word" = "Удалить слово";
+"delete_word_confirmation" = "Вы уверены, что хотите удалить это слово?";
+"transcription" = "Транскрипция";
+"part_of_speech" = "Часть речи";
+"definition" = "Определение";
+"difficulty" = "Сложность";
+"language" = "Язык";
+"input_language" = "Язык ввода";
+"tags" = "Теги";
+"add_tag" = "Добавить тег";
+"manage_tags" = "Управлять тегами";
+"no_tags_your_yet" = "Пока нет тегов";
+"create_tags" = "Создать теги";
+"all_words" = "Все слова";
+"favorite" = "Избранное";
+"favorite_words" = "Избранные слова";
+"search" = "Поиск";
+"search_words" = "Поиск слов...";
+"search_results" = "Результаты поиска";
+"tag" = "Тег";
+"tagged_words" = "Слова с тегами";
+"new" = "Новое";
+"new_words" = "Новые слова";
+"in_progress" = "В процессе";
+"words_in_progress" = "Слова в процессе";
+"needs_review" = "Требует повторения";
+"words_needing_review" = "Слова, требующие повторения";
+"mastered" = "Освоено";
+"mastered_words" = "Освоенные слова";
+"one_word" = "1 слово";
+"words_count" = "%d слов";
+"sort" = "Сортировка";
+"filter" = "Фильтр";
+"latest_first" = "Сначала новые";
+"earliest_first" = "Сначала старые";
+"alphabetically" = "По алфавиту";
+"by_part_of_speech" = "По части речи";
+"type_word" = "Введите слово";
+"shared_dictionary" = "Общий словарь";
+"private_dictionary" = "Приватный словарь";
+"impressive_vocabulary" = "Впечатляющий словарь!";
+"impressive_vocabulary_message" = "Вы создали коллекцию из **%d слов**! Ваша преданность обучению вдохновляет.";
+
+// MARK: - Idioms
+"add_idiom" = "Добавить идиому";
+"add_new_idiom" = "Добавить новую идиому";
+"idiom" = "Идиома";
+"no_idioms_found" = "Идиомы не найдены";
+"add_this_idiom" = "Добавьте эту идиому, нажав на кнопку выше";
+"no_idioms_yet" = "Пока нет идиом";
+"begin_add_idioms" = "Начните добавлять идиомы в свой список, нажав на значок плюс в левом верхнем углу";
+"all_idioms" = "Все идиомы";
+"search_results" = "Результаты поиска";
+"favorite_idioms" = "Избранные идиомы";
+"examples" = "Примеры";
+"no_examples_yet" = "Пока нет примеров";
+"type_example_here" = "Введите пример здесь";
+"add_example" = "Добавить пример";
+"edit_example" = "Редактировать пример";
+"delete_idiom" = "Удалить идиому";
+
+// MARK: - Quizzes
+"quiz_unavailable" = "Тест недоступен";
+"back_to_quizzes" = "Вернуться к тестам";
+"your_answer" = "Ваш ответ";
+"submit_answer" = "Отправить ответ";
+"next_word" = "Следующее слово";
+"finish" = "Завершить";
+"your_results" = "Ваши результаты";
+"final_score" = "Финальный счет";
+"correct_answers" = "Правильные ответы";
+"best_streak" = "Лучшая серия";
+"accuracy" = "Точность";
+"debug" = "Отладка";
+"choose_correct_definition" = "Выберите правильное определение";
+"word" = "Слово";
+"quiz_types" = "Типы тестов";
+"practice_settings" = "Настройки практики";
+"configure_quiz_experience" = "Настройте свой опыт тестирования";
+"practice_hard_words_only" = "Практиковать только сложные слова";
+"focus_words_need_review" = "Сосредоточьтесь на словах, которые требуют повторения";
+"not_enough_words_review" = "Недостаточно слов для повторения";
+"words_per_session" = "Слов за сессию";
+"number_words" = "Количество слов";
+"select_dictionary" = "Выбрать словарь";
+"no_difficult_words_available" = "Нет сложных слов для теста";
+"spelling_quiz_description" = "Проверьте свои навыки правописания, правильно печатая слова";
+"definition_quiz_description" = "Выберите правильное определение для каждого слова";
+
+// MARK: - Analytics
+"overview" = "Обзор";
+"recent_quiz_results" = "Недавние результаты тестов";
+"no_quiz_results_yet" = "Пока нет результатов тестов";
+"complete_first_quiz" = "Завершите свой первый тест, чтобы увидеть результаты здесь";
+"vocabulary_growth" = "Рост словаря";
+"no_growth_data_yet" = "Пока нет данных о росте";
+"complete_quizzes_growth" = "Завершите тесты, чтобы увидеть рост вашего словаря со временем";
+"time_period" = "Период времени";
+"week" = "Неделя";
+"month" = "Месяц";
+"year" = "Год";
+"practice_time" = "Время практики";
+"sessions" = "Сессии";
+"all_results" = "Все результаты";
+"duration" = "Продолжительность";
+
+// MARK: - Settings
+"translate_definitions" = "Переводить определения";
+"show_definitions_native_language" = "Показывать определения на вашем родном языке";
+"accent" = "Акцент";
+"select_accent" = "Выбрать акцент";
+"notifications" = "Уведомления";
+"daily_reminders" = "Ежедневные напоминания";
+"difficult_words" = "Сложные слова";
+"subscription" = "Подписка";
+"pro_user" = "Pro пользователь";
+"free_plan" = "Бесплатный план";
+"limited_features_available" = "Доступны ограниченные функции";
+"upgrade_to_pro" = "Обновить до Pro";
+"signed_in_as" = "Вошли как";
+"anonymous" = "Анонимный";
+"upload_backup_google" = "Загрузить резервную копию в Google";
+"download_backup_google" = "Скачать резервную копию из Google";
+"sign_in_sync_word_lists" = "Войдите, чтобы синхронизировать списки слов";
+"organization" = "Организация";
+"show_idioms_tab" = "Показать вкладку идиом";
+"shared_dictionaries" = "Общие словари";
+"about_app" = "О приложении";
+"features" = "Функции";
+"add_organize_words" = "Добавляйте и организуйте слова с определениями";
+"practice_quizzes_spelling" = "Практикуйтесь с тестами и упражнениями по правописанию";
+"track_learning_progress" = "Отслеживайте свой прогресс в обучении";
+"import_export_word_collection" = "Импортируйте и экспортируйте свою коллекцию слов";
+"customize_learning_experience" = "Настройте свой опыт обучения";
+"voice_pronunciation_support" = "Поддержка голосового произношения";
+"contact_me" = "Связаться со мной";
+"x_twitter" = "X (Twitter)";
+"instagram" = "Instagram";
+"support" = "Поддержка";
+"rate_app" = "Оценить приложение";
+"export_successful" = "Экспорт успешен";
+"upload_successful" = "Загрузка успешна";
+"download_successful" = "Скачивание успешно";
+
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Войдите перед подпиской";
+"sign_in_with_google" = "Войти через Google";
+"can_always_sign_in_later" = "Вы всегда можете войти позже из настроек";
+"link_additional_accounts" = "Связать дополнительные аккаунты";
+"accounts_linked_successfully" = "Аккаунты успешно связаны";
+"sign_out_confirmation" = "Выйти";
+"your_words_are_safe" = "Ваши слова в безопасности";
+"cloud_sync_disabled" = "Облачная синхронизация будет отключена";
+
+// MARK: - Shared Dictionaries
+"dictionary_selected" = "Словарь выбран";
+"name" = "Имя";
+"created" = "Создано";
+"your_role" = "Ваша роль";
+"owner" = "Владелец";
+"editor" = "Редактор";
+"viewer" = "Зритель";
+"editor_description" = "Редактор:";
+"can_add_edit_delete_words" = "• Может добавлять, редактировать и удалять слова";
+"can_invite_collaborators" = "• Может приглашать других участников";
+"can_manage_dictionary_settings" = "• Может управлять настройками словаря";
+"viewer_description" = "Зритель:";
+"can_view_all_words" = "• Может просматривать все слова";
+"cannot_make_changes" = "• Не может вносить изменения";
+"cannot_invite_others" = "• Не может приглашать других";
+"collaborator_added_email_name" = "Участник будет добавлен с указанным вами email и именем. Им нужно будет войти с тем же email адресом для доступа к общему словарю.";
+"of_dictionary_created" = "из 1 созданного словаря";
+"free_users_one_dictionary" = "Бесплатные пользователи могут создать один общий словарь";
+"create_shared_dictionary" = "Создайте общий словарь для сотрудничества с другими";
+"collaborate_others" = "Сотрудничать с другими";
+"delete_dictionary" = "Удалить словарь";
+"private_dictionary" = "Приватный словарь";
+
+
+
+// MARK: - Coffee Banner
+"buy_me_a_coffee" = "Купить мне кофе";
+"maybe_later" = "Может быть позже";
+
+// MARK: - Paywall
+"terms_of_service" = "Условия использования";
+"privacy_policy" = "Политика конфиденциальности";
+"upgrade_to_pro" = "Обновить до Pro";
+"restore_purchases" = "Восстановить покупки";
+"track_progress" = "Отслеживать прогресс";
+"see_your_improvement" = "Увидеть ваш прогресс";
+"collaborate" = "Сотрудничать";
+"learn_with_others" = "Учиться с другими";
+"everything_you_need_to_master_vocabulary" = "Все, что нужно для освоения словаря";
+"choose_your_plan" = "Выберите ваш план";
+"start_pro" = "Начать Pro";
+"trusted_by_learners_worldwide" = "Доверяют изучающие по всему миру";
+"app_store_rating" = "Рейтинг App Store";
+"active_users" = "Активные пользователи";
+"words_added" = "Добавлено слов";
+"sign_in_required" = "Требуется вход";
+
+// MARK: - Pro Features
+"google_sync" = "Синхронизация Google";
+"unlimited_export" = "Неограниченный экспорт";
+"create_shared_dictionaries" = "Создавать общие словари";
+"advanced_analytics" = "Расширенная аналитика";
+"priority_support" = "Приоритетная поддержка";
+"pro_features" = "Pro функции";
+"tag_management" = "Управление тегами";
+"sync_words_across_devices" = "Синхронизируйте ваши слова на всех устройствах через Google Drive";
+"export_unlimited_words" = "Экспортируйте неограниченное количество слов в CSV файлы";
+"create_manage_shared_dictionaries" = "Создавайте и управляйте общими словарями с другими";
+"detailed_insights" = "Получайте подробную информацию о вашем прогрессе в обучении";
+"priority_support_team" = "Получайте приоритетную поддержку от нашей команды";
+"unlock_all_pro_features" = "Разблокируйте все Pro функции";
+"organize_words_with_tags" = "Организуйте ваши слова с помощью пользовательских тегов для легкого поиска";
+"detailed_progress_tracking" = "Подробное отслеживание прогресса и аналитика";
+"get_priority_support" = "Получайте приоритетную поддержку, когда нужна помощь";
+
+// MARK: - Error Messages
+"error_updating_word_examples" = "Ошибка обновления примеров слова";
+"error_removing_word" = "Ошибка удаления слова";
+"error_saving_word" = "Ошибка сохранения слова";
+"error_updating_idiom_examples" = "Ошибка обновления примеров идиомы";
+"error_removing_idiom" = "Ошибка удаления идиомы";
+"error_saving_idiom" = "Ошибка сохранения идиомы";
+"input_not_word" = "Ввод не является словом";
+"input_cannot_be_empty" = "Ввод не может быть пустым";
+"device_muted_or_volume_low" = "Устройство отключено или громкость слишком низкая";
+"cannot_play_audio" = "Не удается воспроизвести аудио";
+"cannot_setup_audio_session" = "Не удается настроить аудио сессию";
+"export_failed" = "Экспорт не удался";
+"import_failed" = "Импорт не удался";
+"cannot_access_security_scoped_resource" = "Не удается получить доступ к ресурсу с ограниченной безопасностью";
+"tag_already_exists" = "Тег уже существует";
+"tag_already_assigned_to_word" = "Тег уже назначен этому слову";
+"tag_not_assigned_to_word" = "Тег не назначен этому слову";
+"authentication_required" = "Требуется аутентификация";
+"no_active_subscriptions_found" = "Активные подписки не найдены";
+"failed_to_update_word_progress" = "Не удалось обновить прогресс слова";
+"failed_to_update_word_difficulty_level" = "Не удалось обновить уровень сложности слова";
+"failed_to_save_quiz_session" = "Не удалось сохранить сессию теста";
+"failed_to_update_user_statistics" = "Не удалось обновить статистику пользователя";
+"invalid_word_id" = "Недействительный ID слова";
+"word_not_found" = "Слово не найдено";
+"failed_to_calculate_progress" = "Не удалось рассчитать прогресс";
+"invalid_translation_url" = "Недействительный URL перевода";
+"network_error_during_translation" = "Ошибка сети во время перевода";
+"invalid_response_from_translation_service" = "Недействительный ответ от службы перевода";
+"translation_failed" = "Перевод не удался";
+"invalid_user_email" = "Недействительный email пользователя";
+"network_error_occurred" = "Произошла ошибка сети";
+"sync_failed" = "Синхронизация не удалась";
+"invalid_input_provided" = "Предоставлен недействительный ввод";
+"dictionary_not_found" = "Словарь не найден";
+"no_subscription_offerings_available" = "Предложения подписок в настоящее время недоступны";
+"requested_subscription_package_not_found" = "Запрашиваемый пакет подписки не найден";
+"purchase_could_not_be_completed" = "Покупка не могла быть завершена";
+"failed_to_restore_previous_purchases" = "Не удалось восстановить предыдущие покупки";
+"export_limit_exceeded" = "Лимит экспорта превышен. Обновитесь до Pro для неограниченного экспорта.";
+"max_tags_reached" = "Достигнут максимум 5 тегов на слово";
+"tag_already_assigned" = "Тег уже назначен этому слову";
+"tag_not_assigned" = "Тег не назначен этому слову";
+"network_timeout" = "Тайм-аут";
+"server_unreachable" = "Сервер недоступен";
+"invalid_response" = "Неверный ответ";
+"no_internet_connection" = "Нет подключения к интернету";
+"missing_api_key" = "Отсутствует API ключ";
+"decoding_error" = "Ошибка декодирования";
+"invalid_url" = "Неверный URL";
+"no_data" = "Нет данных";
+"save_failed" = "Ошибка сохранения";
+"read_failed" = "Ошибка чтения";
+"data_corrupted" = "Данные повреждены";
+"invalid_input" = "Неверный ввод";
+"missing_field" = "Отсутствует поле";
+"unknown_error" = "Неизвестная ошибка";
+
+// MARK: - Empty States
+"no_idioms_yet" = "Пока нет идиом";
+"no_favorite_words" = "Нет избранных слов";
+"no_search_results" = "Нет результатов поиска";
+"start_improving_vocabulary" = "Начните улучшать свой словарь, добавив первую идиому";
+"tap_heart_icon_to_add_favorites" = "Нажмите на значок сердца на любой идиоме, чтобы добавить в избранное";
+"try_different_search_term" = "Попробуйте другой поисковый запрос или добавьте новую идиому";
+
+// MARK: - Auto Detect
+"auto_detect" = "Автоопределение";

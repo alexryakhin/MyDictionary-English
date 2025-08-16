@@ -17,15 +17,15 @@ enum TabBarItem: CaseIterable {
     var title: String {
         switch self {
         case .words:
-            return "Words"
+            return Loc.words.localized
         case .idioms:
-            return "Idioms"
+            return Loc.idioms.localized
         case .quizzes:
-            return "Quizzes"
+            return Loc.quizzes.localized
         case .analytics:
-            return "Progress"
+            return Loc.progress.localized
         case .settings:
-            return "Settings"
+            return Loc.settings.localized
         }
     }
 

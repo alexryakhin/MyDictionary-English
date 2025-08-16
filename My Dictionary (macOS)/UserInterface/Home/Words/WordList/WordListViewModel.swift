@@ -79,32 +79,32 @@ final class WordListViewModel: BaseViewModel {
 
     var wordsCount: String {
         if wordsFiltered.count == 1 {
-            return "1 word"
+            return Loc.oneWord.localized
         } else {
-            return "\(wordsFiltered.count) words"
+            return Loc.wordsCount.localized(wordsFiltered.count)
         }
     }
     
     var filterStateTitle: String {
         switch filterState {
         case .none:
-            return "All Words"
+            return Loc.allWords.localized
         case .favorite:
-            return "Favorite Words"
+            return Loc.favoriteWords.localized
         case .search:
-            return "Search Results"
+            return Loc.searchResults.localized
         case .tag:
-            return selectedTag?.name ?? "Tagged Words"
+            return selectedTag?.name ?? Loc.taggedWords.localized
         case .new:
-            return "New Words"
+            return Loc.newWords.localized
         case .inProgress:
-            return "Words In Progress"
+            return Loc.wordsInProgress.localized
         case .needsReview:
-            return "Words Needing Review"
+            return Loc.wordsNeedingReview.localized
         case .mastered:
-            return "Mastered Words"
+            return Loc.masteredWords.localized
         @unknown default:
-            return "Words"
+            return Loc.words.localized
         }
     }
 
@@ -152,8 +152,8 @@ final class WordListViewModel: BaseViewModel {
     private func deleteWord(_ wordModel: CDWord) {
         showAlert(
             withModel: .deleteConfirmation(
-                title: "Delete word",
-                message: "Are you sure you want to delete this word?",
+                title: Loc.deleteWord.localized,
+                message: Loc.deleteWordConfirmation.localized,
                 onCancel: {
                     AnalyticsService.shared.logEvent(.wordRemovingCanceled)
                 },

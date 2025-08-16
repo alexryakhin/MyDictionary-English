@@ -41,18 +41,18 @@ struct AddWordView: View {
             Color.systemGroupedBackground.ignoresSafeArea()
         }
         .navigation(
-            title: "Add new word",
+            title: Loc.addNewWord.localized,
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
-                HeaderButton("Save", size: .medium, style: .borderedProminent) {
+                HeaderButton(Loc.save.localized, size: .medium, style: .borderedProminent) {
                     viewModel.handle(.saveToSharedDictionary(selectedDictionaryId))
                 }
             },
             bottomContent: {
                 if authenticationService.isSignedIn {
                     HeaderButton(
-                        selectedDictionaryId == nil ? "Private Dictionary" : "Shared Dictionary",
+                        selectedDictionaryId == nil ? Loc.privateDictionary.localized : Loc.sharedDictionary.localized,
                         icon: selectedDictionaryId == nil ? "person" : "person.2",
                     ) {
                         showingDictionarySelection = true
@@ -76,8 +76,8 @@ struct AddWordView: View {
     }
 
     var wordCellView: some View {
-        CellWrapper("Word") {
-            CustomTextField("Type a word", text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
+        CellWrapper(Loc.word.localized) {
+            CustomTextField(Loc.typeWord.localized, text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
                 if viewModel.inputWord.isNotEmpty {
                     viewModel.handle(.fetchData)
                 }
@@ -87,7 +87,7 @@ struct AddWordView: View {
     }
     
     var inputLanguageCellView: some View {
-        CellWrapper("Input Language") {
+        CellWrapper(Loc.inputLanguage.localized) {
             Menu {
                 ForEach(InputLanguage.allCases, id: \.self) { language in
                     Button {

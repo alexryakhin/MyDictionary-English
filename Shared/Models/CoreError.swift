@@ -30,14 +30,14 @@ enum CoreError: Error, LocalizedError {
 
         var errorDescription: String? {
             switch self {
-            case .timeout: "Timeout"
-            case .serverUnreachable: "Server unreachable"
-            case .invalidResponse(let code): "Invalid response: \(code ?? 0)"
-            case .noInternetConnection: "No internet connection"
-            case .missingAPIKey: "Missing API key"
-            case .decodingError: "Decoding error"
-            case .invalidURL: "Invalid URL"
-            case .noData: "No data"
+            case .timeout: Loc.networkTimeout.localized
+            case .serverUnreachable: Loc.serverUnreachable.localized
+            case .invalidResponse(let code): Loc.invalidResponse.localized(code ?? 0)
+            case .noInternetConnection: Loc.noInternetConnection.localized
+            case .missingAPIKey: Loc.missingAPIKey.localized
+            case .decodingError: Loc.decodingError.localized
+            case .invalidURL: Loc.invalidURL.localized
+            case .noData: Loc.noData.localized
             }
         }
     }
@@ -50,9 +50,9 @@ enum CoreError: Error, LocalizedError {
 
         var errorDescription: String? {
             switch self {
-            case .saveFailed: "Save failed"
-            case .readFailed: "Read failed"
-            case .dataCorrupted: "Data corrupted"
+            case .saveFailed: Loc.saveFailed.localized
+            case .readFailed: Loc.readFailed.localized
+            case .dataCorrupted: Loc.dataCorrupted.localized
             }
         }
     }
@@ -63,8 +63,8 @@ enum CoreError: Error, LocalizedError {
 
         var errorDescription: String? {
             switch self {
-            case .invalidInput(field: let field): "Invalid input for field: \(field)"
-            case .missingField(field: let field): "Missing field: \(field)"
+            case .invalidInput(field: let field): Loc.invalidInput.localized(field)
+            case .missingField(field: let field): Loc.missingField.localized(field)
             }
         }
     }
@@ -95,47 +95,47 @@ enum CoreError: Error, LocalizedError {
         var errorDescription: String? {
             switch self {
             case .updatingWordExamplesFailed:
-                return "Error updating word examples"
+                return Loc.errorUpdatingWordExamples.localized
             case .removingWordFailed:
-                return "Error removing word"
+                return Loc.errorRemovingWord.localized
             case .savingWordFailed:
-                return "Error saving word"
+                return Loc.errorSavingWord.localized
             case .updatingIdiomExamplesFailed:
-                return "Error updating idiom examples"
+                return Loc.errorUpdatingIdiomExamples.localized
             case .removingIdiomFailed:
-                return "Error removing idiom"
+                return Loc.errorRemovingIdiom.localized
             case .savingIdiomFailed:
-                return "Error saving idiom"
+                return Loc.errorSavingIdiom.localized
             case .inputIsNotAWord:
-                return "Input is not a word"
+                return Loc.inputNotWord.localized
             case .inputCannotBeEmpty:
-                return "Input cannot be empty"
+                return Loc.inputCannotBeEmpty.localized
             case .deviceMutedOrVolumeTooLow:
-                return "Device muted or volume too low"
+                return Loc.deviceMutedOrVolumeLow.localized
             case .cannotPlayAudio:
-                return "Cannot play audio"
+                return Loc.cannotPlayAudio.localized
             case .cannotSetupAudioSession:
-                return "Cannot setup audio session"
+                return Loc.cannotSetupAudioSession.localized
             case .exportFailed:
-                return "Export failed"
+                return Loc.exportFailed.localized
             case .importFailed:
-                return "Import failed"
+                return Loc.importFailed.localized
             case .cannotAccessSecurityScopedResource:
-                return "Cannot access security scoped resource"
+                return Loc.cannotAccessSecurityScopedResource.localized
             case .exportLimitExceeded:
-                return "Export limit exceeded. Upgrade to Pro for unlimited exports."
+                return Loc.exportLimitExceeded.localized
             case .tagAlreadyExists:
-                return "Tag already exists"
+                return Loc.tagAlreadyExists.localized
             case .tagAlreadyAssigned:
-                return "Tag is already assigned to this word"
+                return Loc.tagAlreadyAssigned.localized
             case .tagNotAssigned:
-                return "Tag is not assigned to this word"
+                return Loc.tagNotAssigned.localized
             case .maxTagsReached:
-                return "Maximum of 5 tags per word reached"
+                return Loc.maxTagsReached.localized
             case .authenticationRequired:
-                return "Authentication required"
+                return Loc.authenticationRequired.localized
             case .noActiveSubscription:
-                return "No active subscriptions found"
+                return Loc.noActiveSubscriptionsFound.localized
             }
         }
     }
@@ -152,19 +152,19 @@ enum CoreError: Error, LocalizedError {
         var errorDescription: String? {
             switch self {
             case .wordProgressUpdateFailed:
-                return "Failed to update word progress"
+                return Loc.failedToUpdateWordProgress.localized
             case .wordDifficultyUpdateFailed:
-                return "Failed to update word difficulty level"
+                return Loc.failedToUpdateWordDifficultyLevel.localized
             case .quizSessionSaveFailed:
-                return "Failed to save quiz session"
+                return Loc.failedToSaveQuizSession.localized
             case .userStatsUpdateFailed:
-                return "Failed to update user statistics"
+                return Loc.failedToUpdateUserStatistics.localized
             case .invalidWordId:
-                return "Invalid word ID"
+                return Loc.invalidWordId.localized
             case .wordNotFound:
-                return "Word not found"
+                return Loc.wordNotFound.localized
             case .progressCalculationFailed:
-                return "Failed to calculate progress"
+                return Loc.failedToCalculateProgress.localized
             }
         }
     }
@@ -178,13 +178,13 @@ enum CoreError: Error, LocalizedError {
         var errorDescription: String? {
             switch self {
             case .invalidURL:
-                return "Invalid translation URL"
+                return Loc.invalidTranslationUrl.localized
             case .networkError:
-                return "Network error during translation"
+                return Loc.networkErrorDuringTranslation.localized
             case .invalidResponse:
-                return "Invalid response from translation service"
+                return Loc.invalidResponseFromTranslationService.localized
             case .translationFailed:
-                return "Translation failed"
+                return Loc.translationFailed.localized
             }
         }
     }
@@ -197,7 +197,7 @@ enum CoreError: Error, LocalizedError {
         case .internalError(let error): error.errorDescription
         case .analyticsError(let error): error.errorDescription
         case .translationError(let error): error.errorDescription
-        case .unknownError: "Unknown error"
+        case .unknownError: Loc.unknownError.localized
         }
     }
 }
