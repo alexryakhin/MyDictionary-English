@@ -33,6 +33,13 @@ struct SharedWordDetailsView: View {
     @State private var word: SharedWord
     private let dictionaryId: String
 
+    private var canEdit: Bool {
+        guard let dictionary = dictionaryService.sharedDictionaries.first(where: { $0.id == dictionaryId }) else {
+            return false
+        }
+        return dictionary.canEdit
+    }
+
     init(word: SharedWord, dictionaryId: String) {
         self._word = State(wrappedValue: word)
         self.dictionaryId = dictionaryId
@@ -79,15 +86,17 @@ struct SharedWordDetailsView: View {
                     }
                 }
                 .help("Toggle Like")
-                
-                // Delete button
-                Button {
-                    showDeleteAlert()
-                } label: {
-                    Image(systemName: "trash")
-                        .foregroundStyle(.red)
+
+                if canEdit {
+                    // Delete button
+                    Button {
+                        showDeleteAlert()
+                    } label: {
+                        Image(systemName: "trash")
+                            .foregroundStyle(.red)
+                    }
+                    .help("Delete Word")
                 }
-                .help("Delete Word")
             }
         }
         .sheet(item: $editingExampleIndex) { index in
@@ -134,10 +143,16 @@ struct SharedWordDetailsView: View {
 
     private var transcriptionSectionView: some View {
         CustomSectionView(header: "Transcription", headerFontStyle: .stealth) {
-            TextField("Transcription", text: $phoneticText, axis: .vertical)
-                .textFieldStyle(.plain)
-                .focused($isPhoneticsFocused)
-                .fontWeight(.semibold)
+            if canEdit {
+                TextField("Transcription", text: $phoneticText, axis: .vertical)
+                    .textFieldStyle(.plain)
+                    .focused($isPhoneticsFocused)
+                    .fontWeight(.semibold)
+            } else {
+                Text(phoneticText.nilIfEmpty ?? "No transcription")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .fontWeight(.semibold)
+            }
         } trailingContent: {
             if isPhoneticsFocused {
                 HeaderButton("Done", size: .small) {
@@ -158,12 +173,14 @@ struct SharedWordDetailsView: View {
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
-            HeaderButtonMenu("Edit", size: .small) {
-                ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
-                    Button {
-                        updatePartOfSpeech(partCase)
-                    } label: {
-                        Text(partCase.rawValue)
+            if canEdit {
+                HeaderButtonMenu("Edit", size: .small) {
+                    ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
+                        Button {
+                            updatePartOfSpeech(partCase)
+                        } label: {
+                            Text(partCase.rawValue)
+                        }
                     }
                 }
             }
@@ -172,10 +189,16 @@ struct SharedWordDetailsView: View {
 
     private var definitionSectionView: some View {
         CustomSectionView(header: "Definition", headerFontStyle: .stealth) {
-            TextField("Definition", text: $definitionText, axis: .vertical)
-                .textFieldStyle(.plain)
-                .focused($isDefinitionFocused)
-                .fontWeight(.semibold)
+            if canEdit {
+                TextField("Definition", text: $definitionText, axis: .vertical)
+                    .textFieldStyle(.plain)
+                    .focused($isDefinitionFocused)
+                    .fontWeight(.semibold)
+            } else {
+                Text(definitionText.nilIfEmpty ?? "No definition")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .fontWeight(.semibold)
+            }
         } trailingContent: {
             if isDefinitionFocused {
                 HeaderButton("Done", size: .small) {
@@ -230,19 +253,21 @@ struct SharedWordDetailsView: View {
                                 } label: {
                                     Label("Listen", systemImage: "speaker.wave.2.fill")
                                 }
-                                Button {
-                                    exampleTextFieldStr = example
-                                    editingExampleIndex = index
-                                    AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
-                                } label: {
-                                    Label("Edit", systemImage: "pencil")
-                                }
-                                Section {
-                                    Button(role: .destructive) {
-                                        removeExample(at: index)
-                                        AnalyticsService.shared.logEvent(.wordExampleRemoved)
+                                if canEdit {
+                                    Button {
+                                        exampleTextFieldStr = example
+                                        editingExampleIndex = index
+                                        AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
                                     } label: {
-                                        Label("Delete", systemImage: "trash")
+                                        Label("Edit", systemImage: "pencil")
+                                    }
+                                    Section {
+                                        Button(role: .destructive) {
+                                            removeExample(at: index)
+                                            AnalyticsService.shared.logEvent(.wordExampleRemoved)
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                        }
                                     }
                                 }
                             } label: {
@@ -285,18 +310,20 @@ struct SharedWordDetailsView: View {
                 .padding(.horizontal, 16)
             }
         } trailingContent: {
-            if isAddingExample {
-                HeaderButton("Save", icon: "checkmark", size: .small) {
-                    addExample(exampleTextFieldStr)
-                    isAddingExample = false
-                    exampleTextFieldStr = .empty
-                    AnalyticsService.shared.logEvent(.wordExampleAdded)
-                }
-            } else {
-                HeaderButton("Add example", icon: "plus", size: .small) {
-                    withAnimation {
-                        isAddingExample.toggle()
-                        AnalyticsService.shared.logEvent(.wordAddExampleTapped)
+            if canEdit {
+                if isAddingExample {
+                    HeaderButton("Save", icon: "checkmark", size: .small) {
+                        addExample(exampleTextFieldStr)
+                        isAddingExample = false
+                        exampleTextFieldStr = .empty
+                        AnalyticsService.shared.logEvent(.wordExampleAdded)
+                    }
+                } else {
+                    HeaderButton("Add example", icon: "plus", size: .small) {
+                        withAnimation {
+                            isAddingExample.toggle()
+                            AnalyticsService.shared.logEvent(.wordAddExampleTapped)
+                        }
                     }
                 }
             }

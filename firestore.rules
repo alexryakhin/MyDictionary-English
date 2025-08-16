@@ -49,7 +49,13 @@ service cloud.firestore {
       // Words subcollection
       match /words/{wordId} {
         allow read: if isSignedIn();
-        allow write: if isSignedIn() && isDictionaryEditor(dictionaryId);
+        allow create: if isSignedIn() && isDictionaryEditor(dictionaryId);
+        allow update: if isSignedIn() && isDictionaryCollaborator(dictionaryId) && 
+          // Allow viewers to update likes and difficulties (check if these fields are being updated)
+          (request.resource.data.likes != null || request.resource.data.difficulties != null ||
+           // Or allow editors to update any field
+           isDictionaryEditor(dictionaryId));
+        allow delete: if isSignedIn() && isDictionaryEditor(dictionaryId);
       }
       
       // Collaborators subcollection

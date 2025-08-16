@@ -22,7 +22,7 @@ struct WordListView: View {
 
     @State private var showRatingBanner = false
     @State private var showAddWord = false
-    @State private var showAuthentication = false
+    @State private var wordToAddToSharedDictionary: CDWord?
 
     var body: some View {
         ScrollViewWithCustomNavBar {
@@ -104,8 +104,8 @@ struct WordListView: View {
         .sheet(isPresented: $showAddWord) {
             AddWordView(inputWord: viewModel.searchText, selectedDictionaryId: nil)
         }
-        .sheet(isPresented: $showAuthentication) {
-            AuthenticationView()
+        .sheet(item: $wordToAddToSharedDictionary) { word in
+            AddExistingWordToSharedView(word: word)
         }
     }
 
@@ -131,7 +131,7 @@ struct WordListView: View {
                         .contextMenu {
                             if AuthenticationService.shared.isSignedIn {
                                 Button {
-                                    showAuthentication = true
+                                    wordToAddToSharedDictionary = wordModel
                                 } label: {
                                     Label("Add to Shared Dictionary", systemImage: "person.2")
                                 }
