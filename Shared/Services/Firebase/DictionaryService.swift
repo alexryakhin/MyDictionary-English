@@ -364,6 +364,7 @@ final class DictionaryService: ObservableObject {
 
         // Listen to authentication state changes
         authenticationService.$authenticationState
+            .dropFirst()
             .sink { [weak self] state in
                 print("🔍 [DictionaryService] Authentication state changed to: \(state)")
 

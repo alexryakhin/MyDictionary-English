@@ -38,13 +38,12 @@ struct MyDictionaryApp: App {
 
 // MARK: - App Delegate for Push Notifications
 
-final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
+final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
         // Set up push notification delegates
         UNUserNotificationCenter.current().delegate = self
-        Messaging.messaging().delegate = self
 
         // Register for remote notifications
         application.registerForRemoteNotifications()
@@ -64,7 +63,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         print("📱 [AppDelegate] APNS device token received: \(deviceToken.map { String(format: "%02.2hhx", $0) }.joined())")
 
         // Set the APNS device token for Firebase Messaging
-        Messaging.messaging().apnsToken = deviceToken
+        MessagingService.shared.setAPNSToken(deviceToken)
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -100,19 +99,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         }
 
         completionHandler()
-    }
-
-    // MARK: - MessagingDelegate
-
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("📱 [AppDelegate] FCM registration token: \(fcmToken ?? "nil")")
-
-        if let token = fcmToken {
-            // Save FCM token to Firestore
-            Task {
-                await AuthenticationService.shared.updateFCMToken(token)
-            }
-        }
     }
 
     // MARK: - Private Methods
@@ -172,6 +158,13 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         // Clear notification badge when app enters foreground
         clearNotificationBadge()
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Unregister device token when app terminates
+        Task {
+            await MessagingService.shared.unregisterCurrentDevice()
+        }
+    }
 
     // MARK: - Notification Badge Management
 
@@ -187,7 +180,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     private func setupAppServices() {
         print("🔧 [AppDelegate] Setting up app services...")
 
-        // Configure Firebase
+        // Configure Firebase FIRST
         FirebaseApp.configure()
 
         // Configure Firestore for offline persistence
@@ -196,6 +189,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         settings.isPersistenceEnabled = true
         settings.cacheSizeBytes = FirestoreCacheSizeUnlimited
         db.settings = settings
+
+        // Initialize MessagingService AFTER Firebase is configured
+        _ = MessagingService.shared
 
         // Log analytics event
         AnalyticsService.shared.logEvent(.appOpened)

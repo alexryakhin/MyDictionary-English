@@ -310,12 +310,10 @@ struct DebugView: View {
         userEmail = authenticationService.userEmail ?? "Not signed in"
         userId = authenticationService.userId ?? "Not signed in"
 
-        // Get FCM token
-        Messaging.messaging().token { token, error in
-            if let token = token {
+        // Get FCM token using MessagingService
+        Task {
+            if let token = await MessagingService.shared.getCurrentToken() {
                 fcmToken = token
-            } else if let error = error {
-                fcmToken = "Error: \(error.localizedDescription)"
             } else {
                 fcmToken = "No token available"
             }

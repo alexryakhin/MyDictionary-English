@@ -333,6 +333,7 @@ final class AuthenticationService: ObservableObject {
                 try Auth.auth().signOut()
                 GIDSignIn.sharedInstance.signOut()
 
+                DictionaryService.shared.stopListening()
                 currentUser = nil
                 authenticationState = .signedOut
                 toggleSignOutView()
@@ -394,23 +395,12 @@ final class AuthenticationService: ObservableObject {
     func requestPushNotificationPermissions() async {
         print("🔔 [AuthenticationService] Requesting push notification permissions")
 
-        do {
-            let granted = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
+        let granted = await MessagingService.shared.requestNotificationPermission()
 
-            if granted {
-                print("✅ [AuthenticationService] Push notification permissions granted")
-
-                // Register for remote notifications
-                #if os(iOS)
-                await MainActor.run {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-                #endif
-            } else {
-                print("❌ [AuthenticationService] Push notification permissions denied")
-            }
-        } catch {
-            print("❌ [AuthenticationService] Failed to request push notification permissions: \(error)")
+        if granted {
+            print("✅ [AuthenticationService] Push notification permissions granted")
+        } else {
+            print("❌ [AuthenticationService] Push notification permissions denied")
         }
     }
 
@@ -424,9 +414,6 @@ final class AuthenticationService: ObservableObject {
         do {
             let db = Firestore.firestore()
 
-            // Get current FCM token if available
-            let fcmToken = Messaging.messaging().fcmToken
-
             // Create user document with all required fields
             try await db.collection("users").document(userEmail).setData([
                 "userId": user.uid,
@@ -435,11 +422,15 @@ final class AuthenticationService: ObservableObject {
                 "registrationDate": FieldValue.serverTimestamp(),
                 "lastUpdated": FieldValue.serverTimestamp(),
                 "platform": getCurrentPlatform(),
-                "fcmToken": fcmToken ?? "",
                 "subscriptionStatus": SubscriptionService.shared.isProUser ? "pro" : "free",
                 "subscriptionPlan": SubscriptionService.shared.currentPlan?.rawValue ?? "none",
                 "subscriptionExpiryDate": nil // Will be updated when subscription changes
             ], merge: true)
+            
+            // Register current device token if available
+            if let fcmToken = await MessagingService.shared.getCurrentToken() {
+                await DeviceTokenService.shared.registerDeviceToken(fcmToken)
+            }
 
             print("✅ [AuthenticationService] User document created/updated for: \(userEmail)")
 
@@ -448,26 +439,10 @@ final class AuthenticationService: ObservableObject {
         }
     }
 
-    /// Updates the FCM token in the user's Firestore document
+    /// Updates the FCM token in the user's Firestore document (legacy method - now handled by DeviceTokenService)
+    @available(*, deprecated, message: "Use DeviceTokenService.shared.registerDeviceToken() instead")
     func updateFCMToken(_ token: String) async {
-        guard let userEmail = AuthenticationService.shared.userEmail else {
-            print("❌ [AuthenticationService] No user email available for FCM token update")
-            return
-        }
-
-        do {
-            let db = Firestore.firestore()
-
-            try await db.collection("users").document(userEmail).updateData([
-                "fcmToken": token,
-                "lastUpdated": FieldValue.serverTimestamp()
-            ])
-
-            print("✅ [AuthenticationService] FCM token updated for user: \(userEmail)")
-
-        } catch {
-            print("❌ [AuthenticationService] Failed to update FCM token: \(error)")
-        }
+        await DeviceTokenService.shared.registerDeviceToken(token)
     }
     
     // MARK: - Platform Detection

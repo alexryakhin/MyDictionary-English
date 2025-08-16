@@ -14,9 +14,14 @@ import UserNotifications
 struct MyDictionaryApp: App {
 
     @Environment(\.openWindow) private var openWindow
+    private var messagingService: MessagingService?
 
     init() {
+        // Configure Firebase FIRST
         FirebaseApp.configure()
+        
+        // Initialize MessagingService AFTER Firebase is configured
+        messagingService = MessagingService.shared
     }
 
     var body: some Scene {

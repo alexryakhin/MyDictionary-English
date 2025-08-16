@@ -48,7 +48,6 @@ enum SubscriptionPlan: String, CaseIterable {
 // MARK: - Subscription Features
 
 enum SubscriptionFeature: String, CaseIterable {
-    case googleSync = "google_sync"
     case unlimitedExport = "unlimited_export"
     case createSharedDictionaries = "create_shared_dictionaries"
     case advancedAnalytics = "advanced_analytics"
@@ -56,31 +55,28 @@ enum SubscriptionFeature: String, CaseIterable {
 
     var displayName: String {
         switch self {
-        case .googleSync: return "Google Sync"
-        case .unlimitedExport: return "Unlimited Export"
-        case .createSharedDictionaries: return "Create Shared Dictionaries"
-        case .advancedAnalytics: return "Advanced Analytics"
-        case .prioritySupport: return "Priority Support"
+        case .unlimitedExport: "Unlimited Export"
+        case .createSharedDictionaries: "Create Shared Dictionaries"
+        case .advancedAnalytics: "Advanced Analytics"
+        case .prioritySupport: "Priority Support"
         }
     }
 
     var description: String {
         switch self {
-        case .googleSync: return "Sync your words across all devices using Google Cloud"
-        case .unlimitedExport: return "Export unlimited words to CSV"
-        case .createSharedDictionaries: return "Create and manage shared dictionaries with collaborators"
-        case .advancedAnalytics: return "Detailed progress tracking and insights"
-        case .prioritySupport: return "Get priority support when you need help"
+        case .unlimitedExport: "Export unlimited words to CSV"
+        case .createSharedDictionaries: "Create and manage shared dictionaries with collaborators"
+        case .advancedAnalytics: "Detailed progress tracking and insights"
+        case .prioritySupport: "Get priority support when you need help"
         }
     }
 
     var iconName: String {
         switch self {
-        case .googleSync: return "cloud.fill"
-        case .unlimitedExport: return "square.and.arrow.up"
-        case .createSharedDictionaries: return "person.2.fill"
-        case .advancedAnalytics: return "chart.bar.fill"
-        case .prioritySupport: return "star.fill"
+        case .unlimitedExport: "square.and.arrow.up"
+        case .createSharedDictionaries: "person.2.fill"
+        case .advancedAnalytics: "chart.bar.fill"
+        case .prioritySupport: "star.fill"
         }
     }
 }
