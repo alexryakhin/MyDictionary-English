@@ -16,7 +16,7 @@ struct TagSelectionView: View {
     @Binding var selectedTags: [CDTag]
 
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             CustomSectionView(
                 header: "Select Tags",
                 footer: "You can select up to 5 tags per word. Tap a tag to select or deselect it."
@@ -55,24 +55,11 @@ struct TagSelectionView: View {
                 }
             }
             .padding(12)
+        } navigationBar: {
+            NavigationBarView(title: "Add Tags")
         }
         .groupedBackground()
         .navigationTitle("Add Tags")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close Tag Selection")
-                
-                // Done button
-                Button("Done") {
-                    dismiss()
-                }
-                .help("Done")
-            }
-        }
         .sheet(isPresented: $isShowingAddTagSheet) {
             AddEditTagView(viewModel: .init())
         }

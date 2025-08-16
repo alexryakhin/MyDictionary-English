@@ -12,7 +12,7 @@ enum IdiomFilterCase: String, CaseIterable {
     case favorite = "Favorite"
     case search = "Search"
 
-    static let availableCases: [FilterCase] = [.none, .favorite]
+    static let availableCases: [IdiomFilterCase] = [.none, .favorite]
 
     var displayName: String {
         switch self {

@@ -108,6 +108,7 @@ struct AddWordView: View {
                         .foregroundStyle(.secondary)
                 }
             }
+            .buttonStyle(.plain)
         }
     }
 
@@ -135,6 +136,7 @@ struct AddWordView: View {
             } label: {
                 Text(viewModel.partOfSpeech?.rawValue ?? "Select a value")
             }
+            .buttonStyle(.plain)
         }
     }
 
@@ -173,6 +175,7 @@ struct AddWordView: View {
                                     style: .selected
                                 )
                             }
+                            .buttonStyle(.plain)
                         }
                     }
                     .padding(.horizontal, 4)
@@ -289,7 +292,6 @@ struct AddWordView: View {
 
     private func definitionSelected(_ definition: WordDefinition, index: Int) {
         viewModel.handle(.selectDefinition(definition))
-        HapticManager.shared.triggerSelection()
         endEditing()
         AnalyticsService.shared.logEvent(.definitionSelected)
     }

@@ -49,4 +49,13 @@ enum Quiz: String, CaseIterable, Identifiable {
             return "Select the correct definition for each word"
         }
     }
+
+    var completionDescription: String {
+        switch self {
+        case .spelling:
+            return "Great job! You've completed the spelling quiz."
+        case .chooseDefinition:
+            return "Great job! You've completed the definition quiz."
+        }
+    }
 }

@@ -47,9 +47,10 @@ struct SubscriptionStatusView: View {
             
             Spacer()
             
-            Image(systemName: "checkmark.circle.fill")
+            Image(systemName: "checkmark.square.fill")
                 .foregroundStyle(.accent)
                 .font(.title2)
+                .bold()
         }
         .padding(vertical: 12, horizontal: 16)
         .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)

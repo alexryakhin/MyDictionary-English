@@ -198,8 +198,8 @@ struct DebugView: View {
 
                 HeaderButton("Create User Document") {
                     Task {
-                        if let user = AuthenticationService.shared.currentUser {
-                            await AuthenticationService.shared.createUserDocument(user: user)
+                        if let user = authenticationService.currentUser {
+                            await authenticationService.createUserDocument(user: user)
                             showAlert("User document creation attempted")
                         } else {
                             showAlert("No authenticated user")
@@ -209,7 +209,7 @@ struct DebugView: View {
 
                 HeaderButton("Check User Document") {
                     Task {
-                        guard let userEmail = AuthenticationService.shared.userEmail else {
+                        guard let userEmail = authenticationService.userEmail else {
                             showAlert("No user email available")
                             return
                         }
@@ -226,7 +226,7 @@ struct DebugView: View {
                                 showAlert("Document does not exist")
                             }
                         } catch {
-                            showAlert("Error checking document: \(error.localizedDescription)")
+                            errorReceived(error)
                         }
                     }
                 }

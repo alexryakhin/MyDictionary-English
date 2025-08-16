@@ -11,13 +11,14 @@ struct IdiomListView: View {
 
     @StateObject private var viewModel = IdiomListViewModel()
     @StateObject private var sideBarManager = SideBarManager.shared
+    @State private var showingAddIdiom: Bool = false
 
     var body: some View {
         ScrollView {
             VStack(spacing: 12) {
                 if viewModel.filterState == .search && filteredIdioms.count < 10 {
                     ActionButton("Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'", systemImage: "plus") {
-                        // This will be handled by the parent view
+                        showingAddIdiom = true
                     }
                 }
 
@@ -27,7 +28,11 @@ struct IdiomListView: View {
                     hPadding: .zero
                 ) {
                     if filteredIdioms.isNotEmpty {
-                        ListWithDivider(filteredIdioms) { idiomModel in
+                        ListWithDivider(
+                            filteredIdioms,
+                            dividerLeadingPadding: .zero,
+                            dividerTrailingPadding: .zero
+                        ) { idiomModel in
                             IdiomListCellView(idiom: idiomModel)
                                 .id(idiomModel.id)
                                 .onTap {
@@ -56,7 +61,7 @@ struct IdiomListView: View {
                     }
                 } trailingContent: {
                     HeaderButton("Add idiom", icon: "plus", size: .small, style: .borderedProminent) {
-                        // This will be handled by the parent view
+                        showingAddIdiom = true
                     }
                 }
             }
@@ -75,6 +80,7 @@ struct IdiomListView: View {
                                 .tag(item)
                         }
                     }
+                    .pickerStyle(.inline)
                 } label: {
                     Image(systemName: "arrow.up.arrow.down")
                 }
@@ -87,18 +93,22 @@ struct IdiomListView: View {
                                 .tag(item)
                         }
                     }
+                    .pickerStyle(.inline)
                 } label: {
                     Image(systemName: "line.3.horizontal.decrease.circle")
                 }
                 
                 // Add Idiom button
                 Button {
-                    // This will be handled by the parent view
+                    showingAddIdiom = true
                 } label: {
                     Image(systemName: "plus")
                 }
                 .help("Add Idiom")
             }
+        }
+        .sheet(isPresented: $showingAddIdiom) {
+            AddIdiomView(inputIdiom: viewModel.searchText)
         }
         .onAppear {
             AnalyticsService.shared.logEvent(.idiomsListOpened)

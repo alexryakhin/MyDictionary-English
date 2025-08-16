@@ -25,7 +25,7 @@ struct SharedDictionarySelectionView: View {
     }
 
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 CustomSectionView(header: "Private", hPadding: .zero) {
                     Button {
@@ -123,18 +123,10 @@ struct SharedDictionarySelectionView: View {
                 }
             }
             .padding(12)
+        } navigationBar: {
+            NavigationBarView(title: "Select Dictionary")
         }
         .groupedBackground()
-        .navigationTitle("Select Dictionary")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close Dictionary Selection")
-            }
-        }
         .sheet(isPresented: $showingAddDictionary) {
             if dictionaryService.canCreateMoreSharedDictionaries() {
                 AddSharedDictionaryView()

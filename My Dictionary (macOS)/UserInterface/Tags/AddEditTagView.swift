@@ -18,7 +18,7 @@ struct AddEditTagView: View {
     @State private var isShowingPaywall: Bool = false
 
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 CustomSectionView(header: "Tag Name", footer: "Choose a descriptive name for your tag") {
                     TextField("Type tag name...", text: $tagName)
@@ -43,29 +43,22 @@ struct AddEditTagView: View {
                 }
             }
             .padding(12)
+        } navigationBar: {
+            NavigationBarView(
+                title: viewModel.isEditing ? "Edit Tag" : "New Tag",
+                trailingContent: {
+                    HeaderButton("Save", style: .borderedProminent) {
+                        if subscriptionService.isProUser {
+                            saveTag()
+                        } else {
+                            isShowingPaywall = true
+                        }
+                    }
+                    .help("Save Tag")
+                }
+            )
         }
         .groupedBackground()
-        .navigationTitle(viewModel.isEditing ? "Edit Tag" : "New Tag")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close Tag Editor")
-                
-                // Save button
-                Button("Save") {
-                    if subscriptionService.isProUser {
-                        saveTag()
-                    } else {
-                        isShowingPaywall = true
-                    }
-                }
-                .buttonStyle(.borderedProminent)
-                .help("Save Tag")
-            }
-        }
         .onAppear {
             if let editingTag = viewModel.editingTag {
                 tagName = editingTag.name ?? ""

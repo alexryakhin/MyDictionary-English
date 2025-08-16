@@ -11,16 +11,9 @@ import Combine
 @MainActor
 final class IdiomListViewModel: BaseViewModel {
 
-    enum Output {
-        case showIdiomDetails(CDIdiom)
-        case showAddIdiom
-    }
-
     enum Input {
         case deleteIdiom(idiom: CDIdiom)
     }
-
-    var output = PassthroughSubject<Output, Never>()
 
     @Published var idioms: [CDIdiom] = []
     @Published var sortingState: SortingCase = .latest {

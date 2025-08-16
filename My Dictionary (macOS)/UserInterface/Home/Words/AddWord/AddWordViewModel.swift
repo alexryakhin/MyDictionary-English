@@ -101,7 +101,7 @@ final class AddWordViewModel: BaseViewModel {
                     // Always translate single words to English for API lookup
                     isTranslating = true
                     AnalyticsService.shared.logEvent(.translationRequested)
-                    
+
                     let translationResponse: TranslationResponse
                     if selectedInputLanguage.isAuto {
                         // Auto-detect language
@@ -110,7 +110,7 @@ final class AddWordViewModel: BaseViewModel {
                         // Use selected language
                         translationResponse = try await translationService.translateFromLanguage(inputWord, from: selectedInputLanguage.languageCode)
                     }
-                    
+
                     wordToSearch = translationResponse.text
                     self.detectedLanguageCode = translationResponse.languageCode
                     // Only request pronunciation if the detected language IS English
@@ -130,7 +130,7 @@ final class AddWordViewModel: BaseViewModel {
                     for: wordToSearch.lowercased(),
                     params: .init()
                 )
-                
+
                 // Conditionally fetch pronunciation based on detected language
                 let pronunciation: String?
                 if shouldRequestPronunciation {
@@ -164,26 +164,18 @@ final class AddWordViewModel: BaseViewModel {
     private func saveWord() {
         saveWordToDictionary(nil)
     }
-    
+
     private func saveWordToDictionary(_ dictionaryId: String?) {
-        print("🔍 [AddWordViewModel] saveWordToDictionary called")
-        print("📝 [AddWordViewModel] inputWord: '\(inputWord)'")
-        print("📝 [AddWordViewModel] descriptionField: '\(descriptionField)'")
-        print("📝 [AddWordViewModel] dictionaryId: \(dictionaryId ?? "nil (private)")")
-        
         if !inputWord.isEmpty, !descriptionField.isEmpty {
             do {
                 // Get the detected language code from the translation response
                 let languageCode = detectedLanguageCode ?? "en"
-                print("🌐 [AddWordViewModel] Language code: \(languageCode)")
-                
+
                 if let dictionaryId = dictionaryId {
                     // Save to shared dictionary
-                    print("💾 [AddWordViewModel] Saving to shared dictionary: \(dictionaryId)")
                     saveWordToSharedDictionary(dictionaryId, languageCode: languageCode)
                 } else {
                     // Save to private dictionary
-                    print("💾 [AddWordViewModel] Calling addWordManager.addNewWord")
                     try addWordManager.addNewWord(
                         word: inputWord.capitalizingFirstLetter(),
                         definition: descriptionField.capitalizingFirstLetter(),
@@ -193,25 +185,17 @@ final class AddWordViewModel: BaseViewModel {
                         tags: selectedTags,
                         languageCode: languageCode
                     )
-                    HapticManager.shared.triggerNotification(type: .success)
                     AnalyticsService.shared.logEvent(.wordAdded)
                     dismissPublisher.send()
-
-                    print("✅ [AddWordViewModel] Word saved to private dictionary")
-                    
-                    // Manual sync mode - no automatic sync when adding words
-                    print("ℹ️ [AddWordViewModel] Manual sync mode - no automatic sync")
                 }
             } catch {
-                print("❌ [AddWordViewModel] Error saving word: \(error.localizedDescription)")
                 errorReceived(error)
             }
         } else {
-            print("❌ [AddWordViewModel] Input validation failed")
             errorReceived(CoreError.internalError(.inputCannotBeEmpty))
         }
     }
-    
+
     private func saveWordToSharedDictionary(_ dictionaryId: String, languageCode: String) {
         let word = Word(
             id: UUID().uuidString,
@@ -235,7 +219,6 @@ final class AddWordViewModel: BaseViewModel {
                     dictionaryId: dictionaryId,
                     word: word
                 )
-                HapticManager.shared.triggerNotification(type: .success)
                 AnalyticsService.shared.logEvent(.wordAddedToSharedDictionary)
                 dismissPublisher.send()
             } catch {
@@ -339,10 +322,10 @@ final class AddWordViewModel: BaseViewModel {
             for await (index, translatedDefinition) in group {
                 orderedResults.append((index, translatedDefinition))
             }
-            
+
             // Sort by the original index to maintain order
             orderedResults.sort { $0.0 < $1.0 }
-            
+
             // Extract the translated definitions in correct order
             translatedDefinitions = orderedResults.compactMap { $0.1 }
         }

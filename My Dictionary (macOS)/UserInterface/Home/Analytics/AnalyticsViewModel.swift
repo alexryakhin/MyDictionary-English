@@ -32,12 +32,6 @@ enum TimePeriod: CaseIterable {
 
 final class AnalyticsViewModel: BaseViewModel {
     
-    enum Output {
-        case showQuizResultsList
-    }
-
-    var output = PassthroughSubject<Output, Never>()
-    
     @Published private(set) var progressSummary: ProgressSummary?
     @Published private(set) var quizSessions: [CDQuizSession] = []
     @Published private(set) var isLoading = false
@@ -57,7 +51,6 @@ final class AnalyticsViewModel: BaseViewModel {
         CoreDataService.shared.dataUpdatedPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-                print("🔄 [AnalyticsViewModel] Core Data updated, refreshing progress summary")
                 self?.loadData()
             }
             .store(in: &cancellables)
@@ -67,7 +60,6 @@ final class AnalyticsViewModel: BaseViewModel {
             .debounce(for: .seconds(1.0), scheduler: DispatchQueue.main)
             .removeDuplicates() // Only trigger if the actual data changed
             .sink { [weak self] _ in
-                print("🔄 [AnalyticsViewModel] Shared dictionaries updated, refreshing progress summary")
                 self?.loadData()
             }
             .store(in: &cancellables)

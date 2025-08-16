@@ -16,7 +16,7 @@ struct AlertView: View {
         VStack(spacing: 8) {
             VStack(spacing: 16) {
                 Text(model.title)
-                    .font(.system(.title3, design: .rounded, weight: .medium))
+                    .font(.system(.title2, design: .rounded, weight: .bold))
                     .padding(.top, 16)
 
                 if let message = model.message {

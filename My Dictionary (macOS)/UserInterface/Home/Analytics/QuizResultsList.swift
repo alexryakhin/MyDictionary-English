@@ -9,14 +9,14 @@ import SwiftUI
 
 enum QuizResultsList {
     struct ContentView: View {
-
-        @StateObject private var viewModel = AnalyticsViewModel()
         @Environment(\.dismiss) private var dismiss
 
+        let quizSessions: [CDQuizSession]
+
         var body: some View {
-            ScrollView {
+            ScrollViewWithCustomNavBar {
                 CustomSectionView(header: "All Results", hPadding: .zero) {
-                    if viewModel.quizSessions.isEmpty {
+                    if quizSessions.isEmpty {
                         ContentUnavailableView(
                             "No Quiz Results Yet",
                             systemImage: "chart.bar",
@@ -24,19 +24,19 @@ enum QuizResultsList {
                         )
                         .listRowBackground(Color.clear)
                     } else {
-                        ListWithDivider(viewModel.quizSessions) { session in
+                        ListWithDivider(quizSessions) { session in
                             SessionRow(session: session)
                                 .id(session.id)
                         }
                     }
                 }
                 .padding(12)
+            } navigationBar: {
+                NavigationBarView(title: "Quiz Results")
             }
             .groupedBackground()
-            .navigationTitle("Quiz Results")
             .onAppear {
                 AnalyticsService.shared.logEvent(.quizResultsDetailOpened)
-                viewModel.loadData()
             }
         }
     }

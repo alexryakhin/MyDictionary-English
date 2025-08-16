@@ -49,6 +49,7 @@ struct TagRowView: View {
                     .background(Color.gray.opacity(0.01))
             }
             .foregroundStyle(.secondary)
+            .buttonStyle(.plain)
         }
     }
 }

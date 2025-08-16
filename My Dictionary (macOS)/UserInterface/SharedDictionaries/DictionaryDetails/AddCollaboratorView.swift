@@ -19,8 +19,8 @@ struct AddCollaboratorView: View {
     let dictionaryId: String
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 16) {
+        ScrollViewWithCustomNavBar {
+            VStack(spacing: 12) {
                 CustomSectionView(header: "Collaborator Details") {
                     VStack(spacing: 12) {
                         TextField("Email Address", text: $email)
@@ -37,13 +37,24 @@ struct AddCollaboratorView: View {
                             .background(Color.tertiarySystemGroupedBackground)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
 
-                        Picker("Role", selection: $role) {
-                            ForEach(CollaboratorRole.allCases, id: \.self) { role in
-                                Text(role.displayValue)
-                                    .tag(role.rawValue)
+                        HStack {
+                            Text("Select role")
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+
+                            HeaderButtonMenu(role.displayValue, size: .small) {
+                                Picker("Role", selection: $role) {
+                                    ForEach(CollaboratorRole.allCases, id: \.self) { role in
+                                        Text(role.displayValue)
+                                            .tag(role.rawValue)
+                                    }
+                                }
+                                .pickerStyle(.inline)
                             }
                         }
-                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(vertical: 8, horizontal: 12)
+                        .background(Color.tertiarySystemGroupedBackground)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
                 }
 
@@ -83,26 +94,19 @@ struct AddCollaboratorView: View {
                 }
             }
             .padding(12)
+        } navigationBar: {
+            NavigationBarView(
+                title: "Add Collaborator",
+                trailingContent: {
+                    HeaderButton("Add Collaborator", style: .borderedProminent) {
+                        addCollaborator()
+                    }
+                    .disabled(email.isEmpty && name.isEmpty)
+                    .help("Add Collaborator")
+                }
+            )
         }
         .groupedBackground()
-        .navigationTitle("Add Collaborator")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close Add Collaborator")
-                
-                // Add collaborator button
-                Button("Add Collaborator") {
-                    addCollaborator()
-                }
-                .buttonStyle(.borderedProminent)
-                .disabled(email.isEmpty && name.isEmpty)
-                .help("Add Collaborator")
-            }
-        }
     }
 
     private func addCollaborator() {

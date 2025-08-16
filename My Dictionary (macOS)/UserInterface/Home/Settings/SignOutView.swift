@@ -52,7 +52,6 @@ struct SignOutView: View {
                     VStack(spacing: 12) {
                         ActionButton("Sign Out", color: .red, style: .borderedProminent) {
                             authenticationService.signOut()
-                            dismiss()
                         }
 
                         ActionButton("Cancel") {
@@ -62,9 +61,6 @@ struct SignOutView: View {
                 }
                 .padding(24)
                 .groupedBackground()
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-                .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
-                .padding(.horizontal, 40)
             }
         }
     }

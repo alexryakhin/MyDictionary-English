@@ -3,18 +3,8 @@ import SwiftUI
 
 final class SettingsViewModel: BaseViewModel {
 
-    enum Output {
-        case showAboutApp
-        case showTagManagement
-        case showSharedDictionaries
-        case showAuthentication
-    }
-
     enum Input {
-        // No navigation inputs needed
     }
-
-    var output = PassthroughSubject<Output, Never>()
 
     @AppStorage(UDKeys.dailyRemindersEnabled) var dailyRemindersEnabled: Bool = false
     @AppStorage(UDKeys.difficultWordsAlertsEnabled) var difficultWordsEnabled: Bool = false
@@ -40,7 +30,6 @@ final class SettingsViewModel: BaseViewModel {
     }
 
     func handle(_ input: Input) {
-        // No navigation handling needed
     }
 
     private func setupBindings() {

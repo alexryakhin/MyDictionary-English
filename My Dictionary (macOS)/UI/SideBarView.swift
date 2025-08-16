@@ -2,8 +2,11 @@ import SwiftUI
 
 struct SideBarView: View {
 
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.openSettings) private var openSettings
     @StateObject private var sideBarManager = SideBarManager.shared
     @StateObject private var dictionaryService = DictionaryService.shared
+    @StateObject private var authenticationService = AuthenticationService.shared
 
     var body: some View {
         NavigationSplitView {
@@ -41,52 +44,56 @@ struct SideBarView: View {
                     .padding(.vertical, 8)
                 }
             }
-            
-            Section("Shared Dictionaries") {
-                if dictionaryService.sharedDictionaries.isEmpty {
-                    Text("No shared dictionaries")
-                        .foregroundStyle(.secondary)
-                        .font(.caption)
-                        .padding(.vertical, 4)
-                } else {
-                    ForEach(dictionaryService.sharedDictionaries, id: \.id) { dictionary in
-                        HStack(spacing: 8) {
-                            Image(systemName: "person.3")
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(dictionary.name)
-                                    .font(.title3)
-                                Text("\(dictionary.collaborators.count) collaborators")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
+
+            if authenticationService.isSignedIn {
+                Section("Shared Dictionaries") {
+                    if dictionaryService.sharedDictionaries.isEmpty {
+                        Text("No shared dictionaries")
+                            .foregroundStyle(.secondary)
+                            .font(.caption)
+                            .padding(.vertical, 4)
+                    } else {
+                        ForEach(dictionaryService.sharedDictionaries, id: \.id) { dictionary in
+                            HStack(spacing: 8) {
+                                Image(systemName: "person.3")
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(dictionary.name)
+                                        .font(.title3)
+                                    Text("\(dictionary.collaborators.count) collaborators")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.vertical, 8)
+                            .tag(SideBarTab.sharedDictionary(dictionary))
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.vertical, 8)
-                        .tag(SideBarTab.sharedDictionary(dictionary))
                     }
                 }
             }
         }
         .listStyle(.sidebar)
         .safeAreaInset(edge: .bottom) {
-            HStack {
+            VStack {
                 Button {
-                    print("TODO: Settings")
+                    openSettings()
                 } label: {
                     Label("Settings", systemImage: "gearshape.fill")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)
+                        .clippedWithBackgroundMaterial(cornerRadius: 12)
                 }
                 .buttonStyle(.plain)
-                
+
                 Button {
-                    print("TODO: About")
+                    openWindow(id: WindowID.about)
                 } label: {
                     Label("About", systemImage: "info.circle")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)
+                        .clippedWithBackgroundMaterial(cornerRadius: 12)
                 }
                 .buttonStyle(.plain)
             }

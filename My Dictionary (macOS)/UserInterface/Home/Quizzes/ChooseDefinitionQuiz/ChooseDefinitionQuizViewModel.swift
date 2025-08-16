@@ -52,12 +52,10 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     }
 
     deinit {
-        print("🔊 [ChooseDefinitionQuizViewModel] Resuming shared dictionary listeners after quiz")
         DictionaryService.shared.resumeAllListeners()
     }
 
     private func pauseSharedDictionaryListeners() {
-        print("🔇 [ChooseDefinitionQuizViewModel] Pausing shared dictionary listeners during quiz")
         DictionaryService.shared.pauseAllListeners()
     }
 
@@ -100,7 +98,6 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             // Update quiz score - add 5 points for correct answer
             score += 5
 
-            HapticManager.shared.triggerNotification(type: .success)
             AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected)
         } else {
             // Incorrect answer
@@ -114,7 +111,6 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             // Update quiz score - subtract 2 points for incorrect answer
             score -= 2
 
-            HapticManager.shared.triggerNotification(type: .error)
             AnalyticsService.shared.logEvent(.definitionQuizAnswerSelected)
         }
 
@@ -160,7 +156,6 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             getNextQuestion()
         }
 
-        HapticManager.shared.triggerNotification(type: .warning)
         AnalyticsService.shared.logEvent(.definitionQuizWordSkipped)
     }
 
@@ -239,7 +234,6 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         // Set up the first question
         getNextQuestion()
 
-        HapticManager.shared.triggerNotification(type: .success)
         AnalyticsService.shared.logEvent(.definitionQuizRestarted)
     }
 
@@ -285,6 +279,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     }
 
     private func saveQuizSession() {
+        guard wordsPlayed.count > 0 else { return }
+
         let duration = Date().timeIntervalSince(sessionStartTime)
         let accuracy = wordsPlayed.count > 0 ? Double(correctAnswers) / Double(wordsPlayed.count) : 0.0
 

@@ -2,37 +2,34 @@ import SwiftUI
 
 struct AddIdiomView: View {
 
-    @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel = AddIdiomViewModel()
+    @Environment(\.dismiss) private var dismiss
+    @StateObject private var viewModel: AddIdiomViewModel
     @FocusState private var isIdiomInputFocused: Bool
     @FocusState private var isDefinitionInputFocused: Bool
 
+    init(inputIdiom: String) {
+        self._viewModel = .init(wrappedValue: .init(inputIdiom: inputIdiom))
+    }
+
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             LazyVStack(spacing: 12) {
                 idiomInputSectionView
                 definitionInputSectionView
             }
             .padding(12)
+        } navigationBar: {
+            NavigationBarView(
+                title: "Add new idiom",
+                trailingContent: {
+                    HeaderButton("Save", style: .borderedProminent) {
+                        viewModel.handle(.save)
+                    }
+                    .help("Save Idiom")
+                }
+            )
         }
         .groupedBackground()
-        .navigationTitle("Add new idiom")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close Add Idiom")
-                
-                // Save button
-                Button("Save") {
-                    viewModel.handle(.save)
-                }
-                .buttonStyle(.borderedProminent)
-                .help("Save Idiom")
-            }
-        }
         .onReceive(viewModel.dismissPublisher) { _ in
             dismiss()
         }

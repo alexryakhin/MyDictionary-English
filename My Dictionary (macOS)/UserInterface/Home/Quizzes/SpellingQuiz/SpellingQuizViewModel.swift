@@ -18,7 +18,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var isCorrectAnswer = true
     @Published private(set) var attemptCount = 0
     @Published private(set) var isShowingCorrectAnswer = false
-    
+
     // Game progress tracking
     @Published private(set) var correctAnswers = 0
     @Published private(set) var totalQuestions = 0
@@ -26,7 +26,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var wordsPlayed: [any QuizWord] = []
     @Published private(set) var correctWordIds: [String] = []
     @Published private(set) var isQuizComplete = false
-    
+
     // Game state
     @Published private(set) var isShowingHint = false
     @Published private(set) var currentStreak = 0
@@ -48,14 +48,12 @@ final class SpellingQuizViewModel: BaseViewModel {
         setupBindings()
         pauseSharedDictionaryListeners()
     }
-    
+
     deinit {
-        print("🔊 [SpellingQuizViewModel] Resuming shared dictionary listeners after quiz")
         DictionaryService.shared.resumeAllListeners()
     }
-    
+
     private func pauseSharedDictionaryListeners() {
-        print("🔇 [SpellingQuizViewModel] Pausing shared dictionary listeners during quiz")
         DictionaryService.shared.pauseAllListeners()
     }
 
@@ -90,16 +88,16 @@ final class SpellingQuizViewModel: BaseViewModel {
             correctAnswers += 1
             currentStreak += 1
             bestStreak = max(bestStreak, currentStreak)
-            
+
             // Update word difficulty - add 5 points for correct answer
             Task {
                 await updateWordScore(randomWord, points: 5)
             }
-            
+
             wordsPlayed.append(randomWord)
             correctWordIds.append(randomWord.quiz_id)
             isShowingHint = false // Reset hint for next question
-            
+
             // Calculate accuracy contribution based on attempts
             let accuracyContribution: Double
             if attemptCount == 0 {
@@ -110,12 +108,11 @@ final class SpellingQuizViewModel: BaseViewModel {
                 accuracyContribution = 0.5 // Any more attempts: 50% accuracy
             }
             accuracyContributions[randomWord.quiz_id] = accuracyContribution
-            
+
             // Update quiz score - add 5 points for correct answer
             score += 5
             attemptCount = 0
 
-            HapticManager.shared.triggerNotification(type: .success)
             AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed)
         } else {
             // Incorrect answer
@@ -123,15 +120,15 @@ final class SpellingQuizViewModel: BaseViewModel {
             attemptCount += 1
             currentStreak = 0 // Reset streak on wrong answer
             // DON'T add to wordsPlayed here - only when answered correctly, skipped, or failed
-            
+
             // Show hint after 2 attempts
             if attemptCount >= 2 {
                 isShowingHint = true
             }
-            
+
             // Update quiz score - subtract 2 points for each wrong attempt
             score -= 2
-            
+
             // After 3 attempts, mark word as needs review and add to played list
             if attemptCount >= 3 {
                 Task {
@@ -140,29 +137,28 @@ final class SpellingQuizViewModel: BaseViewModel {
                 wordsPlayed.append(randomWord) // Add to played list when failed
                 accuracyContributions[randomWord.quiz_id] = 0.0 // 0% accuracy for failed words
             }
-            
-            HapticManager.shared.triggerNotification(type: .error)
+
             AnalyticsService.shared.logEvent(.spellingQuizAnswerConfirmed)
         }
     }
-    
+
     private func skipWord() {
         guard let randomWord else { return }
-        
+
         // Mark skipped word as needs review - subtract 2 points for skipping
         Task {
             await updateWordScore(randomWord, points: -2)
         }
-        
+
         // Add word to played list when skipped
         wordsPlayed.append(randomWord)
         accuracyContributions[randomWord.quiz_id] = 0.0 // 0% accuracy for skipped words
-        
+
         // Remove word from list (don't move to end)
         if let wordIndex = words.firstIndex(where: { $0.quiz_id == randomWord.quiz_id }) {
             words.remove(at: wordIndex)
         }
-        
+
         // Update quiz score - subtract 2 points for skipping
         score -= 2
         currentStreak = 0
@@ -180,11 +176,10 @@ final class SpellingQuizViewModel: BaseViewModel {
             isCorrectAnswer = true
             isShowingHint = false
         }
-        
-        HapticManager.shared.triggerNotification(type: .warning)
+
         AnalyticsService.shared.logEvent(.spellingQuizWordSkipped)
     }
-    
+
     private func restartQuiz() {
         // Reset all game state
         let limitedWords = Array(originalWords.shuffled().prefix(preset.wordCount))
@@ -204,19 +199,16 @@ final class SpellingQuizViewModel: BaseViewModel {
         currentStreak = 0
         accuracyContributions = [:]
         sessionStartTime = Date()
-        
-        HapticManager.shared.triggerNotification(type: .success)
+
         AnalyticsService.shared.logEvent(.spellingQuizRestarted)
     }
-    
+
     private func saveQuizSession() {
+        guard wordsPlayed.count > 0 else { return }
+
         let duration = Date().timeIntervalSince(sessionStartTime)
         let accuracy = wordsPlayed.count > 0 ? accuracyContributions.values.reduce(0, +) / Double(wordsPlayed.count) : 0.0
-        
-        print("🔹 Quiz completion: correctAnswers=\(correctAnswers), wordsPlayed=\(wordsPlayed.count), accuracy=\(accuracy), score=\(score)")
-        print("🔹 Accuracy contributions: \(accuracyContributions)")
-        print("🔹 Duration calculation: sessionStartTime=\(sessionStartTime), endTime=\(Date()), duration=\(duration) seconds (\(duration/60.0) minutes)")
-        
+
         quizAnalyticsService.saveQuizSession(
             quizType: "spelling",
             score: score,
@@ -227,7 +219,7 @@ final class SpellingQuizViewModel: BaseViewModel {
             wordsPracticed: wordsPlayed,
             correctWordIds: correctWordIds
         )
-        
+
         // Check and schedule notifications after quiz completion
         NotificationService.shared.checkAndScheduleNotifications()
     }
@@ -236,7 +228,7 @@ final class SpellingQuizViewModel: BaseViewModel {
         guard let randomWord,
               let wordIndex = words.firstIndex(where: { $0.quiz_id == randomWord.quiz_id })
         else { return }
-        
+
         // Clear the answer field and remove the current word
         answerTextField = ""
         isShowingHint = false
@@ -244,7 +236,7 @@ final class SpellingQuizViewModel: BaseViewModel {
         isCorrectAnswer = true
         words.remove(at: wordIndex)
         isShowingCorrectAnswer = false
-        
+
         // Move to next word or complete quiz
         if !words.isEmpty {
             self.randomWord = words.randomElement()
@@ -264,11 +256,11 @@ final class SpellingQuizViewModel: BaseViewModel {
         if availableWords.count < preset.wordCount {
             // Not enough words available after filtering
             self.errorMessage = preset.hardWordsOnly ?
-                "No difficult words available for quiz" :
-                "Not enough words available. Need at least \(preset.wordCount) words for the quiz."
+            "No difficult words available for quiz" :
+            "Not enough words available. Need at least \(preset.wordCount) words for the quiz."
             return
         }
-        
+
         self.originalWords = availableWords.shuffled()
         // Limit words to the selected count
         let limitedWords = Array(self.originalWords.prefix(preset.wordCount))

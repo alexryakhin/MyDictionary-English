@@ -90,6 +90,7 @@ enum CoreError: Error, LocalizedError {
         case tagNotAssigned
         case maxTagsReached
         case authenticationRequired
+        case noActiveSubscription
 
         var errorDescription: String? {
             switch self {
@@ -133,6 +134,8 @@ enum CoreError: Error, LocalizedError {
                 return "Maximum of 5 tags per word reached"
             case .authenticationRequired:
                 return "Authentication required"
+            case .noActiveSubscription:
+                return "No active subscriptions found"
             }
         }
     }

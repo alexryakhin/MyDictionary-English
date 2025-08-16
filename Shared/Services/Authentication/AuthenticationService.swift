@@ -57,7 +57,7 @@ final class AuthenticationService: ObservableObject {
     @Published var authenticationState: AuthenticationState = .signedOut
     @Published var currentUser: User?
     @Published var isUploadingWords: Bool = false
-    @Published private(set) var showingSignOutView: Bool = false
+    @Published var showingSignOutView: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -336,6 +336,10 @@ final class AuthenticationService: ObservableObject {
                 currentUser = nil
                 authenticationState = .signedOut
                 toggleSignOutView()
+
+                #if os(macOS)
+                SideBarManager.shared.selectedTab = .words
+                #endif
 
                 // Log analytics event
                 AnalyticsService.shared.logEvent(.signOutTapped)

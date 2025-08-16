@@ -32,7 +32,6 @@ final class AddIdiomViewModel: BaseViewModel {
                     definition: definitionField
                 )
                 
-                HapticManager.shared.triggerNotification(type: .success)
                 AnalyticsService.shared.logEvent(.idiomAdded)
                 dismissPublisher.send()
             } catch {

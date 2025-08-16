@@ -11,7 +11,8 @@ struct AnalyticsView: View {
     
     @StateObject private var subscriptionService: SubscriptionService = .shared
     @StateObject private var viewModel = AnalyticsViewModel()
-    
+    @State private var showingQuizResults: Bool = false
+
     var body: some View {
         ScrollView {
             if viewModel.isLoading {
@@ -40,30 +41,11 @@ struct AnalyticsView: View {
         }
         .groupedBackground()
         .navigationTitle("Progress")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Time period picker for vocabulary growth
-                if subscriptionService.isProUser {
-                    Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
-                        ForEach(TimePeriod.allCases, id: \.self) { period in
-                            Text(period.displayName).tag(period)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .help("Select Time Period")
-                }
-                
-                // Refresh button
-                Button {
-                    viewModel.refreshData()
-                } label: {
-                    Image(systemName: "arrow.clockwise")
-                }
-                .help("Refresh Data")
-            }
-        }
         .refreshable {
             viewModel.refreshData()
+        }
+        .sheet(isPresented: $showingQuizResults) {
+            QuizResultsList.ContentView(quizSessions: viewModel.quizSessions)
         }
         .onAppear {
             AnalyticsService.shared.logEvent(.analyticsOpened)
@@ -140,7 +122,7 @@ struct AnalyticsView: View {
         } trailingContent: {
             HeaderButton("View All", size: .small) {
                 if subscriptionService.isProUser {
-                    viewModel.output.send(.showQuizResultsList)
+                    showingQuizResults = true
                 } else {
                     PaywallService.shared.isShowingPaywall = true
                 }
@@ -168,6 +150,21 @@ struct AnalyticsView: View {
                         .frame(height: 200)
                 }
                 .reservedForPro(message: "Upgrade to Pro to see full vocabulary growth details.")
+            }
+        } trailingContent: {
+            if subscriptionService.isProUser {
+                HeaderButtonMenu(
+                    viewModel.selectedTimePeriod.displayName,
+                    size: .small,
+                    style: .borderedProminent
+                ) {
+                    Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
+                        ForEach(TimePeriod.allCases, id: \.self) { period in
+                            Text(period.displayName).tag(period)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                }
             }
         }
     }

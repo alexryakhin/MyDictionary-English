@@ -13,13 +13,20 @@ import FirebaseAuth
 struct SettingsView: View {
 
     @Environment(\.dismiss) var dismiss
+    @Environment(\.openWindow) var openWindow
     @Environment(\.requestReview) var requestReview
-    @StateObject private var viewModel = SettingsViewModel()
+
     @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
+
+    @StateObject private var viewModel = SettingsViewModel()
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var paywallService = PaywallService.shared
     @StateObject private var dataSyncService = DataSyncService.shared
+
+    @State private var showingSignIn: Bool = false
+    @State private var showingTagManagement: Bool = false
+    @State private var showingSharedDictionaries: Bool = false
 
     var body: some View {
         ScrollView {
@@ -28,16 +35,21 @@ struct SettingsView: View {
                 if !GlobalConstant.isEnglishLanguage {
                     CustomSectionView(header: "Translate Definitions") {
                         Toggle("Show definitions in your native language", isOn: $translateDefinitions)
+                            .padding(vertical: 12, horizontal: 16)
+                            .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
                     }
                 } else {
                     CustomSectionView(header: "Accent") {
                         HStack {
                             Text("Select accent")
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Picker("Select accent", selection: $viewModel.selectedEnglishAccent) {
-                                ForEach(EnglishAccent.allCases, id: \.self) {
-                                    Text($0.displayName).tag($0)
+                            HeaderButtonMenu(viewModel.selectedEnglishAccent.displayName, size: .small) {
+                                Picker("Select accent", selection: $viewModel.selectedEnglishAccent) {
+                                    ForEach(EnglishAccent.allCases, id: \.self) {
+                                        Text($0.displayName).tag($0)
+                                    }
                                 }
+                                .pickerStyle(.inline)
                             }
                         }
                         .padding(vertical: 12, horizontal: 16)
@@ -131,7 +143,6 @@ struct SettingsView: View {
                                     Spacer()
 
                                     HeaderButton("Sign Out", color: .red, size: .small) {
-                                        HapticManager.shared.triggerSelection()
                                         authenticationService.toggleSignOutView()
                                     }
                                 }
@@ -160,7 +171,7 @@ struct SettingsView: View {
                     } else {
                         VStack(alignment: .leading, spacing: 8) {
                             ActionButton("Sign in to sync word lists", systemImage: "person.circle") {
-                                viewModel.output.send(.showAuthentication)
+                                showingSignIn = true
                             }
                         }
                         .padding(.bottom, 12)
@@ -186,12 +197,12 @@ struct SettingsView: View {
                         .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
 
                         ActionButton("Manage Tags", systemImage: "tag") {
-                            viewModel.output.send(.showTagManagement)
+                            showingTagManagement = true
                         }
 
                         if authenticationService.isSignedIn {
                             ActionButton("Shared Dictionaries", systemImage: "person.2") {
-                                viewModel.output.send(.showSharedDictionaries)
+                                showingSharedDictionaries = true
                             }
                         }
                     }
@@ -240,7 +251,7 @@ struct SettingsView: View {
                     header: "About app"
                 ) {
                     ActionButton("Learn more", systemImage: "info.circle") {
-                        viewModel.output.send(.showAboutApp)
+                        openWindow(id: WindowID.about)
                     }
                 }
             }
@@ -263,13 +274,20 @@ struct SettingsView: View {
                 viewModel.errorReceived(error)
             }
         }
+        .sheet(isPresented: $showingSignIn) {
+            AuthenticationView()
+        }
+        .sheet(isPresented: $authenticationService.showingSignOutView) {
+            SignOutView()
+        }
+        .sheet(isPresented: $showingTagManagement) {
+            TagManagementView()
+        }
+        .sheet(isPresented: $showingSharedDictionaries) {
+            SharedDictionariesListView()
+        }
         .onAppear {
             AnalyticsService.shared.logEvent(.settingsOpened)
         }
-        #if os(iOS)
-        .sheet(item: $viewModel.exportWordsUrl) { url in
-            ShareSheet(activityItems: [url])
-        }
-        #endif
     }
 }

@@ -85,34 +85,27 @@ struct AboutAppView: View {
         }
         .groupedBackground()
         .navigationTitle("About")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close About")
-            }
-        }
         .onAppear {
             AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
         }
     }
 }
 
-struct FeatureRow: View {
-    let text: String
-    
-    var body: some View {
-        HStack(spacing: 8) {
-            Image(systemName: "checkmark")
-                .foregroundStyle(.accent)
-                .font(.system(size: 14))
-            Text(text)
-                .font(.body)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .multilineTextAlignment(.leading)
+extension AboutAppView {
+    struct FeatureRow: View {
+        let text: String
+
+        var body: some View {
+            HStack(spacing: 8) {
+                Image(systemName: "checkmark")
+                    .foregroundStyle(.accent)
+                    .font(.system(size: 14))
+                Text(text)
+                    .font(.body)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+            }
+            .padding(vertical: 12, horizontal: 16)
         }
-        .padding(vertical: 12, horizontal: 16)
     }
 }

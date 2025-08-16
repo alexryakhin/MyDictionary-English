@@ -52,18 +52,20 @@ struct IdiomDetailsView: View {
                 .help("Delete Idiom")
             }
         }
-        .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
-            TextField("Example", text: $exampleTextFieldStr)
-                .textFieldStyle(.plain)
-            Button("Cancel", role: .cancel) {
-                AnalyticsService.shared.logEvent(.idiomExampleChangingCanceled)
-            }
-            Button("Save") {
-                updateExample(at: index, text: exampleTextFieldStr)
-                editingExampleIndex = nil
-                exampleTextFieldStr = .empty
-                AnalyticsService.shared.logEvent(.idiomExampleUpdated)
-            }
+        .sheet(item: $editingExampleIndex) { index in
+            EditExampleAlert(
+                exampleText: $exampleTextFieldStr,
+                onCancel: {
+                    AnalyticsService.shared.logEvent(.idiomExampleChangingCanceled)
+                    editingExampleIndex = nil
+                },
+                onSave: {
+                    updateExample(at: index, text: exampleTextFieldStr)
+                    editingExampleIndex = nil
+                    exampleTextFieldStr = .empty
+                    AnalyticsService.shared.logEvent(.idiomExampleUpdated)
+                }
+            )
         }
     }
 
@@ -164,6 +166,7 @@ struct IdiomDetailsView: View {
                                     .padding(6)
                                     .background(Color.black.opacity(0.01))
                             }
+                            .buttonStyle(.plain)
                         }
                         .padding(vertical: 12, horizontal: 16)
                         .contentShape(RoundedRectangle(cornerRadius: 16))

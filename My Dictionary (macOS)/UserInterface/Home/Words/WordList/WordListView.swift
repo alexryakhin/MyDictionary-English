@@ -21,7 +21,8 @@ struct WordListView: View {
     @StateObject private var sideBarManager = SideBarManager.shared
 
     @State private var showRatingBanner = false
-    @State private var showAddWordWindow = false
+    @State private var showAddWord = false
+    @State private var showAuthentication = false
 
     var body: some View {
         ScrollViewWithCustomNavBar {
@@ -32,52 +33,11 @@ struct WordListView: View {
                         "Add '\(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines))'",
                         systemImage: "plus"
                     ) {
-                        // This will be handled by the parent view
+                        showAddWord = true
                     }
                 }
 
-                // MARK: - Words
-                CustomSectionView(
-                    header: viewModel.filterStateTitle,
-                    footer: viewModel.wordsCount,
-                    hPadding: 0
-                ) {
-                    if viewModel.wordsFiltered.isNotEmpty {
-                        ListWithDivider(viewModel.wordsFiltered) { wordModel in
-                            WordListCellView(word: wordModel)
-                                .id(wordModel.id)
-                                .onTap {
-                                    sideBarManager.selectedWord = wordModel
-                                }
-                                .contextMenu {
-                                    if AuthenticationService.shared.isSignedIn {
-                                        Button {
-                                            // This will be handled by the parent view
-                                        } label: {
-                                            Label("Add to Shared Dictionary", systemImage: "person.2")
-                                        }
-                                    }
-                                    Button(role: .destructive) {
-                                        viewModel.handle(.deleteWord(word: wordModel))
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
-                        }
-                    } else {
-                        ContentUnavailableView(
-                            viewModel.filterState.emptyStateTitle,
-                            systemImage: viewModel.filterState.emptyStateIcon,
-                            description: Text(viewModel.filterState.emptyStateDescription)
-                        )
-                        .padding(.vertical, 24)
-                    }
-                } trailingContent: {
-                    HeaderButton("Add Word", icon: "plus", size: .small, style: .borderedProminent) {
-                        AnalyticsService.shared.logEvent(.addWordTapped)
-                        // This will be handled by the parent view
-                    }
-                }
+                wordsSection
 
                 // MARK: - Rating Banner
                 if shouldShowRatingBanner {
@@ -96,7 +56,6 @@ struct WordListView: View {
                             AnalyticsService.shared.logEvent(.ratingBannerDismissed)
                         }
                     )
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }
             .padding(12)
@@ -120,24 +79,15 @@ struct WordListView: View {
                                 .tag(item)
                         }
                     }
+                    .pickerStyle(.inline)
                 } label: {
                     Image(systemName: "arrow.up.arrow.down")
-                }
-                
-                // Shared Dictionaries button
-                if AuthenticationService.shared.isSignedIn {
-                    Button {
-                        // This will be handled by the parent view
-                    } label: {
-                        Image(systemName: "person.2")
-                    }
-                    .help("Shared Dictionaries")
                 }
                 
                 // Add Word button
                 Button {
                     AnalyticsService.shared.logEvent(.addWordTapped)
-                    showAddWordWindow.toggle()
+                    showAddWord.toggle()
                 } label: {
                     Image(systemName: "plus")
                 }
@@ -151,11 +101,64 @@ struct WordListView: View {
         .onChange(of: viewModel.words.count) { _ in
             checkAndShowRatingBanner()
         }
-        .sheet(isPresented: $showAddWordWindow) {
+        .sheet(isPresented: $showAddWord) {
             AddWordView(inputWord: viewModel.searchText, selectedDictionaryId: nil)
         }
+        .sheet(isPresented: $showAuthentication) {
+            AuthenticationView()
+        }
     }
-    
+
+    // MARK: - Words
+
+    private var wordsSection: some View {
+        CustomSectionView(
+            header: viewModel.filterStateTitle,
+            footer: viewModel.wordsCount,
+            hPadding: 0
+        ) {
+            if viewModel.wordsFiltered.isNotEmpty {
+                ListWithDivider(
+                    viewModel.wordsFiltered,
+                    dividerLeadingPadding: .zero,
+                    dividerTrailingPadding: .zero
+                ) { wordModel in
+                    WordListCellView(word: wordModel)
+                        .id(wordModel.id)
+                        .onTap {
+                            sideBarManager.selectedWord = wordModel
+                        }
+                        .contextMenu {
+                            if AuthenticationService.shared.isSignedIn {
+                                Button {
+                                    showAuthentication = true
+                                } label: {
+                                    Label("Add to Shared Dictionary", systemImage: "person.2")
+                                }
+                            }
+                            Button(role: .destructive) {
+                                viewModel.handle(.deleteWord(word: wordModel))
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
+                }
+            } else {
+                ContentUnavailableView(
+                    viewModel.filterState.emptyStateTitle,
+                    systemImage: viewModel.filterState.emptyStateIcon,
+                    description: Text(viewModel.filterState.emptyStateDescription)
+                )
+                .padding(.vertical, 24)
+            }
+        } trailingContent: {
+            HeaderButton("Add Word", icon: "plus", size: .small, style: .borderedProminent) {
+                showAddWord = true
+                AnalyticsService.shared.logEvent(.addWordTapped)
+            }
+        }
+    }
+
     // MARK: - Rating Banner Logic
     
     private var shouldShowRatingBanner: Bool {

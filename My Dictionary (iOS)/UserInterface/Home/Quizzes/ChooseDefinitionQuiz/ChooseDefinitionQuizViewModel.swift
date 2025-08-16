@@ -285,6 +285,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     }
     
     private func saveQuizSession() {
+        guard wordsPlayed.count > 0 else { return }
+
         let duration = Date().timeIntervalSince(sessionStartTime)
         let accuracy = wordsPlayed.count > 0 ? Double(correctAnswers) / Double(wordsPlayed.count) : 0.0
         

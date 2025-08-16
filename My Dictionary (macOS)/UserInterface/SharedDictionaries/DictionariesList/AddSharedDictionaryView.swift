@@ -15,7 +15,7 @@ struct AddSharedDictionaryView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 CustomSectionView(header: "Name") {
                     TextField("Enter dictionary name", text: $name)
@@ -28,33 +28,17 @@ struct AddSharedDictionaryView: View {
                 }
             }
             .padding(16)
+        } navigationBar: {
+            NavigationBarView(title: "New Shared Dictionary")
         }
         .safeAreaInset(edge: .bottom) {
             ActionButton("Create Shared Dictionary", isLoading: isLoading) {
                 createDictionary()
             }
             .padding(vertical: 12, horizontal: 16)
+            .disabled(name.isEmpty)
         }
         .groupedBackground()
-        .navigationTitle("New Shared Dictionary")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close New Dictionary")
-                
-                // Create dictionary button
-                Button("Create Shared Dictionary") {
-                    createDictionary()
-                }
-                .buttonStyle(.borderedProminent)
-                .disabled(name.isEmpty)
-                .help("Create Shared Dictionary")
-            }
-        }
-        .presentationDetents([.medium])
     }
     
     private func createDictionary() {

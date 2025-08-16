@@ -20,6 +20,8 @@ struct SharedWordDetailsView: View {
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
 
+    @State private var showingDetailedStatistics: Bool = false
+
     // Mutable state for editable fields
     @State private var phoneticText: String = ""
     @State private var definitionText: String = ""
@@ -41,7 +43,7 @@ struct SharedWordDetailsView: View {
     }
 
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             LazyVStack(spacing: 12) {
                 transcriptionSectionView
                 partOfSpeechSectionView
@@ -53,6 +55,15 @@ struct SharedWordDetailsView: View {
             }
             .padding(12)
             .animation(.default, value: word)
+        } navigationBar: {
+            Text(word.wordItself)
+                .font(.largeTitle)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
+                .bold()
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .padding(.top, 16)
         }
         .groupedBackground()
         .navigationTitle("Word Details")
@@ -79,28 +90,23 @@ struct SharedWordDetailsView: View {
                 .help("Delete Word")
             }
         }
-        .safeAreaInset(edge: .bottom) {
-            Text(word.wordItself)
-                .font(.largeTitle)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .multilineTextAlignment(.leading)
-                .bold()
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                .background(.bar)
+        .sheet(item: $editingExampleIndex) { index in
+            EditExampleAlert(
+                exampleText: $exampleTextFieldStr,
+                onCancel: {
+                    AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
+                    editingExampleIndex = nil
+                },
+                onSave: {
+                    updateExample(at: index, text: exampleTextFieldStr)
+                    editingExampleIndex = nil
+                    exampleTextFieldStr = .empty
+                    AnalyticsService.shared.logEvent(.wordExampleChanged)
+                }
+            )
         }
-        .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
-            TextField("Example", text: $exampleTextFieldStr)
-                .textFieldStyle(.plain)
-            Button("Cancel", role: .cancel) {
-                AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
-            }
-            Button("Save") {
-                updateExample(at: index, text: exampleTextFieldStr)
-                editingExampleIndex = nil
-                exampleTextFieldStr = .empty
-                AnalyticsService.shared.logEvent(.wordExampleChanged)
-            }
+        .sheet(isPresented: $showingDetailedStatistics) {
+            SharedWordDifficultyStatsView(word: word)
         }
         .onAppear {
             // Start real-time listener for this specific word
@@ -245,6 +251,7 @@ struct SharedWordDetailsView: View {
                                     .padding(6)
                                     .background(Color.black.opacity(0.01))
                             }
+                            .buttonStyle(.plain)
                         }
                         .padding(vertical: 12, horizontal: 16)
                         .contentShape(RoundedRectangle(cornerRadius: 16))
@@ -359,7 +366,7 @@ struct SharedWordDetailsView: View {
             "View Detailed Statistics",
             systemImage: "chart.bar.doc.horizontal"
         ) {
-            // TODO: show shared word details
+            showingDetailedStatistics = true
         }
     }
 
@@ -395,11 +402,7 @@ struct SharedWordDetailsView: View {
 
             // Update Firebase directly with SharedWord
             try await dictionaryService.updateWordInSharedDictionary(dictionaryId: dictionaryId, sharedWord: updatedWord)
-
-            print("✅ [SharedWordDetails] Word updated successfully")
-            HapticManager.shared.triggerNotification(type: .success)
         } catch {
-            print("❌ [SharedWordDetails] Failed to update word: \(error.localizedDescription)")
             errorReceived(title: "Update failed", error)
         }
     }
@@ -416,7 +419,7 @@ struct SharedWordDetailsView: View {
                     : Locale.current.language.languageCode?.identifier
                 )
             } catch {
-                // Handle error if needed
+                errorReceived(error)
             }
         }
     }
@@ -462,9 +465,8 @@ struct SharedWordDetailsView: View {
         Task {
             do {
                 try await dictionaryService.toggleLike(for: word.id, in: dictionaryId)
-                print("✅ [SharedWordDetails] Like toggled successfully")
             } catch {
-                print("❌ Failed to toggle like: \(error)")
+                errorReceived(error)
             }
         }
     }
@@ -492,10 +494,7 @@ struct SharedWordDetailsView: View {
                     dictionaryId: dictionaryId,
                     wordId: word.id
                 )
-                print("✅ [SharedWordDetails] Shared word deleted successfully")
-                HapticManager.shared.triggerNotification(type: .success)
             } catch {
-                print("❌ [SharedWordDetails] Failed to delete shared word: \(error.localizedDescription)")
                 errorReceived(title: "Delete failed", error)
             }
         }

@@ -11,14 +11,15 @@ struct SharedWordDifficultyStatsView: View {
     let word: SharedWord
 
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 individualRatingsSection
             }
             .padding(12)
+        } navigationBar: {
+            NavigationBarView(title: "Difficulty Statistics")
         }
         .groupedBackground()
-        .navigationTitle("Difficulty Statistics")
         .onAppear {
             AnalyticsService.shared.logEvent(.sharedWordStatsViewed)
         }

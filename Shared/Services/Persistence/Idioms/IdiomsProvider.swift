@@ -36,6 +36,9 @@ final class IdiomsProvider: ObservableObject {
         do {
             if let object = try coreDataService.context.fetch(fetchRequest).first {
                 coreDataService.context.delete(object)
+                #if os(macOS)
+                SideBarManager.shared.selectedIdiom = nil
+                #endif
                 try coreDataService.saveContext()
                 // Manually refresh the idioms list after deletion
                 fetchIdioms()

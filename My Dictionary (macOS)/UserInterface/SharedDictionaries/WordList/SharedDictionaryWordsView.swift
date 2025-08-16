@@ -15,14 +15,15 @@ struct SharedDictionaryWordsView: View {
 
     @State private var dictionary: SharedDictionary
     @State private var showingAddWord = false
+    @State private var showingDictionaryDetails = false
 
     init(dictionary: SharedDictionary) {
-        self.dictionary = dictionary
+        self._dictionary = State(initialValue: dictionary)
         self._viewModel = StateObject(wrappedValue: SharedWordListViewModel(dictionaryId: dictionary.id))
     }
     
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 CustomSectionView(
                     header: "Words",
@@ -45,7 +46,11 @@ struct SharedDictionaryWordsView: View {
                             )
                         }
                     } else {
-                        ListWithDivider(viewModel.wordsFiltered) { word in
+                        ListWithDivider(
+                            viewModel.wordsFiltered,
+                            dividerLeadingPadding: .zero,
+                            dividerTrailingPadding: .zero
+                        ) { word in
                             SharedWordListCellView(word: word)
                                 .id(word.id)
                                 .onTap {
@@ -62,6 +67,9 @@ struct SharedDictionaryWordsView: View {
                 }
             }
             .padding(12)
+        } navigationBar: {
+            SharedWordListFilterView(viewModel: viewModel)
+                .padding(.vertical, 12)
         }
         .groupedBackground()
         .navigationTitle(dictionary.name)
@@ -70,7 +78,7 @@ struct SharedDictionaryWordsView: View {
             ToolbarItemGroup(placement: .primaryAction) {
                 // Info button
                 Button {
-                    // TODO: show dictionary info in a window
+                    showingDictionaryDetails = true
                 } label: {
                     Image(systemName: "info.circle")
                 }
@@ -87,16 +95,14 @@ struct SharedDictionaryWordsView: View {
                 }
             }
         }
-        .safeAreaInset(edge: .bottom) {
-            SharedWordListFilterView(viewModel: viewModel)
-                .padding(.vertical, 8)
-                .background(.regularMaterial)
-        }
         .sheet(isPresented: $showingAddWord) {
             AddWordView(
                 inputWord: viewModel.searchText,
                 selectedDictionaryId: dictionary.id
             )
+        }
+        .sheet(isPresented: $showingDictionaryDetails) {
+            SharedDictionaryDetailsView(dictionary: dictionary)
         }
         .onAppear {
             dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionary.id)
@@ -117,14 +123,10 @@ struct SharedDictionaryWordsView: View {
     }
     
     private func refreshDictionaryWords() async {
-        print("🔄 [SharedDictionaryWordsView] Pull-to-refresh triggered for dictionary: \(dictionary.id)")
-        
         // Force a refresh of the shared dictionary words
         dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionary.id)
         
         // Add a small delay to ensure the refresh completes
         try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
-        
-        print("✅ [SharedDictionaryWordsView] Pull-to-refresh completed for dictionary: \(dictionary.id)")
     }
 }

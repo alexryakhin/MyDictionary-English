@@ -10,10 +10,13 @@ struct WordDetailsView: View {
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
     @FocusState private var isAddExampleFocused: Bool
+
     @State private var isAddingExample = false
     @State private var editingExampleIndex: Int?
     @State private var exampleTextFieldStr = ""
     @State private var showingTagSelection = false
+    @State private var showingAddToSharedDictionary = false
+
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var tagService = TagService.shared
@@ -50,6 +53,16 @@ struct WordDetailsView: View {
         .navigationTitle("Word Details")
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
+                // Shared Dictionaries button
+                if AuthenticationService.shared.isSignedIn {
+                    Button {
+                        showingAddToSharedDictionary = true
+                    } label: {
+                        Image(systemName: "person.2.badge.plus")
+                    }
+                    .help("Add this word to a shared dictionary")
+                }
+
                 // Favorite button
                 Button {
                     word.isFavorite.toggle()
@@ -74,18 +87,23 @@ struct WordDetailsView: View {
         .sheet(isPresented: $showingTagSelection) {
             WordTagSelectionView(word: word)
         }
-        .alert("Edit example", isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
-            TextField("Example", text: $exampleTextFieldStr)
-                .textFieldStyle(.plain)
-            Button("Cancel", role: .cancel) {
-                AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
-            }
-            Button("Save") {
-                updateExample(at: index, text: exampleTextFieldStr)
-                editingExampleIndex = nil
-                exampleTextFieldStr = .empty
-                AnalyticsService.shared.logEvent(.wordExampleChanged)
-            }
+        .sheet(isPresented: $showingAddToSharedDictionary) {
+            AddExistingWordToSharedView(word: word)
+        }
+        .sheet(item: $editingExampleIndex) { index in
+            EditExampleAlert(
+                exampleText: $exampleTextFieldStr,
+                onCancel: {
+                    AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
+                    editingExampleIndex = nil
+                },
+                onSave: {
+                    updateExample(at: index, text: exampleTextFieldStr)
+                    editingExampleIndex = nil
+                    exampleTextFieldStr = .empty
+                    AnalyticsService.shared.logEvent(.wordExampleChanged)
+                }
+            )
         }
     }
 
@@ -285,6 +303,7 @@ struct WordDetailsView: View {
                                     .padding(6)
                                     .background(Color.black.opacity(0.01))
                             }
+                            .buttonStyle(.plain)
                         }
                         .padding(vertical: 12, horizontal: 16)
                         .contentShape(RoundedRectangle(cornerRadius: 16))
@@ -345,8 +364,6 @@ struct WordDetailsView: View {
 
             do {
                 try CoreDataService.shared.saveContext()
-                // Manual sync mode - no automatic sync when updating words
-                print("ℹ️ [WordDetails] Manual sync mode - no automatic sync")
             } catch {
                 errorReceived(error)
             }
@@ -365,7 +382,7 @@ struct WordDetailsView: View {
                     : Locale.current.language.languageCode?.identifier
                 )
             } catch {
-                // Handle error if needed
+                errorReceived(error)
             }
         }
     }
@@ -421,7 +438,6 @@ struct WordDetailsView: View {
         do {
             try WordsProvider.shared.deleteWord(with: id)
         } catch {
-            print("❌ [WordDetails] Failed to delete shared word: \(error.localizedDescription)")
             errorReceived(title: "Delete failed", error)
         }
     }

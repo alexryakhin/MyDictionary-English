@@ -10,20 +10,10 @@ import SwiftUI
 
 final class WordListViewModel: BaseViewModel {
 
-    enum Output {
-        case showWordDetails(CDWord)
-        case showAddWord
-        case showSharedDictionaries
-        case showAddSharedDictionary
-        case showAddExistingWordToShared(CDWord)
-    }
-
     enum Input {
         case deleteWord(word: CDWord)
         case filterChanged(FilterCase, tag: CDTag? = nil)
     }
-
-    var output = PassthroughSubject<Output, Never>()
 
     @Published var searchText = ""
     @Published private(set) var words: [CDWord] = []

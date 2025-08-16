@@ -34,16 +34,7 @@ struct SpellingQuizView: View {
                         .lineSpacing(4)
                 }
                 .padding(.horizontal, 32)
-                
-                ActionButton(
-                    "Back to Quizzes",
-                    systemImage: "chevron.left",
-                    style: .borderedProminent
-                ) {
-                    dismiss()
-                }
-                .padding(.horizontal, 32)
-                
+                                
                 Spacer()
             }
             .groupedBackground()
@@ -53,13 +44,9 @@ struct SpellingQuizView: View {
         } else if !viewModel.isQuizComplete {
             ScrollView {
                 VStack(spacing: 12) {
-                    // Definition Card
+                    progressBar
                     definitionCard
-
-                    // Answer Section
                     answerSection
-
-                    // Action Buttons
                     actionButtons
                 }
                 .padding(12)
@@ -75,12 +62,6 @@ struct SpellingQuizView: View {
                     .help("Exit Quiz")
                 }
             }
-            .safeAreaInset(edge: .bottom) {
-                headerView
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .background(.bar)
-            }
             .onAppear {
                 AnalyticsService.shared.logEvent(.spellingQuizOpened)
             }
@@ -94,45 +75,33 @@ struct SpellingQuizView: View {
                 dismiss()
             }
         } else {
-            // Completion View
-            completionView
+            QuizResultsView(
+                model: .init(
+                    quiz: .spelling,
+                    score: viewModel.score,
+                    correctAnswers: viewModel.correctAnswers,
+                    wordsPlayed: viewModel.wordsPlayed.count,
+                    accuracyContributions: viewModel.accuracyContributions.values.reduce(0, +),
+                    bestStreak: viewModel.bestStreak
+                ),
+                onRestart: {
+                    viewModel.handle(.restartQuiz)
+                }
+            )
         }
     }
 
-    private var headerView: some View {
-        VStack(spacing: 6) {
-            // Progress Bar
-            ProgressView(value: Double(viewModel.wordsPlayed.count), total: Double(viewModel.totalQuestions))
-                .progressViewStyle(.linear)
-
-            HStack {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Progress: \(viewModel.wordsPlayed.count)/\(viewModel.totalQuestions)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    
-                    if viewModel.currentStreak > 0 {
-                        Text("🔥 Streak: \(viewModel.currentStreak)")
-                            .font(.caption)
-                            .foregroundStyle(.orange)
-                            .fontWeight(.medium)
-                    }
-                }
-                
-                Spacer()
-                
-                VStack(alignment: .trailing, spacing: 2) {
-                    Text("Score: \(viewModel.score)")
-                        .font(.caption)
-                        .fontWeight(.medium)
-                        .foregroundStyle(.blue)
-                    
-                    Text("Best: \(viewModel.bestStreak)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-            }
-        }
+    private var progressBar: some View {
+        QuizProgressHeader(
+            model: .init(
+                wordsPlayed: viewModel.wordsPlayed.count,
+                totalQuestions: viewModel.totalQuestions,
+                currentStreak: viewModel.currentStreak,
+                score: viewModel.score,
+                bestStreak: viewModel.bestStreak
+            )
+        )
+        .clippedWithPaddingAndBackground(cornerRadius: 16, showShadow: true)
     }
 
     private var definitionCard: some View {
@@ -273,9 +242,12 @@ struct SpellingQuizView: View {
     @ViewBuilder
     private var actionButtons: some View {
         let isMovingOnToNextWord = viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3
+        let isFinishing = viewModel.wordsPlayed.count == viewModel.totalQuestions
         VStack(spacing: 12) {
             ActionButton(
-                isMovingOnToNextWord ? "Next Word" : "Submit Answer",
+                isMovingOnToNextWord
+                ? isFinishing ? "Finish" : "Next Word"
+                : "Submit Answer",
                 systemImage: isMovingOnToNextWord ? "arrow.right.circle.fill" : "checkmark.circle.fill",
                 style: .borderedProminent
             ) {
@@ -298,112 +270,6 @@ struct SpellingQuizView: View {
         }
     }
 
-    private var completionView: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            
-            VStack(spacing: 24) {
-                // Success Icon
-                ZStack {
-                    Circle()
-                        .fill(.accent.gradient)
-                        .frame(width: 80, height: 80)
-                    
-                    Image(systemName: "checkmark")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
-                }
-                
-                VStack(spacing: 12) {
-                    Text("Quiz Complete!")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    
-                    Text("Great job! You've completed the spelling quiz.")
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                }
-                
-                // Score Card
-                VStack(spacing: 16) {
-                    Text("Your Results")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                    
-                    VStack(spacing: 12) {
-                        HStack {
-                            Text("Final Score")
-                            Spacer()
-                            Text("\(viewModel.score)")
-                                .fontWeight(.bold)
-                                .foregroundStyle(.blue)
-                        }
-                        
-                        HStack {
-                            Text("Correct Answers")
-                            Spacer()
-                            Text("\(viewModel.correctAnswers)/\(viewModel.wordsPlayed.count)")
-                                .fontWeight(.medium)
-                        }
-                        
-                        HStack {
-                            Text("Best Streak")
-                            Spacer()
-                            Text("\(viewModel.bestStreak)")
-                                .fontWeight(.medium)
-                                .foregroundStyle(.orange)
-                        }
-                        
-                        HStack {
-                            Text("Accuracy")
-                            Spacer()
-                            Text("\(Int(calculateAccuracy()))%")
-                                .fontWeight(.medium)
-                                .foregroundStyle(.accent)
-                        }
-                        
-                        #if DEBUG
-                        if viewModel.wordsPlayed.count > 0 {
-                            HStack {
-                                Text("Debug")
-                                Spacer()
-                                Text("contributions: \(viewModel.accuracyContributions.values.map { String(format: "%.2f", $0) }.joined(separator: ", "))")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                        #endif
-                    }
-                    .font(.body)
-                }
-                .padding(24)
-                .background(Color.secondarySystemGroupedBackground)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-                .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
-            }
-            .padding(.horizontal, 32)
-
-            Spacer()
-
-            VStack(spacing: 12) {
-                ActionButton("Try Again", systemImage: "arrow.clockwise", style: .borderedProminent) {
-                    viewModel.handle(.restartQuiz)
-                }
-                ActionButton("Back to Quizzes", systemImage: "chevron.left") {
-                    dismiss()
-                }
-            }
-            .padding(.horizontal, 32)
-        }
-        .padding(.vertical, 16)
-        .groupedBackground()
-        .onReceive(viewModel.dismissPublisher) {
-            dismiss()
-        }
-    }
-
     private var incorrectMessage: String {
         guard let randomWord = viewModel.randomWord else { return "" }
 
@@ -412,18 +278,5 @@ struct SpellingQuizView: View {
         } else {
             return "Incorrect. Try again"
         }
-    }
-
-    private func calculateAccuracy() -> Double {
-        let wordsPlayedCount = Double(viewModel.wordsPlayed.count)
-        
-        if wordsPlayedCount == 0 {
-            return 0.0
-        }
-        
-        // Calculate accuracy based on contributions
-        let totalAccuracyContribution = viewModel.accuracyContributions.values.reduce(0, +)
-        let averageAccuracy = totalAccuracyContribution / wordsPlayedCount
-        return averageAccuracy * 100
     }
 }

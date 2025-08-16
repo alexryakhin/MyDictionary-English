@@ -334,6 +334,10 @@ final class DictionaryService: ObservableObject {
             throw DictionaryError.invalidInput
         }
 
+        #if os(macOS)
+        SideBarManager.shared.selectedSharedWord = nil
+        #endif
+
         let docRef = db
             .collection("dictionaries")
             .document(dictionaryId)

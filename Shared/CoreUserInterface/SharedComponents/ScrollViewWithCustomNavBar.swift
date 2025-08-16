@@ -26,19 +26,9 @@ struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
     }
 
     var body: some View {
-        ScrollView {
+        ScrollViewWithReader(scrollOffset: $scrollOffset) {
             content()
-                .background(GeometryReader { geometry in
-                    Color.clear.preference(
-                        key: ScrollOffsetPreferenceKey.self,
-                        value: geometry.frame(in: .named(ScrollOffsetPreferenceKey.coordinateSpaceName)).minY
-                    )
-                })
-                .onPreferenceChange(ScrollOffsetPreferenceKey.self) { value in
-                    scrollOffset = value
-                }
         }
-        .coordinateSpace(name: ScrollOffsetPreferenceKey.coordinateSpaceName)
         .safeAreaInset(edge: .top) {
             navigationBar()
                 .background {
@@ -49,14 +39,5 @@ struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
                     .opacity(navigationBarOpacity)
                 }
         }
-    }
-}
-
-// Preference key for tracking scroll position
-private struct ScrollOffsetPreferenceKey: PreferenceKey {
-    static let coordinateSpaceName = "scroll"
-    static let defaultValue: CGFloat = .zero
-
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
     }
 }

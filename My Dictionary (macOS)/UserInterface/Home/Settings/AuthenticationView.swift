@@ -23,6 +23,8 @@ struct AuthenticationView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            NavigationBarView(title: "Sign In")
+
             Spacer()
 
             // Header
@@ -48,21 +50,16 @@ struct AuthenticationView: View {
             // Sign in buttons
             VStack(spacing: 16) {
                 // Google Sign-In Button
-                Button {
+                ActionButton(
+                    "Sign in with Google",
+                    systemImage: "g.circle.fill",
+                    style: .borderedProminent
+                ) {
                     AnalyticsService.shared.logEvent(.signInWithGoogleTapped)
-                    Task {
+                    Task { @MainActor in
                         await signInWithGoogle()
                     }
-                } label: {
-                    Label {
-                        Text("Sign in with Google")
-                    } icon: {
-                        Image(.googleLogo).renderingMode(.template)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
-                .buttonStyle(.borderedProminent)
-                .frame(height: 50)
                 .disabled(authService.authenticationState == .loading)
 
                 // Sign In with Apple Button
@@ -94,6 +91,7 @@ struct AuthenticationView: View {
                     .foregroundStyle(.secondary)
                 }
             }
+            .frame(maxWidth: 300)
             .padding(.horizontal, 32)
 
             Spacer()
@@ -112,17 +110,8 @@ struct AuthenticationView: View {
                 }
             }
         }
+        .padding(12)
         .groupedBackground()
-        .navigationTitle("Sign In")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close Sign In")
-            }
-        }
         .onChange(of: authService.authenticationState) { state in
             if state == .signedIn && !shownBeforePaywall {
                 dismiss()
@@ -213,8 +202,7 @@ struct AuthenticationView: View {
         do {
             try await authService.signInWithGoogle()
         } catch {
-            // Handle error - you might want to show an alert
-            print("Sign in error: \(error)")
+            errorReceived(error)
         }
     }
 
@@ -225,11 +213,11 @@ struct AuthenticationView: View {
                 do {
                     try await authService.signInWithApple()
                 } catch {
-                    print("Apple sign in error: \(error)")
+                    errorReceived(error)
                 }
             }
         case .failure(let error):
-            print("Apple sign in failed: \(error)")
+            errorReceived(error)
         }
     }
 
@@ -237,7 +225,7 @@ struct AuthenticationView: View {
         do {
             try await authService.linkGoogleAccount()
         } catch {
-            print("Link Google account error: \(error)")
+            errorReceived(error)
         }
     }
 
@@ -245,7 +233,7 @@ struct AuthenticationView: View {
         do {
             try await authService.linkAppleAccount()
         } catch {
-            print("Link Apple account error: \(error)")
+            errorReceived(error)
         }
     }
 }

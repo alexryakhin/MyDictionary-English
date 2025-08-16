@@ -23,7 +23,7 @@ struct AddExistingWordToSharedView: View {
     }
 
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 // Word Info Card
                 VStack(alignment: .leading, spacing: 12) {
@@ -89,27 +89,19 @@ struct AddExistingWordToSharedView: View {
                 .buttonStyle(.plain)
             }
             .padding(12)
+        } navigationBar: {
+            NavigationBarView(
+                title: "Add to Shared",
+                trailingContent: {
+                    HeaderButton("Add to Shared Dictionary", style: .borderedProminent) {
+                        addWordToSelectedDictionary()
+                    }
+                    .disabled(selectedDictionaryId == nil)
+                    .help("Add Word to Shared Dictionary")
+                }
+            )
         }
         .groupedBackground()
-        .navigationTitle("Add to Shared")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close Add to Shared")
-                
-                // Add to shared dictionary button
-                Button("Add to Shared Dictionary") {
-                    print("🔘 [AddExistingWordToSharedView] Button pressed!")
-                    addWordToSelectedDictionary()
-                }
-                .buttonStyle(.borderedProminent)
-                .disabled(selectedDictionaryId == nil)
-                .help("Add Word to Shared Dictionary")
-            }
-        }
         .sheet(isPresented: $showingDictionarySelection) {
             SharedDictionarySelectionView(selectedDictionaryId: selectedDictionaryId) { dictionaryId in
                 selectedDictionaryId = dictionaryId
@@ -127,44 +119,16 @@ struct AddExistingWordToSharedView: View {
                 isLoading = false
             }
 
-            print("🔍 [AddExistingWordToSharedView] Starting to add word to shared dictionary")
-            print("📝 [AddExistingWordToSharedView] Word: '\(word.wordItself ?? "nil")'")
-            print("📝 [AddExistingWordToSharedView] Selected dictionary ID: \(selectedDictionaryId ?? "nil")")
-            print("📝 [AddExistingWordToSharedView] Word language code: \(word.languageCode ?? "nil")")
-
-            guard let dictionaryId = selectedDictionaryId else {
-                print("❌ [AddExistingWordToSharedView] No dictionary ID selected")
-                return
-            }
-
-            guard let wordData = Word(from: word) else {
-                print("❌ [AddExistingWordToSharedView] Failed to convert CDWord to Word")
-                print("📝 [AddExistingWordToSharedView] CDWord details:")
-                print("  - ID: \(word.id?.uuidString ?? "nil")")
-                print("  - Word: \(word.wordItself ?? "nil")")
-                print("  - Definition: \(word.definition ?? "nil")")
-                print("  - Part of speech: \(word.partOfSpeech ?? "nil")")
-                print("  - Language code: \(word.languageCode ?? "nil")")
-                return
-            }
-
-            print("✅ [AddExistingWordToSharedView] Successfully converted CDWord to Word")
-            print("📝 [AddExistingWordToSharedView] Word data: \(wordData)")
+            guard let dictionaryId = selectedDictionaryId, let wordData = Word(from: word) else { return }
 
             do {
                 try await dictionaryService.addWordToSharedDictionary(
                     dictionaryId: dictionaryId,
                     word: wordData
                 )
-                print("✅ [AddExistingWordToSharedView] Word added successfully to shared dictionary")
-                HapticManager.shared.triggerNotification(type: .success)
                 dismiss()
             } catch {
-                print("❌ [AddExistingWordToSharedView] Error adding word to shared dictionary: \(error.localizedDescription)")
-                AlertCenter.shared.showAlert(with: .info(
-                    title: "Can't share word",
-                    message: error.localizedDescription
-                ))
+                errorReceived(error)
             }
         }
     }

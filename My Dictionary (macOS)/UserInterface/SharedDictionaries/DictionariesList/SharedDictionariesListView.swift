@@ -14,13 +14,14 @@ struct SharedDictionariesListView: View {
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var dictionaryService = DictionaryService.shared
     @State private var showingAddDictionary = false
+    @State private var selectedDictionary: SharedDictionary?
 
     private var userOwnedDictionaryCount: Int {
         dictionaryService.getUserOwnedDictionaryCount()
     }
 
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 // Show user's dictionary count and limit
                 if !subscriptionService.isProUser {
@@ -53,7 +54,7 @@ struct SharedDictionariesListView: View {
                         ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in
                             SharedDictionariesListCellView(dictionary: dictionary)
                                 .onTap {
-                                    // TODO: open words
+                                    selectedDictionary = dictionary
                                 }
                         }
                     }
@@ -66,31 +67,13 @@ struct SharedDictionariesListView: View {
                 }
             }
             .padding(12)
+        } navigationBar: {
+            NavigationBarView(title: "Shared Dictionaries")
         }
         .refreshable {
             await refreshSharedDictionaries()
         }
         .groupedBackground()
-        .navigationTitle("Shared Dictionaries")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close Shared Dictionaries")
-                
-                // Add dictionary button
-                if dictionaryService.canCreateMoreSharedDictionaries() {
-                    Button {
-                        showingAddDictionary = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .help("Add Shared Dictionary")
-                }
-            }
-        }
         .sheet(isPresented: $showingAddDictionary) {
             if dictionaryService.canCreateMoreSharedDictionaries() {
                 AddSharedDictionaryView()
@@ -99,20 +82,19 @@ struct SharedDictionariesListView: View {
                 MyPaywallView()
             }
         }
+        .sheet(item: $selectedDictionary) { dictionary in
+            SharedDictionaryDetailsView(dictionary: dictionary)
+        }
         .onAppear {
             dictionaryService.setupSharedDictionariesListener()
         }
     }
     
     private func refreshSharedDictionaries() async {
-        print("🔄 [SharedDictionariesListView] Pull-to-refresh triggered")
-        
         // Force a refresh of the shared dictionaries
         dictionaryService.refreshSharedDictionaries()
         
         // Add a small delay to ensure the refresh completes
         try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
-        
-        print("✅ [SharedDictionariesListView] Pull-to-refresh completed")
     }
 } 

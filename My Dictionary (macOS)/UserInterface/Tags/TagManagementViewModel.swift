@@ -21,7 +21,6 @@ final class TagManagementViewModel: BaseViewModel {
     
     @Published private(set) var tags: [CDTag] = []
     @Published var showingAddEditSheet = false
-    @Published var showingDeleteAlert = false
     @Published var editingTag: CDTag?
     @Published var isEditing = false
     
@@ -48,8 +47,16 @@ final class TagManagementViewModel: BaseViewModel {
             
         case .deleteTag(let tag):
             editingTag = tag
-            showingDeleteAlert = true
-            
+            showAlert(
+                withModel: .deleteConfirmation(
+                    title: "Delete Tag",
+                    message: "Are you sure you want to delete this tag? This action cannot be undone.",
+                    onDelete: { [weak self] in
+                        self?.handle(.confirmDeleteTag)
+                    }
+                )
+            )
+
         case .confirmDeleteTag:
             guard let tag = editingTag else { return }
             deleteTag(tag)

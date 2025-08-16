@@ -12,7 +12,7 @@ struct TagManagementView: View {
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        ScrollView {
+        ScrollViewWithCustomNavBar {
             CustomSectionView(
                 header: "Tags",
                 footer: "Tags help you organize your words. Each word can have up to 5 tags.",
@@ -40,36 +40,12 @@ struct TagManagementView: View {
                 }
             }
             .padding(12)
+        } navigationBar: {
+            NavigationBarView(title: "Manage Tags")
         }
         .groupedBackground()
-        .navigationTitle("Manage Tags")
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Close button
-                Button("Close") {
-                    dismiss()
-                }
-                .help("Close Tag Management")
-                
-                // Add tag button
-                Button {
-                    viewModel.handle(.addTag)
-                } label: {
-                    Image(systemName: "plus")
-                }
-                .help("Add Tag")
-            }
-        }
         .sheet(isPresented: $viewModel.showingAddEditSheet) {
             AddEditTagView(viewModel: viewModel)
-        }
-        .alert("Delete Tag", isPresented: $viewModel.showingDeleteAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("Delete", role: .destructive) {
-                viewModel.handle(.confirmDeleteTag)
-            }
-        } message: {
-            Text("Are you sure you want to delete this tag? This action cannot be undone.")
         }
     }
 }

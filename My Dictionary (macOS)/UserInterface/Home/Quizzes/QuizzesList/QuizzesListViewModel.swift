@@ -11,15 +11,9 @@ import SwiftUI
 
 final class QuizzesListViewModel: BaseViewModel {
 
-    enum Output {
-        case showSharedDictionary(SharedDictionary)
-    }
-
     enum Input {
         case dictionarySelected(QuizDictionary)
     }
-
-    var output = PassthroughSubject<Output, Never>()
 
     @Published var showingHardWordsOnly = false
     @Published var selectedDictionary: QuizDictionary = .privateDictionary
@@ -40,7 +34,6 @@ final class QuizzesListViewModel: BaseViewModel {
             
             // If it's a shared dictionary, ensure words are loaded
             if case .sharedDictionary(let sharedDictionary) = dictionary {
-                print("🔄 [QuizzesListViewModel] Shared dictionary selected: \(sharedDictionary.name)")
                 quizWordsProvider.loadWordsForSharedDictionary(sharedDictionary)
             }
         }

@@ -210,6 +210,8 @@ final class SpellingQuizViewModel: BaseViewModel {
     }
     
     private func saveQuizSession() {
+        guard wordsPlayed.count > 0 else { return }
+
         let duration = Date().timeIntervalSince(sessionStartTime)
         let accuracy = wordsPlayed.count > 0 ? accuracyContributions.values.reduce(0, +) / Double(wordsPlayed.count) : 0.0
         

@@ -14,7 +14,6 @@ import UserNotifications
 struct MyDictionaryApp: App {
 
     @Environment(\.openWindow) private var openWindow
-    @StateObject private var appInitializationManager = AppInitializationManager.shared
 
     init() {
         FirebaseApp.configure()
@@ -37,7 +36,7 @@ struct MyDictionaryApp: App {
                 }
             }
             
-#if DEBUG
+            #if DEBUG
             CommandGroup(after: CommandGroupPlacement.appInfo) {
                 Button {
                     openWindow(id: WindowID.debug)
@@ -46,7 +45,7 @@ struct MyDictionaryApp: App {
                 }
                 .keyboardShortcut("d", modifiers: [.command, .shift])
             }
-#endif
+            #endif
         }
         .defaultSize(width: 900, height: 500)
 
@@ -55,12 +54,12 @@ struct MyDictionaryApp: App {
         }
         .defaultSize(width: 600, height: 600)
 
-#if DEBUG
+        #if DEBUG
         Window("Debug Panel", id: WindowID.debug) {
             DebugView()
         }
         .defaultSize(width: 600, height: 800)
-#endif
+        #endif
 
         Settings {
             SettingsView()

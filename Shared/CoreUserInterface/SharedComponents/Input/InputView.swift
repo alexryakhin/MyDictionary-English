@@ -53,6 +53,7 @@ public struct InputView: View {
                 leadingIcon
                     .foregroundStyle(.tertiary)
                 TextField(placeholder, text: $text)
+                    .textFieldStyle(.plain)
                     .submitLabel(submitLabel)
                     .focused($isFocused)
                     .onSubmit {
@@ -73,6 +74,7 @@ public struct InputView: View {
                             .font(.callout)
                     }
                     .foregroundStyle(.secondary)
+                    .buttonStyle(.plain)
                 }
             }
             .padding(vertical: 8, horizontal: 12)

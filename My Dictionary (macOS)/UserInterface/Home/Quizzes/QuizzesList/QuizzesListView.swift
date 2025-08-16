@@ -219,7 +219,7 @@ struct QuizzesListView: View {
                         systemImage: "plus.circle.fill",
                         style: .borderedProminent
                     ) {
-                        viewModel.output.send(.showSharedDictionary(dictionary))
+                        SideBarManager.shared.selectedTab = .sharedDictionary(dictionary)
                     }
 
                     Text("Ask the dictionary owner to add more words, or switch to a different dictionary!")
@@ -233,7 +233,7 @@ struct QuizzesListView: View {
                         systemImage: "plus.circle.fill",
                         style: .borderedProminent
                     ) {
-                        // TODO: switch to words
+                        SideBarManager.shared.selectedTab = .words
                     }
 
                     Text(viewModel.words.isEmpty ?

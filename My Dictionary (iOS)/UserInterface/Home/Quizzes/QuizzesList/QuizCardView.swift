@@ -11,7 +11,7 @@ struct QuizCardView: View {
     let quiz: Quiz
     
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 8) {
             // Quiz Icon
             ZStack {
                 RoundedRectangle(cornerRadius: 12)
@@ -33,9 +33,8 @@ struct QuizCardView: View {
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
             }
-            
-            Spacer()
-            
+            .frame(maxWidth: .infinity, alignment: .leading)
+
             Image(systemName: "chevron.right")
                 .font(.caption)
                 .foregroundStyle(.secondary)

@@ -10,16 +10,9 @@ import SwiftUI
 
 final class SharedWordListViewModel: BaseViewModel {
 
-    enum Output {
-        case showWordDetails(SharedWord)
-        case showAddWord
-    }
-
     enum Input {
         case filterChanged(FilterCase)
     }
-
-    var output = PassthroughSubject<Output, Never>()
 
     @Published var searchText = ""
     @Published var selectedWord: SharedWord?

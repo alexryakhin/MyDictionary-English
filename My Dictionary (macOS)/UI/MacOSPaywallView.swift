@@ -15,7 +15,6 @@ enum MacOSPaywall {
         @Environment(\.dismiss) var dismiss
         @State private var selectedPlan: SubscriptionPlan = .yearly
         @State private var isLoading = false
-        @State private var errorMessage: String?
 
         var body: some View {
             VStack(spacing: 0) {
@@ -38,15 +37,6 @@ enum MacOSPaywall {
             }
             .frame(minWidth: 600, minHeight: 700)
             .background(Color.systemGroupedBackground)
-            .alert("Error", isPresented: .constant(errorMessage != nil)) {
-                Button("OK") {
-                    errorMessage = nil
-                }
-            } message: {
-                if let errorMessage = errorMessage {
-                    Text(errorMessage)
-                }
-            }
         }
 
         // MARK: - Header View
@@ -166,14 +156,13 @@ enum MacOSPaywall {
 
         private func purchaseSelectedPlan() async {
             isLoading = true
-            errorMessage = nil
 
             do {
                 try await subscriptionService.purchasePlan(selectedPlan)
                 PaywallService.shared.handlePurchaseCompleted()
                 dismiss()
             } catch {
-                errorMessage = error.localizedDescription
+                errorReceived(error)
             }
 
             isLoading = false
@@ -181,7 +170,6 @@ enum MacOSPaywall {
 
         private func restorePurchases() async {
             isLoading = true
-            errorMessage = nil
 
             do {
                 try await subscriptionService.restorePurchases()
@@ -189,10 +177,10 @@ enum MacOSPaywall {
                     PaywallService.shared.handlePurchaseCompleted()
                     dismiss()
                 } else {
-                    errorMessage = "No active subscriptions found"
+                    errorReceived(CoreError.internalError(.noActiveSubscription))
                 }
             } catch {
-                errorMessage = error.localizedDescription
+                errorReceived(error)
             }
 
             isLoading = false
