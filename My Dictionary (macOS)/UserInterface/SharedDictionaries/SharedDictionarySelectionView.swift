@@ -116,7 +116,11 @@ struct SharedDictionarySelectionView: View {
                             "Create Shared Dictionary",
                             systemImage: "plus.circle"
                         ) {
-                            showingAddDictionary = true
+                            if dictionaryService.canCreateMoreSharedDictionaries() {
+                                showingAddDictionary = true
+                            } else {
+                                PaywallService.shared.isShowingPaywall = true
+                            }
                         }
                         .padding(.bottom, 12)
                     }
@@ -128,13 +132,10 @@ struct SharedDictionarySelectionView: View {
         }
         .groupedBackground()
         .sheet(isPresented: $showingAddDictionary) {
-            if dictionaryService.canCreateMoreSharedDictionaries() {
-                AddSharedDictionaryView()
-                    .presentationCornerRadius(24)
-            } else {
-                MyPaywallView()
-            }
+            AddSharedDictionaryView()
+                .presentationCornerRadius(24)
         }
+        .withPaywall()
         .onAppear {
             dictionaryService.setupSharedDictionariesListener()
         }

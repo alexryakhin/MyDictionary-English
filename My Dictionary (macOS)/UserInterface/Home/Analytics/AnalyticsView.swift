@@ -155,8 +155,7 @@ struct AnalyticsView: View {
             if subscriptionService.isProUser {
                 HeaderButtonMenu(
                     viewModel.selectedTimePeriod.displayName,
-                    size: .small,
-                    style: .borderedProminent
+                    size: .small
                 ) {
                     Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
                         ForEach(TimePeriod.allCases, id: \.self) { period in

@@ -15,7 +15,6 @@ struct AddEditTagView: View {
 
     @State private var tagName = ""
     @State private var selectedColor: TagColor = .blue
-    @State private var isShowingPaywall: Bool = false
 
     var body: some View {
         ScrollViewWithCustomNavBar {
@@ -51,7 +50,7 @@ struct AddEditTagView: View {
                         if subscriptionService.isProUser {
                             saveTag()
                         } else {
-                            isShowingPaywall = true
+                            PaywallService.shared.isShowingPaywall = true
                         }
                     }
                     .help("Save Tag")
@@ -65,9 +64,7 @@ struct AddEditTagView: View {
                 selectedColor = editingTag.colorValue
             }
         }
-        .sheet(isPresented: $isShowingPaywall) {
-            MyPaywallView()
-        }
+        .withPaywall()
     }
     
     private func saveTag() {

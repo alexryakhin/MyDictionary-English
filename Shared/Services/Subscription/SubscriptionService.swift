@@ -10,38 +10,36 @@ import RevenueCat
 import Combine
 import FirebaseFirestore
 
-// MARK: - Subscription Plans
+// MARK: - Subscription Plan Model
 
-enum SubscriptionPlan: String, CaseIterable {
-    case monthly = "pro_monthly"
-    case yearly = "pro_yearly"
-
-    var displayName: String {
-        switch self {
-        case .monthly: return "Monthly Pro"
-        case .yearly: return "Yearly Pro"
+struct SubscriptionPlan: Identifiable, Hashable {
+    let id: String // Product ID
+    let product: StoreProduct
+    let displayName: String
+    let price: String
+    let savings: String?
+    
+    init(product: StoreProduct) {
+        self.id = product.productIdentifier
+        self.product = product
+        self.displayName = product.localizedTitle
+        self.price = product.localizedPriceString
+        
+        // Calculate savings for yearly plans
+        if product.subscriptionPeriod?.unit == .year {
+            // Compare with monthly price to show savings
+            self.savings = "Save 33%" // You can calculate this dynamically
+        } else {
+            self.savings = nil
         }
     }
-
-    var price: String {
-        switch self {
-        case .monthly: return "$4.99/month"
-        case .yearly: return "$39.99/year"
-        }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
-
-    var savings: String? {
-        switch self {
-        case .monthly: return nil
-        case .yearly: return "Save 33%"
-        }
-    }
-
-    var productId: String {
-        switch self {
-        case .monthly: return "com.dor.mydictionary.pro.monthly"
-        case .yearly: return "com.dor.mydictionary.pro.yearly"
-        }
+    
+    static func == (lhs: SubscriptionPlan, rhs: SubscriptionPlan) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
@@ -50,6 +48,7 @@ enum SubscriptionPlan: String, CaseIterable {
 enum SubscriptionFeature: String, CaseIterable {
     case unlimitedExport = "unlimited_export"
     case createSharedDictionaries = "create_shared_dictionaries"
+    case tagManagement = "tag_management"
     case advancedAnalytics = "advanced_analytics"
     case prioritySupport = "priority_support"
 
@@ -57,6 +56,7 @@ enum SubscriptionFeature: String, CaseIterable {
         switch self {
         case .unlimitedExport: "Unlimited Export"
         case .createSharedDictionaries: "Create Shared Dictionaries"
+        case .tagManagement: "Tag Management"
         case .advancedAnalytics: "Advanced Analytics"
         case .prioritySupport: "Priority Support"
         }
@@ -66,6 +66,7 @@ enum SubscriptionFeature: String, CaseIterable {
         switch self {
         case .unlimitedExport: "Export unlimited words to CSV"
         case .createSharedDictionaries: "Create and manage shared dictionaries with collaborators"
+        case .tagManagement: "Organize your words with custom tags for easier search"
         case .advancedAnalytics: "Detailed progress tracking and insights"
         case .prioritySupport: "Get priority support when you need help"
         }
@@ -75,6 +76,7 @@ enum SubscriptionFeature: String, CaseIterable {
         switch self {
         case .unlimitedExport: "square.and.arrow.up"
         case .createSharedDictionaries: "person.2.fill"
+        case .tagManagement: "tag.fill"
         case .advancedAnalytics: "chart.bar.fill"
         case .prioritySupport: "star.fill"
         }
@@ -88,6 +90,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
 
     @Published private(set) var isProUser = false
     @Published private(set) var currentPlan: SubscriptionPlan?
+    @Published private(set) var availablePlans: [SubscriptionPlan] = []
     @Published private(set) var isLoading = false
     @Published private(set) var errorMessage: String?
 
@@ -120,8 +123,11 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
         // Set this service as the delegate to receive purchase updates
         Purchases.shared.delegate = self
 
-        // Check initial subscription status only if user is authenticated
+        // Load products and check initial subscription status
         Task { @MainActor in
+            // Load available products first
+            await loadAvailableProducts()
+            
             if AuthenticationService.shared.isSignedIn {
                 // Set up cross-platform App User ID when user signs in
                 await setupAppUserID()
@@ -258,7 +264,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             // Use setData with merge to create document if it doesn't exist
             try await db.collection("users").document(userEmail).setData([
                 "subscriptionStatus": isProUser ? "pro" : "free",
-                "subscriptionPlan": currentPlan?.rawValue ?? "none",
+                "subscriptionPlan": currentPlan?.id ?? "none",
                 "subscriptionExpiryDate": expiryDate,
                 "lastUpdated": FieldValue.serverTimestamp()
             ], merge: true)
@@ -271,10 +277,12 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     }
 
     private func getCurrentPlan(from customerInfo: CustomerInfo) -> SubscriptionPlan? {
-        for plan in SubscriptionPlan.allCases {
-            if customerInfo.entitlements[plan.rawValue]?.isActive == true {
-                return plan
-            }
+        // If user has pro access, return the first available plan (or preferred plan)
+        if customerInfo.entitlements["pro_access"]?.isActive == true {
+            // Prefer yearly plan if available, otherwise return first plan
+            return availablePlans.first { plan in
+                plan.product.subscriptionPeriod?.unit == .year
+            } ?? availablePlans.first
         }
         return nil
     }
@@ -308,7 +316,10 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
                 throw SubscriptionError.noOfferingsAvailable
             }
 
-            guard let package = offering.availablePackages.first(where: { $0.identifier == plan.rawValue }) else {
+            // Find the package that matches our plan's product
+            guard let package = offering.availablePackages.first(where: { 
+                $0.storeProduct.productIdentifier == plan.id 
+            }) else {
                 throw SubscriptionError.packageNotFound
             }
 
@@ -441,6 +452,46 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     /// Anonymous users should not have access to subscriptions
     private func isAnonymousUser() -> Bool {
         return !AuthenticationService.shared.isSignedIn || AuthenticationService.shared.userEmail == nil
+    }
+    
+    // MARK: - Product Loading
+    
+    /// Loads available subscription products from RevenueCat
+    @MainActor
+    func loadAvailableProducts() async {
+        isLoading = true
+        errorMessage = nil
+        
+        do {
+            let offerings = try await Purchases.shared.offerings()
+            
+            guard let currentOffering = offerings.current else {
+                errorMessage = "No subscription offerings available"
+                isLoading = false
+                return
+            }
+            
+            // Convert StoreProducts to SubscriptionPlans
+            let plans = currentOffering.availablePackages.map { package in
+                SubscriptionPlan(product: package.storeProduct)
+            }
+            
+            availablePlans = plans
+            print("✅ [SubscriptionService] Loaded \(plans.count) subscription plans")
+            
+        } catch {
+            errorMessage = "Failed to load subscription products: \(error.localizedDescription)"
+            print("❌ [SubscriptionService] Failed to load products: \(error)")
+        }
+        
+        isLoading = false
+    }
+    
+    /// Gets the default plan (usually yearly for better value)
+    var defaultPlan: SubscriptionPlan? {
+        return availablePlans.first { plan in
+            plan.product.subscriptionPeriod?.unit == .year
+        } ?? availablePlans.first
     }
     
     /// Checks if user can access advanced analytics features

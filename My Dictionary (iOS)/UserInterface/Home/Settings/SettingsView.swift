@@ -37,10 +37,13 @@ struct SettingsView: View {
                         HStack {
                             Text("Select accent")
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Picker("Select accent", selection: $viewModel.selectedEnglishAccent) {
-                                ForEach(EnglishAccent.allCases, id: \.self) {
-                                    Text($0.displayName).tag($0)
+                            HeaderButtonMenu(viewModel.selectedEnglishAccent.displayName, size: .small) {
+                                Picker("Select accent", selection: $viewModel.selectedEnglishAccent) {
+                                    ForEach(EnglishAccent.allCases, id: \.self) {
+                                        Text($0.displayName).tag($0)
+                                    }
                                 }
+                                .pickerStyle(.inline)
                             }
                         }
                         .padding(vertical: 12, horizontal: 16)

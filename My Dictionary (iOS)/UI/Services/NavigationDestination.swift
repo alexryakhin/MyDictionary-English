@@ -29,7 +29,6 @@ enum NavigationDestination: Hashable {
     case quizResultsList
 
     // MARK: - Shared dictionary destinations
-    case addSharedDictionary
     case sharedDictionaryWords(SharedDictionary)
     case sharedDictionaryDetails(SharedDictionary)
     case sharedDictionariesList

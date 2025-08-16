@@ -342,103 +342,107 @@ struct OnboardingView: View {
     }
 }
 
-// MARK: - Feature Card Component
 
-struct FeatureCard: View {
-    let icon: String
-    let title: String
-    let description: String
-    let delay: Double
-    
-    @State private var animate = false
-    
-    var body: some View {
-        HStack(spacing: 16) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.accentColor.opacity(0.1))
-                    .frame(width: 56, height: 56)
-                
-                Image(systemName: icon)
-                    .font(.system(size: 24, weight: .medium))
-                    .foregroundStyle(Color.accentColor)
+extension OnboardingView {
+
+    // MARK: - Feature Card Component
+
+    struct FeatureCard: View {
+        let icon: String
+        let title: String
+        let description: String
+        let delay: Double
+
+        @State private var animate = false
+
+        var body: some View {
+            HStack(spacing: 16) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.accentColor.opacity(0.1))
+                        .frame(width: 56, height: 56)
+
+                    Image(systemName: icon)
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundStyle(Color.accentColor)
+                }
+                .scaleEffect(animate ? 1.0 : 0.8)
+                .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(delay), value: animate)
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(title)
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+
+                    Text(description)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                Spacer()
             }
-            .scaleEffect(animate ? 1.0 : 0.8)
-            .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(delay), value: animate)
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(.headline)
-                    .foregroundStyle(.primary)
-                
-                Text(description)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-            
-            Spacer()
-        }
-        .padding(16)
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.systemBackground)
-                .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 4)
-        )
-        .onAppear {
-            withAnimation(.easeInOut(duration: 0.6).delay(delay)) {
-                animate = true
+            .padding(16)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.systemBackground)
+                    .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 4)
+            )
+            .onAppear {
+                withAnimation(.easeInOut(duration: 0.6).delay(delay)) {
+                    animate = true
+                }
             }
         }
     }
-}
 
-// MARK: - Personalization Card Component
+    // MARK: - Personalization Card Component
 
-struct PersonalizationCard: View {
-    let icon: String
-    let title: String
-    let description: String
-    let color: Color
-    
-    @State private var animate = false
-    
-    var body: some View {
-        HStack(spacing: 16) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(color.opacity(0.1))
-                    .frame(width: 56, height: 56)
-                
-                Image(systemName: icon)
-                    .font(.system(size: 24, weight: .medium))
-                    .foregroundStyle(color)
+    struct PersonalizationCard: View {
+        let icon: String
+        let title: String
+        let description: String
+        let color: Color
+
+        @State private var animate = false
+
+        var body: some View {
+            HStack(spacing: 16) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(color.opacity(0.1))
+                        .frame(width: 56, height: 56)
+
+                    Image(systemName: icon)
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundStyle(color)
+                }
+                .scaleEffect(animate ? 1.0 : 0.8)
+                .animation(.spring(response: 0.6, dampingFraction: 0.8), value: animate)
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(title)
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+
+                    Text(description)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                Spacer()
             }
-            .scaleEffect(animate ? 1.0 : 0.8)
-            .animation(.spring(response: 0.6, dampingFraction: 0.8), value: animate)
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(.headline)
-                    .foregroundStyle(.primary)
-                
-                Text(description)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-            
-            Spacer()
-        }
-        .padding(16)
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.systemBackground)
-                .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 4)
-        )
-        .onAppear {
-            withAnimation(.easeInOut(duration: 0.6)) {
-                animate = true
+            .padding(16)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.systemBackground)
+                    .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 4)
+            )
+            .onAppear {
+                withAnimation(.easeInOut(duration: 0.6)) {
+                    animate = true
+                }
             }
         }
     }

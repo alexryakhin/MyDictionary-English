@@ -152,14 +152,17 @@ struct AnalyticsView: View {
             }
         } trailingContent: {
             if subscriptionService.isProUser {
-                Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
-                    ForEach(TimePeriod.allCases, id: \.self) { period in
-                        Text(period.displayName).tag(period)
+                HeaderButtonMenu(
+                    viewModel.selectedTimePeriod.displayName,
+                    size: .small
+                ) {
+                    Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
+                        ForEach(TimePeriod.allCases, id: \.self) { period in
+                            Text(period.displayName).tag(period)
+                        }
                     }
+                    .pickerStyle(.inline)
                 }
-                .pickerStyle(.menu)
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
             }
         }
     }

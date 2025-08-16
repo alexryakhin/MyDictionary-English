@@ -8,9 +8,6 @@
 import Foundation
 import SwiftUI
 import RevenueCat
-#if os(iOS)
-import RevenueCatUI
-#endif
 import Combine
 
 // MARK: - Paywall Service
@@ -141,7 +138,7 @@ final class PaywallService: ObservableObject {
     func handlePurchaseCompleted() {
         isShowingPaywall = false
         paywallPresentationReason = nil
-        
+
         // Call completion handler with true (user subscribed)
         paywallCompletionHandler?(true)
         paywallCompletionHandler = nil
@@ -261,30 +258,21 @@ struct MyPaywallView: View {
 
     var body: some View {
         if authenticationService.isSignedIn {
-            #if os(macOS)
-            MacOSPaywall.ContentView()
-            #else
-            PaywallView()
-            #endif
+            AdvancedPaywallView()
         } else {
             AuthenticationView(shownBeforePaywall: true)
         }
     }
 }
 
-
-
 struct PaywallModifier: ViewModifier {
     
     @StateObject private var paywallService = PaywallService.shared
     
     func body(content: Content) -> some View {
-        content.sheet(isPresented: $paywallService.isShowingPaywall) {
-            MyPaywallView()
-                #if os(iOS)
-                .presentationDetents([.large])
-                .presentationDragIndicator(.visible)
-                #endif
+        content
+            .sheet(isPresented: $paywallService.isShowingPaywall) {
+                MyPaywallView()
         }
     }
 }

@@ -144,6 +144,10 @@ struct ChooseDefinitionQuizContentView: View {
                     .fontWeight(.semibold)
                 
                 Spacer()
+
+                HeaderButton(icon: "speaker.wave.2.fill", size: .small) {
+                    play(viewModel.correctWord.quiz_wordItself, isWord: true)
+                }
             }
             
             Text(viewModel.correctWord.quiz_wordItself)
@@ -348,6 +352,23 @@ struct ChooseDefinitionQuizContentView: View {
             return index == correctIndex ? Color.accent : Color.clear
         case .incorrect(let incorrectIndex):
             return index == incorrectIndex ? Color.red : Color.clear
+        }
+    }
+
+    private func play(_ text: String?, isWord: Bool = false) {
+        Task { @MainActor in
+            guard let text else { return }
+
+            do {
+                try await TTSPlayer.shared.play(
+                    text,
+                    targetLanguage: isWord
+                    ? viewModel.correctWord.quiz_languageCode
+                    : Locale.current.language.languageCode?.identifier
+                )
+            } catch {
+                errorReceived(error)
+            }
         }
     }
 }

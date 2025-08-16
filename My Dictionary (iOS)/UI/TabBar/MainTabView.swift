@@ -114,13 +114,6 @@ struct MainTabView: View {
         switch destination {
         case .addWord:
             AddWordContentView()
-        case .addSharedDictionary:
-            if subscriptionService.isProUser {
-                AddSharedDictionaryView()
-                    .presentationCornerRadius(24)
-            } else {
-                MyPaywallView()
-            }
         case .addIdiom:
             AddIdiomContentView()
         case .quizResultsList:

@@ -146,7 +146,7 @@ struct DebugView: View {
                     Text("Current Plan:")
                         .fontWeight(.medium)
                     Spacer()
-                    Text(subscriptionService.currentPlan?.rawValue ?? "None")
+                    Text(subscriptionService.currentPlan?.id ?? "None")
                         .foregroundStyle(.secondary)
                 }
 
@@ -232,8 +232,7 @@ struct DebugView: View {
                 }
 
                 HeaderButton("Show Paywall") {
-                    // This would need to be implemented based on your paywall service
-                    showAlert("Paywall functionality needs to be implemented")
+                    PaywallService.shared.isShowingPaywall = true
                 }
             }
         }

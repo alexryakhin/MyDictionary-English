@@ -423,7 +423,7 @@ final class AuthenticationService: ObservableObject {
                 "lastUpdated": FieldValue.serverTimestamp(),
                 "platform": getCurrentPlatform(),
                 "subscriptionStatus": SubscriptionService.shared.isProUser ? "pro" : "free",
-                "subscriptionPlan": SubscriptionService.shared.currentPlan?.rawValue ?? "none",
+                "subscriptionPlan": SubscriptionService.shared.currentPlan?.id ?? "none",
                 "subscriptionExpiryDate": nil // Will be updated when subscription changes
             ], merge: true)
             

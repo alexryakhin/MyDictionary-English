@@ -9,8 +9,7 @@ import SwiftUI
 
 struct SubscriptionStatusView: View {
     @StateObject private var subscriptionService = SubscriptionService.shared
-    @State private var showingSubscriptionView = false
-    
+
     var body: some View {
         VStack(spacing: 8) {
             if subscriptionService.isProUser {
@@ -20,9 +19,6 @@ struct SubscriptionStatusView: View {
             }
         }
         .padding(.bottom, 12)
-        .sheet(isPresented: $showingSubscriptionView) {
-            MyPaywallView()
-        }
     }
     
     // MARK: - Pro User View
@@ -47,7 +43,7 @@ struct SubscriptionStatusView: View {
             
             Spacer()
             
-            Image(systemName: "checkmark.circle.fill")
+            Image(systemName: "checkmark.square.fill")
                 .foregroundStyle(.accent)
                 .font(.title2)
         }
@@ -78,7 +74,7 @@ struct SubscriptionStatusView: View {
             }
             
             ActionButton("Upgrade to Pro") {
-                showingSubscriptionView = true
+                PaywallService.shared.isShowingPaywall = true
             }
         }
         .padding(vertical: 12, horizontal: 16)

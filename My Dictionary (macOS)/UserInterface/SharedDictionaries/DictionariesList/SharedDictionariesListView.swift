@@ -61,7 +61,11 @@ struct SharedDictionariesListView: View {
                 } trailingContent: {
                     if dictionaryService.canCreateMoreSharedDictionaries() {
                         HeaderButton("Add", icon: "plus", size: .small, style: .borderedProminent) {
-                            showingAddDictionary = true
+                            if dictionaryService.canCreateMoreSharedDictionaries() {
+                                showingAddDictionary = true
+                            } else {
+                                PaywallService.shared.isShowingPaywall = true
+                            }
                         }
                     }
                 }
@@ -75,13 +79,10 @@ struct SharedDictionariesListView: View {
         }
         .groupedBackground()
         .sheet(isPresented: $showingAddDictionary) {
-            if dictionaryService.canCreateMoreSharedDictionaries() {
-                AddSharedDictionaryView()
-                    .presentationCornerRadius(24)
-            } else {
-                MyPaywallView()
-            }
+            AddSharedDictionaryView()
+                .presentationCornerRadius(24)
         }
+        .withPaywall()
         .sheet(item: $selectedDictionary) { dictionary in
             SharedDictionaryDetailsView(dictionary: dictionary)
         }

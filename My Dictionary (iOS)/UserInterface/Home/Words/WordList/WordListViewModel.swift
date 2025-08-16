@@ -14,7 +14,6 @@ final class WordListViewModel: BaseViewModel {
         case showWordDetails(CDWord)
         case showAddWord
         case showSharedDictionaries
-        case showAddSharedDictionary
         case showAddExistingWordToShared(CDWord)
     }
 

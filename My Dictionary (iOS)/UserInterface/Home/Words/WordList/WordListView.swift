@@ -117,6 +117,7 @@ struct WordListView: View {
                                 .tag(item)
                         }
                     }
+                    .pickerStyle(.inline)
                 }
 
                 if AuthenticationService.shared.isSignedIn {
