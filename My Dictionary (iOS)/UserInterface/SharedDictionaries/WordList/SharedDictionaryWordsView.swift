@@ -63,6 +63,9 @@ struct SharedDictionaryWordsView: View {
             .padding(.horizontal, 16)
         }
         .groupedBackground()
+        .animation(.default, value: viewModel.wordsFiltered)
+        .animation(.default, value: viewModel.filterState)
+        .animation(.default, value: viewModel.sortingState)
         .navigation(
             title: dictionary.name,
             mode: .inline,
