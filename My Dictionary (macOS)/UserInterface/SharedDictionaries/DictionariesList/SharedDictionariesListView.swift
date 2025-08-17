@@ -25,30 +25,30 @@ struct SharedDictionariesListView: View {
             VStack(spacing: 16) {
                 // Show user's dictionary count and limit
                 if !subscriptionService.isProUser {
-                    CustomSectionView(header: Loc.yourDictionaries.localized) {
+                    CustomSectionView(header: Loc.SharedDictionaries.yourDictionaries.localized) {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(Loc.dictionaryCountCreated.localized(userOwnedDictionaryCount))
+                            Text(Loc.SharedDictionaries.dictionaryCountCreated.localized(userOwnedDictionaryCount))
                                 .font(.headline)
-                            Text(Loc.freeUsersOneDictionary.localized)
+                            Text(Loc.SharedDictionaries.freeUsersOneDictionary.localized)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     } trailingContent: {
                         if userOwnedDictionaryCount >= 1 {
-                            HeaderButton(Loc.upgradeToPro.localized, size: .small) {
+                            HeaderButton(Loc.Paywall.upgradeToPro.localized, size: .small) {
                                 paywallService.isShowingPaywall = true
                             }
                         }
                     }
                 }
 
-                CustomSectionView(header: Loc.dictionaries.localized, hPadding: .zero) {
+                CustomSectionView(header: Loc.SharedDictionaries.dictionaries.localized, hPadding: .zero) {
                     if dictionaryService.sharedDictionaries.isEmpty {
                         ContentUnavailableView(
-                            Loc.noSharedDictionaries.localized,
+                            Loc.SharedDictionaries.noSharedDictionaries.localized,
                             systemImage: "person.2",
-                            description: Text(Loc.createSharedDictionaryCollaborate.localized)
+                            description: Text(Loc.SharedDictionaries.createSharedDictionaryCollaborate.localized)
                         )
                     } else {
                         ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in
@@ -60,7 +60,7 @@ struct SharedDictionariesListView: View {
                     }
                 } trailingContent: {
                     if dictionaryService.canCreateMoreSharedDictionaries() {
-                        HeaderButton(Loc.add.localized, icon: "plus", size: .small, style: .borderedProminent) {
+                        HeaderButton(Loc.Actions.add.localized, icon: "plus", size: .small, style: .borderedProminent) {
                             if dictionaryService.canCreateMoreSharedDictionaries() {
                                 showingAddDictionary = true
                             } else {
@@ -72,7 +72,7 @@ struct SharedDictionariesListView: View {
             }
             .padding(12)
         } navigationBar: {
-            NavigationBarView(title: Loc.sharedDictionaries.localized)
+            NavigationBarView(title: Loc.Settings.sharedDictionaries.localized)
         }
         .refreshable {
             await refreshSharedDictionaries()

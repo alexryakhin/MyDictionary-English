@@ -19,8 +19,8 @@ struct AddEditTagView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                CustomSectionView(header: "Tag Name", footer: "Choose a descriptive name for your tag") {
-                    TextField("Type tag name...", text: $tagName)
+                CustomSectionView(header: Loc.Tags.tagName.localized, footer: Loc.Tags.tagNameHelp.localized) {
+                    TextField(Loc.Tags.typeTagName.localized, text: $tagName)
                         .autocorrectionDisabled()
                         .padding(12)
                         .clippedWithBackground(Color.tertiarySystemFill, cornerRadius: 12)
@@ -30,7 +30,7 @@ struct AddEditTagView: View {
                         .textContentType(.username)
                     #endif
                 }
-                CustomSectionView(header: "Tag Color", footer: "Select a color to help identify your tag") {
+                CustomSectionView(header: Loc.Tags.tagColor.localized, footer: Loc.Tags.tagColorHelp.localized) {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 12) {
                         ForEach(TagColor.allCases, id: \.self) { color in
                             ColorSelectionButton(
@@ -48,7 +48,7 @@ struct AddEditTagView: View {
         }
         .groupedBackground()
         .navigation(
-            title: viewModel.isEditing ? "Edit Tag" : "New Tag",
+            title: viewModel.isEditing ? Loc.Tags.editTag.localized : Loc.Tags.newTag.localized,
             mode: .inline,
             trailingContent: {
                 HeaderButton(icon: "xmark") {
@@ -57,7 +57,7 @@ struct AddEditTagView: View {
             }
         )
         .safeAreaInset(edge: .bottom) {
-            ActionButton("Save", style: .borderedProminent) {
+            ActionButton(Loc.Actions.save.localized, style: .borderedProminent) {
                 if subscriptionService.isProUser {
                     saveTag()
                 } else {

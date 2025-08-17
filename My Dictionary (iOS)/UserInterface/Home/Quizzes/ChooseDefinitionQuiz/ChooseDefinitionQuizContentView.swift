@@ -24,7 +24,7 @@ struct ChooseDefinitionQuizContentView: View {
                             .font(.system(size: 60))
                             .foregroundStyle(.red.gradient)
                         
-                        Text("Quiz Unavailable")
+                        Text(Loc.Quizzes.quizUnavailable.localized)
                             .font(.title2)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
@@ -37,7 +37,7 @@ struct ChooseDefinitionQuizContentView: View {
                     }
                     .padding(.horizontal, 32)
                     
-                    ActionButton("Back to Quizzes", systemImage: "chevron.left", style: .borderedProminent) {
+                    ActionButton(Loc.Quizzes.backToQuizzes.localized, systemImage: "chevron.left", style: .borderedProminent) {
                         dismiss()
                     }
                     .padding(.horizontal, 32)
@@ -69,10 +69,10 @@ struct ChooseDefinitionQuizContentView: View {
             }
         }
         .navigation(
-            title: "Definition Quiz",
+            title: Loc.Navigation.definitionQuiz.localized,
             mode: .inline,
             trailingContent: {
-                HeaderButton("Exit") {
+                HeaderButton(Loc.Actions.exit.localized) {
                     viewModel.handle(.saveSession)
                     dismiss()
                 }
@@ -104,12 +104,12 @@ struct ChooseDefinitionQuizContentView: View {
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Progress: \(viewModel.questionsAnswered)/\(viewModel.preset.wordCount)")
+                    Text("\(Loc.Quizzes.progress.localized): \(viewModel.questionsAnswered)/\(viewModel.preset.wordCount)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
                     if viewModel.currentStreak > 0 {
-                        Text("🔥 Streak: \(viewModel.currentStreak)")
+                        Text("🔥 \(Loc.Quizzes.streak.localized): \(viewModel.currentStreak)")
                             .font(.caption)
                             .foregroundStyle(.orange)
                             .fontWeight(.medium)
@@ -119,12 +119,12 @@ struct ChooseDefinitionQuizContentView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 2) {
-                    Text("Score: \(viewModel.score)")
+                    Text("\(Loc.Quizzes.score.localized): \(viewModel.score)")
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundStyle(.accent)
 
-                    Text("Best: \(viewModel.bestStreak)")
+                    Text("\(Loc.Quizzes.best.localized): \(viewModel.bestStreak)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -139,7 +139,7 @@ struct ChooseDefinitionQuizContentView: View {
                     .font(.title2)
                     .foregroundStyle(.accent)
 
-                Text("Word")
+                Text(Loc.Quizzes.word.localized)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
@@ -175,7 +175,7 @@ struct ChooseDefinitionQuizContentView: View {
                     .font(.title2)
                     .foregroundStyle(.accent)
                 
-                Text("Choose the Correct Definition")
+                Text(Loc.Quizzes.chooseCorrectDefinition.localized)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
@@ -218,7 +218,7 @@ struct ChooseDefinitionQuizContentView: View {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.red)
                     
-                    Text("Incorrect! Moving to next question...")
+                    Text(Loc.Quizzes.incorrectMovingToNextQuestion.localized)
                         .font(.caption)
                         .foregroundStyle(.red)
                     
@@ -236,7 +236,7 @@ struct ChooseDefinitionQuizContentView: View {
 
     private var actionButtons: some View {
         VStack(spacing: 12) {
-            ActionButton("Skip Word (-2 points)", systemImage: "arrow.right.circle", color: .secondary) {
+            ActionButton(Loc.Quizzes.skipWord.localized, systemImage: "arrow.right.circle", color: .secondary) {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     viewModel.handle(.skipWord)
                 }
@@ -262,11 +262,11 @@ struct ChooseDefinitionQuizContentView: View {
                 }
                 
                 VStack(spacing: 12) {
-                    Text("Quiz Complete!")
+                    Text(Loc.Quizzes.quizComplete.localized)
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    Text("Great job! You've completed the definition quiz.")
+                    Text(Loc.Quizzes.greatJobCompletedDefinitionQuiz.localized)
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -274,13 +274,13 @@ struct ChooseDefinitionQuizContentView: View {
                 
                 // Score Card
                 VStack(spacing: 16) {
-                    Text("Your Results")
+                    Text(Loc.Quizzes.yourResults.localized)
                         .font(.headline)
                         .fontWeight(.semibold)
                     
                     VStack(spacing: 12) {
                         HStack {
-                            Text("Final Score")
+                            Text(Loc.Quizzes.finalScore.localized)
                             Spacer()
                             Text("\(viewModel.score)")
                                 .fontWeight(.bold)
@@ -288,14 +288,14 @@ struct ChooseDefinitionQuizContentView: View {
                         }
                         
                         HStack {
-                            Text("Correct Answers")
+                            Text(Loc.Quizzes.correctAnswers.localized)
                             Spacer()
                             Text("\(viewModel.correctAnswers)/\(viewModel.wordsPlayed.count)")
                                 .fontWeight(.medium)
                         }
                         
                         HStack {
-                            Text("Best Streak")
+                            Text(Loc.Quizzes.bestStreak.localized)
                             Spacer()
                             Text("\(viewModel.bestStreak)")
                                 .fontWeight(.medium)
@@ -303,7 +303,7 @@ struct ChooseDefinitionQuizContentView: View {
                         }
                         
                         HStack {
-                            Text("Accuracy")
+                            Text(Loc.Quizzes.accuracy.localized)
                             Spacer()
                             Text("\(Int((Double(viewModel.correctAnswers) / Double(viewModel.wordsPlayed.count)) * 100))%")
                                 .fontWeight(.medium)
@@ -319,10 +319,10 @@ struct ChooseDefinitionQuizContentView: View {
             .padding(.horizontal, 32)
             
             VStack(spacing: 12) {
-                ActionButton("Try Again", systemImage: "arrow.clockwise", style: .borderedProminent) {
+                ActionButton(Loc.Actions.tryAgain.localized, systemImage: "arrow.clockwise", style: .borderedProminent) {
                     viewModel.handle(.restartQuiz)
                 }
-                ActionButton("Back to Quizzes", systemImage: "chevron.left") {
+                ActionButton(Loc.Quizzes.backToQuizzes.localized, systemImage: "chevron.left") {
                     dismiss()
                 }
             }

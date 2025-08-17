@@ -14,8 +14,8 @@ struct TagManagementView: View {
     var body: some View {
         ScrollView {
             CustomSectionView(
-                header: "Tags",
-                footer: "Tags help you organize your words. Each word can have up to 5 tags.",
+                header: Loc.Words.tags.localized,
+                footer: Loc.Tags.tagsHelpText.localized,
                 hPadding: 0
             ) {
                 if viewModel.tags.isNotEmpty {
@@ -29,13 +29,13 @@ struct TagManagementView: View {
                     }
                 } else {
                     ContentUnavailableView(
-                        "No Tags added yet",
+                        Loc.Tags.noTagsYet.localized,
                         systemImage: "tag.fill",
-                        description: Text("Add your first tag by tapping the button above.")
+                        description: Text(Loc.Tags.addFirstTag.localized)
                     )
                 }
             } trailingContent: {
-                HeaderButton("Add Tag", icon: "plus", size: .small, style: .borderedProminent) {
+                HeaderButton(Loc.Tags.addTag.localized, icon: "plus", size: .small, style: .borderedProminent) {
                     viewModel.handle(.addTag)
                 }
             }
@@ -43,7 +43,7 @@ struct TagManagementView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "Manage Tags",
+            title: Loc.Tags.manageTags.localized,
             mode: .inline,
             trailingContent: {
                 HeaderButton(icon: "xmark") {
@@ -54,13 +54,13 @@ struct TagManagementView: View {
         .sheet(isPresented: $viewModel.showingAddEditSheet) {
             AddEditTagView(viewModel: viewModel)
         }
-        .alert("Delete Tag", isPresented: $viewModel.showingDeleteAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("Delete", role: .destructive) {
+        .alert(Loc.Tags.deleteTag.localized, isPresented: $viewModel.showingDeleteAlert) {
+            Button(Loc.Actions.cancel.localized, role: .cancel) { }
+            Button(Loc.Actions.delete.localized, role: .destructive) {
                 viewModel.handle(.confirmDeleteTag)
             }
         } message: {
-            Text("Are you sure you want to delete this tag? This action cannot be undone.")
+            Text(Loc.Tags.deleteTagCannotUndo.localized)
         }
     }
 }

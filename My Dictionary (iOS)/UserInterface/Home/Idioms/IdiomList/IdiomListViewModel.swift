@@ -73,15 +73,13 @@ final class IdiomListViewModel: BaseViewModel {
     /// Removes given idiom from Core Data
     private func deleteIdiom(with id: String) {
         showAlert(
-            withModel: .init(
-                title: Loc.deleteIdiom.localized,
-                message: Loc.deleteIdiomConfirmation.localized,
-                actionText: Loc.cancel.localized,
-                destructiveActionText: Loc.delete.localized,
-                action: {
+            withModel: .deleteConfirmation(
+                title: Loc.Idioms.deleteIdiom.localized,
+                message: Loc.Idioms.deleteIdiomConfirmation.localized,
+                onCancel: {
                     AnalyticsService.shared.logEvent(.idiomRemovingCanceled)
                 },
-                destructiveAction: { [weak self, id] in
+                onDelete: { [weak self, id] in
                     self?.idiomsProvider.delete(with: id)
                     AnalyticsService.shared.logEvent(.idiomRemoved)
                 }

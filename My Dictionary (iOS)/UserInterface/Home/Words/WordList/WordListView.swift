@@ -31,7 +31,7 @@ struct WordListView: View {
                 // MARK: - button to add a word from search input
                 if viewModel.filterState == .search && viewModel.wordsFiltered.count < 10 {
                     ActionButton(
-                        Loc.addWord.localized(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines)),
+                        Loc.Words.addWord.localized(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines)),
                         systemImage: "plus"
                     ) {
                         viewModel.output.send(.showAddWord)
@@ -56,13 +56,13 @@ struct WordListView: View {
                                         Button {
                                             viewModel.output.send(.showAddExistingWordToShared(wordModel))
                                         } label: {
-                                            Label(Loc.addToSharedDictionary.localized, systemImage: "person.2")
+                                            Label(Loc.Words.addToSharedDictionary.localized, systemImage: "person.2")
                                         }
                                     }
                                     Button(role: .destructive) {
                                         viewModel.handle(.deleteWord(word: wordModel))
                                     } label: {
-                                        Label(Loc.delete.localized, systemImage: "trash")
+                                        Label(Loc.Actions.delete.localized, systemImage: "trash")
                                     }
                                 }
                         }
@@ -75,7 +75,7 @@ struct WordListView: View {
                         .padding(.vertical, 24)
                     }
                 } trailingContent: {
-                    HeaderButton(Loc.addWord.localized, icon: "plus", size: .small, style: .borderedProminent) {
+                    HeaderButton(Loc.Words.addWord.localized, icon: "plus", size: .small, style: .borderedProminent) {
                         AnalyticsService.shared.logEvent(.addWordTapped)
                         viewModel.output.send(.showAddWord)
                     }
@@ -107,11 +107,11 @@ struct WordListView: View {
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.sortingState)
         .navigation(
-            title: Loc.words.localized,
+            title: Loc.Words.words.localized,
             mode: .large,
             trailingContent: {
                 HeaderButtonMenu(icon: "arrow.up.arrow.down") {
-                    Picker(Loc.sort.localized, selection: _viewModel.projectedValue.sortingState) {
+                    Picker(Loc.Words.sort.localized, selection: _viewModel.projectedValue.sortingState) {
                         ForEach(SortingCase.allCases, id: \.self) { item in
                             Text(item.rawValue)
                                 .tag(item)
@@ -129,7 +129,7 @@ struct WordListView: View {
             bottomContent: {
                 VStack(spacing: 12) {
                     InputView.searchView(
-                        Loc.searchWords.localized,
+                        Loc.Words.searchWords.localized,
                         searchText: $viewModel.searchText
                     )
                     WordListFilterView(viewModel: viewModel)
@@ -188,11 +188,11 @@ struct RatingBanner: View {
     let onDismiss: VoidHandler
 
     var body: some View {
-        CustomSectionView(header: Loc.impressiveVocabulary.localized) {
+        CustomSectionView(header: Loc.Words.impressiveVocabulary.localized) {
             VStack(spacing: 16) {
                 // Header with achievement message
                 VStack(spacing: 8) {
-                    Text(Loc.impressiveVocabularyMessage.localized(wordCount))
+                    Text(Loc.Words.impressiveVocabularyMessage.localized(wordCount))
                         .font(.subheadline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .multilineTextAlignment(.leading)
@@ -201,12 +201,12 @@ struct RatingBanner: View {
                 // Action buttons
                 VStack(spacing: 12) {
                     ActionButton(
-                        Loc.rateApp.localized,
+                        Loc.Settings.rateApp.localized,
                         systemImage: "star.circle.fill",
                         style: .borderedProminent,
                         action: onRate
                     )
-                    ActionButton(Loc.maybeLater.localized, action: onDismiss)
+                    ActionButton(Loc.Coffee.maybeLater.localized, action: onDismiss)
                 }
             }
         } trailingContent: {

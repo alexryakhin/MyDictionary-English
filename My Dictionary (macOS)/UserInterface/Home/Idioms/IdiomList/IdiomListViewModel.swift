@@ -66,8 +66,8 @@ final class IdiomListViewModel: BaseViewModel {
     private func deleteIdiom(with id: String) {
         showAlert(
             withModel: .deleteConfirmation(
-                title: "Delete idiom",
-                message: "Are you sure you want to delete this idiom?",
+                title: Loc.Idioms.deleteIdiom.localized,
+                message: Loc.Idioms.deleteIdiomConfirmation.localized,
                 onCancel: {
                     AnalyticsService.shared.logEvent(.idiomRemovingCanceled)
                 },

@@ -39,7 +39,7 @@ struct QuizResultsView: View {
                 }
 
                 VStack(spacing: 12) {
-                    Text("Quiz Complete!")
+                    Text(Loc.Quizzes.quizComplete.localized)
                         .font(.title)
                         .fontWeight(.bold)
 
@@ -51,13 +51,13 @@ struct QuizResultsView: View {
 
                 // Score Card
                 VStack(spacing: 16) {
-                    Text("Your Results")
+                    Text(Loc.Quizzes.yourResults.localized)
                         .font(.headline)
                         .fontWeight(.semibold)
 
                     VStack(spacing: 12) {
                         HStack {
-                            Text("Final Score")
+                            Text(Loc.Quizzes.finalScore.localized)
                             Spacer()
                             Text("\(model.score)")
                                 .fontWeight(.bold)
@@ -65,14 +65,14 @@ struct QuizResultsView: View {
                         }
 
                         HStack {
-                            Text("Correct Answers")
+                            Text(Loc.Quizzes.correctAnswers.localized)
                             Spacer()
                             Text("\(model.correctAnswers)/\(model.wordsPlayed)")
                                 .fontWeight(.medium)
                         }
 
                         HStack {
-                            Text("Best Streak")
+                            Text(Loc.Quizzes.bestStreak.localized)
                             Spacer()
                             Text("\(model.bestStreak)")
                                 .fontWeight(.medium)
@@ -80,7 +80,7 @@ struct QuizResultsView: View {
                         }
 
                         HStack {
-                            Text("Accuracy")
+                            Text(Loc.Quizzes.accuracy.localized)
                             Spacer()
                             Text("\(Int(calculatedAccuracy()))%")
                                 .fontWeight(.medium)
@@ -98,7 +98,7 @@ struct QuizResultsView: View {
             Spacer()
 
             VStack(spacing: 12) {
-                ActionButton("Try Again", systemImage: "arrow.clockwise", style: .borderedProminent) {
+                ActionButton(Loc.Actions.tryAgain.localized, systemImage: "arrow.clockwise", style: .borderedProminent) {
                     onRestart()
                 }
             }

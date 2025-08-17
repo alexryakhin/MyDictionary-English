@@ -26,7 +26,7 @@ struct SharedDictionaryWordsView: View {
         ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 CustomSectionView(
-                    header: Loc.words.localized,
+                    header: Loc.Words.words.localized,
                     footer: viewModel.wordsCount,
                     hPadding: .zero
                 ) {
@@ -34,15 +34,15 @@ struct SharedDictionaryWordsView: View {
                     if viewModel.wordsFiltered.isEmpty {
                         if viewModel.words.isEmpty {
                             ContentUnavailableView(
-                                Loc.noWordsYet.localized,
+                                Loc.SharedDictionaries.noWordsYet.localized,
                                 systemImage: "textformat",
-                                description: Text(Loc.addWordsToSharedDictionary.localized)
+                                description: Text(Loc.SharedDictionaries.addWordsToSharedDictionary.localized)
                             )
                         } else {
                             ContentUnavailableView(
-                                Loc.noResults.localized,
+                                Loc.SharedDictionaries.noResults.localized,
                                 systemImage: "magnifyingglass",
-                                description: Text(Loc.noWordsMatchFilter.localized)
+                                description: Text(Loc.SharedDictionaries.noWordsMatchFilter.localized)
                             )
                         }
                     } else {
@@ -60,7 +60,7 @@ struct SharedDictionaryWordsView: View {
                     }
                 } trailingContent: {
                     if dictionary.canEdit {
-                        HeaderButton(Loc.addWord.localized, icon: "plus", size: .small, style: .borderedProminent) {
+                        HeaderButton(Loc.Words.addWord.localized, icon: "plus", size: .small, style: .borderedProminent) {
                             showingAddWord = true
                         }
                     }
@@ -76,7 +76,7 @@ struct SharedDictionaryWordsView: View {
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.sortingState)
         .navigationTitle(dictionary.name)
-        .searchable(text: $viewModel.searchText, prompt: Loc.searchWords.localized)
+        .searchable(text: $viewModel.searchText, prompt: Loc.Words.searchWords.localized)
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 // Info button
@@ -85,7 +85,7 @@ struct SharedDictionaryWordsView: View {
                 } label: {
                     Image(systemName: "info.circle")
                 }
-                .help(Loc.dictionaryDetails.localized)
+                .help(Loc.SharedDictionaries.dictionaryDetails.localized)
                 
                 // Add word button
                 if dictionary.canEdit {
@@ -94,7 +94,7 @@ struct SharedDictionaryWordsView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-                    .help(Loc.addWord.localized)
+                    .help(Loc.Words.addWord.localized)
                 }
             }
         }

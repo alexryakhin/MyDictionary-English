@@ -41,18 +41,18 @@ struct AddWordView: View {
             Color.systemGroupedBackground.ignoresSafeArea()
         }
         .navigation(
-            title: Loc.addNewWord.localized,
+            title: Loc.Words.addNewWord.localized,
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
-                HeaderButton(Loc.save.localized, size: .medium, style: .borderedProminent) {
+                HeaderButton(Loc.Actions.save.localized, size: .medium, style: .borderedProminent) {
                     viewModel.handle(.saveToSharedDictionary(selectedDictionaryId))
                 }
             },
             bottomContent: {
                 if authenticationService.isSignedIn {
                     HeaderButton(
-                        selectedDictionaryId == nil ? Loc.privateDictionary.localized : Loc.sharedDictionary.localized,
+                        selectedDictionaryId == nil ? Loc.Words.privateDictionary.localized : Loc.Words.sharedDictionary.localized,
                         icon: selectedDictionaryId == nil ? "person" : "person.2",
                     ) {
                         showingDictionarySelection = true
@@ -76,8 +76,8 @@ struct AddWordView: View {
     }
 
     var wordCellView: some View {
-        CellWrapper(Loc.word.localized) {
-            CustomTextField(Loc.typeWord.localized, text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
+        CellWrapper(Loc.Words.word.localized) {
+            CustomTextField(Loc.Words.typeWord.localized, text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
                 if viewModel.inputWord.isNotEmpty {
                     viewModel.handle(.fetchData)
                 }
@@ -87,7 +87,7 @@ struct AddWordView: View {
     }
     
     var inputLanguageCellView: some View {
-        CellWrapper(Loc.inputLanguage.localized) {
+        CellWrapper(Loc.Words.inputLanguage.localized) {
             Menu {
                 ForEach(InputLanguage.allCases, id: \.self) { language in
                     Button {

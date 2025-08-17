@@ -88,29 +88,29 @@ final class WordListViewModel: BaseViewModel {
     }
 
     var wordsCount: String {
-        return Loc.wordsCount.localized(wordsFiltered.count)
+        return Loc.Words.wordsCount.localized(wordsFiltered.count)
     }
     
     var filterStateTitle: String {
         switch filterState {
         case .none:
-            return Loc.allWords.localized
+            return Loc.Words.allWords.localized
         case .favorite:
-            return Loc.favoriteWords.localized
+            return Loc.Words.favoriteWords.localized
         case .search:
-            return Loc.searchResults.localized
+            return Loc.Words.searchResults.localized
         case .tag:
-            return selectedTag?.name ?? Loc.taggedWords.localized
+            return selectedTag?.name ?? Loc.Words.taggedWords.localized
         case .new:
-            return Loc.newWords.localized
+            return Loc.Words.newWords.localized
         case .inProgress:
-            return Loc.wordsInProgress.localized
+            return Loc.Words.wordsInProgress.localized
         case .needsReview:
-            return Loc.wordsNeedingReview.localized
+            return Loc.Words.wordsNeedingReview.localized
         case .mastered:
-            return Loc.masteredWords.localized
+            return Loc.Words.masteredWords.localized
         @unknown default:
-            return Loc.words.localized
+            return Loc.Words.words.localized
         }
     }
 
@@ -165,10 +165,10 @@ final class WordListViewModel: BaseViewModel {
     private func deleteWord(_ wordModel: CDWord) {
         showAlert(
             withModel: .init(
-                title: Loc.deleteWord.localized,
-                message: Loc.deleteWordConfirmation.localized,
-                actionText: Loc.cancel.localized,
-                destructiveActionText: Loc.delete.localized,
+                title: Loc.Words.deleteWord.localized,
+                message: Loc.Words.deleteWordConfirmation.localized,
+                actionText: Loc.Actions.cancel.localized,
+                destructiveActionText: Loc.Actions.delete.localized,
                 action: {
                     AnalyticsService.shared.logEvent(.wordRemovingCanceled)
                 },

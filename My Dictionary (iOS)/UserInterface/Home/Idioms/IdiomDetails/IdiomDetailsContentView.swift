@@ -29,7 +29,7 @@ struct IdiomDetailsContentView: View {
         }
         .groupedBackground()
         .navigation(
-            title: Loc.idiomDetails.localized,
+            title: Loc.Navigation.idiomDetails.localized,
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
@@ -44,12 +44,12 @@ struct IdiomDetailsContentView: View {
                 .animation(.easeInOut(duration: 0.2), value: idiom.isFavorite)
             }
         )
-        .alert(Loc.editExample.localized, isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
-            TextField(Loc.examples.localized, text: $exampleTextFieldStr)
-            Button(Loc.cancel.localized, role: .cancel) {
+        .alert(Loc.Idioms.editExample.localized, isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
+            TextField(Loc.Idioms.examples.localized, text: $exampleTextFieldStr)
+            Button(Loc.Actions.cancel.localized, role: .cancel) {
                 AnalyticsService.shared.logEvent(.idiomExampleChangingCanceled)
             }
-            Button(Loc.save.localized) {
+            Button(Loc.Actions.save.localized) {
                 updateExample(at: index, text: exampleTextFieldStr)
                 editingExampleIndex = nil
                 exampleTextFieldStr = .empty
@@ -59,8 +59,8 @@ struct IdiomDetailsContentView: View {
     }
 
     private var idiomSectionView: some View {
-        CustomSectionView(header: Loc.idiom.localized, headerFontStyle: .stealth) {
-            TextField(Loc.idiom.localized, text: Binding(
+        CustomSectionView(header: Loc.Idioms.idiom.localized, headerFontStyle: .stealth) {
+            TextField(Loc.Idioms.idiom.localized, text: Binding(
                 get: { idiom.idiomItself ?? "" },
                 set: { idiom.idiomItself = $0 }
             ), axis: .vertical)
@@ -68,13 +68,13 @@ struct IdiomDetailsContentView: View {
                 .focused($isIdiomInputFocused)
         } trailingContent: {
             if isIdiomInputFocused {
-                HeaderButton(Loc.done.localized, size: .small) {
+                HeaderButton(Loc.Actions.done.localized, size: .small) {
                     isIdiomInputFocused = false
                     saveContext()
                     AnalyticsService.shared.logEvent(.idiomChanged)
                 }
             } else {
-                HeaderButton(Loc.listen.localized, icon: "speaker.wave.2.fill", size: .small) {
+                HeaderButton(Loc.Actions.listen.localized, icon: "speaker.wave.2.fill", size: .small) {
                     play(idiom.idiomItself)
                 }
             }
@@ -82,21 +82,21 @@ struct IdiomDetailsContentView: View {
     }
 
     private var definitionSectionView: some View {
-        CustomSectionView(header: Loc.definition.localized, headerFontStyle: .stealth) {
-            TextField(Loc.definition.localized, text: Binding(
+        CustomSectionView(header: Loc.Words.definition.localized, headerFontStyle: .stealth) {
+            TextField(Loc.Words.definition.localized, text: Binding(
                 get: { idiom.definition ?? "" },
                 set: { idiom.definition = $0 }
             ), axis: .vertical)
                 .focused($isDefinitionFocused)
         } trailingContent: {
             if isDefinitionFocused {
-                HeaderButton(Loc.done.localized, size: .small) {
+                HeaderButton(Loc.Actions.done.localized, size: .small) {
                     isDefinitionFocused = false
                     saveContext()
                     AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
             } else {
-                HeaderButton(Loc.listen.localized, icon: "speaker.wave.2.fill", size: .small) {
+                HeaderButton(Loc.Actions.listen.localized, icon: "speaker.wave.2.fill", size: .small) {
                     play(idiom.definition)
                     AnalyticsService.shared.logEvent(.idiomDefinitionPlayed)
                 }
@@ -106,7 +106,7 @@ struct IdiomDetailsContentView: View {
 
     private var examplesSectionView: some View {
         CustomSectionView(
-            header: Loc.examples.localized,
+            header: Loc.Idioms.examples.localized,
             headerFontStyle: .stealth,
             hPadding: 0
         ) {
@@ -122,21 +122,21 @@ struct IdiomDetailsContentView: View {
                                     play(example)
                                     AnalyticsService.shared.logEvent(.idiomExamplePlayed)
                                 } label: {
-                                    Label(Loc.listen.localized, systemImage: "speaker.wave.2.fill")
+                                    Label(Loc.Actions.listen.localized, systemImage: "speaker.wave.2.fill")
                                 }
                                 Button {
                                     exampleTextFieldStr = example
                                     editingExampleIndex = index
                                     AnalyticsService.shared.logEvent(.idiomExampleChangeButtonTapped)
                                 } label: {
-                                    Label(Loc.edit.localized, systemImage: "pencil")
+                                    Label(Loc.Actions.edit.localized, systemImage: "pencil")
                                 }
                                 Section {
                                     Button(role: .destructive) {
                                         removeExample(at: index)
                                         AnalyticsService.shared.logEvent(.idiomExampleRemoved)
                                     } label: {
-                                        Label(Loc.delete.localized, systemImage: "trash")
+                                        Label(Loc.Actions.delete.localized, systemImage: "trash")
                                     }
                                 }
                             } label: {
@@ -151,14 +151,14 @@ struct IdiomDetailsContentView: View {
                     }
                 }
             } else {
-                Text(Loc.noExamplesYet.localized)
+                Text(Loc.Idioms.noExamplesYet.localized)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 16)
             }
 
             if isAddingExample {
                 InputView(
-                    Loc.typeExampleHere.localized,
+                    Loc.Idioms.typeExampleHere.localized,
                     submitLabel: .done,
                     text: $exampleTextFieldStr,
                     onSubmit: {
@@ -167,7 +167,7 @@ struct IdiomDetailsContentView: View {
                         exampleTextFieldStr = .empty
                         AnalyticsService.shared.logEvent(.idiomExampleAdded)
                     },
-                    trailingButtonLabel: Loc.cancel.localized
+                    trailingButtonLabel: Loc.Actions.cancel.localized
                 ) {
                     // On cancel
                     isAddExampleFocused = false
@@ -179,14 +179,14 @@ struct IdiomDetailsContentView: View {
             }
         } trailingContent: {
             if isAddingExample {
-                HeaderButton(Loc.save.localized, icon: "checkmark", size: .small) {
+                HeaderButton(Loc.Actions.save.localized, icon: "checkmark", size: .small) {
                     addExample(exampleTextFieldStr)
                     isAddingExample = false
                     exampleTextFieldStr = .empty
                     AnalyticsService.shared.logEvent(.idiomExampleAdded)
                 }
             } else {
-                HeaderButton(Loc.addExample.localized, icon: "plus", size: .small) {
+                HeaderButton(Loc.Idioms.addExample.localized, icon: "plus", size: .small) {
                     withAnimation {
                         isAddingExample.toggle()
                         AnalyticsService.shared.logEvent(.idiomAddExampleTapped)
@@ -246,10 +246,10 @@ struct IdiomDetailsContentView: View {
 
     private func showDeleteAlert() {
         let alertModel = AlertModel(
-            title: Loc.deleteIdiom.localized,
-            message: Loc.deleteIdiomConfirmation.localized,
-            actionText: Loc.cancel.localized,
-            destructiveActionText: Loc.delete.localized,
+            title: Loc.Idioms.deleteIdiom.localized,
+            message: Loc.Idioms.deleteIdiomConfirmation.localized,
+            actionText: Loc.Actions.cancel.localized,
+            destructiveActionText: Loc.Actions.delete.localized,
             action: {
                 AnalyticsService.shared.logEvent(.idiomRemovingCanceled)
             },

@@ -36,17 +36,17 @@ struct AddWordView: View {
             .editModeDisabling()
         } navigationBar: {
             NavigationBarView(
-                title: Loc.addNewWord.localized,
+                title: Loc.Words.addNewWord.localized,
                 trailingContent: {
-                    HeaderButton(Loc.save.localized, style: .borderedProminent) {
+                    HeaderButton(Loc.Actions.save.localized, style: .borderedProminent) {
                         viewModel.handle(.saveToSharedDictionary(selectedDictionaryId))
                     }
-                    .help(Loc.saveWord.localized)
+                    .help(Loc.Actions.saveWord.localized)
                 },
                 bottomContent: {
                     if authenticationService.isSignedIn {
                         HeaderButton(
-                            selectedDictionaryId == nil ? Loc.privateDictionary.localized : Loc.sharedDictionary.localized,
+                            selectedDictionaryId == nil ? Loc.Words.privateDictionary.localized : Loc.Words.sharedDictionary.localized,
                             icon: selectedDictionaryId == nil ? "person" : "person.2",
                         ) {
                             showingDictionarySelection = true
@@ -74,8 +74,8 @@ struct AddWordView: View {
     }
 
     var wordCellView: some View {
-        CellWrapper(Loc.word.localized) {
-            CustomTextField(Loc.typeWord.localized, text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
+        CellWrapper(Loc.Words.word.localized) {
+            CustomTextField(Loc.Words.typeWord.localized, text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
                 if viewModel.inputWord.isNotEmpty {
                     viewModel.handle(.fetchData)
                 }
@@ -85,7 +85,7 @@ struct AddWordView: View {
     }
 
     var inputLanguageCellView: some View {
-        CellWrapper(Loc.inputLanguage.localized) {
+        CellWrapper(Loc.Words.inputLanguage.localized) {
             Menu {
                 ForEach(InputLanguage.allCases, id: \.self) { language in
                     Button {

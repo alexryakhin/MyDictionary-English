@@ -17,8 +17,8 @@ struct AddSharedDictionaryView: View {
     var body: some View {
         ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
-                CustomSectionView(header: Loc.name.localized) {
-                    TextField(Loc.enterDictionaryName.localized, text: $name)
+                CustomSectionView(header: Loc.SharedDictionaries.name.localized) {
+                    TextField(Loc.SharedDictionaries.enterDictionaryName.localized, text: $name)
                         .textFieldStyle(.plain)
                         .submitLabel(.done)
                         .textContentType(.organizationName)
@@ -29,10 +29,10 @@ struct AddSharedDictionaryView: View {
             }
             .padding(16)
         } navigationBar: {
-            NavigationBarView(title: Loc.newSharedDictionary.localized)
+            NavigationBarView(title: Loc.SharedDictionaries.newSharedDictionary.localized)
         }
         .safeAreaInset(edge: .bottom) {
-            ActionButton(Loc.createSharedDictionary.localized, isLoading: isLoading) {
+            ActionButton(Loc.SharedDictionaries.createSharedDictionary.localized, isLoading: isLoading) {
                 createDictionary()
             }
             .padding(vertical: 12, horizontal: 16)
@@ -43,12 +43,12 @@ struct AddSharedDictionaryView: View {
     
     private func createDictionary() {
         guard !name.isEmpty else {
-            showAlertWithMessage(Loc.dictionaryNameRequired.localized)
+            showAlertWithMessage(Loc.SharedDictionaries.dictionaryNameRequired.localized)
             return
         }
         
         guard let userId = authenticationService.userId else {
-            showAlertWithMessage(Loc.signInToCreateSharedDictionary.localized)
+            showAlertWithMessage(Loc.SharedDictionaries.signInToCreateSharedDictionary.localized)
             return
         }
         Task { @MainActor in

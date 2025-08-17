@@ -22,7 +22,7 @@ struct SpellingQuizView: View {
                         .font(.system(size: 60))
                         .foregroundStyle(.red.gradient)
                     
-                    Text("Quiz Unavailable")
+                    Text(Loc.Quizzes.quizUnavailable.localized)
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
@@ -52,14 +52,14 @@ struct SpellingQuizView: View {
                 .padding(12)
             }
             .groupedBackground()
-            .navigationTitle("Spelling Quiz")
+            .navigationTitle(Loc.Navigation.spellingQuiz.localized)
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
                     // Exit button
-                    Button("Exit") {
+                    Button(Loc.Actions.exit.localized) {
                         viewModel.handle(.dismiss)
                     }
-                    .help("Exit Quiz")
+                    .help(Loc.Actions.exit.localized)
                 }
             }
             .onAppear {
@@ -111,7 +111,7 @@ struct SpellingQuizView: View {
                     .font(.title2)
                     .foregroundStyle(.blue)
                 
-                Text("Definition")
+                Text(Loc.Words.definition.localized)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
@@ -134,7 +134,7 @@ struct SpellingQuizView: View {
                     Image(systemName: "lightbulb.fill")
                         .foregroundStyle(.yellow)
                     
-                    Text("Hint: The word starts with '\(randomWord.quiz_wordItself.prefix(1).uppercased())'")
+                    Text("\(Loc.Quizzes.hint.localized): The word starts with '\(randomWord.quiz_wordItself.prefix(1).uppercased())'")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
@@ -159,14 +159,14 @@ struct SpellingQuizView: View {
                     .font(.title2)
                     .foregroundStyle(.accent)
 
-                Text("Your Answer")
+                Text(Loc.Quizzes.yourAnswer.localized)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
                 Spacer()
                 
                 if viewModel.attemptCount > 0 {
-                    Text("Attempt \(viewModel.attemptCount)")
+                    Text("\(Loc.Quizzes.attempt.localized) \(viewModel.attemptCount)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -191,7 +191,7 @@ struct SpellingQuizView: View {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(.accent)
 
-                    Text(["Correct!", "Well done!", "Keep up the good work!"].randomElement() ?? "Correct!")
+                    Text([Loc.Quizzes.correct.localized, Loc.Quizzes.wellDone.localized, Loc.Quizzes.keepUpGoodWork.localized].randomElement() ?? Loc.Quizzes.correct.localized)
                         .font(.caption)
                         .foregroundStyle(.accent)
 
@@ -206,7 +206,7 @@ struct SpellingQuizView: View {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.red)
                     
-                    Text("The correct word is '\(viewModel.randomWord?.quiz_wordItself ?? "")'. Moving to next word...")
+                    Text(Loc.Quizzes.correctWordIs.localized(viewModel.randomWord?.quiz_wordItself ?? ""))
                         .font(.caption)
                         .foregroundStyle(.red)
                     
@@ -261,7 +261,7 @@ struct SpellingQuizView: View {
             }
             .disabled(viewModel.answerTextField.isEmpty)
 
-            ActionButton("Skip Word (-2 points)", systemImage: "arrow.right.circle") {
+            ActionButton(Loc.Quizzes.skipWord.localized, systemImage: "arrow.right.circle") {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     viewModel.handle(.skipWord)
                 }

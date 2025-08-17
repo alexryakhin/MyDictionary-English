@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>words_count</key>
+	<key>words.words_count</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@COUNT@</string>
@@ -22,7 +22,7 @@
 			<string>%d слов</string>
 		</dict>
 	</dict>
-	<key>idioms_count</key>
+	<key>idioms.idioms_count</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@COUNT@</string>
@@ -33,16 +33,16 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>d</string>
 			<key>one</key>
-			<string>%d идиома</string>
+			<string>%d выражение</string>
 			<key>few</key>
-			<string>%d идиомы</string>
+			<string>%d выражения</string>
 			<key>many</key>
-			<string>%d идиом</string>
+			<string>%d выражений</string>
 			<key>other</key>
-			<string>%d идиом</string>
+			<string>%d выражений</string>
 		</dict>
 	</dict>
-	<key>collaborators</key>
+	<key>shared_dictionaries.collaborators</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@COUNT@</string>
@@ -62,7 +62,7 @@
 			<string>%d участников</string>
 		</dict>
 	</dict>
-	<key>dictionary_count_created</key>
+	<key>shared_dictionaries.dictionary_count_created</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@COUNT@ из 1 словаря создано</string>

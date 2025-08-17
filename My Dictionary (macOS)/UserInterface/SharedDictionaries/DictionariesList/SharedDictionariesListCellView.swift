@@ -19,13 +19,13 @@ struct SharedDictionariesListCellView: View {
 
                 HStack {
                     if dictionary.isOwner {
-                        Text(Loc.collaborators.localized(dictionary.collaborators.count))
+                        Text(Loc.SharedDictionaries.collaborators.localized(dictionary.collaborators.count))
                             .font(.caption)
                             .foregroundStyle(.secondary)
 
-                        TagView(text: Loc.owner.localized, color: .accent, size: .mini)
+                        TagView(text: Loc.SharedDictionaries.owner.localized, color: .accent, size: .mini)
                     } else if let owner = dictionary.collaborators.first(where: { $0.role == .owner }) {
-                        Text(Loc.createdBy.localized(owner.displayNameOrEmail))
+                        Text(Loc.SharedDictionaries.createdBy.localized(owner.displayNameOrEmail))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }

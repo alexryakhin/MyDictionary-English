@@ -26,7 +26,7 @@ struct ChooseDefinitionQuizView: View {
                             .font(.system(size: 60))
                             .foregroundStyle(.red.gradient)
                         
-                        Text("Quiz Unavailable")
+                        Text(Loc.Quizzes.quizUnavailable.localized)
                             .font(.title2)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
@@ -39,7 +39,7 @@ struct ChooseDefinitionQuizView: View {
                     }
                     .padding(.horizontal, 32)
                     
-                    ActionButton("Back to Quizzes", systemImage: "chevron.left", style: .borderedProminent) {
+                    ActionButton(Loc.Quizzes.backToQuizzes.localized, systemImage: "chevron.left", style: .borderedProminent) {
                         dismiss()
                     }
                     .padding(.horizontal, 32)
@@ -74,15 +74,15 @@ struct ChooseDefinitionQuizView: View {
                 }
             }
         }
-        .navigationTitle("Definition Quiz")
+        .navigationTitle(Loc.Navigation.definitionQuiz.localized)
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 // Exit button
-                Button("Exit") {
+                Button(Loc.Actions.exit.localized) {
                     viewModel.handle(.saveSession)
                     dismiss()
                 }
-                .help("Exit Quiz")
+                .help(Loc.Actions.exit.localized)
             }
         }
         .onAppear {
@@ -119,7 +119,7 @@ struct ChooseDefinitionQuizView: View {
                     .font(.title2)
                     .foregroundStyle(.accent)
 
-                Text("Word")
+                Text(Loc.Quizzes.word.localized)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
@@ -155,7 +155,7 @@ struct ChooseDefinitionQuizView: View {
                     .font(.title2)
                     .foregroundStyle(.accent)
                 
-                Text("Choose the Correct Definition")
+                Text(Loc.Quizzes.chooseCorrectDefinition.localized)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
@@ -198,7 +198,7 @@ struct ChooseDefinitionQuizView: View {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.red)
                     
-                    Text("Incorrect! Moving to next question...")
+                    Text(Loc.Quizzes.incorrectMovingToNextQuestion.localized)
                         .font(.caption)
                         .foregroundStyle(.red)
                     
@@ -216,7 +216,7 @@ struct ChooseDefinitionQuizView: View {
 
     private var actionButtons: some View {
         VStack(spacing: 12) {
-            ActionButton("Skip Word (-2 points)", systemImage: "arrow.right.circle", color: .secondary) {
+            ActionButton(Loc.Quizzes.skipWord.localized, systemImage: "arrow.right.circle", color: .secondary) {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     viewModel.handle(.skipWord)
                 }

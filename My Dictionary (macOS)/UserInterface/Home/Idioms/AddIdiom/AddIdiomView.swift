@@ -20,12 +20,12 @@ struct AddIdiomView: View {
             .padding(12)
         } navigationBar: {
             NavigationBarView(
-                title: "Add new idiom",
+                title: Loc.Idioms.addNewIdiom.localized,
                 trailingContent: {
-                    HeaderButton("Save", style: .borderedProminent) {
+                    HeaderButton(Loc.Actions.save.localized, style: .borderedProminent) {
                         viewModel.handle(.save)
                     }
-                    .help("Save Idiom")
+                    .help(Loc.Actions.save.localized)
                 }
             )
         }
@@ -36,14 +36,14 @@ struct AddIdiomView: View {
     }
 
     private var idiomInputSectionView: some View {
-        CustomSectionView(header: "Idiom") {
-            TextField("Idiom", text: $viewModel.inputIdiom, axis: .vertical)
+        CustomSectionView(header: Loc.Idioms.idiom.localized) {
+            TextField(Loc.Idioms.idiom.localized, text: $viewModel.inputIdiom, axis: .vertical)
                 .textFieldStyle(.plain)
                 .focused($isIdiomInputFocused)
                 .clippedWithPaddingAndBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 12)
         } trailingContent: {
             if isIdiomInputFocused {
-                HeaderButton("Done", size: .small) {
+                HeaderButton(Loc.Actions.done.localized, size: .small) {
                     isIdiomInputFocused = false
                 }
             }
@@ -51,14 +51,14 @@ struct AddIdiomView: View {
     }
 
     private var definitionInputSectionView: some View {
-        CustomSectionView(header: "Definition") {
-            TextField("Definition", text: $viewModel.definitionField, axis: .vertical)
+        CustomSectionView(header: Loc.Words.definition.localized) {
+            TextField(Loc.Words.definition.localized, text: $viewModel.definitionField, axis: .vertical)
                 .textFieldStyle(.plain)
                 .focused($isDefinitionInputFocused)
                 .clippedWithPaddingAndBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 12)
         } trailingContent: {
             if isDefinitionInputFocused {
-                HeaderButton("Done", size: .small) {
+                HeaderButton(Loc.Actions.done.localized, size: .small) {
                     isDefinitionInputFocused = false
                 }
             }

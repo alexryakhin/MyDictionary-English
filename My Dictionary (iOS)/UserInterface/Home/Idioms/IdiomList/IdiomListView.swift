@@ -21,7 +21,7 @@ struct IdiomListView: View {
         ScrollView {
             VStack(spacing: 16) {
                 if viewModel.filterState == .search && filteredIdioms.count < 10 {
-                    ActionButton(Loc.addIdiom.localized(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines)), systemImage: "plus") {
+                    ActionButton(Loc.Idioms.addIdiom.localized(viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines)), systemImage: "plus") {
                         viewModel.output.send(.showAddIdiom)
                     }
                 }
@@ -44,25 +44,25 @@ struct IdiomListView: View {
                                 Button(role: .destructive) {
                                     viewModel.handle(.deleteIdiom(idiom: idiomModel))
                                 } label: {
-                                    Label(Loc.delete.localized, systemImage: "trash")
+                                    Label(Loc.Actions.delete.localized, systemImage: "trash")
                                 }
                             }
                         }
                     } else if viewModel.searchText.isNotEmpty {
                         ContentUnavailableView(
-                            Loc.noIdiomsFound.localized,
+                            Loc.Idioms.noIdiomsFound.localized,
                             systemImage: "magnifyingglass",
-                            description: Text(Loc.addThisIdiom.localized)
+                            description: Text(Loc.Idioms.addThisIdiom.localized)
                         )
                     } else {
                         ContentUnavailableView(
-                            Loc.noIdiomsYet.localized,
+                            Loc.EmptyStates.noIdiomsYet.localized,
                             systemImage: "quote.bubble",
-                            description: Text(Loc.beginAddIdioms.localized)
+                            description: Text(Loc.Idioms.beginAddIdioms.localized)
                         )
                     }
                 } trailingContent: {
-                    HeaderButton(Loc.addIdiom.localized, icon: "plus", size: .small, style: .borderedProminent) {
+                    HeaderButton(Loc.Idioms.addIdiom.localized, icon: "plus", size: .small, style: .borderedProminent) {
                         viewModel.output.send(.showAddIdiom)
                     }
                 }
@@ -71,7 +71,7 @@ struct IdiomListView: View {
         }
         .groupedBackground()
         .navigation(
-            title: Loc.idioms.localized,
+            title: Loc.Idioms.idioms.localized,
             mode: .large,
             trailingContent: {
                 HeaderButtonMenu(icon: "ellipsis.circle") {
@@ -81,7 +81,7 @@ struct IdiomListView: View {
                                 .tag(item)
                         }
                     } label: {
-                        Text(Loc.sort.localized)
+                        Text(Loc.Idioms.sort.localized)
                     }
                     Picker(selection: _viewModel.projectedValue.filterState) {
                         ForEach(IdiomFilterCase.availableCases, id: \.self) { item in
@@ -89,13 +89,13 @@ struct IdiomListView: View {
                                 .tag(item)
                         }
                     } label: {
-                        Text(Loc.filter.localized)
+                        Text(Loc.Idioms.filter.localized)
                     }
                 }
             },
             bottomContent: {
                 InputView.searchView(
-                    Loc.searchIdioms.localized,
+                    Loc.Idioms.searchIdioms.localized,
                     searchText: $viewModel.searchText
                 )
             }
@@ -119,15 +119,15 @@ struct IdiomListView: View {
     private var filterStateTitle: String {
         switch viewModel.filterState {
         case .favorite:
-            return Loc.favorites.localized
+            return Loc.Idioms.favorites.localized
         case .search:
-            return Loc.found.localized
+            return Loc.Idioms.found.localized
         default:
-            return Loc.allIdioms.localized
+            return Loc.Idioms.allIdioms.localized
         }
     }
 
     private var idiomsCount: String {
-        return Loc.idiomsCount.localized(filteredIdioms.count)
+        return Loc.Idioms.idiomsCount.localized(filteredIdioms.count)
     }
 }
