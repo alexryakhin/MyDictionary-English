@@ -21,7 +21,7 @@ struct SplashScreenView: View {
                 .animation(.easeInOut(duration: 1.0).repeatForever(autoreverses: true), value: isAnimating)
             
             // App name
-            Text("My Dictionary")
+                            Text(Loc.App.myDictionary.localized)
                 .font(.largeTitle)
                 .bold()
             
@@ -30,7 +30,7 @@ struct SplashScreenView: View {
                 .scaleEffect(1.2)
             
             // Loading text
-            Text("Loading...")
+                            Text(Loc.App.loading.localized)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }

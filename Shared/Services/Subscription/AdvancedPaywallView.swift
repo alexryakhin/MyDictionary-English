@@ -95,12 +95,12 @@ struct AdvancedPaywallView: View {
                 .padding(.top, 30)
             
             VStack(spacing: 12) {
-                Text("Upgrade to Pro")
+                Text(Loc.Paywall.upgradeToPro.localized)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                 
-                Text("Join thousands of users who've transformed their vocabulary learning")
+                Text(Loc.Paywall.joinThousandsUsers.localized)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -130,7 +130,7 @@ struct AdvancedPaywallView: View {
     
     private var featuresSection: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Everything you need to master vocabulary")
+                            Text(Loc.Paywall.everythingYouNeedToMasterVocabulary.localized)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.horizontal, 16)
@@ -152,7 +152,7 @@ struct AdvancedPaywallView: View {
     
     private var plansSection: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Choose Your Plan")
+                            Text(Loc.Paywall.chooseYourPlan.localized)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.horizontal, 16)
@@ -191,7 +191,7 @@ struct AdvancedPaywallView: View {
                             .scaleEffect(0.8)
                             .tint(.white)
                     } else {
-                        Text("Start \(selectedPlan?.displayName ?? "Pro")")
+                        Text(Loc.Paywall.startPro.localized)
                             .fontWeight(.semibold)
                     }
                 }
@@ -219,7 +219,7 @@ struct AdvancedPaywallView: View {
                     await restorePurchases()
                 }
             } label: {
-                Text("Restore Purchases")
+                Text(Loc.Paywall.restorePurchases.localized)
                     .font(.body)
                     .foregroundStyle(.secondary)
             }
@@ -234,7 +234,7 @@ struct AdvancedPaywallView: View {
     
     private var socialProofSection: some View {
         VStack(spacing: 16) {
-            Text("Trusted by learners worldwide")
+                            Text(Loc.Paywall.trustedByLearnersWorldwide.localized)
                 .font(.headline)
                 .fontWeight(.medium)
                 .foregroundStyle(.secondary)
@@ -264,7 +264,7 @@ struct AdvancedPaywallView: View {
     
     private var termsSection: some View {
         VStack(spacing: 8) {
-            Text("By subscribing, you agree to our Terms of Service and Privacy Policy")
+                            Text(Loc.Paywall.bySubscribingAgreeTerms.localized)
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)

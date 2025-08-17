@@ -67,7 +67,7 @@ struct SharedWordDifficultyStatsView: View {
         ContentUnavailableView(
             "No difficulty ratings yet",
             systemImage: "chart.bar.doc.horizontal",
-            description: Text("Be the first to rate this word's difficulty")
+                            description: Text(Loc.SharedDictionaries.beFirstToRateDifficulty.localized)
         )
     }
 }
@@ -90,7 +90,7 @@ struct UserDifficultyRow: View {
                     .fontWeight(.medium)
                     .lineLimit(1)
 
-                Text("Score: \(score)")
+                Text(Loc.SharedDictionaries.score.localized(score))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

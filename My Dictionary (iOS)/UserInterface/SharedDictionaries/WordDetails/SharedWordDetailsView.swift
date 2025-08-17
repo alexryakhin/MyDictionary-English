@@ -260,7 +260,7 @@ struct SharedWordDetailsView: View {
                     }
                 }
             } else {
-                Text("No examples yet")
+                Text(Loc.Words.noExamplesYet.localized)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 16)
             }

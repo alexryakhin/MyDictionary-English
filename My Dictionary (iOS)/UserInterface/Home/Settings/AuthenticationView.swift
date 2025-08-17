@@ -36,7 +36,7 @@ struct AuthenticationView: View {
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
 
-                Text("Sign in to access your word lists across all your devices and collaborate with others.")
+                Text(Loc.Auth.signInToAccessWordLists.localized)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -55,7 +55,7 @@ struct AuthenticationView: View {
                     }
                 } label: {
                     Label {
-                        Text("Sign in with Google")
+                        Text(Loc.Auth.signInWithGoogle.localized)
                     } icon: {
                         Image(.googleLogo).renderingMode(.template)
                     }
@@ -101,7 +101,7 @@ struct AuthenticationView: View {
             if shownBeforePaywall {
                 // Footer
                 VStack(spacing: 8) {
-                    Text("You can always sign in later from Settings")
+                    Text(Loc.Auth.canAlwaysSignInLater.localized)
                         .font(.caption)
                         .foregroundStyle(.secondary)
 
@@ -133,7 +133,7 @@ struct AuthenticationView: View {
 
     private var accountLinkingSection: some View {
         VStack(spacing: 12) {
-            Text("Link additional accounts")
+                            Text(Loc.Auth.linkAdditionalAccounts.localized)
                 .font(.headline)
                 .padding(.top)
 
@@ -147,7 +147,7 @@ struct AuthenticationView: View {
                         }
                     } label: {
                         Label {
-                            Text("Link Google")
+                            Text(Loc.Auth.linkGoogle.localized)
                                 .font(.caption)
                                 .fontWeight(.medium)
                         } icon: {
@@ -176,7 +176,7 @@ struct AuthenticationView: View {
                         }
                     } label: {
                         Label {
-                            Text("Link Apple")
+                            Text(Loc.Auth.linkApple.localized)
                                 .font(.caption)
                                 .fontWeight(.medium)
                         } icon: {
@@ -197,7 +197,7 @@ struct AuthenticationView: View {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(.accent)
-                    Text("Accounts linked successfully")
+                    Text(Loc.Auth.accountsLinkedSuccessfully.localized)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

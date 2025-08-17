@@ -25,7 +25,7 @@ struct SignOutConfirmationView: View {
                         .foregroundStyle(.accent)
                 }
 
-                Text("Sign Out")
+                Text(Loc.Auth.signOut.localized)
                     .font(.title2)
                     .fontWeight(.semibold)
             }
@@ -39,12 +39,12 @@ struct SignOutConfirmationView: View {
                             .foregroundStyle(.accent)
                             .font(.title3)
 
-                        Text("Your words are safe")
+                        Text(Loc.Auth.yourWordsAreSafe.localized)
                             .font(.headline)
                             .fontWeight(.medium)
                     }
 
-                    Text("All your vocabulary words, definitions, and progress will remain on this device. You can continue using the app offline.")
+                    Text(Loc.Auth.allVocabularyRemainDevice.localized)
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.leading)
@@ -58,12 +58,12 @@ struct SignOutConfirmationView: View {
                             .foregroundStyle(.orange)
                             .font(.title3)
 
-                        Text("Cloud sync will be disabled")
+                        Text(Loc.Auth.cloudSyncDisabled.localized)
                             .font(.headline)
                             .fontWeight(.medium)
                     }
 
-                    Text("Word lists and shared data will be cleared. If you sign in with another account, your local words will be combined with the new account's data.")
+                    Text(Loc.Auth.wordListsSharedDataCleared.localized)
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.leading)

@@ -25,7 +25,7 @@ struct TagRowView: View {
                     .font(.body)
                     .fontWeight(.medium)
 
-                Text("\(tag.wordsArray.count) words")
+                Text(Loc.Tags.wordsCount.localized(tag.wordsArray.count))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

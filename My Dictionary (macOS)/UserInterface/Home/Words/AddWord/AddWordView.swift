@@ -157,7 +157,7 @@ struct AddWordView: View {
     var tagsCellView: some View {
         CellWrapper("Tags") {
             if viewModel.selectedTags.isEmpty {
-                Text("No tags selected")
+                Text(Loc.Words.noTagsSelected.localized)
                     .foregroundStyle(.secondary)
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -218,7 +218,7 @@ struct AddWordView: View {
                         .font(.largeTitle)
                         .foregroundStyle(.orange)
                 } description: {
-                    Text("There is an error loading definitions. Please try again.")
+                    Text(Loc.Words.errorLoadingDefinitions.localized)
                 } actions: {
                     HeaderButton("Retry", icon: "magnifyingglass", style: .borderedProminent) {
                         viewModel.handle(.fetchData)
@@ -272,7 +272,7 @@ struct AddWordView: View {
                 ContentUnavailableView {
                     EmptyView()
                 } description: {
-                    Text("Type a word and press 'Search' to find its definitions")
+                    Text(Loc.Words.typeWordAndPressSearch.localized)
                 } actions: {
                     HeaderButton("Search", icon: "magnifyingglass", style: .borderedProminent) {
                         viewModel.handle(.fetchData)

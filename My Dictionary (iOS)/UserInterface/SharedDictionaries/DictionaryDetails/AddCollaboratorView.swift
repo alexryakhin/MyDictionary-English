@@ -54,22 +54,22 @@ struct AddCollaboratorView: View {
                 CustomSectionView(header: "Role Permissions", hPadding: .zero) {
                     FormWithDivider {
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Editor:")
+                            Text(Loc.SharedDictionaries.editorRole.localized)
                                 .font(.headline)
-                            Text("• Can add, edit, and delete words")
-                            Text("• Can invite other collaborators")
-                            Text("• Can manage dictionary settings")
+                                            Text(Loc.SharedDictionaries.canAddEditDeleteWords.localized)
+                Text(Loc.SharedDictionaries.canInviteCollaborators.localized)
+                Text(Loc.SharedDictionaries.canManageDictionarySettings.localized)
                         }
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 12, horizontal: 16)
 
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Viewer:")
+                            Text(Loc.SharedDictionaries.viewer.localized)
                                 .font(.headline)
-                            Text("• Can view all words")
-                            Text("• Cannot make changes")
-                            Text("• Cannot invite others")
+                                            Text(Loc.SharedDictionaries.canViewAllWords.localized)
+                Text(Loc.SharedDictionaries.cannotMakeChanges.localized)
+                Text(Loc.SharedDictionaries.cannotInviteOthers.localized)
                         }
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -79,7 +79,7 @@ struct AddCollaboratorView: View {
                 
                 CustomSectionView(header: "Note", hPadding: .zero) {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("The collaborator will be added with the email and name you provide. They will need to sign in with the same email address to access the shared dictionary.")
+                        Text(Loc.SharedDictionaries.collaboratorAddedWithEmailName.localized)
                     }
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)

@@ -149,14 +149,14 @@ struct WordDetailsContentView: View {
                     .foregroundStyle(difficulty.color)
                     .fontWeight(.semibold)
                 
-                Text("Score: \(word.difficultyScore)")
+                Text("\(Loc.Words.score.localized): \(word.difficultyScore)")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
             // Show info that difficulty can only be changed through quizzes
-            Text("Quiz-based")
+            Text(Loc.Words.quizBased.localized)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -165,7 +165,7 @@ struct WordDetailsContentView: View {
     @ViewBuilder
     private var languageSectionView: some View {
         if word.shouldShowLanguageLabel {
-            CustomSectionView(header: "Language", headerFontStyle: .stealth) {
+            CustomSectionView(header: Loc.Words.language.localized, headerFontStyle: .stealth) {
                 HStack {
                     Text(word.languageDisplayName)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -179,9 +179,9 @@ struct WordDetailsContentView: View {
     }
 
     private var tagsSectionView: some View {
-        CustomSectionView(header: "Tags", headerFontStyle: .stealth) {
+        CustomSectionView(header: Loc.Words.tags.localized, headerFontStyle: .stealth) {
             if word.tagsArray.isEmpty {
-                Text("No tags added yet.")
+                Text(Loc.Words.noTagsAddedYet.localized)
                     .frame(maxWidth: .infinity, alignment: .leading)
             } else {
                 HFlow(alignment: .top, spacing: 8) {
@@ -198,7 +198,7 @@ struct WordDetailsContentView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         } trailingContent: {
-            HeaderButton("Add Tag", icon: "plus", size: .small) {
+            HeaderButton(Loc.Words.addTag.localized, icon: "plus", size: .small) {
                 showingTagSelection = true
             }
         }
@@ -251,7 +251,7 @@ struct WordDetailsContentView: View {
                     }
                 }
             } else {
-                Text("No examples yet")
+                Text(Loc.Words.noExamplesYet.localized)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 16)
             }

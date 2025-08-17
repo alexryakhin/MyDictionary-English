@@ -25,7 +25,7 @@ struct TagSelectionView: View {
                     ContentUnavailableView(
                         "No Tags Yet",
                         systemImage: "tag",
-                        description: Text("Add a tag to start using it.")
+                        description: Text(Loc.Tags.addTagToStartUsing.localized)
                     )
                     .padding(.vertical, 16)
                 } else {

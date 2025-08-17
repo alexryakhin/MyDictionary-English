@@ -37,7 +37,7 @@ struct SharedDictionaryDetailsView: View {
                     CustomSectionView(header: "Dictionary Info", hPadding: .zero) {
                         FormWithDivider {
                             HStack {
-                                Text("Name")
+                                Text(Loc.SharedDictionaries.name.localized)
                                 Spacer()
                                 Text(dictionary.name)
                                     .foregroundStyle(.secondary)
@@ -45,7 +45,7 @@ struct SharedDictionaryDetailsView: View {
                             .padding(vertical: 12, horizontal: 16)
 
                             HStack {
-                                Text("Created")
+                                Text(Loc.SharedDictionaries.created.localized)
                                 Spacer()
                                 Text(dictionary.createdAt, style: .date)
                                     .foregroundStyle(.secondary)
@@ -53,7 +53,7 @@ struct SharedDictionaryDetailsView: View {
                             .padding(vertical: 12, horizontal: 16)
 
                             HStack {
-                                Text("Your Role")
+                                Text(Loc.SharedDictionaries.yourRole.localized)
                                 Spacer()
                                 Text(dictionary.userRole?.displayValue ?? "Unknown")
                                     .foregroundStyle(.secondary)
@@ -101,7 +101,7 @@ struct SharedDictionaryDetailsView: View {
                                             .foregroundStyle(.secondary)
                                     }
                                 } else if collaborator.email == authenticationService.userEmail {
-                                    Text("Me")
+                                    Text(Loc.SharedDictionaries.me.localized)
                                         .font(.caption)
                                         .padding(vertical: 2, horizontal: 6)
                                         .background(.accent.opacity(0.1))
@@ -156,7 +156,7 @@ struct SharedDictionaryDetailsView: View {
                     ContentUnavailableView(
                         "Dictionary Not Found",
                         systemImage: "exclamationmark.triangle",
-                        description: Text("This dictionary may have been deleted or you may have lost access to it.")
+                        description: Text(Loc.SharedDictionaries.dictionaryDeletedOrLostAccess.localized)
                     )
                 }
                 .padding(.horizontal, 16)

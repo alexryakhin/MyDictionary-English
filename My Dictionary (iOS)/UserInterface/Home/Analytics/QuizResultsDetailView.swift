@@ -20,7 +20,7 @@ enum QuizResultsList {
                         ContentUnavailableView(
                             "No Quiz Results Yet",
                             systemImage: "chart.bar",
-                            description: Text("Complete your first quiz to see detailed results here")
+                            description: Text(Loc.Analytics.completeFirstQuizResults.localized)
                         )
                         .listRowBackground(Color.clear)
                     } else {

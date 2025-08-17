@@ -46,13 +46,13 @@ struct CoffeeBanner: View {
                 }
                 
                 VStack(spacing: 8) {
-                    Text("Enjoying the app?")
+                    Text(Loc.Coffee.enjoyingTheApp.localized)
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundStyle(.primary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Text("If My Dictionary has been helpful in your learning journey, consider buying me a coffee! ☕️")
+                    Text(Loc.Coffee.helpfulLearningJourney.localized)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -64,10 +64,10 @@ struct CoffeeBanner: View {
 
             // Action buttons
             VStack(spacing: 12) {
-                ActionButton("Buy Me a Coffee", systemImage: "cup.and.saucer.fill", color: .orange, style: .borderedProminent) {
+                ActionButton(Loc.Coffee.buyMeACoffee.localized, systemImage: "cup.and.saucer.fill", color: .orange, style: .borderedProminent) {
                     onBuyCoffee()
                 }
-                ActionButton("Maybe Later") {
+                ActionButton(Loc.Coffee.maybeLater.localized) {
                     onDismiss()
                 }
             }

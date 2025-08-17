@@ -30,19 +30,19 @@ struct SignOutView: View {
                                 .foregroundStyle(.accent)
                         }
 
-                        Text("Sign Out")
+                        Text(Loc.Auth.signOut.localized)
                             .font(.headline)
                             .fontWeight(.semibold)
                     }
 
                     // Message
                     VStack(spacing: 8) {
-                        Text("No worries! We won't remove your words.")
+                        Text(Loc.Auth.noWorriesWontRemoveWords.localized)
                             .font(.body)
                             .fontWeight(.medium)
                             .multilineTextAlignment(.center)
 
-                        Text("Your vocabulary will stay on this device. If you sign in with another account, your data will be combined.")
+                        Text(Loc.Auth.vocabularyStayOnDevice.localized)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)

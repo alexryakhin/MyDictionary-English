@@ -31,7 +31,7 @@ struct TagManagementView: View {
                     ContentUnavailableView(
                         "No Tags added yet",
                         systemImage: "tag.fill",
-                        description: Text("Add your first tag by tapping the button above.")
+                        description: Text(Loc.Tags.addFirstTagDescription.localized)
                     )
                 }
             } trailingContent: {

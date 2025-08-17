@@ -29,7 +29,7 @@ struct SubscriptionStatusView: View {
                 HStack {
                     Image(systemName: "crown.fill")
                         .foregroundStyle(.yellow)
-                    Text("Pro User")
+                    Text(Loc.Paywall.proUser.localized)
                         .font(.body)
                         .fontWeight(.semibold)
                 }
@@ -58,11 +58,11 @@ struct SubscriptionStatusView: View {
         VStack(spacing: 12) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Free Plan")
+                    Text(Loc.Paywall.freePlan.localized)
                         .font(.body)
                         .fontWeight(.semibold)
                     
-                    Text("Limited features available")
+                    Text(Loc.Paywall.limitedFeaturesAvailable.localized)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

@@ -18,11 +18,11 @@ struct AboutAppContentView: View {
                             .scaledToFit()
                             .frame(width: 128, height: 128)
 
-                        Text("I created this app because I could not find something that I wanted.\n\nIt is a simple word list manager that allows you to search for words and add their definitions along them without actually translating into a native language.\n\nI find this best to learn English. Hope it will work for you as well.\n\nIf you have any questions, or want to suggest a feature, please reach out to me on the links below. Thank you for using my app!")
+                        Text(Loc.Settings.aboutAppDescription.localized)
                             .multilineTextAlignment(.leading)
 
                         HStack(spacing: 8) {
-                            Text("App version:")
+                            Text(Loc.Settings.appVersion.localized)
                                 .bold()
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             Text(GlobalConstant.currentFullAppVersion)
@@ -47,7 +47,7 @@ struct AboutAppContentView: View {
 
                 CustomSectionView(header: "Contact me") {
                     VStack(spacing: 12) {
-                        Text("Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Twitter!")
+                        Text(Loc.Settings.contactSupport.localized)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .multilineTextAlignment(.leading)
 

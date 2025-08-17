@@ -34,14 +34,21 @@ struct SettingsView: View {
                 // MARK: - Translate Definitions
                 if !GlobalConstant.isEnglishLanguage {
                     CustomSectionView(header: "Translate Definitions") {
-                        Toggle("Show definitions in your native language", isOn: $translateDefinitions)
-                            .padding(vertical: 12, horizontal: 16)
-                            .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                        HStack {
+                            Text("Show definitions in your native language")
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Spacer()
+                            Toggle("Show definitions in your native language", isOn: $translateDefinitions)
+                                .labelsHidden()
+                        }
+                        .padding(vertical: 12, horizontal: 16)
+                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
                     }
                 } else {
                     CustomSectionView(header: "Accent") {
                         HStack {
-                            Text("Select accent")
+                            Text(Loc.Settings.selectAccent.localized)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             HeaderButtonMenu(viewModel.selectedEnglishAccent.displayName, size: .small) {
                                 Picker("Select accent", selection: $viewModel.selectedEnglishAccent) {
@@ -66,10 +73,10 @@ struct SettingsView: View {
                     VStack(spacing: 8) {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Daily Reminders")
+                                Text(Loc.Settings.dailyReminders.localized)
                                     .font(.body)
                                     .fontWeight(.medium)
-                                Text("Get reminded at 8 PM if you haven't opened the app")
+                                Text(Loc.Settings.dailyRemindersDescription.localized)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -87,10 +94,10 @@ struct SettingsView: View {
 
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Difficult Words")
+                                Text(Loc.Settings.difficultWords.localized)
                                     .font(.body)
                                     .fontWeight(.medium)
-                                Text("Get reminded at 4 PM to practice difficult words")
+                                Text(Loc.Settings.difficultWordsDescription.localized)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -132,7 +139,7 @@ struct SettingsView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 HStack {
                                     VStack(alignment: .leading, spacing: 4) {
-                                        Text("Signed in as")
+                                        Text(Loc.Settings.signedInAs.localized)
                                             .font(.body)
                                             .fontWeight(.medium)
                                         Text(authenticationService.displayName ?? authenticationService.userEmail ?? "Anonymous")
@@ -186,7 +193,7 @@ struct SettingsView: View {
                 ) {
                     VStack(spacing: 8) {
                         HStack {
-                            Text("Show Idioms Tab")
+                            Text(Loc.Settings.showIdiomsTab.localized)
                                 .font(.body)
                                 .fontWeight(.medium)
                             Spacer()
@@ -235,7 +242,7 @@ struct SettingsView: View {
                         }
                         
                         if !subscriptionService.isProUser {
-                            Text("Free users can export up to \(AppConfig.Features.freeUserExportLimit) words")
+                            Text(Loc.Settings.freeUsersExportLimit.localized(AppConfig.Features.freeUserExportLimit))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                                 .frame(maxWidth: .infinity, alignment: .leading)

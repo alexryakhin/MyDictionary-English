@@ -108,7 +108,7 @@ struct QuizzesListView: View {
                             // Hard Words Toggle
                             HStack {
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text("Practice Hard Words Only")
+                                    Text(Loc.Quizzes.practiceHardWordsOnly.localized)
                                         .font(.body)
                                         .fontWeight(.medium)
                                     Text(
@@ -134,7 +134,7 @@ struct QuizzesListView: View {
                             // Word Count Slider
                             VStack(alignment: .leading, spacing: 8) {
                                 HStack {
-                                    Text("Words per Session")
+                                    Text(Loc.Quizzes.wordsPerSession.localized)
                                         .font(.body)
                                         .fontWeight(.medium)
                                     Spacer()
@@ -188,7 +188,7 @@ struct QuizzesListView: View {
                     .foregroundStyle(.accent.gradient)
                 
                 if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
-                    Text("Shared Dictionary Needs More Words!")
+                    Text(Loc.Quizzes.sharedDictionaryNeedsMoreWords.localized)
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)

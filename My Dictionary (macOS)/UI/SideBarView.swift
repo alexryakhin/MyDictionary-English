@@ -48,7 +48,7 @@ struct SideBarView: View {
             if authenticationService.isSignedIn {
                 Section("Shared Dictionaries") {
                     if dictionaryService.sharedDictionaries.isEmpty {
-                        Text("No shared dictionaries")
+                        Text(Loc.SharedDictionaries.noSharedDictionariesSidebar.localized)
                             .foregroundStyle(.secondary)
                             .font(.caption)
                             .padding(.vertical, 4)

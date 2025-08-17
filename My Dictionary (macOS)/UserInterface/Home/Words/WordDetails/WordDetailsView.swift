@@ -239,7 +239,7 @@ struct WordDetailsView: View {
             headerFontStyle: .stealth
         ) {
             if word.tagsArray.isEmpty {
-                Text("No tags added yet.")
+                Text(Loc.Words.noTagsAddedYet.localized)
                     .frame(maxWidth: .infinity, alignment: .leading)
             } else {
                 HFlow(alignment: .top, spacing: 8) {
@@ -310,7 +310,7 @@ struct WordDetailsView: View {
                     }
                 }
             } else {
-                Text("No examples yet")
+                Text(Loc.Words.noExamplesYet.localized)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 16)
             }

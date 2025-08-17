@@ -20,7 +20,7 @@ struct ErrorView: View {
                 .foregroundStyle(.red)
             
             // Error title
-            Text("Something went wrong")
+                            Text(Loc.App.somethingWentWrong.localized)
                 .font(.title2)
                 .bold()
             

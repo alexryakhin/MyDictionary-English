@@ -39,10 +39,10 @@ struct SharedDictionarySelectionView: View {
                                 .frame(width: 24)
 
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Private Dictionary")
+                                Text(Loc.SharedDictionaries.privateDictionary.localized)
                                     .font(.headline)
 
-                                Text("Save to your personal dictionary")
+                                Text(Loc.SharedDictionaries.saveToPersonalDictionary.localized)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -78,12 +78,12 @@ struct SharedDictionarySelectionView: View {
                                             .font(.headline)
 
                                         HStack {
-                                            Text("\(dictionary.collaborators.count) collaborators")
+                                            Text(Loc.SharedDictionaries.collaboratorsCount.localized(dictionary.collaborators.count))
                                                 .font(.caption)
                                                 .foregroundStyle(.secondary)
 
                                             if dictionary.isOwner {
-                                                Text("Owner")
+                                                Text(Loc.SharedDictionaries.owner.localized)
                                                     .font(.caption)
                                                     .foregroundStyle(.accent)
                                                     .padding(.horizontal, 6)

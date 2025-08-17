@@ -27,12 +27,12 @@ struct QuizProgressHeader: View {
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Progress: \(model.wordsPlayed)/\(model.totalQuestions)")
+                    Text(Loc.Quizzes.progressFormat.localized(model.wordsPlayed, model.totalQuestions))
                         .font(.caption)
                         .foregroundStyle(.secondary)
 
                     if model.currentStreak > 0 {
-                        Text("🔥 Streak: \(model.currentStreak)")
+                        Text(Loc.Quizzes.streakFormat.localized(model.currentStreak))
                             .font(.caption)
                             .foregroundStyle(.orange)
                             .fontWeight(.medium)
@@ -42,12 +42,12 @@ struct QuizProgressHeader: View {
                 Spacer()
 
                 VStack(alignment: .trailing, spacing: 2) {
-                    Text("Score: \(model.score)")
+                    Text(Loc.Quizzes.scoreFormat.localized(model.score))
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundStyle(.blue)
 
-                    Text("Best: \(model.bestStreak)")
+                    Text(Loc.Quizzes.bestFormat.localized(model.bestStreak))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

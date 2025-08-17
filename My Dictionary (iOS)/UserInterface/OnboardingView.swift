@@ -124,19 +124,19 @@ struct OnboardingView: View {
             Spacer()
 
             VStack(spacing: 16) {
-                Text("Welcome to")
+                Text(Loc.Onboarding.welcomeTo.localized)
                     .font(.title2)
                     .foregroundStyle(.secondary)
                     .opacity(animateContent ? 1 : 0)
                     .offset(y: animateContent ? 0 : 20)
                 
-                Text("My Dictionary")
+                Text(Loc.Onboarding.myDictionary.localized)
                     .font(.system(size: 42, weight: .bold, design: .rounded))
                     .foregroundStyle(.primary)
                     .opacity(animateContent ? 1 : 0)
                     .offset(y: animateContent ? 0 : 20)
                 
-                Text("Your personal vocabulary companion")
+                Text(Loc.Onboarding.personalVocabularyCompanion.localized)
                     .font(.title3)
                     .foregroundStyle(.secondary)
                     .opacity(animateContent ? 1 : 0)
@@ -157,7 +157,7 @@ struct OnboardingView: View {
         VStack(spacing: 0) {
             Spacer()
             
-            Text("Build Your Vocabulary")
+            Text(Loc.Onboarding.buildYourVocabulary.localized)
                 .font(.system(.largeTitle, design: .rounded, weight: .bold))
                 .foregroundStyle(.primary)
                 .multilineTextAlignment(.center)
@@ -191,7 +191,7 @@ struct OnboardingView: View {
         VStack(spacing: 0) {
             Spacer()
             
-            Text("Personalized Learning")
+            Text(Loc.Onboarding.personalizedLearning.localized)
                 .font(.system(.largeTitle, design: .rounded, weight: .bold))
                 .foregroundStyle(.primary)
                 .multilineTextAlignment(.center)
@@ -203,8 +203,8 @@ struct OnboardingView: View {
             VStack(spacing: 16) {
                 PersonalizationCard(
                     icon: "brain.head.profile",
-                    title: "Smart Quizzes",
-                    description: "Adaptive quizzes that learn from your progress",
+                    title: Loc.Onboarding.smartQuizzes.localized,
+                    description: Loc.Onboarding.smartQuizzesDescription.localized,
                     color: .blue
                 )
                 .opacity(animateContent ? 1 : 0)
@@ -212,8 +212,8 @@ struct OnboardingView: View {
                 
                 PersonalizationCard(
                     icon: "chart.line.uptrend.xyaxis",
-                    title: "Progress Tracking",
-                    description: "Visual insights into your vocabulary growth",
+                    title: Loc.Onboarding.progressTracking.localized,
+                    description: Loc.Onboarding.progressTrackingDescription.localized,
                     color: .accent
                 )
                 .opacity(animateContent ? 1 : 0)
@@ -221,8 +221,8 @@ struct OnboardingView: View {
                 
                 PersonalizationCard(
                     icon: "person.2.fill",
-                    title: "Collaborative Learning",
-                    description: "Share dictionaries with friends and family",
+                    title: Loc.Onboarding.collaborativeLearning.localized,
+                    description: Loc.Onboarding.collaborativeLearningDescription.localized,
                     color: .purple
                 )
                 .opacity(animateContent ? 1 : 0)
@@ -257,13 +257,13 @@ struct OnboardingView: View {
             Spacer()
 
             VStack(spacing: 16) {
-                Text("You're All Set!")
+                Text(Loc.Onboarding.youreAllSet.localized)
                     .font(.system(.largeTitle, design: .rounded, weight: .bold))
                     .foregroundStyle(.primary)
                     .opacity(animateContent ? 1 : 0)
                     .offset(y: animateContent ? 0 : 20)
                 
-                Text("Start building your vocabulary today and watch your language skills grow.")
+                Text(Loc.Onboarding.startBuildingVocabulary.localized)
                     .font(.title3)
                     .foregroundStyle(.secondary)
                     .opacity(animateContent ? 1 : 0)
@@ -282,7 +282,7 @@ struct OnboardingView: View {
     private var navigationButtons: some View {
         HStack(spacing: 16) {
             if currentStep > 0 {
-                ActionButton("Back") {
+                ActionButton(Loc.Onboarding.back.localized) {
                     withAnimation(.easeInOut(duration: 0.3)) {
                         currentStep -= 1
                     }
@@ -290,7 +290,7 @@ struct OnboardingView: View {
             }
             
             ActionButton(
-                currentStep == totalSteps - 1 ? "Get Started" : "Next",
+                currentStep == totalSteps - 1 ? Loc.Onboarding.getStarted.localized : Loc.Onboarding.next.localized,
                 style: .borderedProminent
             ) {
                 if currentStep < totalSteps - 1 {
@@ -325,18 +325,18 @@ struct OnboardingView: View {
         [
             OnboardingFeature(
                 icon: "text.justify",
-                title: "Personal Word List",
-                description: "Create and organize your own vocabulary collections with custom definitions and examples"
+                title: Loc.Onboarding.personalWordList.localized,
+                description: Loc.Onboarding.personalWordListDescription.localized
             ),
             OnboardingFeature(
                 icon: "network",
-                title: "Find Definitions",
-                description: "Get comprehensive definitions with multiple meanings and contexts"
+                title: Loc.Onboarding.findDefinitions.localized,
+                description: Loc.Onboarding.findDefinitionsDescription.localized
             ),
             OnboardingFeature(
                 icon: "scroll",
-                title: "Collect Idioms",
-                description: "Learn and practice idioms and expressions from around the world"
+                title: Loc.Onboarding.collectIdioms.localized,
+                description: Loc.Onboarding.collectIdiomsDescription.localized
             )
         ]
     }

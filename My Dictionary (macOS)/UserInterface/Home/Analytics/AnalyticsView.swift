@@ -19,7 +19,7 @@ struct AnalyticsView: View {
                 VStack(spacing: 12) {
                     ProgressView()
                         .scaleEffect(1.5)
-                    Text("Loading progress data...")
+                    Text(Loc.Analytics.loadingProgressData.localized)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -40,7 +40,7 @@ struct AnalyticsView: View {
             }
         }
         .groupedBackground()
-        .navigationTitle("Progress")
+        .navigationTitle(Loc.Analytics.progress.localized)
         .refreshable {
             viewModel.refreshData()
         }
@@ -56,23 +56,23 @@ struct AnalyticsView: View {
     // MARK: - Progress Overview Section
     
     private var progressOverviewSection: some View {
-        CustomSectionView(header: "Overview") {
+        CustomSectionView(header: Loc.Analytics.overview.localized) {
             VStack(spacing: 12) {
                 HStack(spacing: 12) {
                     ProgressCard(
-                        title: "In Progress",
+                        title: Loc.Words.inProgress.localized,
                         value: "\(viewModel.progressSummary?.inProgress ?? 0)",
                         color: .orange,
                         icon: "clock"
                     )
                     ProgressCard(
-                        title: "Mastered",
+                        title: Loc.Words.mastered.localized,
                         value: "\(viewModel.progressSummary?.mastered ?? 0)",
                         color: .accent,
                         icon: "checkmark.circle"
                     )
                     ProgressCard(
-                        title: "Need Review",
+                        title: Loc.Words.needsReview.localized,
                         value: "\(viewModel.progressSummary?.needsReview ?? 0)",
                         color: .red,
                         icon: "exclamationmark.triangle"
@@ -80,19 +80,19 @@ struct AnalyticsView: View {
                 }
                 HStack(spacing: 12) {
                     StatCard(
-                        title: "Practice Time",
+                        title: Loc.Analytics.practiceTime.localized,
                         value: viewModel.totalPracticeTimeFormatted,
                         icon: "clock.fill"
                     )
 
                     StatCard(
-                        title: "Accuracy",
+                        title: Loc.Analytics.accuracy.localized,
                         value: viewModel.averageAccuracyFormatted,
                         icon: "target"
                     )
 
                     StatCard(
-                        title: "Sessions",
+                        title: Loc.Analytics.sessions.localized,
                         value: "\(viewModel.progressSummary?.totalSessions ?? 0)",
                         icon: "play.circle"
                     )
@@ -105,12 +105,12 @@ struct AnalyticsView: View {
     // MARK: - Quiz Results Section
     
     private var quizResultsSection: some View {
-        CustomSectionView(header: "Recent Quiz Results") {
+        CustomSectionView(header: Loc.Analytics.recentQuizResults.localized) {
             if viewModel.quizSessions.isEmpty {
                 ContentUnavailableView(
-                    "No Quiz Results Yet",
+                    Loc.Analytics.noQuizResultsYet.localized,
                     systemImage: "chart.bar",
-                    description: Text("Complete your first quiz to see results here")
+                    description: Text(Loc.Analytics.completeFirstQuizResults.localized)
                 )
             } else {
                 LazyVStack(spacing: 12) {
@@ -120,7 +120,7 @@ struct AnalyticsView: View {
                 }
             }
         } trailingContent: {
-            HeaderButton("View All", size: .small) {
+            HeaderButton(Loc.Analytics.allResults.localized, size: .small) {
                 if subscriptionService.isProUser {
                     showingQuizResults = true
                 } else {
@@ -133,16 +133,16 @@ struct AnalyticsView: View {
     // MARK: - Vocabulary Growth Section
     
     private var vocabularyGrowthSection: some View {
-        CustomSectionView(header: "Vocabulary Growth") {
+        CustomSectionView(header: Loc.Analytics.vocabularyGrowth.localized) {
             if viewModel.vocabularyGrowthData.isEmpty {
                 ContentUnavailableView(
-                    "No Growth Data Yet",
+                    Loc.Analytics.noGrowthDataYet.localized,
                     systemImage: "chart.line.uptrend.xyaxis",
-                    description: Text("Complete quizzes to see your vocabulary growth over time")
+                    description: Text(Loc.Analytics.completeQuizzesGrowthData.localized)
                 )
             } else {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Last \(viewModel.selectedTimePeriod.displayName.lowercased())")
+                    Text(Loc.Analytics.lastTimePeriod.localized(viewModel.selectedTimePeriod.displayName.lowercased()))
                         .font(.caption)
                         .foregroundStyle(.secondary)
 

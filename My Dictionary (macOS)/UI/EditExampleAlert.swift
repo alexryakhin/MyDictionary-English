@@ -15,7 +15,7 @@ struct EditExampleAlert: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            Text("Edit Example")
+                            Text(Loc.Words.editExample.localized)
                 .font(.title2)
                 .bold()
                 .padding()

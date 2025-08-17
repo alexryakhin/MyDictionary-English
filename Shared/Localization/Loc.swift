@@ -96,6 +96,14 @@ enum Loc {
         static let visualInsights = "onboarding.visual_insights"
         static let collaborativeLearning = "onboarding.collaborative_learning"
         static let shareDictionaries = "onboarding.share_dictionaries"
+        static let back = "onboarding.back"
+        static let next = "onboarding.next"
+        static let personalWordListDescription = "onboarding.personal_word_list_description"
+        static let findDefinitionsDescription = "onboarding.find_definitions_description"
+        static let collectIdiomsDescription = "onboarding.collect_idioms_description"
+        static let smartQuizzesDescription = "onboarding.smart_quizzes_description"
+        static let progressTrackingDescription = "onboarding.progress_tracking_description"
+        static let collaborativeLearningDescription = "onboarding.collaborative_learning_description"
     }
 
     // MARK: - Words
@@ -150,6 +158,13 @@ enum Loc {
         static let typeExampleHere = "words.type_example_here"
         static let addExample = "words.add_example"
         static let editExample = "words.edit_example"
+        static let score = "words.score"
+        static let quizBased = "words.quiz_based"
+        static let noTagsAddedYet = "words.no_tags_added_yet"
+        static let addTag = "words.add_tag"
+        static let noTagsSelected = "words.no_tags_selected"
+        static let errorLoadingDefinitions = "words.error_loading_definitions"
+        static let typeWordAndPressSearch = "words.type_word_and_press_search"
     }
 
     // MARK: - Idioms
@@ -253,6 +268,17 @@ enum Loc {
         static let currentlyHaveHardWords = "quizzes.currently_have_hard_words"
         static let needAtLeastWordsStartQuizzes = "quizzes.need_at_least_words_start_quizzes"
         static let currentlyHaveWords = "quizzes.currently_have_words"
+        static let progressFormat = "quizzes.progress_format"
+        static let streakFormat = "quizzes.streak_format"
+        static let scoreFormat = "quizzes.score_format"
+        static let bestFormat = "quizzes.best_format"
+    }
+
+    // MARK: - App
+    enum App {
+        static let myDictionary = "app.my_dictionary"
+        static let loading = "app.loading"
+        static let somethingWentWrong = "app.something_went_wrong"
     }
 
     // MARK: - Analytics
@@ -272,6 +298,21 @@ enum Loc {
         static let sessions = "analytics.sessions"
         static let allResults = "analytics.all_results"
         static let duration = "analytics.duration"
+        static let loadingProgressData = "analytics.loading_progress_data"
+        static let completeFirstQuizResults = "analytics.complete_first_quiz_results"
+        static let completeQuizzesGrowthData = "analytics.complete_quizzes_growth_data"
+        static let lastTimePeriod = "analytics.last_time_period"
+        static let points = "analytics.points"
+        static let pointsCount = "analytics.points_count"
+        static let accuracy = "analytics.accuracy"
+        static let progress = "analytics.progress"
+        static let streak = "analytics.streak"
+        static let best = "analytics.best"
+        static let score = "analytics.score"
+        static let correctAnswers = "analytics.correct_answers"
+        static let wordsPlayed = "analytics.words_played"
+        static let totalQuestions = "analytics.total_questions"
+        static let wordsCount = "analytics.words_count"
     }
 
     // MARK: - Settings
@@ -311,6 +352,12 @@ enum Loc {
         static let exportSuccessful = "settings.export_successful"
         static let uploadSuccessful = "settings.upload_successful"
         static let downloadSuccessful = "settings.download_successful"
+        static let dailyRemindersDescription = "settings.daily_reminders_description"
+        static let difficultWordsDescription = "settings.difficult_words_description"
+        static let freeUsersExportLimit = "settings.free_users_export_limit"
+        static let appVersion = "settings.app_version"
+        static let aboutAppDescription = "settings.about_app_description"
+        static let contactSupport = "settings.contact_support"
     }
 
     // MARK: - Authentication
@@ -323,6 +370,14 @@ enum Loc {
         static let signOutConfirmation = "auth.sign_out_confirmation"
         static let yourWordsAreSafe = "auth.your_words_are_safe"
         static let cloudSyncDisabled = "auth.cloud_sync_disabled"
+        static let signOut = "auth.sign_out"
+        static let noWorriesWontRemoveWords = "auth.no_worries_wont_remove_words"
+        static let vocabularyStayOnDevice = "auth.vocabulary_stay_on_device"
+        static let allVocabularyRemainDevice = "auth.all_vocabulary_remain_device"
+        static let wordListsSharedDataCleared = "auth.word_lists_shared_data_cleared"
+        static let signInToAccessWordLists = "auth.sign_in_to_access_word_lists"
+        static let linkGoogle = "auth.link_google"
+        static let linkApple = "auth.link_apple"
     }
 
     // MARK: - Shared Dictionaries
@@ -352,6 +407,18 @@ enum Loc {
         static let dictionaryCountCreated = "shared_dictionaries.dictionary_count_created"
         static let noSharedDictionaries = "shared_dictionaries.no_shared_dictionaries"
         static let createSharedDictionaryCollaborate = "shared_dictionaries.create_shared_dictionary_collaborate"
+        static let privateDictionary = "shared_dictionaries.private_dictionary"
+        static let saveToPersonalDictionary = "shared_dictionaries.save_to_personal_dictionary"
+        static let collaboratorsCount = "shared_dictionaries.collaborators_count"
+        static let me = "shared_dictionaries.me"
+        static let dictionaryDeletedOrLostAccess = "shared_dictionaries.dictionary_deleted_or_lost_access"
+        static let selectRole = "shared_dictionaries.select_role"
+        static let editorRole = "shared_dictionaries.editor_role"
+        static let collaboratorAddedWithEmailName = "shared_dictionaries.collaborator_added_with_email_name"
+        static let beFirstToRateDifficulty = "shared_dictionaries.be_first_to_rate_difficulty"
+        static let score = "shared_dictionaries.score"
+        static let noSharedDictionariesSidebar = "shared_dictionaries.no_shared_dictionaries_sidebar"
+        static let editExample = "words.edit_example"
         static let dictionaries = "shared_dictionaries.dictionaries"
         static let enterDictionaryName = "shared_dictionaries.enter_dictionary_name"
         static let newSharedDictionary = "shared_dictionaries.new_shared_dictionary"
@@ -373,6 +440,9 @@ enum Loc {
         static let noTagsYet = "tags.no_tags_yet"
         static let addFirstTag = "tags.add_first_tag"
         static let addTag = "tags.add_tag"
+        static let wordsCount = "tags.words_count"
+        static let addFirstTagDescription = "tags.add_first_tag_description"
+        static let addTagToStartUsing = "tags.add_tag_to_start_using"
         static let deleteTag = "tags.delete_tag"
         static let deleteTagConfirmation = "tags.delete_tag_confirmation"
         static let deleteTagCannotUndo = "tags.delete_tag_cannot_undo"
@@ -390,6 +460,8 @@ enum Loc {
     enum Coffee {
         static let buyMeACoffee = "coffee.buy_me_a_coffee"
         static let maybeLater = "coffee.maybe_later"
+        static let enjoyingTheApp = "coffee.enjoying_the_app"
+        static let helpfulLearningJourney = "coffee.helpful_learning_journey"
     }
 
     // MARK: - Paywall
@@ -410,6 +482,11 @@ enum Loc {
         static let activeUsers = "paywall.active_users"
         static let wordsAdded = "paywall.words_added"
         static let signInRequired = "paywall.sign_in_required"
+        static let joinThousandsUsers = "paywall.join_thousands_users"
+        static let bySubscribingAgreeTerms = "paywall.by_subscribing_agree_terms"
+        static let proUser = "paywall.pro_user"
+        static let freePlan = "paywall.free_plan"
+        static let limitedFeaturesAvailable = "paywall.limited_features_available"
     }
 
     // MARK: - Pro Features
@@ -495,6 +572,7 @@ enum Loc {
 
     // MARK: - Empty States
     enum EmptyStates {
+        static let noWordsYet = "empty_states.no_words_yet"
         static let noIdiomsYet = "empty_states.no_idioms_yet"
         static let noFavoriteWords = "empty_states.no_favorite_words"
         static let noSearchResults = "empty_states.no_search_results"
