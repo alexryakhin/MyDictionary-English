@@ -9,19 +9,18 @@ import SwiftUI
 import Firebase
 import Combine
 import UserNotifications
+import AppKit
+import FirebaseFirestore
 
 @main
 struct MyDictionaryApp: App {
 
     @Environment(\.openWindow) private var openWindow
-    private var messagingService: MessagingService?
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     init() {
         // Configure Firebase FIRST
         FirebaseApp.configure()
-        
-        // Initialize MessagingService AFTER Firebase is configured
-        messagingService = MessagingService.shared
     }
 
     var body: some Scene {
@@ -72,5 +71,71 @@ struct MyDictionaryApp: App {
             SettingsView()
         }
         .defaultSize(width: 500, height: 650)
+    }
+}
+
+final class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // Initialize app services and setup
+        setupAppServices()
+    }
+
+    func applicationWillTerminate(_ aNotification: Notification) {
+        // Unregister device token when app terminates
+        Task {
+            await MessagingService.shared.unregisterCurrentDevice()
+        }
+    }
+    
+    func applicationDidBecomeActive(_ aNotification: Notification) {
+        // Mark app as opened and cancel daily reminder
+        NotificationService.shared.markAppAsOpened()
+    }
+    
+    // MARK: - App Services Setup
+    
+    private func setupAppServices() {
+        // Configure Firestore for offline persistence
+        let db = Firestore.firestore()
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
+        settings.cacheSizeBytes = FirestoreCacheSizeUnlimited
+        db.settings = settings
+
+        // Initialize MessagingService AFTER Firebase is configured
+        _ = MessagingService.shared
+
+        // Log analytics event
+        AnalyticsService.shared.logEvent(.appOpened)
+
+        // DO NOT TRANSLATE DEBUG
+        #if DEBUG
+        // Debug Firebase configuration
+        FirebaseDebugService.shared.checkFirebaseConfiguration()
+        FirebaseDebugService.shared.checkAuthenticationStatus()
+        #endif
+
+        // Setup notifications
+        setupNotifications()
+    }
+    
+    private func setupNotifications() {
+        let notificationService = NotificationService.shared
+
+        // Mark app as opened and cancel daily reminder
+        notificationService.markAppAsOpened()
+
+        // Check if user has enabled notifications
+        let dailyRemindersEnabled = UserDefaults.standard.bool(forKey: UDKeys.dailyRemindersEnabled)
+        let difficultWordsEnabled = UserDefaults.standard.bool(forKey: UDKeys.difficultWordsEnabled)
+
+        // Only schedule notifications if user has enabled them
+        if dailyRemindersEnabled || difficultWordsEnabled {
+            Task {
+                await notificationService.requestPermission()
+                notificationService.scheduleNotificationsForToday()
+            }
+        }
     }
 }

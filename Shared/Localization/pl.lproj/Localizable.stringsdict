@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>words.words_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d słowo</string>
+			<key>few</key>
+			<string>%d słowa</string>
+			<key>many</key>
+			<string>%d słów</string>
+			<key>other</key>
+			<string>%d słów</string>
+		</dict>
+	</dict>
+	<key>idioms.idioms_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d wyrażenie</string>
+			<key>few</key>
+			<string>%d wyrażenia</string>
+			<key>many</key>
+			<string>%d wyrażeń</string>
+			<key>other</key>
+			<string>%d wyrażeń</string>
+		</dict>
+	</dict>
+	<key>shared_dictionaries.collaborators</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d współpracownik</string>
+			<key>few</key>
+			<string>%d współpracowników</string>
+			<key>many</key>
+			<string>%d współpracowników</string>
+			<key>other</key>
+			<string>%d współpracowników</string>
+		</dict>
+	</dict>
+	<key>shared_dictionaries.dictionary_count_created</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@ z 1 słownika utworzone</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d</string>
+			<key>few</key>
+			<string>%d</string>
+			<key>many</key>
+			<string>%d</string>
+			<key>other</key>
+			<string>%d</string>
+		</dict>
+	</dict>
+	<key>analytics.points_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d punkt</string>
+			<key>few</key>
+			<string>%d punkty</string>
+			<key>many</key>
+			<string>%d punktów</string>
+			<key>other</key>
+			<string>%d punktów</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,864 @@
+/*
+  Localizable.strings (Korean Translation)
+  My Dictionary
+
+  Translated on August 17, 2025.
+*/
+
+// MARK: - Tab Bar
+"tabbar.words" = "단어";
+"tabbar.idioms" = "관용구";
+"tabbar.quizzes" = "퀴즈";
+"tabbar.progress" = "진행 상황";
+"tabbar.settings" = "설정";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "단어 세부 정보";
+"navigation.idiom_details" = "관용구 세부 정보";
+"navigation.add_tags" = "태그 추가";
+"navigation.about" = "앱 정보";
+"navigation.debug_panel" = "디버그 패널";
+"navigation.quiz_results" = "퀴즈 결과";
+"navigation.spelling_quiz" = "철자 퀴즈";
+"navigation.definition_quiz" = "정의 퀴즈";
+"navigation.close" = "닫기";
+"navigation.close_screen" = "화면 닫기";
+
+// MARK: - Common Actions
+"actions.done" = "완료";
+"actions.save" = "저장";
+"actions.save_word" = "단어 저장";
+"actions.cancel" = "취소";
+"actions.confirm" = "확인";
+"actions.search" = "검색";
+"actions.delete" = "삭제";
+"actions.edit" = "편집";
+"actions.add" = "추가";
+"actions.next" = "다음";
+"actions.back" = "뒤로";
+"actions.exit" = "종료";
+"actions.ok" = "확인";
+"actions.yes" = "예";
+"actions.no" = "아니요";
+"actions.try_again" = "다시 시도";
+"actions.view_all" = "모두 보기";
+"actions.listen" = "듣기";
+"actions.create" = "생성";
+"actions.manage" = "관리";
+"actions.select" = "선택";
+"actions.select_word" = "단어 선택";
+"actions.select_idiom" = "관용구 선택";
+"actions.select_quiz" = "퀴즈 선택";
+"actions.sign_out" = "로그아웃";
+"actions.sign_in" = "로그인";
+"actions.upgrade" = "업그레이드";
+"actions.learn_more" = "자세히 알아보기";
+"actions.copy" = "복사";
+"actions.refresh" = "새로고침";
+"actions.clear" = "지우기";
+"actions.reset" = "초기화";
+"actions.test" = "테스트";
+"actions.check" = "확인";
+"actions.verify" = "검증";
+"actions.show" = "표시";
+"actions.send" = "전송";
+"actions.request" = "요청";
+"actions.sync" = "동기화";
+"actions.upload" = "업로드";
+"actions.download" = "다운로드";
+"actions.import_words" = "단어 가져오기";
+"actions.export_words" = "단어 내보내기";
+"actions.stop_watching" = "관찰 중지";
+"actions.make_viewer" = "뷰어로 설정";
+"actions.make_editor" = "편집자로 설정";
+"actions.remove" = "제거";
+"actions.skip_for_now" = "지금 건너뛰기";
+"actions.link_google" = "Google 계정 연동";
+"actions.link_apple" = "Apple 계정 연동";
+"actions.toggle_like" = "좋아요 전환";
+"actions.toggle_favorite" = "즐겨찾기 전환";
+
+// MARK: - Onboarding
+"onboarding.welcome_to" = "환영합니다";
+"onboarding.my_dictionary" = "내 사전";
+"onboarding.personal_vocabulary_companion" = "개인 어휘 동반자";
+"onboarding.build_your_vocabulary" = "어휘를 쌓아보세요";
+"onboarding.personalized_learning" = "맞춤형 학습";
+"onboarding.youre_all_set" = "모두 준비되었습니다!";
+"onboarding.start_building_vocabulary" = "오늘부터 어휘를 쌓기 시작하여 언어 실력이 향상되는 모습을 지켜보세요.";
+"onboarding.get_started" = "시작하기";
+"onboarding.next_step" = "다음 단계";
+"onboarding.personal_word_list" = "개인 단어 리스트";
+"onboarding.create_organize_vocabulary" = "사용자 정의 정의와 예문으로 어휘 컬렉션을 만들고 정리하세요";
+"onboarding.find_definitions" = "정의 찾기";
+"onboarding.comprehensive_definitions" = "다양한 의미와 맥락을 포함한 포괄적인 정의를 얻으세요";
+"onboarding.collect_idioms" = "관용구 수집";
+"onboarding.learn_practice_idioms" = "전 세계의 관용구와 표현을 배우고 연습하세요";
+"onboarding.smart_quizzes" = "스마트 퀴즈";
+"onboarding.adaptive_quizzes" = "당신의 진행 상황에 따라 적응하는 퀴즈";
+"onboarding.progress_tracking" = "진행 상황 추적";
+"onboarding.visual_insights" = "어휘 성장에 대한 시각적 통찰";
+"onboarding.collaborative_learning" = "협업 학습";
+"onboarding.share_dictionaries" = "친구 및 가족과 사전을 공유";
+"onboarding.back" = "뒤로";
+"onboarding.next" = "다음";
+"onboarding.personal_word_list_description" = "사용자 정의 정의와 예문으로 어휘 컬렉션을 만들고 정리하세요";
+"onboarding.find_definitions_description" = "다양한 의미와 맥락을 포함한 포괄적인 정의를 얻으세요";
+"onboarding.collect_idioms_description" = "전 세계의 관용구와 표현을 배우고 연습하세요";
+"onboarding.smart_quizzes_description" = "당신의 진행 상황에 따라 적응하는 퀴즈";
+"onboarding.progress_tracking_description" = "어휘 성장에 대한 시각적 통찰";
+"onboarding.collaborative_learning_description" = "친구 및 가족과 사전을 공유";
+
+// MARK: - Words
+"words.add_word" = "단어 추가";
+"words.add_your_first_word" = "첫 번째 단어 추가";
+"words.add_more_words" = "더 많은 단어 추가";
+"words.add_to_shared_dictionary" = "공유 사전에 추가";
+"words.add_new_word" = "새 단어 추가";
+"words.delete_word" = "단어 삭제";
+"words.delete_word_confirmation" = "이 단어를 삭제하시겠습니까?";
+"words.transcription" = "발음 기호";
+"words.part_of_speech" = "품사";
+"words.definition" = "정의";
+"words.difficulty" = "난이도";
+"words.language" = "언어";
+"words.input_language" = "입력 언어";
+"words.tags" = "태그";
+"words.word" = "단어";
+"words.words" = "단어";
+"words.create_tags" = "태그 생성";
+"words.all_words" = "모든 단어";
+"words.favorite" = "즐겨찾기";
+"words.favorite_words" = "즐겨찾기 단어";
+"words.search" = "검색";
+"words.search_words" = "단어 검색...";
+"words.search_results" = "검색 결과";
+"words.tag" = "태그";
+"words.tagged_words" = "태그된 단어";
+"words.new" = "신규";
+"words.new_words" = "새 단어";
+"words.in_progress" = "진행 중";
+"words.words_in_progress" = "진행 중인 단어";
+"words.needs_review" = "검토 필요";
+"words.words_needing_review" = "검토 필요한 단어";
+"words.mastered" = "숙달";
+"words.mastered_words" = "숙달된 단어";
+"words.sort" = "정렬";
+"words.filter" = "필터";
+"words.latest_first" = "최신순";
+"words.earliest_first" = "오래된순";
+"words.alphabetically" = "알파벳순";
+"words.by_part_of_speech" = "품사순";
+"words.type_word" = "단어 입력";
+"words.shared_dictionary" = "공유 사전";
+"words.private_dictionary" = "개인 사전";
+"words.impressive_vocabulary" = "인상적인 어휘!";
+"words.impressive_vocabulary_message" = "**%d 단어**를 모았습니다! 학습에 대한 당신의 헌신은 감동적입니다.";
+"words.examples" = "예문";
+"words.no_examples_yet" = "아직 예문이 없습니다";
+"words.type_example_here" = "여기에 예문을 입력하세요";
+"words.add_example" = "예문 추가";
+"words.edit_example" = "예문 편집";
+"words.score" = "점수";
+"words.quiz_based" = "퀴즈 기반";
+"words.language" = "언어";
+"words.no_tags_added_yet" = "아직 태그가 추가되지 않았습니다.";
+"words.add_tag" = "태그 추가";
+"words.no_tags_selected" = "태그가 선택되지 않았습니다";
+"words.error_loading_definitions" = "정의 로드에 실패했습니다. 다시 시도하세요.";
+"words.type_word_and_press_search" = "단어를 입력하고 '검색'을 눌러 정의를 찾으세요";
+"words.word_details" = "단어 세부 정보";
+"words.no_examples_yet" = "아직 예문이 없습니다";
+"words.edit_example" = "예문 편집";
+"words.no_transcription" = "발음 기호 없음";
+"words.no_definition" = "정의 없음";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "관용구 추가";
+"idioms.add_new_idiom" = "새 관용구 추가";
+"idioms.idiom" = "관용구";
+"idioms.idioms" = "관용구";
+"idioms.no_idioms_found" = "관용구를 찾을 수 없습니다";
+"idioms.add_this_idiom" = "위 버튼을 클릭하여 이 관용구를 추가하세요";
+"idioms.begin_add_idioms" = "왼쪽 상단의 플러스 아이콘을 클릭하여 리스트에 관용구 추가를 시작하세요";
+"idioms.all_idioms" = "모든 관용구";
+"idioms.favorite_idioms" = "즐겨찾기 관용구";
+"idioms.found_idioms" = "찾은 관용구";
+"idioms.examples" = "예문";
+"idioms.no_examples_yet" = "아직 예문이 없습니다";
+"idioms.type_example_here" = "여기에 예문을 입력하세요";
+"idioms.add_example" = "예문 추가";
+"idioms.edit_example" = "예문 편집";
+"idioms.delete_idiom" = "관용구 삭제";
+"idioms.delete_idiom_confirmation" = "이 관용구를 삭제하시겠습니까?";
+"idioms.search_idioms" = "관용구 검색...";
+"idioms.favorites" = "즐겨찾기";
+"idioms.found" = "찾음";
+"idioms.sort" = "정렬";
+"idioms.filter" = "필터";
+"idioms.latest_first" = "최신순";
+"idioms.earliest_first" = "오래된순";
+"idioms.alphabetically" = "알파벳순";
+
+// MARK: - Quizzes
+"quizzes.quiz_unavailable" = "퀴즈를 사용할 수 없습니다";
+"quizzes.back_to_quizzes" = "퀴즈로 돌아가기";
+"quizzes.your_answer" = "당신의 답변";
+"quizzes.submit_answer" = "답변 제출";
+"quizzes.next_word" = "다음 단어";
+"quizzes.finish" = "완료";
+"quizzes.your_results" = "당신의 결과";
+"quizzes.final_score" = "최종 점수";
+"quizzes.correct_answers" = "정답";
+"quizzes.best_streak" = "최고 연속 정답";
+"quizzes.accuracy" = "정확도";
+"quizzes.debug" = "디버그";
+"quizzes.choose_correct_definition" = "올바른 정의 선택";
+"quizzes.word" = "단어";
+"quizzes.quiz_types" = "퀴즈 유형";
+"quizzes.practice_settings" = "연습 설정";
+"quizzes.configure_quiz_experience" = "퀴즈 경험을 설정하세요";
+"quizzes.practice_hard_words_only" = "어려운 단어만 연습";
+"quizzes.focus_words_need_review" = "검토가 필요한 단어에 집중";
+"quizzes.not_enough_words_review" = "검토할 단어가 충분하지 않습니다";
+"quizzes.words_per_session" = "세션당 단어 수";
+"quizzes.number_words" = "단어 수";
+"quizzes.select_dictionary" = "사전 선택";
+"quizzes.no_difficult_words_available" = "퀴즈에 사용할 어려운 단어가 없습니다";
+"quizzes.spelling_quiz_description" = "단어를 정확히 철자하여 철자 실력을 테스트하세요";
+"quizzes.definition_quiz_description" = "각 단어의 올바른 정의를 선택하세요";
+"quizzes.progress" = "진행 상황";
+"quizzes.streak" = "연속 정답";
+"quizzes.score" = "점수";
+"quizzes.best" = "최고";
+"quizzes.hint" = "힌트";
+"quizzes.attempt" = "시도";
+"quizzes.correct" = "정답!";
+"quizzes.well_done" = "잘했어요!";
+"quizzes.keep_up_good_work" = "계속 잘해나가세요!";
+"quizzes.correct_word_is" = "정답 단어는 '%@'입니다. 다음 단어로...";
+"quizzes.moving_to_next_word" = "다음 단어로 이동...";
+"quizzes.incorrect" = "오답";
+"quizzes.moving_to_next_question" = "다음 질문으로 이동...";
+"quizzes.quiz_complete" = "퀴즈 완료!";
+"quizzes.great_job_completed_spelling_quiz" = "훌륭합니다! 철자 퀴즈를 완료했습니다.";
+"quizzes.great_job_completed_definition_quiz" = "훌륭합니다! 정의 퀴즈를 완료했습니다.";
+"quizzes.skip_word" = "단어 건너뛰기 (-2점)";
+"quizzes.incorrect_moving_to_next_question" = "오답! 다음 질문으로 이동...";
+"quizzes.contributions" = "기여";
+"quizzes.not_enough_words_available" = "사용 가능한 단어가 충분하지 않습니다. 퀴즈에는 최소 %d개의 단어가 필요합니다.";
+"quizzes.need_at_least_words" = "퀴즈에는 최소 %d개의 단어가 필요합니다.";
+"quizzes.shared_dictionary_needs_more_words" = "공유 사전에 더 많은 단어가 필요합니다!";
+"quizzes.start_building_vocabulary" = "어휘를 쌓기 시작하세요!";
+"quizzes.keep_adding_words" = "계속 단어를 추가하세요!";
+"quizzes.ask_dictionary_owner_add_words" = "사전 소유자에게 단어를 추가해달라고 요청하거나 다른 사전을 선택하세요!";
+"quizzes.switch_different_dictionary" = "다른 사전으로 전환!";
+"quizzes.add_words_to_shared_dictionary" = "공유 사전에 단어 추가";
+"quizzes.add_your_first_word" = "첫 번째 단어 추가";
+"quizzes.add_more_words" = "더 많은 단어 추가";
+"quizzes.you_can_practice_vocabulary" = "어휘를 연습하거나 이미 단어가 포함된 공유 사전을 선택할 수 있습니다.";
+"quizzes.select_shared_dictionary_populated" = "이미 단어가 포함된 공유 사전을 선택하세요.";
+"quizzes.number_words_practice_session" = "연습 세션당 단어 수 (%d-%d)";
+"quizzes.min_words" = "%d";
+"quizzes.max_words" = "%d";
+"quizzes.shared_dictionary_needs_hard_words" = "'%@' 공유 사전은 어려운 모드 연습을 위해 최소 1개의 어려운 단어가 필요합니다. 현재 %d개의 어려운 단어가 있습니다.";
+"quizzes.needs_at_least_words_start_quizzes" = "'%@' 공유 사전은 퀴즈를 시작하려면 최소 10개의 단어가 필요합니다. 현재 %d개의 단어가 있습니다.";
+"quizzes.need_at_least_hard_word_practice" = "어려운 모드 연습을 위해 최소 1개의 어려운 단어가 필요합니다. 현재 %d개의 어려운 단어가 있습니다.";
+"quizzes.need_at_least_words_start_quizzes" = "퀴즈를 시작하려면 최소 10개의 단어가 필요합니다. 현재 %d개의 단어가 있습니다.";
+"quizzes.progress_format" = "진행 상황: %d/%d";
+"quizzes.streak_format" = "🔥 연속 정답: %d";
+"quizzes.score_format" = "점수: %d";
+"quizzes.best_format" = "최고: %d";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "사전 소유자에게 단어를 추가해달라고 요청하거나 다른 사전으로 전환하세요!";
+
+// MARK: - App
+"app.my_dictionary" = "내 사전";
+"app.loading" = "로딩 중...";
+"app.something_went_wrong" = "문제가 발생했습니다";
+"app.try_again" = "다시 시도";
+"app.error" = "오류";
+"app.oops" = "앗!";
+"app.unknown" = "알 수 없음";
+"app.retry" = "재시도";
+"app.add_example" = "예문 추가";
+"app.add_to_shared_dictionary" = "공유 사전에 추가";
+"app.add_collaborator" = "협업자 추가";
+"app.delete_dictionary" = "사전 삭제";
+"app.enter_definition" = "정의 입력";
+"app.select_value" = "값 선택";
+"app.pronunciation" = "발음";
+"app.tags" = "태그";
+"app.select_definition" = "정의 선택";
+"app.translating_word" = "단어 번역 중...";
+"app.translating_definitions" = "정의 번역 중...";
+"app.type_word_here" = "여기에 단어를 입력하세요...";
+"app.email_address" = "이메일 주소";
+"app.name" = "이름";
+"app.example" = "예문";
+"app.transcription" = "발음 기호";
+"app.definition" = "정의";
+"app.import_successful" = "가져오기 성공";
+"app.import_successful_message" = "%@가 성공적으로 가져왔습니다";
+"app.no_words_imported" = "가져온 단어 없음";
+"app.no_words_imported_message" = "가져올 새 단어를 찾지 못했습니다";
+"app.tag_management_error" = "태그 관리 오류";
+"app.delete_tag" = "태그 삭제";
+"app.delete_tag_confirmation" = "이 태그를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.";
+"app.cant_share_word" = "단어를 공유할 수 없습니다";
+"app.collaborator_details" = "협업자 세부 정보";
+"app.role_permissions" = "역할 권한";
+"app.note" = "노트";
+"app.dictionary_info" = "사전 정보";
+"app.collaborators" = "협업자";
+"app.all_results" = "모든 결과";
+"app.part_of_speech" = "품사";
+"app.language" = "언어";
+"app.tag_name" = "태그 이름";
+"app.tag_color" = "태그 색상";
+"app.private_dictionary" = "개인 사전";
+"app.shared_dictionaries" = "공유 사전";
+"app.about_my_dictionary" = "내 사전에 대해";
+"app.debug_panel" = "디버그 패널";
+"app.word_starts_with" = "단어 시작";
+"app.debug_info" = "디버그 정보";
+"app.send_test_notification" = "테스트 알림 전송";
+"app.enter_email_address" = "이메일 주소 입력";
+"app.enter_email_address_for_notification" = "테스트 알림을 보내고 싶은 사용자의 이메일 주소를 입력하세요.";
+"app.user_information" = "사용자 정보";
+
+// MARK: - Analytics
+"analytics.overview" = "개요";
+"analytics.recent_quiz_results" = "최근 퀴즈 결과";
+"analytics.no_quiz_results_yet" = "아직 퀴즈 결과가 없습니다";
+"analytics.complete_first_quiz" = "첫 퀴즈를 완료하여 결과를 확인하세요";
+"analytics.vocabulary_growth" = "어휘 성장";
+"analytics.no_growth_data_yet" = "아직 성장 데이터가 없습니다";
+"analytics.complete_quizzes_growth" = "퀴즈를 완료하여 시간이 지남에 따라 어휘 성장을 확인하세요";
+"analytics.time_period" = "기간";
+"analytics.week" = "주";
+"analytics.month" = "월";
+"analytics.year" = "년";
+"analytics.practice_time" = "연습 시간";
+"analytics.sessions" = "세션";
+"analytics.all_results" = "모든 결과";
+"analytics.duration" = "소요 시간";
+"analytics.loading_progress_data" = "진행 데이터 로딩 중...";
+"analytics.complete_first_quiz_results" = "첫 퀴즈를 완료하여 결과를 확인하세요";
+"analytics.complete_quizzes_growth_data" = "퀴즈를 완료하여 시간이 지남에 따라 어휘 성장을 확인하세요";
+"analytics.last_time_period" = "마지막 %-기간";
+"analytics.points" = "포인트";
+"analytics.accuracy" = "정확도";
+"analytics.progress" = "진행 상황";
+"analytics.streak" = "연속 정답";
+"analytics.best" = "최고";
+"analytics.score" = "점수";
+"analytics.correct_answers" = "정답";
+"analytics.words_played" = "플레이한 단어";
+"analytics.total_questions" = "총 질문";
+"analytics.difficulty_statistics" = "난이도 통계";
+"analytics.individual_ratings" = "개별 평가";
+"analytics.how_other_users_rate_difficulty" = "다른 사용자가 이 단어의 난이도를 어떻게 평가했는지";
+"analytics.no_difficulty_ratings_yet" = "아직 난이도 평가가 없습니다";
+"analytics.total_ratings" = "총 평가";
+"analytics.view_detailed_statistics" = "자세한 통계 보기";
+
+// MARK: - Settings
+"settings.translate_definitions" = "정의 번역";
+"settings.show_definitions_native_language" = "모국어로 정의 표시";
+"settings.accent" = "억양";
+"settings.select_accent" = "억양 선택";
+"settings.notifications" = "알림";
+"settings.daily_reminders" = "일일 알림";
+"settings.difficult_words" = "어려운 단어";
+"settings.subscription" = "구독";
+"settings.pro_user" = "프로 사용자";
+"settings.free_plan" = "무료 플랜";
+"settings.limited_features_available" = "제한된 기능 사용 가능";
+"settings.signed_in_as" = "로그인된 계정";
+"settings.anonymous" = "익명";
+"settings.upload_backup_google" = "Google에 백업 업로드";
+"settings.download_backup_google" = "Google에서 백업 다운로드";
+"settings.sign_in_sync_word_lists" = "단어 리스트 동기화를 위해 로그인";
+"settings.organization" = "정리";
+"settings.show_idioms_tab" = "관용구 탭 표시";
+"settings.shared_dictionaries" = "공유 사전";
+"settings.about_app" = "앱 정보";
+"settings.features" = "기능";
+"settings.add_organize_words" = "정의와 함께 단어 추가 및 정리";
+"settings.practice_quizzes_spelling" = "퀴즈 및 철자 연습으로 연습";
+"settings.track_learning_progress" = "학습 진행 상황 추적";
+"settings.import_export_word_collection" = "단어 컬렉션 가져오기 및 내보내기";
+"settings.customize_learning_experience" = "학습 경험 맞춤화";
+"settings.voice_pronunciation_support" = "음성 발음 지원";
+"settings.contact_me" = "연락처";
+"settings.x_twitter" = "X (Twitter)";
+"settings.instagram" = "Instagram";
+"settings.support" = "지원";
+"settings.rate_app" = "앱 평가";
+"settings.export_successful" = "내보내기 성공";
+"settings.upload_successful" = "업로드 성공";
+"settings.download_successful" = "다운로드 성공";
+"settings.daily_reminders_description" = "그날 앱을 열지 않았다면 오후 8시에 알림을 받습니다";
+"settings.difficult_words_description" = "어려운 단어 연습을 위해 오후 4시에 알림을 받습니다";
+"settings.free_users_export_limit" = "무료 사용자는 최대 %d개의 단어를 내보낼 수 있습니다";
+"settings.app_version" = "앱 버전:";
+"settings.about_app_description" = "원하는 앱을 찾지 못해 이 앱을 만들었습니다.\n\n이 앱은 단어 리스트를 관리하는 간단한 앱으로, 모국어 번역 없이 단어를 검색하고 정의를 추가할 수 있습니다.\n\n이것이 영어를 배우는 가장 좋은 방법이라고 생각합니다. 유용하게 사용되길 바랍니다.\n\n질문이나 기능 제안이 있다면 아래 링크로 연락해주세요. 제 앱을 사용해줘서 감사합니다!";
+"settings.contact_support" = "질문, 제안, 피드백이 있으신가요? 의견을 주시면 기쁘겠습니다. Instagram 또는 Twitter를 통해 지원팀에 연락하세요!";
+"settings.sign_out" = "로그아웃";
+"settings.upload_backup_to_google" = "Google에 백업 업로드";
+"settings.download_backup_from_google" = "Google에서 백업 다운로드";
+"settings.sign_in_to_sync_word_lists" = "단어 리스트 동기화를 위해 로그인";
+"settings.manage_tags" = "태그 관리";
+"settings.import_export" = "가져오기/내보내기";
+"settings.import_words" = "단어 가져오기";
+"settings.export_words" = "단어 내보내기";
+"settings.learn_more" = "자세히 알아보기";
+"settings.export_words_title" = "단어 내보내기";
+"settings.pro_upgrade_description" = "무제한 기능과 기기 간 동기화를 위해 프로로 업그레이드하세요.";
+"settings.word_lists_and_sync" = "단어 리스트 및 동기화";
+"settings.manual_sync_mode_description" = "수동 동기화 모드: 아래 버튼을 사용하여 Google에 단어 리스트를 업로드/다운로드하세요. 모든 사용자에게 사용 가능합니다.";
+"settings.sign_in_to_create_share_word_lists" = "단어 리스트를 만들고 공유하려면 로그인하세요.";
+"settings.tag_management_description" = "단어를 정리하기 위해 태그를 만들고 관리하며, 단어를 공유하기 위해 협업자를 추가하세요.";
+"settings.import_export_note" = "참고: 가져오기 및 내보내기는 이 앱에서 생성된 파일에서만 작동합니다.";
+"settings.buy_me_a_coffee" = "커피 한 잔 사주세요";
+
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "구독 전에 로그인하세요";
+"auth.sign_in_with_google" = "Google로 로그인";
+"auth.can_always_sign_in_later" = "나중에 설정에서 언제든지 로그인할 수 있습니다";
+"auth.link_additional_accounts" = "추가 계정 연동";
+"auth.accounts_linked_successfully" = "계정이 성공적으로 연동되었습니다";
+"auth.sign_out_confirmation" = "로그아웃";
+"auth.your_words_are_safe" = "당신의 단어는 안전합니다";
+"auth.cloud_sync_disabled" = "클라우드 동기화가 비활성화됩니다";
+"auth.sign_out" = "로그아웃";
+"auth.no_worries_wont_remove_words" = "걱정 마세요! 단어를 삭제하지 않습니다.";
+"auth.vocabulary_stay_on_device" = "당신의 어휘는 이 기기에 남아 있습니다. 다른 계정으로 로그인하면 데이터가 병합됩니다.";
+"auth.all_vocabulary_remain_device" = "모든 단어, 정의, 진행 상황은 이 기기에 남아 있습니다. 로그인하지 않고 앱을 계속 사용할 수 있습니다.";
+"auth.word_lists_shared_data_cleared" = "단어 리스트 및 공유 데이터가 지워집니다. 다른 계정으로 로그인하면 로컬 단어가 새 계정 데이터와 병합됩니다.";
+"auth.sign_in_to_access_word_lists" = "모든 기기에서 단어 리스트에 접근하고 다른 사람과 협업하려면 로그인하세요.";
+"auth.link_google" = "Google 계정 연동";
+"auth.link_apple" = "Apple 계정 연동";
+"auth.sign_in_to_sync_word_lists" = "단어 리스트 동기화를 위해 로그인";
+"auth.sign_out_error_title" = "앗!";
+"auth.sign_out_error_message" = "로그아웃 중 문제가 발생했습니다. 나중에 다시 시도하세요.";
+"auth.sign_in_required_for_restore" = "구매 복원을 위해 로그인해야 합니다.";
+"auth.sign_in_required_for_pro_features" = "%@ 같은 프로 기능에 접근하려면 로그인해야 합니다.";
+"auth.sign_in_failed" = "로그인 실패. 다시 시도하세요.";
+"auth.sign_out_failed" = "로그아웃 실패. 다시 시도하세요.";
+"auth.user_not_found" = "사용자를 찾을 수 없습니다.";
+"auth.network_error" = "네트워크 오류. 연결을 확인하세요.";
+"auth.account_linking_failed" = "계정 연동 실패. 다시 시도하세요.";
+
+// MARK: - Shared Dictionaries
+"shared_dictionaries.dictionary_selected" = "사전 선택됨";
+"shared_dictionaries.name" = "이름";
+"shared_dictionaries.created" = "생성일";
+"shared_dictionaries.your_role" = "당신의 역할";
+"shared_dictionaries.owner" = "소유자";
+"shared_dictionaries.editor" = "편집자";
+"shared_dictionaries.viewer" = "뷰어";
+"shared_dictionaries.editor_description" = "편집자:";
+"shared_dictionaries.can_add_edit_delete_words" = "• 단어를 추가, 편집, 삭제 가능";
+"shared_dictionaries.can_invite_collaborators" = "• 다른 협업자를 초대 가능";
+"shared_dictionaries.can_manage_dictionary_settings" = "• 사전 설정 관리 가능";
+"shared_dictionaries.viewer_description" = "뷰어:";
+"shared_dictionaries.can_view_all_words" = "• 모든 단어 보기 가능";
+"shared_dictionaries.cannot_make_changes" = "• 변경 불가능";
+"shared_dictionaries.cannot_invite_others" = "• 다른 사람 초대 불가능";
+"shared_dictionaries.collaborator_added_email_name" = "협업자는 입력한 이메일 주소와 이름으로 추가됩니다. 공유 사전에 접근하려면 동일한 이메일 주소로 로그인해야 합니다.";
+"shared_dictionaries.of_dictionary_created" = "1개의 사전 생성됨";
+"shared_dictionaries.free_users_one_dictionary" = "무료 사용자는 하나의 공유 사전만 생성 가능";
+"shared_dictionaries.create_shared_dictionary" = "다른 사람과 협업하기 위해 공유 사전 생성";
+"shared_dictionaries.collaborate_others" = "다른 사람과 협업";
+"shared_dictionaries.delete_dictionary" = "사전 삭제";
+"shared_dictionaries.your_dictionaries" = "당신의 사전";
+"shared_dictionaries.no_shared_dictionaries" = "공유 사전 없음";
+"shared_dictionaries.create_shared_dictionary_collaborate" = "다른 사람과 협업하기 위해 공유 사전 생성";
+"shared_dictionaries.dictionaries" = "사전";
+"shared_dictionaries.enter_dictionary_name" = "사전 이름 입력";
+"shared_dictionaries.new_shared_dictionary" = "새 공유 사전";
+"shared_dictionaries.dictionary_name_required" = "사전 이름은 필수입니다";
+"shared_dictionaries.sign_in_to_create_shared_dictionary" = "공유 사전을 생성하려면 로그인하세요";
+"shared_dictionaries.created_by" = "%@가 생성";
+"shared_dictionaries.no_words_yet" = "아직 단어가 없습니다";
+"shared_dictionaries.add_words_to_shared_dictionary" = "이 공유 사전에 단어를 추가하여 시작하세요";
+"shared_dictionaries.no_results" = "결과 없음";
+"shared_dictionaries.no_words_match_filter" = "현재 필터와 일치하는 단어가 없습니다";
+"shared_dictionaries.dictionary_details" = "사전 세부 정보";
+"shared_dictionaries.private_dictionary" = "개인 사전";
+"shared_dictionaries.save_to_personal_dictionary" = "개인 사전에 저장";
+"shared_dictionaries.collaborators_count" = "%d명의 협업자";
+"shared_dictionaries.me" = "나";
+"shared_dictionaries.dictionary_deleted_or_lost_access" = "이 사전이 삭제되었거나 접근 권한을 잃었습니다.";
+"shared_dictionaries.select_role" = "역할 선택";
+"shared_dictionaries.editor_role" = "편집자:";
+"shared_dictionaries.viewer_role" = "뷰어:";
+"shared_dictionaries.collaborator_added_with_email_name" = "협업자는 입력한 이메일 주소와 이름으로 추가됩니다. 공유 사전에 접근하려면 동일한 이메일 주소로 로그인해야 합니다.";
+"shared_dictionaries.be_first_to_rate_difficulty" = "이 단어의 난이도를 처음으로 평가하세요";
+"shared_dictionaries.score" = "점수: %d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "공유 사전 없음";
+"shared_dictionaries.collaborative_features" = "협업 기능";
+"shared_dictionaries.your_score" = "당신의 점수";
+"shared_dictionaries.your_status" = "당신의 상태";
+"shared_dictionaries.average_score" = "평균 점수";
+
+// MARK: - Tags Flow
+"tags.manage_tags" = "태그 관리";
+"tags.tags_help_text" = "태그는 단어를 정리하는 데 도움이 됩니다. 단어당 최대 5개의 태그를 붙일 수 있습니다.";
+"tags.no_tags_yet" = "아직 태그가 추가되지 않았습니다";
+"tags.add_first_tag" = "위 버튼을 클릭하여 첫 번째 태그를 추가하세요.";
+"tags.add_tag" = "태그 추가";
+"tags.add_first_tag_description" = "위 버튼을 클릭하여 첫 번째 태그를 추가하세요.";
+"tags.add_tag_to_start_using" = "사용을 시작하려면 태그를 추가하세요.";
+"tags.add_tags" = "태그 추가";
+"tags.create_tags" = "태그 생성";
+"tags.delete_tag" = "태그 삭제";
+"tags.delete_tag_confirmation" = "이 태그를 삭제하시겠습니까?";
+"tags.delete_tag_cannot_undo" = "이 작업은 되돌릴 수 없습니다.";
+"tags.tag_name" = "태그 이름";
+"tags.tag_name_help" = "태그에 설명적인 이름을 선택하세요";
+"tags.type_tag_name" = "태그 이름 입력...";
+"tags.tag_color" = "태그 색상";
+"tags.tag_color_help" = "태그를 쉽게 알아볼 수 있도록 색상을 선택하세요";
+"tags.edit_tag" = "태그 편집";
+"tags.new_tag" = "새 태그";
+"tags.tag_management_error" = "태그 관리 오류";
+
+// MARK: - Coffee Banner
+"coffee.buy_me_a_coffee" = "커피 한 잔 사주세요";
+"coffee.maybe_later" = "나중에";
+"coffee.enjoying_the_app" = "앱을 즐기고 있나요?";
+"coffee.helpful_learning_journey" = "내 사전이 학습 여정에 도움이 되었다면, 커피 한 잔을 사주세요! ☕️";
+
+// MARK: - Paywall
+"paywall.terms_of_service" = "서비스 약관";
+"paywall.privacy_policy" = "개인정보 처리방침";
+"paywall.upgrade_to_pro" = "프로로 업그레이드";
+"paywall.restore_purchases" = "구매 복원";
+"paywall.track_progress" = "진행 상황 추적";
+"paywall.see_your_improvement" = "당신의 개선을 확인하세요";
+"paywall.collaborate" = "협업";
+"paywall.learn_with_others" = "다른 사람과 배우기";
+"paywall.everything_you_need_to_master_vocabulary" = "어휘를 마스터하는 데 필요한 모든 것";
+"paywall.choose_your_plan" = "플랜 선택";
+"paywall.start_pro_subscription" = "프로 구독 시작";
+"paywall.trusted_by_learners_worldwide" = "전 세계 학습자들에게 신뢰받음";
+"paywall.app_store_rating" = "앱 스토어 평가";
+"paywall.active_users" = "활성 사용자";
+"paywall.words_added" = "추가된 단어";
+"paywall.sign_in_required" = "로그인 필요";
+"paywall.join_thousands_users" = "어휘 학습을 변화시킨 수천 명의 사용자와 함께하세요";
+"paywall.by_subscribing_agree_terms" = "구독함으로써 서비스 약관과 개인정보 처리방침에 동의합니다";
+"paywall.pro_user" = "프로 사용자";
+"paywall.free_plan" = "무료 플랜";
+"paywall.limited_features_available" = "제한된 기능 사용 가능";
+"paywall.no_active_subscriptions_found" = "활성 구독이 없습니다. 앱 스토어 계정을 확인하세요.";
+"paywall.failed_to_restore_purchases" = "구매 복원 실패: %@";
+"paywall.save_percentage" = "%@ 절약";
+
+// MARK: - Difficulty
+"difficulty.new" = "신규";
+"difficulty.in_progress" = "진행 중";
+"difficulty.needs_review" = "검토 필요";
+"difficulty.mastered" = "숙달";
+
+// MARK: - Sorting
+"sorting.latest_first" = "최신순";
+"sorting.earliest_first" = "오래된순";
+"sorting.alphabetically" = "알파벳순";
+"sorting.by_part_of_speech" = "품사순";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "자동 감지";
+
+// MARK: - Time Period
+"time_period.week" = "주";
+"time_period.month" = "월";
+"time_period.year" = "년";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "모든 결과";
+"quiz_results.no_quiz_results_yet" = "아직 퀴즈 결과가 없습니다";
+"quiz_results.quiz" = "퀴즈";
+"quiz_results.accuracy" = "정확도";
+"quiz_results.correct" = "정답";
+"quiz_results.duration" = "소요 시간";
+"quiz_results.time_period" = "기간";
+
+// MARK: - Word Details
+"word_details.transcription" = "발음 기호";
+"word_details.part_of_speech" = "품사";
+"word_details.definition" = "정의";
+"word_details.difficulty" = "난이도";
+"word_details.examples" = "예문";
+"word_details.edit_example" = "예문 편집";
+"word_details.example" = "예문";
+"word_details.type_example_here" = "여기에 예문을 입력하세요";
+"word_details.add_example" = "예문 추가";
+"word_details.delete_word" = "단어 삭제";
+"word_details.delete_failed" = "삭제 실패";
+
+// MARK: - Word List
+"word_list.all_words" = "모든 단어";
+"word_list.favorite" = "즐겨찾기";
+"word_list.manage_tags" = "태그 관리";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "퀴즈 유형";
+"quiz_list.practice_settings" = "연습 설정";
+"quiz_list.configure_quiz_experience" = "퀴즈 경험을 설정하세요";
+"quiz_list.focus_on_words_need_review" = "검토가 필요한 단어에 집중";
+"quiz_list.not_enough_words_review_yet" = "검토할 단어가 충분하지 않습니다";
+"quiz_list.add_words_to_shared_dictionary" = "공유 사전에 단어 추가";
+"quiz_list.add_your_first_word" = "첫 번째 단어 추가";
+"quiz_list.add_more_words" = "더 많은 단어 추가";
+"quiz_list.quizzes_help_test_knowledge" = "퀴즈는 당신의 지식을 테스트하고 학습을 강화하는 데 도움이 됩니다!";
+"quiz_list.words_away_from_unlocking_quizzes" = "퀴즈를 잠금 해제하려면 %d개의 단어가 더 필요합니다!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "완료";
+"quiz_actions.next_word" = "다음 단어";
+"quiz_actions.submit_answer" = "답변 제출";
+"quiz_actions.number_of_words" = "단어 수";
+"quiz_actions.no_difficult_words_available" = "퀴즈에 사용할 어려운 단어가 없습니다";
+"quiz_actions.your_word_is" = "당신의 단어는 '%@'입니다. 더 잘해보세요 :)";
+"quiz_actions.try_harder" = "더 열심히 해보세요 :)";
+"quiz_actions.incorrect_try_again" = "오답. 다시 시도하세요";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "태그 선택";
+"tag_selection.no_tags_yet" = "아직 태그가 없습니다";
+"tag_selection.you_can_select_up_to_5_tags" = "단어당 최대 5개의 태그를 선택할 수 있습니다. 태그를 탭하여 선택하거나 선택 해제하세요.";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google 동기화";
+"pro_features.unlimited_export" = "무제한 내보내기";
+"pro_features.create_shared_dictionaries" = "공유 사전 생성";
+"pro_features.advanced_analytics" = "고급 분석";
+"pro_features.priority_support" = "우선 지원";
+"pro_features.pro_features" = "프로 기능";
+"pro_features.tag_management" = "태그 관리";
+"pro_features.sync_words_across_devices" = "Google 드라이브로 모든 기기에서 단어 동기화";
+"pro_features.export_unlimited_words" = "CSV 파일로 무제한 단어 내보내기";
+"pro_features.create_manage_shared_dictionaries" = "다른 사람과 공유 사전 생성 및 관리";
+"pro_features.detailed_insights" = "학습 진행 상황에 대한 자세한 통찰";
+"pro_features.priority_support_team" = "우리 팀의 우선 지원 받기";
+"pro_features.unlock_all_pro_features" = "모든 프로 기능 잠금 해제";
+"pro_features.organize_words_with_tags" = "사용자 정의 태그로 단어를 정리하여 검색을 쉽게";
+"pro_features.detailed_progress_tracking" = "자세한 진행 상황 추적 및 통찰";
+"pro_features.get_priority_support" = "도움이 필요할 때 우선 지원 받기";
+
+// MARK: - Error Messages
+"errors.error_updating_word_examples" = "단어 예문 업데이트 중 오류";
+"errors.error_removing_word" = "단어 삭제 중 오류";
+"errors.error_saving_word" = "단어 저장 중 오류";
+"errors.error_updating_idiom_examples" = "관용구 예문 업데이트 중 오류";
+"errors.error_removing_idiom" = "관용구 삭제 중 오류";
+"errors.error_saving_idiom" = "관용구 저장 중 오류";
+"errors.input_not_word" = "입력은 단어가 아닙니다";
+"errors.input_cannot_be_empty" = "입력이 비어 있을 수 없습니다";
+"errors.device_muted_or_volume_low" = "기기가 음소거되었거나 볼륨이 낮습니다";
+"errors.cannot_play_audio" = "오디오를 재생할 수 없습니다";
+"errors.cannot_setup_audio_session" = "오디오 세션을 설정할 수 없습니다";
+"errors.export_failed" = "내보내기 실패";
+"errors.import_failed" = "가져오기 실패";
+"errors.cannot_access_security_scoped_resource" = "보안 범위 리소스에 접근할 수 없습니다";
+"errors.tag_already_exists" = "태그가 이미 존재합니다";
+"errors.tag_already_assigned_to_word" = "이 태그는 이미 이 단어에 할당되었습니다";
+"errors.tag_not_assigned_to_word" = "이 태그는 이 단어에 할당되지 않았습니다";
+"errors.authentication_required" = "인증이 필요합니다";
+"errors.no_active_subscriptions_found" = "활성 구독이 없습니다";
+"errors.failed_to_update_word_progress" = "단어 진행 상황 업데이트 실패";
+"errors.failed_to_update_word_difficulty_level" = "단어 난이도 레벨 업데이트 실패";
+"errors.failed_to_save_quiz_session" = "퀴즈 세션 저장 실패";
+"errors.failed_to_update_user_statistics" = "사용자 통계 업데이트 실패";
+"errors.invalid_word_id" = "유효하지 않은 단어 ID";
+"errors.word_not_found" = "단어를 찾을 수 없습니다";
+"errors.failed_to_calculate_progress" = "진행 상황 계산 실패";
+"errors.invalid_translation_url" = "유효하지 않은 번역 URL";
+"errors.network_error_during_translation" = "번역 중 네트워크 오류";
+"errors.invalid_response_from_translation_service" = "번역 서비스에서 유효하지 않은 응답";
+"errors.translation_failed" = "번역 실패";
+"errors.invalid_user_email" = "유효하지 않은 사용자 이메일";
+"errors.network_error_occurred" = "네트워크 오류가 발생했습니다";
+"errors.sync_failed" = "동기화 실패";
+"errors.invalid_input_provided" = "제공된 입력이 유효하지 않습니다";
+"errors.dictionary_not_found" = "사전을 찾을 수 없습니다";
+"errors.no_subscription_offerings_available" = "현재 구독 제공이 없습니다";
+"errors.requested_subscription_package_not_found" = "요청한 구독 패키지를 찾을 수 없습니다";
+"errors.purchase_could_not_be_completed" = "구매를 완료할 수 없습니다";
+"errors.failed_to_restore_previous_purchases" = "이전 구매 복원 실패";
+"errors.no_offerings_available" = "현재 구독 제공이 없습니다";
+"errors.purchase_failed" = "구매 실패";
+"errors.restore_failed" = "이전 구매 복원 실패";
+"errors.export_limit_exceeded" = "내보내기 한도 초과. 무제한 내보내기를 위해 프로로 업그레이드하세요.";
+"errors.max_tags_reached" = "단어당 최대 5개 태그 한도에 도달했습니다";
+"errors.tag_already_assigned" = "이 태그는 이미 이 단어에 할당되었습니다";
+"errors.tag_not_assigned" = "이 태그는 이 단어에 할당되지 않았습니다";
+"errors.network_timeout" = "네트워크 시간 초과";
+"errors.server_unreachable" = "서버에 연결할 수 없습니다";
+"errors.invalid_response" = "유효하지 않은 응답";
+"errors.no_internet_connection" = "인터넷 연결 없음";
+"errors.missing_api_key" = "API 키 누락";
+"errors.decoding_error" = "디코딩 오류";
+"errors.invalid_url" = "유효하지 않은 URL";
+"errors.no_data" = "데이터 없음";
+"errors.save_failed" = "저장 실패";
+"errors.read_failed" = "읽기 실패";
+"errors.data_corrupted" = "데이터 손상";
+"errors.invalid_input" = "유효하지 않은 입력";
+"errors.missing_field" = "누락된 필드";
+"errors.unknown_error" = "알 수 없는 오류";
+"errors.update_failed" = "업데이트 실패";
+"errors.delete_failed" = "삭제 실패";
+"errors.permission_denied" = "이 작업에 대한 권한이 없습니다";
+"errors.user_not_authenticated" = "사용자는 인증이 필요합니다";
+"errors.dictionary_limit_reached" = "무료 플랜에서는 하나의 공유 사전만 생성 가능합니다. 무제한 공유 사전을 위해 프로로 업그레이드하세요.";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "아직 단어가 없습니다";
+"empty_states.no_idioms_yet" = "아직 관용구가 없습니다";
+"empty_states.no_favorite_words" = "즐겨찾기 단어 없음";
+"empty_states.no_search_results" = "검색 결과 없음";
+"empty_states.start_improving_vocabulary" = "첫 번째 관용구를 추가하여 어휘를 향상시키기 시작하세요";
+"empty_states.tap_heart_icon_to_add_favorites" = "관용구의 하트 아이콘을 탭하여 즐겨찾기에 추가하세요";
+"empty_states.try_different_search_term" = "다른 검색어를 시도하거나 새 관용구를 추가하세요";
+
+// MARK: - Notifications
+"notifications.time_to_practice" = "연습할 시간입니다! 📚";
+"notifications.practice_vocabulary_today" = "오늘 어휘 연습을 잊지 마세요.";
+"notifications.practice_difficult_words" = "어려운 단어 연습 📚";
+"notifications.difficult_words_challenge" = "더 많은 연습이 필요한 단어가 있습니다. 도전할 준비 되셨나요?";
+"notifications.test_dictionary_invitation" = "테스트 사전 초대";
+"notifications.test_dictionary_invitation_body" = "누군가가 당신을 '테스트 사전'에 추가했습니다";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "내 사전";
+"macos.about_my_dictionary" = "내 사전에 대해";
+"macos.debug_panel" = "디버그 패널";
+"macos.settings" = "설정";
+"macos.about" = "앱 정보";
+"macos.shared_dictionaries" = "공유 사전";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "모든 단어";
+"filter_display.favorite" = "즐겨찾기";
+"filter_display.search" = "검색";
+"filter_display.tag" = "태그";
+"filter_display.new" = "신규";
+"filter_display.in_progress" = "진행 중";
+"filter_display.needs_review" = "검토 필요";
+"filter_display.mastered" = "숙달";
+"filter_display.no_words_yet" = "아직 단어가 없습니다";
+"filter_display.no_favorite_words" = "즐겨찾기 단어 없음";
+"filter_display.no_search_results" = "검색 결과 없음";
+"filter_display.no_tagged_words" = "태그된 단어 없음";
+"filter_display.no_new_words" = "새 단어 없음";
+"filter_display.no_words_in_progress" = "진행 중인 단어 없음";
+"filter_display.no_words_need_review" = "검토 필요한 단어 없음";
+"filter_display.no_mastered_words" = "숙달된 단어 없음";
+"filter_display.start_building_vocabulary" = "첫 번째 단어를 추가하여 어휘를 쌓기 시작하세요";
+"filter_display.tap_heart_icon_to_add_favorites" = "단어의 하트 아이콘을 탭하여 즐겨찾기에 추가하세요";
+"filter_display.try_different_search_term" = "다른 검색어를 시도하거나 새 단어를 추가하세요";
+"filter_display.add_tags_to_organize" = "단어에 태그를 추가하여 더 잘 정리하세요";
+"filter_display.new_words_appear_here" = "새 단어는 리스트에 추가된 후 여기에 표시됩니다";
+"filter_display.words_appear_here_as_you_practice" = "퀴즈로 연습하면서 단어가 여기에 표시됩니다";
+"filter_display.words_need_more_practice" = "더 많은 연습이 필요한 단어가 여기에 표시됩니다";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "소유자";
+"collaborator_roles.editor" = "편집자";
+"collaborator_roles.viewer" = "뷰어";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "파랑";
+"tag_colors.red" = "빨강";
+"tag_colors.green" = "초록";
+"tag_colors.orange" = "주황";
+"tag_colors.purple" = "보라";
+"tag_colors.pink" = "분홍";
+"tag_colors.yellow" = "노랑";
+"tag_colors.gray" = "회색";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "사전 선택";
+"shared_dictionary_selection.dictionary_selected" = "사전 선택됨";
+"shared_dictionary_selection.add_to_shared" = "공유에 추가";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "공유 사전에 단어 추가";
+"shared_dictionary_selection.unknown" = "알 수 없음";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "모든 진행 상황 세부 정보를 보려면 프로로 업그레이드하세요.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "어휘 성장의 모든 세부 정보를 보려면 프로로 업그레이드하세요.";
+"pro_upgrade.time_period" = "기간";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "역할";
+"collaborator_management.add_collaborator" = "협업자 추가";
+"collaborator_management.email_address_required" = "이메일 주소가 필요합니다";
+"collaborator_management.valid_email_address" = "유효한 이메일 주소를 입력하세요";
+"collaborator_management.make_viewer" = "뷰어로 설정";
+"collaborator_management.make_editor" = "편집자로 설정";
+"collaborator_management.remove" = "제거";
+"collaborator_management.add" = "추가";
+"collaborator_management.delete_dictionary" = "사전 삭제";
+"collaborator_management.delete_dictionary_confirmation" = "이 공유 사전을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.";
+"collaborator_management.stop_watching" = "관찰 중지";
+"collaborator_management.stop_watching_dictionary_confirmation" = "이 공유 사전의 관찰을 중지하시겠습니까?";
+"collaborator_management.stop_watching_dictionary" = "사전 관찰 중지";
+"collaborator_management.continue" = "계속";
+"collaborator_management.dictionary_not_found" = "사전을 찾을 수 없습니다";
+"collaborator_management.dictionary_details" = "사전 세부 정보";
+"collaborator_management.unknown" = "알 수 없음";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "철자 퀴즈";
+"quiz_types.choose_definition" = "정의 선택";
+"quiz_types.test_spelling_skills" = "단어를 정확히 철자하여 철자 실력을 테스트하세요";
+"quiz_types.select_correct_definition" = "각 단어의 올바른 정의를 선택하세요";
+"quiz_types.great_job_completed_spelling_quiz" = "훌륭합니다! 철자 퀴즈를 완료했습니다.";
+"quiz_types.great_job_completed_definition_quiz" = "훌륭합니다! 정의 퀴즈를 완료했습니다.";
+
+// MARK: - English Accents
+"english_accents.australian" = "호주";
+"english_accents.canadian" = "캐나다";
+"english_accents.british" = "영국";
+"english_accents.indian" = "인도";
+"english_accents.american" = "미국";
+"english_accents.belgian" = "벨기에";
+"english_accents.singaporean" = "싱가포르";
+"english_accents.irish" = "아일랜드";
+"english_accents.south_african" = "남아프리카";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "모든 관용구";
+"idiom_filters.favorite" = "즐겨찾기";
+"idiom_filters.search" = "검색";
+"idiom_filters.no_idioms_yet" = "아직 관용구가 없습니다";
+"idiom_filters.no_favorite_words" = "즐겨찾기 단어 없음";
+"idiom_filters.no_search_results" = "검색 결과 없음";
+"idiom_filters.start_improving_vocabulary" = "첫 번째 관용구를 추가하여 어휘를 향상시키기 시작하세요";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "관용구의 하트 아이콘을 탭하여 즐겨찾기에 추가하세요";
+"idiom_filters.try_different_search_term" = "다른 검색어를 시도하거나 새 관용구를 추가하세요";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "명사";
+"part_of_speech.full.verb" = "동사";
+"part_of_speech.full.adjective" = "형용사";
+"part_of_speech.full.adverb" = "부사";
+"part_of_speech.full.conjunction" = "접속사";
+"part_of_speech.full.pronoun" = "대명사";
+"part_of_speech.full.preposition" = "전치사";
+"part_of_speech.full.exclamation" = "감탄사";
+"part_of_speech.full.unknown" = "알 수 없음";
+
+"part_of_speech.short.noun" = "명";
+"part_of_speech.short.verb" = "동";
+"part_of_speech.short.adjective" = "형";
+"part_of_speech.short.adverb" = "부";
+"part_of_speech.short.conjunction" = "접";
+"part_of_speech.short.pronoun" = "대";
+"part_of_speech.short.preposition" = "전";
+"part_of_speech.short.exclamation" = "감";
+"part_of_speech.short.unknown" = "알 수 없음";

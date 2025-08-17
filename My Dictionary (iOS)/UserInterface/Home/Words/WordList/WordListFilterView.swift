@@ -17,7 +17,7 @@ struct WordListFilterView: View {
                 HStack(spacing: 8) {
                     // All Words Filter
                     TagView(
-                        text: Loc.WordList.allWords.localized,
+                        text: Loc.FilterDisplay.allWords.localized,
                         color: .blue,
                         style: viewModel.filterState == .none ? .selected : .regular
                     )
@@ -28,7 +28,7 @@ struct WordListFilterView: View {
                     // Favorite Words Filter - only show if there are favorite words
                     if !viewModel.favoriteWords.isEmpty {
                         TagView(
-                            text: Loc.WordList.favorite.localized,
+                            text: Loc.FilterDisplay.favorite.localized,
                             color: .accentColor,
                             style: viewModel.filterState == .favorite ? .selected : .regular
                         )
@@ -41,7 +41,7 @@ struct WordListFilterView: View {
                     let newWords = viewModel.words.filter { $0.difficultyLevel == .new }
                     if !newWords.isEmpty {
                         TagView(
-                            text: Loc.Difficulty.new.localized,
+                            text: Loc.FilterDisplay.new.localized,
                             color: .secondary,
                             style: viewModel.filterState == .new ? .selected : .regular
                         )
@@ -53,7 +53,7 @@ struct WordListFilterView: View {
                     let inProgressWords = viewModel.words.filter { $0.difficultyLevel == .inProgress }
                     if !inProgressWords.isEmpty {
                         TagView(
-                            text: Loc.Difficulty.inProgress.localized,
+                            text: Loc.FilterDisplay.inProgress.localized,
                             color: .orange,
                             style: viewModel.filterState == .inProgress ? .selected : .regular
                         )
@@ -65,7 +65,7 @@ struct WordListFilterView: View {
                     let needsReviewWords = viewModel.words.filter { $0.difficultyLevel == .needsReview }
                     if !needsReviewWords.isEmpty {
                         TagView(
-                            text: Loc.Difficulty.needsReview.localized,
+                            text: Loc.FilterDisplay.needsReview.localized,
                             color: .red,
                             style: viewModel.filterState == .needsReview ? .selected : .regular
                         )
@@ -77,7 +77,7 @@ struct WordListFilterView: View {
                     let masteredWords = viewModel.words.filter { $0.difficultyLevel == .mastered }
                     if !masteredWords.isEmpty {
                         TagView(
-                            text: Loc.Difficulty.mastered.localized,
+                            text: Loc.FilterDisplay.mastered.localized,
                             color: .accent,
                             style: viewModel.filterState == .mastered ? .selected : .regular
                         )

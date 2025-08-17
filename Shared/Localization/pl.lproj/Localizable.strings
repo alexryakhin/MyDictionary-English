@@ -1,0 +1,864 @@
+/*
+  Localizable.strings (Polish Translation)
+  My Dictionary
+
+  Translated on August 17, 2025.
+*/
+
+// MARK: - Tab Bar
+"tabbar.words" = "Słowa";
+"tabbar.idioms" = "Wyrażenia";
+"tabbar.quizzes" = "Quizy";
+"tabbar.progress" = "Postępy";
+"tabbar.settings" = "Ustawienia";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Szczegóły słowa";
+"navigation.idiom_details" = "Szczegóły wyrażenia";
+"navigation.add_tags" = "Dodaj etykiety";
+"navigation.about" = "O aplikacji";
+"navigation.debug_panel" = "Panel debugowania";
+"navigation.quiz_results" = "Wyniki quizu";
+"navigation.spelling_quiz" = "Quiz ortograficzny";
+"navigation.definition_quiz" = "Quiz definicji";
+"navigation.close" = "Zamknij";
+"navigation.close_screen" = "Zamknij ekran";
+
+// MARK: - Common Actions
+"actions.done" = "Gotowe";
+"actions.save" = "Zapisz";
+"actions.save_word" = "Zapisz słowo";
+"actions.cancel" = "Anuluj";
+"actions.confirm" = "Potwierdź";
+"actions.search" = "Szukaj";
+"actions.delete" = "Usuń";
+"actions.edit" = "Edytuj";
+"actions.add" = "Dodaj";
+"actions.next" = "Dalej";
+"actions.back" = "Wstecz";
+"actions.exit" = "Wyjdź";
+"actions.ok" = "OK";
+"actions.yes" = "Tak";
+"actions.no" = "Nie";
+"actions.try_again" = "Spróbuj ponownie";
+"actions.view_all" = "Pokaż wszystkie";
+"actions.listen" = "Słuchaj";
+"actions.create" = "Utwórz";
+"actions.manage" = "Zarządzaj";
+"actions.select" = "Wybierz";
+"actions.select_word" = "Wybierz słowo";
+"actions.select_idiom" = "Wybierz wyrażenie";
+"actions.select_quiz" = "Wybierz quiz";
+"actions.sign_out" = "Wyloguj się";
+"actions.sign_in" = "Zaloguj się";
+"actions.upgrade" = "Uaktualnij";
+"actions.learn_more" = "Dowiedz się więcej";
+"actions.copy" = "Kopiuj";
+"actions.refresh" = "Odśwież";
+"actions.clear" = "Wyczyść";
+"actions.reset" = "Resetuj";
+"actions.test" = "Testuj";
+"actions.check" = "Sprawdź";
+"actions.verify" = "Zweryfikuj";
+"actions.show" = "Pokaż";
+"actions.send" = "Wyślij";
+"actions.request" = "Zażądaj";
+"actions.sync" = "Synchronizuj";
+"actions.upload" = "Prześlij";
+"actions.download" = "Pobierz";
+"actions.import_words" = "Importuj słowa";
+"actions.export_words" = "Eksportuj słowa";
+"actions.stop_watching" = "Przestań obserwować";
+"actions.make_viewer" = "Ustaw jako widz";
+"actions.make_editor" = "Ustaw jako edytor";
+"actions.remove" = "Usuń";
+"actions.skip_for_now" = "Pomiń na razie";
+"actions.link_google" = "Połącz z Google";
+"actions.link_apple" = "Połącz z Apple";
+"actions.toggle_like" = "Przełącz polubienie";
+"actions.toggle_favorite" = "Przełącz ulubione";
+
+// MARK: - Onboarding
+"onboarding.welcome_to" = "Witaj w";
+"onboarding.my_dictionary" = "Mój słownik";
+"onboarding.personal_vocabulary_companion" = "Twój osobisty towarzysz słownictwa";
+"onboarding.build_your_vocabulary" = "Buduj swoje słownictwo";
+"onboarding.personalized_learning" = "Spersonalizowana nauka";
+"onboarding.youre_all_set" = "Wszystko gotowe!";
+"onboarding.start_building_vocabulary" = "Zacznij budować swoje słownictwo już dziś i obserwuj, jak rosną Twoje umiejętności językowe.";
+"onboarding.get_started" = "Rozpocznij";
+"onboarding.next_step" = "Następny krok";
+"onboarding.personal_word_list" = "Osobista lista słów";
+"onboarding.create_organize_vocabulary" = "Twórz i organizuj swoją kolekcję słownictwa z niestandardowymi definicjami i przykładami";
+"onboarding.find_definitions" = "Znajdź definicje";
+"onboarding.comprehensive_definitions" = "Uzyskaj kompleksowe definicje z wieloma znaczeniami i kontekstami";
+"onboarding.collect_idioms" = "Zbieraj wyrażenia";
+"onboarding.learn_practice_idioms" = "Ucz się i ćwicz wyrażenia i frazy z całego świata";
+"onboarding.smart_quizzes" = "Inteligentne quizy";
+"onboarding.adaptive_quizzes" = "Adaptacyjne quizy oparte na Twoich postępach";
+"onboarding.progress_tracking" = "Śledzenie postępów";
+"onboarding.visual_insights" = "Wizualne wglądy w rozwój Twojego słownictwa";
+"onboarding.collaborative_learning" = "Nauka zespołowa";
+"onboarding.share_dictionaries" = "Dziel się słownikami z przyjaciółmi i rodziną";
+"onboarding.back" = "Wstecz";
+"onboarding.next" = "Dalej";
+"onboarding.personal_word_list_description" = "Twórz i organizuj swoją kolekcję słownictwa z niestandardowymi definicjami i przykładami";
+"onboarding.find_definitions_description" = "Uzyskaj kompleksowe definicje z wieloma znaczeniami i kontekstami";
+"onboarding.collect_idioms_description" = "Ucz się i ćwicz wyrażenia i frazy z całego świata";
+"onboarding.smart_quizzes_description" = "Adaptacyjne quizy oparte na Twoich postępach";
+"onboarding.progress_tracking_description" = "Wizualne wglądy w rozwój Twojego słownictwa";
+"onboarding.collaborative_learning_description" = "Dziel się słownikami z przyjaciółmi i rodziną";
+
+// MARK: - Words
+"words.add_word" = "Dodaj słowo";
+"words.add_your_first_word" = "Dodaj swoje pierwsze słowo";
+"words.add_more_words" = "Dodaj więcej słów";
+"words.add_to_shared_dictionary" = "Dodaj do wspólnego słownika";
+"words.add_new_word" = "Dodaj nowe słowo";
+"words.delete_word" = "Usuń słowo";
+"words.delete_word_confirmation" = "Czy na pewno chcesz usunąć to słowo?";
+"words.transcription" = "Transkrypcja";
+"words.part_of_speech" = "Część mowy";
+"words.definition" = "Definicja";
+"words.difficulty" = "Trudność";
+"words.language" = "Język";
+"words.input_language" = "Język wejściowy";
+"words.tags" = "Etykiety";
+"words.word" = "Słowo";
+"words.words" = "Słowa";
+"words.create_tags" = "Utwórz etykiety";
+"words.all_words" = "Wszystkie słowa";
+"words.favorite" = "Ulubione";
+"words.favorite_words" = "Ulubione słowa";
+"words.search" = "Szukaj";
+"words.search_words" = "Szukaj słów...";
+"words.search_results" = "Wyniki wyszukiwania";
+"words.tag" = "Etykieta";
+"words.tagged_words" = "Oznaczone słowa";
+"words.new" = "Nowe";
+"words.new_words" = "Nowe słowa";
+"words.in_progress" = "W toku";
+"words.words_in_progress" = "Słowa w toku";
+"words.needs_review" = "Wymaga przeglądu";
+"words.words_needing_review" = "Słowa wymagające przeglądu";
+"words.mastered" = "Opanowane";
+"words.mastered_words" = "Opanowane słowa";
+"words.sort" = "Sortuj";
+"words.filter" = "Filtruj";
+"words.latest_first" = "Najnowsze najpierw";
+"words.earliest_first" = "Najstarsze najpierw";
+"words.alphabetically" = "Alfabetycznie";
+"words.by_part_of_speech" = "Według części mowy";
+"words.type_word" = "Wpisz słowo";
+"words.shared_dictionary" = "Wspólny słownik";
+"words.private_dictionary" = "Prywatny słownik";
+"words.impressive_vocabulary" = "Imponujące słownictwo!";
+"words.impressive_vocabulary_message" = "Zebrano **%d słów**! Twoje zaangażowanie w naukę jest inspirujące.";
+"words.examples" = "Przykłady";
+"words.no_examples_yet" = "Brak przykładów";
+"words.type_example_here" = "Wpisz przykład tutaj";
+"words.add_example" = "Dodaj przykład";
+"words.edit_example" = "Edytuj przykład";
+"words.score" = "Wynik";
+"words.quiz_based" = "Na podstawie quizu";
+"words.language" = "Język";
+"words.no_tags_added_yet" = "Nie dodano jeszcze etykiet.";
+"words.add_tag" = "Dodaj etykietę";
+"words.no_tags_selected" = "Nie wybrano etykiet";
+"words.error_loading_definitions" = "Błąd podczas ładowania definicji. Spróbuj ponownie.";
+"words.type_word_and_press_search" = "Wpisz słowo i naciśnij 'Szukaj', aby znaleźć definicje";
+"words.word_details" = "Szczegóły słowa";
+"words.no_examples_yet" = "Brak przykładów";
+"words.edit_example" = "Edytuj przykład";
+"words.no_transcription" = "Brak transkrypcji";
+"words.no_definition" = "Brak definicji";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Dodaj wyrażenie";
+"idioms.add_new_idiom" = "Dodaj nowe wyrażenie";
+"idioms.idiom" = "Wyrażenie";
+"idioms.idioms" = "Wyrażenia";
+"idioms.no_idioms_found" = "Nie znaleziono wyrażeń";
+"idioms.add_this_idiom" = "Dodaj to wyrażenie, klikając przycisk powyżej";
+"idioms.begin_add_idioms" = "Rozpocznij dodawanie wyrażeń do listy, klikając ikonę plusa w lewym górnym rogu";
+"idioms.all_idioms" = "Wszystkie wyrażenia";
+"idioms.favorite_idioms" = "Ulubione wyrażenia";
+"idioms.found_idioms" = "Znalezione wyrażenia";
+"idioms.examples" = "Przykłady";
+"idioms.no_examples_yet" = "Brak przykładów";
+"idioms.type_example_here" = "Wpisz przykład tutaj";
+"idioms.add_example" = "Dodaj przykład";
+"idioms.edit_example" = "Edytuj przykład";
+"idioms.delete_idiom" = "Usuń wyrażenie";
+"idioms.delete_idiom_confirmation" = "Czy na pewno chcesz usunąć to wyrażenie?";
+"idioms.search_idioms" = "Szukaj wyrażeń...";
+"idioms.favorites" = "Ulubione";
+"idioms.found" = "Znalezione";
+"idioms.sort" = "Sortuj";
+"idioms.filter" = "Filtruj";
+"idioms.latest_first" = "Najnowsze najpierw";
+"idioms.earliest_first" = "Najstarsze najpierw";
+"idioms.alphabetically" = "Alfabetycznie";
+
+// MARK: - Quizzes
+"quizzes.quiz_unavailable" = "Quiz niedostępny";
+"quizzes.back_to_quizzes" = "Powrót do quizów";
+"quizzes.your_answer" = "Twoja odpowiedź";
+"quizzes.submit_answer" = "Wyślij odpowiedź";
+"quizzes.next_word" = "Następne słowo";
+"quizzes.finish" = "Zakończ";
+"quizzes.your_results" = "Twoje wyniki";
+"quizzes.final_score" = "Końcowy wynik";
+"quizzes.correct_answers" = "Poprawne odpowiedzi";
+"quizzes.best_streak" = "Najlepsza seria";
+"quizzes.accuracy" = "Dokładność";
+"quizzes.debug" = "Debugowanie";
+"quizzes.choose_correct_definition" = "Wybierz poprawną definicję";
+"quizzes.word" = "Słowo";
+"quizzes.quiz_types" = "Typy quizów";
+"quizzes.practice_settings" = "Ustawienia ćwiczeń";
+"quizzes.configure_quiz_experience" = "Skonfiguruj swoje doświadczenie z quizami";
+"quizzes.practice_hard_words_only" = "Ćwicz tylko trudne słowa";
+"quizzes.focus_words_need_review" = "Skup się na słowach wymagających przeglądu";
+"quizzes.not_enough_words_review" = "Za mało słów do przeglądu";
+"quizzes.words_per_session" = "Słowa na sesję";
+"quizzes.number_words" = "Liczba słów";
+"quizzes.select_dictionary" = "Wybierz słownik";
+"quizzes.no_difficult_words_available" = "Brak trudnych słów dostępnych dla quizu";
+"quizzes.spelling_quiz_description" = "Sprawdź swoje umiejętności ortograficzne, poprawnie pisząc słowa";
+"quizzes.definition_quiz_description" = "Wybierz poprawną definicję dla każdego słowa";
+"quizzes.progress" = "Postęp";
+"quizzes.streak" = "Seria";
+"quizzes.score" = "Wynik";
+"quizzes.best" = "Najlepszy";
+"quizzes.hint" = "Podpowiedź";
+"quizzes.attempt" = "Próba";
+"quizzes.correct" = "Poprawnie!";
+"quizzes.well_done" = "Świetnie!";
+"quizzes.keep_up_good_work" = "Tak trzymaj!";
+"quizzes.correct_word_is" = "Poprawne słowo to '%@'. Następne słowo...";
+"quizzes.moving_to_next_word" = "Przechodzenie do następnego słowa...";
+"quizzes.incorrect" = "Niepoprawnie";
+"quizzes.moving_to_next_question" = "Przechodzenie do następnego pytania...";
+"quizzes.quiz_complete" = "Quiz zakończony!";
+"quizzes.great_job_completed_spelling_quiz" = "Świetna robota! Ukończyłeś quiz ortograficzny.";
+"quizzes.great_job_completed_definition_quiz" = "Świetna robota! Ukończyłeś quiz definicji.";
+"quizzes.skip_word" = "Pomiń słowo (-2 punkty)";
+"quizzes.incorrect_moving_to_next_question" = "Niepoprawnie! Przechodzenie do następnego pytania...";
+"quizzes.contributions" = "Wkład";
+"quizzes.not_enough_words_available" = "Za mało dostępnych słów. Do quizu wymagane jest co najmniej %d słów.";
+"quizzes.need_at_least_words" = "Do quizu wymagane jest co najmniej %d słów.";
+"quizzes.shared_dictionary_needs_more_words" = "Wspólny słownik potrzebuje więcej słów!";
+"quizzes.start_building_vocabulary" = "Zacznij budować swoje słownictwo!";
+"quizzes.keep_adding_words" = "Kontynuuj dodawanie słów!";
+"quizzes.ask_dictionary_owner_add_words" = "Poproś właściciela słownika o dodanie więcej słów lub wybierz inny słownik!";
+"quizzes.switch_different_dictionary" = "Przełącz na inny słownik!";
+"quizzes.add_words_to_shared_dictionary" = "Dodaj słowa do wspólnego słownika";
+"quizzes.add_your_first_word" = "Dodaj swoje pierwsze słowo";
+"quizzes.add_more_words" = "Dodaj więcej słów";
+"quizzes.you_can_practice_vocabulary" = "Możesz ćwiczyć swoje słownictwo lub wybrać wspólny słownik, który już zawiera słowa.";
+"quizzes.select_shared_dictionary_populated" = "Wybierz wspólny słownik, który już zawiera słowa.";
+"quizzes.number_words_practice_session" = "Liczba słów na sesję ćwiczeń (%d-%d)";
+"quizzes.min_words" = "%d";
+"quizzes.max_words" = "%d";
+"quizzes.shared_dictionary_needs_hard_words" = "Wspólny słownik '%@' wymaga co najmniej 1 trudnego słowa do ćwiczeń w trybie trudnym. Obecnie ma %d trudnych słów.";
+"quizzes.needs_at_least_words_start_quizzes" = "Wspólny słownik '%@' wymaga co najmniej 10 słów, aby rozpocząć quizy. Obecnie ma %d słów.";
+"quizzes.need_at_least_hard_word_practice" = "Do ćwiczeń w trybie trudnym wymagane jest co najmniej 1 trudne słowo. Obecnie masz %d trudnych słów.";
+"quizzes.need_at_least_words_start_quizzes" = "Do rozpoczęcia quizów wymagane jest co najmniej 10 słów. Obecnie masz %d słów.";
+"quizzes.progress_format" = "Postęp: %d/%d";
+"quizzes.streak_format" = "🔥 Seria: %d";
+"quizzes.score_format" = "Wynik: %d";
+"quizzes.best_format" = "Najlepszy: %d";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "Poproś właściciela słownika o dodanie więcej słów lub przełącz na inny słownik!";
+
+// MARK: - App
+"app.my_dictionary" = "Mój słownik";
+"app.loading" = "Ładowanie...";
+"app.something_went_wrong" = "Coś poszło nie tak";
+"app.try_again" = "Spróbuj ponownie";
+"app.error" = "Błąd";
+"app.oops" = "Ups!";
+"app.unknown" = "Nieznany";
+"app.retry" = "Spróbuj ponownie";
+"app.add_example" = "Dodaj przykład";
+"app.add_to_shared_dictionary" = "Dodaj do wspólnego słownika";
+"app.add_collaborator" = "Dodaj współpracownika";
+"app.delete_dictionary" = "Usuń słownik";
+"app.enter_definition" = "Wpisz definicję";
+"app.select_value" = "Wybierz wartość";
+"app.pronunciation" = "Wymowa";
+"app.tags" = "Etykiety";
+"app.select_definition" = "Wybierz definicję";
+"app.translating_word" = "Tłumaczenie słowa...";
+"app.translating_definitions" = "Tłumaczenie definicji...";
+"app.type_word_here" = "Wpisz słowo tutaj...";
+"app.email_address" = "Adres e-mail";
+"app.name" = "Imię";
+"app.example" = "Przykład";
+"app.transcription" = "Transkrypcja";
+"app.definition" = "Definicja";
+"app.import_successful" = "Import zakończony sukcesem";
+"app.import_successful_message" = "%@ zostało pomyślnie zaimportowane";
+"app.no_words_imported" = "Brak zaimportowanych słów";
+"app.no_words_imported_message" = "Nie znaleziono nowych słów do zaimportowania";
+"app.tag_management_error" = "Błąd zarządzania etykietami";
+"app.delete_tag" = "Usuń etykietę";
+"app.delete_tag_confirmation" = "Czy na pewno chcesz usunąć tę etykietę? Tej akcji nie można cofnąć.";
+"app.cant_share_word" = "Nie można udostępnić słowa";
+"app.collaborator_details" = "Szczegóły współpracownika";
+"app.role_permissions" = "Uprawnienia roli";
+"app.note" = "Notatka";
+"app.dictionary_info" = "Informacje o słowniku";
+"app.collaborators" = "Współpracownicy";
+"app.all_results" = "Wszystkie wyniki";
+"app.part_of_speech" = "Część mowy";
+"app.language" = "Język";
+"app.tag_name" = "Nazwa etykiety";
+"app.tag_color" = "Kolor etykiety";
+"app.private_dictionary" = "Prywatny słownik";
+"app.shared_dictionaries" = "Wspólne słowniki";
+"app.about_my_dictionary" = "O Mój słownik";
+"app.debug_panel" = "Panel debugowania";
+"app.word_starts_with" = "Słowo zaczyna się od";
+"app.debug_info" = "Informacje debugowania";
+"app.send_test_notification" = "Wyślij powiadomienie testowe";
+"app.enter_email_address" = "Wpisz adres e-mail";
+"app.enter_email_address_for_notification" = "Wpisz adres e-mail użytkownika, do którego chcesz wysłać powiadomienie testowe.";
+"app.user_information" = "Informacje o użytkowniku";
+
+// MARK: - Analytics
+"analytics.overview" = "Przegląd";
+"analytics.recent_quiz_results" = "Najnowsze wyniki quizów";
+"analytics.no_quiz_results_yet" = "Brak wyników quizów";
+"analytics.complete_first_quiz" = "Ukończ swój pierwszy quiz, aby zobaczyć wyniki tutaj";
+"analytics.vocabulary_growth" = "Rozwój słownictwa";
+"analytics.no_growth_data_yet" = "Brak danych o rozwoju";
+"analytics.complete_quizzes_growth" = "Ukończ quizy, aby zobaczyć rozwój swojego słownictwa w czasie";
+"analytics.time_period" = "Okres czasu";
+"analytics.week" = "Tydzień";
+"analytics.month" = "Miesiąc";
+"analytics.year" = "Rok";
+"analytics.practice_time" = "Czas ćwiczeń";
+"analytics.sessions" = "Sesje";
+"analytics.all_results" = "Wszystkie wyniki";
+"analytics.duration" = "Czas trwania";
+"analytics.loading_progress_data" = "Ładowanie danych o postępach...";
+"analytics.complete_first_quiz_results" = "Ukończ swój pierwszy quiz, aby zobaczyć wyniki tutaj";
+"analytics.complete_quizzes_growth_data" = "Ukończ quizy, aby zobaczyć rozwój swojego słownictwa w czasie";
+"analytics.last_time_period" = "Ostatni %-okres";
+"analytics.points" = "Punkty";
+"analytics.accuracy" = "Dokładność";
+"analytics.progress" = "Postęp";
+"analytics.streak" = "Seria";
+"analytics.best" = "Najlepszy";
+"analytics.score" = "Wynik";
+"analytics.correct_answers" = "Poprawne odpowiedzi";
+"analytics.words_played" = "Zagrane słowa";
+"analytics.total_questions" = "Całkowita liczba pytań";
+"analytics.difficulty_statistics" = "Statystyki trudności";
+"analytics.individual_ratings" = "Indywidualne oceny";
+"analytics.how_other_users_rate_difficulty" = "Jak inni użytkownicy oceniają trudność tego słowa";
+"analytics.no_difficulty_ratings_yet" = "Brak ocen trudności";
+"analytics.total_ratings" = "Całkowita liczba ocen";
+"analytics.view_detailed_statistics" = "Pokaż szczegółowe statystyki";
+
+// MARK: - Settings
+"settings.translate_definitions" = "Tłumacz definicje";
+"settings.show_definitions_native_language" = "Pokaż definicje w Twoim języku ojczystym";
+"settings.accent" = "Akcent";
+"settings.select_accent" = "Wybierz akcent";
+"settings.notifications" = "Powiadomienia";
+"settings.daily_reminders" = "Codzienne przypomnienia";
+"settings.difficult_words" = "Trudne słowa";
+"settings.subscription" = "Subskrypcja";
+"settings.pro_user" = "Użytkownik Pro";
+"settings.free_plan" = "Plan darmowy";
+"settings.limited_features_available" = "Ograniczone funkcje dostępne";
+"settings.signed_in_as" = "Zalogowany jako";
+"settings.anonymous" = "Anonimowy";
+"settings.upload_backup_google" = "Prześlij kopię zapasową do Google";
+"settings.download_backup_google" = "Pobierz kopię zapasową z Google";
+"settings.sign_in_sync_word_lists" = "Zaloguj się, aby synchronizować listy słów";
+"settings.organization" = "Organizacja";
+"settings.show_idioms_tab" = "Pokaż kartę wyrażeń";
+"settings.shared_dictionaries" = "Wspólne słowniki";
+"settings.about_app" = "O aplikacji";
+"settings.features" = "Funkcje";
+"settings.add_organize_words" = "Dodawaj i organizuj słowa z definicjami";
+"settings.practice_quizzes_spelling" = "Ćwicz z quizami i ćwiczeniami ortograficznymi";
+"settings.track_learning_progress" = "Śledź postępy w nauce";
+"settings.import_export_word_collection" = "Importuj i eksportuj swoją kolekcję słów";
+"settings.customize_learning_experience" = "Dostosuj swoje doświadczenie edukacyjne";
+"settings.voice_pronunciation_support" = "Wsparcie dla wymowy głosowej";
+"settings.contact_me" = "Skontaktuj się ze mną";
+"settings.x_twitter" = "X (Twitter)";
+"settings.instagram" = "Instagram";
+"settings.support" = "Wsparcie";
+"settings.rate_app" = "Oceń aplikację";
+"settings.export_successful" = "Eksport zakończony sukcesem";
+"settings.upload_successful" = "Przesyłanie zakończone sukcesem";
+"settings.download_successful" = "Pobieranie zakończone sukcesem";
+"settings.daily_reminders_description" = "Otrzymuj przypomnienie o 20:00, jeśli nie otworzyłeś aplikacji tego dnia";
+"settings.difficult_words_description" = "Otrzymuj przypomnienie o 16:00, aby ćwiczyć trudne słowa";
+"settings.free_users_export_limit" = "Użytkownicy darmowego planu mogą eksportować do %d słów";
+"settings.app_version" = "Wersja aplikacji:";
+"settings.about_app_description" = "Stworzyłem tę aplikację, ponieważ nie znalazłem tego, czego szukałem.\n\nTo prosty menedżer list słów, który pozwala wyszukiwać słowa i dodawać definicje bez tłumaczenia na język ojczysty.\n\nMyślę, że to najlepszy sposób na naukę angielskiego. Mam nadzieję, że uznasz ją za przydatną.\n\nJeśli masz pytania lub chcesz zaproponować funkcje, skontaktuj się ze mną za pośrednictwem poniższych linków. Dziękuję za korzystanie z mojej aplikacji!";
+"settings.contact_support" = "Masz pytania, sugestie lub opinie? Chętnie je usłyszę. Skontaktuj się z pomocą techniczną przez Instagram lub Twitter!";
+"settings.sign_out" = "Wyloguj się";
+"settings.upload_backup_to_google" = "Prześlij kopię zapasową do Google";
+"settings.download_backup_from_google" = "Pobierz kopię zapasową z Google";
+"settings.sign_in_to_sync_word_lists" = "Zaloguj się, aby synchronizować listy słów";
+"settings.manage_tags" = "Zarządzaj etykietami";
+"settings.import_export" = "Import/Eksport";
+"settings.import_words" = "Importuj słowa";
+"settings.export_words" = "Eksportuj słowa";
+"settings.learn_more" = "Dowiedz się więcej";
+"settings.export_words_title" = "Eksportuj słowa";
+"settings.pro_upgrade_description" = "Uaktualnij do wersji Pro, aby uzyskać nieograniczone funkcje i synchronizację między urządzeniami.";
+"settings.word_lists_and_sync" = "Listy słów i synchronizacja";
+"settings.manual_sync_mode_description" = "Tryb synchronizacji ręcznej: Użyj poniższych przycisków, aby przesłać/pobrać listy słów do Google. Dostępne dla wszystkich użytkowników.";
+"settings.sign_in_to_create_share_word_lists" = "Zaloguj się, aby tworzyć i udostępniać listy słów.";
+"settings.tag_management_description" = "Twórz i zarządzaj etykietami, aby organizować swoje słowa, oraz dodawaj współpracowników, aby udostępniać słowa.";
+"settings.import_export_note" = "Uwaga: import i eksport działają tylko z plikami utworzonymi przez tę aplikację.";
+"settings.buy_me_a_coffee" = "Kup mi kawę";
+
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Zaloguj się przed subskrypcją";
+"auth.sign_in_with_google" = "Zaloguj się przez Google";
+"auth.can_always_sign_in_later" = "Zawsze możesz zalogować się później z ustawień";
+"auth.link_additional_accounts" = "Połącz dodatkowe konta";
+"auth.accounts_linked_successfully" = "Konta połączono pomyślnie";
+"auth.sign_out_confirmation" = "Wyloguj się";
+"auth.your_words_are_safe" = "Twoje słowa są bezpieczne";
+"auth.cloud_sync_disabled" = "Synchronizacja z chmurą zostanie wyłączona";
+"auth.sign_out" = "Wyloguj się";
+"auth.no_worries_wont_remove_words" = "Nie martw się! Nie usuniemy Twoich słów.";
+"auth.vocabulary_stay_on_device" = "Twoje słownictwo pozostanie na tym urządzeniu. Jeśli zalogujesz się na inne konto, Twoje dane zostaną połączone.";
+"auth.all_vocabulary_remain_device" = "Wszystkie słowa, definicje i postępy pozostaną na tym urządzeniu. Możesz kontynuować korzystanie z aplikacji bez logowania.";
+"auth.word_lists_shared_data_cleared" = "Listy słów i dane współdzielone zostaną wyczyszczone. Jeśli zalogujesz się na inne konto, lokalne słowa zostaną połączone z danymi nowego konta.";
+"auth.sign_in_to_access_word_lists" = "Zaloguj się, aby uzyskać dostęp do swoich list słów na wszystkich urządzeniach i współpracować z innymi.";
+"auth.link_google" = "Połącz z Google";
+"auth.link_apple" = "Połącz z Apple";
+"auth.sign_in_to_sync_word_lists" = "Zaloguj się, aby synchronizować listy słów";
+"auth.sign_out_error_title" = "Ups!";
+"auth.sign_out_error_message" = "Coś poszło nie tak podczas wylogowywania. Spróbuj ponownie później.";
+"auth.sign_in_required_for_restore" = "Logowanie wymagane do przywrócenia zakupów.";
+"auth.sign_in_required_for_pro_features" = "Logowanie wymagane do uzyskania dostępu do funkcji Pro, takich jak %@.";
+"auth.sign_in_failed" = "Logowanie nie powiodło się. Spróbuj ponownie.";
+"auth.sign_out_failed" = "Wylogowanie nie powiodło się. Spróbuj ponownie.";
+"auth.user_not_found" = "Nie znaleziono użytkownika.";
+"auth.network_error" = "Błąd sieci. Sprawdź swoje połączenie.";
+"auth.account_linking_failed" = "Połączenie konta nie powiodło się. Spróbuj ponownie.";
+
+// MARK: - Shared Dictionaries
+"shared_dictionaries.dictionary_selected" = "Słownik wybrany";
+"shared_dictionaries.name" = "Nazwa";
+"shared_dictionaries.created" = "Utworzono";
+"shared_dictionaries.your_role" = "Twoja rola";
+"shared_dictionaries.owner" = "Właściciel";
+"shared_dictionaries.editor" = "Edytor";
+"shared_dictionaries.viewer" = "Widz";
+"shared_dictionaries.editor_description" = "Edytor:";
+"shared_dictionaries.can_add_edit_delete_words" = "• Może dodawać, edytować i usuwać słowa";
+"shared_dictionaries.can_invite_collaborators" = "• Może zapraszać innych współpracowników";
+"shared_dictionaries.can_manage_dictionary_settings" = "• Może zarządzać ustawieniami słownika";
+"shared_dictionaries.viewer_description" = "Widz:";
+"shared_dictionaries.can_view_all_words" = "• Może przeglądać wszystkie słowa";
+"shared_dictionaries.cannot_make_changes" = "• Nie może wprowadzać zmian";
+"shared_dictionaries.cannot_invite_others" = "• Nie może zapraszać innych";
+"shared_dictionaries.collaborator_added_email_name" = "Współpracownik zostanie dodany z podanym adresem e-mail i imieniem. Musi zalogować się na ten sam adres e-mail, aby uzyskać dostęp do wspólnego słownika.";
+"shared_dictionaries.of_dictionary_created" = "z 1 utworzonego słownika";
+"shared_dictionaries.free_users_one_dictionary" = "Użytkownicy darmowego planu mogą tworzyć tylko jeden wspólny słownik";
+"shared_dictionaries.create_shared_dictionary" = "Utwórz wspólny słownik, aby współpracować z innymi";
+"shared_dictionaries.collaborate_others" = "Współpracuj z innymi";
+"shared_dictionaries.delete_dictionary" = "Usuń słownik";
+"shared_dictionaries.your_dictionaries" = "Twoje słowniki";
+"shared_dictionaries.no_shared_dictionaries" = "Brak wspólnych słowników";
+"shared_dictionaries.create_shared_dictionary_collaborate" = "Utwórz wspólny słownik, aby współpracować z innymi";
+"shared_dictionaries.dictionaries" = "Słowniki";
+"shared_dictionaries.enter_dictionary_name" = "Wpisz nazwę słownika";
+"shared_dictionaries.new_shared_dictionary" = "Nowy wspólny słownik";
+"shared_dictionaries.dictionary_name_required" = "Nazwa słownika jest wymagana";
+"shared_dictionaries.sign_in_to_create_shared_dictionary" = "Zaloguj się, aby utworzyć wspólny słownik";
+"shared_dictionaries.created_by" = "Utworzony przez %@";
+"shared_dictionaries.no_words_yet" = "Brak słów";
+"shared_dictionaries.add_words_to_shared_dictionary" = "Dodaj słowa do tego wspólnego słownika, aby rozpocząć";
+"shared_dictionaries.no_results" = "Brak wyników";
+"shared_dictionaries.no_words_match_filter" = "Brak słów pasujących do bieżącego filtra";
+"shared_dictionaries.dictionary_details" = "Szczegóły słownika";
+"shared_dictionaries.private_dictionary" = "Prywatny słownik";
+"shared_dictionaries.save_to_personal_dictionary" = "Zapisz do prywatnego słownika";
+"shared_dictionaries.collaborators_count" = "%d współpracowników";
+"shared_dictionaries.me" = "Ja";
+"shared_dictionaries.dictionary_deleted_or_lost_access" = "Ten słownik mógł zostać usunięty lub utraciłeś do niego dostęp.";
+"shared_dictionaries.select_role" = "Wybierz rolę";
+"shared_dictionaries.editor_role" = "Edytor:";
+"shared_dictionaries.viewer_role" = "Widz:";
+"shared_dictionaries.collaborator_added_with_email_name" = "Współpracownik zostanie dodany z podanym adresem e-mail i imieniem. Musi zalogować się na ten sam adres e-mail, aby uzyskać dostęp do wspólnego słownika.";
+"shared_dictionaries.be_first_to_rate_difficulty" = "Bądź pierwszym, który oceni trudność tego słowa";
+"shared_dictionaries.score" = "Wynik: %d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "Brak wspólnych słowników";
+"shared_dictionaries.collaborative_features" = "Funkcje współpracy";
+"shared_dictionaries.your_score" = "Twój wynik";
+"shared_dictionaries.your_status" = "Twój status";
+"shared_dictionaries.average_score" = "Średni wynik";
+
+// MARK: - Tags Flow
+"tags.manage_tags" = "Zarządzaj etykietami";
+"tags.tags_help_text" = "Etykiety pomagają organizować Twoje słowa. Każde słowo może mieć do 5 etykiet.";
+"tags.no_tags_yet" = "Nie dodano jeszcze etykiet";
+"tags.add_first_tag" = "Dodaj swoją pierwszą etykietę, klikając przycisk powyżej.";
+"tags.add_tag" = "Dodaj etykietę";
+"tags.add_first_tag_description" = "Dodaj swoją pierwszą etykietę, klikając przycisk powyżej.";
+"tags.add_tag_to_start_using" = "Dodaj etykietę, aby zacząć jej używać.";
+"tags.add_tags" = "Dodaj etykiety";
+"tags.create_tags" = "Utwórz etykiety";
+"tags.delete_tag" = "Usuń etykietę";
+"tags.delete_tag_confirmation" = "Czy na pewno chcesz usunąć tę etykietę?";
+"tags.delete_tag_cannot_undo" = "Tej akcji nie można cofnąć.";
+"tags.tag_name" = "Nazwa etykiety";
+"tags.tag_name_help" = "Wybierz opisową nazwę dla swojej etykiety";
+"tags.type_tag_name" = "Wpisz nazwę etykiety...";
+"tags.tag_color" = "Kolor etykiety";
+"tags.tag_color_help" = "Wybierz kolor, aby Twoja etykieta była łatwa do rozpoznania";
+"tags.edit_tag" = "Edytuj etykietę";
+"tags.new_tag" = "Nowa etykieta";
+"tags.tag_management_error" = "Błąd zarządzania etykietami";
+
+// MARK: - Coffee Banner
+"coffee.buy_me_a_coffee" = "Kup mi kawę";
+"coffee.maybe_later" = "Może później";
+"coffee.enjoying_the_app" = "Podoba Ci się aplikacja?";
+"coffee.helpful_learning_journey" = "Jeśli Mój słownik pomógł Ci w Twojej podróży edukacyjnej, rozważ kupienie mi kawy! ☕️";
+
+// MARK: - Paywall
+"paywall.terms_of_service" = "Warunki korzystania";
+"paywall.privacy_policy" = "Polityka prywatności";
+"paywall.upgrade_to_pro" = "Uaktualnij do wersji Pro";
+"paywall.restore_purchases" = "Przywróć zakupy";
+"paywall.track_progress" = "Śledź postępy";
+"paywall.see_your_improvement" = "Obserwuj swoje postępy";
+"paywall.collaborate" = "Współpracuj";
+"paywall.learn_with_others" = "Ucz się z innymi";
+"paywall.everything_you_need_to_master_vocabulary" = "Wszystko, czego potrzebujesz, aby opanować słownictwo";
+"paywall.choose_your_plan" = "Wybierz swój plan";
+"paywall.start_pro_subscription" = "Rozpocznij subskrypcję Pro";
+"paywall.trusted_by_learners_worldwide" = "Zaufana przez uczniów na całym świecie";
+"paywall.app_store_rating" = "Ocena w App Store";
+"paywall.active_users" = "Aktywni użytkownicy";
+"paywall.words_added" = "Dodane słowa";
+"paywall.sign_in_required" = "Wymagane logowanie";
+"paywall.join_thousands_users" = "Dołącz do tysięcy użytkowników, którzy zmienili swoją naukę słownictwa";
+"paywall.by_subscribing_agree_terms" = "Subskrybując, zgadzasz się na nasze Warunki korzystania i Politykę prywatności";
+"paywall.pro_user" = "Użytkownik Pro";
+"paywall.free_plan" = "Plan darmowy";
+"paywall.limited_features_available" = "Ograniczone funkcje dostępne";
+"paywall.no_active_subscriptions_found" = "Nie znaleziono aktywnych subskrypcji. Sprawdź swoje konto w App Store.";
+"paywall.failed_to_restore_purchases" = "Nie udało się przywrócić zakupów: %@";
+"paywall.save_percentage" = "Oszczędź %@";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nowe";
+"difficulty.in_progress" = "W toku";
+"difficulty.needs_review" = "Wymaga przeglądu";
+"difficulty.mastered" = "Opanowane";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Najnowsze najpierw";
+"sorting.earliest_first" = "Najstarsze najpierw";
+"sorting.alphabetically" = "Alfabetycznie";
+"sorting.by_part_of_speech" = "Według części mowy";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatyczne wykrywanie";
+
+// MARK: - Time Period
+"time_period.week" = "Tydzień";
+"time_period.month" = "Miesiąc";
+"time_period.year" = "Rok";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Wszystkie wyniki";
+"quiz_results.no_quiz_results_yet" = "Brak wyników quizów";
+"quiz_results.quiz" = "Quiz";
+"quiz_results.accuracy" = "Dokładność";
+"quiz_results.correct" = "Poprawnie";
+"quiz_results.duration" = "Czas trwania";
+"quiz_results.time_period" = "Okres czasu";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkrypcja";
+"word_details.part_of_speech" = "Część mowy";
+"word_details.definition" = "Definicja";
+"word_details.difficulty" = "Trudność";
+"word_details.examples" = "Przykłady";
+"word_details.edit_example" = "Edytuj przykład";
+"word_details.example" = "Przykład";
+"word_details.type_example_here" = "Wpisz przykład tutaj";
+"word_details.add_example" = "Dodaj przykład";
+"word_details.delete_word" = "Usuń słowo";
+"word_details.delete_failed" = "Usuwanie nie powiodło się";
+
+// MARK: - Word List
+"word_list.all_words" = "Wszystkie słowa";
+"word_list.favorite" = "Ulubione";
+"word_list.manage_tags" = "Zarządzaj etykietami";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Typy quizów";
+"quiz_list.practice_settings" = "Ustawienia ćwiczeń";
+"quiz_list.configure_quiz_experience" = "Skonfiguruj swoje doświadczenie z quizami";
+"quiz_list.focus_on_words_need_review" = "Skup się na słowach wymagających przeglądu";
+"quiz_list.not_enough_words_review_yet" = "Za mało słów do przeglądu";
+"quiz_list.add_words_to_shared_dictionary" = "Dodaj słowa do wspólnego słownika";
+"quiz_list.add_your_first_word" = "Dodaj swoje pierwsze słowo";
+"quiz_list.add_more_words" = "Dodaj więcej słów";
+"quiz_list.quizzes_help_test_knowledge" = "Quizy pomagają testować Twoją wiedzę i wzmacniać naukę!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Brakuje Ci %d słów, aby odblokować quizy!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Zakończ";
+"quiz_actions.next_word" = "Następne słowo";
+"quiz_actions.submit_answer" = "Wyślij odpowiedź";
+"quiz_actions.number_of_words" = "Liczba słów";
+"quiz_actions.no_difficult_words_available" = "Brak trudnych słów dostępnych dla quizu";
+"quiz_actions.your_word_is" = "Twoje słowo to '%@'. Spróbuj lepiej :)";
+"quiz_actions.try_harder" = "Spróbuj bardziej :)";
+"quiz_actions.incorrect_try_again" = "Niepoprawnie. Spróbuj ponownie";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Wybierz etykiety";
+"tag_selection.no_tags_yet" = "Brak etykiet";
+"tag_selection.you_can_select_up_to_5_tags" = "Możesz wybrać do 5 etykiet na słowo. Dotknij etykiet, aby je wybrać lub odznaczyć.";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Synchronizacja z Google";
+"pro_features.unlimited_export" = "Nieograniczony eksport";
+"pro_features.create_shared_dictionaries" = "Tworzenie wspólnych słowników";
+"pro_features.advanced_analytics" = "Zaawansowana analityka";
+"pro_features.priority_support" = "Priorytetowe wsparcie";
+"pro_features.pro_features" = "Funkcje Pro";
+"pro_features.tag_management" = "Zarządzanie etykietami";
+"pro_features.sync_words_across_devices" = "Synchronizuj słowa na wszystkich urządzeniach za pomocą Google Drive";
+"pro_features.export_unlimited_words" = "Eksportuj nieograniczoną liczbę słów do pliku CSV";
+"pro_features.create_manage_shared_dictionaries" = "Twórz i zarządzaj wspólnymi słownikami z innymi";
+"pro_features.detailed_insights" = "Uzyskaj szczegółowe wglądy w swoje postępy w nauce";
+"pro_features.priority_support_team" = "Otrzymuj priorytetowe wsparcie od naszego zespołu";
+"pro_features.unlock_all_pro_features" = "Odblokuj wszystkie funkcje Pro";
+"pro_features.organize_words_with_tags" = "Organizuj słowa za pomocą niestandardowych etykiet dla łatwiejszego wyszukiwania";
+"pro_features.detailed_progress_tracking" = "Szczegółowe śledzenie postępów i wglądy";
+"pro_features.get_priority_support" = "Otrzymuj priorytetowe wsparcie, gdy potrzebujesz pomocy";
+
+// MARK: - Error Messages
+"errors.error_updating_word_examples" = "Błąd podczas aktualizacji przykładów słów";
+"errors.error_removing_word" = "Błąd podczas usuwania słowa";
+"errors.error_saving_word" = "Błąd podczas zapisywania słowa";
+"errors.error_updating_idiom_examples" = "Błąd podczas aktualizacji przykładów wyrażeń";
+"errors.error_removing_idiom" = "Błąd podczas usuwania wyrażenia";
+"errors.error_saving_idiom" = "Błąd podczas zapisywania wyrażenia";
+"errors.input_not_word" = "Wprowadzone dane nie są słowem";
+"errors.input_cannot_be_empty" = "Wprowadzone dane nie mogą być puste";
+"errors.device_muted_or_volume_low" = "Urządzenie jest wyciszone lub głośność jest niska";
+"errors.cannot_play_audio" = "Nie można odtworzyć dźwięku";
+"errors.cannot_setup_audio_session" = "Nie można skonfigurować sesji audio";
+"errors.export_failed" = "Eksport nie powiódł się";
+"errors.import_failed" = "Import nie powiódł się";
+"errors.cannot_access_security_scoped_resource" = "Nie można uzyskać dostępu do zasobu o ograniczonym zakresie bezpieczeństwa";
+"errors.tag_already_exists" = "Etykieta już istnieje";
+"errors.tag_already_assigned_to_word" = "Ta etykieta jest już przypisana do tego słowa";
+"errors.tag_not_assigned_to_word" = "Ta etykieta nie jest przypisana do tego słowa";
+"errors.authentication_required" = "Wymagana autoryzacja";
+"errors.no_active_subscriptions_found" = "Nie znaleziono aktywnych subskrypcji";
+"errors.failed_to_update_word_progress" = "Nie udało się zaktualizować postępu słowa";
+"errors.failed_to_update_word_difficulty_level" = "Nie udało się zaktualizować poziomu trudności słowa";
+"errors.failed_to_save_quiz_session" = "Nie udało się zapisać sesji quizu";
+"errors.failed_to_update_user_statistics" = "Nie udało się zaktualizować statystyk użytkownika";
+"errors.invalid_word_id" = "Nieprawidłowy identyfikator słowa";
+"errors.word_not_found" = "Słowo nie znalezione";
+"errors.failed_to_calculate_progress" = "Nie udało się obliczyć postępu";
+"errors.invalid_translation_url" = "Nieprawidłowy adres URL tłumaczenia";
+"errors.network_error_during_translation" = "Błąd sieci podczas tłumaczenia";
+"errors.invalid_response_from_translation_service" = "Nieprawidłowa odpowiedź od usługi tłumaczenia";
+"errors.translation_failed" = "Tłumaczenie nie powiodło się";
+"errors.invalid_user_email" = "Nieprawidłowy adres e-mail użytkownika";
+"errors.network_error_occurred" = "Wystąpił błąd sieci";
+"errors.sync_failed" = "Synchronizacja nie powiodła się";
+"errors.invalid_input_provided" = "Podano nieprawidłowe dane";
+"errors.dictionary_not_found" = "Słownik nie znaleziony";
+"errors.no_subscription_offerings_available" = "Brak dostępnych ofert subskrypcji w tej chwili";
+"errors.requested_subscription_package_not_found" = "Nie znaleziono żądanego pakietu subskrypcji";
+"errors.purchase_could_not_be_completed" = "Nie można ukończyć zakupu";
+"errors.failed_to_restore_previous_purchases" = "Nie udało się przywrócić poprzednich zakupów";
+"errors.no_offerings_available" = "Brak dostępnych ofert subskrypcji w tej chwili";
+"errors.purchase_failed" = "Zakup nie powiódł się";
+"errors.restore_failed" = "Przywracanie poprzednich zakupów nie powiodło się";
+"errors.export_limit_exceeded" = "Przekroczono limit eksportu. Uaktualnij do wersji Pro dla nieograniczonego eksportu.";
+"errors.max_tags_reached" = "Osiągnięto maksymalny limit 5 etykiet na słowo";
+"errors.tag_already_assigned" = "Ta etykieta jest już przypisana do tego słowa";
+"errors.tag_not_assigned" = "Ta etykieta nie jest przypisana do tego słowa";
+"errors.network_timeout" = "Przekroczono limit czasu sieci";
+"errors.server_unreachable" = "Serwer jest nieosiągalny";
+"errors.invalid_response" = "Nieprawidłowa odpowiedź";
+"errors.no_internet_connection" = "Brak połączenia z internetem";
+"errors.missing_api_key" = "Brak klucza API";
+"errors.decoding_error" = "Błąd dekodowania";
+"errors.invalid_url" = "Nieprawidłowy adres URL";
+"errors.no_data" = "Brak danych";
+"errors.save_failed" = "Zapisywanie nie powiodło się";
+"errors.read_failed" = "Odczyt nie powiódł się";
+"errors.data_corrupted" = "Dane uszkodzone";
+"errors.invalid_input" = "Nieprawidłowe dane wejściowe";
+"errors.missing_field" = "Brakujące pole";
+"errors.unknown_error" = "Nieznany błąd";
+"errors.update_failed" = "Aktualizacja nie powiodła się";
+"errors.delete_failed" = "Usuwanie nie powiodło się";
+"errors.permission_denied" = "Nie masz uprawnień do tej akcji";
+"errors.user_not_authenticated" = "Użytkownik musi zostać uwierzytelniony";
+"errors.dictionary_limit_reached" = "W planie darmowym możesz utworzyć tylko jeden wspólny słownik. Uaktualnij do wersji Pro dla nieograniczonych wspólnych słowników.";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Brak słów";
+"empty_states.no_idioms_yet" = "Brak wyrażeń";
+"empty_states.no_favorite_words" = "Brak ulubionych słów";
+"empty_states.no_search_results" = "Brak wyników wyszukiwania";
+"empty_states.start_improving_vocabulary" = "Zacznij poprawiać swoje słownictwo, dodając swoje pierwsze wyrażenie";
+"empty_states.tap_heart_icon_to_add_favorites" = "Dotknij ikony serca na dowolnym wyrażeniu, aby dodać je do ulubionych";
+"empty_states.try_different_search_term" = "Spróbuj innego hasła wyszukiwania lub dodaj nowe wyrażenie";
+
+// MARK: - Notifications
+"notifications.time_to_practice" = "Czas na ćwiczenia! 📚";
+"notifications.practice_vocabulary_today" = "Nie zapomnij ćwiczyć swojego słownictwa dzisiaj.";
+"notifications.practice_difficult_words" = "Ćwicz trudne słowa 📚";
+"notifications.difficult_words_challenge" = "Masz słowa, które wymagają więcej ćwiczeń. Gotowy na wyzwanie?";
+"notifications.test_dictionary_invitation" = "Zaproszenie do słownika testowego";
+"notifications.test_dictionary_invitation_body" = "Ktoś dodał Cię do 'Słownika testowego'";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "Mój słownik";
+"macos.about_my_dictionary" = "O Mój słownik";
+"macos.debug_panel" = "Panel debugowania";
+"macos.settings" = "Ustawienia";
+"macos.about" = "O aplikacji";
+"macos.shared_dictionaries" = "Wspólne słowniki";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "Wszystkie słowa";
+"filter_display.favorite" = "Ulubione";
+"filter_display.search" = "Szukaj";
+"filter_display.tag" = "Etykieta";
+"filter_display.new" = "Nowe";
+"filter_display.in_progress" = "W toku";
+"filter_display.needs_review" = "Wymaga przeglądu";
+"filter_display.mastered" = "Opanowane";
+"filter_display.no_words_yet" = "Brak słów";
+"filter_display.no_favorite_words" = "Brak ulubionych słów";
+"filter_display.no_search_results" = "Brak wyników wyszukiwania";
+"filter_display.no_tagged_words" = "Brak oznaczonych słów";
+"filter_display.no_new_words" = "Brak nowych słów";
+"filter_display.no_words_in_progress" = "Brak słów w toku";
+"filter_display.no_words_need_review" = "Brak słów wymagających przeglądu";
+"filter_display.no_mastered_words" = "Brak opanowanych słów";
+"filter_display.start_building_vocabulary" = "Zacznij budować swoje słownictwo, dodając swoje pierwsze słowo";
+"filter_display.tap_heart_icon_to_add_favorites" = "Dotknij ikony serca na dowolnym słowie, aby dodać je do ulubionych";
+"filter_display.try_different_search_term" = "Spróbuj innego hasła wyszukiwania lub dodaj nowe słowo";
+"filter_display.add_tags_to_organize" = "Dodaj etykiety do swoich słów, aby lepiej je zorganizować";
+"filter_display.new_words_appear_here" = "Nowe słowa pojawią się tutaj po dodaniu ich do listy";
+"filter_display.words_appear_here_as_you_practice" = "Słowa pojawią się tutaj, gdy będziesz ćwiczyć z quizami";
+"filter_display.words_need_more_practice" = "Słowa wymagające więcej ćwiczeń pojawią się tutaj";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Właściciel";
+"collaborator_roles.editor" = "Edytor";
+"collaborator_roles.viewer" = "Widz";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Niebieski";
+"tag_colors.red" = "Czerwony";
+"tag_colors.green" = "Zielony";
+"tag_colors.orange" = "Pomarańczowy";
+"tag_colors.purple" = "Fioletowy";
+"tag_colors.pink" = "Różowy";
+"tag_colors.yellow" = "Żółty";
+"tag_colors.gray" = "Szary";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Wybierz słownik";
+"shared_dictionary_selection.dictionary_selected" = "Słownik wybrany";
+"shared_dictionary_selection.add_to_shared" = "Dodaj do wspólnego";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Dodaj słowo do wspólnego słownika";
+"shared_dictionary_selection.unknown" = "Nieznany";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Uaktualnij do wersji Pro, aby zobaczyć wszystkie szczegóły postępów.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Uaktualnij do wersji Pro, aby zobaczyć wszystkie szczegóły rozwoju słownictwa.";
+"pro_upgrade.time_period" = "Okres czasu";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Rola";
+"collaborator_management.add_collaborator" = "Dodaj współpracownika";
+"collaborator_management.email_address_required" = "Adres e-mail jest wymagany";
+"collaborator_management.valid_email_address" = "Wpisz prawidłowy adres e-mail";
+"collaborator_management.make_viewer" = "Ustaw jako widz";
+"collaborator_management.make_editor" = "Ustaw jako edytor";
+"collaborator_management.remove" = "Usuń";
+"collaborator_management.add" = "Dodaj";
+"collaborator_management.delete_dictionary" = "Usuń słownik";
+"collaborator_management.delete_dictionary_confirmation" = "Czy na pewno chcesz usunąć ten wspólny słownik? Tej akcji nie można cofnąć.";
+"collaborator_management.stop_watching" = "Przestań obserwować";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Czy na pewno chcesz przestać obserwować ten wspólny słownik?";
+"collaborator_management.stop_watching_dictionary" = "Przestań obserwować słownik";
+"collaborator_management.continue" = "Kontynuuj";
+"collaborator_management.dictionary_not_found" = "Słownik nie znaleziony";
+"collaborator_management.dictionary_details" = "Szczegóły słownika";
+"collaborator_management.unknown" = "Nieznany";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Quiz ortograficzny";
+"quiz_types.choose_definition" = "Wybierz definicję";
+"quiz_types.test_spelling_skills" = "Sprawdź swoje umiejętności ortograficzne, poprawnie pisząc słowa";
+"quiz_types.select_correct_definition" = "Wybierz poprawną definicję dla każdego słowa";
+"quiz_types.great_job_completed_spelling_quiz" = "Świetna robota! Ukończyłeś quiz ortograficzny.";
+"quiz_types.great_job_completed_definition_quiz" = "Świetna robota! Ukończyłeś quiz definicji.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australijski";
+"english_accents.canadian" = "Kanadyjski";
+"english_accents.british" = "Brytyjski";
+"english_accents.indian" = "Indyjski";
+"english_accents.american" = "Amerykański";
+"english_accents.belgian" = "Belgijski";
+"english_accents.singaporean" = "Singapurski";
+"english_accents.irish" = "Irlandzki";
+"english_accents.south_african" = "Południowoafrykański";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "Wszystkie wyrażenia";
+"idiom_filters.favorite" = "Ulubione";
+"idiom_filters.search" = "Szukaj";
+"idiom_filters.no_idioms_yet" = "Brak wyrażeń";
+"idiom_filters.no_favorite_words" = "Brak ulubionych słów";
+"idiom_filters.no_search_results" = "Brak wyników wyszukiwania";
+"idiom_filters.start_improving_vocabulary" = "Zacznij poprawiać swoje słownictwo, dodając swoje pierwsze wyrażenie";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "Dotknij ikony serca na dowolnym wyrażeniu, aby dodać je do ulubionych";
+"idiom_filters.try_different_search_term" = "Spróbuj innego hasła wyszukiwania lub dodaj nowe wyrażenie";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Rzeczownik";
+"part_of_speech.full.verb" = "Czasownik";
+"part_of_speech.full.adjective" = "Przymiotnik";
+"part_of_speech.full.adverb" = "Przysłówek";
+"part_of_speech.full.conjunction" = "Spójnik";
+"part_of_speech.full.pronoun" = "Zaimek";
+"part_of_speech.full.preposition" = "Przyimek";
+"part_of_speech.full.exclamation" = "Wykrzyknik";
+"part_of_speech.full.unknown" = "Nieznany";
+
+"part_of_speech.short.noun" = "Rzecz.";
+"part_of_speech.short.verb" = "Czas.";
+"part_of_speech.short.adjective" = "Przym.";
+"part_of_speech.short.adverb" = "Przysł.";
+"part_of_speech.short.conjunction" = "Spój.";
+"part_of_speech.short.pronoun" = "Zaim.";
+"part_of_speech.short.preposition" = "Przyim.";
+"part_of_speech.short.exclamation" = "Wykrz.";
+"part_of_speech.short.unknown" = "Niezn.";

@@ -1,0 +1,864 @@
+/*
+  Localizable.strings (Hindi Translation)
+  My Dictionary
+
+  Translated on August 17, 2025.
+*/
+
+// MARK: - Tab Bar
+"tabbar.words" = "शब्द";
+"tabbar.idioms" = "मुहावरे";
+"tabbar.quizzes" = "क्विज़";
+"tabbar.progress" = "प्रगति";
+"tabbar.settings" = "सेटिंग्स";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "शब्द विवरण";
+"navigation.idiom_details" = "मुहावरा विवरण";
+"navigation.add_tags" = "टैग जोड़ें";
+"navigation.about" = "ऐप के बारे में";
+"navigation.debug_panel" = "डीबग पैनल";
+"navigation.quiz_results" = "क्विज़ परिणाम";
+"navigation.spelling_quiz" = "वर्तनी क्विज़";
+"navigation.definition_quiz" = "परिभाषा क्विज़";
+"navigation.close" = "बंद करें";
+"navigation.close_screen" = "स्क्रीन बंद करें";
+
+// MARK: - Common Actions
+"actions.done" = "हो गया";
+"actions.save" = "सहेजें";
+"actions.save_word" = "शब्द सहेजें";
+"actions.cancel" = "रद्द करें";
+"actions.confirm" = "पुष्टि करें";
+"actions.search" = "खोजें";
+"actions.delete" = "हटाएं";
+"actions.edit" = "संपादित करें";
+"actions.add" = "जोड़ें";
+"actions.next" = "अगला";
+"actions.back" = "पीछे";
+"actions.exit" = "बाहर निकलें";
+"actions.ok" = "ठीक";
+"actions.yes" = "हां";
+"actions.no" = "नहीं";
+"actions.try_again" = "पुनः प्रयास करें";
+"actions.view_all" = "सभी देखें";
+"actions.listen" = "सुनें";
+"actions.create" = "बनाएं";
+"actions.manage" = "प्रबंधन करें";
+"actions.select" = "चुनें";
+"actions.select_word" = "शब्द चुनें";
+"actions.select_idiom" = "मुहावरा चुनें";
+"actions.select_quiz" = "क्विज़ चुनें";
+"actions.sign_out" = "साइन आउट";
+"actions.sign_in" = "साइन इन";
+"actions.upgrade" = "अपग्रेड करें";
+"actions.learn_more" = "और जानें";
+"actions.copy" = "कॉपी करें";
+"actions.refresh" = "रिफ्रेश करें";
+"actions.clear" = "साफ करें";
+"actions.reset" = "रीसेट करें";
+"actions.test" = "परीक्षण";
+"actions.check" = "जांच करें";
+"actions.verify" = "सत्यापित करें";
+"actions.show" = "दिखाएं";
+"actions.send" = "भेजें";
+"actions.request" = "अनुरोध";
+"actions.sync" = "सिंक करें";
+"actions.upload" = "अपलोड करें";
+"actions.download" = "डाउनलोड करें";
+"actions.import_words" = "शब्द आयात करें";
+"actions.export_words" = "शब्द निर्यात करें";
+"actions.stop_watching" = "देखना बंद करें";
+"actions.make_viewer" = "दर्शक बनाएं";
+"actions.make_editor" = "संपादक बनाएं";
+"actions.remove" = "हटाएं";
+"actions.skip_for_now" = "अभी के लिए छोड़ें";
+"actions.link_google" = "गूगल से लिंक करें";
+"actions.link_apple" = "एप्पल से लिंक करें";
+"actions.toggle_like" = "लाइक टॉगल करें";
+"actions.toggle_favorite" = "पसंदीदा टॉगल करें";
+
+// MARK: - Onboarding
+"onboarding.welcome_to" = "में आपका स्वागत है";
+"onboarding.my_dictionary" = "मेरा शब्दकोश";
+"onboarding.personal_vocabulary_companion" = "आपका व्यक्तिगत शब्दावली सहयोगी";
+"onboarding.build_your_vocabulary" = "अपनी शब्दावली बनाएं";
+"onboarding.personalized_learning" = "वैयक्तिकृत शिक्षा";
+"onboarding.youre_all_set" = "आप पूरी तरह तैयार हैं!";
+"onboarding.start_building_vocabulary" = "आज से अपनी शब्दावली बनाना शुरू करें और अपनी भाषा कौशल को बढ़ते देखें।";
+"onboarding.get_started" = "शुरू करें";
+"onboarding.next_step" = "अगला कदम";
+"onboarding.personal_word_list" = "व्यक्तिगत शब्द सूची";
+"onboarding.create_organize_vocabulary" = "अपने स्वयं के शब्द संग्रह को कस्टम परिभाषाओं और उदाहरणों के साथ बनाएं और व्यवस्थित करें";
+"onboarding.find_definitions" = "परिभाषाएं खोजें";
+"onboarding.comprehensive_definitions" = "एकाधिक अर्थों और संदर्भों के साथ व्यापक परिभाषाएं प्राप्त करें";
+"onboarding.collect_idioms" = "मुहावरे संग्रह करें";
+"onboarding.learn_practice_idioms" = "दुनिया भर के मुहावरों और अभिव्यक्तियों को सीखें और अभ्यास करें";
+"onboarding.smart_quizzes" = "स्मार्ट क्विज़";
+"onboarding.adaptive_quizzes" = "आपकी प्रगति से सीखने वाले अनुकूली क्विज़";
+"onboarding.progress_tracking" = "प्रगति ट्रैकिंग";
+"onboarding.visual_insights" = "आपकी शब्दावली वृद्धि के लिए दृश्य अंतर्दृष्टि";
+"onboarding.collaborative_learning" = "सहयोगी शिक्षा";
+"onboarding.share_dictionaries" = "मित्रों और परिवार के साथ शब्दकोश साझा करें";
+"onboarding.back" = "पीछे";
+"onboarding.next" = "अगला";
+"onboarding.personal_word_list_description" = "अपने स्वयं के शब्द संग्रह को कस्टम परिभाषाओं और उदाहरणों के साथ बनाएं और व्यवस्थित करें";
+"onboarding.find_definitions_description" = "एकाधिक अर्थों और संदर्भों के साथ व्यापक परिभाषाएं प्राप्त करें";
+"onboarding.collect_idioms_description" = "दुनिया भर के मुहावरों और अभिव्यक्तियों को सीखें और अभ्यास करें";
+"onboarding.smart_quizzes_description" = "आपकी प्रगति से सीखने वाले अनुकूली क्विज़";
+"onboarding.progress_tracking_description" = "आपकी शब्दावली वृद्धि के लिए दृश्य अंतर्दृष्टि";
+"onboarding.collaborative_learning_description" = "मित्रों और परिवार के साथ शब्दकोश साझा करें";
+
+// MARK: - Words
+"words.add_word" = "शब्द जोड़ें";
+"words.add_your_first_word" = "अपना पहला शब्द जोड़ें";
+"words.add_more_words" = "और शब्द जोड़ें";
+"words.add_to_shared_dictionary" = "साझा शब्दकोश में जोड़ें";
+"words.add_new_word" = "नया शब्द जोड़ें";
+"words.delete_word" = "शब्द हटाएं";
+"words.delete_word_confirmation" = "क्या आप वाकई इस शब्द को हटाना चाहते हैं?";
+"words.transcription" = "लिप्यंतरण";
+"words.part_of_speech" = "वाक्यांश का हिस्सा";
+"words.definition" = "परिभाषा";
+"words.difficulty" = "कठिनाई";
+"words.language" = "भाषा";
+"words.input_language" = "इनपुट भाषा";
+"words.tags" = "टैग";
+"words.word" = "शब्द";
+"words.words" = "शब्द";
+"words.create_tags" = "टैग बनाएं";
+"words.all_words" = "सभी शब्द";
+"words.favorite" = "पसंदीदा";
+"words.favorite_words" = "पसंदीदा शब्द";
+"words.search" = "खोज";
+"words.search_words" = "शब्द खोजें...";
+"words.search_results" = "खोज परिणाम";
+"words.tag" = "टैग";
+"words.tagged_words" = "टैग किए गए शब्द";
+"words.new" = "नया";
+"words.new_words" = "नए शब्द";
+"words.in_progress" = "प्रगति में";
+"words.words_in_progress" = "प्रगति में शब्द";
+"words.needs_review" = "समीक्षा की आवश्यकता";
+"words.words_needing_review" = "समीक्षा की आवश्यकता वाले शब्द";
+"words.mastered" = "निपुण";
+"words.mastered_words" = "निपुण शब्द";
+"words.sort" = "छांटें";
+"words.filter" = "फ़िल्टर";
+"words.latest_first" = "नवीनतम पहले";
+"words.earliest_first" = "सबसे पुराना पहले";
+"words.alphabetically" = "वर्णमाला के अनुसार";
+"words.by_part_of_speech" = "वाक्यांश के हिस्से के अनुसार";
+"words.type_word" = "शब्द टाइप करें";
+"words.shared_dictionary" = "साझा शब्दकोश";
+"words.private_dictionary" = "निजी शब्दकोश";
+"words.impressive_vocabulary" = "प्रभावशाली शब्दावली!";
+"words.impressive_vocabulary_message" = "आपने **%d शब्दों** का संग्रह बनाया है! आपकी सीखने की समर्पण प्रेरणादायक है।";
+"words.examples" = "उदाहरण";
+"words.no_examples_yet" = "अभी तक कोई उदाहरण नहीं";
+"words.type_example_here" = "यहां उदाहरण टाइप करें";
+"words.add_example" = "उदाहरण जोड़ें";
+"words.edit_example" = "उदाहरण संपादित करें";
+"words.score" = "स्कोर";
+"words.quiz_based" = "क्विज़ आधारित";
+"words.language" = "भाषा";
+"words.no_tags_added_yet" = "अभी तक कोई टैग नहीं जोड़ा गया।";
+"words.add_tag" = "टैग जोड़ें";
+"words.no_tags_selected" = "कोई टैग चयनित नहीं";
+"words.error_loading_definitions" = "परिभाषाएं लोड करने में त्रुटि। कृपया पुनः प्रयास करें।";
+"words.type_word_and_press_search" = "एक शब्द टाइप करें और उसकी परिभाषाएं खोजने के लिए 'खोज' दबाएं";
+"words.word_details" = "शब्द विवरण";
+"words.no_examples_yet" = "अभी तक कोई उदाहरण नहीं";
+"words.edit_example" = "उदाहरण संपादित करें";
+"words.no_transcription" = "कोई लिप्यंतरण नहीं";
+"words.no_definition" = "कोई परिभाषा नहीं";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "मुहावरा जोड़ें";
+"idioms.add_new_idiom" = "नया मुहावरा जोड़ें";
+"idioms.idiom" = "मुहावरा";
+"idioms.idioms" = "मुहावरे";
+"idioms.no_idioms_found" = "कोई मुहावरे नहीं मिले";
+"idioms.add_this_idiom" = "इस मुहावरे को ऊपर दिए बटन पर क्लिक करके जोड़ें";
+"idioms.begin_add_idioms" = "ऊपरी बाएं कोने में प्लस आइकन पर क्लिक करके अपनी सूची में मुहावरे जोड़ना शुरू करें";
+"idioms.all_idioms" = "सभी मुहावरे";
+"idioms.favorite_idioms" = "पसंदीदा मुहावरे";
+"idioms.found_idioms" = "मिल गए";
+"idioms.examples" = "उदाहरण";
+"idioms.no_examples_yet" = "अभी तक कोई उदाहरण नहीं";
+"idioms.type_example_here" = "यहां उदाहरण टाइप करें";
+"idioms.add_example" = "उदाहरण जोड़ें";
+"idioms.edit_example" = "उदाहरण संपादित करें";
+"idioms.delete_idiom" = "मुहावरा हटाएं";
+"idioms.delete_idiom_confirmation" = "क्या आप वाकई इस मुहावरे को हटाना चाहते हैं?";
+"idioms.search_idioms" = "मुहावरे खोजें...";
+"idioms.favorites" = "पसंदीदा";
+"idioms.found" = "मिल गए";
+"idioms.sort" = "छांटें";
+"idioms.filter" = "फ़िल्टर";
+"idioms.latest_first" = "नवीनतम पहले";
+"idioms.earliest_first" = "सबसे पुराना पहले";
+"idioms.alphabetically" = "वर्णमाला के अनुसार";
+
+// MARK: - Quizzes
+"quizzes.quiz_unavailable" = "क्विज़ उपलब्ध नहीं";
+"quizzes.back_to_quizzes" = "क्विज़ पर वापस";
+"quizzes.your_answer" = "आपका उत्तर";
+"quizzes.submit_answer" = "उत्तर जमा करें";
+"quizzes.next_word" = "अगला शब्द";
+"quizzes.finish" = "समाप्त";
+"quizzes.your_results" = "आपके परिणाम";
+"quizzes.final_score" = "अंतिम स्कोर";
+"quizzes.correct_answers" = "सही उत्तर";
+"quizzes.best_streak" = "सर्वश्रेष्ठ स्ट्रीक";
+"quizzes.accuracy" = "सटीकता";
+"quizzes.debug" = "डीबग";
+"quizzes.choose_correct_definition" = "सही परिभाषा चुनें";
+"quizzes.word" = "शब्द";
+"quizzes.quiz_types" = "क्विज़ प्रकार";
+"quizzes.practice_settings" = "अभ्यास सेटिंग्स";
+"quizzes.configure_quiz_experience" = "अपने क्विज़ अनुभव को कॉन्फ़िगर करें";
+"quizzes.practice_hard_words_only" = "केवल कठिन शब्दों का अभ्यास करें";
+"quizzes.focus_words_need_review" = "समीक्षा की आवश्यकता वाले शब्दों पर ध्यान दें";
+"quizzes.not_enough_words_review" = "समीक्षा के लिए पर्याप्त शब्द नहीं हैं";
+"quizzes.words_per_session" = "प्रति सत्र शब्द";
+"quizzes.number_words" = "शब्दों की संख्या";
+"quizzes.select_dictionary" = "शब्दकोश चुनें";
+"quizzes.no_difficult_words_available" = "क्विज़ के लिए कोई कठिन शब्द उपलब्ध नहीं";
+"quizzes.spelling_quiz_description" = "शब्दों को सही ढंग से लिखकर अपनी वर्तनी कौशल का परीक्षण करें";
+"quizzes.definition_quiz_description" = "प्रत्येक शब्द के लिए सही परिभाषा चुनें";
+"quizzes.progress" = "प्रगति";
+"quizzes.streak" = "स्ट्रीक";
+"quizzes.score" = "स्कोर";
+"quizzes.best" = "सर्वश्रेष्ठ";
+"quizzes.hint" = "संकेत";
+"quizzes.attempt" = "प्रयास";
+"quizzes.correct" = "सही!";
+"quizzes.well_done" = "शाबाश!";
+"quizzes.keep_up_good_work" = "अच्छा काम जारी रखें!";
+"quizzes.correct_word_is" = "सही शब्द है '%@'। अगले शब्द पर चलते हैं...";
+"quizzes.moving_to_next_word" = "अगले शब्द पर जा रहे हैं...";
+"quizzes.incorrect" = "गलत";
+"quizzes.moving_to_next_question" = "अगले प्रश्न पर जा रहे हैं...";
+"quizzes.quiz_complete" = "क्विज़ पूर्ण!";
+"quizzes.great_job_completed_spelling_quiz" = "शानदार काम! आपने वर्तनी क्विज़ पूरा किया।";
+"quizzes.great_job_completed_definition_quiz" = "शानदार काम! आपने परिभाषा क्विज़ पूरा किया।";
+"quizzes.skip_word" = "शब्द छोड़ें (-2 अंक)";
+"quizzes.incorrect_moving_to_next_question" = "गलत! अगले प्रश्न पर जा रहे हैं...";
+"quizzes.contributions" = "योगदान";
+"quizzes.not_enough_words_available" = "पर्याप्त शब्द उपलब्ध नहीं हैं। क्विज़ के लिए कम से कम %d शब्दों की आवश्यकता है।";
+"quizzes.need_at_least_words" = "क्विज़ के लिए कम से कम %d शब्दों की आवश्यकता है।";
+"quizzes.shared_dictionary_needs_more_words" = "साझा शब्दकोश को और शब्दों की आवश्यकता है!";
+"quizzes.start_building_vocabulary" = "अपनी शब्दावली बनाना शुरू करें!";
+"quizzes.keep_adding_words" = "शब्द जोड़ते रहें!";
+"quizzes.ask_dictionary_owner_add_words" = "शब्दकोश के मालिक से और शब्द जोड़ने के लिए कहें या दूसरा शब्दकोश चुनें!";
+"quizzes.switch_different_dictionary" = "अलग शब्दकोश पर स्विच करें!";
+"quizzes.add_words_to_shared_dictionary" = "साझा शब्दकोश में शब्द जोड़ें";
+"quizzes.add_your_first_word" = "अपना पहला शब्द जोड़ें";
+"quizzes.add_more_words" = "और शब्द जोड़ें";
+"quizzes.you_can_practice_vocabulary" = "आप अपनी शब्दावली का अभ्यास कर सकते हैं या पहले से शब्दों से भरा हुआ साझा शब्दकोश चुन सकते हैं।";
+"quizzes.select_shared_dictionary_populated" = "पहले से शब्दों से भरा हुआ साझा शब्दकोश चुनें।";
+"quizzes.number_words_practice_session" = "प्रति अभ्यास सत्र शब्दों की संख्या (%d-%d)";
+"quizzes.min_words" = "%d";
+"quizzes.max_words" = "%d";
+"quizzes.shared_dictionary_needs_hard_words" = "साझा शब्दकोश '%@' को कठिन शब्द मोड में अभ्यास के लिए कम से कम 1 कठिन शब्द की आवश्यकता है। वर्तमान में इसमें %d कठिन शब्द हैं।";
+"quizzes.needs_at_least_words_start_quizzes" = "साझा शब्दकोश '%@' को क्विज़ शुरू करने के लिए कम से कम 10 शब्दों की आवश्यकता है। वर्तमान में इसमें %d शब्द हैं।";
+"quizzes.need_at_least_hard_word_practice" = "कठिन शब्द मोड में अभ्यास के लिए कम से कम 1 कठिन शब्द की आवश्यकता है। वर्तमान में आपके पास %d कठिन शब्द हैं।";
+"quizzes.need_at_least_words_start_quizzes" = "क्विज़ शुरू करने के लिए कम से कम 10 शब्दों की आवश्यकता है। वर्तमान में आपके पास %d शब्द हैं।";
+"quizzes.progress_format" = "प्रगति: %d/%d";
+"quizzes.streak_format" = "🔥 स्ट्रीक: %d";
+"quizzes.score_format" = "स्कोर: %d";
+"quizzes.best_format" = "सर्वश्रेष्ठ: %d";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "शब्दकोश के मालिक से और शब्द जोड़ने के लिए कहें या दूसरा शब्दकोश चुनें!";
+
+// MARK: - App
+"app.my_dictionary" = "मेरा शब्दकोश";
+"app.loading" = "लोड हो रहा है...";
+"app.something_went_wrong" = "कुछ गलत हो गया";
+"app.try_again" = "पुनः प्रयास करें";
+"app.error" = "त्रुटि";
+"app.oops" = "उफ़!";
+"app.unknown" = "अज्ञात";
+"app.retry" = "पुनः प्रयास करें";
+"app.add_example" = "उदाहरण जोड़ें";
+"app.add_to_shared_dictionary" = "साझा शब्दकोश में जोड़ें";
+"app.add_collaborator" = "सहयोगी जोड़ें";
+"app.delete_dictionary" = "शब्दकोश हटाएं";
+"app.enter_definition" = "परिभाषा दर्ज करें";
+"app.select_value" = "मूल्य चुनें";
+"app.pronunciation" = "उच्चारण";
+"app.tags" = "टैग";
+"app.select_definition" = "परिभाषा चुनें";
+"app.translating_word" = "शब्द का अनुवाद हो रहा है...";
+"app.translating_definitions" = "परिभाषाओं का अनुवाद हो रहा है...";
+"app.type_word_here" = "यहां शब्द टाइप करें...";
+"app.email_address" = "ईमेल पता";
+"app.name" = "नाम";
+"app.example" = "उदाहरण";
+"app.transcription" = "लिप्यंतरण";
+"app.definition" = "परिभाषा";
+"app.import_successful" = "आयात सफल";
+"app.import_successful_message" = "%@ सफलतापूर्वक आयात किया गया";
+"app.no_words_imported" = "कोई शब्द आयात नहीं किए गए";
+"app.no_words_imported_message" = "हमें आयात करने के लिए कोई नए शब्द नहीं मिले";
+"app.tag_management_error" = "टैग प्रबंधन त्रुटि";
+"app.delete_tag" = "टैग हटाएं";
+"app.delete_tag_confirmation" = "क्या आप वाकई इस टैग को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।";
+"app.cant_share_word" = "शब्द साझा नहीं किया जा सकता";
+"app.collaborator_details" = "सहयोगी विवरण";
+"app.role_permissions" = "भूमिका अनुमतियां";
+"app.note" = "नोट";
+"app.dictionary_info" = "शब्दकोश जानकारी";
+"app.collaborators" = "सहयोगी";
+"app.all_results" = "सभी परिणाम";
+"app.part_of_speech" = "वाक्यांश का हिस्सा";
+"app.language" = "भाषा";
+"app.tag_name" = "टैग का नाम";
+"app.tag_color" = "टैग का रंग";
+"app.private_dictionary" = "निजी शब्दकोश";
+"app.shared_dictionaries" = "साझा शब्दकोश";
+"app.about_my_dictionary" = "मेरे शब्दकोश के बारे में";
+"app.debug_panel" = "डीबग पैनल";
+"app.word_starts_with" = "शब्द शुरू होता है";
+"app.debug_info" = "डीबग जानकारी";
+"app.send_test_notification" = "परीक्षण अधिसूचना भेजें";
+"app.enter_email_address" = "ईमेल पता दर्ज करें";
+"app.enter_email_address_for_notification" = "उस उपयोगकर्ता का ईमेल पता दर्ज करें जिसे आप परीक्षण अधिसूचना भेजना चाहते हैं।";
+"app.user_information" = "उपयोगकर्ता जानकारी";
+
+// MARK: - Analytics
+"analytics.overview" = "अवलोकन";
+"analytics.recent_quiz_results" = "हाल के क्विज़ परिणाम";
+"analytics.no_quiz_results_yet" = "अभी तक कोई क्विज़ परिणाम नहीं";
+"analytics.complete_first_quiz" = "यहां परिणाम देखने के लिए अपना पहला क्विज़ पूरा करें";
+"analytics.vocabulary_growth" = "शब्दावली वृद्धि";
+"analytics.no_growth_data_yet" = "अभी तक कोई वृद्धि डेटा नहीं";
+"analytics.complete_quizzes_growth" = "समय के साथ अपनी शब्दावली वृद्धि देखने के लिए क्विज़ पूरा करें";
+"analytics.time_period" = "समय अवधि";
+"analytics.week" = "सप्ताह";
+"analytics.month" = "महीना";
+"analytics.year" = "वर्ष";
+"analytics.practice_time" = "अभ्यास समय";
+"analytics.sessions" = "सत्र";
+"analytics.all_results" = "सभी परिणाम";
+"analytics.duration" = "अवधि";
+"analytics.loading_progress_data" = "प्रगति डेटा लोड हो रहा है...";
+"analytics.complete_first_quiz_results" = "यहां परिणाम देखने के लिए अपना पहला क्विज़ पूरा करें";
+"analytics.complete_quizzes_growth_data" = "समय के साथ अपनी शब्दावली वृद्धि देखने के लिए क्विज़ पूरा करें";
+"analytics.last_time_period" = "पिछली %-अवधि";
+"analytics.points" = "अंक";
+"analytics.accuracy" = "सटीकता";
+"analytics.progress" = "प्रगति";
+"analytics.streak" = "स्ट्रीक";
+"analytics.best" = "सर्वश्रेष्ठ";
+"analytics.score" = "स्कोर";
+"analytics.correct_answers" = "सही उत्तर";
+"analytics.words_played" = "खेले गए शब्द";
+"analytics.total_questions" = "कुल प्रश्न";
+"analytics.difficulty_statistics" = "कठिनाई सांख्यिकी";
+"analytics.individual_ratings" = "व्यक्तिगत रेटिंग";
+"analytics.how_other_users_rate_difficulty" = "अन्य उपयोगकर्ता इस शब्द की कठिनाई को कैसे रेट करते हैं";
+"analytics.no_difficulty_ratings_yet" = "अभी तक कोई कठिनाई रेटिंग नहीं";
+"analytics.total_ratings" = "कुल रेटिंग";
+"analytics.view_detailed_statistics" = "विस्तृत सांख्यिकी देखें";
+
+// MARK: - Settings
+"settings.translate_definitions" = "परिभाषाओं का अनुवाद";
+"settings.show_definitions_native_language" = "अपनी मातृभाषा में परिभाषाएं दिखाएं";
+"settings.accent" = "उच्चारण";
+"settings.select_accent" = "उच्चारण चुनें";
+"settings.notifications" = "अधिसूचनाएं";
+"settings.daily_reminders" = "दैनिक अनुस्मारक";
+"settings.difficult_words" = "कठिन शब्द";
+"settings.subscription" = "सदस्यता";
+"settings.pro_user" = "प्रो उपयोगकर्ता";
+"settings.free_plan" = "मुफ्त योजना";
+"settings.limited_features_available" = "सीमित सुविधाएं उपलब्ध";
+"settings.signed_in_as" = "इस रूप में साइन इन";
+"settings.anonymous" = "अनाम";
+"settings.upload_backup_google" = "गूगल पर बैकअप अपलोड करें";
+"settings.download_backup_google" = "गूगल से बैकअप डाउनलोड करें";
+"settings.sign_in_sync_word_lists" = "शब्द सूचियों को सिंक करने के लिए साइन इन करें";
+"settings.organization" = "संगठन";
+"settings.show_idioms_tab" = "मुहावरे टैब दिखाएं";
+"settings.shared_dictionaries" = "साझा शब्दकोश";
+"settings.about_app" = "ऐप के बारे में";
+"settings.features" = "सुविधाएं";
+"settings.add_organize_words" = "परिभाषाओं के साथ शब्द जोड़ें और व्यवस्थित करें";
+"settings.practice_quizzes_spelling" = "क्विज़ और वर्तनी अभ्यास के साथ अभ्यास करें";
+"settings.track_learning_progress" = "अपनी सीखने की प्रगति को ट्रैक करें";
+"settings.import_export_word_collection" = "अपने शब्द संग्रह को आयात और निर्यात करें";
+"settings.customize_learning_experience" = "अपने सीखने के अनुभव को अनुकूलित करें";
+"settings.voice_pronunciation_support" = "आवाज उच्चारण समर्थन";
+"settings.contact_me" = "मुझसे संपर्क करें";
+"settings.x_twitter" = "X (ट्विटर)";
+"settings.instagram" = "इंस्टाग्राम";
+"settings.support" = "समर्थन";
+"settings.rate_app" = "ऐप रेट करें";
+"settings.export_successful" = "निर्यात सफल";
+"settings.upload_successful" = "अपलोड सफल";
+"settings.download_successful" = "डाउनलोड सफल";
+"settings.daily_reminders_description" = "अगर आपने उस दिन ऐप नहीं खोला है तो 20:00 बजे एक अनुस्मारक प्राप्त करें";
+"settings.difficult_words_description" = "कठिन शब्दों का अभ्यास करने के लिए 16:00 बजे एक अनुस्मारक प्राप्त करें";
+"settings.free_users_export_limit" = "मुफ्त उपयोगकर्ता %d शब्दों तक निर्यात कर सकते हैं";
+"settings.app_version" = "ऐप संस्करण:";
+"settings.about_app_description" = "मैंने यह ऐप बनाया क्योंकि मुझे वह नहीं मिला जो मैं ढूंढ रहा था।\n\nयह एक साधारण शब्द सूची प्रबंधक है जो आपको शब्द खोजने और उनकी परिभाषाएं बिना आपकी मातृभाषा में अनुवाद के जोड़ने की अनुमति देता है।\n\nमुझे लगता है कि यह अंग्रेजी सीखने का सबसे अच्छा तरीका है। मुझे आशा है कि आपको यह उपयोगी लगेगा।\n\nयदि आपके कोई प्रश्न हैं या आप कोई सुविधा सुझाना चाहते हैं, तो नीचे दिए गए लिंक के माध्यम से मुझसे संपर्क करें। मेरे ऐप का उपयोग करने के लिए धन्यवाद!";
+"settings.contact_support" = "प्रश्न, सुझाव या प्रतिक्रिया? मुझे आपकी राय सुनना अच्छा लगेगा। इंस्टाग्राम या ट्विटर के माध्यम से समर्थन से संपर्क करें!";
+"settings.sign_out" = "साइन आउट";
+"settings.upload_backup_to_google" = "गूगल पर बैकअप अपलोड करें";
+"settings.download_backup_from_google" = "गूगल से बैकअप डाउनलोड करें";
+"settings.sign_in_to_sync_word_lists" = "शब्द सूचियों को सिंक करने के लिए साइन इन करें";
+"settings.manage_tags" = "टैग प्रबंधन करें";
+"settings.import_export" = "आयात/निर्यात";
+"settings.import_words" = "शब्द आयात करें";
+"settings.export_words" = "शब्द निर्यात करें";
+"settings.learn_more" = "और जानें";
+"settings.export_words_title" = "शब्द निर्यात करें";
+"settings.pro_upgrade_description" = "असीमित सुविधाओं और डिवाइसों के बीच सिंक के लिए प्रो में अपग्रेड करें।";
+"settings.word_lists_and_sync" = "शब्द सूचियां और सिंक";
+"settings.manual_sync_mode_description" = "मैन्युअल सिंक मोड: अपनी शब्द सूचियों को गूगल पर अपलोड/डाउनलोड करने के लिए नीचे दिए गए बटनों का उपयोग करें। सभी उपयोगकर्ताओं के लिए उपलब्ध।";
+"settings.sign_in_to_create_share_word_lists" = "शब्द सूचियां बनाने और साझा करने के लिए साइन इन करें।";
+"settings.tag_management_description" = "अपने शब्दों को व्यवस्थित करने के लिए टैग बनाएं और प्रबंधन करें और शब्द साझा करने के लिए सहयोगी जोड़ें।";
+"settings.import_export_note" = "नोट करें कि आयात और निर्यात केवल इस ऐप द्वारा बनाए गए फ़ाइलों के साथ काम करते हैं।";
+"settings.buy_me_a_coffee" = "मुझे एक कॉफी खरीदें";
+
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "सदस्यता लेने से पहले साइन इन करें";
+"auth.sign_in_with_google" = "गूगल के साथ साइन इन करें";
+"auth.can_always_sign_in_later" = "आप हमेशा सेटिंग्स से बाद में साइन इन कर सकते हैं";
+"auth.link_additional_accounts" = "अतिरिक्त खातों को लिंक करें";
+"auth.accounts_linked_successfully" = "खाते सफलतापूर्वक लिंक किए गए";
+"auth.sign_out_confirmation" = "साइन आउट";
+"auth.your_words_are_safe" = "आपके शब्द सुरक्षित हैं";
+"auth.cloud_sync_disabled" = "क्लाउड सिंक अक्षम हो जाएगा";
+"auth.sign_out" = "साइन आउट";
+"auth.no_worries_wont_remove_words" = "चिंता न करें! हम आपके शब्दों को नहीं हटाएंगे।";
+"auth.vocabulary_stay_on_device" = "आपकी शब्दावली इस डिवाइस पर रहती है। यदि आप किसी अन्य खाते से साइन इन करते हैं, तो आपका डेटा मर्ज हो जाएगा।";
+"auth.all_vocabulary_remain_device" = "आपके सभी शब्द, परिभाषाएं और प्रगति इस डिवाइस पर रहते हैं। आप बिना साइन इन किए ऐप का उपयोग जारी रख सकते हैं।";
+"auth.word_lists_shared_data_cleared" = "शब्द सूचियां और साझा डेटा साफ हो जाएंगे। यदि आप किसी अन्य खाते से साइन इन करते हैं, तो आपके स्थानीय शब्द नए खाते के डेटा के साथ मर्ज हो जाएंगे।";
+"auth.sign_in_to_access_word_lists" = "सभी डिवाइसों पर अपनी शब्द सूचियों तक पहुंचने और दूसरों के साथ सहयोग करने के लिए साइन इन करें।";
+"auth.link_google" = "गूगल से लिंक करें";
+"auth.link_apple" = "एप्पल से लिंक करें";
+"auth.sign_in_to_sync_word_lists" = "शब्द सूचियों को सिंक करने के लिए साइन इन करें";
+"auth.sign_out_error_title" = "उफ़!";
+"auth.sign_out_error_message" = "साइन आउट के दौरान कुछ गलत हो गया। कृपया बाद में पुनः प्रयास करें।";
+"auth.sign_in_required_for_restore" = "अपनी खरीदारी को पुनर्स्थापित करने के लिए साइन इन आवश्यक है।";
+"auth.sign_in_required_for_pro_features" = "%@ जैसी प्रो सुविधाओं तक पहुंचने के लिए साइन इन आवश्यक है।";
+"auth.sign_in_failed" = "साइन इन विफल। कृपया पुनः प्रयास करें।";
+"auth.sign_out_failed" = "साइन आउट विफल। कृपया पुनः प्रयास करें।";
+"auth.user_not_found" = "उपयोगकर्ता नहीं मिला।";
+"auth.network_error" = "नेटवर्क त्रुटि। कृपया अपना कनेक्शन जांचें।";
+"auth.account_linking_failed" = "खाता लिंकिंग विफल। कृपया पुनः प्रयास करें।";
+
+// MARK: - Shared Dictionaries
+"shared_dictionaries.dictionary_selected" = "शब्दकोश चयनित";
+"shared_dictionaries.name" = "नाम";
+"shared_dictionaries.created" = "निर्मित";
+"shared_dictionaries.your_role" = "आपकी भूमिका";
+"shared_dictionaries.owner" = "मालिक";
+"shared_dictionaries.editor" = "संपादक";
+"shared_dictionaries.viewer" = "दर्शक";
+"shared_dictionaries.editor_description" = "संपादक:";
+"shared_dictionaries.can_add_edit_delete_words" = "• शब्द जोड़, संपादित और हटा सकता है";
+"shared_dictionaries.can_invite_collaborators" = "• अन्य सहयोगियों को आमंत्रित कर सकता है";
+"shared_dictionaries.can_manage_dictionary_settings" = "• शब्दकोश सेटिंग्स प्रबंधित कर सकता है";
+"shared_dictionaries.viewer_description" = "दर्शक:";
+"shared_dictionaries.can_view_all_words" = "• सभी शब्द देख सकता है";
+"shared_dictionaries.cannot_make_changes" = "• परिवर्तन नहीं कर सकता";
+"shared_dictionaries.cannot_invite_others" = "• दूसरों को आमंत्रित नहीं कर सकता";
+"shared_dictionaries.collaborator_added_email_name" = "सहयोगी आपके द्वारा दर्ज किए गए ईमेल पते और नाम के साथ जोड़ा जाएगा। साझा शब्दकोश तक पहुंचने के लिए उसे उसी ईमेल पते से साइन इन करना होगा।";
+"shared_dictionaries.of_dictionary_created" = "1 निर्मित शब्दकोश में से";
+"shared_dictionaries.free_users_one_dictionary" = "मुफ्त उपयोगकर्ता एक साझा शब्दकोश बना सकते हैं";
+"shared_dictionaries.create_shared_dictionary" = "दूसरों के साथ सहयोग करने के लिए एक साझा शब्दकोश बनाएं";
+"shared_dictionaries.collaborate_others" = "दूसरों के साथ सहयोग करें";
+"shared_dictionaries.delete_dictionary" = "शब्दकोश हटाएं";
+"shared_dictionaries.your_dictionaries" = "आपके शब्दकोश";
+"shared_dictionaries.no_shared_dictionaries" = "कोई साझा शब्दकोश नहीं";
+"shared_dictionaries.create_shared_dictionary_collaborate" = "दूसरों के साथ सहयोग करने के लिए एक साझा शब्दकोश बनाएं";
+"shared_dictionaries.dictionaries" = "शब्दकोश";
+"shared_dictionaries.enter_dictionary_name" = "शब्दकोश का नाम दर्ज करें";
+"shared_dictionaries.new_shared_dictionary" = "नया साझा शब्दकोश";
+"shared_dictionaries.dictionary_name_required" = "शब्दकोश का नाम आवश्यक है";
+"shared_dictionaries.sign_in_to_create_shared_dictionary" = "साझा शब्दकोश बनाने के लिए साइन इन करें";
+"shared_dictionaries.created_by" = "%@ द्वारा निर्मित";
+"shared_dictionaries.no_words_yet" = "अभी तक कोई शब्द नहीं";
+"shared_dictionaries.add_words_to_shared_dictionary" = "शुरू करने के लिए इस साझा शब्दकोश में शब्द जोड़ें";
+"shared_dictionaries.no_results" = "कोई परिणाम नहीं";
+"shared_dictionaries.no_words_match_filter" = "वर्तमान फ़िल्टर से कोई शब्द मेल नहीं खाता";
+"shared_dictionaries.dictionary_details" = "शब्दकोश विवरण";
+"shared_dictionaries.private_dictionary" = "निजी शब्दकोश";
+"shared_dictionaries.save_to_personal_dictionary" = "निजी शब्दकोश में सहेजें";
+"shared_dictionaries.collaborators_count" = "%d सहयोगी";
+"shared_dictionaries.me" = "मैं";
+"shared_dictionaries.dictionary_deleted_or_lost_access" = "यह शब्दकोश हटा दिया गया हो सकता है या आपने इसकी पहुंच खो दी हो।";
+"shared_dictionaries.select_role" = "भूमिका चुनें";
+"shared_dictionaries.editor_role" = "संपादक:";
+"shared_dictionaries.viewer_role" = "दर्शक:";
+"shared_dictionaries.collaborator_added_with_email_name" = "सहयोगी आपके द्वारा दर्ज किए गए ईमेल पते और नाम के साथ जोड़ा जाएगा। साझा शब्दकोश तक पहुंचने के लिए उसे उसी ईमेल पते से साइन इन करना होगा।";
+"shared_dictionaries.be_first_to_rate_difficulty" = "इस शब्द की कठिनाई को रेट करने वाले पहले व्यक्ति बनें";
+"shared_dictionaries.score" = "स्कोर: %d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "कोई साझा शब्दकोश नहीं";
+"shared_dictionaries.collaborative_features" = "सहयोगी सुविधाएं";
+"shared_dictionaries.your_score" = "आपका स्कोर";
+"shared_dictionaries.your_status" = "आपकी स्थिति";
+"shared_dictionaries.average_score" = "औसत स्कोर";
+
+// MARK: - Tags Flow
+"tags.manage_tags" = "टैग प्रबंधन करें";
+"tags.tags_help_text" = "टैग आपके शब्दों को व्यवस्थित करने में मदद करते हैं। प्रत्येक शब्द में अधिकतम 5 टैग हो सकते हैं।";
+"tags.no_tags_yet" = "अभी तक कोई टैग नहीं जोड़ा गया";
+"tags.add_first_tag" = "ऊपर दिए बटन पर क्लिक करके अपना पहला टैग जोड़ें।";
+"tags.add_tag" = "टैग जोड़ें";
+"tags.add_first_tag_description" = "ऊपर दिए बटन पर क्लिक करके अपना पहला टैग जोड़ें।";
+"tags.add_tag_to_start_using" = "उपयोग शुरू करने के लिए एक टैग जोड़ें।";
+"tags.add_tags" = "टैग जोड़ें";
+"tags.create_tags" = "टैग बनाएं";
+"tags.delete_tag" = "टैग हटाएं";
+"tags.delete_tag_confirmation" = "क्या आप वाकई इस टैग को हटाना चाहते हैं?";
+"tags.delete_tag_cannot_undo" = "यह क्रिया पूर्ववत नहीं की जा सकती।";
+"tags.tag_name" = "टैग का नाम";
+"tags.tag_name_help" = "अपने टैग के लिए एक वर्णनात्मक नाम चुनें";
+"tags.type_tag_name" = "टैग का नाम टाइप करें...";
+"tags.tag_color" = "टैग का रंग";
+"tags.tag_color_help" = "अपने टैग को आसानी से पहचानने के लिए एक रंग चुनें";
+"tags.edit_tag" = "टैग संपादित करें";
+"tags.new_tag" = "नया टैग";
+"tags.tag_management_error" = "टैग प्रबंधन त्रुटि";
+
+// MARK: - Coffee Banner
+"coffee.buy_me_a_coffee" = "मुझे एक कॉफी खरीदें";
+"coffee.maybe_later" = "शायद बाद में";
+"coffee.enjoying_the_app" = "क्या आपको ऐप पसंद है?";
+"coffee.helpful_learning_journey" = "यदि मेरा शब्दकोश आपके सीखने की यात्रा में मददगार रहा है, तो मेरे लिए एक कॉफी खरीदने पर विचार करें! ☕️";
+
+// MARK: - Paywall
+"paywall.terms_of_service" = "सेवा की शर्तें";
+"paywall.privacy_policy" = "गोपनीयता नीति";
+"paywall.upgrade_to_pro" = "प्रो में अपग्रेड करें";
+"paywall.restore_purchases" = "खरीदारी पुनर्स्थापित करें";
+"paywall.track_progress" = "प्रगति ट्रैक करें";
+"paywall.see_your_improvement" = "अपना सुधार देखें";
+"paywall.collaborate" = "सहयोग";
+"paywall.learn_with_others" = "दूसरों के साथ सीखें";
+"paywall.everything_you_need_to_master_vocabulary" = "आपकी शब्दावली में महारत हासिल करने के लिए आवश्यक सब कुछ";
+"paywall.choose_your_plan" = "अपनी योजना चुनें";
+"paywall.start_pro_subscription" = "प्रो सदस्यता शुरू करें";
+"paywall.trusted_by_learners_worldwide" = "दुनिया भर के शिक्षार्थियों द्वारा विश्वसनीय";
+"paywall.app_store_rating" = "ऐप स्टोर रेटिंग";
+"paywall.active_users" = "सक्रिय उपयोगकर्ता";
+"paywall.words_added" = "शब्द जोड़े गए";
+"paywall.sign_in_required" = "साइन इन आवश्यक";
+"paywall.join_thousands_users" = "हजारों उपयोगकर्ताओं में शामिल हों जिन्होंने अपनी शब्दावली सीखने को बदल दिया है";
+"paywall.by_subscribing_agree_terms" = "सदस्यता लेकर, आप हमारी सेवा की शर्तों और गोपनीयता नीति से सहमत होते हैं";
+"paywall.pro_user" = "प्रो उपयोगकर्ता";
+"paywall.free_plan" = "मुफ्त योजना";
+"paywall.limited_features_available" = "सीमित सुविधाएं उपलब्ध";
+"paywall.no_active_subscriptions_found" = "कोई सक्रिय सदस्यता नहीं मिली। कृपया अपने ऐप स्टोर खाते की जांच करें।";
+"paywall.failed_to_restore_purchases" = "खरीदारी पुनर्स्थापित करने में विफल: %@";
+"paywall.save_percentage" = "%@ बचाएं";
+
+// MARK: - Difficulty
+"difficulty.new" = "नया";
+"difficulty.in_progress" = "प्रगति में";
+"difficulty.needs_review" = "समीक्षा की आवश्यकता";
+"difficulty.mastered" = "निपुण";
+
+// MARK: - Sorting
+"sorting.latest_first" = "नवीनतम पहले";
+"sorting.earliest_first" = "सबसे पुराना पहले";
+"sorting.alphabetically" = "वर्णमाला के अनुसार";
+"sorting.by_part_of_speech" = "वाक्यांश के हिस्से के अनुसार";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "स्वचालित पहचान";
+
+// MARK: - Time Period
+"time_period.week" = "सप्ताह";
+"time_period.month" = "महीना";
+"time_period.year" = "वर्ष";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "सभी परिणाम";
+"quiz_results.no_quiz_results_yet" = "अभी तक कोई क्विज़ परिणाम नहीं";
+"quiz_results.quiz" = "क्विज़";
+"quiz_results.accuracy" = "सटीकता";
+"quiz_results.correct" = "सही";
+"quiz_results.duration" = "अवधि";
+"quiz_results.time_period" = "समय अवधि";
+
+// MARK: - Word Details
+"word_details.transcription" = "लिप्यंतरण";
+"word_details.part_of_speech" = "वाक्यांश का हिस्सा";
+"word_details.definition" = "परिभाषा";
+"word_details.difficulty" = "कठिनाई";
+"word_details.examples" = "उदाहरण";
+"word_details.edit_example" = "उदाहरण संपादित करें";
+"word_details.example" = "उदाहरण";
+"word_details.type_example_here" = "यहां उदाहरण टाइप करें";
+"word_details.add_example" = "उदाहरण जोड़ें";
+"word_details.delete_word" = "शब्द हटाएं";
+"word_details.delete_failed" = "हटाना विफल";
+
+// MARK: - Word List
+"word_list.all_words" = "सभी शब्द";
+"word_list.favorite" = "पसंदीदा";
+"word_list.manage_tags" = "टैग प्रबंधन करें";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "क्विज़ प्रकार";
+"quiz_list.practice_settings" = "अभ्यास सेटिंग्स";
+"quiz_list.configure_quiz_experience" = "अपने क्विज़ अनुभव को कॉन्फ़िगर करें";
+"quiz_list.focus_on_words_need_review" = "समीक्षा की आवश्यकता वाले शब्दों पर ध्यान दें";
+"quiz_list.not_enough_words_review_yet" = "समीक्षा के लिए अभी तक पर्याप्त शब्द नहीं हैं";
+"quiz_list.add_words_to_shared_dictionary" = "साझा शब्दकोश में शब्द जोड़ें";
+"quiz_list.add_your_first_word" = "अपना पहला शब्द जोड़ें";
+"quiz_list.add_more_words" = "और शब्द जोड़ें";
+"quiz_list.quizzes_help_test_knowledge" = "क्विज़ आपके ज्ञान का परीक्षण करने और आपकी सीख को मजबूत करने में मदद करते हैं!";
+"quiz_list.words_away_from_unlocking_quizzes" = "आप क्विज़ अनलॉक करने से %d शब्द दूर हैं!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "समाप्त";
+"quiz_actions.next_word" = "अगला शब्द";
+"quiz_actions.submit_answer" = "उत्तर जमा करें";
+"quiz_actions.number_of_words" = "शब्दों की संख्या";
+"quiz_actions.no_difficult_words_available" = "क्विज़ के लिए कोई कठिन शब्द उपलब्ध नहीं";
+"quiz_actions.your_word_is" = "आपका शब्द है '%@'। बेहतर करें :)";
+"quiz_actions.try_harder" = "बेहतर करें :)";
+"quiz_actions.incorrect_try_again" = "गलत। पुनः प्रयास करें";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "टैग चुनें";
+"tag_selection.no_tags_yet" = "अभी तक कोई टैग नहीं";
+"tag_selection.you_can_select_up_to_5_tags" = "आप प्रति शब्द अधिकतम 5 टैग चुन सकते हैं। टैग को चुनने या अचयन करने के लिए उस पर टैप करें।";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "गूगल सिंक";
+"pro_features.unlimited_export" = "असीमित निर्यात";
+"pro_features.create_shared_dictionaries" = "साझा शब्दकोश बनाएं";
+"pro_features.advanced_analytics" = "उन्नत विश्लेषण";
+"pro_features.priority_support" = "प्राथमिकता समर्थन";
+"pro_features.pro_features" = "प्रो सुविधाएं";
+"pro_features.tag_management" = "टैग प्रबंधन";
+"pro_features.sync_words_across_devices" = "Google Drive के साथ सभी डिवाइसों पर अपने शब्दों को सिंक करें";
+"pro_features.export_unlimited_words" = "CSV फ़ाइलों में असीमित शब्द निर्यात करें";
+"pro_features.create_manage_shared_dictionaries" = "दूसरों के साथ साझा शब्दकोश बनाएं और प्रबंधन करें";
+"pro_features.detailed_insights" = "अपनी सीखने की प्रगति पर विस्तृत अंतर्दृष्टि प्राप्त करें";
+"pro_features.priority_support_team" = "हमारी टीम से प्राथमिकता समर्थन प्राप्त करें";
+"pro_features.unlock_all_pro_features" = "सभी प्रो सुविधाएं अनलॉक करें";
+"pro_features.organize_words_with_tags" = "आसान खोज के लिए कस्टम टैग के साथ अपने शब्दों को व्यवस्थित करें";
+"pro_features.detailed_progress_tracking" = "विस्तृत प्रगति ट्रैकिंग और अंतर्दृष्टि";
+"pro_features.get_priority_support" = "जब आपको सहायता की आवश्यकता हो तो प्राथमिकता समर्थन प्राप्त करें";
+
+// MARK: - Error Messages
+"errors.error_updating_word_examples" = "शब्द उदाहरणों को अपडेट करने में त्रुटि";
+"errors.error_removing_word" = "शब्द हटाने में त्रुटि";
+"errors.error_saving_word" = "शब्द सहेजने में त्रुटि";
+"errors.error_updating_idiom_examples" = "मुहावरा उदाहरणों को अपडेट करने में त्रुटि";
+"errors.error_removing_idiom" = "मुहावरा हटाने में त्रुटि";
+"errors.error_saving_idiom" = "मुहावरा सहेजने में त्रुटि";
+"errors.input_not_word" = "इनपुट शब्द नहीं है";
+"errors.input_cannot_be_empty" = "इनपुट खाली नहीं हो सकता";
+"errors.device_muted_or_volume_low" = "डिवाइस म्यूट है या वॉल्यूम कम है";
+"errors.cannot_play_audio" = "ऑडियो नहीं चलाया जा सकता";
+"errors.cannot_setup_audio_session" = "ऑडियो सत्र सेटअप नहीं किया जा सकता";
+"errors.export_failed" = "निर्यात विफल";
+"errors.import_failed" = "आयात विफल";
+"errors.cannot_access_security_scoped_resource" = "सुरक्षा-स्कोप्ड संसाधन तक पहुंच नहीं हो सकती";
+"errors.tag_already_exists" = "टैग पहले से मौजूद है";
+"errors.tag_already_assigned_to_word" = "टैग पहले से ही इस शब्द को सौंपा गया है";
+"errors.tag_not_assigned_to_word" = "टैग इस शब्द को सौंपा नहीं गया है";
+"errors.authentication_required" = "प्रमाणीकरण आवश्यक है";
+"errors.no_active_subscriptions_found" = "कोई सक्रिय सदस्यता नहीं मिली";
+"errors.failed_to_update_word_progress" = "शब्द प्रगति अपडेट करने में विफल";
+"errors.failed_to_update_word_difficulty_level" = "शब्द कठिनाई स्तर अपडेट करने में विफल";
+"errors.failed_to_save_quiz_session" = "क्विज़ सत्र सहेजने में विफल";
+"errors.failed_to_update_user_statistics" = "उपयोगकर्ता सांख्यिकी अपडेट करने में विफल";
+"errors.invalid_word_id" = "अमान्य शब्द ID";
+"errors.word_not_found" = "शब्द नहीं मिला";
+"errors.failed_to_calculate_progress" = "प्रगति की गणना करने में विफल";
+"errors.invalid_translation_url" = "अमान्य अनुवाद URL";
+"errors.network_error_during_translation" = "अनुवाद के दौरान नेटवर्क त्रुटि";
+"errors.invalid_response_from_translation_service" = "अनुवाद सेवा से अमान्य प्रतिक्रिया";
+"errors.translation_failed" = "अनुवाद विफल";
+"errors.invalid_user_email" = "अमान्य उपयोगकर्ता ईमेल पता";
+"errors.network_error_occurred" = "नेटवर्क त्रुटि हुई";
+"errors.sync_failed" = "सिंक विफल";
+"errors.invalid_input_provided" = "अमान्य इनपुट प्रदान किया गया";
+"errors.dictionary_not_found" = "शब्दकोश नहीं मिला";
+"errors.no_subscription_offerings_available" = "वर्तमान में कोई सदस्यता ऑफर उपलब्ध नहीं हैं";
+"errors.requested_subscription_package_not_found" = "अनुरोधित सदस्यता पैकेज नहीं मिला";
+"errors.purchase_could_not_be_completed" = "खरीदारी पूरी नहीं हो सकी";
+"errors.failed_to_restore_previous_purchases" = "पिछली खरीदारी को पुनर्स्थापित करने में विफल";
+"errors.no_offerings_available" = "वर्तमान में कोई सदस्यता ऑफर उपलब्ध नहीं हैं";
+"errors.purchase_failed" = "खरीदारी विफल";
+"errors.restore_failed" = "पिछली खरीदारी को पुनर्स्थापित करने में विफल";
+"errors.export_limit_exceeded" = "निर्यात सीमा पार हो गई। असीमित निर्यात के लिए प्रो में अपग्रेड करें।";
+"errors.max_tags_reached" = "प्रति शब्द अधिकतम 5 टैग की सीमा तक पहुंच गया";
+"errors.tag_already_assigned" = "टैग पहले से ही इस शब्द को सौंपा गया है";
+"errors.tag_not_assigned" = "टैग इस शब्द को सौंपा नहीं गया है";
+"errors.network_timeout" = "नेटवर्क टाइमआउट";
+"errors.server_unreachable" = "सर्वर तक पहुंच नहीं हो सकती";
+"errors.invalid_response" = "अमान्य प्रतिक्रिया";
+"errors.no_internet_connection" = "कोई इंटरनेट कनेक्शन नहीं";
+"errors.missing_api_key" = "API कुंजी गायब है";
+"errors.decoding_error" = "डिकोडिंग त्रुटि";
+"errors.invalid_url" = "अमान्य URL";
+"errors.no_data" = "कोई डेटा नहीं";
+"errors.save_failed" = "सहेजना विफल";
+"errors.read_failed" = "पढ़ना विफल";
+"errors.data_corrupted" = "डेटा दूषित है";
+"errors.invalid_input" = "अमान्य इनपुट";
+"errors.missing_field" = "फ़ील्ड गायब है";
+"errors.unknown_error" = "अज्ञात त्रुटि";
+"errors.update_failed" = "अपडेट विफल";
+"errors.delete_failed" = "हटाना विफल";
+"errors.permission_denied" = "आपके पास इस क्रिया को करने की अनुमति नहीं है";
+"errors.user_not_authenticated" = "उपयोगकर्ता को प्रमाणित होना चाहिए";
+"errors.dictionary_limit_reached" = "मुफ्त योजना में केवल एक साझा शब्दकोश बनाया जा सकता है। असीमित साझा शब्दकोशों के लिए प्रो में अपग्रेड करें।";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "अभी तक कोई शब्द नहीं";
+"empty_states.no_idioms_yet" = "अभी तक कोई मुहावरे नहीं";
+"empty_states.no_favorite_words" = "कोई पसंदीदा शब्द नहीं";
+"empty_states.no_search_results" = "कोई खोज परिणाम नहीं";
+"empty_states.start_improving_vocabulary" = "अपना पहला मुहावरा जोड़कर अपनी शब्दावली को बेहतर बनाना शुरू करें";
+"empty_states.tap_heart_icon_to_add_favorites" = "किसी भी मुहावरे को पसंदीदा में जोड़ने के लिए हार्ट आइकन पर टैप करें";
+"empty_states.try_different_search_term" = "अलग खोज शब्द आज़माएं या एक नया मुहावरा जोड़ें";
+
+// MARK: - Notifications
+"notifications.time_to_practice" = "अभ्यास करने का समय! 📚";
+"notifications.practice_vocabulary_today" = "आज अपनी शब्दावली का अभ्यास करना न भूलें।";
+"notifications.practice_difficult_words" = "कठिन शब्दों का अभ्यास करें 📚";
+"notifications.difficult_words_challenge" = "आपके पास ऐसे शब्द हैं जिन्हें अधिक अभ्यास की आवश्यकता है। चुनौती के लिए तैयार?";
+"notifications.test_dictionary_invitation" = "परीक्षण शब्दकोश निमंत्रण";
+"notifications.test_dictionary_invitation_body" = "किसी ने आपको 'परीक्षण शब्दकोश' में जोड़ा है";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "मेरा शब्दकोश";
+"macos.about_my_dictionary" = "मेरे शब्दकोश के बारे में";
+"macos.debug_panel" = "डीबग पैनल";
+"macos.settings" = "सेटिंग्स";
+"macos.about" = "ऐप के बारे में";
+"macos.shared_dictionaries" = "साझा शब्दकोश";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "सभी शब्द";
+"filter_display.favorite" = "पसंदीदा";
+"filter_display.search" = "खोज";
+"filter_display.tag" = "टैग";
+"filter_display.new" = "नया";
+"filter_display.in_progress" = "प्रगति में";
+"filter_display.needs_review" = "समीक्षा की आवश्यकता";
+"filter_display.mastered" = "निपुण";
+"filter_display.no_words_yet" = "अभी तक कोई शब्द नहीं";
+"filter_display.no_favorite_words" = "कोई पसंदीदा शब्द नहीं";
+"filter_display.no_search_results" = "कोई खोज परिणाम नहीं";
+"filter_display.no_tagged_words" = "कोई टैग किए गए शब्द नहीं";
+"filter_display.no_new_words" = "कोई नए शब्द नहीं";
+"filter_display.no_words_in_progress" = "कोई प्रगति में शब्द नहीं";
+"filter_display.no_words_need_review" = "कोई समीक्षा की आवश्यकता वाले शब्द नहीं";
+"filter_display.no_mastered_words" = "कोई निपुण शब्द नहीं";
+"filter_display.start_building_vocabulary" = "अपना पहला शब्द जोड़कर अपनी शब्दावली बनाना शुरू करें";
+"filter_display.tap_heart_icon_to_add_favorites" = "किसी भी शब्द को पसंदीदा में जोड़ने के लिए हार्ट आइकन पर टैप करें";
+"filter_display.try_different_search_term" = "अलग खोज शब्द आज़माएं या एक नया शब्द जोड़ें";
+"filter_display.add_tags_to_organize" = "बेहतर संगठन के लिए अपने शब्दों में टैग जोड़ें";
+"filter_display.new_words_appear_here" = "जब आप अपनी सूची में नए शब्द जोड़ेंगे तो वे यहां दिखाई देंगे";
+"filter_display.words_appear_here_as_you_practice" = "जैसे-जैसे आप क्विज़ में अभ्यास करेंगे, शब्द यहां दिखाई देंगे";
+"filter_display.words_need_more_practice" = "जिन शब्दों को अधिक अभ्यास की आवश्यकता है, वे यहां दिखाई देंगे";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "मालिक";
+"collaborator_roles.editor" = "संपादक";
+"collaborator_roles.viewer" = "दर्शक";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "नीला";
+"tag_colors.red" = "लाल";
+"tag_colors.green" = "हरा";
+"tag_colors.orange" = "नारंगी";
+"tag_colors.purple" = "बैंगनी";
+"tag_colors.pink" = "गुलाबी";
+"tag_colors.yellow" = "पीला";
+"tag_colors.gray" = "धूसर";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "शब्दकोश चुनें";
+"shared_dictionary_selection.dictionary_selected" = "शब्दकोश चयनित";
+"shared_dictionary_selection.add_to_shared" = "साझा में जोड़ें";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "साझा शब्दकोश में शब्द जोड़ें";
+"shared_dictionary_selection.unknown" = "अज्ञात";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "अपनी प्रगति के सभी विवरण देखने के लिए प्रो में अपग्रेड करें।";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "अपनी शब्दावली वृद्धि के सभी विवरण देखने के लिए प्रो में अपग्रेड करें।";
+"pro_upgrade.time_period" = "समय अवधि";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "भूमिका";
+"collaborator_management.add_collaborator" = "सहयोगी जोड़ें";
+"collaborator_management.email_address_required" = "ईमेल पता आवश्यक है";
+"collaborator_management.valid_email_address" = "एक मान्य ईमेल पता दर्ज करें";
+"collaborator_management.make_viewer" = "दर्शक बनाएं";
+"collaborator_management.make_editor" = "संपादक बनाएं";
+"collaborator_management.remove" = "हटाएं";
+"collaborator_management.add" = "जोड़ें";
+"collaborator_management.delete_dictionary" = "शब्दकोश हटाएं";
+"collaborator_management.delete_dictionary_confirmation" = "क्या आप वाकई इस साझा शब्दकोश को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।";
+"collaborator_management.stop_watching" = "देखना बंद करें";
+"collaborator_management.stop_watching_dictionary_confirmation" = "क्या आप वाकई इस साझा शब्दकोश का अनुसरण करना बंद करना चाहते हैं?";
+"collaborator_management.stop_watching_dictionary" = "शब्दकोश का अनुसरण बंद करें";
+"collaborator_management.continue" = "जारी रखें";
+"collaborator_management.dictionary_not_found" = "शब्दकोश नहीं मिला";
+"collaborator_management.dictionary_details" = "शब्दकोश विवरण";
+"collaborator_management.unknown" = "अज्ञात";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "वर्तनी क्विज़";
+"quiz_types.choose_definition" = "परिभाषा चुनें";
+"quiz_types.test_spelling_skills" = "शब्दों को सही ढंग से लिखकर अपनी वर्तनी कौशल का परीक्षण करें";
+"quiz_types.select_correct_definition" = "प्रत्येक शब्द के लिए सही परिभाषा चुनें";
+"quiz_types.great_job_completed_spelling_quiz" = "शानदार काम! आपने वर्तनी क्विज़ पूरा किया।";
+"quiz_types.great_job_completed_definition_quiz" = "शानदार काम! आपने परिभाषा क्विज़ पूरा किया।";
+
+// MARK: - English Accents
+"english_accents.australian" = "ऑस्ट्रेलियाई";
+"english_accents.canadian" = "कनाडाई";
+"english_accents.british" = "ब्रिटिश";
+"english_accents.indian" = "भारतीय";
+"english_accents.american" = "अमेरिकी";
+"english_accents.belgian" = "बेल्जियाई";
+"english_accents.singaporean" = "सिंगापुरी";
+"english_accents.irish" = "आयरिश";
+"english_accents.south_african" = "दक्षिण अफ्रीकी";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "सभी मुहावरे";
+"idiom_filters.favorite" = "पसंदीदा";
+"idiom_filters.search" = "खोज";
+"idiom_filters.no_idioms_yet" = "अभी तक कोई मुहावरे नहीं";
+"idiom_filters.no_favorite_words" = "कोई पसंदीदा शब्द नहीं";
+"idiom_filters.no_search_results" = "कोई खोज परिणाम नहीं";
+"idiom_filters.start_improving_vocabulary" = "अपना पहला मुहावरा जोड़कर अपनी शब्दावली को बेहतर बनाना शुरू करें";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "किसी भी मुहावरे को पसंदीदा में जोड़ने के लिए हार्ट आइकन पर टैप करें";
+"idiom_filters.try_different_search_term" = "अलग खोज शब्द आज़माएं या एक नया मुहावरा जोड़ें";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "संज्ञा";
+"part_of_speech.full.verb" = "क्रिया";
+"part_of_speech.full.adjective" = "विशेषण";
+"part_of_speech.full.adverb" = "क्रियाविशेषण";
+"part_of_speech.full.conjunction" = "संयोजक";
+"part_of_speech.full.pronoun" = "सर्वनाम";
+"part_of_speech.full.preposition" = "पूर्वसर्ग";
+"part_of_speech.full.exclamation" = "विस्मयादिबोधक";
+"part_of_speech.full.unknown" = "अज्ञात";
+
+"part_of_speech.short.noun" = "संज्ञा";
+"part_of_speech.short.verb" = "क्रिया";
+"part_of_speech.short.adjective" = "विशेषण";
+"part_of_speech.short.adverb" = "क्रियाविशेषण";
+"part_of_speech.short.conjunction" = "संयोजक";
+"part_of_speech.short.pronoun" = "सर्वनाम";
+"part_of_speech.short.preposition" = "पूर्वसर्ग";
+"part_of_speech.short.exclamation" = "विस्मय.";
+"part_of_speech.short.unknown" = "अज्ञात";

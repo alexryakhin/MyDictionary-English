@@ -1,0 +1,864 @@
+/*
+  Localizable.strings (Greek Translation)
+  My Dictionary
+
+  Translated on August 17, 2025.
+*/
+
+// MARK: - Tab Bar
+"tabbar.words" = "Λέξεις";
+"tabbar.idioms" = "Ιδιωματισμοί";
+"tabbar.quizzes" = "Κουίζ";
+"tabbar.progress" = "Πρόοδος";
+"tabbar.settings" = "Ρυθμίσεις";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Λεπτομέρειες Λέξης";
+"navigation.idiom_details" = "Λεπτομέρειες Ιδιωματισμού";
+"navigation.add_tags" = "Προσθήκη Ετικετών";
+"navigation.about" = "Σχετικά με την Εφαρμογή";
+"navigation.debug_panel" = "Πίνακας Αποσφαλμάτωσης";
+"navigation.quiz_results" = "Αποτελέσματα Κουίζ";
+"navigation.spelling_quiz" = "Κουίζ Ορθογραφίας";
+"navigation.definition_quiz" = "Κουίζ Ορισμού";
+"navigation.close" = "Κλείσιμο";
+"navigation.close_screen" = "Κλείσιμο Οθόνης";
+
+// MARK: - Common Actions
+"actions.done" = "Ολοκληρώθηκε";
+"actions.save" = "Αποθήκευση";
+"actions.save_word" = "Αποθήκευση Λέξης";
+"actions.cancel" = "Ακύρωση";
+"actions.confirm" = "Επιβεβαίωση";
+"actions.search" = "Αναζήτηση";
+"actions.delete" = "Διαγραφή";
+"actions.edit" = "Επεξεργασία";
+"actions.add" = "Προσθήκη";
+"actions.next" = "Επόμενο";
+"actions.back" = "Πίσω";
+"actions.exit" = "Έξοδος";
+"actions.ok" = "ΟΚ";
+"actions.yes" = "Ναι";
+"actions.no" = "Όχι";
+"actions.try_again" = "Προσπάθησε Ξανά";
+"actions.view_all" = "Προβολή Όλων";
+"actions.listen" = "Ακρόαση";
+"actions.create" = "Δημιουργία";
+"actions.manage" = "Διαχείριση";
+"actions.select" = "Επιλογή";
+"actions.select_word" = "Επιλογή Λέξης";
+"actions.select_idiom" = "Επιλογή Ιδιωματισμού";
+"actions.select_quiz" = "Επιλογή Κουίζ";
+"actions.sign_out" = "Αποσύνδεση";
+"actions.sign_in" = "Σύνδεση";
+"actions.upgrade" = "Αναβάθμιση";
+"actions.learn_more" = "Μάθε Περισσότερα";
+"actions.copy" = "Αντιγραφή";
+"actions.refresh" = "Ανανέωση";
+"actions.clear" = "Εκκαθάριση";
+"actions.reset" = "Επαναφορά";
+"actions.test" = "Δοκιμή";
+"actions.check" = "Έλεγχος";
+"actions.verify" = "Επαλήθευση";
+"actions.show" = "Εμφάνιση";
+"actions.send" = "Αποστολή";
+"actions.request" = "Αίτημα";
+"actions.sync" = "Συγχρονισμός";
+"actions.upload" = "Ανέβασμα";
+"actions.download" = "Λήψη";
+"actions.import_words" = "Εισαγωγή Λέξεων";
+"actions.export_words" = "Εξαγωγή Λέξεων";
+"actions.stop_watching" = "Διακοπή Παρακολούθησης";
+"actions.make_viewer" = "Κάνε Θεατή";
+"actions.make_editor" = "Κάνε Συντάκτη";
+"actions.remove" = "Αφαίρεση";
+"actions.skip_for_now" = "Παράλειψη Προς το Παρόν";
+"actions.link_google" = "Σύνδεση με Google";
+"actions.link_apple" = "Σύνδεση με Apple";
+"actions.toggle_like" = "Εναλλαγή Like";
+"actions.toggle_favorite" = "Εναλλαγή Αγαπημένου";
+
+// MARK: - Onboarding
+"onboarding.welcome_to" = "Καλώς Ήρθες στο";
+"onboarding.my_dictionary" = "Το Λεξικό Μου";
+"onboarding.personal_vocabulary_companion" = "Ο προσωπικός σου σύντροφος λεξιλογίου";
+"onboarding.build_your_vocabulary" = "Χτίσε το Λεξιλόγιό σου";
+"onboarding.personalized_learning" = "Προσωποποιημένη Μάθηση";
+"onboarding.youre_all_set" = "Είσαι Έτοιμος!";
+"onboarding.start_building_vocabulary" = "Ξεκίνα να χτίζεις το λεξιλόγιό σου σήμερα και δες τις γλωσσικές σου δεξιότητες να αναπτύσσονται.";
+"onboarding.get_started" = "Ξεκίνα";
+"onboarding.next_step" = "Επόμενο Βήμα";
+"onboarding.personal_word_list" = "Προσωπική Λίστα Λέξεων";
+"onboarding.create_organize_vocabulary" = "Δημιούργησε και οργάνωσε τις δικές σου συλλογές λέξεων με προσαρμοσμένους ορισμούς και παραδείγματα";
+"onboarding.find_definitions" = "Βρες Ορισμούς";
+"onboarding.comprehensive_definitions" = "Απόκτησε ολοκληρωμένους ορισμούς με πολλαπλές σημασίες και συμφραζόμενα";
+"onboarding.collect_idioms" = "Συλλογή Ιδιωματισμών";
+"onboarding.learn_practice_idioms" = "Μάθε και εξάσκησε ιδιωματισμούς και εκφράσεις από όλο τον κόσμο";
+"onboarding.smart_quizzes" = "Έξυπνα Κουίζ";
+"onboarding.adaptive_quizzes" = "Προσαρμοστικά κουίζ που μαθαίνουν από την πρόοδό σου";
+"onboarding.progress_tracking" = "Παρακολούθηση Προόδου";
+"onboarding.visual_insights" = "Οπτικές πληροφορίες για την ανάπτυξη του λεξιλογίου σου";
+"onboarding.collaborative_learning" = "Συνεργατική Μάθηση";
+"onboarding.share_dictionaries" = "Μοιράσου λεξικά με φίλους και οικογένεια";
+"onboarding.back" = "Πίσω";
+"onboarding.next" = "Επόμενο";
+"onboarding.personal_word_list_description" = "Δημιούργησε και οργάνωσε τις δικές σου συλλογές λέξεων με προσαρμοσμένους ορισμούς και παραδείγματα";
+"onboarding.find_definitions_description" = "Απόκτησε ολοκληρωμένους ορισμούς με πολλαπλές σημασίες και συμφραζόμενα";
+"onboarding.collect_idioms_description" = "Μάθε και εξάσκησε ιδιωματισμούς και εκφράσεις από όλο τον κόσμο";
+"onboarding.smart_quizzes_description" = "Προσαρμοστικά κουίζ που μαθαίνουν από την πρόοδό σου";
+"onboarding.progress_tracking_description" = "Οπτικές πληροφορίες για την ανάπτυξη του λεξιλογίου σου";
+"onboarding.collaborative_learning_description" = "Μοιράσου λεξικά με φίλους και οικογένεια";
+
+// MARK: - Words
+"words.add_word" = "Προσθήκη Λέξης";
+"words.add_your_first_word" = "Πρόσθεσε την πρώτη σου λέξη";
+"words.add_more_words" = "Πρόσθεσε περισσότερες λέξεις";
+"words.add_to_shared_dictionary" = "Προσθήκη στο Κοινόχρηστο Λεξικό";
+"words.add_new_word" = "Προσθήκη Νέας Λέξης";
+"words.delete_word" = "Διαγραφή Λέξης";
+"words.delete_word_confirmation" = "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή τη λέξη;";
+"words.transcription" = "Μεταγραφή";
+"words.part_of_speech" = "Μέρος του Λόγου";
+"words.definition" = "Ορισμός";
+"words.difficulty" = "Δυσκολία";
+"words.language" = "Γλώσσα";
+"words.input_language" = "Γλώσσα Εισαγωγής";
+"words.tags" = "Ετικέτες";
+"words.word" = "Λέξη";
+"words.words" = "Λέξεις";
+"words.create_tags" = "Δημιουργία Ετικετών";
+"words.all_words" = "Όλες οι Λέξεις";
+"words.favorite" = "Αγαπημένο";
+"words.favorite_words" = "Αγαπημένες Λέξεις";
+"words.search" = "Αναζήτηση";
+"words.search_words" = "Αναζήτηση λέξεων...";
+"words.search_results" = "Αποτελέσματα Αναζήτησης";
+"words.tag" = "Ετικέτα";
+"words.tagged_words" = "Λέξεις με Ετικέτες";
+"words.new" = "Νέο";
+"words.new_words" = "Νέες Λέξεις";
+"words.in_progress" = "Σε Εξέλιξη";
+"words.words_in_progress" = "Λέξεις σε Εξέλιξη";
+"words.needs_review" = "Χρειάζεται Επανεξέταση";
+"words.words_needing_review" = "Λέξεις που Χρειάζονται Επανεξέταση";
+"words.mastered" = "Κατακτημένο";
+"words.mastered_words" = "Κατακτημένες Λέξεις";
+"words.sort" = "Ταξινόμηση";
+"words.filter" = "Φίλτρο";
+"words.latest_first" = "Πιο Πρόσφατο Πρώτα";
+"words.earliest_first" = "Πιο Παλιό Πρώτα";
+"words.alphabetically" = "Αλφαβητικά";
+"words.by_part_of_speech" = "Κατά Μέρος του Λόγου";
+"words.type_word" = "Πληκτρολόγησε Λέξη";
+"words.shared_dictionary" = "Κοινόχρηστο Λεξικό";
+"words.private_dictionary" = "Ιδιωτικό Λεξικό";
+"words.impressive_vocabulary" = "Εντυπωσιακό Λεξιλόγιο!";
+"words.impressive_vocabulary_message" = "Έχεις χτίσει μια συλλογή από **%d λέξεις**! Η αφοσίωσή σου στη μάθηση είναι εμπνευστική.";
+"words.examples" = "Παραδείγματα";
+"words.no_examples_yet" = "Κανένα παράδειγμα ακόμα";
+"words.type_example_here" = "Πληκτρολόγησε παράδειγμα εδώ";
+"words.add_example" = "Προσθήκη Παραδείγματος";
+"words.edit_example" = "Επεξεργασία Παραδείγματος";
+"words.score" = "Βαθμολογία";
+"words.quiz_based" = "Βασισμένο σε Κουίζ";
+"words.language" = "Γλώσσα";
+"words.no_tags_added_yet" = "Δεν έχουν προστεθεί ετικέτες ακόμα.";
+"words.add_tag" = "Προσθήκη Ετικέτας";
+"words.no_tags_selected" = "Δεν έχουν επιλεγεί ετικέτες";
+"words.error_loading_definitions" = "Σφάλμα κατά τη φόρτωση των ορισμών. Προσπάθησε ξανά.";
+"words.type_word_and_press_search" = "Πληκτρολόγησε μια λέξη και πάτησε 'Αναζήτηση' για να βρεις τους ορισμούς της";
+"words.word_details" = "Λεπτομέρειες Λέξης";
+"words.no_examples_yet" = "Κανένα παράδειγμα ακόμα";
+"words.edit_example" = "Επεξεργασία Παραδείγματος";
+"words.no_transcription" = "Καμία μεταγραφή";
+"words.no_definition" = "Κανένας ορισμός";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Προσθήκη Ιδιωματισμού";
+"idioms.add_new_idiom" = "Προσθήκη Νέου Ιδιωματισμού";
+"idioms.idiom" = "Ιδιωματισμός";
+"idioms.idioms" = "Ιδιωματισμοί";
+"idioms.no_idioms_found" = "Δεν βρέθηκαν ιδιωματισμοί";
+"idioms.add_this_idiom" = "Πρόσθεσε αυτόν τον ιδιωματισμό πατώντας το κουμπί παραπάνω";
+"idioms.begin_add_idioms" = "Ξεκίνα να προσθέτεις ιδιωματισμούς στη λίστα σου κάνοντας κλικ στο εικονίδιο συν στην επάνω αριστερή γωνία";
+"idioms.all_idioms" = "Όλοι οι Ιδιωματισμοί";
+"idioms.favorite_idioms" = "Αγαπημένοι Ιδιωματισμοί";
+"idioms.found_idioms" = "Βρέθηκαν";
+"idioms.examples" = "Παραδείγματα";
+"idioms.no_examples_yet" = "Κανένα παράδειγμα ακόμα";
+"idioms.type_example_here" = "Πληκτρολόγησε παράδειγμα εδώ";
+"idioms.add_example" = "Προσθήκη Παραδείγματος";
+"idioms.edit_example" = "Επεξεργασία Παραδείγματος";
+"idioms.delete_idiom" = "Διαγραφή Ιδιωματισμού";
+"idioms.delete_idiom_confirmation" = "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτόν τον ιδιωματισμό;";
+"idioms.search_idioms" = "Αναζήτηση ιδιωματισμών...";
+"idioms.favorites" = "Αγαπημένα";
+"idioms.found" = "Βρέθηκαν";
+"idioms.sort" = "Ταξινόμηση";
+"idioms.filter" = "Φίλτρο";
+"idioms.latest_first" = "Πιο Πρόσφατο Πρώτα";
+"idioms.earliest_first" = "Πιο Παλιό Πρώτα";
+"idioms.alphabetically" = "Αλφαβητικά";
+
+// MARK: - Quizzes
+"quizzes.quiz_unavailable" = "Κουίζ μη διαθέσιμο";
+"quizzes.back_to_quizzes" = "Επιστροφή στα Κουίζ";
+"quizzes.your_answer" = "Η Απάντησή σου";
+"quizzes.submit_answer" = "Υποβολή Απάντησης";
+"quizzes.next_word" = "Επόμενη Λέξη";
+"quizzes.finish" = "Τέλος";
+"quizzes.your_results" = "Τα Αποτελέσματά σου";
+"quizzes.final_score" = "Τελική Βαθμολογία";
+"quizzes.correct_answers" = "Σωστές Απαντήσεις";
+"quizzes.best_streak" = "Καλύτερο Σερί";
+"quizzes.accuracy" = "Ακρίβεια";
+"quizzes.debug" = "Αποσφαλμάτωση";
+"quizzes.choose_correct_definition" = "Επίλεξε τον Σωστό Ορισμό";
+"quizzes.word" = "Λέξη";
+"quizzes.quiz_types" = "Τύποι Κουίζ";
+"quizzes.practice_settings" = "Ρυθμίσεις Εξάσκησης";
+"quizzes.configure_quiz_experience" = "Προσαρμογή της Εμπειρίας Κουίζ";
+"quizzes.practice_hard_words_only" = "Εξάσκηση μόνο με δύσκολες λέξεις";
+"quizzes.focus_words_need_review" = "Εστίαση σε λέξεις που χρειάζονται επανεξέταση";
+"quizzes.not_enough_words_review" = "Δεν υπάρχουν αρκετές λέξεις για επανεξέταση ακόμα";
+"quizzes.words_per_session" = "Λέξεις ανά Συνεδρία";
+"quizzes.number_words" = "Αριθμός Λέξεων";
+"quizzes.select_dictionary" = "Επιλογή Λεξικού";
+"quizzes.no_difficult_words_available" = "Καμία δύσκολη λέξη διαθέσιμη για το κουίζ";
+"quizzes.spelling_quiz_description" = "Δοκίμασε τις ορθογραφικές σου δεξιότητες γράφοντας σωστά τις λέξεις";
+"quizzes.definition_quiz_description" = "Επίλεξε τον σωστό ορισμό για κάθε λέξη";
+"quizzes.progress" = "Πρόοδος";
+"quizzes.streak" = "Σερί";
+"quizzes.score" = "Βαθμολογία";
+"quizzes.best" = "Καλύτερο";
+"quizzes.hint" = "Υπόδειξη";
+"quizzes.attempt" = "Προσπάθεια";
+"quizzes.correct" = "Σωστό!";
+"quizzes.well_done" = "Μπράβο!";
+"quizzes.keep_up_good_work" = "Συνέχισε την καλή δουλειά!";
+"quizzes.correct_word_is" = "Η σωστή λέξη είναι '%@'. Πάμε στην επόμενη λέξη...";
+"quizzes.moving_to_next_word" = "Μετάβαση στην επόμενη λέξη...";
+"quizzes.incorrect" = "Λάθος";
+"quizzes.moving_to_next_question" = "Μετάβαση στην επόμενη ερώτηση...";
+"quizzes.quiz_complete" = "Κουίζ Ολοκληρώθηκε!";
+"quizzes.great_job_completed_spelling_quiz" = "Εξαιρετική δουλειά! Ολοκλήρωσες το κουίζ ορθογραφίας.";
+"quizzes.great_job_completed_definition_quiz" = "Εξαιρετική δουλειά! Ολοκλήρωσες το κουίζ ορισμού.";
+"quizzes.skip_word" = "Παράλειψη λέξης (-2 πόντοι)";
+"quizzes.incorrect_moving_to_next_question" = "Λάθος! Μετάβαση στην επόμενη ερώτηση...";
+"quizzes.contributions" = "Συνεισφορές";
+"quizzes.not_enough_words_available" = "Δεν υπάρχουν αρκετές λέξεις διαθέσιμες. Το κουίζ απαιτεί τουλάχιστον %d λέξεις.";
+"quizzes.need_at_least_words" = "Απαιτούνται τουλάχιστον %d λέξεις για το κουίζ.";
+"quizzes.shared_dictionary_needs_more_words" = "Το κοινόχρηστο λεξικό χρειάζεται περισσότερες λέξεις!";
+"quizzes.start_building_vocabulary" = "Ξεκίνα να χτίζεις το λεξιλόγιό σου!";
+"quizzes.keep_adding_words" = "Συνέχισε να προσθέτεις λέξεις!";
+"quizzes.ask_dictionary_owner_add_words" = "Ζήτα από τον ιδιοκτήτη του λεξικού να προσθέσει περισσότερες λέξεις ή άλλαξε σε άλλο λεξικό!";
+"quizzes.switch_different_dictionary" = "Άλλαξε σε διαφορετικό λεξικό!";
+"quizzes.add_words_to_shared_dictionary" = "Πρόσθεσε λέξεις στο κοινόχρηστο λεξικό";
+"quizzes.add_your_first_word" = "Πρόσθεσε την πρώτη σου λέξη";
+"quizzes.add_more_words" = "Πρόσθεσε περισσότερες λέξεις";
+"quizzes.you_can_practice_vocabulary" = "Μπορείς να εξασκήσεις το δικό σου λεξιλόγιο ή να επιλέξεις ένα κοινόχρηστο λεξικό που είναι ήδη γεμάτο με λέξεις.";
+"quizzes.select_shared_dictionary_populated" = "Επίλεξε ένα κοινόχρηστο λεξικό που είναι ήδη γεμάτο με λέξεις.";
+"quizzes.number_words_practice_session" = "Αριθμός λέξεων ανά συνεδρία εξάσκησης (%d-%d)";
+"quizzes.min_words" = "%d";
+"quizzes.max_words" = "%d";
+"quizzes.shared_dictionary_needs_hard_words" = "Το κοινόχρηστο λεξικό '%@' απαιτεί τουλάχιστον 1 δύσκολη λέξη για εξάσκηση στη λειτουργία δύσκολων λέξεων. Προς το παρόν έχει %d δύσκολες λέξεις.";
+"quizzes.needs_at_least_words_start_quizzes" = "Το κοινόχρηστο λεξικό '%@' απαιτεί τουλάχιστον 10 λέξεις για να ξεκινήσουν τα κουίζ. Προς το παρόν έχει %d λέξεις.";
+"quizzes.need_at_least_hard_word_practice" = "Απαιτείται τουλάχιστον 1 δύσκολη λέξη για εξάσκηση στη λειτουργία δύσκολων λέξεων. Προς το παρόν έχεις %d δύσκολες λέξεις.";
+"quizzes.need_at_least_words_start_quizzes" = "Απαιτούνται τουλάχιστον 10 λέξεις για να ξεκινήσουν τα κουίζ. Προς το παρόν έχεις %d λέξεις.";
+"quizzes.progress_format" = "Πρόοδος: %d/%d";
+"quizzes.streak_format" = "🔥 Σερί: %d";
+"quizzes.score_format" = "Βαθμολογία: %d";
+"quizzes.best_format" = "Καλύτερο: %d";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "Ζήτα από τον ιδιοκτήτη του λεξικού να προσθέσει περισσότερες λέξεις ή άλλαξε σε άλλο λεξικό!";
+
+// MARK: - App
+"app.my_dictionary" = "Το Λεξικό Μου";
+"app.loading" = "Φόρτωση...";
+"app.something_went_wrong" = "Κάτι πήγε στραβά";
+"app.try_again" = "Προσπάθησε Ξανά";
+"app.error" = "Σφάλμα";
+"app.oops" = "Ουπς!";
+"app.unknown" = "Άγνωστο";
+"app.retry" = "Προσπάθησε Ξανά";
+"app.add_example" = "Προσθήκη Παραδείγματος";
+"app.add_to_shared_dictionary" = "Προσθήκη στο Κοινόχρηστο Λεξικό";
+"app.add_collaborator" = "Προσθήκη Συνεργάτη";
+"app.delete_dictionary" = "Διαγραφή Λεξικού";
+"app.enter_definition" = "Εισαγωγή Ορισμού";
+"app.select_value" = "Επιλογή Τιμής";
+"app.pronunciation" = "Προφορά";
+"app.tags" = "Ετικέτες";
+"app.select_definition" = "Επιλογή Ορισμού";
+"app.translating_word" = "Μετάφραση λέξης...";
+"app.translating_definitions" = "Μετάφραση ορισμών...";
+"app.type_word_here" = "Πληκτρολόγησε λέξη εδώ...";
+"app.email_address" = "Διεύθυνση Email";
+"app.name" = "Όνομα";
+"app.example" = "Παράδειγμα";
+"app.transcription" = "Μεταγραφή";
+"app.definition" = "Ορισμός";
+"app.import_successful" = "Εισαγωγή Επιτυχής";
+"app.import_successful_message" = "Το %@ εισήχθη με επιτυχία";
+"app.no_words_imported" = "Καμία λέξη δεν εισήχθη";
+"app.no_words_imported_message" = "Δεν μπορέσαμε να βρούμε νέες λέξεις για εισαγωγή";
+"app.tag_management_error" = "Σφάλμα Διαχείρισης Ετικετών";
+"app.delete_tag" = "Διαγραφή Ετικέτας";
+"app.delete_tag_confirmation" = "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την ετικέτα; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.";
+"app.cant_share_word" = "Δεν μπορεί να μοιραστεί η λέξη";
+"app.collaborator_details" = "Λεπτομέρειες Συνεργάτη";
+"app.role_permissions" = "Δικαιώματα Ρόλου";
+"app.note" = "Σημείωση";
+"app.dictionary_info" = "Πληροφορίες Λεξικού";
+"app.collaborators" = "Συνεργάτες";
+"app.all_results" = "Όλα τα Αποτελέσματα";
+"app.part_of_speech" = "Μέρος του Λόγου";
+"app.language" = "Γλώσσα";
+"app.tag_name" = "Όνομα Ετικέτας";
+"app.tag_color" = "Χρώμα Ετικέτας";
+"app.private_dictionary" = "Ιδιωτικό Λεξικό";
+"app.shared_dictionaries" = "Κοινόχρηστα Λεξικά";
+"app.about_my_dictionary" = "Σχετικά με το Λεξικό Μου";
+"app.debug_panel" = "Πίνακας Αποσφαλμάτωσης";
+"app.word_starts_with" = "Λέξη αρχίζει με";
+"app.debug_info" = "Πληροφορίες Αποσφαλμάτωσης";
+"app.send_test_notification" = "Αποστολή Δοκιμαστικής Ειδοποίησης";
+"app.enter_email_address" = "Εισαγωγή Διεύθυνσης Email";
+"app.enter_email_address_for_notification" = "Εισαγάγετε τη διεύθυνση email του χρήστη στον οποίο θέλετε να στείλετε μια δοκιμαστική ειδοποίηση.";
+"app.user_information" = "Πληροφορίες Χρήστη";
+
+// MARK: - Analytics
+"analytics.overview" = "Επισκόπηση";
+"analytics.recent_quiz_results" = "Πρόσφατα Αποτελέσματα Κουίζ";
+"analytics.no_quiz_results_yet" = "Κανένα αποτέλεσμα κουίζ ακόμα";
+"analytics.complete_first_quiz" = "Ολοκλήρωσε το πρώτο σου κουίζ για να δεις τα αποτελέσματα εδώ";
+"analytics.vocabulary_growth" = "Ανάπτυξη Λεξιλογίου";
+"analytics.no_growth_data_yet" = "Κανένα δεδομένο ανάπτυξης ακόμα";
+"analytics.complete_quizzes_growth" = "Ολοκλήρωσε κουίζ για να δεις το λεξιλόγιό σου να αναπτύσσεται με την πάροδο του χρόνου";
+"analytics.time_period" = "Χρονική Περίοδος";
+"analytics.week" = "Εβδομάδα";
+"analytics.month" = "Μήνας";
+"analytics.year" = "Έτος";
+"analytics.practice_time" = "Χρόνος Εξάσκησης";
+"analytics.sessions" = "Συνεδρίες";
+"analytics.all_results" = "Όλα τα Αποτελέσματα";
+"analytics.duration" = "Διάρκεια";
+"analytics.loading_progress_data" = "Φόρτωση δεδομένων προόδου...";
+"analytics.complete_first_quiz_results" = "Ολοκλήρωσε το πρώτο σου κουίζ για να δεις τα αποτελέσματα εδώ";
+"analytics.complete_quizzes_growth_data" = "Ολοκλήρωσε κουίζ για να δεις το λεξιλόγιό σου να αναπτύσσεται με την πάροδο του χρόνου";
+"analytics.last_time_period" = "Τελευταία %@-Περίοδος";
+"analytics.points" = "Πόντοι";
+"analytics.accuracy" = "Ακρίβεια";
+"analytics.progress" = "Πρόοδος";
+"analytics.streak" = "Σερί";
+"analytics.best" = "Καλύτερο";
+"analytics.score" = "Βαθμολογία";
+"analytics.correct_answers" = "Σωστές Απαντήσεις";
+"analytics.words_played" = "Λέξεις που Παίχτηκαν";
+"analytics.total_questions" = "Συνολικές Ερωτήσεις";
+"analytics.difficulty_statistics" = "Στατιστικά Δυσκολίας";
+"analytics.individual_ratings" = "Ατομικές Βαθμολογίες";
+"analytics.how_other_users_rate_difficulty" = "Πώς άλλοι χρήστες βαθμολογούν τη δυσκολία αυτής της λέξης";
+"analytics.no_difficulty_ratings_yet" = "Καμία βαθμολογία δυσκολίας ακόμα";
+"analytics.total_ratings" = "Συνολικές Βαθμολογίες";
+"analytics.view_detailed_statistics" = "Προβολή Λεπτομερών Στατιστικών";
+
+// MARK: - Settings
+"settings.translate_definitions" = "Μετάφραση Ορισμών";
+"settings.show_definitions_native_language" = "Εμφάνιση ορισμών στη μητρική σου γλώσσα";
+"settings.accent" = "Προφορά";
+"settings.select_accent" = "Επιλογή Προφοράς";
+"settings.notifications" = "Ειδοποιήσεις";
+"settings.daily_reminders" = "Καθημερινές Υπενθυμίσεις";
+"settings.difficult_words" = "Δύσκολες Λέξεις";
+"settings.subscription" = "Συνδρομή";
+"settings.pro_user" = "Χρήστης Pro";
+"settings.free_plan" = "Δωρεάν Πλάνο";
+"settings.limited_features_available" = "Περιορισμένες λειτουργίες διαθέσιμες";
+"settings.signed_in_as" = "Συνδεδεμένος ως";
+"settings.anonymous" = "Ανώνυμος";
+"settings.upload_backup_google" = "Ανέβασμα Αντιγράφου Ασφαλείας στο Google";
+"settings.download_backup_google" = "Λήψη Αντιγράφου Ασφαλείας από το Google";
+"settings.sign_in_sync_word_lists" = "Συνδέσου για να συγχρονίσεις τις λίστες λέξεων";
+"settings.organization" = "Οργάνωση";
+"settings.show_idioms_tab" = "Εμφάνιση καρτέλας ιδιωματισμών";
+"settings.shared_dictionaries" = "Κοινόχρηστα Λεξικά";
+"settings.about_app" = "Σχετικά με την Εφαρμογή";
+"settings.features" = "Λειτουργίες";
+"settings.add_organize_words" = "Προσθήκη και οργάνωση λέξεων με ορισμούς";
+"settings.practice_quizzes_spelling" = "Εξάσκηση με κουίζ και ασκήσεις ορθογραφίας";
+"settings.track_learning_progress" = "Παρακολούθηση της προόδου μάθησης";
+"settings.import_export_word_collection" = "Εισαγωγή και εξαγωγή της συλλογής λέξεων σου";
+"settings.customize_learning_experience" = "Προσαρμογή της εμπειρίας μάθησης";
+"settings.voice_pronunciation_support" = "Υποστήριξη φωνητικής προφοράς";
+"settings.contact_me" = "Επικοινώνησε μαζί μου";
+"settings.x_twitter" = "X (Twitter)";
+"settings.instagram" = "Instagram";
+"settings.support" = "Υποστήριξη";
+"settings.rate_app" = "Βαθμολόγησε την Εφαρμογή";
+"settings.export_successful" = "Εξαγωγή Επιτυχής";
+"settings.upload_successful" = "Ανέβασμα Επιτυχές";
+"settings.download_successful" = "Λήψη Επιτυχής";
+"settings.daily_reminders_description" = "Λάβε μια υπενθύμιση στις 20:00 αν δεν έχεις ανοίξει την εφαρμογή εκείνη την ημέρα";
+"settings.difficult_words_description" = "Λάβε μια υπενθύμιση στις 16:00 για να εξασκήσεις δύσκολες λέξεις";
+"settings.free_users_export_limit" = "Οι δωρεάν χρήστες μπορούν να εξάγουν έως %d λέξεις";
+"settings.app_version" = "Έκδοση Εφαρμογής:";
+"settings.about_app_description" = "Δημιούργησα αυτή την εφαρμογή επειδή δεν βρήκα αυτό που έψαχνα.\n\nΕίναι ένας απλός διαχειριστής λιστών λέξεων που σου επιτρέπει να αναζητάς λέξεις και να προσθέτεις τους ορισμούς τους χωρίς μετάφραση στη μητρική σου γλώσσα.\n\nΠιστεύω ότι αυτός είναι ο καλύτερος τρόπος για να μάθεις Αγγλικά. Ελπίζω να σου φανεί χρήσιμο.\n\nΑν έχεις ερωτήσεις ή θέλεις να προτείνεις κάποια λειτουργία, επικοινώνησε μαζί μου μέσω των παρακάτω συνδέσμων. Σε ευχαριστώ που χρησιμοποιείς την εφαρμογή μου!";
+"settings.contact_support" = "Έχεις ερωτήσεις, προτάσεις ή σχόλια; Θα ήθελα να ακούσω τη γνώμη σου. Επικοινώνησε με την υποστήριξη μέσω Instagram ή Twitter!";
+"settings.sign_out" = "Αποσύνδεση";
+"settings.upload_backup_to_google" = "Ανέβασμα Αντιγράφου Ασφαλείας στο Google";
+"settings.download_backup_from_google" = "Λήψη Αντιγράφου Ασφαλείας από το Google";
+"settings.sign_in_to_sync_word_lists" = "Συνδέσου για να συγχρονίσεις τις λίστες λέξεων";
+"settings.manage_tags" = "Διαχείριση Ετικετών";
+"settings.import_export" = "Εισαγωγή/Εξαγωγή";
+"settings.import_words" = "Εισαγωγή Λέξεων";
+"settings.export_words" = "Εξαγωγή Λέξεων";
+"settings.learn_more" = "Μάθε Περισσότερα";
+"settings.export_words_title" = "Εξαγωγή Λέξεων";
+"settings.pro_upgrade_description" = "Αναβάθμισε σε Pro για απεριόριστες λειτουργίες και συγχρονισμό μεταξύ συσκευών.";
+"settings.word_lists_and_sync" = "Λίστες Λέξεων και Συγχρονισμός";
+"settings.manual_sync_mode_description" = "Λειτουργία χειροκίνητου συγχρονισμού: Χρησιμοποίησε τα κουμπιά παρακάτω για να ανεβάσεις/κατεβάσεις τις λίστες λέξεων σου στο Google. Διαθέσιμο για όλους τους χρήστες.";
+"settings.sign_in_to_create_share_word_lists" = "Συνδέσου για να δημιουργήσεις και να μοιραστείς λίστες λέξεων με άλλους.";
+"settings.tag_management_description" = "Δημιούργησε και διαχειρίσου ετικέτες για να οργανώσεις τις λέξεις σου και πρόσθεσε συνεργάτες για να μοιραστείς λέξεις.";
+"settings.import_export_note" = "Σημείωσε ότι η εισαγωγή και εξαγωγή λειτουργούν μόνο με αρχεία που δημιουργήθηκαν από αυτή την εφαρμογή.";
+"settings.buy_me_a_coffee" = "Κέρασέ με έναν καφέ";
+
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Συνδέσου πριν εγγραφείς";
+"auth.sign_in_with_google" = "Σύνδεση με Google";
+"auth.can_always_sign_in_later" = "Μπορείς πάντα να συνδεθείς αργότερα από τις ρυθμίσεις";
+"auth.link_additional_accounts" = "Σύνδεση Πρόσθετων Λογαριασμών";
+"auth.accounts_linked_successfully" = "Οι λογαριασμοί συνδέθηκαν με επιτυχία";
+"auth.sign_out_confirmation" = "Αποσύνδεση";
+"auth.your_words_are_safe" = "Οι λέξεις σου είναι ασφαλείς";
+"auth.cloud_sync_disabled" = "Ο συγχρονισμός στο cloud θα απενεργοποιηθεί";
+"auth.sign_out" = "Αποσύνδεση";
+"auth.no_worries_wont_remove_words" = "Μην ανησυχείς! Δεν θα διαγράψουμε τις λέξεις σου.";
+"auth.vocabulary_stay_on_device" = "Το λεξιλόγιό σου παραμένει σε αυτή τη συσκευή. Αν συνδεθείς με διαφορετικό λογαριασμό, τα δεδομένα σου θα συγχωνευθούν.";
+"auth.all_vocabulary_remain_device" = "Όλες οι λέξεις, οι ορισμοί και η πρόοδός σου παραμένουν σε αυτή τη συσκευή. Μπορείς να συνεχίσεις να χρησιμοποιείς την εφαρμογή χωρίς σύνδεση.";
+"auth.word_lists_shared_data_cleared" = "Οι λίστες λέξεων και τα κοινόχρηστα δεδομένα θα εκκαθαριστούν. Αν συνδεθείς με διαφορετικό λογαριασμό, οι τοπικές σου λέξεις θα συγχωνευθούν με τα δεδομένα του νέου λογαριασμού.";
+"auth.sign_in_to_access_word_lists" = "Συνδέσου για να αποκτήσεις πρόσβαση στις λίστες λέξεων σου σε όλες τις συσκευές και να συνεργαστείς με άλλους.";
+"auth.link_google" = "Σύνδεση με Google";
+"auth.link_apple" = "Σύνδεση με Apple";
+"auth.sign_in_to_sync_word_lists" = "Συνδέσου για να συγχρονίσεις τις λίστες λέξεων";
+"auth.sign_out_error_title" = "Ουπς!";
+"auth.sign_out_error_message" = "Κάτι πήγε στραβά κατά την αποσύνδεση. Προσπάθησε ξανά αργότερα.";
+"auth.sign_in_required_for_restore" = "Απαιτείται σύνδεση για την επαναφορά των αγορών σου.";
+"auth.sign_in_required_for_pro_features" = "Απαιτείται σύνδεση για την πρόσβαση σε λειτουργίες Pro, όπως το %@.";
+"auth.sign_in_failed" = "Η σύνδεση απέτυχε. Προσπάθησε ξανά.";
+"auth.sign_out_failed" = "Η αποσύνδεση απέτυχε. Προσπάθησε ξανά.";
+"auth.user_not_found" = "Ο χρήστης δεν βρέθηκε.";
+"auth.network_error" = "Σφάλμα δικτύου. Ελέγξτε τη σύνδεσή σας.";
+"auth.account_linking_failed" = "Η σύνδεση λογαριασμού απέτυχε. Προσπάθησε ξανά.";
+
+// MARK: - Shared Dictionaries
+"shared_dictionaries.dictionary_selected" = "Λεξικό Επιλέχθηκε";
+"shared_dictionaries.name" = "Όνομα";
+"shared_dictionaries.created" = "Δημιουργήθηκε";
+"shared_dictionaries.your_role" = "Ο Ρόλος σου";
+"shared_dictionaries.owner" = "Ιδιοκτήτης";
+"shared_dictionaries.editor" = "Συντάκτης";
+"shared_dictionaries.viewer" = "Θεατής";
+"shared_dictionaries.editor_description" = "Συντάκτης:";
+"shared_dictionaries.can_add_edit_delete_words" = "• Μπορεί να προσθέσει, να επεξεργαστεί και να διαγράψει λέξεις";
+"shared_dictionaries.can_invite_collaborators" = "• Μπορεί να προσκαλέσει άλλους συνεργάτες";
+"shared_dictionaries.can_manage_dictionary_settings" = "• Μπορεί να διαχειριστεί τις ρυθμίσεις του λεξικού";
+"shared_dictionaries.viewer_description" = "Θεατής:";
+"shared_dictionaries.can_view_all_words" = "• Μπορεί να δει όλες τις λέξεις";
+"shared_dictionaries.cannot_make_changes" = "• Δεν μπορεί να κάνει αλλαγές";
+"shared_dictionaries.cannot_invite_others" = "• Δεν μπορεί να προσκαλέσει άλλους";
+"shared_dictionaries.collaborator_added_email_name" = "Ο συνεργάτης θα προστεθεί με τη διεύθυνση email και το όνομα που εισάγεις. Πρέπει να συνδεθεί με την ίδια διεύθυνση email για να αποκτήσει πρόσβαση στο κοινόχρηστο λεξικό.";
+"shared_dictionaries.of_dictionary_created" = "από 1 δημιουργημένο λεξικό";
+"shared_dictionaries.free_users_one_dictionary" = "Οι δωρεάν χρήστες μπορούν να δημιουργήσουν ένα κοινόχρηστο λεξικό";
+"shared_dictionaries.create_shared_dictionary" = "Δημιούργησε ένα κοινόχρηστο λεξικό για να συνεργαστείς με άλλους";
+"shared_dictionaries.collaborate_others" = "Συνεργάσου με άλλους";
+"shared_dictionaries.delete_dictionary" = "Διαγραφή Λεξικού";
+"shared_dictionaries.your_dictionaries" = "Τα Λεξικά σου";
+"shared_dictionaries.no_shared_dictionaries" = "Κανένα κοινόχρηστο λεξικό";
+"shared_dictionaries.create_shared_dictionary_collaborate" = "Δημιούργησε ένα κοινόχρηστο λεξικό για να συνεργαστείς με άλλους";
+"shared_dictionaries.dictionaries" = "Λεξικά";
+"shared_dictionaries.enter_dictionary_name" = "Εισαγάγετε το όνομα του λεξικού";
+"shared_dictionaries.new_shared_dictionary" = "Νέο Κοινόχρηστο Λεξικό";
+"shared_dictionaries.dictionary_name_required" = "Απαιτείται όνομα λεξικού";
+"shared_dictionaries.sign_in_to_create_shared_dictionary" = "Συνδέσου για να δημιουργήσεις ένα κοινόχρηστο λεξικό";
+"shared_dictionaries.created_by" = "Δημιουργήθηκε από %@";
+"shared_dictionaries.no_words_yet" = "Καμία λέξη ακόμα";
+"shared_dictionaries.add_words_to_shared_dictionary" = "Πρόσθεσε λέξεις σε αυτό το κοινόχρηστο λεξικό για να ξεκινήσεις";
+"shared_dictionaries.no_results" = "Κανένα αποτέλεσμα";
+"shared_dictionaries.no_words_match_filter" = "Καμία λέξη δεν ταιριάζει με το τρέχον φίλτρο";
+"shared_dictionaries.dictionary_details" = "Λεπτομέρειες Λεξικού";
+"shared_dictionaries.private_dictionary" = "Ιδιωτικό Λεξικό";
+"shared_dictionaries.save_to_personal_dictionary" = "Αποθήκευση στο Προσωπικό Λεξικό";
+"shared_dictionaries.collaborators_count" = "%d συνεργάτες";
+"shared_dictionaries.me" = "Εγώ";
+"shared_dictionaries.dictionary_deleted_or_lost_access" = "Αυτό το λεξικό μπορεί να έχει διαγραφεί ή να έχεις χάσει την πρόσβαση.";
+"shared_dictionaries.select_role" = "Επιλογή Ρόλου";
+"shared_dictionaries.editor_role" = "Συντάκτης:";
+"shared_dictionaries.viewer_role" = "Θεατής:";
+"shared_dictionaries.collaborator_added_with_email_name" = "Ο συνεργάτης θα προστεθεί με τη διεύθυνση email και το όνομα που εισάγεις. Πρέπει να συνδεθεί με την ίδια διεύθυνση email για να αποκτήσει πρόσβαση στο κοινόχρηστο λεξικό.";
+"shared_dictionaries.be_first_to_rate_difficulty" = "Γίνε ο πρώτος που θα βαθμολογήσει τη δυσκολία αυτής της λέξης";
+"shared_dictionaries.score" = "Βαθμολογία: %d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "Κανένα κοινόχρηστο λεξικό";
+"shared_dictionaries.collaborative_features" = "Συνεργατικές Λειτουργίες";
+"shared_dictionaries.your_score" = "Η Βαθμολογία σου";
+"shared_dictionaries.your_status" = "Η Κατάστασή σου";
+"shared_dictionaries.average_score" = "Μέση Βαθμολογία";
+
+// MARK: - Tags Flow
+"tags.manage_tags" = "Διαχείριση Ετικετών";
+"tags.tags_help_text" = "Οι ετικέτες σε βοηθούν να οργανώσεις τις λέξεις. Κάθε λέξη μπορεί να έχει έως 5 ετικέτες.";
+"tags.no_tags_yet" = "Καμία ετικέτα δεν έχει προστεθεί ακόμα";
+"tags.add_first_tag" = "Πρόσθεσε την πρώτη σου ετικέτα κάνοντας κλικ στο κουμπί παραπάνω.";
+"tags.add_tag" = "Προσθήκη Ετικέτας";
+"tags.add_first_tag_description" = "Πρόσθεσε την πρώτη σου ετικέτα κάνοντας κλικ στο κουμπί παραπάνω.";
+"tags.add_tag_to_start_using" = "Πρόσθεσε μια ετικέτα για να αρχίσεις να τη χρησιμοποιείς.";
+"tags.add_tags" = "Προσθήκη Ετικετών";
+"tags.create_tags" = "Δημιουργία Ετικετών";
+"tags.delete_tag" = "Διαγραφή Ετικέτας";
+"tags.delete_tag_confirmation" = "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την ετικέτα;";
+"tags.delete_tag_cannot_undo" = "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.";
+"tags.tag_name" = "Όνομα Ετικέτας";
+"tags.tag_name_help" = "Επίλεξε ένα περιγραφικό όνομα για την ετικέτα σου";
+"tags.type_tag_name" = "Πληκτρολόγησε όνομα ετικέτας...";
+"tags.tag_color" = "Χρώμα Ετικέτας";
+"tags.tag_color_help" = "Επίλεξε ένα χρώμα για να αναγνωρίζεται εύκολα η ετικέτα σου";
+"tags.edit_tag" = "Επεξεργασία Ετικέτας";
+"tags.new_tag" = "Νέα Ετικέτα";
+"tags.tag_management_error" = "Σφάλμα Διαχείρισης Ετικετών";
+
+// MARK: - Coffee Banner
+"coffee.buy_me_a_coffee" = "Κέρασέ με έναν καφέ";
+"coffee.maybe_later" = "Ίσως αργότερα";
+"coffee.enjoying_the_app" = "Σου αρέσει η εφαρμογή;";
+"coffee.helpful_learning_journey" = "Αν το Λεξικό Μου σε έχει βοηθήσει στο ταξίδι μάθησής σου, σκέψου να μου κεράσεις έναν καφέ! ☕️";
+
+// MARK: - Paywall
+"paywall.terms_of_service" = "Όροι Χρήσης";
+"paywall.privacy_policy" = "Πολιτική Απορρήτου";
+"paywall.upgrade_to_pro" = "Αναβάθμιση σε Pro";
+"paywall.restore_purchases" = "Επαναφορά Αγορών";
+"paywall.track_progress" = "Παρακολούθηση Προόδου";
+"paywall.see_your_improvement" = "Δες τη Βελτίωσή σου";
+"paywall.collaborate" = "Συνεργασία";
+"paywall.learn_with_others" = "Μάθε με άλλους";
+"paywall.everything_you_need_to_master_vocabulary" = "Όλα όσα χρειάζεσαι για να κατακτήσεις το λεξιλόγιό σου";
+"paywall.choose_your_plan" = "Επίλεξε το Πλάνο σου";
+"paywall.start_pro_subscription" = "Ξεκίνα Συνδρομή Pro";
+"paywall.trusted_by_learners_worldwide" = "Εμπιστεύονται μαθητές παγκοσμίως";
+"paywall.app_store_rating" = "Βαθμολογία App Store";
+"paywall.active_users" = "Ενεργοί Χρήστες";
+"paywall.words_added" = "Προστέθηκαν Λέξεις";
+"paywall.sign_in_required" = "Απαιτείται σύνδεση";
+"paywall.join_thousands_users" = "Εντάξου σε χιλιάδες χρήστες που έχουν μεταμορφώσει τη μάθηση λεξιλογίου τους";
+"paywall.by_subscribing_agree_terms" = "Με την εγγραφή, συμφωνείς με τους Όρους Χρήσης και την Πολιτική Απορρήτου μας";
+"paywall.pro_user" = "Χρήστης Pro";
+"paywall.free_plan" = "Δωρεάν Πλάνο";
+"paywall.limited_features_available" = "Περιορισμένες λειτουργίες διαθέσιμες";
+"paywall.no_active_subscriptions_found" = "Δεν βρέθηκαν ενεργές συνδρομές. Ελέγξτε τον λογαριασμό σας στο App Store.";
+"paywall.failed_to_restore_purchases" = "Αποτυχία επαναφοράς αγορών: %@";
+"paywall.save_percentage" = "Εξοικονόμησε %@";
+
+// MARK: - Difficulty
+"difficulty.new" = "Νέο";
+"difficulty.in_progress" = "Σε Εξέλιξη";
+"difficulty.needs_review" = "Χρειάζεται Επανεξέταση";
+"difficulty.mastered" = "Κατακτημένο";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Πιο Πρόσφατο Πρώτα";
+"sorting.earliest_first" = "Πιο Παλιό Πρώτα";
+"sorting.alphabetically" = "Αλφαβητικά";
+"sorting.by_part_of_speech" = "Κατά Μέρος του Λόγου";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Αυτόματη Ανίχνευση";
+
+// MARK: - Time Period
+"time_period.week" = "Εβδομάδα";
+"time_period.month" = "Μήνας";
+"time_period.year" = "Έτος";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Όλα τα Αποτελέσματα";
+"quiz_results.no_quiz_results_yet" = "Κανένα αποτέλεσμα κουίζ ακόμα";
+"quiz_results.quiz" = "Κουίζ";
+"quiz_results.accuracy" = "Ακρίβεια";
+"quiz_results.correct" = "Σωστό";
+"quiz_results.duration" = "Διάρκεια";
+"quiz_results.time_period" = "Χρονική Περίοδος";
+
+// MARK: - Word Details
+"word_details.transcription" = "Μεταγραφή";
+"word_details.part_of_speech" = "Μέρος του Λόγου";
+"word_details.definition" = "Ορισμός";
+"word_details.difficulty" = "Δυσκολία";
+"word_details.examples" = "Παραδείγματα";
+"word_details.edit_example" = "Επεξεργασία Παραδείγματος";
+"word_details.example" = "Παράδειγμα";
+"word_details.type_example_here" = "Πληκτρολόγησε παράδειγμα εδώ";
+"word_details.add_example" = "Προσθήκη Παραδείγματος";
+"word_details.delete_word" = "Διαγραφή Λέξης";
+"word_details.delete_failed" = "Η διαγραφή απέτυχε";
+
+// MARK: - Word List
+"word_list.all_words" = "Όλες οι Λέξεις";
+"word_list.favorite" = "Αγαπημένο";
+"word_list.manage_tags" = "Διαχείριση Ετικετών";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Τύποι Κουίζ";
+"quiz_list.practice_settings" = "Ρυθμίσεις Εξάσκησης";
+"quiz_list.configure_quiz_experience" = "Προσαρμογή της Εμπειρίας Κουίζ";
+"quiz_list.focus_on_words_need_review" = "Εστίαση σε λέξεις που χρειάζονται επανεξέταση";
+"quiz_list.not_enough_words_review_yet" = "Δεν υπάρχουν αρκετές λέξεις για επανεξέταση ακόμα";
+"quiz_list.add_words_to_shared_dictionary" = "Πρόσθεσε λέξεις στο κοινόχρηστο λεξικό";
+"quiz_list.add_your_first_word" = "Πρόσθεσε την πρώτη σου λέξη";
+"quiz_list.add_more_words" = "Πρόσθεσε περισσότερες λέξεις";
+"quiz_list.quizzes_help_test_knowledge" = "Τα κουίζ βοηθούν στη δοκιμή των γνώσεών σου και στην ενίσχυση της μάθησης!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Είσαι %d λέξεις μακριά από το ξεκλείδωμα των κουίζ!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Τέλος";
+"quiz_actions.next_word" = "Επόμενη Λέξη";
+"quiz_actions.submit_answer" = "Υποβολή Απάντησης";
+"quiz_actions.number_of_words" = "Αριθμός Λέξεων";
+"quiz_actions.no_difficult_words_available" = "Καμία δύσκολη λέξη διαθέσιμη για το κουίζ";
+"quiz_actions.your_word_is" = "Η λέξη σου είναι '%@'. Κάνε καλύτερα :)";
+"quiz_actions.try_harder" = "Κάνε καλύτερα :)";
+"quiz_actions.incorrect_try_again" = "Λάθος. Προσπάθησε ξανά";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Επιλογή Ετικετών";
+"tag_selection.no_tags_yet" = "Καμία ετικέτα ακόμα";
+"tag_selection.you_can_select_up_to_5_tags" = "Μπορείς να επιλέξεις έως 5 ετικέτες ανά λέξη. Πάτησε σε μια ετικέτα για να την επιλέξεις ή να την αποεπιλέξεις.";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Συγχρονισμός Google";
+"pro_features.unlimited_export" = "Απεριόριστη Εξαγωγή";
+"pro_features.create_shared_dictionaries" = "Δημιουργία Κοινόχρηστων Λεξικών";
+"pro_features.advanced_analytics" = "Προηγμένες Αναλύσεις";
+"pro_features.priority_support" = "Προτεραιότητα Υποστήριξης";
+"pro_features.pro_features" = "Λειτουργίες Pro";
+"pro_features.tag_management" = "Διαχείριση Ετικετών";
+"pro_features.sync_words_across_devices" = "Συγχρόνισε τις λέξεις σου σε όλες τις συσκευές με το Google Drive";
+"pro_features.export_unlimited_words" = "Εξάγε απεριόριστο αριθμό λέξεων σε αρχεία CSV";
+"pro_features.create_manage_shared_dictionaries" = "Δημιούργησε και διαχειρίσου κοινόχρηστα λεξικά με άλλους";
+"pro_features.detailed_insights" = "Απόκτησε λεπτομερείς πληροφορίες για την πρόοδο μάθησής σου";
+"pro_features.priority_support_team" = "Λάβε υποστήριξη προτεραιότητας από την ομάδα μας";
+"pro_features.unlock_all_pro_features" = "Ξεκλείδωσε όλες τις λειτουργίες Pro";
+"pro_features.organize_words_with_tags" = "Οργάνωσε τις λέξεις σου με προσαρμοσμένες ετικέτες για ευκολότερη αναζήτηση";
+"pro_features.detailed_progress_tracking" = "Λεπτομερής παρακολούθηση προόδου και πληροφορίες";
+"pro_features.get_priority_support" = "Λάβε υποστήριξη προτεραιότητας όταν χρειάζεσαι βοήθεια";
+
+// MARK: - Error Messages
+"errors.error_updating_word_examples" = "Σφάλμα κατά την ενημέρωση των παραδειγμάτων λέξεων";
+"errors.error_removing_word" = "Σφάλμα κατά την αφαίρεση της λέξης";
+"errors.error_saving_word" = "Σφάλμα κατά την αποθήκευση της λέξης";
+"errors.error_updating_idiom_examples" = "Σφάλμα κατά την ενημέρωση των παραδειγμάτων ιδιωματισμών";
+"errors.error_removing_idiom" = "Σφάλμα κατά την αφαίρεση του ιδιωματισμού";
+"errors.error_saving_idiom" = "Σφάλμα κατά την αποθήκευση του ιδιωματισμού";
+"errors.input_not_word" = "Η εισαγωγή δεν είναι λέξη";
+"errors.input_cannot_be_empty" = "Η εισαγωγή δεν μπορεί να είναι κενή";
+"errors.device_muted_or_volume_low" = "Η συσκευή είναι σε σίγαση ή η ένταση είναι χαμηλή";
+"errors.cannot_play_audio" = "Δεν μπορεί να αναπαραχθεί ο ήχος";
+"errors.cannot_setup_audio_session" = "Δεν μπορεί να ρυθμιστεί η συνεδρία ήχου";
+"errors.export_failed" = "Η εξαγωγή απέτυχε";
+"errors.import_failed" = "Η εισαγωγή απέτυχε";
+"errors.cannot_access_security_scoped_resource" = "Δεν υπάρχει πρόσβαση σε πόρο περιορισμένης ασφάλειας";
+"errors.tag_already_exists" = "Η ετικέτα υπάρχει ήδη";
+"errors.tag_already_assigned_to_word" = "Η ετικέτα έχει ήδη εκχωρηθεί σε αυτή τη λέξη";
+"errors.tag_not_assigned_to_word" = "Η ετικέτα δεν έχει εκχωρηθεί σε αυτή τη λέξη";
+"errors.authentication_required" = "Απαιτείται πιστοποίηση";
+"errors.no_active_subscriptions_found" = "Δεν βρέθηκαν ενεργές συνδρομές";
+"errors.failed_to_update_word_progress" = "Αποτυχία ενημέρωσης της προόδου της λέξης";
+"errors.failed_to_update_word_difficulty_level" = "Αποτυχία ενημέρωσης του επιπέδου δυσκολίας της λέξης";
+"errors.failed_to_save_quiz_session" = "Αποτυχία αποθήκευσης της συνεδρίας κουίζ";
+"errors.failed_to_update_user_statistics" = "Αποτυχία ενημέρωσης των στατιστικών του χρήστη";
+"errors.invalid_word_id" = "Μη έγκυρο ID λέξης";
+"errors.word_not_found" = "Η λέξη δεν βρέθηκε";
+"errors.failed_to_calculate_progress" = "Αποτυχία υπολογισμού της προόδου";
+"errors.invalid_translation_url" = "Μη έγκυρο URL μετάφρασης";
+"errors.network_error_during_translation" = "Σφάλμα δικτύου κατά τη μετάφραση";
+"errors.invalid_response_from_translation_service" = "Μη έγκυρη απόκριση από την υπηρεσία μετάφρασης";
+"errors.translation_failed" = "Η μετάφραση απέτυχε";
+"errors.invalid_user_email" = "Μη έγκυρη διεύθυνση email χρήστη";
+"errors.network_error_occurred" = "Παρουσιάστηκε σφάλμα δικτύου";
+"errors.sync_failed" = "Ο συγχρονισμός απέτυχε";
+"errors.invalid_input_provided" = "Παρέχεται μη έγκυρη εισαγωγή";
+"errors.dictionary_not_found" = "Το λεξικό δεν βρέθηκε";
+"errors.no_subscription_offerings_available" = "Δεν υπάρχουν διαθέσιμες προσφορές συνδρομής αυτή τη στιγμή";
+"errors.requested_subscription_package_not_found" = "Το ζητούμενο πακέτο συνδρομής δεν βρέθηκε";
+"errors.purchase_could_not_be_completed" = "Η αγορά δεν μπόρεσε να ολοκληρωθεί";
+"errors.failed_to_restore_previous_purchases" = "Αποτυχία επαναφοράς προηγούμενων αγορών";
+"errors.no_offerings_available" = "Δεν υπάρχουν διαθέσιμες προσφορές συνδρομής αυτή τη στιγμή";
+"errors.purchase_failed" = "Η αγορά απέτυχε";
+"errors.restore_failed" = "Αποτυχία επαναφοράς προηγούμενων αγορών";
+"errors.export_limit_exceeded" = "Υπέρβαση ορίου εξαγωγής. Αναβάθμισε σε Pro για απεριόριστη εξαγωγή.";
+"errors.max_tags_reached" = "Έχει επιτευχθεί ο μέγιστος αριθμός 5 ετικετών ανά λέξη";
+"errors.tag_already_assigned" = "Η ετικέτα έχει ήδη εκχωρηθεί σε αυτή τη λέξη";
+"errors.tag_not_assigned" = "Η ετικέτα δεν έχει εκχωρηθεί σε αυτή τη λέξη";
+"errors.network_timeout" = "Χρονικό όριο δικτύου";
+"errors.server_unreachable" = "Ο διακομιστής δεν είναι προσβάσιμος";
+"errors.invalid_response" = "Μη έγκυρη απόκριση";
+"errors.no_internet_connection" = "Καμία σύνδεση στο διαδίκτυο";
+"errors.missing_api_key" = "Λείπει το κλειδί API";
+"errors.decoding_error" = "Σφάλμα αποκωδικοποίησης";
+"errors.invalid_url" = "Μη έγκυρο URL";
+"errors.no_data" = "Κανένα δεδομένο";
+"errors.save_failed" = "Η αποθήκευση απέτυχε";
+"errors.read_failed" = "Η ανάγνωση απέτυχε";
+"errors.data_corrupted" = "Τα δεδομένα είναι κατεστραμμένα";
+"errors.invalid_input" = "Μη έγκυρη εισαγωγή";
+"errors.missing_field" = "Λείπει πεδίο";
+"errors.unknown_error" = "Άγνωστο σφάλμα";
+"errors.update_failed" = "Η ενημέρωση απέτυχε";
+"errors.delete_failed" = "Η διαγραφή απέτυχε";
+"errors.permission_denied" = "Δεν έχεις δικαίωμα να εκτελέσεις αυτή την ενέργεια";
+"errors.user_not_authenticated" = "Ο χρήστης πρέπει να είναι πιστοποιημένος";
+"errors.dictionary_limit_reached" = "Με το δωρεάν πλάνο μπορεί να δημιουργηθεί μόνο ένα κοινόχρηστο λεξικό. Αναβάθμισε σε Pro για απεριόριστα κοινόχρηστα λεξικά.";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Καμία λέξη ακόμα";
+"empty_states.no_idioms_yet" = "Κανένας ιδιωματισμός ακόμα";
+"empty_states.no_favorite_words" = "Καμία αγαπημένη λέξη";
+"empty_states.no_search_results" = "Κανένα αποτέλεσμα αναζήτησης";
+"empty_states.start_improving_vocabulary" = "Ξεκίνα να βελτιώνεις το λεξιλόγιό σου προσθέτοντας τον πρώτο ιδιωματισμό";
+"empty_states.tap_heart_icon_to_add_favorites" = "Πάτησε το εικονίδιο καρδιάς σε οποιονδήποτε ιδιωματισμό για να τον προσθέσεις στα αγαπημένα";
+"empty_states.try_different_search_term" = "Δοκίμασε διαφορετικό όρο αναζήτησης ή πρόσθεσε έναν νέο ιδιωματισμό";
+
+// MARK: - Notifications
+"notifications.time_to_practice" = "Ώρα για εξάσκηση! 📚";
+"notifications.practice_vocabulary_today" = "Μην ξεχάσεις να εξασκήσεις το λεξιλόγιό σου σήμερα.";
+"notifications.practice_difficult_words" = "Εξάσκησε τις δύσκολες λέξεις 📚";
+"notifications.difficult_words_challenge" = "Έχεις λέξεις που χρειάζονται περισσότερη εξάσκηση. Έτοιμος για την πρόκληση;";
+"notifications.test_dictionary_invitation" = "Πρόσκληση σε Δοκιμαστικό Λεξικό";
+"notifications.test_dictionary_invitation_body" = "Κάποιος σε πρόσθεσε στο 'Δοκιμαστικό Λεξικό'";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "Το Λεξικό Μου";
+"macos.about_my_dictionary" = "Σχετικά με το Λεξικό Μου";
+"macos.debug_panel" = "Πίνακας Αποσφαλμάτωσης";
+"macos.settings" = "Ρυθμίσεις";
+"macos.about" = "Σχετικά με την Εφαρμογή";
+"macos.shared_dictionaries" = "Κοινόχρηστα Λεξικά";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "Όλες οι Λέξεις";
+"filter_display.favorite" = "Αγαπημένο";
+"filter_display.search" = "Αναζήτηση";
+"filter_display.tag" = "Ετικέτα";
+"filter_display.new" = "Νέο";
+"filter_display.in_progress" = "Σε Εξέλιξη";
+"filter_display.needs_review" = "Χρειάζεται Επανεξέταση";
+"filter_display.mastered" = "Κατακτημένο";
+"filter_display.no_words_yet" = "Καμία λέξη ακόμα";
+"filter_display.no_favorite_words" = "Καμία αγαπημένη λέξη";
+"filter_display.no_search_results" = "Κανένα αποτέλεσμα αναζήτησης";
+"filter_display.no_tagged_words" = "Καμία λέξη με ετικέτα";
+"filter_display.no_new_words" = "Καμία νέα λέξη";
+"filter_display.no_words_in_progress" = "Καμία λέξη σε εξέλιξη";
+"filter_display.no_words_need_review" = "Καμία λέξη που χρειάζεται επανεξέταση";
+"filter_display.no_mastered_words" = "Καμία κατακτημένη λέξη";
+"filter_display.start_building_vocabulary" = "Ξεκίνα να χτίζεις το λεξιλόγιό σου προσθέτοντας την πρώτη σου λέξη";
+"filter_display.tap_heart_icon_to_add_favorites" = "Πάτησε το εικονίδιο καρδιάς σε οποιαδήποτε λέξη για να την προσθέσεις στα αγαπημένα";
+"filter_display.try_different_search_term" = "Δοκίμασε διαφορετικό όρο αναζήτησης ή πρόσθεσε μια νέα λέξη";
+"filter_display.add_tags_to_organize" = "Πρόσθεσε ετικέτες στις λέξεις σου για καλύτερη οργάνωση";
+"filter_display.new_words_appear_here" = "Οι νέες λέξεις θα εμφανιστούν εδώ όταν τις προσθέσεις στη λίστα σου";
+"filter_display.words_appear_here_as_you_practice" = "Οι λέξεις θα εμφανιστούν εδώ καθώς τις εξασκείς στα κουίζ";
+"filter_display.words_need_more_practice" = "Οι λέξεις που χρειάζονται περισσότερη εξάσκηση θα εμφανιστούν εδώ";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Ιδιοκτήτης";
+"collaborator_roles.editor" = "Συντάκτης";
+"collaborator_roles.viewer" = "Θεατής";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Μπλε";
+"tag_colors.red" = "Κόκκινο";
+"tag_colors.green" = "Πράσινο";
+"tag_colors.orange" = "Πορτοκαλί";
+"tag_colors.purple" = "Μωβ";
+"tag_colors.pink" = "Ροζ";
+"tag_colors.yellow" = "Κίτρινο";
+"tag_colors.gray" = "Γκρι";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Επιλογή Λεξικού";
+"shared_dictionary_selection.dictionary_selected" = "Λεξικό Επιλέχθηκε";
+"shared_dictionary_selection.add_to_shared" = "Προσθήκη στο Κοινόχρηστο";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Προσθήκη λέξης στο κοινόχρηστο λεξικό";
+"shared_dictionary_selection.unknown" = "Άγνωστο";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Αναβάθμισε σε Pro για να δεις όλες τις λεπτομέρειες της προόδου σου.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Αναβάθμισε σε Pro για να δεις όλες τις λεπτομέρειες της ανάπτυξης του λεξιλογίου σου.";
+"pro_upgrade.time_period" = "Χρονική Περίοδος";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Ρόλος";
+"collaborator_management.add_collaborator" = "Προσθήκη Συνεργάτη";
+"collaborator_management.email_address_required" = "Απαιτείται διεύθυνση email";
+"collaborator_management.valid_email_address" = "Εισαγάγετε μια έγκυρη διεύθυνση email";
+"collaborator_management.make_viewer" = "Κάνε Θεατή";
+"collaborator_management.make_editor" = "Κάνε Συντάκτη";
+"collaborator_management.remove" = "Αφαίρεση";
+"collaborator_management.add" = "Προσθήκη";
+"collaborator_management.delete_dictionary" = "Διαγραφή Λεξικού";
+"collaborator_management.delete_dictionary_confirmation" = "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτό το κοινόχρηστο λεξικό; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.";
+"collaborator_management.stop_watching" = "Διακοπή Παρακολούθησης";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Είσαι σίγουρος ότι θέλεις να σταματήσεις να παρακολουθείς αυτό το κοινόχρηστο λεξικό;";
+"collaborator_management.stop_watching_dictionary" = "Διακοπή Παρακολούθησης Λεξικού";
+"collaborator_management.continue" = "Συνέχεια";
+"collaborator_management.dictionary_not_found" = "Το λεξικό δεν βρέθηκε";
+"collaborator_management.dictionary_details" = "Λεπτομέρειες Λεξικού";
+"collaborator_management.unknown" = "Άγνωστο";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Κουίζ Ορθογραφίας";
+"quiz_types.choose_definition" = "Επιλογή Ορισμού";
+"quiz_types.test_spelling_skills" = "Δοκίμασε τις ορθογραφικές σου δεξιότητες γράφοντας σωστά τις λέξεις";
+"quiz_types.select_correct_definition" = "Επίλεξε τον σωστό ορισμό για κάθε λέξη";
+"quiz_types.great_job_completed_spelling_quiz" = "Εξαιρετική δουλειά! Ολοκλήρωσες το κουίζ ορθογραφίας.";
+"quiz_types.great_job_completed_definition_quiz" = "Εξαιρετική δουλειά! Ολοκλήρωσες το κουίζ ορισμού.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Αυστραλιανό";
+"english_accents.canadian" = "Καναδικό";
+"english_accents.british" = "Βρετανικό";
+"english_accents.indian" = "Ινδικό";
+"english_accents.american" = "Αμερικανικό";
+"english_accents.belgian" = "Βελγικό";
+"english_accents.singaporean" = "Σιγκαπουριανό";
+"english_accents.irish" = "Ιρλανδικό";
+"english_accents.south_african" = "Νοτιοαφρικανικό";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "Όλοι οι Ιδιωματισμοί";
+"idiom_filters.favorite" = "Αγαπημένο";
+"idiom_filters.search" = "Αναζήτηση";
+"idiom_filters.no_idioms_yet" = "Κανένας ιδιωματισμός ακόμα";
+"idiom_filters.no_favorite_words" = "Καμία αγαπημένη λέξη";
+"idiom_filters.no_search_results" = "Κανένα αποτέλεσμα αναζήτησης";
+"idiom_filters.start_improving_vocabulary" = "Ξεκίνα να βελτιώνεις το λεξιλόγιό σου προσθέτοντας τον πρώτο ιδιωματισμό";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "Πάτησε το εικονίδιο καρδιάς σε οποιονδήποτε ιδιωματισμό για να τον προσθέσεις στα αγαπημένα";
+"idiom_filters.try_different_search_term" = "Δοκίμασε διαφορετικό όρο αναζήτησης ή πρόσθεσε έναν νέο ιδιωματισμό";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Ουσιαστικό";
+"part_of_speech.full.verb" = "Ρήμα";
+"part_of_speech.full.adjective" = "Επίθετο";
+"part_of_speech.full.adverb" = "Επίρρημα";
+"part_of_speech.full.conjunction" = "Σύνδεσμος";
+"part_of_speech.full.pronoun" = "Αντωνυμία";
+"part_of_speech.full.preposition" = "Πρόθεση";
+"part_of_speech.full.exclamation" = "Επιφώνημα";
+"part_of_speech.full.unknown" = "Άγνωστο";
+
+"part_of_speech.short.noun" = "Ουσ.";
+"part_of_speech.short.verb" = "Ρήμα";
+"part_of_speech.short.adjective" = "Επίθ.";
+"part_of_speech.short.adverb" = "Επίρ.";
+"part_of_speech.short.conjunction" = "Σύνδ.";
+"part_of_speech.short.pronoun" = "Αντων.";
+"part_of_speech.short.preposition" = "Πρόθ.";
+"part_of_speech.short.exclamation" = "Επιφ.";
+"part_of_speech.short.unknown" = "Άγνωστο";

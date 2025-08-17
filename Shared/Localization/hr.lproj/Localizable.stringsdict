@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>words.words_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d riječ</string>
+			<key>few</key>
+			<string>%d riječi</string>
+			<key>many</key>
+			<string>%d riječi</string>
+			<key>other</key>
+			<string>%d riječi</string>
+		</dict>
+	</dict>
+	<key>idioms.idioms_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d izraz</string>
+			<key>few</key>
+			<string>%d izraza</string>
+			<key>many</key>
+			<string>%d izraza</string>
+			<key>other</key>
+			<string>%d izraza</string>
+		</dict>
+	</dict>
+	<key>shared_dictionaries.collaborators</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d suradnik</string>
+			<key>few</key>
+			<string>%d suradnika</string>
+			<key>many</key>
+			<string>%d suradnika</string>
+			<key>other</key>
+			<string>%d suradnika</string>
+		</dict>
+	</dict>
+	<key>shared_dictionaries.dictionary_count_created</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@ iz rječnika stvoreno</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d</string>
+			<key>few</key>
+			<string>%d</string>
+			<key>many</key>
+			<string>%d</string>
+			<key>other</key>
+			<string>%d</string>
+		</dict>
+	</dict>
+	<key>analytics.points_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d bod</string>
+			<key>few</key>
+			<string>%d boda</string>
+			<key>many</key>
+			<string>%d bodova</string>
+			<key>other</key>
+			<string>%d bodova</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

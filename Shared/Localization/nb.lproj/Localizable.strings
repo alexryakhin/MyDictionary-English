@@ -1,0 +1,864 @@
+/*
+  Localizable.strings (Norwegian Bokmål Translation)
+  My Dictionary
+
+  Translated on August 17, 2025.
+*/
+
+// MARK: - Tab Bar
+"tabbar.words" = "Ord";
+"tabbar.idioms" = "Uttrykk";
+"tabbar.quizzes" = "Quizzer";
+"tabbar.progress" = "Fremgang";
+"tabbar.settings" = "Innstillinger";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Orddetaljer";
+"navigation.idiom_details" = "Uttrykksdetaljer";
+"navigation.add_tags" = "Legg til etiketter";
+"navigation.about" = "Om appen";
+"navigation.debug_panel" = "Feilsøkingspanel";
+"navigation.quiz_results" = "Quizresultater";
+"navigation.spelling_quiz" = "Stavequiz";
+"navigation.definition_quiz" = "Definisjonsquiz";
+"navigation.close" = "Lukk";
+"navigation.close_screen" = "Lukk skjerm";
+
+// MARK: - Common Actions
+"actions.done" = "Ferdig";
+"actions.save" = "Lagre";
+"actions.save_word" = "Lagre ord";
+"actions.cancel" = "Avbryt";
+"actions.confirm" = "Bekreft";
+"actions.search" = "Søk";
+"actions.delete" = "Slett";
+"actions.edit" = "Rediger";
+"actions.add" = "Legg til";
+"actions.next" = "Neste";
+"actions.back" = "Tilbake";
+"actions.exit" = "Avslutt";
+"actions.ok" = "OK";
+"actions.yes" = "Ja";
+"actions.no" = "Nei";
+"actions.try_again" = "Prøv igjen";
+"actions.view_all" = "Vis alle";
+"actions.listen" = "Lytt";
+"actions.create" = "Opprett";
+"actions.manage" = "Administrer";
+"actions.select" = "Velg";
+"actions.select_word" = "Velg ord";
+"actions.select_idiom" = "Velg uttrykk";
+"actions.select_quiz" = "Velg quiz";
+"actions.sign_out" = "Logg ut";
+"actions.sign_in" = "Logg inn";
+"actions.upgrade" = "Oppgrader";
+"actions.learn_more" = "Lær mer";
+"actions.copy" = "Kopier";
+"actions.refresh" = "Oppdater";
+"actions.clear" = "Tøm";
+"actions.reset" = "Tilbakestill";
+"actions.test" = "Test";
+"actions.check" = "Sjekk";
+"actions.verify" = "Verifiser";
+"actions.show" = "Vis";
+"actions.send" = "Send";
+"actions.request" = "Forespør";
+"actions.sync" = "Synkroniser";
+"actions.upload" = "Last opp";
+"actions.download" = "Last ned";
+"actions.import_words" = "Importer ord";
+"actions.export_words" = "Eksporter ord";
+"actions.stop_watching" = "Stopp å observere";
+"actions.make_viewer" = "Gjør til seer";
+"actions.make_editor" = "Gjør til redaktør";
+"actions.remove" = "Fjern";
+"actions.skip_for_now" = "Hopp over for nå";
+"actions.link_google" = "Koble til Google";
+"actions.link_apple" = "Koble til Apple";
+"actions.toggle_like" = "Bytt liker";
+"actions.toggle_favorite" = "Bytt favoritt";
+
+// MARK: - Onboarding
+"onboarding.welcome_to" = "Velkommen til";
+"onboarding.my_dictionary" = "Min ordbok";
+"onboarding.personal_vocabulary_companion" = "Din personlige vokabularpartner";
+"onboarding.build_your_vocabulary" = "Bygg ditt vokabular";
+"onboarding.personalized_learning" = "Personlig læring";
+"onboarding.youre_all_set" = "Du er klar!";
+"onboarding.start_building_vocabulary" = "Begynn å bygge vokabularet ditt i dag og se språkferdighetene dine vokse.";
+"onboarding.get_started" = "Kom i gang";
+"onboarding.next_step" = "Neste steg";
+"onboarding.personal_word_list" = "Personlig ordliste";
+"onboarding.create_organize_vocabulary" = "Opprett og organiser vokabularet ditt med tilpassede definisjoner og eksempler";
+"onboarding.find_definitions" = "Finn definisjoner";
+"onboarding.comprehensive_definitions" = "Få omfattende definisjoner med flere betydninger og kontekster";
+"onboarding.collect_idioms" = "Samle uttrykk";
+"onboarding.learn_practice_idioms" = "Lær og øv på uttrykk og fraser fra hele verden";
+"onboarding.smart_quizzes" = "Smarte quizzer";
+"onboarding.adaptive_quizzes" = "Adaptive quizzer basert på fremgangen din";
+"onboarding.progress_tracking" = "Fremgangssporing";
+"onboarding.visual_insights" = "Visuelle innsikter om vokabularveksten din";
+"onboarding.collaborative_learning" = "Samarbeidslæring";
+"onboarding.share_dictionaries" = "Del ordbøker med venner og familie";
+"onboarding.back" = "Tilbake";
+"onboarding.next" = "Neste";
+"onboarding.personal_word_list_description" = "Opprett og organiser vokabularet ditt med tilpassede definisjoner og eksempler";
+"onboarding.find_definitions_description" = "Få omfattende definisjoner med flere betydninger og kontekster";
+"onboarding.collect_idioms_description" = "Lær og øv på uttrykk og fraser fra hele verden";
+"onboarding.smart_quizzes_description" = "Adaptive quizzer basert på fremgangen din";
+"onboarding.progress_tracking_description" = "Visuelle innsikter om vokabularveksten din";
+"onboarding.collaborative_learning_description" = "Del ordbøker med venner og familie";
+
+// MARK: - Words
+"words.add_word" = "Legg til ord";
+"words.add_your_first_word" = "Legg til ditt første ord";
+"words.add_more_words" = "Legg til flere ord";
+"words.add_to_shared_dictionary" = "Legg til i delt ordbok";
+"words.add_new_word" = "Legg til nytt ord";
+"words.delete_word" = "Slett ord";
+"words.delete_word_confirmation" = "Er du sikker på at du vil slette dette ordet?";
+"words.transcription" = "Transkripsjon";
+"words.part_of_speech" = "Ordklasse";
+"words.definition" = "Definisjon";
+"words.difficulty" = "Vanskelighetsgrad";
+"words.language" = "Språk";
+"words.input_language" = "Innspråk";
+"words.tags" = "Etiketter";
+"words.word" = "Ord";
+"words.words" = "Ord";
+"words.create_tags" = "Opprett etiketter";
+"words.all_words" = "Alle ord";
+"words.favorite" = "Favoritt";
+"words.favorite_words" = "Favorittord";
+"words.search" = "Søk";
+"words.search_words" = "Søk etter ord...";
+"words.search_results" = "Søkeresultater";
+"words.tag" = "Etikett";
+"words.tagged_words" = "Merkede ord";
+"words.new" = "Nytt";
+"words.new_words" = "Nye ord";
+"words.in_progress" = "Under arbeid";
+"words.words_in_progress" = "Ord under arbeid";
+"words.needs_review" = "Trenger gjennomgang";
+"words.words_needing_review" = "Ord som trenger gjennomgang";
+"words.mastered" = "Mestret";
+"words.mastered_words" = "Mestrede ord";
+"words.sort" = "Sorter";
+"words.filter" = "Filtrer";
+"words.latest_first" = "Nyeste først";
+"words.earliest_first" = "Eldste først";
+"words.alphabetically" = "Alfabetisk";
+"words.by_part_of_speech" = "Etter ordklasse";
+"words.type_word" = "Skriv ord";
+"words.shared_dictionary" = "Delt ordbok";
+"words.private_dictionary" = "Privat ordbok";
+"words.impressive_vocabulary" = "Imponerende vokabular!";
+"words.impressive_vocabulary_message" = "Du har samlet **%d ord**! Din dedikasjon til læring er inspirerende.";
+"words.examples" = "Eksempler";
+"words.no_examples_yet" = "Ingen eksempler ennå";
+"words.type_example_here" = "Skriv eksempel her";
+"words.add_example" = "Legg til eksempel";
+"words.edit_example" = "Rediger eksempel";
+"words.score" = "Poeng";
+"words.quiz_based" = "Quizbasert";
+"words.language" = "Språk";
+"words.no_tags_added_yet" = "Ingen etiketter er lagt til ennå.";
+"words.add_tag" = "Legg til etikett";
+"words.no_tags_selected" = "Ingen etiketter valgt";
+"words.error_loading_definitions" = "Feil ved lasting av definisjoner. Prøv igjen.";
+"words.type_word_and_press_search" = "Skriv ordet og trykk 'Søk' for å finne definisjoner";
+"words.word_details" = "Orddetaljer";
+"words.no_examples_yet" = "Ingen eksempler ennå";
+"words.edit_example" = "Rediger eksempel";
+"words.no_transcription" = "Ingen transkripsjon";
+"words.no_definition" = "Ingen definisjon";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Legg til uttrykk";
+"idioms.add_new_idiom" = "Legg til nytt uttrykk";
+"idioms.idiom" = "Uttrykk";
+"idioms.idioms" = "Uttrykk";
+"idioms.no_idioms_found" = "Ingen uttrykk funnet";
+"idioms.add_this_idiom" = "Legg til dette uttrykket ved å klikke på knappen ovenfor";
+"idioms.begin_add_idioms" = "Begynn å legge til uttrykk i listen din ved å klikke på plusstegnet øverst til venstre";
+"idioms.all_idioms" = "Alle uttrykk";
+"idioms.favorite_idioms" = "Favorittuttrykk";
+"idioms.found_idioms" = "Funnet uttrykk";
+"idioms.examples" = "Eksempler";
+"idioms.no_examples_yet" = "Ingen eksempler ennå";
+"idioms.type_example_here" = "Skriv eksempel her";
+"idioms.add_example" = "Legg til eksempel";
+"idioms.edit_example" = "Rediger eksempel";
+"idioms.delete_idiom" = "Slett uttrykk";
+"idioms.delete_idiom_confirmation" = "Er du sikker på at du vil slette dette uttrykket?";
+"idioms.search_idioms" = "Søk etter uttrykk...";
+"idioms.favorites" = "Favoritter";
+"idioms.found" = "Funnet";
+"idioms.sort" = "Sorter";
+"idioms.filter" = "Filtrer";
+"idioms.latest_first" = "Nyeste først";
+"idioms.earliest_first" = "Eldste først";
+"idioms.alphabetically" = "Alfabetisk";
+
+// MARK: - Quizzes
+"quizzes.quiz_unavailable" = "Quiz utilgjengelig";
+"quizzes.back_to_quizzes" = "Tilbake til quizzer";
+"quizzes.your_answer" = "Ditt svar";
+"quizzes.submit_answer" = "Send svar";
+"quizzes.next_word" = "Neste ord";
+"quizzes.finish" = "Fullfør";
+"quizzes.your_results" = "Dine resultater";
+"quizzes.final_score" = "Endelig poengsum";
+"quizzes.correct_answers" = "Riktige svar";
+"quizzes.best_streak" = "Beste rekke";
+"quizzes.accuracy" = "Nøyaktighet";
+"quizzes.debug" = "Feilsøk";
+"quizzes.choose_correct_definition" = "Velg riktig definisjon";
+"quizzes.word" = "Ord";
+"quizzes.quiz_types" = "Quiztyper";
+"quizzes.practice_settings" = "Øvingsinnstillinger";
+"quizzes.configure_quiz_experience" = "Konfigurer quizopplevelsen din";
+"quizzes.practice_hard_words_only" = "Øv kun på vanskelige ord";
+"quizzes.focus_words_need_review" = "Fokuser på ord som trenger gjennomgang";
+"quizzes.not_enough_words_review" = "Ikke nok ord å gjennomgå";
+"quizzes.words_per_session" = "Ord per økt";
+"quizzes.number_words" = "Antall ord";
+"quizzes.select_dictionary" = "Velg ordbok";
+"quizzes.no_difficult_words_available" = "Ingen vanskelige ord tilgjengelig for quiz";
+"quizzes.spelling_quiz_description" = "Test staveferdighetene dine ved å stave ord korrekt";
+"quizzes.definition_quiz_description" = "Velg riktig definisjon for hvert ord";
+"quizzes.progress" = "Fremgang";
+"quizzes.streak" = "Rekke";
+"quizzes.score" = "Poeng";
+"quizzes.best" = "Beste";
+"quizzes.hint" = "Hint";
+"quizzes.attempt" = "Forsøk";
+"quizzes.correct" = "Riktig!";
+"quizzes.well_done" = "Bra gjort!";
+"quizzes.keep_up_good_work" = "Fortsett det gode arbeidet!";
+"quizzes.correct_word_is" = "Riktig ord er '%@'. Neste ord...";
+"quizzes.moving_to_next_word" = "Går til neste ord...";
+"quizzes.incorrect" = "Feil";
+"quizzes.moving_to_next_question" = "Går til neste spørsmål...";
+"quizzes.quiz_complete" = "Quiz fullført!";
+"quizzes.great_job_completed_spelling_quiz" = "Flott jobb! Du har fullført stavequizen.";
+"quizzes.great_job_completed_definition_quiz" = "Flott jobb! Du har fullført definisjonsquizen.";
+"quizzes.skip_word" = "Hopp over ord (-2 poeng)";
+"quizzes.incorrect_moving_to_next_question" = "Feil! Går til neste spørsmål...";
+"quizzes.contributions" = "Bidrag";
+"quizzes.not_enough_words_available" = "Ikke nok ord tilgjengelig. Minst %d ord kreves for quiz.";
+"quizzes.need_at_least_words" = "Minst %d ord kreves for quiz.";
+"quizzes.shared_dictionary_needs_more_words" = "Delt ordbok trenger flere ord!";
+"quizzes.start_building_vocabulary" = "Begynn å bygge vokabularet ditt!";
+"quizzes.keep_adding_words" = "Fortsett å legge til ord!";
+"quizzes.ask_dictionary_owner_add_words" = "Be ordbokeieren om å legge til flere ord, eller velg en annen ordbok!";
+"quizzes.switch_different_dictionary" = "Bytt til en annen ordbok!";
+"quizzes.add_words_to_shared_dictionary" = "Legg til ord i delt ordbok";
+"quizzes.add_your_first_word" = "Legg til ditt første ord";
+"quizzes.add_more_words" = "Legg til flere ord";
+"quizzes.you_can_practice_vocabulary" = "Du kan øve på vokabularet ditt eller velge en delt ordbok som allerede inneholder ord.";
+"quizzes.select_shared_dictionary_populated" = "Velg en delt ordbok som allerede inneholder ord.";
+"quizzes.number_words_practice_session" = "Antall ord per øvingsøkt (%d-%d)";
+"quizzes.min_words" = "%d";
+"quizzes.max_words" = "%d";
+"quizzes.shared_dictionary_needs_hard_words" = "Delt ordbok '%@' krever minst 1 vanskelig ord for å øve i vanskelig modus. Har nå %d vanskelige ord.";
+"quizzes.needs_at_least_words_start_quizzes" = "Delt ordbok '%@' krever minst 10 ord for å starte quizzer. Har nå %d ord.";
+"quizzes.need_at_least_hard_word_practice" = "Minst 1 vanskelig ord kreves for å øve i vanskelig modus. Har nå %d vanskelige ord.";
+"quizzes.need_at_least_words_start_quizzes" = "Minst 10 ord kreves for å starte quizzer. Har nå %d ord.";
+"quizzes.progress_format" = "Fremgang: %d/%d";
+"quizzes.streak_format" = "🔥 Rekke: %d";
+"quizzes.score_format" = "Poeng: %d";
+"quizzes.best_format" = "Beste: %d";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "Be ordbokeieren om å legge til flere ord, eller bytt til en annen ordbok!";
+
+// MARK: - App
+"app.my_dictionary" = "Min ordbok";
+"app.loading" = "Laster...";
+"app.something_went_wrong" = "Noe gikk galt";
+"app.try_again" = "Prøv igjen";
+"app.error" = "Feil";
+"app.oops" = "Ops!";
+"app.unknown" = "Ukjent";
+"app.retry" = "Prøv igjen";
+"app.add_example" = "Legg til eksempel";
+"app.add_to_shared_dictionary" = "Legg til i delt ordbok";
+"app.add_collaborator" = "Legg til samarbeidspartner";
+"app.delete_dictionary" = "Slett ordbok";
+"app.enter_definition" = "Skriv inn definisjon";
+"app.select_value" = "Velg verdi";
+"app.pronunciation" = "Uttale";
+"app.tags" = "Etiketter";
+"app.select_definition" = "Velg definisjon";
+"app.translating_word" = "Oversetter ord...";
+"app.translating_definitions" = "Oversetter definisjoner...";
+"app.type_word_here" = "Skriv ord her...";
+"app.email_address" = "E-postadresse";
+"app.name" = "Navn";
+"app.example" = "Eksempel";
+"app.transcription" = "Transkripsjon";
+"app.definition" = "Definisjon";
+"app.import_successful" = "Import vellykket";
+"app.import_successful_message" = "%@ ble importert vellykket";
+"app.no_words_imported" = "Ingen ord importert";
+"app.no_words_imported_message" = "Fant ingen nye ord å importere";
+"app.tag_management_error" = "Feil ved etikettadministrasjon";
+"app.delete_tag" = "Slett etikett";
+"app.delete_tag_confirmation" = "Er du sikker på at du vil slette denne etiketten? Denne handlingen kan ikke angres.";
+"app.cant_share_word" = "Kan ikke dele ord";
+"app.collaborator_details" = "Samarbeidspartnerdetaljer";
+"app.role_permissions" = "Rolletillatelser";
+"app.note" = "Notat";
+"app.dictionary_info" = "Ordbokinformasjon";
+"app.collaborators" = "Samarbeidspartnere";
+"app.all_results" = "Alle resultater";
+"app.part_of_speech" = "Ordklasse";
+"app.language" = "Språk";
+"app.tag_name" = "Etikettnavn";
+"app.tag_color" = "Etikettfarge";
+"app.private_dictionary" = "Privat ordbok";
+"app.shared_dictionaries" = "Delte ordbøker";
+"app.about_my_dictionary" = "Om Min ordbok";
+"app.debug_panel" = "Feilsøkingspanel";
+"app.word_starts_with" = "Ord starter med";
+"app.debug_info" = "Feilsøkingsinfo";
+"app.send_test_notification" = "Send testvarsel";
+"app.enter_email_address" = "Skriv inn e-postadresse";
+"app.enter_email_address_for_notification" = "Skriv inn e-postadressen til brukeren du vil sende testvarsel til.";
+"app.user_information" = "Brukerinformasjon";
+
+// MARK: - Analytics
+"analytics.overview" = "Oversikt";
+"analytics.recent_quiz_results" = "Nylige quizresultater";
+"analytics.no_quiz_results_yet" = "Ingen quizresultater ennå";
+"analytics.complete_first_quiz" = "Fullfør din første quiz for å se resultater her";
+"analytics.vocabulary_growth" = "Vokabularvekst";
+"analytics.no_growth_data_yet" = "Ingen vekstdata ennå";
+"analytics.complete_quizzes_growth" = "Fullfør quizzer for å se vokabularveksten din over tid";
+"analytics.time_period" = "Tidsperiode";
+"analytics.week" = "Uke";
+"analytics.month" = "Måned";
+"analytics.year" = "År";
+"analytics.practice_time" = "Øvingstid";
+"analytics.sessions" = "Økter";
+"analytics.all_results" = "Alle resultater";
+"analytics.duration" = "Varighet";
+"analytics.loading_progress_data" = "Laster fremgangsdata...";
+"analytics.complete_first_quiz_results" = "Fullfør din første quiz for å se resultater her";
+"analytics.complete_quizzes_growth_data" = "Fullfør quizzer for å se vokabularveksten din over tid";
+"analytics.last_time_period" = "Siste %-periode";
+"analytics.points" = "Poeng";
+"analytics.accuracy" = "Nøyaktighet";
+"analytics.progress" = "Fremgang";
+"analytics.streak" = "Rekke";
+"analytics.best" = "Beste";
+"analytics.score" = "Poeng";
+"analytics.correct_answers" = "Riktige svar";
+"analytics.words_played" = "Spilte ord";
+"analytics.total_questions" = "Totalt antall spørsmål";
+"analytics.difficulty_statistics" = "Vanskelighetsstatistikk";
+"analytics.individual_ratings" = "Individuelle vurderinger";
+"analytics.how_other_users_rate_difficulty" = "Hvordan andre brukere vurderer vanskelighetsgraden til dette ordet";
+"analytics.no_difficulty_ratings_yet" = "Ingen vanskelighetsvurderinger ennå";
+"analytics.total_ratings" = "Totalt antall vurderinger";
+"analytics.view_detailed_statistics" = "Vis detaljert statistikk";
+
+// MARK: - Settings
+"settings.translate_definitions" = "Oversett definisjoner";
+"settings.show_definitions_native_language" = "Vis definisjoner på morsmålet ditt";
+"settings.accent" = "Aksent";
+"settings.select_accent" = "Velg aksent";
+"settings.notifications" = "Varsler";
+"settings.daily_reminders" = "Daglige påminnelser";
+"settings.difficult_words" = "Vanskelige ord";
+"settings.subscription" = "Abonnement";
+"settings.pro_user" = "Pro-bruker";
+"settings.free_plan" = "Gratisplan";
+"settings.limited_features_available" = "Begrensede funksjoner tilgjengelig";
+"settings.signed_in_as" = "Logget inn som";
+"settings.anonymous" = "Anonym";
+"settings.upload_backup_google" = "Last opp sikkerhetskopi til Google";
+"settings.download_backup_google" = "Last ned sikkerhetskopi fra Google";
+"settings.sign_in_sync_word_lists" = "Logg inn for å synkronisere ordlister";
+"settings.organization" = "Organisering";
+"settings.show_idioms_tab" = "Vis uttrykk-fane";
+"settings.shared_dictionaries" = "Delte ordbøker";
+"settings.about_app" = "Om appen";
+"settings.features" = "Funksjoner";
+"settings.add_organize_words" = "Legg til og organiser ord med definisjoner";
+"settings.practice_quizzes_spelling" = "Øv med quizzer og staveøvelser";
+"settings.track_learning_progress" = "Spor læringsfremgangen din";
+"settings.import_export_word_collection" = "Importer og eksporter vokabularsamlingen din";
+"settings.customize_learning_experience" = "Tilpass læringsopplevelsen din";
+"settings.voice_pronunciation_support" = "Støtte for taleuttale";
+"settings.contact_me" = "Kontakt meg";
+"settings.x_twitter" = "X (Twitter)";
+"settings.instagram" = "Instagram";
+"settings.support" = "Støtte";
+"settings.rate_app" = "Vurder appen";
+"settings.export_successful" = "Eksport vellykket";
+"settings.upload_successful" = "Opplasting vellykket";
+"settings.download_successful" = "Nedlasting vellykket";
+"settings.daily_reminders_description" = "Motta en påminnelse kl. 20:00 hvis du ikke har åpnet appen den dagen";
+"settings.difficult_words_description" = "Motta en påminnelse kl. 16:00 for å øve på vanskelige ord";
+"settings.free_users_export_limit" = "Gratisbrukere kan eksportere opptil %d ord";
+"settings.app_version" = "Appversjon:";
+"settings.about_app_description" = "Jeg lagde denne appen fordi jeg ikke fant det jeg lette etter.\n\nDet er en enkel ordlistebehandler som lar deg søke opp ord og legge til definisjoner uten oversettelser til morsmålet ditt.\n\nJeg tror dette er den beste måten å lære engelsk på. Jeg håper du finner den nyttig.\n\nHvis du har spørsmål eller ønsker å foreslå funksjoner, kontakt meg via lenkene nedenfor. Takk for at du bruker appen min!";
+"settings.contact_support" = "Har du spørsmål, forslag eller tilbakemeldinger? Jeg vil gjerne høre fra deg. Kontakt støtte via Instagram eller Twitter!";
+"settings.sign_out" = "Logg ut";
+"settings.upload_backup_to_google" = "Last opp sikkerhetskopi til Google";
+"settings.download_backup_from_google" = "Last ned sikkerhetskopi fra Google";
+"settings.sign_in_to_sync_word_lists" = "Logg inn for å synkronisere ordlister";
+"settings.manage_tags" = "Administrer etiketter";
+"settings.import_export" = "Importer/Eksporter";
+"settings.import_words" = "Importer ord";
+"settings.export_words" = "Eksporter ord";
+"settings.learn_more" = "Lær mer";
+"settings.export_words_title" = "Eksporter ord";
+"settings.pro_upgrade_description" = "Oppgrader til Pro for ubegrensede funksjoner og synkronisering på tvers av enheter.";
+"settings.word_lists_and_sync" = "Ordlister og synkronisering";
+"settings.manual_sync_mode_description" = "Manuell synkroniseringsmodus: Bruk knappene nedenfor for å laste opp/laste ned ordlistene dine til Google. Tilgjengelig for alle brukere.";
+"settings.sign_in_to_create_share_word_lists" = "Logg inn for å opprette og dele ordlister.";
+"settings.tag_management_description" = "Opprett og administrer etiketter for å organisere ordene dine, og legg til samarbeidspartnere for å dele ord.";
+"settings.import_export_note" = "Merk: Importering og eksportering fungerer bare med filer opprettet av denne appen.";
+"settings.buy_me_a_coffee" = "Kjøp meg en kaffe";
+
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Logg inn før du abonnerer";
+"auth.sign_in_with_google" = "Logg inn med Google";
+"auth.can_always_sign_in_later" = "Du kan alltid logge inn senere fra innstillinger";
+"auth.link_additional_accounts" = "Koble til flere kontoer";
+"auth.accounts_linked_successfully" = "Kontoer koblet vellykket";
+"auth.sign_out_confirmation" = "Logg ut";
+"auth.your_words_are_safe" = "Ordene dine er trygge";
+"auth.cloud_sync_disabled" = "Sky-synkronisering vil bli deaktivert";
+"auth.sign_out" = "Logg ut";
+"auth.no_worries_wont_remove_words" = "Ingen bekymringer! Vi sletter ikke ordene dine.";
+"auth.vocabulary_stay_on_device" = "Vokabularet ditt forblir på denne enheten. Hvis du logger inn med en annen konto, vil dataene dine bli slått sammen.";
+"auth.all_vocabulary_remain_device" = "Alle ord, definisjoner og fremgang forblir på denne enheten. Du kan fortsette å bruke appen uten å logge inn.";
+"auth.word_lists_shared_data_cleared" = "Ordlister og delte data vil bli slettet. Hvis du logger inn med en annen konto, vil lokale ord bli slått sammen med den nye kontoens data.";
+"auth.sign_in_to_access_word_lists" = "Logg inn for å få tilgang til ordlistene dine på alle enheter og samarbeide med andre.";
+"auth.link_google" = "Koble til Google";
+"auth.link_apple" = "Koble til Apple";
+"auth.sign_in_to_sync_word_lists" = "Logg inn for å synkronisere ordlister";
+"auth.sign_out_error_title" = "Ops!";
+"auth.sign_out_error_message" = "Noe gikk galt under utlogging. Prøv igjen senere.";
+"auth.sign_in_required_for_restore" = "Innlogging kreves for å gjenopprette kjøp.";
+"auth.sign_in_required_for_pro_features" = "Innlogging kreves for å få tilgang til Pro-funksjoner som %@.";
+"auth.sign_in_failed" = "Innlogging mislyktes. Prøv igjen.";
+"auth.sign_out_failed" = "Utlogging mislyktes. Prøv igjen.";
+"auth.user_not_found" = "Bruker ikke funnet.";
+"auth.network_error" = "Nettverksfeil. Sjekk tilkoblingen din.";
+"auth.account_linking_failed" = "Kobling av konto mislyktes. Prøv igjen.";
+
+// MARK: - Shared Dictionaries
+"shared_dictionaries.dictionary_selected" = "Ordbok valgt";
+"shared_dictionaries.name" = "Navn";
+"shared_dictionaries.created" = "Opprettet";
+"shared_dictionaries.your_role" = "Din rolle";
+"shared_dictionaries.owner" = "Eier";
+"shared_dictionaries.editor" = "Redaktør";
+"shared_dictionaries.viewer" = "Seer";
+"shared_dictionaries.editor_description" = "Redaktør:";
+"shared_dictionaries.can_add_edit_delete_words" = "• Kan legge til, redigere og slette ord";
+"shared_dictionaries.can_invite_collaborators" = "• Kan invitere andre samarbeidspartnere";
+"shared_dictionaries.can_manage_dictionary_settings" = "• Kan administrere ordbokinnstillinger";
+"shared_dictionaries.viewer_description" = "Seer:";
+"shared_dictionaries.can_view_all_words" = "• Kan se alle ord";
+"shared_dictionaries.cannot_make_changes" = "• Kan ikke gjøre endringer";
+"shared_dictionaries.cannot_invite_others" = "• Kan ikke invitere andre";
+"shared_dictionaries.collaborator_added_email_name" = "Samarbeidspartneren legges til med den angitte e-postadressen og navnet. De må logge inn med samme e-postadresse for å få tilgang til den delte ordboken.";
+"shared_dictionaries.of_dictionary_created" = "av 1 ordbok opprettet";
+"shared_dictionaries.free_users_one_dictionary" = "Gratisbrukere kan bare opprette én delt ordbok";
+"shared_dictionaries.create_shared_dictionary" = "Opprett en delt ordbok for å samarbeide med andre";
+"shared_dictionaries.collaborate_others" = "Samarbeid med andre";
+"shared_dictionaries.delete_dictionary" = "Slett ordbok";
+"shared_dictionaries.your_dictionaries" = "Dine ordbøker";
+"shared_dictionaries.no_shared_dictionaries" = "Ingen delte ordbøker";
+"shared_dictionaries.create_shared_dictionary_collaborate" = "Opprett en delt ordbok for å samarbeide med andre";
+"shared_dictionaries.dictionaries" = "Ordbøker";
+"shared_dictionaries.enter_dictionary_name" = "Skriv inn ordboknavn";
+"shared_dictionaries.new_shared_dictionary" = "Ny delt ordbok";
+"shared_dictionaries.dictionary_name_required" = "Ordboknavn er påkrevd";
+"shared_dictionaries.sign_in_to_create_shared_dictionary" = "Logg inn for å opprette en delt ordbok";
+"shared_dictionaries.created_by" = "Opprettet av %@";
+"shared_dictionaries.no_words_yet" = "Ingen ord ennå";
+"shared_dictionaries.add_words_to_shared_dictionary" = "Legg til ord i denne delte ordboken for å komme i gang";
+"shared_dictionaries.no_results" = "Ingen resultater";
+"shared_dictionaries.no_words_match_filter" = "Ingen ord matcher gjeldende filter";
+"shared_dictionaries.dictionary_details" = "Ordbokdetaljer";
+"shared_dictionaries.private_dictionary" = "Privat ordbok";
+"shared_dictionaries.save_to_personal_dictionary" = "Lagre i personlig ordbok";
+"shared_dictionaries.collaborators_count" = "%d samarbeidspartnere";
+"shared_dictionaries.me" = "Meg";
+"shared_dictionaries.dictionary_deleted_or_lost_access" = "Denne ordboken kan ha blitt slettet, eller du har mistet tilgangen.";
+"shared_dictionaries.select_role" = "Velg rolle";
+"shared_dictionaries.editor_role" = "Redaktør:";
+"shared_dictionaries.viewer_role" = "Seer:";
+"shared_dictionaries.collaborator_added_with_email_name" = "Samarbeidspartneren legges til med den angitte e-postadressen og navnet. De må logge inn med samme e-postadresse for å få tilgang til den delte ordboken.";
+"shared_dictionaries.be_first_to_rate_difficulty" = "Vær den første til å vurdere vanskelighetsgraden til dette ordet";
+"shared_dictionaries.score" = "Poeng: %d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "Ingen delte ordbøker";
+"shared_dictionaries.collaborative_features" = "Samarbeidsfunksjoner";
+"shared_dictionaries.your_score" = "Dine poeng";
+"shared_dictionaries.your_status" = "Din status";
+"shared_dictionaries.average_score" = "Gjennomsnittlig poeng";
+
+// MARK: - Tags Flow
+"tags.manage_tags" = "Administrer etiketter";
+"tags.tags_help_text" = "Etiketter hjelper deg med å organisere ordene dine. Hvert ord kan ha opptil 5 etiketter.";
+"tags.no_tags_yet" = "Ingen etiketter er lagt til ennå";
+"tags.add_first_tag" = "Legg til din første etikett ved å klikke på knappen ovenfor.";
+"tags.add_tag" = "Legg til etikett";
+"tags.add_first_tag_description" = "Legg til din første etikett ved å klikke på knappen ovenfor.";
+"tags.add_tag_to_start_using" = "Legg til en etikett for å begynne å bruke dem.";
+"tags.add_tags" = "Legg til etiketter";
+"tags.create_tags" = "Opprett etiketter";
+"tags.delete_tag" = "Slett etikett";
+"tags.delete_tag_confirmation" = "Er du sikker på at du vil slette denne etiketten?";
+"tags.delete_tag_cannot_undo" = "Denne handlingen kan ikke angres.";
+"tags.tag_name" = "Etikettnavn";
+"tags.tag_name_help" = "Velg et beskrivende navn for etiketten din";
+"tags.type_tag_name" = "Skriv etikettnavn...";
+"tags.tag_color" = "Etikettfarge";
+"tags.tag_color_help" = "Velg en farge for å gjøre etiketten din lett gjenkjennelig";
+"tags.edit_tag" = "Rediger etikett";
+"tags.new_tag" = "Ny etikett";
+"tags.tag_management_error" = "Feil ved etikettadministrasjon";
+
+// MARK: - Coffee Banner
+"coffee.buy_me_a_coffee" = "Kjøp meg en kaffe";
+"coffee.maybe_later" = "Kanskje senere";
+"coffee.enjoying_the_app" = "Liker du appen?";
+"coffee.helpful_learning_journey" = "Hvis Min ordbok har vært nyttig i læringsreisen din, vurder å kjøpe meg en kaffe! ☕️";
+
+// MARK: - Paywall
+"paywall.terms_of_service" = "Vilkår for bruk";
+"paywall.privacy_policy" = "Personvernerklæring";
+"paywall.upgrade_to_pro" = "Oppgrader til Pro";
+"paywall.restore_purchases" = "Gjenopprett kjøp";
+"paywall.track_progress" = "Spor fremgang";
+"paywall.see_your_improvement" = "Se forbedringene dine";
+"paywall.collaborate" = "Samarbeid";
+"paywall.learn_with_others" = "Lær med andre";
+"paywall.everything_you_need_to_master_vocabulary" = "Alt du trenger for å mestre vokabularet ditt";
+"paywall.choose_your_plan" = "Velg din plan";
+"paywall.start_pro_subscription" = "Start Pro-abonnement";
+"paywall.trusted_by_learners_worldwide" = "Stolt på av lærende over hele verden";
+"paywall.app_store_rating" = "App Store-vurdering";
+"paywall.active_users" = "Aktive brukere";
+"paywall.words_added" = "Ord lagt til";
+"paywall.sign_in_required" = "Innlogging kreves";
+"paywall.join_thousands_users" = "Bli med tusenvis av brukere som har transformert vokabularlæringen sin";
+"paywall.by_subscribing_agree_terms" = "Ved å abonnere godtar du våre Vilkår for bruk og Personvernerklæring";
+"paywall.pro_user" = "Pro-bruker";
+"paywall.free_plan" = "Gratisplan";
+"paywall.limited_features_available" = "Begrensede funksjoner tilgjengelig";
+"paywall.no_active_subscriptions_found" = "Ingen aktive abonnementer funnet. Sjekk App Store-kontoen din.";
+"paywall.failed_to_restore_purchases" = "Kunne ikke gjenopprette kjøp: %@";
+"paywall.save_percentage" = "Spar %@";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nytt";
+"difficulty.in_progress" = "Under arbeid";
+"difficulty.needs_review" = "Trenger gjennomgang";
+"difficulty.mastered" = "Mestret";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Nyeste først";
+"sorting.earliest_first" = "Eldste først";
+"sorting.alphabetically" = "Alfabetisk";
+"sorting.by_part_of_speech" = "Etter ordklasse";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatisk oppdagelse";
+
+// MARK: - Time Period
+"time_period.week" = "Uke";
+"time_period.month" = "Måned";
+"time_period.year" = "År";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Alle resultater";
+"quiz_results.no_quiz_results_yet" = "Ingen quizresultater ennå";
+"quiz_results.quiz" = "Quiz";
+"quiz_results.accuracy" = "Nøyaktighet";
+"quiz_results.correct" = "Riktig";
+"quiz_results.duration" = "Varighet";
+"quiz_results.time_period" = "Tidsperiode";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkripsjon";
+"word_details.part_of_speech" = "Ordklasse";
+"word_details.definition" = "Definisjon";
+"word_details.difficulty" = "Vanskelighetsgrad";
+"word_details.examples" = "Eksempler";
+"word_details.edit_example" = "Rediger eksempel";
+"word_details.example" = "Eksempel";
+"word_details.type_example_here" = "Skriv eksempel her";
+"word_details.add_example" = "Legg til eksempel";
+"word_details.delete_word" = "Slett ord";
+"word_details.delete_failed" = "Sletting mislyktes";
+
+// MARK: - Word List
+"word_list.all_words" = "Alle ord";
+"word_list.favorite" = "Favoritt";
+"word_list.manage_tags" = "Administrer etiketter";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Quiztyper";
+"quiz_list.practice_settings" = "Øvingsinnstillinger";
+"quiz_list.configure_quiz_experience" = "Konfigurer quizopplevelsen din";
+"quiz_list.focus_on_words_need_review" = "Fokuser på ord som trenger gjennomgang";
+"quiz_list.not_enough_words_review_yet" = "Ikke nok ord å gjennomgå ennå";
+"quiz_list.add_words_to_shared_dictionary" = "Legg til ord i delt ordbok";
+"quiz_list.add_your_first_word" = "Legg til ditt første ord";
+"quiz_list.add_more_words" = "Legg til flere ord";
+"quiz_list.quizzes_help_test_knowledge" = "Quizzer hjelper deg med å teste kunnskapen din og forsterke læringen din!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Du er %d ord unna å låse opp quizzer!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Fullfør";
+"quiz_actions.next_word" = "Neste ord";
+"quiz_actions.submit_answer" = "Send svar";
+"quiz_actions.number_of_words" = "Antall ord";
+"quiz_actions.no_difficult_words_available" = "Ingen vanskelige ord tilgjengelig for quiz";
+"quiz_actions.your_word_is" = "Ditt ord var '%@'. Prøv hardere :)";
+"quiz_actions.try_harder" = "Prøv hardere :)";
+"quiz_actions.incorrect_try_again" = "Feil. Prøv igjen";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Velg etiketter";
+"tag_selection.no_tags_yet" = "Ingen etiketter ennå";
+"tag_selection.you_can_select_up_to_5_tags" = "Du kan velge opptil 5 etiketter per ord. Trykk på etiketter for å velge eller fjerne valg.";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google-synkronisering";
+"pro_features.unlimited_export" = "Ubegrenset eksport";
+"pro_features.create_shared_dictionaries" = "Opprett delte ordbøker";
+"pro_features.advanced_analytics" = "Avansert analyse";
+"pro_features.priority_support" = "Prioritert støtte";
+"pro_features.pro_features" = "Pro-funksjoner";
+"pro_features.tag_management" = "Etikettadministrasjon";
+"pro_features.sync_words_across_devices" = "Synkroniser ord på tvers av enheter med Google Drive";
+"pro_features.export_unlimited_words" = "Eksporter ubegrensede ord til CSV-fil";
+"pro_features.create_manage_shared_dictionaries" = "Opprett og administrer delte ordbøker med andre";
+"pro_features.detailed_insights" = "Få detaljerte innsikter om læringsfremgangen din";
+"pro_features.priority_support_team" = "Få prioritert støtte fra teamet vårt";
+"pro_features.unlock_all_pro_features" = "Lås opp alle Pro-funksjoner";
+"pro_features.organize_words_with_tags" = "Organiser ordene dine med tilpassede etiketter for enklere søk";
+"pro_features.detailed_progress_tracking" = "Detaljert fremgangssporing og innsikter";
+"pro_features.get_priority_support" = "Få prioritert støtte når du trenger hjelp";
+
+// MARK: - Error Messages
+"errors.error_updating_word_examples" = "Feil ved oppdatering av ordeksempler";
+"errors.error_removing_word" = "Feil ved sletting av ord";
+"errors.error_saving_word" = "Feil ved lagring av ord";
+"errors.error_updating_idiom_examples" = "Feil ved oppdatering av uttrykkseksempler";
+"errors.error_removing_idiom" = "Feil ved sletting av uttrykk";
+"errors.error_saving_idiom" = "Feil ved lagring av uttrykk";
+"errors.input_not_word" = "Inndataen er ikke et ord";
+"errors.input_cannot_be_empty" = "Inndataen kan ikke være tom";
+"errors.device_muted_or_volume_low" = "Enheten er dempet eller volumet er lavt";
+"errors.cannot_play_audio" = "Kan ikke spille av lyd";
+"errors.cannot_setup_audio_session" = "Kan ikke konfigurere lydøkt";
+"errors.export_failed" = "Eksport mislyktes";
+"errors.import_failed" = "Import mislyktes";
+"errors.cannot_access_security_scoped_resource" = "Kan ikke få tilgang til sikkerhetsbegrenset ressurs";
+"errors.tag_already_exists" = "Etiketten finnes allerede";
+"errors.tag_already_assigned_to_word" = "Denne etiketten er allerede tildelt dette ordet";
+"errors.tag_not_assigned_to_word" = "Denne etiketten er ikke tildelt dette ordet";
+"errors.authentication_required" = "Autentisering kreves";
+"errors.no_active_subscriptions_found" = "Ingen aktive abonnementer funnet";
+"errors.failed_to_update_word_progress" = "Kunne ikke oppdatere ordfremgang";
+"errors.failed_to_update_word_difficulty_level" = "Kunne ikke oppdatere vanskelighetsgrad for ord";
+"errors.failed_to_save_quiz_session" = "Kunne ikke lagre quizøkt";
+"errors.failed_to_update_user_statistics" = "Kunne ikke oppdatere brukerstatistikk";
+"errors.invalid_word_id" = "Ugyldig ord-ID";
+"errors.word_not_found" = "Ord ikke funnet";
+"errors.failed_to_calculate_progress" = "Kunne ikke beregne fremgang";
+"errors.invalid_translation_url" = "Ugyldig oversettelses-URL";
+"errors.network_error_during_translation" = "Nettverksfeil under oversettelse";
+"errors.invalid_response_from_translation_service" = "Ugyldig respons fra oversettelsestjenesten";
+"errors.translation_failed" = "Oversettelse mislyktes";
+"errors.invalid_user_email" = "Ugyldig bruker-e-post";
+"errors.network_error_occurred" = "Nettverksfeil oppstod";
+"errors.sync_failed" = "Synkronisering mislyktes";
+"errors.invalid_input_provided" = "Ugyldig inndata angitt";
+"errors.dictionary_not_found" = "Ordbok ikke funnet";
+"errors.no_subscription_offerings_available" = "Ingen abonnementstilbud tilgjengelig for øyeblikket";
+"errors.requested_subscription_package_not_found" = "Forespurt abonnementspakke ikke funnet";
+"errors.purchase_could_not_be_completed" = "Kjøpet kunne ikke fullføres";
+"errors.failed_to_restore_previous_purchases" = "Kunne ikke gjenopprette tidligere kjøp";
+"errors.no_offerings_available" = "Ingen abonnementstilbud tilgjengelig for øyeblikket";
+"errors.purchase_failed" = "Kjøp mislyktes";
+"errors.restore_failed" = "Gjenoppretting av tidligere kjøp mislyktes";
+"errors.export_limit_exceeded" = "Eksportgrensen overskredet. Oppgrader til Pro for ubegrenset eksport.";
+"errors.max_tags_reached" = "Maksimum 5 etiketter per ord nådd";
+"errors.tag_already_assigned" = "Denne etiketten er allerede tildelt dette ordet";
+"errors.tag_not_assigned" = "Denne etiketten er ikke tildelt dette ordet";
+"errors.network_timeout" = "Nettverkstidsavbrudd";
+"errors.server_unreachable" = "Serveren kan ikke nås";
+"errors.invalid_response" = "Ugyldig respons";
+"errors.no_internet_connection" = "Ingen internettforbindelse";
+"errors.missing_api_key" = "Manglende API-nøkkel";
+"errors.decoding_error" = "Dekodingsfeil";
+"errors.invalid_url" = "Ugyldig URL";
+"errors.no_data" = "Ingen data";
+"errors.save_failed" = "Lagring mislyktes";
+"errors.read_failed" = "Lesing mislyktes";
+"errors.data_corrupted" = "Data korrupte";
+"errors.invalid_input" = "Ugyldig inndata";
+"errors.missing_field" = "Manglende felt";
+"errors.unknown_error" = "Ukjent feil";
+"errors.update_failed" = "Oppdatering mislyktes";
+"errors.delete_failed" = "Sletting mislyktes";
+"errors.permission_denied" = "Du har ikke tillatelse til denne handlingen";
+"errors.user_not_authenticated" = "Brukeren må autentiseres";
+"errors.dictionary_limit_reached" = "Med gratisplanen kan du bare opprette én delt ordbok. Oppgrader til Pro for ubegrensede delte ordbøker.";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Ingen ord ennå";
+"empty_states.no_idioms_yet" = "Ingen uttrykk ennå";
+"empty_states.no_favorite_words" = "Ingen favorittord";
+"empty_states.no_search_results" = "Ingen søkeresultater";
+"empty_states.start_improving_vocabulary" = "Begynn å forbedre vokabularet ditt ved å legge til ditt første uttrykk";
+"empty_states.tap_heart_icon_to_add_favorites" = "Trykk på hjerteikonet på et uttrykk for å legge det til i favoritter";
+"empty_states.try_different_search_term" = "Prøv et annet søkeord eller legg til et nytt uttrykk";
+
+// MARK: - Notifications
+"notifications.time_to_practice" = "Tid for å øve! 📚";
+"notifications.practice_vocabulary_today" = "Ikke glem å øve på vokabularet ditt i dag.";
+"notifications.practice_difficult_words" = "Øv på vanskelige ord 📚";
+"notifications.difficult_words_challenge" = "Du har ord som trenger mer øving. Klar for utfordringen?";
+"notifications.test_dictionary_invitation" = "Invitasjon til testordbok";
+"notifications.test_dictionary_invitation_body" = "Noen har lagt deg til i 'Testordbok'";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "Min ordbok";
+"macos.about_my_dictionary" = "Om Min ordbok";
+"macos.debug_panel" = "Feilsøkingspanel";
+"macos.settings" = "Innstillinger";
+"macos.about" = "Om appen";
+"macos.shared_dictionaries" = "Delte ordbøker";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "Alle ord";
+"filter_display.favorite" = "Favoritt";
+"filter_display.search" = "Søk";
+"filter_display.tag" = "Etikett";
+"filter_display.new" = "Nytt";
+"filter_display.in_progress" = "Under arbeid";
+"filter_display.needs_review" = "Trenger gjennomgang";
+"filter_display.mastered" = "Mestret";
+"filter_display.no_words_yet" = "Ingen ord ennå";
+"filter_display.no_favorite_words" = "Ingen favorittord";
+"filter_display.no_search_results" = "Ingen søkeresultater";
+"filter_display.no_tagged_words" = "Ingen merkede ord";
+"filter_display.no_new_words" = "Ingen nye ord";
+"filter_display.no_words_in_progress" = "Ingen ord under arbeid";
+"filter_display.no_words_need_review" = "Ingen ord som trenger gjennomgang";
+"filter_display.no_mastered_words" = "Ingen mestrede ord";
+"filter_display.start_building_vocabulary" = "Begynn å bygge vokabularet ditt ved å legge til ditt første ord";
+"filter_display.tap_heart_icon_to_add_favorites" = "Trykk på hjerteikonet på et ord for å legge det til i favoritter";
+"filter_display.try_different_search_term" = "Prøv et annet søkeord eller legg til et nytt ord";
+"filter_display.add_tags_to_organize" = "Legg til etiketter på ordene dine for bedre organisering";
+"filter_display.new_words_appear_here" = "Nye ord vises her etter at du har lagt dem til i listen din";
+"filter_display.words_appear_here_as_you_practice" = "Ord vises her når du øver med quizzer";
+"filter_display.words_need_more_practice" = "Ord som trenger mer øving vises her";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Eier";
+"collaborator_roles.editor" = "Redaktør";
+"collaborator_roles.viewer" = "Seer";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Blå";
+"tag_colors.red" = "Rød";
+"tag_colors.green" = "Grønn";
+"tag_colors.orange" = "Oransje";
+"tag_colors.purple" = "Lilla";
+"tag_colors.pink" = "Rosa";
+"tag_colors.yellow" = "Gul";
+"tag_colors.gray" = "Grå";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Velg ordbok";
+"shared_dictionary_selection.dictionary_selected" = "Ordbok valgt";
+"shared_dictionary_selection.add_to_shared" = "Legg til i delt";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Legg til ord i delt ordbok";
+"shared_dictionary_selection.unknown" = "Ukjent";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Oppgrader til Pro for å se alle fremgangsdetaljer.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Oppgrader til Pro for å se alle detaljer om vokabularveksten din.";
+"pro_upgrade.time_period" = "Tidsperiode";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Rolle";
+"collaborator_management.add_collaborator" = "Legg til samarbeidspartner";
+"collaborator_management.email_address_required" = "E-postadresse kreves";
+"collaborator_management.valid_email_address" = "Skriv inn en gyldig e-postadresse";
+"collaborator_management.make_viewer" = "Gjør til seer";
+"collaborator_management.make_editor" = "Gjør til redaktør";
+"collaborator_management.remove" = "Fjern";
+"collaborator_management.add" = "Legg til";
+"collaborator_management.delete_dictionary" = "Slett ordbok";
+"collaborator_management.delete_dictionary_confirmation" = "Er du sikker på at du vil slette denne delte ordboken? Denne handlingen kan ikke angres.";
+"collaborator_management.stop_watching" = "Stopp å observere";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Er du sikker på at du vil stoppe å observere denne delte ordboken?";
+"collaborator_management.stop_watching_dictionary" = "Stopp å observere ordbok";
+"collaborator_management.continue" = "Fortsett";
+"collaborator_management.dictionary_not_found" = "Ordbok ikke funnet";
+"collaborator_management.dictionary_details" = "Ordbokdetaljer";
+"collaborator_management.unknown" = "Ukjent";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Stavequiz";
+"quiz_types.choose_definition" = "Velg definisjon";
+"quiz_types.test_spelling_skills" = "Test staveferdighetene dine ved å stave ord korrekt";
+"quiz_types.select_correct_definition" = "Velg riktig definisjon for hvert ord";
+"quiz_types.great_job_completed_spelling_quiz" = "Flott jobb! Du har fullført stavequizen.";
+"quiz_types.great_job_completed_definition_quiz" = "Flott jobb! Du har fullført definisjonsquizen.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australsk";
+"english_accents.canadian" = "Kanadisk";
+"english_accents.british" = "Britisk";
+"english_accents.indian" = "Indisk";
+"english_accents.american" = "Amerikansk";
+"english_accents.belgian" = "Belgisk";
+"english_accents.singaporean" = "Singaporsk";
+"english_accents.irish" = "Irsk";
+"english_accents.south_african" = "Sørafrikansk";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "Alle uttrykk";
+"idiom_filters.favorite" = "Favoritt";
+"idiom_filters.search" = "Søk";
+"idiom_filters.no_idioms_yet" = "Ingen uttrykk ennå";
+"idiom_filters.no_favorite_words" = "Ingen favorittord";
+"idiom_filters.no_search_results" = "Ingen søkeresultater";
+"idiom_filters.start_improving_vocabulary" = "Begynn å forbedre vokabularet ditt ved å legge til ditt første uttrykk";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "Trykk på hjerteikonet på et uttrykk for å legge det til i favoritter";
+"idiom_filters.try_different_search_term" = "Prøv et annet søkeord eller legg til et nytt uttrykk";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Substantiv";
+"part_of_speech.full.verb" = "Verb";
+"part_of_speech.full.adjective" = "Adjektiv";
+"part_of_speech.full.adverb" = "Adverb";
+"part_of_speech.full.conjunction" = "Konjunksjon";
+"part_of_speech.full.pronoun" = "Pronomen";
+"part_of_speech.full.preposition" = "Preposisjon";
+"part_of_speech.full.exclamation" = "Utropsord";
+"part_of_speech.full.unknown" = "Ukjent";
+
+"part_of_speech.short.noun" = "Subst.";
+"part_of_speech.short.verb" = "Verb";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Konj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.exclamation" = "Utr.";
+"part_of_speech.short.unknown" = "Ukjent";

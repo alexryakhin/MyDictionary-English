@@ -1,0 +1,865 @@
+/*
+  Localizable.strings (Czech Translation)
+  My Dictionary
+
+  Translated on August 17, 2025.
+*/
+
+// MARK: - Tab Bar
+"tabbar.words" = "Slova";
+"tabbar.idioms" = "Idiomy";
+"tabbar.quizzes" = "Kvíz";
+"tabbar.progress" = "Pokrok";
+"tabbar.settings" = "Nastavení";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Podrobnosti slova";
+"navigation.idiom_details" = "Podrobnosti idiomu";
+"navigation.add_tags" = "Přidat štítky";
+"navigation.about" = "O aplikaci";
+"navigation.debug_panel" = "Panel pro ladění";
+"navigation.quiz_results" = "Výsledky kvízu";
+"navigation.spelling_quiz" = "Kvízy pravopisu";
+"navigation.definition_quiz" = "Kvízy definic";
+"navigation.close" = "Zavřít";
+"navigation.close_screen" = "Zavřít obrazovku";
+
+// MARK: - Common Actions
+"actions.done" = "Hotovo";
+"actions.save" = "Uložit";
+"actions.save_word" = "Uložit slovo";
+"actions.cancel" = "Zrušit";
+"actions.confirm" = "Potvrdit";
+"actions.search" = "Hledat";
+"actions.delete" = "Smazat";
+"actions.edit" = "Upravit";
+"actions.add" = "Přidat";
+"actions.next" = "Další";
+"actions.back" = "Zpět";
+"actions.exit" = "Ukončit";
+"actions.ok" = "OK";
+"actions.yes" = "Ano";
+"actions.no" = "Ne";
+"actions.try_again" = "Zkusit znovu";
+"actions.view_all" = "Zobrazit vše";
+"actions.listen" = "Poslouchat";
+"actions.create" = "Vytvořit";
+"actions.manage" = "Spravovat";
+"actions.select" = "Vybrat";
+"actions.select_word" = "Vybrat slovo";
+"actions.select_idiom" = "Vybrat idiom";
+"actions.select_quiz" = "Vybrat kvíz";
+"actions.sign_out" = "Odhlásit se";
+"actions.sign_in" = "Přihlásit se";
+"actions.upgrade" = "Upgradovat";
+"actions.learn_more" = "Zjistit více";
+"actions.copy" = "Kopírovat";
+"actions.refresh" = "Obnovit";
+"actions.clear" = "Vymazat";
+"actions.reset" = "Resetovat";
+"actions.test" = "Testovat";
+"actions.check" = "Zkontrolovat";
+"actions.verify" = "Ověřit";
+"actions.show" = "Zobrazit";
+"actions.send" = "Odeslat";
+"actions.request" = "Požádat";
+"actions.sync" = "Synchronizovat";
+"actions.upload" = "Nahrát";
+"actions.download" = "Stáhnout";
+"actions.import_words" = "Importovat slova";
+"actions.export_words" = "Exportovat slova";
+"actions.stop_watching" = "Přestat sledovat";
+"actions.make_viewer" = "Nastavit jako diváka";
+"actions.make_editor" = "Nastavit jako editora";
+"actions.remove" = "Odebrat";
+"actions.skip_for_now" = "Prozatím přeskočit";
+"actions.link_google" = "Propojit s Googlem";
+"actions.link_apple" = "Propojit s Apple";
+"actions.toggle_like" = "Přepnout lajk";
+"actions.toggle_favorite" = "Přepnout oblíbené";
+
+// MARK: - Onboarding
+"onboarding.welcome_to" = "Vítejte v";
+"onboarding.my_dictionary" = "Můj slovník";
+"onboarding.personal_vocabulary_companion" = "Váš osobní průvodce slovní zásobou";
+"onboarding.build_your_vocabulary" = "Budujte svou slovní zásobu";
+"onboarding.personalized_learning" = "Personalizované učení";
+"onboarding.youre_all_set" = "Vše je připraveno!";
+"onboarding.start_building_vocabulary" = "Začněte dnes budovat svou slovní zásobu a sledujte, jak rostou vaše jazykové dovednosti.";
+"onboarding.get_started" = "Začít";
+"onboarding.next_step" = "Další krok";
+"onboarding.personal_word_list" = "Osobní seznam slov";
+"onboarding.create_organize_vocabulary" = "Vytvořte a organizujte své sbírky slovní zásoby s vlastními definicemi a příklady";
+"onboarding.find_definitions" = "Najít definice";
+"onboarding.comprehensive_definitions" = "Získejte komplexní definice s více významy a kontexty";
+"onboarding.collect_idioms" = "Sbírat idiomy";
+"onboarding.learn_practice_idioms" = "Učte se a procvičujte idiomy a výrazy z celého světa";
+"onboarding.smart_quizzes" = "Chytré kvízy";
+"onboarding.adaptive_quizzes" = "Adaptivní kvízy, které se učí z vašeho pokroku";
+"onboarding.progress_tracking" = "Sledování pokroku";
+"onboarding.visual_insights" = "Vizuální přehledy o růstu vaší slovní zásoby";
+"onboarding.collaborative_learning" = "Kolaborativní učení";
+"onboarding.share_dictionaries" = "Sdílejte slovníky s přáteli a rodinou";
+"onboarding.back" = "Zpět";
+"onboarding.next" = "Další";
+"onboarding.personal_word_list_description" = "Vytvořte a organizujte své sbírky slovní zásoby s vlastními definicemi a příklady";
+"onboarding.find_definitions_description" = "Získejte komplexní definice s více významy a kontexty";
+"onboarding.collect_idioms_description" = "Učte se a procvičujte idiomy a výrazy z celého světa";
+"onboarding.smart_quizzes_description" = "Adaptivní kvízy, které se učí z vašeho pokroku";
+"onboarding.progress_tracking_description" = "Vizuální přehledy o růstu vaší slovní zásoby";
+"onboarding.collaborative_learning_description" = "Sdílejte slovníky s přáteli a rodinou";
+
+// MARK: - Words
+"words.add_word" = "Přidat slovo";
+"words.add_your_first_word" = "Přidejte své první slovo";
+"words.add_more_words" = "Přidat další slova";
+"words.add_to_shared_dictionary" = "Přidat do sdíleného slovníku";
+"words.add_new_word" = "Přidat nové slovo";
+"words.delete_word" = "Smazat slovo";
+"words.delete_word_confirmation" = "Jste si jisti, že chcete toto slovo smazat?";
+"words.transcription" = "Transkripce";
+"words.part_of_speech" = "Slovní druh";
+"words.definition" = "Definice";
+"words.difficulty" = "Obtížnost";
+"words.language" = "Jazyk";
+"words.input_language" = "Vstupní jazyk";
+"words.tags" = "Štítky";
+"words.word" = "Slovo";
+"words.words" = "Slova";
+"words.create_tags" = "Vytvořit štítky";
+"words.all_words" = "Všechna slova";
+"words.favorite" = "Oblíbené";
+"words.favorite_words" = "Oblíbená slova";
+"words.search" = "Hledat";
+"words.search_words" = "Hledat slova...";
+"words.search_results" = "Výsledky hledání";
+"words.tag" = "Štítek";
+"words.tagged_words" = "Označená slova";
+"words.new" = "Nové";
+"words.new_words" = "Nová slova";
+"words.in_progress" = "Probíhá";
+"words.words_in_progress" = "Slova v průběhu";
+"words.needs_review" = "Vyžaduje opakování";
+"words.words_needing_review" = "Slova vyžadující opakování";
+"words.mastered" = "Zvládnuto";
+"words.mastered_words" = "Zvládnutá slova";
+"words.sort" = "Třídit";
+"words.filter" = "Filtrovat";
+"words.latest_first" = "Nejnovější první";
+"words.earliest_first" = "Nejstarší první";
+"words.alphabetically" = "Abecedně";
+"words.by_part_of_speech" = "Podle slovního druhu";
+"words.type_word" = "Zadejte slovo";
+"words.shared_dictionary" = "Sdílený slovník";
+"words.private_dictionary" = "Soukromý slovník";
+"words.impressive_vocabulary" = "Působivá slovní zásoba!";
+"words.impressive_vocabulary_message" = "Vytvořili jste sbírku **%d slov**! Vaše nadšení pro učení je inspirující.";
+"words.examples" = "Příklady";
+"words.no_examples_yet" = "Zatím žádné příklady";
+"words.type_example_here" = "Zde zadejte příklad";
+"words.add_example" = "Přidat příklad";
+"words.edit_example" = "Upravit příklad";
+"words.score" = "Skóre";
+"words.quiz_based" = "Založeno na kvízu";
+"words.language" = "Jazyk";
+"words.no_tags_added_yet" = "Zatím nebyly přidány žádné štítky.";
+"words.add_tag" = "Přidat štítek";
+"words.no_tags_selected" = "Nebyly vybrány žádné štítky";
+"words.error_loading_definitions" = "Chyba při načítání definic. Zkuste to znovu.";
+"words.type_word_and_press_search" = "Zadejte slovo a klikněte na „Hledat“ pro nalezení jeho definic";
+"words.word_details" = "Podrobnosti slova";
+"words.no_examples_yet" = "Zatím žádné příklady";
+"words.edit_example" = "Upravit příklad";
+"words.no_transcription" = "Žádná transkripce";
+"words.no_definition" = "Žádná definice";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Přidat idiom";
+"idioms.add_new_idiom" = "Přidat nový idiom";
+"idioms.idiom" = "Idiom";
+"idioms.idioms" = "Idiomy";
+"idioms.no_idioms_found" = "Nebyly nalezeny žádné idiomy";
+"idioms.add_this_idiom" = "Klikněte na tlačítko výše pro přidání tohoto idiomu";
+"idioms.begin_add_idioms" = "Začněte přidávat idiomy do svého seznamu kliknutím na ikonu přidání v levém horním rohu";
+"idioms.all_idioms" = "Všechny idiomy";
+"idioms.favorite_idioms" = "Oblíbené idiomy";
+"idioms.found_idioms" = "Nalezeno";
+"idioms.examples" = "Příklady";
+"idioms.no_examples_yet" = "Zatím žádné příklady";
+"idioms.type_example_here" = "Zde zadejte příklad";
+"idioms.add_example" = "Přidat příklad";
+"idioms.edit_example" = "Upravit příklad";
+"idioms.delete_idiom" = "Smazat idiom";
+"idioms.delete_idiom_confirmation" = "Jste si jisti, že chcete tento idiom smazat?";
+"idioms.search_idioms" = "Hledat idiomy...";
+"idioms.favorites" = "Oblíbené";
+"idioms.found" = "Nalezeno";
+"idioms.sort" = "Třídit";
+"idioms.filter" = "Filtrovat";
+"idioms.latest_first" = "Nejnovější první";
+"idioms.earliest_first" = "Nejstarší první";
+"idioms.alphabetically" = "Abecedně";
+
+// MARK: - Quizzes
+"quizzes.quiz_unavailable" = "Kvízy nejsou dostupné";
+"quizzes.back_to_quizzes" = "Zpět na kvízy";
+"quizzes.your_answer" = "Vaše odpověď";
+"quizzes.submit_answer" = "Odeslat odpověď";
+"quizzes.next_word" = "Další slovo";
+"quizzes.finish" = "Dokončit";
+"quizzes.your_results" = "Vaše výsledky";
+"quizzes.final_score" = "Konečné skóre";
+"quizzes.correct_answers" = "Správné odpovědi";
+"quizzes.best_streak" = "Nejlepší série";
+"quizzes.accuracy" = "Přesnost";
+"quizzes.debug" = "Ladění";
+"quizzes.choose_correct_definition" = "Vyberte správnou definici";
+"quizzes.word" = "Slovo";
+"quizzes.quiz_types" = "Typy kvízů";
+"quizzes.practice_settings" = "Nastavení cvičení";
+"quizzes.configure_quiz_experience" = "Konfigurujte své zážitky z kvízu";
+"quizzes.practice_hard_words_only" = "Cvičit pouze obtížná slova";
+"quizzes.focus_words_need_review" = "Zaměřte se na slova, která potřebují opakování";
+"quizzes.not_enough_words_review" = "Zatím není dostatek slov k opakování";
+"quizzes.words_per_session" = "Slova za relaci";
+"quizzes.number_words" = "Počet slov";
+"quizzes.select_dictionary" = "Vybrat slovník";
+"quizzes.no_difficult_words_available" = "Nejsou dostupná žádná obtížná slova pro kvíz";
+"quizzes.spelling_quiz_description" = "Otestujte své pravopisné dovednosti správným psaním slov";
+"quizzes.definition_quiz_description" = "Vyberte správnou definici pro každé slovo";
+"quizzes.progress" = "Pokrok";
+"quizzes.streak" = "Série";
+"quizzes.score" = "Skóre";
+"quizzes.best" = "Nejlepší";
+"quizzes.hint" = "Nápověda";
+"quizzes.attempt" = "Pokus";
+"quizzes.correct" = "Správně!";
+"quizzes.well_done" = "Skvělá práce!";
+"quizzes.keep_up_good_work" = "Pokračujte v dobré práci!";
+"quizzes.correct_word_is" = "Správné slovo je '%@'. Přejít na další slovo...";
+"quizzes.moving_to_next_word" = "Přejít na další slovo...";
+"quizzes.incorrect" = "Nesprávně";
+"quizzes.moving_to_next_question" = "Přejít na další otázku...";
+"quizzes.quiz_complete" = "Kvízy dokončeny!";
+"quizzes.great_job_completed_spelling_quiz" = "Skvělá práce! Dokončili jste kvíz pravopisu.";
+"quizzes.great_job_completed_definition_quiz" = "Skvělá práce! Dokončili jste kvíz definic.";
+"quizzes.skip_word" = "Přeskočit slovo (-2 body)";
+"quizzes.incorrect_moving_to_next_question" = "Nesprávně! Přejít na další otázku...";
+"quizzes.contributions" = "Příspěvky";
+"quizzes.not_enough_words_available" = "Není dostatek dostupných slov. Kvízy vyžadují alespoň %d slov.";
+"quizzes.need_at_least_words" = "Kvízy vyžadují alespoň %d slov.";
+"quizzes.shared_dictionary_needs_more_words" = "Sdílený slovník potřebuje více slov!";
+"quizzes.start_building_vocabulary" = "Začněte budovat svou slovní zásobu!";
+"quizzes.keep_adding_words" = "Pokračujte v přidávání slov!";
+"quizzes.ask_dictionary_owner_add_words" = "Požádejte vlastníka slovníku, aby přidal více slov, nebo přepněte na jiný slovník!";
+"quizzes.switch_different_dictionary" = "Přepněte na jiný slovník!";
+"quizzes.add_words_to_shared_dictionary" = "Přidat slova do sdíleného slovníku";
+"quizzes.add_your_first_word" = "Přidejte své první slovo";
+"quizzes.add_more_words" = "Přidat další slova";
+"quizzes.you_can_practice_vocabulary" = "Můžete cvičit svou slovní zásobu nebo vybrat sdílený slovník, který již obsahuje slova.";
+"quizzes.select_shared_dictionary_populated" = "Vyberte sdílený slovník, který již obsahuje slova.";
+"quizzes.number_words_practice_session" = "Počet slov na cvičební relaci (%d-%d)";
+"quizzes.min_words" = "%d";
+"quizzes.max_words" = "%d";
+"quizzes.shared_dictionary_needs_hard_words" = "Sdílený slovník '%@' potřebuje alespoň 1 obtížné slovo pro cvičení v režimu obtížných slov. Aktuálně má %d obtížných slov.";
+"quizzes.needs_at_least_words_start_quizzes" = "Sdílený slovník '%@' potřebuje alespoň 10 slov pro zahájení kvízů. Aktuálně má %d slov.";
+"quizzes.need_at_least_hard_word_practice" = "Potřebujete alespoň 1 obtížné slovo pro cvičení v režimu obtížných slov. Aktuálně máte %d obtížných slov.";
+"quizzes.need_at_least_words_start_quizzes" = "Potřebujete alespoň 10 slov pro zahájení kvízů. Aktuálně máte %d slov.";
+"quizzes.progress_format" = "Pokrok: %d/%d";
+"quizzes.streak_format" = "🔥 Série: %d";
+"quizzes.score_format" = "Skóre: %d";
+"quizzes.best_format" = "Nejlepší: %d";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "Požádejte vlastníka slovníku, aby přidal více slov, nebo přepněte na jiný slovník!";
+
+// MARK: - App
+"app.my_dictionary" = "Můj slovník";
+"app.loading" = "Načítání...";
+"app.something_went_wrong" = "Něco se pokazilo";
+"app.try_again" = "Zkusit znovu";
+"app.error" = "Chyba";
+"app.oops" = "Jejda!";
+"app.unknown" = "Neznámý";
+"app.retry" = "Zkusit znovu";
+"app.add_example" = "Přidat příklad";
+"app.add_to_shared_dictionary" = "Přidat do sdíleného slovníku";
+"app.add_collaborator" = "Přidat spolupracovníka";
+"app.delete_dictionary" = "Smazat slovník";
+"app.enter_definition" = "Zadat definici";
+"app.select_value" = "Vybrat hodnotu";
+"app.pronunciation" = "Výslovnost";
+"app.tags" = "Štítky";
+"app.select_definition" = "Vybrat definici";
+"app.translating_word" = "Překládání slova...";
+"app.translating_definitions" = "Překládání definic...";
+"app.type_word_here" = "Zde zadejte slovo...";
+"app.email_address" = "E-mailová adresa";
+"app.name" = "Jméno";
+"app.example" = "Příklad";
+"app.transcription" = "Transkripce";
+"app.definition" = "Definice";
+"app.import_successful" = "Import úspěšný";
+"app.import_successful_message" = "%@ bylo úspěšně importováno";
+"app.no_words_imported" = "Žádná slova nebyla importována";
+"app.no_words_imported_message" = "Nepodařilo se najít žádná nová slova k importu";
+"app.tag_management_error" = "Chyba správy štítků";
+"app.delete_tag" = "Smazat štítek";
+"app.delete_tag_confirmation" = "Jste si jisti, že chcete tento štítek smazat? Tato akce je nevratná.";
+"app.cant_share_word" = "Nelze sdílet slovo";
+"app.collaborator_details" = "Podrobnosti spolupracovníka";
+"app.role_permissions" = "Oprávnění role";
+"app.note" = "Poznámka";
+"app.dictionary_info" = "Informace o slovníku";
+"app.collaborators" = "Spolupracovníci";
+"app.all_results" = "Všechny výsledky";
+"app.part_of_speech" = "Slovní druh";
+"app.language" = "Jazyk";
+"app.tag_name" = "Název štítku";
+"app.tag_color" = "Barva štítku";
+"app.private_dictionary" = "Soukromý slovník";
+"app.shared_dictionaries" = "Sdílené slovníky";
+"app.about_my_dictionary" = "O mém slovníku";
+"app.debug_panel" = "Panel pro ladění";
+"app.word_starts_with" = "Slovo začíná na";
+"app.debug_info" = "Informace pro ladění";
+"app.send_test_notification" = "Odeslat testovací oznámení";
+"app.enter_email_address" = "Zadejte e-mailovou adresu";
+"app.enter_email_address_for_notification" = "Zadejte e-mailovou adresu uživatele, kterému chcete odeslat testovací oznámení.";
+"app.user_information" = "Informace o uživateli";
+
+// MARK: - Analytics
+"analytics.overview" = "Přehled";
+"analytics.recent_quiz_results" = "Nedávné výsledky kvízů";
+"analytics.no_quiz_results_yet" = "Zatím žádné výsledky kvízů";
+"analytics.complete_first_quiz" = "Dokončete svůj první kvíz, abyste zde viděli výsledky";
+"analytics.vocabulary_growth" = "Růst slovní zásoby";
+"analytics.no_growth_data_yet" = "Zatím žádné údaje o růstu";
+"analytics.complete_quizzes_growth" = "Dokončete kvízy, abyste viděli, jak vaše slovní zásoba roste v čase";
+"analytics.time_period" = "Časové období";
+"analytics.week" = "Týden";
+"analytics.month" = "Měsíc";
+"analytics.year" = "Rok";
+"analytics.practice_time" = "Čas na cvičení";
+"analytics.sessions" = "Relace";
+"analytics.all_results" = "Všechny výsledky";
+"analytics.duration" = "Doba trvání";
+"analytics.loading_progress_data" = "Načítání dat o pokroku...";
+"analytics.complete_first_quiz_results" = "Dokončete svůj první kvíz, abyste zde viděli výsledky";
+"analytics.complete_quizzes_growth_data" = "Dokončete kvízy, abyste viděli, jak vaše slovní zásoba roste v čase";
+"analytics.last_time_period" = "Poslední %@";
+"analytics.points" = "Body";
+"analytics.accuracy" = "Přesnost";
+"analytics.progress" = "Pokrok";
+"analytics.streak" = "Série";
+"analytics.best" = "Nejlepší";
+"analytics.score" = "Skóre";
+"analytics.correct_answers" = "Správné odpovědi";
+"analytics.words_played" = "Hraná slova";
+"analytics.total_questions" = "Celkový počet otázek";
+"analytics.difficulty_statistics" = "Statistiky obtížnosti";
+"analytics.individual_ratings" = "Individuální hodnocení";
+"analytics.how_other_users_rate_difficulty" = "Jak ostatní uživatelé hodnotí obtížnost tohoto slova";
+"analytics.no_difficulty_ratings_yet" = "Zatím žádná hodnocení obtížnosti";
+"analytics.total_ratings" = "Celkové hodnocení";
+"analytics.view_detailed_statistics" = "Zobrazit podrobné statistiky";
+
+// MARK: - Settings
+"settings.translate_definitions" = "Překládat definice";
+"settings.show_definitions_native_language" = "Zobrazit definice ve vašem mateřském jazyce";
+"settings.accent" = "Přízvuk";
+"settings.select_accent" = "Vybrat přízvuk";
+"settings.notifications" = "Oznámení";
+"settings.daily_reminders" = "Denní připomínky";
+"settings.difficult_words" = "Obtížná slova";
+"settings.subscription" = "Předplatné";
+"settings.pro_user" = "Pro uživatel";
+"settings.free_plan" = "Bezplatný plán";
+"settings.limited_features_available" = "Dostupné omezené funkce";
+"settings.signed_in_as" = "Přihlášen jako";
+"settings.anonymous" = "Anonymní";
+"settings.upload_backup_google" = "Nahrát zálohu na Google";
+"settings.download_backup_google" = "Stáhnout zálohu z Google";
+"settings.sign_in_sync_word_lists" = "Přihlásit se k synchronizaci seznamů slov";
+"settings.organization" = "Organizace";
+"settings.show_idioms_tab" = "Zobrazit kartu idiomů";
+"settings.shared_dictionaries" = "Sdílené slovníky";
+"settings.about_app" = "O aplikaci";
+"settings.features" = "Funkce";
+"settings.add_organize_words" = "Přidat a organizovat slova s definicemi";
+"settings.practice_quizzes_spelling" = "Cvičit s kvízy a cvičeními pravopisu";
+"settings.track_learning_progress" = "Sledovat pokrok v učení";
+"settings.import_export_word_collection" = "Importovat a exportovat sbírku slov";
+"settings.customize_learning_experience" = "Přizpůsobit zážitek z učení";
+"settings.voice_pronunciation_support" = "Podpora hlasové výslovnosti";
+"settings.contact_me" = "Kontaktujte mě";
+"settings.x_twitter" = "X (Twitter)";
+"settings.instagram" = "Instagram";
+"settings.support" = "Podpora";
+"settings.rate_app" = "Ohodnotit aplikaci";
+"settings.export_successful" = "Export úspěšný";
+"settings.upload_successful" = "Nahrání úspěšné";
+"settings.download_successful" = "Stažení úspěšné";
+"settings.daily_reminders_description" = "Obdržíte připomínku v 20:00, pokud jste ten den aplikaci neotevřeli";
+"settings.difficult_words_description" = "Obdržíte připomínku v 16:00 k procvičování obtížných slov";
+"settings.free_users_export_limit" = "Uživatelé bezplatného plánu mohou exportovat až %d slov";
+"settings.app_version" = "Verze aplikace:";
+"settings.about_app_description" = "Vytvořil jsem tuto aplikaci, protože jsem nenašel to, co jsem hledal.\n\nJe to jednoduchý správce seznamu slov, který vám umožňuje vyhledávat slova a přidávat jejich definice bez překladu do mateřského jazyka.\n\nMyslím, že je to nejlepší způsob, jak se učit angličtinu. Doufám, že to bude užitečné i pro vás.\n\nPokud máte nějaké otázky nebo chcete navrhnout funkci, kontaktujte mě prostřednictvím odkazů níže. Děkuji, že používáte mou aplikaci!";
+"settings.contact_support" = "Máte otázky, návrhy nebo zpětnou vazbu? Rád bych slyšel váš názor. Kontaktujte podporu přes Instagram nebo Twitter!";
+"settings.sign_out" = "Odhlásit se";
+"settings.upload_backup_to_google" = "Nahrát zálohu na Google";
+"settings.download_backup_from_google" = "Stáhnout zálohu z Google";
+"settings.sign_in_to_sync_word_lists" = "Přihlásit se k synchronizaci seznamů slov";
+"settings.manage_tags" = "Spravovat štítky";
+"settings.import_export" = "Import/Export";
+"settings.import_words" = "Importovat slova";
+"settings.export_words" = "Exportovat slova";
+"settings.learn_more" = "Zjistit více";
+"settings.export_words_title" = "Exportovat slova";
+"settings.pro_upgrade_description" = "Upgradujte na Pro pro neomezené funkce a synchronizaci mezi zařízeními.";
+"settings.word_lists_and_sync" = "Seznamy slov a synchronizace";
+"settings.manual_sync_mode_description" = "Režim ruční synchronizace: Použijte tlačítka níže k nahrání/stahování seznamů slov na Google. Dostupné pro všechny uživatele.";
+"settings.sign_in_to_create_share_word_lists" = "Přihlásit se k vytvoření a sdílení seznamů slov.";
+"settings.tag_management_description" = "Vytvořte a spravujte štítky pro organizaci slov, přidejte spolupracovníky pro sdílení slov.";
+"settings.import_export_note" = "Vezměte prosím na vědomí, že import a export fungují pouze se soubory vytvořenými touto aplikací.";
+"settings.buy_me_a_coffee" = "Kupte mi kávu";
+
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Přihlaste se před předplacením";
+"auth.sign_in_with_google" = "Přihlásit se přes Google";
+"auth.can_always_sign_in_later" = "Vždy se můžete přihlásit později z nastavení";
+"auth.link_additional_accounts" = "Propojit další účty";
+"auth.accounts_linked_successfully" = "Účty úspěšně propojeny";
+"auth.sign_out_confirmation" = "Odhlásit se";
+"auth.your_words_are_safe" = "Vaše slova jsou v bezpečí";
+"auth.cloud_sync_disabled" = "Synchronizace s cloudem bude deaktivována";
+"auth.sign_out" = "Odhlásit se";
+"auth.no_worries_wont_remove_words" = "Nebojte se! Vaše slova neodstraníme.";
+"auth.vocabulary_stay_on_device" = "Vaše slovní zásoba zůstane na tomto zařízení. Pokud se přihlásíte s jiným účtem, vaše data se sloučí.";
+"auth.all_vocabulary_remain_device" = "Všechny vaše slova, definice a pokrok zůstanou na tomto zařízení. Aplikaci můžete nadále používat offline.";
+"auth.word_lists_shared_data_cleared" = "Seznamy slov a sdílená data budou vymazána. Pokud se přihlásíte s jiným účtem, vaše lokální slova se sloučí s daty nového účtu.";
+"auth.sign_in_to_access_word_lists" = "Přihlaste se pro přístup k vašim seznamům slov na všech zařízeních a spolupráci s ostatními.";
+"auth.link_google" = "Propojit s Googlem";
+"auth.link_apple" = "Propojit s Apple";
+"auth.sign_in_to_sync_word_lists" = "Přihlásit se k synchronizaci seznamů slov";
+"auth.sign_out_error_title" = "Jejda!";
+"auth.sign_out_error_message" = "Při odhlašování došlo k chybě. Zkuste to znovu později.";
+"auth.sign_in_required_for_restore" = "Pro obnovení vašich nákupů je nutné se přihlásit.";
+"auth.sign_in_required_for_pro_features" = "Pro přístup k funkcím Pro, jako je %@, je nutné se přihlásit.";
+"auth.sign_in_failed" = "Přihlášení selhalo. Zkuste to znovu.";
+"auth.sign_out_failed" = "Odhlášení selhalo. Zkuste to znovu.";
+"auth.user_not_found" = "Uživatel nenalezen.";
+"auth.network_error" = "Chyba sítě. Zkontrolujte své připojení.";
+"auth.account_linking_failed" = "Propojení účtu selhalo. Zkuste to znovu.";
+
+// MARK: - Shared Dictionaries
+"shared_dictionaries.dictionary_selected" = "Slovník vybrán";
+"shared_dictionaries.name" = "Název";
+"shared_dictionaries.created" = "Vytvořeno";
+"shared_dictionaries.your_role" = "Vaše role";
+"shared_dictionaries.owner" = "Vlastník";
+"shared_dictionaries.editor" = "Editor";
+"shared_dictionaries.viewer" = "Divák";
+"shared_dictionaries.editor_description" = "Editor:";
+"shared_dictionaries.can_add_edit_delete_words" = "• Může přidávat, upravovat a mazat slova";
+"shared_dictionaries.can_invite_collaborators" = "• Může zvát další spolupracovníky";
+"shared_dictionaries.can_manage_dictionary_settings" = "• Může spravovat nastavení slovníku";
+"shared_dictionaries.viewer_description" = "Divák:";
+"shared_dictionaries.can_view_all_words" = "• Může zobrazit všechna slova";
+"shared_dictionaries.cannot_make_changes" = "• Nemůže provádět změny";
+"shared_dictionaries.cannot_invite_others" = "• Nemůže zvát ostatní";
+"shared_dictionaries.collaborator_added_email_name" = "Spolupracovník bude přidán s e-mailovou adresou a jménem, které zadáte. Musí se přihlásit se stejnou e-mailovou adresou, aby získal přístup ke sdílenému slovníku.";
+"shared_dictionaries.of_dictionary_created" = "z 1 vytvořeného slovníku";
+"shared_dictionaries.free_users_one_dictionary" = "Uživatelé bezplatného plánu mohou vytvořit 1 sdílený slovník";
+"shared_dictionaries.create_shared_dictionary" = "Vytvořte sdílený slovník pro spolupráci s ostatními";
+"shared_dictionaries.collaborate_others" = "Spolupracujte s ostatními";
+"shared_dictionaries.delete_dictionary" = "Smazat slovník";
+"shared_dictionaries.your_dictionaries" = "Vaše slovníky";
+"shared_dictionaries.no_shared_dictionaries" = "Žádné sdílené slovníky";
+"shared_dictionaries.create_shared_dictionary_collaborate" = "Vytvořte sdílený slovník pro spolupráci s ostatními";
+"shared_dictionaries.dictionaries" = "Slovníky";
+"shared_dictionaries.enter_dictionary_name" = "Zadejte název slovníku";
+"shared_dictionaries.new_shared_dictionary" = "Nový sdílený slovník";
+"shared_dictionaries.dictionary_name_required" = "Název slovníku je povinný";
+"shared_dictionaries.sign_in_to_create_shared_dictionary" = "Přihlaste se k vytvoření sdíleného slovníku";
+"shared_dictionaries.created_by" = "Vytvořil %@";
+"shared_dictionaries.no_words_yet" = "Zatím žádná slova";
+"shared_dictionaries.add_words_to_shared_dictionary" = "Přidejte slova do tohoto sdíleného slovníku, abyste začali";
+"shared_dictionaries.no_results" = "Žádné výsledky";
+"shared_dictionaries.no_words_match_filter" = "Žádná slova neodpovídají aktuálnímu filtru";
+"shared_dictionaries.dictionary_details" = "Podrobnosti slovníku";
+"shared_dictionaries.private_dictionary" = "Soukromý slovník";
+"shared_dictionaries.save_to_personal_dictionary" = "Uložit do vašeho osobního slovníku";
+"shared_dictionaries.collaborators_count" = "%d spolupracovníků";
+"shared_dictionaries.me" = "Já";
+"shared_dictionaries.dictionary_deleted_or_lost_access" = "Tento slovník mohl být smazán nebo jste ztratili přístup.";
+"shared_dictionaries.select_role" = "Vybrat roli";
+"shared_dictionaries.editor_role" = "Editor:";
+"shared_dictionaries.viewer_role" = "Divák:";
+"shared_dictionaries.collaborator_added_with_email_name" = "Spolupracovník bude přidán s e-mailovou adresou a jménem, které zadáte. Musí se přihlásit se stejnou e-mailovou adresou, aby získal přístup ke sdílenému slovníku.";
+"shared_dictionaries.be_first_to_rate_difficulty" = "Buďte první, kdo ohodnotí obtížnost tohoto slova";
+"shared_dictionaries.score" = "Skóre: %d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "Žádné sdílené slovníky";
+"shared_dictionaries.collaborative_features" = "Funkce spolupráce";
+"shared_dictionaries.your_score" = "Vaše skóre";
+"shared_dictionaries.your_status" = "Váš stav";
+"shared_dictionaries.average_score" = "Průměrné skóre";
+
+// MARK: - Tags Flow
+"tags.manage_tags" = "Spravovat štítky";
+"tags.tags_help_text" = "Štítky vám pomáhají organizovat slova. Každé slovo může mít až 5 štítků.";
+"tags.no_tags_yet" = "Zatím nebyly přidány žádné štítky";
+"tags.add_first_tag" = "Přidejte svůj první štítek kliknutím na tlačítko výše.";
+"tags.add_tag" = "Přidat štítek";
+"tags.add_first_tag_description" = "Přidejte svůj první štítek kliknutím na tlačítko výše.";
+"tags.add_tag_to_start_using" = "Přidejte štítek, abyste mohli začít používat.";
+"tags.add_tags" = "Přidat štítky";
+"tags.create_tags" = "Vytvořit štítky";
+"tags.delete_tag" = "Smazat štítek";
+"tags.delete_tag_confirmation" = "Jste si jisti, že chcete tento štítek smazat?";
+"tags.delete_tag_cannot_undo" = "Tato akce je nevratná.";
+"tags.tag_name" = "Název štítku";
+"tags.tag_name_help" = "Vyberte popisný název pro svůj štítek";
+"tags.type_tag_name" = "Zadejte název štítku...";
+"tags.tag_color" = "Barva štítku";
+"tags.tag_color_help" = "Vyberte barvu, která vám pomůže rozpoznat váš štítek";
+"tags.edit_tag" = "Upravit štítek";
+"tags.new_tag" = "Nový štítek";
+"tags.tag_management_error" = "Chyba správy štítků";
+
+// MARK: - Coffee Banner
+"coffee.buy_me_a_coffee" = "Kupte mi kávu";
+"coffee.maybe_later" = "Možná později";
+"coffee.enjoying_the_app" = "Líbí se vám tato aplikace?";
+"coffee.helpful_learning_journey" = "Pokud vám Můj slovník pomohl na vaší cestě učení, zvažte, že mě pozvete na kávu! ☕️";
+
+// MARK: - Paywall
+"paywall.terms_of_service" = "Podmínky služby";
+"paywall.privacy_policy" = "Zásady ochrany osobních údajů";
+"paywall.upgrade_to_pro" = "Upgradovat na Pro";
+"paywall.restore_purchases" = "Obnovit nákupy";
+"paywall.track_progress" = "Sledovat pokrok";
+"paywall.see_your_improvement" = "Podívejte se na své zlepšení";
+"paywall.collaborate" = "Spolupracovat";
+"paywall.learn_with_others" = "Učte se s ostatními";
+"paywall.everything_you_need_to_master_vocabulary" = "Vše, co potřebujete k zvládnutí slovní zásoby";
+"paywall.choose_your_plan" = "Vyberte svůj plán";
+"paywall.start_pro_subscription" = "Zahájit předplatné Pro";
+"paywall.trusted_by_learners_worldwide" = "Důvěřují mu studenti po celém světě";
+"paywall.app_store_rating" = "Hodnocení App Store";
+"paywall.active_users" = "Aktivní uživatelé";
+"paywall.words_added" = "Přidaná slova";
+"paywall.sign_in_required" = "Je vyžadováno přihlášení";
+"paywall.join_thousands_users" = "Připojte se k tisícům uživatelů, kteří transformovali své učení slovní zásoby";
+"paywall.by_subscribing_agree_terms" = "Předplatným souhlasíte s našimi Podmínkami služby a Zásadami ochrany osobních údajů";
+"paywall.pro_user" = "Pro uživatel";
+"paywall.free_plan" = "Bezplatný plán";
+"paywall.limited_features_available" = "Dostupné omezené funkce";
+"paywall.no_active_subscriptions_found" = "Nenalezeny žádné aktivní předplatné. Zkontrolujte svůj účet v App Store.";
+"paywall.failed_to_restore_purchases" = "Obnovení nákupů selhalo: %@";
+"paywall.save_percentage" = "Ušetřete %@";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nové";
+"difficulty.in_progress" = "Probíhá";
+"difficulty.needs_review" = "Vyžaduje opakování";
+"difficulty.mastered" = "Zvládnuto";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Nejnovější první";
+"sorting.earliest_first" = "Nejstarší první";
+"sorting.alphabetically" = "Abecedně";
+"sorting.by_part_of_speech" = "Podle slovního druhu";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatická detekce";
+
+// MARK: - Time Period
+"time_period.week" = "Týden";
+"time_period.month" = "Měsíc";
+"time_period.year" = "Rok";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Všechny výsledky";
+"quiz_results.no_quiz_results_yet" = "Zatím žádné výsledky kvízů";
+"quiz_results.quiz" = "Kvízy";
+"quiz_results.accuracy" = "Přesnost";
+"quiz_results.correct" = "Správně";
+"quiz_results.duration" = "Doba trvání";
+"quiz_results.time_period" = "Časové období";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkripce";
+"word_details.part_of_speech" = "Slovní druh";
+"word_details.definition" = "Definice";
+"word_details.difficulty" = "Obtížnost";
+"word_details.examples" = "Příklady";
+"word_details.edit_example" = "Upravit příklad";
+"word_details.example" = "Příklad";
+"word_details.type_example_here" = "Zde zadejte příklad";
+"word_details.add_example" = "Přidat příklad";
+"word_details.delete_word" = "Smazat slovo";
+"word_details.delete_failed" = "Smazání selhalo";
+
+// MARK: - Word List
+"word_list.all_words" = "Všechna slova";
+"word_list.favorite" = "Oblíbené";
+"word_list.manage_tags" = "Spravovat štítky";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Typy kvízů";
+"quiz_list.practice_settings" = "Nastavení cvičení";
+"quiz_list.configure_quiz_experience" = "Konfigurujte své zážitky z kvízu";
+"quiz_list.focus_on_words_need_review" = "Zaměřte se na slova, která potřebují opakování";
+"quiz_list.not_enough_words_review_yet" = "Zatím není dostatek slov k opakování";
+"quiz_list.add_words_to_shared_dictionary" = "Přidat slova do sdíleného slovníku";
+"quiz_list.add_your_first_word" = "Přidejte své první slovo";
+"quiz_list.add_more_words" = "Přidat další slova";
+"quiz_list.quizzes_help_test_knowledge" = "Kvízy pomáhají testovat vaše znalosti a posilují učení!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Chybí vám %d slov k odemčení kvízů!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Dokončit";
+"quiz_actions.next_word" = "Další slovo";
+"quiz_actions.submit_answer" = "Odeslat odpověď";
+"quiz_actions.number_of_words" = "Počet slov";
+"quiz_actions.no_difficult_words_available" = "Nejsou dostupná žádná obtížná slova pro kvíz";
+"quiz_actions.your_word_is" = "Vaše slovo je '%@'. Zkuste to více :)";
+"quiz_actions.try_harder" = "Zkuste to více :)";
+"quiz_actions.incorrect_try_again" = "Nesprávně. Zkuste to znovu";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Vybrat štítky";
+"tag_selection.no_tags_yet" = "Zatím nebyly přidány žádné štítky";
+"tag_selection.you_can_select_up_to_5_tags" = "Pro každé slovo můžete vybrat až 5 štítků. Klepnutím na štítek jej vyberte nebo zrušte výběr.";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Synchronizace s Google";
+"pro_features.unlimited_export" = "Neomezený export";
+"pro_features.create_shared_dictionaries" = "Vytvořit sdílené slovníky";
+"pro_features.advanced_analytics" = "Pokročilá analytika";
+"pro_features.priority_support" = "Prioritní podpora";
+"pro_features.pro_features" = "Pro funkce";
+"pro_features.tag_management" = "Správa štítků";
+"pro_features.sync_words_across_devices" = "Synchronizujte svá slova napříč zařízeními pomocí Google Drive";
+"pro_features.export_unlimited_words" = "Exportujte neomezený počet slov do CSV souborů";
+"pro_features.create_manage_shared_dictionaries" = "Vytvořte a spravujte sdílené slovníky s ostatními";
+"pro_features.detailed_insights" = "Získejte podrobné přehledy o svém pokroku v učení";
+"pro_features.priority_support_team" = "Získejte prioritní podporu od našeho týmu";
+"pro_features.unlock_all_pro_features" = "Odemkněte všechny funkce Pro";
+"pro_features.organize_words_with_tags" = "Organizujte svá slova pomocí vlastních štítků pro snadnější vyhledávání";
+"pro_features.detailed_progress_tracking" = "Podrobné sledování pokroku a přehledy";
+"pro_features.get_priority_support" = "Získejte prioritní podporu, když potřebujete pomoc";
+
+// MARK: - Error Messages
+"errors.error_updating_word_examples" = "Chyba při aktualizaci příkladů slova";
+"errors.error_removing_word" = "Chyba při odstraňování slova";
+"errors.error_saving_word" = "Chyba při ukládání slova";
+"errors.error_updating_idiom_examples" = "Chyba při aktualizaci příkladů idiomu";
+"errors.error_removing_idiom" = "Chyba při odstraňování idiomu";
+"errors.error_saving_idiom" = "Chyba při ukládání idiomu";
+"errors.input_not_word" = "Vstup není slovo";
+"errors.input_cannot_be_empty" = "Vstup nesmí být prázdný";
+"errors.device_muted_or_volume_low" = "Zařízení je ztlumeno nebo je hlasitost příliš nízká";
+"errors.cannot_play_audio" = "Nelze přehrát zvuk";
+"errors.cannot_setup_audio_session" = "Nelze nastavit zvukovou relaci";
+"errors.export_failed" = "Export selhal";
+"errors.import_failed" = "Import selhal";
+"errors.cannot_access_security_scoped_resource" = "Nelze přistupovat k prostředku omezenému bezpečností";
+"errors.tag_already_exists" = "Štítek již existuje";
+"errors.tag_already_assigned_to_word" = "Tento štítek je již přiřazen tomuto slovu";
+"errors.tag_not_assigned_to_word" = "Tento štítek není přiřazen tomuto slovu";
+"errors.authentication_required" = "Je vyžadována autentizace";
+"errors.no_active_subscriptions_found" = "Nenalezena žádná aktivní předplatná";
+"errors.failed_to_update_word_progress" = "Aktualizace pokroku slova selhala";
+"errors.failed_to_update_word_difficulty_level" = "Aktualizace úrovně obtížnosti slova selhala";
+"errors.failed_to_save_quiz_session" = "Uložení relace kvízu selhalo";
+"errors.failed_to_update_user_statistics" = "Aktualizace uživatelských statistik selhala";
+"errors.invalid_word_id" = "Neplatné ID slova";
+"errors.word_not_found" = "Slovo nenalezeno";
+"errors.failed_to_calculate_progress" = "Výpočet pokroku selhal";
+"errors.invalid_translation_url" = "Neplatná URL pro překlad";
+"errors.network_error_during_translation" = "Chyba sítě během překladu";
+"errors.invalid_response_from_translation_service" = "Neplatná odpověď od překladové služby";
+"errors.translation_failed" = "Překlad selhal";
+"errors.invalid_user_email" = "Neplatná e-mailová adresa uživatele";
+"errors.network_error_occurred" = "Došlo k chybě sítě";
+"errors.sync_failed" = "Synchronizace selhala";
+"errors.invalid_input_provided" = "Byl zadán neplatný vstup";
+"errors.dictionary_not_found" = "Slovník nenalezen";
+"errors.no_subscription_offerings_available" = "Momentálně nejsou k dispozici žádné nabídky předplatného";
+"errors.requested_subscription_package_not_found" = "Požadovaný balíček předplatného nebyl nalezen";
+"errors.purchase_could_not_be_completed" = "Nákup nemohl být dokončen";
+"errors.failed_to_restore_previous_purchases" = "Obnovení předchozích nákupů selhalo";
+"errors.no_offerings_available" = "Momentálně nejsou k dispozici žádné nabídky předplatného";
+"errors.package_not_found" = "Požadovaný balíček předplatného nebyl nalezen";
+"errors.purchase_failed" = "Nákup selhal";
+"errors.restore_failed" = "Obnovení předchozích nákupů selhalo";
+"errors.export_limit_exceeded" = "Překročeno omezení exportu. Upgradujte na Pro pro neomezený export.";
+"errors.max_tags_reached" = "Každé slovo může mít maximálně 5 štítků";
+"errors.tag_already_assigned" = "Tento štítek je již přiřazen tomuto slovu";
+"errors.tag_not_assigned" = "Tento štítek není přiřazen tomuto slovu";
+"errors.network_timeout" = "Časový limit sítě";
+"errors.server_unreachable" = "Server není dostupný";
+"errors.invalid_response" = "Neplatná odpověď";
+"errors.no_internet_connection" = "Žádné připojení k internetu";
+"errors.missing_api_key" = "Chybí API klíč";
+"errors.decoding_error" = "Chyba dekódování";
+"errors.invalid_url" = "Neplatná URL";
+"errors.no_data" = "Žádná data";
+"errors.save_failed" = "Uložení selhalo";
+"errors.read_failed" = "Čtení selhalo";
+"errors.data_corrupted" = "Data jsou poškozena";
+"errors.invalid_input" = "Neplatný vstup";
+"errors.missing_field" = "Chybí pole";
+"errors.unknown_error" = "Neznámá chyba";
+"errors.update_failed" = "Aktualizace selhala";
+"errors.delete_failed" = "Smazání selhalo";
+"errors.permission_denied" = "Nemáte oprávnění k provedení této akce";
+"errors.user_not_authenticated" = "Uživatel musí být autentizován";
+"errors.dictionary_limit_reached" = "S bezplatným plánem lze vytvořit pouze 1 sdílený slovník. Upgradujte na Pro pro neomezené sdílené slovníky.";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Zatím žádná slova";
+"empty_states.no_idioms_yet" = "Zatím žádné idiomy";
+"empty_states.no_favorite_words" = "Žádná oblíbená slova";
+"empty_states.no_search_results" = "Žádné výsledky hledání";
+"empty_states.start_improving_vocabulary" = "Začněte zlepšovat svou slovní zásobu přidáním prvního idiomu";
+"empty_states.tap_heart_icon_to_add_favorites" = "Klepnutím na ikonu srdce u jakéhokoli idiomu jej přidejte do oblíbených";
+"empty_states.try_different_search_term" = "Zkuste jiný vyhledávací termín nebo přidejte nový idiom";
+
+// MARK: - Notifications
+"notifications.time_to_practice" = "Čas na cvičení! 📚";
+"notifications.practice_vocabulary_today" = "Nezapomeňte dnes procvičovat svou slovní zásobu.";
+"notifications.practice_difficult_words" = "Procvičujte svá obtížná slova 📚";
+"notifications.difficult_words_challenge" = "Máte slova, která potřebují více cvičení. Připraveni na výzvu?";
+"notifications.test_dictionary_invitation" = "Pozvánka do testovacího slovníku";
+"notifications.test_dictionary_invitation_body" = "Někdo vás přidal do 'Testovacího slovníku'";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "Můj slovník";
+"macos.about_my_dictionary" = "O mém slovníku";
+"macos.debug_panel" = "Panel pro ladění";
+"macos.settings" = "Nastavení";
+"macos.about" = "O aplikaci";
+"macos.shared_dictionaries" = "Sdílené slovníky";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "Všechna slova";
+"filter_display.favorite" = "Oblíbené";
+"filter_display.search" = "Hledat";
+"filter_display.tag" = "Štítek";
+"filter_display.new" = "Nové";
+"filter_display.in_progress" = "Probíhá";
+"filter_display.needs_review" = "Vyžaduje opakování";
+"filter_display.mastered" = "Zvládnuto";
+"filter_display.no_words_yet" = "Zatím žádná slova";
+"filter_display.no_favorite_words" = "Žádná oblíbená slova";
+"filter_display.no_search_results" = "Žádné výsledky hledání";
+"filter_display.no_tagged_words" = "Žádná označená slova";
+"filter_display.no_new_words" = "Žádná nová slova";
+"filter_display.no_words_in_progress" = "Žádná slova v průběhu";
+"filter_display.no_words_need_review" = "Žádná slova vyžadující opakování";
+"filter_display.no_mastered_words" = "Žádná zvládnutá slova";
+"filter_display.start_building_vocabulary" = "Začněte budovat svou slovní zásobu přidáním prvního slova";
+"filter_display.tap_heart_icon_to_add_favorites" = "Klepnutím na ikonu srdce u jakéhokoli slova jej přidejte do oblíbených";
+"filter_display.try_different_search_term" = "Zkuste jiný vyhledávací termín nebo přidejte nové slovo";
+"filter_display.add_tags_to_organize" = "Přidejte štítky ke svým slovům pro lepší organizaci";
+"filter_display.new_words_appear_here" = "Nová slova se zde objeví, když je přidáte do svého seznamu";
+"filter_display.words_appear_here_as_you_practice" = "Slova se zde objeví, když je procvičujete v kvízech";
+"filter_display.words_need_more_practice" = "Slova, která potřebují více cvičení, se zde objeví";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Vlastník";
+"collaborator_roles.editor" = "Editor";
+"collaborator_roles.viewer" = "Divák";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Modrá";
+"tag_colors.red" = "Červená";
+"tag_colors.green" = "Zelená";
+"tag_colors.orange" = "Oranžová";
+"tag_colors.purple" = "Fialová";
+"tag_colors.pink" = "Růžová";
+"tag_colors.yellow" = "Žlutá";
+"tag_colors.gray" = "Šedá";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Vybrat slovník";
+"shared_dictionary_selection.dictionary_selected" = "Slovník vybrán";
+"shared_dictionary_selection.add_to_shared" = "Přidat do sdíleného";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Přidat slovo do sdíleného slovníku";
+"shared_dictionary_selection.unknown" = "Neznámý";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Upgradujte na Pro pro zobrazení úplných podrobností o pokroku.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgradujte na Pro pro zobrazení úplných podrobností o růstu slovní zásoby.";
+"pro_upgrade.time_period" = "Časové období";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Role";
+"collaborator_management.add_collaborator" = "Přidat spolupracovníka";
+"collaborator_management.email_address_required" = "E-mailová adresa je povinná";
+"collaborator_management.valid_email_address" = "Zadejte platnou e-mailovou adresu";
+"collaborator_management.make_viewer" = "Nastavit jako diváka";
+"collaborator_management.make_editor" = "Nastavit jako editora";
+"collaborator_management.remove" = "Odebrat";
+"collaborator_management.add" = "Přidat";
+"collaborator_management.delete_dictionary" = "Smazat slovník";
+"collaborator_management.delete_dictionary_confirmation" = "Jste si jisti, že chcete smazat tento sdílený slovník? Tato akce je nevratná.";
+"collaborator_management.stop_watching" = "Přestat sledovat";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Jste si jisti, že chcete přestat sledovat tento sdílený slovník?";
+"collaborator_management.stop_watching_dictionary" = "Přestat sledovat slovník";
+"collaborator_management.continue" = "Pokračovat";
+"collaborator_management.dictionary_not_found" = "Slovník nenalezen";
+"collaborator_management.dictionary_details" = "Podrobnosti slovníku";
+"collaborator_management.unknown" = "Neznámý";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Kvízy pravopisu";
+"quiz_types.choose_definition" = "Vybrat definici";
+"quiz_types.test_spelling_skills" = "Otestujte své pravopisné dovednosti správným psaním slov";
+"quiz_types.select_correct_definition" = "Vyberte správnou definici pro každé slovo";
+"quiz_types.great_job_completed_spelling_quiz" = "Skvělá práce! Dokončili jste kvíz pravopisu.";
+"quiz_types.great_job_completed_definition_quiz" = "Skvělá práce! Dokončili jste kvíz definic.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australský";
+"english_accents.canadian" = "Kanadský";
+"english_accents.british" = "Britský";
+"english_accents.indian" = "Indický";
+"english_accents.american" = "Americký";
+"english_accents.belgian" = "Belgický";
+"english_accents.singaporean" = "Singapurský";
+"english_accents.irish" = "Irský";
+"english_accents.south_african" = "Jihoafrický";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "Všechny idiomy";
+"idiom_filters.favorite" = "Oblíbené";
+"idiom_filters.search" = "Hledat";
+"idiom_filters.no_idioms_yet" = "Zatím žádné idiomy";
+"idiom_filters.no_favorite_words" = "Žádná oblíbená slova";
+"idiom_filters.no_search_results" = "Žádné výsledky hledání";
+"idiom_filters.start_improving_vocabulary" = "Začněte zlepšovat svou slovní zásobu přidáním prvního idiomu";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "Klepnutím na ikonu srdce u jakéhokoli idiomu jej přidejte do oblíbených";
+"idiom_filters.try_different_search_term" = "Zkuste jiný vyhledávací termín nebo přidejte nový idiom";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Podstatné jméno";
+"part_of_speech.full.verb" = "Sloveso";
+"part_of_speech.full.adjective" = "Přídavné jméno";
+"part_of_speech.full.adverb" = "Příslovce";
+"part_of_speech.full.conjunction" = "Spojka";
+"part_of_speech.full.pronoun" = "Zájmeno";
+"part_of_speech.full.preposition" = "Předložka";
+"part_of_speech.full.exclamation" = "Vykřičník";
+"part_of_speech.full.unknown" = "Neznámý";
+
+"part_of_speech.short.noun" = "Podst.";
+"part_of_speech.short.verb" = "Slov.";
+"part_of_speech.short.adjective" = "Příd.";
+"part_of_speech.short.adverb" = "Přísl.";
+"part_of_speech.short.conjunction" = "Spoj.";
+"part_of_speech.short.pronoun" = "Zájm.";
+"part_of_speech.short.preposition" = "Předl.";
+"part_of_speech.short.exclamation" = "Vykř.";
+"part_of_speech.short.unknown" = "Nezn.";

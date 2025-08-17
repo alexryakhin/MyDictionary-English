@@ -212,21 +212,36 @@ struct ChooseDefinitionQuizContentView: View {
                     .disabled(viewModel.answerFeedback != .none)
                 }
             }
-            
-            if case .incorrect = viewModel.answerFeedback {
+
+            switch viewModel.answerFeedback {
+            case .correct:
                 HStack {
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundStyle(.red)
-                    
-                    Text(Loc.Quizzes.incorrectMovingToNextQuestion.localized)
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundStyle(.accent)
+
+                    Text(Loc.Quizzes.correct.localized)
                         .font(.caption)
-                        .foregroundStyle(.red)
-                    
+                        .foregroundStyle(.accent)
+
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
-                .background(.red.opacity(0.2))
-                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .clippedWithBackground(.accent.opacity(0.2), cornerRadius: 8)
+            case .incorrect:
+                HStack {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundStyle(.red)
+
+                    Text(Loc.Quizzes.incorrectMovingToNextQuestion.localized)
+                        .font(.caption)
+                        .foregroundStyle(.red)
+
+                    Spacer()
+                }
+                .padding(vertical: 8, horizontal: 12)
+                .clippedWithBackground(.red.opacity(0.2), cornerRadius: 8)
+            default:
+                EmptyView()
             }
         }
         .padding(20)

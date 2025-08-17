@@ -72,6 +72,7 @@ struct SideBarView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
         .listStyle(.sidebar)
         .safeAreaInset(edge: .bottom) {
             VStack {

@@ -1,0 +1,864 @@
+/*
+  Localizable.strings (Vietnamese Translation)
+  My Dictionary
+
+  Translated on August 18, 2025.
+*/
+
+// MARK: - Tab Bar
+"tabbar.words" = "Từ vựng";
+"tabbar.idioms" = "Thành ngữ";
+"tabbar.quizzes" = "Bài kiểm tra";
+"tabbar.progress" = "Tiến độ";
+"tabbar.settings" = "Cài đặt";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Chi tiết từ";
+"navigation.idiom_details" = "Chi tiết thành ngữ";
+"navigation.add_tags" = "Thêm thẻ";
+"navigation.about" = "Giới thiệu";
+"navigation.debug_panel" = "Bảng gỡ lỗi";
+"navigation.quiz_results" = "Kết quả bài kiểm tra";
+"navigation.spelling_quiz" = "Bài kiểm tra chính tả";
+"navigation.definition_quiz" = "Bài kiểm tra định nghĩa";
+"navigation.close" = "Đóng";
+"navigation.close_screen" = "Đóng màn hình";
+
+// MARK: - Common Actions
+"actions.done" = "Xong";
+"actions.save" = "Lưu";
+"actions.save_word" = "Lưu từ";
+"actions.cancel" = "Hủy";
+"actions.confirm" = "Xác nhận";
+"actions.search" = "Tìm kiếm";
+"actions.delete" = "Xóa";
+"actions.edit" = "Chỉnh sửa";
+"actions.add" = "Thêm";
+"actions.next" = "Tiếp theo";
+"actions.back" = "Quay lại";
+"actions.exit" = "Thoát";
+"actions.ok" = "OK";
+"actions.yes" = "Có";
+"actions.no" = "Không";
+"actions.try_again" = "Thử lại";
+"actions.view_all" = "Xem tất cả";
+"actions.listen" = "Nghe";
+"actions.create" = "Tạo";
+"actions.manage" = "Quản lý";
+"actions.select" = "Chọn";
+"actions.select_word" = "Chọn từ";
+"actions.select_idiom" = "Chọn thành ngữ";
+"actions.select_quiz" = "Chọn bài kiểm tra";
+"actions.sign_out" = "Đăng xuất";
+"actions.sign_in" = "Đăng nhập";
+"actions.upgrade" = "Nâng cấp";
+"actions.learn_more" = "Tìm hiểu thêm";
+"actions.copy" = "Sao chép";
+"actions.refresh" = "Làm mới";
+"actions.clear" = "Xóa sạch";
+"actions.reset" = "Đặt lại";
+"actions.test" = "Kiểm tra";
+"actions.check" = "Kiểm tra";
+"actions.verify" = "Xác minh";
+"actions.show" = "Hiển thị";
+"actions.send" = "Gửi";
+"actions.request" = "Yêu cầu";
+"actions.sync" = "Đồng bộ";
+"actions.upload" = "Tải lên";
+"actions.download" = "Tải xuống";
+"actions.import_words" = "Nhập từ";
+"actions.export_words" = "Xuất từ";
+"actions.stop_watching" = "Ngừng theo dõi";
+"actions.make_viewer" = "Đặt làm người xem";
+"actions.make_editor" = "Đặt làm biên tập viên";
+"actions.remove" = "Xóa";
+"actions.skip_for_now" = "Bỏ qua tạm thời";
+"actions.link_google" = "Liên kết với Google";
+"actions.link_apple" = "Liên kết với Apple";
+"actions.toggle_like" = "Chuyển đổi thích";
+"actions.toggle_favorite" = "Chuyển đổi yêu thích";
+
+// MARK: - Onboarding
+"onboarding.welcome_to" = "Chào mừng đến với";
+"onboarding.my_dictionary" = "Từ điển của tôi";
+"onboarding.personal_vocabulary_companion" = "Người bạn đồng hành từ vựng cá nhân của bạn";
+"onboarding.build_your_vocabulary" = "Xây dựng vốn từ vựng của bạn";
+"onboarding.personalized_learning" = "Học tập cá nhân hóa";
+"onboarding.youre_all_set" = "Bạn đã sẵn sàng!";
+"onboarding.start_building_vocabulary" = "Hãy bắt đầu xây dựng vốn từ vựng của bạn ngay hôm nay và theo dõi sự phát triển kỹ năng ngôn ngữ của bạn.";
+"onboarding.get_started" = "Bắt đầu";
+"onboarding.next_step" = "Bước tiếp theo";
+"onboarding.personal_word_list" = "Danh sách từ cá nhân";
+"onboarding.create_organize_vocabulary" = "Tạo và sắp xếp vốn từ vựng của bạn với các định nghĩa và ví dụ tùy chỉnh";
+"onboarding.find_definitions" = "Tìm định nghĩa";
+"onboarding.comprehensive_definitions" = "Nhận định nghĩa toàn diện với nhiều ý nghĩa và ngữ cảnh";
+"onboarding.collect_idioms" = "Sưu tầm thành ngữ";
+"onboarding.learn_practice_idioms" = "Học và thực hành các thành ngữ và cụm từ từ khắp nơi trên thế giới";
+"onboarding.smart_quizzes" = "Bài kiểm tra thông minh";
+"onboarding.adaptive_quizzes" = "Bài kiểm tra thích ứng với tiến độ của bạn";
+"onboarding.progress_tracking" = "Theo dõi tiến độ";
+"onboarding.visual_insights" = "Thông tin trực quan về sự phát triển vốn từ vựng của bạn";
+"onboarding.collaborative_learning" = "Học tập cộng tác";
+"onboarding.share_dictionaries" = "Chia sẻ từ điển với bạn bè và gia đình";
+"onboarding.back" = "Quay lại";
+"onboarding.next" = "Tiếp theo";
+"onboarding.personal_word_list_description" = "Tạo và sắp xếp vốn từ vựng của bạn với các định nghĩa và ví dụ tùy chỉnh";
+"onboarding.find_definitions_description" = "Nhận định nghĩa toàn diện với nhiều ý nghĩa và ngữ cảnh";
+"onboarding.collect_idioms_description" = "Học và thực hành các thành ngữ và cụm từ từ khắp nơi trên thế giới";
+"onboarding.smart_quizzes_description" = "Bài kiểm tra thích ứng với tiến độ của bạn";
+"onboarding.progress_tracking_description" = "Thông tin trực quan về sự phát triển vốn từ vựng của bạn";
+"onboarding.collaborative_learning_description" = "Chia sẻ từ điển với bạn bè và gia đình";
+
+// MARK: - Words
+"words.add_word" = "Thêm từ";
+"words.add_your_first_word" = "Thêm từ đầu tiên của bạn";
+"words.add_more_words" = "Thêm nhiều từ hơn";
+"words.add_to_shared_dictionary" = "Thêm vào từ điển chia sẻ";
+"words.add_new_word" = "Thêm từ mới";
+"words.delete_word" = "Xóa từ";
+"words.delete_word_confirmation" = "Bạn có chắc chắn muốn xóa từ này không?";
+"words.transcription" = "Phiên âm";
+"words.part_of_speech" = "Loại từ";
+"words.definition" = "Định nghĩa";
+"words.difficulty" = "Độ khó";
+"words.language" = "Ngôn ngữ";
+"words.input_language" = "Ngôn ngữ đầu vào";
+"words.tags" = "Thẻ";
+"words.word" = "Từ";
+"words.words" = "Từ vựng";
+"words.create_tags" = "Tạo thẻ";
+"words.all_words" = "Tất cả từ";
+"words.favorite" = "Yêu thích";
+"words.favorite_words" = "Từ yêu thích";
+"words.search" = "Tìm kiếm";
+"words.search_words" = "Tìm kiếm từ...";
+"words.search_results" = "Kết quả tìm kiếm";
+"words.tag" = "Thẻ";
+"words.tagged_words" = "Từ được gắn thẻ";
+"words.new" = "Mới";
+"words.new_words" = "Từ mới";
+"words.in_progress" = "Đang học";
+"words.words_in_progress" = "Từ đang học";
+"words.needs_review" = "Cần ôn tập";
+"words.words_needing_review" = "Từ cần ôn tập";
+"words.mastered" = "Đã thành thạo";
+"words.mastered_words" = "Từ đã thành thạo";
+"words.sort" = "Sắp xếp";
+"words.filter" = "Lọc";
+"words.latest_first" = "Mới nhất trước";
+"words.earliest_first" = "Cũ nhất trước";
+"words.alphabetically" = "Theo thứ tự bảng chữ cái";
+"words.by_part_of_speech" = "Theo loại từ";
+"words.type_word" = "Nhập từ";
+"words.shared_dictionary" = "Từ điển chia sẻ";
+"words.private_dictionary" = "Từ điển cá nhân";
+"words.impressive_vocabulary" = "Vốn từ vựng ấn tượng!";
+"words.impressive_vocabulary_message" = "Bạn đã thu thập **%d từ**! Sự tận tụy của bạn với việc học thật đáng khâm phục.";
+"words.examples" = "Ví dụ";
+"words.no_examples_yet" = "Chưa có ví dụ";
+"words.type_example_here" = "Nhập ví dụ tại đây";
+"words.add_example" = "Thêm ví dụ";
+"words.edit_example" = "Chỉnh sửa ví dụ";
+"words.score" = "Điểm";
+"words.quiz_based" = "Dựa trên bài kiểm tra";
+"words.language" = "Ngôn ngữ";
+"words.no_tags_added_yet" = "Chưa có thẻ nào được thêm.";
+"words.add_tag" = "Thêm thẻ";
+"words.no_tags_selected" = "Chưa chọn thẻ";
+"words.error_loading_definitions" = "Lỗi khi tải định nghĩa. Vui lòng thử lại.";
+"words.type_word_and_press_search" = "Nhập một từ và nhấn 'Tìm kiếm' để tìm định nghĩa";
+"words.word_details" = "Chi tiết từ";
+"words.no_examples_yet" = "Chưa có ví dụ";
+"words.edit_example" = "Chỉnh sửa ví dụ";
+"words.no_transcription" = "Không có phiên âm";
+"words.no_definition" = "Không có định nghĩa";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Thêm thành ngữ";
+"idioms.add_new_idiom" = "Thêm thành ngữ mới";
+"idioms.idiom" = "Thành ngữ";
+"idioms.idioms" = "Thành ngữ";
+"idioms.no_idioms_found" = "Không tìm thấy thành ngữ";
+"idioms.add_this_idiom" = "Thêm thành ngữ này bằng cách nhấn vào nút ở trên";
+"idioms.begin_add_idioms" = "Bắt đầu thêm thành ngữ vào danh sách của bạn bằng cách nhấn vào biểu tượng dấu cộng ở góc trên bên trái";
+"idioms.all_idioms" = "Tất cả thành ngữ";
+"idioms.favorite_idioms" = "Thành ngữ yêu thích";
+"idioms.found_idioms" = "Thành ngữ được tìm thấy";
+"idioms.examples" = "Ví dụ";
+"idioms.no_examples_yet" = "Chưa có ví dụ";
+"idioms.type_example_here" = "Nhập ví dụ tại đây";
+"idioms.add_example" = "Thêm ví dụ";
+"idioms.edit_example" = "Chỉnh sửa ví dụ";
+"idioms.delete_idiom" = "Xóa thành ngữ";
+"idioms.delete_idiom_confirmation" = "Bạn có chắc chắn muốn xóa thành ngữ này không?";
+"idioms.search_idioms" = "Tìm kiếm thành ngữ...";
+"idioms.favorites" = "Yêu thích";
+"idioms.found" = "Tìm thấy";
+"idioms.sort" = "Sắp xếp";
+"idioms.filter" = "Lọc";
+"idioms.latest_first" = "Mới nhất trước";
+"idioms.earliest_first" = "Cũ nhất trước";
+"idioms.alphabetically" = "Theo thứ tự bảng chữ cái";
+
+// MARK: - Quizzes
+"quizzes.quiz_unavailable" = "Bài kiểm tra không khả dụng";
+"quizzes.back_to_quizzes" = "Quay lại bài kiểm tra";
+"quizzes.your_answer" = "Câu trả lời của bạn";
+"quizzes.submit_answer" = "Nộp câu trả lời";
+"quizzes.next_word" = "Từ tiếp theo";
+"quizzes.finish" = "Hoàn thành";
+"quizzes.your_results" = "Kết quả của bạn";
+"quizzes.final_score" = "Điểm cuối cùng";
+"quizzes.correct_answers" = "Câu trả lời đúng";
+"quizzes.best_streak" = "Chuỗi tốt nhất";
+"quizzes.accuracy" = "Độ chính xác";
+"quizzes.debug" = "Gỡ lỗi";
+"quizzes.choose_correct_definition" = "Chọn định nghĩa đúng";
+"quizzes.word" = "Từ";
+"quizzes.quiz_types" = "Loại bài kiểm tra";
+"quizzes.practice_settings" = "Cài đặt luyện tập";
+"quizzes.configure_quiz_experience" = "Tùy chỉnh trải nghiệm bài kiểm tra của bạn";
+"quizzes.practice_hard_words_only" = "Chỉ luyện tập từ khó";
+"quizzes.focus_words_need_review" = "Tập trung vào các từ cần ôn tập";
+"quizzes.not_enough_words_review" = "Không đủ từ để ôn tập";
+"quizzes.words_per_session" = "Số từ mỗi phiên";
+"quizzes.number_words" = "Số lượng từ";
+"quizzes.select_dictionary" = "Chọn từ điển";
+"quizzes.no_difficult_words_available" = "Không có từ khó nào để kiểm tra";
+"quizzes.spelling_quiz_description" = "Kiểm tra kỹ năng chính tả của bạn bằng cách viết đúng các từ";
+"quizzes.definition_quiz_description" = "Chọn định nghĩa đúng cho mỗi từ";
+"quizzes.progress" = "Tiến độ";
+"quizzes.streak" = "Chuỗi";
+"quizzes.score" = "Điểm";
+"quizzes.best" = "Tốt nhất";
+"quizzes.hint" = "Gợi ý";
+"quizzes.attempt" = "Lượt thử";
+"quizzes.correct" = "Đúng!";
+"quizzes.well_done" = "Làm tốt lắm!";
+"quizzes.keep_up_good_work" = "Tiếp tục làm tốt nhé!";
+"quizzes.correct_word_is" = "Từ đúng là '%@'. Từ tiếp theo...";
+"quizzes.moving_to_next_word" = "Chuyển sang từ tiếp theo...";
+"quizzes.incorrect" = "Sai";
+"quizzes.moving_to_next_question" = "Chuyển sang câu hỏi tiếp theo...";
+"quizzes.quiz_complete" = "Bài kiểm tra hoàn tất!";
+"quizzes.great_job_completed_spelling_quiz" = "Làm tốt lắm! Bạn đã hoàn thành bài kiểm tra chính tả.";
+"quizzes.great_job_completed_definition_quiz" = "Làm tốt lắm! Bạn đã hoàn thành bài kiểm tra định nghĩa.";
+"quizzes.skip_word" = "Bỏ qua từ (-2 điểm)";
+"quizzes.incorrect_moving_to_next_question" = "Sai! Chuyển sang câu hỏi tiếp theo...";
+"quizzes.contributions" = "Đóng góp";
+"quizzes.not_enough_words_available" = "Không đủ từ. Cần ít nhất %d từ để kiểm tra.";
+"quizzes.need_at_least_words" = "Cần ít nhất %d từ để kiểm tra.";
+"quizzes.shared_dictionary_needs_more_words" = "Từ điển chia sẻ cần thêm từ!";
+"quizzes.start_building_vocabulary" = "Bắt đầu xây dựng vốn từ vựng của bạn!";
+"quizzes.keep_adding_words" = "Tiếp tục thêm từ!";
+"quizzes.ask_dictionary_owner_add_words" = "Yêu cầu chủ từ điển thêm từ hoặc chọn một từ điển khác!";
+"quizzes.switch_different_dictionary" = "Chuyển sang từ điển khác!";
+"quizzes.add_words_to_shared_dictionary" = "Thêm từ vào từ điển chia sẻ";
+"quizzes.add_your_first_word" = "Thêm từ đầu tiên của bạn";
+"quizzes.add_more_words" = "Thêm nhiều từ hơn";
+"quizzes.you_can_practice_vocabulary" = "Bạn có thể luyện tập từ vựng hoặc chọn từ điển chia sẻ đã có từ.";
+"quizzes.select_shared_dictionary_populated" = "Chọn từ điển chia sẻ đã có từ.";
+"quizzes.number_words_practice_session" = "Số lượng từ mỗi phiên luyện tập (%d-%d)";
+"quizzes.min_words" = "%d";
+"quizzes.max_words" = "%d";
+"quizzes.shared_dictionary_needs_hard_words" = "Từ điển chia sẻ '%@' cần ít nhất 1 từ khó để luyện tập ở chế độ khó. Hiện tại có %d từ khó.";
+"quizzes.needs_at_least_words_start_quizzes" = "Từ điển chia sẻ '%@' cần ít nhất 10 từ để bắt đầu bài kiểm tra. Hiện tại có %d từ.";
+"quizzes.need_at_least_hard_word_practice" = "Cần ít nhất 1 từ khó để luyện tập ở chế độ khó. Hiện tại bạn có %d từ khó.";
+"quizzes.need_at_least_words_start_quizzes" = "Cần ít nhất 10 từ để bắt đầu bài kiểm tra. Hiện tại bạn có %d từ.";
+"quizzes.progress_format" = "Tiến độ: %d/%d";
+"quizzes.streak_format" = "🔥 Chuỗi: %d";
+"quizzes.score_format" = "Điểm: %d";
+"quizzes.best_format" = "Tốt nhất: %d";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "Yêu cầu chủ từ điển thêm từ hoặc chuyển sang từ điển khác!";
+
+// MARK: - App
+"app.my_dictionary" = "Từ điển của tôi";
+"app.loading" = "Đang tải...";
+"app.something_went_wrong" = "Có gì đó không ổn";
+"app.try_again" = "Thử lại";
+"app.error" = "Lỗi";
+"app.oops" = "Ồ!";
+"app.unknown" = "Không xác định";
+"app.retry" = "Thử lại";
+"app.add_example" = "Thêm ví dụ";
+"app.add_to_shared_dictionary" = "Thêm vào từ điển chia sẻ";
+"app.add_collaborator" = "Thêm cộng tác viên";
+"app.delete_dictionary" = "Xóa từ điển";
+"app.enter_definition" = "Nhập định nghĩa";
+"app.select_value" = "Chọn giá trị";
+"app.pronunciation" = "Phát âm";
+"app.tags" = "Thẻ";
+"app.select_definition" = "Chọn định nghĩa";
+"app.translating_word" = "Đang dịch từ...";
+"app.translating_definitions" = "Đang dịch định nghĩa...";
+"app.type_word_here" = "Nhập từ tại đây...";
+"app.email_address" = "Địa chỉ email";
+"app.name" = "Tên";
+"app.example" = "Ví dụ";
+"app.transcription" = "Phiên âm";
+"app.definition" = "Định nghĩa";
+"app.import_successful" = "Nhập thành công";
+"app.import_successful_message" = "%@ đã được nhập thành công";
+"app.no_words_imported" = "Không có từ nào được nhập";
+"app.no_words_imported_message" = "Không tìm thấy từ mới để nhập";
+"app.tag_management_error" = "Lỗi quản lý thẻ";
+"app.delete_tag" = "Xóa thẻ";
+"app.delete_tag_confirmation" = "Bạn có chắc chắn muốn xóa thẻ này không? Hành động này không thể hoàn tác.";
+"app.cant_share_word" = "Không thể chia sẻ từ";
+"app.collaborator_details" = "Chi tiết cộng tác viên";
+"app.role_permissions" = "Quyền vai trò";
+"app.note" = "Ghi chú";
+"app.dictionary_info" = "Thông tin từ điển";
+"app.collaborators" = "Cộng tác viên";
+"app.all_results" = "Tất cả kết quả";
+"app.part_of_speech" = "Loại từ";
+"app.language" = "Ngôn ngữ";
+"app.tag_name" = "Tên thẻ";
+"app.tag_color" = "Màu thẻ";
+"app.private_dictionary" = "Từ điển cá nhân";
+"app.shared_dictionaries" = "Từ điển chia sẻ";
+"app.about_my_dictionary" = "Giới thiệu về Từ điển của tôi";
+"app.debug_panel" = "Bảng gỡ lỗi";
+"app.word_starts_with" = "Từ bắt đầu bằng";
+"app.debug_info" = "Thông tin gỡ lỗi";
+"app.send_test_notification" = "Gửi thông báo kiểm tra";
+"app.enter_email_address" = "Nhập địa chỉ email";
+"app.enter_email_address_for_notification" = "Nhập địa chỉ email của người dùng mà bạn muốn gửi thông báo kiểm tra.";
+"app.user_information" = "Thông tin người dùng";
+
+// MARK: - Analytics
+"analytics.overview" = "Tổng quan";
+"analytics.recent_quiz_results" = "Kết quả bài kiểm tra gần đây";
+"analytics.no_quiz_results_yet" = "Chưa có kết quả bài kiểm tra";
+"analytics.complete_first_quiz" = "Hoàn thành bài kiểm tra đầu tiên để xem kết quả tại đây";
+"analytics.vocabulary_growth" = "Sự phát triển vốn từ vựng";
+"analytics.no_growth_data_yet" = "Chưa có dữ liệu tăng trưởng";
+"analytics.complete_quizzes_growth" = "Hoàn thành các bài kiểm tra để xem sự phát triển vốn từ vựng của bạn theo thời gian";
+"analytics.time_period" = "Khoảng thời gian";
+"analytics.week" = "Tuần";
+"analytics.month" = "Tháng";
+"analytics.year" = "Năm";
+"analytics.practice_time" = "Thời gian luyện tập";
+"analytics.sessions" = "Phiên";
+"analytics.all_results" = "Tất cả kết quả";
+"analytics.duration" = "Thời lượng";
+"analytics.loading_progress_data" = "Đang tải dữ liệu tiến độ...";
+"analytics.complete_first_quiz_results" = "Hoàn thành bài kiểm tra đầu tiên để xem kết quả tại đây";
+"analytics.complete_quizzes_growth_data" = "Hoàn thành các bài kiểm tra để xem sự phát triển vốn từ vựng của bạn theo thời gian";
+"analytics.last_time_period" = "%-Khoảng thời gian trước";
+"analytics.points" = "Điểm";
+"analytics.accuracy" = "Độ chính xác";
+"analytics.progress" = "Tiến độ";
+"analytics.streak" = "Chuỗi";
+"analytics.best" = "Tốt nhất";
+"analytics.score" = "Điểm";
+"analytics.correct_answers" = "Câu trả lời đúng";
+"analytics.words_played" = "Từ đã chơi";
+"analytics.total_questions" = "Tổng số câu hỏi";
+"analytics.difficulty_statistics" = "Thống kê độ khó";
+"analytics.individual_ratings" = "Xếp hạng cá nhân";
+"analytics.how_other_users_rate_difficulty" = "Người dùng khác đánh giá độ khó của từ này như thế nào";
+"analytics.no_difficulty_ratings_yet" = "Chưa có xếp hạng độ khó";
+"analytics.total_ratings" = "Tổng số xếp hạng";
+"analytics.view_detailed_statistics" = "Xem thống kê chi tiết";
+
+// MARK: - Settings
+"settings.translate_definitions" = "Dịch định nghĩa";
+"settings.show_definitions_native_language" = "Hiển thị định nghĩa bằng ngôn ngữ mẹ đẻ";
+"settings.accent" = "Giọng";
+"settings.select_accent" = "Chọn giọng";
+"settings.notifications" = "Thông báo";
+"settings.daily_reminders" = "Nhắc nhở hàng ngày";
+"settings.difficult_words" = "Từ khó";
+"settings.subscription" = "Gói đăng ký";
+"settings.pro_user" = "Người dùng Pro";
+"settings.free_plan" = "Gói miễn phí";
+"settings.limited_features_available" = "Tính năng hạn chế có sẵn";
+"settings.signed_in_as" = "Đăng nhập với tư cách";
+"settings.anonymous" = "Ẩn danh";
+"settings.upload_backup_google" = "Tải bản sao lưu lên Google";
+"settings.download_backup_google" = "Tải bản sao lưu từ Google";
+"settings.sign_in_sync_word_lists" = "Đăng nhập để đồng bộ danh sách từ";
+"settings.organization" = "Sắp xếp";
+"settings.show_idioms_tab" = "Hiển thị tab thành ngữ";
+"settings.shared_dictionaries" = "Từ điển chia sẻ";
+"settings.about_app" = "Giới thiệu ứng dụng";
+"settings.features" = "Tính năng";
+"settings.add_organize_words" = "Thêm và sắp xếp từ với định nghĩa";
+"settings.practice_quizzes_spelling" = "Luyện tập với các bài kiểm tra và chính tả";
+"settings.track_learning_progress" = "Theo dõi tiến độ học tập";
+"settings.import_export_word_collection" = "Nhập và xuất bộ sưu tập từ của bạn";
+"settings.customize_learning_experience" = "Tùy chỉnh trải nghiệm học tập của bạn";
+"settings.voice_pronunciation_support" = "Hỗ trợ phát âm bằng giọng nói";
+"settings.contact_me" = "Liên hệ với tôi";
+"settings.x_twitter" = "X (Twitter)";
+"settings.instagram" = "Instagram";
+"settings.support" = "Hỗ trợ";
+"settings.rate_app" = "Đánh giá ứng dụng";
+"settings.export_successful" = "Xuất thành công";
+"settings.upload_successful" = "Tải lên thành công";
+"settings.download_successful" = "Tải xuống thành công";
+"settings.daily_reminders_description" = "Nhận nhắc nhở lúc 20:00 nếu bạn chưa mở ứng dụng trong ngày";
+"settings.difficult_words_description" = "Nhận nhắc nhở lúc 16:00 để luyện tập các từ khó";
+"settings.free_users_export_limit" = "Người dùng gói miễn phí có thể xuất tối đa %d từ";
+"settings.app_version" = "Phiên bản ứng dụng:";
+"settings.about_app_description" = "Tôi đã tạo ứng dụng này vì tôi không thể tìm thấy thứ mình cần.\n\nĐây là một trình quản lý danh sách từ đơn giản cho phép bạn tìm kiếm từ và thêm định nghĩa mà không cần dịch sang ngôn ngữ mẹ đẻ.\n\nTôi tin rằng đây là cách tốt nhất để học tiếng Anh. Hy vọng bạn thấy nó hữu ích.\n\nNếu bạn có câu hỏi hoặc đề xuất tính năng, hãy liên hệ với tôi qua các liên kết dưới đây. Cảm ơn bạn đã sử dụng ứng dụng của tôi!";
+"settings.contact_support" = "Có câu hỏi, đề xuất hoặc phản hồi? Tôi rất muốn nghe ý kiến của bạn. Hãy liên hệ với đội hỗ trợ qua Instagram hoặc Twitter!";
+"settings.sign_out" = "Đăng xuất";
+"settings.upload_backup_to_google" = "Tải bản sao lưu lên Google";
+"settings.download_backup_from_google" = "Tải bản sao lưu từ Google";
+"settings.sign_in_to_sync_word_lists" = "Đăng nhập để đồng bộ danh sách từ";
+"settings.manage_tags" = "Quản lý thẻ";
+"settings.import_export" = "Nhập/Xuất";
+"settings.import_words" = "Nhập từ";
+"settings.export_words" = "Xuất từ";
+"settings.learn_more" = "Tìm hiểu thêm";
+"settings.export_words_title" = "Xuất từ";
+"settings.pro_upgrade_description" = "Nâng cấp lên Pro để có các tính năng không giới hạn và đồng bộ trên các thiết bị.";
+"settings.word_lists_and_sync" = "Danh sách từ và đồng bộ";
+"settings.manual_sync_mode_description" = "Chế độ đồng bộ thủ công: Sử dụng các nút dưới đây để tải lên/tải xuống danh sách từ lên Google. Có sẵn cho tất cả người dùng.";
+"settings.sign_in_to_create_share_word_lists" = "Đăng nhập để tạo và chia sẻ danh sách từ.";
+"settings.tag_management_description" = "Tạo và quản lý thẻ để sắp xếp từ và thêm cộng tác viên để chia sẻ từ.";
+"settings.import_export_note" = "Lưu ý: Nhập và xuất chỉ hoạt động với các tệp do ứng dụng này tạo ra.";
+"settings.buy_me_a_coffee" = "Mua cà phê cho tôi";
+
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Đăng nhập trước khi đăng ký";
+"auth.sign_in_with_google" = "Đăng nhập bằng Google";
+"auth.can_always_sign_in_later" = "Bạn luôn có thể đăng nhập sau qua trang cài đặt";
+"auth.link_additional_accounts" = "Liên kết tài khoản bổ sung";
+"auth.accounts_linked_successfully" = "Tài khoản đã được liên kết thành công";
+"auth.sign_out_confirmation" = "Đăng xuất";
+"auth.your_words_are_safe" = "Từ của bạn an toàn";
+"auth.cloud_sync_disabled" = "Đồng bộ đám mây sẽ bị tắt";
+"auth.sign_out" = "Đăng xuất";
+"auth.no_worries_wont_remove_words" = "Đừng lo! Chúng tôi sẽ không xóa từ của bạn.";
+"auth.vocabulary_stay_on_device" = "Vốn từ vựng của bạn sẽ vẫn ở trên thiết bị này. Nếu bạn đăng nhập bằng tài khoản khác, dữ liệu của bạn sẽ được hợp nhất.";
+"auth.all_vocabulary_remain_device" = "Tất cả từ, định nghĩa và tiến độ sẽ vẫn ở trên thiết bị này. Bạn có thể tiếp tục sử dụng ứng dụng mà không cần đăng nhập.";
+"auth.word_lists_shared_data_cleared" = "Danh sách từ và dữ liệu chia sẻ sẽ bị xóa. Nếu bạn đăng nhập bằng tài khoản khác, từ cục bộ của bạn sẽ được hợp nhất với dữ liệu của tài khoản mới.";
+"auth.sign_in_to_access_word_lists" = "Đăng nhập để truy cập danh sách từ của bạn trên tất cả thiết bị và cộng tác với người khác.";
+"auth.link_google" = "Liên kết với Google";
+"auth.link_apple" = "Liên kết với Apple";
+"auth.sign_in_to_sync_word_lists" = "Đăng nhập để đồng bộ danh sách từ";
+"auth.sign_out_error_title" = "Lỗi!";
+"auth.sign_out_error_message" = "Có lỗi xảy ra khi đăng xuất. Vui lòng thử lại sau.";
+"auth.sign_in_required_for_restore" = "Cần đăng nhập để khôi phục giao dịch mua.";
+"auth.sign_in_required_for_pro_features" = "Cần đăng nhập để truy cập các tính năng Pro, ví dụ như %@.";
+"auth.sign_in_failed" = "Đăng nhập thất bại. Vui lòng thử lại.";
+"auth.sign_out_failed" = "Đăng xuất thất bại. Vui lòng thử lại.";
+"auth.user_not_found" = "Không tìm thấy người dùng.";
+"auth.network_error" = "Lỗi mạng. Vui lòng kiểm tra kết nối của bạn.";
+"auth.account_linking_failed" = "Liên kết tài khoản thất bại. Vui lòng thử lại.";
+
+// MARK: - Shared Dictionaries
+"shared_dictionaries.dictionary_selected" = "Đã chọn từ điển";
+"shared_dictionaries.name" = "Tên";
+"shared_dictionaries.created" = "Đã tạo";
+"shared_dictionaries.your_role" = "Vai trò của bạn";
+"shared_dictionaries.owner" = "Chủ sở hữu";
+"shared_dictionaries.editor" = "Biên tập viên";
+"shared_dictionaries.viewer" = "Người xem";
+"shared_dictionaries.editor_description" = "Biên tập viên:";
+"shared_dictionaries.can_add_edit_delete_words" = "• Có thể thêm, chỉnh sửa và xóa từ";
+"shared_dictionaries.can_invite_collaborators" = "• Có thể mời cộng tác viên khác";
+"shared_dictionaries.can_manage_dictionary_settings" = "• Có thể quản lý cài đặt từ điển";
+"shared_dictionaries.viewer_description" = "Người xem:";
+"shared_dictionaries.can_view_all_words" = "• Có thể xem tất cả từ";
+"shared_dictionaries.cannot_make_changes" = "• Không thể thực hiện thay đổi";
+"shared_dictionaries.cannot_invite_others" = "• Không thể mời người khác";
+"shared_dictionaries.collaborator_added_email_name" = "Cộng tác viên sẽ được thêm bằng địa chỉ email và tên được chỉ định. Họ cần đăng nhập bằng cùng địa chỉ email để truy cập từ điển chia sẻ.";
+"shared_dictionaries.of_dictionary_created" = "của 1 từ điển đã tạo";
+"shared_dictionaries.free_users_one_dictionary" = "Người dùng gói miễn phí chỉ có thể tạo một từ điển chia sẻ";
+"shared_dictionaries.create_shared_dictionary" = "Tạo từ điển chia sẻ để cộng tác với người khác";
+"shared_dictionaries.collaborate_others" = "Cộng tác với người khác";
+"shared_dictionaries.delete_dictionary" = "Xóa từ điển";
+"shared_dictionaries.your_dictionaries" = "Từ điển của bạn";
+"shared_dictionaries.no_shared_dictionaries" = "Không có từ điển chia sẻ";
+"shared_dictionaries.create_shared_dictionary_collaborate" = "Tạo từ điển chia sẻ để cộng tác với người khác";
+"shared_dictionaries.dictionaries" = "Từ điển";
+"shared_dictionaries.enter_dictionary_name" = "Nhập tên từ điển";
+"shared_dictionaries.new_shared_dictionary" = "Từ điển chia sẻ mới";
+"shared_dictionaries.dictionary_name_required" = "Tên từ điển là bắt buộc";
+"shared_dictionaries.sign_in_to_create_shared_dictionary" = "Đăng nhập để tạo từ điển chia sẻ";
+"shared_dictionaries.created_by" = "Được tạo bởi %@";
+"shared_dictionaries.no_words_yet" = "Chưa có từ nào";
+"shared_dictionaries.add_words_to_shared_dictionary" = "Thêm từ vào từ điển chia sẻ này để bắt đầu";
+"shared_dictionaries.no_results" = "Không có kết quả";
+"shared_dictionaries.no_words_match_filter" = "Không có từ nào khớp với bộ lọc hiện tại";
+"shared_dictionaries.dictionary_details" = "Chi tiết từ điển";
+"shared_dictionaries.private_dictionary" = "Từ điển cá nhân";
+"shared_dictionaries.save_to_personal_dictionary" = "Lưu vào từ điển cá nhân";
+"shared_dictionaries.collaborators_count" = "%d cộng tác viên";
+"shared_dictionaries.me" = "Tôi";
+"shared_dictionaries.dictionary_deleted_or_lost_access" = "Từ điển này có thể đã bị xóa hoặc bạn đã mất quyền truy cập.";
+"shared_dictionaries.select_role" = "Chọn vai trò";
+"shared_dictionaries.editor_role" = "Biên tập viên:";
+"shared_dictionaries.viewer_role" = "Người xem:";
+"shared_dictionaries.collaborator_added_with_email_name" = "Cộng tác viên sẽ được thêm bằng địa chỉ email và tên được chỉ định. Họ cần đăng nhập bằng cùng địa chỉ email để truy cập từ điển chia sẻ.";
+"shared_dictionaries.be_first_to_rate_difficulty" = "Hãy là người đầu tiên đánh giá độ khó của từ này";
+"shared_dictionaries.score" = "Điểm: %d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "Không có từ điển chia sẻ";
+"shared_dictionaries.collaborative_features" = "Tính năng cộng tác";
+"shared_dictionaries.your_score" = "Điểm của bạn";
+"shared_dictionaries.your_status" = "Trạng thái của bạn";
+"shared_dictionaries.average_score" = "Điểm trung bình";
+
+// MARK: - Tags Flow
+"tags.manage_tags" = "Quản lý thẻ";
+"tags.tags_help_text" = "Thẻ giúp bạn sắp xếp từ của mình. Mỗi từ có thể có tối đa 5 thẻ.";
+"tags.no_tags_yet" = "Chưa có thẻ nào được thêm";
+"tags.add_first_tag" = "Thêm thẻ đầu tiên của bạn bằng cách nhấn vào nút ở trên";
+"tags.add_tag" = "Thêm thẻ";
+"tags.add_first_tag_description" = "Thêm thẻ đầu tiên của bạn bằng cách nhấn vào nút ở trên";
+"tags.add_tag_to_start_using" = "Thêm thẻ để bắt đầu sử dụng";
+"tags.add_tags" = "Thêm thẻ";
+"tags.create_tags" = "Tạo thẻ";
+"tags.delete_tag" = "Xóa thẻ";
+"tags.delete_tag_confirmation" = "Bạn có chắc chắn muốn xóa thẻ này không?";
+"tags.delete_tag_cannot_undo" = "Hành động này không thể hoàn tác.";
+"tags.tag_name" = "Tên thẻ";
+"tags.tag_name_help" = "Chọn một tên mô tả cho thẻ của bạn";
+"tags.type_tag_name" = "Nhập tên thẻ...";
+"tags.tag_color" = "Màu thẻ";
+"tags.tag_color_help" = "Chọn một màu để thẻ của bạn dễ nhận biết";
+"tags.edit_tag" = "Chỉnh sửa thẻ";
+"tags.new_tag" = "Thẻ mới";
+"tags.tag_management_error" = "Lỗi quản lý thẻ";
+
+// MARK: - Coffee Banner
+"coffee.buy_me_a_coffee" = "Mua cà phê cho tôi";
+"coffee.maybe_later" = "Có lẽ sau";
+"coffee.enjoying_the_app" = "Bạn có thích ứng dụng này không?";
+"coffee.helpful_learning_journey" = "Nếu Từ điển của tôi đã giúp ích cho hành trình học tập của bạn, hãy cân nhắc mua cho tôi một ly cà phê! ☕️";
+
+// MARK: - Paywall
+"paywall.terms_of_service" = "Điều khoản dịch vụ";
+"paywall.privacy_policy" = "Chính sách bảo mật";
+"paywall.upgrade_to_pro" = "Nâng cấp lên Pro";
+"paywall.restore_purchases" = "Khôi phục giao dịch mua";
+"paywall.track_progress" = "Theo dõi tiến độ";
+"paywall.see_your_improvement" = "Xem sự tiến bộ của bạn";
+"paywall.collaborate" = "Cộng tác";
+"paywall.learn_with_others" = "Học cùng người khác";
+"paywall.everything_you_need_to_master_vocabulary" = "Mọi thứ bạn cần để làm chủ vốn từ vựng";
+"paywall.choose_your_plan" = "Chọn gói của bạn";
+"paywall.start_pro_subscription" = "Bắt đầu gói Pro";
+"paywall.trusted_by_learners_worldwide" = "Được tin tưởng bởi học viên trên toàn thế giới";
+"paywall.app_store_rating" = "Xếp hạng App Store";
+"paywall.active_users" = "Người dùng hoạt động";
+"paywall.words_added" = "Từ đã thêm";
+"paywall.sign_in_required" = "Cần đăng nhập";
+"paywall.join_thousands_users" = "Tham gia cùng hàng ngàn người dùng đang chuyển đổi việc học từ vựng";
+"paywall.by_subscribing_agree_terms" = "Bằng cách đăng ký, bạn đồng ý với Điều khoản dịch vụ và Chính sách bảo mật của chúng tôi";
+"paywall.pro_user" = "Người dùng Pro";
+"paywall.free_plan" = "Gói miễn phí";
+"paywall.limited_features_available" = "Tính năng hạn chế có sẵn";
+"paywall.no_active_subscriptions_found" = "Không tìm thấy gói đăng ký hoạt động. Vui lòng kiểm tra tài khoản App Store của bạn.";
+"paywall.failed_to_restore_purchases" = "Khôi phục giao dịch mua thất bại: %@";
+"paywall.save_percentage" = "Tiết kiệm %@";
+
+// MARK: - Difficulty
+"difficulty.new" = "Mới";
+"difficulty.in_progress" = "Đang học";
+"difficulty.needs_review" = "Cần ôn tập";
+"difficulty.mastered" = "Đã thành thạo";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Mới nhất trước";
+"sorting.earliest_first" = "Cũ nhất trước";
+"sorting.alphabetically" = "Theo thứ tự bảng chữ cái";
+"sorting.by_part_of_speech" = "Theo loại từ";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Tự động phát hiện";
+
+// MARK: - Time Period
+"time_period.week" = "Tuần";
+"time_period.month" = "Tháng";
+"time_period.year" = "Năm";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Tất cả kết quả";
+"quiz_results.no_quiz_results_yet" = "Chưa có kết quả bài kiểm tra";
+"quiz_results.quiz" = "Bài kiểm tra";
+"quiz_results.accuracy" = "Độ chính xác";
+"quiz_results.correct" = "Đúng";
+"quiz_results.duration" = "Thời lượng";
+"quiz_results.time_period" = "Khoảng thời gian";
+
+// MARK: - Word Details
+"word_details.transcription" = "Phiên âm";
+"word_details.part_of_speech" = "Loại từ";
+"word_details.definition" = "Định nghĩa";
+"word_details.difficulty" = "Độ khó";
+"word_details.examples" = "Ví dụ";
+"word_details.edit_example" = "Chỉnh sửa ví dụ";
+"word_details.example" = "Ví dụ";
+"word_details.type_example_here" = "Nhập ví dụ tại đây";
+"word_details.add_example" = "Thêm ví dụ";
+"word_details.delete_word" = "Xóa từ";
+"word_details.delete_failed" = "Xóa thất bại";
+
+// MARK: - Word List
+"word_list.all_words" = "Tất cả từ";
+"word_list.favorite" = "Yêu thích";
+"word_list.manage_tags" = "Quản lý thẻ";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Loại bài kiểm tra";
+"quiz_list.practice_settings" = "Cài đặt luyện tập";
+"quiz_list.configure_quiz_experience" = "Tùy chỉnh trải nghiệm bài kiểm tra của bạn";
+"quiz_list.focus_on_words_need_review" = "Tập trung vào các từ cần ôn tập";
+"quiz_list.not_enough_words_review_yet" = "Không đủ từ để ôn tập";
+"quiz_list.add_words_to_shared_dictionary" = "Thêm từ vào từ điển chia sẻ";
+"quiz_list.add_your_first_word" = "Thêm từ đầu tiên của bạn";
+"quiz_list.add_more_words" = "Thêm nhiều từ hơn";
+"quiz_list.quizzes_help_test_knowledge" = "Các bài kiểm tra giúp bạn kiểm tra kiến thức và củng cố việc học!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Bạn còn thiếu %d từ để mở khóa bài kiểm tra!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Hoàn thành";
+"quiz_actions.next_word" = "Từ tiếp theo";
+"quiz_actions.submit_answer" = "Nộp câu trả lời";
+"quiz_actions.number_of_words" = "Số lượng từ";
+"quiz_actions.no_difficult_words_available" = "Không có từ khó nào để kiểm tra";
+"quiz_actions.your_word_is" = "Từ của bạn là '%@'. Hãy cố gắng hơn!";
+"quiz_actions.try_harder" = "Cố gắng hơn nữa!";
+"quiz_actions.incorrect_try_again" = "Sai. Thử lại";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Chọn thẻ";
+"tag_selection.no_tags_yet" = "Chưa có thẻ";
+"tag_selection.you_can_select_up_to_5_tags" = "Bạn có thể chọn tối đa 5 thẻ cho mỗi từ. Nhấn vào thẻ để chọn hoặc bỏ chọn.";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Đồng bộ với Google";
+"pro_features.unlimited_export" = "Xuất không giới hạn";
+"pro_features.create_shared_dictionaries" = "Tạo từ điển chia sẻ";
+"pro_features.advanced_analytics" = "Phân tích nâng cao";
+"pro_features.priority_support" = "Hỗ trợ ưu tiên";
+"pro_features.pro_features" = "Tính năng Pro";
+"pro_features.tag_management" = "Quản lý thẻ";
+"pro_features.sync_words_across_devices" = "Đồng bộ từ của bạn trên tất cả thiết bị với Google Drive";
+"pro_features.export_unlimited_words" = "Xuất số lượng từ không giới hạn sang tệp CSV";
+"pro_features.create_manage_shared_dictionaries" = "Tạo và quản lý từ điển chia sẻ với người khác";
+"pro_features.detailed_insights" = "Nhận thông tin chi tiết về tiến độ học tập của bạn";
+"pro_features.priority_support_team" = "Nhận hỗ trợ ưu tiên từ đội ngũ của chúng tôi";
+"pro_features.unlock_all_pro_features" = "Mở khóa tất cả tính năng Pro";
+"pro_features.organize_words_with_tags" = "Sắp xếp từ của bạn bằng thẻ tùy chỉnh để dễ dàng tìm kiếm";
+"pro_features.detailed_progress_tracking" = "Theo dõi tiến độ chi tiết và phân tích";
+"pro_features.get_priority_support" = "Nhận hỗ trợ ưu tiên khi bạn cần giúp đỡ";
+
+// MARK: - Error Messages
+"errors.error_updating_word_examples" = "Lỗi khi cập nhật ví dụ từ";
+"errors.error_removing_word" = "Lỗi khi xóa từ";
+"errors.error_saving_word" = "Lỗi khi lưu từ";
+"errors.error_updating_idiom_examples" = "Lỗi khi cập nhật ví dụ thành ngữ";
+"errors.error_removing_idiom" = "Lỗi khi xóa thành ngữ";
+"errors.error_saving_idiom" = "Lỗi khi lưu thành ngữ";
+"errors.input_not_word" = "Đầu vào không phải là từ";
+"errors.input_cannot_be_empty" = "Đầu vào không được để trống";
+"errors.device_muted_or_volume_low" = "Thiết bị đang ở chế độ im lặng hoặc âm lượng thấp";
+"errors.cannot_play_audio" = "Không thể phát âm thanh";
+"errors.cannot_setup_audio_session" = "Không thể thiết lập phiên âm thanh";
+"errors.export_failed" = "Xuất thất bại";
+"errors.import_failed" = "Nhập thất bại";
+"errors.cannot_access_security_scoped_resource" = "Không thể truy cập tài nguyên có phạm vi bảo mật";
+"errors.tag_already_exists" = "Thẻ đã tồn tại";
+"errors.tag_already_assigned_to_word" = "Thẻ này đã được gắn cho từ này";
+"errors.tag_not_assigned_to_word" = "Thẻ này chưa được gắn cho từ này";
+"errors.authentication_required" = "Cần xác thực";
+"errors.no_active_subscriptions_found" = "Không tìm thấy gói đăng ký hoạt động";
+"errors.failed_to_update_word_progress" = "Không thể cập nhật tiến độ từ";
+"errors.failed_to_update_word_difficulty_level" = "Không thể cập nhật mức độ khó của từ";
+"errors.failed_to_save_quiz_session" = "Không thể lưu phiên bài kiểm tra";
+"errors.failed_to_update_user_statistics" = "Không thể cập nhật thống kê người dùng";
+"errors.invalid_word_id" = "ID từ không hợp lệ";
+"errors.word_not_found" = "Không tìm thấy từ";
+"errors.failed_to_calculate_progress" = "Không thể tính toán tiến độ";
+"errors.invalid_translation_url" = "URL dịch không hợp lệ";
+"errors.network_error_during_translation" = "Lỗi mạng trong quá trình dịch";
+"errors.invalid_response_from_translation_service" = "Phản hồi không hợp lệ từ dịch vụ dịch";
+"errors.translation_failed" = "Dịch thất bại";
+"errors.invalid_user_email" = "Email người dùng không hợp lệ";
+"errors.network_error_occurred" = "Đã xảy ra lỗi mạng";
+"errors.sync_failed" = "Đồng bộ thất bại";
+"errors.invalid_input_provided" = "Đầu vào được cung cấp không hợp lệ";
+"errors.dictionary_not_found" = "Không tìm thấy từ điển";
+"errors.no_subscription_offerings_available" = "Hiện tại không có gói đăng ký nào khả dụng";
+"errors.requested_subscription_package_not_found" = "Không tìm thấy gói đăng ký được yêu cầu";
+"errors.purchase_could_not_be_completed" = "Không thể hoàn tất giao dịch mua";
+"errors.failed_to_restore_previous_purchases" = "Không thể khôi phục các giao dịch mua trước đó";
+"errors.no_offerings_available" = "Hiện tại không có gói đăng ký nào khả dụng";
+"errors.purchase_failed" = "Giao dịch mua thất bại";
+"errors.restore_failed" = "Khôi phục giao dịch mua trước đó thất bại";
+"errors.export_limit_exceeded" = "Đã vượt quá giới hạn xuất. Nâng cấp lên Pro để xuất không giới hạn.";
+"errors.max_tags_reached" = "Đã đạt giới hạn tối đa 5 thẻ cho mỗi từ";
+"errors.tag_already_assigned" = "Thẻ này đã được gắn cho từ này";
+"errors.tag_not_assigned" = "Thẻ này chưa được gắn cho từ này";
+"errors.network_timeout" = "Hết thời gian chờ mạng";
+"errors.server_unreachable" = "Không thể kết nối với máy chủ";
+"errors.invalid_response" = "Phản hồi không hợp lệ";
+"errors.no_internet_connection" = "Không có kết nối internet";
+"errors.missing_api_key" = "Thiếu khóa API";
+"errors.decoding_error" = "Lỗi giải mã";
+"errors.invalid_url" = "URL không hợp lệ";
+"errors.no_data" = "Không có dữ liệu";
+"errors.save_failed" = "Lưu thất bại";
+"errors.read_failed" = "Đọc thất bại";
+"errors.data_corrupted" = "Dữ liệu bị hỏng";
+"errors.invalid_input" = "Đầu vào không hợp lệ";
+"errors.missing_field" = "Thiếu trường";
+"errors.unknown_error" = "Lỗi không xác định";
+"errors.update_failed" = "Cập nhật thất bại";
+"errors.delete_failed" = "Xóa thất bại";
+"errors.permission_denied" = "Bạn không có quyền thực hiện hành động này";
+"errors.user_not_authenticated" = "Người dùng cần được xác thực";
+"errors.dictionary_limit_reached" = "Với gói miễn phí, bạn chỉ có thể tạo một từ điển chia sẻ. Nâng cấp lên Pro để tạo từ điển chia sẻ không giới hạn.";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Chưa có từ nào";
+"empty_states.no_idioms_yet" = "Chưa có thành ngữ nào";
+"empty_states.no_favorite_words" = "Chưa có từ yêu thích";
+"empty_states.no_search_results" = "Không có kết quả tìm kiếm";
+"empty_states.start_improving_vocabulary" = "Bắt đầu cải thiện vốn từ vựng của bạn bằng cách thêm thành ngữ đầu tiên";
+"empty_states.tap_heart_icon_to_add_favorites" = "Nhấn vào biểu tượng trái tim trên bất kỳ thành ngữ nào để thêm vào yêu thích";
+"empty_states.try_different_search_term" = "Thử một từ khóa tìm kiếm khác hoặc thêm thành ngữ mới";
+
+// MARK: - Notifications
+"notifications.time_to_practice" = "Đến giờ luyện tập! 📚";
+"notifications.practice_vocabulary_today" = "Đừng quên luyện tập vốn từ vựng của bạn hôm nay.";
+"notifications.practice_difficult_words" = "Luyện tập từ khó 📚";
+"notifications.difficult_words_challenge" = "Bạn có những từ cần luyện tập thêm. Sẵn sàng cho thử thách chưa?";
+"notifications.test_dictionary_invitation" = "Lời mời từ điển kiểm tra";
+"notifications.test_dictionary_invitation_body" = "Ai đó đã thêm bạn vào 'Từ điển kiểm tra'";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "Từ điển của tôi";
+"macos.about_my_dictionary" = "Giới thiệu về Từ điển của tôi";
+"macos.debug_panel" = "Bảng gỡ lỗi";
+"macos.settings" = "Cài đặt";
+"macos.about" = "Giới thiệu";
+"macos.shared_dictionaries" = "Từ điển chia sẻ";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "Tất cả từ";
+"filter_display.favorite" = "Yêu thích";
+"filter_display.search" = "Tìm kiếm";
+"filter_display.tag" = "Thẻ";
+"filter_display.new" = "Mới";
+"filter_display.in_progress" = "Đang học";
+"filter_display.needs_review" = "Cần ôn tập";
+"filter_display.mastered" = "Đã thành thạo";
+"filter_display.no_words_yet" = "Chưa có từ nào";
+"filter_display.no_favorite_words" = "Chưa có từ yêu thích";
+"filter_display.no_search_results" = "Không có kết quả tìm kiếm";
+"filter_display.no_tagged_words" = "Chưa có từ được gắn thẻ";
+"filter_display.no_new_words" = "Chưa có từ mới";
+"filter_display.no_words_in_progress" = "Chưa có từ đang học";
+"filter_display.no_words_need_review" = "Chưa có từ cần ôn tập";
+"filter_display.no_mastered_words" = "Chưa có từ đã thành thạo";
+"filter_display.start_building_vocabulary" = "Bắt đầu xây dựng vốn từ vựng của bạn bằng cách thêm từ đầu tiên";
+"filter_display.tap_heart_icon_to_add_favorites" = "Nhấn vào biểu tượng trái tim trên bất kỳ từ nào để thêm vào yêu thích";
+"filter_display.try_different_search_term" = "Thử một từ khóa tìm kiếm khác hoặc thêm từ mới";
+"filter_display.add_tags_to_organize" = "Thêm thẻ vào từ để sắp xếp tốt hơn";
+"filter_display.new_words_appear_here" = "Từ mới sẽ xuất hiện tại đây sau khi được thêm vào danh sách của bạn";
+"filter_display.words_appear_here_as_you_practice" = "Từ sẽ xuất hiện tại đây khi bạn luyện tập với các bài kiểm tra";
+"filter_display.words_need_more_practice" = "Từ cần luyện tập thêm sẽ xuất hiện tại đây";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Chủ sở hữu";
+"collaborator_roles.editor" = "Biên tập viên";
+"collaborator_roles.viewer" = "Người xem";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Xanh dương";
+"tag_colors.red" = "Đỏ";
+"tag_colors.green" = "Xanh lá";
+"tag_colors.orange" = "Cam";
+"tag_colors.purple" = "Tím";
+"tag_colors.pink" = "Hồng";
+"tag_colors.yellow" = "Vàng";
+"tag_colors.gray" = "Xám";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Chọn từ điển";
+"shared_dictionary_selection.dictionary_selected" = "Đã chọn từ điển";
+"shared_dictionary_selection.add_to_shared" = "Thêm vào chia sẻ";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Thêm từ vào từ điển chia sẻ";
+"shared_dictionary_selection.unknown" = "Không xác định";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Nâng cấp lên Pro để xem toàn bộ chi tiết tiến độ của bạn.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Nâng cấp lên Pro để xem toàn bộ chi tiết về sự phát triển vốn từ vựng của bạn.";
+"pro_upgrade.time_period" = "Khoảng thời gian";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Vai trò";
+"collaborator_management.add_collaborator" = "Thêm cộng tác viên";
+"collaborator_management.email_address_required" = "Yêu cầu địa chỉ email";
+"collaborator_management.valid_email_address" = "Nhập địa chỉ email hợp lệ";
+"collaborator_management.make_viewer" = "Đặt làm người xem";
+"collaborator_management.make_editor" = "Đặt làm biên tập viên";
+"collaborator_management.remove" = "Xóa";
+"collaborator_management.add" = "Thêm";
+"collaborator_management.delete_dictionary" = "Xóa từ điển";
+"collaborator_management.delete_dictionary_confirmation" = "Bạn có chắc chắn muốn xóa từ điển chia sẻ này không? Hành động này không thể hoàn tác.";
+"collaborator_management.stop_watching" = "Ngừng theo dõi";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Bạn có chắc chắn muốn ngừng theo dõi từ điển chia sẻ này không?";
+"collaborator_management.stop_watching_dictionary" = "Ngừng theo dõi từ điển";
+"collaborator_management.continue" = "Tiếp tục";
+"collaborator_management.dictionary_not_found" = "Không tìm thấy từ điển";
+"collaborator_management.dictionary_details" = "Chi tiết từ điển";
+"collaborator_management.unknown" = "Không xác định";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Bài kiểm tra chính tả";
+"quiz_types.choose_definition" = "Chọn định nghĩa";
+"quiz_types.test_spelling_skills" = "Kiểm tra kỹ năng chính tả của bạn bằng cách viết đúng các từ";
+"quiz_types.select_correct_definition" = "Chọn định nghĩa đúng cho mỗi từ";
+"quiz_types.great_job_completed_spelling_quiz" = "Làm tốt lắm! Bạn đã hoàn thành bài kiểm tra chính tả.";
+"quiz_types.great_job_completed_definition_quiz" = "Làm tốt lắm! Bạn đã hoàn thành bài kiểm tra định nghĩa.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Úc";
+"english_accents.canadian" = "Canada";
+"english_accents.british" = "Anh";
+"english_accents.indian" = "Ấn Độ";
+"english_accents.american" = "Mỹ";
+"english_accents.belgian" = "Bỉ";
+"english_accents.singaporean" = "Singapore";
+"english_accents.irish" = "Ireland";
+"english_accents.south_african" = "Nam Phi";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "Tất cả thành ngữ";
+"idiom_filters.favorite" = "Yêu thích";
+"idiom_filters.search" = "Tìm kiếm";
+"idiom_filters.no_idioms_yet" = "Chưa có thành ngữ nào";
+"idiom_filters.no_favorite_words" = "Chưa có từ yêu thích";
+"idiom_filters.no_search_results" = "Không có kết quả tìm kiếm";
+"idiom_filters.start_improving_vocabulary" = "Bắt đầu cải thiện vốn từ vựng của bạn bằng cách thêm thành ngữ đầu tiên";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "Nhấn vào biểu tượng trái tim trên bất kỳ thành ngữ nào để thêm vào yêu thích";
+"idiom_filters.try_different_search_term" = "Thử một từ khóa tìm kiếm khác hoặc thêm thành ngữ mới";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Danh từ";
+"part_of_speech.full.verb" = "Động từ";
+"part_of_speech.full.adjective" = "Tính từ";
+"part_of_speech.full.adverb" = "Trạng từ";
+"part_of_speech.full.conjunction" = "Liên từ";
+"part_of_speech.full.pronoun" = "Đại từ";
+"part_of_speech.full.preposition" = "Giới từ";
+"part_of_speech.full.exclamation" = "Cảm thán";
+"part_of_speech.full.unknown" = "Không xác định";
+
+"part_of_speech.short.noun" = "D.t.";
+"part_of_speech.short.verb" = "Đ.t.";
+"part_of_speech.short.adjective" = "T.t.";
+"part_of_speech.short.adverb" = "Tr.t.";
+"part_of_speech.short.conjunction" = "L.t.";
+"part_of_speech.short.pronoun" = "Đ.từ.";
+"part_of_speech.short.preposition" = "G.t.";
+"part_of_speech.short.exclamation" = "C.t.";
+"part_of_speech.short.unknown" = "K.xđ.";

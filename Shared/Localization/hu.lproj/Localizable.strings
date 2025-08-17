@@ -1,0 +1,864 @@
+/*
+  Localizable.strings (Hungarian Translation)
+  My Dictionary
+
+  Translated on August 17, 2025.
+*/
+
+// MARK: - Tab Bar
+"tabbar.words" = "Szavak";
+"tabbar.idioms" = "Kifejezések";
+"tabbar.quizzes" = "Kvizek";
+"tabbar.progress" = "Haladás";
+"tabbar.settings" = "Beállítások";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Szó részletei";
+"navigation.idiom_details" = "Kifejezés részletei";
+"navigation.add_tags" = "Címkék hozzáadása";
+"navigation.about" = "Az alkalmazásról";
+"navigation.debug_panel" = "Hibakereső panel";
+"navigation.quiz_results" = "Kviz eredmények";
+"navigation.spelling_quiz" = "Helyesírási kviz";
+"navigation.definition_quiz" = "Definíció kviz";
+"navigation.close" = "Bezárás";
+"navigation.close_screen" = "Képernyő bezárása";
+
+// MARK: - Common Actions
+"actions.done" = "Kész";
+"actions.save" = "Mentés";
+"actions.save_word" = "Szó mentése";
+"actions.cancel" = "Mégse";
+"actions.confirm" = "Megerősítés";
+"actions.search" = "Keresés";
+"actions.delete" = "Törlés";
+"actions.edit" = "Szerkesztés";
+"actions.add" = "Hozzáadás";
+"actions.next" = "Következő";
+"actions.back" = "Vissza";
+"actions.exit" = "Kilépés";
+"actions.ok" = "OK";
+"actions.yes" = "Igen";
+"actions.no" = "Nem";
+"actions.try_again" = "Próbáld újra";
+"actions.view_all" = "Összes megtekintése";
+"actions.listen" = "Meghallgatás";
+"actions.create" = "Létrehozás";
+"actions.manage" = "Kezelés";
+"actions.select" = "Kiválasztás";
+"actions.select_word" = "Szó kiválasztása";
+"actions.select_idiom" = "Kifejezés kiválasztása";
+"actions.select_quiz" = "Kviz kiválasztása";
+"actions.sign_out" = "Kijelentkezés";
+"actions.sign_in" = "Bejelentkezés";
+"actions.upgrade" = "Frissítés";
+"actions.learn_more" = "Tudj meg többet";
+"actions.copy" = "Másolás";
+"actions.refresh" = "Frissítés";
+"actions.clear" = "Törlés";
+"actions.reset" = "Visszaállítás";
+"actions.test" = "Teszt";
+"actions.check" = "Ellenőrzés";
+"actions.verify" = "Ellenőrzés";
+"actions.show" = "Megjelenítés";
+"actions.send" = "Küldés";
+"actions.request" = "Kérés";
+"actions.sync" = "Szinkronizálás";
+"actions.upload" = "Feltöltés";
+"actions.download" = "Letöltés";
+"actions.import_words" = "Szavak importálása";
+"actions.export_words" = "Szavak exportálása";
+"actions.stop_watching" = "Megfigyelés leállítása";
+"actions.make_viewer" = "Nézővé tétel";
+"actions.make_editor" = "Szerkesztővé tétel";
+"actions.remove" = "Eltávolítás";
+"actions.skip_for_now" = "Most kihagyás";
+"actions.link_google" = "Google összekapcsolása";
+"actions.link_apple" = "Apple összekapcsolása";
+"actions.toggle_like" = "Kedvelés váltása";
+"actions.toggle_favorite" = "Kedvenc váltása";
+
+// MARK: - Onboarding
+"onboarding.welcome_to" = "Üdvözöljük a";
+"onboarding.my_dictionary" = "Saját szótár";
+"onboarding.personal_vocabulary_companion" = "Személyes szókincs társad";
+"onboarding.build_your_vocabulary" = "Építsd fel a szókincsed";
+"onboarding.personalized_learning" = "Személyre szabott tanulás";
+"onboarding.youre_all_set" = "Minden kész!";
+"onboarding.start_building_vocabulary" = "Kezdj el ma szókincset építeni, és nézd, ahogy nyelvi készségeid fejlődnek.";
+"onboarding.get_started" = "Kezdés";
+"onboarding.next_step" = "Következő lépés";
+"onboarding.personal_word_list" = "Személyes szólista";
+"onboarding.create_organize_vocabulary" = "Hozd létre és rendezd szókincsgyűjteményedet egyedi definíciókkal és példákkal";
+"onboarding.find_definitions" = "Definíciók keresése";
+"onboarding.comprehensive_definitions" = "Átfogó definíciók több jelentéssel és kontextussal";
+"onboarding.collect_idioms" = "Kifejezések gyűjtése";
+"onboarding.learn_practice_idioms" = "Tanulj és gyakorolj kifejezéseket és szólásokat a világ minden tájáról";
+"onboarding.smart_quizzes" = "Okos kvizek";
+"onboarding.adaptive_quizzes" = "A haladásodhoz igazodó adaptív kvizek";
+"onboarding.progress_tracking" = "Haladás nyomon követése";
+"onboarding.visual_insights" = "Vizuális betekintés a szókincsed növekedéséről";
+"onboarding.collaborative_learning" = "Közös tanulás";
+"onboarding.share_dictionaries" = "Oszd meg szótáraidat barátaiddal és családoddal";
+"onboarding.back" = "Vissza";
+"onboarding.next" = "Következő";
+"onboarding.personal_word_list_description" = "Hozd létre és rendezd szókincsgyűjteményedet egyedi definíciókkal és példákkal";
+"onboarding.find_definitions_description" = "Átfogó definíciók több jelentéssel és kontextussal";
+"onboarding.collect_idioms_description" = "Tanulj és gyakorolj kifejezéseket és szólásokat a világ minden tájáról";
+"onboarding.smart_quizzes_description" = "A haladásodhoz igazodó adaptív kvizek";
+"onboarding.progress_tracking_description" = "Vizuális betekintés a szókincsed növekedéséről";
+"onboarding.collaborative_learning_description" = "Oszd meg szótáraidat barátaiddal és családoddal";
+
+// MARK: - Words
+"words.add_word" = "Szó hozzáadása";
+"words.add_your_first_word" = "Add hozzá az első szavad";
+"words.add_more_words" = "További szavak hozzáadása";
+"words.add_to_shared_dictionary" = "Hozzáadás a megosztott szótárhoz";
+"words.add_new_word" = "Új szó hozzáadása";
+"words.delete_word" = "Szó törlése";
+"words.delete_word_confirmation" = "Biztosan törölni szeretnéd ezt a szót?";
+"words.transcription" = "Átírás";
+"words.part_of_speech" = "Szófaj";
+"words.definition" = "Definíció";
+"words.difficulty" = "Nehézség";
+"words.language" = "Nyelv";
+"words.input_language" = "Bemeneti nyelv";
+"words.tags" = "Címkék";
+"words.word" = "Szó";
+"words.words" = "Szavak";
+"words.create_tags" = "Címkék létrehozása";
+"words.all_words" = "Összes szó";
+"words.favorite" = "Kedvenc";
+"words.favorite_words" = "Kedvenc szavak";
+"words.search" = "Keresés";
+"words.search_words" = "Szavak keresése...";
+"words.search_results" = "Keresési eredmények";
+"words.tag" = "Címke";
+"words.tagged_words" = "Címkézett szavak";
+"words.new" = "Új";
+"words.new_words" = "Új szavak";
+"words.in_progress" = "Folyamatban";
+"words.words_in_progress" = "Folyamatban lévő szavak";
+"words.needs_review" = "Felülvizsgálat szükséges";
+"words.words_needing_review" = "Felülvizsgálatra váró szavak";
+"words.mastered" = "Elsajátítva";
+"words.mastered_words" = "Elsajátított szavak";
+"words.sort" = "Rendezés";
+"words.filter" = "Szűrés";
+"words.latest_first" = "Legújabb először";
+"words.earliest_first" = "Legrégebbi először";
+"words.alphabetically" = "Betűrendben";
+"words.by_part_of_speech" = "Szófaj szerint";
+"words.type_word" = "Szó beírása";
+"words.shared_dictionary" = "Megosztott szótár";
+"words.private_dictionary" = "Privát szótár";
+"words.impressive_vocabulary" = "Lenyűgöző szókincs!";
+"words.impressive_vocabulary_message" = "**%d szót** gyűjtöttél össze! Az elhivatottságod a tanulás iránt inspiráló.";
+"words.examples" = "Példák";
+"words.no_examples_yet" = "Még nincsenek példák";
+"words.type_example_here" = "Írj ide egy példát";
+"words.add_example" = "Példa hozzáadása";
+"words.edit_example" = "Példa szerkesztése";
+"words.score" = "Pontszám";
+"words.quiz_based" = "Kviz alapú";
+"words.language" = "Nyelv";
+"words.no_tags_added_yet" = "Még nem adtál hozzá címkéket.";
+"words.add_tag" = "Címke hozzáadása";
+"words.no_tags_selected" = "Nincsenek kiválasztott címkék";
+"words.error_loading_definitions" = "Hiba történt a definíciók betöltésekor. Kérlek, próbáld újra.";
+"words.type_word_and_press_search" = "Írj be egy szót, és nyomd meg a 'Keresés' gombot a definíciók megtalálásához";
+"words.word_details" = "Szó részletei";
+"words.no_examples_yet" = "Még nincsenek példák";
+"words.edit_example" = "Példa szerkesztése";
+"words.no_transcription" = "Nincs átírás";
+"words.no_definition" = "Nincs definíció";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Kifejezés hozzáadása";
+"idioms.add_new_idiom" = "Új kifejezés hozzáadása";
+"idioms.idiom" = "Kifejezés";
+"idioms.idioms" = "Kifejezések";
+"idioms.no_idioms_found" = "Nem található kifejezés";
+"idioms.add_this_idiom" = "Add hozzá ezt a kifejezést a fenti gombra kattintva";
+"idioms.begin_add_idioms" = "Kezdj el kifejezéseket hozzáadni a listádhoz a bal felső sarokban lévő plusz ikonra kattintva";
+"idioms.all_idioms" = "Összes kifejezés";
+"idioms.favorite_idioms" = "Kedvenc kifejezések";
+"idioms.found_idioms" = "Talált kifejezések";
+"idioms.examples" = "Példák";
+"idioms.no_examples_yet" = "Még nincsenek példák";
+"idioms.type_example_here" = "Írj ide egy példát";
+"idioms.add_example" = "Példa hozzáadása";
+"idioms.edit_example" = "Példa szerkesztése";
+"idioms.delete_idiom" = "Kifejezés törlése";
+"idioms.delete_idiom_confirmation" = "Biztosan törölni szeretnéd ezt a kifejezést?";
+"idioms.search_idioms" = "Kifejezések keresése...";
+"idioms.favorites" = "Kedvencek";
+"idioms.found" = "Talált";
+"idioms.sort" = "Rendezés";
+"idioms.filter" = "Szűrés";
+"idioms.latest_first" = "Legújabb először";
+"idioms.earliest_first" = "Legrégebbi először";
+"idioms.alphabetically" = "Betűrendben";
+
+// MARK: - Quizzes
+"quizzes.quiz_unavailable" = "Kviz nem elérhető";
+"quizzes.back_to_quizzes" = "Vissza a kvizekhez";
+"quizzes.your_answer" = "Válaszod";
+"quizzes.submit_answer" = "Válasz elküldése";
+"quizzes.next_word" = "Következő szó";
+"quizzes.finish" = "Befejezés";
+"quizzes.your_results" = "Eredményeid";
+"quizzes.final_score" = "Végső pontszám";
+"quizzes.correct_answers" = "Helyes válaszok";
+"quizzes.best_streak" = "Legjobb sorozat";
+"quizzes.accuracy" = "Pontosság";
+"quizzes.debug" = "Hibakeresés";
+"quizzes.choose_correct_definition" = "Válaszd ki a helyes definíciót";
+"quizzes.word" = "Szó";
+"quizzes.quiz_types" = "Kviz típusok";
+"quizzes.practice_settings" = "Gyakorlási beállítások";
+"quizzes.configure_quiz_experience" = "Állítsd be a kviz élményedet";
+"quizzes.practice_hard_words_only" = "Csak nehéz szavak gyakorlása";
+"quizzes.focus_words_need_review" = "Fókuszálj a felülvizsgálatra váró szavakra";
+"quizzes.not_enough_words_review" = "Még nincs elég szó a felülvizsgálathoz";
+"quizzes.words_per_session" = "Szavak száma munkamenetenként";
+"quizzes.number_words" = "Szavak száma";
+"quizzes.select_dictionary" = "Szótár kiválasztása";
+"quizzes.no_difficult_words_available" = "Nincsenek nehéz szavak a kvizhez";
+"quizzes.spelling_quiz_description" = "Teszteld helyesírási készségeidet a szavak helyes leírásával";
+"quizzes.definition_quiz_description" = "Válaszd ki a helyes definíciót minden szóhoz";
+"quizzes.progress" = "Haladás";
+"quizzes.streak" = "Sorozat";
+"quizzes.score" = "Pontszám";
+"quizzes.best" = "Legjobb";
+"quizzes.hint" = "Tipp";
+"quizzes.attempt" = "Kísérlet";
+"quizzes.correct" = "Helyes!";
+"quizzes.well_done" = "Szép munka!";
+"quizzes.keep_up_good_work" = "Tartsd fenn a jó munkát!";
+"quizzes.correct_word_is" = "A helyes szó: '%@'. Tovább a következő szóra...";
+"quizzes.moving_to_next_word" = "Tovább a következő szóra...";
+"quizzes.incorrect" = "Helytelen";
+"quizzes.moving_to_next_question" = "Tovább a következő kérdésre...";
+"quizzes.quiz_complete" = "Kviz befejezve!";
+"quizzes.great_job_completed_spelling_quiz" = "Nagyszerű munka! Befejezted a helyesírási kvizt.";
+"quizzes.great_job_completed_definition_quiz" = "Nagyszerű munka! Befejezted a definíció kvizt.";
+"quizzes.skip_word" = "Szó kihagyása (-2 pont)";
+"quizzes.incorrect_moving_to_next_question" = "Helytelen! Tovább a következő kérdésre...";
+"quizzes.contributions" = "Hozzájárulások";
+"quizzes.not_enough_words_available" = "Nincs elég szó elérhető. A kvizhez legalább %d szó szükséges.";
+"quizzes.need_at_least_words" = "Legalább %d szó szükséges a kvizhez.";
+"quizzes.shared_dictionary_needs_more_words" = "A megosztott szótárhoz több szó szükséges!";
+"quizzes.start_building_vocabulary" = "Kezdj el szókincset építeni!";
+"quizzes.keep_adding_words" = "Folytasd a szavak hozzáadását!";
+"quizzes.ask_dictionary_owner_add_words" = "Kérd meg a szótár tulajdonosát, hogy adjon hozzá több szót, vagy válts másik szótárra!";
+"quizzes.switch_different_dictionary" = "Válts másik szótárra!";
+"quizzes.add_words_to_shared_dictionary" = "Szavak hozzáadása a megosztott szótárhoz";
+"quizzes.add_your_first_word" = "Add hozzá az első szavad";
+"quizzes.add_more_words" = "További szavak hozzáadása";
+"quizzes.you_can_practice_vocabulary" = "Gyakorolhatod a szókincsedet, vagy választhatsz egy már szavakkal teli megosztott szótárat.";
+"quizzes.select_shared_dictionary_populated" = "Válassz egy már szavakkal teli megosztott szótárat.";
+"quizzes.number_words_practice_session" = "Szavak száma gyakorlási munkamenetenként (%d-%d)";
+"quizzes.min_words" = "%d";
+"quizzes.max_words" = "%d";
+"quizzes.shared_dictionary_needs_hard_words" = "A '%@' megosztott szótárhoz legalább 1 nehéz szó szükséges a nehéz szavak módú gyakorláshoz. Jelenleg %d nehéz szó van benne.";
+"quizzes.needs_at_least_words_start_quizzes" = "A '%@' megosztott szótárhoz legalább 10 szó szükséges a kvizek elkezdéséhez. Jelenleg %d szó van benne.";
+"quizzes.need_at_least_hard_word_practice" = "Legalább 1 nehéz szó szükséges a nehéz szavak módú gyakorláshoz. Jelenleg %d nehéz szavad van.";
+"quizzes.need_at_least_words_start_quizzes" = "Legalább 10 szó szükséges a kvizek elkezdéséhez. Jelenleg %d szavad van.";
+"quizzes.progress_format" = "Haladás: %d/%d";
+"quizzes.streak_format" = "🔥 Sorozat: %d";
+"quizzes.score_format" = "Pontszám: %d";
+"quizzes.best_format" = "Legjobb: %d";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "Kérd meg a szótár tulajdonosát, hogy adjon hozzá több szót, vagy válts másik szótárra!";
+
+// MARK: - App
+"app.my_dictionary" = "Saját szótár";
+"app.loading" = "Betöltés...";
+"app.something_went_wrong" = "Valami hiba történt";
+"app.try_again" = "Próbáld újra";
+"app.error" = "Hiba";
+"app.oops" = "Hoppá!";
+"app.unknown" = "Ismeretlen";
+"app.retry" = "Újrapróbálás";
+"app.add_example" = "Példa hozzáadása";
+"app.add_to_shared_dictionary" = "Hozzáadás a megosztott szótárhoz";
+"app.add_collaborator" = "Kollaborátor hozzáadása";
+"app.delete_dictionary" = "Szótár törlése";
+"app.enter_definition" = "Definíció megadása";
+"app.select_value" = "Érték kiválasztása";
+"app.pronunciation" = "Kiejtés";
+"app.tags" = "Címkék";
+"app.select_definition" = "Definíció kiválasztása";
+"app.translating_word" = "Szó fordítása...";
+"app.translating_definitions" = "Definíciók fordítása...";
+"app.type_word_here" = "Írd ide a szót...";
+"app.email_address" = "E-mail cím";
+"app.name" = "Név";
+"app.example" = "Példa";
+"app.transcription" = "Átírás";
+"app.definition" = "Definíció";
+"app.import_successful" = "Importálás sikeres";
+"app.import_successful_message" = "%@ sikeresen importálva";
+"app.no_words_imported" = "Nem importáltak szavakat";
+"app.no_words_imported_message" = "Nem találtunk új szavakat importálásra";
+"app.tag_management_error" = "Címke kezelési hiba";
+"app.delete_tag" = "Címke törlése";
+"app.delete_tag_confirmation" = "Biztosan törölni szeretnéd ezt a címkét? Ez a művelet nem vonható vissza.";
+"app.cant_share_word" = "A szót nem lehet megosztani";
+"app.collaborator_details" = "Kollaborátor részletei";
+"app.role_permissions" = "Szerepkör engedélyek";
+"app.note" = "Megjegyzés";
+"app.dictionary_info" = "Szótár információ";
+"app.collaborators" = "Kollaborátorok";
+"app.all_results" = "Összes eredmény";
+"app.part_of_speech" = "Szófaj";
+"app.language" = "Nyelv";
+"app.tag_name" = "Címke neve";
+"app.tag_color" = "Címke színe";
+"app.private_dictionary" = "Privát szótár";
+"app.shared_dictionaries" = "Megosztott szótárak";
+"app.about_my_dictionary" = "A Saját szótárról";
+"app.debug_panel" = "Hibakereső panel";
+"app.word_starts_with" = "Szó kezdődik ezzel";
+"app.debug_info" = "Hibakeresési információ";
+"app.send_test_notification" = "Teszt értesítés küldése";
+"app.enter_email_address" = "Add meg az e-mail címet";
+"app.enter_email_address_for_notification" = "Add meg annak a felhasználónak az e-mail címét, akinek teszt értesítést szeretnél küldeni.";
+"app.user_information" = "Felhasználói információ";
+
+// MARK: - Analytics
+"analytics.overview" = "Áttekintés";
+"analytics.recent_quiz_results" = "Legutóbbi kviz eredmények";
+"analytics.no_quiz_results_yet" = "Még nincsenek kviz eredmények";
+"analytics.complete_first_quiz" = "Töltsd ki az első kvizedet, hogy itt lásd az eredményeket";
+"analytics.vocabulary_growth" = "Szókincs növekedés";
+"analytics.no_growth_data_yet" = "Még nincs növekedési adat";
+"analytics.complete_quizzes_growth" = "Tölts ki kvizeket, hogy lásd a szókincsed időbeli növekedését";
+"analytics.time_period" = "Időszak";
+"analytics.week" = "Hét";
+"analytics.month" = "Hónap";
+"analytics.year" = "Év";
+"analytics.practice_time" = "Gyakorlási idő";
+"analytics.sessions" = "Munkamenetek";
+"analytics.all_results" = "Összes eredmény";
+"analytics.duration" = "Időtartam";
+"analytics.loading_progress_data" = "Haladási adatok betöltése...";
+"analytics.complete_first_quiz_results" = "Töltsd ki az első kvizedet, hogy itt lásd az eredményeket";
+"analytics.complete_quizzes_growth_data" = "Tölts ki kvizeket, hogy lásd a szókincsed időbeli növekedését";
+"analytics.last_time_period" = "Utolsó %-időszak";
+"analytics.points" = "Pontok";
+"analytics.accuracy" = "Pontosság";
+"analytics.progress" = "Haladás";
+"analytics.streak" = "Sorozat";
+"analytics.best" = "Legjobb";
+"analytics.score" = "Pontszám";
+"analytics.correct_answers" = "Helyes válaszok";
+"analytics.words_played" = "Játszott szavak";
+"analytics.total_questions" = "Összes kérdés";
+"analytics.difficulty_statistics" = "Nehézségi statisztikák";
+"analytics.individual_ratings" = "Egyéni értékelések";
+"analytics.how_other_users_rate_difficulty" = "Hogyan értékelik más felhasználók ennek a szónak a nehézségét";
+"analytics.no_difficulty_ratings_yet" = "Még nincsenek nehézségi értékelések";
+"analytics.total_ratings" = "Összes értékelés";
+"analytics.view_detailed_statistics" = "Részletes statisztikák megtekintése";
+
+// MARK: - Settings
+"settings.translate_definitions" = "Definíciók fordítása";
+"settings.show_definitions_native_language" = "Definíciók megjelenítése az anyanyelveden";
+"settings.accent" = "Akcentus";
+"settings.select_accent" = "Akcentus kiválasztása";
+"settings.notifications" = "Értesítések";
+"settings.daily_reminders" = "Napi emlékeztetők";
+"settings.difficult_words" = "Nehéz szavak";
+"settings.subscription" = "Előfizetés";
+"settings.pro_user" = "Pro felhasználó";
+"settings.free_plan" = "Ingyenes csomag";
+"settings.limited_features_available" = "Korlátozott funkciók elérhetők";
+"settings.signed_in_as" = "Bejelentkezve mint";
+"settings.anonymous" = "Névtelen";
+"settings.upload_backup_google" = "Biztonsági mentés feltöltése Google-ra";
+"settings.download_backup_google" = "Biztonsági mentés letöltése Google-ról";
+"settings.sign_in_sync_word_lists" = "Jelentkezz be a szólisták szinkronizálásához";
+"settings.organization" = "Szervezés";
+"settings.show_idioms_tab" = "Kifejezések fül megjelenítése";
+"settings.shared_dictionaries" = "Megosztott szótárak";
+"settings.about_app" = "Az alkalmazásról";
+"settings.features" = "Funkciók";
+"settings.add_organize_words" = "Szavak hozzáadása és rendszerezése definíciókkal";
+"settings.practice_quizzes_spelling" = "Gyakorlás kvizekkel és helyesírási gyakorlatokkal";
+"settings.track_learning_progress" = "Tanulási haladás nyomon követése";
+"settings.import_export_word_collection" = "Szógyűjtemény importálása és exportálása";
+"settings.customize_learning_experience" = "Tanulási élmény testreszabása";
+"settings.voice_pronunciation_support" = "Kiejtési hang támogatása";
+"settings.contact_me" = "Kapcsolatfelvétel";
+"settings.x_twitter" = "X (Twitter)";
+"settings.instagram" = "Instagram";
+"settings.support" = "Támogatás";
+"settings.rate_app" = "Alkalmazás értékelése";
+"settings.export_successful" = "Exportálás sikeres";
+"settings.upload_successful" = "Feltöltés sikeres";
+"settings.download_successful" = "Letöltés sikeres";
+"settings.daily_reminders_description" = "Kapj emlékeztetőt 20:00-kor, ha aznap nem nyitottad meg az alkalmazást";
+"settings.difficult_words_description" = "Kapj emlékeztetőt 16:00-kor a nehéz szavak gyakorlására";
+"settings.free_users_export_limit" = "Ingyenes felhasználók legfeljebb %d szót exportálhatnak";
+"settings.app_version" = "Alkalmazás verzió:";
+"settings.about_app_description" = "Ezt az alkalmazást azért fejlesztettem, mert nem találtam, amit kerestem.\n\nEz egy egyszerű szólista kezelő, amely lehetővé teszi a szavak keresését és definícióik hozzáadását az anyanyelvi fordítás nélkül.\n\nSzerintem ez a legjobb módja az angol nyelv tanulásának. Remélem, hasznosnak találod.\n\nHa kérdésed van vagy funkciókat szeretnél javasolni, lépj kapcsolatba velem az alábbi linkeken keresztül. Köszönöm, hogy használod az alkalmazásomat!";
+"settings.contact_support" = "Kérdésed, javaslatod vagy visszajelzésed van? Örömmel hallanám. Lépj kapcsolatba a támogatással az Instagramon vagy Twitteren keresztül!";
+"settings.sign_out" = "Kijelentkezés";
+"settings.upload_backup_to_google" = "Biztonsági mentés feltöltése Google-ra";
+"settings.download_backup_from_google" = "Biztonsági mentés letöltése Google-ról";
+"settings.sign_in_to_sync_word_lists" = "Jelentkezz be a szólisták szinkronizálásához";
+"settings.manage_tags" = "Címkék kezelése";
+"settings.import_export" = "Importálás/Exportálás";
+"settings.import_words" = "Szavak importálása";
+"settings.export_words" = "Szavak exportálása";
+"settings.learn_more" = "Tudj meg többet";
+"settings.export_words_title" = "Szavak exportálása";
+"settings.pro_upgrade_description" = "Frissíts Pro-ra a korlátlan funkciókért és az eszközök közötti szinkronizálásért.";
+"settings.word_lists_and_sync" = "Szólisták és szinkronizálás";
+"settings.manual_sync_mode_description" = "Manuális szinkronizálási mód: Használd az alábbi gombokat a szólisták Google-ra történő fel- és letöltéséhez. Minden felhasználó számára elérhető.";
+"settings.sign_in_to_create_share_word_lists" = "Jelentkezz be a szólisták létrehozásához és megosztásához.";
+"settings.tag_management_description" = "Hozz létre és kezelj címkéket a szavaid rendszerezéséhez, és adj hozzá kollaborátorokat a szavak megosztásához.";
+"settings.import_export_note" = "Figyelmeztetés: az importálás és exportálás csak az alkalmazás által létrehozott fájlokkal működik.";
+"settings.buy_me_a_coffee" = "Vegyél nekem egy kávét";
+
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Jelentkezz be az előfizetés előtt";
+"auth.sign_in_with_google" = "Bejelentkezés Google-lal";
+"auth.can_always_sign_in_later" = "Később mindig bejelentkezhetsz a beállításokon keresztül";
+"auth.link_additional_accounts" = "További fiókok összekapcsolása";
+"auth.accounts_linked_successfully" = "Fiókok sikeresen összekapcsolva";
+"auth.sign_out_confirmation" = "Kijelentkezés";
+"auth.your_words_are_safe" = "A szavaid biztonságban vannak";
+"auth.cloud_sync_disabled" = "A felhőszinkronizálás le lesz tiltva";
+"auth.sign_out" = "Kijelentkezés";
+"auth.no_worries_wont_remove_words" = "Ne aggódj! Nem töröljük a szavaidat.";
+"auth.vocabulary_stay_on_device" = "A szókincsed ezen az eszközön marad. Ha másik fiókkal jelentkezel be, az adataid összevonásra kerülnek.";
+"auth.all_vocabulary_remain_device" = "Minden szavad, definíciód és haladásod ezen az eszközön marad. Folytathatod az alkalmazás használatát offline módban.";
+"auth.word_lists_shared_data_cleared" = "A szólisták és a megosztott adatok törlődnek. Ha másik fiókkal jelentkezel be, a helyi szavaid összevonásra kerülnek az új fiók adataival.";
+"auth.sign_in_to_access_word_lists" = "Jelentkezz be, hogy minden eszközödön hozzáférj a szólistáidhoz, és együttműködj másokkal.";
+"auth.link_google" = "Google összekapcsolása";
+"auth.link_apple" = "Apple összekapcsolása";
+"auth.sign_in_to_sync_word_lists" = "Jelentkezz be a szólisták szinkronizálásához";
+"auth.sign_out_error_title" = "Hoppá!";
+"auth.sign_out_error_message" = "Valami hiba történt a kijelentkezés során. Kérlek, próbáld újra később.";
+"auth.sign_in_required_for_restore" = "Bejelentkezés szükséges a vásárlások visszaállításához.";
+"auth.sign_in_required_for_pro_features" = "Bejelentkezés szükséges a Pro funkciók, például a(z) %@ eléréséhez.";
+"auth.sign_in_failed" = "A bejelentkezés sikertelen. Kérlek, próbáld újra.";
+"auth.sign_out_failed" = "A kijelentkezés sikertelen. Kérlek, próbáld újra.";
+"auth.user_not_found" = "Felhasználó nem található.";
+"auth.network_error" = "Hálózati hiba. Ellenőrizd a kapcsolatodat.";
+"auth.account_linking_failed" = "A fiók összekapcsolása sikertelen. Kérlek, próbáld újra.";
+
+// MARK: - Shared Dictionaries
+"shared_dictionaries.dictionary_selected" = "Szótár kiválasztva";
+"shared_dictionaries.name" = "Név";
+"shared_dictionaries.created" = "Létrehozva";
+"shared_dictionaries.your_role" = "Szerepköröd";
+"shared_dictionaries.owner" = "Tulajdonos";
+"shared_dictionaries.editor" = "Szerkesztő";
+"shared_dictionaries.viewer" = "Néző";
+"shared_dictionaries.editor_description" = "Szerkesztő:";
+"shared_dictionaries.can_add_edit_delete_words" = "• Szavakat adhat hozzá, szerkeszthet és törölhet";
+"shared_dictionaries.can_invite_collaborators" = "• További kollaborátorokat hívhat meg";
+"shared_dictionaries.can_manage_dictionary_settings" = "• Kezelheti a szótár beállításait";
+"shared_dictionaries.viewer_description" = "Néző:";
+"shared_dictionaries.can_view_all_words" = "• Az összes szót megtekintheti";
+"shared_dictionaries.cannot_make_changes" = "• Nem végezhet változtatásokat";
+"shared_dictionaries.cannot_invite_others" = "• Nem hívhat meg másokat";
+"shared_dictionaries.collaborator_added_email_name" = "A kollaborátor a megadott e-mail címmel és névvel kerül hozzáadásra. Ugyanezzel az e-mail címmel kell bejelentkeznie a megosztott szótár eléréséhez.";
+"shared_dictionaries.of_dictionary_created" = "1 létrehozott szótárból";
+"shared_dictionaries.free_users_one_dictionary" = "Ingyenes felhasználók egy megosztott szótárat hozhatnak létre";
+"shared_dictionaries.create_shared_dictionary" = "Hozz létre egy megosztott szótárat a másokkal való együttműködéshez";
+"shared_dictionaries.collaborate_others" = "Együttműködés másokkal";
+"shared_dictionaries.delete_dictionary" = "Szótár törlése";
+"shared_dictionaries.your_dictionaries" = "Szótáraid";
+"shared_dictionaries.no_shared_dictionaries" = "Nincsenek megosztott szótárak";
+"shared_dictionaries.create_shared_dictionary_collaborate" = "Hozz létre egy megosztott szótárat a másokkal való együttműködéshez";
+"shared_dictionaries.dictionaries" = "Szótárak";
+"shared_dictionaries.enter_dictionary_name" = "Add meg a szótár nevét";
+"shared_dictionaries.new_shared_dictionary" = "Új megosztott szótár";
+"shared_dictionaries.dictionary_name_required" = "A szótár neve kötelező";
+"shared_dictionaries.sign_in_to_create_shared_dictionary" = "Jelentkezz be egy megosztott szótár létrehozásához";
+"shared_dictionaries.created_by" = "%@ által létrehozva";
+"shared_dictionaries.no_words_yet" = "Még nincsenek szavak";
+"shared_dictionaries.add_words_to_shared_dictionary" = "Add hozzá a szavakat ehhez a megosztott szótárhoz a kezdéshez";
+"shared_dictionaries.no_results" = "Nincsenek eredmények";
+"shared_dictionaries.no_words_match_filter" = "Egyik szó sem felel meg az aktuális szűrőnek";
+"shared_dictionaries.dictionary_details" = "Szótár részletei";
+"shared_dictionaries.private_dictionary" = "Privát szótár";
+"shared_dictionaries.save_to_personal_dictionary" = "Mentés a személyes szótárba";
+"shared_dictionaries.collaborators_count" = "%d kollaborátor";
+"shared_dictionaries.me" = "Én";
+"shared_dictionaries.dictionary_deleted_or_lost_access" = "Ez a szótár törölve lett, vagy elvesztetted hozzá a hozzáférést.";
+"shared_dictionaries.select_role" = "Szerepkör kiválasztása";
+"shared_dictionaries.editor_role" = "Szerkesztő:";
+"shared_dictionaries.viewer_role" = "Néző:";
+"shared_dictionaries.collaborator_added_with_email_name" = "A kollaborátor a megadott e-mail címmel és névvel kerül hozzáadásra. Ugyanezzel az e-mail címmel kell bejelentkeznie a megosztott szótár eléréséhez.";
+"shared_dictionaries.be_first_to_rate_difficulty" = "Légy az első, aki értékeli ennek a szónak a nehézségét";
+"shared_dictionaries.score" = "Pontszám: %d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "Nincsenek megosztott szótárak";
+"shared_dictionaries.collaborative_features" = "Kollaboratív funkciók";
+"shared_dictionaries.your_score" = "Pontszámod";
+"shared_dictionaries.your_status" = "Állapotod";
+"shared_dictionaries.average_score" = "Átlagos pontszám";
+
+// MARK: - Tags Flow
+"tags.manage_tags" = "Címkék kezelése";
+"tags.tags_help_text" = "A címkék segítenek a szavaid rendszerezésében. Minden szóhoz legfeljebb 5 címke adható.";
+"tags.no_tags_yet" = "Még nem adtál hozzá címkéket";
+"tags.add_first_tag" = "Add hozzá az első címkédet a fenti gombra kattintva.";
+"tags.add_tag" = "Címke hozzáadása";
+"tags.add_first_tag_description" = "Add hozzá az első címkédet a fenti gombra kattintva.";
+"tags.add_tag_to_start_using" = "Adj hozzá egy címkét a használat megkezdéséhez.";
+"tags.add_tags" = "Címkék hozzáadása";
+"tags.create_tags" = "Címkék létrehozása";
+"tags.delete_tag" = "Címke törlése";
+"tags.delete_tag_confirmation" = "Biztosan törölni szeretnéd ezt a címkét?";
+"tags.delete_tag_cannot_undo" = "Ez a művelet nem vonható vissza.";
+"tags.tag_name" = "Címke neve";
+"tags.tag_name_help" = "Válassz leíró nevet a címkédhez";
+"tags.type_tag_name" = "Írd be a címke nevét...";
+"tags.tag_color" = "Címke színe";
+"tags.tag_color_help" = "Válassz színt, hogy a címkéd könnyen felismerhető legyen";
+"tags.edit_tag" = "Címke szerkesztése";
+"tags.new_tag" = "Új címke";
+"tags.tag_management_error" = "Címke kezelési hiba";
+
+// MARK: - Coffee Banner
+"coffee.buy_me_a_coffee" = "Vegyél nekem egy kávét";
+"coffee.maybe_later" = "Talán később";
+"coffee.enjoying_the_app" = "Élvezed az alkalmazást?";
+"coffee.helpful_learning_journey" = "Ha a Saját szótár segített a tanulási utadon, fontold meg, hogy vegyél nekem egy kávét! ☕️";
+
+// MARK: - Paywall
+"paywall.terms_of_service" = "Szolgáltatási feltételek";
+"paywall.privacy_policy" = "Adatvédelmi irányelvek";
+"paywall.upgrade_to_pro" = "Frissítés Pro-ra";
+"paywall.restore_purchases" = "Vásárlások visszaállítása";
+"paywall.track_progress" = "Haladás nyomon követése";
+"paywall.see_your_improvement" = "Lásd a fejlődésedet";
+"paywall.collaborate" = "Együttműködés";
+"paywall.learn_with_others" = "Tanulj másokkal";
+"paywall.everything_you_need_to_master_vocabulary" = "Minden, amire szükséged van a szókincsed elsajátításához";
+"paywall.choose_your_plan" = "Válaszd ki a tervedet";
+"paywall.start_pro_subscription" = "Pro előfizetés indítása";
+"paywall.trusted_by_learners_worldwide" = "Tanulók világszerte megbíznak benne";
+"paywall.app_store_rating" = "App Store értékelés";
+"paywall.active_users" = "Aktív felhasználók";
+"paywall.words_added" = "Hozzáadott szavak";
+"paywall.sign_in_required" = "Bejelentkezés szükséges";
+"paywall.join_thousands_users" = "Csatlakozz több ezer felhasználóhoz, akik megváltoztatták a szókincstanulásukat";
+"paywall.by_subscribing_agree_terms" = "Az előfizetéssel elfogadod a szolgáltatási feltételeinket és adatvédelmi irányelveinket";
+"paywall.pro_user" = "Pro felhasználó";
+"paywall.free_plan" = "Ingyenes csomag";
+"paywall.limited_features_available" = "Korlátozott funkciók elérhetők";
+"paywall.no_active_subscriptions_found" = "Nem találtunk aktív előfizetéseket. Ellenőrizd az App Store fiókodat.";
+"paywall.failed_to_restore_purchases" = "A vásárlások visszaállítása sikertelen: %@";
+"paywall.save_percentage" = "%@ megtakarítás";
+
+// MARK: - Difficulty
+"difficulty.new" = "Új";
+"difficulty.in_progress" = "Folyamatban";
+"difficulty.needs_review" = "Felülvizsgálat szükséges";
+"difficulty.mastered" = "Elsajátítva";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Legújabb először";
+"sorting.earliest_first" = "Legrégebbi először";
+"sorting.alphabetically" = "Betűrendben";
+"sorting.by_part_of_speech" = "Szófaj szerint";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatikus felismerés";
+
+// MARK: - Time Period
+"time_period.week" = "Hét";
+"time_period.month" = "Hónap";
+"time_period.year" = "Év";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Összes eredmény";
+"quiz_results.no_quiz_results_yet" = "Még nincsenek kviz eredmények";
+"quiz_results.quiz" = "Kviz";
+"quiz_results.accuracy" = "Pontosság";
+"quiz_results.correct" = "Helyes";
+"quiz_results.duration" = "Időtartam";
+"quiz_results.time_period" = "Időszak";
+
+// MARK: - Word Details
+"word_details.transcription" = "Átírás";
+"word_details.part_of_speech" = "Szófaj";
+"word_details.definition" = "Definíció";
+"word_details.difficulty" = "Nehézség";
+"word_details.examples" = "Példák";
+"word_details.edit_example" = "Példa szerkesztése";
+"word_details.example" = "Példa";
+"word_details.type_example_here" = "Írj ide egy példát";
+"word_details.add_example" = "Példa hozzáadása";
+"word_details.delete_word" = "Szó törlése";
+"word_details.delete_failed" = "Törlés sikertelen";
+
+// MARK: - Word List
+"word_list.all_words" = "Összes szó";
+"word_list.favorite" = "Kedvenc";
+"word_list.manage_tags" = "Címkék kezelése";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Kviz típusok";
+"quiz_list.practice_settings" = "Gyakorlási beállítások";
+"quiz_list.configure_quiz_experience" = "Állítsd be a kviz élményedet";
+"quiz_list.focus_on_words_need_review" = "Fókuszálj a felülvizsgálatra váró szavakra";
+"quiz_list.not_enough_words_review_yet" = "Még nincs elég szó a felülvizsgálathoz";
+"quiz_list.add_words_to_shared_dictionary" = "Szavak hozzáadása a megosztott szótárhoz";
+"quiz_list.add_your_first_word" = "Add hozzá az első szavad";
+"quiz_list.add_more_words" = "További szavak hozzáadása";
+"quiz_list.quizzes_help_test_knowledge" = "A kvizek segítenek tesztelni a tudásodat és erősíteni a tanulásodat!";
+"quiz_list.words_away_from_unlocking_quizzes" = "%d szóra vagy a kvizek feloldásától!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Befejezés";
+"quiz_actions.next_word" = "Következő szó";
+"quiz_actions.submit_answer" = "Válasz elküldése";
+"quiz_actions.number_of_words" = "Szavak száma";
+"quiz_actions.no_difficult_words_available" = "Nincsenek nehéz szavak a kvizhez";
+"quiz_actions.your_word_is" = "A szavad: '%@'. Javíts rajta :)";
+"quiz_actions.try_harder" = "Próbáld keményebben :)";
+"quiz_actions.incorrect_try_again" = "Helytelen. Próbáld újra";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Címkék kiválasztása";
+"tag_selection.no_tags_yet" = "Még nincsenek címkék";
+"tag_selection.you_can_select_up_to_5_tags" = "Szavonként legfeljebb 5 címkét választhatsz ki. Kattints egy címkére a kiválasztáshoz vagy a kiválasztás megszüntetéséhez.";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google szinkronizálás";
+"pro_features.unlimited_export" = "Korlátlan exportálás";
+"pro_features.create_shared_dictionaries" = "Megosztott szótárak létrehozása";
+"pro_features.advanced_analytics" = "Haladó analitikák";
+"pro_features.priority_support" = "Elsőbbségi támogatás";
+"pro_features.pro_features" = "Pro funkciók";
+"pro_features.tag_management" = "Címke kezelés";
+"pro_features.sync_words_across_devices" = "Szinkronizáld a szavaidat minden eszközödön a Google Drive-val";
+"pro_features.export_unlimited_words" = "Exportálj korlátlan számú szót CSV fájlokba";
+"pro_features.create_manage_shared_dictionaries" = "Hozz létre és kezelj megosztott szótárakat másokkal";
+"pro_features.detailed_insights" = "Részletes betekintés a tanulási haladásodba";
+"pro_features.priority_support_team" = "Elsőbbségi támogatás a csapatunktól";
+"pro_features.unlock_all_pro_features" = "Oldd fel az összes Pro funkciót";
+"pro_features.organize_words_with_tags" = "Rendezd szavaidat egyedi címkékkel a könnyebb keresés érdekében";
+"pro_features.detailed_progress_tracking" = "Részletes haladás nyomon követése és betekintések";
+"pro_features.get_priority_support" = "Kapj elsőbbségi támogatást, amikor segítségre van szükséged";
+
+// MARK: - Error Messages
+"errors.error_updating_word_examples" = "Hiba történt a szó példáinak frissítésekor";
+"errors.error_removing_word" = "Hiba történt a szó eltávolításakor";
+"errors.error_saving_word" = "Hiba történt a szó mentésekor";
+"errors.error_updating_idiom_examples" = "Hiba történt a kifejezés példáinak frissítésekor";
+"errors.error_removing_idiom" = "Hiba történt a kifejezés eltávolításakor";
+"errors.error_saving_idiom" = "Hiba történt a kifejezés mentésekor";
+"errors.input_not_word" = "A bemenet nem szó";
+"errors.input_cannot_be_empty" = "A bemenet nem lehet üres";
+"errors.device_muted_or_volume_low" = "Az eszköz néma vagy alacsony a hangerő";
+"errors.cannot_play_audio" = "Nem lehet hangot lejátszani";
+"errors.cannot_setup_audio_session" = "Nem lehet audió munkamenetet beállítani";
+"errors.export_failed" = "Exportálás sikertelen";
+"errors.import_failed" = "Importálás sikertelen";
+"errors.cannot_access_security_scoped_resource" = "Nem férhetsz hozzá biztonsági hatókörű erőforráshoz";
+"errors.tag_already_exists" = "A címke már létezik";
+"errors.tag_already_assigned_to_word" = "Ez a címke már hozzá van rendelve ehhez a szóhoz";
+"errors.tag_not_assigned_to_word" = "Ez a címke nincs hozzárendelve ehhez a szóhoz";
+"errors.authentication_required" = "Hitelesítés szükséges";
+"errors.no_active_subscriptions_found" = "Nem találtunk aktív előfizetéseket";
+"errors.failed_to_update_word_progress" = "A szó haladásának frissítése sikertelen";
+"errors.failed_to_update_word_difficulty_level" = "A szó nehézségi szintjének frissítése sikertelen";
+"errors.failed_to_save_quiz_session" = "A kviz munkamenet mentése sikertelen";
+"errors.failed_to_update_user_statistics" = "A felhasználói statisztikák frissítése sikertelen";
+"errors.invalid_word_id" = "Érvénytelen szóazonosító";
+"errors.word_not_found" = "A szó nem található";
+"errors.failed_to_calculate_progress" = "A haladás kiszámítása sikertelen";
+"errors.invalid_translation_url" = "Érvénytelen fordítási URL";
+"errors.network_error_during_translation" = "Hálózati hiba a fordítás során";
+"errors.invalid_response_from_translation_service" = "Érvénytelen válasz a fordítási szolgáltatástól";
+"errors.translation_failed" = "A fordítás sikertelen";
+"errors.invalid_user_email" = "Érvénytelen felhasználói e-mail cím";
+"errors.network_error_occurred" = "Hálózati hiba történt";
+"errors.sync_failed" = "Szinkronizálás sikertelen";
+"errors.invalid_input_provided" = "Érvénytelen bemenetet adtál meg";
+"errors.dictionary_not_found" = "A szótár nem található";
+"errors.no_subscription_offerings_available" = "Jelenleg nincsenek előfizetési ajánlatok";
+"errors.requested_subscription_package_not_found" = "A kért előfizetési csomag nem található";
+"errors.purchase_could_not_be_completed" = "A vásárlás nem fejezhető be";
+"errors.failed_to_restore_previous_purchases" = "A korábbi vásárlások visszaállítása sikertelen";
+"errors.no_offerings_available" = "Jelenleg nincsenek előfizetési ajánlatok";
+"errors.purchase_failed" = "A vásárlás sikertelen";
+"errors.restore_failed" = "A korábbi vásárlások visszaállítása sikertelen";
+"errors.export_limit_exceeded" = "Túllépted az exportálási korlátot. Frissíts Pro-ra a korlátlan exportáláshoz.";
+"errors.max_tags_reached" = "Elérted az 5 címke/szó maximumot";
+"errors.tag_already_assigned" = "Ez a címke már hozzá van rendelve ehhez a szóhoz";
+"errors.tag_not_assigned" = "Ez a címke nincs hozzárendelve ehhez a szóhoz";
+"errors.network_timeout" = "Hálózati időtúllépés";
+"errors.server_unreachable" = "A szerver nem érhető el";
+"errors.invalid_response" = "Érvénytelen válasz";
+"errors.no_internet_connection" = "Nincs internetkapcsolat";
+"errors.missing_api_key" = "Hiányzó API kulcs";
+"errors.decoding_error" = "Dekódolási hiba";
+"errors.invalid_url" = "Érvénytelen URL";
+"errors.no_data" = "Nincs adat";
+"errors.save_failed" = "Mentés sikertelen";
+"errors.read_failed" = "Olvasás sikertelen";
+"errors.data_corrupted" = "Az adatok sérültek";
+"errors.invalid_input" = "Érvénytelen bemenet";
+"errors.missing_field" = "Hiányzó mező";
+"errors.unknown_error" = "Ismeretlen hiba";
+"errors.update_failed" = "Frissítés sikertelen";
+"errors.delete_failed" = "Törlés sikertelen";
+"errors.permission_denied" = "Nincs engedélyed erre a műveletre";
+"errors.user_not_authenticated" = "A felhasználónak hitelesítenie kell magát";
+"errors.dictionary_limit_reached" = "Az ingyenes csomaggal csak egy megosztott szótár hozható létre. Frissíts Pro-ra a korlátlan megosztott szótárakhoz.";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Még nincsenek szavak";
+"empty_states.no_idioms_yet" = "Még nincsenek kifejezések";
+"empty_states.no_favorite_words" = "Nincsenek kedvenc szavak";
+"empty_states.no_search_results" = "Nincsenek keresési eredmények";
+"empty_states.start_improving_vocabulary" = "Kezdj el szókincset építeni az első kifejezés hozzáadásával";
+"empty_states.tap_heart_icon_to_add_favorites" = "Koppints a szív ikonra bármely kifejezésen, hogy hozzáadd a kedvencekhez";
+"empty_states.try_different_search_term" = "Próbálj más keresési kifejezést, vagy adj hozzá egy új kifejezést";
+
+// MARK: - Notifications
+"notifications.time_to_practice" = "Ideje gyakorolni! 📚";
+"notifications.practice_vocabulary_today" = "Ne felejts el ma gyakorolni a szókincsedet.";
+"notifications.practice_difficult_words" = "Gyakorold a nehéz szavakat 📚";
+"notifications.difficult_words_challenge" = "Vannak szavaid, amelyek további gyakorlást igényelnek. Készen állsz a kihívásra?";
+"notifications.test_dictionary_invitation" = "Teszt szótár meghívó";
+"notifications.test_dictionary_invitation_body" = "Valaki hozzáadott téged a 'Teszt szótár'-hoz";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "Saját szótár";
+"macos.about_my_dictionary" = "A Saját szótárról";
+"macos.debug_panel" = "Hibakereső panel";
+"macos.settings" = "Beállítások";
+"macos.about" = "Az alkalmazásról";
+"macos.shared_dictionaries" = "Megosztott szótárak";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "Összes szó";
+"filter_display.favorite" = "Kedvenc";
+"filter_display.search" = "Keresés";
+"filter_display.tag" = "Címke";
+"filter_display.new" = "Új";
+"filter_display.in_progress" = "Folyamatban";
+"filter_display.needs_review" = "Felülvizsgálat szükséges";
+"filter_display.mastered" = "Elsajátítva";
+"filter_display.no_words_yet" = "Még nincsenek szavak";
+"filter_display.no_favorite_words" = "Nincsenek kedvenc szavak";
+"filter_display.no_search_results" = "Nincsenek keresési eredmények";
+"filter_display.no_tagged_words" = "Nincsenek címkézett szavak";
+"filter_display.no_new_words" = "Nincsenek új szavak";
+"filter_display.no_words_in_progress" = "Nincsenek folyamatban lévő szavak";
+"filter_display.no_words_need_review" = "Nincsenek felülvizsgálatra váró szavak";
+"filter_display.no_mastered_words" = "Nincsenek elsajátított szavak";
+"filter_display.start_building_vocabulary" = "Kezdj el szókincset építeni az első szavad hozzáadásával";
+"filter_display.tap_heart_icon_to_add_favorites" = "Koppints a szív ikonra bármely szón, hogy hozzáadd a kedvencekhez";
+"filter_display.try_different_search_term" = "Próbálj más keresési kifejezést, vagy adj hozzá egy új szót";
+"filter_display.add_tags_to_organize" = "Adj hozzá címkéket a szavaidhoz a jobb rendszerezés érdekében";
+"filter_display.new_words_appear_here" = "Az új szavak itt jelennek meg, miután hozzáadtad őket a listádhoz";
+"filter_display.words_appear_here_as_you_practice" = "A szavak itt jelennek meg, ahogy gyakorlod őket a kvizekben";
+"filter_display.words_need_more_practice" = "A további gyakorlást igénylő szavak itt jelennek meg";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Tulajdonos";
+"collaborator_roles.editor" = "Szerkesztő";
+"collaborator_roles.viewer" = "Néző";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Kék";
+"tag_colors.red" = "Piros";
+"tag_colors.green" = "Zöld";
+"tag_colors.orange" = "Narancs";
+"tag_colors.purple" = "Lila";
+"tag_colors.pink" = "Rózsaszín";
+"tag_colors.yellow" = "Sárga";
+"tag_colors.gray" = "Szürke";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Szótár kiválasztása";
+"shared_dictionary_selection.dictionary_selected" = "Szótár kiválasztva";
+"shared_dictionary_selection.add_to_shared" = "Hozzáadás a megosztotthoz";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Szó hozzáadása a megosztott szótárhoz";
+"shared_dictionary_selection.unknown" = "Ismeretlen";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Frissíts Pro-ra, hogy lásd az összes haladási részletet.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Frissíts Pro-ra, hogy lásd a szókincsed növekedésének minden részletét.";
+"pro_upgrade.time_period" = "Időszak";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Szerepkör";
+"collaborator_management.add_collaborator" = "Kollaborátor hozzáadása";
+"collaborator_management.email_address_required" = "E-mail cím szükséges";
+"collaborator_management.valid_email_address" = "Adj meg egy érvényes e-mail címet";
+"collaborator_management.make_viewer" = "Nézővé tétel";
+"collaborator_management.make_editor" = "Szerkesztővé tétel";
+"collaborator_management.remove" = "Eltávolítás";
+"collaborator_management.add" = "Hozzáadás";
+"collaborator_management.delete_dictionary" = "Szótár törlése";
+"collaborator_management.delete_dictionary_confirmation" = "Biztosan törölni szeretnéd ezt a megosztott szótárat? Ez a művelet nem vonható vissza.";
+"collaborator_management.stop_watching" = "Megfigyelés leállítása";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Biztosan le szeretnéd állítani ennek a megosztott szótárnak a megfigyelését?";
+"collaborator_management.stop_watching_dictionary" = "Szótár megfigyelésének leállítása";
+"collaborator_management.continue" = "Folytatás";
+"collaborator_management.dictionary_not_found" = "A szótár nem található";
+"collaborator_management.dictionary_details" = "Szótár részletei";
+"collaborator_management.unknown" = "Ismeretlen";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Helyesírási kviz";
+"quiz_types.choose_definition" = "Definíció választása";
+"quiz_types.test_spelling_skills" = "Teszteld helyesírási készségeidet a szavak helyes leírásával";
+"quiz_types.select_correct_definition" = "Válaszd ki a helyes definíciót minden szóhoz";
+"quiz_types.great_job_completed_spelling_quiz" = "Nagyszerű munka! Befejezted a helyesírási kvizt.";
+"quiz_types.great_job_completed_definition_quiz" = "Nagyszerű munka! Befejezted a definíció kvizt.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Ausztrál";
+"english_accents.canadian" = "Kanadai";
+"english_accents.british" = "Brit";
+"english_accents.indian" = "Indiai";
+"english_accents.american" = "Amerikai";
+"english_accents.belgian" = "Belga";
+"english_accents.singaporean" = "Szingapúri";
+"english_accents.irish" = "Ír";
+"english_accents.south_african" = "Dél-afrikai";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "Összes kifejezés";
+"idiom_filters.favorite" = "Kedvenc";
+"idiom_filters.search" = "Keresés";
+"idiom_filters.no_idioms_yet" = "Még nincsenek kifejezések";
+"idiom_filters.no_favorite_words" = "Nincsenek kedvenc szavak";
+"idiom_filters.no_search_results" = "Nincsenek keresési eredmények";
+"idiom_filters.start_improving_vocabulary" = "Kezdj el szókincset építeni az első kifejezés hozzáadásával";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "Koppints a szív ikonra bármely kifejezésen, hogy hozzáadd a kedvencekhez";
+"idiom_filters.try_different_search_term" = "Próbálj más keresési kifejezést, vagy adj hozzá egy új kifejezést";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Főnév";
+"part_of_speech.full.verb" = "Ige";
+"part_of_speech.full.adjective" = "Melléknév";
+"part_of_speech.full.adverb" = "Határozószó";
+"part_of_speech.full.conjunction" = "Kötőszó";
+"part_of_speech.full.pronoun" = "Névmás";
+"part_of_speech.full.preposition" = "Elöljárószó";
+"part_of_speech.full.exclamation" = "Felkiáltás";
+"part_of_speech.full.unknown" = "Ismeretlen";
+
+"part_of_speech.short.noun" = "Főn.";
+"part_of_speech.short.verb" = "Ige";
+"part_of_speech.short.adjective" = "Mell.";
+"part_of_speech.short.adverb" = "Hat.";
+"part_of_speech.short.conjunction" = "Köt.";
+"part_of_speech.short.pronoun" = "Név.";
+"part_of_speech.short.preposition" = "Elöl.";
+"part_of_speech.short.exclamation" = "Felk.";
+"part_of_speech.short.unknown" = "Ismeretlen";

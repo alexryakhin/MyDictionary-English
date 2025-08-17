@@ -1,0 +1,864 @@
+/*
+  Localizable.strings (Japanese Translation)
+  My Dictionary
+
+  Translated on August 17, 2025.
+*/
+
+// MARK: - Tab Bar
+"tabbar.words" = "単語";
+"tabbar.idioms" = "慣用句";
+"tabbar.quizzes" = "クイズ";
+"tabbar.progress" = "進捗";
+"tabbar.settings" = "設定";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "単語の詳細";
+"navigation.idiom_details" = "慣用句の詳細";
+"navigation.add_tags" = "タグの追加";
+"navigation.about" = "アプリについて";
+"navigation.debug_panel" = "デバッグパネル";
+"navigation.quiz_results" = "クイズ結果";
+"navigation.spelling_quiz" = "綴りクイズ";
+"navigation.definition_quiz" = "定義クイズ";
+"navigation.close" = "閉じる";
+"navigation.close_screen" = "画面を閉じる";
+
+// MARK: - Common Actions
+"actions.done" = "完了";
+"actions.save" = "保存";
+"actions.save_word" = "単語を保存";
+"actions.cancel" = "キャンセル";
+"actions.confirm" = "確認";
+"actions.search" = "検索";
+"actions.delete" = "削除";
+"actions.edit" = "編集";
+"actions.add" = "追加";
+"actions.next" = "次へ";
+"actions.back" = "戻る";
+"actions.exit" = "終了";
+"actions.ok" = "OK";
+"actions.yes" = "はい";
+"actions.no" = "いいえ";
+"actions.try_again" = "もう一度試す";
+"actions.view_all" = "すべて表示";
+"actions.listen" = "聞く";
+"actions.create" = "作成";
+"actions.manage" = "管理";
+"actions.select" = "選択";
+"actions.select_word" = "単語を選択";
+"actions.select_idiom" = "慣用句を選択";
+"actions.select_quiz" = "クイズを選択";
+"actions.sign_out" = "ログアウト";
+"actions.sign_in" = "ログイン";
+"actions.upgrade" = "アップグレード";
+"actions.learn_more" = "詳細を確認";
+"actions.copy" = "コピー";
+"actions.refresh" = "更新";
+"actions.clear" = "クリア";
+"actions.reset" = "リセット";
+"actions.test" = "テスト";
+"actions.check" = "確認";
+"actions.verify" = "検証";
+"actions.show" = "表示";
+"actions.send" = "送信";
+"actions.request" = "リクエスト";
+"actions.sync" = "同期";
+"actions.upload" = "アップロード";
+"actions.download" = "ダウンロード";
+"actions.import_words" = "単語のインポート";
+"actions.export_words" = "単語のエクスポート";
+"actions.stop_watching" = "観察を停止";
+"actions.make_viewer" = "閲覧者に設定";
+"actions.make_editor" = "編集者に設定";
+"actions.remove" = "削除";
+"actions.skip_for_now" = "今はスキップ";
+"actions.link_google" = "Googleとリンク";
+"actions.link_apple" = "Appleとリンク";
+"actions.toggle_like" = "いいねを切り替え";
+"actions.toggle_favorite" = "お気に入りを切り替え";
+
+// MARK: - Onboarding
+"onboarding.welcome_to" = "ようこそ";
+"onboarding.my_dictionary" = "マイ辞書";
+"onboarding.personal_vocabulary_companion" = "あなたの個人的な語彙の仲間";
+"onboarding.build_your_vocabulary" = "語彙を増やす";
+"onboarding.personalized_learning" = "パーソナライズされた学習";
+"onboarding.youre_all_set" = "準備完了！";
+"onboarding.start_building_vocabulary" = "今日から語彙を増やし始め、言語スキルの向上を体感してください。";
+"onboarding.get_started" = "始める";
+"onboarding.next_step" = "次のステップ";
+"onboarding.personal_word_list" = "個人単語リスト";
+"onboarding.create_organize_vocabulary" = "独自の定義と例で語彙コレクションを作成・整理";
+"onboarding.find_definitions" = "定義を見つける";
+"onboarding.comprehensive_definitions" = "複数の意味と文脈を持つ包括的な定義を取得";
+"onboarding.collect_idioms" = "慣用句を収集";
+"onboarding.learn_practice_idioms" = "世界中の慣用句やフレーズを学び、練習";
+"onboarding.smart_quizzes" = "スマートクイズ";
+"onboarding.adaptive_quizzes" = "あなたの進捗に適応するクイズ";
+"onboarding.progress_tracking" = "進捗追跡";
+"onboarding.visual_insights" = "語彙の成長に関する視覚的な洞察";
+"onboarding.collaborative_learning" = "共同学習";
+"onboarding.share_dictionaries" = "友達や家族と辞書を共有";
+"onboarding.back" = "戻る";
+"onboarding.next" = "次へ";
+"onboarding.personal_word_list_description" = "独自の定義と例で語彙コレクションを作成・整理";
+"onboarding.find_definitions_description" = "複数の意味と文脈を持つ包括的な定義を取得";
+"onboarding.collect_idioms_description" = "世界中の慣用句やフレーズを学び、練習";
+"onboarding.smart_quizzes_description" = "あなたの進捗に適応するクイズ";
+"onboarding.progress_tracking_description" = "語彙の成長に関する視覚的な洞察";
+"onboarding.collaborative_learning_description" = "友達や家族と辞書を共有";
+
+// MARK: - Words
+"words.add_word" = "単語を追加";
+"words.add_your_first_word" = "最初の単語を追加";
+"words.add_more_words" = "さらに単語を追加";
+"words.add_to_shared_dictionary" = "共有辞書に追加";
+"words.add_new_word" = "新しい単語を追加";
+"words.delete_word" = "単語を削除";
+"words.delete_word_confirmation" = "この単語を削除してもよろしいですか？";
+"words.transcription" = "発音記号";
+"words.part_of_speech" = "品詞";
+"words.definition" = "定義";
+"words.difficulty" = "難易度";
+"words.language" = "言語";
+"words.input_language" = "入力言語";
+"words.tags" = "タグ";
+"words.word" = "単語";
+"words.words" = "単語";
+"words.create_tags" = "タグを作成";
+"words.all_words" = "すべての単語";
+"words.favorite" = "お気に入り";
+"words.favorite_words" = "お気に入りの単語";
+"words.search" = "検索";
+"words.search_words" = "単語を検索...";
+"words.search_results" = "検索結果";
+"words.tag" = "タグ";
+"words.tagged_words" = "タグ付けされた単語";
+"words.new" = "新規";
+"words.new_words" = "新しい単語";
+"words.in_progress" = "進行中";
+"words.words_in_progress" = "進行中の単語";
+"words.needs_review" = "レビューが必要";
+"words.words_needing_review" = "レビューが必要な単語";
+"words.mastered" = "習得済み";
+"words.mastered_words" = "習得済みの単語";
+"words.sort" = "並べ替え";
+"words.filter" = "フィルター";
+"words.latest_first" = "最新順";
+"words.earliest_first" = "最古順";
+"words.alphabetically" = "アルファベット順";
+"words.by_part_of_speech" = "品詞順";
+"words.type_word" = "単語を入力";
+"words.shared_dictionary" = "共有辞書";
+"words.private_dictionary" = "プライベート辞書";
+"words.impressive_vocabulary" = "素晴らしい語彙！";
+"words.impressive_vocabulary_message" = "**%d単語**を集めました！あなたの学習への献身は感動的です。";
+"words.examples" = "例";
+"words.no_examples_yet" = "まだ例がありません";
+"words.type_example_here" = "ここに例を入力";
+"words.add_example" = "例を追加";
+"words.edit_example" = "例を編集";
+"words.score" = "スコア";
+"words.quiz_based" = "クイズベース";
+"words.language" = "言語";
+"words.no_tags_added_yet" = "まだタグが追加されていません。";
+"words.add_tag" = "タグを追加";
+"words.no_tags_selected" = "タグが選択されていません";
+"words.error_loading_definitions" = "定義の読み込みに失敗しました。もう一度お試しください。";
+"words.type_word_and_press_search" = "単語を入力して「検索」を押すと定義が見つかります";
+"words.word_details" = "単語の詳細";
+"words.no_examples_yet" = "まだ例がありません";
+"words.edit_example" = "例を編集";
+"words.no_transcription" = "発音記号なし";
+"words.no_definition" = "定義なし";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "慣用句を追加";
+"idioms.add_new_idiom" = "新しい慣用句を追加";
+"idioms.idiom" = "慣用句";
+"idioms.idioms" = "慣用句";
+"idioms.no_idioms_found" = "慣用句が見つかりません";
+"idioms.add_this_idiom" = "上のボタンをクリックしてこの慣用句を追加";
+"idioms.begin_add_idioms" = "左上のプラスアイコンをクリックしてリストに慣用句を追加開始";
+"idioms.all_idioms" = "すべての慣用句";
+"idioms.favorite_idioms" = "お気に入りの慣用句";
+"idioms.found_idioms" = "見つかった慣用句";
+"idioms.examples" = "例";
+"idioms.no_examples_yet" = "まだ例がありません";
+"idioms.type_example_here" = "ここに例を入力";
+"idioms.add_example" = "例を追加";
+"idioms.edit_example" = "例を編集";
+"idioms.delete_idiom" = "慣用句を削除";
+"idioms.delete_idiom_confirmation" = "この慣用句を削除してもよろしいですか？";
+"idioms.search_idioms" = "慣用句を検索...";
+"idioms.favorites" = "お気に入り";
+"idioms.found" = "見つかった";
+"idioms.sort" = "並べ替え";
+"idioms.filter" = "フィルター";
+"idioms.latest_first" = "最新順";
+"idioms.earliest_first" = "最古順";
+"idioms.alphabetically" = "アルファベット順";
+
+// MARK: - Quizzes
+"quizzes.quiz_unavailable" = "クイズが利用できません";
+"quizzes.back_to_quizzes" = "クイズに戻る";
+"quizzes.your_answer" = "あなたの回答";
+"quizzes.submit_answer" = "回答を送信";
+"quizzes.next_word" = "次の単語";
+"quizzes.finish" = "終了";
+"quizzes.your_results" = "あなたの結果";
+"quizzes.final_score" = "最終スコア";
+"quizzes.correct_answers" = "正解";
+"quizzes.best_streak" = "最高連続正解";
+"quizzes.accuracy" = "正確性";
+"quizzes.debug" = "デバッグ";
+"quizzes.choose_correct_definition" = "正しい定義を選択";
+"quizzes.word" = "単語";
+"quizzes.quiz_types" = "クイズの種類";
+"quizzes.practice_settings" = "練習設定";
+"quizzes.configure_quiz_experience" = "クイズ体験をカスタマイズ";
+"quizzes.practice_hard_words_only" = "難しい単語のみ練習";
+"quizzes.focus_words_need_review" = "レビューが必要な単語に集中";
+"quizzes.not_enough_words_review" = "レビューする単語が不足しています";
+"quizzes.words_per_session" = "セッションごとの単語数";
+"quizzes.number_words" = "単語数";
+"quizzes.select_dictionary" = "辞書を選択";
+"quizzes.no_difficult_words_available" = "クイズに利用できる難しい単語がありません";
+"quizzes.spelling_quiz_description" = "単語を正しく綴ることで綴りスキルをテスト";
+"quizzes.definition_quiz_description" = "各単語の正しい定義を選択";
+"quizzes.progress" = "進捗";
+"quizzes.streak" = "連続正解";
+"quizzes.score" = "スコア";
+"quizzes.best" = "最高";
+"quizzes.hint" = "ヒント";
+"quizzes.attempt" = "試行";
+"quizzes.correct" = "正解！";
+"quizzes.well_done" = "よくやった！";
+"quizzes.keep_up_good_work" = "良い仕事を続けましょう！";
+"quizzes.correct_word_is" = "正しい単語は「%@」です。次の単語へ...";
+"quizzes.moving_to_next_word" = "次の単語へ移動...";
+"quizzes.incorrect" = "不正解";
+"quizzes.moving_to_next_question" = "次の質問へ移動...";
+"quizzes.quiz_complete" = "クイズ完了！";
+"quizzes.great_job_completed_spelling_quiz" = "素晴らしい！綴りクイズを完了しました。";
+"quizzes.great_job_completed_definition_quiz" = "素晴らしい！定義クイズを完了しました。";
+"quizzes.skip_word" = "単語をスキップ（-2ポイント）";
+"quizzes.incorrect_moving_to_next_question" = "不正解！次の質問へ移動...";
+"quizzes.contributions" = "貢献";
+"quizzes.not_enough_words_available" = "利用可能な単語が不足しています。クイズには少なくとも%d単語が必要です。";
+"quizzes.need_at_least_words" = "クイズには少なくとも%d単語が必要です。";
+"quizzes.shared_dictionary_needs_more_words" = "共有辞書にはさらに単語が必要です！";
+"quizzes.start_building_vocabulary" = "語彙の構築を始めましょう！";
+"quizzes.keep_adding_words" = "単語を追加し続けましょう！";
+"quizzes.ask_dictionary_owner_add_words" = "辞書の所有者に単語を追加するよう依頼するか、別の辞書を選択してください！";
+"quizzes.switch_different_dictionary" = "別の辞書に切り替える！";
+"quizzes.add_words_to_shared_dictionary" = "共有辞書に単語を追加";
+"quizzes.add_your_first_word" = "最初の単語を追加";
+"quizzes.add_more_words" = "さらに単語を追加";
+"quizzes.you_can_practice_vocabulary" = "語彙を練習するか、すでに単語が入力されている共有辞書を選択できます。";
+"quizzes.select_shared_dictionary_populated" = "すでに単語が入力されている共有辞書を選択。";
+"quizzes.number_words_practice_session" = "練習セッションごとの単語数（%d-%d）";
+"quizzes.min_words" = "%d";
+"quizzes.max_words" = "%d";
+"quizzes.shared_dictionary_needs_hard_words" = "共有辞書「%@」には、難しいモードでの練習に少なくとも1つの難しい単語が必要です。現在%d個の難しい単語があります。";
+"quizzes.needs_at_least_words_start_quizzes" = "共有辞書「%@」には、クイズを開始するために少なくとも10単語が必要です。現在%d単語があります。";
+"quizzes.need_at_least_hard_word_practice" = "難しいモードでの練習には少なくとも1つの難しい単語が必要です。現在%d個の難しい単語があります。";
+"quizzes.need_at_least_words_start_quizzes" = "クイズを開始するには少なくとも10単語が必要です。現在%d単語があります。";
+"quizzes.progress_format" = "進捗：%d/%d";
+"quizzes.streak_format" = "🔥 連続正解：%d";
+"quizzes.score_format" = "スコア：%d";
+"quizzes.best_format" = "最高：%d";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "辞書の所有者に単語を追加するよう依頼するか、別の辞書に切り替えてください！";
+
+// MARK: - App
+"app.my_dictionary" = "マイ辞書";
+"app.loading" = "読み込み中...";
+"app.something_went_wrong" = "何か問題が発生しました";
+"app.try_again" = "もう一度試す";
+"app.error" = "エラー";
+"app.oops" = "おっと！";
+"app.unknown" = "不明";
+"app.retry" = "再試行";
+"app.add_example" = "例を追加";
+"app.add_to_shared_dictionary" = "共有辞書に追加";
+"app.add_collaborator" = "コラボレーターを追加";
+"app.delete_dictionary" = "辞書を削除";
+"app.enter_definition" = "定義を入力";
+"app.select_value" = "値を選択";
+"app.pronunciation" = "発音";
+"app.tags" = "タグ";
+"app.select_definition" = "定義を選択";
+"app.translating_word" = "単語を翻訳中...";
+"app.translating_definitions" = "定義を翻訳中...";
+"app.type_word_here" = "ここに単語を入力...";
+"app.email_address" = "メールアドレス";
+"app.name" = "名前";
+"app.example" = "例";
+"app.transcription" = "発音記号";
+"app.definition" = "定義";
+"app.import_successful" = "インポート成功";
+"app.import_successful_message" = "%@が正常にインポートされました";
+"app.no_words_imported" = "単語がインポートされていません";
+"app.no_words_imported_message" = "インポートする新しい単語が見つかりませんでした";
+"app.tag_management_error" = "タグ管理エラー";
+"app.delete_tag" = "タグを削除";
+"app.delete_tag_confirmation" = "このタグを削除してもよろしいですか？この操作は元に戻せません。";
+"app.cant_share_word" = "単語を共有できません";
+"app.collaborator_details" = "コラボレーターの詳細";
+"app.role_permissions" = "役割の許可";
+"app.note" = "メモ";
+"app.dictionary_info" = "辞書情報";
+"app.collaborators" = "コラボレーター";
+"app.all_results" = "すべての結果";
+"app.part_of_speech" = "品詞";
+"app.language" = "言語";
+"app.tag_name" = "タグ名";
+"app.tag_color" = "タグの色";
+"app.private_dictionary" = "プライベート辞書";
+"app.shared_dictionaries" = "共有辞書";
+"app.about_my_dictionary" = "マイ辞書について";
+"app.debug_panel" = "デバッグパネル";
+"app.word_starts_with" = "単語の先頭";
+"app.debug_info" = "デバッグ情報";
+"app.send_test_notification" = "テスト通知を送信";
+"app.enter_email_address" = "メールアドレスを入力";
+"app.enter_email_address_for_notification" = "テスト通知を送信したいユーザーのメールアドレスを入力してください。";
+"app.user_information" = "ユーザー情報";
+
+// MARK: - Analytics
+"analytics.overview" = "概要";
+"analytics.recent_quiz_results" = "最近のクイズ結果";
+"analytics.no_quiz_results_yet" = "まだクイズ結果がありません";
+"analytics.complete_first_quiz" = "最初のクイズを完了して結果を確認";
+"analytics.vocabulary_growth" = "語彙の成長";
+"analytics.no_growth_data_yet" = "まだ成長データがありません";
+"analytics.complete_quizzes_growth" = "クイズを完了して語彙の成長を時間経過で確認";
+"analytics.time_period" = "期間";
+"analytics.week" = "週";
+"analytics.month" = "月";
+"analytics.year" = "年";
+"analytics.practice_time" = "練習時間";
+"analytics.sessions" = "セッション";
+"analytics.all_results" = "すべての結果";
+"analytics.duration" = "所要時間";
+"analytics.loading_progress_data" = "進捗データを読み込み中...";
+"analytics.complete_first_quiz_results" = "最初のクイズを完了して結果を確認";
+"analytics.complete_quizzes_growth_data" = "クイズを完了して語彙の成長を時間経過で確認";
+"analytics.last_time_period" = "最後の%-期間";
+"analytics.points" = "ポイント";
+"analytics.accuracy" = "正確性";
+"analytics.progress" = "進捗";
+"analytics.streak" = "連続正解";
+"analytics.best" = "最高";
+"analytics.score" = "スコア";
+"analytics.correct_answers" = "正解";
+"analytics.words_played" = "プレイした単語";
+"analytics.total_questions" = "質問の合計";
+"analytics.difficulty_statistics" = "難易度統計";
+"analytics.individual_ratings" = "個別評価";
+"analytics.how_other_users_rate_difficulty" = "他のユーザーがこの単語の難易度をどう評価しているか";
+"analytics.no_difficulty_ratings_yet" = "まだ難易度評価がありません";
+"analytics.total_ratings" = "評価の合計";
+"analytics.view_detailed_statistics" = "詳細統計を表示";
+
+// MARK: - Settings
+"settings.translate_definitions" = "定義を翻訳";
+"settings.show_definitions_native_language" = "母国語で定義を表示";
+"settings.accent" = "アクセント";
+"settings.select_accent" = "アクセントを選択";
+"settings.notifications" = "通知";
+"settings.daily_reminders" = "毎日のリマインダー";
+"settings.difficult_words" = "難しい単語";
+"settings.subscription" = "サブスクリプション";
+"settings.pro_user" = "プロユーザー";
+"settings.free_plan" = "無料プラン";
+"settings.limited_features_available" = "制限された機能が利用可能";
+"settings.signed_in_as" = "ログイン中のユーザー";
+"settings.anonymous" = "匿名";
+"settings.upload_backup_google" = "Googleにバックアップをアップロード";
+"settings.download_backup_google" = "Googleからバックアップをダウンロード";
+"settings.sign_in_sync_word_lists" = "単語リストを同期するためにログイン";
+"settings.organization" = "整理";
+"settings.show_idioms_tab" = "慣用句タブを表示";
+"settings.shared_dictionaries" = "共有辞書";
+"settings.about_app" = "アプリについて";
+"settings.features" = "機能";
+"settings.add_organize_words" = "定義付きで単語を追加・整理";
+"settings.practice_quizzes_spelling" = "クイズや綴り練習で練習";
+"settings.track_learning_progress" = "学習の進捗を追跡";
+"settings.import_export_word_collection" = "単語コレクションのインポート・エクスポート";
+"settings.customize_learning_experience" = "学習体験をカスタマイズ";
+"settings.voice_pronunciation_support" = "音声発音サポート";
+"settings.contact_me" = "連絡先";
+"settings.x_twitter" = "X（Twitter）";
+"settings.instagram" = "Instagram";
+"settings.support" = "サポート";
+"settings.rate_app" = "アプリを評価";
+"settings.export_successful" = "エクスポート成功";
+"settings.upload_successful" = "アップロード成功";
+"settings.download_successful" = "ダウンロード成功";
+"settings.daily_reminders_description" = "その日アプリを開いていない場合、20:00にリマインダーを受け取る";
+"settings.difficult_words_description" = "難しい単語の練習のために16:00にリマインダーを受け取る";
+"settings.free_users_export_limit" = "無料ユーザーは最大%d単語をエクスポート可能";
+"settings.app_version" = "アプリバージョン：";
+"settings.about_app_description" = "私は求めていたものが見つからなかったので、このアプリを作成しました。\n\nこれは単語リストを管理するシンプルなアプリで、母国語への翻訳なしで単語を検索し定義を追加できます。\n\nこれが英語を学ぶ最良の方法だと考えています。役に立つことを願っています。\n\n質問や機能の提案があれば、以下のリンクからご連絡ください。私のアプリを使ってくれてありがとう！";
+"settings.contact_support" = "質問、提案、フィードバックはありますか？ぜひお聞かせください。InstagramまたはTwitterでサポートに連絡！";
+"settings.sign_out" = "ログアウト";
+"settings.upload_backup_to_google" = "Googleにバックアップをアップロード";
+"settings.download_backup_from_google" = "Googleからバックアップをダウンロード";
+"settings.sign_in_to_sync_word_lists" = "単語リストを同期するためにログイン";
+"settings.manage_tags" = "タグを管理";
+"settings.import_export" = "インポート/エクスポート";
+"settings.import_words" = "単語のインポート";
+"settings.export_words" = "単語のエクスポート";
+"settings.learn_more" = "詳細を確認";
+"settings.export_words_title" = "単語のエクスポート";
+"settings.pro_upgrade_description" = "無制限の機能とデバイス間同期のためにプロにアップグレード。";
+"settings.word_lists_and_sync" = "単語リストと同期";
+"settings.manual_sync_mode_description" = "マニュアル同期モード：以下のボタンを使用して単語リストをGoogleにアップロード/ダウンロード。全ユーザー向けに利用可能。";
+"settings.sign_in_to_create_share_word_lists" = "単語リストを作成・共有するためにログイン。";
+"settings.tag_management_description" = "単語を整理するためにタグを作成・管理し、単語を共有するためにコラボレーターを追加。";
+"settings.import_export_note" = "注意：インポートとエクスポートは、このアプリで作成されたファイルでのみ機能します。";
+"settings.buy_me_a_coffee" = "コーヒーをおごる";
+
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "サブスクリプション前にログイン";
+"auth.sign_in_with_google" = "Googleでログイン";
+"auth.can_always_sign_in_later" = "後で設定からいつでもログイン可能";
+"auth.link_additional_accounts" = "追加のアカウントをリンク";
+"auth.accounts_linked_successfully" = "アカウントが正常にリンクされました";
+"auth.sign_out_confirmation" = "ログアウト";
+"auth.your_words_are_safe" = "あなたの単語は安全です";
+"auth.cloud_sync_disabled" = "クラウド同期が無効になります";
+"auth.sign_out" = "ログアウト";
+"auth.no_worries_wont_remove_words" = "ご心配なく！単語は削除しません。";
+"auth.vocabulary_stay_on_device" = "あなたの語彙はこのデバイスに残ります。別のアカウントでログインすると、データが統合されます。";
+"auth.all_vocabulary_remain_device" = "すべての単語、定義、進捗はこのデバイスに残ります。ログインせずにアプリを続けて使用できます。";
+"auth.word_lists_shared_data_cleared" = "単語リストと共有データがクリアされます。別のアカウントでログインすると、ローカルの単語が新しいアカウントのデータと統合されます。";
+"auth.sign_in_to_access_word_lists" = "すべてのデバイスで単語リストにアクセスし、他の人とコラボレーションするためにログイン。";
+"auth.link_google" = "Googleとリンク";
+"auth.link_apple" = "Appleとリンク";
+"auth.sign_in_to_sync_word_lists" = "単語リストを同期するためにログイン";
+"auth.sign_out_error_title" = "おっと！";
+"auth.sign_out_error_message" = "ログアウト中に問題が発生しました。後でもう一度お試しください。";
+"auth.sign_in_required_for_restore" = "購入を復元するにはログインが必要です。";
+"auth.sign_in_required_for_pro_features" = "%@などのプロ機能にアクセスするにはログインが必要です。";
+"auth.sign_in_failed" = "ログインに失敗しました。もう一度お試しください。";
+"auth.sign_out_failed" = "ログアウトに失敗しました。もう一度お試しください。";
+"auth.user_not_found" = "ユーザーが見つかりません。";
+"auth.network_error" = "ネットワークエラー。接続を確認してください。";
+"auth.account_linking_failed" = "アカウントのリンクに失敗しました。もう一度お試しください。";
+
+// MARK: - Shared Dictionaries
+"shared_dictionaries.dictionary_selected" = "辞書が選択されました";
+"shared_dictionaries.name" = "名前";
+"shared_dictionaries.created" = "作成日";
+"shared_dictionaries.your_role" = "あなたの役割";
+"shared_dictionaries.owner" = "オーナー";
+"shared_dictionaries.editor" = "編集者";
+"shared_dictionaries.viewer" = "閲覧者";
+"shared_dictionaries.editor_description" = "編集者：";
+"shared_dictionaries.can_add_edit_delete_words" = "• 単語の追加、編集、削除が可能";
+"shared_dictionaries.can_invite_collaborators" = "• 他のコラボレーターを招待可能";
+"shared_dictionaries.can_manage_dictionary_settings" = "• 辞書の設定を管理可能";
+"shared_dictionaries.viewer_description" = "閲覧者：";
+"shared_dictionaries.can_view_all_words" = "• すべての単語を閲覧可能";
+"shared_dictionaries.cannot_make_changes" = "• 変更はできません";
+"shared_dictionaries.cannot_invite_others" = "• 他の人を招待できません";
+"shared_dictionaries.collaborator_added_email_name" = "コラボレーターは入力したメールアドレスと名前で追加されます。共有辞書にアクセスするには同じメールアドレスでログインする必要があります。";
+"shared_dictionaries.of_dictionary_created" = "作成された辞書1つ中";
+"shared_dictionaries.free_users_one_dictionary" = "無料ユーザーは1つの共有辞書を作成可能";
+"shared_dictionaries.create_shared_dictionary" = "他の人とコラボレーションするために共有辞書を作成";
+"shared_dictionaries.collaborate_others" = "他の人とコラボレーション";
+"shared_dictionaries.delete_dictionary" = "辞書を削除";
+"shared_dictionaries.your_dictionaries" = "あなたの辞書";
+"shared_dictionaries.no_shared_dictionaries" = "共有辞書がありません";
+"shared_dictionaries.create_shared_dictionary_collaborate" = "他の人とコラボレーションするために共有辞書を作成";
+"shared_dictionaries.dictionaries" = "辞書";
+"shared_dictionaries.enter_dictionary_name" = "辞書名を入力";
+"shared_dictionaries.new_shared_dictionary" = "新しい共有辞書";
+"shared_dictionaries.dictionary_name_required" = "辞書名は必須です";
+"shared_dictionaries.sign_in_to_create_shared_dictionary" = "共有辞書を作成するにはログインしてください";
+"shared_dictionaries.created_by" = "%@によって作成";
+"shared_dictionaries.no_words_yet" = "まだ単語がありません";
+"shared_dictionaries.add_words_to_shared_dictionary" = "この共有辞書に単語を追加して開始";
+"shared_dictionaries.no_results" = "結果なし";
+"shared_dictionaries.no_words_match_filter" = "現在のフィルターに一致する単語はありません";
+"shared_dictionaries.dictionary_details" = "辞書の詳細";
+"shared_dictionaries.private_dictionary" = "プライベート辞書";
+"shared_dictionaries.save_to_personal_dictionary" = "個人辞書に保存";
+"shared_dictionaries.collaborators_count" = "%d人のコラボレーター";
+"shared_dictionaries.me" = "私";
+"shared_dictionaries.dictionary_deleted_or_lost_access" = "この辞書は削除されたか、アクセス権を失いました。";
+"shared_dictionaries.select_role" = "役割を選択";
+"shared_dictionaries.editor_role" = "編集者：";
+"shared_dictionaries.viewer_role" = "閲覧者：";
+"shared_dictionaries.collaborator_added_with_email_name" = "コラボレーターは入力したメールアドレスと名前で追加されます。共有辞書にアクセスするには同じメールアドレスでログインする必要があります。";
+"shared_dictionaries.be_first_to_rate_difficulty" = "この単語の難易度を最初に評価してください";
+"shared_dictionaries.score" = "スコア：%d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "共有辞書がありません";
+"shared_dictionaries.collaborative_features" = "コラボレーション機能";
+"shared_dictionaries.your_score" = "あなたのスコア";
+"shared_dictionaries.your_status" = "あなたの状態";
+"shared_dictionaries.average_score" = "平均スコア";
+
+// MARK: - Tags Flow
+"tags.manage_tags" = "タグを管理";
+"tags.tags_help_text" = "タグは単語の整理に役立ちます。1単語につき最大5つのタグを付けられます。";
+"tags.no_tags_yet" = "まだタグが追加されていません";
+"tags.add_first_tag" = "上のボタンをクリックして最初のタグを追加";
+"tags.add_tag" = "タグを追加";
+"tags.add_first_tag_description" = "上のボタンをクリックして最初のタグを追加";
+"tags.add_tag_to_start_using" = "使用を開始するためにタグを追加";
+"tags.add_tags" = "タグを追加";
+"tags.create_tags" = "タグを作成";
+"tags.delete_tag" = "タグを削除";
+"tags.delete_tag_confirmation" = "このタグを削除してもよろしいですか？";
+"tags.delete_tag_cannot_undo" = "この操作は元に戻せません。";
+"tags.tag_name" = "タグ名";
+"tags.tag_name_help" = "タグにわかりやすい名前を選んでください";
+"tags.type_tag_name" = "タグ名を入力...";
+"tags.tag_color" = "タグの色";
+"tags.tag_color_help" = "タグを簡単に識別できる色を選んでください";
+"tags.edit_tag" = "タグを編集";
+"tags.new_tag" = "新しいタグ";
+"tags.tag_management_error" = "タグ管理エラー";
+
+// MARK: - Coffee Banner
+"coffee.buy_me_a_coffee" = "コーヒーをおごる";
+"coffee.maybe_later" = "後で";
+"coffee.enjoying_the_app" = "アプリを楽しんでいますか？";
+"coffee.helpful_learning_journey" = "マイ辞書があなたの学習の旅に役立ったなら、コーヒーをおごってください！ ☕️";
+
+// MARK: - Paywall
+"paywall.terms_of_service" = "利用規約";
+"paywall.privacy_policy" = "プライバシーポリシー";
+"paywall.upgrade_to_pro" = "プロにアップグレード";
+"paywall.restore_purchases" = "購入を復元";
+"paywall.track_progress" = "進捗を追跡";
+"paywall.see_your_improvement" = "あなたの進歩を確認";
+"paywall.collaborate" = "コラボレーション";
+"paywall.learn_with_others" = "他の人と学ぶ";
+"paywall.everything_you_need_to_master_vocabulary" = "語彙を習得するために必要なすべて";
+"paywall.choose_your_plan" = "プランを選択";
+"paywall.start_pro_subscription" = "プロサブスクリプションを開始";
+"paywall.trusted_by_learners_worldwide" = "世界中の学習者に信頼されています";
+"paywall.app_store_rating" = "App Store評価";
+"paywall.active_users" = "アクティブユーザー";
+"paywall.words_added" = "追加された単語";
+"paywall.sign_in_required" = "ログインが必要です";
+"paywall.join_thousands_users" = "語彙学習を変えた何千人ものユーザーに参加";
+"paywall.by_subscribing_agree_terms" = "サブスクリプションすることで、利用規約とプライバシーポリシーに同意します";
+"paywall.pro_user" = "プロユーザー";
+"paywall.free_plan" = "無料プラン";
+"paywall.limited_features_available" = "制限された機能が利用可能";
+"paywall.no_active_subscriptions_found" = "アクティブなサブスクリプションが見つかりません。App Storeアカウントを確認してください。";
+"paywall.failed_to_restore_purchases" = "購入の復元に失敗しました：%@";
+"paywall.save_percentage" = "%@節約";
+
+// MARK: - Difficulty
+"difficulty.new" = "新規";
+"difficulty.in_progress" = "進行中";
+"difficulty.needs_review" = "レビューが必要";
+"difficulty.mastered" = "習得済み";
+
+// MARK: - Sorting
+"sorting.latest_first" = "最新順";
+"sorting.earliest_first" = "最古順";
+"sorting.alphabetically" = "アルファベット順";
+"sorting.by_part_of_speech" = "品詞順";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "自動検出";
+
+// MARK: - Time Period
+"time_period.week" = "週";
+"time_period.month" = "月";
+"time_period.year" = "年";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "すべての結果";
+"quiz_results.no_quiz_results_yet" = "まだクイズ結果がありません";
+"quiz_results.quiz" = "クイズ";
+"quiz_results.accuracy" = "正確性";
+"quiz_results.correct" = "正解";
+"quiz_results.duration" = "所要時間";
+"quiz_results.time_period" = "期間";
+
+// MARK: - Word Details
+"word_details.transcription" = "発音記号";
+"word_details.part_of_speech" = "品詞";
+"word_details.definition" = "定義";
+"word_details.difficulty" = "難易度";
+"word_details.examples" = "例";
+"word_details.edit_example" = "例を編集";
+"word_details.example" = "例";
+"word_details.type_example_here" = "ここに例を入力";
+"word_details.add_example" = "例を追加";
+"word_details.delete_word" = "単語を削除";
+"word_details.delete_failed" = "削除に失敗";
+
+// MARK: - Word List
+"word_list.all_words" = "すべての単語";
+"word_list.favorite" = "お気に入り";
+"word_list.manage_tags" = "タグを管理";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "クイズの種類";
+"quiz_list.practice_settings" = "練習設定";
+"quiz_list.configure_quiz_experience" = "クイズ体験をカスタマイズ";
+"quiz_list.focus_on_words_need_review" = "レビューが必要な単語に集中";
+"quiz_list.not_enough_words_review_yet" = "レビューする単語が不足しています";
+"quiz_list.add_words_to_shared_dictionary" = "共有辞書に単語を追加";
+"quiz_list.add_your_first_word" = "最初の単語を追加";
+"quiz_list.add_more_words" = "さらに単語を追加";
+"quiz_list.quizzes_help_test_knowledge" = "クイズはあなたの知識をテストし、学習を強化するのに役立ちます！";
+"quiz_list.words_away_from_unlocking_quizzes" = "クイズのロック解除まであと%d単語！";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "終了";
+"quiz_actions.next_word" = "次の単語";
+"quiz_actions.submit_answer" = "回答を送信";
+"quiz_actions.number_of_words" = "単語数";
+"quiz_actions.no_difficult_words_available" = "クイズに利用できる難しい単語がありません";
+"quiz_actions.your_word_is" = "あなたの単語は「%@」です。もっと頑張って :)";
+"quiz_actions.try_harder" = "もっと頑張って :)";
+"quiz_actions.incorrect_try_again" = "不正解。もう一度試してください";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "タグを選択";
+"tag_selection.no_tags_yet" = "まだタグがありません";
+"tag_selection.you_can_select_up_to_5_tags" = "1単語につき最大5つのタグを選択できます。タグをタップして選択または解除。";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google同期";
+"pro_features.unlimited_export" = "無制限エクスポート";
+"pro_features.create_shared_dictionaries" = "共有辞書の作成";
+"pro_features.advanced_analytics" = "高度な分析";
+"pro_features.priority_support" = "優先サポート";
+"pro_features.pro_features" = "プロ機能";
+"pro_features.tag_management" = "タグ管理";
+"pro_features.sync_words_across_devices" = "Googleドライブで全デバイス間で単語を同期";
+"pro_features.export_unlimited_words" = "CSVファイルに無制限の単語をエクスポート";
+"pro_features.create_manage_shared_dictionaries" = "他の人と共有辞書を作成・管理";
+"pro_features.detailed_insights" = "学習の進捗に関する詳細な洞察";
+"pro_features.priority_support_team" = "私たちのチームからの優先サポート";
+"pro_features.unlock_all_pro_features" = "すべてのプロ機能をアンロック";
+"pro_features.organize_words_with_tags" = "カスタムタグで単語を整理して検索を簡単に";
+"pro_features.detailed_progress_tracking" = "詳細な進捗追跡と洞察";
+"pro_features.get_priority_support" = "必要なときに優先サポートを受け取る";
+
+// MARK: - Error Messages
+"errors.error_updating_word_examples" = "単語の例の更新中にエラーが発生";
+"errors.error_removing_word" = "単語の削除中にエラーが発生";
+"errors.error_saving_word" = "単語の保存中にエラーが発生";
+"errors.error_updating_idiom_examples" = "慣用句の例の更新中にエラーが発生";
+"errors.error_removing_idiom" = "慣用句の削除中にエラーが発生";
+"errors.error_saving_idiom" = "慣用句の保存中にエラーが発生";
+"errors.input_not_word" = "入力は単語ではありません";
+"errors.input_cannot_be_empty" = "入力は空にできません";
+"errors.device_muted_or_volume_low" = "デバイスがミュートまたは音量が低いです";
+"errors.cannot_play_audio" = "オーディオを再生できません";
+"errors.cannot_setup_audio_session" = "オーディオセッションを設定できません";
+"errors.export_failed" = "エクスポートに失敗";
+"errors.import_failed" = "インポートに失敗";
+"errors.cannot_access_security_scoped_resource" = "セキュリティ範囲のリソースにアクセスできません";
+"errors.tag_already_exists" = "タグはすでに存在します";
+"errors.tag_already_assigned_to_word" = "このタグはすでにこの単語に割り当てられています";
+"errors.tag_not_assigned_to_word" = "このタグはこの単語に割り当てられていません";
+"errors.authentication_required" = "認証が必要です";
+"errors.no_active_subscriptions_found" = "アクティブなサブスクリプションが見つかりません";
+"errors.failed_to_update_word_progress" = "単語の進捗更新に失敗";
+"errors.failed_to_update_word_difficulty_level" = "単語の難易度レベルの更新に失敗";
+"errors.failed_to_save_quiz_session" = "クイズセッションの保存に失敗";
+"errors.failed_to_update_user_statistics" = "ユーザー統計の更新に失敗";
+"errors.invalid_word_id" = "無効な単語ID";
+"errors.word_not_found" = "単語が見つかりません";
+"errors.failed_to_calculate_progress" = "進捗の計算に失敗";
+"errors.invalid_translation_url" = "無効な翻訳URL";
+"errors.network_error_during_translation" = "翻訳中のネットワークエラー";
+"errors.invalid_response_from_translation_service" = "翻訳サービスからの無効な応答";
+"errors.translation_failed" = "翻訳に失敗";
+"errors.invalid_user_email" = "無効なユーザーメールアドレス";
+"errors.network_error_occurred" = "ネットワークエラーが発生しました";
+"errors.sync_failed" = "同期に失敗";
+"errors.invalid_input_provided" = "提供された入力が無効です";
+"errors.dictionary_not_found" = "辞書が見つかりません";
+"errors.no_subscription_offerings_available" = "現在、サブスクリプションの提供はありません";
+"errors.requested_subscription_package_not_found" = "リクエストされたサブスクリプションパッケージが見つかりません";
+"errors.purchase_could_not_be_completed" = "購入を完了できません";
+"errors.failed_to_restore_previous_purchases" = "以前の購入の復元に失敗";
+"errors.no_offerings_available" = "現在、サブスクリプションの提供はありません";
+"errors.purchase_failed" = "購入に失敗";
+"errors.restore_failed" = "以前の購入の復元に失敗";
+"errors.export_limit_exceeded" = "エクスポート制限を超えました。無制限エクスポートのためにプロにアップグレード。";
+"errors.max_tags_reached" = "1単語あたり最大5タグの制限に達しました";
+"errors.tag_already_assigned" = "このタグはすでにこの単語に割り当てられています";
+"errors.tag_not_assigned" = "このタグはこの単語に割り当てられていません";
+"errors.network_timeout" = "ネットワークタイムアウト";
+"errors.server_unreachable" = "サーバーに到達できません";
+"errors.invalid_response" = "無効な応答";
+"errors.no_internet_connection" = "インターネット接続がありません";
+"errors.missing_api_key" = "APIキーがありません";
+"errors.decoding_error" = "デコードエラー";
+"errors.invalid_url" = "無効なURL";
+"errors.no_data" = "データがありません";
+"errors.save_failed" = "保存に失敗";
+"errors.read_failed" = "読み込みに失敗";
+"errors.data_corrupted" = "データが破損しています";
+"errors.invalid_input" = "無効な入力";
+"errors.missing_field" = "フィールドがありません";
+"errors.unknown_error" = "不明なエラー";
+"errors.update_failed" = "更新に失敗";
+"errors.delete_failed" = "削除に失敗";
+"errors.permission_denied" = "この操作に対する許可がありません";
+"errors.user_not_authenticated" = "ユーザーは認証が必要です";
+"errors.dictionary_limit_reached" = "無料プランでは1つの共有辞書のみ作成可能です。無制限の共有辞書のためにプロにアップグレード。";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "まだ単語がありません";
+"empty_states.no_idioms_yet" = "まだ慣用句がありません";
+"empty_states.no_favorite_words" = "お気に入りの単語がありません";
+"empty_states.no_search_results" = "検索結果がありません";
+"empty_states.start_improving_vocabulary" = "最初の慣用句を追加して語彙の向上を始める";
+"empty_states.tap_heart_icon_to_add_favorites" = "任意の慣用句のハートアイコンをタップしてお気に入りに追加";
+"empty_states.try_different_search_term" = "別の検索語を試すか、新しい慣用句を追加してください";
+
+// MARK: - Notifications
+"notifications.time_to_practice" = "練習の時間です！ 📚";
+"notifications.practice_vocabulary_today" = "今日の語彙練習を忘れずに。";
+"notifications.practice_difficult_words" = "難しい単語を練習 📚";
+"notifications.difficult_words_challenge" = "さらに練習が必要な単語があります。挑戦する準備はできていますか？";
+"notifications.test_dictionary_invitation" = "テスト辞書への招待";
+"notifications.test_dictionary_invitation_body" = "誰かがあなたを「テスト辞書」に追加しました";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "マイ辞書";
+"macos.about_my_dictionary" = "マイ辞書について";
+"macos.debug_panel" = "デバッグパネル";
+"macos.settings" = "設定";
+"macos.about" = "アプリについて";
+"macos.shared_dictionaries" = "共有辞書";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "すべての単語";
+"filter_display.favorite" = "お気に入り";
+"filter_display.search" = "検索";
+"filter_display.tag" = "タグ";
+"filter_display.new" = "新規";
+"filter_display.in_progress" = "進行中";
+"filter_display.needs_review" = "レビューが必要";
+"filter_display.mastered" = "習得済み";
+"filter_display.no_words_yet" = "まだ単語がありません";
+"filter_display.no_favorite_words" = "お気に入りの単語がありません";
+"filter_display.no_search_results" = "検索結果がありません";
+"filter_display.no_tagged_words" = "タグ付けされた単語がありません";
+"filter_display.no_new_words" = "新しい単語がありません";
+"filter_display.no_words_in_progress" = "進行中の単語がありません";
+"filter_display.no_words_need_review" = "レビューが必要な単語がありません";
+"filter_display.no_mastered_words" = "習得済みの単語がありません";
+"filter_display.start_building_vocabulary" = "最初の単語を追加して語彙の構築を始める";
+"filter_display.tap_heart_icon_to_add_favorites" = "任意の単語のハートアイコンをタップしてお気に入りに追加";
+"filter_display.try_different_search_term" = "別の検索語を試すか、新しい単語を追加してください";
+"filter_display.add_tags_to_organize" = "単語にタグを追加してより良く整理";
+"filter_display.new_words_appear_here" = "新しい単語はリストに追加後ここに表示されます";
+"filter_display.words_appear_here_as_you_practice" = "クイズで練習するにつれて単語がここに表示されます";
+"filter_display.words_need_more_practice" = "さらに練習が必要な単語がここに表示されます";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "オーナー";
+"collaborator_roles.editor" = "編集者";
+"collaborator_roles.viewer" = "閲覧者";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "青";
+"tag_colors.red" = "赤";
+"tag_colors.green" = "緑";
+"tag_colors.orange" = "オレンジ";
+"tag_colors.purple" = "紫";
+"tag_colors.pink" = "ピンク";
+"tag_colors.yellow" = "黄";
+"tag_colors.gray" = "灰";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "辞書を選択";
+"shared_dictionary_selection.dictionary_selected" = "辞書が選択されました";
+"shared_dictionary_selection.add_to_shared" = "共有に追加";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "共有辞書に単語を追加";
+"shared_dictionary_selection.unknown" = "不明";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "すべての進捗詳細を確認するためにプロにアップグレード。";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "語彙の成長のすべての詳細を確認するためにプロにアップグレード。";
+"pro_upgrade.time_period" = "期間";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "役割";
+"collaborator_management.add_collaborator" = "コラボレーターを追加";
+"collaborator_management.email_address_required" = "メールアドレスが必要です";
+"collaborator_management.valid_email_address" = "有効なメールアドレスを入力してください";
+"collaborator_management.make_viewer" = "閲覧者に設定";
+"collaborator_management.make_editor" = "編集者に設定";
+"collaborator_management.remove" = "削除";
+"collaborator_management.add" = "追加";
+"collaborator_management.delete_dictionary" = "辞書を削除";
+"collaborator_management.delete_dictionary_confirmation" = "この共有辞書を削除してもよろしいですか？この操作は元に戻せません。";
+"collaborator_management.stop_watching" = "観察を停止";
+"collaborator_management.stop_watching_dictionary_confirmation" = "この共有辞書の観察を停止してもよろしいですか？";
+"collaborator_management.stop_watching_dictionary" = "辞書の観察を停止";
+"collaborator_management.continue" = "続ける";
+"collaborator_management.dictionary_not_found" = "辞書が見つかりません";
+"collaborator_management.dictionary_details" = "辞書の詳細";
+"collaborator_management.unknown" = "不明";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "綴りクイズ";
+"quiz_types.choose_definition" = "定義を選択";
+"quiz_types.test_spelling_skills" = "単語を正しく綴ることで綴りスキルをテスト";
+"quiz_types.select_correct_definition" = "各単語の正しい定義を選択";
+"quiz_types.great_job_completed_spelling_quiz" = "素晴らしい！綴りクイズを完了しました。";
+"quiz_types.great_job_completed_definition_quiz" = "素晴らしい！定義クイズを完了しました。";
+
+// MARK: - English Accents
+"english_accents.australian" = "オーストラリア";
+"english_accents.canadian" = "カナダ";
+"english_accents.british" = "イギリス";
+"english_accents.indian" = "インド";
+"english_accents.american" = "アメリカ";
+"english_accents.belgian" = "ベルギー";
+"english_accents.singaporean" = "シンガポール";
+"english_accents.irish" = "アイルランド";
+"english_accents.south_african" = "南アフリカ";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "すべての慣用句";
+"idiom_filters.favorite" = "お気に入り";
+"idiom_filters.search" = "検索";
+"idiom_filters.no_idioms_yet" = "まだ慣用句がありません";
+"idiom_filters.no_favorite_words" = "お気に入りの単語がありません";
+"idiom_filters.no_search_results" = "検索結果がありません";
+"idiom_filters.start_improving_vocabulary" = "最初の慣用句を追加して語彙の向上を始める";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "任意の慣用句のハートアイコンをタップしてお気に入りに追加";
+"idiom_filters.try_different_search_term" = "別の検索語を試すか、新しい慣用句を追加してください";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "名詞";
+"part_of_speech.full.verb" = "動詞";
+"part_of_speech.full.adjective" = "形容詞";
+"part_of_speech.full.adverb" = "副詞";
+"part_of_speech.full.conjunction" = "接続詞";
+"part_of_speech.full.pronoun" = "代名詞";
+"part_of_speech.full.preposition" = "前置詞";
+"part_of_speech.full.exclamation" = "感嘆詞";
+"part_of_speech.full.unknown" = "不明";
+
+"part_of_speech.short.noun" = "名詞";
+"part_of_speech.short.verb" = "動詞";
+"part_of_speech.short.adjective" = "形";
+"part_of_speech.short.adverb" = "副";
+"part_of_speech.short.conjunction" = "接";
+"part_of_speech.short.pronoun" = "代";
+"part_of_speech.short.preposition" = "前";
+"part_of_speech.short.exclamation" = "感";
+"part_of_speech.short.unknown" = "不明";
