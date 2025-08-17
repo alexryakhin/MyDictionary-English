@@ -130,8 +130,7 @@
 "words_needing_review" = "Words Needing Review";
 "mastered" = "Mastered";
 "mastered_words" = "Mastered Words";
-"one_word" = "1 word";
-"words_count" = "%d words";
+
 "sort" = "Sort";
 "filter" = "Filter";
 "latest_first" = "Latest First";
@@ -278,7 +277,7 @@
 "collaborate_others" = "Collaborate with others";
 "delete_dictionary" = "Delete Dictionary";
 "your_dictionaries" = "Your Dictionaries";
-"dictionary_count_created" = "%d of 1 dictionary created";
+
 "free_users_one_dictionary" = "Free users can create one shared dictionary";
 "no_shared_dictionaries" = "No Shared Dictionaries";
 "create_shared_dictionary_collaborate" = "Create a shared dictionary to collaborate with others";
@@ -290,7 +289,7 @@
 "new_shared_dictionary" = "New Shared Dictionary";
 "dictionary_name_required" = "Dictionary name is required";
 "sign_in_to_create_shared_dictionary" = "Please sign in to create a shared dictionary";
-"collaborators" = "%d collaborators";
+
 "owner" = "Owner";
 "created_by" = "Created by %@";
 "no_words_yet" = "No words yet";
@@ -299,6 +298,30 @@
 "no_words_match_filter" = "No words match your current filter";
 "dictionary_details" = "Dictionary Details";
 "private_dictionary" = "Private Dictionary";
+
+// MARK: - Idioms Flow
+"add_idiom" = "Add '%@'";
+"add_new_idiom" = "Add new idiom";
+"idiom" = "Idiom";
+"no_idioms_found" = "No idioms found";
+"add_this_idiom" = "Add this idiom by tapping on the button above";
+"no_idioms_yet" = "No idioms yet";
+"begin_add_idioms" = "Begin to add idioms to your list by tapping on plus icon in upper left corner";
+"all_idioms" = "All idioms";
+"favorite_idioms" = "Favorite Idioms";
+"found_idioms" = "Found";
+"examples" = "Examples";
+"no_examples_yet" = "No examples yet";
+"type_example_here" = "Type an example here";
+"add_example" = "Add example";
+"edit_example" = "Edit example";
+"delete_idiom" = "Delete idiom";
+"delete_idiom_confirmation" = "Are you sure you want to delete this idiom?";
+"idiom_details" = "Idiom Details";
+"search_idioms" = "Search idioms...";
+"favorites" = "Favorites";
+"found" = "Found";
+
 
 
 

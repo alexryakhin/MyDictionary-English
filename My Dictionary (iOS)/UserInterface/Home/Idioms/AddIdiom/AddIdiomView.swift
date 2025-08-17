@@ -21,11 +21,11 @@ struct AddIdiomView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "Add new idiom",
+            title: Loc.addNewIdiom.localized,
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
-                HeaderButton("Save", size: .medium) {
+                HeaderButton(Loc.save.localized, size: .medium) {
                     viewModel.handle(.save)
                 }
             }
@@ -36,13 +36,13 @@ struct AddIdiomView: View {
     }
 
     private var idiomInputSectionView: some View {
-        CustomSectionView(header: "Idiom") {
-            TextField("Idiom", text: $viewModel.inputIdiom, axis: .vertical)
+        CustomSectionView(header: Loc.idiom.localized) {
+            TextField(Loc.idiom.localized, text: $viewModel.inputIdiom, axis: .vertical)
                 .focused($isIdiomInputFocused)
                 .clippedWithPaddingAndBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 12)
         } trailingContent: {
             if isIdiomInputFocused {
-                HeaderButton("Done", size: .small) {
+                HeaderButton(Loc.done.localized, size: .small) {
                     isIdiomInputFocused = false
                 }
             }
@@ -50,13 +50,13 @@ struct AddIdiomView: View {
     }
 
     private var definitionInputSectionView: some View {
-        CustomSectionView(header: "Definition") {
-            TextField("Definition", text: $viewModel.definitionField, axis: .vertical)
+        CustomSectionView(header: Loc.definition.localized) {
+            TextField(Loc.definition.localized, text: $viewModel.definitionField, axis: .vertical)
                 .focused($isDefinitionInputFocused)
                 .clippedWithPaddingAndBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 12)
         } trailingContent: {
             if isDefinitionInputFocused {
-                HeaderButton("Done", size: .small) {
+                HeaderButton(Loc.done.localized, size: .small) {
                     isDefinitionInputFocused = false
                 }
             }

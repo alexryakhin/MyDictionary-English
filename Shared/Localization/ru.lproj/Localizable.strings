@@ -130,8 +130,7 @@
 "words_needing_review" = "Слова, требующие повторения";
 "mastered" = "Освоено";
 "mastered_words" = "Освоенные слова";
-"one_word" = "1 слово";
-"words_count" = "%d слов";
+
 "sort" = "Сортировка";
 "filter" = "Фильтр";
 "latest_first" = "Сначала новые";
@@ -278,7 +277,7 @@
 "collaborate_others" = "Сотрудничать с другими";
 "delete_dictionary" = "Удалить словарь";
 "your_dictionaries" = "Ваши словари";
-"dictionary_count_created" = "%d из 1 словаря создано";
+
 "free_users_one_dictionary" = "Бесплатные пользователи могут создать один общий словарь";
 "no_shared_dictionaries" = "Нет общих словарей";
 "create_shared_dictionary_collaborate" = "Создайте общий словарь для совместной работы с другими";
@@ -290,7 +289,7 @@
 "new_shared_dictionary" = "Новый общий словарь";
 "dictionary_name_required" = "Название словаря обязательно";
 "sign_in_to_create_shared_dictionary" = "Войдите в систему для создания общего словаря";
-"collaborators" = "%d участников";
+
 "owner" = "Владелец";
 "created_by" = "Создано %@";
 "no_words_yet" = "Пока нет слов";
@@ -299,6 +298,30 @@
 "no_words_match_filter" = "Нет слов, соответствующих текущему фильтру";
 "dictionary_details" = "Детали словаря";
 "private_dictionary" = "Приватный словарь";
+
+// MARK: - Idioms Flow
+"add_idiom" = "Добавить '%@'";
+"add_new_idiom" = "Добавить новую идиому";
+"idiom" = "Идиома";
+"no_idioms_found" = "Идиомы не найдены";
+"add_this_idiom" = "Добавьте эту идиому, нажав на кнопку выше";
+"no_idioms_yet" = "Пока нет идиом";
+"begin_add_idioms" = "Начните добавлять идиомы в свой список, нажав на значок плюс в левом верхнем углу";
+"all_idioms" = "Все идиомы";
+"favorite_idioms" = "Избранные идиомы";
+"found_idioms" = "Найдено";
+"examples" = "Примеры";
+"no_examples_yet" = "Пока нет примеров";
+"type_example_here" = "Введите пример здесь";
+"add_example" = "Добавить пример";
+"edit_example" = "Редактировать пример";
+"delete_idiom" = "Удалить идиому";
+"delete_idiom_confirmation" = "Вы уверены, что хотите удалить эту идиому?";
+"idiom_details" = "Детали идиомы";
+"search_idioms" = "Поиск идиом...";
+"favorites" = "Избранное";
+"found" = "Найдено";
+
 
 
 

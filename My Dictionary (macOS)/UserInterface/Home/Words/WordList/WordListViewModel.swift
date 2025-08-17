@@ -78,11 +78,7 @@ final class WordListViewModel: BaseViewModel {
     }
 
     var wordsCount: String {
-        if wordsFiltered.count == 1 {
-            return Loc.oneWord.localized
-        } else {
-            return Loc.wordsCount.localized(wordsFiltered.count)
-        }
+        return Loc.wordsCount.localized(wordsFiltered.count)
     }
     
     var filterStateTitle: String {

@@ -125,8 +125,7 @@ enum Loc {
     static let wordsNeedingReview = "words_needing_review"
     static let mastered = "mastered"
     static let masteredWords = "mastered_words"
-    static let oneWord = "one_word"
-    static let wordsCount = "words_count"
+
     static let sort = "sort"
     static let filter = "filter"
     static let latestFirst = "latest_first"
@@ -285,6 +284,30 @@ enum Loc {
     static let noResults = "no_results"
     static let noWordsMatchFilter = "no_words_match_filter"
     static let dictionaryDetails = "dictionary_details"
+    
+    // MARK: - Idioms Flow
+    static let addIdiom = "add_idiom"
+    static let addNewIdiom = "add_new_idiom"
+    static let idiom = "idiom"
+    static let noIdiomsFound = "no_idioms_found"
+    static let addThisIdiom = "add_this_idiom"
+    static let noIdiomsYet = "no_idioms_yet"
+    static let beginAddIdioms = "begin_add_idioms"
+    static let allIdioms = "all_idioms"
+    static let favoriteIdioms = "favorite_idioms"
+    static let foundIdioms = "found_idioms"
+    static let examples = "examples"
+    static let noExamplesYet = "no_examples_yet"
+    static let typeExampleHere = "type_example_here"
+    static let addExample = "add_example"
+    static let editExample = "edit_example"
+    static let deleteIdiom = "delete_idiom"
+    static let deleteIdiomConfirmation = "delete_idiom_confirmation"
+    static let idiomDetails = "idiom_details"
+    static let searchIdioms = "search_idioms"
+    static let favorites = "favorites"
+    static let found = "found"
+
 
     // MARK: - Coffee Banner
     static let buyMeACoffee = "buy_me_a_coffee"
