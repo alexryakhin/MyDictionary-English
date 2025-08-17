@@ -31,10 +31,14 @@ struct AuthenticationView: View {
                     .font(.system(size: 80))
                     .foregroundStyle(.accent)
 
-                Text(shownBeforePaywall ? "Sign in before subscribing" : "Sign in to sync your word lists")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
+                Text(
+                    shownBeforePaywall
+                    ? Loc.Auth.signInBeforeSubscribing.localized
+                    : Loc.Auth.signInToSyncWordLists.localized
+                )
+                .font(.title2)
+                .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
 
                 Text(Loc.Auth.signInToAccessWordLists.localized)
                     .font(.body)
@@ -87,7 +91,7 @@ struct AuthenticationView: View {
                 }
 
                 if shownBeforePaywall {
-                    Button("Skip for now") {
+                    Button(Loc.Actions.skipForNow.localized) {
                         dismiss()
                     }
                     .font(.body)
@@ -117,7 +121,7 @@ struct AuthenticationView: View {
             title: "Sign In",
             mode: .inline,
             trailingContent: {
-                HeaderButton("Cancel") {
+                HeaderButton(Loc.Actions.cancel.localized) {
                     dismiss()
                 }
             }
@@ -212,8 +216,7 @@ struct AuthenticationView: View {
         do {
             try await authService.signInWithGoogle()
         } catch {
-            // Handle error - you might want to show an alert
-            print("Sign in error: \(error)")
+            errorReceived(error)
         }
     }
 
@@ -224,11 +227,11 @@ struct AuthenticationView: View {
                 do {
                     try await authService.signInWithApple()
                 } catch {
-                    print("Apple sign in error: \(error)")
+                    errorReceived(error)
                 }
             }
         case .failure(let error):
-            print("Apple sign in failed: \(error)")
+            errorReceived(error)
         }
     }
 
@@ -236,7 +239,7 @@ struct AuthenticationView: View {
         do {
             try await authService.linkGoogleAccount()
         } catch {
-            print("Link Google account error: \(error)")
+            errorReceived(error)
         }
     }
 
@@ -244,7 +247,7 @@ struct AuthenticationView: View {
         do {
             try await authService.linkAppleAccount()
         } catch {
-            print("Link Apple account error: \(error)")
+            errorReceived(error)
         }
     }
 }

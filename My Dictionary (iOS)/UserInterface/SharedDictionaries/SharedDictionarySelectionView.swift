@@ -27,7 +27,7 @@ struct SharedDictionarySelectionView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                CustomSectionView(header: "Private", hPadding: .zero) {
+                CustomSectionView(header: Loc.App.privateDictionary.localized, hPadding: .zero) {
                     Button {
                         selectedDictionaryId = nil
                         onDictionarySelected(nil)
@@ -61,7 +61,7 @@ struct SharedDictionarySelectionView: View {
                 }
 
                 if !dictionaryService.sharedDictionaries.isEmpty {
-                    CustomSectionView(header: "Shared Dictionaries", hPadding: .zero) {
+                    CustomSectionView(header: Loc.App.sharedDictionaries.localized, hPadding: .zero) {
                         ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in
                             Button {
                                 selectedDictionaryId = dictionary.id
@@ -109,11 +109,11 @@ struct SharedDictionarySelectionView: View {
                     }
                 } else {
                     CustomSectionView(
-                        header: "Shared Dictionaries",
-                        footer: "Create a shared dictionary to collaborate with others"
+                        header: Loc.App.sharedDictionaries.localized,
+                        footer: Loc.SharedDictionaries.createSharedDictionaryCollaborate.localized
                     ) {
                         ActionButton(
-                            "Create Shared Dictionary",
+                            Loc.SharedDictionaries.createSharedDictionary.localized,
                             systemImage: "plus.circle"
                         ) {
                             if dictionaryService.canCreateMoreSharedDictionaries() {
@@ -130,10 +130,10 @@ struct SharedDictionarySelectionView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "Select Dictionary",
+            title: Loc.SharedDictionarySelection.selectDictionary.localized,
             mode: .inline,
             trailingContent: {
-                HeaderButton("Cancel") {
+                HeaderButton(Loc.Actions.cancel.localized) {
                     dismiss()
                 }
             }

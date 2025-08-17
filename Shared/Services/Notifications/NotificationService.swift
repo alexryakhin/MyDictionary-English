@@ -29,8 +29,8 @@ final class NotificationService {
     
     func scheduleDailyReminder() {
         let content = UNMutableNotificationContent()
-        content.title = "Time to Practice! 📚"
-        content.body = "Don't forget to practice your vocabulary today."
+        content.title = Loc.Notifications.timeToPractice.localized
+        content.body = Loc.Notifications.practiceVocabularyToday.localized
         content.sound = .default
         
         // Schedule for 8:00 PM today (only if user hasn't opened app today)
@@ -50,8 +50,8 @@ final class NotificationService {
     
     func scheduleDifficultWordsReminder() {
         let content = UNMutableNotificationContent()
-        content.title = "Practice Your Difficult Words 📚"
-        content.body = "You have words that need more practice. Ready for a challenge?"
+        content.title = Loc.Notifications.practiceDifficultWords.localized
+        content.body = Loc.Notifications.difficultWordsChallenge.localized
         content.sound = .default
         
         // Schedule for 4:00 PM today

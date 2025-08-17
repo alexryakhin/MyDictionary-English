@@ -360,7 +360,7 @@ final class DataSyncService: ObservableObject {
 
 // MARK: - Errors
 
-enum DataSyncError: LocalizedError {
+enum DataSyncError: Error, LocalizedError {
     case invalidUserEmail
     case networkError
     case syncFailed
@@ -368,11 +368,11 @@ enum DataSyncError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidUserEmail:
-            return "Invalid user email"
+            return Loc.Errors.invalidUserEmail.localized
         case .networkError:
-            return "Network error occurred"
+            return Loc.Errors.networkErrorOccurred.localized
         case .syncFailed:
-            return "Sync failed"
+            return Loc.Errors.syncFailed.localized
         }
     }
 }

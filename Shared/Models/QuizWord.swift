@@ -76,11 +76,7 @@ extension CDWord: QuizWord {
         self.difficultyScore = Int32(newScore)
         self.isSynced = false  // Mark as unsynced to trigger Firebase sync
         self.updatedAt = Date()
-        do {
-            try CoreDataService.shared.saveContext()
-        } catch {
-            print("❌ Failed to update word difficulty score: \(error)")
-        }
+        try? CoreDataService.shared.saveContext()
     }
     
     func quiz_getDifficultyScoreForUser(_ userEmail: String) -> Int {
@@ -166,7 +162,7 @@ extension SharedWord: QuizWord {
     func quiz_updateDifficultyScoreForUser(_ points: Int, userEmail: String) {
         // This method should be called through DictionaryService to update Firestore
         // The actual implementation will be handled by DictionaryService
-        Task {
+        Task { @MainActor in
             do {
                 // Find which dictionary this word belongs to
                 let dictionaryService = DictionaryService.shared
@@ -174,7 +170,6 @@ extension SharedWord: QuizWord {
                     if words.contains(where: { $0.id == self.id }) {
                         let currentScore = self.getDifficultyFor(userEmail)
                         let newScore = calculateNewScore(currentScore: currentScore, pointsToAdd: points)
-                        print("🔹 [SharedWord] Updating difficulty for word '\(self.wordItself)' from \(currentScore) to \(newScore) in dictionary \(dictionaryId)")
                         try await dictionaryService.updateDifficulty(for: self.id, in: dictionaryId, difficulty: newScore)
 
                         // Update local cache immediately for better UX
@@ -185,13 +180,11 @@ extension SharedWord: QuizWord {
                             updatedWords[wordIndex] = updatedWord
                             dictionaryService.sharedWords[dictionaryId] = updatedWords
                         }
-                        print("✅ [SharedWord] Difficulty updated successfully for word '\(self.wordItself)'")
                         break
                     }
                 }
             } catch {
-                print("❌ [SharedWord] Failed to update difficulty score for word '\(self.wordItself)': \(error)")
-                // Consider showing a user-friendly error message
+                AlertCenter.shared.showAlert(with: .info(title: error.localizedDescription))
             }
         }
     }

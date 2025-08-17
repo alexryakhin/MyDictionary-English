@@ -29,16 +29,16 @@ struct SettingsView: View {
             VStack(spacing: 16) {
                 // MARK: - Translate Definitions
                 if !GlobalConstant.isEnglishLanguage {
-                    CustomSectionView(header: "Translate Definitions") {
-                        Toggle("Show definitions in your native language", isOn: $translateDefinitions)
+                    CustomSectionView(header: Loc.Settings.translateDefinitions.localized) {
+                        Toggle(Loc.Settings.showDefinitionsNativeLanguage.localized, isOn: $translateDefinitions)
                     }
                 } else {
-                    CustomSectionView(header: "Accent") {
+                    CustomSectionView(header: Loc.Settings.accent.localized) {
                         HStack {
                             Text(Loc.Settings.selectAccent.localized)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             HeaderButtonMenu(viewModel.selectedEnglishAccent.displayName, size: .small) {
-                                Picker("Select accent", selection: $viewModel.selectedEnglishAccent) {
+                                Picker(Loc.Settings.selectAccent.localized, selection: $viewModel.selectedEnglishAccent) {
                                     ForEach(EnglishAccent.allCases, id: \.self) {
                                         Text($0.displayName).tag($0)
                                     }
@@ -54,8 +54,8 @@ struct SettingsView: View {
                 // MARK: - Notifications
 
                 CustomSectionView(
-                    header: "Notifications",
-                    footer: "Daily reminders only send if you haven't opened the app that day."
+                    header: Loc.Settings.notifications.localized,
+                    footer: Loc.Settings.dailyRemindersDescription.localized
                 ) {
                     VStack(spacing: 8) {
                         HStack {
@@ -106,8 +106,8 @@ struct SettingsView: View {
                 // MARK: - Subscription
                 
                 CustomSectionView(
-                    header: "Subscription",
-                    footer: "Upgrade to Pro for unlimited features and cross-device sync."
+                    header: Loc.Settings.subscription.localized,
+                    footer: Loc.Settings.proUpgradeDescription.localized
                 ) {
                     SubscriptionStatusView()
                 }
@@ -115,10 +115,10 @@ struct SettingsView: View {
                 // MARK: - Word Lists & Sync
 
                 CustomSectionView(
-                    header: "Word Lists & Sync",
+                    header: Loc.Settings.wordListsAndSync.localized,
                     footer: authenticationService.isSignedIn
-                    ? "Manual sync mode: Use buttons below to upload/download your word lists to Google. Available to all users."
-                    : "Sign in to create and share word lists with others."
+                    ? Loc.Settings.manualSyncModeDescription.localized
+                    : Loc.Settings.signInToCreateShareWordLists.localized
                 ) {
                     if authenticationService.isSignedIn {
                         VStack(spacing: 8) {
@@ -128,14 +128,14 @@ struct SettingsView: View {
                                         Text(Loc.Settings.signedInAs.localized)
                                             .font(.body)
                                             .fontWeight(.medium)
-                                        Text(authenticationService.displayName ?? authenticationService.userEmail ?? "Anonymous")
+                                        Text(authenticationService.displayName ?? authenticationService.userEmail ?? Loc.Settings.anonymous.localized)
                                             .font(.caption)
                                             .foregroundStyle(.secondary)
                                     }
                                     
                                     Spacer()
 
-                                    HeaderButton("Sign Out", color: .red, size: .small) {
+                                    HeaderButton(Loc.Settings.signOut.localized, color: .red, size: .small) {
                                         HapticManager.shared.triggerSelection()
                                         authenticationService.toggleSignOutView()
                                     }
@@ -146,7 +146,7 @@ struct SettingsView: View {
 
                             // Manual sync buttons
                             ActionButton(
-                                "Upload backup to Google",
+                                Loc.Settings.uploadBackupToGoogle.localized,
                                 systemImage: "icloud.and.arrow.up",
                                 isLoading: dataSyncService.isUploading
                             ) {
@@ -154,7 +154,7 @@ struct SettingsView: View {
                             }
 
                             ActionButton(
-                                "Download backup from Google",
+                                Loc.Settings.downloadBackupFromGoogle.localized,
                                 systemImage: "icloud.and.arrow.down",
                                 isLoading: dataSyncService.isRestoring
                             ) {
@@ -164,7 +164,7 @@ struct SettingsView: View {
                         .padding(.bottom, 12)
                     } else {
                         VStack(alignment: .leading, spacing: 8) {
-                            ActionButton("Sign in to sync word lists", systemImage: "person.circle") {
+                            ActionButton(Loc.Settings.signInToSyncWordLists.localized, systemImage: "person.circle") {
                                 viewModel.output.send(.showAuthentication)
                             }
                         }
@@ -175,8 +175,8 @@ struct SettingsView: View {
                 // MARK: - Tag Management
 
                 CustomSectionView(
-                    header: "Organization",
-                    footer: "Create and manage tags to organize your words, and add collaborators to share words with."
+                    header: Loc.Settings.organization.localized,
+                    footer: Loc.Settings.tagManagementDescription.localized
                 ) {
                     VStack(spacing: 8) {
                         HStack {
@@ -184,18 +184,18 @@ struct SettingsView: View {
                                 .font(.body)
                                 .fontWeight(.medium)
                             Spacer()
-                            Toggle("Show Idioms Tab", isOn: $viewModel.showIdiomsTab)
+                            Toggle(Loc.Settings.showIdiomsTab.localized, isOn: $viewModel.showIdiomsTab)
                                 .labelsHidden()
                         }
                         .padding(vertical: 12, horizontal: 16)
                         .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
 
-                        ActionButton("Manage Tags", systemImage: "tag") {
+                        ActionButton(Loc.Tags.manageTags.localized, systemImage: "tag") {
                             viewModel.output.send(.showTagManagement)
                         }
 
                         if authenticationService.isSignedIn {
-                            ActionButton("Shared Dictionaries", systemImage: "person.2") {
+                            ActionButton(Loc.Settings.sharedDictionaries.localized, systemImage: "person.2") {
                                 viewModel.output.send(.showSharedDictionaries)
                             }
                         }
@@ -206,12 +206,12 @@ struct SettingsView: View {
                 // MARK: - Import & Export
 
                 CustomSectionView(
-                    header: "Import / Export",
-                    footer: "Please note that import and export only work with files created by this app."
+                    header: Loc.Settings.importExport.localized,
+                    footer: Loc.Settings.importExportNote.localized
                 ) {
                     VStack(spacing: 8) {
                         let wordsCount = WordsProvider.shared.words.count
-                        ActionButton("Import words", systemImage: "square.and.arrow.down") {
+                        ActionButton(Loc.Settings.importWords.localized, systemImage: "square.and.arrow.down") {
                             if subscriptionService.isProUser || wordsCount < 50 {
                                 viewModel.isImporting = true
                             } else {
@@ -219,7 +219,7 @@ struct SettingsView: View {
                             }
                             AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
                         }
-                        ActionButton("Export words", systemImage: "square.and.arrow.up") {
+                        ActionButton(Loc.Settings.exportWords.localized, systemImage: "square.and.arrow.up") {
                             if subscriptionService.isProUser || wordsCount < 50 {
                                 viewModel.exportWords()
                             } else {
@@ -242,9 +242,9 @@ struct SettingsView: View {
                 // MARK: - About app
 
                 CustomSectionView(
-                    header: "About app"
+                    header: Loc.Settings.aboutApp.localized
                 ) {
-                    ActionButton("Learn more", systemImage: "info.circle") {
+                    ActionButton(Loc.Settings.learnMore.localized, systemImage: "info.circle") {
                         viewModel.output.send(.showAboutApp)
                     }
                 }
@@ -253,7 +253,7 @@ struct SettingsView: View {
         }
         .groupedBackground()
         .multilineTextAlignment(.leading)
-        .navigation(title: "Settings", mode: .large)
+        .navigation(title: Loc.TabBar.settings.localized, mode: .large)
         .fileImporter(
             isPresented: $viewModel.isImporting,
             allowedContentTypes: [UTType.commaSeparatedText],

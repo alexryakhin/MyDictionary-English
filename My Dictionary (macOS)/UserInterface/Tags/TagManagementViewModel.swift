@@ -49,8 +49,8 @@ final class TagManagementViewModel: BaseViewModel {
             editingTag = tag
             showAlert(
                 withModel: .deleteConfirmation(
-                    title: "Delete Tag",
-                    message: "Are you sure you want to delete this tag? This action cannot be undone.",
+                    title: Loc.Tags.deleteTag.localized,
+                    message: Loc.Tags.deleteTagConfirmation.localized,
                     onDelete: { [weak self] in
                         self?.handle(.confirmDeleteTag)
                     }
@@ -110,6 +110,6 @@ final class TagManagementViewModel: BaseViewModel {
     }
     
     private func handleError(_ error: Error) {
-        AlertCenter.shared.showAlert(with: .info(title: "Tag Management Error", message: error.localizedDescription))
+        AlertCenter.shared.showAlert(with: .info(title: Loc.Tags.tagManagementError.localized, message: error.localizedDescription))
     }
 } 

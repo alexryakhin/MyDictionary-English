@@ -17,13 +17,13 @@ struct TagSelectionView: View {
 
     var body: some View {
         ScrollViewWithCustomNavBar {
-            CustomSectionView(
-                header: "Select Tags",
-                footer: "You can select up to 5 tags per word. Tap a tag to select or deselect it."
+                    CustomSectionView(
+            header: Loc.TagSelection.selectTags.localized,
+                footer: Loc.TagSelection.youCanSelectUpTo5Tags.localized
             ) {
                 if tagService.tags.isEmpty {
-                    ContentUnavailableView(
-                        "No Tags Yet",
+                                    ContentUnavailableView(
+                    Loc.TagSelection.noTagsYet.localized,
                         systemImage: "tag",
                         description: Text(Loc.Tags.addTagToStartUsing.localized)
                     )
@@ -50,16 +50,16 @@ struct TagSelectionView: View {
                     .padding(.bottom, 12)
                 }
             } trailingContent: {
-                HeaderButton("Create tags", icon: "tag", size: .small, style: .borderedProminent) {
+                HeaderButton(Loc.Tags.createTags.localized, icon: "tag", size: .small, style: .borderedProminent) {
                     isShowingAddTagSheet.toggle()
                 }
             }
             .padding(12)
         } navigationBar: {
-            NavigationBarView(title: "Add Tags")
+            NavigationBarView(title: Loc.Tags.addTags.localized)
         }
         .groupedBackground()
-        .navigationTitle("Add Tags")
+                        .navigationTitle(Loc.Tags.addTags.localized)
         .sheet(isPresented: $isShowingAddTagSheet) {
             AddEditTagView(viewModel: .init())
         }

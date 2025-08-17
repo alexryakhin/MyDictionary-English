@@ -76,7 +76,7 @@ struct SignOutConfirmationView: View {
             // Action buttons
             VStack(spacing: 12) {
                 ActionButton(
-                    "Sign Out",
+                    Loc.Auth.signOut.localized,
                     systemImage: "rectangle.portrait.and.arrow.right",
                     color: .red,
                     style: .borderedProminent
@@ -85,7 +85,7 @@ struct SignOutConfirmationView: View {
                     dismiss()
                 }
 
-                ActionButton("Cancel") {
+                ActionButton(Loc.Actions.cancel.localized) {
                     dismiss()
                 }
             }

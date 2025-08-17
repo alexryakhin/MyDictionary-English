@@ -46,7 +46,6 @@ final class PaywallService: ObservableObject {
         
         // Check if user is authenticated before showing paywall
         guard AuthenticationService.shared.isSignedIn else {
-            print("⚠️ [PaywallService] User not authenticated - showing sign-in alert")
             showAuthenticationRequiredAlert(for: reason, completion: completion)
             return
         }
@@ -57,8 +56,6 @@ final class PaywallService: ObservableObject {
         
         // Track analytics
         AnalyticsService.shared.logEvent(.paywallPresented)
-        
-        print("💰 [PaywallService] Presenting paywall for reason: \(reason)")
     }
     
     /// Shows an alert requiring authentication before accessing Pro features
@@ -70,9 +67,9 @@ final class PaywallService: ObservableObject {
         // Show alert with sign-in options using cross-platform AlertCenter
         AlertCenter.shared.showAlert(
             with: .init(
-                title: "Sign In Required",
-                message: "You need to sign in to access Pro features like \(reason.title).",
-                actionText: "Sign In",
+                title: Loc.Paywall.signInRequired.localized,
+                message: String(format: Loc.Auth.signInRequiredForProFeatures.localized, reason.title),
+                actionText: Loc.Actions.signIn.localized,
                 action: {
                     // Present sign-in options
                     self.presentSignInOptions()
@@ -115,7 +112,6 @@ final class PaywallService: ObservableObject {
     private func showPaywallAfterAuthentication() {
         guard let reason = paywallPresentationReason else { return }
         
-        print("✅ [PaywallService] User authenticated, showing paywall for: \(reason)")
         isShowingPaywall = true
         
         // Track analytics
@@ -130,8 +126,6 @@ final class PaywallService: ObservableObject {
         // Call completion handler with false (user didn't subscribe)
         paywallCompletionHandler?(false)
         paywallCompletionHandler = nil
-        
-        print("💰 [PaywallService] Paywall dismissed")
     }
     
     /// Called when user completes a purchase
@@ -142,15 +136,12 @@ final class PaywallService: ObservableObject {
         // Call completion handler with true (user subscribed)
         paywallCompletionHandler?(true)
         paywallCompletionHandler = nil
-        
-        print("💰 [PaywallService] Purchase completed, paywall dismissed")
     }
     
     /// Handles restore purchases with authentication check
     func handleRestorePurchases() async -> Bool {
         // Check if user is authenticated before restoring
         guard AuthenticationService.shared.isSignedIn else {
-            print("⚠️ [PaywallService] Cannot restore purchases - user not authenticated")
             showAuthenticationRequiredAlertForRestore()
             return false
         }
@@ -158,16 +149,8 @@ final class PaywallService: ObservableObject {
         do {
             let customerInfo = try await Purchases.shared.restorePurchases()
             let hasActiveSubscription = !customerInfo.entitlements.active.isEmpty
-            
-            if hasActiveSubscription {
-                print("✅ [PaywallService] Purchases restored successfully")
-                return true
-            } else {
-                print("ℹ️ [PaywallService] No active subscriptions found")
-                return false
-            }
+            return hasActiveSubscription
         } catch {
-            print("❌ [PaywallService] Failed to restore purchases: \(error)")
             return false
         }
     }
@@ -176,9 +159,9 @@ final class PaywallService: ObservableObject {
     private func showAuthenticationRequiredAlertForRestore() {
         AlertCenter.shared.showAlert(
             with: .init(
-                title: "Sign In Required",
-                message: "You need to sign in to restore your purchases.",
-                actionText: "Sign In",
+                title: Loc.Paywall.signInRequired.localized,
+                message: Loc.Auth.signInRequiredForRestore.localized,
+                actionText: Loc.Actions.signIn.localized,
                 action: {
                     self.presentSignInOptions()
                 }
@@ -200,34 +183,34 @@ enum PaywallReason: String, CaseIterable {
     var title: String {
         switch self {
         case .googleSync:
-            return "Google Sync"
+            return Loc.ProFeatures.googleSync.localized
         case .unlimitedExport:
-            return "Unlimited Export"
+            return Loc.ProFeatures.unlimitedExport.localized
         case .createSharedDictionaries:
-            return "Create Shared Dictionaries"
+            return Loc.ProFeatures.createSharedDictionaries.localized
         case .advancedAnalytics:
-            return "Advanced Analytics"
+            return Loc.ProFeatures.advancedAnalytics.localized
         case .prioritySupport:
-            return "Priority Support"
+            return Loc.ProFeatures.prioritySupport.localized
         case .general:
-            return "Pro Features"
+            return Loc.ProFeatures.proFeatures.localized
         }
     }
     
     var description: String {
         switch self {
         case .googleSync:
-            return "Sync your words across all devices with Google Drive"
+            return Loc.ProFeatures.syncWordsAcrossDevices.localized
         case .unlimitedExport:
-            return "Export unlimited words to CSV files"
+            return Loc.ProFeatures.exportUnlimitedWords.localized
         case .createSharedDictionaries:
-            return "Create and manage shared dictionaries with others"
+            return Loc.ProFeatures.createManageSharedDictionaries.localized
         case .advancedAnalytics:
-            return "Get detailed insights into your learning progress"
+            return Loc.ProFeatures.detailedInsights.localized
         case .prioritySupport:
-            return "Get priority support from our team"
+            return Loc.ProFeatures.prioritySupportTeam.localized
         case .general:
-            return "Unlock all Pro features"
+            return Loc.ProFeatures.unlockAllProFeatures.localized
         }
     }
     

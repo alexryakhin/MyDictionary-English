@@ -28,7 +28,7 @@ struct SubscriptionPlan: Identifiable, Hashable {
         // Calculate savings for yearly plans
         if product.subscriptionPeriod?.unit == .year {
             // Compare with monthly price to show savings
-            self.savings = "Save 33%" // You can calculate this dynamically
+            self.savings = Loc.Paywall.savePercentage.localized("37%")
         } else {
             self.savings = nil
         }
@@ -54,21 +54,21 @@ enum SubscriptionFeature: String, CaseIterable {
 
     var displayName: String {
         switch self {
-        case .unlimitedExport: "Unlimited Export"
-        case .createSharedDictionaries: "Create Shared Dictionaries"
-        case .tagManagement: "Tag Management"
-        case .advancedAnalytics: "Advanced Analytics"
-        case .prioritySupport: "Priority Support"
+        case .unlimitedExport: Loc.ProFeatures.unlimitedExport.localized
+        case .createSharedDictionaries: Loc.ProFeatures.createSharedDictionaries.localized
+        case .tagManagement: Loc.ProFeatures.tagManagement.localized
+        case .advancedAnalytics: Loc.ProFeatures.advancedAnalytics.localized
+        case .prioritySupport: Loc.ProFeatures.prioritySupport.localized
         }
     }
 
     var description: String {
         switch self {
-        case .unlimitedExport: "Export unlimited words to CSV"
-        case .createSharedDictionaries: "Create and manage shared dictionaries with collaborators"
-        case .tagManagement: "Organize your words with custom tags for easier search"
-        case .advancedAnalytics: "Detailed progress tracking and insights"
-        case .prioritySupport: "Get priority support when you need help"
+        case .unlimitedExport: Loc.ProFeatures.syncWordsAcrossDevices.localized
+        case .createSharedDictionaries: Loc.ProFeatures.createManageSharedDictionaries.localized
+        case .tagManagement: Loc.ProFeatures.organizeWordsWithTags.localized
+        case .advancedAnalytics: Loc.ProFeatures.detailedInsights.localized
+        case .prioritySupport: Loc.ProFeatures.prioritySupportTeam.localized
         }
     }
 
@@ -104,15 +104,16 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     // MARK: - RevenueCat Setup
 
     private func setupRevenueCat() {
-#if DEBUG
+        // DO NOT TRANSLATE DEBUG
+        #if DEBUG
         Purchases.logLevel = .debug
-#endif
+        #endif
 
         // Temporary flag to disable RevenueCat for testing
-#if DISABLE_REVENUECAT
+        #if DISABLE_REVENUECAT
         print("⚠️ [SubscriptionService] RevenueCat disabled for testing")
         return
-#endif
+        #endif
 
         let configuration = Configuration.Builder(withAPIKey: AppConfig.RevenueCat.publicSDKKey)
             .with(storeKitVersion: .storeKit2)
@@ -477,11 +478,9 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             }
             
             availablePlans = plans
-            print("✅ [SubscriptionService] Loaded \(plans.count) subscription plans")
-            
+
         } catch {
             errorMessage = "Failed to load subscription products: \(error.localizedDescription)"
-            print("❌ [SubscriptionService] Failed to load products: \(error)")
         }
         
         isLoading = false
@@ -503,7 +502,6 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     /// This ensures Pro features are immediately disabled
     @MainActor
     func resetSubscriptionStatusOnSignOut() {
-        print("🔄 [SubscriptionService] Resetting subscription status due to sign out")
         isProUser = false
         currentPlan = nil
     }
@@ -512,18 +510,14 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     /// Useful for debugging and ensuring UI is up to date
     @MainActor
     func forceRefreshSubscriptionStatus() {
-        print("🔄 [SubscriptionService] Force refreshing subscription status")
-        
         // Check authentication status
         let isAuthenticated = AuthenticationService.shared.isSignedIn
         let hasEmail = AuthenticationService.shared.userEmail != nil
         
         if !isAuthenticated || !hasEmail {
-            print("⚠️ [SubscriptionService] User not authenticated - resetting to free")
             isProUser = false
             currentPlan = nil
         } else {
-            print("✅ [SubscriptionService] User authenticated - checking subscription")
             // Trigger a subscription check
             Task {
                 await checkSubscriptionStatus()
@@ -534,7 +528,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
 
 // MARK: - Subscription Errors
 
-enum SubscriptionError: LocalizedError {
+enum SubscriptionError: Error, LocalizedError {
     case noOfferingsAvailable
     case packageNotFound
     case purchaseFailed
@@ -543,13 +537,13 @@ enum SubscriptionError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .noOfferingsAvailable:
-            return "No subscription offerings are currently available"
+            return Loc.Errors.noOfferingsAvailable.localized
         case .packageNotFound:
-            return "The requested subscription package was not found"
+            return Loc.Errors.packageNotFound.localized
         case .purchaseFailed:
-            return "The purchase could not be completed"
+            return Loc.Errors.purchaseFailed.localized
         case .restoreFailed:
-            return "Failed to restore previous purchases"
+            return Loc.Errors.restoreFailed.localized
         }
     }
 }

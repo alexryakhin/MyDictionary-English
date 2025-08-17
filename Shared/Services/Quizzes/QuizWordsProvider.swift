@@ -35,14 +35,12 @@ final class QuizWordsProvider: ObservableObject {
     
     /// Forces a refresh of available dictionaries and words
     func refreshAvailableDictionaries() {
-        print("🔄 [QuizWordsProvider] Forcing refresh of available dictionaries")
         updateAvailableDictionaries()
         updateAvailableWords()
     }
     
     /// Resets the service state (useful when user signs out/in)
     func reset() {
-        print("🔄 [QuizWordsProvider] Resetting service state")
         availableWords = []
         availableDictionaries = []
         selectedDictionary = .privateDictionary
@@ -50,7 +48,6 @@ final class QuizWordsProvider: ObservableObject {
     
     /// Manually loads words for a shared dictionary
     func loadWordsForSharedDictionary(_ dictionary: SharedDictionary) {
-        print("🔄 [QuizWordsProvider] Manually loading words for shared dictionary: \(dictionary.name)")
         setupListenerForDictionary(dictionary.id)
     }
     
@@ -151,14 +148,10 @@ final class QuizWordsProvider: ObservableObject {
         switch selectedDictionary {
         case .privateDictionary:
             availableWords = wordsProvider.words
-            print("📊 [QuizWordsProvider] Updated available words for private dictionary: \(wordsProvider.words.count) words")
         case .sharedDictionary(let dictionary):
             // Get words from cache
             let cachedWords = dictionaryService.sharedWords[dictionary.id] ?? []
-            print("📊 [QuizWordsProvider] Checking cached words for shared dictionary '\(dictionary.name)': \(cachedWords.count) words")
-
             availableWords = cachedWords
-            print("📊 [QuizWordsProvider] Updated available words for shared dictionary '\(dictionary.name)': \(cachedWords.count) words")
         }
     }
     
@@ -185,7 +178,7 @@ enum QuizDictionary: Hashable, Identifiable {
     var name: String {
         switch self {
         case .privateDictionary:
-            return "Private Dictionary"
+            return Loc.Words.privateDictionary.localized
         case .sharedDictionary(let dictionary):
             return dictionary.name
         }

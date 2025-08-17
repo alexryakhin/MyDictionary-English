@@ -31,7 +31,7 @@ struct ErrorView: View {
                 .multilineTextAlignment(.center)
             
             // Retry button
-            Button("Try Again") {
+            Button(Loc.App.tryAgain.localized) {
                 // Restart the app or retry initialization
                 exit(0)
             }

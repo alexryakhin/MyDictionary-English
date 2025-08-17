@@ -77,7 +77,7 @@ struct IdiomListView: View {
                 HeaderButtonMenu(icon: "ellipsis.circle") {
                     Picker(selection: _viewModel.projectedValue.sortingState) {
                         ForEach(SortingCase.idiomsSortingCases, id: \.self) { item in
-                            Text(item.rawValue)
+                            Text(item.displayName)
                                 .tag(item)
                         }
                     } label: {
@@ -85,7 +85,7 @@ struct IdiomListView: View {
                     }
                     Picker(selection: _viewModel.projectedValue.filterState) {
                         ForEach(IdiomFilterCase.availableCases, id: \.self) { item in
-                            Text(item.rawValue)
+                            Text(item.displayName)
                                 .tag(item)
                         }
                     } label: {

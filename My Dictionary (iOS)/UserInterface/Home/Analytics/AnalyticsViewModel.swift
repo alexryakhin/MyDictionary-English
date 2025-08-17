@@ -15,9 +15,9 @@ enum TimePeriod: CaseIterable {
     
     var displayName: String {
         switch self {
-        case .week: return "Week"
-        case .month: return "Month"
-        case .year: return "Year"
+        case .week: return Loc.TimePeriod.week.localized
+        case .month: return Loc.TimePeriod.month.localized
+        case .year: return Loc.TimePeriod.year.localized
         }
     }
     
@@ -57,7 +57,6 @@ final class AnalyticsViewModel: BaseViewModel {
         CoreDataService.shared.dataUpdatedPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-                print("🔄 [AnalyticsViewModel] Core Data updated, refreshing progress summary")
                 self?.loadData()
             }
             .store(in: &cancellables)
@@ -67,7 +66,6 @@ final class AnalyticsViewModel: BaseViewModel {
             .debounce(for: .seconds(1.0), scheduler: DispatchQueue.main)
             .removeDuplicates() // Only trigger if the actual data changed
             .sink { [weak self] _ in
-                print("🔄 [AnalyticsViewModel] Shared dictionaries updated, refreshing progress summary")
                 self?.loadData()
             }
             .store(in: &cancellables)

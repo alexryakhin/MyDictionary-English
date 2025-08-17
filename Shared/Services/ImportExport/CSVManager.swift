@@ -24,11 +24,8 @@ final class CSVManager {
         let subscriptionService = SubscriptionService.shared
         
         // Check export limit for free users
-        guard subscriptionService.canExportWords(wordModels.count) else {
-            print("❌ [CSVManager] Export limit exceeded: \(wordModels.count) words (limit: \(subscriptionService.getExportLimit()))")
-            return nil
-        }
-        
+        guard subscriptionService.canExportWords(wordModels.count) else { return nil }
+
         let fileName = "MyDictionaryExport.csv"
         let filePath = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
 
@@ -113,11 +110,23 @@ final class CSVManager {
         if count > 0 {
             try coreDataService.saveContext()
             DispatchQueue.main.async {
-                AlertCenter.shared.showAlert(with: .info(title: "Import successful", message: "\(count) words have been imported successfully"))
+                AlertCenter.shared.showAlert(
+                    with: .info(
+                        title: Loc.App.importSuccessful.localized,
+                        message: Loc.App.importSuccessfulMessage.localized(
+                            Loc.Words.wordsCount.localized(count)
+                        )
+                    )
+                )
             }
         } else {
             DispatchQueue.main.async {
-                AlertCenter.shared.showAlert(with: .info(title: "No words imported", message: "We couldn't find any new words to import"))
+                AlertCenter.shared.showAlert(
+                    with: .info(
+                        title: Loc.App.noWordsImported.localized,
+                        message: Loc.App.noWordsImportedMessage.localized
+                    )
+                )
             }
         }
     }

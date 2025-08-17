@@ -52,7 +52,9 @@ struct AddWordView: View {
             bottomContent: {
                 if authenticationService.isSignedIn {
                     HeaderButton(
-                        selectedDictionaryId == nil ? Loc.Words.privateDictionary.localized : Loc.Words.sharedDictionary.localized,
+                        selectedDictionaryId == nil
+                        ? Loc.Words.privateDictionary.localized
+                        : Loc.Words.sharedDictionary.localized,
                         icon: selectedDictionaryId == nil ? "person" : "person.2",
                     ) {
                         showingDictionarySelection = true
@@ -85,7 +87,7 @@ struct AddWordView: View {
             .autocorrectionDisabled()
         }
     }
-    
+
     var inputLanguageCellView: some View {
         CellWrapper(Loc.Words.inputLanguage.localized) {
             Menu {
@@ -114,15 +116,15 @@ struct AddWordView: View {
     }
 
     var definitionCellView: some View {
-        CellWrapper("Definition") {
-            CustomTextField("Enter definition", text: $viewModel.descriptionField)
+        CellWrapper(Loc.Words.definition.localized) {
+            CustomTextField(Loc.App.enterDefinition.localized, text: $viewModel.descriptionField)
                 .autocorrectionDisabled()
         }
     }
 
     @ViewBuilder
     var partOfSpeechCellView: some View {
-        CellWrapper("Part of speech") {
+        CellWrapper(Loc.Words.partOfSpeech.localized) {
             Menu {
                 ForEach(PartOfSpeech.allCases, id: \.self) { partOfSpeech in
                     Button {
@@ -131,11 +133,11 @@ struct AddWordView: View {
                         if viewModel.partOfSpeech == partOfSpeech {
                             Image(systemName: "checkmark")
                         }
-                        Text(partOfSpeech.rawValue)
+                        Text(partOfSpeech.displayName)
                     }
                 }
             } label: {
-                Text(viewModel.partOfSpeech?.rawValue ?? "Select a value")
+                Text(viewModel.partOfSpeech?.displayName ?? Loc.App.selectValue.localized)
             }
         }
     }
@@ -143,7 +145,7 @@ struct AddWordView: View {
     @ViewBuilder
     var phoneticsCellView: some View {
         if let pronunciation = viewModel.pronunciation?.nilIfEmpty {
-            CellWrapper("Pronunciation") {
+            CellWrapper(Loc.App.pronunciation.localized) {
                 Text(pronunciation)
             } trailingContent: {
                 HeaderButton(icon: "speaker.wave.2.fill", size: .small) {
@@ -152,10 +154,10 @@ struct AddWordView: View {
             }
         }
     }
-    
+
     @ViewBuilder
     var tagsCellView: some View {
-        CellWrapper("Tags") {
+        CellWrapper(Loc.App.tags.localized) {
             if viewModel.selectedTags.isEmpty {
                 Text(Loc.Words.noTagsSelected.localized)
                     .foregroundStyle(.secondary)
@@ -164,7 +166,7 @@ struct AddWordView: View {
                     HStack(spacing: 8) {
                         ForEach(viewModel.selectedTags, id: \.id) { tag in
                             Menu {
-                                Button("Remove", role: .destructive) {
+                                Button(Loc.Actions.remove.localized, role: .destructive) {
                                     viewModel.handle(.toggleTag(tag))
                                 }
                             } label: {
@@ -189,7 +191,7 @@ struct AddWordView: View {
 
     @ViewBuilder
     var definitionsSectionView: some View {
-        CustomSectionView(header: "Select a definition", hPadding: .zero) {
+        CustomSectionView(header: Loc.App.selectDefinition.localized, hPadding: .zero) {
             switch viewModel.status {
             case .loading:
                 VStack(spacing: 16) {
@@ -198,12 +200,12 @@ struct AddWordView: View {
                             ShimmerView(height: 100)
                         }
                     }
-                    
+
                     if viewModel.isTranslating {
                         HStack {
                             ProgressView()
                                 .scaleEffect(0.8)
-                            Text(GlobalConstant.isEnglishLanguage ? "Translating word..." : "Translating definitions...")
+                            Text(GlobalConstant.isEnglishLanguage ? Loc.App.translatingWord.localized : Loc.App.translatingDefinitions.localized)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -219,7 +221,7 @@ struct AddWordView: View {
                 } description: {
                     Text(Loc.Words.errorLoadingDefinitions.localized)
                 } actions: {
-                    HeaderButton("Retry", icon: "magnifyingglass", style: .borderedProminent) {
+                    HeaderButton(Loc.App.retry.localized, icon: "magnifyingglass", style: .borderedProminent) {
                         viewModel.handle(.fetchData)
                     }
                 }
@@ -227,12 +229,12 @@ struct AddWordView: View {
                 .padding(.horizontal, 16)
             case .ready:
                 let definitionsToShow = (!GlobalConstant.isEnglishLanguage && viewModel.translateDefinitions) ?
-                    viewModel.translatedDefinitions : viewModel.definitions
+                viewModel.translatedDefinitions : viewModel.definitions
 
                 FormWithDivider {
                     ForEach(Array(definitionsToShow.enumerated()), id: \.element.id) { offset, definition in
                         FormWithDivider {
-                            CellWrapper("Definition \(offset + 1), \(definition.partOfSpeech.rawValue)") {
+                            CellWrapper("\(Loc.Words.definition.localized) \(offset + 1), \(definition.partOfSpeech.displayName)") {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(definition.text)
                                         .multilineTextAlignment(.leading)
@@ -259,7 +261,7 @@ struct AddWordView: View {
                             // Show examples from original definition
                             if offset < viewModel.definitions.count {
                                 ForEach(viewModel.definitions[offset].examples, id: \.self) { example in
-                                    CellWrapper("Example") {
+                                    CellWrapper(Loc.App.example.localized) {
                                         Text(example)
                                     }
                                 }
@@ -273,7 +275,7 @@ struct AddWordView: View {
                 } description: {
                     Text(Loc.Words.typeWordAndPressSearch.localized)
                 } actions: {
-                    HeaderButton("Search", icon: "magnifyingglass", style: .borderedProminent) {
+                    HeaderButton(Loc.Actions.search.localized, icon: "magnifyingglass", style: .borderedProminent) {
                         viewModel.handle(.fetchData)
                     }
                 }

@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct QuizzesListView: View {
-    
+
     typealias ViewModel = QuizzesListViewModel
-    
+
     @ObservedObject private var viewModel: ViewModel
     @StateObject private var quizWordsProvider: QuizWordsProvider = .shared
     @AppStorage(UDKeys.practiceWordCount) private var practiceWordCount: Double = 10
-    
+
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         ZStack {
             Color.systemGroupedBackground
                 .ignoresSafeArea()
-            
+
             if viewModel.hasEnoughWords {
                 quizzesList
             } else {
@@ -31,7 +31,7 @@ struct QuizzesListView: View {
             }
         }
         .navigation(
-            title: "Quizzes",
+            title: Loc.TabBar.quizzes.localized,
             mode: .large,
             trailingContent: {
                 dictionaryPicker
@@ -41,7 +41,7 @@ struct QuizzesListView: View {
             AnalyticsService.shared.logEvent(.quizzesOpened)
         }
     }
-    
+
     private var dictionaryPicker: some View {
         HeaderButtonMenu(
             viewModel.selectedDictionary.name,
@@ -63,14 +63,14 @@ struct QuizzesListView: View {
             }
         }
     }
-    
+
     private var quizzesList: some View {
         ScrollView {
             VStack(spacing: 16) {
                 // Quiz Types Section
                 CustomSectionView(
-                    header: "Quiz Types",
-                    footer: "You can practice your own vocabulary, or select a shared dictionary that is already populated with words."
+                    header: Loc.QuizList.quizTypes.localized,
+                    footer: Loc.Quizzes.youCanPracticeVocabulary.localized
                 ) {
                     VStack(spacing: 8) {
                         Button {
@@ -83,7 +83,7 @@ struct QuizzesListView: View {
                             Color.tertiarySystemGroupedBackground,
                             cornerRadius: 16
                         )
-                        
+
                         Button {
                             viewModel.output.send(.showChooseDefinitionQuiz(.init(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly)))
                         } label: {
@@ -97,12 +97,12 @@ struct QuizzesListView: View {
                     }
                     .padding(.bottom, 12)
                 }
-                
+
                 // Practice Settings Section
                 if viewModel.words.count >= 20 {
                     CustomSectionView(
-                        header: "Practice Settings",
-                        footer: "Configure your quiz experience"
+                        header: Loc.QuizList.practiceSettings.localized,
+                        footer: Loc.QuizList.configureQuizExperience.localized
                     ) {
                         VStack(spacing: 8) {
                             // Hard Words Toggle
@@ -113,15 +113,15 @@ struct QuizzesListView: View {
                                         .fontWeight(.medium)
                                     Text(
                                         viewModel.hasHardWords
-                                        ? "Focus on words that need review"
-                                        : "Not enough words to review yet"
+                                        ? Loc.QuizList.focusOnWordsNeedReview.localized
+                                        : Loc.QuizList.notEnoughWordsReviewYet.localized
                                     )
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                                 }
-                                
+
                                 Spacer()
-                                
+
                                 Toggle("", isOn: $viewModel.showingHardWordsOnly)
                                     .labelsHidden()
                                     .disabled(!viewModel.hasHardWords)
@@ -130,7 +130,7 @@ struct QuizzesListView: View {
                                 Color.tertiarySystemGroupedBackground,
                                 cornerRadius: 16
                             )
-                            
+
                             // Word Count Slider
                             VStack(alignment: .leading, spacing: 8) {
                                 HStack {
@@ -143,18 +143,18 @@ struct QuizzesListView: View {
                                         .fontWeight(.semibold)
                                         .foregroundStyle(.accent)
                                 }
-                                
+
                                 let availableWords = viewModel.showingHardWordsOnly ? viewModel.filteredWords : viewModel.words
                                 let maxWords = min(50, max(10, availableWords.count))
                                 let minWords = 10
-                                let subtitle = "Number of words to practice in each session (10-\(maxWords))"
-                                
+                                let subtitle = Loc.Quizzes.numberWordsPracticeSession.localized(minWords, maxWords)
+
                                 Text(subtitle)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
-                                
+
                                 Slider(value: $practiceWordCount, in: Double(minWords)...Double(maxWords), step: 1)
-                                
+
                                 HStack {
                                     Text("\(minWords)")
                                         .font(.caption)
@@ -177,28 +177,28 @@ struct QuizzesListView: View {
             .padding(.horizontal, 16)
         }
     }
-    
+
     private var insufficientWordsPlaceholder: some View {
         VStack(spacing: 24) {
             Spacer()
-            
+
             VStack(spacing: 16) {
                 Image(systemName: "brain.head.profile")
                     .font(.system(size: 60))
                     .foregroundStyle(.accent.gradient)
-                
-                if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
+
+                if case .sharedDictionary(_) = viewModel.selectedDictionary {
                     Text(Loc.Quizzes.sharedDictionaryNeedsMoreWords.localized)
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                 } else {
-                    Text(viewModel.words.isEmpty ? "Start Building Your Vocabulary!" : "Keep Adding Words!")
+                    Text(viewModel.words.isEmpty ? Loc.Quizzes.startBuildingVocabulary.localized : Loc.Quizzes.keepAddingWords.localized)
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                 }
-                
+
                 Text(viewModel.insufficientWordsMessage)
                     .font(.body)
                     .foregroundStyle(.secondary)
@@ -206,26 +206,26 @@ struct QuizzesListView: View {
                     .lineSpacing(4)
             }
             .padding(.horizontal, 32)
-            
+
             VStack(spacing: 12) {
                 if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
                     // For shared dictionaries, show different actions
                     ActionButton(
-                        "Add Words to Shared Dictionary",
+                        Loc.QuizList.addWordsToSharedDictionary.localized,
                         systemImage: "plus.circle.fill",
                         style: .borderedProminent
                     ) {
                         viewModel.output.send(.showSharedDictionary(dictionary))
                     }
 
-                    Text("Ask the dictionary owner to add more words, or switch to a different dictionary!")
+                    Text(Loc.Quizzes.askDictionaryOwnerAddWordsOrSwitch.localized)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                 } else {
                     // For private dictionary, show the original actions
                     ActionButton(
-                        viewModel.words.isEmpty ? "Add Your First Word" : "Add More Words",
+                        viewModel.words.isEmpty ? Loc.QuizList.addYourFirstWord.localized : Loc.QuizList.addMoreWords.localized,
                         systemImage: "plus.circle.fill",
                         style: .borderedProminent
                     ) {
@@ -237,15 +237,15 @@ struct QuizzesListView: View {
                     }
 
                     Text(viewModel.words.isEmpty ?
-                         "Quizzes help you test your knowledge and reinforce learning!" :
-                            "You're \(10 - viewModel.words.count) words away from unlocking quizzes!")
+                         Loc.QuizList.quizzesHelpTestKnowledge.localized :
+                            Loc.QuizList.wordsAwayFromUnlockingQuizzes.localized(10 - viewModel.words.count))
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                 }
             }
             .padding(.horizontal, 32)
-            
+
             Spacer()
         }
     }

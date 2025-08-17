@@ -22,7 +22,7 @@ struct AdvancedPaywallView: View {
     @State private var animateHeader = false
     @State private var animateFeatures = false
     @State private var animatePlans = false
-    
+
     var body: some View {
         ScrollViewWithCustomNavBar {
             VStack(spacing: 0) {
@@ -74,15 +74,15 @@ struct AdvancedPaywallView: View {
                 selectedPlan = subscriptionService.defaultPlan
             }
         }
-        .alert("Restore Purchases", isPresented: $showingRestoreAlert) {
-            Button("OK") { }
+        .alert(Loc.Paywall.restorePurchases.localized, isPresented: $showingRestoreAlert) {
+            Button(Loc.Actions.ok.localized) { }
         } message: {
             Text(restoreMessage)
         }
     }
-    
+
     // MARK: - Hero Section
-    
+
     private var heroSection: some View {
         VStack(spacing: 20) {
             // Animated crown
@@ -93,44 +93,44 @@ struct AdvancedPaywallView: View {
                 .scaleEffect(animateHeader ? 1.1 : 1.0)
                 .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true), value: animateHeader)
                 .padding(.top, 30)
-            
+
             VStack(spacing: 12) {
                 Text(Loc.Paywall.upgradeToPro.localized)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
-                
+
                 Text(Loc.Paywall.joinThousandsUsers.localized)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 16)
             }
-            
+
             // Value proposition
             HStack(spacing: 12) {
                 ValuePropositionCard(
                     icon: "chart.line.uptrend.xyaxis",
-                    title: "Track Progress",
-                    subtitle: "See your improvement"
+                    title: Loc.Paywall.trackProgress.localized,
+                    subtitle: Loc.Paywall.seeYourImprovement.localized
                 )
-                
+
                 ValuePropositionCard(
                     icon: "person.3.fill",
-                    title: "Collaborate",
-                    subtitle: "Learn with others"
+                    title: Loc.Paywall.collaborate.localized,
+                    subtitle: Loc.Paywall.learnWithOthers.localized
                 )
             }
             .padding(.horizontal, 16)
         }
         .padding(.bottom, 30)
     }
-    
+
     // MARK: - Features Section
-    
+
     private var featuresSection: some View {
         VStack(alignment: .leading, spacing: 20) {
-                            Text(Loc.Paywall.everythingYouNeedToMasterVocabulary.localized)
+            Text(Loc.Paywall.everythingYouNeedToMasterVocabulary.localized)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.horizontal, 16)
@@ -147,12 +147,12 @@ struct AdvancedPaywallView: View {
         }
         .padding(.vertical, 20)
     }
-    
+
     // MARK: - Plans Section
-    
+
     private var plansSection: some View {
         VStack(alignment: .leading, spacing: 20) {
-                            Text(Loc.Paywall.chooseYourPlan.localized)
+            Text(Loc.Paywall.chooseYourPlan.localized)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.horizontal, 16)
@@ -174,9 +174,9 @@ struct AdvancedPaywallView: View {
         }
         .padding(.vertical, 20)
     }
-    
+
     // MARK: - Action Buttons Section
-    
+
     private var actionButtonsSection: some View {
         VStack(spacing: 16) {
             // Subscribe button with gradient
@@ -191,11 +191,12 @@ struct AdvancedPaywallView: View {
                             .scaleEffect(0.8)
                             .tint(.white)
                     } else {
-                        Text(Loc.Paywall.startPro.localized)
+                        Text(Loc.Paywall.startProSubscription.localized)
                             .fontWeight(.semibold)
                     }
                 }
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .multilineTextAlignment(.center)
                 .padding(.vertical, 18)
                 .background(
                     LinearGradient(
@@ -212,7 +213,7 @@ struct AdvancedPaywallView: View {
             .disabled(isLoading)
             .scaleEffect(isLoading ? 0.95 : 1.0)
             .animation(.easeInOut(duration: 0.2), value: isLoading)
-            
+
             // Restore button
             Button {
                 Task {
@@ -229,55 +230,55 @@ struct AdvancedPaywallView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 20)
     }
-    
+
     // MARK: - Social Proof Section
-    
+
     private var socialProofSection: some View {
         VStack(spacing: 16) {
-                            Text(Loc.Paywall.trustedByLearnersWorldwide.localized)
+            Text(Loc.Paywall.trustedByLearnersWorldwide.localized)
                 .font(.headline)
                 .fontWeight(.medium)
                 .foregroundStyle(.secondary)
-            
+
             HStack(spacing: 20) {
                 SocialProofCard(
                     number: "4.8",
-                    label: "App Store Rating"
+                    label: Loc.Paywall.appStoreRating.localized
                 )
-                
+
                 SocialProofCard(
                     number: "2K+",
-                    label: "Active Users"
+                    label: Loc.Paywall.activeUsers.localized
                 )
-                
+
                 SocialProofCard(
                     number: "10K+",
-                    label: "Words Added"
+                    label: Loc.Paywall.wordsAdded.localized
                 )
             }
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 20)
     }
-    
+
     // MARK: - Terms Section
-    
+
     private var termsSection: some View {
         VStack(spacing: 8) {
-                            Text(Loc.Paywall.bySubscribingAgreeTerms.localized)
+            Text(Loc.Paywall.bySubscribingAgreeTerms.localized)
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
-            
+
             HStack(spacing: 16) {
-                Button("Terms of Service") {
+                Button(Loc.Paywall.termsOfService.localized) {
                     openURL(GlobalConstant.termsOfUse)
                 }
                 .buttonStyle(.plain)
                 .font(.caption)
                 .foregroundStyle(.accent)
-                
-                Button("Privacy Policy") {
+
+                Button(Loc.Paywall.privacyPolicy.localized) {
                     openURL(GlobalConstant.privacyPolicy)
                 }
                 .buttonStyle(.plain)
@@ -288,31 +289,31 @@ struct AdvancedPaywallView: View {
         .padding(.horizontal, 16)
         .padding(.bottom, 40)
     }
-    
+
     // MARK: - Actions
-    
+
     private func startAnimations() {
         withAnimation(.easeOut(duration: 0.8).delay(0.2)) {
             animateHeader = true
         }
-        
+
         withAnimation(.easeOut(duration: 0.8).delay(0.4)) {
             animateFeatures = true
         }
-        
+
         withAnimation(.easeOut(duration: 0.8).delay(0.6)) {
             animatePlans = true
         }
     }
-    
+
     private func purchaseSelectedPlan() async {
         guard let plan = selectedPlan else {
             errorReceived(CoreError.internalError(.noActiveSubscription))
             return
         }
-        
+
         isLoading = true
-        
+
         do {
             try await subscriptionService.purchasePlan(plan)
             paywallService.handlePurchaseCompleted()
@@ -320,27 +321,22 @@ struct AdvancedPaywallView: View {
         } catch {
             errorReceived(error)
         }
-        
+
         isLoading = false
     }
-    
+
     private func restorePurchases() async {
         isLoading = true
-        
-        do {
-            let success = await paywallService.handleRestorePurchases()
-            if success {
-                paywallService.handlePurchaseCompleted()
-                dismiss()
-            } else {
-                restoreMessage = "No active subscriptions found. Please check your App Store account."
-                showingRestoreAlert = true
-            }
-        } catch {
-            restoreMessage = "Failed to restore purchases: \(error.localizedDescription)"
+
+        let success = await paywallService.handleRestorePurchases()
+        if success {
+            paywallService.handlePurchaseCompleted()
+            dismiss()
+        } else {
+            restoreMessage = Loc.Paywall.noActiveSubscriptionsFound.localized
             showingRestoreAlert = true
         }
-        
+
         isLoading = false
     }
 }
@@ -351,7 +347,7 @@ struct ValuePropositionCard: View {
     let icon: String
     let title: String
     let subtitle: String
-    
+
     var body: some View {
         VStack(spacing: 8) {
             Image(systemName: icon)
@@ -369,6 +365,7 @@ struct ValuePropositionCard: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .multilineTextAlignment(.center)
         .padding(.vertical, 16)
         .background(Color.secondarySystemGroupedBackground)
         .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -379,7 +376,7 @@ struct AdvancedFeatureCard: View {
     let feature: SubscriptionFeature
     let delay: Double
     @State private var isVisible = false
-    
+
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: feature.iconName)
@@ -392,18 +389,18 @@ struct AdvancedFeatureCard: View {
                     )
                 )
                 .frame(width: 28)
-            
+
             VStack(alignment: .leading, spacing: 4) {
                 Text(feature.displayName)
                     .font(.subheadline)
                     .fontWeight(.medium)
-                
+
                 Text(feature.description)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
             }
-            
+
             Spacer()
         }
         .padding(16)
@@ -423,7 +420,7 @@ struct AdvancedPlanCard: View {
     let plan: SubscriptionPlan
     let isSelected: Bool
     let action: VoidHandler
-    
+
     var body: some View {
         Button(action: action) {
             HStack {
@@ -432,7 +429,7 @@ struct AdvancedPlanCard: View {
                         Text(plan.displayName)
                             .font(.headline)
                             .fontWeight(.semibold)
-                        
+
                         if let savings = plan.savings {
                             Text(savings)
                                 .font(.caption)
@@ -450,14 +447,14 @@ struct AdvancedPlanCard: View {
                                 .clipShape(Capsule())
                         }
                     }
-                    
+
                     Text(plan.price)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                
+
                 Spacer()
-                
+
                 Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
                     .font(.title2)
                     .foregroundStyle(isSelected ? Color.accentColor : .secondary)
@@ -481,19 +478,20 @@ struct AdvancedPlanCard: View {
 struct SocialProofCard: View {
     let number: String
     let label: String
-    
+
     var body: some View {
         VStack(spacing: 4) {
             Text(number)
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundStyle(Color.accentColor)
-            
+
             Text(label)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, alignment: .center)
+        .multilineTextAlignment(.center)
     }
 }
 

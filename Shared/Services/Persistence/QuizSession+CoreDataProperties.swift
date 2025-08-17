@@ -24,6 +24,9 @@ extension CDQuizSession {
     @NSManaged public var totalWords: Int32
     @NSManaged public var wordsPracticed: Data?
 
+    var quiz: Quiz? {
+        Quiz(rawValue: quizType.orEmpty)
+    }
 }
 
 extension CDQuizSession : Identifiable {

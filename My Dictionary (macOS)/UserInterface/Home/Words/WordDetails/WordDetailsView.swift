@@ -50,7 +50,7 @@ struct WordDetailsView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .groupedBackground()
-        .navigationTitle("Word Details")
+        .navigationTitle(Loc.Navigation.wordDetails.localized)
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 // Shared Dictionaries button
@@ -60,7 +60,7 @@ struct WordDetailsView: View {
                     } label: {
                         Image(systemName: "person.2.badge.plus")
                     }
-                    .help("Add this word to a shared dictionary")
+                    .help(Loc.Words.addToSharedDictionary.localized)
                 }
 
                 // Favorite button
@@ -72,7 +72,7 @@ struct WordDetailsView: View {
                     Image(systemName: word.isFavorite ? "heart.fill" : "heart")
                         .foregroundStyle(word.isFavorite ? .red : .primary)
                 }
-                .help("Toggle Favorite")
+                .help(Loc.Actions.toggleFavorite.localized)
                 
                 // Delete button
                 Button {
@@ -81,7 +81,7 @@ struct WordDetailsView: View {
                     Image(systemName: "trash")
                         .foregroundStyle(.red)
                 }
-                .help("Delete Word")
+                .help(Loc.Words.deleteWord.localized)
             }
         }
         .sheet(isPresented: $showingTagSelection) {
@@ -109,11 +109,11 @@ struct WordDetailsView: View {
 
     private var transcriptionSectionView: some View {
         CustomSectionView(
-            header: "Transcription",
+            header: Loc.Words.transcription.localized,
             headerFontStyle: .stealth
         ) {
             TextField(
-                "Transcription",
+                Loc.Words.transcription.localized,
                 text: Binding(
                     get: { word.phonetic ?? "" },
                     set: { word.phonetic = $0 }
@@ -125,12 +125,12 @@ struct WordDetailsView: View {
             .fontWeight(.semibold)
         } trailingContent: {
             if isPhoneticsFocused {
-                HeaderButton("Done", size: .small) {
+                HeaderButton(Loc.Actions.done.localized, size: .small) {
                     isPhoneticsFocused = false
                     saveContext()
                 }
             } else {
-                HeaderButton("Listen", icon: "speaker.wave.2.fill", size: .small) {
+                HeaderButton(Loc.Actions.listen.localized, icon: "speaker.wave.2.fill", size: .small) {
                     play(word.wordItself, isWord: true)
                 }
             }
@@ -139,19 +139,19 @@ struct WordDetailsView: View {
 
     private var partOfSpeechSectionView: some View {
         CustomSectionView(
-            header: "Part Of Speech",
+            header: Loc.Words.partOfSpeech.localized,
             headerFontStyle: .stealth
         ) {
-            Text(word.partOfSpeech ?? "")
+            Text(PartOfSpeech(rawValue: word.partOfSpeech).displayName)
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
-            HeaderButtonMenu("Edit", size: .small) {
+            HeaderButtonMenu(Loc.Actions.edit.localized, size: .small) {
                 ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
                     Button {
                         updatePartOfSpeech(partCase)
                     } label: {
-                        Text(partCase.rawValue)
+                        Text(partCase.displayName)
                     }
                 }
             }
@@ -160,11 +160,11 @@ struct WordDetailsView: View {
 
     private var definitionSectionView: some View {
         CustomSectionView(
-            header: "Definition",
+            header: Loc.Words.definition.localized,
             headerFontStyle: .stealth
         ) {
             TextField(
-                "Definition",
+                Loc.Words.definition.localized,
                 text: Binding(
                     get: { word.definition ?? "" },
                     set: { word.definition = $0 }
@@ -176,13 +176,13 @@ struct WordDetailsView: View {
             .fontWeight(.semibold)
         } trailingContent: {
             if isDefinitionFocused {
-                HeaderButton("Done", size: .small) {
+                HeaderButton(Loc.Actions.done.localized, size: .small) {
                     isDefinitionFocused = false
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                     saveContext()
                 }
             } else {
-                HeaderButton("Listen", icon: "speaker.wave.2.fill", size: .small) {
+                HeaderButton(Loc.Actions.listen.localized, icon: "speaker.wave.2.fill", size: .small) {
                     play(word.definition)
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
@@ -192,7 +192,7 @@ struct WordDetailsView: View {
 
     private var difficultySectionView: some View {
         CustomSectionView(
-            header: "Difficulty",
+            header: Loc.Words.difficulty.localized,
             headerFontStyle: .stealth
         ) {
             let difficulty = word.difficultyLevel
@@ -208,7 +208,7 @@ struct WordDetailsView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
             // Show info that difficulty can only be changed through quizzes
-            Text("Quiz-based")
+                            Text(Loc.Words.quizBased.localized)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -217,8 +217,8 @@ struct WordDetailsView: View {
     @ViewBuilder
     private var languageSectionView: some View {
         if word.shouldShowLanguageLabel {
-            CustomSectionView(
-                header: "Language",
+                    CustomSectionView(
+            header: Loc.Words.language.localized,
                 headerFontStyle: .stealth
             ) {
                 HStack {
@@ -235,7 +235,7 @@ struct WordDetailsView: View {
 
     private var tagsSectionView: some View {
         CustomSectionView(
-            header: "Tags",
+            header: Loc.Words.tags.localized,
             headerFontStyle: .stealth
         ) {
             if word.tagsArray.isEmpty {
@@ -256,7 +256,7 @@ struct WordDetailsView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         } trailingContent: {
-            HeaderButton("Add Tag", icon: "plus", size: .small) {
+                            HeaderButton(Loc.Tags.addTag.localized, icon: "plus", size: .small) {
                 showingTagSelection = true
             }
         }
@@ -264,7 +264,7 @@ struct WordDetailsView: View {
 
     private var examplesSectionView: some View {
         CustomSectionView(
-            header: "Examples",
+            header: Loc.Words.examples.localized,
             headerFontStyle: .stealth,
             hPadding: 0
         ) {
@@ -280,21 +280,21 @@ struct WordDetailsView: View {
                                     play(example)
                                     AnalyticsService.shared.logEvent(.wordExamplePlayed)
                                 } label: {
-                                    Label("Listen", systemImage: "speaker.wave.2.fill")
+                                    Label(Loc.Actions.listen.localized, systemImage: "speaker.wave.2.fill")
                                 }
                                 Button {
                                     exampleTextFieldStr = example
                                     editingExampleIndex = index
                                     AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
                                 } label: {
-                                    Label("Edit", systemImage: "pencil")
+                                    Label(Loc.Actions.edit.localized, systemImage: "pencil")
                                 }
                                 Section {
                                     Button(role: .destructive) {
                                         removeExample(at: index)
                                         AnalyticsService.shared.logEvent(.wordExampleRemoved)
                                     } label: {
-                                        Label("Delete", systemImage: "trash")
+                                        Label(Loc.Actions.delete.localized, systemImage: "trash")
                                     }
                                 }
                             } label: {
@@ -317,7 +317,7 @@ struct WordDetailsView: View {
 
             if isAddingExample {
                 InputView(
-                    "Type an example here",
+                    Loc.Words.typeExampleHere.localized,
                     submitLabel: .done,
                     text: $exampleTextFieldStr,
                     onSubmit: {
@@ -326,7 +326,7 @@ struct WordDetailsView: View {
                         exampleTextFieldStr = .empty
                         AnalyticsService.shared.logEvent(.wordExampleAdded)
                     },
-                    trailingButtonLabel: "Cancel"
+                    trailingButtonLabel: Loc.Actions.cancel.localized
                 ) {
                     // On cancel
                     isAddExampleFocused = false
@@ -338,14 +338,14 @@ struct WordDetailsView: View {
             }
         } trailingContent: {
             if isAddingExample {
-                HeaderButton("Save", icon: "checkmark", size: .small) {
+                HeaderButton(Loc.Actions.save.localized, icon: "checkmark", size: .small) {
                     addExample(exampleTextFieldStr)
                     isAddingExample = false
                     exampleTextFieldStr = .empty
                     AnalyticsService.shared.logEvent(.wordExampleAdded)
                 }
             } else {
-                HeaderButton("Add example", icon: "plus", size: .small) {
+                HeaderButton(Loc.Words.addExample.localized, icon: "plus", size: .small) {
                     withAnimation {
                         isAddingExample.toggle()
                         AnalyticsService.shared.logEvent(.wordAddExampleTapped)
@@ -419,8 +419,8 @@ struct WordDetailsView: View {
     private func showDeleteAlert() {
         AlertCenter.shared.showAlert(
             with: .deleteConfirmation(
-                title: "Delete word",
-                message: "Are you sure you want to delete this word?",
+                title: Loc.Words.deleteWord.localized,
+                message: Loc.Words.deleteWordConfirmation.localized,
                 onCancel: {
                     AnalyticsService.shared.logEvent(.wordRemovingCanceled)
                 },

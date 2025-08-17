@@ -30,7 +30,7 @@ struct AddExistingWordToSharedView: View {
                     HStack {
                         Image(systemName: "textformat")
                             .foregroundStyle(.accent)
-                        Text("Word Details")
+                        Text(Loc.Words.wordDetails.localized)
                             .font(.headline)
                         Spacer()
                     }
@@ -52,7 +52,7 @@ struct AddExistingWordToSharedView: View {
 
                         HStack {
                             TagView(
-                                text: word.partOfSpeech ?? "unknown",
+                                text: PartOfSpeech(rawValue: word.partOfSpeech).displayName,
                                 color: .accent,
                                 size: .small
                             )
@@ -75,7 +75,7 @@ struct AddExistingWordToSharedView: View {
                         Image(systemName: selectedDictionaryId == nil ? "person" : "person.2")
                             .foregroundStyle(selectedDictionaryId == nil ? .blue : .accent)
 
-                        Text(selectedDictionaryId == nil ? "Select Dictionary" : "Dictionary Selected")
+                        Text(selectedDictionaryId == nil ? Loc.SharedDictionarySelection.selectDictionary.localized : Loc.SharedDictionarySelection.dictionarySelected.localized)
                             .foregroundStyle(selectedDictionaryId == nil ? .blue : .primary)
 
                         Spacer()
@@ -91,13 +91,13 @@ struct AddExistingWordToSharedView: View {
             .padding(12)
         } navigationBar: {
             NavigationBarView(
-                title: "Add to Shared",
+                title: Loc.SharedDictionarySelection.addToShared.localized,
                 trailingContent: {
-                    HeaderButton("Add to Shared Dictionary", style: .borderedProminent) {
+                    HeaderButton(Loc.App.addToSharedDictionary.localized, style: .borderedProminent) {
                         addWordToSelectedDictionary()
                     }
                     .disabled(selectedDictionaryId == nil)
-                    .help("Add Word to Shared Dictionary")
+                    .help(Loc.SharedDictionarySelection.addWordToSharedDictionary.localized)
                 }
             )
         }

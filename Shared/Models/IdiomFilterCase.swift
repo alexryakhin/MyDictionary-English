@@ -8,42 +8,42 @@
 import Foundation
 
 enum IdiomFilterCase: String, CaseIterable {
-    case none = "All Idioms"
-    case favorite = "Favorite"
-    case search = "Search"
+    case none = "all_idioms"
+    case favorite = "favorite"
+    case search = "search"
 
     static let availableCases: [IdiomFilterCase] = [.none, .favorite]
 
     var displayName: String {
         switch self {
         case .none:
-            return "All Idioms"
+            return Loc.IdiomFilters.allIdioms.localized
         case .favorite:
-            return "Favorite"
+            return Loc.IdiomFilters.favorite.localized
         case .search:
-            return "Search"
+            return Loc.IdiomFilters.search.localized
         }
     }
     
     var emptyStateTitle: String {
         switch self {
         case .none:
-            return "No Idioms Yet"
+            return Loc.IdiomFilters.noIdiomsYet.localized
         case .favorite:
-            return "No Favorite Words"
+            return Loc.IdiomFilters.noFavoriteWords.localized
         case .search:
-            return "No Search Results"
+            return Loc.IdiomFilters.noSearchResults.localized
         }
     }
     
     var emptyStateDescription: String {
         switch self {
         case .none:
-            return "Start improving your vocabulary by adding your first idiom"
+            return Loc.IdiomFilters.startImprovingVocabulary.localized
         case .favorite:
-            return "Tap the heart icon on any idiom to add it to your favorites"
+            return Loc.IdiomFilters.tapHeartIconToAddFavorites.localized
         case .search:
-            return "Try a different search term or add a new idiom"
+            return Loc.IdiomFilters.tryDifferentSearchTerm.localized
         }
     }
     

@@ -156,7 +156,7 @@ struct ChooseDefinitionQuizContentView: View {
                 .multilineTextAlignment(.leading)
 
             TagView(
-                text: viewModel.correctWord.quiz_partOfSpeech,
+                text: PartOfSpeech(rawValue: viewModel.correctWord.quiz_partOfSpeech).displayName,
                 color: .accent,
                 size: .small,
                 style: .regular

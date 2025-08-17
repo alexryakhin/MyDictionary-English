@@ -75,16 +75,6 @@ struct ChooseDefinitionQuizView: View {
             }
         }
         .navigationTitle(Loc.Navigation.definitionQuiz.localized)
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                // Exit button
-                Button(Loc.Actions.exit.localized) {
-                    viewModel.handle(.saveSession)
-                    dismiss()
-                }
-                .help(Loc.Actions.exit.localized)
-            }
-        }
         .onAppear {
             AnalyticsService.shared.logEvent(.definitionQuizOpened)
         }
@@ -136,7 +126,7 @@ struct ChooseDefinitionQuizView: View {
                 .multilineTextAlignment(.leading)
 
             TagView(
-                text: viewModel.correctWord.quiz_partOfSpeech,
+                text: PartOfSpeech(rawValue: viewModel.correctWord.quiz_partOfSpeech).displayName,
                 color: .accent,
                 size: .small,
                 style: .regular

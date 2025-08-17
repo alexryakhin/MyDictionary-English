@@ -17,7 +17,7 @@ struct SharedWordListCellView: View {
                     .font(.headline)
                     .foregroundStyle(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(word.partOfSpeech)
+                Text(PartOfSpeech(rawValue: word.partOfSpeech).displayNameShort.lowercased())
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                 Image(systemName: "chevron.right")
@@ -70,7 +70,7 @@ struct SharedWordListCellView: View {
 
     private var languageDisplayName: String {
         guard let language = Locale.current.localizedString(forLanguageCode: word.languageCode) else {
-            return "Unknown"
+            return Loc.CollaboratorManagement.unknown.localized
         }
         return language.capitalized
     }

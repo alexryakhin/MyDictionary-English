@@ -24,14 +24,14 @@ open class BaseViewModel: ObservableObject {
     
     func errorReceived(
         _ error: Error,
-        actionText: String = "OK",
+        actionText: String = Loc.Actions.ok.localized,
         action: @escaping VoidHandler = {}
     ) {
         HapticManager.shared.triggerNotification(type: .error)
 
         showAlert(
             withModel: .init(
-                title: "Ooops...",
+                title: Loc.App.oops.localized,
                 message: error.localizedDescription,
                 actionText: actionText,
                 action: action

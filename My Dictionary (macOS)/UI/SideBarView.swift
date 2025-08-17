@@ -32,7 +32,7 @@ struct SideBarView: View {
     
     private var sidebarView: some View {
         List(selection: $sideBarManager.selectedTab) {
-            Section("My Dictionary") {
+            Section(Loc.MacOS.myDictionary.localized) {
                 ForEach(SideBarTab.tabs, id: \.self) { tab in
                     HStack(spacing: 8) {
                         Image(systemName: tab.systemImage)
@@ -46,7 +46,7 @@ struct SideBarView: View {
             }
 
             if authenticationService.isSignedIn {
-                Section("Shared Dictionaries") {
+                Section(Loc.MacOS.sharedDictionaries.localized) {
                     if dictionaryService.sharedDictionaries.isEmpty {
                         Text(Loc.SharedDictionaries.noSharedDictionariesSidebar.localized)
                             .foregroundStyle(.secondary)
@@ -59,7 +59,7 @@ struct SideBarView: View {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(dictionary.name)
                                         .font(.title3)
-                                    Text("\(dictionary.collaborators.count) collaborators")
+                                    Text(Loc.SharedDictionaries.collaboratorsCount.localized(dictionary.collaborators.count))
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
@@ -78,7 +78,7 @@ struct SideBarView: View {
                 Button {
                     openSettings()
                 } label: {
-                    Label("Settings", systemImage: "gearshape.fill")
+                    Label(Loc.MacOS.settings.localized, systemImage: "gearshape.fill")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)
@@ -89,7 +89,7 @@ struct SideBarView: View {
                 Button {
                     openWindow(id: WindowID.about)
                 } label: {
-                    Label("About", systemImage: "info.circle")
+                    Label(Loc.MacOS.about.localized, systemImage: "info.circle")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)

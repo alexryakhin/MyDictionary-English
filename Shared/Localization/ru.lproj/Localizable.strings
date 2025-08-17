@@ -2,8 +2,7 @@
   Localizable.strings
   My Dictionary
 
-  Created by Alexander Riakhin on 8/3/25.
-  
+  Created by Alexander Riakhin on 8/16/25.
 */
 
 // MARK: - Tab Bar
@@ -18,15 +17,21 @@
 "navigation.idiom_details" = "Детали выражения";
 "navigation.add_tags" = "Добавить теги";
 "navigation.about" = "О приложении";
+"navigation.word_details" = "Детали слова";
+"navigation.debug_panel" = "Панель отладки";
 "navigation.quiz_results" = "Результаты теста";
 "navigation.spelling_quiz" = "Тест на правописание";
 "navigation.definition_quiz" = "Тест на определение";
+"navigation.close" = "Закрыть";
+"navigation.close_screen" = "Закрыть экран";
 
 // MARK: - Common Actions
 "actions.done" = "Готово";
 "actions.save" = "Сохранить";
 "actions.save_word" = "Сохранить слово";
 "actions.cancel" = "Отмена";
+"actions.confirm" = "Подтвердить";
+"actions.search" = "Найти";
 "actions.delete" = "Удалить";
 "actions.edit" = "Редактировать";
 "actions.add" = "Добавить";
@@ -71,22 +76,24 @@
 "actions.skip_for_now" = "Пропустить пока";
 "actions.link_google" = "Связать Google";
 "actions.link_apple" = "Связать Apple";
+"actions.toggle_like" = "Переключить лайк";
+"actions.toggle_favorite" = "Переключить избранное";
 
 // MARK: - Onboarding
 "onboarding.welcome_to" = "Добро пожаловать в";
 "onboarding.my_dictionary" = "Мой Словарь";
-"onboarding.personal_vocabulary_companion" = "Ваш личный помощник по словарю";
+"onboarding.personal_vocabulary_companion" = "Ваш личный помощник в изучении иностранных слов";
 "onboarding.build_your_vocabulary" = "Создавайте свой словарь";
 "onboarding.personalized_learning" = "Персонализированное обучение";
-"onboarding.youre_all_set" = "Вы готовы!";
+"onboarding.youre_all_set" = "Успеха!";
 "onboarding.start_building_vocabulary" = "Начните создавать свой словарь сегодня и наблюдайте за ростом ваших языковых навыков.";
 "onboarding.get_started" = "Начать";
 "onboarding.next_step" = "Далее";
 "onboarding.personal_word_list" = "Личный список слов";
 "onboarding.create_organize_vocabulary" = "Создавайте и организуйте свои собственные коллекции слов с пользовательскими определениями и примерами";
-"onboarding.find_definitions" = "Найти определения";
+"onboarding.find_definitions" = "Находите определения";
 "onboarding.comprehensive_definitions" = "Получите подробные определения с несколькими значениями и контекстами";
-"onboarding.collect_idioms" = "Собирать выражения";
+"onboarding.collect_idioms" = "Собирайте выражения";
 "onboarding.learn_practice_idioms" = "Изучайте и практикуйте идиомы и выражения со всего мира";
 "onboarding.smart_quizzes" = "Умные тесты";
 "onboarding.adaptive_quizzes" = "Адаптивные тесты, которые учатся на вашем прогрессе";
@@ -145,7 +152,7 @@
 "words.by_part_of_speech" = "По части речи";
 "words.type_word" = "Введите слово";
 "words.shared_dictionary" = "Общий словарь";
-"words.private_dictionary" = "Приватный словарь";
+"words.private_dictionary" = "Личный словарь";
 "words.impressive_vocabulary" = "Впечатляющий словарь!";
 "words.impressive_vocabulary_message" = "Вы создали коллекцию из **%d слов**! Ваша преданность обучению вдохновляет.";
 "words.examples" = "Примеры";
@@ -158,6 +165,14 @@
 "words.language" = "Язык";
 "words.no_tags_added_yet" = "Пока нет тегов.";
 "words.add_tag" = "Добавить тег";
+"words.no_tags_selected" = "Теги не выбраны";
+"words.error_loading_definitions" = "Произошла ошибка при загрузке определений. Пожалуйста, попробуйте снова.";
+"words.type_word_and_press_search" = "Введите слово и нажмите 'Поиск' для поиска определений";
+"words.word_details" = "Детали слова";
+"words.no_examples_yet" = "Пока нет примеров";
+"words.edit_example" = "Редактировать пример";
+"words.no_transcription" = "Нет транскрипции";
+"words.no_definition" = "Нет определения";
 
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Добавить выражение";
@@ -213,8 +228,6 @@
 "quizzes.no_difficult_words_available" = "Нет сложных слов для теста";
 "quizzes.spelling_quiz_description" = "Проверьте свои навыки правописания, правильно печатая слова";
 "quizzes.definition_quiz_description" = "Выберите правильное определение для каждого слова";
-
-// MARK: - Quiz Flow
 "quizzes.progress" = "Прогресс";
 "quizzes.streak" = "Серия";
 "quizzes.score" = "Счет";
@@ -250,39 +263,69 @@
 "quizzes.min_words" = "%d";
 "quizzes.max_words" = "%d";
 "quizzes.shared_dictionary_needs_hard_words" = "Общему словарю '%@' нужно минимум 1 сложное слово для практики в режиме сложных слов. Сейчас в нем %d сложных слов.";
-"quizzes.needs_at_least_hard_word" = "нужно минимум 1 сложное слово для практики в режиме сложных слов";
-"quizzes.currently_has_hard_words" = "Сейчас в нем %d сложных слов.";
-"quizzes.needs_at_least_words_start_quizzes" = "нужно минимум 10 слов для начала тестов";
-"quizzes.currently_has_words" = "Сейчас в нем %d слов.";
+"quizzes.needs_at_least_words_start_quizzes" = "Общему словарю '%@' нужно минимум 10 слов для начала тестов. Сейчас в нем %d слов.";
 "quizzes.need_at_least_hard_word_practice" = "Вам нужно минимум 1 сложное слово для практики в режиме сложных слов. У вас сейчас %d сложных слов.";
-"quizzes.currently_have_hard_words" = "У вас сейчас %d сложных слов.";
 "quizzes.need_at_least_words_start_quizzes" = "Вам нужно минимум 10 слов для начала тестов. У вас сейчас %d слов.";
-"quizzes.currently_have_words" = "У вас сейчас %d слов.";
 "quizzes.progress_format" = "Прогресс: %d/%d";
 "quizzes.streak_format" = "🔥 Серия: %d";
 "quizzes.score_format" = "Счет: %d";
 "quizzes.best_format" = "Лучший: %d";
-"quizzes.quiz_complete" = "Тест завершен!";
-"quizzes.great_job_completed_definition_quiz" = "Отличная работа! Вы завершили тест на определение.";
-"quizzes.your_results" = "Ваши результаты";
-"quizzes.final_score" = "Финальный счет";
-"quizzes.correct_answers" = "Правильные ответы";
-"quizzes.best_streak" = "Лучшая серия";
-"quizzes.accuracy" = "Точность";
-"quizzes.practice_hard_words_only" = "Тренировать только сложные слова";
-"quizzes.words_per_session" = "Слов за сессию";
-"quizzes.shared_dictionary_needs_more_words" = "Общему словарю нужно больше слов!";
-"quizzes.ask_dictionary_owner_add_more_words" = "Попросите владельца словаря добавить больше слов или переключитесь на другой словарь!";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "Попросите владельца словаря добавить больше слов или переключитесь на другой словарь!";
+
+// MARK: - App
 "app.my_dictionary" = "Мой словарь";
 "app.loading" = "Загрузка...";
 "app.something_went_wrong" = "Что-то пошло не так";
-"words.no_tags_selected" = "Теги не выбраны";
-"words.error_loading_definitions" = "Произошла ошибка при загрузке определений. Пожалуйста, попробуйте снова.";
-"words.type_word_and_press_search" = "Введите слово и нажмите 'Поиск' для поиска определений";
-"words.no_examples_yet" = "Пока нет примеров";
-"words.no_tags_added_yet" = "Пока не добавлены теги";
-"shared_dictionaries.no_shared_dictionaries_sidebar" = "Нет общих словарей";
-"words.edit_example" = "Редактировать пример";
+"app.try_again" = "Попробовать снова";
+"app.error" = "Ошибка";
+"app.oops" = "Упс!";
+"app.unknown" = "Неизвестно";
+"app.retry" = "Повторить";
+"app.add_example" = "Добавить пример";
+"app.add_to_shared_dictionary" = "Добавить в общий словарь";
+"app.add_collaborator" = "Добавить участника";
+"app.delete_dictionary" = "Удалить словарь";
+"app.enter_definition" = "Введите определение";
+"app.select_value" = "Выберите значение";
+"app.pronunciation" = "Произношение";
+"app.tags" = "Теги";
+"app.select_definition" = "Выберите определение";
+"app.translating_word" = "Переводим слово...";
+"app.translating_definitions" = "Переводим определения...";
+"app.type_word_here" = "Введите слово здесь...";
+"app.email_address" = "Email адрес";
+"app.name" = "Имя";
+"app.example" = "Пример";
+"app.transcription" = "Транскрипция";
+"app.definition" = "Определение";
+"app.import_successful" = "Импорт успешен";
+"app.import_successful_message" = "%@ импортировано успешно";
+"app.no_words_imported" = "Слова не импортированы";
+"app.no_words_imported_message" = "Мы не нашли новых слов для импорта";
+"app.tag_management_error" = "Ошибка управления тегами";
+"app.delete_tag" = "Удалить тег";
+"app.delete_tag_confirmation" = "Вы уверены, что хотите удалить этот тег? Это действие нельзя отменить.";
+"app.cant_share_word" = "Не удается поделиться словом";
+"app.collaborator_details" = "Детали участника";
+"app.role_permissions" = "Разрешения роли";
+"app.note" = "Примечание";
+"app.dictionary_info" = "Информация о словаре";
+"app.collaborators" = "Участники";
+"app.all_results" = "Все результаты";
+"app.part_of_speech" = "Часть речи";
+"app.language" = "Язык";
+"app.tag_name" = "Имя тега";
+"app.tag_color" = "Цвет тега";
+"app.private_dictionary" = "Личный словарь";
+"app.shared_dictionaries" = "Общие словари";
+"app.about_my_dictionary" = "О My Dictionary";
+"app.debug_panel" = "Панель отладки";
+"app.word_starts_with" = "Слово начинается с";
+"app.debug_info" = "Информация отладки";
+"app.send_test_notification" = "Отправить тестовое уведомление";
+"app.enter_email_address" = "Введите email адрес";
+"app.enter_email_address_for_notification" = "Введите email адрес пользователя, которому хотите отправить тестовое уведомление.";
+"app.user_information" = "Информация о пользователе";
 
 // MARK: - Analytics
 "analytics.overview" = "Обзор";
@@ -313,7 +356,12 @@
 "analytics.correct_answers" = "Правильные ответы";
 "analytics.words_played" = "Сыгранные слова";
 "analytics.total_questions" = "Всего вопросов";
-"analytics.words_count" = "%d слов";
+"analytics.difficulty_statistics" = "Статистика сложности";
+"analytics.individual_ratings" = "Индивидуальные оценки";
+"analytics.how_other_users_rate_difficulty" = "Как другие пользователи оценивают сложность этого слова";
+"analytics.no_difficulty_ratings_yet" = "Пока нет оценок сложности";
+"analytics.total_ratings" = "Всего оценок";
+"analytics.view_detailed_statistics" = "Посмотреть подробную статистику";
 
 // MARK: - Settings
 "settings.translate_definitions" = "Переводить определения";
@@ -357,6 +405,23 @@
 "settings.app_version" = "Версия приложения:";
 "settings.about_app_description" = "Я создал это приложение, потому что не мог найти то, что хотел.\n\nЭто простой менеджер списков слов, который позволяет искать слова и добавлять их определения без фактического перевода на родной язык.\n\nЯ считаю, что это лучше всего для изучения английского языка. Надеюсь, это сработает и для вас.\n\nЕсли у вас есть вопросы или вы хотите предложить функцию, пожалуйста, свяжитесь со мной по ссылкам ниже. Спасибо за использование моего приложения!";
 "settings.contact_support" = "Есть вопросы, предложения или отзывы? Я хотел бы услышать от вас. Обратитесь за поддержкой в Instagram или Twitter!";
+"settings.sign_out" = "Выйти";
+"settings.upload_backup_to_google" = "Загрузить резервную копию в Google";
+"settings.download_backup_from_google" = "Скачать резервную копию из Google";
+"settings.sign_in_to_sync_word_lists" = "Войти для синхронизации списков слов";
+"settings.manage_tags" = "Управление тегами";
+"settings.import_export" = "Импорт / Экспорт";
+"settings.import_words" = "Импортировать слова";
+"settings.export_words" = "Экспортировать слова";
+"settings.learn_more" = "Узнать больше";
+"settings.export_words_title" = "Экспорт слов";
+"settings.pro_upgrade_description" = "Обновитесь до Pro для неограниченных функций и синхронизации между устройствами.";
+"settings.word_lists_and_sync" = "Списки слов и синхронизация";
+"settings.manual_sync_mode_description" = "Ручной режим синхронизации: Используйте кнопки ниже для загрузки/скачивания ваших списков слов в Google. Доступно всем пользователям.";
+"settings.sign_in_to_create_share_word_lists" = "Войдите, чтобы создавать и делиться списками слов с другими.";
+"settings.tag_management_description" = "Создавайте и управляйте тегами для организации ваших слов, и добавляйте участников для совместного использования слов.";
+"settings.import_export_note" = "Обратите внимание, что импорт и экспорт работают только с файлами, созданными этим приложением.";
+"settings.buy_me_a_coffee" = "Купить мне кофе";
 
 // MARK: - Authentication
 "auth.sign_in_before_subscribing" = "Войдите перед подпиской";
@@ -375,6 +440,16 @@
 "auth.sign_in_to_access_word_lists" = "Войдите, чтобы получить доступ к вашим спискам слов на всех устройствах и сотрудничать с другими.";
 "auth.link_google" = "Связать Google";
 "auth.link_apple" = "Связать Apple";
+"auth.sign_in_to_sync_word_lists" = "Войдите для синхронизации списков слов";
+"auth.sign_out_error_title" = "Упс!";
+"auth.sign_out_error_message" = "Что-то пошло не так при выходе из системы. Пожалуйста, попробуйте позже.";
+"auth.sign_in_required_for_restore" = "Вам нужно войти в систему, чтобы восстановить покупки.";
+"auth.sign_in_required_for_pro_features" = "Вам нужно войти в систему, чтобы получить доступ к Pro функциям, таким как %@.";
+"auth.sign_in_failed" = "Не удалось войти в систему. Пожалуйста, попробуйте снова.";
+"auth.sign_out_failed" = "Не удалось выйти из системы. Пожалуйста, попробуйте снова.";
+"auth.user_not_found" = "Пользователь не найден.";
+"auth.network_error" = "Ошибка сети. Пожалуйста, проверьте подключение.";
+"auth.account_linking_failed" = "Не удалось связать аккаунты. Пожалуйста, попробуйте снова.";
 
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Словарь выбран";
@@ -412,7 +487,7 @@
 "shared_dictionaries.no_results" = "Нет результатов";
 "shared_dictionaries.no_words_match_filter" = "Нет слов, соответствующих текущему фильтру";
 "shared_dictionaries.dictionary_details" = "Детали словаря";
-"shared_dictionaries.private_dictionary" = "Приватный словарь";
+"shared_dictionaries.private_dictionary" = "Личный словарь";
 "shared_dictionaries.save_to_personal_dictionary" = "Сохранить в ваш личный словарь";
 "shared_dictionaries.collaborators_count" = "%d участников";
 "shared_dictionaries.me" = "Я";
@@ -423,6 +498,11 @@
 "shared_dictionaries.collaborator_added_with_email_name" = "Участник будет добавлен с указанным вами email и именем. Им нужно будет войти с тем же email адресом для доступа к общему словарю.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Будьте первым, кто оценит сложность этого слова";
 "shared_dictionaries.score" = "Счет: %d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "Нет общих словарей";
+"shared_dictionaries.collaborative_features" = "Совместные функции";
+"shared_dictionaries.your_score" = "Ваш счет";
+"shared_dictionaries.your_status" = "Ваш статус";
+"shared_dictionaries.average_score" = "Средний счет";
 
 // MARK: - Tags Flow
 "tags.manage_tags" = "Управление тегами";
@@ -440,28 +520,30 @@
 "tags.edit_tag" = "Редактировать тег";
 "tags.new_tag" = "Новый тег";
 "tags.tag_management_error" = "Ошибка управления тегами";
-"tags.words_count" = "%d слов";
 "tags.add_tag_to_start_using" = "Добавьте тег, чтобы начать его использовать.";
-"words.words_count" = "%d слов";
+"tags.add_tags" = "Добавить теги";
+"tags.create_tags" = "Создать теги";
+"tags.add_tag" = "Добавить тег";
+"tags.tag_management_error" = "Ошибка управления тегами";
 
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Купить мне кофе";
 "coffee.maybe_later" = "Может быть позже";
 "coffee.enjoying_the_app" = "Нравится приложение?";
-"coffee.helpful_learning_journey" = "Если Мой Словарь помог вам в изучении языка, рассмотрите возможность купить мне кофе! ☕️";
+"coffee.helpful_learning_journey" = "Если Мой Словарь помог вам в изучении языка, рассмотрите возможность купить мне кофе! Помогите донатом! ☕️";
 
 // MARK: - Paywall
 "paywall.terms_of_service" = "Условия использования";
 "paywall.privacy_policy" = "Политика конфиденциальности";
-"paywall.upgrade_to_pro" = "Обновить до Pro";
+"paywall.upgrade_to_pro" = "Перейти на Pro";
 "paywall.restore_purchases" = "Восстановить покупки";
-"paywall.track_progress" = "Отслеживать прогресс";
-"paywall.see_your_improvement" = "Увидеть ваш прогресс";
-"paywall.collaborate" = "Сотрудничать";
-"paywall.learn_with_others" = "Учиться с другими";
-"paywall.everything_you_need_to_master_vocabulary" = "Все, что нужно для освоения словаря";
+"paywall.track_progress" = "Отслеживайте прогресс";
+"paywall.see_your_improvement" = "Смотрите свой прогресс";
+"paywall.collaborate" = "Сотрудничайте";
+"paywall.learn_with_others" = "Учитесь с другими";
+"paywall.everything_you_need_to_master_vocabulary" = "Все, что нужно для освоения иностранных языков";
 "paywall.choose_your_plan" = "Выберите ваш план";
-"paywall.start_pro" = "Начать Pro";
+"paywall.start_pro_subscription" = "Подписаться на Pro";
 "paywall.trusted_by_learners_worldwide" = "Доверяют изучающие по всему миру";
 "paywall.app_store_rating" = "Рейтинг App Store";
 "paywall.active_users" = "Активные пользователи";
@@ -472,6 +554,86 @@
 "paywall.pro_user" = "Pro пользователь";
 "paywall.free_plan" = "Бесплатный план";
 "paywall.limited_features_available" = "Доступны ограниченные функции";
+"paywall.terms_of_service" = "Условия использования";
+"paywall.privacy_policy" = "Политика конфиденциальности";
+"paywall.restore_purchases" = "Восстановить покупки";
+"paywall.no_active_subscriptions_found" = "Активные подписки не найдены. Пожалуйста, проверьте ваш аккаунт App Store.";
+"paywall.failed_to_restore_purchases" = "Не удалось восстановить покупки: %@";
+"paywall.save_percentage" = "Экономия %@";
+
+// MARK: - Difficulty
+"difficulty.new" = "Новое";
+"difficulty.in_progress" = "В процессе";
+"difficulty.needs_review" = "Требует повторения";
+"difficulty.mastered" = "Освоено";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Сначала новые";
+"sorting.earliest_first" = "Сначала старые";
+"sorting.alphabetically" = "По алфавиту";
+"sorting.by_part_of_speech" = "По части речи";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Автоопределение";
+
+// MARK: - Time Period
+"time_period.week" = "Неделя";
+"time_period.month" = "Месяц";
+"time_period.year" = "Год";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Все результаты";
+"quiz_results.no_quiz_results_yet" = "Пока нет результатов тестов";
+"quiz_results.quiz" = "Тест";
+"quiz_results.accuracy" = "Точность";
+"quiz_results.correct" = "Правильно";
+"quiz_results.duration" = "Длительность";
+"quiz_results.time_period" = "Период времени";
+
+// MARK: - Word Details
+"word_details.transcription" = "Транскрипция";
+"word_details.part_of_speech" = "Часть речи";
+"word_details.definition" = "Определение";
+"word_details.difficulty" = "Сложность";
+"word_details.examples" = "Примеры";
+"word_details.edit_example" = "Редактировать пример";
+"word_details.example" = "Пример";
+"word_details.type_example_here" = "Введите пример здесь";
+"word_details.add_example" = "Добавить пример";
+"word_details.delete_word" = "Удалить слово";
+"word_details.delete_failed" = "Ошибка удаления";
+
+// MARK: - Word List
+"word_list.all_words" = "Все слова";
+"word_list.favorite" = "Избранное";
+"word_list.manage_tags" = "Управление тегами";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Типы тестов";
+"quiz_list.practice_settings" = "Настройки практики";
+"quiz_list.configure_quiz_experience" = "Настройте свой опыт тестирования";
+"quiz_list.focus_on_words_need_review" = "Сосредоточьтесь на словах, которые требуют повторения";
+"quiz_list.not_enough_words_review_yet" = "Пока недостаточно слов для повторения";
+"quiz_list.add_words_to_shared_dictionary" = "Добавить слова в общий словарь";
+"quiz_list.add_your_first_word" = "Добавить первое слово";
+"quiz_list.add_more_words" = "Добавить больше слов";
+"quiz_list.quizzes_help_test_knowledge" = "Тесты помогают проверить ваши знания и закрепить обучение!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Вам осталось %d слов до разблокировки тестов!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Завершить";
+"quiz_actions.next_word" = "Следующее слово";
+"quiz_actions.submit_answer" = "Отправить ответ";
+"quiz_actions.number_of_words" = "Количество слов";
+"quiz_actions.no_difficult_words_available" = "Нет сложных слов для теста";
+"quiz_actions.your_word_is" = "Ваше слово '%@'. Старайтесь лучше :)";
+"quiz_actions.try_harder" = "Старайтесь лучше :)";
+"quiz_actions.incorrect_try_again" = "Неверно. Попробуйте снова";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Выбрать теги";
+"tag_selection.no_tags_yet" = "Пока нет тегов";
+"tag_selection.you_can_select_up_to_5_tags" = "Вы можете выбрать до 5 тегов на слово. Нажмите на тег, чтобы выбрать или отменить выбор.";
 
 // MARK: - Pro Features
 "pro_features.google_sync" = "Синхронизация Google";
@@ -531,6 +693,10 @@
 "errors.requested_subscription_package_not_found" = "Запрашиваемый пакет подписки не найден";
 "errors.purchase_could_not_be_completed" = "Покупка не могла быть завершена";
 "errors.failed_to_restore_previous_purchases" = "Не удалось восстановить предыдущие покупки";
+"errors.no_offerings_available" = "В настоящее время нет доступных предложений подписки";
+"errors.package_not_found" = "Запрашиваемый пакет подписки не найден";
+"errors.purchase_failed" = "Покупка не может быть завершена";
+"errors.restore_failed" = "Не удалось восстановить предыдущие покупки";
 "errors.export_limit_exceeded" = "Лимит экспорта превышен. Обновитесь до Pro для неограниченного экспорта.";
 "errors.max_tags_reached" = "Достигнут максимум 5 тегов на слово";
 "errors.tag_already_assigned" = "Тег уже назначен этому слову";
@@ -549,6 +715,11 @@
 "errors.invalid_input" = "Неверный ввод";
 "errors.missing_field" = "Отсутствует поле";
 "errors.unknown_error" = "Неизвестная ошибка";
+"errors.update_failed" = "Ошибка обновления";
+"errors.delete_failed" = "Ошибка удаления";
+"errors.permission_denied" = "У вас нет разрешения на выполнение этого действия";
+"errors.user_not_authenticated" = "Пользователь должен быть аутентифицирован";
+"errors.dictionary_limit_reached" = "Вы можете создать только один общий словарь с бесплатным планом. Обновитесь до Pro для неограниченного количества общих словарей.";
 
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Пока нет слов";
@@ -559,5 +730,140 @@
 "empty_states.tap_heart_icon_to_add_favorites" = "Нажмите на значок сердца на любом выражении, чтобы добавить в избранное";
 "empty_states.try_different_search_term" = "Попробуйте другой поисковый запрос или добавьте новое выражение";
 
-// MARK: - Auto Detect
-"auto_detect.auto_detect" = "Автоопределение";
+// MARK: - Notifications
+"notifications.time_to_practice" = "Время практиковаться! 📚";
+"notifications.practice_vocabulary_today" = "Не забудьте попрактиковать свой словарь сегодня.";
+"notifications.practice_difficult_words" = "Практикуйте сложные слова 📚";
+"notifications.difficult_words_challenge" = "У вас есть слова, которые требуют больше практики. Готовы к вызову?";
+"notifications.test_dictionary_invitation" = "Тестовое приглашение в словарь";
+"notifications.test_dictionary_invitation_body" = "Кто-то добавил вас в 'Тестовый словарь'";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "Мой словарь";
+"macos.about_my_dictionary" = "О My Dictionary";
+"macos.debug_panel" = "Панель отладки";
+"macos.settings" = "Настройки";
+"macos.about" = "О приложении";
+"macos.shared_dictionaries" = "Общие словари";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "Все слова";
+"filter_display.favorite" = "Избранное";
+"filter_display.search" = "Поиск";
+"filter_display.tag" = "Тег";
+"filter_display.new" = "Новое";
+"filter_display.in_progress" = "В процессе";
+"filter_display.needs_review" = "Требует повторения";
+"filter_display.mastered" = "Освоено";
+"filter_display.no_words_yet" = "Пока нет слов";
+"filter_display.no_favorite_words" = "Нет избранных слов";
+"filter_display.no_search_results" = "Нет результатов поиска";
+"filter_display.no_tagged_words" = "Нет слов с тегами";
+"filter_display.no_new_words" = "Нет новых слов";
+"filter_display.no_words_in_progress" = "Нет слов в процессе";
+"filter_display.no_words_need_review" = "Нет слов, требующих повторения";
+"filter_display.no_mastered_words" = "Нет освоенных слов";
+"filter_display.start_building_vocabulary" = "Начните создавать свой словарь, добавив первое слово";
+"filter_display.tap_heart_icon_to_add_favorites" = "Нажмите на значок сердца на любом слове, чтобы добавить в избранное";
+"filter_display.try_different_search_term" = "Попробуйте другой поисковый запрос или добавьте новое слово";
+"filter_display.add_tags_to_organize" = "Добавьте теги к вашим словам для лучшей организации";
+"filter_display.new_words_appear_here" = "Новые слова появятся здесь, когда вы добавите их в свой список";
+"filter_display.words_appear_here_as_you_practice" = "Слова появятся здесь, когда вы будете практиковать их в тестах";
+"filter_display.words_need_more_practice" = "Слова, которые требуют больше практики, появятся здесь";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Владелец";
+"collaborator_roles.editor" = "Редактор";
+"collaborator_roles.viewer" = "Зритель";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Синий";
+"tag_colors.red" = "Красный";
+"tag_colors.green" = "Зеленый";
+"tag_colors.orange" = "Оранжевый";
+"tag_colors.purple" = "Фиолетовый";
+"tag_colors.pink" = "Розовый";
+"tag_colors.yellow" = "Желтый";
+"tag_colors.gray" = "Серый";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Выбрать словарь";
+"shared_dictionary_selection.dictionary_selected" = "Словарь выбран";
+"shared_dictionary_selection.add_to_shared" = "Добавить в общий";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Добавить слово в общий словарь";
+"shared_dictionary_selection.unknown" = "неизвестно";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Обновитесь до Pro, чтобы увидеть полные детали прогресса.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Обновитесь до Pro, чтобы увидеть полные детали роста словаря.";
+"pro_upgrade.time_period" = "Период времени";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Роль";
+"collaborator_management.add_collaborator" = "Добавить участника";
+"collaborator_management.email_address_required" = "Требуется email адрес";
+"collaborator_management.valid_email_address" = "Пожалуйста, введите действительный email адрес";
+"collaborator_management.make_viewer" = "Сделать зрителем";
+"collaborator_management.make_editor" = "Сделать редактором";
+"collaborator_management.remove" = "Удалить";
+"collaborator_management.add" = "Добавить";
+"collaborator_management.delete_dictionary" = "Удалить словарь";
+"collaborator_management.delete_dictionary_confirmation" = "Вы уверены, что хотите удалить этот общий словарь? Это действие нельзя отменить.";
+"collaborator_management.stop_watching" = "Перестать следить";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Вы уверены, что хотите перестать следить за этим общим словарем?";
+"collaborator_management.stop_watching_dictionary" = "Перестать следить за словарем";
+"collaborator_management.continue" = "Продолжить";
+"collaborator_management.dictionary_not_found" = "Словарь не найден";
+"collaborator_management.dictionary_details" = "Детали словаря";
+"collaborator_management.unknown" = "Неизвестно";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Тест на правописание";
+"quiz_types.choose_definition" = "Выбрать определение";
+"quiz_types.test_spelling_skills" = "Проверьте свои навыки правописания, правильно печатая слова";
+"quiz_types.select_correct_definition" = "Выберите правильное определение для каждого слова";
+"quiz_types.great_job_completed_spelling_quiz" = "Отличная работа! Вы завершили тест по правописанию.";
+"quiz_types.great_job_completed_definition_quiz" = "Отличная работа! Вы завершили тест по определениям.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Австралийский";
+"english_accents.canadian" = "Канадский";
+"english_accents.british" = "Британский";
+"english_accents.indian" = "Индийский";
+"english_accents.american" = "Американский";
+"english_accents.belgian" = "Бельгийский";
+"english_accents.singaporean" = "Сингапурский";
+"english_accents.irish" = "Ирландский";
+"english_accents.south_african" = "Южноафриканский";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "Все выражения";
+"idiom_filters.favorite" = "Избранное";
+"idiom_filters.search" = "Поиск";
+"idiom_filters.no_idioms_yet" = "Пока нет выражений";
+"idiom_filters.no_favorite_words" = "Нет избранных слов";
+"idiom_filters.no_search_results" = "Нет результатов поиска";
+"idiom_filters.start_improving_vocabulary" = "Начните улучшать свой словарный запас, добавив первое выражение";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "Нажмите на значок сердца на любом выражении, чтобы добавить в избранное";
+"idiom_filters.try_different_search_term" = "Попробуйте другой поисковый запрос или добавьте новое выражение";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Существительное";
+"part_of_speech.full.verb" = "Глагол";
+"part_of_speech.full.adjective" = "Прилагательное";
+"part_of_speech.full.adverb" = "Наречие";
+"part_of_speech.full.conjunction" = "Союз";
+"part_of_speech.full.pronoun" = "Местоимение";
+"part_of_speech.full.preposition" = "Предлог";
+"part_of_speech.full.exclamation" = "Междометие";
+"part_of_speech.full.unknown" = "Неизвестно";
+
+"part_of_speech.short.noun" = "Сущ.";
+"part_of_speech.short.verb" = "Гл.";
+"part_of_speech.short.adjective" = "Прил.";
+"part_of_speech.short.adverb" = "Нар.";
+"part_of_speech.short.conjunction" = "Союз";
+"part_of_speech.short.pronoun" = "Мест.";
+"part_of_speech.short.preposition" = "Пред.";
+"part_of_speech.short.exclamation" = "Межд.";
+"part_of_speech.short.unknown" = "Неизв.";

@@ -65,13 +65,13 @@ struct VocabularyLineChart: View {
 
             // Axis labels
             HStack {
-                Text(Loc.Analytics.wordsCount.localized(minValue))
+                Text(Loc.Words.wordsCount.localized(minValue))
                     .font(.caption2)
                     .foregroundStyle(.secondary)
                 
                 Spacer()
                 
-                Text(Loc.Analytics.wordsCount.localized(maxValue))
+                Text(Loc.Words.wordsCount.localized(maxValue))
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }

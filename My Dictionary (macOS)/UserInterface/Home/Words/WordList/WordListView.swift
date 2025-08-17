@@ -75,7 +75,7 @@ struct WordListView: View {
                 Menu {
                     Picker(Loc.Words.sort.localized, selection: $viewModel.sortingState) {
                         ForEach(SortingCase.allCases, id: \.self) { item in
-                            Text(item.rawValue)
+                            Text(item.displayName)
                                 .tag(item)
                         }
                     }

@@ -15,10 +15,10 @@ enum QuizResultsList {
 
         var body: some View {
             ScrollViewWithCustomNavBar {
-                CustomSectionView(header: "All Results", hPadding: .zero) {
+                CustomSectionView(header: Loc.App.allResults.localized, hPadding: .zero) {
                     if quizSessions.isEmpty {
                         ContentUnavailableView(
-                            "No Quiz Results Yet",
+                            Loc.Analytics.noQuizResultsYet.localized,
                             systemImage: "chart.bar",
                             description: Text(Loc.Analytics.completeFirstQuizResults.localized)
                         )
@@ -32,7 +32,7 @@ enum QuizResultsList {
                 }
                 .padding(12)
             } navigationBar: {
-                NavigationBarView(title: "Quiz Results")
+                NavigationBarView(title: Loc.Navigation.quizResults.localized)
             }
             .groupedBackground()
             .onAppear {
@@ -49,7 +49,7 @@ enum QuizResultsList {
                 // Header with date and quiz type
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(session.quizType?.capitalized ?? "Quiz")
+                        Text(session.quiz?.title ?? Loc.QuizResults.quiz.localized)
                             .font(.headline)
                             .fontWeight(.semibold)
 
@@ -74,21 +74,21 @@ enum QuizResultsList {
                 // Stats row
                 HStack(spacing: 16) {
                     StatItem(
-                        title: "Accuracy",
+                        title: Loc.QuizResults.accuracy.localized,
                         value: "\(Int(session.accuracy * 100))%",
                         icon: "target",
                         color: .blue
                     )
 
                     StatItem(
-                        title: "Correct",
+                        title: Loc.QuizResults.correct.localized,
                         value: "\(session.correctAnswers)/\(session.totalWords)",
                         icon: "checkmark.circle",
                         color: .accent
                     )
 
                     StatItem(
-                        title: "Duration",
+                        title: Loc.QuizResults.duration.localized,
                         value: formatDuration(session.duration),
                         icon: "clock",
                         color: .orange

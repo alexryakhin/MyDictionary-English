@@ -13,9 +13,9 @@ import UserNotifications
 @main
 struct MyDictionaryApp: App {
 
-#if DEBUG
+    #if DEBUG
     @State private var isDebugViewPresented: Bool = false
-#endif
+    #endif
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
@@ -24,14 +24,15 @@ struct MyDictionaryApp: App {
             MainTabView()
                 .fontDesign(.rounded)
                 .tint(.accent)
-#if DEBUG
+                // DO NOT TRANSLATE DEBUG
+                #if DEBUG
                 .onShake {
                     isDebugViewPresented = true
                 }
                 .sheet(isPresented: $isDebugViewPresented) {
                     DebugView()
                 }
-#endif
+                #endif
         }
     }
 }
@@ -60,14 +61,11 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     // MARK: - Remote Notification Registration
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("📱 [AppDelegate] APNS device token received: \(deviceToken.map { String(format: "%02.2hhx", $0) }.joined())")
-
         // Set the APNS device token for Firebase Messaging
         MessagingService.shared.setAPNSToken(deviceToken)
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("❌ [AppDelegate] Failed to register for remote notifications: \(error)")
     }
 
     // MARK: - UNUserNotificationCenterDelegate
@@ -75,7 +73,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     // Handle notification when app is in foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
-        print("📱 [AppDelegate] Received notification in foreground: \(userInfo)")
 
         // Show notification even when app is in foreground
         completionHandler([.banner, .sound, .badge])
@@ -84,7 +81,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     // Handle notification tap
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping VoidHandler) {
         let userInfo = response.notification.request.content.userInfo
-        print("📱 [AppDelegate] User tapped notification: \(userInfo)")
 
         // Handle different notification types
         if let type = userInfo["type"] as? String {
@@ -94,7 +90,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
                     handleCollaboratorInvitation(dictionaryId: dictionaryId)
                 }
             default:
-                print("📱 [AppDelegate] Unknown notification type: \(type)")
+                break
             }
         }
 
@@ -104,8 +100,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     // MARK: - Private Methods
 
     private func handleCollaboratorInvitation(dictionaryId: String) {
-        print("📱 [AppDelegate] Handling collaborator invitation for dictionary: \(dictionaryId)")
-
         // Navigate to the shared dictionary
         DispatchQueue.main.async {
             if let sharedDictionary = DictionaryService.shared.sharedDictionaries.first(where: { $0.id == dictionaryId }) {
@@ -118,13 +112,12 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
 
     // MARK: - Simulator Testing
 
-#if DEBUG
+    // DO NOT TRANSLATE DEBUG
+    #if DEBUG
     func testLocalNotification() {
-        print("🧪 [AppDelegate] Testing local notification on simulator")
-
         let content = UNMutableNotificationContent()
-        content.title = "Test Dictionary Invitation"
-        content.body = "Someone added you to 'Test Dictionary'"
+        content.title = Loc.Notifications.testDictionaryInvitation.localized
+        content.body = Loc.Notifications.testDictionaryInvitationBody.localized
         content.sound = .default
         content.badge = 1
         content.userInfo = [
@@ -137,15 +130,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
         let request = UNNotificationRequest(identifier: "test-notification", content: content, trigger: trigger)
 
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("❌ [AppDelegate] Failed to schedule test notification: \(error)")
-            } else {
-                print("✅ [AppDelegate] Test notification scheduled successfully")
-            }
-        }
+        UNUserNotificationCenter.current().add(request) { _ in }
     }
-#endif
+    #endif
 
     // MARK: - App Lifecycle
 
@@ -171,15 +158,12 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     private func clearNotificationBadge() {
         DispatchQueue.main.async {
             UIApplication.shared.applicationIconBadgeNumber = 0
-            print("🧹 [AppDelegate] Cleared notification badge")
         }
     }
 
     // MARK: - App Services Setup
 
     private func setupAppServices() {
-        print("🔧 [AppDelegate] Setting up app services...")
-
         // Configure Firebase FIRST
         FirebaseApp.configure()
 
@@ -196,19 +180,15 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         // Log analytics event
         AnalyticsService.shared.logEvent(.appOpened)
 
-#if DEBUG
+        // DO NOT TRANSLATE DEBUG
+        #if DEBUG
         // Debug Firebase configuration
         FirebaseDebugService.shared.checkFirebaseConfiguration()
         FirebaseDebugService.shared.checkAuthenticationStatus()
-#endif
+        #endif
 
         // Setup notifications
         setupNotifications()
-
-        // Setup data sync
-        setupDataSync()
-
-        print("✅ [AppDelegate] App services setup completed")
     }
 
     private func setupNotifications() {
@@ -228,10 +208,5 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
                 notificationService.scheduleNotificationsForToday()
             }
         }
-    }
-
-    private func setupDataSync() {
-        // Manual sync mode - no automatic sync on app startup
-        print("ℹ️ [AppDelegate] Manual sync mode enabled - no automatic sync on startup")
     }
 }

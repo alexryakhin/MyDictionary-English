@@ -35,7 +35,7 @@ struct WordListCellView: View {
                         .foregroundStyle(word.difficultyLevel.color)
                 }
 
-                Text(word.partOfSpeechDecoded.rawValue)
+                Text(word.partOfSpeechDecoded.displayNameShort.lowercased())
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
 

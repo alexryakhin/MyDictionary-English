@@ -54,6 +54,7 @@ struct QuizzesListView: View {
         }
         .onAppear {
             AnalyticsService.shared.logEvent(.quizzesOpened)
+            QuizWordsProvider.shared.refreshAvailableDictionaries()
         }
     }
     
@@ -156,7 +157,7 @@ struct QuizzesListView: View {
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                                 
-                                Stepper("Number of words", value: $practiceWordCount, in: minWords...maxWords, step: 1)
+                                Stepper(Loc.QuizActions.numberOfWords.localized, value: $practiceWordCount, in: minWords...maxWords, step: 1)
                                     .labelsHidden()
 
                                 HStack {
@@ -237,8 +238,8 @@ struct QuizzesListView: View {
                     }
 
                     Text(viewModel.words.isEmpty ?
-                         "Quizzes help you test your knowledge and reinforce learning!" :
-                            "You're \(10 - viewModel.words.count) words away from unlocking quizzes!")
+                         Loc.QuizList.quizzesHelpTestKnowledge.localized :
+                            Loc.QuizList.wordsAwayFromUnlockingQuizzes.localized(10 - viewModel.words.count))
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)

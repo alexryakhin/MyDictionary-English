@@ -14,174 +14,149 @@ struct SharedDictionaryDetailsView: View {
     @StateObject var dictionaryService: DictionaryService = .shared
     @StateObject var authenticationService: AuthenticationService = .shared
     @State private var showingAddCollaborator = false
-
-    let dictionaryId: String
-    
-    // Computed property to get the current dictionary from the service
-    private var dictionary: SharedDictionary? {
-        let dict = dictionaryService.sharedDictionaries.first { $0.id == dictionaryId }
-        print("🔍 [SharedDictionaryDetailsView] Looking for dictionary with ID: \(dictionaryId)")
-        print("🔍 [SharedDictionaryDetailsView] Available dictionaries: \(dictionaryService.sharedDictionaries.map { $0.id }.joined(separator: ", "))")
-        print("🔍 [SharedDictionaryDetailsView] Found dictionary: \(dict?.name ?? "nil")")
-        return dict
-    }
+    @State private var dictionary: SharedDictionary
 
     init(dictionary: SharedDictionary) {
-        self.dictionaryId = dictionary.id
+        self._dictionary = .init(wrappedValue: dictionary)
     }
-    
+
     var body: some View {
         ScrollView {
-            if let dictionary = dictionary {
-                VStack(spacing: 16) {
-                    CustomSectionView(header: "Dictionary Info", hPadding: .zero) {
-                        FormWithDivider {
-                            HStack {
-                                Text(Loc.SharedDictionaries.name.localized)
-                                Spacer()
-                                Text(dictionary.name)
-                                    .foregroundStyle(.secondary)
-                            }
-                            .padding(vertical: 12, horizontal: 16)
-
-                            HStack {
-                                Text(Loc.SharedDictionaries.created.localized)
-                                Spacer()
-                                Text(dictionary.createdAt, style: .date)
-                                    .foregroundStyle(.secondary)
-                            }
-                            .padding(vertical: 12, horizontal: 16)
-
-                            HStack {
-                                Text(Loc.SharedDictionaries.yourRole.localized)
-                                Spacer()
-                                Text(dictionary.userRole?.displayValue ?? "Unknown")
-                                    .foregroundStyle(.secondary)
-                            }
-                            .padding(vertical: 12, horizontal: 16)
+            VStack(spacing: 16) {
+                CustomSectionView(header: Loc.App.dictionaryInfo.localized, hPadding: .zero) {
+                    FormWithDivider {
+                        HStack {
+                            Text(Loc.SharedDictionaries.name.localized)
+                            Spacer()
+                            Text(dictionary.name)
+                                .foregroundStyle(.secondary)
                         }
-                    }
+                        .padding(vertical: 12, horizontal: 16)
 
-                    CustomSectionView(header: "Collaborators", hPadding: .zero) {
-                        ListWithDivider(dictionary.collaborators) { collaborator in
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(collaborator.role.displayValue)
-                                        .font(.headline)
-                                    Text(collaborator.displayNameOrEmail)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.primary)
-                                    Text(collaborator.email)
-                                        .font(.caption)
+                        HStack {
+                            Text(Loc.SharedDictionaries.created.localized)
+                            Spacer()
+                            Text(dictionary.createdAt, style: .date)
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(vertical: 12, horizontal: 16)
+
+                        HStack {
+                            Text(Loc.SharedDictionaries.yourRole.localized)
+                            Spacer()
+                            Text(dictionary.userRole?.displayValue ?? Loc.CollaboratorManagement.unknown.localized)
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(vertical: 12, horizontal: 16)
+                    }
+                }
+
+                CustomSectionView(header: Loc.App.collaborators.localized, hPadding: .zero) {
+                    ListWithDivider(dictionary.collaborators) { collaborator in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(collaborator.role.displayValue)
+                                    .font(.headline)
+                                Text(collaborator.displayNameOrEmail)
+                                    .font(.subheadline)
+                                    .foregroundStyle(.primary)
+                                Text(collaborator.email)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+
+                            Spacer()
+
+                            if dictionary.canEdit && collaborator.email != authenticationService.userEmail && collaborator.role != .owner {
+                                Menu {
+                                    switch collaborator.role {
+                                    case .editor:
+                                        Button(Loc.CollaboratorManagement.makeViewer.localized) {
+                                            updateRole(email: collaborator.email, role: .viewer)
+                                        }
+                                    case .viewer:
+                                        Button(Loc.CollaboratorManagement.makeEditor.localized) {
+                                            updateRole(email: collaborator.email, role: .editor)
+                                        }
+                                    default:
+                                        EmptyView()
+                                    }
+
+                                    Button(Loc.CollaboratorManagement.remove.localized, role: .destructive) {
+                                        removeCollaborator(email: collaborator.email)
+                                    }
+                                } label: {
+                                    Image(systemName: "ellipsis.circle")
                                         .foregroundStyle(.secondary)
                                 }
-
-                                Spacer()
-
-                                if dictionary.canEdit && collaborator.email != authenticationService.userEmail && collaborator.role != .owner {
-                                    Menu {
-                                        switch collaborator.role {
-                                        case .editor:
-                                            Button("Make Viewer") {
-                                                updateRole(email: collaborator.email, role: .viewer)
-                                            }
-                                        case .viewer:
-                                            Button("Make Editor") {
-                                                updateRole(email: collaborator.email, role: .editor)
-                                            }
-                                        default:
-                                            EmptyView()
-                                        }
-
-                                        Button("Remove", role: .destructive) {
-                                            removeCollaborator(email: collaborator.email)
-                                        }
-                                    } label: {
-                                        Image(systemName: "ellipsis.circle")
-                                            .foregroundStyle(.secondary)
-                                    }
-                                } else if collaborator.email == authenticationService.userEmail {
-                                    Text(Loc.SharedDictionaries.me.localized)
-                                        .font(.caption)
-                                        .padding(vertical: 2, horizontal: 6)
-                                        .background(.accent.opacity(0.1))
-                                        .foregroundStyle(.accent)
-                                        .clipShape(.capsule)
-                                }
+                            } else if collaborator.email == authenticationService.userEmail {
+                                Text(Loc.SharedDictionaries.me.localized)
+                                    .font(.caption)
+                                    .padding(vertical: 2, horizontal: 6)
+                                    .background(.accent.opacity(0.1))
+                                    .foregroundStyle(.accent)
+                                    .clipShape(.capsule)
                             }
-                            .padding(vertical: 12, horizontal: 16)
                         }
-                    } trailingContent: {
-                        if dictionary.canEdit {
-                            HeaderButton("Add", icon: "plus", size: .small, style: .borderedProminent) {
-                                showingAddCollaborator = true
-                            }
+                        .padding(vertical: 12, horizontal: 16)
+                    }
+                } trailingContent: {
+                    if dictionary.canEdit {
+                        HeaderButton(Loc.CollaboratorManagement.add.localized, icon: "plus", size: .small, style: .borderedProminent) {
+                            showingAddCollaborator = true
                         }
                     }
+                }
 
-                    if dictionary.isOwner {
-                        ActionButton("Delete Dictionary", color: .red) {
-                            AlertCenter.shared.showAlert(
-                                with: .deleteConfirmation(
-                                    title: "Delete Dictionary",
-                                    message: "Are you sure you want to delete this shared dictionary? This action cannot be undone.",
-                                                                    onDelete: {
+                if dictionary.isOwner {
+                    ActionButton(Loc.CollaboratorManagement.deleteDictionary.localized, color: .red) {
+                        AlertCenter.shared.showAlert(
+                            with: .deleteConfirmation(
+                                title: Loc.CollaboratorManagement.deleteDictionary.localized,
+                                message: Loc.CollaboratorManagement.deleteDictionaryConfirmation.localized,
+                                onDelete: {
                                     Task {
                                         await deleteDictionary()
                                     }
                                 }
-                                )
                             )
-                        }
-                    } else if let userEmail = authenticationService.userEmail {
-                        ActionButton("Stop watching", color: .red) {
-                            AlertCenter.shared.showAlert(
-                                with: .deleteConfirmation(
-                                    title: "Stop watching dictionary",
-                                    message: "Are you sure you want to stop watching this shared dictionary?",
-                                    deleteText: "Continue",
-                                    onDelete: {
-                                        removeCollaborator(email: userEmail)
-                                        dismiss()
-                                    }
-                                )
+                        )
+                    }
+                } else if let userEmail = authenticationService.userEmail {
+                    ActionButton(Loc.CollaboratorManagement.stopWatching.localized, color: .red) {
+                        AlertCenter.shared.showAlert(
+                            with: .deleteConfirmation(
+                                title: Loc.CollaboratorManagement.stopWatchingDictionary.localized,
+                                message: Loc.CollaboratorManagement.stopWatchingDictionaryConfirmation.localized,
+                                deleteText: Loc.CollaboratorManagement.continue.localized,
+                                onDelete: {
+                                    removeCollaborator(email: userEmail)
+                                    dismiss()
+                                }
                             )
-                        }
+                        )
                     }
                 }
-                .padding(.horizontal, 16)
-            } else {
-                // Dictionary not found or user lost access
-                VStack(spacing: 16) {
-                    ContentUnavailableView(
-                        "Dictionary Not Found",
-                        systemImage: "exclamationmark.triangle",
-                        description: Text(Loc.SharedDictionaries.dictionaryDeletedOrLostAccess.localized)
-                    )
-                }
-                .padding(.horizontal, 16)
             }
+            .padding(.horizontal, 16)
+
         }
         .groupedBackground()
         .navigation(
-            title: "Dictionary Details",
+            title: Loc.CollaboratorManagement.dictionaryDetails.localized,
             mode: .inline,
             showsBackButton: true
         )
         .sheet(isPresented: $showingAddCollaborator) {
-            AddCollaboratorView(dictionaryId: dictionaryId)
+            AddCollaboratorView(dictionaryId: dictionary.id)
         }
         .refreshable {
             await refreshDictionaryDetails()
         }
         .onChange(of: dictionaryService.sharedDictionaries) { newValue in
-            print("🔄 [SharedDictionaryDetailsView] sharedDictionaries changed, count: \(newValue.count)")
-            print("🔄 [SharedDictionaryDetailsView] Current dictionaryId: \(dictionaryId)")
-            print("🔄 [SharedDictionaryDetailsView] Available dictionaries: \(newValue.map { $0.id }.joined(separator: ", "))")
-            
-            // Check if user lost access to this dictionary
-            if !newValue.contains(where: { $0.id == dictionaryId }) {
-                print("🚫 [SharedDictionaryDetailsView] Dictionary no longer accessible, popping to root")
+            if let index = newValue.firstIndex(where: { $0.id == dictionary.id }) {
+                dictionary = newValue[index]
+            } else {
                 NavigationManager.shared.popToRoot()
             }
         }
@@ -191,7 +166,7 @@ struct SharedDictionaryDetailsView: View {
         Task {
             do {
                 try await dictionaryService.updateCollaboratorRole(
-                    dictionaryId: dictionaryId,
+                    dictionaryId: dictionary.id,
                     email: email,
                     role: role
                 )
@@ -200,12 +175,12 @@ struct SharedDictionaryDetailsView: View {
             }
         }
     }
-    
+
     private func removeCollaborator(email: String) {
         Task { @MainActor in
             do {
                 try await dictionaryService.removeCollaborator(
-                    dictionaryId: dictionaryId,
+                    dictionaryId: dictionary.id,
                     email: email
                 )
             } catch {
@@ -213,32 +188,25 @@ struct SharedDictionaryDetailsView: View {
             }
         }
     }
-    
+
     private func deleteDictionary() {
         Task { @MainActor in
             do {
-                print("🗑️ [SharedDictionaryDetailsView] Starting dictionary deletion")
                 try await dictionaryService.deleteSharedDictionary(
-                    dictionaryId: dictionaryId
+                    dictionaryId: dictionary.id
                 )
-                print("✅ [SharedDictionaryDetailsView] Dictionary deleted successfully, popping to root")
                 NavigationManager.shared.popToRoot()
             } catch {
-                print("❌ [SharedDictionaryDetailsView] Error deleting dictionary: \(error.localizedDescription)")
                 errorReceived(error)
             }
         }
     }
-    
+
     private func refreshDictionaryDetails() async {
-        print("🔄 [SharedDictionaryDetailsView] Pull-to-refresh triggered for dictionary: \(dictionaryId)")
-        
         // Force a refresh of the shared dictionaries
         dictionaryService.refreshSharedDictionaries()
-        
+
         // Add a small delay to ensure the refresh completes
         try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
-        
-        print("✅ [SharedDictionaryDetailsView] Pull-to-refresh completed for dictionary: \(dictionaryId)")
     }
 }

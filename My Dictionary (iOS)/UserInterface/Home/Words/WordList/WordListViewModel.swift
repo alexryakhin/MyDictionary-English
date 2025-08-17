@@ -88,7 +88,7 @@ final class WordListViewModel: BaseViewModel {
     }
 
     var wordsCount: String {
-        return Loc.Words.wordsCount.localized(wordsFiltered.count)
+        Loc.Words.wordsCount.localized(wordsFiltered.count)
     }
     
     var filterStateTitle: String {

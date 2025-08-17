@@ -50,12 +50,10 @@ final class SpellingQuizViewModel: BaseViewModel {
     }
     
     deinit {
-        print("🔊 [SpellingQuizViewModel] Resuming shared dictionary listeners after quiz")
         DictionaryService.shared.resumeAllListeners()
     }
     
     private func pauseSharedDictionaryListeners() {
-        print("🔇 [SpellingQuizViewModel] Pausing shared dictionary listeners during quiz")
         DictionaryService.shared.pauseAllListeners()
     }
 
@@ -92,10 +90,8 @@ final class SpellingQuizViewModel: BaseViewModel {
             bestStreak = max(bestStreak, currentStreak)
             
             // Update word difficulty - add 5 points for correct answer
-            Task {
-                await updateWordScore(randomWord, points: 5)
-            }
-            
+            updateWordScore(randomWord, points: 5)
+
             wordsPlayed.append(randomWord)
             correctWordIds.append(randomWord.quiz_id)
             isShowingHint = false // Reset hint for next question
@@ -134,9 +130,7 @@ final class SpellingQuizViewModel: BaseViewModel {
             
             // After 3 attempts, mark word as needs review and add to played list
             if attemptCount >= 3 {
-                Task {
-                    await updateWordScore(randomWord, points: -2)
-                }
+                updateWordScore(randomWord, points: -2)
                 wordsPlayed.append(randomWord) // Add to played list when failed
                 accuracyContributions[randomWord.quiz_id] = 0.0 // 0% accuracy for failed words
             }
@@ -150,10 +144,8 @@ final class SpellingQuizViewModel: BaseViewModel {
         guard let randomWord else { return }
         
         // Mark skipped word as needs review - subtract 2 points for skipping
-        Task {
-            await updateWordScore(randomWord, points: -2)
-        }
-        
+        updateWordScore(randomWord, points: -2)
+
         // Add word to played list when skipped
         wordsPlayed.append(randomWord)
         accuracyContributions[randomWord.quiz_id] = 0.0 // 0% accuracy for skipped words
@@ -214,13 +206,9 @@ final class SpellingQuizViewModel: BaseViewModel {
 
         let duration = Date().timeIntervalSince(sessionStartTime)
         let accuracy = wordsPlayed.count > 0 ? accuracyContributions.values.reduce(0, +) / Double(wordsPlayed.count) : 0.0
-        
-        print("🔹 Quiz completion: correctAnswers=\(correctAnswers), wordsPlayed=\(wordsPlayed.count), accuracy=\(accuracy), score=\(score)")
-        print("🔹 Accuracy contributions: \(accuracyContributions)")
-        print("🔹 Duration calculation: sessionStartTime=\(sessionStartTime), endTime=\(Date()), duration=\(duration) seconds (\(duration/60.0) minutes)")
-        
+                
         quizAnalyticsService.saveQuizSession(
-            quizType: "spelling",
+            quizType: Quiz.spelling.title,
             score: score,
             correctAnswers: correctAnswers,
             totalWords: wordsPlayed.count, // Use words actually played
@@ -266,8 +254,8 @@ final class SpellingQuizViewModel: BaseViewModel {
         if availableWords.count < preset.wordCount {
             // Not enough words available after filtering
             self.errorMessage = preset.hardWordsOnly ?
-                "No difficult words available for quiz" :
-                "Not enough words available. Need at least \(preset.wordCount) words for the quiz."
+                Loc.Quizzes.noDifficultWordsAvailable.localized :
+                Loc.Quizzes.notEnoughWordsAvailable.localized(preset.wordCount)
             return
         }
         
@@ -279,11 +267,11 @@ final class SpellingQuizViewModel: BaseViewModel {
         self.totalQuestions = limitedWords.count
     }
 
-    private func updateWordScore(_ word: any QuizWord, points: Int) async {
+    private func updateWordScore(_ word: any QuizWord, points: Int) {
         if let sharedWord = word as? SharedWord {
             // For shared words, use the async method
             if let userEmail = AuthenticationService.shared.userEmail {
-                await sharedWord.quiz_updateDifficultyScoreForUser(points, userEmail: userEmail)
+                sharedWord.quiz_updateDifficultyScoreForUser(points, userEmail: userEmail)
             }
         } else {
             // For private words, use the sync method

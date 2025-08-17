@@ -21,16 +21,16 @@ struct AddCollaboratorView: View {
     var body: some View {
         ScrollViewWithCustomNavBar {
             VStack(spacing: 12) {
-                CustomSectionView(header: "Collaborator Details") {
+                CustomSectionView(header: Loc.App.collaboratorDetails.localized) {
                     VStack(spacing: 12) {
-                        TextField("Email Address", text: $email)
+                        TextField(Loc.App.emailAddress.localized, text: $email)
                             .textFieldStyle(.plain)
                             .autocorrectionDisabled()
                             .padding(vertical: 8, horizontal: 12)
                             .background(Color.tertiarySystemGroupedBackground)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
 
-                        TextField("Name", text: $name)
+                        TextField(Loc.App.name.localized, text: $name)
                             .textFieldStyle(.plain)
                             .autocorrectionDisabled()
                             .padding(vertical: 8, horizontal: 12)
@@ -43,7 +43,7 @@ struct AddCollaboratorView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
 
                             HeaderButtonMenu(role.displayValue, size: .small) {
-                                Picker("Role", selection: $role) {
+                                Picker(Loc.CollaboratorManagement.role.localized, selection: $role) {
                                     ForEach(CollaboratorRole.allCases, id: \.self) { role in
                                         Text(role.displayValue)
                                             .tag(role.rawValue)
@@ -58,7 +58,7 @@ struct AddCollaboratorView: View {
                     }
                 }
 
-                CustomSectionView(header: "Role Permissions", hPadding: .zero) {
+                CustomSectionView(header: Loc.App.rolePermissions.localized, hPadding: .zero) {
                     FormWithDivider {
                         VStack(alignment: .leading, spacing: 8) {
                             Text(Loc.SharedDictionaries.editorRole.localized)
@@ -84,7 +84,7 @@ struct AddCollaboratorView: View {
                     }
                 }
 
-                CustomSectionView(header: "Note", hPadding: .zero) {
+                CustomSectionView(header: Loc.App.note.localized, hPadding: .zero) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(Loc.SharedDictionaries.collaboratorAddedWithEmailName.localized)
                     }
@@ -96,13 +96,13 @@ struct AddCollaboratorView: View {
             .padding(12)
         } navigationBar: {
             NavigationBarView(
-                title: "Add Collaborator",
+                title: Loc.CollaboratorManagement.addCollaborator.localized,
                 trailingContent: {
-                    HeaderButton("Add Collaborator", style: .borderedProminent) {
+                    HeaderButton(Loc.CollaboratorManagement.addCollaborator.localized, style: .borderedProminent) {
                         addCollaborator()
                     }
                     .disabled(email.isEmpty && name.isEmpty)
-                    .help("Add Collaborator")
+                    .help(Loc.CollaboratorManagement.addCollaborator.localized)
                 }
             )
         }
@@ -111,12 +111,12 @@ struct AddCollaboratorView: View {
 
     private func addCollaborator() {
         guard !email.isEmpty else {
-            showAlertWithMessage("Email address is required")
+            showAlertWithMessage(Loc.CollaboratorManagement.emailAddressRequired.localized)
             return
         }
 
         guard email.contains("@") else {
-            showAlertWithMessage("Please enter a valid email address")
+            showAlertWithMessage(Loc.CollaboratorManagement.validEmailAddress.localized)
             return
         }
 

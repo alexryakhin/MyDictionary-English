@@ -34,15 +34,15 @@ enum EnglishAccent: String, CaseIterable {
 
     var displayName: String {
         switch self {
-        case .australian: "Australian"
-        case .canadian: "Canadian"
-        case .british: "British"
-        case .indian: "Indian"
-        case .american: "American"
-        case .belgian: "Belgian"
-        case .singaporean: "Singaporean"
-        case .irish: "Irish"
-        case .southAfrican: "South African"
+        case .australian: return Loc.EnglishAccents.australian.localized
+        case .canadian: return Loc.EnglishAccents.canadian.localized
+        case .british: return Loc.EnglishAccents.british.localized
+        case .indian: return Loc.EnglishAccents.indian.localized
+        case .american: return Loc.EnglishAccents.american.localized
+        case .belgian: return Loc.EnglishAccents.belgian.localized
+        case .singaporean: return Loc.EnglishAccents.singaporean.localized
+        case .irish: return Loc.EnglishAccents.irish.localized
+        case .southAfrican: return Loc.EnglishAccents.southAfrican.localized
         }
     }
 

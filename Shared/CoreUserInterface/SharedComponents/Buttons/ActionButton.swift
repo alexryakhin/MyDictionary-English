@@ -50,6 +50,7 @@ struct ActionButton: View {
                 }
                 Text(text)
                     .font(font)
+                    .multilineTextAlignment(systemImage == nil ? .center : .leading)
             }
             .padding(vertical: 12, horizontal: 16)
             .foregroundStyle(foregroundStyle.gradient)

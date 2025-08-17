@@ -23,7 +23,7 @@ struct AuthenticationView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            NavigationBarView(title: "Sign In")
+            NavigationBarView(title: Loc.Actions.signIn.localized)
 
             Spacer()
 
@@ -33,7 +33,7 @@ struct AuthenticationView: View {
                     .font(.system(size: 80))
                     .foregroundStyle(.accent)
 
-                Text(shownBeforePaywall ? "Sign in before subscribing" : "Sign in to sync your word lists")
+                Text(shownBeforePaywall ? Loc.Auth.signInBeforeSubscribing.localized : Loc.Auth.signInToSyncWordLists.localized)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
@@ -51,7 +51,7 @@ struct AuthenticationView: View {
             VStack(spacing: 16) {
                 // Google Sign-In Button
                 ActionButton(
-                    "Sign in with Google",
+                    Loc.Auth.signInWithGoogle.localized,
                     systemImage: "g.circle.fill",
                     style: .borderedProminent
                 ) {
@@ -84,7 +84,7 @@ struct AuthenticationView: View {
                 }
 
                 if shownBeforePaywall {
-                    Button("Skip for now") {
+                    Button(Loc.Actions.skipForNow.localized) {
                         dismiss()
                     }
                     .font(.body)

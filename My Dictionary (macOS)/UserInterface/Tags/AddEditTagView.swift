@@ -19,7 +19,7 @@ struct AddEditTagView: View {
     var body: some View {
         ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
-                CustomSectionView(header: "Tag Name", footer: "Choose a descriptive name for your tag") {
+                CustomSectionView(header: Loc.App.tagName.localized, footer: Loc.Tags.tagNameHelp.localized) {
                     TextField("Type tag name...", text: $tagName)
                         .textFieldStyle(.plain)
                         .autocorrectionDisabled()
@@ -27,7 +27,7 @@ struct AddEditTagView: View {
                         .clippedWithBackground(Color.tertiarySystemFill, cornerRadius: 12)
                         .padding(.bottom, 12)
                 }
-                CustomSectionView(header: "Tag Color", footer: "Select a color to help identify your tag") {
+                CustomSectionView(header: Loc.App.tagColor.localized, footer: Loc.Tags.tagColorHelp.localized) {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 12) {
                         ForEach(TagColor.allCases, id: \.self) { color in
                             ColorSelectionButton(
@@ -44,16 +44,16 @@ struct AddEditTagView: View {
             .padding(12)
         } navigationBar: {
             NavigationBarView(
-                title: viewModel.isEditing ? "Edit Tag" : "New Tag",
+                title: viewModel.isEditing ? Loc.Tags.editTag.localized : Loc.Tags.newTag.localized,
                 trailingContent: {
-                    HeaderButton("Save", style: .borderedProminent) {
+                    HeaderButton(Loc.Actions.save.localized, style: .borderedProminent) {
                         if subscriptionService.isProUser {
                             saveTag()
                         } else {
                             PaywallService.shared.isShowingPaywall = true
                         }
                     }
-                    .help("Save Tag")
+                    .help(Loc.Actions.save.localized)
                 }
             )
         }

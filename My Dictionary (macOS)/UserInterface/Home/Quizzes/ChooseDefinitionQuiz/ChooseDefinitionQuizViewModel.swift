@@ -245,9 +245,9 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         // Check if we have enough words after filtering
         if availableWords.count < preset.wordCount {
             // Not enough words available after filtering
-            self.errorMessage = preset.hardWordsOnly ?
-            "No difficult words available for quiz" :
-            "Not enough words available. Need at least \(preset.wordCount) words for the quiz."
+            self.errorMessage = preset.hardWordsOnly
+            ? Loc.QuizActions.noDifficultWordsAvailable.localized
+            : Loc.Quizzes.notEnoughWordsAvailable.localized(preset.wordCount)
             return
         }
 
@@ -285,7 +285,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         let accuracy = wordsPlayed.count > 0 ? Double(correctAnswers) / Double(wordsPlayed.count) : 0.0
 
         quizAnalyticsService.saveQuizSession(
-            quizType: "definition",
+            quizType: Quiz.chooseDefinition.rawValue,
             score: score,
             correctAnswers: correctAnswers,
             totalWords: wordsPlayed.count, // Use words actually played

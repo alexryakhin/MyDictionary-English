@@ -39,6 +39,7 @@ open class BaseAPIService: APIServiceInterface {
     func fetchData<T: Decodable, P: APIPath>(from path: P, customParams: [CustomQueryParameter]) async throws -> T {
         let url = try buildURL(for: path, customParams: customParams)
         let (data, _) = try await URLSession.shared.data(from: url)
+        // DO NOT TRANSLATE DEBUG
         #if DEBUG
         if let string = data.prettyPrintedJSONString {
             print("DEBUG50\nURL: \(url)\nPath: \(path.path)\nJSON: \(string)\\")

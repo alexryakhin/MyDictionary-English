@@ -13,11 +13,11 @@ enum CollaboratorRole: String, Codable {
     var displayValue: String {
         switch self {
         case .owner:
-            return "Owner"
+            return Loc.CollaboratorRoles.owner.localized
         case .editor:
-            return "Editor"
+            return Loc.CollaboratorRoles.editor.localized
         case .viewer:
-            return "Viewer"
+            return Loc.CollaboratorRoles.viewer.localized
         }
     }
 

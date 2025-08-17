@@ -60,7 +60,6 @@ struct Word: Codable, Identifiable {
             "updatedAt": Timestamp(date: updatedAt),
             "isSynced": isSynced
         ]
-        print("📝 [Word] toFirestoreDictionary called for word '\(wordItself)', returning: \(dict)")
         return dict
     }
 

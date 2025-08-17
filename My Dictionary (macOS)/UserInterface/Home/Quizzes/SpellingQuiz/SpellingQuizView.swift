@@ -53,15 +53,6 @@ struct SpellingQuizView: View {
             }
             .groupedBackground()
             .navigationTitle(Loc.Navigation.spellingQuiz.localized)
-            .toolbar {
-                ToolbarItemGroup(placement: .primaryAction) {
-                    // Exit button
-                    Button(Loc.Actions.exit.localized) {
-                        viewModel.handle(.dismiss)
-                    }
-                    .help(Loc.Actions.exit.localized)
-                }
-            }
             .onAppear {
                 AnalyticsService.shared.logEvent(.spellingQuizOpened)
             }
@@ -123,18 +114,16 @@ struct SpellingQuizView: View {
                 .lineSpacing(4)
                 .multilineTextAlignment(.leading)
             
-            if let partOfSpeech = viewModel.randomWord?.quiz_partOfSpeech, !partOfSpeech.isEmpty {
-                TagView(text: partOfSpeech, color: .blue, size: .small, style: .regular)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
-            
+            TagView(text: PartOfSpeech(rawValue: viewModel.randomWord?.quiz_partOfSpeech).displayName, color: .blue, size: .small, style: .regular)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
             // Hint section
             if viewModel.isShowingHint, let randomWord = viewModel.randomWord {
                 HStack {
                     Image(systemName: "lightbulb.fill")
                         .foregroundStyle(.yellow)
                     
-                    Text("\(Loc.Quizzes.hint.localized): The word starts with '\(randomWord.quiz_wordItself.prefix(1).uppercased())'")
+                    Text("\(Loc.Quizzes.hint.localized): \(Loc.App.wordStartsWith.localized) '\(randomWord.quiz_wordItself.prefix(1).uppercased())'")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
@@ -172,7 +161,7 @@ struct SpellingQuizView: View {
                 }
             }
             
-            TextField("Type the word here...", text: $viewModel.answerTextField, axis: .vertical)
+                            TextField(Loc.App.typeWordHere.localized, text: $viewModel.answerTextField, axis: .vertical)
                 .textFieldStyle(.plain)
                 .padding(vertical: 8, horizontal: 12)
                 .background(Color.tertiarySystemGroupedBackground)
@@ -246,8 +235,8 @@ struct SpellingQuizView: View {
         VStack(spacing: 12) {
             ActionButton(
                 isMovingOnToNextWord
-                ? isFinishing ? "Finish" : "Next Word"
-                : "Submit Answer",
+                ? isFinishing ? Loc.QuizActions.finish.localized : Loc.QuizActions.nextWord.localized
+                : Loc.QuizActions.submitAnswer.localized,
                 systemImage: isMovingOnToNextWord ? "arrow.right.circle.fill" : "checkmark.circle.fill",
                 style: .borderedProminent
             ) {
@@ -274,9 +263,9 @@ struct SpellingQuizView: View {
         guard let randomWord = viewModel.randomWord else { return "" }
 
         if viewModel.attemptCount > 2 {
-            return "Your word is '\(randomWord.quiz_wordItself.trimmed)'. Try harder :)"
+            return Loc.QuizActions.yourWordIs.localized(randomWord.quiz_wordItself.trimmed)
         } else {
-            return "Incorrect. Try again"
+            return Loc.QuizActions.incorrectTryAgain.localized
         }
     }
 }

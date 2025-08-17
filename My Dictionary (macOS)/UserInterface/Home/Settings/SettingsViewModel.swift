@@ -75,7 +75,7 @@ final class SettingsViewModel: BaseViewModel {
         panel.nameFieldStringValue = "Words.csv"
         panel.canCreateDirectories = true
         panel.isExtensionHidden = false
-        panel.title = "Export Words"
+        panel.title = Loc.Settings.exportWordsTitle.localized
 
         Task { @MainActor in
             let response = await panel.begin()
@@ -89,7 +89,7 @@ final class SettingsViewModel: BaseViewModel {
 
                 try FileManager.default.copyItem(at: tempURL, to: url)
                 showAlert(withModel: .info(
-                    title: "Export Successful",
+                    title: Loc.Settings.exportSuccessful.localized,
                     message: "Words exported successfully."
                 ))
             } catch {
@@ -157,8 +157,8 @@ final class SettingsViewModel: BaseViewModel {
             do {
                 try await DataSyncService.shared.uploadBackupToGoogle(userEmail: userEmail)
                 await MainActor.run {
-                    showAlert(withModel: .info(
-                        title: "Upload Successful",
+                                    showAlert(withModel: .info(
+                    title: Loc.Settings.uploadSuccessful.localized,
                         message: "Your words have been successfully uploaded to Google."
                     ))
                 }
@@ -180,8 +180,8 @@ final class SettingsViewModel: BaseViewModel {
             do {
                 try await DataSyncService.shared.downloadBackupFromGoogle(userEmail: userEmail)
                 await MainActor.run {
-                    showAlert(withModel: .info(
-                        title: "Download Successful",
+                                    showAlert(withModel: .info(
+                    title: Loc.Settings.downloadSuccessful.localized,
                         message: "Your words have been successfully downloaded from Google."
                     ))
                 }

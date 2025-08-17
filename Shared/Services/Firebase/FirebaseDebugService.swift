@@ -5,6 +5,7 @@ import FirebaseCore
 import GoogleSignIn
 import AuthenticationServices
 
+// DO NOT TRANSLATE DEBUG
 #if DEBUG
 final class FirebaseDebugService {
     static let shared = FirebaseDebugService()
@@ -12,8 +13,6 @@ final class FirebaseDebugService {
     private init() {}
     
     func checkFirebaseConfiguration() {
-        print("🔍 [FirebaseDebug] Checking Firebase configuration...")
-        
         // Check if Firebase is configured
         if let app = FirebaseApp.app() {
             print("✅ [FirebaseDebug] Firebase is configured")

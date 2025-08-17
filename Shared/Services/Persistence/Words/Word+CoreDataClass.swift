@@ -38,7 +38,7 @@ final class CDWord: NSManagedObject, Identifiable {
     }
 
     var partOfSpeechDecoded: PartOfSpeech {
-        PartOfSpeech(rawValue: partOfSpeech ?? "") ?? .unknown
+        PartOfSpeech(rawValue: partOfSpeech)
     }
 
     // Computed property for difficulty level based on score

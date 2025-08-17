@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 enum Quiz: String, CaseIterable, Identifiable {
-    case spelling
-    case chooseDefinition
+    case spelling = "spelling"
+    case chooseDefinition = "definition"
 
     var id: String { rawValue }
 
@@ -35,27 +35,27 @@ enum Quiz: String, CaseIterable, Identifiable {
     var title: String {
         switch self {
         case .spelling:
-            return "Spelling Quiz"
+            return Loc.QuizTypes.spellingQuiz.localized
         case .chooseDefinition:
-            return "Choose Definition"
+            return Loc.QuizTypes.chooseDefinition.localized
         }
     }
 
     var description: String {
         switch self {
         case .spelling:
-            return "Test your spelling skills by typing words correctly"
+            return Loc.QuizTypes.testSpellingSkills.localized
         case .chooseDefinition:
-            return "Select the correct definition for each word"
+            return Loc.QuizTypes.selectCorrectDefinition.localized
         }
     }
 
     var completionDescription: String {
         switch self {
         case .spelling:
-            return "Great job! You've completed the spelling quiz."
+            return Loc.QuizTypes.greatJobCompletedSpellingQuiz.localized
         case .chooseDefinition:
-            return "Great job! You've completed the definition quiz."
+            return Loc.QuizTypes.greatJobCompletedDefinitionQuiz.localized
         }
     }
 }

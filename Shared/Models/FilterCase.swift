@@ -22,63 +22,63 @@ enum FilterCase: String, CaseIterable {
     var displayName: String {
         switch self {
         case .none:
-            return "All Words"
+            return Loc.FilterDisplay.allWords.localized
         case .favorite:
-            return "Favorite"
+            return Loc.FilterDisplay.favorite.localized
         case .search:
-            return "Search"
+            return Loc.FilterDisplay.search.localized
         case .tag:
-            return "Tag"
+            return Loc.FilterDisplay.tag.localized
         case .new:
-            return "New"
+            return Loc.FilterDisplay.new.localized
         case .inProgress:
-            return "In Progress"
+            return Loc.FilterDisplay.inProgress.localized
         case .needsReview:
-            return "Needs Review"
+            return Loc.FilterDisplay.needsReview.localized
         case .mastered:
-            return "Mastered"
+            return Loc.FilterDisplay.mastered.localized
         }
     }
     
     var emptyStateTitle: String {
         switch self {
         case .none:
-            return "No Words Yet"
+            return Loc.FilterDisplay.noWordsYet.localized
         case .favorite:
-            return "No Favorite Words"
+            return Loc.FilterDisplay.noFavoriteWords.localized
         case .search:
-            return "No Search Results"
+            return Loc.FilterDisplay.noSearchResults.localized
         case .tag:
-            return "No Tagged Words"
+            return Loc.FilterDisplay.noTaggedWords.localized
         case .new:
-            return "No New Words"
+            return Loc.FilterDisplay.noNewWords.localized
         case .inProgress:
-            return "No Words In Progress"
+            return Loc.FilterDisplay.noWordsInProgress.localized
         case .needsReview:
-            return "No Words Need Review"
+            return Loc.FilterDisplay.noWordsNeedReview.localized
         case .mastered:
-            return "No Mastered Words"
+            return Loc.FilterDisplay.noMasteredWords.localized
         }
     }
     
     var emptyStateDescription: String {
         switch self {
         case .none:
-            return "Start building your vocabulary by adding your first word"
+            return Loc.FilterDisplay.startBuildingVocabulary.localized
         case .favorite:
-            return "Tap the heart icon on any word to add it to your favorites"
+            return Loc.FilterDisplay.tapHeartIconToAddFavorites.localized
         case .search:
-            return "Try a different search term or add a new word"
+            return Loc.FilterDisplay.tryDifferentSearchTerm.localized
         case .tag:
-            return "Add tags to your words to organize them better"
+            return Loc.FilterDisplay.addTagsToOrganize.localized
         case .new:
-            return "New words appear here when you add them to your list"
+            return Loc.FilterDisplay.newWordsAppearHere.localized
         case .inProgress:
-            return "Words appear here as you practice them in quizzes"
+            return Loc.FilterDisplay.wordsAppearHereAsYouPractice.localized
         case .needsReview:
-            return "Words that need more practice will appear here"
+            return Loc.FilterDisplay.wordsNeedMorePractice.localized
         case .mastered:
-            return "Words you've mastered through practice will appear here"
+            return Loc.FilterDisplay.wordsNeedMorePractice.localized
         }
     }
     

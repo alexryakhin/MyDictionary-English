@@ -41,21 +41,21 @@ enum TagColor: String, CaseIterable {
     var displayName: String {
         switch self {
         case .blue:
-            return "Blue"
+            return Loc.TagColors.blue.localized
         case .red:
-            return "Red"
+            return Loc.TagColors.red.localized
         case .green:
-            return "Green"
+            return Loc.TagColors.green.localized
         case .orange:
-            return "Orange"
+            return Loc.TagColors.orange.localized
         case .purple:
-            return "Purple"
+            return Loc.TagColors.purple.localized
         case .pink:
-            return "Pink"
+            return Loc.TagColors.pink.localized
         case .yellow:
-            return "Yellow"
+            return Loc.TagColors.yellow.localized
         case .gray:
-            return "Gray"
+            return Loc.TagColors.gray.localized
         }
     }
 } 

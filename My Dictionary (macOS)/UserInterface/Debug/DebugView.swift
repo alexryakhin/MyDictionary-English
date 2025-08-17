@@ -4,6 +4,7 @@
 //
 //  Created by Aleksandr Riakhin on 3/8/25.
 //
+// DO NOT TRANSLATE DEBUG
 #if DEBUG
 import SwiftUI
 import Firebase
@@ -26,21 +27,19 @@ struct DebugView: View {
     @State private var showingEmailInput = false
 
     var body: some View {
-        NavigationView {
-            List {
-                userInfoSection
-                pushNotificationsSection
-                subscriptionTestingSection
-                dictionaryTestingSection
-                firebaseTestingSection
-                appTestingSection
-            }
-            .navigationTitle("Debug Panel")
-            .toolbar {
-                ToolbarItem(placement: .secondaryAction) {
-                    HeaderButton("Done") {
-                        dismiss()
-                    }
+        List {
+            userInfoSection
+            pushNotificationsSection
+            subscriptionTestingSection
+            dictionaryTestingSection
+            firebaseTestingSection
+            appTestingSection
+        }
+        .navigationTitle("Debug Panel")
+        .toolbar {
+            ToolbarItem(placement: .secondaryAction) {
+                HeaderButton("Done") {
+                    dismiss()
                 }
             }
         }
@@ -434,11 +433,7 @@ struct DebugView: View {
     }
 
     private func testCrash() {
-#if DEBUG
         fatalError("Debug crash test")
-#else
-        showAlert("Crash test only available in debug builds")
-#endif
     }
 }
 #endif

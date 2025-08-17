@@ -52,12 +52,10 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     }
     
     deinit {
-        print("🔊 [ChooseDefinitionQuizViewModel] Resuming shared dictionary listeners after quiz")
         DictionaryService.shared.resumeAllListeners()
     }
     
     private func pauseSharedDictionaryListeners() {
-        print("🔇 [ChooseDefinitionQuizViewModel] Pausing shared dictionary listeners during quiz")
         DictionaryService.shared.pauseAllListeners()
     }
 
@@ -252,8 +250,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         if availableWords.count < preset.wordCount {
             // Not enough words available after filtering
             self.errorMessage = preset.hardWordsOnly ? 
-                "No difficult words available for quiz" :
-                "Not enough words available. Need at least \(preset.wordCount) words for the quiz."
+                Loc.Quizzes.noDifficultWordsAvailable.localized :
+                Loc.Quizzes.notEnoughWordsAvailable.localized(preset.wordCount)
             return
         }
         
@@ -291,7 +289,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         let accuracy = wordsPlayed.count > 0 ? Double(correctAnswers) / Double(wordsPlayed.count) : 0.0
         
         quizAnalyticsService.saveQuizSession(
-            quizType: "definition",
+            quizType: Quiz.chooseDefinition.rawValue,
             score: score,
             correctAnswers: correctAnswers,
             totalWords: wordsPlayed.count, // Use words actually played

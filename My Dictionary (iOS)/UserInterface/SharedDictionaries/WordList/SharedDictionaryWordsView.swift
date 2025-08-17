@@ -104,14 +104,10 @@ struct SharedDictionaryWordsView: View {
     }
     
     private func refreshDictionaryWords() async {
-        print("🔄 [SharedDictionaryWordsView] Pull-to-refresh triggered for dictionary: \(dictionary.id)")
-        
         // Force a refresh of the shared dictionary words
         dictionaryService.listenToSharedDictionaryWords(dictionaryId: dictionary.id)
         
         // Add a small delay to ensure the refresh completes
         try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
-        
-        print("✅ [SharedDictionaryWordsView] Pull-to-refresh completed for dictionary: \(dictionary.id)")
     }
 }

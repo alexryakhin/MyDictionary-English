@@ -45,7 +45,7 @@ struct WordTagSelectionView: View {
                     .padding(.bottom, 12)
                 }
             } trailingContent: {
-                HeaderButton("Create tags", icon: "tag", size: .small, style: .borderedProminent) {
+                HeaderButton(Loc.Tags.createTags.localized, icon: "tag", size: .small, style: .borderedProminent) {
                     isShowingAddTagSheet.toggle()
                 }
             }
@@ -53,7 +53,7 @@ struct WordTagSelectionView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "Add Tags",
+                            title: Loc.Tags.addTags.localized,
             mode: .inline,
             trailingContent: {
                 HeaderButton("Done", icon: "checkmark") {

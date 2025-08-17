@@ -71,33 +71,29 @@ final class SharedWordListViewModel: BaseViewModel {
     }
 
     var wordsCount: String {
-        if wordsFiltered.count == 1 {
-            return "1 word"
-        } else {
-            return "\(wordsFiltered.count) words"
-        }
+        Loc.Words.wordsCount.localized(wordsFiltered.count)
     }
     
     var filterStateTitle: String {
         switch filterState {
         case .none:
-            return "All Words"
+            return Loc.FilterDisplay.allWords.localized
         case .favorite:
-            return "Favorite Words"
+            return Loc.FilterDisplay.favorite.localized
         case .search:
-            return "Search Results"
+            return Loc.FilterDisplay.search.localized
         case .tag:
-            return "All Words" // Shared words don't have tags
+            return Loc.FilterDisplay.allWords.localized // Shared words don't have tags
         case .new:
-            return "New Words"
+            return Loc.FilterDisplay.new.localized
         case .inProgress:
-            return "Words In Progress"
+            return Loc.FilterDisplay.inProgress.localized
         case .needsReview:
-            return "Words Needing Review"
+            return Loc.FilterDisplay.needsReview.localized
         case .mastered:
-            return "Mastered Words"
+            return Loc.FilterDisplay.mastered.localized
         @unknown default:
-            return "Words"
+            return Loc.Words.words.localized
         }
     }
 

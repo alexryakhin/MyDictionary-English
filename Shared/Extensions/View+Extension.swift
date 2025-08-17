@@ -80,12 +80,16 @@ extension View {
         .buttonStyle(.plain)
     }
 
-    func errorReceived(title: String = "Error", _ error: Error) {
-        AlertCenter.shared.showAlert(with: .info(title: title, message: error.localizedDescription))
+    func errorReceived(title: String = Loc.App.error.localized, _ error: Error) {
+        Task { @MainActor in
+            AlertCenter.shared.showAlert(with: .info(title: title, message: error.localizedDescription))
+        }
     }
 
     func showAlertWithMessage(_ message: String) {
-        AlertCenter.shared.showAlert(with: .info(title: "Ooops!", message: message))
+        Task { @MainActor in
+            AlertCenter.shared.showAlert(with: .info(title: Loc.App.oops.localized, message: message))
+        }
     }
 
     func groupedBackground() -> some View {

@@ -50,11 +50,11 @@ struct SignOutView: View {
 
                     // Buttons
                     VStack(spacing: 12) {
-                        ActionButton("Sign Out", color: .red, style: .borderedProminent) {
+                        ActionButton(Loc.Auth.signOut.localized, color: .red, style: .borderedProminent) {
                             authenticationService.signOut()
                         }
 
-                        ActionButton("Cancel") {
+                        ActionButton(Loc.Actions.cancel.localized) {
                             authenticationService.toggleSignOutView()
                         }
                     }

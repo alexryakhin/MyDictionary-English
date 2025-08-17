@@ -11,7 +11,7 @@ struct AboutAppContentView: View {
         ScrollView {
             VStack(spacing: 16) {
                 // MARK: - About
-                CustomSectionView(header: "About app") {
+                CustomSectionView(header: Loc.Settings.aboutApp.localized) {
                     VStack(spacing: 24) {
                         Image(.iconRounded)
                             .resizable()
@@ -32,31 +32,31 @@ struct AboutAppContentView: View {
                 }
 
                 // MARK: - Features
-                CustomSectionView(header: "Features", hPadding: .zero) {
+                CustomSectionView(header: Loc.Settings.features.localized, hPadding: .zero) {
                     FormWithDivider {
-                        FeatureRow(text: "Add and organize words with definitions")
-                        FeatureRow(text: "Practice with quizzes and spelling exercises")
-                        FeatureRow(text: "Track your learning progress")
-                        FeatureRow(text: "Import and export your word collection")
-                        FeatureRow(text: "Customize your learning experience")
-                        FeatureRow(text: "Voice pronunciation support")
+                        FeatureRow(text: Loc.Settings.addOrganizeWords.localized)
+                        FeatureRow(text: Loc.Settings.practiceQuizzesSpelling.localized)
+                        FeatureRow(text: Loc.Settings.trackLearningProgress.localized)
+                        FeatureRow(text: Loc.Settings.importExportWordCollection.localized)
+                        FeatureRow(text: Loc.Settings.customizeLearningExperience.localized)
+                        FeatureRow(text: Loc.Settings.voicePronunciationSupport.localized)
                     }
                 }
 
                 // MARK: - Follow Me
 
-                CustomSectionView(header: "Contact me") {
+                CustomSectionView(header: Loc.Settings.contactMe.localized) {
                     VStack(spacing: 12) {
                         Text(Loc.Settings.contactSupport.localized)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .multilineTextAlignment(.leading)
 
-                        ActionButton("X (Twitter)", systemImage: "bird") {
+                        ActionButton(Loc.Settings.xTwitter.localized, systemImage: "bird") {
                             openURL(GlobalConstant.twitterUrl)
                             AnalyticsService.shared.logEvent(.twitterButtonTapped)
                         }
 
-                        ActionButton("Instagram", systemImage: "camera") {
+                        ActionButton(Loc.Settings.instagram.localized, systemImage: "camera") {
                             openURL(GlobalConstant.instagramUrl)
                             AnalyticsService.shared.logEvent(.instagramButtonTapped)
                         }
@@ -65,15 +65,15 @@ struct AboutAppContentView: View {
 
                 // MARK: - Review section
 
-                CustomSectionView(header: "Support") {
+                CustomSectionView(header: Loc.Settings.support.localized) {
                     VStack(spacing: 12) {
-                        ActionButton("Buy Me a Coffee", systemImage: "cup.and.saucer.fill", color: .orange) {
+                        ActionButton(Loc.Coffee.buyMeACoffee.localized, systemImage: "cup.and.saucer.fill", color: .orange) {
                             openURL(GlobalConstant.buyMeACoffeeUrl)
                             AnalyticsService.shared.logEvent(.buyMeACoffeeTapped)
                         }
 
                         if viewModel.isShowingRating {
-                            ActionButton("Rate the app", systemImage: "star.fill", color: .yellow) {
+                            ActionButton(Loc.Settings.rateApp.localized, systemImage: "star.fill", color: .yellow) {
                                 requestReview()
                             }
                         }
@@ -83,7 +83,7 @@ struct AboutAppContentView: View {
             .padding(.horizontal, 16)
         }
         .groupedBackground()
-        .navigation(title: "About", mode: .large, showsBackButton: true)
+        .navigation(title: Loc.Navigation.about.localized, mode: .large, showsBackButton: true)
         .onAppear {
             AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
         }

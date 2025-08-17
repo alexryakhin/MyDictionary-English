@@ -97,7 +97,7 @@ struct AnalyticsView: View {
                         icon: "play.circle"
                     )
                 }
-                .reservedForPro(message: "Upgrade to Pro to see full progress details.")
+                .reservedForPro(message: Loc.ProUpgrade.upgradeToProProgressDetails.localized)
             }
         }
     }
@@ -149,7 +149,7 @@ struct AnalyticsView: View {
                     VocabularyLineChart(data: viewModel.vocabularyGrowthData)
                         .frame(height: 200)
                 }
-                .reservedForPro(message: "Upgrade to Pro to see full vocabulary growth details.")
+                .reservedForPro(message: Loc.ProUpgrade.upgradeToProVocabularyGrowth.localized)
             }
         } trailingContent: {
             if subscriptionService.isProUser {
@@ -157,7 +157,7 @@ struct AnalyticsView: View {
                     viewModel.selectedTimePeriod.displayName,
                     size: .small
                 ) {
-                    Picker("Time Period", selection: $viewModel.selectedTimePeriod) {
+                    Picker(Loc.ProUpgrade.timePeriod.localized, selection: $viewModel.selectedTimePeriod) {
                         ForEach(TimePeriod.allCases, id: \.self) { period in
                             Text(period.displayName).tag(period)
                         }

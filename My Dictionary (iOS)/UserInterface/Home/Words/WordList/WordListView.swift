@@ -113,7 +113,7 @@ struct WordListView: View {
                 HeaderButtonMenu(icon: "arrow.up.arrow.down") {
                     Picker(Loc.Words.sort.localized, selection: _viewModel.projectedValue.sortingState) {
                         ForEach(SortingCase.allCases, id: \.self) { item in
-                            Text(item.rawValue)
+                            Text(item.displayName)
                                 .tag(item)
                         }
                     }

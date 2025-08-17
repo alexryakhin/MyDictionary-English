@@ -60,12 +60,12 @@ struct NavigationBarView<TrailingContent: View, BottomContent: View>: View {
                         .lineLimit(1)
                     if showsDismissButton {
                         HeaderButton(
-                            "Close",
+                            Loc.Navigation.close.localized,
                             style: .bordered
                         ) {
                             dismiss()
                         }
-                        .help("Close screen")
+                        .help(Loc.Navigation.closeScreen.localized)
                     }
                 }
             }

@@ -44,8 +44,6 @@ final class SessionManager: ObservableObject {
         sessionTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             self?.updateSessionDuration()
         }
-        
-        print("🔹 [SessionManager] Session started")
     }
     
     func pauseSession() {
@@ -54,8 +52,6 @@ final class SessionManager: ObservableObject {
         sessionTimer?.invalidate()
         sessionTimer = nil
         isSessionActive = false
-        
-        print("🔹 [SessionManager] Session paused. Duration: \(currentSessionDuration) seconds")
     }
     
     func resumeSession() {
@@ -74,8 +70,6 @@ final class SessionManager: ObservableObject {
         sessionTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             self?.updateSessionDuration()
         }
-        
-        print("🔹 [SessionManager] Session resumed")
     }
     
     func endSession() {
@@ -87,10 +81,8 @@ final class SessionManager: ObservableObject {
         
         // Clear saved session start time
         UserDefaults.standard.removeObject(forKey: UDKeys.sessionStartTime)
-        
-        print("🔹 [SessionManager] Session ended")
     }
-    
+
     private func updateSessionDuration() {
         guard let startTime = sessionStartTime else { return }
         
@@ -133,7 +125,6 @@ final class SessionManager: ObservableObject {
         UserDefaults.standard.set(currentCount + 1, forKey: UDKeys.coffeeRequestCount)
         
         showCoffeeBanner = false
-        print("🔹 [SessionManager] Coffee banner marked as shown")
     }
     
     func markCoffeeBannerDismissed() {
@@ -143,14 +134,12 @@ final class SessionManager: ObservableObject {
         UserDefaults.standard.set(currentCount + 1, forKey: UDKeys.coffeeRequestCount)
         
         showCoffeeBanner = false
-        print("🔹 [SessionManager] Coffee banner dismissed")
     }
     
     // MARK: - Weekly Reset
     
     func resetWeeklyFlags() {
         UserDefaults.standard.set(false, forKey: UDKeys.hasShownCoffeeThisWeek)
-        print("🔹 [SessionManager] Weekly flags reset")
     }
     
     // MARK: - App Lifecycle Observers

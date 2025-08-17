@@ -14,8 +14,8 @@ struct TagManagementView: View {
     var body: some View {
         ScrollViewWithCustomNavBar {
             CustomSectionView(
-                header: "Tags",
-                footer: "Tags help you organize your words. Each word can have up to 5 tags.",
+                header: Loc.Tags.manageTags.localized,
+                footer: Loc.Tags.tagsHelpText.localized,
                 hPadding: 0
             ) {
                 if viewModel.tags.isNotEmpty {
@@ -29,19 +29,19 @@ struct TagManagementView: View {
                     }
                 } else {
                     ContentUnavailableView(
-                        "No Tags added yet",
+                        Loc.Tags.noTagsYet.localized,
                         systemImage: "tag.fill",
                         description: Text(Loc.Tags.addFirstTagDescription.localized)
                     )
                 }
             } trailingContent: {
-                HeaderButton("Add Tag", icon: "plus", size: .small, style: .borderedProminent) {
+                HeaderButton(Loc.Tags.addTag.localized, icon: "plus", size: .small, style: .borderedProminent) {
                     viewModel.handle(.addTag)
                 }
             }
             .padding(12)
         } navigationBar: {
-            NavigationBarView(title: "Manage Tags")
+            NavigationBarView(title: Loc.Tags.manageTags.localized)
         }
         .groupedBackground()
         .sheet(isPresented: $viewModel.showingAddEditSheet) {

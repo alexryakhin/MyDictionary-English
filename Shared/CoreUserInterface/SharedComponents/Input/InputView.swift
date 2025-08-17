@@ -43,7 +43,7 @@ public struct InputView: View {
             placeholder,
             leadingIcon: Image(systemName: "magnifyingglass"),
             text: searchText,
-            trailingButtonLabel: "Cancel"
+            trailingButtonLabel: Loc.Actions.cancel.localized
         )
     }
 

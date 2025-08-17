@@ -166,24 +166,14 @@ final class AddWordViewModel: BaseViewModel {
     }
     
     private func saveWordToDictionary(_ dictionaryId: String?) {
-        print("🔍 [AddWordViewModel] saveWordToDictionary called")
-        print("📝 [AddWordViewModel] inputWord: '\(inputWord)'")
-        print("📝 [AddWordViewModel] descriptionField: '\(descriptionField)'")
-        print("📝 [AddWordViewModel] dictionaryId: \(dictionaryId ?? "nil (private)")")
-        
         if !inputWord.isEmpty, !descriptionField.isEmpty {
             do {
                 // Get the detected language code from the translation response
                 let languageCode = detectedLanguageCode ?? "en"
-                print("🌐 [AddWordViewModel] Language code: \(languageCode)")
-                
+
                 if let dictionaryId = dictionaryId {
-                    // Save to shared dictionary
-                    print("💾 [AddWordViewModel] Saving to shared dictionary: \(dictionaryId)")
                     saveWordToSharedDictionary(dictionaryId, languageCode: languageCode)
                 } else {
-                    // Save to private dictionary
-                    print("💾 [AddWordViewModel] Calling addWordManager.addNewWord")
                     try addWordManager.addNewWord(
                         word: inputWord.capitalizingFirstLetter(),
                         definition: descriptionField.capitalizingFirstLetter(),
@@ -196,18 +186,11 @@ final class AddWordViewModel: BaseViewModel {
                     HapticManager.shared.triggerNotification(type: .success)
                     AnalyticsService.shared.logEvent(.wordAdded)
                     dismissPublisher.send()
-
-                    print("✅ [AddWordViewModel] Word saved to private dictionary")
-                    
-                    // Manual sync mode - no automatic sync when adding words
-                    print("ℹ️ [AddWordViewModel] Manual sync mode - no automatic sync")
                 }
             } catch {
-                print("❌ [AddWordViewModel] Error saving word: \(error.localizedDescription)")
                 errorReceived(error)
             }
         } else {
-            print("❌ [AddWordViewModel] Input validation failed")
             errorReceived(CoreError.internalError(.inputCannotBeEmpty))
         }
     }

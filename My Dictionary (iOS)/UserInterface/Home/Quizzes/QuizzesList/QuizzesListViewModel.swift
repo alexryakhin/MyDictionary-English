@@ -42,7 +42,6 @@ final class QuizzesListViewModel: BaseViewModel {
             
             // If it's a shared dictionary, ensure words are loaded
             if case .sharedDictionary(let sharedDictionary) = dictionary {
-                print("🔄 [QuizzesListViewModel] Shared dictionary selected: \(sharedDictionary.name)")
                 quizWordsProvider.loadWordsForSharedDictionary(sharedDictionary)
             }
         }
@@ -85,18 +84,18 @@ final class QuizzesListViewModel: BaseViewModel {
             let totalWords = quizWordsProvider.getTotalWordsCount()
             if showingHardWordsOnly {
                 let hardWordsCount = quizWordsProvider.getHardWordsCount()
-                return "The shared dictionary '\(dictionary.name)' needs at least 1 hard word to practice in hard words mode. It currently has \(hardWordsCount) hard words."
+                return Loc.Quizzes.sharedDictionaryNeedsHardWords.localized(dictionary.name, hardWordsCount)
             } else {
-                return "The shared dictionary '\(dictionary.name)' needs at least 10 words to start quizzes. It currently has \(totalWords) words."
+                return Loc.Quizzes.needsAtLeastWordsStartQuizzes.localized(dictionary.name, totalWords)
             }
         } else {
             // Private dictionary message
             if showingHardWordsOnly {
                 let hardWordsCount = quizWordsProvider.getHardWordsCount()
-                return "You need at least 1 hard word to practice in hard words mode. You currently have \(hardWordsCount) hard words."
+                return Loc.Quizzes.needAtLeastHardWordPractice.localized(hardWordsCount)
             } else {
                 let totalWords = quizWordsProvider.getTotalWordsCount()
-                return "You need at least 10 words to start quizzes. You currently have \(totalWords) words."
+                return Loc.Quizzes.needAtLeastWordsStartQuizzes.localized(totalWords)
             }
         }
     }

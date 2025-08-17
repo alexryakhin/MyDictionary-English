@@ -27,7 +27,7 @@ enum AuthenticationState {
     case loading
 }
 
-enum AuthenticationError: LocalizedError {
+enum AuthenticationError: Error, LocalizedError {
     case signInFailed
     case signOutFailed
     case userNotFound
@@ -37,15 +37,15 @@ enum AuthenticationError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .signInFailed:
-            return "Failed to sign in. Please try again."
+            return Loc.Auth.signInFailed.localized
         case .signOutFailed:
-            return "Failed to sign out. Please try again."
+            return Loc.Auth.signOutFailed.localized
         case .userNotFound:
-            return "User not found."
+            return Loc.Auth.userNotFound.localized
         case .networkError:
-            return "Network error. Please check your connection."
+            return Loc.Auth.networkError.localized
         case .accountLinkingFailed:
-            return "Failed to link accounts. Please try again."
+            return Loc.Auth.accountLinkingFailed.localized
         }
     }
 }
@@ -68,9 +68,7 @@ final class AuthenticationService: ObservableObject {
     // MARK: - Authentication State Management
 
     private func setupAuthStateListener() {
-        print("🔍 [AuthenticationService] Setting up auth state listener")
         Auth.auth().addStateDidChangeListener { [weak self] _, user in
-            print("📡 [AuthenticationService] Auth state changed - user: \(user?.uid ?? "nil")")
             self?.handleUser(user)
         }
     }
@@ -78,7 +76,6 @@ final class AuthenticationService: ObservableObject {
     private func handleUser(_ user: User?) {
         Task { @MainActor in
             if let user = user {
-                print("✅ [AuthenticationService] User signed in: \(user.uid)")
                 currentUser = user
                 authenticationState = .signedIn
 
@@ -86,32 +83,20 @@ final class AuthenticationService: ObservableObject {
                 NotificationCenter.default.post(name: .authenticationCompleted, object: nil)
 
                 // First mark existing words as unsynced, then sync to Firestore, then start real-time listener
-                print("🔄 [AuthenticationService] Setting up sync for user: \(user.uid)")
-                do {
-                    // Request push notification permissions
-                    await requestPushNotificationPermissions()
+                // Request push notification permissions
+                await requestPushNotificationPermissions()
 
-                    // Create/update user document in Firestore with all required fields
-                    await createUserDocument(user: user)
+                // Create/update user document in Firestore with all required fields
+                await createUserDocument(user: user)
 
-                    // Set up RevenueCat App User ID for cross-platform subscription sharing
-                    await SubscriptionService.shared.setupAppUserID()
-
-                    // Manual sync mode - no automatic sync on sign in
-                    print("ℹ️ [AuthenticationService] Manual sync mode enabled - no automatic sync")
-                } catch {
-                    print("❌ [AuthenticationService] Failed to setup user: \(error.localizedDescription)")
-                }
+                // Set up RevenueCat App User ID for cross-platform subscription sharing
+                await SubscriptionService.shared.setupAppUserID()
             } else {
-                print("❌ [AuthenticationService] User signed out")
                 currentUser = nil
                 authenticationState = .signedOut
 
                 // Immediately reset subscription status when user signs out
                 SubscriptionService.shared.resetSubscriptionStatusOnSignOut()
-
-                // Manual sync mode - no listeners to stop
-                print("ℹ️ [AuthenticationService] Manual sync mode - no listeners")
             }
         }
     }
@@ -347,8 +332,8 @@ final class AuthenticationService: ObservableObject {
             } catch {
                 authenticationState = .signedIn
                 AlertCenter.shared.showAlert(with: .info(
-                    title: "Oh no!",
-                    message: "Something went wrong while signing out. Please try again later.")
+                                title: Loc.Auth.signOutErrorTitle.localized,
+            message: Loc.Auth.signOutErrorMessage.localized)
                 )
             }
         }
@@ -393,23 +378,12 @@ final class AuthenticationService: ObservableObject {
     // MARK: - Push Notifications
 
     func requestPushNotificationPermissions() async {
-        print("🔔 [AuthenticationService] Requesting push notification permissions")
-
-        let granted = await MessagingService.shared.requestNotificationPermission()
-
-        if granted {
-            print("✅ [AuthenticationService] Push notification permissions granted")
-        } else {
-            print("❌ [AuthenticationService] Push notification permissions denied")
-        }
+        let _ = await MessagingService.shared.requestNotificationPermission()
     }
 
     /// Creates or updates the user document in Firestore with all required fields
     func createUserDocument(user: User) async {
-        guard let userEmail = user.email else {
-            print("❌ [AuthenticationService] No email available for user document creation")
-            return
-        }
+        guard let userEmail = user.email else { return }
 
         do {
             let db = Firestore.firestore()
@@ -418,7 +392,7 @@ final class AuthenticationService: ObservableObject {
             try await db.collection("users").document(userEmail).setData([
                 "userId": user.uid,
                 "email": userEmail,
-                "name": user.displayName ?? "Unknown",
+                "name": user.displayName ?? Loc.App.unknown.localized,
                 "registrationDate": FieldValue.serverTimestamp(),
                 "lastUpdated": FieldValue.serverTimestamp(),
                 "platform": getCurrentPlatform(),
@@ -431,11 +405,8 @@ final class AuthenticationService: ObservableObject {
             if let fcmToken = await MessagingService.shared.getCurrentToken() {
                 await DeviceTokenService.shared.registerDeviceToken(fcmToken)
             }
-
-            print("✅ [AuthenticationService] User document created/updated for: \(userEmail)")
-
         } catch {
-            print("❌ [AuthenticationService] Failed to create user document: \(error)")
+            errorReceived(error)
         }
     }
 
@@ -444,7 +415,13 @@ final class AuthenticationService: ObservableObject {
     func updateFCMToken(_ token: String) async {
         await DeviceTokenService.shared.registerDeviceToken(token)
     }
-    
+
+    private func errorReceived(_ error: Error) {
+        Task { @MainActor in
+            AlertCenter.shared.showAlert(with: .error(message: error.localizedDescription))
+        }
+    }
+
     // MARK: - Platform Detection
     
     private func getCurrentPlatform() -> String {
@@ -453,7 +430,7 @@ final class AuthenticationService: ObservableObject {
         #elseif os(macOS)
         return "macOS"
         #else
-        return "Unknown"
+        return Loc.App.unknown.localized
         #endif
     }
 }

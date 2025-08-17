@@ -66,12 +66,7 @@ final class QuizAnalyticsService {
         
         // Update user stats
         updateUserStats(session: session)
-        
-        do {
-            try coreDataService.saveContext()
-        } catch {
-            print("❌ Failed to save quiz session: \(CoreError.analyticsError(.quizSessionSaveFailed))")
-        }
+        try? coreDataService.saveContext()
     }
     
     // MARK: - Word Progress Management
@@ -82,20 +77,8 @@ final class QuizAnalyticsService {
         fetchRequest.predicate = NSPredicate(format: "id == %@", wordId)
         
         if let word = try? coreDataService.context.fetch(fetchRequest).first {
-            // This is a private word - the difficulty score has already been updated by the QuizWord protocol
-            // Just ensure it's marked for sync
             word.updatedAt = Date()
             word.isSynced = false // Mark for sync
-            print("🔹 [QuizAnalyticsService] Private word '\(word.wordItself ?? "unknown")' marked for sync")
-        } else {
-            // This is a shared word - check if it exists in shared dictionaries
-            let dictionaryService = DictionaryService.shared
-            let sharedWords = dictionaryService.sharedWords.values.flatMap { $0 }
-            if let sharedWord = sharedWords.first(where: { $0.id == wordId }) {
-                print("🔹 [QuizAnalyticsService] Shared word '\(sharedWord.wordItself)' difficulty score already updated via QuizWord protocol")
-            } else {
-                print("⚠️ [QuizAnalyticsService] Word \(wordId) not found in Core Data or shared dictionaries")
-            }
         }
     }
     
@@ -104,61 +87,48 @@ final class QuizAnalyticsService {
     private func updateUserStats(session: CDQuizSession) {
         let request = CDUserStats.fetchRequest()
         
-        do {
-            let results = try coreDataService.context.fetch(request)
-            let stats = results.first ?? CDUserStats(context: coreDataService.context)
-            
-            if stats.id == nil {
-                stats.id = UUID()
-                stats.totalPracticeTime = 0
-                stats.totalSessions = 0
-                stats.totalWordsStudied = 0
-                stats.averageAccuracy = 0
-                stats.currentStreak = 0
-                stats.longestStreak = 0
-                stats.vocabularySize = 0
-            }
-            
-            // Update stats
-            stats.totalPracticeTime += session.duration
-            stats.totalSessions += 1
-            stats.totalWordsStudied += session.totalWords
-            stats.lastPracticeDate = Date()
-            
-            print("🔹 iOS Practice time: currentTotal=\(stats.totalPracticeTime) seconds, newSession=\(session.duration) seconds, newTotal=\(stats.totalPracticeTime) seconds (\(stats.totalPracticeTime/60.0) minutes)")
-            
-            // Update accuracy
-            let totalSessions = Double(stats.totalSessions)
-            let sessionAccuracy = session.accuracy
-            let currentAccuracy = stats.averageAccuracy
-            let newAccuracy = (currentAccuracy * (totalSessions - 1) + sessionAccuracy) / totalSessions
-            stats.averageAccuracy = newAccuracy
-            
-            // Update vocabulary size
-            updateVocabularySize(stats: stats)
-            
-        } catch {
-            print("❌ Failed to update user stats: \(error)")
+        let results = try? coreDataService.context.fetch(request)
+        let stats = results?.first ?? CDUserStats(context: coreDataService.context)
+
+        if stats.id == nil {
+            stats.id = UUID()
+            stats.totalPracticeTime = 0
+            stats.totalSessions = 0
+            stats.totalWordsStudied = 0
+            stats.averageAccuracy = 0
+            stats.currentStreak = 0
+            stats.longestStreak = 0
+            stats.vocabularySize = 0
         }
+
+        // Update stats
+        stats.totalPracticeTime += session.duration
+        stats.totalSessions += 1
+        stats.totalWordsStudied += session.totalWords
+        stats.lastPracticeDate = Date()
+
+        // Update accuracy
+        let totalSessions = Double(stats.totalSessions)
+        let sessionAccuracy = session.accuracy
+        let currentAccuracy = stats.averageAccuracy
+        let newAccuracy = (currentAccuracy * (totalSessions - 1) + sessionAccuracy) / totalSessions
+        stats.averageAccuracy = newAccuracy
+
+        // Update vocabulary size
+        updateVocabularySize(stats: stats)
     }
     
     private func updateVocabularySize(stats: CDUserStats) {
         let request = CDWord.fetchRequest()
         
-        do {
-            let privateWordCount = try coreDataService.context.count(for: request)
-            
-            // Add shared dictionary words count
-            let dictionaryService = DictionaryService.shared
-            let sharedWordCount = dictionaryService.sharedWords.values.flatMap { $0 }.count
-            
-            let totalWordCount = privateWordCount + sharedWordCount
-            stats.vocabularySize = Int32(totalWordCount)
-            
-            print("🔹 [QuizAnalyticsService] Vocabulary size updated: \(privateWordCount) private + \(sharedWordCount) shared = \(totalWordCount) total")
-        } catch {
-            print("❌ Failed to update vocabulary size: \(error)")
-        }
+        let privateWordCount = (try? coreDataService.context.count(for: request)) ?? .zero
+
+        // Add shared dictionary words count
+        let dictionaryService = DictionaryService.shared
+        let sharedWordCount = dictionaryService.sharedWords.values.flatMap { $0 }.count
+
+        let totalWordCount = privateWordCount + sharedWordCount
+        stats.vocabularySize = Int32(totalWordCount)
     }
     
     // MARK: - Analytics Queries
@@ -171,7 +141,6 @@ final class QuizAnalyticsService {
         do {
             return try coreDataService.context.fetch(request)
         } catch {
-            print("❌ Failed to fetch quiz sessions: \(error)")
             return []
         }
     }
@@ -183,7 +152,6 @@ final class QuizAnalyticsService {
             let results = try coreDataService.context.fetch(request)
             return results.first
         } catch {
-            print("❌ Failed to fetch user stats: \(error)")
             return nil
         }
     }
@@ -195,7 +163,6 @@ final class QuizAnalyticsService {
         do {
             return try coreDataService.context.fetch(request)
         } catch {
-            print("❌ Failed to fetch word progress: \(error)")
             return []
         }
     }
@@ -208,7 +175,6 @@ final class QuizAnalyticsService {
         do {
             return try coreDataService.context.fetch(request).first
         } catch {
-            print("❌ Failed to fetch word progress for \(wordId): \(error)")
             return nil
         }
     }
@@ -219,12 +185,8 @@ final class QuizAnalyticsService {
 
         var words: [any QuizWord] = []
 
-        do {
-            let coreDataWords = try coreDataService.context.fetch(request)
-            words.append(contentsOf: coreDataWords)
-        } catch {
-            print("❌ Failed to fetch all words: \(error)")
-        }
+        let coreDataWords = (try? coreDataService.context.fetch(request)) ?? []
+        words.append(contentsOf: coreDataWords)
 
         let sharedWords = DictionaryService.shared.sharedWords.values.flatMap { $0 }
         words.append(contentsOf: sharedWords)

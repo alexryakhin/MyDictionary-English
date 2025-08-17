@@ -19,6 +19,8 @@ enum Loc {
         static let quizResults = "navigation.quiz_results"
         static let spellingQuiz = "navigation.spelling_quiz"
         static let definitionQuiz = "navigation.definition_quiz"
+        static let close = "navigation.close"
+        static let closeScreen = "navigation.close_screen"
     }
 
     // MARK: - Common Actions
@@ -27,6 +29,8 @@ enum Loc {
         static let save = "actions.save"
         static let saveWord = "actions.save_word"
         static let cancel = "actions.cancel"
+        static let confirm = "actions.confirm"
+        static let search = "actions.search"
         static let delete = "actions.delete"
         static let edit = "actions.edit"
         static let add = "actions.add"
@@ -71,6 +75,8 @@ enum Loc {
         static let skipForNow = "actions.skip_for_now"
         static let linkGoogle = "actions.link_google"
         static let linkApple = "actions.link_apple"
+        static let toggleLike = "actions.toggle_like"
+        static let toggleFavorite = "actions.toggle_favorite"
     }
 
     // MARK: - Onboarding
@@ -165,6 +171,9 @@ enum Loc {
         static let noTagsSelected = "words.no_tags_selected"
         static let errorLoadingDefinitions = "words.error_loading_definitions"
         static let typeWordAndPressSearch = "words.type_word_and_press_search"
+        static let wordDetails = "words.word_details"
+        static let noTranscription = "words.no_transcription"
+        static let noDefinition = "words.no_definition"
     }
 
     // MARK: - Idioms
@@ -210,7 +219,6 @@ enum Loc {
         static let correctAnswers = "quizzes.correct_answers"
         static let bestStreak = "quizzes.best_streak"
         static let accuracy = "quizzes.accuracy"
-        static let debug = "quizzes.debug"
         static let chooseCorrectDefinition = "quizzes.choose_correct_definition"
         static let word = "quizzes.word"
         static let quizTypes = "quizzes.quiz_types"
@@ -260,18 +268,15 @@ enum Loc {
         static let minWords = "quizzes.min_words"
         static let maxWords = "quizzes.max_words"
         static let sharedDictionaryNeedsHardWords = "quizzes.shared_dictionary_needs_hard_words"
-        static let needsAtLeastHardWord = "quizzes.needs_at_least_hard_word"
-        static let currentlyHasHardWords = "quizzes.currently_has_hard_words"
         static let needsAtLeastWordsStartQuizzes = "quizzes.needs_at_least_words_start_quizzes"
-        static let currentlyHasWords = "quizzes.currently_has_words"
         static let needAtLeastHardWordPractice = "quizzes.need_at_least_hard_word_practice"
-        static let currentlyHaveHardWords = "quizzes.currently_have_hard_words"
         static let needAtLeastWordsStartQuizzes = "quizzes.need_at_least_words_start_quizzes"
         static let currentlyHaveWords = "quizzes.currently_have_words"
         static let progressFormat = "quizzes.progress_format"
         static let streakFormat = "quizzes.streak_format"
         static let scoreFormat = "quizzes.score_format"
         static let bestFormat = "quizzes.best_format"
+        static let askDictionaryOwnerAddWordsOrSwitch = "quizzes.ask_dictionary_owner_add_words_or_switch"
     }
 
     // MARK: - App
@@ -279,6 +284,59 @@ enum Loc {
         static let myDictionary = "app.my_dictionary"
         static let loading = "app.loading"
         static let somethingWentWrong = "app.something_went_wrong"
+        static let tryAgain = "app.try_again"
+        static let error = "app.error"
+        static let oops = "app.oops"
+        static let unknown = "app.unknown"
+        static let retry = "app.retry"
+        static let addExample = "app.add_example"
+        static let addToSharedDictionary = "app.add_to_shared_dictionary"
+        static let addCollaborator = "app.add_collaborator"
+        static let deleteDictionary = "app.delete_dictionary"
+        static let enterDefinition = "app.enter_definition"
+        static let selectValue = "app.select_value"
+        static let pronunciation = "app.pronunciation"
+        static let tags = "app.tags"
+        static let selectDefinition = "app.select_definition"
+        static let translatingWord = "app.translating_word"
+        static let translatingDefinitions = "app.translating_definitions"
+        static let typeWordHere = "app.type_word_here"
+        static let emailAddress = "app.email_address"
+        static let name = "app.name"
+        static let example = "app.example"
+        static let transcription = "app.transcription"
+        static let definition = "app.definition"
+        static let importSuccessful = "app.import_successful"
+        static let importSuccessfulMessage = "app.import_successful_message"
+        static let noWordsImported = "app.no_words_imported"
+        static let noWordsImportedMessage = "app.no_words_imported_message"
+
+        static let deleteTag = "app.delete_tag"
+        static let deleteTagConfirmation = "app.delete_tag_confirmation"
+        static let cantShareWord = "app.cant_share_word"
+        static let collaboratorDetails = "app.collaborator_details"
+        static let rolePermissions = "app.role_permissions"
+        static let note = "app.note"
+        static let dictionaryInfo = "app.dictionary_info"
+        static let collaborators = "app.collaborators"
+        static let allResults = "app.all_results"
+        static let partOfSpeech = "app.part_of_speech"
+        static let language = "app.language"
+        static let tagName = "app.tag_name"
+        static let tagColor = "app.tag_color"
+        static let privateDictionary = "app.private_dictionary"
+        static let sharedDictionaries = "app.shared_dictionaries"
+        static let aboutMyDictionary = "app.about_my_dictionary"
+        static let wordStartsWith = "app.word_starts_with"
+        static let sendTestNotification = "app.send_test_notification"
+        static let enterEmailAddress = "app.enter_email_address"
+        static let enterEmailAddressForNotification = "app.enter_email_address_for_notification"
+        static let userInformation = "app.user_information"
+        static let email = "app.email"
+        static let userID = "app.user_id"
+        static let authState = "app.auth_state"
+        static let proUser = "app.pro_user"
+        static let pushNotifications = "app.push_notifications"
     }
 
     // MARK: - Analytics
@@ -312,7 +370,12 @@ enum Loc {
         static let correctAnswers = "analytics.correct_answers"
         static let wordsPlayed = "analytics.words_played"
         static let totalQuestions = "analytics.total_questions"
-        static let wordsCount = "analytics.words_count"
+        static let difficultyStatistics = "analytics.difficulty_statistics"
+        static let individualRatings = "analytics.individual_ratings"
+        static let howOtherUsersRateDifficulty = "analytics.how_other_users_rate_difficulty"
+        static let noDifficultyRatingsYet = "analytics.no_difficulty_ratings_yet"
+        static let totalRatings = "analytics.total_ratings"
+        static let viewDetailedStatistics = "analytics.view_detailed_statistics"
     }
 
     // MARK: - Settings
@@ -358,6 +421,29 @@ enum Loc {
         static let appVersion = "settings.app_version"
         static let aboutAppDescription = "settings.about_app_description"
         static let contactSupport = "settings.contact_support"
+        static let haveQuestionsSuggestionsFeedback = "settings.have_questions_suggestions_feedback"
+        static let signOut = "settings.sign_out"
+        static let uploadBackupToGoogle = "settings.upload_backup_to_google"
+        static let downloadBackupFromGoogle = "settings.download_backup_from_google"
+        static let signInToSyncWordLists = "settings.sign_in_to_sync_word_lists"
+        static let importExport = "settings.import_export"
+        static let importWords = "settings.import_words"
+        static let exportWords = "settings.export_words"
+        static let learnMore = "settings.learn_more"
+        static let exportWordsTitle = "settings.export_words_title"
+        static let proUpgradeDescription = "settings.pro_upgrade_description"
+        static let wordListsAndSync = "settings.word_lists_and_sync"
+        static let manualSyncModeDescription = "settings.manual_sync_mode_description"
+        static let signInToCreateShareWordLists = "settings.sign_in_to_create_share_word_lists"
+        static let tagManagementDescription = "settings.tag_management_description"
+        static let importExportNote = "settings.import_export_note"
+        // Feature descriptions for AboutAppContentView
+        static let addOrganizeWordsDescription = "settings.add_organize_words_description"
+        static let practiceQuizzesSpellingDescription = "settings.practice_quizzes_spelling_description"
+        static let trackLearningProgressDescription = "settings.track_learning_progress_description"
+        static let importExportWordCollectionDescription = "settings.import_export_word_collection_description"
+        static let customizeLearningExperienceDescription = "settings.customize_learning_experience_description"
+        static let voicePronunciationSupportDescription = "settings.voice_pronunciation_support_description"
     }
 
     // MARK: - Authentication
@@ -378,6 +464,16 @@ enum Loc {
         static let signInToAccessWordLists = "auth.sign_in_to_access_word_lists"
         static let linkGoogle = "auth.link_google"
         static let linkApple = "auth.link_apple"
+        static let signInToSyncWordLists = "auth.sign_in_to_sync_word_lists"
+        static let signOutErrorTitle = "auth.sign_out_error_title"
+        static let signOutErrorMessage = "auth.sign_out_error_message"
+        static let signInRequiredForRestore = "auth.sign_in_required_for_restore"
+        static let signInRequiredForProFeatures = "auth.sign_in_required_for_pro_features"
+        static let signInFailed = "auth.sign_in_failed"
+        static let signOutFailed = "auth.sign_out_failed"
+        static let userNotFound = "auth.user_not_found"
+        static let networkError = "auth.network_error"
+        static let accountLinkingFailed = "auth.account_linking_failed"
     }
 
     // MARK: - Shared Dictionaries
@@ -431,6 +527,10 @@ enum Loc {
         static let noResults = "shared_dictionaries.no_results"
         static let noWordsMatchFilter = "shared_dictionaries.no_words_match_filter"
         static let dictionaryDetails = "shared_dictionaries.dictionary_details"
+        static let collaborativeFeatures = "shared_dictionaries.collaborative_features"
+        static let yourScore = "shared_dictionaries.your_score"
+        static let yourStatus = "shared_dictionaries.your_status"
+        static let averageScore = "shared_dictionaries.average_score"
     }
 
     // MARK: - Tags
@@ -440,9 +540,10 @@ enum Loc {
         static let noTagsYet = "tags.no_tags_yet"
         static let addFirstTag = "tags.add_first_tag"
         static let addTag = "tags.add_tag"
-        static let wordsCount = "tags.words_count"
         static let addFirstTagDescription = "tags.add_first_tag_description"
         static let addTagToStartUsing = "tags.add_tag_to_start_using"
+        static let addTags = "tags.add_tags"
+        static let createTags = "tags.create_tags"
         static let deleteTag = "tags.delete_tag"
         static let deleteTagConfirmation = "tags.delete_tag_confirmation"
         static let deleteTagCannotUndo = "tags.delete_tag_cannot_undo"
@@ -476,7 +577,7 @@ enum Loc {
         static let learnWithOthers = "paywall.learn_with_others"
         static let everythingYouNeedToMasterVocabulary = "paywall.everything_you_need_to_master_vocabulary"
         static let chooseYourPlan = "paywall.choose_your_plan"
-        static let startPro = "paywall.start_pro"
+        static let startProSubscription = "paywall.start_pro_subscription"
         static let trustedByLearnersWorldwide = "paywall.trusted_by_learners_worldwide"
         static let appStoreRating = "paywall.app_store_rating"
         static let activeUsers = "paywall.active_users"
@@ -487,6 +588,103 @@ enum Loc {
         static let proUser = "paywall.pro_user"
         static let freePlan = "paywall.free_plan"
         static let limitedFeaturesAvailable = "paywall.limited_features_available"
+        static let noActiveSubscriptionsFound = "paywall.no_active_subscriptions_found"
+        static let failedToRestorePurchases = "paywall.failed_to_restore_purchases"
+        static let savePercentage = "paywall.save_percentage"
+    }
+
+    // MARK: - Difficulty
+    enum Difficulty {
+        static let new = "difficulty.new"
+        static let inProgress = "difficulty.in_progress"
+        static let needsReview = "difficulty.needs_review"
+        static let mastered = "difficulty.mastered"
+    }
+
+    // MARK: - Sorting
+    enum Sorting {
+        static let latestFirst = "sorting.latest_first"
+        static let earliestFirst = "sorting.earliest_first"
+        static let alphabetically = "sorting.alphabetically"
+        static let byPartOfSpeech = "sorting.by_part_of_speech"
+    }
+
+    // MARK: - Input Language
+    enum InputLanguage {
+        static let autoDetect = "input_language.auto_detect"
+    }
+
+    // MARK: - Time Period
+    enum TimePeriod {
+        static let week = "time_period.week"
+        static let month = "time_period.month"
+        static let year = "time_period.year"
+    }
+
+    // MARK: - Quiz Results
+    enum QuizResults {
+        static let allResults = "quiz_results.all_results"
+        static let noQuizResultsYet = "quiz_results.no_quiz_results_yet"
+        static let quiz = "quiz_results.quiz"
+        static let accuracy = "quiz_results.accuracy"
+        static let correct = "quiz_results.correct"
+        static let duration = "quiz_results.duration"
+        static let timePeriod = "quiz_results.time_period"
+    }
+
+    // MARK: - Word Details
+    enum WordDetails {
+        static let transcription = "word_details.transcription"
+        static let partOfSpeech = "word_details.part_of_speech"
+        static let definition = "word_details.definition"
+        static let difficulty = "word_details.difficulty"
+        static let examples = "word_details.examples"
+        static let editExample = "word_details.edit_example"
+        static let example = "word_details.example"
+        static let typeExampleHere = "word_details.type_example_here"
+        static let addExample = "word_details.add_example"
+        static let deleteWord = "word_details.delete_word"
+        static let deleteFailed = "word_details.delete_failed"
+    }
+
+    // MARK: - Word List
+    enum WordList {
+        static let allWords = "word_list.all_words"
+        static let favorite = "word_list.favorite"
+        static let manageTags = "word_list.manage_tags"
+    }
+
+    // MARK: - Quiz List
+    enum QuizList {
+        static let quizTypes = "quiz_list.quiz_types"
+        static let practiceSettings = "quiz_list.practice_settings"
+        static let configureQuizExperience = "quiz_list.configure_quiz_experience"
+        static let focusOnWordsNeedReview = "quiz_list.focus_on_words_need_review"
+        static let notEnoughWordsReviewYet = "quiz_list.not_enough_words_review_yet"
+        static let addWordsToSharedDictionary = "quiz_list.add_words_to_shared_dictionary"
+        static let addYourFirstWord = "quiz_list.add_your_first_word"
+        static let addMoreWords = "quiz_list.add_more_words"
+        static let quizzesHelpTestKnowledge = "quiz_list.quizzes_help_test_knowledge"
+        static let wordsAwayFromUnlockingQuizzes = "quiz_list.words_away_from_unlocking_quizzes"
+    }
+
+    // MARK: - Quiz Actions
+    enum QuizActions {
+        static let finish = "quiz_actions.finish"
+        static let nextWord = "quiz_actions.next_word"
+        static let submitAnswer = "quiz_actions.submit_answer"
+        static let numberOfWords = "quiz_actions.number_of_words"
+        static let noDifficultWordsAvailable = "quiz_actions.no_difficult_words_available"
+        static let yourWordIs = "quiz_actions.your_word_is"
+        static let tryHarder = "quiz_actions.try_harder"
+        static let incorrectTryAgain = "quiz_actions.incorrect_try_again"
+    }
+
+    // MARK: - Tag Selection
+    enum TagSelection {
+        static let selectTags = "tag_selection.select_tags"
+        static let noTagsYet = "tag_selection.no_tags_yet"
+        static let youCanSelectUpTo5Tags = "tag_selection.you_can_select_up_to_5_tags"
     }
 
     // MARK: - Pro Features
@@ -550,6 +748,10 @@ enum Loc {
         static let requestedSubscriptionPackageNotFound = "errors.requested_subscription_package_not_found"
         static let purchaseCouldNotBeCompleted = "errors.purchase_could_not_be_completed"
         static let failedToRestorePreviousPurchases = "errors.failed_to_restore_previous_purchases"
+        static let noOfferingsAvailable = "errors.no_offerings_available"
+        static let packageNotFound = "errors.package_not_found"
+        static let purchaseFailed = "errors.purchase_failed"
+        static let restoreFailed = "errors.restore_failed"
         static let exportLimitExceeded = "errors.export_limit_exceeded"
         static let maxTagsReached = "errors.max_tags_reached"
         static let tagAlreadyAssigned = "errors.tag_already_assigned"
@@ -568,6 +770,11 @@ enum Loc {
         static let invalidInput = "errors.invalid_input"
         static let missingField = "errors.missing_field"
         static let unknownError = "errors.unknown_error"
+        static let updateFailed = "errors.update_failed"
+        static let deleteFailed = "errors.delete_failed"
+        static let permissionDenied = "errors.permission_denied"
+        static let userNotAuthenticated = "errors.user_not_authenticated"
+        static let dictionaryLimitReached = "errors.dictionary_limit_reached"
     }
 
     // MARK: - Empty States
@@ -581,8 +788,169 @@ enum Loc {
         static let tryDifferentSearchTerm = "empty_states.try_different_search_term"
     }
 
-    // MARK: - Auto Detect
-    enum AutoDetect {
-        static let autoDetect = "auto_detect.auto_detect"
+    // MARK: - Notifications
+    enum Notifications {
+        static let timeToPractice = "notifications.time_to_practice"
+        static let practiceVocabularyToday = "notifications.practice_vocabulary_today"
+        static let practiceDifficultWords = "notifications.practice_difficult_words"
+        static let difficultWordsChallenge = "notifications.difficult_words_challenge"
+        static let testDictionaryInvitation = "notifications.test_dictionary_invitation"
+        static let testDictionaryInvitationBody = "notifications.test_dictionary_invitation_body"
+    }
+
+    // MARK: - macOS UI
+    enum MacOS {
+        static let myDictionary = "macos.my_dictionary"
+        static let aboutMyDictionary = "macos.about_my_dictionary"
+        static let debugPanel = "macos.debug_panel"
+        static let settings = "macos.settings"
+        static let about = "macos.about"
+        static let sharedDictionaries = "macos.shared_dictionaries"
+    }
+
+    // MARK: - Filter Display Names
+    enum FilterDisplay {
+        static let allWords = "filter_display.all_words"
+        static let favorite = "filter_display.favorite"
+        static let search = "filter_display.search"
+        static let tag = "filter_display.tag"
+        static let new = "filter_display.new"
+        static let inProgress = "filter_display.in_progress"
+        static let needsReview = "filter_display.needs_review"
+        static let mastered = "filter_display.mastered"
+        static let noWordsYet = "filter_display.no_words_yet"
+        static let noFavoriteWords = "filter_display.no_favorite_words"
+        static let noSearchResults = "filter_display.no_search_results"
+        static let noTaggedWords = "filter_display.no_tagged_words"
+        static let noNewWords = "filter_display.no_new_words"
+        static let noWordsInProgress = "filter_display.no_words_in_progress"
+        static let noWordsNeedReview = "filter_display.no_words_need_review"
+        static let noMasteredWords = "filter_display.no_mastered_words"
+        static let startBuildingVocabulary = "filter_display.start_building_vocabulary"
+        static let tapHeartIconToAddFavorites = "filter_display.tap_heart_icon_to_add_favorites"
+        static let tryDifferentSearchTerm = "filter_display.try_different_search_term"
+        static let addTagsToOrganize = "filter_display.add_tags_to_organize"
+        static let newWordsAppearHere = "filter_display.new_words_appear_here"
+        static let wordsAppearHereAsYouPractice = "filter_display.words_appear_here_as_you_practice"
+        static let wordsNeedMorePractice = "filter_display.words_need_more_practice"
+    }
+
+    // MARK: - Collaborator Roles
+    enum CollaboratorRoles {
+        static let owner = "collaborator_roles.owner"
+        static let editor = "collaborator_roles.editor"
+        static let viewer = "collaborator_roles.viewer"
+    }
+
+    // MARK: - Tag Colors
+    enum TagColors {
+        static let blue = "tag_colors.blue"
+        static let red = "tag_colors.red"
+        static let green = "tag_colors.green"
+        static let orange = "tag_colors.orange"
+        static let purple = "tag_colors.purple"
+        static let pink = "tag_colors.pink"
+        static let yellow = "tag_colors.yellow"
+        static let gray = "tag_colors.gray"
+    }
+
+    // MARK: - Shared Dictionary Selection
+    enum SharedDictionarySelection {
+        static let selectDictionary = "shared_dictionary_selection.select_dictionary"
+        static let dictionarySelected = "shared_dictionary_selection.dictionary_selected"
+        static let addToShared = "shared_dictionary_selection.add_to_shared"
+        static let addWordToSharedDictionary = "shared_dictionary_selection.add_word_to_shared_dictionary"
+        static let unknown = "shared_dictionary_selection.unknown"
+    }
+
+    // MARK: - Pro Upgrade Messages
+    enum ProUpgrade {
+        static let upgradeToProProgressDetails = "pro_upgrade.upgrade_to_pro_progress_details"
+        static let upgradeToProVocabularyGrowth = "pro_upgrade.upgrade_to_pro_vocabulary_growth"
+        static let timePeriod = "pro_upgrade.time_period"
+    }
+
+    // MARK: - Collaborator Management
+    enum CollaboratorManagement {
+        static let role = "collaborator_management.role"
+        static let addCollaborator = "collaborator_management.add_collaborator"
+        static let emailAddressRequired = "collaborator_management.email_address_required"
+        static let validEmailAddress = "collaborator_management.valid_email_address"
+        static let makeViewer = "collaborator_management.make_viewer"
+        static let makeEditor = "collaborator_management.make_editor"
+        static let remove = "collaborator_management.remove"
+        static let add = "collaborator_management.add"
+        static let deleteDictionary = "collaborator_management.delete_dictionary"
+        static let deleteDictionaryConfirmation = "collaborator_management.delete_dictionary_confirmation"
+        static let stopWatching = "collaborator_management.stop_watching"
+        static let stopWatchingDictionary = "collaborator_management.stop_watching_dictionary"
+        static let stopWatchingDictionaryConfirmation = "collaborator_management.stop_watching_dictionary_confirmation"
+        static let `continue` = "collaborator_management.continue"
+        static let dictionaryNotFound = "collaborator_management.dictionary_not_found"
+        static let dictionaryDetails = "collaborator_management.dictionary_details"
+        static let unknown = "collaborator_management.unknown"
+    }
+
+    // MARK: - Quiz Types
+    enum QuizTypes {
+        static let spellingQuiz = "quiz_types.spelling_quiz"
+        static let chooseDefinition = "quiz_types.choose_definition"
+        static let testSpellingSkills = "quiz_types.test_spelling_skills"
+        static let selectCorrectDefinition = "quiz_types.select_correct_definition"
+        static let greatJobCompletedSpellingQuiz = "quiz_types.great_job_completed_spelling_quiz"
+        static let greatJobCompletedDefinitionQuiz = "quiz_types.great_job_completed_definition_quiz"
+    }
+
+    // MARK: - English Accents
+    enum EnglishAccents {
+        static let australian = "english_accents.australian"
+        static let canadian = "english_accents.canadian"
+        static let british = "english_accents.british"
+        static let indian = "english_accents.indian"
+        static let american = "english_accents.american"
+        static let belgian = "english_accents.belgian"
+        static let singaporean = "english_accents.singaporean"
+        static let irish = "english_accents.irish"
+        static let southAfrican = "english_accents.south_african"
+    }
+
+    // MARK: - Idiom Filters
+    enum IdiomFilters {
+        static let allIdioms = "idiom_filters.all_idioms"
+        static let favorite = "idiom_filters.favorite"
+        static let search = "idiom_filters.search"
+        static let noIdiomsYet = "idiom_filters.no_idioms_yet"
+        static let noFavoriteWords = "idiom_filters.no_favorite_words"
+        static let noSearchResults = "idiom_filters.no_search_results"
+        static let startImprovingVocabulary = "idiom_filters.start_improving_vocabulary"
+        static let tapHeartIconToAddFavorites = "idiom_filters.tap_heart_icon_to_add_favorites"
+        static let tryDifferentSearchTerm = "idiom_filters.try_different_search_term"
+    }
+
+    // MARK: - Part of Speech
+    enum PartOfSpeech {
+        enum Full {
+            static let noun = "part_of_speech.full.noun"
+            static let verb = "part_of_speech.full.verb"
+            static let adjective = "part_of_speech.full.adjective"
+            static let adverb = "part_of_speech.full.adverb"
+            static let conjunction = "part_of_speech.full.conjunction"
+            static let pronoun = "part_of_speech.full.pronoun"
+            static let preposition = "part_of_speech.full.preposition"
+            static let exclamation = "part_of_speech.full.exclamation"
+            static let unknown = "part_of_speech.full.unknown"
+        }
+
+        enum Short {
+            static let noun = "part_of_speech.short.noun"
+            static let verb = "part_of_speech.short.verb"
+            static let adjective = "part_of_speech.short.adjective"
+            static let adverb = "part_of_speech.short.adverb"
+            static let conjunction = "part_of_speech.short.conjunction"
+            static let pronoun = "part_of_speech.short.pronoun"
+            static let preposition = "part_of_speech.short.preposition"
+            static let exclamation = "part_of_speech.short.exclamation"
+            static let unknown = "part_of_speech.short.unknown"
+        }
     }
 }

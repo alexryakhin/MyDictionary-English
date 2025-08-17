@@ -83,7 +83,7 @@ struct QuizResultRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text((session.quizType ?? "").capitalized)
+                Text((session.quiz?.title ?? ""))
                     .font(.body)
                     .fontWeight(.medium)
 

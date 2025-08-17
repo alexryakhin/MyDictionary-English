@@ -2,8 +2,7 @@
   Localizable.strings
   My Dictionary
 
-  Created by Alexander Riakhin on 8/3/25.
-  
+  Created by Alexander Riakhin on 8/16/25.
 */
 
 // MARK: - Tab Bar
@@ -18,15 +17,21 @@
 "navigation.idiom_details" = "Idiom Details";
 "navigation.add_tags" = "Add Tags";
 "navigation.about" = "About";
+"navigation.word_details" = "Word Details";
+"navigation.debug_panel" = "Debug Panel";
 "navigation.quiz_results" = "Quiz Results";
 "navigation.spelling_quiz" = "Spelling Quiz";
 "navigation.definition_quiz" = "Definition Quiz";
+"navigation.close" = "Close";
+"navigation.close_screen" = "Close screen";
 
 // MARK: - Common Actions
 "actions.done" = "Done";
 "actions.save" = "Save";
 "actions.save_word" = "Save Word";
 "actions.cancel" = "Cancel";
+"actions.confirm" = "Confirm";
+"actions.search" = "Search";
 "actions.delete" = "Delete";
 "actions.edit" = "Edit";
 "actions.add" = "Add";
@@ -71,6 +76,8 @@
 "actions.skip_for_now" = "Skip for Now";
 "actions.link_google" = "Link Google";
 "actions.link_apple" = "Link Apple";
+"actions.toggle_like" = "Toggle Like";
+"actions.toggle_favorite" = "Toggle Favorite";
 
 // MARK: - Onboarding
 "onboarding.welcome_to" = "Welcome to";
@@ -158,6 +165,14 @@
 "words.language" = "Language";
 "words.no_tags_added_yet" = "No tags added yet.";
 "words.add_tag" = "Add Tag";
+"words.no_tags_selected" = "No tags selected";
+"words.error_loading_definitions" = "There is an error loading definitions. Please try again.";
+"words.type_word_and_press_search" = "Type a word and press 'Search' to find its definitions";
+"words.word_details" = "Word Details";
+"words.no_examples_yet" = "No examples yet";
+"words.edit_example" = "Edit Example";
+"words.no_transcription" = "No transcription";
+"words.no_definition" = "No definition";
 
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Add idiom";
@@ -213,8 +228,6 @@
 "quizzes.no_difficult_words_available" = "No difficult words available for quiz";
 "quizzes.spelling_quiz_description" = "Test your spelling skills by typing words correctly";
 "quizzes.definition_quiz_description" = "Select the correct definition for each word";
-
-// MARK: - Quiz Flow
 "quizzes.progress" = "Progress";
 "quizzes.streak" = "Streak";
 "quizzes.score" = "Score";
@@ -228,7 +241,6 @@
 "quizzes.moving_to_next_word" = "Moving to next word...";
 "quizzes.incorrect" = "Incorrect";
 "quizzes.moving_to_next_question" = "Moving to next question...";
-"quizzes.quiz_complete" = "Quiz Complete!";
 "quizzes.quiz_complete" = "Quiz Complete!";
 "quizzes.great_job_completed_spelling_quiz" = "Great job! You've completed the spelling quiz.";
 "quizzes.great_job_completed_definition_quiz" = "Great job! You've completed the definition quiz.";
@@ -251,39 +263,69 @@
 "quizzes.min_words" = "%d";
 "quizzes.max_words" = "%d";
 "quizzes.shared_dictionary_needs_hard_words" = "The shared dictionary '%@' needs at least 1 hard word to practice in hard words mode. It currently has %d hard words.";
-"quizzes.needs_at_least_hard_word" = "needs at least 1 hard word to practice in hard words mode";
-"quizzes.currently_has_hard_words" = "It currently has %d hard words.";
-"quizzes.needs_at_least_words_start_quizzes" = "needs at least 10 words to start quizzes";
-"quizzes.currently_has_words" = "It currently has %d words.";
+"quizzes.needs_at_least_words_start_quizzes" = "The shared dictionary '%@' needs at least 10 words to start quizzes. It currently has %d words.";
 "quizzes.need_at_least_hard_word_practice" = "You need at least 1 hard word to practice in hard words mode. You currently have %d hard words.";
-"quizzes.currently_have_hard_words" = "You currently have %d hard words.";
 "quizzes.need_at_least_words_start_quizzes" = "You need at least 10 words to start quizzes. You currently have %d words.";
-"quizzes.currently_have_words" = "You currently have %d words.";
 "quizzes.progress_format" = "Progress: %d/%d";
 "quizzes.streak_format" = "🔥 Streak: %d";
 "quizzes.score_format" = "Score: %d";
 "quizzes.best_format" = "Best: %d";
-"quizzes.quiz_complete" = "Quiz Complete!";
-"quizzes.great_job_completed_definition_quiz" = "Great job! You've completed the definition quiz.";
-"quizzes.your_results" = "Your Results";
-"quizzes.final_score" = "Final Score";
-"quizzes.correct_answers" = "Correct Answers";
-"quizzes.best_streak" = "Best Streak";
-"quizzes.accuracy" = "Accuracy";
-"quizzes.practice_hard_words_only" = "Practice Hard Words Only";
-"quizzes.words_per_session" = "Words per Session";
-"quizzes.shared_dictionary_needs_more_words" = "Shared Dictionary Needs More Words!";
-"quizzes.ask_dictionary_owner_add_more_words" = "Ask the dictionary owner to add more words, or switch to a different dictionary!";
+"quizzes.ask_dictionary_owner_add_words_or_switch" = "Ask the dictionary owner to add more words, or switch to a different dictionary!";
+
+// MARK: - App
 "app.my_dictionary" = "My Dictionary";
 "app.loading" = "Loading...";
 "app.something_went_wrong" = "Something went wrong";
-"words.no_tags_selected" = "No tags selected";
-"words.error_loading_definitions" = "There is an error loading definitions. Please try again.";
-"words.type_word_and_press_search" = "Type a word and press 'Search' to find its definitions";
-"words.no_examples_yet" = "No examples yet";
-"words.no_tags_added_yet" = "No tags added yet";
-"shared_dictionaries.no_shared_dictionaries_sidebar" = "No shared dictionaries";
-"words.edit_example" = "Edit Example";
+"app.try_again" = "Try Again";
+"app.error" = "Error";
+"app.oops" = "Ooops!";
+"app.unknown" = "Unknown";
+"app.retry" = "Retry";
+"app.add_example" = "Add example";
+"app.add_to_shared_dictionary" = "Add to Shared Dictionary";
+"app.add_collaborator" = "Add Collaborator";
+"app.delete_dictionary" = "Delete Dictionary";
+"app.enter_definition" = "Enter definition";
+"app.select_value" = "Select a value";
+"app.pronunciation" = "Pronunciation";
+"app.tags" = "Tags";
+"app.select_definition" = "Select a definition";
+"app.translating_word" = "Translating word...";
+"app.translating_definitions" = "Translating definitions...";
+"app.type_word_here" = "Type the word here...";
+"app.email_address" = "Email Address";
+"app.name" = "Name";
+"app.example" = "Example";
+"app.transcription" = "Transcription";
+"app.definition" = "Definition";
+"app.import_successful" = "Import successful";
+"app.import_successful_message" = "%@ have been imported successfully";
+"app.no_words_imported" = "No words imported";
+"app.no_words_imported_message" = "We couldn't find any new words to import";
+"app.tag_management_error" = "Tag Management Error";
+"app.delete_tag" = "Delete Tag";
+"app.delete_tag_confirmation" = "Are you sure you want to delete this tag? This action cannot be undone.";
+"app.cant_share_word" = "Can't share word";
+"app.collaborator_details" = "Collaborator Details";
+"app.role_permissions" = "Role Permissions";
+"app.note" = "Note";
+"app.dictionary_info" = "Dictionary Info";
+"app.collaborators" = "Collaborators";
+"app.all_results" = "All Results";
+"app.part_of_speech" = "Part Of Speech";
+"app.language" = "Language";
+"app.tag_name" = "Tag Name";
+"app.tag_color" = "Tag Color";
+"app.private_dictionary" = "Private";
+"app.shared_dictionaries" = "Shared Dictionaries";
+"app.about_my_dictionary" = "About My Dictionary";
+"app.debug_panel" = "Debug Panel";
+"app.word_starts_with" = "The word starts with";
+"app.debug_info" = "Debug Info";
+"app.send_test_notification" = "Send Test Notification";
+"app.enter_email_address" = "Enter email address";
+"app.enter_email_address_for_notification" = "Enter the email address of the user you want to send a test notification to.";
+"app.user_information" = "User Information";
 
 // MARK: - Analytics
 "analytics.overview" = "Overview";
@@ -314,7 +356,12 @@
 "analytics.correct_answers" = "Correct Answers";
 "analytics.words_played" = "Words Played";
 "analytics.total_questions" = "Total Questions";
-"analytics.words_count" = "%d words";
+"analytics.difficulty_statistics" = "Difficulty Statistics";
+"analytics.individual_ratings" = "Individual Ratings";
+"analytics.how_other_users_rate_difficulty" = "How other users rate this word's difficulty";
+"analytics.no_difficulty_ratings_yet" = "No difficulty ratings yet";
+"analytics.total_ratings" = "Total Ratings";
+"analytics.view_detailed_statistics" = "View Detailed Statistics";
 
 // MARK: - Settings
 "settings.translate_definitions" = "Translate Definitions";
@@ -358,6 +405,23 @@
 "settings.app_version" = "App version:";
 "settings.about_app_description" = "I created this app because I could not find something that I wanted.\n\nIt is a simple word list manager that allows you to search for words and add their definitions along them without actually translating into a native language.\n\nI find this best to learn English. Hope it will work for you as well.\n\nIf you have any questions, or want to suggest a feature, please reach out to me on the links below. Thank you for using my app!";
 "settings.contact_support" = "Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Twitter!";
+"settings.sign_out" = "Sign Out";
+"settings.upload_backup_to_google" = "Upload backup to Google";
+"settings.download_backup_from_google" = "Download backup from Google";
+"settings.sign_in_to_sync_word_lists" = "Sign in to sync word lists";
+"settings.manage_tags" = "Manage Tags";
+"settings.import_export" = "Import / Export";
+"settings.import_words" = "Import words";
+"settings.export_words" = "Export words";
+"settings.learn_more" = "Learn more";
+"settings.export_words_title" = "Export Words";
+"settings.pro_upgrade_description" = "Upgrade to Pro for unlimited features and cross-device sync.";
+"settings.word_lists_and_sync" = "Word Lists & Sync";
+"settings.manual_sync_mode_description" = "Manual sync mode: Use buttons below to upload/download your word lists to Google. Available to all users.";
+"settings.sign_in_to_create_share_word_lists" = "Sign in to create and share word lists with others.";
+"settings.tag_management_description" = "Create and manage tags to organize your words, and add collaborators to share words with.";
+"settings.import_export_note" = "Please note that import and export only work with files created by this app.";
+"settings.buy_me_a_coffee" = "Buy Me a Coffee";
 
 // MARK: - Authentication
 "auth.sign_in_before_subscribing" = "Sign in before subscribing";
@@ -376,6 +440,16 @@
 "auth.sign_in_to_access_word_lists" = "Sign in to access your word lists across all your devices and collaborate with others.";
 "auth.link_google" = "Link Google";
 "auth.link_apple" = "Link Apple";
+"auth.sign_in_to_sync_word_lists" = "Sign in to sync your word lists";
+"auth.sign_out_error_title" = "Oh no!";
+"auth.sign_out_error_message" = "Something went wrong while signing out. Please try again later.";
+"auth.sign_in_required_for_restore" = "You need to sign in to restore your purchases.";
+"auth.sign_in_required_for_pro_features" = "You need to sign in to access Pro features like %@.";
+"auth.sign_in_failed" = "Failed to sign in. Please try again.";
+"auth.sign_out_failed" = "Failed to sign out. Please try again.";
+"auth.user_not_found" = "User not found.";
+"auth.network_error" = "Network error. Please check your connection.";
+"auth.account_linking_failed" = "Failed to link accounts. Please try again.";
 
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Dictionary Selected";
@@ -424,6 +498,11 @@
 "shared_dictionaries.collaborator_added_with_email_name" = "The collaborator will be added with the email and name you provide. They will need to sign in with the same email address to access the shared dictionary.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Be the first to rate this word's difficulty";
 "shared_dictionaries.score" = "Score: %d";
+"shared_dictionaries.no_shared_dictionaries_sidebar" = "No shared dictionaries";
+"shared_dictionaries.collaborative_features" = "Collaborative Features";
+"shared_dictionaries.your_score" = "Your score";
+"shared_dictionaries.your_status" = "Your status";
+"shared_dictionaries.average_score" = "Average Score";
 
 // MARK: - Tags Flow
 "tags.manage_tags" = "Manage Tags";
@@ -431,9 +510,10 @@
 "tags.no_tags_yet" = "No Tags added yet";
 "tags.add_first_tag" = "Add your first tag by tapping the button above.";
 "tags.add_tag" = "Add Tag";
-"tags.words_count" = "%d words";
 "tags.add_first_tag_description" = "Add your first tag by tapping the button above.";
 "tags.add_tag_to_start_using" = "Add a tag to start using it.";
+"tags.add_tags" = "Add Tags";
+"tags.create_tags" = "Create tags";
 "tags.delete_tag" = "Delete Tag";
 "tags.delete_tag_confirmation" = "Are you sure you want to delete this tag?";
 "tags.delete_tag_cannot_undo" = "This action cannot be undone.";
@@ -445,7 +525,6 @@
 "tags.edit_tag" = "Edit Tag";
 "tags.new_tag" = "New Tag";
 "tags.tag_management_error" = "Tag Management Error";
-"words.words_count" = "%d words";
 
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Buy Me a Coffee";
@@ -464,7 +543,7 @@
 "paywall.learn_with_others" = "Learn with others";
 "paywall.everything_you_need_to_master_vocabulary" = "Everything you need to master vocabulary";
 "paywall.choose_your_plan" = "Choose Your Plan";
-"paywall.start_pro" = "Start Pro";
+"paywall.start_pro_subscription" = "Start Pro Subscription";
 "paywall.trusted_by_learners_worldwide" = "Trusted by learners worldwide";
 "paywall.app_store_rating" = "App Store Rating";
 "paywall.active_users" = "Active Users";
@@ -475,6 +554,86 @@
 "paywall.pro_user" = "Pro User";
 "paywall.free_plan" = "Free Plan";
 "paywall.limited_features_available" = "Limited features available";
+"paywall.terms_of_service" = "Terms of Service";
+"paywall.privacy_policy" = "Privacy Policy";
+"paywall.restore_purchases" = "Restore Purchases";
+"paywall.no_active_subscriptions_found" = "No active subscriptions found. Please check your App Store account.";
+"paywall.failed_to_restore_purchases" = "Failed to restore purchases: %@";
+"paywall.save_percentage" = "Save %@";
+
+// MARK: - Difficulty
+"difficulty.new" = "New";
+"difficulty.in_progress" = "In Progress";
+"difficulty.needs_review" = "Needs Review";
+"difficulty.mastered" = "Mastered";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Latest first";
+"sorting.earliest_first" = "Earliest first";
+"sorting.alphabetically" = "Alphabetically";
+"sorting.by_part_of_speech" = "By Part of Speech";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Auto Detect";
+
+// MARK: - Time Period
+"time_period.week" = "Week";
+"time_period.month" = "Month";
+"time_period.year" = "Year";
+
+// MARK: - Quiz Results
+"quiz_results.all_results" = "All Results";
+"quiz_results.no_quiz_results_yet" = "No Quiz Results Yet";
+"quiz_results.quiz" = "Quiz";
+"quiz_results.accuracy" = "Accuracy";
+"quiz_results.correct" = "Correct";
+"quiz_results.duration" = "Duration";
+"quiz_results.time_period" = "Time Period";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transcription";
+"word_details.part_of_speech" = "Part of Speech";
+"word_details.definition" = "Definition";
+"word_details.difficulty" = "Difficulty";
+"word_details.examples" = "Examples";
+"word_details.edit_example" = "Edit example";
+"word_details.example" = "Example";
+"word_details.type_example_here" = "Type an example here";
+"word_details.add_example" = "Add example";
+"word_details.delete_word" = "Delete word";
+"word_details.delete_failed" = "Delete failed";
+
+// MARK: - Word List
+"word_list.all_words" = "All Words";
+"word_list.favorite" = "Favorite";
+"word_list.manage_tags" = "Manage Tags";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Quiz Types";
+"quiz_list.practice_settings" = "Practice Settings";
+"quiz_list.configure_quiz_experience" = "Configure your quiz experience";
+"quiz_list.focus_on_words_need_review" = "Focus on words that need review";
+"quiz_list.not_enough_words_review_yet" = "Not enough words to review yet";
+"quiz_list.add_words_to_shared_dictionary" = "Add Words to Shared Dictionary";
+"quiz_list.add_your_first_word" = "Add Your First Word";
+"quiz_list.add_more_words" = "Add More Words";
+"quiz_list.quizzes_help_test_knowledge" = "Quizzes help you test your knowledge and reinforce learning!";
+"quiz_list.words_away_from_unlocking_quizzes" = "You're %d words away from unlocking quizzes!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Finish";
+"quiz_actions.next_word" = "Next Word";
+"quiz_actions.submit_answer" = "Submit Answer";
+"quiz_actions.number_of_words" = "Number of words";
+"quiz_actions.no_difficult_words_available" = "No difficult words available for quiz";
+"quiz_actions.your_word_is" = "Your word is '%@'. Try harder :)";
+"quiz_actions.try_harder" = "Try harder :)";
+"quiz_actions.incorrect_try_again" = "Incorrect. Try again";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Select Tags";
+"tag_selection.no_tags_yet" = "No Tags Yet";
+"tag_selection.you_can_select_up_to_5_tags" = "You can select up to 5 tags per word. Tap a tag to select or deselect it.";
 
 // MARK: - Pro Features
 "pro_features.google_sync" = "Google Sync";
@@ -534,6 +693,10 @@
 "errors.requested_subscription_package_not_found" = "The requested subscription package was not found";
 "errors.purchase_could_not_be_completed" = "The purchase could not be completed";
 "errors.failed_to_restore_previous_purchases" = "Failed to restore previous purchases";
+"errors.no_offerings_available" = "No subscription offerings are currently available";
+"errors.package_not_found" = "The requested subscription package was not found";
+"errors.purchase_failed" = "The purchase could not be completed";
+"errors.restore_failed" = "Failed to restore previous purchases";
 "errors.export_limit_exceeded" = "Export limit exceeded. Upgrade to Pro for unlimited exports.";
 "errors.max_tags_reached" = "Maximum of 5 tags per word reached";
 "errors.tag_already_assigned" = "Tag is already assigned to this word";
@@ -552,6 +715,11 @@
 "errors.invalid_input" = "Invalid input";
 "errors.missing_field" = "Missing field";
 "errors.unknown_error" = "Unknown error";
+"errors.update_failed" = "Update failed";
+"errors.delete_failed" = "Delete failed";
+"errors.permission_denied" = "You don't have permission to perform this action";
+"errors.user_not_authenticated" = "User must be authenticated";
+"errors.dictionary_limit_reached" = "You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries.";
 
 // MARK: - Empty States
 "empty_states.no_words_yet" = "No Words Yet";
@@ -562,5 +730,140 @@
 "empty_states.tap_heart_icon_to_add_favorites" = "Tap the heart icon on any idiom to add it to your favorites";
 "empty_states.try_different_search_term" = "Try a different search term or add a new idiom";
 
-// MARK: - Auto Detect
-"auto_detect.auto_detect" = "Auto Detect";
+// MARK: - Notifications
+"notifications.time_to_practice" = "Time to Practice! 📚";
+"notifications.practice_vocabulary_today" = "Don't forget to practice your vocabulary today.";
+"notifications.practice_difficult_words" = "Practice Your Difficult Words 📚";
+"notifications.difficult_words_challenge" = "You have words that need more practice. Ready for a challenge?";
+"notifications.test_dictionary_invitation" = "Test Dictionary Invitation";
+"notifications.test_dictionary_invitation_body" = "Someone added you to 'Test Dictionary'";
+
+// MARK: - macOS UI
+"macos.my_dictionary" = "My Dictionary";
+"macos.about_my_dictionary" = "About My Dictionary";
+"macos.debug_panel" = "Debug Panel";
+"macos.settings" = "Settings";
+"macos.about" = "About";
+"macos.shared_dictionaries" = "Shared Dictionaries";
+
+// MARK: - Filter Display Names
+"filter_display.all_words" = "All Words";
+"filter_display.favorite" = "Favorite";
+"filter_display.search" = "Search";
+"filter_display.tag" = "Tag";
+"filter_display.new" = "New";
+"filter_display.in_progress" = "In Progress";
+"filter_display.needs_review" = "Needs Review";
+"filter_display.mastered" = "Mastered";
+"filter_display.no_words_yet" = "No Words Yet";
+"filter_display.no_favorite_words" = "No Favorite Words";
+"filter_display.no_search_results" = "No Search Results";
+"filter_display.no_tagged_words" = "No Tagged Words";
+"filter_display.no_new_words" = "No New Words";
+"filter_display.no_words_in_progress" = "No Words In Progress";
+"filter_display.no_words_need_review" = "No Words Need Review";
+"filter_display.no_mastered_words" = "No Mastered Words";
+"filter_display.start_building_vocabulary" = "Start building your vocabulary by adding your first word";
+"filter_display.tap_heart_icon_to_add_favorites" = "Tap the heart icon on any word to add it to your favorites";
+"filter_display.try_different_search_term" = "Try a different search term or add a new word";
+"filter_display.add_tags_to_organize" = "Add tags to your words to organize them better";
+"filter_display.new_words_appear_here" = "New words appear here when you add them to your list";
+"filter_display.words_appear_here_as_you_practice" = "Words appear here as you practice them in quizzes";
+"filter_display.words_need_more_practice" = "Words that need more practice will appear here";
+
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Owner";
+"collaborator_roles.editor" = "Editor";
+"collaborator_roles.viewer" = "Viewer";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Blue";
+"tag_colors.red" = "Red";
+"tag_colors.green" = "Green";
+"tag_colors.orange" = "Orange";
+"tag_colors.purple" = "Purple";
+"tag_colors.pink" = "Pink";
+"tag_colors.yellow" = "Yellow";
+"tag_colors.gray" = "Gray";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Select Dictionary";
+"shared_dictionary_selection.dictionary_selected" = "Dictionary Selected";
+"shared_dictionary_selection.add_to_shared" = "Add to Shared";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Add Word to Shared Dictionary";
+"shared_dictionary_selection.unknown" = "unknown";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Upgrade to Pro to see full progress details.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgrade to Pro to see full vocabulary growth details.";
+"pro_upgrade.time_period" = "Time Period";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Role";
+"collaborator_management.add_collaborator" = "Add Collaborator";
+"collaborator_management.email_address_required" = "Email address is required";
+"collaborator_management.valid_email_address" = "Please enter a valid email address";
+"collaborator_management.make_viewer" = "Make Viewer";
+"collaborator_management.make_editor" = "Make Editor";
+"collaborator_management.remove" = "Remove";
+"collaborator_management.add" = "Add";
+"collaborator_management.delete_dictionary" = "Delete Dictionary";
+"collaborator_management.delete_dictionary_confirmation" = "Are you sure you want to delete this shared dictionary? This action cannot be undone.";
+"collaborator_management.stop_watching" = "Stop watching";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Are you sure you want to stop watching this shared dictionary?";
+"collaborator_management.stop_watching_dictionary" = "Stop watching dictionary";
+"collaborator_management.continue" = "Continue";
+"collaborator_management.dictionary_not_found" = "Dictionary Not Found";
+"collaborator_management.dictionary_details" = "Dictionary Details";
+"collaborator_management.unknown" = "Unknown";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Spelling Quiz";
+"quiz_types.choose_definition" = "Choose Definition";
+"quiz_types.test_spelling_skills" = "Test your spelling skills by typing words correctly";
+"quiz_types.select_correct_definition" = "Select the correct definition for each word";
+"quiz_types.great_job_completed_spelling_quiz" = "Great job! You've completed the spelling quiz.";
+"quiz_types.great_job_completed_definition_quiz" = "Great job! You've completed the definition quiz.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australian";
+"english_accents.canadian" = "Canadian";
+"english_accents.british" = "British";
+"english_accents.indian" = "Indian";
+"english_accents.american" = "American";
+"english_accents.belgian" = "Belgian";
+"english_accents.singaporean" = "Singaporean";
+"english_accents.irish" = "Irish";
+"english_accents.south_african" = "South African";
+
+// MARK: - Idiom Filters
+"idiom_filters.all_idioms" = "All Idioms";
+"idiom_filters.favorite" = "Favorite";
+"idiom_filters.search" = "Search";
+"idiom_filters.no_idioms_yet" = "No Idioms Yet";
+"idiom_filters.no_favorite_words" = "No Favorite Words";
+"idiom_filters.no_search_results" = "No Search Results";
+"idiom_filters.start_improving_vocabulary" = "Start improving your vocabulary by adding your first idiom";
+"idiom_filters.tap_heart_icon_to_add_favorites" = "Tap the heart icon on any idiom to add it to your favorites";
+"idiom_filters.try_different_search_term" = "Try a different search term or add a new idiom";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Noun";
+"part_of_speech.full.verb" = "Verb";
+"part_of_speech.full.adjective" = "Adjective";
+"part_of_speech.full.adverb" = "Adverb";
+"part_of_speech.full.conjunction" = "Conjunction";
+"part_of_speech.full.pronoun" = "Pronoun";
+"part_of_speech.full.preposition" = "Preposition";
+"part_of_speech.full.exclamation" = "Exclamation";
+"part_of_speech.full.unknown" = "Unknown";
+
+"part_of_speech.short.noun" = "Noun";
+"part_of_speech.short.verb" = "Verb";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Conj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.exclamation" = "Excl.";
+"part_of_speech.short.unknown" = "Unkn.";

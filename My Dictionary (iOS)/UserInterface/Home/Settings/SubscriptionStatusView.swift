@@ -74,7 +74,7 @@ struct SubscriptionStatusView: View {
                     .font(.title2)
             }
             
-            ActionButton("Upgrade to Pro") {
+            ActionButton(Loc.Paywall.upgradeToPro.localized) {
                 PaywallService.shared.isShowingPaywall = true
             }
         }

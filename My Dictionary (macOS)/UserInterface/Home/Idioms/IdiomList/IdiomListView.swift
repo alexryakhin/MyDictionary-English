@@ -76,7 +76,7 @@ struct IdiomListView: View {
                 Menu {
                     Picker(Loc.Idioms.sort.localized, selection: $viewModel.sortingState) {
                         ForEach(SortingCase.idiomsSortingCases, id: \.self) { item in
-                            Text(item.rawValue)
+                            Text(item.displayName)
                                 .tag(item)
                         }
                     }
@@ -89,7 +89,7 @@ struct IdiomListView: View {
                 Menu {
                     Picker(Loc.Idioms.filter.localized, selection: $viewModel.filterState) {
                         ForEach(IdiomFilterCase.availableCases, id: \.self) { item in
-                            Text(item.rawValue)
+                            Text(item.displayName)
                                 .tag(item)
                         }
                     }
