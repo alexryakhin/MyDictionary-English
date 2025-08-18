@@ -15,7 +15,7 @@ This directory contains the legal documentation for My Dictionary app, featuring
 - **Main app website** with beautiful, modern design
 - **Hero section** with compelling call-to-action
 - **Features showcase** highlighting app capabilities
-- **Screenshot placeholders** ready for real app screenshots
+- **Screenshot system** with fallback to placeholders
 - **Pricing section** with subscription plans
 - **Download section** with App Store links
 - **Responsive design** for all devices
@@ -78,9 +78,7 @@ All pages are fully responsive and work perfectly on:
 
 The pages include contact information for different types of inquiries:
 
-- **Privacy Questions:** privacy@mydictionary.app
-- **Legal Questions:** legal@mydictionary.app
-- **General Support:** support@mydictionary.app
+- **All Inquiries:** bonney977@gmail.com
 
 ## 🚀 Usage
 
@@ -91,7 +89,7 @@ The pages include contact information for different types of inquiries:
 
 ### For Main Website
 - Use `website.html` as your main app website
-- Replace screenshot placeholders with actual app screenshots
+- Add screenshots to the `images/` directory (see `images/README.md`)
 - Update App Store download links when available
 - Customize content to match your specific features
 
@@ -105,9 +103,9 @@ The pages include contact information for different types of inquiries:
 ### Main Website Features:
 - **Hero Section**: Compelling headline and call-to-action
 - **Features Showcase**: 6 key app features with icons
-- **Screenshots Section**: 6 placeholder areas for app screenshots
+- **Screenshots Section**: 6 screenshot areas with fallback placeholders
 - **Pricing Section**: Free, Pro monthly, and Pro yearly plans
-- **Download Section**: App Store and Mac App Store links
+- **Download Section**: App Store link
 - **Footer**: Links to legal documents and contact information
 
 ### Privacy Policy Covers:
