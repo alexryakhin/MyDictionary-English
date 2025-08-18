@@ -9,7 +9,7 @@ import Foundation
 
 enum UDKeys {
     static let isShowingRating = "isShowingRating"
-    static let isShowingOnboarding = "isShowingOnboarding"
+    static let hasCompletedOnboarding = "hasCompletedOnboarding"
 
     static let showIdiomsTab = "showIdiomsTab"
 

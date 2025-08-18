@@ -39,6 +39,11 @@ struct AnalyticsView: View {
                     vocabularyGrowthSection
                 }
                 .padding(.horizontal, 16)
+                .if(isPad) { view in
+                    view
+                        .frame(maxWidth: 550, alignment: .center)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
             }
         }
         .groupedBackground()

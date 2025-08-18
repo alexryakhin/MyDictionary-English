@@ -35,6 +35,11 @@ struct AddWordView: View {
                 definitionsSectionView
             }
             .padding(.horizontal, 16)
+            .if(isPad) { view in
+                view
+                    .frame(maxWidth: 550, alignment: .center)
+                    .frame(maxWidth: .infinity, alignment: .center)
+            }
             .editModeDisabling()
         }
         .background {

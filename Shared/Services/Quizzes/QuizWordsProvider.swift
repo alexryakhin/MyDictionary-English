@@ -53,15 +53,14 @@ final class QuizWordsProvider: ObservableObject {
     
     /// Gets words for a quiz based on the selected dictionary and filters
     /// - Parameters:
-    ///   - wordCount: Number of words needed
-    ///   - hardWordsOnly: Whether to only include difficult words
-    /// - Returns: Array of words for the quiz
+    ///   - preset: Quiz preset containing word count and difficulty settings
+    /// - Returns: Array of words for the quiz (all available words, not limited by word count)
     func getWordsForQuiz(with preset: QuizPreset) -> [any QuizWord] {
         let filteredWords = preset.hardWordsOnly
         ? availableWords.filter { $0.difficultyLevel == .needsReview }
         : availableWords
 
-        return Array(filteredWords.shuffled().prefix(preset.wordCount))
+        return Array(filteredWords.shuffled())
     }
     
     /// Checks if there are enough words available for a quiz

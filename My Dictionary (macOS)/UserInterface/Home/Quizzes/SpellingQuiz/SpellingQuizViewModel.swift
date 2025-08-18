@@ -175,14 +175,13 @@ final class SpellingQuizViewModel: BaseViewModel {
 
     private func restartQuiz() {
         // Reset all game state
-        let limitedWords = Array(originalWords.shuffled().prefix(preset.wordCount))
-        words = limitedWords
+        words = originalWords.shuffled()
         randomWord = words.randomElement()
         answerTextField = ""
         isCorrectAnswer = true
         attemptCount = 0
         correctAnswers = 0
-        totalQuestions = limitedWords.count
+        totalQuestions = preset.wordCount
         score = 0
         wordsPlayed = []
         correctWordIds = []
@@ -230,10 +229,16 @@ final class SpellingQuizViewModel: BaseViewModel {
         words.remove(at: wordIndex)
         isShowingCorrectAnswer = false
 
-        // Move to next word or complete quiz
-        if !words.isEmpty {
+        // Check if we've reached the target word count
+        if wordsPlayed.count >= preset.wordCount {
+            self.randomWord = nil
+            isQuizComplete = true
+            saveQuizSession()
+        } else if !words.isEmpty {
+            // Move to next word
             self.randomWord = words.randomElement()
         } else {
+            // No more words available, complete quiz
             self.randomWord = nil
             isQuizComplete = true
             saveQuizSession()
@@ -255,11 +260,10 @@ final class SpellingQuizViewModel: BaseViewModel {
         }
 
         self.originalWords = availableWords.shuffled()
-        // Limit words to the selected count
-        let limitedWords = Array(self.originalWords.prefix(preset.wordCount))
-        self.words = limitedWords
+        // Use all available words for better variety, but track the target count
+        self.words = self.originalWords
         self.randomWord = self.words.randomElement()
-        self.totalQuestions = limitedWords.count
+        self.totalQuestions = preset.wordCount
     }
 
     private func updateWordScore(_ word: any QuizWord, points: Int) {

@@ -61,6 +61,11 @@ struct SpellingQuizContentView: View {
                     actionButtons
                 }
                 .padding(.horizontal, 16)
+                .if(isPad) { view in
+                    view
+                        .frame(maxWidth: 550, alignment: .center)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
             }
             .groupedBackground()
             .navigation(
@@ -68,7 +73,7 @@ struct SpellingQuizContentView: View {
                 mode: .inline,
                 trailingContent: {
                     HeaderButton(Loc.Actions.exit.localized) {
-                        viewModel.handle(.dismiss)
+                        dismiss()
                     }
                 },
                 bottomContent: {
@@ -384,6 +389,11 @@ struct SpellingQuizContentView: View {
             .padding(.horizontal, 32)
         }
         .padding(.vertical, 16)
+        .if(isPad) { view in
+            view
+                .frame(maxWidth: 550, alignment: .center)
+                .frame(maxWidth: .infinity, alignment: .center)
+        }
         .groupedBackground()
         .onReceive(viewModel.dismissPublisher) {
             dismiss()

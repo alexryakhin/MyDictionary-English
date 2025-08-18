@@ -13,7 +13,7 @@ struct MainTabView: View {
 
     // MARK: - Properties
 
-    @AppStorage(UDKeys.isShowingOnboarding) var isShowingOnboarding: Bool = true
+    @AppStorage(UDKeys.hasCompletedOnboarding) var hasCompletedOnboarding: Bool = false
     @AppStorage(UDKeys.showIdiomsTab) var showIdiomsTab: Bool = true
     @StateObject var navigationManager: NavigationManager = .shared
     @StateObject var tabManager: TabManager = .shared
@@ -49,8 +49,8 @@ struct MainTabView: View {
             .safeAreaInset(edge: .bottom) {
                 tabBarView
             }
-            .sheet(isPresented: $isShowingOnboarding) {
-                isShowingOnboarding = false
+            .sheet(isPresented: .constant(hasCompletedOnboarding == false)) {
+                hasCompletedOnboarding = true
             } content: {
                 OnboardingView()
                     .interactiveDismissDisabled()
@@ -63,19 +63,9 @@ struct MainTabView: View {
             }
             .withPaywall()
             .sheet(isPresented: $sessionManager.showCoffeeBanner) {
-                CoffeeBanner(
-                    onBuyCoffee: {
-                        openURL(GlobalConstant.buyMeACoffeeUrl)
-                        sessionManager.markCoffeeBannerShown()
-                        AnalyticsService.shared.logEvent(.coffeeBannerTapped)
-                    },
-                    onDismiss: {
-                        sessionManager.markCoffeeBannerDismissed()
-                        AnalyticsService.shared.logEvent(.coffeeBannerDismissed)
-                    }
-                )
-                .presentationDetents([.medium])
-                .presentationDragIndicator(.visible)
+                CoffeeBanner()
+                    .presentationDetents([.medium])
+                    .presentationDragIndicator(.visible)
             }
         }
     }

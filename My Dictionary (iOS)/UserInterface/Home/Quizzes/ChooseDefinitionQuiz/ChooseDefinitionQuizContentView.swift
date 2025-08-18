@@ -58,13 +58,14 @@ struct ChooseDefinitionQuizContentView: View {
                             actionButtons
                         }
                         .padding(.horizontal, 16)
+                        .if(isPad) { view in
+                            view
+                                .frame(maxWidth: 550, alignment: .center)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                        }
                     }
                 } else {
-                    // Completion View
                     completionView
-                        .if(isPad) { view in
-                            view.frame(maxWidth: 500, alignment: .center)
-                        }
                 }
             }
         }
@@ -73,7 +74,6 @@ struct ChooseDefinitionQuizContentView: View {
             mode: .inline,
             trailingContent: {
                 HeaderButton(Loc.Actions.exit.localized) {
-                    viewModel.handle(.saveSession)
                     dismiss()
                 }
             },
@@ -344,6 +344,11 @@ struct ChooseDefinitionQuizContentView: View {
             .padding(.horizontal, 32)
             
             Spacer()
+        }
+        .if(isPad) { view in
+            view
+                .frame(maxWidth: 550, alignment: .center)
+                .frame(maxWidth: .infinity, alignment: .center)
         }
         .groupedBackground()
     }

@@ -19,5 +19,4 @@ extension NotificationCenter {
 
 extension Notification.Name {
     static let authenticationCompleted = Notification.Name("authenticationCompleted")
-    static let onboardingCompleted = Notification.Name("onboardingCompleted")
 }

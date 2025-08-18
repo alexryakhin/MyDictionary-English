@@ -31,6 +31,11 @@ enum QuizResultsList {
                     }
                 }
                 .padding(.horizontal, 16)
+                .if(isPad) { view in
+                    view
+                        .frame(maxWidth: 550, alignment: .center)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
             }
             .groupedBackground()
             .navigation(title: Loc.Navigation.quizResults.localized, mode: .inline, showsBackButton: true)

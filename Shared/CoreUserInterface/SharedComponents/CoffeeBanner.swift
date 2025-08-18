@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct CoffeeBanner: View {
-    let onBuyCoffee: VoidHandler
-    let onDismiss: VoidHandler
-    
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.openURL) var openURL
+
+    @StateObject private var sessionManager: SessionManager = .shared
     @State private var animate = false
     @State private var showPulse = false
     
@@ -37,7 +38,9 @@ struct CoffeeBanner: View {
                     Spacer()
                     
                     Button {
-                        onDismiss()
+                        sessionManager.markCoffeeBannerDismissed()
+                        AnalyticsService.shared.logEvent(.coffeeBannerDismissed)
+                        dismiss()
                     } label: {
                         Image(systemName: "xmark.circle.fill")
                             .font(.title3)
@@ -65,10 +68,15 @@ struct CoffeeBanner: View {
             // Action buttons
             VStack(spacing: 12) {
                 ActionButton(Loc.Coffee.buyMeACoffee.localized, systemImage: "cup.and.saucer.fill", color: .orange, style: .borderedProminent) {
-                    onBuyCoffee()
+                    openURL(GlobalConstant.buyMeACoffeeUrl)
+                    sessionManager.markCoffeeBannerShown()
+                    AnalyticsService.shared.logEvent(.coffeeBannerTapped)
+                    dismiss()
                 }
                 ActionButton(Loc.Coffee.maybeLater.localized) {
-                    onDismiss()
+                    sessionManager.markCoffeeBannerDismissed()
+                    AnalyticsService.shared.logEvent(.coffeeBannerDismissed)
+                    dismiss()
                 }
             }
         }
@@ -88,9 +96,6 @@ struct CoffeeBanner: View {
 }
 
 #Preview {
-    CoffeeBanner(
-        onBuyCoffee: {},
-        onDismiss: {}
-    )
-    .padding()
+    CoffeeBanner()
+        .padding()
 }

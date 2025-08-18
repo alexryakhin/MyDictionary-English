@@ -78,7 +78,7 @@ final class QuizzesListViewModel: BaseViewModel {
                 let hardWordsCount = quizWordsProvider.getHardWordsCount()
                 return Loc.Quizzes.sharedDictionaryNeedsHardWords.localized(dictionary.name, hardWordsCount)
             } else {
-                return Loc.Quizzes.needsAtLeastWordsStartQuizzes.localized(totalWords, totalWords)
+                return Loc.Quizzes.needsAtLeastWordsStartQuizzes.localized(dictionary.name, totalWords)
             }
         } else {
             // Private dictionary message

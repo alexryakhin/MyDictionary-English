@@ -27,6 +27,11 @@ struct AddSharedDictionaryView: View {
                 }
             }
             .padding(.horizontal, 16)
+            .if(isPad) { view in
+                view
+                    .frame(maxWidth: 550, alignment: .center)
+                    .frame(maxWidth: .infinity, alignment: .center)
+            }
         }
         .safeAreaInset(edge: .bottom) {
             ActionButton(Loc.SharedDictionaries.createSharedDictionary.localized, isLoading: isLoading) {

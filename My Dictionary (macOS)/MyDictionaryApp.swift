@@ -26,7 +26,8 @@ struct MyDictionaryApp: App {
     var body: some Scene {
         Window(Loc.MacOS.myDictionary.localized, id: WindowID.main) {
             SideBarView()
-                .font(.system(.body, design: .rounded))
+                .fontDesign(.rounded)
+                .tint(.accent)
                 .frame(width: 900, height: 550)
                 .background(Color.systemGroupedBackground)
         }

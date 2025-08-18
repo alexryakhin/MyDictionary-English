@@ -137,37 +137,30 @@ struct QuizzesListView: View {
                             
                             // Word Count Slider
                             VStack(alignment: .leading, spacing: 8) {
-                                HStack {
-                                    Text(Loc.Quizzes.wordsPerSession.localized)
-                                        .font(.body)
-                                        .fontWeight(.medium)
-                                    Spacer()
-                                    Text("\(Int(practiceWordCount))")
-                                        .font(.body)
-                                        .fontWeight(.semibold)
-                                        .foregroundStyle(.accent)
-                                }
-                                
                                 let availableWords = viewModel.showingHardWordsOnly ? viewModel.filteredWords : viewModel.words
                                 let maxWords = min(50, max(10, availableWords.count))
                                 let minWords = 10
                                 let subtitle = Loc.Quizzes.numberWordsPracticeSession.localized(minWords, maxWords)
-                                
-                                Text(subtitle)
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                                
-                                Stepper(Loc.QuizActions.numberOfWords.localized, value: $practiceWordCount, in: minWords...maxWords, step: 1)
-                                    .labelsHidden()
+
 
                                 HStack {
-                                    Text(Loc.Quizzes.minWords.localized(minWords))
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text(Loc.Quizzes.wordsPerSession.localized)
+                                            .font(.body)
+                                            .fontWeight(.medium)
+                                        Text(subtitle)
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                    }
+
                                     Spacer()
-                                    Text(Loc.Quizzes.maxWords.localized(maxWords))
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
+
+                                    Text("\(Int(practiceWordCount))")
+                                        .font(.body)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.accent)
+                                    Stepper(Loc.QuizActions.numberOfWords.localized, value: $practiceWordCount, in: minWords...maxWords, step: 1)
+                                        .labelsHidden()
                                 }
                             }
                             .clippedWithPaddingAndBackground(

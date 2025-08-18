@@ -10,7 +10,8 @@ import SwiftUI
 struct OnboardingView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
-    
+    @AppStorage(UDKeys.hasCompletedOnboarding) private var hasCompletedOnboarding: Bool = false
+
     @State private var currentStep = 0
     @State private var animateContent = false
     @State private var animateBackground = false
@@ -298,18 +299,11 @@ struct OnboardingView: View {
                         currentStep += 1
                     }
                 } else {
-                    // Mark onboarding as completed in UserDefaults
-                    UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
-                    
-                    // Send onboarding completed notification
-                    NotificationCenter.default.post(name: .onboardingCompleted, object: nil)
-                    
+                    hasCompletedOnboarding = true
                     dismiss()
                 }
             }
         }
-        .opacity(animateContent ? 1 : 0)
-        .offset(y: animateContent ? 0 : 20)
         .animation(.easeInOut(duration: 0.8).delay(0.6), value: animateContent)
     }
     
@@ -446,8 +440,4 @@ extension OnboardingView {
             }
         }
     }
-}
-
-#Preview {
-    OnboardingView()
 }

@@ -105,7 +105,8 @@ final class SessionManager: ObservableObject {
         }
         
         // Don't show too frequently (minimum 14 days between requests)
-        let lastCoffeeDate = UserDefaults.standard.object(forKey: UDKeys.lastCoffeeRequestDate) as? Date ?? Date.distantPast
+        let lastCoffeeTimeInterval = UserDefaults.standard.double(forKey: UDKeys.lastCoffeeRequestDate)
+        let lastCoffeeDate = Date(timeIntervalSince1970: lastCoffeeTimeInterval)
         let daysSinceLastCoffee = Calendar.current.dateComponents([.day], from: lastCoffeeDate, to: Date()).day ?? 0
         
         guard daysSinceLastCoffee >= 14 else { return false }
@@ -118,7 +119,7 @@ final class SessionManager: ObservableObject {
     }
     
     func markCoffeeBannerShown() {
-        UserDefaults.standard.set(Date(), forKey: UDKeys.lastCoffeeRequestDate)
+        UserDefaults.standard.set(Date.now.timeIntervalSince1970, forKey: UDKeys.lastCoffeeRequestDate)
         UserDefaults.standard.set(true, forKey: UDKeys.hasShownCoffeeThisWeek)
         
         let currentCount = UserDefaults.standard.integer(forKey: UDKeys.coffeeRequestCount)
@@ -128,8 +129,8 @@ final class SessionManager: ObservableObject {
     }
     
     func markCoffeeBannerDismissed() {
-        UserDefaults.standard.set(Date(), forKey: UDKeys.lastCoffeeRequestDate)
-        
+        UserDefaults.standard.set(Date.now.timeIntervalSince1970, forKey: UDKeys.lastCoffeeRequestDate)
+
         let currentCount = UserDefaults.standard.integer(forKey: UDKeys.coffeeRequestCount)
         UserDefaults.standard.set(currentCount + 1, forKey: UDKeys.coffeeRequestCount)
         

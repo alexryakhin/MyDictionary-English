@@ -102,6 +102,10 @@ struct WordListView: View {
                 }
             }
             .padding(.horizontal, 16)
+            .if(isPad) { view in
+                view
+                    .frame(maxWidth: 550, alignment: .center)
+            }
         }
         .animation(.default, value: viewModel.wordsFiltered)
         .animation(.default, value: viewModel.filterState)

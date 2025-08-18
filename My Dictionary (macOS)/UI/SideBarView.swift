@@ -4,9 +4,13 @@ struct SideBarView: View {
 
     @Environment(\.openWindow) private var openWindow
     @Environment(\.openSettings) private var openSettings
+    @AppStorage(UDKeys.hasCompletedOnboarding) var hasCompletedOnboarding: Bool = false
+    @AppStorage(UDKeys.showIdiomsTab) var showIdiomsTab: Bool = true
+
     @StateObject private var sideBarManager = SideBarManager.shared
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var authenticationService = AuthenticationService.shared
+    @StateObject private var sessionManager = SessionManager.shared
 
     var body: some View {
         NavigationSplitView {
@@ -26,6 +30,17 @@ struct SideBarView: View {
         .groupedBackground()
         .navigationSplitViewStyle(.automatic)
         .withPaywall()
+        .sheet(isPresented: $sessionManager.showCoffeeBanner) {
+            CoffeeBanner()
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
+        }
+        .sheet(isPresented: .constant(hasCompletedOnboarding == false)) {
+            hasCompletedOnboarding = true
+        } content: {
+            OnboardingView()
+                .interactiveDismissDisabled()
+        }
     }
 
     // MARK: - Sidebar View (Column 1)
@@ -33,7 +48,15 @@ struct SideBarView: View {
     private var sidebarView: some View {
         List(selection: $sideBarManager.selectedTab) {
             Section(Loc.MacOS.myDictionary.localized) {
-                ForEach(SideBarTab.tabs, id: \.self) { tab in
+                let tabCases = SideBarTab.tabs
+                    .filter { tab in
+                        if tab == .idioms {
+                            showIdiomsTab
+                        } else {
+                            true
+                        }
+                    }
+                ForEach(tabCases, id: \.self) { tab in
                     HStack(spacing: 8) {
                         Image(systemName: tab.systemImage)
                         Text(tab.title)

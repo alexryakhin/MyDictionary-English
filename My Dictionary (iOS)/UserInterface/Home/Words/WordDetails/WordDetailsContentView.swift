@@ -35,6 +35,11 @@ struct WordDetailsContentView: View {
             }
             .padding(.horizontal, 16)
             .animation(.default, value: word)
+            .if(isPad) { view in
+                view
+                    .frame(maxWidth: 550, alignment: .center)
+                    .frame(maxWidth: .infinity, alignment: .center)
+            }
         }
         .groupedBackground()
         .navigation(
