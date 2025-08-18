@@ -450,6 +450,22 @@
 "auth.network_error" = "Netwerkfout. Controleer je verbinding.";
 "auth.account_linking_failed" = "Accountkoppeling mislukt. Probeer opnieuw.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Registratievoordelen";
+"auth.access_subscription_all_devices" = "Toegang tot je abonnement op al je apparaten";
+"auth.sync_progress_cross_platform" = "Synchroniseer je voortgang tussen iOS en Android";
+"auth.backup_data_securely" = "Veilig back-up van je gegevens in de cloud";
+"auth.register_anytime_from_settings" = "Je kunt je op elk moment registreren via Instellingen om deze functies in te schakelen";
+"auth.account_registration" = "Accountregistratie";
+"auth.register_for_cross_platform_access" = "Registreer je om toegang te krijgen tot je abonnement op al je apparaten en je voortgang te synchroniseren";
+"auth.active_subscription_notification" = "Je hebt een actief abonnement!";
+"auth.register_to_unlock_cross_platform" = "Registreer je om cross-platform toegang te ontgrendelen";
+"auth.register_now" = "Nu Registreren";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Abonnementstoegang Beperkt";
+"auth.subscription_associated_different_account" = "Dit abonnement is gekoppeld aan een ander account. Log in met het account dat dit abonnement heeft gekocht om toegang te krijgen tot Pro-functies.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Woordenboek geselecteerd";
 "shared_dictionaries.name" = "Naam";

@@ -450,6 +450,22 @@
 "auth.network_error" = "Ağ hatası. Bağlantınızı kontrol edin.";
 "auth.account_linking_failed" = "Hesap bağlama başarısız. Tekrar deneyin.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Kayıt Avantajları";
+"auth.access_subscription_all_devices" = "Tüm cihazlarınızda aboneliğinize erişin";
+"auth.sync_progress_cross_platform" = "İlerlemenizi iOS ve Android arasında senkronize edin";
+"auth.backup_data_securely" = "Verilerinizi bulutta güvenli bir şekilde yedekleyin";
+"auth.register_anytime_from_settings" = "Bu özellikleri etkinleştirmek için Ayarlar'dan istediğiniz zaman kayıt olabilirsiniz";
+"auth.account_registration" = "Hesap Kaydı";
+"auth.register_for_cross_platform_access" = "Tüm cihazlarınızda aboneliğinize erişmek ve ilerlemenizi senkronize etmek için kayıt olun";
+"auth.active_subscription_notification" = "Aktif bir aboneliğiniz var!";
+"auth.register_to_unlock_cross_platform" = "Platformlar arası erişimi açmak için kayıt olun";
+"auth.register_now" = "Şimdi Kayıt Ol";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Abonelik Erişimi Kısıtlandı";
+"auth.subscription_associated_different_account" = "Bu abonelik farklı bir hesapla ilişkilidir. Pro özelliklerine erişmek için lütfen bu aboneliği satın alan hesapla giriş yapın.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Sözlük seçildi";
 "shared_dictionaries.name" = "İsim";

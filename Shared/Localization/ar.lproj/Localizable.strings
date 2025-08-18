@@ -450,6 +450,22 @@
 "auth.network_error" = "خطأ في الشبكة. تحقق من اتصالك.";
 "auth.account_linking_failed" = "فشل ربط الحسابات. حاول مرة أخرى.";
 
+// Registration Benefits
+"auth.registration_benefits" = "مزايا التسجيل";
+"auth.access_subscription_all_devices" = "الوصول إلى اشتراكك على جميع أجهزتك";
+"auth.sync_progress_cross_platform" = "مزامنة تقدمك بين iOS وAndroid";
+"auth.backup_data_securely" = "النسخ الاحتياطي لبياناتك بأمان في السحابة";
+"auth.register_anytime_from_settings" = "يمكنك التسجيل في أي وقت من الإعدادات لتفعيل هذه الميزات";
+"auth.account_registration" = "تسجيل الحساب";
+"auth.register_for_cross_platform_access" = "سجل للوصول إلى اشتراكك على جميع أجهزتك ومزامنة تقدمك";
+"auth.active_subscription_notification" = "لديك اشتراك نشط!";
+"auth.register_to_unlock_cross_platform" = "سجل لفتح الوصول عبر المنصات";
+"auth.register_now" = "سجل الآن";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "الوصول إلى الاشتراك مقيد";
+"auth.subscription_associated_different_account" = "هذا الاشتراك مرتبط بحساب مختلف. يرجى تسجيل الدخول بالحساب الذي اشترى هذا الاشتراك للوصول إلى ميزات المحترف.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "تم اختيار القاموس";
 "shared_dictionaries.name" = "الاسم";

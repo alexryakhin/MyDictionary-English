@@ -474,6 +474,22 @@ enum Loc {
         static let userNotFound = "auth.user_not_found"
         static let networkError = "auth.network_error"
         static let accountLinkingFailed = "auth.account_linking_failed"
+        
+        // Registration Benefits
+        static let registrationBenefits = "auth.registration_benefits"
+        static let accessSubscriptionAllDevices = "auth.access_subscription_all_devices"
+        static let syncProgressCrossPlatform = "auth.sync_progress_cross_platform"
+        static let backupDataSecurely = "auth.backup_data_securely"
+        static let registerAnytimeFromSettings = "auth.register_anytime_from_settings"
+        static let accountRegistration = "auth.account_registration"
+        static let registerForCrossPlatformAccess = "auth.register_for_cross_platform_access"
+        static let activeSubscriptionNotification = "auth.active_subscription_notification"
+        static let registerToUnlockCrossPlatform = "auth.register_to_unlock_cross_platform"
+        static let registerNow = "auth.register_now"
+        
+        // Subscription Security
+        static let subscriptionAccessRestricted = "auth.subscription_access_restricted"
+        static let subscriptionAssociatedDifferentAccount = "auth.subscription_associated_different_account"
     }
 
     // MARK: - Shared Dictionaries
@@ -938,6 +954,7 @@ enum Loc {
             static let pronoun = "part_of_speech.full.pronoun"
             static let preposition = "part_of_speech.full.preposition"
             static let exclamation = "part_of_speech.full.exclamation"
+            static let interjection = "part_of_speech.full.interjection"
             static let unknown = "part_of_speech.full.unknown"
         }
 
@@ -950,6 +967,7 @@ enum Loc {
             static let pronoun = "part_of_speech.short.pronoun"
             static let preposition = "part_of_speech.short.preposition"
             static let exclamation = "part_of_speech.short.exclamation"
+            static let interjection = "part_of_speech.short.interjection"
             static let unknown = "part_of_speech.short.unknown"
         }
     }

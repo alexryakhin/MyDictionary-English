@@ -450,6 +450,22 @@
 "auth.network_error" = "नेटवर्क त्रुटि। कृपया अपना कनेक्शन जांचें।";
 "auth.account_linking_failed" = "खाता लिंकिंग विफल। कृपया पुनः प्रयास करें।";
 
+// Registration Benefits
+"auth.registration_benefits" = "पंजीकरण के लाभ";
+"auth.access_subscription_all_devices" = "अपनी सभी डिवाइस पर सदस्यता तक पहुंच";
+"auth.sync_progress_cross_platform" = "iOS और Android के बीच अपनी प्रगति सिंक करें";
+"auth.backup_data_securely" = "क्लाउड में अपना डेटा सुरक्षित रूप से बैकअप करें";
+"auth.register_anytime_from_settings" = "आप इन सुविधाओं को सक्षम करने के लिए किसी भी समय सेटिंग्स से पंजीकरण कर सकते हैं";
+"auth.account_registration" = "खाता पंजीकरण";
+"auth.register_for_cross_platform_access" = "अपनी सभी डिवाइस पर सदस्यता तक पहुंच और अपनी प्रगति सिंक करने के लिए पंजीकरण करें";
+"auth.active_subscription_notification" = "आपकी एक सक्रिय सदस्यता है!";
+"auth.register_to_unlock_cross_platform" = "क्रॉस-प्लेटफॉर्म पहुंच अनलॉक करने के लिए पंजीकरण करें";
+"auth.register_now" = "अभी पंजीकरण करें";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "सदस्यता पहुंच प्रतिबंधित";
+"auth.subscription_associated_different_account" = "यह सदस्यता एक अलग खाते से जुड़ी है। कृपया प्रो सुविधाओं तक पहुंचने के लिए उस खाते से साइन इन करें जिसने यह सदस्यता खरीदी थी।";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "शब्दकोश चयनित";
 "shared_dictionaries.name" = "नाम";

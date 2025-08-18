@@ -863,3 +863,19 @@
 "part_of_speech.short.preposition" = "Předl.";
 "part_of_speech.short.exclamation" = "Vykř.";
 "part_of_speech.short.unknown" = "Nezn.";
+
+// Registration Benefits
+"auth.registration_benefits" = "Výhody Registrace";
+"auth.access_subscription_all_devices" = "Přístup k vašemu předplatnému na všech vašich zařízeních";
+"auth.sync_progress_cross_platform" = "Synchronizace vašeho pokroku mezi iOS a Android";
+"auth.backup_data_securely" = "Bezpečné zálohování vašich dat v cloudu";
+"auth.register_anytime_from_settings" = "Můžete se zaregistrovat kdykoliv z Nastavení pro povolení těchto funkcí";
+"auth.account_registration" = "Registrace Účtu";
+"auth.register_for_cross_platform_access" = "Zaregistrujte se pro přístup k vašemu předplatnému na všech vašich zařízeních a synchronizaci pokroku";
+"auth.active_subscription_notification" = "Máte aktivní předplatné!";
+"auth.register_to_unlock_cross_platform" = "Zaregistrujte se pro odemknutí přístupu napříč platformami";
+"auth.register_now" = "Zaregistrovat Se Nyní";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Přístup k Předplatnému Omezen";
+"auth.subscription_associated_different_account" = "Toto předplatné je spojeno s jiným účtem. Přihlaste se prosím s účtem, který zakoupil toto předplatné, pro přístup k Pro funkcím.";

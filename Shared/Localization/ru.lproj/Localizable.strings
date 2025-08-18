@@ -450,6 +450,22 @@
 "auth.network_error" = "Ошибка сети. Проверьте ваше соединение.";
 "auth.account_linking_failed" = "Не удалось связать аккаунт. Попробуйте снова.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Преимущества Регистрации";
+"auth.access_subscription_all_devices" = "Получите доступ к подписке на всех ваших устройствах";
+"auth.sync_progress_cross_platform" = "Синхронизируйте ваш прогресс между iOS и Android";
+"auth.backup_data_securely" = "Безопасно резервируйте ваши данные в облаке";
+"auth.register_anytime_from_settings" = "Вы можете зарегистрироваться в любое время из Настроек для активации этих функций";
+"auth.account_registration" = "Регистрация Аккаунта";
+"auth.register_for_cross_platform_access" = "Зарегистрируйтесь для доступа к подписке на всех ваших устройствах и синхронизации прогресса";
+"auth.active_subscription_notification" = "У вас активная подписка!";
+"auth.register_to_unlock_cross_platform" = "Зарегистрируйтесь для разблокировки кросс-платформенного доступа";
+"auth.register_now" = "Зарегистрироваться Сейчас";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Доступ к Подписке Ограничен";
+"auth.subscription_associated_different_account" = "Эта подписка связана с другим аккаунтом. Пожалуйста, войдите с аккаунтом, который купил эту подписку, для доступа к функциям Pro.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Словарь выбран";
 "shared_dictionaries.name" = "Имя";

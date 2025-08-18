@@ -179,6 +179,11 @@ struct AdvancedPaywallView: View {
 
     private var actionButtonsSection: some View {
         VStack(spacing: 16) {
+            // Registration benefits notice (only show if user is not authenticated)
+            if !AuthenticationService.shared.isSignedIn {
+                registrationBenefitsSection
+            }
+            
             // Subscribe button with gradient
             Button {
                 Task {
@@ -229,6 +234,48 @@ struct AdvancedPaywallView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 20)
+    }
+    
+    // MARK: - Registration Benefits Section
+    
+    private var registrationBenefitsSection: some View {
+        VStack(spacing: 12) {
+            HStack {
+                Image(systemName: "info.circle.fill")
+                    .foregroundStyle(.accent)
+                Text(Loc.Auth.registrationBenefits.localized)
+                    .font(.headline)
+                    .fontWeight(.medium)
+                Spacer()
+            }
+            
+            VStack(alignment: .leading, spacing: 8) {
+                BenefitRow(
+                    icon: "candybarphone",
+                    text: Loc.Auth.accessSubscriptionAllDevices.localized
+                )
+                BenefitRow(
+                    icon: "arrow.trianglehead.2.clockwise.rotate.90",
+                    text: Loc.Auth.syncProgressCrossPlatform.localized
+                )
+                BenefitRow(
+                    icon: "person.3.fill",
+                    text: Loc.Onboarding.shareDictionaries.localized
+                )
+            }
+            
+            Text(Loc.Auth.registerAnytimeFromSettings.localized)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+        }
+        .padding(16)
+        .background(Color.green.opacity(0.1))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(Color.green.opacity(0.3), lineWidth: 1)
+        )
     }
 
     // MARK: - Social Proof Section
@@ -492,6 +539,26 @@ struct SocialProofCard: View {
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .multilineTextAlignment(.center)
+    }
+}
+
+struct BenefitRow: View {
+    let icon: String
+    let text: String
+    
+    var body: some View {
+        HStack(spacing: 8) {
+            Image(systemName: icon)
+                .font(.caption)
+                .foregroundStyle(.accent)
+                .frame(width: 16)
+            
+            Text(text)
+                .font(.caption)
+                .foregroundStyle(.primary)
+            
+            Spacer()
+        }
     }
 }
 

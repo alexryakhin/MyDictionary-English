@@ -13,6 +13,7 @@ import GoogleSignInSwift
 
 struct AuthenticationView: View {
     @StateObject private var authService = AuthenticationService.shared
+    @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dismiss) private var dismiss
     @State private var showingAccountLinking = false
     let shownBeforePaywall: Bool
@@ -51,6 +52,32 @@ struct AuthenticationView: View {
 
             // Sign in buttons
             VStack(spacing: 16) {
+                // Sign In with Apple Button
+                SignInWithAppleButton(
+                    onRequest: { request in
+                        request.requestedScopes = [.fullName, .email]
+                        authService.updateCurrentNonce()
+                        if let currentNonce = authService.currentNonce {
+                            request.nonce = authService.sha256(currentNonce)
+                        }
+                    },
+                    onCompletion: { result in
+                        AnalyticsService.shared.logEvent(.signInWithAppleTapped)
+                        Task {
+                            await handleAppleSignIn(result)
+                        }
+                    }
+                )
+                .if(colorScheme == .dark) { button in
+                    button.signInWithAppleButtonStyle(.white)
+                }
+                .if(colorScheme == .light) { button in
+                    button.signInWithAppleButtonStyle(.black)
+                }
+                .frame(height: 56)
+                .disabled(authService.authenticationState == .loading)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+
                 // Google Sign-In Button
                 Button {
                     AnalyticsService.shared.logEvent(.signInWithGoogleTapped)
@@ -63,27 +90,14 @@ struct AuthenticationView: View {
                     } icon: {
                         Image(.googleLogo).renderingMode(.template)
                     }
+                    .font(.system(.title2, design: .default, weight: .medium))
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
                 .buttonStyle(.borderedProminent)
-                .frame(height: 50)
+                .frame(height: 56)
                 .disabled(authService.authenticationState == .loading)
-
-                // Sign In with Apple Button
-                SignInWithAppleButton(
-                    onRequest: { request in
-                        request.requestedScopes = [.fullName, .email]
-                    },
-                    onCompletion: { result in
-                        AnalyticsService.shared.logEvent(.signInWithAppleTapped)
-                        Task {
-                            await handleAppleSignIn(result)
-                        }
-                    }
-                )
-                .signInWithAppleButtonStyle(.black)
-                .frame(height: 50)
-                .disabled(authService.authenticationState == .loading)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .shadow(radius: 2)
 
                 // Account Linking (if already signed in)
                 if authService.isSignedIn {
@@ -94,8 +108,8 @@ struct AuthenticationView: View {
                     Button(Loc.Actions.skipForNow.localized) {
                         dismiss()
                     }
-                    .font(.body)
                     .foregroundStyle(.secondary)
+                    .padding(.vertical, 12)
                 }
             }
             .padding(.horizontal, 32)
@@ -228,12 +242,30 @@ struct AuthenticationView: View {
     private func handleAppleSignIn(_ result: Result<ASAuthorization, Error>) async {
         switch result {
         case .success(let authorization):
-            if authorization.credential is ASAuthorizationAppleIDCredential {
+            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
+               let appleIDToken = appleIDCredential.identityToken,
+               let idTokenString = String(data: appleIDToken, encoding: .utf8),
+               let nonce = authService.currentNonce {
+                
                 do {
-                    try await authService.signInWithApple()
+                    // Create credential with nonce for security
+                    let credential = OAuthProvider.credential(
+                        providerID: .apple,
+                        idToken: idTokenString,
+                        rawNonce: nonce
+                    )
+
+                    let authResult = try await Auth.auth().signIn(with: credential)
+
+                    await MainActor.run {
+                        authService.currentUser = authResult.user
+                        authService.authenticationState = .signedIn
+                    }
                 } catch {
                     errorReceived(error)
                 }
+            } else {
+                errorReceived(AuthenticationError.appleSignInInvalidCredential)
             }
         case .failure(let error):
             errorReceived(error)

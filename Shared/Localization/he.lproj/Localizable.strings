@@ -450,6 +450,22 @@
 "auth.network_error" = "שגיאת רשת. בדוק את החיבור שלך.";
 "auth.account_linking_failed" = "קישור החשבון נכשל. אנא נסה שוב.";
 
+// Registration Benefits
+"auth.registration_benefits" = "יתרונות ההרשמה";
+"auth.access_subscription_all_devices" = "גישה למנוי שלך בכל המכשירים שלך";
+"auth.sync_progress_cross_platform" = "סנכרון ההתקדמות שלך בין iOS ו-Android";
+"auth.backup_data_securely" = "גיבוי מאובטח של הנתונים שלך בענן";
+"auth.register_anytime_from_settings" = "אתה יכול להירשם בכל עת מההגדרות כדי להפעיל תכונות אלה";
+"auth.account_registration" = "הרשמת חשבון";
+"auth.register_for_cross_platform_access" = "הירשם כדי לגשת למנוי שלך בכל המכשירים שלך ולסנכרן את ההתקדמות שלך";
+"auth.active_subscription_notification" = "יש לך מנוי פעיל!";
+"auth.register_to_unlock_cross_platform" = "הירשם כדי לפתוח גישה חוצת פלטפורמות";
+"auth.register_now" = "הירשם עכשיו";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "גישה למנוי מוגבלת";
+"auth.subscription_associated_different_account" = "מנוי זה מקושר לחשבון אחר. אנא התחבר עם החשבון שרכש מנוי זה כדי לגשת לתכונות Pro.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "מילון נבחר";
 "shared_dictionaries.name" = "שם";

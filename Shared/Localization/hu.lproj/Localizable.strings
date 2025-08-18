@@ -450,6 +450,22 @@
 "auth.network_error" = "Hálózati hiba. Ellenőrizd a kapcsolatodat.";
 "auth.account_linking_failed" = "A fiók összekapcsolása sikertelen. Kérlek, próbáld újra.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Regisztráció Előnyei";
+"auth.access_subscription_all_devices" = "Férj hozzá előfizetésedhez minden eszközödön";
+"auth.sync_progress_cross_platform" = "Szinkronizáld a haladásodat iOS és Android között";
+"auth.backup_data_securely" = "Biztonságosan mentse el adatait a felhőben";
+"auth.register_anytime_from_settings" = "Bármikor regisztrálhatsz a Beállításokból ezeknek a funkcióknak az engedélyezéséhez";
+"auth.account_registration" = "Fiók Regisztráció";
+"auth.register_for_cross_platform_access" = "Regisztrálj az előfizetésedhez való hozzáféréshez minden eszközödön és a haladásod szinkronizálásához";
+"auth.active_subscription_notification" = "Van aktív előfizetésed!";
+"auth.register_to_unlock_cross_platform" = "Regisztrálj a platformok közötti hozzáférés feloldásához";
+"auth.register_now" = "Regisztrálj Most";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Előfizetés Hozzáférés Korlátozott";
+"auth.subscription_associated_different_account" = "Ez az előfizetés egy másik fiókhoz kapcsolódik. Kérlek, jelentkezz be azzal a fiókkal, amely megvásárolta ezt az előfizetést a Pro funkciók eléréséhez.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Szótár kiválasztva";
 "shared_dictionaries.name" = "Név";

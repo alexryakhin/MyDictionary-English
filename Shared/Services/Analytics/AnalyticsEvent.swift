@@ -134,6 +134,13 @@ enum AnalyticsEvent: String {
     case subscriptionCancelled
     case subscriptionError
     case paywallPresented
+    case subscriptionOwnershipMismatch
+    
+    // API Selection Events
+    case wordnikAPISelected
+    case dictionaryAPISelected
+    case wordnikAPIFailed
+    case dictionaryAPIFailed
     
     // Collaborative Features Events
     case sharedWordLiked

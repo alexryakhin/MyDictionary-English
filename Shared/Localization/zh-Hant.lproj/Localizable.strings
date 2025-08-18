@@ -450,6 +450,22 @@
 "auth.network_error" = "網絡錯誤。請檢查你的連接。";
 "auth.account_linking_failed" = "帳戶關聯失敗。請重試。";
 
+// Registration Benefits
+"auth.registration_benefits" = "註冊優勢";
+"auth.access_subscription_all_devices" = "在所有設備上訪問你的訂閱";
+"auth.sync_progress_cross_platform" = "在iOS和Android之間同步你的進度";
+"auth.backup_data_securely" = "在雲端安全備份你的數據";
+"auth.register_anytime_from_settings" = "你可以隨時從設置中註冊以啟用這些功能";
+"auth.account_registration" = "帳戶註冊";
+"auth.register_for_cross_platform_access" = "註冊以在所有設備上訪問你的訂閱並同步你的進度";
+"auth.active_subscription_notification" = "你有一個活躍的訂閱！";
+"auth.register_to_unlock_cross_platform" = "註冊以解鎖跨平台訪問";
+"auth.register_now" = "立即註冊";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "訂閱訪問受限";
+"auth.subscription_associated_different_account" = "此訂閱與不同帳戶關聯。請使用購買此訂閱的帳戶登錄以訪問專業功能。";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "已選擇詞典";
 "shared_dictionaries.name" = "名稱";

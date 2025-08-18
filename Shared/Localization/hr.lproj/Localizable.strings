@@ -450,6 +450,22 @@
 "auth.network_error" = "Pogreška mreže. Provjerite svoju vezu.";
 "auth.account_linking_failed" = "Povezivanje računa nije uspjelo. Pokušajte ponovno.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Prednosti Registracije";
+"auth.access_subscription_all_devices" = "Pristupite svojoj pretplati na svim svojim uređajima";
+"auth.sync_progress_cross_platform" = "Sinkronizirajte svoj napredak između iOS-a i Android-a";
+"auth.backup_data_securely" = "Sigurno sigurnosno kopiranje vaših podataka u oblaku";
+"auth.register_anytime_from_settings" = "Možete se registrirati u bilo kojem trenutku iz Postavki za omogućavanje ovih značajki";
+"auth.account_registration" = "Registracija Računa";
+"auth.register_for_cross_platform_access" = "Registrirajte se za pristup svojoj pretplati na svim svojim uređajima i sinkronizaciju napretka";
+"auth.active_subscription_notification" = "Imate aktivnu pretplatu!";
+"auth.register_to_unlock_cross_platform" = "Registrirajte se za otključavanje pristupa kroz platforme";
+"auth.register_now" = "Registrirajte Se Sada";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Pristup Pretplati Ograničen";
+"auth.subscription_associated_different_account" = "Ova pretplata je povezana s drugim računom. Molimo prijavite se s računom koji je kupio ovu pretplatu za pristup Pro značajkama.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Rječnik odabran";
 "shared_dictionaries.name" = "Ime";

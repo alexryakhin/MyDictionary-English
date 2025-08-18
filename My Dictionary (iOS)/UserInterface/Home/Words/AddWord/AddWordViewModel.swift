@@ -32,7 +32,7 @@ final class AddWordViewModel: BaseViewModel {
     @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .auto
     private var detectedLanguageCode: String?
 
-    private let wordnikAPIService: WordnikAPIService = .shared
+    private let unifiedAPIService: UnifiedAPIService = .shared
     private let addWordManager: AddWordManager = .shared
     private let ttsPlayer: TTSPlayer = .shared
     private let tagService: TagService = .shared
@@ -125,8 +125,8 @@ final class AddWordViewModel: BaseViewModel {
 
                 AnalyticsService.shared.logEvent(.wordFetchedData)
 
-                // Fetch definitions from Wordnik
-                async let definitions = try wordnikAPIService.getDefinitions(
+                // Fetch definitions from unified API (randomly chooses between Wordnik and DictionaryAPI.dev)
+                async let definitions = try unifiedAPIService.getDefinitions(
                     for: wordToSearch.lowercased(),
                     params: .init()
                 )
@@ -134,7 +134,7 @@ final class AddWordViewModel: BaseViewModel {
                 // Conditionally fetch pronunciation based on detected language
                 let pronunciation: String?
                 if shouldRequestPronunciation {
-                    pronunciation = try await wordnikAPIService.getPronunciation(
+                    pronunciation = try await unifiedAPIService.getPronunciation(
                         for: wordToSearch.lowercased(),
                         params: .init()
                     )

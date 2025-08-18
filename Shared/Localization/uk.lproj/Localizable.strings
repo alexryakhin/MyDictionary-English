@@ -450,6 +450,22 @@
 "auth.network_error" = "Помилка мережі. Перевірте ваше з'єднання";
 "auth.account_linking_failed" = "Не вдалося підключити обліковий запис. Спробуйте ще раз";
 
+// Registration Benefits
+"auth.registration_benefits" = "Переваги Реєстрації";
+"auth.access_subscription_all_devices" = "Отримайте доступ до підписки на всіх ваших пристроях";
+"auth.sync_progress_cross_platform" = "Синхронізуйте ваш прогрес між iOS та Android";
+"auth.backup_data_securely" = "Безпечно резервуйте ваші дані в хмарі";
+"auth.register_anytime_from_settings" = "Ви можете зареєструватися в будь-який час з Налаштувань для активації цих функцій";
+"auth.account_registration" = "Реєстрація Облікового Запису";
+"auth.register_for_cross_platform_access" = "Зареєструйтеся для доступу до підписки на всіх ваших пристроях та синхронізації прогресу";
+"auth.active_subscription_notification" = "У вас активна підписка!";
+"auth.register_to_unlock_cross_platform" = "Зареєструйтеся для розблокування крос-платформеного доступу";
+"auth.register_now" = "Зареєструватися Зараз";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Доступ до Підписки Обмежений";
+"auth.subscription_associated_different_account" = "Ця підписка пов'язана з іншим обліковим записом. Будь ласка, увійдіть з обліковим записом, який купив цю підписку, для доступу до функцій Pro.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Словник вибрано";
 "shared_dictionaries.name" = "Назва";

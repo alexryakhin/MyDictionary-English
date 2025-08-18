@@ -14,6 +14,7 @@ import GoogleSignIn
 import AuthenticationServices
 import Combine
 import SwiftUI
+import CryptoKit
 import UserNotifications
 #if os(iOS)
 import UIKit
@@ -33,6 +34,9 @@ enum AuthenticationError: Error, LocalizedError {
     case userNotFound
     case networkError
     case accountLinkingFailed
+    case appleSignInCancelled
+    case appleSignInInvalidCredential
+    case appleSignInNotAuthorized
 
     var errorDescription: String? {
         switch self {
@@ -46,6 +50,12 @@ enum AuthenticationError: Error, LocalizedError {
             return Loc.Auth.networkError.localized
         case .accountLinkingFailed:
             return Loc.Auth.accountLinkingFailed.localized
+        case .appleSignInCancelled:
+            return "Apple Sign In was cancelled"
+        case .appleSignInInvalidCredential:
+            return "Invalid Apple Sign In credential"
+        case .appleSignInNotAuthorized:
+            return "Apple Sign In not authorized"
         }
     }
 }
@@ -58,6 +68,8 @@ final class AuthenticationService: ObservableObject {
     @Published var currentUser: User?
     @Published var isUploadingWords: Bool = false
     @Published var showingSignOutView: Bool = false
+    
+    private(set) var currentNonce: String?
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -91,6 +103,18 @@ final class AuthenticationService: ObservableObject {
 
                 // Set up RevenueCat App User ID for cross-platform subscription sharing
                 await SubscriptionService.shared.setupAppUserID()
+                
+                // Verify subscription ownership to prevent subscription sharing
+                let ownershipVerified = await SubscriptionService.shared.verifySubscriptionOwnership()
+                if !ownershipVerified {
+                    // If ownership verification failed, sign out the user
+                    print("🚨 [AuthenticationService] Subscription ownership verification failed - signing out user")
+                    await signOut()
+                    return
+                }
+                
+                // If user had an anonymous subscription, sync it to their account
+                await syncAnonymousSubscriptionIfNeeded()
             } else {
                 currentUser = nil
                 authenticationState = .signedOut
@@ -166,8 +190,10 @@ final class AuthenticationService: ObservableObject {
         }
 
         do {
+            let nonce = randomNonceString()
             let request = ASAuthorizationAppleIDProvider().createRequest()
             request.requestedScopes = [.fullName, .email]
+            request.nonce = sha256(nonce)
 
             let result = try await withCheckedThrowingContinuation { continuation in
                 let controller = ASAuthorizationController(authorizationRequests: [request])
@@ -188,11 +214,11 @@ final class AuthenticationService: ObservableObject {
                 throw AuthenticationError.signInFailed
             }
 
-            // Create credential without nonce for simplicity
+            // Create credential with nonce for security
             let credential = OAuthProvider.credential(
                 providerID: .apple,
                 idToken: idTokenString,
-                accessToken: nil
+                rawNonce: nonce
             )
 
             let authResult = try await Auth.auth().signIn(with: credential)
@@ -268,8 +294,10 @@ final class AuthenticationService: ObservableObject {
         }
 
         do {
+            let nonce = randomNonceString()
             let request = ASAuthorizationAppleIDProvider().createRequest()
             request.requestedScopes = [.fullName, .email]
+            request.nonce = sha256(nonce)
 
             let result = try await withCheckedThrowingContinuation { continuation in
                 let controller = ASAuthorizationController(authorizationRequests: [request])
@@ -292,7 +320,7 @@ final class AuthenticationService: ObservableObject {
             let credential = OAuthProvider.credential(
                 providerID: .apple,
                 idToken: idTokenString,
-                accessToken: nil
+                rawNonce: nonce
             )
 
             try await currentUser.link(with: credential)
@@ -309,33 +337,38 @@ final class AuthenticationService: ObservableObject {
     // Sign out from Firebase and Google
     func signOut() {
         Task { @MainActor in
-            authenticationState = .loading
+            await performSignOut()
+        }
+    }
+    
+    // Async sign out method for internal use
+    private func performSignOut() async {
+        authenticationState = .loading
 
-            do {
-                // Log out from RevenueCat first to prevent subscription sharing
-                await SubscriptionService.shared.logoutFromRevenueCat()
+        do {
+            // Log out from RevenueCat first to prevent subscription sharing
+            await SubscriptionService.shared.logoutFromRevenueCat()
 
-                try Auth.auth().signOut()
-                GIDSignIn.sharedInstance.signOut()
+            try Auth.auth().signOut()
+            GIDSignIn.sharedInstance.signOut()
 
-                DictionaryService.shared.stopListening()
-                currentUser = nil
-                authenticationState = .signedOut
-                toggleSignOutView()
+            DictionaryService.shared.stopListening()
+            currentUser = nil
+            authenticationState = .signedOut
+            toggleSignOutView()
 
-                #if os(macOS)
-                SideBarManager.shared.selectedTab = .words
-                #endif
+            #if os(macOS)
+            SideBarManager.shared.selectedTab = .words
+            #endif
 
-                // Log analytics event
-                AnalyticsService.shared.logEvent(.signOutTapped)
-            } catch {
-                authenticationState = .signedIn
-                AlertCenter.shared.showAlert(with: .info(
-                                title: Loc.Auth.signOutErrorTitle.localized,
+            // Log analytics event
+            AnalyticsService.shared.logEvent(.signOutTapped)
+        } catch {
+            authenticationState = .signedIn
+            AlertCenter.shared.showAlert(with: .info(
+                            title: Loc.Auth.signOutErrorTitle.localized,
             message: Loc.Auth.signOutErrorMessage.localized)
-                )
-            }
+            )
         }
     }
 
@@ -433,6 +466,62 @@ final class AuthenticationService: ObservableObject {
         return Loc.App.unknown.localized
         #endif
     }
+    
+    // MARK: - Nonce Generation for Apple Sign In
+    
+    func randomNonceString(length: Int = 32) -> String {
+        precondition(length > 0)
+        let charset: [Character] =
+        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+
+        while remainingLength > 0 {
+            let randoms: [UInt8] = (0 ..< 16).map { _ in
+                var random: UInt8 = 0
+                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                if errorCode != errSecSuccess {
+                    fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+                }
+                return random
+            }
+
+            randoms.forEach { random in
+                if remainingLength == 0 {
+                    return
+                }
+
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
+        }
+
+        return result
+    }
+
+    func sha256(_ input: String) -> String {
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        let hashString = hashedData.compactMap {
+            String(format: "%02x", $0)
+        }.joined()
+
+        return hashString
+    }
+
+    // Updates current nonce with a random value
+    func updateCurrentNonce() {
+        currentNonce = randomNonceString()
+    }
+
+    // MARK: - Anonymous Subscription Sync
+
+    private func syncAnonymousSubscriptionIfNeeded() async {
+        // Sync anonymous subscription to user account if they had one
+        await SubscriptionService.shared.syncAnonymousSubscriptionToAccount()
+    }
 }
 
 // MARK: - Apple Sign-In Delegate
@@ -466,6 +555,23 @@ final class AppleSignInDelegate: NSObject, ASAuthorizationControllerDelegate, AS
     }
 
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        completion(.failure(error))
+        if let authError = error as? ASAuthorizationError {
+            switch authError.code {
+            case .canceled:
+                completion(.failure(AuthenticationError.appleSignInCancelled))
+            case .invalidResponse:
+                completion(.failure(AuthenticationError.appleSignInInvalidCredential))
+            case .notHandled:
+                completion(.failure(AuthenticationError.appleSignInNotAuthorized))
+            case .failed:
+                completion(.failure(AuthenticationError.signInFailed))
+            case .unknown:
+                completion(.failure(AuthenticationError.signInFailed))
+            @unknown default:
+                completion(.failure(AuthenticationError.signInFailed))
+            }
+        } else {
+            completion(.failure(error))
+        }
     }
 }

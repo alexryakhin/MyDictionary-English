@@ -16,6 +16,7 @@ enum PartOfSpeech: String, CaseIterable {
     case pronoun
     case preposition
     case exclamation
+    case interjection
     case unknown // Handles unexpected values
 
     init(rawValue: String?) {
@@ -28,6 +29,7 @@ enum PartOfSpeech: String, CaseIterable {
         case "pronoun": self = .pronoun
         case "preposition": self = .preposition
         case "exclamation": self = .exclamation
+        case "interjection": self = .interjection
         default: self = .unknown
         }
     }
@@ -42,6 +44,7 @@ enum PartOfSpeech: String, CaseIterable {
         case .pronoun: return Loc.PartOfSpeech.Full.pronoun.localized
         case .preposition: return Loc.PartOfSpeech.Full.preposition.localized
         case .exclamation: return Loc.PartOfSpeech.Full.exclamation.localized
+        case .interjection: return Loc.PartOfSpeech.Full.interjection.localized
         case .unknown: return Loc.PartOfSpeech.Full.unknown.localized
         }
     }
@@ -56,6 +59,7 @@ enum PartOfSpeech: String, CaseIterable {
         case .pronoun: return Loc.PartOfSpeech.Short.pronoun.localized
         case .preposition: return Loc.PartOfSpeech.Short.preposition.localized
         case .exclamation: return Loc.PartOfSpeech.Short.exclamation.localized
+        case .interjection: return Loc.PartOfSpeech.Short.interjection.localized
         case .unknown: return Loc.PartOfSpeech.Short.unknown.localized
         }
     }

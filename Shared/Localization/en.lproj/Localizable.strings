@@ -450,6 +450,22 @@
 "auth.network_error" = "Network error. Please check your connection.";
 "auth.account_linking_failed" = "Failed to link accounts. Please try again.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Registration Benefits";
+"auth.access_subscription_all_devices" = "Access your subscription on all your devices";
+"auth.sync_progress_cross_platform" = "Sync your progress across iOS and Android";
+"auth.backup_data_securely" = "Backup your data securely in the cloud";
+"auth.register_anytime_from_settings" = "You can register anytime from Settings to enable these features";
+"auth.account_registration" = "Account Registration";
+"auth.register_for_cross_platform_access" = "Register to access your subscription across all your devices and sync your progress";
+"auth.active_subscription_notification" = "You have an active subscription!";
+"auth.register_to_unlock_cross_platform" = "Register to unlock cross-platform access";
+"auth.register_now" = "Register Now";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Subscription Access Restricted";
+"auth.subscription_associated_different_account" = "This subscription is associated with a different account. Please sign in with the account that purchased this subscription to access Pro features.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Dictionary Selected";
 "shared_dictionaries.name" = "Name";
@@ -855,6 +871,7 @@
 "part_of_speech.full.pronoun" = "Pronoun";
 "part_of_speech.full.preposition" = "Preposition";
 "part_of_speech.full.exclamation" = "Exclamation";
+"part_of_speech.full.interjection" = "Interjection";
 "part_of_speech.full.unknown" = "Unknown";
 
 "part_of_speech.short.noun" = "Noun";
@@ -865,4 +882,5 @@
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Prep.";
 "part_of_speech.short.exclamation" = "Excl.";
+"part_of_speech.short.interjection" = "Interj.";
 "part_of_speech.short.unknown" = "Unkn.";

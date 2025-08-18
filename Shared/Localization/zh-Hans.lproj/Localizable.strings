@@ -450,6 +450,22 @@
 "auth.network_error" = "网络错误。请检查你的连接。";
 "auth.account_linking_failed" = "账户关联失败。请重试。";
 
+// Registration Benefits
+"auth.registration_benefits" = "注册优势";
+"auth.access_subscription_all_devices" = "在所有设备上访问你的订阅";
+"auth.sync_progress_cross_platform" = "在iOS和Android之间同步你的进度";
+"auth.backup_data_securely" = "在云端安全备份你的数据";
+"auth.register_anytime_from_settings" = "你可以随时从设置中注册以启用这些功能";
+"auth.account_registration" = "账户注册";
+"auth.register_for_cross_platform_access" = "注册以在所有设备上访问你的订阅并同步你的进度";
+"auth.active_subscription_notification" = "你有一个活跃的订阅！";
+"auth.register_to_unlock_cross_platform" = "注册以解锁跨平台访问";
+"auth.register_now" = "立即注册";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "订阅访问受限";
+"auth.subscription_associated_different_account" = "此订阅与不同账户关联。请使用购买此订阅的账户登录以访问专业功能。";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "已选择词典";
 "shared_dictionaries.name" = "名称";

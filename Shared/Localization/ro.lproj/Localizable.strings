@@ -450,6 +450,22 @@
 "auth.network_error" = "Eroare de rețea. Verifică-ți conexiunea.";
 "auth.account_linking_failed" = "Conectarea contului a eșuat. Încearcă din nou.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Beneficiile Înregistrării";
+"auth.access_subscription_all_devices" = "Accesează-ți abonamentul pe toate dispozitivele";
+"auth.sync_progress_cross_platform" = "Sincronizează-ți progresul între iOS și Android";
+"auth.backup_data_securely" = "Fă backup securizat al datelor tale în cloud";
+"auth.register_anytime_from_settings" = "Te poți înregistra oricând din Setări pentru a activa aceste funcționalități";
+"auth.account_registration" = "Înregistrare Cont";
+"auth.register_for_cross_platform_access" = "Înregistrează-te pentru a accesa abonamentul pe toate dispozitivele și sincronizează-ți progresul";
+"auth.active_subscription_notification" = "Ai un abonament activ!";
+"auth.register_to_unlock_cross_platform" = "Înregistrează-te pentru a debloca accesul cross-platform";
+"auth.register_now" = "Înregistrează-te Acum";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Accesul la Abonament Restricționat";
+"auth.subscription_associated_different_account" = "Acest abonament este asociat cu un cont diferit. Te rog să te conectezi cu contul care a cumpărat acest abonament pentru a accesa funcționalitățile Pro.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Dicționar Selectat";
 "shared_dictionaries.name" = "Nume";

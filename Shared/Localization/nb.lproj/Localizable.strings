@@ -450,6 +450,22 @@
 "auth.network_error" = "Nettverksfeil. Sjekk tilkoblingen din.";
 "auth.account_linking_failed" = "Kobling av konto mislyktes. Prøv igjen.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Registreringsfordeler";
+"auth.access_subscription_all_devices" = "Få tilgang til abonnementet ditt på alle enhetene dine";
+"auth.sync_progress_cross_platform" = "Synkroniser fremgangen din mellom iOS og Android";
+"auth.backup_data_securely" = "Sikker backup av dataene dine i skyen";
+"auth.register_anytime_from_settings" = "Du kan registrere deg når som helst fra Innstillinger for å aktivere disse funksjonene";
+"auth.account_registration" = "Kontoregistrering";
+"auth.register_for_cross_platform_access" = "Registrer deg for å få tilgang til abonnementet ditt på alle enhetene dine og synkronisere fremgangen din";
+"auth.active_subscription_notification" = "Du har et aktivt abonnement!";
+"auth.register_to_unlock_cross_platform" = "Registrer deg for å låse opp tvers av plattformer-tilgang";
+"auth.register_now" = "Registrer Deg Nå";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Abonnementstilgang Begrenset";
+"auth.subscription_associated_different_account" = "Dette abonnementet er knyttet til en annen konto. Vennligst logg inn med kontoen som kjøpte dette abonnementet for å få tilgang til Pro-funksjoner.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Ordbok valgt";
 "shared_dictionaries.name" = "Navn";

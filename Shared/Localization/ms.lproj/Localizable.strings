@@ -450,6 +450,22 @@
 "auth.network_error" = "Ralat rangkaian. Semak sambungan anda.";
 "auth.account_linking_failed" = "Link akaun gagal. Cuba lagi.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Manfaat Pendaftaran";
+"auth.access_subscription_all_devices" = "Akses langganan anda di semua peranti";
+"auth.sync_progress_cross_platform" = "Segerakkan kemajuan anda antara iOS dan Android";
+"auth.backup_data_securely" = "Sandarkan data anda dengan selamat di awan";
+"auth.register_anytime_from_settings" = "Anda boleh mendaftar pada bila-bila masa dari Tetapan untuk mengaktifkan ciri-ciri ini";
+"auth.account_registration" = "Pendaftaran Akaun";
+"auth.register_for_cross_platform_access" = "Daftar untuk mengakses langganan anda di semua peranti dan segerakkan kemajuan anda";
+"auth.active_subscription_notification" = "Anda mempunyai langganan aktif!";
+"auth.register_to_unlock_cross_platform" = "Daftar untuk membuka akses merentas platform";
+"auth.register_now" = "Daftar Sekarang";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Akses Langganan Dihadkan";
+"auth.subscription_associated_different_account" = "Langganan ini dikaitkan dengan akaun yang berbeza. Sila log masuk dengan akaun yang membeli langganan ini untuk mengakses ciri Pro.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Kamus Dipilih";
 "shared_dictionaries.name" = "Nama";

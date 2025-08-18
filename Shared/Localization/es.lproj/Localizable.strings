@@ -450,6 +450,22 @@
 "auth.network_error" = "Error de red. Verifica tu conexión.";
 "auth.account_linking_failed" = "No se pudo vincular la cuenta. Intenta de nuevo.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Beneficios de Registro";
+"auth.access_subscription_all_devices" = "Accede a tu suscripción en todos tus dispositivos";
+"auth.sync_progress_cross_platform" = "Sincroniza tu progreso entre iOS y Android";
+"auth.backup_data_securely" = "Respalda tus datos de forma segura en la nube";
+"auth.register_anytime_from_settings" = "Puedes registrarte en cualquier momento desde Configuración para habilitar estas funciones";
+"auth.account_registration" = "Registro de Cuenta";
+"auth.register_for_cross_platform_access" = "Regístrate para acceder a tu suscripción en todos tus dispositivos y sincronizar tu progreso";
+"auth.active_subscription_notification" = "¡Tienes una suscripción activa!";
+"auth.register_to_unlock_cross_platform" = "Regístrate para desbloquear acceso multiplataforma";
+"auth.register_now" = "Registrarse Ahora";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Acceso a Suscripción Restringido";
+"auth.subscription_associated_different_account" = "Esta suscripción está asociada con una cuenta diferente. Por favor, inicia sesión con la cuenta que compró esta suscripción para acceder a las funciones Pro.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Diccionario seleccionado";
 "shared_dictionaries.name" = "Nombre";

@@ -402,7 +402,7 @@
 "settings.difficult_words_description" = "Rep un recordatori a les 16:00 per practicar paraules difícils";
 "settings.free_users_export_limit" = "Els usuaris gratuïts poden exportar fins a %d paraules";
 "settings.app_version" = "Versió de l'aplicació:";
-"settings.about_app_description" = "Vaig crear aquesta aplicació perquè no vaig trobar el que volia.\n\nÉs un gestor de llistes de paraules senzill que et permet cercar paraules i afegir-ne les definicions sense traduir-les a la llengua nativa.\n\nTrobo que aquesta és la millor manera d'aprendre anglès. Espero que també et funcioni.\n\nSi tens cap pregunta o vols suggerir una funció, contacta'm als enllaços següents. Gràcies per utilitzar la meva aplicació!";
+"settings.about_app_description" = "Vaig crear aquesta aplicació perquè no vaig trobar el que volia.\n\nÉs un gestor de llistes de paraules senzill que et permet cercar paraules i afegir-ne les definicions sense traduir-les a la llengua nativa.\n\nTrobo que aquesta és la millor manera d'aprendre anglès. Espero que també et funcioni.\n\nSi tens cap pregunta o vols proposar una funció, contacta'm als enllaços següents. Gràcies per utilitzar la meva aplicació!";
 "settings.contact_support" = "Tens preguntes, suggeriments o comentaris? M'encantaria tenir notícies teves. Contacta amb el suport a Instagram o Twitter!";
 "settings.sign_out" = "Tanca la sessió";
 "settings.upload_backup_to_google" = "Puja una còpia de seguretat a Google";
@@ -449,6 +449,22 @@
 "auth.user_not_found" = "Usuari no trobat.";
 "auth.network_error" = "Error de xarxa. Comprova la teva connexió.";
 "auth.account_linking_failed" = "No s'han pogut enllaçar els comptes. Torna-ho a provar.";
+
+// Registration Benefits
+"auth.registration_benefits" = "Avantatges del Registre";
+"auth.access_subscription_all_devices" = "Accedeix a la teva subscripció a tots els teus dispositius";
+"auth.sync_progress_cross_platform" = "Sincronitza el teu progrés entre iOS i Android";
+"auth.backup_data_securely" = "Fes còpia de seguretat de les teves dades de forma segura al núvol";
+"auth.register_anytime_from_settings" = "Pots registrar-te en qualsevol moment des de Configuració per activar aquestes funcions";
+"auth.account_registration" = "Registre de Compte";
+"auth.register_for_cross_platform_access" = "Registra't per accedir a la teva subscripció a tots els teus dispositius i sincronitzar el teu progrés";
+"auth.active_subscription_notification" = "Tens una subscripció activa!";
+"auth.register_to_unlock_cross_platform" = "Registra't per desbloquejar l'accés multiplataforma";
+"auth.register_now" = "Registra't Ara";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Accés a la Subscripció Restringit";
+"auth.subscription_associated_different_account" = "Aquesta subscripció està associada a un compte diferent. Si us plau, inicia sessió amb el compte que ha comprat aquesta subscripció per accedir a les funcions Pro.";
 
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Diccionari seleccionat";

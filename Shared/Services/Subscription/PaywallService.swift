@@ -240,11 +240,7 @@ struct MyPaywallView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        if authenticationService.isSignedIn {
-            AdvancedPaywallView()
-        } else {
-            AuthenticationView(shownBeforePaywall: true)
-        }
+        AdvancedPaywallView()
     }
 }
 

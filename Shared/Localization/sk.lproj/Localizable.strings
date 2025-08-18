@@ -450,6 +450,22 @@
 "auth.network_error" = "Chyba siete. Skontrolujte svoje pripojenie.";
 "auth.account_linking_failed" = "Prepojenie účtu zlyhalo. Skúste znova.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Výhody Registrácie";
+"auth.access_subscription_all_devices" = "Získajte prístup k predplatnému na všetkých vašich zariadeniach";
+"auth.sync_progress_cross_platform" = "Synchronizujte svoj pokrok medzi iOS a Android";
+"auth.backup_data_securely" = "Bezpečne zálohujte svoje dáta v cloude";
+"auth.register_anytime_from_settings" = "Môžete sa zaregistrovať kedykoľvek z Nastavení na aktiváciu týchto funkcií";
+"auth.account_registration" = "Registrácia Účtu";
+"auth.register_for_cross_platform_access" = "Zaregistrujte sa na prístup k predplatnému na všetkých vašich zariadeniach a synchronizáciu pokroku";
+"auth.active_subscription_notification" = "Máte aktívne predplatné!";
+"auth.register_to_unlock_cross_platform" = "Zaregistrujte sa na odomknutie prístupu naprieč platformami";
+"auth.register_now" = "Zaregistrovať Sa Teraz";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Prístup k Predplatnému Obmedzený";
+"auth.subscription_associated_different_account" = "Toto predplatné je prepojené s iným účtom. Prihláste sa s účtom, ktorý kúpil toto predplatné, na prístup k Pro funkciám.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Slovník vybraný";
 "shared_dictionaries.name" = "Názov";

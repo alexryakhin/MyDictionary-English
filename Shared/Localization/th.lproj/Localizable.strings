@@ -450,6 +450,22 @@
 "auth.network_error" = "ข้อผิดพลาดเครือข่าย ตรวจสอบการเชื่อมต่อของคุณ";
 "auth.account_linking_failed" = "การเชื่อมต่อบัญชีล้มเหลว ลองใหม่";
 
+// Registration Benefits
+"auth.registration_benefits" = "ประโยชน์ของการลงทะเบียน";
+"auth.access_subscription_all_devices" = "เข้าถึงการสมัครสมาชิกของคุณในอุปกรณ์ทั้งหมด";
+"auth.sync_progress_cross_platform" = "ซิงค์ความคืบหน้าของคุณระหว่าง iOS และ Android";
+"auth.backup_data_securely" = "สำรองข้อมูลของคุณอย่างปลอดภัยในคลาวด์";
+"auth.register_anytime_from_settings" = "คุณสามารถลงทะเบียนได้ทุกเมื่อจากการตั้งค่าเพื่อเปิดใช้งานฟีเจอร์เหล่านี้";
+"auth.account_registration" = "การลงทะเบียนบัญชี";
+"auth.register_for_cross_platform_access" = "ลงทะเบียนเพื่อเข้าถึงการสมัครสมาชิกของคุณในอุปกรณ์ทั้งหมดและซิงค์ความคืบหน้าของคุณ";
+"auth.active_subscription_notification" = "คุณมีการสมัครสมาชิกที่ใช้งานอยู่!";
+"auth.register_to_unlock_cross_platform" = "ลงทะเบียนเพื่อปลดล็อกการเข้าถึงข้ามแพลตฟอร์ม";
+"auth.register_now" = "ลงทะเบียนตอนนี้";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "การเข้าถึงการสมัครสมาชิกถูกจำกัด";
+"auth.subscription_associated_different_account" = "การสมัครสมาชิกนี้เชื่อมโยงกับบัญชีอื่น กรุณาลงชื่อเข้าใช้ด้วยบัญชีที่ซื้อการสมัครสมาชิกนี้เพื่อเข้าถึงฟีเจอร์ Pro";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "เลือกพจนานุกรมแล้ว";
 "shared_dictionaries.name" = "ชื่อ";

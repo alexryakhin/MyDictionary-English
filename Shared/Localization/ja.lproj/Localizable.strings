@@ -450,6 +450,22 @@
 "auth.network_error" = "ネットワークエラー。接続を確認してください。";
 "auth.account_linking_failed" = "アカウントのリンクに失敗しました。もう一度お試しください。";
 
+// Registration Benefits
+"auth.registration_benefits" = "登録のメリット";
+"auth.access_subscription_all_devices" = "すべてのデバイスでサブスクリプションにアクセス";
+"auth.sync_progress_cross_platform" = "iOSとAndroid間で進捗を同期";
+"auth.backup_data_securely" = "データをクラウドで安全にバックアップ";
+"auth.register_anytime_from_settings" = "設定からいつでも登録してこれらの機能を有効にできます";
+"auth.account_registration" = "アカウント登録";
+"auth.register_for_cross_platform_access" = "すべてのデバイスでサブスクリプションにアクセスし、進捗を同期するために登録してください";
+"auth.active_subscription_notification" = "アクティブなサブスクリプションがあります！";
+"auth.register_to_unlock_cross_platform" = "クロスプラットフォームアクセスを解除するために登録";
+"auth.register_now" = "今すぐ登録";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "サブスクリプションアクセス制限";
+"auth.subscription_associated_different_account" = "このサブスクリプションは別のアカウントに関連付けられています。プロ機能にアクセスするには、このサブスクリプションを購入したアカウントでログインしてください。";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "辞書が選択されました";
 "shared_dictionaries.name" = "名前";

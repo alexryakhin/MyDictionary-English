@@ -450,6 +450,22 @@
 "auth.network_error" = "Lỗi mạng. Vui lòng kiểm tra kết nối của bạn.";
 "auth.account_linking_failed" = "Liên kết tài khoản thất bại. Vui lòng thử lại.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Lợi ích Đăng ký";
+"auth.access_subscription_all_devices" = "Truy cập gói đăng ký của bạn trên tất cả thiết bị";
+"auth.sync_progress_cross_platform" = "Đồng bộ tiến độ của bạn giữa iOS và Android";
+"auth.backup_data_securely" = "Sao lưu dữ liệu của bạn một cách an toàn trên đám mây";
+"auth.register_anytime_from_settings" = "Bạn có thể đăng ký bất cứ lúc nào từ Cài đặt để kích hoạt các tính năng này";
+"auth.account_registration" = "Đăng ký Tài khoản";
+"auth.register_for_cross_platform_access" = "Đăng ký để truy cập gói đăng ký của bạn trên tất cả thiết bị và đồng bộ tiến độ";
+"auth.active_subscription_notification" = "Bạn có gói đăng ký đang hoạt động!";
+"auth.register_to_unlock_cross_platform" = "Đăng ký để mở khóa truy cập đa nền tảng";
+"auth.register_now" = "Đăng ký Ngay";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Truy cập Gói đăng ký Bị hạn chế";
+"auth.subscription_associated_different_account" = "Gói đăng ký này được liên kết với tài khoản khác. Vui lòng đăng nhập bằng tài khoản đã mua gói đăng ký này để truy cập tính năng Pro.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Đã chọn từ điển";
 "shared_dictionaries.name" = "Tên";

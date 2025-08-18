@@ -450,6 +450,22 @@
 "auth.network_error" = "Verkkovirhe. Tarkista yhteys.";
 "auth.account_linking_failed" = "Tilin linkittäminen epäonnistui. Yritä uudelleen.";
 
+// Registration Benefits
+"auth.registration_benefits" = "Rekisteröitymisen Edut";
+"auth.access_subscription_all_devices" = "Pääsy tilaukseesi kaikilla laitteillasi";
+"auth.sync_progress_cross_platform" = "Synkronoi edistymisesi iOS:n ja Androidin välillä";
+"auth.backup_data_securely" = "Varmuuskopioi tietosi turvallisesti pilveen";
+"auth.register_anytime_from_settings" = "Voit rekisteröityä milloin tahansa Asetuksista ottaaksesi nämä ominaisuudet käyttöön";
+"auth.account_registration" = "Tilin Rekisteröityminen";
+"auth.register_for_cross_platform_access" = "Rekisteröidy päästäksesi tilaukseesi kaikilla laitteillasi ja synkronoidaksesi edistymisesi";
+"auth.active_subscription_notification" = "Sinulla on aktiivinen tilaus!";
+"auth.register_to_unlock_cross_platform" = "Rekisteröidy avataksesi ylitysplatforma-pääsyn";
+"auth.register_now" = "Rekisteröidy Nyt";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Tilauksen Pääsy Rajoitettu";
+"auth.subscription_associated_different_account" = "Tämä tilaus on liitetty eri tiliin. Kirjaudu sisään tilillä, joka osti tämän tilauksen, päästäksesi Pro-ominaisuuksiin.";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Sanakirja valittu";
 "shared_dictionaries.name" = "Nimi";
