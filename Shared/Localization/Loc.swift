@@ -971,4 +971,39 @@ enum Loc {
             static let unknown = "part_of_speech.short.unknown"
         }
     }
+
+    // MARK: - AI Features
+    enum AI {
+        static let weakAreaDifficultWords = "ai.weak_area_difficult_words"
+        static let weakAreaLowAccuracy = "ai.weak_area_low_accuracy"
+        static let suggestionFocusDifficultWords = "ai.suggestion_focus_difficult_words"
+        static let suggestionPracticeMore = "ai.suggestion_practice_more"
+        static let progressTrendInsufficientData = "ai.progress_trend_insufficient_data"
+        static let progressTrendImproving = "ai.progress_trend_improving"
+        static let progressTrendDeclining = "ai.progress_trend_declining"
+        static let progressTrendStable = "ai.progress_trend_stable"
+        static let masteryTimeLessThanDay = "ai.mastery_time_less_than_day"
+        static let masteryTimeLessThanWeek = "ai.mastery_time_less_than_week"
+        static let masteryTimeWeeks = "ai.mastery_time_weeks"
+        static let enhanceDefinition = "ai.enhance_definition"
+        static let generateExamples = "ai.generate_examples"
+        static let generateQuizQuestion = "ai.generate_quiz_question"
+        static let personalizedExplanation = "ai.personalized_explanation"
+        static let aiProcessing = "ai.processing"
+        static let aiError = "ai.error"
+        static let aiUnavailable = "ai.unavailable"
+        static let multiLanguageSupport = "ai.multi_language_support"
+        static let languageDetection = "ai.language_detection"
+        static let culturalContext = "ai.cultural_context"
+        static let pronunciationGuide = "ai.pronunciation_guide"
+    }
+
+    // MARK: - Quiz Question Types
+    enum Quiz {
+        static let questionTypeDefinition = "quiz.question_type_definition"
+        static let questionTypeExample = "quiz.question_type_example"
+        static let questionTypeContext = "quiz.question_type_context"
+        static let questionTypeSynonym = "quiz.question_type_synonym"
+        static let questionTypeAntonym = "quiz.question_type_antonym"
+    }
 }

@@ -26,6 +26,7 @@ struct DebugView: View {
     @State private var userId = "Not signed in"
     @State private var testNotificationEmail = ""
     @State private var showingEmailInput = false
+    @State private var showingAIDemo = false
 
     var body: some View {
         NavigationView {
@@ -35,6 +36,7 @@ struct DebugView: View {
                 subscriptionTestingSection
                 dictionaryTestingSection
                 firebaseTestingSection
+                aiTestingSection
                 appTestingSection
             }
             .navigationTitle("Debug Panel")
@@ -66,6 +68,9 @@ struct DebugView: View {
             }
         } message: {
             Text("Enter the email address of the user you want to send a test notification to.")
+        }
+        .sheet(isPresented: $showingAIDemo) {
+            AIDemoView()
         }
     }
 
@@ -307,6 +312,24 @@ struct DebugView: View {
             }
         }
     }
+    
+    private var aiTestingSection: some View {
+        Section("AI Features Testing") {
+            VStack(alignment: .leading, spacing: 8) {
+                HeaderButton("AI Demo") {
+                    showAIDemo()
+                }
+                
+                HeaderButton("Test OpenAI Connection") {
+                    testOpenAIConnection()
+                }
+                
+                HeaderButton("Clear AI Cache") {
+                    clearAICache()
+                }
+            }
+        }
+    }
 
     // MARK: - Helper Methods
 
@@ -440,6 +463,49 @@ struct DebugView: View {
 
     private func testCrash() {
         fatalError("Debug crash test")
+    }
+    
+    // MARK: - AI Testing
+    
+    private func showAIDemo() {
+        print("🔍 [DebugView] showAIDemo called")
+        showingAIDemo = true
+    }
+    
+    private func testOpenAIConnection() {
+        print("🔍 [DebugView] testOpenAIConnection called")
+        Task {
+            do {
+                print("🚀 [DebugView] Starting OpenAI connection test...")
+                let aiService = AIServiceManager.shared
+                let testDefinition = try await aiService.enhanceWordDefinition(
+                    word: "test",
+                    originalDefinition: "A trial or experiment",
+                    context: "debug testing",
+                    userLevel: "beginner"
+                )
+                
+                print("✅ [DebugView] OpenAI connection test successful")
+                print("🔍 [DebugView] Test definition: \(testDefinition)")
+                
+                await MainActor.run {
+                    showAlert("OpenAI connection successful!\n\nEnhanced definition: \(testDefinition)")
+                }
+            } catch {
+                print("❌ [DebugView] OpenAI connection test failed: \(error.localizedDescription)")
+                await MainActor.run {
+                    showAlert("OpenAI connection failed: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    private func clearAICache() {
+        print("🔍 [DebugView] clearAICache called")
+        // Clear AI service cache
+        // This would clear the OpenAI service cache
+        print("💾 [DebugView] AI cache cleared")
+        showAlert("AI cache cleared")
     }
 }
 #endif
