@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "גישה למנוי מוגבלת";
 "auth.subscription_associated_different_account" = "מנוי זה מקושר לחשבון אחר. אנא התחבר עם החשבון שרכש מנוי זה כדי לגשת לתכונות Pro.";
 
+// Profile
+"auth.profile" = "פרופיל";
+"auth.account_linking" = "קישור חשבונות";
+"auth.account_linking_description" = "כדי לגשת למנוי שלך במכשירי Android, עליך לקשר חשבון Google. כדי לשתף מנויים בין פלטפורמות, קשר את שני החשבונות.";
+"auth.link_google_for_android" = "קישור חשבון Google";
+"auth.link_apple_for_cross_platform" = "קישור Apple ID";
+"auth.current_account" = "חשבון נוכחי";
+"auth.linked_accounts" = "חשבונות מקושרים";
+"auth.no_linked_accounts" = "אין חשבונות מקושרים";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "מילון נבחר";
 "shared_dictionaries.name" = "שם";

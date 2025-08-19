@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Pristup Pretplati Ograničen";
 "auth.subscription_associated_different_account" = "Ova pretplata je povezana s drugim računom. Molimo prijavite se s računom koji je kupio ovu pretplatu za pristup Pro značajkama.";
 
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Povezivanje Računa";
+"auth.account_linking_description" = "Za pristup vašoj pretplati na Android uređajima, trebate povezati Google račun. Za dijeljenje pretplata kroz platforme, povežite oba računa.";
+"auth.link_google_for_android" = "Poveži Google Račun";
+"auth.link_apple_for_cross_platform" = "Poveži Apple ID";
+"auth.current_account" = "Trenutni Račun";
+"auth.linked_accounts" = "Povezani Računi";
+"auth.no_linked_accounts" = "Nema povezanih računa";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Rječnik odabran";
 "shared_dictionaries.name" = "Ime";

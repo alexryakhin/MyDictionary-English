@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Доступ к Подписке Ограничен";
 "auth.subscription_associated_different_account" = "Эта подписка связана с другим аккаунтом. Пожалуйста, войдите с аккаунтом, который купил эту подписку, для доступа к функциям Pro.";
 
+// Profile
+"auth.profile" = "Профиль";
+"auth.account_linking" = "Связывание Аккаунтов";
+"auth.account_linking_description" = "Для доступа к подписке на устройствах Android вам нужно связать аккаунт Google. Для совместного использования подписок между платформами свяжите оба аккаунта.";
+"auth.link_google_for_android" = "Связать Аккаунт Google";
+"auth.link_apple_for_cross_platform" = "Связать Apple ID";
+"auth.current_account" = "Текущий Аккаунт";
+"auth.linked_accounts" = "Связанные Аккаунты";
+"auth.no_linked_accounts" = "Нет связанных аккаунтов";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Словарь выбран";
 "shared_dictionaries.name" = "Имя";

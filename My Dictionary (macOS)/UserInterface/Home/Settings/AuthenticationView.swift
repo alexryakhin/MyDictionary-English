@@ -97,10 +97,7 @@ struct AuthenticationView: View {
                 .disabled(authService.authenticationState == .loading)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
 
-                // Account Linking (if already signed in)
-                if authService.isSignedIn {
-                    accountLinkingSection
-                }
+
 
                 if shownBeforePaywall {
                     Button(Loc.Actions.skipForNow.localized) {
@@ -138,82 +135,7 @@ struct AuthenticationView: View {
         }
     }
 
-    // MARK: - Account Linking Section
 
-    private var accountLinkingSection: some View {
-        VStack(spacing: 12) {
-                            Text(Loc.Auth.linkAdditionalAccounts.localized)
-                .font(.headline)
-                .padding(.top)
-
-            HStack(spacing: 12) {
-                // Link Google Account
-                if !authService.hasGoogleAccount {
-                    Button {
-                        AnalyticsService.shared.logEvent(.accountLinkingOpened)
-                        Task {
-                            await linkGoogleAccount()
-                        }
-                    } label: {
-                        Label {
-                            Text(Loc.Auth.linkGoogle.localized)
-                                .font(.caption)
-                                .fontWeight(.medium)
-                        } icon: {
-                            Image(.googleLogo)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 12)
-                        .background(Color.white)
-                        .foregroundStyle(.black)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.systemGray4, lineWidth: 1)
-                        )
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                    }
-                    .disabled(authService.authenticationState == .loading)
-                }
-
-                // Link Apple Account
-                if !authService.hasAppleAccount {
-                    Button {
-                        AnalyticsService.shared.logEvent(.accountLinkingOpened)
-                        Task {
-                            await linkAppleAccount()
-                        }
-                    } label: {
-                        Label {
-                            Text(Loc.Auth.linkApple.localized)
-                                .font(.caption)
-                                .fontWeight(.medium)
-                        } icon: {
-                            Image(systemName: "applelogo")
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 12)
-                        .background(Color.black)
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                    }
-                    .disabled(authService.authenticationState == .loading)
-                }
-            }
-
-            if authService.hasGoogleAccount || authService.hasAppleAccount {
-                HStack {
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundStyle(.accent)
-                    Text(Loc.Auth.accountsLinkedSuccessfully.localized)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-                .padding(.top, 4)
-            }
-        }
-    }
 
     // MARK: - Sign In Methods
 
@@ -258,19 +180,5 @@ struct AuthenticationView: View {
         }
     }
 
-    private func linkGoogleAccount() async {
-        do {
-            try await authService.linkGoogleAccount()
-        } catch {
-            errorReceived(error)
-        }
-    }
 
-    private func linkAppleAccount() async {
-        do {
-            try await authService.linkAppleAccount()
-        } catch {
-            errorReceived(error)
-        }
-    }
 }

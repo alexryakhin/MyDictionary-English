@@ -27,6 +27,7 @@ struct SettingsView: View {
     @State private var showingSignIn: Bool = false
     @State private var showingTagManagement: Bool = false
     @State private var showingSharedDictionaries: Bool = false
+    @State private var showingProfile: Bool = false
 
     var body: some View {
         ScrollView {
@@ -117,16 +118,16 @@ struct SettingsView: View {
                 }
 
                 // MARK: - Subscription
-                
+
                 CustomSectionView(
                     header: Loc.Settings.subscription.localized,
                     footer: Loc.Settings.proUpgradeDescription.localized
                 ) {
                     SubscriptionStatusView()
                 }
-                
+
                 // MARK: - Registration Prompt for Anonymous Pro Users
-                
+
                 if subscriptionService.isProUser && !authenticationService.isSignedIn {
                     CustomSectionView(
                         header: Loc.Auth.accountRegistration.localized,
@@ -137,7 +138,7 @@ struct SettingsView: View {
                                 Image(systemName: "crown.fill")
                                     .foregroundStyle(.yellow)
                                     .font(.title2)
-                                
+
                                 VStack(alignment: .leading, spacing: 4) {
                                     Text(Loc.Auth.activeSubscriptionNotification.localized)
                                         .font(.headline)
@@ -146,10 +147,10 @@ struct SettingsView: View {
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
-                                
+
                                 Spacer()
                             }
-                            
+
                             ActionButton(
                                 Loc.Auth.registerNow.localized,
                                 systemImage: "person.crop.circle.badge.plus",
@@ -178,39 +179,45 @@ struct SettingsView: View {
                 ) {
                     if authenticationService.isSignedIn {
                         VStack(spacing: 8) {
-
                             VStack(alignment: .leading, spacing: 8) {
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text(Loc.Settings.signedInAs.localized)
-                                            .font(.body)
-                                            .fontWeight(.medium)
-                                        Text(authenticationService.displayName ?? authenticationService.userEmail ?? Loc.Settings.anonymous.localized)
+                                Button {
+                                    showingProfile = true
+                                } label: {
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text(Loc.Settings.signedInAs.localized)
+                                                .font(.body)
+                                                .fontWeight(.medium)
+                                                .foregroundStyle(.primary)
+                                            Text(authenticationService.displayName ?? authenticationService.userEmail ?? Loc.Settings.anonymous.localized)
+                                                .font(.caption)
+                                                .foregroundStyle(.secondary)
+                                        }
+
+                                        Spacer()
+
+                                        Image(systemName: "chevron.right")
                                             .font(.caption)
                                             .foregroundStyle(.secondary)
                                     }
-
-                                    Spacer()
-
-                                    HeaderButton(Loc.Settings.signOut.localized, color: .red, size: .small) {
-                                        authenticationService.toggleSignOutView()
-                                    }
+                                    .contentShape(Rectangle())
                                 }
+                                .buttonStyle(.plain)
                             }
                             .padding(vertical: 12, horizontal: 16)
                             .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
-                            
+
                             // Manual sync buttons
-                                                ActionButton(
-                        Loc.Settings.uploadBackupToGoogle.localized,
+                            ActionButton(
+                                Loc.Settings.uploadBackupToGoogle.localized,
                                 systemImage: "icloud.and.arrow.up",
                                 isLoading: dataSyncService.isUploading
                             ) {
                                 viewModel.uploadBackupToGoogle()
                             }
 
-                                                ActionButton(
-                        Loc.Settings.downloadBackupFromGoogle.localized,
+                            ActionButton(
+                                Loc.Settings.downloadBackupFromGoogle.localized,
                                 systemImage: "icloud.and.arrow.down",
                                 isLoading: dataSyncService.isRestoring
                             ) {
@@ -283,7 +290,7 @@ struct SettingsView: View {
                             }
                             AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
                         }
-                        
+
                         if !subscriptionService.isProUser {
                             Text(Loc.Settings.freeUsersExportLimit.localized(AppConfig.Features.freeUserExportLimit))
                                 .font(.caption)
@@ -327,14 +334,14 @@ struct SettingsView: View {
         .sheet(isPresented: $showingSignIn) {
             AuthenticationView()
         }
-        .sheet(isPresented: $authenticationService.showingSignOutView) {
-            SignOutView()
-        }
         .sheet(isPresented: $showingTagManagement) {
             TagManagementView()
         }
         .sheet(isPresented: $showingSharedDictionaries) {
             SharedDictionariesListView()
+        }
+        .sheet(isPresented: $showingProfile) {
+            ProfileView()
         }
         .onAppear {
             AnalyticsService.shared.logEvent(.settingsOpened)

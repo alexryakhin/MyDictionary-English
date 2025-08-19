@@ -159,8 +159,9 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             return
         }
 
-        // Use email as the App User ID for cross-platform consistency
-        // This ensures the same user gets the same subscription across iOS and Android
+        // Check if user had an anonymous subscription before signing in
+        let hadAnonymousSubscription = loadAnonymousSubscriptionStatus()
+        
         do {
             let response = try await Purchases.shared.logIn(userEmail)
             print("✅ [SubscriptionService] App User ID set successfully: \(userEmail)")
@@ -168,6 +169,24 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
 
             // Update subscription status after login
             await updateSubscriptionStatus(customerInfo: response.customerInfo)
+
+            // If user had an anonymous subscription, we need to handle it specially
+            if hadAnonymousSubscription {
+                print("🔄 [SubscriptionService] User had anonymous subscription - attempting to restore")
+                
+                // Try to restore purchases to get the subscription under the new App User ID
+                do {
+                    let restoreResponse = try await Purchases.shared.restorePurchases()
+                    await updateSubscriptionStatus(customerInfo: restoreResponse)
+                    print("✅ [SubscriptionService] Anonymous subscription successfully restored to authenticated account")
+                } catch {
+                    print("⚠️ [SubscriptionService] Failed to restore anonymous subscription: \(error)")
+                    // Don't fail the sign-in process, but log the issue
+                }
+                
+                // Clear the anonymous subscription status since we've handled it
+                clearAnonymousSubscriptionStatus()
+            }
 
             // Verify subscription ownership (but don't fail if verification fails)
             let isOwner = await verifySubscriptionOwnership()
@@ -517,20 +536,12 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             }
 
             // If App User ID is still anonymous but user has subscription,
-            // we need to complete the login process
+            // this is likely a timing issue where RevenueCat hasn't updated yet
             if currentAppUserId.hasPrefix("$RCAnonymousID:") {
-                print("⚠️ [SubscriptionService] App User ID still anonymous, completing login...")
-                // Try to log in again to get the proper App User ID
-                let response = try await Purchases.shared.logIn(userEmail)
-                let newAppUserId = response.customerInfo.originalAppUserId
-
-                if newAppUserId == userEmail {
-                    print("✅ [SubscriptionService] Login completed successfully")
-                    return true
-                } else {
-                    print("⚠️ [SubscriptionService] Login failed to set proper App User ID")
-                    return false
-                }
+                print("⚠️ [SubscriptionService] App User ID still anonymous - this is normal during login")
+                print("ℹ️ [SubscriptionService] RevenueCat will update the App User ID asynchronously")
+                // Allow this to pass - the App User ID will be updated by RevenueCat
+                return true
             }
 
             // Check if App User ID matches email

@@ -120,7 +120,7 @@ final class AuthenticationService: ObservableObject {
                 authenticationState = .signedOut
 
                 // Immediately reset subscription status when user signs out
-                SubscriptionService.shared.resetSubscriptionStatusOnSignOut()
+                await SubscriptionService.shared.resetSubscriptionStatusOnSignOut()
             }
         }
     }

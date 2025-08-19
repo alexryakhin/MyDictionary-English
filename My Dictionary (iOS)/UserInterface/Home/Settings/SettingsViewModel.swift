@@ -8,6 +8,7 @@ final class SettingsViewModel: BaseViewModel {
         case showTagManagement
         case showSharedDictionaries
         case showAuthentication
+        case showProfile
     }
 
     enum Input {

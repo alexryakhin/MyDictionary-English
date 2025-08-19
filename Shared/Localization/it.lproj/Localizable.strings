@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Accesso all'Abbonamento Limitato";
 "auth.subscription_associated_different_account" = "Questo abbonamento è associato a un account diverso. Accedi con l'account che ha acquistato questo abbonamento per accedere alle funzionalità Pro.";
 
+// Profile
+"auth.profile" = "Profilo";
+"auth.account_linking" = "Collegamento Account";
+"auth.account_linking_description" = "Per accedere al tuo abbonamento sui dispositivi Android, devi collegare un account Google. Per condividere gli abbonamenti tra piattaforme, collega entrambi gli account.";
+"auth.link_google_for_android" = "Collega Account Google";
+"auth.link_apple_for_cross_platform" = "Collega Apple ID";
+"auth.current_account" = "Account Attuale";
+"auth.linked_accounts" = "Account Collegati";
+"auth.no_linked_accounts" = "Nessun account collegato";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Dizionario Selezionato";
 "shared_dictionaries.name" = "Nome";

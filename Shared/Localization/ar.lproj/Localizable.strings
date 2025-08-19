@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "الوصول إلى الاشتراك مقيد";
 "auth.subscription_associated_different_account" = "هذا الاشتراك مرتبط بحساب مختلف. يرجى تسجيل الدخول بالحساب الذي اشترى هذا الاشتراك للوصول إلى ميزات المحترف.";
 
+// Profile
+"auth.profile" = "الملف الشخصي";
+"auth.account_linking" = "ربط الحساب";
+"auth.account_linking_description" = "للوصول إلى اشتراكك على أجهزة Android، تحتاج إلى ربط حساب Google. لمشاركة الاشتراكات عبر المنصات، اربط كلا الحسابين.";
+"auth.link_google_for_android" = "ربط حساب Google";
+"auth.link_apple_for_cross_platform" = "ربط Apple ID";
+"auth.current_account" = "الحساب الحالي";
+"auth.linked_accounts" = "الحسابات المرتبطة";
+"auth.no_linked_accounts" = "لا توجد حسابات مرتبطة";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "تم اختيار القاموس";
 "shared_dictionaries.name" = "الاسم";

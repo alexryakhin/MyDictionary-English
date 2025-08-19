@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "การเข้าถึงการสมัครสมาชิกถูกจำกัด";
 "auth.subscription_associated_different_account" = "การสมัครสมาชิกนี้เชื่อมโยงกับบัญชีอื่น กรุณาลงชื่อเข้าใช้ด้วยบัญชีที่ซื้อการสมัครสมาชิกนี้เพื่อเข้าถึงฟีเจอร์ Pro";
 
+// Profile
+"auth.profile" = "โปรไฟล์";
+"auth.account_linking" = "การเชื่อมต่อบัญชี";
+"auth.account_linking_description" = "เพื่อเข้าถึงการสมัครสมาชิกของคุณในอุปกรณ์ Android คุณต้องเชื่อมต่อบัญชี Google เพื่อแชร์การสมัครสมาชิกระหว่างแพลตฟอร์ม เชื่อมต่อทั้งสองบัญชี";
+"auth.link_google_for_android" = "เชื่อมต่อบัญชี Google";
+"auth.link_apple_for_cross_platform" = "เชื่อมต่อ Apple ID";
+"auth.current_account" = "บัญชีปัจจุบัน";
+"auth.linked_accounts" = "บัญชีที่เชื่อมต่อ";
+"auth.no_linked_accounts" = "ไม่มีบัญชีที่เชื่อมต่อ";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "เลือกพจนานุกรมแล้ว";
 "shared_dictionaries.name" = "ชื่อ";

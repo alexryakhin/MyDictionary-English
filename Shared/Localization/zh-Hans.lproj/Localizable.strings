@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "订阅访问受限";
 "auth.subscription_associated_different_account" = "此订阅与不同账户关联。请使用购买此订阅的账户登录以访问专业功能。";
 
+// Profile
+"auth.profile" = "个人资料";
+"auth.account_linking" = "账户关联";
+"auth.account_linking_description" = "要在Android设备上访问你的订阅，你需要关联Google账户。要在平台间共享订阅，请关联两个账户。";
+"auth.link_google_for_android" = "关联Google账户";
+"auth.link_apple_for_cross_platform" = "关联Apple ID";
+"auth.current_account" = "当前账户";
+"auth.linked_accounts" = "已关联账户";
+"auth.no_linked_accounts" = "无关联账户";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "已选择词典";
 "shared_dictionaries.name" = "名称";

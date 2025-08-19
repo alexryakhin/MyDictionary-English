@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Abonnementsadgang Begrænset";
 "auth.subscription_associated_different_account" = "Dette abonnement er tilknyttet en anden konto. Log venligst ind med kontoen, der købte dette abonnement, for at få adgang til Pro-funktioner.";
 
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Kontolinkning";
+"auth.account_linking_description" = "For at få adgang til dit abonnement på Android-enheder skal du linke en Google-konto. For at dele abonnementer på tværs af platforme, link begge konti.";
+"auth.link_google_for_android" = "Link Google-konto";
+"auth.link_apple_for_cross_platform" = "Link Apple ID";
+"auth.current_account" = "Nuværende Konto";
+"auth.linked_accounts" = "Linkede Konti";
+"auth.no_linked_accounts" = "Ingen linkede konti";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Ordbog valgt";
 "shared_dictionaries.name" = "Navn";

@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Abonnementstoegang Beperkt";
 "auth.subscription_associated_different_account" = "Dit abonnement is gekoppeld aan een ander account. Log in met het account dat dit abonnement heeft gekocht om toegang te krijgen tot Pro-functies.";
 
+// Profile
+"auth.profile" = "Profiel";
+"auth.account_linking" = "Accountkoppeling";
+"auth.account_linking_description" = "Om toegang te krijgen tot je abonnement op Android-apparaten, moet je een Google-account koppelen. Om abonnementen tussen platforms te delen, koppel beide accounts.";
+"auth.link_google_for_android" = "Google-account Koppelen";
+"auth.link_apple_for_cross_platform" = "Apple ID Koppelen";
+"auth.current_account" = "Huidig Account";
+"auth.linked_accounts" = "Gekoppelde Accounts";
+"auth.no_linked_accounts" = "Geen gekoppelde accounts";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Woordenboek geselecteerd";
 "shared_dictionaries.name" = "Naam";

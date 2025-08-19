@@ -450,6 +450,16 @@
 "auth.network_error" = "Chyba sítě. Zkontrolujte své připojení.";
 "auth.account_linking_failed" = "Propojení účtu selhalo. Zkuste to znovu.";
 
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Propojení Účtů";
+"auth.account_linking_description" = "Pro přístup k vašemu předplatnému na zařízeních Android musíte propojit účet Google. Pro sdílení předplatného mezi platformami propojte oba účty.";
+"auth.link_google_for_android" = "Propojit Účet Google";
+"auth.link_apple_for_cross_platform" = "Propojit Apple ID";
+"auth.current_account" = "Aktuální Účet";
+"auth.linked_accounts" = "Propojené Účty";
+"auth.no_linked_accounts" = "Žádné propojené účty";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Slovník vybrán";
 "shared_dictionaries.name" = "Název";

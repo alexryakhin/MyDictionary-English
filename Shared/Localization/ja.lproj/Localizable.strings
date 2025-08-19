@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "サブスクリプションアクセス制限";
 "auth.subscription_associated_different_account" = "このサブスクリプションは別のアカウントに関連付けられています。プロ機能にアクセスするには、このサブスクリプションを購入したアカウントでログインしてください。";
 
+// Profile
+"auth.profile" = "プロフィール";
+"auth.account_linking" = "アカウントリンク";
+"auth.account_linking_description" = "Androidデバイスでサブスクリプションにアクセスするには、Googleアカウントをリンクする必要があります。プラットフォーム間でサブスクリプションを共有するには、両方のアカウントをリンクしてください。";
+"auth.link_google_for_android" = "Googleアカウントをリンク";
+"auth.link_apple_for_cross_platform" = "Apple IDをリンク";
+"auth.current_account" = "現在のアカウント";
+"auth.linked_accounts" = "リンクされたアカウント";
+"auth.no_linked_accounts" = "リンクされたアカウントなし";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "辞書が選択されました";
 "shared_dictionaries.name" = "名前";

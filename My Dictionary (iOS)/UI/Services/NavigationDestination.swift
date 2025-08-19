@@ -38,4 +38,5 @@ enum NavigationDestination: Hashable {
     case aboutApp
     case tagManagement
     case authentication
+    case profile
 }

@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Truy cập Gói đăng ký Bị hạn chế";
 "auth.subscription_associated_different_account" = "Gói đăng ký này được liên kết với tài khoản khác. Vui lòng đăng nhập bằng tài khoản đã mua gói đăng ký này để truy cập tính năng Pro.";
 
+// Profile
+"auth.profile" = "Hồ sơ";
+"auth.account_linking" = "Liên kết Tài khoản";
+"auth.account_linking_description" = "Để truy cập gói đăng ký của bạn trên thiết bị Android, bạn cần liên kết tài khoản Google. Để chia sẻ gói đăng ký giữa các nền tảng, hãy liên kết cả hai tài khoản.";
+"auth.link_google_for_android" = "Liên kết Tài khoản Google";
+"auth.link_apple_for_cross_platform" = "Liên kết Apple ID";
+"auth.current_account" = "Tài khoản Hiện tại";
+"auth.linked_accounts" = "Tài khoản Đã liên kết";
+"auth.no_linked_accounts" = "Không có tài khoản đã liên kết";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Đã chọn từ điển";
 "shared_dictionaries.name" = "Tên";

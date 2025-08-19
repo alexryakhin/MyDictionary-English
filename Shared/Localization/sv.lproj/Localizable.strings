@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Prenumerationsåtkomst Begränsad";
 "auth.subscription_associated_different_account" = "Denna prenumeration är kopplad till ett annat konto. Logga in med kontot som köpte denna prenumeration för att få tillgång till Pro-funktioner.";
 
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Kontolänkning";
+"auth.account_linking_description" = "För att få tillgång till din prenumeration på Android-enheter behöver du länka ett Google-konto. För att dela prenumerationer mellan plattformar, länka båda kontona.";
+"auth.link_google_for_android" = "Länka Google-konto";
+"auth.link_apple_for_cross_platform" = "Länka Apple ID";
+"auth.current_account" = "Aktuellt Konto";
+"auth.linked_accounts" = "Länkade Konton";
+"auth.no_linked_accounts" = "Inga länkade konton";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Ordbok vald";
 "shared_dictionaries.name" = "Namn";

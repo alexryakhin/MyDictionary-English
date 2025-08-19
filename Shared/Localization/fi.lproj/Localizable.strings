@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Tilauksen Pääsy Rajoitettu";
 "auth.subscription_associated_different_account" = "Tämä tilaus on liitetty eri tiliin. Kirjaudu sisään tilillä, joka osti tämän tilauksen, päästäksesi Pro-ominaisuuksiin.";
 
+// Profile
+"auth.profile" = "Profiili";
+"auth.account_linking" = "Tilin Linkittäminen";
+"auth.account_linking_description" = "Päästäksesi tilaukseesi Android-laitteilla, sinun on linkittävä Google-tili. Jakamalla tilauksia ylitysplatforma, linkitä molemmat tilit.";
+"auth.link_google_for_android" = "Linkitä Google-tili";
+"auth.link_apple_for_cross_platform" = "Linkitä Apple ID";
+"auth.current_account" = "Nykyinen Tili";
+"auth.linked_accounts" = "Linkitetyt Tilit";
+"auth.no_linked_accounts" = "Ei linkitettyjä tilejä";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Sanakirja valittu";
 "shared_dictionaries.name" = "Nimi";

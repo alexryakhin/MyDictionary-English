@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Abonelik Erişimi Kısıtlandı";
 "auth.subscription_associated_different_account" = "Bu abonelik farklı bir hesapla ilişkilidir. Pro özelliklerine erişmek için lütfen bu aboneliği satın alan hesapla giriş yapın.";
 
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Hesap Bağlama";
+"auth.account_linking_description" = "Android cihazlarda aboneliğinize erişmek için Google hesabı bağlamanız gerekir. Platformlar arası abonelik paylaşımı için her iki hesabı da bağlayın.";
+"auth.link_google_for_android" = "Google Hesabı Bağla";
+"auth.link_apple_for_cross_platform" = "Apple ID Bağla";
+"auth.current_account" = "Mevcut Hesap";
+"auth.linked_accounts" = "Bağlı Hesaplar";
+"auth.no_linked_accounts" = "Bağlı hesap yok";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Sözlük seçildi";
 "shared_dictionaries.name" = "İsim";

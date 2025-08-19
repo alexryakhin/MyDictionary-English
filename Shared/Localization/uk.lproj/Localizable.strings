@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Доступ до Підписки Обмежений";
 "auth.subscription_associated_different_account" = "Ця підписка пов'язана з іншим обліковим записом. Будь ласка, увійдіть з обліковим записом, який купив цю підписку, для доступу до функцій Pro.";
 
+// Profile
+"auth.profile" = "Профіль";
+"auth.account_linking" = "Підключення Облікових Записів";
+"auth.account_linking_description" = "Для доступу до вашої підписки на пристроях Android вам потрібно підключити обліковий запис Google. Для обміну підписками між платформами підключіть обидва облікові записи.";
+"auth.link_google_for_android" = "Підключити Обліковий Запис Google";
+"auth.link_apple_for_cross_platform" = "Підключити Apple ID";
+"auth.current_account" = "Поточний Обліковий Запис";
+"auth.linked_accounts" = "Підключені Облікові Записи";
+"auth.no_linked_accounts" = "Немає підключених облікових записів";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Словник вибрано";
 "shared_dictionaries.name" = "Назва";

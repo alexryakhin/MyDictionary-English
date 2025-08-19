@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "सदस्यता पहुंच प्रतिबंधित";
 "auth.subscription_associated_different_account" = "यह सदस्यता एक अलग खाते से जुड़ी है। कृपया प्रो सुविधाओं तक पहुंचने के लिए उस खाते से साइन इन करें जिसने यह सदस्यता खरीदी थी।";
 
+// Profile
+"auth.profile" = "प्रोफ़ाइल";
+"auth.account_linking" = "खाता लिंकिंग";
+"auth.account_linking_description" = "Android डिवाइस पर अपनी सदस्यता तक पहुंचने के लिए, आपको Google खाता लिंक करना होगा। प्लेटफॉर्म के बीच सदस्यताओं को साझा करने के लिए, दोनों खातों को लिंक करें।";
+"auth.link_google_for_android" = "Google खाता लिंक करें";
+"auth.link_apple_for_cross_platform" = "Apple ID लिंक करें";
+"auth.current_account" = "वर्तमान खाता";
+"auth.linked_accounts" = "लिंक किए गए खाते";
+"auth.no_linked_accounts" = "कोई लिंक किए गए खाते नहीं";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "शब्दकोश चयनित";
 "shared_dictionaries.name" = "नाम";

@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Subscription Access Restricted";
 "auth.subscription_associated_different_account" = "This subscription is associated with a different account. Please sign in with the account that purchased this subscription to access Pro features.";
 
+// Profile
+"auth.profile" = "Profile";
+"auth.account_linking" = "Account Linking";
+"auth.account_linking_description" = "To access your subscription on Android devices, you need to link a Google account. For cross-platform subscription sharing, link both accounts.";
+"auth.link_google_for_android" = "Link Google Account";
+"auth.link_apple_for_cross_platform" = "Link Apple ID";
+"auth.current_account" = "Current Account";
+"auth.linked_accounts" = "Linked Accounts";
+"auth.no_linked_accounts" = "No linked accounts";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Dictionary Selected";
 "shared_dictionaries.name" = "Name";

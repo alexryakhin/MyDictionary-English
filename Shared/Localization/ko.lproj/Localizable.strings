@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "구독 접근 제한";
 "auth.subscription_associated_different_account" = "이 구독은 다른 계정과 연결되어 있습니다. 프로 기능에 접근하려면 이 구독을 구매한 계정으로 로그인하세요.";
 
+// Profile
+"auth.profile" = "프로필";
+"auth.account_linking" = "계정 연동";
+"auth.account_linking_description" = "Android 기기에서 구독에 접근하려면 Google 계정을 연동해야 합니다. 플랫폼 간 구독 공유를 위해 두 계정을 모두 연동하세요.";
+"auth.link_google_for_android" = "Google 계정 연동";
+"auth.link_apple_for_cross_platform" = "Apple ID 연동";
+"auth.current_account" = "현재 계정";
+"auth.linked_accounts" = "연동된 계정";
+"auth.no_linked_accounts" = "연동된 계정 없음";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "사전 선택됨";
 "shared_dictionaries.name" = "이름";

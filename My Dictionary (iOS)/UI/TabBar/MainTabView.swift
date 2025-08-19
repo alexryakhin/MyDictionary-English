@@ -58,9 +58,6 @@ struct MainTabView: View {
             .navigationDestination(for: NavigationDestination.self) { destination in
                 destinationView(for: destination)
             }
-            .overlay {
-                SignOutView()
-            }
             .withPaywall()
             .sheet(isPresented: $sessionManager.showCoffeeBanner) {
                 CoffeeBanner()
@@ -116,6 +113,8 @@ struct MainTabView: View {
             SharedDictionariesListView()
         case .authentication:
             AuthenticationView()
+        case .profile:
+            ProfileView()
         case .spellingQuiz(let preset):
             SpellingQuizContentView(preset: preset)
         case .chooseDefinitionQuiz(let preset):

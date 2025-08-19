@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Accesul la Abonament Restricționat";
 "auth.subscription_associated_different_account" = "Acest abonament este asociat cu un cont diferit. Te rog să te conectezi cu contul care a cumpărat acest abonament pentru a accesa funcționalitățile Pro.";
 
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Conectarea Conturilor";
+"auth.account_linking_description" = "Pentru a accesa abonamentul tău pe dispozitive Android, trebuie să conectezi un cont Google. Pentru a partaja abonamentele între platforme, conectează ambele conturi.";
+"auth.link_google_for_android" = "Conectează Contul Google";
+"auth.link_apple_for_cross_platform" = "Conectează Apple ID";
+"auth.current_account" = "Contul Actual";
+"auth.linked_accounts" = "Conturi Conectate";
+"auth.no_linked_accounts" = "Niciun cont conectat";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Dicționar Selectat";
 "shared_dictionaries.name" = "Nume";

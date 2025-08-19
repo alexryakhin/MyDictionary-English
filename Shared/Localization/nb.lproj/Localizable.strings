@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Abonnementstilgang Begrenset";
 "auth.subscription_associated_different_account" = "Dette abonnementet er knyttet til en annen konto. Vennligst logg inn med kontoen som kjøpte dette abonnementet for å få tilgang til Pro-funksjoner.";
 
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Kontokobling";
+"auth.account_linking_description" = "For å få tilgang til abonnementet ditt på Android-enheter, må du koble til en Google-konto. For å dele abonnementer på tvers av plattformer, koble til begge kontoer.";
+"auth.link_google_for_android" = "Koble til Google-konto";
+"auth.link_apple_for_cross_platform" = "Koble til Apple ID";
+"auth.current_account" = "Gjeldende Konto";
+"auth.linked_accounts" = "Koblede Kontoer";
+"auth.no_linked_accounts" = "Ingen koblede kontoer";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Ordbok valgt";
 "shared_dictionaries.name" = "Navn";

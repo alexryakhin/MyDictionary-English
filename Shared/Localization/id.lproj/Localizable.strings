@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Akses Langganan Dibatasi";
 "auth.subscription_associated_different_account" = "Langganan ini terkait dengan akun yang berbeda. Silakan masuk dengan akun yang membeli langganan ini untuk mengakses fitur Pro.";
 
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Penautan Akun";
+"auth.account_linking_description" = "Untuk mengakses langganan Anda di perangkat Android, Anda perlu menautkan akun Google. Untuk berbagi langganan antar platform, tautkan kedua akun.";
+"auth.link_google_for_android" = "Tautkan Akun Google";
+"auth.link_apple_for_cross_platform" = "Tautkan Apple ID";
+"auth.current_account" = "Akun Saat Ini";
+"auth.linked_accounts" = "Akun Tertaut";
+"auth.no_linked_accounts" = "Tidak ada akun tertaut";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Kamus Dipilih";
 "shared_dictionaries.name" = "Nama";

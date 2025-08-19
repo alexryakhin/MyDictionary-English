@@ -166,23 +166,29 @@ struct SettingsView: View {
                     if authenticationService.isSignedIn {
                         VStack(spacing: 8) {
                             VStack(alignment: .leading, spacing: 8) {
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text(Loc.Settings.signedInAs.localized)
-                                            .font(.body)
-                                            .fontWeight(.medium)
-                                        Text(authenticationService.displayName ?? authenticationService.userEmail ?? Loc.Settings.anonymous.localized)
+                                Button {
+                                    HapticManager.shared.triggerSelection()
+                                    viewModel.output.send(.showProfile)
+                                } label: {
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text(Loc.Settings.signedInAs.localized)
+                                                .font(.body)
+                                                .fontWeight(.medium)
+                                                .foregroundStyle(.primary)
+                                            Text(authenticationService.displayName ?? authenticationService.userEmail ?? Loc.Settings.anonymous.localized)
+                                                .font(.caption)
+                                                .foregroundStyle(.secondary)
+                                        }
+                                        
+                                        Spacer()
+
+                                        Image(systemName: "chevron.right")
                                             .font(.caption)
                                             .foregroundStyle(.secondary)
                                     }
-                                    
-                                    Spacer()
-
-                                    HeaderButton(Loc.Settings.signOut.localized, color: .red, size: .small) {
-                                        HapticManager.shared.triggerSelection()
-                                        authenticationService.toggleSignOutView()
-                                    }
                                 }
+                                .buttonStyle(.plain)
                             }
                             .padding(vertical: 12, horizontal: 16)
                             .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)

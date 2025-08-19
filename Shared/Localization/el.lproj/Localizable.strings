@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Πρόσβαση Συνδρομής Περιορισμένη";
 "auth.subscription_associated_different_account" = "Αυτή η συνδρομή συνδέεται με διαφορετικό λογαριασμό. Συνδέσου με τον λογαριασμό που αγόρασε αυτή τη συνδρομή για πρόσβαση στις λειτουργίες Pro.";
 
+// Profile
+"auth.profile" = "Προφίλ";
+"auth.account_linking" = "Σύνδεση Λογαριασμών";
+"auth.account_linking_description" = "Για πρόσβαση στη συνδρομή σου σε συσκευές Android, πρέπει να συνδέσεις έναν λογαριασμό Google. Για κοινή χρήση συνδρομών διαπλατφορμικά, συνδέστε και τους δύο λογαριασμούς.";
+"auth.link_google_for_android" = "Σύνδεση Λογαριασμού Google";
+"auth.link_apple_for_cross_platform" = "Σύνδεση Apple ID";
+"auth.current_account" = "Τρέχων Λογαριασμός";
+"auth.linked_accounts" = "Συνδεδεμένοι Λογαριασμοί";
+"auth.no_linked_accounts" = "Κανένας συνδεδεμένος λογαριασμός";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Λεξικό Επιλέχθηκε";
 "shared_dictionaries.name" = "Όνομα";

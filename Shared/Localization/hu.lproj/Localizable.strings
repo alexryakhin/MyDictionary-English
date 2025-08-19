@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Előfizetés Hozzáférés Korlátozott";
 "auth.subscription_associated_different_account" = "Ez az előfizetés egy másik fiókhoz kapcsolódik. Kérlek, jelentkezz be azzal a fiókkal, amely megvásárolta ezt az előfizetést a Pro funkciók eléréséhez.";
 
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Fiók Összekapcsolása";
+"auth.account_linking_description" = "Az előfizetésedhez való hozzáféréshez Android eszközökön Google fiókot kell összekapcsolnod. Az előfizetések platformok közötti megosztásához kapcsold össze mindkét fiókot.";
+"auth.link_google_for_android" = "Google Fiók Összekapcsolása";
+"auth.link_apple_for_cross_platform" = "Apple ID Összekapcsolása";
+"auth.current_account" = "Jelenlegi Fiók";
+"auth.linked_accounts" = "Összekapcsolt Fiókok";
+"auth.no_linked_accounts" = "Nincsenek összekapcsolt fiókok";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Szótár kiválasztva";
 "shared_dictionaries.name" = "Név";

@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Accés a la Subscripció Restringit";
 "auth.subscription_associated_different_account" = "Aquesta subscripció està associada a un compte diferent. Si us plau, inicia sessió amb el compte que ha comprat aquesta subscripció per accedir a les funcions Pro.";
 
+// Profile
+"auth.profile" = "Perfil";
+"auth.account_linking" = "Enllaç de Comptes";
+"auth.account_linking_description" = "Per accedir a la teva subscripció a dispositius Android, necessites enllaçar un compte de Google. Per compartir subscripcions entre plataformes, enllaça ambdós comptes.";
+"auth.link_google_for_android" = "Enllaça Compte de Google";
+"auth.link_apple_for_cross_platform" = "Enllaça Apple ID";
+"auth.current_account" = "Compte Actual";
+"auth.linked_accounts" = "Comptes Enllaçats";
+"auth.no_linked_accounts" = "Cap compte enllaçat";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Diccionari seleccionat";
 "shared_dictionaries.name" = "Nom";

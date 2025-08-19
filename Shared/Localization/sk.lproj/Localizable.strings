@@ -466,6 +466,16 @@
 "auth.subscription_access_restricted" = "Prístup k Predplatnému Obmedzený";
 "auth.subscription_associated_different_account" = "Toto predplatné je prepojené s iným účtom. Prihláste sa s účtom, ktorý kúpil toto predplatné, na prístup k Pro funkciám.";
 
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Prepojenie Účtov";
+"auth.account_linking_description" = "Na prístup k predplatnému na zariadeniach Android potrebujete prepojiť účet Google. Na zdieľanie predplatných medzi platformami prepojte oba účty.";
+"auth.link_google_for_android" = "Prepojiť Účet Google";
+"auth.link_apple_for_cross_platform" = "Prepojiť Apple ID";
+"auth.current_account" = "Aktuálny Účet";
+"auth.linked_accounts" = "Prepojené Účty";
+"auth.no_linked_accounts" = "Žiadne prepojené účty";
+
 // MARK: - Shared Dictionaries
 "shared_dictionaries.dictionary_selected" = "Slovník vybraný";
 "shared_dictionaries.name" = "Názov";

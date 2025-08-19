@@ -490,6 +490,16 @@ enum Loc {
         // Subscription Security
         static let subscriptionAccessRestricted = "auth.subscription_access_restricted"
         static let subscriptionAssociatedDifferentAccount = "auth.subscription_associated_different_account"
+        
+        // Profile
+        static let profile = "auth.profile"
+        static let accountLinking = "auth.account_linking"
+        static let accountLinkingDescription = "auth.account_linking_description"
+        static let linkGoogleForAndroid = "auth.link_google_for_android"
+        static let linkAppleForCrossPlatform = "auth.link_apple_for_cross_platform"
+        static let currentAccount = "auth.current_account"
+        static let linkedAccounts = "auth.linked_accounts"
+        static let noLinkedAccounts = "auth.no_linked_accounts"
     }
 
     // MARK: - Shared Dictionaries
