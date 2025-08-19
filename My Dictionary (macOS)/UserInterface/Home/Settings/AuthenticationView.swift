@@ -47,7 +47,6 @@ struct AuthenticationView: View {
             }
 
             Spacer()
-            
 
             // Sign in buttons
             VStack(spacing: 16) {
@@ -87,17 +86,20 @@ struct AuthenticationView: View {
                     Label {
                         Text(Loc.Auth.signInWithGoogle.localized)
                     } icon: {
-                        Image(.googleLogo).renderingMode(.template)
+                        Image(.googleLogo)
+                            .renderingMode(.template)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
                     }
-                    .font(.system(.title2, design: .default, weight: .medium))
+                    .font(.system(.headline, design: .default, weight: .medium))
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .padding(.vertical, 4)
                 }
                 .buttonStyle(.borderedProminent)
                 .frame(height: 56)
                 .disabled(authService.authenticationState == .loading)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
-
-
 
                 if shownBeforePaywall {
                     Button(Loc.Actions.skipForNow.localized) {
@@ -107,7 +109,7 @@ struct AuthenticationView: View {
                     .padding(.vertical, 12)
                 }
             }
-            .frame(maxWidth: 300)
+            .frame(maxWidth: 300, alignment: .top)
             .padding(.horizontal, 32)
 
             Spacer()
@@ -135,8 +137,6 @@ struct AuthenticationView: View {
         }
     }
 
-
-
     // MARK: - Sign In Methods
 
     private func signInWithGoogle() async {
@@ -154,7 +154,7 @@ struct AuthenticationView: View {
                let appleIDToken = appleIDCredential.identityToken,
                let idTokenString = String(data: appleIDToken, encoding: .utf8),
                let nonce = authService.currentNonce {
-                
+
                 do {
                     // Create credential with nonce for security
                     let credential = OAuthProvider.credential(
@@ -179,6 +179,4 @@ struct AuthenticationView: View {
             errorReceived(error)
         }
     }
-
-
 }

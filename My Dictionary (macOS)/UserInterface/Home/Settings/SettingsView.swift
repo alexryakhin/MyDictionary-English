@@ -346,5 +346,10 @@ struct SettingsView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.settingsOpened)
         }
+        .onReceive(authenticationService.$authenticationState) { state in
+            if state == .signedOut {
+                showingProfile = false
+            }
+        }
     }
 }

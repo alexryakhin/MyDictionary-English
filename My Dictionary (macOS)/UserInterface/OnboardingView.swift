@@ -14,43 +14,41 @@ struct OnboardingView: View {
 
     @State private var currentStep = 0
     @State private var animateContent = false
-    @State private var animateBackground = false
     @State private var showPulse = false
+    @State private var slideDirection: SlideDirection = .none
     
     private let totalSteps = 4
     
     var body: some View {
         ZStack {
-            // Animated background
             backgroundGradient
                 .ignoresSafeArea()
-                .scaleEffect(animateBackground ? 1.1 : 1.0)
-                .animation(.easeInOut(duration: 8).repeatForever(autoreverses: true), value: animateBackground)
-            
+
             VStack(spacing: 0) {
                 // Progress indicator
                 progressIndicator
                     .padding(.top, 60)
                     .padding(.horizontal, 24)
                 
-                // Main content
-                TabView(selection: $currentStep) {
+                // Main content area
+                ZStack {
+                    // Welcome step
                     welcomeStep
-                        .tag(0)
+                        .applyStepAnimation(for: 0, currentStep: currentStep, slideDirection: slideDirection)
                     
+                    // Features step
                     featuresStep
-                        .tag(1)
+                        .applyStepAnimation(for: 1, currentStep: currentStep, slideDirection: slideDirection)
                     
+                    // Personalization step
                     personalizationStep
-                        .tag(2)
+                        .applyStepAnimation(for: 2, currentStep: currentStep, slideDirection: slideDirection)
                     
+                    // Get started step
                     getStartedStep
-                        .tag(3)
+                        .applyStepAnimation(for: 3, currentStep: currentStep, slideDirection: slideDirection)
                 }
-                .animation(.easeInOut(duration: 0.5), value: currentStep)
-                #if os(iOS)
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                #endif
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
                 // Navigation buttons
                 navigationButtons
@@ -60,7 +58,6 @@ struct OnboardingView: View {
         .onAppear {
             withAnimation(.easeInOut(duration: 1.0)) {
                 animateContent = true
-                animateBackground = true
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -70,7 +67,7 @@ struct OnboardingView: View {
             }
         }
     }
-    
+
     // MARK: - Background
     
     private var backgroundGradient: some View {
@@ -284,7 +281,8 @@ struct OnboardingView: View {
         HStack(spacing: 16) {
             if currentStep > 0 {
                 ActionButton(Loc.Onboarding.back.localized) {
-                    withAnimation(.easeInOut(duration: 0.3)) {
+                    slideDirection = .right
+                    withAnimation(.easeInOut(duration: 0.6)) {
                         currentStep -= 1
                     }
                 }
@@ -295,7 +293,8 @@ struct OnboardingView: View {
                 style: .borderedProminent
             ) {
                 if currentStep < totalSteps - 1 {
-                    withAnimation(.easeInOut(duration: 0.3)) {
+                    slideDirection = .left
+                    withAnimation(.easeInOut(duration: 0.6)) {
                         currentStep += 1
                     }
                 } else {
@@ -336,9 +335,41 @@ struct OnboardingView: View {
     }
 }
 
+// MARK: - View Extensions
+
+private enum SlideDirection {
+    case left, right, none
+}
+
+private extension View {
+    func applyStepAnimation(
+        for step: Int,
+        currentStep: Int,
+        slideDirection: SlideDirection
+    ) -> some View {
+        self
+            .zIndex(step == currentStep ? 1 : 0)
+            .opacity(step == currentStep ? 1 : 0)
+            .offset(x: getSlideOffset(for: step, currentStep: currentStep, slideDirection: slideDirection))
+            .animation(.easeInOut(duration: 0.6), value: currentStep)
+    }
+    
+    private func getSlideOffset(for step: Int, currentStep: Int, slideDirection: SlideDirection) -> CGFloat {
+        if step == currentStep {
+            return 0
+        } else if step < currentStep {
+            // Previous step: slides out to left when going forward, slides in from left when going backward
+            return -800
+        } else {
+            // Next step: slides in from right when going forward, slides out to right when going backward
+            return 800
+        }
+    }
+}
+
 // MARK: - Feature Card Component
 
-struct FeatureCard: View {
+private struct FeatureCard: View {
     let icon: String
     let title: String
     let description: String
@@ -389,7 +420,7 @@ struct FeatureCard: View {
 
 // MARK: - Personalization Card Component
 
-struct PersonalizationCard: View {
+private struct PersonalizationCard: View {
     let icon: String
     let title: String
     let description: String
