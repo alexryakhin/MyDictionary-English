@@ -7,6 +7,10 @@
     <meta name="description" content="Transform your vocabulary learning with My Dictionary! Create personalized dictionaries, collaborate with others, and track your progress across all devices.">
     <meta name="keywords" content="dictionary, vocabulary, learning, collaboration, flashcards, language, study, words, education, quiz, progress, analytics, sync, shared">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/app-icon.png">
+    <link rel="apple-touch-icon" href="images/app-icon.png">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mydictionary.app/">
@@ -62,6 +66,12 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
         }
 
         .nav-links {
@@ -199,7 +209,13 @@
 
         .feature-icon {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0rem;
+        }
+
+        .feature-icon img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
         }
 
         .feature-card h3 {
@@ -489,7 +505,8 @@
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                📚 My Dictionary
+                <img src="images/app-icon.png" alt="My Dictionary App Icon">
+                My Dictionary
             </div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
@@ -511,10 +528,10 @@
             </p>
             <div class="cta-buttons fade-in-up">
                 <a href="#download" class="cta-button">
-                    📱 Download Now
+                    Download Now
                 </a>
                 <a href="#features" class="cta-button secondary">
-                    🚀 Learn More
+                    Learn More
                 </a>
             </div>
         </div>
@@ -530,37 +547,49 @@
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Personal Dictionaries</h3>
+                    <div class="feature-icon">
+                        <img src="images/personal-dictionary.svg" alt="Personal Dictionary Icon">
+                    </div>
+                    <h3>Personal Dictionary</h3>
                     <p>Create and organize your own vocabulary lists with definitions, examples, and personal notes.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">👥</div>
+                    <div class="feature-icon">
+                        <img src="images/shared-dictionaries.svg" alt="Shared Dictionaries Icon">
+                    </div>
                     <h3>Shared Dictionaries</h3>
                     <p>Collaborate with friends, classmates, or study groups on shared vocabulary lists in real-time.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
+                    <div class="feature-icon">
+                        <img src="images/progress-analytics.svg" alt="Progress Analytics Icon">
+                    </div>
                     <h3>Progress Analytics</h3>
                     <p>Track your learning progress with detailed insights, statistics, and performance metrics.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
+                    <div class="feature-icon">
+                        <img src="images/interactive-quizzes.svg" alt="Interactive Quizzes Icon">
+                    </div>
                     <h3>Interactive Quizzes</h3>
                     <p>Test your knowledge with customizable quizzes and flashcards to reinforce learning.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
+                    <div class="feature-icon">
+                        <img src="images/cross-platform-sync.svg" alt="Cross-Platform Sync Icon">
+                    </div>
                     <h3>Cross-Platform Sync</h3>
                     <p>Access your dictionaries seamlessly across iOS, macOS, and web with automatic synchronization.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">📈</div>
+                    <div class="feature-icon">
+                        <img src="images/advanced-features.svg" alt="Advanced Features Icon">
+                    </div>
                     <h3>Advanced Features</h3>
                     <p>Unlock unlimited exports, advanced analytics, and priority support with Pro subscription.</p>
                 </div>
@@ -643,7 +672,7 @@
                         <div class="pricing-price">$0</div>
                     </div>
                     <ul class="pricing-features">
-                        <li>✓ Create personal dictionaries</li>
+                        <li>✓ Create personal dictionary</li>
                         <li>✓ Add words with definitions</li>
                         <li>✓ Basic quizzes and flashcards</li>
                         <li>✓ Progress tracking</li>
@@ -693,7 +722,8 @@
             
             <div class="download-buttons">
                 <a href="https://apps.apple.com/us/app/my-dictionary-english/id1588418793" class="download-button">
-                     Download on App Store
+                    <img src="images/apple-logo-black.svg" alt="Apple Logo" style="width: 16px; height: 20px;">
+                    Download on App Store
                 </a>
             </div>
         </div>
@@ -709,7 +739,7 @@
             
             <div class="footer-section">
                 <h3>Features</h3>
-                <a href="#features">Personal Dictionaries</a>
+                <a href="#features">Personal Dictionary</a>
                 <a href="#features">Shared Dictionaries</a>
                 <a href="#features">Progress Analytics</a>
                 <a href="#features">Interactive Quizzes</a>
