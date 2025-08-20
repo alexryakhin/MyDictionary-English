@@ -20,6 +20,7 @@ extension CDTag {
     @NSManaged public var color: String?
     @NSManaged public var timestamp: Date?
     @NSManaged public var words: NSSet?
+    @NSManaged public var idioms: NSSet?
 }
 
 // MARK: Generated accessors for words
@@ -36,5 +37,22 @@ extension CDTag {
 
     @objc(removeWords:)
     @NSManaged public func removeFromWords(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for idioms
+extension CDTag {
+
+    @objc(addIdiomsObject:)
+    @NSManaged public func addToIdioms(_ value: CDIdiom)
+
+    @objc(removeIdiomsObject:)
+    @NSManaged public func removeFromIdioms(_ value: CDIdiom)
+
+    @objc(addIdioms:)
+    @NSManaged public func addToIdioms(_ values: NSSet)
+
+    @objc(removeIdioms:)
+    @NSManaged public func removeFromIdioms(_ values: NSSet)
 
 } 

@@ -23,7 +23,8 @@ class IdiomManager @Inject constructor(
     suspend fun addIdiom(
         idiomItself: String,
         definition: String,
-        examples: List<String> = emptyList()
+        examples: List<String> = emptyList(),
+        languageCode: String = "en"
     ): Idiom {
         val idiom = Idiom(
             id = UUID.randomUUID().toString(),
@@ -31,7 +32,8 @@ class IdiomManager @Inject constructor(
             definition = definition,
             timestamp = Date(),
             isFavorite = false,
-            examples = examples
+            examples = examples,
+            languageCode = languageCode
         )
         
         storage.insert(IdiomEntity.fromIdiom(idiom))
@@ -70,6 +72,12 @@ class IdiomManager @Inject constructor(
 
     suspend fun toggleFavorite(idiom: Idiom): Idiom {
         val updatedIdiom = idiom.copy(isFavorite = !idiom.isFavorite)
+        storage.update(IdiomEntity.fromIdiom(updatedIdiom))
+        return updatedIdiom
+    }
+    
+    suspend fun updateDifficulty(idiom: Idiom, difficultyLevel: Int): Idiom {
+        val updatedIdiom = idiom.copy(difficultyScore = difficultyLevel)
         storage.update(IdiomEntity.fromIdiom(updatedIdiom))
         return updatedIdiom
     }

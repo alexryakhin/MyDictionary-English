@@ -8,6 +8,14 @@
 import Foundation
 
 struct QuizPreset: Hashable {
-    let wordCount: Int
-    let hardWordsOnly: Bool
+
+    enum Mode {
+        case all
+        case wordsOnly
+        case idiomsOnly
+    }
+
+    let itemCount: Int
+    let hardItemsOnly: Bool
+    let mode: Mode
 }

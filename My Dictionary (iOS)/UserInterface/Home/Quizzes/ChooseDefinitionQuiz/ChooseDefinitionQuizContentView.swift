@@ -44,7 +44,7 @@ struct ChooseDefinitionQuizContentView: View {
                     
                     Spacer()
                 }
-            } else if viewModel.words.isNotEmpty {
+            } else if viewModel.items.isNotEmpty {
                 if !viewModel.isQuizComplete {
                     ScrollView {
                         VStack(spacing: 16) {
@@ -84,7 +84,7 @@ struct ChooseDefinitionQuizContentView: View {
         }
         .onDisappear {
             // Handle early exit - save current progress if quiz is in progress
-            if !viewModel.isQuizComplete && viewModel.wordsPlayed.count > 0 {
+            if !viewModel.isQuizComplete && viewModel.itemsPlayed.count > 0 {
                 viewModel.handle(.saveSession)
             }
         }
@@ -98,13 +98,13 @@ struct ChooseDefinitionQuizContentView: View {
             // Progress Bar
             ProgressView(
                 value: Double(viewModel.questionsAnswered),
-                total: Double(viewModel.preset.wordCount)
+                total: Double(viewModel.preset.itemCount)
             )
             .progressViewStyle(.linear)
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("\(Loc.Quizzes.progress.localized): \(viewModel.questionsAnswered)/\(viewModel.preset.wordCount)")
+                    Text("\(Loc.Quizzes.progress.localized): \(viewModel.questionsAnswered)/\(viewModel.preset.itemCount)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
@@ -146,17 +146,17 @@ struct ChooseDefinitionQuizContentView: View {
                 Spacer()
 
                 HeaderButton(icon: "speaker.wave.2.fill", size: .small) {
-                    play(viewModel.correctWord.quiz_wordItself, isWord: true)
+                    play(viewModel.correctItem.quiz_text, isWord: true)
                 }
             }
             
-            Text(viewModel.correctWord.quiz_wordItself)
+            Text(viewModel.correctItem.quiz_text)
                 .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.leading)
 
             TagView(
-                text: PartOfSpeech(rawValue: viewModel.correctWord.quiz_partOfSpeech).displayName,
+                text: PartOfSpeech(rawValue: viewModel.correctItem.quiz_partOfSpeech).displayName,
                 color: .accent,
                 size: .small,
                 style: .regular
@@ -190,7 +190,7 @@ struct ChooseDefinitionQuizContentView: View {
                         }
                     } label: {
                         HStack {
-                            Text(viewModel.words[index].quiz_definition)
+                            Text(viewModel.items[index].quiz_definition)
                                 .font(.body)
                                 .foregroundStyle(.primary)
                                 .multilineTextAlignment(.leading)
@@ -253,7 +253,7 @@ struct ChooseDefinitionQuizContentView: View {
         VStack(spacing: 12) {
             ActionButton(Loc.Quizzes.skipWord.localized, systemImage: "arrow.right.circle", color: .secondary) {
                 withAnimation(.easeInOut(duration: 0.3)) {
-                    viewModel.handle(.skipWord)
+                    viewModel.handle(.skipItem)
                 }
             }
         }
@@ -305,7 +305,7 @@ struct ChooseDefinitionQuizContentView: View {
                         HStack {
                             Text(Loc.Quizzes.correctAnswers.localized)
                             Spacer()
-                            Text("\(viewModel.correctAnswers)/\(viewModel.wordsPlayed.count)")
+                            Text("\(viewModel.correctAnswers)/\(viewModel.itemsPlayed.count)")
                                 .fontWeight(.medium)
                         }
                         
@@ -320,7 +320,7 @@ struct ChooseDefinitionQuizContentView: View {
                         HStack {
                             Text(Loc.Quizzes.accuracy.localized)
                             Spacer()
-                            Text("\(Int((Double(viewModel.correctAnswers) / Double(viewModel.wordsPlayed.count)) * 100))%")
+                            Text("\(Int((Double(viewModel.correctAnswers) / Double(viewModel.itemsPlayed.count)) * 100))%")
                                 .fontWeight(.medium)
                                 .foregroundStyle(.accent)
                         }
@@ -383,7 +383,7 @@ struct ChooseDefinitionQuizContentView: View {
                 try await TTSPlayer.shared.play(
                     text,
                     targetLanguage: isWord
-                    ? viewModel.correctWord.quiz_languageCode
+                    ? viewModel.correctItem.quiz_languageCode
                     : Locale.current.language.languageCode?.identifier
                 )
             } catch {

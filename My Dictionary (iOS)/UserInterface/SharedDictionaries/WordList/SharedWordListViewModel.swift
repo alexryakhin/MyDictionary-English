@@ -12,7 +12,7 @@ final class SharedWordListViewModel: BaseViewModel {
 
     enum Output {
         case showWordDetails(SharedWord)
-        case showAddWord
+        case showAddWord(String)
     }
 
     enum Input {
@@ -84,13 +84,13 @@ final class SharedWordListViewModel: BaseViewModel {
     var filterStateTitle: String {
         switch filterState {
         case .none:
-            return Loc.FilterDisplay.allWords.localized
+            return Loc.FilterDisplay.all.localized
         case .favorite:
             return Loc.FilterDisplay.favorite.localized
         case .search:
             return Loc.FilterDisplay.search.localized
         case .tag:
-            return Loc.FilterDisplay.allWords.localized // Shared words don't have tags
+            return Loc.FilterDisplay.all.localized // Shared words don't have tags
         case .new:
             return Loc.FilterDisplay.new.localized
         case .inProgress:

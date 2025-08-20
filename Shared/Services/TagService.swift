@@ -72,9 +72,18 @@ final class TagService: ObservableObject {
         let wordsWithTag = tag.wordsArray
         print("🏷️ [TagService] Found \(wordsWithTag.count) words with tag '\(tagName)'")
         
+        // Get all idioms that have this tag
+        let idiomsWithTag = tag.idiomsArray
+        print("🏷️ [TagService] Found \(idiomsWithTag.count) idioms with tag '\(tagName)'")
+        
         // Remove tag from all words in Core Data
         for word in wordsWithTag {
             word.removeFromTags(tag)
+        }
+        
+        // Remove tag from all idioms in Core Data
+        for idiom in idiomsWithTag {
+            idiom.removeFromTags(tag)
         }
         
         // Delete the tag from Core Data
@@ -201,6 +210,51 @@ final class TagService: ObservableObject {
     
     func isWordTagged(_ word: CDWord, with tag: CDTag) -> Bool {
         return word.tagsArray.contains { $0.id == tag.id }
+    }
+
+    // MARK: - Word-Tag Relationships
+
+    func addTagToIdiom(_ tag: CDTag, idiom: CDIdiom) throws {
+        guard !isIdiomTagged(idiom, with: tag) else {
+            throw CoreError.internalError(.tagAlreadyAssigned)
+        }
+        
+        // Check if word already has 5 tags
+        if idiom.tagsArray.count >= 5 {
+            throw CoreError.internalError(.maxTagsReached)
+        }
+        
+        tag.addToIdioms(idiom)
+        try coreDataService.saveContext()
+        
+        // Manual sync mode - no automatic sync when adding tags
+        print("ℹ️ [TagService] Manual sync mode - no automatic sync")
+    }
+    
+    func removeTagFromIdiom(_ tag: CDTag, idiom: CDIdiom) throws {
+        guard isIdiomTagged(idiom, with: tag) else {
+            throw CoreError.internalError(.tagNotAssigned)
+        }
+        
+        tag.removeFromIdioms(idiom)
+        try coreDataService.saveContext()
+        
+        // Manual sync mode - no automatic sync when removing tags
+        print("ℹ️ [TagService] Manual sync mode - no automatic sync")
+    }
+    
+    // No individual word sync in manual mode
+    
+    func getIdiomsForTag(_ tag: CDTag) -> [CDIdiom] {
+        return tag.idiomsArray
+    }
+    
+    func getTagsForIdiom(_ idiom: CDIdiom) -> [CDTag] {
+        return idiom.tagsArray
+    }
+    
+    func isIdiomTagged(_ idiom: CDIdiom, with tag: CDTag) -> Bool {
+        return idiom.tagsArray.contains { $0.id == tag.id }
     }
 
     private func setupBindings() {

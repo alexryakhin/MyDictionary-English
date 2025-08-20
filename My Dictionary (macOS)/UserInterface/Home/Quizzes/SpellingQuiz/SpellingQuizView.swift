@@ -16,17 +16,17 @@ struct SpellingQuizView: View {
             // Error state
             VStack(spacing: 24) {
                 Spacer()
-                
+
                 VStack(spacing: 16) {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .font(.system(size: 60))
                         .foregroundStyle(.red.gradient)
-                    
+
                     Text(Loc.Quizzes.quizUnavailable.localized)
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
-                    
+
                     Text(errorMessage)
                         .font(.body)
                         .foregroundStyle(.secondary)
@@ -34,7 +34,7 @@ struct SpellingQuizView: View {
                         .lineSpacing(4)
                 }
                 .padding(.horizontal, 32)
-                                
+
                 Spacer()
             }
             .groupedBackground()
@@ -58,7 +58,7 @@ struct SpellingQuizView: View {
             }
             .onDisappear {
                 // Handle early exit - save current progress if quiz is in progress
-                if !viewModel.isQuizComplete && viewModel.wordsPlayed.count > 0 {
+                if !viewModel.isQuizComplete && viewModel.itemsPlayed.count > 0 {
                     viewModel.handle(.dismiss)
                 }
             }
@@ -71,7 +71,7 @@ struct SpellingQuizView: View {
                     quiz: .spelling,
                     score: viewModel.score,
                     correctAnswers: viewModel.correctAnswers,
-                    wordsPlayed: viewModel.wordsPlayed.count,
+                    itemsPlayed: viewModel.itemsPlayed.count,
                     accuracyContributions: viewModel.accuracyContributions.values.reduce(0, +),
                     bestStreak: viewModel.bestStreak
                 ),
@@ -85,7 +85,7 @@ struct SpellingQuizView: View {
     private var progressBar: some View {
         QuizProgressHeader(
             model: .init(
-                wordsPlayed: viewModel.wordsPlayed.count,
+                itemsPlayed: viewModel.itemsPlayed.count,
                 totalQuestions: viewModel.totalQuestions,
                 currentStreak: viewModel.currentStreak,
                 score: viewModel.score,
@@ -101,32 +101,32 @@ struct SpellingQuizView: View {
                 Image(systemName: "text.quote")
                     .font(.title2)
                     .foregroundStyle(.blue)
-                
+
                 Text(Loc.Words.definition.localized)
                     .font(.headline)
                     .fontWeight(.semibold)
-                
+
                 Spacer()
             }
-            
-            Text(viewModel.randomWord?.quiz_definition ?? "")
+
+            Text(viewModel.randomItem?.quiz_definition ?? "")
                 .font(.body)
                 .lineSpacing(4)
                 .multilineTextAlignment(.leading)
-            
-            TagView(text: PartOfSpeech(rawValue: viewModel.randomWord?.quiz_partOfSpeech).displayName, color: .blue, size: .small, style: .regular)
+
+            TagView(text: PartOfSpeech(rawValue: viewModel.randomItem?.quiz_partOfSpeech).displayName, color: .blue, size: .small, style: .regular)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
             // Hint section
-            if viewModel.isShowingHint, let randomWord = viewModel.randomWord {
+            if viewModel.isShowingHint, let randomItem = viewModel.randomItem {
                 HStack {
                     Image(systemName: "lightbulb.fill")
                         .foregroundStyle(.yellow)
-                    
-                    Text("\(Loc.Quizzes.hint.localized): \(Loc.App.wordStartsWith.localized) '\(randomWord.quiz_wordItself.prefix(1).uppercased())'")
+
+                    Text("\(Loc.Quizzes.hint.localized): \(Loc.App.wordStartsWith.localized) '\(randomItem.quiz_text.prefix(1).uppercased())'")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    
+
                     Spacer()
                 }
                 .padding(.horizontal, 12)
@@ -151,17 +151,17 @@ struct SpellingQuizView: View {
                 Text(Loc.Quizzes.yourAnswer.localized)
                     .font(.headline)
                     .fontWeight(.semibold)
-                
+
                 Spacer()
-                
+
                 if viewModel.attemptCount > 0 {
                     Text("\(Loc.Quizzes.attempt.localized) \(viewModel.attemptCount)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
             }
-            
-                            TextField(Loc.App.typeWordHere.localized, text: $viewModel.answerTextField, axis: .vertical)
+
+            TextField(Loc.App.typeWordHere.localized, text: $viewModel.answerTextField, axis: .vertical)
                 .textFieldStyle(.plain)
                 .padding(vertical: 8, horizontal: 12)
                 .background(Color.tertiarySystemGroupedBackground)
@@ -174,7 +174,7 @@ struct SpellingQuizView: View {
                         }
                     }
                 }
-            
+
             if viewModel.isShowingCorrectAnswer {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
@@ -192,11 +192,11 @@ struct SpellingQuizView: View {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.red)
-                    
-                    Text(Loc.Quizzes.correctWordIs.localized(viewModel.randomWord?.quiz_wordItself ?? ""))
+
+                    Text(Loc.Quizzes.correctWordIs.localized(viewModel.randomItem?.quiz_text ?? ""))
                         .font(.caption)
                         .foregroundStyle(.red)
-                    
+
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
@@ -205,11 +205,11 @@ struct SpellingQuizView: View {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.orange)
-                    
+
                     Text(incorrectMessage)
                         .font(.caption)
                         .foregroundStyle(.orange)
-                    
+
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
@@ -224,19 +224,19 @@ struct SpellingQuizView: View {
 
     @ViewBuilder
     private var actionButtons: some View {
-        let isMovingOnToNextWord = viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3
-        let isFinishing = viewModel.wordsPlayed.count == viewModel.totalQuestions
+        let isMovingOnToNextItem = viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3
+        let isFinishing = viewModel.itemsPlayed.count == viewModel.totalQuestions
         VStack(spacing: 12) {
             ActionButton(
-                isMovingOnToNextWord
+                isMovingOnToNextItem
                 ? isFinishing ? Loc.QuizActions.finish.localized : Loc.QuizActions.nextWord.localized
                 : Loc.QuizActions.submitAnswer.localized,
-                systemImage: isMovingOnToNextWord ? "arrow.right.circle.fill" : "checkmark.circle.fill",
+                systemImage: isMovingOnToNextItem ? "arrow.right.circle.fill" : "checkmark.circle.fill",
                 style: .borderedProminent
             ) {
                 withAnimation(.easeInOut(duration: 0.3)) {
-                    if isMovingOnToNextWord {
-                        viewModel.handle(.nextWord)
+                    if isMovingOnToNextItem {
+                        viewModel.handle(.nextItem)
                     } else {
                         viewModel.handle(.confirmAnswer)
                     }
@@ -246,18 +246,18 @@ struct SpellingQuizView: View {
 
             ActionButton(Loc.Quizzes.skipWord.localized, systemImage: "arrow.right.circle") {
                 withAnimation(.easeInOut(duration: 0.3)) {
-                    viewModel.handle(.skipWord)
+                    viewModel.handle(.skipItem)
                 }
             }
-            .disabled(isMovingOnToNextWord)
+            .disabled(isMovingOnToNextItem)
         }
     }
 
     private var incorrectMessage: String {
-        guard let randomWord = viewModel.randomWord else { return "" }
+        guard let randomItem = viewModel.randomItem else { return "" }
 
         if viewModel.attemptCount > 2 {
-            return Loc.QuizActions.yourWordIs.localized(randomWord.quiz_wordItself.trimmed)
+            return Loc.QuizActions.yourWordIs.localized(randomItem.quiz_text.trimmed)
         } else {
             return Loc.QuizActions.incorrectTryAgain.localized
         }

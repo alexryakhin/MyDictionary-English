@@ -47,7 +47,7 @@ struct AddEditTagView: View {
                 title: viewModel.isEditing ? Loc.Tags.editTag.localized : Loc.Tags.newTag.localized,
                 trailingContent: {
                     HeaderButton(Loc.Actions.save.localized, style: .borderedProminent) {
-                        if subscriptionService.isProUser {
+                        if subscriptionService.isProUser || viewModel.tags.count < 5 {
                             saveTag()
                         } else {
                             PaywallService.shared.isShowingPaywall = true

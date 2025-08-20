@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Sicherung von Google herunterladen";
 "settings.sign_in_sync_word_lists" = "Melden Sie sich an, um Wortlisten zu synchronisieren";
 "settings.organization" = "Organisation";
-"settings.show_idioms_tab" = "Redewendungen-Tab anzeigen";
 "settings.shared_dictionaries" = "Geteilte Wörterbücher";
 "settings.about_app" = "Über die App";
 "settings.features" = "Funktionen";
@@ -769,7 +768,7 @@
 "macos.shared_dictionaries" = "Geteilte Wörterbücher";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "Alle Wörter";
+"filter_display.all" = "Alle";
 "filter_display.favorite" = "Favorit";
 "filter_display.search" = "Suchen";
 "filter_display.tag" = "Tag";
@@ -778,20 +777,34 @@
 "filter_display.needs_review" = "Muss überprüft werden";
 "filter_display.mastered" = "Beherrscht";
 "filter_display.no_words_yet" = "Noch keine Wörter";
+"filter_display.no_idioms_yet" = "Noch keine Redewendungen";
 "filter_display.no_favorite_words" = "Keine Favoriten-Wörter";
+"filter_display.no_favorite_idioms" = "Keine Favoriten-Redewendungen";
 "filter_display.no_search_results" = "Keine Suchergebnisse";
 "filter_display.no_tagged_words" = "Keine getaggten Wörter";
+"filter_display.no_tagged_idioms" = "Keine getaggten Redewendungen";
 "filter_display.no_new_words" = "Keine neuen Wörter";
+"filter_display.no_new_idioms" = "Keine neuen Redewendungen";
 "filter_display.no_words_in_progress" = "Keine Wörter in Bearbeitung";
+"filter_display.no_idioms_in_progress" = "Keine Redewendungen in Bearbeitung";
 "filter_display.no_words_need_review" = "Keine Wörter, die überprüft werden müssen";
+"filter_display.no_idioms_need_review" = "Keine Redewendungen, die überprüft werden müssen";
 "filter_display.no_mastered_words" = "Keine beherrschten Wörter";
+"filter_display.no_mastered_idioms" = "Keine beherrschten Redewendungen";
 "filter_display.start_building_vocabulary" = "Beginnen Sie, Ihren Wortschatz aufzubauen, indem Sie Ihr erstes Wort hinzufügen";
+"filter_display.start_building_vocabulary_idioms" = "Beginnen Sie, Ihren Wortschatz aufzubauen, indem Sie Ihre erste Redewendung hinzufügen";
 "filter_display.tap_heart_icon_to_add_favorites" = "Tippen Sie auf das Herzsymbol bei einem Wort, um es zu den Favoriten hinzuzufügen";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "Tippen Sie auf das Herzsymbol bei einer Redewendung, um sie zu den Favoriten hinzuzufügen";
 "filter_display.try_different_search_term" = "Versuchen Sie einen anderen Suchbegriff oder fügen Sie ein neues Wort hinzu";
+"filter_display.try_different_search_term_idioms" = "Versuchen Sie einen anderen Suchbegriff oder fügen Sie eine neue Redewendung hinzu";
 "filter_display.add_tags_to_organize" = "Fügen Sie Tags zu Ihren Wörtern hinzu, um sie besser zu organisieren";
+"filter_display.add_tags_to_organize_idioms" = "Fügen Sie Tags zu Ihren Redewendungen hinzu, um sie besser zu organisieren";
 "filter_display.new_words_appear_here" = "Neue Wörter erscheinen hier, sobald Sie sie zu Ihrer Liste hinzufügen";
+"filter_display.new_idioms_appear_here" = "Neue Redewendungen erscheinen hier, sobald Sie sie zu Ihrer Liste hinzufügen";
 "filter_display.words_appear_here_as_you_practice" = "Wörter erscheinen hier, während Sie sie in Quiz üben";
+"filter_display.idioms_appear_here_as_you_practice" = "Redewendungen erscheinen hier, während Sie sie in Quiz üben";
 "filter_display.words_need_more_practice" = "Wörter, die mehr Übung benötigen, erscheinen hier";
+"filter_display.idioms_need_more_practice" = "Redewendungen, die mehr Übung benötigen, erscheinen hier";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "Besitzer";
@@ -857,17 +870,6 @@
 "english_accents.singaporean" = "Singapurisch";
 "english_accents.irish" = "Irisch";
 "english_accents.south_african" = "Südafrikanisch";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Alle Redewendungen";
-"idiom_filters.favorite" = "Favorit";
-"idiom_filters.search" = "Suchen";
-"idiom_filters.no_idioms_yet" = "Noch keine Redewendungen";
-"idiom_filters.no_favorite_words" = "Keine Favoriten-Wörter";
-"idiom_filters.no_search_results" = "Keine Suchergebnisse";
-"idiom_filters.start_improving_vocabulary" = "Beginnen Sie, Ihren Wortschatz zu verbessern, indem Sie Ihre erste Redewendung hinzufügen";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Tippen Sie auf das Herzsymbol bei einer Redewendung, um sie zu den Favoriten hinzuzufügen";
-"idiom_filters.try_different_search_term" = "Versuchen Sie einen anderen Suchbegriff oder fügen Sie eine neue Redewendung hinzu";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Substantiv";

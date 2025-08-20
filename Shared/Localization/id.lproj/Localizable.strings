@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Unduh Cadangan dari Google";
 "settings.sign_in_sync_word_lists" = "Masuk untuk menyinkronkan daftar kata";
 "settings.organization" = "Organisasi";
-"settings.show_idioms_tab" = "Tampilkan Tab Ungkapan";
 "settings.shared_dictionaries" = "Kamus Bersama";
 "settings.about_app" = "Tentang Aplikasi";
 "settings.features" = "Fitur";
@@ -768,29 +767,43 @@
 "macos.shared_dictionaries" = "Kamus Bersama";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "Semua Kata";
+"filter_display.all" = "Semua";
 "filter_display.favorite" = "Favorit";
-"filter_display.search" = "Cari";
+"filter_display.search" = "Pencarian";
 "filter_display.tag" = "Tag";
 "filter_display.new" = "Baru";
 "filter_display.in_progress" = "Sedang Berlangsung";
 "filter_display.needs_review" = "Perlu Ditinjau";
 "filter_display.mastered" = "Dikuasai";
-"filter_display.no_words_yet" = "Belum ada kata";
-"filter_display.no_favorite_words" = "Tidak ada kata favorit";
-"filter_display.no_search_results" = "Tidak ada hasil pencarian";
-"filter_display.no_tagged_words" = "Tidak ada kata yang ditandai";
-"filter_display.no_new_words" = "Tidak ada kata baru";
-"filter_display.no_words_in_progress" = "Tidak ada kata yang sedang berlangsung";
-"filter_display.no_words_need_review" = "Tidak ada kata yang perlu ditinjau";
-"filter_display.no_mastered_words" = "Tidak ada kata yang dikuasai";
+"filter_display.no_words_yet" = "Belum Ada Kata";
+"filter_display.no_idioms_yet" = "Belum Ada Idiom";
+"filter_display.no_favorite_words" = "Tidak Ada Kata Favorit";
+"filter_display.no_favorite_idioms" = "Tidak Ada Idiom Favorit";
+"filter_display.no_search_results" = "Tidak Ada Hasil Pencarian";
+"filter_display.no_tagged_words" = "Tidak Ada Kata yang Ditandai";
+"filter_display.no_tagged_idioms" = "Tidak Ada Idiom yang Ditandai";
+"filter_display.no_new_words" = "Tidak Ada Kata Baru";
+"filter_display.no_new_idioms" = "Tidak Ada Idiom Baru";
+"filter_display.no_words_in_progress" = "Tidak Ada Kata yang Sedang Berlangsung";
+"filter_display.no_idioms_in_progress" = "Tidak Ada Idiom yang Sedang Berlangsung";
+"filter_display.no_words_need_review" = "Tidak Ada Kata yang Perlu Ditinjau";
+"filter_display.no_idioms_need_review" = "Tidak Ada Idiom yang Perlu Ditinjau";
+"filter_display.no_mastered_words" = "Tidak Ada Kata yang Dikuasai";
+"filter_display.no_mastered_idioms" = "Tidak Ada Idiom yang Dikuasai";
 "filter_display.start_building_vocabulary" = "Mulai bangun kosakata Anda dengan menambahkan kata pertama Anda";
-"filter_display.tap_heart_icon_to_add_favorites" = "Ketuk ikon hati pada kata apa pun untuk menambahkannya ke favorit";
+"filter_display.start_building_vocabulary_idioms" = "Mulai bangun kosakata Anda dengan menambahkan idiom pertama Anda";
+"filter_display.tap_heart_icon_to_add_favorites" = "Ketuk ikon hati pada kata apa pun untuk menambahkannya ke favorit Anda";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "Ketuk ikon hati pada idiom apa pun untuk menambahkannya ke favorit Anda";
 "filter_display.try_different_search_term" = "Coba istilah pencarian lain atau tambahkan kata baru";
-"filter_display.add_tags_to_organize" = "Tambah tag ke kata Anda untuk organisasi yang lebih baik";
-"filter_display.new_words_appear_here" = "Kata-kata baru akan muncul di sini setelah Anda menambahkannya ke daftar Anda";
-"filter_display.words_appear_here_as_you_practice" = "Kata-kata akan muncul di sini saat Anda berlatih melalui kuis";
+"filter_display.try_different_search_term_idioms" = "Coba istilah pencarian lain atau tambahkan idiom baru";
+"filter_display.add_tags_to_organize" = "Tambahkan tag ke kata-kata Anda untuk mengaturnya lebih baik";
+"filter_display.add_tags_to_organize_idioms" = "Tambahkan tag ke idiom Anda untuk mengaturnya lebih baik";
+"filter_display.new_words_appear_here" = "Kata-kata baru muncul di sini saat Anda menambahkannya ke daftar Anda";
+"filter_display.new_idioms_appear_here" = "Idiom baru muncul di sini saat Anda menambahkannya ke daftar Anda";
+"filter_display.words_appear_here_as_you_practice" = "Kata-kata muncul di sini saat Anda melatihnya dalam kuis";
+"filter_display.idioms_appear_here_as_you_practice" = "Idiom muncul di sini saat Anda melatihnya dalam kuis";
 "filter_display.words_need_more_practice" = "Kata-kata yang perlu lebih banyak latihan akan muncul di sini";
+"filter_display.idioms_need_more_practice" = "Idiom yang perlu lebih banyak latihan akan muncul di sini";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "Pemilik";
@@ -856,17 +869,6 @@
 "english_accents.singaporean" = "Singapura";
 "english_accents.irish" = "Irlandia";
 "english_accents.south_african" = "Afrika Selatan";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Semua Ungkapan";
-"idiom_filters.favorite" = "Favorit";
-"idiom_filters.search" = "Cari";
-"idiom_filters.no_idioms_yet" = "Belum ada ungkapan";
-"idiom_filters.no_favorite_words" = "Tidak ada kata favorit";
-"idiom_filters.no_search_results" = "Tidak ada hasil pencarian";
-"idiom_filters.start_improving_vocabulary" = "Mulai tingkatkan kosakata Anda dengan menambahkan ungkapan pertama Anda";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Ketuk ikon hati pada ungkapan apa pun untuk menambahkannya ke favorit";
-"idiom_filters.try_different_search_term" = "Coba istilah pencarian lain atau tambahkan ungkapan baru";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Kata Benda";

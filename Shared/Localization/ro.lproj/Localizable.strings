@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Descarcă Copie de Rezervă de pe Google";
 "settings.sign_in_sync_word_lists" = "Conectează-te pentru a sincroniza listele de cuvinte";
 "settings.organization" = "Organizare";
-"settings.show_idioms_tab" = "Afișează Fila Expresii";
 "settings.shared_dictionaries" = "Dicționare Partajate";
 "settings.about_app" = "Despre Aplicație";
 "settings.features" = "Funcționalități";
@@ -768,29 +767,43 @@
 "macos.shared_dictionaries" = "Dicționare Partajate";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "Toate Cuvintele";
+"filter_display.all" = "Toate";
 "filter_display.favorite" = "Favorit";
-"filter_display.search" = "Caută";
+"filter_display.search" = "Căutare";
 "filter_display.tag" = "Etichetă";
 "filter_display.new" = "Nou";
-"filter_display.in_progress" = "În Progres";
-"filter_display.needs_review" = "Necesită Revizuire";
-"filter_display.mastered" = "Stăpânit";
-"filter_display.no_words_yet" = "Niciun cuvânt încă";
-"filter_display.no_favorite_words" = "Niciun cuvânt favorit";
-"filter_display.no_search_results" = "Niciun rezultat de căutare";
-"filter_display.no_tagged_words" = "Niciun cuvânt etichetat";
-"filter_display.no_new_words" = "Niciun cuvânt nou";
-"filter_display.no_words_in_progress" = "Niciun cuvânt în progres";
-"filter_display.no_words_need_review" = "Niciun cuvânt care necesită revizuire";
-"filter_display.no_mastered_words" = "Niciun cuvânt stăpânit";
-"filter_display.start_building_vocabulary" = "Începe să-ți construiești vocabularul adăugând primul cuvânt";
-"filter_display.tap_heart_icon_to_add_favorites" = "Atinge pictograma inimă pe orice cuvânt pentru a-l adăuga la favorite";
+"filter_display.in_progress" = "În curs";
+"filter_display.needs_review" = "Necesită revizuire";
+"filter_display.mastered" = "Însușit";
+"filter_display.no_words_yet" = "Încă nu sunt cuvinte";
+"filter_display.no_idioms_yet" = "Încă nu sunt expresii";
+"filter_display.no_favorite_words" = "Fără cuvinte favorite";
+"filter_display.no_favorite_idioms" = "Fără expresii favorite";
+"filter_display.no_search_results" = "Fără rezultate de căutare";
+"filter_display.no_tagged_words" = "Fără cuvinte etichetate";
+"filter_display.no_tagged_idioms" = "Fără expresii etichetate";
+"filter_display.no_new_words" = "Fără cuvinte noi";
+"filter_display.no_new_idioms" = "Fără expresii noi";
+"filter_display.no_words_in_progress" = "Fără cuvinte în curs";
+"filter_display.no_idioms_in_progress" = "Fără expresii în curs";
+"filter_display.no_words_need_review" = "Fără cuvinte care necesită revizuire";
+"filter_display.no_idioms_need_review" = "Fără expresii care necesită revizuire";
+"filter_display.no_mastered_words" = "Fără cuvinte însușite";
+"filter_display.no_mastered_idioms" = "Fără expresii însușite";
+"filter_display.start_building_vocabulary" = "Începe să-ți construiești vocabularul adăugând primul tău cuvânt";
+"filter_display.start_building_vocabulary_idioms" = "Începe să-ți construiești vocabularul adăugând prima ta expresie";
+"filter_display.tap_heart_icon_to_add_favorites" = "Atinge pictograma inimă de pe orice cuvânt pentru a-l adăuga la favorite";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "Atinge pictograma inimă de pe orice expresie pentru a o adăuga la favorite";
 "filter_display.try_different_search_term" = "Încearcă un alt termen de căutare sau adaugă un cuvânt nou";
-"filter_display.add_tags_to_organize" = "Adaugă etichete la cuvintele tale pentru o organizare mai bună";
-"filter_display.new_words_appear_here" = "Cuvintele noi vor apărea aici după ce le adaugi la listă";
-"filter_display.words_appear_here_as_you_practice" = "Cuvintele vor apărea aici pe măsură ce exersezi cu teste";
+"filter_display.try_different_search_term_idioms" = "Încearcă un alt termen de căutare sau adaugă o expresie nouă";
+"filter_display.add_tags_to_organize" = "Adaugă etichete cuvintelor tale pentru a le organiza mai bine";
+"filter_display.add_tags_to_organize_idioms" = "Adaugă etichete expresiilor tale pentru a le organiza mai bine";
+"filter_display.new_words_appear_here" = "Cuvintele noi apar aici când le adaugi în lista ta";
+"filter_display.new_idioms_appear_here" = "Expresiile noi apar aici când le adaugi în lista ta";
+"filter_display.words_appear_here_as_you_practice" = "Cuvintele apar aici pe măsură ce le exersezi în chestionare";
+"filter_display.idioms_appear_here_as_you_practice" = "Expresiile apar aici pe măsură ce le exersezi în chestionare";
 "filter_display.words_need_more_practice" = "Cuvintele care necesită mai multă practică vor apărea aici";
+"filter_display.idioms_need_more_practice" = "Expresiile care necesită mai multă practică vor apărea aici";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "Proprietar";
@@ -856,17 +869,6 @@
 "english_accents.singaporean" = "Singaporan";
 "english_accents.irish" = "Irlandez";
 "english_accents.south_african" = "Sud-african";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Toate Expresiile";
-"idiom_filters.favorite" = "Favorit";
-"idiom_filters.search" = "Caută";
-"idiom_filters.no_idioms_yet" = "Nicio expresie încă";
-"idiom_filters.no_favorite_words" = "Niciun cuvânt favorit";
-"idiom_filters.no_search_results" = "Niciun rezultat de căutare";
-"idiom_filters.start_improving_vocabulary" = "Începe să-ți îmbunătățești vocabularul adăugând prima expresie";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Atinge pictograma inimă pe orice expresie pentru a o adăuga la favorite";
-"idiom_filters.try_different_search_term" = "Încearcă un alt termen de căutare sau adaugă o expresie nouă";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Substantiv";

@@ -85,7 +85,7 @@ struct SpellingQuizContentView: View {
             }
             .onDisappear {
                 // Handle early exit - save current progress if quiz is in progress
-                if !viewModel.isQuizComplete && viewModel.wordsPlayed.count > 0 {
+                if !viewModel.isQuizComplete && viewModel.itemsPlayed.count > 0 {
                     viewModel.handle(.dismiss)
                 }
             }
@@ -101,12 +101,12 @@ struct SpellingQuizContentView: View {
     private var headerView: some View {
         VStack(spacing: 6) {
             // Progress Bar
-            ProgressView(value: Double(viewModel.wordsPlayed.count), total: Double(viewModel.totalQuestions))
+            ProgressView(value: Double(viewModel.itemsPlayed.count), total: Double(viewModel.totalQuestions))
                 .progressViewStyle(.linear)
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("\(Loc.Quizzes.progress.localized): \(viewModel.wordsPlayed.count)/\(viewModel.totalQuestions)")
+                    Text("\(Loc.Quizzes.progress.localized): \(viewModel.itemsPlayed.count)/\(viewModel.totalQuestions)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
@@ -148,21 +148,21 @@ struct SpellingQuizContentView: View {
                 Spacer()
             }
             
-            Text(viewModel.randomWord?.quiz_definition ?? "")
+            Text(viewModel.randomItem?.quiz_definition ?? "")
                 .font(.body)
                 .lineSpacing(4)
                 .multilineTextAlignment(.leading)
             
-            TagView(text: PartOfSpeech(rawValue: viewModel.randomWord?.quiz_partOfSpeech).displayName, color: .blue, size: .small, style: .regular)
+            TagView(text: PartOfSpeech(rawValue: viewModel.randomItem?.quiz_partOfSpeech).displayName, color: .blue, size: .small, style: .regular)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
             // Hint section
-            if viewModel.isShowingHint, let randomWord = viewModel.randomWord {
+            if viewModel.isShowingHint, let randomItem = viewModel.randomItem {
                 HStack {
                     Image(systemName: "lightbulb.fill")
                         .foregroundStyle(.yellow)
                     
-                    Text("\(Loc.Quizzes.hint.localized): \(Loc.App.wordStartsWith.localized) '\(randomWord.quiz_wordItself.prefix(1).uppercased())'")
+                    Text("\(Loc.Quizzes.hint.localized): \(Loc.App.wordStartsWith.localized) '\(randomItem.quiz_text.prefix(1).uppercased())'")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
@@ -231,7 +231,7 @@ struct SpellingQuizContentView: View {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.red)
                     
-                    Text(Loc.Quizzes.correctWordIs.localized(viewModel.randomWord?.quiz_wordItself ?? ""))
+                    Text(Loc.Quizzes.correctWordIs.localized(viewModel.randomItem?.quiz_text ?? ""))
                         .font(.caption)
                         .foregroundStyle(.red)
                     
@@ -271,7 +271,7 @@ struct SpellingQuizContentView: View {
             ) {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     if isMovingOnToNextWord {
-                        viewModel.handle(.nextWord)
+                        viewModel.handle(.nextItem)
                     } else {
                         viewModel.handle(.confirmAnswer)
                     }
@@ -281,7 +281,7 @@ struct SpellingQuizContentView: View {
 
             ActionButton(Loc.Quizzes.skipWord.localized, systemImage: "arrow.right.circle") {
                 withAnimation(.easeInOut(duration: 0.3)) {
-                    viewModel.handle(.skipWord)
+                    viewModel.handle(.skipItem)
                 }
             }
             .disabled(isMovingOnToNextWord)
@@ -334,7 +334,7 @@ struct SpellingQuizContentView: View {
                         HStack {
                             Text(Loc.Quizzes.correctAnswers.localized)
                             Spacer()
-                            Text("\(viewModel.correctAnswers)/\(viewModel.wordsPlayed.count)")
+                            Text("\(viewModel.correctAnswers)/\(viewModel.itemsPlayed.count)")
                                 .fontWeight(.medium)
                         }
                         
@@ -356,7 +356,7 @@ struct SpellingQuizContentView: View {
 
                         // DO NOT TRANSLATE DEBUG
                         #if DEBUG
-                        if viewModel.wordsPlayed.count > 0 {
+                        if viewModel.itemsPlayed.count > 0 {
                             HStack {
                                 Text("Debug")
                                 Spacer()
@@ -401,25 +401,25 @@ struct SpellingQuizContentView: View {
     }
 
     private var incorrectMessage: String {
-        guard let randomWord = viewModel.randomWord else { return "" }
+        guard let randomItem = viewModel.randomItem else { return "" }
 
         if viewModel.attemptCount > 2 {
-            return Loc.QuizActions.yourWordIs.localized(randomWord.quiz_wordItself.trimmed)
+            return Loc.QuizActions.yourWordIs.localized(randomItem.quiz_text.trimmed)
         } else {
             return Loc.QuizActions.incorrectTryAgain.localized
         }
     }
 
     private func calculateAccuracy() -> Double {
-        let wordsPlayedCount = Double(viewModel.wordsPlayed.count)
+        let itemsPlayedCount = Double(viewModel.itemsPlayed.count)
         
-        if wordsPlayedCount == 0 {
+        if itemsPlayedCount == 0 {
             return 0.0
         }
         
         // Calculate accuracy based on contributions
         let totalAccuracyContribution = viewModel.accuracyContributions.values.reduce(0, +)
-        let averageAccuracy = totalAccuracyContribution / wordsPlayedCount
+        let averageAccuracy = totalAccuracyContribution / itemsPlayedCount
         return averageAccuracy * 100
     }
 }

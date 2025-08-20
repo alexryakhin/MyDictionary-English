@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Download backup from Google";
 "settings.sign_in_sync_word_lists" = "Sign in to sync word lists";
 "settings.organization" = "Organization";
-"settings.show_idioms_tab" = "Show Idioms Tab";
 "settings.shared_dictionaries" = "Shared Dictionaries";
 "settings.about_app" = "About App";
 "settings.features" = "Features";
@@ -772,7 +771,7 @@
 "macos.shared_dictionaries" = "Shared Dictionaries";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "All Words";
+"filter_display.all" = "All";
 "filter_display.favorite" = "Favorite";
 "filter_display.search" = "Search";
 "filter_display.tag" = "Tag";
@@ -781,20 +780,34 @@
 "filter_display.needs_review" = "Needs Review";
 "filter_display.mastered" = "Mastered";
 "filter_display.no_words_yet" = "No Words Yet";
+"filter_display.no_idioms_yet" = "No Idioms Yet";
 "filter_display.no_favorite_words" = "No Favorite Words";
+"filter_display.no_favorite_idioms" = "No Favorite Idioms";
 "filter_display.no_search_results" = "No Search Results";
 "filter_display.no_tagged_words" = "No Tagged Words";
+"filter_display.no_tagged_idioms" = "No Tagged Idioms";
 "filter_display.no_new_words" = "No New Words";
+"filter_display.no_new_idioms" = "No New Idioms";
 "filter_display.no_words_in_progress" = "No Words In Progress";
+"filter_display.no_idioms_in_progress" = "No Idioms In Progress";
 "filter_display.no_words_need_review" = "No Words Need Review";
+"filter_display.no_idioms_need_review" = "No Idioms Need Review";
 "filter_display.no_mastered_words" = "No Mastered Words";
+"filter_display.no_mastered_idioms" = "No Mastered Idioms";
 "filter_display.start_building_vocabulary" = "Start building your vocabulary by adding your first word";
+"filter_display.start_building_vocabulary_idioms" = "Start building your vocabulary by adding your first idiom";
 "filter_display.tap_heart_icon_to_add_favorites" = "Tap the heart icon on any word to add it to your favorites";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "Tap the heart icon on any idiom to add it to your favorites";
 "filter_display.try_different_search_term" = "Try a different search term or add a new word";
+"filter_display.try_different_search_term_idioms" = "Try a different search term or add a new idiom";
 "filter_display.add_tags_to_organize" = "Add tags to your words to organize them better";
+"filter_display.add_tags_to_organize_idioms" = "Add tags to your idioms to organize them better";
 "filter_display.new_words_appear_here" = "New words appear here when you add them to your list";
+"filter_display.new_idioms_appear_here" = "New idioms appear here when you add them to your list";
 "filter_display.words_appear_here_as_you_practice" = "Words appear here as you practice them in quizzes";
+"filter_display.idioms_appear_here_as_you_practice" = "Idioms appear here as you practice them in quizzes";
 "filter_display.words_need_more_practice" = "Words that need more practice will appear here";
+"filter_display.idioms_need_more_practice" = "Idioms that need more practice will appear here";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "Owner";
@@ -860,17 +873,6 @@
 "english_accents.singaporean" = "Singaporean";
 "english_accents.irish" = "Irish";
 "english_accents.south_african" = "South African";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "All Idioms";
-"idiom_filters.favorite" = "Favorite";
-"idiom_filters.search" = "Search";
-"idiom_filters.no_idioms_yet" = "No Idioms Yet";
-"idiom_filters.no_favorite_words" = "No Favorite Words";
-"idiom_filters.no_search_results" = "No Search Results";
-"idiom_filters.start_improving_vocabulary" = "Start improving your vocabulary by adding your first idiom";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Tap the heart icon on any idiom to add it to your favorites";
-"idiom_filters.try_different_search_term" = "Try a different search term or add a new idiom";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Noun";

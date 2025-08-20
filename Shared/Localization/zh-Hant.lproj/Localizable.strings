@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "從谷歌下載備份";
 "settings.sign_in_sync_word_lists" = "登錄以同步單詞列表";
 "settings.organization" = "組織";
-"settings.show_idioms_tab" = "顯示成語標籤";
 "settings.shared_dictionaries" = "共享詞典";
 "settings.about_app" = "關於應用";
 "settings.features" = "功能";
@@ -857,17 +856,6 @@
 "english_accents.singaporean" = "新加坡口音";
 "english_accents.irish" = "愛爾蘭口音";
 "english_accents.south_african" = "南非口音";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "所有成語";
-"idiom_filters.favorite" = "收藏";
-"idiom_filters.search" = "搜索";
-"idiom_filters.no_idioms_yet" = "暫無成語";
-"idiom_filters.no_favorite_words" = "暫無收藏的單詞";
-"idiom_filters.no_search_results" = "無搜索結果";
-"idiom_filters.start_improving_vocabulary" = "通過添加你的第一個成語開始提升你的詞彙量";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "點擊任何成語上的心形圖標將其添加到收藏";
-"idiom_filters.try_different_search_term" = "嘗試不同的搜索詞或添加新成語";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "名詞";

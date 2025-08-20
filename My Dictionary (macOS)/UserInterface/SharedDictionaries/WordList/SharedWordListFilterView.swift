@@ -16,7 +16,7 @@ struct SharedWordListFilterView: View {
                 HStack(spacing: 8) {
                     // All Words Filter
                     TagView(
-                        text: Loc.FilterDisplay.allWords.localized,
+                        text: Loc.FilterDisplay.all.localized,
                         color: .blue,
                         style: viewModel.filterState == .none ? .selected : .regular
                     )
@@ -24,65 +24,51 @@ struct SharedWordListFilterView: View {
                         viewModel.handle(.filterChanged(.none))
                     }
 
-                    // Favorite Words Filter - only show if there are favorite words
-                    if !viewModel.favoriteWords.isEmpty {
-                        TagView(
-                            text: Loc.FilterDisplay.favorite.localized,
-                            color: .accentColor,
-                            style: viewModel.filterState == .favorite ? .selected : .regular
-                        )
-                        .onTap {
-                            viewModel.handle(.filterChanged(.favorite))
-                        }
+                    // Favorite Words Filter
+                    TagView(
+                        text: Loc.FilterDisplay.favorite.localized,
+                        color: .accentColor,
+                        style: viewModel.filterState == .favorite ? .selected : .regular
+                    )
+                    .onTap {
+                        viewModel.handle(.filterChanged(.favorite))
                     }
 
-                    // Difficulty Filters - only show if there are words with that difficulty
-                    let newWords = viewModel.words.filter { viewModel.getDifficultyForWord($0) == .new }
-                    if !newWords.isEmpty {
-                        TagView(
-                            text: Loc.FilterDisplay.new.localized,
-                            color: .secondary,
-                            style: viewModel.filterState == .new ? .selected : .regular
-                        )
-                        .onTap {
-                            viewModel.handle(.filterChanged(.new))
-                        }
+                    // Difficulty Filters
+                    TagView(
+                        text: Loc.FilterDisplay.new.localized,
+                        color: .secondary,
+                        style: viewModel.filterState == .new ? .selected : .regular
+                    )
+                    .onTap {
+                        viewModel.handle(.filterChanged(.new))
                     }
 
-                    let inProgressWords = viewModel.words.filter { viewModel.getDifficultyForWord($0) == .inProgress }
-                    if !inProgressWords.isEmpty {
-                        TagView(
-                            text: Loc.FilterDisplay.inProgress.localized,
-                            color: .orange,
-                            style: viewModel.filterState == .inProgress ? .selected : .regular
-                        )
-                        .onTap {
-                            viewModel.handle(.filterChanged(.inProgress))
-                        }
+                    TagView(
+                        text: Loc.FilterDisplay.inProgress.localized,
+                        color: .orange,
+                        style: viewModel.filterState == .inProgress ? .selected : .regular
+                    )
+                    .onTap {
+                        viewModel.handle(.filterChanged(.inProgress))
                     }
 
-                    let needsReviewWords = viewModel.words.filter { viewModel.getDifficultyForWord($0) == .needsReview }
-                    if !needsReviewWords.isEmpty {
-                        TagView(
-                            text: Loc.FilterDisplay.needsReview.localized,
-                            color: .red,
-                            style: viewModel.filterState == .needsReview ? .selected : .regular
-                        )
-                        .onTap {
-                            viewModel.handle(.filterChanged(.needsReview))
-                        }
+                    TagView(
+                        text: Loc.FilterDisplay.needsReview.localized,
+                        color: .red,
+                        style: viewModel.filterState == .needsReview ? .selected : .regular
+                    )
+                    .onTap {
+                        viewModel.handle(.filterChanged(.needsReview))
                     }
 
-                    let masteredWords = viewModel.words.filter { viewModel.getDifficultyForWord($0) == .mastered }
-                    if !masteredWords.isEmpty {
-                        TagView(
-                            text: Loc.FilterDisplay.mastered.localized,
-                            color: .accent,
-                            style: viewModel.filterState == .mastered ? .selected : .regular
-                        )
-                        .onTap {
-                            viewModel.handle(.filterChanged(.mastered))
-                        }
+                    TagView(
+                        text: Loc.FilterDisplay.mastered.localized,
+                        color: .accent,
+                        style: viewModel.filterState == .mastered ? .selected : .regular
+                    )
+                    .onTap {
+                        viewModel.handle(.filterChanged(.mastered))
                     }
                 }
                 .padding(.horizontal, 16)

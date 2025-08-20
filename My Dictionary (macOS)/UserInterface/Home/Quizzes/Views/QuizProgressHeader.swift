@@ -10,7 +10,7 @@ import SwiftUI
 struct QuizProgressHeader: View {
 
     struct Model {
-        let wordsPlayed: Int
+        let itemsPlayed: Int
         let totalQuestions: Int
         let currentStreak: Int
         let score: Int
@@ -22,12 +22,12 @@ struct QuizProgressHeader: View {
     var body: some View {
         VStack(spacing: 6) {
             // Progress Bar
-            ProgressView(value: Double(model.wordsPlayed), total: Double(model.totalQuestions))
+            ProgressView(value: Double(model.itemsPlayed), total: Double(model.totalQuestions))
                 .progressViewStyle(.linear)
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(Loc.Quizzes.progressFormat.localized(model.wordsPlayed, model.totalQuestions))
+                    Text(Loc.Quizzes.progressFormat.localized(model.itemsPlayed, model.totalQuestions))
                         .font(.caption)
                         .foregroundStyle(.secondary)
 

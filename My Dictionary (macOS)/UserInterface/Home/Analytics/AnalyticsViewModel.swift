@@ -100,7 +100,7 @@ final class AnalyticsViewModel: BaseViewModel {
     
     var vocabularyGrowthData: [VocabularyLineChart.Model] {
         // Get words to create vocabulary growth data
-        let words = quizAnalyticsService.getAllWords()
+        let words = quizAnalyticsService.getAllItems()
         let calendar = Calendar.current
         let today = Date()
         var data: [VocabularyLineChart.Model] = []

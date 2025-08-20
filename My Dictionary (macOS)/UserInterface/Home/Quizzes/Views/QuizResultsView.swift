@@ -13,7 +13,7 @@ struct QuizResultsView: View {
         let quiz: Quiz
         let score: Int
         let correctAnswers: Int
-        let wordsPlayed: Int
+        let itemsPlayed: Int
         let accuracyContributions: Double
         let bestStreak: Int
     }
@@ -67,7 +67,7 @@ struct QuizResultsView: View {
                         HStack {
                             Text(Loc.Quizzes.correctAnswers.localized)
                             Spacer()
-                            Text("\(model.correctAnswers)/\(model.wordsPlayed)")
+                            Text("\(model.correctAnswers)/\(model.itemsPlayed)")
                                 .fontWeight(.medium)
                         }
 
@@ -111,10 +111,10 @@ struct QuizResultsView: View {
 
     private func calculatedAccuracy() -> Double {
         guard model.accuracyContributions != .zero else {
-            return (Double(model.correctAnswers) / Double(model.wordsPlayed)) * 100
+            return (Double(model.correctAnswers) / Double(model.itemsPlayed)) * 100
         }
 
-        let wordsPlayedCount = Double(model.wordsPlayed)
+        let wordsPlayedCount = Double(model.itemsPlayed)
 
         if wordsPlayedCount == 0 {
             return 0.0
@@ -132,7 +132,7 @@ struct QuizResultsView: View {
             quiz: .chooseDefinition,
             score: 50,
             correctAnswers: 10,
-            wordsPlayed: 10,
+            itemsPlayed: 10,
             accuracyContributions: .zero,
             bestStreak: 10
         ),

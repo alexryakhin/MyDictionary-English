@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import FirebaseAnalytics
 
 final class AnalyticsService {
     static let shared = AnalyticsService()
@@ -14,10 +15,8 @@ final class AnalyticsService {
     private init() {}
     
     func logEvent(_ event: AnalyticsEvent) {
+        Analytics.logEvent(event.rawValue, parameters: event.parameters)
         print("🔹 Analytics log event: \(event.rawValue)")
-        
-        // Here you can add actual analytics implementation
-        // For example: Firebase Analytics, Mixpanel, etc.
     }
 }
 
@@ -37,31 +36,38 @@ final class QuizAnalyticsService {
         quizType: String,
         score: Int,
         correctAnswers: Int,
-        totalWords: Int,
+        totalItems: Int,
         duration: TimeInterval,
         accuracy: Double,
-        wordsPracticed: [any QuizWord],
-        correctWordIds: [String] = []
+        itemsPracticed: [any Quizable],
+        correctItemIds: [String] = []
     ) {
         let session = CDQuizSession(context: coreDataService.context)
         session.id = UUID()
         session.date = Date()
         session.quizType = quizType
-        session.totalWords = Int32(totalWords)
+        session.totalWords = Int32(totalItems)
         session.correctAnswers = Int32(correctAnswers)
         session.score = Int32(score)
         session.duration = duration
         session.accuracy = accuracy
         
         // Encode words practiced as word IDs
-        let wordIds = wordsPracticed.map { $0.quiz_id }
-        session.wordsPracticed = try? JSONEncoder().encode(wordIds)
-        
+        let itemIds = itemsPracticed.map { $0.quiz_id }
+        session.wordsPracticed = try? JSONEncoder().encode(itemIds)
+
         // Update word progress for each practiced word
-        for word in wordsPracticed {
-            let wordId = word.quiz_id
-            let wasCorrect = correctWordIds.contains(wordId)
-            updateWordProgress(wordId: wordId, wasCorrect: wasCorrect)
+        for item in itemsPracticed {
+            let itemId = item.quiz_id
+            let wasCorrect = correctItemIds.contains(itemId)
+            switch item.quiz_itemType {
+            case .word:
+                updateWordProgress(wordId: itemId, wasCorrect: wasCorrect)
+            case .sharedWord:
+                break
+            case .idiom:
+                updateIdiomProgress(idiomId: itemId, wasCorrect: wasCorrect)
+            }
         }
         
         // Update user stats
@@ -79,6 +85,23 @@ final class QuizAnalyticsService {
         if let word = try? coreDataService.context.fetch(fetchRequest).first {
             word.updatedAt = Date()
             word.isSynced = false // Mark for sync
+        }
+    }
+    
+    // MARK: - Idiom Progress Management
+    
+    private func updateIdiomProgress(idiomId: String, wasCorrect: Bool) {
+        // Try to find the idiom in Core Data first (private idioms)
+        let fetchRequest = CDIdiom.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", idiomId)
+        
+        if let idiom = try? coreDataService.context.fetch(fetchRequest).first {
+            // Update idiom difficulty based on quiz performance using the same scoring system as words
+            if wasCorrect {
+                idiom.quiz_updateDifficultyScore(5) // Add 5 points for correct answer
+            } else {
+                idiom.quiz_updateDifficultyScore(-10) // Subtract 10 points for incorrect answer
+            }
         }
     }
     
@@ -119,16 +142,18 @@ final class QuizAnalyticsService {
     }
     
     private func updateVocabularySize(stats: CDUserStats) {
-        let request = CDWord.fetchRequest()
+        let wordRequest = CDWord.fetchRequest()
+        let idiomRequest = CDIdiom.fetchRequest()
         
-        let privateWordCount = (try? coreDataService.context.count(for: request)) ?? .zero
+        let privateWordCount = (try? coreDataService.context.count(for: wordRequest)) ?? .zero
+        let privateIdiomCount = (try? coreDataService.context.count(for: idiomRequest)) ?? .zero
 
         // Add shared dictionary words count
         let dictionaryService = DictionaryService.shared
         let sharedWordCount = dictionaryService.sharedWords.values.flatMap { $0 }.count
 
-        let totalWordCount = privateWordCount + sharedWordCount
-        stats.vocabularySize = Int32(totalWordCount)
+        let totalVocabularySize = privateWordCount + privateIdiomCount + sharedWordCount
+        stats.vocabularySize = Int32(totalVocabularySize)
     }
     
     // MARK: - Analytics Queries
@@ -167,6 +192,17 @@ final class QuizAnalyticsService {
         }
     }
     
+    func getIdiomProgress() -> [CDIdiomProgress] {
+        let request = CDIdiomProgress.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "lastPracticed", ascending: false)]
+        
+        do {
+            return try coreDataService.context.fetch(request)
+        } catch {
+            return []
+        }
+    }
+    
     func getWordProgress(for wordId: String) -> CDWordProgress? {
         let request = CDWordProgress.fetchRequest()
         request.predicate = NSPredicate(format: "wordId == %@", wordId)
@@ -179,33 +215,33 @@ final class QuizAnalyticsService {
         }
     }
     
-    func getAllWords() -> [any QuizWord] {
+    func getAllItems() -> [any Quizable] {
         let request = CDWord.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
 
-        var words: [any QuizWord] = []
+        var items: [any Quizable] = []
 
-        let coreDataWords = (try? coreDataService.context.fetch(request)) ?? []
-        words.append(contentsOf: coreDataWords)
+        let coreDataItems = (try? coreDataService.context.fetch(request)) ?? []
+        items.append(contentsOf: coreDataItems)
 
         let sharedWords = DictionaryService.shared.sharedWords.values.flatMap { $0 }
-        words.append(contentsOf: sharedWords)
+        items.append(contentsOf: sharedWords)
 
-        return words
+        return items
     }
     
     func getProgressSummary() -> ProgressSummary {
-        let privateWords = getAllWords()
+        let privateItems = getAllItems()
         let userStats = getUserStats()
         
         // Get shared dictionary words
         let dictionaryService = DictionaryService.shared
         let sharedWords = dictionaryService.sharedWords.values.flatMap { $0 }
-        
+
         // Calculate progress from private word difficulty levels
-        let privateInProgress = privateWords.filter { $0.difficultyLevel == .inProgress }.count
-        let privateNeedsReview = privateWords.filter { $0.difficultyLevel == .needsReview }.count
-        let privateMastered = privateWords.filter { $0.difficultyLevel == .mastered }.count
+        let privateInProgress = privateItems.filter { $0.difficultyLevel == .inProgress }.count
+        let privateNeedsReview = privateItems.filter { $0.difficultyLevel == .needsReview }.count
+        let privateMastered = privateItems.filter { $0.difficultyLevel == .mastered }.count
         
         // Calculate progress from shared word difficulty levels for current user
         let userEmail = AuthenticationService.shared.userEmail
@@ -228,7 +264,7 @@ final class QuizAnalyticsService {
         let totalMastered = privateMastered + sharedMastered
         
         // Calculate total vocabulary size including shared words
-        let totalVocabularySize = privateWords.count + sharedWords.count
+        let totalVocabularySize = privateItems.count + sharedWords.count
 
         return ProgressSummary(
             inProgress: totalInProgress,

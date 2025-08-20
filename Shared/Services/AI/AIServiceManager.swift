@@ -51,7 +51,7 @@ protocol AIServiceManagerInterface {
     ) async throws -> String
 
     func analyzeLearningProgress(
-        words: [any QuizWord],
+        items: [any Quizable],
         quizResults: [CDQuizSession]
     ) async throws -> AILearningInsights
 }
@@ -257,18 +257,18 @@ final class AIServiceManager: AIServiceManagerInterface {
     // MARK: - Learning Progress Analysis
 
         func analyzeLearningProgress(
-        words: [any QuizWord],
+        items: [any Quizable],
         quizResults: [CDQuizSession]
     ) async throws -> AILearningInsights {
         // This is a placeholder for future implementation
         // For now, we'll provide basic insights based on analytics data
         
-        let weakAreas = identifyWeakAreas(from: words, quizResults: quizResults)
-        let recommendedWords = recommendWords(from: words, weakAreas: weakAreas)
+        let weakAreas = identifyWeakAreas(from: items, quizResults: quizResults)
+        let recommendedWords = recommendWords(from: items, weakAreas: weakAreas)
         let studySuggestions = generateStudySuggestions(weakAreas: weakAreas)
         let progressTrend = analyzeProgressTrend(quizResults: quizResults)
-        let estimatedMasteryTime = estimateMasteryTime(words: words, quizResults: quizResults)
-        
+        let estimatedMasteryTime = estimateMasteryTime(items: items, quizResults: quizResults)
+
         return AILearningInsights(
             weakAreas: weakAreas,
             recommendedWords: recommendedWords,
@@ -322,12 +322,12 @@ final class AIServiceManager: AIServiceManagerInterface {
         return union > 0 ? Double(intersection) / Double(union) : 0.0
     }
 
-    private func identifyWeakAreas(from words: [any QuizWord], quizResults: [CDQuizSession]) -> [String] {
+    private func identifyWeakAreas(from items: [any Quizable], quizResults: [CDQuizSession]) -> [String] {
         // Analyze quiz results to identify areas where user struggles
         var weakAreas: [String] = []
 
         // Check for words with low difficulty scores
-        let difficultWords = words.filter { $0.difficultyLevel == .needsReview }
+        let difficultWords = items.filter { $0.difficultyLevel == .needsReview }
         if !difficultWords.isEmpty {
             weakAreas.append(Loc.AI.weakAreaDifficultWords.localized)
         }
@@ -343,13 +343,13 @@ final class AIServiceManager: AIServiceManagerInterface {
         return weakAreas
     }
 
-    private func recommendWords(from words: [any QuizWord], weakAreas: [String]) -> [String] {
-        // Recommend words based on weak areas
+    private func recommendWords(from items: [any Quizable], weakAreas: [String]) -> [String] {
+        // Recommend items based on weak areas
         var recommendations: [String] = []
 
         if weakAreas.contains(Loc.AI.weakAreaDifficultWords.localized) {
-            let difficultWords = words.filter { $0.difficultyLevel == .needsReview }
-            recommendations.append(contentsOf: difficultWords.prefix(5).map { $0.quiz_wordItself })
+            let difficultWords = items.filter { $0.difficultyLevel == .needsReview }
+            recommendations.append(contentsOf: difficultWords.prefix(5).map { $0.quiz_text })
         }
 
         return recommendations
@@ -387,9 +387,9 @@ final class AIServiceManager: AIServiceManagerInterface {
         }
     }
 
-    private func estimateMasteryTime(words: [any QuizWord], quizResults: [CDQuizSession]) -> String {
-        let totalWords = words.count
-        let masteredWords = words.filter { $0.difficultyLevel == .mastered }.count
+    private func estimateMasteryTime(items: [any Quizable], quizResults: [CDQuizSession]) -> String {
+        let totalWords = items.count
+        let masteredWords = items.filter { $0.difficultyLevel == .mastered }.count
         let remainingWords = totalWords - masteredWords
 
         // Rough estimation: 5 minutes per word

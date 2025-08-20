@@ -12,8 +12,8 @@ struct QuizzesListView: View {
     typealias ViewModel = QuizzesListViewModel
 
     @ObservedObject private var viewModel: ViewModel
-    @StateObject private var quizWordsProvider: QuizWordsProvider = .shared
-    @AppStorage(UDKeys.practiceWordCount) private var practiceWordCount: Double = 10
+    @StateObject private var QuizItemsProvider: QuizItemsProvider = .shared
+    @AppStorage(UDKeys.practiceItemCount) private var practiceItemCount: Double = 10
 
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -24,7 +24,7 @@ struct QuizzesListView: View {
             Color.systemGroupedBackground
                 .ignoresSafeArea()
 
-            if viewModel.hasEnoughWords {
+            if viewModel.hasEnoughItems {
                 quizzesList
             } else {
                 insufficientWordsPlaceholder
@@ -74,7 +74,15 @@ struct QuizzesListView: View {
                 ) {
                     VStack(spacing: 8) {
                         Button {
-                            viewModel.output.send(.showSpellingQuiz(.init(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly)))
+                            viewModel.output.send(
+                                .showSpellingQuiz(
+                                    .init(
+                                        itemCount: Int(practiceItemCount),
+                                        hardItemsOnly: viewModel.showingHardItemsOnly,
+                                        mode: .all
+                                    )
+                                )
+                            )
                         } label: {
                             QuizCardView(quiz: .spelling)
                         }
@@ -85,7 +93,15 @@ struct QuizzesListView: View {
                         )
 
                         Button {
-                            viewModel.output.send(.showChooseDefinitionQuiz(.init(wordCount: Int(practiceWordCount), hardWordsOnly: viewModel.showingHardWordsOnly)))
+                            viewModel.output.send(
+                                .showChooseDefinitionQuiz(
+                                    .init(
+                                        itemCount: Int(practiceItemCount),
+                                        hardItemsOnly: viewModel.showingHardItemsOnly,
+                                        mode: .all
+                                    )
+                                )
+                            )
                         } label: {
                             QuizCardView(quiz: .chooseDefinition)
                         }
@@ -99,7 +115,7 @@ struct QuizzesListView: View {
                 }
 
                 // Practice Settings Section
-                if viewModel.words.count >= 20 {
+                if viewModel.items.count >= 20 {
                     CustomSectionView(
                         header: Loc.QuizList.practiceSettings.localized,
                         footer: Loc.QuizList.configureQuizExperience.localized
@@ -112,7 +128,7 @@ struct QuizzesListView: View {
                                         .font(.body)
                                         .fontWeight(.medium)
                                     Text(
-                                        viewModel.hasHardWords
+                                        viewModel.hasHardItems
                                         ? Loc.QuizList.focusOnWordsNeedReview.localized
                                         : Loc.QuizList.notEnoughWordsReviewYet.localized
                                     )
@@ -122,9 +138,9 @@ struct QuizzesListView: View {
 
                                 Spacer()
 
-                                Toggle("", isOn: $viewModel.showingHardWordsOnly)
+                                Toggle("", isOn: $viewModel.showingHardItemsOnly)
                                     .labelsHidden()
-                                    .disabled(!viewModel.hasHardWords)
+                                    .disabled(!viewModel.hasHardItems)
                             }
                             .clippedWithPaddingAndBackground(
                                 Color.tertiarySystemGroupedBackground,
@@ -138,13 +154,15 @@ struct QuizzesListView: View {
                                         .font(.body)
                                         .fontWeight(.medium)
                                     Spacer()
-                                    Text("\(Int(practiceWordCount))")
+                                    Text("\(Int(practiceItemCount))")
                                         .font(.body)
                                         .fontWeight(.semibold)
                                         .foregroundStyle(.accent)
                                 }
 
-                                let availableWords = viewModel.showingHardWordsOnly ? viewModel.filteredWords : viewModel.words
+                                let availableWords = viewModel.showingHardItemsOnly
+                                ? viewModel.filteredItems
+                                : viewModel.items
                                 let maxWords = min(50, max(10, availableWords.count))
                                 let minWords = 10
                                 let subtitle = Loc.Quizzes.numberWordsPracticeSession.localized(minWords, maxWords)
@@ -153,7 +171,7 @@ struct QuizzesListView: View {
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
 
-                                Slider(value: $practiceWordCount, in: Double(minWords)...Double(maxWords), step: 1)
+                                Slider(value: $practiceItemCount, in: Double(minWords)...Double(maxWords), step: 1)
 
                                 HStack {
                                     Text("\(minWords)")
@@ -198,13 +216,13 @@ struct QuizzesListView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                 } else {
-                    Text(viewModel.words.isEmpty ? Loc.Quizzes.startBuildingVocabulary.localized : Loc.Quizzes.keepAddingWords.localized)
+                    Text(viewModel.items.isEmpty ? Loc.Quizzes.startBuildingVocabulary.localized : Loc.Quizzes.keepAddingWords.localized)
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                 }
 
-                Text(viewModel.insufficientWordsMessage)
+                Text(viewModel.insufficientItemsMessage)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -230,20 +248,16 @@ struct QuizzesListView: View {
                 } else {
                     // For private dictionary, show the original actions
                     ActionButton(
-                        viewModel.words.isEmpty ? Loc.QuizList.addYourFirstWord.localized : Loc.QuizList.addMoreWords.localized,
+                        viewModel.items.isEmpty ? Loc.QuizList.addYourFirstWord.localized : Loc.QuizList.addMoreWords.localized,
                         systemImage: "plus.circle.fill",
                         style: .borderedProminent
                     ) {
-                        #if os(iOS)
-                        TabManager.shared.switchToTab(.words)
-                        #elseif os(macOS)
-                        NavigationManager.shared.selectedSideBarItem = .words
-                        #endif
+                        TabManager.shared.switchToTab(.myDictionary)
                     }
 
-                    Text(viewModel.words.isEmpty ?
+                    Text(viewModel.items.isEmpty ?
                          Loc.QuizList.quizzesHelpTestKnowledge.localized :
-                            Loc.QuizList.wordsAwayFromUnlockingQuizzes.localized(10 - viewModel.words.count))
+                            Loc.QuizList.wordsAwayFromUnlockingQuizzes.localized(10 - viewModel.items.count))
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)

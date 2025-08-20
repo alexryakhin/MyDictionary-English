@@ -358,7 +358,7 @@ final class AuthenticationService: ObservableObject {
             toggleSignOutView()
 
             #if os(macOS)
-            SideBarManager.shared.selectedTab = .words
+            SideBarManager.shared.selectedTab = .myDictionary
             #endif
 
             // Log analytics event

@@ -397,7 +397,6 @@ enum Loc {
         static let downloadBackupGoogle = "settings.download_backup_google"
         static let signInSyncWordLists = "settings.sign_in_sync_word_lists"
         static let organization = "settings.organization"
-        static let showIdiomsTab = "settings.show_idioms_tab"
         static let sharedDictionaries = "settings.shared_dictionaries"
         static let aboutApp = "settings.about_app"
         static let features = "settings.features"
@@ -836,7 +835,7 @@ enum Loc {
 
     // MARK: - Filter Display Names
     enum FilterDisplay {
-        static let allWords = "filter_display.all_words"
+        static let all = "filter_display.all"
         static let favorite = "filter_display.favorite"
         static let search = "filter_display.search"
         static let tag = "filter_display.tag"
@@ -845,20 +844,34 @@ enum Loc {
         static let needsReview = "filter_display.needs_review"
         static let mastered = "filter_display.mastered"
         static let noWordsYet = "filter_display.no_words_yet"
+        static let noIdiomsYet = "filter_display.no_idioms_yet"
         static let noFavoriteWords = "filter_display.no_favorite_words"
+        static let noFavoriteIdioms = "filter_display.no_favorite_idioms"
         static let noSearchResults = "filter_display.no_search_results"
         static let noTaggedWords = "filter_display.no_tagged_words"
+        static let noTaggedIdioms = "filter_display.no_tagged_idioms"
         static let noNewWords = "filter_display.no_new_words"
+        static let noNewIdioms = "filter_display.no_new_idioms"
         static let noWordsInProgress = "filter_display.no_words_in_progress"
+        static let noIdiomsInProgress = "filter_display.no_idioms_in_progress"
         static let noWordsNeedReview = "filter_display.no_words_need_review"
+        static let noIdiomsNeedReview = "filter_display.no_idioms_need_review"
         static let noMasteredWords = "filter_display.no_mastered_words"
+        static let noMasteredIdioms = "filter_display.no_mastered_idioms"
         static let startBuildingVocabulary = "filter_display.start_building_vocabulary"
+        static let startBuildingVocabularyIdioms = "filter_display.start_building_vocabulary_idioms"
         static let tapHeartIconToAddFavorites = "filter_display.tap_heart_icon_to_add_favorites"
+        static let tapHeartIconToAddFavoritesIdioms = "filter_display.tap_heart_icon_to_add_favorites_idioms"
         static let tryDifferentSearchTerm = "filter_display.try_different_search_term"
+        static let tryDifferentSearchTermIdioms = "filter_display.try_different_search_term_idioms"
         static let addTagsToOrganize = "filter_display.add_tags_to_organize"
+        static let addTagsToOrganizeIdioms = "filter_display.add_tags_to_organize_idioms"
         static let newWordsAppearHere = "filter_display.new_words_appear_here"
+        static let newIdiomsAppearHere = "filter_display.new_idioms_appear_here"
         static let wordsAppearHereAsYouPractice = "filter_display.words_appear_here_as_you_practice"
+        static let idiomsAppearHereAsYouPractice = "filter_display.idioms_appear_here_as_you_practice"
         static let wordsNeedMorePractice = "filter_display.words_need_more_practice"
+        static let idiomsNeedMorePractice = "filter_display.idioms_need_more_practice"
     }
 
     // MARK: - Collaborator Roles
@@ -938,19 +951,6 @@ enum Loc {
         static let singaporean = "english_accents.singaporean"
         static let irish = "english_accents.irish"
         static let southAfrican = "english_accents.south_african"
-    }
-
-    // MARK: - Idiom Filters
-    enum IdiomFilters {
-        static let allIdioms = "idiom_filters.all_idioms"
-        static let favorite = "idiom_filters.favorite"
-        static let search = "idiom_filters.search"
-        static let noIdiomsYet = "idiom_filters.no_idioms_yet"
-        static let noFavoriteWords = "idiom_filters.no_favorite_words"
-        static let noSearchResults = "idiom_filters.no_search_results"
-        static let startImprovingVocabulary = "idiom_filters.start_improving_vocabulary"
-        static let tapHeartIconToAddFavorites = "idiom_filters.tap_heart_icon_to_add_favorites"
-        static let tryDifferentSearchTerm = "idiom_filters.try_different_search_term"
     }
 
     // MARK: - Part of Speech

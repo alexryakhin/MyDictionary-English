@@ -5,19 +5,19 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
 
     enum Input {
         case answerSelected(Int)
-        case skipWord
+        case skipItem
         case restartQuiz
         case saveSession
     }
 
-    @Published private(set) var words: [any QuizWord] = []
+    @Published private(set) var items: [any Quizable] = []
     @Published private(set) var correctAnswerIndex: Int
     @Published private(set) var isCorrectAnswer = true
     @Published private(set) var selectedAnswerIndex: Int?
     @Published private(set) var answerFeedback: AnswerFeedback = .none
 
-    var correctWord: any QuizWord {
-        words[correctAnswerIndex]
+    var correctItem: any Quizable {
+        items[correctAnswerIndex]
     }
 
     let preset: QuizPreset
@@ -25,8 +25,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     // Game progress tracking
     @Published private(set) var correctAnswers = 0
     @Published private(set) var score = 0
-    @Published private(set) var wordsPlayed: [any QuizWord] = []
-    @Published private(set) var correctWordIds: [String] = []
+    @Published private(set) var itemsPlayed: [any Quizable] = []
+    @Published private(set) var correctItemIds: [String] = []
     @Published private(set) var isQuizComplete = false
     
     // Game state
@@ -35,11 +35,11 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     @Published private(set) var questionsAnswered = 0
     @Published private(set) var errorMessage: String?
 
-    private let quizWordsProvider: QuizWordsProvider = .shared
+    private let QuizItemsProvider: QuizItemsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
-    private var originalWords: [any QuizWord] = []
-    private var usedWords: Set<String> = []
+    private var originalItems: [any Quizable] = []
+    private var usedItems: Set<String> = []
     private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
 
@@ -63,8 +63,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         switch input {
         case .answerSelected(let index):
             answerSelected(index)
-        case .skipWord:
-            skipWord()
+        case .skipItem:
+            skipItem()
         case .restartQuiz:
             restartQuiz()
         case .saveSession:
@@ -76,12 +76,12 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         guard !isQuizComplete else { return }
         
         selectedAnswerIndex = index
-        wordsPlayed.append(correctWord)
-        usedWords.insert(correctWord.quiz_id)
+        itemsPlayed.append(correctItem)
+        usedItems.insert(correctItem.quiz_id)
         questionsAnswered += 1
         
         // Check if answer is correct
-        if correctWord.quiz_id == words[index].quiz_id {
+        if correctItem.quiz_id == items[index].quiz_id {
             // Correct answer
             answerFeedback = .correct(index)
             isCorrectAnswer = true
@@ -90,10 +90,10 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             bestStreak = max(bestStreak, currentStreak)
             
             // Update word difficulty - add 5 points for correct answer
-            updateWordScore(correctWord, points: 5)
+            updateItemScore(correctItem, points: 5)
 
             // Add to correct word IDs for analytics
-            correctWordIds.append(correctWord.quiz_id)
+            correctItemIds.append(correctItem.quiz_id)
             
             // Update quiz score - add 5 points for correct answer
             score += 5
@@ -107,7 +107,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             currentStreak = 0 // Reset streak on wrong answer
             
             // Update word difficulty - subtract 2 points for incorrect answer
-            updateWordScore(correctWord, points: -2)
+            updateItemScore(correctItem, points: -2)
 
             // Update quiz score - subtract 2 points for incorrect answer
             score -= 2
@@ -117,18 +117,18 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         }
 
         // Check if quiz is complete immediately after answering
-        if questionsAnswered >= preset.wordCount {
+        if questionsAnswered >= preset.itemCount {
             scheduleQuizCompletion()
         } else {
             scheduleNextQuestion()
         }
     }
     
-    private func updateWordScore(_ word: any QuizWord, points: Int) {
-        if let sharedWord = word as? SharedWord {
+    private func updateItemScore(_ word: any Quizable, points: Int) {
+        if let sharedItem = word as? SharedWord {
             // For shared words, use the async method
             if let userEmail = AuthenticationService.shared.userEmail {
-                sharedWord.quiz_updateDifficultyScoreForUser(points, userEmail: userEmail)
+                sharedItem.quiz_updateDifficultyScoreForUser(points, userEmail: userEmail)
             }
         } else {
             // For private words, use the sync method
@@ -136,21 +136,21 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         }
     }
     
-    private func skipWord() {
+    private func skipItem() {
         // Mark current word as needs review - subtract 2 points for skipping
-        updateWordScore(correctWord, points: -2)
+        updateItemScore(correctItem, points: -2)
 
         // Move current word to end for later and add to wordsPlayed
-        usedWords.insert(correctWord.quiz_id)
-        wordsPlayed.append(correctWord)
+        usedItems.insert(correctItem.quiz_id)
+        itemsPlayed.append(correctItem)
         questionsAnswered += 1
         
         // Update quiz score - subtract 2 points for skipping
         score -= 2
         currentStreak = 0
         
-        // Check if quiz is complete (use wordCount instead of originalWords.count)
-        if questionsAnswered >= preset.wordCount {
+        // Check if quiz is complete (use wordCount instead of originalItems.count)
+        if questionsAnswered >= preset.itemCount {
             isQuizComplete = true
             saveQuizSession()
         } else {
@@ -164,16 +164,16 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     
     private func getNextQuestion() {
         // Check if we've reached the word count limit
-        if questionsAnswered >= preset.wordCount {
+        if questionsAnswered >= preset.itemCount {
             isQuizComplete = true
             saveQuizSession()
             return
         }
         
         // Get the next word to use as correct answer (not used yet)
-        let availableCorrectWords = originalWords.filter { !usedWords.contains($0.quiz_id) }
+        let availableCorrectItems = originalItems.filter { !usedItems.contains($0.quiz_id) }
         
-        if availableCorrectWords.isEmpty {
+        if availableCorrectItems.isEmpty {
             // No more words to use as correct answers, quiz is complete
             isQuizComplete = true
             saveQuizSession()
@@ -181,35 +181,35 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         }
         
         // Take the first available word as correct answer
-        let correctWord = availableCorrectWords.first!
+        let correctItem = availableCorrectItems.first!
         
         // Create array with correct word first
-        var newWords = [correctWord]
+        var newItems = [correctItem]
         
         // Add 2 more words as incorrect options (can reuse words that aren't the correct word)
-        let remainingWords = originalWords.filter { $0.quiz_id != correctWord.quiz_id }
-        if remainingWords.count >= 2 {
-            let shuffledRemaining = remainingWords.shuffled()
-            newWords.append(contentsOf: shuffledRemaining.prefix(2))
+        let remainingItems = originalItems.filter { $0.quiz_id != correctItem.quiz_id }
+        if remainingItems.count >= 2 {
+            let shuffledRemaining = remainingItems.shuffled()
+            newItems.append(contentsOf: shuffledRemaining.prefix(2))
         } else {
             // If not enough words, just use what we have
-            newWords.append(contentsOf: remainingWords)
+            newItems.append(contentsOf: remainingItems)
         }
         
         // Ensure we always have exactly 3 words
-        while newWords.count < 3 {
+        while newItems.count < 3 {
             // If we don't have enough words, reuse some words
-            let reusableWords = originalWords.filter { $0.quiz_id != correctWord.quiz_id }
-            if let additionalWord = reusableWords.first {
-                newWords.append(additionalWord)
+            let reusableItems = originalItems.filter { $0.quiz_id != correctItem.quiz_id }
+            if let additionalItem = reusableItems.first {
+                newItems.append(additionalItem)
             }
         }
         
         // Shuffle the options so correct answer isn't always first
-        let correctWordInArray = newWords[0]
-        newWords.shuffle()
-        correctAnswerIndex = newWords.firstIndex(where: { $0.quiz_id == correctWordInArray.quiz_id }) ?? 0
-        words = newWords
+        let correctItemInArray = newItems[0]
+        newItems.shuffle()
+        correctAnswerIndex = newItems.firstIndex(where: { $0.quiz_id == correctItemInArray.quiz_id }) ?? 0
+        items = newItems
         selectedAnswerIndex = nil
         isCorrectAnswer = true
     }
@@ -220,18 +220,18 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         feedbackTimer = nil
         
         // Reset all game state
-        originalWords = originalWords.shuffled()
+        originalItems = originalItems.shuffled()
         selectedAnswerIndex = nil
         isCorrectAnswer = true
         answerFeedback = .none
         correctAnswers = 0
         score = 0
-        wordsPlayed = []
-        correctWordIds = []
+        itemsPlayed = []
+        correctItemIds = []
         isQuizComplete = false
         currentStreak = 0
         questionsAnswered = 0
-        usedWords.removeAll()
+        usedItems.removeAll()
         sessionStartTime = Date()
         
         // Set up the first question
@@ -244,18 +244,18 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     /// Fetches latest data from Core Data
     private func setupBindings() {
         // Get words from the quiz words provider
-        let availableWords = quizWordsProvider.getWordsForQuiz(with: preset)
+        let availableItems = QuizItemsProvider.getItemsForQuiz(with: preset)
 
         // Check if we have enough words after filtering
-        if availableWords.count < preset.wordCount {
+        if availableItems.count < preset.itemCount {
             // Not enough words available after filtering
-            self.errorMessage = preset.hardWordsOnly ? 
-                Loc.Quizzes.noDifficultWordsAvailable.localized :
-                Loc.Quizzes.notEnoughWordsAvailable.localized(preset.wordCount)
+            self.errorMessage = preset.hardItemsOnly ? 
+            Loc.Quizzes.noDifficultWordsAvailable.localized :
+            Loc.Quizzes.notEnoughWordsAvailable.localized(preset.itemCount)
             return
         }
         
-        originalWords = availableWords.shuffled()
+        originalItems = availableItems.shuffled()
         // Set up the first question
         self.getNextQuestion()
     }
@@ -283,20 +283,20 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     }
     
     private func saveQuizSession() {
-        guard wordsPlayed.count > 0 else { return }
+        guard itemsPlayed.count > 0 else { return }
 
         let duration = Date().timeIntervalSince(sessionStartTime)
-        let accuracy = wordsPlayed.count > 0 ? Double(correctAnswers) / Double(wordsPlayed.count) : 0.0
-        
+        let accuracy = itemsPlayed.count > 0 ? Double(correctAnswers) / Double(itemsPlayed.count) : 0.0
+
         quizAnalyticsService.saveQuizSession(
             quizType: Quiz.chooseDefinition.rawValue,
             score: score,
             correctAnswers: correctAnswers,
-            totalWords: wordsPlayed.count, // Use words actually played
+            totalItems: itemsPlayed.count, // Use words actually played
             duration: duration,
             accuracy: accuracy,
-            wordsPracticed: wordsPlayed,
-            correctWordIds: correctWordIds
+            itemsPracticed: itemsPlayed,
+            correctItemIds: correctItemIds
         )
         
         // Check and schedule notifications after quiz completion

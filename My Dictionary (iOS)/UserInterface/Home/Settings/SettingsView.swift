@@ -228,17 +228,6 @@ struct SettingsView: View {
                     footer: Loc.Settings.tagManagementDescription.localized
                 ) {
                     VStack(spacing: 8) {
-                        HStack {
-                            Text(Loc.Settings.showIdiomsTab.localized)
-                                .font(.body)
-                                .fontWeight(.medium)
-                            Spacer()
-                            Toggle(Loc.Settings.showIdiomsTab.localized, isOn: $viewModel.showIdiomsTab)
-                                .labelsHidden()
-                        }
-                        .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
-
                         ActionButton(Loc.Tags.manageTags.localized, systemImage: "tag") {
                             viewModel.output.send(.showTagManagement)
                         }

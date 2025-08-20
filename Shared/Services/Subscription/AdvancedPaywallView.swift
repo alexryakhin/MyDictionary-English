@@ -239,7 +239,7 @@ struct AdvancedPaywallView: View {
     // MARK: - Registration Benefits Section
     
     private var registrationBenefitsSection: some View {
-        VStack(spacing: 12) {
+        VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Image(systemName: "info.circle.fill")
                     .foregroundStyle(.accent)
@@ -267,7 +267,7 @@ struct AdvancedPaywallView: View {
             Text(Loc.Auth.registerAnytimeFromSettings.localized)
                 .font(.caption)
                 .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
+                .multilineTextAlignment(.leading)
         }
         .padding(16)
         .background(Color.green.opacity(0.1))
@@ -299,7 +299,7 @@ struct AdvancedPaywallView: View {
                 )
 
                 SocialProofCard(
-                    number: "10K+",
+                    number: "20K+",
                     label: Loc.Paywall.wordsAdded.localized
                 )
             }

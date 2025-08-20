@@ -13,11 +13,11 @@ import Combine
 final class TabManager: ObservableObject {
     static let shared = TabManager()
 
-    @Published var selectedTab: TabBarItem = .words
+    @Published var selectedTab: TabBarItem = .myDictionary
 
     // Tab transition tracking
-    @Published private(set) var willSetTab: TabBarItem = .words
-    @Published private(set) var currentTab: TabBarItem = .idioms
+    @Published private(set) var willSetTab: TabBarItem = .myDictionary
+    @Published private(set) var currentTab: TabBarItem = .quizzes
 
     private init() {}
 
@@ -36,7 +36,7 @@ final class TabManager: ObservableObject {
     }
     
     func getSlideTransition() -> AnyTransition {
-        let tabOrder: [TabBarItem] = [.words, .idioms, .quizzes, .analytics, .settings]
+        let tabOrder: [TabBarItem] = [.myDictionary, .quizzes, .analytics, .settings]
         
         let willSetIndex = tabOrder.firstIndex(of: willSetTab) ?? 0
         let currentIndex = tabOrder.firstIndex(of: currentTab) ?? 0

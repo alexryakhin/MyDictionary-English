@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Download backup fra Google";
 "settings.sign_in_sync_word_lists" = "Log ind for at synkronisere ordlister";
 "settings.organization" = "Organisation";
-"settings.show_idioms_tab" = "Vis idiom-fane";
 "settings.shared_dictionaries" = "Delte ordbøger";
 "settings.about_app" = "Om appen";
 "settings.features" = "Funktioner";
@@ -769,7 +768,7 @@
 "macos.shared_dictionaries" = "Delte ordbøger";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "Alle ord";
+"filter_display.all" = "Alle";
 "filter_display.favorite" = "Favorit";
 "filter_display.search" = "Søg";
 "filter_display.tag" = "Tag";
@@ -778,20 +777,34 @@
 "filter_display.needs_review" = "Kræver gennemsyn";
 "filter_display.mastered" = "Mestret";
 "filter_display.no_words_yet" = "Ingen ord endnu";
+"filter_display.no_idioms_yet" = "Ingen idiomer endnu";
 "filter_display.no_favorite_words" = "Ingen favoritord";
+"filter_display.no_favorite_idioms" = "Ingen favoritidiomer";
 "filter_display.no_search_results" = "Ingen søgeresultater";
 "filter_display.no_tagged_words" = "Ingen taggede ord";
+"filter_display.no_tagged_idioms" = "Ingen taggede idiomer";
 "filter_display.no_new_words" = "Ingen nye ord";
+"filter_display.no_new_idioms" = "Ingen nye idiomer";
 "filter_display.no_words_in_progress" = "Ingen ord under behandling";
+"filter_display.no_idioms_in_progress" = "Ingen idiomer under behandling";
 "filter_display.no_words_need_review" = "Ingen ord kræver gennemsyn";
+"filter_display.no_idioms_need_review" = "Ingen idiomer kræver gennemsyn";
 "filter_display.no_mastered_words" = "Ingen mestrede ord";
+"filter_display.no_mastered_idioms" = "Ingen mestrede idiomer";
 "filter_display.start_building_vocabulary" = "Begynd at opbygge dit ordforråd ved at tilføje dit første ord";
+"filter_display.start_building_vocabulary_idioms" = "Begynd at opbygge dit ordforråd ved at tilføje dit første idiom";
 "filter_display.tap_heart_icon_to_add_favorites" = "Tryk på hjerteikonet på et hvilket som helst ord for at tilføje det til favoritter";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "Tryk på hjerteikonet på et hvilket som helst idiom for at tilføje det til favoritter";
 "filter_display.try_different_search_term" = "Prøv et andet søgeord eller tilføj et nyt ord";
+"filter_display.try_different_search_term_idioms" = "Prøv et andet søgeord eller tilføj et nyt idiom";
 "filter_display.add_tags_to_organize" = "Tilføj tags til dine ord for bedre organisering";
+"filter_display.add_tags_to_organize_idioms" = "Tilføj tags til dine idiomer for bedre organisering";
 "filter_display.new_words_appear_here" = "Nye ord vil vises her, når du tilføjer dem til din liste";
+"filter_display.new_idioms_appear_here" = "Nye idiomer vil vises her, når du tilføjer dem til din liste";
 "filter_display.words_appear_here_as_you_practice" = "Ord vil vises her, når du øver dem i quizzer";
+"filter_display.idioms_appear_here_as_you_practice" = "Idiomer vil vises her, når du øver dem i quizzer";
 "filter_display.words_need_more_practice" = "Ord, der kræver mere øvelse, vil vises her";
+"filter_display.idioms_need_more_practice" = "Idiomer, der kræver mere øvelse, vil vises her";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "Ejer";
@@ -857,17 +870,6 @@
 "english_accents.singaporean" = "Singaporeansk";
 "english_accents.irish" = "Irsk";
 "english_accents.south_african" = "Sydafrikansk";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Alle idiomer";
-"idiom_filters.favorite" = "Favorit";
-"idiom_filters.search" = "Søg";
-"idiom_filters.no_idioms_yet" = "Ingen idiomer endnu";
-"idiom_filters.no_favorite_words" = "Ingen favoritord";
-"idiom_filters.no_search_results" = "Ingen søgeresultater";
-"idiom_filters.start_improving_vocabulary" = "Begynd at forbedre dit ordforråd ved at tilføje dit første idiom";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Tryk på hjerteikonet på et hvilket som helst idiom for at tilføje det til favoritter";
-"idiom_filters.try_different_search_term" = "Prøv et andet søgeord eller tilføj et nyt idiom";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Navneord";

@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Googleからバックアップをダウンロード";
 "settings.sign_in_sync_word_lists" = "単語リストを同期するためにログイン";
 "settings.organization" = "整理";
-"settings.show_idioms_tab" = "慣用句タブを表示";
 "settings.shared_dictionaries" = "共有辞書";
 "settings.about_app" = "アプリについて";
 "settings.features" = "機能";
@@ -768,29 +767,43 @@
 "macos.shared_dictionaries" = "共有辞書";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "すべての単語";
+"filter_display.all" = "すべて";
 "filter_display.favorite" = "お気に入り";
 "filter_display.search" = "検索";
 "filter_display.tag" = "タグ";
 "filter_display.new" = "新規";
 "filter_display.in_progress" = "進行中";
-"filter_display.needs_review" = "レビューが必要";
+"filter_display.needs_review" = "要復習";
 "filter_display.mastered" = "習得済み";
 "filter_display.no_words_yet" = "まだ単語がありません";
-"filter_display.no_favorite_words" = "お気に入りの単語がありません";
+"filter_display.no_idioms_yet" = "まだ慣用句がありません";
+"filter_display.no_favorite_words " = "お気に入りの単語がありません";
+"filter_display.no_favorite_idioms" = "お気に入りの慣用句がありません";
 "filter_display.no_search_results" = "検索結果がありません";
 "filter_display.no_tagged_words" = "タグ付けされた単語がありません";
+"filter_display.no_tagged_idioms" = "タグ付けされた慣用句がありません";
 "filter_display.no_new_words" = "新しい単語がありません";
+"filter_display.no_new_idioms" = "新しい慣用句がありません";
 "filter_display.no_words_in_progress" = "進行中の単語がありません";
-"filter_display.no_words_need_review" = "レビューが必要な単語がありません";
+"filter_display.no_idioms_in_progress" = "進行中の慣用句がありません";
+"filter_display.no_words_need_review" = "復習が必要な単語がありません";
+"filter_display.no_idioms_need_review" = "復習が必要な慣用句がありません";
 "filter_display.no_mastered_words" = "習得済みの単語がありません";
-"filter_display.start_building_vocabulary" = "最初の単語を追加して語彙の構築を始める";
-"filter_display.tap_heart_icon_to_add_favorites" = "任意の単語のハートアイコンをタップしてお気に入りに追加";
+"filter_display.no_mastered_idioms" = "習得済みの慣用句がありません";
+"filter_display.start_build your_vocabulary" = "最初の単語を追加して語彙を構築し始めましょう";
+"filter_display.start_building_vocabulary_idioms" = "最初の慣用句を追加して語彙を構築し始めましょう";
+"filter_display.tap_heart_icon_to_add_favorites" = "任意の単語のハートアイコンをタップして、お気に入りに追加してください";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "任意の慣用句のハートアイコンをタップして、お気に入りに追加してください";
 "filter_display.try_different_search_term" = "別の検索語を試すか、新しい単語を追加してください";
-"filter_display.add_tags_to_organize" = "単語にタグを追加してより良く整理";
-"filter_display.new_words_appear_here" = "新しい単語はリストに追加後ここに表示されます";
-"filter_display.words_appear_here_as_you_practice" = "クイズで練習するにつれて単語がここに表示されます";
+"filter_display.try_different_search_term_idioms" = "別の検索語を試すか、新しい慣用句を追加してください";
+"filter_display.add_tags_to_organize" = "単語にタグを追加して、より良く整理しましょう";
+"filter_display.add_tags_to_organize_idioms" = "慣用句にタグを追加して、より良く整理しましょう";
+"filter_display.new_words_appear_here" = "新しい単語は、リストに追加するとここに表示されます";
+"filter_display.new_idioms_appear_here" = "新しい慣用句は、リストに追加するとここに表示されます";
+"filter_display.words_appear_here_as_you_practice" = "クイズで練習するにつれて、単語がここに表示されます";
+"filter_display.idioms_appear_here_as_you_practice" = "クイズで練習するにつれて、慣用句がここに表示されます";
 "filter_display.words_need_more_practice" = "さらに練習が必要な単語がここに表示されます";
+"filter_display.idioms_need_more_practice" = "さらに練習が必要な慣用句がここに表示されます";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "オーナー";
@@ -856,17 +869,6 @@
 "english_accents.singaporean" = "シンガポール";
 "english_accents.irish" = "アイルランド";
 "english_accents.south_african" = "南アフリカ";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "すべての慣用句";
-"idiom_filters.favorite" = "お気に入り";
-"idiom_filters.search" = "検索";
-"idiom_filters.no_idioms_yet" = "まだ慣用句がありません";
-"idiom_filters.no_favorite_words" = "お気に入りの単語がありません";
-"idiom_filters.no_search_results" = "検索結果がありません";
-"idiom_filters.start_improving_vocabulary" = "最初の慣用句を追加して語彙の向上を始める";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "任意の慣用句のハートアイコンをタップしてお気に入りに追加";
-"idiom_filters.try_different_search_term" = "別の検索語を試すか、新しい慣用句を追加してください";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "名詞";

@@ -306,8 +306,8 @@ final class DictionaryService: ObservableObject {
                             self?.sharedDictionaries = []
                         }
                         self?.stopAllListeners()
-                        // Also reset QuizWordsProvider to prevent stale state
-                        QuizWordsProvider.shared.reset()
+                        // Also reset QuizItemsProvider to prevent stale state
+                        QuizItemsProvider.shared.reset()
                     }
                 case .loading:
                     break

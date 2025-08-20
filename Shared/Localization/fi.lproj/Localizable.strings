@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Lataa varmuuskopio Googlelta";
 "settings.sign_in_sync_word_lists" = "Kirjaudu sisään synkronoidaksesi sanalistat";
 "settings.organization" = "Organisaatio";
-"settings.show_idioms_tab" = "Näytä idiomit-välilehti";
 "settings.shared_dictionaries" = "Jaetut sanakirjat";
 "settings.about_app" = "Tietoa sovelluksesta";
 "settings.features" = "Ominaisuudet";
@@ -769,29 +768,43 @@
 "macos.shared_dictionaries" = "Jaetut sanakirjat";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "Kaikki sanat";
+"filter_display.all" = "Kaikki";
 "filter_display.favorite" = "Suosikki";
-"filter_display.search" = "Hae";
+"filter_display.search" = "Haku";
 "filter_display.tag" = "Tunniste";
 "filter_display.new" = "Uusi";
-"filter_display.in_progress" = "Käsittelyssä";
-"filter_display.needs_review" = "Tarkistusta vaativa";
+"filter_display.in_progress" = "Käynnissä";
+"filter_display.needs_review" = "Tarvitsee Tarkistusta";
 "filter_display.mastered" = "Hallittu";
-"filter_display.no_words_yet" = "Ei vielä sanoja";
-"filter_display.no_favorite_words" = "Ei suosikkisanoja";
-"filter_display.no_search_results" = "Ei hakutuloksia";
-"filter_display.no_tagged_words" = "Ei tunnistettuja sanoja";
-"filter_display.no_new_words" = "Ei uusia sanoja";
-"filter_display.no_words_in_progress" = "Ei käsittelyssä olevia sanoja";
-"filter_display.no_words_need_review" = "Ei tarkistusta vaativia sanoja";
-"filter_display.no_mastered_words" = "Ei hallittuja sanoja";
-"filter_display.start_building_vocabulary" = "Aloita sanastosi rakentaminen lisäämällä ensimmäinen sanasi";
-"filter_display.tap_heart_icon_to_add_favorites" = "Napauta sydänkuvaketta minkä tahansa sanan kohdalla lisätäksesi sen suosikkeihin";
-"filter_display.try_different_search_term" = "Kokeile eri hakutermiä tai lisää uusi sana";
-"filter_display.add_tags_to_organize" = "Lisää tunnisteita sanoihisi paremman järjestelyn vuoksi";
+"filter_display.no_words_yet" = "Ei Vielä Sanoja";
+"filter_display.no_idioms_yet" = "Ei Vielä Idioomeja";
+"filter_display.no_favorite_words" = "Ei Suosikkisanoja";
+"filter_display.no_favorite_idioms" = "Ei Suosikki-idioomeja";
+"filter_display.no_search_results" = "Ei Hakutuloksia";
+"filter_display.no_tagged_words" = "Ei Tunnistettuja Sanoja";
+"filter_display.no_tagged_idioms" = "Ei Tunnistettuja Idioomeja";
+"filter_display.no_new_words" = "Ei Uusia Sanoja";
+"filter_display.no_new_idioms" = "Ei Uusia Idioomeja";
+"filter_display.no_words_in_progress" = "Ei Sanoja Käynnissä";
+"filter_display.no_idioms_in_progress" = "Ei Idioomeja Käynnissä";
+"filter_display.no_words_need_review" = "Ei Sanoja, Jotka Tarvitsevat Tarkistusta";
+"filter_display.no_idioms_need_review" = "Ei Idioomeja, Jotka Tarvitsevat Tarkistusta";
+"filter_display.no_mastered_words" = "Ei Hallittuja Sanoja";
+"filter_display.no_mastered_idioms" = "Ei Hallittuja Idioomeja";
+"filter_display.start_building_vocabulary" = "Aloita sanaston rakentaminen lisäämällä ensimmäinen sanasi";
+"filter_display.start_building_vocabulary_idioms" = "Aloita sanaston rakentaminen lisäämällä ensimmäinen idioomisi";
+"filter_display.tap_heart_icon_to_add_favorites" = "Napauta sydänkuvaketta missä tahansa sanassa lisätäksesi sen suosikkeihisi";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "Napauta sydänkuvaketta missä tahansa idioomissa lisätäksesi sen suosikkeihisi";
+"filter_display.try_different_search_term" = "Kokeile eri hakutermia tai lisää uusi sana";
+"filter_display.try_different_search_term_idioms" = "Kokeile eri hakutermia tai lisää uusi idioomi";
+"filter_display.add_tags_to_organize" = "Lisää tunnisteita sanoihisi järjestääksesi ne paremmin";
+"filter_display.add_tags_to_organize_idioms" = "Lisää tunnisteita idioomeihisi järjestääksesi ne paremmin";
 "filter_display.new_words_appear_here" = "Uudet sanat ilmestyvät tähän, kun lisäät niitä listallesi";
-"filter_display.words_appear_here_as_you_practice" = "Sanat ilmestyvät tähän, kun harjoittelet niitä visoissa";
-"filter_display.words_need_more_practice" = "Sanat, jotka tarvitsevat lisää harjoittelua, ilmestyvät tähän";
+"filter_display.new_idioms_appear_here" = "Uudet idioomit ilmestyvät tähän, kun lisäät niitä listallesi";
+"filter_display.words_appear_here_as_you_practice" = "Sanat ilmestyvät tähän, kun harjoittelet niitä visailuissa";
+"filter_display.idioms_appear_here_as_you_practice" = "Idioomit ilmestyvät tähän, kun harjoittelet niitä visailuissa";
+"filter_display.words_need_more_practice" = "Sanat, jotka tarvitsevat lisää harjoitusta, ilmestyvät tähän";
+"filter_display.idioms_need_more_practice" = "Idioomit, jotka tarvitsevat lisää harjoitusta, ilmestyvät tähän";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "Omistaja";
@@ -857,17 +870,6 @@
 "english_accents.singaporean" = "Singaporen";
 "english_accents.irish" = "Irlantilainen";
 "english_accents.south_african" = "Eteläafrikkalainen";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Kaikki idiomit";
-"idiom_filters.favorite" = "Suosikki";
-"idiom_filters.search" = "Hae";
-"idiom_filters.no_idioms_yet" = "Ei vielä idiomeja";
-"idiom_filters.no_favorite_words" = "Ei suosikkisanoja";
-"idiom_filters.no_search_results" = "Ei hakutuloksia";
-"idiom_filters.start_improving_vocabulary" = "Aloita sanastosi parantaminen lisäämällä ensimmäinen idiomi";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Napauta sydänkuvaketta minkä tahansa idiomin kohdalla lisätäksesi sen suosikkeihin";
-"idiom_filters.try_different_search_term" = "Kokeile eri hakutermiä tai lisää uusi idiomi";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Substantiivi";

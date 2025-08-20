@@ -18,11 +18,23 @@ final class SideBarManager: ObservableObject {
 
     static let shared = SideBarManager()
     
-    @Published var selectedTab: SideBarTab? = .words
+    @Published var selectedTab: SideBarTab? = .myDictionary
 
-    @Published var selectedWord: CDWord? = nil
+    @Published var selectedWord: CDWord? = nil {
+        willSet {
+            if selectedIdiom != nil {
+                selectedIdiom = nil
+            }
+        }
+    }
     @Published var selectedSharedWord: SharedWord? = nil
-    @Published var selectedIdiom: CDIdiom? = nil
+    @Published var selectedIdiom: CDIdiom? = nil {
+        willSet {
+            if selectedWord != nil {
+                selectedWord = nil
+            }
+        }
+    }
     @Published var selectedQuiz: QuizItem? = nil
 
     var selectedDetailItem: DetailItem? {
@@ -65,16 +77,14 @@ final class SideBarManager: ObservableObject {
 }
 
 enum SideBarTab: Hashable {
-    case words
-    case idioms
+    case myDictionary
     case quizzes
     case analytics
     case sharedDictionary(SharedDictionary)
 
     var title: String {
         switch self {
-        case .words: return Loc.TabBar.words.localized
-        case .idioms: return Loc.TabBar.idioms.localized
+        case .myDictionary: return Loc.App.myDictionary.localized
         case .quizzes: return Loc.TabBar.quizzes.localized
         case .analytics: return Loc.TabBar.progress.localized
         case .sharedDictionary(let dictionary): return dictionary.name
@@ -83,8 +93,7 @@ enum SideBarTab: Hashable {
     
     var systemImage: String {
         switch self {
-        case .words: return "textformat.abc"
-        case .idioms: return "quote.bubble"
+        case .myDictionary: return "textformat"
         case .quizzes: return "questionmark.circle"
         case .analytics: return "chart.bar"
         case .sharedDictionary: return "person"
@@ -93,13 +102,12 @@ enum SideBarTab: Hashable {
 
     var selectDetailsText: String? {
         switch self {
-        case .words: Loc.Actions.selectWord.localized
-        case .idioms: Loc.Actions.selectIdiom.localized
+        case .myDictionary: Loc.Actions.selectWord.localized
         case .quizzes: Loc.Actions.selectQuiz.localized
         case .analytics: nil
         case .sharedDictionary: Loc.Actions.selectWord.localized
         }
     }
 
-    static let tabs: [SideBarTab] = [.words, .idioms, .quizzes, .analytics]
+    static let tabs: [SideBarTab] = [.myDictionary, .quizzes, .analytics]
 }

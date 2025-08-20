@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Scarica Backup da Google";
 "settings.sign_in_sync_word_lists" = "Accedi per sincronizzare le liste di parole";
 "settings.organization" = "Organizzazione";
-"settings.show_idioms_tab" = "Mostra Scheda Espressioni";
 "settings.shared_dictionaries" = "Dizionari Condivisi";
 "settings.about_app" = "Informazioni sull'App";
 "settings.features" = "Funzionalità";
@@ -768,29 +767,43 @@
 "macos.shared_dictionaries" = "Dizionari Condivisi";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "Tutte le Parole";
+"filter_display.all" = "Tutti";
 "filter_display.favorite" = "Preferito";
-"filter_display.search" = "Cerca";
-"filter_display.tag" = "Tag";
+"filter_display.search" = "Ricerca";
+"filter_display.tag" = "Etichetta";
 "filter_display.new" = "Nuovo";
 "filter_display.in_progress" = "In Corso";
-"filter_display.needs_review" = "Richiede Revisione";
+"filter_display.needs_review" = "Da Rivedere";
 "filter_display.mastered" = "Padroneggiato";
-"filter_display.no_words_yet" = "Nessuna parola ancora";
-"filter_display.no_favorite_words" = "Nessuna parola preferita";
-"filter_display.no_search_results" = "Nessun risultato di ricerca";
-"filter_display.no_tagged_words" = "Nessuna parola taggata";
-"filter_display.no_new_words" = "Nessuna parola nuova";
-"filter_display.no_words_in_progress" = "Nessuna parola in corso";
-"filter_display.no_words_need_review" = "Nessuna parola che richiede revisione";
-"filter_display.no_mastered_words" = "Nessuna parola padroneggiata";
+"filter_display.no_words_yet" = "Nessuna Parola Ancora";
+"filter_display.no_idioms_yet" = "Nessun Idioma Ancora";
+"filter_display.no_favorite_words" = "Nessuna Parola Preferita";
+"filter_display.no_favorite_idioms" = "Nessun Idioma Preferito";
+"filter_display.no_search_results" = "Nessun Risultato di Ricerca";
+"filter_display.no_tagged_words" = "Nessuna Parola Etichettata";
+"filter_displayノ_tagged_idioms" = "Nessun Idioma Etichettato";
+"filter_display.no_new_words" = "Nessuna Nuova Parola";
+"filter_display.no_new_idioms" = "Nessun Nuovo Idioma";
+"filter_display.no_words_in_progress" = "Nessuna Parola in Corso";
+"filter_display.no_idioms_in_progress" = "Nessun Idioma in Corso";
+"filter_display.no_words_need_review" = "Nessuna Parola da Rivedere";
+"filter_display.no_idioms_need_review" = "Nessun Idioma da Rivedere";
+"filter_display.no_mastered_words" = "Nessuna Parola Padroneggiata";
+"filter_display.no_mastered_idioms" = "Nessun Idioma Padroneggiato";
 "filter_display.start_building_vocabulary" = "Inizia a costruire il tuo vocabolario aggiungendo la tua prima parola";
-"filter_display.tap_heart_icon_to_add_favorites" = "Tocca l'icona del cuore su qualsiasi parola per aggiungerla ai preferiti";
+"filter_display.start_building_vocabulary_idioms" = "Inizia a costruire il tuo vocabolario aggiungendo il tuo primo idioma";
+"filter_display.tap_heart_icon_to_add_favorites" = "Tocca l'icona del cuore su qualsiasi parola per aggiungerla ai tuoi preferiti";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "Tocca l'icona del cuore su qualsiasi idioma per aggiungerlo ai tuoi preferiti";
 "filter_display.try_different_search_term" = "Prova un termine di ricerca diverso o aggiungi una nuova parola";
-"filter_display.add_tags_to_organize" = "Aggiungi tag alle tue parole per una migliore organizzazione";
-"filter_display.new_words_appear_here" = "Le nuove parole appariranno qui dopo che le avrai aggiunte alla tua lista";
-"filter_display.words_appear_here_as_you_practice" = "Le parole appariranno qui mentre ti eserciti con i quiz";
-"filter_display.words_need_more_practice" = "Le parole che richiedono più pratica appariranno qui";
+"filter_display.try_different_search_term_idioms" = "Prova un termine di ricerca diverso o aggiungi un nuovo idioma";
+"filter_display.add_tags_to_organize" = "Aggiungi etichette alle tue parole per organizzarle meglio";
+"filter_display.add_tags_to_organize_idioms" = "Aggiungi etichette ai tuoi idiomi per organizzarli meglio";
+"filter_display.new_words_appear_here" = "Le nuove parole appaiono qui quando le aggiungi alla tua lista";
+"filter_display.new_idioms_appear_here" = "I nuovi idiomi appaiono qui quando li aggiungi alla tua lista";
+"filter_display.words_appear_here_as_you_practice" = "Le parole appaiono qui man mano che le eserciti nei quiz";
+"filter_display.idioms_appear_here_as_you_practice" = "Gli idiomi appaiono qui man mano che le eserciti nei quiz";
+"filter_display.words_need_more_practice" = "Le parole che richied fortesono più pratica appariranno qui";
+"filter_display.idioms_need_more_practice" = "Gli idiomi che richiedono più pratica appariranno qui";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "Proprietario";
@@ -856,17 +869,6 @@
 "english_accents.singaporean" = "Singaporeano";
 "english_accents.irish" = "Irlandese";
 "english_accents.south_african" = "Sudafricano";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Tutte le Espressioni";
-"idiom_filters.favorite" = "Preferito";
-"idiom_filters.search" = "Cerca";
-"idiom_filters.no_idioms_yet" = "Nessuna espressione ancora";
-"idiom_filters.no_favorite_words" = "Nessuna parola preferita";
-"idiom_filters.no_search_results" = "Nessun risultato di ricerca";
-"idiom_filters.start_improving_vocabulary" = "Inizia a migliorare il tuo vocabolario aggiungendo la tua prima espressione";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Tocca l'icona del cuore su qualsiasi espressione per aggiungerla ai preferiti";
-"idiom_filters.try_different_search_term" = "Prova un termine di ricerca diverso o aggiungi una nuova espressione";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Sostantivo";

@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Google에서 백업 다운로드";
 "settings.sign_in_sync_word_lists" = "단어 리스트 동기화를 위해 로그인";
 "settings.organization" = "정리";
-"settings.show_idioms_tab" = "관용구 탭 표시";
 "settings.shared_dictionaries" = "공유 사전";
 "settings.about_app" = "앱 정보";
 "settings.features" = "기능";
@@ -768,30 +767,43 @@
 "macos.shared_dictionaries" = "공유 사전";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "모든 단어";
+"filter_display.all" = "전체";
 "filter_display.favorite" = "즐겨찾기";
 "filter_display.search" = "검색";
 "filter_display.tag" = "태그";
 "filter_display.new" = "신규";
 "filter_display.in_progress" = "진행 중";
 "filter_display.needs_review" = "검토 필요";
-"filter_display.mastered" = "숙달";
+"filter_display.mastered" = "완료";
 "filter_display.no_words_yet" = "아직 단어가 없습니다";
-"filter_display.no_favorite_words" = "즐겨찾기 단어 없음";
-"filter_display.no_search_results" = "검색 결과 없음";
-"filter_display.no_tagged_words" = "태그된 단어 없음";
-"filter_display.no_new_words" = "새 단어 없음";
-"filter_display.no_words_in_progress" = "진행 중인 단어 없음";
-"filter_display.no_words_need_review" = "검토 필요한 단어 없음";
-"filter_display.no_mastered_words" = "숙달된 단어 없음";
-"filter_display.start_building_vocabulary" = "첫 번째 단어를 추가하여 어휘를 쌓기 시작하세요";
+"filter_display.no_idioms_yet" = "아직 관용구가 없습니다";
+"filter_display.no_favorite_words" = "즐겨찾기 단어가 없습니다";
+"filter_display.no_favorite_idioms" = "즐겨찾기 관용구가 없습니다";
+"filter_display.no_search_results" = "검색 결과가 없습니다";
+"filter_display.no_tagged_words" = "태그된 단어가 없습니다";
+"filter_display.no_tagged_idioms" = "태그된 관용구가 없습니다";
+"filter_display.no_new_words" = "새 단어가 없습니다";
+"filter_display.no_new_idioms" = "새 관용구가 없습니다";
+"filter_display.no_words_in_progress" = "진행 중인 단어가 없습니다";
+"filter_display.no_idioms_in_progress" = "진행 중인 관용구가 없습니다";
+"filter_display.no_words_need_review" = "검토가 필요한 단어가 없습니다";
+"filter_display.no_idioms_need_review" = "검토가 필요한 관용구가 없습니다";
+"filter_display.no_mastered_words" = "완료된 단어가 없습니다";
+"filter_display.no_mastered_idioms" = "완료된 관용구가 없습니다";
+"filter_display.start_building_vocabulary" = "첫 번째 단어를 추가하여 어휘를 구축하기 시작하세요";
+"filter_display.start_building_vocabulary_idioms" = "첫 번째 관용구를 추가하여 어휘를 구축하기 시작하세요";
 "filter_display.tap_heart_icon_to_add_favorites" = "단어의 하트 아이콘을 탭하여 즐겨찾기에 추가하세요";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "관용구의 하트 아이콘을 탭하여 즐겨찾기에 추가하세요";
 "filter_display.try_different_search_term" = "다른 검색어를 시도하거나 새 단어를 추가하세요";
+"filter_display.try_different_search_term_idioms" = "다른 검색어를 시도하거나 새 관용구를 추가하세요";
 "filter_display.add_tags_to_organize" = "단어에 태그를 추가하여 더 잘 정리하세요";
-"filter_display.new_words_appear_here" = "새 단어는 리스트에 추가된 후 여기에 표시됩니다";
-"filter_display.words_appear_here_as_you_practice" = "퀴즈로 연습하면서 단어가 여기에 표시됩니다";
-"filter_display.words_need_more_practice" = "더 많은 연습이 필요한 단어가 여기에 표시됩니다";
-
+"filter_display.add_tags_to_organize_idioms" = "관용구에 태그를 추가하여 더 잘 정리하세요";
+"filter_display.new_words_appear_here" = "새 단어는 리스트에 추가할 때 여기에 나타납니다";
+"filter_display.new_idioms_appear_here" = "새 관용구는 리스트에 추가할 때 여기에 나타납니다";
+"filter_display.words_appear_here_as_you_practice" = "퀴즈에서 연습할 때 단어가 여기에 나타납니다";
+"filter_display.idioms_appear_here_as_you_practice" = "퀴즈에서 연습할 때 관용구가 여기에 나타납니다";
+"filter_display.words_need_more_practice" = "더 많은 연습이 필요한 단어가 여기에 나타납니다";
+"filter_display.idioms_need_more_practice" = "더 많은 연습이 필요한 관용구가 여기에 나타납니다";
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "소유자";
 "collaborator_roles.editor" = "편집자";
@@ -856,17 +868,6 @@
 "english_accents.singaporean" = "싱가포르";
 "english_accents.irish" = "아일랜드";
 "english_accents.south_african" = "남아프리카";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "모든 관용구";
-"idiom_filters.favorite" = "즐겨찾기";
-"idiom_filters.search" = "검색";
-"idiom_filters.no_idioms_yet" = "아직 관용구가 없습니다";
-"idiom_filters.no_favorite_words" = "즐겨찾기 단어 없음";
-"idiom_filters.no_search_results" = "검색 결과 없음";
-"idiom_filters.start_improving_vocabulary" = "첫 번째 관용구를 추가하여 어휘를 향상시키기 시작하세요";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "관용구의 하트 아이콘을 탭하여 즐겨찾기에 추가하세요";
-"idiom_filters.try_different_search_term" = "다른 검색어를 시도하거나 새 관용구를 추가하세요";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "명사";

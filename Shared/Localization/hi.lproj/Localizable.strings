@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "गूगल से बैकअप डाउनलोड करें";
 "settings.sign_in_sync_word_lists" = "शब्द सूचियों को सिंक करने के लिए साइन इन करें";
 "settings.organization" = "संगठन";
-"settings.show_idioms_tab" = "मुहावरे टैब दिखाएं";
 "settings.shared_dictionaries" = "साझा शब्दकोश";
 "settings.about_app" = "ऐप के बारे में";
 "settings.features" = "सुविधाएं";
@@ -768,7 +767,7 @@
 "macos.shared_dictionaries" = "साझा शब्दकोश";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "सभी शब्द";
+"filter_display.all" = "सभी";
 "filter_display.favorite" = "पसंदीदा";
 "filter_display.search" = "खोज";
 "filter_display.tag" = "टैग";
@@ -777,20 +776,34 @@
 "filter_display.needs_review" = "समीक्षा की आवश्यकता";
 "filter_display.mastered" = "निपुण";
 "filter_display.no_words_yet" = "अभी तक कोई शब्द नहीं";
+"filter_display.no_idioms_yet" = "अभी तक कोई मुहावरे नहीं";
 "filter_display.no_favorite_words" = "कोई पसंदीदा शब्द नहीं";
+"filter_display.no_favorite_idioms" = "कोई पसंदीदा मुहावरे नहीं";
 "filter_display.no_search_results" = "कोई खोज परिणाम नहीं";
 "filter_display.no_tagged_words" = "कोई टैग किए गए शब्द नहीं";
+"filter_display.no_tagged_idioms" = "कोई टैग किए गए मुहावरे नहीं";
 "filter_display.no_new_words" = "कोई नए शब्द नहीं";
-"filter_display.no_words_in_progress" = "कोई प्रगति में शब्द नहीं";
-"filter_display.no_words_need_review" = "कोई समीक्षा की आवश्यकता वाले शब्द नहीं";
+"filter_display.no_new_idioms" = "कोई नए मुहावरे नहीं";
+"filter_display.no_words_in_progress" = "प्रगति में कोई शब्द नहीं";
+"filter_display.no_idioms_in_progress" = "प्रगति में कोई मुहावरे नहीं";
+"filter_display.no_words_need_review" = "कोई शब्द समीक्षा की आवश्यकता नहीं";
+"filter_display.no_idioms_need_review" = "कोई मुहावरे समीक्षा की आवश्यकता नहीं";
 "filter_display.no_mastered_words" = "कोई निपुण शब्द नहीं";
+"filter_display.no_mastered_idioms" = "कोई निपुण मुहावरे नहीं";
 "filter_display.start_building_vocabulary" = "अपना पहला शब्द जोड़कर अपनी शब्दावली बनाना शुरू करें";
-"filter_display.tap_heart_icon_to_add_favorites" = "किसी भी शब्द को पसंदीदा में जोड़ने के लिए हार्ट आइकन पर टैप करें";
-"filter_display.try_different_search_term" = "अलग खोज शब्द आज़माएं या एक नया शब्द जोड़ें";
-"filter_display.add_tags_to_organize" = "बेहतर संगठन के लिए अपने शब्दों में टैग जोड़ें";
-"filter_display.new_words_appear_here" = "जब आप अपनी सूची में नए शब्द जोड़ेंगे तो वे यहां दिखाई देंगे";
-"filter_display.words_appear_here_as_you_practice" = "जैसे-जैसे आप क्विज़ में अभ्यास करेंगे, शब्द यहां दिखाई देंगे";
-"filter_display.words_need_more_practice" = "जिन शब्दों को अधिक अभ्यास की आवश्यकता है, वे यहां दिखाई देंगे";
+"filter_display.start_building_vocabulary_idioms" = "अपना पहला मुहावरा जोड़कर अपनी शब्दावली बनाना शुरू करें";
+"filter_display.tap_heart_icon_to_add_favorites" = "किसी भी शब्द पर हार्ट आइकन टैप करें ताकि उसे अपनी पसंदीदा में जोड़ा जाए";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "किसी भी मुहावरे पर हार्ट आइकन टैप करें ताकि उसे अपनी पसंदीदा में जोड़ा जाए";
+"filter_display.try_different_search_term" = "एक अलग खोज शब्द आज़माएं या एक नया शब्द जोड़ें";
+"filter_display.try_different_search_term_idioms" = "एक अलग खोज शब्द आज़माएं या एक नया मुहावरा जोड़ें";
+"filter_display.add_tags_to_organize" = "अपने शब्दों को बेहतर ढंग से व्यवस्थित करने के लिए टैग जोड़ें";
+"filter_display.add_tags_to_organize_idioms" = "अपने मुहावरों को बेहतर ढंग से व्यवस्थित करने के लिए टैग जोड़ें";
+"filter_display.new_words_appear_here" = "जब आप उन्हें अपनी सूची में जोड़ते हैं तो नए शब्द यहाँ दिखाई देते हैं";
+"filter_display.new_idioms_appear_here" = "जब आप उन्हें अपनी सूची में जोड़ते हैं तो नए मुहावरे यहाँ दिखाई देते हैं";
+"filter_display.words_appear_here_as_you_practice" = "जब आप क्विज़ में उनका अभ्यास करते हैं तो शब्द यहाँ दिखाई देते हैं";
+"filter_display.idioms_appear_here_as_you_practice" = "जब आप क्विज़ में उनका अभ्यास करते हैं तो मुहावरे यहाँ दिखाई देते हैं";
+"filter_display.words_need_more_practice" = "जिन शब्दों को और अभ्यास की आवश्यकता है वे यहाँ दिखाई देंगे";
+"filter_display.idioms_need_more_practice" = "जिन मुहावरों को और अभ्यास की आवश्यकता है वे यहाँ दिखाई देंगे";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "मालिक";
@@ -856,17 +869,6 @@
 "english_accents.singaporean" = "सिंगापुरी";
 "english_accents.irish" = "आयरिश";
 "english_accents.south_african" = "दक्षिण अफ्रीकी";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "सभी मुहावरे";
-"idiom_filters.favorite" = "पसंदीदा";
-"idiom_filters.search" = "खोज";
-"idiom_filters.no_idioms_yet" = "अभी तक कोई मुहावरे नहीं";
-"idiom_filters.no_favorite_words" = "कोई पसंदीदा शब्द नहीं";
-"idiom_filters.no_search_results" = "कोई खोज परिणाम नहीं";
-"idiom_filters.start_improving_vocabulary" = "अपना पहला मुहावरा जोड़कर अपनी शब्दावली को बेहतर बनाना शुरू करें";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "किसी भी मुहावरे को पसंदीदा में जोड़ने के लिए हार्ट आइकन पर टैप करें";
-"idiom_filters.try_different_search_term" = "अलग खोज शब्द आज़माएं या एक नया मुहावरा जोड़ें";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "संज्ञा";

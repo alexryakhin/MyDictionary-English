@@ -5,16 +5,16 @@ final class SpellingQuizViewModel: BaseViewModel {
 
     enum Input {
         case confirmAnswer
-        case skipWord
-        case nextWord
+        case skipItem
+        case nextItem
         case restartQuiz
         case dismiss
     }
 
     @Published var answerTextField = ""
 
-    @Published private(set) var words: [any QuizWord] = []
-    @Published private(set) var randomWord: (any QuizWord)?
+    @Published private(set) var items: [any Quizable] = []
+    @Published private(set) var randomItem: (any Quizable)?
     @Published private(set) var isCorrectAnswer = true
     @Published private(set) var attemptCount = 0
     @Published private(set) var isShowingCorrectAnswer = false
@@ -23,21 +23,21 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var correctAnswers = 0
     @Published private(set) var totalQuestions = 0
     @Published private(set) var score = 0
-    @Published private(set) var wordsPlayed: [any QuizWord] = []
-    @Published private(set) var correctWordIds: [String] = []
+    @Published private(set) var itemsPlayed: [any Quizable] = []
+    @Published private(set) var correctItemIds: [String] = []
     @Published private(set) var isQuizComplete = false
     
     // Game state
     @Published private(set) var isShowingHint = false
     @Published private(set) var currentStreak = 0
     @Published private(set) var bestStreak = 0
-    @Published private(set) var accuracyContributions: [String: Double] = [:] // Track accuracy contribution per word
+    @Published private(set) var accuracyContributions: [String: Double] = [:] // Track accuracy contribution per item
     @Published private(set) var errorMessage: String?
 
-    private let quizWordsProvider: QuizWordsProvider = .shared
+    private let quizItemsProvider: QuizItemsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
-    private var originalWords: [any QuizWord] = []
+    private var originalItems: [any Quizable] = []
     private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
     private let preset: QuizPreset
@@ -61,15 +61,15 @@ final class SpellingQuizViewModel: BaseViewModel {
         switch input {
         case .confirmAnswer:
             confirmAnswer()
-        case .skipWord:
-            skipWord()
-        case .nextWord:
-            proceedToNextWord()
+        case .skipItem:
+            skipItem()
+        case .nextItem:
+            proceedToNextItem()
         case .restartQuiz:
             restartQuiz()
         case .dismiss:
             // Save current progress if quiz is in progress
-            if !isQuizComplete && wordsPlayed.count > 0 {
+            if !isQuizComplete && itemsPlayed.count > 0 {
                 saveQuizSession()
             }
             dismissPublisher.send()
@@ -77,11 +77,11 @@ final class SpellingQuizViewModel: BaseViewModel {
     }
 
     private func confirmAnswer() {
-        guard let randomWord,
-              let wordIndex = words.firstIndex(where: { $0.quiz_id == randomWord.quiz_id })
+        guard let randomItem,
+              let itemIndex = items.firstIndex(where: { $0.quiz_id == randomItem.quiz_id })
         else { return }
 
-        if answerTextField.lowercased().trimmed == (randomWord.quiz_wordItself.lowercased().trimmed) {
+        if answerTextField.lowercased().trimmed == (randomItem.quiz_text.lowercased().trimmed) {
             // Correct answer
             isCorrectAnswer = true
             isShowingCorrectAnswer = true
@@ -89,11 +89,11 @@ final class SpellingQuizViewModel: BaseViewModel {
             currentStreak += 1
             bestStreak = max(bestStreak, currentStreak)
             
-            // Update word difficulty - add 5 points for correct answer
-            updateWordScore(randomWord, points: 5)
+            // Update item difficulty - add 5 points for correct answer
+            updateItemScore(randomItem, points: 5)
 
-            wordsPlayed.append(randomWord)
-            correctWordIds.append(randomWord.quiz_id)
+            itemsPlayed.append(randomItem)
+            correctItemIds.append(randomItem.quiz_id)
             isShowingHint = false // Reset hint for next question
             
             // Calculate accuracy contribution based on attempts
@@ -105,7 +105,7 @@ final class SpellingQuizViewModel: BaseViewModel {
             } else {
                 accuracyContribution = 0.5 // Any more attempts: 50% accuracy
             }
-            accuracyContributions[randomWord.quiz_id] = accuracyContribution
+            accuracyContributions[randomItem.quiz_id] = accuracyContribution
             
             // Update quiz score - add 5 points for correct answer
             score += 5
@@ -118,7 +118,7 @@ final class SpellingQuizViewModel: BaseViewModel {
             isCorrectAnswer = false
             attemptCount += 1
             currentStreak = 0 // Reset streak on wrong answer
-            // DON'T add to wordsPlayed here - only when answered correctly, skipped, or failed
+            // DON'T add to itemsPlayed here - only when answered correctly, skipped, or failed
             
             // Show hint after 2 attempts
             if attemptCount >= 2 {
@@ -128,11 +128,11 @@ final class SpellingQuizViewModel: BaseViewModel {
             // Update quiz score - subtract 2 points for each wrong attempt
             score -= 2
             
-            // After 3 attempts, mark word as needs review and add to played list
+            // After 3 attempts, mark item as needs review and add to played list
             if attemptCount >= 3 {
-                updateWordScore(randomWord, points: -2)
-                wordsPlayed.append(randomWord) // Add to played list when failed
-                accuracyContributions[randomWord.quiz_id] = 0.0 // 0% accuracy for failed words
+                updateItemScore(randomItem, points: -2)
+                itemsPlayed.append(randomItem) // Add to played list when failed
+                accuracyContributions[randomItem.quiz_id] = 0.0 // 0% accuracy for failed items
             }
             
             HapticManager.shared.triggerNotification(type: .error)
@@ -140,19 +140,19 @@ final class SpellingQuizViewModel: BaseViewModel {
         }
     }
     
-    private func skipWord() {
-        guard let randomWord else { return }
+    private func skipItem() {
+        guard let randomItem else { return }
         
-        // Mark skipped word as needs review - subtract 2 points for skipping
-        updateWordScore(randomWord, points: -2)
+        // Mark skipped item as needs review - subtract 2 points for skipping
+        updateItemScore(randomItem, points: -2)
 
-        // Add word to played list when skipped
-        wordsPlayed.append(randomWord)
-        accuracyContributions[randomWord.quiz_id] = 0.0 // 0% accuracy for skipped words
+        // Add item to played list when skipped
+        itemsPlayed.append(randomItem)
+        accuracyContributions[randomItem.quiz_id] = 0.0 // 0% accuracy for skipped items
         
-        // Remove word from list (don't move to end)
-        if let wordIndex = words.firstIndex(where: { $0.quiz_id == randomWord.quiz_id }) {
-            words.remove(at: wordIndex)
+        // Remove item from list (don't move to end)
+        if let itemIndex = items.firstIndex(where: { $0.quiz_id == randomItem.quiz_id }) {
+            items.remove(at: itemIndex)
         }
         
         // Update quiz score - subtract 2 points for skipping
@@ -161,13 +161,13 @@ final class SpellingQuizViewModel: BaseViewModel {
         answerTextField = ""
 
         // Check if quiz is complete
-        if words.isEmpty {
-            self.randomWord = nil
+        if items.isEmpty {
+            self.randomItem = nil
             isQuizComplete = true
             saveQuizSession()
         } else {
-            // Get next word
-            self.randomWord = words.randomElement()
+            // Get next item
+            self.randomItem = items.randomElement()
             attemptCount = 0
             isCorrectAnswer = true
             isShowingHint = false
@@ -179,16 +179,16 @@ final class SpellingQuizViewModel: BaseViewModel {
     
     private func restartQuiz() {
         // Reset all game state
-        words = originalWords.shuffled()
-        randomWord = words.randomElement()
+        items = originalItems.shuffled()
+        randomItem = items.randomElement()
         answerTextField = ""
         isCorrectAnswer = true
         attemptCount = 0
         correctAnswers = 0
-        totalQuestions = preset.wordCount
+        totalQuestions = preset.itemCount
         score = 0
-        wordsPlayed = []
-        correctWordIds = []
+        itemsPlayed = []
+        correctItemIds = []
         isQuizComplete = false
         isShowingHint = false
         isShowingCorrectAnswer = false
@@ -201,50 +201,50 @@ final class SpellingQuizViewModel: BaseViewModel {
     }
     
     private func saveQuizSession() {
-        guard wordsPlayed.count > 0 else { return }
+        guard itemsPlayed.count > 0 else { return }
 
         let duration = Date().timeIntervalSince(sessionStartTime)
-        let accuracy = wordsPlayed.count > 0 ? accuracyContributions.values.reduce(0, +) / Double(wordsPlayed.count) : 0.0
+        let accuracy = itemsPlayed.count > 0 ? accuracyContributions.values.reduce(0, +) / Double(itemsPlayed.count) : 0.0
                 
         quizAnalyticsService.saveQuizSession(
             quizType: Quiz.spelling.title,
             score: score,
             correctAnswers: correctAnswers,
-            totalWords: wordsPlayed.count, // Use words actually played
+            totalItems: itemsPlayed.count, // Use items actually played
             duration: duration,
             accuracy: accuracy,
-            wordsPracticed: wordsPlayed,
-            correctWordIds: correctWordIds
+            itemsPracticed: itemsPlayed,
+            correctItemIds: correctItemIds
         )
         
         // Check and schedule notifications after quiz completion
         NotificationService.shared.checkAndScheduleNotifications()
     }
 
-    private func proceedToNextWord() {
-        guard let randomWord,
-              let wordIndex = words.firstIndex(where: { $0.quiz_id == randomWord.quiz_id })
+    private func proceedToNextItem() {
+        guard let randomItem,
+              let itemIndex = items.firstIndex(where: { $0.quiz_id == randomItem.quiz_id })
         else { return }
         
-        // Clear the answer field and remove the current word
+        // Clear the answer field and remove the current item
         answerTextField = ""
         isShowingHint = false
         attemptCount = 0
         isCorrectAnswer = true
-        words.remove(at: wordIndex)
+        items.remove(at: itemIndex)
         isShowingCorrectAnswer = false
         
-        // Check if we've reached the target word count
-        if wordsPlayed.count >= preset.wordCount {
-            self.randomWord = nil
+        // Check if we've reached the target item count
+        if itemsPlayed.count >= preset.itemCount {
+            self.randomItem = nil
             isQuizComplete = true
             saveQuizSession()
-        } else if !words.isEmpty {
-            // Move to next word
-            self.randomWord = words.randomElement()
+        } else if !items.isEmpty {
+            // Move to next item
+            self.randomItem = items.randomElement()
         } else {
-            // No more words available, complete quiz
-            self.randomWord = nil
+            // No more items available, complete quiz
+            self.randomItem = nil
             isQuizComplete = true
             saveQuizSession()
         }
@@ -252,34 +252,34 @@ final class SpellingQuizViewModel: BaseViewModel {
 
     /// Fetches latest data from Core Data
     private func setupBindings() {
-        // Get words from the quiz words provider
-        let availableWords = quizWordsProvider.getWordsForQuiz(with: preset)
+        // Get items from the quiz items provider
+        let availableItems = quizItemsProvider.getItemsForQuiz(with: preset)
 
-        // Check if we have enough words after filtering
-        if availableWords.count < preset.wordCount {
-            // Not enough words available after filtering
-            self.errorMessage = preset.hardWordsOnly ?
+        // Check if we have enough items after filtering
+        if availableItems.count < preset.itemCount {
+            // Not enough items available after filtering
+            self.errorMessage = preset.hardItemsOnly ?
                 Loc.Quizzes.noDifficultWordsAvailable.localized :
-                Loc.Quizzes.notEnoughWordsAvailable.localized(preset.wordCount)
+                Loc.Quizzes.notEnoughWordsAvailable.localized(preset.itemCount)
             return
         }
         
-        self.originalWords = availableWords.shuffled()
-        // Use all available words for better variety, but track the target count
-        self.words = self.originalWords
-        self.randomWord = self.words.randomElement()
-        self.totalQuestions = preset.wordCount
+        self.originalItems = availableItems.shuffled()
+        // Use all available items for better variety, but track the target count
+        self.items = self.originalItems
+        self.randomItem = self.items.randomElement()
+        self.totalQuestions = preset.itemCount
     }
 
-    private func updateWordScore(_ word: any QuizWord, points: Int) {
-        if let sharedWord = word as? SharedWord {
-            // For shared words, use the async method
+    private func updateItemScore(_ item: any Quizable, points: Int) {
+        if let sharedItem = item as? SharedWord {
+            // For shared items, use the async method
             if let userEmail = AuthenticationService.shared.userEmail {
-                sharedWord.quiz_updateDifficultyScoreForUser(points, userEmail: userEmail)
+                sharedItem.quiz_updateDifficultyScoreForUser(points, userEmail: userEmail)
             }
         } else {
-            // For private words, use the sync method
-            word.quiz_updateDifficultyScore(points)
+            // For private items, use the sync method
+            item.quiz_updateDifficultyScore(points)
         }
     }
 }

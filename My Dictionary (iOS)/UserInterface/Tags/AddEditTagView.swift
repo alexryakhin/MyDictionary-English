@@ -58,7 +58,7 @@ struct AddEditTagView: View {
         )
         .safeAreaInset(edge: .bottom) {
             ActionButton(Loc.Actions.save.localized, style: .borderedProminent) {
-                if subscriptionService.isProUser {
+                if subscriptionService.isProUser || viewModel.tags.count < 5 {
                     saveTag()
                 } else {
                     PaywallService.shared.isShowingPaywall = true

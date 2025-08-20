@@ -16,6 +16,11 @@ final class CDTag: NSManagedObject, Identifiable {
         return Array(set).sorted { $0.timestamp ?? Date.distantPast > $1.timestamp ?? Date.distantPast }
     }
 
+    var idiomsArray: [CDIdiom] {
+        let set = idioms as? Set<CDIdiom> ?? []
+        return Array(set).sorted { $0.timestamp ?? Date.distantPast > $1.timestamp ?? Date.distantPast }
+    }
+
     var colorValue: TagColor {
         TagColor(rawValue: color ?? "blue") ?? .blue
     }

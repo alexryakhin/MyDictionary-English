@@ -5,8 +5,8 @@ struct MainTabView: View {
 
     // MARK: - Tab view models
 
-    @StateObject private var wordsViewModel = WordListViewModel()
-    @StateObject private var idiomsViewModel = IdiomListViewModel()
+    @StateObject private var wordListViewModel = WordListViewModel()
+    @StateObject private var idiomListViewModel = IdiomListViewModel()
     @StateObject private var quizzesViewModel = QuizzesListViewModel()
     @StateObject private var analyticsViewModel = AnalyticsViewModel()
     @StateObject private var settingsViewModel = SettingsViewModel()
@@ -14,7 +14,6 @@ struct MainTabView: View {
     // MARK: - Properties
 
     @AppStorage(UDKeys.hasCompletedOnboarding) var hasCompletedOnboarding: Bool = false
-    @AppStorage(UDKeys.showIdiomsTab) var showIdiomsTab: Bool = true
     @StateObject var navigationManager: NavigationManager = .shared
     @StateObject var tabManager: TabManager = .shared
     @StateObject var authenticationService: AuthenticationService = .shared
@@ -28,12 +27,12 @@ struct MainTabView: View {
                     .ignoresSafeArea()
                 HStack {
                     switch tabManager.selectedTab {
-                    case .words:
-                        WordsFlow(viewModel: wordsViewModel)
-                            .transition(tabManager.getSlideTransition())
-                    case .idioms:
-                        IdiomsFlow(viewModel: idiomsViewModel)
-                            .transition(tabManager.getSlideTransition())
+                    case .myDictionary:
+                        VocabularyFlow(
+                            wordListViewModel: wordListViewModel,
+                            idiomListViewModel: idiomListViewModel
+                        )
+                        .transition(tabManager.getSlideTransition())
                     case .quizzes:
                         QuizzesFlow(viewModel: quizzesViewModel)
                             .transition(tabManager.getSlideTransition())
@@ -70,13 +69,6 @@ struct MainTabView: View {
     @ViewBuilder
     private var tabBarView: some View {
         let tabCases = TabBarItem.allCases
-            .filter { tab in
-                if tab == .idioms {
-                    showIdiomsTab
-                } else {
-                    true
-                }
-            }
         HStack {
             ForEach(tabCases, id: \.self) { tab in
                 TabButton(
@@ -99,10 +91,10 @@ struct MainTabView: View {
     @ViewBuilder
     private func destinationView(for destination: NavigationDestination) -> some View {
         switch destination {
-        case .addWord:
-            AddWordContentView()
-        case .addIdiom:
-            AddIdiomContentView()
+        case .addWord(let inputWord):
+            AddWordView(inputWord: inputWord)
+        case .addIdiom(let inputIdiom):
+            AddIdiomView(inputIdiom: inputIdiom)
         case .quizResultsList:
             QuizResultsList.ContentView()
         case .aboutApp:

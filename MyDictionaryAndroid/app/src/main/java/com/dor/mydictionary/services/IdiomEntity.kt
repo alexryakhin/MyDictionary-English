@@ -12,7 +12,9 @@ data class IdiomEntity(
     val definition: String,
     val timestamp: Date,
     val isFavorite: Boolean,
-    val examples: List<String>
+    val examples: List<String>,
+    val difficultyScore: Int = 0,
+    val languageCode: String = "en"
 ) {
     fun toIdiom(): Idiom = Idiom(
         id = id,
@@ -20,7 +22,9 @@ data class IdiomEntity(
         definition = definition,
         timestamp = timestamp,
         isFavorite = isFavorite,
-        examples = examples
+        examples = examples,
+        difficultyScore = difficultyScore,
+        languageCode = languageCode
     )
     
     companion object {
@@ -30,7 +34,9 @@ data class IdiomEntity(
             definition = idiom.definition,
             timestamp = idiom.timestamp,
             isFavorite = idiom.isFavorite,
-            examples = idiom.examples
+            examples = idiom.examples,
+            difficultyScore = idiom.difficultyScore,
+            languageCode = idiom.languageCode
         )
     }
 } 

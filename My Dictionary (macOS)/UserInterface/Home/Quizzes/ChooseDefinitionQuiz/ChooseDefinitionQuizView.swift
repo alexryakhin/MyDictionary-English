@@ -46,12 +46,12 @@ struct ChooseDefinitionQuizView: View {
                     
                     Spacer()
                 }
-            } else if viewModel.words.isNotEmpty {
+            } else if viewModel.items.isNotEmpty {
                 if !viewModel.isQuizComplete {
                     ScrollView {
                         VStack(spacing: 12) {
                             progressBar
-                            wordCard
+                            itemCard
                             optionsSection
                             actionButtons
                         }
@@ -63,7 +63,7 @@ struct ChooseDefinitionQuizView: View {
                             quiz: .chooseDefinition,
                             score: viewModel.score,
                             correctAnswers: viewModel.correctAnswers,
-                            wordsPlayed: viewModel.wordsPlayed.count,
+                            itemsPlayed: viewModel.itemsPlayed.count,
                             accuracyContributions: .zero, // for spelling quiz
                             bestStreak: viewModel.bestStreak
                         ),
@@ -92,8 +92,8 @@ struct ChooseDefinitionQuizView: View {
     private var progressBar: some View {
         QuizProgressHeader(
             model: .init(
-                wordsPlayed: viewModel.wordsPlayed.count,
-                totalQuestions: viewModel.preset.wordCount,
+                itemsPlayed: viewModel.itemsPlayed.count,
+                totalQuestions: viewModel.preset.itemCount,
                 currentStreak: viewModel.currentStreak,
                 score: viewModel.score,
                 bestStreak: viewModel.bestStreak
@@ -102,31 +102,38 @@ struct ChooseDefinitionQuizView: View {
         .clippedWithPaddingAndBackground(cornerRadius: 16, showShadow: true)
     }
 
-    private var wordCard: some View {
+    private var itemCard: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Image(systemName: "textformat")
                     .font(.title2)
                     .foregroundStyle(.accent)
 
-                Text(Loc.Quizzes.word.localized)
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                
+                switch viewModel.correctItem.quiz_itemType {
+                case .word, .sharedWord:
+                    Text(Loc.Words.word.localized)
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                case .idiom:
+                    Text(Loc.Idioms.idiom.localized)
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                }
+
                 Spacer()
 
                 HeaderButton(icon: "speaker.wave.2.fill", size: .small) {
-                    play(viewModel.correctWord.quiz_wordItself, isWord: true)
+                    play(viewModel.correctItem.quiz_text, isItem: true)
                 }
             }
             
-            Text(viewModel.correctWord.quiz_wordItself)
+            Text(viewModel.correctItem.quiz_text)
                 .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.leading)
 
             TagView(
-                text: PartOfSpeech(rawValue: viewModel.correctWord.quiz_partOfSpeech).displayName,
+                text: PartOfSpeech(rawValue: viewModel.correctItem.quiz_partOfSpeech).displayName,
                 color: .accent,
                 size: .small,
                 style: .regular
@@ -160,7 +167,7 @@ struct ChooseDefinitionQuizView: View {
                         }
                     } label: {
                         HStack {
-                            Text(viewModel.words[index].quiz_definition)
+                            Text(viewModel.items[index].quiz_definition)
                                 .font(.body)
                                 .foregroundStyle(.primary)
                                 .multilineTextAlignment(.leading)
@@ -221,9 +228,13 @@ struct ChooseDefinitionQuizView: View {
 
     private var actionButtons: some View {
         VStack(spacing: 12) {
-            ActionButton(Loc.Quizzes.skipWord.localized, systemImage: "arrow.right.circle", color: .secondary) {
+            ActionButton(
+                Loc.Quizzes.skipWord.localized,
+                systemImage: "arrow.right.circle",
+                color: .secondary
+            ) {
                 withAnimation(.easeInOut(duration: 0.3)) {
-                    viewModel.handle(.skipWord)
+                    viewModel.handle(.skipItem)
                 }
             }
         }
@@ -251,15 +262,15 @@ struct ChooseDefinitionQuizView: View {
         }
     }
 
-    private func play(_ text: String?, isWord: Bool = false) {
+    private func play(_ text: String?, isItem: Bool = false) {
         Task { @MainActor in
             guard let text else { return }
 
             do {
                 try await TTSPlayer.shared.play(
                     text,
-                    targetLanguage: isWord
-                    ? viewModel.correctWord.quiz_languageCode
+                    targetLanguage: isItem
+                    ? viewModel.correctItem.quiz_languageCode
                     : Locale.current.language.languageCode?.identifier
                 )
             } catch {

@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Λήψη Αντιγράφου Ασφαλείας από το Google";
 "settings.sign_in_sync_word_lists" = "Συνδέσου για να συγχρονίσεις τις λίστες λέξεων";
 "settings.organization" = "Οργάνωση";
-"settings.show_idioms_tab" = "Εμφάνιση καρτέλας ιδιωματισμών";
 "settings.shared_dictionaries" = "Κοινόχρηστα Λεξικά";
 "settings.about_app" = "Σχετικά με την Εφαρμογή";
 "settings.features" = "Λειτουργίες";
@@ -768,29 +767,43 @@
 "macos.shared_dictionaries" = "Κοινόχρηστα Λεξικά";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "Όλες οι Λέξεις";
-"filter_display.favorite" = "Αγαπημένο";
+"filter_display.all" = "Όλα";
+"filter_display.favorite" = "Αγαπημένα";
 "filter_display.search" = "Αναζήτηση";
 "filter_display.tag" = "Ετικέτα";
 "filter_display.new" = "Νέο";
 "filter_display.in_progress" = "Σε Εξέλιξη";
 "filter_display.needs_review" = "Χρειάζεται Επανεξέταση";
 "filter_display.mastered" = "Κατακτημένο";
-"filter_display.no_words_yet" = "Καμία λέξη ακόμα";
-"filter_display.no_favorite_words" = "Καμία αγαπημένη λέξη";
-"filter_display.no_search_results" = "Κανένα αποτέλεσμα αναζήτησης";
-"filter_display.no_tagged_words" = "Καμία λέξη με ετικέτα";
-"filter_display.no_new_words" = "Καμία νέα λέξη";
-"filter_display.no_words_in_progress" = "Καμία λέξη σε εξέλιξη";
-"filter_display.no_words_need_review" = "Καμία λέξη που χρειάζεται επανεξέταση";
-"filter_display.no_mastered_words" = "Καμία κατακτημένη λέξη";
-"filter_display.start_building_vocabulary" = "Ξεκίνα να χτίζεις το λεξιλόγιό σου προσθέτοντας την πρώτη σου λέξη";
-"filter_display.tap_heart_icon_to_add_favorites" = "Πάτησε το εικονίδιο καρδιάς σε οποιαδήποτε λέξη για να την προσθέσεις στα αγαπημένα";
-"filter_display.try_different_search_term" = "Δοκίμασε διαφορετικό όρο αναζήτησης ή πρόσθεσε μια νέα λέξη";
-"filter_display.add_tags_to_organize" = "Πρόσθεσε ετικέτες στις λέξεις σου για καλύτερη οργάνωση";
-"filter_display.new_words_appear_here" = "Οι νέες λέξεις θα εμφανιστούν εδώ όταν τις προσθέσεις στη λίστα σου";
-"filter_display.words_appear_here_as_you_practice" = "Οι λέξεις θα εμφανιστούν εδώ καθώς τις εξασκείς στα κουίζ";
+"filter_display.no_words_yet" = "Καμία Λέξη Ακόμα";
+"filter_display.no_idioms_yet" = "Καμία Ιδιωματισμός Ακόμα";
+"filter_display.no_favorite_words" = "Καμία Αγαπημένη Λέξη";
+"filter_display.no_favorite_idioms" = "Καμία Αγαπημένη Ιδιωματισμός";
+"filter_display.no_search_results" = "Κανένα Αποτέλεσμα Αναζήτησης";
+"filter_display.no_tagged_words" = "Καμία Λέξη με Ετικέτα";
+"filter_display.no_tagged_idioms" = "Καμία Ιδιωματισμός με Ετικέτα";
+"filter_display.no_new_words" = "Καμία Νέα Λέξη";
+"filter_display.no_new_idioms" = "Καμία Νέα Ιδιωματισμός";
+"filter_display.no_words_in_progress" = "Καμία Λέξη σε Εξέλιξη";
+"filter_display.no_idioms_in_progress" = "Καμία Ιδιωματισμός σε Εξέλιξη";
+"filter_display.no_words_need_review" = "Καμία Λέξη δεν Χρειάζεται Επανεξέταση";
+"filter_display.no_idioms_need_review" = "Καμία Ιδιωματισμός δεν Χρειάζεται Επανεξέταση";
+"filter_display.no_mastered_words" = "Καμία Κατακτημένη Λέξη";
+"filter_display.no_mastered_idioms" = "Καμία Κατακτημένη Ιδιωματισμός";
+"filter_display.start_building_vocabulary" = "Ξεκινήστε να δημιουργείτε το λεξιλόγιό σας προσθέτοντας την πρώτη σας λέξη";
+"filter_display.start_building_vocabulary_idioms" = "Ξεκινήστε να δημιουργείτε το λεξιλόγιό σας προσθέτοντας τον πρώτο σας ιδιωματισμό";
+"filter_display.tap_heart_icon_to_add_favorites" = "Πατήστε το εικονίδιο καρδιάς σε οποιαδήποτε λέξη για να την προσθέσετε στα αγαπημένα σας";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "Πατήστε το εικονίδιο καρδιάς σε οποιονδήποτε ιδιωματισμό για να τον προσθέσετε στα αγαπημένα σας";
+"filter_display.try_different_search_term" = "Δοκιμάστε έναν διαφορετικό όρο αναζήτησης ή προσθέστε μια νέα λέξη";
+"filter_display.try_different_search_term_idioms" = "Δοκιμάστε έναν διαφορετικό όρο αναζήτησης ή προσθέστε έναν νέο ιδιωματισμό";
+"filter_display.add_tags_to_organize" = "Προσθέστε ετικέτες στις λέξεις σας για να τις οργανώσετε καλύτερα";
+"filter_display.add_tags_to_organize_idioms" = "Προσθέστε ετικέτες στους ιδιωματισμούς σας για να τους οργανώσετε καλύτερα";
+"filter_display.new_words_appear_here" = "Οι νέες λέξεις εμφανίζονται εδώ όταν τις προσθέτετε στη λίστα σας";
+"filter_display.new_idioms_appear_here" = "Οι νέοι ιδιωματισμοί εμφανίζονται εδώ όταν τους προσθέτετε στη λίστα σας";
+"filter_display.words_appear_here_as you_practice" = "Οι λέξεις εμφανίζονται εδώ καθώς τις εξασκείτε σε κουίζ";
+"filter_display.idioms_appear_here_as_you_practice" = "Οι ιδιωματισμοί εμφανίζονται εδώ καθώς τους εξασκείτε σε κουίζ";
 "filter_display.words_need_more_practice" = "Οι λέξεις που χρειάζονται περισσότερη εξάσκηση θα εμφανιστούν εδώ";
+"filter_display.idioms_need_more_practice" = "Οι ιδιωματισμοί που χρειάζονται περισσότερη εξάσκηση θα εμφανιστούν εδώ";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "Ιδιοκτήτης";
@@ -856,17 +869,6 @@
 "english_accents.singaporean" = "Σιγκαπουριανό";
 "english_accents.irish" = "Ιρλανδικό";
 "english_accents.south_african" = "Νοτιοαφρικανικό";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Όλοι οι Ιδιωματισμοί";
-"idiom_filters.favorite" = "Αγαπημένο";
-"idiom_filters.search" = "Αναζήτηση";
-"idiom_filters.no_idioms_yet" = "Κανένας ιδιωματισμός ακόμα";
-"idiom_filters.no_favorite_words" = "Καμία αγαπημένη λέξη";
-"idiom_filters.no_search_results" = "Κανένα αποτέλεσμα αναζήτησης";
-"idiom_filters.start_improving_vocabulary" = "Ξεκίνα να βελτιώνεις το λεξιλόγιό σου προσθέτοντας τον πρώτο ιδιωματισμό";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Πάτησε το εικονίδιο καρδιάς σε οποιονδήποτε ιδιωματισμό για να τον προσθέσεις στα αγαπημένα";
-"idiom_filters.try_different_search_term" = "Δοκίμασε διαφορετικό όρο αναζήτησης ή πρόσθεσε έναν νέο ιδιωματισμό";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Ουσιαστικό";

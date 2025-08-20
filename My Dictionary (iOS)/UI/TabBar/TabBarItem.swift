@@ -8,18 +8,15 @@
 import Foundation
 
 enum TabBarItem: CaseIterable {
-    case words
-    case idioms
+    case myDictionary
     case quizzes
     case analytics
     case settings
 
     var title: String {
         switch self {
-        case .words:
-            return Loc.TabBar.words.localized
-        case .idioms:
-            return Loc.TabBar.idioms.localized
+        case .myDictionary:
+            return Loc.App.myDictionary.localized
         case .quizzes:
             return Loc.TabBar.quizzes.localized
         case .analytics:
@@ -31,10 +28,8 @@ enum TabBarItem: CaseIterable {
 
     var image: String {
         switch self {
-        case .words:
+        case .myDictionary:
             return "textformat"
-        case .idioms:
-            return "quote.bubble"
         case .quizzes:
             return "brain.head.profile"
         case .analytics:
@@ -46,10 +41,8 @@ enum TabBarItem: CaseIterable {
 
     var selectedImage: String {
         switch self {
-        case .words:
+        case .myDictionary:
             return "textformat"
-        case .idioms:
-            return "quote.bubble.fill"
         case .quizzes:
             return "brain.head.profile"
         case .analytics:

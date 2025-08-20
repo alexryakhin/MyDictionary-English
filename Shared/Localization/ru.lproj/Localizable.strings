@@ -8,19 +8,19 @@
 // MARK: - Tab Bar
 "tabbar.words" = "Слова";
 "tabbar.idioms" = "Выражения";
-"tabbar.quizzes" = "Тесты";
+"tabbar.quizzes" = "Викторины";
 "tabbar.progress" = "Прогресс";
 "tabbar.settings" = "Настройки";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "Подробности о слове";
-"navigation.idiom_details" = "Подробности о выражении";
+"navigation.word_details" = "О слове";
+"navigation.idiom_details" = "О выражении";
 "navigation.add_tags" = "Добавить теги";
 "navigation.about" = "О приложении";
 "navigation.debug_panel" = "Панель отладки";
-"navigation.quiz_results" = "Результаты теста";
-"navigation.spelling_quiz" = "Тест по правописанию";
-"navigation.definition_quiz" = "Тест по определениям";
+"navigation.quiz_results" = "Результаты";
+"navigation.spelling_quiz" = "Правописание";
+"navigation.definition_quiz" = "Определения";
 "navigation.close" = "Закрыть";
 "navigation.close_screen" = "Закрыть экран";
 
@@ -48,7 +48,7 @@
 "actions.select" = "Выбрать";
 "actions.select_word" = "Выбрать слово";
 "actions.select_idiom" = "Выбрать выражение";
-"actions.select_quiz" = "Выбрать тест";
+"actions.select_quiz" = "Выбрать викторину";
 "actions.sign_out" = "Выйти";
 "actions.sign_in" = "Войти";
 "actions.upgrade" = "Обновить";
@@ -94,8 +94,8 @@
 "onboarding.comprehensive_definitions" = "Получайте полные определения с множеством значений и контекстов";
 "onboarding.collect_idioms" = "Собирайте выражения";
 "onboarding.learn_practice_idioms" = "Изучайте и практикуйте идиомы и фразы со всего мира";
-"onboarding.smart_quizzes" = "Умные тесты";
-"onboarding.adaptive_quizzes" = "Адаптивные тесты, основанные на вашем прогрессе";
+"onboarding.smart_quizzes" = "Умные викторины";
+"onboarding.adaptive_quizzes" = "Адаптивные викторины, основанные на вашем прогрессе";
 "onboarding.progress_tracking" = "Отслеживание прогресса";
 "onboarding.visual_insights" = "Визуальные данные о росте вашего словарного запаса";
 "onboarding.collaborative_learning" = "Совместное обучение";
@@ -105,7 +105,7 @@
 "onboarding.personal_word_list_description" = "Создавайте и организуйте свою коллекцию слов с персонализированными определениями и примерами";
 "onboarding.find_definitions_description" = "Получайте полные определения с множеством значений и контекстов";
 "onboarding.collect_idioms_description" = "Изучайте и практикуйте идиомы и фразы со всего мира";
-"onboarding.smart_quizzes_description" = "Адаптивные тесты, основанные на вашем прогрессе";
+"onboarding.smart_quizzes_description" = "Адаптивные викторины, основанные на вашем прогрессе";
 "onboarding.progress_tracking_description" = "Визуальные данные о росте вашего словарного запаса";
 "onboarding.collaborative_learning_description" = "Делитесь словарями с друзьями и семьёй";
 
@@ -114,7 +114,7 @@
 "words.add_your_first_word" = "Добавьте своё первое слово";
 "words.add_more_words" = "Добавьте ещё слова";
 "words.add_to_shared_dictionary" = "Добавить в общий словарь";
-"words.add_new_word" = "Добавить новое слово";
+"words.add_new_word" = "Добавить слово";
 "words.delete_word" = "Удалить слово";
 "words.delete_word_confirmation" = "Вы уверены, что хотите удалить это слово?";
 "words.transcription" = "Транскрипция";
@@ -160,7 +160,7 @@
 "words.add_example" = "Добавить пример";
 "words.edit_example" = "Редактировать пример";
 "words.score" = "Очки";
-"words.quiz_based" = "На основе теста";
+"words.quiz_based" = "На основе викторины";
 "words.language" = "Язык";
 "words.no_tags_added_yet" = "Теги ещё не добавлены.";
 "words.add_tag" = "Добавить тег";
@@ -175,7 +175,7 @@
 
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Добавить выражение";
-"idioms.add_new_idiom" = "Добавить новое выражение";
+"idioms.add_new_idiom" = "Добавить выражение";
 "idioms.idiom" = "Выражение";
 "idioms.idioms" = "Выражения";
 "idioms.no_idioms_found" = "Выражения не найдены";
@@ -201,8 +201,8 @@
 "idioms.alphabetically" = "По алфавиту";
 
 // MARK: - Quizzes
-"quizzes.quiz_unavailable" = "Тест недоступен";
-"quizzes.back_to_quizzes" = "Вернуться к тестам";
+"quizzes.quiz_unavailable" = "Викторина недоступна";
+"quizzes.back_to_quizzes" = "Вернуться к викторинам";
 "quizzes.your_answer" = "Ваш ответ";
 "quizzes.submit_answer" = "Отправить ответ";
 "quizzes.next_word" = "Следующее слово";
@@ -215,16 +215,16 @@
 "quizzes.debug" = "Отладка";
 "quizzes.choose_correct_definition" = "Выберите правильное определение";
 "quizzes.word" = "Слово";
-"quizzes.quiz_types" = "Типы тестов";
+"quizzes.quiz_types" = "Типы викторин";
 "quizzes.practice_settings" = "Настройки практики";
-"quizzes.configure_quiz_experience" = "Настройте свой опыт прохождения тестов";
+"quizzes.configure_quiz_experience" = "Настройте свой опыт прохождения викторин";
 "quizzes.practice_hard_words_only" = "Практиковать только сложные слова";
 "quizzes.focus_words_need_review" = "Сосредоточьтесь на словах, требующих повторения";
 "quizzes.not_enough_words_review" = "Недостаточно слов для повторения";
 "quizzes.words_per_session" = "Слов за сессию";
 "quizzes.number_words" = "Количество слов";
 "quizzes.select_dictionary" = "Выбрать словарь";
-"quizzes.no_difficult_words_available" = "Нет сложных слов для теста";
+"quizzes.no_difficult_words_available" = "Нет сложных слов для викторины";
 "quizzes.spelling_quiz_description" = "Проверьте свои навыки правописания, правильно написав слова";
 "quizzes.definition_quiz_description" = "Выберите правильное определение для каждого слова";
 "quizzes.progress" = "Прогресс";
@@ -240,14 +240,14 @@
 "quizzes.moving_to_next_word" = "Переход к следующему слову...";
 "quizzes.incorrect" = "Неправильно";
 "quizzes.moving_to_next_question" = "Переход к следующему вопросу...";
-"quizzes.quiz_complete" = "Тест завершён!";
-"quizzes.great_job_completed_spelling_quiz" = "Отличная работа! Вы завершили тест по правописанию.";
-"quizzes.great_job_completed_definition_quiz" = "Отличная работа! Вы завершили тест по определениям.";
+"quizzes.quiz_complete" = "Викторина завершена!";
+"quizzes.great_job_completed_spelling_quiz" = "Отличная работа! Вы завершили викторину по правописанию.";
+"quizzes.great_job_completed_definition_quiz" = "Отличная работа! Вы завершили викторину по определениям.";
 "quizzes.skip_word" = "Пропустить слово (-2 очка)";
 "quizzes.incorrect_moving_to_next_question" = "Неправильно! Переход к следующему вопросу...";
 "quizzes.contributions" = "Вклад";
-"quizzes.not_enough_words_available" = "Недостаточно слов. Для теста требуется минимум %d слов.";
-"quizzes.need_at_least_words" = "Для теста требуется минимум %d слов.";
+"quizzes.not_enough_words_available" = "Недостаточно слов. Для викторины требуется минимум %d слов.";
+"quizzes.need_at_least_words" = "Для викторины требуется минимум %d слов.";
 "quizzes.shared_dictionary_needs_more_words" = "Общему словарю нужно больше слов!";
 "quizzes.start_building_vocabulary" = "Начните расширять свой словарный запас!";
 "quizzes.keep_adding_words" = "Продолжайте добавлять слова!";
@@ -262,9 +262,9 @@
 "quizzes.min_words" = "%d";
 "quizzes.max_words" = "%d";
 "quizzes.shared_dictionary_needs_hard_words" = "Общему словарю '%@' нужно как минимум 1 сложное слово для практики в сложном режиме. Сейчас в нём %d сложных слов.";
-"quizzes.needs_at_least_words_start_quizzes" = "Общему словарю '%@' нужно как минимум 10 слов для начала тестов. Сейчас в нём %d слов.";
+"quizzes.needs_at_least_words_start_quizzes" = "Общему словарю '%@' нужно как минимум 10 слов для начала викторины. Сейчас в нём %d слов.";
 "quizzes.need_at_least_hard_word_practice" = "Для практики в сложном режиме требуется как минимум 1 сложное слово. Сейчас у вас %d сложных слов.";
-"quizzes.need_at_least_words_start_quizzes" = "Для начала тестов требуется как минимум 10 слов. Сейчас у вас %d слов.";
+"quizzes.need_at_least_words_start_quizzes" = "Для начала викторины требуется как минимум 10 слов. Сейчас у вас %d слов.";
 "quizzes.progress_format" = "Прогресс: %d/%d";
 "quizzes.streak_format" = "🔥 Серия: %d";
 "quizzes.score_format" = "Счёт: %d";
@@ -298,7 +298,7 @@
 "app.transcription" = "Транскрипция";
 "app.definition" = "Определение";
 "app.import_successful" = "Импорт успешен";
-"app.import_successful_message" = "%@ успешно импортирован";
+"app.import_successful_message" = "%@ успешно импортировано";
 "app.no_words_imported" = "Слова не импортированы";
 "app.no_words_imported_message" = "Новые слова для импорта не найдены";
 "app.tag_management_error" = "Ошибка управления тегами";
@@ -328,12 +328,12 @@
 
 // MARK: - Analytics
 "analytics.overview" = "Обзор";
-"analytics.recent_quiz_results" = "Недавние результаты тестов";
-"analytics.no_quiz_results_yet" = "Результатов тестов пока нет";
-"analytics.complete_first_quiz" = "Пройдите свой первый тест, чтобы увидеть результаты здесь";
+"analytics.recent_quiz_results" = "Недавние результаты викторин";
+"analytics.no_quiz_results_yet" = "Результатов викторин пока нет";
+"analytics.complete_first_quiz" = "Пройдите свою первую викторину, чтобы увидеть результаты здесь";
 "analytics.vocabulary_growth" = "Рост словарного запаса";
 "analytics.no_growth_data_yet" = "Данные о росте пока отсутствуют";
-"analytics.complete_quizzes_growth" = "Пройдите тесты, чтобы увидеть рост вашего словарного запаса со временем";
+"analytics.complete_quizzes_growth" = "Проходите викторины для того чтобы увидеть рост вашего словарного запаса со временем";
 "analytics.time_period" = "Период времени";
 "analytics.week" = "Неделя";
 "analytics.month" = "Месяц";
@@ -343,8 +343,8 @@
 "analytics.all_results" = "Все результаты";
 "analytics.duration" = "Продолжительность";
 "analytics.loading_progress_data" = "Загрузка данных о прогрессе...";
-"analytics.complete_first_quiz_results" = "Пройдите свой первый тест, чтобы увидеть результаты здесь";
-"analytics.complete_quizzes_growth_data" = "Пройдите тесты, чтобы увидеть рост вашего словарного запаса со временем";
+"analytics.complete_first_quiz_results" = "Пройдите свою первую викторину, чтобы увидеть результаты здесь";
+"analytics.complete_quizzes_growth_data" = "Проходите викторины для того чтобы увидеть рост вашего словарного запаса со временем";
 "analytics.last_time_period" = "Последний %-период";
 "analytics.points" = "Очки";
 "analytics.accuracy" = "Точность";
@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Скачать резервную копию из Google";
 "settings.sign_in_sync_word_lists" = "Войдите, чтобы синхронизировать списки слов";
 "settings.organization" = "Организация";
-"settings.show_idioms_tab" = "Показать вкладку выражений";
 "settings.shared_dictionaries" = "Общие словари";
 "settings.about_app" = "О приложении";
 "settings.features" = "Функции";
@@ -605,8 +604,8 @@
 
 // MARK: - Quiz Results
 "quiz_results.all_results" = "Все результаты";
-"quiz_results.no_quiz_results_yet" = "Результатов тестов пока нет";
-"quiz_results.quiz" = "Тест";
+"quiz_results.no_quiz_results_yet" = "Результатов викторин пока нет";
+"quiz_results.quiz" = "Викторина";
 "quiz_results.accuracy" = "Точность";
 "quiz_results.correct" = "Правильно";
 "quiz_results.duration" = "Продолжительность";
@@ -631,23 +630,23 @@
 "word_list.manage_tags" = "Управлять тегами";
 
 // MARK: - Quiz List
-"quiz_list.quiz_types" = "Типы тестов";
+"quiz_list.quiz_types" = "Типы викторин";
 "quiz_list.practice_settings" = "Настройки практики";
-"quiz_list.configure_quiz_experience" = "Настройте свой опыт прохождения тестов";
+"quiz_list.configure_quiz_experience" = "Настройте свой опыт прохождения викторин";
 "quiz_list.focus_on_words_need_review" = "Сосредоточьтесь на словах, требующих повторения";
 "quiz_list.not_enough_words_review_yet" = "Недостаточно слов для повторения";
 "quiz_list.add_words_to_shared_dictionary" = "Добавьте слова в общий словарь";
 "quiz_list.add_your_first_word" = "Добавьте своё первое слово";
 "quiz_list.add_more_words" = "Добавьте ещё слова";
-"quiz_list.quizzes_help_test_knowledge" = "Тесты помогают проверить ваши знания и укрепить обучение!";
-"quiz_list.words_away_from_unlocking_quizzes" = "Осталось %d слов для разблокировки тестов!";
+"quiz_list.quizzes_help_test_knowledge" = "Викторины помогают проверить ваши знания и укрепить обучение!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Осталось %d слов для разблокировки викторин!";
 
 // MARK: - Quiz Actions
 "quiz_actions.finish" = "Завершить";
 "quiz_actions.next_word" = "Следующее слово";
 "quiz_actions.submit_answer" = "Отправить ответ";
 "quiz_actions.number_of_words" = "Количество слов";
-"quiz_actions.no_difficult_words_available" = "Нет сложных слов для теста";
+"quiz_actions.no_difficult_words_available" = "Нет сложных слов для викторины";
 "quiz_actions.your_word_is" = "Ваше слово было '%@'. Старайтесь лучше!";
 "quiz_actions.try_harder" = "Старайтесь лучше!";
 "quiz_actions.incorrect_try_again" = "Неправильно. Попробуйте снова";
@@ -697,7 +696,7 @@
 "errors.no_active_subscriptions_found" = "Активные подписки не найдены";
 "errors.failed_to_update_word_progress" = "Не удалось обновить прогресс слова";
 "errors.failed_to_update_word_difficulty_level" = "Не удалось обновить уровень сложности слова";
-"errors.failed_to_save_quiz_session" = "Не удалось сохранить сессию теста";
+"errors.failed_to_save_quiz_session" = "Не удалось сохранить сессию викторины";
 "errors.failed_to_update_user_statistics" = "Не удалось обновить статистику пользователя";
 "errors.invalid_word_id" = "Недопустимый ID слова";
 "errors.word_not_found" = "Слово не найдено";
@@ -768,29 +767,43 @@
 "macos.shared_dictionaries" = "Общие словари";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "Все слова";
+"filter_display.all" = "Все";
 "filter_display.favorite" = "Избранные";
 "filter_display.search" = "Поиск";
 "filter_display.tag" = "Тег";
 "filter_display.new" = "Новые";
 "filter_display.in_progress" = "В процессе";
-"filter_display.needs_review" = "Требуют повторения";
+"filter_display.needs_review" = "Требуют проверки";
 "filter_display.mastered" = "Освоены";
 "filter_display.no_words_yet" = "Пока нет слов";
+"filter_display.no_idioms_yet" = "Пока нет выражений";
 "filter_display.no_favorite_words" = "Нет избранных слов";
+"filter_display.no_favorite_idioms" = "Нет избранных выражений";
 "filter_display.no_search_results" = "Нет результатов поиска";
 "filter_display.no_tagged_words" = "Нет слов с тегами";
+"filter_display.no_tagged_idioms" = "Нет выражений с тегами";
 "filter_display.no_new_words" = "Нет новых слов";
+"filter_display.no_new_idioms" = "Нет новых выражений";
 "filter_display.no_words_in_progress" = "Нет слов в процессе";
-"filter_display.no_words_need_review" = "Нет слов, требующих повторения";
+"filter_display.no_idioms_in_progress" = "Нет выражений в процессе";
+"filter_display.no_words_need_review" = "Нет слов, требующих проверки";
+"filter_display.no_idioms_need_review" = "Нет выражений, требующих проверки";
 "filter_display.no_mastered_words" = "Нет освоенных слов";
-"filter_display.start_building_vocabulary" = "Начните расширять свой словарный запас, добавив первое слово";
+"filter_display.no_mastered_idioms" = "Нет освоенных выражений";
+"filter_display.start_building_vocabulary" = "Начните создавать свой словарный запас, добавив первое слово";
+"filter_display.start_building_vocabulary_idioms" = "Начните создавать свой словарный запас, добавив первое выражение";
 "filter_display.tap_heart_icon_to_add_favorites" = "Нажмите на значок сердца на любом слове, чтобы добавить его в избранное";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "Нажмите на значок сердца на любом выражении, чтобы добавить её в избранное";
 "filter_display.try_different_search_term" = "Попробуйте другой поисковый запрос или добавьте новое слово";
-"filter_display.add_tags_to_organize" = "Добавьте теги к вашим словам для лучшей организации";
-"filter_display.new_words_appear_here" = "Новые слова появятся здесь после их добавления в ваш список";
-"filter_display.words_appear_here_as_you_practice" = "Слова появятся здесь по мере вашей практики с тестами";
+"filter_display.try_different_search_term_idioms" = "Попробуйте другой поисковый запрос или добавьте новое выражение";
+"filter_display.add_tags_to_organize" = "Добавляйте теги к словам, чтобы лучше их организовать";
+"filter_display.add_tags_to_organize_idioms" = "Добавляйте теги к выражениям, чтобы лучше их организовать";
+"filter_display.new_words_appear_here" = "Новые слова появятся здесь, когда вы добавите их в свой список";
+"filter_display.new_idioms_appear_here" = "Новые идиомы появятся здесь, когда вы добавите их в свой список";
+"filter_display.words_appear_here_as_you_practice" = "Слова появятся здесь по мере их практики в викторинах";
+"filter_display.idioms_appear_here_as_you_practice" = "Выражения появятся здесь по мере их практики в викторинах";
 "filter_display.words_need_more_practice" = "Слова, требующие больше практики, появятся здесь";
+"filter_display.idioms_need_more_practice" = "Выражения, требующие больше практики, появятся здесь";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "Владелец";
@@ -839,12 +852,12 @@
 "collaborator_management.unknown" = "Неизвестно";
 
 // MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Тест по правописанию";
+"quiz_types.spelling_quiz" = "Викторина по правописанию";
 "quiz_types.choose_definition" = "Выбрать определение";
 "quiz_types.test_spelling_skills" = "Проверьте свои навыки правописания, правильно написав слова";
 "quiz_types.select_correct_definition" = "Выберите правильное определение для каждого слова";
-"quiz_types.great_job_completed_spelling_quiz" = "Отличная работа! Вы завершили тест по правописанию.";
-"quiz_types.great_job_completed_definition_quiz" = "Отличная работа! Вы завершили тест по определениям.";
+"quiz_types.great_job_completed_spelling_quiz" = "Отличная работа! Вы завершили викторину по правописанию.";
+"quiz_types.great_job_completed_definition_quiz" = "Отличная работа! Вы завершили викторину по определениям.";
 
 // MARK: - English Accents
 "english_accents.australian" = "Австралийский";
@@ -856,17 +869,6 @@
 "english_accents.singaporean" = "Сингапурский";
 "english_accents.irish" = "Ирландский";
 "english_accents.south_african" = "Южноафриканский";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Все выражения";
-"idiom_filters.favorite" = "Избранное";
-"idiom_filters.search" = "Поиск";
-"idiom_filters.no_idioms_yet" = "Пока нет выражений";
-"idiom_filters.no_favorite_words" = "Нет избранных слов";
-"idiom_filters.no_search_results" = "Нет результатов поиска";
-"idiom_filters.start_improving_vocabulary" = "Начните улучшать свой словарный запас, добавив первое выражение";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Нажмите на значок сердца на любом выражении, чтобы добавить её в избранное";
-"idiom_filters.try_different_search_term" = "Попробуйте другой поисковый запрос или добавьте новое выражение";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Существительное";

@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Завантажити резервну копію з Google";
 "settings.sign_in_sync_word_lists" = "Увійдіть, щоб синхронізувати списки слів";
 "settings.organization" = "Організація";
-"settings.show_idioms_tab" = "Показати вкладку ідіом";
 "settings.shared_dictionaries" = "Спільні словники";
 "settings.about_app" = "Про програму";
 "settings.features" = "Функції";
@@ -856,17 +855,6 @@
 "english_accents.singaporean" = "Сінгапурський";
 "english_accents.irish" = "Ірландський";
 "english_accents.south_african" = "Південноафриканський";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Усі ідіоми";
-"idiom_filters.favorite" = "Обране";
-"idiom_filters.search" = "Пошук";
-"idiom_filters.no_idioms_yet" = "Поки немає ідіом";
-"idiom_filters.no_favorite_words" = "Немає обраних слів";
-"idiom_filters.no_search_results" = "Немає результатів пошуку";
-"idiom_filters.start_improving_vocabulary" = "Почніть покращувати свій словниковий запас, додавши першу ідіому";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Натисніть значок серця на будь-якій ідіомі, щоб додати її до обраного";
-"idiom_filters.try_different_search_term" = "Спробуйте інший пошуковий запит або додайте нову ідіому";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Іменник";

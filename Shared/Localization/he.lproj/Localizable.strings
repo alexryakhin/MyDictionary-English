@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "הורדת גיבוי מגוגל";
 "settings.sign_in_sync_word_lists" = "התחבר כדי לסנכרן רשימות מילים";
 "settings.organization" = "ארגון";
-"settings.show_idioms_tab" = "הצג לשונית ביטויים";
 "settings.shared_dictionaries" = "מילונים משותפים";
 "settings.about_app" = "אודות האפליקציה";
 "settings.features" = "תכונות";
@@ -768,29 +767,43 @@
 "macos.shared_dictionaries" = "מילונים משותפים";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "כל המילים";
+"filter_display.all" = "הכל";
 "filter_display.favorite" = "מועדף";
 "filter_display.search" = "חיפוש";
 "filter_display.tag" = "תגית";
 "filter_display.new" = "חדש";
 "filter_display.in_progress" = "בתהליך";
-"filter_display.needs_review" = "דורש סקירה";
-"filter_display.mastered" = "שליטה";
-"filter_display.no_words_yet" = "אין מילים עדיין";
+"filter_display.needs_review" = "צריך סקירה";
+"filter_display.mastered" = "נשלט";
+"filter_display.no_words_yet" = "עדיין אין מילים";
+"filter_display.no_idioms_yet" = "עדיין אין ביטויים";
 "filter_display.no_favorite_words" = "אין מילים מועדפות";
+"filter_display.no_favorite_idioms" = "אין ביטויים מועדפים";
 "filter_display.no_search_results" = "אין תוצאות חיפוש";
 "filter_display.no_tagged_words" = "אין מילים מתויגות";
+"filter_display.no_tagged_idioms" = "אין ביטויים מתויגים";
 "filter_display.no_new_words" = "אין מילים חדשות";
+"filter_display.no_new_idioms" = "אין ביטויים חדשים";
 "filter_display.no_words_in_progress" = "אין מילים בתהליך";
-"filter_display.no_words_need_review" = "אין מילים הדורשות סקירה";
+"filter_display.no_idioms_in_progress" = "אין ביטויים בתהליך";
+"filter_display.no_words_need_review" = "אין מילים שצריכות סקירה";
+"filter_display.no_idioms_need_review" = "אין ביטויים שצריכים סקירה";
 "filter_display.no_mastered_words" = "אין מילים שנשלטו";
+"filter_display.no_mastered_idioms" = "אין ביטויים שנשלטו";
 "filter_display.start_building_vocabulary" = "התחל לבנות את אוצר המילים שלך על ידי הוספת המילה הראשונה שלך";
-"filter_display.tap_heart_icon_to_add_favorites" = "לחץ על סמל הלב על מילה כלשהי כדי להוסיף אותה למועדפים";
+"filter_display.start_building_vocabulary_idioms" = "התחל לבנות את אוצר המילים שלך על ידי הוספת הביטוי הראשון שלך";
+"filter_display.tap_heart_icon_to_add_favorites" = "הקש על סמל הלב בכל מילה כדי להוסיף אותה למועדפים שלך";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "הקש על סמל הלב בכל ביטוי כדי להוסיף אותו למועדפים שלך";
 "filter_display.try_different_search_term" = "נסה מונח חיפוש אחר או הוסף מילה חדשה";
-"filter_display.add_tags_to_organize" = "הוסף תגיות למילים שלך לארגון טוב יותר";
-"filter_display.new_words_appear_here" = "מילים חדשות יופיעו כאן לאחר שתוסיף אותם לרשימה שלך";
-"filter_display.words_appear_here_as_you_practice" = "מילים יופיעו כאן ככל שתתרגל אותם בחידונים";
-"filter_display.words_need_more_practice" = "מילים שדורשות תרגול נוסף יופיעו כאן";
+"filter_display.try_different_search_term_idioms" = "נסה מונח חיפוש אחר או הוסף ביטוי חדש";
+"filter_display.add_tags_to_organize" = "הוסף תגיות למילים שלך כדי לארגן אותם טוב יותר";
+"filter_display.add_tags_to_organize_idioms" = "הוסף תגיות לביטויים שלך כדי לארגן אותם טוב יותר";
+"filter_display.new_words_appear_here" = "מילים חדשות מופיעות כאן כאשר אתה מוסיף אותם לרשימה שלך";
+"filter_display.new_idioms_appear_here" = "ביטויים חדשים מופיעים כאן כאשר אתה מוסיף אותם לרשימה שלך";
+"filter_display.words_appear_here_as_you_practice" = "מילים מופיעות כאן ככל שאתה מתרגל אותם בחידונים";
+"filter_display.idioms_appear_here_as_you_practice" = "ביטויים מופיעים כאן ככל שאתה מתרגל אותם בחידונים";
+"filter_display.words_need_more_practice" = "מילים שצריכות יותר תרגול יופיעו כאן";
+"filter_display.idioms_need_more_practice" = "ביטויים שצריכים יותר תרגול יופיעו כאן";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "בעלים";
@@ -856,17 +869,6 @@
 "english_accents.singaporean" = "סינגפורי";
 "english_accents.irish" = "אירי";
 "english_accents.south_african" = "דרום אפריקאי";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "כל הביטויים";
-"idiom_filters.favorite" = "מועדף";
-"idiom_filters.search" = "חיפוש";
-"idiom_filters.no_idioms_yet" = "אין ביטויים עדיין";
-"idiom_filters.no_favorite_words" = "אין מילים מועדפות";
-"idiom_filters.no_search_results" = "אין תוצאות חיפוש";
-"idiom_filters.start_improving_vocabulary" = "התחל לשפר את אוצר המילים שלך על ידי הוספת הביטוי הראשון שלך";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "לחץ על סמל הלב על ביטוי כלשהו כדי להוסיף אותו למועדפים";
-"idiom_filters.try_different_search_term" = "נסה מונח חיפוש אחר או הוסף ביטוי חדש";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "שם עצם";

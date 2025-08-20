@@ -5,7 +5,6 @@ struct SideBarView: View {
     @Environment(\.openWindow) private var openWindow
     @Environment(\.openSettings) private var openSettings
     @AppStorage(UDKeys.hasCompletedOnboarding) var hasCompletedOnboarding: Bool = false
-    @AppStorage(UDKeys.showIdiomsTab) var showIdiomsTab: Bool = true
 
     @StateObject private var sideBarManager = SideBarManager.shared
     @StateObject private var dictionaryService = DictionaryService.shared
@@ -47,16 +46,8 @@ struct SideBarView: View {
     
     private var sidebarView: some View {
         List(selection: $sideBarManager.selectedTab) {
-            Section(Loc.MacOS.myDictionary.localized) {
-                let tabCases = SideBarTab.tabs
-                    .filter { tab in
-                        if tab == .idioms {
-                            showIdiomsTab
-                        } else {
-                            true
-                        }
-                    }
-                ForEach(tabCases, id: \.self) { tab in
+            Section(Loc.SharedDictionaries.privateDictionary.localized) {
+                ForEach(SideBarTab.tabs, id: \.self) { tab in
                     HStack(spacing: 8) {
                         Image(systemName: tab.systemImage)
                         Text(tab.title)
@@ -130,12 +121,8 @@ struct SideBarView: View {
     @ViewBuilder
     private var contentListView: some View {
         switch sideBarManager.selectedTab {
-        case .words:
-            WordListView()
-                .frame(width: 300, alignment: .leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
-        case .idioms:
-            IdiomListView()
+        case .myDictionary:
+            VocabularyListView()
                 .frame(width: 300, alignment: .leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
         case .quizzes:

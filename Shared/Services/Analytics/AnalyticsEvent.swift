@@ -99,6 +99,8 @@ enum AnalyticsEvent: String {
     case tagDeleted
     case tagAddedToWord
     case tagRemovedFromWord
+    case tagAddedToIdiom
+    case tagRemovedFromIdiom
     case tagManagementOpened
 
     case buyMeACoffeeTapped

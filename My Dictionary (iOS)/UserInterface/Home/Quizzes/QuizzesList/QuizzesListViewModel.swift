@@ -23,10 +23,10 @@ final class QuizzesListViewModel: BaseViewModel {
 
     var output = PassthroughSubject<Output, Never>()
 
-    @Published var showingHardWordsOnly = false
+    @Published var showingHardItemsOnly = false
     @Published var selectedDictionary: QuizDictionary = .privateDictionary
 
-    private let quizWordsProvider: QuizWordsProvider = .shared
+    private let quizItemsProvider: QuizItemsProvider = .shared
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
@@ -38,11 +38,11 @@ final class QuizzesListViewModel: BaseViewModel {
         switch input {
         case .dictionarySelected(let dictionary):
             selectedDictionary = dictionary
-            quizWordsProvider.selectedDictionary = dictionary
-            
-            // If it's a shared dictionary, ensure words are loaded
+            quizItemsProvider.selectedDictionary = dictionary
+
+            // If it's a shared dictionary, ensure items are loaded
             if case .sharedDictionary(let sharedDictionary) = dictionary {
-                quizWordsProvider.loadWordsForSharedDictionary(sharedDictionary)
+                quizItemsProvider.loadItemsForSharedDictionary(sharedDictionary)
             }
         }
     }
@@ -50,71 +50,71 @@ final class QuizzesListViewModel: BaseViewModel {
     // MARK: - Computed Properties
     
     var availableDictionaries: [QuizDictionary] {
-        return quizWordsProvider.availableDictionaries
+        return quizItemsProvider.availableDictionaries
     }
     
-    var words: [any QuizWord] {
-        return quizWordsProvider.availableWords
+    var items: [any Quizable] {
+        return quizItemsProvider.availableItems
     }
     
-    var filteredWords: [any QuizWord] {
-        if showingHardWordsOnly {
-            return words.filter { $0.difficultyLevel == .needsReview }
+    var filteredItems: [any Quizable] {
+        if showingHardItemsOnly {
+            return items.filter { $0.difficultyLevel == .needsReview }
         }
-        return words
+        return items
     }
     
-    var hasHardWords: Bool {
-        return words.filter { $0.difficultyLevel == .needsReview }.count > 10
+    var hasHardItems: Bool {
+        return items.filter { $0.difficultyLevel == .needsReview }.count > 10
     }
     
-    var hasEnoughWords: Bool {
-        // For shared dictionaries, check if words are loaded and if there are enough
+    var hasEnoughItems: Bool {
+        // For shared dictionaries, check if items are loaded and if there are enough
         if case .sharedDictionary(let dictionary) = selectedDictionary {
-            let wordCount = quizWordsProvider.getTotalWordsCount()
-            let requiredCount = showingHardWordsOnly ? 1 : 10
-            return wordCount >= requiredCount
+            let itemCount = quizItemsProvider.getTotalItemsCount()
+            let requiredCount = showingHardItemsOnly ? 1 : 10
+            return itemCount >= requiredCount
         }
         // For private dictionary, use the existing logic
-        return quizWordsProvider.hasEnoughWords(wordCount: 10, hardWordsOnly: showingHardWordsOnly)
+        return quizItemsProvider.hasEnoughItems(itemCount: 10, hardItemsOnly: showingHardItemsOnly)
     }
     
-    var insufficientWordsMessage: String {
+    var insufficientItemsMessage: String {
         if case .sharedDictionary(let dictionary) = selectedDictionary {
-            let totalWords = quizWordsProvider.getTotalWordsCount()
-            if showingHardWordsOnly {
-                let hardWordsCount = quizWordsProvider.getHardWordsCount()
-                return Loc.Quizzes.sharedDictionaryNeedsHardWords.localized(dictionary.name, hardWordsCount)
+            let totalItems = quizItemsProvider.getTotalItemsCount()
+            if showingHardItemsOnly {
+                let hardItemsCount = quizItemsProvider.getHardItemsCount()
+                return Loc.Quizzes.sharedDictionaryNeedsHardWords.localized(dictionary.name, hardItemsCount)
             } else {
-                return Loc.Quizzes.needsAtLeastWordsStartQuizzes.localized(dictionary.name, totalWords)
+                return Loc.Quizzes.needsAtLeastWordsStartQuizzes.localized(dictionary.name, totalItems)
             }
         } else {
             // Private dictionary message
-            if showingHardWordsOnly {
-                let hardWordsCount = quizWordsProvider.getHardWordsCount()
-                return Loc.Quizzes.needAtLeastHardWordPractice.localized(hardWordsCount)
+            if showingHardItemsOnly {
+                let hardItemsCount = quizItemsProvider.getHardItemsCount()
+                return Loc.Quizzes.needAtLeastHardWordPractice.localized(hardItemsCount)
             } else {
-                let totalWords = quizWordsProvider.getTotalWordsCount()
-                return Loc.Quizzes.needAtLeastWordsStartQuizzes.localized(totalWords)
+                let totalItems = quizItemsProvider.getTotalItemsCount()
+                return Loc.Quizzes.needAtLeastWordsStartQuizzes.localized(totalItems)
             }
         }
     }
 
     /// Fetches latest data from Core Data
     private func setupBindings() {
-        // Listen to quiz words provider changes
-        quizWordsProvider.$selectedDictionary
+        // Listen to quiz items provider changes
+        quizItemsProvider.$selectedDictionary
             .receive(on: RunLoop.main)
             .sink { [weak self] dictionary in
                 self?.selectedDictionary = dictionary
             }
             .store(in: &cancellables)
         
-        // Listen to available words changes (important for shared dictionaries)
-        quizWordsProvider.$availableWords
+        // Listen to available items changes (important for shared dictionaries)
+        quizItemsProvider.$availableItems
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
-                // UI will automatically update when words change
+                // UI will automatically update when items change
                 // No need for explicit logging here to avoid console spam
             }
             .store(in: &cancellables)

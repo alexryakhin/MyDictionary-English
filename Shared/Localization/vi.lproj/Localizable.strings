@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Tải bản sao lưu từ Google";
 "settings.sign_in_sync_word_lists" = "Đăng nhập để đồng bộ danh sách từ";
 "settings.organization" = "Sắp xếp";
-"settings.show_idioms_tab" = "Hiển thị tab thành ngữ";
 "settings.shared_dictionaries" = "Từ điển chia sẻ";
 "settings.about_app" = "Giới thiệu ứng dụng";
 "settings.features" = "Tính năng";
@@ -856,17 +855,6 @@
 "english_accents.singaporean" = "Singapore";
 "english_accents.irish" = "Ireland";
 "english_accents.south_african" = "Nam Phi";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Tất cả thành ngữ";
-"idiom_filters.favorite" = "Yêu thích";
-"idiom_filters.search" = "Tìm kiếm";
-"idiom_filters.no_idioms_yet" = "Chưa có thành ngữ nào";
-"idiom_filters.no_favorite_words" = "Chưa có từ yêu thích";
-"idiom_filters.no_search_results" = "Không có kết quả tìm kiếm";
-"idiom_filters.start_improving_vocabulary" = "Bắt đầu cải thiện vốn từ vựng của bạn bằng cách thêm thành ngữ đầu tiên";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Nhấn vào biểu tượng trái tim trên bất kỳ thành ngữ nào để thêm vào yêu thích";
-"idiom_filters.try_different_search_term" = "Thử một từ khóa tìm kiếm khác hoặc thêm thành ngữ mới";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Danh từ";

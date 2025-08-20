@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Back-up downloaden van Google";
 "settings.sign_in_sync_word_lists" = "Log in om woordenlijsten te synchroniseren";
 "settings.organization" = "Organisatie";
-"settings.show_idioms_tab" = "Toon idiomentabblad";
 "settings.shared_dictionaries" = "Gedeelde woordenboeken";
 "settings.about_app" = "Over de app";
 "settings.features" = "Functies";
@@ -769,29 +768,43 @@
 "macos.shared_dictionaries" = "Gedeelde woordenboeken";
 
 // MARK: - Filter Display Names
-"filter_display.all_words" = "Alle woorden";
+"filter_display.all" = "Alles";
 "filter_display.favorite" = "Favoriet";
 "filter_display.search" = "Zoeken";
-"filter_display.tag" = "Tag";
+"filter_display.tag" = "Label";
 "filter_display.new" = "Nieuw";
-"filter_display.in_progress" = "In behandeling";
-"filter_display.needs_review" = "Moet herzien worden";
+"filter_display.in_progress" = "In Behandeling";
+"filter_display.needs_review" = "Moet Worden Herzien";
 "filter_display.mastered" = "Beheerst";
-"filter_display.no_words_yet" = "Nog geen woorden";
-"filter_display.no_favorite_words" = "Geen favoriete woorden";
-"filter_display.no_search_results" = "Geen zoekresultaten";
-"filter_display.no_tagged_words" = "Geen getagde woorden";
-"filter_display.no_new_words" = "Geen nieuwe woorden";
-"filter_display.no_words_in_progress" = "Geen woorden in behandeling";
-"filter_display.no_words_need_review" = "Geen woorden die herzien moeten worden";
-"filter_display.no_mastered_words" = "Geen beheersde woorden";
+"filter_display.no_words_yet" = "Nog Geen Woorden";
+"filter_display.no_idioms_yet" = "Nog Geen Idiomen";
+"filter_display.no_favorite_words" = "Geen Favoriete Woorden";
+"filter_display.no_favorite_idioms" = "Geen Favoriete Idiomen";
+"filter_display.no_search_results" = "Geen Zoekresultaten";
+"filter_display.no_tagged_words" = "Geen Gelabelde Woorden";
+"filter_display.no_tagged_idioms" = "Geen Gelabelde Idiomen";
+"filter_display.no_new_words" = "Geen Nieuwe Woorden";
+"filter_display.no_new_idioms" = "Geen Nieuwe Idiomen";
+"filter_display.no_words_in_progress" = "Geen Woorden in Behandeling";
+"filter_display.no_idioms_in_progress" = "Geen Idiomen in Behandeling";
+"filter_display.no_words_need_review" = "Geen Woorden die Herzien Moeten Worden";
+"filter_display.no_idioms_need_review" = "Geen Idiomen die Herzien Moeten Worden";
+"filter_display.no_mastered_words" = "Geen Beheerde Woorden";
+"filter_display.no_mastered_idioms" = "Geen Beheerde Idiomen";
 "filter_display.start_building_vocabulary" = "Begin met het opbouwen van je woordenschat door je eerste woord toe te voegen";
-"filter_display.tap_heart_icon_to_add_favorites" = "Tik op het hartpictogram bij een woord om het aan favorieten toe te voegen";
+"filter_display.start_building_vocabulary_idioms" = "Begin met het opbouwen van je woordenschat door je eerste idioom toe te voegen";
+"filter_display.tap_heart_icon_to_add_favorites" = "Tik op het harticoon bij een woord om het aan je favorieten toe te voegen";
+"filter_display.tap_heart_icon_to_add_favorites_idioms" = "Tik op het harticoon bij een idioom om het aan je favorieten toe te voegen";
 "filter_display.try_different_search_term" = "Probeer een andere zoekterm of voeg een nieuw woord toe";
-"filter_display.add_tags_to_organize" = "Voeg tags toe aan je woorden voor betere organisatie";
-"filter_display.new_words_appear_here" = "Nieuwe woorden verschijnen hier zodra je ze aan je lijst toevoegt";
+"filter_display.try_different_search_term_idioms" = "Probeer een andere zoekterm of voeg een nieuw idioom toe";
+"filter_display.add_tags_to_organize" = "Voeg labels toe aan je woorden om ze beter te organiseren";
+"filter_display.add_tags_to_organize_idioms" = "Voeg labels toe aan je idiomen om ze beter te organiseren";
+"filter_display.new_words_appear_here" = "Nieuwe woorden verschijnen hier wanneer je ze aan je lijst toevoegt";
+"filter_display.new_idioms_appear_here" = "Nieuwe idiomen verschijnen hier wanneer je ze aan je lijst toevoegt";
 "filter_display.words_appear_here_as_you_practice" = "Woorden verschijnen hier terwijl je ze oefent in quizzen";
+"filter_display.idioms_appear_here_as_you_practice" = "Idiomen verschijnen hier terwijl je ze oefent in quizzen";
 "filter_display.words_need_more_practice" = "Woorden die meer oefening nodig hebben, verschijnen hier";
+"filter_display.idioms_need_more_practice" = "Idiomen die meer oefening nodig hebben, verschijnen hier";
 
 // MARK: - Collaborator Roles
 "collaborator_roles.owner" = "Eigenaar";
@@ -857,17 +870,6 @@
 "english_accents.singaporean" = "Singaporees";
 "english_accents.irish" = "Iers";
 "english_accents.south_african" = "Zuid-Afrikaans";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Alle idiomen";
-"idiom_filters.favorite" = "Favoriet";
-"idiom_filters.search" = "Zoeken";
-"idiom_filters.no_idioms_yet" = "Nog geen idiomen";
-"idiom_filters.no_favorite_words" = "Geen favoriete woorden";
-"idiom_filters.no_search_results" = "Geen zoekresultaten";
-"idiom_filters.start_improving_vocabulary" = "Begin met het verbeteren van je woordenschat door je eerste idioom toe te voegen";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Tik op het hartpictogram bij een idioom om het aan favorieten toe te voegen";
-"idiom_filters.try_different_search_term" = "Probeer een andere zoekterm of voeg een nieuw idioom toe";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Zelfstandig naamwoord";

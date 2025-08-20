@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Google'dan Yedek İndir";
 "settings.sign_in_sync_word_lists" = "Kelime listelerini senkronize etmek için oturum aç";
 "settings.organization" = "Organizasyon";
-"settings.show_idioms_tab" = "Deyimler Sekmesini Göster";
 "settings.shared_dictionaries" = "Paylaşılan Sözlükler";
 "settings.about_app" = "Uygulama Hakkında";
 "settings.features" = "Özellikler";
@@ -856,17 +855,6 @@
 "english_accents.singaporean" = "Singapur";
 "english_accents.irish" = "İrlanda";
 "english_accents.south_african" = "Güney Afrika";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Tüm Deyimler";
-"idiom_filters.favorite" = "Favori";
-"idiom_filters.search" = "Ara";
-"idiom_filters.no_idioms_yet" = "Henüz deyim yok";
-"idiom_filters.no_favorite_words" = "Favori kelime yok";
-"idiom_filters.no_search_results" = "Arama sonucu yok";
-"idiom_filters.start_improving_vocabulary" = "İlk deyimi ekleyerek kelime dağarcığınızı geliştirmeye başlayın";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Favorilere eklemek için herhangi bir deyimin üzerindeki kalp simgesine tıklayın";
-"idiom_filters.try_different_search_term" = "Farklı bir arama terimi deneyin veya yeni bir deyim ekleyin";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "İsim";

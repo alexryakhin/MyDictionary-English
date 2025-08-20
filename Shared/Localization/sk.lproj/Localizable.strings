@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "Stiahnuť zálohu z Google";
 "settings.sign_in_sync_word_lists" = "Prihláste sa na synchronizáciu zoznamov slov";
 "settings.organization" = "Organizácia";
-"settings.show_idioms_tab" = "Zobraziť kartu idiomov";
 "settings.shared_dictionaries" = "Zdieľané slovníky";
 "settings.about_app" = "O aplikácii";
 "settings.features" = "Funkcie";
@@ -856,17 +855,6 @@
 "english_accents.singaporean" = "Singapurský";
 "english_accents.irish" = "Írsky";
 "english_accents.south_african" = "Juhoafrický";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "Všetky idiomy";
-"idiom_filters.favorite" = "Obľúbené";
-"idiom_filters.search" = "Hľadať";
-"idiom_filters.no_idioms_yet" = "Zatiaľ žiadne idiomy";
-"idiom_filters.no_favorite_words" = "Žiadne obľúbené slová";
-"idiom_filters.no_search_results" = "Žiadne výsledky vyhľadávania";
-"idiom_filters.start_improving_vocabulary" = "Začnite zlepšovať svoju slovnú zásobu pridaním prvého idiomu";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "Kliknite na ikonu srdca na akomkoľvek idiome, aby ste ho pridali do obľúbených";
-"idiom_filters.try_different_search_term" = "Skúste iný vyhľadávací výraz alebo pridajte nový idiom";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "Podstatné meno";

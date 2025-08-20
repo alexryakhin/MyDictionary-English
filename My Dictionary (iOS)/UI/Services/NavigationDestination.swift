@@ -9,7 +9,7 @@ import Foundation
 
 enum NavigationDestination: Hashable {
     // MARK: - Word-related destinations
-    case addWord
+    case addWord(String)
     case wordDetails(CDWord)
     case addExistingWordToShared(CDWord)
     
@@ -17,7 +17,7 @@ enum NavigationDestination: Hashable {
     case sharedWordDetails(SharedWord, dictionaryId: String)
     
     // MARK: - Idiom-related destinations
-    case addIdiom
+    case addIdiom(String)
     case idiomDetails(CDIdiom)
     
     // MARK: - Quiz-related destinations

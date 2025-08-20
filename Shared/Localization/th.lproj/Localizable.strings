@@ -380,7 +380,6 @@
 "settings.download_backup_google" = "ดาวน์โหลดสำรองจาก Google";
 "settings.sign_in_sync_word_lists" = "ลงชื่อเข้าใช้เพื่อซิงค์รายการคำศัพท์";
 "settings.organization" = "การจัดระเบียบ";
-"settings.show_idioms_tab" = "แสดงแท็บสำนวน";
 "settings.shared_dictionaries" = "พจนานุกรมที่แชร์";
 "settings.about_app" = "เกี่ยวกับแอป";
 "settings.features" = "ฟีเจอร์";
@@ -856,17 +855,6 @@
 "english_accents.singaporean" = "สิงคโปร์";
 "english_accents.irish" = "ไอริช";
 "english_accents.south_african" = "แอฟริกาใต้";
-
-// MARK: - Idiom Filters
-"idiom_filters.all_idioms" = "สำนวนทั้งหมด";
-"idiom_filters.favorite" = "รายการโปรด";
-"idiom_filters.search" = "ค้นหา";
-"idiom_filters.no_idioms_yet" = "ยังไม่มีสำนวน";
-"idiom_filters.no_favorite_words" = "ไม่มีคำศัพท์โปรด";
-"idiom_filters.no_search_results" = "ไม่มีผลการค้นหา";
-"idiom_filters.start_improving_vocabulary" = "เริ่มพัฒนาคลังคำศัพท์ของคุณโดยเพิ่มสำนวนแรก";
-"idiom_filters.tap_heart_icon_to_add_favorites" = "กดไอคอนรูปหัวใจบนสำนวนใดๆ เพื่อเพิ่มลงในรายการโปรด";
-"idiom_filters.try_different_search_term" = "ลองใช้คำค้นหาอื่นหรือเพิ่มสำนวนใหม่";
 
 // MARK: - Part of Speech
 "part_of_speech.full.noun" = "นาม";
