@@ -481,6 +481,19 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-summary {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .rating-stats {
+                gap: 1rem;
+            }
         }
 
         /* Animations */
@@ -497,6 +510,129 @@
 
         .fade-in-up {
             animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            font-size: 1.2rem;
+        }
+
+        .reviewer-info {
+            text-align: right;
+        }
+
+        .reviewer-info strong {
+            display: block;
+            color: #28a745;
+            font-size: 1.1rem;
+        }
+
+        .reviewer-info span {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            color: #495057;
+            line-height: 1.6;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .reviews-summary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .rating {
+            text-align: center;
+        }
+
+        .rating-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #28a745;
+            line-height: 1;
+        }
+
+        .rating-stars {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .rating-text {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .rating-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 2rem;
+            color: #28a745;
+            line-height: 1;
+        }
+
+        .stat span {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .star-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 2px;
+        }
+
+        .stars {
+            display: flex;
+            align-items: center;
         }
     </style>
 </head>
@@ -657,6 +793,102 @@
         </div>
     </section>
 
+    <!-- User Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Users Say</h2>
+                <p>Join thousands of satisfied learners who have transformed their vocabulary with My Dictionary.</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Hydrangia</strong>
+                            <span>United Kingdom</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"I'm very pleased with this app. I can now key in words that I'm not familiar with and test myself with the quiz. So far everything in the app is working well and I'm enjoying it. It's great that it syncs as well as I have it on another device."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Branwiches</strong>
+                            <span>United States</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"I've been looking for something basic and simple like this for over a YEAR. This little My Dictionary app is SO easy to use and EXACTLY what I was looking for. I also LOVE that it lets you enter in your own examples!! This has been so handy since I often forget where I initially read the word."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Am0rdad</strong>
+                            <span>United States</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Thank you for creating this. I searched a lot to find this perfection. Actually even better in this format. Thank you."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>TAdi47</strong>
+                            <span>India</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Absolutely love this app. Great to build your vocabulary and practice the use of these words, apart from spelling and meaning another quiz could be added where you can practice the use of these words. Great job kudos to the team!! :)"</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>_lynn！</strong>
+                            <span>United States</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"I'm looking for an app which can make my own quizzes for months. And I'm so happy to find the idioms section!! This little app definitely has everything for building your own dictionary! Best dictionary app ever."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>lovoxide</strong>
+                            <span>United States</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"I beg beg beg and plead, add compatibility between users. My friends and I are looking for a shared dictionary app, where we can all have our own dictionaries, and then a large combined overlapping one, the market has NONE."</p>
+                </div>
+            </div>
+            
+            <div class="reviews-summary">
+                <div class="rating">
+                    <div class="rating-number">4.8</div>
+                    <div class="rating-stars" data-rating="5"></div>
+                    <div class="rating-text">out of 5 stars</div>
+                </div>
+                <div class="rating-stats">
+                    <div class="stat">
+                        <strong>75</strong>
+                        <span>Ratings</span>
+                    </div>
+                    <div class="stat">
+                        <strong>17</strong>
+                        <span>Reviews</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section id="pricing" class="pricing">
         <div class="container">
@@ -802,6 +1034,32 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // Star Rating Component
+        function createStars(container, rating) {
+            container.innerHTML = '';
+            for (let i = 0; i < rating; i++) {
+                const star = document.createElement('img');
+                star.src = 'images/star.svg';
+                star.alt = 'Star';
+                star.className = 'star-icon';
+                container.appendChild(star);
+            }
+        }
+
+        // Initialize all star ratings
+        function initializeStarRatings() {
+            const starContainers = document.querySelectorAll('.stars, .rating-stars');
+            starContainers.forEach(container => {
+                const rating = parseInt(container.getAttribute('data-rating')) || 5;
+                createStars(container, rating);
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeStarRatings();
         });
     </script>
 </body>
