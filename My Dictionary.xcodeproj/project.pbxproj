@@ -367,7 +367,7 @@
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/MyDictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = Shared/Assets.xcassets;
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -399,7 +399,7 @@
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/MyDictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = Shared/Assets.xcassets;
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -447,7 +447,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 4.0;
+				MARKETING_VERSION = 4.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -484,7 +484,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 4.0;
+				MARKETING_VERSION = 4.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dor.My-Dictionary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
