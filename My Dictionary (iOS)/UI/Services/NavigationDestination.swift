@@ -39,4 +39,5 @@ enum NavigationDestination: Hashable {
     case tagManagement
     case authentication
     case profile
+    case ttsDashboard
 }

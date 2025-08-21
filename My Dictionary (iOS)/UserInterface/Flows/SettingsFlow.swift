@@ -17,7 +17,7 @@ struct SettingsFlow: View {
     // MARK: - Body
 
     var body: some View {
-        SettingsContentView(viewModel: viewModel)
+        SettingsView(viewModel: viewModel)
             .onReceive(viewModel.output) { output in
                 handleOutput(output)
             }

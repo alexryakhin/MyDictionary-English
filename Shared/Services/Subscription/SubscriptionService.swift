@@ -88,7 +88,7 @@ enum SubscriptionFeature: String, CaseIterable {
 final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     static let shared = SubscriptionService()
 
-    @Published private(set) var isProUser = false
+    @Published private(set) var _isProUser = false // Internal storage for actual subscription status
     @Published private(set) var currentPlan: SubscriptionPlan?
     @Published private(set) var availablePlans: [SubscriptionPlan] = []
     @Published private(set) var isLoading = false
@@ -96,8 +96,18 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
 
     // Track if user is anonymous (not authenticated)
     @Published private(set) var isAnonymousUser = false
+    
+    // Debug mode for testing premium features locally
+    @Published var debugPremiumMode = false
 
     private var cancellables = Set<AnyCancellable>()
+    
+    // MARK: - Computed Properties
+    
+    /// Returns true if user has Pro access (either through subscription or debug mode)
+    var isProUser: Bool {
+        return _isProUser || debugPremiumMode
+    }
 
     // UserDefaults key for anonymous subscription status
     private let anonymousSubscriptionKey = "anonymous_subscription_status"
@@ -145,7 +155,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
                 await checkSubscriptionStatus()
             } else {
                 // Reset subscription status for anonymous users
-                isProUser = false
+                _isProUser = false
                 currentPlan = nil
                 print("⚠️ [SubscriptionService] User not authenticated - subscription disabled")
             }
@@ -212,7 +222,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             print("📱 [SubscriptionService] Customer info after logout: \(customerInfo.originalAppUserId)")
 
             // Reset subscription status immediately
-            isProUser = false
+            _isProUser = false
             currentPlan = nil
 
             print("📉 [SubscriptionService] User lost Pro status due to logout")
@@ -232,7 +242,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
                 updateSubscriptionStatus(customerInfo: customerInfo)
             } else {
                 print("⚠️ [SubscriptionService] Ignoring subscription update for anonymous user")
-                isProUser = false
+                _isProUser = false
                 currentPlan = nil
             }
         }
@@ -254,7 +264,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     @MainActor
     private func updateSubscriptionStatus(customerInfo: CustomerInfo) {
         let wasProUser = isProUser
-        isProUser = !customerInfo.entitlements.active.isEmpty
+        _isProUser = !customerInfo.entitlements.active.isEmpty
         currentPlan = getCurrentPlan(from: customerInfo)
 
         // Check if user is anonymous
@@ -403,7 +413,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             if !AuthenticationService.shared.isSignedIn {
                 let anonymousStatus = loadAnonymousSubscriptionStatus()
                 if anonymousStatus {
-                    isProUser = true
+                    _isProUser = true
                     print("✅ [SubscriptionService] Anonymous subscription status loaded from local storage")
                 } else {
                     updateSubscriptionStatus(customerInfo: customerInfo)
@@ -629,7 +639,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     /// This ensures Pro features are immediately disabled
     @MainActor
     func resetSubscriptionStatusOnSignOut() {
-        isProUser = false
+        _isProUser = false
         currentPlan = nil
     }
 
@@ -642,7 +652,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
         let hasEmail = AuthenticationService.shared.userEmail != nil
 
         if !isAuthenticated || !hasEmail {
-            isProUser = false
+            _isProUser = false
             currentPlan = nil
         } else {
             // Trigger a subscription check

@@ -68,6 +68,16 @@
 		53FA60FD2E44715100CE4292 /* firestore.rules */ = {isa = PBXFileReference; explicitFileType = text.script.sh; path = firestore.rules; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		539E7BCD2E57236900F63DF7 /* Exceptions for "My Dictionary (iOS)" folder in "My Dictionary (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				UserInterface/Home/Settings/TTSDashboard/TTSDashboardView.swift,
+			);
+			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		530D2C342D9836920040C247 /* My Dictionary (macOS) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -76,6 +86,9 @@
 		};
 		53E9A7562D7C3383007E9F28 /* My Dictionary (iOS) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				539E7BCD2E57236900F63DF7 /* Exceptions for "My Dictionary (iOS)" folder in "My Dictionary (macOS)" target */,
+			);
 			path = "My Dictionary (iOS)";
 			sourceTree = "<group>";
 		};

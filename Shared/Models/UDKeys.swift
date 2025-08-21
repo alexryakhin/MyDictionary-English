@@ -24,6 +24,11 @@ enum UDKeys {
     static let translateDefinitions = "translateDefinitions"
     static let inputLanguage = "inputLanguage"
     static let idiomInputLanguage = "idiomInputLanguage"
+    
+    // TTS Settings
+    static let selectedTTSProvider = "selectedTTSProvider"
+    static let selectedSpeechifyVoice = "selectedSpeechifyVoice"
+    static let selectedSpeechifyModel = "selectedSpeechifyModel"
 
     // Rating Banner Settings
     static let lastRatingRequestDate = "lastRatingRequestDate"

@@ -10,6 +10,7 @@ import SwiftUI
 struct AnalyticsView: View {
     
     @StateObject private var subscriptionService: SubscriptionService = .shared
+    @StateObject private var usageTracker = TTSUsageTracker.shared
     @ObservedObject private var viewModel: AnalyticsViewModel
 
     init(viewModel: AnalyticsViewModel) {
@@ -31,6 +32,11 @@ struct AnalyticsView: View {
                 LazyVStack(spacing: 16) {
                     // Progress Overview
                     progressOverviewSection
+
+                    // TTS Analytics (Pro users only)
+                    if SubscriptionService.shared.isProUser {
+                        ttsAnalyticsSection
+                    }
 
                     // Quiz Results Table
                     quizResultsSection
@@ -54,6 +60,14 @@ struct AnalyticsView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.analyticsOpened)
             viewModel.loadData()
+        }
+    }
+    
+    // MARK: - TTS Analytics Section
+    
+    private var ttsAnalyticsSection: some View {
+        CustomSectionView(header: "TTS Analytics") {
+            TTSAnalyticsView()
         }
     }
     

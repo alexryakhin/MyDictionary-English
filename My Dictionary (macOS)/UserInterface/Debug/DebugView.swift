@@ -149,6 +149,22 @@ struct DebugView: View {
                         .foregroundStyle(.secondary)
                 }
 
+                HStack {
+                    Text("Debug Premium Mode:")
+                        .fontWeight(.medium)
+                    Spacer()
+                    Toggle("", isOn: $subscriptionService.debugPremiumMode)
+                        .labelsHidden()
+                        .onChange(of: subscriptionService.debugPremiumMode) { newValue in
+                            if newValue {
+                                showAlert("Debug Premium Mode Enabled - You are now a Pro user locally")
+                            } else {
+                                showAlert("Debug Premium Mode Disabled - Back to normal subscription status")
+                            }
+                        }
+                }
+                .padding(.vertical, 4)
+
                 HeaderButton("Refresh Subscription Status") {
                     Task {
                         await subscriptionService.checkSubscriptionStatus()
@@ -232,6 +248,17 @@ struct DebugView: View {
 
                 HeaderButton("Show Paywall") {
                     PaywallService.shared.isShowingPaywall = true
+                }
+
+                HeaderButton("Test Speechify API") {
+                    Task {
+                        do {
+                            let voices = try await TTSPlayer.shared.speechifyService?.getAvailableVoices() ?? []
+                            showAlert("Speechify API Test: Successfully loaded \(voices.count) voices")
+                        } catch {
+                            showAlert("Speechify API Test Failed: \(error.localizedDescription)")
+                        }
+                    }
                 }
             }
         }

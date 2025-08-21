@@ -51,6 +51,9 @@ struct SettingsView: View {
                     }
                 }
 
+                // MARK: - TTS Settings
+                ttsSection
+
                 // MARK: - Notifications
 
                 CustomSectionView(
@@ -319,5 +322,95 @@ struct SettingsView: View {
             ShareSheet(activityItems: [url])
         }
         #endif
+    }
+    
+    // MARK: - TTS Section
+    
+    private var ttsSection: some View {
+        CustomSectionView(header: "Text-to-Speech") {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Image(systemName: "speaker.wave.3.fill")
+                        .foregroundColor(.blue)
+                        .font(.title2)
+                    
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Text-to-Speech")
+                            .font(.body)
+                            .fontWeight(.medium)
+                        
+                        Text(subscriptionService.isProUser ? "Premium Dashboard Available" : "Upgrade for Premium Voices")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    if subscriptionService.isProUser {
+                        Button {
+                            NavigationManager.shared.navigate(to: .ttsDashboard)
+                        } label: {
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    } else {
+                        ActionButton("Upgrade", systemImage: "crown.fill", style: .borderedProminent) {
+                            PaywallService.shared.isShowingPaywall = true
+                        }
+                    }
+                }
+                
+                if subscriptionService.isProUser {
+                    // Quick stats for Pro users
+                    HStack(spacing: 16) {
+                        QuickStatView(
+                            title: "Characters",
+                            value: TTSUsageTracker.shared.totalCharactersFormatted,
+                            icon: "textformat.abc"
+                        )
+                        
+                        QuickStatView(
+                            title: "Sessions",
+                            value: TTSUsageTracker.shared.totalSessionsFormatted,
+                            icon: "play.circle"
+                        )
+                        
+                        QuickStatView(
+                            title: "Time Saved",
+                            value: TTSUsageTracker.shared.timeSaved,
+                            icon: "clock"
+                        )
+                    }
+                }
+            }
+            .padding(vertical: 12, horizontal: 16)
+            .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+        }
+    }
+    
+    // MARK: - Supporting Views
+    
+    private struct QuickStatView: View {
+        let title: String
+        let value: String
+        let icon: String
+        
+        var body: some View {
+            VStack(spacing: 4) {
+                Image(systemName: icon)
+                    .font(.caption)
+                    .foregroundColor(.blue)
+                
+                Text(value)
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                
+                Text(title)
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
+            .frame(maxWidth: .infinity)
+        }
     }
 }

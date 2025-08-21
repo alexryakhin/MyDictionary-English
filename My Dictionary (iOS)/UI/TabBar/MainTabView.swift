@@ -107,6 +107,8 @@ struct MainTabView: View {
             AuthenticationView()
         case .profile:
             ProfileView()
+        case .ttsDashboard:
+            TTSDashboard.ContentView()
         case .spellingQuiz(let preset):
             SpellingQuizContentView(preset: preset)
         case .chooseDefinitionQuiz(let preset):
