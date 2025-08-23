@@ -28,11 +28,11 @@ final class DeviceTokenService {
         return UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
 #elseif os(macOS)
         // For macOS, use a combination of hardware info or generate a persistent ID
-        if let deviceId = UserDefaults.standard.string(forKey: "DeviceID") {
+        if let deviceId = UDService.deviceID {
             return deviceId
         } else {
             let deviceId = UUID().uuidString
-            UserDefaults.standard.set(deviceId, forKey: "DeviceID")
+            UDService.deviceID = deviceId
             return deviceId
         }
 #else

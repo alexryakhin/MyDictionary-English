@@ -11,7 +11,6 @@ struct AddSharedDictionaryView: View {
     @StateObject var dictionaryService: DictionaryService = .shared
     @StateObject var authenticationService: AuthenticationService = .shared
     @State private var name = ""
-    @State private var isLoading: Bool = false
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -34,8 +33,8 @@ struct AddSharedDictionaryView: View {
             }
         }
         .safeAreaInset(edge: .bottom) {
-            ActionButton(Loc.SharedDictionaries.createSharedDictionary.localized, isLoading: isLoading) {
-                createDictionary()
+            AsyncActionButton(Loc.SharedDictionaries.createSharedDictionary.localized) {
+                try await createDictionary()
             }
             .padding(vertical: 12, horizontal: 16)
         }
@@ -52,7 +51,7 @@ struct AddSharedDictionaryView: View {
         .presentationDetents([.medium])
     }
     
-    private func createDictionary() {
+    private func createDictionary() async throws {
         guard !name.isEmpty else {
             showAlertWithMessage(Loc.SharedDictionaries.dictionaryNameRequired.localized)
             return
@@ -62,18 +61,10 @@ struct AddSharedDictionaryView: View {
             showAlertWithMessage(Loc.SharedDictionaries.signInToCreateSharedDictionary.localized)
             return
         }
-        Task { @MainActor in
-            isLoading = true
-            defer { isLoading = false }
-            do {
-                try await dictionaryService.createSharedDictionary(
-                    userId: userId,
-                    name: name.trimmingCharacters(in: .whitespacesAndNewlines)
-                )
-                dismiss()
-            } catch {
-                errorReceived(error)
-            }
-        }
+        try await dictionaryService.createSharedDictionary(
+            userId: userId,
+            name: name.trimmingCharacters(in: .whitespacesAndNewlines)
+        )
+        dismiss()
     }
 }

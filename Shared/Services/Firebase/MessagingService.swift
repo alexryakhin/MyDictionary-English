@@ -84,7 +84,7 @@ final class MessagingService: NSObject, MessagingDelegate {
             #if os(macOS)
             // On macOS, we need to handle FCM tokens differently
             // First check if we have a cached token
-            if let cachedToken = UserDefaults.standard.string(forKey: "FCMToken") {
+            if let cachedToken = UDService.fcmToken {
                 print("ℹ️ [MessagingService] Using cached FCM token for macOS")
                 return cachedToken
             }
@@ -92,7 +92,7 @@ final class MessagingService: NSObject, MessagingDelegate {
             // Try to get a new token (this might fail without APNS)
             let token = try await Messaging.messaging().token()
             // Cache the token for future use
-            UserDefaults.standard.set(token, forKey: "FCMToken")
+            UDService.fcmToken = token
             print("✅ [MessagingService] Retrieved new FCM token for macOS")
             return token
             #else
@@ -102,7 +102,7 @@ final class MessagingService: NSObject, MessagingDelegate {
             #if os(macOS)
             print("ℹ️ [MessagingService] FCM token retrieval failed on macOS: \(error.localizedDescription)")
             // Return cached token if available
-            return UserDefaults.standard.string(forKey: "FCMToken")
+            return UDService.fcmToken
             #else
             return nil
             #endif
@@ -122,14 +122,14 @@ final class MessagingService: NSObject, MessagingDelegate {
             let newToken = try await Messaging.messaging().token()
             #if os(macOS)
             // Cache the token on macOS
-            UserDefaults.standard.set(newToken, forKey: "FCMToken")
+            UDService.fcmToken = newToken
             #endif
             await DeviceTokenService.shared.registerDeviceToken(newToken)
         } catch {
             #if os(macOS)
             print("ℹ️ [MessagingService] FCM token refresh failed on macOS: \(error.localizedDescription)")
             // Try to use cached token
-            if let cachedToken = UserDefaults.standard.string(forKey: "FCMToken") {
+            if let cachedToken = UDService.fcmToken {
                 await DeviceTokenService.shared.registerDeviceToken(cachedToken)
             }
             #else
@@ -157,7 +157,7 @@ final class MessagingService: NSObject, MessagingDelegate {
     func forceRefreshToken() async {
         print("🔄 [MessagingService] Force refreshing FCM token on macOS")
         // Clear cached token to force a fresh request
-        UserDefaults.standard.removeObject(forKey: "FCMToken")
+        UDService.fcmToken = nil
         await refreshToken()
     }
     #endif

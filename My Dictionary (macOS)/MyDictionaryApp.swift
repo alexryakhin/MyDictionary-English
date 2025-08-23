@@ -128,8 +128,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         notificationService.markAppAsOpened()
 
         // Check if user has enabled notifications
-        let dailyRemindersEnabled = UserDefaults.standard.bool(forKey: UDKeys.dailyRemindersEnabled)
-        let difficultWordsEnabled = UserDefaults.standard.bool(forKey: UDKeys.difficultWordsEnabled)
+        let dailyRemindersEnabled = UDService.dailyRemindersEnabled
+        let difficultWordsEnabled = UDService.difficultWordsEnabled
 
         // Only schedule notifications if user has enabled them
         if dailyRemindersEnabled || difficultWordsEnabled {

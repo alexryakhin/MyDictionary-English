@@ -60,11 +60,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
                 .shadow(radius: 2)
                 .padding(vertical: vPadding, horizontal: hPadding)
             }
-        #if os(iOS)
-            .toolbar(.hidden, for: .navigationBar)
-        #elseif os(macOS)
-            .toolbar(.hidden, for: .windowToolbar)
-        #endif
+            .toolbar(.hidden)
     }
 }
 

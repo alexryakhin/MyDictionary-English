@@ -19,6 +19,7 @@ struct SettingsView: View {
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var paywallService = PaywallService.shared
     @StateObject private var dataSyncService = DataSyncService.shared
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
@@ -27,31 +28,7 @@ struct SettingsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                // MARK: - Translate Definitions
-                if !GlobalConstant.isEnglishLanguage {
-                    CustomSectionView(header: Loc.Settings.translateDefinitions.localized) {
-                        Toggle(Loc.Settings.showDefinitionsNativeLanguage.localized, isOn: $translateDefinitions)
-                    }
-                } else {
-                    CustomSectionView(header: Loc.Settings.accent.localized) {
-                        HStack {
-                            Text(Loc.Settings.selectAccent.localized)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            HeaderButtonMenu(viewModel.selectedEnglishAccent.displayName, size: .small) {
-                                Picker(Loc.Settings.selectAccent.localized, selection: $viewModel.selectedEnglishAccent) {
-                                    ForEach(EnglishAccent.allCases, id: \.self) {
-                                        Text($0.displayName).tag($0)
-                                    }
-                                }
-                                .pickerStyle(.inline)
-                            }
-                        }
-                        .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
-                    }
-                }
-
-                // MARK: - TTS Settings
+                translateDefinitionsSection
                 ttsSection
 
                 // MARK: - Notifications
@@ -107,16 +84,16 @@ struct SettingsView: View {
                 }
 
                 // MARK: - Subscription
-                
+
                 CustomSectionView(
                     header: Loc.Settings.subscription.localized,
                     footer: Loc.Settings.proUpgradeDescription.localized
                 ) {
                     SubscriptionStatusView()
                 }
-                
+
                 // MARK: - Registration Prompt for Anonymous Pro Users
-                
+
                 if subscriptionService.isProUser && !authenticationService.isSignedIn {
                     CustomSectionView(
                         header: Loc.Auth.accountRegistration.localized,
@@ -127,7 +104,6 @@ struct SettingsView: View {
                                 Image(systemName: "crown.fill")
                                     .foregroundStyle(.yellow)
                                     .font(.title2)
-                                
                                 VStack(alignment: .leading, spacing: 4) {
                                     Text(Loc.Auth.activeSubscriptionNotification.localized)
                                         .font(.headline)
@@ -136,10 +112,8 @@ struct SettingsView: View {
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
-                                
                                 Spacer()
                             }
-                            
                             ActionButton(
                                 Loc.Auth.registerNow.localized,
                                 systemImage: "person.crop.circle.badge.plus",
@@ -168,49 +142,46 @@ struct SettingsView: View {
                 ) {
                     if authenticationService.isSignedIn {
                         VStack(spacing: 8) {
-                            VStack(alignment: .leading, spacing: 8) {
-                                Button {
-                                    HapticManager.shared.triggerSelection()
-                                    viewModel.output.send(.showProfile)
-                                } label: {
-                                    HStack {
-                                        VStack(alignment: .leading, spacing: 4) {
-                                            Text(Loc.Settings.signedInAs.localized)
-                                                .font(.body)
-                                                .fontWeight(.medium)
-                                                .foregroundStyle(.primary)
-                                            Text(authenticationService.displayName ?? authenticationService.userEmail ?? Loc.Settings.anonymous.localized)
-                                                .font(.caption)
-                                                .foregroundStyle(.secondary)
-                                        }
-                                        
-                                        Spacer()
+                            HStack(spacing: 8) {
+                                Image(systemName: "person.fill")
+                                    .foregroundStyle(.accent)
 
-                                        Image(systemName: "chevron.right")
-                                            .font(.caption)
-                                            .foregroundStyle(.secondary)
-                                    }
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(Loc.Settings.signedInAs.localized)
+                                        .font(.body)
+                                        .fontWeight(.medium)
+                                        .foregroundStyle(.primary)
+                                    Text(authenticationService.displayName ?? authenticationService.userEmail ?? Loc.Settings.anonymous.localized)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
                                 }
-                                .buttonStyle(.plain)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
                             }
                             .padding(vertical: 12, horizontal: 16)
+                            .contentShape(RoundedRectangle(cornerRadius: 16))
                             .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
-
-                            // Manual sync buttons
-                            ActionButton(
-                                Loc.Settings.uploadBackupToGoogle.localized,
-                                systemImage: "icloud.and.arrow.up",
-                                isLoading: dataSyncService.isUploading
-                            ) {
-                                viewModel.uploadBackupToGoogle()
+                            .onTap {
+                                HapticManager.shared.triggerSelection()
+                                viewModel.output.send(.showProfile)
                             }
 
-                            ActionButton(
-                                Loc.Settings.downloadBackupFromGoogle.localized,
-                                systemImage: "icloud.and.arrow.down",
-                                isLoading: dataSyncService.isRestoring
+                            // Manual sync buttons
+                            AsyncActionButton(
+                                Loc.Settings.uploadBackupToGoogle.localized,
+                                systemImage: "icloud.and.arrow.up"
                             ) {
-                                viewModel.downloadBackupFromGoogle()
+                                try await viewModel.uploadBackupToGoogle()
+                            }
+
+                            AsyncActionButton(
+                                Loc.Settings.downloadBackupFromGoogle.localized,
+                                systemImage: "icloud.and.arrow.down"
+                            ) {
+                                try await viewModel.downloadBackupFromGoogle()
                             }
                         }
                         .padding(.bottom, 12)
@@ -268,7 +239,7 @@ struct SettingsView: View {
                             }
                             AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
                         }
-                        
+
                         if !subscriptionService.isProUser {
                             Text(Loc.Settings.freeUsersExportLimit.localized(AppConfig.Features.freeUserExportLimit))
                                 .font(.caption)
@@ -317,95 +288,122 @@ struct SettingsView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.settingsOpened)
         }
-        #if os(iOS)
         .sheet(item: $viewModel.exportWordsUrl) { url in
             ShareSheet(activityItems: [url])
         }
-        #endif
     }
-    
+
+    // MARK: - Translate Definitions Section
+
+    @ViewBuilder
+    private var translateDefinitionsSection: some View {
+        if !GlobalConstant.isEnglishLanguage {
+            CustomSectionView(header: Loc.Settings.translateDefinitions.localized) {
+                Toggle(Loc.Settings.showDefinitionsNativeLanguage.localized, isOn: $translateDefinitions)
+            }
+        }
+    }
+
     // MARK: - TTS Section
-    
+
     private var ttsSection: some View {
         CustomSectionView(header: "Text-to-Speech") {
             VStack(alignment: .leading, spacing: 12) {
-                HStack {
-                    Image(systemName: "speaker.wave.3.fill")
-                        .foregroundColor(.blue)
-                        .font(.title2)
-                    
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Text-to-Speech")
-                            .font(.body)
-                            .fontWeight(.medium)
-                        
-                        Text(subscriptionService.isProUser ? "Premium Dashboard Available" : "Upgrade for Premium Voices")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                HStack(spacing: 8) {
+                    Image(.speechifyLogo)
+                        .foregroundStyle(.accent)
+                        .font(.title3)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Speechify")
+                            .font(.headline)
+
+                        Text(
+                            subscriptionService.isProUser
+                            ? "Speechify’s Text-to-Speech AI model is included in your subscription."
+                            : "Speechify’s Text-to-Speech AI model is available for all users as a premium feature. It allows you to choose from a wide range of voices and accents, so you can fine-tune your study experience."
+                        )
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                     }
-                    
-                    Spacer()
-                    
-                    if subscriptionService.isProUser {
-                        Button {
-                            NavigationManager.shared.navigate(to: .ttsDashboard)
-                        } label: {
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                    } else {
-                        ActionButton("Upgrade", systemImage: "crown.fill", style: .borderedProminent) {
-                            PaywallService.shared.isShowingPaywall = true
-                        }
-                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                
-                if subscriptionService.isProUser {
-                    // Quick stats for Pro users
-                    HStack(spacing: 16) {
-                        QuickStatView(
-                            title: "Characters",
-                            value: TTSUsageTracker.shared.totalCharactersFormatted,
-                            icon: "textformat.abc"
-                        )
-                        
-                        QuickStatView(
-                            title: "Sessions",
-                            value: TTSUsageTracker.shared.totalSessionsFormatted,
-                            icon: "play.circle"
-                        )
-                        
-                        QuickStatView(
-                            title: "Time Saved",
-                            value: TTSUsageTracker.shared.timeSaved,
-                            icon: "clock"
-                        )
+                .padding(vertical: 12, horizontal: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+
+                HStack(spacing: 8) {
+                    Image(systemName: "person.wave.2.fill")
+                        .foregroundStyle(.accent)
+                        .font(.title3)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Current Voice")
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+                        if subscriptionService.isProUser, let currentVoice = ttsPlayer.selectedSpeechifyVoiceModel {
+                            Text([currentVoice.name, currentVoice.languageDisplayName].joined(separator: ", "))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        } else {
+                            Text("Default Voice")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+
+                if !subscriptionService.isProUser && GlobalConstant.isEnglishLanguage {
+                    HStack(spacing: 8) {
+                        Text(Loc.Settings.selectAccent.localized)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        HeaderButtonMenu(viewModel.selectedEnglishAccent.displayName, size: .small) {
+                            Picker(
+                                Loc.Settings.selectAccent.localized,
+                                selection: $viewModel.selectedEnglishAccent
+                            ) {
+                                ForEach(EnglishAccent.allCases, id: \.self) {
+                                    Text($0.displayName).tag($0)
+                                }
+                            }
+                            .pickerStyle(.inline)
+                        }
+                    }
+                    .padding(vertical: 12, horizontal: 16)
+                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
                 }
             }
-            .padding(vertical: 12, horizontal: 16)
-            .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+        } trailingContent: {
+            if subscriptionService.isProUser {
+                HeaderButton(
+                    "Dashboard",
+                    size: .small
+                ) {
+                    NavigationManager.shared.navigate(to: .ttsDashboard)
+                }
+            }
         }
     }
-    
+
     // MARK: - Supporting Views
-    
+
     private struct QuickStatView: View {
         let title: String
         let value: String
         let icon: String
-        
+
         var body: some View {
             VStack(spacing: 4) {
                 Image(systemName: icon)
                     .font(.caption)
                     .foregroundColor(.blue)
-                
+
                 Text(value)
                     .font(.caption)
                     .fontWeight(.semibold)
-                
+
                 Text(title)
                     .font(.caption2)
                     .foregroundColor(.secondary)

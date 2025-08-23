@@ -7,6 +7,7 @@
 
 import Foundation
 
+typealias AsyncVoidHandler = () async throws -> Void
 typealias VoidHandler = () -> Void
 typealias BoolHandler = (Bool) -> Void
 typealias IntHandler = (Int) -> Void

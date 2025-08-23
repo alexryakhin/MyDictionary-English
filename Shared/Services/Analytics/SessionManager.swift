@@ -38,7 +38,7 @@ final class SessionManager: ObservableObject {
         isSessionActive = true
         
         // Save session start time
-        UserDefaults.standard.set(sessionStartTime?.timeIntervalSince1970, forKey: UDKeys.sessionStartTime)
+        UDService.sessionStartTime = sessionStartTime
         
         // Start timer to track session duration
         sessionTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
@@ -58,8 +58,8 @@ final class SessionManager: ObservableObject {
         guard !isSessionActive else { return }
         
         // Restore session start time if it exists
-        if let savedStartTime = UserDefaults.standard.object(forKey: UDKeys.sessionStartTime) as? TimeInterval {
-            sessionStartTime = Date(timeIntervalSince1970: savedStartTime)
+        if let savedStartTime = UDService.sessionStartTime {
+            sessionStartTime = savedStartTime
         } else {
             sessionStartTime = Date()
         }
@@ -80,7 +80,7 @@ final class SessionManager: ObservableObject {
         currentSessionDuration = 0
         
         // Clear saved session start time
-        UserDefaults.standard.removeObject(forKey: UDKeys.sessionStartTime)
+        UDService.sessionStartTime = nil
     }
 
     private func updateSessionDuration() {
@@ -100,39 +100,38 @@ final class SessionManager: ObservableObject {
     
     private func shouldShowCoffeeBanner() -> Bool {
         // Don't show if already shown this week
-        if UserDefaults.standard.bool(forKey: UDKeys.hasShownCoffeeThisWeek) {
+        if UDService.hasShownCoffeeThisWeek {
             return false
         }
         
         // Don't show too frequently (minimum 14 days between requests)
-        let lastCoffeeTimeInterval = UserDefaults.standard.double(forKey: UDKeys.lastCoffeeRequestDate)
-        let lastCoffeeDate = Date(timeIntervalSince1970: lastCoffeeTimeInterval)
-        let daysSinceLastCoffee = Calendar.current.dateComponents([.day], from: lastCoffeeDate, to: Date()).day ?? 0
-        
-        guard daysSinceLastCoffee >= 14 else { return false }
+        if let lastCoffeeDate = UDService.lastCoffeeRequestDate {
+            let daysSinceLastCoffee = Calendar.current.dateComponents([.day], from: lastCoffeeDate, to: Date()).day ?? 0
+            guard daysSinceLastCoffee >= 14 else { return false }
+        }
         
         // Don't show too many times (maximum 3 times total)
-        let coffeeRequestCount = UserDefaults.standard.integer(forKey: UDKeys.coffeeRequestCount)
+        let coffeeRequestCount = UDService.coffeeRequestCount
         guard coffeeRequestCount < 3 else { return false }
         
         return true
     }
     
     func markCoffeeBannerShown() {
-        UserDefaults.standard.set(Date.now.timeIntervalSince1970, forKey: UDKeys.lastCoffeeRequestDate)
-        UserDefaults.standard.set(true, forKey: UDKeys.hasShownCoffeeThisWeek)
+        UDService.lastCoffeeRequestDate = Date.now
+        UDService.hasShownCoffeeThisWeek = true
         
-        let currentCount = UserDefaults.standard.integer(forKey: UDKeys.coffeeRequestCount)
-        UserDefaults.standard.set(currentCount + 1, forKey: UDKeys.coffeeRequestCount)
+        let currentCount = UDService.coffeeRequestCount
+        UDService.coffeeRequestCount = currentCount + 1
         
         showCoffeeBanner = false
     }
     
     func markCoffeeBannerDismissed() {
-        UserDefaults.standard.set(Date.now.timeIntervalSince1970, forKey: UDKeys.lastCoffeeRequestDate)
+        UDService.lastCoffeeRequestDate = Date.now
 
-        let currentCount = UserDefaults.standard.integer(forKey: UDKeys.coffeeRequestCount)
-        UserDefaults.standard.set(currentCount + 1, forKey: UDKeys.coffeeRequestCount)
+        let currentCount = UDService.coffeeRequestCount
+        UDService.coffeeRequestCount = currentCount + 1
         
         showCoffeeBanner = false
     }
@@ -140,7 +139,7 @@ final class SessionManager: ObservableObject {
     // MARK: - Weekly Reset
     
     func resetWeeklyFlags() {
-        UserDefaults.standard.set(false, forKey: UDKeys.hasShownCoffeeThisWeek)
+        UDService.hasShownCoffeeThisWeek = false
     }
     
     // MARK: - App Lifecycle Observers

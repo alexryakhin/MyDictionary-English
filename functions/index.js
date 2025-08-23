@@ -295,6 +295,130 @@ exports.openAIProxy = onRequest({
     }
 });
 
+/**
+ * Synthesize speech with selected voice
+ */
+exports.synthesizeSpeech = onRequest({
+    region: 'europe-west3',
+    cors: true,
+    secrets: ['SPEECHIFY_API_KEY']
+}, async (req, res) => {
+    if (req.method !== 'POST') {
+        res.status(405).send('Method Not Allowed');
+        return;
+    }
+    
+    try {
+        const { text, voice, language, model, audioFormat, userId } = req.body;
+        
+        // Validate required fields
+        if (!text || !userId) {
+            res.status(400).json({
+                success: false,
+                error: 'Missing required fields: text, userId'
+            });
+            return;
+        }
+        
+        // Validate text length (Speechify has limits)
+        if (text.length > 5000) {
+            res.status(400).json({
+                success: false,
+                error: 'Text too long. Maximum 5000 characters allowed.'
+            });
+            return;
+        }
+        
+        const speechifyApiKey = process.env.SPEECHIFY_API_KEY;
+        if (!speechifyApiKey) {
+            console.error('Speechify API key not configured');
+            res.status(500).json({
+                success: false,
+                error: 'Speechify service not configured'
+            });
+            return;
+        }
+        
+        // Check user's usage limits (optional - implement based on your subscription model)
+        const userUsage = await checkUserSpeechUsage(userId);
+        if (!userUsage.allowed) {
+            res.status(429).json({
+                success: false,
+                error: 'Speech synthesis limit exceeded',
+                limit: userUsage.limit,
+                used: userUsage.used
+            });
+            return;
+        }
+        
+        // Prepare request body using the correct format from Swift implementation
+        const speechifyRequest = {
+            input: text,
+            voice_id: voice || "en-US-1", // Default voice
+            audio_format: audioFormat || "mp3",
+            language: language || "en-US",
+            model: model || "simba-english" // Default to English model
+        };
+        
+        // Synthesize speech with Speechify API using the correct URL
+        const response = await axios.post('https://api.sws.speechify.com/v1/audio/speech', speechifyRequest, {
+            headers: {
+                'Authorization': `Bearer ${speechifyApiKey}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        // The response should contain audio_data as base64 string
+        const responseData = response.data;
+        
+        if (!responseData.audio_data) {
+            throw new Error('No audio data in response');
+        }
+        
+        // Log usage for analytics
+        await logSpeechUsage(userId, text, voice);
+        
+        res.status(200).json({
+            success: true,
+            audioData: responseData.audio_data,
+            format: responseData.audio_format || audioFormat || "mp3",
+            voice: voice,
+            billableCharacters: responseData.billable_characters_count,
+            textLength: text.length
+        });
+        
+    } catch (error) {
+        console.error('Speechify synthesize error:', error.response?.data || error.message);
+        
+        if (error.response?.status === 401) {
+            res.status(500).json({
+                success: false,
+                error: 'Speechify authentication failed'
+            });
+        } else if (error.response?.status === 402 || error.response?.status === 403) {
+            res.status(403).json({
+                success: false,
+                error: 'Speechify premium feature required'
+            });
+        } else if (error.response?.status === 429) {
+            res.status(429).json({
+                success: false,
+                error: 'Speechify rate limit exceeded'
+            });
+        } else if (error.response?.status === 400) {
+            res.status(400).json({
+                success: false,
+                error: 'Invalid request to Speechify API'
+            });
+        } else {
+            res.status(500).json({
+                success: false,
+                error: 'Speechify service error'
+            });
+        }
+    }
+});
+
 // Helper function to build the prompt
 function buildWordInformationPrompt(word, maxDefinitions, targetLanguage) {
     return `Provide information for the word '${word}' in ${targetLanguage} in the following JSON format:
@@ -394,6 +518,206 @@ async function logUsage(userId, word, usage) {
         
     } catch (error) {
         console.error('Error logging usage:', error);
+    }
+}
+
+/**
+ * Check if a nickname is available
+ */
+exports.checkNicknameAvailability = onRequest({
+    region: 'europe-west3',
+    cors: true
+}, async (req, res) => {
+    if (req.method !== 'POST') {
+        res.status(405).send('Method Not Allowed');
+        return;
+    }
+    
+    try {
+        const { nickname, userId } = req.body;
+        
+        if (!nickname || !userId) {
+            res.status(400).json({
+                success: false,
+                error: 'Missing required fields: nickname, userId'
+            });
+            return;
+        }
+        
+        // Validate nickname format
+        const nicknameRegex = /^[a-z0-9_]+$/;
+        if (!nicknameRegex.test(nickname.toLowerCase())) {
+            res.status(400).json({
+                success: false,
+                error: 'Invalid nickname format. Only lowercase letters, numbers, and underscores are allowed.'
+            });
+            return;
+        }
+        
+        // Check if nickname is already taken
+        const snapshot = await admin.firestore()
+            .collection('users')
+            .where('nickname', '==', nickname.toLowerCase())
+            .limit(1)
+            .get();
+        
+        const isAvailable = snapshot.empty;
+        
+        res.status(200).json({
+            success: true,
+            isAvailable: isAvailable,
+            nickname: nickname.toLowerCase()
+        });
+        
+    } catch (error) {
+        console.error('Error checking nickname availability:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to check nickname availability'
+        });
+    }
+});
+
+/**
+ * Search for a user by nickname or email
+ */
+exports.searchUser = onRequest({
+    region: 'europe-west3',
+    cors: true
+}, async (req, res) => {
+    if (req.method !== 'POST') {
+        res.status(405).send('Method Not Allowed');
+        return;
+    }
+    
+    try {
+        const { query, searchType, userId } = req.body;
+        
+        if (!query || !searchType || !userId) {
+            res.status(400).json({
+                success: false,
+                error: 'Missing required fields: query, searchType, userId'
+            });
+            return;
+        }
+        
+        if (!['nickname', 'email'].includes(searchType)) {
+            res.status(400).json({
+                success: false,
+                error: 'Invalid searchType. Must be "nickname" or "email"'
+            });
+            return;
+        }
+        
+        // Search for user
+        const snapshot = await admin.firestore()
+            .collection('users')
+            .where(searchType, '==', searchType === 'nickname' ? query.toLowerCase() : query.toLowerCase())
+            .limit(1)
+            .get();
+        
+        if (snapshot.empty) {
+            res.status(200).json({
+                success: true,
+                user: null
+            });
+            return;
+        }
+        
+        const userDoc = snapshot.docs[0];
+        const userData = userDoc.data();
+        
+        // Return only necessary user information for security
+        const userInfo = {
+            id: userDoc.id,
+            email: userData.email,
+            displayName: userData.name || userData.displayName,
+            nickname: userData.nickname,
+            registrationDate: userData.registrationDate
+        };
+        
+        res.status(200).json({
+            success: true,
+            user: userInfo
+        });
+        
+    } catch (error) {
+        console.error('Error searching user:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to search user'
+        });
+    }
+});
+
+// Helper function to check user speech usage limits
+async function checkUserSpeechUsage(userId) {
+    try {
+        // Get user's subscription status and speech usage
+        const userDoc = await admin.firestore()
+            .collection('users')
+            .doc(userId)
+            .get();
+            
+        if (!userDoc.exists) {
+            return { allowed: true, limit: 100, used: 0 }; // Default for new users
+        }
+        
+        const userData = userDoc.data();
+        const subscription = userData.subscription || 'free';
+        const monthlySpeechUsage = userData.monthlySpeechUsage || 0;
+        
+        // Define speech limits based on subscription
+        const limits = {
+            free: 50,
+            pro: 500,
+            unlimited: -1 // No limit
+        };
+        
+        const limit = limits[subscription] || 50;
+        
+        if (limit === -1) {
+            return { allowed: true, limit: -1, used: monthlySpeechUsage };
+        }
+        
+        return {
+            allowed: monthlySpeechUsage < limit,
+            limit: limit,
+            used: monthlySpeechUsage
+        };
+        
+    } catch (error) {
+        console.error('Error checking user speech usage:', error);
+        return { allowed: true, limit: 100, used: 0 }; // Allow by default if error
+    }
+}
+
+// Helper function to log speech usage
+async function logSpeechUsage(userId, text, voice) {
+    try {
+        const batch = admin.firestore().batch();
+        
+        // Update user's monthly speech usage
+        const userRef = admin.firestore().collection('users').doc(userId);
+        batch.update(userRef, {
+            monthlySpeechUsage: admin.firestore.FieldValue.increment(1),
+            lastSpeechActivity: admin.firestore.FieldValue.serverTimestamp()
+        });
+        
+        // Log detailed speech usage for analytics
+        const usageRef = admin.firestore().collection('speech_usage').doc();
+        batch.set(usageRef, {
+            userId: userId,
+            text: text.substring(0, 100) + (text.length > 100 ? '...' : ''), // Truncate for storage
+            voice: voice,
+            textLength: text.length,
+            timestamp: admin.firestore.FieldValue.serverTimestamp()
+        });
+        
+        await batch.commit();
+        
+    } catch (error) {
+        console.error('Error logging speech usage:', error);
     }
 }
 

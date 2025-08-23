@@ -79,17 +79,14 @@ final class NotificationService {
     
     func checkAndScheduleNotifications() {
         Task {
-            let hasPermission = await requestPermission()
-            guard hasPermission else { return }
-            
-            // Check user preferences
-            let dailyRemindersEnabled = UserDefaults.standard.bool(forKey: "dailyRemindersEnabled")
-            let difficultWordsEnabled = UserDefaults.standard.bool(forKey: "difficultWordsEnabled")
+            // Check user preferences first
+            let dailyRemindersEnabled = UDService.dailyRemindersEnabled
+            let difficultWordsEnabled = UDService.difficultWordsEnabled
             
             // Only schedule daily reminder if enabled and user hasn't opened app today
             if dailyRemindersEnabled {
                 let today = Calendar.current.startOfDay(for: Date())
-                let lastOpened = UserDefaults.standard.object(forKey: "lastAppOpenDate") as? Date ?? Date.distantPast
+                let lastOpened = UDService.lastAppOpenDate ?? Date.distantPast
                 
                 if Calendar.current.startOfDay(for: lastOpened) < today {
                     scheduleDailyReminder()
@@ -110,6 +107,13 @@ final class NotificationService {
     
     func scheduleNotificationsForToday() {
         Task {
+            // Check user preferences first
+            let dailyRemindersEnabled = UDService.dailyRemindersEnabled
+            let difficultWordsEnabled = UDService.difficultWordsEnabled
+            
+            // Only proceed if notifications are enabled
+            guard dailyRemindersEnabled || difficultWordsEnabled else { return }
+            
             let hasPermission = await requestPermission()
             guard hasPermission else { return }
             
@@ -122,7 +126,7 @@ final class NotificationService {
     }
     
     func markAppAsOpened() {
-        UserDefaults.standard.set(Date(), forKey: "lastAppOpenDate")
+        UDService.lastAppOpenDate = Date()
         cancelDailyReminder()
     }
 } 

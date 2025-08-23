@@ -178,10 +178,38 @@ struct AuthenticationView: View {
                     )
 
                     let authResult = try await Auth.auth().signIn(with: credential)
-
-                    await MainActor.run {
-                        authService.currentUser = authResult.user
-                        authService.authenticationState = .signedIn
+                    
+                    // Handle Apple Sign-In name (only provided on first sign-in)
+                    if let fullName = appleIDCredential.fullName {
+                        let displayName = [fullName.givenName, fullName.familyName]
+                            .compactMap { $0 }
+                            .joined(separator: " ")
+                        
+                        if !displayName.isEmpty {
+                            // Update the user's display name in Firebase
+                            let changeRequest = authResult.user.createProfileChangeRequest()
+                            changeRequest.displayName = displayName
+                            try await changeRequest.commitChanges()
+                            
+                            // Save name locally as backup
+                            UDService.userDisplayName = displayName
+                            
+                            // Update the current user reference
+                            await MainActor.run {
+                                authService.currentUser = authResult.user
+                                authService.authenticationState = .signedIn
+                            }
+                        } else {
+                            await MainActor.run {
+                                authService.currentUser = authResult.user
+                                authService.authenticationState = .signedIn
+                            }
+                        }
+                    } else {
+                        await MainActor.run {
+                            authService.currentUser = authResult.user
+                            authService.authenticationState = .signedIn
+                        }
                     }
                 } catch {
                     errorReceived(error)

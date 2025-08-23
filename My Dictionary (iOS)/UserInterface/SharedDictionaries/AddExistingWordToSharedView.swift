@@ -13,7 +13,6 @@ struct AddExistingWordToSharedView: View {
 
     @State private var selectedDictionaryId: String? = nil
     @State private var showingDictionarySelection = false
-    @State private var isLoading = false
 
     @StateObject private var word: CDWord
     @StateObject private var dictionaryService = DictionaryService.shared
@@ -106,41 +105,26 @@ struct AddExistingWordToSharedView: View {
             dictionaryService.setupSharedDictionariesListener()
         }
         .safeAreaInset(edge: .bottom) {
-            ActionButton(
+            AsyncActionButton(
                 Loc.App.addToSharedDictionary.localized,
                 systemImage: "plus",
-                style: .borderedProminent,
-                isLoading: isLoading
+                style: .borderedProminent
             ) {
-                addWordToSelectedDictionary()
+                try await addWordToSelectedDictionary()
             }
             .disabled(selectedDictionaryId == nil)
             .padding(vertical: 12, horizontal: 16)
         }
     }
 
-    private func addWordToSelectedDictionary() {
-        Task { @MainActor in
-            isLoading = true
-            defer {
-                isLoading = false
-            }
+    private func addWordToSelectedDictionary() async throws {
+        guard let dictionaryId = selectedDictionaryId, let wordData = Word(from: word) else { return }
 
-            guard let dictionaryId = selectedDictionaryId, let wordData = Word(from: word) else { return }
-
-            do {
-                try await dictionaryService.addWordToSharedDictionary(
-                    dictionaryId: dictionaryId,
-                    word: wordData
-                )
-                HapticManager.shared.triggerNotification(type: .success)
-                dismiss()
-            } catch {
-                AlertCenter.shared.showAlert(with: .info(
-                    title: Loc.App.cantShareWord.localized,
-                    message: error.localizedDescription
-                ))
-            }
-        }
+        try await dictionaryService.addWordToSharedDictionary(
+            dictionaryId: dictionaryId,
+            word: wordData
+        )
+        HapticManager.shared.triggerNotification(type: .success)
+        dismiss()
     }
 }

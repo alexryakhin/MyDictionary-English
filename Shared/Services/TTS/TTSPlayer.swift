@@ -16,27 +16,24 @@ final class TTSPlayer: NSObject, ObservableObject {
     private var player: AVAudioPlayer?
     @AppStorage(UDKeys.selectedEnglishAccent) private var selectedEnglishAccent: EnglishAccent = .american
     @AppStorage(UDKeys.selectedTTSProvider) var selectedTTSProvider: TTSProvider = .google
-    @AppStorage(UDKeys.selectedSpeechifyVoice) var selectedSpeechifyVoice: String = "en-US-1"
+    @AppStorage(UDKeys.selectedSpeechifyVoice) var selectedSpeechifyVoice: String = "erik"
     @AppStorage(UDKeys.selectedSpeechifyModel) var selectedSpeechifyModel: SpeechifyModel = .multilingual
-    @AppStorage("tts_speech_rate") var speechRate: Double = 1.0
-    @AppStorage("tts_pitch") var pitch: Double = 1.0
-    @AppStorage("tts_volume") var volume: Double = 1.0
+    @AppStorage(UDKeys.ttsSpeechRate) var speechRate: Double = 1.0
+    @AppStorage(UDKeys.ttsVolume) var volume: Double = 1.0
 
-    let speechifyService: SpeechifyTTSService?
-    
+    private let speechifyService: SpeechifyTTSService = .shared
+
     @Published var isPlaying = false
     @Published var availableVoices: [SpeechifyVoice] = []
     @Published var testText: String = "Hello there! How are you?"
 
-    private override init() {
-        self.speechifyService = SpeechifyTTSService(apiKey: AppConfig.Speechify.apiKey)
-        super.init()
-        // Initialize Speechify service with API key from config
+    var selectedSpeechifyVoiceModel: SpeechifyVoice? {
+        availableVoices.first(where: { $0.id == selectedSpeechifyVoice })
+    }
 
-        // Load available voices for Speechify
-        Task {
-            await loadAvailableVoices()
-        }
+    private override init() {
+        super.init()
+        loadAvailableVoices()
     }
     
     func play(_ text: String, targetLanguage: String?) async throws {
@@ -44,6 +41,13 @@ final class TTSPlayer: NSObject, ObservableObject {
         
         // Determine which provider to use
         let provider = determineProvider(for: targetLanguage)
+        
+        // Check Speechify usage limits if using Speechify
+        if provider == .speechify {
+            if await !TTSUsageTracker.shared.canUseSpeechify(text: text) {
+                throw TTSError.monthlyLimitExceeded
+            }
+        }
         
         do {
             switch provider {
@@ -78,17 +82,38 @@ final class TTSPlayer: NSObject, ObservableObject {
                     language: targetLanguage ?? "en"
                 )
             }
+        } catch TTSError.monthlyLimitExceeded {
+            // Fallback to Google TTS if monthly limit is exceeded
+            try await playWithGoogle(text: text, targetLanguage: targetLanguage)
+            
+            // Track fallback usage
+            await MainActor.run {
+                TTSUsageTracker.shared.trackTTSUsage(
+                    text: text,
+                    provider: .google,
+                    language: targetLanguage ?? "en"
+                )
+            }
         } catch {
             throw error
         }
     }
 
     func previewSpeechifyVoice(_ voice: SpeechifyVoice) async throws {
-        try await playWithSpeechify(
-            text: testText,
-            voice: voice.id,
-            targetLanguage: voice.language
-        )
+        // Use the actual preview audio if available
+        if let previewAudioURL = voice.bestPreviewAudioURL,
+           let url = URL(string: previewAudioURL) {
+            // Download the remote audio file first, then play it
+            let temporaryDownloadURL = try await temporaryDownloadURL(for: url)
+            try await play(from: temporaryDownloadURL)
+        } else {
+            // Fallback to text-to-speech if no preview audio is available
+            try await playWithSpeechify(
+                text: testText,
+                voice: voice.id,
+                targetLanguage: voice.language
+            )
+        }
     }
 
     private func determineProvider(for targetLanguage: String?) -> TTSProvider {
@@ -122,10 +147,6 @@ final class TTSPlayer: NSObject, ObservableObject {
     }
     
     private func playWithSpeechify(text: String, voice: String, targetLanguage: String?) async throws {
-        guard let speechifyService = speechifyService else {
-            throw TTSError.invalidAPIKey
-        }
-        
         let request = TTSRequest(
             text: text,
             language: targetLanguage ?? "en-US",
@@ -151,27 +172,12 @@ final class TTSPlayer: NSObject, ObservableObject {
         return tempFile
     }
     
-    @MainActor
-    func loadAvailableVoices() async {
+    func loadAvailableVoices() {
         guard availableVoices.isEmpty else { return }
 
-        guard let speechifyService = speechifyService else {
-            print("⚠️ [TTSPlayer] Speechify service not available")
-            return 
-        }
-        
         do {
-            print("🔄 [TTSPlayer] Loading Speechify voices...")
-            availableVoices = try await speechifyService.getAvailableVoices()
-            print("✅ [TTSPlayer] Successfully loaded \(availableVoices.count) voices")
-        } catch TTSError.invalidAPIKey {
-            print("❌ [TTSPlayer] Speechify API key is invalid or missing")
-            availableVoices = []
-        } catch TTSError.premiumFeatureRequired {
-            print("⚠️ [TTSPlayer] Premium required for Speechify voices")
-            availableVoices = []
+            availableVoices = try speechifyService.getAvailableVoices()
         } catch {
-            print("❌ [TTSPlayer] Failed to load Speechify voices: \(error)")
             availableVoices = []
         }
     }
@@ -193,8 +199,16 @@ final class TTSPlayer: NSObject, ObservableObject {
         let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy)
 
         do {
-            let (url, _) = try await URLSession.shared.download(for: request)
-            return url
+            let (tempURL, _) = try await URLSession.shared.download(for: request)
+            
+            // Copy the downloaded file to a more permanent temporary location
+            let tempDir = FileManager.default.temporaryDirectory
+            let permanentTempFile = tempDir.appendingPathComponent("preview_audio_\(UUID().uuidString).mp3")
+            
+            try FileManager.default.copyItem(at: tempURL, to: permanentTempFile)
+            print("✅ [TTSPlayer] Successfully saved preview audio to \(permanentTempFile.path)")
+            
+            return permanentTempFile
         } catch {
             throw CoreError.networkError(.noData)
         }
@@ -205,11 +219,20 @@ final class TTSPlayer: NSObject, ObservableObject {
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.delegate = self
+            
+            // Enable rate modification
+            player?.enableRate = true
+            
+            // Apply audio settings
+            player?.rate = Float(speechRate)
+            player?.volume = Float(volume)
+
             player?.prepareToPlay()
             player?.play()
             isPlaying = true
         } catch {
             isPlaying = false
+            logError("Cannot play audio file: \(error), url: \(url)")
             throw CoreError.internalError(.cannotPlayAudio)
         }
     }

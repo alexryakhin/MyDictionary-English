@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct VoicePickerView: View {
-    @Environment(\.dismiss) private var dismiss
     @StateObject private var ttsPlayer = TTSPlayer.shared
     @State private var searchText = ""
-    @State private var selectedLanguage: String = "All"
-    @State private var selectedGender: String = "All"
-    @State private var isLoading = false
-
-    // Voice categories for filtering
-    @State private var availableLanguages: [String] = []
-    @State private var availableGenders: [String] = []
+    @State private var selectedLanguage: String?
+    @State private var selectedGender: String?
+    @State private var selectedUseCase: String?
+    @State private var selectedAge: String?
+    @State private var selectedTimbre: String?
+    @State private var selectedAccent: String?
 
     var body: some View {
         ScrollView {
@@ -31,46 +29,41 @@ struct VoicePickerView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "Select Voice",
+            title: Loc.TTS.selectVoice.localized,
             mode: .large,
-            trailingContent: {
-                HeaderButton("Done") {
-                    dismiss()
-                }
-                .disabled(ttsPlayer.selectedSpeechifyVoice.isEmpty)
-            },
             bottomContent: {
                 VStack(spacing: 8) {
-                    InputView.searchView(Loc.Actions.search, searchText: $searchText)
-                    languageFilterView
+                    InputView.searchView(
+                        Loc.Actions.search.localized,
+                        searchText: $searchText
+                    )
+                    FilterView(
+                        selectedLanguage: $selectedLanguage,
+                        selectedGender: $selectedGender,
+                        selectedUseCase: $selectedUseCase,
+                        selectedAge: $selectedAge,
+                        selectedTimbre: $selectedTimbre,
+                        selectedAccent: $selectedAccent
+                    )
                 }
             }
         )
-        .onAppear {
-            loadVoices()
-        }
     }
 
     // MARK: - Voice List
 
     private var voiceList: some View {
-        CustomSectionView(header: "Available Voices") {
+        CustomSectionView(header: Loc.TTS.availableVoices.localized) {
             Group {
-                if isLoading {
-                    VStack {
-                        ProgressView()
-                            .scaleEffect(1.2)
-                        Text("Loading voices...")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .padding(.top, 8)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else if filteredVoices.isEmpty {
+                if filteredVoices.isEmpty {
                     ContentUnavailableView(
-                        "No voices found",
+                        Loc.TTS.noVoicesFound.localized,
                         systemImage: "speaker.slash",
-                        description: Text(searchText.isEmpty ? "No voices available" : "Try adjusting your search or filters")
+                        description: Text(
+                            searchText.isEmpty
+                            ? Loc.TTS.noVoicesAvailable.localized
+                            : Loc.TTS.noVoicesAvailable.localized
+                        )
                     )
                 } else {
                     LazyVStack(spacing: 8) {
@@ -94,6 +87,17 @@ struct VoicePickerView: View {
 
     // MARK: - Computed Properties
 
+    private var activeFiltersCount: Int {
+        var count = 0
+        if selectedLanguage != FilterView.All.languages.rawValue { count += 1 }
+        if selectedGender != FilterView.All.genders.rawValue { count += 1 }
+        if selectedUseCase != FilterView.All.useCases.rawValue { count += 1 }
+        if selectedAge != FilterView.All.ages.rawValue { count += 1 }
+        if selectedTimbre != FilterView.All.timbres.rawValue { count += 1 }
+        if selectedAccent != FilterView.All.accents.rawValue { count += 1 }
+        return count
+    }
+
     private var filteredVoices: [SpeechifyVoice] {
         var voices = ttsPlayer.availableVoices
 
@@ -102,40 +106,41 @@ struct VoicePickerView: View {
             voices = voices.filter { voice in
                 voice.name.localizedCaseInsensitiveContains(searchText) ||
                 voice.language.localizedCaseInsensitiveContains(searchText) ||
-                (voice.description?.localizedCaseInsensitiveContains(searchText) ?? false)
+                voice.tags.contains { $0.localizedCaseInsensitiveContains(searchText) }
             }
         }
 
         // Apply language filter
-        if selectedLanguage != "All" {
+        if let selectedLanguage {
             voices = voices.filter { $0.language == selectedLanguage }
         }
 
         // Apply gender filter
-        if selectedGender != "All" {
+        if let selectedGender {
             voices = voices.filter { $0.gender == selectedGender }
         }
 
-        return voices.sorted { $0.name < $1.name }
-    }
-
-    // MARK: - Helper Methods
-
-    private func loadVoices() {
-        Task { @MainActor in
-            isLoading = true
-
-            await ttsPlayer.loadAvailableVoices()
-
-            // Extract unique languages and genders
-            let languages = Set(ttsPlayer.availableVoices.map { $0.language }).sorted()
-            let genders = Set(ttsPlayer.availableVoices.compactMap { $0.gender }).sorted()
-
-            availableLanguages = ["All"] + languages
-            availableGenders = ["All"] + genders
-
-            isLoading = false
+        // Apply use case filter
+        if let selectedUseCase {
+            voices = voices.filter { $0.hasTag(category: "use-case", value: selectedUseCase) }
         }
+
+        // Apply age filter
+        if let selectedAge {
+            voices = voices.filter { $0.hasTag(category: "age", value: selectedAge) }
+        }
+
+        // Apply timbre filter
+        if let selectedTimbre {
+            voices = voices.filter { $0.hasTag(category: "timbre", value: selectedTimbre) }
+        }
+
+        // Apply accent filter
+        if let selectedAccent {
+            voices = voices.filter { $0.hasTag(category: "accent", value: selectedAccent) }
+        }
+
+        return voices.sorted { $0.name < $1.name }
     }
 
     private func previewVoice(_ voice: SpeechifyVoice) {
@@ -143,39 +148,16 @@ struct VoicePickerView: View {
             do {
                 try await ttsPlayer.previewSpeechifyVoice(voice)
             } catch {
-                print("Voice preview failed: \(error)")
+                errorReceived(error)
             }
         }
     }
     
     private func languageDisplayName(for language: String) -> String {
-        if language == "All" {
-            return "All"
+        if language == FilterView.All.languages.rawValue {
+            return FilterView.All.languages.displayName
         }
         return Locale.current.localizedString(forIdentifier: language) ?? language
-    }
-
-
-    // MARK: - Language Filter View
-
-    private var languageFilterView: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                ForEach(availableLanguages, id: \.self) { language in
-                    TagView(
-                        text: languageDisplayName(for: language),
-                        color: .blue,
-                        size: .regular,
-                        style: selectedLanguage == language ? .selected : .regular
-                    )
-                    .onTap {
-                        selectedLanguage = language
-                    }
-                }
-            }
-            .padding(.horizontal, 4)
-        }
-        .scrollClipDisabled()
     }
 
     // MARK: - Supporting Views
@@ -224,11 +206,21 @@ struct VoicePickerView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
 
-                    if let description = voice.description {
-                        Text(description)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .lineLimit(2)
+                    // Tags
+                    if !voice.tags.isEmpty {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 4) {
+                                ForEach(voice.tags, id: \.self) { tag in
+                                    Text(tagDisplayName(for: tag))
+                                        .font(.caption2)
+                                        .padding(.horizontal, 4)
+                                        .padding(.vertical, 2)
+                                        .background(Color.secondary.opacity(0.1))
+                                        .foregroundColor(.secondary)
+                                        .cornerRadius(4)
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -253,13 +245,201 @@ struct VoicePickerView: View {
 
         private func genderColor(for gender: String) -> Color {
             switch gender.lowercased() {
-            case "female":
-                return .pink
-            case "male":
-                return .blue
-            default:
-                return .gray
+            case "female": .systemPink
+            case "male": .systemBlue
+            default: .secondary
             }
         }
+        
+        private func tagDisplayName(for tag: String) -> String {
+            let components = tag.split(separator: ":", maxSplits: 1)
+            if components.count == 2 {
+                return String(components[1]).localized
+            }
+            return tag.localized
+        }
+    }
+}
+
+// MARK: - Filter View
+
+private struct FilterView: View {
+
+    enum All: String {
+        case languages = "all_languages"
+        case genders = "all_genders"
+        case useCases = "all_use_cases"
+        case ages = "all_ages"
+        case timbres = "all_timbres"
+        case accents = "all_accents"
+
+        var displayName: String {
+            switch self {
+            case .languages: Loc.TTS.allLanguages.localized
+            case .genders: Loc.TTS.allGenders.localized
+            case .useCases: Loc.TTS.allUseCases.localized
+            case .ages: Loc.TTS.allAges.localized
+            case .timbres: Loc.TTS.allTimbres.localized
+            case .accents: Loc.TTS.allAccents.localized
+            }
+        }
+    }
+
+    @StateObject private var ttsPlayer: TTSPlayer = .shared
+
+    @Binding var selectedLanguage: String?
+    @Binding var selectedGender: String?
+    @Binding var selectedUseCase: String?
+    @Binding var selectedAge: String?
+    @Binding var selectedTimbre: String?
+    @Binding var selectedAccent: String?
+
+    // Voice categories for filtering
+    private var availableLanguages: [String] {
+        Set(ttsPlayer.availableVoices.map { $0.language }).sorted()
+    }
+
+    private var availableGenders: [String] {
+        Set(ttsPlayer.availableVoices.compactMap { $0.gender }).sorted()
+    }
+
+    private var availableUseCases: [String] {
+        let useCases = ttsPlayer.availableVoices.flatMap { voice in
+            voice.tagValues(for: "use-case")
+        }
+        return Array(Set(useCases)).sorted()
+    }
+
+    private var availableAges: [String] {
+        let ages = ttsPlayer.availableVoices.flatMap { voice in
+            voice.tagValues(for: "age")
+        }
+        return Array(Set(ages)).sorted()
+    }
+
+    private var availableTimbres: [String] {
+        let timbres = ttsPlayer.availableVoices.flatMap { voice in
+            voice.tagValues(for: "timbre")
+        }
+        return Array(Set(timbres)).sorted()
+    }
+
+    private var availableAccents: [String] {
+        let accents = ttsPlayer.availableVoices.flatMap { voice in
+            voice.tagValues(for: "accent")
+        }
+        return Array(Set(accents)).sorted()
+    }
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                var languageTitle: String {
+                    guard let selectedLanguage else {
+                        return FilterView.All.languages.displayName
+                    }
+                    return languageDisplayName(for: selectedLanguage)
+                }
+                HeaderButtonMenu(languageTitle, size: .small) {
+                    Picker("", selection: $selectedLanguage) {
+                        Text(FilterView.All.languages.displayName)
+                            .tag(String?.none)
+                        ForEach(availableLanguages, id: \.self) { language in
+                            Text(languageDisplayName(for: language))
+                                .tag(language)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                }
+
+                var genderColor: Color {
+                    switch selectedGender?.lowercased() {
+                    case "male": .systemBlue
+                    case "female": .systemPink
+                    default: .accent
+                    }
+                }
+                HeaderButtonMenu(
+                    selectedGender?.localized ?? FilterView.All.genders.displayName,
+                    color: genderColor,
+                    size: .small
+                ) {
+                    Picker("", selection: $selectedGender) {
+                        Text(FilterView.All.genders.displayName)
+                            .tag(String?.none)
+                        ForEach(availableGenders, id: \.self) { gender in
+                            Text(gender.localized).tag(gender)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                }
+                
+                HeaderButtonMenu(
+                    selectedUseCase?.localized ?? FilterView.All.useCases.displayName,
+                    color: .systemIndigo,
+                    size: .small
+                ) {
+                    Picker("", selection: $selectedUseCase) {
+                        Text(FilterView.All.useCases.displayName)
+                            .tag(String?.none)
+                        ForEach(availableUseCases, id: \.self) { useCase in
+                            Text(useCase.localized).tag(useCase)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                }
+                
+                HeaderButtonMenu(
+                    selectedAge?.localized ?? FilterView.All.ages.displayName,
+                    color: .systemPurple,
+                    size: .small
+                ) {
+                    Picker("", selection: $selectedAge) {
+                        Text(FilterView.All.ages.displayName)
+                            .tag(String?.none)
+                        ForEach(availableAges, id: \.self) { age in
+                            Text(age.localized).tag(age)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                }
+                
+                HeaderButtonMenu(
+                    selectedTimbre?.localized ?? FilterView.All.timbres.displayName,
+                    color: .systemOrange,
+                    size: .small
+                ) {
+                    Picker("", selection: $selectedTimbre) {
+                        Text(FilterView.All.timbres.displayName)
+                            .tag(String?.none)
+                        ForEach(availableTimbres, id: \.self) { timbre in
+                            Text(timbre.localized).tag(timbre)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                }
+                
+                HeaderButtonMenu(
+                    selectedAccent?.localized ?? FilterView.All.accents.displayName,
+                    color: .brown,
+                    size: .small
+                ) {
+                    Picker("", selection: $selectedAccent) {
+                        Text(FilterView.All.accents.displayName)
+                            .tag(String?.none)
+                        ForEach(availableAccents, id: \.self) { accent in
+                            Text(accent.localized)
+                                .tag(accent)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                }
+            }
+        }
+        .scrollClipDisabled()
+    }
+    
+    private func languageDisplayName(for language: String) -> String {
+        return Locale.current.localizedString(forIdentifier: language) ?? language
     }
 }

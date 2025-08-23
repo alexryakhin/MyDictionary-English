@@ -262,18 +262,12 @@ struct DebugView: View {
                 }
 
                 HeaderButton("Test Speechify API") {
-                    Task {
-                        do {
-                            let voices = try await TTSPlayer.shared.speechifyService?.getAvailableVoices() ?? []
-                            showAlert("Speechify API Test: Successfully loaded \(voices.count) voices")
-                        } catch {
-                            showAlert("Speechify API Test Failed: \(error.localizedDescription)")
-                        }
-                    }
+                    let voices = TTSPlayer.shared.availableVoices
+                    showAlert("Speechify API Test: Successfully loaded \(voices.count) voices")
                 }
                 
                 HeaderButton("Clear Speechify Cache") {
-                    TTSPlayer.shared.speechifyService?.clearCache()
+                    SpeechifyTTSService.shared.clearCache()
                     showAlert("Speechify cache cleared")
                 }
             }

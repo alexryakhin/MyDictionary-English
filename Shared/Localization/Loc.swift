@@ -77,6 +77,7 @@ enum Loc {
         static let linkApple = "actions.link_apple"
         static let toggleLike = "actions.toggle_like"
         static let toggleFavorite = "actions.toggle_favorite"
+        static let settings = "actions.settings"
     }
 
     // MARK: - Onboarding
@@ -445,6 +446,32 @@ enum Loc {
         static let voicePronunciationSupportDescription = "settings.voice_pronunciation_support_description"
     }
 
+    // MARK: - TTS Voice Filters
+    enum TTS {
+        // Filter Labels
+        static let allUseCases = "tts.filters.all_use_cases"
+        static let allAges = "tts.filters.all_ages"
+        static let allTimbres = "tts.filters.all_timbres"
+        static let allAccents = "tts.filters.all_accents"
+        static let allLanguages = "tts.filters.all_languages"
+        static let allGenders = "tts.filters.all_genders"
+        static let filters = "tts.filters.filters"
+        static let reset = "tts.filters.reset"
+        
+        // Usage Limits
+        static let monthlyLimitExceeded = "tts.usage.monthly_limit_exceeded"
+        static let monthlyLimitExceededMessage = "tts.usage.monthly_limit_exceeded_message"
+        static let remainingCharacters = "tts.usage.remaining_characters"
+        static let monthlyUsage = "tts.usage.monthly_usage"
+        static let monthlyLimit = "tts.usage.monthly_limit"
+
+        static let selectVoice = "tts.filters.select_voice"
+        static let availableVoices = "tts.filters.available_voices"
+        static let noVoicesAvailable = "tts.filters.no_voices_available"
+        static let noVoicesFound = "tts.filters.no_voices_found"
+        static let noVoicesFoundMessage = "tts.filters.no_voices_found_message"
+    }
+
     // MARK: - Authentication
     enum Auth {
         static let signInBeforeSubscribing = "auth.sign_in_before_subscribing"
@@ -496,9 +523,24 @@ enum Loc {
         static let accountLinkingDescription = "auth.account_linking_description"
         static let linkGoogleForAndroid = "auth.link_google_for_android"
         static let linkAppleForCrossPlatform = "auth.link_apple_for_cross_platform"
+        static let crossPlatformButtonDescription = "auth.cross_platform_button_description"
         static let currentAccount = "auth.current_account"
         static let linkedAccounts = "auth.linked_accounts"
         static let noLinkedAccounts = "auth.no_linked_accounts"
+        static let nickname = "auth.nickname"
+        static let nicknameCurrent = "auth.nickname_current"
+        static let nicknameDescription = "auth.nickname_description"
+        static let nicknameNotSet = "auth.nickname_not_set"
+        static let editNickname = "auth.edit_nickname"
+        static let nicknameCannotBeEmpty = "auth.nickname_cannot_be_empty"
+        static let nicknameAlreadyTaken = "auth.nickname_already_taken"
+        static let nicknameInvalidFormat = "auth.nickname_invalid_format"
+        static let searchMethod = "auth.search_method"
+        static let findUserByEmail = "auth.find_user_by_email"
+        static let findUserByNickname = "auth.find_user_by_nickname"
+        static let enterEmailAddress = "auth.enter_email_address"
+        static let enterNickname = "auth.enter_nickname"
+        static let foundUser = "auth.found_user"
     }
 
     // MARK: - Shared Dictionaries
@@ -821,6 +863,8 @@ enum Loc {
         static let difficultWordsChallenge = "notifications.difficult_words_challenge"
         static let testDictionaryInvitation = "notifications.test_dictionary_invitation"
         static let testDictionaryInvitationBody = "notifications.test_dictionary_invitation_body"
+        static let permissionRequired = "notifications.permission_required"
+        static let permissionDeniedMessage = "notifications.permission_denied_message"
     }
 
     // MARK: - macOS UI

@@ -49,16 +49,16 @@ final class SettingsViewModel: BaseViewModel {
             .assign(to: \.words, on: self)
             .store(in: &cancellables)
     }
-    
+
     // MARK: - Computed Properties
-    
+
     var hasHardWords: Bool {
         return words.contains { $0.difficultyLevel == .needsReview }
     }
-    #if os(iOS)
+
     func exportWords() {
         guard !words.isEmpty else { return }
-        
+
         let subscriptionService = SubscriptionService.shared
         guard subscriptionService.canExportWords(words.count) else {
             errorReceived(
@@ -66,49 +66,11 @@ final class SettingsViewModel: BaseViewModel {
             )
             return
         }
-        
+
         Task { @MainActor in
             exportWordsUrl = csvManager.exportWordsToCSV(wordModels: words)
         }
     }
-    #elseif os(macOS)
-    func exportWords() {
-        guard !words.isEmpty else { return }
-
-        let subscriptionService = SubscriptionService.shared
-        guard subscriptionService.canExportWords(words.count) else {
-            errorReceived(CoreError.internalError(.exportLimitExceeded))
-            return
-        }
-
-        let panel = NSSavePanel()
-        panel.allowedContentTypes = [.commaSeparatedText]
-        panel.nameFieldStringValue = "Words.csv"
-        panel.canCreateDirectories = true
-        panel.isExtensionHidden = false
-        panel.title = "Export Words"
-
-        Task { @MainActor in
-            let response = await panel.begin()
-            let tempURL = csvManager.exportWordsToCSV(wordModels: words)
-            guard response == .OK, let url = panel.url, let tempURL else { return }
-            do {
-                guard url.startAccessingSecurityScopedResource() else {
-                    throw CoreError.internalError(.cannotAccessSecurityScopedResource)
-                }
-                defer { url.stopAccessingSecurityScopedResource() }
-
-                try FileManager.default.copyItem(at: tempURL, to: url)
-                showAlert(withModel: .info(
-                    title: "Export Successful",
-                    message: "Words exported successfully."
-                ))
-            } catch {
-                errorReceived(error)
-            }
-        }
-    }
-    #endif
 
     func importWords(from url: URL) {
         guard url.startAccessingSecurityScopedResource() else {
@@ -124,7 +86,7 @@ final class SettingsViewModel: BaseViewModel {
             errorReceived(error)
         }
     }
-    
+
     func requestNotificationPermission() {
         Task {
             let granted = await NotificationService.shared.requestPermission()
@@ -134,7 +96,7 @@ final class SettingsViewModel: BaseViewModel {
             }
         }
     }
-    
+
     func updateNotificationSettings() {
         // Only request permission and schedule notifications if user enables a toggle
         if dailyRemindersEnabled || difficultWordsEnabled {
@@ -143,10 +105,27 @@ final class SettingsViewModel: BaseViewModel {
                 if granted {
                     notificationService.scheduleNotificationsForToday()
                 } else {
-                    // If permission denied, turn off the toggles
+                    // If permission denied, turn off the toggles and show alert
                     await MainActor.run {
                         dailyRemindersEnabled = false
                         difficultWordsEnabled = false
+
+                        // Show alert with options to cancel or open settings
+                        AlertCenter.shared.showAlert(
+                            with: .choice(
+                                title: Loc.Notifications.permissionRequired.localized,
+                                message: Loc.Notifications.permissionDeniedMessage.localized,
+                                cancelText: Loc.Actions.cancel.localized,
+                                primaryText: Loc.Actions.settings.localized,
+                                secondaryText: .empty,
+                                onCancel: {},
+                                onPrimary: {
+                                    if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                                        UIApplication.shared.open(settingsUrl)
+                                    }
+                                }
+                            )
+                        )
                     }
                 }
             }
@@ -155,52 +134,22 @@ final class SettingsViewModel: BaseViewModel {
             notificationService.cancelAllNotifications()
         }
     }
-    
+
     // MARK: - Manual Sync Methods
-    
-    func uploadBackupToGoogle() {
+
+    func uploadBackupToGoogle() async throws {
         guard let userEmail = AuthenticationService.shared.userEmail else {
             errorReceived(DictionaryError.userNotAuthenticated)
             return
         }
-        
-        Task {
-            do {
-                try await DataSyncService.shared.uploadBackupToGoogle(userEmail: userEmail)
-                await MainActor.run {
-                    showAlert(withModel: .info(
-                        title: "Upload Successful",
-                        message: "Your words have been successfully uploaded to Google."
-                    ))
-                }
-            } catch {
-                await MainActor.run {
-                    errorReceived(error)
-                }
-            }
-        }
+        try await DataSyncService.shared.uploadBackupToGoogle(userEmail: userEmail)
     }
-    
-    func downloadBackupFromGoogle() {
+
+    func downloadBackupFromGoogle() async throws {
         guard let userEmail = AuthenticationService.shared.userEmail else {
             errorReceived(DictionaryError.userNotAuthenticated)
             return
         }
-        
-        Task {
-            do {
-                try await DataSyncService.shared.downloadBackupFromGoogle(userEmail: userEmail)
-                await MainActor.run {
-                    showAlert(withModel: .info(
-                        title: "Download Successful",
-                        message: "Your words have been successfully downloaded from Google."
-                    ))
-                }
-            } catch {
-                await MainActor.run {
-                    errorReceived(error)
-                }
-            }
-        }
+        try await DataSyncService.shared.downloadBackupFromGoogle(userEmail: userEmail)
     }
 }

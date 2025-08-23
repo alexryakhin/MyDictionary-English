@@ -14,9 +14,9 @@ enum TTSProvider: String, CaseIterable {
     var displayName: String {
         switch self {
         case .google:
-            return "Google TTS"
+            return "Google"
         case .speechify:
-            return "Speechify (Premium)"
+            return "Speechify"
         }
     }
     
@@ -60,6 +60,7 @@ enum TTSError: Error {
     case premiumFeatureRequired
     case invalidResponse
     case rateLimitExceeded
+    case monthlyLimitExceeded
 }
 
 struct TTSRequest {

@@ -37,6 +37,9 @@ enum AuthenticationError: Error, LocalizedError {
     case appleSignInCancelled
     case appleSignInInvalidCredential
     case appleSignInNotAuthorized
+    case nicknameEmpty
+    case nicknameInvalidFormat
+    case nicknameAlreadyTaken
 
     var errorDescription: String? {
         switch self {
@@ -56,6 +59,12 @@ enum AuthenticationError: Error, LocalizedError {
             return "Invalid Apple Sign In credential"
         case .appleSignInNotAuthorized:
             return "Apple Sign In not authorized"
+        case .nicknameEmpty:
+            return Loc.Auth.nicknameCannotBeEmpty.localized
+        case .nicknameInvalidFormat:
+            return Loc.Auth.nicknameInvalidFormat.localized
+        case .nicknameAlreadyTaken:
+            return Loc.Auth.nicknameAlreadyTaken.localized
         }
     }
 }
@@ -94,6 +103,9 @@ final class AuthenticationService: ObservableObject {
                 // Send authentication completed notification
                 NotificationCenter.default.post(name: .authenticationCompleted, object: nil)
 
+                // Check if user has a display name, if not try to restore from local storage
+                await checkAndRestoreDisplayName(user: user)
+
                 // First mark existing words as unsynced, then sync to Firestore, then start real-time listener
                 // Request push notification permissions
                 await requestPushNotificationPermissions()
@@ -121,6 +133,27 @@ final class AuthenticationService: ObservableObject {
 
                 // Immediately reset subscription status when user signs out
                 await SubscriptionService.shared.resetSubscriptionStatusOnSignOut()
+            }
+        }
+    }
+    
+    // MARK: - Display Name Restoration
+    
+    private func checkAndRestoreDisplayName(user: User) async {
+        // If user doesn't have a display name in Firebase but we have one stored locally
+        if (user.displayName == nil || user.displayName?.isEmpty == true),
+           let localDisplayName = UDService.userDisplayName,
+           !localDisplayName.isEmpty {
+            
+            do {
+                // Update the user's display name in Firebase
+                let changeRequest = user.createProfileChangeRequest()
+                changeRequest.displayName = localDisplayName
+                try await changeRequest.commitChanges()
+                
+                print("✅ [AuthenticationService] Restored display name from local storage: \(localDisplayName)")
+            } catch {
+                print("❌ [AuthenticationService] Failed to restore display name: \(error)")
             }
         }
     }
@@ -222,10 +255,38 @@ final class AuthenticationService: ObservableObject {
             )
 
             let authResult = try await Auth.auth().signIn(with: credential)
-
-            await MainActor.run {
-                currentUser = authResult.user
-                authenticationState = .signedIn
+            
+            // Handle Apple Sign-In name (only provided on first sign-in)
+            if let fullName = appleIDCredential.fullName {
+                let displayName = [fullName.givenName, fullName.familyName]
+                    .compactMap { $0 }
+                    .joined(separator: " ")
+                
+                                    if !displayName.isEmpty {
+                        // Update the user's display name in Firebase
+                        let changeRequest = authResult.user.createProfileChangeRequest()
+                        changeRequest.displayName = displayName
+                        try await changeRequest.commitChanges()
+                        
+                        // Save name locally as backup
+                        saveDisplayNameLocally(displayName)
+                        
+                        // Update the current user reference
+                        await MainActor.run {
+                            currentUser = authResult.user
+                            authenticationState = .signedIn
+                        }
+                    } else {
+                        await MainActor.run {
+                            currentUser = authResult.user
+                            authenticationState = .signedIn
+                        }
+                    }
+            } else {
+                await MainActor.run {
+                    currentUser = authResult.user
+                    authenticationState = .signedIn
+                }
             }
 
         } catch {
@@ -324,6 +385,24 @@ final class AuthenticationService: ObservableObject {
             )
 
             try await currentUser.link(with: credential)
+            
+            // Handle Apple Sign-In name when linking account (only provided on first sign-in)
+            if let fullName = appleIDCredential.fullName {
+                let displayName = [fullName.givenName, fullName.familyName]
+                    .compactMap { $0 }
+                    .joined(separator: " ")
+                
+                if !displayName.isEmpty {
+                    // Update the user's display name in Firebase
+                    let changeRequest = currentUser.createProfileChangeRequest()
+                    changeRequest.displayName = displayName
+                    try await changeRequest.commitChanges()
+                    
+                    // Save name locally as backup
+                    saveDisplayNameLocally(displayName)
+                }
+            }
+            
             AnalyticsService.shared.logEvent(.appleAccountLinked)
 
         } catch {
@@ -354,6 +433,7 @@ final class AuthenticationService: ObservableObject {
 
             DictionaryService.shared.stopListening()
             currentUser = nil
+            clearDisplayNameLocally()
             authenticationState = .signedOut
             toggleSignOutView()
 
@@ -393,7 +473,125 @@ final class AuthenticationService: ObservableObject {
     }
 
     var displayName: String? {
-        return currentUser?.displayName
+        // First try to get from Firebase user
+        if let firebaseDisplayName = currentUser?.displayName, !firebaseDisplayName.isEmpty {
+            return firebaseDisplayName
+        }
+        
+        // Fall back to locally stored name
+        return UDService.userDisplayName
+    }
+    
+    // MARK: - Display Name Management
+    
+    private func saveDisplayNameLocally(_ name: String) {
+        UDService.userDisplayName = name
+    }
+    
+    private func clearDisplayNameLocally() {
+        UDService.userDisplayName = nil
+    }
+    
+    /// Updates the user's display name in both Firebase and local storage
+    func updateDisplayName(_ newName: String) async throws {
+        guard let currentUser = Auth.auth().currentUser else {
+            throw AuthenticationError.userNotFound
+        }
+        
+        let trimmedName = newName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedName.isEmpty else {
+            throw AuthenticationError.signInFailed // You might want to create a specific error for this
+        }
+        
+        // Update Firebase user profile
+        let changeRequest = currentUser.createProfileChangeRequest()
+        changeRequest.displayName = trimmedName
+        try await changeRequest.commitChanges()
+        
+        // Save locally as backup
+        saveDisplayNameLocally(trimmedName)
+        
+        // Update current user reference
+        await MainActor.run {
+            self.currentUser = currentUser
+        }
+        
+        // Update Firestore document
+        await createUserDocument(user: currentUser)
+    }
+    
+    /// Updates the user's nickname for discovery
+    func updateNickname(_ newNickname: String) async throws {
+        guard let currentUser = Auth.auth().currentUser else {
+            throw AuthenticationError.userNotFound
+        }
+        
+        let trimmedNickname = newNickname.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard !trimmedNickname.isEmpty else {
+            throw AuthenticationError.nicknameEmpty
+        }
+        
+        // Validate nickname format (alphanumeric and underscores only)
+        let nicknameRegex = try NSRegularExpression(pattern: "^[a-z0-9_]+$")
+        guard nicknameRegex.firstMatch(in: trimmedNickname, range: NSRange(trimmedNickname.startIndex..., in: trimmedNickname)) != nil else {
+            throw AuthenticationError.nicknameInvalidFormat
+        }
+        
+        // Check if nickname is already taken
+        let isAvailable = await checkNicknameAvailability(trimmedNickname)
+        guard isAvailable else {
+            throw AuthenticationError.nicknameAlreadyTaken
+        }
+        
+        // Save locally
+        UDService.userNickname = trimmedNickname
+        
+        // Update Firestore document
+        await createUserDocument(user: currentUser)
+    }
+    
+    /// Checks if a nickname is available using Cloud Function
+    func checkNicknameAvailability(_ nickname: String) async -> Bool {
+        do {
+            return try await CloudFunctionsService.shared.checkNicknameAvailability(nickname)
+        } catch {
+            print("❌ [AuthenticationService] Failed to check nickname availability: \(error)")
+            return false
+        }
+    }
+    
+    /// Finds a user by nickname using Cloud Function
+    func findUserByNickname(_ nickname: String) async -> UserInfo? {
+        do {
+            return try await CloudFunctionsService.shared.searchUserByNickname(nickname)
+        } catch {
+            print("❌ [AuthenticationService] Failed to find user by nickname: \(error)")
+            return nil
+        }
+    }
+    
+    /// Search for a user by email using Cloud Function
+    func searchUserByEmail(_ email: String) async throws -> UserInfo? {
+        do {
+            return try await CloudFunctionsService.shared.searchUserByEmail(email)
+        } catch {
+            print("❌ [AuthenticationService] Failed to search user by email: \(error)")
+            throw AuthenticationError.userNotFound
+        }
+    }
+    
+    /// Search for a user by nickname using Cloud Function
+    func searchUserByNickname(_ nickname: String) async throws -> UserInfo? {
+        do {
+            return try await CloudFunctionsService.shared.searchUserByNickname(nickname)
+        } catch {
+            print("❌ [AuthenticationService] Failed to search user by nickname: \(error)")
+            throw AuthenticationError.userNotFound
+        }
+    }
+    
+    var nickname: String? {
+        return UDService.userNickname
     }
 
     var linkedProviders: [String] {
@@ -426,6 +624,7 @@ final class AuthenticationService: ObservableObject {
                 "userId": user.uid,
                 "email": userEmail,
                 "name": user.displayName ?? Loc.App.unknown.localized,
+                "nickname": UDService.userNickname,
                 "registrationDate": FieldValue.serverTimestamp(),
                 "lastUpdated": FieldValue.serverTimestamp(),
                 "platform": getCurrentPlatform(),

@@ -50,7 +50,12 @@ struct TagSelectionView: View {
                     .padding(.bottom, 12)
                 }
             } trailingContent: {
-                HeaderButton(Loc.Tags.createTags.localized, icon: "tag", size: .small, style: .borderedProminent) {
+                HeaderButton(
+                    Loc.Tags.createTags.localized,
+                    icon: "tag",
+                    size: .small,
+                    style: .borderedProminent
+                ) {
                     isShowingAddTagSheet.toggle()
                 }
             }

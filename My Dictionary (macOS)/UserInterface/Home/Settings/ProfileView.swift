@@ -15,6 +15,14 @@ struct ProfileView: View {
     @StateObject private var authenticationService = AuthenticationService.shared
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dismiss) private var dismiss
+    @State private var isEditingName = false
+    @State private var editedName = ""
+    @State private var isSavingName = false
+    @State private var nameErrorMessage: String?
+    @State private var isEditingNickname = false
+    @State private var editedNickname = ""
+    @State private var isSavingNickname = false
+    @State private var nicknameErrorMessage: String?
 
     var body: some View {
         ScrollViewWithCustomNavBar {
@@ -24,6 +32,9 @@ struct ProfileView: View {
 
                 // Account Information
                 accountInformationSection
+
+                // Nickname Section
+                nicknameSection
 
                 // Account Linking Section
                 accountLinkingSection
@@ -53,9 +64,58 @@ struct ProfileView: View {
                 .foregroundStyle(.accent)
 
             VStack(spacing: 4) {
-                Text(authenticationService.displayName ?? Loc.Settings.anonymous.localized)
-                    .font(.title2)
-                    .fontWeight(.semibold)
+                if isEditingName {
+                    // Inline editing
+                    VStack(spacing: 8) {
+                        TextField("Enter your name", text: $editedName)
+                            .textFieldStyle(.roundedBorder)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.center)
+                            .autocorrectionDisabled()
+                            .onSubmit {
+                                Task {
+                                    await saveName()
+                                }
+                            }
+                        
+                        if let errorMessage = nameErrorMessage {
+                            Text(errorMessage)
+                                .font(.caption)
+                                .foregroundStyle(.red)
+                        }
+                        
+                        HStack(spacing: 12) {
+                            Button("Cancel") {
+                                cancelNameEdit()
+                            }
+                            .buttonStyle(.bordered)
+                            
+                            Button("Save") {
+                                Task {
+                                    await saveName()
+                                }
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .disabled(editedName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isSavingName)
+                        }
+                    }
+                } else {
+                    // Display mode
+                    HStack {
+                        Text(authenticationService.displayName ?? Loc.Settings.anonymous.localized)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                        
+                        Button {
+                            startNameEdit()
+                        } label: {
+                            Image(systemName: "pencil")
+                                .font(.caption)
+                                .foregroundStyle(.blue)
+                        }
+                    }
+                }
 
                 if let email = authenticationService.userEmail {
                     Text(email)
@@ -133,6 +193,85 @@ struct ProfileView: View {
         }
     }
 
+    // MARK: - Nickname Section
+    
+    private var nicknameSection: some View {
+        CustomSectionView(
+            header: Loc.Auth.nickname.localized,
+            footer: Loc.Auth.nicknameDescription.localized
+        ) {
+            if isEditingNickname {
+                // Inline editing
+                VStack(spacing: 8) {
+                    TextField(Loc.Auth.enterNickname.localized, text: $editedNickname)
+                        .textFieldStyle(.roundedBorder)
+                        .font(.body)
+                        .fontWeight(.medium)
+                        .autocorrectionDisabled()
+                        .onSubmit {
+                            Task {
+                                await saveNickname()
+                            }
+                        }
+                    
+                    if let errorMessage = nicknameErrorMessage {
+                        Text(errorMessage)
+                            .font(.caption)
+                            .foregroundStyle(.red)
+                    }
+                    
+                    HStack(spacing: 12) {
+                        Button(Loc.Actions.cancel.localized) {
+                            cancelNicknameEdit()
+                        }
+                        .buttonStyle(.bordered)
+                        
+                        Button(Loc.Actions.save.localized) {
+                            Task {
+                                await saveNickname()
+                            }
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .disabled(editedNickname.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isSavingNickname)
+                    }
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+            } else {
+                // Display mode
+                HStack(spacing: 8) {
+                    if authenticationService.nickname != nil {
+                        Image(systemName: "person.crop.circle")
+                            .foregroundColor(.accent)
+                    } else {
+                        Image(systemName: "person.crop.circle.badge.exclamationmark")
+                            .foregroundColor(.orange)
+                    }
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(authenticationService.nickname ?? Loc.Auth.nicknameNotSet.localized)
+                            .font(.body)
+                            .fontWeight(.medium)
+
+                        Text(Loc.Auth.nicknameCurrent.localized)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Button {
+                        startNicknameEdit()
+                    } label: {
+                        Image(systemName: "pencil")
+                            .font(.caption)
+                            .foregroundStyle(.blue)
+                    }
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+            }
+        }
+    }
+
     // MARK: - Account Linking Section
 
     private var accountLinkingSection: some View {
@@ -195,7 +334,7 @@ struct ProfileView: View {
                                     .font(.body)
                                     .fontWeight(.medium)
                                     .foregroundStyle(.primary)
-                                Text("For cross-platform subscription sharing")
+                                Text(Loc.Auth.crossPlatformButtonDescription.localized)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -265,6 +404,76 @@ struct ProfileView: View {
         } catch {
             errorReceived(error)
         }
+    }
+    
+    // MARK: - Name Editing Methods
+    
+    private func startNameEdit() {
+        editedName = authenticationService.displayName ?? ""
+        isEditingName = true
+        nameErrorMessage = nil
+    }
+    
+    private func cancelNameEdit() {
+        isEditingName = false
+        editedName = ""
+        nameErrorMessage = nil
+    }
+    
+    private func saveName() async {
+        let trimmedName = editedName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedName.isEmpty else {
+            nameErrorMessage = "Name cannot be empty"
+            return
+        }
+        
+        isSavingName = true
+        nameErrorMessage = nil
+        
+        do {
+            try await authenticationService.updateDisplayName(trimmedName)
+            isEditingName = false
+        } catch {
+            nameErrorMessage = "Failed to update name: \(error.localizedDescription)"
+        }
+        
+        isSavingName = false
+    }
+
+    // MARK: - Nickname Editing Methods
+
+    private func startNicknameEdit() {
+        editedNickname = authenticationService.nickname ?? ""
+        isEditingNickname = true
+        nicknameErrorMessage = nil
+    }
+
+    private func cancelNicknameEdit() {
+        isEditingNickname = false
+        editedNickname = ""
+        nicknameErrorMessage = nil
+    }
+
+    private func saveNickname() async {
+        let trimmedNickname = editedNickname.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedNickname.isEmpty else {
+            nicknameErrorMessage = Loc.Auth.nicknameCannotBeEmpty.localized
+            return
+        }
+
+        isSavingNickname = true
+        nicknameErrorMessage = nil
+
+        do {
+            try await authenticationService.updateNickname(trimmedNickname)
+            isEditingNickname = false
+        } catch let authError as AuthenticationError {
+            nicknameErrorMessage = authError.localizedDescription
+        } catch {
+            nicknameErrorMessage = "Failed to update nickname: \(error.localizedDescription)"
+        }
+
+        isSavingNickname = false
     }
 }
 

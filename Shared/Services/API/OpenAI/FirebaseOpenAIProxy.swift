@@ -4,9 +4,7 @@ import Foundation
 
 final class FirebaseOpenAIProxy: AIServiceInterface {
     static let shared = FirebaseOpenAIProxy()
-    
-    private let baseURL = "https://europe-west3-my-dictionary-english.cloudfunctions.net/openAIProxy"
-    
+
     private init() {}
     
     func generateWordInformation(
@@ -19,63 +17,26 @@ final class FirebaseOpenAIProxy: AIServiceInterface {
         print("🔍 [FirebaseOpenAIProxy] User ID: \(userId)")
         print("🔍 [FirebaseOpenAIProxy] Target language: \(targetLanguage ?? "auto-detect")")
         
-        let request = FirebaseOpenAIRequest(
-            word: word,
-            maxDefinitions: maxDefinitions,
-            targetLanguage: targetLanguage ?? getCurrentAppLanguage(),
-            userId: userId
-        )
-        
         print("🚀 [FirebaseOpenAIProxy] Making request to Firebase Functions...")
         
-        guard let url = URL(string: baseURL) else {
-            print("❌ [FirebaseOpenAIProxy] Invalid URL: \(baseURL)")
-            throw CoreError.networkError(.invalidURL)
-        }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpBody = try JSONEncoder().encode(request)
-        
-        print("🔍 [FirebaseOpenAIProxy] Request body: \(String(data: urlRequest.httpBody!, encoding: .utf8) ?? "")")
-        
-        let (data, response) = try await URLSession.shared.data(for: urlRequest)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            print("❌ [FirebaseOpenAIProxy] Invalid HTTP response type")
+        do {
+            let response = try await CloudFunctionsService.shared.openAIProxy(
+                word: word,
+                maxDefinitions: maxDefinitions,
+                targetLanguage: targetLanguage ?? getCurrentAppLanguage()
+            )
+            
+            print("✅ [FirebaseOpenAIProxy] Successfully received response from Firebase Functions")
+            print("🔍 [FirebaseOpenAIProxy] Usage - Prompt tokens: \(response.usage?.promptTokens ?? 0)")
+            print("🔍 [FirebaseOpenAIProxy] Usage - Completion tokens: \(response.usage?.completionTokens ?? 0)")
+            print("🔍 [FirebaseOpenAIProxy] Usage - Total tokens: \(response.usage?.totalTokens ?? 0)")
+            
+            // Parse the JSON response from OpenAI
+            return try parseWordInformationResponse(response.data)
+        } catch {
+            print("❌ [FirebaseOpenAIProxy] Error: \(error.localizedDescription)")
             throw CoreError.networkError(.serverUnreachable)
         }
-        
-        print("🔍 [FirebaseOpenAIProxy] HTTP status code: \(httpResponse.statusCode)")
-        
-        if httpResponse.statusCode != 200 {
-            print("❌ [FirebaseOpenAIProxy] HTTP error: \(httpResponse.statusCode)")
-            if let errorData = String(data: data, encoding: .utf8) {
-                print("🔍 [FirebaseOpenAIProxy] Error response: \(errorData)")
-            }
-            throw CoreError.networkError(.invalidResponse(statusCode: httpResponse.statusCode))
-        }
-        
-        let firebaseResponse = try JSONDecoder().decode(FirebaseOpenAIResponse.self, from: data)
-        
-        if !firebaseResponse.success {
-            print("❌ [FirebaseOpenAIProxy] Firebase function error: \(firebaseResponse.error ?? "Unknown error")")
-            throw CoreError.networkError(.serverUnreachable)
-        }
-        
-        guard let responseData = firebaseResponse.data else {
-            print("❌ [FirebaseOpenAIProxy] No data in response")
-            throw CoreError.networkError(.serverUnreachable)
-        }
-        
-        print("✅ [FirebaseOpenAIProxy] Successfully received response from Firebase Functions")
-        print("🔍 [FirebaseOpenAIProxy] Usage - Prompt tokens: \(firebaseResponse.usage?.promptTokens ?? 0)")
-        print("🔍 [FirebaseOpenAIProxy] Usage - Completion tokens: \(firebaseResponse.usage?.completionTokens ?? 0)")
-        print("🔍 [FirebaseOpenAIProxy] Usage - Total tokens: \(firebaseResponse.usage?.totalTokens ?? 0)")
-        
-        // Parse the JSON response from OpenAI
-        return try parseWordInformationResponse(responseData)
     }
     
     // MARK: - Private Methods

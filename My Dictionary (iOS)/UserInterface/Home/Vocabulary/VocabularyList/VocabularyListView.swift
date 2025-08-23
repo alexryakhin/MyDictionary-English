@@ -186,7 +186,12 @@ struct VocabularyListView: View {
                 .padding(.vertical, 24)
             }
         } trailingContent: {
-            HeaderButton(Loc.Idioms.addIdiom.localized, icon: "plus", size: .small, style: .borderedProminent) {
+            HeaderButton(
+                Loc.Idioms.addIdiom.localized,
+                icon: "plus",
+                size: .small,
+                style: .borderedProminent
+            ) {
                 idiomListViewModel.output.send(.showAddIdiom(searchText))
             }
         }
@@ -283,12 +288,11 @@ struct RatingBanner: View {
                 }
             }
         } trailingContent: {
-            Button {
+            HeaderButton(
+                icon: "xmark.circle.fill",
+                size: .small
+            ) {
                 onDismiss()
-            } label: {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.title3)
-                    .foregroundStyle(.secondary)
             }
         }
     }

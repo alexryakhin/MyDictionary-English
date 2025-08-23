@@ -27,6 +27,10 @@ service cloud.firestore {
       allow read, write: if isSignedIn() && request.auth.token.email == email;
     }
     
+
+    
+
+    
     // Device tokens subcollection - users can manage their own device tokens
     match /users/{email}/devices/{deviceId} {
       allow read, write: if isSignedIn() && request.auth.token.email == email;
@@ -35,6 +39,18 @@ service cloud.firestore {
     // Private dictionary rules - use email for words collection
     // Only users with same email can access their own words
     match /users/{email}/words/{wordId} {
+      allow read, write: if isSignedIn() && 
+        request.auth.token.email == email;
+    }
+    
+    // TTS Usage tracking - users can manage their own TTS usage data
+    match /users/{email}/tts_usage/{document} {
+      allow read, write: if isSignedIn() && 
+        request.auth.token.email == email;
+    }
+    
+    // TTS Monthly Usage tracking - users can manage their own monthly usage data
+    match /users/{email}/tts_monthly_usage/{document} {
       allow read, write: if isSignedIn() && 
         request.auth.token.email == email;
     }

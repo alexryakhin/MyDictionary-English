@@ -311,13 +311,13 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
 
             // Get subscription expiry date from RevenueCat
             let customerInfo = try await Purchases.shared.customerInfo()
-            let expiryDate = customerInfo.entitlements.active.values.first?.expirationDate
+            let expiryDate = customerInfo.entitlements.active.values.first?.expirationDate ?? .now
 
             // Use setData with merge to create document if it doesn't exist
             try await db.collection("users").document(userEmail).setData([
                 "subscriptionStatus": isProUser ? "pro" : "free",
                 "subscriptionPlan": currentPlan?.id ?? "none",
-                "subscriptionExpiryDate": expiryDate,
+                "subscriptionExpiryDate": Timestamp(date: expiryDate),
                 "lastUpdated": FieldValue.serverTimestamp()
             ], merge: true)
 

@@ -16,7 +16,13 @@ struct ProfileView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dismiss) private var dismiss
     @State private var showingSignOutAlert = false
-    
+    @State private var isEditingName = false
+    @State private var editedName = ""
+    @State private var nameErrorMessage: String?
+    @State private var isEditingNickname = false
+    @State private var editedNickname = ""
+    @State private var nicknameErrorMessage: String?
+
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
@@ -25,6 +31,9 @@ struct ProfileView: View {
 
                 // Account Information
                 accountInformationSection
+
+                // Nickname Section
+                nicknameSection
 
                 // Account Linking Section
                 accountLinkingSection
@@ -45,20 +54,66 @@ struct ProfileView: View {
             SignOutView()
         }
     }
-    
+
     // MARK: - Profile Header
-    
+
     private var profileHeader: some View {
         VStack(spacing: 16) {
             Image(systemName: "person.circle.fill")
                 .font(.system(size: 80))
                 .foregroundStyle(.accent)
-            
+
             VStack(spacing: 4) {
-                Text(authenticationService.displayName ?? Loc.Settings.anonymous.localized)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                
+                if isEditingName {
+                    // Inline editing
+                    VStack(spacing: 8) {
+                        TextField("Enter your name", text: $editedName)
+                            .textFieldStyle(.roundedBorder)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.center)
+                            .autocorrectionDisabled()
+                            .textInputAutocapitalization(.words)
+                            .onSubmit {
+                                Task {
+                                    await saveName()
+                                }
+                            }
+
+                        if let errorMessage = nameErrorMessage {
+                            Text(errorMessage)
+                                .font(.caption)
+                                .foregroundStyle(.red)
+                        }
+
+                        HStack(spacing: 12) {
+                            HeaderButton(Loc.Actions.cancel.localized) {
+                                cancelNameEdit()
+                            }
+
+                            AsyncHeaderButton(Loc.Actions.save.localized, style: .borderedProminent) {
+                                await saveName()
+                            }
+                            .disabled(editedName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                        }
+                    }
+                } else {
+                    // Display mode
+                    HStack {
+                        Text(authenticationService.displayName ?? Loc.Settings.anonymous.localized)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+
+                        Button {
+                            startNameEdit()
+                        } label: {
+                            Image(systemName: "pencil")
+                                .font(.caption)
+                                .foregroundStyle(.blue)
+                        }
+                    }
+                }
+
                 if let email = authenticationService.userEmail {
                     Text(email)
                         .font(.body)
@@ -68,9 +123,9 @@ struct ProfileView: View {
         }
         .padding(.vertical, 20)
     }
-    
+
     // MARK: - Account Information Section
-    
+
     private var accountInformationSection: some View {
         CustomSectionView(
             header: Loc.Auth.currentAccount.localized,
@@ -80,7 +135,7 @@ struct ProfileView: View {
                 HStack {
                     Image(systemName: authenticationService.hasAppleAccount ? "applelogo" : "globe")
                         .foregroundStyle(.accent)
-                    
+
                     VStack(alignment: .leading, spacing: 2) {
                         Text(authenticationService.hasAppleAccount ? "Apple ID" : "Google Account")
                             .font(.body)
@@ -89,15 +144,15 @@ struct ProfileView: View {
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
-                    
+
                     Spacer()
-                    
+
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(.green)
                 }
                 .padding(vertical: 12, horizontal: 16)
                 .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
-                
+
                 // Linked accounts
                 if authenticationService.hasGoogleAccount || authenticationService.hasAppleAccount {
                     VStack(alignment: .leading, spacing: 8) {
@@ -116,7 +171,7 @@ struct ProfileView: View {
                                     .foregroundStyle(.blue)
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
                             }
-                            
+
                             if authenticationService.hasAppleAccount {
                                 Label("Apple ID", systemImage: "applelogo")
                                     .font(.caption)
@@ -134,9 +189,89 @@ struct ProfileView: View {
             }
         }
     }
-    
+
+    // MARK: - Nickname Section
+
+    private var nicknameSection: some View {
+        CustomSectionView(
+            header: Loc.Auth.nickname.localized,
+            footer: Loc.Auth.nicknameDescription.localized
+        ) {
+            if isEditingNickname {
+                // Inline editing
+                VStack(spacing: 8) {
+                    HStack(spacing: 8) {
+                        TextField(Loc.Auth.enterNickname.localized, text: $editedNickname)
+                            .font(.body)
+                            .fontWeight(.medium)
+                            .autocorrectionDisabled()
+                            .textInputAutocapitalization(.never)
+
+                        HeaderButton(Loc.Actions.cancel.localized, color: .secondary) {
+                            cancelNicknameEdit()
+                        }
+                    }
+                    if let errorMessage = nicknameErrorMessage {
+                        Text(errorMessage)
+                            .font(.caption)
+                            .foregroundStyle(.red)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .padding(.bottom, 12)
+            } else {
+                // Display mode
+                HStack(spacing: 8) {
+                    if authenticationService.nickname != nil {
+                        Image(systemName: "person.crop.circle")
+                            .foregroundColor(.accent)
+                    } else {
+                        Image(systemName: "person.crop.circle.badge.exclamationmark")
+                            .foregroundColor(.orange)
+                    }
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(authenticationService.nickname ?? Loc.Auth.nicknameNotSet.localized)
+                            .font(.body)
+                            .fontWeight(.medium)
+
+                        Text(Loc.Auth.nicknameCurrent.localized)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .padding(.bottom, 12)
+            }
+        } trailingContent: {
+            if isEditingNickname {
+                AsyncHeaderButton(
+                    Loc.Actions.save.localized,
+                    size: .small,
+                    style: .borderedProminent
+                ) {
+                    await saveNickname()
+                }
+                .disabled(editedNickname.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            } else {
+                HeaderButton(
+                    authenticationService.nickname != nil
+                    ? Loc.Actions.edit.localized
+                    : Loc.Actions.add.localized,
+                    size: .small
+                ) {
+                    startNicknameEdit()
+                }
+            }
+        }
+        .animation(.default, value: isEditingNickname)
+    }
+
     // MARK: - Account Linking Section
-    
+
     private var accountLinkingSection: some View {
         CustomSectionView(
             header: Loc.Auth.accountLinking.localized,
@@ -155,7 +290,7 @@ struct ProfileView: View {
                             Image(.googleLogo)
                                 .resizable()
                                 .frame(width: 20, height: 20)
-                            
+
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(Loc.Auth.linkGoogleForAndroid.localized)
                                     .font(.body)
@@ -165,9 +300,9 @@ struct ProfileView: View {
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
-                            
+
                             Spacer()
-                            
+
                             Image(systemName: "chevron.right")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
@@ -177,7 +312,7 @@ struct ProfileView: View {
                     }
                     .disabled(authenticationService.authenticationState == .loading)
                 }
-                
+
                 // Link Apple Account (for cross-platform)
                 if !authenticationService.hasAppleAccount {
                     Button {
@@ -190,19 +325,19 @@ struct ProfileView: View {
                             Image(systemName: "applelogo")
                                 .font(.title2)
                                 .foregroundStyle(.black)
-                            
+
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(Loc.Auth.linkAppleForCrossPlatform.localized)
                                     .font(.body)
                                     .fontWeight(.medium)
                                     .foregroundStyle(.primary)
-                                Text("For cross-platform subscription sharing")
+                                Text(Loc.Auth.crossPlatformButtonDescription.localized)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
-                            
+
                             Spacer()
-                            
+
                             Image(systemName: "chevron.right")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
@@ -212,7 +347,7 @@ struct ProfileView: View {
                     }
                     .disabled(authenticationService.authenticationState == .loading)
                 }
-                
+
                 // All accounts linked
                 if authenticationService.hasGoogleAccount && authenticationService.hasAppleAccount {
                     HStack {
@@ -230,9 +365,9 @@ struct ProfileView: View {
             .padding(.bottom, 12)
         }
     }
-    
+
     // MARK: - Sign Out Section
-    
+
     private var signOutSection: some View {
         CustomSectionView(
             header: Loc.Auth.signOut.localized,
@@ -248,9 +383,9 @@ struct ProfileView: View {
             .padding(.bottom, 12)
         }
     }
-    
+
     // MARK: - Account Linking Methods
-    
+
     private func linkGoogleAccount() async {
         do {
             try await authenticationService.linkGoogleAccount()
@@ -260,7 +395,7 @@ struct ProfileView: View {
             errorReceived(error)
         }
     }
-    
+
     private func linkAppleAccount() async {
         do {
             try await authenticationService.linkAppleAccount()
@@ -268,6 +403,75 @@ struct ProfileView: View {
         } catch {
             HapticManager.shared.triggerNotification(type: .error)
             errorReceived(error)
+        }
+    }
+
+    // MARK: - Name Editing Methods
+
+    private func startNameEdit() {
+        editedName = authenticationService.displayName ?? ""
+        isEditingName = true
+        nameErrorMessage = nil
+    }
+
+    private func cancelNameEdit() {
+        isEditingName = false
+        editedName = ""
+        nameErrorMessage = nil
+    }
+
+    private func saveName() async {
+        let trimmedName = editedName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedName.isEmpty else {
+            nameErrorMessage = "Name cannot be empty"
+            return
+        }
+
+        nameErrorMessage = nil
+
+        do {
+            try await authenticationService.updateDisplayName(trimmedName)
+            isEditingName = false
+            HapticManager.shared.triggerNotification(type: .success)
+        } catch {
+            nameErrorMessage = "Failed to update name: \(error.localizedDescription)"
+            HapticManager.shared.triggerNotification(type: .error)
+        }
+    }
+
+    // MARK: - Nickname Editing Methods
+
+    private func startNicknameEdit() {
+        editedNickname = authenticationService.nickname ?? ""
+        isEditingNickname = true
+        nicknameErrorMessage = nil
+    }
+
+    private func cancelNicknameEdit() {
+        isEditingNickname = false
+        editedNickname = ""
+        nicknameErrorMessage = nil
+    }
+
+    private func saveNickname() async {
+        let trimmedNickname = editedNickname.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedNickname.isEmpty else {
+            nicknameErrorMessage = Loc.Auth.nicknameCannotBeEmpty.localized
+            return
+        }
+
+        nicknameErrorMessage = nil
+
+        do {
+            try await authenticationService.updateNickname(trimmedNickname)
+            isEditingNickname = false
+            HapticManager.shared.triggerNotification(type: .success)
+        } catch let authError as AuthenticationError {
+            nicknameErrorMessage = authError.localizedDescription
+            HapticManager.shared.triggerNotification(type: .error)
+        } catch {
+            nicknameErrorMessage = "Failed to update nickname: \(error.localizedDescription)"
+            HapticManager.shared.triggerNotification(type: .error)
         }
     }
 }
