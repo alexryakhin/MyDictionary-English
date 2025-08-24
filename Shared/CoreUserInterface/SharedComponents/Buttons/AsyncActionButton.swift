@@ -67,10 +67,7 @@ struct AsyncActionButton: View {
             .background(backgroundStyle.gradient)
             .overlay {
                 if isLoading {
-                    ProgressView()
-                        .progressViewStyle(.circular)
-                        .tint(foregroundStyle)
-                        .font(font)
+                    LoaderView(color: foregroundStyle)
                         .frame(width: 16, height: 16)
                 }
             }

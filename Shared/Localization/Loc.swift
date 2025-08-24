@@ -111,6 +111,8 @@ enum Loc {
         static let smartQuizzesDescription = "onboarding.smart_quizzes_description"
         static let progressTrackingDescription = "onboarding.progress_tracking_description"
         static let collaborativeLearningDescription = "onboarding.collaborative_learning_description"
+        static let naturalVoices = "onboarding.natural_voices"
+        static let naturalVoicesDescription = "onboarding.natural_voices_description"
     }
 
     // MARK: - Words
@@ -772,6 +774,8 @@ enum Loc {
         static let organizeWordsWithTags = "pro_features.organize_words_with_tags"
         static let detailedProgressTracking = "pro_features.detailed_progress_tracking"
         static let getPrioritySupport = "pro_features.get_priority_support"
+        static let speechifyTTS = "pro_features.speechify_tts"
+        static let speechifyTTSDescription = "pro_features.speechify_tts_description"
     }
 
     // MARK: - Error Messages

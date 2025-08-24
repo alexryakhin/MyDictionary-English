@@ -46,6 +46,7 @@ struct SubscriptionPlan: Identifiable, Hashable {
 // MARK: - Subscription Features
 
 enum SubscriptionFeature: String, CaseIterable {
+    case premiumTTS = "premium_tts"
     case unlimitedExport = "unlimited_export"
     case createSharedDictionaries = "create_shared_dictionaries"
     case tagManagement = "tag_management"
@@ -54,6 +55,7 @@ enum SubscriptionFeature: String, CaseIterable {
 
     var displayName: String {
         switch self {
+        case .premiumTTS: Loc.ProFeatures.speechifyTTS.localized
         case .unlimitedExport: Loc.ProFeatures.unlimitedExport.localized
         case .createSharedDictionaries: Loc.ProFeatures.createSharedDictionaries.localized
         case .tagManagement: Loc.ProFeatures.tagManagement.localized
@@ -64,6 +66,7 @@ enum SubscriptionFeature: String, CaseIterable {
 
     var description: String {
         switch self {
+        case .premiumTTS: Loc.ProFeatures.speechifyTTSDescription.localized
         case .unlimitedExport: Loc.ProFeatures.syncWordsAcrossDevices.localized
         case .createSharedDictionaries: Loc.ProFeatures.createManageSharedDictionaries.localized
         case .tagManagement: Loc.ProFeatures.organizeWordsWithTags.localized
@@ -74,6 +77,7 @@ enum SubscriptionFeature: String, CaseIterable {
 
     var iconName: String {
         switch self {
+        case .premiumTTS: "person.wave.2.fill"
         case .unlimitedExport: "square.and.arrow.up"
         case .createSharedDictionaries: "person.2.fill"
         case .tagManagement: "tag.fill"

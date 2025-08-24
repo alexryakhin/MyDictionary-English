@@ -122,8 +122,8 @@ struct AuthenticationView: View {
                         .foregroundStyle(.secondary)
 
                     if authService.authenticationState == .loading {
-                        ProgressView()
-                            .scaleEffect(0.8)
+                        LoaderView()
+                            .frame(width: 24, height: 24)
                     }
                 }
             }

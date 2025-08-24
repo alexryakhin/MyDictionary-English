@@ -182,6 +182,8 @@
 "onboarding.smart_quizzes_description" = "Adaptive quizzes that learn from your progress";
 "onboarding.progress_tracking_description" = "Visual insights into your vocabulary growth";
 "onboarding.collaborative_learning_description" = "Share dictionaries with friends and family";
+"onboarding.natural_voices" = "Natural Voices";
+"onboarding.natural_voices_description" = "Hundreds of premium voices that sound more human than ever";
 
 // MARK: - Words
 "words.add_word" = "Add Word";
@@ -767,6 +769,8 @@
 "pro_features.organize_words_with_tags" = "Organize your words with custom tags for easier search";
 "pro_features.detailed_progress_tracking" = "Detailed progress tracking and insights";
 "pro_features.get_priority_support" = "Get priority support when you need help";
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Access to Speechify's premium text-to-speech technology. Hundreds of natural-sounding premium voices";
 
 // MARK: - Error Messages
 "errors.error_updating_word_examples" = "Error updating word examples";

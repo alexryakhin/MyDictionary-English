@@ -64,8 +64,8 @@ struct AddCollaboratorView: View {
                                 }
                             } label: {
                                 if isSearching {
-                                    ProgressView()
-                                        .scaleEffect(0.8)
+                                    LoaderView()
+                                        .frame(width: 24, height: 24)
                                 } else {
                                     Image(systemName: "magnifyingglass")
                                         .foregroundStyle(.blue)

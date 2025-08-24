@@ -210,8 +210,8 @@ struct AddWordView: View {
 
                     if viewModel.isTranslating {
                         HStack {
-                            ProgressView()
-                                .scaleEffect(0.8)
+                            LoaderView()
+                                .frame(width: 24, height: 24)
                             Text(GlobalConstant.isEnglishLanguage ? Loc.App.translatingWord.localized : Loc.App.translatingDefinitions.localized)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)

@@ -134,7 +134,7 @@ final class TTSUsageTracker: ObservableObject {
             let monthlyData: [String: Any] = [
                 "usage": monthlyUsage,
                 "limit": getMonthlySpeechifyLimit(),
-                "lastUpdated": Date()
+                "lastUpdated": Timestamp(date: .now)
             ]
             
             try await db.collection("users")
@@ -448,27 +448,31 @@ final class TTSUsageTracker: ObservableObject {
     // MARK: - Statistics
 
     var totalCharactersFormatted: String {
-        return formatNumber(usageStats.totalCharacters)
+        return usageStats.totalCharacters.formatted()
     }
 
     var totalSessionsFormatted: String {
-        return formatNumber(usageStats.totalSessions)
+        return usageStats.totalSessions.formatted()
     }
 
     var totalDurationFormatted: String {
-        let hours = Int(usageStats.totalDuration) / 3600
-        let minutes = Int(usageStats.totalDuration) % 3600 / 60
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        formatter.maximumUnitCount = 2
+        formatter.zeroFormattingBehavior = .dropAll
 
-        if hours > 0 {
-            return "\(hours)h \(minutes)m"
-        } else {
-            return "\(minutes)m"
-        }
+        let timeInterval = usageStats.totalDuration
+        return formatter.string(from: timeInterval) ?? "0min"
     }
 
     var favoriteVoice: String {
         let sortedVoices = usageStats.voiceUsage.sorted { $0.value > $1.value }
-        return sortedVoices.first?.key ?? "None"
+        let voiceId = sortedVoices.first?.key
+        if let voice = TTSPlayer.shared.availableVoices.first(where: { $0.id == voiceId }) {
+            return voice.displayName
+        }
+        return "Default Voice"
     }
 
     var favoriteLanguage: String {
@@ -515,12 +519,6 @@ final class TTSUsageTracker: ObservableObject {
 
     // MARK: - Helper Methods
 
-    private func formatNumber(_ number: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        return formatter.string(from: NSNumber(value: number)) ?? "0"
-    }
-
     func resetStats() {
         usageStats = TTSUsageStats()
         saveUsageStats()
@@ -536,8 +534,8 @@ final class TTSUsageTracker: ObservableObject {
         Time Saved: \(timeSaved)
         
         Provider Usage:
-        - Google TTS: \(formatNumber(usageStats.googleCharacters)) characters
-        - Speechify: \(formatNumber(usageStats.speechifyCharacters)) characters
+        - Google TTS: \(usageStats.googleCharacters.formatted()) characters
+        - Speechify: \(usageStats.speechifyCharacters.formatted()) characters
         - Premium Usage: \(String(format: "%.1f", providerUsagePercentage))%
         
         Favorite Voice: \(favoriteVoice)

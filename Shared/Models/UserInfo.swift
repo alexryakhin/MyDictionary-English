@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseCore
 
 struct UserInfo: Codable, Identifiable {
     let id: String
@@ -68,5 +69,35 @@ struct UserInfo: Codable, Identifiable {
         } else {
             self.registrationDate = nil
         }
+    }
+
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.email = try container.decode(String.self, forKey: .email)
+        self.displayName = try container.decodeIfPresent(String.self, forKey: .displayName)
+        self.nickname = try container.decodeIfPresent(String.self, forKey: .nickname)
+        
+        // Handle registrationDate with multiple possible formats
+        if let registrationDate = try? container.decodeIfPresent(Date.self, forKey: .registrationDate) {
+            self.registrationDate = registrationDate
+        } else if let registrationTimestamp = try? container.decodeIfPresent(Timestamp.self, forKey: .registrationDate) {
+            self.registrationDate = registrationTimestamp.dateValue()
+        } else {
+            // Try to decode as a Firestore timestamp dictionary
+            do {
+                let timestampContainer = try container.nestedContainer(keyedBy: TimestampCodingKeys.self, forKey: .registrationDate)
+                let seconds = try timestampContainer.decode(Int64.self, forKey: .seconds)
+                self.registrationDate = Date(timeIntervalSince1970: TimeInterval(seconds))
+            } catch {
+                // If we can't decode the registration date, just set it to nil
+                self.registrationDate = nil
+            }
+        }
+    }
+    
+    private enum TimestampCodingKeys: String, CodingKey {
+        case seconds = "_seconds"
+        case nanoseconds = "_nanoseconds"
     }
 }

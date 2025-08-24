@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SplashScreenView: View {
-    
+
     @State private var isAnimating = false
-    
+
     var body: some View {
         VStack(spacing: 24) {
             // App icon
@@ -19,18 +19,18 @@ struct SplashScreenView: View {
                 .foregroundStyle(.blue)
                 .scaleEffect(isAnimating ? 1.1 : 1.0)
                 .animation(.easeInOut(duration: 1.0).repeatForever(autoreverses: true), value: isAnimating)
-            
+
             // App name
-                            Text(Loc.App.myDictionary.localized)
+            Text(Loc.App.myDictionary.localized)
                 .font(.largeTitle)
                 .bold()
-            
+
             // Loading indicator
-            ProgressView()
-                .scaleEffect(1.2)
-            
+            LoaderView()
+                .frame(width: 32, height: 32)
+
             // Loading text
-                            Text(Loc.App.loading.localized)
+            Text(Loc.App.loading.localized)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }

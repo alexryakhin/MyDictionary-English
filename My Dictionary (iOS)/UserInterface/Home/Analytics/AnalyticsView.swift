@@ -21,8 +21,8 @@ struct AnalyticsView: View {
         ScrollView {
             if viewModel.isLoading {
                 VStack(spacing: 16) {
-                    ProgressView()
-                        .scaleEffect(1.5)
+                    LoaderView()
+                        .frame(width: 32, height: 32)
                     Text(Loc.Analytics.loadingProgressData.localized)
                         .font(.caption)
                         .foregroundStyle(.secondary)

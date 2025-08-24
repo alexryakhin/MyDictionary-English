@@ -109,10 +109,7 @@ struct AsyncHeaderButton: View {
             .background(backgroundStyle.gradient)
             .overlay {
                 if isLoading {
-                    ProgressView()
-                        .progressViewStyle(.circular)
-                        .tint(foregroundStyle)
-                        .font(size.font)
+                    LoaderView(color: foregroundStyle)
                         .frame(width: size.imageSize, height: size.imageSize)
                 }
             }

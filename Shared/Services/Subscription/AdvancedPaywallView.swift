@@ -192,9 +192,8 @@ struct AdvancedPaywallView: View {
             } label: {
                 HStack {
                     if isLoading {
-                        ProgressView()
-                            .scaleEffect(0.8)
-                            .tint(.white)
+                        LoaderView(color: .white)
+                            .frame(width: 24, height: 24)
                     } else {
                         Text(Loc.Paywall.startProSubscription.localized)
                             .fontWeight(.semibold)

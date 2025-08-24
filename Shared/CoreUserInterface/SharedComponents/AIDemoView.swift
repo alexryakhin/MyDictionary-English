@@ -81,9 +81,9 @@ struct AIDemoView: View {
                     // Results Section
                     if viewModel.isProcessing {
                         VStack(spacing: 12) {
-                            ProgressView()
-                                .scaleEffect(1.2)
-                            
+                            LoaderView()
+                                .frame(width: 32, height: 32)
+
                             Text("AI is processing...")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)

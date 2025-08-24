@@ -221,13 +221,22 @@ struct OnboardingView: View {
                 .offset(x: animateContent ? 0 : 50)
                 
                 PersonalizationCard(
+                    icon: "person.wave.2.fill",
+                    title: Loc.Onboarding.naturalVoices.localized,
+                    description: Loc.Onboarding.naturalVoicesDescription.localized,
+                    color: .orange
+                )
+                .opacity(animateContent ? 1 : 0)
+                .offset(x: animateContent ? 0 : -50)
+                
+                PersonalizationCard(
                     icon: "person.2.fill",
                     title: Loc.Onboarding.collaborativeLearning.localized,
                     description: Loc.Onboarding.collaborativeLearningDescription.localized,
                     color: .purple
                 )
                 .opacity(animateContent ? 1 : 0)
-                .offset(x: animateContent ? 0 : -50)
+                .offset(x: animateContent ? 0 : 50)
             }
             .animation(.easeInOut(duration: 0.8).delay(0.4), value: animateContent)
             
