@@ -1,0 +1,15 @@
+# SwiftGen Configuration File
+# For more information: https://github.com/SwiftGen/SwiftGen
+
+# Localizable strings
+strings:
+  inputs:
+    - Shared/Localization/en.lproj/Localizable.strings
+  outputs:
+    templateName: structured-swift5
+    output: Shared/Localization/Generated/L10n.swift
+    params:
+      enumName: L10n
+      publicAccess: true
+      generateStringExtensions: true
+      generateSwiftUIBindings: true
