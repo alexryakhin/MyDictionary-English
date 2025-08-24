@@ -386,29 +386,4 @@ struct SettingsView: View {
             }
         }
     }
-
-    // MARK: - Supporting Views
-
-    private struct QuickStatView: View {
-        let title: String
-        let value: String
-        let icon: String
-
-        var body: some View {
-            VStack(spacing: 4) {
-                Image(systemName: icon)
-                    .font(.caption)
-                    .foregroundColor(.blue)
-
-                Text(value)
-                    .font(.caption)
-                    .fontWeight(.semibold)
-
-                Text(title)
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-        }
-    }
 }

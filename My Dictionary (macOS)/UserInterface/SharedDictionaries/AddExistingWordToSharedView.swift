@@ -93,8 +93,11 @@ struct AddExistingWordToSharedView: View {
             NavigationBarView(
                 title: Loc.SharedDictionarySelection.addToShared.localized,
                 trailingContent: {
-                    HeaderButton(Loc.App.addToSharedDictionary.localized, style: .borderedProminent) {
-                        addWordToSelectedDictionary()
+                    AsyncHeaderButton(
+                        Loc.App.addToSharedDictionary.localized,
+                        style: .borderedProminent
+                    ) {
+                        try await addWordToSelectedDictionary()
                     }
                     .disabled(selectedDictionaryId == nil)
                     .help(Loc.SharedDictionarySelection.addWordToSharedDictionary.localized)
@@ -112,24 +115,13 @@ struct AddExistingWordToSharedView: View {
         }
     }
 
-    private func addWordToSelectedDictionary() {
-        Task { @MainActor in
-            isLoading = true
-            defer {
-                isLoading = false
-            }
+    private func addWordToSelectedDictionary() async throws {
+        guard let dictionaryId = selectedDictionaryId, let wordData = Word(from: word) else { return }
 
-            guard let dictionaryId = selectedDictionaryId, let wordData = Word(from: word) else { return }
-
-            do {
-                try await dictionaryService.addWordToSharedDictionary(
-                    dictionaryId: dictionaryId,
-                    word: wordData
-                )
-                dismiss()
-            } catch {
-                errorReceived(error)
-            }
-        }
+        try await dictionaryService.addWordToSharedDictionary(
+            dictionaryId: dictionaryId,
+            word: wordData
+        )
+        dismiss()
     }
 }

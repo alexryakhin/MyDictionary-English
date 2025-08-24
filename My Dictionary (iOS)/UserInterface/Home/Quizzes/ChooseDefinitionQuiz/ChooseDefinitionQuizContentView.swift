@@ -145,9 +145,10 @@ struct ChooseDefinitionQuizContentView: View {
                 
                 Spacer()
 
-                HeaderButton(icon: "speaker.wave.2.fill", size: .small) {
-                    play(viewModel.correctItem.quiz_text, isWord: true)
+                AsyncHeaderButton(icon: "speaker.wave.2.fill", size: .small) {
+                    try await play(viewModel.correctItem.quiz_text, isWord: true)
                 }
+                .disabled(TTSPlayer.shared.isPlaying)
             }
             
             Text(viewModel.correctItem.quiz_text)
@@ -375,20 +376,14 @@ struct ChooseDefinitionQuizContentView: View {
         }
     }
 
-    private func play(_ text: String?, isWord: Bool = false) {
-        Task { @MainActor in
-            guard let text else { return }
+    private func play(_ text: String?, isWord: Bool = false) async throws {
+        guard let text else { return }
 
-            do {
-                try await TTSPlayer.shared.play(
-                    text,
-                    targetLanguage: isWord
-                    ? viewModel.correctItem.quiz_languageCode
-                    : Locale.current.language.languageCode?.identifier
-                )
-            } catch {
-                errorReceived(error)
-            }
-        }
+        try await TTSPlayer.shared.play(
+            text,
+            targetLanguage: isWord
+            ? viewModel.correctItem.quiz_languageCode
+            : Locale.current.language.languageCode?.identifier
+        )
     }
 }

@@ -145,9 +145,14 @@ struct SharedWordDetailsView: View {
                     savePhonetic()
                 }
             } else {
-                HeaderButton(Loc.Actions.listen.localized, icon: "speaker.wave.2.fill", size: .small) {
-                    play(word.wordItself, isWord: true)
+                AsyncHeaderButton(
+                    Loc.Actions.listen.localized,
+                    icon: "speaker.wave.2.fill",
+                    size: .small
+                ) {
+                    try await play(word.wordItself, isWord: true)
                 }
+                .disabled(TTSPlayer.shared.isPlaying)
             }
         }
     }
@@ -191,10 +196,15 @@ struct SharedWordDetailsView: View {
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                 }
             } else {
-                HeaderButton(Loc.Actions.listen.localized, icon: "speaker.wave.2.fill", size: .small) {
-                    play(word.definition)
+                AsyncHeaderButton(
+                    Loc.Actions.listen.localized,
+                    icon: "speaker.wave.2.fill",
+                    size: .small
+                ) {
+                    try await play(word.definition)
                     AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
+                .disabled(TTSPlayer.shared.isPlaying)
             }
         }
     }
@@ -231,11 +241,14 @@ struct SharedWordDetailsView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             Menu {
                                 Button {
-                                    play(example)
+                                    Task {
+                                        try await play(example)
+                                    }
                                     AnalyticsService.shared.logEvent(.wordExamplePlayed)
                                 } label: {
                                     Label(Loc.Actions.listen.localized, systemImage: "speaker.wave.2.fill")
                                 }
+                                .disabled(TTSPlayer.shared.isPlaying)
                                 if canEdit {
                                     Button {
                                         exampleTextFieldStr = example
@@ -422,21 +435,14 @@ struct SharedWordDetailsView: View {
         }
     }
 
-    private func play(_ text: String?, isWord: Bool = false) {
-        Task { @MainActor in
-            guard let text else { return }
-
-            do {
-                try await TTSPlayer.shared.play(
-                    text,
-                    targetLanguage: isWord
-                    ? word.languageCode
-                    : Locale.current.language.languageCode?.identifier
-                )
-            } catch {
-                // Handle error if needed
-            }
-        }
+    private func play(_ text: String?, isWord: Bool = false) async throws {
+        guard let text else { return }
+        try await TTSPlayer.shared.play(
+            text,
+            targetLanguage: isWord
+            ? word.languageCode
+            : Locale.current.language.languageCode?.identifier
+        )
     }
 
     private func updatePartOfSpeech(_ value: PartOfSpeech) {

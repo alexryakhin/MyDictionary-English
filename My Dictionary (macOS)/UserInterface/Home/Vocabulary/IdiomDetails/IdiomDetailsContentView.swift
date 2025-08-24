@@ -99,9 +99,14 @@ struct IdiomDetailsView: View {
                     AnalyticsService.shared.logEvent(.idiomChanged)
                 }
             } else {
-                HeaderButton(Loc.Actions.listen.localized, icon: "speaker.wave.2.fill", size: .small) {
-                    play(idiom.idiomItself)
+                AsyncHeaderButton(
+                    Loc.Actions.listen.localized,
+                    icon: "speaker.wave.2.fill",
+                    size: .small
+                ) {
+                    try await play(idiom.idiomItself)
                 }
+                .disabled(TTSPlayer.shared.isPlaying)
             }
         }
     }
@@ -126,10 +131,15 @@ struct IdiomDetailsView: View {
                     AnalyticsService.shared.logEvent(.idiomDefinitionChanged)
                 }
             } else {
-                HeaderButton(Loc.Actions.listen.localized, icon: "speaker.wave.2.fill", size: .small) {
-                    play(idiom.definition)
+                AsyncHeaderButton(
+                    Loc.Actions.listen.localized,
+                    icon: "speaker.wave.2.fill",
+                    size: .small
+                ) {
+                    try await play(idiom.definition)
                     AnalyticsService.shared.logEvent(.idiomDefinitionPlayed)
                 }
+                .disabled(TTSPlayer.shared.isPlaying)
             }
         }
     }
@@ -221,11 +231,14 @@ struct IdiomDetailsView: View {
 
                             Menu {
                                 Button {
-                                    play(example)
+                                    Task {
+                                        try await play(example)
+                                    }
                                     AnalyticsService.shared.logEvent(.idiomExamplePlayed)
                                 } label: {
                                     Label(Loc.Actions.listen.localized, systemImage: "speaker.wave.2.fill")
                                 }
+                                .disabled(TTSPlayer.shared.isPlaying)
                                 Button {
                                     exampleTextFieldStr = example
                                     editingExampleIndex = index
@@ -309,19 +322,12 @@ struct IdiomDetailsView: View {
         }
     }
 
-    private func play(_ text: String?) {
-        Task { @MainActor in
-            guard let text else { return }
-
-            do {
-                try await TTSPlayer.shared.play(
-                    text,
-                    targetLanguage: Locale.current.language.languageCode?.identifier
-                )
-            } catch {
-                errorReceived(error)
-            }
-        }
+    private func play(_ text: String?) async throws {
+        guard let text else { return }
+        try await TTSPlayer.shared.play(
+            text,
+            targetLanguage: Locale.current.language.languageCode?.identifier
+        )
     }
 
     private func addExample(_ example: String) {

@@ -23,47 +23,19 @@ struct SettingsView: View {
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var paywallService = PaywallService.shared
     @StateObject private var dataSyncService = DataSyncService.shared
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     @State private var showingSignIn: Bool = false
     @State private var showingTagManagement: Bool = false
     @State private var showingSharedDictionaries: Bool = false
     @State private var showingProfile: Bool = false
+    @State private var showingTTSDashboard: Bool = false
 
     var body: some View {
         ScrollView {
             VStack(spacing: 12) {
-                // MARK: - Translate Definitions
-                if !GlobalConstant.isEnglishLanguage {
-                    CustomSectionView(header: Loc.Settings.translateDefinitions.localized) {
-                        HStack {
-                            Text(Loc.Settings.showDefinitionsNativeLanguage.localized)
-                                .font(.body)
-                                .fontWeight(.medium)
-                            Spacer()
-                            Toggle(Loc.Settings.showDefinitionsNativeLanguage.localized, isOn: $translateDefinitions)
-                                .labelsHidden()
-                        }
-                        .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
-                    }
-                } else {
-                    CustomSectionView(header: Loc.Settings.accent.localized) {
-                        HStack {
-                            Text(Loc.Settings.selectAccent.localized)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            HeaderButtonMenu(viewModel.selectedEnglishAccent.displayName, size: .small) {
-                                Picker(Loc.Settings.selectAccent.localized, selection: $viewModel.selectedEnglishAccent) {
-                                    ForEach(EnglishAccent.allCases, id: \.self) {
-                                        Text($0.displayName).tag($0)
-                                    }
-                                }
-                                .pickerStyle(.inline)
-                            }
-                        }
-                        .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
-                    }
-                }
+                translateDefinitionsSection
+                ttsSection
 
                 // MARK: - Notifications
 
@@ -208,20 +180,18 @@ struct SettingsView: View {
                             .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
 
                             // Manual sync buttons
-                            ActionButton(
+                            AsyncActionButton(
                                 Loc.Settings.uploadBackupToGoogle.localized,
-                                systemImage: "icloud.and.arrow.up",
-                                isLoading: dataSyncService.isUploading
+                                systemImage: "icloud.and.arrow.up"
                             ) {
-                                viewModel.uploadBackupToGoogle()
+                                try await viewModel.uploadBackupToGoogle()
                             }
 
-                            ActionButton(
+                            AsyncActionButton(
                                 Loc.Settings.downloadBackupFromGoogle.localized,
-                                systemImage: "icloud.and.arrow.down",
-                                isLoading: dataSyncService.isRestoring
+                                systemImage: "icloud.and.arrow.down"
                             ) {
-                                viewModel.downloadBackupFromGoogle()
+                                try await viewModel.downloadBackupFromGoogle()
                             }
                         }
                         .padding(.bottom, 12)
@@ -339,6 +309,112 @@ struct SettingsView: View {
             if state == .signedOut {
                 showingProfile = false
             }
+        }
+    }
+
+    // MARK: - Translate Definitions Section
+
+    @ViewBuilder
+    private var translateDefinitionsSection: some View {
+        if !GlobalConstant.isEnglishLanguage {
+            CustomSectionView(header: Loc.Settings.translateDefinitions.localized) {
+                HStack {
+                    Text(Loc.Settings.showDefinitionsNativeLanguage.localized)
+                        .font(.body)
+                        .fontWeight(.medium)
+                    Spacer()
+                    Toggle(Loc.Settings.showDefinitionsNativeLanguage.localized, isOn: $translateDefinitions)
+                        .labelsHidden()
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+            }
+        }
+    }
+
+    // MARK: - TTS Section
+
+    private var ttsSection: some View {
+        CustomSectionView(header: "Text-to-Speech") {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(spacing: 8) {
+                    Image(.speechifyLogo)
+                        .foregroundStyle(.accent)
+                        .font(.title3)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Speechify")
+                            .font(.headline)
+
+                        Text(
+                            subscriptionService.isProUser
+                            ? "Speechify’s Text-to-Speech AI model is included in your subscription."
+                            : "Speechify’s Text-to-Speech AI model is available for all users as a premium feature. It allows you to choose from a wide range of voices and accents, so you can fine-tune your study experience."
+                        )
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+
+                HStack(spacing: 8) {
+                    Image(systemName: "person.wave.2.fill")
+                        .foregroundStyle(.accent)
+                        .font(.title3)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Current Voice")
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+                        if subscriptionService.isProUser, let currentVoice = ttsPlayer.selectedSpeechifyVoiceModel {
+                            Text([currentVoice.name, currentVoice.languageDisplayName].joined(separator: ", "))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        } else {
+                            Text("Default Voice")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+
+                if !subscriptionService.isProUser && GlobalConstant.isEnglishLanguage {
+                    HStack(spacing: 8) {
+                        Text(Loc.Settings.selectAccent.localized)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        HeaderButtonMenu(viewModel.selectedEnglishAccent.displayName, size: .small) {
+                            Picker(
+                                Loc.Settings.selectAccent.localized,
+                                selection: $viewModel.selectedEnglishAccent
+                            ) {
+                                ForEach(EnglishAccent.allCases, id: \.self) {
+                                    Text($0.displayName).tag($0)
+                                }
+                            }
+                            .pickerStyle(.inline)
+                        }
+                    }
+                    .padding(vertical: 12, horizontal: 16)
+                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                }
+            }
+        } trailingContent: {
+            if subscriptionService.isProUser {
+                HeaderButton(
+                    "Dashboard",
+                    size: .small
+                ) {
+                    showingTTSDashboard = true
+                }
+            }
+        }
+        .sheet(isPresented: $showingTTSDashboard) {
+            TTSDashboard.ContentView()
         }
     }
 }

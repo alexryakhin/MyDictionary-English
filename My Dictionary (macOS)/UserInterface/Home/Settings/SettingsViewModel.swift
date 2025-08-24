@@ -37,16 +37,16 @@ final class SettingsViewModel: BaseViewModel {
             .assign(to: \.words, on: self)
             .store(in: &cancellables)
     }
-    
+
     // MARK: - Computed Properties
-    
+
     var hasHardWords: Bool {
         return words.contains { $0.difficultyLevel == .needsReview }
     }
-    #if os(iOS)
+#if os(iOS)
     func exportWords() {
         guard !words.isEmpty else { return }
-        
+
         let subscriptionService = SubscriptionService.shared
         guard subscriptionService.canExportWords(words.count) else {
             errorReceived(
@@ -54,12 +54,12 @@ final class SettingsViewModel: BaseViewModel {
             )
             return
         }
-        
+
         Task { @MainActor in
             exportWordsUrl = csvManager.exportWordsToCSV(wordModels: words)
         }
     }
-    #elseif os(macOS)
+#elseif os(macOS)
     func exportWords() {
         guard !words.isEmpty else { return }
 
@@ -96,7 +96,7 @@ final class SettingsViewModel: BaseViewModel {
             }
         }
     }
-    #endif
+#endif
 
     func importWords(from url: URL) {
         guard url.startAccessingSecurityScopedResource() else {
@@ -112,7 +112,7 @@ final class SettingsViewModel: BaseViewModel {
             errorReceived(error)
         }
     }
-    
+
     func requestNotificationPermission() {
         Task {
             let granted = await NotificationService.shared.requestPermission()
@@ -122,7 +122,7 @@ final class SettingsViewModel: BaseViewModel {
             }
         }
     }
-    
+
     func updateNotificationSettings() {
         // Only request permission and schedule notifications if user enables a toggle
         if dailyRemindersEnabled || difficultWordsEnabled {
@@ -143,52 +143,22 @@ final class SettingsViewModel: BaseViewModel {
             notificationService.cancelAllNotifications()
         }
     }
-    
+
     // MARK: - Manual Sync Methods
-    
-    func uploadBackupToGoogle() {
+
+    func uploadBackupToGoogle() async throws {
         guard let userEmail = AuthenticationService.shared.userEmail else {
             errorReceived(CoreError.internalError(.authenticationRequired))
             return
         }
-        
-        Task {
-            do {
-                try await DataSyncService.shared.uploadBackupToGoogle(userEmail: userEmail)
-                await MainActor.run {
-                                    showAlert(withModel: .info(
-                    title: Loc.Settings.uploadSuccessful.localized,
-                        message: "Your words have been successfully uploaded to Google."
-                    ))
-                }
-            } catch {
-                await MainActor.run {
-                    errorReceived(error)
-                }
-            }
-        }
+        try await DataSyncService.shared.uploadBackupToGoogle(userEmail: userEmail)
     }
-    
-    func downloadBackupFromGoogle() {
+
+    func downloadBackupFromGoogle() async throws {
         guard let userEmail = AuthenticationService.shared.userEmail else {
             errorReceived(CoreError.internalError(.authenticationRequired))
             return
         }
-        
-        Task {
-            do {
-                try await DataSyncService.shared.downloadBackupFromGoogle(userEmail: userEmail)
-                await MainActor.run {
-                                    showAlert(withModel: .info(
-                    title: Loc.Settings.downloadSuccessful.localized,
-                        message: "Your words have been successfully downloaded from Google."
-                    ))
-                }
-            } catch {
-                await MainActor.run {
-                    errorReceived(error)
-                }
-            }
-        }
+        try await DataSyncService.shared.downloadBackupFromGoogle(userEmail: userEmail)
     }
 }

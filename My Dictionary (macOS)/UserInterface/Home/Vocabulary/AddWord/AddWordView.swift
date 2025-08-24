@@ -146,9 +146,13 @@ struct AddWordView: View {
             CellWrapper(Loc.App.pronunciation.localized) {
                 Text(pronunciation)
             } trailingContent: {
-                HeaderButton(icon: "speaker.wave.2.fill", size: .small) {
-                    viewModel.handle(.playInputWord)
+                AsyncHeaderButton(
+                    icon: "speaker.wave.2.fill",
+                    size: .small
+                ) {
+                    try await viewModel.play(viewModel.inputWord)
                 }
+                .disabled(TTSPlayer.shared.isPlaying)
             }
         }
     }

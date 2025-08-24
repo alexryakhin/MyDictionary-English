@@ -7,7 +7,6 @@ final class AddWordViewModel: BaseViewModel {
         case save
         case saveToSharedDictionary(String?)
         case fetchData
-        case playInputWord
         case selectPartOfSpeech(PartOfSpeech)
         case selectDefinition(WordDefinition)
         case toggleTag(CDTag)
@@ -67,8 +66,6 @@ final class AddWordViewModel: BaseViewModel {
             saveWordToDictionary(dictionaryId)
         case .fetchData:
             fetchData()
-        case .playInputWord:
-            play(inputWord)
         case .selectPartOfSpeech(let partOfSpeech):
             self.partOfSpeech = partOfSpeech
         case .selectDefinition(let definition):
@@ -227,17 +224,9 @@ final class AddWordViewModel: BaseViewModel {
         }
     }
 
-    private func play(_ text: String?) {
-        Task { @MainActor in
-            guard let text else { return }
-
-            do {
-                // Here playing is only for English words anyway
-                try await ttsPlayer.play(text, targetLanguage: "en")
-            } catch {
-                errorReceived(error)
-            }
-        }
+    func play(_ text: String?) async throws {
+        guard let text else { return }
+        try await ttsPlayer.play(text, targetLanguage: selectedInputLanguage.languageCode)
     }
 
     private func setupBindings() {

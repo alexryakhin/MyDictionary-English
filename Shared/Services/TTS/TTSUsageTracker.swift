@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import FirebaseFirestore
+import FirebaseCore
 import FirebaseAuth
 
 @MainActor
@@ -35,8 +36,9 @@ final class TTSUsageTracker: ObservableObject {
             .sink { [weak self] state in
                 if state == .signedIn {
                     Task { @MainActor in
-                        await self?.syncUsageToFirebase()
+                        // First load data FROM Firebase, then sync TO Firebase
                         await self?.loadUsageFromFirebase()
+                        await self?.syncUsageToFirebase()
                     }
                 }
             }
@@ -79,8 +81,7 @@ final class TTSUsageTracker: ObservableObject {
                 "languageUsage": usageStats.languageUsage,
                 "voiceUsage": usageStats.voiceUsage,
                 "lastUsed": usageStats.lastUsed,
-                "lastSynced": Date(),
-                "deviceId": UIDevice.current.identifierForVendor?.uuidString ?? "unknown"
+                "lastSynced": Timestamp(date: .now)
             ]
             
             print("🔍 [TTSUsageTracker] Writing to path: users/\(userEmail)/tts_usage/current")
@@ -133,8 +134,7 @@ final class TTSUsageTracker: ObservableObject {
             let monthlyData: [String: Any] = [
                 "usage": monthlyUsage,
                 "limit": getMonthlySpeechifyLimit(),
-                "lastUpdated": Date(),
-                "deviceId": UIDevice.current.identifierForVendor?.uuidString ?? "unknown"
+                "lastUpdated": Date()
             ]
             
             try await db.collection("users")
@@ -149,7 +149,12 @@ final class TTSUsageTracker: ObservableObject {
     }
 
     private func loadUsageFromFirebase() async {
-        guard let userEmail = AuthenticationService.shared.userEmail else { return }
+        guard let userEmail = AuthenticationService.shared.userEmail else { 
+            print("❌ [TTSUsageTracker] No user email available for loading from Firebase")
+            return 
+        }
+
+        print("🔍 [TTSUsageTracker] Loading usage from Firebase for email: \(userEmail)")
 
         do {
             // Load current usage stats
@@ -160,6 +165,7 @@ final class TTSUsageTracker: ObservableObject {
                 .getDocument()
             
             if let data = usageSnapshot.data() {
+                print("✅ [TTSUsageTracker] Found Firebase data: \(data)")
                 // Merge with local data (take the higher values)
                 let firebaseStats = TTSUsageStats(
                     totalCharacters: data["totalCharacters"] as? Int ?? 0,
@@ -198,6 +204,9 @@ final class TTSUsageTracker: ObservableObject {
                 }
                 
                 saveUsageStats()
+                print("✅ [TTSUsageTracker] Successfully merged and saved Firebase data")
+            } else {
+                print("ℹ️ [TTSUsageTracker] No Firebase data found, using local data only")
             }
             
             // Load monthly usage
@@ -205,6 +214,7 @@ final class TTSUsageTracker: ObservableObject {
             
         } catch {
             print("❌ [TTSUsageTracker] Failed to load usage from Firebase: \(error)")
+            print("❌ [TTSUsageTracker] Error details: \(error.localizedDescription)")
         }
     }
 
@@ -212,6 +222,8 @@ final class TTSUsageTracker: ObservableObject {
         let currentMonth = Calendar.current.component(.month, from: Date())
         let currentYear = Calendar.current.component(.year, from: Date())
         let monthlyKey = "\(currentYear)_\(currentMonth)"
+        
+        print("🔍 [TTSUsageTracker] Loading monthly usage from Firebase: \(monthlyKey)")
         
         do {
             let monthlySnapshot = try await db.collection("users")
@@ -223,14 +235,21 @@ final class TTSUsageTracker: ObservableObject {
             if let data = monthlySnapshot.data(),
                let firebaseUsage = data["usage"] as? Int {
                 
+                print("✅ [TTSUsageTracker] Found monthly Firebase data: \(data)")
+                
                 // Merge monthly usage (take the higher value)
                 let localUsage = getCurrentMonthSpeechifyUsage()
                 let mergedUsage = max(localUsage, firebaseUsage)
+                
+                print("🔍 [TTSUsageTracker] Monthly usage merge - Local: \(localUsage), Firebase: \(firebaseUsage), Merged: \(mergedUsage)")
                 
                 // Update local storage with merged value
                 let key = "speechify_monthly_\(currentYear)_\(currentMonth)"
                 userDefaults.set(mergedUsage, forKey: key)
                 
+                print("✅ [TTSUsageTracker] Successfully merged monthly usage")
+            } else {
+                print("ℹ️ [TTSUsageTracker] No monthly Firebase data found")
             }
         } catch {
             print("❌ [TTSUsageTracker] Failed to load monthly usage from Firebase: \(error)")

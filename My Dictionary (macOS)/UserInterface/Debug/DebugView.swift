@@ -249,17 +249,6 @@ struct DebugView: View {
                 HeaderButton("Show Paywall") {
                     PaywallService.shared.isShowingPaywall = true
                 }
-
-                HeaderButton("Test Speechify API") {
-                    Task {
-                        do {
-                            let voices = try await TTSPlayer.shared.speechifyService?.getAvailableVoices() ?? []
-                            showAlert("Speechify API Test: Successfully loaded \(voices.count) voices")
-                        } catch {
-                            showAlert("Speechify API Test Failed: \(error.localizedDescription)")
-                        }
-                    }
-                }
             }
         }
     }

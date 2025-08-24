@@ -50,7 +50,6 @@ struct AddCollaboratorView: View {
                                 text: $searchQuery
                             )
                             .autocorrectionDisabled()
-                            .textInputAutocapitalization(.never)
                             .padding(vertical: 8, horizontal: 12)
                             .background(Color.tertiarySystemGroupedBackground)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -161,8 +160,11 @@ struct AddCollaboratorView: View {
             NavigationBarView(
                 title: Loc.CollaboratorManagement.addCollaborator.localized,
                 trailingContent: {
-                    HeaderButton(Loc.CollaboratorManagement.addCollaborator.localized, style: .borderedProminent) {
-                        addCollaborator()
+                    AsyncHeaderButton(
+                        Loc.CollaboratorManagement.addCollaborator.localized,
+                        style: .borderedProminent
+                    ) {
+                        try await addCollaborator()
                     }
                     .disabled(foundUser == nil)
                     .help(Loc.CollaboratorManagement.addCollaborator.localized)
@@ -172,7 +174,7 @@ struct AddCollaboratorView: View {
         .groupedBackground()
     }
 
-    private func addCollaborator() {
+    private func addCollaborator() async throws {
         guard let foundUser = foundUser else {
             showAlertWithMessage(Loc.Auth.userNotFound.localized)
             return
@@ -188,24 +190,14 @@ struct AddCollaboratorView: View {
             return
         }
 
-        Task { @MainActor in
-            isLoading = true
-            defer {
-                isLoading = false
-            }
-            do {
-                try await dictionaryService.addCollaborator(
-                    dictionaryId: dictionaryId,
-                    userId: foundUser.id,
-                    email: foundUser.email.trimmingCharacters(in: .whitespacesAndNewlines),
-                    displayName: foundUser.displayName,
-                    role: role
-                )
-                dismiss()
-            } catch {
-                errorReceived(error)
-            }
-        }
+        try await dictionaryService.addCollaborator(
+            dictionaryId: dictionaryId,
+            userId: foundUser.id,
+            email: foundUser.email.trimmingCharacters(in: .whitespacesAndNewlines),
+            displayName: foundUser.displayName,
+            role: role
+        )
+        dismiss()
     }
     
     private func searchUser() async {

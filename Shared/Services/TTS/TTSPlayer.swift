@@ -247,14 +247,14 @@ final class TTSPlayer: NSObject, ObservableObject {
 
 extension TTSPlayer: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        DispatchQueue.main.async {
-            self.isPlaying = false
+        Task { @MainActor in
+            isPlaying = false
         }
     }
     
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
-        DispatchQueue.main.async {
-            self.isPlaying = false
+        Task { @MainActor in
+            isPlaying = false
         }
     }
 }
