@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import FirebaseAuth
 
 // MARK: - AI Service Interface
 
@@ -14,7 +15,8 @@ protocol AIServiceInterface {
     func generateWordInformation(
         for word: String,
         maxDefinitions: Int,
-        targetLanguage: String?,
+        inputLanguage: InputLanguage,
+        userLanguage: String?,
         userId: String
     ) async throws -> AIWordResponse
 }
@@ -25,6 +27,7 @@ protocol AIServiceManagerInterface {
     func enhanceWordDefinition(
         word: String,
         originalDefinition: String,
+        wordLanguage: InputLanguage,
         context: String?,
         userLevel: String?
     ) async throws -> String
@@ -33,6 +36,7 @@ protocol AIServiceManagerInterface {
         for word: String,
         definition: String,
         existingExamples: [String],
+        wordLanguage: InputLanguage,
         count: Int,
         context: String?
     ) async throws -> [String]
@@ -114,13 +118,13 @@ final class AIServiceManager: AIServiceManagerInterface {
     private let openAIService: AIServiceInterface
 
     private init() {
-        #if DEBUG
+#if DEBUG
         self.openAIService = OpenAIAPIService()
         print("🔧 [AIServiceManager] Using OpenAIAPIService for DEBUG mode")
-        #else
+#else
         self.openAIService = FirebaseOpenAIProxy.shared
         print("🔧 [AIServiceManager] Using FirebaseOpenAIProxy for RELEASE mode")
-        #endif
+#endif
     }
 
     // MARK: - Enhanced Definition Generation
@@ -128,20 +132,26 @@ final class AIServiceManager: AIServiceManagerInterface {
     func enhanceWordDefinition(
         word: String,
         originalDefinition: String,
+        wordLanguage: InputLanguage,
         context: String? = nil,
         userLevel: String? = nil
     ) async throws -> String {
         print("🔍 [AIServiceManager] enhanceWordDefinition called for word: '\(word)'")
         print("🔍 [AIServiceManager] Original definition: \(originalDefinition)")
         print("🔍 [AIServiceManager] Context: \(context ?? "nil"), UserLevel: \(userLevel ?? "nil")")
-        
+
         do {
+            guard let userId = Auth.auth().currentUser?.uid else {
+                throw DictionaryError.userNotAuthenticated
+            }
+
             print("🚀 [AIServiceManager] Calling Firebase proxy for enhanced definition...")
             let wordInfo = try await openAIService.generateWordInformation(
                 for: word,
                 maxDefinitions: 1,
-                targetLanguage: nil,
-                userId: "test-user-123" // TODO: Replace with actual user ID
+                inputLanguage: wordLanguage,
+                userLanguage: nil,
+                userId: userId
             )
 
             print("✅ [AIServiceManager] Successfully enhanced definition for '\(word)'")
@@ -164,20 +174,26 @@ final class AIServiceManager: AIServiceManagerInterface {
         for word: String,
         definition: String,
         existingExamples: [String],
+        wordLanguage: InputLanguage,
         count: Int = 3,
         context: String? = nil
     ) async throws -> [String] {
         print("🔍 [AIServiceManager] generateAdditionalExamples called for word: '\(word)'")
         print("🔍 [AIServiceManager] Existing examples count: \(existingExamples.count)")
         print("🔍 [AIServiceManager] Requested count: \(count), Context: \(context ?? "nil")")
-        
+
         do {
+            guard let userId = Auth.auth().currentUser?.uid else {
+                throw DictionaryError.userNotAuthenticated
+            }
+
             print("🚀 [AIServiceManager] Calling Firebase proxy for examples...")
             let wordInfo = try await openAIService.generateWordInformation(
                 for: word,
                 maxDefinitions: 1,
-                targetLanguage: nil,
-                userId: "test-user-123" // TODO: Replace with actual user ID
+                inputLanguage: wordLanguage,
+                userLanguage: nil,
+                userId: userId
             )
 
             print("✅ [AIServiceManager] Received examples from Firebase proxy")
@@ -215,7 +231,7 @@ final class AIServiceManager: AIServiceManagerInterface {
         // For now, return a placeholder
         print("🔍 [AIServiceManager] generateQuizQuestion called for word: '\(word)'")
         print("⚠️ [AIServiceManager] Quiz question generation not yet implemented in Firebase proxy")
-        
+
         // Return a simple placeholder quiz question
         return AIQuizQuestion(
             question: "What does '\(word)' mean?",
@@ -235,14 +251,18 @@ final class AIServiceManager: AIServiceManagerInterface {
         userProfile: AIUserProfile? = nil
     ) async throws -> String {
         print("🔍 [AIServiceManager] generatePersonalizedExplanation called for word: '\(word)'")
-        
+
         do {
             print("🚀 [AIServiceManager] Calling Firebase proxy for personalized explanation...")
+            guard let userId = Auth.auth().currentUser?.uid else {
+                throw DictionaryError.userNotAuthenticated
+            }
             let wordInfo = try await openAIService.generateWordInformation(
                 for: word,
                 maxDefinitions: 1,
-                targetLanguage: nil,
-                userId: "test-user-123" // TODO: Replace with actual user ID
+                inputLanguage: .auto,
+                userLanguage: nil,
+                userId: userId
             )
 
             let explanation = wordInfo.definitions.first?.definition ?? definition
@@ -256,13 +276,13 @@ final class AIServiceManager: AIServiceManagerInterface {
 
     // MARK: - Learning Progress Analysis
 
-        func analyzeLearningProgress(
+    func analyzeLearningProgress(
         items: [any Quizable],
         quizResults: [CDQuizSession]
     ) async throws -> AILearningInsights {
         // This is a placeholder for future implementation
         // For now, we'll provide basic insights based on analytics data
-        
+
         let weakAreas = identifyWeakAreas(from: items, quizResults: quizResults)
         let recommendedWords = recommendWords(from: items, weakAreas: weakAreas)
         let studySuggestions = generateStudySuggestions(weakAreas: weakAreas)
@@ -277,31 +297,37 @@ final class AIServiceManager: AIServiceManagerInterface {
             estimatedMasteryTime: estimatedMasteryTime
         )
     }
-    
+
     // MARK: - Comprehensive Word Information
-    
+
     func generateWordInformation(
         for word: String,
-        maxDefinitions: Int = 5,
-        targetLanguage: String? = nil
+        maxDefinitions: Int = 10,
+        inputLanguage: InputLanguage,
+        userLanguage: String? = nil
     ) async throws -> AIWordResponse {
         print("🔍 [AIServiceManager] generateWordInformation called for word: '\(word)'")
         print("🔍 [AIServiceManager] Max definitions: \(maxDefinitions)")
-        print("🔍 [AIServiceManager] Target language: \(targetLanguage ?? "auto-detect")")
-        
+        print("🔍 [AIServiceManager] Target language: \(userLanguage ?? "auto-detect")")
+
         do {
-                            print("🚀 [AIServiceManager] Calling OpenAI service for word information...")
-                let wordInfo = try await openAIService.generateWordInformation(
-                    for: word,
-                    maxDefinitions: maxDefinitions,
-                    targetLanguage: targetLanguage,
-                    userId: "test-user-123" // TODO: Replace with actual user ID
-                )
-            
+            guard let userId = Auth.auth().currentUser?.uid else {
+                throw DictionaryError.userNotAuthenticated
+            }
+
+            print("🚀 [AIServiceManager] Calling OpenAI service for word information...")
+            let wordInfo = try await openAIService.generateWordInformation(
+                for: word,
+                maxDefinitions: maxDefinitions,
+                inputLanguage: inputLanguage,
+                userLanguage: userLanguage,
+                userId: userId
+            )
+
             print("✅ [AIServiceManager] Successfully generated word information for '\(word)'")
             print("🔍 [AIServiceManager] Found \(wordInfo.definitions.count) definitions")
             print("🔍 [AIServiceManager] Pronunciation: \(wordInfo.pronunciation)")
-            
+
             return wordInfo
         } catch {
             print("❌ [AIServiceManager] Word information generation failed for '\(word)': \(error.localizedDescription)")

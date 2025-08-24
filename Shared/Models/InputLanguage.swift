@@ -56,7 +56,16 @@ enum InputLanguage: String, CaseIterable {
             return Locale.current.localizedString(forLanguageCode: rawValue)?.capitalized ?? rawValue.uppercased()
         }
     }
-    
+
+    var englishName: String {
+        switch self {
+        case .auto:
+            return "Auto-detected language"
+        default:
+            return Locale(identifier: "en_US").localizedString(forLanguageCode: rawValue)?.capitalized ?? rawValue.uppercased()
+        }
+    }
+
     var isAuto: Bool {
         return self == .auto
     }

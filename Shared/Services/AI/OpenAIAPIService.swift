@@ -9,7 +9,6 @@ import Foundation
 
 #if DEBUG
 
-
 // MARK: - OpenAI API Service
 
 final class OpenAIAPIService: AIServiceInterface {
@@ -38,22 +37,24 @@ final class OpenAIAPIService: AIServiceInterface {
 
     func generateWordInformation(
         for word: String,
-        maxDefinitions: Int = 5,
-        targetLanguage: String? = nil,
+        maxDefinitions: Int = 10,
+        inputLanguage: InputLanguage,
+        userLanguage: String? = nil,
         userId: String
     ) async throws -> AIWordResponse {
         print("🔍 [OpenAIAPIService] generateWordInformation called for word: '\(word)'")
         print("🔍 [OpenAIAPIService] Max definitions: \(maxDefinitions)")
-        print("🔍 [OpenAIAPIService] Target language: \(targetLanguage ?? "auto-detect")")
+        print("🔍 [OpenAIAPIService] Target language: \(userLanguage ?? "auto-detect")")
         print("🔍 [OpenAIAPIService] User ID: \(userId)")
 
-        let finalTargetLanguage = targetLanguage ?? getCurrentAppLanguage()
-        print("🔍 [OpenAIAPIService] Final target language: \(finalTargetLanguage)")
+        let finalUserLanguage = userLanguage ?? getCurrentAppLanguage()
+        print("🔍 [OpenAIAPIService] Final user language: \(finalUserLanguage)")
 
         let prompt = buildWordInformationPrompt(
             word: word,
             maxDefinitions: maxDefinitions,
-            targetLanguage: finalTargetLanguage
+            inputLanguage: inputLanguage.englishName,
+            userLanguage: finalUserLanguage
         )
 
         print("🔍 [OpenAIAPIService] Built prompt for OpenAI")
@@ -128,20 +129,21 @@ final class OpenAIAPIService: AIServiceInterface {
     private func buildWordInformationPrompt(
         word: String,
         maxDefinitions: Int,
-        targetLanguage: String
+        inputLanguage: String,
+        userLanguage: String
     ) -> String {
         let prompt = """
-        Provide information for the word '\(word)' in \(targetLanguage) in the following JSON format:
+        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. User's language is \(userLanguage), and he/she learns \(inputLanguage). Provide comprehensive information for the word/phrase '\(word)' in \(userLanguage) and examples in \(inputLanguage) in the following JSON format:
         
         {
           "pronunciation": "[phonetic pronunciation]",
           "definitions": [
             {
               "partOfSpeech": "[Part of Speech in English]",
-              "definition": "[1-3 sentence definition in \(targetLanguage)]",
+              "definition": "[1-3 sentence definition in \(userLanguage)]",
               "examples": [
-                "[1-2 sentence example in the language of the input word]",
-                "[1-2 sentence example in the language of the input word]"
+                "[1-2 sentence example in \(inputLanguage)]",
+                "[1-2 sentence example in \(inputLanguage)]"
               ]
             }
           ]
@@ -149,17 +151,25 @@ final class OpenAIAPIService: AIServiceInterface {
         
         IMPORTANT RULES:
         1. Return ONLY valid JSON - no additional text before or after
-        2. Definition must be in the \(targetLanguage). Examples should be in the language of the input word.
-        3. Pronunciation should be of the original input word using International Phonetic Alphabet
-        4. If the input word is in a different language, provide definition in the \(targetLanguage), but do not translate the word.
-        5. Keep definitions concise (1-3 sentences) and examples practical (1-2 sentences each)
-        6. Include the most common meanings first
-        7. Provide up to \(maxDefinitions) definitions
-        8. Each definition should have 2-3 examples
-        9. Use proper JSON escaping for quotes and special characters
+        2. Definition must be in the \(userLanguage). Examples must be in \(inputLanguage) (the language of the input word).
+        3. Part of speech should be chosen from: 'noun', 'verb', 'adjective', 'adverb', 'conjunction', 'pronoun', 'preposition', 'exclamation', 'interjection', 'idiom', 'phrase', 'unknown'.
+        4. Pronunciation should be of the original input word using International Phonetic Alphabet
+        5. Focus on COMMON, EVERYDAY meanings and uses first, not just religious or specialized meanings
+        6. Include different meanings and contexts - avoid repetitive definitions that mean the same thing
+        7. For phrases and expressions, include both literal and figurative meanings
+        8. Include idiomatic uses, slang, and colloquial expressions when applicable
+        9. Keep definitions concise (1-3 sentences) and examples practical (1-2 sentences each)
+        10. Provide up to \(maxDefinitions) distinct definitions
+        11. Each definition should have 2-3 examples
+        12. Use proper JSON escaping for quotes and special characters
+        13. If the word/phrase has multiple distinct meanings, prioritize the most commonly used ones in everyday language
+        14. For religious names/phrases, also include their use as exclamations, expressions of surprise, or in casual speech
+        15. Include both formal and informal usage contexts
+        16. As this is for educational purposes, include ALL meanings including slang, profanity, and informal expressions when they exist
+        17. Provide accurate linguistic information regardless of content sensitivity - this helps language learners understand real-world usage
         """
 
-        print("🔍 [OpenAIAPIService] Built prompt for word '\(word)' in \(targetLanguage)")
+        print("🔍 [OpenAIAPIService] Built prompt for word '\(word)' in \(userLanguage)")
         return prompt
     }
 

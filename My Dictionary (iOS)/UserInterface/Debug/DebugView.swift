@@ -507,6 +507,7 @@ struct DebugView: View {
                 let testDefinition = try await aiService.enhanceWordDefinition(
                     word: "test",
                     originalDefinition: "A trial or experiment",
+                    wordLanguage: .english,
                     context: "debug testing",
                     userLevel: "beginner"
                 )

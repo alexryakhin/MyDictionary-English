@@ -9,13 +9,14 @@ final class FirebaseOpenAIProxy: AIServiceInterface {
     
     func generateWordInformation(
         for word: String,
-        maxDefinitions: Int = 5,
-        targetLanguage: String? = nil,
+        maxDefinitions: Int = 10,
+        inputLanguage: InputLanguage,
+        userLanguage: String? = nil,
         userId: String
     ) async throws -> AIWordResponse {
         print("🔍 [FirebaseOpenAIProxy] generateWordInformation called for word: '\(word)'")
         print("🔍 [FirebaseOpenAIProxy] User ID: \(userId)")
-        print("🔍 [FirebaseOpenAIProxy] Target language: \(targetLanguage ?? "auto-detect")")
+        print("🔍 [FirebaseOpenAIProxy] Target language: \(userLanguage ?? "auto-detect")")
         
         print("🚀 [FirebaseOpenAIProxy] Making request to Firebase Functions...")
         
@@ -23,7 +24,7 @@ final class FirebaseOpenAIProxy: AIServiceInterface {
             let response = try await CloudFunctionsService.shared.openAIProxy(
                 word: word,
                 maxDefinitions: maxDefinitions,
-                targetLanguage: targetLanguage ?? getCurrentAppLanguage()
+                userLanguage: userLanguage ?? getCurrentAppLanguage()
             )
             
             print("✅ [FirebaseOpenAIProxy] Successfully received response from Firebase Functions")

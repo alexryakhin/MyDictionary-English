@@ -195,7 +195,7 @@ exports.openAIProxy = onRequest({
     }
     
     try {
-        const { word, maxDefinitions, targetLanguage, userId } = req.body;
+        const { word, maxDefinitions, userLanguage, userId } = req.body;
         
         // Validate required fields
         if (!word || !userId) {
@@ -239,7 +239,7 @@ exports.openAIProxy = onRequest({
                 },
                 {
                     role: "user",
-                    content: buildWordInformationPrompt(word, maxDefinitions || 5, targetLanguage || 'English')
+                    content: buildWordInformationPrompt(word, maxDefinitions || 5, userLanguage || 'English')
                 }
             ],
             temperature: 0.3,
@@ -420,15 +420,15 @@ exports.synthesizeSpeech = onRequest({
 });
 
 // Helper function to build the prompt
-function buildWordInformationPrompt(word, maxDefinitions, targetLanguage) {
-    return `Provide information for the word '${word}' in ${targetLanguage} in the following JSON format:
+function buildWordInformationPrompt(word, maxDefinitions, userLanguage) {
+    return `Provide information for the word '${word}' in ${userLanguage} in the following JSON format:
 
 {
   "pronunciation": "[phonetic pronunciation]",
   "definitions": [
     {
       "partOfSpeech": "[Part of Speech in English]",
-      "definition": "[1-3 sentence definition in ${targetLanguage}]",
+      "definition": "[1-3 sentence definition in ${userLanguage}]",
       "examples": [
         "[1-2 sentence example in the language of the input word]",
         "[1-2 sentence example in the language of the input word]"
@@ -439,9 +439,9 @@ function buildWordInformationPrompt(word, maxDefinitions, targetLanguage) {
 
 IMPORTANT RULES:
 1. Return ONLY valid JSON - no additional text before or after
-2. Definition must be in the ${targetLanguage}. Examples should be in the language of the input word.
+2. Definition must be in the ${userLanguage}. Examples should be in the language of the input word.
 3. Pronunciation should be of the original input word using International Phonetic Alphabet
-4. If the input word is in a different language, provide definition in the ${targetLanguage}, but do not translate the word.
+4. If the input word is in a different language, provide definition in the ${userLanguage}, but do not translate the word.
 5. Keep definitions concise (1-3 sentences) and examples practical (1-2 sentences each)
 6. Include the most common meanings first
 7. Provide up to ${maxDefinitions} definitions
