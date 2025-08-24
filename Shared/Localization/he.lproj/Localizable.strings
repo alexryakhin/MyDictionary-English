@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "בחר תפקיד";
 "shared_dictionaries.editor_role" = "עורך:";
 "shared_dictionaries.viewer_role" = "צופה:";
-"shared_dictionaries.collaborator_added_with_email_name" = "משתף הפעולה יתווסף עם כתובת הדוא\"ל והשם שהזנת. עליו להתחבר עם אותה כתובת דוא\"ל כדי לגשת למילון המשותף.";
+"shared_dictionaries.collaborator_added_with_email_name" = "המשתמש יתווסף למילון המשותף. הוא יקבל התראה ויוכל לגשת למילון באופן מיידי.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "היה הראשון לדרג את הקושי של מילה זו";
 "shared_dictionaries.score" = "ציון: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "אין מילונים משותפים";
@@ -890,3 +890,167 @@
 "part_of_speech.short.preposition" = "יחס";
 "part_of_speech.short.exclamation" = "קריאה";
 "part_of_speech.short.unknown" = "לא ידוע";
+
+"actions.settings" = "הגדרות";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "כל מקרי השימוש";
+"tts.filters.all_ages" = "כל הגילאים";
+"tts.filters.all_timbres" = "כל גווני הקול";
+"tts.filters.all_accents" = "כל המבטאים";
+"tts.filters.all_languages" = "כל השפות";
+"tts.filters.all_genders" = "כל המינים";
+"tts.filters.filters" = "מסננים";
+"tts.filters.reset" = "איפוס";
+"tts.filters.select_voice" = "בחר קול";
+"tts.filters.available_voices" = "קולות זמינים";
+"tts.filters.no_voices_available" = "אין קולות זמינים";
+"tts.filters.no_voices_found" = "לא נמצאו קולות";
+"tts.filters.no_voices_found_message" = "נסה להתאים את החיפוש או המסננים";
+
+"tts.usage.monthly_limit_exceeded" = "חרגת ממגבלת התווים החודשית";
+"tts.usage.monthly_limit_exceeded_message" = "הגעת למגבלת החודשית של 50,000 תווים עבור Speechify TTS. אנא נסה שוב בחודש הבא או השתמש ב-Google TTS במקום.";
+"tts.usage.remaining_characters" = "תווים נותרים";
+"tts.usage.monthly_usage" = "שימוש חודשי";
+"tts.usage.monthly_limit" = "מגבלה חודשית";
+
+// TTS Voice Filter Values
+"advertisement" = "פרסומת";
+"animation" = "אנימציה";
+"audiobook" = "ספר שמע";
+"audiobook-and-narration" = "ספר שמע וקריינות";
+"audiobooks-and-narration" = "ספרי שמע וקריינות";
+"conversational" = "שיחתי";
+"e-learning" = "למידה מקוונת";
+"gaming" = "משחקים";
+"meditation" = "מדיטציה";
+"movie" = "סרט";
+"movies-acting-and-gaming" = "סרטים, משחק ומשחקים";
+"narration" = "קריינות";
+"podcast" = "פודקאסט";
+"social-media" = "מדיה חברתית";
+
+"middle-aged" = "גיל העמידה";
+"senior" = "קשיש";
+"teen" = "נער";
+"young-adult" = "מבוגר צעיר";
+
+"female" = "נקבה";
+"male" = "זכר";
+
+"angry" = "כועס";
+"assertive-or-confident" = "נחרץ או בטוח";
+"bright" = "בהיר";
+"calm-or-relaxed" = "רגוע או נינוח";
+"calm-or-relaxed-" = "רגוע או נינוח";
+"cheerful" = "עליז";
+"crisp" = "צלול";
+"deep" = "עמוק";
+"direct" = "ישיר";
+"energetic" = "אנרגטי";
+"fearful" = "מפחד";
+"high-pitch" = "גובה צליל גבוה";
+"neutral" = "נייטרלי";
+"professional" = "מקצועי";
+"relaxed" = "נינוח";
+"sad" = "עצוב";
+"suprised" = "מופתע";
+"surprised" = "מופתע";
+"terrified" = "מבועת";
+"warm" = "חם";
+"warm-or-friendly" = "חם או ידידותי";
+
+"american-neutral" = "אמריקאי נייטרלי";
+"australian" = "אוסטרלי";
+"british" = "בריטי";
+"indian" = "הודי";
+"nigerian" = "ניגרי";
+
+"auth.cross_platform_button_description" = "לשיתוף מנוי בין פלטפורמות";
+"auth.nickname" = "כינוי";
+"auth.nickname_current" = "כינוי נוכחי";
+"auth.nickname_not_set" = "כינוי לא מוגדר";
+"auth.nickname_description" = "הגדר כינוי ייחודי שמשתמשים אחרים יכולים להשתמש בו כדי למצוא אותך ולהוסיף אותך למילונים משותפים. זה נוח יותר משימוש בכתובות דואל.";
+
+"auth.edit_nickname" = "ערוך כינוי";
+"auth.nickname_cannot_be_empty" = "הכינוי לא יכול להיות ריק";
+"auth.nickname_already_taken" = "כינוי זה כבר תפוס. אנא בחר כינוי אחר.";
+"auth.nickname_invalid_format" = "הכינוי יכול להכיל אותיות, מספרים וקווים תחתונים בלבד.";
+"auth.search_method" = "שיטת חיפוש";
+"auth.find_user_by_email" = "מצא משתמש לפי דואל";
+"auth.find_user_by_nickname" = "מצא משתמש לפי כינוי";
+"auth.enter_email_address" = "הזן כתובת דואל";
+"auth.enter_nickname" = "הזן כינוי";
+"auth.found_user" = "משתמש נמצא";
+"auth.user_not_found" = "משתמש לא נמצא";
+"auth.user_not_found_message" = "לא נמצא משתמש עם המידע שסופק. אנא בדוק את החיפוש ונסה שוב.";
+
+"notifications.permission_required" = "נדרשת הרשאת התראות";
+"notifications.permission_denied_message" = "כדי לקבל תזכורות יומיות והתראות על מילים קשות, אנא הפעל התראות בהגדרות.";
+
+"onboarding.natural_voices" = "קולות טבעיים";
+"onboarding.natural_voices_description" = "מאות קולות פרימיום שנשמעים אנושיים יותר מתמיד";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "גישה לטכנולוגיית טקסט לדיבור פרימיום של Speechify. מאות קולות פרימיום בעלי צליל טבעי";
+
+// TTS Dashboard
+"tts.dashboard" = "לוח בקרה TTS";
+"tts.premium_tts_dashboard" = "לוח בקרה TTS פרימיום";
+"tts.customize_tts_experience" = "התאם אישית את חוויית הטקסט לדיבור שלך";
+"tts.playing" = "מנגן";
+"tts.ready" = "מוכן";
+"tts.provider" = "ספק";
+"tts.tts_provider" = "ספק TTS";
+"tts.voice_customization" = "התאמה אישית של קול";
+"tts.current_voice" = "קול נוכחי";
+"tts.default_voice" = "קול ברירת מחדל";
+"tts.preview_current_voice" = "תצוגה מקדימה של הקול הנוכחי";
+"tts.change_voice" = "שנה קול";
+"tts.audio_settings" = "הגדרות שמע";
+"tts.speech_rate" = "קצב דיבור";
+"tts.volume" = "עוצמת קול";
+"tts.test_your_settings" = "בדוק את ההגדרות שלך";
+"tts.enter_text_to_test" = "הזן טקסט לבדיקה...";
+"tts.stop" = "עצור";
+"tts.test" = "בדיקה";
+"tts.usage_statistics" = "סטטיסטיקות שימוש";
+"tts.speechify_monthly_usage" = "שימוש חודשי ב-Speechify";
+"tts.monthly_limit" = "מגבלה חודשית";
+"tts.used_this_month" = "נעשה שימוש החודש";
+"tts.remaining" = "נותר";
+"tts.usage_progress" = "התקדמות שימוש";
+"tts.characters" = "תווים";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "תווים בשימוש";
+"tts.analytics.sessions" = "מפגשים";
+"tts.analytics.favorite_voice" = "קול מועדף";
+"tts.analytics.time_saved" = "זמן שנחסך";
+"tts.analytics.total_characters" = "סהכ תווים";
+"tts.analytics.total_sessions" = "סהכ מפגשים";
+"tts.analytics.total_duration" = "משך זמן כולל";
+"tts.analytics.favorite_language" = "שפה מועדפת";
+"tts.analytics.premium_usage" = "שימוש פרימיום";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "טקסט לדיבור";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "מודל טקסט לדיבור של Speechify זמין לכל המשתמשים כתכונה פרימיום. הוא מאפשר לך לבחור ממגוון רחב של קולות ומבטאים, כדי להתאים אישית את חוויית הלימוד שלך.";
+"tts.settings.speechify_pro_description" = "מודל טקסט לדיבור של Speechify כלול במנוי שלך.";
+"tts.settings.dashboard" = "לוח בקרה";
+"tts.pro" = "פרו";
+"tts.free_google_tts_description" = "Google TTS חינמי עם קולות בסיסיים וביצועים אמינים";
+
+// TTS Models
+"tts.models.english" = "אנגלית";
+"tts.models.multilingual" = "רב-לשוני";
+"tts.models.english_description" = "מודל טקסט לדיבור באנגלית של Speechify מציע יכולות סטנדרטיות המיועדות לספק פלט קולי ברור וטבעי לקריאת טקסטים. המודל מתמקד במתן חוויית משתמש עקבית.";
+"tts.models.multilingual_description" = "המודל הרב-לשוני מאפשר שימוש בכל השפות הנתמכות ותומך בשימוש במספר שפות במשפט אחד. הפלט הקולי של מודל זה שונה באופן מובהק ממודלים אחרים.";
+
+"auth.enter_name" = "הזן שם";
+"auth.search_by" = "חפש לפי";
+"auth.unknown_user" = "משתמש לא ידוע";
+"auth.email" = "דואל";
+"auth.apple_id" = "מזהה Apple";
+"auth.google_account" = "חשבון Google";

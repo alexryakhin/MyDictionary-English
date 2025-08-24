@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Odaberi ulogu";
 "shared_dictionaries.editor_role" = "Urednik:";
 "shared_dictionaries.viewer_role" = "Gledatelj:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Suradnik će biti dodan s adresom e-pošte i imenom koje unesete. Morat će se prijaviti s istom adresom e-pošte za pristup zajedničkom rječniku.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Korisnik će biti dodan u zajednički rječnik. Primit će obavijest i moći će odmah pristupiti rječniku.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Budite prvi koji će ocijeniti težinu ove riječi";
 "shared_dictionaries.score" = "Rezultat: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Nema zajedničkih rječnika";
@@ -891,3 +891,166 @@
 "part_of_speech.short.preposition" = "Prij.";
 "part_of_speech.short.exclamation" = "Uskl.";
 "part_of_speech.short.unknown" = "Nepoz.";
+
+"actions.settings" = "Postavke";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Svi slučajevi upotrebe";
+"tts.filters.all_ages" = "Sve dobne skupine";
+"tts.filters.all_timbres" = "Svi tonovi glasa";
+"tts.filters.all_accents" = "Svi naglasci";
+"tts.filters.all_languages" = "Svi jezici";
+"tts.filters.all_genders" = "Svi spolovi";
+"tts.filters.filters" = "Filteri";
+"tts.filters.reset" = "Poništi";
+"tts.filters.select_voice" = "Odaberi glas";
+"tts.filters.available_voices" = "Dostupni glasovi";
+"tts.filters.no_voices_available" = "Nema dostupnih glasova";
+"tts.filters.no_voices_found" = "Nisu pronađeni glasovi";
+"tts.filters.no_voices_found_message" = "Pokušajte prilagoditi pretragu ili filtre";
+
+"tts.usage.monthly_limit_exceeded" = "Prekoračena mjesečna granica";
+"tts.usage.monthly_limit_exceeded_message" = "Dosegli ste mjesečno ograničenje od 50.000 znakova za Speechify TTS. Pokušajte ponovno sljedeći mjesec ili koristite Google TTS.";
+"tts.usage.remaining_characters" = "Preostali znakovi";
+"tts.usage.monthly_usage" = "Mjesečna upotreba";
+"tts.usage.monthly_limit" = "Mjesečna granica";
+
+// TTS Voice Filter Values
+"advertisement" = "Reklama";
+"animation" = "Animacija";
+"audiobook" = "Audioknjiga";
+"audiobook-and-narration" = "Audioknjiga i naracija";
+"audiobooks-and-narration" = "Audioknjige i naracija";
+"conversational" = "Konverzacijski";
+"e-learning" = "E-učenje";
+"gaming" = "Igre";
+"meditation" = "Meditacija";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filmovi, gluma i igre";
+"narration" = "Naracija";
+"podcast" = "Podcast";
+"social-media" = "Društvene mreže";
+
+"middle-aged" = "Srednja dob";
+"senior" = "Senior";
+"teen" = "Tinejdžer";
+"young-adult" = "Mladi odrasli";
+
+"female" = "Žena";
+"male" = "Muškarac";
+
+"angry" = "Ljut";
+"assertive-or-confident" = "Asertivan ili samouvjeren";
+"bright" = "Svijetao";
+"calm-or-relaxed" = "Miran ili opušten";
+"calm-or-relaxed-" = "Miran ili opušten";
+"cheerful" = "Veselo";
+"crisp" = "Jasno";
+"deep" = "Duboko";
+"direct" = "Izravno";
+"energetic" = "Energično";
+"fearful" = "Uplašen";
+"high-pitch" = "Visoki ton";
+"neutral" = "Neutralan";
+"professional" = "Profesionalan";
+"relaxed" = "Opušten";
+"sad" = "Tužan";
+"suprised" = "Iznenađen";
+"surprised" = "Iznenađen";
+"terrified" = "Prestravljen";
+"warm" = "Toplo";
+"warm-or-friendly" = "Toplo ili prijateljski";
+
+"american-neutral" = "Američki neutralni";
+"australian" = "Australski";
+"british" = "Britanski";
+"indian" = "Indijski";
+"nigerian" = "Nigerijski";
+
+"auth.cross_platform_button_description" = "Za dijeljenje pretplate između platformi";
+"auth.nickname" = "Nadimak";
+"auth.nickname_current" = "Trenutni nadimak";
+"auth.nickname_not_set" = "Nadimak nije postavljen";
+"auth.nickname_description" = "Postavite jedinstveni nadimak koji drugi mogu koristiti kako bi vas pronašli i dodali u zajedničke rječnike. To je praktičnije od korištenja adresa e-pošte.";
+"auth.edit_nickname" = "Uredi nadimak";
+"auth.nickname_cannot_be_empty" = "Nadimak ne može biti prazan";
+"auth.nickname_already_taken" = "Ovaj nadimak je već zauzet. Odaberite drugi.";
+"auth.nickname_invalid_format" = "Nadimak može sadržavati samo slova, brojeve i donje crte.";
+"auth.search_method" = "Metoda pretrage";
+"auth.find_user_by_email" = "Pronađi korisnika putem e-pošte";
+"auth.find_user_by_nickname" = "Pronađi korisnika putem nadimka";
+"auth.enter_email_address" = "Unesite adresu e-pošte";
+"auth.enter_nickname" = "Unesite nadimak";
+"auth.found_user" = "Korisnik pronađen";
+"auth.user_not_found" = "Korisnik nije pronađen";
+"auth.user_not_found_message" = "Nije pronađen korisnik s priloženim informacijama. Provjerite pretragu i pokušajte ponovno.";
+
+"notifications.permission_required" = "Potrebna je dozvola za obavijesti";
+"notifications.permission_denied_message" = "Da biste primali dnevne podsjetnike i upozorenja za teške riječi, omogućite obavijesti u Postavkama.";
+
+"onboarding.natural_voices" = "Prirodni glasovi";
+"onboarding.natural_voices_description" = "Stotine vrhunskih glasova koji zvuče ljudskije nego ikad";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Pristup vrhunskoj tehnologiji pretvaranja teksta u govor od Speechify. Stotine prirodno zvučećih vrhunskih glasova";
+
+// TTS Dashboard
+"tts.dashboard" = "TTS nadzorna ploča";
+"tts.premium_tts_dashboard" = "Vrhunska TTS nadzorna ploča";
+"tts.customize_tts_experience" = "Prilagodite svoje iskustvo pretvaranja teksta u govor";
+"tts.playing" = "Reproducira se";
+"tts.ready" = "Spremno";
+"tts.provider" = "Pružatelj usluge";
+"tts.tts_provider" = "TTS pružatelj usluge";
+"tts.voice_customization" = "Prilagodba glasa";
+"tts.current_voice" = "Trenutni glas";
+"tts.default_voice" = "Zadani glas";
+"tts.preview_current_voice" = "Pregled trenutnog glasa";
+"tts.change_voice" = "Promijeni glas";
+"tts.audio_settings" = "Postavke zvuka";
+"tts.speech_rate" = "Brzina govora";
+"tts.volume" = "Glasnoća";
+"tts.test_your_settings" = "Testirajte svoje postavke";
+"tts.enter_text_to_test" = "Unesite tekst za testiranje...";
+"tts.stop" = "Zaustavi";
+"tts.test" = "Test";
+"tts.usage_statistics" = "Statistike upotrebe";
+"tts.speechify_monthly_usage" = "Mjesečna upotreba Speechify";
+"tts.monthly_limit" = "Mjesečna granica";
+"tts.used_this_month" = "Korišteno ovaj mjesec";
+"tts.remaining" = "Preostalo";
+"tts.usage_progress" = "Napredak upotrebe";
+"tts.characters" = "znakovi";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Korišteni znakovi";
+"tts.analytics.sessions" = "Sesije";
+"tts.analytics.favorite_voice" = "Omiljeni glas";
+"tts.analytics.time_saved" = "Ušteđeno vrijeme";
+"tts.analytics.total_characters" = "Ukupno znakova";
+"tts.analytics.total_sessions" = "Ukupno sesija";
+"tts.analytics.total_duration" = "Ukupno trajanje";
+"tts.analytics.favorite_language" = "Omiljeni jezik";
+"tts.analytics.premium_usage" = "Vrhunska upotreba";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Pretvaranje teksta u govor";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Model pretvaranja teksta u govor od Speechify dostupan je svim korisnicima kao vrhunska značajka. Omogućuje vam odabir iz širokog spektra glasova i naglasaka kako biste prilagodili svoje iskustvo učenja.";
+"tts.settings.speechify_pro_description" = "Model pretvaranja teksta u govor od Speechify uključen je u vašu pretplatu.";
+"tts.settings.dashboard" = "Nadzorna ploča";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Besplatni Google TTS s osnovnim glasovima i pouzdanim performansama";
+
+// TTS Models
+"tts.models.english" = "Engleski";
+"tts.models.multilingual" = "Višejezični";
+"tts.models.english_description" = "Model pretvaranja teksta u govor na engleskom jeziku od Speechify nudi standardne značajke dizajnirane za pružanje jasnog i prirodnog zvučnog izlaza za čitanje tekstova. Model se fokusira na pružanje dosljednog korisničkog iskustva.";
+"tts.models.multilingual_description" = "Višejezični model omogućuje korištenje svih podržanih jezika i podržava korištenje više jezika unutar jedne rečenice. Zvučni izlaz ovog modela značajno se razlikuje od ostalih modela.";
+
+"auth.enter_name" = "Unesite ime";
+"auth.search_by" = "Pretraži po";
+"auth.unknown_user" = "Nepoznati korisnik";
+"auth.email" = "E-pošta";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Google račun";

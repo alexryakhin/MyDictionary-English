@@ -67,7 +67,7 @@ struct ProfileView: View {
                 if isEditingName {
                     // Inline editing
                     VStack(spacing: 8) {
-                        TextField("Enter your name", text: $editedName)
+                        TextField(Loc.Auth.enterName.localized, text: $editedName)
                             .textFieldStyle(.roundedBorder)
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -137,7 +137,7 @@ struct ProfileView: View {
                         .foregroundStyle(.accent)
 
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(authenticationService.hasAppleAccount ? "Apple ID" : "Google Account")
+                        Text(authenticationService.hasAppleAccount ? Loc.Auth.appleID.localized : Loc.Auth.googleAccount.localized)
                             .font(.body)
                             .fontWeight(.medium)
                         Text(Loc.Auth.currentAccount.localized)
@@ -163,7 +163,7 @@ struct ProfileView: View {
 
                         HStack {
                             if authenticationService.hasGoogleAccount {
-                                Label("Google", systemImage: "globe")
+                                Label(Loc.Auth.googleAccount.localized, systemImage: "globe")
                                     .font(.caption)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
@@ -173,7 +173,7 @@ struct ProfileView: View {
                             }
 
                             if authenticationService.hasAppleAccount {
-                                Label("Apple ID", systemImage: "applelogo")
+                                Label(Loc.Auth.appleID.localized, systemImage: "applelogo")
                                     .font(.caption)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
@@ -296,7 +296,7 @@ struct ProfileView: View {
                                     .font(.body)
                                     .fontWeight(.medium)
                                     .foregroundStyle(.primary)
-                                Text("Required for Android subscription access")
+                                Text(Loc.Auth.crossPlatformButtonDescription.localized)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -423,7 +423,7 @@ struct ProfileView: View {
     private func saveName() async {
         let trimmedName = editedName.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedName.isEmpty else {
-            nameErrorMessage = "Name cannot be empty"
+            nameErrorMessage = Loc.Errors.inputCannotBeEmpty.localized
             return
         }
 
@@ -434,7 +434,7 @@ struct ProfileView: View {
             isEditingName = false
             HapticManager.shared.triggerNotification(type: .success)
         } catch {
-            nameErrorMessage = "Failed to update name: \(error.localizedDescription)"
+            nameErrorMessage = Loc.Errors.unknownError + "\n" + error.localizedDescription
             HapticManager.shared.triggerNotification(type: .error)
         }
     }
@@ -470,7 +470,7 @@ struct ProfileView: View {
             nicknameErrorMessage = authError.localizedDescription
             HapticManager.shared.triggerNotification(type: .error)
         } catch {
-            nicknameErrorMessage = "Failed to update nickname: \(error.localizedDescription)"
+            nicknameErrorMessage = Loc.Errors.unknownError + "\n" + error.localizedDescription
             HapticManager.shared.triggerNotification(type: .error)
         }
     }

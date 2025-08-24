@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "اختر الدور";
 "shared_dictionaries.editor_role" = "المحرر:";
 "shared_dictionaries.viewer_role" = "المشاهد:";
-"shared_dictionaries.collaborator_added_with_email_name" = "سيتم إضافة المتعاون بالبريد الإلكتروني والاسم الذي تقدمه. سيتعين عليهم تسجيل الدخول بنفس عنوان البريد الإلكتروني للوصول إلى القاموس المشترك.";
+"shared_dictionaries.collaborator_added_with_email_name" = "سيتم إضافة المستخدم إلى القاموس المشترك. سيتلقون إشعارًا ويمكنهم الوصول إلى القاموس على الفور.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "كن الأول لتقييم صعوبة هذه الكلمة";
 "shared_dictionaries.score" = "النقاط: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "لا توجد قواميس مشتركة";
@@ -891,3 +891,166 @@
 "part_of_speech.short.preposition" = "جر";
 "part_of_speech.short.exclamation" = "تعجب";
 "part_of_speech.short.unknown" = "غير معروف";
+
+"actions.settings" = "الإعدادات";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "جميع حالات الاستخدام";
+"tts.filters.all_ages" = "جميع الأعمار";
+"tts.filters.all_timbres" = "جميع النغمات";
+"tts.filters.all_accents" = "جميع اللهجات";
+"tts.filters.all_languages" = "جميع اللغات";
+"tts.filters.all_genders" = "جميع الأجناس";
+"tts.filters.filters" = "الفلاتر";
+"tts.filters.reset" = "إعادة تعيين";
+"tts.filters.select_voice" = "اختر الصوت";
+"tts.filters.available_voices" = "الأصوات المتاحة";
+"tts.filters.no_voices_available" = "لا توجد أصوات متاحة";
+"tts.filters.no_voices_found" = "لم يتم العثور على أصوات";
+"tts.filters.no_voices_found_message" = "حاول تعديل البحث أو الفلاتر";
+
+"tts.usage.monthly_limit_exceeded" = "تم تجاوز الحد الشهري";
+"tts.usage.monthly_limit_exceeded_message" = "لقد وصلت إلى الحد الشهري البالغ 50,000 حرف لـ Speechify TTS. يرجى المحاولة مرة أخرى الشهر المقبل أو استخدام Google TTS بدلاً من ذلك.";
+"tts.usage.remaining_characters" = "الأحرف المتبقية";
+"tts.usage.monthly_usage" = "الاستخدام الشهري";
+"tts.usage.monthly_limit" = "الحد الشهري";
+
+// TTS Voice Filter Values
+"advertisement" = "إعلان";
+"animation" = "رسوم متحركة";
+"audiobook" = "كتاب صوتي";
+"audiobook-and-narration" = "كتاب صوتي وسرد";
+"audiobooks-and-narration" = "كتب صوتية وسرد";
+"conversational" = "محادثة";
+"e-learning" = "التعليم الإلكتروني";
+"gaming" = "الألعاب";
+"meditation" = "تأمل";
+"movie" = "فيلم";
+"movies-acting-and-gaming" = "أفلام، تمثيل وألعاب";
+"narration" = "سرد";
+"podcast" = "بودكاست";
+"social-media" = "وسائل التواصل الاجتماعي";
+
+"middle-aged" = "متوسط العمر";
+"senior" = "كبير السن";
+"teen" = "مراهق";
+"young-adult" = "شاب بالغ";
+
+"female" = "أنثى";
+"male" = "ذكر";
+
+"angry" = "غاضب";
+"assertive-or-confident" = "حازم أو واثق";
+"bright" = "مشرق";
+"calm-or-relaxed" = "هادئ أو مرتاح";
+"calm-or-relaxed-" = "هادئ أو مرتاح";
+"cheerful" = "مبهج";
+"crisp" = "واضح";
+"deep" = "عميق";
+"direct" = "مباشر";
+"energetic" = "نشيط";
+"fearful" = "خائف";
+"high-pitch" = "نبرة عالية";
+"neutral" = "محايد";
+"professional" = "محترف";
+"relaxed" = "مرتاح";
+"sad" = "حزين";
+"suprised" = "مندهش";
+"surprised" = "مندهش";
+"terrified" = "مرعوب";
+"warm" = "دافئ";
+"warm-or-friendly" = "دافئ أو ودود";
+
+"american-neutral" = "أمريكي محايد";
+"australian" = "أسترالي";
+"british" = "بريطاني";
+"indian" = "هندي";
+"nigerian" = "نيجيري";
+
+"auth.cross_platform_button_description" = "لمشاركة الاشتراك عبر المنصات";
+"auth.nickname" = "اللقب";
+"auth.nickname_current" = "اللقب الحالي";
+"auth.nickname_not_set" = "لم يتم تعيين اللقب";
+"auth.nickname_description" = "قم بتعيين لقب فريد يمكن للآخرين استخدامه للعثور عليك وإضافتك إلى القواميس المشتركة. هذا أكثر ملاءمة من استخدام عناوين البريد الإلكتروني.";
+"auth.edit_nickname" = "تعديل اللقب";
+"auth.nickname_cannot_be_empty" = "لا يمكن أن يكون اللقب فارغًا";
+"auth.nickname_already_taken" = "هذا اللقب مستخدم بالفعل. يرجى اختيار واحد آخر.";
+"auth.nickname_invalid_format" = "يمكن أن يحتوي اللقب على حروف وأرقام وشرطات سفلية فقط.";
+"auth.search_method" = "طريقة البحث";
+"auth.find_user_by_email" = "ابحث عن مستخدم عبر البريد الإلكتروني";
+"auth.find_user_by_nickname" = "ابحث عن مستخدم عبر اللقب";
+"auth.enter_email_address" = "أدخل عنوان البريد الإلكتروني";
+"auth.enter_nickname" = "أدخل اللقب";
+"auth.found_user" = "تم العثور على المستخدم";
+"auth.user_not_found" = "لم يتم العثور على المستخدم";
+"auth.user_not_found_message" = "لم يتم العثور على مستخدم بالمعلومات المقدمة. يرجى التحقق من البحث والمحاولة مرة أخرى.";
+
+"notifications.permission_required" = "مطلوب إذن الإشعارات";
+"notifications.permission_denied_message" = "لتلقي التذكيرات اليومية وتنبيهات الكلمات الصعبة، يرجى تفعيل الإشعارات في الإعدادات.";
+
+"onboarding.natural_voices" = "أصوات طبيعية";
+"onboarding.natural_voices_description" = "مئات الأصوات المميزة التي تبدو أكثر إنسانية من أي وقت مضى";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "الوصول إلى تقنية تحويل النص إلى كلام المميزة من Speechify. مئات الأصوات المميزة ذات الصوت الطبيعي";
+
+// TTS Dashboard
+"tts.dashboard" = "لوحة تحكم TTS";
+"tts.premium_tts_dashboard" = "لوحة تحكم TTS المميزة";
+"tts.customize_tts_experience" = "تخصيص تجربة تحويل النص إلى كلام";
+"tts.playing" = "جاري التشغيل";
+"tts.ready" = "جاهز";
+"tts.provider" = "المزود";
+"tts.tts_provider" = "مزود TTS";
+"tts.voice_customization" = "تخصيص الصوت";
+"tts.current_voice" = "الصوت الحالي";
+"tts.default_voice" = "الصوت الافتراضي";
+"tts.preview_current_voice" = "معاينة الصوت الحالي";
+"tts.change_voice" = "تغيير الصوت";
+"tts.audio_settings" = "إعدادات الصوت";
+"tts.speech_rate" = "سرعة الكلام";
+"tts.volume" = "مستوى الصوت";
+"tts.test_your_settings" = "اختبار إعداداتك";
+"tts.enter_text_to_test" = "أدخل نصًا للاختبار...";
+"tts.stop" = "إيقاف";
+"tts.test" = "اختبار";
+"tts.usage_statistics" = "إحصائيات الاستخدام";
+"tts.speechify_monthly_usage" = "الاستخدام الشهري لـ Speechify";
+"tts.monthly_limit" = "الحد الشهري";
+"tts.used_this_month" = "تم الاستخدام هذا الشهر";
+"tts.remaining" = "المتبقي";
+"tts.usage_progress" = "تقدم الاستخدام";
+"tts.characters" = "حروف";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "الحروف المستخدمة";
+"tts.analytics.sessions" = "الجلسات";
+"tts.analytics.favorite_voice" = "الصوت المفضل";
+"tts.analytics.time_saved" = "الوقت الموفر";
+"tts.analytics.total_characters" = "إجمالي الحروف";
+"tts.analytics.total_sessions" = "إجمالي الجلسات";
+"tts.analytics.total_duration" = "المدة الإجمالية";
+"tts.analytics.favorite_language" = "اللغة المفضلة";
+"tts.analytics.premium_usage" = "الاستخدام المميز";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "تحويل النص إلى كلام";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "نموذج تحويل النص إلى كلام من Speechify متاح لجميع المستخدمين كميزة مميزة. يتيح لك الاختيار من بين مجموعة واسعة من الأصوات واللهجات، لتخصيص تجربة دراستك.";
+"tts.settings.speechify_pro_description" = "نموذج تحويل النص إلى كلام من Speechify مشمول في اشتراكك.";
+"tts.settings.dashboard" = "لوحة التحكم";
+"tts.pro" = "برو";
+"tts.free_google_tts_description" = "Google TTS مجاني بأصوات أساسية وأداء موثوق";
+
+// TTS Models
+"tts.models.english" = "الإنجليزية";
+"tts.models.multilingual" = "متعدد اللغات";
+"tts.models.english_description" = "نموذج تحويل النص إلى كلام باللغة الإنجليزية من Speechify يوفر قدرات قياسية مصممة لتقديم مخرجات صوتية واضحة وطبيعية لقراءة النصوص. يركز النموذج على تقديم تجربة مستخدم متسقة.";
+"tts.models.multilingual_description" = "النموذج متعدد اللغات يتيح استخدام جميع اللغات المدعومة ويدعم استخدام لغات متعددة ضمن جملة واحدة. مخرجات الصوت لهذا النموذج تختلف بشكل واضح عن النماذج الأخرى.";
+
+"auth.enter_name" = "أدخل الاسم";
+"auth.search_by" = "البحث بواسطة";
+"auth.unknown_user" = "مستخدم غير معروف";
+"auth.email" = "البريد الإلكتروني";
+"auth.apple_id" = "معرف Apple";
+"auth.google_account" = "حساب Google";

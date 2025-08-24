@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Chọn vai trò";
 "shared_dictionaries.editor_role" = "Biên tập viên:";
 "shared_dictionaries.viewer_role" = "Người xem:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Cộng tác viên sẽ được thêm bằng địa chỉ email và tên được chỉ định. Họ cần đăng nhập bằng cùng địa chỉ email để truy cập từ điển chia sẻ.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Người dùng sẽ được thêm vào từ điển chia sẻ. Họ sẽ nhận được thông báo và có thể truy cập từ điển ngay lập tức.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Hãy là người đầu tiên đánh giá độ khó của từ này";
 "shared_dictionaries.score" = "Điểm: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Không có từ điển chia sẻ";
@@ -876,3 +876,166 @@
 "part_of_speech.short.preposition" = "G.t.";
 "part_of_speech.short.exclamation" = "C.t.";
 "part_of_speech.short.unknown" = "K.xđ.";
+
+"actions.settings" = "Cài đặt";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Tất cả các trường hợp sử dụng";
+"tts.filters.all_ages" = "Tất cả các độ tuổi";
+"tts.filters.all_timbres" = "Tất cả các âm sắc";
+"tts.filters.all_accents" = "Tất cả các giọng nói";
+"tts.filters.all_languages" = "Tất cả các ngôn ngữ";
+"tts.filters.all_genders" = "Tất cả các giới tính";
+"tts.filters.filters" = "Bộ lọc";
+"tts.filters.reset" = "Đặt lại";
+"tts.filters.select_voice" = "Chọn giọng nói";
+"tts.filters.available_voices" = "Giọng nói có sẵn";
+"tts.filters.no_voices_available" = "Không có giọng nói nào có sẵn";
+"tts.filters.no_voices_found" = "Không tìm thấy giọng nói";
+"tts.filters.no_voices_found_message" = "Hãy thử điều chỉnh tìm kiếm hoặc bộ lọc của bạn";
+
+"tts.usage.monthly_limit_exceeded" = "Vượt quá giới hạn hàng tháng";
+"tts.usage.monthly_limit_exceeded_message" = "Bạn đã đạt đến giới hạn hàng tháng 50.000 ký tự cho Speechify TTS. Vui lòng thử lại vào tháng tới hoặc sử dụng Google TTS.";
+"tts.usage.remaining_characters" = "Số ký tự còn lại";
+"tts.usage.monthly_usage" = "Sử dụng hàng tháng";
+"tts.usage.monthly_limit" = "Giới hạn hàng tháng";
+
+// TTS Voice Filter Values
+"advertisement" = "Quảng cáo";
+"animation" = "Hoạt hình";
+"audiobook" = "Sách nói";
+"audiobook-and-narration" = "Sách nói và tường thuật";
+"audiobooks-and-narration" = "Sách nói và tường thuật";
+"conversational" = "Đàm thoại";
+"e-learning" = "Học trực tuyến";
+"gaming" = "Trò chơi";
+"meditation" = "Thiền";
+"movie" = "Phim";
+"movies-acting-and-gaming" = "Phim, diễn xuất và trò chơi";
+"narration" = "Tường thuật";
+"podcast" = "Podcast";
+"social-media" = "Mạng xã hội";
+
+"middle-aged" = "Trung niên";
+"senior" = "Người cao tuổi";
+"teen" = "Thiếu niên";
+"young-adult" = "Người trưởng thành trẻ";
+
+"female" = "Nữ";
+"male" = "Nam";
+
+"angry" = "Tức giận";
+"assertive-or-confident" = "Quả quyết hoặc tự tin";
+"bright" = "Sáng sủa";
+"calm-or-relaxed" = "Bình tĩnh hoặc thư giãn";
+"calm-or-relaxed-" = "Bình tĩnh hoặc thư giãn";
+"cheerful" = "Vui vẻ";
+"crisp" = "Rõ ràng";
+"deep" = "Trầm";
+"direct" = "Trực tiếp";
+"energetic" = "Năng động";
+"fearful" = "Sợ hãi";
+"high-pitch" = "Giọng cao";
+"neutral" = "Trung tính";
+"professional" = "Chuyên nghiệp";
+"relaxed" = "Thư giãn";
+"sad" = "Buồn";
+"suprised" = "Ngạc nhiên";
+"surprised" = "Ngạc nhiên";
+"terrified" = "Hoảng sợ";
+"warm" = "Ấm áp";
+"warm-or-friendly" = "Ấm áp hoặc thân thiện";
+
+"american-neutral" = "Mỹ trung tính";
+"australian" = "Úc";
+"british" = "Anh";
+"indian" = "Ấn Độ";
+"nigerian" = "Nigeria";
+
+"auth.cross_platform_button_description" = "Để chia sẻ đăng ký giữa các nền tảng";
+"auth.nickname" = "Biệt danh";
+"auth.nickname_current" = "Biệt danh hiện tại";
+"auth.nickname_not_set" = "Biệt danh chưa được đặt";
+"auth.nickname_description" = "Đặt một biệt danh độc đáo mà người khác có thể sử dụng để tìm và thêm bạn vào từ điển chia sẻ. Điều này tiện lợi hơn so với việc sử dụng địa chỉ email.";
+"auth.edit_nickname" = "Chỉnh sửa biệt danh";
+"auth.nickname_cannot_be_empty" = "Biệt danh không được để trống";
+"auth.nickname_already_taken" = "Biệt danh này đã được sử dụng. Vui lòng chọn một biệt danh khác.";
+"auth.nickname_invalid_format" = "Biệt danh chỉ có thể chứa chữ cái, số và dấu gạch dưới.";
+"auth.search_method" = "Phương thức tìm kiếm";
+"auth.find_user_by_email" = "Tìm người dùng qua email";
+"auth.find_user_by_nickname" = "Tìm người dùng qua biệt danh";
+"auth.enter_email_address" = "Nhập địa chỉ email";
+"auth.enter_nickname" = "Nhập biệt danh";
+"auth.found_user" = "Đã tìm thấy người dùng";
+"auth.user_not_found" = "Không tìm thấy người dùng";
+"auth.user_not_found_message" = "Không tìm thấy người dùng với thông tin được cung cấp. Vui lòng kiểm tra tìm kiếm và thử lại.";
+
+"notifications.permission_required" = "Yêu cầu quyền thông báo";
+"notifications.permission_denied_message" = "Để nhận nhắc nhở hàng ngày và cảnh báo cho các từ khó, vui lòng bật thông báo trong Cài đặt.";
+
+"onboarding.natural_voices" = "Giọng nói tự nhiên";
+"onboarding.natural_voices_description" = "Hàng trăm giọng nói cao cấp nghe giống người hơn bao giờ hết";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Truy cập công nghệ chuyển đổi văn bản thành giọng nói cao cấp của Speechify. Hàng trăm giọng nói cao cấp nghe tự nhiên";
+
+// TTS Dashboard
+"tts.dashboard" = "Bảng điều khiển TTS";
+"tts.premium_tts_dashboard" = "Bảng điều khiển TTS cao cấp";
+"tts.customize_tts_experience" = "Tùy chỉnh trải nghiệm chuyển đổi văn bản thành giọng nói của bạn";
+"tts.playing" = "Đang phát";
+"tts.ready" = "Sẵn sàng";
+"tts.provider" = "Nhà cung cấp";
+"tts.tts_provider" = "Nhà cung cấp TTS";
+"tts.voice_customization" = "Tùy chỉnh giọng nói";
+"tts.current_voice" = "Giọng nói hiện tại";
+"tts.default_voice" = "Giọng nói mặc định";
+"tts.preview_current_voice" = "Xem trước giọng nói hiện tại";
+"tts.change_voice" = "Thay đổi giọng nói";
+"tts.audio_settings" = "Cài đặt âm thanh";
+"tts.speech_rate" = "Tốc độ nói";
+"tts.volume" = "Âm lượng";
+"tts.test_your_settings" = "Kiểm tra cài đặt của bạn";
+"tts.enter_text_to_test" = "Nhập văn bản để kiểm tra...";
+"tts.stop" = "Dừng";
+"tts.test" = "Kiểm tra";
+"tts.usage_statistics" = "Thống kê sử dụng";
+"tts.speechify_monthly_usage" = "Sử dụng hàng tháng của Speechify";
+"tts.monthly_limit" = "Giới hạn hàng tháng";
+"tts.used_this_month" = "Đã sử dụng trong tháng này";
+"tts.remaining" = "Còn lại";
+"tts.usage_progress" = "Tiến độ sử dụng";
+"tts.characters" = "ký tự";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Ký tự đã sử dụng";
+"tts.analytics.sessions" = "Phiên";
+"tts.analytics.favorite_voice" = "Giọng nói yêu thích";
+"tts.analytics.time_saved" = "Thời gian tiết kiệm";
+"tts.analytics.total_characters" = "Tổng số ký tự";
+"tts.analytics.total_sessions" = "Tổng số phiên";
+"tts.analytics.total_duration" = "Tổng thời lượng";
+"tts.analytics.favorite_language" = "Ngôn ngữ yêu thích";
+"tts.analytics.premium_usage" = "Sử dụng cao cấp";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Chuyển đổi văn bản thành giọng nói";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Mô hình chuyển đổi văn bản thành giọng nói của Speechify có sẵn cho tất cả người dùng như một tính năng cao cấp. Nó cho phép bạn chọn từ nhiều giọng nói và giọng điệu để tùy chỉnh trải nghiệm học tập của bạn.";
+"tts.settings.speechify_pro_description" = "Mô hình chuyển đổi văn bản thành giọng nói của Speechify được bao gồm trong đăng ký của bạn.";
+"tts.settings.dashboard" = "Bảng điều khiển";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Google TTS miễn phí với các giọng nói cơ bản và hiệu suất đáng tin cậy";
+
+// TTS Models
+"tts.models.english" = "Tiếng Anh";
+"tts.models.multilingual" = "Đa ngôn ngữ";
+"tts.models.english_description" = "Mô hình chuyển đổi văn bản thành giọng nói tiếng Anh của Speechify cung cấp các tính năng tiêu chuẩn được thiết kế để mang lại đầu ra âm thanh rõ ràng và tự nhiên cho việc đọc văn bản. Mô hình tập trung vào việc cung cấp trải nghiệm người dùng nhất quán.";
+"tts.models.multilingual_description" = "Mô hình đa ngôn ngữ cho phép sử dụng tất cả các ngôn ngữ được hỗ trợ và hỗ trợ sử dụng nhiều ngôn ngữ trong một câu. Đầu ra âm thanh của mô hình này khác biệt đáng kể so với các mô hình khác.";
+
+"auth.enter_name" = "Nhập tên";
+"auth.search_by" = "Tìm kiếm theo";
+"auth.unknown_user" = "Người dùng không xác định";
+"auth.email" = "Email";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Tài khoản Google";

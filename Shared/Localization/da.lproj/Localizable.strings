@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Vælg rolle";
 "shared_dictionaries.editor_role" = "Redaktør:";
 "shared_dictionaries.viewer_role" = "Seer:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Samarbejdspartneren vil blive tilføjet med den e-mailadresse og navn, du indtaster. De skal logge ind med den samme e-mailadresse for at få adgang til den delte ordbog.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Brugeren vil blive tilføjet til den delte ordbog. De vil modtage en notifikation og kan få adgang til ordbogen med det samme.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Vær den første til at bedømme sværhedsgraden af dette ord";
 "shared_dictionaries.score" = "Score: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Ingen delte ordbøger";
@@ -891,3 +891,166 @@
 "part_of_speech.short.preposition" = "Forh.";
 "part_of_speech.short.exclamation" = "Udrå.";
 "part_of_speech.short.unknown" = "Ukendt";
+
+"actions.settings" = "Indstillinger";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Alle brugsscenarier";
+"tts.filters.all_ages" = "Alle aldre";
+"tts.filters.all_timbres" = "Alle klangfarver";
+"tts.filters.all_accents" = "Alle accenter";
+"tts.filters.all_languages" = "Alle sprog";
+"tts.filters.all_genders" = "Alle køn";
+"tts.filters.filters" = "Filtre";
+"tts.filters.reset" = "Nulstil";
+"tts.filters.select_voice" = "Vælg stemme";
+"tts.filters.available_voices" = "Tilgængelige stemmer";
+"tts.filters.no_voices_available" = "Ingen stemmer tilgængelige";
+"tts.filters.no_voices_found" = "Ingen stemmer fundet";
+"tts.filters.no_voices_found_message" = "Prøv at justere din søgning eller filtre";
+
+"tts.usage.monthly_limit_exceeded" = "Månedlig grænse overskredet";
+"tts.usage.monthly_limit_exceeded_message" = "Du har nået den månedlige grænse på 50.000 tegn for Speechify TTS. Prøv igen næste måned eller brug Google TTS i stedet.";
+"tts.usage.remaining_characters" = "Resterende tegn";
+"tts.usage.monthly_usage" = "Månedlig brug";
+"tts.usage.monthly_limit" = "Månedlig grænse";
+
+// TTS Voice Filter Values
+"advertisement" = "Reklame";
+"animation" = "Animation";
+"audiobook" = "Lydbog";
+"audiobook-and-narration" = "Lydbog og fortælling";
+"audiobooks-and-narration" = "Lydbøger og fortælling";
+"conversational" = "Samtaleagtig";
+"e-learning" = "E-læring";
+"gaming" = "Spil";
+"meditation" = "Meditation";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Film, skuespil og spil";
+"narration" = "Fortælling";
+"podcast" = "Podcast";
+"social-media" = "Sociale medier";
+
+"middle-aged" = "Midaldrende";
+"senior" = "Senior";
+"teen" = "Teenager";
+"young-adult" = "Ung voksen";
+
+"female" = "Kvinde";
+"male" = "Mand";
+
+"angry" = "Vred";
+"assertive-or-confident" = "Bestemt eller selvsikker";
+"bright" = "Lys";
+"calm-or-relaxed" = "Rolig eller afslappet";
+"calm-or-relaxed-" = "Rolig eller afslappet";
+"cheerful" = "Glad";
+"crisp" = "Klar";
+"deep" = "Dyb";
+"direct" = "Direkte";
+"energetic" = "Energisk";
+"fearful" = "Bange";
+"high-pitch" = "Høj tone";
+"neutral" = "Neutral";
+"professional" = "Professionel";
+"relaxed" = "Afslappet";
+"sad" = "Trist";
+"suprised" = "Overrasket";
+"surprised" = "Overrasket";
+"terrified" = "Rædselsslagen";
+"warm" = "Varm";
+"warm-or-friendly" = "Varm eller venlig";
+
+"american-neutral" = "Amerikansk neutral";
+"australian" = "Australsk";
+"british" = "Britisk";
+"indian" = "Indisk";
+"nigerian" = "Nigeriansk";
+
+"auth.cross_platform_button_description" = "Til deling af abonnement på tværs af platforme";
+"auth.nickname" = "Kælenavn";
+"auth.nickname_current" = "Nuværende kælenavn";
+"auth.nickname_not_set" = "Kælenavn er ikke sat";
+"auth.nickname_description" = "Indstil et unikt kælenavn, som andre kan bruge til at finde og tilføje dig til delte ordbøger. Dette er mere praktisk end at bruge e-mailadresser.";
+"auth.edit_nickname" = "Rediger kælenavn";
+"auth.nickname_cannot_be_empty" = "Kælenavn må ikke være tomt";
+"auth.nickname_already_taken" = "Dette kælenavn er allerede taget. Vælg et andet.";
+"auth.nickname_invalid_format" = "Kælenavn må kun indeholde bogstaver, tal og understreger.";
+"auth.search_method" = "Søgemetode";
+"auth.find_user_by_email" = "Find bruger via e-mail";
+"auth.find_user_by_nickname" = "Find bruger via kælenavn";
+"auth.enter_email_address" = "Indtast e-mailadresse";
+"auth.enter_nickname" = "Indtast kælenavn";
+"auth.found_user" = "Bruger fundet";
+"auth.user_not_found" = "Bruger ikke fundet";
+"auth.user_not_found_message" = "Ingen bruger fundet med de angivne oplysninger. Tjek din søgning og prøv igen.";
+
+"notifications.permission_required" = "Meddelelsestilladelse kræves";
+"notifications.permission_denied_message" = "For at modtage daglige påmindelser og advarsler om svære ord, skal du aktivere meddelelser i Indstillinger.";
+
+"onboarding.natural_voices" = "Naturlige stemmer";
+"onboarding.natural_voices_description" = "Hundreder af premiumstemmer, der lyder mere menneskelige end nogensinde";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Adgang til Speechifys premium tekst-til-tale-teknologi. Hundreder af naturligt klingende premiumstemmer";
+
+// TTS Dashboard
+"tts.dashboard" = "TTS-dashboard";
+"tts.premium_tts_dashboard" = "Premium TTS-dashboard";
+"tts.customize_tts_experience" = "Tilpas din tekst-til-tale-oplevelse";
+"tts.playing" = "Afspiller";
+"tts.ready" = "Klar";
+"tts.provider" = "Udboer";
+"tts.tts_provider" = "TTS-udbyder";
+"tts.voice_customization" = "Stemetilpasning";
+"tts.current_voice" = "Nuværende stemme";
+"tts.default_voice" = "Standard stemme";
+"tts.preview_current_voice" = "Forhåndsvis nuværende stemme";
+"tts.change_voice" = "Skift stemme";
+"tts.audio_settings" = "Lydindstillinger";
+"tts.speech_rate" = "Talehastighed";
+"tts.volume" = "Lydstyrke";
+"tts.test_your_settings" = "Test dine indstillinger";
+"tts.enter_text_to_test" = "Indtast tekst til test...";
+"tts.stop" = "Stop";
+"tts.test" = "Test";
+"tts.usage_statistics" = "Brugsstatistik";
+"tts.speechify_monthly_usage" = "Speechify månedlig brug";
+"tts.monthly_limit" = "Månedlig grænse";
+"tts.used_this_month" = "Brugt denne måned";
+"tts.remaining" = "Resterende";
+"tts.usage_progress" = "Brugsfremskridt";
+"tts.characters" = "tegn";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Brugte tegn";
+"tts.analytics.sessions" = "Sessioner";
+"tts.analytics.favorite_voice" = "Favoritstemme";
+"tts.analytics.time_saved" = "Sparet tid";
+"tts.analytics.total_characters" = "Samlet antal tegn";
+"tts.analytics.total_sessions" = "Samlet antal sessioner";
+"tts.analytics.total_duration" = "Samlet varighed";
+"tts.analytics.favorite_language" = "Favoritsprog";
+"tts.analytics.premium_usage" = "Premiumbrug";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Tekst-til-tale";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Speechifys tekst-til-tale-model er tilgængelig for alle brugere som en premiumfunktion. Den giver dig mulighed for at vælge mellem et bredt udvalg af stemmer og accenter, så du kan tilpasse din studieoplevelse.";
+"tts.settings.speechify_pro_description" = "Speechifys tekst-til-tale-model er inkluderet i dit abonnement.";
+"tts.settings.dashboard" = "Dashboard";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Gratis Google TTS med grundlæggende stemmer og pålidelig ydeevne";
+
+// TTS Models
+"tts.models.english" = "Engelsk";
+"tts.models.multilingual" = "Flersproget";
+"tts.models.english_description" = "Speechifys engelske tekst-til-tale-model tilbyder standardfunktioner designet til at levere klar og naturlig lydudgang til tekstlæsning. Modellen fokuserer på at give en konsistent brugeroplevelse.";
+"tts.models.multilingual_description" = "Den flersprogede model muliggør brug af alle understøttede sprog og understøtter brug af flere sprog inden for en enkelt sætning. Lydudgangen fra denne model adskiller sig tydeligt fra andre modeller.";
+
+"auth.enter_name" = "Indtast navn";
+"auth.search_by" = "Søg efter";
+"auth.unknown_user" = "Ukendt bruger";
+"auth.email" = "E-mail";
+"auth.apple_id" = "Apple-ID";
+"auth.google_account" = "Google-konto";

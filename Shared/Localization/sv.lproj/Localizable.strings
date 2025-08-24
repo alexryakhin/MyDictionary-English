@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Välj roll";
 "shared_dictionaries.editor_role" = "Redigerare:";
 "shared_dictionaries.viewer_role" = "Visare:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Medarbetaren kommer att läggas till med den angivna e-postadressen och namnet. De måste logga in med samma e-postadress för att få tillgång till den delade ordboken.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Användaren kommer att läggas till i det delade ordboket. De kommer att få en notis och kan omedelbart få åtkomst till ordboket.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Bli först med att betygsätta svårigheten för detta ord";
 "shared_dictionaries.score" = "Poäng: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Inga delade ordböcker";
@@ -876,3 +876,166 @@
 "part_of_speech.short.preposition" = "Prep.";
 "part_of_speech.short.exclamation" = "Utr.";
 "part_of_speech.short.unknown" = "Okänd";
+
+"actions.settings" = "Inställningar";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Alla användningsfall";
+"tts.filters.all_ages" = "Alla åldrar";
+"tts.filters.all_timbres" = "Alla klangfärger";
+"tts.filters.all_accents" = "Alla accenter";
+"tts.filters.all_languages" = "Alla språk";
+"tts.filters.all_genders" = "Alla kön";
+"tts.filters.filters" = "Filter";
+"tts.filters.reset" = "Återställ";
+"tts.filters.select_voice" = "Välj röst";
+"tts.filters.available_voices" = "Tillgängliga röster";
+"tts.filters.no_voices_available" = "Inga röster tillgängliga";
+"tts.filters.no_voices_found" = "Inga röster hittades";
+"tts.filters.no_voices_found_message" = "Försök justera din sökning eller filter";
+
+"tts.usage.monthly_limit_exceeded" = "Månadsgräns överskriden";
+"tts.usage.monthly_limit_exceeded_message" = "Du har nått månadsgränsen på 50 000 tecken för Speechify TTS. Försök igen nästa månad eller använd Google TTS istället.";
+"tts.usage.remaining_characters" = "Återstående tecken";
+"tts.usage.monthly_usage" = "Månadsanvändning";
+"tts.usage.monthly_limit" = "Månadsgräns";
+
+// TTS Voice Filter Values
+"advertisement" = "Reklam";
+"animation" = "Animation";
+"audiobook" = "Ljudbok";
+"audiobook-and-narration" = "Ljudbok och berättande";
+"audiobooks-and-narration" = "Ljudböcker och berättande";
+"conversational" = "Samtalston";
+"e-learning" = "E-lärande";
+"gaming" = "Spel";
+"meditation" = "Meditation";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filmer, skådespeleri och spel";
+"narration" = "Berättande";
+"podcast" = "Podcast";
+"social-media" = "Sociala medier";
+
+"middle-aged" = "Medelålders";
+"senior" = "Senior";
+"teen" = "Tonåring";
+"young-adult" = "Ung vuxen";
+
+"female" = "Kvinna";
+"male" = "Man";
+
+"angry" = "Arg";
+"assertive-or-confident" = "Bestämd eller självsäker";
+"bright" = "Ljus";
+"calm-or-relaxed" = "Lugn eller avslappnad";
+"calm-or-relaxed-" = "Lugn eller avslappnad";
+"cheerful" = "Glad";
+"crisp" = "Klar";
+"deep" = "Djup";
+"direct" = "Direkt";
+"energetic" = "Energisk";
+"fearful" = "Rädd";
+"high-pitch" = "Hög ton";
+"neutral" = "Neutral";
+"professional" = "Professionell";
+"relaxed" = "Avslappnad";
+"sad" = "Ledsen";
+"suprised" = "Överraskad";
+"surprised" = "Överraskad";
+"terrified" = "Skräckslagen";
+"warm" = "Varm";
+"warm-or-friendly" = "Varm eller vänlig";
+
+"american-neutral" = "Amerikansk neutral";
+"australian" = "Australisk";
+"british" = "Brittisk";
+"indian" = "Indisk";
+"nigerian" = "Nigeriansk";
+
+"auth.cross_platform_button_description" = "För delning av abonnemang över plattformar";
+"auth.nickname" = "Smeknamn";
+"auth.nickname_current" = "Nuvarande smeknamn";
+"auth.nickname_not_set" = "Smeknamn är inte inställt";
+"auth.nickname_description" = "Ställ in ett unikt smeknamn som andra kan använda för att hitta och lägga till dig i delade ordböcker. Detta är bekvämare än att använda e-postadresser.";
+"auth.edit_nickname" = "Redigera smeknamn";
+"auth.nickname_cannot_be_empty" = "Smeknamn får inte vara tomt";
+"auth.nickname_already_taken" = "Detta smeknamn är redan taget. Välj ett annat.";
+"auth.nickname_invalid_format" = "Smeknamn får endast innehålla bokstäver, siffror och understreck.";
+"auth.search_method" = "Sökmetod";
+"auth.find_user_by_email" = "Hitta användare via e-post";
+"auth.find_user_by_nickname" = "Hitta användare via smeknamn";
+"auth.enter_email_address" = "Ange e-postadress";
+"auth.enter_nickname" = "Ange smeknamn";
+"auth.found_user" = "Användare hittades";
+"auth.user_not_found" = "Användare hittades inte";
+"auth.user_not_found_message" = "Ingen användare hittades med den angivna informationen. Kontrollera din sökning och försök igen.";
+
+"notifications.permission_required" = "Meddelandetillstånd krävs";
+"notifications.permission_denied_message" = "För att ta emot dagliga påminnelser och varningar för svåra ord, aktivera meddelanden i Inställningar.";
+
+"onboarding.natural_voices" = "Naturliga röster";
+"onboarding.natural_voices_description" = "Hundratals premiumröster som låter mer mänskliga än någonsin";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Tillgång till Speechifys premiumteknik för text-till-tal. Hundratals naturligt klingande premiumröster";
+
+// TTS Dashboard
+"tts.dashboard" = "TTS-instrumentpanel";
+"tts.premium_tts_dashboard" = "Premium TTS-instrumentpanel";
+"tts.customize_tts_experience" = "Anpassa din text-till-tal-upplevelse";
+"tts.playing" = "Spelar";
+"tts.ready" = "Klar";
+"tts.provider" = "Leverantör";
+"tts.tts_provider" = "TTS-leverantör";
+"tts.voice_customization" = "Röstanpassning";
+"tts.current_voice" = "Nuvarande röst";
+"tts.default_voice" = "Standardröst";
+"tts.preview_current_voice" = "Förhandsgranska nuvarande röst";
+"tts.change_voice" = "Byt röst";
+"tts.audio_settings" = "Ljudinställningar";
+"tts.speech_rate" = "Talfart";
+"tts.volume" = "Volym";
+"tts.test_your_settings" = "Testa dina inställningar";
+"tts.enter_text_to_test" = "Ange text för att testa...";
+"tts.stop" = "Stoppa";
+"tts.test" = "Testa";
+"tts.usage_statistics" = "Användningsstatistik";
+"tts.speechify_monthly_usage" = "Speechify månadsanvändning";
+"tts.monthly_limit" = "Månadsgräns";
+"tts.used_this_month" = "Använt denna månad";
+"tts.remaining" = "Återstående";
+"tts.usage_progress" = "Användningsförlopp";
+"tts.characters" = "tecken";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Använda tecken";
+"tts.analytics.sessions" = "Sessioner";
+"tts.analytics.favorite_voice" = "Favoritröst";
+"tts.analytics.time_saved" = "Sparad tid";
+"tts.analytics.total_characters" = "Totalt antal tecken";
+"tts.analytics.total_sessions" = "Totalt antal sessioner";
+"tts.analytics.total_duration" = "Total varaktighet";
+"tts.analytics.favorite_language" = "Favoritspråk";
+"tts.analytics.premium_usage" = "Premiumanvändning";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Text-till-tal";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Speechifys text-till-tal-modell är tillgänglig för alla användare som en premiumfunktion. Den låter dig välja från ett brett utbud av röster och accenter, så att du kan anpassa din studieupplevelse.";
+"tts.settings.speechify_pro_description" = "Speechifys text-till-tal-modell ingår i ditt abonnemang.";
+"tts.settings.dashboard" = "Instrumentpanel";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Gratis Google TTS med grundläggande röster och pålitlig prestanda";
+
+// TTS Models
+"tts.models.english" = "Engelska";
+"tts.models.multilingual" = "Flerspråkig";
+"tts.models.english_description" = "Speechifys engelska text-till-tal-modell erbjuder standardfunktioner utformade för att leverera tydlig och naturlig röstutmatning för textläsning. Modellen fokuserar på att ge en konsekvent användarupplevelse.";
+"tts.models.multilingual_description" = "Den flerspråkiga modellen möjliggör användning av alla stödda språk och stöder användning av flera språk inom en enda mening. Ljudutmatningen från denna modell skiljer sig tydligt från andra modeller.";
+
+"auth.enter_name" = "Ange namn";
+"auth.search_by" = "Sök efter";
+"auth.unknown_user" = "Okänd användare";
+"auth.email" = "E-post";
+"auth.apple_id" = "Apple-ID";
+"auth.google_account" = "Google-konto";

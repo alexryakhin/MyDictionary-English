@@ -98,6 +98,60 @@
 "tts.usage.monthly_limit_exceeded_message" = "You have reached your monthly limit of 50,000 characters for Speechify TTS. Please try again next month or use Google TTS instead.";
 "tts.usage.remaining_characters" = "Remaining Characters";
 "tts.usage.monthly_usage" = "Monthly Usage";
+
+// TTS Dashboard
+"tts.dashboard" = "TTS Dashboard";
+"tts.premium_tts_dashboard" = "Premium TTS Dashboard";
+"tts.customize_tts_experience" = "Customize your text-to-speech experience";
+"tts.playing" = "Playing";
+"tts.ready" = "Ready";
+"tts.provider" = "Provider";
+"tts.tts_provider" = "TTS Provider";
+"tts.voice_customization" = "Voice Customization";
+"tts.current_voice" = "Current Voice";
+"tts.default_voice" = "Default Voice";
+"tts.preview_current_voice" = "Preview Current Voice";
+"tts.change_voice" = "Change Voice";
+"tts.audio_settings" = "Audio Settings";
+"tts.speech_rate" = "Speech Rate";
+"tts.volume" = "Volume";
+"tts.test_your_settings" = "Test Your Settings";
+"tts.enter_text_to_test" = "Enter text to test...";
+"tts.stop" = "Stop";
+"tts.test" = "Test";
+"tts.usage_statistics" = "Usage Statistics";
+"tts.speechify_monthly_usage" = "Speechify Monthly Usage";
+"tts.monthly_limit" = "Monthly Limit";
+"tts.used_this_month" = "Used This Month";
+"tts.remaining" = "Remaining";
+"tts.usage_progress" = "Usage Progress";
+"tts.characters" = "characters";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Characters Used";
+"tts.analytics.sessions" = "Sessions";
+"tts.analytics.favorite_voice" = "Favorite Voice";
+"tts.analytics.time_saved" = "Time Saved";
+"tts.analytics.total_characters" = "Total Characters";
+"tts.analytics.total_sessions" = "Total Sessions";
+"tts.analytics.total_duration" = "Total Duration";
+"tts.analytics.favorite_language" = "Favorite Language";
+"tts.analytics.premium_usage" = "Premium Usage";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Text-to-Speech";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Speechify's Text-to-Speech AI model is available for all users as a premium feature. It allows you to choose from a wide range of voices and accents, so you can fine-tune your study experience.";
+"tts.settings.speechify_pro_description" = "Speechify's Text-to-Speech AI model is included in your subscription.";
+"tts.settings.dashboard" = "Dashboard";
+"tts.pro" = "PRO";
+"tts.free_google_tts_description" = "Free Google TTS with basic voices and reliable performance";
+
+// TTS Models
+"tts.models.english" = "English";
+"tts.models.multilingual" = "Multilingual";
+"tts.models.english_description" = "Speechify's English text-to-speech model offers standard capabilities designed to deliver clear and natural voice output for reading texts. The model focuses on delivering a consistent user experience.";
+"tts.models.multilingual_description" = "Multilingual model allows the usage of all supported languages and supports using multiple languages within a single sentence. The audio output of this model is distinctively different from other models.";
 "tts.usage.monthly_limit" = "Monthly Limit";
 
 // TTS Voice Filter Values
@@ -564,6 +618,19 @@
 "auth.find_user_by_nickname" = "Find User by Nickname";
 "auth.enter_email_address" = "Enter email address";
 "auth.enter_nickname" = "Enter nickname";
+"auth.enter_name" = "Enter name";
+"auth.search_by" = "Search by";
+"auth.unknown_user" = "Unknown User";
+"auth.email" = "Email";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Google Account";
+"auth.cancel" = "Cancel";
+"auth.save" = "Save";
+
+// AI Demo
+"ai_demo.clear" = "Clear";
+"ai_demo.done" = "Done";
+"ai_demo.error" = "Error";
 "auth.found_user" = "Found User";
 "auth.user_not_found" = "User not found";
 "auth.user_not_found_message" = "No user found with the provided information. Please check your search and try again.";
@@ -612,7 +679,7 @@
 "shared_dictionaries.select_role" = "Select role";
 "shared_dictionaries.editor_role" = "Editor:";
 "shared_dictionaries.viewer_role" = "Viewer:";
-"shared_dictionaries.collaborator_added_with_email_name" = "The collaborator will be added with the email and name you provide. They will need to sign in with the same email address to access the shared dictionary.";
+"shared_dictionaries.collaborator_added_with_email_name" = "The user will be added to the shared dictionary. They will receive a notification and can access the dictionary immediately.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Be the first to rate this word's difficulty";
 "shared_dictionaries.score" = "Score: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "No shared dictionaries";

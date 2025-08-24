@@ -25,6 +25,15 @@ struct AddCollaboratorView: View {
     enum SearchMode: String, CaseIterable {
         case email = "Email"
         case nickname = "Nickname"
+        
+        var localizedName: String {
+            switch self {
+            case .email:
+                return Loc.Auth.email.localized
+            case .nickname:
+                return Loc.Auth.nickname.localized
+            }
+        }
     }
 
     var body: some View {
@@ -32,13 +41,12 @@ struct AddCollaboratorView: View {
             VStack(spacing: 16) {
                 // Search Mode Selection
                 CustomSectionView(header: Loc.Auth.searchMethod.localized) {
-                    Picker("Search by", selection: $searchMode) {
+                    Picker(Loc.Auth.searchBy.localized, selection: $searchMode) {
                         ForEach(SearchMode.allCases, id: \.self) { mode in
-                            Text(mode.rawValue).tag(mode)
+                            Text(mode.localizedName).tag(mode)
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
-                    .padding(.horizontal, 16)
                 }
                 
                 // Search Section
@@ -88,7 +96,7 @@ struct AddCollaboratorView: View {
                                     .foregroundStyle(.accent)
                                 
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text(foundUser.displayName ?? "Unknown User")
+                                    Text(foundUser.displayName ?? Loc.Auth.unknownUser.localized)
                                         .font(.body)
                                         .fontWeight(.medium)
                                     
@@ -144,11 +152,7 @@ struct AddCollaboratorView: View {
                 // Note Section
                 CustomSectionView(header: Loc.App.note.localized, hPadding: .zero) {
                     VStack(alignment: .leading, spacing: 8) {
-                        if searchMode == .email {
-                            Text(Loc.SharedDictionaries.collaboratorAddedWithEmailName.localized)
-                        } else {
-                            Text("The user will be added to the shared dictionary. They will receive a notification and can access the dictionary immediately.")
-                        }
+                        Text(Loc.SharedDictionaries.collaboratorAddedWithEmailName.localized)
                     }
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)

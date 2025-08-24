@@ -472,6 +472,59 @@ enum Loc {
         static let noVoicesAvailable = "tts.filters.no_voices_available"
         static let noVoicesFound = "tts.filters.no_voices_found"
         static let noVoicesFoundMessage = "tts.filters.no_voices_found_message"
+        
+        // TTS Dashboard
+        static let ttsDashboard = "tts.dashboard"
+        static let premiumTTSDashboard = "tts.premium_tts_dashboard"
+        static let customizeTTSSExperience = "tts.customize_tts_experience"
+        static let playing = "tts.playing"
+        static let ready = "tts.ready"
+        static let provider = "tts.provider"
+        static let ttsProvider = "tts.tts_provider"
+        static let voiceCustomization = "tts.voice_customization"
+        static let currentVoice = "tts.current_voice"
+        static let defaultVoice = "tts.default_voice"
+        static let previewCurrentVoice = "tts.preview_current_voice"
+        static let changeVoice = "tts.change_voice"
+        static let audioSettings = "tts.audio_settings"
+        static let speechRate = "tts.speech_rate"
+        static let volume = "tts.volume"
+        static let testYourSettings = "tts.test_your_settings"
+        static let enterTextToTest = "tts.enter_text_to_test"
+        static let stop = "tts.stop"
+        static let test = "tts.test"
+        static let usageStatistics = "tts.usage_statistics"
+        static let speechifyMonthlyUsage = "tts.speechify_monthly_usage"
+        static let usedThisMonth = "tts.used_this_month"
+        static let remaining = "tts.remaining"
+        static let usageProgress = "tts.usage_progress"
+        static let characters = "tts.characters"
+        
+        // TTS Analytics
+        static let charactersUsed = "tts.analytics.characters_used"
+        static let sessions = "tts.analytics.sessions"
+        static let favoriteVoice = "tts.analytics.favorite_voice"
+        static let timeSaved = "tts.analytics.time_saved"
+        static let totalCharacters = "tts.analytics.total_characters"
+        static let totalSessions = "tts.analytics.total_sessions"
+        static let totalDuration = "tts.analytics.total_duration"
+        static let favoriteLanguage = "tts.analytics.favorite_language"
+        static let premiumUsage = "tts.analytics.premium_usage"
+        
+        // TTS Settings
+        static let textToSpeech = "tts.settings.text_to_speech"
+        static let speechify = "tts.settings.speechify"
+        static let speechifyDescription = "tts.settings.speechify_description"
+        static let speechifyProDescription = "tts.settings.speechify_pro_description"
+        static let dashboard = "tts.settings.dashboard"
+        static let pro = "tts.pro"
+        static let freeGoogleTTSDescription = "tts.free_google_tts_description"
+        
+        // TTS Models
+        static let english = "tts.models.english"
+        static let multilingual = "tts.models.multilingual"
+        static let englishModelDescription = "tts.models.english_description"
+        static let multilingualModelDescription = "tts.models.multilingual_description"
     }
 
     // MARK: - Authentication
@@ -541,7 +594,13 @@ enum Loc {
         static let findUserByEmail = "auth.find_user_by_email"
         static let findUserByNickname = "auth.find_user_by_nickname"
         static let enterEmailAddress = "auth.enter_email_address"
+        static let enterName = "auth.enter_name"
         static let enterNickname = "auth.enter_nickname"
+        static let searchBy = "auth.search_by"
+        static let unknownUser = "auth.unknown_user"
+        static let email = "auth.email"
+        static let appleID = "auth.apple_id"
+        static let googleAccount = "auth.google_account"
         static let foundUser = "auth.found_user"
     }
 

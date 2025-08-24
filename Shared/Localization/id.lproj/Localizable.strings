@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Pilih Peran";
 "shared_dictionaries.editor_role" = "Editor:";
 "shared_dictionaries.viewer_role" = "Penonton:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Kolaborator akan ditambahkan dengan alamat email dan nama yang Anda masukkan. Mereka harus masuk dengan alamat email yang sama untuk mengakses kamus bersama.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Pengguna akan ditambahkan ke kamus bersama. Mereka akan menerima pemberitahuan dan dapat mengakses kamus segera.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Jadilah yang pertama menilai kesulitan kata ini";
 "shared_dictionaries.score" = "Skor: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Tidak ada kamus bersama";
@@ -890,3 +890,166 @@
 "part_of_speech.short.preposition" = "Depan";
 "part_of_speech.short.exclamation" = "Seru";
 "part_of_speech.short.unknown" = "Tdk Diketahui";
+
+"actions.settings" = "Pengaturan";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Semua kasus penggunaan";
+"tts.filters.all_ages" = "Semua usia";
+"tts.filters.all_timbres" = "Semua nada suara";
+"tts.filters.all_accents" = "Semua aksen";
+"tts.filters.all_languages" = "Semua bahasa";
+"tts.filters.all_genders" = "Semua jenis kelamin";
+"tts.filters.filters" = "Filter";
+"tts.filters.reset" = "Atur Ulang";
+"tts.filters.select_voice" = "Pilih suara";
+"tts.filters.available_voices" = "Suara yang tersedia";
+"tts.filters.no_voices_available" = "Tidak ada suara yang tersedia";
+"tts.filters.no_voices_found" = "Tidak ada suara yang ditemukan";
+"tts.filters.no_voices_found_message" = "Coba sesuaikan pencarian atau filter Anda";
+
+"tts.usage.monthly_limit_exceeded" = "Batas bulanan terlampaui";
+"tts.usage.monthly_limit_exceeded_message" = "Anda telah mencapai batas bulanan 50.000 karakter untuk Speechify TTS. Coba lagi bulan depan atau gunakan Google TTS.";
+"tts.usage.remaining_characters" = "Karakter yang tersisa";
+"tts.usage.monthly_usage" = "Penggunaan bulanan";
+"tts.usage.monthly_limit" = "Batas bulanan";
+
+// TTS Voice Filter Values
+"advertisement" = "Iklan";
+"animation" = "Animasi";
+"audiobook" = "Buku audio";
+"audiobook-and-narration" = "Buku audio dan narasi";
+"audiobooks-and-narration" = "Buku-buku audio dan narasi";
+"conversational" = "Percakapan";
+"e-learning" = "E-learning";
+"gaming" = "Permainan";
+"meditation" = "Meditasi";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Film, akting, dan permainan";
+"narration" = "Narasi";
+"podcast" = "Podcast";
+"social-media" = "Media sosial";
+
+"middle-aged" = "Usia tengah";
+"senior" = "Lansia";
+"teen" = "Remaja";
+"young-adult" = "Dewasa muda";
+
+"female" = "Perempuan";
+"male" = "Laki-laki";
+
+"angry" = "Marah";
+"assertive-or-confident" = "Tegas atau percaya diri";
+"bright" = "Cerah";
+"calm-or-relaxed" = "Tenang atau santai";
+"calm-or-relaxed-" = "Tenang atau santai";
+"cheerful" = "Ceria";
+"crisp" = "Jernih";
+"deep" = "Dalam";
+"direct" = "Langsung";
+"energetic" = "Energik";
+"fearful" = "Takut";
+"high-pitch" = "Nada tinggi";
+"neutral" = "Netral";
+"professional" = "Profesional";
+"relaxed" = "Santai";
+"sad" = "Sedih";
+"suprised" = "Terkejut";
+"surprised" = "Terkejut";
+"terrified" = "Ketakutan";
+"warm" = "Hangat";
+"warm-or-friendly" = "Hangat atau ramah";
+
+"american-neutral" = "Amerika netral";
+"australian" = "Australia";
+"british" = "Inggris";
+"indian" = "India";
+"nigerian" = "Nigeria";
+
+"auth.cross_platform_button_description" = "Untuk berbagi langganan lintas platform";
+"auth.nickname" = "Nama panggilan";
+"auth.nickname_current" = "Nama panggilan saat ini";
+"auth.nickname_not_set" = "Nama panggilan belum diatur";
+"auth.nickname_description" = "Atur nama panggilan unik yang dapat digunakan orang lain untuk menemukan dan menambahkan Anda ke kamus bersama. Ini lebih nyaman daripada menggunakan alamat email.";
+"auth.edit_nickname" = "Edit nama panggilan";
+"auth.nickname_cannot_be_empty" = "Nama panggilan tidak boleh kosong";
+"auth.nickname_already_taken" = "Nama panggilan ini sudah digunakan. Pilih yang lain.";
+"auth.nickname_invalid_format" = "Nama panggilan hanya boleh berisi huruf, angka, dan garis bawah.";
+"auth.search_method" = "Metode pencarian";
+"auth.find_user_by_email" = "Temukan pengguna melalui email";
+"auth.find_user_by_nickname" = "Temukan pengguna melalui nama panggilan";
+"auth.enter_email_address" = "Masukkan alamat email";
+"auth.enter_nickname" = "Masukkan nama panggilan";
+"auth.found_user" = "Pengguna ditemukan";
+"auth.user_not_found" = "Pengguna tidak ditemukan";
+"auth.user_not_found_message" = "Tidak ada pengguna yang ditemukan dengan informasi yang diberikan. Periksa pencarian Anda dan coba lagi.";
+
+"notifications.permission_required" = "Izin notifikasi diperlukan";
+"notifications.permission_denied_message" = "Untuk menerima pengingat harian dan peringatan untuk kata-kata sulit, aktifkan notifikasi di Pengaturan.";
+
+"onboarding.natural_voices" = "Suara alami";
+"onboarding.natural_voices_description" = "Ratusan suara premium yang terdengar lebih manusiawi dari sebelumnya";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Akses ke teknologi teks ke ucapan premium Speechify. Ratusan suara premium yang terdengar alami";
+
+// TTS Dashboard
+"tts.dashboard" = "Dasbor TTS";
+"tts.premium_tts_dashboard" = "Dasbor TTS Premium";
+"tts.customize_tts_experience" = "Sesuaikan pengalaman teks ke ucapan Anda";
+"tts.playing" = "Sedang diputar";
+"tts.ready" = "Siap";
+"tts.provider" = "Penyedia";
+"tts.tts_provider" = "Penyedia TTS";
+"tts.voice_customization" = "Kustomisasi suara";
+"tts.current_voice" = "Suara saat ini";
+"tts.default_voice" = "Suara default";
+"tts.preview_current_voice" = "Pratinjau suara saat ini";
+"tts.change_voice" = "Ubah suara";
+"tts.audio_settings" = "Pengaturan audio";
+"tts.speech_rate" = "Kecepatan bicara";
+"tts.volume" = "Volume";
+"tts.test_your_settings" = "Uji pengaturan Anda";
+"tts.enter_text_to_test" = "Masukkan teks untuk menguji...";
+"tts.stop" = "Berhenti";
+"tts.test" = "Uji";
+"tts.usage_statistics" = "Statistik penggunaan";
+"tts.speechify_monthly_usage" = "Penggunaan bulanan Speechify";
+"tts.monthly_limit" = "Batas bulanan";
+"tts.used_this_month" = "Digunakan bulan ini";
+"tts.remaining" = "Sisa";
+"tts.usage_progress" = "Kemajuan penggunaan";
+"tts.characters" = "karakter";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Karakter yang digunakan";
+"tts.analytics.sessions" = "Sesi";
+"tts.analytics.favorite_voice" = "Suara favorit";
+"tts.analytics.time_saved" = "Waktu yang dihemat";
+"tts.analytics.total_characters" = "Total karakter";
+"tts.analytics.total_sessions" = "Total sesi";
+"tts.analytics.total_duration" = "Durasi total";
+"tts.analytics.favorite_language" = "Bahasa favorit";
+"tts.analytics.premium_usage" = "Penggunaan premium";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Teks ke ucapan";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Model teks ke ucapan Speechify tersedia untuk semua pengguna sebagai fitur premium. Ini memungkinkan Anda memilih dari berbagai suara dan aksen, untuk menyesuaikan pengalaman belajar Anda.";
+"tts.settings.speechify_pro_description" = "Model teks ke ucapan Speechify disertakan dalam langganan Anda.";
+"tts.settings.dashboard" = "Dasbor";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Google TTS gratis dengan suara dasar dan kinerja yang andal";
+
+// TTS Models
+"tts.models.english" = "Bahasa Inggris";
+"tts.models.multilingual" = "Multibahasa";
+"tts.models.english_description" = "Model teks ke ucapan Bahasa Inggris Speechify menawarkan fitur standar yang dirancang untuk memberikan keluaran audio yang jelas dan alami untuk membaca teks. Model ini berfokus pada penyediaan pengalaman pengguna yang konsisten.";
+"tts.models.multilingual_description" = "Model multibahasa memungkinkan penggunaan semua bahasa yang didukung dan mendukung penggunaan beberapa bahasa dalam satu kalimat. Keluaran audio model ini sangat berbeda dari model lain.";
+
+"auth.enter_name" = "Masukkan nama";
+"auth.search_by" = "Cari berdasarkan";
+"auth.unknown_user" = "Pengguna tidak dikenal";
+"auth.email" = "Email";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Akun Google";

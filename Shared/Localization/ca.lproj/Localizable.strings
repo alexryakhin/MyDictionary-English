@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Selecciona un rol";
 "shared_dictionaries.editor_role" = "Editor:";
 "shared_dictionaries.viewer_role" = "Espectador:";
-"shared_dictionaries.collaborator_added_with_email_name" = "El col·laborador s'afegirà amb l'adreça de correu electrònic i el nom que proporcionis. Hauran d'iniciar sessió amb la mateixa adreça de correu electrònic per accedir al diccionari compartit.";
+"shared_dictionaries.collaborator_added_with_email_name" = "L'usuari serà afegit al diccionari compartit. Rebrà una notificació i podrà accedir al diccionari immediatament.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Sigues el primer a valorar la dificultat d'aquesta paraula";
 "shared_dictionaries.score" = "Puntuació: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Cap diccionari compartit";
@@ -894,3 +894,166 @@
 "part_of_speech.short.preposition" = "Prep.";
 "part_of_speech.short.exclamation" = "Excl.";
 "part_of_speech.short.unknown" = "Desc.";
+
+"actions.settings" = "Configuració";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Tots els casos d'ús";
+"tts.filters.all_ages" = "Totes les edats";
+"tts.filters.all_timbres" = "Tots els timbres";
+"tts.filters.all_accents" = "Tots els accents";
+"tts.filters.all_languages" = "Tots els idiomes";
+"tts.filters.all_genders" = "Tots els gèneres";
+"tts.filters.filters" = "Filtres";
+"tts.filters.reset" = "Restablir";
+"tts.filters.select_voice" = "Seleccionar veu";
+"tts.filters.available_voices" = "Veus disponibles";
+"tts.filters.no_voices_available" = "Cap veu disponible";
+"tts.filters.no_voices_found" = "No s'han trobat veus";
+"tts.filters.no_voices_found_message" = "Prova d'ajustar la cerca o els filtres";
+
+"tts.usage.monthly_limit_exceeded" = "Límit mensual excedit";
+"tts.usage.monthly_limit_exceeded_message" = "Has assolit el límit mensual de 50.000 caràcters per a Speechify TTS. Torna-ho a provar el proper mes o utilitza Google TTS.";
+"tts.usage.remaining_characters" = "Caràcters restants";
+"tts.usage.monthly_usage" = "Ús mensual";
+"tts.usage.monthly_limit" = "Límit mensual";
+
+// TTS Voice Filter Values
+"advertisement" = "Anunci";
+"animation" = "Animació";
+"audiobook" = "Audiollibre";
+"audiobook-and-narration" = "Audiollibre i narració";
+"audiobooks-and-narration" = "Audiollibres i narració";
+"conversational" = "Conversacional";
+"e-learning" = "E-learning";
+"gaming" = "Jocs";
+"meditation" = "Meditació";
+"movie" = "Pel·lícula";
+"movies-acting-and-gaming" = "Pel·lícules, actuació i jocs";
+"narration" = "Narració";
+"podcast" = "Podcast";
+"social-media" = "Xarxes socials";
+
+"middle-aged" = "Edat mitjana";
+"senior" = "Sènior";
+"teen" = "Adolescent";
+"young-adult" = "Adult jove";
+
+"female" = "Femení";
+"male" = "Masculí";
+
+"angry" = "Enfadat";
+"assertive-or-confident" = "Assertiu o segur";
+"bright" = "Brillant";
+"calm-or-relaxed" = "Calmat o relaxat";
+"calm-or-relaxed-" = "Calmat o relaxat";
+"cheerful" = "Alegre";
+"crisp" = "Nítid";
+"deep" = "Profund";
+"direct" = "Directe";
+"energetic" = "Enèrgic";
+"fearful" = "Poruc";
+"high-pitch" = "To agut";
+"neutral" = "Neutre";
+"professional" = "Professional";
+"relaxed" = "Relaxat";
+"sad" = "Trist";
+"suprised" = "Sorprès";
+"surprised" = "Sorprès";
+"terrified" = "Aterroritzat";
+"warm" = "Càlid";
+"warm-or-friendly" = "Càlid o amigable";
+
+"american-neutral" = "Americà neutre";
+"australian" = "Australià";
+"british" = "Britànic";
+"indian" = "Indi";
+"nigerian" = "Nigerià";
+
+"auth.cross_platform_button_description" = "Per compartir subscripcions entre plataformes";
+"auth.nickname" = "Sobrenom";
+"auth.nickname_current" = "Sobrenom actual";
+"auth.nickname_not_set" = "Sobrenom no establert";
+"auth.nickname_description" = "Estableix un sobrenom únic que altres poden utilitzar per trobar-te i afegir-te a diccionaris compartits. És més còmode que utilitzar adreces de correu electrònic.";
+"auth.edit_nickname" = "Editar sobrenom";
+"auth.nickname_cannot_be_empty" = "El sobrenom no pot estar buit";
+"auth.nickname_already_taken" = "Aquest sobrenom ja està en ús. Tria un altre.";
+"auth.nickname_invalid_format" = "El sobrenom només pot contenir lletres, números i guions baixos.";
+"auth.search_method" = "Mètode de cerca";
+"auth.find_user_by_email" = "Troba un usuari per correu electrònic";
+"auth.find_user_by_nickname" = "Troba un usuari per sobrenom";
+"auth.enter_email_address" = "Introdueix l'adreça de correu electrònic";
+"auth.enter_nickname" = "Introdueix el sobrenom";
+"auth.found_user" = "Usuari trobat";
+"auth.user_not_found" = "Usuari no trobat";
+"auth.user_not_found_message" = "No s'ha trobat cap usuari amb la informació proporcionada. Comprova la cerca i torna-ho a provar.";
+
+"notifications.permission_required" = "Es requereix permís de notificació";
+"notifications.permission_denied_message" = "Per rebre recordatoris diaris i alertes sobre paraules difícils, activa les notificacions a Configuració.";
+
+"onboarding.natural_voices" = "Veus naturals";
+"onboarding.natural_voices_description" = "Centenars de veus premium que sonen més humanes que mai";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Accés a la tecnologia premium de text a veu de Speechify. Centenars de veus premium amb so natural";
+
+// TTS Dashboard
+"tts.dashboard" = "Tauler TTS";
+"tts.premium_tts_dashboard" = "Tauler TTS Premium";
+"tts.customize_tts_experience" = "Personalitza la teva experiència de text a veu";
+"tts.playing" = "Reproduint";
+"tts.ready" = "A punt";
+"tts.provider" = "Proveïdor";
+"tts.tts_provider" = "Proveïdor TTS";
+"tts.voice_customization" = "Personalització de veu";
+"tts.current_voice" = "Veu actual";
+"tts.default_voice" = "Veu per defecte";
+"tts.preview_current_voice" = "Previsualitzar veu actual";
+"tts.change_voice" = "Canviar veu";
+"tts.audio_settings" = "Configuració d'àudio";
+"tts.speech_rate" = "Velocitat de parla";
+"tts.volume" = "Volum";
+"tts.test_your_settings" = "Prova la teva configuració";
+"tts.enter_text_to_test" = "Introdueix text per provar...";
+"tts.stop" = "Aturar";
+"tts.test" = "Provar";
+"tts.usage_statistics" = "Estadístiques d'ús";
+"tts.speechify_monthly_usage" = "Ús mensual de Speechify";
+"tts.monthly_limit" = "Límit mensual";
+"tts.used_this_month" = "Usat aquest mes";
+"tts.remaining" = "Restant";
+"tts.usage_progress" = "Progrés d'ús";
+"tts.characters" = "caràcters";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Caràcters utilitzats";
+"tts.analytics.sessions" = "Sessions";
+"tts.analytics.favorite_voice" = "Veu preferida";
+"tts.analytics.time_saved" = "Temps estalviat";
+"tts.analytics.total_characters" = "Total de caràcters";
+"tts.analytics.total_sessions" = "Total de sessions";
+"tts.analytics.total_duration" = "Durada total";
+"tts.analytics.favorite_language" = "Idioma preferit";
+"tts.analytics.premium_usage" = "Ús premium";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Text a veu";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "El model de text a veu de Speechify està disponible per a tots els usuaris com a funcionalitat premium. Permet escollir entre una àmplia gamma de veus i accents per personalitzar l'experiència d'estudi.";
+"tts.settings.speechify_pro_description" = "El model de text a veu de Speechify està inclòs en la teva subscripció.";
+"tts.settings.dashboard" = "Tauler";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Google TTS gratuït amb veus bàsiques i rendiment fiable";
+
+// TTS Models
+"tts.models.english" = "Anglès";
+"tts.models.multilingual" = "Multilingüe";
+"tts.models.english_description" = "El model de text a veu en anglès de Speechify ofereix funcionalitats estàndard dissenyades per proporcionar una sortida d'àudio clara i natural per a la lectura de textos. El model se centra a oferir una experiència d'usuari coherent.";
+"tts.models.multilingual_description" = "El model multilingüe permet l'ús de tots els idiomes suportats i admet l'ús de múltiples idiomes dins d'una sola frase. La sortida d'àudio d'aquest model és clarament diferent d'altres models.";
+
+"auth.enter_name" = "Introdueix el nom";
+"auth.search_by" = "Cerca per";
+"auth.unknown_user" = "Usuari desconegut";
+"auth.email" = "Correu electrònic";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Compte de Google";

@@ -106,6 +106,9 @@ final class AuthenticationService: ObservableObject {
                 // Check if user has a display name, if not try to restore from local storage
                 await checkAndRestoreDisplayName(user: user)
 
+                // Load and sync nickname from Firebase if it exists
+                await loadAndSyncNickname(user: user)
+
                 // First mark existing words as unsynced, then sync to Firestore, then start real-time listener
                 // Request push notification permissions
                 await requestPushNotificationPermissions()
@@ -155,6 +158,28 @@ final class AuthenticationService: ObservableObject {
             } catch {
                 print("❌ [AuthenticationService] Failed to restore display name: \(error)")
             }
+        }
+    }
+    
+    // MARK: - Nickname Sync
+    
+    private func loadAndSyncNickname(user: User) async {
+        guard let userEmail = user.email else { return }
+
+        do {
+            let db = Firestore.firestore()
+            let userDoc = try await db.collection("users").document(userEmail).getDocument()
+
+            if let userData = userDoc.data(),
+               let firebaseNickname = userData["nickname"] as? String,
+               !firebaseNickname.isEmpty {
+
+                // Save the nickname from Firebase to local UserDefaults
+                UDService.userNickname = firebaseNickname
+                print("✅ [AuthenticationService] Loaded nickname from Firebase: \(firebaseNickname)")
+            }
+        } catch {
+            print("❌ [AuthenticationService] Failed to load nickname from Firebase: \(error)")
         }
     }
 
@@ -620,18 +645,24 @@ final class AuthenticationService: ObservableObject {
             let db = Firestore.firestore()
 
             // Create user document with all required fields
-            try await db.collection("users").document(userEmail).setData([
+            var userData: [String: Any] = [
                 "userId": user.uid,
                 "email": userEmail,
                 "name": user.displayName ?? Loc.App.unknown.localized,
-                "nickname": UDService.userNickname,
                 "registrationDate": FieldValue.serverTimestamp(),
                 "lastUpdated": FieldValue.serverTimestamp(),
                 "platform": getCurrentPlatform(),
                 "subscriptionStatus": SubscriptionService.shared.isProUser ? "pro" : "free",
                 "subscriptionPlan": SubscriptionService.shared.currentPlan?.id ?? "none",
-                "subscriptionExpiryDate": nil // Will be updated when subscription changes
-            ], merge: true)
+                "subscriptionExpiryDate": "" // Will be updated when subscription changes
+            ]
+            
+            // Only include nickname if it exists locally to avoid overwriting with null
+            if let localNickname = UDService.userNickname, !localNickname.isEmpty {
+                userData["nickname"] = localNickname
+            }
+            
+            try await db.collection("users").document(userEmail).setData(userData, merge: true)
             
             // Register current device token if available
             if let fcmToken = await MessagingService.shared.getCurrentToken() {

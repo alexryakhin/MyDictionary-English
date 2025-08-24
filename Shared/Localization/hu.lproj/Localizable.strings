@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Szerepkör kiválasztása";
 "shared_dictionaries.editor_role" = "Szerkesztő:";
 "shared_dictionaries.viewer_role" = "Néző:";
-"shared_dictionaries.collaborator_added_with_email_name" = "A kollaborátor a megadott e-mail címmel és névvel kerül hozzáadásra. Ugyanezzel az e-mail címmel kell bejelentkeznie a megosztott szótár eléréséhez.";
+"shared_dictionaries.collaborator_added_with_email_name" = "A felhasználó hozzáadódik a megosztott szótárhoz. Értesítést kapnak, és azonnal hozzáférhetnek a szótárhoz.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Légy az első, aki értékeli ennek a szónak a nehézségét";
 "shared_dictionaries.score" = "Pontszám: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Nincsenek megosztott szótárak";
@@ -890,3 +890,166 @@
 "part_of_speech.short.preposition" = "Elöl.";
 "part_of_speech.short.exclamation" = "Felk.";
 "part_of_speech.short.unknown" = "Ismeretlen";
+
+"actions.settings" = "Beállítások";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Minden használati eset";
+"tts.filters.all_ages" = "Minden korosztály";
+"tts.filters.all_timbres" = "Minden hangszín";
+"tts.filters.all_accents" = "Minden akcentus";
+"tts.filters.all_languages" = "Minden nyelv";
+"tts.filters.all_genders" = "Minden nem";
+"tts.filters.filters" = "Szűrők";
+"tts.filters.reset" = "Visszaállítás";
+"tts.filters.select_voice" = "Hang kiválasztása";
+"tts.filters.available_voices" = "Elérhető hangok";
+"tts.filters.no_voices_available" = "Nincsenek elérhető hangok";
+"tts.filters.no_voices_found" = "Nem található hang";
+"tts.filters.no_voices_found_message" = "Próbálja meg módosítani a keresést vagy a szűrőket";
+
+"tts.usage.monthly_limit_exceeded" = "Havi korlát túllépve";
+"tts.usage.monthly_limit_exceeded_message" = "Elérte a Speechify TTS havi 50 000 karakteres korlátját. Próbálja újra a következő hónapban, vagy használja a Google TTS-t.";
+"tts.usage.remaining_characters" = "Hátralévő karakterek";
+"tts.usage.monthly_usage" = "Havi használat";
+"tts.usage.monthly_limit" = "Havi korlát";
+
+// TTS Voice Filter Values
+"advertisement" = "Hirdetés";
+"animation" = "Animáció";
+"audiobook" = "Hangoskönyv";
+"audiobook-and-narration" = "Hangoskönyv és narráció";
+"audiobooks-and-narration" = "Hangoskönyvek és narráció";
+"conversational" = "Beszélgetős";
+"e-learning" = "E-tanulás";
+"gaming" = "Játék";
+"meditation" = "Meditáció";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filmek, színészet és játék";
+"narration" = "Narráció";
+"podcast" = "Podcast";
+"social-media" = "Közösségi média";
+
+"middle-aged" = "Középkorú";
+"senior" = "Idős";
+"teen" = "Tini";
+"young-adult" = "Fiatal felnőtt";
+
+"female" = "Nő";
+"male" = "Férfi";
+
+"angry" = "Dühös";
+"assertive-or-confident" = "Határozott vagy magabiztos";
+"bright" = "Fényes";
+"calm-or-relaxed" = "Nyugodt vagy laza";
+"calm-or-relaxed-" = "Nyugodt vagy laza";
+"cheerful" = "Vidám";
+"crisp" = "Tiszta";
+"deep" = "Mély";
+"direct" = "Közvetlen";
+"energetic" = "Energikus";
+"fearful" = "Félelmetes";
+"high-pitch" = "Magas hang";
+"neutral" = "Semleges";
+"professional" = "Professzionális";
+"relaxed" = "Laza";
+"sad" = "Szomorú";
+"suprised" = "Meglepett";
+"surprised" = "Meglepett";
+"terrified" = "Rémült";
+"warm" = "Meleg";
+"warm-or-friendly" = "Meleg vagy barátságos";
+
+"american-neutral" = "Amerikai semleges";
+"australian" = "Ausztrál";
+"british" = "Brit";
+"indian" = "Indiai";
+"nigerian" = "Nigériai";
+
+"auth.cross_platform_button_description" = "Platformok közötti előfizetés megosztásához";
+"auth.nickname" = "Becenév";
+"auth.nickname_current" = "Jelenlegi becenév";
+"auth.nickname_not_set" = "Becenév nincs beállítva";
+"auth.nickname_description" = "Állítson be egy egyedi becenevet, amelyet mások használhatnak, hogy megtalálják és hozzáadják Önt a megosztott szótárakhoz. Ez kényelmesebb, mint az e-mail címek használata.";
+"auth.edit_nickname" = "Becenév szerkesztése";
+"auth.nickname_cannot_be_empty" = "A becenév nem lehet üres";
+"auth.nickname_already_taken" = "Ez a becenév már foglalt. Válasszon másikat.";
+"auth.nickname_invalid_format" = "A becenév csak betűket, számokat és aláhúzásokat tartalmazhat.";
+"auth.search_method" = "Keresési módszer";
+"auth.find_user_by_email" = "Felhasználó keresése e-mail alapján";
+"auth.find_user_by_nickname" = "Felhasználó keresése becenév alapján";
+"auth.enter_email_address" = "Adja meg az e-mail címet";
+"auth.enter_nickname" = "Adja meg a becenevet";
+"auth.found_user" = "Felhasználó megtalálva";
+"auth.user_not_found" = "Felhasználó nem található";
+"auth.user_not_found_message" = "Nem található felhasználó a megadott információkkal. Ellenőrizze a keresést és próbálja újra.";
+
+"notifications.permission_required" = "Értesítési engedély szükséges";
+"notifications.permission_denied_message" = "A napi emlékeztetők és nehéz szavakra vonatkozó figyelmeztetések fogadásához engedélyezze az értesítéseket a Beállításokban.";
+
+"onboarding.natural_voices" = "Természetes hangok";
+"onboarding.natural_voices_description" = "Több száz prémium hang, amelyek emberibbek, mint valaha";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Hozzáférés a Speechify prémium szövegfelolvasó technológiájához. Több száz természetes hangzású prémium hang";
+
+// TTS Dashboard
+"tts.dashboard" = "TTS műszerfal";
+"tts.premium_tts_dashboard" = "Prémium TTS műszerfal";
+"tts.customize_tts_experience" = "Testreszabhatja szövegfelolvasási élményét";
+"tts.playing" = "Lejátszás";
+"tts.ready" = "Kész";
+"tts.provider" = "Szolgáltató";
+"tts.tts_provider" = "TTS szolgáltató";
+"tts.voice_customization" = "Hang testreszabása";
+"tts.current_voice" = "Jelenlegi hang";
+"tts.default_voice" = "Alapértelmezett hang";
+"tts.preview_current_voice" = "Jelenlegi hang előnézete";
+"tts.change_voice" = "Hang megváltoztatása";
+"tts.audio_settings" = "Hangbeállítások";
+"tts.speech_rate" = "Beszédsebesség";
+"tts.volume" = "Hangerő";
+"tts.test_your_settings" = "Tesztelje beállításait";
+"tts.enter_text_to_test" = "Adjon meg szöveget teszteléshez...";
+"tts.stop" = "Leállítás";
+"tts.test" = "Teszt";
+"tts.usage_statistics" = "Használati statisztikák";
+"tts.speechify_monthly_usage" = "Speechify havi használat";
+"tts.monthly_limit" = "Havi korlát";
+"tts.used_this_month" = "Ebben a hónapban használt";
+"tts.remaining" = "Hátralévő";
+"tts.usage_progress" = "Használati előrehaladás";
+"tts.characters" = "karakter";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Felhasznált karakterek";
+"tts.analytics.sessions" = "Munkamenetek";
+"tts.analytics.favorite_voice" = "Kedvenc hang";
+"tts.analytics.time_saved" = "Megtakarított idő";
+"tts.analytics.total_characters" = "Összes karakter";
+"tts.analytics.total_sessions" = "Összes munkamenet";
+"tts.analytics.total_duration" = "Összes időtartam";
+"tts.analytics.favorite_language" = "Kedvenc nyelv";
+"tts.analytics.premium_usage" = "Prémium használat";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Szövegfelolvasás";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "A Speechify szövegfelolvasó modellje minden felhasználó számára elérhető prémium funkcióként. Lehetővé teszi, hogy széles körű hangok és akcentusok közül válasszon, hogy testreszabhassa tanulási élményét.";
+"tts.settings.speechify_pro_description" = "A Speechify szövegfelolvasó modellje az előfizetésében szerepel.";
+"tts.settings.dashboard" = "Műszerfal";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Ingyenes Google TTS alapvető hangokkal és megbízható teljesítménnyel";
+
+// TTS Models
+"tts.models.english" = "Angol";
+"tts.models.multilingual" = "Többnyelvű";
+"tts.models.english_description" = "A Speechify angol szövegfelolvasó modellje standard funkciókat kínál, amelyek célja tiszta és természetes hangkimenet biztosítása a szövegek olvasásához. A modell a következetes felhasználói élmény biztosítására fókuszál.";
+"tts.models.multilingual_description" = "A többnyelvű modell lehetővé teszi az összes támogatott nyelv használatát, és támogatja több nyelv használatát egyetlen mondaton belül. A modell hangkimenete jelentősen különbözik a többi modelltől.";
+
+"auth.enter_name" = "Adja meg a nevét";
+"auth.search_by" = "Keresés alapján";
+"auth.unknown_user" = "Ismeretlen felhasználó";
+"auth.email" = "E-mail";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Google fiók";

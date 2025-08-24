@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Επιλογή Ρόλου";
 "shared_dictionaries.editor_role" = "Συντάκτης:";
 "shared_dictionaries.viewer_role" = "Θεατής:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Ο συνεργάτης θα προστεθεί με τη διεύθυνση email και το όνομα που εισάγεις. Πρέπει να συνδεθεί με την ίδια διεύθυνση email για να αποκτήσει πρόσβαση στο κοινόχρηστο λεξικό.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Ο χρήστης θα προστεθεί στο κοινόχρηστο λεξικό. Θα λάβει ειδοποίηση και θα μπορεί να αποκτήσει πρόσβαση στο λεξικό αμέσως.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Γίνε ο πρώτος που θα βαθμολογήσει τη δυσκολία αυτής της λέξης";
 "shared_dictionaries.score" = "Βαθμολογία: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Κανένα κοινόχρηστο λεξικό";
@@ -890,3 +890,166 @@
 "part_of_speech.short.preposition" = "Πρόθ.";
 "part_of_speech.short.exclamation" = "Επιφ.";
 "part_of_speech.short.unknown" = "Άγνωστο";
+
+"actions.settings" = "Ρυθμίσεις";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Όλες οι περιπτώσεις χρήσης";
+"tts.filters.all_ages" = "Όλες οι ηλικίες";
+"tts.filters.all_timbres" = "Όλοι οι τόνοι φωνής";
+"tts.filters.all_accents" = "Όλες οι προφορές";
+"tts.filters.all_languages" = "Όλες οι γλώσσες";
+"tts.filters.all_genders" = "Όλα τα φύλα";
+"tts.filters.filters" = "Φίλτρα";
+"tts.filters.reset" = "Επαναφορά";
+"tts.filters.select_voice" = "Επιλογή φωνής";
+"tts.filters.available_voices" = "Διαθέσιμες φωνές";
+"tts.filters.no_voices_available" = "Καμία διαθέσιμη φωνή";
+"tts.filters.no_voices_found" = "Δεν βρέθηκαν φωνές";
+"tts.filters.no_voices_found_message" = "Δοκιμάστε να προσαρμόσετε την αναζήτηση ή τα φίλτρα σας";
+
+"tts.usage.monthly_limit_exceeded" = "Υπέρβαση μηνιαίου ορίου";
+"tts.usage.monthly_limit_exceeded_message" = "Έχετε φτάσει το μηνιαίο όριο των 50.000 χαρακτήρων για το Speechify TTS. Δοκιμάστε ξανά τον επόμενο μήνα ή χρησιμοποιήστε το Google TTS.";
+"tts.usage.remaining_characters" = "Υπολειπόμενοι χαρακτήρες";
+"tts.usage.monthly_usage" = "Μηνιαία χρήση";
+"tts.usage.monthly_limit" = "Μηνιαίο όριο";
+
+// TTS Voice Filter Values
+"advertisement" = "Διαφήμιση";
+"animation" = "Κινούμενα σχέδια";
+"audiobook" = "Ακουστικό βιβλίο";
+"audiobook-and-narration" = "Ακουστικό βιβλίο και αφήγηση";
+"audiobooks-and-narration" = "Ακουστικά βιβλία και αφήγηση";
+"conversational" = "Συνομιλητικός";
+"e-learning" = "Ηλεκτρονική μάθηση";
+"gaming" = "Παιχνίδια";
+"meditation" = "Διαλογισμός";
+"movie" = "Ταινία";
+"movies-acting-and-gaming" = "Ταινίες, υποκριτική και παιχνίδια";
+"narration" = "Αφήγηση";
+"podcast" = "Ποντκαστ";
+"social-media" = "Κοινωνικά δίκτυα";
+
+"middle-aged" = "Μεσήλικας";
+"senior" = "Ηλικιωμένος";
+"teen" = "Έφηβος";
+"young-adult" = "Νεαρός ενήλικας";
+
+"female" = "Γυναίκα";
+"male" = "Άνδρας";
+
+"angry" = "Θυμωμένος";
+"assertive-or-confident" = "Διεκδικητικός ή σίγουρος";
+"bright" = "Φωτεινός";
+"calm-or-relaxed" = "Ήρεμος ή χαλαρός";
+"calm-or-relaxed-" = "Ήρεμος ή χαλαρός";
+"cheerful" = "Χαρούμενος";
+"crisp" = "Καθαρός";
+"deep" = "Βαθύς";
+"direct" = "Άμεσος";
+"energetic" = "Ενεργητικός";
+"fearful" = "Φοβισμένος";
+"high-pitch" = "Υψηλός τόνος";
+"neutral" = "Ουδέτερος";
+"professional" = "Επαγγελματικός";
+"relaxed" = "Χαλαρός";
+"sad" = "Λυπημένος";
+"suprised" = "Εκπληκτος";
+"surprised" = "Εκπληκτος";
+"terrified" = "Τρομοκρατημένος";
+"warm" = "Ζεστός";
+"warm-or-friendly" = "Ζεστός ή φιλικός";
+
+"american-neutral" = "Αμερικανικός ουδέτερος";
+"australian" = "Αυστραλιανός";
+"british" = "Βρετανικός";
+"indian" = "Ινδικός";
+"nigerian" = "Νιγηριανός";
+
+"auth.cross_platform_button_description" = "Για κοινή χρήση συνδρομής μεταξύ πλατφορμών";
+"auth.nickname" = "Ψευδώνυμο";
+"auth.nickname_current" = "Τρέχον ψευδώνυμο";
+"auth.nickname_not_set" = "Το ψευδώνυμο δεν έχει οριστεί";
+"auth.nickname_description" = "Ορίστε ένα μοναδικό ψευδώνυμο που μπορούν να χρησιμοποιήσουν άλλοι για να σας βρουν και να σας προσθέσουν σε κοινόχρηστα λεξικά. Είναι πιο βολικό από τη χρήση διευθύνσεων email.";
+"auth.edit_nickname" = "Επεξεργασία ψευδωνύμου";
+"auth.nickname_cannot_be_empty" = "Το ψευδώνυμο δεν μπορεί να είναι κενό";
+"auth.nickname_already_taken" = "Αυτό το ψευδώνυμο είναι ήδη κατειλημμένο. Επιλέξτε άλλο.";
+"auth.nickname_invalid_format" = "Το ψευδώνυμο μπορεί να περιέχει μόνο γράμματα, αριθμούς και κάτω παύλες.";
+"auth.search_method" = "Μέθοδος αναζήτησης";
+"auth.find_user_by_email" = "Βρείτε χρήστη μέσω email";
+"auth.find_user_by_nickname" = "Βρείτε χρήστη μέσω ψευδωνύμου";
+"auth.enter_email_address" = "Εισαγάγετε διεύθυνση email";
+"auth.enter_nickname" = "Εισαγάγετε ψευδώνυμο";
+"auth.found_user" = "Ο χρήστης βρέθηκε";
+"auth.user_not_found" = "Ο χρήστης δεν βρέθηκε";
+"auth.user_not_found_message" = "Δεν βρέθηκε χρήστης με τις παρεχόμενες πληροφορίες. Ελέγξτε την αναζήτησή σας και δοκιμάστε ξανά.";
+
+"notifications.permission_required" = "Απαιτείται άδεια ειδοποιήσεων";
+"notifications.permission_denied_message" = "Για να λαμβάνετε καθημερινές υπενθυμίσεις και ειδοποιήσεις για δύσκολες λέξεις, ενεργοποιήστε τις ειδοποιήσεις στις Ρυθμίσεις.";
+
+"onboarding.natural_voices" = "Φυσικές φωνές";
+"onboarding.natural_voices_description" = "Εκατοντάδες premium φωνές που ακούγονται πιο ανθρώπινες από ποτέ";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Πρόσβαση στην premium τεχνολογία μετατροπής κειμένου σε ομιλία της Speechify. Εκατοντάδες φυσικά ακουστικές premium φωνές";
+
+// TTS Dashboard
+"tts.dashboard" = "Πίνακας ελέγχου TTS";
+"tts.premium_tts_dashboard" = "Premium πίνακας ελέγχου TTS";
+"tts.customize_tts_experience" = "Προσαρμόστε την εμπειρία μετατροπής κειμένου σε ομιλία";
+"tts.playing" = "Αναπαράγεται";
+"tts.ready" = "Έτοιμο";
+"tts.provider" = "Πάροχος";
+"tts.tts_provider" = "Πάροχος TTS";
+"tts.voice_customization" = "Προσαρμογή φωνής";
+"tts.current_voice" = "Τρέχουσα φωνή";
+"tts.default_voice" = "Προεπιλεγμένη φωνή";
+"tts.preview_current_voice" = "Προεπισκόπηση τρέχουσας φωνής";
+"tts.change_voice" = "Αλλαγή φωνής";
+"tts.audio_settings" = "Ρυθμίσεις ήχου";
+"tts.speech_rate" = "Ταχύτητα ομιλίας";
+"tts.volume" = "Ένταση";
+"tts.test_your_settings" = "Δοκιμάστε τις ρυθμίσεις σας";
+"tts.enter_text_to_test" = "Εισαγάγετε κείμενο για δοκιμή...";
+"tts.stop" = "Διακοπή";
+"tts.test" = "Δοκιμή";
+"tts.usage_statistics" = "Στατιστικά χρήσης";
+"tts.speechify_monthly_usage" = "Μηνιαία χρήση Speechify";
+"tts.monthly_limit" = "Μηνιαίο όριο";
+"tts.used_this_month" = "Χρησιμοποιήθηκε αυτόν τον μήνα";
+"tts.remaining" = "Υπολείπονται";
+"tts.usage_progress" = "Πρόοδος χρήσης";
+"tts.characters" = "χαρακτήρες";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Χρησιμοποιημένοι χαρακτήρες";
+"tts.analytics.sessions" = "Συνεδρίες";
+"tts.analytics.favorite_voice" = "Αγαπημένη φωνή";
+"tts.analytics.time_saved" = "Χρόνος που εξοικονομήθηκε";
+"tts.analytics.total_characters" = "Συνολικοί χαρακτήρες";
+"tts.analytics.total_sessions" = "Συνολικές συνεδρίες";
+"tts.analytics.total_duration" = "Συνολική διάρκεια";
+"tts.analytics.favorite_language" = "Αγαπημένη γλώσσα";
+"tts.analytics.premium_usage" = "Premium χρήση";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Μετατροπή κειμένου σε ομιλία";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία της Speechify είναι διαθέσιμο σε όλους τους χρήστες ως premium λειτουργία. Σας επιτρέπει να επιλέξετε από μια ευρεία γκάμα φωνών και προφορών, για να προσαρμόσετε την εμπειρία μάθησής σας.";
+"tts.settings.speechify_pro_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία της Speechify περιλαμβάνεται στη συνδρομή σας.";
+"tts.settings.dashboard" = "Πίνακας ελέγχου";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Δωρεάν Google TTS με βασικές φωνές και αξιόπιστη απόδοση";
+
+// TTS Models
+"tts.models.english" = "Αγγλικά";
+"tts.models.multilingual" = "Πολυγλωσσικό";
+"tts.models.english_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία στα Αγγλικά της Speechify προσφέρει τυπικές λειτουργίες που έχουν σχεδιαστεί για να παρέχουν καθαρή και φυσική έξοδο ήχου για την ανάγνωση κειμένων. Το μοντέλο επικεντρώνεται στην παροχή συνεπούς εμπειρίας χρήστη.";
+"tts.models.multilingual_description" = "Το πολυγλωσσικό μοντέλο επιτρέπει τη χρήση όλων των υποστηριζόμενων γλωσσών και υποστηρίζει τη χρήση πολλαπλών γλωσσών μέσα σε μία πρόταση. Η έξοδος ήχου αυτού του μοντέλου διαφέρει σημαντικά από άλλα μοντέλα.";
+
+"auth.enter_name" = "Εισαγάγετε όνομα";
+"auth.search_by" = "Αναζήτηση με";
+"auth.unknown_user" = "Άγνωστος χρήστης";
+"auth.email" = "Email";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Λογαριασμός Google";

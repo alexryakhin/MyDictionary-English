@@ -472,7 +472,7 @@ final class TTSUsageTracker: ObservableObject {
         if let voice = TTSPlayer.shared.availableVoices.first(where: { $0.id == voiceId }) {
             return voice.displayName
         }
-        return "Default Voice"
+        return Loc.TTS.defaultVoice.localized
     }
 
     var favoriteLanguage: String {
@@ -487,14 +487,13 @@ final class TTSUsageTracker: ObservableObject {
         let totalWords = Double(usageStats.totalCharacters) / charactersPerWord
         let timeToRead = totalWords / wordsPerMinute
 
-        let hours = Int(timeToRead) / 60
-        let minutes = Int(timeToRead) % 60
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        formatter.maximumUnitCount = 2
+        formatter.zeroFormattingBehavior = .dropAll
 
-        if hours > 0 {
-            return "\(hours)h \(minutes)m"
-        } else {
-            return "\(minutes)m"
-        }
+        return formatter.string(from: timeToRead) ?? "0min"
     }
 
     var providerUsagePercentage: Double {
@@ -522,29 +521,6 @@ final class TTSUsageTracker: ObservableObject {
     func resetStats() {
         usageStats = TTSUsageStats()
         saveUsageStats()
-    }
-
-    func exportStats() -> String {
-        let stats = """
-        TTS Usage Statistics
-        
-        Total Characters: \(totalCharactersFormatted)
-        Total Sessions: \(totalSessionsFormatted)
-        Total Duration: \(totalDurationFormatted)
-        Time Saved: \(timeSaved)
-        
-        Provider Usage:
-        - Google TTS: \(usageStats.googleCharacters.formatted()) characters
-        - Speechify: \(usageStats.speechifyCharacters.formatted()) characters
-        - Premium Usage: \(String(format: "%.1f", providerUsagePercentage))%
-        
-        Favorite Voice: \(favoriteVoice)
-        Favorite Language: \(favoriteLanguage)
-        
-        Last Used: \(usageStats.lastUsed?.formatted() ?? "Never")
-        """
-
-        return stats
     }
 }
 

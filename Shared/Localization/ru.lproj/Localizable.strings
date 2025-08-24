@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Выбрать роль";
 "shared_dictionaries.editor_role" = "Редактор:";
 "shared_dictionaries.viewer_role" = "Зритель:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Соавтор будет добавлен с указанным адресом электронной почты и именем. Им нужно войти с тем же адресом электронной почты, чтобы получить доступ к общему словарю.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Пользователь будет добавлен в общий словарь. Он получит уведомление и сможет сразу получить доступ к словарю.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Станьте первым, кто оценит сложность этого слова";
 "shared_dictionaries.score" = "Счёт: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Нет общих словарей";
@@ -890,3 +890,166 @@
 "part_of_speech.short.preposition" = "Пред.";
 "part_of_speech.short.exclamation" = "Воскл.";
 "part_of_speech.short.unknown" = "Неизв.";
+
+"actions.settings" = "Настройки";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Все случаи использования";
+"tts.filters.all_ages" = "Все возраста";
+"tts.filters.all_timbres" = "Все тембры";
+"tts.filters.all_accents" = "Все акценты";
+"tts.filters.all_languages" = "Все языки";
+"tts.filters.all_genders" = "Все полы";
+"tts.filters.filters" = "Фильтры";
+"tts.filters.reset" = "Сбросить";
+"tts.filters.select_voice" = "Выбрать голос";
+"tts.filters.available_voices" = "Доступные голоса";
+"tts.filters.no_voices_available" = "Нет доступных голосов";
+"tts.filters.no_voices_found" = "Голоса не найдены";
+"tts.filters.no_voices_found_message" = "Попробуйте изменить параметры поиска или фильтры";
+
+"tts.usage.monthly_limit_exceeded" = "Месячный лимит превышен";
+"tts.usage.monthly_limit_exceeded_message" = "Вы достигли месячного лимита в 50 000 символов для Speechify TTS. Попробуйте снова в следующем месяце или используйте Google TTS.";
+"tts.usage.remaining_characters" = "Оставшиеся символы";
+"tts.usage.monthly_usage" = "Месячное использование";
+"tts.usage.monthly_limit" = "Месячный лимит";
+
+// TTS Voice Filter Values
+"advertisement" = "Реклама";
+"animation" = "Анимация";
+"audiobook" = "Аудиокнига";
+"audiobook-and-narration" = "Аудиокнига и повествование";
+"audiobooks-and-narration" = "Аудиокниги и повествование";
+"conversational" = "Разговорный";
+"e-learning" = "Электронное обучение";
+"gaming" = "Игры";
+"meditation" = "Медитация";
+"movie" = "Фильм";
+"movies-acting-and-gaming" = "Фильмы, актёрская игра и игры";
+"narration" = "Повествование";
+"podcast" = "Подкаст";
+"social-media" = "Социальные сети";
+
+"middle-aged" = "Средний возраст";
+"senior" = "Пожилой";
+"teen" = "Подросток";
+"young-adult" = "Молодой взрослый";
+
+"female" = "Женский";
+"male" = "Мужской";
+
+"angry" = "Злой";
+"assertive-or-confident" = "Уверенный или решительный";
+"bright" = "Яркий";
+"calm-or-relaxed" = "Спокойный или расслабленный";
+"calm-or-relaxed-" = "Спокойный или расслабленный";
+"cheerful" = "Весёлый";
+"crisp" = "Чёткий";
+"deep" = "Глубокий";
+"direct" = "Прямой";
+"energetic" = "Энергичный";
+"fearful" = "Испуганный";
+"high-pitch" = "Высокий тон";
+"neutral" = "Нейтральный";
+"professional" = "Профессиональный";
+"relaxed" = "Расслабленный";
+"sad" = "Грустный";
+"suprised" = "Удивлённый";
+"surprised" = "Удивлённый";
+"terrified" = "Перепуганный";
+"warm" = "Тёплый";
+"warm-or-friendly" = "Тёплый или дружелюбный";
+
+"american-neutral" = "Американский нейтральный";
+"australian" = "Австралийский";
+"british" = "Британский";
+"indian" = "Индийский";
+"nigerian" = "Нигерийский";
+
+"auth.cross_platform_button_description" = "Для совместного использования подписки на разных платформах";
+"auth.nickname" = "Псевдоним";
+"auth.nickname_current" = "Текущий псевдоним";
+"auth.nickname_not_set" = "Псевдоним не установлен";
+"auth.nickname_description" = "Установите уникальный псевдоним, который другие могут использовать, чтобы найти вас и добавить в общие словари. Это удобнее, чем использование адресов электронной почты.";
+"auth.edit_nickname" = "Редактировать псевдоним";
+"auth.nickname_cannot_be_empty" = "Псевдоним не может быть пустым";
+"auth.nickname_already_taken" = "Этот псевдоним уже занят. Выберите другой.";
+"auth.nickname_invalid_format" = "Псевдоним может содержать только буквы, цифры и подчёркивания.";
+"auth.search_method" = "Метод поиска";
+"auth.find_user_by_email" = "Найти пользователя по электронной почте";
+"auth.find_user_by_nickname" = "Найти пользователя по псевдониму";
+"auth.enter_email_address" = "Введите адрес электронной почты";
+"auth.enter_nickname" = "Введите псевдоним";
+"auth.found_user" = "Пользователь найден";
+"auth.user_not_found" = "Пользователь не найден";
+"auth.user_not_found_message" = "Пользователь с указанными данными не найден. Проверьте параметры поиска и попробуйте снова.";
+
+"notifications.permission_required" = "Требуется разрешение на уведомления";
+"notifications.permission_denied_message" = "Чтобы получать ежедневные напоминания и предупреждения о сложных словах, включите уведомления в настройках.";
+
+"onboarding.natural_voices" = "Естественные голоса";
+"onboarding.natural_voices_description" = "Сотни премиум-голосов, которые звучат более человечно, чем когда-либо";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Доступ к премиум-технологии преобразования текста в речь от Speechify. Сотни естественно звучащих премиум-голосов";
+
+// TTS Dashboard
+"tts.dashboard" = "Панель TTS";
+"tts.premium_tts_dashboard" = "Премиум-панель TTS";
+"tts.customize_tts_experience" = "Настройте свой опыт преобразования текста в речь";
+"tts.playing" = "Воспроизводится";
+"tts.ready" = "Готово";
+"tts.provider" = "Провайдер";
+"tts.tts_provider" = "Провайдер TTS";
+"tts.voice_customization" = "Настройка голоса";
+"tts.current_voice" = "Текущий голос";
+"tts.default_voice" = "Голос по умолчанию";
+"tts.preview_current_voice" = "Предпрослушать текущий голос";
+"tts.change_voice" = "Изменить голос";
+"tts.audio_settings" = "Настройки аудио";
+"tts.speech_rate" = "Скорость речи";
+"tts.volume" = "Громкость";
+"tts.test_your_settings" = "Протестируйте настройки";
+"tts.enter_text_to_test" = "Введите текст для тестирования...";
+"tts.stop" = "Остановить";
+"tts.test" = "Тест";
+"tts.usage_statistics" = "Статистика использования";
+"tts.speechify_monthly_usage" = "Месячное использование Speechify";
+"tts.monthly_limit" = "Месячный лимит";
+"tts.used_this_month" = "Использовано в этом месяце";
+"tts.remaining" = "Осталось";
+"tts.usage_progress" = "Прогресс использования";
+"tts.characters" = "символов";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Использовано символов";
+"tts.analytics.sessions" = "Сессии";
+"tts.analytics.favorite_voice" = "Любимый голос";
+"tts.analytics.time_saved" = "Сэкономленное время";
+"tts.analytics.total_characters" = "Всего символов";
+"tts.analytics.total_sessions" = "Всего сессий";
+"tts.analytics.total_duration" = "Общая длительность";
+"tts.analytics.favorite_language" = "Любимый язык";
+"tts.analytics.premium_usage" = "Премиум-использование";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Преобразование текста в речь";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Модель преобразования текста в речь от Speechify доступна для всех пользователей как премиум-функция. Она позволяет выбирать из широкого спектра голосов и акцентов, чтобы настроить ваш опыт обучения.";
+"tts.settings.speechify_pro_description" = "Модель преобразования текста в речь от Speechify включена в вашу подписку.";
+"tts.settings.dashboard" = "Панель";
+"tts.pro" = "PRO";
+"tts.free_google_tts_description" = "Бесплатный Google TTS с базовыми голосами и надёжной производительностью";
+
+// TTS Models
+"tts.models.english" = "Английский";
+"tts.models.multilingual" = "Многоязычный";
+"tts.models.english_description" = "Модель преобразования текста в речь на английском языке от Speechify предлагает стандартные возможности, разработанные для обеспечения чёткого и естественного голосового вывода при чтении текстов. Модель сосредоточена на предоставлении стабильного пользовательского опыта.";
+"tts.models.multilingual_description" = "Многоязычная модель позволяет использовать все поддерживаемые языки и поддерживает использование нескольких языков в одном предложении. Аудиовыход этой модели заметно отличается от других моделей.";
+
+"auth.enter_name" = "Введите имя";
+"auth.search_by" = "Поиск по";
+"auth.unknown_user" = "Неизвестный пользователь";
+"auth.email" = "Электронная почта";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Аккаунт Google";

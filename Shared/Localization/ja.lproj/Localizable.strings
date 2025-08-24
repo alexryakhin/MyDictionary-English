@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "役割を選択";
 "shared_dictionaries.editor_role" = "編集者：";
 "shared_dictionaries.viewer_role" = "閲覧者：";
-"shared_dictionaries.collaborator_added_with_email_name" = "コラボレーターは入力したメールアドレスと名前で追加されます。共有辞書にアクセスするには同じメールアドレスでログインする必要があります。";
+"shared_dictionaries.collaborator_added_with_email_name" = "ユーザーが共有辞書に追加されます。通知を受け取り、すぐに辞書にアクセスできます。";
 "shared_dictionaries.be_first_to_rate_difficulty" = "この単語の難易度を最初に評価してください";
 "shared_dictionaries.score" = "スコア：%d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "共有辞書がありません";
@@ -890,3 +890,166 @@
 "part_of_speech.short.preposition" = "前";
 "part_of_speech.short.exclamation" = "感";
 "part_of_speech.short.unknown" = "不明";
+
+"actions.settings" = "設定";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "すべての使用ケース";
+"tts.filters.all_ages" = "すべての年齢";
+"tts.filters.all_timbres" = "すべての音色";
+"tts.filters.all_accents" = "すべてのアクセント";
+"tts.filters.all_languages" = "すべての言語";
+"tts.filters.all_genders" = "すべての性別";
+"tts.filters.filters" = "フィルター";
+"tts.filters.reset" = "リセット";
+"tts.filters.select_voice" = "音声を選択";
+"tts.filters.available_voices" = "利用可能な音声";
+"tts.filters.no_voices_available" = "利用可能な音声がありません";
+"tts.filters.no_voices_found" = "音声が見つかりませんでした";
+"tts.filters.no_voices_found_message" = "検索またはフィルターを調整してみてください";
+
+"tts.usage.monthly_limit_exceeded" = "月間制限を超過";
+"tts.usage.monthly_limit_exceeded_message" = "Speechify TTSの月間50,000文字の制限に達しました。来月もう一度お試しください、またはGoogle TTSを使用してください。";
+"tts.usage.remaining_characters" = "残りの文字数";
+"tts.usage.monthly_usage" = "月間使用量";
+"tts.usage.monthly_limit" = "月間制限";
+
+// TTS Voice Filter Values
+"advertisement" = "広告";
+"animation" = "アニメーション";
+"audiobook" = "オーディオブック";
+"audiobook-and-narration" = "オーディオブックとナレーション";
+"audiobooks-and-narration" = "オーディオブックとナレーション";
+"conversational" = "会話型";
+"e-learning" = "eラーニング";
+"gaming" = "ゲーミング";
+"meditation" = "瞑想";
+"movie" = "映画";
+"movies-acting-and-gaming" = "映画、演技、ゲーミング";
+"narration" = "ナレーション";
+"podcast" = "ポッドキャスト";
+"social-media" = "ソーシャルメディア";
+
+"middle-aged" = "中高年";
+"senior" = "高齢者";
+"teen" = "ティーン";
+"young-adult" = "若年成人";
+
+"female" = "女性";
+"male" = "男性";
+
+"angry" = "怒っている";
+"assertive-or-confident" = "断定的または自信";
+"bright" = "明るい";
+"calm-or-relaxed" = "穏やかまたはリラックス";
+"calm-or-relaxed-" = "穏やかまたはリラックス";
+"cheerful" = "陽気";
+"crisp" = "明瞭";
+"deep" = "深い";
+"direct" = "直接的";
+"energetic" = "エネルギッシュ";
+"fearful" = "恐れている";
+"high-pitch" = "高音";
+"neutral" = "ニュートラル";
+"professional" = "プロフェッショナル";
+"relaxed" = "リラックス";
+"sad" = "悲しい";
+"suprised" = "驚いた";
+"surprised" = "驚いた";
+"terrified" = "恐怖";
+"warm" = "温かい";
+"warm-or-friendly" = "温かいまたは親しみやすい";
+
+"american-neutral" = "アメリカン・ニュートラル";
+"australian" = "オーストラリア";
+"british" = "ブリティッシュ";
+"indian" = "インド";
+"nigerian" = "ナイジェリア";
+
+"auth.cross_platform_button_description" = "クロスプラットフォームのサブスクリプション共有用";
+"auth.nickname" = "ニックネーム";
+"auth.nickname_current" = "現在のニックネーム";
+"auth.nickname_not_set" = "ニックネームが設定されていません";
+"auth.nickname_description" = "他の人があなたを見つけて共有辞書に追加するために使用できる一意のニックネームを設定します。メールアドレスを使用するよりも便利です。";
+"auth.edit_nickname" = "ニックネームを編集";
+"auth.nickname_cannot_be_empty" = "ニックネームは空にできません";
+"auth.nickname_already_taken" = "このニックネームはすでに使用されています。別のものを選んでください。";
+"auth.nickname_invalid_format" = "ニックネームには文字、数字、アンダースコアのみを含めることができます。";
+"auth.search_method" = "検索方法";
+"auth.find_user_by_email" = "メールアドレスでユーザーを検索";
+"auth.find_user_by_nickname" = "ニックネームでユーザーを検索";
+"auth.enter_email_address" = "メールアドレスを入力";
+"auth.enter_nickname" = "ニックネームを入力";
+"auth.found_user" = "ユーザーが見つかりました";
+"auth.user_not_found" = "ユーザーが見つかりませんでした";
+"auth.user_not_found_message" = "提供された情報でユーザーが見つかりませんでした。検索を確認して再度お試しください。";
+
+"notifications.permission_required" = "通知の許可が必要です";
+"notifications.permission_denied_message" = "毎日のリマインダーや難しい単語のアラートを受け取るには、設定で通知を有効にしてください。";
+
+"onboarding.natural_voices" = "自然な音声";
+"onboarding.natural_voices_description" = "これまで以上に人間らしく聞こえる数百のプレミアム音声";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Speechifyのプレミアムテキスト読み上げ技術へのアクセス。自然に聞こえる数百のプレミアム音声";
+
+// TTS Dashboard
+"tts.dashboard" = "TTSダッシュボード";
+"tts.premium_tts_dashboard" = "プレミアムTTSダッシュボード";
+"tts.customize_tts_experience" = "テキスト読み上げ体験をカスタマイズ";
+"tts.playing" = "再生中";
+"tts.ready" = "準備完了";
+"tts.provider" = "プロバイダ";
+"tts.tts_provider" = "TTSプロバイダ";
+"tts.voice_customization" = "音声カスタマイズ";
+"tts.current_voice" = "現在の音声";
+"tts.default_voice" = "デフォルト音声";
+"tts.preview_current_voice" = "現在の音声をプレビュー";
+"tts.change_voice" = "音声を変更";
+"tts.audio_settings" = "オーディオ設定";
+"tts.speech_rate" = "読み上げ速度";
+"tts.volume" = "音量";
+"tts.test_your_settings" = "設定をテスト";
+"tts.enter_text_to_test" = "テストするテキストを入力...";
+"tts.stop" = "停止";
+"tts.test" = "テスト";
+"tts.usage_statistics" = "使用統計";
+"tts.speechify_monthly_usage" = "Speechifyの月間使用量";
+"tts.monthly_limit" = "月間制限";
+"tts.used_this_month" = "今月使用済み";
+"tts.remaining" = "残り";
+"tts.usage_progress" = "使用進捗";
+"tts.characters" = "文字";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "使用した文字数";
+"tts.analytics.sessions" = "セッション";
+"tts.analytics.favorite_voice" = "お気に入りの音声";
+"tts.analytics.time_saved" = "節約した時間";
+"tts.analytics.total_characters" = "総文字数";
+"tts.analytics.total_sessions" = "総セッション数";
+"tts.analytics.total_duration" = "総時間";
+"tts.analytics.favorite_language" = "お気に入りの言語";
+"tts.analytics.premium_usage" = "プレミアム使用";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "テキスト読み上げ";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Speechifyのテキスト読み上げモデルは、すべてのユーザーにプレミアム機能として提供されています。さまざまな音声やアクセントから選択して、学習体験をカスタマイズできます。";
+"tts.settings.speechify_pro_description" = "Speechifyのテキスト読み上げモデルは、あなたのサブスクリプションに含まれています。";
+"tts.settings.dashboard" = "ダッシュボード";
+"tts.pro" = "プロ";
+"tts.free_google_tts_description" = "基本的な音声と信頼性の高いパフォーマンスを備えた無料のGoogle TTS";
+
+// TTS Models
+"tts.models.english" = "英語";
+"tts.models.multilingual" = "多言語";
+"tts.models.english_description" = "Speechifyの英語テキスト読み上げモデルは、テキストの読み上げにクリアで自然な音声出力を提供する標準機能を提供します。このモデルは一貫したユーザー体験に焦点を当てています。";
+"tts.models.multilingual_description" = "多言語モデルは、サポートされているすべての言語の使用を可能にし、1つの文内で複数の言語を使用することをサポートします。このモデルの音声出力は他のモデルと明確に異なります。";
+
+"auth.enter_name" = "名前を入力";
+"auth.search_by" = "検索方法";
+"auth.unknown_user" = "不明なユーザー";
+"auth.email" = "メール";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Googleアカウント";

@@ -444,7 +444,7 @@ struct AdvancedFeatureCard: View {
                 Text(feature.description)
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                    .lineLimit(2)
+                    .lineLimit(3)
             }
 
             Spacer()

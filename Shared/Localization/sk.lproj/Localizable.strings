@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Vybrať rolu";
 "shared_dictionaries.editor_role" = "Editor:";
 "shared_dictionaries.viewer_role" = "Divák:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Spolupracovník bude pridaný s uvedenou e-mailovou adresou a menom. Musí sa prihlásiť s rovnakou e-mailovou adresou, aby získal prístup k zdieľanému slovníku.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Používateľ bude pridaný do zdieľaného slovníka. Dostane upozornenie a bude môcť okamžite pristupovať k slovníku.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Buďte prvý, kto ohodnotí obtiažnosť этого slova";
 "shared_dictionaries.score" = "Skóre: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Žiadne zdieľané slovníky";
@@ -876,3 +876,166 @@
 "part_of_speech.short.preposition" = "Predl.";
 "part_of_speech.short.exclamation" = "Výkr.";
 "part_of_speech.short.unknown" = "Nezn.";
+
+"actions.settings" = "Nastavenia";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Všetky prípady použitia";
+"tts.filters.all_ages" = "Všetky vekové skupiny";
+"tts.filters.all_timbres" = "Všetky tóny hlasu";
+"tts.filters.all_accents" = "Všetky prízvuky";
+"tts.filters.all_languages" = "Všetky jazyky";
+"tts.filters.all_genders" = "Všetky pohlavia";
+"tts.filters.filters" = "Filtre";
+"tts.filters.reset" = "Resetovať";
+"tts.filters.select_voice" = "Vybrať hlas";
+"tts.filters.available_voices" = "Dostupné hlasy";
+"tts.filters.no_voices_available" = "Žiadne hlasy nie sú dostupné";
+"tts.filters.no_voices_found" = "Nenašli sa žiadne hlasy";
+"tts.filters.no_voices_found_message" = "Skúste upraviť vyhľadávanie alebo filtre";
+
+"tts.usage.monthly_limit_exceeded" = "Prekročený mesačný limit";
+"tts.usage.monthly_limit_exceeded_message" = "Dosiahli ste mesačný limit 50 000 znakov pre Speechify TTS. Skúste to znova budúci mesiac alebo použite Google TTS.";
+"tts.usage.remaining_characters" = "Zostávajúce znaky";
+"tts.usage.monthly_usage" = "Mesačné využitie";
+"tts.usage.monthly_limit" = "Mesačný limit";
+
+// TTS Voice Filter Values
+"advertisement" = "Reklama";
+"animation" = "Animácia";
+"audiobook" = "Audiokniha";
+"audiobook-and-narration" = "Audiokniha a rozprávanie";
+"audiobooks-and-narration" = "Audioknihy a rozprávanie";
+"conversational" = "Konverzačný";
+"e-learning" = "E-vzdelávanie";
+"gaming" = "Hry";
+"meditation" = "Meditácia";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filmy, herectvo a hry";
+"narration" = "Rozprávanie";
+"podcast" = "Podcast";
+"social-media" = "Sociálne médiá";
+
+"middle-aged" = "Stredný vek";
+"senior" = "Senior";
+"teen" = "Násťročný";
+"young-adult" = "Mladý dospelý";
+
+"female" = "Žena";
+"male" = "Muž";
+
+"angry" = "Nahnevaný";
+"assertive-or-confident" = "Asertívny alebo sebavedomý";
+"bright" = "Jasný";
+"calm-or-relaxed" = "Kľudný alebo uvoľnený";
+"calm-or-relaxed-" = "Kľudný alebo uvoľnený";
+"cheerful" = "Veselý";
+"crisp" = "Čistý";
+"deep" = "Hlboký";
+"direct" = "Priamy";
+"energetic" = "Energický";
+"fearful" = "Strachujúci sa";
+"high-pitch" = "Vysoký tón";
+"neutral" = "Neutrálny";
+"professional" = "Profesionálny";
+"relaxed" = "Uvoľnený";
+"sad" = "Smutný";
+"suprised" = "Prekvapený";
+"surprised" = "Prekvapený";
+"terrified" = "Vydesený";
+"warm" = "Teplý";
+"warm-or-friendly" = "Teplý alebo priateľský";
+
+"american-neutral" = "Americký neutrálny";
+"australian" = "Austrálsky";
+"british" = "Britský";
+"indian" = "Indický";
+"nigerian" = "Nigérijský";
+
+"auth.cross_platform_button_description" = "Na zdieľanie predplatného naprieč platformami";
+"auth.nickname" = "Prezývka";
+"auth.nickname_current" = "Aktuálna prezývka";
+"auth.nickname_not_set" = "Prezývka nie je nastavená";
+"auth.nickname_description" = "Nastavte si jedinečnú prezývku, ktorú môžu ostatní použiť na vyhľadanie a pridanie vás do zdieľaných slovníkov. Je to pohodlnejšie ako používanie e-mailových adries.";
+"auth.edit_nickname" = "Upraviť prezývku";
+"auth.nickname_cannot_be_empty" = "Prezývka nemôže byť prázdna";
+"auth.nickname_already_taken" = "Táto prezývka je už obsadená. Vyberte inú.";
+"auth.nickname_invalid_format" = "Prezývka môže obsahovať iba písmená, čísla a podčiarknutia.";
+"auth.search_method" = "Spôsob vyhľadávania";
+"auth.find_user_by_email" = "Nájsť používateľa podľa e-mailu";
+"auth.find_user_by_nickname" = "Nájsť používateľa podľa prezývky";
+"auth.enter_email_address" = "Zadajte e-mailovú adresu";
+"auth.enter_nickname" = "Zadajte prezývku";
+"auth.found_user" = "Používateľ nájdený";
+"auth.user_not_found" = "Používateľ nenájdený";
+"auth.user_not_found_message" = "Nenašiel sa žiadny používateľ s poskytnutými informáciami. Skontrolujte vyhľadávanie a skúste znova.";
+
+"notifications.permission_required" = "Vyžaduje sa povolenie na notifikácie";
+"notifications.permission_denied_message" = "Ak chcete dostávať denné pripomienky a upozornenia na náročné slová, povoľte notifikácie v Nastaveniach.";
+
+"onboarding.natural_voices" = "Prirodzené hlasy";
+"onboarding.natural_voices_description" = "Stovky prémiových hlasov, ktoré znejú ľudskejšie ako kedykoľvek predtým";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Prístup k prémiovej technológii prevodu textu na reč od Speechify. Stovky prirodzene znejúcich prémiových hlasov";
+
+// TTS Dashboard
+"tts.dashboard" = "Nástenka TTS";
+"tts.premium_tts_dashboard" = "Prémiová nástenka TTS";
+"tts.customize_tts_experience" = "Prispôsobiť si zážitok z prevodu textu na reč";
+"tts.playing" = "Prehráva sa";
+"tts.ready" = "Pripravené";
+"tts.provider" = "Poskytovateľ";
+"tts.tts_provider" = "Poskytovateľ TTS";
+"tts.voice_customization" = "Prispôsobenie hlasu";
+"tts.current_voice" = "Aktuálny hlas";
+"tts.default_voice" = "Predvolený hlas";
+"tts.preview_current_voice" = "Náhľad aktuálneho hlasu";
+"tts.change_voice" = "Zmeniť hlas";
+"tts.audio_settings" = "Nastavenia zvuku";
+"tts.speech_rate" = "Rýchlosť reči";
+"tts.volume" = "Hlasitosť";
+"tts.test_your_settings" = "Otestujte svoje nastavenia";
+"tts.enter_text_to_test" = "Zadajte text na testovanie...";
+"tts.stop" = "Zastaviť";
+"tts.test" = "Test";
+"tts.usage_statistics" = "Štatistiky využitia";
+"tts.speechify_monthly_usage" = "Mesačné využitie Speechify";
+"tts.monthly_limit" = "Mesačný limit";
+"tts.used_this_month" = "Využité tento mesiac";
+"tts.remaining" = "Zostáva";
+"tts.usage_progress" = "Priebeh využitia";
+"tts.characters" = "znaky";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Použité znaky";
+"tts.analytics.sessions" = "Relácie";
+"tts.analytics.favorite_voice" = "Obľúbený hlas";
+"tts.analytics.time_saved" = "Ušetrený čas";
+"tts.analytics.total_characters" = "Celkový počet znakov";
+"tts.analytics.total_sessions" = "Celkový počet relácií";
+"tts.analytics.total_duration" = "Celková doba trvania";
+"tts.analytics.favorite_language" = "Obľúbený jazyk";
+"tts.analytics.premium_usage" = "Prémiové využitie";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Text na reč";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Model prevodu textu na reč od Speechify je dostupný pre všetkých používateľov ako prémiová funkcia. Umožňuje vám vybrať si zo širokej škály hlasov a prízvukov, aby ste si mohli prispôsobiť svoje študijné zážitky.";
+"tts.settings.speechify_pro_description" = "Model prevodu textu na reč od Speechify je zahrnutý vo vašom predplatnom.";
+"tts.settings.dashboard" = "Nástenka";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Bezplatný Google TTS so základnými hlasmi a spoľahlivým výkonom";
+
+// TTS Models
+"tts.models.english" = "Angličtina";
+"tts.models.multilingual" = "Viacjazyčný";
+"tts.models.english_description" = "Model prevodu textu na reč v angličtine od Speechify ponúka štandardné funkcie navrhnuté na poskytovanie čistého a prirodzeného zvukového výstupu pre čítanie textov. Model sa zameriava na poskytovanie konzistentného používateľského zážitku.";
+"tts.models.multilingual_description" = "Viacjazyčný model umožňuje použitie všetkých podporovaných jazykov a podporuje použitie viacerých jazykov v jednej vete. Zvukový výstup tohto modelu sa výrazne líši od ostatných modelov.";
+
+"auth.enter_name" = "Zadajte meno";
+"auth.search_by" = "Hľadať podľa";
+"auth.unknown_user" = "Neznámy používateľ";
+"auth.email" = "E-mail";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Účet Google";

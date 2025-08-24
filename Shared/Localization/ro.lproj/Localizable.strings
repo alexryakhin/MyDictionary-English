@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Selectează Rol";
 "shared_dictionaries.editor_role" = "Editor:";
 "shared_dictionaries.viewer_role" = "Vizualizator:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Colaboratorul va fi adăugat cu adresa de e-mail și numele furnizate. Trebuie să se conecteze cu aceeași adresă de e-mail pentru a accesa dicționarul partajat.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Utilizatorul va fi adăugat în dicționarul partajat. Acesta va primi o notificare și va putea accesa dicționarul imediat.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Fii primul care evaluează dificultatea acestui cuvânt";
 "shared_dictionaries.score" = "Scor: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Niciun dicționar partajat";
@@ -890,3 +890,166 @@
 "part_of_speech.short.preposition" = "Prep.";
 "part_of_speech.short.exclamation" = "Excl.";
 "part_of_speech.short.unknown" = "Nec.";
+
+"actions.settings" = "Setări";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Toate cazurile de utilizare";
+"tts.filters.all_ages" = "Toate vârstele";
+"tts.filters.all_timbres" = "Toate timbrurile";
+"tts.filters.all_accents" = "Toate accentele";
+"tts.filters.all_languages" = "Toate limbile";
+"tts.filters.all_genders" = "Toate genurile";
+"tts.filters.filters" = "Filtre";
+"tts.filters.reset" = "Resetare";
+"tts.filters.select_voice" = "Selectați vocea";
+"tts.filters.available_voices" = "Voci disponibile";
+"tts.filters.no_voices_available" = "Nicio voce disponibilă";
+"tts.filters.no_voices_found" = "Nicio voce găsită";
+"tts.filters.no_voices_found_message" = "Încercați să ajustați căutarea sau filtrele";
+
+"tts.usage.monthly_limit_exceeded" = "Limită lunară depășită";
+"tts.usage.monthly_limit_exceeded_message" = "Ați atins limita lunară de 50.000 de caractere pentru Speechify TTS. Încercați din nou luna viitoare sau folosiți Google TTS.";
+"tts.usage.remaining_characters" = "Caractere rămase";
+"tts.usage.monthly_usage" = "Utilizare lunară";
+"tts.usage.monthly_limit" = "Limită lunară";
+
+// TTS Voice Filter Values
+"advertisement" = "Reclamă";
+"animation" = "Animație";
+"audiobook" = "Carte audio";
+"audiobook-and-narration" = "Carte audio și narațiune";
+"audiobooks-and-narration" = "Cărți audio și narațiune";
+"conversational" = "Conversațional";
+"e-learning" = "E-învățare";
+"gaming" = "Jocuri";
+"meditation" = "Meditație";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filme, actorie și jocuri";
+"narration" = "Narațiune";
+"podcast" = "Podcast";
+"social-media" = "Rețele sociale";
+
+"middle-aged" = "Vârstă mijlocie";
+"senior" = "Senior";
+"teen" = "Adolescent";
+"young-adult" = "Tânăr adult";
+
+"female" = "Femeie";
+"male" = "Bărbat";
+
+"angry" = "Furios";
+"assertive-or-confident" = "Asertiv sau încrezător";
+"bright" = "Luminos";
+"calm-or-relaxed" = "Calm sau relaxat";
+"calm-or-relaxed-" = "Calm sau relaxat";
+"cheerful" = "Vesel";
+"crisp" = "Clar";
+"deep" = "Profund";
+"direct" = "Direct";
+"energetic" = "Energic";
+"fearful" = "Înspăimântat";
+"high-pitch" = "Ton înalt";
+"neutral" = "Neutru";
+"professional" = "Profesional";
+"relaxed" = "Relaxat";
+"sad" = "Trist";
+"suprised" = "Surprins";
+"surprised" = "Surprins";
+"terrified" = "Îngrozit";
+"warm" = "Cald";
+"warm-or-friendly" = "Cald sau prietenos";
+
+"american-neutral" = "American neutru";
+"australian" = "Australian";
+"british" = "Britanic";
+"indian" = "Indian";
+"nigerian" = "Nigerian";
+
+"auth.cross_platform_button_description" = "Pentru partajarea abonamentului între platforme";
+"auth.nickname" = "Poreclă";
+"auth.nickname_current" = "Poreclă actuală";
+"auth.nickname_not_set" = "Porecla nu este setată";
+"auth.nickname_description" = "Setați o poreclă unică pe care alții o pot folosi pentru a vă găsi și a vă adăuga în dicționarele partajate. Este mai convenabil decât utilizarea adreselor de e-mail.";
+"auth.edit_nickname" = "Editați porecla";
+"auth.nickname_cannot_be_empty" = "Porecla nu poate fi goală";
+"auth.nickname_already_taken" = "Această poreclă este deja luată. Alegeți alta.";
+"auth.nickname_invalid_format" = "Porecla poate conține doar litere, cifre și linii de subliniere.";
+"auth.search_method" = "Metodă de căutare";
+"auth.find_user_by_email" = "Găsiți utilizatorul prin e-mail";
+"auth.find_user_by_nickname" = "Găsiți utilizatorul prin poreclă";
+"auth.enter_email_address" = "Introduceți adresa de e-mail";
+"auth.enter_nickname" = "Introduceți porecla";
+"auth.found_user" = "Utilizator găsit";
+"auth.user_not_found" = "Utilizator negăsit";
+"auth.user_not_found_message" = "Nu s-a găsit niciun utilizator cu informațiile furnizate. Verificați căutarea și încercați din nou.";
+
+"notifications.permission_required" = "Este necesară permisiunea pentru notificări";
+"notifications.permission_denied_message" = "Pentru a primi memento-uri zilnice și alerte pentru cuvinte dificile, activați notificările în Setări.";
+
+"onboarding.natural_voices" = "Voci naturale";
+"onboarding.natural_voices_description" = "Sute de voci premium care sună mai uman ca niciodată";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Acces la tehnologia premium de conversie text în vorbire de la Speechify. Sute de voci premium cu sunet natural";
+
+// TTS Dashboard
+"tts.dashboard" = "Tablou de bord TTS";
+"tts.premium_tts_dashboard" = "Tablou de bord TTS premium";
+"tts.customize_tts_experience" = "Personalizați-vă experiența de conversie text în vorbire";
+"tts.playing" = "În redare";
+"tts.ready" = "Gata";
+"tts.provider" = "Furnizor";
+"tts.tts_provider" = "Furnizor TTS";
+"tts.voice_customization" = "Personalizare voce";
+"tts.current_voice" = "Voce curentă";
+"tts.default_voice" = "Voce implicită";
+"tts.preview_current_voice" = "Previzualizați vocea curentă";
+"tts.change_voice" = "Schimbați vocea";
+"tts.audio_settings" = "Setări audio";
+"tts.speech_rate" = "Viteza vorbirii";
+"tts.volume" = "Volum";
+"tts.test_your_settings" = "Testați-vă setările";
+"tts.enter_text_to_test" = "Introduceți text pentru testare...";
+"tts.stop" = "Oprire";
+"tts.test" = "Test";
+"tts.usage_statistics" = "Statistici de utilizare";
+"tts.speechify_monthly_usage" = "Utilizare lunară Speechify";
+"tts.monthly_limit" = "Limită lunară";
+"tts.used_this_month" = "Utilizat în această lună";
+"tts.remaining" = "Rămas";
+"tts.usage_progress" = "Progresul utilizării";
+"tts.characters" = "caractere";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Caractere utilizate";
+"tts.analytics.sessions" = "Sesiuni";
+"tts.analytics.favorite_voice" = "Voce preferată";
+"tts.analytics.time_saved" = "Timp economisit";
+"tts.analytics.total_characters" = "Total caractere";
+"tts.analytics.total_sessions" = "Total sesiuni";
+"tts.analytics.total_duration" = "Durată totală";
+"tts.analytics.favorite_language" = "Limba preferată";
+"tts.analytics.premium_usage" = "Utilizare premium";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Text în vorbire";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Modelul de conversie text în vorbire de la Speechify este disponibil pentru toți utilizatorii ca funcție premium. Vă permite să alegeți dintr-o gamă largă de voci și accente, pentru a vă personaliza experiența de învățare.";
+"tts.settings.speechify_pro_description" = "Modelul de conversie text în vorbire de la Speechify este inclus în abonamentul dumneavoastră.";
+"tts.settings.dashboard" = "Tablou de bord";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Google TTS gratuit cu voci de bază și performanță fiabilă";
+
+// TTS Models
+"tts.models.english" = "Engleză";
+"tts.models.multilingual" = "Multilingv";
+"tts.models.english_description" = "Modelul de conversie text în vorbire în limba engleză de la Speechify oferă funcționalități standard concepute pentru a oferi un sunet clar și natural pentru citirea textelor. Modelul se concentrează pe oferirea unei experiențe consistente pentru utilizator.";
+"tts.models.multilingual_description" = "Modelul multilingv permite utilizarea tuturor limbilor suportate și susține utilizarea mai multor limbi într-o singură propoziție. Sunetul acestui model diferă semnificativ de alte modele.";
+
+"auth.enter_name" = "Introduceți numele";
+"auth.search_by" = "Căutați după";
+"auth.unknown_user" = "Utilizator necunoscut";
+"auth.email" = "E-mail";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Cont Google";

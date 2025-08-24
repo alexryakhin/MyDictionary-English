@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Rolle auswählen";
 "shared_dictionaries.editor_role" = "Editor:";
 "shared_dictionaries.viewer_role" = "Zuschauer:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Der Mitarbeiter wird mit der von Ihnen eingegebenen E-Mail-Adresse und dem Namen hinzugefügt. Er muss sich mit derselben E-Mail-Adresse anmelden, um auf das geteilte Wörterbuch zuzugreifen.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Der Benutzer wird zum freigegebenen Wörterbuch hinzugefügt. Er erhält eine Benachrichtigung und kann sofort auf das Wörterbuch zugreifen.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Seien Sie der Erste, der die Schwierigkeit dieses Wortes bewertet";
 "shared_dictionaries.score" = "Punktzahl: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Keine geteilten Wörterbücher";
@@ -891,3 +891,166 @@
 "part_of_speech.short.preposition" = "Präp.";
 "part_of_speech.short.exclamation" = "Ausr.";
 "part_of_speech.short.unknown" = "Unbekannt";
+
+"actions.settings" = "Einstellungen";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Alle Anwendungsfälle";
+"tts.filters.all_ages" = "Alle Altersgruppen";
+"tts.filters.all_timbres" = "Alle Klangfarben";
+"tts.filters.all_accents" = "Alle Akzente";
+"tts.filters.all_languages" = "Alle Sprachen";
+"tts.filters.all_genders" = "Alle Geschlechter";
+"tts.filters.filters" = "Filter";
+"tts.filters.reset" = "Zurücksetzen";
+"tts.filters.select_voice" = "Stimme auswählen";
+"tts.filters.available_voices" = "Verfügbare Stimmen";
+"tts.filters.no_voices_available" = "Keine Stimmen verfügbar";
+"tts.filters.no_voices_found" = "Keine Stimmen gefunden";
+"tts.filters.no_voices_found_message" = "Versuchen Sie, Ihre Suche oder Filter anzupassen";
+
+"tts.usage.monthly_limit_exceeded" = "Monatliches Limit überschritten";
+"tts.usage.monthly_limit_exceeded_message" = "Sie haben das monatliche Limit von 50.000 Zeichen für Speechify TTS erreicht. Bitte versuchen Sie es nächsten Monat erneut oder verwenden Sie stattdessen Google TTS.";
+"tts.usage.remaining_characters" = "Verbleibende Zeichen";
+"tts.usage.monthly_usage" = "Monatliche Nutzung";
+"tts.usage.monthly_limit" = "Monatliches Limit";
+
+// TTS Voice Filter Values
+"advertisement" = "Werbung";
+"animation" = "Animation";
+"audiobook" = "Hörbuch";
+"audiobook-and-narration" = "Hörbuch und Erzählung";
+"audiobooks-and-narration" = "Hörbücher und Erzählung";
+"conversational" = "Gesprächig";
+"e-learning" = "E-Learning";
+"gaming" = "Gaming";
+"meditation" = "Meditation";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filme, Schauspiel und Gaming";
+"narration" = "Erzählung";
+"podcast" = "Podcast";
+"social-media" = "Soziale Medien";
+
+"middle-aged" = "Mittelalter";
+"senior" = "Senior";
+"teen" = "Teenager";
+"young-adult" = "Junger Erwachsener";
+
+"female" = "Weiblich";
+"male" = "Männlich";
+
+"angry" = "Wütend";
+"assertive-or-confident" = "Durchsetzungsfähig oder selbstbewusst";
+"bright" = "Hell";
+"calm-or-relaxed" = "Ruhig oder entspannt";
+"calm-or-relaxed-" = "Ruhig oder entspannt";
+"cheerful" = "Fröhlich";
+"crisp" = "Knackig";
+"deep" = "Tief";
+"direct" = "Direkt";
+"energetic" = "Energetisch";
+"fearful" = "Ängstlich";
+"high-pitch" = "Hohe Tonlage";
+"neutral" = "Neutral";
+"professional" = "Professionell";
+"relaxed" = "Entspannt";
+"sad" = "Traurig";
+"suprised" = "Überrascht";
+"surprised" = "Überrascht";
+"terrified" = "Verängstigt";
+"warm" = "Warm";
+"warm-or-friendly" = "Warm oder freundlich";
+
+"american-neutral" = "Amerikanisch neutral";
+"australian" = "Australisch";
+"british" = "Britisch";
+"indian" = "Indisch";
+"nigerian" = "Nigerianisch";
+
+"auth.cross_platform_button_description" = "Für die plattformübergreifende Abonnementfreigabe";
+"auth.nickname" = "Spitzname";
+"auth.nickname_current" = "Aktueller Spitzname";
+"auth.nickname_not_set" = "Spitzname ist nicht gesetzt";
+"auth.nickname_description" = "Legen Sie einen eindeutigen Spitznamen fest, den andere verwenden können, um Sie zu finden und zu freigegebenen Wörterbüchern hinzuzufügen. Dies ist bequemer als die Verwendung von E-Mail-Adressen.";
+"auth.edit_nickname" = "Spitzname bearbeiten";
+"auth.nickname_cannot_be_empty" = "Spitzname darf nicht leer sein";
+"auth.nickname_already_taken" = "Dieser Spitzname ist bereits vergeben. Bitte wählen Sie einen anderen.";
+"auth.nickname_invalid_format" = "Spitzname darf nur Buchstaben, Zahlen und Unterstriche enthalten.";
+"auth.search_method" = "Suchmethode";
+"auth.find_user_by_email" = "Benutzer per E-Mail finden";
+"auth.find_user_by_nickname" = "Benutzer per Spitzname finden";
+"auth.enter_email_address" = "E-Mail-Adresse eingeben";
+"auth.enter_nickname" = "Spitzname eingeben";
+"auth.found_user" = "Benutzer gefunden";
+"auth.user_not_found" = "Benutzer nicht gefunden";
+"auth.user_not_found_message" = "Kein Benutzer mit den angegebenen Informationen gefunden. Bitte überprüfen Sie Ihre Suche und versuchen Sie es erneut.";
+
+"notifications.permission_required" = "Benachrichtigungsberechtigung erforderlich";
+"notifications.permission_denied_message" = "Um tägliche Erinnerungen und Warnungen für schwierige Wörter zu erhalten, aktivieren Sie bitte Benachrichtigungen in den Einstellungen.";
+
+"onboarding.natural_voices" = "Natürliche Stimmen";
+"onboarding.natural_voices_description" = "Hunderte von Premium-Stimmen, die natürlicher klingen als je zuvor";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Zugriff auf die Premium-Text-to-Speech-Technologie von Speechify. Hunderte von natürlich klingenden Premium-Stimmen";
+
+// TTS Dashboard
+"tts.dashboard" = "TTS-Dashboard";
+"tts.premium_tts_dashboard" = "Premium-TTS-Dashboard";
+"tts.customize_tts_experience" = "Passen Sie Ihr Text-to-Speech-Erlebnis an";
+"tts.playing" = "Wird abgespielt";
+"tts.ready" = "Bereit";
+"tts.provider" = "Anbieter";
+"tts.tts_provider" = "TTS-Anbieter";
+"tts.voice_customization" = "Stimmanpassung";
+"tts.current_voice" = "Aktuelle Stimme";
+"tts.default_voice" = "Standardstimme";
+"tts.preview_current_voice" = "Aktuelle Stimme vorhören";
+"tts.change_voice" = "Stimme ändern";
+"tts.audio_settings" = "Audioeinstellungen";
+"tts.speech_rate" = "Sprechgeschwindigkeit";
+"tts.volume" = "Lautstärke";
+"tts.test_your_settings" = "Testen Sie Ihre Einstellungen";
+"tts.enter_text_to_test" = "Text zum Testen eingeben...";
+"tts.stop" = "Stoppen";
+"tts.test" = "Testen";
+"tts.usage_statistics" = "Nutzungsstatistiken";
+"tts.speechify_monthly_usage" = "Monatliche Nutzung von Speechify";
+"tts.monthly_limit" = "Monatliches Limit";
+"tts.used_this_month" = "Diesen Monat verwendet";
+"tts.remaining" = "Verbleibend";
+"tts.usage_progress" = "Nutzungsfortschritt";
+"tts.characters" = "Zeichen";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Verwendete Zeichen";
+"tts.analytics.sessions" = "Sitzungen";
+"tts.analytics.favorite_voice" = "Lieblingsstimme";
+"tts.analytics.time_saved" = "Zeit gespart";
+"tts.analytics.total_characters" = "Gesamtzeichen";
+"tts.analytics.total_sessions" = "Gesamtsitzungen";
+"tts.analytics.total_duration" = "Gesamtdauer";
+"tts.analytics.favorite_language" = "Lieblingssprache";
+"tts.analytics.premium_usage" = "Premium-Nutzung";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Text-zu-Sprache";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Das Text-zu-Sprache-Modell von Speechify ist für alle Benutzer als Premium-Funktion verfügbar. Es ermöglicht Ihnen, aus einer breiten Palette von Stimmen und Akzenten zu wählen, um Ihr Lernerlebnis zu optimieren.";
+"tts.settings.speechify_pro_description" = "Das Text-zu-Sprache-Modell von Speechify ist in Ihrem Abonnement enthalten.";
+"tts.settings.dashboard" = "Dashboard";
+"tts.pro" = "PRO";
+"tts.free_google_tts_description" = "Kostenloses Google TTS mit einfachen Stimmen und zuverlässiger Leistung";
+
+// TTS Models
+"tts.models.english" = "Englisch";
+"tts.models.multilingual" = "Mehrsprachig";
+"tts.models.english_description" = "Das englische Text-zu-Sprache-Modell von Speechify bietet Standardfunktionen, die für eine klare und natürliche Sprachausgabe beim Lesen von Texten ausgelegt sind. Das Modell konzentriert sich auf ein konsistentes Benutzererlebnis.";
+"tts.models.multilingual_description" = "Das mehrsprachige Modell ermöglicht die Nutzung aller unterstützten Sprachen und unterstützt die Verwendung mehrerer Sprachen in einem einzigen Satz. Die Audioausgabe dieses Modells unterscheidet sich deutlich von anderen Modellen.";
+
+"auth.enter_name" = "Name eingeben";
+"auth.search_by" = "Suche nach";
+"auth.unknown_user" = "Unbekannter Benutzer";
+"auth.email" = "E-Mail";
+"auth.apple_id" = "Apple-ID";
+"auth.google_account" = "Google-Konto";

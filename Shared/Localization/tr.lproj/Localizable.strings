@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Rol Seç";
 "shared_dictionaries.editor_role" = "Editör:";
 "shared_dictionaries.viewer_role" = "Görüntüleyici:";
-"shared_dictionaries.collaborator_added_with_email_name" = "İşbirlikçi, belirtilen e-posta adresi ve isimle eklenecek. Paylaşılan sözlüğe erişmek için aynı e-posta adresiyle oturum açmaları gerekir.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Kullanıcı paylaşılan sözlüğe eklenecek. Bir bildirim alacak ve sözlüğe anında erişebilecek.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Bu kelimenin zorluğunu derecelendiren ilk kişi olun";
 "shared_dictionaries.score" = "Puan: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Paylaşılan sözlük yok";
@@ -876,3 +876,166 @@
 "part_of_speech.short.preposition" = "Edt.";
 "part_of_speech.short.exclamation" = "Ünl.";
 "part_of_speech.short.unknown" = "Bilinmiyor";
+
+"actions.settings" = "Ayarlar";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Tüm kullanım durumları";
+"tts.filters.all_ages" = "Tüm yaşlar";
+"tts.filters.all_timbres" = "Tüm tonlar";
+"tts.filters.all_accents" = "Tüm aksanlar";
+"tts.filters.all_languages" = "Tüm diller";
+"tts.filters.all_genders" = "Tüm cinsiyetler";
+"tts.filters.filters" = "Filtreler";
+"tts.filters.reset" = "Sıfırla";
+"tts.filters.select_voice" = "Ses seç";
+"tts.filters.available_voices" = "Mevcut sesler";
+"tts.filters.no_voices_available" = "Kullanılabilir ses yok";
+"tts.filters.no_voices_found" = "Ses bulunamadı";
+"tts.filters.no_voices_found_message" = "Aramanızı veya filtrelerinizi ayarlamayı deneyin";
+
+"tts.usage.monthly_limit_exceeded" = "Aylık limit aşıldı";
+"tts.usage.monthly_limit_exceeded_message" = "Speechify TTS için 50.000 karakterlik aylık limite ulaştınız. Lütfen gelecek ay tekrar deneyin veya bunun yerine Google TTS kullanın.";
+"tts.usage.remaining_characters" = "Kalan karakterler";
+"tts.usage.monthly_usage" = "Aylık kullanım";
+"tts.usage.monthly_limit" = "Aylık limit";
+
+// TTS Voice Filter Values
+"advertisement" = "Reklam";
+"animation" = "Animasyon";
+"audiobook" = "Sesli kitap";
+"audiobook-and-narration" = "Sesli kitap ve anlatım";
+"audiobooks-and-narration" = "Sesli kitaplar ve anlatım";
+"conversational" = "Konuşma tarzı";
+"e-learning" = "E-öğrenme";
+"gaming" = "Oyun";
+"meditation" = "Meditasyon";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filmler, oyunculuk ve oyun";
+"narration" = "Anlatım";
+"podcast" = "Podcast";
+"social-media" = "Sosyal medya";
+
+"middle-aged" = "Orta yaş";
+"senior" = "Yaşlı";
+"teen" = "Genç";
+"young-adult" = "Genç yetişkin";
+
+"female" = "Kadın";
+"male" = "Erkek";
+
+"angry" = "Kızgın";
+"assertive-or-confident" = "Kendinden emin veya iddialı";
+"bright" = "Canlı";
+"calm-or-relaxed" = "Sakin veya rahat";
+"calm-or-relaxed-" = "Sakin veya rahat";
+"cheerful" = "Neşeli";
+"crisp" = "Net";
+"deep" = "Derin";
+"direct" = "Doğrudan";
+"energetic" = "Enerjik";
+"fearful" = "Korkulu";
+"high-pitch" = "Yüksek ton";
+"neutral" = "Nötr";
+"professional" = "Profesyonel";
+"relaxed" = "Rahat";
+"sad" = "Üzgün";
+"suprised" = "Şaşkın";
+"surprised" = "Şaşkın";
+"terrified" = "Korkmuş";
+"warm" = "Sıcak";
+"warm-or-friendly" = "Sıcak veya dostane";
+
+"american-neutral" = "Amerikan nötr";
+"australian" = "Avustralya";
+"british" = "İngiliz";
+"indian" = "Hint";
+"nigerian" = "Nijeryalı";
+
+"auth.cross_platform_button_description" = "Platformlar arası abonelik paylaşımı için";
+"auth.nickname" = "Takma ad";
+"auth.nickname_current" = "Mevcut takma ad";
+"auth.nickname_not_set" = "Takma ad belirlenmedi";
+"auth.nickname_description" = "Başkalarının sizi bulması ve paylaşılan sözlüklere eklemesi için kullanılabilecek benzersiz bir takma ad belirleyin. Bu, e-posta adreslerini kullanmaktan daha uygundur.";
+"auth.edit_nickname" = "Takma adı düzenle";
+"auth.nickname_cannot_be_empty" = "Takma ad boş olamaz";
+"auth.nickname_already_taken" = "Bu takma ad zaten alınmış. Lütfen başka bir tane seçin.";
+"auth.nickname_invalid_format" = "Takma ad yalnızca harf, rakam ve alt çizgi içerebilir.";
+"auth.search_method" = "Arama yöntemi";
+"auth.find_user_by_email" = "E-posta ile kullanıcı bul";
+"auth.find_user_by_nickname" = "Takma ad ile kullanıcı bul";
+"auth.enter_email_address" = "E-posta adresini gir";
+"auth.enter_nickname" = "Takma ad gir";
+"auth.found_user" = "Kullanıcı bulundu";
+"auth.user_not_found" = "Kullanıcı bulunamadı";
+"auth.user_not_found_message" = "Sağlanan bilgilerle kullanıcı bulunamadı. Lütfen aramanızı kontrol edin ve tekrar deneyin.";
+
+"notifications.permission_required" = "Bildirim izni gerekli";
+"notifications.permission_denied_message" = "Günlük hatırlatmalar ve zor kelime uyarıları almak için lütfen Ayarlar'da bildirimleri etkinleştirin.";
+
+"onboarding.natural_voices" = "Doğal sesler";
+"onboarding.natural_voices_description" = "Şimdiye kadar olduğundan daha insansı seslere sahip yüzlerce premium ses";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Speechify'nin premium metin-konuşma teknolojisine erişim. Doğal seslere sahip yüzlerce premium ses";
+
+// TTS Dashboard
+"tts.dashboard" = "TTS Panosu";
+"tts.premium_tts_dashboard" = "Premium TTS Panosu";
+"tts.customize_tts_experience" = "Metin-konuşma deneyiminizi özelleştirin";
+"tts.playing" = "Oynatılıyor";
+"tts.ready" = "Hazır";
+"tts.provider" = "Sağlayıcı";
+"tts.tts_provider" = "TTS Sağlayıcı";
+"tts.voice_customization" = "Ses özelleştirme";
+"tts.current_voice" = "Mevcut ses";
+"tts.default_voice" = "Varsayılan ses";
+"tts.preview_current_voice" = "Mevcut sesi önizle";
+"tts.change_voice" = "Sesi değiştir";
+"tts.audio_settings" = "Ses ayarları";
+"tts.speech_rate" = "Konuşma hızı";
+"tts.volume" = "Ses seviyesi";
+"tts.test_your_settings" = "Ayarlarınızı test edin";
+"tts.enter_text_to_test" = "Test etmek için metin girin...";
+"tts.stop" = "Durdur";
+"tts.test" = "Test";
+"tts.usage_statistics" = "Kullanım istatistikleri";
+"tts.speechify_monthly_usage" = "Speechify aylık kullanım";
+"tts.monthly_limit" = "Aylık limit";
+"tts.used_this_month" = "Bu ay kullanılan";
+"tts.remaining" = "Kalan";
+"tts.usage_progress" = "Kullanım ilerlemesi";
+"tts.characters" = "karakter";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Kullanılan karakterler";
+"tts.analytics.sessions" = "Oturumlar";
+"tts.analytics.favorite_voice" = "Favori ses";
+"tts.analytics.time_saved" = "Kazanılan zaman";
+"tts.analytics.total_characters" = "Toplam karakter";
+"tts.analytics.total_sessions" = "Toplam oturum";
+"tts.analytics.total_duration" = "Toplam süre";
+"tts.analytics.favorite_language" = "Favori dil";
+"tts.analytics.premium_usage" = "Premium kullanım";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Metin-konuşma";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Speechify'nin metin-konuşma modeli, tüm kullanıcılar için premium bir özellik olarak mevcuttur. Çalışma deneyiminizi özelleştirmek için geniş bir ses ve aksan yelpazesinden seçim yapmanızı sağlar.";
+"tts.settings.speechify_pro_description" = "Speechify'nin metin-konuşma modeli aboneliğinizde yer almaktadır.";
+"tts.settings.dashboard" = "Pano";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Temel sesler ve güvenilir performans sunan ücretsiz Google TTS";
+
+// TTS Models
+"tts.models.english" = "İngilizce";
+"tts.models.multilingual" = "Çok dilli";
+"tts.models.english_description" = "Speechify'nin İngilizce metin-konuşma modeli, metinleri okumak için net ve doğal bir ses çıkışı sağlamak üzere tasarlanmış standart özellikler sunar. Model, tutarlı bir kullanıcı deneyimi sağlamaya odaklanır.";
+"tts.models.multilingual_description" = "Çok dilli model, desteklenen tüm dillerin kullanımına olanak tanır ve tek bir cümlede birden fazla dilin kullanımını destekler. Bu modelin ses çıkışı, diğer modellerden belirgin şekilde farklıdır.";
+
+"auth.enter_name" = "İsim gir";
+"auth.search_by" = "Şuna göre ara";
+"auth.unknown_user" = "Bilinmeyen kullanıcı";
+"auth.email" = "E-posta";
+"auth.apple_id" = "Apple Kimliği";
+"auth.google_account" = "Google Hesabı";

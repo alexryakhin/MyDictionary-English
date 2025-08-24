@@ -67,7 +67,7 @@ struct ProfileView: View {
                 if isEditingName {
                     // Inline editing
                     VStack(spacing: 8) {
-                        TextField("Enter your name", text: $editedName)
+                        TextField(Loc.Auth.enterName.localized, text: $editedName)
                             .textFieldStyle(.roundedBorder)
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -86,12 +86,12 @@ struct ProfileView: View {
                         }
                         
                         HStack(spacing: 12) {
-                            Button("Cancel") {
+                            Button(Loc.Actions.cancel.localized) {
                                 cancelNameEdit()
                             }
                             .buttonStyle(.bordered)
                             
-                            Button("Save") {
+                            Button(Loc.Actions.save.localized) {
                                 Task {
                                     await saveName()
                                 }
@@ -140,7 +140,7 @@ struct ProfileView: View {
                         .foregroundStyle(.accent)
 
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(authenticationService.hasAppleAccount ? "Apple ID" : "Google Account")
+                        Text(authenticationService.hasAppleAccount ? Loc.Auth.appleID.localized : Loc.Auth.googleAccount.localized)
                             .font(.body)
                             .fontWeight(.medium)
                         Text(Loc.Auth.currentAccount.localized)
@@ -166,7 +166,7 @@ struct ProfileView: View {
 
                         HStack {
                             if authenticationService.hasGoogleAccount {
-                                Label("Google", systemImage: "globe")
+                                Label(Loc.Auth.googleAccount.localized, systemImage: "globe")
                                     .font(.caption)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
@@ -176,7 +176,7 @@ struct ProfileView: View {
                             }
 
                             if authenticationService.hasAppleAccount {
-                                Label("Apple ID", systemImage: "applelogo")
+                                Label(Loc.Auth.appleID.localized, systemImage: "applelogo")
                                     .font(.caption)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
@@ -203,40 +203,27 @@ struct ProfileView: View {
             if isEditingNickname {
                 // Inline editing
                 VStack(spacing: 8) {
-                    TextField(Loc.Auth.enterNickname.localized, text: $editedNickname)
-                        .textFieldStyle(.roundedBorder)
-                        .font(.body)
-                        .fontWeight(.medium)
-                        .autocorrectionDisabled()
-                        .onSubmit {
-                            Task {
-                                await saveNickname()
-                            }
+                    HStack(spacing: 8) {
+                        TextField(Loc.Auth.enterNickname.localized, text: $editedNickname)
+                            .textFieldStyle(.plain)
+                            .font(.body)
+                            .fontWeight(.medium)
+                            .autocorrectionDisabled()
+
+                        HeaderButton(Loc.Actions.cancel.localized, color: .secondary) {
+                            cancelNicknameEdit()
                         }
-                    
+                    }
                     if let errorMessage = nicknameErrorMessage {
                         Text(errorMessage)
                             .font(.caption)
                             .foregroundStyle(.red)
-                    }
-                    
-                    HStack(spacing: 12) {
-                        Button(Loc.Actions.cancel.localized) {
-                            cancelNicknameEdit()
-                        }
-                        .buttonStyle(.bordered)
-                        
-                        Button(Loc.Actions.save.localized) {
-                            Task {
-                                await saveNickname()
-                            }
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .disabled(editedNickname.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isSavingNickname)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
                 .padding(vertical: 12, horizontal: 16)
                 .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .padding(.bottom, 12)
             } else {
                 // Display mode
                 HStack(spacing: 8) {
@@ -257,19 +244,33 @@ struct ProfileView: View {
                             .foregroundStyle(.secondary)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Button {
-                        startNicknameEdit()
-                    } label: {
-                        Image(systemName: "pencil")
-                            .font(.caption)
-                            .foregroundStyle(.blue)
-                    }
                 }
                 .padding(vertical: 12, horizontal: 16)
                 .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .padding(.bottom, 12)
+            }
+        } trailingContent: {
+            if isEditingNickname {
+                AsyncHeaderButton(
+                    Loc.Actions.save.localized,
+                    size: .small,
+                    style: .borderedProminent
+                ) {
+                    await saveNickname()
+                }
+                .disabled(editedNickname.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            } else {
+                HeaderButton(
+                    authenticationService.nickname != nil
+                    ? Loc.Actions.edit.localized
+                    : Loc.Actions.add.localized,
+                    size: .small
+                ) {
+                    startNicknameEdit()
+                }
             }
         }
+        .animation(.default, value: isEditingNickname)
     }
 
     // MARK: - Account Linking Section
@@ -298,7 +299,7 @@ struct ProfileView: View {
                                     .font(.body)
                                     .fontWeight(.medium)
                                     .foregroundStyle(.primary)
-                                Text("Required for Android subscription access")
+                                Text(Loc.Auth.crossPlatformButtonDescription.localized)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -423,7 +424,7 @@ struct ProfileView: View {
     private func saveName() async {
         let trimmedName = editedName.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedName.isEmpty else {
-            nameErrorMessage = "Name cannot be empty"
+            nameErrorMessage = Loc.Errors.inputCannotBeEmpty.localized
             return
         }
         

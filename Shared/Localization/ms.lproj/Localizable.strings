@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "Pilih Peranan";
 "shared_dictionaries.editor_role" = "Penyunting:";
 "shared_dictionaries.viewer_role" = "Penonton:";
-"shared_dictionaries.collaborator_added_with_email_name" = "Rakan kerjasama akan ditambah dengan alamat e-mel dan nama yang diberikan. Mereka perlu log masuk dengan alamat e-mel yang sama untuk mengakses kamus kongsi.";
+"shared_dictionaries.collaborator_added_with_email_name" = "Pengguna akan ditambahkan ke kamus berkongsi. Mereka akan menerima pemberitahuan dan boleh mengakses kamus dengan segera.";
 "shared_dictionaries.be_first_to_rate_difficulty" = "Jadilah yang pertama menilai kesukaran perkataan ini";
 "shared_dictionaries.score" = "Skor: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "Tiada kamus kongsi";
@@ -890,3 +890,166 @@
 "part_of_speech.short.preposition" = "Depan";
 "part_of_speech.short.exclamation" = "Seru";
 "part_of_speech.short.unknown" = "Tidak Diketahui";
+
+"actions.settings" = "Tetapan";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Semua kes penggunaan";
+"tts.filters.all_ages" = "Semua peringkat umur";
+"tts.filters.all_timbres" = "Semua nada suara";
+"tts.filters.all_accents" = "Semua aksen";
+"tts.filters.all_languages" = "Semua bahasa";
+"tts.filters.all_genders" = "Semua jantina";
+"tts.filters.filters" = "Penapis";
+"tts.filters.reset" = "Tetapkan semula";
+"tts.filters.select_voice" = "Pilih suara";
+"tts.filters.available_voices" = "Suara yang tersedia";
+"tts.filters.no_voices_available" = "Tiada suara yang tersedia";
+"tts.filters.no_voices_found" = "Tiada suara ditemui";
+"tts.filters.no_voices_found_message" = "Cuba laraskan carian atau penapis anda";
+
+"tts.usage.monthly_limit_exceeded" = "Had bulanan melebihi";
+"tts.usage.monthly_limit_exceeded_message" = "Anda telah mencapai had bulanan sebanyak 50,000 aksara untuk Speechify TTS. Cuba lagi bulan depan atau gunakan Google TTS.";
+"tts.usage.remaining_characters" = "Aksara yang tinggal";
+"tts.usage.monthly_usage" = "Penggunaan bulanan";
+"tts.usage.monthly_limit" = "Had bulanan";
+
+// TTS Voice Filter Values
+"advertisement" = "Iklan";
+"animation" = "Animasi";
+"audiobook" = "Buku audio";
+"audiobook-and-narration" = "Buku audio dan narasi";
+"audiobooks-and-narration" = "Buku-buku audio dan narasi";
+"conversational" = "Perbincangan";
+"e-learning" = "E-pembelajaran";
+"gaming" = "Permainan";
+"meditation" = "Meditasi";
+"movie" = "Filem";
+"movies-acting-and-gaming" = "Filem, lakonan dan permainan";
+"narration" = "Narasi";
+"podcast" = "Podcast";
+"social-media" = "Media sosial";
+
+"middle-aged" = "Pertengahan umur";
+"senior" = "Warga emas";
+"teen" = "Remaja";
+"young-adult" = "Dewasa muda";
+
+"female" = "Perempuan";
+"male" = "Lelaki";
+
+"angry" = "Marah";
+"assertive-or-confident" = "Tegas atau yakin";
+"bright" = "Ceria";
+"calm-or-relaxed" = "Tenang atau santai";
+"calm-or-relaxed-" = "Tenang atau santai";
+"cheerful" = "Gembira";
+"crisp" = "Jelas";
+"deep" = "Dalam";
+"direct" = "Langsung";
+"energetic" = "Bertenaga";
+"fearful" = "Takut";
+"high-pitch" = "Nada tinggi";
+"neutral" = "Neutral";
+"professional" = "Profesional";
+"relaxed" = "Santai";
+"sad" = "Sedih";
+"suprised" = "Terkejut";
+"surprised" = "Terkejut";
+"terrified" = "Ketakutan";
+"warm" = "Hangat";
+"warm-or-friendly" = "Hangat atau mesra";
+
+"american-neutral" = "Amerika neutral";
+"australian" = "Australia";
+"british" = "British";
+"indian" = "India";
+"nigerian" = "Nigeria";
+
+"auth.cross_platform_button_description" = "Untuk perkongsian langganan merentas platform";
+"auth.nickname" = "Nama samaran";
+"auth.nickname_current" = "Nama samaran semasa";
+"auth.nickname_not_set" = "Nama samaran belum ditetapkan";
+"auth.nickname_description" = "Tetapkan nama samaran unik yang boleh digunakan oleh orang lain untuk mencari dan menambahkan anda ke dalam kamus berkongsi. Ini lebih mudah daripada menggunakan alamat e-mel.";
+"auth.edit_nickname" = "Edit nama samaran";
+"auth.nickname_cannot_be_empty" = "Nama samaran tidak boleh kosong";
+"auth.nickname_already_taken" = "Nama samaran ini sudah digunakan. Pilih yang lain.";
+"auth.nickname_invalid_format" = "Nama samaran hanya boleh mengandungi huruf, nombor, dan garis bawah.";
+"auth.search_method" = "Kaedah carian";
+"auth.find_user_by_email" = "Cari pengguna melalui e-mel";
+"auth.find_user_by_nickname" = "Cari pengguna melalui nama samaran";
+"auth.enter_email_address" = "Masukkan alamat e-mel";
+"auth.enter_nickname" = "Masukkan nama samaran";
+"auth.found_user" = "Pengguna ditemui";
+"auth.user_not_found" = "Pengguna tidak ditemui";
+"auth.user_not_found_message" = "Tiada pengguna ditemui dengan maklumat yang diberikan. Semak carian anda dan cuba lagi.";
+
+"notifications.permission_required" = "Kebenaran pemberitahuan diperlukan";
+"notifications.permission_denied_message" = "Untuk menerima peringatan harian dan amaran untuk perkataan sukar, sila aktifkan pemberitahuan dalam Tetapan.";
+
+"onboarding.natural_voices" = "Suara semula jadi";
+"onboarding.natural_voices_description" = "Beratus-ratus suara premium yang kedengaran lebih manusiawi berbanding sebelum ini";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Akses kepada teknologi teks ke pertuturan premium Speechify. Beratus-ratus suara premium yang kedengaran semula jadi";
+
+// TTS Dashboard
+"tts.dashboard" = "Papan Pemuka TTS";
+"tts.premium_tts_dashboard" = "Papan Pemuka TTS Premium";
+"tts.customize_tts_experience" = "Sesuaikan pengalaman teks ke pertuturan anda";
+"tts.playing" = "Sedang bermain";
+"tts.ready" = "Sedia";
+"tts.provider" = "Penyedia";
+"tts.tts_provider" = "Penyedia TTS";
+"tts.voice_customization" = "Penyesuaian suara";
+"tts.current_voice" = "Suara semasa";
+"tts.default_voice" = "Suara lalai";
+"tts.preview_current_voice" = "Pratonton suara semasa";
+"tts.change_voice" = "Tukar suara";
+"tts.audio_settings" = "Tetapan audio";
+"tts.speech_rate" = "Kelajuan pertuturan";
+"tts.volume" = "Kelantangan";
+"tts.test_your_settings" = "Uji tetapan anda";
+"tts.enter_text_to_test" = "Masukkan teks untuk ujian...";
+"tts.stop" = "Berhenti";
+"tts.test" = "Uji";
+"tts.usage_statistics" = "Statistik penggunaan";
+"tts.speechify_monthly_usage" = "Penggunaan bulanan Speechify";
+"tts.monthly_limit" = "Had bulanan";
+"tts.used_this_month" = "Digunakan bulan ini";
+"tts.remaining" = "Baki";
+"tts.usage_progress" = "Kemajuan penggunaan";
+"tts.characters" = "aksara";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Aksara digunakan";
+"tts.analytics.sessions" = "Sesi";
+"tts.analytics.favorite_voice" = "Suara kegemaran";
+"tts.analytics.time_saved" = "Masa yang dijimatkan";
+"tts.analytics.total_characters" = "Jumlah aksara";
+"tts.analytics.total_sessions" = "Jumlah sesi";
+"tts.analytics.total_duration" = "Jumlah tempoh";
+"tts.analytics.favorite_language" = "Bahasa kegemaran";
+"tts.analytics.premium_usage" = "Penggunaan premium";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Teks ke pertuturan";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Model teks ke pertuturan Speechify tersedia untuk semua pengguna sebagai ciri premium. Ia membolehkan anda memilih daripada pelbagai suara dan aksen, untuk menyesuaikan pengalaman pembelajaran anda.";
+"tts.settings.speechify_pro_description" = "Model teks ke pertuturan Speechify disertakan dalam langganan anda.";
+"tts.settings.dashboard" = "Papan Pemuka";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Google TTS percuma dengan suara asas dan prestasi yang boleh dipercayai";
+
+// TTS Models
+"tts.models.english" = "Bahasa Inggeris";
+"tts.models.multilingual" = "Berbilang bahasa";
+"tts.models.english_description" = "Model teks ke pertuturan Bahasa Inggeris Speechify menawarkan ciri-ciri standard yang direka untuk menyampaikan output audio yang jelas dan semula jadi untuk membaca teks. Model ini memberi tumpuan kepada menyediakan pengalaman pengguna yang konsisten.";
+"tts.models.multilingual_description" = "Model berbilang bahasa membolehkan penggunaan semua bahasa yang disokong dan menyokong penggunaan pelbagai bahasa dalam satu ayat. Output audio model ini berbeza dengan ketara daripada model lain.";
+
+"auth.enter_name" = "Masukkan nama";
+"auth.search_by" = "Cari mengikut";
+"auth.unknown_user" = "Pengguna tidak dikenali";
+"auth.email" = "E-mel";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Akaun Google";

@@ -30,6 +30,7 @@ struct SettingsView: View {
     @State private var showingSharedDictionaries: Bool = false
     @State private var showingProfile: Bool = false
     @State private var showingTTSDashboard: Bool = false
+    @State private var showingTTSVoiceSelection: Bool = false
 
     var body: some View {
         ScrollView {
@@ -335,7 +336,7 @@ struct SettingsView: View {
     // MARK: - TTS Section
 
     private var ttsSection: some View {
-        CustomSectionView(header: "Text-to-Speech") {
+        CustomSectionView(header: Loc.TTS.textToSpeech.localized) {
             VStack(alignment: .leading, spacing: 12) {
                 HStack(spacing: 8) {
                     Image(.speechifyLogo)
@@ -343,13 +344,13 @@ struct SettingsView: View {
                         .font(.title3)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Speechify")
+                        Text(Loc.TTS.speechify.localized)
                             .font(.headline)
 
                         Text(
                             subscriptionService.isProUser
-                            ? "Speechify’s Text-to-Speech AI model is included in your subscription."
-                            : "Speechify’s Text-to-Speech AI model is available for all users as a premium feature. It allows you to choose from a wide range of voices and accents, so you can fine-tune your study experience."
+                            ? Loc.TTS.speechifyProDescription.localized
+                            : Loc.TTS.speechifyDescription.localized
                         )
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -365,7 +366,7 @@ struct SettingsView: View {
                         .font(.title3)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Current Voice")
+                        Text(Loc.TTS.currentVoice.localized)
                             .font(.headline)
                             .foregroundStyle(.primary)
                         if subscriptionService.isProUser, let currentVoice = ttsPlayer.selectedSpeechifyVoiceModel {
@@ -373,7 +374,7 @@ struct SettingsView: View {
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         } else {
-                            Text("Default Voice")
+                            Text(Loc.TTS.defaultVoice.localized)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -406,15 +407,25 @@ struct SettingsView: View {
         } trailingContent: {
             if subscriptionService.isProUser {
                 HeaderButton(
-                    "Dashboard",
+                    Loc.TTS.dashboard.localized,
                     size: .small
                 ) {
                     showingTTSDashboard = true
+                }
+            } else {
+                HeaderButton(
+                    Loc.TTS.selectVoice.localized,
+                    size: .small
+                ) {
+                    showingTTSVoiceSelection = true
                 }
             }
         }
         .sheet(isPresented: $showingTTSDashboard) {
             TTSDashboard.ContentView()
+        }
+        .sheet(isPresented: $showingTTSVoiceSelection) {
+            VoicePickerView()
         }
     }
 }

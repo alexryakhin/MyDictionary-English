@@ -16,7 +16,7 @@ enum TTSProvider: String, CaseIterable {
         case .google:
             return "Google"
         case .speechify:
-            return "Speechify"
+            return Loc.TTS.speechify.localized
         }
     }
     
@@ -36,19 +36,15 @@ enum SpeechifyModel: String, CaseIterable {
 
     var displayName: String {
         switch self {
-        case .english:
-            return "English"
-        case .multilingual:
-            return "Multilingual"
+        case .english: Loc.TTS.english.localized
+        case .multilingual: Loc.TTS.multilingual.localized
         }
     }
 
     var description: String {
         switch self {
-        case .english:
-            return "Speechify’s English text-to-speech model offers standard capabilities designed to deliver clear and natural voice output for reading texts. The model focuses on delivering a consistent user experience."
-        case .multilingual:
-            return "Multilingual model allows the usage of all supported languages and supports using multiple languages within a single sentence. The audio output of this model is distinctively different from other models."
+        case .english: Loc.TTS.englishModelDescription.localized
+        case .multilingual: Loc.TTS.multilingualModelDescription.localized
         }
     }
 }

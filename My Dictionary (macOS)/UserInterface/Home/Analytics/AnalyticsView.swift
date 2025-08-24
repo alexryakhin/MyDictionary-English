@@ -29,6 +29,11 @@ struct AnalyticsView: View {
                     // Progress Overview
                     progressOverviewSection
 
+                    // TTS Analytics (Pro users only)
+                    if SubscriptionService.shared.isProUser {
+                        ttsAnalyticsSection
+                    }
+
                     // Quiz Results Table
                     quizResultsSection
 
@@ -52,7 +57,15 @@ struct AnalyticsView: View {
             viewModel.loadData()
         }
     }
-    
+
+    // MARK: - TTS Analytics Section
+
+    private var ttsAnalyticsSection: some View {
+        CustomSectionView(header: Loc.TTS.usageStatistics.localized) {
+            TTSAnalyticsView()
+        }
+    }
+
     // MARK: - Progress Overview Section
     
     private var progressOverviewSection: some View {

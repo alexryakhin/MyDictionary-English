@@ -17,28 +17,28 @@ struct TTSAnalyticsView: View {
             spacing: 12
         ) {
             StatCard(
-                title: "Characters Used",
+                title: Loc.TTS.charactersUsed.localized,
                 value: usageTracker.totalCharactersFormatted,
                 icon: "textformat.abc",
                 color: .blue
             )
 
             StatCard(
-                title: "Sessions",
+                title: Loc.TTS.sessions.localized,
                 value: usageTracker.totalSessionsFormatted,
                 icon: "play.circle",
                 color: .accent
             )
 
             StatCard(
-                title: "Favorite Voice",
+                title: Loc.TTS.favoriteVoice.localized,
                 value: usageTracker.favoriteVoice,
                 icon: "person.circle",
                 color: .purple
             )
 
             StatCard(
-                title: "Time Saved",
+                title: Loc.TTS.timeSaved.localized,
                 value: usageTracker.timeSaved,
                 icon: "clock",
                 color: .orange

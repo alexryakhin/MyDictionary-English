@@ -66,7 +66,7 @@ struct AnalyticsView: View {
     // MARK: - TTS Analytics Section
     
     private var ttsAnalyticsSection: some View {
-        CustomSectionView(header: "TTS Analytics") {
+        CustomSectionView(header: Loc.TTS.usageStatistics.localized) {
             TTSAnalyticsView()
         }
     }

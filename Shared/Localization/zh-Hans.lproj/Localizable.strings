@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "选择角色";
 "shared_dictionaries.editor_role" = "编辑者：";
 "shared_dictionaries.viewer_role" = "查看者：";
-"shared_dictionaries.collaborator_added_with_email_name" = "协作者将通过你提供的电子邮件和名称添加。他们需使用相同的电子邮件地址登录以访问共享词典。";
+"shared_dictionaries.collaborator_added_with_email_name" = "用户将被添加到共享词典。他们将收到通知并可以立即访问词典。";
 "shared_dictionaries.be_first_to_rate_difficulty" = "成为第一个评价此单词难度的人";
 "shared_dictionaries.score" = "分数：%d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "暂无共享词典";
@@ -877,3 +877,166 @@
 "part_of_speech.short.preposition" = "介";
 "part_of_speech.short.exclamation" = "感";
 "part_of_speech.short.unknown" = "未知";
+
+"actions.settings" = "设置";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "所有使用场景";
+"tts.filters.all_ages" = "所有年龄";
+"tts.filters.all_timbres" = "所有音色";
+"tts.filters.all_accents" = "所有口音";
+"tts.filters.all_languages" = "所有语言";
+"tts.filters.all_genders" = "所有性别";
+"tts.filters.filters" = "筛选";
+"tts.filters.reset" = "重置";
+"tts.filters.select_voice" = "选择语音";
+"tts.filters.available_voices" = "可用语音";
+"tts.filters.no_voices_available" = "无可用语音";
+"tts.filters.no_voices_found" = "未找到语音";
+"tts.filters.no_voices_found_message" = "请尝试调整搜索或筛选条件";
+
+"tts.usage.monthly_limit_exceeded" = "月度限制已超";
+"tts.usage.monthly_limit_exceeded_message" = "您已达到Speechify TTS的50,000字符月度限制。请在下个月重试，或使用Google TTS。";
+"tts.usage.remaining_characters" = "剩余字符";
+"tts.usage.monthly_usage" = "月度使用量";
+"tts.usage.monthly_limit" = "月度限制";
+
+// TTS Voice Filter Values
+"advertisement" = "广告";
+"animation" = "动画";
+"audiobook" = "有声书";
+"audiobook-and-narration" = "有声书与旁白";
+"audiobooks-and-narration" = "有声书与旁白";
+"conversational" = "对话";
+"e-learning" = "电子学习";
+"gaming" = "游戏";
+"meditation" = "冥想";
+"movie" = "电影";
+"movies-acting-and-gaming" = "电影、表演与游戏";
+"narration" = "旁白";
+"podcast" = "播客";
+"social-media" = "社交媒体";
+
+"middle-aged" = "中年";
+"senior" = "老年";
+"teen" = "青少年";
+"young-adult" = "青年";
+
+"female" = "女性";
+"male" = "男性";
+
+"angry" = "愤怒";
+"assertive-or-confident" = "坚定或自信";
+"bright" = "明亮";
+"calm-or-relaxed" = "平静或放松";
+"calm-or-relaxed-" = "平静或放松";
+"cheerful" = "欢快";
+"crisp" = "清晰";
+"deep" = "低沉";
+"direct" = "直接";
+"energetic" = "充满活力";
+"fearful" = "恐惧";
+"high-pitch" = "高音";
+"neutral" = "中性";
+"professional" = "专业";
+"relaxed" = "放松";
+"sad" = "悲伤";
+"suprised" = "惊讶";
+"surprised" = "惊讶";
+"terrified" = "惊恐";
+"warm" = "温暖";
+"warm-or-friendly" = "温暖或友好";
+
+"american-neutral" = "美国中性";
+"australian" = "澳大利亚";
+"british" = "英国";
+"indian" = "印度";
+"nigerian" = "尼日利亚";
+
+"auth.cross_platform_button_description" = "用于跨平台订阅共享";
+"auth.nickname" = "昵称";
+"auth.nickname_current" = "当前昵称";
+"auth.nickname_not_set" = "未设置昵称";
+"auth.nickname_description" = "设置一个独特的昵称，供他人查找并将您添加到共享词典中。这比使用电子邮件地址更方便。";
+"auth.edit_nickname" = "编辑昵称";
+"auth.nickname_cannot_be_empty" = "昵称不能为空";
+"auth.nickname_already_taken" = "此昵称已被使用。请另选一个。";
+"auth.nickname_invalid_format" = "昵称只能包含字母、数字和下划线。";
+"auth.search_method" = "搜索方式";
+"auth.find_user_by_email" = "通过电子邮件查找用户";
+"auth.find_user_by_nickname" = "通过昵称查找用户";
+"auth.enter_email_address" = "输入电子邮件地址";
+"auth.enter_nickname" = "输入昵称";
+"auth.found_user" = "找到用户";
+"auth.user_not_found" = "未找到用户";
+"auth.user_not_found_message" = "未找到与提供信息匹配的用户。请检查搜索并重试。";
+
+"notifications.permission_required" = "需要通知权限";
+"notifications.permission_denied_message" = "要接收每日提醒和难点词汇警报，请在设置中启用通知。";
+
+"onboarding.natural_voices" = "自然语音";
+"onboarding.natural_voices_description" = "数百种听起来比以往更自然的优质语音";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "访问Speechify的优质文本转语音技术。数百种自然声音的优质语音";
+
+// TTS Dashboard
+"tts.dashboard" = "TTS仪表板";
+"tts.premium_tts_dashboard" = "优质TTS仪表板";
+"tts.customize_tts_experience" = "自定义您的文本转语音体验";
+"tts.playing" = "播放中";
+"tts.ready" = "准备就绪";
+"tts.provider" = "提供商";
+"tts.tts_provider" = "TTS提供商";
+"tts.voice_customization" = "语音定制";
+"tts.current_voice" = "当前语音";
+"tts.default_voice" = "默认语音";
+"tts.preview_current_voice" = "预览当前语音";
+"tts.change_voice" = "更改语音";
+"tts.audio_settings" = "音频设置";
+"tts.speech_rate" = "语速";
+"tts.volume" = "音量";
+"tts.test_your_settings" = "测试您的设置";
+"tts.enter_text_to_test" = "输入测试文本...";
+"tts.stop" = "停止";
+"tts.test" = "测试";
+"tts.usage_statistics" = "使用统计";
+"tts.speechify_monthly_usage" = "Speechify月度使用量";
+"tts.monthly_limit" = "月度限制";
+"tts.used_this_month" = "本月已用";
+"tts.remaining" = "剩余";
+"tts.usage_progress" = "使用进度";
+"tts.characters" = "字符";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "已用字符";
+"tts.analytics.sessions" = "会话";
+"tts.analytics.favorite_voice" = "最喜欢的语音";
+"tts.analytics.time_saved" = "节省的时间";
+"tts.analytics.total_characters" = "总字符数";
+"tts.analytics.total_sessions" = "总会话数";
+"tts.analytics.total_duration" = "总时长";
+"tts.analytics.favorite_language" = "最喜欢的语言";
+"tts.analytics.premium_usage" = "优质使用";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "文本转语音";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Speechify的文本转语音模型作为优质功能对所有用户开放。您可以从多种语音和口音中选择，以定制您的学习体验。";
+"tts.settings.speechify_pro_description" = "Speechify的文本转语音模型包含在您的订阅中。";
+"tts.settings.dashboard" = "仪表板";
+"tts.pro" = "专业版";
+"tts.free_google_tts_description" = "免费的Google TTS，提供基本语音和可靠性能";
+
+// TTS Models
+"tts.models.english" = "英语";
+"tts.models.multilingual" = "多语言";
+"tts.models.english_description" = "Speechify的英语文本转语音模型提供标准功能，旨在为文本阅读提供清晰、自然的语音输出。该模型专注于提供一致的用户体验。";
+"tts.models.multilingual_description" = "多语言模型支持所有受支持语言的使用，并允许在单个句子中使用多种语言。该模型的音频输出与其他模型明显不同。";
+
+"auth.enter_name" = "输入姓名";
+"auth.search_by" = "搜索方式";
+"auth.unknown_user" = "未知用户";
+"auth.email" = "电子邮件";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Google账户";

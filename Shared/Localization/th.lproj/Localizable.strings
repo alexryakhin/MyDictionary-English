@@ -519,7 +519,7 @@
 "shared_dictionaries.select_role" = "เลือกบทบาท";
 "shared_dictionaries.editor_role" = "ผู้แก้ไข:";
 "shared_dictionaries.viewer_role" = "ผู้ดู:";
-"shared_dictionaries.collaborator_added_with_email_name" = "ผู้ร่วมงานจะถูกเพิ่มด้วยที่อยู่อีเมลและชื่อที่ระบุ พวกเขาต้องลงชื่อเข้าใช้ด้วยที่อยู่อีเมลเดียวกันเพื่อเข้าถึงพจนานุกรมที่แชร์";
+"shared_dictionaries.collaborator_added_with_email_name" = "ผู้ใช้จะถูกเพิ่มในพจนานุกรมที่แชร์ พวกเขาจะได้รับการแจ้งเตือนและสามารถเข้าถึงพจนานุกรมได้ทันที";
 "shared_dictionaries.be_first_to_rate_difficulty" = "เป็นคนแรกที่ให้คะแนนระดับความยากของคำนี้";
 "shared_dictionaries.score" = "คะแนน: %d";
 "shared_dictionaries.no_shared_dictionaries_sidebar" = "ไม่มีพจนานุกรมที่แชร์";
@@ -876,3 +876,166 @@
 "part_of_speech.short.preposition" = "บ.";
 "part_of_speech.short.exclamation" = "อุ.";
 "part_of_speech.short.unknown" = "ไม่ทราบ";
+
+"actions.settings" = "การตั้งค่า";
+
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "ทุกกรณีการใช้งาน";
+"tts.filters.all_ages" = "ทุกช่วงวัย";
+"tts.filters.all_timbres" = "ทุกโทนเสียง";
+"tts.filters.all_accents" = "ทุกสำเนียง";
+"tts.filters.all_languages" = "ทุกภาษา";
+"tts.filters.all_genders" = "ทุกเพศ";
+"tts.filters.filters" = "ตัวกรอง";
+"tts.filters.reset" = "รีเซ็ต";
+"tts.filters.select_voice" = "เลือกเสียง";
+"tts.filters.available_voices" = "เสียงที่ใช้ได้";
+"tts.filters.no_voices_available" = "ไม่มีเสียงที่ใช้ได้";
+"tts.filters.no_voices_found" = "ไม่พบเสียง";
+"tts.filters.no_voices_found_message" = "ลองปรับการค้นหาหรือตัวกรองของคุณ";
+
+"tts.usage.monthly_limit_exceeded" = "เกินขีดจำกัดรายเดือน";
+"tts.usage.monthly_limit_exceeded_message" = "คุณถึงขีดจำกัดรายเดือน 50,000 อักขระสำหรับ Speechify TTS แล้ว กรุณาลองอีกครั้งในเดือนหน้าหรือใช้ Google TTS แทน";
+"tts.usage.remaining_characters" = "อักขระที่เหลือ";
+"tts.usage.monthly_usage" = "การใช้งานรายเดือน";
+"tts.usage.monthly_limit" = "ขีดจำกัดรายเดือน";
+
+// TTS Voice Filter Values
+"advertisement" = "โฆษณา";
+"animation" = "แอนิเมชัน";
+"audiobook" = "หนังสือเสียง";
+"audiobook-and-narration" = "หนังสือเสียงและการบรรยาย";
+"audiobooks-and-narration" = "หนังสือเสียงและการบรรยาย";
+"conversational" = "การสนทนา";
+"e-learning" = "การเรียนรู้แบบออนไลน์";
+"gaming" = "เกม";
+"meditation" = "การทำสมาธิ";
+"movie" = "ภาพยนตร์";
+"movies-acting-and-gaming" = "ภาพยนตร์ การแสดง และเกม";
+"narration" = "การบรรยาย";
+"podcast" = "พอดแคสต์";
+"social-media" = "โซเชียลมีเดีย";
+
+"middle-aged" = "วัยกลางคน";
+"senior" = "ผู้สูงอายุ";
+"teen" = "วัยรุ่น";
+"young-adult" = "ผู้ใหญ่ตอนต้น";
+
+"female" = "หญิง";
+"male" = "ชาย";
+
+"angry" = "โกรธ";
+"assertive-or-confident" = "มั่นใจหรือหนักแน่น";
+"bright" = "สดใส";
+"calm-or-relaxed" = "สงบหรือผ่อนคลาย";
+"calm-or-relaxed-" = "สงบหรือผ่อนคลาย";
+"cheerful" = "ร่าเริง";
+"crisp" = "ชัดเจน";
+"deep" = "ทุ้ม";
+"direct" = "ตรงไปตรงมา";
+"energetic" = "กระฉับกระเฉง";
+"fearful" = "หวาดกลัว";
+"high-pitch" = "เสียงสูง";
+"neutral" = "เป็นกลาง";
+"professional" = "มืออาชีพ";
+"relaxed" = "ผ่อนคลาย";
+"sad" = "เศร้า";
+"suprised" = "ประหลาดใจ";
+"surprised" = "ประหลาดใจ";
+"terrified" = "หวาดกลัวมาก";
+"warm" = "อบอุ่น";
+"warm-or-friendly" = "อบอุ่นหรือเป็นมิตร";
+
+"american-neutral" = "อเมริกันแบบเป็นกลาง";
+"australian" = "ออสเตรเลีย";
+"british" = "บริติช";
+"indian" = "อินเดีย";
+"nigerian" = "ไนจีเรีย";
+
+"auth.cross_platform_button_description" = "สำหรับการแชร์การสมัครสมาชิกข้ามแพลตฟอร์ม";
+"auth.nickname" = "ชื่อเล่น";
+"auth.nickname_current" = "ชื่อเล่นปัจจุบัน";
+"auth.nickname_not_set" = "ยังไม่ได้ตั้งชื่อเล่น";
+"auth.nickname_description" = "ตั้งชื่อเล่นที่ไม่ซ้ำกันที่ผู้อื่นสามารถใช้เพื่อค้นหาและเพิ่มคุณในพจนานุกรมที่แชร์ได้ สะดวกกว่าการใช้ที่อยู่อีเมล";
+"auth.edit_nickname" = "แก้ไขชื่อเล่น";
+"auth.nickname_cannot_be_empty" = "ชื่อเล่นต้องไม่ว่างเปล่า";
+"auth.nickname_already_taken" = "ชื่อเล่นนี้ถูกใช้แล้ว กรุณาเลือกชื่ออื่น";
+"auth.nickname_invalid_format" = "ชื่อเล่นสามารถประกอบด้วยตัวอักษร ตัวเลข และขีดล่างเท่านั้น";
+"auth.search_method" = "วิธีการค้นหา";
+"auth.find_user_by_email" = "ค้นหาผู้ใช้ด้วยอีเมล";
+"auth.find_user_by_nickname" = "ค้นหาผู้ใช้ด้วยชื่อเล่น";
+"auth.enter_email_address" = "ป้อนที่อยู่อีเมล";
+"auth.enter_nickname" = "ป้อนชื่อเล่น";
+"auth.found_user" = "พบผู้ใช้";
+"auth.user_not_found" = "ไม่พบผู้ใช้";
+"auth.user_not_found_message" = "ไม่พบผู้ใช้ด้วยข้อมูลที่ให้มา กรุณาตรวจสอบการค้นหาและลองอีกครั้ง";
+
+"notifications.permission_required" = "ต้องได้รับอนุญาตการแจ้งเตือน";
+"notifications.permission_denied_message" = "เพื่อรับการแจ้งเตือนรายวันและคำเตือนสำหรับคำยาก กรุณาเปิดใช้งานการแจ้งเตือนใน การตั้งค่า";
+
+"onboarding.natural_voices" = "เสียงธรรมชาติ";
+"onboarding.natural_voices_description" = "เสียงพรีเมียมหลายร้อยเสียงที่ฟังดูเป็นมนุษย์มากกว่าที่เคย";
+
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "เข้าถึงเทคโนโลยีแปลงข้อความเป็นคำพูดระดับพรีเมียมของ Speechify เสียงพรีเมียมที่ฟังดูเป็นธรรมชาตินับร้อย";
+
+// TTS Dashboard
+"tts.dashboard" = "แดชบอร์ด TTS";
+"tts.premium_tts_dashboard" = "แดชบอร์ด TTS พรีเมียม";
+"tts.customize_tts_experience" = "ปรับแต่งประสบการณ์การแปลงข้อความเป็นคำพูดของคุณ";
+"tts.playing" = "กำลังเล่น";
+"tts.ready" = "พร้อม";
+"tts.provider" = "ผู้ให้บริการ";
+"tts.tts_provider" = "ผู้ให้บริการ TTS";
+"tts.voice_customization" = "การปรับแต่งเสียง";
+"tts.current_voice" = "เสียงปัจจุบัน";
+"tts.default_voice" = "เสียงเริ่มต้น";
+"tts.preview_current_voice" = "ดูตัวอย่างเสียงปัจจุบัน";
+"tts.change_voice" = "เปลี่ยนเสียง";
+"tts.audio_settings" = "การตั้งค่าเสียง";
+"tts.speech_rate" = "อัตราการพูด";
+"tts.volume" = "ระดับเสียง";
+"tts.test_your_settings" = "ทดสอบการตั้งค่าของคุณ";
+"tts.enter_text_to_test" = "ป้อนข้อความเพื่อทดสอบ...";
+"tts.stop" = "หยุด";
+"tts.test" = "ทดสอบ";
+"tts.usage_statistics" = "สถิติการใช้งาน";
+"tts.speechify_monthly_usage" = "การใช้งานรายเดือนของ Speechify";
+"tts.monthly_limit" = "ขีดจำกัดรายเดือน";
+"tts.used_this_month" = "ใช้ในเดือนนี้";
+"tts.remaining" = "เหลืออยู่";
+"tts.usage_progress" = "ความคืบหน้าการใช้งาน";
+"tts.characters" = "ตัวอักษร";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "ตัวอักษรที่ใช้";
+"tts.analytics.sessions" = "เซสชัน";
+"tts.analytics.favorite_voice" = "เสียงที่ชื่นชอบ";
+"tts.analytics.time_saved" = "เวลาที่ประหยัด";
+"tts.analytics.total_characters" = "ตัวอักษรทั้งหมด";
+"tts.analytics.total_sessions" = "เซสชันทั้งหมด";
+"tts.analytics.total_duration" = "ระยะเวลาทั้งหมด";
+"tts.analytics.favorite_language" = "ภาษาที่ชื่นชอบ";
+"tts.analytics.premium_usage" = "การใช้งานพรีเมียม";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "การแปลงข้อความเป็นคำพูด";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "โมเดลการแปลงข้อความเป็นคำพูดของ Speechify มีให้สำหรับผู้ใช้ทุกคนในฐานะฟีเจอร์พรีเมียม ช่วยให้คุณเลือกจากเสียงและสำเนียงที่หลากหลายเพื่อปรับแต่งประสบการณ์การเรียนรู้ของคุณ";
+"tts.settings.speechify_pro_description" = "โมเดลการแปลงข้อความเป็นคำพูดของ Speechify รวมอยู่ในสมัครสมาชิกของคุณ";
+"tts.settings.dashboard" = "แดชบอร์ด";
+"tts.pro" = "โปร";
+"tts.free_google_tts_description" = "Google TTS ฟรีพร้อมเสียงพื้นฐานและประสิทธิภาพที่เชื่อถือได้";
+
+// TTS Models
+"tts.models.english" = "ภาษาอังกฤษ";
+"tts.models.multilingual" = "หลายภาษา";
+"tts.models.english_description" = "โมเดลการแปลงข้อความเป็นคำพูดภาษาอังกฤษของ Speechify มีฟีเจอร์มาตรฐานที่ออกแบบมาเพื่อให้ผลลัพธ์เสียงที่ชัดเจนและเป็นธรรมชาติสำหรับการอ่านข้อความ โมเดลนี้มุ่งเน้นที่การมอบประสบการณ์ผู้ใช้ที่สม่ำเสมอ";
+"tts.models.multilingual_description" = "โมเดลหลายภาษาช่วยให้สามารถใช้ทุกภาษาที่รองรับและสนับสนุนการใช้หลายภาษาภายในประโยคเดียว ผลลัพธ์เสียงของโมเดลนี้แตกต่างจากโมเดลอื่นอย่างชัดเจน";
+
+"auth.enter_name" = "ป้อนชื่อ";
+"auth.search_by" = "ค้นหาด้วย";
+"auth.unknown_user" = "ผู้ใช้ที่ไม่รู้จัก";
+"auth.email" = "อีเมล";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "บัญชี Google";
