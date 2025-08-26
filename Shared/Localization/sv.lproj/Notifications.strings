@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Meddelandetillstånd krävs";
+"notifications.permission_denied_message" = "För att ta emot dagliga påminnelser och varningar för svåra ord, aktivera meddelanden i Inställningar.";
+

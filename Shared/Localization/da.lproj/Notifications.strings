@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Meddelelsestilladelse kræves";
+"notifications.permission_denied_message" = "For at modtage daglige påmindelser og advarsler om svære ord, skal du aktivere meddelelser i Indstillinger.";
+

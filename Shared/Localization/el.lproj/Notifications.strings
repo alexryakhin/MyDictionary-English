@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Απαιτείται άδεια ειδοποιήσεων";
+"notifications.permission_denied_message" = "Για να λαμβάνετε καθημερινές υπενθυμίσεις και ειδοποιήσεις για δύσκολες λέξεις, ενεργοποιήστε τις ειδοποιήσεις στις Ρυθμίσεις.";
+

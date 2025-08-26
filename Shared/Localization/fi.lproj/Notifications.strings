@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Ilmoituslupa vaaditaan";
+"notifications.permission_denied_message" = "Saadaksesi päivittäisiä muistutuksia ja vaikeiden sanojen hälytyksiä, ota ilmoitukset käyttöön Asetuksista.";
+

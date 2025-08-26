@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgradujte na Pro pro zobrazení úplných podrobností o růstu slovní zásoby.";
 "pro_upgrade.time_period" = "Časové období";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Přístup k prémiové technologii převodu textu na řeč od Speechify. Stovky přirozeně znějících prémiových hlasů";
+

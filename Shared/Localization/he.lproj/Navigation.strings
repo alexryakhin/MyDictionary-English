@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "מילים";
+"tabbar.idioms" = "ביטויים";
+"tabbar.quizzes" = "חידונים";
+"tabbar.progress" = "התקדמות";
+"tabbar.settings" = "הגדרות";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "פרטי מילה";
+"navigation.idiom_details" = "פרטי ביטוי";
+"navigation.add_tags" = "הוספת תגיות";
+"navigation.about" = "אודות האפליקציה";
+"navigation.debug_panel" = "לוח ניפוי שגיאות";
+"navigation.quiz_results" = "תוצאות חידון";
+"navigation.spelling_quiz" = "חידון איות";
+"navigation.definition_quiz" = "חידון הגדרות";
+"navigation.close" = "סגירה";
+"navigation.close_screen" = "סגירת מסך";
+

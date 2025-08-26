@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Cuvinte";
+"tabbar.idioms" = "Expresii";
+"tabbar.quizzes" = "Teste";
+"tabbar.progress" = "Progres";
+"tabbar.settings" = "Setări";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Detalii Cuvânt";
+"navigation.idiom_details" = "Detalii Expresie";
+"navigation.add_tags" = "Adaugă Etichete";
+"navigation.about" = "Despre Aplicație";
+"navigation.debug_panel" = "Panou de Depanare";
+"navigation.quiz_results" = "Rezultate Test";
+"navigation.spelling_quiz" = "Test de Ortografie";
+"navigation.definition_quiz" = "Test de Definiție";
+"navigation.close" = "Închide";
+"navigation.close_screen" = "Închide Ecranul";
+

@@ -61,3 +61,96 @@
 "words.edit_example" = "编辑示例";
 "words.no_transcription" = "无音标";
 "words.no_definition" = "无定义";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "添加习语";
+"idioms.add_new_idiom" = "添加新习语";
+"idioms.idiom" = "习语";
+"idioms.idioms" = "习语";
+"idioms.no_idioms_found" = "未找到习语";
+"idioms.add_this_idiom" = "点击上方按钮添加此习语";
+"idioms.begin_add_idioms" = "点击左上角的添加图标开始将习语添加到你的列表";
+"idioms.all_idioms" = "所有习语";
+"idioms.favorite_idioms" = "收藏的习语";
+"idioms.found_idioms" = "已找到";
+"idioms.examples" = "示例";
+"idioms.no_examples_yet" = "暂无示例";
+"idioms.type_example_here" = "在此输入示例";
+"idioms.add_example" = "添加示例";
+"idioms.edit_example" = "编辑示例";
+"idioms.delete_idiom" = "删除习语";
+"idioms.delete_idiom_confirmation" = "你确定要删除这个习语吗？";
+"idioms.search_idioms" = "搜索习语...";
+"idioms.favorites" = "收藏";
+"idioms.found" = "已找到";
+"idioms.sort" = "排序";
+"idioms.filter" = "筛选";
+"idioms.latest_first" = "最新优先";
+"idioms.earliest_first" = "最早优先";
+"idioms.alphabetically" = "按字母顺序";
+
+// MARK: - Difficulty
+"difficulty.new" = "新";
+"difficulty.in_progress" = "进行中";
+"difficulty.needs_review" = "需要复习";
+"difficulty.mastered" = "已掌握";
+
+// MARK: - Sorting
+"sorting.latest_first" = "最新优先";
+"sorting.earliest_first" = "最早优先";
+"sorting.alphabetically" = "按字母顺序";
+"sorting.by_part_of_speech" = "按词性";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "自动检测";
+
+// MARK: - Word Details
+"word_details.transcription" = "音标";
+"word_details.part_of_speech" = "词性";
+"word_details.definition" = "定义";
+"word_details.difficulty" = "难度";
+"word_details.examples" = "示例";
+"word_details.edit_example" = "编辑示例";
+"word_details.example" = "示例";
+"word_details.type_example_here" = "在此输入示例";
+"word_details.add_example" = "添加示例";
+"word_details.delete_word" = "删除单词";
+"word_details.delete_failed" = "删除失败";
+
+// MARK: - Word List
+"word_list.all_words" = "所有单词";
+"word_list.favorite" = "收藏";
+"word_list.manage_tags" = "管理标签";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "暂无单词";
+"empty_states.no_idioms_yet" = "暂无习语";
+"empty_states.no_favorite_words" = "暂无收藏的单词";
+"empty_states.no_search_results" = "无搜索结果";
+"empty_states.start_improving_vocabulary" = "通过添加你的第一个习语开始提升你的词汇量";
+"empty_states.tap_heart_icon_to_add_favorites" = "点击任何习语上的心形图标将其添加到收藏";
+"empty_states.try_different_search_term" = "尝试不同的搜索词或添加新习语";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "名词";
+"part_of_speech.full.verb" = "动词";
+"part_of_speech.full.adjective" = "形容词";
+"part_of_speech.full.adverb" = "副词";
+"part_of_speech.full.conjunction" = "连词";
+"part_of_speech.full.pronoun" = "代词";
+"part_of_speech.full.preposition" = "介词";
+"part_of_speech.full.exclamation" = "感叹词";
+"part_of_speech.full.unknown" = "未知";
+
+"part_of_speech.short.noun" = "名";
+"part_of_speech.short.verb" = "动";
+"part_of_speech.short.adjective" = "形";
+"part_of_speech.short.adverb" = "副";
+"part_of_speech.short.conjunction" = "连";
+"part_of_speech.short.pronoun" = "代";
+"part_of_speech.short.preposition" = "介";
+"part_of_speech.short.exclamation" = "感";
+"part_of_speech.short.unknown" = "未知";
+
+"actions.settings" = "设置";
+

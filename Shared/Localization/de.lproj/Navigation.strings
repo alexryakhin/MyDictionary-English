@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Wörter";
+"tabbar.idioms" = "Redewendungen";
+"tabbar.quizzes" = "Quiz";
+"tabbar.progress" = "Fortschritt";
+"tabbar.settings" = "Einstellungen";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Wortdetails";
+"navigation.idiom_details" = "Redewendungsdetails";
+"navigation.add_tags" = "Tags hinzufügen";
+"navigation.about" = "Über die App";
+"navigation.debug_panel" = "Debug-Panel";
+"navigation.quiz_results" = "Quiz-Ergebnisse";
+"navigation.spelling_quiz" = "Rechtschreibquiz";
+"navigation.definition_quiz" = "Definitionsquiz";
+"navigation.close" = "Schließen";
+"navigation.close_screen" = "Bildschirm schließen";
+

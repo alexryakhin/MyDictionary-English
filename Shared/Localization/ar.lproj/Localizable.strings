@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "الكلمات";
-"tabbar.idioms" = "التعابير";
-"tabbar.quizzes" = "الاختبارات";
-"tabbar.progress" = "التقدم";
-"tabbar.settings" = "الإعدادات";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "تفاصيل الكلمة";
-"navigation.idiom_details" = "تفاصيل التعبير";
-"navigation.add_tags" = "إضافة علامات";
-"navigation.about" = "حول";
-"navigation.debug_panel" = "لوحة التصحيح";
-"navigation.quiz_results" = "نتائج الاختبار";
-"navigation.spelling_quiz" = "اختبار الإملاء";
-"navigation.definition_quiz" = "اختبار التعريف";
-"navigation.close" = "إغلاق";
-"navigation.close_screen" = "إغلاق الشاشة";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "إضافة تعبير";
-"idioms.add_new_idiom" = "إضافة تعبير جديد";
-"idioms.idiom" = "تعبير";
-"idioms.idioms" = "التعابير";
-"idioms.no_idioms_found" = "لم يتم العثور على تعابير";
-"idioms.add_this_idiom" = "أضف هذا التعبير بالنقر على الزر أعلاه";
-"idioms.begin_add_idioms" = "ابدأ بإضافة تعابير إلى قائمتك بالنقر على أيقونة الإضافة في الزاوية العلوية اليسرى";
-"idioms.all_idioms" = "جميع التعابير";
-"idioms.favorite_idioms" = "التعابير المفضلة";
-"idioms.found_idioms" = "تم العثور";
-"idioms.examples" = "أمثلة";
-"idioms.no_examples_yet" = "لا توجد أمثلة بعد";
-"idioms.type_example_here" = "اكتب مثالاً هنا";
-"idioms.add_example" = "إضافة مثال";
-"idioms.edit_example" = "تعديل المثال";
-"idioms.delete_idiom" = "حذف التعبير";
-"idioms.delete_idiom_confirmation" = "هل أنت متأكد من حذف هذا التعبير؟";
-"idioms.search_idioms" = "البحث عن التعابير...";
-"idioms.favorites" = "المفضلة";
-"idioms.found" = "تم العثور";
-"idioms.sort" = "فرز";
-"idioms.filter" = "تصفية";
-"idioms.latest_first" = "الأحدث أولاً";
-"idioms.earliest_first" = "الأقدم أولاً";
-"idioms.alphabetically" = "حسب الأبجدية";
-
 // MARK: - App
 "app.my_dictionary" = "قاموسي";
 "app.loading" = "جارٍ التحميل...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "هل تستمتع بالتطبيق؟";
 "coffee.helpful_learning_journey" = "إذا كان قاموسي مفيدًا في رحلة تعلمك، فكر في شراء قهوة لي! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "جديد";
-"difficulty.in_progress" = "قيد التقدم";
-"difficulty.needs_review" = "يحتاج إلى مراجعة";
-"difficulty.mastered" = "متقن";
-
-// MARK: - Sorting
-"sorting.latest_first" = "الأحدث أولاً";
-"sorting.earliest_first" = "الأقدم أولاً";
-"sorting.alphabetically" = "حسب الأبجدية";
-"sorting.by_part_of_speech" = "حسب جزء الكلام";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "الكشف التلقائي";
-
 // MARK: - Time Period
 "time_period.week" = "أسبوع";
 "time_period.month" = "شهر";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "صحيح";
 "quiz_results.duration" = "المدة";
 "quiz_results.time_period" = "الفترة الزمنية";
-
-// MARK: - Word Details
-"word_details.transcription" = "النطق";
-"word_details.part_of_speech" = "جزء الكلام";
-"word_details.definition" = "التعريف";
-"word_details.difficulty" = "الصعوبة";
-"word_details.examples" = "أمثلة";
-"word_details.edit_example" = "تعديل المثال";
-"word_details.example" = "مثال";
-"word_details.type_example_here" = "اكتب مثالاً هنا";
-"word_details.add_example" = "إضافة مثال";
-"word_details.delete_word" = "حذف الكلمة";
-"word_details.delete_failed" = "فشل الحذف";
-
-// MARK: - Word List
-"word_list.all_words" = "جميع الكلمات";
-"word_list.favorite" = "المفضلة";
-"word_list.manage_tags" = "إدارة العلامات";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "أنواع الاختبارات";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "اختر العلامات";
 "tag_selection.no_tags_yet" = "لا توجد علامات بعد";
 "tag_selection.you_can_select_up_to_5_tags" = "يمكنك اختيار ما يصل إلى 5 علامات لكل كلمة. انقر على علامة لاختيارها أو إلغاء اختيارها.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "لا توجد كلمات بعد";
-"empty_states.no_idioms_yet" = "لا توجد تعابير بعد";
-"empty_states.no_favorite_words" = "لا توجد كلمات مفضلة";
-"empty_states.no_search_results" = "لا توجد نتائج بحث";
-"empty_states.start_improving_vocabulary" = "ابدأ بتحسين مفرداتك بإضافة تعبيرك الأول";
-"empty_states.tap_heart_icon_to_add_favorites" = "انقر على أيقونة القلب على أي تعبير لإضافته إلى المفضلة";
-"empty_states.try_different_search_term" = "جرب مصطلح بحث مختلف أو أضف تعبيرًا جديدًا";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "حان وقت التدريب! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "اختر التعريف الصحيح لكل كلمة";
 "quiz_types.great_job_completed_spelling_quiz" = "عمل رائع! لقد أكملت اختبار الإملاء.";
 "quiz_types.great_job_completed_definition_quiz" = "عمل رائع! لقد أكملت اختبار التعريف.";
-
-// MARK: - English Accents
-"english_accents.australian" = "أسترالي";
-"english_accents.canadian" = "كندي";
-"english_accents.british" = "بريطاني";
-"english_accents.indian" = "هندي";
-"english_accents.american" = "أمريكي";
-"english_accents.belgian" = "بلجيكي";
-"english_accents.singaporean" = "سنغافوري";
-"english_accents.irish" = "أيرلندي";
-"english_accents.south_african" = "جنوب أفريقي";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "اسم";
-"part_of_speech.full.verb" = "فعل";
-"part_of_speech.full.adjective" = "صفة";
-"part_of_speech.full.adverb" = "ظرف";
-"part_of_speech.full.conjunction" = "حرف عطف";
-"part_of_speech.full.pronoun" = "ضمير";
-"part_of_speech.full.preposition" = "حرف جر";
-"part_of_speech.full.exclamation" = "تعجب";
-"part_of_speech.full.unknown" = "غير معروف";
-
-"part_of_speech.short.noun" = "اسم";
-"part_of_speech.short.verb" = "فعل";
-"part_of_speech.short.adjective" = "صفة";
-"part_of_speech.short.adverb" = "ظرف";
-"part_of_speech.short.conjunction" = "عطف";
-"part_of_speech.short.pronoun" = "ضمير";
-"part_of_speech.short.preposition" = "جر";
-"part_of_speech.short.exclamation" = "تعجب";
-"part_of_speech.short.unknown" = "غير معروف";
-
-"actions.settings" = "الإعدادات";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "جميع حالات الاستخدام";
-"tts.filters.all_ages" = "جميع الأعمار";
-"tts.filters.all_timbres" = "جميع النغمات";
-"tts.filters.all_accents" = "جميع اللهجات";
-"tts.filters.all_languages" = "جميع اللغات";
-"tts.filters.all_genders" = "جميع الأجناس";
-"tts.filters.filters" = "الفلاتر";
-"tts.filters.reset" = "إعادة تعيين";
-"tts.filters.select_voice" = "اختر الصوت";
-"tts.filters.available_voices" = "الأصوات المتاحة";
-"tts.filters.no_voices_available" = "لا توجد أصوات متاحة";
-"tts.filters.no_voices_found" = "لم يتم العثور على أصوات";
-"tts.filters.no_voices_found_message" = "حاول تعديل البحث أو الفلاتر";
-
-"tts.usage.monthly_limit_exceeded" = "تم تجاوز الحد الشهري";
-"tts.usage.monthly_limit_exceeded_message" = "لقد وصلت إلى الحد الشهري البالغ 50,000 حرف لـ Speechify TTS. يرجى المحاولة مرة أخرى الشهر المقبل أو استخدام Google TTS بدلاً من ذلك.";
-"tts.usage.remaining_characters" = "الأحرف المتبقية";
-"tts.usage.monthly_usage" = "الاستخدام الشهري";
-"tts.usage.monthly_limit" = "الحد الشهري";
-
-// TTS Voice Filter Values
-"advertisement" = "إعلان";
-"animation" = "رسوم متحركة";
-"audiobook" = "كتاب صوتي";
-"audiobook-and-narration" = "كتاب صوتي وسرد";
-"audiobooks-and-narration" = "كتب صوتية وسرد";
-"conversational" = "محادثة";
-"e-learning" = "التعليم الإلكتروني";
-"gaming" = "الألعاب";
-"meditation" = "تأمل";
-"movie" = "فيلم";
-"movies-acting-and-gaming" = "أفلام، تمثيل وألعاب";
-"narration" = "سرد";
-"podcast" = "بودكاست";
-"social-media" = "وسائل التواصل الاجتماعي";
-
-"middle-aged" = "متوسط العمر";
-"senior" = "كبير السن";
-"teen" = "مراهق";
-"young-adult" = "شاب بالغ";
-
-"female" = "أنثى";
-"male" = "ذكر";
-
-"angry" = "غاضب";
-"assertive-or-confident" = "حازم أو واثق";
-"bright" = "مشرق";
-"calm-or-relaxed" = "هادئ أو مرتاح";
-"calm-or-relaxed-" = "هادئ أو مرتاح";
-"cheerful" = "مبهج";
-"crisp" = "واضح";
-"deep" = "عميق";
-"direct" = "مباشر";
-"energetic" = "نشيط";
-"fearful" = "خائف";
-"high-pitch" = "نبرة عالية";
-"neutral" = "محايد";
-"professional" = "محترف";
-"relaxed" = "مرتاح";
-"sad" = "حزين";
-"suprised" = "مندهش";
-"surprised" = "مندهش";
-"terrified" = "مرعوب";
-"warm" = "دافئ";
-"warm-or-friendly" = "دافئ أو ودود";
-
-"american-neutral" = "أمريكي محايد";
-"australian" = "أسترالي";
-"british" = "بريطاني";
-"indian" = "هندي";
-"nigerian" = "نيجيري";
-
-"notifications.permission_required" = "مطلوب إذن الإشعارات";
-"notifications.permission_denied_message" = "لتلقي التذكيرات اليومية وتنبيهات الكلمات الصعبة، يرجى تفعيل الإشعارات في الإعدادات.";
-
-"onboarding.natural_voices" = "أصوات طبيعية";
-"onboarding.natural_voices_description" = "مئات الأصوات المميزة التي تبدو أكثر إنسانية من أي وقت مضى";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "الوصول إلى تقنية تحويل النص إلى كلام المميزة من Speechify. مئات الأصوات المميزة ذات الصوت الطبيعي";
-
-// TTS Dashboard
-"tts.dashboard" = "لوحة تحكم TTS";
-"tts.premium_tts_dashboard" = "لوحة تحكم TTS المميزة";
-"tts.customize_tts_experience" = "تخصيص تجربة تحويل النص إلى كلام";
-"tts.playing" = "جاري التشغيل";
-"tts.ready" = "جاهز";
-"tts.provider" = "المزود";
-"tts.tts_provider" = "مزود TTS";
-"tts.voice_customization" = "تخصيص الصوت";
-"tts.current_voice" = "الصوت الحالي";
-"tts.default_voice" = "الصوت الافتراضي";
-"tts.preview_current_voice" = "معاينة الصوت الحالي";
-"tts.change_voice" = "تغيير الصوت";
-"tts.audio_settings" = "إعدادات الصوت";
-"tts.speech_rate" = "سرعة الكلام";
-"tts.volume" = "مستوى الصوت";
-"tts.test_your_settings" = "اختبار إعداداتك";
-"tts.enter_text_to_test" = "أدخل نصًا للاختبار...";
-"tts.stop" = "إيقاف";
-"tts.test" = "اختبار";
-"tts.usage_statistics" = "إحصائيات الاستخدام";
-"tts.speechify_monthly_usage" = "الاستخدام الشهري لـ Speechify";
-"tts.monthly_limit" = "الحد الشهري";
-"tts.used_this_month" = "تم الاستخدام هذا الشهر";
-"tts.remaining" = "المتبقي";
-"tts.usage_progress" = "تقدم الاستخدام";
-"tts.characters" = "حروف";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "الحروف المستخدمة";
-"tts.analytics.sessions" = "الجلسات";
-"tts.analytics.favorite_voice" = "الصوت المفضل";
-"tts.analytics.time_saved" = "الوقت الموفر";
-"tts.analytics.total_characters" = "إجمالي الحروف";
-"tts.analytics.total_sessions" = "إجمالي الجلسات";
-"tts.analytics.total_duration" = "المدة الإجمالية";
-"tts.analytics.favorite_language" = "اللغة المفضلة";
-"tts.analytics.premium_usage" = "الاستخدام المميز";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "تحويل النص إلى كلام";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "نموذج تحويل النص إلى كلام من Speechify متاح لجميع المستخدمين كميزة مميزة. يتيح لك الاختيار من بين مجموعة واسعة من الأصوات واللهجات، لتخصيص تجربة دراستك.";
-"tts.settings.speechify_pro_description" = "نموذج تحويل النص إلى كلام من Speechify مشمول في اشتراكك.";
-"tts.settings.dashboard" = "لوحة التحكم";
-"tts.pro" = "برو";
-"tts.free_google_tts_description" = "Google TTS مجاني بأصوات أساسية وأداء موثوق";
-
-// TTS Models
-"tts.models.english" = "الإنجليزية";
-"tts.models.multilingual" = "متعدد اللغات";
-"tts.models.english_description" = "نموذج تحويل النص إلى كلام باللغة الإنجليزية من Speechify يوفر قدرات قياسية مصممة لتقديم مخرجات صوتية واضحة وطبيعية لقراءة النصوص. يركز النموذج على تقديم تجربة مستخدم متسقة.";
-"tts.models.multilingual_description" = "النموذج متعدد اللغات يتيح استخدام جميع اللغات المدعومة ويدعم استخدام لغات متعددة ضمن جملة واحدة. مخرجات الصوت لهذا النموذج تختلف بشكل واضح عن النماذج الأخرى.";
 

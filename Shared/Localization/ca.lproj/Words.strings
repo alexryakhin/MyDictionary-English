@@ -61,3 +61,96 @@
 "words.edit_example" = "Edita l'exemple";
 "words.no_transcription" = "Sense transcripció";
 "words.no_definition" = "Sense definició";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Afegeix un modisme";
+"idioms.add_new_idiom" = "Afegeix un modisme nou";
+"idioms.idiom" = "Modisme";
+"idioms.idioms" = "Modismes";
+"idioms.no_idioms_found" = "No s'han trobat modismes";
+"idioms.add_this_idiom" = "Afegeix aquest modisme prement el botó de dalt";
+"idioms.begin_add_idioms" = "Comença a afegir modismes a la teva llista prement la icona de més a la cantonada superior esquerra";
+"idioms.all_idioms" = "Tots els modismes";
+"idioms.favorite_idioms" = "Modismes favorits";
+"idioms.found_idioms" = "Trobats";
+"idioms.examples" = "Exemples";
+"idioms.no_examples_yet" = "Encara no hi ha exemples";
+"idioms.type_example_here" = "Escriu un exemple aquí";
+"idioms.add_example" = "Afegeix un exemple";
+"idioms.edit_example" = "Edita l'exemple";
+"idioms.delete_idiom" = "Elimina el modisme";
+"idioms.delete_idiom_confirmation" = "Segur que vols eliminar aquest modisme?";
+"idioms.search_idioms" = "Cerca modismes...";
+"idioms.favorites" = "Favorits";
+"idioms.found" = "Trobats";
+"idioms.sort" = "Ordena";
+"idioms.filter" = "Filtra";
+"idioms.latest_first" = "Els més recents primer";
+"idioms.earliest_first" = "Els més antics primer";
+"idioms.alphabetically" = "Alfabèticament";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nou";
+"difficulty.in_progress" = "En progrés";
+"difficulty.needs_review" = "Necessita revisió";
+"difficulty.mastered" = "Dominada";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Les més recents primer";
+"sorting.earliest_first" = "Les més antigues primer";
+"sorting.alphabetically" = "Alfabèticament";
+"sorting.by_part_of_speech" = "Per part del discurs";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Detecció automàtica";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transcripció";
+"word_details.part_of_speech" = "Part del discurs";
+"word_details.definition" = "Definició";
+"word_details.difficulty" = "Dificultat";
+"word_details.examples" = "Exemples";
+"word_details.edit_example" = "Edita l'exemple";
+"word_details.example" = "Exemple";
+"word_details.type_example_here" = "Escriu un exemple aquí";
+"word_details.add_example" = "Afegeix un exemple";
+"word_details.delete_word" = "Elimina la paraula";
+"word_details.delete_failed" = "Eliminació fallida";
+
+// MARK: - Word List
+"word_list.all_words" = "Totes les paraules";
+"word_list.favorite" = "Favorit";
+"word_list.manage_tags" = "Gestiona etiquetes";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Encara no hi ha paraules";
+"empty_states.no_idioms_yet" = "Encara no hi ha modismes";
+"empty_states.no_favorite_words" = "Sense paraules favorites";
+"empty_states.no_search_results" = "Sense resultats de cerca";
+"empty_states.start_improving_vocabulary" = "Comença a millorar el teu vocabulari afegint el teu primer modisme";
+"empty_states.tap_heart_icon_to_add_favorites" = "Toca la icona del cor en qualsevol modisme per afegir-lo als favorits";
+"empty_states.try_different_search_term" = "Prova un terme de cerca diferent o afegeix un modisme nou";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Substantiu";
+"part_of_speech.full.verb" = "Verb";
+"part_of_speech.full.adjective" = "Adjectiu";
+"part_of_speech.full.adverb" = "Adverbi";
+"part_of_speech.full.conjunction" = "Conjunció";
+"part_of_speech.full.pronoun" = "Pronom";
+"part_of_speech.full.preposition" = "Preposició";
+"part_of_speech.full.exclamation" = "Exclamació";
+"part_of_speech.full.unknown" = "Desconegut";
+
+"part_of_speech.short.noun" = "Subst.";
+"part_of_speech.short.verb" = "Verb";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Conj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.exclamation" = "Excl.";
+"part_of_speech.short.unknown" = "Desc.";
+
+"actions.settings" = "Configuració";
+

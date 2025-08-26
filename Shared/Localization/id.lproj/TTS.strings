@@ -1,0 +1,141 @@
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Semua kasus penggunaan";
+"tts.filters.all_ages" = "Semua usia";
+"tts.filters.all_timbres" = "Semua nada suara";
+"tts.filters.all_accents" = "Semua aksen";
+"tts.filters.all_languages" = "Semua bahasa";
+"tts.filters.all_genders" = "Semua jenis kelamin";
+"tts.filters.filters" = "Filter";
+"tts.filters.reset" = "Atur Ulang";
+"tts.filters.select_voice" = "Pilih suara";
+"tts.filters.available_voices" = "Suara yang tersedia";
+"tts.filters.no_voices_available" = "Tidak ada suara yang tersedia";
+"tts.filters.no_voices_found" = "Tidak ada suara yang ditemukan";
+"tts.filters.no_voices_found_message" = "Coba sesuaikan pencarian atau filter Anda";
+
+"tts.usage.monthly_limit_exceeded" = "Batas bulanan terlampaui";
+"tts.usage.monthly_limit_exceeded_message" = "Anda telah mencapai batas bulanan 50.000 karakter untuk Speechify TTS. Coba lagi bulan depan atau gunakan Google TTS.";
+"tts.usage.remaining_characters" = "Karakter yang tersisa";
+"tts.usage.monthly_usage" = "Penggunaan bulanan";
+"tts.usage.monthly_limit" = "Batas bulanan";
+
+// TTS Voice Filter Values
+"advertisement" = "Iklan";
+"animation" = "Animasi";
+"audiobook" = "Buku audio";
+"audiobook-and-narration" = "Buku audio dan narasi";
+"audiobooks-and-narration" = "Buku-buku audio dan narasi";
+"conversational" = "Percakapan";
+"e-learning" = "E-learning";
+"gaming" = "Permainan";
+"meditation" = "Meditasi";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Film, akting, dan permainan";
+"narration" = "Narasi";
+"podcast" = "Podcast";
+"social-media" = "Media sosial";
+
+"middle-aged" = "Usia tengah";
+"senior" = "Lansia";
+"teen" = "Remaja";
+"young-adult" = "Dewasa muda";
+
+"female" = "Perempuan";
+"male" = "Laki-laki";
+
+"angry" = "Marah";
+"assertive-or-confident" = "Tegas atau percaya diri";
+"bright" = "Cerah";
+"calm-or-relaxed" = "Tenang atau santai";
+"calm-or-relaxed-" = "Tenang atau santai";
+"cheerful" = "Ceria";
+"crisp" = "Jernih";
+"deep" = "Dalam";
+"direct" = "Langsung";
+"energetic" = "Energik";
+"fearful" = "Takut";
+"high-pitch" = "Nada tinggi";
+"neutral" = "Netral";
+"professional" = "Profesional";
+"relaxed" = "Santai";
+"sad" = "Sedih";
+"suprised" = "Terkejut";
+"surprised" = "Terkejut";
+"terrified" = "Ketakutan";
+"warm" = "Hangat";
+"warm-or-friendly" = "Hangat atau ramah";
+
+"american-neutral" = "Amerika netral";
+"australian" = "Australia";
+"british" = "Inggris";
+"indian" = "India";
+"nigerian" = "Nigeria";
+
+
+
+
+// TTS Dashboard
+"tts.dashboard" = "Dasbor TTS";
+"tts.premium_tts_dashboard" = "Dasbor TTS Premium";
+"tts.customize_tts_experience" = "Sesuaikan pengalaman teks ke ucapan Anda";
+"tts.playing" = "Sedang diputar";
+"tts.ready" = "Siap";
+"tts.provider" = "Penyedia";
+"tts.tts_provider" = "Penyedia TTS";
+"tts.voice_customization" = "Kustomisasi suara";
+"tts.current_voice" = "Suara saat ini";
+"tts.default_voice" = "Suara default";
+"tts.preview_current_voice" = "Pratinjau suara saat ini";
+"tts.change_voice" = "Ubah suara";
+"tts.audio_settings" = "Pengaturan audio";
+"tts.speech_rate" = "Kecepatan bicara";
+"tts.volume" = "Volume";
+"tts.test_your_settings" = "Uji pengaturan Anda";
+"tts.enter_text_to_test" = "Masukkan teks untuk menguji...";
+"tts.stop" = "Berhenti";
+"tts.test" = "Uji";
+"tts.usage_statistics" = "Statistik penggunaan";
+"tts.speechify_monthly_usage" = "Penggunaan bulanan Speechify";
+"tts.monthly_limit" = "Batas bulanan";
+"tts.used_this_month" = "Digunakan bulan ini";
+"tts.remaining" = "Sisa";
+"tts.usage_progress" = "Kemajuan penggunaan";
+"tts.characters" = "karakter";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Karakter yang digunakan";
+"tts.analytics.sessions" = "Sesi";
+"tts.analytics.favorite_voice" = "Suara favorit";
+"tts.analytics.time_saved" = "Waktu yang dihemat";
+"tts.analytics.total_characters" = "Total karakter";
+"tts.analytics.total_sessions" = "Total sesi";
+"tts.analytics.total_duration" = "Durasi total";
+"tts.analytics.favorite_language" = "Bahasa favorit";
+"tts.analytics.premium_usage" = "Penggunaan premium";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Teks ke ucapan";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Model teks ke ucapan Speechify tersedia untuk semua pengguna sebagai fitur premium. Ini memungkinkan Anda memilih dari berbagai suara dan aksen, untuk menyesuaikan pengalaman belajar Anda.";
+"tts.settings.speechify_pro_description" = "Model teks ke ucapan Speechify disertakan dalam langganan Anda.";
+"tts.settings.dashboard" = "Dasbor";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Google TTS gratis dengan suara dasar dan kinerja yang andal";
+
+// TTS Models
+"tts.models.english" = "Bahasa Inggris";
+"tts.models.multilingual" = "Multibahasa";
+"tts.models.english_description" = "Model teks ke ucapan Bahasa Inggris Speechify menawarkan fitur standar yang dirancang untuk memberikan keluaran audio yang jelas dan alami untuk membaca teks. Model ini berfokus pada penyediaan pengalaman pengguna yang konsisten.";
+"tts.models.multilingual_description" = "Model multibahasa memungkinkan penggunaan semua bahasa yang didukung dan mendukung penggunaan beberapa bahasa dalam satu kalimat. Keluaran audio model ini sangat berbeda dari model lain.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australia";
+"english_accents.canadian" = "Kanada";
+"english_accents.british" = "Inggris";
+"english_accents.indian" = "India";
+"english_accents.american" = "Amerika";
+"english_accents.belgian" = "Belgia";
+"english_accents.singaporean" = "Singapura";
+"english_accents.irish" = "Irlandia";
+"english_accents.south_african" = "Afrika Selatan";
+

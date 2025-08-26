@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Ord";
-"tabbar.idioms" = "Idiomer";
-"tabbar.quizzes" = "Quizzer";
-"tabbar.progress" = "Fremskridt";
-"tabbar.settings" = "Indstillinger";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Orddetaljer";
-"navigation.idiom_details" = "Idiomdetaljer";
-"navigation.add_tags" = "Tilføj tags";
-"navigation.about" = "Om appen";
-"navigation.debug_panel" = "Fejlfindingspanel";
-"navigation.quiz_results" = "Quizresultater";
-"navigation.spelling_quiz" = "Stavequiz";
-"navigation.definition_quiz" = "Definitionsquiz";
-"navigation.close" = "Luk";
-"navigation.close_screen" = "Luk skærm";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Tilføj idiom";
-"idioms.add_new_idiom" = "Tilføj nyt idiom";
-"idioms.idiom" = "Idiom";
-"idioms.idioms" = "Idiomer";
-"idioms.no_idioms_found" = "Ingen idiomer fundet";
-"idioms.add_this_idiom" = "Tilføj dette idiom ved at trykke på knappen ovenfor";
-"idioms.begin_add_idioms" = "Begynd at tilføje idiomer til din liste ved at klikke på plus-ikonet i øverste venstre hjørne";
-"idioms.all_idioms" = "Alle idiomer";
-"idioms.favorite_idioms" = "Favoritidiomer";
-"idioms.found_idioms" = "Fundne";
-"idioms.examples" = "Eksempler";
-"idioms.no_examples_yet" = "Ingen eksempler endnu";
-"idioms.type_example_here" = "Skriv eksempel her";
-"idioms.add_example" = "Tilføj eksempel";
-"idioms.edit_example" = "Rediger eksempel";
-"idioms.delete_idiom" = "Slet idiom";
-"idioms.delete_idiom_confirmation" = "Er du sikker på, at du vil slette dette idiom?";
-"idioms.search_idioms" = "Søg efter idiomer...";
-"idioms.favorites" = "Favoritter";
-"idioms.found" = "Fundne";
-"idioms.sort" = "Sorter";
-"idioms.filter" = "Filtrer";
-"idioms.latest_first" = "Seneste først";
-"idioms.earliest_first" = "Ældste først";
-"idioms.alphabetically" = "Alfabetisk";
-
 // MARK: - App
 "app.my_dictionary" = "Min Ordbog";
 "app.loading" = "Indlæser...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Nyder du appen?";
 "coffee.helpful_learning_journey" = "Hvis Min Ordbog har hjulpet dig på din læringsrejse, så overvej at købe mig en kaffe! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Ny";
-"difficulty.in_progress" = "Under behandling";
-"difficulty.needs_review" = "Kræver gennemsyn";
-"difficulty.mastered" = "Mestret";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Seneste først";
-"sorting.earliest_first" = "Ældste først";
-"sorting.alphabetically" = "Alfabetisk";
-"sorting.by_part_of_speech" = "Efter ordklasse";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Automatisk registrering";
-
 // MARK: - Time Period
 "time_period.week" = "Uge";
 "time_period.month" = "Måned";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Korrekt";
 "quiz_results.duration" = "Varighed";
 "quiz_results.time_period" = "Tidsperiode";
-
-// MARK: - Word Details
-"word_details.transcription" = "Transskription";
-"word_details.part_of_speech" = "Ordklasse";
-"word_details.definition" = "Definition";
-"word_details.difficulty" = "Sværhedsgrad";
-"word_details.examples" = "Eksempler";
-"word_details.edit_example" = "Rediger eksempel";
-"word_details.example" = "Eksempel";
-"word_details.type_example_here" = "Skriv eksempel her";
-"word_details.add_example" = "Tilføj eksempel";
-"word_details.delete_word" = "Slet ord";
-"word_details.delete_failed" = "Sletning mislykkedes";
-
-// MARK: - Word List
-"word_list.all_words" = "Alle ord";
-"word_list.favorite" = "Favorit";
-"word_list.manage_tags" = "Administrer tags";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Quiztyper";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Vælg tags";
 "tag_selection.no_tags_yet" = "Ingen tags endnu";
 "tag_selection.you_can_select_up_to_5_tags" = "Du kan vælge op til 5 tags pr. ord. Tryk på et tag for at vælge eller fravælge det.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Ingen ord endnu";
-"empty_states.no_idioms_yet" = "Ingen idiomer endnu";
-"empty_states.no_favorite_words" = "Ingen favoritord";
-"empty_states.no_search_results" = "Ingen søgeresultater";
-"empty_states.start_improving_vocabulary" = "Begynd at forbedre dit ordforråd ved at tilføje dit første idiom";
-"empty_states.tap_heart_icon_to_add_favorites" = "Tryk på hjerteikonet på et hvilket som helst idiom for at tilføje det til favoritter";
-"empty_states.try_different_search_term" = "Prøv et andet søgeord eller tilføj et nyt idiom";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Tid til at øve! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "Vælg den korrekte definition for hvert ord";
 "quiz_types.great_job_completed_spelling_quiz" = "Godt arbejde! Du har gennemført stavequizen.";
 "quiz_types.great_job_completed_definition_quiz" = "Godt arbejde! Du har gennemført definitionsquizen.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Australsk";
-"english_accents.canadian" = "Canadisk";
-"english_accents.british" = "Britisk";
-"english_accents.indian" = "Indisk";
-"english_accents.american" = "Amerikansk";
-"english_accents.belgian" = "Belgisk";
-"english_accents.singaporean" = "Singaporeansk";
-"english_accents.irish" = "Irsk";
-"english_accents.south_african" = "Sydafrikansk";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Navneord";
-"part_of_speech.full.verb" = "Udsagnsord";
-"part_of_speech.full.adjective" = "Tillægsord";
-"part_of_speech.full.adverb" = "Biord";
-"part_of_speech.full.conjunction" = "Bindeord";
-"part_of_speech.full.pronoun" = "Stedord";
-"part_of_speech.full.preposition" = "Forholdsord";
-"part_of_speech.full.exclamation" = "Udråbsord";
-"part_of_speech.full.unknown" = "Ukendt";
-
-"part_of_speech.short.noun" = "Navn.";
-"part_of_speech.short.verb" = "Uds.";
-"part_of_speech.short.adjective" = "Till.";
-"part_of_speech.short.adverb" = "Bior.";
-"part_of_speech.short.conjunction" = "Bind.";
-"part_of_speech.short.pronoun" = "Sted.";
-"part_of_speech.short.preposition" = "Forh.";
-"part_of_speech.short.exclamation" = "Udrå.";
-"part_of_speech.short.unknown" = "Ukendt";
-
-"actions.settings" = "Indstillinger";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Alle brugsscenarier";
-"tts.filters.all_ages" = "Alle aldre";
-"tts.filters.all_timbres" = "Alle klangfarver";
-"tts.filters.all_accents" = "Alle accenter";
-"tts.filters.all_languages" = "Alle sprog";
-"tts.filters.all_genders" = "Alle køn";
-"tts.filters.filters" = "Filtre";
-"tts.filters.reset" = "Nulstil";
-"tts.filters.select_voice" = "Vælg stemme";
-"tts.filters.available_voices" = "Tilgængelige stemmer";
-"tts.filters.no_voices_available" = "Ingen stemmer tilgængelige";
-"tts.filters.no_voices_found" = "Ingen stemmer fundet";
-"tts.filters.no_voices_found_message" = "Prøv at justere din søgning eller filtre";
-
-"tts.usage.monthly_limit_exceeded" = "Månedlig grænse overskredet";
-"tts.usage.monthly_limit_exceeded_message" = "Du har nået den månedlige grænse på 50.000 tegn for Speechify TTS. Prøv igen næste måned eller brug Google TTS i stedet.";
-"tts.usage.remaining_characters" = "Resterende tegn";
-"tts.usage.monthly_usage" = "Månedlig brug";
-"tts.usage.monthly_limit" = "Månedlig grænse";
-
-// TTS Voice Filter Values
-"advertisement" = "Reklame";
-"animation" = "Animation";
-"audiobook" = "Lydbog";
-"audiobook-and-narration" = "Lydbog og fortælling";
-"audiobooks-and-narration" = "Lydbøger og fortælling";
-"conversational" = "Samtaleagtig";
-"e-learning" = "E-læring";
-"gaming" = "Spil";
-"meditation" = "Meditation";
-"movie" = "Film";
-"movies-acting-and-gaming" = "Film, skuespil og spil";
-"narration" = "Fortælling";
-"podcast" = "Podcast";
-"social-media" = "Sociale medier";
-
-"middle-aged" = "Midaldrende";
-"senior" = "Senior";
-"teen" = "Teenager";
-"young-adult" = "Ung voksen";
-
-"female" = "Kvinde";
-"male" = "Mand";
-
-"angry" = "Vred";
-"assertive-or-confident" = "Bestemt eller selvsikker";
-"bright" = "Lys";
-"calm-or-relaxed" = "Rolig eller afslappet";
-"calm-or-relaxed-" = "Rolig eller afslappet";
-"cheerful" = "Glad";
-"crisp" = "Klar";
-"deep" = "Dyb";
-"direct" = "Direkte";
-"energetic" = "Energisk";
-"fearful" = "Bange";
-"high-pitch" = "Høj tone";
-"neutral" = "Neutral";
-"professional" = "Professionel";
-"relaxed" = "Afslappet";
-"sad" = "Trist";
-"suprised" = "Overrasket";
-"surprised" = "Overrasket";
-"terrified" = "Rædselsslagen";
-"warm" = "Varm";
-"warm-or-friendly" = "Varm eller venlig";
-
-"american-neutral" = "Amerikansk neutral";
-"australian" = "Australsk";
-"british" = "Britisk";
-"indian" = "Indisk";
-"nigerian" = "Nigeriansk";
-
-"notifications.permission_required" = "Meddelelsestilladelse kræves";
-"notifications.permission_denied_message" = "For at modtage daglige påmindelser og advarsler om svære ord, skal du aktivere meddelelser i Indstillinger.";
-
-"onboarding.natural_voices" = "Naturlige stemmer";
-"onboarding.natural_voices_description" = "Hundreder af premiumstemmer, der lyder mere menneskelige end nogensinde";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Adgang til Speechifys premium tekst-til-tale-teknologi. Hundreder af naturligt klingende premiumstemmer";
-
-// TTS Dashboard
-"tts.dashboard" = "TTS-dashboard";
-"tts.premium_tts_dashboard" = "Premium TTS-dashboard";
-"tts.customize_tts_experience" = "Tilpas din tekst-til-tale-oplevelse";
-"tts.playing" = "Afspiller";
-"tts.ready" = "Klar";
-"tts.provider" = "Udboer";
-"tts.tts_provider" = "TTS-udbyder";
-"tts.voice_customization" = "Stemetilpasning";
-"tts.current_voice" = "Nuværende stemme";
-"tts.default_voice" = "Standard stemme";
-"tts.preview_current_voice" = "Forhåndsvis nuværende stemme";
-"tts.change_voice" = "Skift stemme";
-"tts.audio_settings" = "Lydindstillinger";
-"tts.speech_rate" = "Talehastighed";
-"tts.volume" = "Lydstyrke";
-"tts.test_your_settings" = "Test dine indstillinger";
-"tts.enter_text_to_test" = "Indtast tekst til test...";
-"tts.stop" = "Stop";
-"tts.test" = "Test";
-"tts.usage_statistics" = "Brugsstatistik";
-"tts.speechify_monthly_usage" = "Speechify månedlig brug";
-"tts.monthly_limit" = "Månedlig grænse";
-"tts.used_this_month" = "Brugt denne måned";
-"tts.remaining" = "Resterende";
-"tts.usage_progress" = "Brugsfremskridt";
-"tts.characters" = "tegn";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Brugte tegn";
-"tts.analytics.sessions" = "Sessioner";
-"tts.analytics.favorite_voice" = "Favoritstemme";
-"tts.analytics.time_saved" = "Sparet tid";
-"tts.analytics.total_characters" = "Samlet antal tegn";
-"tts.analytics.total_sessions" = "Samlet antal sessioner";
-"tts.analytics.total_duration" = "Samlet varighed";
-"tts.analytics.favorite_language" = "Favoritsprog";
-"tts.analytics.premium_usage" = "Premiumbrug";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Tekst-til-tale";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechifys tekst-til-tale-model er tilgængelig for alle brugere som en premiumfunktion. Den giver dig mulighed for at vælge mellem et bredt udvalg af stemmer og accenter, så du kan tilpasse din studieoplevelse.";
-"tts.settings.speechify_pro_description" = "Speechifys tekst-til-tale-model er inkluderet i dit abonnement.";
-"tts.settings.dashboard" = "Dashboard";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Gratis Google TTS med grundlæggende stemmer og pålidelig ydeevne";
-
-// TTS Models
-"tts.models.english" = "Engelsk";
-"tts.models.multilingual" = "Flersproget";
-"tts.models.english_description" = "Speechifys engelske tekst-til-tale-model tilbyder standardfunktioner designet til at levere klar og naturlig lydudgang til tekstlæsning. Modellen fokuserer på at give en konsistent brugeroplevelse.";
-"tts.models.multilingual_description" = "Den flersprogede model muliggør brug af alle understøttede sprog og understøtter brug af flere sprog inden for en enkelt sætning. Lydudgangen fra denne model adskiller sig tydeligt fra andre modeller.";
 

@@ -61,3 +61,100 @@
 "words.edit_example" = "Upravit příklad";
 "words.no_transcription" = "Žádná transkripce";
 "words.no_definition" = "Žádná definice";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Přidat idiom";
+"idioms.add_new_idiom" = "Přidat nový idiom";
+"idioms.idiom" = "Idiom";
+"idioms.idioms" = "Idiomy";
+"idioms.no_idioms_found" = "Nebyly nalezeny žádné idiomy";
+"idioms.add_this_idiom" = "Klikněte na tlačítko výše pro přidání tohoto idiomu";
+"idioms.begin_add_idioms" = "Začněte přidávat idiomy do svého seznamu kliknutím na ikonu přidání v levém horním rohu";
+"idioms.all_idioms" = "Všechny idiomy";
+"idioms.favorite_idioms" = "Oblíbené idiomy";
+"idioms.found_idioms" = "Nalezeno";
+"idioms.examples" = "Příklady";
+"idioms.no_examples_yet" = "Zatím žádné příklady";
+"idioms.type_example_here" = "Zde zadejte příklad";
+"idioms.add_example" = "Přidat příklad";
+"idioms.edit_example" = "Upravit příklad";
+"idioms.delete_idiom" = "Smazat idiom";
+"idioms.delete_idiom_confirmation" = "Jste si jisti, že chcete tento idiom smazat?";
+"idioms.search_idioms" = "Hledat idiomy...";
+"idioms.favorites" = "Oblíbené";
+"idioms.found" = "Nalezeno";
+"idioms.sort" = "Třídit";
+"idioms.filter" = "Filtrovat";
+"idioms.latest_first" = "Nejnovější první";
+"idioms.earliest_first" = "Nejstarší první";
+"idioms.alphabetically" = "Abecedně";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nové";
+"difficulty.in_progress" = "Probíhá";
+"difficulty.needs_review" = "Vyžaduje opakování";
+"difficulty.mastered" = "Zvládnuto";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Nejnovější první";
+"sorting.earliest_first" = "Nejstarší první";
+"sorting.alphabetically" = "Abecedně";
+"sorting.by_part_of_speech" = "Podle slovního druhu";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatická detekce";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkripce";
+"word_details.part_of_speech" = "Slovní druh";
+"word_details.definition" = "Definice";
+"word_details.difficulty" = "Obtížnost";
+"word_details.examples" = "Příklady";
+"word_details.edit_example" = "Upravit příklad";
+"word_details.example" = "Příklad";
+"word_details.type_example_here" = "Zde zadejte příklad";
+"word_details.add_example" = "Přidat příklad";
+"word_details.delete_word" = "Smazat slovo";
+"word_details.delete_failed" = "Smazání selhalo";
+
+// MARK: - Word List
+"word_list.all_words" = "Všechna slova";
+"word_list.favorite" = "Oblíbené";
+"word_list.manage_tags" = "Spravovat štítky";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Zatím žádná slova";
+"empty_states.no_idioms_yet" = "Zatím žádné idiomy";
+"empty_states.no_favorite_words" = "Žádná oblíbená slova";
+"empty_states.no_search_results" = "Žádné výsledky hledání";
+"empty_states.start_improving_vocabulary" = "Začněte zlepšovat svou slovní zásobu přidáním prvního idiomu";
+"empty_states.tap_heart_icon_to_add_favorites" = "Klepnutím na ikonu srdce u jakéhokoli idiomu jej přidejte do oblíbených";
+"empty_states.try_different_search_term" = "Zkuste jiný vyhledávací termín nebo přidejte nový idiom";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Podstatné jméno";
+"part_of_speech.full.verb" = "Sloveso";
+"part_of_speech.full.adjective" = "Přídavné jméno";
+"part_of_speech.full.adverb" = "Příslovce";
+"part_of_speech.full.conjunction" = "Spojka";
+"part_of_speech.full.pronoun" = "Zájmeno";
+"part_of_speech.full.preposition" = "Předložka";
+"part_of_speech.full.exclamation" = "Vykřičník";
+"part_of_speech.full.unknown" = "Neznámý";
+
+"part_of_speech.short.noun" = "Podst.";
+"part_of_speech.short.verb" = "Slov.";
+"part_of_speech.short.adjective" = "Příd.";
+"part_of_speech.short.adverb" = "Přísl.";
+"part_of_speech.short.conjunction" = "Spoj.";
+"part_of_speech.short.pronoun" = "Zájm.";
+"part_of_speech.short.preposition" = "Předl.";
+"part_of_speech.short.exclamation" = "Vykř.";
+"part_of_speech.short.unknown" = "Nezn.";
+
+// Registration Benefits
+
+// Subscription Security
+
+"actions.settings" = "Nastavení";
+

@@ -61,3 +61,96 @@
 "words.edit_example" = "Rediger eksempel";
 "words.no_transcription" = "Ingen transkripsjon";
 "words.no_definition" = "Ingen definisjon";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Legg til uttrykk";
+"idioms.add_new_idiom" = "Legg til nytt uttrykk";
+"idioms.idiom" = "Uttrykk";
+"idioms.idioms" = "Uttrykk";
+"idioms.no_idioms_found" = "Ingen uttrykk funnet";
+"idioms.add_this_idiom" = "Legg til dette uttrykket ved å klikke på knappen ovenfor";
+"idioms.begin_add_idioms" = "Begynn å legge til uttrykk i listen din ved å klikke på plusstegnet øverst til venstre";
+"idioms.all_idioms" = "Alle uttrykk";
+"idioms.favorite_idioms" = "Favorittuttrykk";
+"idioms.found_idioms" = "Funnet uttrykk";
+"idioms.examples" = "Eksempler";
+"idioms.no_examples_yet" = "Ingen eksempler ennå";
+"idioms.type_example_here" = "Skriv eksempel her";
+"idioms.add_example" = "Legg til eksempel";
+"idioms.edit_example" = "Rediger eksempel";
+"idioms.delete_idiom" = "Slett uttrykk";
+"idioms.delete_idiom_confirmation" = "Er du sikker på at du vil slette dette uttrykket?";
+"idioms.search_idioms" = "Søk etter uttrykk...";
+"idioms.favorites" = "Favoritter";
+"idioms.found" = "Funnet";
+"idioms.sort" = "Sorter";
+"idioms.filter" = "Filtrer";
+"idioms.latest_first" = "Nyeste først";
+"idioms.earliest_first" = "Eldste først";
+"idioms.alphabetically" = "Alfabetisk";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nytt";
+"difficulty.in_progress" = "Under arbeid";
+"difficulty.needs_review" = "Trenger gjennomgang";
+"difficulty.mastered" = "Mestret";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Nyeste først";
+"sorting.earliest_first" = "Eldste først";
+"sorting.alphabetically" = "Alfabetisk";
+"sorting.by_part_of_speech" = "Etter ordklasse";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatisk oppdagelse";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkripsjon";
+"word_details.part_of_speech" = "Ordklasse";
+"word_details.definition" = "Definisjon";
+"word_details.difficulty" = "Vanskelighetsgrad";
+"word_details.examples" = "Eksempler";
+"word_details.edit_example" = "Rediger eksempel";
+"word_details.example" = "Eksempel";
+"word_details.type_example_here" = "Skriv eksempel her";
+"word_details.add_example" = "Legg til eksempel";
+"word_details.delete_word" = "Slett ord";
+"word_details.delete_failed" = "Sletting mislyktes";
+
+// MARK: - Word List
+"word_list.all_words" = "Alle ord";
+"word_list.favorite" = "Favoritt";
+"word_list.manage_tags" = "Administrer etiketter";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Ingen ord ennå";
+"empty_states.no_idioms_yet" = "Ingen uttrykk ennå";
+"empty_states.no_favorite_words" = "Ingen favorittord";
+"empty_states.no_search_results" = "Ingen søkeresultater";
+"empty_states.start_improving_vocabulary" = "Begynn å forbedre vokabularet ditt ved å legge til ditt første uttrykk";
+"empty_states.tap_heart_icon_to_add_favorites" = "Trykk på hjerteikonet på et uttrykk for å legge det til i favoritter";
+"empty_states.try_different_search_term" = "Prøv et annet søkeord eller legg til et nytt uttrykk";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Substantiv";
+"part_of_speech.full.verb" = "Verb";
+"part_of_speech.full.adjective" = "Adjektiv";
+"part_of_speech.full.adverb" = "Adverb";
+"part_of_speech.full.conjunction" = "Konjunksjon";
+"part_of_speech.full.pronoun" = "Pronomen";
+"part_of_speech.full.preposition" = "Preposisjon";
+"part_of_speech.full.exclamation" = "Utropsord";
+"part_of_speech.full.unknown" = "Ukjent";
+
+"part_of_speech.short.noun" = "Subst.";
+"part_of_speech.short.verb" = "Verb";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Konj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.exclamation" = "Utr.";
+"part_of_speech.short.unknown" = "Ukjent";
+
+"actions.settings" = "Innstillinger";
+

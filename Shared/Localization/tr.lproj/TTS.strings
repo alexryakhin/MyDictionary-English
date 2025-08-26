@@ -1,0 +1,141 @@
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Tüm kullanım durumları";
+"tts.filters.all_ages" = "Tüm yaşlar";
+"tts.filters.all_timbres" = "Tüm tonlar";
+"tts.filters.all_accents" = "Tüm aksanlar";
+"tts.filters.all_languages" = "Tüm diller";
+"tts.filters.all_genders" = "Tüm cinsiyetler";
+"tts.filters.filters" = "Filtreler";
+"tts.filters.reset" = "Sıfırla";
+"tts.filters.select_voice" = "Ses seç";
+"tts.filters.available_voices" = "Mevcut sesler";
+"tts.filters.no_voices_available" = "Kullanılabilir ses yok";
+"tts.filters.no_voices_found" = "Ses bulunamadı";
+"tts.filters.no_voices_found_message" = "Aramanızı veya filtrelerinizi ayarlamayı deneyin";
+
+"tts.usage.monthly_limit_exceeded" = "Aylık limit aşıldı";
+"tts.usage.monthly_limit_exceeded_message" = "Speechify TTS için 50.000 karakterlik aylık limite ulaştınız. Lütfen gelecek ay tekrar deneyin veya bunun yerine Google TTS kullanın.";
+"tts.usage.remaining_characters" = "Kalan karakterler";
+"tts.usage.monthly_usage" = "Aylık kullanım";
+"tts.usage.monthly_limit" = "Aylık limit";
+
+// TTS Voice Filter Values
+"advertisement" = "Reklam";
+"animation" = "Animasyon";
+"audiobook" = "Sesli kitap";
+"audiobook-and-narration" = "Sesli kitap ve anlatım";
+"audiobooks-and-narration" = "Sesli kitaplar ve anlatım";
+"conversational" = "Konuşma tarzı";
+"e-learning" = "E-öğrenme";
+"gaming" = "Oyun";
+"meditation" = "Meditasyon";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filmler, oyunculuk ve oyun";
+"narration" = "Anlatım";
+"podcast" = "Podcast";
+"social-media" = "Sosyal medya";
+
+"middle-aged" = "Orta yaş";
+"senior" = "Yaşlı";
+"teen" = "Genç";
+"young-adult" = "Genç yetişkin";
+
+"female" = "Kadın";
+"male" = "Erkek";
+
+"angry" = "Kızgın";
+"assertive-or-confident" = "Kendinden emin veya iddialı";
+"bright" = "Canlı";
+"calm-or-relaxed" = "Sakin veya rahat";
+"calm-or-relaxed-" = "Sakin veya rahat";
+"cheerful" = "Neşeli";
+"crisp" = "Net";
+"deep" = "Derin";
+"direct" = "Doğrudan";
+"energetic" = "Enerjik";
+"fearful" = "Korkulu";
+"high-pitch" = "Yüksek ton";
+"neutral" = "Nötr";
+"professional" = "Profesyonel";
+"relaxed" = "Rahat";
+"sad" = "Üzgün";
+"suprised" = "Şaşkın";
+"surprised" = "Şaşkın";
+"terrified" = "Korkmuş";
+"warm" = "Sıcak";
+"warm-or-friendly" = "Sıcak veya dostane";
+
+"american-neutral" = "Amerikan nötr";
+"australian" = "Avustralya";
+"british" = "İngiliz";
+"indian" = "Hint";
+"nigerian" = "Nijeryalı";
+
+
+
+
+// TTS Dashboard
+"tts.dashboard" = "TTS Panosu";
+"tts.premium_tts_dashboard" = "Premium TTS Panosu";
+"tts.customize_tts_experience" = "Metin-konuşma deneyiminizi özelleştirin";
+"tts.playing" = "Oynatılıyor";
+"tts.ready" = "Hazır";
+"tts.provider" = "Sağlayıcı";
+"tts.tts_provider" = "TTS Sağlayıcı";
+"tts.voice_customization" = "Ses özelleştirme";
+"tts.current_voice" = "Mevcut ses";
+"tts.default_voice" = "Varsayılan ses";
+"tts.preview_current_voice" = "Mevcut sesi önizle";
+"tts.change_voice" = "Sesi değiştir";
+"tts.audio_settings" = "Ses ayarları";
+"tts.speech_rate" = "Konuşma hızı";
+"tts.volume" = "Ses seviyesi";
+"tts.test_your_settings" = "Ayarlarınızı test edin";
+"tts.enter_text_to_test" = "Test etmek için metin girin...";
+"tts.stop" = "Durdur";
+"tts.test" = "Test";
+"tts.usage_statistics" = "Kullanım istatistikleri";
+"tts.speechify_monthly_usage" = "Speechify aylık kullanım";
+"tts.monthly_limit" = "Aylık limit";
+"tts.used_this_month" = "Bu ay kullanılan";
+"tts.remaining" = "Kalan";
+"tts.usage_progress" = "Kullanım ilerlemesi";
+"tts.characters" = "karakter";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Kullanılan karakterler";
+"tts.analytics.sessions" = "Oturumlar";
+"tts.analytics.favorite_voice" = "Favori ses";
+"tts.analytics.time_saved" = "Kazanılan zaman";
+"tts.analytics.total_characters" = "Toplam karakter";
+"tts.analytics.total_sessions" = "Toplam oturum";
+"tts.analytics.total_duration" = "Toplam süre";
+"tts.analytics.favorite_language" = "Favori dil";
+"tts.analytics.premium_usage" = "Premium kullanım";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Metin-konuşma";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Speechify'nin metin-konuşma modeli, tüm kullanıcılar için premium bir özellik olarak mevcuttur. Çalışma deneyiminizi özelleştirmek için geniş bir ses ve aksan yelpazesinden seçim yapmanızı sağlar.";
+"tts.settings.speechify_pro_description" = "Speechify'nin metin-konuşma modeli aboneliğinizde yer almaktadır.";
+"tts.settings.dashboard" = "Pano";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Temel sesler ve güvenilir performans sunan ücretsiz Google TTS";
+
+// TTS Models
+"tts.models.english" = "İngilizce";
+"tts.models.multilingual" = "Çok dilli";
+"tts.models.english_description" = "Speechify'nin İngilizce metin-konuşma modeli, metinleri okumak için net ve doğal bir ses çıkışı sağlamak üzere tasarlanmış standart özellikler sunar. Model, tutarlı bir kullanıcı deneyimi sağlamaya odaklanır.";
+"tts.models.multilingual_description" = "Çok dilli model, desteklenen tüm dillerin kullanımına olanak tanır ve tek bir cümlede birden fazla dilin kullanımını destekler. Bu modelin ses çıkışı, diğer modellerden belirgin şekilde farklıdır.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Avustralya";
+"english_accents.canadian" = "Kanada";
+"english_accents.british" = "İngiliz";
+"english_accents.indian" = "Hint";
+"english_accents.american" = "Amerikan";
+"english_accents.belgian" = "Belçika";
+"english_accents.singaporean" = "Singapur";
+"english_accents.irish" = "İrlanda";
+"english_accents.south_african" = "Güney Afrika";
+

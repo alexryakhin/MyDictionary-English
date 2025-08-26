@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Palabras";
+"tabbar.idioms" = "Modismos";
+"tabbar.quizzes" = "Cuestionarios";
+"tabbar.progress" = "Progreso";
+"tabbar.settings" = "Ajustes";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Detalles de la palabra";
+"navigation.idiom_details" = "Detalles del modismo";
+"navigation.add_tags" = "Añadir etiquetas";
+"navigation.about" = "Acerca de";
+"navigation.debug_panel" = "Panel de depuración";
+"navigation.quiz_results" = "Resultados del cuestionario";
+"navigation.spelling_quiz" = "Cuestionario de ortografía";
+"navigation.definition_quiz" = "Cuestionario de definiciones";
+"navigation.close" = "Cerrar";
+"navigation.close_screen" = "Cerrar pantalla";
+

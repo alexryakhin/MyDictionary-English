@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgraden Sie auf Pro, um alle Details zum Wortschatzwachstum zu sehen.";
 "pro_upgrade.time_period" = "Zeitraum";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Zugriff auf die Premium-Text-to-Speech-Technologie von Speechify. Hunderte von natürlich klingenden Premium-Stimmen";
+

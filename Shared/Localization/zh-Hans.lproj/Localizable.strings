@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "单词";
-"tabbar.idioms" = "习语";
-"tabbar.quizzes" = "测验";
-"tabbar.progress" = "进度";
-"tabbar.settings" = "设置";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "单词详情";
-"navigation.idiom_details" = "习语详情";
-"navigation.add_tags" = "添加标签";
-"navigation.about" = "关于";
-"navigation.debug_panel" = "调试面板";
-"navigation.quiz_results" = "测验结果";
-"navigation.spelling_quiz" = "拼写测验";
-"navigation.definition_quiz" = "定义测验";
-"navigation.close" = "关闭";
-"navigation.close_screen" = "关闭屏幕";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "添加习语";
-"idioms.add_new_idiom" = "添加新习语";
-"idioms.idiom" = "习语";
-"idioms.idioms" = "习语";
-"idioms.no_idioms_found" = "未找到习语";
-"idioms.add_this_idiom" = "点击上方按钮添加此习语";
-"idioms.begin_add_idioms" = "点击左上角的添加图标开始将习语添加到你的列表";
-"idioms.all_idioms" = "所有习语";
-"idioms.favorite_idioms" = "收藏的习语";
-"idioms.found_idioms" = "已找到";
-"idioms.examples" = "示例";
-"idioms.no_examples_yet" = "暂无示例";
-"idioms.type_example_here" = "在此输入示例";
-"idioms.add_example" = "添加示例";
-"idioms.edit_example" = "编辑示例";
-"idioms.delete_idiom" = "删除习语";
-"idioms.delete_idiom_confirmation" = "你确定要删除这个习语吗？";
-"idioms.search_idioms" = "搜索习语...";
-"idioms.favorites" = "收藏";
-"idioms.found" = "已找到";
-"idioms.sort" = "排序";
-"idioms.filter" = "筛选";
-"idioms.latest_first" = "最新优先";
-"idioms.earliest_first" = "最早优先";
-"idioms.alphabetically" = "按字母顺序";
-
 // MARK: - App
 "app.my_dictionary" = "我的词典";
 "app.loading" = "加载中...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "喜欢这个应用吗？";
 "coffee.helpful_learning_journey" = "如果我的词典在你的学习旅程中有所帮助，请考虑请我喝杯咖啡！ ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "新";
-"difficulty.in_progress" = "进行中";
-"difficulty.needs_review" = "需要复习";
-"difficulty.mastered" = "已掌握";
-
-// MARK: - Sorting
-"sorting.latest_first" = "最新优先";
-"sorting.earliest_first" = "最早优先";
-"sorting.alphabetically" = "按字母顺序";
-"sorting.by_part_of_speech" = "按词性";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "自动检测";
-
 // MARK: - Time Period
 "time_period.week" = "周";
 "time_period.month" = "月";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "正确";
 "quiz_results.duration" = "时长";
 "quiz_results.time_period" = "时间段";
-
-// MARK: - Word Details
-"word_details.transcription" = "音标";
-"word_details.part_of_speech" = "词性";
-"word_details.definition" = "定义";
-"word_details.difficulty" = "难度";
-"word_details.examples" = "示例";
-"word_details.edit_example" = "编辑示例";
-"word_details.example" = "示例";
-"word_details.type_example_here" = "在此输入示例";
-"word_details.add_example" = "添加示例";
-"word_details.delete_word" = "删除单词";
-"word_details.delete_failed" = "删除失败";
-
-// MARK: - Word List
-"word_list.all_words" = "所有单词";
-"word_list.favorite" = "收藏";
-"word_list.manage_tags" = "管理标签";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "测验类型";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "选择标签";
 "tag_selection.no_tags_yet" = "尚未添加标签";
 "tag_selection.you_can_select_up_to_5_tags" = "每个单词最多可选择 5 个标签。点击标签以选择或取消选择。";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "暂无单词";
-"empty_states.no_idioms_yet" = "暂无习语";
-"empty_states.no_favorite_words" = "暂无收藏的单词";
-"empty_states.no_search_results" = "无搜索结果";
-"empty_states.start_improving_vocabulary" = "通过添加你的第一个习语开始提升你的词汇量";
-"empty_states.tap_heart_icon_to_add_favorites" = "点击任何习语上的心形图标将其添加到收藏";
-"empty_states.try_different_search_term" = "尝试不同的搜索词或添加新习语";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "练习时间到！ 📚";
@@ -306,174 +218,4 @@
 "quiz_types.select_correct_definition" = "为每个单词选择正确的定义";
 "quiz_types.great_job_completed_spelling_quiz" = "干得好！你已完成拼写测验。";
 "quiz_types.great_job_completed_definition_quiz" = "干得好！你已完成定义测验。";
-
-// MARK: - English Accents
-"english_accents.australian" = "澳大利亚口音";
-"english_accents.canadian" = "加拿大口音";
-"english_accents.british" = "英国口音";
-"english_accents.indian" = "印度口音";
-"english_accents.american" = "美国口音";
-"english_accents.belgian" = "比利时口音";
-"english_accents.singaporean" = "新加坡口音";
-"english_accents.irish" = "爱尔兰口音";
-"english_accents.south_african" = "南非口音";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "名词";
-"part_of_speech.full.verb" = "动词";
-"part_of_speech.full.adjective" = "形容词";
-"part_of_speech.full.adverb" = "副词";
-"part_of_speech.full.conjunction" = "连词";
-"part_of_speech.full.pronoun" = "代词";
-"part_of_speech.full.preposition" = "介词";
-"part_of_speech.full.exclamation" = "感叹词";
-"part_of_speech.full.unknown" = "未知";
-
-"part_of_speech.short.noun" = "名";
-"part_of_speech.short.verb" = "动";
-"part_of_speech.short.adjective" = "形";
-"part_of_speech.short.adverb" = "副";
-"part_of_speech.short.conjunction" = "连";
-"part_of_speech.short.pronoun" = "代";
-"part_of_speech.short.preposition" = "介";
-"part_of_speech.short.exclamation" = "感";
-"part_of_speech.short.unknown" = "未知";
-
-"actions.settings" = "设置";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "所有使用场景";
-"tts.filters.all_ages" = "所有年龄";
-"tts.filters.all_timbres" = "所有音色";
-"tts.filters.all_accents" = "所有口音";
-"tts.filters.all_languages" = "所有语言";
-"tts.filters.all_genders" = "所有性别";
-"tts.filters.filters" = "筛选";
-"tts.filters.reset" = "重置";
-"tts.filters.select_voice" = "选择语音";
-"tts.filters.available_voices" = "可用语音";
-"tts.filters.no_voices_available" = "无可用语音";
-"tts.filters.no_voices_found" = "未找到语音";
-"tts.filters.no_voices_found_message" = "请尝试调整搜索或筛选条件";
-
-"tts.usage.monthly_limit_exceeded" = "月度限制已超";
-"tts.usage.monthly_limit_exceeded_message" = "您已达到Speechify TTS的50,000字符月度限制。请在下个月重试，或使用Google TTS。";
-"tts.usage.remaining_characters" = "剩余字符";
-"tts.usage.monthly_usage" = "月度使用量";
-"tts.usage.monthly_limit" = "月度限制";
-
-// TTS Voice Filter Values
-"advertisement" = "广告";
-"animation" = "动画";
-"audiobook" = "有声书";
-"audiobook-and-narration" = "有声书与旁白";
-"audiobooks-and-narration" = "有声书与旁白";
-"conversational" = "对话";
-"e-learning" = "电子学习";
-"gaming" = "游戏";
-"meditation" = "冥想";
-"movie" = "电影";
-"movies-acting-and-gaming" = "电影、表演与游戏";
-"narration" = "旁白";
-"podcast" = "播客";
-"social-media" = "社交媒体";
-
-"middle-aged" = "中年";
-"senior" = "老年";
-"teen" = "青少年";
-"young-adult" = "青年";
-
-"female" = "女性";
-"male" = "男性";
-
-"angry" = "愤怒";
-"assertive-or-confident" = "坚定或自信";
-"bright" = "明亮";
-"calm-or-relaxed" = "平静或放松";
-"calm-or-relaxed-" = "平静或放松";
-"cheerful" = "欢快";
-"crisp" = "清晰";
-"deep" = "低沉";
-"direct" = "直接";
-"energetic" = "充满活力";
-"fearful" = "恐惧";
-"high-pitch" = "高音";
-"neutral" = "中性";
-"professional" = "专业";
-"relaxed" = "放松";
-"sad" = "悲伤";
-"suprised" = "惊讶";
-"surprised" = "惊讶";
-"terrified" = "惊恐";
-"warm" = "温暖";
-"warm-or-friendly" = "温暖或友好";
-
-"american-neutral" = "美国中性";
-"australian" = "澳大利亚";
-"british" = "英国";
-"indian" = "印度";
-"nigerian" = "尼日利亚";
-
-"notifications.permission_required" = "需要通知权限";
-"notifications.permission_denied_message" = "要接收每日提醒和难点词汇警报，请在设置中启用通知。";
-
-"onboarding.natural_voices" = "自然语音";
-"onboarding.natural_voices_description" = "数百种听起来比以往更自然的优质语音";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "访问Speechify的优质文本转语音技术。数百种自然声音的优质语音";
-
-// TTS Dashboard
-"tts.dashboard" = "TTS仪表板";
-"tts.premium_tts_dashboard" = "优质TTS仪表板";
-"tts.customize_tts_experience" = "自定义您的文本转语音体验";
-"tts.playing" = "播放中";
-"tts.ready" = "准备就绪";
-"tts.provider" = "提供商";
-"tts.tts_provider" = "TTS提供商";
-"tts.voice_customization" = "语音定制";
-"tts.current_voice" = "当前语音";
-"tts.default_voice" = "默认语音";
-"tts.preview_current_voice" = "预览当前语音";
-"tts.change_voice" = "更改语音";
-"tts.audio_settings" = "音频设置";
-"tts.speech_rate" = "语速";
-"tts.volume" = "音量";
-"tts.test_your_settings" = "测试您的设置";
-"tts.enter_text_to_test" = "输入测试文本...";
-"tts.stop" = "停止";
-"tts.test" = "测试";
-"tts.usage_statistics" = "使用统计";
-"tts.speechify_monthly_usage" = "Speechify月度使用量";
-"tts.monthly_limit" = "月度限制";
-"tts.used_this_month" = "本月已用";
-"tts.remaining" = "剩余";
-"tts.usage_progress" = "使用进度";
-"tts.characters" = "字符";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "已用字符";
-"tts.analytics.sessions" = "会话";
-"tts.analytics.favorite_voice" = "最喜欢的语音";
-"tts.analytics.time_saved" = "节省的时间";
-"tts.analytics.total_characters" = "总字符数";
-"tts.analytics.total_sessions" = "总会话数";
-"tts.analytics.total_duration" = "总时长";
-"tts.analytics.favorite_language" = "最喜欢的语言";
-"tts.analytics.premium_usage" = "优质使用";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "文本转语音";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechify的文本转语音模型作为优质功能对所有用户开放。您可以从多种语音和口音中选择，以定制您的学习体验。";
-"tts.settings.speechify_pro_description" = "Speechify的文本转语音模型包含在您的订阅中。";
-"tts.settings.dashboard" = "仪表板";
-"tts.pro" = "专业版";
-"tts.free_google_tts_description" = "免费的Google TTS，提供基本语音和可靠性能";
-
-// TTS Models
-"tts.models.english" = "英语";
-"tts.models.multilingual" = "多语言";
-"tts.models.english_description" = "Speechify的英语文本转语音模型提供标准功能，旨在为文本阅读提供清晰、自然的语音输出。该模型专注于提供一致的用户体验。";
-"tts.models.multilingual_description" = "多语言模型支持所有受支持语言的使用，并允许在单个句子中使用多种语言。该模型的音频输出与其他模型明显不同。";
 

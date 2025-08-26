@@ -5,52 +5,6 @@
   Translated on August 18, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Kelimeler";
-"tabbar.idioms" = "Deyimler";
-"tabbar.quizzes" = "Testler";
-"tabbar.progress" = "İlerleme";
-"tabbar.settings" = "Ayarlar";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Kelime Detayları";
-"navigation.idiom_details" = "Deyim Detayları";
-"navigation.add_tags" = "Etiket Ekle";
-"navigation.about" = "Hakkında";
-"navigation.debug_panel" = "Hata Ayıklama Paneli";
-"navigation.quiz_results" = "Test Sonuçları";
-"navigation.spelling_quiz" = "Yazım Testi";
-"navigation.definition_quiz" = "Tanım Testi";
-"navigation.close" = "Kapat";
-"navigation.close_screen" = "Ekranı Kapat";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Deyim Ekle";
-"idioms.add_new_idiom" = "Yeni Deyim Ekle";
-"idioms.idiom" = "Deyim";
-"idioms.idioms" = "Deyimler";
-"idioms.no_idioms_found" = "Deyim bulunamadı";
-"idioms.add_this_idiom" = "Bu deyimi eklemek için yukarıdaki düğmeye tıklayın";
-"idioms.begin_add_idioms" = "Listeye deyimler eklemeye başlamak için sol üst köşedeki artı simgesine tıklayın";
-"idioms.all_idioms" = "Tüm Deyimler";
-"idioms.favorite_idioms" = "Favori Deyimler";
-"idioms.found_idioms" = "Bulunan Deyimler";
-"idioms.examples" = "Örnekler";
-"idioms.no_examples_yet" = "Henüz Örnek Yok";
-"idioms.type_example_here" = "Örneği Buraya Yaz";
-"idioms.add_example" = "Örnek Ekle";
-"idioms.edit_example" = "Örneği Düzenle";
-"idioms.delete_idiom" = "Deyimi Sil";
-"idioms.delete_idiom_confirmation" = "Bu deyimi silmek istediğinizden emin misiniz?";
-"idioms.search_idioms" = "Deyim Ara...";
-"idioms.favorites" = "Favoriler";
-"idioms.found" = "Bulundu";
-"idioms.sort" = "Sırala";
-"idioms.filter" = "Filtrele";
-"idioms.latest_first" = "En Yeniler Önde";
-"idioms.earliest_first" = "En Eskiler Önde";
-"idioms.alphabetically" = "Alfabetik";
-
 // MARK: - App
 "app.my_dictionary" = "Sözlüğüm";
 "app.loading" = "Yükleniyor...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Uygulamadan keyif alıyor musunuz?";
 "coffee.helpful_learning_journey" = "Sözlüğüm öğrenme yolculuğunuzda size yardımcı olduysa, bana bir kahve ısmarlamayı düşünün! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Yeni";
-"difficulty.in_progress" = "Devam Ediyor";
-"difficulty.needs_review" = "Tekrar Gerekli";
-"difficulty.mastered" = "Hâkim Olunan";
-
-// MARK: - Sorting
-"sorting.latest_first" = "En Yeniler Önde";
-"sorting.earliest_first" = "En Eskiler Önde";
-"sorting.alphabetically" = "Alfabetik";
-"sorting.by_part_of_speech" = "Sözcük Türüne Göre";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Otomatik Algılama";
-
 // MARK: - Time Period
 "time_period.week" = "Hafta";
 "time_period.month" = "Ay";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Doğru";
 "quiz_results.duration" = "Süre";
 "quiz_results.time_period" = "Zaman Dilimi";
-
-// MARK: - Word Details
-"word_details.transcription" = "Transkripsiyon";
-"word_details.part_of_speech" = "Sözcük Türü";
-"word_details.definition" = "Tanım";
-"word_details.difficulty" = "Zorluk";
-"word_details.examples" = "Örnekler";
-"word_details.edit_example" = "Örneği Düzenle";
-"word_details.example" = "Örnek";
-"word_details.type_example_here" = "Örneği Buraya Yaz";
-"word_details.add_example" = "Örnek Ekle";
-"word_details.delete_word" = "Kelimeyi Sil";
-"word_details.delete_failed" = "Silme başarısız";
-
-// MARK: - Word List
-"word_list.all_words" = "Tüm Kelimeler";
-"word_list.favorite" = "Favori";
-"word_list.manage_tags" = "Etiketleri Yönet";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Test Türleri";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Etiketleri Seç";
 "tag_selection.no_tags_yet" = "Henüz etiket yok";
 "tag_selection.you_can_select_up_to_5_tags" = "Her kelime için en fazla 5 etiket seçebilirsiniz. Etiketleri seçmek veya seçimden çıkarmak için tıklayın.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Henüz kelime yok";
-"empty_states.no_idioms_yet" = "Henüz deyim yok";
-"empty_states.no_favorite_words" = "Favori kelime yok";
-"empty_states.no_search_results" = "Arama sonucu yok";
-"empty_states.start_improving_vocabulary" = "İlk deyimi ekleyerek kelime dağarcığınızı geliştirmeye başlayın";
-"empty_states.tap_heart_icon_to_add_favorites" = "Favorilere eklemek için herhangi bir deyimin üzerindeki kalp simgesine tıklayın";
-"empty_states.try_different_search_term" = "Farklı bir arama terimi deneyin veya yeni bir deyim ekleyin";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Alıştırma Zamanı! 📚";
@@ -306,174 +218,4 @@
 "quiz_types.select_correct_definition" = "Her kelime için doğru tanımı seçin";
 "quiz_types.great_job_completed_spelling_quiz" = "Harika iş! Yazım testini tamamladınız.";
 "quiz_types.great_job_completed_definition_quiz" = "Harika iş! Tanım testini tamamladınız.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Avustralya";
-"english_accents.canadian" = "Kanada";
-"english_accents.british" = "İngiliz";
-"english_accents.indian" = "Hint";
-"english_accents.american" = "Amerikan";
-"english_accents.belgian" = "Belçika";
-"english_accents.singaporean" = "Singapur";
-"english_accents.irish" = "İrlanda";
-"english_accents.south_african" = "Güney Afrika";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "İsim";
-"part_of_speech.full.verb" = "Fiil";
-"part_of_speech.full.adjective" = "Sıfat";
-"part_of_speech.full.adverb" = "Zarf";
-"part_of_speech.full.conjunction" = "Bağlaç";
-"part_of_speech.full.pronoun" = "Zamir";
-"part_of_speech.full.preposition" = "Edat";
-"part_of_speech.full.exclamation" = "Ünlem";
-"part_of_speech.full.unknown" = "Bilinmiyor";
-
-"part_of_speech.short.noun" = "İsm.";
-"part_of_speech.short.verb" = "F.";
-"part_of_speech.short.adjective" = "Sıf.";
-"part_of_speech.short.adverb" = "Zrf.";
-"part_of_speech.short.conjunction" = "Bğl.";
-"part_of_speech.short.pronoun" = "Zmr.";
-"part_of_speech.short.preposition" = "Edt.";
-"part_of_speech.short.exclamation" = "Ünl.";
-"part_of_speech.short.unknown" = "Bilinmiyor";
-
-"actions.settings" = "Ayarlar";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Tüm kullanım durumları";
-"tts.filters.all_ages" = "Tüm yaşlar";
-"tts.filters.all_timbres" = "Tüm tonlar";
-"tts.filters.all_accents" = "Tüm aksanlar";
-"tts.filters.all_languages" = "Tüm diller";
-"tts.filters.all_genders" = "Tüm cinsiyetler";
-"tts.filters.filters" = "Filtreler";
-"tts.filters.reset" = "Sıfırla";
-"tts.filters.select_voice" = "Ses seç";
-"tts.filters.available_voices" = "Mevcut sesler";
-"tts.filters.no_voices_available" = "Kullanılabilir ses yok";
-"tts.filters.no_voices_found" = "Ses bulunamadı";
-"tts.filters.no_voices_found_message" = "Aramanızı veya filtrelerinizi ayarlamayı deneyin";
-
-"tts.usage.monthly_limit_exceeded" = "Aylık limit aşıldı";
-"tts.usage.monthly_limit_exceeded_message" = "Speechify TTS için 50.000 karakterlik aylık limite ulaştınız. Lütfen gelecek ay tekrar deneyin veya bunun yerine Google TTS kullanın.";
-"tts.usage.remaining_characters" = "Kalan karakterler";
-"tts.usage.monthly_usage" = "Aylık kullanım";
-"tts.usage.monthly_limit" = "Aylık limit";
-
-// TTS Voice Filter Values
-"advertisement" = "Reklam";
-"animation" = "Animasyon";
-"audiobook" = "Sesli kitap";
-"audiobook-and-narration" = "Sesli kitap ve anlatım";
-"audiobooks-and-narration" = "Sesli kitaplar ve anlatım";
-"conversational" = "Konuşma tarzı";
-"e-learning" = "E-öğrenme";
-"gaming" = "Oyun";
-"meditation" = "Meditasyon";
-"movie" = "Film";
-"movies-acting-and-gaming" = "Filmler, oyunculuk ve oyun";
-"narration" = "Anlatım";
-"podcast" = "Podcast";
-"social-media" = "Sosyal medya";
-
-"middle-aged" = "Orta yaş";
-"senior" = "Yaşlı";
-"teen" = "Genç";
-"young-adult" = "Genç yetişkin";
-
-"female" = "Kadın";
-"male" = "Erkek";
-
-"angry" = "Kızgın";
-"assertive-or-confident" = "Kendinden emin veya iddialı";
-"bright" = "Canlı";
-"calm-or-relaxed" = "Sakin veya rahat";
-"calm-or-relaxed-" = "Sakin veya rahat";
-"cheerful" = "Neşeli";
-"crisp" = "Net";
-"deep" = "Derin";
-"direct" = "Doğrudan";
-"energetic" = "Enerjik";
-"fearful" = "Korkulu";
-"high-pitch" = "Yüksek ton";
-"neutral" = "Nötr";
-"professional" = "Profesyonel";
-"relaxed" = "Rahat";
-"sad" = "Üzgün";
-"suprised" = "Şaşkın";
-"surprised" = "Şaşkın";
-"terrified" = "Korkmuş";
-"warm" = "Sıcak";
-"warm-or-friendly" = "Sıcak veya dostane";
-
-"american-neutral" = "Amerikan nötr";
-"australian" = "Avustralya";
-"british" = "İngiliz";
-"indian" = "Hint";
-"nigerian" = "Nijeryalı";
-
-"notifications.permission_required" = "Bildirim izni gerekli";
-"notifications.permission_denied_message" = "Günlük hatırlatmalar ve zor kelime uyarıları almak için lütfen Ayarlar'da bildirimleri etkinleştirin.";
-
-"onboarding.natural_voices" = "Doğal sesler";
-"onboarding.natural_voices_description" = "Şimdiye kadar olduğundan daha insansı seslere sahip yüzlerce premium ses";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Speechify'nin premium metin-konuşma teknolojisine erişim. Doğal seslere sahip yüzlerce premium ses";
-
-// TTS Dashboard
-"tts.dashboard" = "TTS Panosu";
-"tts.premium_tts_dashboard" = "Premium TTS Panosu";
-"tts.customize_tts_experience" = "Metin-konuşma deneyiminizi özelleştirin";
-"tts.playing" = "Oynatılıyor";
-"tts.ready" = "Hazır";
-"tts.provider" = "Sağlayıcı";
-"tts.tts_provider" = "TTS Sağlayıcı";
-"tts.voice_customization" = "Ses özelleştirme";
-"tts.current_voice" = "Mevcut ses";
-"tts.default_voice" = "Varsayılan ses";
-"tts.preview_current_voice" = "Mevcut sesi önizle";
-"tts.change_voice" = "Sesi değiştir";
-"tts.audio_settings" = "Ses ayarları";
-"tts.speech_rate" = "Konuşma hızı";
-"tts.volume" = "Ses seviyesi";
-"tts.test_your_settings" = "Ayarlarınızı test edin";
-"tts.enter_text_to_test" = "Test etmek için metin girin...";
-"tts.stop" = "Durdur";
-"tts.test" = "Test";
-"tts.usage_statistics" = "Kullanım istatistikleri";
-"tts.speechify_monthly_usage" = "Speechify aylık kullanım";
-"tts.monthly_limit" = "Aylık limit";
-"tts.used_this_month" = "Bu ay kullanılan";
-"tts.remaining" = "Kalan";
-"tts.usage_progress" = "Kullanım ilerlemesi";
-"tts.characters" = "karakter";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Kullanılan karakterler";
-"tts.analytics.sessions" = "Oturumlar";
-"tts.analytics.favorite_voice" = "Favori ses";
-"tts.analytics.time_saved" = "Kazanılan zaman";
-"tts.analytics.total_characters" = "Toplam karakter";
-"tts.analytics.total_sessions" = "Toplam oturum";
-"tts.analytics.total_duration" = "Toplam süre";
-"tts.analytics.favorite_language" = "Favori dil";
-"tts.analytics.premium_usage" = "Premium kullanım";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Metin-konuşma";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechify'nin metin-konuşma modeli, tüm kullanıcılar için premium bir özellik olarak mevcuttur. Çalışma deneyiminizi özelleştirmek için geniş bir ses ve aksan yelpazesinden seçim yapmanızı sağlar.";
-"tts.settings.speechify_pro_description" = "Speechify'nin metin-konuşma modeli aboneliğinizde yer almaktadır.";
-"tts.settings.dashboard" = "Pano";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Temel sesler ve güvenilir performans sunan ücretsiz Google TTS";
-
-// TTS Models
-"tts.models.english" = "İngilizce";
-"tts.models.multilingual" = "Çok dilli";
-"tts.models.english_description" = "Speechify'nin İngilizce metin-konuşma modeli, metinleri okumak için net ve doğal bir ses çıkışı sağlamak üzere tasarlanmış standart özellikler sunar. Model, tutarlı bir kullanıcı deneyimi sağlamaya odaklanır.";
-"tts.models.multilingual_description" = "Çok dilli model, desteklenen tüm dillerin kullanımına olanak tanır ve tek bir cümlede birden fazla dilin kullanımını destekler. Bu modelin ses çıkışı, diğer modellerden belirgin şekilde farklıdır.";
 

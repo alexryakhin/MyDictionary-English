@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Benachrichtigungsberechtigung erforderlich";
+"notifications.permission_denied_message" = "Um tägliche Erinnerungen und Warnungen für schwierige Wörter zu erhalten, aktivieren Sie bitte Benachrichtigungen in den Einstellungen.";
+

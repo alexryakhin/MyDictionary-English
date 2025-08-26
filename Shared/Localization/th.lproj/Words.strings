@@ -61,3 +61,96 @@
 "words.edit_example" = "แก้ไขตัวอย่าง";
 "words.no_transcription" = "ไม่มีการถอดเสียง";
 "words.no_definition" = "ไม่มีความหมาย";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "เพิ่มสำนวน";
+"idioms.add_new_idiom" = "เพิ่มสำนวนใหม่";
+"idioms.idiom" = "สำนวน";
+"idioms.idioms" = "สำนวน";
+"idioms.no_idioms_found" = "ไม่พบสำนวน";
+"idioms.add_this_idiom" = "เพิ่มสำนวนนี้โดยกดปุ่มด้านบน";
+"idioms.begin_add_idioms" = "เริ่มเพิ่มสำนวนลงในรายการของคุณโดยกดไอคอนบวกที่มุมบนซ้าย";
+"idioms.all_idioms" = "สำนวนทั้งหมด";
+"idioms.favorite_idioms" = "สำนวนโปรด";
+"idioms.found_idioms" = "สำนวนที่พบ";
+"idioms.examples" = "ตัวอย่าง";
+"idioms.no_examples_yet" = "ยังไม่มีตัวอย่าง";
+"idioms.type_example_here" = "พิมพ์ตัวอย่างที่นี่";
+"idioms.add_example" = "เพิ่มตัวอย่าง";
+"idioms.edit_example" = "แก้ไขตัวอย่าง";
+"idioms.delete_idiom" = "ลบสำนวน";
+"idioms.delete_idiom_confirmation" = "คุณแน่ใจหรือไม่ว่าต้องการลบสำนวนนี้";
+"idioms.search_idioms" = "ค้นหาสำนวน...";
+"idioms.favorites" = "รายการโปรด";
+"idioms.found" = "พบ";
+"idioms.sort" = "เรียงลำดับ";
+"idioms.filter" = "กรอง";
+"idioms.latest_first" = "ล่าสุดก่อน";
+"idioms.earliest_first" = "เก่าที่สุดก่อน";
+"idioms.alphabetically" = "ตามตัวอักษร";
+
+// MARK: - Difficulty
+"difficulty.new" = "ใหม่";
+"difficulty.in_progress" = "กำลังดำเนินการ";
+"difficulty.needs_review" = "ต้องทบทวน";
+"difficulty.mastered" = "เชี่ยวชาญ";
+
+// MARK: - Sorting
+"sorting.latest_first" = "ล่าสุดก่อน";
+"sorting.earliest_first" = "เก่าที่สุดก่อน";
+"sorting.alphabetically" = "ตามตัวอักษร";
+"sorting.by_part_of_speech" = "ตามประเภทของคำ";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "ตรวจจับอัตโนมัติ";
+
+// MARK: - Word Details
+"word_details.transcription" = "การถอดเสียง";
+"word_details.part_of_speech" = "ประเภทของคำ";
+"word_details.definition" = "ความหมาย";
+"word_details.difficulty" = "ระดับความยาก";
+"word_details.examples" = "ตัวอย่าง";
+"word_details.edit_example" = "แก้ไขตัวอย่าง";
+"word_details.example" = "ตัวอย่าง";
+"word_details.type_example_here" = "พิมพ์ตัวอย่างที่นี่";
+"word_details.add_example" = "เพิ่มตัวอย่าง";
+"word_details.delete_word" = "ลบคำศัพท์";
+"word_details.delete_failed" = "การลบล้มเหลว";
+
+// MARK: - Word List
+"word_list.all_words" = "คำศัพท์ทั้งหมด";
+"word_list.favorite" = "รายการโปรด";
+"word_list.manage_tags" = "จัดการแท็ก";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "ยังไม่มีคำศัพท์";
+"empty_states.no_idioms_yet" = "ยังไม่มีสำนวน";
+"empty_states.no_favorite_words" = "ไม่มีคำศัพท์โปรด";
+"empty_states.no_search_results" = "ไม่มีผลการค้นหา";
+"empty_states.start_improving_vocabulary" = "เริ่มพัฒนาคลังคำศัพท์ของคุณโดยเพิ่มสำนวนแรก";
+"empty_states.tap_heart_icon_to_add_favorites" = "กดไอคอนรูปหัวใจบนสำนวนใดๆ เพื่อเพิ่มลงในรายการโปรด";
+"empty_states.try_different_search_term" = "ลองใช้คำค้นหาอื่นหรือเพิ่มสำนวนใหม่";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "นาม";
+"part_of_speech.full.verb" = "กริยา";
+"part_of_speech.full.adjective" = "คุณศัพท์";
+"part_of_speech.full.adverb" = "กริยาวิเศษณ์";
+"part_of_speech.full.conjunction" = "สันธาน";
+"part_of_speech.full.pronoun" = "สรรพนาม";
+"part_of_speech.full.preposition" = "บุรพบท";
+"part_of_speech.full.exclamation" = "คำอุทาน";
+"part_of_speech.full.unknown" = "ไม่ทราบ";
+
+"part_of_speech.short.noun" = "น.";
+"part_of_speech.short.verb" = "ก.";
+"part_of_speech.short.adjective" = "คศ.";
+"part_of_speech.short.adverb" = "กว.";
+"part_of_speech.short.conjunction" = "สธ.";
+"part_of_speech.short.pronoun" = "สร.";
+"part_of_speech.short.preposition" = "บ.";
+"part_of_speech.short.exclamation" = "อุ.";
+"part_of_speech.short.unknown" = "ไม่ทราบ";
+
+"actions.settings" = "การตั้งค่า";
+

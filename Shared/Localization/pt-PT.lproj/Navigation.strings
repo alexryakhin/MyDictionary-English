@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Palavras";
+"tabbar.idioms" = "Expressões";
+"tabbar.quizzes" = "Questionários";
+"tabbar.progress" = "Progresso";
+"tabbar.settings" = "Definições";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Detalhes da Palavra";
+"navigation.idiom_details" = "Detalhes da Expressão";
+"navigation.add_tags" = "Adicionar Etiquetas";
+"navigation.about" = "Sobre a Aplicação";
+"navigation.debug_panel" = "Painel de Depuração";
+"navigation.quiz_results" = "Resultados do Questionário";
+"navigation.spelling_quiz" = "Questionário de Ortografia";
+"navigation.definition_quiz" = "Questionário de Definição";
+"navigation.close" = "Fechar";
+"navigation.close_screen" = "Fechar Ecrã";
+

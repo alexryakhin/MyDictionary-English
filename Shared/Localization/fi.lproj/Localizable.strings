@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Sanat";
-"tabbar.idioms" = "Idiomit";
-"tabbar.quizzes" = "Visat";
-"tabbar.progress" = "Edistyminen";
-"tabbar.settings" = "Asetukset";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Sanan tiedot";
-"navigation.idiom_details" = "Idiomin tiedot";
-"navigation.add_tags" = "Lisää tunnisteita";
-"navigation.about" = "Tietoa sovelluksesta";
-"navigation.debug_panel" = "Vianetsintäpaneeli";
-"navigation.quiz_results" = "Visan tulokset";
-"navigation.spelling_quiz" = "Oikeinkirjoitusvisa";
-"navigation.definition_quiz" = "Määritelmävisa";
-"navigation.close" = "Sulje";
-"navigation.close_screen" = "Sulje näyttö";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Lisää idiomi";
-"idioms.add_new_idiom" = "Lisää uusi idiomi";
-"idioms.idiom" = "Idiomi";
-"idioms.idioms" = "Idiomit";
-"idioms.no_idioms_found" = "Ei löydetty idiomeja";
-"idioms.add_this_idiom" = "Lisää tämä idiomi painamalla yllä olevaa painiketta";
-"idioms.begin_add_idioms" = "Aloita idiomien lisääminen listallesi klikkaamalla vasemmassa yläkulmassa olevaa plus-kuvaketta";
-"idioms.all_idioms" = "Kaikki idiomit";
-"idioms.favorite_idioms" = "Suosikki-idiomit";
-"idioms.found_idioms" = "Löydetyt";
-"idioms.examples" = "Esimerkit";
-"idioms.no_examples_yet" = "Ei vielä esimerkkejä";
-"idioms.type_example_here" = "Kirjoita esimerkki tähän";
-"idioms.add_example" = "Lisää esimerkki";
-"idioms.edit_example" = "Muokkaa esimerkkiä";
-"idioms.delete_idiom" = "Poista idiomi";
-"idioms.delete_idiom_confirmation" = "Haluatko varmasti poistaa tämän idiomin?";
-"idioms.search_idioms" = "Hae idiomeja...";
-"idioms.favorites" = "Suosikit";
-"idioms.found" = "Löydetyt";
-"idioms.sort" = "Lajittele";
-"idioms.filter" = "Suodata";
-"idioms.latest_first" = "Uusin ensin";
-"idioms.earliest_first" = "Vanhin ensin";
-"idioms.alphabetically" = "Aakkosjärjestyksessä";
-
 // MARK: - App
 "app.my_dictionary" = "Oma Sanakirja";
 "app.loading" = "Ladataan...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Nautitko sovelluksesta?";
 "coffee.helpful_learning_journey" = "Jos Oma Sanakirja on auttanut sinua oppimismatkallasi, harkitse kahvin ostamista minulle! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Uusi";
-"difficulty.in_progress" = "Käsittelyssä";
-"difficulty.needs_review" = "Tarkistusta vaativa";
-"difficulty.mastered" = "Hallittu";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Uusin ensin";
-"sorting.earliest_first" = "Vanhin ensin";
-"sorting.alphabetically" = "Aakkosjärjestyksessä";
-"sorting.by_part_of_speech" = "Sanaluokan mukaan";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Automaattinen tunnistus";
-
 // MARK: - Time Period
 "time_period.week" = "Viikko";
 "time_period.month" = "Kuukausi";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Oikein";
 "quiz_results.duration" = "Kesto";
 "quiz_results.time_period" = "Aikajakso";
-
-// MARK: - Word Details
-"word_details.transcription" = "Transkriptio";
-"word_details.part_of_speech" = "Sanaluokka";
-"word_details.definition" = "Määritelmä";
-"word_details.difficulty" = "Vaikeustaso";
-"word_details.examples" = "Esimerkit";
-"word_details.edit_example" = "Muokkaa esimerkkiä";
-"word_details.example" = "Esimerkki";
-"word_details.type_example_here" = "Kirjoita esimerkki tähän";
-"word_details.add_example" = "Lisää esimerkki";
-"word_details.delete_word" = "Poista sana";
-"word_details.delete_failed" = "Poistaminen epäonnistui";
-
-// MARK: - Word List
-"word_list.all_words" = "Kaikki sanat";
-"word_list.favorite" = "Suosikki";
-"word_list.manage_tags" = "Hallinnoi tunnisteita";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Visatyypit";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Valitse tunnisteet";
 "tag_selection.no_tags_yet" = "Ei vielä tunnisteita";
 "tag_selection.you_can_select_up_to_5_tags" = "Voit valita enintään 5 tunnistetta per sana. Napauta tunnistetta valitaksesi tai poistaaksesi sen.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Ei vielä sanoja";
-"empty_states.no_idioms_yet" = "Ei vielä idiomeja";
-"empty_states.no_favorite_words" = "Ei suosikkisanoja";
-"empty_states.no_search_results" = "Ei hakutuloksia";
-"empty_states.start_improving_vocabulary" = "Aloita sanastosi parantaminen lisäämällä ensimmäinen idiomi";
-"empty_states.tap_heart_icon_to_add_favorites" = "Napauta sydänkuvaketta minkä tahansa idiomin kohdalla lisätäksesi sen suosikkeihin";
-"empty_states.try_different_search_term" = "Kokeile eri hakutermiä tai lisää uusi idiomi";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Aika harjoitella! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "Valitse oikea määritelmä jokaiselle sanalle";
 "quiz_types.great_job_completed_spelling_quiz" = "Hienoa työtä! Olet suorittanut oikeinkirjoitusvisan.";
 "quiz_types.great_job_completed_definition_quiz" = "Hienoa työtä! Olet suorittanut määritelmävisan.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Australialainen";
-"english_accents.canadian" = "Kanadalainen";
-"english_accents.british" = "Brittiläinen";
-"english_accents.indian" = "Intialainen";
-"english_accents.american" = "Amerikkalainen";
-"english_accents.belgian" = "Belgialainen";
-"english_accents.singaporean" = "Singaporen";
-"english_accents.irish" = "Irlantilainen";
-"english_accents.south_african" = "Eteläafrikkalainen";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Substantiivi";
-"part_of_speech.full.verb" = "Verbi";
-"part_of_speech.full.adjective" = "Adjektiivi";
-"part_of_speech.full.adverb" = "Adverbi";
-"part_of_speech.full.conjunction" = "Konjunktio";
-"part_of_speech.full.pronoun" = "Pronomini";
-"part_of_speech.full.preposition" = "Prepositio";
-"part_of_speech.full.exclamation" = "Huudahdus";
-"part_of_speech.full.unknown" = "Tuntematon";
-
-"part_of_speech.short.noun" = "Subst.";
-"part_of_speech.short.verb" = "Verb.";
-"part_of_speech.short.adjective" = "Adj.";
-"part_of_speech.short.adverb" = "Adv.";
-"part_of_speech.short.conjunction" = "Konj.";
-"part_of_speech.short.pronoun" = "Pron.";
-"part_of_speech.short.preposition" = "Prep.";
-"part_of_speech.short.exclamation" = "Huud.";
-"part_of_speech.short.unknown" = "Tuntematon";
-
-"actions.settings" = "Asetukset";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Kaikki käyttötapaukset";
-"tts.filters.all_ages" = "Kaikki iät";
-"tts.filters.all_timbres" = "Kaikki äänensävyt";
-"tts.filters.all_accents" = "Kaikki aksentit";
-"tts.filters.all_languages" = "Kaikki kielet";
-"tts.filters.all_genders" = "Kaikki sukupuolet";
-"tts.filters.filters" = "Suodattimet";
-"tts.filters.reset" = "Nollaa";
-"tts.filters.select_voice" = "Valitse ääni";
-"tts.filters.available_voices" = "Saatavilla olevat äänet";
-"tts.filters.no_voices_available" = "Ei saatavilla olevia ääniä";
-"tts.filters.no_voices_found" = "Ääniä ei löytynyt";
-"tts.filters.no_voices_found_message" = "Yritä säätää hakua tai suodattimia";
-
-"tts.usage.monthly_limit_exceeded" = "Kuukausiraja ylittynyt";
-"tts.usage.monthly_limit_exceeded_message" = "Olet saavuttanut Speechify TTS:n 50 000 merkin kuukausirajan. Yritä uudelleen ensi kuussa tai käytä Google TTS:ää.";
-"tts.usage.remaining_characters" = "Jäljellä olevat merkit";
-"tts.usage.monthly_usage" = "Kuukausittainen käyttö";
-"tts.usage.monthly_limit" = "Kuukausiraja";
-
-// TTS Voice Filter Values
-"advertisement" = "Mainos";
-"animation" = "Animaatio";
-"audiobook" = "Äänikirja";
-"audiobook-and-narration" = "Äänikirja ja kerronta";
-"audiobooks-and-narration" = "Äänikirjat ja kerronta";
-"conversational" = "Keskusteleva";
-"e-learning" = "E-oppiminen";
-"gaming" = "Pelaaminen";
-"meditation" = "Meditaatio";
-"movie" = "Elokuva";
-"movies-acting-and-gaming" = "Elokuvat, näytteleminen ja pelaaminen";
-"narration" = "Kerronta";
-"podcast" = "Podcast";
-"social-media" = "Sosiaalinen media";
-
-"middle-aged" = "Keski-ikäinen";
-"senior" = "Seniori";
-"teen" = "Teini";
-"young-adult" = "Nuori aikuinen";
-
-"female" = "Nainen";
-"male" = "Mies";
-
-"angry" = "Vihainen";
-"assertive-or-confident" = "Itsevarma tai päättäväinen";
-"bright" = "Kirkas";
-"calm-or-relaxed" = "Rauhallinen tai rentoutunut";
-"calm-or-relaxed-" = "Rauhallinen tai rentoutunut";
-"cheerful" = "Iloinen";
-"crisp" = "Selkeä";
-"deep" = "Syvä";
-"direct" = "Suora";
-"energetic" = "Energinen";
-"fearful" = "Pelokas";
-"high-pitch" = "Korkea sävel";
-"neutral" = "Neutraali";
-"professional" = "Ammattimainen";
-"relaxed" = "Rentoutunut";
-"sad" = "Surullinen";
-"suprised" = "Yllättynyt";
-"surprised" = "Yllättynyt";
-"terrified" = "Kauhuissaan";
-"warm" = "Lämmin";
-"warm-or-friendly" = "Lämmin tai ystävällinen";
-
-"american-neutral" = "Amerikkalainen neutraali";
-"australian" = "Australialainen";
-"british" = "Brittiläinen";
-"indian" = "Intialainen";
-"nigerian" = "Nigeriläinen";
-
-"notifications.permission_required" = "Ilmoituslupa vaaditaan";
-"notifications.permission_denied_message" = "Saadaksesi päivittäisiä muistutuksia ja vaikeiden sanojen hälytyksiä, ota ilmoitukset käyttöön Asetuksista.";
-
-"onboarding.natural_voices" = "Luonnolliset äänet";
-"onboarding.natural_voices_description" = "Satoja premium-ääniä, jotka kuulostavat inhimillisemmiltä kuin koskaan";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Pääsy Speechifyn premium-teksti-puheeksi-teknologiaan. Satoja luonnollisesti kuulostavia premium-ääniä";
-
-// TTS Dashboard
-"tts.dashboard" = "TTS-kojelauta";
-"tts.premium_tts_dashboard" = "Premium TTS-kojelauta";
-"tts.customize_tts_experience" = "Mukauta teksti-puheeksi-kokemuksesi";
-"tts.playing" = "Toistetaan";
-"tts.ready" = "Valmis";
-"tts.provider" = "Palveluntarjoaja";
-"tts.tts_provider" = "TTS-palveluntarjoaja";
-"tts.voice_customization" = "Äänen mukauttaminen";
-"tts.current_voice" = "Nykyinen ääni";
-"tts.default_voice" = "Oletusääni";
-"tts.preview_current_voice" = "Esikatsele nykyistä ääntä";
-"tts.change_voice" = "Vaihda ääntä";
-"tts.audio_settings" = "Ääniasetukset";
-"tts.speech_rate" = "Puhenopeus";
-"tts.volume" = "Äänenvoimakkuus";
-"tts.test_your_settings" = "Testaa asetuksesi";
-"tts.enter_text_to_test" = "Syötä tekstiä testattavaksi...";
-"tts.stop" = "Pysäytä";
-"tts.test" = "Testaa";
-"tts.usage_statistics" = "Käyttötilastot";
-"tts.speechify_monthly_usage" = "Speechify kuukausittainen käyttö";
-"tts.monthly_limit" = "Kuukausiraja";
-"tts.used_this_month" = "Käytetty tässä kuussa";
-"tts.remaining" = "Jäljellä";
-"tts.usage_progress" = "Käytön edistyminen";
-"tts.characters" = "merkkiä";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Käytetyt merkit";
-"tts.analytics.sessions" = "Istunnot";
-"tts.analytics.favorite_voice" = "Suosikkiääni";
-"tts.analytics.time_saved" = "Säästetty aika";
-"tts.analytics.total_characters" = "Merkit yhteensä";
-"tts.analytics.total_sessions" = "Istuntoja yhteensä";
-"tts.analytics.total_duration" = "Kokonaiskesto";
-"tts.analytics.favorite_language" = "Suosikkikieli";
-"tts.analytics.premium_usage" = "Premium-käyttö";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Teksti-puheeksi";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechifyn teksti-puheeksi-malli on saatavilla kaikille käyttäjille premium-ominaisuutena. Sen avulla voit valita laajasta ääni- ja aksenttivalikoimasta, jotta voit mukauttaa opiskelukokemuksesi.";
-"tts.settings.speechify_pro_description" = "Speechifyn teksti-puheeksi-malli sisältyy tilaukseesi.";
-"tts.settings.dashboard" = "Kojelauta";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Ilmainen Google TTS perustason äänillä ja luotettavalla suorituskyvyllä";
-
-// TTS Models
-"tts.models.english" = "Englanti";
-"tts.models.multilingual" = "Monikielinen";
-"tts.models.english_description" = "Speechifyn englanninkielinen teksti-puheeksi-malli tarjoaa standardiominaisuuksia, jotka on suunniteltu tarjoamaan selkeä ja luonnollinen ääniulostulo tekstin lukemiseen. Malli keskittyy tarjoamaan yhtenäisen käyttäjäkokemuksen.";
-"tts.models.multilingual_description" = "Monikielinen malli mahdollistaa kaikkien tuettujen kielten käytön ja tukee useiden kielten käyttöä yhdessä lauseessa. Tämän mallin ääniulostulo eroaa selvästi muista malleista.";
 

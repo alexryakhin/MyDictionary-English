@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "語彙の成長のすべての詳細を確認するためにプロにアップグレード。";
 "pro_upgrade.time_period" = "期間";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Speechifyのプレミアムテキスト読み上げ技術へのアクセス。自然に聞こえる数百のプレミアム音声";
+

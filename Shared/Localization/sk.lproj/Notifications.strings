@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Vyžaduje sa povolenie na notifikácie";
+"notifications.permission_denied_message" = "Ak chcete dostávať denné pripomienky a upozornenia na náročné slová, povoľte notifikácie v Nastaveniach.";
+

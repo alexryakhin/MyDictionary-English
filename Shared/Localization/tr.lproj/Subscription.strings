@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Kelime dağarcığınızın büyümesinin tüm detaylarını görmek için Pro'ya yükseltin.";
 "pro_upgrade.time_period" = "Zaman Dilimi";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Speechify'nin premium metin-konuşma teknolojisine erişim. Doğal seslere sahip yüzlerce premium ses";
+

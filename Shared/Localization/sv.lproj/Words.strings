@@ -61,3 +61,96 @@
 "words.edit_example" = "Redigera exempel";
 "words.no_transcription" = "Ingen transkription";
 "words.no_definition" = "Ingen definition";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Lägg till uttryck";
+"idioms.add_new_idiom" = "Lägg till nytt uttryck";
+"idioms.idiom" = "Uttryck";
+"idioms.idioms" = "Uttryck";
+"idioms.no_idioms_found" = "Inga uttryck hittades";
+"idioms.add_this_idiom" = "Lägg till detta uttryck genom att klicka på knappen ovan";
+"idioms.begin_add_idioms" = "Börja lägga till uttryck i din lista genom att klicka på plusikonen i det övre vänstra hörnet";
+"idioms.all_idioms" = "Alla uttryck";
+"idioms.favorite_idioms" = "Favorituttryck";
+"idioms.found_idioms" = "Hittade uttryck";
+"idioms.examples" = "Exempel";
+"idioms.no_examples_yet" = "Inga exempel ännu";
+"idioms.type_example_here" = "Skriv exempel här";
+"idioms.add_example" = "Lägg till exempel";
+"idioms.edit_example" = "Redigera exempel";
+"idioms.delete_idiom" = "Radera uttryck";
+"idioms.delete_idiom_confirmation" = "Är du säker på att du vill radera detta uttryck?";
+"idioms.search_idioms" = "Sök uttryck...";
+"idioms.favorites" = "Favoriter";
+"idioms.found" = "Hittade";
+"idioms.sort" = "Sortera";
+"idioms.filter" = "Filtrera";
+"idioms.latest_first" = "Senaste först";
+"idioms.earliest_first" = "Tidigaste först";
+"idioms.alphabetically" = "Alfabetiskt";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nytt";
+"difficulty.in_progress" = "Pågående";
+"difficulty.needs_review" = "Behöver repetition";
+"difficulty.mastered" = "Bemästrat";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Senaste först";
+"sorting.earliest_first" = "Tidigaste först";
+"sorting.alphabetically" = "Alfabetiskt";
+"sorting.by_part_of_speech" = "Efter ordklass";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatisk detektering";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkription";
+"word_details.part_of_speech" = "Ordklass";
+"word_details.definition" = "Definition";
+"word_details.difficulty" = "Svårighetsgrad";
+"word_details.examples" = "Exempel";
+"word_details.edit_example" = "Redigera exempel";
+"word_details.example" = "Exempel";
+"word_details.type_example_here" = "Skriv exempel här";
+"word_details.add_example" = "Lägg till exempel";
+"word_details.delete_word" = "Radera ord";
+"word_details.delete_failed" = "Radering misslyckades";
+
+// MARK: - Word List
+"word_list.all_words" = "Alla ord";
+"word_list.favorite" = "Favorit";
+"word_list.manage_tags" = "Hantera taggar";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Inga ord ännu";
+"empty_states.no_idioms_yet" = "Inga uttryck ännu";
+"empty_states.no_favorite_words" = "Inga favoritord";
+"empty_states.no_search_results" = "Inga sökresultat";
+"empty_states.start_improving_vocabulary" = "Börja förbättra ditt ordförråd genom att lägga till det första uttrycket";
+"empty_states.tap_heart_icon_to_add_favorites" = "Klicka på hjärtikonen på något uttryck för att lägga till det i favoriter";
+"empty_states.try_different_search_term" = "Försök med en annan sökterm eller lägg till ett nytt uttryck";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Substantiv";
+"part_of_speech.full.verb" = "Verb";
+"part_of_speech.full.adjective" = "Adjektiv";
+"part_of_speech.full.adverb" = "Adverb";
+"part_of_speech.full.conjunction" = "Konjunktion";
+"part_of_speech.full.pronoun" = "Pronomen";
+"part_of_speech.full.preposition" = "Preposition";
+"part_of_speech.full.exclamation" = "Utrop";
+"part_of_speech.full.unknown" = "Okänd";
+
+"part_of_speech.short.noun" = "Subst.";
+"part_of_speech.short.verb" = "Verb";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Konj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.exclamation" = "Utr.";
+"part_of_speech.short.unknown" = "Okänd";
+
+"actions.settings" = "Inställningar";
+

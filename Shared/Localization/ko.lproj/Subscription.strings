@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "어휘 성장의 모든 세부 정보를 보려면 프로로 업그레이드하세요.";
 "pro_upgrade.time_period" = "기간";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Speechify의 프리미엄 텍스트 음성 변환 기술에 접근. 자연스럽게 들리는 수백 개의 프리미엄 음성";
+

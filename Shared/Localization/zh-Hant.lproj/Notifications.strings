@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "需要通知權限";
+"notifications.permission_denied_message" = "要接收每日提醒和難點詞彙警報，請在設置中啟用通知。";
+

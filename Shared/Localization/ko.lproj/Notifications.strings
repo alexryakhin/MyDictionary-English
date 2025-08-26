@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "알림 권한 필요";
+"notifications.permission_denied_message" = "매일 알림과 어려운 단어 경고를 받으려면 설정에서 알림을 활성화하세요.";
+

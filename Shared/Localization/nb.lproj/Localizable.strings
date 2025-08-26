@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Ord";
-"tabbar.idioms" = "Uttrykk";
-"tabbar.quizzes" = "Quizzer";
-"tabbar.progress" = "Fremgang";
-"tabbar.settings" = "Innstillinger";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Orddetaljer";
-"navigation.idiom_details" = "Uttrykksdetaljer";
-"navigation.add_tags" = "Legg til etiketter";
-"navigation.about" = "Om appen";
-"navigation.debug_panel" = "Feilsøkingspanel";
-"navigation.quiz_results" = "Quizresultater";
-"navigation.spelling_quiz" = "Stavequiz";
-"navigation.definition_quiz" = "Definisjonsquiz";
-"navigation.close" = "Lukk";
-"navigation.close_screen" = "Lukk skjerm";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Legg til uttrykk";
-"idioms.add_new_idiom" = "Legg til nytt uttrykk";
-"idioms.idiom" = "Uttrykk";
-"idioms.idioms" = "Uttrykk";
-"idioms.no_idioms_found" = "Ingen uttrykk funnet";
-"idioms.add_this_idiom" = "Legg til dette uttrykket ved å klikke på knappen ovenfor";
-"idioms.begin_add_idioms" = "Begynn å legge til uttrykk i listen din ved å klikke på plusstegnet øverst til venstre";
-"idioms.all_idioms" = "Alle uttrykk";
-"idioms.favorite_idioms" = "Favorittuttrykk";
-"idioms.found_idioms" = "Funnet uttrykk";
-"idioms.examples" = "Eksempler";
-"idioms.no_examples_yet" = "Ingen eksempler ennå";
-"idioms.type_example_here" = "Skriv eksempel her";
-"idioms.add_example" = "Legg til eksempel";
-"idioms.edit_example" = "Rediger eksempel";
-"idioms.delete_idiom" = "Slett uttrykk";
-"idioms.delete_idiom_confirmation" = "Er du sikker på at du vil slette dette uttrykket?";
-"idioms.search_idioms" = "Søk etter uttrykk...";
-"idioms.favorites" = "Favoritter";
-"idioms.found" = "Funnet";
-"idioms.sort" = "Sorter";
-"idioms.filter" = "Filtrer";
-"idioms.latest_first" = "Nyeste først";
-"idioms.earliest_first" = "Eldste først";
-"idioms.alphabetically" = "Alfabetisk";
-
 // MARK: - App
 "app.my_dictionary" = "Min ordbok";
 "app.loading" = "Laster...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Liker du appen?";
 "coffee.helpful_learning_journey" = "Hvis Min ordbok har vært nyttig i læringsreisen din, vurder å kjøpe meg en kaffe! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Nytt";
-"difficulty.in_progress" = "Under arbeid";
-"difficulty.needs_review" = "Trenger gjennomgang";
-"difficulty.mastered" = "Mestret";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Nyeste først";
-"sorting.earliest_first" = "Eldste først";
-"sorting.alphabetically" = "Alfabetisk";
-"sorting.by_part_of_speech" = "Etter ordklasse";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Automatisk oppdagelse";
-
 // MARK: - Time Period
 "time_period.week" = "Uke";
 "time_period.month" = "Måned";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Riktig";
 "quiz_results.duration" = "Varighet";
 "quiz_results.time_period" = "Tidsperiode";
-
-// MARK: - Word Details
-"word_details.transcription" = "Transkripsjon";
-"word_details.part_of_speech" = "Ordklasse";
-"word_details.definition" = "Definisjon";
-"word_details.difficulty" = "Vanskelighetsgrad";
-"word_details.examples" = "Eksempler";
-"word_details.edit_example" = "Rediger eksempel";
-"word_details.example" = "Eksempel";
-"word_details.type_example_here" = "Skriv eksempel her";
-"word_details.add_example" = "Legg til eksempel";
-"word_details.delete_word" = "Slett ord";
-"word_details.delete_failed" = "Sletting mislyktes";
-
-// MARK: - Word List
-"word_list.all_words" = "Alle ord";
-"word_list.favorite" = "Favoritt";
-"word_list.manage_tags" = "Administrer etiketter";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Quiztyper";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Velg etiketter";
 "tag_selection.no_tags_yet" = "Ingen etiketter ennå";
 "tag_selection.you_can_select_up_to_5_tags" = "Du kan velge opptil 5 etiketter per ord. Trykk på etiketter for å velge eller fjerne valg.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Ingen ord ennå";
-"empty_states.no_idioms_yet" = "Ingen uttrykk ennå";
-"empty_states.no_favorite_words" = "Ingen favorittord";
-"empty_states.no_search_results" = "Ingen søkeresultater";
-"empty_states.start_improving_vocabulary" = "Begynn å forbedre vokabularet ditt ved å legge til ditt første uttrykk";
-"empty_states.tap_heart_icon_to_add_favorites" = "Trykk på hjerteikonet på et uttrykk for å legge det til i favoritter";
-"empty_states.try_different_search_term" = "Prøv et annet søkeord eller legg til et nytt uttrykk";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Tid for å øve! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "Velg riktig definisjon for hvert ord";
 "quiz_types.great_job_completed_spelling_quiz" = "Flott jobb! Du har fullført stavequizen.";
 "quiz_types.great_job_completed_definition_quiz" = "Flott jobb! Du har fullført definisjonsquizen.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Australsk";
-"english_accents.canadian" = "Kanadisk";
-"english_accents.british" = "Britisk";
-"english_accents.indian" = "Indisk";
-"english_accents.american" = "Amerikansk";
-"english_accents.belgian" = "Belgisk";
-"english_accents.singaporean" = "Singaporsk";
-"english_accents.irish" = "Irsk";
-"english_accents.south_african" = "Sørafrikansk";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Substantiv";
-"part_of_speech.full.verb" = "Verb";
-"part_of_speech.full.adjective" = "Adjektiv";
-"part_of_speech.full.adverb" = "Adverb";
-"part_of_speech.full.conjunction" = "Konjunksjon";
-"part_of_speech.full.pronoun" = "Pronomen";
-"part_of_speech.full.preposition" = "Preposisjon";
-"part_of_speech.full.exclamation" = "Utropsord";
-"part_of_speech.full.unknown" = "Ukjent";
-
-"part_of_speech.short.noun" = "Subst.";
-"part_of_speech.short.verb" = "Verb";
-"part_of_speech.short.adjective" = "Adj.";
-"part_of_speech.short.adverb" = "Adv.";
-"part_of_speech.short.conjunction" = "Konj.";
-"part_of_speech.short.pronoun" = "Pron.";
-"part_of_speech.short.preposition" = "Prep.";
-"part_of_speech.short.exclamation" = "Utr.";
-"part_of_speech.short.unknown" = "Ukjent";
-
-"actions.settings" = "Innstillinger";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Alle brukstilfeller";
-"tts.filters.all_ages" = "Alle aldre";
-"tts.filters.all_timbres" = "Alle klangfarger";
-"tts.filters.all_accents" = "Alle aksenter";
-"tts.filters.all_languages" = "Alle språk";
-"tts.filters.all_genders" = "Alle kjønn";
-"tts.filters.filters" = "Filtre";
-"tts.filters.reset" = "Tilbakestill";
-"tts.filters.select_voice" = "Velg stemme";
-"tts.filters.available_voices" = "Tilgjengelige stemmer";
-"tts.filters.no_voices_available" = "Ingen stemmer tilgjengelig";
-"tts.filters.no_voices_found" = "Ingen stemmer funnet";
-"tts.filters.no_voices_found_message" = "Prøv å justere søket eller filtrene dine";
-
-"tts.usage.monthly_limit_exceeded" = "Månedlig grense overskredet";
-"tts.usage.monthly_limit_exceeded_message" = "Du har nådd den månedlige grensen på 50 000 tegn for Speechify TTS. Prøv igjen neste måned eller bruk Google TTS i stedet.";
-"tts.usage.remaining_characters" = "Gjenstående tegn";
-"tts.usage.monthly_usage" = "Månedlig bruk";
-"tts.usage.monthly_limit" = "Månedlig grense";
-
-// TTS Voice Filter Values
-"advertisement" = "Reklame";
-"animation" = "Animasjon";
-"audiobook" = "Lydbok";
-"audiobook-and-narration" = "Lydbok og fortelling";
-"audiobooks-and-narration" = "Lydbøker og fortelling";
-"conversational" = "Samtalemessig";
-"e-learning" = "E-læring";
-"gaming" = "Spill";
-"meditation" = "Meditasjon";
-"movie" = "Film";
-"movies-acting-and-gaming" = "Filmer, skuespill og spill";
-"narration" = "Fortelling";
-"podcast" = "Podkast";
-"social-media" = "Sosiale medier";
-
-"middle-aged" = "Midt i livet";
-"senior" = "Senior";
-"teen" = "Tenåring";
-"young-adult" = "Ung voksen";
-
-"female" = "Kvinne";
-"male" = "Mann";
-
-"angry" = "Sint";
-"assertive-or-confident" = "Bestemt eller selvsikker";
-"bright" = "Lys";
-"calm-or-relaxed" = "Rolig eller avslappet";
-"calm-or-relaxed-" = "Rolig eller avslappet";
-"cheerful" = "Glad";
-"crisp" = "Klar";
-"deep" = "Dyp";
-"direct" = "Direkte";
-"energetic" = "Energisk";
-"fearful" = "Redd";
-"high-pitch" = "Høy tone";
-"neutral" = "Nøytral";
-"professional" = "Profesjonell";
-"relaxed" = "Avslappet";
-"sad" = "Trist";
-"suprised" = "Overrasket";
-"surprised" = "Overrasket";
-"terrified" = "Livredd";
-"warm" = "Varm";
-"warm-or-friendly" = "Varm eller vennlig";
-
-"american-neutral" = "Amerikansk nøytral";
-"australian" = "Australsk";
-"british" = "Britisk";
-"indian" = "Indisk";
-"nigerian" = "Nigeriansk";
-
-"notifications.permission_required" = "Varslingstillatelse kreves";
-"notifications.permission_denied_message" = "For å motta daglige påminnelser og varsler om vanskelige ord, vennligst aktiver varsler i Innstillinger.";
-
-"onboarding.natural_voices" = "Naturlige stemmer";
-"onboarding.natural_voices_description" = "Hundrevis av premiumstemmer som høres mer menneskelige ut enn noen gang";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Tilgang til Speechifys premium tekst-til-tale-teknologi. Hundrevis av naturlig klingende premiumstemmer";
-
-// TTS Dashboard
-"tts.dashboard" = "TTS-dashbord";
-"tts.premium_tts_dashboard" = "Premium TTS-dashbord";
-"tts.customize_tts_experience" = "Tilpass din tekst-til-tale-opplevelse";
-"tts.playing" = "Spiller";
-"tts.ready" = "Klar";
-"tts.provider" = "Leverandør";
-"tts.tts_provider" = "TTS-leverandør";
-"tts.voice_customization" = "Stemetilpasning";
-"tts.current_voice" = "Nåværende stemme";
-"tts.default_voice" = "Standard stemme";
-"tts.preview_current_voice" = "Forhåndsvis nåværende stemme";
-"tts.change_voice" = "Endre stemme";
-"tts.audio_settings" = "Lydinnstillinger";
-"tts.speech_rate" = "Talehastighet";
-"tts.volume" = "Volum";
-"tts.test_your_settings" = "Test innstillingene dine";
-"tts.enter_text_to_test" = "Skriv inn tekst for å teste...";
-"tts.stop" = "Stopp";
-"tts.test" = "Test";
-"tts.usage_statistics" = "Bruksstatistikk";
-"tts.speechify_monthly_usage" = "Speechify månedlig bruk";
-"tts.monthly_limit" = "Månedlig grense";
-"tts.used_this_month" = "Brukt denne måneden";
-"tts.remaining" = "Gjenstående";
-"tts.usage_progress" = "Bruksfremgang";
-"tts.characters" = "tegn";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Brukte tegn";
-"tts.analytics.sessions" = "Økter";
-"tts.analytics.favorite_voice" = "Favorittstemme";
-"tts.analytics.time_saved" = "Sparet tid";
-"tts.analytics.total_characters" = "Totalt antall tegn";
-"tts.analytics.total_sessions" = "Totalt antall økter";
-"tts.analytics.total_duration" = "Total varighet";
-"tts.analytics.favorite_language" = "Favorittspråk";
-"tts.analytics.premium_usage" = "Premiumbruk";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Tekst-til-tale";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechifys tekst-til-tale-modell er tilgjengelig for alle brukere som en premiumfunksjon. Den lar deg velge fra et bredt utvalg av stemmer og aksenter, slik at du kan tilpasse studieopplevelsen din.";
-"tts.settings.speechify_pro_description" = "Speechifys tekst-til-tale-modell er inkludert i abonnementet ditt.";
-"tts.settings.dashboard" = "Dashbord";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Gratis Google TTS med grunnleggende stemmer og pålitelig ytelse";
-
-// TTS Models
-"tts.models.english" = "Engelsk";
-"tts.models.multilingual" = "Fler språk";
-"tts.models.english_description" = "Speechifys engelske tekst-til-tale-modell tilbyr standardfunksjoner designet for å levere klar og naturlig lydutgang for tekstlesing. Modellen fokuserer på å gi en konsistent brukeropplevelse.";
-"tts.models.multilingual_description" = "Den flerspråklige modellen tillater bruk av alle støttede språk og støtter bruk av flere språk innenfor en enkelt setning. Lydutgangen fra denne modellen skiller seg tydelig fra andre modeller.";
 

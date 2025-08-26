@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Paraules";
+"tabbar.idioms" = "Modismes";
+"tabbar.quizzes" = "Qüestionaris";
+"tabbar.progress" = "Progrés";
+"tabbar.settings" = "Configuració";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Detalls de la paraula";
+"navigation.idiom_details" = "Detalls del modisme";
+"navigation.add_tags" = "Afegeix etiquetes";
+"navigation.about" = "Quant a";
+"navigation.debug_panel" = "Panell de depuració";
+"navigation.quiz_results" = "Resultats del qüestionari";
+"navigation.spelling_quiz" = "Qüestionari d'ortografia";
+"navigation.definition_quiz" = "Qüestionari de definició";
+"navigation.close" = "Tanca";
+"navigation.close_screen" = "Tanca la pantalla";
+

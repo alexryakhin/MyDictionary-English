@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "נדרשת הרשאת התראות";
+"notifications.permission_denied_message" = "כדי לקבל תזכורות יומיות והתראות על מילים קשות, אנא הפעל התראות בהגדרות.";
+

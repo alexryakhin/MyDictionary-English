@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Riječi";
-"tabbar.idioms" = "Idiomi";
-"tabbar.quizzes" = "Kvizovi";
-"tabbar.progress" = "Napredak";
-"tabbar.settings" = "Postavke";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Detalji riječi";
-"navigation.idiom_details" = "Detalji idioma";
-"navigation.add_tags" = "Dodaj oznake";
-"navigation.about" = "O aplikaciji";
-"navigation.debug_panel" = "Ploča za otklanjanje pogrešaka";
-"navigation.quiz_results" = "Rezultati kviza";
-"navigation.spelling_quiz" = "Kviz pravopisa";
-"navigation.definition_quiz" = "Kviz definicija";
-"navigation.close" = "Zatvori";
-"navigation.close_screen" = "Zatvori zaslon";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Dodaj idiom";
-"idioms.add_new_idiom" = "Dodaj novi idiom";
-"idioms.idiom" = "Idiom";
-"idioms.idioms" = "Idiomi";
-"idioms.no_idioms_found" = "Nema pronađenih idioma";
-"idioms.add_this_idiom" = "Dodajte ovaj idiom pritiskom na gumb iznad";
-"idioms.begin_add_idioms" = "Počnite dodavati idiome na svoj popis klikom na ikonu plus u gornjem lijevom kutu";
-"idioms.all_idioms" = "Svi idiomi";
-"idioms.favorite_idioms" = "Omiljeni idiomi";
-"idioms.found_idioms" = "Pronađeni";
-"idioms.examples" = "Primjeri";
-"idioms.no_examples_yet" = "Još nema primjera";
-"idioms.type_example_here" = "Upiši primjer ovdje";
-"idioms.add_example" = "Dodaj primjer";
-"idioms.edit_example" = "Uredi primjer";
-"idioms.delete_idiom" = "Izbriši idiom";
-"idioms.delete_idiom_confirmation" = "Jeste li sigurni da želite izbrisati ovaj idiom?";
-"idioms.search_idioms" = "Pretraži idiome...";
-"idioms.favorites" = "Favoriti";
-"idioms.found" = "Pronađeni";
-"idioms.sort" = "Sortiraj";
-"idioms.filter" = "Filtriraj";
-"idioms.latest_first" = "Najnovije prvo";
-"idioms.earliest_first" = "Najstarije prvo";
-"idioms.alphabetically" = "Abecedno";
-
 // MARK: - App
 "app.my_dictionary" = "Moj rječnik";
 "app.loading" = "Učitavanje...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Uživate li u aplikaciji?";
 "coffee.helpful_learning_journey" = "Ako vam je Moj rječnik pomogao u vašem putovanju učenja, razmislite o tome da me častite kavom! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Novo";
-"difficulty.in_progress" = "U tijeku";
-"difficulty.needs_review" = "Potrebna revizija";
-"difficulty.mastered" = "Svladano";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Najnovije prvo";
-"sorting.earliest_first" = "Najstarije prvo";
-"sorting.alphabetically" = "Abecedno";
-"sorting.by_part_of_speech" = "Po vrsti riječi";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Automatsko otkrivanje";
-
 // MARK: - Time Period
 "time_period.week" = "Tjedan";
 "time_period.month" = "Mjesec";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Točno";
 "quiz_results.duration" = "Trajanje";
 "quiz_results.time_period" = "Vremensko razdoblje";
-
-// MARK: - Word Details
-"word_details.transcription" = "Transkripcija";
-"word_details.part_of_speech" = "Vrsta riječi";
-"word_details.definition" = "Definicija";
-"word_details.difficulty" = "Težina";
-"word_details.examples" = "Primjeri";
-"word_details.edit_example" = "Uredi primjer";
-"word_details.example" = "Primjer";
-"word_details.type_example_here" = "Upiši primjer ovdje";
-"word_details.add_example" = "Dodaj primjer";
-"word_details.delete_word" = "Izbriši riječ";
-"word_details.delete_failed" = "Brisanje nije uspjelo";
-
-// MARK: - Word List
-"word_list.all_words" = "Sve riječi";
-"word_list.favorite" = "Favorit";
-"word_list.manage_tags" = "Upravljaj oznakama";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Vrste kvizova";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Odaberi oznake";
 "tag_selection.no_tags_yet" = "Još nema oznaka";
 "tag_selection.you_can_select_up_to_5_tags" = "Možete odabrati do 5 oznaka po riječi. Dodirnite oznaku za odabir ili poništavanje odabira.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Još nema riječi";
-"empty_states.no_idioms_yet" = "Još nema idioma";
-"empty_states.no_favorite_words" = "Nema omiljenih riječi";
-"empty_states.no_search_results" = "Nema rezultata pretrage";
-"empty_states.start_improving_vocabulary" = "Počnite poboljšavati svoj vokabular dodavanjem svog prvog idioma";
-"empty_states.tap_heart_icon_to_add_favorites" = "Dodirnite ikonu srca na bilo kojem idiomu da biste ga dodali u favorite";
-"empty_states.try_different_search_term" = "Pokušajte s drugim pojmom za pretragu ili dodajte novi idiom";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Vrijeme za vježbanje! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "Odaberite točnu definiciju za svaku riječ";
 "quiz_types.great_job_completed_spelling_quiz" = "Odličan posao! Završili ste kviz pravopisa.";
 "quiz_types.great_job_completed_definition_quiz" = "Odličan posao! Završili ste kviz definicija.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Australski";
-"english_accents.canadian" = "Kanadski";
-"english_accents.british" = "Britanski";
-"english_accents.indian" = "Indijski";
-"english_accents.american" = "Američki";
-"english_accents.belgian" = "Belgijski";
-"english_accents.singaporean" = "Singapurski";
-"english_accents.irish" = "Irski";
-"english_accents.south_african" = "Južnoafrički";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Imenica";
-"part_of_speech.full.verb" = "Glagol";
-"part_of_speech.full.adjective" = "Pridjev";
-"part_of_speech.full.adverb" = "Prilog";
-"part_of_speech.full.conjunction" = "Veznik";
-"part_of_speech.full.pronoun" = "Zamjenica";
-"part_of_speech.full.preposition" = "Prijedlog";
-"part_of_speech.full.exclamation" = "Usklik";
-"part_of_speech.full.unknown" = "Nepoznato";
-
-"part_of_speech.short.noun" = "Imen.";
-"part_of_speech.short.verb" = "Glag.";
-"part_of_speech.short.adjective" = "Prid.";
-"part_of_speech.short.adverb" = "Pril.";
-"part_of_speech.short.conjunction" = "Vez.";
-"part_of_speech.short.pronoun" = "Zamj.";
-"part_of_speech.short.preposition" = "Prij.";
-"part_of_speech.short.exclamation" = "Uskl.";
-"part_of_speech.short.unknown" = "Nepoz.";
-
-"actions.settings" = "Postavke";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Svi slučajevi upotrebe";
-"tts.filters.all_ages" = "Sve dobne skupine";
-"tts.filters.all_timbres" = "Svi tonovi glasa";
-"tts.filters.all_accents" = "Svi naglasci";
-"tts.filters.all_languages" = "Svi jezici";
-"tts.filters.all_genders" = "Svi spolovi";
-"tts.filters.filters" = "Filteri";
-"tts.filters.reset" = "Poništi";
-"tts.filters.select_voice" = "Odaberi glas";
-"tts.filters.available_voices" = "Dostupni glasovi";
-"tts.filters.no_voices_available" = "Nema dostupnih glasova";
-"tts.filters.no_voices_found" = "Nisu pronađeni glasovi";
-"tts.filters.no_voices_found_message" = "Pokušajte prilagoditi pretragu ili filtre";
-
-"tts.usage.monthly_limit_exceeded" = "Prekoračena mjesečna granica";
-"tts.usage.monthly_limit_exceeded_message" = "Dosegli ste mjesečno ograničenje od 50.000 znakova za Speechify TTS. Pokušajte ponovno sljedeći mjesec ili koristite Google TTS.";
-"tts.usage.remaining_characters" = "Preostali znakovi";
-"tts.usage.monthly_usage" = "Mjesečna upotreba";
-"tts.usage.monthly_limit" = "Mjesečna granica";
-
-// TTS Voice Filter Values
-"advertisement" = "Reklama";
-"animation" = "Animacija";
-"audiobook" = "Audioknjiga";
-"audiobook-and-narration" = "Audioknjiga i naracija";
-"audiobooks-and-narration" = "Audioknjige i naracija";
-"conversational" = "Konverzacijski";
-"e-learning" = "E-učenje";
-"gaming" = "Igre";
-"meditation" = "Meditacija";
-"movie" = "Film";
-"movies-acting-and-gaming" = "Filmovi, gluma i igre";
-"narration" = "Naracija";
-"podcast" = "Podcast";
-"social-media" = "Društvene mreže";
-
-"middle-aged" = "Srednja dob";
-"senior" = "Senior";
-"teen" = "Tinejdžer";
-"young-adult" = "Mladi odrasli";
-
-"female" = "Žena";
-"male" = "Muškarac";
-
-"angry" = "Ljut";
-"assertive-or-confident" = "Asertivan ili samouvjeren";
-"bright" = "Svijetao";
-"calm-or-relaxed" = "Miran ili opušten";
-"calm-or-relaxed-" = "Miran ili opušten";
-"cheerful" = "Veselo";
-"crisp" = "Jasno";
-"deep" = "Duboko";
-"direct" = "Izravno";
-"energetic" = "Energično";
-"fearful" = "Uplašen";
-"high-pitch" = "Visoki ton";
-"neutral" = "Neutralan";
-"professional" = "Profesionalan";
-"relaxed" = "Opušten";
-"sad" = "Tužan";
-"suprised" = "Iznenađen";
-"surprised" = "Iznenađen";
-"terrified" = "Prestravljen";
-"warm" = "Toplo";
-"warm-or-friendly" = "Toplo ili prijateljski";
-
-"american-neutral" = "Američki neutralni";
-"australian" = "Australski";
-"british" = "Britanski";
-"indian" = "Indijski";
-"nigerian" = "Nigerijski";
-
-"notifications.permission_required" = "Potrebna je dozvola za obavijesti";
-"notifications.permission_denied_message" = "Da biste primali dnevne podsjetnike i upozorenja za teške riječi, omogućite obavijesti u Postavkama.";
-
-"onboarding.natural_voices" = "Prirodni glasovi";
-"onboarding.natural_voices_description" = "Stotine vrhunskih glasova koji zvuče ljudskije nego ikad";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Pristup vrhunskoj tehnologiji pretvaranja teksta u govor od Speechify. Stotine prirodno zvučećih vrhunskih glasova";
-
-// TTS Dashboard
-"tts.dashboard" = "TTS nadzorna ploča";
-"tts.premium_tts_dashboard" = "Vrhunska TTS nadzorna ploča";
-"tts.customize_tts_experience" = "Prilagodite svoje iskustvo pretvaranja teksta u govor";
-"tts.playing" = "Reproducira se";
-"tts.ready" = "Spremno";
-"tts.provider" = "Pružatelj usluge";
-"tts.tts_provider" = "TTS pružatelj usluge";
-"tts.voice_customization" = "Prilagodba glasa";
-"tts.current_voice" = "Trenutni glas";
-"tts.default_voice" = "Zadani glas";
-"tts.preview_current_voice" = "Pregled trenutnog glasa";
-"tts.change_voice" = "Promijeni glas";
-"tts.audio_settings" = "Postavke zvuka";
-"tts.speech_rate" = "Brzina govora";
-"tts.volume" = "Glasnoća";
-"tts.test_your_settings" = "Testirajte svoje postavke";
-"tts.enter_text_to_test" = "Unesite tekst za testiranje...";
-"tts.stop" = "Zaustavi";
-"tts.test" = "Test";
-"tts.usage_statistics" = "Statistike upotrebe";
-"tts.speechify_monthly_usage" = "Mjesečna upotreba Speechify";
-"tts.monthly_limit" = "Mjesečna granica";
-"tts.used_this_month" = "Korišteno ovaj mjesec";
-"tts.remaining" = "Preostalo";
-"tts.usage_progress" = "Napredak upotrebe";
-"tts.characters" = "znakovi";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Korišteni znakovi";
-"tts.analytics.sessions" = "Sesije";
-"tts.analytics.favorite_voice" = "Omiljeni glas";
-"tts.analytics.time_saved" = "Ušteđeno vrijeme";
-"tts.analytics.total_characters" = "Ukupno znakova";
-"tts.analytics.total_sessions" = "Ukupno sesija";
-"tts.analytics.total_duration" = "Ukupno trajanje";
-"tts.analytics.favorite_language" = "Omiljeni jezik";
-"tts.analytics.premium_usage" = "Vrhunska upotreba";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Pretvaranje teksta u govor";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Model pretvaranja teksta u govor od Speechify dostupan je svim korisnicima kao vrhunska značajka. Omogućuje vam odabir iz širokog spektra glasova i naglasaka kako biste prilagodili svoje iskustvo učenja.";
-"tts.settings.speechify_pro_description" = "Model pretvaranja teksta u govor od Speechify uključen je u vašu pretplatu.";
-"tts.settings.dashboard" = "Nadzorna ploča";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Besplatni Google TTS s osnovnim glasovima i pouzdanim performansama";
-
-// TTS Models
-"tts.models.english" = "Engleski";
-"tts.models.multilingual" = "Višejezični";
-"tts.models.english_description" = "Model pretvaranja teksta u govor na engleskom jeziku od Speechify nudi standardne značajke dizajnirane za pružanje jasnog i prirodnog zvučnog izlaza za čitanje tekstova. Model se fokusira na pružanje dosljednog korisničkog iskustva.";
-"tts.models.multilingual_description" = "Višejezični model omogućuje korištenje svih podržanih jezika i podržava korištenje više jezika unutar jedne rečenice. Zvučni izlaz ovog modela značajno se razlikuje od ostalih modela.";
 

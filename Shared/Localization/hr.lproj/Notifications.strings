@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Potrebna je dozvola za obavijesti";
+"notifications.permission_denied_message" = "Da biste primali dnevne podsjetnike i upozorenja za teške riječi, omogućite obavijesti u Postavkama.";
+

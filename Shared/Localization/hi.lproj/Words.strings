@@ -61,3 +61,96 @@
 "words.edit_example" = "उदाहरण संपादित करें";
 "words.no_transcription" = "कोई लिप्यंतरण नहीं";
 "words.no_definition" = "कोई परिभाषा नहीं";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "मुहावरा जोड़ें";
+"idioms.add_new_idiom" = "नया मुहावरा जोड़ें";
+"idioms.idiom" = "मुहावरा";
+"idioms.idioms" = "मुहावरे";
+"idioms.no_idioms_found" = "कोई मुहावरे नहीं मिले";
+"idioms.add_this_idiom" = "इस मुहावरे को ऊपर दिए बटन पर क्लिक करके जोड़ें";
+"idioms.begin_add_idioms" = "ऊपरी बाएं कोने में प्लस आइकन पर क्लिक करके अपनी सूची में मुहावरे जोड़ना शुरू करें";
+"idioms.all_idioms" = "सभी मुहावरे";
+"idioms.favorite_idioms" = "पसंदीदा मुहावरे";
+"idioms.found_idioms" = "मिल गए";
+"idioms.examples" = "उदाहरण";
+"idioms.no_examples_yet" = "अभी तक कोई उदाहरण नहीं";
+"idioms.type_example_here" = "यहां उदाहरण टाइप करें";
+"idioms.add_example" = "उदाहरण जोड़ें";
+"idioms.edit_example" = "उदाहरण संपादित करें";
+"idioms.delete_idiom" = "मुहावरा हटाएं";
+"idioms.delete_idiom_confirmation" = "क्या आप वाकई इस मुहावरे को हटाना चाहते हैं?";
+"idioms.search_idioms" = "मुहावरे खोजें...";
+"idioms.favorites" = "पसंदीदा";
+"idioms.found" = "मिल गए";
+"idioms.sort" = "छांटें";
+"idioms.filter" = "फ़िल्टर";
+"idioms.latest_first" = "नवीनतम पहले";
+"idioms.earliest_first" = "सबसे पुराना पहले";
+"idioms.alphabetically" = "वर्णमाला के अनुसार";
+
+// MARK: - Difficulty
+"difficulty.new" = "नया";
+"difficulty.in_progress" = "प्रगति में";
+"difficulty.needs_review" = "समीक्षा की आवश्यकता";
+"difficulty.mastered" = "निपुण";
+
+// MARK: - Sorting
+"sorting.latest_first" = "नवीनतम पहले";
+"sorting.earliest_first" = "सबसे पुराना पहले";
+"sorting.alphabetically" = "वर्णमाला के अनुसार";
+"sorting.by_part_of_speech" = "वाक्यांश के हिस्से के अनुसार";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "स्वचालित पहचान";
+
+// MARK: - Word Details
+"word_details.transcription" = "लिप्यंतरण";
+"word_details.part_of_speech" = "वाक्यांश का हिस्सा";
+"word_details.definition" = "परिभाषा";
+"word_details.difficulty" = "कठिनाई";
+"word_details.examples" = "उदाहरण";
+"word_details.edit_example" = "उदाहरण संपादित करें";
+"word_details.example" = "उदाहरण";
+"word_details.type_example_here" = "यहां उदाहरण टाइप करें";
+"word_details.add_example" = "उदाहरण जोड़ें";
+"word_details.delete_word" = "शब्द हटाएं";
+"word_details.delete_failed" = "हटाना विफल";
+
+// MARK: - Word List
+"word_list.all_words" = "सभी शब्द";
+"word_list.favorite" = "पसंदीदा";
+"word_list.manage_tags" = "टैग प्रबंधन करें";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "अभी तक कोई शब्द नहीं";
+"empty_states.no_idioms_yet" = "अभी तक कोई मुहावरे नहीं";
+"empty_states.no_favorite_words" = "कोई पसंदीदा शब्द नहीं";
+"empty_states.no_search_results" = "कोई खोज परिणाम नहीं";
+"empty_states.start_improving_vocabulary" = "अपना पहला मुहावरा जोड़कर अपनी शब्दावली को बेहतर बनाना शुरू करें";
+"empty_states.tap_heart_icon_to_add_favorites" = "किसी भी मुहावरे को पसंदीदा में जोड़ने के लिए हार्ट आइकन पर टैप करें";
+"empty_states.try_different_search_term" = "अलग खोज शब्द आज़माएं या एक नया मुहावरा जोड़ें";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "संज्ञा";
+"part_of_speech.full.verb" = "क्रिया";
+"part_of_speech.full.adjective" = "विशेषण";
+"part_of_speech.full.adverb" = "क्रियाविशेषण";
+"part_of_speech.full.conjunction" = "संयोजक";
+"part_of_speech.full.pronoun" = "सर्वनाम";
+"part_of_speech.full.preposition" = "पूर्वसर्ग";
+"part_of_speech.full.exclamation" = "विस्मयादिबोधक";
+"part_of_speech.full.unknown" = "अज्ञात";
+
+"part_of_speech.short.noun" = "संज्ञा";
+"part_of_speech.short.verb" = "क्रिया";
+"part_of_speech.short.adjective" = "विशेषण";
+"part_of_speech.short.adverb" = "क्रियाविशेषण";
+"part_of_speech.short.conjunction" = "संयोजक";
+"part_of_speech.short.pronoun" = "सर्वनाम";
+"part_of_speech.short.preposition" = "पूर्वसर्ग";
+"part_of_speech.short.exclamation" = "विस्मय.";
+"part_of_speech.short.unknown" = "अज्ञात";
+
+"actions.settings" = "सेटिंग्स";
+

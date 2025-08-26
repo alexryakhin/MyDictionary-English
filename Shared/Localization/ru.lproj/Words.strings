@@ -61,3 +61,96 @@
 "words.edit_example" = "Редактировать пример";
 "words.no_transcription" = "Нет транскрипции";
 "words.no_definition" = "Нет определения";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Добавить выражение";
+"idioms.add_new_idiom" = "Добавить выражение";
+"idioms.idiom" = "Выражение";
+"idioms.idioms" = "Выражения";
+"idioms.no_idioms_found" = "Выражения не найдены";
+"idioms.add_this_idiom" = "Добавьте это выражение, нажав на кнопку выше";
+"idioms.begin_add_idioms" = "Начните добавлять выражения в свой список, нажав на значок плюс в верхнем левом углу";
+"idioms.all_idioms" = "Все выражения";
+"idioms.favorite_idioms" = "Избранные выражения";
+"idioms.found_idioms" = "Найденные выражения";
+"idioms.examples" = "Примеры";
+"idioms.no_examples_yet" = "Пока нет примеров";
+"idioms.type_example_here" = "Введите пример здесь";
+"idioms.add_example" = "Добавить пример";
+"idioms.edit_example" = "Редактировать пример";
+"idioms.delete_idiom" = "Удалить выражение";
+"idioms.delete_idiom_confirmation" = "Вы уверены, что хотите удалить это выражение?";
+"idioms.search_idioms" = "Поиск по выражениям...";
+"idioms.favorites" = "Избранное";
+"idioms.found" = "Найдено";
+"idioms.sort" = "Сортировать";
+"idioms.filter" = "Фильтровать";
+"idioms.latest_first" = "Сначала новые";
+"idioms.earliest_first" = "Сначала старые";
+"idioms.alphabetically" = "По алфавиту";
+
+// MARK: - Difficulty
+"difficulty.new" = "Новое";
+"difficulty.in_progress" = "В процессе";
+"difficulty.needs_review" = "Требуется повторение";
+"difficulty.mastered" = "Освоено";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Сначала новые";
+"sorting.earliest_first" = "Сначала старые";
+"sorting.alphabetically" = "По алфавиту";
+"sorting.by_part_of_speech" = "По части речи";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Автоопределение";
+
+// MARK: - Word Details
+"word_details.transcription" = "Транскрипция";
+"word_details.part_of_speech" = "Часть речи";
+"word_details.definition" = "Определение";
+"word_details.difficulty" = "Сложность";
+"word_details.examples" = "Примеры";
+"word_details.edit_example" = "Редактировать пример";
+"word_details.example" = "Пример";
+"word_details.type_example_here" = "Введите пример здесь";
+"word_details.add_example" = "Добавить пример";
+"word_details.delete_word" = "Удалить слово";
+"word_details.delete_failed" = "Удаление не удалось";
+
+// MARK: - Word List
+"word_list.all_words" = "Все слова";
+"word_list.favorite" = "Избранное";
+"word_list.manage_tags" = "Управлять тегами";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Пока нет слов";
+"empty_states.no_idioms_yet" = "Пока нет выражений";
+"empty_states.no_favorite_words" = "Нет избранных слов";
+"empty_states.no_search_results" = "Нет результатов поиска";
+"empty_states.start_improving_vocabulary" = "Начните улучшать свой словарный запас, добавив первое выражение";
+"empty_states.tap_heart_icon_to_add_favorites" = "Нажмите на значок сердца на любом выражении, чтобы добавить в избранное";
+"empty_states.try_different_search_term" = "Попробуйте другой поисковый запрос или добавьте новое выражение";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Существительное";
+"part_of_speech.full.verb" = "Глагол";
+"part_of_speech.full.adjective" = "Прилагательное";
+"part_of_speech.full.adverb" = "Наречие";
+"part_of_speech.full.conjunction" = "Союз";
+"part_of_speech.full.pronoun" = "Местоимение";
+"part_of_speech.full.preposition" = "Предлог";
+"part_of_speech.full.exclamation" = "Восклицание";
+"part_of_speech.full.unknown" = "Неизвестно";
+
+"part_of_speech.short.noun" = "Сущ.";
+"part_of_speech.short.verb" = "Глаг.";
+"part_of_speech.short.adjective" = "Прил.";
+"part_of_speech.short.adverb" = "Нар.";
+"part_of_speech.short.conjunction" = "Союз";
+"part_of_speech.short.pronoun" = "Мест.";
+"part_of_speech.short.preposition" = "Пред.";
+"part_of_speech.short.exclamation" = "Воскл.";
+"part_of_speech.short.unknown" = "Неизв.";
+
+"actions.settings" = "Настройки";
+

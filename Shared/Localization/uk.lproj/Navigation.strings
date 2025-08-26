@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Слова";
+"tabbar.idioms" = "Ідіоми";
+"tabbar.quizzes" = "Тести";
+"tabbar.progress" = "Прогрес";
+"tabbar.settings" = "Налаштування";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Деталі слова";
+"navigation.idiom_details" = "Деталі ідіоми";
+"navigation.add_tags" = "Додати теги";
+"navigation.about" = "Про програму";
+"navigation.debug_panel" = "Панель налагодження";
+"navigation.quiz_results" = "Результати тесту";
+"navigation.spelling_quiz" = "Тест на правопис";
+"navigation.definition_quiz" = "Тест на визначення";
+"navigation.close" = "Закрити";
+"navigation.close_screen" = "Закрити екран";
+

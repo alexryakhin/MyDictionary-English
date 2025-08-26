@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Ord";
+"tabbar.idioms" = "Uttrykk";
+"tabbar.quizzes" = "Quizzer";
+"tabbar.progress" = "Fremgang";
+"tabbar.settings" = "Innstillinger";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Orddetaljer";
+"navigation.idiom_details" = "Uttrykksdetaljer";
+"navigation.add_tags" = "Legg til etiketter";
+"navigation.about" = "Om appen";
+"navigation.debug_panel" = "Feilsøkingspanel";
+"navigation.quiz_results" = "Quizresultater";
+"navigation.spelling_quiz" = "Stavequiz";
+"navigation.definition_quiz" = "Definisjonsquiz";
+"navigation.close" = "Lukk";
+"navigation.close_screen" = "Lukk skjerm";
+

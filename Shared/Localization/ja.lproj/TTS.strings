@@ -1,0 +1,141 @@
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "すべての使用ケース";
+"tts.filters.all_ages" = "すべての年齢";
+"tts.filters.all_timbres" = "すべての音色";
+"tts.filters.all_accents" = "すべてのアクセント";
+"tts.filters.all_languages" = "すべての言語";
+"tts.filters.all_genders" = "すべての性別";
+"tts.filters.filters" = "フィルター";
+"tts.filters.reset" = "リセット";
+"tts.filters.select_voice" = "音声を選択";
+"tts.filters.available_voices" = "利用可能な音声";
+"tts.filters.no_voices_available" = "利用可能な音声がありません";
+"tts.filters.no_voices_found" = "音声が見つかりませんでした";
+"tts.filters.no_voices_found_message" = "検索またはフィルターを調整してみてください";
+
+"tts.usage.monthly_limit_exceeded" = "月間制限を超過";
+"tts.usage.monthly_limit_exceeded_message" = "Speechify TTSの月間50,000文字の制限に達しました。来月もう一度お試しください、またはGoogle TTSを使用してください。";
+"tts.usage.remaining_characters" = "残りの文字数";
+"tts.usage.monthly_usage" = "月間使用量";
+"tts.usage.monthly_limit" = "月間制限";
+
+// TTS Voice Filter Values
+"advertisement" = "広告";
+"animation" = "アニメーション";
+"audiobook" = "オーディオブック";
+"audiobook-and-narration" = "オーディオブックとナレーション";
+"audiobooks-and-narration" = "オーディオブックとナレーション";
+"conversational" = "会話型";
+"e-learning" = "eラーニング";
+"gaming" = "ゲーミング";
+"meditation" = "瞑想";
+"movie" = "映画";
+"movies-acting-and-gaming" = "映画、演技、ゲーミング";
+"narration" = "ナレーション";
+"podcast" = "ポッドキャスト";
+"social-media" = "ソーシャルメディア";
+
+"middle-aged" = "中高年";
+"senior" = "高齢者";
+"teen" = "ティーン";
+"young-adult" = "若年成人";
+
+"female" = "女性";
+"male" = "男性";
+
+"angry" = "怒っている";
+"assertive-or-confident" = "断定的または自信";
+"bright" = "明るい";
+"calm-or-relaxed" = "穏やかまたはリラックス";
+"calm-or-relaxed-" = "穏やかまたはリラックス";
+"cheerful" = "陽気";
+"crisp" = "明瞭";
+"deep" = "深い";
+"direct" = "直接的";
+"energetic" = "エネルギッシュ";
+"fearful" = "恐れている";
+"high-pitch" = "高音";
+"neutral" = "ニュートラル";
+"professional" = "プロフェッショナル";
+"relaxed" = "リラックス";
+"sad" = "悲しい";
+"suprised" = "驚いた";
+"surprised" = "驚いた";
+"terrified" = "恐怖";
+"warm" = "温かい";
+"warm-or-friendly" = "温かいまたは親しみやすい";
+
+"american-neutral" = "アメリカン・ニュートラル";
+"australian" = "オーストラリア";
+"british" = "ブリティッシュ";
+"indian" = "インド";
+"nigerian" = "ナイジェリア";
+
+
+
+
+// TTS Dashboard
+"tts.dashboard" = "TTSダッシュボード";
+"tts.premium_tts_dashboard" = "プレミアムTTSダッシュボード";
+"tts.customize_tts_experience" = "テキスト読み上げ体験をカスタマイズ";
+"tts.playing" = "再生中";
+"tts.ready" = "準備完了";
+"tts.provider" = "プロバイダ";
+"tts.tts_provider" = "TTSプロバイダ";
+"tts.voice_customization" = "音声カスタマイズ";
+"tts.current_voice" = "現在の音声";
+"tts.default_voice" = "デフォルト音声";
+"tts.preview_current_voice" = "現在の音声をプレビュー";
+"tts.change_voice" = "音声を変更";
+"tts.audio_settings" = "オーディオ設定";
+"tts.speech_rate" = "読み上げ速度";
+"tts.volume" = "音量";
+"tts.test_your_settings" = "設定をテスト";
+"tts.enter_text_to_test" = "テストするテキストを入力...";
+"tts.stop" = "停止";
+"tts.test" = "テスト";
+"tts.usage_statistics" = "使用統計";
+"tts.speechify_monthly_usage" = "Speechifyの月間使用量";
+"tts.monthly_limit" = "月間制限";
+"tts.used_this_month" = "今月使用済み";
+"tts.remaining" = "残り";
+"tts.usage_progress" = "使用進捗";
+"tts.characters" = "文字";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "使用した文字数";
+"tts.analytics.sessions" = "セッション";
+"tts.analytics.favorite_voice" = "お気に入りの音声";
+"tts.analytics.time_saved" = "節約した時間";
+"tts.analytics.total_characters" = "総文字数";
+"tts.analytics.total_sessions" = "総セッション数";
+"tts.analytics.total_duration" = "総時間";
+"tts.analytics.favorite_language" = "お気に入りの言語";
+"tts.analytics.premium_usage" = "プレミアム使用";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "テキスト読み上げ";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Speechifyのテキスト読み上げモデルは、すべてのユーザーにプレミアム機能として提供されています。さまざまな音声やアクセントから選択して、学習体験をカスタマイズできます。";
+"tts.settings.speechify_pro_description" = "Speechifyのテキスト読み上げモデルは、あなたのサブスクリプションに含まれています。";
+"tts.settings.dashboard" = "ダッシュボード";
+"tts.pro" = "プロ";
+"tts.free_google_tts_description" = "基本的な音声と信頼性の高いパフォーマンスを備えた無料のGoogle TTS";
+
+// TTS Models
+"tts.models.english" = "英語";
+"tts.models.multilingual" = "多言語";
+"tts.models.english_description" = "Speechifyの英語テキスト読み上げモデルは、テキストの読み上げにクリアで自然な音声出力を提供する標準機能を提供します。このモデルは一貫したユーザー体験に焦点を当てています。";
+"tts.models.multilingual_description" = "多言語モデルは、サポートされているすべての言語の使用を可能にし、1つの文内で複数の言語を使用することをサポートします。このモデルの音声出力は他のモデルと明確に異なります。";
+
+// MARK: - English Accents
+"english_accents.australian" = "オーストラリア";
+"english_accents.canadian" = "カナダ";
+"english_accents.british" = "イギリス";
+"english_accents.indian" = "インド";
+"english_accents.american" = "アメリカ";
+"english_accents.belgian" = "ベルギー";
+"english_accents.singaporean" = "シンガポール";
+"english_accents.irish" = "アイルランド";
+"english_accents.south_african" = "南アフリカ";
+

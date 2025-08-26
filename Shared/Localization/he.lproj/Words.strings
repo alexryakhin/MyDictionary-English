@@ -61,3 +61,96 @@
 "words.edit_example" = "עריכת דוגמה";
 "words.no_transcription" = "אין תעתיק";
 "words.no_definition" = "אין הגדרה";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "הוספת ביטוי";
+"idioms.add_new_idiom" = "הוספת ביטוי חדש";
+"idioms.idiom" = "ביטוי";
+"idioms.idioms" = "ביטויים";
+"idioms.no_idioms_found" = "לא נמצאו ביטויים";
+"idioms.add_this_idiom" = "הוסף ביטוי זה על ידי לחיצה על הכפתור למעלה";
+"idioms.begin_add_idioms" = "התחל להוסיף ביטויים לרשימה שלך על ידי לחיצה על סמל הפלוס בפינה השמאלית העליונה";
+"idioms.all_idioms" = "כל הביטויים";
+"idioms.favorite_idioms" = "ביטויים מועדפים";
+"idioms.found_idioms" = "נמצאו";
+"idioms.examples" = "דוגמאות";
+"idioms.no_examples_yet" = "אין דוגמאות עדיין";
+"idioms.type_example_here" = "הקלד דוגמה כאן";
+"idioms.add_example" = "הוספת דוגמה";
+"idioms.edit_example" = "עריכת דוגמה";
+"idioms.delete_idiom" = "מחיקת ביטוי";
+"idioms.delete_idiom_confirmation" = "האם אתה בטוח שברצונך למחוק ביטוי זה?";
+"idioms.search_idioms" = "חיפוש ביטויים...";
+"idioms.favorites" = "מועדפים";
+"idioms.found" = "נמצאו";
+"idioms.sort" = "מיון";
+"idioms.filter" = "סינון";
+"idioms.latest_first" = "החדש ביותר תחילה";
+"idioms.earliest_first" = "המוקדם ביותר תחילה";
+"idioms.alphabetically" = "לפי סדר אלפביתי";
+
+// MARK: - Difficulty
+"difficulty.new" = "חדש";
+"difficulty.in_progress" = "בתהליך";
+"difficulty.needs_review" = "דורש סקירה";
+"difficulty.mastered" = "שליטה";
+
+// MARK: - Sorting
+"sorting.latest_first" = "החדש ביותר תחילה";
+"sorting.earliest_first" = "המוקדם ביותר תחילה";
+"sorting.alphabetically" = "לפי סדר אלפביתי";
+"sorting.by_part_of_speech" = "לפי חלק דיבר";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "זיהוי אוטומטי";
+
+// MARK: - Word Details
+"word_details.transcription" = "תעתיק";
+"word_details.part_of_speech" = "חלק דיבר";
+"word_details.definition" = "הגדרה";
+"word_details.difficulty" = "קושי";
+"word_details.examples" = "דוגמאות";
+"word_details.edit_example" = "עריכת דוגמה";
+"word_details.example" = "דוגמה";
+"word_details.type_example_here" = "הקלד דוגמה כאן";
+"word_details.add_example" = "הוספת דוגמה";
+"word_details.delete_word" = "מחיקת מילה";
+"word_details.delete_failed" = "המחיקה נכשלה";
+
+// MARK: - Word List
+"word_list.all_words" = "כל המילים";
+"word_list.favorite" = "מועדף";
+"word_list.manage_tags" = "ניהול תגיות";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "אין מילים עדיין";
+"empty_states.no_idioms_yet" = "אין ביטויים עדיין";
+"empty_states.no_favorite_words" = "אין מילים מועדפות";
+"empty_states.no_search_results" = "אין תוצאות חיפוש";
+"empty_states.start_improving_vocabulary" = "התחל לשפר את אוצר המילים שלך על ידי הוספת הביטוי הראשון שלך";
+"empty_states.tap_heart_icon_to_add_favorites" = "לחץ על סמל הלב על ביטוי כלשהו כדי להוסיף אותו למועדפים";
+"empty_states.try_different_search_term" = "נסה מונח חיפוש אחר או הוסף ביטוי חדש";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "שם עצם";
+"part_of_speech.full.verb" = "פועל";
+"part_of_speech.full.adjective" = "שם תואר";
+"part_of_speech.full.adverb" = "תואר הפועל";
+"part_of_speech.full.conjunction" = "מילת חיבור";
+"part_of_speech.full.pronoun" = "כינוי";
+"part_of_speech.full.preposition" = "מילת יחס";
+"part_of_speech.full.exclamation" = "קריאה";
+"part_of_speech.full.unknown" = "לא ידוע";
+
+"part_of_speech.short.noun" = "שם ע.";
+"part_of_speech.short.verb" = "פועל";
+"part_of_speech.short.adjective" = "שם ת.";
+"part_of_speech.short.adverb" = "תואר פ.";
+"part_of_speech.short.conjunction" = "חיבור";
+"part_of_speech.short.pronoun" = "כינוי";
+"part_of_speech.short.preposition" = "יחס";
+"part_of_speech.short.exclamation" = "קריאה";
+"part_of_speech.short.unknown" = "לא ידוע";
+
+"actions.settings" = "הגדרות";
+

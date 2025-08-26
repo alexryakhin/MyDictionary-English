@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "مطلوب إذن الإشعارات";
+"notifications.permission_denied_message" = "لتلقي التذكيرات اليومية وتنبيهات الكلمات الصعبة، يرجى تفعيل الإشعارات في الإعدادات.";
+

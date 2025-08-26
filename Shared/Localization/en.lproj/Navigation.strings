@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Words";
+"tabbar.idioms" = "Idioms";
+"tabbar.quizzes" = "Quizzes";
+"tabbar.progress" = "Progress";
+"tabbar.settings" = "Settings";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Word Details";
+"navigation.idiom_details" = "Idiom Details";
+"navigation.add_tags" = "Add Tags";
+"navigation.about" = "About";
+"navigation.debug_panel" = "Debug Panel";
+"navigation.quiz_results" = "Quiz Results";
+"navigation.spelling_quiz" = "Spelling Quiz";
+"navigation.definition_quiz" = "Definition Quiz";
+"navigation.close" = "Close";
+"navigation.close_screen" = "Close screen";
+

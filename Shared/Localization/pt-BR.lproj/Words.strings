@@ -61,3 +61,96 @@
 "words.edit_example" = "Editar Exemplo";
 "words.no_transcription" = "Sem transcrição";
 "words.no_definition" = "Sem definição";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Adicionar Expressão";
+"idioms.add_new_idiom" = "Adicionar Nova Expressão";
+"idioms.idiom" = "Expressão";
+"idioms.idioms" = "Expressões";
+"idioms.no_idioms_found" = "Nenhuma expressão encontrada";
+"idioms.add_this_idiom" = "Adicione esta expressão clicando no botão acima";
+"idioms.begin_add_idioms" = "Comece a adicionar expressões à sua lista clicando no ícone de adição no canto superior esquerdo";
+"idioms.all_idioms" = "Todas as Expressões";
+"idioms.favorite_idioms" = "Expressões Favoritas";
+"idioms.found_idioms" = "Expressões Encontradas";
+"idioms.examples" = "Exemplos";
+"idioms.no_examples_yet" = "Sem exemplos ainda";
+"idioms.type_example_here" = "Digite o exemplo aqui";
+"idioms.add_example" = "Adicionar Exemplo";
+"idioms.edit_example" = "Editar Exemplo";
+"idioms.delete_idiom" = "Excluir Expressão";
+"idioms.delete_idiom_confirmation" = "Tem certeza de que deseja excluir esta expressão?";
+"idioms.search_idioms" = "Buscar expressões...";
+"idioms.favorites" = "Favoritos";
+"idioms.found" = "Encontrado";
+"idioms.sort" = "Ordenar";
+"idioms.filter" = "Filtrar";
+"idioms.latest_first" = "Mais Recentes Primeiro";
+"idioms.earliest_first" = "Mais Antigas Primeiro";
+"idioms.alphabetically" = "Alfabeticamente";
+
+// MARK: - Difficulty
+"difficulty.new" = "Novo";
+"difficulty.in_progress" = "Em Andamento";
+"difficulty.needs_review" = "Precisa de Revisão";
+"difficulty.mastered" = "Dominado";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Mais Recentes Primeiro";
+"sorting.earliest_first" = "Mais Antigas Primeiro";
+"sorting.alphabetically" = "Alfabeticamente";
+"sorting.by_part_of_speech" = "Por Classe Gramatical";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Detecção Automática";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transcrição";
+"word_details.part_of_speech" = "Classe Gramatical";
+"word_details.definition" = "Definição";
+"word_details.difficulty" = "Dificuldade";
+"word_details.examples" = "Exemplos";
+"word_details.edit_example" = "Editar Exemplo";
+"word_details.example" = "Exemplo";
+"word_details.type_example_here" = "Digite o exemplo aqui";
+"word_details.add_example" = "Adicionar Exemplo";
+"word_details.delete_word" = "Excluir Palavra";
+"word_details.delete_failed" = "Falha na Exclusão";
+
+// MARK: - Word List
+"word_list.all_words" = "Todas as Palavras";
+"word_list.favorite" = "Favorito";
+"word_list.manage_tags" = "Gerenciar Etiquetas";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Nenhuma palavra ainda";
+"empty_states.no_idioms_yet" = "Nenhuma expressão ainda";
+"empty_states.no_favorite_words" = "Nenhuma palavra favorita";
+"empty_states.no_search_results" = "Nenhum resultado de busca";
+"empty_states.start_improving_vocabulary" = "Comece a melhorar seu vocabulário adicionando sua primeira expressão";
+"empty_states.tap_heart_icon_to_add_favorites" = "Toque no ícone de coração em qualquer expressão para adicioná-la aos favoritos";
+"empty_states.try_different_search_term" = "Tente um termo de busca diferente ou adicione uma nova expressão";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Substantivo";
+"part_of_speech.full.verb" = "Verbo";
+"part_of_speech.full.adjective" = "Adjetivo";
+"part_of_speech.full.adverb" = "Advérbio";
+"part_of_speech.full.conjunction" = "Conjunção";
+"part_of_speech.full.pronoun" = "Pronome";
+"part_of_speech.full.preposition" = "Preposição";
+"part_of_speech.full.exclamation" = "Exclamação";
+"part_of_speech.full.unknown" = "Desconhecido";
+
+"part_of_speech.short.noun" = "Subst.";
+"part_of_speech.short.verb" = "Verb.";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Conj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.exclamation" = "Excl.";
+"part_of_speech.short.unknown" = "Desconh.";
+
+"actions.settings" = "Configurações";
+

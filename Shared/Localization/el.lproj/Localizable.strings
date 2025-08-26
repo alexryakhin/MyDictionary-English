@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Λέξεις";
-"tabbar.idioms" = "Ιδιωματισμοί";
-"tabbar.quizzes" = "Κουίζ";
-"tabbar.progress" = "Πρόοδος";
-"tabbar.settings" = "Ρυθμίσεις";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Λεπτομέρειες Λέξης";
-"navigation.idiom_details" = "Λεπτομέρειες Ιδιωματισμού";
-"navigation.add_tags" = "Προσθήκη Ετικετών";
-"navigation.about" = "Σχετικά με την Εφαρμογή";
-"navigation.debug_panel" = "Πίνακας Αποσφαλμάτωσης";
-"navigation.quiz_results" = "Αποτελέσματα Κουίζ";
-"navigation.spelling_quiz" = "Κουίζ Ορθογραφίας";
-"navigation.definition_quiz" = "Κουίζ Ορισμού";
-"navigation.close" = "Κλείσιμο";
-"navigation.close_screen" = "Κλείσιμο Οθόνης";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Προσθήκη Ιδιωματισμού";
-"idioms.add_new_idiom" = "Προσθήκη Νέου Ιδιωματισμού";
-"idioms.idiom" = "Ιδιωματισμός";
-"idioms.idioms" = "Ιδιωματισμοί";
-"idioms.no_idioms_found" = "Δεν βρέθηκαν ιδιωματισμοί";
-"idioms.add_this_idiom" = "Πρόσθεσε αυτόν τον ιδιωματισμό πατώντας το κουμπί παραπάνω";
-"idioms.begin_add_idioms" = "Ξεκίνα να προσθέτεις ιδιωματισμούς στη λίστα σου κάνοντας κλικ στο εικονίδιο συν στην επάνω αριστερή γωνία";
-"idioms.all_idioms" = "Όλοι οι Ιδιωματισμοί";
-"idioms.favorite_idioms" = "Αγαπημένοι Ιδιωματισμοί";
-"idioms.found_idioms" = "Βρέθηκαν";
-"idioms.examples" = "Παραδείγματα";
-"idioms.no_examples_yet" = "Κανένα παράδειγμα ακόμα";
-"idioms.type_example_here" = "Πληκτρολόγησε παράδειγμα εδώ";
-"idioms.add_example" = "Προσθήκη Παραδείγματος";
-"idioms.edit_example" = "Επεξεργασία Παραδείγματος";
-"idioms.delete_idiom" = "Διαγραφή Ιδιωματισμού";
-"idioms.delete_idiom_confirmation" = "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτόν τον ιδιωματισμό;";
-"idioms.search_idioms" = "Αναζήτηση ιδιωματισμών...";
-"idioms.favorites" = "Αγαπημένα";
-"idioms.found" = "Βρέθηκαν";
-"idioms.sort" = "Ταξινόμηση";
-"idioms.filter" = "Φίλτρο";
-"idioms.latest_first" = "Πιο Πρόσφατο Πρώτα";
-"idioms.earliest_first" = "Πιο Παλιό Πρώτα";
-"idioms.alphabetically" = "Αλφαβητικά";
-
 // MARK: - App
 "app.my_dictionary" = "Το Λεξικό Μου";
 "app.loading" = "Φόρτωση...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Σου αρέσει η εφαρμογή;";
 "coffee.helpful_learning_journey" = "Αν το Λεξικό Μου σε έχει βοηθήσει στο ταξίδι μάθησής σου, σκέψου να μου κεράσεις έναν καφέ! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Νέο";
-"difficulty.in_progress" = "Σε Εξέλιξη";
-"difficulty.needs_review" = "Χρειάζεται Επανεξέταση";
-"difficulty.mastered" = "Κατακτημένο";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Πιο Πρόσφατο Πρώτα";
-"sorting.earliest_first" = "Πιο Παλιό Πρώτα";
-"sorting.alphabetically" = "Αλφαβητικά";
-"sorting.by_part_of_speech" = "Κατά Μέρος του Λόγου";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Αυτόματη Ανίχνευση";
-
 // MARK: - Time Period
 "time_period.week" = "Εβδομάδα";
 "time_period.month" = "Μήνας";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Σωστό";
 "quiz_results.duration" = "Διάρκεια";
 "quiz_results.time_period" = "Χρονική Περίοδος";
-
-// MARK: - Word Details
-"word_details.transcription" = "Μεταγραφή";
-"word_details.part_of_speech" = "Μέρος του Λόγου";
-"word_details.definition" = "Ορισμός";
-"word_details.difficulty" = "Δυσκολία";
-"word_details.examples" = "Παραδείγματα";
-"word_details.edit_example" = "Επεξεργασία Παραδείγματος";
-"word_details.example" = "Παράδειγμα";
-"word_details.type_example_here" = "Πληκτρολόγησε παράδειγμα εδώ";
-"word_details.add_example" = "Προσθήκη Παραδείγματος";
-"word_details.delete_word" = "Διαγραφή Λέξης";
-"word_details.delete_failed" = "Η διαγραφή απέτυχε";
-
-// MARK: - Word List
-"word_list.all_words" = "Όλες οι Λέξεις";
-"word_list.favorite" = "Αγαπημένο";
-"word_list.manage_tags" = "Διαχείριση Ετικετών";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Τύποι Κουίζ";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Επιλογή Ετικετών";
 "tag_selection.no_tags_yet" = "Καμία ετικέτα ακόμα";
 "tag_selection.you_can_select_up_to_5_tags" = "Μπορείς να επιλέξεις έως 5 ετικέτες ανά λέξη. Πάτησε σε μια ετικέτα για να την επιλέξεις ή να την αποεπιλέξεις.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Καμία λέξη ακόμα";
-"empty_states.no_idioms_yet" = "Κανένας ιδιωματισμός ακόμα";
-"empty_states.no_favorite_words" = "Καμία αγαπημένη λέξη";
-"empty_states.no_search_results" = "Κανένα αποτέλεσμα αναζήτησης";
-"empty_states.start_improving_vocabulary" = "Ξεκίνα να βελτιώνεις το λεξιλόγιό σου προσθέτοντας τον πρώτο ιδιωματισμό";
-"empty_states.tap_heart_icon_to_add_favorites" = "Πάτησε το εικονίδιο καρδιάς σε οποιονδήποτε ιδιωματισμό για να τον προσθέσεις στα αγαπημένα";
-"empty_states.try_different_search_term" = "Δοκίμασε διαφορετικό όρο αναζήτησης ή πρόσθεσε έναν νέο ιδιωματισμό";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Ώρα για εξάσκηση! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "Επίλεξε τον σωστό ορισμό για κάθε λέξη";
 "quiz_types.great_job_completed_spelling_quiz" = "Εξαιρετική δουλειά! Ολοκλήρωσες το κουίζ ορθογραφίας.";
 "quiz_types.great_job_completed_definition_quiz" = "Εξαιρετική δουλειά! Ολοκλήρωσες το κουίζ ορισμού.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Αυστραλιανό";
-"english_accents.canadian" = "Καναδικό";
-"english_accents.british" = "Βρετανικό";
-"english_accents.indian" = "Ινδικό";
-"english_accents.american" = "Αμερικανικό";
-"english_accents.belgian" = "Βελγικό";
-"english_accents.singaporean" = "Σιγκαπουριανό";
-"english_accents.irish" = "Ιρλανδικό";
-"english_accents.south_african" = "Νοτιοαφρικανικό";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Ουσιαστικό";
-"part_of_speech.full.verb" = "Ρήμα";
-"part_of_speech.full.adjective" = "Επίθετο";
-"part_of_speech.full.adverb" = "Επίρρημα";
-"part_of_speech.full.conjunction" = "Σύνδεσμος";
-"part_of_speech.full.pronoun" = "Αντωνυμία";
-"part_of_speech.full.preposition" = "Πρόθεση";
-"part_of_speech.full.exclamation" = "Επιφώνημα";
-"part_of_speech.full.unknown" = "Άγνωστο";
-
-"part_of_speech.short.noun" = "Ουσ.";
-"part_of_speech.short.verb" = "Ρήμα";
-"part_of_speech.short.adjective" = "Επίθ.";
-"part_of_speech.short.adverb" = "Επίρ.";
-"part_of_speech.short.conjunction" = "Σύνδ.";
-"part_of_speech.short.pronoun" = "Αντων.";
-"part_of_speech.short.preposition" = "Πρόθ.";
-"part_of_speech.short.exclamation" = "Επιφ.";
-"part_of_speech.short.unknown" = "Άγνωστο";
-
-"actions.settings" = "Ρυθμίσεις";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Όλες οι περιπτώσεις χρήσης";
-"tts.filters.all_ages" = "Όλες οι ηλικίες";
-"tts.filters.all_timbres" = "Όλοι οι τόνοι φωνής";
-"tts.filters.all_accents" = "Όλες οι προφορές";
-"tts.filters.all_languages" = "Όλες οι γλώσσες";
-"tts.filters.all_genders" = "Όλα τα φύλα";
-"tts.filters.filters" = "Φίλτρα";
-"tts.filters.reset" = "Επαναφορά";
-"tts.filters.select_voice" = "Επιλογή φωνής";
-"tts.filters.available_voices" = "Διαθέσιμες φωνές";
-"tts.filters.no_voices_available" = "Καμία διαθέσιμη φωνή";
-"tts.filters.no_voices_found" = "Δεν βρέθηκαν φωνές";
-"tts.filters.no_voices_found_message" = "Δοκιμάστε να προσαρμόσετε την αναζήτηση ή τα φίλτρα σας";
-
-"tts.usage.monthly_limit_exceeded" = "Υπέρβαση μηνιαίου ορίου";
-"tts.usage.monthly_limit_exceeded_message" = "Έχετε φτάσει το μηνιαίο όριο των 50.000 χαρακτήρων για το Speechify TTS. Δοκιμάστε ξανά τον επόμενο μήνα ή χρησιμοποιήστε το Google TTS.";
-"tts.usage.remaining_characters" = "Υπολειπόμενοι χαρακτήρες";
-"tts.usage.monthly_usage" = "Μηνιαία χρήση";
-"tts.usage.monthly_limit" = "Μηνιαίο όριο";
-
-// TTS Voice Filter Values
-"advertisement" = "Διαφήμιση";
-"animation" = "Κινούμενα σχέδια";
-"audiobook" = "Ακουστικό βιβλίο";
-"audiobook-and-narration" = "Ακουστικό βιβλίο και αφήγηση";
-"audiobooks-and-narration" = "Ακουστικά βιβλία και αφήγηση";
-"conversational" = "Συνομιλητικός";
-"e-learning" = "Ηλεκτρονική μάθηση";
-"gaming" = "Παιχνίδια";
-"meditation" = "Διαλογισμός";
-"movie" = "Ταινία";
-"movies-acting-and-gaming" = "Ταινίες, υποκριτική και παιχνίδια";
-"narration" = "Αφήγηση";
-"podcast" = "Ποντκαστ";
-"social-media" = "Κοινωνικά δίκτυα";
-
-"middle-aged" = "Μεσήλικας";
-"senior" = "Ηλικιωμένος";
-"teen" = "Έφηβος";
-"young-adult" = "Νεαρός ενήλικας";
-
-"female" = "Γυναίκα";
-"male" = "Άνδρας";
-
-"angry" = "Θυμωμένος";
-"assertive-or-confident" = "Διεκδικητικός ή σίγουρος";
-"bright" = "Φωτεινός";
-"calm-or-relaxed" = "Ήρεμος ή χαλαρός";
-"calm-or-relaxed-" = "Ήρεμος ή χαλαρός";
-"cheerful" = "Χαρούμενος";
-"crisp" = "Καθαρός";
-"deep" = "Βαθύς";
-"direct" = "Άμεσος";
-"energetic" = "Ενεργητικός";
-"fearful" = "Φοβισμένος";
-"high-pitch" = "Υψηλός τόνος";
-"neutral" = "Ουδέτερος";
-"professional" = "Επαγγελματικός";
-"relaxed" = "Χαλαρός";
-"sad" = "Λυπημένος";
-"suprised" = "Εκπληκτος";
-"surprised" = "Εκπληκτος";
-"terrified" = "Τρομοκρατημένος";
-"warm" = "Ζεστός";
-"warm-or-friendly" = "Ζεστός ή φιλικός";
-
-"american-neutral" = "Αμερικανικός ουδέτερος";
-"australian" = "Αυστραλιανός";
-"british" = "Βρετανικός";
-"indian" = "Ινδικός";
-"nigerian" = "Νιγηριανός";
-
-"notifications.permission_required" = "Απαιτείται άδεια ειδοποιήσεων";
-"notifications.permission_denied_message" = "Για να λαμβάνετε καθημερινές υπενθυμίσεις και ειδοποιήσεις για δύσκολες λέξεις, ενεργοποιήστε τις ειδοποιήσεις στις Ρυθμίσεις.";
-
-"onboarding.natural_voices" = "Φυσικές φωνές";
-"onboarding.natural_voices_description" = "Εκατοντάδες premium φωνές που ακούγονται πιο ανθρώπινες από ποτέ";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Πρόσβαση στην premium τεχνολογία μετατροπής κειμένου σε ομιλία της Speechify. Εκατοντάδες φυσικά ακουστικές premium φωνές";
-
-// TTS Dashboard
-"tts.dashboard" = "Πίνακας ελέγχου TTS";
-"tts.premium_tts_dashboard" = "Premium πίνακας ελέγχου TTS";
-"tts.customize_tts_experience" = "Προσαρμόστε την εμπειρία μετατροπής κειμένου σε ομιλία";
-"tts.playing" = "Αναπαράγεται";
-"tts.ready" = "Έτοιμο";
-"tts.provider" = "Πάροχος";
-"tts.tts_provider" = "Πάροχος TTS";
-"tts.voice_customization" = "Προσαρμογή φωνής";
-"tts.current_voice" = "Τρέχουσα φωνή";
-"tts.default_voice" = "Προεπιλεγμένη φωνή";
-"tts.preview_current_voice" = "Προεπισκόπηση τρέχουσας φωνής";
-"tts.change_voice" = "Αλλαγή φωνής";
-"tts.audio_settings" = "Ρυθμίσεις ήχου";
-"tts.speech_rate" = "Ταχύτητα ομιλίας";
-"tts.volume" = "Ένταση";
-"tts.test_your_settings" = "Δοκιμάστε τις ρυθμίσεις σας";
-"tts.enter_text_to_test" = "Εισαγάγετε κείμενο για δοκιμή...";
-"tts.stop" = "Διακοπή";
-"tts.test" = "Δοκιμή";
-"tts.usage_statistics" = "Στατιστικά χρήσης";
-"tts.speechify_monthly_usage" = "Μηνιαία χρήση Speechify";
-"tts.monthly_limit" = "Μηνιαίο όριο";
-"tts.used_this_month" = "Χρησιμοποιήθηκε αυτόν τον μήνα";
-"tts.remaining" = "Υπολείπονται";
-"tts.usage_progress" = "Πρόοδος χρήσης";
-"tts.characters" = "χαρακτήρες";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Χρησιμοποιημένοι χαρακτήρες";
-"tts.analytics.sessions" = "Συνεδρίες";
-"tts.analytics.favorite_voice" = "Αγαπημένη φωνή";
-"tts.analytics.time_saved" = "Χρόνος που εξοικονομήθηκε";
-"tts.analytics.total_characters" = "Συνολικοί χαρακτήρες";
-"tts.analytics.total_sessions" = "Συνολικές συνεδρίες";
-"tts.analytics.total_duration" = "Συνολική διάρκεια";
-"tts.analytics.favorite_language" = "Αγαπημένη γλώσσα";
-"tts.analytics.premium_usage" = "Premium χρήση";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Μετατροπή κειμένου σε ομιλία";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία της Speechify είναι διαθέσιμο σε όλους τους χρήστες ως premium λειτουργία. Σας επιτρέπει να επιλέξετε από μια ευρεία γκάμα φωνών και προφορών, για να προσαρμόσετε την εμπειρία μάθησής σας.";
-"tts.settings.speechify_pro_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία της Speechify περιλαμβάνεται στη συνδρομή σας.";
-"tts.settings.dashboard" = "Πίνακας ελέγχου";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Δωρεάν Google TTS με βασικές φωνές και αξιόπιστη απόδοση";
-
-// TTS Models
-"tts.models.english" = "Αγγλικά";
-"tts.models.multilingual" = "Πολυγλωσσικό";
-"tts.models.english_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία στα Αγγλικά της Speechify προσφέρει τυπικές λειτουργίες που έχουν σχεδιαστεί για να παρέχουν καθαρή και φυσική έξοδο ήχου για την ανάγνωση κειμένων. Το μοντέλο επικεντρώνεται στην παροχή συνεπούς εμπειρίας χρήστη.";
-"tts.models.multilingual_description" = "Το πολυγλωσσικό μοντέλο επιτρέπει τη χρήση όλων των υποστηριζόμενων γλωσσών και υποστηρίζει τη χρήση πολλαπλών γλωσσών μέσα σε μία πρόταση. Η έξοδος ήχου αυτού του μοντέλου διαφέρει σημαντικά από άλλα μοντέλα.";
 

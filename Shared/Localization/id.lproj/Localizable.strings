@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Kata";
-"tabbar.idioms" = "Ungkapan";
-"tabbar.quizzes" = "Kuis";
-"tabbar.progress" = "Kemajuan";
-"tabbar.settings" = "Pengaturan";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Detail Kata";
-"navigation.idiom_details" = "Detail Ungkapan";
-"navigation.add_tags" = "Tambah Tag";
-"navigation.about" = "Tentang Aplikasi";
-"navigation.debug_panel" = "Panel Debug";
-"navigation.quiz_results" = "Hasil Kuis";
-"navigation.spelling_quiz" = "Kuis Ejaan";
-"navigation.definition_quiz" = "Kuis Definisi";
-"navigation.close" = "Tutup";
-"navigation.close_screen" = "Tutup Layar";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Tambah Ungkapan";
-"idioms.add_new_idiom" = "Tambah Ungkapan Baru";
-"idioms.idiom" = "Ungkapan";
-"idioms.idioms" = "Ungkapan";
-"idioms.no_idioms_found" = "Tidak ada ungkapan yang ditemukan";
-"idioms.add_this_idiom" = "Tambah ungkapan ini dengan mengklik tombol di atas";
-"idioms.begin_add_idioms" = "Mulai tambah ungkapan ke daftar Anda dengan mengklik ikon plus di sudut kiri atas";
-"idioms.all_idioms" = "Semua Ungkapan";
-"idioms.favorite_idioms" = "Ungkapan Favorit";
-"idioms.found_idioms" = "Ditemukan";
-"idioms.examples" = "Contoh";
-"idioms.no_examples_yet" = "Belum ada contoh";
-"idioms.type_example_here" = "Ketik contoh di sini";
-"idioms.add_example" = "Tambah Contoh";
-"idioms.edit_example" = "Edit Contoh";
-"idioms.delete_idiom" = "Hapus Ungkapan";
-"idioms.delete_idiom_confirmation" = "Apakah Anda yakin ingin menghapus ungkapan ini?";
-"idioms.search_idioms" = "Cari ungkapan...";
-"idioms.favorites" = "Favorit";
-"idioms.found" = "Ditemukan";
-"idioms.sort" = "Urutkan";
-"idioms.filter" = "Filter";
-"idioms.latest_first" = "Terbaru Dahulu";
-"idioms.earliest_first" = "Terlama Dahulu";
-"idioms.alphabetically" = "Secara Alfabet";
-
 // MARK: - App
 "app.my_dictionary" = "Kamus Saya";
 "app.loading" = "Memuat...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Menikmati aplikasi ini?";
 "coffee.helpful_learning_journey" = "Jika Kamus Saya membantu perjalanan belajar Anda, pertimbangkan untuk membelikan saya kopi! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Baru";
-"difficulty.in_progress" = "Sedang Berlangsung";
-"difficulty.needs_review" = "Perlu Ditinjau";
-"difficulty.mastered" = "Dikuasai";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Terbaru Dahulu";
-"sorting.earliest_first" = "Terlama Dahulu";
-"sorting.alphabetically" = "Secara Alfabet";
-"sorting.by_part_of_speech" = "Berdasarkan Jenis Kata";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Deteksi Otomatis";
-
 // MARK: - Time Period
 "time_period.week" = "Minggu";
 "time_period.month" = "Bulan";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Benar";
 "quiz_results.duration" = "Durasi";
 "quiz_results.time_period" = "Periode Waktu";
-
-// MARK: - Word Details
-"word_details.transcription" = "Transkripsi";
-"word_details.part_of_speech" = "Jenis Kata";
-"word_details.definition" = "Definisi";
-"word_details.difficulty" = "Kesulitan";
-"word_details.examples" = "Contoh";
-"word_details.edit_example" = "Edit Contoh";
-"word_details.example" = "Contoh";
-"word_details.type_example_here" = "Ketik contoh di sini";
-"word_details.add_example" = "Tambah Contoh";
-"word_details.delete_word" = "Hapus Kata";
-"word_details.delete_failed" = "Hapus Gagal";
-
-// MARK: - Word List
-"word_list.all_words" = "Semua Kata";
-"word_list.favorite" = "Favorit";
-"word_list.manage_tags" = "Kelola Tag";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Jenis Kuis";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Pilih Tag";
 "tag_selection.no_tags_yet" = "Belum ada tag";
 "tag_selection.you_can_select_up_to_5_tags" = "Anda dapat memilih hingga 5 tag per kata. Ketuk tag untuk memilih atau membatalkan pilihan.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Belum ada kata";
-"empty_states.no_idioms_yet" = "Belum ada ungkapan";
-"empty_states.no_favorite_words" = "Tidak ada kata favorit";
-"empty_states.no_search_results" = "Tidak ada hasil pencarian";
-"empty_states.start_improving_vocabulary" = "Mulai tingkatkan kosakata Anda dengan menambahkan ungkapan pertama Anda";
-"empty_states.tap_heart_icon_to_add_favorites" = "Ketuk ikon hati pada ungkapan apa pun untuk menambahkannya ke favorit";
-"empty_states.try_different_search_term" = "Coba istilah pencarian lain atau tambahkan ungkapan baru";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Waktunya berlatih! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "Pilih definisi yang benar untuk setiap kata";
 "quiz_types.great_job_completed_spelling_quiz" = "Kerja hebat! Anda telah menyelesaikan kuis ejaan.";
 "quiz_types.great_job_completed_definition_quiz" = "Kerja hebat! Anda telah menyelesaikan kuis definisi.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Australia";
-"english_accents.canadian" = "Kanada";
-"english_accents.british" = "Inggris";
-"english_accents.indian" = "India";
-"english_accents.american" = "Amerika";
-"english_accents.belgian" = "Belgia";
-"english_accents.singaporean" = "Singapura";
-"english_accents.irish" = "Irlandia";
-"english_accents.south_african" = "Afrika Selatan";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Kata Benda";
-"part_of_speech.full.verb" = "Kata Kerja";
-"part_of_speech.full.adjective" = "Kata Sifat";
-"part_of_speech.full.adverb" = "Kata Keterangan";
-"part_of_speech.full.conjunction" = "Kata Sambung";
-"part_of_speech.full.pronoun" = "Kata Ganti";
-"part_of_speech.full.preposition" = "Kata Depan";
-"part_of_speech.full.exclamation" = "Seruan";
-"part_of_speech.full.unknown" = "Tidak Diketahui";
-
-"part_of_speech.short.noun" = "Benda";
-"part_of_speech.short.verb" = "Kerja";
-"part_of_speech.short.adjective" = "Sifat";
-"part_of_speech.short.adverb" = "Ket.";
-"part_of_speech.short.conjunction" = "Samb.";
-"part_of_speech.short.pronoun" = "Ganti";
-"part_of_speech.short.preposition" = "Depan";
-"part_of_speech.short.exclamation" = "Seru";
-"part_of_speech.short.unknown" = "Tdk Diketahui";
-
-"actions.settings" = "Pengaturan";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Semua kasus penggunaan";
-"tts.filters.all_ages" = "Semua usia";
-"tts.filters.all_timbres" = "Semua nada suara";
-"tts.filters.all_accents" = "Semua aksen";
-"tts.filters.all_languages" = "Semua bahasa";
-"tts.filters.all_genders" = "Semua jenis kelamin";
-"tts.filters.filters" = "Filter";
-"tts.filters.reset" = "Atur Ulang";
-"tts.filters.select_voice" = "Pilih suara";
-"tts.filters.available_voices" = "Suara yang tersedia";
-"tts.filters.no_voices_available" = "Tidak ada suara yang tersedia";
-"tts.filters.no_voices_found" = "Tidak ada suara yang ditemukan";
-"tts.filters.no_voices_found_message" = "Coba sesuaikan pencarian atau filter Anda";
-
-"tts.usage.monthly_limit_exceeded" = "Batas bulanan terlampaui";
-"tts.usage.monthly_limit_exceeded_message" = "Anda telah mencapai batas bulanan 50.000 karakter untuk Speechify TTS. Coba lagi bulan depan atau gunakan Google TTS.";
-"tts.usage.remaining_characters" = "Karakter yang tersisa";
-"tts.usage.monthly_usage" = "Penggunaan bulanan";
-"tts.usage.monthly_limit" = "Batas bulanan";
-
-// TTS Voice Filter Values
-"advertisement" = "Iklan";
-"animation" = "Animasi";
-"audiobook" = "Buku audio";
-"audiobook-and-narration" = "Buku audio dan narasi";
-"audiobooks-and-narration" = "Buku-buku audio dan narasi";
-"conversational" = "Percakapan";
-"e-learning" = "E-learning";
-"gaming" = "Permainan";
-"meditation" = "Meditasi";
-"movie" = "Film";
-"movies-acting-and-gaming" = "Film, akting, dan permainan";
-"narration" = "Narasi";
-"podcast" = "Podcast";
-"social-media" = "Media sosial";
-
-"middle-aged" = "Usia tengah";
-"senior" = "Lansia";
-"teen" = "Remaja";
-"young-adult" = "Dewasa muda";
-
-"female" = "Perempuan";
-"male" = "Laki-laki";
-
-"angry" = "Marah";
-"assertive-or-confident" = "Tegas atau percaya diri";
-"bright" = "Cerah";
-"calm-or-relaxed" = "Tenang atau santai";
-"calm-or-relaxed-" = "Tenang atau santai";
-"cheerful" = "Ceria";
-"crisp" = "Jernih";
-"deep" = "Dalam";
-"direct" = "Langsung";
-"energetic" = "Energik";
-"fearful" = "Takut";
-"high-pitch" = "Nada tinggi";
-"neutral" = "Netral";
-"professional" = "Profesional";
-"relaxed" = "Santai";
-"sad" = "Sedih";
-"suprised" = "Terkejut";
-"surprised" = "Terkejut";
-"terrified" = "Ketakutan";
-"warm" = "Hangat";
-"warm-or-friendly" = "Hangat atau ramah";
-
-"american-neutral" = "Amerika netral";
-"australian" = "Australia";
-"british" = "Inggris";
-"indian" = "India";
-"nigerian" = "Nigeria";
-
-"notifications.permission_required" = "Izin notifikasi diperlukan";
-"notifications.permission_denied_message" = "Untuk menerima pengingat harian dan peringatan untuk kata-kata sulit, aktifkan notifikasi di Pengaturan.";
-
-"onboarding.natural_voices" = "Suara alami";
-"onboarding.natural_voices_description" = "Ratusan suara premium yang terdengar lebih manusiawi dari sebelumnya";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Akses ke teknologi teks ke ucapan premium Speechify. Ratusan suara premium yang terdengar alami";
-
-// TTS Dashboard
-"tts.dashboard" = "Dasbor TTS";
-"tts.premium_tts_dashboard" = "Dasbor TTS Premium";
-"tts.customize_tts_experience" = "Sesuaikan pengalaman teks ke ucapan Anda";
-"tts.playing" = "Sedang diputar";
-"tts.ready" = "Siap";
-"tts.provider" = "Penyedia";
-"tts.tts_provider" = "Penyedia TTS";
-"tts.voice_customization" = "Kustomisasi suara";
-"tts.current_voice" = "Suara saat ini";
-"tts.default_voice" = "Suara default";
-"tts.preview_current_voice" = "Pratinjau suara saat ini";
-"tts.change_voice" = "Ubah suara";
-"tts.audio_settings" = "Pengaturan audio";
-"tts.speech_rate" = "Kecepatan bicara";
-"tts.volume" = "Volume";
-"tts.test_your_settings" = "Uji pengaturan Anda";
-"tts.enter_text_to_test" = "Masukkan teks untuk menguji...";
-"tts.stop" = "Berhenti";
-"tts.test" = "Uji";
-"tts.usage_statistics" = "Statistik penggunaan";
-"tts.speechify_monthly_usage" = "Penggunaan bulanan Speechify";
-"tts.monthly_limit" = "Batas bulanan";
-"tts.used_this_month" = "Digunakan bulan ini";
-"tts.remaining" = "Sisa";
-"tts.usage_progress" = "Kemajuan penggunaan";
-"tts.characters" = "karakter";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Karakter yang digunakan";
-"tts.analytics.sessions" = "Sesi";
-"tts.analytics.favorite_voice" = "Suara favorit";
-"tts.analytics.time_saved" = "Waktu yang dihemat";
-"tts.analytics.total_characters" = "Total karakter";
-"tts.analytics.total_sessions" = "Total sesi";
-"tts.analytics.total_duration" = "Durasi total";
-"tts.analytics.favorite_language" = "Bahasa favorit";
-"tts.analytics.premium_usage" = "Penggunaan premium";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Teks ke ucapan";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Model teks ke ucapan Speechify tersedia untuk semua pengguna sebagai fitur premium. Ini memungkinkan Anda memilih dari berbagai suara dan aksen, untuk menyesuaikan pengalaman belajar Anda.";
-"tts.settings.speechify_pro_description" = "Model teks ke ucapan Speechify disertakan dalam langganan Anda.";
-"tts.settings.dashboard" = "Dasbor";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Google TTS gratis dengan suara dasar dan kinerja yang andal";
-
-// TTS Models
-"tts.models.english" = "Bahasa Inggris";
-"tts.models.multilingual" = "Multibahasa";
-"tts.models.english_description" = "Model teks ke ucapan Bahasa Inggris Speechify menawarkan fitur standar yang dirancang untuk memberikan keluaran audio yang jelas dan alami untuk membaca teks. Model ini berfokus pada penyediaan pengalaman pengguna yang konsisten.";
-"tts.models.multilingual_description" = "Model multibahasa memungkinkan penggunaan semua bahasa yang didukung dan mendukung penggunaan beberapa bahasa dalam satu kalimat. Keluaran audio model ini sangat berbeda dari model lain.";
 

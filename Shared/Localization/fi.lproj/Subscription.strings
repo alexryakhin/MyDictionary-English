@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Päivitä Pro-versioon nähdäksesi täydet sanaston kasvutiedot.";
 "pro_upgrade.time_period" = "Aikajakso";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Pääsy Speechifyn premium-teksti-puheeksi-teknologiaan. Satoja luonnollisesti kuulostavia premium-ääniä";
+

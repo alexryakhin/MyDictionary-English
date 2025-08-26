@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Nâng cấp lên Pro để xem toàn bộ chi tiết về sự phát triển vốn từ vựng của bạn.";
 "pro_upgrade.time_period" = "Khoảng thời gian";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Truy cập công nghệ chuyển đổi văn bản thành giọng nói cao cấp của Speechify. Hàng trăm giọng nói cao cấp nghe tự nhiên";
+

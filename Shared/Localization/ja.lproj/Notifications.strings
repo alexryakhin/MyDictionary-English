@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "通知の許可が必要です";
+"notifications.permission_denied_message" = "毎日のリマインダーや難しい単語のアラートを受け取るには、設定で通知を有効にしてください。";
+

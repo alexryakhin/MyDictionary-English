@@ -61,3 +61,96 @@
 "words.edit_example" = "Beispiel bearbeiten";
 "words.no_transcription" = "Keine Transkription";
 "words.no_definition" = "Keine Definition";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Redewendung hinzufügen";
+"idioms.add_new_idiom" = "Neue Redewendung hinzufügen";
+"idioms.idiom" = "Redewendung";
+"idioms.idioms" = "Redewendungen";
+"idioms.no_idioms_found" = "Keine Redewendungen gefunden";
+"idioms.add_this_idiom" = "Fügen Sie diese Redewendung hinzu, indem Sie auf die Schaltfläche oben klicken";
+"idioms.begin_add_idioms" = "Beginnen Sie, Redewendungen zu Ihrer Liste hinzuzufügen, indem Sie auf das Plus-Symbol in der oberen linken Ecke klicken";
+"idioms.all_idioms" = "Alle Redewendungen";
+"idioms.favorite_idioms" = "Favoriten-Redewendungen";
+"idioms.found_idioms" = "Gefunden";
+"idioms.examples" = "Beispiele";
+"idioms.no_examples_yet" = "Noch keine Beispiele";
+"idioms.type_example_here" = "Beispiel hier eingeben";
+"idioms.add_example" = "Beispiel hinzufügen";
+"idioms.edit_example" = "Beispiel bearbeiten";
+"idioms.delete_idiom" = "Redewendung löschen";
+"idioms.delete_idiom_confirmation" = "Sind Sie sicher, dass Sie diese Redewendung löschen möchten?";
+"idioms.search_idioms" = "Redewendungen suchen...";
+"idioms.favorites" = "Favoriten";
+"idioms.found" = "Gefunden";
+"idioms.sort" = "Sortieren";
+"idioms.filter" = "Filtern";
+"idioms.latest_first" = "Neueste zuerst";
+"idioms.earliest_first" = "Älteste zuerst";
+"idioms.alphabetically" = "Alphabetisch";
+
+// MARK: - Difficulty
+"difficulty.new" = "Neu";
+"difficulty.in_progress" = "In Bearbeitung";
+"difficulty.needs_review" = "Muss überprüft werden";
+"difficulty.mastered" = "Beherrscht";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Neueste zuerst";
+"sorting.earliest_first" = "Älteste zuerst";
+"sorting.alphabetically" = "Alphabetisch";
+"sorting.by_part_of_speech" = "Nach Wortart";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatische Erkennung";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkription";
+"word_details.part_of_speech" = "Wortart";
+"word_details.definition" = "Definition";
+"word_details.difficulty" = "Schwierigkeitsgrad";
+"word_details.examples" = "Beispiele";
+"word_details.edit_example" = "Beispiel bearbeiten";
+"word_details.example" = "Beispiel";
+"word_details.type_example_here" = "Beispiel hier eingeben";
+"word_details.add_example" = "Beispiel hinzufügen";
+"word_details.delete_word" = "Wort löschen";
+"word_details.delete_failed" = "Löschen fehlgeschlagen";
+
+// MARK: - Word List
+"word_list.all_words" = "Alle Wörter";
+"word_list.favorite" = "Favorit";
+"word_list.manage_tags" = "Tags verwalten";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Noch keine Wörter";
+"empty_states.no_idioms_yet" = "Noch keine Redewendungen";
+"empty_states.no_favorite_words" = "Keine Favoriten-Wörter";
+"empty_states.no_search_results" = "Keine Suchergebnisse";
+"empty_states.start_improving_vocabulary" = "Beginnen Sie, Ihren Wortschatz zu verbessern, indem Sie Ihre erste Redewendung hinzufügen";
+"empty_states.tap_heart_icon_to_add_favorites" = "Tippen Sie auf das Herzsymbol bei einer Redewendung, um sie zu den Favoriten hinzuzufügen";
+"empty_states.try_different_search_term" = "Versuchen Sie einen anderen Suchbegriff oder fügen Sie eine neue Redewendung hinzu";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Substantiv";
+"part_of_speech.full.verb" = "Verb";
+"part_of_speech.full.adjective" = "Adjektiv";
+"part_of_speech.full.adverb" = "Adverb";
+"part_of_speech.full.conjunction" = "Konjunktion";
+"part_of_speech.full.pronoun" = "Pronomen";
+"part_of_speech.full.preposition" = "Präposition";
+"part_of_speech.full.exclamation" = "Ausruf";
+"part_of_speech.full.unknown" = "Unbekannt";
+
+"part_of_speech.short.noun" = "Subst.";
+"part_of_speech.short.verb" = "Verb";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Konj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Präp.";
+"part_of_speech.short.exclamation" = "Ausr.";
+"part_of_speech.short.unknown" = "Unbekannt";
+
+"actions.settings" = "Einstellungen";
+

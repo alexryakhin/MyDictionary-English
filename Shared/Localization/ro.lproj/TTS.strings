@@ -1,0 +1,141 @@
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Toate cazurile de utilizare";
+"tts.filters.all_ages" = "Toate vârstele";
+"tts.filters.all_timbres" = "Toate timbrurile";
+"tts.filters.all_accents" = "Toate accentele";
+"tts.filters.all_languages" = "Toate limbile";
+"tts.filters.all_genders" = "Toate genurile";
+"tts.filters.filters" = "Filtre";
+"tts.filters.reset" = "Resetare";
+"tts.filters.select_voice" = "Selectați vocea";
+"tts.filters.available_voices" = "Voci disponibile";
+"tts.filters.no_voices_available" = "Nicio voce disponibilă";
+"tts.filters.no_voices_found" = "Nicio voce găsită";
+"tts.filters.no_voices_found_message" = "Încercați să ajustați căutarea sau filtrele";
+
+"tts.usage.monthly_limit_exceeded" = "Limită lunară depășită";
+"tts.usage.monthly_limit_exceeded_message" = "Ați atins limita lunară de 50.000 de caractere pentru Speechify TTS. Încercați din nou luna viitoare sau folosiți Google TTS.";
+"tts.usage.remaining_characters" = "Caractere rămase";
+"tts.usage.monthly_usage" = "Utilizare lunară";
+"tts.usage.monthly_limit" = "Limită lunară";
+
+// TTS Voice Filter Values
+"advertisement" = "Reclamă";
+"animation" = "Animație";
+"audiobook" = "Carte audio";
+"audiobook-and-narration" = "Carte audio și narațiune";
+"audiobooks-and-narration" = "Cărți audio și narațiune";
+"conversational" = "Conversațional";
+"e-learning" = "E-învățare";
+"gaming" = "Jocuri";
+"meditation" = "Meditație";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filme, actorie și jocuri";
+"narration" = "Narațiune";
+"podcast" = "Podcast";
+"social-media" = "Rețele sociale";
+
+"middle-aged" = "Vârstă mijlocie";
+"senior" = "Senior";
+"teen" = "Adolescent";
+"young-adult" = "Tânăr adult";
+
+"female" = "Femeie";
+"male" = "Bărbat";
+
+"angry" = "Furios";
+"assertive-or-confident" = "Asertiv sau încrezător";
+"bright" = "Luminos";
+"calm-or-relaxed" = "Calm sau relaxat";
+"calm-or-relaxed-" = "Calm sau relaxat";
+"cheerful" = "Vesel";
+"crisp" = "Clar";
+"deep" = "Profund";
+"direct" = "Direct";
+"energetic" = "Energic";
+"fearful" = "Înspăimântat";
+"high-pitch" = "Ton înalt";
+"neutral" = "Neutru";
+"professional" = "Profesional";
+"relaxed" = "Relaxat";
+"sad" = "Trist";
+"suprised" = "Surprins";
+"surprised" = "Surprins";
+"terrified" = "Îngrozit";
+"warm" = "Cald";
+"warm-or-friendly" = "Cald sau prietenos";
+
+"american-neutral" = "American neutru";
+"australian" = "Australian";
+"british" = "Britanic";
+"indian" = "Indian";
+"nigerian" = "Nigerian";
+
+
+
+
+// TTS Dashboard
+"tts.dashboard" = "Tablou de bord TTS";
+"tts.premium_tts_dashboard" = "Tablou de bord TTS premium";
+"tts.customize_tts_experience" = "Personalizați-vă experiența de conversie text în vorbire";
+"tts.playing" = "În redare";
+"tts.ready" = "Gata";
+"tts.provider" = "Furnizor";
+"tts.tts_provider" = "Furnizor TTS";
+"tts.voice_customization" = "Personalizare voce";
+"tts.current_voice" = "Voce curentă";
+"tts.default_voice" = "Voce implicită";
+"tts.preview_current_voice" = "Previzualizați vocea curentă";
+"tts.change_voice" = "Schimbați vocea";
+"tts.audio_settings" = "Setări audio";
+"tts.speech_rate" = "Viteza vorbirii";
+"tts.volume" = "Volum";
+"tts.test_your_settings" = "Testați-vă setările";
+"tts.enter_text_to_test" = "Introduceți text pentru testare...";
+"tts.stop" = "Oprire";
+"tts.test" = "Test";
+"tts.usage_statistics" = "Statistici de utilizare";
+"tts.speechify_monthly_usage" = "Utilizare lunară Speechify";
+"tts.monthly_limit" = "Limită lunară";
+"tts.used_this_month" = "Utilizat în această lună";
+"tts.remaining" = "Rămas";
+"tts.usage_progress" = "Progresul utilizării";
+"tts.characters" = "caractere";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Caractere utilizate";
+"tts.analytics.sessions" = "Sesiuni";
+"tts.analytics.favorite_voice" = "Voce preferată";
+"tts.analytics.time_saved" = "Timp economisit";
+"tts.analytics.total_characters" = "Total caractere";
+"tts.analytics.total_sessions" = "Total sesiuni";
+"tts.analytics.total_duration" = "Durată totală";
+"tts.analytics.favorite_language" = "Limba preferată";
+"tts.analytics.premium_usage" = "Utilizare premium";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Text în vorbire";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Modelul de conversie text în vorbire de la Speechify este disponibil pentru toți utilizatorii ca funcție premium. Vă permite să alegeți dintr-o gamă largă de voci și accente, pentru a vă personaliza experiența de învățare.";
+"tts.settings.speechify_pro_description" = "Modelul de conversie text în vorbire de la Speechify este inclus în abonamentul dumneavoastră.";
+"tts.settings.dashboard" = "Tablou de bord";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Google TTS gratuit cu voci de bază și performanță fiabilă";
+
+// TTS Models
+"tts.models.english" = "Engleză";
+"tts.models.multilingual" = "Multilingv";
+"tts.models.english_description" = "Modelul de conversie text în vorbire în limba engleză de la Speechify oferă funcționalități standard concepute pentru a oferi un sunet clar și natural pentru citirea textelor. Modelul se concentrează pe oferirea unei experiențe consistente pentru utilizator.";
+"tts.models.multilingual_description" = "Modelul multilingv permite utilizarea tuturor limbilor suportate și susține utilizarea mai multor limbi într-o singură propoziție. Sunetul acestui model diferă semnificativ de alte modele.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australian";
+"english_accents.canadian" = "Canadian";
+"english_accents.british" = "Britanic";
+"english_accents.indian" = "Indian";
+"english_accents.american" = "American";
+"english_accents.belgian" = "Belgian";
+"english_accents.singaporean" = "Singaporan";
+"english_accents.irish" = "Irlandez";
+"english_accents.south_african" = "Sud-african";
+

@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Izin notifikasi diperlukan";
+"notifications.permission_denied_message" = "Untuk menerima pengingat harian dan peringatan untuk kata-kata sulit, aktifkan notifikasi di Pengaturan.";
+

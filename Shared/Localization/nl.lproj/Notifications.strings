@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Meldingstoestemming vereist";
+"notifications.permission_denied_message" = "Om dagelijkse herinneringen en waarschuwingen voor moeilijke woorden te ontvangen, schakel je meldingen in Instellingen in.";
+

@@ -1,0 +1,141 @@
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Všechny případy použití";
+"tts.filters.all_ages" = "Všechny věkové skupiny";
+"tts.filters.all_timbres" = "Všechny tóny hlasu";
+"tts.filters.all_accents" = "Všechny přízvuky";
+"tts.filters.all_languages" = "Všechny jazyky";
+"tts.filters.all_genders" = "Všechna pohlaví";
+"tts.filters.filters" = "Filtry";
+"tts.filters.reset" = "Resetovat";
+"tts.filters.select_voice" = "Vybrat hlas";
+"tts.filters.available_voices" = "Dostupné hlasy";
+"tts.filters.no_voices_available" = "Žádné hlasy nejsou k dispozici";
+"tts.filters.no_voices_found" = "Žádné hlasy nenalezeny";
+"tts.filters.no_voices_found_message" = "Zkuste upravit vyhledávání nebo filtry";
+
+"tts.usage.monthly_limit_exceeded" = "Měsíční limit překročen";
+"tts.usage.monthly_limit_exceeded_message" = "Dosáhl jste měsíčního limitu 50 000 znaků pro Speechify TTS. Zkuste to znovu příští měsíc nebo použijte Google TTS.";
+"tts.usage.remaining_characters" = "Zbývající znaky";
+"tts.usage.monthly_usage" = "Měsíční využití";
+"tts.usage.monthly_limit" = "Měsíční limit";
+
+// TTS Voice Filter Values
+"advertisement" = "Reklama";
+"animation" = "Animace";
+"audiobook" = "Audiokniha";
+"audiobook-and-narration" = "Audiokniha a vyprávění";
+"audiobooks-and-narration" = "Audioknihy a vyprávění";
+"conversational" = "Konverzační";
+"e-learning" = "E-učení";
+"gaming" = "Hry";
+"meditation" = "Meditace";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filmy, herectví a hry";
+"narration" = "Vyprávění";
+"podcast" = "Podcast";
+"social-media" = "Sociální média";
+
+"middle-aged" = "Střední věk";
+"senior" = "Senior";
+"teen" = "Teenager";
+"young-adult" = "Mladý dospělý";
+
+"female" = "Žena";
+"male" = "Muž";
+
+"angry" = "Rozzlobený";
+"assertive-or-confident" = "Asertivní nebo sebevědomý";
+"bright" = "Jasný";
+"calm-or-relaxed" = "Klidný nebo uvolněný";
+"calm-or-relaxed-" = "Klidný nebo uvolněný";
+"cheerful" = "Veselý";
+"crisp" = "Ostrý";
+"deep" = "Hluboký";
+"direct" = "Přímý";
+"energetic" = "Energický";
+"fearful" = "Vystrašený";
+"high-pitch" = "Vysoký tón";
+"neutral" = "Neutrální";
+"professional" = "Profesionální";
+"relaxed" = "Uvolněný";
+"sad" = "Smutný";
+"suprised" = "Překvapený";
+"surprised" = "Překvapený";
+"terrified" = "Vyděšený";
+"warm" = "Teplý";
+"warm-or-friendly" = "Teplý nebo přátelský";
+
+"american-neutral" = "Americký neutrální";
+"australian" = "Australský";
+"british" = "Britský";
+"indian" = "Indický";
+"nigerian" = "Nigerijský";
+
+
+
+
+// TTS Dashboard
+"tts.dashboard" = "Nástěnka TTS";
+"tts.premium_tts_dashboard" = "Prémiová nástěnka TTS";
+"tts.customize_tts_experience" = "Přizpůsobte si své zážitky s převodem textu na řeč";
+"tts.playing" = "Přehrává se";
+"tts.ready" = "Připraveno";
+"tts.provider" = "Poskytovatel";
+"tts.tts_provider" = "Poskytovatel TTS";
+"tts.voice_customization" = "Přizpůsobení hlasu";
+"tts.current_voice" = "Aktuální hlas";
+"tts.default_voice" = "Výchozí hlas";
+"tts.preview_current_voice" = "Náhled aktuálního hlasu";
+"tts.change_voice" = "Změnit hlas";
+"tts.audio_settings" = "Nastavení zvuku";
+"tts.speech_rate" = "Rychlost řeči";
+"tts.volume" = "Hlasitost";
+"tts.test_your_settings" = "Otestujte svá nastavení";
+"tts.enter_text_to_test" = "Zadejte text k testování...";
+"tts.stop" = "Zastavit";
+"tts.test" = "Test";
+"tts.usage_statistics" = "Statistiky využití";
+"tts.speechify_monthly_usage" = "Měsíční využití Speechify";
+"tts.monthly_limit" = "Měsíční limit";
+"tts.used_this_month" = "Využito tento měsíc";
+"tts.remaining" = "Zbývá";
+"tts.usage_progress" = "Průběh využití";
+"tts.characters" = "znaky";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Využité znaky";
+"tts.analytics.sessions" = "Relace";
+"tts.analytics.favorite_voice" = "Oblíbený hlas";
+"tts.analytics.time_saved" = "Ušetřený čas";
+"tts.analytics.total_characters" = "Celkový počet znaků";
+"tts.analytics.total_sessions" = "Celkový počet relací";
+"tts.analytics.total_duration" = "Celková doba trvání";
+"tts.analytics.favorite_language" = "Oblíbený jazyk";
+"tts.analytics.premium_usage" = "Prémiové využití";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Text na řeč";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Model převodu textu na řeč od Speechify je dostupný pro všechny uživatele jako prémiová funkce. Umožňuje vám vybírat z široké škály hlasů a přízvuků, abyste si mohli přizpůsobit své studijní zážitky.";
+"tts.settings.speechify_pro_description" = "Model převodu textu na řeč od Speechify je zahrnut ve vašem předplatném.";
+"tts.settings.dashboard" = "Nástěnka";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Zdarma Google TTS se základními hlasy a spolehlivým výkonem";
+
+// TTS Models
+"tts.models.english" = "Angličtina";
+"tts.models.multilingual" = "Vícero jazyků";
+"tts.models.english_description" = "Model převodu textu na řeč v angličtině od Speechify nabízí standardní funkce navržené tak, aby poskytovaly čistý a přirozený zvukový výstup pro čtení textů. Model se zaměřuje na poskytování konzistentního uživatelského zážitku.";
+"tts.models.multilingual_description" = "Model pro vícero jazyků umožňuje použití všech podporovaných jazyků a podporuje použití více jazyků v jedné větě. Zvukový výstup tohoto modelu se výrazně liší od ostatních modelů.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australský";
+"english_accents.canadian" = "Kanadský";
+"english_accents.british" = "Britský";
+"english_accents.indian" = "Indický";
+"english_accents.american" = "Americký";
+"english_accents.belgian" = "Belgický";
+"english_accents.singaporean" = "Singapurský";
+"english_accents.irish" = "Irský";
+"english_accents.south_african" = "Jihoafrický";
+

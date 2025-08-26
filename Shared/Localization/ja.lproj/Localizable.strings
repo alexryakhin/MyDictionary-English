@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "単語";
-"tabbar.idioms" = "慣用句";
-"tabbar.quizzes" = "クイズ";
-"tabbar.progress" = "進捗";
-"tabbar.settings" = "設定";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "単語の詳細";
-"navigation.idiom_details" = "慣用句の詳細";
-"navigation.add_tags" = "タグの追加";
-"navigation.about" = "アプリについて";
-"navigation.debug_panel" = "デバッグパネル";
-"navigation.quiz_results" = "クイズ結果";
-"navigation.spelling_quiz" = "綴りクイズ";
-"navigation.definition_quiz" = "定義クイズ";
-"navigation.close" = "閉じる";
-"navigation.close_screen" = "画面を閉じる";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "慣用句を追加";
-"idioms.add_new_idiom" = "新しい慣用句を追加";
-"idioms.idiom" = "慣用句";
-"idioms.idioms" = "慣用句";
-"idioms.no_idioms_found" = "慣用句が見つかりません";
-"idioms.add_this_idiom" = "上のボタンをクリックしてこの慣用句を追加";
-"idioms.begin_add_idioms" = "左上のプラスアイコンをクリックしてリストに慣用句を追加開始";
-"idioms.all_idioms" = "すべての慣用句";
-"idioms.favorite_idioms" = "お気に入りの慣用句";
-"idioms.found_idioms" = "見つかった慣用句";
-"idioms.examples" = "例";
-"idioms.no_examples_yet" = "まだ例がありません";
-"idioms.type_example_here" = "ここに例を入力";
-"idioms.add_example" = "例を追加";
-"idioms.edit_example" = "例を編集";
-"idioms.delete_idiom" = "慣用句を削除";
-"idioms.delete_idiom_confirmation" = "この慣用句を削除してもよろしいですか？";
-"idioms.search_idioms" = "慣用句を検索...";
-"idioms.favorites" = "お気に入り";
-"idioms.found" = "見つかった";
-"idioms.sort" = "並べ替え";
-"idioms.filter" = "フィルター";
-"idioms.latest_first" = "最新順";
-"idioms.earliest_first" = "最古順";
-"idioms.alphabetically" = "アルファベット順";
-
 // MARK: - App
 "app.my_dictionary" = "マイ辞書";
 "app.loading" = "読み込み中...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "アプリを楽しんでいますか？";
 "coffee.helpful_learning_journey" = "マイ辞書があなたの学習の旅に役立ったなら、コーヒーをおごってください！ ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "新規";
-"difficulty.in_progress" = "進行中";
-"difficulty.needs_review" = "レビューが必要";
-"difficulty.mastered" = "習得済み";
-
-// MARK: - Sorting
-"sorting.latest_first" = "最新順";
-"sorting.earliest_first" = "最古順";
-"sorting.alphabetically" = "アルファベット順";
-"sorting.by_part_of_speech" = "品詞順";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "自動検出";
-
 // MARK: - Time Period
 "time_period.week" = "週";
 "time_period.month" = "月";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "正解";
 "quiz_results.duration" = "所要時間";
 "quiz_results.time_period" = "期間";
-
-// MARK: - Word Details
-"word_details.transcription" = "発音記号";
-"word_details.part_of_speech" = "品詞";
-"word_details.definition" = "定義";
-"word_details.difficulty" = "難易度";
-"word_details.examples" = "例";
-"word_details.edit_example" = "例を編集";
-"word_details.example" = "例";
-"word_details.type_example_here" = "ここに例を入力";
-"word_details.add_example" = "例を追加";
-"word_details.delete_word" = "単語を削除";
-"word_details.delete_failed" = "削除に失敗";
-
-// MARK: - Word List
-"word_list.all_words" = "すべての単語";
-"word_list.favorite" = "お気に入り";
-"word_list.manage_tags" = "タグを管理";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "クイズの種類";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "タグを選択";
 "tag_selection.no_tags_yet" = "まだタグがありません";
 "tag_selection.you_can_select_up_to_5_tags" = "1単語につき最大5つのタグを選択できます。タグをタップして選択または解除。";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "まだ単語がありません";
-"empty_states.no_idioms_yet" = "まだ慣用句がありません";
-"empty_states.no_favorite_words" = "お気に入りの単語がありません";
-"empty_states.no_search_results" = "検索結果がありません";
-"empty_states.start_improving_vocabulary" = "最初の慣用句を追加して語彙の向上を始める";
-"empty_states.tap_heart_icon_to_add_favorites" = "任意の慣用句のハートアイコンをタップしてお気に入りに追加";
-"empty_states.try_different_search_term" = "別の検索語を試すか、新しい慣用句を追加してください";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "練習の時間です！ 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "各単語の正しい定義を選択";
 "quiz_types.great_job_completed_spelling_quiz" = "素晴らしい！綴りクイズを完了しました。";
 "quiz_types.great_job_completed_definition_quiz" = "素晴らしい！定義クイズを完了しました。";
-
-// MARK: - English Accents
-"english_accents.australian" = "オーストラリア";
-"english_accents.canadian" = "カナダ";
-"english_accents.british" = "イギリス";
-"english_accents.indian" = "インド";
-"english_accents.american" = "アメリカ";
-"english_accents.belgian" = "ベルギー";
-"english_accents.singaporean" = "シンガポール";
-"english_accents.irish" = "アイルランド";
-"english_accents.south_african" = "南アフリカ";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "名詞";
-"part_of_speech.full.verb" = "動詞";
-"part_of_speech.full.adjective" = "形容詞";
-"part_of_speech.full.adverb" = "副詞";
-"part_of_speech.full.conjunction" = "接続詞";
-"part_of_speech.full.pronoun" = "代名詞";
-"part_of_speech.full.preposition" = "前置詞";
-"part_of_speech.full.exclamation" = "感嘆詞";
-"part_of_speech.full.unknown" = "不明";
-
-"part_of_speech.short.noun" = "名詞";
-"part_of_speech.short.verb" = "動詞";
-"part_of_speech.short.adjective" = "形";
-"part_of_speech.short.adverb" = "副";
-"part_of_speech.short.conjunction" = "接";
-"part_of_speech.short.pronoun" = "代";
-"part_of_speech.short.preposition" = "前";
-"part_of_speech.short.exclamation" = "感";
-"part_of_speech.short.unknown" = "不明";
-
-"actions.settings" = "設定";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "すべての使用ケース";
-"tts.filters.all_ages" = "すべての年齢";
-"tts.filters.all_timbres" = "すべての音色";
-"tts.filters.all_accents" = "すべてのアクセント";
-"tts.filters.all_languages" = "すべての言語";
-"tts.filters.all_genders" = "すべての性別";
-"tts.filters.filters" = "フィルター";
-"tts.filters.reset" = "リセット";
-"tts.filters.select_voice" = "音声を選択";
-"tts.filters.available_voices" = "利用可能な音声";
-"tts.filters.no_voices_available" = "利用可能な音声がありません";
-"tts.filters.no_voices_found" = "音声が見つかりませんでした";
-"tts.filters.no_voices_found_message" = "検索またはフィルターを調整してみてください";
-
-"tts.usage.monthly_limit_exceeded" = "月間制限を超過";
-"tts.usage.monthly_limit_exceeded_message" = "Speechify TTSの月間50,000文字の制限に達しました。来月もう一度お試しください、またはGoogle TTSを使用してください。";
-"tts.usage.remaining_characters" = "残りの文字数";
-"tts.usage.monthly_usage" = "月間使用量";
-"tts.usage.monthly_limit" = "月間制限";
-
-// TTS Voice Filter Values
-"advertisement" = "広告";
-"animation" = "アニメーション";
-"audiobook" = "オーディオブック";
-"audiobook-and-narration" = "オーディオブックとナレーション";
-"audiobooks-and-narration" = "オーディオブックとナレーション";
-"conversational" = "会話型";
-"e-learning" = "eラーニング";
-"gaming" = "ゲーミング";
-"meditation" = "瞑想";
-"movie" = "映画";
-"movies-acting-and-gaming" = "映画、演技、ゲーミング";
-"narration" = "ナレーション";
-"podcast" = "ポッドキャスト";
-"social-media" = "ソーシャルメディア";
-
-"middle-aged" = "中高年";
-"senior" = "高齢者";
-"teen" = "ティーン";
-"young-adult" = "若年成人";
-
-"female" = "女性";
-"male" = "男性";
-
-"angry" = "怒っている";
-"assertive-or-confident" = "断定的または自信";
-"bright" = "明るい";
-"calm-or-relaxed" = "穏やかまたはリラックス";
-"calm-or-relaxed-" = "穏やかまたはリラックス";
-"cheerful" = "陽気";
-"crisp" = "明瞭";
-"deep" = "深い";
-"direct" = "直接的";
-"energetic" = "エネルギッシュ";
-"fearful" = "恐れている";
-"high-pitch" = "高音";
-"neutral" = "ニュートラル";
-"professional" = "プロフェッショナル";
-"relaxed" = "リラックス";
-"sad" = "悲しい";
-"suprised" = "驚いた";
-"surprised" = "驚いた";
-"terrified" = "恐怖";
-"warm" = "温かい";
-"warm-or-friendly" = "温かいまたは親しみやすい";
-
-"american-neutral" = "アメリカン・ニュートラル";
-"australian" = "オーストラリア";
-"british" = "ブリティッシュ";
-"indian" = "インド";
-"nigerian" = "ナイジェリア";
-
-"notifications.permission_required" = "通知の許可が必要です";
-"notifications.permission_denied_message" = "毎日のリマインダーや難しい単語のアラートを受け取るには、設定で通知を有効にしてください。";
-
-"onboarding.natural_voices" = "自然な音声";
-"onboarding.natural_voices_description" = "これまで以上に人間らしく聞こえる数百のプレミアム音声";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Speechifyのプレミアムテキスト読み上げ技術へのアクセス。自然に聞こえる数百のプレミアム音声";
-
-// TTS Dashboard
-"tts.dashboard" = "TTSダッシュボード";
-"tts.premium_tts_dashboard" = "プレミアムTTSダッシュボード";
-"tts.customize_tts_experience" = "テキスト読み上げ体験をカスタマイズ";
-"tts.playing" = "再生中";
-"tts.ready" = "準備完了";
-"tts.provider" = "プロバイダ";
-"tts.tts_provider" = "TTSプロバイダ";
-"tts.voice_customization" = "音声カスタマイズ";
-"tts.current_voice" = "現在の音声";
-"tts.default_voice" = "デフォルト音声";
-"tts.preview_current_voice" = "現在の音声をプレビュー";
-"tts.change_voice" = "音声を変更";
-"tts.audio_settings" = "オーディオ設定";
-"tts.speech_rate" = "読み上げ速度";
-"tts.volume" = "音量";
-"tts.test_your_settings" = "設定をテスト";
-"tts.enter_text_to_test" = "テストするテキストを入力...";
-"tts.stop" = "停止";
-"tts.test" = "テスト";
-"tts.usage_statistics" = "使用統計";
-"tts.speechify_monthly_usage" = "Speechifyの月間使用量";
-"tts.monthly_limit" = "月間制限";
-"tts.used_this_month" = "今月使用済み";
-"tts.remaining" = "残り";
-"tts.usage_progress" = "使用進捗";
-"tts.characters" = "文字";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "使用した文字数";
-"tts.analytics.sessions" = "セッション";
-"tts.analytics.favorite_voice" = "お気に入りの音声";
-"tts.analytics.time_saved" = "節約した時間";
-"tts.analytics.total_characters" = "総文字数";
-"tts.analytics.total_sessions" = "総セッション数";
-"tts.analytics.total_duration" = "総時間";
-"tts.analytics.favorite_language" = "お気に入りの言語";
-"tts.analytics.premium_usage" = "プレミアム使用";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "テキスト読み上げ";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechifyのテキスト読み上げモデルは、すべてのユーザーにプレミアム機能として提供されています。さまざまな音声やアクセントから選択して、学習体験をカスタマイズできます。";
-"tts.settings.speechify_pro_description" = "Speechifyのテキスト読み上げモデルは、あなたのサブスクリプションに含まれています。";
-"tts.settings.dashboard" = "ダッシュボード";
-"tts.pro" = "プロ";
-"tts.free_google_tts_description" = "基本的な音声と信頼性の高いパフォーマンスを備えた無料のGoogle TTS";
-
-// TTS Models
-"tts.models.english" = "英語";
-"tts.models.multilingual" = "多言語";
-"tts.models.english_description" = "Speechifyの英語テキスト読み上げモデルは、テキストの読み上げにクリアで自然な音声出力を提供する標準機能を提供します。このモデルは一貫したユーザー体験に焦点を当てています。";
-"tts.models.multilingual_description" = "多言語モデルは、サポートされているすべての言語の使用を可能にし、1つの文内で複数の言語を使用することをサポートします。このモデルの音声出力は他のモデルと明確に異なります。";
 

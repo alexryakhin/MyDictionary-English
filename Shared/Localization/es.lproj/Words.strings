@@ -61,3 +61,96 @@
 "words.edit_example" = "Editar ejemplo";
 "words.no_transcription" = "Sin transcripción";
 "words.no_definition" = "Sin definición";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Añadir modismo";
+"idioms.add_new_idiom" = "Añadir nuevo modismo";
+"idioms.idiom" = "Modismo";
+"idioms.idioms" = "Modismos";
+"idioms.no_idioms_found" = "No se encontraron modismos";
+"idioms.add_this_idiom" = "Añade este modismo pulsando el botón de arriba";
+"idioms.begin_add_idioms" = "Comienza a añadir modismos a tu lista pulsando el icono de más en la esquina superior izquierda";
+"idioms.all_idioms" = "Todos los modismos";
+"idioms.favorite_idioms" = "Modismos favoritos";
+"idioms.found_idioms" = "Modismos encontrados";
+"idioms.examples" = "Ejemplos";
+"idioms.no_examples_yet" = "Aún no hay ejemplos";
+"idioms.type_example_here" = "Escribe un ejemplo aquí";
+"idioms.add_example" = "Añadir ejemplo";
+"idioms.edit_example" = "Editar ejemplo";
+"idioms.delete_idiom" = "Eliminar modismo";
+"idioms.delete_idiom_confirmation" = "¿Estás seguro de que quieres eliminar este modismo?";
+"idioms.search_idioms" = "Buscar modismos...";
+"idioms.favorites" = "Favoritos";
+"idioms.found" = "Encontrados";
+"idioms.sort" = "Ordenar";
+"idioms.filter" = "Filtrar";
+"idioms.latest_first" = "Más recientes primero";
+"idioms.earliest_first" = "Más antiguos primero";
+"idioms.alphabetically" = "Alfabéticamente";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nuevo";
+"difficulty.in_progress" = "En progreso";
+"difficulty.needs_review" = "Necesita repaso";
+"difficulty.mastered" = "Dominado";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Más recientes primero";
+"sorting.earliest_first" = "Más antiguos primero";
+"sorting.alphabetically" = "Alfabéticamente";
+"sorting.by_part_of_speech" = "Por categoría gramatical";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Detección automática";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transcripción";
+"word_details.part_of_speech" = "Categoría gramatical";
+"word_details.definition" = "Definición";
+"word_details.difficulty" = "Dificultad";
+"word_details.examples" = "Ejemplos";
+"word_details.edit_example" = "Editar ejemplo";
+"word_details.example" = "Ejemplo";
+"word_details.type_example_here" = "Escribe un ejemplo aquí";
+"word_details.add_example" = "Añadir ejemplo";
+"word_details.delete_word" = "Eliminar palabra";
+"word_details.delete_failed" = "Eliminación fallida";
+
+// MARK: - Word List
+"word_list.all_words" = "Todas las palabras";
+"word_list.favorite" = "Favorito";
+"word_list.manage_tags" = "Gestionar etiquetas";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Aún no hay palabras";
+"empty_states.no_idioms_yet" = "Aún no hay modismos";
+"empty_states.no_favorite_words" = "No hay palabras favoritas";
+"empty_states.no_search_results" = "No hay resultados de búsqueda";
+"empty_states.start_improving_vocabulary" = "Comienza a mejorar tu vocabulario añadiendo el primer modismo";
+"empty_states.tap_heart_icon_to_add_favorites" = "Pulsa el icono de corazón en cualquier modismo para añadirlo a favoritos";
+"empty_states.try_different_search_term" = "Prueba un término de búsqueda diferente o añade un nuevo modismo";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Sustantivo";
+"part_of_speech.full.verb" = "Verbo";
+"part_of_speech.full.adjective" = "Adjetivo";
+"part_of_speech.full.adverb" = "Adverbio";
+"part_of_speech.full.conjunction" = "Conjunción";
+"part_of_speech.full.pronoun" = "Pronombre";
+"part_of_speech.full.preposition" = "Preposición";
+"part_of_speech.full.exclamation" = "Exclamación";
+"part_of_speech.full.unknown" = "Desconocido";
+
+"part_of_speech.short.noun" = "Sust.";
+"part_of_speech.short.verb" = "Verb.";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Conj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.exclamation" = "Excl.";
+"part_of_speech.short.unknown" = "Descon.";
+
+"actions.settings" = "Configuración";
+

@@ -61,3 +61,96 @@
 "words.edit_example" = "Uredi primjer";
 "words.no_transcription" = "Bez transkripcije";
 "words.no_definition" = "Bez definicije";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Dodaj idiom";
+"idioms.add_new_idiom" = "Dodaj novi idiom";
+"idioms.idiom" = "Idiom";
+"idioms.idioms" = "Idiomi";
+"idioms.no_idioms_found" = "Nema pronađenih idioma";
+"idioms.add_this_idiom" = "Dodajte ovaj idiom pritiskom na gumb iznad";
+"idioms.begin_add_idioms" = "Počnite dodavati idiome na svoj popis klikom na ikonu plus u gornjem lijevom kutu";
+"idioms.all_idioms" = "Svi idiomi";
+"idioms.favorite_idioms" = "Omiljeni idiomi";
+"idioms.found_idioms" = "Pronađeni";
+"idioms.examples" = "Primjeri";
+"idioms.no_examples_yet" = "Još nema primjera";
+"idioms.type_example_here" = "Upiši primjer ovdje";
+"idioms.add_example" = "Dodaj primjer";
+"idioms.edit_example" = "Uredi primjer";
+"idioms.delete_idiom" = "Izbriši idiom";
+"idioms.delete_idiom_confirmation" = "Jeste li sigurni da želite izbrisati ovaj idiom?";
+"idioms.search_idioms" = "Pretraži idiome...";
+"idioms.favorites" = "Favoriti";
+"idioms.found" = "Pronađeni";
+"idioms.sort" = "Sortiraj";
+"idioms.filter" = "Filtriraj";
+"idioms.latest_first" = "Najnovije prvo";
+"idioms.earliest_first" = "Najstarije prvo";
+"idioms.alphabetically" = "Abecedno";
+
+// MARK: - Difficulty
+"difficulty.new" = "Novo";
+"difficulty.in_progress" = "U tijeku";
+"difficulty.needs_review" = "Potrebna revizija";
+"difficulty.mastered" = "Svladano";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Najnovije prvo";
+"sorting.earliest_first" = "Najstarije prvo";
+"sorting.alphabetically" = "Abecedno";
+"sorting.by_part_of_speech" = "Po vrsti riječi";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatsko otkrivanje";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkripcija";
+"word_details.part_of_speech" = "Vrsta riječi";
+"word_details.definition" = "Definicija";
+"word_details.difficulty" = "Težina";
+"word_details.examples" = "Primjeri";
+"word_details.edit_example" = "Uredi primjer";
+"word_details.example" = "Primjer";
+"word_details.type_example_here" = "Upiši primjer ovdje";
+"word_details.add_example" = "Dodaj primjer";
+"word_details.delete_word" = "Izbriši riječ";
+"word_details.delete_failed" = "Brisanje nije uspjelo";
+
+// MARK: - Word List
+"word_list.all_words" = "Sve riječi";
+"word_list.favorite" = "Favorit";
+"word_list.manage_tags" = "Upravljaj oznakama";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Još nema riječi";
+"empty_states.no_idioms_yet" = "Još nema idioma";
+"empty_states.no_favorite_words" = "Nema omiljenih riječi";
+"empty_states.no_search_results" = "Nema rezultata pretrage";
+"empty_states.start_improving_vocabulary" = "Počnite poboljšavati svoj vokabular dodavanjem svog prvog idioma";
+"empty_states.tap_heart_icon_to_add_favorites" = "Dodirnite ikonu srca na bilo kojem idiomu da biste ga dodali u favorite";
+"empty_states.try_different_search_term" = "Pokušajte s drugim pojmom za pretragu ili dodajte novi idiom";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Imenica";
+"part_of_speech.full.verb" = "Glagol";
+"part_of_speech.full.adjective" = "Pridjev";
+"part_of_speech.full.adverb" = "Prilog";
+"part_of_speech.full.conjunction" = "Veznik";
+"part_of_speech.full.pronoun" = "Zamjenica";
+"part_of_speech.full.preposition" = "Prijedlog";
+"part_of_speech.full.exclamation" = "Usklik";
+"part_of_speech.full.unknown" = "Nepoznato";
+
+"part_of_speech.short.noun" = "Imen.";
+"part_of_speech.short.verb" = "Glag.";
+"part_of_speech.short.adjective" = "Prid.";
+"part_of_speech.short.adverb" = "Pril.";
+"part_of_speech.short.conjunction" = "Vez.";
+"part_of_speech.short.pronoun" = "Zamj.";
+"part_of_speech.short.preposition" = "Prij.";
+"part_of_speech.short.exclamation" = "Uskl.";
+"part_of_speech.short.unknown" = "Nepoz.";
+
+"actions.settings" = "Postavke";
+

@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Frissíts Pro-ra, hogy lásd a szókincsed növekedésének minden részletét.";
 "pro_upgrade.time_period" = "Időszak";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Hozzáférés a Speechify prémium szövegfelolvasó technológiájához. Több száz természetes hangzású prémium hang";
+

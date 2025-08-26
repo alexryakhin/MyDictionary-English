@@ -61,3 +61,96 @@
 "words.edit_example" = "Muokkaa esimerkkiä";
 "words.no_transcription" = "Ei transkriptiota";
 "words.no_definition" = "Ei määritelmää";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Lisää idiomi";
+"idioms.add_new_idiom" = "Lisää uusi idiomi";
+"idioms.idiom" = "Idiomi";
+"idioms.idioms" = "Idiomit";
+"idioms.no_idioms_found" = "Ei löydetty idiomeja";
+"idioms.add_this_idiom" = "Lisää tämä idiomi painamalla yllä olevaa painiketta";
+"idioms.begin_add_idioms" = "Aloita idiomien lisääminen listallesi klikkaamalla vasemmassa yläkulmassa olevaa plus-kuvaketta";
+"idioms.all_idioms" = "Kaikki idiomit";
+"idioms.favorite_idioms" = "Suosikki-idiomit";
+"idioms.found_idioms" = "Löydetyt";
+"idioms.examples" = "Esimerkit";
+"idioms.no_examples_yet" = "Ei vielä esimerkkejä";
+"idioms.type_example_here" = "Kirjoita esimerkki tähän";
+"idioms.add_example" = "Lisää esimerkki";
+"idioms.edit_example" = "Muokkaa esimerkkiä";
+"idioms.delete_idiom" = "Poista idiomi";
+"idioms.delete_idiom_confirmation" = "Haluatko varmasti poistaa tämän idiomin?";
+"idioms.search_idioms" = "Hae idiomeja...";
+"idioms.favorites" = "Suosikit";
+"idioms.found" = "Löydetyt";
+"idioms.sort" = "Lajittele";
+"idioms.filter" = "Suodata";
+"idioms.latest_first" = "Uusin ensin";
+"idioms.earliest_first" = "Vanhin ensin";
+"idioms.alphabetically" = "Aakkosjärjestyksessä";
+
+// MARK: - Difficulty
+"difficulty.new" = "Uusi";
+"difficulty.in_progress" = "Käsittelyssä";
+"difficulty.needs_review" = "Tarkistusta vaativa";
+"difficulty.mastered" = "Hallittu";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Uusin ensin";
+"sorting.earliest_first" = "Vanhin ensin";
+"sorting.alphabetically" = "Aakkosjärjestyksessä";
+"sorting.by_part_of_speech" = "Sanaluokan mukaan";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automaattinen tunnistus";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkriptio";
+"word_details.part_of_speech" = "Sanaluokka";
+"word_details.definition" = "Määritelmä";
+"word_details.difficulty" = "Vaikeustaso";
+"word_details.examples" = "Esimerkit";
+"word_details.edit_example" = "Muokkaa esimerkkiä";
+"word_details.example" = "Esimerkki";
+"word_details.type_example_here" = "Kirjoita esimerkki tähän";
+"word_details.add_example" = "Lisää esimerkki";
+"word_details.delete_word" = "Poista sana";
+"word_details.delete_failed" = "Poistaminen epäonnistui";
+
+// MARK: - Word List
+"word_list.all_words" = "Kaikki sanat";
+"word_list.favorite" = "Suosikki";
+"word_list.manage_tags" = "Hallinnoi tunnisteita";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Ei vielä sanoja";
+"empty_states.no_idioms_yet" = "Ei vielä idiomeja";
+"empty_states.no_favorite_words" = "Ei suosikkisanoja";
+"empty_states.no_search_results" = "Ei hakutuloksia";
+"empty_states.start_improving_vocabulary" = "Aloita sanastosi parantaminen lisäämällä ensimmäinen idiomi";
+"empty_states.tap_heart_icon_to_add_favorites" = "Napauta sydänkuvaketta minkä tahansa idiomin kohdalla lisätäksesi sen suosikkeihin";
+"empty_states.try_different_search_term" = "Kokeile eri hakutermiä tai lisää uusi idiomi";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Substantiivi";
+"part_of_speech.full.verb" = "Verbi";
+"part_of_speech.full.adjective" = "Adjektiivi";
+"part_of_speech.full.adverb" = "Adverbi";
+"part_of_speech.full.conjunction" = "Konjunktio";
+"part_of_speech.full.pronoun" = "Pronomini";
+"part_of_speech.full.preposition" = "Prepositio";
+"part_of_speech.full.exclamation" = "Huudahdus";
+"part_of_speech.full.unknown" = "Tuntematon";
+
+"part_of_speech.short.noun" = "Subst.";
+"part_of_speech.short.verb" = "Verb.";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Konj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.exclamation" = "Huud.";
+"part_of_speech.short.unknown" = "Tuntematon";
+
+"actions.settings" = "Asetukset";
+

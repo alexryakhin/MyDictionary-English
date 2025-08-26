@@ -1,0 +1,141 @@
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Όλες οι περιπτώσεις χρήσης";
+"tts.filters.all_ages" = "Όλες οι ηλικίες";
+"tts.filters.all_timbres" = "Όλοι οι τόνοι φωνής";
+"tts.filters.all_accents" = "Όλες οι προφορές";
+"tts.filters.all_languages" = "Όλες οι γλώσσες";
+"tts.filters.all_genders" = "Όλα τα φύλα";
+"tts.filters.filters" = "Φίλτρα";
+"tts.filters.reset" = "Επαναφορά";
+"tts.filters.select_voice" = "Επιλογή φωνής";
+"tts.filters.available_voices" = "Διαθέσιμες φωνές";
+"tts.filters.no_voices_available" = "Καμία διαθέσιμη φωνή";
+"tts.filters.no_voices_found" = "Δεν βρέθηκαν φωνές";
+"tts.filters.no_voices_found_message" = "Δοκιμάστε να προσαρμόσετε την αναζήτηση ή τα φίλτρα σας";
+
+"tts.usage.monthly_limit_exceeded" = "Υπέρβαση μηνιαίου ορίου";
+"tts.usage.monthly_limit_exceeded_message" = "Έχετε φτάσει το μηνιαίο όριο των 50.000 χαρακτήρων για το Speechify TTS. Δοκιμάστε ξανά τον επόμενο μήνα ή χρησιμοποιήστε το Google TTS.";
+"tts.usage.remaining_characters" = "Υπολειπόμενοι χαρακτήρες";
+"tts.usage.monthly_usage" = "Μηνιαία χρήση";
+"tts.usage.monthly_limit" = "Μηνιαίο όριο";
+
+// TTS Voice Filter Values
+"advertisement" = "Διαφήμιση";
+"animation" = "Κινούμενα σχέδια";
+"audiobook" = "Ακουστικό βιβλίο";
+"audiobook-and-narration" = "Ακουστικό βιβλίο και αφήγηση";
+"audiobooks-and-narration" = "Ακουστικά βιβλία και αφήγηση";
+"conversational" = "Συνομιλητικός";
+"e-learning" = "Ηλεκτρονική μάθηση";
+"gaming" = "Παιχνίδια";
+"meditation" = "Διαλογισμός";
+"movie" = "Ταινία";
+"movies-acting-and-gaming" = "Ταινίες, υποκριτική και παιχνίδια";
+"narration" = "Αφήγηση";
+"podcast" = "Ποντκαστ";
+"social-media" = "Κοινωνικά δίκτυα";
+
+"middle-aged" = "Μεσήλικας";
+"senior" = "Ηλικιωμένος";
+"teen" = "Έφηβος";
+"young-adult" = "Νεαρός ενήλικας";
+
+"female" = "Γυναίκα";
+"male" = "Άνδρας";
+
+"angry" = "Θυμωμένος";
+"assertive-or-confident" = "Διεκδικητικός ή σίγουρος";
+"bright" = "Φωτεινός";
+"calm-or-relaxed" = "Ήρεμος ή χαλαρός";
+"calm-or-relaxed-" = "Ήρεμος ή χαλαρός";
+"cheerful" = "Χαρούμενος";
+"crisp" = "Καθαρός";
+"deep" = "Βαθύς";
+"direct" = "Άμεσος";
+"energetic" = "Ενεργητικός";
+"fearful" = "Φοβισμένος";
+"high-pitch" = "Υψηλός τόνος";
+"neutral" = "Ουδέτερος";
+"professional" = "Επαγγελματικός";
+"relaxed" = "Χαλαρός";
+"sad" = "Λυπημένος";
+"suprised" = "Εκπληκτος";
+"surprised" = "Εκπληκτος";
+"terrified" = "Τρομοκρατημένος";
+"warm" = "Ζεστός";
+"warm-or-friendly" = "Ζεστός ή φιλικός";
+
+"american-neutral" = "Αμερικανικός ουδέτερος";
+"australian" = "Αυστραλιανός";
+"british" = "Βρετανικός";
+"indian" = "Ινδικός";
+"nigerian" = "Νιγηριανός";
+
+
+
+
+// TTS Dashboard
+"tts.dashboard" = "Πίνακας ελέγχου TTS";
+"tts.premium_tts_dashboard" = "Premium πίνακας ελέγχου TTS";
+"tts.customize_tts_experience" = "Προσαρμόστε την εμπειρία μετατροπής κειμένου σε ομιλία";
+"tts.playing" = "Αναπαράγεται";
+"tts.ready" = "Έτοιμο";
+"tts.provider" = "Πάροχος";
+"tts.tts_provider" = "Πάροχος TTS";
+"tts.voice_customization" = "Προσαρμογή φωνής";
+"tts.current_voice" = "Τρέχουσα φωνή";
+"tts.default_voice" = "Προεπιλεγμένη φωνή";
+"tts.preview_current_voice" = "Προεπισκόπηση τρέχουσας φωνής";
+"tts.change_voice" = "Αλλαγή φωνής";
+"tts.audio_settings" = "Ρυθμίσεις ήχου";
+"tts.speech_rate" = "Ταχύτητα ομιλίας";
+"tts.volume" = "Ένταση";
+"tts.test_your_settings" = "Δοκιμάστε τις ρυθμίσεις σας";
+"tts.enter_text_to_test" = "Εισαγάγετε κείμενο για δοκιμή...";
+"tts.stop" = "Διακοπή";
+"tts.test" = "Δοκιμή";
+"tts.usage_statistics" = "Στατιστικά χρήσης";
+"tts.speechify_monthly_usage" = "Μηνιαία χρήση Speechify";
+"tts.monthly_limit" = "Μηνιαίο όριο";
+"tts.used_this_month" = "Χρησιμοποιήθηκε αυτόν τον μήνα";
+"tts.remaining" = "Υπολείπονται";
+"tts.usage_progress" = "Πρόοδος χρήσης";
+"tts.characters" = "χαρακτήρες";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Χρησιμοποιημένοι χαρακτήρες";
+"tts.analytics.sessions" = "Συνεδρίες";
+"tts.analytics.favorite_voice" = "Αγαπημένη φωνή";
+"tts.analytics.time_saved" = "Χρόνος που εξοικονομήθηκε";
+"tts.analytics.total_characters" = "Συνολικοί χαρακτήρες";
+"tts.analytics.total_sessions" = "Συνολικές συνεδρίες";
+"tts.analytics.total_duration" = "Συνολική διάρκεια";
+"tts.analytics.favorite_language" = "Αγαπημένη γλώσσα";
+"tts.analytics.premium_usage" = "Premium χρήση";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Μετατροπή κειμένου σε ομιλία";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία της Speechify είναι διαθέσιμο σε όλους τους χρήστες ως premium λειτουργία. Σας επιτρέπει να επιλέξετε από μια ευρεία γκάμα φωνών και προφορών, για να προσαρμόσετε την εμπειρία μάθησής σας.";
+"tts.settings.speechify_pro_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία της Speechify περιλαμβάνεται στη συνδρομή σας.";
+"tts.settings.dashboard" = "Πίνακας ελέγχου";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Δωρεάν Google TTS με βασικές φωνές και αξιόπιστη απόδοση";
+
+// TTS Models
+"tts.models.english" = "Αγγλικά";
+"tts.models.multilingual" = "Πολυγλωσσικό";
+"tts.models.english_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία στα Αγγλικά της Speechify προσφέρει τυπικές λειτουργίες που έχουν σχεδιαστεί για να παρέχουν καθαρή και φυσική έξοδο ήχου για την ανάγνωση κειμένων. Το μοντέλο επικεντρώνεται στην παροχή συνεπούς εμπειρίας χρήστη.";
+"tts.models.multilingual_description" = "Το πολυγλωσσικό μοντέλο επιτρέπει τη χρήση όλων των υποστηριζόμενων γλωσσών και υποστηρίζει τη χρήση πολλαπλών γλωσσών μέσα σε μία πρόταση. Η έξοδος ήχου αυτού του μοντέλου διαφέρει σημαντικά από άλλα μοντέλα.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Αυστραλιανό";
+"english_accents.canadian" = "Καναδικό";
+"english_accents.british" = "Βρετανικό";
+"english_accents.indian" = "Ινδικό";
+"english_accents.american" = "Αμερικανικό";
+"english_accents.belgian" = "Βελγικό";
+"english_accents.singaporean" = "Σιγκαπουριανό";
+"english_accents.irish" = "Ιρλανδικό";
+"english_accents.south_african" = "Νοτιοαφρικανικό";
+

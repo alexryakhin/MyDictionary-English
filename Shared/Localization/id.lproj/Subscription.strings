@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Tingkatkan ke Pro untuk melihat semua detail pertumbuhan kosakata Anda.";
 "pro_upgrade.time_period" = "Periode Waktu";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Akses ke teknologi teks ke ucapan premium Speechify. Ratusan suara premium yang terdengar alami";
+

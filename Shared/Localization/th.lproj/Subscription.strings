@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "อัปเกรดเป็น Pro เพื่อดูรายละเอียดการเติบโตของคลังคำศัพท์ทั้งหมด";
 "pro_upgrade.time_period" = "ช่วงเวลา";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "เข้าถึงเทคโนโลยีแปลงข้อความเป็นคำพูดระดับพรีเมียมของ Speechify เสียงพรีเมียมที่ฟังดูเป็นธรรมชาตินับร้อย";
+

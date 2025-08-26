@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "단어";
+"tabbar.idioms" = "관용구";
+"tabbar.quizzes" = "퀴즈";
+"tabbar.progress" = "진행 상황";
+"tabbar.settings" = "설정";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "단어 세부 정보";
+"navigation.idiom_details" = "관용구 세부 정보";
+"navigation.add_tags" = "태그 추가";
+"navigation.about" = "앱 정보";
+"navigation.debug_panel" = "디버그 패널";
+"navigation.quiz_results" = "퀴즈 결과";
+"navigation.spelling_quiz" = "철자 퀴즈";
+"navigation.definition_quiz" = "정의 퀴즈";
+"navigation.close" = "닫기";
+"navigation.close_screen" = "화면 닫기";
+

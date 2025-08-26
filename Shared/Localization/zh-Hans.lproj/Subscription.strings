@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "升级到专业版以查看完整的词汇增长详情。";
 "pro_upgrade.time_period" = "时间段";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "访问Speechify的优质文本转语音技术。数百种自然声音的优质语音";
+

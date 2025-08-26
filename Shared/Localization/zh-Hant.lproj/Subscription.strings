@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "升級到專業版以查看完整的詞彙增長詳情。";
 "pro_upgrade.time_period" = "時間段";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "訪問Speechify的優質文本轉語音技術。數百種自然聲音的優質語音";
+

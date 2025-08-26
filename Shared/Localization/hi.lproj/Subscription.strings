@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "अपनी शब्दावली वृद्धि के सभी विवरण देखने के लिए प्रो में अपग्रेड करें।";
 "pro_upgrade.time_period" = "समय अवधि";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Speechify की प्रीमियम टेक्स्ट-टू-स्पीच तकनीक तक पहुँच। सैकड़ों प्राकृतिक ध्वनि वाली प्रीमियम आवाज़ें";
+

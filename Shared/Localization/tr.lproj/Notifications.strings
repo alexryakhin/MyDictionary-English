@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Bildirim izni gerekli";
+"notifications.permission_denied_message" = "Günlük hatırlatmalar ve zor kelime uyarıları almak için lütfen Ayarlar'da bildirimleri etkinleştirin.";
+

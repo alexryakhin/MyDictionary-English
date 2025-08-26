@@ -61,3 +61,96 @@
 "words.edit_example" = "Voorbeeld bewerken";
 "words.no_transcription" = "Geen transcriptie";
 "words.no_definition" = "Geen definitie";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Idioom toevoegen";
+"idioms.add_new_idiom" = "Nieuw idioom toevoegen";
+"idioms.idiom" = "Idioom";
+"idioms.idioms" = "Idiomen";
+"idioms.no_idioms_found" = "Geen idiomen gevonden";
+"idioms.add_this_idiom" = "Voeg dit idioom toe door op de knop hierboven te klikken";
+"idioms.begin_add_idioms" = "Begin met het toevoegen van idiomen aan je lijst door op het pluspictogram in de linkerbovenhoek te klikken";
+"idioms.all_idioms" = "Alle idiomen";
+"idioms.favorite_idioms" = "Favoriete idiomen";
+"idioms.found_idioms" = "Gevonden";
+"idioms.examples" = "Voorbeelden";
+"idioms.no_examples_yet" = "Nog geen voorbeelden";
+"idioms.type_example_here" = "Typ hier een voorbeeld";
+"idioms.add_example" = "Voorbeeld toevoegen";
+"idioms.edit_example" = "Voorbeeld bewerken";
+"idioms.delete_idiom" = "Idioom verwijderen";
+"idioms.delete_idiom_confirmation" = "Weet je zeker dat je dit idioom wilt verwijderen?";
+"idioms.search_idioms" = "Zoek idiomen...";
+"idioms.favorites" = "Favorieten";
+"idioms.found" = "Gevonden";
+"idioms.sort" = "Sorteren";
+"idioms.filter" = "Filteren";
+"idioms.latest_first" = "Nieuwste eerst";
+"idioms.earliest_first" = "Oudste eerst";
+"idioms.alphabetically" = "Alfabetisch";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nieuw";
+"difficulty.in_progress" = "In behandeling";
+"difficulty.needs_review" = "Moet herzien worden";
+"difficulty.mastered" = "Beheerst";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Nieuwste eerst";
+"sorting.earliest_first" = "Oudste eerst";
+"sorting.alphabetically" = "Alfabetisch";
+"sorting.by_part_of_speech" = "Op woordsoort";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatische detectie";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transcriptie";
+"word_details.part_of_speech" = "Woordsoort";
+"word_details.definition" = "Definitie";
+"word_details.difficulty" = "Moeilijkheidsgraad";
+"word_details.examples" = "Voorbeelden";
+"word_details.edit_example" = "Voorbeeld bewerken";
+"word_details.example" = "Voorbeeld";
+"word_details.type_example_here" = "Typ hier een voorbeeld";
+"word_details.add_example" = "Voorbeeld toevoegen";
+"word_details.delete_word" = "Woord verwijderen";
+"word_details.delete_failed" = "Verwijderen mislukt";
+
+// MARK: - Word List
+"word_list.all_words" = "Alle woorden";
+"word_list.favorite" = "Favoriet";
+"word_list.manage_tags" = "Tags beheren";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Nog geen woorden";
+"empty_states.no_idioms_yet" = "Nog geen idiomen";
+"empty_states.no_favorite_words" = "Geen favoriete woorden";
+"empty_states.no_search_results" = "Geen zoekresultaten";
+"empty_states.start_improving_vocabulary" = "Begin met het verbeteren van je woordenschat door je eerste idioom toe te voegen";
+"empty_states.tap_heart_icon_to_add_favorites" = "Tik op het hartpictogram bij een idioom om het aan favorieten toe te voegen";
+"empty_states.try_different_search_term" = "Probeer een andere zoekterm of voeg een nieuw idioom toe";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Zelfstandig naamwoord";
+"part_of_speech.full.verb" = "Werkwoord";
+"part_of_speech.full.adjective" = "Bijvoeglijk naamwoord";
+"part_of_speech.full.adverb" = "Bijwoord";
+"part_of_speech.full.conjunction" = "Voegwoord";
+"part_of_speech.full.pronoun" = "Voornaamwoord";
+"part_of_speech.full.preposition" = "Voorzetsel";
+"part_of_speech.full.exclamation" = "Uitroep";
+"part_of_speech.full.unknown" = "Onbekend";
+
+"part_of_speech.short.noun" = "Zelfst. n.";
+"part_of_speech.short.verb" = "Werkw.";
+"part_of_speech.short.adjective" = "Bijv. n.";
+"part_of_speech.short.adverb" = "Bijw.";
+"part_of_speech.short.conjunction" = "Voegw.";
+"part_of_speech.short.pronoun" = "Voornaamw.";
+"part_of_speech.short.preposition" = "Voorz.";
+"part_of_speech.short.exclamation" = "Uitroep";
+"part_of_speech.short.unknown" = "Onbekend";
+
+"actions.settings" = "Instellingen";
+

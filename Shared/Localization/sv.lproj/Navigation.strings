@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Ord";
+"tabbar.idioms" = "Uttryck";
+"tabbar.quizzes" = "Quiz";
+"tabbar.progress" = "Framsteg";
+"tabbar.settings" = "Inställningar";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Orddetaljer";
+"navigation.idiom_details" = "Uttrycksdetaljer";
+"navigation.add_tags" = "Lägg till taggar";
+"navigation.about" = "Om";
+"navigation.debug_panel" = "Felsökningspanel";
+"navigation.quiz_results" = "Quizresultat";
+"navigation.spelling_quiz" = "Stavningsquiz";
+"navigation.definition_quiz" = "Definitionsquiz";
+"navigation.close" = "Stäng";
+"navigation.close_screen" = "Stäng skärm";
+

@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "सूचना अनुमति आवश्यक";
+"notifications.permission_denied_message" = "दैनिक रिमाइंडर और कठिन शब्दों के अलर्ट प्राप्त करने के लिए, कृपया सेटिंग्स में सूचनाएँ सक्षम करें।";
+

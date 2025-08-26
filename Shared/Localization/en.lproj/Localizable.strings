@@ -5,182 +5,6 @@
   Created by Alexander Riakhin on 8/16/25.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Words";
-"tabbar.idioms" = "Idioms";
-"tabbar.quizzes" = "Quizzes";
-"tabbar.progress" = "Progress";
-"tabbar.settings" = "Settings";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Word Details";
-"navigation.idiom_details" = "Idiom Details";
-"navigation.add_tags" = "Add Tags";
-"navigation.about" = "About";
-"navigation.debug_panel" = "Debug Panel";
-"navigation.quiz_results" = "Quiz Results";
-"navigation.spelling_quiz" = "Spelling Quiz";
-"navigation.definition_quiz" = "Definition Quiz";
-"navigation.close" = "Close";
-"navigation.close_screen" = "Close screen";
-
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "All Use Cases";
-"tts.filters.all_ages" = "All Ages";
-"tts.filters.all_timbres" = "All Timbres";
-"tts.filters.all_accents" = "All Accents";
-"tts.filters.all_languages" = "All Languages";
-"tts.filters.all_genders" = "All Genders";
-"tts.filters.filters" = "Filters";
-"tts.filters.reset" = "Reset";
-"tts.filters.select_voice" = "Select Voice";
-"tts.filters.available_voices" = "Available Voices";
-"tts.filters.no_voices_available" = "No voices available";
-"tts.filters.no_voices_found" = "No voices found";
-"tts.filters.no_voices_found_message" = "Try adjusting your search or filters";
-
-"tts.usage.monthly_limit_exceeded" = "Monthly Limit Exceeded";
-"tts.usage.monthly_limit_exceeded_message" = "You have reached your monthly limit of 50,000 characters for Speechify TTS. Please try again next month or use Google TTS instead.";
-"tts.usage.remaining_characters" = "Remaining Characters";
-"tts.usage.monthly_usage" = "Monthly Usage";
-
-// TTS Dashboard
-"tts.dashboard" = "TTS Dashboard";
-"tts.premium_tts_dashboard" = "Premium TTS Dashboard";
-"tts.customize_tts_experience" = "Customize your text-to-speech experience";
-"tts.playing" = "Playing";
-"tts.ready" = "Ready";
-"tts.provider" = "Provider";
-"tts.tts_provider" = "TTS Provider";
-"tts.voice_customization" = "Voice Customization";
-"tts.current_voice" = "Current Voice";
-"tts.default_voice" = "Default Voice";
-"tts.preview_current_voice" = "Preview Current Voice";
-"tts.change_voice" = "Change Voice";
-"tts.audio_settings" = "Audio Settings";
-"tts.speech_rate" = "Speech Rate";
-"tts.volume" = "Volume";
-"tts.test_your_settings" = "Test Your Settings";
-"tts.enter_text_to_test" = "Enter text to test...";
-"tts.stop" = "Stop";
-"tts.test" = "Test";
-"tts.usage_statistics" = "Usage Statistics";
-"tts.speechify_monthly_usage" = "Speechify Monthly Usage";
-"tts.monthly_limit" = "Monthly Limit";
-"tts.used_this_month" = "Used This Month";
-"tts.remaining" = "Remaining";
-"tts.usage_progress" = "Usage Progress";
-"tts.characters" = "characters";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Characters Used";
-"tts.analytics.sessions" = "Sessions";
-"tts.analytics.favorite_voice" = "Favorite Voice";
-"tts.analytics.time_saved" = "Time Saved";
-"tts.analytics.total_characters" = "Total Characters";
-"tts.analytics.total_sessions" = "Total Sessions";
-"tts.analytics.total_duration" = "Total Duration";
-"tts.analytics.favorite_language" = "Favorite Language";
-"tts.analytics.premium_usage" = "Premium Usage";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Text-to-Speech";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechify's Text-to-Speech AI model is available for all users as a premium feature. It allows you to choose from a wide range of voices and accents, so you can fine-tune your study experience.";
-"tts.settings.speechify_pro_description" = "Speechify's Text-to-Speech AI model is included in your subscription.";
-"tts.settings.dashboard" = "Dashboard";
-"tts.pro" = "PRO";
-"tts.free_google_tts_description" = "Free Google TTS with basic voices and reliable performance";
-
-// TTS Models
-"tts.models.english" = "English";
-"tts.models.multilingual" = "Multilingual";
-"tts.models.english_description" = "Speechify's English text-to-speech model offers standard capabilities designed to deliver clear and natural voice output for reading texts. The model focuses on delivering a consistent user experience.";
-"tts.models.multilingual_description" = "Multilingual model allows the usage of all supported languages and supports using multiple languages within a single sentence. The audio output of this model is distinctively different from other models.";
-"tts.usage.monthly_limit" = "Monthly Limit";
-
-// TTS Voice Filter Values
-"advertisement" = "Advertisement";
-"animation" = "Animation";
-"audiobook" = "Audiobook";
-"audiobook-and-narration" = "Audiobook & Narration";
-"audiobooks-and-narration" = "Audiobooks & Narration";
-"conversational" = "Conversational";
-"e-learning" = "E-Learning";
-"gaming" = "Gaming";
-"meditation" = "Meditation";
-"movie" = "Movie";
-"movies-acting-and-gaming" = "Movies, Acting & Gaming";
-"narration" = "Narration";
-"podcast" = "Podcast";
-"social-media" = "Social Media";
-
-"middle-aged" = "Middle-aged";
-"senior" = "Senior";
-"teen" = "Teen";
-"young-adult" = "Young Adult";
-
-"female" = "Female";
-"male" = "Male";
-
-"angry" = "Angry";
-"assertive-or-confident" = "Assertive or Confident";
-"bright" = "Bright";
-"calm-or-relaxed" = "Calm or Relaxed";
-"calm-or-relaxed-" = "Calm or Relaxed";
-"cheerful" = "Cheerful";
-"crisp" = "Crisp";
-"deep" = "Deep";
-"direct" = "Direct";
-"energetic" = "Energetic";
-"fearful" = "Fearful";
-"high-pitch" = "High Pitch";
-"neutral" = "Neutral";
-"professional" = "Professional";
-"relaxed" = "Relaxed";
-"sad" = "Sad";
-"suprised" = "Surprised";
-"surprised" = "Surprised";
-"terrified" = "Terrified";
-"warm" = "Warm";
-"warm-or-friendly" = "Warm or Friendly";
-
-"american-neutral" = "American Neutral";
-"australian" = "Australian";
-"british" = "British";
-"indian" = "Indian";
-"nigerian" = "Nigerian";
-
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Add idiom";
-"idioms.add_new_idiom" = "Add new idiom";
-"idioms.idiom" = "Idiom";
-"idioms.idioms" = "Idioms";
-"idioms.no_idioms_found" = "No idioms found";
-"idioms.add_this_idiom" = "Add this idiom by tapping on the button above";
-"idioms.begin_add_idioms" = "Begin to add idioms to your list by tapping on plus icon in upper left corner";
-"idioms.all_idioms" = "All idioms";
-"idioms.favorite_idioms" = "Favorite Idioms";
-"idioms.found_idioms" = "Found";
-"idioms.examples" = "Examples";
-"idioms.no_examples_yet" = "No examples yet";
-"idioms.type_example_here" = "Type an example here";
-"idioms.add_example" = "Add example";
-"idioms.edit_example" = "Edit example";
-"idioms.delete_idiom" = "Delete idiom";
-"idioms.delete_idiom_confirmation" = "Are you sure you want to delete this idiom?";
-"idioms.search_idioms" = "Search idioms...";
-"idioms.favorites" = "Favorites";
-"idioms.found" = "Found";
-"idioms.sort" = "Sort";
-"idioms.filter" = "Filter";
-"idioms.latest_first" = "Latest First";
-"idioms.earliest_first" = "Earliest First";
-"idioms.alphabetically" = "Alphabetically";
-
-
 // MARK: - App
 "app.my_dictionary" = "My Dictionary";
 "app.loading" = "Loading...";
@@ -264,21 +88,6 @@
 "coffee.enjoying_the_app" = "Enjoying the app?";
 "coffee.helpful_learning_journey" = "If My Dictionary has been helpful in your learning journey, consider buying me a coffee! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "New";
-"difficulty.in_progress" = "In Progress";
-"difficulty.needs_review" = "Needs Review";
-"difficulty.mastered" = "Mastered";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Latest first";
-"sorting.earliest_first" = "Earliest first";
-"sorting.alphabetically" = "Alphabetically";
-"sorting.by_part_of_speech" = "By Part of Speech";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Auto Detect";
-
 // MARK: - Time Period
 "time_period.week" = "Week";
 "time_period.month" = "Month";
@@ -292,24 +101,6 @@
 "quiz_results.correct" = "Correct";
 "quiz_results.duration" = "Duration";
 "quiz_results.time_period" = "Time Period";
-
-// MARK: - Word Details
-"word_details.transcription" = "Transcription";
-"word_details.part_of_speech" = "Part of Speech";
-"word_details.definition" = "Definition";
-"word_details.difficulty" = "Difficulty";
-"word_details.examples" = "Examples";
-"word_details.edit_example" = "Edit example";
-"word_details.example" = "Example";
-"word_details.type_example_here" = "Type an example here";
-"word_details.add_example" = "Add example";
-"word_details.delete_word" = "Delete word";
-"word_details.delete_failed" = "Delete failed";
-
-// MARK: - Word List
-"word_list.all_words" = "All Words";
-"word_list.favorite" = "Favorite";
-"word_list.manage_tags" = "Manage Tags";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Quiz Types";
@@ -337,15 +128,6 @@
 "tag_selection.select_tags" = "Select Tags";
 "tag_selection.no_tags_yet" = "No Tags Yet";
 "tag_selection.you_can_select_up_to_5_tags" = "You can select up to 5 tags per word. Tap a tag to select or deselect it.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "No Words Yet";
-"empty_states.no_idioms_yet" = "No Idioms Yet";
-"empty_states.no_favorite_words" = "No Favorite Words";
-"empty_states.no_search_results" = "No Search Results";
-"empty_states.start_improving_vocabulary" = "Start improving your vocabulary by adding your first idiom";
-"empty_states.tap_heart_icon_to_add_favorites" = "Tap the heart icon on any idiom to add it to your favorites";
-"empty_states.try_different_search_term" = "Try a different search term or add a new idiom";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Time to Practice! 📚";
@@ -453,36 +235,3 @@
 "quiz_types.great_job_completed_spelling_quiz" = "Great job! You've completed the spelling quiz.";
 "quiz_types.great_job_completed_definition_quiz" = "Great job! You've completed the definition quiz.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australian";
-"english_accents.canadian" = "Canadian";
-"english_accents.british" = "British";
-"english_accents.indian" = "Indian";
-"english_accents.american" = "American";
-"english_accents.belgian" = "Belgian";
-"english_accents.singaporean" = "Singaporean";
-"english_accents.irish" = "Irish";
-"english_accents.south_african" = "South African";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Noun";
-"part_of_speech.full.verb" = "Verb";
-"part_of_speech.full.adjective" = "Adjective";
-"part_of_speech.full.adverb" = "Adverb";
-"part_of_speech.full.conjunction" = "Conjunction";
-"part_of_speech.full.pronoun" = "Pronoun";
-"part_of_speech.full.preposition" = "Preposition";
-"part_of_speech.full.exclamation" = "Exclamation";
-"part_of_speech.full.interjection" = "Interjection";
-"part_of_speech.full.unknown" = "Unknown";
-
-"part_of_speech.short.noun" = "Noun";
-"part_of_speech.short.verb" = "Verb";
-"part_of_speech.short.adjective" = "Adj.";
-"part_of_speech.short.adverb" = "Adv.";
-"part_of_speech.short.conjunction" = "Conj.";
-"part_of_speech.short.pronoun" = "Pron.";
-"part_of_speech.short.preposition" = "Prep.";
-"part_of_speech.short.exclamation" = "Excl.";
-"part_of_speech.short.interjection" = "Interj.";
-"part_of_speech.short.unknown" = "Unkn.";

@@ -1,0 +1,141 @@
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "جميع حالات الاستخدام";
+"tts.filters.all_ages" = "جميع الأعمار";
+"tts.filters.all_timbres" = "جميع النغمات";
+"tts.filters.all_accents" = "جميع اللهجات";
+"tts.filters.all_languages" = "جميع اللغات";
+"tts.filters.all_genders" = "جميع الأجناس";
+"tts.filters.filters" = "الفلاتر";
+"tts.filters.reset" = "إعادة تعيين";
+"tts.filters.select_voice" = "اختر الصوت";
+"tts.filters.available_voices" = "الأصوات المتاحة";
+"tts.filters.no_voices_available" = "لا توجد أصوات متاحة";
+"tts.filters.no_voices_found" = "لم يتم العثور على أصوات";
+"tts.filters.no_voices_found_message" = "حاول تعديل البحث أو الفلاتر";
+
+"tts.usage.monthly_limit_exceeded" = "تم تجاوز الحد الشهري";
+"tts.usage.monthly_limit_exceeded_message" = "لقد وصلت إلى الحد الشهري البالغ 50,000 حرف لـ Speechify TTS. يرجى المحاولة مرة أخرى الشهر المقبل أو استخدام Google TTS بدلاً من ذلك.";
+"tts.usage.remaining_characters" = "الأحرف المتبقية";
+"tts.usage.monthly_usage" = "الاستخدام الشهري";
+"tts.usage.monthly_limit" = "الحد الشهري";
+
+// TTS Voice Filter Values
+"advertisement" = "إعلان";
+"animation" = "رسوم متحركة";
+"audiobook" = "كتاب صوتي";
+"audiobook-and-narration" = "كتاب صوتي وسرد";
+"audiobooks-and-narration" = "كتب صوتية وسرد";
+"conversational" = "محادثة";
+"e-learning" = "التعليم الإلكتروني";
+"gaming" = "الألعاب";
+"meditation" = "تأمل";
+"movie" = "فيلم";
+"movies-acting-and-gaming" = "أفلام، تمثيل وألعاب";
+"narration" = "سرد";
+"podcast" = "بودكاست";
+"social-media" = "وسائل التواصل الاجتماعي";
+
+"middle-aged" = "متوسط العمر";
+"senior" = "كبير السن";
+"teen" = "مراهق";
+"young-adult" = "شاب بالغ";
+
+"female" = "أنثى";
+"male" = "ذكر";
+
+"angry" = "غاضب";
+"assertive-or-confident" = "حازم أو واثق";
+"bright" = "مشرق";
+"calm-or-relaxed" = "هادئ أو مرتاح";
+"calm-or-relaxed-" = "هادئ أو مرتاح";
+"cheerful" = "مبهج";
+"crisp" = "واضح";
+"deep" = "عميق";
+"direct" = "مباشر";
+"energetic" = "نشيط";
+"fearful" = "خائف";
+"high-pitch" = "نبرة عالية";
+"neutral" = "محايد";
+"professional" = "محترف";
+"relaxed" = "مرتاح";
+"sad" = "حزين";
+"suprised" = "مندهش";
+"surprised" = "مندهش";
+"terrified" = "مرعوب";
+"warm" = "دافئ";
+"warm-or-friendly" = "دافئ أو ودود";
+
+"american-neutral" = "أمريكي محايد";
+"australian" = "أسترالي";
+"british" = "بريطاني";
+"indian" = "هندي";
+"nigerian" = "نيجيري";
+
+
+
+
+// TTS Dashboard
+"tts.dashboard" = "لوحة تحكم TTS";
+"tts.premium_tts_dashboard" = "لوحة تحكم TTS المميزة";
+"tts.customize_tts_experience" = "تخصيص تجربة تحويل النص إلى كلام";
+"tts.playing" = "جاري التشغيل";
+"tts.ready" = "جاهز";
+"tts.provider" = "المزود";
+"tts.tts_provider" = "مزود TTS";
+"tts.voice_customization" = "تخصيص الصوت";
+"tts.current_voice" = "الصوت الحالي";
+"tts.default_voice" = "الصوت الافتراضي";
+"tts.preview_current_voice" = "معاينة الصوت الحالي";
+"tts.change_voice" = "تغيير الصوت";
+"tts.audio_settings" = "إعدادات الصوت";
+"tts.speech_rate" = "سرعة الكلام";
+"tts.volume" = "مستوى الصوت";
+"tts.test_your_settings" = "اختبار إعداداتك";
+"tts.enter_text_to_test" = "أدخل نصًا للاختبار...";
+"tts.stop" = "إيقاف";
+"tts.test" = "اختبار";
+"tts.usage_statistics" = "إحصائيات الاستخدام";
+"tts.speechify_monthly_usage" = "الاستخدام الشهري لـ Speechify";
+"tts.monthly_limit" = "الحد الشهري";
+"tts.used_this_month" = "تم الاستخدام هذا الشهر";
+"tts.remaining" = "المتبقي";
+"tts.usage_progress" = "تقدم الاستخدام";
+"tts.characters" = "حروف";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "الحروف المستخدمة";
+"tts.analytics.sessions" = "الجلسات";
+"tts.analytics.favorite_voice" = "الصوت المفضل";
+"tts.analytics.time_saved" = "الوقت الموفر";
+"tts.analytics.total_characters" = "إجمالي الحروف";
+"tts.analytics.total_sessions" = "إجمالي الجلسات";
+"tts.analytics.total_duration" = "المدة الإجمالية";
+"tts.analytics.favorite_language" = "اللغة المفضلة";
+"tts.analytics.premium_usage" = "الاستخدام المميز";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "تحويل النص إلى كلام";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "نموذج تحويل النص إلى كلام من Speechify متاح لجميع المستخدمين كميزة مميزة. يتيح لك الاختيار من بين مجموعة واسعة من الأصوات واللهجات، لتخصيص تجربة دراستك.";
+"tts.settings.speechify_pro_description" = "نموذج تحويل النص إلى كلام من Speechify مشمول في اشتراكك.";
+"tts.settings.dashboard" = "لوحة التحكم";
+"tts.pro" = "برو";
+"tts.free_google_tts_description" = "Google TTS مجاني بأصوات أساسية وأداء موثوق";
+
+// TTS Models
+"tts.models.english" = "الإنجليزية";
+"tts.models.multilingual" = "متعدد اللغات";
+"tts.models.english_description" = "نموذج تحويل النص إلى كلام باللغة الإنجليزية من Speechify يوفر قدرات قياسية مصممة لتقديم مخرجات صوتية واضحة وطبيعية لقراءة النصوص. يركز النموذج على تقديم تجربة مستخدم متسقة.";
+"tts.models.multilingual_description" = "النموذج متعدد اللغات يتيح استخدام جميع اللغات المدعومة ويدعم استخدام لغات متعددة ضمن جملة واحدة. مخرجات الصوت لهذا النموذج تختلف بشكل واضح عن النماذج الأخرى.";
+
+// MARK: - English Accents
+"english_accents.australian" = "أسترالي";
+"english_accents.canadian" = "كندي";
+"english_accents.british" = "بريطاني";
+"english_accents.indian" = "هندي";
+"english_accents.american" = "أمريكي";
+"english_accents.belgian" = "بلجيكي";
+"english_accents.singaporean" = "سنغافوري";
+"english_accents.irish" = "أيرلندي";
+"english_accents.south_african" = "جنوب أفريقي";
+

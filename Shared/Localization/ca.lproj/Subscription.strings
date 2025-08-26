@@ -50,3 +50,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Actualitza a Pro per veure els detalls complets del creixement del vocabulari.";
 "pro_upgrade.time_period" = "Període de temps";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Accés a la tecnologia premium de text a veu de Speechify. Centenars de veus premium amb so natural";
+

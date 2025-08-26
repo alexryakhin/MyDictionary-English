@@ -61,3 +61,96 @@
 "words.edit_example" = "Επεξεργασία Παραδείγματος";
 "words.no_transcription" = "Καμία μεταγραφή";
 "words.no_definition" = "Κανένας ορισμός";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Προσθήκη Ιδιωματισμού";
+"idioms.add_new_idiom" = "Προσθήκη Νέου Ιδιωματισμού";
+"idioms.idiom" = "Ιδιωματισμός";
+"idioms.idioms" = "Ιδιωματισμοί";
+"idioms.no_idioms_found" = "Δεν βρέθηκαν ιδιωματισμοί";
+"idioms.add_this_idiom" = "Πρόσθεσε αυτόν τον ιδιωματισμό πατώντας το κουμπί παραπάνω";
+"idioms.begin_add_idioms" = "Ξεκίνα να προσθέτεις ιδιωματισμούς στη λίστα σου κάνοντας κλικ στο εικονίδιο συν στην επάνω αριστερή γωνία";
+"idioms.all_idioms" = "Όλοι οι Ιδιωματισμοί";
+"idioms.favorite_idioms" = "Αγαπημένοι Ιδιωματισμοί";
+"idioms.found_idioms" = "Βρέθηκαν";
+"idioms.examples" = "Παραδείγματα";
+"idioms.no_examples_yet" = "Κανένα παράδειγμα ακόμα";
+"idioms.type_example_here" = "Πληκτρολόγησε παράδειγμα εδώ";
+"idioms.add_example" = "Προσθήκη Παραδείγματος";
+"idioms.edit_example" = "Επεξεργασία Παραδείγματος";
+"idioms.delete_idiom" = "Διαγραφή Ιδιωματισμού";
+"idioms.delete_idiom_confirmation" = "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτόν τον ιδιωματισμό;";
+"idioms.search_idioms" = "Αναζήτηση ιδιωματισμών...";
+"idioms.favorites" = "Αγαπημένα";
+"idioms.found" = "Βρέθηκαν";
+"idioms.sort" = "Ταξινόμηση";
+"idioms.filter" = "Φίλτρο";
+"idioms.latest_first" = "Πιο Πρόσφατο Πρώτα";
+"idioms.earliest_first" = "Πιο Παλιό Πρώτα";
+"idioms.alphabetically" = "Αλφαβητικά";
+
+// MARK: - Difficulty
+"difficulty.new" = "Νέο";
+"difficulty.in_progress" = "Σε Εξέλιξη";
+"difficulty.needs_review" = "Χρειάζεται Επανεξέταση";
+"difficulty.mastered" = "Κατακτημένο";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Πιο Πρόσφατο Πρώτα";
+"sorting.earliest_first" = "Πιο Παλιό Πρώτα";
+"sorting.alphabetically" = "Αλφαβητικά";
+"sorting.by_part_of_speech" = "Κατά Μέρος του Λόγου";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Αυτόματη Ανίχνευση";
+
+// MARK: - Word Details
+"word_details.transcription" = "Μεταγραφή";
+"word_details.part_of_speech" = "Μέρος του Λόγου";
+"word_details.definition" = "Ορισμός";
+"word_details.difficulty" = "Δυσκολία";
+"word_details.examples" = "Παραδείγματα";
+"word_details.edit_example" = "Επεξεργασία Παραδείγματος";
+"word_details.example" = "Παράδειγμα";
+"word_details.type_example_here" = "Πληκτρολόγησε παράδειγμα εδώ";
+"word_details.add_example" = "Προσθήκη Παραδείγματος";
+"word_details.delete_word" = "Διαγραφή Λέξης";
+"word_details.delete_failed" = "Η διαγραφή απέτυχε";
+
+// MARK: - Word List
+"word_list.all_words" = "Όλες οι Λέξεις";
+"word_list.favorite" = "Αγαπημένο";
+"word_list.manage_tags" = "Διαχείριση Ετικετών";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Καμία λέξη ακόμα";
+"empty_states.no_idioms_yet" = "Κανένας ιδιωματισμός ακόμα";
+"empty_states.no_favorite_words" = "Καμία αγαπημένη λέξη";
+"empty_states.no_search_results" = "Κανένα αποτέλεσμα αναζήτησης";
+"empty_states.start_improving_vocabulary" = "Ξεκίνα να βελτιώνεις το λεξιλόγιό σου προσθέτοντας τον πρώτο ιδιωματισμό";
+"empty_states.tap_heart_icon_to_add_favorites" = "Πάτησε το εικονίδιο καρδιάς σε οποιονδήποτε ιδιωματισμό για να τον προσθέσεις στα αγαπημένα";
+"empty_states.try_different_search_term" = "Δοκίμασε διαφορετικό όρο αναζήτησης ή πρόσθεσε έναν νέο ιδιωματισμό";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Ουσιαστικό";
+"part_of_speech.full.verb" = "Ρήμα";
+"part_of_speech.full.adjective" = "Επίθετο";
+"part_of_speech.full.adverb" = "Επίρρημα";
+"part_of_speech.full.conjunction" = "Σύνδεσμος";
+"part_of_speech.full.pronoun" = "Αντωνυμία";
+"part_of_speech.full.preposition" = "Πρόθεση";
+"part_of_speech.full.exclamation" = "Επιφώνημα";
+"part_of_speech.full.unknown" = "Άγνωστο";
+
+"part_of_speech.short.noun" = "Ουσ.";
+"part_of_speech.short.verb" = "Ρήμα";
+"part_of_speech.short.adjective" = "Επίθ.";
+"part_of_speech.short.adverb" = "Επίρ.";
+"part_of_speech.short.conjunction" = "Σύνδ.";
+"part_of_speech.short.pronoun" = "Αντων.";
+"part_of_speech.short.preposition" = "Πρόθ.";
+"part_of_speech.short.exclamation" = "Επιφ.";
+"part_of_speech.short.unknown" = "Άγνωστο";
+
+"actions.settings" = "Ρυθμίσεις";
+

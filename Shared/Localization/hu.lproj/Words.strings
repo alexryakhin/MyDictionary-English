@@ -61,3 +61,96 @@
 "words.edit_example" = "Példa szerkesztése";
 "words.no_transcription" = "Nincs átírás";
 "words.no_definition" = "Nincs definíció";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Kifejezés hozzáadása";
+"idioms.add_new_idiom" = "Új kifejezés hozzáadása";
+"idioms.idiom" = "Kifejezés";
+"idioms.idioms" = "Kifejezések";
+"idioms.no_idioms_found" = "Nem található kifejezés";
+"idioms.add_this_idiom" = "Add hozzá ezt a kifejezést a fenti gombra kattintva";
+"idioms.begin_add_idioms" = "Kezdj el kifejezéseket hozzáadni a listádhoz a bal felső sarokban lévő plusz ikonra kattintva";
+"idioms.all_idioms" = "Összes kifejezés";
+"idioms.favorite_idioms" = "Kedvenc kifejezések";
+"idioms.found_idioms" = "Talált kifejezések";
+"idioms.examples" = "Példák";
+"idioms.no_examples_yet" = "Még nincsenek példák";
+"idioms.type_example_here" = "Írj ide egy példát";
+"idioms.add_example" = "Példa hozzáadása";
+"idioms.edit_example" = "Példa szerkesztése";
+"idioms.delete_idiom" = "Kifejezés törlése";
+"idioms.delete_idiom_confirmation" = "Biztosan törölni szeretnéd ezt a kifejezést?";
+"idioms.search_idioms" = "Kifejezések keresése...";
+"idioms.favorites" = "Kedvencek";
+"idioms.found" = "Talált";
+"idioms.sort" = "Rendezés";
+"idioms.filter" = "Szűrés";
+"idioms.latest_first" = "Legújabb először";
+"idioms.earliest_first" = "Legrégebbi először";
+"idioms.alphabetically" = "Betűrendben";
+
+// MARK: - Difficulty
+"difficulty.new" = "Új";
+"difficulty.in_progress" = "Folyamatban";
+"difficulty.needs_review" = "Felülvizsgálat szükséges";
+"difficulty.mastered" = "Elsajátítva";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Legújabb először";
+"sorting.earliest_first" = "Legrégebbi először";
+"sorting.alphabetically" = "Betűrendben";
+"sorting.by_part_of_speech" = "Szófaj szerint";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatikus felismerés";
+
+// MARK: - Word Details
+"word_details.transcription" = "Átírás";
+"word_details.part_of_speech" = "Szófaj";
+"word_details.definition" = "Definíció";
+"word_details.difficulty" = "Nehézség";
+"word_details.examples" = "Példák";
+"word_details.edit_example" = "Példa szerkesztése";
+"word_details.example" = "Példa";
+"word_details.type_example_here" = "Írj ide egy példát";
+"word_details.add_example" = "Példa hozzáadása";
+"word_details.delete_word" = "Szó törlése";
+"word_details.delete_failed" = "Törlés sikertelen";
+
+// MARK: - Word List
+"word_list.all_words" = "Összes szó";
+"word_list.favorite" = "Kedvenc";
+"word_list.manage_tags" = "Címkék kezelése";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Még nincsenek szavak";
+"empty_states.no_idioms_yet" = "Még nincsenek kifejezések";
+"empty_states.no_favorite_words" = "Nincsenek kedvenc szavak";
+"empty_states.no_search_results" = "Nincsenek keresési eredmények";
+"empty_states.start_improving_vocabulary" = "Kezdj el szókincset építeni az első kifejezés hozzáadásával";
+"empty_states.tap_heart_icon_to_add_favorites" = "Koppints a szív ikonra bármely kifejezésen, hogy hozzáadd a kedvencekhez";
+"empty_states.try_different_search_term" = "Próbálj más keresési kifejezést, vagy adj hozzá egy új kifejezést";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Főnév";
+"part_of_speech.full.verb" = "Ige";
+"part_of_speech.full.adjective" = "Melléknév";
+"part_of_speech.full.adverb" = "Határozószó";
+"part_of_speech.full.conjunction" = "Kötőszó";
+"part_of_speech.full.pronoun" = "Névmás";
+"part_of_speech.full.preposition" = "Elöljárószó";
+"part_of_speech.full.exclamation" = "Felkiáltás";
+"part_of_speech.full.unknown" = "Ismeretlen";
+
+"part_of_speech.short.noun" = "Főn.";
+"part_of_speech.short.verb" = "Ige";
+"part_of_speech.short.adjective" = "Mell.";
+"part_of_speech.short.adverb" = "Hat.";
+"part_of_speech.short.conjunction" = "Köt.";
+"part_of_speech.short.pronoun" = "Név.";
+"part_of_speech.short.preposition" = "Elöl.";
+"part_of_speech.short.exclamation" = "Felk.";
+"part_of_speech.short.unknown" = "Ismeretlen";
+
+"actions.settings" = "Beállítások";
+

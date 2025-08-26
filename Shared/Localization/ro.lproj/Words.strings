@@ -61,3 +61,96 @@
 "words.edit_example" = "Editează Exemplu";
 "words.no_transcription" = "Fără transcriere";
 "words.no_definition" = "Fără definiție";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Adaugă Expresie";
+"idioms.add_new_idiom" = "Adaugă Expresie Nouă";
+"idioms.idiom" = "Expresie";
+"idioms.idioms" = "Expresii";
+"idioms.no_idioms_found" = "Nicio expresie găsită";
+"idioms.add_this_idiom" = "Adaugă această expresie apăsând pe butonul de mai sus";
+"idioms.begin_add_idioms" = "Începe să adaugi expresii la lista ta apăsând pe pictograma plus din colțul din stânga sus";
+"idioms.all_idioms" = "Toate Expresiile";
+"idioms.favorite_idioms" = "Expresii Favorite";
+"idioms.found_idioms" = "Expresii Găsite";
+"idioms.examples" = "Exemple";
+"idioms.no_examples_yet" = "Fără exemple încă";
+"idioms.type_example_here" = "Scrie exemplul aici";
+"idioms.add_example" = "Adaugă Exemplu";
+"idioms.edit_example" = "Editează Exemplu";
+"idioms.delete_idiom" = "Șterge Expresie";
+"idioms.delete_idiom_confirmation" = "Ești sigur că vrei să ștergi această expresie?";
+"idioms.search_idioms" = "Caută expresii...";
+"idioms.favorites" = "Favorite";
+"idioms.found" = "Găsit";
+"idioms.sort" = "Sortează";
+"idioms.filter" = "Filtrează";
+"idioms.latest_first" = "Cele mai Recente Primul";
+"idioms.earliest_first" = "Cele mai Vechi Primul";
+"idioms.alphabetically" = "Alfabetic";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nou";
+"difficulty.in_progress" = "În Progres";
+"difficulty.needs_review" = "Necesită Revizuire";
+"difficulty.mastered" = "Stăpânit";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Cele mai Recente Primul";
+"sorting.earliest_first" = "Cele mai Vechi Primul";
+"sorting.alphabetically" = "Alfabetic";
+"sorting.by_part_of_speech" = "După Parte de Vorbire";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Detectare Automată";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transcriere";
+"word_details.part_of_speech" = "Parte de Vorbire";
+"word_details.definition" = "Definiție";
+"word_details.difficulty" = "Dificultate";
+"word_details.examples" = "Exemple";
+"word_details.edit_example" = "Editează Exemplu";
+"word_details.example" = "Exemplu";
+"word_details.type_example_here" = "Scrie exemplul aici";
+"word_details.add_example" = "Adaugă Exemplu";
+"word_details.delete_word" = "Șterge Cuvânt";
+"word_details.delete_failed" = "Ștergerea a eșuat";
+
+// MARK: - Word List
+"word_list.all_words" = "Toate Cuvintele";
+"word_list.favorite" = "Favorit";
+"word_list.manage_tags" = "Gestionează Etichete";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Niciun cuvânt încă";
+"empty_states.no_idioms_yet" = "Nicio expresie încă";
+"empty_states.no_favorite_words" = "Niciun cuvânt favorit";
+"empty_states.no_search_results" = "Niciun rezultat de căutare";
+"empty_states.start_improving_vocabulary" = "Începe să-ți îmbunătățești vocabularul adăugând prima expresie";
+"empty_states.tap_heart_icon_to_add_favorites" = "Atinge pictograma inimă pe orice expresie pentru a o adăuga la favorite";
+"empty_states.try_different_search_term" = "Încearcă un alt termen de căutare sau adaugă o expresie nouă";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Substantiv";
+"part_of_speech.full.verb" = "Verb";
+"part_of_speech.full.adjective" = "Adjectiv";
+"part_of_speech.full.adverb" = "Adverb";
+"part_of_speech.full.conjunction" = "Conjuncție";
+"part_of_speech.full.pronoun" = "Pronume";
+"part_of_speech.full.preposition" = "Prepoziție";
+"part_of_speech.full.exclamation" = "Exclamație";
+"part_of_speech.full.unknown" = "Necunoscut";
+
+"part_of_speech.short.noun" = "Subst.";
+"part_of_speech.short.verb" = "Verb";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Conj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.exclamation" = "Excl.";
+"part_of_speech.short.unknown" = "Nec.";
+
+"actions.settings" = "Setări";
+

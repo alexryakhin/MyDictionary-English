@@ -61,3 +61,96 @@
 "words.edit_example" = "Edit Contoh";
 "words.no_transcription" = "Tiada transkripsi";
 "words.no_definition" = "Tiada definisi";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Tambah Ungkapan";
+"idioms.add_new_idiom" = "Tambah Ungkapan Baru";
+"idioms.idiom" = "Ungkapan";
+"idioms.idioms" = "Ungkapan";
+"idioms.no_idioms_found" = "Tiada ungkapan ditemui";
+"idioms.add_this_idiom" = "Tambah ungkapan ini dengan mengklik butang di atas";
+"idioms.begin_add_idioms" = "Mula menambah ungkapan ke senarai anda dengan mengklik ikon tambah di kiri atas";
+"idioms.all_idioms" = "Semua Ungkapan";
+"idioms.favorite_idioms" = "Ungkapan Kegemaran";
+"idioms.found_idioms" = "Ungkapan Ditemui";
+"idioms.examples" = "Contoh";
+"idioms.no_examples_yet" = "Belum ada contoh";
+"idioms.type_example_here" = "Taip contoh di sini";
+"idioms.add_example" = "Tambah Contoh";
+"idioms.edit_example" = "Edit Contoh";
+"idioms.delete_idiom" = "Padam Ungkapan";
+"idioms.delete_idiom_confirmation" = "Adakah anda pasti ingin memadam ungkapan ini?";
+"idioms.search_idioms" = "Cari ungkapan...";
+"idioms.favorites" = "Kegemaran";
+"idioms.found" = "Ditemui";
+"idioms.sort" = "Susun";
+"idioms.filter" = "Tapis";
+"idioms.latest_first" = "Terbaru Dahulu";
+"idioms.earliest_first" = "Terawal Dahulu";
+"idioms.alphabetically" = "Mengikut Abjad";
+
+// MARK: - Difficulty
+"difficulty.new" = "Baru";
+"difficulty.in_progress" = "Sedang Berjalan";
+"difficulty.needs_review" = "Perlu Semakan";
+"difficulty.mastered" = "Dikuasai";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Terbaru Dahulu";
+"sorting.earliest_first" = "Terawal Dahulu";
+"sorting.alphabetically" = "Mengikut Abjad";
+"sorting.by_part_of_speech" = "Mengikut Bahagian Ucapan";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Kesan Automatik";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkripsi";
+"word_details.part_of_speech" = "Bahagian Ucapan";
+"word_details.definition" = "Definisi";
+"word_details.difficulty" = "Kesukaran";
+"word_details.examples" = "Contoh";
+"word_details.edit_example" = "Edit Contoh";
+"word_details.example" = "Contoh";
+"word_details.type_example_here" = "Taip contoh di sini";
+"word_details.add_example" = "Tambah Contoh";
+"word_details.delete_word" = "Padam Perkataan";
+"word_details.delete_failed" = "Padam Gagal";
+
+// MARK: - Word List
+"word_list.all_words" = "Semua Perkataan";
+"word_list.favorite" = "Kegemaran";
+"word_list.manage_tags" = "Urus Tag";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Belum ada perkataan";
+"empty_states.no_idioms_yet" = "Belum ada ungkapan";
+"empty_states.no_favorite_words" = "Tiada perkataan kegemaran";
+"empty_states.no_search_results" = "Tiada keputusan carian";
+"empty_states.start_improving_vocabulary" = "Mula meningkatkan kosa kata anda dengan menambah ungkapan pertama anda";
+"empty_states.tap_heart_icon_to_add_favorites" = "Ketik ikon hati pada mana-mana ungkapan untuk menambahkannya ke kegemaran";
+"empty_states.try_different_search_term" = "Cuba istilah carian yang berbeza atau tambah ungkapan baru";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Kata Nama";
+"part_of_speech.full.verb" = "Kata Kerja";
+"part_of_speech.full.adjective" = "Kata Sifat";
+"part_of_speech.full.adverb" = "Kata Keterangan";
+"part_of_speech.full.conjunction" = "Kata Hubung";
+"part_of_speech.full.pronoun" = "Kata Ganti";
+"part_of_speech.full.preposition" = "Kata Depan";
+"part_of_speech.full.exclamation" = "Kata Seru";
+"part_of_speech.full.unknown" = "Tidak Diketahui";
+
+"part_of_speech.short.noun" = "Nama";
+"part_of_speech.short.verb" = "Kerja";
+"part_of_speech.short.adjective" = "Sifat";
+"part_of_speech.short.adverb" = "Ket.";
+"part_of_speech.short.conjunction" = "Hubung";
+"part_of_speech.short.pronoun" = "Ganti";
+"part_of_speech.short.preposition" = "Depan";
+"part_of_speech.short.exclamation" = "Seru";
+"part_of_speech.short.unknown" = "Tidak Diketahui";
+
+"actions.settings" = "Tetapan";
+

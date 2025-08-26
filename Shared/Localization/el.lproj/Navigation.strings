@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Λέξεις";
+"tabbar.idioms" = "Ιδιωματισμοί";
+"tabbar.quizzes" = "Κουίζ";
+"tabbar.progress" = "Πρόοδος";
+"tabbar.settings" = "Ρυθμίσεις";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Λεπτομέρειες Λέξης";
+"navigation.idiom_details" = "Λεπτομέρειες Ιδιωματισμού";
+"navigation.add_tags" = "Προσθήκη Ετικετών";
+"navigation.about" = "Σχετικά με την Εφαρμογή";
+"navigation.debug_panel" = "Πίνακας Αποσφαλμάτωσης";
+"navigation.quiz_results" = "Αποτελέσματα Κουίζ";
+"navigation.spelling_quiz" = "Κουίζ Ορθογραφίας";
+"navigation.definition_quiz" = "Κουίζ Ορισμού";
+"navigation.close" = "Κλείσιμο";
+"navigation.close_screen" = "Κλείσιμο Οθόνης";
+

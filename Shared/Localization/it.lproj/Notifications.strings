@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Permesso di notifica richiesto";
+"notifications.permission_denied_message" = "Per ricevere promemoria giornalieri e avvisi di parole difficili, abilita le notifiche nelle Impostazioni.";
+

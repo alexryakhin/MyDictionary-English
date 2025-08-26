@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Este necesară permisiunea pentru notificări";
+"notifications.permission_denied_message" = "Pentru a primi memento-uri zilnice și alerte pentru cuvinte dificile, activați notificările în Setări.";
+

@@ -61,3 +61,96 @@
 "words.edit_example" = "Edytuj przykład";
 "words.no_transcription" = "Brak transkrypcji";
 "words.no_definition" = "Brak definicji";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Dodaj wyrażenie";
+"idioms.add_new_idiom" = "Dodaj nowe wyrażenie";
+"idioms.idiom" = "Wyrażenie";
+"idioms.idioms" = "Wyrażenia";
+"idioms.no_idioms_found" = "Nie znaleziono wyrażeń";
+"idioms.add_this_idiom" = "Dodaj to wyrażenie, klikając przycisk powyżej";
+"idioms.begin_add_idioms" = "Rozpocznij dodawanie wyrażeń do listy, klikając ikonę plusa w lewym górnym rogu";
+"idioms.all_idioms" = "Wszystkie wyrażenia";
+"idioms.favorite_idioms" = "Ulubione wyrażenia";
+"idioms.found_idioms" = "Znalezione wyrażenia";
+"idioms.examples" = "Przykłady";
+"idioms.no_examples_yet" = "Brak przykładów";
+"idioms.type_example_here" = "Wpisz przykład tutaj";
+"idioms.add_example" = "Dodaj przykład";
+"idioms.edit_example" = "Edytuj przykład";
+"idioms.delete_idiom" = "Usuń wyrażenie";
+"idioms.delete_idiom_confirmation" = "Czy na pewno chcesz usunąć to wyrażenie?";
+"idioms.search_idioms" = "Szukaj wyrażeń...";
+"idioms.favorites" = "Ulubione";
+"idioms.found" = "Znalezione";
+"idioms.sort" = "Sortuj";
+"idioms.filter" = "Filtruj";
+"idioms.latest_first" = "Najnowsze najpierw";
+"idioms.earliest_first" = "Najstarsze najpierw";
+"idioms.alphabetically" = "Alfabetycznie";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nowe";
+"difficulty.in_progress" = "W toku";
+"difficulty.needs_review" = "Wymaga przeglądu";
+"difficulty.mastered" = "Opanowane";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Najnowsze najpierw";
+"sorting.earliest_first" = "Najstarsze najpierw";
+"sorting.alphabetically" = "Alfabetycznie";
+"sorting.by_part_of_speech" = "Według części mowy";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatyczne wykrywanie";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkrypcja";
+"word_details.part_of_speech" = "Część mowy";
+"word_details.definition" = "Definicja";
+"word_details.difficulty" = "Trudność";
+"word_details.examples" = "Przykłady";
+"word_details.edit_example" = "Edytuj przykład";
+"word_details.example" = "Przykład";
+"word_details.type_example_here" = "Wpisz przykład tutaj";
+"word_details.add_example" = "Dodaj przykład";
+"word_details.delete_word" = "Usuń słowo";
+"word_details.delete_failed" = "Usuwanie nie powiodło się";
+
+// MARK: - Word List
+"word_list.all_words" = "Wszystkie słowa";
+"word_list.favorite" = "Ulubione";
+"word_list.manage_tags" = "Zarządzaj etykietami";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Brak słów";
+"empty_states.no_idioms_yet" = "Brak wyrażeń";
+"empty_states.no_favorite_words" = "Brak ulubionych słów";
+"empty_states.no_search_results" = "Brak wyników wyszukiwania";
+"empty_states.start_improving_vocabulary" = "Zacznij poprawiać swoje słownictwo, dodając swoje pierwsze wyrażenie";
+"empty_states.tap_heart_icon_to_add_favorites" = "Dotknij ikony serca na dowolnym wyrażeniu, aby dodać je do ulubionych";
+"empty_states.try_different_search_term" = "Spróbuj innego hasła wyszukiwania lub dodaj nowe wyrażenie";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Rzeczownik";
+"part_of_speech.full.verb" = "Czasownik";
+"part_of_speech.full.adjective" = "Przymiotnik";
+"part_of_speech.full.adverb" = "Przysłówek";
+"part_of_speech.full.conjunction" = "Spójnik";
+"part_of_speech.full.pronoun" = "Zaimek";
+"part_of_speech.full.preposition" = "Przyimek";
+"part_of_speech.full.exclamation" = "Wykrzyknik";
+"part_of_speech.full.unknown" = "Nieznany";
+
+"part_of_speech.short.noun" = "Rzecz.";
+"part_of_speech.short.verb" = "Czas.";
+"part_of_speech.short.adjective" = "Przym.";
+"part_of_speech.short.adverb" = "Przysł.";
+"part_of_speech.short.conjunction" = "Spój.";
+"part_of_speech.short.pronoun" = "Zaim.";
+"part_of_speech.short.preposition" = "Przyim.";
+"part_of_speech.short.exclamation" = "Wykrz.";
+"part_of_speech.short.unknown" = "Niezn.";
+
+"actions.settings" = "Ustawienia";
+

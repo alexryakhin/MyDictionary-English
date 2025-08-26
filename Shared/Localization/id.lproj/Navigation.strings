@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Kata";
+"tabbar.idioms" = "Ungkapan";
+"tabbar.quizzes" = "Kuis";
+"tabbar.progress" = "Kemajuan";
+"tabbar.settings" = "Pengaturan";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Detail Kata";
+"navigation.idiom_details" = "Detail Ungkapan";
+"navigation.add_tags" = "Tambah Tag";
+"navigation.about" = "Tentang Aplikasi";
+"navigation.debug_panel" = "Panel Debug";
+"navigation.quiz_results" = "Hasil Kuis";
+"navigation.spelling_quiz" = "Kuis Ejaan";
+"navigation.definition_quiz" = "Kuis Definisi";
+"navigation.close" = "Tutup";
+"navigation.close_screen" = "Tutup Layar";
+

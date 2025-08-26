@@ -61,3 +61,96 @@
 "words.edit_example" = "Modifier l'exemple";
 "words.no_transcription" = "Aucune transcription";
 "words.no_definition" = "Aucune définition";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Ajouter une expression";
+"idioms.add_new_idiom" = "Ajouter une nouvelle expression";
+"idioms.idiom" = "Expression";
+"idioms.idioms" = "Expressions";
+"idioms.no_idioms_found" = "Aucune expression trouvée";
+"idioms.add_this_idiom" = "Ajoutez cette expression en appuyant sur le bouton ci-dessus";
+"idioms.begin_add_idioms" = "Commencez à ajouter des expressions à votre liste en cliquant sur l'icône plus dans le coin supérieur gauche";
+"idioms.all_idioms" = "Toutes les expressions";
+"idioms.favorite_idioms" = "Expressions favorites";
+"idioms.found_idioms" = "Trouvées";
+"idioms.examples" = "Exemples";
+"idioms.no_examples_yet" = "Pas encore d'exemples";
+"idioms.type_example_here" = "Tapez un exemple ici";
+"idioms.add_example" = "Ajouter un exemple";
+"idioms.edit_example" = "Modifier l'exemple";
+"idioms.delete_idiom" = "Supprimer l'expression";
+"idioms.delete_idiom_confirmation" = "Êtes-vous sûr de vouloir supprimer cette expression ?";
+"idioms.search_idioms" = "Rechercher des expressions...";
+"idioms.favorites" = "Favoris";
+"idioms.found" = "Trouvées";
+"idioms.sort" = "Trier";
+"idioms.filter" = "Filtrer";
+"idioms.latest_first" = "Plus récent d'abord";
+"idioms.earliest_first" = "Plus ancien d'abord";
+"idioms.alphabetically" = "Alphabétiquement";
+
+// MARK: - Difficulty
+"difficulty.new" = "Nouveau";
+"difficulty.in_progress" = "En cours";
+"difficulty.needs_review" = "À réviser";
+"difficulty.mastered" = "Maîtrisé";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Plus récent d'abord";
+"sorting.earliest_first" = "Plus ancien d'abord";
+"sorting.alphabetically" = "Alphabétiquement";
+"sorting.by_part_of_speech" = "Par partie du discours";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Détection automatique";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transcription";
+"word_details.part_of_speech" = "Partie du discours";
+"word_details.definition" = "Définition";
+"word_details.difficulty" = "Difficulté";
+"word_details.examples" = "Exemples";
+"word_details.edit_example" = "Modifier l'exemple";
+"word_details.example" = "Exemple";
+"word_details.type_example_here" = "Tapez un exemple ici";
+"word_details.add_example" = "Ajouter un exemple";
+"word_details.delete_word" = "Supprimer le mot";
+"word_details.delete_failed" = "Échec de la suppression";
+
+// MARK: - Word List
+"word_list.all_words" = "Tous les mots";
+"word_list.favorite" = "Favori";
+"word_list.manage_tags" = "Gérer les étiquettes";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Aucun mot pour le moment";
+"empty_states.no_idioms_yet" = "Aucune expression pour le moment";
+"empty_states.no_favorite_words" = "Aucun mot favori";
+"empty_states.no_search_results" = "Aucun résultat de recherche";
+"empty_states.start_improving_vocabulary" = "Commencez à améliorer votre vocabulaire en ajoutant votre première expression";
+"empty_states.tap_heart_icon_to_add_favorites" = "Appuyez sur l'icône en forme de cœur sur n'importe quelle expression pour l'ajouter aux favoris";
+"empty_states.try_different_search_term" = "Essayez un autre terme de recherche ou ajoutez une nouvelle expression";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Nom";
+"part_of_speech.full.verb" = "Verbe";
+"part_of_speech.full.adjective" = "Adjectif";
+"part_of_speech.full.adverb" = "Adverbe";
+"part_of_speech.full.conjunction" = "Conjonction";
+"part_of_speech.full.pronoun" = "Pronom";
+"part_of_speech.full.preposition" = "Préposition";
+"part_of_speech.full.exclamation" = "Exclamation";
+"part_of_speech.full.unknown" = "Inconnu";
+
+"part_of_speech.short.noun" = "Nom";
+"part_of_speech.short.verb" = "Verb.";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Conj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Prép.";
+"part_of_speech.short.exclamation" = "Excl.";
+"part_of_speech.short.unknown" = "Inconnu";
+
+"actions.settings" = "Paramètres";
+

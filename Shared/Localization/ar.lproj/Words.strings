@@ -61,3 +61,96 @@
 "words.edit_example" = "تعديل المثال";
 "words.no_transcription" = "لا يوجد نطق";
 "words.no_definition" = "لا يوجد تعريف";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "إضافة تعبير";
+"idioms.add_new_idiom" = "إضافة تعبير جديد";
+"idioms.idiom" = "تعبير";
+"idioms.idioms" = "التعابير";
+"idioms.no_idioms_found" = "لم يتم العثور على تعابير";
+"idioms.add_this_idiom" = "أضف هذا التعبير بالنقر على الزر أعلاه";
+"idioms.begin_add_idioms" = "ابدأ بإضافة تعابير إلى قائمتك بالنقر على أيقونة الإضافة في الزاوية العلوية اليسرى";
+"idioms.all_idioms" = "جميع التعابير";
+"idioms.favorite_idioms" = "التعابير المفضلة";
+"idioms.found_idioms" = "تم العثور";
+"idioms.examples" = "أمثلة";
+"idioms.no_examples_yet" = "لا توجد أمثلة بعد";
+"idioms.type_example_here" = "اكتب مثالاً هنا";
+"idioms.add_example" = "إضافة مثال";
+"idioms.edit_example" = "تعديل المثال";
+"idioms.delete_idiom" = "حذف التعبير";
+"idioms.delete_idiom_confirmation" = "هل أنت متأكد من حذف هذا التعبير؟";
+"idioms.search_idioms" = "البحث عن التعابير...";
+"idioms.favorites" = "المفضلة";
+"idioms.found" = "تم العثور";
+"idioms.sort" = "فرز";
+"idioms.filter" = "تصفية";
+"idioms.latest_first" = "الأحدث أولاً";
+"idioms.earliest_first" = "الأقدم أولاً";
+"idioms.alphabetically" = "حسب الأبجدية";
+
+// MARK: - Difficulty
+"difficulty.new" = "جديد";
+"difficulty.in_progress" = "قيد التقدم";
+"difficulty.needs_review" = "يحتاج إلى مراجعة";
+"difficulty.mastered" = "متقن";
+
+// MARK: - Sorting
+"sorting.latest_first" = "الأحدث أولاً";
+"sorting.earliest_first" = "الأقدم أولاً";
+"sorting.alphabetically" = "حسب الأبجدية";
+"sorting.by_part_of_speech" = "حسب جزء الكلام";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "الكشف التلقائي";
+
+// MARK: - Word Details
+"word_details.transcription" = "النطق";
+"word_details.part_of_speech" = "جزء الكلام";
+"word_details.definition" = "التعريف";
+"word_details.difficulty" = "الصعوبة";
+"word_details.examples" = "أمثلة";
+"word_details.edit_example" = "تعديل المثال";
+"word_details.example" = "مثال";
+"word_details.type_example_here" = "اكتب مثالاً هنا";
+"word_details.add_example" = "إضافة مثال";
+"word_details.delete_word" = "حذف الكلمة";
+"word_details.delete_failed" = "فشل الحذف";
+
+// MARK: - Word List
+"word_list.all_words" = "جميع الكلمات";
+"word_list.favorite" = "المفضلة";
+"word_list.manage_tags" = "إدارة العلامات";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "لا توجد كلمات بعد";
+"empty_states.no_idioms_yet" = "لا توجد تعابير بعد";
+"empty_states.no_favorite_words" = "لا توجد كلمات مفضلة";
+"empty_states.no_search_results" = "لا توجد نتائج بحث";
+"empty_states.start_improving_vocabulary" = "ابدأ بتحسين مفرداتك بإضافة تعبيرك الأول";
+"empty_states.tap_heart_icon_to_add_favorites" = "انقر على أيقونة القلب على أي تعبير لإضافته إلى المفضلة";
+"empty_states.try_different_search_term" = "جرب مصطلح بحث مختلف أو أضف تعبيرًا جديدًا";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "اسم";
+"part_of_speech.full.verb" = "فعل";
+"part_of_speech.full.adjective" = "صفة";
+"part_of_speech.full.adverb" = "ظرف";
+"part_of_speech.full.conjunction" = "حرف عطف";
+"part_of_speech.full.pronoun" = "ضمير";
+"part_of_speech.full.preposition" = "حرف جر";
+"part_of_speech.full.exclamation" = "تعجب";
+"part_of_speech.full.unknown" = "غير معروف";
+
+"part_of_speech.short.noun" = "اسم";
+"part_of_speech.short.verb" = "فعل";
+"part_of_speech.short.adjective" = "صفة";
+"part_of_speech.short.adverb" = "ظرف";
+"part_of_speech.short.conjunction" = "عطف";
+"part_of_speech.short.pronoun" = "ضمير";
+"part_of_speech.short.preposition" = "جر";
+"part_of_speech.short.exclamation" = "تعجب";
+"part_of_speech.short.unknown" = "غير معروف";
+
+"actions.settings" = "الإعدادات";
+

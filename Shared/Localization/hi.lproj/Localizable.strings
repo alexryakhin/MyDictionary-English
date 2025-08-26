@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "शब्द";
-"tabbar.idioms" = "मुहावरे";
-"tabbar.quizzes" = "क्विज़";
-"tabbar.progress" = "प्रगति";
-"tabbar.settings" = "सेटिंग्स";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "शब्द विवरण";
-"navigation.idiom_details" = "मुहावरा विवरण";
-"navigation.add_tags" = "टैग जोड़ें";
-"navigation.about" = "ऐप के बारे में";
-"navigation.debug_panel" = "डीबग पैनल";
-"navigation.quiz_results" = "क्विज़ परिणाम";
-"navigation.spelling_quiz" = "वर्तनी क्विज़";
-"navigation.definition_quiz" = "परिभाषा क्विज़";
-"navigation.close" = "बंद करें";
-"navigation.close_screen" = "स्क्रीन बंद करें";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "मुहावरा जोड़ें";
-"idioms.add_new_idiom" = "नया मुहावरा जोड़ें";
-"idioms.idiom" = "मुहावरा";
-"idioms.idioms" = "मुहावरे";
-"idioms.no_idioms_found" = "कोई मुहावरे नहीं मिले";
-"idioms.add_this_idiom" = "इस मुहावरे को ऊपर दिए बटन पर क्लिक करके जोड़ें";
-"idioms.begin_add_idioms" = "ऊपरी बाएं कोने में प्लस आइकन पर क्लिक करके अपनी सूची में मुहावरे जोड़ना शुरू करें";
-"idioms.all_idioms" = "सभी मुहावरे";
-"idioms.favorite_idioms" = "पसंदीदा मुहावरे";
-"idioms.found_idioms" = "मिल गए";
-"idioms.examples" = "उदाहरण";
-"idioms.no_examples_yet" = "अभी तक कोई उदाहरण नहीं";
-"idioms.type_example_here" = "यहां उदाहरण टाइप करें";
-"idioms.add_example" = "उदाहरण जोड़ें";
-"idioms.edit_example" = "उदाहरण संपादित करें";
-"idioms.delete_idiom" = "मुहावरा हटाएं";
-"idioms.delete_idiom_confirmation" = "क्या आप वाकई इस मुहावरे को हटाना चाहते हैं?";
-"idioms.search_idioms" = "मुहावरे खोजें...";
-"idioms.favorites" = "पसंदीदा";
-"idioms.found" = "मिल गए";
-"idioms.sort" = "छांटें";
-"idioms.filter" = "फ़िल्टर";
-"idioms.latest_first" = "नवीनतम पहले";
-"idioms.earliest_first" = "सबसे पुराना पहले";
-"idioms.alphabetically" = "वर्णमाला के अनुसार";
-
 // MARK: - App
 "app.my_dictionary" = "मेरा शब्दकोश";
 "app.loading" = "लोड हो रहा है...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "क्या आपको ऐप पसंद है?";
 "coffee.helpful_learning_journey" = "यदि मेरा शब्दकोश आपके सीखने की यात्रा में मददगार रहा है, तो मेरे लिए एक कॉफी खरीदने पर विचार करें! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "नया";
-"difficulty.in_progress" = "प्रगति में";
-"difficulty.needs_review" = "समीक्षा की आवश्यकता";
-"difficulty.mastered" = "निपुण";
-
-// MARK: - Sorting
-"sorting.latest_first" = "नवीनतम पहले";
-"sorting.earliest_first" = "सबसे पुराना पहले";
-"sorting.alphabetically" = "वर्णमाला के अनुसार";
-"sorting.by_part_of_speech" = "वाक्यांश के हिस्से के अनुसार";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "स्वचालित पहचान";
-
 // MARK: - Time Period
 "time_period.week" = "सप्ताह";
 "time_period.month" = "महीना";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "सही";
 "quiz_results.duration" = "अवधि";
 "quiz_results.time_period" = "समय अवधि";
-
-// MARK: - Word Details
-"word_details.transcription" = "लिप्यंतरण";
-"word_details.part_of_speech" = "वाक्यांश का हिस्सा";
-"word_details.definition" = "परिभाषा";
-"word_details.difficulty" = "कठिनाई";
-"word_details.examples" = "उदाहरण";
-"word_details.edit_example" = "उदाहरण संपादित करें";
-"word_details.example" = "उदाहरण";
-"word_details.type_example_here" = "यहां उदाहरण टाइप करें";
-"word_details.add_example" = "उदाहरण जोड़ें";
-"word_details.delete_word" = "शब्द हटाएं";
-"word_details.delete_failed" = "हटाना विफल";
-
-// MARK: - Word List
-"word_list.all_words" = "सभी शब्द";
-"word_list.favorite" = "पसंदीदा";
-"word_list.manage_tags" = "टैग प्रबंधन करें";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "क्विज़ प्रकार";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "टैग चुनें";
 "tag_selection.no_tags_yet" = "अभी तक कोई टैग नहीं";
 "tag_selection.you_can_select_up_to_5_tags" = "आप प्रति शब्द अधिकतम 5 टैग चुन सकते हैं। टैग को चुनने या अचयन करने के लिए उस पर टैप करें।";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "अभी तक कोई शब्द नहीं";
-"empty_states.no_idioms_yet" = "अभी तक कोई मुहावरे नहीं";
-"empty_states.no_favorite_words" = "कोई पसंदीदा शब्द नहीं";
-"empty_states.no_search_results" = "कोई खोज परिणाम नहीं";
-"empty_states.start_improving_vocabulary" = "अपना पहला मुहावरा जोड़कर अपनी शब्दावली को बेहतर बनाना शुरू करें";
-"empty_states.tap_heart_icon_to_add_favorites" = "किसी भी मुहावरे को पसंदीदा में जोड़ने के लिए हार्ट आइकन पर टैप करें";
-"empty_states.try_different_search_term" = "अलग खोज शब्द आज़माएं या एक नया मुहावरा जोड़ें";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "अभ्यास करने का समय! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "प्रत्येक शब्द के लिए सही परिभाषा चुनें";
 "quiz_types.great_job_completed_spelling_quiz" = "शानदार काम! आपने वर्तनी क्विज़ पूरा किया।";
 "quiz_types.great_job_completed_definition_quiz" = "शानदार काम! आपने परिभाषा क्विज़ पूरा किया।";
-
-// MARK: - English Accents
-"english_accents.australian" = "ऑस्ट्रेलियाई";
-"english_accents.canadian" = "कनाडाई";
-"english_accents.british" = "ब्रिटिश";
-"english_accents.indian" = "भारतीय";
-"english_accents.american" = "अमेरिकी";
-"english_accents.belgian" = "बेल्जियाई";
-"english_accents.singaporean" = "सिंगापुरी";
-"english_accents.irish" = "आयरिश";
-"english_accents.south_african" = "दक्षिण अफ्रीकी";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "संज्ञा";
-"part_of_speech.full.verb" = "क्रिया";
-"part_of_speech.full.adjective" = "विशेषण";
-"part_of_speech.full.adverb" = "क्रियाविशेषण";
-"part_of_speech.full.conjunction" = "संयोजक";
-"part_of_speech.full.pronoun" = "सर्वनाम";
-"part_of_speech.full.preposition" = "पूर्वसर्ग";
-"part_of_speech.full.exclamation" = "विस्मयादिबोधक";
-"part_of_speech.full.unknown" = "अज्ञात";
-
-"part_of_speech.short.noun" = "संज्ञा";
-"part_of_speech.short.verb" = "क्रिया";
-"part_of_speech.short.adjective" = "विशेषण";
-"part_of_speech.short.adverb" = "क्रियाविशेषण";
-"part_of_speech.short.conjunction" = "संयोजक";
-"part_of_speech.short.pronoun" = "सर्वनाम";
-"part_of_speech.short.preposition" = "पूर्वसर्ग";
-"part_of_speech.short.exclamation" = "विस्मय.";
-"part_of_speech.short.unknown" = "अज्ञात";
-
-"actions.settings" = "सेटिंग्स";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "सभी उपयोग के मामले";
-"tts.filters.all_ages" = "सभी आयु";
-"tts.filters.all_timbres" = "सभी स्वर";
-"tts.filters.all_accents" = "सभी लहजे";
-"tts.filters.all_languages" = "सभी भाषाएँ";
-"tts.filters.all_genders" = "सभी लिंग";
-"tts.filters.filters" = "फ़िल्टर";
-"tts.filters.reset" = "रीसेट";
-"tts.filters.select_voice" = "आवाज़ चुनें";
-"tts.filters.available_voices" = "उपलब्ध आवाज़ें";
-"tts.filters.no_voices_available" = "कोई आवाज़ उपलब्ध नहीं";
-"tts.filters.no_voices_found" = "कोई आवाज़ नहीं मिली";
-"tts.filters.no_voices_found_message" = "अपनी खोज या फ़िल्टर को समायोजित करने का प्रयास करें";
-
-"tts.usage.monthly_limit_exceeded" = "मासिक सीमा पार हो गई";
-"tts.usage.monthly_limit_exceeded_message" = "आप Speechify TTS के लिए 50,000 अक्षरों की मासिक सीमा तक पहुँच चुके हैं। कृपया अगले महीने फिर से प्रयास करें या इसके बजाय Google TTS का उपयोग करें।";
-"tts.usage.remaining_characters" = "शेष अक्षर";
-"tts.usage.monthly_usage" = "मासिक उपयोग";
-"tts.usage.monthly_limit" = "मासिक सीमा";
-
-// TTS Voice Filter Values
-"advertisement" = "विज्ञापन";
-"animation" = "एनीमेशन";
-"audiobook" = "ऑडियोबुक";
-"audiobook-and-narration" = "ऑडियोबुक और कथन";
-"audiobooks-and-narration" = "ऑडियोबुक्स और कथन";
-"conversational" = "संवादी";
-"e-learning" = "ई-लर्निंग";
-"gaming" = "गेमिंग";
-"meditation" = "ध्यान";
-"movie" = "फ़िल्म";
-"movies-acting-and-gaming" = "फ़िल्में, अभिनय और गेमिंग";
-"narration" = "कथन";
-"podcast" = "पॉडकास्ट";
-"social-media" = "सोशल मीडिया";
-
-"middle-aged" = "मध्यम आयु";
-"senior" = "वरिष्ठ";
-"teen" = "किशोर";
-"young-adult" = "युवा वयस्क";
-
-"female" = "महिला";
-"male" = "पुरुष";
-
-"angry" = "गुस्सा";
-"assertive-or-confident" = "दृढ़ या आत्मविश्वास";
-"bright" = "उज्ज्वल";
-"calm-or-relaxed" = "शांत या आरामदायक";
-"calm-or-relaxed-" = "शांत या आरामदायक";
-"cheerful" = "प्रसन्न";
-"crisp" = "स्पष्ट";
-"deep" = "गहरा";
-"direct" = "प्रत्यक्ष";
-"energetic" = "ऊर्जावान";
-"fearful" = "भयभीत";
-"high-pitch" = "उच्च स्वर";
-"neutral" = "तटस्थ";
-"professional" = "पेशेवर";
-"relaxed" = "आरामदायक";
-"sad" = "उदास";
-"suprised" = "आश्चर्यचकित";
-"surprised" = "आश्चर्यचकित";
-"terrified" = "भयग्रस्त";
-"warm" = "गर्म";
-"warm-or-friendly" = "गर्म या मैत्रीपूर्ण";
-
-"american-neutral" = "अमेरिकी तटस्थ";
-"australian" = "ऑस्ट्रेलियाई";
-"british" = "ब्रिटिश";
-"indian" = "भारतीय";
-"nigerian" = "नाइजीरियाई";
-
-"notifications.permission_required" = "सूचना अनुमति आवश्यक";
-"notifications.permission_denied_message" = "दैनिक रिमाइंडर और कठिन शब्दों के अलर्ट प्राप्त करने के लिए, कृपया सेटिंग्स में सूचनाएँ सक्षम करें।";
-
-"onboarding.natural_voices" = "प्राकृतिक आवाज़ें";
-"onboarding.natural_voices_description" = "सैकड़ों प्रीमियम आवाज़ें जो पहले से कहीं अधिक मानवीय लगती हैं";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Speechify की प्रीमियम टेक्स्ट-टू-स्पीच तकनीक तक पहुँच। सैकड़ों प्राकृतिक ध्वनि वाली प्रीमियम आवाज़ें";
-
-// TTS Dashboard
-"tts.dashboard" = "TTS डैशबोर्ड";
-"tts.premium_tts_dashboard" = "प्रीमियम TTS डैशबोर्ड";
-"tts.customize_tts_experience" = "अपने टेक्स्ट-टू-स्पीच अनुभव को अनुकूलित करें";
-"tts.playing" = "चल रहा है";
-"tts.ready" = "तैयार";
-"tts.provider" = "प्रदाता";
-"tts.tts_provider" = "TTS प्रदाता";
-"tts.voice_customization" = "आवाज़ अनुकूलन";
-"tts.current_voice" = "वर्तमान आवाज़";
-"tts.default_voice" = "डिफ़ॉल्ट आवाज़";
-"tts.preview_current_voice" = "वर्तमान आवाज़ का पूर्वावलोकन";
-"tts.change_voice" = "आवाज़ बदलें";
-"tts.audio_settings" = "ऑडियो सेटिंग्स";
-"tts.speech_rate" = "बोलने की गति";
-"tts.volume" = "आवाज़ की तीव्रता";
-"tts.test_your_settings" = "अपनी सेटिंग्स का परीक्षण करें";
-"tts.enter_text_to_test" = "परीक्षण के लिए टेक्स्ट दर्ज करें...";
-"tts.stop" = "रोकें";
-"tts.test" = "परीक्षण";
-"tts.usage_statistics" = "उपयोग आँकड़े";
-"tts.speechify_monthly_usage" = "Speechify मासिक उपयोग";
-"tts.monthly_limit" = "मासिक सीमा";
-"tts.used_this_month" = "इस महीने उपयोग किया गया";
-"tts.remaining" = "शेष";
-"tts.usage_progress" = "उपयोग प्रगति";
-"tts.characters" = "अक्षर";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "उपयोग किए गए अक्षर";
-"tts.analytics.sessions" = "सत्र";
-"tts.analytics.favorite_voice" = "पसंदीदा आवाज़";
-"tts.analytics.time_saved" = "बचाया गया समय";
-"tts.analytics.total_characters" = "कुल अक्षर";
-"tts.analytics.total_sessions" = "कुल सत्र";
-"tts.analytics.total_duration" = "कुल अवधि";
-"tts.analytics.favorite_language" = "पसंदीदा भाषा";
-"tts.analytics.premium_usage" = "प्रीमियम उपयोग";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "टेक्स्ट-टू-स्पीच";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechify का टेक्स्ट-टू-स्पीच मॉडल सभी उपयोगकर्ताओं के लिए प्रीमियम सुविधा के रूप में उपलब्ध है। यह आपको विभिन्न आवाज़ों और लहजों में से चुनने की अनुमति देता है, ताकि आप अपनी अध्ययन अनुभव को अनुकूलित कर सकें।";
-"tts.settings.speechify_pro_description" = "Speechify का टेक्स्ट-टू-स्पीच मॉडल आपके सदस्यता में शामिल है।";
-"tts.settings.dashboard" = "डैशबोर्ड";
-"tts.pro" = "प्रो";
-"tts.free_google_tts_description" = "मुफ्त Google TTS मूल आवाज़ों और विश्वसनीय प्रदर्शन के साथ";
-
-// TTS Models
-"tts.models.english" = "अंग्रेजी";
-"tts.models.multilingual" = "बहुभाषी";
-"tts.models.english_description" = "Speechify का अंग्रेजी टेक्स्ट-टू-स्पीच मॉडल मानक क्षमताएँ प्रदान करता है जो टेक्स्ट पढ़ने के लिए स्पष्ट और प्राकृतिक आवाज़ आउटपुट प्रदान करने के लिए डिज़ाइन किया गया है। यह मॉडल एक सुसंगत उपयोगकर्ता अनुभव प्रदान करने पर केंद्रित है।";
-"tts.models.multilingual_description" = "बहुभाषी मॉडल सभी समर्थित भाषाओं के उपयोग की अनुमति देता है और एक ही वाक्य में कई भाषाओं का उपयोग करने का समर्थन करता है। इस मॉडल का ऑडियो आउटपुट अन्य मॉडलों से स्पष्ट रूप से भिन्न है।";
 

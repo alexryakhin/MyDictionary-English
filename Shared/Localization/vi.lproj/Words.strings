@@ -61,3 +61,96 @@
 "words.edit_example" = "Chỉnh sửa ví dụ";
 "words.no_transcription" = "Không có phiên âm";
 "words.no_definition" = "Không có định nghĩa";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Thêm thành ngữ";
+"idioms.add_new_idiom" = "Thêm thành ngữ mới";
+"idioms.idiom" = "Thành ngữ";
+"idioms.idioms" = "Thành ngữ";
+"idioms.no_idioms_found" = "Không tìm thấy thành ngữ";
+"idioms.add_this_idiom" = "Thêm thành ngữ này bằng cách nhấn vào nút ở trên";
+"idioms.begin_add_idioms" = "Bắt đầu thêm thành ngữ vào danh sách của bạn bằng cách nhấn vào biểu tượng dấu cộng ở góc trên bên trái";
+"idioms.all_idioms" = "Tất cả thành ngữ";
+"idioms.favorite_idioms" = "Thành ngữ yêu thích";
+"idioms.found_idioms" = "Thành ngữ được tìm thấy";
+"idioms.examples" = "Ví dụ";
+"idioms.no_examples_yet" = "Chưa có ví dụ";
+"idioms.type_example_here" = "Nhập ví dụ tại đây";
+"idioms.add_example" = "Thêm ví dụ";
+"idioms.edit_example" = "Chỉnh sửa ví dụ";
+"idioms.delete_idiom" = "Xóa thành ngữ";
+"idioms.delete_idiom_confirmation" = "Bạn có chắc chắn muốn xóa thành ngữ này không?";
+"idioms.search_idioms" = "Tìm kiếm thành ngữ...";
+"idioms.favorites" = "Yêu thích";
+"idioms.found" = "Tìm thấy";
+"idioms.sort" = "Sắp xếp";
+"idioms.filter" = "Lọc";
+"idioms.latest_first" = "Mới nhất trước";
+"idioms.earliest_first" = "Cũ nhất trước";
+"idioms.alphabetically" = "Theo thứ tự bảng chữ cái";
+
+// MARK: - Difficulty
+"difficulty.new" = "Mới";
+"difficulty.in_progress" = "Đang học";
+"difficulty.needs_review" = "Cần ôn tập";
+"difficulty.mastered" = "Đã thành thạo";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Mới nhất trước";
+"sorting.earliest_first" = "Cũ nhất trước";
+"sorting.alphabetically" = "Theo thứ tự bảng chữ cái";
+"sorting.by_part_of_speech" = "Theo loại từ";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Tự động phát hiện";
+
+// MARK: - Word Details
+"word_details.transcription" = "Phiên âm";
+"word_details.part_of_speech" = "Loại từ";
+"word_details.definition" = "Định nghĩa";
+"word_details.difficulty" = "Độ khó";
+"word_details.examples" = "Ví dụ";
+"word_details.edit_example" = "Chỉnh sửa ví dụ";
+"word_details.example" = "Ví dụ";
+"word_details.type_example_here" = "Nhập ví dụ tại đây";
+"word_details.add_example" = "Thêm ví dụ";
+"word_details.delete_word" = "Xóa từ";
+"word_details.delete_failed" = "Xóa thất bại";
+
+// MARK: - Word List
+"word_list.all_words" = "Tất cả từ";
+"word_list.favorite" = "Yêu thích";
+"word_list.manage_tags" = "Quản lý thẻ";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Chưa có từ nào";
+"empty_states.no_idioms_yet" = "Chưa có thành ngữ nào";
+"empty_states.no_favorite_words" = "Chưa có từ yêu thích";
+"empty_states.no_search_results" = "Không có kết quả tìm kiếm";
+"empty_states.start_improving_vocabulary" = "Bắt đầu cải thiện vốn từ vựng của bạn bằng cách thêm thành ngữ đầu tiên";
+"empty_states.tap_heart_icon_to_add_favorites" = "Nhấn vào biểu tượng trái tim trên bất kỳ thành ngữ nào để thêm vào yêu thích";
+"empty_states.try_different_search_term" = "Thử một từ khóa tìm kiếm khác hoặc thêm thành ngữ mới";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Danh từ";
+"part_of_speech.full.verb" = "Động từ";
+"part_of_speech.full.adjective" = "Tính từ";
+"part_of_speech.full.adverb" = "Trạng từ";
+"part_of_speech.full.conjunction" = "Liên từ";
+"part_of_speech.full.pronoun" = "Đại từ";
+"part_of_speech.full.preposition" = "Giới từ";
+"part_of_speech.full.exclamation" = "Cảm thán";
+"part_of_speech.full.unknown" = "Không xác định";
+
+"part_of_speech.short.noun" = "D.t.";
+"part_of_speech.short.verb" = "Đ.t.";
+"part_of_speech.short.adjective" = "T.t.";
+"part_of_speech.short.adverb" = "Tr.t.";
+"part_of_speech.short.conjunction" = "L.t.";
+"part_of_speech.short.pronoun" = "Đ.từ.";
+"part_of_speech.short.preposition" = "G.t.";
+"part_of_speech.short.exclamation" = "C.t.";
+"part_of_speech.short.unknown" = "K.xđ.";
+
+"actions.settings" = "Cài đặt";
+

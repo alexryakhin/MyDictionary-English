@@ -5,52 +5,6 @@
   Translated on August 18, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Slová";
-"tabbar.idioms" = "Idiomy";
-"tabbar.quizzes" = "Kvíz";
-"tabbar.progress" = "Pokrok";
-"tabbar.settings" = "Nastavenia";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Podrobnosti o slove";
-"navigation.idiom_details" = "Podrobnosti o idiome";
-"navigation.add_tags" = "Pridať značky";
-"navigation.about" = "O aplikácii";
-"navigation.debug_panel" = "Panel na ladenie";
-"navigation.quiz_results" = "Výsledky kvízu";
-"navigation.spelling_quiz" = "Kvízy pravopisu";
-"navigation.definition_quiz" = "Kvízy definícií";
-"navigation.close" = "Zatvoriť";
-"navigation.close_screen" = "Zatvoriť obrazovku";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Pridať idiom";
-"idioms.add_new_idiom" = "Pridať nový idiom";
-"idioms.idiom" = "Idiom";
-"idioms.idioms" = "Idiomy";
-"idioms.no_idioms_found" = "Nenašli sa žiadne idiomy";
-"idioms.add_this_idiom" = "Pridajte tento idiom kliknutím na tlačidlo vyššie";
-"idioms.begin_add_idioms" = "Začnite pridávať idiomy do vášho zoznamu kliknutím na ikonu plus v ľavom hornom rohu";
-"idioms.all_idioms" = "Všetky idiomy";
-"idioms.favorite_idioms" = "Obľúbené idiomy";
-"idioms.found_idioms" = "Nájdené idiomy";
-"idioms.examples" = "Príklady";
-"idioms.no_examples_yet" = "Zatiaľ žiadne príklady";
-"idioms.type_example_here" = "Zadajte príklad tu";
-"idioms.add_example" = "Pridať príklad";
-"idioms.edit_example" = "Upraviť príklad";
-"idioms.delete_idiom" = "Vymazať idiom";
-"idioms.delete_idiom_confirmation" = "Ste si istý, že chcete vymazať tento idiom?";
-"idioms.search_idioms" = "Hľadať idiomy...";
-"idioms.favorites" = "Obľúbené";
-"idioms.found" = "Nájdené";
-"idioms.sort" = "Zoradiť";
-"idioms.filter" = "Filtrovať";
-"idioms.latest_first" = "Najnovšie ako prvé";
-"idioms.earliest_first" = "Najstaršie ako prvé";
-"idioms.alphabetically" = "Abecedne";
-
 // MARK: - App
 "app.my_dictionary" = "Môj slovník";
 "app.loading" = "Načítava sa...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Páči sa vám aplikácia?";
 "coffee.helpful_learning_journey" = "Ak vám Môj slovník pomohol vo vašej ceste za učením, zvážte kúpu kávy! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Nové";
-"difficulty.in_progress" = "V procese";
-"difficulty.needs_review" = "Potrebuje opakovanie";
-"difficulty.mastered" = "Zvládnuté";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Najnovšie ako prvé";
-"sorting.earliest_first" = "Najstaršie ako prvé";
-"sorting.alphabetically" = "Abecedne";
-"sorting.by_part_of_speech" = "Podľa slovného druhu";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Automatická detekcia";
-
 // MARK: - Time Period
 "time_period.week" = "Týždeň";
 "time_period.month" = "Mesiac";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Správne";
 "quiz_results.duration" = "Trvanie";
 "quiz_results.time_period" = "Časové obdobie";
-
-// MARK: - Word Details
-"word_details.transcription" = "Transkripcia";
-"word_details.part_of_speech" = "Slovný druh";
-"word_details.definition" = "Definícia";
-"word_details.difficulty" = "Obtiažnosť";
-"word_details.examples" = "Príklady";
-"word_details.edit_example" = "Upraviť príklad";
-"word_details.example" = "Príklad";
-"word_details.type_example_here" = "Zadajte príklad tu";
-"word_details.add_example" = "Pridať príklad";
-"word_details.delete_word" = "Vymazať slovo";
-"word_details.delete_failed" = "Vymazanie zlyhalo";
-
-// MARK: - Word List
-"word_list.all_words" = "Všetky slová";
-"word_list.favorite" = "Obľúbené";
-"word_list.manage_tags" = "Spravovať značky";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Typy kvízov";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Vybrať značky";
 "tag_selection.no_tags_yet" = "Zatiaľ žiadne značky";
 "tag_selection.you_can_select_up_to_5_tags" = "Môžete vybrať až 5 značiek na slovo. Kliknite na značky, aby ste ich vybrali alebo zrušili výber.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Zatiaľ žiadne slová";
-"empty_states.no_idioms_yet" = "Zatiaľ žiadne idiomy";
-"empty_states.no_favorite_words" = "Žiadne obľúbené slová";
-"empty_states.no_search_results" = "Žiadne výsledky vyhľadávania";
-"empty_states.start_improving_vocabulary" = "Začnite zlepšovať svoju slovnú zásobu pridaním prvého idiomu";
-"empty_states.tap_heart_icon_to_add_favorites" = "Kliknite na ikonu srdca na akomkoľvek idiome, aby ste ho pridali do obľúbených";
-"empty_states.try_different_search_term" = "Skúste iný vyhľadávací výraz alebo pridajte nový idiom";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Čas na cvičenie! 📚";
@@ -306,174 +218,4 @@
 "quiz_types.select_correct_definition" = "Vyberte správnu definíciu pre každé slovo";
 "quiz_types.great_job_completed_spelling_quiz" = "Skvelá práca! Dokončili ste kvíz pravopisu.";
 "quiz_types.great_job_completed_definition_quiz" = "Skvelá práca! Dokončili ste kvíz definícií.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Austrálsky";
-"english_accents.canadian" = "Kanadský";
-"english_accents.british" = "Britský";
-"english_accents.indian" = "Indický";
-"english_accents.american" = "Americký";
-"english_accents.belgian" = "Belgický";
-"english_accents.singaporean" = "Singapurský";
-"english_accents.irish" = "Írsky";
-"english_accents.south_african" = "Juhoafrický";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Podstatné meno";
-"part_of_speech.full.verb" = "Sloveso";
-"part_of_speech.full.adjective" = "Prídavné meno";
-"part_of_speech.full.adverb" = "Príslovka";
-"part_of_speech.full.conjunction" = "Spojka";
-"part_of_speech.full.pronoun" = "Zámeno";
-"part_of_speech.full.preposition" = "Predložka";
-"part_of_speech.full.exclamation" = "Výkričník";
-"part_of_speech.full.unknown" = "Neznáme";
-
-"part_of_speech.short.noun" = "Podst.";
-"part_of_speech.short.verb" = "Slov.";
-"part_of_speech.short.adjective" = "Príd.";
-"part_of_speech.short.adverb" = "Prísl.";
-"part_of_speech.short.conjunction" = "Spoj.";
-"part_of_speech.short.pronoun" = "Zám.";
-"part_of_speech.short.preposition" = "Predl.";
-"part_of_speech.short.exclamation" = "Výkr.";
-"part_of_speech.short.unknown" = "Nezn.";
-
-"actions.settings" = "Nastavenia";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Všetky prípady použitia";
-"tts.filters.all_ages" = "Všetky vekové skupiny";
-"tts.filters.all_timbres" = "Všetky tóny hlasu";
-"tts.filters.all_accents" = "Všetky prízvuky";
-"tts.filters.all_languages" = "Všetky jazyky";
-"tts.filters.all_genders" = "Všetky pohlavia";
-"tts.filters.filters" = "Filtre";
-"tts.filters.reset" = "Resetovať";
-"tts.filters.select_voice" = "Vybrať hlas";
-"tts.filters.available_voices" = "Dostupné hlasy";
-"tts.filters.no_voices_available" = "Žiadne hlasy nie sú dostupné";
-"tts.filters.no_voices_found" = "Nenašli sa žiadne hlasy";
-"tts.filters.no_voices_found_message" = "Skúste upraviť vyhľadávanie alebo filtre";
-
-"tts.usage.monthly_limit_exceeded" = "Prekročený mesačný limit";
-"tts.usage.monthly_limit_exceeded_message" = "Dosiahli ste mesačný limit 50 000 znakov pre Speechify TTS. Skúste to znova budúci mesiac alebo použite Google TTS.";
-"tts.usage.remaining_characters" = "Zostávajúce znaky";
-"tts.usage.monthly_usage" = "Mesačné využitie";
-"tts.usage.monthly_limit" = "Mesačný limit";
-
-// TTS Voice Filter Values
-"advertisement" = "Reklama";
-"animation" = "Animácia";
-"audiobook" = "Audiokniha";
-"audiobook-and-narration" = "Audiokniha a rozprávanie";
-"audiobooks-and-narration" = "Audioknihy a rozprávanie";
-"conversational" = "Konverzačný";
-"e-learning" = "E-vzdelávanie";
-"gaming" = "Hry";
-"meditation" = "Meditácia";
-"movie" = "Film";
-"movies-acting-and-gaming" = "Filmy, herectvo a hry";
-"narration" = "Rozprávanie";
-"podcast" = "Podcast";
-"social-media" = "Sociálne médiá";
-
-"middle-aged" = "Stredný vek";
-"senior" = "Senior";
-"teen" = "Násťročný";
-"young-adult" = "Mladý dospelý";
-
-"female" = "Žena";
-"male" = "Muž";
-
-"angry" = "Nahnevaný";
-"assertive-or-confident" = "Asertívny alebo sebavedomý";
-"bright" = "Jasný";
-"calm-or-relaxed" = "Kľudný alebo uvoľnený";
-"calm-or-relaxed-" = "Kľudný alebo uvoľnený";
-"cheerful" = "Veselý";
-"crisp" = "Čistý";
-"deep" = "Hlboký";
-"direct" = "Priamy";
-"energetic" = "Energický";
-"fearful" = "Strachujúci sa";
-"high-pitch" = "Vysoký tón";
-"neutral" = "Neutrálny";
-"professional" = "Profesionálny";
-"relaxed" = "Uvoľnený";
-"sad" = "Smutný";
-"suprised" = "Prekvapený";
-"surprised" = "Prekvapený";
-"terrified" = "Vydesený";
-"warm" = "Teplý";
-"warm-or-friendly" = "Teplý alebo priateľský";
-
-"american-neutral" = "Americký neutrálny";
-"australian" = "Austrálsky";
-"british" = "Britský";
-"indian" = "Indický";
-"nigerian" = "Nigérijský";
-
-"notifications.permission_required" = "Vyžaduje sa povolenie na notifikácie";
-"notifications.permission_denied_message" = "Ak chcete dostávať denné pripomienky a upozornenia na náročné slová, povoľte notifikácie v Nastaveniach.";
-
-"onboarding.natural_voices" = "Prirodzené hlasy";
-"onboarding.natural_voices_description" = "Stovky prémiových hlasov, ktoré znejú ľudskejšie ako kedykoľvek predtým";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Prístup k prémiovej technológii prevodu textu na reč od Speechify. Stovky prirodzene znejúcich prémiových hlasov";
-
-// TTS Dashboard
-"tts.dashboard" = "Nástenka TTS";
-"tts.premium_tts_dashboard" = "Prémiová nástenka TTS";
-"tts.customize_tts_experience" = "Prispôsobiť si zážitok z prevodu textu na reč";
-"tts.playing" = "Prehráva sa";
-"tts.ready" = "Pripravené";
-"tts.provider" = "Poskytovateľ";
-"tts.tts_provider" = "Poskytovateľ TTS";
-"tts.voice_customization" = "Prispôsobenie hlasu";
-"tts.current_voice" = "Aktuálny hlas";
-"tts.default_voice" = "Predvolený hlas";
-"tts.preview_current_voice" = "Náhľad aktuálneho hlasu";
-"tts.change_voice" = "Zmeniť hlas";
-"tts.audio_settings" = "Nastavenia zvuku";
-"tts.speech_rate" = "Rýchlosť reči";
-"tts.volume" = "Hlasitosť";
-"tts.test_your_settings" = "Otestujte svoje nastavenia";
-"tts.enter_text_to_test" = "Zadajte text na testovanie...";
-"tts.stop" = "Zastaviť";
-"tts.test" = "Test";
-"tts.usage_statistics" = "Štatistiky využitia";
-"tts.speechify_monthly_usage" = "Mesačné využitie Speechify";
-"tts.monthly_limit" = "Mesačný limit";
-"tts.used_this_month" = "Využité tento mesiac";
-"tts.remaining" = "Zostáva";
-"tts.usage_progress" = "Priebeh využitia";
-"tts.characters" = "znaky";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Použité znaky";
-"tts.analytics.sessions" = "Relácie";
-"tts.analytics.favorite_voice" = "Obľúbený hlas";
-"tts.analytics.time_saved" = "Ušetrený čas";
-"tts.analytics.total_characters" = "Celkový počet znakov";
-"tts.analytics.total_sessions" = "Celkový počet relácií";
-"tts.analytics.total_duration" = "Celková doba trvania";
-"tts.analytics.favorite_language" = "Obľúbený jazyk";
-"tts.analytics.premium_usage" = "Prémiové využitie";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Text na reč";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Model prevodu textu na reč od Speechify je dostupný pre všetkých používateľov ako prémiová funkcia. Umožňuje vám vybrať si zo širokej škály hlasov a prízvukov, aby ste si mohli prispôsobiť svoje študijné zážitky.";
-"tts.settings.speechify_pro_description" = "Model prevodu textu na reč od Speechify je zahrnutý vo vašom predplatnom.";
-"tts.settings.dashboard" = "Nástenka";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Bezplatný Google TTS so základnými hlasmi a spoľahlivým výkonom";
-
-// TTS Models
-"tts.models.english" = "Angličtina";
-"tts.models.multilingual" = "Viacjazyčný";
-"tts.models.english_description" = "Model prevodu textu na reč v angličtine od Speechify ponúka štandardné funkcie navrhnuté na poskytovanie čistého a prirodzeného zvukového výstupu pre čítanie textov. Model sa zameriava na poskytovanie konzistentného používateľského zážitku.";
-"tts.models.multilingual_description" = "Viacjazyčný model umožňuje použitie všetkých podporovaných jazykov a podporuje použitie viacerých jazykov v jednej vete. Zvukový výstup tohto modelu sa výrazne líši od ostatných modelov.";
 

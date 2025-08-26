@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Slova";
+"tabbar.idioms" = "Idiomy";
+"tabbar.quizzes" = "Kvíz";
+"tabbar.progress" = "Pokrok";
+"tabbar.settings" = "Nastavení";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Podrobnosti slova";
+"navigation.idiom_details" = "Podrobnosti idiomu";
+"navigation.add_tags" = "Přidat štítky";
+"navigation.about" = "O aplikaci";
+"navigation.debug_panel" = "Panel pro ladění";
+"navigation.quiz_results" = "Výsledky kvízu";
+"navigation.spelling_quiz" = "Kvízy pravopisu";
+"navigation.definition_quiz" = "Kvízy definic";
+"navigation.close" = "Zavřít";
+"navigation.close_screen" = "Zavřít obrazovku";
+

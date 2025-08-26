@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "מילים";
-"tabbar.idioms" = "ביטויים";
-"tabbar.quizzes" = "חידונים";
-"tabbar.progress" = "התקדמות";
-"tabbar.settings" = "הגדרות";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "פרטי מילה";
-"navigation.idiom_details" = "פרטי ביטוי";
-"navigation.add_tags" = "הוספת תגיות";
-"navigation.about" = "אודות האפליקציה";
-"navigation.debug_panel" = "לוח ניפוי שגיאות";
-"navigation.quiz_results" = "תוצאות חידון";
-"navigation.spelling_quiz" = "חידון איות";
-"navigation.definition_quiz" = "חידון הגדרות";
-"navigation.close" = "סגירה";
-"navigation.close_screen" = "סגירת מסך";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "הוספת ביטוי";
-"idioms.add_new_idiom" = "הוספת ביטוי חדש";
-"idioms.idiom" = "ביטוי";
-"idioms.idioms" = "ביטויים";
-"idioms.no_idioms_found" = "לא נמצאו ביטויים";
-"idioms.add_this_idiom" = "הוסף ביטוי זה על ידי לחיצה על הכפתור למעלה";
-"idioms.begin_add_idioms" = "התחל להוסיף ביטויים לרשימה שלך על ידי לחיצה על סמל הפלוס בפינה השמאלית העליונה";
-"idioms.all_idioms" = "כל הביטויים";
-"idioms.favorite_idioms" = "ביטויים מועדפים";
-"idioms.found_idioms" = "נמצאו";
-"idioms.examples" = "דוגמאות";
-"idioms.no_examples_yet" = "אין דוגמאות עדיין";
-"idioms.type_example_here" = "הקלד דוגמה כאן";
-"idioms.add_example" = "הוספת דוגמה";
-"idioms.edit_example" = "עריכת דוגמה";
-"idioms.delete_idiom" = "מחיקת ביטוי";
-"idioms.delete_idiom_confirmation" = "האם אתה בטוח שברצונך למחוק ביטוי זה?";
-"idioms.search_idioms" = "חיפוש ביטויים...";
-"idioms.favorites" = "מועדפים";
-"idioms.found" = "נמצאו";
-"idioms.sort" = "מיון";
-"idioms.filter" = "סינון";
-"idioms.latest_first" = "החדש ביותר תחילה";
-"idioms.earliest_first" = "המוקדם ביותר תחילה";
-"idioms.alphabetically" = "לפי סדר אלפביתי";
-
 // MARK: - App
 "app.my_dictionary" = "המילון שלי";
 "app.loading" = "טוען...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "נהנה מהאפליקציה?";
 "coffee.helpful_learning_journey" = "אם המילון שלי עזר לך במסע הלמידה שלך, שקול לקנות לי קפה! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "חדש";
-"difficulty.in_progress" = "בתהליך";
-"difficulty.needs_review" = "דורש סקירה";
-"difficulty.mastered" = "שליטה";
-
-// MARK: - Sorting
-"sorting.latest_first" = "החדש ביותר תחילה";
-"sorting.earliest_first" = "המוקדם ביותר תחילה";
-"sorting.alphabetically" = "לפי סדר אלפביתי";
-"sorting.by_part_of_speech" = "לפי חלק דיבר";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "זיהוי אוטומטי";
-
 // MARK: - Time Period
 "time_period.week" = "שבוע";
 "time_period.month" = "חודש";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "נכון";
 "quiz_results.duration" = "משך זמן";
 "quiz_results.time_period" = "תקופת זמן";
-
-// MARK: - Word Details
-"word_details.transcription" = "תעתיק";
-"word_details.part_of_speech" = "חלק דיבר";
-"word_details.definition" = "הגדרה";
-"word_details.difficulty" = "קושי";
-"word_details.examples" = "דוגמאות";
-"word_details.edit_example" = "עריכת דוגמה";
-"word_details.example" = "דוגמה";
-"word_details.type_example_here" = "הקלד דוגמה כאן";
-"word_details.add_example" = "הוספת דוגמה";
-"word_details.delete_word" = "מחיקת מילה";
-"word_details.delete_failed" = "המחיקה נכשלה";
-
-// MARK: - Word List
-"word_list.all_words" = "כל המילים";
-"word_list.favorite" = "מועדף";
-"word_list.manage_tags" = "ניהול תגיות";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "סוגי חידונים";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "בחר תגיות";
 "tag_selection.no_tags_yet" = "אין תגיות עדיין";
 "tag_selection.you_can_select_up_to_5_tags" = "ניתן לבחור עד 5 תגיות לכל מילה. לחץ על תגית כדי לבחור או לבטל את הבחירה.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "אין מילים עדיין";
-"empty_states.no_idioms_yet" = "אין ביטויים עדיין";
-"empty_states.no_favorite_words" = "אין מילים מועדפות";
-"empty_states.no_search_results" = "אין תוצאות חיפוש";
-"empty_states.start_improving_vocabulary" = "התחל לשפר את אוצר המילים שלך על ידי הוספת הביטוי הראשון שלך";
-"empty_states.tap_heart_icon_to_add_favorites" = "לחץ על סמל הלב על ביטוי כלשהו כדי להוסיף אותו למועדפים";
-"empty_states.try_different_search_term" = "נסה מונח חיפוש אחר או הוסף ביטוי חדש";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "זמן לתרגל! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "בחר את ההגדרה הנכונה לכל מילה";
 "quiz_types.great_job_completed_spelling_quiz" = "עבודה נהדרת! השלמת את חידון האיות.";
 "quiz_types.great_job_completed_definition_quiz" = "עבודה נהדרת! השלמת את חידון ההגדרות.";
-
-// MARK: - English Accents
-"english_accents.australian" = "אוסטרלי";
-"english_accents.canadian" = "קנדי";
-"english_accents.british" = "בריטי";
-"english_accents.indian" = "הודי";
-"english_accents.american" = "אמריקאי";
-"english_accents.belgian" = "בלגי";
-"english_accents.singaporean" = "סינגפורי";
-"english_accents.irish" = "אירי";
-"english_accents.south_african" = "דרום אפריקאי";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "שם עצם";
-"part_of_speech.full.verb" = "פועל";
-"part_of_speech.full.adjective" = "שם תואר";
-"part_of_speech.full.adverb" = "תואר הפועל";
-"part_of_speech.full.conjunction" = "מילת חיבור";
-"part_of_speech.full.pronoun" = "כינוי";
-"part_of_speech.full.preposition" = "מילת יחס";
-"part_of_speech.full.exclamation" = "קריאה";
-"part_of_speech.full.unknown" = "לא ידוע";
-
-"part_of_speech.short.noun" = "שם ע.";
-"part_of_speech.short.verb" = "פועל";
-"part_of_speech.short.adjective" = "שם ת.";
-"part_of_speech.short.adverb" = "תואר פ.";
-"part_of_speech.short.conjunction" = "חיבור";
-"part_of_speech.short.pronoun" = "כינוי";
-"part_of_speech.short.preposition" = "יחס";
-"part_of_speech.short.exclamation" = "קריאה";
-"part_of_speech.short.unknown" = "לא ידוע";
-
-"actions.settings" = "הגדרות";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "כל מקרי השימוש";
-"tts.filters.all_ages" = "כל הגילאים";
-"tts.filters.all_timbres" = "כל גווני הקול";
-"tts.filters.all_accents" = "כל המבטאים";
-"tts.filters.all_languages" = "כל השפות";
-"tts.filters.all_genders" = "כל המינים";
-"tts.filters.filters" = "מסננים";
-"tts.filters.reset" = "איפוס";
-"tts.filters.select_voice" = "בחר קול";
-"tts.filters.available_voices" = "קולות זמינים";
-"tts.filters.no_voices_available" = "אין קולות זמינים";
-"tts.filters.no_voices_found" = "לא נמצאו קולות";
-"tts.filters.no_voices_found_message" = "נסה להתאים את החיפוש או המסננים";
-
-"tts.usage.monthly_limit_exceeded" = "חרגת ממגבלת התווים החודשית";
-"tts.usage.monthly_limit_exceeded_message" = "הגעת למגבלת החודשית של 50,000 תווים עבור Speechify TTS. אנא נסה שוב בחודש הבא או השתמש ב-Google TTS במקום.";
-"tts.usage.remaining_characters" = "תווים נותרים";
-"tts.usage.monthly_usage" = "שימוש חודשי";
-"tts.usage.monthly_limit" = "מגבלה חודשית";
-
-// TTS Voice Filter Values
-"advertisement" = "פרסומת";
-"animation" = "אנימציה";
-"audiobook" = "ספר שמע";
-"audiobook-and-narration" = "ספר שמע וקריינות";
-"audiobooks-and-narration" = "ספרי שמע וקריינות";
-"conversational" = "שיחתי";
-"e-learning" = "למידה מקוונת";
-"gaming" = "משחקים";
-"meditation" = "מדיטציה";
-"movie" = "סרט";
-"movies-acting-and-gaming" = "סרטים, משחק ומשחקים";
-"narration" = "קריינות";
-"podcast" = "פודקאסט";
-"social-media" = "מדיה חברתית";
-
-"middle-aged" = "גיל העמידה";
-"senior" = "קשיש";
-"teen" = "נער";
-"young-adult" = "מבוגר צעיר";
-
-"female" = "נקבה";
-"male" = "זכר";
-
-"angry" = "כועס";
-"assertive-or-confident" = "נחרץ או בטוח";
-"bright" = "בהיר";
-"calm-or-relaxed" = "רגוע או נינוח";
-"calm-or-relaxed-" = "רגוע או נינוח";
-"cheerful" = "עליז";
-"crisp" = "צלול";
-"deep" = "עמוק";
-"direct" = "ישיר";
-"energetic" = "אנרגטי";
-"fearful" = "מפחד";
-"high-pitch" = "גובה צליל גבוה";
-"neutral" = "נייטרלי";
-"professional" = "מקצועי";
-"relaxed" = "נינוח";
-"sad" = "עצוב";
-"suprised" = "מופתע";
-"surprised" = "מופתע";
-"terrified" = "מבועת";
-"warm" = "חם";
-"warm-or-friendly" = "חם או ידידותי";
-
-"american-neutral" = "אמריקאי נייטרלי";
-"australian" = "אוסטרלי";
-"british" = "בריטי";
-"indian" = "הודי";
-"nigerian" = "ניגרי";
-
-"notifications.permission_required" = "נדרשת הרשאת התראות";
-"notifications.permission_denied_message" = "כדי לקבל תזכורות יומיות והתראות על מילים קשות, אנא הפעל התראות בהגדרות.";
-
-"onboarding.natural_voices" = "קולות טבעיים";
-"onboarding.natural_voices_description" = "מאות קולות פרימיום שנשמעים אנושיים יותר מתמיד";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "גישה לטכנולוגיית טקסט לדיבור פרימיום של Speechify. מאות קולות פרימיום בעלי צליל טבעי";
-
-// TTS Dashboard
-"tts.dashboard" = "לוח בקרה TTS";
-"tts.premium_tts_dashboard" = "לוח בקרה TTS פרימיום";
-"tts.customize_tts_experience" = "התאם אישית את חוויית הטקסט לדיבור שלך";
-"tts.playing" = "מנגן";
-"tts.ready" = "מוכן";
-"tts.provider" = "ספק";
-"tts.tts_provider" = "ספק TTS";
-"tts.voice_customization" = "התאמה אישית של קול";
-"tts.current_voice" = "קול נוכחי";
-"tts.default_voice" = "קול ברירת מחדל";
-"tts.preview_current_voice" = "תצוגה מקדימה של הקול הנוכחי";
-"tts.change_voice" = "שנה קול";
-"tts.audio_settings" = "הגדרות שמע";
-"tts.speech_rate" = "קצב דיבור";
-"tts.volume" = "עוצמת קול";
-"tts.test_your_settings" = "בדוק את ההגדרות שלך";
-"tts.enter_text_to_test" = "הזן טקסט לבדיקה...";
-"tts.stop" = "עצור";
-"tts.test" = "בדיקה";
-"tts.usage_statistics" = "סטטיסטיקות שימוש";
-"tts.speechify_monthly_usage" = "שימוש חודשי ב-Speechify";
-"tts.monthly_limit" = "מגבלה חודשית";
-"tts.used_this_month" = "נעשה שימוש החודש";
-"tts.remaining" = "נותר";
-"tts.usage_progress" = "התקדמות שימוש";
-"tts.characters" = "תווים";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "תווים בשימוש";
-"tts.analytics.sessions" = "מפגשים";
-"tts.analytics.favorite_voice" = "קול מועדף";
-"tts.analytics.time_saved" = "זמן שנחסך";
-"tts.analytics.total_characters" = "סהכ תווים";
-"tts.analytics.total_sessions" = "סהכ מפגשים";
-"tts.analytics.total_duration" = "משך זמן כולל";
-"tts.analytics.favorite_language" = "שפה מועדפת";
-"tts.analytics.premium_usage" = "שימוש פרימיום";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "טקסט לדיבור";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "מודל טקסט לדיבור של Speechify זמין לכל המשתמשים כתכונה פרימיום. הוא מאפשר לך לבחור ממגוון רחב של קולות ומבטאים, כדי להתאים אישית את חוויית הלימוד שלך.";
-"tts.settings.speechify_pro_description" = "מודל טקסט לדיבור של Speechify כלול במנוי שלך.";
-"tts.settings.dashboard" = "לוח בקרה";
-"tts.pro" = "פרו";
-"tts.free_google_tts_description" = "Google TTS חינמי עם קולות בסיסיים וביצועים אמינים";
-
-// TTS Models
-"tts.models.english" = "אנגלית";
-"tts.models.multilingual" = "רב-לשוני";
-"tts.models.english_description" = "מודל טקסט לדיבור באנגלית של Speechify מציע יכולות סטנדרטיות המיועדות לספק פלט קולי ברור וטבעי לקריאת טקסטים. המודל מתמקד במתן חוויית משתמש עקבית.";
-"tts.models.multilingual_description" = "המודל הרב-לשוני מאפשר שימוש בכל השפות הנתמכות ותומך בשימוש במספר שפות במשפט אחד. הפלט הקולי של מודל זה שונה באופן מובהק ממודלים אחרים.";
 

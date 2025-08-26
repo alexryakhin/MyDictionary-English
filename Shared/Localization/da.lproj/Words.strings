@@ -61,3 +61,96 @@
 "words.edit_example" = "Rediger eksempel";
 "words.no_transcription" = "Ingen transskription";
 "words.no_definition" = "Ingen definition";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Tilføj idiom";
+"idioms.add_new_idiom" = "Tilføj nyt idiom";
+"idioms.idiom" = "Idiom";
+"idioms.idioms" = "Idiomer";
+"idioms.no_idioms_found" = "Ingen idiomer fundet";
+"idioms.add_this_idiom" = "Tilføj dette idiom ved at trykke på knappen ovenfor";
+"idioms.begin_add_idioms" = "Begynd at tilføje idiomer til din liste ved at klikke på plus-ikonet i øverste venstre hjørne";
+"idioms.all_idioms" = "Alle idiomer";
+"idioms.favorite_idioms" = "Favoritidiomer";
+"idioms.found_idioms" = "Fundne";
+"idioms.examples" = "Eksempler";
+"idioms.no_examples_yet" = "Ingen eksempler endnu";
+"idioms.type_example_here" = "Skriv eksempel her";
+"idioms.add_example" = "Tilføj eksempel";
+"idioms.edit_example" = "Rediger eksempel";
+"idioms.delete_idiom" = "Slet idiom";
+"idioms.delete_idiom_confirmation" = "Er du sikker på, at du vil slette dette idiom?";
+"idioms.search_idioms" = "Søg efter idiomer...";
+"idioms.favorites" = "Favoritter";
+"idioms.found" = "Fundne";
+"idioms.sort" = "Sorter";
+"idioms.filter" = "Filtrer";
+"idioms.latest_first" = "Seneste først";
+"idioms.earliest_first" = "Ældste først";
+"idioms.alphabetically" = "Alfabetisk";
+
+// MARK: - Difficulty
+"difficulty.new" = "Ny";
+"difficulty.in_progress" = "Under behandling";
+"difficulty.needs_review" = "Kræver gennemsyn";
+"difficulty.mastered" = "Mestret";
+
+// MARK: - Sorting
+"sorting.latest_first" = "Seneste først";
+"sorting.earliest_first" = "Ældste først";
+"sorting.alphabetically" = "Alfabetisk";
+"sorting.by_part_of_speech" = "Efter ordklasse";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Automatisk registrering";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transskription";
+"word_details.part_of_speech" = "Ordklasse";
+"word_details.definition" = "Definition";
+"word_details.difficulty" = "Sværhedsgrad";
+"word_details.examples" = "Eksempler";
+"word_details.edit_example" = "Rediger eksempel";
+"word_details.example" = "Eksempel";
+"word_details.type_example_here" = "Skriv eksempel her";
+"word_details.add_example" = "Tilføj eksempel";
+"word_details.delete_word" = "Slet ord";
+"word_details.delete_failed" = "Sletning mislykkedes";
+
+// MARK: - Word List
+"word_list.all_words" = "Alle ord";
+"word_list.favorite" = "Favorit";
+"word_list.manage_tags" = "Administrer tags";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Ingen ord endnu";
+"empty_states.no_idioms_yet" = "Ingen idiomer endnu";
+"empty_states.no_favorite_words" = "Ingen favoritord";
+"empty_states.no_search_results" = "Ingen søgeresultater";
+"empty_states.start_improving_vocabulary" = "Begynd at forbedre dit ordforråd ved at tilføje dit første idiom";
+"empty_states.tap_heart_icon_to_add_favorites" = "Tryk på hjerteikonet på et hvilket som helst idiom for at tilføje det til favoritter";
+"empty_states.try_different_search_term" = "Prøv et andet søgeord eller tilføj et nyt idiom";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "Navneord";
+"part_of_speech.full.verb" = "Udsagnsord";
+"part_of_speech.full.adjective" = "Tillægsord";
+"part_of_speech.full.adverb" = "Biord";
+"part_of_speech.full.conjunction" = "Bindeord";
+"part_of_speech.full.pronoun" = "Stedord";
+"part_of_speech.full.preposition" = "Forholdsord";
+"part_of_speech.full.exclamation" = "Udråbsord";
+"part_of_speech.full.unknown" = "Ukendt";
+
+"part_of_speech.short.noun" = "Navn.";
+"part_of_speech.short.verb" = "Uds.";
+"part_of_speech.short.adjective" = "Till.";
+"part_of_speech.short.adverb" = "Bior.";
+"part_of_speech.short.conjunction" = "Bind.";
+"part_of_speech.short.pronoun" = "Sted.";
+"part_of_speech.short.preposition" = "Forh.";
+"part_of_speech.short.exclamation" = "Udrå.";
+"part_of_speech.short.unknown" = "Ukendt";
+
+"actions.settings" = "Indstillinger";
+

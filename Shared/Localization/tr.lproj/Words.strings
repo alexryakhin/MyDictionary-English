@@ -61,3 +61,96 @@
 "words.edit_example" = "Örneği Düzenle";
 "words.no_transcription" = "Transkripsiyon Yok";
 "words.no_definition" = "Tanım Yok";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "Deyim Ekle";
+"idioms.add_new_idiom" = "Yeni Deyim Ekle";
+"idioms.idiom" = "Deyim";
+"idioms.idioms" = "Deyimler";
+"idioms.no_idioms_found" = "Deyim bulunamadı";
+"idioms.add_this_idiom" = "Bu deyimi eklemek için yukarıdaki düğmeye tıklayın";
+"idioms.begin_add_idioms" = "Listeye deyimler eklemeye başlamak için sol üst köşedeki artı simgesine tıklayın";
+"idioms.all_idioms" = "Tüm Deyimler";
+"idioms.favorite_idioms" = "Favori Deyimler";
+"idioms.found_idioms" = "Bulunan Deyimler";
+"idioms.examples" = "Örnekler";
+"idioms.no_examples_yet" = "Henüz Örnek Yok";
+"idioms.type_example_here" = "Örneği Buraya Yaz";
+"idioms.add_example" = "Örnek Ekle";
+"idioms.edit_example" = "Örneği Düzenle";
+"idioms.delete_idiom" = "Deyimi Sil";
+"idioms.delete_idiom_confirmation" = "Bu deyimi silmek istediğinizden emin misiniz?";
+"idioms.search_idioms" = "Deyim Ara...";
+"idioms.favorites" = "Favoriler";
+"idioms.found" = "Bulundu";
+"idioms.sort" = "Sırala";
+"idioms.filter" = "Filtrele";
+"idioms.latest_first" = "En Yeniler Önde";
+"idioms.earliest_first" = "En Eskiler Önde";
+"idioms.alphabetically" = "Alfabetik";
+
+// MARK: - Difficulty
+"difficulty.new" = "Yeni";
+"difficulty.in_progress" = "Devam Ediyor";
+"difficulty.needs_review" = "Tekrar Gerekli";
+"difficulty.mastered" = "Hâkim Olunan";
+
+// MARK: - Sorting
+"sorting.latest_first" = "En Yeniler Önde";
+"sorting.earliest_first" = "En Eskiler Önde";
+"sorting.alphabetically" = "Alfabetik";
+"sorting.by_part_of_speech" = "Sözcük Türüne Göre";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "Otomatik Algılama";
+
+// MARK: - Word Details
+"word_details.transcription" = "Transkripsiyon";
+"word_details.part_of_speech" = "Sözcük Türü";
+"word_details.definition" = "Tanım";
+"word_details.difficulty" = "Zorluk";
+"word_details.examples" = "Örnekler";
+"word_details.edit_example" = "Örneği Düzenle";
+"word_details.example" = "Örnek";
+"word_details.type_example_here" = "Örneği Buraya Yaz";
+"word_details.add_example" = "Örnek Ekle";
+"word_details.delete_word" = "Kelimeyi Sil";
+"word_details.delete_failed" = "Silme başarısız";
+
+// MARK: - Word List
+"word_list.all_words" = "Tüm Kelimeler";
+"word_list.favorite" = "Favori";
+"word_list.manage_tags" = "Etiketleri Yönet";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "Henüz kelime yok";
+"empty_states.no_idioms_yet" = "Henüz deyim yok";
+"empty_states.no_favorite_words" = "Favori kelime yok";
+"empty_states.no_search_results" = "Arama sonucu yok";
+"empty_states.start_improving_vocabulary" = "İlk deyimi ekleyerek kelime dağarcığınızı geliştirmeye başlayın";
+"empty_states.tap_heart_icon_to_add_favorites" = "Favorilere eklemek için herhangi bir deyimin üzerindeki kalp simgesine tıklayın";
+"empty_states.try_different_search_term" = "Farklı bir arama terimi deneyin veya yeni bir deyim ekleyin";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "İsim";
+"part_of_speech.full.verb" = "Fiil";
+"part_of_speech.full.adjective" = "Sıfat";
+"part_of_speech.full.adverb" = "Zarf";
+"part_of_speech.full.conjunction" = "Bağlaç";
+"part_of_speech.full.pronoun" = "Zamir";
+"part_of_speech.full.preposition" = "Edat";
+"part_of_speech.full.exclamation" = "Ünlem";
+"part_of_speech.full.unknown" = "Bilinmiyor";
+
+"part_of_speech.short.noun" = "İsm.";
+"part_of_speech.short.verb" = "F.";
+"part_of_speech.short.adjective" = "Sıf.";
+"part_of_speech.short.adverb" = "Zrf.";
+"part_of_speech.short.conjunction" = "Bğl.";
+"part_of_speech.short.pronoun" = "Zmr.";
+"part_of_speech.short.preposition" = "Edt.";
+"part_of_speech.short.exclamation" = "Ünl.";
+"part_of_speech.short.unknown" = "Bilinmiyor";
+
+"actions.settings" = "Ayarlar";
+

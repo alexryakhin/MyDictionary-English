@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Es requereix permís de notificació";
+"notifications.permission_denied_message" = "Per rebre recordatoris diaris i alertes sobre paraules difícils, activa les notificacions a Configuració.";
+

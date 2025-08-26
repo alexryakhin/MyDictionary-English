@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Actualizează la Pro pentru a vedea toate detaliile creșterii vocabularului tău.";
 "pro_upgrade.time_period" = "Perioadă de Timp";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Acces la tehnologia premium de conversie text în vorbire de la Speechify. Sute de voci premium cu sunet natural";
+

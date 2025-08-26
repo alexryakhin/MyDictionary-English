@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Kelimeler";
+"tabbar.idioms" = "Deyimler";
+"tabbar.quizzes" = "Testler";
+"tabbar.progress" = "İlerleme";
+"tabbar.settings" = "Ayarlar";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Kelime Detayları";
+"navigation.idiom_details" = "Deyim Detayları";
+"navigation.add_tags" = "Etiket Ekle";
+"navigation.about" = "Hakkında";
+"navigation.debug_panel" = "Hata Ayıklama Paneli";
+"navigation.quiz_results" = "Test Sonuçları";
+"navigation.spelling_quiz" = "Yazım Testi";
+"navigation.definition_quiz" = "Tanım Testi";
+"navigation.close" = "Kapat";
+"navigation.close_screen" = "Ekranı Kapat";
+

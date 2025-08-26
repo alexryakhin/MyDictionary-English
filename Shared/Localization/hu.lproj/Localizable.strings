@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Szavak";
-"tabbar.idioms" = "Kifejezések";
-"tabbar.quizzes" = "Kvizek";
-"tabbar.progress" = "Haladás";
-"tabbar.settings" = "Beállítások";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Szó részletei";
-"navigation.idiom_details" = "Kifejezés részletei";
-"navigation.add_tags" = "Címkék hozzáadása";
-"navigation.about" = "Az alkalmazásról";
-"navigation.debug_panel" = "Hibakereső panel";
-"navigation.quiz_results" = "Kviz eredmények";
-"navigation.spelling_quiz" = "Helyesírási kviz";
-"navigation.definition_quiz" = "Definíció kviz";
-"navigation.close" = "Bezárás";
-"navigation.close_screen" = "Képernyő bezárása";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Kifejezés hozzáadása";
-"idioms.add_new_idiom" = "Új kifejezés hozzáadása";
-"idioms.idiom" = "Kifejezés";
-"idioms.idioms" = "Kifejezések";
-"idioms.no_idioms_found" = "Nem található kifejezés";
-"idioms.add_this_idiom" = "Add hozzá ezt a kifejezést a fenti gombra kattintva";
-"idioms.begin_add_idioms" = "Kezdj el kifejezéseket hozzáadni a listádhoz a bal felső sarokban lévő plusz ikonra kattintva";
-"idioms.all_idioms" = "Összes kifejezés";
-"idioms.favorite_idioms" = "Kedvenc kifejezések";
-"idioms.found_idioms" = "Talált kifejezések";
-"idioms.examples" = "Példák";
-"idioms.no_examples_yet" = "Még nincsenek példák";
-"idioms.type_example_here" = "Írj ide egy példát";
-"idioms.add_example" = "Példa hozzáadása";
-"idioms.edit_example" = "Példa szerkesztése";
-"idioms.delete_idiom" = "Kifejezés törlése";
-"idioms.delete_idiom_confirmation" = "Biztosan törölni szeretnéd ezt a kifejezést?";
-"idioms.search_idioms" = "Kifejezések keresése...";
-"idioms.favorites" = "Kedvencek";
-"idioms.found" = "Talált";
-"idioms.sort" = "Rendezés";
-"idioms.filter" = "Szűrés";
-"idioms.latest_first" = "Legújabb először";
-"idioms.earliest_first" = "Legrégebbi először";
-"idioms.alphabetically" = "Betűrendben";
-
 // MARK: - App
 "app.my_dictionary" = "Saját szótár";
 "app.loading" = "Betöltés...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Élvezed az alkalmazást?";
 "coffee.helpful_learning_journey" = "Ha a Saját szótár segített a tanulási utadon, fontold meg, hogy vegyél nekem egy kávét! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Új";
-"difficulty.in_progress" = "Folyamatban";
-"difficulty.needs_review" = "Felülvizsgálat szükséges";
-"difficulty.mastered" = "Elsajátítva";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Legújabb először";
-"sorting.earliest_first" = "Legrégebbi először";
-"sorting.alphabetically" = "Betűrendben";
-"sorting.by_part_of_speech" = "Szófaj szerint";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Automatikus felismerés";
-
 // MARK: - Time Period
 "time_period.week" = "Hét";
 "time_period.month" = "Hónap";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Helyes";
 "quiz_results.duration" = "Időtartam";
 "quiz_results.time_period" = "Időszak";
-
-// MARK: - Word Details
-"word_details.transcription" = "Átírás";
-"word_details.part_of_speech" = "Szófaj";
-"word_details.definition" = "Definíció";
-"word_details.difficulty" = "Nehézség";
-"word_details.examples" = "Példák";
-"word_details.edit_example" = "Példa szerkesztése";
-"word_details.example" = "Példa";
-"word_details.type_example_here" = "Írj ide egy példát";
-"word_details.add_example" = "Példa hozzáadása";
-"word_details.delete_word" = "Szó törlése";
-"word_details.delete_failed" = "Törlés sikertelen";
-
-// MARK: - Word List
-"word_list.all_words" = "Összes szó";
-"word_list.favorite" = "Kedvenc";
-"word_list.manage_tags" = "Címkék kezelése";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Kviz típusok";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Címkék kiválasztása";
 "tag_selection.no_tags_yet" = "Még nincsenek címkék";
 "tag_selection.you_can_select_up_to_5_tags" = "Szavonként legfeljebb 5 címkét választhatsz ki. Kattints egy címkére a kiválasztáshoz vagy a kiválasztás megszüntetéséhez.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Még nincsenek szavak";
-"empty_states.no_idioms_yet" = "Még nincsenek kifejezések";
-"empty_states.no_favorite_words" = "Nincsenek kedvenc szavak";
-"empty_states.no_search_results" = "Nincsenek keresési eredmények";
-"empty_states.start_improving_vocabulary" = "Kezdj el szókincset építeni az első kifejezés hozzáadásával";
-"empty_states.tap_heart_icon_to_add_favorites" = "Koppints a szív ikonra bármely kifejezésen, hogy hozzáadd a kedvencekhez";
-"empty_states.try_different_search_term" = "Próbálj más keresési kifejezést, vagy adj hozzá egy új kifejezést";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Ideje gyakorolni! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "Válaszd ki a helyes definíciót minden szóhoz";
 "quiz_types.great_job_completed_spelling_quiz" = "Nagyszerű munka! Befejezted a helyesírási kvizt.";
 "quiz_types.great_job_completed_definition_quiz" = "Nagyszerű munka! Befejezted a definíció kvizt.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Ausztrál";
-"english_accents.canadian" = "Kanadai";
-"english_accents.british" = "Brit";
-"english_accents.indian" = "Indiai";
-"english_accents.american" = "Amerikai";
-"english_accents.belgian" = "Belga";
-"english_accents.singaporean" = "Szingapúri";
-"english_accents.irish" = "Ír";
-"english_accents.south_african" = "Dél-afrikai";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Főnév";
-"part_of_speech.full.verb" = "Ige";
-"part_of_speech.full.adjective" = "Melléknév";
-"part_of_speech.full.adverb" = "Határozószó";
-"part_of_speech.full.conjunction" = "Kötőszó";
-"part_of_speech.full.pronoun" = "Névmás";
-"part_of_speech.full.preposition" = "Elöljárószó";
-"part_of_speech.full.exclamation" = "Felkiáltás";
-"part_of_speech.full.unknown" = "Ismeretlen";
-
-"part_of_speech.short.noun" = "Főn.";
-"part_of_speech.short.verb" = "Ige";
-"part_of_speech.short.adjective" = "Mell.";
-"part_of_speech.short.adverb" = "Hat.";
-"part_of_speech.short.conjunction" = "Köt.";
-"part_of_speech.short.pronoun" = "Név.";
-"part_of_speech.short.preposition" = "Elöl.";
-"part_of_speech.short.exclamation" = "Felk.";
-"part_of_speech.short.unknown" = "Ismeretlen";
-
-"actions.settings" = "Beállítások";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Minden használati eset";
-"tts.filters.all_ages" = "Minden korosztály";
-"tts.filters.all_timbres" = "Minden hangszín";
-"tts.filters.all_accents" = "Minden akcentus";
-"tts.filters.all_languages" = "Minden nyelv";
-"tts.filters.all_genders" = "Minden nem";
-"tts.filters.filters" = "Szűrők";
-"tts.filters.reset" = "Visszaállítás";
-"tts.filters.select_voice" = "Hang kiválasztása";
-"tts.filters.available_voices" = "Elérhető hangok";
-"tts.filters.no_voices_available" = "Nincsenek elérhető hangok";
-"tts.filters.no_voices_found" = "Nem található hang";
-"tts.filters.no_voices_found_message" = "Próbálja meg módosítani a keresést vagy a szűrőket";
-
-"tts.usage.monthly_limit_exceeded" = "Havi korlát túllépve";
-"tts.usage.monthly_limit_exceeded_message" = "Elérte a Speechify TTS havi 50 000 karakteres korlátját. Próbálja újra a következő hónapban, vagy használja a Google TTS-t.";
-"tts.usage.remaining_characters" = "Hátralévő karakterek";
-"tts.usage.monthly_usage" = "Havi használat";
-"tts.usage.monthly_limit" = "Havi korlát";
-
-// TTS Voice Filter Values
-"advertisement" = "Hirdetés";
-"animation" = "Animáció";
-"audiobook" = "Hangoskönyv";
-"audiobook-and-narration" = "Hangoskönyv és narráció";
-"audiobooks-and-narration" = "Hangoskönyvek és narráció";
-"conversational" = "Beszélgetős";
-"e-learning" = "E-tanulás";
-"gaming" = "Játék";
-"meditation" = "Meditáció";
-"movie" = "Film";
-"movies-acting-and-gaming" = "Filmek, színészet és játék";
-"narration" = "Narráció";
-"podcast" = "Podcast";
-"social-media" = "Közösségi média";
-
-"middle-aged" = "Középkorú";
-"senior" = "Idős";
-"teen" = "Tini";
-"young-adult" = "Fiatal felnőtt";
-
-"female" = "Nő";
-"male" = "Férfi";
-
-"angry" = "Dühös";
-"assertive-or-confident" = "Határozott vagy magabiztos";
-"bright" = "Fényes";
-"calm-or-relaxed" = "Nyugodt vagy laza";
-"calm-or-relaxed-" = "Nyugodt vagy laza";
-"cheerful" = "Vidám";
-"crisp" = "Tiszta";
-"deep" = "Mély";
-"direct" = "Közvetlen";
-"energetic" = "Energikus";
-"fearful" = "Félelmetes";
-"high-pitch" = "Magas hang";
-"neutral" = "Semleges";
-"professional" = "Professzionális";
-"relaxed" = "Laza";
-"sad" = "Szomorú";
-"suprised" = "Meglepett";
-"surprised" = "Meglepett";
-"terrified" = "Rémült";
-"warm" = "Meleg";
-"warm-or-friendly" = "Meleg vagy barátságos";
-
-"american-neutral" = "Amerikai semleges";
-"australian" = "Ausztrál";
-"british" = "Brit";
-"indian" = "Indiai";
-"nigerian" = "Nigériai";
-
-"notifications.permission_required" = "Értesítési engedély szükséges";
-"notifications.permission_denied_message" = "A napi emlékeztetők és nehéz szavakra vonatkozó figyelmeztetések fogadásához engedélyezze az értesítéseket a Beállításokban.";
-
-"onboarding.natural_voices" = "Természetes hangok";
-"onboarding.natural_voices_description" = "Több száz prémium hang, amelyek emberibbek, mint valaha";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Hozzáférés a Speechify prémium szövegfelolvasó technológiájához. Több száz természetes hangzású prémium hang";
-
-// TTS Dashboard
-"tts.dashboard" = "TTS műszerfal";
-"tts.premium_tts_dashboard" = "Prémium TTS műszerfal";
-"tts.customize_tts_experience" = "Testreszabhatja szövegfelolvasási élményét";
-"tts.playing" = "Lejátszás";
-"tts.ready" = "Kész";
-"tts.provider" = "Szolgáltató";
-"tts.tts_provider" = "TTS szolgáltató";
-"tts.voice_customization" = "Hang testreszabása";
-"tts.current_voice" = "Jelenlegi hang";
-"tts.default_voice" = "Alapértelmezett hang";
-"tts.preview_current_voice" = "Jelenlegi hang előnézete";
-"tts.change_voice" = "Hang megváltoztatása";
-"tts.audio_settings" = "Hangbeállítások";
-"tts.speech_rate" = "Beszédsebesség";
-"tts.volume" = "Hangerő";
-"tts.test_your_settings" = "Tesztelje beállításait";
-"tts.enter_text_to_test" = "Adjon meg szöveget teszteléshez...";
-"tts.stop" = "Leállítás";
-"tts.test" = "Teszt";
-"tts.usage_statistics" = "Használati statisztikák";
-"tts.speechify_monthly_usage" = "Speechify havi használat";
-"tts.monthly_limit" = "Havi korlát";
-"tts.used_this_month" = "Ebben a hónapban használt";
-"tts.remaining" = "Hátralévő";
-"tts.usage_progress" = "Használati előrehaladás";
-"tts.characters" = "karakter";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Felhasznált karakterek";
-"tts.analytics.sessions" = "Munkamenetek";
-"tts.analytics.favorite_voice" = "Kedvenc hang";
-"tts.analytics.time_saved" = "Megtakarított idő";
-"tts.analytics.total_characters" = "Összes karakter";
-"tts.analytics.total_sessions" = "Összes munkamenet";
-"tts.analytics.total_duration" = "Összes időtartam";
-"tts.analytics.favorite_language" = "Kedvenc nyelv";
-"tts.analytics.premium_usage" = "Prémium használat";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Szövegfelolvasás";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "A Speechify szövegfelolvasó modellje minden felhasználó számára elérhető prémium funkcióként. Lehetővé teszi, hogy széles körű hangok és akcentusok közül válasszon, hogy testreszabhassa tanulási élményét.";
-"tts.settings.speechify_pro_description" = "A Speechify szövegfelolvasó modellje az előfizetésében szerepel.";
-"tts.settings.dashboard" = "Műszerfal";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Ingyenes Google TTS alapvető hangokkal és megbízható teljesítménnyel";
-
-// TTS Models
-"tts.models.english" = "Angol";
-"tts.models.multilingual" = "Többnyelvű";
-"tts.models.english_description" = "A Speechify angol szövegfelolvasó modellje standard funkciókat kínál, amelyek célja tiszta és természetes hangkimenet biztosítása a szövegek olvasásához. A modell a következetes felhasználói élmény biztosítására fókuszál.";
-"tts.models.multilingual_description" = "A többnyelvű modell lehetővé teszi az összes támogatott nyelv használatát, és támogatja több nyelv használatát egyetlen mondaton belül. A modell hangkimenete jelentősen különbözik a többi modelltől.";
 

@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Értesítési engedély szükséges";
+"notifications.permission_denied_message" = "A napi emlékeztetők és nehéz szavakra vonatkozó figyelmeztetések fogadásához engedélyezze az értesítéseket a Beállításokban.";
+

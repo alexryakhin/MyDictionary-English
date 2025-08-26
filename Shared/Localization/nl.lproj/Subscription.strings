@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgrade naar Pro om volledige details van woordenschatgroei te zien.";
 "pro_upgrade.time_period" = "Tijdsperiode";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Toegang tot de premium tekst-naar-spraaktechnologie van Speechify. Honderden natuurlijk klinkende premium stemmen";
+

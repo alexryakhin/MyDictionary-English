@@ -1,0 +1,141 @@
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Alle gebruiksscenario's";
+"tts.filters.all_ages" = "Alle leeftijden";
+"tts.filters.all_timbres" = "Alle klankkleuren";
+"tts.filters.all_accents" = "Alle accenten";
+"tts.filters.all_languages" = "Alle talen";
+"tts.filters.all_genders" = "Alle geslachten";
+"tts.filters.filters" = "Filters";
+"tts.filters.reset" = "Resetten";
+"tts.filters.select_voice" = "Stem selecteren";
+"tts.filters.available_voices" = "Beschikbare stemmen";
+"tts.filters.no_voices_available" = "Geen stemmen beschikbaar";
+"tts.filters.no_voices_found" = "Geen stemmen gevonden";
+"tts.filters.no_voices_found_message" = "Probeer je zoekopdracht of filters aan te passen";
+
+"tts.usage.monthly_limit_exceeded" = "Maandlimiet overschreden";
+"tts.usage.monthly_limit_exceeded_message" = "Je hebt de maandlimiet van 50.000 tekens voor Speechify TTS bereikt. Probeer het volgende maand opnieuw of gebruik in plaats daarvan Google TTS.";
+"tts.usage.remaining_characters" = "Resterende tekens";
+"tts.usage.monthly_usage" = "Maandelijks gebruik";
+"tts.usage.monthly_limit" = "Maandlimiet";
+
+// TTS Voice Filter Values
+"advertisement" = "Advertentie";
+"animation" = "Animatie";
+"audiobook" = "Luisterboek";
+"audiobook-and-narration" = "Luisterboek en vertelling";
+"audiobooks-and-narration" = "Luisterboeken en vertelling";
+"conversational" = "Conversationeel";
+"e-learning" = "E-learning";
+"gaming" = "Gaming";
+"meditation" = "Meditatie";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Films, acteren en gaming";
+"narration" = "Vertelling";
+"podcast" = "Podcast";
+"social-media" = "Sociale media";
+
+"middle-aged" = "Middelbare leeftijd";
+"senior" = "Senior";
+"teen" = "Tiener";
+"young-adult" = "Jonge volwassene";
+
+"female" = "Vrouwelijk";
+"male" = "Mannelijk";
+
+"angry" = "Boos";
+"assertive-or-confident" = "Assertief of zelfverzekerd";
+"bright" = "Helder";
+"calm-or-relaxed" = "Kalm of ontspannen";
+"calm-or-relaxed-" = "Kalm of ontspannen";
+"cheerful" = "Vrolijk";
+"crisp" = "Helder";
+"deep" = "Diep";
+"direct" = "Direct";
+"energetic" = "Energiek";
+"fearful" = "Angstig";
+"high-pitch" = "Hoge toon";
+"neutral" = "Neutraal";
+"professional" = "Professioneel";
+"relaxed" = "Ontspannen";
+"sad" = "Verdrietig";
+"suprised" = "Verrast";
+"surprised" = "Verrast";
+"terrified" = "Doodsbang";
+"warm" = "Warm";
+"warm-or-friendly" = "Warm of vriendelijk";
+
+"american-neutral" = "Amerikaans neutraal";
+"australian" = "Australisch";
+"british" = "Brits";
+"indian" = "Indiaas";
+"nigerian" = "Nigeriaans";
+
+
+
+
+// TTS Dashboard
+"tts.dashboard" = "TTS Dashboard";
+"tts.premium_tts_dashboard" = "Premium TTS Dashboard";
+"tts.customize_tts_experience" = "Pas je tekst-naar-spraakervaring aan";
+"tts.playing" = "Afspelen";
+"tts.ready" = "Klaar";
+"tts.provider" = "Provider";
+"tts.tts_provider" = "TTS Provider";
+"tts.voice_customization" = "Stem aanpassing";
+"tts.current_voice" = "Huidige stem";
+"tts.default_voice" = "Standaard stem";
+"tts.preview_current_voice" = "Voorbeeld huidige stem";
+"tts.change_voice" = "Stem wijzigen";
+"tts.audio_settings" = "Audio-instellingen";
+"tts.speech_rate" = "Spraaksnelheid";
+"tts.volume" = "Volume";
+"tts.test_your_settings" = "Test je instellingen";
+"tts.enter_text_to_test" = "Voer tekst in om te testen...";
+"tts.stop" = "Stoppen";
+"tts.test" = "Testen";
+"tts.usage_statistics" = "Gebruiksstatistieken";
+"tts.speechify_monthly_usage" = "Maandelijks gebruik Speechify";
+"tts.monthly_limit" = "Maandlimiet";
+"tts.used_this_month" = "Deze maand gebruikt";
+"tts.remaining" = "Resterend";
+"tts.usage_progress" = "Gebruiksvoortgang";
+"tts.characters" = "tekens";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Gebruikte tekens";
+"tts.analytics.sessions" = "Sessies";
+"tts.analytics.favorite_voice" = "Favoriete stem";
+"tts.analytics.time_saved" = "Bespaarde tijd";
+"tts.analytics.total_characters" = "Totaal aantal tekens";
+"tts.analytics.total_sessions" = "Totaal aantal sessies";
+"tts.analytics.total_duration" = "Totale duur";
+"tts.analytics.favorite_language" = "Favoriete taal";
+"tts.analytics.premium_usage" = "Premium gebruik";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Tekst-naar-spraak";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Het tekst-naar-spraakmodel van Speechify is beschikbaar voor alle gebruikers als premium functie. Hiermee kun je kiezen uit een breed scala aan stemmen en accenten, zodat je je studie-ervaring kunt aanpassen.";
+"tts.settings.speechify_pro_description" = "Het tekst-naar-spraakmodel van Speechify is inbegrepen in je abonnement.";
+"tts.settings.dashboard" = "Dashboard";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Gratis Google TTS met basisstemmen en betrouwbare prestaties";
+
+// TTS Models
+"tts.models.english" = "Engels";
+"tts.models.multilingual" = "Meertalig";
+"tts.models.english_description" = "Het Engelse tekst-naar-spraakmodel van Speechify biedt standaardfunctionaliteiten die zijn ontworpen om heldere en natuurlijke spraakuitvoer te leveren voor het lezen van teksten. Het model richt zich op het bieden van een consistente gebruikerservaring.";
+"tts.models.multilingual_description" = "Het meertalige model maakt het gebruik van alle ondersteunde talen mogelijk en ondersteunt het gebruik van meerdere talen binnen één zin. De audio-uitvoer van dit model verschilt duidelijk van andere modellen.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australisch";
+"english_accents.canadian" = "Canadees";
+"english_accents.british" = "Brits";
+"english_accents.indian" = "Indiaas";
+"english_accents.american" = "Amerikaans";
+"english_accents.belgian" = "Belgisch";
+"english_accents.singaporean" = "Singaporees";
+"english_accents.irish" = "Iers";
+"english_accents.south_african" = "Zuid-Afrikaans";
+

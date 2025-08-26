@@ -5,52 +5,6 @@
   Translated on August 18, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "คำศัพท์";
-"tabbar.idioms" = "สำนวน";
-"tabbar.quizzes" = "แบบทดสอบ";
-"tabbar.progress" = "ความคืบหน้า";
-"tabbar.settings" = "การตั้งค่า";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "รายละเอียดคำศัพท์";
-"navigation.idiom_details" = "รายละเอียดสำนวน";
-"navigation.add_tags" = "เพิ่มแท็ก";
-"navigation.about" = "เกี่ยวกับ";
-"navigation.debug_panel" = "แผงดีบัก";
-"navigation.quiz_results" = "ผลลัพธ์แบบทดสอบ";
-"navigation.spelling_quiz" = "แบบทดสอบการสะกดคำ";
-"navigation.definition_quiz" = "แบบทดสอบความหมาย";
-"navigation.close" = "ปิด";
-"navigation.close_screen" = "ปิดหน้าจอ";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "เพิ่มสำนวน";
-"idioms.add_new_idiom" = "เพิ่มสำนวนใหม่";
-"idioms.idiom" = "สำนวน";
-"idioms.idioms" = "สำนวน";
-"idioms.no_idioms_found" = "ไม่พบสำนวน";
-"idioms.add_this_idiom" = "เพิ่มสำนวนนี้โดยกดปุ่มด้านบน";
-"idioms.begin_add_idioms" = "เริ่มเพิ่มสำนวนลงในรายการของคุณโดยกดไอคอนบวกที่มุมบนซ้าย";
-"idioms.all_idioms" = "สำนวนทั้งหมด";
-"idioms.favorite_idioms" = "สำนวนโปรด";
-"idioms.found_idioms" = "สำนวนที่พบ";
-"idioms.examples" = "ตัวอย่าง";
-"idioms.no_examples_yet" = "ยังไม่มีตัวอย่าง";
-"idioms.type_example_here" = "พิมพ์ตัวอย่างที่นี่";
-"idioms.add_example" = "เพิ่มตัวอย่าง";
-"idioms.edit_example" = "แก้ไขตัวอย่าง";
-"idioms.delete_idiom" = "ลบสำนวน";
-"idioms.delete_idiom_confirmation" = "คุณแน่ใจหรือไม่ว่าต้องการลบสำนวนนี้";
-"idioms.search_idioms" = "ค้นหาสำนวน...";
-"idioms.favorites" = "รายการโปรด";
-"idioms.found" = "พบ";
-"idioms.sort" = "เรียงลำดับ";
-"idioms.filter" = "กรอง";
-"idioms.latest_first" = "ล่าสุดก่อน";
-"idioms.earliest_first" = "เก่าที่สุดก่อน";
-"idioms.alphabetically" = "ตามตัวอักษร";
-
 // MARK: - App
 "app.my_dictionary" = "พจนานุกรมของฉัน";
 "app.loading" = "กำลังโหลด...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "สนุกกับแอปนี้หรือไม่";
 "coffee.helpful_learning_journey" = "หากพจนานุกรมของฉันช่วยคุณในการเดินทางเรียนรู้ ลองพิจารณาซื้อกาแฟให้ฉัน! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "ใหม่";
-"difficulty.in_progress" = "กำลังดำเนินการ";
-"difficulty.needs_review" = "ต้องทบทวน";
-"difficulty.mastered" = "เชี่ยวชาญ";
-
-// MARK: - Sorting
-"sorting.latest_first" = "ล่าสุดก่อน";
-"sorting.earliest_first" = "เก่าที่สุดก่อน";
-"sorting.alphabetically" = "ตามตัวอักษร";
-"sorting.by_part_of_speech" = "ตามประเภทของคำ";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "ตรวจจับอัตโนมัติ";
-
 // MARK: - Time Period
 "time_period.week" = "สัปดาห์";
 "time_period.month" = "เดือน";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "ถูกต้อง";
 "quiz_results.duration" = "ระยะเวลา";
 "quiz_results.time_period" = "ช่วงเวลา";
-
-// MARK: - Word Details
-"word_details.transcription" = "การถอดเสียง";
-"word_details.part_of_speech" = "ประเภทของคำ";
-"word_details.definition" = "ความหมาย";
-"word_details.difficulty" = "ระดับความยาก";
-"word_details.examples" = "ตัวอย่าง";
-"word_details.edit_example" = "แก้ไขตัวอย่าง";
-"word_details.example" = "ตัวอย่าง";
-"word_details.type_example_here" = "พิมพ์ตัวอย่างที่นี่";
-"word_details.add_example" = "เพิ่มตัวอย่าง";
-"word_details.delete_word" = "ลบคำศัพท์";
-"word_details.delete_failed" = "การลบล้มเหลว";
-
-// MARK: - Word List
-"word_list.all_words" = "คำศัพท์ทั้งหมด";
-"word_list.favorite" = "รายการโปรด";
-"word_list.manage_tags" = "จัดการแท็ก";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "ประเภทแบบทดสอบ";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "เลือกแท็ก";
 "tag_selection.no_tags_yet" = "ยังไม่มีแท็ก";
 "tag_selection.you_can_select_up_to_5_tags" = "คุณสามารถเลือกได้ถึง 5 แท็กต่อคำศัพท์ กดที่แท็กเพื่อเลือกหรือยกเลิกการเลือก";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "ยังไม่มีคำศัพท์";
-"empty_states.no_idioms_yet" = "ยังไม่มีสำนวน";
-"empty_states.no_favorite_words" = "ไม่มีคำศัพท์โปรด";
-"empty_states.no_search_results" = "ไม่มีผลการค้นหา";
-"empty_states.start_improving_vocabulary" = "เริ่มพัฒนาคลังคำศัพท์ของคุณโดยเพิ่มสำนวนแรก";
-"empty_states.tap_heart_icon_to_add_favorites" = "กดไอคอนรูปหัวใจบนสำนวนใดๆ เพื่อเพิ่มลงในรายการโปรด";
-"empty_states.try_different_search_term" = "ลองใช้คำค้นหาอื่นหรือเพิ่มสำนวนใหม่";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "ถึงเวลาฝึก! 📚";
@@ -306,174 +218,4 @@
 "quiz_types.select_correct_definition" = "เลือกความหมายที่ถูกต้องสำหรับแต่ละคำ";
 "quiz_types.great_job_completed_spelling_quiz" = "เยี่ยมมาก! คุณทำแบบทดสอบการสะกดคำเสร็จแล้ว";
 "quiz_types.great_job_completed_definition_quiz" = "เยี่ยมมาก! คุณทำแบบทดสอบความหมายเสร็จแล้ว";
-
-// MARK: - English Accents
-"english_accents.australian" = "ออสเตรเลีย";
-"english_accents.canadian" = "แคนาดา";
-"english_accents.british" = "อังกฤษ";
-"english_accents.indian" = "อินเดีย";
-"english_accents.american" = "อเมริกา";
-"english_accents.belgian" = "เบลเยียม";
-"english_accents.singaporean" = "สิงคโปร์";
-"english_accents.irish" = "ไอริช";
-"english_accents.south_african" = "แอฟริกาใต้";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "นาม";
-"part_of_speech.full.verb" = "กริยา";
-"part_of_speech.full.adjective" = "คุณศัพท์";
-"part_of_speech.full.adverb" = "กริยาวิเศษณ์";
-"part_of_speech.full.conjunction" = "สันธาน";
-"part_of_speech.full.pronoun" = "สรรพนาม";
-"part_of_speech.full.preposition" = "บุรพบท";
-"part_of_speech.full.exclamation" = "คำอุทาน";
-"part_of_speech.full.unknown" = "ไม่ทราบ";
-
-"part_of_speech.short.noun" = "น.";
-"part_of_speech.short.verb" = "ก.";
-"part_of_speech.short.adjective" = "คศ.";
-"part_of_speech.short.adverb" = "กว.";
-"part_of_speech.short.conjunction" = "สธ.";
-"part_of_speech.short.pronoun" = "สร.";
-"part_of_speech.short.preposition" = "บ.";
-"part_of_speech.short.exclamation" = "อุ.";
-"part_of_speech.short.unknown" = "ไม่ทราบ";
-
-"actions.settings" = "การตั้งค่า";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "ทุกกรณีการใช้งาน";
-"tts.filters.all_ages" = "ทุกช่วงวัย";
-"tts.filters.all_timbres" = "ทุกโทนเสียง";
-"tts.filters.all_accents" = "ทุกสำเนียง";
-"tts.filters.all_languages" = "ทุกภาษา";
-"tts.filters.all_genders" = "ทุกเพศ";
-"tts.filters.filters" = "ตัวกรอง";
-"tts.filters.reset" = "รีเซ็ต";
-"tts.filters.select_voice" = "เลือกเสียง";
-"tts.filters.available_voices" = "เสียงที่ใช้ได้";
-"tts.filters.no_voices_available" = "ไม่มีเสียงที่ใช้ได้";
-"tts.filters.no_voices_found" = "ไม่พบเสียง";
-"tts.filters.no_voices_found_message" = "ลองปรับการค้นหาหรือตัวกรองของคุณ";
-
-"tts.usage.monthly_limit_exceeded" = "เกินขีดจำกัดรายเดือน";
-"tts.usage.monthly_limit_exceeded_message" = "คุณถึงขีดจำกัดรายเดือน 50,000 อักขระสำหรับ Speechify TTS แล้ว กรุณาลองอีกครั้งในเดือนหน้าหรือใช้ Google TTS แทน";
-"tts.usage.remaining_characters" = "อักขระที่เหลือ";
-"tts.usage.monthly_usage" = "การใช้งานรายเดือน";
-"tts.usage.monthly_limit" = "ขีดจำกัดรายเดือน";
-
-// TTS Voice Filter Values
-"advertisement" = "โฆษณา";
-"animation" = "แอนิเมชัน";
-"audiobook" = "หนังสือเสียง";
-"audiobook-and-narration" = "หนังสือเสียงและการบรรยาย";
-"audiobooks-and-narration" = "หนังสือเสียงและการบรรยาย";
-"conversational" = "การสนทนา";
-"e-learning" = "การเรียนรู้แบบออนไลน์";
-"gaming" = "เกม";
-"meditation" = "การทำสมาธิ";
-"movie" = "ภาพยนตร์";
-"movies-acting-and-gaming" = "ภาพยนตร์ การแสดง และเกม";
-"narration" = "การบรรยาย";
-"podcast" = "พอดแคสต์";
-"social-media" = "โซเชียลมีเดีย";
-
-"middle-aged" = "วัยกลางคน";
-"senior" = "ผู้สูงอายุ";
-"teen" = "วัยรุ่น";
-"young-adult" = "ผู้ใหญ่ตอนต้น";
-
-"female" = "หญิง";
-"male" = "ชาย";
-
-"angry" = "โกรธ";
-"assertive-or-confident" = "มั่นใจหรือหนักแน่น";
-"bright" = "สดใส";
-"calm-or-relaxed" = "สงบหรือผ่อนคลาย";
-"calm-or-relaxed-" = "สงบหรือผ่อนคลาย";
-"cheerful" = "ร่าเริง";
-"crisp" = "ชัดเจน";
-"deep" = "ทุ้ม";
-"direct" = "ตรงไปตรงมา";
-"energetic" = "กระฉับกระเฉง";
-"fearful" = "หวาดกลัว";
-"high-pitch" = "เสียงสูง";
-"neutral" = "เป็นกลาง";
-"professional" = "มืออาชีพ";
-"relaxed" = "ผ่อนคลาย";
-"sad" = "เศร้า";
-"suprised" = "ประหลาดใจ";
-"surprised" = "ประหลาดใจ";
-"terrified" = "หวาดกลัวมาก";
-"warm" = "อบอุ่น";
-"warm-or-friendly" = "อบอุ่นหรือเป็นมิตร";
-
-"american-neutral" = "อเมริกันแบบเป็นกลาง";
-"australian" = "ออสเตรเลีย";
-"british" = "บริติช";
-"indian" = "อินเดีย";
-"nigerian" = "ไนจีเรีย";
-
-"notifications.permission_required" = "ต้องได้รับอนุญาตการแจ้งเตือน";
-"notifications.permission_denied_message" = "เพื่อรับการแจ้งเตือนรายวันและคำเตือนสำหรับคำยาก กรุณาเปิดใช้งานการแจ้งเตือนใน การตั้งค่า";
-
-"onboarding.natural_voices" = "เสียงธรรมชาติ";
-"onboarding.natural_voices_description" = "เสียงพรีเมียมหลายร้อยเสียงที่ฟังดูเป็นมนุษย์มากกว่าที่เคย";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "เข้าถึงเทคโนโลยีแปลงข้อความเป็นคำพูดระดับพรีเมียมของ Speechify เสียงพรีเมียมที่ฟังดูเป็นธรรมชาตินับร้อย";
-
-// TTS Dashboard
-"tts.dashboard" = "แดชบอร์ด TTS";
-"tts.premium_tts_dashboard" = "แดชบอร์ด TTS พรีเมียม";
-"tts.customize_tts_experience" = "ปรับแต่งประสบการณ์การแปลงข้อความเป็นคำพูดของคุณ";
-"tts.playing" = "กำลังเล่น";
-"tts.ready" = "พร้อม";
-"tts.provider" = "ผู้ให้บริการ";
-"tts.tts_provider" = "ผู้ให้บริการ TTS";
-"tts.voice_customization" = "การปรับแต่งเสียง";
-"tts.current_voice" = "เสียงปัจจุบัน";
-"tts.default_voice" = "เสียงเริ่มต้น";
-"tts.preview_current_voice" = "ดูตัวอย่างเสียงปัจจุบัน";
-"tts.change_voice" = "เปลี่ยนเสียง";
-"tts.audio_settings" = "การตั้งค่าเสียง";
-"tts.speech_rate" = "อัตราการพูด";
-"tts.volume" = "ระดับเสียง";
-"tts.test_your_settings" = "ทดสอบการตั้งค่าของคุณ";
-"tts.enter_text_to_test" = "ป้อนข้อความเพื่อทดสอบ...";
-"tts.stop" = "หยุด";
-"tts.test" = "ทดสอบ";
-"tts.usage_statistics" = "สถิติการใช้งาน";
-"tts.speechify_monthly_usage" = "การใช้งานรายเดือนของ Speechify";
-"tts.monthly_limit" = "ขีดจำกัดรายเดือน";
-"tts.used_this_month" = "ใช้ในเดือนนี้";
-"tts.remaining" = "เหลืออยู่";
-"tts.usage_progress" = "ความคืบหน้าการใช้งาน";
-"tts.characters" = "ตัวอักษร";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "ตัวอักษรที่ใช้";
-"tts.analytics.sessions" = "เซสชัน";
-"tts.analytics.favorite_voice" = "เสียงที่ชื่นชอบ";
-"tts.analytics.time_saved" = "เวลาที่ประหยัด";
-"tts.analytics.total_characters" = "ตัวอักษรทั้งหมด";
-"tts.analytics.total_sessions" = "เซสชันทั้งหมด";
-"tts.analytics.total_duration" = "ระยะเวลาทั้งหมด";
-"tts.analytics.favorite_language" = "ภาษาที่ชื่นชอบ";
-"tts.analytics.premium_usage" = "การใช้งานพรีเมียม";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "การแปลงข้อความเป็นคำพูด";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "โมเดลการแปลงข้อความเป็นคำพูดของ Speechify มีให้สำหรับผู้ใช้ทุกคนในฐานะฟีเจอร์พรีเมียม ช่วยให้คุณเลือกจากเสียงและสำเนียงที่หลากหลายเพื่อปรับแต่งประสบการณ์การเรียนรู้ของคุณ";
-"tts.settings.speechify_pro_description" = "โมเดลการแปลงข้อความเป็นคำพูดของ Speechify รวมอยู่ในสมัครสมาชิกของคุณ";
-"tts.settings.dashboard" = "แดชบอร์ด";
-"tts.pro" = "โปร";
-"tts.free_google_tts_description" = "Google TTS ฟรีพร้อมเสียงพื้นฐานและประสิทธิภาพที่เชื่อถือได้";
-
-// TTS Models
-"tts.models.english" = "ภาษาอังกฤษ";
-"tts.models.multilingual" = "หลายภาษา";
-"tts.models.english_description" = "โมเดลการแปลงข้อความเป็นคำพูดภาษาอังกฤษของ Speechify มีฟีเจอร์มาตรฐานที่ออกแบบมาเพื่อให้ผลลัพธ์เสียงที่ชัดเจนและเป็นธรรมชาติสำหรับการอ่านข้อความ โมเดลนี้มุ่งเน้นที่การมอบประสบการณ์ผู้ใช้ที่สม่ำเสมอ";
-"tts.models.multilingual_description" = "โมเดลหลายภาษาช่วยให้สามารถใช้ทุกภาษาที่รองรับและสนับสนุนการใช้หลายภาษาภายในประโยคเดียว ผลลัพธ์เสียงของโมเดลนี้แตกต่างจากโมเดลอื่นอย่างชัดเจน";
 

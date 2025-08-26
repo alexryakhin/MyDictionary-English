@@ -1,0 +1,141 @@
+// MARK: - TTS Voice Filters
+"tts.filters.all_use_cases" = "Alle brukstilfeller";
+"tts.filters.all_ages" = "Alle aldre";
+"tts.filters.all_timbres" = "Alle klangfarger";
+"tts.filters.all_accents" = "Alle aksenter";
+"tts.filters.all_languages" = "Alle språk";
+"tts.filters.all_genders" = "Alle kjønn";
+"tts.filters.filters" = "Filtre";
+"tts.filters.reset" = "Tilbakestill";
+"tts.filters.select_voice" = "Velg stemme";
+"tts.filters.available_voices" = "Tilgjengelige stemmer";
+"tts.filters.no_voices_available" = "Ingen stemmer tilgjengelig";
+"tts.filters.no_voices_found" = "Ingen stemmer funnet";
+"tts.filters.no_voices_found_message" = "Prøv å justere søket eller filtrene dine";
+
+"tts.usage.monthly_limit_exceeded" = "Månedlig grense overskredet";
+"tts.usage.monthly_limit_exceeded_message" = "Du har nådd den månedlige grensen på 50 000 tegn for Speechify TTS. Prøv igjen neste måned eller bruk Google TTS i stedet.";
+"tts.usage.remaining_characters" = "Gjenstående tegn";
+"tts.usage.monthly_usage" = "Månedlig bruk";
+"tts.usage.monthly_limit" = "Månedlig grense";
+
+// TTS Voice Filter Values
+"advertisement" = "Reklame";
+"animation" = "Animasjon";
+"audiobook" = "Lydbok";
+"audiobook-and-narration" = "Lydbok og fortelling";
+"audiobooks-and-narration" = "Lydbøker og fortelling";
+"conversational" = "Samtalemessig";
+"e-learning" = "E-læring";
+"gaming" = "Spill";
+"meditation" = "Meditasjon";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Filmer, skuespill og spill";
+"narration" = "Fortelling";
+"podcast" = "Podkast";
+"social-media" = "Sosiale medier";
+
+"middle-aged" = "Midt i livet";
+"senior" = "Senior";
+"teen" = "Tenåring";
+"young-adult" = "Ung voksen";
+
+"female" = "Kvinne";
+"male" = "Mann";
+
+"angry" = "Sint";
+"assertive-or-confident" = "Bestemt eller selvsikker";
+"bright" = "Lys";
+"calm-or-relaxed" = "Rolig eller avslappet";
+"calm-or-relaxed-" = "Rolig eller avslappet";
+"cheerful" = "Glad";
+"crisp" = "Klar";
+"deep" = "Dyp";
+"direct" = "Direkte";
+"energetic" = "Energisk";
+"fearful" = "Redd";
+"high-pitch" = "Høy tone";
+"neutral" = "Nøytral";
+"professional" = "Profesjonell";
+"relaxed" = "Avslappet";
+"sad" = "Trist";
+"suprised" = "Overrasket";
+"surprised" = "Overrasket";
+"terrified" = "Livredd";
+"warm" = "Varm";
+"warm-or-friendly" = "Varm eller vennlig";
+
+"american-neutral" = "Amerikansk nøytral";
+"australian" = "Australsk";
+"british" = "Britisk";
+"indian" = "Indisk";
+"nigerian" = "Nigeriansk";
+
+
+
+
+// TTS Dashboard
+"tts.dashboard" = "TTS-dashbord";
+"tts.premium_tts_dashboard" = "Premium TTS-dashbord";
+"tts.customize_tts_experience" = "Tilpass din tekst-til-tale-opplevelse";
+"tts.playing" = "Spiller";
+"tts.ready" = "Klar";
+"tts.provider" = "Leverandør";
+"tts.tts_provider" = "TTS-leverandør";
+"tts.voice_customization" = "Stemetilpasning";
+"tts.current_voice" = "Nåværende stemme";
+"tts.default_voice" = "Standard stemme";
+"tts.preview_current_voice" = "Forhåndsvis nåværende stemme";
+"tts.change_voice" = "Endre stemme";
+"tts.audio_settings" = "Lydinnstillinger";
+"tts.speech_rate" = "Talehastighet";
+"tts.volume" = "Volum";
+"tts.test_your_settings" = "Test innstillingene dine";
+"tts.enter_text_to_test" = "Skriv inn tekst for å teste...";
+"tts.stop" = "Stopp";
+"tts.test" = "Test";
+"tts.usage_statistics" = "Bruksstatistikk";
+"tts.speechify_monthly_usage" = "Speechify månedlig bruk";
+"tts.monthly_limit" = "Månedlig grense";
+"tts.used_this_month" = "Brukt denne måneden";
+"tts.remaining" = "Gjenstående";
+"tts.usage_progress" = "Bruksfremgang";
+"tts.characters" = "tegn";
+
+// TTS Analytics
+"tts.analytics.characters_used" = "Brukte tegn";
+"tts.analytics.sessions" = "Økter";
+"tts.analytics.favorite_voice" = "Favorittstemme";
+"tts.analytics.time_saved" = "Sparet tid";
+"tts.analytics.total_characters" = "Totalt antall tegn";
+"tts.analytics.total_sessions" = "Totalt antall økter";
+"tts.analytics.total_duration" = "Total varighet";
+"tts.analytics.favorite_language" = "Favorittspråk";
+"tts.analytics.premium_usage" = "Premiumbruk";
+
+// TTS Settings
+"tts.settings.text_to_speech" = "Tekst-til-tale";
+"tts.settings.speechify" = "Speechify";
+"tts.settings.speechify_description" = "Speechifys tekst-til-tale-modell er tilgjengelig for alle brukere som en premiumfunksjon. Den lar deg velge fra et bredt utvalg av stemmer og aksenter, slik at du kan tilpasse studieopplevelsen din.";
+"tts.settings.speechify_pro_description" = "Speechifys tekst-til-tale-modell er inkludert i abonnementet ditt.";
+"tts.settings.dashboard" = "Dashbord";
+"tts.pro" = "Pro";
+"tts.free_google_tts_description" = "Gratis Google TTS med grunnleggende stemmer og pålitelig ytelse";
+
+// TTS Models
+"tts.models.english" = "Engelsk";
+"tts.models.multilingual" = "Fler språk";
+"tts.models.english_description" = "Speechifys engelske tekst-til-tale-modell tilbyr standardfunksjoner designet for å levere klar og naturlig lydutgang for tekstlesing. Modellen fokuserer på å gi en konsistent brukeropplevelse.";
+"tts.models.multilingual_description" = "Den flerspråklige modellen tillater bruk av alle støttede språk og støtter bruk av flere språk innenfor en enkelt setning. Lydutgangen fra denne modellen skiller seg tydelig fra andre modeller.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australsk";
+"english_accents.canadian" = "Kanadisk";
+"english_accents.british" = "Britisk";
+"english_accents.indian" = "Indisk";
+"english_accents.american" = "Amerikansk";
+"english_accents.belgian" = "Belgisk";
+"english_accents.singaporean" = "Singaporsk";
+"english_accents.irish" = "Irsk";
+"english_accents.south_african" = "Sørafrikansk";
+

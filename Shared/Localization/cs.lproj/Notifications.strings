@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Je vyžadováno povolení k oznamování";
+"notifications.permission_denied_message" = "Chcete-li dostávat denní připomínky a upozornění na obtížná slova, povolte oznámení v Nastavení.";
+

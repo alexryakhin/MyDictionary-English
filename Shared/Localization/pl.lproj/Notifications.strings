@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Wymagane pozwolenie na powiadomienia";
+"notifications.permission_denied_message" = "Aby otrzymywać codzienne przypomnienia i powiadomienia o trudnych słowach, włącz powiadomienia w Ustawieniach.";
+

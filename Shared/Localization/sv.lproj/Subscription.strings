@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Uppgradera till Pro för att se alla detaljer om tillväxten av ditt ordförråd.";
 "pro_upgrade.time_period" = "Tidsperiod";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Tillgång till Speechifys premiumteknik för text-till-tal. Hundratals naturligt klingande premiumröster";
+

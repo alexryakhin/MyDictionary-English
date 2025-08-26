@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "ต้องได้รับอนุญาตการแจ้งเตือน";
+"notifications.permission_denied_message" = "เพื่อรับการแจ้งเตือนรายวันและคำเตือนสำหรับคำยาก กรุณาเปิดใช้งานการแจ้งเตือนใน การตั้งค่า";
+

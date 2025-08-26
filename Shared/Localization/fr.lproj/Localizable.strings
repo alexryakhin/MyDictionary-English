@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Mots";
-"tabbar.idioms" = "Expressions";
-"tabbar.quizzes" = "Quiz";
-"tabbar.progress" = "Progrès";
-"tabbar.settings" = "Paramètres";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Détails du mot";
-"navigation.idiom_details" = "Détails de l'expression";
-"navigation.add_tags" = "Ajouter des étiquettes";
-"navigation.about" = "À propos de l'application";
-"navigation.debug_panel" = "Panneau de débogage";
-"navigation.quiz_results" = "Résultats du quiz";
-"navigation.spelling_quiz" = "Quiz d'orthographe";
-"navigation.definition_quiz" = "Quiz de définition";
-"navigation.close" = "Fermer";
-"navigation.close_screen" = "Fermer l'écran";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Ajouter une expression";
-"idioms.add_new_idiom" = "Ajouter une nouvelle expression";
-"idioms.idiom" = "Expression";
-"idioms.idioms" = "Expressions";
-"idioms.no_idioms_found" = "Aucune expression trouvée";
-"idioms.add_this_idiom" = "Ajoutez cette expression en appuyant sur le bouton ci-dessus";
-"idioms.begin_add_idioms" = "Commencez à ajouter des expressions à votre liste en cliquant sur l'icône plus dans le coin supérieur gauche";
-"idioms.all_idioms" = "Toutes les expressions";
-"idioms.favorite_idioms" = "Expressions favorites";
-"idioms.found_idioms" = "Trouvées";
-"idioms.examples" = "Exemples";
-"idioms.no_examples_yet" = "Pas encore d'exemples";
-"idioms.type_example_here" = "Tapez un exemple ici";
-"idioms.add_example" = "Ajouter un exemple";
-"idioms.edit_example" = "Modifier l'exemple";
-"idioms.delete_idiom" = "Supprimer l'expression";
-"idioms.delete_idiom_confirmation" = "Êtes-vous sûr de vouloir supprimer cette expression ?";
-"idioms.search_idioms" = "Rechercher des expressions...";
-"idioms.favorites" = "Favoris";
-"idioms.found" = "Trouvées";
-"idioms.sort" = "Trier";
-"idioms.filter" = "Filtrer";
-"idioms.latest_first" = "Plus récent d'abord";
-"idioms.earliest_first" = "Plus ancien d'abord";
-"idioms.alphabetically" = "Alphabétiquement";
-
 // MARK: - App
 "app.my_dictionary" = "Mon Dictionnaire";
 "app.loading" = "Chargement...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Vous appréciez l'application ?";
 "coffee.helpful_learning_journey" = "Si Mon Dictionnaire vous a aidé dans votre parcours d'apprentissage, pensez à m'offrir un café ! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Nouveau";
-"difficulty.in_progress" = "En cours";
-"difficulty.needs_review" = "À réviser";
-"difficulty.mastered" = "Maîtrisé";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Plus récent d'abord";
-"sorting.earliest_first" = "Plus ancien d'abord";
-"sorting.alphabetically" = "Alphabétiquement";
-"sorting.by_part_of_speech" = "Par partie du discours";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Détection automatique";
-
 // MARK: - Time Period
 "time_period.week" = "Semaine";
 "time_period.month" = "Mois";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Correct";
 "quiz_results.duration" = "Durée";
 "quiz_results.time_period" = "Période";
-
-// MARK: - Word Details
-"word_details.transcription" = "Transcription";
-"word_details.part_of_speech" = "Partie du discours";
-"word_details.definition" = "Définition";
-"word_details.difficulty" = "Difficulté";
-"word_details.examples" = "Exemples";
-"word_details.edit_example" = "Modifier l'exemple";
-"word_details.example" = "Exemple";
-"word_details.type_example_here" = "Tapez un exemple ici";
-"word_details.add_example" = "Ajouter un exemple";
-"word_details.delete_word" = "Supprimer le mot";
-"word_details.delete_failed" = "Échec de la suppression";
-
-// MARK: - Word List
-"word_list.all_words" = "Tous les mots";
-"word_list.favorite" = "Favori";
-"word_list.manage_tags" = "Gérer les étiquettes";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Types de quiz";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Sélectionner des étiquettes";
 "tag_selection.no_tags_yet" = "Aucune étiquette pour le moment";
 "tag_selection.you_can_select_up_to_5_tags" = "Vous pouvez sélectionner jusqu'à 5 étiquettes par mot. Appuyez sur une étiquette pour la sélectionner ou la désélectionner.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Aucun mot pour le moment";
-"empty_states.no_idioms_yet" = "Aucune expression pour le moment";
-"empty_states.no_favorite_words" = "Aucun mot favori";
-"empty_states.no_search_results" = "Aucun résultat de recherche";
-"empty_states.start_improving_vocabulary" = "Commencez à améliorer votre vocabulaire en ajoutant votre première expression";
-"empty_states.tap_heart_icon_to_add_favorites" = "Appuyez sur l'icône en forme de cœur sur n'importe quelle expression pour l'ajouter aux favoris";
-"empty_states.try_different_search_term" = "Essayez un autre terme de recherche ou ajoutez une nouvelle expression";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "C'est l'heure de s'entraîner ! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "Choisissez la bonne définition pour chaque mot";
 "quiz_types.great_job_completed_spelling_quiz" = "Excellent travail ! Vous avez terminé le quiz d'orthographe.";
 "quiz_types.great_job_completed_definition_quiz" = "Excellent travail ! Vous avez terminé le quiz de définition.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Australien";
-"english_accents.canadian" = "Canadien";
-"english_accents.british" = "Britannique";
-"english_accents.indian" = "Indien";
-"english_accents.american" = "Américain";
-"english_accents.belgian" = "Belge";
-"english_accents.singaporean" = "Singapourien";
-"english_accents.irish" = "Irlandais";
-"english_accents.south_african" = "Sud-africain";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Nom";
-"part_of_speech.full.verb" = "Verbe";
-"part_of_speech.full.adjective" = "Adjectif";
-"part_of_speech.full.adverb" = "Adverbe";
-"part_of_speech.full.conjunction" = "Conjonction";
-"part_of_speech.full.pronoun" = "Pronom";
-"part_of_speech.full.preposition" = "Préposition";
-"part_of_speech.full.exclamation" = "Exclamation";
-"part_of_speech.full.unknown" = "Inconnu";
-
-"part_of_speech.short.noun" = "Nom";
-"part_of_speech.short.verb" = "Verb.";
-"part_of_speech.short.adjective" = "Adj.";
-"part_of_speech.short.adverb" = "Adv.";
-"part_of_speech.short.conjunction" = "Conj.";
-"part_of_speech.short.pronoun" = "Pron.";
-"part_of_speech.short.preposition" = "Prép.";
-"part_of_speech.short.exclamation" = "Excl.";
-"part_of_speech.short.unknown" = "Inconnu";
-
-"actions.settings" = "Paramètres";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Tous les cas d'utilisation";
-"tts.filters.all_ages" = "Tous les âges";
-"tts.filters.all_timbres" = "Tous les timbres";
-"tts.filters.all_accents" = "Tous les accents";
-"tts.filters.all_languages" = "Toutes les langues";
-"tts.filters.all_genders" = "Tous les genres";
-"tts.filters.filters" = "Filtres";
-"tts.filters.reset" = "Réinitialiser";
-"tts.filters.select_voice" = "Sélectionner la voix";
-"tts.filters.available_voices" = "Voix disponibles";
-"tts.filters.no_voices_available" = "Aucune voix disponible";
-"tts.filters.no_voices_found" = "Aucune voix trouvée";
-"tts.filters.no_voices_found_message" = "Essayez d'ajuster votre recherche ou vos filtres";
-
-"tts.usage.monthly_limit_exceeded" = "Limite mensuelle dépassée";
-"tts.usage.monthly_limit_exceeded_message" = "Vous avez atteint la limite mensuelle de 50 000 caractères pour Speechify TTS. Veuillez réessayer le mois prochain ou utiliser Google TTS à la place.";
-"tts.usage.remaining_characters" = "Caractères restants";
-"tts.usage.monthly_usage" = "Utilisation mensuelle";
-"tts.usage.monthly_limit" = "Limite mensuelle";
-
-// TTS Voice Filter Values
-"advertisement" = "Publicité";
-"animation" = "Animation";
-"audiobook" = "Livre audio";
-"audiobook-and-narration" = "Livre audio et narration";
-"audiobooks-and-narration" = "Livres audio et narration";
-"conversational" = "Conversationnel";
-"e-learning" = "Apprentissage en ligne";
-"gaming" = "Jeux";
-"meditation" = "Méditation";
-"movie" = "Film";
-"movies-acting-and-gaming" = "Films, jeu d'acteur et jeux";
-"narration" = "Narration";
-"podcast" = "Podcast";
-"social-media" = "Réseaux sociaux";
-
-"middle-aged" = "Âge moyen";
-"senior" = "Senior";
-"teen" = "Adolescent";
-"young-adult" = "Jeune adulte";
-
-"female" = "Féminin";
-"male" = "Masculin";
-
-"angry" = "En colère";
-"assertive-or-confident" = "Assertif ou confiant";
-"bright" = "Vif";
-"calm-or-relaxed" = "Calme ou détendu";
-"calm-or-relaxed-" = "Calme ou détendu";
-"cheerful" = "Joyeux";
-"crisp" = "Clair";
-"deep" = "Profond";
-"direct" = "Direct";
-"energetic" = "Énergique";
-"fearful" = "Peurful";
-"high-pitch" = "Ton aigu";
-"neutral" = "Neutre";
-"professional" = "Professionnel";
-"relaxed" = "Détendu";
-"sad" = "Triste";
-"suprised" = "Surpris";
-"surprised" = "Surpris";
-"terrified" = "Terrifié";
-"warm" = "Chaud";
-"warm-or-friendly" = "Chaud ou amical";
-
-"american-neutral" = "Américain neutre";
-"australian" = "Australien";
-"british" = "Britannique";
-"indian" = "Indien";
-"nigerian" = "Nigérian";
-
-"notifications.permission_required" = "Permission de notification requise";
-"notifications.permission_denied_message" = "Pour recevoir des rappels quotidiens et des alertes de mots difficiles, veuillez activer les notifications dans les Paramètres.";
-
-"onboarding.natural_voices" = "Voix naturelles";
-"onboarding.natural_voices_description" = "Des centaines de voix premium qui sonnent plus humaines que jamais";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Accès à la technologie de texte à voix premium de Speechify. Des centaines de voix premium au son naturel";
-
-// TTS Dashboard
-"tts.dashboard" = "Tableau de bord TTS";
-"tts.premium_tts_dashboard" = "Tableau de bord TTS premium";
-"tts.customize_tts_experience" = "Personnalisez votre expérience de texte à voix";
-"tts.playing" = "En lecture";
-"tts.ready" = "Prêt";
-"tts.provider" = "Fournisseur";
-"tts.tts_provider" = "Fournisseur TTS";
-"tts.voice_customization" = "Personnalisation de la voix";
-"tts.current_voice" = "Voix actuelle";
-"tts.default_voice" = "Voix par défaut";
-"tts.preview_current_voice" = "Prévisualiser la voix actuelle";
-"tts.change_voice" = "Changer de voix";
-"tts.audio_settings" = "Paramètres audio";
-"tts.speech_rate" = "Vitesse de parole";
-"tts.volume" = "Volume";
-"tts.test_your_settings" = "Testez vos paramètres";
-"tts.enter_text_to_test" = "Entrez du texte pour tester...";
-"tts.stop" = "Arrêter";
-"tts.test" = "Tester";
-"tts.usage_statistics" = "Statistiques d'utilisation";
-"tts.speechify_monthly_usage" = "Utilisation mensuelle de Speechify";
-"tts.monthly_limit" = "Limite mensuelle";
-"tts.used_this_month" = "Utilisé ce mois";
-"tts.remaining" = "Restant";
-"tts.usage_progress" = "Progression de l'utilisation";
-"tts.characters" = "caractères";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Caractères utilisés";
-"tts.analytics.sessions" = "Sessions";
-"tts.analytics.favorite_voice" = "Voix préférée";
-"tts.analytics.time_saved" = "Temps économisé";
-"tts.analytics.total_characters" = "Total des caractères";
-"tts.analytics.total_sessions" = "Total des sessions";
-"tts.analytics.total_duration" = "Durée totale";
-"tts.analytics.favorite_language" = "Langue préférée";
-"tts.analytics.premium_usage" = "Utilisation premium";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Texte à voix";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Le modèle de texte à voix de Speechify est disponible pour tous les utilisateurs en tant que fonctionnalité premium. Il vous permet de choisir parmi une large gamme de voix et d'accents, afin que vous puissiez personnaliser votre expérience d'étude.";
-"tts.settings.speechify_pro_description" = "Le modèle de texte à voix de Speechify est inclus dans votre abonnement.";
-"tts.settings.dashboard" = "Tableau de bord";
-"tts.pro" = "PRO";
-"tts.free_google_tts_description" = "Google TTS gratuit avec des voix de base et des performances fiables";
-
-// TTS Models
-"tts.models.english" = "Anglais";
-"tts.models.multilingual" = "Multilingue";
-"tts.models.english_description" = "Le modèle de texte à voix en anglais de Speechify offre des capacités standard conçues pour fournir une sortie vocale claire et naturelle pour la lecture de textes. Le modèle se concentre sur une expérience utilisateur cohérente.";
-"tts.models.multilingual_description" = "Le modèle multilingue permet l'utilisation de toutes les langues prises en charge et supporte l'utilisation de plusieurs langues dans une seule phrase. La sortie audio de ce modèle est distinctement différente des autres modèles.";
 

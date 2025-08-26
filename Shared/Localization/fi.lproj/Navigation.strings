@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Sanat";
+"tabbar.idioms" = "Idiomit";
+"tabbar.quizzes" = "Visat";
+"tabbar.progress" = "Edistyminen";
+"tabbar.settings" = "Asetukset";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Sanan tiedot";
+"navigation.idiom_details" = "Idiomin tiedot";
+"navigation.add_tags" = "Lisää tunnisteita";
+"navigation.about" = "Tietoa sovelluksesta";
+"navigation.debug_panel" = "Vianetsintäpaneeli";
+"navigation.quiz_results" = "Visan tulokset";
+"navigation.spelling_quiz" = "Oikeinkirjoitusvisa";
+"navigation.definition_quiz" = "Määritelmävisa";
+"navigation.close" = "Sulje";
+"navigation.close_screen" = "Sulje näyttö";
+

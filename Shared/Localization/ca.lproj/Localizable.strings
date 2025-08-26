@@ -5,52 +5,6 @@
   Translated on August 17, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Paraules";
-"tabbar.idioms" = "Modismes";
-"tabbar.quizzes" = "Qüestionaris";
-"tabbar.progress" = "Progrés";
-"tabbar.settings" = "Configuració";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Detalls de la paraula";
-"navigation.idiom_details" = "Detalls del modisme";
-"navigation.add_tags" = "Afegeix etiquetes";
-"navigation.about" = "Quant a";
-"navigation.debug_panel" = "Panell de depuració";
-"navigation.quiz_results" = "Resultats del qüestionari";
-"navigation.spelling_quiz" = "Qüestionari d'ortografia";
-"navigation.definition_quiz" = "Qüestionari de definició";
-"navigation.close" = "Tanca";
-"navigation.close_screen" = "Tanca la pantalla";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Afegeix un modisme";
-"idioms.add_new_idiom" = "Afegeix un modisme nou";
-"idioms.idiom" = "Modisme";
-"idioms.idioms" = "Modismes";
-"idioms.no_idioms_found" = "No s'han trobat modismes";
-"idioms.add_this_idiom" = "Afegeix aquest modisme prement el botó de dalt";
-"idioms.begin_add_idioms" = "Comença a afegir modismes a la teva llista prement la icona de més a la cantonada superior esquerra";
-"idioms.all_idioms" = "Tots els modismes";
-"idioms.favorite_idioms" = "Modismes favorits";
-"idioms.found_idioms" = "Trobats";
-"idioms.examples" = "Exemples";
-"idioms.no_examples_yet" = "Encara no hi ha exemples";
-"idioms.type_example_here" = "Escriu un exemple aquí";
-"idioms.add_example" = "Afegeix un exemple";
-"idioms.edit_example" = "Edita l'exemple";
-"idioms.delete_idiom" = "Elimina el modisme";
-"idioms.delete_idiom_confirmation" = "Segur que vols eliminar aquest modisme?";
-"idioms.search_idioms" = "Cerca modismes...";
-"idioms.favorites" = "Favorits";
-"idioms.found" = "Trobats";
-"idioms.sort" = "Ordena";
-"idioms.filter" = "Filtra";
-"idioms.latest_first" = "Els més recents primer";
-"idioms.earliest_first" = "Els més antics primer";
-"idioms.alphabetically" = "Alfabèticament";
-
 // MARK: - App
 "app.my_dictionary" = "El meu diccionari";
 "app.loading" = "Carregant...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Gaudint de l'aplicació?";
 "coffee.helpful_learning_journey" = "Si El meu diccionari t'ha estat útil en el teu viatge d'aprenentatge, considera comprar-me un cafè! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Nou";
-"difficulty.in_progress" = "En progrés";
-"difficulty.needs_review" = "Necessita revisió";
-"difficulty.mastered" = "Dominada";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Les més recents primer";
-"sorting.earliest_first" = "Les més antigues primer";
-"sorting.alphabetically" = "Alfabèticament";
-"sorting.by_part_of_speech" = "Per part del discurs";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Detecció automàtica";
-
 // MARK: - Time Period
 "time_period.week" = "Setmana";
 "time_period.month" = "Mes";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Correcte";
 "quiz_results.duration" = "Durada";
 "quiz_results.time_period" = "Període de temps";
-
-// MARK: - Word Details
-"word_details.transcription" = "Transcripció";
-"word_details.part_of_speech" = "Part del discurs";
-"word_details.definition" = "Definició";
-"word_details.difficulty" = "Dificultat";
-"word_details.examples" = "Exemples";
-"word_details.edit_example" = "Edita l'exemple";
-"word_details.example" = "Exemple";
-"word_details.type_example_here" = "Escriu un exemple aquí";
-"word_details.add_example" = "Afegeix un exemple";
-"word_details.delete_word" = "Elimina la paraula";
-"word_details.delete_failed" = "Eliminació fallida";
-
-// MARK: - Word List
-"word_list.all_words" = "Totes les paraules";
-"word_list.favorite" = "Favorit";
-"word_list.manage_tags" = "Gestiona etiquetes";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Tipus de qüestionaris";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Selecciona etiquetes";
 "tag_selection.no_tags_yet" = "Encara no hi ha etiquetes";
 "tag_selection.you_can_select_up_to_5_tags" = "Pots seleccionar fins a 5 etiquetes per paraula. Toca una etiqueta per seleccionar-la o desseleccionar-la.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Encara no hi ha paraules";
-"empty_states.no_idioms_yet" = "Encara no hi ha modismes";
-"empty_states.no_favorite_words" = "Sense paraules favorites";
-"empty_states.no_search_results" = "Sense resultats de cerca";
-"empty_states.start_improving_vocabulary" = "Comença a millorar el teu vocabulari afegint el teu primer modisme";
-"empty_states.tap_heart_icon_to_add_favorites" = "Toca la icona del cor en qualsevol modisme per afegir-lo als favorits";
-"empty_states.try_different_search_term" = "Prova un terme de cerca diferent o afegeix un modisme nou";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Hora de practicar! 📚";
@@ -320,174 +232,4 @@
 "quiz_types.select_correct_definition" = "Selecciona la definició correcta per a cada paraula";
 "quiz_types.great_job_completed_spelling_quiz" = "Gran feina! Has completat el qüestionari d'ortografia.";
 "quiz_types.great_job_completed_definition_quiz" = "Gran feina! Has completat el qüestionari de definició.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Australià";
-"english_accents.canadian" = "Canadenc";
-"english_accents.british" = "Britànic";
-"english_accents.indian" = "Indi";
-"english_accents.american" = "Americà";
-"english_accents.belgian" = "Belga";
-"english_accents.singaporean" = "Singapurenc";
-"english_accents.irish" = "Irlandès";
-"english_accents.south_african" = "Sud-africà";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Substantiu";
-"part_of_speech.full.verb" = "Verb";
-"part_of_speech.full.adjective" = "Adjectiu";
-"part_of_speech.full.adverb" = "Adverbi";
-"part_of_speech.full.conjunction" = "Conjunció";
-"part_of_speech.full.pronoun" = "Pronom";
-"part_of_speech.full.preposition" = "Preposició";
-"part_of_speech.full.exclamation" = "Exclamació";
-"part_of_speech.full.unknown" = "Desconegut";
-
-"part_of_speech.short.noun" = "Subst.";
-"part_of_speech.short.verb" = "Verb";
-"part_of_speech.short.adjective" = "Adj.";
-"part_of_speech.short.adverb" = "Adv.";
-"part_of_speech.short.conjunction" = "Conj.";
-"part_of_speech.short.pronoun" = "Pron.";
-"part_of_speech.short.preposition" = "Prep.";
-"part_of_speech.short.exclamation" = "Excl.";
-"part_of_speech.short.unknown" = "Desc.";
-
-"actions.settings" = "Configuració";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Tots els casos d'ús";
-"tts.filters.all_ages" = "Totes les edats";
-"tts.filters.all_timbres" = "Tots els timbres";
-"tts.filters.all_accents" = "Tots els accents";
-"tts.filters.all_languages" = "Tots els idiomes";
-"tts.filters.all_genders" = "Tots els gèneres";
-"tts.filters.filters" = "Filtres";
-"tts.filters.reset" = "Restablir";
-"tts.filters.select_voice" = "Seleccionar veu";
-"tts.filters.available_voices" = "Veus disponibles";
-"tts.filters.no_voices_available" = "Cap veu disponible";
-"tts.filters.no_voices_found" = "No s'han trobat veus";
-"tts.filters.no_voices_found_message" = "Prova d'ajustar la cerca o els filtres";
-
-"tts.usage.monthly_limit_exceeded" = "Límit mensual excedit";
-"tts.usage.monthly_limit_exceeded_message" = "Has assolit el límit mensual de 50.000 caràcters per a Speechify TTS. Torna-ho a provar el proper mes o utilitza Google TTS.";
-"tts.usage.remaining_characters" = "Caràcters restants";
-"tts.usage.monthly_usage" = "Ús mensual";
-"tts.usage.monthly_limit" = "Límit mensual";
-
-// TTS Voice Filter Values
-"advertisement" = "Anunci";
-"animation" = "Animació";
-"audiobook" = "Audiollibre";
-"audiobook-and-narration" = "Audiollibre i narració";
-"audiobooks-and-narration" = "Audiollibres i narració";
-"conversational" = "Conversacional";
-"e-learning" = "E-learning";
-"gaming" = "Jocs";
-"meditation" = "Meditació";
-"movie" = "Pel·lícula";
-"movies-acting-and-gaming" = "Pel·lícules, actuació i jocs";
-"narration" = "Narració";
-"podcast" = "Podcast";
-"social-media" = "Xarxes socials";
-
-"middle-aged" = "Edat mitjana";
-"senior" = "Sènior";
-"teen" = "Adolescent";
-"young-adult" = "Adult jove";
-
-"female" = "Femení";
-"male" = "Masculí";
-
-"angry" = "Enfadat";
-"assertive-or-confident" = "Assertiu o segur";
-"bright" = "Brillant";
-"calm-or-relaxed" = "Calmat o relaxat";
-"calm-or-relaxed-" = "Calmat o relaxat";
-"cheerful" = "Alegre";
-"crisp" = "Nítid";
-"deep" = "Profund";
-"direct" = "Directe";
-"energetic" = "Enèrgic";
-"fearful" = "Poruc";
-"high-pitch" = "To agut";
-"neutral" = "Neutre";
-"professional" = "Professional";
-"relaxed" = "Relaxat";
-"sad" = "Trist";
-"suprised" = "Sorprès";
-"surprised" = "Sorprès";
-"terrified" = "Aterroritzat";
-"warm" = "Càlid";
-"warm-or-friendly" = "Càlid o amigable";
-
-"american-neutral" = "Americà neutre";
-"australian" = "Australià";
-"british" = "Britànic";
-"indian" = "Indi";
-"nigerian" = "Nigerià";
-
-"notifications.permission_required" = "Es requereix permís de notificació";
-"notifications.permission_denied_message" = "Per rebre recordatoris diaris i alertes sobre paraules difícils, activa les notificacions a Configuració.";
-
-"onboarding.natural_voices" = "Veus naturals";
-"onboarding.natural_voices_description" = "Centenars de veus premium que sonen més humanes que mai";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Accés a la tecnologia premium de text a veu de Speechify. Centenars de veus premium amb so natural";
-
-// TTS Dashboard
-"tts.dashboard" = "Tauler TTS";
-"tts.premium_tts_dashboard" = "Tauler TTS Premium";
-"tts.customize_tts_experience" = "Personalitza la teva experiència de text a veu";
-"tts.playing" = "Reproduint";
-"tts.ready" = "A punt";
-"tts.provider" = "Proveïdor";
-"tts.tts_provider" = "Proveïdor TTS";
-"tts.voice_customization" = "Personalització de veu";
-"tts.current_voice" = "Veu actual";
-"tts.default_voice" = "Veu per defecte";
-"tts.preview_current_voice" = "Previsualitzar veu actual";
-"tts.change_voice" = "Canviar veu";
-"tts.audio_settings" = "Configuració d'àudio";
-"tts.speech_rate" = "Velocitat de parla";
-"tts.volume" = "Volum";
-"tts.test_your_settings" = "Prova la teva configuració";
-"tts.enter_text_to_test" = "Introdueix text per provar...";
-"tts.stop" = "Aturar";
-"tts.test" = "Provar";
-"tts.usage_statistics" = "Estadístiques d'ús";
-"tts.speechify_monthly_usage" = "Ús mensual de Speechify";
-"tts.monthly_limit" = "Límit mensual";
-"tts.used_this_month" = "Usat aquest mes";
-"tts.remaining" = "Restant";
-"tts.usage_progress" = "Progrés d'ús";
-"tts.characters" = "caràcters";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Caràcters utilitzats";
-"tts.analytics.sessions" = "Sessions";
-"tts.analytics.favorite_voice" = "Veu preferida";
-"tts.analytics.time_saved" = "Temps estalviat";
-"tts.analytics.total_characters" = "Total de caràcters";
-"tts.analytics.total_sessions" = "Total de sessions";
-"tts.analytics.total_duration" = "Durada total";
-"tts.analytics.favorite_language" = "Idioma preferit";
-"tts.analytics.premium_usage" = "Ús premium";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Text a veu";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "El model de text a veu de Speechify està disponible per a tots els usuaris com a funcionalitat premium. Permet escollir entre una àmplia gamma de veus i accents per personalitzar l'experiència d'estudi.";
-"tts.settings.speechify_pro_description" = "El model de text a veu de Speechify està inclòs en la teva subscripció.";
-"tts.settings.dashboard" = "Tauler";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Google TTS gratuït amb veus bàsiques i rendiment fiable";
-
-// TTS Models
-"tts.models.english" = "Anglès";
-"tts.models.multilingual" = "Multilingüe";
-"tts.models.english_description" = "El model de text a veu en anglès de Speechify ofereix funcionalitats estàndard dissenyades per proporcionar una sortida d'àudio clara i natural per a la lectura de textos. El model se centra a oferir una experiència d'usuari coherent.";
-"tts.models.multilingual_description" = "El model multilingüe permet l'ús de tots els idiomes suportats i admet l'ús de múltiples idiomes dins d'una sola frase. La sortida d'àudio d'aquest model és clarament diferent d'altres models.";
 

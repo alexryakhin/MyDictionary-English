@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Varslingstillatelse kreves";
+"notifications.permission_denied_message" = "For å motta daglige påminnelser og varsler om vanskelige ord, vennligst aktiver varsler i Innstillinger.";
+

@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "שדרג ל-Pro כדי לראות את כל פרטי צמיחת אוצר המילים.";
 "pro_upgrade.time_period" = "תקופת זמן";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "גישה לטכנולוגיית טקסט לדיבור פרימיום של Speechify. מאות קולות פרימיום בעלי צליל טבעי";
+

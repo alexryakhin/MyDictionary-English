@@ -1,0 +1,19 @@
+// MARK: - Tab Bar
+"tabbar.words" = "Ord";
+"tabbar.idioms" = "Idiomer";
+"tabbar.quizzes" = "Quizzer";
+"tabbar.progress" = "Fremskridt";
+"tabbar.settings" = "Indstillinger";
+
+// MARK: - Navigation Titles
+"navigation.word_details" = "Orddetaljer";
+"navigation.idiom_details" = "Idiomdetaljer";
+"navigation.add_tags" = "Tilføj tags";
+"navigation.about" = "Om appen";
+"navigation.debug_panel" = "Fejlfindingspanel";
+"navigation.quiz_results" = "Quizresultater";
+"navigation.spelling_quiz" = "Stavequiz";
+"navigation.definition_quiz" = "Definitionsquiz";
+"navigation.close" = "Luk";
+"navigation.close_screen" = "Luk skærm";
+

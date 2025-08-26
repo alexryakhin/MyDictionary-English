@@ -61,3 +61,96 @@
 "words.edit_example" = "例を編集";
 "words.no_transcription" = "発音記号なし";
 "words.no_definition" = "定義なし";
+
+// MARK: - Idioms Flow
+"idioms.add_idiom" = "慣用句を追加";
+"idioms.add_new_idiom" = "新しい慣用句を追加";
+"idioms.idiom" = "慣用句";
+"idioms.idioms" = "慣用句";
+"idioms.no_idioms_found" = "慣用句が見つかりません";
+"idioms.add_this_idiom" = "上のボタンをクリックしてこの慣用句を追加";
+"idioms.begin_add_idioms" = "左上のプラスアイコンをクリックしてリストに慣用句を追加開始";
+"idioms.all_idioms" = "すべての慣用句";
+"idioms.favorite_idioms" = "お気に入りの慣用句";
+"idioms.found_idioms" = "見つかった慣用句";
+"idioms.examples" = "例";
+"idioms.no_examples_yet" = "まだ例がありません";
+"idioms.type_example_here" = "ここに例を入力";
+"idioms.add_example" = "例を追加";
+"idioms.edit_example" = "例を編集";
+"idioms.delete_idiom" = "慣用句を削除";
+"idioms.delete_idiom_confirmation" = "この慣用句を削除してもよろしいですか？";
+"idioms.search_idioms" = "慣用句を検索...";
+"idioms.favorites" = "お気に入り";
+"idioms.found" = "見つかった";
+"idioms.sort" = "並べ替え";
+"idioms.filter" = "フィルター";
+"idioms.latest_first" = "最新順";
+"idioms.earliest_first" = "最古順";
+"idioms.alphabetically" = "アルファベット順";
+
+// MARK: - Difficulty
+"difficulty.new" = "新規";
+"difficulty.in_progress" = "進行中";
+"difficulty.needs_review" = "レビューが必要";
+"difficulty.mastered" = "習得済み";
+
+// MARK: - Sorting
+"sorting.latest_first" = "最新順";
+"sorting.earliest_first" = "最古順";
+"sorting.alphabetically" = "アルファベット順";
+"sorting.by_part_of_speech" = "品詞順";
+
+// MARK: - Input Language
+"input_language.auto_detect" = "自動検出";
+
+// MARK: - Word Details
+"word_details.transcription" = "発音記号";
+"word_details.part_of_speech" = "品詞";
+"word_details.definition" = "定義";
+"word_details.difficulty" = "難易度";
+"word_details.examples" = "例";
+"word_details.edit_example" = "例を編集";
+"word_details.example" = "例";
+"word_details.type_example_here" = "ここに例を入力";
+"word_details.add_example" = "例を追加";
+"word_details.delete_word" = "単語を削除";
+"word_details.delete_failed" = "削除に失敗";
+
+// MARK: - Word List
+"word_list.all_words" = "すべての単語";
+"word_list.favorite" = "お気に入り";
+"word_list.manage_tags" = "タグを管理";
+
+// MARK: - Empty States
+"empty_states.no_words_yet" = "まだ単語がありません";
+"empty_states.no_idioms_yet" = "まだ慣用句がありません";
+"empty_states.no_favorite_words" = "お気に入りの単語がありません";
+"empty_states.no_search_results" = "検索結果がありません";
+"empty_states.start_improving_vocabulary" = "最初の慣用句を追加して語彙の向上を始める";
+"empty_states.tap_heart_icon_to_add_favorites" = "任意の慣用句のハートアイコンをタップしてお気に入りに追加";
+"empty_states.try_different_search_term" = "別の検索語を試すか、新しい慣用句を追加してください";
+
+// MARK: - Part of Speech
+"part_of_speech.full.noun" = "名詞";
+"part_of_speech.full.verb" = "動詞";
+"part_of_speech.full.adjective" = "形容詞";
+"part_of_speech.full.adverb" = "副詞";
+"part_of_speech.full.conjunction" = "接続詞";
+"part_of_speech.full.pronoun" = "代名詞";
+"part_of_speech.full.preposition" = "前置詞";
+"part_of_speech.full.exclamation" = "感嘆詞";
+"part_of_speech.full.unknown" = "不明";
+
+"part_of_speech.short.noun" = "名詞";
+"part_of_speech.short.verb" = "動詞";
+"part_of_speech.short.adjective" = "形";
+"part_of_speech.short.adverb" = "副";
+"part_of_speech.short.conjunction" = "接";
+"part_of_speech.short.pronoun" = "代";
+"part_of_speech.short.preposition" = "前";
+"part_of_speech.short.exclamation" = "感";
+"part_of_speech.short.unknown" = "不明";
+
+"actions.settings" = "設定";
+

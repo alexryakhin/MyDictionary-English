@@ -5,52 +5,6 @@
   Translated on August 18, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Слова";
-"tabbar.idioms" = "Ідіоми";
-"tabbar.quizzes" = "Тести";
-"tabbar.progress" = "Прогрес";
-"tabbar.settings" = "Налаштування";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Деталі слова";
-"navigation.idiom_details" = "Деталі ідіоми";
-"navigation.add_tags" = "Додати теги";
-"navigation.about" = "Про програму";
-"navigation.debug_panel" = "Панель налагодження";
-"navigation.quiz_results" = "Результати тесту";
-"navigation.spelling_quiz" = "Тест на правопис";
-"navigation.definition_quiz" = "Тест на визначення";
-"navigation.close" = "Закрити";
-"navigation.close_screen" = "Закрити екран";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Додати ідіому";
-"idioms.add_new_idiom" = "Додати нову ідіому";
-"idioms.idiom" = "Ідіома";
-"idioms.idioms" = "Ідіоми";
-"idioms.no_idioms_found" = "Ідіом не знайдено";
-"idioms.add_this_idiom" = "Додайте цю ідіому, натиснувши кнопку вище";
-"idioms.begin_add_idioms" = "Почніть додавати ідіоми до вашого списку, натиснувши значок плюс у верхньому лівому куті";
-"idioms.all_idioms" = "Усі ідіоми";
-"idioms.favorite_idioms" = "Обрані ідіоми";
-"idioms.found_idioms" = "Знайдені ідіоми";
-"idioms.examples" = "Приклади";
-"idioms.no_examples_yet" = "Поки немає прикладів";
-"idioms.type_example_here" = "Введіть приклад тут";
-"idioms.add_example" = "Додати приклад";
-"idioms.edit_example" = "Редагувати приклад";
-"idioms.delete_idiom" = "Видалити ідіому";
-"idioms.delete_idiom_confirmation" = "Ви впевнені, що хочете видалити цю ідіому?";
-"idioms.search_idioms" = "Пошук ідіом...";
-"idioms.favorites" = "Обране";
-"idioms.found" = "Знайдено";
-"idioms.sort" = "Сортувати";
-"idioms.filter" = "Фільтрувати";
-"idioms.latest_first" = "Останні спочатку";
-"idioms.earliest_first" = "Ранніші спочатку";
-"idioms.alphabetically" = "За алфавітом";
-
 // MARK: - App
 "app.my_dictionary" = "Мій словник";
 "app.loading" = "Завантаження...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Подобається програма?";
 "coffee.helpful_learning_journey" = "Якщо мій словник допоміг вам у вашій навчальній подорожі, подумайте про те, щоб купити мені каву! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Нове";
-"difficulty.in_progress" = "В процесі";
-"difficulty.needs_review" = "Потрібен повтор";
-"difficulty.mastered" = "Опановане";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Останні спочатку";
-"sorting.earliest_first" = "Ранніші спочатку";
-"sorting.alphabetically" = "За алфавітом";
-"sorting.by_part_of_speech" = "За частиною мови";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Автоматичне визначення";
-
 // MARK: - Time Period
 "time_period.week" = "Тиждень";
 "time_period.month" = "Місяць";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Правильно";
 "quiz_results.duration" = "Тривалість";
 "quiz_results.time_period" = "Період часу";
-
-// MARK: - Word Details
-"word_details.transcription" = "Транскрипція";
-"word_details.part_of_speech" = "Частина мови";
-"word_details.definition" = "Визначення";
-"word_details.difficulty" = "Складність";
-"word_details.examples" = "Приклади";
-"word_details.edit_example" = "Редагувати приклад";
-"word_details.example" = "Приклад";
-"word_details.type_example_here" = "Введіть приклад тут";
-"word_details.add_example" = "Додати приклад";
-"word_details.delete_word" = "Видалити слово";
-"word_details.delete_failed" = "Видалення не вдалося";
-
-// MARK: - Word List
-"word_list.all_words" = "Усі слова";
-"word_list.favorite" = "Обране";
-"word_list.manage_tags" = "Керувати тегами";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Типи тестів";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Вибрати теги";
 "tag_selection.no_tags_yet" = "Поки немає тегів";
 "tag_selection.you_can_select_up_to_5_tags" = "Ви можете вибрати до 5 тегів на слово. Натисніть на тег, щоб вибрати або скасувати вибір";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Поки немає слів";
-"empty_states.no_idioms_yet" = "Поки немає ідіом";
-"empty_states.no_favorite_words" = "Немає обраних слів";
-"empty_states.no_search_results" = "Немає результатів пошуку";
-"empty_states.start_improving_vocabulary" = "Почніть покращувати свій словниковий запас, додавши першу ідіому";
-"empty_states.tap_heart_icon_to_add_favorites" = "Натисніть значок серця на будь-якій ідіомі, щоб додати її до обраного";
-"empty_states.try_different_search_term" = "Спробуйте інший пошуковий запит або додайте нову ідіому";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Час практикувати! 📚";
@@ -306,174 +218,4 @@
 "quiz_types.select_correct_definition" = "Виберіть правильне визначення для кожного слова";
 "quiz_types.great_job_completed_spelling_quiz" = "Чудова робота! Ви завершили тест на правопис";
 "quiz_types.great_job_completed_definition_quiz" = "Чудова робота! Ви завершили тест на визначення";
-
-// MARK: - English Accents
-"english_accents.australian" = "Австралійський";
-"english_accents.canadian" = "Канадський";
-"english_accents.british" = "Британський";
-"english_accents.indian" = "Індійський";
-"english_accents.american" = "Американський";
-"english_accents.belgian" = "Бельгійський";
-"english_accents.singaporean" = "Сінгапурський";
-"english_accents.irish" = "Ірландський";
-"english_accents.south_african" = "Південноафриканський";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Іменник";
-"part_of_speech.full.verb" = "Дієслово";
-"part_of_speech.full.adjective" = "Прикметник";
-"part_of_speech.full.adverb" = "Прислівник";
-"part_of_speech.full.conjunction" = "Сполучник";
-"part_of_speech.full.pronoun" = "Займенник";
-"part_of_speech.full.preposition" = "Прийменник";
-"part_of_speech.full.exclamation" = "Вигук";
-"part_of_speech.full.unknown" = "Невідомо";
-
-"part_of_speech.short.noun" = "Ім.";
-"part_of_speech.short.verb" = "Дієсл.";
-"part_of_speech.short.adjective" = "Прикм.";
-"part_of_speech.short.adverb" = "Присл.";
-"part_of_speech.short.conjunction" = "Спол.";
-"part_of_speech.short.pronoun" = "Займ.";
-"part_of_speech.short.preposition" = "Прийм.";
-"part_of_speech.short.exclamation" = "Виг.";
-"part_of_speech.short.unknown" = "Невідомо";
-
-"actions.settings" = "Налаштування";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Усі випадки використання";
-"tts.filters.all_ages" = "Усі вікові групи";
-"tts.filters.all_timbres" = "Усі тембри голосу";
-"tts.filters.all_accents" = "Усі акценти";
-"tts.filters.all_languages" = "Усі мови";
-"tts.filters.all_genders" = "Усі статі";
-"tts.filters.filters" = "Фільтри";
-"tts.filters.reset" = "Скинути";
-"tts.filters.select_voice" = "Вибрати голос";
-"tts.filters.available_voices" = "Доступні голоси";
-"tts.filters.no_voices_available" = "Немає доступних голосів";
-"tts.filters.no_voices_found" = "Голосів не знайдено";
-"tts.filters.no_voices_found_message" = "Спробуйте скоригувати пошук або фільтри";
-
-"tts.usage.monthly_limit_exceeded" = "Перевищено місячний ліміт";
-"tts.usage.monthly_limit_exceeded_message" = "Ви досягли місячного ліміту в 50 000 символів для Speechify TTS. Спробуйте знову наступного місяця або використовуйте Google TTS.";
-"tts.usage.remaining_characters" = "Залишилось символів";
-"tts.usage.monthly_usage" = "Місячне використання";
-"tts.usage.monthly_limit" = "Місячний ліміт";
-
-// TTS Voice Filter Values
-"advertisement" = "Реклама";
-"animation" = "Анімація";
-"audiobook" = "Аудіокнига";
-"audiobook-and-narration" = "Аудіокнига та оповідь";
-"audiobooks-and-narration" = "Аудіокниги та оповідь";
-"conversational" = "Розмовний";
-"e-learning" = "Е-навчання";
-"gaming" = "Ігри";
-"meditation" = "Медитація";
-"movie" = "Фільм";
-"movies-acting-and-gaming" = "Фільми, акторство та ігри";
-"narration" = "Оповідь";
-"podcast" = "Подкаст";
-"social-media" = "Соціальні мережі";
-
-"middle-aged" = "Середній вік";
-"senior" = "Старший";
-"teen" = "Підліток";
-"young-adult" = "Молодий дорослий";
-
-"female" = "Жінка";
-"male" = "Чоловік";
-
-"angry" = "Злий";
-"assertive-or-confident" = "Наполегливий або впевнений";
-"bright" = "Яскравий";
-"calm-or-relaxed" = "Спокійний або розслаблений";
-"calm-or-relaxed-" = "Спокійний або розслаблений";
-"cheerful" = "Веселий";
-"crisp" = "Чіткий";
-"deep" = "Глибокий";
-"direct" = "Прямий";
-"energetic" = "Енергійний";
-"fearful" = "Переляканий";
-"high-pitch" = "Високий тон";
-"neutral" = "Нейтральний";
-"professional" = "Професійний";
-"relaxed" = "Розслаблений";
-"sad" = "Сумний";
-"suprised" = "Здивований";
-"surprised" = "Здивований";
-"terrified" = "Налякний";
-"warm" = "Теплий";
-"warm-or-friendly" = "Теплий або дружній";
-
-"american-neutral" = "Американський нейтральний";
-"australian" = "Австралійський";
-"british" = "Британський";
-"indian" = "Індійський";
-"nigerian" = "Нігерійський";
-
-"notifications.permission_required" = "Потрібен дозвіл на сповіщення";
-"notifications.permission_denied_message" = "Щоб отримувати щоденні нагадування та сповіщення про складні слова, увімкніть сповіщення в Налаштуваннях.";
-
-"onboarding.natural_voices" = "Природні голоси";
-"onboarding.natural_voices_description" = "Сотні преміум-голосів, які звучать більш людяно, ніж будь-коли";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Доступ до преміум-технології перетворення тексту в мову від Speechify. Сотні природно звучачих преміум-голосів";
-
-// TTS Dashboard
-"tts.dashboard" = "Панель TTS";
-"tts.premium_tts_dashboard" = "Преміум-панель TTS";
-"tts.customize_tts_experience" = "Налаштуйте свій досвід перетворення тексту в мову";
-"tts.playing" = "Відтворюється";
-"tts.ready" = "Готово";
-"tts.provider" = "Постачальник";
-"tts.tts_provider" = "Постачальник TTS";
-"tts.voice_customization" = "Налаштування голосу";
-"tts.current_voice" = "Поточний голос";
-"tts.default_voice" = "Голос за замовчуванням";
-"tts.preview_current_voice" = "Попередній перегляд поточного голосу";
-"tts.change_voice" = "Змінити голос";
-"tts.audio_settings" = "Налаштування звуку";
-"tts.speech_rate" = "Швидкість мовлення";
-"tts.volume" = "Гучність";
-"tts.test_your_settings" = "Перевірте свої налаштування";
-"tts.enter_text_to_test" = "Введіть текст для тестування...";
-"tts.stop" = "Зупинити";
-"tts.test" = "Тест";
-"tts.usage_statistics" = "Статистика використання";
-"tts.speechify_monthly_usage" = "Місячне використання Speechify";
-"tts.monthly_limit" = "Місячний ліміт";
-"tts.used_this_month" = "Використано цього місяця";
-"tts.remaining" = "Залишилось";
-"tts.usage_progress" = "Прогрес використання";
-"tts.characters" = "символи";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Використані символи";
-"tts.analytics.sessions" = "Сесії";
-"tts.analytics.favorite_voice" = "Улюблений голос";
-"tts.analytics.time_saved" = "Зекономлений час";
-"tts.analytics.total_characters" = "Загальна кількість символів";
-"tts.analytics.total_sessions" = "Загальна кількість сесій";
-"tts.analytics.total_duration" = "Загальна тривалість";
-"tts.analytics.favorite_language" = "Улюблена мова";
-"tts.analytics.premium_usage" = "Преміум-використання";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Перетворення тексту в мову";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Модель перетворення тексту в мову від Speechify доступна всім користувачам як преміум-функція. Вона дозволяє вибирати з широкого спектру голосів і акцентів, щоб налаштувати ваш досвід навчання.";
-"tts.settings.speechify_pro_description" = "Модель перетворення тексту в мову від Speechify включена до вашої підписки.";
-"tts.settings.dashboard" = "Панель";
-"tts.pro" = "Про";
-"tts.free_google_tts_description" = "Безкоштовний Google TTS з базовими голосами та надійною продуктивністю";
-
-// TTS Models
-"tts.models.english" = "Англійська";
-"tts.models.multilingual" = "Багатомовний";
-"tts.models.english_description" = "Модель перетворення тексту в мову англійською мовою від Speechify пропонує стандартні функції, призначені для забезпечення чіткого та природного звукового виведення для читання текстів. Модель зосереджена на забезпеченні послідовного користувацького досвіду.";
-"tts.models.multilingual_description" = "Багатомовна модель дозволяє використовувати всі підтримувані мови та підтримує використання кількох мов в одному реченні. Звукове виведення цієї моделі значно відрізняється від інших моделей.";
 

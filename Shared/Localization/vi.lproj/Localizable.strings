@@ -5,52 +5,6 @@
   Translated on August 18, 2025.
 */
 
-// MARK: - Tab Bar
-"tabbar.words" = "Từ vựng";
-"tabbar.idioms" = "Thành ngữ";
-"tabbar.quizzes" = "Bài kiểm tra";
-"tabbar.progress" = "Tiến độ";
-"tabbar.settings" = "Cài đặt";
-
-// MARK: - Navigation Titles
-"navigation.word_details" = "Chi tiết từ";
-"navigation.idiom_details" = "Chi tiết thành ngữ";
-"navigation.add_tags" = "Thêm thẻ";
-"navigation.about" = "Giới thiệu";
-"navigation.debug_panel" = "Bảng gỡ lỗi";
-"navigation.quiz_results" = "Kết quả bài kiểm tra";
-"navigation.spelling_quiz" = "Bài kiểm tra chính tả";
-"navigation.definition_quiz" = "Bài kiểm tra định nghĩa";
-"navigation.close" = "Đóng";
-"navigation.close_screen" = "Đóng màn hình";
-
-// MARK: - Idioms Flow
-"idioms.add_idiom" = "Thêm thành ngữ";
-"idioms.add_new_idiom" = "Thêm thành ngữ mới";
-"idioms.idiom" = "Thành ngữ";
-"idioms.idioms" = "Thành ngữ";
-"idioms.no_idioms_found" = "Không tìm thấy thành ngữ";
-"idioms.add_this_idiom" = "Thêm thành ngữ này bằng cách nhấn vào nút ở trên";
-"idioms.begin_add_idioms" = "Bắt đầu thêm thành ngữ vào danh sách của bạn bằng cách nhấn vào biểu tượng dấu cộng ở góc trên bên trái";
-"idioms.all_idioms" = "Tất cả thành ngữ";
-"idioms.favorite_idioms" = "Thành ngữ yêu thích";
-"idioms.found_idioms" = "Thành ngữ được tìm thấy";
-"idioms.examples" = "Ví dụ";
-"idioms.no_examples_yet" = "Chưa có ví dụ";
-"idioms.type_example_here" = "Nhập ví dụ tại đây";
-"idioms.add_example" = "Thêm ví dụ";
-"idioms.edit_example" = "Chỉnh sửa ví dụ";
-"idioms.delete_idiom" = "Xóa thành ngữ";
-"idioms.delete_idiom_confirmation" = "Bạn có chắc chắn muốn xóa thành ngữ này không?";
-"idioms.search_idioms" = "Tìm kiếm thành ngữ...";
-"idioms.favorites" = "Yêu thích";
-"idioms.found" = "Tìm thấy";
-"idioms.sort" = "Sắp xếp";
-"idioms.filter" = "Lọc";
-"idioms.latest_first" = "Mới nhất trước";
-"idioms.earliest_first" = "Cũ nhất trước";
-"idioms.alphabetically" = "Theo thứ tự bảng chữ cái";
-
 // MARK: - App
 "app.my_dictionary" = "Từ điển của tôi";
 "app.loading" = "Đang tải...";
@@ -134,21 +88,6 @@
 "coffee.enjoying_the_app" = "Bạn có thích ứng dụng này không?";
 "coffee.helpful_learning_journey" = "Nếu Từ điển của tôi đã giúp ích cho hành trình học tập của bạn, hãy cân nhắc mua cho tôi một ly cà phê! ☕️";
 
-// MARK: - Difficulty
-"difficulty.new" = "Mới";
-"difficulty.in_progress" = "Đang học";
-"difficulty.needs_review" = "Cần ôn tập";
-"difficulty.mastered" = "Đã thành thạo";
-
-// MARK: - Sorting
-"sorting.latest_first" = "Mới nhất trước";
-"sorting.earliest_first" = "Cũ nhất trước";
-"sorting.alphabetically" = "Theo thứ tự bảng chữ cái";
-"sorting.by_part_of_speech" = "Theo loại từ";
-
-// MARK: - Input Language
-"input_language.auto_detect" = "Tự động phát hiện";
-
 // MARK: - Time Period
 "time_period.week" = "Tuần";
 "time_period.month" = "Tháng";
@@ -162,24 +101,6 @@
 "quiz_results.correct" = "Đúng";
 "quiz_results.duration" = "Thời lượng";
 "quiz_results.time_period" = "Khoảng thời gian";
-
-// MARK: - Word Details
-"word_details.transcription" = "Phiên âm";
-"word_details.part_of_speech" = "Loại từ";
-"word_details.definition" = "Định nghĩa";
-"word_details.difficulty" = "Độ khó";
-"word_details.examples" = "Ví dụ";
-"word_details.edit_example" = "Chỉnh sửa ví dụ";
-"word_details.example" = "Ví dụ";
-"word_details.type_example_here" = "Nhập ví dụ tại đây";
-"word_details.add_example" = "Thêm ví dụ";
-"word_details.delete_word" = "Xóa từ";
-"word_details.delete_failed" = "Xóa thất bại";
-
-// MARK: - Word List
-"word_list.all_words" = "Tất cả từ";
-"word_list.favorite" = "Yêu thích";
-"word_list.manage_tags" = "Quản lý thẻ";
 
 // MARK: - Quiz List
 "quiz_list.quiz_types" = "Loại bài kiểm tra";
@@ -207,15 +128,6 @@
 "tag_selection.select_tags" = "Chọn thẻ";
 "tag_selection.no_tags_yet" = "Chưa có thẻ";
 "tag_selection.you_can_select_up_to_5_tags" = "Bạn có thể chọn tối đa 5 thẻ cho mỗi từ. Nhấn vào thẻ để chọn hoặc bỏ chọn.";
-
-// MARK: - Empty States
-"empty_states.no_words_yet" = "Chưa có từ nào";
-"empty_states.no_idioms_yet" = "Chưa có thành ngữ nào";
-"empty_states.no_favorite_words" = "Chưa có từ yêu thích";
-"empty_states.no_search_results" = "Không có kết quả tìm kiếm";
-"empty_states.start_improving_vocabulary" = "Bắt đầu cải thiện vốn từ vựng của bạn bằng cách thêm thành ngữ đầu tiên";
-"empty_states.tap_heart_icon_to_add_favorites" = "Nhấn vào biểu tượng trái tim trên bất kỳ thành ngữ nào để thêm vào yêu thích";
-"empty_states.try_different_search_term" = "Thử một từ khóa tìm kiếm khác hoặc thêm thành ngữ mới";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Đến giờ luyện tập! 📚";
@@ -306,174 +218,4 @@
 "quiz_types.select_correct_definition" = "Chọn định nghĩa đúng cho mỗi từ";
 "quiz_types.great_job_completed_spelling_quiz" = "Làm tốt lắm! Bạn đã hoàn thành bài kiểm tra chính tả.";
 "quiz_types.great_job_completed_definition_quiz" = "Làm tốt lắm! Bạn đã hoàn thành bài kiểm tra định nghĩa.";
-
-// MARK: - English Accents
-"english_accents.australian" = "Úc";
-"english_accents.canadian" = "Canada";
-"english_accents.british" = "Anh";
-"english_accents.indian" = "Ấn Độ";
-"english_accents.american" = "Mỹ";
-"english_accents.belgian" = "Bỉ";
-"english_accents.singaporean" = "Singapore";
-"english_accents.irish" = "Ireland";
-"english_accents.south_african" = "Nam Phi";
-
-// MARK: - Part of Speech
-"part_of_speech.full.noun" = "Danh từ";
-"part_of_speech.full.verb" = "Động từ";
-"part_of_speech.full.adjective" = "Tính từ";
-"part_of_speech.full.adverb" = "Trạng từ";
-"part_of_speech.full.conjunction" = "Liên từ";
-"part_of_speech.full.pronoun" = "Đại từ";
-"part_of_speech.full.preposition" = "Giới từ";
-"part_of_speech.full.exclamation" = "Cảm thán";
-"part_of_speech.full.unknown" = "Không xác định";
-
-"part_of_speech.short.noun" = "D.t.";
-"part_of_speech.short.verb" = "Đ.t.";
-"part_of_speech.short.adjective" = "T.t.";
-"part_of_speech.short.adverb" = "Tr.t.";
-"part_of_speech.short.conjunction" = "L.t.";
-"part_of_speech.short.pronoun" = "Đ.từ.";
-"part_of_speech.short.preposition" = "G.t.";
-"part_of_speech.short.exclamation" = "C.t.";
-"part_of_speech.short.unknown" = "K.xđ.";
-
-"actions.settings" = "Cài đặt";
-
-// MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Tất cả các trường hợp sử dụng";
-"tts.filters.all_ages" = "Tất cả các độ tuổi";
-"tts.filters.all_timbres" = "Tất cả các âm sắc";
-"tts.filters.all_accents" = "Tất cả các giọng nói";
-"tts.filters.all_languages" = "Tất cả các ngôn ngữ";
-"tts.filters.all_genders" = "Tất cả các giới tính";
-"tts.filters.filters" = "Bộ lọc";
-"tts.filters.reset" = "Đặt lại";
-"tts.filters.select_voice" = "Chọn giọng nói";
-"tts.filters.available_voices" = "Giọng nói có sẵn";
-"tts.filters.no_voices_available" = "Không có giọng nói nào có sẵn";
-"tts.filters.no_voices_found" = "Không tìm thấy giọng nói";
-"tts.filters.no_voices_found_message" = "Hãy thử điều chỉnh tìm kiếm hoặc bộ lọc của bạn";
-
-"tts.usage.monthly_limit_exceeded" = "Vượt quá giới hạn hàng tháng";
-"tts.usage.monthly_limit_exceeded_message" = "Bạn đã đạt đến giới hạn hàng tháng 50.000 ký tự cho Speechify TTS. Vui lòng thử lại vào tháng tới hoặc sử dụng Google TTS.";
-"tts.usage.remaining_characters" = "Số ký tự còn lại";
-"tts.usage.monthly_usage" = "Sử dụng hàng tháng";
-"tts.usage.monthly_limit" = "Giới hạn hàng tháng";
-
-// TTS Voice Filter Values
-"advertisement" = "Quảng cáo";
-"animation" = "Hoạt hình";
-"audiobook" = "Sách nói";
-"audiobook-and-narration" = "Sách nói và tường thuật";
-"audiobooks-and-narration" = "Sách nói và tường thuật";
-"conversational" = "Đàm thoại";
-"e-learning" = "Học trực tuyến";
-"gaming" = "Trò chơi";
-"meditation" = "Thiền";
-"movie" = "Phim";
-"movies-acting-and-gaming" = "Phim, diễn xuất và trò chơi";
-"narration" = "Tường thuật";
-"podcast" = "Podcast";
-"social-media" = "Mạng xã hội";
-
-"middle-aged" = "Trung niên";
-"senior" = "Người cao tuổi";
-"teen" = "Thiếu niên";
-"young-adult" = "Người trưởng thành trẻ";
-
-"female" = "Nữ";
-"male" = "Nam";
-
-"angry" = "Tức giận";
-"assertive-or-confident" = "Quả quyết hoặc tự tin";
-"bright" = "Sáng sủa";
-"calm-or-relaxed" = "Bình tĩnh hoặc thư giãn";
-"calm-or-relaxed-" = "Bình tĩnh hoặc thư giãn";
-"cheerful" = "Vui vẻ";
-"crisp" = "Rõ ràng";
-"deep" = "Trầm";
-"direct" = "Trực tiếp";
-"energetic" = "Năng động";
-"fearful" = "Sợ hãi";
-"high-pitch" = "Giọng cao";
-"neutral" = "Trung tính";
-"professional" = "Chuyên nghiệp";
-"relaxed" = "Thư giãn";
-"sad" = "Buồn";
-"suprised" = "Ngạc nhiên";
-"surprised" = "Ngạc nhiên";
-"terrified" = "Hoảng sợ";
-"warm" = "Ấm áp";
-"warm-or-friendly" = "Ấm áp hoặc thân thiện";
-
-"american-neutral" = "Mỹ trung tính";
-"australian" = "Úc";
-"british" = "Anh";
-"indian" = "Ấn Độ";
-"nigerian" = "Nigeria";
-
-"notifications.permission_required" = "Yêu cầu quyền thông báo";
-"notifications.permission_denied_message" = "Để nhận nhắc nhở hàng ngày và cảnh báo cho các từ khó, vui lòng bật thông báo trong Cài đặt.";
-
-"onboarding.natural_voices" = "Giọng nói tự nhiên";
-"onboarding.natural_voices_description" = "Hàng trăm giọng nói cao cấp nghe giống người hơn bao giờ hết";
-
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Truy cập công nghệ chuyển đổi văn bản thành giọng nói cao cấp của Speechify. Hàng trăm giọng nói cao cấp nghe tự nhiên";
-
-// TTS Dashboard
-"tts.dashboard" = "Bảng điều khiển TTS";
-"tts.premium_tts_dashboard" = "Bảng điều khiển TTS cao cấp";
-"tts.customize_tts_experience" = "Tùy chỉnh trải nghiệm chuyển đổi văn bản thành giọng nói của bạn";
-"tts.playing" = "Đang phát";
-"tts.ready" = "Sẵn sàng";
-"tts.provider" = "Nhà cung cấp";
-"tts.tts_provider" = "Nhà cung cấp TTS";
-"tts.voice_customization" = "Tùy chỉnh giọng nói";
-"tts.current_voice" = "Giọng nói hiện tại";
-"tts.default_voice" = "Giọng nói mặc định";
-"tts.preview_current_voice" = "Xem trước giọng nói hiện tại";
-"tts.change_voice" = "Thay đổi giọng nói";
-"tts.audio_settings" = "Cài đặt âm thanh";
-"tts.speech_rate" = "Tốc độ nói";
-"tts.volume" = "Âm lượng";
-"tts.test_your_settings" = "Kiểm tra cài đặt của bạn";
-"tts.enter_text_to_test" = "Nhập văn bản để kiểm tra...";
-"tts.stop" = "Dừng";
-"tts.test" = "Kiểm tra";
-"tts.usage_statistics" = "Thống kê sử dụng";
-"tts.speechify_monthly_usage" = "Sử dụng hàng tháng của Speechify";
-"tts.monthly_limit" = "Giới hạn hàng tháng";
-"tts.used_this_month" = "Đã sử dụng trong tháng này";
-"tts.remaining" = "Còn lại";
-"tts.usage_progress" = "Tiến độ sử dụng";
-"tts.characters" = "ký tự";
-
-// TTS Analytics
-"tts.analytics.characters_used" = "Ký tự đã sử dụng";
-"tts.analytics.sessions" = "Phiên";
-"tts.analytics.favorite_voice" = "Giọng nói yêu thích";
-"tts.analytics.time_saved" = "Thời gian tiết kiệm";
-"tts.analytics.total_characters" = "Tổng số ký tự";
-"tts.analytics.total_sessions" = "Tổng số phiên";
-"tts.analytics.total_duration" = "Tổng thời lượng";
-"tts.analytics.favorite_language" = "Ngôn ngữ yêu thích";
-"tts.analytics.premium_usage" = "Sử dụng cao cấp";
-
-// TTS Settings
-"tts.settings.text_to_speech" = "Chuyển đổi văn bản thành giọng nói";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Mô hình chuyển đổi văn bản thành giọng nói của Speechify có sẵn cho tất cả người dùng như một tính năng cao cấp. Nó cho phép bạn chọn từ nhiều giọng nói và giọng điệu để tùy chỉnh trải nghiệm học tập của bạn.";
-"tts.settings.speechify_pro_description" = "Mô hình chuyển đổi văn bản thành giọng nói của Speechify được bao gồm trong đăng ký của bạn.";
-"tts.settings.dashboard" = "Bảng điều khiển";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Google TTS miễn phí với các giọng nói cơ bản và hiệu suất đáng tin cậy";
-
-// TTS Models
-"tts.models.english" = "Tiếng Anh";
-"tts.models.multilingual" = "Đa ngôn ngữ";
-"tts.models.english_description" = "Mô hình chuyển đổi văn bản thành giọng nói tiếng Anh của Speechify cung cấp các tính năng tiêu chuẩn được thiết kế để mang lại đầu ra âm thanh rõ ràng và tự nhiên cho việc đọc văn bản. Mô hình tập trung vào việc cung cấp trải nghiệm người dùng nhất quán.";
-"tts.models.multilingual_description" = "Mô hình đa ngôn ngữ cho phép sử dụng tất cả các ngôn ngữ được hỗ trợ và hỗ trợ sử dụng nhiều ngôn ngữ trong một câu. Đầu ra âm thanh của mô hình này khác biệt đáng kể so với các mô hình khác.";
 

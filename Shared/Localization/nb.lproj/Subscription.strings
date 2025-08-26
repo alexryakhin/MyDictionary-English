@@ -47,3 +47,6 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Oppgrader til Pro for å se alle detaljer om vokabularveksten din.";
 "pro_upgrade.time_period" = "Tidsperiode";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Tilgang til Speechifys premium tekst-til-tale-teknologi. Hundrevis av naturlig klingende premiumstemmer";
+
