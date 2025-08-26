@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Prehľad";
+"analytics.recent_quiz_results" = "Nedávne výsledky kvízov";
+"analytics.no_quiz_results_yet" = "Zatiaľ žiadne výsledky kvízov";
+"analytics.complete_first_quiz" = "Dokončite svoj prvý kvíz, aby ste tu videli výsledky";
+"analytics.vocabulary_growth" = "Rast slovnej zásoby";
+"analytics.no_growth_data_yet" = "Zatiaľ žiadne údaje o raste";
+"analytics.complete_quizzes_growth" = "Dokončite kvízy, aby ste videli rast svojej slovnej zásoby v priebehu času";
+"analytics.time_period" = "Časové obdobie";
+"analytics.week" = "Týždeň";
+"analytics.month" = "Mesiac";
+"analytics.year" = "Rok";
+"analytics.practice_time" = "Čas praxe";
+"analytics.sessions" = "Relácie";
+"analytics.all_results" = "Všetky výsledky";
+"analytics.duration" = "Trvanie";
+"analytics.loading_progress_data" = "Načítavajú sa údaje o pokroku...";
+"analytics.complete_first_quiz_results" = "Dokončite svoj prvý kvíz, aby ste tu videli výsledky";
+"analytics.complete_quizzes_growth_data" = "Dokončite kvízy, aby ste videli rast svojej slovnej zásoby v priebehu času";
+"analytics.last_time_period" = "Posledné %-obdobie";
+"analytics.points" = "Body";
+"analytics.accuracy" = "Presnosť";
+"analytics.progress" = "Pokrok";
+"analytics.streak" = "Séria";
+"analytics.best" = "Najlepšie";
+"analytics.score" = "Skóre";
+"analytics.correct_answers" = "Správne odpovede";
+"analytics.words_played" = "Hrané slová";
+"analytics.total_questions" = "Celkový počet otázok";
+"analytics.difficulty_statistics" = "Štatistiky obtiažnosti";
+"analytics.individual_ratings" = "Individuálne hodnotenia";
+"analytics.how_other_users_rate_difficulty" = "Ako iní používatelia hodnotia obtiažnosť цього slova";
+"analytics.no_difficulty_ratings_yet" = "Zatiaľ žiadne hodnotenia obtiažnosti";
+"analytics.total_ratings" = "Celkový počet hodnotení";
+"analytics.view_detailed_statistics" = "Zobraziť podrobné štatistiky";
+

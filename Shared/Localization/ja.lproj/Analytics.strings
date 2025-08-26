@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "概要";
+"analytics.recent_quiz_results" = "最近のクイズ結果";
+"analytics.no_quiz_results_yet" = "まだクイズ結果がありません";
+"analytics.complete_first_quiz" = "最初のクイズを完了して結果を確認";
+"analytics.vocabulary_growth" = "語彙の成長";
+"analytics.no_growth_data_yet" = "まだ成長データがありません";
+"analytics.complete_quizzes_growth" = "クイズを完了して語彙の成長を時間経過で確認";
+"analytics.time_period" = "期間";
+"analytics.week" = "週";
+"analytics.month" = "月";
+"analytics.year" = "年";
+"analytics.practice_time" = "練習時間";
+"analytics.sessions" = "セッション";
+"analytics.all_results" = "すべての結果";
+"analytics.duration" = "所要時間";
+"analytics.loading_progress_data" = "進捗データを読み込み中...";
+"analytics.complete_first_quiz_results" = "最初のクイズを完了して結果を確認";
+"analytics.complete_quizzes_growth_data" = "クイズを完了して語彙の成長を時間経過で確認";
+"analytics.last_time_period" = "最後の%-期間";
+"analytics.points" = "ポイント";
+"analytics.accuracy" = "正確性";
+"analytics.progress" = "進捗";
+"analytics.streak" = "連続正解";
+"analytics.best" = "最高";
+"analytics.score" = "スコア";
+"analytics.correct_answers" = "正解";
+"analytics.words_played" = "プレイした単語";
+"analytics.total_questions" = "質問の合計";
+"analytics.difficulty_statistics" = "難易度統計";
+"analytics.individual_ratings" = "個別評価";
+"analytics.how_other_users_rate_difficulty" = "他のユーザーがこの単語の難易度をどう評価しているか";
+"analytics.no_difficulty_ratings_yet" = "まだ難易度評価がありません";
+"analytics.total_ratings" = "評価の合計";
+"analytics.view_detailed_statistics" = "詳細統計を表示";
+

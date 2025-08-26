@@ -106,42 +106,6 @@
 "app.enter_email_address_for_notification" = "테스트 알림을 보내고 싶은 사용자의 이메일 주소를 입력하세요.";
 "app.user_information" = "사용자 정보";
 
-// MARK: - Analytics
-"analytics.overview" = "개요";
-"analytics.recent_quiz_results" = "최근 퀴즈 결과";
-"analytics.no_quiz_results_yet" = "아직 퀴즈 결과가 없습니다";
-"analytics.complete_first_quiz" = "첫 퀴즈를 완료하여 결과를 확인하세요";
-"analytics.vocabulary_growth" = "어휘 성장";
-"analytics.no_growth_data_yet" = "아직 성장 데이터가 없습니다";
-"analytics.complete_quizzes_growth" = "퀴즈를 완료하여 시간이 지남에 따라 어휘 성장을 확인하세요";
-"analytics.time_period" = "기간";
-"analytics.week" = "주";
-"analytics.month" = "월";
-"analytics.year" = "년";
-"analytics.practice_time" = "연습 시간";
-"analytics.sessions" = "세션";
-"analytics.all_results" = "모든 결과";
-"analytics.duration" = "소요 시간";
-"analytics.loading_progress_data" = "진행 데이터 로딩 중...";
-"analytics.complete_first_quiz_results" = "첫 퀴즈를 완료하여 결과를 확인하세요";
-"analytics.complete_quizzes_growth_data" = "퀴즈를 완료하여 시간이 지남에 따라 어휘 성장을 확인하세요";
-"analytics.last_time_period" = "마지막 %-기간";
-"analytics.points" = "포인트";
-"analytics.accuracy" = "정확도";
-"analytics.progress" = "진행 상황";
-"analytics.streak" = "연속 정답";
-"analytics.best" = "최고";
-"analytics.score" = "점수";
-"analytics.correct_answers" = "정답";
-"analytics.words_played" = "플레이한 단어";
-"analytics.total_questions" = "총 질문";
-"analytics.difficulty_statistics" = "난이도 통계";
-"analytics.individual_ratings" = "개별 평가";
-"analytics.how_other_users_rate_difficulty" = "다른 사용자가 이 단어의 난이도를 어떻게 평가했는지";
-"analytics.no_difficulty_ratings_yet" = "아직 난이도 평가가 없습니다";
-"analytics.total_ratings" = "총 평가";
-"analytics.view_detailed_statistics" = "자세한 통계 보기";
-
 // MARK: - Tags Flow
 "tags.manage_tags" = "태그 관리";
 "tags.tags_help_text" = "태그는 단어를 정리하는 데 도움이 됩니다. 단어당 최대 5개의 태그를 붙일 수 있습니다.";

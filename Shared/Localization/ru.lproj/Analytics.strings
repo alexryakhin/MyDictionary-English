@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Обзор";
+"analytics.recent_quiz_results" = "Недавние результаты викторин";
+"analytics.no_quiz_results_yet" = "Результатов викторин пока нет";
+"analytics.complete_first_quiz" = "Пройдите свою первую викторину, чтобы увидеть результаты здесь";
+"analytics.vocabulary_growth" = "Рост словарного запаса";
+"analytics.no_growth_data_yet" = "Данные о росте пока отсутствуют";
+"analytics.complete_quizzes_growth" = "Проходите викторины для того чтобы увидеть рост вашего словарного запаса со временем";
+"analytics.time_period" = "Период времени";
+"analytics.week" = "Неделя";
+"analytics.month" = "Месяц";
+"analytics.year" = "Год";
+"analytics.practice_time" = "Время практики";
+"analytics.sessions" = "Сессии";
+"analytics.all_results" = "Все результаты";
+"analytics.duration" = "Продолжительность";
+"analytics.loading_progress_data" = "Загрузка данных о прогрессе...";
+"analytics.complete_first_quiz_results" = "Пройдите свою первую викторину, чтобы увидеть результаты здесь";
+"analytics.complete_quizzes_growth_data" = "Проходите викторины для того чтобы увидеть рост вашего словарного запаса со временем";
+"analytics.last_time_period" = "Последний %-период";
+"analytics.points" = "Очки";
+"analytics.accuracy" = "Точность";
+"analytics.progress" = "Прогресс";
+"analytics.streak" = "Серия";
+"analytics.best" = "Лучший";
+"analytics.score" = "Счёт";
+"analytics.correct_answers" = "Правильные ответы";
+"analytics.words_played" = "Сыграно слов";
+"analytics.total_questions" = "Всего вопросов";
+"analytics.difficulty_statistics" = "Статистика сложности";
+"analytics.individual_ratings" = "Индивидуальные оценки";
+"analytics.how_other_users_rate_difficulty" = "Как другие пользователи оценивают сложность этого слова";
+"analytics.no_difficulty_ratings_yet" = "Оценок сложности пока нет";
+"analytics.total_ratings" = "Всего оценок";
+"analytics.view_detailed_statistics" = "Посмотреть подробную статистику";
+

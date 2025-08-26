@@ -236,42 +236,6 @@
 "app.enter_email_address_for_notification" = "Enter the email address of the user you want to send a test notification to.";
 "app.user_information" = "User Information";
 
-// MARK: - Analytics
-"analytics.overview" = "Overview";
-"analytics.recent_quiz_results" = "Recent Quiz Results";
-"analytics.no_quiz_results_yet" = "No Quiz Results Yet";
-"analytics.complete_first_quiz" = "Complete your first quiz to see results here";
-"analytics.vocabulary_growth" = "Vocabulary Growth";
-"analytics.no_growth_data_yet" = "No Growth Data Yet";
-"analytics.complete_quizzes_growth" = "Complete quizzes to see your vocabulary growth over time";
-"analytics.time_period" = "Time Period";
-"analytics.week" = "Week";
-"analytics.month" = "Month";
-"analytics.year" = "Year";
-"analytics.practice_time" = "Practice Time";
-"analytics.sessions" = "Sessions";
-"analytics.all_results" = "All Results";
-"analytics.duration" = "Duration";
-"analytics.loading_progress_data" = "Loading progress data...";
-"analytics.complete_first_quiz_results" = "Complete your first quiz to see results here";
-"analytics.complete_quizzes_growth_data" = "Complete quizzes to see your vocabulary growth over time";
-"analytics.last_time_period" = "Last %@";
-"analytics.points" = "pts";
-"analytics.accuracy" = "Accuracy";
-"analytics.progress" = "Progress";
-"analytics.streak" = "Streak";
-"analytics.best" = "Best";
-"analytics.score" = "Score";
-"analytics.correct_answers" = "Correct Answers";
-"analytics.words_played" = "Words Played";
-"analytics.total_questions" = "Total Questions";
-"analytics.difficulty_statistics" = "Difficulty Statistics";
-"analytics.individual_ratings" = "Individual Ratings";
-"analytics.how_other_users_rate_difficulty" = "How other users rate this word's difficulty";
-"analytics.no_difficulty_ratings_yet" = "No difficulty ratings yet";
-"analytics.total_ratings" = "Total Ratings";
-"analytics.view_detailed_statistics" = "View Detailed Statistics";
-
 // MARK: - Tags Flow
 "tags.manage_tags" = "Manage Tags";
 "tags.tags_help_text" = "Tags help you organize your words. Each word can have up to 5 tags.";

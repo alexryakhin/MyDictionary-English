@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "अवलोकन";
+"analytics.recent_quiz_results" = "हाल के क्विज़ परिणाम";
+"analytics.no_quiz_results_yet" = "अभी तक कोई क्विज़ परिणाम नहीं";
+"analytics.complete_first_quiz" = "यहां परिणाम देखने के लिए अपना पहला क्विज़ पूरा करें";
+"analytics.vocabulary_growth" = "शब्दावली वृद्धि";
+"analytics.no_growth_data_yet" = "अभी तक कोई वृद्धि डेटा नहीं";
+"analytics.complete_quizzes_growth" = "समय के साथ अपनी शब्दावली वृद्धि देखने के लिए क्विज़ पूरा करें";
+"analytics.time_period" = "समय अवधि";
+"analytics.week" = "सप्ताह";
+"analytics.month" = "महीना";
+"analytics.year" = "वर्ष";
+"analytics.practice_time" = "अभ्यास समय";
+"analytics.sessions" = "सत्र";
+"analytics.all_results" = "सभी परिणाम";
+"analytics.duration" = "अवधि";
+"analytics.loading_progress_data" = "प्रगति डेटा लोड हो रहा है...";
+"analytics.complete_first_quiz_results" = "यहां परिणाम देखने के लिए अपना पहला क्विज़ पूरा करें";
+"analytics.complete_quizzes_growth_data" = "समय के साथ अपनी शब्दावली वृद्धि देखने के लिए क्विज़ पूरा करें";
+"analytics.last_time_period" = "पिछली %-अवधि";
+"analytics.points" = "अंक";
+"analytics.accuracy" = "सटीकता";
+"analytics.progress" = "प्रगति";
+"analytics.streak" = "स्ट्रीक";
+"analytics.best" = "सर्वश्रेष्ठ";
+"analytics.score" = "स्कोर";
+"analytics.correct_answers" = "सही उत्तर";
+"analytics.words_played" = "खेले गए शब्द";
+"analytics.total_questions" = "कुल प्रश्न";
+"analytics.difficulty_statistics" = "कठिनाई सांख्यिकी";
+"analytics.individual_ratings" = "व्यक्तिगत रेटिंग";
+"analytics.how_other_users_rate_difficulty" = "अन्य उपयोगकर्ता इस शब्द की कठिनाई को कैसे रेट करते हैं";
+"analytics.no_difficulty_ratings_yet" = "अभी तक कोई कठिनाई रेटिंग नहीं";
+"analytics.total_ratings" = "कुल रेटिंग";
+"analytics.view_detailed_statistics" = "विस्तृत सांख्यिकी देखें";
+

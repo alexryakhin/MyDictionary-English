@@ -106,42 +106,6 @@
 "app.enter_email_address_for_notification" = "Unesite adresu e-pošte korisnika kojem želite poslati testnu obavijest.";
 "app.user_information" = "Informacije o korisniku";
 
-// MARK: - Analytics
-"analytics.overview" = "Pregled";
-"analytics.recent_quiz_results" = "Nedavni rezultati kvizova";
-"analytics.no_quiz_results_yet" = "Još nema rezultata kvizova";
-"analytics.complete_first_quiz" = "Završite svoj prvi kviz kako biste ovdje vidjeli rezultate";
-"analytics.vocabulary_growth" = "Rast vokabulara";
-"analytics.no_growth_data_yet" = "Još nema podataka o rastu";
-"analytics.complete_quizzes_growth" = "Završite kvizove kako biste vidjeli rast svog vokabulara tijekom vremena";
-"analytics.time_period" = "Vremensko razdoblje";
-"analytics.week" = "Tjedan";
-"analytics.month" = "Mjesec";
-"analytics.year" = "Godina";
-"analytics.practice_time" = "Vrijeme vježbanja";
-"analytics.sessions" = "Sesije";
-"analytics.all_results" = "Svi rezultati";
-"analytics.duration" = "Trajanje";
-"analytics.loading_progress_data" = "Učitavanje podataka o napretku...";
-"analytics.complete_first_quiz_results" = "Završite svoj prvi kviz kako biste ovdje vidjeli rezultate";
-"analytics.complete_quizzes_growth_data" = "Završite kvizove kako biste vidjeli rast svog vokabulara tijekom vremena";
-"analytics.last_time_period" = "Zadnje %@";
-"analytics.points" = "Bodovi";
-"analytics.accuracy" = "Točnost";
-"analytics.progress" = "Napredak";
-"analytics.streak" = "Niz";
-"analytics.best" = "Najbolji";
-"analytics.score" = "Rezultat";
-"analytics.correct_answers" = "Točni odgovori";
-"analytics.words_played" = "Igrane riječi";
-"analytics.total_questions" = "Ukupno pitanja";
-"analytics.difficulty_statistics" = "Statistike težine";
-"analytics.individual_ratings" = "Pojedinačne ocjene";
-"analytics.how_other_users_rate_difficulty" = "Kako drugi korisnici ocjenjuju težinu ove riječi";
-"analytics.no_difficulty_ratings_yet" = "Još nema ocjena težine";
-"analytics.total_ratings" = "Ukupne ocjene";
-"analytics.view_detailed_statistics" = "Pogledaj detaljne statistike";
-
 // MARK: - Tags Flow
 "tags.manage_tags" = "Upravljaj oznakama";
 "tags.tags_help_text" = "Oznake vam pomažu organizirati riječi. Svaka riječ može imati do 5 oznaka.";

@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "نظرة عامة";
+"analytics.recent_quiz_results" = "نتائج الاختبارات الأخيرة";
+"analytics.no_quiz_results_yet" = "لا توجد نتائج اختبارات بعد";
+"analytics.complete_first_quiz" = "أكمل اختبارك الأول لمشاهدة النتائج هنا";
+"analytics.vocabulary_growth" = "نمو المفردات";
+"analytics.no_growth_data_yet" = "لا توجد بيانات نمو بعد";
+"analytics.complete_quizzes_growth" = "أكمل الاختبارات لمشاهدة نمو مفرداتك عبر الزمن";
+"analytics.time_period" = "الفترة الزمنية";
+"analytics.week" = "أسبوع";
+"analytics.month" = "شهر";
+"analytics.year" = "سنة";
+"analytics.practice_time" = "وقت التدريب";
+"analytics.sessions" = "الجلسات";
+"analytics.all_results" = "جميع النتائج";
+"analytics.duration" = "المدة";
+"analytics.loading_progress_data" = "جارٍ تحميل بيانات التقدم...";
+"analytics.complete_first_quiz_results" = "أكمل اختبارك الأول لمشاهدة النتائج هنا";
+"analytics.complete_quizzes_growth_data" = "أكمل الاختبارات لمشاهدة نمو مفرداتك عبر الزمن";
+"analytics.last_time_period" = "آخر %@";
+"analytics.points" = "نقاط";
+"analytics.accuracy" = "الدقة";
+"analytics.progress" = "التقدم";
+"analytics.streak" = "السلسلة";
+"analytics.best" = "الأفضل";
+"analytics.score" = "النقاط";
+"analytics.correct_answers" = "الإجابات الصحيحة";
+"analytics.words_played" = "الكلمات التي تم لعبها";
+"analytics.total_questions" = "إجمالي الأسئلة";
+"analytics.difficulty_statistics" = "إحصائيات الصعوبة";
+"analytics.individual_ratings" = "التقييمات الفردية";
+"analytics.how_other_users_rate_difficulty" = "كيف يقيم المستخدمون الآخرون صعوبة هذه الكلمة";
+"analytics.no_difficulty_ratings_yet" = "لا توجد تقييمات صعوبة بعد";
+"analytics.total_ratings" = "إجمالي التقييمات";
+"analytics.view_detailed_statistics" = "عرض الإحصائيات التفصيلية";
+

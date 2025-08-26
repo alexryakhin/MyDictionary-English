@@ -106,42 +106,6 @@
 "app.enter_email_address_for_notification" = "הזן את כתובת הדוא\"ל של המשתמש שאליו ברצונך לשלוח התראת בדיקה.";
 "app.user_information" = "מידע משתמש";
 
-// MARK: - Analytics
-"analytics.overview" = "סקירה כללית";
-"analytics.recent_quiz_results" = "תוצאות חידונים אחרונים";
-"analytics.no_quiz_results_yet" = "אין תוצאות חידונים עדיין";
-"analytics.complete_first_quiz" = "השלם את החידון הראשון שלך כדי לראות תוצאות כאן";
-"analytics.vocabulary_growth" = "צמיחת אוצר מילים";
-"analytics.no_growth_data_yet" = "אין נתוני צמיחה עדיין";
-"analytics.complete_quizzes_growth" = "השלם חידונים כדי לראות את אוצר המילים שלך צומח לאורך זמן";
-"analytics.time_period" = "תקופת זמן";
-"analytics.week" = "שבוע";
-"analytics.month" = "חודש";
-"analytics.year" = "שנה";
-"analytics.practice_time" = "זמן תרגול";
-"analytics.sessions" = "סשנים";
-"analytics.all_results" = "כל התוצאות";
-"analytics.duration" = "משך זמן";
-"analytics.loading_progress_data" = "טוען נתוני התקדמות...";
-"analytics.complete_first_quiz_results" = "השלם את החידון הראשון שלך כדי לראות תוצאות כאן";
-"analytics.complete_quizzes_growth_data" = "השלם חידונים כדי לראות את אוצר המילים שלך צומח לאורך זמן";
-"analytics.last_time_period" = "תקופת %@-אחרונה";
-"analytics.points" = "נקודות";
-"analytics.accuracy" = "דיוק";
-"analytics.progress" = "התקדמות";
-"analytics.streak" = "רצף";
-"analytics.best" = "הטוב ביותר";
-"analytics.score" = "ציון";
-"analytics.correct_answers" = "תשובות נכונות";
-"analytics.words_played" = "מילים שנוגנו";
-"analytics.total_questions" = "סה\"כ שאלות";
-"analytics.difficulty_statistics" = "סטטיסטיקות קושי";
-"analytics.individual_ratings" = "דירוגים אישיים";
-"analytics.how_other_users_rate_difficulty" = "כיצד משתמשים אחרים מדרגים את הקושי של מילה זו";
-"analytics.no_difficulty_ratings_yet" = "אין דירוגי קושי עדיין";
-"analytics.total_ratings" = "סה\"כ דירוגים";
-"analytics.view_detailed_statistics" = "הצג סטטיסטיקות מפורטות";
-
 // MARK: - Tags Flow
 "tags.manage_tags" = "ניהול תגיות";
 "tags.tags_help_text" = "תגיות עוזרות לך לארגן מילים. כל מילה יכולה להכיל עד 5 תגיות.";

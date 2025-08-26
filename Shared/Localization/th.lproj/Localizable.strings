@@ -106,42 +106,6 @@
 "app.enter_email_address_for_notification" = "ป้อนที่อยู่อีเมลของผู้ใช้ที่คุณต้องการส่งการแจ้งเตือนทดสอบ";
 "app.user_information" = "ข้อมูลผู้ใช้";
 
-// MARK: - Analytics
-"analytics.overview" = "ภาพรวม";
-"analytics.recent_quiz_results" = "ผลลัพธ์แบบทดสอบล่าสุด";
-"analytics.no_quiz_results_yet" = "ยังไม่มีผลลัพธ์แบบทดสอบ";
-"analytics.complete_first_quiz" = "ทำแบบทดสอบแรกของคุณเพื่อดูผลลัพธ์ที่นี่";
-"analytics.vocabulary_growth" = "การเติบโตของคลังคำศัพท์";
-"analytics.no_growth_data_yet" = "ยังไม่มีข้อมูลการเติบโต";
-"analytics.complete_quizzes_growth" = "ทำแบบทดสอบเพื่อดูการเติบโตของคลังคำศัพท์ของคุณตามเวลา";
-"analytics.time_period" = "ช่วงเวลา";
-"analytics.week" = "สัปดาห์";
-"analytics.month" = "เดือน";
-"analytics.year" = "ปี";
-"analytics.practice_time" = "เวลาการฝึก";
-"analytics.sessions" = "เซสชัน";
-"analytics.all_results" = "ผลลัพธ์ทั้งหมด";
-"analytics.duration" = "ระยะเวลา";
-"analytics.loading_progress_data" = "กำลังโหลดข้อมูลความคืบหน้า...";
-"analytics.complete_first_quiz_results" = "ทำแบบทดสอบแรกของคุณเพื่อดูผลลัพธ์ที่นี่";
-"analytics.complete_quizzes_growth_data" = "ทำแบบทดสอบเพื่อดูการเติบโตของคลังคำศัพท์ของคุณตามเวลา";
-"analytics.last_time_period" = "ช่วงเวลา %-ล่าสุด";
-"analytics.points" = "คะแนน";
-"analytics.accuracy" = "ความแม่นยำ";
-"analytics.progress" = "ความคืบหน้า";
-"analytics.streak" = "สตรีค";
-"analytics.best" = "ดีที่สุด";
-"analytics.score" = "คะแนน";
-"analytics.correct_answers" = "คำตอบที่ถูกต้อง";
-"analytics.words_played" = "คำศัพท์ที่เล่น";
-"analytics.total_questions" = "จำนวนคำถามทั้งหมด";
-"analytics.difficulty_statistics" = "สถิติระดับความยาก";
-"analytics.individual_ratings" = "การให้คะแนนรายบุคคล";
-"analytics.how_other_users_rate_difficulty" = "ผู้ใช้รายอื่นให้คะแนนความยากของคำนี้อย่างไร";
-"analytics.no_difficulty_ratings_yet" = "ยังไม่มีการให้คะแนนความยาก";
-"analytics.total_ratings" = "คะแนนทั้งหมด";
-"analytics.view_detailed_statistics" = "ดูสถิติโดยละเอียด";
-
 // MARK: - Tags Flow
 "tags.manage_tags" = "จัดการแท็ก";
 "tags.tags_help_text" = "แท็กช่วยคุณจัดระเบียบคำศัพท์ คำศัพท์แต่ละคำสามารถมีได้ถึง 5 แท็ก";

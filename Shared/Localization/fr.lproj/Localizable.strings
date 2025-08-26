@@ -106,42 +106,6 @@
 "app.enter_email_address_for_notification" = "Entrez l'adresse e-mail de l'utilisateur à qui vous souhaitez envoyer une notification de test.";
 "app.user_information" = "Informations utilisateur";
 
-// MARK: - Analytics
-"analytics.overview" = "Aperçu";
-"analytics.recent_quiz_results" = "Résultats récents des quiz";
-"analytics.no_quiz_results_yet" = "Aucun résultat de quiz pour le moment";
-"analytics.complete_first_quiz" = "Complétez votre premier quiz pour voir les résultats ici";
-"analytics.vocabulary_growth" = "Croissance du vocabulaire";
-"analytics.no_growth_data_yet" = "Aucune donnée de croissance pour le moment";
-"analytics.complete_quizzes_growth" = "Complétez des quiz pour voir votre vocabulaire croître au fil du temps";
-"analytics.time_period" = "Période";
-"analytics.week" = "Semaine";
-"analytics.month" = "Mois";
-"analytics.year" = "Année";
-"analytics.practice_time" = "Temps d'entraînement";
-"analytics.sessions" = "Sessions";
-"analytics.all_results" = "Tous les résultats";
-"analytics.duration" = "Durée";
-"analytics.loading_progress_data" = "Chargement des données de progrès...";
-"analytics.complete_first_quiz_results" = "Complétez votre premier quiz pour voir les résultats ici";
-"analytics.complete_quizzes_growth_data" = "Complétez des quiz pour voir votre vocabulaire croître au fil du temps";
-"analytics.last_time_period" = "Dernière période de %@";
-"analytics.points" = "Points";
-"analytics.accuracy" = "Précision";
-"analytics.progress" = "Progrès";
-"analytics.streak" = "Série";
-"analytics.best" = "Meilleur";
-"analytics.score" = "Score";
-"analytics.correct_answers" = "Réponses correctes";
-"analytics.words_played" = "Mots joués";
-"analytics.total_questions" = "Total des questions";
-"analytics.difficulty_statistics" = "Statistiques de difficulté";
-"analytics.individual_ratings" = "Évaluations individuelles";
-"analytics.how_other_users_rate_difficulty" = "Comment les autres utilisateurs évaluent la difficulté de ce mot";
-"analytics.no_difficulty_ratings_yet" = "Aucune évaluation de difficulté pour le moment";
-"analytics.total_ratings" = "Total des évaluations";
-"analytics.view_detailed_statistics" = "Voir les statistiques détaillées";
-
 // MARK: - Tags Flow
 "tags.manage_tags" = "Gérer les étiquettes";
 "tags.tags_help_text" = "Les étiquettes vous aident à organiser les mots. Chaque mot peut avoir jusqu'à 5 étiquettes.";

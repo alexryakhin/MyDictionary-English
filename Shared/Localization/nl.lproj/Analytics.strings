@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Overzicht";
+"analytics.recent_quiz_results" = "Recente quizresultaten";
+"analytics.no_quiz_results_yet" = "Nog geen quizresultaten";
+"analytics.complete_first_quiz" = "Voltooi je eerste quiz om hier resultaten te zien";
+"analytics.vocabulary_growth" = "Woordenschatgroei";
+"analytics.no_growth_data_yet" = "Nog geen groeigegevens";
+"analytics.complete_quizzes_growth" = "Voltooi quizzen om te zien hoe je woordenschat groeit over tijd";
+"analytics.time_period" = "Tijdsperiode";
+"analytics.week" = "Week";
+"analytics.month" = "Maand";
+"analytics.year" = "Jaar";
+"analytics.practice_time" = "Oefentijd";
+"analytics.sessions" = "Sessies";
+"analytics.all_results" = "Alle resultaten";
+"analytics.duration" = "Duur";
+"analytics.loading_progress_data" = "Voortgangsgegevens laden...";
+"analytics.complete_first_quiz_results" = "Voltooi je eerste quiz om hier resultaten te zien";
+"analytics.complete_quizzes_growth_data" = "Voltooi quizzen om te zien hoe je woordenschat groeit over tijd";
+"analytics.last_time_period" = "Laatste %@";
+"analytics.points" = "Punten";
+"analytics.accuracy" = "Nauwkeurigheid";
+"analytics.progress" = "Voortgang";
+"analytics.streak" = "Reeks";
+"analytics.best" = "Beste";
+"analytics.score" = "Score";
+"analytics.correct_answers" = "Correcte antwoorden";
+"analytics.words_played" = "Gespeelde woorden";
+"analytics.total_questions" = "Totaal aantal vragen";
+"analytics.difficulty_statistics" = "Moeilijkheidsgraadstatistieken";
+"analytics.individual_ratings" = "Individuele beoordelingen";
+"analytics.how_other_users_rate_difficulty" = "Hoe andere gebruikers de moeilijkheidsgraad van dit woord beoordelen";
+"analytics.no_difficulty_ratings_yet" = "Nog geen moeilijkheidsgraadbeoordelingen";
+"analytics.total_ratings" = "Totaal aantal beoordelingen";
+"analytics.view_detailed_statistics" = "Gedetailleerde statistieken bekijken";
+

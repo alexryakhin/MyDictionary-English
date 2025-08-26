@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Oversigt";
+"analytics.recent_quiz_results" = "Seneste quizresultater";
+"analytics.no_quiz_results_yet" = "Ingen quizresultater endnu";
+"analytics.complete_first_quiz" = "Gennemfør din første quiz for at se resultater her";
+"analytics.vocabulary_growth" = "Ordforrådsvækst";
+"analytics.no_growth_data_yet" = "Ingen vækstdatay endnu";
+"analytics.complete_quizzes_growth" = "Gennemfør quizzer for at se dit ordforråd vokse over tid";
+"analytics.time_period" = "Tidsperiode";
+"analytics.week" = "Uge";
+"analytics.month" = "Måned";
+"analytics.year" = "År";
+"analytics.practice_time" = "Øvetid";
+"analytics.sessions" = "Sessioner";
+"analytics.all_results" = "Alle resultater";
+"analytics.duration" = "Varighed";
+"analytics.loading_progress_data" = "Indlæser fremskridtsdata...";
+"analytics.complete_first_quiz_results" = "Gennemfør din første quiz for at se resultater her";
+"analytics.complete_quizzes_growth_data" = "Gennemfør quizzer for at se dit ordforråd vokse over tid";
+"analytics.last_time_period" = "Sidste %@";
+"analytics.points" = "Point";
+"analytics.accuracy" = "Nøjagtighed";
+"analytics.progress" = "Fremskridt";
+"analytics.streak" = "Stime";
+"analytics.best" = "Bedste";
+"analytics.score" = "Score";
+"analytics.correct_answers" = "Korrekte svar";
+"analytics.words_played" = "Spillede ord";
+"analytics.total_questions" = "Samlede spørgsmål";
+"analytics.difficulty_statistics" = "Sværhedsgradsstatistik";
+"analytics.individual_ratings" = "Individuelle bedømmelser";
+"analytics.how_other_users_rate_difficulty" = "Hvordan andre brugere bedømmer sværhedsgraden af dette ord";
+"analytics.no_difficulty_ratings_yet" = "Ingen sværhedsgradsbedømmelser endnu";
+"analytics.total_ratings" = "Samlede bedømmelser";
+"analytics.view_detailed_statistics" = "Se detaljerede statistikker";
+

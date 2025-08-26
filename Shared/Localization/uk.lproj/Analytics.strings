@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Огляд";
+"analytics.recent_quiz_results" = "Останні результати тестів";
+"analytics.no_quiz_results_yet" = "Поки немає результатів тестів";
+"analytics.complete_first_quiz" = "Завершіть свій перший тест, щоб побачити результати тут";
+"analytics.vocabulary_growth" = "Зростання словникового запасу";
+"analytics.no_growth_data_yet" = "Поки немає даних про зростання";
+"analytics.complete_quizzes_growth" = "Завершуйте тести, щоб побачити зростання вашого словникового запасу з часом";
+"analytics.time_period" = "Період часу";
+"analytics.week" = "Тиждень";
+"analytics.month" = "Місяць";
+"analytics.year" = "Рік";
+"analytics.practice_time" = "Час практики";
+"analytics.sessions" = "Сеанси";
+"analytics.all_results" = "Усі результати";
+"analytics.duration" = "Тривалість";
+"analytics.loading_progress_data" = "Завантаження даних прогресу...";
+"analytics.complete_first_quiz_results" = "Завершіть свій перший тест, щоб побачити результати тут";
+"analytics.complete_quizzes_growth_data" = "Завершуйте тести, щоб побачити зростання вашого словникового запасу з часом";
+"analytics.last_time_period" = "Останній %-період часу";
+"analytics.points" = "Бали";
+"analytics.accuracy" = "Точність";
+"analytics.progress" = "Прогрес";
+"analytics.streak" = "Серія";
+"analytics.best" = "Найкращий";
+"analytics.score" = "Бал";
+"analytics.correct_answers" = "Правильні відповіді";
+"analytics.words_played" = "Слова зіграно";
+"analytics.total_questions" = "Загальна кількість питань";
+"analytics.difficulty_statistics" = "Статистика складності";
+"analytics.individual_ratings" = "Індивідуальні оцінки";
+"analytics.how_other_users_rate_difficulty" = "Як інші користувачі оцінюють складність цього слова";
+"analytics.no_difficulty_ratings_yet" = "Поки немає оцінок складності";
+"analytics.total_ratings" = "Загальні оцінки";
+"analytics.view_detailed_statistics" = "Переглянути детальну статистику";
+

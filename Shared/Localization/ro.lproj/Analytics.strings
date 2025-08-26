@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Prezentare Generală";
+"analytics.recent_quiz_results" = "Rezultate Recente Teste";
+"analytics.no_quiz_results_yet" = "Fără rezultate la teste încă";
+"analytics.complete_first_quiz" = "Completează primul tău test pentru a vedea rezultatele aici";
+"analytics.vocabulary_growth" = "Creșterea Vocabularului";
+"analytics.no_growth_data_yet" = "Fără date de creștere încă";
+"analytics.complete_quizzes_growth" = "Completează teste pentru a vedea creșterea vocabularului tău în timp";
+"analytics.time_period" = "Perioadă de Timp";
+"analytics.week" = "Săptămână";
+"analytics.month" = "Lună";
+"analytics.year" = "An";
+"analytics.practice_time" = "Timp de Practică";
+"analytics.sessions" = "Sesiuni";
+"analytics.all_results" = "Toate Rezultatele";
+"analytics.duration" = "Durată";
+"analytics.loading_progress_data" = "Se încarcă datele de progres...";
+"analytics.complete_first_quiz_results" = "Completează primul tău test pentru a vedea rezultatele aici";
+"analytics.complete_quizzes_growth_data" = "Completează teste pentru a vedea creșterea vocabularului tău în timp";
+"analytics.last_time_period" = "Ultimul %-perioadă";
+"analytics.points" = "Puncte";
+"analytics.accuracy" = "Acuratețe";
+"analytics.progress" = "Progres";
+"analytics.streak" = "Serie";
+"analytics.best" = "Cel mai Bun";
+"analytics.score" = "Scor";
+"analytics.correct_answers" = "Răspunsuri Corecte";
+"analytics.words_played" = "Cuvinte Jucate";
+"analytics.total_questions" = "Total Întrebări";
+"analytics.difficulty_statistics" = "Statistici Dificultate";
+"analytics.individual_ratings" = "Evaluări Individuale";
+"analytics.how_other_users_rate_difficulty" = "Cum evaluează alți utilizatori dificultatea acestui cuvânt";
+"analytics.no_difficulty_ratings_yet" = "Fără evaluări de dificultate încă";
+"analytics.total_ratings" = "Total Evaluări";
+"analytics.view_detailed_statistics" = "Vezi Statistici Detaliate";
+

@@ -106,42 +106,6 @@
 "app.enter_email_address_for_notification" = "Nhập địa chỉ email của người dùng mà bạn muốn gửi thông báo kiểm tra.";
 "app.user_information" = "Thông tin người dùng";
 
-// MARK: - Analytics
-"analytics.overview" = "Tổng quan";
-"analytics.recent_quiz_results" = "Kết quả bài kiểm tra gần đây";
-"analytics.no_quiz_results_yet" = "Chưa có kết quả bài kiểm tra";
-"analytics.complete_first_quiz" = "Hoàn thành bài kiểm tra đầu tiên để xem kết quả tại đây";
-"analytics.vocabulary_growth" = "Sự phát triển vốn từ vựng";
-"analytics.no_growth_data_yet" = "Chưa có dữ liệu tăng trưởng";
-"analytics.complete_quizzes_growth" = "Hoàn thành các bài kiểm tra để xem sự phát triển vốn từ vựng của bạn theo thời gian";
-"analytics.time_period" = "Khoảng thời gian";
-"analytics.week" = "Tuần";
-"analytics.month" = "Tháng";
-"analytics.year" = "Năm";
-"analytics.practice_time" = "Thời gian luyện tập";
-"analytics.sessions" = "Phiên";
-"analytics.all_results" = "Tất cả kết quả";
-"analytics.duration" = "Thời lượng";
-"analytics.loading_progress_data" = "Đang tải dữ liệu tiến độ...";
-"analytics.complete_first_quiz_results" = "Hoàn thành bài kiểm tra đầu tiên để xem kết quả tại đây";
-"analytics.complete_quizzes_growth_data" = "Hoàn thành các bài kiểm tra để xem sự phát triển vốn từ vựng của bạn theo thời gian";
-"analytics.last_time_period" = "%-Khoảng thời gian trước";
-"analytics.points" = "Điểm";
-"analytics.accuracy" = "Độ chính xác";
-"analytics.progress" = "Tiến độ";
-"analytics.streak" = "Chuỗi";
-"analytics.best" = "Tốt nhất";
-"analytics.score" = "Điểm";
-"analytics.correct_answers" = "Câu trả lời đúng";
-"analytics.words_played" = "Từ đã chơi";
-"analytics.total_questions" = "Tổng số câu hỏi";
-"analytics.difficulty_statistics" = "Thống kê độ khó";
-"analytics.individual_ratings" = "Xếp hạng cá nhân";
-"analytics.how_other_users_rate_difficulty" = "Người dùng khác đánh giá độ khó của từ này như thế nào";
-"analytics.no_difficulty_ratings_yet" = "Chưa có xếp hạng độ khó";
-"analytics.total_ratings" = "Tổng số xếp hạng";
-"analytics.view_detailed_statistics" = "Xem thống kê chi tiết";
-
 // MARK: - Tags Flow
 "tags.manage_tags" = "Quản lý thẻ";
 "tags.tags_help_text" = "Thẻ giúp bạn sắp xếp từ của mình. Mỗi từ có thể có tối đa 5 thẻ.";

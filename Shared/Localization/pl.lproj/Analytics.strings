@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Przegląd";
+"analytics.recent_quiz_results" = "Najnowsze wyniki quizów";
+"analytics.no_quiz_results_yet" = "Brak wyników quizów";
+"analytics.complete_first_quiz" = "Ukończ swój pierwszy quiz, aby zobaczyć wyniki tutaj";
+"analytics.vocabulary_growth" = "Rozwój słownictwa";
+"analytics.no_growth_data_yet" = "Brak danych o rozwoju";
+"analytics.complete_quizzes_growth" = "Ukończ quizy, aby zobaczyć rozwój swojego słownictwa w czasie";
+"analytics.time_period" = "Okres czasu";
+"analytics.week" = "Tydzień";
+"analytics.month" = "Miesiąc";
+"analytics.year" = "Rok";
+"analytics.practice_time" = "Czas ćwiczeń";
+"analytics.sessions" = "Sesje";
+"analytics.all_results" = "Wszystkie wyniki";
+"analytics.duration" = "Czas trwania";
+"analytics.loading_progress_data" = "Ładowanie danych o postępach...";
+"analytics.complete_first_quiz_results" = "Ukończ swój pierwszy quiz, aby zobaczyć wyniki tutaj";
+"analytics.complete_quizzes_growth_data" = "Ukończ quizy, aby zobaczyć rozwój swojego słownictwa w czasie";
+"analytics.last_time_period" = "Ostatni %-okres";
+"analytics.points" = "Punkty";
+"analytics.accuracy" = "Dokładność";
+"analytics.progress" = "Postęp";
+"analytics.streak" = "Seria";
+"analytics.best" = "Najlepszy";
+"analytics.score" = "Wynik";
+"analytics.correct_answers" = "Poprawne odpowiedzi";
+"analytics.words_played" = "Zagrane słowa";
+"analytics.total_questions" = "Całkowita liczba pytań";
+"analytics.difficulty_statistics" = "Statystyki trudności";
+"analytics.individual_ratings" = "Indywidualne oceny";
+"analytics.how_other_users_rate_difficulty" = "Jak inni użytkownicy oceniają trudność tego słowa";
+"analytics.no_difficulty_ratings_yet" = "Brak ocen trudności";
+"analytics.total_ratings" = "Całkowita liczba ocen";
+"analytics.view_detailed_statistics" = "Pokaż szczegółowe statystyki";
+

@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Genel Bakış";
+"analytics.recent_quiz_results" = "Son Test Sonuçları";
+"analytics.no_quiz_results_yet" = "Henüz test sonucu yok";
+"analytics.complete_first_quiz" = "Sonuçları görmek için ilk testinizi tamamlayın";
+"analytics.vocabulary_growth" = "Kelime Dağarcığı Büyümesi";
+"analytics.no_growth_data_yet" = "Henüz büyüme verisi yok";
+"analytics.complete_quizzes_growth" = "Kelime dağarcığınızın zaman içindeki büyümesini görmek için testleri tamamlayın";
+"analytics.time_period" = "Zaman Dilimi";
+"analytics.week" = "Hafta";
+"analytics.month" = "Ay";
+"analytics.year" = "Yıl";
+"analytics.practice_time" = "Alıştırma Süresi";
+"analytics.sessions" = "Oturumlar";
+"analytics.all_results" = "Tüm Sonuçlar";
+"analytics.duration" = "Süre";
+"analytics.loading_progress_data" = "İlerleme verileri yükleniyor...";
+"analytics.complete_first_quiz_results" = "Sonuçları görmek için ilk testinizi tamamlayın";
+"analytics.complete_quizzes_growth_data" = "Kelime dağarcığınızın zaman içindeki büyümesini görmek için testleri tamamlayın";
+"analytics.last_time_period" = "Son %-zaman dilimi";
+"analytics.points" = "Puanlar";
+"analytics.accuracy" = "Doğruluk";
+"analytics.progress" = "İlerleme";
+"analytics.streak" = "Seri";
+"analytics.best" = "En İyi";
+"analytics.score" = "Puan";
+"analytics.correct_answers" = "Doğru Cevaplar";
+"analytics.words_played" = "Oynanan Kelimeler";
+"analytics.total_questions" = "Toplam Sorular";
+"analytics.difficulty_statistics" = "Zorluk İstatistikleri";
+"analytics.individual_ratings" = "Bireysel Derecelendirmeler";
+"analytics.how_other_users_rate_difficulty" = "Diğer kullanıcılar bu kelimenin zorluğunu nasıl değerlendiriyor";
+"analytics.no_difficulty_ratings_yet" = "Henüz zorluk derecesi yok";
+"analytics.total_ratings" = "Toplam Derecelendirme";
+"analytics.view_detailed_statistics" = "Ayrıntılı İstatistikleri Görüntüle";
+

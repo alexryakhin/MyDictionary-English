@@ -106,42 +106,6 @@
 "app.enter_email_address_for_notification" = "Εισαγάγετε τη διεύθυνση email του χρήστη στον οποίο θέλετε να στείλετε μια δοκιμαστική ειδοποίηση.";
 "app.user_information" = "Πληροφορίες Χρήστη";
 
-// MARK: - Analytics
-"analytics.overview" = "Επισκόπηση";
-"analytics.recent_quiz_results" = "Πρόσφατα Αποτελέσματα Κουίζ";
-"analytics.no_quiz_results_yet" = "Κανένα αποτέλεσμα κουίζ ακόμα";
-"analytics.complete_first_quiz" = "Ολοκλήρωσε το πρώτο σου κουίζ για να δεις τα αποτελέσματα εδώ";
-"analytics.vocabulary_growth" = "Ανάπτυξη Λεξιλογίου";
-"analytics.no_growth_data_yet" = "Κανένα δεδομένο ανάπτυξης ακόμα";
-"analytics.complete_quizzes_growth" = "Ολοκλήρωσε κουίζ για να δεις το λεξιλόγιό σου να αναπτύσσεται με την πάροδο του χρόνου";
-"analytics.time_period" = "Χρονική Περίοδος";
-"analytics.week" = "Εβδομάδα";
-"analytics.month" = "Μήνας";
-"analytics.year" = "Έτος";
-"analytics.practice_time" = "Χρόνος Εξάσκησης";
-"analytics.sessions" = "Συνεδρίες";
-"analytics.all_results" = "Όλα τα Αποτελέσματα";
-"analytics.duration" = "Διάρκεια";
-"analytics.loading_progress_data" = "Φόρτωση δεδομένων προόδου...";
-"analytics.complete_first_quiz_results" = "Ολοκλήρωσε το πρώτο σου κουίζ για να δεις τα αποτελέσματα εδώ";
-"analytics.complete_quizzes_growth_data" = "Ολοκλήρωσε κουίζ για να δεις το λεξιλόγιό σου να αναπτύσσεται με την πάροδο του χρόνου";
-"analytics.last_time_period" = "Τελευταία %@-Περίοδος";
-"analytics.points" = "Πόντοι";
-"analytics.accuracy" = "Ακρίβεια";
-"analytics.progress" = "Πρόοδος";
-"analytics.streak" = "Σερί";
-"analytics.best" = "Καλύτερο";
-"analytics.score" = "Βαθμολογία";
-"analytics.correct_answers" = "Σωστές Απαντήσεις";
-"analytics.words_played" = "Λέξεις που Παίχτηκαν";
-"analytics.total_questions" = "Συνολικές Ερωτήσεις";
-"analytics.difficulty_statistics" = "Στατιστικά Δυσκολίας";
-"analytics.individual_ratings" = "Ατομικές Βαθμολογίες";
-"analytics.how_other_users_rate_difficulty" = "Πώς άλλοι χρήστες βαθμολογούν τη δυσκολία αυτής της λέξης";
-"analytics.no_difficulty_ratings_yet" = "Καμία βαθμολογία δυσκολίας ακόμα";
-"analytics.total_ratings" = "Συνολικές Βαθμολογίες";
-"analytics.view_detailed_statistics" = "Προβολή Λεπτομερών Στατιστικών";
-
 // MARK: - Tags Flow
 "tags.manage_tags" = "Διαχείριση Ετικετών";
 "tags.tags_help_text" = "Οι ετικέτες σε βοηθούν να οργανώσεις τις λέξεις. Κάθε λέξη μπορεί να έχει έως 5 ετικέτες.";

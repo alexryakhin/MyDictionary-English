@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Áttekintés";
+"analytics.recent_quiz_results" = "Legutóbbi kviz eredmények";
+"analytics.no_quiz_results_yet" = "Még nincsenek kviz eredmények";
+"analytics.complete_first_quiz" = "Töltsd ki az első kvizedet, hogy itt lásd az eredményeket";
+"analytics.vocabulary_growth" = "Szókincs növekedés";
+"analytics.no_growth_data_yet" = "Még nincs növekedési adat";
+"analytics.complete_quizzes_growth" = "Tölts ki kvizeket, hogy lásd a szókincsed időbeli növekedését";
+"analytics.time_period" = "Időszak";
+"analytics.week" = "Hét";
+"analytics.month" = "Hónap";
+"analytics.year" = "Év";
+"analytics.practice_time" = "Gyakorlási idő";
+"analytics.sessions" = "Munkamenetek";
+"analytics.all_results" = "Összes eredmény";
+"analytics.duration" = "Időtartam";
+"analytics.loading_progress_data" = "Haladási adatok betöltése...";
+"analytics.complete_first_quiz_results" = "Töltsd ki az első kvizedet, hogy itt lásd az eredményeket";
+"analytics.complete_quizzes_growth_data" = "Tölts ki kvizeket, hogy lásd a szókincsed időbeli növekedését";
+"analytics.last_time_period" = "Utolsó %-időszak";
+"analytics.points" = "Pontok";
+"analytics.accuracy" = "Pontosság";
+"analytics.progress" = "Haladás";
+"analytics.streak" = "Sorozat";
+"analytics.best" = "Legjobb";
+"analytics.score" = "Pontszám";
+"analytics.correct_answers" = "Helyes válaszok";
+"analytics.words_played" = "Játszott szavak";
+"analytics.total_questions" = "Összes kérdés";
+"analytics.difficulty_statistics" = "Nehézségi statisztikák";
+"analytics.individual_ratings" = "Egyéni értékelések";
+"analytics.how_other_users_rate_difficulty" = "Hogyan értékelik más felhasználók ennek a szónak a nehézségét";
+"analytics.no_difficulty_ratings_yet" = "Még nincsenek nehézségi értékelések";
+"analytics.total_ratings" = "Összes értékelés";
+"analytics.view_detailed_statistics" = "Részletes statisztikák megtekintése";
+

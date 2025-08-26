@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Resum";
+"analytics.recent_quiz_results" = "Resultats recents dels qüestionaris";
+"analytics.no_quiz_results_yet" = "Encara no hi ha resultats de qüestionaris";
+"analytics.complete_first_quiz" = "Completa el teu primer qüestionari per veure els resultats aquí";
+"analytics.vocabulary_growth" = "Creixement del vocabulari";
+"analytics.no_growth_data_yet" = "Encara no hi ha dades de creixement";
+"analytics.complete_quizzes_growth" = "Completa qüestionaris per veure el creixement del teu vocabulari al llarg del temps";
+"analytics.time_period" = "Període de temps";
+"analytics.week" = "Setmana";
+"analytics.month" = "Mes";
+"analytics.year" = "Any";
+"analytics.practice_time" = "Temps de pràctica";
+"analytics.sessions" = "Sessions";
+"analytics.all_results" = "Tots els resultats";
+"analytics.duration" = "Durada";
+"analytics.loading_progress_data" = "Carregant dades de progrés...";
+"analytics.complete_first_quiz_results" = "Completa el teu primer qüestionari per veure els resultats aquí";
+"analytics.complete_quizzes_growth_data" = "Completa qüestionaris per veure el creixement del teu vocabulari al llarg del temps";
+"analytics.last_time_period" = "Últim %@";
+"analytics.points" = "Punts";
+"analytics.accuracy" = "Precisió";
+"analytics.progress" = "Progrés";
+"analytics.streak" = "Ratxa";
+"analytics.best" = "Millor";
+"analytics.score" = "Puntuació";
+"analytics.correct_answers" = "Respostes correctes";
+"analytics.words_played" = "Paraules jugades";
+"analytics.total_questions" = "Preguntes totals";
+"analytics.difficulty_statistics" = "Estadístiques de dificultat";
+"analytics.individual_ratings" = "Valoracions individuals";
+"analytics.how_other_users_rate_difficulty" = "Com altres usuaris valoren la dificultat d'aquesta paraula";
+"analytics.no_difficulty_ratings_yet" = "Encara no hi ha valoracions de dificultat";
+"analytics.total_ratings" = "Valoracions totals";
+"analytics.view_detailed_statistics" = "Veure estadístiques detallades";
+

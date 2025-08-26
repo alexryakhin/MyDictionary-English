@@ -106,42 +106,6 @@
 "app.enter_email_address_for_notification" = "Masukkan alamat e-mel pengguna yang anda ingin hantar pemberitahuan ujian.";
 "app.user_information" = "Maklumat Pengguna";
 
-// MARK: - Analytics
-"analytics.overview" = "Gambaran Keseluruhan";
-"analytics.recent_quiz_results" = "Keputusan Kui Terkini";
-"analytics.no_quiz_results_yet" = "Belum ada keputusan kui";
-"analytics.complete_first_quiz" = "Selesaikan kui pertama anda untuk melihat keputusan di sini";
-"analytics.vocabulary_growth" = "Pertumbuhan Kosa Kata";
-"analytics.no_growth_data_yet" = "Belum ada data pertumbuhan";
-"analytics.complete_quizzes_growth" = "Selesaikan kui untuk melihat pertumbuhan kosa kata anda dari masa ke masa";
-"analytics.time_period" = "Tempoh Masa";
-"analytics.week" = "Minggu";
-"analytics.month" = "Bulan";
-"analytics.year" = "Tahun";
-"analytics.practice_time" = "Masa Latihan";
-"analytics.sessions" = "Sesi";
-"analytics.all_results" = "Semua Keputusan";
-"analytics.duration" = "Tempoh";
-"analytics.loading_progress_data" = "Memuatkan data kemajuan...";
-"analytics.complete_first_quiz_results" = "Selesaikan kui pertama anda untuk melihat keputusan di sini";
-"analytics.complete_quizzes_growth_data" = "Selesaikan kui untuk melihat pertumbuhan kosa kata anda dari masa ke masa";
-"analytics.last_time_period" = "Tempoh %-Terakhir";
-"analytics.points" = "Mata";
-"analytics.accuracy" = "Ketepatan";
-"analytics.progress" = "Kemajuan";
-"analytics.streak" = "Strik";
-"analytics.best" = "Terbaik";
-"analytics.score" = "Skor";
-"analytics.correct_answers" = "Jawapan Betul";
-"analytics.words_played" = "Perkataan Dimainkan";
-"analytics.total_questions" = "Jumlah Soalan";
-"analytics.difficulty_statistics" = "Statistik Kesukaran";
-"analytics.individual_ratings" = "Penilaian Individu";
-"analytics.how_other_users_rate_difficulty" = "Bagaimana pengguna lain menilai kesukaran perkataan ini";
-"analytics.no_difficulty_ratings_yet" = "Belum ada penilaian kesukaran";
-"analytics.total_ratings" = "Jumlah Penilaian";
-"analytics.view_detailed_statistics" = "Lihat Statistik Terperinci";
-
 // MARK: - Tags Flow
 "tags.manage_tags" = "Urus Tag";
 "tags.tags_help_text" = "Tag membantu anda menyusun perkataan anda. Setiap perkataan boleh mempunyai sehingga 5 tag.";

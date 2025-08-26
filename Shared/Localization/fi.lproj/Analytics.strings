@@ -1,0 +1,36 @@
+// MARK: - Analytics
+"analytics.overview" = "Yleiskatsaus";
+"analytics.recent_quiz_results" = "Viimeisimmät visan tulokset";
+"analytics.no_quiz_results_yet" = "Ei vielä visan tuloksia";
+"analytics.complete_first_quiz" = "Suorita ensimmäinen visasi nähdäksesi tulokset täällä";
+"analytics.vocabulary_growth" = "Sanaston kasvu";
+"analytics.no_growth_data_yet" = "Ei vielä kasvutietoja";
+"analytics.complete_quizzes_growth" = "Suorita visoja nähdäksesi sanastosi kasvavan ajan myötä";
+"analytics.time_period" = "Aikajakso";
+"analytics.week" = "Viikko";
+"analytics.month" = "Kuukausi";
+"analytics.year" = "Vuosi";
+"analytics.practice_time" = "Harjoitteluaika";
+"analytics.sessions" = "Sessiot";
+"analytics.all_results" = "Kaikki tulokset";
+"analytics.duration" = "Kesto";
+"analytics.loading_progress_data" = "Ladataan edistymistietoja...";
+"analytics.complete_first_quiz_results" = "Suorita ensimmäinen visasi nähdäksesi tulokset täällä";
+"analytics.complete_quizzes_growth_data" = "Suorita visoja nähdäksesi sanastosi kasvavan ajan myötä";
+"analytics.last_time_period" = "Viimeisin %@";
+"analytics.points" = "Pisteet";
+"analytics.accuracy" = "Tarkkuus";
+"analytics.progress" = "Edistyminen";
+"analytics.streak" = "Putki";
+"analytics.best" = "Paras";
+"analytics.score" = "Pisteet";
+"analytics.correct_answers" = "Oikeat vastaukset";
+"analytics.words_played" = "Pelatut sanat";
+"analytics.total_questions" = "Kysymysten kokonaismäärä";
+"analytics.difficulty_statistics" = "Vaikeustasotilastot";
+"analytics.individual_ratings" = "Yksilölliset arviot";
+"analytics.how_other_users_rate_difficulty" = "Kuinka muut käyttäjät arvioivat tämän sanan vaikeustason";
+"analytics.no_difficulty_ratings_yet" = "Ei vielä vaikeustasoarvioita";
+"analytics.total_ratings" = "Arvioiden kokonaismäärä";
+"analytics.view_detailed_statistics" = "Näytä yksityiskohtaiset tilastot";
+

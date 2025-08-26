@@ -106,42 +106,6 @@
 "app.enter_email_address_for_notification" = "Geben Sie die E-Mail-Adresse des Benutzers ein, an den Sie eine Testbenachrichtigung senden möchten.";
 "app.user_information" = "Benutzerinformationen";
 
-// MARK: - Analytics
-"analytics.overview" = "Übersicht";
-"analytics.recent_quiz_results" = "Neueste Quiz-Ergebnisse";
-"analytics.no_quiz_results_yet" = "Noch keine Quiz-Ergebnisse";
-"analytics.complete_first_quiz" = "Schließen Sie Ihr erstes Quiz ab, um hier Ergebnisse zu sehen";
-"analytics.vocabulary_growth" = "Wortschatzwachstum";
-"analytics.no_growth_data_yet" = "Noch keine Wachstumsdaten";
-"analytics.complete_quizzes_growth" = "Schließen Sie Quiz ab, um zu sehen, wie Ihr Wortschatz im Laufe der Zeit wächst";
-"analytics.time_period" = "Zeitraum";
-"analytics.week" = "Woche";
-"analytics.month" = "Monat";
-"analytics.year" = "Jahr";
-"analytics.practice_time" = "Übungszeit";
-"analytics.sessions" = "Sitzungen";
-"analytics.all_results" = "Alle Ergebnisse";
-"analytics.duration" = "Dauer";
-"analytics.loading_progress_data" = "Fortschrittsdaten werden geladen...";
-"analytics.complete_first_quiz_results" = "Schließen Sie Ihr erstes Quiz ab, um hier Ergebnisse zu sehen";
-"analytics.complete_quizzes_growth_data" = "Schließen Sie Quiz ab, um zu sehen, wie Ihr Wortschatz im Laufe der Zeit wächst";
-"analytics.last_time_period" = "Letzter %@";
-"analytics.points" = "Punkte";
-"analytics.accuracy" = "Genauigkeit";
-"analytics.progress" = "Fortschritt";
-"analytics.streak" = "Serie";
-"analytics.best" = "Beste";
-"analytics.score" = "Punktzahl";
-"analytics.correct_answers" = "Richtige Antworten";
-"analytics.words_played" = "Gespielte Wörter";
-"analytics.total_questions" = "Gesamtfragen";
-"analytics.difficulty_statistics" = "Schwierigkeitsstatistiken";
-"analytics.individual_ratings" = "Individuelle Bewertungen";
-"analytics.how_other_users_rate_difficulty" = "Wie andere Benutzer die Schwierigkeit dieses Wortes bewerten";
-"analytics.no_difficulty_ratings_yet" = "Noch keine Schwierigkeitsbewertungen";
-"analytics.total_ratings" = "Gesamtbewertungen";
-"analytics.view_detailed_statistics" = "Detaillierte Statistiken anzeigen";
-
 // MARK: - Tags Flow
 "tags.manage_tags" = "Tags verwalten";
 "tags.tags_help_text" = "Tags helfen Ihnen, Wörter zu organisieren. Jedes Wort kann bis zu 5 Tags haben.";
