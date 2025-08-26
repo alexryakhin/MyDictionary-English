@@ -64,4 +64,8 @@
 "permission_denied" = "Du har ikke tillatelse til denne handlingen";
 "user_not_authenticated" = "Brukeren må autentiseres";
 "dictionary_limit_reached" = "Med gratisplanen kan du bare opprette én delt ordbok. Oppgrader til Pro for ubegrensede delte ordbøker.";
+"something_went_wrong" = "Noe gikk galt";
+"error" = "Feil";
+"oops" = "Ups!";
+"unknown" = "Ukjent";
 

@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Вибрати визначення";
 "quiz_types.test_spelling_skills" = "Перевірте свої навички правопису, правильно написавши слова";
 "quiz_types.select_correct_definition" = "Виберіть правильне визначення для кожного слова";
-"quiz_types.great_job_completed_spelling_quiz" = "Чудова робота! Ви завершили тест на правопис";
-"quiz_types.great_job_completed_definition_quiz" = "Чудова робота! Ви завершили тест на визначення";
+"quiz_types.great_job_completed_spelling_quiz" = "Відмінна робота! Ви завершили тест з правопису.";
+"quiz_types.great_job_completed_definition_quiz" = "Відмінна робота! Ви завершили тест з визначень.";
+"all_results" = "Всі результати";
+"word_starts_with" = "Слово починається з";
 

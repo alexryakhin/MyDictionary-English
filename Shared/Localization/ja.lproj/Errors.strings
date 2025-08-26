@@ -63,5 +63,9 @@
 "delete_failed" = "削除に失敗";
 "permission_denied" = "この操作に対する許可がありません";
 "user_not_authenticated" = "ユーザーは認証が必要です";
-"dictionary_limit_reached" = "無料プランでは1つの共有辞書のみ作成可能です。無制限の共有辞書のためにプロにアップグレード。";
+"dictionary_limit_reached" = "無料プランでは共有辞書を1つしか作成できません。Proにアップグレードして無制限の共有辞書を利用してください。";
+"something_went_wrong" = "何か問題が発生しました";
+"error" = "エラー";
+"oops" = "おっと！";
+"unknown" = "不明";
 

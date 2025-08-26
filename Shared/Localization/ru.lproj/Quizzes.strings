@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Выбрать определение";
 "quiz_types.test_spelling_skills" = "Проверьте свои навыки правописания, правильно написав слова";
 "quiz_types.select_correct_definition" = "Выберите правильное определение для каждого слова";
-"quiz_types.great_job_completed_spelling_quiz" = "Отличная работа! Вы завершили викторину по правописанию.";
-"quiz_types.great_job_completed_definition_quiz" = "Отличная работа! Вы завершили викторину по определениям.";
+"quiz_types.great_job_completed_spelling_quiz" = "Отличная работа! Вы завершили тест по правописанию.";
+"quiz_types.great_job_completed_definition_quiz" = "Отличная работа! Вы завершили тест по определениям.";
+"all_results" = "Все результаты";
+"word_starts_with" = "Слово начинается с";
 

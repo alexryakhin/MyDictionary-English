@@ -1,12 +1,11 @@
 // MARK: - Notifications
 
-"permission_required" = "Permiso de notificación requerido";
+"permission_required" = "Permiso de Notificación Requerido";
 "permission_denied_message" = "Para recibir recordatorios diarios y alertas de palabras difíciles, por favor habilita las notificaciones en Configuración.";
 
-"time_to_practice" = "¡Hora de practicar! 📚";
+"time_to_practice" = "¡Hora de Practicar! 📚";
 "practice_vocabulary_today" = "No olvides practicar tu vocabulario hoy.";
-"practice_difficult_words" = "Practica palabras difíciles 📚";
-"difficult_words_challenge" = "Tienes palabras que necesitan más práctica. ¿Listo para el desafío?";
-"test_dictionary_invitation" = "Invitación a diccionario de prueba";
-"test_dictionary_invitation_body" = "Alguien te ha añadido al 'Diccionario de prueba'";
-
+"practice_difficult_words" = "Practica Tus Palabras Difíciles 📚";
+"difficult_words_challenge" = "Tienes palabras que necesitan más práctica. ¿Listo para un desafío?";
+"test_dictionary_invitation" = "Invitación al Diccionario de Prueba";
+"test_dictionary_invitation_body" = "Alguien te agregó a 'Diccionario de Prueba'";

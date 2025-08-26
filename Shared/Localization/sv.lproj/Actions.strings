@@ -21,7 +21,7 @@
 "manage" = "Hantera";
 "select" = "Välj";
 "select_word" = "Välj ord";
-"select_idiom" = "Välj uttryck";
+"select_idiom" = "Välj idiom";
 "select_quiz" = "Välj quiz";
 "sign_out" = "Logga ut";
 "sign_in" = "Logga in";
@@ -43,12 +43,18 @@
 "import_words" = "Importera ord";
 "export_words" = "Exportera ord";
 "stop_watching" = "Sluta följa";
-"make_viewer" = "Gör till visare";
-"make_editor" = "Gör till redigerare";
+"make_viewer" = "Gör till åskådare";
+"make_editor" = "Gör till redaktör";
 "remove" = "Ta bort";
 "skip_for_now" = "Hoppa över för nu";
-"link_google" = "Länka med Google";
-"link_apple" = "Länka med Apple";
+"link_google" = "Länka Google";
+"link_apple" = "Länka Apple";
 "toggle_like" = "Växla gilla";
 "toggle_favorite" = "Växla favorit";
 "settings" = "Inställningar";
+
+"select_value" = "Välj värde";
+"email_address" = "E-postadress";
+"name" = "Namn";
+"loading" = "Laddar...";
+"retry" = "Försök igen";

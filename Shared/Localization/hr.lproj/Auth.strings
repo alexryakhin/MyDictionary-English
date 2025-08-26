@@ -76,5 +76,7 @@
 "email" = "E-pošta";
 "apple_id" = "Apple ID";
 "google_account" = "Google račun";
+"cancel" = "Odustani";
+"save" = "Spremi";
 
 

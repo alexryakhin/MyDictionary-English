@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Pilih Definisi";
 "quiz_types.test_spelling_skills" = "Uji keterampilan ejaan Anda dengan menulis kata dengan benar";
 "quiz_types.select_correct_definition" = "Pilih definisi yang benar untuk setiap kata";
-"quiz_types.great_job_completed_spelling_quiz" = "Kerja hebat! Anda telah menyelesaikan kuis ejaan.";
-"quiz_types.great_job_completed_definition_quiz" = "Kerja hebat! Anda telah menyelesaikan kuis definisi.";
+"quiz_types.great_job_completed_spelling_quiz" = "Kerja bagus! Anda telah menyelesaikan kuis ejaan.";
+"quiz_types.great_job_completed_definition_quiz" = "Kerja bagus! Anda telah menyelesaikan kuis definisi.";
+"all_results" = "Semua hasil";
+"word_starts_with" = "Kata dimulai dengan";
 

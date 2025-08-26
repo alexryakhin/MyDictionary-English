@@ -105,5 +105,7 @@
 "quiz_types.test_spelling_skills" = "Metti alla prova le tue abilità di ortografia scrivendo correttamente le parole";
 "quiz_types.select_correct_definition" = "Scegli la definizione corretta per ogni parola";
 "quiz_types.great_job_completed_spelling_quiz" = "Ottimo lavoro! Hai completato il quiz di ortografia.";
-"quiz_types.great_job_completed_definition_quiz" = "Ottimo lavoro! Hai completato il quiz di definizione.";
+"quiz_types.great_job_completed_definition_quiz" = "Ottimo lavoro! Hai completato il quiz di definizioni.";
+"all_results" = "Tutti i risultati";
+"word_starts_with" = "La parola inizia con";
 

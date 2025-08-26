@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Wybierz definicję";
 "quiz_types.test_spelling_skills" = "Sprawdź swoje umiejętności ortograficzne, poprawnie pisząc słowa";
 "quiz_types.select_correct_definition" = "Wybierz poprawną definicję dla każdego słowa";
-"quiz_types.great_job_completed_spelling_quiz" = "Świetna robota! Ukończyłeś quiz ortograficzny.";
-"quiz_types.great_job_completed_definition_quiz" = "Świetna robota! Ukończyłeś quiz definicji.";
+"quiz_types.great_job_completed_spelling_quiz" = "Świetna robota! Ukończyłeś quiz z pisowni.";
+"quiz_types.great_job_completed_definition_quiz" = "Świetna robota! Ukończyłeś quiz z definicji.";
+"all_results" = "Wszystkie wyniki";
+"word_starts_with" = "Słowo zaczyna się od";
 

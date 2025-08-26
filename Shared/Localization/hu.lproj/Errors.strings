@@ -63,5 +63,9 @@
 "delete_failed" = "Törlés sikertelen";
 "permission_denied" = "Nincs engedélyed erre a műveletre";
 "user_not_authenticated" = "A felhasználónak hitelesítenie kell magát";
-"dictionary_limit_reached" = "Az ingyenes csomaggal csak egy megosztott szótár hozható létre. Frissíts Pro-ra a korlátlan megosztott szótárakhoz.";
+"dictionary_limit_reached" = "Az ingyenes csomaggal csak egy megosztott szótárat hozhat létre. Frissítsen Pro-ra korlátlan megosztott szótárakhoz.";
+"something_went_wrong" = "Valami hiba történt";
+"error" = "Hiba";
+"oops" = "Hoppá!";
+"unknown" = "Ismeretlen";
 

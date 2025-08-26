@@ -15,7 +15,7 @@
 "yes" = "Ja";
 "no" = "Nej";
 "try_again" = "Prøv igen";
-"view_all" = "Vis alle";
+"view_all" = "Se alle";
 "listen" = "Lyt";
 "create" = "Opret";
 "manage" = "Administrer";
@@ -32,7 +32,7 @@
 "clear" = "Ryd";
 "reset" = "Nulstil";
 "test" = "Test";
-"check" = "Tjek";
+"check" = "Kontroller";
 "verify" = "Verificer";
 "show" = "Vis";
 "send" = "Send";
@@ -42,13 +42,19 @@
 "download" = "Download";
 "import_words" = "Importer ord";
 "export_words" = "Eksporter ord";
-"stop_watching" = "Stop med at se";
-"make_viewer" = "Udnævn til seer";
-"make_editor" = "Udnævn til redaktør";
+"stop_watching" = "Stop med at følge";
+"make_viewer" = "Gør til tilskuer";
+"make_editor" = "Gør til redaktør";
 "remove" = "Fjern";
 "skip_for_now" = "Spring over for nu";
-"link_google" = "Link til Google";
-"link_apple" = "Link til Apple";
+"link_google" = "Link Google";
+"link_apple" = "Link Apple";
 "toggle_like" = "Skift like";
 "toggle_favorite" = "Skift favorit";
 "settings" = "Indstillinger";
+
+"select_value" = "Vælg værdi";
+"email_address" = "E-mailadresse";
+"name" = "Navn";
+"loading" = "Indlæser...";
+"retry" = "Prøv igen";

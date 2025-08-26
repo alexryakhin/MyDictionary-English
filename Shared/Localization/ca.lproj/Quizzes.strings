@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Tria la definició";
 "quiz_types.test_spelling_skills" = "Posa a prova les teves habilitats d'ortografia escrivint paraules correctament";
 "quiz_types.select_correct_definition" = "Selecciona la definició correcta per a cada paraula";
-"quiz_types.great_job_completed_spelling_quiz" = "Gran feina! Has completat el qüestionari d'ortografia.";
-"quiz_types.great_job_completed_definition_quiz" = "Gran feina! Has completat el qüestionari de definició.";
+"quiz_types.great_job_completed_spelling_quiz" = "Excel·lent feina! Has completat el qüestionari d'ortografia.";
+"quiz_types.great_job_completed_definition_quiz" = "Excel·lent feina! Has completat el qüestionari de definicions.";
+"all_results" = "Tots els resultats";
+"word_starts_with" = "La paraula comença per";
 

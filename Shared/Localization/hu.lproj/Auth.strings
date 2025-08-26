@@ -76,5 +76,7 @@
 "email" = "E-mail";
 "apple_id" = "Apple ID";
 "google_account" = "Google fiók";
+"cancel" = "Mégse";
+"save" = "Mentés";
 
 

@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Alege Definiția";
 "quiz_types.test_spelling_skills" = "Testează-ți abilitățile de ortografie scriind corect cuvintele";
 "quiz_types.select_correct_definition" = "Alege definiția corectă pentru fiecare cuvânt";
-"quiz_types.great_job_completed_spelling_quiz" = "Bună treabă! Ai finalizat testul de ortografie.";
-"quiz_types.great_job_completed_definition_quiz" = "Bună treabă! Ai finalizat testul de definiție.";
+"quiz_types.great_job_completed_spelling_quiz" = "Excelent! Ai completat testul de ortografie.";
+"quiz_types.great_job_completed_definition_quiz" = "Excelent! Ai completat testul de definiții.";
+"all_results" = "Toate rezultatele";
+"word_starts_with" = "Cuvântul începe cu";
 

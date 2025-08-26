@@ -64,5 +64,9 @@
 "delete_failed" = "Brisanje nije uspjelo";
 "permission_denied" = "Nemate dopuštenje za izvođenje ove radnje";
 "user_not_authenticated" = "Korisnik mora biti autentificiran";
-"dictionary_limit_reached" = "Samo jedan zajednički rječnik može se stvoriti s besplatnim planom. Nadogradite na Pro za neograničene zajedničke rječnike.";
+"dictionary_limit_reached" = "S besplatnim planom možete stvoriti samo jedan dijeljeni rječnik. Nadogradite na Pro za neograničene dijeljene rječnike.";
+"something_went_wrong" = "Nešto je pošlo po krivu";
+"error" = "Greška";
+"oops" = "Ups!";
+"unknown" = "Nepoznato";
 

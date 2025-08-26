@@ -74,5 +74,7 @@
 "email" = "E-mail";
 "apple_id" = "Apple ID";
 "google_account" = "Účet Google";
+"cancel" = "Zrušit";
+"save" = "Uložit";
 
 

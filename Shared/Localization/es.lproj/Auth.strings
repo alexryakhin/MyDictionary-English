@@ -76,5 +76,7 @@
 "email" = "Correo electrónico";
 "apple_id" = "ID de Apple";
 "google_account" = "Cuenta de Google";
+"cancel" = "Cancelar";
+"save" = "Guardar";
 
 

@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Definíció választása";
 "quiz_types.test_spelling_skills" = "Teszteld helyesírási készségeidet a szavak helyes leírásával";
 "quiz_types.select_correct_definition" = "Válaszd ki a helyes definíciót minden szóhoz";
-"quiz_types.great_job_completed_spelling_quiz" = "Nagyszerű munka! Befejezted a helyesírási kvizt.";
-"quiz_types.great_job_completed_definition_quiz" = "Nagyszerű munka! Befejezted a definíció kvizt.";
+"quiz_types.great_job_completed_spelling_quiz" = "Nagyszerű munka! Befejezted a helyesírási kvízt.";
+"quiz_types.great_job_completed_definition_quiz" = "Nagyszerű munka! Befejezted a definíciós kvízt.";
+"all_results" = "Minden eredmény";
+"word_starts_with" = "A szó ezzel kezdődik";
 

@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Odaberi definiciju";
 "quiz_types.test_spelling_skills" = "Testirajte svoje vještine pravopisa točnim pisanjem riječi";
 "quiz_types.select_correct_definition" = "Odaberite točnu definiciju za svaku riječ";
-"quiz_types.great_job_completed_spelling_quiz" = "Odličan posao! Završili ste kviz pravopisa.";
-"quiz_types.great_job_completed_definition_quiz" = "Odličan posao! Završili ste kviz definicija.";
+"quiz_types.great_job_completed_spelling_quiz" = "Odličan posao! Završili ste kviz iz pravopisa.";
+"quiz_types.great_job_completed_definition_quiz" = "Odličan posao! Završili ste kviz iz definicija.";
+"all_results" = "Svi rezultati";
+"word_starts_with" = "Riječ počinje s";
 

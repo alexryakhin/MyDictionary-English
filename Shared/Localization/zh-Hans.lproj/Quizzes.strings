@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "选择定义";
 "quiz_types.test_spelling_skills" = "通过正确拼写单词测试你的拼写技能";
 "quiz_types.select_correct_definition" = "为每个单词选择正确的定义";
-"quiz_types.great_job_completed_spelling_quiz" = "干得好！你已完成拼写测验。";
-"quiz_types.great_job_completed_definition_quiz" = "干得好！你已完成定义测验。";
+"quiz_types.great_job_completed_spelling_quiz" = "干得好！您已完成拼写测验。";
+"quiz_types.great_job_completed_definition_quiz" = "干得好！您已完成定义测验。";
+"all_results" = "所有结果";
+"word_starts_with" = "单词以以下开头";
 

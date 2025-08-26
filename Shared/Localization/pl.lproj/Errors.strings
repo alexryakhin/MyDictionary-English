@@ -63,5 +63,9 @@
 "delete_failed" = "Usuwanie nie powiodło się";
 "permission_denied" = "Nie masz uprawnień do tej akcji";
 "user_not_authenticated" = "Użytkownik musi zostać uwierzytelniony";
-"dictionary_limit_reached" = "W planie darmowym możesz utworzyć tylko jeden wspólny słownik. Uaktualnij do wersji Pro dla nieograniczonych wspólnych słowników.";
+"dictionary_limit_reached" = "Z darmowym planem możesz utworzyć tylko jeden współdzielony słownik. Przejdź na Pro, aby uzyskać nieograniczone współdzielone słowniki.";
+"something_went_wrong" = "Coś poszło nie tak";
+"error" = "Błąd";
+"oops" = "Ups!";
+"unknown" = "Nieznany";
 

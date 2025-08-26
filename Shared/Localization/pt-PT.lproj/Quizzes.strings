@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Escolher Definição";
 "quiz_types.test_spelling_skills" = "Teste as suas competências de ortografia escrevendo palavras correctamente";
 "quiz_types.select_correct_definition" = "Escolha a definição correcta para cada palavra";
-"quiz_types.great_job_completed_spelling_quiz" = "Óptimo trabalho! Completou o questionário de ortografia.";
-"quiz_types.great_job_completed_definition_quiz" = "Óptimo trabalho! Completou o questionário de definição.";
+"quiz_types.great_job_completed_spelling_quiz" = "Excelente trabalho! Completou o questionário de ortografia.";
+"quiz_types.great_job_completed_definition_quiz" = "Excelente trabalho! Completou o questionário de definições.";
+"all_results" = "Todos os resultados";
+"word_starts_with" = "A palavra começa com";
 

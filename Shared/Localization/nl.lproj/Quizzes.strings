@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Definitie kiezen";
 "quiz_types.test_spelling_skills" = "Test je spellingvaardigheden door woorden correct te schrijven";
 "quiz_types.select_correct_definition" = "Kies de juiste definitie voor elk woord";
-"quiz_types.great_job_completed_spelling_quiz" = "Goed gedaan! Je hebt de spelquiz voltooid.";
-"quiz_types.great_job_completed_definition_quiz" = "Goed gedaan! Je hebt de definitiequiz voltooid.";
+"quiz_types.great_job_completed_spelling_quiz" = "Geweldig werk! Je hebt de spellingquiz voltooid.";
+"quiz_types.great_job_completed_definition_quiz" = "Geweldig werk! Je hebt de definitiequiz voltooid.";
+"all_results" = "Alle resultaten";
+"word_starts_with" = "Het woord begint met";
 

@@ -64,5 +64,9 @@
 "delete_failed" = "Verwijderen mislukt";
 "permission_denied" = "Je hebt geen toestemming om deze actie uit te voeren";
 "user_not_authenticated" = "Gebruiker moet worden geauthenticeerd";
-"dictionary_limit_reached" = "Met het gratis plan kan slechts 1 gedeeld woordenboek worden aangemaakt. Upgrade naar Pro voor onbeperkte gedeelde woordenboeken.";
+"dictionary_limit_reached" = "Met het gratis abonnement kun je slechts één gedeeld woordenboek maken. Upgrade naar Pro voor onbeperkte gedeelde woordenboeken.";
+"something_went_wrong" = "Er is iets misgegaan";
+"error" = "Fout";
+"oops" = "Oeps!";
+"unknown" = "Onbekend";
 

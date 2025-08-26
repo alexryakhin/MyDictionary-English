@@ -64,5 +64,9 @@
 "delete_failed" = "刪除失敗";
 "permission_denied" = "你無權執行此操作";
 "user_not_authenticated" = "用戶必須經過身份驗證";
-"dictionary_limit_reached" = "免費計劃只能創建 1 個共享詞典。升級到專業版以創建無限共享詞典。";
+"dictionary_limit_reached" = "免費計劃只能創建一個共享詞典。升級到Pro以獲得無限共享詞典。";
+"something_went_wrong" = "出現了一些問題";
+"error" = "錯誤";
+"oops" = "哎呀！";
+"unknown" = "未知";
 

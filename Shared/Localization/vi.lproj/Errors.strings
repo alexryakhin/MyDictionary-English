@@ -63,5 +63,9 @@
 "delete_failed" = "Xóa thất bại";
 "permission_denied" = "Bạn không có quyền thực hiện hành động này";
 "user_not_authenticated" = "Người dùng cần được xác thực";
-"dictionary_limit_reached" = "Với gói miễn phí, bạn chỉ có thể tạo một từ điển chia sẻ. Nâng cấp lên Pro để tạo từ điển chia sẻ không giới hạn.";
+"dictionary_limit_reached" = "Với gói miễn phí, bạn chỉ có thể tạo một từ điển chia sẻ. Nâng cấp lên Pro để có từ điển chia sẻ không giới hạn.";
+"something_went_wrong" = "Có gì đó đã xảy ra sai";
+"error" = "Lỗi";
+"oops" = "Rất tiếc!";
+"unknown" = "Không xác định";
 

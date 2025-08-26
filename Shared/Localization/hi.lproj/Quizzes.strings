@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "परिभाषा चुनें";
 "quiz_types.test_spelling_skills" = "शब्दों को सही ढंग से लिखकर अपनी वर्तनी कौशल का परीक्षण करें";
 "quiz_types.select_correct_definition" = "प्रत्येक शब्द के लिए सही परिभाषा चुनें";
-"quiz_types.great_job_completed_spelling_quiz" = "शानदार काम! आपने वर्तनी क्विज़ पूरा किया।";
-"quiz_types.great_job_completed_definition_quiz" = "शानदार काम! आपने परिभाषा क्विज़ पूरा किया।";
+"quiz_types.great_job_completed_spelling_quiz" = "बहुत अच्छा काम! आपने वर्तनी प्रश्नोत्तरी पूरी कर ली है।";
+"quiz_types.great_job_completed_definition_quiz" = "बहुत अच्छा काम! आपने परिभाषा प्रश्नोत्तरी पूरी कर ली है।";
+"all_results" = "सभी परिणाम";
+"word_starts_with" = "शब्द इससे शुरू होता है";
 

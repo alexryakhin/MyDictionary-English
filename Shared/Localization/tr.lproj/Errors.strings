@@ -63,5 +63,9 @@
 "delete_failed" = "Silme başarısız";
 "permission_denied" = "Bu işlem için izniniz yok";
 "user_not_authenticated" = "Kullanıcının kimliği doğrulanmalı";
-"dictionary_limit_reached" = "Ücretsiz planla yalnızca bir paylaşılan sözlük oluşturabilirsiniz. Sınırsız paylaşılan sözlükler için Pro'ya yükseltin.";
+"dictionary_limit_reached" = "Ücretsiz planla sadece bir paylaşılan sözlük oluşturabilirsiniz. Sınırsız paylaşılan sözlükler için Pro'ya yükseltin.";
+"something_went_wrong" = "Bir şeyler ters gitti";
+"error" = "Hata";
+"oops" = "Ups!";
+"unknown" = "Bilinmeyen";
 

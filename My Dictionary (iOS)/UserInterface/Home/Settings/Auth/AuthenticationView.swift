@@ -134,7 +134,7 @@ struct AuthenticationView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "Sign In",
+            title: Loc.Actions.signIn,
             mode: .inline,
             trailingContent: {
                 HeaderButton(Loc.Actions.cancel) {

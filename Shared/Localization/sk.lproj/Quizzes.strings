@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Vybrať definíciu";
 "quiz_types.test_spelling_skills" = "Otestujte svoje pravopisné schopnosti správnym písaním slov";
 "quiz_types.select_correct_definition" = "Vyberte správnu definíciu pre každé slovo";
-"quiz_types.great_job_completed_spelling_quiz" = "Skvelá práca! Dokončili ste kvíz pravopisu.";
-"quiz_types.great_job_completed_definition_quiz" = "Skvelá práca! Dokončili ste kvíz definícií.";
+"quiz_types.great_job_completed_spelling_quiz" = "Výborná práca! Dokončili ste kvíz z pravopisu.";
+"quiz_types.great_job_completed_definition_quiz" = "Výborná práca! Dokončili ste kvíz z definícií.";
+"all_results" = "Všetky výsledky";
+"word_starts_with" = "Slovo začína na";
 

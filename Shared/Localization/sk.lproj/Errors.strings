@@ -63,5 +63,9 @@
 "delete_failed" = "Vymazanie zlyhalo";
 "permission_denied" = "Nemáte povolenie na túto akciu";
 "user_not_authenticated" = "Používateľ musí byť autentifikovaný";
-"dictionary_limit_reached" = "S bezplatným plánom môžete vytvoriť iba jeden zdieľaný slovník. Aktualizujte na Pro pre neobmedzené zdieľané slovníky.";
+"dictionary_limit_reached" = "S bezplatným plánom môžete vytvoriť len jeden zdieľaný slovník. Inovujte na Pro pre neobmedzené zdieľané slovníky.";
+"something_went_wrong" = "Niečo sa pokazilo";
+"error" = "Chyba";
+"oops" = "Ups!";
+"unknown" = "Neznámy";
 

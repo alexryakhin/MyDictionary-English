@@ -63,5 +63,9 @@
 "delete_failed" = "Falha na exclusão";
 "permission_denied" = "Você não tem permissão para esta ação";
 "user_not_authenticated" = "O usuário precisa ser autenticado";
-"dictionary_limit_reached" = "Com o plano gratuito, você pode criar apenas um dicionário compartilhado. Atualize para o Pro para dicionários compartilhados ilimitados.";
+"dictionary_limit_reached" = "Com o plano gratuito, você só pode criar um dicionário compartilhado. Atualize para Pro para dicionários compartilhados ilimitados.";
+"something_went_wrong" = "Algo deu errado";
+"error" = "Erro";
+"oops" = "Ops!";
+"unknown" = "Desconhecido";
 

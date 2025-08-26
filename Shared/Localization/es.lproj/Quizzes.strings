@@ -107,3 +107,6 @@
 "quiz_types.great_job_completed_spelling_quiz" = "¡Gran trabajo! Has completado el cuestionario de ortografía.";
 "quiz_types.great_job_completed_definition_quiz" = "¡Gran trabajo! Has completado el cuestionario de definiciones.";
 
+"all_results" = "Todos los resultados";
+"word_starts_with" = "La palabra comienza con";
+

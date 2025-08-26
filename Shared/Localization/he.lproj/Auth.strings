@@ -75,7 +75,9 @@
 "search_by" = "חפש לפי";
 "unknown_user" = "משתמש לא ידוע";
 "email" = "דואל";
-"apple_id" = "מזהה Apple";
+"apple_id" = "Apple ID";
 "google_account" = "חשבון Google";
+"cancel" = "ביטול";
+"save" = "שמור";
 
 

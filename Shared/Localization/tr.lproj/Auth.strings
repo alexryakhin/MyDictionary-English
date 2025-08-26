@@ -74,7 +74,9 @@
 "search_by" = "Şuna göre ara";
 "unknown_user" = "Bilinmeyen kullanıcı";
 "email" = "E-posta";
-"apple_id" = "Apple Kimliği";
-"google_account" = "Google Hesabı";
+"apple_id" = "Apple ID";
+"google_account" = "Google hesabı";
+"cancel" = "İptal";
+"save" = "Kaydet";
 
 

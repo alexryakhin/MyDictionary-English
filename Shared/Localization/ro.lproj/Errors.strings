@@ -63,5 +63,9 @@
 "delete_failed" = "Ștergere eșuată";
 "permission_denied" = "Nu ai permisiunea pentru această acțiune";
 "user_not_authenticated" = "Utilizatorul trebuie autentificat";
-"dictionary_limit_reached" = "Cu planul gratuit, poți crea doar un dicționar partajat. Actualizează la Pro pentru dicționare partajate nelimitate.";
+"dictionary_limit_reached" = "Cu planul gratuit poți crea doar un dicționar partajat. Actualizează la Pro pentru dicționare partajate nelimitate.";
+"something_went_wrong" = "Ceva nu a mers bine";
+"error" = "Eroare";
+"oops" = "Ups!";
+"unknown" = "Necunoscut";
 

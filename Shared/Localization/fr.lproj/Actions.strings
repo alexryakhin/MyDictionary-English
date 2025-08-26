@@ -52,3 +52,9 @@
 "toggle_like" = "Basculer le like";
 "toggle_favorite" = "Basculer le favori";
 "settings" = "Paramètres";
+
+"select_value" = "Sélectionner une valeur";
+"email_address" = "Adresse e-mail";
+"name" = "Nom";
+"loading" = "Chargement...";
+"retry" = "Réessayer";

@@ -107,3 +107,6 @@
 "quiz_types.great_job_completed_spelling_quiz" = "Excellent travail ! Vous avez terminé le quiz d'orthographe.";
 "quiz_types.great_job_completed_definition_quiz" = "Excellent travail ! Vous avez terminé le quiz de définition.";
 
+"all_results" = "Tous les résultats";
+"word_starts_with" = "Le mot commence par";
+

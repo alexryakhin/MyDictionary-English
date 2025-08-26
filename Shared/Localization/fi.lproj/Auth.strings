@@ -76,5 +76,7 @@
 "email" = "Sähköposti";
 "apple_id" = "Apple ID";
 "google_account" = "Google-tili";
+"cancel" = "Peruuta";
+"save" = "Tallenna";
 
 

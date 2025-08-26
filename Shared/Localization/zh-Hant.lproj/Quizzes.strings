@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "選擇定義";
 "quiz_types.test_spelling_skills" = "通過正確拼寫單詞測試你的拼寫技能";
 "quiz_types.select_correct_definition" = "為每個單詞選擇正確的定義";
-"quiz_types.great_job_completed_spelling_quiz" = "幹得好！你已完成拼寫測驗。";
-"quiz_types.great_job_completed_definition_quiz" = "幹得好！你已完成定義測驗。";
+"quiz_types.great_job_completed_spelling_quiz" = "做得好！您已完成拼寫測驗。";
+"quiz_types.great_job_completed_definition_quiz" = "做得好！您已完成定義測驗。";
+"all_results" = "所有結果";
+"word_starts_with" = "單字以以下開頭";
 

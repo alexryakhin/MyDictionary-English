@@ -64,4 +64,8 @@
 "permission_denied" = "Non hai i permessi per questa azione";
 "user_not_authenticated" = "L'utente deve essere autenticato";
 "dictionary_limit_reached" = "Con il piano gratuito puoi creare solo un dizionario condiviso. Passa a Pro per dizionari condivisi illimitati.";
+"something_went_wrong" = "Qualcosa è andato storto";
+"error" = "Errore";
+"oops" = "Ops!";
+"unknown" = "Sconosciuto";
 

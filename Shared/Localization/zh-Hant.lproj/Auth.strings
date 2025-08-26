@@ -76,5 +76,7 @@
 "email" = "電子郵件";
 "apple_id" = "Apple ID";
 "google_account" = "Google帳戶";
+"cancel" = "取消";
+"save" = "儲存";
 
 

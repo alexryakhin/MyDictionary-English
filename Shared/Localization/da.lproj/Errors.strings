@@ -64,5 +64,9 @@
 "delete_failed" = "Sletning mislykkedes";
 "permission_denied" = "Du har ikke tilladelse til at udføre denne handling";
 "user_not_authenticated" = "Bruger skal være autentificeret";
-"dictionary_limit_reached" = "Kun én delt ordbog kan oprettes med gratis planen. Opgrader til Pro for ubegrænsede delte ordbøger.";
+"dictionary_limit_reached" = "Med den gratis plan kan du kun oprette én delt ordbog. Opgrader til Pro for ubegrænsede delte ordbøger.";
+"something_went_wrong" = "Noget gik galt";
+"error" = "Fejl";
+"oops" = "Ups!";
+"unknown" = "Ukendt";
 

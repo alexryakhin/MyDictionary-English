@@ -63,5 +63,9 @@
 "delete_failed" = "Hapus Gagal";
 "permission_denied" = "Anda tidak memiliki izin untuk melakukan tindakan ini";
 "user_not_authenticated" = "Pengguna harus diotentikasi";
-"dictionary_limit_reached" = "Hanya satu kamus bersama yang dapat dibuat dengan paket gratis. Tingkatkan ke Pro untuk kamus bersama tanpa batas.";
+"dictionary_limit_reached" = "Dengan paket gratis, Anda hanya dapat membuat satu kamus bersama. Upgrade ke Pro untuk kamus bersama tanpa batas.";
+"something_went_wrong" = "Sesuatu yang salah";
+"error" = "Kesalahan";
+"oops" = "Ups!";
+"unknown" = "Tidak diketahui";
 

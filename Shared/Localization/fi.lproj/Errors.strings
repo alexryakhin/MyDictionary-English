@@ -64,5 +64,9 @@
 "delete_failed" = "Poistaminen epäonnistui";
 "permission_denied" = "Sinulla ei ole oikeutta suorittaa tätä toimintoa";
 "user_not_authenticated" = "Käyttäjän on oltava todennettu";
-"dictionary_limit_reached" = "Ilmaisella suunnitelmalla voi luoda vain yhden jaetun sanakirjan. Päivitä Pro-versioon rajoittamattomiin jaettuihin sanakirjoihin.";
+"dictionary_limit_reached" = "Ilmaisella suunnitelmalla voit luoda vain yhden jaetun sanakirjan. Päivitä Pro:ksi rajoittamattomille jaetuille sanakirjoille.";
+"something_went_wrong" = "Jokin meni pieleen";
+"error" = "Virhe";
+"oops" = "Hups!";
+"unknown" = "Tuntematon";
 

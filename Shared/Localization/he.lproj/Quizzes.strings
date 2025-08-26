@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "בחירת הגדרה";
 "quiz_types.test_spelling_skills" = "בדוק את כישורי האיות שלך על ידי כתיבת מילים בצורה נכונה";
 "quiz_types.select_correct_definition" = "בחר את ההגדרה הנכונה לכל מילה";
-"quiz_types.great_job_completed_spelling_quiz" = "עבודה נהדרת! השלמת את חידון האיות.";
-"quiz_types.great_job_completed_definition_quiz" = "עבודה נהדרת! השלמת את חידון ההגדרות.";
+"quiz_types.great_job_completed_spelling_quiz" = "עבודה נהדרת! השלמת את מבחן האיות.";
+"quiz_types.great_job_completed_definition_quiz" = "עבודה נהדרת! השלמת את מבחן ההגדרות.";
+"all_results" = "כל התוצאות";
+"word_starts_with" = "המילה מתחילה ב";
 

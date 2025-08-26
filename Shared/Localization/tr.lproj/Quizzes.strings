@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Tanımı Seç";
 "quiz_types.test_spelling_skills" = "Kelimeleri doğru yazarak yazım becerilerinizi test edin";
 "quiz_types.select_correct_definition" = "Her kelime için doğru tanımı seçin";
-"quiz_types.great_job_completed_spelling_quiz" = "Harika iş! Yazım testini tamamladınız.";
-"quiz_types.great_job_completed_definition_quiz" = "Harika iş! Tanım testini tamamladınız.";
+"quiz_types.great_job_completed_spelling_quiz" = "Harika iş! Yazım sınavını tamamladınız.";
+"quiz_types.great_job_completed_definition_quiz" = "Harika iş! Tanım sınavını tamamladınız.";
+"all_results" = "Tüm sonuçlar";
+"word_starts_with" = "Kelime şununla başlıyor";
 

@@ -65,5 +65,7 @@
 "user_not_authenticated" = "El usuario debe estar autenticado";
 "dictionary_limit_reached" = "Con el plan gratuito, solo puedes crear un diccionario compartido. Actualiza a Pro para diccionarios compartidos ilimitados.";
 
-
+"something_went_wrong" = "Algo salió mal";
 "error" = "Error";
+"oops" = "¡Ups!";
+"unknown" = "Desconocido";

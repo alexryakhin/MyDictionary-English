@@ -23,8 +23,8 @@
 "select_word" = "Vybrat slovo";
 "select_idiom" = "Vybrat idiom";
 "select_quiz" = "Vybrat kvíz";
-"sign_out" = "Odhlásit se";
-"sign_in" = "Přihlásit se";
+"sign_out" = "Odhlásit";
+"sign_in" = "Přihlásit";
 "upgrade" = "Upgradovat";
 "learn_more" = "Zjistit více";
 "copy" = "Kopírovat";
@@ -46,9 +46,15 @@
 "make_viewer" = "Nastavit jako diváka";
 "make_editor" = "Nastavit jako editora";
 "remove" = "Odebrat";
-"skip_for_now" = "Prozatím přeskočit";
-"link_google" = "Propojit s Googlem";
+"skip_for_now" = "Přeskočit prozatím";
+"link_google" = "Propojit s Google";
 "link_apple" = "Propojit s Apple";
-"toggle_like" = "Přepnout lajk";
+"toggle_like" = "Přepnout like";
 "toggle_favorite" = "Přepnout oblíbené";
 "settings" = "Nastavení";
+
+"select_value" = "Vybrat hodnotu";
+"email_address" = "E-mailová adresa";
+"name" = "Jméno";
+"loading" = "Načítání...";
+"retry" = "Zkusit znovu";

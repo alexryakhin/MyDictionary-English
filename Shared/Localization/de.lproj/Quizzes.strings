@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Definition auswählen";
 "quiz_types.test_spelling_skills" = "Testen Sie Ihre Rechtschreibfähigkeiten, indem Sie Wörter korrekt schreiben";
 "quiz_types.select_correct_definition" = "Wählen Sie die richtige Definition für jedes Wort";
-"quiz_types.great_job_completed_spelling_quiz" = "Großartige Arbeit! Sie haben das Rechtschreibquiz abgeschlossen.";
-"quiz_types.great_job_completed_definition_quiz" = "Großartige Arbeit! Sie haben das Definitionsquiz abgeschlossen.";
+"quiz_types.great_job_completed_spelling_quiz" = "Großartige Arbeit! Du hast das Rechtschreibquiz abgeschlossen.";
+"quiz_types.great_job_completed_definition_quiz" = "Großartige Arbeit! Du hast das Definitionsquiz abgeschlossen.";
+"all_results" = "Alle Ergebnisse";
+"word_starts_with" = "Das Wort beginnt mit";
 

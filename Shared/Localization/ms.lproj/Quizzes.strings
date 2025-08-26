@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Pilih Definisi";
 "quiz_types.test_spelling_skills" = "Uji kemahiran ejaan anda dengan mengeja perkataan dengan betul";
 "quiz_types.select_correct_definition" = "Pilih definisi yang betul untuk setiap perkataan";
-"quiz_types.great_job_completed_spelling_quiz" = "Kerja hebat! Anda telah selesai kui ejaan.";
-"quiz_types.great_job_completed_definition_quiz" = "Kerja hebat! Anda telah selesai kui definisi.";
+"quiz_types.great_job_completed_spelling_quiz" = "Kerja yang bagus! Anda telah menamatkan kuiz ejaan.";
+"quiz_types.great_job_completed_definition_quiz" = "Kerja yang bagus! Anda telah menamatkan kuiz definisi.";
+"all_results" = "Semua hasil";
+"word_starts_with" = "Perkataan bermula dengan";
 

@@ -52,3 +52,9 @@
 "toggle_like" = "Alternar me gusta";
 "toggle_favorite" = "Alternar favorito";
 "settings" = "Configuración";
+
+"select_value" = "Seleccionar un valor";
+"email_address" = "Dirección de correo electrónico";
+"name" = "Nombre";
+"loading" = "Cargando...";
+"retry" = "Reintentar";

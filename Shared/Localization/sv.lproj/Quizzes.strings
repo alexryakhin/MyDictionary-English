@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Välj definition";
 "quiz_types.test_spelling_skills" = "Testa dina stavningsförmågor genom att stava ord korrekt";
 "quiz_types.select_correct_definition" = "Välj rätt definition för varje ord";
-"quiz_types.great_job_completed_spelling_quiz" = "Bra jobbat! Du har slutfört stavningsquizet.";
-"quiz_types.great_job_completed_definition_quiz" = "Bra jobbat! Du har slutfört definitionsquizet.";
+"quiz_types.great_job_completed_spelling_quiz" = "Bra jobbat! Du har slutfört stavningsquizzen.";
+"quiz_types.great_job_completed_definition_quiz" = "Bra jobbat! Du har slutfört definitionsquizzen.";
+"all_results" = "Alla resultat";
+"word_starts_with" = "Ordet börjar med";
 

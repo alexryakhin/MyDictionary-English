@@ -63,5 +63,9 @@
 "delete_failed" = "Padam gagal";
 "permission_denied" = "Anda tiada kebenaran untuk tindakan ini";
 "user_not_authenticated" = "Pengguna perlu disahkan";
-"dictionary_limit_reached" = "Dengan pelan percuma, anda hanya boleh mencipta satu kamus kongsi. Naik taraf ke Pro untuk kamus kongsi tanpa had.";
+"dictionary_limit_reached" = "Dengan pelan percuma, anda hanya boleh membuat satu kamus kongsi. Naik taraf ke Pro untuk kamus kongsi tanpa had.";
+"something_went_wrong" = "Sesuatu yang salah";
+"error" = "Ralat";
+"oops" = "Oops!";
+"unknown" = "Tidak diketahui";
 

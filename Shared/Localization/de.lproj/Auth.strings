@@ -1,7 +1,7 @@
 // MARK: - Authentication
-"sign_in_before_subscribing" = "Melden Sie sich an, bevor Sie abonnieren";
+"sign_in_before_subscribing" = "Vor dem Abonnieren anmelden";
 "sign_in_with_google" = "Mit Google anmelden";
-"can_always_sign_in_later" = "Sie können sich später über die Einstellungen anmelden";
+"can_always_sign_in_later" = "Sie können sich jederzeit später in den Einstellungen anmelden";
 "link_additional_accounts" = "Zusätzliche Konten verknüpfen";
 "accounts_linked_successfully" = "Konten erfolgreich verknüpft";
 "sign_out_confirmation" = "Abmelden";
@@ -9,22 +9,22 @@
 "cloud_sync_disabled" = "Cloud-Synchronisation wird deaktiviert";
 "sign_out" = "Abmelden";
 "no_worries_wont_remove_words" = "Keine Sorge! Wir werden Ihre Wörter nicht entfernen.";
-"vocabulary_stay_on_device" = "Ihr Wortschatz bleibt auf diesem Gerät. Wenn Sie sich mit einem anderen Konto anmelden, werden Ihre Daten zusammengeführt.";
+"vocabulary_stay_on_device" = "Ihr Vokabular bleibt auf diesem Gerät. Wenn Sie sich mit einem anderen Konto anmelden, werden Ihre Daten zusammengeführt.";
 "all_vocabulary_remain_device" = "Alle Ihre Wörter, Definitionen und Fortschritte bleiben auf diesem Gerät. Sie können die App weiterhin offline verwenden.";
 "word_lists_shared_data_cleared" = "Wortlisten und geteilte Daten werden gelöscht. Wenn Sie sich mit einem anderen Konto anmelden, werden Ihre lokalen Wörter mit den Daten des neuen Kontos zusammengeführt.";
 "sign_in_to_access_word_lists" = "Melden Sie sich an, um auf Ihre Wortlisten auf allen Geräten zuzugreifen und mit anderen zusammenzuarbeiten.";
 "link_google" = "Mit Google verknüpfen";
 "link_apple" = "Mit Apple verknüpfen";
 "sign_in_to_sync_word_lists" = "Melden Sie sich an, um Wortlisten zu synchronisieren";
-"sign_out_error_title" = "Hoppla!";
+"sign_out_error_title" = "Oh nein!";
 "sign_out_error_message" = "Beim Abmelden ist etwas schiefgelaufen. Bitte versuchen Sie es später erneut.";
 "sign_in_required_for_restore" = "Anmeldung erforderlich, um Ihre Käufe wiederherzustellen.";
-"sign_in_required_for_pro_features" = "Anmeldung erforderlich, um auf Pro-Funktionen wie %@ zuzugreifen.";
+"sign_in_required_for_pro_features" = "Anmeldung erforderlich, um Pro-Funktionen wie %@ zu nutzen.";
 "sign_in_failed" = "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.";
 "sign_out_failed" = "Abmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.";
 "user_not_found" = "Benutzer nicht gefunden.";
-"network_error" = "Netzwerkfehler. Überprüfen Sie Ihre Verbindung.";
-"account_linking_failed" = "Kontenverknüpfung fehlgeschlagen. Bitte versuchen Sie es erneut.";
+"network_error" = "Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.";
+"account_linking_failed" = "Kontoverknüpfung fehlgeschlagen. Bitte versuchen Sie es erneut.";
 
 // Registration Benefits
 "registration_benefits" = "Registrierungsvorteile";
@@ -35,28 +35,28 @@
 "account_registration" = "Kontoregistrierung";
 "register_for_cross_platform_access" = "Registrieren Sie sich, um auf Ihr Abonnement auf allen Ihren Geräten zuzugreifen und Ihren Fortschritt zu synchronisieren";
 "active_subscription_notification" = "Sie haben ein aktives Abonnement!";
-"register_to_unlock_cross_platform" = "Registrieren Sie sich, um plattformübergreifenden Zugriff freizuschalten";
-"register_now" = "Jetzt Registrieren";
+"register_to_unlock_cross_platform" = "Registrieren Sie sich, um plattformübergreifenden Zugang freizuschalten";
+"register_now" = "Jetzt registrieren";
 
 // Subscription Security
-"subscription_access_restricted" = "Abonnementzugriff Eingeschränkt";
-"subscription_associated_different_account" = "Dieses Abonnement ist mit einem anderen Konto verknüpft. Bitte melden Sie sich mit dem Konto an, das dieses Abonnement gekauft hat, um auf Pro-Funktionen zuzugreifen.";
+"subscription_access_restricted" = "Abonnementzugang eingeschränkt";
+"subscription_associated_different_account" = "Dieses Abonnement ist mit einem anderen Konto verknüpft. Bitte melden Sie sich mit dem Konto an, das dieses Abonnement gekauft hat, um Pro-Funktionen zu nutzen.";
 
 // Profile
 "profile" = "Profil";
-"account_linking" = "Kontenverknüpfung";
-"account_linking_description" = "Um auf Ihr Abonnement auf Android-Geräten zuzugreifen, müssen Sie ein Google-Konto verknüpfen. Um Abonnements plattformübergreifend zu teilen, verknüpfen Sie beide Konten.";
-"link_google_for_android" = "Google-Konto Verknüpfen";
-"link_apple_for_cross_platform" = "Apple ID Verknüpfen";
+"account_linking" = "Kontoverknüpfung";
+"account_linking_description" = "Um auf Ihr Abonnement auf Android-Geräten zuzugreifen, müssen Sie ein Google-Konto verknüpfen. Für plattformübergreifende Abonnementfreigabe verknüpfen Sie beide Konten.";
+"link_google_for_android" = "Google-Konto verknüpfen";
+"link_apple_for_cross_platform" = "Apple ID verknüpfen";
 "current_account" = "Aktuelles Konto";
 "linked_accounts" = "Verknüpfte Konten";
 "no_linked_accounts" = "Keine verknüpften Konten";
 
-"cross_platform_button_description" = "Für die plattformübergreifende Abonnementfreigabe";
+"cross_platform_button_description" = "Für plattformübergreifende Abonnementfreigabe";
 "nickname" = "Spitzname";
 "nickname_current" = "Aktueller Spitzname";
 "nickname_not_set" = "Spitzname ist nicht gesetzt";
-"nickname_description" = "Legen Sie einen eindeutigen Spitznamen fest, den andere verwenden können, um Sie zu finden und zu freigegebenen Wörterbüchern hinzuzufügen. Dies ist bequemer als die Verwendung von E-Mail-Adressen.";
+"nickname_description" = "Legen Sie einen eindeutigen Spitznamen fest, den andere verwenden können, um Sie zu finden und zu geteilten Wörterbüchern hinzuzufügen. Das ist praktischer als E-Mail-Adressen zu verwenden.";
 "edit_nickname" = "Spitzname bearbeiten";
 "nickname_cannot_be_empty" = "Spitzname darf nicht leer sein";
 "nickname_already_taken" = "Dieser Spitzname ist bereits vergeben. Bitte wählen Sie einen anderen.";
@@ -68,13 +68,15 @@
 "enter_nickname" = "Spitzname eingeben";
 "found_user" = "Benutzer gefunden";
 "user_not_found" = "Benutzer nicht gefunden";
-"user_not_found_message" = "Kein Benutzer mit den angegebenen Informationen gefunden. Bitte überprüfen Sie Ihre Suche und versuchen Sie es erneut.";
+"user_not_found_message" = "Mit den bereitgestellten Informationen wurde kein Benutzer gefunden. Bitte überprüfen Sie Ihre Suche und versuchen Sie es erneut.";
 
-"enter_name" = "Name eingeben";
-"search_by" = "Suche nach";
+"enter_name" = "Namen eingeben";
+"search_by" = "Suchen nach";
 "unknown_user" = "Unbekannter Benutzer";
 "email" = "E-Mail";
-"apple_id" = "Apple-ID";
+"apple_id" = "Apple ID";
 "google_account" = "Google-Konto";
+"cancel" = "Abbrechen";
+"save" = "Speichern";
 
 

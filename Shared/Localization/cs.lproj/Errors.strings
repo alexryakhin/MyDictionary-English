@@ -64,5 +64,9 @@
 "delete_failed" = "Smazání selhalo";
 "permission_denied" = "Nemáte oprávnění k provedení této akce";
 "user_not_authenticated" = "Uživatel musí být autentizován";
-"dictionary_limit_reached" = "S bezplatným plánem lze vytvořit pouze 1 sdílený slovník. Upgradujte na Pro pro neomezené sdílené slovníky.";
+"dictionary_limit_reached" = "S bezplatným plánem můžete vytvořit pouze jeden sdílený slovník. Upgradujte na Pro pro neomezené sdílené slovníky.";
+"something_went_wrong" = "Něco se pokazilo";
+"error" = "Chyba";
+"oops" = "Ups!";
+"unknown" = "Neznámý";
 

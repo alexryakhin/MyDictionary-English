@@ -105,5 +105,7 @@
 "quiz_types.test_spelling_skills" = "اختبر مهاراتك الإملائية بكتابة الكلمات بشكل صحيح";
 "quiz_types.select_correct_definition" = "اختر التعريف الصحيح لكل كلمة";
 "quiz_types.great_job_completed_spelling_quiz" = "عمل رائع! لقد أكملت اختبار الإملاء.";
-"quiz_types.great_job_completed_definition_quiz" = "عمل رائع! لقد أكملت اختبار التعريف.";
+"quiz_types.great_job_completed_definition_quiz" = "عمل رائع! لقد أكملت اختبار التعريفات.";
+"all_results" = "جميع النتائج";
+"word_starts_with" = "الكلمة تبدأ بـ";
 

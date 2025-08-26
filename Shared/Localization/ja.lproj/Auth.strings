@@ -1,27 +1,27 @@
 // MARK: - Authentication
-"sign_in_before_subscribing" = "サブスクリプション前にログイン";
-"sign_in_with_google" = "Googleでログイン";
-"can_always_sign_in_later" = "後で設定からいつでもログイン可能";
-"link_additional_accounts" = "追加のアカウントをリンク";
+"sign_in_before_subscribing" = "購読前にサインインしてください";
+"sign_in_with_google" = "Googleでサインイン";
+"can_always_sign_in_later" = "設定からいつでもサインインできます";
+"link_additional_accounts" = "追加アカウントをリンク";
 "accounts_linked_successfully" = "アカウントが正常にリンクされました";
-"sign_out_confirmation" = "ログアウト";
+"sign_out_confirmation" = "サインアウト";
 "your_words_are_safe" = "あなたの単語は安全です";
 "cloud_sync_disabled" = "クラウド同期が無効になります";
-"sign_out" = "ログアウト";
-"no_worries_wont_remove_words" = "ご心配なく！単語は削除しません。";
-"vocabulary_stay_on_device" = "あなたの語彙はこのデバイスに残ります。別のアカウントでログインすると、データが統合されます。";
-"all_vocabulary_remain_device" = "すべての単語、定義、進捗はこのデバイスに残ります。ログインせずにアプリを続けて使用できます。";
-"word_lists_shared_data_cleared" = "単語リストと共有データがクリアされます。別のアカウントでログインすると、ローカルの単語が新しいアカウントのデータと統合されます。";
-"sign_in_to_access_word_lists" = "すべてのデバイスで単語リストにアクセスし、他の人とコラボレーションするためにログイン。";
-"link_google" = "Googleとリンク";
-"link_apple" = "Appleとリンク";
-"sign_in_to_sync_word_lists" = "単語リストを同期するためにログイン";
-"sign_out_error_title" = "おっと！";
-"sign_out_error_message" = "ログアウト中に問題が発生しました。後でもう一度お試しください。";
-"sign_in_required_for_restore" = "購入を復元するにはログインが必要です。";
-"sign_in_required_for_pro_features" = "%@などのプロ機能にアクセスするにはログインが必要です。";
-"sign_in_failed" = "ログインに失敗しました。もう一度お試しください。";
-"sign_out_failed" = "ログアウトに失敗しました。もう一度お試しください。";
+"sign_out" = "サインアウト";
+"no_worries_wont_remove_words" = "心配しないでください！あなたの単語は削除しません。";
+"vocabulary_stay_on_device" = "あなたの語彙はこのデバイスに残ります。別のアカウントでサインインすると、データが統合されます。";
+"all_vocabulary_remain_device" = "すべての単語、定義、進捗はこのデバイスに残ります。オフラインでアプリを継続使用できます。";
+"word_lists_shared_data_cleared" = "単語リストと共有データがクリアされます。別のアカウントでサインインすると、ローカル単語が新しいアカウントのデータと統合されます。";
+"sign_in_to_access_word_lists" = "すべてのデバイスで単語リストにアクセスし、他のユーザーと協力するためにサインインしてください。";
+"link_google" = "Googleをリンク";
+"link_apple" = "Appleをリンク";
+"sign_in_to_sync_word_lists" = "単語リストを同期するためにサインイン";
+"sign_out_error_title" = "あら！";
+"sign_out_error_message" = "サインアウト中に問題が発生しました。後でもう一度お試しください。";
+"sign_in_required_for_restore" = "購入を復元するにはサインインが必要です。";
+"sign_in_required_for_pro_features" = "%@などのPro機能にアクセスするにはサインインが必要です。";
+"sign_in_failed" = "サインインに失敗しました。もう一度お試しください。";
+"sign_out_failed" = "サインアウトに失敗しました。もう一度お試しください。";
 "user_not_found" = "ユーザーが見つかりません。";
 "network_error" = "ネットワークエラー。接続を確認してください。";
 "account_linking_failed" = "アカウントのリンクに失敗しました。もう一度お試しください。";
@@ -30,7 +30,7 @@
 "registration_benefits" = "登録のメリット";
 "access_subscription_all_devices" = "すべてのデバイスでサブスクリプションにアクセス";
 "sync_progress_cross_platform" = "iOSとAndroid間で進捗を同期";
-"backup_data_securely" = "データをクラウドで安全にバックアップ";
+"backup_data_securely" = "クラウドでデータを安全にバックアップ";
 "register_anytime_from_settings" = "設定からいつでも登録してこれらの機能を有効にできます";
 "account_registration" = "アカウント登録";
 "register_for_cross_platform_access" = "すべてのデバイスでサブスクリプションにアクセスし、進捗を同期するために登録してください";
@@ -40,35 +40,35 @@
 
 // Subscription Security
 "subscription_access_restricted" = "サブスクリプションアクセス制限";
-"subscription_associated_different_account" = "このサブスクリプションは別のアカウントに関連付けられています。プロ機能にアクセスするには、このサブスクリプションを購入したアカウントでログインしてください。";
+"subscription_associated_different_account" = "このサブスクリプションは別のアカウントに関連付けられています。Pro機能にアクセスするには、このサブスクリプションを購入したアカウントでサインインしてください。";
 
 // Profile
 "profile" = "プロフィール";
 "account_linking" = "アカウントリンク";
-"account_linking_description" = "Androidデバイスでサブスクリプションにアクセスするには、Googleアカウントをリンクする必要があります。プラットフォーム間でサブスクリプションを共有するには、両方のアカウントをリンクしてください。";
+"account_linking_description" = "Androidデバイスでサブスクリプションにアクセスするには、Googleアカウントをリンクする必要があります。クロスプラットフォームサブスクリプション共有の場合は、両方のアカウントをリンクしてください。";
 "link_google_for_android" = "Googleアカウントをリンク";
 "link_apple_for_cross_platform" = "Apple IDをリンク";
 "current_account" = "現在のアカウント";
 "linked_accounts" = "リンクされたアカウント";
 "no_linked_accounts" = "リンクされたアカウントなし";
 
-"cross_platform_button_description" = "クロスプラットフォームのサブスクリプション共有用";
+"cross_platform_button_description" = "クロスプラットフォームサブスクリプション共有用";
 "nickname" = "ニックネーム";
 "nickname_current" = "現在のニックネーム";
 "nickname_not_set" = "ニックネームが設定されていません";
-"nickname_description" = "他の人があなたを見つけて共有辞書に追加するために使用できる一意のニックネームを設定します。メールアドレスを使用するよりも便利です。";
+"nickname_description" = "他のユーザーがあなたを見つけて共有辞書に追加するために使用できるユニークなニックネームを設定してください。メールアドレスを使用するよりも便利です。";
 "edit_nickname" = "ニックネームを編集";
 "nickname_cannot_be_empty" = "ニックネームは空にできません";
-"nickname_already_taken" = "このニックネームはすでに使用されています。別のものを選んでください。";
-"nickname_invalid_format" = "ニックネームには文字、数字、アンダースコアのみを含めることができます。";
+"nickname_already_taken" = "このニックネームは既に使用されています。別のものを選択してください。";
+"nickname_invalid_format" = "ニックネームには文字、数字、アンダースコアのみ含めることができます。";
 "search_method" = "検索方法";
-"find_user_by_email" = "メールアドレスでユーザーを検索";
+"find_user_by_email" = "メールでユーザーを検索";
 "find_user_by_nickname" = "ニックネームでユーザーを検索";
 "enter_email_address" = "メールアドレスを入力";
 "enter_nickname" = "ニックネームを入力";
 "found_user" = "ユーザーが見つかりました";
-"user_not_found" = "ユーザーが見つかりませんでした";
-"user_not_found_message" = "提供された情報でユーザーが見つかりませんでした。検索を確認して再度お試しください。";
+"user_not_found" = "ユーザーが見つかりません";
+"user_not_found_message" = "提供された情報でユーザーが見つかりませんでした。検索を確認して再試行してください。";
 
 "enter_name" = "名前を入力";
 "search_by" = "検索方法";
@@ -76,5 +76,7 @@
 "email" = "メール";
 "apple_id" = "Apple ID";
 "google_account" = "Googleアカウント";
+"cancel" = "キャンセル";
+"save" = "保存";
 
 

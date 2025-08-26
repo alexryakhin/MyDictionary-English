@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "เลือกความหมาย";
 "quiz_types.test_spelling_skills" = "ทดสอบทักษะการสะกดคำของคุณโดยสะกดคำให้ถูกต้อง";
 "quiz_types.select_correct_definition" = "เลือกความหมายที่ถูกต้องสำหรับแต่ละคำ";
-"quiz_types.great_job_completed_spelling_quiz" = "เยี่ยมมาก! คุณทำแบบทดสอบการสะกดคำเสร็จแล้ว";
-"quiz_types.great_job_completed_definition_quiz" = "เยี่ยมมาก! คุณทำแบบทดสอบความหมายเสร็จแล้ว";
+"quiz_types.great_job_completed_spelling_quiz" = "งานเยี่ยม! คุณได้ทำแบบทดสอบการสะกดคำเสร็จแล้ว";
+"quiz_types.great_job_completed_definition_quiz" = "งานเยี่ยม! คุณได้ทำแบบทดสอบคำจำกัดความเสร็จแล้ว";
+"all_results" = "ผลลัพธ์ทั้งหมด";
+"word_starts_with" = "คำเริ่มต้นด้วย";
 

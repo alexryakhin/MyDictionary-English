@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "정의 선택";
 "quiz_types.test_spelling_skills" = "단어를 정확히 철자하여 철자 실력을 테스트하세요";
 "quiz_types.select_correct_definition" = "각 단어의 올바른 정의를 선택하세요";
-"quiz_types.great_job_completed_spelling_quiz" = "훌륭합니다! 철자 퀴즈를 완료했습니다.";
-"quiz_types.great_job_completed_definition_quiz" = "훌륭합니다! 정의 퀴즈를 완료했습니다.";
+"quiz_types.great_job_completed_spelling_quiz" = "훌륭한 일! 철자 퀴즈를 완료했습니다.";
+"quiz_types.great_job_completed_definition_quiz" = "훌륭한 일! 정의 퀴즈를 완료했습니다.";
+"all_results" = "모든 결과";
+"word_starts_with" = "단어는 다음으로 시작합니다";
 

@@ -63,5 +63,9 @@
 "delete_failed" = "Radering misslyckades";
 "permission_denied" = "Du har inte behörighet för denna åtgärd";
 "user_not_authenticated" = "Användaren måste vara autentiserad";
-"dictionary_limit_reached" = "Med gratisplanen kan du endast skapa en delad ordbok. Uppgradera till Pro för obegränsade delade ordböcker.";
+"dictionary_limit_reached" = "Med den kostnadsfria planen kan du bara skapa en delad ordbok. Uppgradera till Pro för obegränsade delade ordböcker.";
+"something_went_wrong" = "Något gick fel";
+"error" = "Fel";
+"oops" = "Hoppsan!";
+"unknown" = "Okänd";
 

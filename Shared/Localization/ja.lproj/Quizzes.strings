@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "定義を選択";
 "quiz_types.test_spelling_skills" = "単語を正しく綴ることで綴りスキルをテスト";
 "quiz_types.select_correct_definition" = "各単語の正しい定義を選択";
-"quiz_types.great_job_completed_spelling_quiz" = "素晴らしい！綴りクイズを完了しました。";
+"quiz_types.great_job_completed_spelling_quiz" = "素晴らしい！スペリングクイズを完了しました。";
 "quiz_types.great_job_completed_definition_quiz" = "素晴らしい！定義クイズを完了しました。";
+"all_results" = "すべての結果";
+"word_starts_with" = "単語は以下で始まります";
 

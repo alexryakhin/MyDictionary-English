@@ -64,5 +64,9 @@
 "delete_failed" = "Löschen fehlgeschlagen";
 "permission_denied" = "Sie haben keine Berechtigung, diese Aktion auszuführen";
 "user_not_authenticated" = "Benutzer muss authentifiziert sein";
-"dictionary_limit_reached" = "Mit dem kostenlosen Plan kann nur 1 geteiltes Wörterbuch erstellt werden. Upgraden Sie auf Pro für unbegrenzte geteilte Wörterbücher.";
+"dictionary_limit_reached" = "Mit dem kostenlosen Plan können Sie nur ein geteiltes Wörterbuch erstellen. Upgraden Sie auf Pro für unbegrenzte geteilte Wörterbücher.";
+"something_went_wrong" = "Etwas ist schiefgelaufen";
+"error" = "Fehler";
+"oops" = "Hoppla!";
+"unknown" = "Unbekannt";
 

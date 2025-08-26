@@ -75,6 +75,8 @@
 "unknown_user" = "Onbekende gebruiker";
 "email" = "E-mail";
 "apple_id" = "Apple ID";
-"google_account" = "Google Account";
+"google_account" = "Google-account";
+"cancel" = "Annuleren";
+"save" = "Opslaan";
 
 

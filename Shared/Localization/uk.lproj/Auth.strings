@@ -76,5 +76,7 @@
 "email" = "Електронна пошта";
 "apple_id" = "Apple ID";
 "google_account" = "Обліковий запис Google";
+"cancel" = "Скасувати";
+"save" = "Зберегти";
 
 

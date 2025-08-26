@@ -64,5 +64,9 @@
 "delete_failed" = "删除失败";
 "permission_denied" = "你无权执行此操作";
 "user_not_authenticated" = "用户必须经过身份验证";
-"dictionary_limit_reached" = "免费计划只能创建 1 个共享词典。升级到专业版以创建无限共享词典。";
+"dictionary_limit_reached" = "免费计划只能创建一个共享词典。升级到Pro以获得无限共享词典。";
+"something_went_wrong" = "出现了一些问题";
+"error" = "错误";
+"oops" = "哎呀！";
+"unknown" = "未知";
 

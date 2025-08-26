@@ -74,7 +74,9 @@
 "search_by" = "Søg efter";
 "unknown_user" = "Ukendt bruger";
 "email" = "E-mail";
-"apple_id" = "Apple-ID";
+"apple_id" = "Apple ID";
 "google_account" = "Google-konto";
+"cancel" = "Annuller";
+"save" = "Gem";
 
 

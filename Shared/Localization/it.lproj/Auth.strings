@@ -1,25 +1,25 @@
 // MARK: - Authentication
 "sign_in_before_subscribing" = "Accedi prima di abbonarti";
 "sign_in_with_google" = "Accedi con Google";
-"can_always_sign_in_later" = "Puoi sempre accedere in seguito dalle impostazioni";
+"can_always_sign_in_later" = "Puoi sempre accedere più tardi dalle impostazioni";
 "link_additional_accounts" = "Collega account aggiuntivi";
 "accounts_linked_successfully" = "Account collegati con successo";
-"sign_out_confirmation" = "Esci";
+"sign_out_confirmation" = "Disconnetti";
 "your_words_are_safe" = "Le tue parole sono al sicuro";
-"cloud_sync_disabled" = "La sincronizzazione cloud verrà disabilitata";
-"sign_out" = "Esci";
-"no_worries_wont_remove_words" = "Non preoccuparti! Non elimineremo le tue parole.";
-"vocabulary_stay_on_device" = "Il tuo vocabolario rimarrà su questo dispositivo. Se accedi con un altro account, i tuoi dati verranno uniti.";
-"all_vocabulary_remain_device" = "Tutte le tue parole, definizioni e progressi rimarranno su questo dispositivo. Puoi continuare a usare l'app senza accedere.";
-"word_lists_shared_data_cleared" = "Le liste di parole e i dati condivisi verranno cancellati. Se accedi con un altro account, le tue parole locali verranno unite ai dati del nuovo account.";
+"cloud_sync_disabled" = "La sincronizzazione cloud sarà disabilitata";
+"sign_out" = "Disconnetti";
+"no_worries_wont_remove_words" = "Non preoccuparti! Non rimuoveremo le tue parole.";
+"vocabulary_stay_on_device" = "Il tuo vocabolario rimarrà su questo dispositivo. Se accedi con un altro account, i tuoi dati saranno combinati.";
+"all_vocabulary_remain_device" = "Tutte le tue parole, definizioni e progressi rimarranno su questo dispositivo. Puoi continuare a usare l'app offline.";
+"word_lists_shared_data_cleared" = "Le liste di parole e i dati condivisi saranno cancellati. Se accedi con un altro account, le tue parole locali saranno combinate con i dati del nuovo account.";
 "sign_in_to_access_word_lists" = "Accedi per accedere alle tue liste di parole su tutti i dispositivi e collaborare con altri.";
 "link_google" = "Collega Google";
 "link_apple" = "Collega Apple";
 "sign_in_to_sync_word_lists" = "Accedi per sincronizzare le liste di parole";
-"sign_out_error_title" = "Ops!";
+"sign_out_error_title" = "Oh no!";
 "sign_out_error_message" = "Qualcosa è andato storto durante la disconnessione. Riprova più tardi.";
-"sign_in_required_for_restore" = "È necessario accedere per ripristinare gli acquisti.";
-"sign_in_required_for_pro_features" = "È necessario accedere per accedere alle funzionalità Pro come %@.";
+"sign_in_required_for_restore" = "È richiesto l'accesso per ripristinare gli acquisti.";
+"sign_in_required_for_pro_features" = "È richiesto l'accesso per utilizzare le funzionalità Pro come %@.";
 "sign_in_failed" = "Accesso fallito. Riprova.";
 "sign_out_failed" = "Disconnessione fallita. Riprova.";
 "user_not_found" = "Utente non trovato.";
@@ -30,7 +30,7 @@
 "registration_benefits" = "Vantaggi della Registrazione";
 "access_subscription_all_devices" = "Accedi al tuo abbonamento su tutti i tuoi dispositivi";
 "sync_progress_cross_platform" = "Sincronizza i tuoi progressi tra iOS e Android";
-"backup_data_securely" = "Backup dei tuoi dati in modo sicuro nel cloud";
+"backup_data_securely" = "Esegui il backup dei tuoi dati in modo sicuro nel cloud";
 "register_anytime_from_settings" = "Puoi registrarti in qualsiasi momento dalle Impostazioni per abilitare queste funzionalità";
 "account_registration" = "Registrazione Account";
 "register_for_cross_platform_access" = "Registrati per accedere al tuo abbonamento su tutti i tuoi dispositivi e sincronizzare i tuoi progressi";
@@ -40,41 +40,43 @@
 
 // Subscription Security
 "subscription_access_restricted" = "Accesso all'Abbonamento Limitato";
-"subscription_associated_different_account" = "Questo abbonamento è associato a un account diverso. Accedi con l'account che ha acquistato questo abbonamento per accedere alle funzionalità Pro.";
+"subscription_associated_different_account" = "Questo abbonamento è associato a un account diverso. Accedi con l'account che ha acquistato questo abbonamento per utilizzare le funzionalità Pro.";
 
 // Profile
 "profile" = "Profilo";
 "account_linking" = "Collegamento Account";
-"account_linking_description" = "Per accedere al tuo abbonamento sui dispositivi Android, devi collegare un account Google. Per condividere gli abbonamenti tra piattaforme, collega entrambi gli account.";
+"account_linking_description" = "Per accedere al tuo abbonamento sui dispositivi Android, devi collegare un account Google. Per la condivisione di abbonamenti multipiattaforma, collega entrambi gli account.";
 "link_google_for_android" = "Collega Account Google";
 "link_apple_for_cross_platform" = "Collega Apple ID";
-"current_account" = "Account Attuale";
+"current_account" = "Account Corrente";
 "linked_accounts" = "Account Collegati";
 "no_linked_accounts" = "Nessun account collegato";
 
-"cross_platform_button_description" = "Per la condivisione dell'abbonamento tra piattaforme";
+"cross_platform_button_description" = "Per la condivisione di abbonamenti multipiattaforma";
 "nickname" = "Nickname";
 "nickname_current" = "Nickname attuale";
-"nickname_not_set" = "Il nickname non è impostato";
-"nickname_description" = "Imposta un nickname unico che altri possono utilizzare per trovarti e aggiungerti a dizionari condivisi. È più comodo rispetto all'uso di indirizzi email.";
+"nickname_not_set" = "Nickname non impostato";
+"nickname_description" = "Imposta un nickname univoco che altri possono usare per trovarti e aggiungerti ai dizionari condivisi. È più conveniente che usare indirizzi email.";
 "edit_nickname" = "Modifica nickname";
 "nickname_cannot_be_empty" = "Il nickname non può essere vuoto";
 "nickname_already_taken" = "Questo nickname è già in uso. Scegline un altro.";
 "nickname_invalid_format" = "Il nickname può contenere solo lettere, numeri e trattini bassi.";
 "search_method" = "Metodo di ricerca";
-"find_user_by_email" = "Trova utente tramite email";
-"find_user_by_nickname" = "Trova utente tramite nickname";
-"enter_email_address" = "Inserisci l'indirizzo email";
-"enter_nickname" = "Inserisci il nickname";
+"find_user_by_email" = "Trova utente per email";
+"find_user_by_nickname" = "Trova utente per nickname";
+"enter_email_address" = "Inserisci indirizzo email";
+"enter_nickname" = "Inserisci nickname";
 "found_user" = "Utente trovato";
 "user_not_found" = "Utente non trovato";
 "user_not_found_message" = "Nessun utente trovato con le informazioni fornite. Controlla la tua ricerca e riprova.";
 
-"enter_name" = "Inserisci il nome";
+"enter_name" = "Inserisci nome";
 "search_by" = "Cerca per";
 "unknown_user" = "Utente sconosciuto";
 "email" = "Email";
-"apple_id" = "ID Apple";
+"apple_id" = "Apple ID";
 "google_account" = "Account Google";
+"cancel" = "Annulla";
+"save" = "Salva";
 
 

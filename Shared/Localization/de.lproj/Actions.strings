@@ -53,4 +53,8 @@
 "toggle_favorite" = "Favorit umschalten";
 "settings" = "Einstellungen";
 
+"select_value" = "Wert auswählen";
+"email_address" = "E-Mail-Adresse";
 "name" = "Name";
+"loading" = "Lädt...";
+"retry" = "Wiederholen";

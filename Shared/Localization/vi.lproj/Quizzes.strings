@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Chọn định nghĩa";
 "quiz_types.test_spelling_skills" = "Kiểm tra kỹ năng chính tả của bạn bằng cách viết đúng các từ";
 "quiz_types.select_correct_definition" = "Chọn định nghĩa đúng cho mỗi từ";
-"quiz_types.great_job_completed_spelling_quiz" = "Làm tốt lắm! Bạn đã hoàn thành bài kiểm tra chính tả.";
-"quiz_types.great_job_completed_definition_quiz" = "Làm tốt lắm! Bạn đã hoàn thành bài kiểm tra định nghĩa.";
+"quiz_types.great_job_completed_spelling_quiz" = "Công việc tuyệt vời! Bạn đã hoàn thành bài kiểm tra chính tả.";
+"quiz_types.great_job_completed_definition_quiz" = "Công việc tuyệt vời! Bạn đã hoàn thành bài kiểm tra định nghĩa.";
+"all_results" = "Tất cả kết quả";
+"word_starts_with" = "Từ bắt đầu bằng";
 

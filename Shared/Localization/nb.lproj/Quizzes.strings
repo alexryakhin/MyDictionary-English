@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Velg definisjon";
 "quiz_types.test_spelling_skills" = "Test staveferdighetene dine ved å stave ord korrekt";
 "quiz_types.select_correct_definition" = "Velg riktig definisjon for hvert ord";
-"quiz_types.great_job_completed_spelling_quiz" = "Flott jobb! Du har fullført stavequizen.";
-"quiz_types.great_job_completed_definition_quiz" = "Flott jobb! Du har fullført definisjonsquizen.";
+"quiz_types.great_job_completed_spelling_quiz" = "Flott arbeid! Du har fullført stavequizzen.";
+"quiz_types.great_job_completed_definition_quiz" = "Flott arbeid! Du har fullført definisjonsquizzen.";
+"all_results" = "Alle resultater";
+"word_starts_with" = "Ordet starter med";
 

@@ -104,6 +104,8 @@
 "quiz_types.choose_definition" = "Valitse määritelmä";
 "quiz_types.test_spelling_skills" = "Testaa oikeinkirjoitustaitojasi kirjoittamalla sanat oikein";
 "quiz_types.select_correct_definition" = "Valitse oikea määritelmä jokaiselle sanalle";
-"quiz_types.great_job_completed_spelling_quiz" = "Hienoa työtä! Olet suorittanut oikeinkirjoitusvisan.";
-"quiz_types.great_job_completed_definition_quiz" = "Hienoa työtä! Olet suorittanut määritelmävisan.";
+"quiz_types.great_job_completed_spelling_quiz" = "Hienoa työtä! Olet suorittanut kirjoituskokeen.";
+"quiz_types.great_job_completed_definition_quiz" = "Hienoa työtä! Olet suorittanut määritelmäkokeen.";
+"all_results" = "Kaikki tulokset";
+"word_starts_with" = "Sana alkaa sanalla";
 

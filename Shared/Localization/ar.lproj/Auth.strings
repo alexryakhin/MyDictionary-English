@@ -74,5 +74,7 @@
 "search_by" = "البحث بواسطة";
 "unknown_user" = "مستخدم غير معروف";
 "email" = "البريد الإلكتروني";
-"apple_id" = "معرف Apple";
+"apple_id" = "Apple ID";
 "google_account" = "حساب Google";
+"cancel" = "إلغاء";
+"save" = "حفظ";
