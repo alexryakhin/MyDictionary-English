@@ -82,3 +82,15 @@
 "collaborator_management.dictionary_details" = "Dictionary Details";
 "collaborator_management.unknown" = "Unknown";
 
+
+"add_to_shared_dictionary" = "Add to Shared Dictionary";
+"add_collaborator" = "Add Collaborator";
+"cant_share_word" = "Can't share word";
+"collaborator_details" = "Collaborator Details";
+"role_permissions" = "Role Permissions";
+"collaborators" = "Collaborators";
+"private_dictionary" = "Private";
+"shared_dictionaries" = "Shared Dictionaries";
+"delete_dictionary" = "Delete Dictionary";
+"note" = "Note";
+"dictionary_info" = "Dictionary Info";

@@ -10,3 +10,7 @@
 "notifications.test_dictionary_invitation" = "Test Dictionary Invitation";
 "notifications.test_dictionary_invitation_body" = "Someone added you to 'Test Dictionary'";
 
+
+"send_test_notification" = "Send Test Notification";
+"enter_email_address" = "Enter email address";
+"enter_email_address_for_notification" = "Enter the email address of the user you want to send a test notification to.";

@@ -52,3 +52,10 @@
 "actions.toggle_like" = "Toggle Like";
 "actions.toggle_favorite" = "Toggle Favorite";
 "actions.settings" = "Settings";
+
+"select_value" = "Select a value";
+"email_address" = "Email Address";
+"name" = "Name";
+"loading" = "Loading...";
+"try_again" = "Try Again";
+"retry" = "Retry";

@@ -50,15 +50,12 @@
 "words.edit_example" = "Modifier l'exemple";
 "words.score" = "Score";
 "words.quiz_based" = "Basé sur le quiz";
-"words.language" = "Langue";
 "words.no_tags_added_yet" = "Aucune étiquette ajoutée pour le moment.";
 "words.add_tag" = "Ajouter une étiquette";
 "words.no_tags_selected" = "Aucune étiquette sélectionnée";
 "words.error_loading_definitions" = "Erreur lors du chargement des définitions. Réessayez.";
 "words.type_word_and_press_search" = "Tapez un mot et appuyez sur 'Rechercher' pour trouver ses définitions";
 "words.word_details" = "Détails du mot";
-"words.no_examples_yet" = "Pas encore d'exemples";
-"words.edit_example" = "Modifier l'exemple";
 "words.no_transcription" = "Aucune transcription";
 "words.no_definition" = "Aucune définition";
 
@@ -154,3 +151,5 @@
 
 "actions.settings" = "Paramètres";
 
+
+"transcription" = "Transcription";

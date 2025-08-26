@@ -52,3 +52,5 @@
 "actions.toggle_like" = "Like umschalten";
 "actions.toggle_favorite" = "Favorit umschalten";
 "actions.settings" = "Einstellungen";
+
+"name" = "Name";

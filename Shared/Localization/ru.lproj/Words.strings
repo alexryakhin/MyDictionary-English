@@ -50,15 +50,12 @@
 "words.edit_example" = "Редактировать пример";
 "words.score" = "Очки";
 "words.quiz_based" = "На основе викторины";
-"words.language" = "Язык";
 "words.no_tags_added_yet" = "Теги ещё не добавлены.";
 "words.add_tag" = "Добавить тег";
 "words.no_tags_selected" = "Теги не выбраны";
 "words.error_loading_definitions" = "Ошибка загрузки определений. Попробуйте снова.";
 "words.type_word_and_press_search" = "Введите слово и нажмите 'Поиск' для поиска определений";
 "words.word_details" = "Подробности о слове";
-"words.no_examples_yet" = "Пока нет примеров";
-"words.edit_example" = "Редактировать пример";
 "words.no_transcription" = "Нет транскрипции";
 "words.no_definition" = "Нет определения";
 

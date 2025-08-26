@@ -57,3 +57,9 @@
 "settings.import_export_note" = "Please note that import and export only work with files created by this app.";
 "settings.buy_me_a_coffee" = "Buy Me a Coffee";
 
+
+"about_my_dictionary" = "About My Dictionary";
+"import_successful" = "Import successful";
+"import_successful_message" = "%@ have been imported successfully";
+"no_words_imported" = "No words imported";
+"no_words_imported_message" = "We couldn't find any new words to import";

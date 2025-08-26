@@ -66,3 +66,5 @@
 "errors.user_not_authenticated" = "L'usuari ha d'estar autenticat";
 "errors.dictionary_limit_reached" = "Només pots crear un diccionari compartit amb el pla gratuït. Actualitza a Pro per a diccionaris compartits il·limitats.";
 
+
+"error" = "Error";

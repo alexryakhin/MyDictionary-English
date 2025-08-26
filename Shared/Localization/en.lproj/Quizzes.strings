@@ -108,3 +108,6 @@
 "quiz_types.great_job_completed_spelling_quiz" = "Great job! You've completed the spelling quiz.";
 "quiz_types.great_job_completed_definition_quiz" = "Great job! You've completed the definition quiz.";
 
+
+"all_results" = "All Results";
+"word_starts_with" = "The word starts with";

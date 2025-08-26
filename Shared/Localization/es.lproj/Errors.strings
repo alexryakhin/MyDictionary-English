@@ -65,3 +65,5 @@
 "errors.user_not_authenticated" = "El usuario debe estar autenticado";
 "errors.dictionary_limit_reached" = "Con el plan gratuito, solo puedes crear un diccionario compartido. Actualiza a Pro para diccionarios compartidos ilimitados.";
 
+
+"error" = "Error";

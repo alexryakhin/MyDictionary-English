@@ -50,15 +50,12 @@
 "words.edit_example" = "Edit Contoh";
 "words.score" = "Skor";
 "words.quiz_based" = "Berdasarkan Kuis";
-"words.language" = "Bahasa";
 "words.no_tags_added_yet" = "Belum ada tag yang ditambahkan.";
 "words.add_tag" = "Tambah Tag";
 "words.no_tags_selected" = "Tidak ada tag yang dipilih";
 "words.error_loading_definitions" = "Gagal memuat definisi. Silakan coba lagi.";
 "words.type_word_and_press_search" = "Ketik kata dan tekan 'Cari' untuk menemukan definisinya";
 "words.word_details" = "Detail Kata";
-"words.no_examples_yet" = "Belum ada contoh";
-"words.edit_example" = "Edit Contoh";
 "words.no_transcription" = "Tidak ada transkripsi";
 "words.no_definition" = "Tidak ada definisi";
 
