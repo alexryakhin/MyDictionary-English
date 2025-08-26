@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "บัญชีที่เชื่อมต่อ";
 "auth.no_linked_accounts" = "ไม่มีบัญชีที่เชื่อมต่อ";
 
+"auth.cross_platform_button_description" = "สำหรับการแชร์การสมัครสมาชิกข้ามแพลตฟอร์ม";
+"auth.nickname" = "ชื่อเล่น";
+"auth.nickname_current" = "ชื่อเล่นปัจจุบัน";
+"auth.nickname_not_set" = "ยังไม่ได้ตั้งชื่อเล่น";
+"auth.nickname_description" = "ตั้งชื่อเล่นที่ไม่ซ้ำกันที่ผู้อื่นสามารถใช้เพื่อค้นหาและเพิ่มคุณในพจนานุกรมที่แชร์ได้ สะดวกกว่าการใช้ที่อยู่อีเมล";
+"auth.edit_nickname" = "แก้ไขชื่อเล่น";
+"auth.nickname_cannot_be_empty" = "ชื่อเล่นต้องไม่ว่างเปล่า";
+"auth.nickname_already_taken" = "ชื่อเล่นนี้ถูกใช้แล้ว กรุณาเลือกชื่ออื่น";
+"auth.nickname_invalid_format" = "ชื่อเล่นสามารถประกอบด้วยตัวอักษร ตัวเลข และขีดล่างเท่านั้น";
+"auth.search_method" = "วิธีการค้นหา";
+"auth.find_user_by_email" = "ค้นหาผู้ใช้ด้วยอีเมล";
+"auth.find_user_by_nickname" = "ค้นหาผู้ใช้ด้วยชื่อเล่น";
+"auth.enter_email_address" = "ป้อนที่อยู่อีเมล";
+"auth.enter_nickname" = "ป้อนชื่อเล่น";
+"auth.found_user" = "พบผู้ใช้";
+"auth.user_not_found" = "ไม่พบผู้ใช้";
+"auth.user_not_found_message" = "ไม่พบผู้ใช้ด้วยข้อมูลที่ให้มา กรุณาตรวจสอบการค้นหาและลองอีกครั้ง";
+
+"auth.enter_name" = "ป้อนชื่อ";
+"auth.search_by" = "ค้นหาด้วย";
+"auth.unknown_user" = "ผู้ใช้ที่ไม่รู้จัก";
+"auth.email" = "อีเมล";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "บัญชี Google";
+
+

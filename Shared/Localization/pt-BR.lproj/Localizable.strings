@@ -24,8 +24,6 @@
 "navigation.close" = "Fechar";
 "navigation.close_screen" = "Fechar Tela";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Adicionar Expressão";
 "idioms.add_new_idiom" = "Adicionar Nova Expressão";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Mais Recentes Primeiro";
 "idioms.earliest_first" = "Mais Antigas Primeiro";
 "idioms.alphabetically" = "Alfabeticamente";
-
 
 // MARK: - App
 "app.my_dictionary" = "Meu Dicionário";
@@ -291,73 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Acompanhamento detalhado de progresso e insights";
 "pro_features.get_priority_support" = "Receba suporte prioritário quando precisar de ajuda";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Erro ao atualizar exemplos de palavras";
-"errors.error_removing_word" = "Erro ao remover palavra";
-"errors.error_saving_word" = "Erro ao salvar palavra";
-"errors.error_updating_idiom_examples" = "Erro ao atualizar exemplos de expressões";
-"errors.error_removing_idiom" = "Erro ao remover expressão";
-"errors.error_saving_idiom" = "Erro ao salvar expressão";
-"errors.input_not_word" = "A entrada não é uma palavra";
-"errors.input_cannot_be_empty" = "A entrada não pode estar vazia";
-"errors.device_muted_or_volume_low" = "O dispositivo está silenciado ou com volume baixo";
-"errors.cannot_play_audio" = "Não foi possível reproduzir áudio";
-"errors.cannot_setup_audio_session" = "Não foi possível configurar a sessão de áudio";
-"errors.export_failed" = "Falha na exportação";
-"errors.import_failed" = "Falha na importação";
-"errors.cannot_access_security_scoped_resource" = "Não foi possível acessar o recurso com escopo de segurança";
-"errors.tag_already_exists" = "A etiqueta já existe";
-"errors.tag_already_assigned_to_word" = "Esta etiqueta já está atribuída a esta palavra";
-"errors.tag_not_assigned_to_word" = "Esta etiqueta não está atribuída a esta palavra";
-"errors.authentication_required" = "Autenticação necessária";
-"errors.no_active_subscriptions_found" = "Nenhuma assinatura ativa encontrada";
-"errors.failed_to_update_word_progress" = "Falha ao atualizar o progresso da palavra";
-"errors.failed_to_update_word_difficulty_level" = "Falha ao atualizar o nível de dificuldade da palavra";
-"errors.failed_to_save_quiz_session" = "Falha ao salvar a sessão do quiz";
-"errors.failed_to_update_user_statistics" = "Falha ao atualizar as estatísticas do usuário";
-"errors.invalid_word_id" = "ID de palavra inválido";
-"errors.word_not_found" = "Palavra não encontrada";
-"errors.failed_to_calculate_progress" = "Falha ao calcular o progresso";
-"errors.invalid_translation_url" = "URL de tradução inválido";
-"errors.network_error_during_translation" = "Erro de rede durante a tradução";
-"errors.invalid_response_from_translation_service" = "Resposta inválida do serviço de tradução";
-"errors.translation_failed" = "Falha na tradução";
-"errors.invalid_user_email" = "E-mail de usuário inválido";
-"errors.network_error_occurred" = "Ocorreu um erro de rede";
-"errors.sync_failed" = "Falha na sincronização";
-"errors.invalid_input_provided" = "Entrada inválida fornecida";
-"errors.dictionary_not_found" = "Dicionário não encontrado";
-"errors.no_subscription_offerings_available" = "Nenhuma oferta de assinatura disponível no momento";
-"errors.requested_subscription_package_not_found" = "Pacote de assinatura solicitado não encontrado";
-"errors.purchase_could_not_be_completed" = "A compra não pôde ser concluída";
-"errors.failed_to_restore_previous_purchases" = "Falha ao restaurar compras anteriores";
-"errors.no_offerings_available" = "Nenhuma oferta de assinatura disponível no momento";
-"errors.purchase_failed" = "Falha na compra";
-"errors.restore_failed" = "Falha na restauração de compras anteriores";
-"errors.export_limit_exceeded" = "Limite de exportação excedido. Atualize para o Pro para exportação ilimitada.";
-"errors.max_tags_reached" = "Limite máximo de 5 etiquetas por palavra atingido";
-"errors.tag_already_assigned" = "Esta etiqueta já está atribuída a esta palavra";
-"errors.tag_not_assigned" = "Esta etiqueta não está atribuída a esta palavra";
-"errors.network_timeout" = "Tempo limite de rede";
-"errors.server_unreachable" = "Servidor não acessível";
-"errors.invalid_response" = "Resposta inválida";
-"errors.no_internet_connection" = "Sem conexão com a internet";
-"errors.missing_api_key" = "Chave API ausente";
-"errors.decoding_error" = "Erro de decodificação";
-"errors.invalid_url" = "URL inválido";
-"errors.no_data" = "Sem dados";
-"errors.save_failed" = "Falha ao salvar";
-"errors.read_failed" = "Falha na leitura";
-"errors.data_corrupted" = "Dados corrompidos";
-"errors.invalid_input" = "Entrada inválida";
-"errors.missing_field" = "Campo ausente";
-"errors.unknown_error" = "Erro desconhecido";
-"errors.update_failed" = "Falha na atualização";
-"errors.delete_failed" = "Falha na exclusão";
-"errors.permission_denied" = "Você não tem permissão para esta ação";
-"errors.user_not_authenticated" = "O usuário precisa ser autenticado";
-"errors.dictionary_limit_reached" = "Com o plano gratuito, você pode criar apenas um dicionário compartilhado. Atualize para o Pro para dicionários compartilhados ilimitados.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Nenhuma palavra ainda";
 "empty_states.no_idioms_yet" = "Nenhuma expressão ainda";
@@ -583,24 +513,6 @@
 "indian" = "Indiano";
 "nigerian" = "Nigeriano";
 
-"auth.cross_platform_button_description" = "Para compartilhamento de assinatura entre plataformas";
-"auth.nickname" = "Apelido";
-"auth.nickname_current" = "Apelido atual";
-"auth.nickname_not_set" = "Apelido não definido";
-"auth.nickname_description" = "Defina um apelido único que outros possam usar para encontrar e adicionar você em dicionários compartilhados. Isso é mais conveniente do que usar endereços de e-mail.";
-"auth.edit_nickname" = "Editar apelido";
-"auth.nickname_cannot_be_empty" = "O apelido não pode estar vazio";
-"auth.nickname_already_taken" = "Este apelido já está em uso. Escolha outro.";
-"auth.nickname_invalid_format" = "O apelido só pode conter letras, números e sublinhados.";
-"auth.search_method" = "Método de busca";
-"auth.find_user_by_email" = "Encontrar usuário por e-mail";
-"auth.find_user_by_nickname" = "Encontrar usuário por apelido";
-"auth.enter_email_address" = "Digite o endereço de e-mail";
-"auth.enter_nickname" = "Digite o apelido";
-"auth.found_user" = "Usuário encontrado";
-"auth.user_not_found" = "Usuário não encontrado";
-"auth.user_not_found_message" = "Nenhum usuário encontrado com as informações fornecidas. Verifique sua busca e tente novamente.";
-
 "notifications.permission_required" = "Permissão de notificação necessária";
 "notifications.permission_denied_message" = "Para receber lembretes diários e alertas sobre palavras difíceis, ative as notificações nas Configurações.";
 
@@ -664,9 +576,3 @@
 "tts.models.english_description" = "O modelo de texto para fala em inglês da Speechify oferece funcionalidades padrão projetadas para fornecer uma saída de áudio clara e natural para leitura de textos. O modelo foca em proporcionar uma experiência de usuário consistente.";
 "tts.models.multilingual_description" = "O modelo multilíngue permite o uso de todos os idiomas suportados e suporta o uso de múltiplos idiomas dentro de uma única frase. A saída de áudio deste modelo é distintamente diferente de outros modelos.";
 
-"auth.enter_name" = "Digite o nome";
-"auth.search_by" = "Pesquisar por";
-"auth.unknown_user" = "Usuário desconhecido";
-"auth.email" = "E-mail";
-"auth.apple_id" = "Apple ID";
-"auth.google_account" = "Conta Google";

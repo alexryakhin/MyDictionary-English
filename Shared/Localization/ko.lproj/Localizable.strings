@@ -24,8 +24,6 @@
 "navigation.close" = "닫기";
 "navigation.close_screen" = "화면 닫기";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "관용구 추가";
 "idioms.add_new_idiom" = "새 관용구 추가";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "최신순";
 "idioms.earliest_first" = "오래된순";
 "idioms.alphabetically" = "알파벳순";
-
 
 // MARK: - App
 "app.my_dictionary" = "내 사전";
@@ -291,73 +288,6 @@
 "pro_features.detailed_progress_tracking" = "자세한 진행 상황 추적 및 통찰";
 "pro_features.get_priority_support" = "도움이 필요할 때 우선 지원 받기";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "단어 예문 업데이트 중 오류";
-"errors.error_removing_word" = "단어 삭제 중 오류";
-"errors.error_saving_word" = "단어 저장 중 오류";
-"errors.error_updating_idiom_examples" = "관용구 예문 업데이트 중 오류";
-"errors.error_removing_idiom" = "관용구 삭제 중 오류";
-"errors.error_saving_idiom" = "관용구 저장 중 오류";
-"errors.input_not_word" = "입력은 단어가 아닙니다";
-"errors.input_cannot_be_empty" = "입력이 비어 있을 수 없습니다";
-"errors.device_muted_or_volume_low" = "기기가 음소거되었거나 볼륨이 낮습니다";
-"errors.cannot_play_audio" = "오디오를 재생할 수 없습니다";
-"errors.cannot_setup_audio_session" = "오디오 세션을 설정할 수 없습니다";
-"errors.export_failed" = "내보내기 실패";
-"errors.import_failed" = "가져오기 실패";
-"errors.cannot_access_security_scoped_resource" = "보안 범위 리소스에 접근할 수 없습니다";
-"errors.tag_already_exists" = "태그가 이미 존재합니다";
-"errors.tag_already_assigned_to_word" = "이 태그는 이미 이 단어에 할당되었습니다";
-"errors.tag_not_assigned_to_word" = "이 태그는 이 단어에 할당되지 않았습니다";
-"errors.authentication_required" = "인증이 필요합니다";
-"errors.no_active_subscriptions_found" = "활성 구독이 없습니다";
-"errors.failed_to_update_word_progress" = "단어 진행 상황 업데이트 실패";
-"errors.failed_to_update_word_difficulty_level" = "단어 난이도 레벨 업데이트 실패";
-"errors.failed_to_save_quiz_session" = "퀴즈 세션 저장 실패";
-"errors.failed_to_update_user_statistics" = "사용자 통계 업데이트 실패";
-"errors.invalid_word_id" = "유효하지 않은 단어 ID";
-"errors.word_not_found" = "단어를 찾을 수 없습니다";
-"errors.failed_to_calculate_progress" = "진행 상황 계산 실패";
-"errors.invalid_translation_url" = "유효하지 않은 번역 URL";
-"errors.network_error_during_translation" = "번역 중 네트워크 오류";
-"errors.invalid_response_from_translation_service" = "번역 서비스에서 유효하지 않은 응답";
-"errors.translation_failed" = "번역 실패";
-"errors.invalid_user_email" = "유효하지 않은 사용자 이메일";
-"errors.network_error_occurred" = "네트워크 오류가 발생했습니다";
-"errors.sync_failed" = "동기화 실패";
-"errors.invalid_input_provided" = "제공된 입력이 유효하지 않습니다";
-"errors.dictionary_not_found" = "사전을 찾을 수 없습니다";
-"errors.no_subscription_offerings_available" = "현재 구독 제공이 없습니다";
-"errors.requested_subscription_package_not_found" = "요청한 구독 패키지를 찾을 수 없습니다";
-"errors.purchase_could_not_be_completed" = "구매를 완료할 수 없습니다";
-"errors.failed_to_restore_previous_purchases" = "이전 구매 복원 실패";
-"errors.no_offerings_available" = "현재 구독 제공이 없습니다";
-"errors.purchase_failed" = "구매 실패";
-"errors.restore_failed" = "이전 구매 복원 실패";
-"errors.export_limit_exceeded" = "내보내기 한도 초과. 무제한 내보내기를 위해 프로로 업그레이드하세요.";
-"errors.max_tags_reached" = "단어당 최대 5개 태그 한도에 도달했습니다";
-"errors.tag_already_assigned" = "이 태그는 이미 이 단어에 할당되었습니다";
-"errors.tag_not_assigned" = "이 태그는 이 단어에 할당되지 않았습니다";
-"errors.network_timeout" = "네트워크 시간 초과";
-"errors.server_unreachable" = "서버에 연결할 수 없습니다";
-"errors.invalid_response" = "유효하지 않은 응답";
-"errors.no_internet_connection" = "인터넷 연결 없음";
-"errors.missing_api_key" = "API 키 누락";
-"errors.decoding_error" = "디코딩 오류";
-"errors.invalid_url" = "유효하지 않은 URL";
-"errors.no_data" = "데이터 없음";
-"errors.save_failed" = "저장 실패";
-"errors.read_failed" = "읽기 실패";
-"errors.data_corrupted" = "데이터 손상";
-"errors.invalid_input" = "유효하지 않은 입력";
-"errors.missing_field" = "누락된 필드";
-"errors.unknown_error" = "알 수 없는 오류";
-"errors.update_failed" = "업데이트 실패";
-"errors.delete_failed" = "삭제 실패";
-"errors.permission_denied" = "이 작업에 대한 권한이 없습니다";
-"errors.user_not_authenticated" = "사용자는 인증이 필요합니다";
-"errors.dictionary_limit_reached" = "무료 플랜에서는 하나의 공유 사전만 생성 가능합니다. 무제한 공유 사전을 위해 프로로 업그레이드하세요.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "아직 단어가 없습니다";
 "empty_states.no_idioms_yet" = "아직 관용구가 없습니다";
@@ -582,24 +512,6 @@
 "indian" = "인도";
 "nigerian" = "나이지리아";
 
-"auth.cross_platform_button_description" = "플랫폼 간 구독 공유를 위해";
-"auth.nickname" = "닉네임";
-"auth.nickname_current" = "현재 닉네임";
-"auth.nickname_not_set" = "닉네임이 설정되지 않았습니다";
-"auth.nickname_description" = "다른 사람들이 당신을 찾아 공유 사전에 추가할 수 있는 고유한 닉네임을 설정하세요. 이메일 주소보다 편리합니다.";
-"auth.edit_nickname" = "닉네임 편집";
-"auth.nickname_cannot_be_empty" = "닉네임은 비워둘 수 없습니다";
-"auth.nickname_already_taken" = "이 닉네임은 이미 사용 중입니다. 다른 것을 선택하세요.";
-"auth.nickname_invalid_format" = "닉네임은 문자, 숫자, 밑줄만 포함할 수 있습니다.";
-"auth.search_method" = "검색 방법";
-"auth.find_user_by_email" = "이메일로 사용자 찾기";
-"auth.find_user_by_nickname" = "닉네임으로 사용자 찾기";
-"auth.enter_email_address" = "이메일 주소를 입력하세요";
-"auth.enter_nickname" = "닉네임을 입력하세요";
-"auth.found_user" = "사용자를 찾았습니다";
-"auth.user_not_found" = "사용자를 찾을 수 없습니다";
-"auth.user_not_found_message" = "제공된 정보로 사용자를 찾을 수 없습니다. 검색을 확인하고 다시 시도하세요.";
-
 "notifications.permission_required" = "알림 권한 필요";
 "notifications.permission_denied_message" = "매일 알림과 어려운 단어 경고를 받으려면 설정에서 알림을 활성화하세요.";
 
@@ -663,9 +575,3 @@
 "tts.models.english_description" = "Speechify의 영어 텍스트 음성 변환 모델은 텍스트 읽기에 명확하고 자연스러운 음성 출력을 제공하도록 설계된 표준 기능을 제공합니다. 이 모델은 일관된 사용자 경험에 초점을 맞춥니다.";
 "tts.models.multilingual_description" = "다국어 모델은 지원되는 모든 언어를 사용할 수 있으며, 한 문장 내에서 여러 언어를 사용하는 것을 지원합니다. 이 모델의 오디오 출력은 다른 모델과 뚜렷이 다릅니다.";
 
-"auth.enter_name" = "이름 입력";
-"auth.search_by" = "검색 기준";
-"auth.unknown_user" = "알 수 없는 사용자";
-"auth.email" = "이메일";
-"auth.apple_id" = "Apple ID";
-"auth.google_account" = "Google 계정";

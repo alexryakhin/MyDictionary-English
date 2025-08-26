@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Akaun Berlink";
 "auth.no_linked_accounts" = "Tiada akaun berlink";
 
+"auth.cross_platform_button_description" = "Untuk perkongsian langganan merentas platform";
+"auth.nickname" = "Nama samaran";
+"auth.nickname_current" = "Nama samaran semasa";
+"auth.nickname_not_set" = "Nama samaran belum ditetapkan";
+"auth.nickname_description" = "Tetapkan nama samaran unik yang boleh digunakan oleh orang lain untuk mencari dan menambahkan anda ke dalam kamus berkongsi. Ini lebih mudah daripada menggunakan alamat e-mel.";
+"auth.edit_nickname" = "Edit nama samaran";
+"auth.nickname_cannot_be_empty" = "Nama samaran tidak boleh kosong";
+"auth.nickname_already_taken" = "Nama samaran ini sudah digunakan. Pilih yang lain.";
+"auth.nickname_invalid_format" = "Nama samaran hanya boleh mengandungi huruf, nombor, dan garis bawah.";
+"auth.search_method" = "Kaedah carian";
+"auth.find_user_by_email" = "Cari pengguna melalui e-mel";
+"auth.find_user_by_nickname" = "Cari pengguna melalui nama samaran";
+"auth.enter_email_address" = "Masukkan alamat e-mel";
+"auth.enter_nickname" = "Masukkan nama samaran";
+"auth.found_user" = "Pengguna ditemui";
+"auth.user_not_found" = "Pengguna tidak ditemui";
+"auth.user_not_found_message" = "Tiada pengguna ditemui dengan maklumat yang diberikan. Semak carian anda dan cuba lagi.";
+
+"auth.enter_name" = "Masukkan nama";
+"auth.search_by" = "Cari mengikut";
+"auth.unknown_user" = "Pengguna tidak dikenali";
+"auth.email" = "E-mel";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Akaun Google";
+
+

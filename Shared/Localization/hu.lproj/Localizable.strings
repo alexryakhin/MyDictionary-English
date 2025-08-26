@@ -24,8 +24,6 @@
 "navigation.close" = "Bezárás";
 "navigation.close_screen" = "Képernyő bezárása";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Kifejezés hozzáadása";
 "idioms.add_new_idiom" = "Új kifejezés hozzáadása";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Legújabb először";
 "idioms.earliest_first" = "Legrégebbi először";
 "idioms.alphabetically" = "Betűrendben";
-
 
 // MARK: - App
 "app.my_dictionary" = "Saját szótár";
@@ -291,73 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Részletes haladás nyomon követése és betekintések";
 "pro_features.get_priority_support" = "Kapj elsőbbségi támogatást, amikor segítségre van szükséged";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Hiba történt a szó példáinak frissítésekor";
-"errors.error_removing_word" = "Hiba történt a szó eltávolításakor";
-"errors.error_saving_word" = "Hiba történt a szó mentésekor";
-"errors.error_updating_idiom_examples" = "Hiba történt a kifejezés példáinak frissítésekor";
-"errors.error_removing_idiom" = "Hiba történt a kifejezés eltávolításakor";
-"errors.error_saving_idiom" = "Hiba történt a kifejezés mentésekor";
-"errors.input_not_word" = "A bemenet nem szó";
-"errors.input_cannot_be_empty" = "A bemenet nem lehet üres";
-"errors.device_muted_or_volume_low" = "Az eszköz néma vagy alacsony a hangerő";
-"errors.cannot_play_audio" = "Nem lehet hangot lejátszani";
-"errors.cannot_setup_audio_session" = "Nem lehet audió munkamenetet beállítani";
-"errors.export_failed" = "Exportálás sikertelen";
-"errors.import_failed" = "Importálás sikertelen";
-"errors.cannot_access_security_scoped_resource" = "Nem férhetsz hozzá biztonsági hatókörű erőforráshoz";
-"errors.tag_already_exists" = "A címke már létezik";
-"errors.tag_already_assigned_to_word" = "Ez a címke már hozzá van rendelve ehhez a szóhoz";
-"errors.tag_not_assigned_to_word" = "Ez a címke nincs hozzárendelve ehhez a szóhoz";
-"errors.authentication_required" = "Hitelesítés szükséges";
-"errors.no_active_subscriptions_found" = "Nem találtunk aktív előfizetéseket";
-"errors.failed_to_update_word_progress" = "A szó haladásának frissítése sikertelen";
-"errors.failed_to_update_word_difficulty_level" = "A szó nehézségi szintjének frissítése sikertelen";
-"errors.failed_to_save_quiz_session" = "A kviz munkamenet mentése sikertelen";
-"errors.failed_to_update_user_statistics" = "A felhasználói statisztikák frissítése sikertelen";
-"errors.invalid_word_id" = "Érvénytelen szóazonosító";
-"errors.word_not_found" = "A szó nem található";
-"errors.failed_to_calculate_progress" = "A haladás kiszámítása sikertelen";
-"errors.invalid_translation_url" = "Érvénytelen fordítási URL";
-"errors.network_error_during_translation" = "Hálózati hiba a fordítás során";
-"errors.invalid_response_from_translation_service" = "Érvénytelen válasz a fordítási szolgáltatástól";
-"errors.translation_failed" = "A fordítás sikertelen";
-"errors.invalid_user_email" = "Érvénytelen felhasználói e-mail cím";
-"errors.network_error_occurred" = "Hálózati hiba történt";
-"errors.sync_failed" = "Szinkronizálás sikertelen";
-"errors.invalid_input_provided" = "Érvénytelen bemenetet adtál meg";
-"errors.dictionary_not_found" = "A szótár nem található";
-"errors.no_subscription_offerings_available" = "Jelenleg nincsenek előfizetési ajánlatok";
-"errors.requested_subscription_package_not_found" = "A kért előfizetési csomag nem található";
-"errors.purchase_could_not_be_completed" = "A vásárlás nem fejezhető be";
-"errors.failed_to_restore_previous_purchases" = "A korábbi vásárlások visszaállítása sikertelen";
-"errors.no_offerings_available" = "Jelenleg nincsenek előfizetési ajánlatok";
-"errors.purchase_failed" = "A vásárlás sikertelen";
-"errors.restore_failed" = "A korábbi vásárlások visszaállítása sikertelen";
-"errors.export_limit_exceeded" = "Túllépted az exportálási korlátot. Frissíts Pro-ra a korlátlan exportáláshoz.";
-"errors.max_tags_reached" = "Elérted az 5 címke/szó maximumot";
-"errors.tag_already_assigned" = "Ez a címke már hozzá van rendelve ehhez a szóhoz";
-"errors.tag_not_assigned" = "Ez a címke nincs hozzárendelve ehhez a szóhoz";
-"errors.network_timeout" = "Hálózati időtúllépés";
-"errors.server_unreachable" = "A szerver nem érhető el";
-"errors.invalid_response" = "Érvénytelen válasz";
-"errors.no_internet_connection" = "Nincs internetkapcsolat";
-"errors.missing_api_key" = "Hiányzó API kulcs";
-"errors.decoding_error" = "Dekódolási hiba";
-"errors.invalid_url" = "Érvénytelen URL";
-"errors.no_data" = "Nincs adat";
-"errors.save_failed" = "Mentés sikertelen";
-"errors.read_failed" = "Olvasás sikertelen";
-"errors.data_corrupted" = "Az adatok sérültek";
-"errors.invalid_input" = "Érvénytelen bemenet";
-"errors.missing_field" = "Hiányzó mező";
-"errors.unknown_error" = "Ismeretlen hiba";
-"errors.update_failed" = "Frissítés sikertelen";
-"errors.delete_failed" = "Törlés sikertelen";
-"errors.permission_denied" = "Nincs engedélyed erre a műveletre";
-"errors.user_not_authenticated" = "A felhasználónak hitelesítenie kell magát";
-"errors.dictionary_limit_reached" = "Az ingyenes csomaggal csak egy megosztott szótár hozható létre. Frissíts Pro-ra a korlátlan megosztott szótárakhoz.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Még nincsenek szavak";
 "empty_states.no_idioms_yet" = "Még nincsenek kifejezések";
@@ -583,24 +513,6 @@
 "indian" = "Indiai";
 "nigerian" = "Nigériai";
 
-"auth.cross_platform_button_description" = "Platformok közötti előfizetés megosztásához";
-"auth.nickname" = "Becenév";
-"auth.nickname_current" = "Jelenlegi becenév";
-"auth.nickname_not_set" = "Becenév nincs beállítva";
-"auth.nickname_description" = "Állítson be egy egyedi becenevet, amelyet mások használhatnak, hogy megtalálják és hozzáadják Önt a megosztott szótárakhoz. Ez kényelmesebb, mint az e-mail címek használata.";
-"auth.edit_nickname" = "Becenév szerkesztése";
-"auth.nickname_cannot_be_empty" = "A becenév nem lehet üres";
-"auth.nickname_already_taken" = "Ez a becenév már foglalt. Válasszon másikat.";
-"auth.nickname_invalid_format" = "A becenév csak betűket, számokat és aláhúzásokat tartalmazhat.";
-"auth.search_method" = "Keresési módszer";
-"auth.find_user_by_email" = "Felhasználó keresése e-mail alapján";
-"auth.find_user_by_nickname" = "Felhasználó keresése becenév alapján";
-"auth.enter_email_address" = "Adja meg az e-mail címet";
-"auth.enter_nickname" = "Adja meg a becenevet";
-"auth.found_user" = "Felhasználó megtalálva";
-"auth.user_not_found" = "Felhasználó nem található";
-"auth.user_not_found_message" = "Nem található felhasználó a megadott információkkal. Ellenőrizze a keresést és próbálja újra.";
-
 "notifications.permission_required" = "Értesítési engedély szükséges";
 "notifications.permission_denied_message" = "A napi emlékeztetők és nehéz szavakra vonatkozó figyelmeztetések fogadásához engedélyezze az értesítéseket a Beállításokban.";
 
@@ -664,9 +576,3 @@
 "tts.models.english_description" = "A Speechify angol szövegfelolvasó modellje standard funkciókat kínál, amelyek célja tiszta és természetes hangkimenet biztosítása a szövegek olvasásához. A modell a következetes felhasználói élmény biztosítására fókuszál.";
 "tts.models.multilingual_description" = "A többnyelvű modell lehetővé teszi az összes támogatott nyelv használatát, és támogatja több nyelv használatát egyetlen mondaton belül. A modell hangkimenete jelentősen különbözik a többi modelltől.";
 
-"auth.enter_name" = "Adja meg a nevét";
-"auth.search_by" = "Keresés alapján";
-"auth.unknown_user" = "Ismeretlen felhasználó";
-"auth.email" = "E-mail";
-"auth.apple_id" = "Apple ID";
-"auth.google_account" = "Google fiók";

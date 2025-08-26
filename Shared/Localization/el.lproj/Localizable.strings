@@ -24,8 +24,6 @@
 "navigation.close" = "Κλείσιμο";
 "navigation.close_screen" = "Κλείσιμο Οθόνης";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Προσθήκη Ιδιωματισμού";
 "idioms.add_new_idiom" = "Προσθήκη Νέου Ιδιωματισμού";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Πιο Πρόσφατο Πρώτα";
 "idioms.earliest_first" = "Πιο Παλιό Πρώτα";
 "idioms.alphabetically" = "Αλφαβητικά";
-
 
 // MARK: - App
 "app.my_dictionary" = "Το Λεξικό Μου";
@@ -291,73 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Λεπτομερής παρακολούθηση προόδου και πληροφορίες";
 "pro_features.get_priority_support" = "Λάβε υποστήριξη προτεραιότητας όταν χρειάζεσαι βοήθεια";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Σφάλμα κατά την ενημέρωση των παραδειγμάτων λέξεων";
-"errors.error_removing_word" = "Σφάλμα κατά την αφαίρεση της λέξης";
-"errors.error_saving_word" = "Σφάλμα κατά την αποθήκευση της λέξης";
-"errors.error_updating_idiom_examples" = "Σφάλμα κατά την ενημέρωση των παραδειγμάτων ιδιωματισμών";
-"errors.error_removing_idiom" = "Σφάλμα κατά την αφαίρεση του ιδιωματισμού";
-"errors.error_saving_idiom" = "Σφάλμα κατά την αποθήκευση του ιδιωματισμού";
-"errors.input_not_word" = "Η εισαγωγή δεν είναι λέξη";
-"errors.input_cannot_be_empty" = "Η εισαγωγή δεν μπορεί να είναι κενή";
-"errors.device_muted_or_volume_low" = "Η συσκευή είναι σε σίγαση ή η ένταση είναι χαμηλή";
-"errors.cannot_play_audio" = "Δεν μπορεί να αναπαραχθεί ο ήχος";
-"errors.cannot_setup_audio_session" = "Δεν μπορεί να ρυθμιστεί η συνεδρία ήχου";
-"errors.export_failed" = "Η εξαγωγή απέτυχε";
-"errors.import_failed" = "Η εισαγωγή απέτυχε";
-"errors.cannot_access_security_scoped_resource" = "Δεν υπάρχει πρόσβαση σε πόρο περιορισμένης ασφάλειας";
-"errors.tag_already_exists" = "Η ετικέτα υπάρχει ήδη";
-"errors.tag_already_assigned_to_word" = "Η ετικέτα έχει ήδη εκχωρηθεί σε αυτή τη λέξη";
-"errors.tag_not_assigned_to_word" = "Η ετικέτα δεν έχει εκχωρηθεί σε αυτή τη λέξη";
-"errors.authentication_required" = "Απαιτείται πιστοποίηση";
-"errors.no_active_subscriptions_found" = "Δεν βρέθηκαν ενεργές συνδρομές";
-"errors.failed_to_update_word_progress" = "Αποτυχία ενημέρωσης της προόδου της λέξης";
-"errors.failed_to_update_word_difficulty_level" = "Αποτυχία ενημέρωσης του επιπέδου δυσκολίας της λέξης";
-"errors.failed_to_save_quiz_session" = "Αποτυχία αποθήκευσης της συνεδρίας κουίζ";
-"errors.failed_to_update_user_statistics" = "Αποτυχία ενημέρωσης των στατιστικών του χρήστη";
-"errors.invalid_word_id" = "Μη έγκυρο ID λέξης";
-"errors.word_not_found" = "Η λέξη δεν βρέθηκε";
-"errors.failed_to_calculate_progress" = "Αποτυχία υπολογισμού της προόδου";
-"errors.invalid_translation_url" = "Μη έγκυρο URL μετάφρασης";
-"errors.network_error_during_translation" = "Σφάλμα δικτύου κατά τη μετάφραση";
-"errors.invalid_response_from_translation_service" = "Μη έγκυρη απόκριση από την υπηρεσία μετάφρασης";
-"errors.translation_failed" = "Η μετάφραση απέτυχε";
-"errors.invalid_user_email" = "Μη έγκυρη διεύθυνση email χρήστη";
-"errors.network_error_occurred" = "Παρουσιάστηκε σφάλμα δικτύου";
-"errors.sync_failed" = "Ο συγχρονισμός απέτυχε";
-"errors.invalid_input_provided" = "Παρέχεται μη έγκυρη εισαγωγή";
-"errors.dictionary_not_found" = "Το λεξικό δεν βρέθηκε";
-"errors.no_subscription_offerings_available" = "Δεν υπάρχουν διαθέσιμες προσφορές συνδρομής αυτή τη στιγμή";
-"errors.requested_subscription_package_not_found" = "Το ζητούμενο πακέτο συνδρομής δεν βρέθηκε";
-"errors.purchase_could_not_be_completed" = "Η αγορά δεν μπόρεσε να ολοκληρωθεί";
-"errors.failed_to_restore_previous_purchases" = "Αποτυχία επαναφοράς προηγούμενων αγορών";
-"errors.no_offerings_available" = "Δεν υπάρχουν διαθέσιμες προσφορές συνδρομής αυτή τη στιγμή";
-"errors.purchase_failed" = "Η αγορά απέτυχε";
-"errors.restore_failed" = "Αποτυχία επαναφοράς προηγούμενων αγορών";
-"errors.export_limit_exceeded" = "Υπέρβαση ορίου εξαγωγής. Αναβάθμισε σε Pro για απεριόριστη εξαγωγή.";
-"errors.max_tags_reached" = "Έχει επιτευχθεί ο μέγιστος αριθμός 5 ετικετών ανά λέξη";
-"errors.tag_already_assigned" = "Η ετικέτα έχει ήδη εκχωρηθεί σε αυτή τη λέξη";
-"errors.tag_not_assigned" = "Η ετικέτα δεν έχει εκχωρηθεί σε αυτή τη λέξη";
-"errors.network_timeout" = "Χρονικό όριο δικτύου";
-"errors.server_unreachable" = "Ο διακομιστής δεν είναι προσβάσιμος";
-"errors.invalid_response" = "Μη έγκυρη απόκριση";
-"errors.no_internet_connection" = "Καμία σύνδεση στο διαδίκτυο";
-"errors.missing_api_key" = "Λείπει το κλειδί API";
-"errors.decoding_error" = "Σφάλμα αποκωδικοποίησης";
-"errors.invalid_url" = "Μη έγκυρο URL";
-"errors.no_data" = "Κανένα δεδομένο";
-"errors.save_failed" = "Η αποθήκευση απέτυχε";
-"errors.read_failed" = "Η ανάγνωση απέτυχε";
-"errors.data_corrupted" = "Τα δεδομένα είναι κατεστραμμένα";
-"errors.invalid_input" = "Μη έγκυρη εισαγωγή";
-"errors.missing_field" = "Λείπει πεδίο";
-"errors.unknown_error" = "Άγνωστο σφάλμα";
-"errors.update_failed" = "Η ενημέρωση απέτυχε";
-"errors.delete_failed" = "Η διαγραφή απέτυχε";
-"errors.permission_denied" = "Δεν έχεις δικαίωμα να εκτελέσεις αυτή την ενέργεια";
-"errors.user_not_authenticated" = "Ο χρήστης πρέπει να είναι πιστοποιημένος";
-"errors.dictionary_limit_reached" = "Με το δωρεάν πλάνο μπορεί να δημιουργηθεί μόνο ένα κοινόχρηστο λεξικό. Αναβάθμισε σε Pro για απεριόριστα κοινόχρηστα λεξικά.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Καμία λέξη ακόμα";
 "empty_states.no_idioms_yet" = "Κανένας ιδιωματισμός ακόμα";
@@ -583,24 +513,6 @@
 "indian" = "Ινδικός";
 "nigerian" = "Νιγηριανός";
 
-"auth.cross_platform_button_description" = "Για κοινή χρήση συνδρομής μεταξύ πλατφορμών";
-"auth.nickname" = "Ψευδώνυμο";
-"auth.nickname_current" = "Τρέχον ψευδώνυμο";
-"auth.nickname_not_set" = "Το ψευδώνυμο δεν έχει οριστεί";
-"auth.nickname_description" = "Ορίστε ένα μοναδικό ψευδώνυμο που μπορούν να χρησιμοποιήσουν άλλοι για να σας βρουν και να σας προσθέσουν σε κοινόχρηστα λεξικά. Είναι πιο βολικό από τη χρήση διευθύνσεων email.";
-"auth.edit_nickname" = "Επεξεργασία ψευδωνύμου";
-"auth.nickname_cannot_be_empty" = "Το ψευδώνυμο δεν μπορεί να είναι κενό";
-"auth.nickname_already_taken" = "Αυτό το ψευδώνυμο είναι ήδη κατειλημμένο. Επιλέξτε άλλο.";
-"auth.nickname_invalid_format" = "Το ψευδώνυμο μπορεί να περιέχει μόνο γράμματα, αριθμούς και κάτω παύλες.";
-"auth.search_method" = "Μέθοδος αναζήτησης";
-"auth.find_user_by_email" = "Βρείτε χρήστη μέσω email";
-"auth.find_user_by_nickname" = "Βρείτε χρήστη μέσω ψευδωνύμου";
-"auth.enter_email_address" = "Εισαγάγετε διεύθυνση email";
-"auth.enter_nickname" = "Εισαγάγετε ψευδώνυμο";
-"auth.found_user" = "Ο χρήστης βρέθηκε";
-"auth.user_not_found" = "Ο χρήστης δεν βρέθηκε";
-"auth.user_not_found_message" = "Δεν βρέθηκε χρήστης με τις παρεχόμενες πληροφορίες. Ελέγξτε την αναζήτησή σας και δοκιμάστε ξανά.";
-
 "notifications.permission_required" = "Απαιτείται άδεια ειδοποιήσεων";
 "notifications.permission_denied_message" = "Για να λαμβάνετε καθημερινές υπενθυμίσεις και ειδοποιήσεις για δύσκολες λέξεις, ενεργοποιήστε τις ειδοποιήσεις στις Ρυθμίσεις.";
 
@@ -664,9 +576,3 @@
 "tts.models.english_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία στα Αγγλικά της Speechify προσφέρει τυπικές λειτουργίες που έχουν σχεδιαστεί για να παρέχουν καθαρή και φυσική έξοδο ήχου για την ανάγνωση κειμένων. Το μοντέλο επικεντρώνεται στην παροχή συνεπούς εμπειρίας χρήστη.";
 "tts.models.multilingual_description" = "Το πολυγλωσσικό μοντέλο επιτρέπει τη χρήση όλων των υποστηριζόμενων γλωσσών και υποστηρίζει τη χρήση πολλαπλών γλωσσών μέσα σε μία πρόταση. Η έξοδος ήχου αυτού του μοντέλου διαφέρει σημαντικά από άλλα μοντέλα.";
 
-"auth.enter_name" = "Εισαγάγετε όνομα";
-"auth.search_by" = "Αναζήτηση με";
-"auth.unknown_user" = "Άγνωστος χρήστης";
-"auth.email" = "Email";
-"auth.apple_id" = "Apple ID";
-"auth.google_account" = "Λογαριασμός Google";

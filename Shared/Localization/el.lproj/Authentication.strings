@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Συνδεδεμένοι Λογαριασμοί";
 "auth.no_linked_accounts" = "Κανένας συνδεδεμένος λογαριασμός";
 
+"auth.cross_platform_button_description" = "Για κοινή χρήση συνδρομής μεταξύ πλατφορμών";
+"auth.nickname" = "Ψευδώνυμο";
+"auth.nickname_current" = "Τρέχον ψευδώνυμο";
+"auth.nickname_not_set" = "Το ψευδώνυμο δεν έχει οριστεί";
+"auth.nickname_description" = "Ορίστε ένα μοναδικό ψευδώνυμο που μπορούν να χρησιμοποιήσουν άλλοι για να σας βρουν και να σας προσθέσουν σε κοινόχρηστα λεξικά. Είναι πιο βολικό από τη χρήση διευθύνσεων email.";
+"auth.edit_nickname" = "Επεξεργασία ψευδωνύμου";
+"auth.nickname_cannot_be_empty" = "Το ψευδώνυμο δεν μπορεί να είναι κενό";
+"auth.nickname_already_taken" = "Αυτό το ψευδώνυμο είναι ήδη κατειλημμένο. Επιλέξτε άλλο.";
+"auth.nickname_invalid_format" = "Το ψευδώνυμο μπορεί να περιέχει μόνο γράμματα, αριθμούς και κάτω παύλες.";
+"auth.search_method" = "Μέθοδος αναζήτησης";
+"auth.find_user_by_email" = "Βρείτε χρήστη μέσω email";
+"auth.find_user_by_nickname" = "Βρείτε χρήστη μέσω ψευδωνύμου";
+"auth.enter_email_address" = "Εισαγάγετε διεύθυνση email";
+"auth.enter_nickname" = "Εισαγάγετε ψευδώνυμο";
+"auth.found_user" = "Ο χρήστης βρέθηκε";
+"auth.user_not_found" = "Ο χρήστης δεν βρέθηκε";
+"auth.user_not_found_message" = "Δεν βρέθηκε χρήστης με τις παρεχόμενες πληροφορίες. Ελέγξτε την αναζήτησή σας και δοκιμάστε ξανά.";
+
+"auth.enter_name" = "Εισαγάγετε όνομα";
+"auth.search_by" = "Αναζήτηση με";
+"auth.unknown_user" = "Άγνωστος χρήστης";
+"auth.email" = "Email";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Λογαριασμός Google";
+
+

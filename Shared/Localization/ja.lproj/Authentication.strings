@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "リンクされたアカウント";
 "auth.no_linked_accounts" = "リンクされたアカウントなし";
 
+"auth.cross_platform_button_description" = "クロスプラットフォームのサブスクリプション共有用";
+"auth.nickname" = "ニックネーム";
+"auth.nickname_current" = "現在のニックネーム";
+"auth.nickname_not_set" = "ニックネームが設定されていません";
+"auth.nickname_description" = "他の人があなたを見つけて共有辞書に追加するために使用できる一意のニックネームを設定します。メールアドレスを使用するよりも便利です。";
+"auth.edit_nickname" = "ニックネームを編集";
+"auth.nickname_cannot_be_empty" = "ニックネームは空にできません";
+"auth.nickname_already_taken" = "このニックネームはすでに使用されています。別のものを選んでください。";
+"auth.nickname_invalid_format" = "ニックネームには文字、数字、アンダースコアのみを含めることができます。";
+"auth.search_method" = "検索方法";
+"auth.find_user_by_email" = "メールアドレスでユーザーを検索";
+"auth.find_user_by_nickname" = "ニックネームでユーザーを検索";
+"auth.enter_email_address" = "メールアドレスを入力";
+"auth.enter_nickname" = "ニックネームを入力";
+"auth.found_user" = "ユーザーが見つかりました";
+"auth.user_not_found" = "ユーザーが見つかりませんでした";
+"auth.user_not_found_message" = "提供された情報でユーザーが見つかりませんでした。検索を確認して再度お試しください。";
+
+"auth.enter_name" = "名前を入力";
+"auth.search_by" = "検索方法";
+"auth.unknown_user" = "不明なユーザー";
+"auth.email" = "メール";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Googleアカウント";
+
+

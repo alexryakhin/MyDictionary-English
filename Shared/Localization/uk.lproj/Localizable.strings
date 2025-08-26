@@ -24,8 +24,6 @@
 "navigation.close" = "Закрити";
 "navigation.close_screen" = "Закрити екран";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Додати ідіому";
 "idioms.add_new_idiom" = "Додати нову ідіому";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Останні спочатку";
 "idioms.earliest_first" = "Ранніші спочатку";
 "idioms.alphabetically" = "За алфавітом";
-
 
 // MARK: - App
 "app.my_dictionary" = "Мій словник";
@@ -291,73 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Детальне відстеження прогресу та аналітика";
 "pro_features.get_priority_support" = "Отримуйте пріоритетну підтримку, коли вам потрібна допомога";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Помилка оновлення прикладів слова";
-"errors.error_removing_word" = "Помилка видалення слова";
-"errors.error_saving_word" = "Помилка збереження слова";
-"errors.error_updating_idiom_examples" = "Помилка оновлення прикладів ідіоми";
-"errors.error_removing_idiom" = "Помилка видалення ідіоми";
-"errors.error_saving_idiom" = "Помилка збереження ідіоми";
-"errors.input_not_word" = "Введено не слово";
-"errors.input_cannot_be_empty" = "Введення не може бути порожнім";
-"errors.device_muted_or_volume_low" = "Пристрій на беззвучному режимі або гучність низька";
-"errors.cannot_play_audio" = "Не вдається відтворити аудіо";
-"errors.cannot_setup_audio_session" = "Не вдається налаштувати аудіосесію";
-"errors.export_failed" = "Експорт не вдався";
-"errors.import_failed" = "Імпорт не вдався";
-"errors.cannot_access_security_scoped_resource" = "Не вдається отримати доступ до ресурсу з обмеженим доступом";
-"errors.tag_already_exists" = "Тег уже існує";
-"errors.tag_already_assigned_to_word" = "Цей тег уже призначено цьому слову";
-"errors.tag_not_assigned_to_word" = "Цей тег не призначено цьому слову";
-"errors.authentication_required" = "Потрібна автентифікація";
-"errors.no_active_subscriptions_found" = "Активних підписок не знайдено";
-"errors.failed_to_update_word_progress" = "Не вдалося оновити прогрес слова";
-"errors.failed_to_update_word_difficulty_level" = "Не вдалося оновити рівень складності слова";
-"errors.failed_to_save_quiz_session" = "Не вдалося зберегти сеанс тесту";
-"errors.failed_to_update_user_statistics" = "Не вдалося оновити статистику користувача";
-"errors.invalid_word_id" = "Недійсний ідентифікатор слова";
-"errors.word_not_found" = "Слово не знайдено";
-"errors.failed_to_calculate_progress" = "Не вдалося обчислити прогрес";
-"errors.invalid_translation_url" = "Недійсний URL перекладу";
-"errors.network_error_during_translation" = "Помилка мережі під час перекладу";
-"errors.invalid_response_from_translation_service" = "Недійсна відповідь від служби перекладу";
-"errors.translation_failed" = "Переклад не вдався";
-"errors.invalid_user_email" = "Недійсна електронна пошта користувача";
-"errors.network_error_occurred" = "Сталася помилка мережі";
-"errors.sync_failed" = "Синхронізація не вдалася";
-"errors.invalid_input_provided" = "Надано недійсне введення";
-"errors.dictionary_not_found" = "Словник не знайдено";
-"errors.no_subscription_offerings_available" = "Наразі немає пропозицій щодо підписок";
-"errors.requested_subscription_package_not_found" = "Запитаний пакет підписки не знайдено";
-"errors.purchase_could_not_be_completed" = "Не вдалося завершити покупку";
-"errors.failed_to_restore_previous_purchases" = "Не вдалося відновити попередні покупки";
-"errors.no_offerings_available" = "Наразі немає пропозицій щодо підписок";
-"errors.purchase_failed" = "Покупка не вдалася";
-"errors.restore_failed" = "Не вдалося відновити попередні покупки";
-"errors.export_limit_exceeded" = "Перевищено ліміт експорту. Оновіть до Pro для необмеженого експорту";
-"errors.max_tags_reached" = "Досягнуто максимального ліміту в 5 тегів на слово";
-"errors.tag_already_assigned" = "Цей тег уже призначено цьому слову";
-"errors.tag_not_assigned" = "Цей тег не призначено цьому слову";
-"errors.network_timeout" = "Час очікування мережі вичерпано";
-"errors.server_unreachable" = "Сервер недоступний";
-"errors.invalid_response" = "Недійсна відповідь";
-"errors.no_internet_connection" = "Немає з'єднання з інтернетом";
-"errors.missing_api_key" = "Відсутній ключ API";
-"errors.decoding_error" = "Помилка декодування";
-"errors.invalid_url" = "Недійсний URL";
-"errors.no_data" = "Немає даних";
-"errors.save_failed" = "Збереження не вдалося";
-"errors.read_failed" = "Читання не вдалося";
-"errors.data_corrupted" = "Дані пошкоджено";
-"errors.invalid_input" = "Недійсне введення";
-"errors.missing_field" = "Відсутнє поле";
-"errors.unknown_error" = "Невідома помилка";
-"errors.update_failed" = "Оновлення не вдалося";
-"errors.delete_failed" = "Видалення не вдалося";
-"errors.permission_denied" = "У вас немає дозволу на цю дію";
-"errors.user_not_authenticated" = "Користувач має бути автентифікований";
-"errors.dictionary_limit_reached" = "З безкоштовним планом ви можете створити лише один спільний словник. Оновіть до Pro для створення необмежених спільних словників";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Поки немає слів";
 "empty_states.no_idioms_yet" = "Поки немає ідіом";
@@ -569,24 +499,6 @@
 "indian" = "Індійський";
 "nigerian" = "Нігерійський";
 
-"auth.cross_platform_button_description" = "Для спільного використання підписки між платформами";
-"auth.nickname" = "Псевдонім";
-"auth.nickname_current" = "Поточний псевдонім";
-"auth.nickname_not_set" = "Псевдонім не встановлено";
-"auth.nickname_description" = "Встановіть унікальний псевдонім, який інші можуть використовувати, щоб знайти вас і додати до спільних словників. Це зручніше, ніж використання електронних адрес.";
-"auth.edit_nickname" = "Редагувати псевдонім";
-"auth.nickname_cannot_be_empty" = "Псевдонім не може бути порожнім";
-"auth.nickname_already_taken" = "Цей псевдонім уже зайнято. Виберіть інший.";
-"auth.nickname_invalid_format" = "Псевдонім може містити лише літери, цифри та підкреслення.";
-"auth.search_method" = "Метод пошуку";
-"auth.find_user_by_email" = "Знайти користувача за електронною поштою";
-"auth.find_user_by_nickname" = "Знайти користувача за псевдонімом";
-"auth.enter_email_address" = "Введіть адресу електронної пошти";
-"auth.enter_nickname" = "Введіть псевдонім";
-"auth.found_user" = "Користувач знайдений";
-"auth.user_not_found" = "Користувач не знайдений";
-"auth.user_not_found_message" = "Користувача не знайдено за наданою інформацією. Перевірте пошук і спробуйте ще раз.";
-
 "notifications.permission_required" = "Потрібен дозвіл на сповіщення";
 "notifications.permission_denied_message" = "Щоб отримувати щоденні нагадування та сповіщення про складні слова, увімкніть сповіщення в Налаштуваннях.";
 
@@ -650,9 +562,3 @@
 "tts.models.english_description" = "Модель перетворення тексту в мову англійською мовою від Speechify пропонує стандартні функції, призначені для забезпечення чіткого та природного звукового виведення для читання текстів. Модель зосереджена на забезпеченні послідовного користувацького досвіду.";
 "tts.models.multilingual_description" = "Багатомовна модель дозволяє використовувати всі підтримувані мови та підтримує використання кількох мов в одному реченні. Звукове виведення цієї моделі значно відрізняється від інших моделей.";
 
-"auth.enter_name" = "Введіть ім'я";
-"auth.search_by" = "Шукати за";
-"auth.unknown_user" = "Невідомий користувач";
-"auth.email" = "Електронна пошта";
-"auth.apple_id" = "Apple ID";
-"auth.google_account" = "Обліковий запис Google";

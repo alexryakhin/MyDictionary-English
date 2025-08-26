@@ -24,8 +24,6 @@
 "navigation.close" = "Tutup";
 "navigation.close_screen" = "Tutup Layar";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Tambah Ungkapan";
 "idioms.add_new_idiom" = "Tambah Ungkapan Baru";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Terbaru Dahulu";
 "idioms.earliest_first" = "Terlama Dahulu";
 "idioms.alphabetically" = "Secara Alfabet";
-
 
 // MARK: - App
 "app.my_dictionary" = "Kamus Saya";
@@ -291,73 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Pelacakan kemajuan mendetail dan wawasan";
 "pro_features.get_priority_support" = "Dapatkan dukungan prioritas saat Anda membutuhkan bantuan";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Kesalahan saat memperbarui contoh kata";
-"errors.error_removing_word" = "Kesalahan saat menghapus kata";
-"errors.error_saving_word" = "Kesalahan saat menyimpan kata";
-"errors.error_updating_idiom_examples" = "Kesalahan saat memperbarui contoh ungkapan";
-"errors.error_removing_idiom" = "Kesalahan saat menghapus ungkapan";
-"errors.error_saving_idiom" = "Kesalahan saat menyimpan ungkapan";
-"errors.input_not_word" = "Masukan bukan kata";
-"errors.input_cannot_be_empty" = "Masukan tidak boleh kosong";
-"errors.device_muted_or_volume_low" = "Perangkat dimatikan atau volume rendah";
-"errors.cannot_play_audio" = "Tidak dapat memutar audio";
-"errors.cannot_setup_audio_session" = "Tidak dapat mengatur sesi audio";
-"errors.export_failed" = "Ekspor Gagal";
-"errors.import_failed" = "Impor Gagal";
-"errors.cannot_access_security_scoped_resource" = "Tidak dapat mengakses sumber daya dengan cakupan keamanan";
-"errors.tag_already_exists" = "Tag sudah ada";
-"errors.tag_already_assigned_to_word" = "Tag sudah ditetapkan untuk kata ini";
-"errors.tag_not_assigned_to_word" = "Tag tidak ditetapkan untuk kata ini";
-"errors.authentication_required" = "Otentikasi diperlukan";
-"errors.no_active_subscriptions_found" = "Tidak ditemukan langganan aktif";
-"errors.failed_to_update_word_progress" = "Gagal memperbarui kemajuan kata";
-"errors.failed_to_update_word_difficulty_level" = "Gagal memperbarui tingkat kesulitan kata";
-"errors.failed_to_save_quiz_session" = "Gagal menyimpan sesi kuis";
-"errors.failed_to_update_user_statistics" = "Gagal memperbarui statistik pengguna";
-"errors.invalid_word_id" = "ID kata tidak valid";
-"errors.word_not_found" = "Kata tidak ditemukan";
-"errors.failed_to_calculate_progress" = "Gagal menghitung kemajuan";
-"errors.invalid_translation_url" = "URL terjemahan tidak valid";
-"errors.network_error_during_translation" = "Kesalahan jaringan selama terjemahan";
-"errors.invalid_response_from_translation_service" = "Tanggapan tidak valid dari layanan terjemahan";
-"errors.translation_failed" = "Terjemahan gagal";
-"errors.invalid_user_email" = "Alamat email pengguna tidak valid";
-"errors.network_error_occurred" = "Terjadi kesalahan jaringan";
-"errors.sync_failed" = "Sinkronisasi gagal";
-"errors.invalid_input_provided" = "Masukan yang diberikan tidak valid";
-"errors.dictionary_not_found" = "Kamus tidak ditemukan";
-"errors.no_subscription_offerings_available" = "Saat ini tidak ada penawaran langganan";
-"errors.requested_subscription_package_not_found" = "Paket langganan yang diminta tidak ditemukan";
-"errors.purchase_could_not_be_completed" = "Pembelian tidak dapat diselesaikan";
-"errors.failed_to_restore_previous_purchases" = "Gagal memulihkan pembelian sebelumnya";
-"errors.no_offerings_available" = "Saat ini tidak ada penawaran langganan";
-"errors.purchase_failed" = "Pembelian gagal";
-"errors.restore_failed" = "Gagal memulihkan pembelian sebelumnya";
-"errors.export_limit_exceeded" = "Batas ekspor terlampaui. Tingkatkan ke Pro untuk ekspor tanpa batas.";
-"errors.max_tags_reached" = "Mencapai batas maksimum 5 tag per kata";
-"errors.tag_already_assigned" = "Tag sudah ditetapkan untuk kata ini";
-"errors.tag_not_assigned" = "Tag tidak ditetapkan untuk kata ini";
-"errors.network_timeout" = "Waktu jaringan habis";
-"errors.server_unreachable" = "Server tidak dapat dijangkau";
-"errors.invalid_response" = "Tanggapan tidak valid";
-"errors.no_internet_connection" = "Tidak ada koneksi internet";
-"errors.missing_api_key" = "Kunci API hilang";
-"errors.decoding_error" = "Kesalahan dekoding";
-"errors.invalid_url" = "URL tidak valid";
-"errors.no_data" = "Tidak ada data";
-"errors.save_failed" = "Gagal menyimpan";
-"errors.read_failed" = "Gagal membaca";
-"errors.data_corrupted" = "Data rusak";
-"errors.invalid_input" = "Masukan tidak valid";
-"errors.missing_field" = "Bidang hilang";
-"errors.unknown_error" = "Kesalahan tidak diketahui";
-"errors.update_failed" = "Gagal memperbarui";
-"errors.delete_failed" = "Hapus Gagal";
-"errors.permission_denied" = "Anda tidak memiliki izin untuk melakukan tindakan ini";
-"errors.user_not_authenticated" = "Pengguna harus diotentikasi";
-"errors.dictionary_limit_reached" = "Hanya satu kamus bersama yang dapat dibuat dengan paket gratis. Tingkatkan ke Pro untuk kamus bersama tanpa batas.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Belum ada kata";
 "empty_states.no_idioms_yet" = "Belum ada ungkapan";
@@ -583,24 +513,6 @@
 "indian" = "India";
 "nigerian" = "Nigeria";
 
-"auth.cross_platform_button_description" = "Untuk berbagi langganan lintas platform";
-"auth.nickname" = "Nama panggilan";
-"auth.nickname_current" = "Nama panggilan saat ini";
-"auth.nickname_not_set" = "Nama panggilan belum diatur";
-"auth.nickname_description" = "Atur nama panggilan unik yang dapat digunakan orang lain untuk menemukan dan menambahkan Anda ke kamus bersama. Ini lebih nyaman daripada menggunakan alamat email.";
-"auth.edit_nickname" = "Edit nama panggilan";
-"auth.nickname_cannot_be_empty" = "Nama panggilan tidak boleh kosong";
-"auth.nickname_already_taken" = "Nama panggilan ini sudah digunakan. Pilih yang lain.";
-"auth.nickname_invalid_format" = "Nama panggilan hanya boleh berisi huruf, angka, dan garis bawah.";
-"auth.search_method" = "Metode pencarian";
-"auth.find_user_by_email" = "Temukan pengguna melalui email";
-"auth.find_user_by_nickname" = "Temukan pengguna melalui nama panggilan";
-"auth.enter_email_address" = "Masukkan alamat email";
-"auth.enter_nickname" = "Masukkan nama panggilan";
-"auth.found_user" = "Pengguna ditemukan";
-"auth.user_not_found" = "Pengguna tidak ditemukan";
-"auth.user_not_found_message" = "Tidak ada pengguna yang ditemukan dengan informasi yang diberikan. Periksa pencarian Anda dan coba lagi.";
-
 "notifications.permission_required" = "Izin notifikasi diperlukan";
 "notifications.permission_denied_message" = "Untuk menerima pengingat harian dan peringatan untuk kata-kata sulit, aktifkan notifikasi di Pengaturan.";
 
@@ -664,9 +576,3 @@
 "tts.models.english_description" = "Model teks ke ucapan Bahasa Inggris Speechify menawarkan fitur standar yang dirancang untuk memberikan keluaran audio yang jelas dan alami untuk membaca teks. Model ini berfokus pada penyediaan pengalaman pengguna yang konsisten.";
 "tts.models.multilingual_description" = "Model multibahasa memungkinkan penggunaan semua bahasa yang didukung dan mendukung penggunaan beberapa bahasa dalam satu kalimat. Keluaran audio model ini sangat berbeda dari model lain.";
 
-"auth.enter_name" = "Masukkan nama";
-"auth.search_by" = "Cari berdasarkan";
-"auth.unknown_user" = "Pengguna tidak dikenal";
-"auth.email" = "Email";
-"auth.apple_id" = "Apple ID";
-"auth.google_account" = "Akun Google";

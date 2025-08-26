@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Akun Tertaut";
 "auth.no_linked_accounts" = "Tidak ada akun tertaut";
 
+"auth.cross_platform_button_description" = "Untuk berbagi langganan lintas platform";
+"auth.nickname" = "Nama panggilan";
+"auth.nickname_current" = "Nama panggilan saat ini";
+"auth.nickname_not_set" = "Nama panggilan belum diatur";
+"auth.nickname_description" = "Atur nama panggilan unik yang dapat digunakan orang lain untuk menemukan dan menambahkan Anda ke kamus bersama. Ini lebih nyaman daripada menggunakan alamat email.";
+"auth.edit_nickname" = "Edit nama panggilan";
+"auth.nickname_cannot_be_empty" = "Nama panggilan tidak boleh kosong";
+"auth.nickname_already_taken" = "Nama panggilan ini sudah digunakan. Pilih yang lain.";
+"auth.nickname_invalid_format" = "Nama panggilan hanya boleh berisi huruf, angka, dan garis bawah.";
+"auth.search_method" = "Metode pencarian";
+"auth.find_user_by_email" = "Temukan pengguna melalui email";
+"auth.find_user_by_nickname" = "Temukan pengguna melalui nama panggilan";
+"auth.enter_email_address" = "Masukkan alamat email";
+"auth.enter_nickname" = "Masukkan nama panggilan";
+"auth.found_user" = "Pengguna ditemukan";
+"auth.user_not_found" = "Pengguna tidak ditemukan";
+"auth.user_not_found_message" = "Tidak ada pengguna yang ditemukan dengan informasi yang diberikan. Periksa pencarian Anda dan coba lagi.";
+
+"auth.enter_name" = "Masukkan nama";
+"auth.search_by" = "Cari berdasarkan";
+"auth.unknown_user" = "Pengguna tidak dikenal";
+"auth.email" = "Email";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Akun Google";
+
+

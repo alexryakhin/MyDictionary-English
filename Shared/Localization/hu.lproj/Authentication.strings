@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Összekapcsolt Fiókok";
 "auth.no_linked_accounts" = "Nincsenek összekapcsolt fiókok";
 
+"auth.cross_platform_button_description" = "Platformok közötti előfizetés megosztásához";
+"auth.nickname" = "Becenév";
+"auth.nickname_current" = "Jelenlegi becenév";
+"auth.nickname_not_set" = "Becenév nincs beállítva";
+"auth.nickname_description" = "Állítson be egy egyedi becenevet, amelyet mások használhatnak, hogy megtalálják és hozzáadják Önt a megosztott szótárakhoz. Ez kényelmesebb, mint az e-mail címek használata.";
+"auth.edit_nickname" = "Becenév szerkesztése";
+"auth.nickname_cannot_be_empty" = "A becenév nem lehet üres";
+"auth.nickname_already_taken" = "Ez a becenév már foglalt. Válasszon másikat.";
+"auth.nickname_invalid_format" = "A becenév csak betűket, számokat és aláhúzásokat tartalmazhat.";
+"auth.search_method" = "Keresési módszer";
+"auth.find_user_by_email" = "Felhasználó keresése e-mail alapján";
+"auth.find_user_by_nickname" = "Felhasználó keresése becenév alapján";
+"auth.enter_email_address" = "Adja meg az e-mail címet";
+"auth.enter_nickname" = "Adja meg a becenevet";
+"auth.found_user" = "Felhasználó megtalálva";
+"auth.user_not_found" = "Felhasználó nem található";
+"auth.user_not_found_message" = "Nem található felhasználó a megadott információkkal. Ellenőrizze a keresést és próbálja újra.";
+
+"auth.enter_name" = "Adja meg a nevét";
+"auth.search_by" = "Keresés alapján";
+"auth.unknown_user" = "Ismeretlen felhasználó";
+"auth.email" = "E-mail";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Google fiók";
+
+

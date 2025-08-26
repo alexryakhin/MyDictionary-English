@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Conturi Conectate";
 "auth.no_linked_accounts" = "Niciun cont conectat";
 
+"auth.cross_platform_button_description" = "Pentru partajarea abonamentului între platforme";
+"auth.nickname" = "Poreclă";
+"auth.nickname_current" = "Poreclă actuală";
+"auth.nickname_not_set" = "Porecla nu este setată";
+"auth.nickname_description" = "Setați o poreclă unică pe care alții o pot folosi pentru a vă găsi și a vă adăuga în dicționarele partajate. Este mai convenabil decât utilizarea adreselor de e-mail.";
+"auth.edit_nickname" = "Editați porecla";
+"auth.nickname_cannot_be_empty" = "Porecla nu poate fi goală";
+"auth.nickname_already_taken" = "Această poreclă este deja luată. Alegeți alta.";
+"auth.nickname_invalid_format" = "Porecla poate conține doar litere, cifre și linii de subliniere.";
+"auth.search_method" = "Metodă de căutare";
+"auth.find_user_by_email" = "Găsiți utilizatorul prin e-mail";
+"auth.find_user_by_nickname" = "Găsiți utilizatorul prin poreclă";
+"auth.enter_email_address" = "Introduceți adresa de e-mail";
+"auth.enter_nickname" = "Introduceți porecla";
+"auth.found_user" = "Utilizator găsit";
+"auth.user_not_found" = "Utilizator negăsit";
+"auth.user_not_found_message" = "Nu s-a găsit niciun utilizator cu informațiile furnizate. Verificați căutarea și încercați din nou.";
+
+"auth.enter_name" = "Introduceți numele";
+"auth.search_by" = "Căutați după";
+"auth.unknown_user" = "Utilizator necunoscut";
+"auth.email" = "E-mail";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Cont Google";
+
+

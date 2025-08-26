@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Account Collegati";
 "auth.no_linked_accounts" = "Nessun account collegato";
 
+"auth.cross_platform_button_description" = "Per la condivisione dell'abbonamento tra piattaforme";
+"auth.nickname" = "Nickname";
+"auth.nickname_current" = "Nickname attuale";
+"auth.nickname_not_set" = "Il nickname non è impostato";
+"auth.nickname_description" = "Imposta un nickname unico che altri possono utilizzare per trovarti e aggiungerti a dizionari condivisi. È più comodo rispetto all'uso di indirizzi email.";
+"auth.edit_nickname" = "Modifica nickname";
+"auth.nickname_cannot_be_empty" = "Il nickname non può essere vuoto";
+"auth.nickname_already_taken" = "Questo nickname è già in uso. Scegline un altro.";
+"auth.nickname_invalid_format" = "Il nickname può contenere solo lettere, numeri e trattini bassi.";
+"auth.search_method" = "Metodo di ricerca";
+"auth.find_user_by_email" = "Trova utente tramite email";
+"auth.find_user_by_nickname" = "Trova utente tramite nickname";
+"auth.enter_email_address" = "Inserisci l'indirizzo email";
+"auth.enter_nickname" = "Inserisci il nickname";
+"auth.found_user" = "Utente trovato";
+"auth.user_not_found" = "Utente non trovato";
+"auth.user_not_found_message" = "Nessun utente trovato con le informazioni fornite. Controlla la tua ricerca e riprova.";
+
+"auth.enter_name" = "Inserisci il nome";
+"auth.search_by" = "Cerca per";
+"auth.unknown_user" = "Utente sconosciuto";
+"auth.email" = "Email";
+"auth.apple_id" = "ID Apple";
+"auth.google_account" = "Account Google";
+
+

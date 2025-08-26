@@ -24,8 +24,6 @@
 "navigation.close" = "إغلاق";
 "navigation.close_screen" = "إغلاق الشاشة";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "إضافة تعبير";
 "idioms.add_new_idiom" = "إضافة تعبير جديد";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "الأحدث أولاً";
 "idioms.earliest_first" = "الأقدم أولاً";
 "idioms.alphabetically" = "حسب الأبجدية";
-
 
 // MARK: - App
 "app.my_dictionary" = "قاموسي";
@@ -291,74 +288,6 @@
 "pro_features.detailed_progress_tracking" = "تتبع التقدم التفصيلي والرؤى";
 "pro_features.get_priority_support" = "احصل على دعم ذو أولوية عندما تحتاج إلى المساعدة";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "خطأ في تحديث أمثلة الكلمة";
-"errors.error_removing_word" = "خطأ في إزالة الكلمة";
-"errors.error_saving_word" = "خطأ في حفظ الكلمة";
-"errors.error_updating_idiom_examples" = "خطأ في تحديث أمثلة التعبير";
-"errors.error_removing_idiom" = "خطأ في إزالة التعبير";
-"errors.error_saving_idiom" = "خطأ في حفظ التعبير";
-"errors.input_not_word" = "الإدخال ليس كلمة";
-"errors.input_cannot_be_empty" = "الإدخال لا يمكن أن يكون فارغًا";
-"errors.device_muted_or_volume_low" = "الجهاز مكتوم أو الصوت منخفض جدًا";
-"errors.cannot_play_audio" = "لا يمكن تشغيل الصوت";
-"errors.cannot_setup_audio_session" = "لا يمكن إعداد جلسة الصوت";
-"errors.export_failed" = "فشل التصدير";
-"errors.import_failed" = "فشل الاستيراد";
-"errors.cannot_access_security_scoped_resource" = "لا يمكن الوصول إلى المورد المحمي أمنيًا";
-"errors.tag_already_exists" = "العلامة موجودة بالفعل";
-"errors.tag_already_assigned_to_word" = "العلامة مخصصة بالفعل لهذه الكلمة";
-"errors.tag_not_assigned_to_word" = "العلامة غير مخصصة لهذه الكلمة";
-"errors.authentication_required" = "المصادقة مطلوبة";
-"errors.no_active_subscriptions_found" = "لم يتم العثور على اشتراكات نشطة";
-"errors.failed_to_update_word_progress" = "فشل في تحديث تقدم الكلمة";
-"errors.failed_to_update_word_difficulty_level" = "فشل في تحديث مستوى صعوبة الكلمة";
-"errors.failed_to_save_quiz_session" = "فشل في حفظ جلسة الاختبار";
-"errors.failed_to_update_user_statistics" = "فشل في تحديث إحصائيات المستخدم";
-"errors.invalid_word_id" = "معرف الكلمة غير صالح";
-"errors.word_not_found" = "لم يتم العثور على الكلمة";
-"errors.failed_to_calculate_progress" = "فشل في حساب التقدم";
-"errors.invalid_translation_url" = "رابط الترجمة غير صالح";
-"errors.network_error_during_translation" = "خطأ في الشبكة أثناء الترجمة";
-"errors.invalid_response_from_translation_service" = "استجابة غير صالحة من خدمة الترجمة";
-"errors.translation_failed" = "فشل الترجمة";
-"errors.invalid_user_email" = "بريد إلكتروني غير صالح للمستخدم";
-"errors.network_error_occurred" = "حدث خطأ في الشبكة";
-"errors.sync_failed" = "فشل المزامنة";
-"errors.invalid_input_provided" = "تم تقديم إدخال غير صالح";
-"errors.dictionary_not_found" = "لم يتم العثور على القاموس";
-"errors.no_subscription_offerings_available" = "لا توجد عروض اشتراك متاحة حاليًا";
-"errors.requested_subscription_package_not_found" = "لم يتم العثور على حزمة الاشتراك المطلوبة";
-"errors.purchase_could_not_be_completed" = "تعذر إتمام الشراء";
-"errors.failed_to_restore_previous_purchases" = "فشل في استعادة المشتريات السابقة";
-"errors.no_offerings_available" = "لا توجد عروض اشتراك متاحة حاليًا";
-"errors.package_not_found" = "لم يتم العثور على حزمة الاشتراك المطلوبة";
-"errors.purchase_failed" = "فشل الشراء";
-"errors.restore_failed" = "فشل في استعادة المشتريات السابقة";
-"errors.export_limit_exceeded" = "تم تجاوز حد التصدير. قم بالترقية إلى المحترف لتصدير غير محدود.";
-"errors.max_tags_reached" = "تم الوصول إلى الحد الأقصى من 5 علامات لكل كلمة";
-"errors.tag_already_assigned" = "العلامة مخصصة بالفعل لهذه الكلمة";
-"errors.tag_not_assigned" = "العلامة غير مخصصة لهذه الكلمة";
-"errors.network_timeout" = "انتهت مهلة الشبكة";
-"errors.server_unreachable" = "الخادم غير قابل للوصول";
-"errors.invalid_response" = "استجابة غير صالحة";
-"errors.no_internet_connection" = "لا يوجد اتصال بالإنترنت";
-"errors.missing_api_key" = "مفتاح API مفقود";
-"errors.decoding_error" = "خطأ في فك التشفير";
-"errors.invalid_url" = "رابط غير صالح";
-"errors.no_data" = "لا توجد بيانات";
-"errors.save_failed" = "فشل الحفظ";
-"errors.read_failed" = "فشل القراءة";
-"errors.data_corrupted" = "البيانات تالفة";
-"errors.invalid_input" = "إدخال غير صالح";
-"errors.missing_field" = "حقل مفقود";
-"errors.unknown_error" = "خطأ غير معروف";
-"errors.update_failed" = "فشل التحديث";
-"errors.delete_failed" = "فشل الحذف";
-"errors.permission_denied" = "ليس لديك إذن لتنفيذ هذا الإجراء";
-"errors.user_not_authenticated" = "يجب أن يكون المستخدم مصادقًا";
-"errors.dictionary_limit_reached" = "يمكنك إنشاء قاموس مشترك واحد فقط مع الخطة المجانية. قم بالترقية إلى المحترف لقواميس مشتركة غير محدودة.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "لا توجد كلمات بعد";
 "empty_states.no_idioms_yet" = "لا توجد تعابير بعد";
@@ -584,24 +513,6 @@
 "indian" = "هندي";
 "nigerian" = "نيجيري";
 
-"auth.cross_platform_button_description" = "لمشاركة الاشتراك عبر المنصات";
-"auth.nickname" = "اللقب";
-"auth.nickname_current" = "اللقب الحالي";
-"auth.nickname_not_set" = "لم يتم تعيين اللقب";
-"auth.nickname_description" = "قم بتعيين لقب فريد يمكن للآخرين استخدامه للعثور عليك وإضافتك إلى القواميس المشتركة. هذا أكثر ملاءمة من استخدام عناوين البريد الإلكتروني.";
-"auth.edit_nickname" = "تعديل اللقب";
-"auth.nickname_cannot_be_empty" = "لا يمكن أن يكون اللقب فارغًا";
-"auth.nickname_already_taken" = "هذا اللقب مستخدم بالفعل. يرجى اختيار واحد آخر.";
-"auth.nickname_invalid_format" = "يمكن أن يحتوي اللقب على حروف وأرقام وشرطات سفلية فقط.";
-"auth.search_method" = "طريقة البحث";
-"auth.find_user_by_email" = "ابحث عن مستخدم عبر البريد الإلكتروني";
-"auth.find_user_by_nickname" = "ابحث عن مستخدم عبر اللقب";
-"auth.enter_email_address" = "أدخل عنوان البريد الإلكتروني";
-"auth.enter_nickname" = "أدخل اللقب";
-"auth.found_user" = "تم العثور على المستخدم";
-"auth.user_not_found" = "لم يتم العثور على المستخدم";
-"auth.user_not_found_message" = "لم يتم العثور على مستخدم بالمعلومات المقدمة. يرجى التحقق من البحث والمحاولة مرة أخرى.";
-
 "notifications.permission_required" = "مطلوب إذن الإشعارات";
 "notifications.permission_denied_message" = "لتلقي التذكيرات اليومية وتنبيهات الكلمات الصعبة، يرجى تفعيل الإشعارات في الإعدادات.";
 
@@ -665,9 +576,3 @@
 "tts.models.english_description" = "نموذج تحويل النص إلى كلام باللغة الإنجليزية من Speechify يوفر قدرات قياسية مصممة لتقديم مخرجات صوتية واضحة وطبيعية لقراءة النصوص. يركز النموذج على تقديم تجربة مستخدم متسقة.";
 "tts.models.multilingual_description" = "النموذج متعدد اللغات يتيح استخدام جميع اللغات المدعومة ويدعم استخدام لغات متعددة ضمن جملة واحدة. مخرجات الصوت لهذا النموذج تختلف بشكل واضح عن النماذج الأخرى.";
 
-"auth.enter_name" = "أدخل الاسم";
-"auth.search_by" = "البحث بواسطة";
-"auth.unknown_user" = "مستخدم غير معروف";
-"auth.email" = "البريد الإلكتروني";
-"auth.apple_id" = "معرف Apple";
-"auth.google_account" = "حساب Google";

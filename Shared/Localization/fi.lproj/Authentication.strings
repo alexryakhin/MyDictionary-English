@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Linkitetyt Tilit";
 "auth.no_linked_accounts" = "Ei linkitettyjä tilejä";
 
+"auth.cross_platform_button_description" = "Alustojen väliseen tilauksen jakamiseen";
+"auth.nickname" = "Nimimerkki";
+"auth.nickname_current" = "Nykyinen nimimerkki";
+"auth.nickname_not_set" = "Nimimerkkiä ei ole asetettu";
+"auth.nickname_description" = "Aseta yksilöllinen nimimerkki, jota muut voivat käyttää löytääkseen sinut ja lisätäkseen sinut jaettuihin sanakirjoihin. Tämä on kätevämpää kuin sähköpostiosoitteiden käyttö.";
+"auth.edit_nickname" = "Muokkaa nimimerkkiä";
+"auth.nickname_cannot_be_empty" = "Nimimerkki ei voi olla tyhjä";
+"auth.nickname_already_taken" = "Tämä nimimerkki on jo käytössä. Valitse toinen.";
+"auth.nickname_invalid_format" = "Nimimerkki voi sisältää vain kirjaimia, numeroita ja alaviivoja.";
+"auth.search_method" = "Hakutapa";
+"auth.find_user_by_email" = "Etsi käyttäjä sähköpostilla";
+"auth.find_user_by_nickname" = "Etsi käyttäjä nimimerkillä";
+"auth.enter_email_address" = "Syötä sähköpostiosoite";
+"auth.enter_nickname" = "Syötä nimimerkki";
+"auth.found_user" = "Käyttäjä löydetty";
+"auth.user_not_found" = "Käyttäjää ei löydy";
+"auth.user_not_found_message" = "Käyttäjää ei löydy annetuilla tiedoilla. Tarkista haku ja yritä uudelleen.";
+
+"auth.enter_name" = "Syötä nimi";
+"auth.search_by" = "Hae";
+"auth.unknown_user" = "Tuntematon käyttäjä";
+"auth.email" = "Sähköposti";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Google-tili";
+
+

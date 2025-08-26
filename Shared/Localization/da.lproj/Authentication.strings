@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Linkede Konti";
 "auth.no_linked_accounts" = "Ingen linkede konti";
 
+"auth.cross_platform_button_description" = "Til deling af abonnement på tværs af platforme";
+"auth.nickname" = "Kælenavn";
+"auth.nickname_current" = "Nuværende kælenavn";
+"auth.nickname_not_set" = "Kælenavn er ikke sat";
+"auth.nickname_description" = "Indstil et unikt kælenavn, som andre kan bruge til at finde og tilføje dig til delte ordbøger. Dette er mere praktisk end at bruge e-mailadresser.";
+"auth.edit_nickname" = "Rediger kælenavn";
+"auth.nickname_cannot_be_empty" = "Kælenavn må ikke være tomt";
+"auth.nickname_already_taken" = "Dette kælenavn er allerede taget. Vælg et andet.";
+"auth.nickname_invalid_format" = "Kælenavn må kun indeholde bogstaver, tal og understreger.";
+"auth.search_method" = "Søgemetode";
+"auth.find_user_by_email" = "Find bruger via e-mail";
+"auth.find_user_by_nickname" = "Find bruger via kælenavn";
+"auth.enter_email_address" = "Indtast e-mailadresse";
+"auth.enter_nickname" = "Indtast kælenavn";
+"auth.found_user" = "Bruger fundet";
+"auth.user_not_found" = "Bruger ikke fundet";
+"auth.user_not_found_message" = "Ingen bruger fundet med de angivne oplysninger. Tjek din søgning og prøv igen.";
+
+"auth.enter_name" = "Indtast navn";
+"auth.search_by" = "Søg efter";
+"auth.unknown_user" = "Ukendt bruger";
+"auth.email" = "E-mail";
+"auth.apple_id" = "Apple-ID";
+"auth.google_account" = "Google-konto";
+
+

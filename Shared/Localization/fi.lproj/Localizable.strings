@@ -24,8 +24,6 @@
 "navigation.close" = "Sulje";
 "navigation.close_screen" = "Sulje näyttö";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Lisää idiomi";
 "idioms.add_new_idiom" = "Lisää uusi idiomi";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Uusin ensin";
 "idioms.earliest_first" = "Vanhin ensin";
 "idioms.alphabetically" = "Aakkosjärjestyksessä";
-
 
 // MARK: - App
 "app.my_dictionary" = "Oma Sanakirja";
@@ -291,74 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Yksityiskohtainen edistymisen seuranta ja näkemykset";
 "pro_features.get_priority_support" = "Saat ensisijaista tukea, kun tarvitset apua";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Virhe sanan esimerkkien päivittämisessä";
-"errors.error_removing_word" = "Virhe sanan poistamisessa";
-"errors.error_saving_word" = "Virhe sanan tallentamisessa";
-"errors.error_updating_idiom_examples" = "Virhe idiomin esimerkkien päivittämisessä";
-"errors.error_removing_idiom" = "Virhe idiomin poistamisessa";
-"errors.error_saving_idiom" = "Virhe idiomin tallentamisessa";
-"errors.input_not_word" = "Syöte ei ole sana";
-"errors.input_cannot_be_empty" = "Syöte ei voi olla tyhjä";
-"errors.device_muted_or_volume_low" = "Laite on mykistetty tai äänenvoimakkuus on alhainen";
-"errors.cannot_play_audio" = "Ääntä ei voi toistaa";
-"errors.cannot_setup_audio_session" = "Ääniistuntoa ei voi asettaa";
-"errors.export_failed" = "Vienti epäonnistui";
-"errors.import_failed" = "Tuonti epäonnistui";
-"errors.cannot_access_security_scoped_resource" = "Ei pääsyä turvallisuusrajoitettuun resurssiin";
-"errors.tag_already_exists" = "Tunniste on jo olemassa";
-"errors.tag_already_assigned_to_word" = "Tunniste on jo osoitettu tälle sanalle";
-"errors.tag_not_assigned_to_word" = "Tunnistetta ei ole osoitettu tälle sanalle";
-"errors.authentication_required" = "Todennus vaaditaan";
-"errors.no_active_subscriptions_found" = "Aktiivisia tilauksia ei löytynyt";
-"errors.failed_to_update_word_progress" = "Sanan edistymisen päivittäminen epäonnistui";
-"errors.failed_to_update_word_difficulty_level" = "Sanan vaikeustason päivittäminen epäonnistui";
-"errors.failed_to_save_quiz_session" = "Visasession tallentaminen epäonnistui";
-"errors.failed_to_update_user_statistics" = "Käyttäjätilastojen päivittäminen epäonnistui";
-"errors.invalid_word_id" = "Virheellinen sana-ID";
-"errors.word_not_found" = "Sanaa ei löytynyt";
-"errors.failed_to_calculate_progress" = "Edistymisen laskeminen epäonnistui";
-"errors.invalid_translation_url" = "Virheellinen käännös-URL";
-"errors.network_error_during_translation" = "Verkkovirhe käännöksen aikana";
-"errors.invalid_response_from_translation_service" = "Virheellinen vastaus käännöspalvelusta";
-"errors.translation_failed" = "Käännös epäonnistui";
-"errors.invalid_user_email" = "Virheellinen käyttäjän sähköpostiosoite";
-"errors.network_error_occurred" = "Verkkovirhe tapahtui";
-"errors.sync_failed" = "Synkronointi epäonnistui";
-"errors.invalid_input_provided" = "Virheellinen syöte annettu";
-"errors.dictionary_not_found" = "Sanakirjaa ei löytynyt";
-"errors.no_subscription_offerings_available" = "Tilaustarjouksia ei ole tällä hetkellä saatavilla";
-"errors.requested_subscription_package_not_found" = "Pyydettyä tilauspakettia ei löytynyt";
-"errors.purchase_could_not_be_completed" = "Ostoa ei voitu suorittaa";
-"errors.failed_to_restore_previous_purchases" = "Aiemman ostosten palauttaminen epäonnistui";
-"errors.no_offerings_available" = "Tilaustarjouksia ei ole tällä hetkellä saatavilla";
-"errors.package_not_found" = "Pyydettyä tilauspakettia ei löytynyt";
-"errors.purchase_failed" = "Osto epäonnistui";
-"errors.restore_failed" = "Aiemman ostosten palauttaminen epäonnistui";
-"errors.export_limit_exceeded" = "Vientiraja ylittyi. Päivitä Pro-versioon rajoittamattomaan vientiin.";
-"errors.max_tags_reached" = "Sanan enimmäistunnistemäärä (5) saavutettu";
-"errors.tag_already_assigned" = "Tunniste on jo osoitettu tälle sanalle";
-"errors.tag_not_assigned" = "Tunnistetta ei ole osoitettu tälle sanalle";
-"errors.network_timeout" = "Verkon aikakatkaisu";
-"errors.server_unreachable" = "Palvelin ei ole tavoitettavissa";
-"errors.invalid_response" = "Virheellinen vastaus";
-"errors.no_internet_connection" = "Ei internet-yhteyttä";
-"errors.missing_api_key" = "API-avain puuttuu";
-"errors.decoding_error" = "Dekoodausvirhe";
-"errors.invalid_url" = "Virheellinen URL";
-"errors.no_data" = "Ei dataa";
-"errors.save_failed" = "Tallentaminen epäonnistui";
-"errors.read_failed" = "Lukeminen epäonnistui";
-"errors.data_corrupted" = "Data on vioittunut";
-"errors.invalid_input" = "Virheellinen syöte";
-"errors.missing_field" = "Puuttuva kenttä";
-"errors.unknown_error" = "Tuntematon virhe";
-"errors.update_failed" = "Päivittäminen epäonnistui";
-"errors.delete_failed" = "Poistaminen epäonnistui";
-"errors.permission_denied" = "Sinulla ei ole oikeutta suorittaa tätä toimintoa";
-"errors.user_not_authenticated" = "Käyttäjän on oltava todennettu";
-"errors.dictionary_limit_reached" = "Ilmaisella suunnitelmalla voi luoda vain yhden jaetun sanakirjan. Päivitä Pro-versioon rajoittamattomiin jaettuihin sanakirjoihin.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Ei vielä sanoja";
 "empty_states.no_idioms_yet" = "Ei vielä idiomeja";
@@ -584,24 +513,6 @@
 "indian" = "Intialainen";
 "nigerian" = "Nigeriläinen";
 
-"auth.cross_platform_button_description" = "Alustojen väliseen tilauksen jakamiseen";
-"auth.nickname" = "Nimimerkki";
-"auth.nickname_current" = "Nykyinen nimimerkki";
-"auth.nickname_not_set" = "Nimimerkkiä ei ole asetettu";
-"auth.nickname_description" = "Aseta yksilöllinen nimimerkki, jota muut voivat käyttää löytääkseen sinut ja lisätäkseen sinut jaettuihin sanakirjoihin. Tämä on kätevämpää kuin sähköpostiosoitteiden käyttö.";
-"auth.edit_nickname" = "Muokkaa nimimerkkiä";
-"auth.nickname_cannot_be_empty" = "Nimimerkki ei voi olla tyhjä";
-"auth.nickname_already_taken" = "Tämä nimimerkki on jo käytössä. Valitse toinen.";
-"auth.nickname_invalid_format" = "Nimimerkki voi sisältää vain kirjaimia, numeroita ja alaviivoja.";
-"auth.search_method" = "Hakutapa";
-"auth.find_user_by_email" = "Etsi käyttäjä sähköpostilla";
-"auth.find_user_by_nickname" = "Etsi käyttäjä nimimerkillä";
-"auth.enter_email_address" = "Syötä sähköpostiosoite";
-"auth.enter_nickname" = "Syötä nimimerkki";
-"auth.found_user" = "Käyttäjä löydetty";
-"auth.user_not_found" = "Käyttäjää ei löydy";
-"auth.user_not_found_message" = "Käyttäjää ei löydy annetuilla tiedoilla. Tarkista haku ja yritä uudelleen.";
-
 "notifications.permission_required" = "Ilmoituslupa vaaditaan";
 "notifications.permission_denied_message" = "Saadaksesi päivittäisiä muistutuksia ja vaikeiden sanojen hälytyksiä, ota ilmoitukset käyttöön Asetuksista.";
 
@@ -665,9 +576,3 @@
 "tts.models.english_description" = "Speechifyn englanninkielinen teksti-puheeksi-malli tarjoaa standardiominaisuuksia, jotka on suunniteltu tarjoamaan selkeä ja luonnollinen ääniulostulo tekstin lukemiseen. Malli keskittyy tarjoamaan yhtenäisen käyttäjäkokemuksen.";
 "tts.models.multilingual_description" = "Monikielinen malli mahdollistaa kaikkien tuettujen kielten käytön ja tukee useiden kielten käyttöä yhdessä lauseessa. Tämän mallin ääniulostulo eroaa selvästi muista malleista.";
 
-"auth.enter_name" = "Syötä nimi";
-"auth.search_by" = "Hae";
-"auth.unknown_user" = "Tuntematon käyttäjä";
-"auth.email" = "Sähköposti";
-"auth.apple_id" = "Apple ID";
-"auth.google_account" = "Google-tili";

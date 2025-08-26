@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Prepojené Účty";
 "auth.no_linked_accounts" = "Žiadne prepojené účty";
 
+"auth.cross_platform_button_description" = "Na zdieľanie predplatného naprieč platformami";
+"auth.nickname" = "Prezývka";
+"auth.nickname_current" = "Aktuálna prezývka";
+"auth.nickname_not_set" = "Prezývka nie je nastavená";
+"auth.nickname_description" = "Nastavte si jedinečnú prezývku, ktorú môžu ostatní použiť na vyhľadanie a pridanie vás do zdieľaných slovníkov. Je to pohodlnejšie ako používanie e-mailových adries.";
+"auth.edit_nickname" = "Upraviť prezývku";
+"auth.nickname_cannot_be_empty" = "Prezývka nemôže byť prázdna";
+"auth.nickname_already_taken" = "Táto prezývka je už obsadená. Vyberte inú.";
+"auth.nickname_invalid_format" = "Prezývka môže obsahovať iba písmená, čísla a podčiarknutia.";
+"auth.search_method" = "Spôsob vyhľadávania";
+"auth.find_user_by_email" = "Nájsť používateľa podľa e-mailu";
+"auth.find_user_by_nickname" = "Nájsť používateľa podľa prezývky";
+"auth.enter_email_address" = "Zadajte e-mailovú adresu";
+"auth.enter_nickname" = "Zadajte prezývku";
+"auth.found_user" = "Používateľ nájdený";
+"auth.user_not_found" = "Používateľ nenájdený";
+"auth.user_not_found_message" = "Nenašiel sa žiadny používateľ s poskytnutými informáciami. Skontrolujte vyhľadávanie a skúste znova.";
+
+"auth.enter_name" = "Zadajte meno";
+"auth.search_by" = "Hľadať podľa";
+"auth.unknown_user" = "Neznámy používateľ";
+"auth.email" = "E-mail";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Účet Google";
+
+

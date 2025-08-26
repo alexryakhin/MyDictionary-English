@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Связанные Аккаунты";
 "auth.no_linked_accounts" = "Нет связанных аккаунтов";
 
+"auth.cross_platform_button_description" = "Для совместного использования подписки на разных платформах";
+"auth.nickname" = "Псевдоним";
+"auth.nickname_current" = "Текущий псевдоним";
+"auth.nickname_not_set" = "Псевдоним не установлен";
+"auth.nickname_description" = "Установите уникальный псевдоним, который другие могут использовать, чтобы найти вас и добавить в общие словари. Это удобнее, чем использование адресов электронной почты.";
+"auth.edit_nickname" = "Редактировать псевдоним";
+"auth.nickname_cannot_be_empty" = "Псевдоним не может быть пустым";
+"auth.nickname_already_taken" = "Этот псевдоним уже занят. Выберите другой.";
+"auth.nickname_invalid_format" = "Псевдоним может содержать только буквы, цифры и подчёркивания.";
+"auth.search_method" = "Метод поиска";
+"auth.find_user_by_email" = "Найти пользователя по электронной почте";
+"auth.find_user_by_nickname" = "Найти пользователя по псевдониму";
+"auth.enter_email_address" = "Введите адрес электронной почты";
+"auth.enter_nickname" = "Введите псевдоним";
+"auth.found_user" = "Пользователь найден";
+"auth.user_not_found" = "Пользователь не найден";
+"auth.user_not_found_message" = "Пользователь с указанными данными не найден. Проверьте параметры поиска и попробуйте снова.";
+
+"auth.enter_name" = "Введите имя";
+"auth.search_by" = "Поиск по";
+"auth.unknown_user" = "Неизвестный пользователь";
+"auth.email" = "Электронная почта";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Аккаунт Google";
+
+

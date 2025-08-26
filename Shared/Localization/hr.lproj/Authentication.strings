@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Povezani Računi";
 "auth.no_linked_accounts" = "Nema povezanih računa";
 
+"auth.cross_platform_button_description" = "Za dijeljenje pretplate između platformi";
+"auth.nickname" = "Nadimak";
+"auth.nickname_current" = "Trenutni nadimak";
+"auth.nickname_not_set" = "Nadimak nije postavljen";
+"auth.nickname_description" = "Postavite jedinstveni nadimak koji drugi mogu koristiti kako bi vas pronašli i dodali u zajedničke rječnike. To je praktičnije od korištenja adresa e-pošte.";
+"auth.edit_nickname" = "Uredi nadimak";
+"auth.nickname_cannot_be_empty" = "Nadimak ne može biti prazan";
+"auth.nickname_already_taken" = "Ovaj nadimak je već zauzet. Odaberite drugi.";
+"auth.nickname_invalid_format" = "Nadimak može sadržavati samo slova, brojeve i donje crte.";
+"auth.search_method" = "Metoda pretrage";
+"auth.find_user_by_email" = "Pronađi korisnika putem e-pošte";
+"auth.find_user_by_nickname" = "Pronađi korisnika putem nadimka";
+"auth.enter_email_address" = "Unesite adresu e-pošte";
+"auth.enter_nickname" = "Unesite nadimak";
+"auth.found_user" = "Korisnik pronađen";
+"auth.user_not_found" = "Korisnik nije pronađen";
+"auth.user_not_found_message" = "Nije pronađen korisnik s priloženim informacijama. Provjerite pretragu i pokušajte ponovno.";
+
+"auth.enter_name" = "Unesite ime";
+"auth.search_by" = "Pretraži po";
+"auth.unknown_user" = "Nepoznati korisnik";
+"auth.email" = "E-pošta";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Google račun";
+
+

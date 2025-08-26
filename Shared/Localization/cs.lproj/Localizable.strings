@@ -24,8 +24,6 @@
 "navigation.close" = "Zavřít";
 "navigation.close_screen" = "Zavřít obrazovku";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Přidat idiom";
 "idioms.add_new_idiom" = "Přidat nový idiom";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Nejnovější první";
 "idioms.earliest_first" = "Nejstarší první";
 "idioms.alphabetically" = "Abecedně";
-
 
 // MARK: - App
 "app.my_dictionary" = "Můj slovník";
@@ -291,74 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Podrobné sledování pokroku a přehledy";
 "pro_features.get_priority_support" = "Získejte prioritní podporu, když potřebujete pomoc";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Chyba při aktualizaci příkladů slova";
-"errors.error_removing_word" = "Chyba při odstraňování slova";
-"errors.error_saving_word" = "Chyba při ukládání slova";
-"errors.error_updating_idiom_examples" = "Chyba při aktualizaci příkladů idiomu";
-"errors.error_removing_idiom" = "Chyba při odstraňování idiomu";
-"errors.error_saving_idiom" = "Chyba při ukládání idiomu";
-"errors.input_not_word" = "Vstup není slovo";
-"errors.input_cannot_be_empty" = "Vstup nesmí být prázdný";
-"errors.device_muted_or_volume_low" = "Zařízení je ztlumeno nebo je hlasitost příliš nízká";
-"errors.cannot_play_audio" = "Nelze přehrát zvuk";
-"errors.cannot_setup_audio_session" = "Nelze nastavit zvukovou relaci";
-"errors.export_failed" = "Export selhal";
-"errors.import_failed" = "Import selhal";
-"errors.cannot_access_security_scoped_resource" = "Nelze přistupovat k prostředku omezenému bezpečností";
-"errors.tag_already_exists" = "Štítek již existuje";
-"errors.tag_already_assigned_to_word" = "Tento štítek je již přiřazen tomuto slovu";
-"errors.tag_not_assigned_to_word" = "Tento štítek není přiřazen tomuto slovu";
-"errors.authentication_required" = "Je vyžadována autentizace";
-"errors.no_active_subscriptions_found" = "Nenalezena žádná aktivní předplatná";
-"errors.failed_to_update_word_progress" = "Aktualizace pokroku slova selhala";
-"errors.failed_to_update_word_difficulty_level" = "Aktualizace úrovně obtížnosti slova selhala";
-"errors.failed_to_save_quiz_session" = "Uložení relace kvízu selhalo";
-"errors.failed_to_update_user_statistics" = "Aktualizace uživatelských statistik selhala";
-"errors.invalid_word_id" = "Neplatné ID slova";
-"errors.word_not_found" = "Slovo nenalezeno";
-"errors.failed_to_calculate_progress" = "Výpočet pokroku selhal";
-"errors.invalid_translation_url" = "Neplatná URL pro překlad";
-"errors.network_error_during_translation" = "Chyba sítě během překladu";
-"errors.invalid_response_from_translation_service" = "Neplatná odpověď od překladové služby";
-"errors.translation_failed" = "Překlad selhal";
-"errors.invalid_user_email" = "Neplatná e-mailová adresa uživatele";
-"errors.network_error_occurred" = "Došlo k chybě sítě";
-"errors.sync_failed" = "Synchronizace selhala";
-"errors.invalid_input_provided" = "Byl zadán neplatný vstup";
-"errors.dictionary_not_found" = "Slovník nenalezen";
-"errors.no_subscription_offerings_available" = "Momentálně nejsou k dispozici žádné nabídky předplatného";
-"errors.requested_subscription_package_not_found" = "Požadovaný balíček předplatného nebyl nalezen";
-"errors.purchase_could_not_be_completed" = "Nákup nemohl být dokončen";
-"errors.failed_to_restore_previous_purchases" = "Obnovení předchozích nákupů selhalo";
-"errors.no_offerings_available" = "Momentálně nejsou k dispozici žádné nabídky předplatného";
-"errors.package_not_found" = "Požadovaný balíček předplatného nebyl nalezen";
-"errors.purchase_failed" = "Nákup selhal";
-"errors.restore_failed" = "Obnovení předchozích nákupů selhalo";
-"errors.export_limit_exceeded" = "Překročeno omezení exportu. Upgradujte na Pro pro neomezený export.";
-"errors.max_tags_reached" = "Každé slovo může mít maximálně 5 štítků";
-"errors.tag_already_assigned" = "Tento štítek je již přiřazen tomuto slovu";
-"errors.tag_not_assigned" = "Tento štítek není přiřazen tomuto slovu";
-"errors.network_timeout" = "Časový limit sítě";
-"errors.server_unreachable" = "Server není dostupný";
-"errors.invalid_response" = "Neplatná odpověď";
-"errors.no_internet_connection" = "Žádné připojení k internetu";
-"errors.missing_api_key" = "Chybí API klíč";
-"errors.decoding_error" = "Chyba dekódování";
-"errors.invalid_url" = "Neplatná URL";
-"errors.no_data" = "Žádná data";
-"errors.save_failed" = "Uložení selhalo";
-"errors.read_failed" = "Čtení selhalo";
-"errors.data_corrupted" = "Data jsou poškozena";
-"errors.invalid_input" = "Neplatný vstup";
-"errors.missing_field" = "Chybí pole";
-"errors.unknown_error" = "Neznámá chyba";
-"errors.update_failed" = "Aktualizace selhala";
-"errors.delete_failed" = "Smazání selhalo";
-"errors.permission_denied" = "Nemáte oprávnění k provedení této akce";
-"errors.user_not_authenticated" = "Uživatel musí být autentizován";
-"errors.dictionary_limit_reached" = "S bezplatným plánem lze vytvořit pouze 1 sdílený slovník. Upgradujte na Pro pro neomezené sdílené slovníky.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Zatím žádná slova";
 "empty_states.no_idioms_yet" = "Zatím žádné idiomy";
@@ -510,20 +439,8 @@
 "part_of_speech.short.unknown" = "Nezn.";
 
 // Registration Benefits
-"auth.registration_benefits" = "Výhody Registrace";
-"auth.access_subscription_all_devices" = "Přístup k vašemu předplatnému na všech vašich zařízeních";
-"auth.sync_progress_cross_platform" = "Synchronizace vašeho pokroku mezi iOS a Android";
-"auth.backup_data_securely" = "Bezpečné zálohování vašich dat v cloudu";
-"auth.register_anytime_from_settings" = "Můžete se zaregistrovat kdykoliv z Nastavení pro povolení těchto funkcí";
-"auth.account_registration" = "Registrace Účtu";
-"auth.register_for_cross_platform_access" = "Zaregistrujte se pro přístup k vašemu předplatnému na všech vašich zařízeních a synchronizaci pokroku";
-"auth.active_subscription_notification" = "Máte aktivní předplatné!";
-"auth.register_to_unlock_cross_platform" = "Zaregistrujte se pro odemknutí přístupu napříč platformami";
-"auth.register_now" = "Zaregistrovat Se Nyní";
 
 // Subscription Security
-"auth.subscription_access_restricted" = "Přístup k Předplatnému Omezen";
-"auth.subscription_associated_different_account" = "Toto předplatné je spojeno s jiným účtem. Přihlaste se prosím s účtem, který zakoupil toto předplatné, pro přístup k Pro funkcím.";
 
 "actions.settings" = "Nastavení";
 
@@ -600,24 +517,6 @@
 "indian" = "Indický";
 "nigerian" = "Nigerijský";
 
-"auth.cross_platform_button_description" = "Pro sdílení předplatného napříč platformami";
-"auth.nickname" = "Přezdívka";
-"auth.nickname_current" = "Aktuální přezdívka";
-"auth.nickname_not_set" = "Přezdívka není nastavena";
-"auth.nickname_description" = "Nastavte si jedinečnou přezdívku, kterou mohou ostatní použít k nalezení a přidání vás do sdílených slovníků. To je pohodlnější než používání e-mailových adres.";
-"auth.edit_nickname" = "Upravit přezdívku";
-"auth.nickname_cannot_be_empty" = "Přezdívka nemůže být prázdná";
-"auth.nickname_already_taken" = "Tato přezdívka je již obsazena. Vyberte jinou.";
-"auth.nickname_invalid_format" = "Přezdívka může obsahovat pouze písmena, číslice a podtržítka.";
-"auth.search_method" = "Metoda vyhledávání";
-"auth.find_user_by_email" = "Najít uživatele podle e-mailu";
-"auth.find_user_by_nickname" = "Najít uživatele podle přezdívky";
-"auth.enter_email_address" = "Zadejte e-mailovou adresu";
-"auth.enter_nickname" = "Zadejte přezdívku";
-"auth.found_user" = "Uživatel nalezen";
-"auth.user_not_found" = "Uživatel nenalezen";
-"auth.user_not_found_message" = "Žádný uživatel nebyl nalezen s poskytnutými informacemi. Zkontrolujte vyhledávání a zkuste to znovu.";
-
 "notifications.permission_required" = "Je vyžadováno povolení k oznamování";
 "notifications.permission_denied_message" = "Chcete-li dostávat denní připomínky a upozornění na obtížná slova, povolte oznámení v Nastavení.";
 
@@ -681,9 +580,3 @@
 "tts.models.english_description" = "Model převodu textu na řeč v angličtině od Speechify nabízí standardní funkce navržené tak, aby poskytovaly čistý a přirozený zvukový výstup pro čtení textů. Model se zaměřuje na poskytování konzistentního uživatelského zážitku.";
 "tts.models.multilingual_description" = "Model pro vícero jazyků umožňuje použití všech podporovaných jazyků a podporuje použití více jazyků v jedné větě. Zvukový výstup tohoto modelu se výrazně liší od ostatních modelů.";
 
-"auth.enter_name" = "Zadejte jméno";
-"auth.search_by" = "Hledat podle";
-"auth.unknown_user" = "Neznámý uživatel";
-"auth.email" = "E-mail";
-"auth.apple_id" = "Apple ID";
-"auth.google_account" = "Účet Google";

@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Підключені Облікові Записи";
 "auth.no_linked_accounts" = "Немає підключених облікових записів";
 
+"auth.cross_platform_button_description" = "Для спільного використання підписки між платформами";
+"auth.nickname" = "Псевдонім";
+"auth.nickname_current" = "Поточний псевдонім";
+"auth.nickname_not_set" = "Псевдонім не встановлено";
+"auth.nickname_description" = "Встановіть унікальний псевдонім, який інші можуть використовувати, щоб знайти вас і додати до спільних словників. Це зручніше, ніж використання електронних адрес.";
+"auth.edit_nickname" = "Редагувати псевдонім";
+"auth.nickname_cannot_be_empty" = "Псевдонім не може бути порожнім";
+"auth.nickname_already_taken" = "Цей псевдонім уже зайнято. Виберіть інший.";
+"auth.nickname_invalid_format" = "Псевдонім може містити лише літери, цифри та підкреслення.";
+"auth.search_method" = "Метод пошуку";
+"auth.find_user_by_email" = "Знайти користувача за електронною поштою";
+"auth.find_user_by_nickname" = "Знайти користувача за псевдонімом";
+"auth.enter_email_address" = "Введіть адресу електронної пошти";
+"auth.enter_nickname" = "Введіть псевдонім";
+"auth.found_user" = "Користувач знайдений";
+"auth.user_not_found" = "Користувач не знайдений";
+"auth.user_not_found_message" = "Користувача не знайдено за наданою інформацією. Перевірте пошук і спробуйте ще раз.";
+
+"auth.enter_name" = "Введіть ім'я";
+"auth.search_by" = "Шукати за";
+"auth.unknown_user" = "Невідомий користувач";
+"auth.email" = "Електронна пошта";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Обліковий запис Google";
+
+

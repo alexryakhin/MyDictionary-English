@@ -52,3 +52,30 @@
 "auth.linked_accounts" = "חשבונות מקושרים";
 "auth.no_linked_accounts" = "אין חשבונות מקושרים";
 
+"auth.cross_platform_button_description" = "לשיתוף מנוי בין פלטפורמות";
+"auth.nickname" = "כינוי";
+"auth.nickname_current" = "כינוי נוכחי";
+"auth.nickname_not_set" = "כינוי לא מוגדר";
+"auth.nickname_description" = "הגדר כינוי ייחודי שמשתמשים אחרים יכולים להשתמש בו כדי למצוא אותך ולהוסיף אותך למילונים משותפים. זה נוח יותר משימוש בכתובות דואל.";
+
+"auth.edit_nickname" = "ערוך כינוי";
+"auth.nickname_cannot_be_empty" = "הכינוי לא יכול להיות ריק";
+"auth.nickname_already_taken" = "כינוי זה כבר תפוס. אנא בחר כינוי אחר.";
+"auth.nickname_invalid_format" = "הכינוי יכול להכיל אותיות, מספרים וקווים תחתונים בלבד.";
+"auth.search_method" = "שיטת חיפוש";
+"auth.find_user_by_email" = "מצא משתמש לפי דואל";
+"auth.find_user_by_nickname" = "מצא משתמש לפי כינוי";
+"auth.enter_email_address" = "הזן כתובת דואל";
+"auth.enter_nickname" = "הזן כינוי";
+"auth.found_user" = "משתמש נמצא";
+"auth.user_not_found" = "משתמש לא נמצא";
+"auth.user_not_found_message" = "לא נמצא משתמש עם המידע שסופק. אנא בדוק את החיפוש ונסה שוב.";
+
+"auth.enter_name" = "הזן שם";
+"auth.search_by" = "חפש לפי";
+"auth.unknown_user" = "משתמש לא ידוע";
+"auth.email" = "דואל";
+"auth.apple_id" = "מזהה Apple";
+"auth.google_account" = "חשבון Google";
+
+

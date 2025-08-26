@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Bağlı Hesaplar";
 "auth.no_linked_accounts" = "Bağlı hesap yok";
 
+"auth.cross_platform_button_description" = "Platformlar arası abonelik paylaşımı için";
+"auth.nickname" = "Takma ad";
+"auth.nickname_current" = "Mevcut takma ad";
+"auth.nickname_not_set" = "Takma ad belirlenmedi";
+"auth.nickname_description" = "Başkalarının sizi bulması ve paylaşılan sözlüklere eklemesi için kullanılabilecek benzersiz bir takma ad belirleyin. Bu, e-posta adreslerini kullanmaktan daha uygundur.";
+"auth.edit_nickname" = "Takma adı düzenle";
+"auth.nickname_cannot_be_empty" = "Takma ad boş olamaz";
+"auth.nickname_already_taken" = "Bu takma ad zaten alınmış. Lütfen başka bir tane seçin.";
+"auth.nickname_invalid_format" = "Takma ad yalnızca harf, rakam ve alt çizgi içerebilir.";
+"auth.search_method" = "Arama yöntemi";
+"auth.find_user_by_email" = "E-posta ile kullanıcı bul";
+"auth.find_user_by_nickname" = "Takma ad ile kullanıcı bul";
+"auth.enter_email_address" = "E-posta adresini gir";
+"auth.enter_nickname" = "Takma ad gir";
+"auth.found_user" = "Kullanıcı bulundu";
+"auth.user_not_found" = "Kullanıcı bulunamadı";
+"auth.user_not_found_message" = "Sağlanan bilgilerle kullanıcı bulunamadı. Lütfen aramanızı kontrol edin ve tekrar deneyin.";
+
+"auth.enter_name" = "İsim gir";
+"auth.search_by" = "Şuna göre ara";
+"auth.unknown_user" = "Bilinmeyen kullanıcı";
+"auth.email" = "E-posta";
+"auth.apple_id" = "Apple Kimliği";
+"auth.google_account" = "Google Hesabı";
+
+

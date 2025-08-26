@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "الحسابات المرتبطة";
 "auth.no_linked_accounts" = "لا توجد حسابات مرتبطة";
 
+"auth.cross_platform_button_description" = "لمشاركة الاشتراك عبر المنصات";
+"auth.nickname" = "اللقب";
+"auth.nickname_current" = "اللقب الحالي";
+"auth.nickname_not_set" = "لم يتم تعيين اللقب";
+"auth.nickname_description" = "قم بتعيين لقب فريد يمكن للآخرين استخدامه للعثور عليك وإضافتك إلى القواميس المشتركة. هذا أكثر ملاءمة من استخدام عناوين البريد الإلكتروني.";
+"auth.edit_nickname" = "تعديل اللقب";
+"auth.nickname_cannot_be_empty" = "لا يمكن أن يكون اللقب فارغًا";
+"auth.nickname_already_taken" = "هذا اللقب مستخدم بالفعل. يرجى اختيار واحد آخر.";
+"auth.nickname_invalid_format" = "يمكن أن يحتوي اللقب على حروف وأرقام وشرطات سفلية فقط.";
+"auth.search_method" = "طريقة البحث";
+"auth.find_user_by_email" = "ابحث عن مستخدم عبر البريد الإلكتروني";
+"auth.find_user_by_nickname" = "ابحث عن مستخدم عبر اللقب";
+"auth.enter_email_address" = "أدخل عنوان البريد الإلكتروني";
+"auth.enter_nickname" = "أدخل اللقب";
+"auth.found_user" = "تم العثور على المستخدم";
+"auth.user_not_found" = "لم يتم العثور على المستخدم";
+"auth.user_not_found_message" = "لم يتم العثور على مستخدم بالمعلومات المقدمة. يرجى التحقق من البحث والمحاولة مرة أخرى.";
+
+"auth.enter_name" = "أدخل الاسم";
+"auth.search_by" = "البحث بواسطة";
+"auth.unknown_user" = "مستخدم غير معروف";
+"auth.email" = "البريد الإلكتروني";
+"auth.apple_id" = "معرف Apple";
+"auth.google_account" = "حساب Google";
+
+

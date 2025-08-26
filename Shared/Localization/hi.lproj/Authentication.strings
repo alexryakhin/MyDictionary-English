@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "लिंक किए गए खाते";
 "auth.no_linked_accounts" = "कोई लिंक किए गए खाते नहीं";
 
+"auth.cross_platform_button_description" = "क्रॉस-प्लेटफॉर्म सदस्यता साझा करने के लिए";
+"auth.nickname" = "उपनाम";
+"auth.nickname_current" = "वर्तमान उपनाम";
+"auth.nickname_not_set" = "उपनाम सेट नहीं किया गया है";
+"auth.nickname_description" = "एक अद्वितीय उपनाम सेट करें जिसे अन्य लोग आपको ढूंढने और साझा शब्दकोशों में जोड़ने के लिए उपयोग कर सकते हैं। यह ईमेल पते का उपयोग करने से अधिक सुविधाजनक है।";
+"auth.edit_nickname" = "उपनाम संपादित करें";
+"auth.nickname_cannot_be_empty" = "उपनाम खाली नहीं हो सकता";
+"auth.nickname_already_taken" = "यह उपनाम पहले से लिया गया है। कृपया दूसरा चुनें।";
+"auth.nickname_invalid_format" = "उपनाम में केवल अक्षर, संख्या और अंडरस्कोर हो सकते हैं।";
+"auth.search_method" = "खोज विधि";
+"auth.find_user_by_email" = "ईमेल द्वारा उपयोगकर्ता खोजें";
+"auth.find_user_by_nickname" = "उपनाम द्वारा उपयोगकर्ता खोजें";
+"auth.enter_email_address" = "ईमेल पता दर्ज करें";
+"auth.enter_nickname" = "उपनाम दर्ज करें";
+"auth.found_user" = "उपयोगकर्ता मिला";
+"auth.user_not_found" = "उपयोगकर्ता नहीं मिला";
+"auth.user_not_found_message" = "प्रदान की गई जानकारी के साथ कोई उपयोगकर्ता नहीं मिला। कृपया अपनी खोज की जाँच करें और फिर से प्रयास करें।";
+
+"auth.enter_name" = "नाम दर्ज करें";
+"auth.search_by" = "द्वारा खोजें";
+"auth.unknown_user" = "अज्ञात उपयोगकर्ता";
+"auth.email" = "ईमेल";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Google खाता";
+
+

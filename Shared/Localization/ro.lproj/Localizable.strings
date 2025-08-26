@@ -24,8 +24,6 @@
 "navigation.close" = "Închide";
 "navigation.close_screen" = "Închide Ecranul";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Adaugă Expresie";
 "idioms.add_new_idiom" = "Adaugă Expresie Nouă";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Cele mai Recente Primul";
 "idioms.earliest_first" = "Cele mai Vechi Primul";
 "idioms.alphabetically" = "Alfabetic";
-
 
 // MARK: - App
 "app.my_dictionary" = "Dicționarul Meu";
@@ -291,73 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Urmărire detaliată a progresului și informații";
 "pro_features.get_priority_support" = "Primește suport prioritar când ai nevoie de ajutor";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Eroare la actualizarea exemplelor de cuvinte";
-"errors.error_removing_word" = "Eroare la ștergerea cuvântului";
-"errors.error_saving_word" = "Eroare la salvarea cuvântului";
-"errors.error_updating_idiom_examples" = "Eroare la actualizarea exemplelor de expresii";
-"errors.error_removing_idiom" = "Eroare la ștergerea expresiei";
-"errors.error_saving_idiom" = "Eroare la salvarea expresiei";
-"errors.input_not_word" = "Intrarea nu este un cuvânt";
-"errors.input_cannot_be_empty" = "Intrarea nu poate fi goală";
-"errors.device_muted_or_volume_low" = "Dispozitivul este pe mut sau volumul este scăzut";
-"errors.cannot_play_audio" = "Nu se poate reda audio";
-"errors.cannot_setup_audio_session" = "Nu se poate configura sesiunea audio";
-"errors.export_failed" = "Export eșuat";
-"errors.import_failed" = "Import eșuat";
-"errors.cannot_access_security_scoped_resource" = "Nu se poate accesa resursa cu scop de securitate";
-"errors.tag_already_exists" = "Eticheta există deja";
-"errors.tag_already_assigned_to_word" = "Această etichetă este deja atribuită acestui cuvânt";
-"errors.tag_not_assigned_to_word" = "Această etichetă nu este atribuită acestui cuvânt";
-"errors.authentication_required" = "Autentificare necesară";
-"errors.no_active_subscriptions_found" = "Niciun abonament activ găsit";
-"errors.failed_to_update_word_progress" = "Eșec la actualizarea progresului cuvântului";
-"errors.failed_to_update_word_difficulty_level" = "Eșec la actualizarea nivelului de dificultate al cuvântului";
-"errors.failed_to_save_quiz_session" = "Eșec la salvarea sesiunii de test";
-"errors.failed_to_update_user_statistics" = "Eșec la actualizarea statisticilor utilizatorului";
-"errors.invalid_word_id" = "ID cuvânt invalid";
-"errors.word_not_found" = "Cuvânt negăsit";
-"errors.failed_to_calculate_progress" = "Eșec la calcularea progresului";
-"errors.invalid_translation_url" = "URL de traducere invalid";
-"errors.network_error_during_translation" = "Eroare de rețea în timpul traducerii";
-"errors.invalid_response_from_translation_service" = "Răspuns invalid de la serviciul de traducere";
-"errors.translation_failed" = "Traducere eșuată";
-"errors.invalid_user_email" = "E-mail utilizator invalid";
-"errors.network_error_occurred" = "A apărut o eroare de rețea";
-"errors.sync_failed" = "Sincronizare eșuată";
-"errors.invalid_input_provided" = "Intrare invalidă furnizată";
-"errors.dictionary_not_found" = "Dicționar negăsit";
-"errors.no_subscription_offerings_available" = "Nicio ofertă de abonament disponibilă momentan";
-"errors.requested_subscription_package_not_found" = "Pachetul de abonament solicitat nu a fost găsit";
-"errors.purchase_could_not_be_completed" = "Achiziția nu a putut fi finalizată";
-"errors.failed_to_restore_previous_purchases" = "Eșec la restaurarea achizițiilor anterioare";
-"errors.no_offerings_available" = "Nicio ofertă de abonament disponibilă momentan";
-"errors.purchase_failed" = "Achiziție eșuată";
-"errors.restore_failed" = "Restaurare achiziții anterioare eșuată";
-"errors.export_limit_exceeded" = "Limita de export depășită. Actualizează la Pro pentru export nelimitat.";
-"errors.max_tags_reached" = "Limita maximă de 5 etichete pe cuvânt atinsă";
-"errors.tag_already_assigned" = "Această etichetă este deja atribuită acestui cuvânt";
-"errors.tag_not_assigned" = "Această etichetă nu este atribuită acestui cuvânt";
-"errors.network_timeout" = "Timp de rețea expirat";
-"errors.server_unreachable" = "Server inaccesibil";
-"errors.invalid_response" = "Răspuns invalid";
-"errors.no_internet_connection" = "Fără conexiune la internet";
-"errors.missing_api_key" = "Lipsește cheia API";
-"errors.decoding_error" = "Eroare de decodare";
-"errors.invalid_url" = "URL invalid";
-"errors.no_data" = "Fără date";
-"errors.save_failed" = "Salvare eșuată";
-"errors.read_failed" = "Citire eșuată";
-"errors.data_corrupted" = "Date corupte";
-"errors.invalid_input" = "Intrare invalidă";
-"errors.missing_field" = "Câmp lipsă";
-"errors.unknown_error" = "Eroare necunoscută";
-"errors.update_failed" = "Actualizare eșuată";
-"errors.delete_failed" = "Ștergere eșuată";
-"errors.permission_denied" = "Nu ai permisiunea pentru această acțiune";
-"errors.user_not_authenticated" = "Utilizatorul trebuie autentificat";
-"errors.dictionary_limit_reached" = "Cu planul gratuit, poți crea doar un dicționar partajat. Actualizează la Pro pentru dicționare partajate nelimitate.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Niciun cuvânt încă";
 "empty_states.no_idioms_yet" = "Nicio expresie încă";
@@ -583,24 +513,6 @@
 "indian" = "Indian";
 "nigerian" = "Nigerian";
 
-"auth.cross_platform_button_description" = "Pentru partajarea abonamentului între platforme";
-"auth.nickname" = "Poreclă";
-"auth.nickname_current" = "Poreclă actuală";
-"auth.nickname_not_set" = "Porecla nu este setată";
-"auth.nickname_description" = "Setați o poreclă unică pe care alții o pot folosi pentru a vă găsi și a vă adăuga în dicționarele partajate. Este mai convenabil decât utilizarea adreselor de e-mail.";
-"auth.edit_nickname" = "Editați porecla";
-"auth.nickname_cannot_be_empty" = "Porecla nu poate fi goală";
-"auth.nickname_already_taken" = "Această poreclă este deja luată. Alegeți alta.";
-"auth.nickname_invalid_format" = "Porecla poate conține doar litere, cifre și linii de subliniere.";
-"auth.search_method" = "Metodă de căutare";
-"auth.find_user_by_email" = "Găsiți utilizatorul prin e-mail";
-"auth.find_user_by_nickname" = "Găsiți utilizatorul prin poreclă";
-"auth.enter_email_address" = "Introduceți adresa de e-mail";
-"auth.enter_nickname" = "Introduceți porecla";
-"auth.found_user" = "Utilizator găsit";
-"auth.user_not_found" = "Utilizator negăsit";
-"auth.user_not_found_message" = "Nu s-a găsit niciun utilizator cu informațiile furnizate. Verificați căutarea și încercați din nou.";
-
 "notifications.permission_required" = "Este necesară permisiunea pentru notificări";
 "notifications.permission_denied_message" = "Pentru a primi memento-uri zilnice și alerte pentru cuvinte dificile, activați notificările în Setări.";
 
@@ -664,9 +576,3 @@
 "tts.models.english_description" = "Modelul de conversie text în vorbire în limba engleză de la Speechify oferă funcționalități standard concepute pentru a oferi un sunet clar și natural pentru citirea textelor. Modelul se concentrează pe oferirea unei experiențe consistente pentru utilizator.";
 "tts.models.multilingual_description" = "Modelul multilingv permite utilizarea tuturor limbilor suportate și susține utilizarea mai multor limbi într-o singură propoziție. Sunetul acestui model diferă semnificativ de alte modele.";
 
-"auth.enter_name" = "Introduceți numele";
-"auth.search_by" = "Căutați după";
-"auth.unknown_user" = "Utilizator necunoscut";
-"auth.email" = "E-mail";
-"auth.apple_id" = "Apple ID";
-"auth.google_account" = "Cont Google";

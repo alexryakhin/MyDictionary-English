@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Contas Associadas";
 "auth.no_linked_accounts" = "Nenhuma conta associada";
 
+"auth.cross_platform_button_description" = "Para compartilhamento de assinatura entre plataformas";
+"auth.nickname" = "Apelido";
+"auth.nickname_current" = "Apelido atual";
+"auth.nickname_not_set" = "Apelido não definido";
+"auth.nickname_description" = "Defina um apelido único que outros possam usar para encontrá-lo e adicioná-lo a dicionários compartilhados. É mais conveniente do que usar endereços de e-mail.";
+"auth.edit_nickname" = "Editar apelido";
+"auth.nickname_cannot_be_empty" = "O apelido não pode estar vazio";
+"auth.nickname_already_taken" = "Este apelido já está em uso. Escolha outro.";
+"auth.nickname_invalid_format" = "O apelido só pode conter letras, números e sublinhados.";
+"auth.search_method" = "Método de pesquisa";
+"auth.find_user_by_email" = "Encontrar usuário por e-mail";
+"auth.find_user_by_nickname" = "Encontrar usuário por apelido";
+"auth.enter_email_address" = "Digite o endereço de e-mail";
+"auth.enter_nickname" = "Digite o apelido";
+"auth.found_user" = "Usuário encontrado";
+"auth.user_not_found" = "Usuário não encontrado";
+"auth.user_not_found_message" = "Nenhum usuário encontrado com as informações fornecidas. Verifique sua pesquisa e tente novamente.";
+
+"auth.enter_name" = "Digite o nome";
+"auth.search_by" = "Pesquisar por";
+"auth.unknown_user" = "Usuário desconhecido";
+"auth.email" = "E-mail";
+"auth.apple_id" = "ID Apple";
+"auth.google_account" = "Conta Google";
+
+

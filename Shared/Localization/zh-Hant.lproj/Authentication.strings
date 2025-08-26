@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "已關聯帳戶";
 "auth.no_linked_accounts" = "暫無已關聯帳戶";
 
+"auth.cross_platform_button_description" = "用於跨平台訂閱共享";
+"auth.nickname" = "暱稱";
+"auth.nickname_current" = "當前暱稱";
+"auth.nickname_not_set" = "未設置暱稱";
+"auth.nickname_description" = "設置一個獨特的暱稱，供他人查找並將您添加到共享詞典中。這比使用電子郵件地址更方便。";
+"auth.edit_nickname" = "編輯暱稱";
+"auth.nickname_cannot_be_empty" = "暱稱不能為空";
+"auth.nickname_already_taken" = "此暱稱已被使用。請另選一個。";
+"auth.nickname_invalid_format" = "暱稱只能包含字母、數字和下劃線。";
+"auth.search_method" = "搜尋方式";
+"auth.find_user_by_email" = "通過電子郵件查找用戶";
+"auth.find_user_by_nickname" = "通過暱稱查找用戶";
+"auth.enter_email_address" = "輸入電子郵件地址";
+"auth.enter_nickname" = "輸入暱稱";
+"auth.found_user" = "找到用戶";
+"auth.user_not_found" = "未找到用戶";
+"auth.user_not_found_message" = "未找到與提供信息匹配的用戶。請檢查搜尋並重試。";
+
+"auth.enter_name" = "輸入姓名";
+"auth.search_by" = "搜尋方式";
+"auth.unknown_user" = "未知用戶";
+"auth.email" = "電子郵件";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Google帳戶";
+
+

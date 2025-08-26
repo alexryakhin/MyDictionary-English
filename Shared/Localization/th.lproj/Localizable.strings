@@ -24,8 +24,6 @@
 "navigation.close" = "ปิด";
 "navigation.close_screen" = "ปิดหน้าจอ";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "เพิ่มสำนวน";
 "idioms.add_new_idiom" = "เพิ่มสำนวนใหม่";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "ล่าสุดก่อน";
 "idioms.earliest_first" = "เก่าที่สุดก่อน";
 "idioms.alphabetically" = "ตามตัวอักษร";
-
 
 // MARK: - App
 "app.my_dictionary" = "พจนานุกรมของฉัน";
@@ -291,73 +288,6 @@
 "pro_features.detailed_progress_tracking" = "การติดตามความคืบหน้าและการวิเคราะห์โดยละเอียด";
 "pro_features.get_priority_support" = "รับการสนับสนุนลำดับแรกเมื่อคุณต้องการความช่วยเหลือ";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "ข้อผิดพลาดในการอัปเดตตัวอย่างคำศัพท์";
-"errors.error_removing_word" = "ข้อผิดพลาดในการลบคำศัพท์";
-"errors.error_saving_word" = "ข้อผิดพลาดในการบันทึกคำศัพท์";
-"errors.error_updating_idiom_examples" = "ข้อผิดพลาดในการอัปเดตตัวอย่างสำนวน";
-"errors.error_removing_idiom" = "ข้อผิดพลาดในการลบสำนวน";
-"errors.error_saving_idiom" = "ข้อผิดพลาดในการบันทึกสำนวน";
-"errors.input_not_word" = "ข้อมูลที่ป้อนไม่ใช่คำศัพท์";
-"errors.input_cannot_be_empty" = "ข้อมูลที่ป้อนต้องไม่ว่างเปล่า";
-"errors.device_muted_or_volume_low" = "อุปกรณ์ถูกปิดเสียงหรือระดับเสียงต่ำ";
-"errors.cannot_play_audio" = "ไม่สามารถเล่นเสียงได้";
-"errors.cannot_setup_audio_session" = "ไม่สามารถตั้งค่าเซสชันเสียงได้";
-"errors.export_failed" = "การส่งออกล้มเหลว";
-"errors.import_failed" = "การนำเข้าล้มเหลว";
-"errors.cannot_access_security_scoped_resource" = "ไม่สามารถเข้าถึงทรัพยากรที่มีขอบเขตความปลอดภัย";
-"errors.tag_already_exists" = "แท็กนี้มีอยู่แล้ว";
-"errors.tag_already_assigned_to_word" = "แท็กนี้ถูกกำหนดให้กับคำศัพท์นี้แล้ว";
-"errors.tag_not_assigned_to_word" = "แท็กนี้ไม่ได้ถูกกำหนดให้กับคำศัพท์นี้";
-"errors.authentication_required" = "ต้องมีการยืนยันตัวตน";
-"errors.no_active_subscriptions_found" = "ไม่พบการสมัครสมาชิกที่ใช้งาน";
-"errors.failed_to_update_word_progress" = "ไม่สามารถอัปเดตความคืบหน้าของคำศัพท์";
-"errors.failed_to_update_word_difficulty_level" = "ไม่สามารถอัปเดตระดับความยากของคำศัพท์";
-"errors.failed_to_save_quiz_session" = "ไม่สามารถบันทึกเซสชันแบบทดสอบ";
-"errors.failed_to_update_user_statistics" = "ไม่สามารถอัปเดตสถิติผู้ใช้";
-"errors.invalid_word_id" = "รหัสคำศัพท์ไม่ถูกต้อง";
-"errors.word_not_found" = "ไม่พบคำศัพท์";
-"errors.failed_to_calculate_progress" = "ไม่สามารถคำนวณความคืบหน้า";
-"errors.invalid_translation_url" = "URL การแปลไม่ถูกต้อง";
-"errors.network_error_during_translation" = "ข้อผิดพลาดเครือข่ายระหว่างการแปล";
-"errors.invalid_response_from_translation_service" = "การตอบกลับจากบริการแปลไม่ถูกต้อง";
-"errors.translation_failed" = "การแปลล้มเหลว";
-"errors.invalid_user_email" = "อีเมลผู้ใช้ไม่ถูกต้อง";
-"errors.network_error_occurred" = "เกิดข้อผิดพลาดเครือข่าย";
-"errors.sync_failed" = "การซิงค์ล้มเหลว";
-"errors.invalid_input_provided" = "ข้อมูลที่ป้อนไม่ถูกต้อง";
-"errors.dictionary_not_found" = "ไม่พบพจนานุกรม";
-"errors.no_subscription_offerings_available" = "ขณะนี้ไม่มีข้อเสนอการสมัครสมาชิก";
-"errors.requested_subscription_package_not_found" = "ไม่พบแพ็คเกจการสมัครสมาชิกที่ร้องขอ";
-"errors.purchase_could_not_be_completed" = "ไม่สามารถทำการซื้อให้เสร็จสมบูรณ์";
-"errors.failed_to_restore_previous_purchases" = "ไม่สามารถกู้คืนการซื้อก่อนหน้า";
-"errors.no_offerings_available" = "ขณะนี้ไม่มีข้อเสนอการสมัครสมาชิก";
-"errors.purchase_failed" = "การซื้อล้มเหลว";
-"errors.restore_failed" = "การกู้คืนการซื้อก่อนหน้าล้มเหลว";
-"errors.export_limit_exceeded" = "เกินขีดจำกัดการส่งออก อัปเกรดเป็น Pro เพื่อส่งออกไม่จำกัด";
-"errors.max_tags_reached" = "ถึงขีดจำกัดสูงสุด 5 แท็กต่อคำศัพท์";
-"errors.tag_already_assigned" = "แท็กนี้ถูกกำหนดให้กับคำศัพท์นี้แล้ว";
-"errors.tag_not_assigned" = "แท็กนี้ไม่ได้ถูกกำหนดให้กับคำศัพท์นี้";
-"errors.network_timeout" = "หมดเวลาเครือข่าย";
-"errors.server_unreachable" = "ไม่สามารถติดต่อเซิร์ฟเวอร์";
-"errors.invalid_response" = "การตอบกลับไม่ถูกต้อง";
-"errors.no_internet_connection" = "ไม่มีการเชื่อมต่ออินเทอร์เน็ต";
-"errors.missing_api_key" = "ไม่มีคีย์ API";
-"errors.decoding_error" = "ข้อผิดพลาดในการถอดรหัส";
-"errors.invalid_url" = "URL ไม่ถูกต้อง";
-"errors.no_data" = "ไม่มีข้อมูล";
-"errors.save_failed" = "การบันทึกล้มเหลว";
-"errors.read_failed" = "การอ่านล้มเหลว";
-"errors.data_corrupted" = "ข้อมูลเสียหาย";
-"errors.invalid_input" = "ข้อมูลที่ป้อนไม่ถูกต้อง";
-"errors.missing_field" = "ขาดฟิลด์";
-"errors.unknown_error" = "ข้อผิดพลาดที่ไม่รู้จัก";
-"errors.update_failed" = "การอัปเดตล้มเหลว";
-"errors.delete_failed" = "การลบล้มเหลว";
-"errors.permission_denied" = "คุณไม่มีสิทธิ์ในการดำเนินการนี้";
-"errors.user_not_authenticated" = "ผู้ใช้ต้องได้รับการยืนยันตัวตน";
-"errors.dictionary_limit_reached" = "ด้วยแผนฟรี คุณสามารถสร้างพจนานุกรมที่แชร์ได้เพียงหนึ่งรายการ อัปเกรดเป็น Pro เพื่อสร้างพจนานุกรมที่แชร์ไม่จำกัด";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "ยังไม่มีคำศัพท์";
 "empty_states.no_idioms_yet" = "ยังไม่มีสำนวน";
@@ -569,24 +499,6 @@
 "indian" = "อินเดีย";
 "nigerian" = "ไนจีเรีย";
 
-"auth.cross_platform_button_description" = "สำหรับการแชร์การสมัครสมาชิกข้ามแพลตฟอร์ม";
-"auth.nickname" = "ชื่อเล่น";
-"auth.nickname_current" = "ชื่อเล่นปัจจุบัน";
-"auth.nickname_not_set" = "ยังไม่ได้ตั้งชื่อเล่น";
-"auth.nickname_description" = "ตั้งชื่อเล่นที่ไม่ซ้ำกันที่ผู้อื่นสามารถใช้เพื่อค้นหาและเพิ่มคุณในพจนานุกรมที่แชร์ได้ สะดวกกว่าการใช้ที่อยู่อีเมล";
-"auth.edit_nickname" = "แก้ไขชื่อเล่น";
-"auth.nickname_cannot_be_empty" = "ชื่อเล่นต้องไม่ว่างเปล่า";
-"auth.nickname_already_taken" = "ชื่อเล่นนี้ถูกใช้แล้ว กรุณาเลือกชื่ออื่น";
-"auth.nickname_invalid_format" = "ชื่อเล่นสามารถประกอบด้วยตัวอักษร ตัวเลข และขีดล่างเท่านั้น";
-"auth.search_method" = "วิธีการค้นหา";
-"auth.find_user_by_email" = "ค้นหาผู้ใช้ด้วยอีเมล";
-"auth.find_user_by_nickname" = "ค้นหาผู้ใช้ด้วยชื่อเล่น";
-"auth.enter_email_address" = "ป้อนที่อยู่อีเมล";
-"auth.enter_nickname" = "ป้อนชื่อเล่น";
-"auth.found_user" = "พบผู้ใช้";
-"auth.user_not_found" = "ไม่พบผู้ใช้";
-"auth.user_not_found_message" = "ไม่พบผู้ใช้ด้วยข้อมูลที่ให้มา กรุณาตรวจสอบการค้นหาและลองอีกครั้ง";
-
 "notifications.permission_required" = "ต้องได้รับอนุญาตการแจ้งเตือน";
 "notifications.permission_denied_message" = "เพื่อรับการแจ้งเตือนรายวันและคำเตือนสำหรับคำยาก กรุณาเปิดใช้งานการแจ้งเตือนใน การตั้งค่า";
 
@@ -650,9 +562,3 @@
 "tts.models.english_description" = "โมเดลการแปลงข้อความเป็นคำพูดภาษาอังกฤษของ Speechify มีฟีเจอร์มาตรฐานที่ออกแบบมาเพื่อให้ผลลัพธ์เสียงที่ชัดเจนและเป็นธรรมชาติสำหรับการอ่านข้อความ โมเดลนี้มุ่งเน้นที่การมอบประสบการณ์ผู้ใช้ที่สม่ำเสมอ";
 "tts.models.multilingual_description" = "โมเดลหลายภาษาช่วยให้สามารถใช้ทุกภาษาที่รองรับและสนับสนุนการใช้หลายภาษาภายในประโยคเดียว ผลลัพธ์เสียงของโมเดลนี้แตกต่างจากโมเดลอื่นอย่างชัดเจน";
 
-"auth.enter_name" = "ป้อนชื่อ";
-"auth.search_by" = "ค้นหาด้วย";
-"auth.unknown_user" = "ผู้ใช้ที่ไม่รู้จัก";
-"auth.email" = "อีเมล";
-"auth.apple_id" = "Apple ID";
-"auth.google_account" = "บัญชี Google";

@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Gekoppelde Accounts";
 "auth.no_linked_accounts" = "Geen gekoppelde accounts";
 
+"auth.cross_platform_button_description" = "Voor het delen van abonnementen tussen platforms";
+"auth.nickname" = "Bijnaam";
+"auth.nickname_current" = "Huidige bijnaam";
+"auth.nickname_not_set" = "Bijnaam is niet ingesteld";
+"auth.nickname_description" = "Stel een unieke bijnaam in die anderen kunnen gebruiken om je te vinden en toe te voegen aan gedeelde woordenboeken. Dit is handiger dan het gebruik van e-mailadressen.";
+"auth.edit_nickname" = "Bijnaam bewerken";
+"auth.nickname_cannot_be_empty" = "Bijnaam mag niet leeg zijn";
+"auth.nickname_already_taken" = "Deze bijnaam is al in gebruik. Kies een andere.";
+"auth.nickname_invalid_format" = "Bijnaam mag alleen letters, cijfers en underscores bevatten.";
+"auth.search_method" = "Zoekmethode";
+"auth.find_user_by_email" = "Gebruiker vinden via e-mail";
+"auth.find_user_by_nickname" = "Gebruiker vinden via bijnaam";
+"auth.enter_email_address" = "Voer e-mailadres in";
+"auth.enter_nickname" = "Voer bijnaam in";
+"auth.found_user" = "Gebruiker gevonden";
+"auth.user_not_found" = "Gebruiker niet gevonden";
+"auth.user_not_found_message" = "Geen gebruiker gevonden met de opgegeven informatie. Controleer je zoekopdracht en probeer opnieuw.";
+
+"auth.enter_name" = "Voer naam in";
+"auth.search_by" = "Zoeken op";
+"auth.unknown_user" = "Onbekende gebruiker";
+"auth.email" = "E-mail";
+"auth.apple_id" = "Apple ID";
+"auth.google_account" = "Google Account";
+
+

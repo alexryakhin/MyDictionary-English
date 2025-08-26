@@ -24,8 +24,6 @@
 "navigation.close" = "Lukk";
 "navigation.close_screen" = "Lukk skjerm";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Legg til uttrykk";
 "idioms.add_new_idiom" = "Legg til nytt uttrykk";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Nyeste først";
 "idioms.earliest_first" = "Eldste først";
 "idioms.alphabetically" = "Alfabetisk";
-
 
 // MARK: - App
 "app.my_dictionary" = "Min ordbok";
@@ -291,73 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Detaljert fremgangssporing og innsikter";
 "pro_features.get_priority_support" = "Få prioritert støtte når du trenger hjelp";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Feil ved oppdatering av ordeksempler";
-"errors.error_removing_word" = "Feil ved sletting av ord";
-"errors.error_saving_word" = "Feil ved lagring av ord";
-"errors.error_updating_idiom_examples" = "Feil ved oppdatering av uttrykkseksempler";
-"errors.error_removing_idiom" = "Feil ved sletting av uttrykk";
-"errors.error_saving_idiom" = "Feil ved lagring av uttrykk";
-"errors.input_not_word" = "Inndataen er ikke et ord";
-"errors.input_cannot_be_empty" = "Inndataen kan ikke være tom";
-"errors.device_muted_or_volume_low" = "Enheten er dempet eller volumet er lavt";
-"errors.cannot_play_audio" = "Kan ikke spille av lyd";
-"errors.cannot_setup_audio_session" = "Kan ikke konfigurere lydøkt";
-"errors.export_failed" = "Eksport mislyktes";
-"errors.import_failed" = "Import mislyktes";
-"errors.cannot_access_security_scoped_resource" = "Kan ikke få tilgang til sikkerhetsbegrenset ressurs";
-"errors.tag_already_exists" = "Etiketten finnes allerede";
-"errors.tag_already_assigned_to_word" = "Denne etiketten er allerede tildelt dette ordet";
-"errors.tag_not_assigned_to_word" = "Denne etiketten er ikke tildelt dette ordet";
-"errors.authentication_required" = "Autentisering kreves";
-"errors.no_active_subscriptions_found" = "Ingen aktive abonnementer funnet";
-"errors.failed_to_update_word_progress" = "Kunne ikke oppdatere ordfremgang";
-"errors.failed_to_update_word_difficulty_level" = "Kunne ikke oppdatere vanskelighetsgrad for ord";
-"errors.failed_to_save_quiz_session" = "Kunne ikke lagre quizøkt";
-"errors.failed_to_update_user_statistics" = "Kunne ikke oppdatere brukerstatistikk";
-"errors.invalid_word_id" = "Ugyldig ord-ID";
-"errors.word_not_found" = "Ord ikke funnet";
-"errors.failed_to_calculate_progress" = "Kunne ikke beregne fremgang";
-"errors.invalid_translation_url" = "Ugyldig oversettelses-URL";
-"errors.network_error_during_translation" = "Nettverksfeil under oversettelse";
-"errors.invalid_response_from_translation_service" = "Ugyldig respons fra oversettelsestjenesten";
-"errors.translation_failed" = "Oversettelse mislyktes";
-"errors.invalid_user_email" = "Ugyldig bruker-e-post";
-"errors.network_error_occurred" = "Nettverksfeil oppstod";
-"errors.sync_failed" = "Synkronisering mislyktes";
-"errors.invalid_input_provided" = "Ugyldig inndata angitt";
-"errors.dictionary_not_found" = "Ordbok ikke funnet";
-"errors.no_subscription_offerings_available" = "Ingen abonnementstilbud tilgjengelig for øyeblikket";
-"errors.requested_subscription_package_not_found" = "Forespurt abonnementspakke ikke funnet";
-"errors.purchase_could_not_be_completed" = "Kjøpet kunne ikke fullføres";
-"errors.failed_to_restore_previous_purchases" = "Kunne ikke gjenopprette tidligere kjøp";
-"errors.no_offerings_available" = "Ingen abonnementstilbud tilgjengelig for øyeblikket";
-"errors.purchase_failed" = "Kjøp mislyktes";
-"errors.restore_failed" = "Gjenoppretting av tidligere kjøp mislyktes";
-"errors.export_limit_exceeded" = "Eksportgrensen overskredet. Oppgrader til Pro for ubegrenset eksport.";
-"errors.max_tags_reached" = "Maksimum 5 etiketter per ord nådd";
-"errors.tag_already_assigned" = "Denne etiketten er allerede tildelt dette ordet";
-"errors.tag_not_assigned" = "Denne etiketten er ikke tildelt dette ordet";
-"errors.network_timeout" = "Nettverkstidsavbrudd";
-"errors.server_unreachable" = "Serveren kan ikke nås";
-"errors.invalid_response" = "Ugyldig respons";
-"errors.no_internet_connection" = "Ingen internettforbindelse";
-"errors.missing_api_key" = "Manglende API-nøkkel";
-"errors.decoding_error" = "Dekodingsfeil";
-"errors.invalid_url" = "Ugyldig URL";
-"errors.no_data" = "Ingen data";
-"errors.save_failed" = "Lagring mislyktes";
-"errors.read_failed" = "Lesing mislyktes";
-"errors.data_corrupted" = "Data korrupte";
-"errors.invalid_input" = "Ugyldig inndata";
-"errors.missing_field" = "Manglende felt";
-"errors.unknown_error" = "Ukjent feil";
-"errors.update_failed" = "Oppdatering mislyktes";
-"errors.delete_failed" = "Sletting mislyktes";
-"errors.permission_denied" = "Du har ikke tillatelse til denne handlingen";
-"errors.user_not_authenticated" = "Brukeren må autentiseres";
-"errors.dictionary_limit_reached" = "Med gratisplanen kan du bare opprette én delt ordbok. Oppgrader til Pro for ubegrensede delte ordbøker.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Ingen ord ennå";
 "empty_states.no_idioms_yet" = "Ingen uttrykk ennå";
@@ -583,24 +513,6 @@
 "indian" = "Indisk";
 "nigerian" = "Nigeriansk";
 
-"auth.cross_platform_button_description" = "For deling av abonnement på tvers av plattformer";
-"auth.nickname" = "Kallenavn";
-"auth.nickname_current" = "Nåværende kallenavn";
-"auth.nickname_not_set" = "Kallenavn er ikke satt";
-"auth.nickname_description" = "Sett et unikt kallenavn som andre kan bruke for å finne og legge deg til i delte ordbøker. Dette er mer praktisk enn å bruke e-postadresser.";
-"auth.edit_nickname" = "Rediger kallenavn";
-"auth.nickname_cannot_be_empty" = "Kallenavn kan ikke være tomt";
-"auth.nickname_already_taken" = "Dette kallenavnet er allerede tatt. Velg et annet.";
-"auth.nickname_invalid_format" = "Kallenavn kan bare inneholde bokstaver, tall og understreker.";
-"auth.search_method" = "Søkemetode";
-"auth.find_user_by_email" = "Finn bruker via e-post";
-"auth.find_user_by_nickname" = "Finn bruker via kallenavn";
-"auth.enter_email_address" = "Skriv inn e-postadresse";
-"auth.enter_nickname" = "Skriv inn kallenavn";
-"auth.found_user" = "Bruker funnet";
-"auth.user_not_found" = "Bruker ikke funnet";
-"auth.user_not_found_message" = "Ingen bruker funnet med den oppgitte informasjonen. Sjekk søket ditt og prøv igjen.";
-
 "notifications.permission_required" = "Varslingstillatelse kreves";
 "notifications.permission_denied_message" = "For å motta daglige påminnelser og varsler om vanskelige ord, vennligst aktiver varsler i Innstillinger.";
 
@@ -664,9 +576,3 @@
 "tts.models.english_description" = "Speechifys engelske tekst-til-tale-modell tilbyr standardfunksjoner designet for å levere klar og naturlig lydutgang for tekstlesing. Modellen fokuserer på å gi en konsistent brukeropplevelse.";
 "tts.models.multilingual_description" = "Den flerspråklige modellen tillater bruk av alle støttede språk og støtter bruk av flere språk innenfor en enkelt setning. Lydutgangen fra denne modellen skiller seg tydelig fra andre modeller.";
 
-"auth.enter_name" = "Skriv inn navn";
-"auth.search_by" = "Søk etter";
-"auth.unknown_user" = "Ukjent bruker";
-"auth.email" = "E-post";
-"auth.apple_id" = "Apple-ID";
-"auth.google_account" = "Google-konto";

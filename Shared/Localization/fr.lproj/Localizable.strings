@@ -24,8 +24,6 @@
 "navigation.close" = "Fermer";
 "navigation.close_screen" = "Fermer l'écran";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Ajouter une expression";
 "idioms.add_new_idiom" = "Ajouter une nouvelle expression";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Plus récent d'abord";
 "idioms.earliest_first" = "Plus ancien d'abord";
 "idioms.alphabetically" = "Alphabétiquement";
-
 
 // MARK: - App
 "app.my_dictionary" = "Mon Dictionnaire";
@@ -291,74 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Suivi détaillé des progrès et informations";
 "pro_features.get_priority_support" = "Obtenez un support prioritaire lorsque vous avez besoin d'aide";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Erreur lors de la mise à jour des exemples de mots";
-"errors.error_removing_word" = "Erreur lors de la suppression du mot";
-"errors.error_saving_word" = "Erreur lors de l'enregistrement du mot";
-"errors.error_updating_idiom_examples" = "Erreur lors de la mise à jour des exemples d'expressions";
-"errors.error_removing_idiom" = "Erreur lors de la suppression de l'expression";
-"errors.error_saving_idiom" = "Erreur lors de l'enregistrement de l'expression";
-"errors.input_not_word" = "L'entrée n'est pas un mot";
-"errors.input_cannot_be_empty" = "L'entrée ne peut pas être vide";
-"errors.device_muted_or_volume_low" = "L'appareil est en mode silencieux ou le volume est bas";
-"errors.cannot_play_audio" = "Impossible de lire l'audio";
-"errors.cannot_setup_audio_session" = "Impossible de configurer la session audio";
-"errors.export_failed" = "Échec de l'exportation";
-"errors.import_failed" = "Échec de l'importation";
-"errors.cannot_access_security_scoped_resource" = "Impossible d'accéder à la ressource sécurisée";
-"errors.tag_already_exists" = "L'étiquette existe déjà";
-"errors.tag_already_assigned_to_word" = "L'étiquette est déjà assignée à ce mot";
-"errors.tag_not_assigned_to_word" = "L'étiquette n'est pas assignée à ce mot";
-"errors.authentication_required" = "Authentification requise";
-"errors.no_active_subscriptions_found" = "Aucun abonnement actif trouvé";
-"errors.failed_to_update_word_progress" = "Échec de la mise à jour de la progression du mot";
-"errors.failed_to_update_word_difficulty_level" = "Échec de la mise à jour du niveau de difficulté du mot";
-"errors.failed_to_save_quiz_session" = "Échec de l'enregistrement de la session de quiz";
-"errors.failed_to_update_user_statistics" = "Échec de la mise à jour des statistiques de l'utilisateur";
-"errors.invalid_word_id" = "ID de mot invalide";
-"errors.word_not_found" = "Mot non trouvé";
-"errors.failed_to_calculate_progress" = "Échec du calcul de la progression";
-"errors.invalid_translation_url" = "URL de traduction invalide";
-"errors.network_error_during_translation" = "Erreur réseau pendant la traduction";
-"errors.invalid_response_from_translation_service" = "Réponse invalide du service de traduction";
-"errors.translation_failed" = "Échec de la traduction";
-"errors.invalid_user_email" = "Adresse e-mail de l'utilisateur invalide";
-"errors.network_error_occurred" = "Une erreur réseau s'est produite";
-"errors.sync_failed" = "Échec de la synchronisation";
-"errors.invalid_input_provided" = "Entrée invalide fournie";
-"errors.dictionary_not_found" = "Dictionnaire non trouvé";
-"errors.no_subscription_offerings_available" = "Aucune offre d'abonnement disponible pour le moment";
-"errors.requested_subscription_package_not_found" = "Le pack d'abonnement demandé n'a pas été trouvé";
-"errors.purchase_could_not_be_completed" = "L'achat n'a pas pu être effectué";
-"errors.failed_to_restore_previous_purchases" = "Échec de la restauration des achats précédents";
-"errors.no_offerings_available" = "Aucune offre d'abonnement disponible pour le moment";
-"errors.package_not_found" = "Le pack d'abonnement demandé n'a pas été trouvé";
-"errors.purchase_failed" = "Échec de l'achat";
-"errors.restore_failed" = "Échec de la restauration des achats précédents";
-"errors.export_limit_exceeded" = "Limite d'exportation dépassée. Passez à la version Pro pour une exportation illimitée.";
-"errors.max_tags_reached" = "Nombre maximum de 5 étiquettes par mot atteint";
-"errors.tag_already_assigned" = "L'étiquette est déjà assignée à ce mot";
-"errors.tag_not_assigned" = "L'étiquette n'est pas assignée à ce mot";
-"errors.network_timeout" = "Délai d'attente réseau";
-"errors.server_unreachable" = "Serveur injoignable";
-"errors.invalid_response" = "Réponse invalide";
-"errors.no_internet_connection" = "Aucune connexion Internet";
-"errors.missing_api_key" = "Clé API manquante";
-"errors.decoding_error" = "Erreur de décodage";
-"errors.invalid_url" = "URL invalide";
-"errors.no_data" = "Aucune donnée";
-"errors.save_failed" = "Échec de l'enregistrement";
-"errors.read_failed" = "Échec de la lecture";
-"errors.data_corrupted" = "Données corrompues";
-"errors.invalid_input" = "Entrée invalide";
-"errors.missing_field" = "Champ manquant";
-"errors.unknown_error" = "Erreur inconnue";
-"errors.update_failed" = "Échec de la mise à jour";
-"errors.delete_failed" = "Échec de la suppression";
-"errors.permission_denied" = "Vous n'avez pas la permission d'effectuer cette action";
-"errors.user_not_authenticated" = "L'utilisateur doit être authentifié";
-"errors.dictionary_limit_reached" = "Un seul dictionnaire partagé peut être créé avec le plan gratuit. Passez à la version Pro pour des dictionnaires partagés illimités.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Aucun mot pour le moment";
 "empty_states.no_idioms_yet" = "Aucune expression pour le moment";
@@ -584,24 +513,6 @@
 "indian" = "Indien";
 "nigerian" = "Nigérian";
 
-"auth.cross_platform_button_description" = "Pour le partage de l'abonnement entre plateformes";
-"auth.nickname" = "Pseudo";
-"auth.nickname_current" = "Pseudo actuel";
-"auth.nickname_not_set" = "Le pseudo n'est pas défini";
-"auth.nickname_description" = "Définissez un pseudo unique que d'autres peuvent utiliser pour vous trouver et vous ajouter à des dictionnaires partagés. C'est plus pratique que d'utiliser des adresses e-mail.";
-"auth.edit_nickname" = "Modifier le pseudo";
-"auth.nickname_cannot_be_empty" = "Le pseudo ne peut pas être vide";
-"auth.nickname_already_taken" = "Ce pseudo est déjà pris. Veuillez en choisir un autre.";
-"auth.nickname_invalid_format" = "Le pseudo ne peut contenir que des lettres, des chiffres et des traits de soulignement.";
-"auth.search_method" = "Méthode de recherche";
-"auth.find_user_by_email" = "Trouver un utilisateur par e-mail";
-"auth.find_user_by_nickname" = "Trouver un utilisateur par pseudo";
-"auth.enter_email_address" = "Entrez l'adresse e-mail";
-"auth.enter_nickname" = "Entrez le pseudo";
-"auth.found_user" = "Utilisateur trouvé";
-"auth.user_not_found" = "Utilisateur non trouvé";
-"auth.user_not_found_message" = "Aucun utilisateur trouvé avec les informations fournies. Veuillez vérifier votre recherche et réessayer.";
-
 "notifications.permission_required" = "Permission de notification requise";
 "notifications.permission_denied_message" = "Pour recevoir des rappels quotidiens et des alertes de mots difficiles, veuillez activer les notifications dans les Paramètres.";
 
@@ -665,9 +576,3 @@
 "tts.models.english_description" = "Le modèle de texte à voix en anglais de Speechify offre des capacités standard conçues pour fournir une sortie vocale claire et naturelle pour la lecture de textes. Le modèle se concentre sur une expérience utilisateur cohérente.";
 "tts.models.multilingual_description" = "Le modèle multilingue permet l'utilisation de toutes les langues prises en charge et supporte l'utilisation de plusieurs langues dans une seule phrase. La sortie audio de ce modèle est distinctement différente des autres modèles.";
 
-"auth.enter_name" = "Entrez le nom";
-"auth.search_by" = "Rechercher par";
-"auth.unknown_user" = "Utilisateur inconnu";
-"auth.email" = "E-mail";
-"auth.apple_id" = "Identifiant Apple";
-"auth.google_account" = "Compte Google";

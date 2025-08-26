@@ -24,8 +24,6 @@
 "navigation.close" = "Stäng";
 "navigation.close_screen" = "Stäng skärm";
 
-
-
 // MARK: - Idioms Flow
 "idioms.add_idiom" = "Lägg till uttryck";
 "idioms.add_new_idiom" = "Lägg till nytt uttryck";
@@ -52,7 +50,6 @@
 "idioms.latest_first" = "Senaste först";
 "idioms.earliest_first" = "Tidigaste först";
 "idioms.alphabetically" = "Alfabetiskt";
-
 
 // MARK: - App
 "app.my_dictionary" = "Min Ordbok";
@@ -291,73 +288,6 @@
 "pro_features.detailed_progress_tracking" = "Detaljerad spårning av framsteg och analys";
 "pro_features.get_priority_support" = "Få prioriterad support när du behöver hjälp";
 
-// MARK: - Error Messages
-"errors.error_updating_word_examples" = "Fel vid uppdatering av ordexempel";
-"errors.error_removing_word" = "Fel vid borttagning av ord";
-"errors.error_saving_word" = "Fel vid sparande av ord";
-"errors.error_updating_idiom_examples" = "Fel vid uppdatering av uttrycksexempel";
-"errors.error_removing_idiom" = "Fel vid borttagning av uttryck";
-"errors.error_saving_idiom" = "Fel vid sparande av uttryck";
-"errors.input_not_word" = "Inmatningen är inte ett ord";
-"errors.input_cannot_be_empty" = "Inmatningen kan inte vara tom";
-"errors.device_muted_or_volume_low" = "Enheten är tystad eller volymen är låg";
-"errors.cannot_play_audio" = "Kan inte spela upp ljud";
-"errors.cannot_setup_audio_session" = "Kan inte konfigurera ljudsession";
-"errors.export_failed" = "Export misslyckades";
-"errors.import_failed" = "Import misslyckades";
-"errors.cannot_access_security_scoped_resource" = "Kan inte komma åt säkerhetsskyddad resurs";
-"errors.tag_already_exists" = "Taggen finns redan";
-"errors.tag_already_assigned_to_word" = "Denna tagg är redan tilldelad detta ord";
-"errors.tag_not_assigned_to_word" = "Denna tagg är inte tilldelad detta ord";
-"errors.authentication_required" = "Autentisering krävs";
-"errors.no_active_subscriptions_found" = "Inga aktiva prenumerationer hittades";
-"errors.failed_to_update_word_progress" = "Misslyckades med att uppdatera ordets framsteg";
-"errors.failed_to_update_word_difficulty_level" = "Misslyckades med att uppdatera ordets svårighetsgrad";
-"errors.failed_to_save_quiz_session" = "Misslyckades med att spara quizsession";
-"errors.failed_to_update_user_statistics" = "Misslyckades med att uppdatera användarstatistik";
-"errors.invalid_word_id" = "Ogiltigt ord-ID";
-"errors.word_not_found" = "Ordet hittades inte";
-"errors.failed_to_calculate_progress" = "Misslyckades med att beräkna framsteg";
-"errors.invalid_translation_url" = "Ogiltig översättnings-URL";
-"errors.network_error_during_translation" = "Nätverksfel under översättning";
-"errors.invalid_response_from_translation_service" = "Ogiltigt svar från översättningstjänsten";
-"errors.translation_failed" = "Översättning misslyckades";
-"errors.invalid_user_email" = "Ogiltig användar-e-post";
-"errors.network_error_occurred" = "Ett nätverksfel uppstod";
-"errors.sync_failed" = "Synkronisering misslyckades";
-"errors.invalid_input_provided" = "Ogiltig inmatning tillhandahölls";
-"errors.dictionary_not_found" = "Ordbok hittades inte";
-"errors.no_subscription_offerings_available" = "Inga prenumerationserbjudanden tillgängliga för närvarande";
-"errors.requested_subscription_package_not_found" = "Begärt prenumerationspaket hittades inte";
-"errors.purchase_could_not_be_completed" = "Köpet kunde inte slutföras";
-"errors.failed_to_restore_previous_purchases" = "Misslyckades med att återställa tidigare köp";
-"errors.no_offerings_available" = "Inga prenumerationserbjudanden tillgängliga för närvarande";
-"errors.purchase_failed" = "Köpet misslyckades";
-"errors.restore_failed" = "Återställning av tidigare köp misslyckades";
-"errors.export_limit_exceeded" = "Exportgräns överskriden. Uppgradera till Pro för obegränsad export.";
-"errors.max_tags_reached" = "Maxgränsen på 5 taggar per ord uppnådd";
-"errors.tag_already_assigned" = "Denna tagg är redan tilldelad detta ord";
-"errors.tag_not_assigned" = "Denna tagg är inte tilldelad detta ord";
-"errors.network_timeout" = "Nätverkstimeout";
-"errors.server_unreachable" = "Servern är inte nåbar";
-"errors.invalid_response" = "Ogiltigt svar";
-"errors.no_internet_connection" = "Ingen internetanslutning";
-"errors.missing_api_key" = "Saknar API-nyckel";
-"errors.decoding_error" = "Avkodningsfel";
-"errors.invalid_url" = "Ogiltig URL";
-"errors.no_data" = "Inga data";
-"errors.save_failed" = "Sparande misslyckades";
-"errors.read_failed" = "Läsning misslyckades";
-"errors.data_corrupted" = "Data är korrupt";
-"errors.invalid_input" = "Ogiltig inmatning";
-"errors.missing_field" = "Saknat fält";
-"errors.unknown_error" = "Okänt fel";
-"errors.update_failed" = "Uppdatering misslyckades";
-"errors.delete_failed" = "Radering misslyckades";
-"errors.permission_denied" = "Du har inte behörighet för denna åtgärd";
-"errors.user_not_authenticated" = "Användaren måste vara autentiserad";
-"errors.dictionary_limit_reached" = "Med gratisplanen kan du endast skapa en delad ordbok. Uppgradera till Pro för obegränsade delade ordböcker.";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Inga ord ännu";
 "empty_states.no_idioms_yet" = "Inga uttryck ännu";
@@ -569,24 +499,6 @@
 "indian" = "Indisk";
 "nigerian" = "Nigeriansk";
 
-"auth.cross_platform_button_description" = "För delning av abonnemang över plattformar";
-"auth.nickname" = "Smeknamn";
-"auth.nickname_current" = "Nuvarande smeknamn";
-"auth.nickname_not_set" = "Smeknamn är inte inställt";
-"auth.nickname_description" = "Ställ in ett unikt smeknamn som andra kan använda för att hitta och lägga till dig i delade ordböcker. Detta är bekvämare än att använda e-postadresser.";
-"auth.edit_nickname" = "Redigera smeknamn";
-"auth.nickname_cannot_be_empty" = "Smeknamn får inte vara tomt";
-"auth.nickname_already_taken" = "Detta smeknamn är redan taget. Välj ett annat.";
-"auth.nickname_invalid_format" = "Smeknamn får endast innehålla bokstäver, siffror och understreck.";
-"auth.search_method" = "Sökmetod";
-"auth.find_user_by_email" = "Hitta användare via e-post";
-"auth.find_user_by_nickname" = "Hitta användare via smeknamn";
-"auth.enter_email_address" = "Ange e-postadress";
-"auth.enter_nickname" = "Ange smeknamn";
-"auth.found_user" = "Användare hittades";
-"auth.user_not_found" = "Användare hittades inte";
-"auth.user_not_found_message" = "Ingen användare hittades med den angivna informationen. Kontrollera din sökning och försök igen.";
-
 "notifications.permission_required" = "Meddelandetillstånd krävs";
 "notifications.permission_denied_message" = "För att ta emot dagliga påminnelser och varningar för svåra ord, aktivera meddelanden i Inställningar.";
 
@@ -650,9 +562,3 @@
 "tts.models.english_description" = "Speechifys engelska text-till-tal-modell erbjuder standardfunktioner utformade för att leverera tydlig och naturlig röstutmatning för textläsning. Modellen fokuserar på att ge en konsekvent användarupplevelse.";
 "tts.models.multilingual_description" = "Den flerspråkiga modellen möjliggör användning av alla stödda språk och stöder användning av flera språk inom en enda mening. Ljudutmatningen från denna modell skiljer sig tydligt från andra modeller.";
 
-"auth.enter_name" = "Ange namn";
-"auth.search_by" = "Sök efter";
-"auth.unknown_user" = "Okänd användare";
-"auth.email" = "E-post";
-"auth.apple_id" = "Apple-ID";
-"auth.google_account" = "Google-konto";

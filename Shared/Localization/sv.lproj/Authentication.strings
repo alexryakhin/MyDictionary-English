@@ -52,3 +52,29 @@
 "auth.linked_accounts" = "Länkade Konton";
 "auth.no_linked_accounts" = "Inga länkade konton";
 
+"auth.cross_platform_button_description" = "För delning av abonnemang över plattformar";
+"auth.nickname" = "Smeknamn";
+"auth.nickname_current" = "Nuvarande smeknamn";
+"auth.nickname_not_set" = "Smeknamn är inte inställt";
+"auth.nickname_description" = "Ställ in ett unikt smeknamn som andra kan använda för att hitta och lägga till dig i delade ordböcker. Detta är bekvämare än att använda e-postadresser.";
+"auth.edit_nickname" = "Redigera smeknamn";
+"auth.nickname_cannot_be_empty" = "Smeknamn får inte vara tomt";
+"auth.nickname_already_taken" = "Detta smeknamn är redan taget. Välj ett annat.";
+"auth.nickname_invalid_format" = "Smeknamn får endast innehålla bokstäver, siffror och understreck.";
+"auth.search_method" = "Sökmetod";
+"auth.find_user_by_email" = "Hitta användare via e-post";
+"auth.find_user_by_nickname" = "Hitta användare via smeknamn";
+"auth.enter_email_address" = "Ange e-postadress";
+"auth.enter_nickname" = "Ange smeknamn";
+"auth.found_user" = "Användare hittades";
+"auth.user_not_found" = "Användare hittades inte";
+"auth.user_not_found_message" = "Ingen användare hittades med den angivna informationen. Kontrollera din sökning och försök igen.";
+
+"auth.enter_name" = "Ange namn";
+"auth.search_by" = "Sök efter";
+"auth.unknown_user" = "Okänd användare";
+"auth.email" = "E-post";
+"auth.apple_id" = "Apple-ID";
+"auth.google_account" = "Google-konto";
+
+
