@@ -1,0 +1,37 @@
+// MARK: - Tags Flow
+"tags.manage_tags" = "Quản lý thẻ";
+"tags.tags_help_text" = "Thẻ giúp bạn sắp xếp từ của mình. Mỗi từ có thể có tối đa 5 thẻ.";
+"tags.no_tags_yet" = "Chưa có thẻ nào được thêm";
+"tags.add_first_tag" = "Thêm thẻ đầu tiên của bạn bằng cách nhấn vào nút ở trên";
+"tags.add_tag" = "Thêm thẻ";
+"tags.add_first_tag_description" = "Thêm thẻ đầu tiên của bạn bằng cách nhấn vào nút ở trên";
+"tags.add_tag_to_start_using" = "Thêm thẻ để bắt đầu sử dụng";
+"tags.add_tags" = "Thêm thẻ";
+"tags.create_tags" = "Tạo thẻ";
+"tags.delete_tag" = "Xóa thẻ";
+"tags.delete_tag_confirmation" = "Bạn có chắc chắn muốn xóa thẻ này không?";
+"tags.delete_tag_cannot_undo" = "Hành động này không thể hoàn tác.";
+"tags.tag_name" = "Tên thẻ";
+"tags.tag_name_help" = "Chọn một tên mô tả cho thẻ của bạn";
+"tags.type_tag_name" = "Nhập tên thẻ...";
+"tags.tag_color" = "Màu thẻ";
+"tags.tag_color_help" = "Chọn một màu để thẻ của bạn dễ nhận biết";
+"tags.edit_tag" = "Chỉnh sửa thẻ";
+"tags.new_tag" = "Thẻ mới";
+"tags.tag_management_error" = "Lỗi quản lý thẻ";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Chọn thẻ";
+"tag_selection.no_tags_yet" = "Chưa có thẻ";
+"tag_selection.you_can_select_up_to_5_tags" = "Bạn có thể chọn tối đa 5 thẻ cho mỗi từ. Nhấn vào thẻ để chọn hoặc bỏ chọn.";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Xanh dương";
+"tag_colors.red" = "Đỏ";
+"tag_colors.green" = "Xanh lá";
+"tag_colors.orange" = "Cam";
+"tag_colors.purple" = "Tím";
+"tag_colors.pink" = "Hồng";
+"tag_colors.yellow" = "Vàng";
+"tag_colors.gray" = "Xám";
+

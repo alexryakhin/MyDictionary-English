@@ -1,0 +1,37 @@
+// MARK: - Tags Flow
+"tags.manage_tags" = "Urus Tag";
+"tags.tags_help_text" = "Tag membantu anda menyusun perkataan anda. Setiap perkataan boleh mempunyai sehingga 5 tag.";
+"tags.no_tags_yet" = "Belum ada tag ditambah";
+"tags.add_first_tag" = "Tambah tag pertama anda dengan mengklik butang di atas.";
+"tags.add_tag" = "Tambah Tag";
+"tags.add_first_tag_description" = "Tambah tag pertama anda dengan mengklik butang di atas.";
+"tags.add_tag_to_start_using" = "Tambah tag untuk mula menggunakannya.";
+"tags.add_tags" = "Tambah Tag";
+"tags.create_tags" = "Cipta Tag";
+"tags.delete_tag" = "Padam Tag";
+"tags.delete_tag_confirmation" = "Adakah anda pasti ingin memadam tag ini?";
+"tags.delete_tag_cannot_undo" = "Tindakan ini tidak boleh dibatalkan.";
+"tags.tag_name" = "Nama Tag";
+"tags.tag_name_help" = "Pilih nama deskriptif untuk tag anda";
+"tags.type_tag_name" = "Taip nama tag...";
+"tags.tag_color" = "Warna Tag";
+"tags.tag_color_help" = "Pilih warna untuk memudahkan tag anda dikenali";
+"tags.edit_tag" = "Edit Tag";
+"tags.new_tag" = "Tag Baru";
+"tags.tag_management_error" = "Ralat Pengurusan Tag";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Pilih Tag";
+"tag_selection.no_tags_yet" = "Belum ada tag";
+"tag_selection.you_can_select_up_to_5_tags" = "Anda boleh memilih sehingga 5 tag untuk setiap perkataan. Ketik tag untuk memilih atau menyahpilih.";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Biru";
+"tag_colors.red" = "Merah";
+"tag_colors.green" = "Hijau";
+"tag_colors.orange" = "Oren";
+"tag_colors.purple" = "Ungu";
+"tag_colors.pink" = "Merah Jambu";
+"tag_colors.yellow" = "Kuning";
+"tag_colors.gray" = "Kelabu";
+

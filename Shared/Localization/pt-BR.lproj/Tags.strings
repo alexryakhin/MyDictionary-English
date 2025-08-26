@@ -1,0 +1,37 @@
+// MARK: - Tags Flow
+"tags.manage_tags" = "Gerenciar Etiquetas";
+"tags.tags_help_text" = "As etiquetas ajudam a organizar suas palavras. Cada palavra pode ter até 5 etiquetas.";
+"tags.no_tags_yet" = "Nenhuma etiqueta adicionada ainda";
+"tags.add_first_tag" = "Adicione sua primeira etiqueta clicando no botão acima.";
+"tags.add_tag" = "Adicionar Etiqueta";
+"tags.add_first_tag_description" = "Adicione sua primeira etiqueta clicando no botão acima.";
+"tags.add_tag_to_start_using" = "Adicione uma etiqueta para começar a usá-las.";
+"tags.add_tags" = "Adicionar Etiquetas";
+"tags.create_tags" = "Criar Etiquetas";
+"tags.delete_tag" = "Excluir Etiqueta";
+"tags.delete_tag_confirmation" = "Tem certeza de que deseja excluir esta etiqueta?";
+"tags.delete_tag_cannot_undo" = "Esta ação não pode ser desfeita.";
+"tags.tag_name" = "Nome da Etiqueta";
+"tags.tag_name_help" = "Escolha um nome descritivo para sua etiqueta";
+"tags.type_tag_name" = "Digite o nome da etiqueta...";
+"tags.tag_color" = "Cor da Etiqueta";
+"tags.tag_color_help" = "Escolha uma cor para tornar sua etiqueta facilmente reconhecível";
+"tags.edit_tag" = "Editar Etiqueta";
+"tags.new_tag" = "Nova Etiqueta";
+"tags.tag_management_error" = "Erro no Gerenciamento de Etiquetas";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Selecionar Etiquetas";
+"tag_selection.no_tags_yet" = "Nenhuma etiqueta ainda";
+"tag_selection.you_can_select_up_to_5_tags" = "Você pode selecionar até 5 etiquetas por palavra. Toque nas etiquetas para selecionar ou desmarcar.";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Azul";
+"tag_colors.red" = "Vermelho";
+"tag_colors.green" = "Verde";
+"tag_colors.orange" = "Laranja";
+"tag_colors.purple" = "Roxo";
+"tag_colors.pink" = "Rosa";
+"tag_colors.yellow" = "Amarelo";
+"tag_colors.gray" = "Cinza";
+

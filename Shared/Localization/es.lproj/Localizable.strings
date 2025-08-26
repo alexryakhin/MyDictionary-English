@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Introduce la dirección de correo electrónico del usuario al que deseas enviar una notificación de prueba.";
 "app.user_information" = "Información del usuario";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Gestionar etiquetas";
-"tags.tags_help_text" = "Las etiquetas te ayudan a organizar tus palabras. Cada palabra puede tener hasta 5 etiquetas.";
-"tags.no_tags_yet" = "Aún no se han añadido etiquetas";
-"tags.add_first_tag" = "Añade tu primera etiqueta pulsando el botón de arriba.";
-"tags.add_tag" = "Añadir etiqueta";
-"tags.add_first_tag_description" = "Añade tu primera etiqueta pulsando el botón de arriba.";
-"tags.add_tag_to_start_using" = "Añade una etiqueta para comenzar a usarlas.";
-"tags.add_tags" = "Añadir etiquetas";
-"tags.create_tags" = "Crear etiquetas";
-"tags.delete_tag" = "Eliminar etiqueta";
-"tags.delete_tag_confirmation" = "¿Estás seguro de que quieres eliminar esta etiqueta?";
-"tags.delete_tag_cannot_undo" = "Esta acción no se puede deshacer.";
-"tags.tag_name" = "Nombre de la etiqueta";
-"tags.tag_name_help" = "Elige un nombre descriptivo para tu etiqueta";
-"tags.type_tag_name" = "Escribe el nombre de la etiqueta...";
-"tags.tag_color" = "Color de la etiqueta";
-"tags.tag_color_help" = "Elige un color para que tu etiqueta sea fácilmente reconocible";
-"tags.edit_tag" = "Editar etiqueta";
-"tags.new_tag" = "Nueva etiqueta";
-"tags.tag_management_error" = "Error en la gestión de etiquetas";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Cómprame un café";
 "coffee.maybe_later" = "Quizás más tarde";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Tu palabra fue '%@'. ¡Esfuérzate más!";
 "quiz_actions.try_harder" = "¡Esfuérzate más!";
 "quiz_actions.incorrect_try_again" = "Incorrecto. Intenta de nuevo";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Seleccionar etiquetas";
-"tag_selection.no_tags_yet" = "Aún no hay etiquetas";
-"tag_selection.you_can_select_up_to_5_tags" = "Puedes seleccionar hasta 5 etiquetas por palabra. Pulsa en las etiquetas para seleccionarlas o deseleccionarlas.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "¡Hora de practicar! 📚";
@@ -188,16 +161,6 @@
 "collaborator_roles.owner" = "Propietario";
 "collaborator_roles.editor" = "Editor";
 "collaborator_roles.viewer" = "Observador";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Azul";
-"tag_colors.red" = "Rojo";
-"tag_colors.green" = "Verde";
-"tag_colors.orange" = "Naranja";
-"tag_colors.purple" = "Morado";
-"tag_colors.pink" = "Rosa";
-"tag_colors.yellow" = "Amarillo";
-"tag_colors.gray" = "Gris";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Seleccionar diccionario";

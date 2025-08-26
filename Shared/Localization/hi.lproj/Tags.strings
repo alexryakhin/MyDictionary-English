@@ -1,0 +1,37 @@
+// MARK: - Tags Flow
+"tags.manage_tags" = "टैग प्रबंधन करें";
+"tags.tags_help_text" = "टैग आपके शब्दों को व्यवस्थित करने में मदद करते हैं। प्रत्येक शब्द में अधिकतम 5 टैग हो सकते हैं।";
+"tags.no_tags_yet" = "अभी तक कोई टैग नहीं जोड़ा गया";
+"tags.add_first_tag" = "ऊपर दिए बटन पर क्लिक करके अपना पहला टैग जोड़ें।";
+"tags.add_tag" = "टैग जोड़ें";
+"tags.add_first_tag_description" = "ऊपर दिए बटन पर क्लिक करके अपना पहला टैग जोड़ें।";
+"tags.add_tag_to_start_using" = "उपयोग शुरू करने के लिए एक टैग जोड़ें।";
+"tags.add_tags" = "टैग जोड़ें";
+"tags.create_tags" = "टैग बनाएं";
+"tags.delete_tag" = "टैग हटाएं";
+"tags.delete_tag_confirmation" = "क्या आप वाकई इस टैग को हटाना चाहते हैं?";
+"tags.delete_tag_cannot_undo" = "यह क्रिया पूर्ववत नहीं की जा सकती।";
+"tags.tag_name" = "टैग का नाम";
+"tags.tag_name_help" = "अपने टैग के लिए एक वर्णनात्मक नाम चुनें";
+"tags.type_tag_name" = "टैग का नाम टाइप करें...";
+"tags.tag_color" = "टैग का रंग";
+"tags.tag_color_help" = "अपने टैग को आसानी से पहचानने के लिए एक रंग चुनें";
+"tags.edit_tag" = "टैग संपादित करें";
+"tags.new_tag" = "नया टैग";
+"tags.tag_management_error" = "टैग प्रबंधन त्रुटि";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "टैग चुनें";
+"tag_selection.no_tags_yet" = "अभी तक कोई टैग नहीं";
+"tag_selection.you_can_select_up_to_5_tags" = "आप प्रति शब्द अधिकतम 5 टैग चुन सकते हैं। टैग को चुनने या अचयन करने के लिए उस पर टैप करें।";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "नीला";
+"tag_colors.red" = "लाल";
+"tag_colors.green" = "हरा";
+"tag_colors.orange" = "नारंगी";
+"tag_colors.purple" = "बैंगनी";
+"tag_colors.pink" = "गुलाबी";
+"tag_colors.yellow" = "पीला";
+"tag_colors.gray" = "धूसर";
+

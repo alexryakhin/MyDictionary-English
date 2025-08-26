@@ -1,0 +1,37 @@
+// MARK: - Tags Flow
+"tags.manage_tags" = "管理標籤";
+"tags.tags_help_text" = "標籤幫助你組織單詞。每個單詞最多可有 5 個標籤。";
+"tags.no_tags_yet" = "尚未添加標籤";
+"tags.add_first_tag" = "點擊上方按鈕添加你的第一個標籤。";
+"tags.add_tag" = "添加標籤";
+"tags.add_first_tag_description" = "點擊上方按鈕添加你的第一個標籤。";
+"tags.add_tag_to_start_using" = "添加標籤以開始使用。";
+"tags.add_tags" = "添加標籤";
+"tags.create_tags" = "創建標籤";
+"tags.delete_tag" = "刪除標籤";
+"tags.delete_tag_confirmation" = "你確定要刪除這個標籤嗎？";
+"tags.delete_tag_cannot_undo" = "此操作無法撤銷。";
+"tags.tag_name" = "標籤名稱";
+"tags.tag_name_help" = "為你的標籤選擇一個描述性名稱";
+"tags.type_tag_name" = "輸入標籤名稱...";
+"tags.tag_color" = "標籤顏色";
+"tags.tag_color_help" = "選擇一個顏色以幫助識別你的標籤";
+"tags.edit_tag" = "編輯標籤";
+"tags.new_tag" = "新標籤";
+"tags.tag_management_error" = "標籤管理錯誤";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "選擇標籤";
+"tag_selection.no_tags_yet" = "尚未添加標籤";
+"tag_selection.you_can_select_up_to_5_tags" = "每個單詞最多可選擇 5 個標籤。點擊標籤以選擇或取消選擇。";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "藍色";
+"tag_colors.red" = "紅色";
+"tag_colors.green" = "綠色";
+"tag_colors.orange" = "橙色";
+"tag_colors.purple" = "紫色";
+"tag_colors.pink" = "粉色";
+"tag_colors.yellow" = "黃色";
+"tag_colors.gray" = "灰色";
+

@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Unesite adresu e-pošte korisnika kojem želite poslati testnu obavijest.";
 "app.user_information" = "Informacije o korisniku";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Upravljaj oznakama";
-"tags.tags_help_text" = "Oznake vam pomažu organizirati riječi. Svaka riječ može imati do 5 oznaka.";
-"tags.no_tags_yet" = "Još nema dodanih oznaka";
-"tags.add_first_tag" = "Dodajte svoju prvu oznaku klikom na gumb iznad.";
-"tags.add_tag" = "Dodaj oznaku";
-"tags.add_first_tag_description" = "Dodajte svoju prvu oznaku klikom na gumb iznad.";
-"tags.add_tag_to_start_using" = "Dodajte oznaku za početak korištenja.";
-"tags.add_tags" = "Dodaj oznake";
-"tags.create_tags" = "Stvori oznake";
-"tags.delete_tag" = "Izbriši oznaku";
-"tags.delete_tag_confirmation" = "Jeste li sigurni da želite izbrisati ovu oznaku?";
-"tags.delete_tag_cannot_undo" = "Ova radnja se ne može poništiti.";
-"tags.tag_name" = "Naziv oznake";
-"tags.tag_name_help" = "Odaberite opisni naziv za svoju oznaku";
-"tags.type_tag_name" = "Upiši naziv oznake...";
-"tags.tag_color" = "Boja oznake";
-"tags.tag_color_help" = "Odaberite boju kako biste lakše prepoznali svoju oznaku";
-"tags.edit_tag" = "Uredi oznaku";
-"tags.new_tag" = "Nova oznaka";
-"tags.tag_management_error" = "Pogreška u upravljanju oznakama";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Časti me kavom";
 "coffee.maybe_later" = "Možda kasnije";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Vaša riječ je '%@'. Potrudite se više :)";
 "quiz_actions.try_harder" = "Potrudite se više :)";
 "quiz_actions.incorrect_try_again" = "Netočno. Pokušajte ponovno";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Odaberi oznake";
-"tag_selection.no_tags_yet" = "Još nema oznaka";
-"tag_selection.you_can_select_up_to_5_tags" = "Možete odabrati do 5 oznaka po riječi. Dodirnite oznaku za odabir ili poništavanje odabira.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Vrijeme za vježbanje! 📚";
@@ -188,16 +161,6 @@
 "collaborator_roles.owner" = "Vlasnik";
 "collaborator_roles.editor" = "Urednik";
 "collaborator_roles.viewer" = "Gledatelj";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Plava";
-"tag_colors.red" = "Crvena";
-"tag_colors.green" = "Zelena";
-"tag_colors.orange" = "Narančasta";
-"tag_colors.purple" = "Ljubičasta";
-"tag_colors.pink" = "Ružičasta";
-"tag_colors.yellow" = "Žuta";
-"tag_colors.gray" = "Siva";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Odaberi rječnik";

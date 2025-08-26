@@ -1,0 +1,37 @@
+// MARK: - Tags Flow
+"tags.manage_tags" = "Címkék kezelése";
+"tags.tags_help_text" = "A címkék segítenek a szavaid rendszerezésében. Minden szóhoz legfeljebb 5 címke adható.";
+"tags.no_tags_yet" = "Még nem adtál hozzá címkéket";
+"tags.add_first_tag" = "Add hozzá az első címkédet a fenti gombra kattintva.";
+"tags.add_tag" = "Címke hozzáadása";
+"tags.add_first_tag_description" = "Add hozzá az első címkédet a fenti gombra kattintva.";
+"tags.add_tag_to_start_using" = "Adj hozzá egy címkét a használat megkezdéséhez.";
+"tags.add_tags" = "Címkék hozzáadása";
+"tags.create_tags" = "Címkék létrehozása";
+"tags.delete_tag" = "Címke törlése";
+"tags.delete_tag_confirmation" = "Biztosan törölni szeretnéd ezt a címkét?";
+"tags.delete_tag_cannot_undo" = "Ez a művelet nem vonható vissza.";
+"tags.tag_name" = "Címke neve";
+"tags.tag_name_help" = "Válassz leíró nevet a címkédhez";
+"tags.type_tag_name" = "Írd be a címke nevét...";
+"tags.tag_color" = "Címke színe";
+"tags.tag_color_help" = "Válassz színt, hogy a címkéd könnyen felismerhető legyen";
+"tags.edit_tag" = "Címke szerkesztése";
+"tags.new_tag" = "Új címke";
+"tags.tag_management_error" = "Címke kezelési hiba";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Címkék kiválasztása";
+"tag_selection.no_tags_yet" = "Még nincsenek címkék";
+"tag_selection.you_can_select_up_to_5_tags" = "Szavonként legfeljebb 5 címkét választhatsz ki. Kattints egy címkére a kiválasztáshoz vagy a kiválasztás megszüntetéséhez.";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Kék";
+"tag_colors.red" = "Piros";
+"tag_colors.green" = "Zöld";
+"tag_colors.orange" = "Narancs";
+"tag_colors.purple" = "Lila";
+"tag_colors.pink" = "Rózsaszín";
+"tag_colors.yellow" = "Sárga";
+"tag_colors.gray" = "Szürke";
+

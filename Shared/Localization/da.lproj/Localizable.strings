@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Indtast e-mailadressen på den bruger, du vil sende en testnotifikation til.";
 "app.user_information" = "Brugerinformation";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Administrer tags";
-"tags.tags_help_text" = "Tags hjælper dig med at organisere ord. Hvert ord kan have op til 5 tags.";
-"tags.no_tags_yet" = "Ingen tags tilføjet endnu";
-"tags.add_first_tag" = "Tilføj dit første tag ved at klikke på knappen ovenfor.";
-"tags.add_tag" = "Tilføj tag";
-"tags.add_first_tag_description" = "Tilføj dit første tag ved at klikke på knappen ovenfor.";
-"tags.add_tag_to_start_using" = "Tilføj et tag for at begynde at bruge.";
-"tags.add_tags" = "Tilføj tags";
-"tags.create_tags" = "Opret tags";
-"tags.delete_tag" = "Slet tag";
-"tags.delete_tag_confirmation" = "Er du sikker på, at du vil slette dette tag?";
-"tags.delete_tag_cannot_undo" = "Denne handling kan ikke fortrydes.";
-"tags.tag_name" = "Tagnavn";
-"tags.tag_name_help" = "Vælg et beskrivende navn til dit tag";
-"tags.type_tag_name" = "Skriv tagnavn...";
-"tags.tag_color" = "Tagfarve";
-"tags.tag_color_help" = "Vælg en farve for at genkende dit tag lettere";
-"tags.edit_tag" = "Rediger tag";
-"tags.new_tag" = "Nyt tag";
-"tags.tag_management_error" = "Fejl ved tag-administration";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Køb mig en kaffe";
 "coffee.maybe_later" = "Måske senere";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Dit ord er '%@'. Gør det bedre :)";
 "quiz_actions.try_harder" = "Gør det bedre :)";
 "quiz_actions.incorrect_try_again" = "Forkert. Prøv igen";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Vælg tags";
-"tag_selection.no_tags_yet" = "Ingen tags endnu";
-"tag_selection.you_can_select_up_to_5_tags" = "Du kan vælge op til 5 tags pr. ord. Tryk på et tag for at vælge eller fravælge det.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Tid til at øve! 📚";
@@ -188,16 +161,6 @@
 "collaborator_roles.owner" = "Ejer";
 "collaborator_roles.editor" = "Redaktør";
 "collaborator_roles.viewer" = "Seer";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Blå";
-"tag_colors.red" = "Rød";
-"tag_colors.green" = "Grøn";
-"tag_colors.orange" = "Orange";
-"tag_colors.purple" = "Lilla";
-"tag_colors.pink" = "Pink";
-"tag_colors.yellow" = "Gul";
-"tag_colors.gray" = "Grå";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Vælg ordbog";

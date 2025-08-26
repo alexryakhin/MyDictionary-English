@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Ange e-postadressen för användaren du vill skicka en testavisering till.";
 "app.user_information" = "Användarinformation";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Hantera taggar";
-"tags.tags_help_text" = "Taggar hjälper dig att organisera dina ord. Varje ord kan ha upp till 5 taggar.";
-"tags.no_tags_yet" = "Inga taggar har lagts till ännu";
-"tags.add_first_tag" = "Lägg till din första tagg genom att klicka på knappen ovan.";
-"tags.add_tag" = "Lägg till tagg";
-"tags.add_first_tag_description" = "Lägg till din första tagg genom att klicka på knappen ovan.";
-"tags.add_tag_to_start_using" = "Lägg till en tagg för att börja använda dem.";
-"tags.add_tags" = "Lägg till taggar";
-"tags.create_tags" = "Skapa taggar";
-"tags.delete_tag" = "Radera tagg";
-"tags.delete_tag_confirmation" = "Är du säker på att du vill radera denna tagg?";
-"tags.delete_tag_cannot_undo" = "Denna åtgärd kan inte ångras.";
-"tags.tag_name" = "Taggnamn";
-"tags.tag_name_help" = "Välj ett beskrivande namn för din tagg";
-"tags.type_tag_name" = "Skriv taggnamn...";
-"tags.tag_color" = "Taggfärg";
-"tags.tag_color_help" = "Välj en färg för att göra din tagg lättigenkännlig";
-"tags.edit_tag" = "Redigera tagg";
-"tags.new_tag" = "Ny tagg";
-"tags.tag_management_error" = "Fel vid hantering av taggar";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Köp mig en kaffe";
 "coffee.maybe_later" = "Kanske senare";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Ditt ord var '%@'. Försök bättre!";
 "quiz_actions.try_harder" = "Försök hårdare!";
 "quiz_actions.incorrect_try_again" = "Fel. Försök igen";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Välj taggar";
-"tag_selection.no_tags_yet" = "Inga taggar ännu";
-"tag_selection.you_can_select_up_to_5_tags" = "Du kan välja upp till 5 taggar per ord. Klicka på taggarna för att välja eller avmarkera dem.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Dags att öva! 📚";
@@ -174,16 +147,6 @@
 "collaborator_roles.owner" = "Ägare";
 "collaborator_roles.editor" = "Redigerare";
 "collaborator_roles.viewer" = "Visare";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Blå";
-"tag_colors.red" = "Röd";
-"tag_colors.green" = "Grön";
-"tag_colors.orange" = "Orange";
-"tag_colors.purple" = "Lila";
-"tag_colors.pink" = "Rosa";
-"tag_colors.yellow" = "Gul";
-"tag_colors.gray" = "Grå";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Välj ordbok";

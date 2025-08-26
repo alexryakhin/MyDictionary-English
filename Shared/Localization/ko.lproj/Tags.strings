@@ -1,0 +1,37 @@
+// MARK: - Tags Flow
+"tags.manage_tags" = "태그 관리";
+"tags.tags_help_text" = "태그는 단어를 정리하는 데 도움이 됩니다. 단어당 최대 5개의 태그를 붙일 수 있습니다.";
+"tags.no_tags_yet" = "아직 태그가 추가되지 않았습니다";
+"tags.add_first_tag" = "위 버튼을 클릭하여 첫 번째 태그를 추가하세요.";
+"tags.add_tag" = "태그 추가";
+"tags.add_first_tag_description" = "위 버튼을 클릭하여 첫 번째 태그를 추가하세요.";
+"tags.add_tag_to_start_using" = "사용을 시작하려면 태그를 추가하세요.";
+"tags.add_tags" = "태그 추가";
+"tags.create_tags" = "태그 생성";
+"tags.delete_tag" = "태그 삭제";
+"tags.delete_tag_confirmation" = "이 태그를 삭제하시겠습니까?";
+"tags.delete_tag_cannot_undo" = "이 작업은 되돌릴 수 없습니다.";
+"tags.tag_name" = "태그 이름";
+"tags.tag_name_help" = "태그에 설명적인 이름을 선택하세요";
+"tags.type_tag_name" = "태그 이름 입력...";
+"tags.tag_color" = "태그 색상";
+"tags.tag_color_help" = "태그를 쉽게 알아볼 수 있도록 색상을 선택하세요";
+"tags.edit_tag" = "태그 편집";
+"tags.new_tag" = "새 태그";
+"tags.tag_management_error" = "태그 관리 오류";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "태그 선택";
+"tag_selection.no_tags_yet" = "아직 태그가 없습니다";
+"tag_selection.you_can_select_up_to_5_tags" = "단어당 최대 5개의 태그를 선택할 수 있습니다. 태그를 탭하여 선택하거나 선택 해제하세요.";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "파랑";
+"tag_colors.red" = "빨강";
+"tag_colors.green" = "초록";
+"tag_colors.orange" = "주황";
+"tag_colors.purple" = "보라";
+"tag_colors.pink" = "분홍";
+"tag_colors.yellow" = "노랑";
+"tag_colors.gray" = "회색";
+

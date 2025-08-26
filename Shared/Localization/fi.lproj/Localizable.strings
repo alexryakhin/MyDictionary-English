@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Syötä sen käyttäjän sähköpostiosoite, jolle haluat lähettää testausilmoituksen.";
 "app.user_information" = "Käyttäjätiedot";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Hallinnoi tunnisteita";
-"tags.tags_help_text" = "Tunnisteet auttavat sinua järjestämään sanoja. Jokaisella sanalla voi olla enintään 5 tunnistetta.";
-"tags.no_tags_yet" = "Ei vielä lisättyjä tunnisteita";
-"tags.add_first_tag" = "Lisää ensimmäinen tunnisteesi klikkaamalla yllä olevaa painiketta.";
-"tags.add_tag" = "Lisää tunniste";
-"tags.add_first_tag_description" = "Lisää ensimmäinen tunnisteesi klikkaamalla yllä olevaa painiketta.";
-"tags.add_tag_to_start_using" = "Lisää tunniste aloittaaksesi sen käytön.";
-"tags.add_tags" = "Lisää tunnisteita";
-"tags.create_tags" = "Luo tunnisteita";
-"tags.delete_tag" = "Poista tunniste";
-"tags.delete_tag_confirmation" = "Haluatko varmasti poistaa tämän tunnisteen?";
-"tags.delete_tag_cannot_undo" = "Tätä toimintoa ei voi kumota.";
-"tags.tag_name" = "Tunnisteen nimi";
-"tags.tag_name_help" = "Valitse kuvaava nimi tunnisteellesi";
-"tags.type_tag_name" = "Kirjoita tunnisteen nimi...";
-"tags.tag_color" = "Tunnisteen väri";
-"tags.tag_color_help" = "Valitse väri, jotta tunniste on helpompi tunnistaa";
-"tags.edit_tag" = "Muokkaa tunnistetta";
-"tags.new_tag" = "Uusi tunniste";
-"tags.tag_management_error" = "Virhe tunnisteiden hallinnassa";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Osta minulle kahvi";
 "coffee.maybe_later" = "Ehkä myöhemmin";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Sanasi on '%@'. Tee paremmin :)";
 "quiz_actions.try_harder" = "Tee paremmin :)";
 "quiz_actions.incorrect_try_again" = "Väärin. Yritä uudelleen";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Valitse tunnisteet";
-"tag_selection.no_tags_yet" = "Ei vielä tunnisteita";
-"tag_selection.you_can_select_up_to_5_tags" = "Voit valita enintään 5 tunnistetta per sana. Napauta tunnistetta valitaksesi tai poistaaksesi sen.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Aika harjoitella! 📚";
@@ -188,16 +161,6 @@
 "collaborator_roles.owner" = "Omistaja";
 "collaborator_roles.editor" = "Muokkaaja";
 "collaborator_roles.viewer" = "Katselija";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Sininen";
-"tag_colors.red" = "Punainen";
-"tag_colors.green" = "Vihreä";
-"tag_colors.orange" = "Oranssi";
-"tag_colors.purple" = "Purppura";
-"tag_colors.pink" = "Vaaleanpunainen";
-"tag_colors.yellow" = "Keltainen";
-"tag_colors.gray" = "Harmaa";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Valitse sanakirja";

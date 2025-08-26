@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Test bildirimi göndermek istediğiniz kullanıcının e-posta adresini girin.";
 "app.user_information" = "Kullanıcı Bilgisi";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Etiketleri Yönet";
-"tags.tags_help_text" = "Etiketler kelimelerinizi düzenlemenize yardımcı olur. Her kelime en fazla 5 etikete sahip olabilir.";
-"tags.no_tags_yet" = "Henüz etiket eklenmedi";
-"tags.add_first_tag" = "İlk etiketinizi eklemek için yukarıdaki düğmeye tıklayın";
-"tags.add_tag" = "Etiket Ekle";
-"tags.add_first_tag_description" = "İlk etiketinizi eklemek için yukarıdaki düğmeye tıklayın";
-"tags.add_tag_to_start_using" = "Kullanmaya başlamak için bir etiket ekleyin";
-"tags.add_tags" = "Etiket Ekle";
-"tags.create_tags" = "Etiket Oluştur";
-"tags.delete_tag" = "Etiketi Sil";
-"tags.delete_tag_confirmation" = "Bu etiketi silmek istediğinizden emin misiniz?";
-"tags.delete_tag_cannot_undo" = "Bu işlem geri alınamaz.";
-"tags.tag_name" = "Etiket Adı";
-"tags.tag_name_help" = "Etiketiniz için açıklayıcı bir isim seçin";
-"tags.type_tag_name" = "Etiket adını yaz...";
-"tags.tag_color" = "Etiket Rengi";
-"tags.tag_color_help" = "Etiketinizi kolayca tanınabilir yapmak için bir renk seçin";
-"tags.edit_tag" = "Etiketi Düzenle";
-"tags.new_tag" = "Yeni Etiket";
-"tags.tag_management_error" = "Etiket yönetiminde hata";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Bana Kahve Ismarla";
 "coffee.maybe_later" = "Belki Sonra";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Kelimeniz '%@' idi. Daha iyi deneyin!";
 "quiz_actions.try_harder" = "Daha fazla çaba göster!";
 "quiz_actions.incorrect_try_again" = "Yanlış. Tekrar deneyin";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Etiketleri Seç";
-"tag_selection.no_tags_yet" = "Henüz etiket yok";
-"tag_selection.you_can_select_up_to_5_tags" = "Her kelime için en fazla 5 etiket seçebilirsiniz. Etiketleri seçmek veya seçimden çıkarmak için tıklayın.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Alıştırma Zamanı! 📚";
@@ -174,16 +147,6 @@
 "collaborator_roles.owner" = "Sahip";
 "collaborator_roles.editor" = "Editör";
 "collaborator_roles.viewer" = "Görüntüleyici";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Mavi";
-"tag_colors.red" = "Kırmızı";
-"tag_colors.green" = "Yeşil";
-"tag_colors.orange" = "Turuncu";
-"tag_colors.purple" = "Mor";
-"tag_colors.pink" = "Pembe";
-"tag_colors.yellow" = "Sarı";
-"tag_colors.gray" = "Gri";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Sözlük Seç";

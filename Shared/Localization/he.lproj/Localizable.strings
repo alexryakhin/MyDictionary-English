@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "הזן את כתובת הדוא\"ל של המשתמש שאליו ברצונך לשלוח התראת בדיקה.";
 "app.user_information" = "מידע משתמש";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "ניהול תגיות";
-"tags.tags_help_text" = "תגיות עוזרות לך לארגן מילים. כל מילה יכולה להכיל עד 5 תגיות.";
-"tags.no_tags_yet" = "לא נוספו תגיות עדיין";
-"tags.add_first_tag" = "הוסף את התגית הראשונה שלך על ידי לחיצה על הכפתור למעלה.";
-"tags.add_tag" = "הוספת תגית";
-"tags.add_first_tag_description" = "הוסף את התגית הראשונה שלך על ידי לחיצה על הכפתור למעלה.";
-"tags.add_tag_to_start_using" = "הוסף תגית כדי להתחיל להשתמש בה.";
-"tags.add_tags" = "הוספת תגיות";
-"tags.create_tags" = "יצירת תגיות";
-"tags.delete_tag" = "מחיקת תגית";
-"tags.delete_tag_confirmation" = "האם אתה בטוח שברצונך למחוק תגית זו?";
-"tags.delete_tag_cannot_undo" = "פעולה זו אינה ניתנת לביטול.";
-"tags.tag_name" = "שם התגית";
-"tags.tag_name_help" = "בחר שם תיאורי לתגית שלך";
-"tags.type_tag_name" = "הקלד שם תגית...";
-"tags.tag_color" = "צבע התגית";
-"tags.tag_color_help" = "בחר צבע כדי שהתגית שלך תהיה מזוהה בקלות";
-"tags.edit_tag" = "עריכת תגית";
-"tags.new_tag" = "תגית חדשה";
-"tags.tag_management_error" = "שגיאה בניהול תגיות";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "קנה לי קפה";
 "coffee.maybe_later" = "אולי מאוחר יותר";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "המילה שלך היא '%@'. תשתפר :)";
 "quiz_actions.try_harder" = "תשתפר :)";
 "quiz_actions.incorrect_try_again" = "לא נכון. נסה שוב";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "בחר תגיות";
-"tag_selection.no_tags_yet" = "אין תגיות עדיין";
-"tag_selection.you_can_select_up_to_5_tags" = "ניתן לבחור עד 5 תגיות לכל מילה. לחץ על תגית כדי לבחור או לבטל את הבחירה.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "זמן לתרגל! 📚";
@@ -188,16 +161,6 @@
 "collaborator_roles.owner" = "בעלים";
 "collaborator_roles.editor" = "עורך";
 "collaborator_roles.viewer" = "צופה";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "כחול";
-"tag_colors.red" = "אדום";
-"tag_colors.green" = "ירוק";
-"tag_colors.orange" = "כתום";
-"tag_colors.purple" = "סגול";
-"tag_colors.pink" = "ורוד";
-"tag_colors.yellow" = "צהוב";
-"tag_colors.gray" = "אפור";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "בחר מילון";

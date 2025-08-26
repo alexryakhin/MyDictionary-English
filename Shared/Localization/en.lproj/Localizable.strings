@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Enter the email address of the user you want to send a test notification to.";
 "app.user_information" = "User Information";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Manage Tags";
-"tags.tags_help_text" = "Tags help you organize your words. Each word can have up to 5 tags.";
-"tags.no_tags_yet" = "No Tags added yet";
-"tags.add_first_tag" = "Add your first tag by tapping the button above.";
-"tags.add_tag" = "Add Tag";
-"tags.add_first_tag_description" = "Add your first tag by tapping the button above.";
-"tags.add_tag_to_start_using" = "Add a tag to start using it.";
-"tags.add_tags" = "Add Tags";
-"tags.create_tags" = "Create tags";
-"tags.delete_tag" = "Delete Tag";
-"tags.delete_tag_confirmation" = "Are you sure you want to delete this tag?";
-"tags.delete_tag_cannot_undo" = "This action cannot be undone.";
-"tags.tag_name" = "Tag Name";
-"tags.tag_name_help" = "Choose a descriptive name for your tag";
-"tags.type_tag_name" = "Type tag name...";
-"tags.tag_color" = "Tag Color";
-"tags.tag_color_help" = "Select a color to help identify your tag";
-"tags.edit_tag" = "Edit Tag";
-"tags.new_tag" = "New Tag";
-"tags.tag_management_error" = "Tag Management Error";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Buy Me a Coffee";
 "coffee.maybe_later" = "Maybe Later";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Your word is '%@'. Try harder :)";
 "quiz_actions.try_harder" = "Try harder :)";
 "quiz_actions.incorrect_try_again" = "Incorrect. Try again";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Select Tags";
-"tag_selection.no_tags_yet" = "No Tags Yet";
-"tag_selection.you_can_select_up_to_5_tags" = "You can select up to 5 tags per word. Tap a tag to select or deselect it.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Time to Practice! 📚";
@@ -190,16 +163,6 @@
 "collaborator_roles.owner" = "Owner";
 "collaborator_roles.editor" = "Editor";
 "collaborator_roles.viewer" = "Viewer";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Blue";
-"tag_colors.red" = "Red";
-"tag_colors.green" = "Green";
-"tag_colors.orange" = "Orange";
-"tag_colors.purple" = "Purple";
-"tag_colors.pink" = "Pink";
-"tag_colors.yellow" = "Yellow";
-"tag_colors.gray" = "Gray";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Select Dictionary";

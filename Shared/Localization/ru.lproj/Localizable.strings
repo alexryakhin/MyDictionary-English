@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Введите адрес электронной почты пользователя, которому вы хотите отправить тестовое уведомление.";
 "app.user_information" = "Информация о пользователе";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Управлять тегами";
-"tags.tags_help_text" = "Теги помогают организовать ваши слова. Каждое слово может иметь до 5 тегов.";
-"tags.no_tags_yet" = "Теги ещё не добавлены";
-"tags.add_first_tag" = "Добавьте свой первый тег, нажав на кнопку выше.";
-"tags.add_tag" = "Добавить тег";
-"tags.add_first_tag_description" = "Добавьте свой первый тег, нажав на кнопку выше.";
-"tags.add_tag_to_start_using" = "Добавьте тег, чтобы начать их использовать.";
-"tags.add_tags" = "Добавить теги";
-"tags.create_tags" = "Создать теги";
-"tags.delete_tag" = "Удалить тег";
-"tags.delete_tag_confirmation" = "Вы уверены, что хотите удалить этот тег?";
-"tags.delete_tag_cannot_undo" = "Это действие нельзя отменить.";
-"tags.tag_name" = "Имя тега";
-"tags.tag_name_help" = "Выберите описательное имя для вашего тега";
-"tags.type_tag_name" = "Введите имя тега...";
-"tags.tag_color" = "Цвет тега";
-"tags.tag_color_help" = "Выберите цвет, чтобы ваш тег был легко узнаваем";
-"tags.edit_tag" = "Редактировать тег";
-"tags.new_tag" = "Новый тег";
-"tags.tag_management_error" = "Ошибка управления тегами";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Купите мне кофе";
 "coffee.maybe_later" = "Может быть, позже";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Ваше слово было '%@'. Старайтесь лучше!";
 "quiz_actions.try_harder" = "Старайтесь лучше!";
 "quiz_actions.incorrect_try_again" = "Неправильно. Попробуйте снова";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Выбрать теги";
-"tag_selection.no_tags_yet" = "Тегов пока нет";
-"tag_selection.you_can_select_up_to_5_tags" = "Вы можете выбрать до 5 тегов для слова. Нажмите на теги, чтобы выбрать или отменить выбор.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Пора практиковаться! 📚";
@@ -188,16 +161,6 @@
 "collaborator_roles.owner" = "Владелец";
 "collaborator_roles.editor" = "Редактор";
 "collaborator_roles.viewer" = "Зритель";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Синий";
-"tag_colors.red" = "Красный";
-"tag_colors.green" = "Зелёный";
-"tag_colors.orange" = "Оранжевый";
-"tag_colors.purple" = "Фиолетовый";
-"tag_colors.pink" = "Розовый";
-"tag_colors.yellow" = "Жёлтый";
-"tag_colors.gray" = "Серый";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Выбрать словарь";

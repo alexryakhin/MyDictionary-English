@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Voer het e-mailadres in van de gebruiker naar wie je een testmelding wilt sturen.";
 "app.user_information" = "Gebruikersinformatie";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Tags beheren";
-"tags.tags_help_text" = "Tags helpen je om woorden te organiseren. Elk woord kan maximaal 5 tags hebben.";
-"tags.no_tags_yet" = "Nog geen tags toegevoegd";
-"tags.add_first_tag" = "Voeg je eerste tag toe door op de knop hierboven te klikken.";
-"tags.add_tag" = "Tag toevoegen";
-"tags.add_first_tag_description" = "Voeg je eerste tag toe door op de knop hierboven te klikken.";
-"tags.add_tag_to_start_using" = "Voeg een tag toe om te beginnen met gebruiken.";
-"tags.add_tags" = "Tags toevoegen";
-"tags.create_tags" = "Tags aanmaken";
-"tags.delete_tag" = "Tag verwijderen";
-"tags.delete_tag_confirmation" = "Weet je zeker dat je deze tag wilt verwijderen?";
-"tags.delete_tag_cannot_undo" = "Deze actie kan niet ongedaan worden gemaakt.";
-"tags.tag_name" = "Tagnaam";
-"tags.tag_name_help" = "Kies een beschrijvende naam voor je tag";
-"tags.type_tag_name" = "Typ tagnaam...";
-"tags.tag_color" = "Tagkleur";
-"tags.tag_color_help" = "Kies een kleur om je tag gemakkelijk te herkennen";
-"tags.edit_tag" = "Tag bewerken";
-"tags.new_tag" = "Nieuwe tag";
-"tags.tag_management_error" = "Fout bij tagbeheer";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Koop een koffie voor mij";
 "coffee.maybe_later" = "Misschien later";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Jouw woord is '%@'. Doe het beter :)";
 "quiz_actions.try_harder" = "Doe het beter :)";
 "quiz_actions.incorrect_try_again" = "Onjuist. Probeer opnieuw";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Tags selecteren";
-"tag_selection.no_tags_yet" = "Nog geen tags";
-"tag_selection.you_can_select_up_to_5_tags" = "Je kunt maximaal 5 tags per woord selecteren. Tik op een tag om deze te selecteren of deselecteren.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Tijd om te oefenen! 📚";
@@ -188,16 +161,6 @@
 "collaborator_roles.owner" = "Eigenaar";
 "collaborator_roles.editor" = "Editor";
 "collaborator_roles.viewer" = "Kijker";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Blauw";
-"tag_colors.red" = "Rood";
-"tag_colors.green" = "Groen";
-"tag_colors.orange" = "Oranje";
-"tag_colors.purple" = "Paars";
-"tag_colors.pink" = "Roze";
-"tag_colors.yellow" = "Geel";
-"tag_colors.gray" = "Grijs";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Woordenboek selecteren";

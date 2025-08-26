@@ -1,0 +1,37 @@
+// MARK: - Tags Flow
+"tags.manage_tags" = "Administrer etiketter";
+"tags.tags_help_text" = "Etiketter hjelper deg med å organisere ordene dine. Hvert ord kan ha opptil 5 etiketter.";
+"tags.no_tags_yet" = "Ingen etiketter er lagt til ennå";
+"tags.add_first_tag" = "Legg til din første etikett ved å klikke på knappen ovenfor.";
+"tags.add_tag" = "Legg til etikett";
+"tags.add_first_tag_description" = "Legg til din første etikett ved å klikke på knappen ovenfor.";
+"tags.add_tag_to_start_using" = "Legg til en etikett for å begynne å bruke dem.";
+"tags.add_tags" = "Legg til etiketter";
+"tags.create_tags" = "Opprett etiketter";
+"tags.delete_tag" = "Slett etikett";
+"tags.delete_tag_confirmation" = "Er du sikker på at du vil slette denne etiketten?";
+"tags.delete_tag_cannot_undo" = "Denne handlingen kan ikke angres.";
+"tags.tag_name" = "Etikettnavn";
+"tags.tag_name_help" = "Velg et beskrivende navn for etiketten din";
+"tags.type_tag_name" = "Skriv etikettnavn...";
+"tags.tag_color" = "Etikettfarge";
+"tags.tag_color_help" = "Velg en farge for å gjøre etiketten din lett gjenkjennelig";
+"tags.edit_tag" = "Rediger etikett";
+"tags.new_tag" = "Ny etikett";
+"tags.tag_management_error" = "Feil ved etikettadministrasjon";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Velg etiketter";
+"tag_selection.no_tags_yet" = "Ingen etiketter ennå";
+"tag_selection.you_can_select_up_to_5_tags" = "Du kan velge opptil 5 etiketter per ord. Trykk på etiketter for å velge eller fjerne valg.";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Blå";
+"tag_colors.red" = "Rød";
+"tag_colors.green" = "Grønn";
+"tag_colors.orange" = "Oransje";
+"tag_colors.purple" = "Lilla";
+"tag_colors.pink" = "Rosa";
+"tag_colors.yellow" = "Gul";
+"tag_colors.gray" = "Grå";
+

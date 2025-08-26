@@ -1,0 +1,37 @@
+// MARK: - Tags Flow
+"tags.manage_tags" = "Διαχείριση Ετικετών";
+"tags.tags_help_text" = "Οι ετικέτες σε βοηθούν να οργανώσεις τις λέξεις. Κάθε λέξη μπορεί να έχει έως 5 ετικέτες.";
+"tags.no_tags_yet" = "Καμία ετικέτα δεν έχει προστεθεί ακόμα";
+"tags.add_first_tag" = "Πρόσθεσε την πρώτη σου ετικέτα κάνοντας κλικ στο κουμπί παραπάνω.";
+"tags.add_tag" = "Προσθήκη Ετικέτας";
+"tags.add_first_tag_description" = "Πρόσθεσε την πρώτη σου ετικέτα κάνοντας κλικ στο κουμπί παραπάνω.";
+"tags.add_tag_to_start_using" = "Πρόσθεσε μια ετικέτα για να αρχίσεις να τη χρησιμοποιείς.";
+"tags.add_tags" = "Προσθήκη Ετικετών";
+"tags.create_tags" = "Δημιουργία Ετικετών";
+"tags.delete_tag" = "Διαγραφή Ετικέτας";
+"tags.delete_tag_confirmation" = "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την ετικέτα;";
+"tags.delete_tag_cannot_undo" = "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.";
+"tags.tag_name" = "Όνομα Ετικέτας";
+"tags.tag_name_help" = "Επίλεξε ένα περιγραφικό όνομα για την ετικέτα σου";
+"tags.type_tag_name" = "Πληκτρολόγησε όνομα ετικέτας...";
+"tags.tag_color" = "Χρώμα Ετικέτας";
+"tags.tag_color_help" = "Επίλεξε ένα χρώμα για να αναγνωρίζεται εύκολα η ετικέτα σου";
+"tags.edit_tag" = "Επεξεργασία Ετικέτας";
+"tags.new_tag" = "Νέα Ετικέτα";
+"tags.tag_management_error" = "Σφάλμα Διαχείρισης Ετικετών";
+
+// MARK: - Tag Selection
+"tag_selection.select_tags" = "Επιλογή Ετικετών";
+"tag_selection.no_tags_yet" = "Καμία ετικέτα ακόμα";
+"tag_selection.you_can_select_up_to_5_tags" = "Μπορείς να επιλέξεις έως 5 ετικέτες ανά λέξη. Πάτησε σε μια ετικέτα για να την επιλέξεις ή να την αποεπιλέξεις.";
+
+// MARK: - Tag Colors
+"tag_colors.blue" = "Μπλε";
+"tag_colors.red" = "Κόκκινο";
+"tag_colors.green" = "Πράσινο";
+"tag_colors.orange" = "Πορτοκαλί";
+"tag_colors.purple" = "Μωβ";
+"tag_colors.pink" = "Ροζ";
+"tag_colors.yellow" = "Κίτρινο";
+"tag_colors.gray" = "Γκρι";
+

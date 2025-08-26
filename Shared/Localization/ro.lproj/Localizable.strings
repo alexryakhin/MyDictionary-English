@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Introdu adresa de e-mail a utilizatorului către care vrei să trimiți o notificare de test.";
 "app.user_information" = "Informații Utilizator";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Gestionează Etichete";
-"tags.tags_help_text" = "Etichetele te ajută să-ți organizezi cuvintele. Fiecare cuvânt poate avea până la 5 etichete.";
-"tags.no_tags_yet" = "Nicio etichetă adăugată încă";
-"tags.add_first_tag" = "Adaugă prima ta etichetă apăsând pe butonul de mai sus.";
-"tags.add_tag" = "Adaugă Etichetă";
-"tags.add_first_tag_description" = "Adaugă prima ta etichetă apăsând pe butonul de mai sus.";
-"tags.add_tag_to_start_using" = "Adaugă o etichetă pentru a începe să le folosești.";
-"tags.add_tags" = "Adaugă Etichete";
-"tags.create_tags" = "Creează Etichete";
-"tags.delete_tag" = "Șterge Etichetă";
-"tags.delete_tag_confirmation" = "Ești sigur că vrei să ștergi această etichetă?";
-"tags.delete_tag_cannot_undo" = "Această acțiune nu poate fi anulată.";
-"tags.tag_name" = "Nume Etichetă";
-"tags.tag_name_help" = "Alege un nume descriptiv pentru eticheta ta";
-"tags.type_tag_name" = "Scrie numele etichetei...";
-"tags.tag_color" = "Culoare Etichetă";
-"tags.tag_color_help" = "Alege o culoare pentru a face eticheta ta ușor de recunoscut";
-"tags.edit_tag" = "Editează Etichetă";
-"tags.new_tag" = "Etichetă Nouă";
-"tags.tag_management_error" = "Eroare la gestionarea etichetelor";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Cumpără-mi o Cafea";
 "coffee.maybe_later" = "Poate Mai Târziu";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Cuvântul tău a fost '%@'. Încearcă mai bine!";
 "quiz_actions.try_harder" = "Încearcă mai mult!";
 "quiz_actions.incorrect_try_again" = "Incorect. Încearcă din nou";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Selectează Etichete";
-"tag_selection.no_tags_yet" = "Nicio etichetă încă";
-"tag_selection.you_can_select_up_to_5_tags" = "Poți selecta până la 5 etichete per cuvânt. Atinge etichetele pentru a le selecta sau deselecta.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "E timpul să exersezi! 📚";
@@ -188,16 +161,6 @@
 "collaborator_roles.owner" = "Proprietar";
 "collaborator_roles.editor" = "Editor";
 "collaborator_roles.viewer" = "Vizualizator";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Albastru";
-"tag_colors.red" = "Roșu";
-"tag_colors.green" = "Verde";
-"tag_colors.orange" = "Portocaliu";
-"tag_colors.purple" = "Mov";
-"tag_colors.pink" = "Roz";
-"tag_colors.yellow" = "Galben";
-"tag_colors.gray" = "Gri";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Selectează Dicționar";

@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Zadajte e-mailovú adresu používateľa, ktorému chcete odoslať testovacie upozornenie.";
 "app.user_information" = "Informácie o používateľovi";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Spravovať značky";
-"tags.tags_help_text" = "Značky vám pomôžu organizovať vaše slová. Každé slovo môže mať až 5 značiek.";
-"tags.no_tags_yet" = "Zatiaľ neboli pridané žiadne značky";
-"tags.add_first_tag" = "Pridajte svoju prvú značku kliknutím na tlačidlo vyššie.";
-"tags.add_tag" = "Pridať značku";
-"tags.add_first_tag_description" = "Pridajte svoju prvú značku kliknutím na tlačidlo vyššie.";
-"tags.add_tag_to_start_using" = "Pridajte značku, aby ste ich začali používať.";
-"tags.add_tags" = "Pridať značky";
-"tags.create_tags" = "Vytvoriť značky";
-"tags.delete_tag" = "Vymazať značku";
-"tags.delete_tag_confirmation" = "Ste si istý, že chcete vymazať túto značku?";
-"tags.delete_tag_cannot_undo" = "Túto akciu nie je možné vrátiť späť.";
-"tags.tag_name" = "Názov značky";
-"tags.tag_name_help" = "Vyberte popisný názov pre svoju značku";
-"tags.type_tag_name" = "Zadajte názov značky...";
-"tags.tag_color" = "Farba značky";
-"tags.tag_color_help" = "Vyberte farbu, aby bola vaša značka ľahko rozpoznateľná";
-"tags.edit_tag" = "Upraviť značku";
-"tags.new_tag" = "Nová značka";
-"tags.tag_management_error" = "Chyba pri správe značiek";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Kúpte mi kávu";
 "coffee.maybe_later" = "Možno neskôr";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Vaše slovo bolo '%@'. Skúste lepšie!";
 "quiz_actions.try_harder" = "Skúste tvrdšie!";
 "quiz_actions.incorrect_try_again" = "Nesprávne. Skúste znova";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Vybrať značky";
-"tag_selection.no_tags_yet" = "Zatiaľ žiadne značky";
-"tag_selection.you_can_select_up_to_5_tags" = "Môžete vybrať až 5 značiek na slovo. Kliknite na značky, aby ste ich vybrali alebo zrušili výber.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Čas na cvičenie! 📚";
@@ -174,16 +147,6 @@
 "collaborator_roles.owner" = "Vlastník";
 "collaborator_roles.editor" = "Editor";
 "collaborator_roles.viewer" = "Divák";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Modrá";
-"tag_colors.red" = "Červená";
-"tag_colors.green" = "Zelená";
-"tag_colors.orange" = "Oranžová";
-"tag_colors.purple" = "Fialová";
-"tag_colors.pink" = "Ružová";
-"tag_colors.yellow" = "Žltá";
-"tag_colors.gray" = "Sivá";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Vybrať slovník";

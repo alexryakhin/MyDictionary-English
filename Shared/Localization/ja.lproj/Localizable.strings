@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "テスト通知を送信したいユーザーのメールアドレスを入力してください。";
 "app.user_information" = "ユーザー情報";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "タグを管理";
-"tags.tags_help_text" = "タグは単語の整理に役立ちます。1単語につき最大5つのタグを付けられます。";
-"tags.no_tags_yet" = "まだタグが追加されていません";
-"tags.add_first_tag" = "上のボタンをクリックして最初のタグを追加";
-"tags.add_tag" = "タグを追加";
-"tags.add_first_tag_description" = "上のボタンをクリックして最初のタグを追加";
-"tags.add_tag_to_start_using" = "使用を開始するためにタグを追加";
-"tags.add_tags" = "タグを追加";
-"tags.create_tags" = "タグを作成";
-"tags.delete_tag" = "タグを削除";
-"tags.delete_tag_confirmation" = "このタグを削除してもよろしいですか？";
-"tags.delete_tag_cannot_undo" = "この操作は元に戻せません。";
-"tags.tag_name" = "タグ名";
-"tags.tag_name_help" = "タグにわかりやすい名前を選んでください";
-"tags.type_tag_name" = "タグ名を入力...";
-"tags.tag_color" = "タグの色";
-"tags.tag_color_help" = "タグを簡単に識別できる色を選んでください";
-"tags.edit_tag" = "タグを編集";
-"tags.new_tag" = "新しいタグ";
-"tags.tag_management_error" = "タグ管理エラー";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "コーヒーをおごる";
 "coffee.maybe_later" = "後で";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "あなたの単語は「%@」です。もっと頑張って :)";
 "quiz_actions.try_harder" = "もっと頑張って :)";
 "quiz_actions.incorrect_try_again" = "不正解。もう一度試してください";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "タグを選択";
-"tag_selection.no_tags_yet" = "まだタグがありません";
-"tag_selection.you_can_select_up_to_5_tags" = "1単語につき最大5つのタグを選択できます。タグをタップして選択または解除。";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "練習の時間です！ 📚";
@@ -188,16 +161,6 @@
 "collaborator_roles.owner" = "オーナー";
 "collaborator_roles.editor" = "編集者";
 "collaborator_roles.viewer" = "閲覧者";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "青";
-"tag_colors.red" = "赤";
-"tag_colors.green" = "緑";
-"tag_colors.orange" = "オレンジ";
-"tag_colors.purple" = "紫";
-"tag_colors.pink" = "ピンク";
-"tag_colors.yellow" = "黄";
-"tag_colors.gray" = "灰";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "辞書を選択";

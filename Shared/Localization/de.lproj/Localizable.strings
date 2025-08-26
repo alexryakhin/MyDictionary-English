@@ -60,28 +60,6 @@
 "app.enter_email_address_for_notification" = "Geben Sie die E-Mail-Adresse des Benutzers ein, an den Sie eine Testbenachrichtigung senden möchten.";
 "app.user_information" = "Benutzerinformationen";
 
-// MARK: - Tags Flow
-"tags.manage_tags" = "Tags verwalten";
-"tags.tags_help_text" = "Tags helfen Ihnen, Wörter zu organisieren. Jedes Wort kann bis zu 5 Tags haben.";
-"tags.no_tags_yet" = "Noch keine Tags hinzugefügt";
-"tags.add_first_tag" = "Fügen Sie Ihren ersten Tag hinzu, indem Sie auf die Schaltfläche oben klicken.";
-"tags.add_tag" = "Tag hinzufügen";
-"tags.add_first_tag_description" = "Fügen Sie Ihren ersten Tag hinzu, indem Sie auf die Schaltfläche oben klicken.";
-"tags.add_tag_to_start_using" = "Fügen Sie einen Tag hinzu, um ihn zu verwenden.";
-"tags.add_tags" = "Tags hinzufügen";
-"tags.create_tags" = "Tags erstellen";
-"tags.delete_tag" = "Tag löschen";
-"tags.delete_tag_confirmation" = "Sind Sie sicher, dass Sie diesen Tag löschen möchten?";
-"tags.delete_tag_cannot_undo" = "Diese Aktion kann nicht rückgängig gemacht werden.";
-"tags.tag_name" = "Tag-Name";
-"tags.tag_name_help" = "Wählen Sie einen beschreibenden Namen für Ihren Tag";
-"tags.type_tag_name" = "Tag-Namen eingeben...";
-"tags.tag_color" = "Tag-Farbe";
-"tags.tag_color_help" = "Wählen Sie eine Farbe, um Ihren Tag leicht erkennbar zu machen";
-"tags.edit_tag" = "Tag bearbeiten";
-"tags.new_tag" = "Neuer Tag";
-"tags.tag_management_error" = "Fehler bei der Tag-Verwaltung";
-
 // MARK: - Coffee Banner
 "coffee.buy_me_a_coffee" = "Kaufen Sie mir einen Kaffee";
 "coffee.maybe_later" = "Vielleicht später";
@@ -123,11 +101,6 @@
 "quiz_actions.your_word_is" = "Ihr Wort ist '%@'. Machen Sie es besser :)";
 "quiz_actions.try_harder" = "Machen Sie es besser :)";
 "quiz_actions.incorrect_try_again" = "Falsch. Erneut versuchen";
-
-// MARK: - Tag Selection
-"tag_selection.select_tags" = "Tags auswählen";
-"tag_selection.no_tags_yet" = "Noch keine Tags";
-"tag_selection.you_can_select_up_to_5_tags" = "Sie können bis zu 5 Tags pro Wort auswählen. Tippen Sie auf einen Tag, um ihn auszuwählen oder die Auswahl aufzuheben.";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Zeit zum Üben! 📚";
@@ -188,16 +161,6 @@
 "collaborator_roles.owner" = "Besitzer";
 "collaborator_roles.editor" = "Editor";
 "collaborator_roles.viewer" = "Zuschauer";
-
-// MARK: - Tag Colors
-"tag_colors.blue" = "Blau";
-"tag_colors.red" = "Rot";
-"tag_colors.green" = "Grün";
-"tag_colors.orange" = "Orange";
-"tag_colors.purple" = "Lila";
-"tag_colors.pink" = "Rosa";
-"tag_colors.yellow" = "Gelb";
-"tag_colors.gray" = "Grau";
 
 // MARK: - Shared Dictionary Selection
 "shared_dictionary_selection.select_dictionary" = "Wörterbuch auswählen";
