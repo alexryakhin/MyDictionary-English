@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Croatian Translation)
-  My Dictionary
+Localizable.strings (Croatian Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Informacije o korisniku";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Časti me kavom";
-"coffee.maybe_later" = "Možda kasnije";
-"coffee.enjoying_the_app" = "Uživate li u aplikaciji?";
-"coffee.helpful_learning_journey" = "Ako vam je Moj rječnik pomogao u vašem putovanju učenja, razmislite o tome da me častite kavom! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Vrijeme za vježbanje! 📚";

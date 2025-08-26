@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Japanese Translation)
-  My Dictionary
+Localizable.strings (Japanese Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "ユーザー情報";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "コーヒーをおごる";
-"coffee.maybe_later" = "後で";
-"coffee.enjoying_the_app" = "アプリを楽しんでいますか？";
-"coffee.helpful_learning_journey" = "マイ辞書があなたの学習の旅に役立ったなら、コーヒーをおごってください！ ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "練習の時間です！ 📚";

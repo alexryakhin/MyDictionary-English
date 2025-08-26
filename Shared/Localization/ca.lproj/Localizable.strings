@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Catalan Translation)
-  My Dictionary
+Localizable.strings (Catalan Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Informació de l'usuari";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Compra'm un cafè";
-"coffee.maybe_later" = "Potser més tard";
-"coffee.enjoying_the_app" = "Gaudint de l'aplicació?";
-"coffee.helpful_learning_journey" = "Si El meu diccionari t'ha estat útil en el teu viatge d'aprenentatge, considera comprar-me un cafè! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Hora de practicar! 📚";

@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Hindi Translation)
-  My Dictionary
+Localizable.strings (Hindi Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "उपयोगकर्ता जानकारी";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "मुझे एक कॉफी खरीदें";
-"coffee.maybe_later" = "शायद बाद में";
-"coffee.enjoying_the_app" = "क्या आपको ऐप पसंद है?";
-"coffee.helpful_learning_journey" = "यदि मेरा शब्दकोश आपके सीखने की यात्रा में मददगार रहा है, तो मेरे लिए एक कॉफी खरीदने पर विचार करें! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "अभ्यास करने का समय! 📚";

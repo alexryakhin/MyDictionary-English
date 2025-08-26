@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Finnish Translation)
-  My Dictionary
+Localizable.strings (Finnish Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Käyttäjätiedot";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Osta minulle kahvi";
-"coffee.maybe_later" = "Ehkä myöhemmin";
-"coffee.enjoying_the_app" = "Nautitko sovelluksesta?";
-"coffee.helpful_learning_journey" = "Jos Oma Sanakirja on auttanut sinua oppimismatkallasi, harkitse kahvin ostamista minulle! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Aika harjoitella! 📚";

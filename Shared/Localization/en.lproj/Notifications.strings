@@ -1,0 +1,5 @@
+// MARK: - Notifications
+
+"notifications.permission_required" = "Notification Permission Required";
+"notifications.permission_denied_message" = "To receive daily reminders and difficult word alerts, please enable notifications in Settings.";
+

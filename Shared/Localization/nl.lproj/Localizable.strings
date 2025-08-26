@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Dutch Translation)
-  My Dictionary
+Localizable.strings (Dutch Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Gebruikersinformatie";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Koop een koffie voor mij";
-"coffee.maybe_later" = "Misschien later";
-"coffee.enjoying_the_app" = "Bevalt de app je?";
-"coffee.helpful_learning_journey" = "Als Mijn Woordenboek je heeft geholpen op je leerreis, overweeg dan om mij een koffie te trakteren! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Tijd om te oefenen! 📚";

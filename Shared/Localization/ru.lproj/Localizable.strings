@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Russian Translation)
-  My Dictionary
+Localizable.strings (Russian Translation)
+My Dictionary
 
-  Translated on August 18, 2025.
+Translated on August 18, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Информация о пользователе";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Купите мне кофе";
-"coffee.maybe_later" = "Может быть, позже";
-"coffee.enjoying_the_app" = "Нравится приложение?";
-"coffee.helpful_learning_journey" = "Если Мой словарь помог вам в вашем учебном путешествии, подумайте о том, чтобы купить мне кофе! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Пора практиковаться! 📚";

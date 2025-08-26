@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Indonesian Translation)
-  My Dictionary
+Localizable.strings (Indonesian Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Informasi Pengguna";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Beli Saya Kopi";
-"coffee.maybe_later" = "Mungkin Nanti";
-"coffee.enjoying_the_app" = "Menikmati aplikasi ini?";
-"coffee.helpful_learning_journey" = "Jika Kamus Saya membantu perjalanan belajar Anda, pertimbangkan untuk membelikan saya kopi! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Waktunya berlatih! 📚";

@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Italian Translation)
-  My Dictionary
+Localizable.strings (Italian Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Informazioni Utente";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Offrimi un Caffè";
-"coffee.maybe_later" = "Forse Più Tardi";
-"coffee.enjoying_the_app" = "Ti piace l'app?";
-"coffee.helpful_learning_journey" = "Se Il Mio Dizionario ha aiutato il tuo percorso di apprendimento, considera di offrirmi un caffè! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "È ora di esercitarsi! 📚";

@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Thai Translation)
-  My Dictionary
+Localizable.strings (Thai Translation)
+My Dictionary
 
-  Translated on August 18, 2025.
+Translated on August 18, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "ข้อมูลผู้ใช้";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "ซื้อกาแฟให้ฉัน";
-"coffee.maybe_later" = "ไว้ทีหลัง";
-"coffee.enjoying_the_app" = "สนุกกับแอปนี้หรือไม่";
-"coffee.helpful_learning_journey" = "หากพจนานุกรมของฉันช่วยคุณในการเดินทางเรียนรู้ ลองพิจารณาซื้อกาแฟให้ฉัน! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "ถึงเวลาฝึก! 📚";

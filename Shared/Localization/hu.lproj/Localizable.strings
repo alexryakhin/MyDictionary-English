@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Hungarian Translation)
-  My Dictionary
+Localizable.strings (Hungarian Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Felhasználói információ";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Vegyél nekem egy kávét";
-"coffee.maybe_later" = "Talán később";
-"coffee.enjoying_the_app" = "Élvezed az alkalmazást?";
-"coffee.helpful_learning_journey" = "Ha a Saját szótár segített a tanulási utadon, fontold meg, hogy vegyél nekem egy kávét! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Ideje gyakorolni! 📚";

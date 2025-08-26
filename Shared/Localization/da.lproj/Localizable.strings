@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Danish Translation)
-  My Dictionary
+Localizable.strings (Danish Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Brugerinformation";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Køb mig en kaffe";
-"coffee.maybe_later" = "Måske senere";
-"coffee.enjoying_the_app" = "Nyder du appen?";
-"coffee.helpful_learning_journey" = "Hvis Min Ordbog har hjulpet dig på din læringsrejse, så overvej at købe mig en kaffe! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Tid til at øve! 📚";

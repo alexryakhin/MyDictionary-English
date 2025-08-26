@@ -1,8 +1,8 @@
-/* 
-  Localizable.strings
-  My Dictionary
+/*
+Localizable.strings
+My Dictionary
 
-  Created by Alexander Riakhin on 8/16/25.
+Created by Alexander Riakhin on 8/16/25.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "User Information";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Buy Me a Coffee";
-"coffee.maybe_later" = "Maybe Later";
-"coffee.enjoying_the_app" = "Enjoying the app?";
-"coffee.helpful_learning_journey" = "If My Dictionary has been helpful in your learning journey, consider buying me a coffee! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Time to Practice! 📚";

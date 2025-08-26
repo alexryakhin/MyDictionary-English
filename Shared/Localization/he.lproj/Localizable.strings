@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Hebrew Translation)
-  My Dictionary
+Localizable.strings (Hebrew Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "מידע משתמש";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "קנה לי קפה";
-"coffee.maybe_later" = "אולי מאוחר יותר";
-"coffee.enjoying_the_app" = "נהנה מהאפליקציה?";
-"coffee.helpful_learning_journey" = "אם המילון שלי עזר לך במסע הלמידה שלך, שקול לקנות לי קפה! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "זמן לתרגל! 📚";

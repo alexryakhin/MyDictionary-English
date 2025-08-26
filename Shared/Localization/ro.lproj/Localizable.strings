@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Romanian Translation)
-  My Dictionary
+Localizable.strings (Romanian Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Informații Utilizator";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Cumpără-mi o Cafea";
-"coffee.maybe_later" = "Poate Mai Târziu";
-"coffee.enjoying_the_app" = "Îți place aplicația?";
-"coffee.helpful_learning_journey" = "Dacă Dicționarul Meu te-a ajutat în călătoria ta de învățare, ia în considerare să-mi cumperi o cafea! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "E timpul să exersezi! 📚";

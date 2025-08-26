@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Czech Translation)
-  My Dictionary
+Localizable.strings (Czech Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Informace o uživateli";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Kupte mi kávu";
-"coffee.maybe_later" = "Možná později";
-"coffee.enjoying_the_app" = "Líbí se vám tato aplikace?";
-"coffee.helpful_learning_journey" = "Pokud vám Můj slovník pomohl na vaší cestě učení, zvažte, že mě pozvete na kávu! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Čas na cvičení! 📚";

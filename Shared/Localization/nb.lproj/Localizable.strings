@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Norwegian Bokmål Translation)
-  My Dictionary
+Localizable.strings (Norwegian Bokmål Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Brukerinformasjon";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Kjøp meg en kaffe";
-"coffee.maybe_later" = "Kanskje senere";
-"coffee.enjoying_the_app" = "Liker du appen?";
-"coffee.helpful_learning_journey" = "Hvis Min ordbok har vært nyttig i læringsreisen din, vurder å kjøpe meg en kaffe! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Tid for å øve! 📚";

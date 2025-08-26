@@ -1,8 +1,8 @@
 /*
-  Localizable.strings (Greek Translation)
-  My Dictionary
+Localizable.strings (Greek Translation)
+My Dictionary
 
-  Translated on August 17, 2025.
+Translated on August 17, 2025.
 */
 
 // MARK: - App
@@ -61,10 +61,6 @@
 "app.user_information" = "Πληροφορίες Χρήστη";
 
 // MARK: - Coffee Banner
-"coffee.buy_me_a_coffee" = "Κέρασέ με έναν καφέ";
-"coffee.maybe_later" = "Ίσως αργότερα";
-"coffee.enjoying_the_app" = "Σου αρέσει η εφαρμογή;";
-"coffee.helpful_learning_journey" = "Αν το Λεξικό Μου σε έχει βοηθήσει στο ταξίδι μάθησής σου, σκέψου να μου κεράσεις έναν καφέ! ☕️";
 
 // MARK: - Notifications
 "notifications.time_to_practice" = "Ώρα για εξάσκηση! 📚";
