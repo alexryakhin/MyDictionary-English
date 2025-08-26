@@ -51,7 +51,7 @@ enum InputLanguage: String, CaseIterable {
     var displayName: String {
         switch self {
         case .auto:
-            return Loc.InputLanguage.autoDetect.localized
+            return Loc.Words.InputLanguage.autoDetect
         default:
             return Locale.current.localizedString(forLanguageCode: rawValue)?.capitalized ?? rawValue.uppercased()
         }

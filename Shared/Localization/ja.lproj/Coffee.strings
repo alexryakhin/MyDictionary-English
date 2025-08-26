@@ -1,7 +1,7 @@
 // MARK: - Coffee
 
-"coffee.buy_me_a_coffee" = "コーヒーをおごる";
-"coffee.maybe_later" = "後で";
-"coffee.enjoying_the_app" = "アプリを楽しんでいますか？";
-"coffee.helpful_learning_journey" = "マイ辞書があなたの学習の旅に役立ったなら、コーヒーをおごってください！ ☕️";
+"buy_me_a_coffee" = "コーヒーをおごる";
+"maybe_later" = "後で";
+"enjoying_the_app" = "アプリを楽しんでいますか？";
+"helpful_learning_journey" = "マイ辞書があなたの学習の旅に役立ったなら、コーヒーをおごってください！ ☕️";
 

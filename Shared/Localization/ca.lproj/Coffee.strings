@@ -1,7 +1,7 @@
 // MARK: - Coffee
 
-"coffee.buy_me_a_coffee" = "Compra'm un cafè";
-"coffee.maybe_later" = "Potser més tard";
-"coffee.enjoying_the_app" = "Gaudint de l'aplicació?";
-"coffee.helpful_learning_journey" = "Si El meu diccionari t'ha estat útil en el teu viatge d'aprenentatge, considera comprar-me un cafè! ☕️";
+"buy_me_a_coffee" = "Compra'm un cafè";
+"maybe_later" = "Potser més tard";
+"enjoying_the_app" = "Gaudint de l'aplicació?";
+"helpful_learning_journey" = "Si El meu diccionari t'ha estat útil en el teu viatge d'aprenentatge, considera comprar-me un cafè! ☕️";
 

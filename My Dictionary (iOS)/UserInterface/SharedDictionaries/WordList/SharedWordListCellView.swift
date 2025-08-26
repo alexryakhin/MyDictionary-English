@@ -70,7 +70,7 @@ struct SharedWordListCellView: View {
 
     private var languageDisplayName: String {
         guard let language = Locale.current.localizedString(forLanguageCode: word.languageCode) else {
-            return Loc.CollaboratorManagement.unknown.localized
+            return Loc.SharedDictionaries.CollaboratorManagement.unknown
         }
         return language.capitalized
     }

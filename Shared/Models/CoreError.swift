@@ -30,14 +30,14 @@ enum CoreError: Error, LocalizedError {
 
         var errorDescription: String? {
             switch self {
-            case .timeout: Loc.Errors.networkTimeout.localized
-            case .serverUnreachable: Loc.Errors.serverUnreachable.localized
-            case .invalidResponse(let code): Loc.Errors.invalidResponse.localized(code ?? 0)
-            case .noInternetConnection: Loc.Errors.noInternetConnection.localized
-            case .missingAPIKey: Loc.Errors.missingAPIKey.localized
-            case .decodingError: Loc.Errors.decodingError.localized
-            case .invalidURL: Loc.Errors.invalidURL.localized
-            case .noData: Loc.Errors.noData.localized
+            case .timeout: Loc.Errors.networkTimeout
+            case .serverUnreachable: Loc.Errors.serverUnreachable
+            case .invalidResponse(let code): Loc.Errors.invalidResponse
+            case .noInternetConnection: Loc.Errors.noInternetConnection
+            case .missingAPIKey: Loc.Errors.missingApiKey
+            case .decodingError: Loc.Errors.decodingError
+            case .invalidURL: Loc.Errors.invalidUrl
+            case .noData: Loc.Errors.noData
             }
         }
     }
@@ -50,9 +50,9 @@ enum CoreError: Error, LocalizedError {
 
         var errorDescription: String? {
             switch self {
-            case .saveFailed: Loc.Errors.saveFailed.localized
-            case .readFailed: Loc.Errors.readFailed.localized
-            case .dataCorrupted: Loc.Errors.dataCorrupted.localized
+            case .saveFailed: Loc.Errors.saveFailed
+            case .readFailed: Loc.Errors.readFailed
+            case .dataCorrupted: Loc.Errors.dataCorrupted
             }
         }
     }
@@ -63,8 +63,8 @@ enum CoreError: Error, LocalizedError {
 
         var errorDescription: String? {
             switch self {
-            case .invalidInput(field: let field): Loc.Errors.invalidInput.localized(field)
-            case .missingField(field: let field): Loc.Errors.missingField.localized(field)
+            case .invalidInput: Loc.Errors.invalidInput
+            case .missingField: Loc.Errors.missingField
             }
         }
     }
@@ -95,47 +95,47 @@ enum CoreError: Error, LocalizedError {
         var errorDescription: String? {
             switch self {
             case .updatingWordExamplesFailed:
-                return Loc.Errors.errorUpdatingWordExamples.localized
+                return Loc.Errors.errorUpdatingWordExamples
             case .removingWordFailed:
-                return Loc.Errors.errorRemovingWord.localized
+                return Loc.Errors.errorRemovingWord
             case .savingWordFailed:
-                return Loc.Errors.errorSavingWord.localized
+                return Loc.Errors.errorSavingWord
             case .updatingIdiomExamplesFailed:
-                return Loc.Errors.errorUpdatingIdiomExamples.localized
+                return Loc.Errors.errorUpdatingIdiomExamples
             case .removingIdiomFailed:
-                return Loc.Errors.errorRemovingIdiom.localized
+                return Loc.Errors.errorRemovingIdiom
             case .savingIdiomFailed:
-                return Loc.Errors.errorSavingIdiom.localized
+                return Loc.Errors.errorSavingIdiom
             case .inputIsNotAWord:
-                return Loc.Errors.inputNotWord.localized
+                return Loc.Errors.inputNotWord
             case .inputCannotBeEmpty:
-                return Loc.Errors.inputCannotBeEmpty.localized
+                return Loc.Errors.inputCannotBeEmpty
             case .deviceMutedOrVolumeTooLow:
-                return Loc.Errors.deviceMutedOrVolumeLow.localized
+                return Loc.Errors.deviceMutedOrVolumeLow
             case .cannotPlayAudio:
-                return Loc.Errors.cannotPlayAudio.localized
+                return Loc.Errors.cannotPlayAudio
             case .cannotSetupAudioSession:
-                return Loc.Errors.cannotSetupAudioSession.localized
+                return Loc.Errors.cannotSetupAudioSession
             case .exportFailed:
-                return Loc.Errors.exportFailed.localized
+                return Loc.Errors.exportFailed
             case .importFailed:
-                return Loc.Errors.importFailed.localized
+                return Loc.Errors.importFailed
             case .cannotAccessSecurityScopedResource:
-                return Loc.Errors.cannotAccessSecurityScopedResource.localized
+                return Loc.Errors.cannotAccessSecurityScopedResource
             case .exportLimitExceeded:
-                return Loc.Errors.exportLimitExceeded.localized
+                return Loc.Errors.exportLimitExceeded
             case .tagAlreadyExists:
-                return Loc.Errors.tagAlreadyExists.localized
+                return Loc.Errors.tagAlreadyExists
             case .tagAlreadyAssigned:
-                return Loc.Errors.tagAlreadyAssigned.localized
+                return Loc.Errors.tagAlreadyAssigned
             case .tagNotAssigned:
-                return Loc.Errors.tagNotAssigned.localized
+                return Loc.Errors.tagNotAssigned
             case .maxTagsReached:
-                return Loc.Errors.maxTagsReached.localized
+                return Loc.Errors.maxTagsReached
             case .authenticationRequired:
-                return Loc.Errors.authenticationRequired.localized
+                return Loc.Errors.authenticationRequired
             case .noActiveSubscription:
-                return Loc.Errors.noActiveSubscriptionsFound.localized
+                return Loc.Errors.noActiveSubscriptionsFound
             }
         }
     }
@@ -152,19 +152,19 @@ enum CoreError: Error, LocalizedError {
         var errorDescription: String? {
             switch self {
             case .wordProgressUpdateFailed:
-                return Loc.Errors.failedToUpdateWordProgress.localized
+                return Loc.Errors.failedToUpdateWordProgress
             case .wordDifficultyUpdateFailed:
-                return Loc.Errors.failedToUpdateWordDifficultyLevel.localized
+                return Loc.Errors.failedToUpdateWordDifficultyLevel
             case .quizSessionSaveFailed:
-                return Loc.Errors.failedToSaveQuizSession.localized
+                return Loc.Errors.failedToSaveQuizSession
             case .userStatsUpdateFailed:
-                return Loc.Errors.failedToUpdateUserStatistics.localized
+                return Loc.Errors.failedToUpdateUserStatistics
             case .invalidWordId:
-                return Loc.Errors.invalidWordId.localized
+                return Loc.Errors.invalidWordId
             case .wordNotFound:
-                return Loc.Errors.wordNotFound.localized
+                return Loc.Errors.wordNotFound
             case .progressCalculationFailed:
-                return Loc.Errors.failedToCalculateProgress.localized
+                return Loc.Errors.failedToCalculateProgress
             }
         }
     }
@@ -178,13 +178,13 @@ enum CoreError: Error, LocalizedError {
         var errorDescription: String? {
             switch self {
             case .invalidURL:
-                return Loc.Errors.invalidTranslationUrl.localized
+                return Loc.Errors.invalidTranslationUrl
             case .networkError:
-                return Loc.Errors.networkErrorDuringTranslation.localized
+                return Loc.Errors.networkErrorDuringTranslation
             case .invalidResponse:
-                return Loc.Errors.invalidResponseFromTranslationService.localized
+                return Loc.Errors.invalidResponseFromTranslationService
             case .translationFailed:
-                return Loc.Errors.translationFailed.localized
+                return Loc.Errors.translationFailed
             }
         }
     }
@@ -197,7 +197,7 @@ enum CoreError: Error, LocalizedError {
         case .internalError(let error): error.errorDescription
         case .analyticsError(let error): error.errorDescription
         case .translationError(let error): error.errorDescription
-        case .unknownError: Loc.Errors.unknownError.localized
+        case .unknownError: Loc.Errors.unknownError
         }
     }
 }

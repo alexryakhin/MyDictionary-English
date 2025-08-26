@@ -92,21 +92,6 @@ enum QuizQuestionType: String, CaseIterable {
     case context = "context"
     case synonym = "synonym"
     case antonym = "antonym"
-
-    var displayName: String {
-        switch self {
-        case .definition:
-            return Loc.Quiz.questionTypeDefinition.localized
-        case .example:
-            return Loc.Quiz.questionTypeExample.localized
-        case .context:
-            return Loc.Quiz.questionTypeContext.localized
-        case .synonym:
-            return Loc.Quiz.questionTypeSynonym.localized
-        case .antonym:
-            return Loc.Quiz.questionTypeAntonym.localized
-        }
-    }
 }
 
 // MARK: - AI Service Manager
@@ -355,7 +340,7 @@ final class AIServiceManager: AIServiceManagerInterface {
         // Check for words with low difficulty scores
         let difficultWords = items.filter { $0.difficultyLevel == .needsReview }
         if !difficultWords.isEmpty {
-            weakAreas.append(Loc.AI.weakAreaDifficultWords.localized)
+            weakAreas.append("weakAreaDifficultWords")
         }
 
         // Check for recent quiz performance
@@ -363,7 +348,7 @@ final class AIServiceManager: AIServiceManagerInterface {
         let averageAccuracy = recentQuizzes.map { $0.accuracy }.reduce(0, +) / Double(recentQuizzes.count)
 
         if averageAccuracy < 0.7 {
-            weakAreas.append(Loc.AI.weakAreaLowAccuracy.localized)
+            weakAreas.append("weakAreaLowAccuracy")
         }
 
         return weakAreas
@@ -373,7 +358,7 @@ final class AIServiceManager: AIServiceManagerInterface {
         // Recommend items based on weak areas
         var recommendations: [String] = []
 
-        if weakAreas.contains(Loc.AI.weakAreaDifficultWords.localized) {
+        if weakAreas.contains("weakAreaDifficultWords") {
             let difficultWords = items.filter { $0.difficultyLevel == .needsReview }
             recommendations.append(contentsOf: difficultWords.prefix(5).map { $0.quiz_text })
         }
@@ -384,12 +369,12 @@ final class AIServiceManager: AIServiceManagerInterface {
     private func generateStudySuggestions(weakAreas: [String]) -> [String] {
         var suggestions: [String] = []
 
-        if weakAreas.contains(Loc.AI.weakAreaDifficultWords.localized) {
-            suggestions.append(Loc.AI.suggestionFocusDifficultWords.localized)
+        if weakAreas.contains("weakAreaDifficultWords") {
+            suggestions.append("suggestionFocusDifficultWords")
         }
 
-        if weakAreas.contains(Loc.AI.weakAreaLowAccuracy.localized) {
-            suggestions.append(Loc.AI.suggestionPracticeMore.localized)
+        if weakAreas.contains("weakAreaLowAccuracy") {
+            suggestions.append("suggestionPracticeMore")
         }
 
         return suggestions
@@ -397,7 +382,7 @@ final class AIServiceManager: AIServiceManagerInterface {
 
     private func analyzeProgressTrend(quizResults: [CDQuizSession]) -> String {
         guard quizResults.count >= 5 else {
-            return Loc.AI.progressTrendInsufficientData.localized
+            return "progressTrendInsufficientData"
         }
 
         let recentQuizzes = Array(quizResults.suffix(5))
@@ -405,11 +390,11 @@ final class AIServiceManager: AIServiceManagerInterface {
         let lastAccuracy = recentQuizzes.last?.accuracy ?? 0
 
         if lastAccuracy > firstAccuracy + 0.1 {
-            return Loc.AI.progressTrendImproving.localized
+            return "progressTrendImproving"
         } else if lastAccuracy < firstAccuracy - 0.1 {
-            return Loc.AI.progressTrendDeclining.localized
+            return "progressTrendDeclining"
         } else {
-            return Loc.AI.progressTrendStable.localized
+            return "progressTrendStable"
         }
     }
 
@@ -424,12 +409,12 @@ final class AIServiceManager: AIServiceManagerInterface {
         let estimatedDays = estimatedHours / 2 // Assuming 2 hours of study per day
 
         if estimatedDays < 1 {
-            return Loc.AI.masteryTimeLessThanDay.localized
+            return "masteryTimeLessThanDay"
         } else if estimatedDays < 7 {
-            return Loc.AI.masteryTimeLessThanWeek.localized(estimatedDays)
+            return "masteryTimeLessThanWeek(estimatedDays)"
         } else {
             let weeks = estimatedDays / 7
-            return Loc.AI.masteryTimeWeeks.localized(weeks)
+            return "masteryTimeWeeks(weeks)"
         }
     }
 }

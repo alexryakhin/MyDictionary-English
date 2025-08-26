@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Керувати тегами";
-"tags.tags_help_text" = "Теги допомагають упорядковувати слова. Кожне слово може мати до 5 тегів";
-"tags.no_tags_yet" = "Поки не додано тегів";
-"tags.add_first_tag" = "Додайте ваш перший тег, натиснувши кнопку вище";
-"tags.add_tag" = "Додати тег";
-"tags.add_first_tag_description" = "Додайте ваш перший тег, натиснувши кнопку вище";
-"tags.add_tag_to_start_using" = "Додайте тег, щоб почати використовувати";
-"tags.add_tags" = "Додати теги";
-"tags.create_tags" = "Створити теги";
-"tags.delete_tag" = "Видалити тег";
-"tags.delete_tag_confirmation" = "Ви впевнені, що хочете видалити цей тег?";
-"tags.delete_tag_cannot_undo" = "Цю дію не можна скасувати";
-"tags.tag_name" = "Назва тегу";
-"tags.tag_name_help" = "Виберіть назву, яка описує ваш тег";
-"tags.type_tag_name" = "Введіть назву тегу...";
-"tags.tag_color" = "Колір тегу";
-"tags.tag_color_help" = "Виберіть колір, щоб ваш тег було легко впізнати";
-"tags.edit_tag" = "Редагувати тег";
-"tags.new_tag" = "Новий тег";
-"tags.tag_management_error" = "Помилка керування тегами";
+"manage_tags" = "Керувати тегами";
+"tags_help_text" = "Теги допомагають упорядковувати слова. Кожне слово може мати до 5 тегів";
+"no_tags_yet" = "Поки не додано тегів";
+"add_first_tag" = "Додайте ваш перший тег, натиснувши кнопку вище";
+"add_tag" = "Додати тег";
+"add_first_tag_description" = "Додайте ваш перший тег, натиснувши кнопку вище";
+"add_tag_to_start_using" = "Додайте тег, щоб почати використовувати";
+"add_tags" = "Додати теги";
+"create_tags" = "Створити теги";
+"delete_tag" = "Видалити тег";
+"delete_tag_confirmation" = "Ви впевнені, що хочете видалити цей тег?";
+"delete_tag_cannot_undo" = "Цю дію не можна скасувати";
+"tag_name" = "Назва тегу";
+"tag_name_help" = "Виберіть назву, яка описує ваш тег";
+"type_tag_name" = "Введіть назву тегу...";
+"tag_color" = "Колір тегу";
+"tag_color_help" = "Виберіть колір, щоб ваш тег було легко впізнати";
+"edit_tag" = "Редагувати тег";
+"new_tag" = "Новий тег";
+"tag_management_error" = "Помилка керування тегами";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Вибрати теги";

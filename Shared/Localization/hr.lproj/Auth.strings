@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Prijavite se prije pretplate";
+"sign_in_with_google" = "Prijavite se s Googleom";
+"can_always_sign_in_later" = "Uvijek se možete prijaviti kasnije iz postavki";
+"link_additional_accounts" = "Poveži dodatne račune";
+"accounts_linked_successfully" = "Računi uspješno povezani";
+"sign_out_confirmation" = "Odjavi se";
+"your_words_are_safe" = "Vaše riječi su sigurne";
+"cloud_sync_disabled" = "Sinkronizacija u oblaku bit će onemogućena";
+"sign_out" = "Odjavi se";
+"no_worries_wont_remove_words" = "Bez brige! Nećemo ukloniti vaše riječi.";
+"vocabulary_stay_on_device" = "Vaš vokabular ostat će na ovom uređaju. Ako se prijavite s drugim računom, vaši podaci će se spojiti.";
+"all_vocabulary_remain_device" = "Sve vaše riječi, definicije i napredak ostat će na ovom uređaju. Možete nastaviti koristiti aplikaciju bez povezivanja.";
+"word_lists_shared_data_cleared" = "Popisi riječi i zajednički podaci bit će izbrisani. Ako se prijavite s drugim računom, vaše lokalne riječi spojit će se s podacima novog računa.";
+"sign_in_to_access_word_lists" = "Prijavite se za pristup svojim popisima riječi na svim uređajima i suradnju s drugima.";
+"link_google" = "Poveži s Googleom";
+"link_apple" = "Poveži s Appleom";
+"sign_in_to_sync_word_lists" = "Prijavite se za sinkronizaciju popisa riječi";
+"sign_out_error_title" = "Oh ne!";
+"sign_out_error_message" = "Nešto je pošlo po zlu prilikom odjave. Pokušajte ponovno kasnije.";
+"sign_in_required_for_restore" = "Potrebna je prijava za vraćanje vaših kupnji.";
+"sign_in_required_for_pro_features" = "Potrebna je prijava za pristup Pro značajkama poput %@.";
+"sign_in_failed" = "Prijava nije uspjela. Pokušajte ponovno.";
+"sign_out_failed" = "Odjava nije uspjela. Pokušajte ponovno.";
+"user_not_found" = "Korisnik nije pronađen.";
+"network_error" = "Pogreška mreže. Provjerite svoju vezu.";
+"account_linking_failed" = "Povezivanje računa nije uspjelo. Pokušajte ponovno.";
+
+// Registration Benefits
+"registration_benefits" = "Prednosti Registracije";
+"access_subscription_all_devices" = "Pristupite svojoj pretplati na svim svojim uređajima";
+"sync_progress_cross_platform" = "Sinkronizirajte svoj napredak između iOS-a i Android-a";
+"backup_data_securely" = "Sigurno sigurnosno kopiranje vaših podataka u oblaku";
+"register_anytime_from_settings" = "Možete se registrirati u bilo kojem trenutku iz Postavki za omogućavanje ovih značajki";
+"account_registration" = "Registracija Računa";
+"register_for_cross_platform_access" = "Registrirajte se za pristup svojoj pretplati na svim svojim uređajima i sinkronizaciju napretka";
+"active_subscription_notification" = "Imate aktivnu pretplatu!";
+"register_to_unlock_cross_platform" = "Registrirajte se za otključavanje pristupa kroz platforme";
+"register_now" = "Registrirajte Se Sada";
+
+// Subscription Security
+"subscription_access_restricted" = "Pristup Pretplati Ograničen";
+"subscription_associated_different_account" = "Ova pretplata je povezana s drugim računom. Molimo prijavite se s računom koji je kupio ovu pretplatu za pristup Pro značajkama.";
+
+// Profile
+"profile" = "Profil";
+"account_linking" = "Povezivanje Računa";
+"account_linking_description" = "Za pristup vašoj pretplati na Android uređajima, trebate povezati Google račun. Za dijeljenje pretplata kroz platforme, povežite oba računa.";
+"link_google_for_android" = "Poveži Google Račun";
+"link_apple_for_cross_platform" = "Poveži Apple ID";
+"current_account" = "Trenutni Račun";
+"linked_accounts" = "Povezani Računi";
+"no_linked_accounts" = "Nema povezanih računa";
+
+"cross_platform_button_description" = "Za dijeljenje pretplate između platformi";
+"nickname" = "Nadimak";
+"nickname_current" = "Trenutni nadimak";
+"nickname_not_set" = "Nadimak nije postavljen";
+"nickname_description" = "Postavite jedinstveni nadimak koji drugi mogu koristiti kako bi vas pronašli i dodali u zajedničke rječnike. To je praktičnije od korištenja adresa e-pošte.";
+"edit_nickname" = "Uredi nadimak";
+"nickname_cannot_be_empty" = "Nadimak ne može biti prazan";
+"nickname_already_taken" = "Ovaj nadimak je već zauzet. Odaberite drugi.";
+"nickname_invalid_format" = "Nadimak može sadržavati samo slova, brojeve i donje crte.";
+"search_method" = "Metoda pretrage";
+"find_user_by_email" = "Pronađi korisnika putem e-pošte";
+"find_user_by_nickname" = "Pronađi korisnika putem nadimka";
+"enter_email_address" = "Unesite adresu e-pošte";
+"enter_nickname" = "Unesite nadimak";
+"found_user" = "Korisnik pronađen";
+"user_not_found" = "Korisnik nije pronađen";
+"user_not_found_message" = "Nije pronađen korisnik s priloženim informacijama. Provjerite pretragu i pokušajte ponovno.";
+
+"enter_name" = "Unesite ime";
+"search_by" = "Pretraži po";
+"unknown_user" = "Nepoznati korisnik";
+"email" = "E-pošta";
+"apple_id" = "Apple ID";
+"google_account" = "Google račun";
+
+

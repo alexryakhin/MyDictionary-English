@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Kaikki käyttötapaukset";
-"tts.filters.all_ages" = "Kaikki iät";
-"tts.filters.all_timbres" = "Kaikki äänensävyt";
-"tts.filters.all_accents" = "Kaikki aksentit";
-"tts.filters.all_languages" = "Kaikki kielet";
-"tts.filters.all_genders" = "Kaikki sukupuolet";
-"tts.filters.filters" = "Suodattimet";
-"tts.filters.reset" = "Nollaa";
-"tts.filters.select_voice" = "Valitse ääni";
-"tts.filters.available_voices" = "Saatavilla olevat äänet";
-"tts.filters.no_voices_available" = "Ei saatavilla olevia ääniä";
-"tts.filters.no_voices_found" = "Ääniä ei löytynyt";
-"tts.filters.no_voices_found_message" = "Yritä säätää hakua tai suodattimia";
+"filters.all_use_cases" = "Kaikki käyttötapaukset";
+"filters.all_ages" = "Kaikki iät";
+"filters.all_timbres" = "Kaikki äänensävyt";
+"filters.all_accents" = "Kaikki aksentit";
+"filters.all_languages" = "Kaikki kielet";
+"filters.all_genders" = "Kaikki sukupuolet";
+"filters.filters" = "Suodattimet";
+"filters.reset" = "Nollaa";
+"filters.select_voice" = "Valitse ääni";
+"filters.available_voices" = "Saatavilla olevat äänet";
+"filters.no_voices_available" = "Ei saatavilla olevia ääniä";
+"filters.no_voices_found" = "Ääniä ei löytynyt";
+"filters.no_voices_found_message" = "Yritä säätää hakua tai suodattimia";
 
-"tts.usage.monthly_limit_exceeded" = "Kuukausiraja ylittynyt";
-"tts.usage.monthly_limit_exceeded_message" = "Olet saavuttanut Speechify TTS:n 50 000 merkin kuukausirajan. Yritä uudelleen ensi kuussa tai käytä Google TTS:ää.";
-"tts.usage.remaining_characters" = "Jäljellä olevat merkit";
-"tts.usage.monthly_usage" = "Kuukausittainen käyttö";
-"tts.usage.monthly_limit" = "Kuukausiraja";
+"usage.monthly_limit_exceeded" = "Kuukausiraja ylittynyt";
+"usage.monthly_limit_exceeded_message" = "Olet saavuttanut Speechify TTS:n 50 000 merkin kuukausirajan. Yritä uudelleen ensi kuussa tai käytä Google TTS:ää.";
+"usage.remaining_characters" = "Jäljellä olevat merkit";
+"usage.monthly_usage" = "Kuukausittainen käyttö";
+"usage.monthly_limit" = "Kuukausiraja";
 
 // TTS Voice Filter Values
 "advertisement" = "Mainos";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "TTS-kojelauta";
-"tts.premium_tts_dashboard" = "Premium TTS-kojelauta";
-"tts.customize_tts_experience" = "Mukauta teksti-puheeksi-kokemuksesi";
-"tts.playing" = "Toistetaan";
-"tts.ready" = "Valmis";
-"tts.provider" = "Palveluntarjoaja";
-"tts.tts_provider" = "TTS-palveluntarjoaja";
-"tts.voice_customization" = "Äänen mukauttaminen";
-"tts.current_voice" = "Nykyinen ääni";
-"tts.default_voice" = "Oletusääni";
-"tts.preview_current_voice" = "Esikatsele nykyistä ääntä";
-"tts.change_voice" = "Vaihda ääntä";
-"tts.audio_settings" = "Ääniasetukset";
-"tts.speech_rate" = "Puhenopeus";
-"tts.volume" = "Äänenvoimakkuus";
-"tts.test_your_settings" = "Testaa asetuksesi";
-"tts.enter_text_to_test" = "Syötä tekstiä testattavaksi...";
-"tts.stop" = "Pysäytä";
-"tts.test" = "Testaa";
-"tts.usage_statistics" = "Käyttötilastot";
-"tts.speechify_monthly_usage" = "Speechify kuukausittainen käyttö";
-"tts.monthly_limit" = "Kuukausiraja";
-"tts.used_this_month" = "Käytetty tässä kuussa";
-"tts.remaining" = "Jäljellä";
-"tts.usage_progress" = "Käytön edistyminen";
-"tts.characters" = "merkkiä";
+"dashboard" = "TTS-kojelauta";
+"premium_tts_dashboard" = "Premium TTS-kojelauta";
+"customize_tts_experience" = "Mukauta teksti-puheeksi-kokemuksesi";
+"playing" = "Toistetaan";
+"ready" = "Valmis";
+"provider" = "Palveluntarjoaja";
+"tts_provider" = "TTS-palveluntarjoaja";
+"voice_customization" = "Äänen mukauttaminen";
+"current_voice" = "Nykyinen ääni";
+"default_voice" = "Oletusääni";
+"preview_current_voice" = "Esikatsele nykyistä ääntä";
+"change_voice" = "Vaihda ääntä";
+"audio_settings" = "Ääniasetukset";
+"speech_rate" = "Puhenopeus";
+"volume" = "Äänenvoimakkuus";
+"test_your_settings" = "Testaa asetuksesi";
+"enter_text_to_test" = "Syötä tekstiä testattavaksi...";
+"stop" = "Pysäytä";
+"test" = "Testaa";
+"usage_statistics" = "Käyttötilastot";
+"speechify_monthly_usage" = "Speechify kuukausittainen käyttö";
+"monthly_limit" = "Kuukausiraja";
+"used_this_month" = "Käytetty tässä kuussa";
+"remaining" = "Jäljellä";
+"usage_progress" = "Käytön edistyminen";
+"characters" = "merkkiä";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "Käytetyt merkit";
-"tts.analytics.sessions" = "Istunnot";
-"tts.analytics.favorite_voice" = "Suosikkiääni";
-"tts.analytics.time_saved" = "Säästetty aika";
-"tts.analytics.total_characters" = "Merkit yhteensä";
-"tts.analytics.total_sessions" = "Istuntoja yhteensä";
-"tts.analytics.total_duration" = "Kokonaiskesto";
-"tts.analytics.favorite_language" = "Suosikkikieli";
-"tts.analytics.premium_usage" = "Premium-käyttö";
+"analytics.characters_used" = "Käytetyt merkit";
+"analytics.sessions" = "Istunnot";
+"analytics.favorite_voice" = "Suosikkiääni";
+"analytics.time_saved" = "Säästetty aika";
+"analytics.total_characters" = "Merkit yhteensä";
+"analytics.total_sessions" = "Istuntoja yhteensä";
+"analytics.total_duration" = "Kokonaiskesto";
+"analytics.favorite_language" = "Suosikkikieli";
+"analytics.premium_usage" = "Premium-käyttö";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "Teksti-puheeksi";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechifyn teksti-puheeksi-malli on saatavilla kaikille käyttäjille premium-ominaisuutena. Sen avulla voit valita laajasta ääni- ja aksenttivalikoimasta, jotta voit mukauttaa opiskelukokemuksesi.";
-"tts.settings.speechify_pro_description" = "Speechifyn teksti-puheeksi-malli sisältyy tilaukseesi.";
-"tts.settings.dashboard" = "Kojelauta";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Ilmainen Google TTS perustason äänillä ja luotettavalla suorituskyvyllä";
+"settings.text_to_speech" = "Teksti-puheeksi";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Speechifyn teksti-puheeksi-malli on saatavilla kaikille käyttäjille premium-ominaisuutena. Sen avulla voit valita laajasta ääni- ja aksenttivalikoimasta, jotta voit mukauttaa opiskelukokemuksesi.";
+"settings.speechify_pro_description" = "Speechifyn teksti-puheeksi-malli sisältyy tilaukseesi.";
+"settings.dashboard" = "Kojelauta";
+"pro" = "Pro";
+"free_google_tts_description" = "Ilmainen Google TTS perustason äänillä ja luotettavalla suorituskyvyllä";
 
 // TTS Models
-"tts.models.english" = "Englanti";
-"tts.models.multilingual" = "Monikielinen";
-"tts.models.english_description" = "Speechifyn englanninkielinen teksti-puheeksi-malli tarjoaa standardiominaisuuksia, jotka on suunniteltu tarjoamaan selkeä ja luonnollinen ääniulostulo tekstin lukemiseen. Malli keskittyy tarjoamaan yhtenäisen käyttäjäkokemuksen.";
-"tts.models.multilingual_description" = "Monikielinen malli mahdollistaa kaikkien tuettujen kielten käytön ja tukee useiden kielten käyttöä yhdessä lauseessa. Tämän mallin ääniulostulo eroaa selvästi muista malleista.";
+"models.english" = "Englanti";
+"models.multilingual" = "Monikielinen";
+"models.english_description" = "Speechifyn englanninkielinen teksti-puheeksi-malli tarjoaa standardiominaisuuksia, jotka on suunniteltu tarjoamaan selkeä ja luonnollinen ääniulostulo tekstin lukemiseen. Malli keskittyy tarjoamaan yhtenäisen käyttäjäkokemuksen.";
+"models.multilingual_description" = "Monikielinen malli mahdollistaa kaikkien tuettujen kielten käytön ja tukee useiden kielten käyttöä yhdessä lauseessa. Tämän mallin ääniulostulo eroaa selvästi muista malleista.";
 
 // MARK: - English Accents
 "english_accents.australian" = "Australialainen";

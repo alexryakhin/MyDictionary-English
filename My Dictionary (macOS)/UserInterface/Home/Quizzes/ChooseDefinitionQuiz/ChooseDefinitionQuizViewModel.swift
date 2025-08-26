@@ -246,8 +246,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         if availableItems.count < preset.itemCount {
             // Not enough items available after filtering
             self.errorMessage = preset.hardItemsOnly
-            ? Loc.QuizActions.noDifficultWordsAvailable.localized
-            : Loc.Quizzes.notEnoughWordsAvailable.localized(preset.itemCount)
+            ? Loc.Quizzes.QuizActions.noDifficultWordsAvailable
+            : Loc.Quizzes.notEnoughWordsAvailable(preset.itemCount)
             return
         }
 

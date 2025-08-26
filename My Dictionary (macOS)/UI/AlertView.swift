@@ -49,7 +49,7 @@ struct AlertView: View {
             if model.actionText == nil
                 && model.additionalActionText == nil
                 && model.destructiveActionText == nil {
-                ActionButton(Loc.Actions.ok.localized) {
+                ActionButton(Loc.Actions.ok) {
                     dismiss()
                 }
             }

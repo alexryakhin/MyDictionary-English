@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Spravovať značky";
-"tags.tags_help_text" = "Značky vám pomôžu organizovať vaše slová. Každé slovo môže mať až 5 značiek.";
-"tags.no_tags_yet" = "Zatiaľ neboli pridané žiadne značky";
-"tags.add_first_tag" = "Pridajte svoju prvú značku kliknutím na tlačidlo vyššie.";
-"tags.add_tag" = "Pridať značku";
-"tags.add_first_tag_description" = "Pridajte svoju prvú značku kliknutím na tlačidlo vyššie.";
-"tags.add_tag_to_start_using" = "Pridajte značku, aby ste ich začali používať.";
-"tags.add_tags" = "Pridať značky";
-"tags.create_tags" = "Vytvoriť značky";
-"tags.delete_tag" = "Vymazať značku";
-"tags.delete_tag_confirmation" = "Ste si istý, že chcete vymazať túto značku?";
-"tags.delete_tag_cannot_undo" = "Túto akciu nie je možné vrátiť späť.";
-"tags.tag_name" = "Názov značky";
-"tags.tag_name_help" = "Vyberte popisný názov pre svoju značku";
-"tags.type_tag_name" = "Zadajte názov značky...";
-"tags.tag_color" = "Farba značky";
-"tags.tag_color_help" = "Vyberte farbu, aby bola vaša značka ľahko rozpoznateľná";
-"tags.edit_tag" = "Upraviť značku";
-"tags.new_tag" = "Nová značka";
-"tags.tag_management_error" = "Chyba pri správe značiek";
+"manage_tags" = "Spravovať značky";
+"tags_help_text" = "Značky vám pomôžu organizovať vaše slová. Každé slovo môže mať až 5 značiek.";
+"no_tags_yet" = "Zatiaľ neboli pridané žiadne značky";
+"add_first_tag" = "Pridajte svoju prvú značku kliknutím na tlačidlo vyššie.";
+"add_tag" = "Pridať značku";
+"add_first_tag_description" = "Pridajte svoju prvú značku kliknutím na tlačidlo vyššie.";
+"add_tag_to_start_using" = "Pridajte značku, aby ste ich začali používať.";
+"add_tags" = "Pridať značky";
+"create_tags" = "Vytvoriť značky";
+"delete_tag" = "Vymazať značku";
+"delete_tag_confirmation" = "Ste si istý, že chcete vymazať túto značku?";
+"delete_tag_cannot_undo" = "Túto akciu nie je možné vrátiť späť.";
+"tag_name" = "Názov značky";
+"tag_name_help" = "Vyberte popisný názov pre svoju značku";
+"type_tag_name" = "Zadajte názov značky...";
+"tag_color" = "Farba značky";
+"tag_color_help" = "Vyberte farbu, aby bola vaša značka ľahko rozpoznateľná";
+"edit_tag" = "Upraviť značku";
+"new_tag" = "Nová značka";
+"tag_management_error" = "Chyba pri správe značiek";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Vybrať značky";

@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Tüm kullanım durumları";
-"tts.filters.all_ages" = "Tüm yaşlar";
-"tts.filters.all_timbres" = "Tüm tonlar";
-"tts.filters.all_accents" = "Tüm aksanlar";
-"tts.filters.all_languages" = "Tüm diller";
-"tts.filters.all_genders" = "Tüm cinsiyetler";
-"tts.filters.filters" = "Filtreler";
-"tts.filters.reset" = "Sıfırla";
-"tts.filters.select_voice" = "Ses seç";
-"tts.filters.available_voices" = "Mevcut sesler";
-"tts.filters.no_voices_available" = "Kullanılabilir ses yok";
-"tts.filters.no_voices_found" = "Ses bulunamadı";
-"tts.filters.no_voices_found_message" = "Aramanızı veya filtrelerinizi ayarlamayı deneyin";
+"filters.all_use_cases" = "Tüm kullanım durumları";
+"filters.all_ages" = "Tüm yaşlar";
+"filters.all_timbres" = "Tüm tonlar";
+"filters.all_accents" = "Tüm aksanlar";
+"filters.all_languages" = "Tüm diller";
+"filters.all_genders" = "Tüm cinsiyetler";
+"filters.filters" = "Filtreler";
+"filters.reset" = "Sıfırla";
+"filters.select_voice" = "Ses seç";
+"filters.available_voices" = "Mevcut sesler";
+"filters.no_voices_available" = "Kullanılabilir ses yok";
+"filters.no_voices_found" = "Ses bulunamadı";
+"filters.no_voices_found_message" = "Aramanızı veya filtrelerinizi ayarlamayı deneyin";
 
-"tts.usage.monthly_limit_exceeded" = "Aylık limit aşıldı";
-"tts.usage.monthly_limit_exceeded_message" = "Speechify TTS için 50.000 karakterlik aylık limite ulaştınız. Lütfen gelecek ay tekrar deneyin veya bunun yerine Google TTS kullanın.";
-"tts.usage.remaining_characters" = "Kalan karakterler";
-"tts.usage.monthly_usage" = "Aylık kullanım";
-"tts.usage.monthly_limit" = "Aylık limit";
+"usage.monthly_limit_exceeded" = "Aylık limit aşıldı";
+"usage.monthly_limit_exceeded_message" = "Speechify TTS için 50.000 karakterlik aylık limite ulaştınız. Lütfen gelecek ay tekrar deneyin veya bunun yerine Google TTS kullanın.";
+"usage.remaining_characters" = "Kalan karakterler";
+"usage.monthly_usage" = "Aylık kullanım";
+"usage.monthly_limit" = "Aylık limit";
 
 // TTS Voice Filter Values
 "advertisement" = "Reklam";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "TTS Panosu";
-"tts.premium_tts_dashboard" = "Premium TTS Panosu";
-"tts.customize_tts_experience" = "Metin-konuşma deneyiminizi özelleştirin";
-"tts.playing" = "Oynatılıyor";
-"tts.ready" = "Hazır";
-"tts.provider" = "Sağlayıcı";
-"tts.tts_provider" = "TTS Sağlayıcı";
-"tts.voice_customization" = "Ses özelleştirme";
-"tts.current_voice" = "Mevcut ses";
-"tts.default_voice" = "Varsayılan ses";
-"tts.preview_current_voice" = "Mevcut sesi önizle";
-"tts.change_voice" = "Sesi değiştir";
-"tts.audio_settings" = "Ses ayarları";
-"tts.speech_rate" = "Konuşma hızı";
-"tts.volume" = "Ses seviyesi";
-"tts.test_your_settings" = "Ayarlarınızı test edin";
-"tts.enter_text_to_test" = "Test etmek için metin girin...";
-"tts.stop" = "Durdur";
-"tts.test" = "Test";
-"tts.usage_statistics" = "Kullanım istatistikleri";
-"tts.speechify_monthly_usage" = "Speechify aylık kullanım";
-"tts.monthly_limit" = "Aylık limit";
-"tts.used_this_month" = "Bu ay kullanılan";
-"tts.remaining" = "Kalan";
-"tts.usage_progress" = "Kullanım ilerlemesi";
-"tts.characters" = "karakter";
+"dashboard" = "TTS Panosu";
+"premium_tts_dashboard" = "Premium TTS Panosu";
+"customize_tts_experience" = "Metin-konuşma deneyiminizi özelleştirin";
+"playing" = "Oynatılıyor";
+"ready" = "Hazır";
+"provider" = "Sağlayıcı";
+"tts_provider" = "TTS Sağlayıcı";
+"voice_customization" = "Ses özelleştirme";
+"current_voice" = "Mevcut ses";
+"default_voice" = "Varsayılan ses";
+"preview_current_voice" = "Mevcut sesi önizle";
+"change_voice" = "Sesi değiştir";
+"audio_settings" = "Ses ayarları";
+"speech_rate" = "Konuşma hızı";
+"volume" = "Ses seviyesi";
+"test_your_settings" = "Ayarlarınızı test edin";
+"enter_text_to_test" = "Test etmek için metin girin...";
+"stop" = "Durdur";
+"test" = "Test";
+"usage_statistics" = "Kullanım istatistikleri";
+"speechify_monthly_usage" = "Speechify aylık kullanım";
+"monthly_limit" = "Aylık limit";
+"used_this_month" = "Bu ay kullanılan";
+"remaining" = "Kalan";
+"usage_progress" = "Kullanım ilerlemesi";
+"characters" = "karakter";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "Kullanılan karakterler";
-"tts.analytics.sessions" = "Oturumlar";
-"tts.analytics.favorite_voice" = "Favori ses";
-"tts.analytics.time_saved" = "Kazanılan zaman";
-"tts.analytics.total_characters" = "Toplam karakter";
-"tts.analytics.total_sessions" = "Toplam oturum";
-"tts.analytics.total_duration" = "Toplam süre";
-"tts.analytics.favorite_language" = "Favori dil";
-"tts.analytics.premium_usage" = "Premium kullanım";
+"analytics.characters_used" = "Kullanılan karakterler";
+"analytics.sessions" = "Oturumlar";
+"analytics.favorite_voice" = "Favori ses";
+"analytics.time_saved" = "Kazanılan zaman";
+"analytics.total_characters" = "Toplam karakter";
+"analytics.total_sessions" = "Toplam oturum";
+"analytics.total_duration" = "Toplam süre";
+"analytics.favorite_language" = "Favori dil";
+"analytics.premium_usage" = "Premium kullanım";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "Metin-konuşma";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechify'nin metin-konuşma modeli, tüm kullanıcılar için premium bir özellik olarak mevcuttur. Çalışma deneyiminizi özelleştirmek için geniş bir ses ve aksan yelpazesinden seçim yapmanızı sağlar.";
-"tts.settings.speechify_pro_description" = "Speechify'nin metin-konuşma modeli aboneliğinizde yer almaktadır.";
-"tts.settings.dashboard" = "Pano";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Temel sesler ve güvenilir performans sunan ücretsiz Google TTS";
+"settings.text_to_speech" = "Metin-konuşma";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Speechify'nin metin-konuşma modeli, tüm kullanıcılar için premium bir özellik olarak mevcuttur. Çalışma deneyiminizi özelleştirmek için geniş bir ses ve aksan yelpazesinden seçim yapmanızı sağlar.";
+"settings.speechify_pro_description" = "Speechify'nin metin-konuşma modeli aboneliğinizde yer almaktadır.";
+"settings.dashboard" = "Pano";
+"pro" = "Pro";
+"free_google_tts_description" = "Temel sesler ve güvenilir performans sunan ücretsiz Google TTS";
 
 // TTS Models
-"tts.models.english" = "İngilizce";
-"tts.models.multilingual" = "Çok dilli";
-"tts.models.english_description" = "Speechify'nin İngilizce metin-konuşma modeli, metinleri okumak için net ve doğal bir ses çıkışı sağlamak üzere tasarlanmış standart özellikler sunar. Model, tutarlı bir kullanıcı deneyimi sağlamaya odaklanır.";
-"tts.models.multilingual_description" = "Çok dilli model, desteklenen tüm dillerin kullanımına olanak tanır ve tek bir cümlede birden fazla dilin kullanımını destekler. Bu modelin ses çıkışı, diğer modellerden belirgin şekilde farklıdır.";
+"models.english" = "İngilizce";
+"models.multilingual" = "Çok dilli";
+"models.english_description" = "Speechify'nin İngilizce metin-konuşma modeli, metinleri okumak için net ve doğal bir ses çıkışı sağlamak üzere tasarlanmış standart özellikler sunar. Model, tutarlı bir kullanıcı deneyimi sağlamaya odaklanır.";
+"models.multilingual_description" = "Çok dilli model, desteklenen tüm dillerin kullanımına olanak tanır ve tek bir cümlede birden fazla dilin kullanımını destekler. Bu modelin ses çıkışı, diğer modellerden belirgin şekilde farklıdır.";
 
 // MARK: - English Accents
 "english_accents.australian" = "Avustralya";

@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "Απαιτείται άδεια ειδοποιήσεων";
-"notifications.permission_denied_message" = "Για να λαμβάνετε καθημερινές υπενθυμίσεις και ειδοποιήσεις για δύσκολες λέξεις, ενεργοποιήστε τις ειδοποιήσεις στις Ρυθμίσεις.";
+"permission_required" = "Απαιτείται άδεια ειδοποιήσεων";
+"permission_denied_message" = "Για να λαμβάνετε καθημερινές υπενθυμίσεις και ειδοποιήσεις για δύσκολες λέξεις, ενεργοποιήστε τις ειδοποιήσεις στις Ρυθμίσεις.";
 
-"notifications.time_to_practice" = "Ώρα για εξάσκηση! 📚";
-"notifications.practice_vocabulary_today" = "Μην ξεχάσεις να εξασκήσεις το λεξιλόγιό σου σήμερα.";
-"notifications.practice_difficult_words" = "Εξάσκησε τις δύσκολες λέξεις 📚";
-"notifications.difficult_words_challenge" = "Έχεις λέξεις που χρειάζονται περισσότερη εξάσκηση. Έτοιμος για την πρόκληση;";
-"notifications.test_dictionary_invitation" = "Πρόσκληση σε Δοκιμαστικό Λεξικό";
-"notifications.test_dictionary_invitation_body" = "Κάποιος σε πρόσθεσε στο 'Δοκιμαστικό Λεξικό'";
+"time_to_practice" = "Ώρα για εξάσκηση! 📚";
+"practice_vocabulary_today" = "Μην ξεχάσεις να εξασκήσεις το λεξιλόγιό σου σήμερα.";
+"practice_difficult_words" = "Εξάσκησε τις δύσκολες λέξεις 📚";
+"difficult_words_challenge" = "Έχεις λέξεις που χρειάζονται περισσότερη εξάσκηση. Έτοιμος για την πρόκληση;";
+"test_dictionary_invitation" = "Πρόσκληση σε Δοκιμαστικό Λεξικό";
+"test_dictionary_invitation_body" = "Κάποιος σε πρόσθεσε στο 'Δοκιμαστικό Λεξικό'";
 

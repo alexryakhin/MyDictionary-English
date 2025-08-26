@@ -40,7 +40,7 @@ struct WordDetailsContentView: View {
         }
         .groupedBackground()
         .navigation(
-            title: Loc.Navigation.wordDetails.localized,
+            title: Loc.Navigation.wordDetails,
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
@@ -65,12 +65,12 @@ struct WordDetailsContentView: View {
         .sheet(isPresented: $showingTagSelection) {
             WordTagSelectionView(word: word)
         }
-        .alert(Loc.WordDetails.editExample.localized, isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
-            TextField(Loc.WordDetails.example.localized, text: $exampleTextFieldStr)
-            Button(Loc.Actions.cancel.localized, role: .cancel) {
+        .alert(Loc.Words.WordDetails.editExample, isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
+            TextField(Loc.Words.WordDetails.example, text: $exampleTextFieldStr)
+            Button(Loc.Actions.cancel, role: .cancel) {
                 AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
             }
-            Button(Loc.Actions.save.localized) {
+            Button(Loc.Actions.save) {
                 updateExample(at: index, text: exampleTextFieldStr)
                 editingExampleIndex = nil
                 exampleTextFieldStr = .empty
@@ -80,8 +80,8 @@ struct WordDetailsContentView: View {
     }
 
     private var transcriptionSectionView: some View {
-        CustomSectionView(header: Loc.WordDetails.transcription.localized, headerFontStyle: .stealth) {
-            TextField(Loc.WordDetails.transcription.localized, text: Binding(
+        CustomSectionView(header: Loc.Words.WordDetails.transcription, headerFontStyle: .stealth) {
+            TextField(Loc.Words.WordDetails.transcription, text: Binding(
                 get: { word.phonetic ?? "" },
                 set: { word.phonetic = $0 }
             ), axis: .vertical)
@@ -89,13 +89,13 @@ struct WordDetailsContentView: View {
             .fontWeight(.semibold)
         } trailingContent: {
             if isPhoneticsFocused {
-                HeaderButton(Loc.Actions.done.localized, size: .small) {
+                HeaderButton(Loc.Actions.done, size: .small) {
                     isPhoneticsFocused = false
                     saveContext()
                 }
             } else {
                 AsyncHeaderButton(
-                    Loc.Actions.listen.localized,
+                    Loc.Actions.listen,
                     icon: "speaker.wave.2.fill",
                     size: .small
                 ) {
@@ -107,12 +107,12 @@ struct WordDetailsContentView: View {
     }
 
     private var partOfSpeechSectionView: some View {
-        CustomSectionView(header: Loc.WordDetails.partOfSpeech.localized, headerFontStyle: .stealth) {
+        CustomSectionView(header: Loc.Words.WordDetails.partOfSpeech, headerFontStyle: .stealth) {
             Text(PartOfSpeech(rawValue: word.partOfSpeech).displayName)
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
-            HeaderButtonMenu(Loc.Actions.edit.localized, size: .small) {
+            HeaderButtonMenu(Loc.Actions.edit, size: .small) {
                 ForEach(PartOfSpeech.allCases, id: \.self) { partCase in
                     Button {
                         updatePartOfSpeech(partCase)
@@ -125,8 +125,8 @@ struct WordDetailsContentView: View {
     }
 
     private var definitionSectionView: some View {
-        CustomSectionView(header: Loc.WordDetails.definition.localized, headerFontStyle: .stealth) {
-            TextField(Loc.WordDetails.definition.localized, text: Binding(
+        CustomSectionView(header: Loc.Words.WordDetails.definition, headerFontStyle: .stealth) {
+            TextField(Loc.Words.WordDetails.definition, text: Binding(
                 get: { word.definition ?? "" },
                 set: { word.definition = $0 }
             ), axis: .vertical)
@@ -134,14 +134,14 @@ struct WordDetailsContentView: View {
             .fontWeight(.semibold)
         } trailingContent: {
             if isDefinitionFocused {
-                HeaderButton(Loc.Actions.done.localized, size: .small) {
+                HeaderButton(Loc.Actions.done, size: .small) {
                     isDefinitionFocused = false
                     AnalyticsService.shared.logEvent(.wordDefinitionChanged)
                     saveContext()
                 }
             } else {
                 AsyncHeaderButton(
-                    Loc.Actions.listen.localized,
+                    Loc.Actions.listen,
                     icon: "speaker.wave.2.fill",
                     size: .small
                 ) {
@@ -154,21 +154,21 @@ struct WordDetailsContentView: View {
     }
 
     private var difficultySectionView: some View {
-        CustomSectionView(header: Loc.WordDetails.difficulty.localized, headerFontStyle: .stealth) {
+        CustomSectionView(header: Loc.Words.WordDetails.difficulty, headerFontStyle: .stealth) {
             let difficulty = word.difficultyLevel
             VStack(alignment: .leading, spacing: 4) {
                 Label(difficulty.displayName, systemImage: difficulty.imageName)
                     .foregroundStyle(difficulty.color)
                     .fontWeight(.semibold)
 
-                Text("\(Loc.Words.score.localized): \(word.difficultyScore)")
+                Text("\(Loc.Words.score): \(word.difficultyScore)")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
             // Show info that difficulty can only be changed through quizzes
-            Text(Loc.Words.quizBased.localized)
+            Text(Loc.Words.quizBased)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -177,7 +177,7 @@ struct WordDetailsContentView: View {
     @ViewBuilder
     private var languageSectionView: some View {
         if word.shouldShowLanguageLabel {
-            CustomSectionView(header: Loc.Words.language.localized, headerFontStyle: .stealth) {
+            CustomSectionView(header: Loc.Words.language, headerFontStyle: .stealth) {
                 HStack {
                     Text(word.languageDisplayName)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -191,9 +191,9 @@ struct WordDetailsContentView: View {
     }
 
     private var tagsSectionView: some View {
-        CustomSectionView(header: Loc.Words.tags.localized, headerFontStyle: .stealth) {
+        CustomSectionView(header: Loc.Words.tags, headerFontStyle: .stealth) {
             if word.tagsArray.isEmpty {
-                Text(Loc.Words.noTagsAddedYet.localized)
+                Text(Loc.Words.noTagsAddedYet)
                     .frame(maxWidth: .infinity, alignment: .leading)
             } else {
                 HFlow(alignment: .top, spacing: 8) {
@@ -210,7 +210,7 @@ struct WordDetailsContentView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         } trailingContent: {
-            HeaderButton(Loc.Words.addTag.localized, icon: "plus", size: .small) {
+            HeaderButton(Loc.Words.addTag, icon: "plus", size: .small) {
                 showingTagSelection = true
             }
         }
@@ -218,7 +218,7 @@ struct WordDetailsContentView: View {
 
     private var examplesSectionView: some View {
         CustomSectionView(
-            header: Loc.WordDetails.examples.localized,
+            header: Loc.Words.WordDetails.examples,
             headerFontStyle: .stealth,
             hPadding: 0
         ) {
@@ -236,7 +236,7 @@ struct WordDetailsContentView: View {
                                     }
                                     AnalyticsService.shared.logEvent(.wordExamplePlayed)
                                 } label: {
-                                    Label(Loc.Actions.listen.localized, systemImage: "speaker.wave.2.fill")
+                                    Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                                 }
                                 .disabled(TTSPlayer.shared.isPlaying)
                                 Button {
@@ -244,14 +244,14 @@ struct WordDetailsContentView: View {
                                     editingExampleIndex = index
                                     AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
                                 } label: {
-                                    Label(Loc.Actions.edit.localized, systemImage: "pencil")
+                                    Label(Loc.Actions.edit, systemImage: "pencil")
                                 }
                                 Section {
                                     Button(role: .destructive) {
                                         removeExample(at: index)
                                         AnalyticsService.shared.logEvent(.wordExampleRemoved)
                                     } label: {
-                                        Label(Loc.Actions.delete.localized, systemImage: "trash")
+                                        Label(Loc.Actions.delete, systemImage: "trash")
                                     }
                                 }
                             } label: {
@@ -266,14 +266,14 @@ struct WordDetailsContentView: View {
                     }
                 }
             } else {
-                Text(Loc.Words.noExamplesYet.localized)
+                Text(Loc.Words.noExamplesYet)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 16)
             }
 
             if isAddingExample {
                 InputView(
-                    Loc.WordDetails.typeExampleHere.localized,
+                    Loc.Words.WordDetails.typeExampleHere,
                     submitLabel: .done,
                     text: $exampleTextFieldStr,
                     onSubmit: {
@@ -282,7 +282,7 @@ struct WordDetailsContentView: View {
                         exampleTextFieldStr = .empty
                         AnalyticsService.shared.logEvent(.wordExampleAdded)
                     },
-                    trailingButtonLabel: Loc.Actions.cancel.localized
+                    trailingButtonLabel: Loc.Actions.cancel
                 ) {
                     // On cancel
                     isAddExampleFocused = false
@@ -294,14 +294,14 @@ struct WordDetailsContentView: View {
             }
         } trailingContent: {
             if isAddingExample {
-                HeaderButton(Loc.Actions.save.localized, icon: "checkmark", size: .small) {
+                HeaderButton(Loc.Actions.save, icon: "checkmark", size: .small) {
                     addExample(exampleTextFieldStr)
                     isAddingExample = false
                     exampleTextFieldStr = .empty
                     AnalyticsService.shared.logEvent(.wordExampleAdded)
                 }
             } else {
-                HeaderButton(Loc.WordDetails.addExample.localized, icon: "plus", size: .small) {
+                HeaderButton(Loc.Words.WordDetails.addExample, icon: "plus", size: .small) {
                     withAnimation {
                         isAddingExample.toggle()
                         AnalyticsService.shared.logEvent(.wordAddExampleTapped)
@@ -368,8 +368,8 @@ struct WordDetailsContentView: View {
     private func showDeleteAlert() {
         AlertCenter.shared.showAlert(
             with: .deleteConfirmation(
-                title: Loc.Words.deleteWord.localized,
-                message: Loc.Words.deleteWordConfirmation.localized,
+                title: Loc.Words.deleteWord,
+                message: Loc.Words.deleteWordConfirmation,
                 onCancel: {
                     AnalyticsService.shared.logEvent(.wordRemovingCanceled)
                 },
@@ -387,7 +387,7 @@ struct WordDetailsContentView: View {
         do {
             try WordsProvider.shared.deleteWord(with: id)
         } catch {
-            errorReceived(title: Loc.WordDetails.deleteFailed.localized, error)
+            errorReceived(title: Loc.Words.WordDetails.deleteFailed, error)
         }
     }
 

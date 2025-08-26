@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "單詞";
-"tabbar.idioms" = "成語";
 "tabbar.quizzes" = "測驗";
 "tabbar.progress" = "進度";
 "tabbar.settings" = "設置";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "單詞詳情";
-"navigation.idiom_details" = "成語詳情";
-"navigation.add_tags" = "添加標籤";
-"navigation.about" = "關於";
-"navigation.debug_panel" = "調試面板";
-"navigation.quiz_results" = "測驗結果";
-"navigation.spelling_quiz" = "拼寫測驗";
-"navigation.definition_quiz" = "定義測驗";
-"navigation.close" = "關閉";
-"navigation.close_screen" = "關閉屏幕";
+"word_details" = "單詞詳情";
+"idiom_details" = "成語詳情";
+"add_tags" = "添加標籤";
+"about" = "關於";
+"debug_panel" = "調試面板";
+"quiz_results" = "測驗結果";
+"spelling_quiz" = "拼寫測驗";
+"definition_quiz" = "定義測驗";
+"close" = "關閉";
+"close_screen" = "關閉屏幕";
 

@@ -23,7 +23,7 @@ struct AnalyticsView: View {
                 VStack(spacing: 16) {
                     LoaderView()
                         .frame(width: 32, height: 32)
-                    Text(Loc.Analytics.loadingProgressData.localized)
+                    Text(Loc.Analytics.loadingProgressData)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -53,7 +53,7 @@ struct AnalyticsView: View {
             }
         }
         .groupedBackground()
-        .navigation(title: Loc.Analytics.progress.localized, mode: .large)
+        .navigation(title: Loc.Analytics.progress, mode: .large)
         .refreshable {
             viewModel.refreshData()
         }
@@ -66,7 +66,7 @@ struct AnalyticsView: View {
     // MARK: - TTS Analytics Section
     
     private var ttsAnalyticsSection: some View {
-        CustomSectionView(header: Loc.TTS.usageStatistics.localized) {
+        CustomSectionView(header: Loc.Tts.usageStatistics) {
             TTSAnalyticsView()
         }
     }
@@ -74,23 +74,23 @@ struct AnalyticsView: View {
     // MARK: - Progress Overview Section
     
     private var progressOverviewSection: some View {
-        CustomSectionView(header: Loc.Analytics.overview.localized) {
+        CustomSectionView(header: Loc.Analytics.overview) {
             VStack(spacing: 12) {
                 HStack(spacing: 12) {
                     ProgressCard(
-                        title: Loc.Words.inProgress.localized,
+                        title: Loc.Words.inProgress,
                         value: "\(viewModel.progressSummary?.inProgress ?? 0)",
                         color: .orange,
                         icon: "clock"
                     )
                     ProgressCard(
-                        title: Loc.Words.mastered.localized,
+                        title: Loc.Words.mastered,
                         value: "\(viewModel.progressSummary?.mastered ?? 0)",
                         color: .accent,
                         icon: "checkmark.circle"
                     )
                     ProgressCard(
-                        title: Loc.Words.needsReview.localized,
+                        title: Loc.Words.needsReview,
                         value: "\(viewModel.progressSummary?.needsReview ?? 0)",
                         color: .red,
                         icon: "exclamationmark.triangle"
@@ -98,24 +98,24 @@ struct AnalyticsView: View {
                 }
                 HStack(spacing: 12) {
                     StatCard(
-                        title: Loc.Analytics.practiceTime.localized,
+                        title: Loc.Analytics.practiceTime,
                         value: viewModel.totalPracticeTimeFormatted,
                         icon: "clock.fill"
                     )
 
                     StatCard(
-                        title: Loc.Analytics.accuracy.localized,
+                        title: Loc.Analytics.accuracy,
                         value: viewModel.averageAccuracyFormatted,
                         icon: "target"
                     )
 
                     StatCard(
-                        title: Loc.Analytics.sessions.localized,
+                        title: Loc.Analytics.sessions,
                         value: "\(viewModel.progressSummary?.totalSessions ?? 0)",
                         icon: "play.circle"
                     )
                 }
-                .reservedForPro(message: Loc.ProUpgrade.upgradeToProProgressDetails.localized)
+                .reservedForPro(message: Loc.Subscription.ProUpgrade.upgradeToProProgressDetails)
             }
         }
     }
@@ -123,12 +123,12 @@ struct AnalyticsView: View {
     // MARK: - Quiz Results Section
     
     private var quizResultsSection: some View {
-        CustomSectionView(header: Loc.Analytics.recentQuizResults.localized) {
+        CustomSectionView(header: Loc.Analytics.recentQuizResults) {
             if viewModel.quizSessions.isEmpty {
                 ContentUnavailableView(
-                    Loc.Analytics.noQuizResultsYet.localized,
+                    Loc.Analytics.noQuizResultsYet,
                     systemImage: "chart.bar",
-                    description: Text(Loc.Analytics.completeFirstQuizResults.localized)
+                    description: Text(Loc.Analytics.completeFirstQuizResults)
                 )
             } else {
                 LazyVStack(spacing: 12) {
@@ -138,7 +138,7 @@ struct AnalyticsView: View {
                 }
             }
         } trailingContent: {
-            HeaderButton(Loc.Analytics.allResults.localized, size: .small) {
+            HeaderButton(Loc.Analytics.allResults, size: .small) {
                 if subscriptionService.isProUser {
                     viewModel.output.send(.showQuizResultsList)
                 } else {
@@ -151,23 +151,23 @@ struct AnalyticsView: View {
     // MARK: - Vocabulary Growth Section
     
     private var vocabularyGrowthSection: some View {
-        CustomSectionView(header: Loc.Analytics.vocabularyGrowth.localized) {
+        CustomSectionView(header: Loc.Analytics.vocabularyGrowth) {
             if viewModel.vocabularyGrowthData.isEmpty {
                 ContentUnavailableView(
-                    Loc.Analytics.noGrowthDataYet.localized,
+                    Loc.Analytics.noGrowthDataYet,
                     systemImage: "chart.line.uptrend.xyaxis",
-                    description: Text(Loc.Analytics.completeQuizzesGrowthData.localized)
+                    description: Text(Loc.Analytics.completeQuizzesGrowthData)
                 )
             } else {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(Loc.Analytics.lastTimePeriod.localized(viewModel.selectedTimePeriod.displayName.lowercased()))
+                    Text(Loc.Analytics.lastTimePeriod(viewModel.selectedTimePeriod.displayName.lowercased()))
                         .font(.caption)
                         .foregroundStyle(.secondary)
 
                     VocabularyLineChart(data: viewModel.vocabularyGrowthData)
                         .frame(height: 200)
                 }
-                .reservedForPro(message: Loc.ProUpgrade.upgradeToProVocabularyGrowth.localized)
+                .reservedForPro(message: Loc.Subscription.ProUpgrade.upgradeToProVocabularyGrowth)
             }
         } trailingContent: {
             if subscriptionService.isProUser {
@@ -175,7 +175,7 @@ struct AnalyticsView: View {
                     viewModel.selectedTimePeriod.displayName,
                     size: .small
                 ) {
-                    Picker(Loc.ProUpgrade.timePeriod.localized, selection: $viewModel.selectedTimePeriod) {
+                    Picker(Loc.Subscription.ProUpgrade.timePeriod, selection: $viewModel.selectedTimePeriod) {
                         ForEach(TimePeriod.allCases, id: \.self) { period in
                             Text(period.displayName).tag(period)
                         }

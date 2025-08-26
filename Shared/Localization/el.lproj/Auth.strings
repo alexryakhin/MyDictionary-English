@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Συνδέσου πριν εγγραφείς";
+"sign_in_with_google" = "Σύνδεση με Google";
+"can_always_sign_in_later" = "Μπορείς πάντα να συνδεθείς αργότερα από τις ρυθμίσεις";
+"link_additional_accounts" = "Σύνδεση Πρόσθετων Λογαριασμών";
+"accounts_linked_successfully" = "Οι λογαριασμοί συνδέθηκαν με επιτυχία";
+"sign_out_confirmation" = "Αποσύνδεση";
+"your_words_are_safe" = "Οι λέξεις σου είναι ασφαλείς";
+"cloud_sync_disabled" = "Ο συγχρονισμός στο cloud θα απενεργοποιηθεί";
+"sign_out" = "Αποσύνδεση";
+"no_worries_wont_remove_words" = "Μην ανησυχείς! Δεν θα διαγράψουμε τις λέξεις σου.";
+"vocabulary_stay_on_device" = "Το λεξιλόγιό σου παραμένει σε αυτή τη συσκευή. Αν συνδεθείς με διαφορετικό λογαριασμό, τα δεδομένα σου θα συγχωνευθούν.";
+"all_vocabulary_remain_device" = "Όλες οι λέξεις, οι ορισμοί και η πρόοδός σου παραμένουν σε αυτή τη συσκευή. Μπορείς να συνεχίσεις να χρησιμοποιείς την εφαρμογή χωρίς σύνδεση.";
+"word_lists_shared_data_cleared" = "Οι λίστες λέξεων και τα κοινόχρηστα δεδομένα θα εκκαθαριστούν. Αν συνδεθείς με διαφορετικό λογαριασμό, οι τοπικές σου λέξεις θα συγχωνευθούν με τα δεδομένα του νέου λογαριασμού.";
+"sign_in_to_access_word_lists" = "Συνδέσου για να αποκτήσεις πρόσβαση στις λίστες λέξεων σου σε όλες τις συσκευές και να συνεργαστείς με άλλους.";
+"link_google" = "Σύνδεση με Google";
+"link_apple" = "Σύνδεση με Apple";
+"sign_in_to_sync_word_lists" = "Συνδέσου για να συγχρονίσεις τις λίστες λέξεων";
+"sign_out_error_title" = "Ουπς!";
+"sign_out_error_message" = "Κάτι πήγε στραβά κατά την αποσύνδεση. Προσπάθησε ξανά αργότερα.";
+"sign_in_required_for_restore" = "Απαιτείται σύνδεση για την επαναφορά των αγορών σου.";
+"sign_in_required_for_pro_features" = "Απαιτείται σύνδεση για την πρόσβαση σε λειτουργίες Pro, όπως το %@.";
+"sign_in_failed" = "Η σύνδεση απέτυχε. Προσπάθησε ξανά.";
+"sign_out_failed" = "Η αποσύνδεση απέτυχε. Προσπάθησε ξανά.";
+"user_not_found" = "Ο χρήστης δεν βρέθηκε.";
+"network_error" = "Σφάλμα δικτύου. Ελέγξτε τη σύνδεσή σας.";
+"account_linking_failed" = "Η σύνδεση λογαριασμού απέτυχε. Προσπάθησε ξανά.";
+
+// Registration Benefits
+"registration_benefits" = "Πλεονεκτήματα Εγγραφής";
+"access_subscription_all_devices" = "Πρόσβαση στη συνδρομή σου σε όλες τις συσκευές σου";
+"sync_progress_cross_platform" = "Συγχρονισμός της προόδου σου μεταξύ iOS και Android";
+"backup_data_securely" = "Ασφαλής δημιουργία αντιγράφων ασφαλείας των δεδομένων σου στο cloud";
+"register_anytime_from_settings" = "Μπορείς να εγγραφείς οποιαδήποτε στιγμή από τις Ρυθμίσεις για να ενεργοποιήσεις αυτές τις λειτουργίες";
+"account_registration" = "Εγγραφή Λογαριασμού";
+"register_for_cross_platform_access" = "Εγγράψου για πρόσβαση στη συνδρομή σου σε όλες τις συσκευές σου και συγχρονισμό της προόδου σου";
+"active_subscription_notification" = "Έχεις ενεργή συνδρομή!";
+"register_to_unlock_cross_platform" = "Εγγράψου για να ξεκλειδώσεις την πρόσβαση διαπλατφορμικά";
+"register_now" = "Εγγραφή Τώρα";
+
+// Subscription Security
+"subscription_access_restricted" = "Πρόσβαση Συνδρομής Περιορισμένη";
+"subscription_associated_different_account" = "Αυτή η συνδρομή συνδέεται με διαφορετικό λογαριασμό. Συνδέσου με τον λογαριασμό που αγόρασε αυτή τη συνδρομή για πρόσβαση στις λειτουργίες Pro.";
+
+// Profile
+"profile" = "Προφίλ";
+"account_linking" = "Σύνδεση Λογαριασμών";
+"account_linking_description" = "Για πρόσβαση στη συνδρομή σου σε συσκευές Android, πρέπει να συνδέσεις έναν λογαριασμό Google. Για κοινή χρήση συνδρομών διαπλατφορμικά, συνδέστε και τους δύο λογαριασμούς.";
+"link_google_for_android" = "Σύνδεση Λογαριασμού Google";
+"link_apple_for_cross_platform" = "Σύνδεση Apple ID";
+"current_account" = "Τρέχων Λογαριασμός";
+"linked_accounts" = "Συνδεδεμένοι Λογαριασμοί";
+"no_linked_accounts" = "Κανένας συνδεδεμένος λογαριασμός";
+
+"cross_platform_button_description" = "Για κοινή χρήση συνδρομής μεταξύ πλατφορμών";
+"nickname" = "Ψευδώνυμο";
+"nickname_current" = "Τρέχον ψευδώνυμο";
+"nickname_not_set" = "Το ψευδώνυμο δεν έχει οριστεί";
+"nickname_description" = "Ορίστε ένα μοναδικό ψευδώνυμο που μπορούν να χρησιμοποιήσουν άλλοι για να σας βρουν και να σας προσθέσουν σε κοινόχρηστα λεξικά. Είναι πιο βολικό από τη χρήση διευθύνσεων email.";
+"edit_nickname" = "Επεξεργασία ψευδωνύμου";
+"nickname_cannot_be_empty" = "Το ψευδώνυμο δεν μπορεί να είναι κενό";
+"nickname_already_taken" = "Αυτό το ψευδώνυμο είναι ήδη κατειλημμένο. Επιλέξτε άλλο.";
+"nickname_invalid_format" = "Το ψευδώνυμο μπορεί να περιέχει μόνο γράμματα, αριθμούς και κάτω παύλες.";
+"search_method" = "Μέθοδος αναζήτησης";
+"find_user_by_email" = "Βρείτε χρήστη μέσω email";
+"find_user_by_nickname" = "Βρείτε χρήστη μέσω ψευδωνύμου";
+"enter_email_address" = "Εισαγάγετε διεύθυνση email";
+"enter_nickname" = "Εισαγάγετε ψευδώνυμο";
+"found_user" = "Ο χρήστης βρέθηκε";
+"user_not_found" = "Ο χρήστης δεν βρέθηκε";
+"user_not_found_message" = "Δεν βρέθηκε χρήστης με τις παρεχόμενες πληροφορίες. Ελέγξτε την αναζήτησή σας και δοκιμάστε ξανά.";
+
+"enter_name" = "Εισαγάγετε όνομα";
+"search_by" = "Αναζήτηση με";
+"unknown_user" = "Άγνωστος χρήστης";
+"email" = "Email";
+"apple_id" = "Apple ID";
+"google_account" = "Λογαριασμός Google";
+
+

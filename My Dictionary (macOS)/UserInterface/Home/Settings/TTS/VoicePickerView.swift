@@ -28,13 +28,13 @@ struct VoicePickerView: View {
                 }
         } navigationBar: {
             NavigationBarView(
-                title: Loc.TTS.selectVoice.localized,
+                title: Loc.Tts.Filters.selectVoice,
                 mode: .large,
                 showsDismissButton: true,
                 bottomContent: {
                     VStack(spacing: 8) {
                         InputView.searchView(
-                            Loc.Actions.search.localized,
+                            Loc.Actions.search,
                             searchText: $searchText
                         )
                         FilterView(
@@ -55,16 +55,16 @@ struct VoicePickerView: View {
     // MARK: - Voice List
 
     private var voiceList: some View {
-        CustomSectionView(header: Loc.TTS.availableVoices.localized) {
+        CustomSectionView(header: Loc.Tts.Filters.availableVoices) {
             Group {
                 if filteredVoices.isEmpty {
                     ContentUnavailableView(
-                        Loc.TTS.noVoicesFound.localized,
+                        Loc.Tts.Filters.noVoicesFound,
                         systemImage: "speaker.slash",
                         description: Text(
                             searchText.isEmpty
-                            ? Loc.TTS.noVoicesAvailable.localized
-                            : Loc.TTS.noVoicesAvailable.localized
+                            ? Loc.Tts.Filters.noVoicesAvailable
+                            : Loc.Tts.Filters.noVoicesAvailable
                         )
                     )
                 } else {
@@ -254,9 +254,9 @@ struct VoicePickerView: View {
         private func tagDisplayName(for tag: String) -> String {
             let components = tag.split(separator: ":", maxSplits: 1)
             if components.count == 2 {
-                return String(components[1]).localized
+                return String(components[1])
             }
-            return tag.localized
+            return tag
         }
     }
 }
@@ -275,12 +275,12 @@ private struct FilterView: View {
 
         var displayName: String {
             switch self {
-            case .languages: Loc.TTS.allLanguages.localized
-            case .genders: Loc.TTS.allGenders.localized
-            case .useCases: Loc.TTS.allUseCases.localized
-            case .ages: Loc.TTS.allAges.localized
-            case .timbres: Loc.TTS.allTimbres.localized
-            case .accents: Loc.TTS.allAccents.localized
+            case .languages: Loc.Tts.Filters.allLanguages
+            case .genders: Loc.Tts.Filters.allGenders
+            case .useCases: Loc.Tts.Filters.allUseCases
+            case .ages: Loc.Tts.Filters.allAges
+            case .timbres: Loc.Tts.Filters.allTimbres
+            case .accents: Loc.Tts.Filters.allAccents
             }
         }
     }
@@ -360,7 +360,7 @@ private struct FilterView: View {
                     }
                 }
                 HeaderButtonMenu(
-                    selectedGender?.localized ?? FilterView.All.genders.displayName,
+                    selectedGender?.localizedTtsFilter ?? FilterView.All.genders.displayName,
                     color: genderColor,
                     size: .small
                 ) {
@@ -368,14 +368,14 @@ private struct FilterView: View {
                         Text(FilterView.All.genders.displayName)
                             .tag(String?.none)
                         ForEach(availableGenders, id: \.self) { gender in
-                            Text(gender.localized).tag(gender)
+                            Text(gender.localizedTtsFilter).tag(gender)
                         }
                     }
                     .pickerStyle(.inline)
                 }
                 
                 HeaderButtonMenu(
-                    selectedUseCase?.localized ?? FilterView.All.useCases.displayName,
+                    selectedUseCase?.localizedTtsFilter ?? FilterView.All.useCases.displayName,
                     color: .systemIndigo,
                     size: .small
                 ) {
@@ -383,14 +383,14 @@ private struct FilterView: View {
                         Text(FilterView.All.useCases.displayName)
                             .tag(String?.none)
                         ForEach(availableUseCases, id: \.self) { useCase in
-                            Text(useCase.localized).tag(useCase)
+                            Text(useCase.localizedTtsFilter).tag(useCase)
                         }
                     }
                     .pickerStyle(.inline)
                 }
                 
                 HeaderButtonMenu(
-                    selectedAge?.localized ?? FilterView.All.ages.displayName,
+                    selectedAge?.localizedTtsFilter ?? FilterView.All.ages.displayName,
                     color: .systemPurple,
                     size: .small
                 ) {
@@ -398,14 +398,14 @@ private struct FilterView: View {
                         Text(FilterView.All.ages.displayName)
                             .tag(String?.none)
                         ForEach(availableAges, id: \.self) { age in
-                            Text(age.localized).tag(age)
+                            Text(age.localizedTtsFilter).tag(age)
                         }
                     }
                     .pickerStyle(.inline)
                 }
                 
                 HeaderButtonMenu(
-                    selectedTimbre?.localized ?? FilterView.All.timbres.displayName,
+                    selectedTimbre?.localizedTtsFilter ?? FilterView.All.timbres.displayName,
                     color: .systemOrange,
                     size: .small
                 ) {
@@ -413,14 +413,14 @@ private struct FilterView: View {
                         Text(FilterView.All.timbres.displayName)
                             .tag(String?.none)
                         ForEach(availableTimbres, id: \.self) { timbre in
-                            Text(timbre.localized).tag(timbre)
+                            Text(timbre.localizedTtsFilter).tag(timbre)
                         }
                     }
                     .pickerStyle(.inline)
                 }
                 
                 HeaderButtonMenu(
-                    selectedAccent?.localized ?? FilterView.All.accents.displayName,
+                    selectedAccent?.localizedTtsFilter ?? FilterView.All.accents.displayName,
                     color: .brown,
                     size: .small
                 ) {
@@ -428,7 +428,7 @@ private struct FilterView: View {
                         Text(FilterView.All.accents.displayName)
                             .tag(String?.none)
                         ForEach(availableAccents, id: \.self) { accent in
-                            Text(accent.localized)
+                            Text(accent.localizedTtsFilter)
                                 .tag(accent)
                         }
                     }
@@ -443,3 +443,22 @@ private struct FilterView: View {
         return Locale.current.localizedString(forIdentifier: language) ?? language
     }
 }
+
+private extension String {
+    var localizedTtsFilter: String {
+        let format = BundleToken.bundle.localizedString(forKey: self, value: self, table: "TTS")
+        return String(format: format, locale: Locale.current)
+    }
+}
+
+// swiftlint:disable convenience_type
+private final class BundleToken {
+  static let bundle: Bundle = {
+    #if SWIFT_PACKAGE
+    return Bundle.module
+    #else
+    return Bundle(for: BundleToken.self)
+    #endif
+  }()
+}
+// swiftlint:enable convenience_type

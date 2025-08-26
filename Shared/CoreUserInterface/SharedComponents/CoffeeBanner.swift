@@ -49,13 +49,13 @@ struct CoffeeBanner: View {
                 }
                 
                 VStack(spacing: 8) {
-                    Text(Loc.Coffee.enjoyingTheApp.localized)
+                    Text(Loc.Coffee.enjoyingTheApp)
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundStyle(.primary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Text(Loc.Coffee.helpfulLearningJourney.localized)
+                    Text(Loc.Coffee.helpfulLearningJourney)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -67,13 +67,13 @@ struct CoffeeBanner: View {
 
             // Action buttons
             VStack(spacing: 12) {
-                ActionButton(Loc.Coffee.buyMeACoffee.localized, systemImage: "cup.and.saucer.fill", color: .orange, style: .borderedProminent) {
+                ActionButton(Loc.Coffee.buyMeACoffee, systemImage: "cup.and.saucer.fill", color: .orange, style: .borderedProminent) {
                     openURL(GlobalConstant.buyMeACoffeeUrl)
                     sessionManager.markCoffeeBannerShown()
                     AnalyticsService.shared.logEvent(.coffeeBannerTapped)
                     dismiss()
                 }
-                ActionButton(Loc.Coffee.maybeLater.localized) {
+                ActionButton(Loc.Coffee.maybeLater) {
                     sessionManager.markCoffeeBannerDismissed()
                     AnalyticsService.shared.logEvent(.coffeeBannerDismissed)
                     dismiss()

@@ -35,27 +35,27 @@ enum Quiz: String, CaseIterable, Identifiable {
     var title: String {
         switch self {
         case .spelling:
-            return Loc.QuizTypes.spellingQuiz.localized
+            return Loc.Quizzes.QuizTypes.spellingQuiz
         case .chooseDefinition:
-            return Loc.QuizTypes.chooseDefinition.localized
+            return Loc.Quizzes.QuizTypes.chooseDefinition
         }
     }
 
     var description: String {
         switch self {
         case .spelling:
-            return Loc.QuizTypes.testSpellingSkills.localized
+            return Loc.Quizzes.QuizTypes.testSpellingSkills
         case .chooseDefinition:
-            return Loc.QuizTypes.selectCorrectDefinition.localized
+            return Loc.Quizzes.QuizTypes.selectCorrectDefinition
         }
     }
 
     var completionDescription: String {
         switch self {
         case .spelling:
-            return Loc.QuizTypes.greatJobCompletedSpellingQuiz.localized
+            return Loc.Quizzes.QuizTypes.greatJobCompletedSpellingQuiz
         case .chooseDefinition:
-            return Loc.QuizTypes.greatJobCompletedDefinitionQuiz.localized
+            return Loc.Quizzes.QuizTypes.greatJobCompletedDefinitionQuiz
         }
     }
 }

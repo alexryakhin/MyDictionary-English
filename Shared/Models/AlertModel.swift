@@ -51,7 +51,7 @@ struct AlertModel: Equatable {
     static func info(
         title: String,
         message: String? = nil,
-        actionText: String = Loc.Actions.ok.localized,
+        actionText: String = Loc.Actions.ok,
         action: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
@@ -66,7 +66,7 @@ struct AlertModel: Equatable {
     static func warning(
         title: String,
         message: String? = nil,
-        actionText: String = Loc.Actions.ok.localized,
+        actionText: String = Loc.Actions.ok,
         action: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
@@ -79,9 +79,9 @@ struct AlertModel: Equatable {
 
     /// Error alert
     static func error(
-        title: String = Loc.App.oops,
+        title: String = Loc.Errors.oops,
         message: String,
-        actionText: String = Loc.Actions.ok.localized,
+        actionText: String = Loc.Actions.ok,
         action: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
@@ -96,8 +96,8 @@ struct AlertModel: Equatable {
     static func confirmation(
         title: String,
         message: String? = nil,
-        cancelText: String = Loc.Actions.cancel.localized,
-        confirmText: String = Loc.Actions.confirm.localized,
+        cancelText: String = Loc.Actions.cancel,
+        confirmText: String = Loc.Actions.confirm,
         onCancel: @escaping VoidHandler = {},
         onConfirm: @escaping VoidHandler = {}
     ) -> AlertModel {
@@ -115,7 +115,7 @@ struct AlertModel: Equatable {
     static func choice(
         title: String,
         message: String? = nil,
-        cancelText: String = Loc.Actions.cancel.localized,
+        cancelText: String = Loc.Actions.cancel,
         primaryText: String,
         secondaryText: String,
         onCancel: @escaping VoidHandler = {},
@@ -136,10 +136,10 @@ struct AlertModel: Equatable {
 
     /// Delete confirmation alert
     static func deleteConfirmation(
-        title: String = Loc.Actions.delete.localized,
+        title: String = Loc.Actions.delete,
         message: String? = nil,
-        cancelText: String = Loc.Actions.cancel.localized,
-        deleteText: String = Loc.Actions.delete.localized,
+        cancelText: String = Loc.Actions.cancel,
+        deleteText: String = Loc.Actions.delete,
         onCancel: @escaping VoidHandler = {},
         onDelete: @escaping VoidHandler = {}
     ) -> AlertModel {

@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "सभी उपयोग के मामले";
-"tts.filters.all_ages" = "सभी आयु";
-"tts.filters.all_timbres" = "सभी स्वर";
-"tts.filters.all_accents" = "सभी लहजे";
-"tts.filters.all_languages" = "सभी भाषाएँ";
-"tts.filters.all_genders" = "सभी लिंग";
-"tts.filters.filters" = "फ़िल्टर";
-"tts.filters.reset" = "रीसेट";
-"tts.filters.select_voice" = "आवाज़ चुनें";
-"tts.filters.available_voices" = "उपलब्ध आवाज़ें";
-"tts.filters.no_voices_available" = "कोई आवाज़ उपलब्ध नहीं";
-"tts.filters.no_voices_found" = "कोई आवाज़ नहीं मिली";
-"tts.filters.no_voices_found_message" = "अपनी खोज या फ़िल्टर को समायोजित करने का प्रयास करें";
+"filters.all_use_cases" = "सभी उपयोग के मामले";
+"filters.all_ages" = "सभी आयु";
+"filters.all_timbres" = "सभी स्वर";
+"filters.all_accents" = "सभी लहजे";
+"filters.all_languages" = "सभी भाषाएँ";
+"filters.all_genders" = "सभी लिंग";
+"filters.filters" = "फ़िल्टर";
+"filters.reset" = "रीसेट";
+"filters.select_voice" = "आवाज़ चुनें";
+"filters.available_voices" = "उपलब्ध आवाज़ें";
+"filters.no_voices_available" = "कोई आवाज़ उपलब्ध नहीं";
+"filters.no_voices_found" = "कोई आवाज़ नहीं मिली";
+"filters.no_voices_found_message" = "अपनी खोज या फ़िल्टर को समायोजित करने का प्रयास करें";
 
-"tts.usage.monthly_limit_exceeded" = "मासिक सीमा पार हो गई";
-"tts.usage.monthly_limit_exceeded_message" = "आप Speechify TTS के लिए 50,000 अक्षरों की मासिक सीमा तक पहुँच चुके हैं। कृपया अगले महीने फिर से प्रयास करें या इसके बजाय Google TTS का उपयोग करें।";
-"tts.usage.remaining_characters" = "शेष अक्षर";
-"tts.usage.monthly_usage" = "मासिक उपयोग";
-"tts.usage.monthly_limit" = "मासिक सीमा";
+"usage.monthly_limit_exceeded" = "मासिक सीमा पार हो गई";
+"usage.monthly_limit_exceeded_message" = "आप Speechify TTS के लिए 50,000 अक्षरों की मासिक सीमा तक पहुँच चुके हैं। कृपया अगले महीने फिर से प्रयास करें या इसके बजाय Google TTS का उपयोग करें।";
+"usage.remaining_characters" = "शेष अक्षर";
+"usage.monthly_usage" = "मासिक उपयोग";
+"usage.monthly_limit" = "मासिक सीमा";
 
 // TTS Voice Filter Values
 "advertisement" = "विज्ञापन";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "TTS डैशबोर्ड";
-"tts.premium_tts_dashboard" = "प्रीमियम TTS डैशबोर्ड";
-"tts.customize_tts_experience" = "अपने टेक्स्ट-टू-स्पीच अनुभव को अनुकूलित करें";
-"tts.playing" = "चल रहा है";
-"tts.ready" = "तैयार";
-"tts.provider" = "प्रदाता";
-"tts.tts_provider" = "TTS प्रदाता";
-"tts.voice_customization" = "आवाज़ अनुकूलन";
-"tts.current_voice" = "वर्तमान आवाज़";
-"tts.default_voice" = "डिफ़ॉल्ट आवाज़";
-"tts.preview_current_voice" = "वर्तमान आवाज़ का पूर्वावलोकन";
-"tts.change_voice" = "आवाज़ बदलें";
-"tts.audio_settings" = "ऑडियो सेटिंग्स";
-"tts.speech_rate" = "बोलने की गति";
-"tts.volume" = "आवाज़ की तीव्रता";
-"tts.test_your_settings" = "अपनी सेटिंग्स का परीक्षण करें";
-"tts.enter_text_to_test" = "परीक्षण के लिए टेक्स्ट दर्ज करें...";
-"tts.stop" = "रोकें";
-"tts.test" = "परीक्षण";
-"tts.usage_statistics" = "उपयोग आँकड़े";
-"tts.speechify_monthly_usage" = "Speechify मासिक उपयोग";
-"tts.monthly_limit" = "मासिक सीमा";
-"tts.used_this_month" = "इस महीने उपयोग किया गया";
-"tts.remaining" = "शेष";
-"tts.usage_progress" = "उपयोग प्रगति";
-"tts.characters" = "अक्षर";
+"dashboard" = "TTS डैशबोर्ड";
+"premium_tts_dashboard" = "प्रीमियम TTS डैशबोर्ड";
+"customize_tts_experience" = "अपने टेक्स्ट-टू-स्पीच अनुभव को अनुकूलित करें";
+"playing" = "चल रहा है";
+"ready" = "तैयार";
+"provider" = "प्रदाता";
+"tts_provider" = "TTS प्रदाता";
+"voice_customization" = "आवाज़ अनुकूलन";
+"current_voice" = "वर्तमान आवाज़";
+"default_voice" = "डिफ़ॉल्ट आवाज़";
+"preview_current_voice" = "वर्तमान आवाज़ का पूर्वावलोकन";
+"change_voice" = "आवाज़ बदलें";
+"audio_settings" = "ऑडियो सेटिंग्स";
+"speech_rate" = "बोलने की गति";
+"volume" = "आवाज़ की तीव्रता";
+"test_your_settings" = "अपनी सेटिंग्स का परीक्षण करें";
+"enter_text_to_test" = "परीक्षण के लिए टेक्स्ट दर्ज करें...";
+"stop" = "रोकें";
+"test" = "परीक्षण";
+"usage_statistics" = "उपयोग आँकड़े";
+"speechify_monthly_usage" = "Speechify मासिक उपयोग";
+"monthly_limit" = "मासिक सीमा";
+"used_this_month" = "इस महीने उपयोग किया गया";
+"remaining" = "शेष";
+"usage_progress" = "उपयोग प्रगति";
+"characters" = "अक्षर";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "उपयोग किए गए अक्षर";
-"tts.analytics.sessions" = "सत्र";
-"tts.analytics.favorite_voice" = "पसंदीदा आवाज़";
-"tts.analytics.time_saved" = "बचाया गया समय";
-"tts.analytics.total_characters" = "कुल अक्षर";
-"tts.analytics.total_sessions" = "कुल सत्र";
-"tts.analytics.total_duration" = "कुल अवधि";
-"tts.analytics.favorite_language" = "पसंदीदा भाषा";
-"tts.analytics.premium_usage" = "प्रीमियम उपयोग";
+"analytics.characters_used" = "उपयोग किए गए अक्षर";
+"analytics.sessions" = "सत्र";
+"analytics.favorite_voice" = "पसंदीदा आवाज़";
+"analytics.time_saved" = "बचाया गया समय";
+"analytics.total_characters" = "कुल अक्षर";
+"analytics.total_sessions" = "कुल सत्र";
+"analytics.total_duration" = "कुल अवधि";
+"analytics.favorite_language" = "पसंदीदा भाषा";
+"analytics.premium_usage" = "प्रीमियम उपयोग";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "टेक्स्ट-टू-स्पीच";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechify का टेक्स्ट-टू-स्पीच मॉडल सभी उपयोगकर्ताओं के लिए प्रीमियम सुविधा के रूप में उपलब्ध है। यह आपको विभिन्न आवाज़ों और लहजों में से चुनने की अनुमति देता है, ताकि आप अपनी अध्ययन अनुभव को अनुकूलित कर सकें।";
-"tts.settings.speechify_pro_description" = "Speechify का टेक्स्ट-टू-स्पीच मॉडल आपके सदस्यता में शामिल है।";
-"tts.settings.dashboard" = "डैशबोर्ड";
-"tts.pro" = "प्रो";
-"tts.free_google_tts_description" = "मुफ्त Google TTS मूल आवाज़ों और विश्वसनीय प्रदर्शन के साथ";
+"settings.text_to_speech" = "टेक्स्ट-टू-स्पीच";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Speechify का टेक्स्ट-टू-स्पीच मॉडल सभी उपयोगकर्ताओं के लिए प्रीमियम सुविधा के रूप में उपलब्ध है। यह आपको विभिन्न आवाज़ों और लहजों में से चुनने की अनुमति देता है, ताकि आप अपनी अध्ययन अनुभव को अनुकूलित कर सकें।";
+"settings.speechify_pro_description" = "Speechify का टेक्स्ट-टू-स्पीच मॉडल आपके सदस्यता में शामिल है।";
+"settings.dashboard" = "डैशबोर्ड";
+"pro" = "प्रो";
+"free_google_tts_description" = "मुफ्त Google TTS मूल आवाज़ों और विश्वसनीय प्रदर्शन के साथ";
 
 // TTS Models
-"tts.models.english" = "अंग्रेजी";
-"tts.models.multilingual" = "बहुभाषी";
-"tts.models.english_description" = "Speechify का अंग्रेजी टेक्स्ट-टू-स्पीच मॉडल मानक क्षमताएँ प्रदान करता है जो टेक्स्ट पढ़ने के लिए स्पष्ट और प्राकृतिक आवाज़ आउटपुट प्रदान करने के लिए डिज़ाइन किया गया है। यह मॉडल एक सुसंगत उपयोगकर्ता अनुभव प्रदान करने पर केंद्रित है।";
-"tts.models.multilingual_description" = "बहुभाषी मॉडल सभी समर्थित भाषाओं के उपयोग की अनुमति देता है और एक ही वाक्य में कई भाषाओं का उपयोग करने का समर्थन करता है। इस मॉडल का ऑडियो आउटपुट अन्य मॉडलों से स्पष्ट रूप से भिन्न है।";
+"models.english" = "अंग्रेजी";
+"models.multilingual" = "बहुभाषी";
+"models.english_description" = "Speechify का अंग्रेजी टेक्स्ट-टू-स्पीच मॉडल मानक क्षमताएँ प्रदान करता है जो टेक्स्ट पढ़ने के लिए स्पष्ट और प्राकृतिक आवाज़ आउटपुट प्रदान करने के लिए डिज़ाइन किया गया है। यह मॉडल एक सुसंगत उपयोगकर्ता अनुभव प्रदान करने पर केंद्रित है।";
+"models.multilingual_description" = "बहुभाषी मॉडल सभी समर्थित भाषाओं के उपयोग की अनुमति देता है और एक ही वाक्य में कई भाषाओं का उपयोग करने का समर्थन करता है। इस मॉडल का ऑडियो आउटपुट अन्य मॉडलों से स्पष्ट रूप से भिन्न है।";
 
 // MARK: - English Accents
 "english_accents.australian" = "ऑस्ट्रेलियाई";

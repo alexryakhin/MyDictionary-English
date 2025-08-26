@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Gestisci Tag";
-"tags.tags_help_text" = "I tag ti aiutano a organizzare le tue parole. Ogni parola può avere fino a 5 tag.";
-"tags.no_tags_yet" = "Nessun tag aggiunto ancora";
-"tags.add_first_tag" = "Aggiungi il tuo primo tag cliccando sul pulsante sopra.";
-"tags.add_tag" = "Aggiungi Tag";
-"tags.add_first_tag_description" = "Aggiungi il tuo primo tag cliccando sul pulsante sopra.";
-"tags.add_tag_to_start_using" = "Aggiungi un tag per iniziare a usarlo.";
-"tags.add_tags" = "Aggiungi Tag";
-"tags.create_tags" = "Crea Tag";
-"tags.delete_tag" = "Elimina Tag";
-"tags.delete_tag_confirmation" = "Sei sicuro di voler eliminare questo tag?";
-"tags.delete_tag_cannot_undo" = "Questa azione non può essere annullata.";
-"tags.tag_name" = "Nome del Tag";
-"tags.tag_name_help" = "Scegli un nome descrittivo per il tuo tag";
-"tags.type_tag_name" = "Digita il nome del tag...";
-"tags.tag_color" = "Colore del Tag";
-"tags.tag_color_help" = "Scegli un colore per rendere il tuo tag facilmente riconoscibile";
-"tags.edit_tag" = "Modifica Tag";
-"tags.new_tag" = "Nuovo Tag";
-"tags.tag_management_error" = "Errore nella Gestione dei Tag";
+"manage_tags" = "Gestisci Tag";
+"tags_help_text" = "I tag ti aiutano a organizzare le tue parole. Ogni parola può avere fino a 5 tag.";
+"no_tags_yet" = "Nessun tag aggiunto ancora";
+"add_first_tag" = "Aggiungi il tuo primo tag cliccando sul pulsante sopra.";
+"add_tag" = "Aggiungi Tag";
+"add_first_tag_description" = "Aggiungi il tuo primo tag cliccando sul pulsante sopra.";
+"add_tag_to_start_using" = "Aggiungi un tag per iniziare a usarlo.";
+"add_tags" = "Aggiungi Tag";
+"create_tags" = "Crea Tag";
+"delete_tag" = "Elimina Tag";
+"delete_tag_confirmation" = "Sei sicuro di voler eliminare questo tag?";
+"delete_tag_cannot_undo" = "Questa azione non può essere annullata.";
+"tag_name" = "Nome del Tag";
+"tag_name_help" = "Scegli un nome descrittivo per il tuo tag";
+"type_tag_name" = "Digita il nome del tag...";
+"tag_color" = "Colore del Tag";
+"tag_color_help" = "Scegli un colore per rendere il tuo tag facilmente riconoscibile";
+"edit_tag" = "Modifica Tag";
+"new_tag" = "Nuovo Tag";
+"tag_management_error" = "Errore nella Gestione dei Tag";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Seleziona Tag";

@@ -25,7 +25,7 @@ struct SignOutConfirmationView: View {
                         .foregroundStyle(.accent)
                 }
 
-                Text(Loc.Auth.signOut.localized)
+                Text(Loc.Auth.signOut)
                     .font(.title2)
                     .fontWeight(.semibold)
             }
@@ -39,12 +39,12 @@ struct SignOutConfirmationView: View {
                             .foregroundStyle(.accent)
                             .font(.title3)
 
-                        Text(Loc.Auth.yourWordsAreSafe.localized)
+                        Text(Loc.Auth.yourWordsAreSafe)
                             .font(.headline)
                             .fontWeight(.medium)
                     }
 
-                    Text(Loc.Auth.allVocabularyRemainDevice.localized)
+                    Text(Loc.Auth.allVocabularyRemainDevice)
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.leading)
@@ -58,12 +58,12 @@ struct SignOutConfirmationView: View {
                             .foregroundStyle(.orange)
                             .font(.title3)
 
-                        Text(Loc.Auth.cloudSyncDisabled.localized)
+                        Text(Loc.Auth.cloudSyncDisabled)
                             .font(.headline)
                             .fontWeight(.medium)
                     }
 
-                    Text(Loc.Auth.wordListsSharedDataCleared.localized)
+                    Text(Loc.Auth.wordListsSharedDataCleared)
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.leading)
@@ -76,7 +76,7 @@ struct SignOutConfirmationView: View {
             // Action buttons
             VStack(spacing: 12) {
                 ActionButton(
-                    Loc.Auth.signOut.localized,
+                    Loc.Auth.signOut,
                     systemImage: "rectangle.portrait.and.arrow.right",
                     color: .red,
                     style: .borderedProminent
@@ -85,7 +85,7 @@ struct SignOutConfirmationView: View {
                     dismiss()
                 }
 
-                ActionButton(Loc.Actions.cancel.localized) {
+                ActionButton(Loc.Actions.cancel) {
                     dismiss()
                 }
             }

@@ -59,7 +59,7 @@ final class DictionaryService: ObservableObject {
         // Get current user info
         let currentUser = Auth.auth().currentUser
         let ownerCollaborator = Collaborator(
-            email: currentUser?.email ?? Loc.App.unknown.localized,
+            email: currentUser?.email ?? Loc.Errors.unknown,
             displayName: currentUser?.displayName,
             role: .owner
         )
@@ -79,7 +79,7 @@ final class DictionaryService: ObservableObject {
 
         // Add the owner as the first collaborator
         // Store with email as document ID for easier lookup in security rules
-        let ownerEmail = currentUser?.email ?? Loc.App.unknown.localized
+        let ownerEmail = currentUser?.email ?? Loc.Errors.unknown
         try await docRef
             .collection("collaborators")
             .document(ownerEmail)
@@ -237,7 +237,7 @@ final class DictionaryService: ObservableObject {
 
         let sharedWord = SharedWord(
             from: word,
-            addedByEmail: authenticationService.userEmail ?? Loc.App.unknown.localized,
+            addedByEmail: authenticationService.userEmail ?? Loc.Errors.unknown,
             addedByDisplayName: authenticationService.displayName
         )
 
@@ -875,17 +875,17 @@ enum DictionaryError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidInput:
-            return Loc.Errors.invalidInputProvided.localized
+            return Loc.Errors.invalidInputProvided
         case .permissionDenied:
-            return Loc.Errors.permissionDenied.localized
+            return Loc.Errors.permissionDenied
         case .dictionaryNotFound:
-            return Loc.Errors.dictionaryNotFound.localized
+            return Loc.Errors.dictionaryNotFound
         case .networkError:
-            return Loc.Errors.networkErrorOccurred.localized
+            return Loc.Errors.networkErrorOccurred
         case .userNotAuthenticated:
-            return Loc.Errors.userNotAuthenticated.localized
+            return Loc.Errors.userNotAuthenticated
         case .dictionaryLimitReached:
-            return Loc.Errors.dictionaryLimitReached.localized
+            return Loc.Errors.dictionaryLimitReached
         }
     }
 }

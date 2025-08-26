@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Inicia sessió abans de subscriure't";
+"sign_in_with_google" = "Inicia sessió amb Google";
+"can_always_sign_in_later" = "Sempre pots iniciar sessió més tard des de la configuració";
+"link_additional_accounts" = "Enllaça comptes addicionals";
+"accounts_linked_successfully" = "Comptes enllaçats amb èxit";
+"sign_out_confirmation" = "Tanca la sessió";
+"your_words_are_safe" = "Les teves paraules estan segures";
+"cloud_sync_disabled" = "La sincronització al núvol es desactivarà";
+"sign_out" = "Tanca la sessió";
+"no_worries_wont_remove_words" = "Cap preocupació! No eliminarem les teves paraules.";
+"vocabulary_stay_on_device" = "El teu vocabulari romandrà en aquest dispositiu. Si inicies sessió amb un altre compte, les teves dades es combinaran.";
+"all_vocabulary_remain_device" = "Totes les teves paraules de vocabulari, definicions i progrés romandran en aquest dispositiu. Pots continuar utilitzant l'aplicació sense connexió.";
+"word_lists_shared_data_cleared" = "Les llistes de paraules i les dades compartides s'esborraran. Si inicies sessió amb un altre compte, les teves paraules locals es combinaran amb les dades del nou compte.";
+"sign_in_to_access_word_lists" = "Inicia sessió per accedir a les teves llistes de paraules en tots els teus dispositius i col·laborar amb altres.";
+"link_google" = "Enllaça amb Google";
+"link_apple" = "Enllaça amb Apple";
+"sign_in_to_sync_word_lists" = "Inicia sessió per sincronitzar les teves llistes de paraules";
+"sign_out_error_title" = "Oh no!";
+"sign_out_error_message" = "Alguna cosa ha anat malament en tancar la sessió. Torna-ho a provar més tard.";
+"sign_in_required_for_restore" = "Cal que iniciïs sessió per restaurar les teves compres.";
+"sign_in_required_for_pro_features" = "Cal que iniciïs sessió per accedir a les funcions Pro com %@.";
+"sign_in_failed" = "No s'ha pogut iniciar la sessió. Torna-ho a provar.";
+"sign_out_failed" = "No s'ha pogut tancar la sessió. Torna-ho a provar.";
+"user_not_found" = "Usuari no trobat.";
+"network_error" = "Error de xarxa. Comprova la teva connexió.";
+"account_linking_failed" = "No s'han pogut enllaçar els comptes. Torna-ho a provar.";
+
+// Registration Benefits
+"registration_benefits" = "Avantatges del Registre";
+"access_subscription_all_devices" = "Accedeix a la teva subscripció a tots els teus dispositius";
+"sync_progress_cross_platform" = "Sincronitza el teu progrés entre iOS i Android";
+"backup_data_securely" = "Fes còpia de seguretat de les teves dades de forma segura al núvol";
+"register_anytime_from_settings" = "Pots registrar-te en qualsevol moment des de Configuració per activar aquestes funcions";
+"account_registration" = "Registre de Compte";
+"register_for_cross_platform_access" = "Registra't per accedir a la teva subscripció a tots els teus dispositius i sincronitzar el teu progrés";
+"active_subscription_notification" = "Tens una subscripció activa!";
+"register_to_unlock_cross_platform" = "Registra't per desbloquejar l'accés multiplataforma";
+"register_now" = "Registra't Ara";
+
+// Subscription Security
+"subscription_access_restricted" = "Accés a la Subscripció Restringit";
+"subscription_associated_different_account" = "Aquesta subscripció està associada a un compte diferent. Si us plau, inicia sessió amb el compte que ha comprat aquesta subscripció per accedir a les funcions Pro.";
+
+// Profile
+"profile" = "Perfil";
+"account_linking" = "Enllaç de Comptes";
+"account_linking_description" = "Per accedir a la teva subscripció a dispositius Android, necessites enllaçar un compte de Google. Per compartir subscripcions entre plataformes, enllaça ambdós comptes.";
+"link_google_for_android" = "Enllaça Compte de Google";
+"link_apple_for_cross_platform" = "Enllaça Apple ID";
+"current_account" = "Compte Actual";
+"linked_accounts" = "Comptes Enllaçats";
+"no_linked_accounts" = "Cap compte enllaçat";
+
+"cross_platform_button_description" = "Per compartir subscripcions entre plataformes";
+"nickname" = "Sobrenom";
+"nickname_current" = "Sobrenom actual";
+"nickname_not_set" = "Sobrenom no establert";
+"nickname_description" = "Estableix un sobrenom únic que altres poden utilitzar per trobar-te i afegir-te a diccionaris compartits. És més còmode que utilitzar adreces de correu electrònic.";
+"edit_nickname" = "Editar sobrenom";
+"nickname_cannot_be_empty" = "El sobrenom no pot estar buit";
+"nickname_already_taken" = "Aquest sobrenom ja està en ús. Tria un altre.";
+"nickname_invalid_format" = "El sobrenom només pot contenir lletres, números i guions baixos.";
+"search_method" = "Mètode de cerca";
+"find_user_by_email" = "Troba un usuari per correu electrònic";
+"find_user_by_nickname" = "Troba un usuari per sobrenom";
+"enter_email_address" = "Introdueix l'adreça de correu electrònic";
+"enter_nickname" = "Introdueix el sobrenom";
+"found_user" = "Usuari trobat";
+"user_not_found" = "Usuari no trobat";
+"user_not_found_message" = "No s'ha trobat cap usuari amb la informació proporcionada. Comprova la cerca i torna-ho a provar.";
+
+"enter_name" = "Introdueix el nom";
+"search_by" = "Cerca per";
+"unknown_user" = "Usuari desconegut";
+"email" = "Correu electrònic";
+"apple_id" = "Apple ID";
+"google_account" = "Compte de Google";
+
+

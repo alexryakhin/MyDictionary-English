@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "ทุกกรณีการใช้งาน";
-"tts.filters.all_ages" = "ทุกช่วงวัย";
-"tts.filters.all_timbres" = "ทุกโทนเสียง";
-"tts.filters.all_accents" = "ทุกสำเนียง";
-"tts.filters.all_languages" = "ทุกภาษา";
-"tts.filters.all_genders" = "ทุกเพศ";
-"tts.filters.filters" = "ตัวกรอง";
-"tts.filters.reset" = "รีเซ็ต";
-"tts.filters.select_voice" = "เลือกเสียง";
-"tts.filters.available_voices" = "เสียงที่ใช้ได้";
-"tts.filters.no_voices_available" = "ไม่มีเสียงที่ใช้ได้";
-"tts.filters.no_voices_found" = "ไม่พบเสียง";
-"tts.filters.no_voices_found_message" = "ลองปรับการค้นหาหรือตัวกรองของคุณ";
+"filters.all_use_cases" = "ทุกกรณีการใช้งาน";
+"filters.all_ages" = "ทุกช่วงวัย";
+"filters.all_timbres" = "ทุกโทนเสียง";
+"filters.all_accents" = "ทุกสำเนียง";
+"filters.all_languages" = "ทุกภาษา";
+"filters.all_genders" = "ทุกเพศ";
+"filters.filters" = "ตัวกรอง";
+"filters.reset" = "รีเซ็ต";
+"filters.select_voice" = "เลือกเสียง";
+"filters.available_voices" = "เสียงที่ใช้ได้";
+"filters.no_voices_available" = "ไม่มีเสียงที่ใช้ได้";
+"filters.no_voices_found" = "ไม่พบเสียง";
+"filters.no_voices_found_message" = "ลองปรับการค้นหาหรือตัวกรองของคุณ";
 
-"tts.usage.monthly_limit_exceeded" = "เกินขีดจำกัดรายเดือน";
-"tts.usage.monthly_limit_exceeded_message" = "คุณถึงขีดจำกัดรายเดือน 50,000 อักขระสำหรับ Speechify TTS แล้ว กรุณาลองอีกครั้งในเดือนหน้าหรือใช้ Google TTS แทน";
-"tts.usage.remaining_characters" = "อักขระที่เหลือ";
-"tts.usage.monthly_usage" = "การใช้งานรายเดือน";
-"tts.usage.monthly_limit" = "ขีดจำกัดรายเดือน";
+"usage.monthly_limit_exceeded" = "เกินขีดจำกัดรายเดือน";
+"usage.monthly_limit_exceeded_message" = "คุณถึงขีดจำกัดรายเดือน 50,000 อักขระสำหรับ Speechify TTS แล้ว กรุณาลองอีกครั้งในเดือนหน้าหรือใช้ Google TTS แทน";
+"usage.remaining_characters" = "อักขระที่เหลือ";
+"usage.monthly_usage" = "การใช้งานรายเดือน";
+"usage.monthly_limit" = "ขีดจำกัดรายเดือน";
 
 // TTS Voice Filter Values
 "advertisement" = "โฆษณา";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "แดชบอร์ด TTS";
-"tts.premium_tts_dashboard" = "แดชบอร์ด TTS พรีเมียม";
-"tts.customize_tts_experience" = "ปรับแต่งประสบการณ์การแปลงข้อความเป็นคำพูดของคุณ";
-"tts.playing" = "กำลังเล่น";
-"tts.ready" = "พร้อม";
-"tts.provider" = "ผู้ให้บริการ";
-"tts.tts_provider" = "ผู้ให้บริการ TTS";
-"tts.voice_customization" = "การปรับแต่งเสียง";
-"tts.current_voice" = "เสียงปัจจุบัน";
-"tts.default_voice" = "เสียงเริ่มต้น";
-"tts.preview_current_voice" = "ดูตัวอย่างเสียงปัจจุบัน";
-"tts.change_voice" = "เปลี่ยนเสียง";
-"tts.audio_settings" = "การตั้งค่าเสียง";
-"tts.speech_rate" = "อัตราการพูด";
-"tts.volume" = "ระดับเสียง";
-"tts.test_your_settings" = "ทดสอบการตั้งค่าของคุณ";
-"tts.enter_text_to_test" = "ป้อนข้อความเพื่อทดสอบ...";
-"tts.stop" = "หยุด";
-"tts.test" = "ทดสอบ";
-"tts.usage_statistics" = "สถิติการใช้งาน";
-"tts.speechify_monthly_usage" = "การใช้งานรายเดือนของ Speechify";
-"tts.monthly_limit" = "ขีดจำกัดรายเดือน";
-"tts.used_this_month" = "ใช้ในเดือนนี้";
-"tts.remaining" = "เหลืออยู่";
-"tts.usage_progress" = "ความคืบหน้าการใช้งาน";
-"tts.characters" = "ตัวอักษร";
+"dashboard" = "แดชบอร์ด TTS";
+"premium_tts_dashboard" = "แดชบอร์ด TTS พรีเมียม";
+"customize_tts_experience" = "ปรับแต่งประสบการณ์การแปลงข้อความเป็นคำพูดของคุณ";
+"playing" = "กำลังเล่น";
+"ready" = "พร้อม";
+"provider" = "ผู้ให้บริการ";
+"tts_provider" = "ผู้ให้บริการ TTS";
+"voice_customization" = "การปรับแต่งเสียง";
+"current_voice" = "เสียงปัจจุบัน";
+"default_voice" = "เสียงเริ่มต้น";
+"preview_current_voice" = "ดูตัวอย่างเสียงปัจจุบัน";
+"change_voice" = "เปลี่ยนเสียง";
+"audio_settings" = "การตั้งค่าเสียง";
+"speech_rate" = "อัตราการพูด";
+"volume" = "ระดับเสียง";
+"test_your_settings" = "ทดสอบการตั้งค่าของคุณ";
+"enter_text_to_test" = "ป้อนข้อความเพื่อทดสอบ...";
+"stop" = "หยุด";
+"test" = "ทดสอบ";
+"usage_statistics" = "สถิติการใช้งาน";
+"speechify_monthly_usage" = "การใช้งานรายเดือนของ Speechify";
+"monthly_limit" = "ขีดจำกัดรายเดือน";
+"used_this_month" = "ใช้ในเดือนนี้";
+"remaining" = "เหลืออยู่";
+"usage_progress" = "ความคืบหน้าการใช้งาน";
+"characters" = "ตัวอักษร";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "ตัวอักษรที่ใช้";
-"tts.analytics.sessions" = "เซสชัน";
-"tts.analytics.favorite_voice" = "เสียงที่ชื่นชอบ";
-"tts.analytics.time_saved" = "เวลาที่ประหยัด";
-"tts.analytics.total_characters" = "ตัวอักษรทั้งหมด";
-"tts.analytics.total_sessions" = "เซสชันทั้งหมด";
-"tts.analytics.total_duration" = "ระยะเวลาทั้งหมด";
-"tts.analytics.favorite_language" = "ภาษาที่ชื่นชอบ";
-"tts.analytics.premium_usage" = "การใช้งานพรีเมียม";
+"analytics.characters_used" = "ตัวอักษรที่ใช้";
+"analytics.sessions" = "เซสชัน";
+"analytics.favorite_voice" = "เสียงที่ชื่นชอบ";
+"analytics.time_saved" = "เวลาที่ประหยัด";
+"analytics.total_characters" = "ตัวอักษรทั้งหมด";
+"analytics.total_sessions" = "เซสชันทั้งหมด";
+"analytics.total_duration" = "ระยะเวลาทั้งหมด";
+"analytics.favorite_language" = "ภาษาที่ชื่นชอบ";
+"analytics.premium_usage" = "การใช้งานพรีเมียม";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "การแปลงข้อความเป็นคำพูด";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "โมเดลการแปลงข้อความเป็นคำพูดของ Speechify มีให้สำหรับผู้ใช้ทุกคนในฐานะฟีเจอร์พรีเมียม ช่วยให้คุณเลือกจากเสียงและสำเนียงที่หลากหลายเพื่อปรับแต่งประสบการณ์การเรียนรู้ของคุณ";
-"tts.settings.speechify_pro_description" = "โมเดลการแปลงข้อความเป็นคำพูดของ Speechify รวมอยู่ในสมัครสมาชิกของคุณ";
-"tts.settings.dashboard" = "แดชบอร์ด";
-"tts.pro" = "โปร";
-"tts.free_google_tts_description" = "Google TTS ฟรีพร้อมเสียงพื้นฐานและประสิทธิภาพที่เชื่อถือได้";
+"settings.text_to_speech" = "การแปลงข้อความเป็นคำพูด";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "โมเดลการแปลงข้อความเป็นคำพูดของ Speechify มีให้สำหรับผู้ใช้ทุกคนในฐานะฟีเจอร์พรีเมียม ช่วยให้คุณเลือกจากเสียงและสำเนียงที่หลากหลายเพื่อปรับแต่งประสบการณ์การเรียนรู้ของคุณ";
+"settings.speechify_pro_description" = "โมเดลการแปลงข้อความเป็นคำพูดของ Speechify รวมอยู่ในสมัครสมาชิกของคุณ";
+"settings.dashboard" = "แดชบอร์ด";
+"pro" = "โปร";
+"free_google_tts_description" = "Google TTS ฟรีพร้อมเสียงพื้นฐานและประสิทธิภาพที่เชื่อถือได้";
 
 // TTS Models
-"tts.models.english" = "ภาษาอังกฤษ";
-"tts.models.multilingual" = "หลายภาษา";
-"tts.models.english_description" = "โมเดลการแปลงข้อความเป็นคำพูดภาษาอังกฤษของ Speechify มีฟีเจอร์มาตรฐานที่ออกแบบมาเพื่อให้ผลลัพธ์เสียงที่ชัดเจนและเป็นธรรมชาติสำหรับการอ่านข้อความ โมเดลนี้มุ่งเน้นที่การมอบประสบการณ์ผู้ใช้ที่สม่ำเสมอ";
-"tts.models.multilingual_description" = "โมเดลหลายภาษาช่วยให้สามารถใช้ทุกภาษาที่รองรับและสนับสนุนการใช้หลายภาษาภายในประโยคเดียว ผลลัพธ์เสียงของโมเดลนี้แตกต่างจากโมเดลอื่นอย่างชัดเจน";
+"models.english" = "ภาษาอังกฤษ";
+"models.multilingual" = "หลายภาษา";
+"models.english_description" = "โมเดลการแปลงข้อความเป็นคำพูดภาษาอังกฤษของ Speechify มีฟีเจอร์มาตรฐานที่ออกแบบมาเพื่อให้ผลลัพธ์เสียงที่ชัดเจนและเป็นธรรมชาติสำหรับการอ่านข้อความ โมเดลนี้มุ่งเน้นที่การมอบประสบการณ์ผู้ใช้ที่สม่ำเสมอ";
+"models.multilingual_description" = "โมเดลหลายภาษาช่วยให้สามารถใช้ทุกภาษาที่รองรับและสนับสนุนการใช้หลายภาษาภายในประโยคเดียว ผลลัพธ์เสียงของโมเดลนี้แตกต่างจากโมเดลอื่นอย่างชัดเจน";
 
 // MARK: - English Accents
 "english_accents.australian" = "ออสเตรเลีย";

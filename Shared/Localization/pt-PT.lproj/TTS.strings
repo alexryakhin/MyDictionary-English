@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Todos os casos de uso";
-"tts.filters.all_ages" = "Todas as idades";
-"tts.filters.all_timbres" = "Todos os timbres";
-"tts.filters.all_accents" = "Todos os sotaques";
-"tts.filters.all_languages" = "Todos os idiomas";
-"tts.filters.all_genders" = "Todos os gêneros";
-"tts.filters.filters" = "Filtros";
-"tts.filters.reset" = "Redefinir";
-"tts.filters.select_voice" = "Selecionar voz";
-"tts.filters.available_voices" = "Vozes disponíveis";
-"tts.filters.no_voices_available" = "Nenhuma voz disponível";
-"tts.filters.no_voices_found" = "Nenhuma voz encontrada";
-"tts.filters.no_voices_found_message" = "Tente ajustar sua pesquisa ou filtros";
+"filters.all_use_cases" = "Todos os casos de uso";
+"filters.all_ages" = "Todas as idades";
+"filters.all_timbres" = "Todos os timbres";
+"filters.all_accents" = "Todos os sotaques";
+"filters.all_languages" = "Todos os idiomas";
+"filters.all_genders" = "Todos os gêneros";
+"filters.filters" = "Filtros";
+"filters.reset" = "Redefinir";
+"filters.select_voice" = "Selecionar voz";
+"filters.available_voices" = "Vozes disponíveis";
+"filters.no_voices_available" = "Nenhuma voz disponível";
+"filters.no_voices_found" = "Nenhuma voz encontrada";
+"filters.no_voices_found_message" = "Tente ajustar sua pesquisa ou filtros";
 
-"tts.usage.monthly_limit_exceeded" = "Limite mensal excedido";
-"tts.usage.monthly_limit_exceeded_message" = "Você atingiu o limite mensal de 50.000 caracteres para Speechify TTS. Tente novamente no próximo mês ou use o Google TTS.";
-"tts.usage.remaining_characters" = "Caracteres restantes";
-"tts.usage.monthly_usage" = "Uso mensal";
-"tts.usage.monthly_limit" = "Limite mensal";
+"usage.monthly_limit_exceeded" = "Limite mensal excedido";
+"usage.monthly_limit_exceeded_message" = "Você atingiu o limite mensal de 50.000 caracteres para Speechify TTS. Tente novamente no próximo mês ou use o Google TTS.";
+"usage.remaining_characters" = "Caracteres restantes";
+"usage.monthly_usage" = "Uso mensal";
+"usage.monthly_limit" = "Limite mensal";
 
 // TTS Voice Filter Values
 "advertisement" = "Publicidade";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "Painel TTS";
-"tts.premium_tts_dashboard" = "Painel TTS premium";
-"tts.customize_tts_experience" = "Personalize sua experiência de texto para voz";
-"tts.playing" = "Reproduzindo";
-"tts.ready" = "Pronto";
-"tts.provider" = "Provedor";
-"tts.tts_provider" = "Provedor TTS";
-"tts.voice_customization" = "Personalização de voz";
-"tts.current_voice" = "Voz atual";
-"tts.default_voice" = "Voz padrão";
-"tts.preview_current_voice" = "Pré-visualizar voz atual";
-"tts.change_voice" = "Mudar voz";
-"tts.audio_settings" = "Configurações de áudio";
-"tts.speech_rate" = "Velocidade de fala";
-"tts.volume" = "Volume";
-"tts.test_your_settings" = "Teste suas configurações";
-"tts.enter_text_to_test" = "Digite o texto para testar...";
-"tts.stop" = "Parar";
-"tts.test" = "Testar";
-"tts.usage_statistics" = "Estatísticas de uso";
-"tts.speechify_monthly_usage" = "Uso mensal da Speechify";
-"tts.monthly_limit" = "Limite mensal";
-"tts.used_this_month" = "Usado este mês";
-"tts.remaining" = "Restante";
-"tts.usage_progress" = "Progresso de uso";
-"tts.characters" = "caracteres";
+"dashboard" = "Painel TTS";
+"premium_tts_dashboard" = "Painel TTS premium";
+"customize_tts_experience" = "Personalize sua experiência de texto para voz";
+"playing" = "Reproduzindo";
+"ready" = "Pronto";
+"provider" = "Provedor";
+"tts_provider" = "Provedor TTS";
+"voice_customization" = "Personalização de voz";
+"current_voice" = "Voz atual";
+"default_voice" = "Voz padrão";
+"preview_current_voice" = "Pré-visualizar voz atual";
+"change_voice" = "Mudar voz";
+"audio_settings" = "Configurações de áudio";
+"speech_rate" = "Velocidade de fala";
+"volume" = "Volume";
+"test_your_settings" = "Teste suas configurações";
+"enter_text_to_test" = "Digite o texto para testar...";
+"stop" = "Parar";
+"test" = "Testar";
+"usage_statistics" = "Estatísticas de uso";
+"speechify_monthly_usage" = "Uso mensal da Speechify";
+"monthly_limit" = "Limite mensal";
+"used_this_month" = "Usado este mês";
+"remaining" = "Restante";
+"usage_progress" = "Progresso de uso";
+"characters" = "caracteres";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "Caracteres usados";
-"tts.analytics.sessions" = "Sessões";
-"tts.analytics.favorite_voice" = "Voz favorita";
-"tts.analytics.time_saved" = "Tempo economizado";
-"tts.analytics.total_characters" = "Total de caracteres";
-"tts.analytics.total_sessions" = "Total de sessões";
-"tts.analytics.total_duration" = "Duração total";
-"tts.analytics.favorite_language" = "Idioma favorito";
-"tts.analytics.premium_usage" = "Uso premium";
+"analytics.characters_used" = "Caracteres usados";
+"analytics.sessions" = "Sessões";
+"analytics.favorite_voice" = "Voz favorita";
+"analytics.time_saved" = "Tempo economizado";
+"analytics.total_characters" = "Total de caracteres";
+"analytics.total_sessions" = "Total de sessões";
+"analytics.total_duration" = "Duração total";
+"analytics.favorite_language" = "Idioma favorito";
+"analytics.premium_usage" = "Uso premium";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "Texto para voz";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "O modelo de texto para voz da Speechify está disponível para todos os usuários como uma funcionalidade premium. Ele permite que você escolha entre uma ampla gama de vozes e sotaques, para personalizar sua experiência de estudo.";
-"tts.settings.speechify_pro_description" = "O modelo de texto para voz da Speechify está incluído na sua assinatura.";
-"tts.settings.dashboard" = "Painel";
-"tts.pro" = "PRO";
-"tts.free_google_tts_description" = "Google TTS gratuito com vozes básicas e desempenho confiável";
+"settings.text_to_speech" = "Texto para voz";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "O modelo de texto para voz da Speechify está disponível para todos os usuários como uma funcionalidade premium. Ele permite que você escolha entre uma ampla gama de vozes e sotaques, para personalizar sua experiência de estudo.";
+"settings.speechify_pro_description" = "O modelo de texto para voz da Speechify está incluído na sua assinatura.";
+"settings.dashboard" = "Painel";
+"pro" = "PRO";
+"free_google_tts_description" = "Google TTS gratuito com vozes básicas e desempenho confiável";
 
 // TTS Models
-"tts.models.english" = "Inglês";
-"tts.models.multilingual" = "Multilíngue";
-"tts.models.english_description" = "O modelo de texto para voz em inglês da Speechify oferece capacidades padrão projetadas para fornecer uma saída de voz clara e natural para leitura de textos. O modelo foca em oferecer uma experiência de usuário consistente.";
-"tts.models.multilingual_description" = "O modelo multilíngue permite o uso de todos os idiomas suportados e suporta o uso de vários idiomas em uma única frase. A saída de áudio deste modelo é distintamente diferente de outros modelos.";
+"models.english" = "Inglês";
+"models.multilingual" = "Multilíngue";
+"models.english_description" = "O modelo de texto para voz em inglês da Speechify oferece capacidades padrão projetadas para fornecer uma saída de voz clara e natural para leitura de textos. O modelo foca em oferecer uma experiência de usuário consistente.";
+"models.multilingual_description" = "O modelo multilíngue permite o uso de todos os idiomas suportados e suporta o uso de vários idiomas em uma única frase. A saída de áudio deste modelo é distintamente diferente de outros modelos.";
 
 // MARK: - English Accents
 "english_accents.australian" = "Australiano";

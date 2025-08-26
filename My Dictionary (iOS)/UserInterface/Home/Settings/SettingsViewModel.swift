@@ -113,10 +113,10 @@ final class SettingsViewModel: BaseViewModel {
                         // Show alert with options to cancel or open settings
                         AlertCenter.shared.showAlert(
                             with: .choice(
-                                title: Loc.Notifications.permissionRequired.localized,
-                                message: Loc.Notifications.permissionDeniedMessage.localized,
-                                cancelText: Loc.Actions.cancel.localized,
-                                primaryText: Loc.Actions.settings.localized,
+                                title: Loc.Notifications.permissionRequired,
+                                message: Loc.Notifications.permissionDeniedMessage,
+                                cancelText: Loc.Actions.cancel,
+                                primaryText: Loc.Actions.settings,
                                 secondaryText: .empty,
                                 onCancel: {},
                                 onPrimary: {

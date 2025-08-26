@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "Meddelandetillstånd krävs";
-"notifications.permission_denied_message" = "För att ta emot dagliga påminnelser och varningar för svåra ord, aktivera meddelanden i Inställningar.";
+"permission_required" = "Meddelandetillstånd krävs";
+"permission_denied_message" = "För att ta emot dagliga påminnelser och varningar för svåra ord, aktivera meddelanden i Inställningar.";
 
-"notifications.time_to_practice" = "Dags att öva! 📚";
-"notifications.practice_vocabulary_today" = "Glöm inte att öva ditt ordförråd idag.";
-"notifications.practice_difficult_words" = "Öva svåra ord 📚";
-"notifications.difficult_words_challenge" = "Du har ord som behöver mer övning. Är du redo för utmaningen?";
-"notifications.test_dictionary_invitation" = "Inbjudan till testordbok";
-"notifications.test_dictionary_invitation_body" = "Någon har lagt till dig i 'Testordbok'";
+"time_to_practice" = "Dags att öva! 📚";
+"practice_vocabulary_today" = "Glöm inte att öva ditt ordförråd idag.";
+"practice_difficult_words" = "Öva svåra ord 📚";
+"difficult_words_challenge" = "Du har ord som behöver mer övning. Är du redo för utmaningen?";
+"test_dictionary_invitation" = "Inbjudan till testordbok";
+"test_dictionary_invitation_body" = "Någon har lagt till dig i 'Testordbok'";
 

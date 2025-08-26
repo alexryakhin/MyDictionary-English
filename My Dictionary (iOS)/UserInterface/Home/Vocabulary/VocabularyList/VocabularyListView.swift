@@ -54,12 +54,12 @@ struct VocabularyListView: View {
             }
         }
         .navigation(
-            title: Loc.App.myDictionary.localized,
+            title: Loc.Onboarding.myDictionary,
             mode: .large,
             trailingContent: {
                 HeaderButtonMenu(icon: "ellipsis.circle") {
                     // Words sorting
-                    Picker(Loc.Words.sort.localized, selection: $sortingState) {
+                    Picker(Loc.Words.sort, selection: $sortingState) {
                         ForEach(SortingCase.allCases, id: \.self) { item in
                             Text(item.displayName)
                                 .tag(item)
@@ -80,7 +80,7 @@ struct VocabularyListView: View {
             bottomContent: {
                 VStack(spacing: 12) {
                     InputView.searchView(
-                        Loc.Words.search.localized,
+                        Loc.Words.search,
                         searchText: $searchText
                     )
                     VocabularyListFilterView(
@@ -123,13 +123,13 @@ struct VocabularyListView: View {
                                 Button {
                                     wordListViewModel.output.send(.showAddExistingWordToShared(wordModel))
                                 } label: {
-                                    Label(Loc.Words.addToSharedDictionary.localized, systemImage: "person.2")
+                                    Label(Loc.Words.addToSharedDictionary, systemImage: "person.2")
                                 }
                             }
                             Button(role: .destructive) {
                                 wordListViewModel.handle(.deleteWord(word: wordModel))
                             } label: {
-                                Label(Loc.Actions.delete.localized, systemImage: "trash")
+                                Label(Loc.Actions.delete, systemImage: "trash")
                             }
                         }
                 }
@@ -142,7 +142,7 @@ struct VocabularyListView: View {
                 .padding(.vertical, 24)
             }
         } trailingContent: {
-            HeaderButton(Loc.Words.addWord.localized, icon: "plus", size: .small, style: .borderedProminent) {
+            HeaderButton(Loc.Words.addWord, icon: "plus", size: .small, style: .borderedProminent) {
                 AnalyticsService.shared.logEvent(.addWordTapped)
                 wordListViewModel.output.send(.showAddWord(searchText))
             }
@@ -173,7 +173,7 @@ struct VocabularyListView: View {
                         Button(role: .destructive) {
                             idiomListViewModel.handle(.deleteIdiom(idiom: idiomModel))
                         } label: {
-                            Label(Loc.Actions.delete.localized, systemImage: "trash")
+                            Label(Loc.Actions.delete, systemImage: "trash")
                         }
                     }
                 }
@@ -187,7 +187,7 @@ struct VocabularyListView: View {
             }
         } trailingContent: {
             HeaderButton(
-                Loc.Idioms.addIdiom.localized,
+                Loc.Words.addIdiom,
                 icon: "plus",
                 size: .small,
                 style: .borderedProminent
@@ -266,11 +266,11 @@ struct RatingBanner: View {
     let onDismiss: VoidHandler
 
     var body: some View {
-        CustomSectionView(header: Loc.Words.impressiveVocabulary.localized) {
+        CustomSectionView(header: Loc.Words.impressiveVocabulary) {
             VStack(spacing: 16) {
                 // Header with achievement message
                 VStack(spacing: 8) {
-                    Text(Loc.Words.impressiveVocabularyMessage.localized(wordCount))
+                    Text(Loc.Words.impressiveVocabularyMessage(wordCount))
                         .font(.subheadline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .multilineTextAlignment(.leading)
@@ -279,12 +279,12 @@ struct RatingBanner: View {
                 // Action buttons
                 VStack(spacing: 12) {
                     ActionButton(
-                        Loc.Settings.rateApp.localized,
+                        Loc.Settings.rateApp,
                         systemImage: "star.circle.fill",
                         style: .borderedProminent,
                         action: onRate
                     )
-                    ActionButton(Loc.Coffee.maybeLater.localized, action: onDismiss)
+                    ActionButton(Loc.Coffee.maybeLater, action: onDismiss)
                 }
             }
         } trailingContent: {

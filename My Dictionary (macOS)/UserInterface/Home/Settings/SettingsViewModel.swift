@@ -74,7 +74,7 @@ final class SettingsViewModel: BaseViewModel {
         panel.nameFieldStringValue = "Words.csv"
         panel.canCreateDirectories = true
         panel.isExtensionHidden = false
-        panel.title = Loc.Settings.exportWordsTitle.localized
+        panel.title = Loc.Settings.exportWordsTitle
 
         Task { @MainActor in
             let response = await panel.begin()
@@ -88,7 +88,7 @@ final class SettingsViewModel: BaseViewModel {
 
                 try FileManager.default.copyItem(at: tempURL, to: url)
                 showAlert(withModel: .info(
-                    title: Loc.Settings.exportSuccessful.localized,
+                    title: Loc.Settings.exportSuccessful,
                     message: "Words exported successfully."
                 ))
             } catch {

@@ -26,7 +26,7 @@ struct ChooseDefinitionQuizView: View {
                             .font(.system(size: 60))
                             .foregroundStyle(.red.gradient)
                         
-                        Text(Loc.Quizzes.quizUnavailable.localized)
+                        Text(Loc.Quizzes.quizUnavailable)
                             .font(.title2)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
@@ -39,7 +39,7 @@ struct ChooseDefinitionQuizView: View {
                     }
                     .padding(.horizontal, 32)
                     
-                    ActionButton(Loc.Quizzes.backToQuizzes.localized, systemImage: "chevron.left", style: .borderedProminent) {
+                    ActionButton(Loc.Quizzes.backToQuizzes, systemImage: "chevron.left", style: .borderedProminent) {
                         dismiss()
                     }
                     .padding(.horizontal, 32)
@@ -74,7 +74,7 @@ struct ChooseDefinitionQuizView: View {
                 }
             }
         }
-        .navigationTitle(Loc.Navigation.definitionQuiz.localized)
+        .navigationTitle(Loc.Navigation.definitionQuiz)
         .onAppear {
             AnalyticsService.shared.logEvent(.definitionQuizOpened)
         }
@@ -111,11 +111,11 @@ struct ChooseDefinitionQuizView: View {
 
                 switch viewModel.correctItem.quiz_itemType {
                 case .word, .sharedWord:
-                    Text(Loc.Words.word.localized)
+                    Text(Loc.Words.word)
                         .font(.headline)
                         .fontWeight(.semibold)
                 case .idiom:
-                    Text(Loc.Idioms.idiom.localized)
+                    Text(Loc.Words.idiom)
                         .font(.headline)
                         .fontWeight(.semibold)
                 }
@@ -156,7 +156,7 @@ struct ChooseDefinitionQuizView: View {
                     .font(.title2)
                     .foregroundStyle(.accent)
                 
-                Text(Loc.Quizzes.chooseCorrectDefinition.localized)
+                Text(Loc.Quizzes.chooseCorrectDefinition)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
@@ -200,7 +200,7 @@ struct ChooseDefinitionQuizView: View {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(.accent)
 
-                    Text(Loc.Quizzes.correct.localized)
+                    Text(Loc.Quizzes.correct)
                         .font(.caption)
                         .foregroundStyle(.accent)
 
@@ -213,7 +213,7 @@ struct ChooseDefinitionQuizView: View {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.red)
 
-                    Text(Loc.Quizzes.incorrectMovingToNextQuestion.localized)
+                    Text(Loc.Quizzes.incorrectMovingToNextQuestion)
                         .font(.caption)
                         .foregroundStyle(.red)
 
@@ -233,7 +233,7 @@ struct ChooseDefinitionQuizView: View {
     private var actionButtons: some View {
         VStack(spacing: 12) {
             ActionButton(
-                Loc.Quizzes.skipWord.localized,
+                Loc.Quizzes.skipWord,
                 systemImage: "arrow.right.circle",
                 color: .secondary
             ) {

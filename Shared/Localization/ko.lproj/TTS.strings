@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "모든 사용 사례";
-"tts.filters.all_ages" = "모든 연령";
-"tts.filters.all_timbres" = "모든 음색";
-"tts.filters.all_accents" = "모든 억양";
-"tts.filters.all_languages" = "모든 언어";
-"tts.filters.all_genders" = "모든 성별";
-"tts.filters.filters" = "필터";
-"tts.filters.reset" = "초기화";
-"tts.filters.select_voice" = "음성 선택";
-"tts.filters.available_voices" = "사용 가능한 음성";
-"tts.filters.no_voices_available" = "사용 가능한 음성이 없습니다";
-"tts.filters.no_voices_found" = "음성을 찾을 수 없습니다";
-"tts.filters.no_voices_found_message" = "검색 또는 필터를 조정해 보세요";
+"filters.all_use_cases" = "모든 사용 사례";
+"filters.all_ages" = "모든 연령";
+"filters.all_timbres" = "모든 음색";
+"filters.all_accents" = "모든 억양";
+"filters.all_languages" = "모든 언어";
+"filters.all_genders" = "모든 성별";
+"filters.filters" = "필터";
+"filters.reset" = "초기화";
+"filters.select_voice" = "음성 선택";
+"filters.available_voices" = "사용 가능한 음성";
+"filters.no_voices_available" = "사용 가능한 음성이 없습니다";
+"filters.no_voices_found" = "음성을 찾을 수 없습니다";
+"filters.no_voices_found_message" = "검색 또는 필터를 조정해 보세요";
 
-"tts.usage.monthly_limit_exceeded" = "월간 한도 초과";
-"tts.usage.monthly_limit_exceeded_message" = "Speechify TTS의 월간 50,000자 제한에 도달했습니다. 다음 달에 다시 시도하거나 Google TTS를 사용하세요.";
-"tts.usage.remaining_characters" = "남은 글자 수";
-"tts.usage.monthly_usage" = "월간 사용량";
-"tts.usage.monthly_limit" = "월간 한도";
+"usage.monthly_limit_exceeded" = "월간 한도 초과";
+"usage.monthly_limit_exceeded_message" = "Speechify TTS의 월간 50,000자 제한에 도달했습니다. 다음 달에 다시 시도하거나 Google TTS를 사용하세요.";
+"usage.remaining_characters" = "남은 글자 수";
+"usage.monthly_usage" = "월간 사용량";
+"usage.monthly_limit" = "월간 한도";
 
 // TTS Voice Filter Values
 "advertisement" = "광고";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "TTS 대시보드";
-"tts.premium_tts_dashboard" = "프리미엄 TTS 대시보드";
-"tts.customize_tts_experience" = "텍스트 음성 변환 경험을 사용자 정의";
-"tts.playing" = "재생 중";
-"tts.ready" = "준비 완료";
-"tts.provider" = "제공자";
-"tts.tts_provider" = "TTS 제공자";
-"tts.voice_customization" = "음성 사용자 정의";
-"tts.current_voice" = "현재 음성";
-"tts.default_voice" = "기본 음성";
-"tts.preview_current_voice" = "현재 음성 미리 듣기";
-"tts.change_voice" = "음성 변경";
-"tts.audio_settings" = "오디오 설정";
-"tts.speech_rate" = "말하기 속도";
-"tts.volume" = "음량";
-"tts.test_your_settings" = "설정 테스트";
-"tts.enter_text_to_test" = "테스트할 텍스트 입력...";
-"tts.stop" = "중지";
-"tts.test" = "테스트";
-"tts.usage_statistics" = "사용 통계";
-"tts.speechify_monthly_usage" = "Speechify 월간 사용량";
-"tts.monthly_limit" = "월간 한도";
-"tts.used_this_month" = "이번 달 사용량";
-"tts.remaining" = "남은 양";
-"tts.usage_progress" = "사용 진행";
-"tts.characters" = "글자";
+"dashboard" = "TTS 대시보드";
+"premium_tts_dashboard" = "프리미엄 TTS 대시보드";
+"customize_tts_experience" = "텍스트 음성 변환 경험을 사용자 정의";
+"playing" = "재생 중";
+"ready" = "준비 완료";
+"provider" = "제공자";
+"tts_provider" = "TTS 제공자";
+"voice_customization" = "음성 사용자 정의";
+"current_voice" = "현재 음성";
+"default_voice" = "기본 음성";
+"preview_current_voice" = "현재 음성 미리 듣기";
+"change_voice" = "음성 변경";
+"audio_settings" = "오디오 설정";
+"speech_rate" = "말하기 속도";
+"volume" = "음량";
+"test_your_settings" = "설정 테스트";
+"enter_text_to_test" = "테스트할 텍스트 입력...";
+"stop" = "중지";
+"test" = "테스트";
+"usage_statistics" = "사용 통계";
+"speechify_monthly_usage" = "Speechify 월간 사용량";
+"monthly_limit" = "월간 한도";
+"used_this_month" = "이번 달 사용량";
+"remaining" = "남은 양";
+"usage_progress" = "사용 진행";
+"characters" = "글자";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "사용된 글자 수";
-"tts.analytics.sessions" = "세션";
-"tts.analytics.favorite_voice" = "선호 음성";
-"tts.analytics.time_saved" = "절약된 시간";
-"tts.analytics.total_characters" = "총 글자 수";
-"tts.analytics.total_sessions" = "총 세션 수";
-"tts.analytics.total_duration" = "총 시간";
-"tts.analytics.favorite_language" = "선호 언어";
-"tts.analytics.premium_usage" = "프리미엄 사용";
+"analytics.characters_used" = "사용된 글자 수";
+"analytics.sessions" = "세션";
+"analytics.favorite_voice" = "선호 음성";
+"analytics.time_saved" = "절약된 시간";
+"analytics.total_characters" = "총 글자 수";
+"analytics.total_sessions" = "총 세션 수";
+"analytics.total_duration" = "총 시간";
+"analytics.favorite_language" = "선호 언어";
+"analytics.premium_usage" = "프리미엄 사용";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "텍스트 음성 변환";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechify의 텍스트 음성 변환 모델은 모든 사용자에게 프리미엄 기능으로 제공됩니다. 다양한 음성과 억양을 선택하여 학습 경험을 사용자 정의할 수 있습니다.";
-"tts.settings.speechify_pro_description" = "Speechify의 텍스트 음성 변환 모델은 구독에 포함되어 있습니다.";
-"tts.settings.dashboard" = "대시보드";
-"tts.pro" = "프로";
-"tts.free_google_tts_description" = "기본 음성과 안정적인 성능을 제공하는 무료 Google TTS";
+"settings.text_to_speech" = "텍스트 음성 변환";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Speechify의 텍스트 음성 변환 모델은 모든 사용자에게 프리미엄 기능으로 제공됩니다. 다양한 음성과 억양을 선택하여 학습 경험을 사용자 정의할 수 있습니다.";
+"settings.speechify_pro_description" = "Speechify의 텍스트 음성 변환 모델은 구독에 포함되어 있습니다.";
+"settings.dashboard" = "대시보드";
+"pro" = "프로";
+"free_google_tts_description" = "기본 음성과 안정적인 성능을 제공하는 무료 Google TTS";
 
 // TTS Models
-"tts.models.english" = "영어";
-"tts.models.multilingual" = "다국어";
-"tts.models.english_description" = "Speechify의 영어 텍스트 음성 변환 모델은 텍스트 읽기에 명확하고 자연스러운 음성 출력을 제공하도록 설계된 표준 기능을 제공합니다. 이 모델은 일관된 사용자 경험에 초점을 맞춥니다.";
-"tts.models.multilingual_description" = "다국어 모델은 지원되는 모든 언어를 사용할 수 있으며, 한 문장 내에서 여러 언어를 사용하는 것을 지원합니다. 이 모델의 오디오 출력은 다른 모델과 뚜렷이 다릅니다.";
+"models.english" = "영어";
+"models.multilingual" = "다국어";
+"models.english_description" = "Speechify의 영어 텍스트 음성 변환 모델은 텍스트 읽기에 명확하고 자연스러운 음성 출력을 제공하도록 설계된 표준 기능을 제공합니다. 이 모델은 일관된 사용자 경험에 초점을 맞춥니다.";
+"models.multilingual_description" = "다국어 모델은 지원되는 모든 언어를 사용할 수 있으며, 한 문장 내에서 여러 언어를 사용하는 것을 지원합니다. 이 모델의 오디오 출력은 다른 모델과 뚜렷이 다릅니다.";
 
 // MARK: - English Accents
 "english_accents.australian" = "호주";

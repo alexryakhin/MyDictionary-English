@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "ניהול תגיות";
-"tags.tags_help_text" = "תגיות עוזרות לך לארגן מילים. כל מילה יכולה להכיל עד 5 תגיות.";
-"tags.no_tags_yet" = "לא נוספו תגיות עדיין";
-"tags.add_first_tag" = "הוסף את התגית הראשונה שלך על ידי לחיצה על הכפתור למעלה.";
-"tags.add_tag" = "הוספת תגית";
-"tags.add_first_tag_description" = "הוסף את התגית הראשונה שלך על ידי לחיצה על הכפתור למעלה.";
-"tags.add_tag_to_start_using" = "הוסף תגית כדי להתחיל להשתמש בה.";
-"tags.add_tags" = "הוספת תגיות";
-"tags.create_tags" = "יצירת תגיות";
-"tags.delete_tag" = "מחיקת תגית";
-"tags.delete_tag_confirmation" = "האם אתה בטוח שברצונך למחוק תגית זו?";
-"tags.delete_tag_cannot_undo" = "פעולה זו אינה ניתנת לביטול.";
-"tags.tag_name" = "שם התגית";
-"tags.tag_name_help" = "בחר שם תיאורי לתגית שלך";
-"tags.type_tag_name" = "הקלד שם תגית...";
-"tags.tag_color" = "צבע התגית";
-"tags.tag_color_help" = "בחר צבע כדי שהתגית שלך תהיה מזוהה בקלות";
-"tags.edit_tag" = "עריכת תגית";
-"tags.new_tag" = "תגית חדשה";
-"tags.tag_management_error" = "שגיאה בניהול תגיות";
+"manage_tags" = "ניהול תגיות";
+"tags_help_text" = "תגיות עוזרות לך לארגן מילים. כל מילה יכולה להכיל עד 5 תגיות.";
+"no_tags_yet" = "לא נוספו תגיות עדיין";
+"add_first_tag" = "הוסף את התגית הראשונה שלך על ידי לחיצה על הכפתור למעלה.";
+"add_tag" = "הוספת תגית";
+"add_first_tag_description" = "הוסף את התגית הראשונה שלך על ידי לחיצה על הכפתור למעלה.";
+"add_tag_to_start_using" = "הוסף תגית כדי להתחיל להשתמש בה.";
+"add_tags" = "הוספת תגיות";
+"create_tags" = "יצירת תגיות";
+"delete_tag" = "מחיקת תגית";
+"delete_tag_confirmation" = "האם אתה בטוח שברצונך למחוק תגית זו?";
+"delete_tag_cannot_undo" = "פעולה זו אינה ניתנת לביטול.";
+"tag_name" = "שם התגית";
+"tag_name_help" = "בחר שם תיאורי לתגית שלך";
+"type_tag_name" = "הקלד שם תגית...";
+"tag_color" = "צבע התגית";
+"tag_color_help" = "בחר צבע כדי שהתגית שלך תהיה מזוהה בקלות";
+"edit_tag" = "עריכת תגית";
+"new_tag" = "תגית חדשה";
+"tag_management_error" = "שגיאה בניהול תגיות";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "בחר תגיות";

@@ -76,18 +76,18 @@ final class QuizzesListViewModel: BaseViewModel {
             let totalItems = quizItemsProvider.getTotalItemsCount()
             if showingHardItemsOnly {
                 let hardItemsCount = quizItemsProvider.getHardItemsCount()
-                return Loc.Quizzes.sharedDictionaryNeedsHardWords.localized(dictionary.name, hardItemsCount)
+                return Loc.Quizzes.sharedDictionaryNeedsHardWords(dictionary.name, hardItemsCount)
             } else {
-                return Loc.Quizzes.needsAtLeastWordsStartQuizzes.localized(dictionary.name, totalItems)
+                return Loc.Quizzes.needsAtLeastWordsStartQuizzes(dictionary.name, totalItems)
             }
         } else {
             // Private dictionary message
             if showingHardItemsOnly {
                 let hardItemsCount = quizItemsProvider.getHardItemsCount()
-                return Loc.Quizzes.needAtLeastHardWordPractice.localized(hardItemsCount)
+                return Loc.Quizzes.needAtLeastHardWordPractice(hardItemsCount)
             } else {
                 let totalItems = quizItemsProvider.getTotalItemsCount()
-                return Loc.Quizzes.needAtLeastWordsStartQuizzes.localized(totalItems)
+                return Loc.Quizzes.needAtLeastWordsStartQuizzes(totalItems)
             }
         }
     }

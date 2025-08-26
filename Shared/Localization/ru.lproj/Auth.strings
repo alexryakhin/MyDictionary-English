@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Войдите перед подпиской";
+"sign_in_with_google" = "Войти через Google";
+"can_always_sign_in_later" = "Вы всегда можете войти позже в настройках";
+"link_additional_accounts" = "Связать дополнительные аккаунты";
+"accounts_linked_successfully" = "Аккаунты успешно связаны";
+"sign_out_confirmation" = "Выйти";
+"your_words_are_safe" = "Ваши слова в безопасности";
+"cloud_sync_disabled" = "Синхронизация с облаком будет отключена";
+"sign_out" = "Выйти";
+"no_worries_wont_remove_words" = "Не волнуйтесь! Мы не удалим ваши слова.";
+"vocabulary_stay_on_device" = "Ваш словарный запас останется на этом устройстве. Если вы войдёте с другим аккаунтом, ваши данные будут объединены.";
+"all_vocabulary_remain_device" = "Все слова, определения и прогресс останутся на этом устройстве. Вы можете продолжать использовать приложение без входа.";
+"word_lists_shared_data_cleared" = "Списки слов и общие данные будут очищены. Если вы войдёте с другим аккаунтом, ваши локальные слова будут объединены с данными нового аккаунта.";
+"sign_in_to_access_word_lists" = "Войдите, чтобы получить доступ к вашим спискам слов на всех устройствах и сотрудничать с другими.";
+"link_google" = "Связать с Google";
+"link_apple" = "Связать с Apple";
+"sign_in_to_sync_word_lists" = "Войдите, чтобы синхронизировать списки слов";
+"sign_out_error_title" = "Упс!";
+"sign_out_error_message" = "Что-то пошло не так при выходе. Попробуйте снова позже.";
+"sign_in_required_for_restore" = "Требуется вход для восстановления покупок.";
+"sign_in_required_for_pro_features" = "Требуется вход для доступа к функциям Pro, таким как %@.";
+"sign_in_failed" = "Ошибка входа. Попробуйте снова.";
+"sign_out_failed" = "Ошибка выхода. Попробуйте снова.";
+"user_not_found" = "Пользователь не найден.";
+"network_error" = "Ошибка сети. Проверьте ваше соединение.";
+"account_linking_failed" = "Не удалось связать аккаунт. Попробуйте снова.";
+
+// Registration Benefits
+"registration_benefits" = "Преимущества Регистрации";
+"access_subscription_all_devices" = "Получите доступ к подписке на всех ваших устройствах";
+"sync_progress_cross_platform" = "Синхронизируйте ваш прогресс между iOS и Android";
+"backup_data_securely" = "Безопасно резервируйте ваши данные в облаке";
+"register_anytime_from_settings" = "Вы можете зарегистрироваться в любое время из Настроек для активации этих функций";
+"account_registration" = "Регистрация Аккаунта";
+"register_for_cross_platform_access" = "Зарегистрируйтесь для доступа к подписке на всех ваших устройствах и синхронизации прогресса";
+"active_subscription_notification" = "У вас активная подписка!";
+"register_to_unlock_cross_platform" = "Зарегистрируйтесь для разблокировки кросс-платформенного доступа";
+"register_now" = "Зарегистрироваться Сейчас";
+
+// Subscription Security
+"subscription_access_restricted" = "Доступ к Подписке Ограничен";
+"subscription_associated_different_account" = "Эта подписка связана с другим аккаунтом. Пожалуйста, войдите с аккаунтом, который купил эту подписку, для доступа к функциям Pro.";
+
+// Profile
+"profile" = "Профиль";
+"account_linking" = "Связывание Аккаунтов";
+"account_linking_description" = "Для доступа к подписке на устройствах Android вам нужно связать аккаунт Google. Для совместного использования подписок между платформами свяжите оба аккаунта.";
+"link_google_for_android" = "Связать Аккаунт Google";
+"link_apple_for_cross_platform" = "Связать Apple ID";
+"current_account" = "Текущий Аккаунт";
+"linked_accounts" = "Связанные Аккаунты";
+"no_linked_accounts" = "Нет связанных аккаунтов";
+
+"cross_platform_button_description" = "Для совместного использования подписки на разных платформах";
+"nickname" = "Псевдоним";
+"nickname_current" = "Текущий псевдоним";
+"nickname_not_set" = "Псевдоним не установлен";
+"nickname_description" = "Установите уникальный псевдоним, который другие могут использовать, чтобы найти вас и добавить в общие словари. Это удобнее, чем использование адресов электронной почты.";
+"edit_nickname" = "Редактировать псевдоним";
+"nickname_cannot_be_empty" = "Псевдоним не может быть пустым";
+"nickname_already_taken" = "Этот псевдоним уже занят. Выберите другой.";
+"nickname_invalid_format" = "Псевдоним может содержать только буквы, цифры и подчёркивания.";
+"search_method" = "Метод поиска";
+"find_user_by_email" = "Найти пользователя по электронной почте";
+"find_user_by_nickname" = "Найти пользователя по псевдониму";
+"enter_email_address" = "Введите адрес электронной почты";
+"enter_nickname" = "Введите псевдоним";
+"found_user" = "Пользователь найден";
+"user_not_found" = "Пользователь не найден";
+"user_not_found_message" = "Пользователь с указанными данными не найден. Проверьте параметры поиска и попробуйте снова.";
+
+"enter_name" = "Введите имя";
+"search_by" = "Поиск по";
+"unknown_user" = "Неизвестный пользователь";
+"email" = "Электронная почта";
+"apple_id" = "Apple ID";
+"google_account" = "Аккаунт Google";
+
+

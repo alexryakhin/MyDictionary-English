@@ -67,9 +67,9 @@ final class PaywallService: ObservableObject {
         // Show alert with sign-in options using cross-platform AlertCenter
         AlertCenter.shared.showAlert(
             with: .init(
-                title: Loc.Paywall.signInRequired.localized,
-                message: String(format: Loc.Auth.signInRequiredForProFeatures.localized, reason.title),
-                actionText: Loc.Actions.signIn.localized,
+                title: Loc.Subscription.Paywall.signInRequired,
+                message: Loc.Auth.signInRequiredForProFeatures(reason.title),
+                actionText: Loc.Actions.signIn,
                 action: {
                     // Present sign-in options
                     self.presentSignInOptions()
@@ -159,9 +159,9 @@ final class PaywallService: ObservableObject {
     private func showAuthenticationRequiredAlertForRestore() {
         AlertCenter.shared.showAlert(
             with: .init(
-                title: Loc.Paywall.signInRequired.localized,
-                message: Loc.Auth.signInRequiredForRestore.localized,
-                actionText: Loc.Actions.signIn.localized,
+                title: Loc.Subscription.Paywall.signInRequired,
+                message: Loc.Auth.signInRequiredForRestore,
+                actionText: Loc.Actions.signIn,
                 action: {
                     self.presentSignInOptions()
                 }
@@ -183,34 +183,34 @@ enum PaywallReason: String, CaseIterable {
     var title: String {
         switch self {
         case .googleSync:
-            return Loc.ProFeatures.googleSync.localized
+            return Loc.Subscription.ProFeatures.googleSync
         case .unlimitedExport:
-            return Loc.ProFeatures.unlimitedExport.localized
+            return Loc.Subscription.ProFeatures.unlimitedExport
         case .createSharedDictionaries:
-            return Loc.ProFeatures.createSharedDictionaries.localized
+            return Loc.Subscription.ProFeatures.createSharedDictionaries
         case .advancedAnalytics:
-            return Loc.ProFeatures.advancedAnalytics.localized
+            return Loc.Subscription.ProFeatures.advancedAnalytics
         case .prioritySupport:
-            return Loc.ProFeatures.prioritySupport.localized
+            return Loc.Subscription.ProFeatures.prioritySupport
         case .general:
-            return Loc.ProFeatures.proFeatures.localized
+            return Loc.Subscription.ProFeatures.proFeatures
         }
     }
     
     var description: String {
         switch self {
         case .googleSync:
-            return Loc.ProFeatures.syncWordsAcrossDevices.localized
+            return Loc.Subscription.ProFeatures.syncWordsAcrossDevices
         case .unlimitedExport:
-            return Loc.ProFeatures.exportUnlimitedWords.localized
+            return Loc.Subscription.ProFeatures.exportUnlimitedWords
         case .createSharedDictionaries:
-            return Loc.ProFeatures.createManageSharedDictionaries.localized
+            return Loc.Subscription.ProFeatures.createManageSharedDictionaries
         case .advancedAnalytics:
-            return Loc.ProFeatures.detailedInsights.localized
+            return Loc.Subscription.ProFeatures.detailedInsights
         case .prioritySupport:
-            return Loc.ProFeatures.prioritySupportTeam.localized
+            return Loc.Subscription.ProFeatures.prioritySupportTeam
         case .general:
-            return Loc.ProFeatures.unlockAllProFeatures.localized
+            return Loc.Subscription.ProFeatures.unlockAllProFeatures
         }
     }
     

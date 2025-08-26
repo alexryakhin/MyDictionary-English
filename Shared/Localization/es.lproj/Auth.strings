@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Inicia sesión antes de suscribirte";
+"sign_in_with_google" = "Iniciar sesión con Google";
+"can_always_sign_in_later" = "Siempre puedes iniciar sesión más tarde en los ajustes";
+"link_additional_accounts" = "Vincular cuentas adicionales";
+"accounts_linked_successfully" = "Cuentas vinculadas con éxito";
+"sign_out_confirmation" = "Cerrar sesión";
+"your_words_are_safe" = "Tus palabras están seguras";
+"cloud_sync_disabled" = "La sincronización con la nube será desactivada";
+"sign_out" = "Cerrar sesión";
+"no_worries_wont_remove_words" = "¡No te preocupes! No eliminaremos tus palabras.";
+"vocabulary_stay_on_device" = "Tu vocabulario permanecerá en este dispositivo. Si inicias sesión con otra cuenta, tus datos se fusionarán.";
+"all_vocabulary_remain_device" = "Todas las palabras, definiciones y progreso permanecerán en este dispositivo. Puedes seguir usando la aplicación sin iniciar sesión.";
+"word_lists_shared_data_cleared" = "Las listas de palabras y los datos compartidos serán eliminados. Si inicias sesión con otra cuenta, tus palabras locales se fusionarán con los datos de la nueva cuenta.";
+"sign_in_to_access_word_lists" = "Inicia sesión para acceder a tus listas de palabras en todos los dispositivos y colaborar con otros.";
+"link_google" = "Vincular con Google";
+"link_apple" = "Vincular con Apple";
+"sign_in_to_sync_word_lists" = "Inicia sesión para sincronizar listas de palabras";
+"sign_out_error_title" = "¡Ups!";
+"sign_out_error_message" = "Algo salió mal al cerrar sesión. Intenta de nuevo más tarde.";
+"sign_in_required_for_restore" = "Se requiere iniciar sesión para restaurar compras.";
+"sign_in_required_for_pro_features" = "Se requiere iniciar sesión para acceder a las funciones Pro, como %@.";
+"sign_in_failed" = "Error al iniciar sesión. Intenta de nuevo.";
+"sign_out_failed" = "Error al cerrar sesión. Intenta de nuevo.";
+"user_not_found" = "Usuario no encontrado.";
+"network_error" = "Error de red. Verifica tu conexión.";
+"account_linking_failed" = "No se pudo vincular la cuenta. Intenta de nuevo.";
+
+// Registration Benefits
+"registration_benefits" = "Beneficios de Registro";
+"access_subscription_all_devices" = "Accede a tu suscripción en todos tus dispositivos";
+"sync_progress_cross_platform" = "Sincroniza tu progreso entre iOS y Android";
+"backup_data_securely" = "Respalda tus datos de forma segura en la nube";
+"register_anytime_from_settings" = "Puedes registrarte en cualquier momento desde Configuración para habilitar estas funciones";
+"account_registration" = "Registro de Cuenta";
+"register_for_cross_platform_access" = "Regístrate para acceder a tu suscripción en todos tus dispositivos y sincronizar tu progreso";
+"active_subscription_notification" = "¡Tienes una suscripción activa!";
+"register_to_unlock_cross_platform" = "Regístrate para desbloquear acceso multiplataforma";
+"register_now" = "Registrarse Ahora";
+
+// Subscription Security
+"subscription_access_restricted" = "Acceso a Suscripción Restringido";
+"subscription_associated_different_account" = "Esta suscripción está asociada con una cuenta diferente. Por favor, inicia sesión con la cuenta que compró esta suscripción para acceder a las funciones Pro.";
+
+// Profile
+"profile" = "Perfil";
+"account_linking" = "Vinculación de Cuenta";
+"account_linking_description" = "Para acceder a tu suscripción en dispositivos Android, necesitas vincular una cuenta de Google. Para compartir suscripciones entre plataformas, vincula ambas cuentas.";
+"link_google_for_android" = "Vincular Cuenta de Google";
+"link_apple_for_cross_platform" = "Vincular Apple ID";
+"current_account" = "Cuenta Actual";
+"linked_accounts" = "Cuentas Vinculadas";
+"no_linked_accounts" = "Sin cuentas vinculadas";
+
+"cross_platform_button_description" = "Para compartir suscripciones entre plataformas";
+"nickname" = "Apodo";
+"nickname_current" = "Apodo actual";
+"nickname_not_set" = "El apodo no está configurado";
+"nickname_description" = "Establece un apodo único que otros puedan usar para encontrarte y agregarte a diccionarios compartidos. Es más conveniente que usar direcciones de correo electrónico.";
+"edit_nickname" = "Editar apodo";
+"nickname_cannot_be_empty" = "El apodo no puede estar vacío";
+"nickname_already_taken" = "Este apodo ya está en uso. Por favor, elige otro.";
+"nickname_invalid_format" = "El apodo solo puede contener letras, números y guiones bajos.";
+"search_method" = "Método de búsqueda";
+"find_user_by_email" = "Buscar usuario por correo electrónico";
+"find_user_by_nickname" = "Buscar usuario por apodo";
+"enter_email_address" = "Ingresa la dirección de correo electrónico";
+"enter_nickname" = "Ingresa el apodo";
+"found_user" = "Usuario encontrado";
+"user_not_found" = "Usuario no encontrado";
+"user_not_found_message" = "No se encontró ningún usuario con la información proporcionada. Por favor, verifica tu búsqueda e intenta de nuevo.";
+
+"enter_name" = "Ingresa el nombre";
+"search_by" = "Buscar por";
+"unknown_user" = "Usuario desconocido";
+"email" = "Correo electrónico";
+"apple_id" = "ID de Apple";
+"google_account" = "Cuenta de Google";
+
+

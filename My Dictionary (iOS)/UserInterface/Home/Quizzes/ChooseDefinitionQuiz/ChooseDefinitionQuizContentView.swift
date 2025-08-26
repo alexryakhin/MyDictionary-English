@@ -24,7 +24,7 @@ struct ChooseDefinitionQuizContentView: View {
                             .font(.system(size: 60))
                             .foregroundStyle(.red.gradient)
                         
-                        Text(Loc.Quizzes.quizUnavailable.localized)
+                        Text(Loc.Quizzes.quizUnavailable)
                             .font(.title2)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
@@ -37,7 +37,7 @@ struct ChooseDefinitionQuizContentView: View {
                     }
                     .padding(.horizontal, 32)
                     
-                    ActionButton(Loc.Quizzes.backToQuizzes.localized, systemImage: "chevron.left", style: .borderedProminent) {
+                    ActionButton(Loc.Quizzes.backToQuizzes, systemImage: "chevron.left", style: .borderedProminent) {
                         dismiss()
                     }
                     .padding(.horizontal, 32)
@@ -70,10 +70,10 @@ struct ChooseDefinitionQuizContentView: View {
             }
         }
         .navigation(
-            title: Loc.Navigation.definitionQuiz.localized,
+            title: Loc.Navigation.definitionQuiz,
             mode: .inline,
             trailingContent: {
-                HeaderButton(Loc.Actions.exit.localized) {
+                HeaderButton(Loc.Actions.exit) {
                     dismiss()
                 }
             },
@@ -104,12 +104,12 @@ struct ChooseDefinitionQuizContentView: View {
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("\(Loc.Quizzes.progress.localized): \(viewModel.questionsAnswered)/\(viewModel.preset.itemCount)")
+                    Text("\(Loc.Quizzes.progress): \(viewModel.questionsAnswered)/\(viewModel.preset.itemCount)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
                     if viewModel.currentStreak > 0 {
-                        Text("🔥 \(Loc.Quizzes.streak.localized): \(viewModel.currentStreak)")
+                        Text("🔥 \(Loc.Quizzes.streak): \(viewModel.currentStreak)")
                             .font(.caption)
                             .foregroundStyle(.orange)
                             .fontWeight(.medium)
@@ -119,12 +119,12 @@ struct ChooseDefinitionQuizContentView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 2) {
-                    Text("\(Loc.Quizzes.score.localized): \(viewModel.score)")
+                    Text("\(Loc.Quizzes.score): \(viewModel.score)")
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundStyle(.accent)
 
-                    Text("\(Loc.Quizzes.best.localized): \(viewModel.bestStreak)")
+                    Text("\(Loc.Quizzes.best): \(viewModel.bestStreak)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -139,7 +139,7 @@ struct ChooseDefinitionQuizContentView: View {
                     .font(.title2)
                     .foregroundStyle(.accent)
 
-                Text(Loc.Quizzes.word.localized)
+                Text(Loc.Quizzes.word)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
@@ -176,7 +176,7 @@ struct ChooseDefinitionQuizContentView: View {
                     .font(.title2)
                     .foregroundStyle(.accent)
                 
-                Text(Loc.Quizzes.chooseCorrectDefinition.localized)
+                Text(Loc.Quizzes.chooseCorrectDefinition)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
@@ -220,7 +220,7 @@ struct ChooseDefinitionQuizContentView: View {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(.accent)
 
-                    Text(Loc.Quizzes.correct.localized)
+                    Text(Loc.Quizzes.correct)
                         .font(.caption)
                         .foregroundStyle(.accent)
 
@@ -233,7 +233,7 @@ struct ChooseDefinitionQuizContentView: View {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.red)
 
-                    Text(Loc.Quizzes.incorrectMovingToNextQuestion.localized)
+                    Text(Loc.Quizzes.incorrectMovingToNextQuestion)
                         .font(.caption)
                         .foregroundStyle(.red)
 
@@ -252,7 +252,7 @@ struct ChooseDefinitionQuizContentView: View {
 
     private var actionButtons: some View {
         VStack(spacing: 12) {
-            ActionButton(Loc.Quizzes.skipWord.localized, systemImage: "arrow.right.circle", color: .secondary) {
+            ActionButton(Loc.Quizzes.skipWord, systemImage: "arrow.right.circle", color: .secondary) {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     viewModel.handle(.skipItem)
                 }
@@ -278,11 +278,11 @@ struct ChooseDefinitionQuizContentView: View {
                 }
                 
                 VStack(spacing: 12) {
-                    Text(Loc.Quizzes.quizComplete.localized)
+                    Text(Loc.Quizzes.quizComplete)
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    Text(Loc.Quizzes.greatJobCompletedDefinitionQuiz.localized)
+                    Text(Loc.Quizzes.greatJobCompletedDefinitionQuiz)
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -290,13 +290,13 @@ struct ChooseDefinitionQuizContentView: View {
                 
                 // Score Card
                 VStack(spacing: 16) {
-                    Text(Loc.Quizzes.yourResults.localized)
+                    Text(Loc.Quizzes.yourResults)
                         .font(.headline)
                         .fontWeight(.semibold)
                     
                     VStack(spacing: 12) {
                         HStack {
-                            Text(Loc.Quizzes.finalScore.localized)
+                            Text(Loc.Quizzes.finalScore)
                             Spacer()
                             Text("\(viewModel.score)")
                                 .fontWeight(.bold)
@@ -304,14 +304,14 @@ struct ChooseDefinitionQuizContentView: View {
                         }
                         
                         HStack {
-                            Text(Loc.Quizzes.correctAnswers.localized)
+                            Text(Loc.Quizzes.correctAnswers)
                             Spacer()
                             Text("\(viewModel.correctAnswers)/\(viewModel.itemsPlayed.count)")
                                 .fontWeight(.medium)
                         }
                         
                         HStack {
-                            Text(Loc.Quizzes.bestStreak.localized)
+                            Text(Loc.Quizzes.bestStreak)
                             Spacer()
                             Text("\(viewModel.bestStreak)")
                                 .fontWeight(.medium)
@@ -319,7 +319,7 @@ struct ChooseDefinitionQuizContentView: View {
                         }
                         
                         HStack {
-                            Text(Loc.Quizzes.accuracy.localized)
+                            Text(Loc.Quizzes.accuracy)
                             Spacer()
                             Text("\(Int((Double(viewModel.correctAnswers) / Double(viewModel.itemsPlayed.count)) * 100))%")
                                 .fontWeight(.medium)
@@ -335,10 +335,10 @@ struct ChooseDefinitionQuizContentView: View {
             .padding(.horizontal, 32)
             
             VStack(spacing: 12) {
-                ActionButton(Loc.Actions.tryAgain.localized, systemImage: "arrow.clockwise", style: .borderedProminent) {
+                ActionButton(Loc.Actions.tryAgain, systemImage: "arrow.clockwise", style: .borderedProminent) {
                     viewModel.handle(.restartQuiz)
                 }
-                ActionButton(Loc.Quizzes.backToQuizzes.localized, systemImage: "chevron.left") {
+                ActionButton(Loc.Quizzes.backToQuizzes, systemImage: "chevron.left") {
                     dismiss()
                 }
             }

@@ -27,7 +27,7 @@ struct SharedDictionarySelectionView: View {
     var body: some View {
         ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
-                CustomSectionView(header: Loc.App.privateDictionary.localized, hPadding: .zero) {
+                CustomSectionView(header: Loc.SharedDictionaries.privateDictionary, hPadding: .zero) {
                     Button {
                         selectedDictionaryId = nil
                         onDictionarySelected(nil)
@@ -39,10 +39,10 @@ struct SharedDictionarySelectionView: View {
                                 .frame(width: 24)
 
                             VStack(alignment: .leading, spacing: 4) {
-                                Text(Loc.SharedDictionaries.privateDictionary.localized)
+                                Text(Loc.SharedDictionaries.privateDictionary)
                                     .font(.headline)
 
-                                Text(Loc.SharedDictionaries.saveToPersonalDictionary.localized)
+                                Text(Loc.SharedDictionaries.saveToPersonalDictionary)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -61,7 +61,7 @@ struct SharedDictionarySelectionView: View {
                 }
 
                 if !dictionaryService.sharedDictionaries.isEmpty {
-                    CustomSectionView(header: Loc.App.sharedDictionaries.localized, hPadding: .zero) {
+                    CustomSectionView(header: Loc.SharedDictionaries.sharedDictionaries, hPadding: .zero) {
                         ListWithDivider(dictionaryService.sharedDictionaries) { dictionary in
                             Button {
                                 selectedDictionaryId = dictionary.id
@@ -78,12 +78,12 @@ struct SharedDictionarySelectionView: View {
                                             .font(.headline)
 
                                         HStack {
-                                            Text(Loc.SharedDictionaries.collaboratorsCount.localized(dictionary.collaborators.count))
+                                            Text(Loc.SharedDictionaries.collaboratorsCount(dictionary.collaborators.count))
                                                 .font(.caption)
                                                 .foregroundStyle(.secondary)
 
                                             if dictionary.isOwner {
-                                                Text(Loc.SharedDictionaries.owner.localized)
+                                                Text(Loc.SharedDictionaries.owner)
                                                     .font(.caption)
                                                     .foregroundStyle(.accent)
                                                     .padding(.horizontal, 6)
@@ -109,11 +109,11 @@ struct SharedDictionarySelectionView: View {
                     }
                 } else {
                     CustomSectionView(
-                        header: Loc.App.sharedDictionaries.localized,
-                        footer: Loc.SharedDictionaries.createSharedDictionaryCollaborate.localized
+                        header: Loc.SharedDictionaries.sharedDictionaries,
+                        footer: Loc.SharedDictionaries.createSharedDictionaryCollaborate
                     ) {
                         ActionButton(
-                            Loc.SharedDictionaries.createSharedDictionary.localized,
+                            Loc.SharedDictionaries.createSharedDictionary,
                             systemImage: "plus.circle"
                         ) {
                             if dictionaryService.canCreateMoreSharedDictionaries() {
@@ -128,7 +128,7 @@ struct SharedDictionarySelectionView: View {
             }
             .padding(12)
         } navigationBar: {
-            NavigationBarView(title: Loc.SharedDictionarySelection.selectDictionary.localized)
+            NavigationBarView(title: Loc.SharedDictionaries.SharedDictionarySelection.selectDictionary)
         }
         .groupedBackground()
         .sheet(isPresented: $showingAddDictionary) {

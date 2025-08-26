@@ -35,16 +35,16 @@ struct SettingsView: View {
                 // MARK: - Notifications
 
                 CustomSectionView(
-                    header: Loc.Settings.notifications.localized,
-                    footer: Loc.Settings.dailyRemindersDescription.localized
+                    header: Loc.Settings.notifications,
+                    footer: Loc.Settings.dailyRemindersDescription
                 ) {
                     VStack(spacing: 8) {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text(Loc.Settings.dailyReminders.localized)
+                                Text(Loc.Settings.dailyReminders)
                                     .font(.body)
                                     .fontWeight(.medium)
-                                Text(Loc.Settings.dailyRemindersDescription.localized)
+                                Text(Loc.Settings.dailyRemindersDescription)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -62,10 +62,10 @@ struct SettingsView: View {
 
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text(Loc.Settings.difficultWords.localized)
+                                Text(Loc.Settings.difficultWords)
                                     .font(.body)
                                     .fontWeight(.medium)
-                                Text(Loc.Settings.difficultWordsDescription.localized)
+                                Text(Loc.Settings.difficultWordsDescription)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -87,8 +87,8 @@ struct SettingsView: View {
                 // MARK: - Subscription
 
                 CustomSectionView(
-                    header: Loc.Settings.subscription.localized,
-                    footer: Loc.Settings.proUpgradeDescription.localized
+                    header: Loc.Settings.subscription,
+                    footer: Loc.Settings.proUpgradeDescription
                 ) {
                     SubscriptionStatusView()
                 }
@@ -97,8 +97,8 @@ struct SettingsView: View {
 
                 if subscriptionService.isProUser && !authenticationService.isSignedIn {
                     CustomSectionView(
-                        header: Loc.Auth.accountRegistration.localized,
-                        footer: Loc.Auth.registerForCrossPlatformAccess.localized
+                        header: Loc.Auth.accountRegistration,
+                        footer: Loc.Auth.registerForCrossPlatformAccess
                     ) {
                         VStack(spacing: 12) {
                             HStack {
@@ -106,17 +106,17 @@ struct SettingsView: View {
                                     .foregroundStyle(.yellow)
                                     .font(.title2)
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text(Loc.Auth.activeSubscriptionNotification.localized)
+                                    Text(Loc.Auth.activeSubscriptionNotification)
                                         .font(.headline)
                                         .fontWeight(.semibold)
-                                    Text(Loc.Auth.registerToUnlockCrossPlatform.localized)
+                                    Text(Loc.Auth.registerToUnlockCrossPlatform)
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
                                 Spacer()
                             }
                             ActionButton(
-                                Loc.Auth.registerNow.localized,
+                                Loc.Auth.registerNow,
                                 systemImage: "person.crop.circle.badge.plus",
                                 style: .borderedProminent
                             ) {
@@ -136,10 +136,10 @@ struct SettingsView: View {
                 // MARK: - Word Lists & Sync
 
                 CustomSectionView(
-                    header: Loc.Settings.wordListsAndSync.localized,
+                    header: Loc.Settings.wordListsAndSync,
                     footer: authenticationService.isSignedIn
-                    ? Loc.Settings.manualSyncModeDescription.localized
-                    : Loc.Settings.signInToCreateShareWordLists.localized
+                    ? Loc.Settings.manualSyncModeDescription
+                    : Loc.Settings.signInToCreateShareWordLists
                 ) {
                     if authenticationService.isSignedIn {
                         VStack(spacing: 8) {
@@ -148,11 +148,11 @@ struct SettingsView: View {
                                     .foregroundStyle(.accent)
 
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text(Loc.Settings.signedInAs.localized)
+                                    Text(Loc.Settings.signedInAs)
                                         .font(.body)
                                         .fontWeight(.medium)
                                         .foregroundStyle(.primary)
-                                    Text(authenticationService.displayName ?? authenticationService.userEmail ?? Loc.Settings.anonymous.localized)
+                                    Text(authenticationService.displayName ?? authenticationService.userEmail ?? Loc.Settings.anonymous)
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
@@ -172,14 +172,14 @@ struct SettingsView: View {
 
                             // Manual sync buttons
                             AsyncActionButton(
-                                Loc.Settings.uploadBackupToGoogle.localized,
+                                Loc.Settings.uploadBackupToGoogle,
                                 systemImage: "icloud.and.arrow.up"
                             ) {
                                 try await viewModel.uploadBackupToGoogle()
                             }
 
                             AsyncActionButton(
-                                Loc.Settings.downloadBackupFromGoogle.localized,
+                                Loc.Settings.downloadBackupFromGoogle,
                                 systemImage: "icloud.and.arrow.down"
                             ) {
                                 try await viewModel.downloadBackupFromGoogle()
@@ -188,7 +188,7 @@ struct SettingsView: View {
                         .padding(.bottom, 12)
                     } else {
                         VStack(alignment: .leading, spacing: 8) {
-                            ActionButton(Loc.Settings.signInToSyncWordLists.localized, systemImage: "person.circle") {
+                            ActionButton(Loc.Settings.signInToSyncWordLists, systemImage: "person.circle") {
                                 viewModel.output.send(.showAuthentication)
                             }
                         }
@@ -199,16 +199,16 @@ struct SettingsView: View {
                 // MARK: - Tag Management
 
                 CustomSectionView(
-                    header: Loc.Settings.organization.localized,
-                    footer: Loc.Settings.tagManagementDescription.localized
+                    header: Loc.Settings.organization,
+                    footer: Loc.Settings.tagManagementDescription
                 ) {
                     VStack(spacing: 8) {
-                        ActionButton(Loc.Tags.manageTags.localized, systemImage: "tag") {
+                        ActionButton(Loc.Tags.manageTags, systemImage: "tag") {
                             viewModel.output.send(.showTagManagement)
                         }
 
                         if authenticationService.isSignedIn {
-                            ActionButton(Loc.Settings.sharedDictionaries.localized, systemImage: "person.2") {
+                            ActionButton(Loc.Settings.sharedDictionaries, systemImage: "person.2") {
                                 viewModel.output.send(.showSharedDictionaries)
                             }
                         }
@@ -219,12 +219,12 @@ struct SettingsView: View {
                 // MARK: - Import & Export
 
                 CustomSectionView(
-                    header: Loc.Settings.importExport.localized,
-                    footer: Loc.Settings.importExportNote.localized
+                    header: Loc.Settings.importExport,
+                    footer: Loc.Settings.importExportNote
                 ) {
                     VStack(spacing: 8) {
                         let wordsCount = WordsProvider.shared.words.count
-                        ActionButton(Loc.Settings.importWords.localized, systemImage: "square.and.arrow.down") {
+                        ActionButton(Loc.Settings.importWords, systemImage: "square.and.arrow.down") {
                             if subscriptionService.isProUser || wordsCount < 50 {
                                 viewModel.isImporting = true
                             } else {
@@ -232,7 +232,7 @@ struct SettingsView: View {
                             }
                             AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
                         }
-                        ActionButton(Loc.Settings.exportWords.localized, systemImage: "square.and.arrow.up") {
+                        ActionButton(Loc.Settings.exportWords, systemImage: "square.and.arrow.up") {
                             if subscriptionService.isProUser || wordsCount < 50 {
                                 viewModel.exportWords()
                             } else {
@@ -242,7 +242,7 @@ struct SettingsView: View {
                         }
 
                         if !subscriptionService.isProUser {
-                            Text(Loc.Settings.freeUsersExportLimit.localized(AppConfig.Features.freeUserExportLimit))
+                            Text(Loc.Settings.freeUsersExportLimit(AppConfig.Features.freeUserExportLimit))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -255,9 +255,9 @@ struct SettingsView: View {
                 // MARK: - About app
 
                 CustomSectionView(
-                    header: Loc.Settings.aboutApp.localized
+                    header: Loc.Settings.aboutApp
                 ) {
-                    ActionButton(Loc.Settings.learnMore.localized, systemImage: "info.circle") {
+                    ActionButton(Loc.Settings.learnMore, systemImage: "info.circle") {
                         viewModel.output.send(.showAboutApp)
                     }
                 }
@@ -271,7 +271,7 @@ struct SettingsView: View {
         }
         .groupedBackground()
         .multilineTextAlignment(.leading)
-        .navigation(title: Loc.TabBar.settings.localized, mode: .large)
+        .navigation(title: Loc.Navigation.Tabbar.settings, mode: .large)
         .fileImporter(
             isPresented: $viewModel.isImporting,
             allowedContentTypes: [UTType.commaSeparatedText],
@@ -299,8 +299,8 @@ struct SettingsView: View {
     @ViewBuilder
     private var translateDefinitionsSection: some View {
         if !GlobalConstant.isEnglishLanguage {
-            CustomSectionView(header: Loc.Settings.translateDefinitions.localized) {
-                Toggle(Loc.Settings.showDefinitionsNativeLanguage.localized, isOn: $translateDefinitions)
+            CustomSectionView(header: Loc.Settings.translateDefinitions) {
+                Toggle(Loc.Settings.showDefinitionsNativeLanguage, isOn: $translateDefinitions)
             }
         }
     }
@@ -308,7 +308,7 @@ struct SettingsView: View {
     // MARK: - TTS Section
 
     private var ttsSection: some View {
-        CustomSectionView(header: Loc.TTS.textToSpeech.localized) {
+        CustomSectionView(header: Loc.Tts.Settings.textToSpeech) {
             VStack(alignment: .leading, spacing: 12) {
                 HStack(spacing: 8) {
                     Image(.speechifyLogo)
@@ -316,13 +316,13 @@ struct SettingsView: View {
                         .font(.title3)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(Loc.TTS.speechify.localized)
+                        Text(Loc.Tts.Settings.speechify)
                             .font(.headline)
 
                         Text(
                             subscriptionService.isProUser
-                            ? Loc.TTS.speechifyProDescription.localized
-                            : Loc.TTS.speechifyDescription.localized
+                            ? Loc.Tts.Settings.speechifyProDescription
+                            : Loc.Tts.Settings.speechifyDescription
                         )
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -338,7 +338,7 @@ struct SettingsView: View {
                         .font(.title3)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(Loc.TTS.currentVoice.localized)
+                        Text(Loc.Tts.currentVoice)
                             .font(.headline)
                             .foregroundStyle(.primary)
                         if subscriptionService.isProUser, let currentVoice = ttsPlayer.selectedSpeechifyVoiceModel {
@@ -346,7 +346,7 @@ struct SettingsView: View {
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         } else {
-                            Text(Loc.TTS.defaultVoice.localized)
+                            Text(Loc.Tts.defaultVoice)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -358,11 +358,11 @@ struct SettingsView: View {
 
                 if !subscriptionService.isProUser && GlobalConstant.isEnglishLanguage {
                     HStack(spacing: 8) {
-                        Text(Loc.Settings.selectAccent.localized)
+                        Text(Loc.Settings.selectAccent)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         HeaderButtonMenu(viewModel.selectedEnglishAccent.displayName, size: .small) {
                             Picker(
-                                Loc.Settings.selectAccent.localized,
+                                Loc.Settings.selectAccent,
                                 selection: $viewModel.selectedEnglishAccent
                             ) {
                                 ForEach(EnglishAccent.allCases, id: \.self) {
@@ -379,14 +379,14 @@ struct SettingsView: View {
         } trailingContent: {
             if subscriptionService.isProUser {
                 HeaderButton(
-                    Loc.TTS.dashboard.localized,
+                    Loc.Tts.dashboard,
                     size: .small
                 ) {
                     NavigationManager.shared.navigate(to: .ttsDashboard)
                 }
             } else {
                 HeaderButton(
-                    Loc.TTS.selectVoice.localized,
+                    Loc.Tts.Filters.selectVoice,
                     size: .small
                 ) {
                     showingTTSVoiceSelection = true

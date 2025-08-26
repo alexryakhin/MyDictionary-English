@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "Permission de notification requise";
-"notifications.permission_denied_message" = "Pour recevoir des rappels quotidiens et des alertes de mots difficiles, veuillez activer les notifications dans les Paramètres.";
+"permission_required" = "Permission de notification requise";
+"permission_denied_message" = "Pour recevoir des rappels quotidiens et des alertes de mots difficiles, veuillez activer les notifications dans les Paramètres.";
 
-"notifications.time_to_practice" = "C'est l'heure de s'entraîner ! 📚";
-"notifications.practice_vocabulary_today" = "N'oubliez pas de pratiquer votre vocabulaire aujourd'hui.";
-"notifications.practice_difficult_words" = "Pratiquez vos mots difficiles 📚";
-"notifications.difficult_words_challenge" = "Vous avez des mots qui nécessitent plus de pratique. Prêt pour le défi ?";
-"notifications.test_dictionary_invitation" = "Invitation au dictionnaire de test";
-"notifications.test_dictionary_invitation_body" = "Quelqu'un vous a ajouté au 'Dictionnaire de test'";
+"time_to_practice" = "C'est l'heure de s'entraîner ! 📚";
+"practice_vocabulary_today" = "N'oubliez pas de pratiquer votre vocabulaire aujourd'hui.";
+"practice_difficult_words" = "Pratiquez vos mots difficiles 📚";
+"difficult_words_challenge" = "Vous avez des mots qui nécessitent plus de pratique. Prêt pour le défi ?";
+"test_dictionary_invitation" = "Invitation au dictionnaire de test";
+"test_dictionary_invitation_body" = "Quelqu'un vous a ajouté au 'Dictionnaire de test'";
 

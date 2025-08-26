@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Gerenciar Etiquetas";
-"tags.tags_help_text" = "As etiquetas ajudam a organizar suas palavras. Cada palavra pode ter até 5 etiquetas.";
-"tags.no_tags_yet" = "Nenhuma etiqueta adicionada ainda";
-"tags.add_first_tag" = "Adicione sua primeira etiqueta clicando no botão acima.";
-"tags.add_tag" = "Adicionar Etiqueta";
-"tags.add_first_tag_description" = "Adicione sua primeira etiqueta clicando no botão acima.";
-"tags.add_tag_to_start_using" = "Adicione uma etiqueta para começar a usá-las.";
-"tags.add_tags" = "Adicionar Etiquetas";
-"tags.create_tags" = "Criar Etiquetas";
-"tags.delete_tag" = "Excluir Etiqueta";
-"tags.delete_tag_confirmation" = "Tem certeza de que deseja excluir esta etiqueta?";
-"tags.delete_tag_cannot_undo" = "Esta ação não pode ser desfeita.";
-"tags.tag_name" = "Nome da Etiqueta";
-"tags.tag_name_help" = "Escolha um nome descritivo para sua etiqueta";
-"tags.type_tag_name" = "Digite o nome da etiqueta...";
-"tags.tag_color" = "Cor da Etiqueta";
-"tags.tag_color_help" = "Escolha uma cor para tornar sua etiqueta facilmente reconhecível";
-"tags.edit_tag" = "Editar Etiqueta";
-"tags.new_tag" = "Nova Etiqueta";
-"tags.tag_management_error" = "Erro no Gerenciamento de Etiquetas";
+"manage_tags" = "Gerenciar Etiquetas";
+"tags_help_text" = "As etiquetas ajudam a organizar suas palavras. Cada palavra pode ter até 5 etiquetas.";
+"no_tags_yet" = "Nenhuma etiqueta adicionada ainda";
+"add_first_tag" = "Adicione sua primeira etiqueta clicando no botão acima.";
+"add_tag" = "Adicionar Etiqueta";
+"add_first_tag_description" = "Adicione sua primeira etiqueta clicando no botão acima.";
+"add_tag_to_start_using" = "Adicione uma etiqueta para começar a usá-las.";
+"add_tags" = "Adicionar Etiquetas";
+"create_tags" = "Criar Etiquetas";
+"delete_tag" = "Excluir Etiqueta";
+"delete_tag_confirmation" = "Tem certeza de que deseja excluir esta etiqueta?";
+"delete_tag_cannot_undo" = "Esta ação não pode ser desfeita.";
+"tag_name" = "Nome da Etiqueta";
+"tag_name_help" = "Escolha um nome descritivo para sua etiqueta";
+"type_tag_name" = "Digite o nome da etiqueta...";
+"tag_color" = "Cor da Etiqueta";
+"tag_color_help" = "Escolha uma cor para tornar sua etiqueta facilmente reconhecível";
+"edit_tag" = "Editar Etiqueta";
+"new_tag" = "Nova Etiqueta";
+"tag_management_error" = "Erro no Gerenciamento de Etiquetas";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Selecionar Etiquetas";

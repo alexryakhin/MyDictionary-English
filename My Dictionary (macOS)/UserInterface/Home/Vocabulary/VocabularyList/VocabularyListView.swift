@@ -44,13 +44,13 @@ struct VocabularyListView: View {
             .padding(.vertical, 12)
         }
         .groupedBackground()
-        .navigationTitle(Loc.App.myDictionary.localized)
-        .searchable(text: $searchText, prompt: Loc.Words.search.localized)
+        .navigationTitle(Loc.Onboarding.myDictionary)
+        .searchable(text: $searchText, prompt: Loc.Words.search)
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 // Words sorting
                 Menu {
-                    Picker(Loc.Words.sort.localized, selection: $sortingState) {
+                    Picker(Loc.Words.sort, selection: $sortingState) {
                         ForEach(SortingCase.allCases, id: \.self) { item in
                             Text(item.displayName)
                                 .tag(item)
@@ -72,7 +72,7 @@ struct VocabularyListView: View {
                 } label: {
                     Image(systemName: "plus")
                 }
-                .help(Loc.Words.addWord.localized)
+                .help(Loc.Words.addWord)
             }
         }
         .onAppear {
@@ -121,13 +121,13 @@ struct VocabularyListView: View {
                                 Button {
                                     wordToAddToSharedDictionary = wordModel
                                 } label: {
-                                    Label(Loc.Words.addToSharedDictionary.localized, systemImage: "person.2")
+                                    Label(Loc.Words.addToSharedDictionary, systemImage: "person.2")
                                 }
                             }
                             Button(role: .destructive) {
                                 wordListViewModel.handle(.deleteWord(word: wordModel))
                             } label: {
-                                Label(Loc.Actions.delete.localized, systemImage: "trash")
+                                Label(Loc.Actions.delete, systemImage: "trash")
                             }
                         }
                 }
@@ -140,7 +140,7 @@ struct VocabularyListView: View {
                 .padding(.vertical, 24)
             }
         } trailingContent: {
-            HeaderButton(Loc.Words.addWord.localized, icon: "plus", size: .small, style: .borderedProminent) {
+            HeaderButton(Loc.Words.addWord, icon: "plus", size: .small, style: .borderedProminent) {
                 showAddWord = true
                 AnalyticsService.shared.logEvent(.addWordTapped)
             }
@@ -175,7 +175,7 @@ struct VocabularyListView: View {
                         Button(role: .destructive) {
                             idiomListViewModel.handle(.deleteIdiom(idiom: idiomModel))
                         } label: {
-                            Label(Loc.Actions.delete.localized, systemImage: "trash")
+                            Label(Loc.Actions.delete, systemImage: "trash")
                         }
                     }
                 }
@@ -188,7 +188,7 @@ struct VocabularyListView: View {
                 .padding(.vertical, 24)
             }
         } trailingContent: {
-            HeaderButton(Loc.Idioms.addIdiom.localized, icon: "plus", size: .small, style: .borderedProminent) {
+            HeaderButton(Loc.Words.addIdiom, icon: "plus", size: .small, style: .borderedProminent) {
                 showAddIdiom = true
             }
         }
@@ -262,11 +262,11 @@ struct RatingBanner: View {
     let onDismiss: VoidHandler
 
     var body: some View {
-        CustomSectionView(header: Loc.Words.impressiveVocabulary.localized) {
+        CustomSectionView(header: Loc.Words.impressiveVocabulary) {
             VStack(spacing: 16) {
                 // Header with achievement message
                 VStack(spacing: 8) {
-                    Text(Loc.Words.impressiveVocabularyMessage.localized(wordCount))
+                    Text(Loc.Words.impressiveVocabularyMessage(wordCount))
                         .font(.subheadline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .multilineTextAlignment(.leading)
@@ -275,12 +275,12 @@ struct RatingBanner: View {
                 // Action buttons
                 VStack(spacing: 12) {
                     ActionButton(
-                        Loc.Settings.rateApp.localized,
+                        Loc.Settings.rateApp,
                         systemImage: "star.circle.fill",
                         style: .borderedProminent,
                         action: onRate
                     )
-                    ActionButton(Loc.Coffee.maybeLater.localized, action: onDismiss)
+                    ActionButton(Loc.Coffee.maybeLater, action: onDismiss)
                 }
             }
         } trailingContent: {

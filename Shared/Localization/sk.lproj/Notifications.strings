@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "Vyžaduje sa povolenie na notifikácie";
-"notifications.permission_denied_message" = "Ak chcete dostávať denné pripomienky a upozornenia na náročné slová, povoľte notifikácie v Nastaveniach.";
+"permission_required" = "Vyžaduje sa povolenie na notifikácie";
+"permission_denied_message" = "Ak chcete dostávať denné pripomienky a upozornenia na náročné slová, povoľte notifikácie v Nastaveniach.";
 
-"notifications.time_to_practice" = "Čas na cvičenie! 📚";
-"notifications.practice_vocabulary_today" = "Nezabudnite si dnes precvičiť slovnú zásobu.";
-"notifications.practice_difficult_words" = "Precvičujte náročné slová 📚";
-"notifications.difficult_words_challenge" = "Máte slová, ktoré potrebujú viac praxe. Ste pripravení na výzvu?";
-"notifications.test_dictionary_invitation" = "Pozvánka do testovacieho slovníka";
-"notifications.test_dictionary_invitation_body" = "Niekto vás pridal do 'Testovacieho slovníka'";
+"time_to_practice" = "Čas na cvičenie! 📚";
+"practice_vocabulary_today" = "Nezabudnite si dnes precvičiť slovnú zásobu.";
+"practice_difficult_words" = "Precvičujte náročné slová 📚";
+"difficult_words_challenge" = "Máte slová, ktoré potrebujú viac praxe. Ste pripravení na výzvu?";
+"test_dictionary_invitation" = "Pozvánka do testovacieho slovníka";
+"test_dictionary_invitation_body" = "Niekto vás pridal do 'Testovacieho slovníka'";
 

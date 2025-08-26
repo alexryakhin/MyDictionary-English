@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "管理标签";
-"tags.tags_help_text" = "标签帮助你组织单词。每个单词最多可有 5 个标签。";
-"tags.no_tags_yet" = "尚未添加标签";
-"tags.add_first_tag" = "点击上方按钮添加你的第一个标签。";
-"tags.add_tag" = "添加标签";
-"tags.add_first_tag_description" = "点击上方按钮添加你的第一个标签。";
-"tags.add_tag_to_start_using" = "添加标签以开始使用。";
-"tags.add_tags" = "添加标签";
-"tags.create_tags" = "创建标签";
-"tags.delete_tag" = "删除标签";
-"tags.delete_tag_confirmation" = "你确定要删除这个标签吗？";
-"tags.delete_tag_cannot_undo" = "此操作无法撤销。";
-"tags.tag_name" = "标签名称";
-"tags.tag_name_help" = "为你的标签选择一个描述性名称";
-"tags.type_tag_name" = "输入标签名称...";
-"tags.tag_color" = "标签颜色";
-"tags.tag_color_help" = "选择一个颜色以帮助识别你的标签";
-"tags.edit_tag" = "编辑标签";
-"tags.new_tag" = "新标签";
-"tags.tag_management_error" = "标签管理错误";
+"manage_tags" = "管理标签";
+"tags_help_text" = "标签帮助你组织单词。每个单词最多可有 5 个标签。";
+"no_tags_yet" = "尚未添加标签";
+"add_first_tag" = "点击上方按钮添加你的第一个标签。";
+"add_tag" = "添加标签";
+"add_first_tag_description" = "点击上方按钮添加你的第一个标签。";
+"add_tag_to_start_using" = "添加标签以开始使用。";
+"add_tags" = "添加标签";
+"create_tags" = "创建标签";
+"delete_tag" = "删除标签";
+"delete_tag_confirmation" = "你确定要删除这个标签吗？";
+"delete_tag_cannot_undo" = "此操作无法撤销。";
+"tag_name" = "标签名称";
+"tag_name_help" = "为你的标签选择一个描述性名称";
+"type_tag_name" = "输入标签名称...";
+"tag_color" = "标签颜色";
+"tag_color_help" = "选择一个颜色以帮助识别你的标签";
+"edit_tag" = "编辑标签";
+"new_tag" = "新标签";
+"tag_management_error" = "标签管理错误";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "选择标签";

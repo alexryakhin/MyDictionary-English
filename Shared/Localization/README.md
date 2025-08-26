@@ -20,7 +20,7 @@ Instead of hardcoding strings in your SwiftUI views, use the `Loc` enum:
 Text("Words")
 
 // After
-Text(Loc.words.localized)
+Text(Loc.words)
 ```
 
 ### With Format Arguments
@@ -32,7 +32,7 @@ For strings that need dynamic values:
 Text("\(count) words")
 
 // After
-Text(Loc.wordsCount.localized(count))
+Text(Loc.wordsCount(count))
 ```
 
 ### In SwiftUI Views
@@ -41,14 +41,14 @@ Text(Loc.wordsCount.localized(count))
 struct MyView: View {
     var body: some View {
         VStack {
-            Text(Loc.welcomeTo.localized)
-            Text(Loc.myDictionary.localized)
+            Text(Loc.welcomeTo)
+            Text(Loc.myDictionary)
             
-            Button(Loc.getStarted.localized) {
+            Button(Loc.getStarted) {
                 // Action
             }
         }
-        .navigationTitle(Loc.wordDetails.localized)
+        .navigationTitle(Loc.wordDetails)
     }
 }
 ```
@@ -97,7 +97,7 @@ To migrate existing hardcoded strings:
 1. Find all hardcoded strings in your views
 2. Add corresponding keys to the `Loc` enum
 3. Add translations to both `.strings` files
-4. Replace hardcoded strings with `String.localized(Loc.key)`
+4. Replace hardcoded strings with `String(Loc.key)`
 
 ## Supported Languages
 

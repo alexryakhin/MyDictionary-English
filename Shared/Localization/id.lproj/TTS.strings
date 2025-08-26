@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Semua kasus penggunaan";
-"tts.filters.all_ages" = "Semua usia";
-"tts.filters.all_timbres" = "Semua nada suara";
-"tts.filters.all_accents" = "Semua aksen";
-"tts.filters.all_languages" = "Semua bahasa";
-"tts.filters.all_genders" = "Semua jenis kelamin";
-"tts.filters.filters" = "Filter";
-"tts.filters.reset" = "Atur Ulang";
-"tts.filters.select_voice" = "Pilih suara";
-"tts.filters.available_voices" = "Suara yang tersedia";
-"tts.filters.no_voices_available" = "Tidak ada suara yang tersedia";
-"tts.filters.no_voices_found" = "Tidak ada suara yang ditemukan";
-"tts.filters.no_voices_found_message" = "Coba sesuaikan pencarian atau filter Anda";
+"filters.all_use_cases" = "Semua kasus penggunaan";
+"filters.all_ages" = "Semua usia";
+"filters.all_timbres" = "Semua nada suara";
+"filters.all_accents" = "Semua aksen";
+"filters.all_languages" = "Semua bahasa";
+"filters.all_genders" = "Semua jenis kelamin";
+"filters.filters" = "Filter";
+"filters.reset" = "Atur Ulang";
+"filters.select_voice" = "Pilih suara";
+"filters.available_voices" = "Suara yang tersedia";
+"filters.no_voices_available" = "Tidak ada suara yang tersedia";
+"filters.no_voices_found" = "Tidak ada suara yang ditemukan";
+"filters.no_voices_found_message" = "Coba sesuaikan pencarian atau filter Anda";
 
-"tts.usage.monthly_limit_exceeded" = "Batas bulanan terlampaui";
-"tts.usage.monthly_limit_exceeded_message" = "Anda telah mencapai batas bulanan 50.000 karakter untuk Speechify TTS. Coba lagi bulan depan atau gunakan Google TTS.";
-"tts.usage.remaining_characters" = "Karakter yang tersisa";
-"tts.usage.monthly_usage" = "Penggunaan bulanan";
-"tts.usage.monthly_limit" = "Batas bulanan";
+"usage.monthly_limit_exceeded" = "Batas bulanan terlampaui";
+"usage.monthly_limit_exceeded_message" = "Anda telah mencapai batas bulanan 50.000 karakter untuk Speechify TTS. Coba lagi bulan depan atau gunakan Google TTS.";
+"usage.remaining_characters" = "Karakter yang tersisa";
+"usage.monthly_usage" = "Penggunaan bulanan";
+"usage.monthly_limit" = "Batas bulanan";
 
 // TTS Voice Filter Values
 "advertisement" = "Iklan";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "Dasbor TTS";
-"tts.premium_tts_dashboard" = "Dasbor TTS Premium";
-"tts.customize_tts_experience" = "Sesuaikan pengalaman teks ke ucapan Anda";
-"tts.playing" = "Sedang diputar";
-"tts.ready" = "Siap";
-"tts.provider" = "Penyedia";
-"tts.tts_provider" = "Penyedia TTS";
-"tts.voice_customization" = "Kustomisasi suara";
-"tts.current_voice" = "Suara saat ini";
-"tts.default_voice" = "Suara default";
-"tts.preview_current_voice" = "Pratinjau suara saat ini";
-"tts.change_voice" = "Ubah suara";
-"tts.audio_settings" = "Pengaturan audio";
-"tts.speech_rate" = "Kecepatan bicara";
-"tts.volume" = "Volume";
-"tts.test_your_settings" = "Uji pengaturan Anda";
-"tts.enter_text_to_test" = "Masukkan teks untuk menguji...";
-"tts.stop" = "Berhenti";
-"tts.test" = "Uji";
-"tts.usage_statistics" = "Statistik penggunaan";
-"tts.speechify_monthly_usage" = "Penggunaan bulanan Speechify";
-"tts.monthly_limit" = "Batas bulanan";
-"tts.used_this_month" = "Digunakan bulan ini";
-"tts.remaining" = "Sisa";
-"tts.usage_progress" = "Kemajuan penggunaan";
-"tts.characters" = "karakter";
+"dashboard" = "Dasbor TTS";
+"premium_tts_dashboard" = "Dasbor TTS Premium";
+"customize_tts_experience" = "Sesuaikan pengalaman teks ke ucapan Anda";
+"playing" = "Sedang diputar";
+"ready" = "Siap";
+"provider" = "Penyedia";
+"tts_provider" = "Penyedia TTS";
+"voice_customization" = "Kustomisasi suara";
+"current_voice" = "Suara saat ini";
+"default_voice" = "Suara default";
+"preview_current_voice" = "Pratinjau suara saat ini";
+"change_voice" = "Ubah suara";
+"audio_settings" = "Pengaturan audio";
+"speech_rate" = "Kecepatan bicara";
+"volume" = "Volume";
+"test_your_settings" = "Uji pengaturan Anda";
+"enter_text_to_test" = "Masukkan teks untuk menguji...";
+"stop" = "Berhenti";
+"test" = "Uji";
+"usage_statistics" = "Statistik penggunaan";
+"speechify_monthly_usage" = "Penggunaan bulanan Speechify";
+"monthly_limit" = "Batas bulanan";
+"used_this_month" = "Digunakan bulan ini";
+"remaining" = "Sisa";
+"usage_progress" = "Kemajuan penggunaan";
+"characters" = "karakter";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "Karakter yang digunakan";
-"tts.analytics.sessions" = "Sesi";
-"tts.analytics.favorite_voice" = "Suara favorit";
-"tts.analytics.time_saved" = "Waktu yang dihemat";
-"tts.analytics.total_characters" = "Total karakter";
-"tts.analytics.total_sessions" = "Total sesi";
-"tts.analytics.total_duration" = "Durasi total";
-"tts.analytics.favorite_language" = "Bahasa favorit";
-"tts.analytics.premium_usage" = "Penggunaan premium";
+"analytics.characters_used" = "Karakter yang digunakan";
+"analytics.sessions" = "Sesi";
+"analytics.favorite_voice" = "Suara favorit";
+"analytics.time_saved" = "Waktu yang dihemat";
+"analytics.total_characters" = "Total karakter";
+"analytics.total_sessions" = "Total sesi";
+"analytics.total_duration" = "Durasi total";
+"analytics.favorite_language" = "Bahasa favorit";
+"analytics.premium_usage" = "Penggunaan premium";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "Teks ke ucapan";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Model teks ke ucapan Speechify tersedia untuk semua pengguna sebagai fitur premium. Ini memungkinkan Anda memilih dari berbagai suara dan aksen, untuk menyesuaikan pengalaman belajar Anda.";
-"tts.settings.speechify_pro_description" = "Model teks ke ucapan Speechify disertakan dalam langganan Anda.";
-"tts.settings.dashboard" = "Dasbor";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Google TTS gratis dengan suara dasar dan kinerja yang andal";
+"settings.text_to_speech" = "Teks ke ucapan";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Model teks ke ucapan Speechify tersedia untuk semua pengguna sebagai fitur premium. Ini memungkinkan Anda memilih dari berbagai suara dan aksen, untuk menyesuaikan pengalaman belajar Anda.";
+"settings.speechify_pro_description" = "Model teks ke ucapan Speechify disertakan dalam langganan Anda.";
+"settings.dashboard" = "Dasbor";
+"pro" = "Pro";
+"free_google_tts_description" = "Google TTS gratis dengan suara dasar dan kinerja yang andal";
 
 // TTS Models
-"tts.models.english" = "Bahasa Inggris";
-"tts.models.multilingual" = "Multibahasa";
-"tts.models.english_description" = "Model teks ke ucapan Bahasa Inggris Speechify menawarkan fitur standar yang dirancang untuk memberikan keluaran audio yang jelas dan alami untuk membaca teks. Model ini berfokus pada penyediaan pengalaman pengguna yang konsisten.";
-"tts.models.multilingual_description" = "Model multibahasa memungkinkan penggunaan semua bahasa yang didukung dan mendukung penggunaan beberapa bahasa dalam satu kalimat. Keluaran audio model ini sangat berbeda dari model lain.";
+"models.english" = "Bahasa Inggris";
+"models.multilingual" = "Multibahasa";
+"models.english_description" = "Model teks ke ucapan Bahasa Inggris Speechify menawarkan fitur standar yang dirancang untuk memberikan keluaran audio yang jelas dan alami untuk membaca teks. Model ini berfokus pada penyediaan pengalaman pengguna yang konsisten.";
+"models.multilingual_description" = "Model multibahasa memungkinkan penggunaan semua bahasa yang didukung dan mendukung penggunaan beberapa bahasa dalam satu kalimat. Keluaran audio model ini sangat berbeda dari model lain.";
 
 // MARK: - English Accents
 "english_accents.australian" = "Australia";

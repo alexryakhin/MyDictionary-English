@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "คำศัพท์";
-"tabbar.idioms" = "สำนวน";
 "tabbar.quizzes" = "แบบทดสอบ";
 "tabbar.progress" = "ความคืบหน้า";
 "tabbar.settings" = "การตั้งค่า";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "รายละเอียดคำศัพท์";
-"navigation.idiom_details" = "รายละเอียดสำนวน";
-"navigation.add_tags" = "เพิ่มแท็ก";
-"navigation.about" = "เกี่ยวกับ";
-"navigation.debug_panel" = "แผงดีบัก";
-"navigation.quiz_results" = "ผลลัพธ์แบบทดสอบ";
-"navigation.spelling_quiz" = "แบบทดสอบการสะกดคำ";
-"navigation.definition_quiz" = "แบบทดสอบความหมาย";
-"navigation.close" = "ปิด";
-"navigation.close_screen" = "ปิดหน้าจอ";
+"word_details" = "รายละเอียดคำศัพท์";
+"idiom_details" = "รายละเอียดสำนวน";
+"add_tags" = "เพิ่มแท็ก";
+"about" = "เกี่ยวกับ";
+"debug_panel" = "แผงดีบัก";
+"quiz_results" = "ผลลัพธ์แบบทดสอบ";
+"spelling_quiz" = "แบบทดสอบการสะกดคำ";
+"definition_quiz" = "แบบทดสอบความหมาย";
+"close" = "ปิด";
+"close_screen" = "ปิดหน้าจอ";
 

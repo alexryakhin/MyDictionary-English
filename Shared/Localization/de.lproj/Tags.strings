@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Tags verwalten";
-"tags.tags_help_text" = "Tags helfen Ihnen, Wörter zu organisieren. Jedes Wort kann bis zu 5 Tags haben.";
-"tags.no_tags_yet" = "Noch keine Tags hinzugefügt";
-"tags.add_first_tag" = "Fügen Sie Ihren ersten Tag hinzu, indem Sie auf die Schaltfläche oben klicken.";
-"tags.add_tag" = "Tag hinzufügen";
-"tags.add_first_tag_description" = "Fügen Sie Ihren ersten Tag hinzu, indem Sie auf die Schaltfläche oben klicken.";
-"tags.add_tag_to_start_using" = "Fügen Sie einen Tag hinzu, um ihn zu verwenden.";
-"tags.add_tags" = "Tags hinzufügen";
-"tags.create_tags" = "Tags erstellen";
-"tags.delete_tag" = "Tag löschen";
-"tags.delete_tag_confirmation" = "Sind Sie sicher, dass Sie diesen Tag löschen möchten?";
-"tags.delete_tag_cannot_undo" = "Diese Aktion kann nicht rückgängig gemacht werden.";
-"tags.tag_name" = "Tag-Name";
-"tags.tag_name_help" = "Wählen Sie einen beschreibenden Namen für Ihren Tag";
-"tags.type_tag_name" = "Tag-Namen eingeben...";
-"tags.tag_color" = "Tag-Farbe";
-"tags.tag_color_help" = "Wählen Sie eine Farbe, um Ihren Tag leicht erkennbar zu machen";
-"tags.edit_tag" = "Tag bearbeiten";
-"tags.new_tag" = "Neuer Tag";
-"tags.tag_management_error" = "Fehler bei der Tag-Verwaltung";
+"manage_tags" = "Tags verwalten";
+"tags_help_text" = "Tags helfen Ihnen, Wörter zu organisieren. Jedes Wort kann bis zu 5 Tags haben.";
+"no_tags_yet" = "Noch keine Tags hinzugefügt";
+"add_first_tag" = "Fügen Sie Ihren ersten Tag hinzu, indem Sie auf die Schaltfläche oben klicken.";
+"add_tag" = "Tag hinzufügen";
+"add_first_tag_description" = "Fügen Sie Ihren ersten Tag hinzu, indem Sie auf die Schaltfläche oben klicken.";
+"add_tag_to_start_using" = "Fügen Sie einen Tag hinzu, um ihn zu verwenden.";
+"add_tags" = "Tags hinzufügen";
+"create_tags" = "Tags erstellen";
+"delete_tag" = "Tag löschen";
+"delete_tag_confirmation" = "Sind Sie sicher, dass Sie diesen Tag löschen möchten?";
+"delete_tag_cannot_undo" = "Diese Aktion kann nicht rückgängig gemacht werden.";
+"tag_name" = "Tag-Name";
+"tag_name_help" = "Wählen Sie einen beschreibenden Namen für Ihren Tag";
+"type_tag_name" = "Tag-Namen eingeben...";
+"tag_color" = "Tag-Farbe";
+"tag_color_help" = "Wählen Sie eine Farbe, um Ihren Tag leicht erkennbar zu machen";
+"edit_tag" = "Tag bearbeiten";
+"new_tag" = "Neuer Tag";
+"tag_management_error" = "Fehler bei der Tag-Verwaltung";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Tags auswählen";

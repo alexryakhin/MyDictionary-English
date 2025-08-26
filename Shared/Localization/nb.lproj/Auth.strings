@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Logg inn før du abonnerer";
+"sign_in_with_google" = "Logg inn med Google";
+"can_always_sign_in_later" = "Du kan alltid logge inn senere fra innstillinger";
+"link_additional_accounts" = "Koble til flere kontoer";
+"accounts_linked_successfully" = "Kontoer koblet vellykket";
+"sign_out_confirmation" = "Logg ut";
+"your_words_are_safe" = "Ordene dine er trygge";
+"cloud_sync_disabled" = "Sky-synkronisering vil bli deaktivert";
+"sign_out" = "Logg ut";
+"no_worries_wont_remove_words" = "Ingen bekymringer! Vi sletter ikke ordene dine.";
+"vocabulary_stay_on_device" = "Vokabularet ditt forblir på denne enheten. Hvis du logger inn med en annen konto, vil dataene dine bli slått sammen.";
+"all_vocabulary_remain_device" = "Alle ord, definisjoner og fremgang forblir på denne enheten. Du kan fortsette å bruke appen uten å logge inn.";
+"word_lists_shared_data_cleared" = "Ordlister og delte data vil bli slettet. Hvis du logger inn med en annen konto, vil lokale ord bli slått sammen med den nye kontoens data.";
+"sign_in_to_access_word_lists" = "Logg inn for å få tilgang til ordlistene dine på alle enheter og samarbeide med andre.";
+"link_google" = "Koble til Google";
+"link_apple" = "Koble til Apple";
+"sign_in_to_sync_word_lists" = "Logg inn for å synkronisere ordlister";
+"sign_out_error_title" = "Ops!";
+"sign_out_error_message" = "Noe gikk galt under utlogging. Prøv igjen senere.";
+"sign_in_required_for_restore" = "Innlogging kreves for å gjenopprette kjøp.";
+"sign_in_required_for_pro_features" = "Innlogging kreves for å få tilgang til Pro-funksjoner som %@.";
+"sign_in_failed" = "Innlogging mislyktes. Prøv igjen.";
+"sign_out_failed" = "Utlogging mislyktes. Prøv igjen.";
+"user_not_found" = "Bruker ikke funnet.";
+"network_error" = "Nettverksfeil. Sjekk tilkoblingen din.";
+"account_linking_failed" = "Kobling av konto mislyktes. Prøv igjen.";
+
+// Registration Benefits
+"registration_benefits" = "Registreringsfordeler";
+"access_subscription_all_devices" = "Få tilgang til abonnementet ditt på alle enhetene dine";
+"sync_progress_cross_platform" = "Synkroniser fremgangen din mellom iOS og Android";
+"backup_data_securely" = "Sikker backup av dataene dine i skyen";
+"register_anytime_from_settings" = "Du kan registrere deg når som helst fra Innstillinger for å aktivere disse funksjonene";
+"account_registration" = "Kontoregistrering";
+"register_for_cross_platform_access" = "Registrer deg for å få tilgang til abonnementet ditt på alle enhetene dine og synkronisere fremgangen din";
+"active_subscription_notification" = "Du har et aktivt abonnement!";
+"register_to_unlock_cross_platform" = "Registrer deg for å låse opp tvers av plattformer-tilgang";
+"register_now" = "Registrer Deg Nå";
+
+// Subscription Security
+"subscription_access_restricted" = "Abonnementstilgang Begrenset";
+"subscription_associated_different_account" = "Dette abonnementet er knyttet til en annen konto. Vennligst logg inn med kontoen som kjøpte dette abonnementet for å få tilgang til Pro-funksjoner.";
+
+// Profile
+"profile" = "Profil";
+"account_linking" = "Kontokobling";
+"account_linking_description" = "For å få tilgang til abonnementet ditt på Android-enheter, må du koble til en Google-konto. For å dele abonnementer på tvers av plattformer, koble til begge kontoer.";
+"link_google_for_android" = "Koble til Google-konto";
+"link_apple_for_cross_platform" = "Koble til Apple ID";
+"current_account" = "Gjeldende Konto";
+"linked_accounts" = "Koblede Kontoer";
+"no_linked_accounts" = "Ingen koblede kontoer";
+
+"cross_platform_button_description" = "For deling av abonnement på tvers av plattformer";
+"nickname" = "Kallenavn";
+"nickname_current" = "Nåværende kallenavn";
+"nickname_not_set" = "Kallenavn er ikke satt";
+"nickname_description" = "Sett et unikt kallenavn som andre kan bruke for å finne og legge deg til i delte ordbøker. Dette er mer praktisk enn å bruke e-postadresser.";
+"edit_nickname" = "Rediger kallenavn";
+"nickname_cannot_be_empty" = "Kallenavn kan ikke være tomt";
+"nickname_already_taken" = "Dette kallenavnet er allerede tatt. Velg et annet.";
+"nickname_invalid_format" = "Kallenavn kan bare inneholde bokstaver, tall og understreker.";
+"search_method" = "Søkemetode";
+"find_user_by_email" = "Finn bruker via e-post";
+"find_user_by_nickname" = "Finn bruker via kallenavn";
+"enter_email_address" = "Skriv inn e-postadresse";
+"enter_nickname" = "Skriv inn kallenavn";
+"found_user" = "Bruker funnet";
+"user_not_found" = "Bruker ikke funnet";
+"user_not_found_message" = "Ingen bruker funnet med den oppgitte informasjonen. Sjekk søket ditt og prøv igjen.";
+
+"enter_name" = "Skriv inn navn";
+"search_by" = "Søk etter";
+"unknown_user" = "Ukjent bruker";
+"email" = "E-post";
+"apple_id" = "Apple-ID";
+"google_account" = "Google-konto";
+
+

@@ -11,18 +11,18 @@ struct AboutAppContentView: View {
         ScrollView {
             VStack(spacing: 16) {
                 // MARK: - About
-                CustomSectionView(header: Loc.Settings.aboutApp.localized) {
+                CustomSectionView(header: Loc.Settings.aboutApp) {
                     VStack(spacing: 24) {
                         Image(.iconRounded)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 128, height: 128)
 
-                        Text(Loc.Settings.aboutAppDescription.localized)
+                        Text(Loc.Settings.aboutAppDescription)
                             .multilineTextAlignment(.leading)
 
                         HStack(spacing: 8) {
-                            Text(Loc.Settings.appVersion.localized)
+                            Text(Loc.Settings.appVersion)
                                 .bold()
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             Text(GlobalConstant.currentFullAppVersion)
@@ -32,31 +32,31 @@ struct AboutAppContentView: View {
                 }
 
                 // MARK: - Features
-                CustomSectionView(header: Loc.Settings.features.localized, hPadding: .zero) {
+                CustomSectionView(header: Loc.Settings.features, hPadding: .zero) {
                     FormWithDivider {
-                        FeatureRow(text: Loc.Settings.addOrganizeWords.localized)
-                        FeatureRow(text: Loc.Settings.practiceQuizzesSpelling.localized)
-                        FeatureRow(text: Loc.Settings.trackLearningProgress.localized)
-                        FeatureRow(text: Loc.Settings.importExportWordCollection.localized)
-                        FeatureRow(text: Loc.Settings.customizeLearningExperience.localized)
-                        FeatureRow(text: Loc.Settings.voicePronunciationSupport.localized)
+                        FeatureRow(text: Loc.Settings.addOrganizeWords)
+                        FeatureRow(text: Loc.Settings.practiceQuizzesSpelling)
+                        FeatureRow(text: Loc.Settings.trackLearningProgress)
+                        FeatureRow(text: Loc.Settings.importExportWordCollection)
+                        FeatureRow(text: Loc.Settings.customizeLearningExperience)
+                        FeatureRow(text: Loc.Settings.voicePronunciationSupport)
                     }
                 }
 
                 // MARK: - Follow Me
 
-                CustomSectionView(header: Loc.Settings.contactMe.localized) {
+                CustomSectionView(header: Loc.Settings.contactMe) {
                     VStack(spacing: 12) {
-                        Text(Loc.Settings.contactSupport.localized)
+                        Text(Loc.Settings.contactSupport)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .multilineTextAlignment(.leading)
 
-                        ActionButton(Loc.Settings.xTwitter.localized, systemImage: "bird") {
+                        ActionButton(Loc.Settings.xTwitter, systemImage: "bird") {
                             openURL(GlobalConstant.twitterUrl)
                             AnalyticsService.shared.logEvent(.twitterButtonTapped)
                         }
 
-                        ActionButton(Loc.Settings.instagram.localized, systemImage: "camera") {
+                        ActionButton(Loc.Settings.instagram, systemImage: "camera") {
                             openURL(GlobalConstant.instagramUrl)
                             AnalyticsService.shared.logEvent(.instagramButtonTapped)
                         }
@@ -65,15 +65,15 @@ struct AboutAppContentView: View {
 
                 // MARK: - Review section
 
-                CustomSectionView(header: Loc.Settings.support.localized) {
+                CustomSectionView(header: Loc.Settings.support) {
                     VStack(spacing: 12) {
-                        ActionButton(Loc.Coffee.buyMeACoffee.localized, systemImage: "cup.and.saucer.fill", color: .orange) {
+                        ActionButton(Loc.Coffee.buyMeACoffee, systemImage: "cup.and.saucer.fill", color: .orange) {
                             openURL(GlobalConstant.buyMeACoffeeUrl)
                             AnalyticsService.shared.logEvent(.buyMeACoffeeTapped)
                         }
 
                         if viewModel.isShowingRating {
-                            ActionButton(Loc.Settings.rateApp.localized, systemImage: "star.fill", color: .yellow) {
+                            ActionButton(Loc.Settings.rateApp, systemImage: "star.fill", color: .yellow) {
                                 requestReview()
                             }
                         }
@@ -88,7 +88,7 @@ struct AboutAppContentView: View {
             }
         }
         .groupedBackground()
-        .navigation(title: Loc.Navigation.about.localized, mode: .large, showsBackButton: true)
+        .navigation(title: Loc.Navigation.about, mode: .large, showsBackButton: true)
         .onAppear {
             AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
         }

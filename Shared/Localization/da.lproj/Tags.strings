@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Administrer tags";
-"tags.tags_help_text" = "Tags hjælper dig med at organisere ord. Hvert ord kan have op til 5 tags.";
-"tags.no_tags_yet" = "Ingen tags tilføjet endnu";
-"tags.add_first_tag" = "Tilføj dit første tag ved at klikke på knappen ovenfor.";
-"tags.add_tag" = "Tilføj tag";
-"tags.add_first_tag_description" = "Tilføj dit første tag ved at klikke på knappen ovenfor.";
-"tags.add_tag_to_start_using" = "Tilføj et tag for at begynde at bruge.";
-"tags.add_tags" = "Tilføj tags";
-"tags.create_tags" = "Opret tags";
-"tags.delete_tag" = "Slet tag";
-"tags.delete_tag_confirmation" = "Er du sikker på, at du vil slette dette tag?";
-"tags.delete_tag_cannot_undo" = "Denne handling kan ikke fortrydes.";
-"tags.tag_name" = "Tagnavn";
-"tags.tag_name_help" = "Vælg et beskrivende navn til dit tag";
-"tags.type_tag_name" = "Skriv tagnavn...";
-"tags.tag_color" = "Tagfarve";
-"tags.tag_color_help" = "Vælg en farve for at genkende dit tag lettere";
-"tags.edit_tag" = "Rediger tag";
-"tags.new_tag" = "Nyt tag";
-"tags.tag_management_error" = "Fejl ved tag-administration";
+"manage_tags" = "Administrer tags";
+"tags_help_text" = "Tags hjælper dig med at organisere ord. Hvert ord kan have op til 5 tags.";
+"no_tags_yet" = "Ingen tags tilføjet endnu";
+"add_first_tag" = "Tilføj dit første tag ved at klikke på knappen ovenfor.";
+"add_tag" = "Tilføj tag";
+"add_first_tag_description" = "Tilføj dit første tag ved at klikke på knappen ovenfor.";
+"add_tag_to_start_using" = "Tilføj et tag for at begynde at bruge.";
+"add_tags" = "Tilføj tags";
+"create_tags" = "Opret tags";
+"delete_tag" = "Slet tag";
+"delete_tag_confirmation" = "Er du sikker på, at du vil slette dette tag?";
+"delete_tag_cannot_undo" = "Denne handling kan ikke fortrydes.";
+"tag_name" = "Tagnavn";
+"tag_name_help" = "Vælg et beskrivende navn til dit tag";
+"type_tag_name" = "Skriv tagnavn...";
+"tag_color" = "Tagfarve";
+"tag_color_help" = "Vælg en farve for at genkende dit tag lettere";
+"edit_tag" = "Rediger tag";
+"new_tag" = "Nyt tag";
+"tag_management_error" = "Fejl ved tag-administration";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Vælg tags";

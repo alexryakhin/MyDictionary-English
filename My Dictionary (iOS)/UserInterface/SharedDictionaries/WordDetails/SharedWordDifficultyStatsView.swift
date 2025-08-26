@@ -24,7 +24,7 @@ struct SharedWordDifficultyStatsView: View {
         }
         .groupedBackground()
         .navigation(
-            title: Loc.Analytics.difficultyStatistics.localized,
+            title: Loc.Analytics.difficultyStatistics,
             mode: .inline,
             showsBackButton: true
         )
@@ -45,9 +45,9 @@ struct SharedWordDifficultyStatsView: View {
 
     private var individualRatingsSection: some View {
         CustomSectionView(
-            header: Loc.Analytics.individualRatings.localized,
+            header: Loc.Analytics.individualRatings,
             headerFontStyle: .regular,
-            footer: Loc.Analytics.howOtherUsersRateDifficulty.localized
+            footer: Loc.Analytics.howOtherUsersRateDifficulty
         ) {
             if word.difficulties.isEmpty {
                 emptyStateView
@@ -70,9 +70,9 @@ struct SharedWordDifficultyStatsView: View {
 
     private var emptyStateView: some View {
         ContentUnavailableView(
-            Loc.Analytics.noDifficultyRatingsYet.localized,
+            Loc.Analytics.noDifficultyRatingsYet,
             systemImage: "chart.bar.doc.horizontal",
-                            description: Text(Loc.SharedDictionaries.beFirstToRateDifficulty.localized)
+                            description: Text(Loc.SharedDictionaries.beFirstToRateDifficulty)
         )
     }
 }
@@ -95,7 +95,7 @@ struct UserDifficultyRow: View {
                     .fontWeight(.medium)
                     .lineLimit(1)
 
-                Text(Loc.SharedDictionaries.score.localized(score))
+                Text(Loc.SharedDictionaries.score(score))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

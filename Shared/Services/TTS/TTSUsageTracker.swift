@@ -472,7 +472,7 @@ final class TTSUsageTracker: ObservableObject {
         if let voice = TTSPlayer.shared.availableVoices.first(where: { $0.id == voiceId }) {
             return voice.displayName
         }
-        return Loc.TTS.defaultVoice.localized
+        return Loc.Tts.defaultVoice
     }
 
     var favoriteLanguage: String {

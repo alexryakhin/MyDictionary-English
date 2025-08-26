@@ -88,7 +88,7 @@ struct SharedWord: Codable, Hashable {
     }
 
     var languageDisplayName: String {
-        guard let language = Locale.current.localizedString(forLanguageCode: languageCode) else { return Loc.App.unknown.localized }
+        guard let language = Locale.current.localizedString(forLanguageCode: languageCode) else { return Loc.Errors.unknown }
         return language.capitalized
     }
     
@@ -127,11 +127,11 @@ struct SharedWord: Codable, Hashable {
     func getDifficultyDisplayName(for userEmail: String) -> String {
         let difficulty = getDifficultyFor(userEmail)
         switch difficulty {
-        case 0: return Loc.Difficulty.new.localized
-        case 1: return Loc.Difficulty.inProgress.localized
-        case 2: return Loc.Difficulty.needsReview.localized
-        case 3: return Loc.Difficulty.mastered.localized
-        default: return Loc.Difficulty.new.localized
+        case 0: return Loc.Words.Difficulty.new
+        case 1: return Loc.Words.Difficulty.inProgress
+        case 2: return Loc.Words.Difficulty.needsReview
+        case 3: return Loc.Words.Difficulty.mastered
+        default: return Loc.Words.Difficulty.new
         }
     }
 

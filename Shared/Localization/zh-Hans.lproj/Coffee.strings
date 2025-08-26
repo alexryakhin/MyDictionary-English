@@ -1,7 +1,7 @@
 // MARK: - Coffee
 
-"coffee.buy_me_a_coffee" = "请我喝杯咖啡";
-"coffee.maybe_later" = "稍后再说";
-"coffee.enjoying_the_app" = "喜欢这个应用吗？";
-"coffee.helpful_learning_journey" = "如果我的词典在你的学习旅程中有所帮助，请考虑请我喝杯咖啡！ ☕️";
+"buy_me_a_coffee" = "请我喝杯咖啡";
+"maybe_later" = "稍后再说";
+"enjoying_the_app" = "喜欢这个应用吗？";
+"helpful_learning_journey" = "如果我的词典在你的学习旅程中有所帮助，请考虑请我喝杯咖啡！ ☕️";
 

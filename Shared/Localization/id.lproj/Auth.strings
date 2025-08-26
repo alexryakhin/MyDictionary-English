@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Masuk sebelum berlangganan";
+"sign_in_with_google" = "Masuk dengan Google";
+"can_always_sign_in_later" = "Anda selalu bisa masuk nanti dari pengaturan";
+"link_additional_accounts" = "Tautkan akun tambahan";
+"accounts_linked_successfully" = "Akun berhasil ditautkan";
+"sign_out_confirmation" = "Keluar";
+"your_words_are_safe" = "Kata-kata Anda aman";
+"cloud_sync_disabled" = "Sinkronisasi cloud akan dinonaktifkan";
+"sign_out" = "Keluar";
+"no_worries_wont_remove_words" = "Jangan khawatir! Kami tidak akan menghapus kata-kata Anda.";
+"vocabulary_stay_on_device" = "Kosakata Anda tetap berada di perangkat ini. Jika Anda masuk dengan akun lain, data Anda akan digabungkan.";
+"all_vocabulary_remain_device" = "Semua kata, definisi, dan kemajuan Anda tetap berada di perangkat ini. Anda dapat terus menggunakan aplikasi tanpa masuk.";
+"word_lists_shared_data_cleared" = "Daftar kata dan data bersama akan dihapus. Jika Anda masuk dengan akun lain, kata-kata lokal Anda akan digabungkan dengan data akun baru.";
+"sign_in_to_access_word_lists" = "Masuk untuk mengakses daftar kata Anda di semua perangkat dan berkolaborasi dengan orang lain.";
+"link_google" = "Tautkan Google";
+"link_apple" = "Tautkan Apple";
+"sign_in_to_sync_word_lists" = "Masuk untuk menyinkronkan daftar kata";
+"sign_out_error_title" = "Ups!";
+"sign_out_error_message" = "Ada yang salah saat keluar. Silakan coba lagi nanti.";
+"sign_in_required_for_restore" = "Masuk diperlukan untuk memulihkan pembelian Anda.";
+"sign_in_required_for_pro_features" = "Masuk diperlukan untuk mengakses fitur Pro seperti %@.";
+"sign_in_failed" = "Gagal masuk. Silakan coba lagi.";
+"sign_out_failed" = "Gagal keluar. Silakan coba lagi.";
+"user_not_found" = "Pengguna tidak ditemukan.";
+"network_error" = "Kesalahan jaringan. Periksa koneksi Anda.";
+"account_linking_failed" = "Penautan akun gagal. Silakan coba lagi.";
+
+// Registration Benefits
+"registration_benefits" = "Manfaat Pendaftaran";
+"access_subscription_all_devices" = "Akses langganan Anda di semua perangkat";
+"sync_progress_cross_platform" = "Sinkronkan kemajuan Anda antara iOS dan Android";
+"backup_data_securely" = "Cadangkan data Anda dengan aman di cloud";
+"register_anytime_from_settings" = "Anda dapat mendaftar kapan saja dari Pengaturan untuk mengaktifkan fitur-fitur ini";
+"account_registration" = "Pendaftaran Akun";
+"register_for_cross_platform_access" = "Daftar untuk mengakses langganan Anda di semua perangkat dan sinkronkan kemajuan Anda";
+"active_subscription_notification" = "Anda memiliki langganan aktif!";
+"register_to_unlock_cross_platform" = "Daftar untuk membuka akses lintas platform";
+"register_now" = "Daftar Sekarang";
+
+// Subscription Security
+"subscription_access_restricted" = "Akses Langganan Dibatasi";
+"subscription_associated_different_account" = "Langganan ini terkait dengan akun yang berbeda. Silakan masuk dengan akun yang membeli langganan ini untuk mengakses fitur Pro.";
+
+// Profile
+"profile" = "Profil";
+"account_linking" = "Penautan Akun";
+"account_linking_description" = "Untuk mengakses langganan Anda di perangkat Android, Anda perlu menautkan akun Google. Untuk berbagi langganan antar platform, tautkan kedua akun.";
+"link_google_for_android" = "Tautkan Akun Google";
+"link_apple_for_cross_platform" = "Tautkan Apple ID";
+"current_account" = "Akun Saat Ini";
+"linked_accounts" = "Akun Tertaut";
+"no_linked_accounts" = "Tidak ada akun tertaut";
+
+"cross_platform_button_description" = "Untuk berbagi langganan lintas platform";
+"nickname" = "Nama panggilan";
+"nickname_current" = "Nama panggilan saat ini";
+"nickname_not_set" = "Nama panggilan belum diatur";
+"nickname_description" = "Atur nama panggilan unik yang dapat digunakan orang lain untuk menemukan dan menambahkan Anda ke kamus bersama. Ini lebih nyaman daripada menggunakan alamat email.";
+"edit_nickname" = "Edit nama panggilan";
+"nickname_cannot_be_empty" = "Nama panggilan tidak boleh kosong";
+"nickname_already_taken" = "Nama panggilan ini sudah digunakan. Pilih yang lain.";
+"nickname_invalid_format" = "Nama panggilan hanya boleh berisi huruf, angka, dan garis bawah.";
+"search_method" = "Metode pencarian";
+"find_user_by_email" = "Temukan pengguna melalui email";
+"find_user_by_nickname" = "Temukan pengguna melalui nama panggilan";
+"enter_email_address" = "Masukkan alamat email";
+"enter_nickname" = "Masukkan nama panggilan";
+"found_user" = "Pengguna ditemukan";
+"user_not_found" = "Pengguna tidak ditemukan";
+"user_not_found_message" = "Tidak ada pengguna yang ditemukan dengan informasi yang diberikan. Periksa pencarian Anda dan coba lagi.";
+
+"enter_name" = "Masukkan nama";
+"search_by" = "Cari berdasarkan";
+"unknown_user" = "Pengguna tidak dikenal";
+"email" = "Email";
+"apple_id" = "Apple ID";
+"google_account" = "Akun Google";
+
+

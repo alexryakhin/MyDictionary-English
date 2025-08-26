@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "Bildirim izni gerekli";
-"notifications.permission_denied_message" = "Günlük hatırlatmalar ve zor kelime uyarıları almak için lütfen Ayarlar'da bildirimleri etkinleştirin.";
+"permission_required" = "Bildirim izni gerekli";
+"permission_denied_message" = "Günlük hatırlatmalar ve zor kelime uyarıları almak için lütfen Ayarlar'da bildirimleri etkinleştirin.";
 
-"notifications.time_to_practice" = "Alıştırma Zamanı! 📚";
-"notifications.practice_vocabulary_today" = "Bugün kelime dağarcığınızı çalışmayı unutmayın.";
-"notifications.practice_difficult_words" = "Zor Kelimeleri Çalış 📚";
-"notifications.difficult_words_challenge" = "Daha fazla alıştırma gerektiren kelimeleriniz var. Meydan okumaya hazır mısınız?";
-"notifications.test_dictionary_invitation" = "Test Sözlüğü Davetiyesi";
-"notifications.test_dictionary_invitation_body" = "Biri sizi 'Test Sözlüğü'ne ekledi";
+"time_to_practice" = "Alıştırma Zamanı! 📚";
+"practice_vocabulary_today" = "Bugün kelime dağarcığınızı çalışmayı unutmayın.";
+"practice_difficult_words" = "Zor Kelimeleri Çalış 📚";
+"difficult_words_challenge" = "Daha fazla alıştırma gerektiren kelimeleriniz var. Meydan okumaya hazır mısınız?";
+"test_dictionary_invitation" = "Test Sözlüğü Davetiyesi";
+"test_dictionary_invitation_body" = "Biri sizi 'Test Sözlüğü'ne ekledi";
 

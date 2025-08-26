@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "Từ vựng";
-"tabbar.idioms" = "Thành ngữ";
 "tabbar.quizzes" = "Bài kiểm tra";
 "tabbar.progress" = "Tiến độ";
 "tabbar.settings" = "Cài đặt";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "Chi tiết từ";
-"navigation.idiom_details" = "Chi tiết thành ngữ";
-"navigation.add_tags" = "Thêm thẻ";
-"navigation.about" = "Giới thiệu";
-"navigation.debug_panel" = "Bảng gỡ lỗi";
-"navigation.quiz_results" = "Kết quả bài kiểm tra";
-"navigation.spelling_quiz" = "Bài kiểm tra chính tả";
-"navigation.definition_quiz" = "Bài kiểm tra định nghĩa";
-"navigation.close" = "Đóng";
-"navigation.close_screen" = "Đóng màn hình";
+"word_details" = "Chi tiết từ";
+"idiom_details" = "Chi tiết thành ngữ";
+"add_tags" = "Thêm thẻ";
+"about" = "Giới thiệu";
+"debug_panel" = "Bảng gỡ lỗi";
+"quiz_results" = "Kết quả bài kiểm tra";
+"spelling_quiz" = "Bài kiểm tra chính tả";
+"definition_quiz" = "Bài kiểm tra định nghĩa";
+"close" = "Đóng";
+"close_screen" = "Đóng màn hình";
 

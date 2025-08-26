@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "सूचना अनुमति आवश्यक";
-"notifications.permission_denied_message" = "दैनिक रिमाइंडर और कठिन शब्दों के अलर्ट प्राप्त करने के लिए, कृपया सेटिंग्स में सूचनाएँ सक्षम करें।";
+"permission_required" = "सूचना अनुमति आवश्यक";
+"permission_denied_message" = "दैनिक रिमाइंडर और कठिन शब्दों के अलर्ट प्राप्त करने के लिए, कृपया सेटिंग्स में सूचनाएँ सक्षम करें।";
 
-"notifications.time_to_practice" = "अभ्यास करने का समय! 📚";
-"notifications.practice_vocabulary_today" = "आज अपनी शब्दावली का अभ्यास करना न भूलें।";
-"notifications.practice_difficult_words" = "कठिन शब्दों का अभ्यास करें 📚";
-"notifications.difficult_words_challenge" = "आपके पास ऐसे शब्द हैं जिन्हें अधिक अभ्यास की आवश्यकता है। चुनौती के लिए तैयार?";
-"notifications.test_dictionary_invitation" = "परीक्षण शब्दकोश निमंत्रण";
-"notifications.test_dictionary_invitation_body" = "किसी ने आपको 'परीक्षण शब्दकोश' में जोड़ा है";
+"time_to_practice" = "अभ्यास करने का समय! 📚";
+"practice_vocabulary_today" = "आज अपनी शब्दावली का अभ्यास करना न भूलें।";
+"practice_difficult_words" = "कठिन शब्दों का अभ्यास करें 📚";
+"difficult_words_challenge" = "आपके पास ऐसे शब्द हैं जिन्हें अधिक अभ्यास की आवश्यकता है। चुनौती के लिए तैयार?";
+"test_dictionary_invitation" = "परीक्षण शब्दकोश निमंत्रण";
+"test_dictionary_invitation_body" = "किसी ने आपको 'परीक्षण शब्दकोश' में जोड़ा है";
 

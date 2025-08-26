@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "Perkataan";
-"tabbar.idioms" = "Ungkapan";
 "tabbar.quizzes" = "Kui";
 "tabbar.progress" = "Kemajuan";
 "tabbar.settings" = "Tetapan";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "Butiran Perkataan";
-"navigation.idiom_details" = "Butiran Ungkapan";
-"navigation.add_tags" = "Tambah Tag";
-"navigation.about" = "Mengenai Apl";
-"navigation.debug_panel" = "Panel Nyahpepijat";
-"navigation.quiz_results" = "Keputusan Kui";
-"navigation.spelling_quiz" = "Kui Ejaan";
-"navigation.definition_quiz" = "Kui Definisi";
-"navigation.close" = "Tutup";
-"navigation.close_screen" = "Tutup Skrin";
+"word_details" = "Butiran Perkataan";
+"idiom_details" = "Butiran Ungkapan";
+"add_tags" = "Tambah Tag";
+"about" = "Mengenai Apl";
+"debug_panel" = "Panel Nyahpepijat";
+"quiz_results" = "Keputusan Kui";
+"spelling_quiz" = "Kui Ejaan";
+"definition_quiz" = "Kui Definisi";
+"close" = "Tutup";
+"close_screen" = "Tutup Skrin";
 

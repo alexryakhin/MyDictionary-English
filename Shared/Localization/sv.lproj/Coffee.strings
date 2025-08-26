@@ -1,7 +1,7 @@
 // MARK: - Coffee
 
-"coffee.buy_me_a_coffee" = "Köp mig en kaffe";
-"coffee.maybe_later" = "Kanske senare";
-"coffee.enjoying_the_app" = "Gillar du appen?";
-"coffee.helpful_learning_journey" = "Om Min Ordbok har hjälpt dig på din läranderesa, överväg att köpa mig en kaffe! ☕️";
+"buy_me_a_coffee" = "Köp mig en kaffe";
+"maybe_later" = "Kanske senare";
+"enjoying_the_app" = "Gillar du appen?";
+"helpful_learning_journey" = "Om Min Ordbok har hjälpt dig på din läranderesa, överväg att köpa mig en kaffe! ☕️";
 

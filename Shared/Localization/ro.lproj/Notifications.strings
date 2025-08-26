@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "Este necesară permisiunea pentru notificări";
-"notifications.permission_denied_message" = "Pentru a primi memento-uri zilnice și alerte pentru cuvinte dificile, activați notificările în Setări.";
+"permission_required" = "Este necesară permisiunea pentru notificări";
+"permission_denied_message" = "Pentru a primi memento-uri zilnice și alerte pentru cuvinte dificile, activați notificările în Setări.";
 
-"notifications.time_to_practice" = "E timpul să exersezi! 📚";
-"notifications.practice_vocabulary_today" = "Nu uita să-ți exersezi vocabularul astăzi.";
-"notifications.practice_difficult_words" = "Exersează cuvinte dificile 📚";
-"notifications.difficult_words_challenge" = "Ai cuvinte care necesită mai multă practică. Ești gata pentru provocare?";
-"notifications.test_dictionary_invitation" = "Invitație la Dicționar de Test";
-"notifications.test_dictionary_invitation_body" = "Cineva te-a adăugat la 'Dicționar de Test'";
+"time_to_practice" = "E timpul să exersezi! 📚";
+"practice_vocabulary_today" = "Nu uita să-ți exersezi vocabularul astăzi.";
+"practice_difficult_words" = "Exersează cuvinte dificile 📚";
+"difficult_words_challenge" = "Ai cuvinte care necesită mai multă practică. Ești gata pentru provocare?";
+"test_dictionary_invitation" = "Invitație la Dicționar de Test";
+"test_dictionary_invitation_body" = "Cineva te-a adăugat la 'Dicționar de Test'";
 

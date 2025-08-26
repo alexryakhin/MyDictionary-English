@@ -116,8 +116,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     #if DEBUG
     func testLocalNotification() {
         let content = UNMutableNotificationContent()
-        content.title = Loc.Notifications.testDictionaryInvitation.localized
-        content.body = Loc.Notifications.testDictionaryInvitationBody.localized
+        content.title = Loc.Notifications.testDictionaryInvitation
+        content.body = Loc.Notifications.testDictionaryInvitationBody
         content.sound = .default
         content.badge = 1
         content.userInfo = [

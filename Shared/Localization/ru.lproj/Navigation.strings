@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "Слова";
-"tabbar.idioms" = "Выражения";
 "tabbar.quizzes" = "Викторины";
 "tabbar.progress" = "Прогресс";
 "tabbar.settings" = "Настройки";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "О слове";
-"navigation.idiom_details" = "О выражении";
-"navigation.add_tags" = "Добавить теги";
-"navigation.about" = "О приложении";
-"navigation.debug_panel" = "Панель отладки";
-"navigation.quiz_results" = "Результаты";
-"navigation.spelling_quiz" = "Правописание";
-"navigation.definition_quiz" = "Определения";
-"navigation.close" = "Закрыть";
-"navigation.close_screen" = "Закрыть экран";
+"word_details" = "О слове";
+"idiom_details" = "О выражении";
+"add_tags" = "Добавить теги";
+"about" = "О приложении";
+"debug_panel" = "Панель отладки";
+"quiz_results" = "Результаты";
+"spelling_quiz" = "Правописание";
+"definition_quiz" = "Определения";
+"close" = "Закрыть";
+"close_screen" = "Закрыть экран";
 

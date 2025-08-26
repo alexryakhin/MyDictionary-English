@@ -19,7 +19,7 @@ struct AddEditTagView: View {
     var body: some View {
         ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
-                CustomSectionView(header: Loc.App.tagName.localized, footer: Loc.Tags.tagNameHelp.localized) {
+                CustomSectionView(header: Loc.Tags.tagName, footer: Loc.Tags.tagNameHelp) {
                     TextField("Type tag name...", text: $tagName)
                         .textFieldStyle(.plain)
                         .autocorrectionDisabled()
@@ -27,7 +27,7 @@ struct AddEditTagView: View {
                         .clippedWithBackground(Color.tertiarySystemFill, cornerRadius: 12)
                         .padding(.bottom, 12)
                 }
-                CustomSectionView(header: Loc.App.tagColor.localized, footer: Loc.Tags.tagColorHelp.localized) {
+                CustomSectionView(header: Loc.Tags.tagColor, footer: Loc.Tags.tagColorHelp) {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 12) {
                         ForEach(TagColor.allCases, id: \.self) { color in
                             ColorSelectionButton(
@@ -44,16 +44,16 @@ struct AddEditTagView: View {
             .padding(12)
         } navigationBar: {
             NavigationBarView(
-                title: viewModel.isEditing ? Loc.Tags.editTag.localized : Loc.Tags.newTag.localized,
+                title: viewModel.isEditing ? Loc.Tags.editTag : Loc.Tags.newTag,
                 trailingContent: {
-                    HeaderButton(Loc.Actions.save.localized, style: .borderedProminent) {
+                    HeaderButton(Loc.Actions.save, style: .borderedProminent) {
                         if subscriptionService.isProUser || viewModel.tags.count < 5 {
                             saveTag()
                         } else {
                             PaywallService.shared.isShowingPaywall = true
                         }
                     }
-                    .help(Loc.Actions.save.localized)
+                    .help(Loc.Actions.save)
                 }
             )
         }

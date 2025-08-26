@@ -25,7 +25,7 @@ struct TagRowView: View {
                     .font(.body)
                     .fontWeight(.medium)
 
-                Text(Loc.Words.wordsCount.localized(tag.wordsArray.count))
+                Text(Loc.Plurals.Words.wordsCount(tag.wordsArray.count))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -36,12 +36,12 @@ struct TagRowView: View {
                 Button {
                     onEdit()
                 } label: {
-                    Label(Loc.Actions.edit.localized, systemImage: "pencil")
+                    Label(Loc.Actions.edit, systemImage: "pencil")
                 }
                 Button(role: .destructive) {
                     onDelete()
                 } label: {
-                    Label(Loc.Actions.delete.localized, systemImage: "trash")
+                    Label(Loc.Actions.delete, systemImage: "trash")
                 }
             } label: {
                 Image(systemName: "ellipsis")

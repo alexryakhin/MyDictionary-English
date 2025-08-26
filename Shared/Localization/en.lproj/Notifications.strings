@@ -1,16 +1,13 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "Notification Permission Required";
-"notifications.permission_denied_message" = "To receive daily reminders and difficult word alerts, please enable notifications in Settings.";
+"permission_required" = "Notification Permission Required";
+"permission_denied_message" = "To receive daily reminders and difficult word alerts, please enable notifications in Settings.";
 
-"notifications.time_to_practice" = "Time to Practice! 📚";
-"notifications.practice_vocabulary_today" = "Don't forget to practice your vocabulary today.";
-"notifications.practice_difficult_words" = "Practice Your Difficult Words 📚";
-"notifications.difficult_words_challenge" = "You have words that need more practice. Ready for a challenge?";
-"notifications.test_dictionary_invitation" = "Test Dictionary Invitation";
-"notifications.test_dictionary_invitation_body" = "Someone added you to 'Test Dictionary'";
+"time_to_practice" = "Time to Practice! 📚";
+"practice_vocabulary_today" = "Don't forget to practice your vocabulary today.";
+"practice_difficult_words" = "Practice Your Difficult Words 📚";
+"difficult_words_challenge" = "You have words that need more practice. Ready for a challenge?";
+"test_dictionary_invitation" = "Test Dictionary Invitation";
+"test_dictionary_invitation_body" = "Someone added you to 'Test Dictionary'";
 
-
-"send_test_notification" = "Send Test Notification";
 "enter_email_address" = "Enter email address";
-"enter_email_address_for_notification" = "Enter the email address of the user you want to send a test notification to.";

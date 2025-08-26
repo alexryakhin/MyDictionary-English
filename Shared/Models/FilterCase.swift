@@ -28,21 +28,21 @@ enum FilterCase: CaseIterable {
     var displayName: String {
         switch self {
         case .none:
-            return Loc.FilterDisplay.all.localized
+            return Loc.FilterDisplay.all
         case .favorite:
-            return Loc.FilterDisplay.favorite.localized
+            return Loc.FilterDisplay.favorite
         case .search:
-            return Loc.FilterDisplay.search.localized
+            return Loc.FilterDisplay.search
         case .tag:
-            return Loc.FilterDisplay.tag.localized
+            return Loc.FilterDisplay.tag
         case .new:
-            return Loc.FilterDisplay.new.localized
+            return Loc.FilterDisplay.new
         case .inProgress:
-            return Loc.FilterDisplay.inProgress.localized
+            return Loc.FilterDisplay.inProgress
         case .needsReview:
-            return Loc.FilterDisplay.needsReview.localized
+            return Loc.FilterDisplay.needsReview
         case .mastered:
-            return Loc.FilterDisplay.mastered.localized
+            return Loc.FilterDisplay.mastered
         }
     }
     
@@ -51,40 +51,40 @@ enum FilterCase: CaseIterable {
         case .words:
             switch self {
             case .none:
-                return Loc.FilterDisplay.noWordsYet.localized
+                return Loc.FilterDisplay.noWordsYet
             case .favorite:
-                return Loc.FilterDisplay.noFavoriteWords.localized
+                return Loc.FilterDisplay.noFavoriteWords
             case .search:
-                return Loc.FilterDisplay.noSearchResults.localized
+                return Loc.FilterDisplay.noSearchResults
             case .tag:
-                return Loc.FilterDisplay.noTaggedWords.localized
+                return Loc.FilterDisplay.noTaggedWords
             case .new:
-                return Loc.FilterDisplay.noNewWords.localized
+                return Loc.FilterDisplay.noNewWords
             case .inProgress:
-                return Loc.FilterDisplay.noWordsInProgress.localized
+                return Loc.FilterDisplay.noWordsInProgress
             case .needsReview:
-                return Loc.FilterDisplay.noWordsNeedReview.localized
+                return Loc.FilterDisplay.noWordsNeedReview
             case .mastered:
-                return Loc.FilterDisplay.noMasteredWords.localized
+                return Loc.FilterDisplay.noMasteredWords
             }
         case .idioms:
             switch self {
             case .none:
-                return Loc.FilterDisplay.noIdiomsYet.localized
+                return Loc.FilterDisplay.noIdiomsYet
             case .favorite:
-                return Loc.FilterDisplay.noFavoriteIdioms.localized
+                return Loc.FilterDisplay.noFavoriteIdioms
             case .search:
-                return Loc.FilterDisplay.noSearchResults.localized
+                return Loc.FilterDisplay.noSearchResults
             case .tag:
-                return Loc.FilterDisplay.noTaggedIdioms.localized
+                return Loc.FilterDisplay.noTaggedIdioms
             case .new:
-                return Loc.FilterDisplay.noNewIdioms.localized
+                return Loc.FilterDisplay.noNewIdioms
             case .inProgress:
-                return Loc.FilterDisplay.noIdiomsInProgress.localized
+                return Loc.FilterDisplay.noIdiomsInProgress
             case .needsReview:
-                return Loc.FilterDisplay.noIdiomsNeedReview.localized
+                return Loc.FilterDisplay.noIdiomsNeedReview
             case .mastered:
-                return Loc.FilterDisplay.noMasteredIdioms.localized
+                return Loc.FilterDisplay.noMasteredIdioms
             }
         }
     }
@@ -94,40 +94,40 @@ enum FilterCase: CaseIterable {
         case .words:
             switch self {
             case .none:
-                return Loc.FilterDisplay.startBuildingVocabulary.localized
+                return Loc.FilterDisplay.startBuildingVocabulary
             case .favorite:
-                return Loc.FilterDisplay.tapHeartIconToAddFavorites.localized
+                return Loc.FilterDisplay.tapHeartIconToAddFavorites
             case .search:
-                return Loc.FilterDisplay.tryDifferentSearchTerm.localized
+                return Loc.FilterDisplay.tryDifferentSearchTerm
             case .tag:
-                return Loc.FilterDisplay.addTagsToOrganize.localized
+                return Loc.FilterDisplay.addTagsToOrganize
             case .new:
-                return Loc.FilterDisplay.newWordsAppearHere.localized
+                return Loc.FilterDisplay.newWordsAppearHere
             case .inProgress:
-                return Loc.FilterDisplay.wordsAppearHereAsYouPractice.localized
+                return Loc.FilterDisplay.wordsAppearHereAsYouPractice
             case .needsReview:
-                return Loc.FilterDisplay.wordsNeedMorePractice.localized
+                return Loc.FilterDisplay.wordsNeedMorePractice
             case .mastered:
-                return Loc.FilterDisplay.wordsNeedMorePractice.localized
+                return Loc.FilterDisplay.wordsNeedMorePractice
             }
         case .idioms:
             switch self {
             case .none:
-                return Loc.FilterDisplay.startBuildingVocabularyIdioms.localized
+                return Loc.FilterDisplay.startBuildingVocabularyIdioms
             case .favorite:
-                return Loc.FilterDisplay.tapHeartIconToAddFavoritesIdioms.localized
+                return Loc.FilterDisplay.tapHeartIconToAddFavoritesIdioms
             case .search:
-                return Loc.FilterDisplay.tryDifferentSearchTermIdioms.localized
+                return Loc.FilterDisplay.tryDifferentSearchTermIdioms
             case .tag:
-                return Loc.FilterDisplay.addTagsToOrganizeIdioms.localized
+                return Loc.FilterDisplay.addTagsToOrganizeIdioms
             case .new:
-                return Loc.FilterDisplay.newIdiomsAppearHere.localized
+                return Loc.FilterDisplay.newIdiomsAppearHere
             case .inProgress:
-                return Loc.FilterDisplay.idiomsAppearHereAsYouPractice.localized
+                return Loc.FilterDisplay.idiomsAppearHereAsYouPractice
             case .needsReview:
-                return Loc.FilterDisplay.idiomsNeedMorePractice.localized
+                return Loc.FilterDisplay.idiomsNeedMorePractice
             case .mastered:
-                return Loc.FilterDisplay.idiomsNeedMorePractice.localized
+                return Loc.FilterDisplay.idiomsNeedMorePractice
             }
         }
     }

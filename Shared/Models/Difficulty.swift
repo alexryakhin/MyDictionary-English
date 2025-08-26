@@ -17,13 +17,13 @@ enum Difficulty: Hashable, CaseIterable {
     var displayName: String {
         switch self {
         case .new:
-            return Loc.Difficulty.new.localized
+            return Loc.Words.Difficulty.new
         case .inProgress:
-            return Loc.Difficulty.inProgress.localized
+            return Loc.Words.Difficulty.inProgress
         case .needsReview:
-            return Loc.Difficulty.needsReview.localized
+            return Loc.Words.Difficulty.needsReview
         case .mastered:
-            return Loc.Difficulty.mastered.localized
+            return Loc.Words.Difficulty.mastered
         }
     }
     

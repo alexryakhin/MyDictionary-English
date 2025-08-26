@@ -44,15 +44,15 @@ enum AuthenticationError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .signInFailed:
-            return Loc.Auth.signInFailed.localized
+            return Loc.Auth.signInFailed
         case .signOutFailed:
-            return Loc.Auth.signOutFailed.localized
+            return Loc.Auth.signOutFailed
         case .userNotFound:
-            return Loc.Auth.userNotFound.localized
+            return Loc.Auth.userNotFound
         case .networkError:
-            return Loc.Auth.networkError.localized
+            return Loc.Auth.networkError
         case .accountLinkingFailed:
-            return Loc.Auth.accountLinkingFailed.localized
+            return Loc.Auth.accountLinkingFailed
         case .appleSignInCancelled:
             return "Apple Sign In was cancelled"
         case .appleSignInInvalidCredential:
@@ -60,11 +60,11 @@ enum AuthenticationError: Error, LocalizedError {
         case .appleSignInNotAuthorized:
             return "Apple Sign In not authorized"
         case .nicknameEmpty:
-            return Loc.Auth.nicknameCannotBeEmpty.localized
+            return Loc.Auth.nicknameCannotBeEmpty
         case .nicknameInvalidFormat:
-            return Loc.Auth.nicknameInvalidFormat.localized
+            return Loc.Auth.nicknameInvalidFormat
         case .nicknameAlreadyTaken:
-            return Loc.Auth.nicknameAlreadyTaken.localized
+            return Loc.Auth.nicknameAlreadyTaken
         }
     }
 }
@@ -471,8 +471,8 @@ final class AuthenticationService: ObservableObject {
         } catch {
             authenticationState = .signedIn
             AlertCenter.shared.showAlert(with: .info(
-                            title: Loc.Auth.signOutErrorTitle.localized,
-            message: Loc.Auth.signOutErrorMessage.localized)
+                            title: Loc.Auth.signOutErrorTitle,
+            message: Loc.Auth.signOutErrorMessage)
             )
         }
     }
@@ -648,7 +648,7 @@ final class AuthenticationService: ObservableObject {
             var userData: [String: Any] = [
                 "userId": user.uid,
                 "email": userEmail,
-                "name": user.displayName ?? Loc.App.unknown.localized,
+                "name": user.displayName ?? Loc.Errors.unknown,
                 "registrationDate": FieldValue.serverTimestamp(),
                 "lastUpdated": FieldValue.serverTimestamp(),
                 "platform": getCurrentPlatform(),
@@ -693,7 +693,7 @@ final class AuthenticationService: ObservableObject {
         #elseif os(macOS)
         return "macOS"
         #else
-        return Loc.App.unknown.localized
+        return Loc.Actions.unknown
         #endif
     }
     

@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Upravljaj oznakama";
-"tags.tags_help_text" = "Oznake vam pomažu organizirati riječi. Svaka riječ može imati do 5 oznaka.";
-"tags.no_tags_yet" = "Još nema dodanih oznaka";
-"tags.add_first_tag" = "Dodajte svoju prvu oznaku klikom na gumb iznad.";
-"tags.add_tag" = "Dodaj oznaku";
-"tags.add_first_tag_description" = "Dodajte svoju prvu oznaku klikom na gumb iznad.";
-"tags.add_tag_to_start_using" = "Dodajte oznaku za početak korištenja.";
-"tags.add_tags" = "Dodaj oznake";
-"tags.create_tags" = "Stvori oznake";
-"tags.delete_tag" = "Izbriši oznaku";
-"tags.delete_tag_confirmation" = "Jeste li sigurni da želite izbrisati ovu oznaku?";
-"tags.delete_tag_cannot_undo" = "Ova radnja se ne može poništiti.";
-"tags.tag_name" = "Naziv oznake";
-"tags.tag_name_help" = "Odaberite opisni naziv za svoju oznaku";
-"tags.type_tag_name" = "Upiši naziv oznake...";
-"tags.tag_color" = "Boja oznake";
-"tags.tag_color_help" = "Odaberite boju kako biste lakše prepoznali svoju oznaku";
-"tags.edit_tag" = "Uredi oznaku";
-"tags.new_tag" = "Nova oznaka";
-"tags.tag_management_error" = "Pogreška u upravljanju oznakama";
+"manage_tags" = "Upravljaj oznakama";
+"tags_help_text" = "Oznake vam pomažu organizirati riječi. Svaka riječ može imati do 5 oznaka.";
+"no_tags_yet" = "Još nema dodanih oznaka";
+"add_first_tag" = "Dodajte svoju prvu oznaku klikom na gumb iznad.";
+"add_tag" = "Dodaj oznaku";
+"add_first_tag_description" = "Dodajte svoju prvu oznaku klikom na gumb iznad.";
+"add_tag_to_start_using" = "Dodajte oznaku za početak korištenja.";
+"add_tags" = "Dodaj oznake";
+"create_tags" = "Stvori oznake";
+"delete_tag" = "Izbriši oznaku";
+"delete_tag_confirmation" = "Jeste li sigurni da želite izbrisati ovu oznaku?";
+"delete_tag_cannot_undo" = "Ova radnja se ne može poništiti.";
+"tag_name" = "Naziv oznake";
+"tag_name_help" = "Odaberite opisni naziv za svoju oznaku";
+"type_tag_name" = "Upiši naziv oznake...";
+"tag_color" = "Boja oznake";
+"tag_color_help" = "Odaberite boju kako biste lakše prepoznali svoju oznaku";
+"edit_tag" = "Uredi oznaku";
+"new_tag" = "Nova oznaka";
+"tag_management_error" = "Pogreška u upravljanju oznakama";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Odaberi oznake";

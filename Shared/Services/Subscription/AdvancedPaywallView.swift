@@ -74,8 +74,8 @@ struct AdvancedPaywallView: View {
                 selectedPlan = subscriptionService.defaultPlan
             }
         }
-        .alert(Loc.Paywall.restorePurchases.localized, isPresented: $showingRestoreAlert) {
-            Button(Loc.Actions.ok.localized) { }
+        .alert(Loc.Subscription.Paywall.restorePurchases, isPresented: $showingRestoreAlert) {
+            Button(Loc.Actions.ok) { }
         } message: {
             Text(restoreMessage)
         }
@@ -95,12 +95,12 @@ struct AdvancedPaywallView: View {
                 .padding(.top, 30)
 
             VStack(spacing: 12) {
-                Text(Loc.Paywall.upgradeToPro.localized)
+                Text(Loc.Subscription.Paywall.upgradeToPro)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
 
-                Text(Loc.Paywall.joinThousandsUsers.localized)
+                Text(Loc.Subscription.Paywall.joinThousandsUsers)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -111,14 +111,14 @@ struct AdvancedPaywallView: View {
             HStack(spacing: 12) {
                 ValuePropositionCard(
                     icon: "chart.line.uptrend.xyaxis",
-                    title: Loc.Paywall.trackProgress.localized,
-                    subtitle: Loc.Paywall.seeYourImprovement.localized
+                    title: Loc.Subscription.Paywall.trackProgress,
+                    subtitle: Loc.Subscription.Paywall.seeYourImprovement
                 )
 
                 ValuePropositionCard(
                     icon: "person.3.fill",
-                    title: Loc.Paywall.collaborate.localized,
-                    subtitle: Loc.Paywall.learnWithOthers.localized
+                    title: Loc.Subscription.Paywall.collaborate,
+                    subtitle: Loc.Subscription.Paywall.learnWithOthers
                 )
             }
             .padding(.horizontal, 16)
@@ -130,7 +130,7 @@ struct AdvancedPaywallView: View {
 
     private var featuresSection: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text(Loc.Paywall.everythingYouNeedToMasterVocabulary.localized)
+            Text(Loc.Subscription.Paywall.everythingYouNeedToMasterVocabulary)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.horizontal, 16)
@@ -152,7 +152,7 @@ struct AdvancedPaywallView: View {
 
     private var plansSection: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text(Loc.Paywall.chooseYourPlan.localized)
+            Text(Loc.Subscription.Paywall.chooseYourPlan)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.horizontal, 16)
@@ -195,7 +195,7 @@ struct AdvancedPaywallView: View {
                         LoaderView(color: .white)
                             .frame(width: 24, height: 24)
                     } else {
-                        Text(Loc.Paywall.startProSubscription.localized)
+                        Text(Loc.Subscription.Paywall.startProSubscription)
                             .fontWeight(.semibold)
                     }
                 }
@@ -224,7 +224,7 @@ struct AdvancedPaywallView: View {
                     await restorePurchases()
                 }
             } label: {
-                Text(Loc.Paywall.restorePurchases.localized)
+                Text(Loc.Subscription.Paywall.restorePurchases)
                     .font(.body)
                     .foregroundStyle(.secondary)
             }
@@ -242,7 +242,7 @@ struct AdvancedPaywallView: View {
             HStack {
                 Image(systemName: "info.circle.fill")
                     .foregroundStyle(.accent)
-                Text(Loc.Auth.registrationBenefits.localized)
+                Text(Loc.Auth.registrationBenefits)
                     .font(.headline)
                     .fontWeight(.medium)
                 Spacer()
@@ -251,19 +251,19 @@ struct AdvancedPaywallView: View {
             VStack(alignment: .leading, spacing: 8) {
                 BenefitRow(
                     icon: "candybarphone",
-                    text: Loc.Auth.accessSubscriptionAllDevices.localized
+                    text: Loc.Auth.accessSubscriptionAllDevices
                 )
                 BenefitRow(
                     icon: "arrow.trianglehead.2.clockwise.rotate.90",
-                    text: Loc.Auth.syncProgressCrossPlatform.localized
+                    text: Loc.Auth.syncProgressCrossPlatform
                 )
                 BenefitRow(
                     icon: "person.3.fill",
-                    text: Loc.Onboarding.shareDictionaries.localized
+                    text: Loc.Onboarding.shareDictionaries
                 )
             }
             
-            Text(Loc.Auth.registerAnytimeFromSettings.localized)
+            Text(Loc.Auth.registerAnytimeFromSettings)
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.leading)
@@ -281,7 +281,7 @@ struct AdvancedPaywallView: View {
 
     private var socialProofSection: some View {
         VStack(spacing: 16) {
-            Text(Loc.Paywall.trustedByLearnersWorldwide.localized)
+            Text(Loc.Subscription.Paywall.trustedByLearnersWorldwide)
                 .font(.headline)
                 .fontWeight(.medium)
                 .foregroundStyle(.secondary)
@@ -289,17 +289,17 @@ struct AdvancedPaywallView: View {
             HStack(spacing: 20) {
                 SocialProofCard(
                     number: "4.8",
-                    label: Loc.Paywall.appStoreRating.localized
+                    label: Loc.Subscription.Paywall.appStoreRating
                 )
 
                 SocialProofCard(
                     number: "2K+",
-                    label: Loc.Paywall.activeUsers.localized
+                    label: Loc.Subscription.Paywall.activeUsers
                 )
 
                 SocialProofCard(
                     number: "20K+",
-                    label: Loc.Paywall.wordsAdded.localized
+                    label: Loc.Subscription.Paywall.wordsAdded
                 )
             }
         }
@@ -311,20 +311,20 @@ struct AdvancedPaywallView: View {
 
     private var termsSection: some View {
         VStack(spacing: 8) {
-            Text(Loc.Paywall.bySubscribingAgreeTerms.localized)
+            Text(Loc.Subscription.Paywall.bySubscribingAgreeTerms)
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
 
             HStack(spacing: 16) {
-                Button(Loc.Paywall.termsOfService.localized) {
+                Button(Loc.Subscription.Paywall.termsOfService) {
                     openURL(GlobalConstant.termsOfUse)
                 }
                 .buttonStyle(.plain)
                 .font(.caption)
                 .foregroundStyle(.accent)
 
-                Button(Loc.Paywall.privacyPolicy.localized) {
+                Button(Loc.Subscription.Paywall.privacyPolicy) {
                     openURL(GlobalConstant.privacyPolicy)
                 }
                 .buttonStyle(.plain)
@@ -379,7 +379,7 @@ struct AdvancedPaywallView: View {
             paywallService.handlePurchaseCompleted()
             dismiss()
         } else {
-            restoreMessage = Loc.Paywall.noActiveSubscriptionsFound.localized
+            restoreMessage = Loc.Subscription.Paywall.noActiveSubscriptionsFound
             showingRestoreAlert = true
         }
 

@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "Mots";
-"tabbar.idioms" = "Expressions";
 "tabbar.quizzes" = "Quiz";
 "tabbar.progress" = "Progrès";
 "tabbar.settings" = "Paramètres";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "Détails du mot";
-"navigation.idiom_details" = "Détails de l'expression";
-"navigation.add_tags" = "Ajouter des étiquettes";
-"navigation.about" = "À propos de l'application";
-"navigation.debug_panel" = "Panneau de débogage";
-"navigation.quiz_results" = "Résultats du quiz";
-"navigation.spelling_quiz" = "Quiz d'orthographe";
-"navigation.definition_quiz" = "Quiz de définition";
-"navigation.close" = "Fermer";
-"navigation.close_screen" = "Fermer l'écran";
+"word_details" = "Détails du mot";
+"idiom_details" = "Détails de l'expression";
+"add_tags" = "Ajouter des étiquettes";
+"about" = "À propos de l'application";
+"debug_panel" = "Panneau de débogage";
+"quiz_results" = "Résultats du quiz";
+"spelling_quiz" = "Quiz d'orthographe";
+"definition_quiz" = "Quiz de définition";
+"close" = "Fermer";
+"close_screen" = "Fermer l'écran";
 

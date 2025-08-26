@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "Riječi";
-"tabbar.idioms" = "Idiomi";
 "tabbar.quizzes" = "Kvizovi";
 "tabbar.progress" = "Napredak";
 "tabbar.settings" = "Postavke";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "Detalji riječi";
-"navigation.idiom_details" = "Detalji idioma";
-"navigation.add_tags" = "Dodaj oznake";
-"navigation.about" = "O aplikaciji";
-"navigation.debug_panel" = "Ploča za otklanjanje pogrešaka";
-"navigation.quiz_results" = "Rezultati kviza";
-"navigation.spelling_quiz" = "Kviz pravopisa";
-"navigation.definition_quiz" = "Kviz definicija";
-"navigation.close" = "Zatvori";
-"navigation.close_screen" = "Zatvori zaslon";
+"word_details" = "Detalji riječi";
+"idiom_details" = "Detalji idioma";
+"add_tags" = "Dodaj oznake";
+"about" = "O aplikaciji";
+"debug_panel" = "Ploča za otklanjanje pogrešaka";
+"quiz_results" = "Rezultati kviza";
+"spelling_quiz" = "Kviz pravopisa";
+"definition_quiz" = "Kviz definicija";
+"close" = "Zatvori";
+"close_screen" = "Zatvori zaslon";
 

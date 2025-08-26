@@ -1,0 +1,2012 @@
+// swiftlint:disable all
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+
+import Foundation
+
+// swiftlint:disable superfluous_disable_command file_length implicit_return prefer_self_in_static_references
+
+// MARK: - Strings
+
+// swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
+// swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
+public enum Loc {
+  public enum Actions {
+    /// Add
+    public static let add = Loc.tr("Actions", "add", fallback: "Add")
+    /// Back
+    public static let back = Loc.tr("Actions", "back", fallback: "Back")
+    /// Cancel
+    public static let cancel = Loc.tr("Actions", "cancel", fallback: "Cancel")
+    /// Check
+    public static let check = Loc.tr("Actions", "check", fallback: "Check")
+    /// Clear
+    public static let clear = Loc.tr("Actions", "clear", fallback: "Clear")
+    /// Confirm
+    public static let confirm = Loc.tr("Actions", "confirm", fallback: "Confirm")
+    /// Copy
+    public static let copy = Loc.tr("Actions", "copy", fallback: "Copy")
+    /// Create
+    public static let create = Loc.tr("Actions", "create", fallback: "Create")
+    /// Delete
+    public static let delete = Loc.tr("Actions", "delete", fallback: "Delete")
+    /// Done
+    public static let done = Loc.tr("Actions", "done", fallback: "Done")
+    /// Download
+    public static let download = Loc.tr("Actions", "download", fallback: "Download")
+    /// Edit
+    public static let edit = Loc.tr("Actions", "edit", fallback: "Edit")
+    /// Email Address
+    public static let emailAddress = Loc.tr("Actions", "email_address", fallback: "Email Address")
+    /// Exit
+    public static let exit = Loc.tr("Actions", "exit", fallback: "Exit")
+    /// Export Words
+    public static let exportWords = Loc.tr("Actions", "export_words", fallback: "Export Words")
+    /// Import Words
+    public static let importWords = Loc.tr("Actions", "import_words", fallback: "Import Words")
+    /// Learn More
+    public static let learnMore = Loc.tr("Actions", "learn_more", fallback: "Learn More")
+    /// Link Apple
+    public static let linkApple = Loc.tr("Actions", "link_apple", fallback: "Link Apple")
+    /// Link Google
+    public static let linkGoogle = Loc.tr("Actions", "link_google", fallback: "Link Google")
+    /// Listen
+    public static let listen = Loc.tr("Actions", "listen", fallback: "Listen")
+    /// Loading...
+    public static let loading = Loc.tr("Actions", "loading", fallback: "Loading...")
+    /// Make Editor
+    public static let makeEditor = Loc.tr("Actions", "make_editor", fallback: "Make Editor")
+    /// Make Viewer
+    public static let makeViewer = Loc.tr("Actions", "make_viewer", fallback: "Make Viewer")
+    /// Manage
+    public static let manage = Loc.tr("Actions", "manage", fallback: "Manage")
+    /// Name
+    public static let name = Loc.tr("Actions", "name", fallback: "Name")
+    /// Next
+    public static let next = Loc.tr("Actions", "next", fallback: "Next")
+    /// No
+    public static let no = Loc.tr("Actions", "no", fallback: "No")
+    /// OK
+    public static let ok = Loc.tr("Actions", "ok", fallback: "OK")
+    /// Refresh
+    public static let refresh = Loc.tr("Actions", "refresh", fallback: "Refresh")
+    /// Remove
+    public static let remove = Loc.tr("Actions", "remove", fallback: "Remove")
+    /// Request
+    public static let request = Loc.tr("Actions", "request", fallback: "Request")
+    /// Reset
+    public static let reset = Loc.tr("Actions", "reset", fallback: "Reset")
+    /// Retry
+    public static let retry = Loc.tr("Actions", "retry", fallback: "Retry")
+    /// Save
+    public static let save = Loc.tr("Actions", "save", fallback: "Save")
+    /// Save Word
+    public static let saveWord = Loc.tr("Actions", "save_word", fallback: "Save Word")
+    /// Search
+    public static let search = Loc.tr("Actions", "search", fallback: "Search")
+    /// Select
+    public static let select = Loc.tr("Actions", "select", fallback: "Select")
+    /// Select an idiom
+    public static let selectIdiom = Loc.tr("Actions", "select_idiom", fallback: "Select an idiom")
+    /// Select a quiz
+    public static let selectQuiz = Loc.tr("Actions", "select_quiz", fallback: "Select a quiz")
+    /// Select a value
+    public static let selectValue = Loc.tr("Actions", "select_value", fallback: "Select a value")
+    /// Select a word
+    public static let selectWord = Loc.tr("Actions", "select_word", fallback: "Select a word")
+    /// Send
+    public static let send = Loc.tr("Actions", "send", fallback: "Send")
+    /// Settings
+    public static let settings = Loc.tr("Actions", "settings", fallback: "Settings")
+    /// Show
+    public static let show = Loc.tr("Actions", "show", fallback: "Show")
+    /// Sign In
+    public static let signIn = Loc.tr("Actions", "sign_in", fallback: "Sign In")
+    /// Sign Out
+    public static let signOut = Loc.tr("Actions", "sign_out", fallback: "Sign Out")
+    /// Skip for Now
+    public static let skipForNow = Loc.tr("Actions", "skip_for_now", fallback: "Skip for Now")
+    /// Stop Watching
+    public static let stopWatching = Loc.tr("Actions", "stop_watching", fallback: "Stop Watching")
+    /// Sync
+    public static let sync = Loc.tr("Actions", "sync", fallback: "Sync")
+    /// Test
+    public static let test = Loc.tr("Actions", "test", fallback: "Test")
+    /// Toggle Favorite
+    public static let toggleFavorite = Loc.tr("Actions", "toggle_favorite", fallback: "Toggle Favorite")
+    /// Toggle Like
+    public static let toggleLike = Loc.tr("Actions", "toggle_like", fallback: "Toggle Like")
+    /// Try Again
+    public static let tryAgain = Loc.tr("Actions", "try_again", fallback: "Try Again")
+    /// Upgrade
+    public static let upgrade = Loc.tr("Actions", "upgrade", fallback: "Upgrade")
+    /// Upload
+    public static let upload = Loc.tr("Actions", "upload", fallback: "Upload")
+    /// Verify
+    public static let verify = Loc.tr("Actions", "verify", fallback: "Verify")
+    /// View All
+    public static let viewAll = Loc.tr("Actions", "view_all", fallback: "View All")
+    /// Yes
+    public static let yes = Loc.tr("Actions", "yes", fallback: "Yes")
+  }
+  public enum Analytics {
+    /// Accuracy
+    public static let accuracy = Loc.tr("Analytics", "accuracy", fallback: "Accuracy")
+    /// All Results
+    public static let allResults = Loc.tr("Analytics", "all_results", fallback: "All Results")
+    /// Best
+    public static let best = Loc.tr("Analytics", "best", fallback: "Best")
+    /// Complete your first quiz to see results here
+    public static let completeFirstQuiz = Loc.tr("Analytics", "complete_first_quiz", fallback: "Complete your first quiz to see results here")
+    /// Complete your first quiz to see results here
+    public static let completeFirstQuizResults = Loc.tr("Analytics", "complete_first_quiz_results", fallback: "Complete your first quiz to see results here")
+    /// Complete quizzes to see your vocabulary growth over time
+    public static let completeQuizzesGrowth = Loc.tr("Analytics", "complete_quizzes_growth", fallback: "Complete quizzes to see your vocabulary growth over time")
+    /// Complete quizzes to see your vocabulary growth over time
+    public static let completeQuizzesGrowthData = Loc.tr("Analytics", "complete_quizzes_growth_data", fallback: "Complete quizzes to see your vocabulary growth over time")
+    /// Correct Answers
+    public static let correctAnswers = Loc.tr("Analytics", "correct_answers", fallback: "Correct Answers")
+    /// Difficulty Statistics
+    public static let difficultyStatistics = Loc.tr("Analytics", "difficulty_statistics", fallback: "Difficulty Statistics")
+    /// Duration
+    public static let duration = Loc.tr("Analytics", "duration", fallback: "Duration")
+    /// How other users rate this word's difficulty
+    public static let howOtherUsersRateDifficulty = Loc.tr("Analytics", "how_other_users_rate_difficulty", fallback: "How other users rate this word's difficulty")
+    /// Individual Ratings
+    public static let individualRatings = Loc.tr("Analytics", "individual_ratings", fallback: "Individual Ratings")
+    /// Last %@
+    public static func lastTimePeriod(_ p1: Any) -> String {
+      return Loc.tr("Analytics", "last_time_period", String(describing: p1), fallback: "Last %@")
+    }
+    /// Loading progress data...
+    public static let loadingProgressData = Loc.tr("Analytics", "loading_progress_data", fallback: "Loading progress data...")
+    /// No difficulty ratings yet
+    public static let noDifficultyRatingsYet = Loc.tr("Analytics", "no_difficulty_ratings_yet", fallback: "No difficulty ratings yet")
+    /// No Growth Data Yet
+    public static let noGrowthDataYet = Loc.tr("Analytics", "no_growth_data_yet", fallback: "No Growth Data Yet")
+    /// No Quiz Results Yet
+    public static let noQuizResultsYet = Loc.tr("Analytics", "no_quiz_results_yet", fallback: "No Quiz Results Yet")
+    /// Overview
+    public static let overview = Loc.tr("Analytics", "overview", fallback: "Overview")
+    /// pts
+    public static let points = Loc.tr("Analytics", "points", fallback: "pts")
+    /// Practice Time
+    public static let practiceTime = Loc.tr("Analytics", "practice_time", fallback: "Practice Time")
+    /// Progress
+    public static let progress = Loc.tr("Analytics", "progress", fallback: "Progress")
+    /// Recent Quiz Results
+    public static let recentQuizResults = Loc.tr("Analytics", "recent_quiz_results", fallback: "Recent Quiz Results")
+    /// Score
+    public static let score = Loc.tr("Analytics", "score", fallback: "Score")
+    /// Sessions
+    public static let sessions = Loc.tr("Analytics", "sessions", fallback: "Sessions")
+    /// Streak
+    public static let streak = Loc.tr("Analytics", "streak", fallback: "Streak")
+    /// Time Period
+    public static let timePeriod = Loc.tr("Analytics", "time_period", fallback: "Time Period")
+    /// Total Questions
+    public static let totalQuestions = Loc.tr("Analytics", "total_questions", fallback: "Total Questions")
+    /// Total Ratings
+    public static let totalRatings = Loc.tr("Analytics", "total_ratings", fallback: "Total Ratings")
+    /// View Detailed Statistics
+    public static let viewDetailedStatistics = Loc.tr("Analytics", "view_detailed_statistics", fallback: "View Detailed Statistics")
+    /// Vocabulary Growth
+    public static let vocabularyGrowth = Loc.tr("Analytics", "vocabulary_growth", fallback: "Vocabulary Growth")
+    /// Words Played
+    public static let wordsPlayed = Loc.tr("Analytics", "words_played", fallback: "Words Played")
+    public enum TimePeriod {
+      /// Month
+      public static let month = Loc.tr("Analytics", "time_period.month", fallback: "Month")
+      /// Week
+      public static let week = Loc.tr("Analytics", "time_period.week", fallback: "Week")
+      /// Year
+      public static let year = Loc.tr("Analytics", "time_period.year", fallback: "Year")
+    }
+  }
+  public enum Auth {
+    /// Access your subscription on all your devices
+    public static let accessSubscriptionAllDevices = Loc.tr("Auth", "access_subscription_all_devices", fallback: "Access your subscription on all your devices")
+    /// Account Linking
+    public static let accountLinking = Loc.tr("Auth", "account_linking", fallback: "Account Linking")
+    /// To access your subscription on Android devices, you need to link a Google account. For cross-platform subscription sharing, link both accounts.
+    public static let accountLinkingDescription = Loc.tr("Auth", "account_linking_description", fallback: "To access your subscription on Android devices, you need to link a Google account. For cross-platform subscription sharing, link both accounts.")
+    /// Failed to link accounts. Please try again.
+    public static let accountLinkingFailed = Loc.tr("Auth", "account_linking_failed", fallback: "Failed to link accounts. Please try again.")
+    /// Account Registration
+    public static let accountRegistration = Loc.tr("Auth", "account_registration", fallback: "Account Registration")
+    /// Accounts linked successfully
+    public static let accountsLinkedSuccessfully = Loc.tr("Auth", "accounts_linked_successfully", fallback: "Accounts linked successfully")
+    /// You have an active subscription!
+    public static let activeSubscriptionNotification = Loc.tr("Auth", "active_subscription_notification", fallback: "You have an active subscription!")
+    /// All your vocabulary words, definitions, and progress will remain on this device. You can continue using the app offline.
+    public static let allVocabularyRemainDevice = Loc.tr("Auth", "all_vocabulary_remain_device", fallback: "All your vocabulary words, definitions, and progress will remain on this device. You can continue using the app offline.")
+    /// Apple ID
+    public static let appleId = Loc.tr("Auth", "apple_id", fallback: "Apple ID")
+    /// Backup your data securely in the cloud
+    public static let backupDataSecurely = Loc.tr("Auth", "backup_data_securely", fallback: "Backup your data securely in the cloud")
+    /// You can always sign in later from Settings
+    public static let canAlwaysSignInLater = Loc.tr("Auth", "can_always_sign_in_later", fallback: "You can always sign in later from Settings")
+    /// Cancel
+    public static let cancel = Loc.tr("Auth", "cancel", fallback: "Cancel")
+    /// Cloud sync will be disabled
+    public static let cloudSyncDisabled = Loc.tr("Auth", "cloud_sync_disabled", fallback: "Cloud sync will be disabled")
+    /// For cross-platform subscription sharing
+    public static let crossPlatformButtonDescription = Loc.tr("Auth", "cross_platform_button_description", fallback: "For cross-platform subscription sharing")
+    /// Current Account
+    public static let currentAccount = Loc.tr("Auth", "current_account", fallback: "Current Account")
+    /// Edit Nickname
+    public static let editNickname = Loc.tr("Auth", "edit_nickname", fallback: "Edit Nickname")
+    /// Email
+    public static let email = Loc.tr("Auth", "email", fallback: "Email")
+    /// Enter email address
+    public static let enterEmailAddress = Loc.tr("Auth", "enter_email_address", fallback: "Enter email address")
+    /// Enter name
+    public static let enterName = Loc.tr("Auth", "enter_name", fallback: "Enter name")
+    /// Enter nickname
+    public static let enterNickname = Loc.tr("Auth", "enter_nickname", fallback: "Enter nickname")
+    /// Find User by Email
+    public static let findUserByEmail = Loc.tr("Auth", "find_user_by_email", fallback: "Find User by Email")
+    /// Find User by Nickname
+    public static let findUserByNickname = Loc.tr("Auth", "find_user_by_nickname", fallback: "Find User by Nickname")
+    /// Found User
+    public static let foundUser = Loc.tr("Auth", "found_user", fallback: "Found User")
+    /// Google Account
+    public static let googleAccount = Loc.tr("Auth", "google_account", fallback: "Google Account")
+    /// Link additional accounts
+    public static let linkAdditionalAccounts = Loc.tr("Auth", "link_additional_accounts", fallback: "Link additional accounts")
+    /// Link Apple
+    public static let linkApple = Loc.tr("Auth", "link_apple", fallback: "Link Apple")
+    /// Link Apple ID
+    public static let linkAppleForCrossPlatform = Loc.tr("Auth", "link_apple_for_cross_platform", fallback: "Link Apple ID")
+    /// Link Google
+    public static let linkGoogle = Loc.tr("Auth", "link_google", fallback: "Link Google")
+    /// Link Google Account
+    public static let linkGoogleForAndroid = Loc.tr("Auth", "link_google_for_android", fallback: "Link Google Account")
+    /// Linked Accounts
+    public static let linkedAccounts = Loc.tr("Auth", "linked_accounts", fallback: "Linked Accounts")
+    /// Network error. Please check your connection.
+    public static let networkError = Loc.tr("Auth", "network_error", fallback: "Network error. Please check your connection.")
+    /// Nickname
+    public static let nickname = Loc.tr("Auth", "nickname", fallback: "Nickname")
+    /// This nickname is already taken. Please choose a different one.
+    public static let nicknameAlreadyTaken = Loc.tr("Auth", "nickname_already_taken", fallback: "This nickname is already taken. Please choose a different one.")
+    /// Nickname cannot be empty
+    public static let nicknameCannotBeEmpty = Loc.tr("Auth", "nickname_cannot_be_empty", fallback: "Nickname cannot be empty")
+    /// Current nickname
+    public static let nicknameCurrent = Loc.tr("Auth", "nickname_current", fallback: "Current nickname")
+    /// Set a unique nickname that others can use to find and add you to shared dictionaries. This is more convenient than using email addresses.
+    public static let nicknameDescription = Loc.tr("Auth", "nickname_description", fallback: "Set a unique nickname that others can use to find and add you to shared dictionaries. This is more convenient than using email addresses.")
+    /// Nickname can only contain letters, numbers, and underscores.
+    public static let nicknameInvalidFormat = Loc.tr("Auth", "nickname_invalid_format", fallback: "Nickname can only contain letters, numbers, and underscores.")
+    /// Nickname is not set
+    public static let nicknameNotSet = Loc.tr("Auth", "nickname_not_set", fallback: "Nickname is not set")
+    /// No linked accounts
+    public static let noLinkedAccounts = Loc.tr("Auth", "no_linked_accounts", fallback: "No linked accounts")
+    /// No worries! We won't remove your words.
+    public static let noWorriesWontRemoveWords = Loc.tr("Auth", "no_worries_wont_remove_words", fallback: "No worries! We won't remove your words.")
+    /// Profile
+    public static let profile = Loc.tr("Auth", "profile", fallback: "Profile")
+    /// You can register anytime from Settings to enable these features
+    public static let registerAnytimeFromSettings = Loc.tr("Auth", "register_anytime_from_settings", fallback: "You can register anytime from Settings to enable these features")
+    /// Register to access your subscription across all your devices and sync your progress
+    public static let registerForCrossPlatformAccess = Loc.tr("Auth", "register_for_cross_platform_access", fallback: "Register to access your subscription across all your devices and sync your progress")
+    /// Register Now
+    public static let registerNow = Loc.tr("Auth", "register_now", fallback: "Register Now")
+    /// Register to unlock cross-platform access
+    public static let registerToUnlockCrossPlatform = Loc.tr("Auth", "register_to_unlock_cross_platform", fallback: "Register to unlock cross-platform access")
+    /// Registration Benefits
+    public static let registrationBenefits = Loc.tr("Auth", "registration_benefits", fallback: "Registration Benefits")
+    /// Save
+    public static let save = Loc.tr("Auth", "save", fallback: "Save")
+    /// Search by
+    public static let searchBy = Loc.tr("Auth", "search_by", fallback: "Search by")
+    /// Search Method
+    public static let searchMethod = Loc.tr("Auth", "search_method", fallback: "Search Method")
+    /// Sign in before subscribing
+    public static let signInBeforeSubscribing = Loc.tr("Auth", "sign_in_before_subscribing", fallback: "Sign in before subscribing")
+    /// Failed to sign in. Please try again.
+    public static let signInFailed = Loc.tr("Auth", "sign_in_failed", fallback: "Failed to sign in. Please try again.")
+    /// You need to sign in to access Pro features like %@.
+    public static func signInRequiredForProFeatures(_ p1: Any) -> String {
+      return Loc.tr("Auth", "sign_in_required_for_pro_features", String(describing: p1), fallback: "You need to sign in to access Pro features like %@.")
+    }
+    /// You need to sign in to restore your purchases.
+    public static let signInRequiredForRestore = Loc.tr("Auth", "sign_in_required_for_restore", fallback: "You need to sign in to restore your purchases.")
+    /// Sign in to access your word lists across all your devices and collaborate with others.
+    public static let signInToAccessWordLists = Loc.tr("Auth", "sign_in_to_access_word_lists", fallback: "Sign in to access your word lists across all your devices and collaborate with others.")
+    /// Sign in to sync your word lists
+    public static let signInToSyncWordLists = Loc.tr("Auth", "sign_in_to_sync_word_lists", fallback: "Sign in to sync your word lists")
+    /// Sign in with Google
+    public static let signInWithGoogle = Loc.tr("Auth", "sign_in_with_google", fallback: "Sign in with Google")
+    /// Sign Out
+    public static let signOut = Loc.tr("Auth", "sign_out", fallback: "Sign Out")
+    /// Sign Out
+    public static let signOutConfirmation = Loc.tr("Auth", "sign_out_confirmation", fallback: "Sign Out")
+    /// Something went wrong while signing out. Please try again later.
+    public static let signOutErrorMessage = Loc.tr("Auth", "sign_out_error_message", fallback: "Something went wrong while signing out. Please try again later.")
+    /// Oh no!
+    public static let signOutErrorTitle = Loc.tr("Auth", "sign_out_error_title", fallback: "Oh no!")
+    /// Failed to sign out. Please try again.
+    public static let signOutFailed = Loc.tr("Auth", "sign_out_failed", fallback: "Failed to sign out. Please try again.")
+    /// Subscription Access Restricted
+    public static let subscriptionAccessRestricted = Loc.tr("Auth", "subscription_access_restricted", fallback: "Subscription Access Restricted")
+    /// This subscription is associated with a different account. Please sign in with the account that purchased this subscription to access Pro features.
+    public static let subscriptionAssociatedDifferentAccount = Loc.tr("Auth", "subscription_associated_different_account", fallback: "This subscription is associated with a different account. Please sign in with the account that purchased this subscription to access Pro features.")
+    /// Sync your progress across iOS and Android
+    public static let syncProgressCrossPlatform = Loc.tr("Auth", "sync_progress_cross_platform", fallback: "Sync your progress across iOS and Android")
+    /// Unknown User
+    public static let unknownUser = Loc.tr("Auth", "unknown_user", fallback: "Unknown User")
+    /// User not found
+    public static let userNotFound = Loc.tr("Auth", "user_not_found", fallback: "User not found")
+    /// No user found with the provided information. Please check your search and try again.
+    public static let userNotFoundMessage = Loc.tr("Auth", "user_not_found_message", fallback: "No user found with the provided information. Please check your search and try again.")
+    /// Your vocabulary will stay on this device. If you sign in with another account, your data will be combined.
+    public static let vocabularyStayOnDevice = Loc.tr("Auth", "vocabulary_stay_on_device", fallback: "Your vocabulary will stay on this device. If you sign in with another account, your data will be combined.")
+    /// Word lists and shared data will be cleared. If you sign in with another account, your local words will be combined with the new account's data.
+    public static let wordListsSharedDataCleared = Loc.tr("Auth", "word_lists_shared_data_cleared", fallback: "Word lists and shared data will be cleared. If you sign in with another account, your local words will be combined with the new account's data.")
+    /// Your words are safe
+    public static let yourWordsAreSafe = Loc.tr("Auth", "your_words_are_safe", fallback: "Your words are safe")
+  }
+  public enum Coffee {
+    /// Buy Me a Coffee
+    public static let buyMeACoffee = Loc.tr("Coffee", "buy_me_a_coffee", fallback: "Buy Me a Coffee")
+    /// Enjoying the app?
+    public static let enjoyingTheApp = Loc.tr("Coffee", "enjoying_the_app", fallback: "Enjoying the app?")
+    /// If My Dictionary has been helpful in your learning journey, consider buying me a coffee! ☕️
+    public static let helpfulLearningJourney = Loc.tr("Coffee", "helpful_learning_journey", fallback: "If My Dictionary has been helpful in your learning journey, consider buying me a coffee! ☕️")
+    /// Maybe Later
+    public static let maybeLater = Loc.tr("Coffee", "maybe_later", fallback: "Maybe Later")
+  }
+  public enum Errors {
+    /// Authentication required
+    public static let authenticationRequired = Loc.tr("Errors", "authentication_required", fallback: "Authentication required")
+    /// Cannot access security scoped resource
+    public static let cannotAccessSecurityScopedResource = Loc.tr("Errors", "cannot_access_security_scoped_resource", fallback: "Cannot access security scoped resource")
+    /// Cannot play audio
+    public static let cannotPlayAudio = Loc.tr("Errors", "cannot_play_audio", fallback: "Cannot play audio")
+    /// Cannot setup audio session
+    public static let cannotSetupAudioSession = Loc.tr("Errors", "cannot_setup_audio_session", fallback: "Cannot setup audio session")
+    /// Data corrupted
+    public static let dataCorrupted = Loc.tr("Errors", "data_corrupted", fallback: "Data corrupted")
+    /// Decoding error
+    public static let decodingError = Loc.tr("Errors", "decoding_error", fallback: "Decoding error")
+    /// Delete failed
+    public static let deleteFailed = Loc.tr("Errors", "delete_failed", fallback: "Delete failed")
+    /// Device muted or volume too low
+    public static let deviceMutedOrVolumeLow = Loc.tr("Errors", "device_muted_or_volume_low", fallback: "Device muted or volume too low")
+    /// You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries.
+    public static let dictionaryLimitReached = Loc.tr("Errors", "dictionary_limit_reached", fallback: "You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries.")
+    /// Dictionary not found
+    public static let dictionaryNotFound = Loc.tr("Errors", "dictionary_not_found", fallback: "Dictionary not found")
+    /// Error
+    public static let error = Loc.tr("Errors", "error", fallback: "Error")
+    /// Error removing idiom
+    public static let errorRemovingIdiom = Loc.tr("Errors", "error_removing_idiom", fallback: "Error removing idiom")
+    /// Error removing word
+    public static let errorRemovingWord = Loc.tr("Errors", "error_removing_word", fallback: "Error removing word")
+    /// Error saving idiom
+    public static let errorSavingIdiom = Loc.tr("Errors", "error_saving_idiom", fallback: "Error saving idiom")
+    /// Error saving word
+    public static let errorSavingWord = Loc.tr("Errors", "error_saving_word", fallback: "Error saving word")
+    /// Error updating idiom examples
+    public static let errorUpdatingIdiomExamples = Loc.tr("Errors", "error_updating_idiom_examples", fallback: "Error updating idiom examples")
+    /// Error updating word examples
+    public static let errorUpdatingWordExamples = Loc.tr("Errors", "error_updating_word_examples", fallback: "Error updating word examples")
+    /// Export failed
+    public static let exportFailed = Loc.tr("Errors", "export_failed", fallback: "Export failed")
+    /// Export limit exceeded. Upgrade to Pro for unlimited exports.
+    public static let exportLimitExceeded = Loc.tr("Errors", "export_limit_exceeded", fallback: "Export limit exceeded. Upgrade to Pro for unlimited exports.")
+    /// Failed to calculate progress
+    public static let failedToCalculateProgress = Loc.tr("Errors", "failed_to_calculate_progress", fallback: "Failed to calculate progress")
+    /// Failed to restore previous purchases
+    public static let failedToRestorePreviousPurchases = Loc.tr("Errors", "failed_to_restore_previous_purchases", fallback: "Failed to restore previous purchases")
+    /// Failed to save quiz session
+    public static let failedToSaveQuizSession = Loc.tr("Errors", "failed_to_save_quiz_session", fallback: "Failed to save quiz session")
+    /// Failed to update user statistics
+    public static let failedToUpdateUserStatistics = Loc.tr("Errors", "failed_to_update_user_statistics", fallback: "Failed to update user statistics")
+    /// Failed to update word difficulty level
+    public static let failedToUpdateWordDifficultyLevel = Loc.tr("Errors", "failed_to_update_word_difficulty_level", fallback: "Failed to update word difficulty level")
+    /// Failed to update word progress
+    public static let failedToUpdateWordProgress = Loc.tr("Errors", "failed_to_update_word_progress", fallback: "Failed to update word progress")
+    /// Import failed
+    public static let importFailed = Loc.tr("Errors", "import_failed", fallback: "Import failed")
+    /// Input cannot be empty
+    public static let inputCannotBeEmpty = Loc.tr("Errors", "input_cannot_be_empty", fallback: "Input cannot be empty")
+    /// Input is not a word
+    public static let inputNotWord = Loc.tr("Errors", "input_not_word", fallback: "Input is not a word")
+    /// Invalid input
+    public static let invalidInput = Loc.tr("Errors", "invalid_input", fallback: "Invalid input")
+    /// Invalid input provided
+    public static let invalidInputProvided = Loc.tr("Errors", "invalid_input_provided", fallback: "Invalid input provided")
+    /// Invalid response
+    public static let invalidResponse = Loc.tr("Errors", "invalid_response", fallback: "Invalid response")
+    /// Invalid response from translation service
+    public static let invalidResponseFromTranslationService = Loc.tr("Errors", "invalid_response_from_translation_service", fallback: "Invalid response from translation service")
+    /// Invalid translation URL
+    public static let invalidTranslationUrl = Loc.tr("Errors", "invalid_translation_url", fallback: "Invalid translation URL")
+    /// Invalid URL
+    public static let invalidUrl = Loc.tr("Errors", "invalid_url", fallback: "Invalid URL")
+    /// Invalid user email
+    public static let invalidUserEmail = Loc.tr("Errors", "invalid_user_email", fallback: "Invalid user email")
+    /// Invalid word ID
+    public static let invalidWordId = Loc.tr("Errors", "invalid_word_id", fallback: "Invalid word ID")
+    /// Maximum of 5 tags per word reached
+    public static let maxTagsReached = Loc.tr("Errors", "max_tags_reached", fallback: "Maximum of 5 tags per word reached")
+    /// Missing API key
+    public static let missingApiKey = Loc.tr("Errors", "missing_api_key", fallback: "Missing API key")
+    /// Missing field
+    public static let missingField = Loc.tr("Errors", "missing_field", fallback: "Missing field")
+    /// Network error during translation
+    public static let networkErrorDuringTranslation = Loc.tr("Errors", "network_error_during_translation", fallback: "Network error during translation")
+    /// Network error occurred
+    public static let networkErrorOccurred = Loc.tr("Errors", "network_error_occurred", fallback: "Network error occurred")
+    /// Timeout
+    public static let networkTimeout = Loc.tr("Errors", "network_timeout", fallback: "Timeout")
+    /// No active subscriptions found
+    public static let noActiveSubscriptionsFound = Loc.tr("Errors", "no_active_subscriptions_found", fallback: "No active subscriptions found")
+    /// No data
+    public static let noData = Loc.tr("Errors", "no_data", fallback: "No data")
+    /// No internet connection
+    public static let noInternetConnection = Loc.tr("Errors", "no_internet_connection", fallback: "No internet connection")
+    /// No subscription offerings are currently available
+    public static let noOfferingsAvailable = Loc.tr("Errors", "no_offerings_available", fallback: "No subscription offerings are currently available")
+    /// No subscription offerings are currently available
+    public static let noSubscriptionOfferingsAvailable = Loc.tr("Errors", "no_subscription_offerings_available", fallback: "No subscription offerings are currently available")
+    /// Ooops!
+    public static let oops = Loc.tr("Errors", "oops", fallback: "Ooops!")
+    /// The requested subscription package was not found
+    public static let packageNotFound = Loc.tr("Errors", "package_not_found", fallback: "The requested subscription package was not found")
+    /// You don't have permission to perform this action
+    public static let permissionDenied = Loc.tr("Errors", "permission_denied", fallback: "You don't have permission to perform this action")
+    /// The purchase could not be completed
+    public static let purchaseCouldNotBeCompleted = Loc.tr("Errors", "purchase_could_not_be_completed", fallback: "The purchase could not be completed")
+    /// The purchase could not be completed
+    public static let purchaseFailed = Loc.tr("Errors", "purchase_failed", fallback: "The purchase could not be completed")
+    /// Read failed
+    public static let readFailed = Loc.tr("Errors", "read_failed", fallback: "Read failed")
+    /// The requested subscription package was not found
+    public static let requestedSubscriptionPackageNotFound = Loc.tr("Errors", "requested_subscription_package_not_found", fallback: "The requested subscription package was not found")
+    /// Failed to restore previous purchases
+    public static let restoreFailed = Loc.tr("Errors", "restore_failed", fallback: "Failed to restore previous purchases")
+    /// Save failed
+    public static let saveFailed = Loc.tr("Errors", "save_failed", fallback: "Save failed")
+    /// Server unreachable
+    public static let serverUnreachable = Loc.tr("Errors", "server_unreachable", fallback: "Server unreachable")
+    /// Something went wrong
+    public static let somethingWentWrong = Loc.tr("Errors", "something_went_wrong", fallback: "Something went wrong")
+    /// Sync failed
+    public static let syncFailed = Loc.tr("Errors", "sync_failed", fallback: "Sync failed")
+    /// Tag is already assigned to this word
+    public static let tagAlreadyAssigned = Loc.tr("Errors", "tag_already_assigned", fallback: "Tag is already assigned to this word")
+    /// Tag is already assigned to this word
+    public static let tagAlreadyAssignedToWord = Loc.tr("Errors", "tag_already_assigned_to_word", fallback: "Tag is already assigned to this word")
+    /// Tag already exists
+    public static let tagAlreadyExists = Loc.tr("Errors", "tag_already_exists", fallback: "Tag already exists")
+    /// Tag is not assigned to this word
+    public static let tagNotAssigned = Loc.tr("Errors", "tag_not_assigned", fallback: "Tag is not assigned to this word")
+    /// Tag is not assigned to this word
+    public static let tagNotAssignedToWord = Loc.tr("Errors", "tag_not_assigned_to_word", fallback: "Tag is not assigned to this word")
+    /// Translation failed
+    public static let translationFailed = Loc.tr("Errors", "translation_failed", fallback: "Translation failed")
+    /// Unknown
+    public static let unknown = Loc.tr("Errors", "unknown", fallback: "Unknown")
+    /// Unknown error
+    public static let unknownError = Loc.tr("Errors", "unknown_error", fallback: "Unknown error")
+    /// Update failed
+    public static let updateFailed = Loc.tr("Errors", "update_failed", fallback: "Update failed")
+    /// User must be authenticated
+    public static let userNotAuthenticated = Loc.tr("Errors", "user_not_authenticated", fallback: "User must be authenticated")
+    /// Word not found
+    public static let wordNotFound = Loc.tr("Errors", "word_not_found", fallback: "Word not found")
+  }
+  public enum FilterDisplay {
+    /// Add tags to your words to organize them better
+    public static let addTagsToOrganize = Loc.tr("FilterDisplay", "add_tags_to_organize", fallback: "Add tags to your words to organize them better")
+    /// Add tags to your idioms to organize them better
+    public static let addTagsToOrganizeIdioms = Loc.tr("FilterDisplay", "add_tags_to_organize_idioms", fallback: "Add tags to your idioms to organize them better")
+    /// All
+    public static let all = Loc.tr("FilterDisplay", "all", fallback: "All")
+    /// Favorite
+    public static let favorite = Loc.tr("FilterDisplay", "favorite", fallback: "Favorite")
+    /// Idioms appear here as you practice them in quizzes
+    public static let idiomsAppearHereAsYouPractice = Loc.tr("FilterDisplay", "idioms_appear_here_as_you_practice", fallback: "Idioms appear here as you practice them in quizzes")
+    /// Idioms that need more practice will appear here
+    public static let idiomsNeedMorePractice = Loc.tr("FilterDisplay", "idioms_need_more_practice", fallback: "Idioms that need more practice will appear here")
+    /// In Progress
+    public static let inProgress = Loc.tr("FilterDisplay", "in_progress", fallback: "In Progress")
+    /// Mastered
+    public static let mastered = Loc.tr("FilterDisplay", "mastered", fallback: "Mastered")
+    /// Needs Review
+    public static let needsReview = Loc.tr("FilterDisplay", "needs_review", fallback: "Needs Review")
+    /// New
+    public static let new = Loc.tr("FilterDisplay", "new", fallback: "New")
+    /// New idioms appear here when you add them to your list
+    public static let newIdiomsAppearHere = Loc.tr("FilterDisplay", "new_idioms_appear_here", fallback: "New idioms appear here when you add them to your list")
+    /// New words appear here when you add them to your list
+    public static let newWordsAppearHere = Loc.tr("FilterDisplay", "new_words_appear_here", fallback: "New words appear here when you add them to your list")
+    /// No Favorite Idioms
+    public static let noFavoriteIdioms = Loc.tr("FilterDisplay", "no_favorite_idioms", fallback: "No Favorite Idioms")
+    /// No Favorite Words
+    public static let noFavoriteWords = Loc.tr("FilterDisplay", "no_favorite_words", fallback: "No Favorite Words")
+    /// No Idioms In Progress
+    public static let noIdiomsInProgress = Loc.tr("FilterDisplay", "no_idioms_in_progress", fallback: "No Idioms In Progress")
+    /// No Idioms Need Review
+    public static let noIdiomsNeedReview = Loc.tr("FilterDisplay", "no_idioms_need_review", fallback: "No Idioms Need Review")
+    /// No Idioms Yet
+    public static let noIdiomsYet = Loc.tr("FilterDisplay", "no_idioms_yet", fallback: "No Idioms Yet")
+    /// No Mastered Idioms
+    public static let noMasteredIdioms = Loc.tr("FilterDisplay", "no_mastered_idioms", fallback: "No Mastered Idioms")
+    /// No Mastered Words
+    public static let noMasteredWords = Loc.tr("FilterDisplay", "no_mastered_words", fallback: "No Mastered Words")
+    /// No New Idioms
+    public static let noNewIdioms = Loc.tr("FilterDisplay", "no_new_idioms", fallback: "No New Idioms")
+    /// No New Words
+    public static let noNewWords = Loc.tr("FilterDisplay", "no_new_words", fallback: "No New Words")
+    /// No Search Results
+    public static let noSearchResults = Loc.tr("FilterDisplay", "no_search_results", fallback: "No Search Results")
+    /// No Tagged Idioms
+    public static let noTaggedIdioms = Loc.tr("FilterDisplay", "no_tagged_idioms", fallback: "No Tagged Idioms")
+    /// No Tagged Words
+    public static let noTaggedWords = Loc.tr("FilterDisplay", "no_tagged_words", fallback: "No Tagged Words")
+    /// No Words In Progress
+    public static let noWordsInProgress = Loc.tr("FilterDisplay", "no_words_in_progress", fallback: "No Words In Progress")
+    /// No Words Need Review
+    public static let noWordsNeedReview = Loc.tr("FilterDisplay", "no_words_need_review", fallback: "No Words Need Review")
+    /// No Words Yet
+    public static let noWordsYet = Loc.tr("FilterDisplay", "no_words_yet", fallback: "No Words Yet")
+    /// Search
+    public static let search = Loc.tr("FilterDisplay", "search", fallback: "Search")
+    /// Start building your vocabulary by adding your first word
+    public static let startBuildingVocabulary = Loc.tr("FilterDisplay", "start_building_vocabulary", fallback: "Start building your vocabulary by adding your first word")
+    /// Start building your vocabulary by adding your first idiom
+    public static let startBuildingVocabularyIdioms = Loc.tr("FilterDisplay", "start_building_vocabulary_idioms", fallback: "Start building your vocabulary by adding your first idiom")
+    /// Tag
+    public static let tag = Loc.tr("FilterDisplay", "tag", fallback: "Tag")
+    /// Tap the heart icon on any word to add it to your favorites
+    public static let tapHeartIconToAddFavorites = Loc.tr("FilterDisplay", "tap_heart_icon_to_add_favorites", fallback: "Tap the heart icon on any word to add it to your favorites")
+    /// Tap the heart icon on any idiom to add it to your favorites
+    public static let tapHeartIconToAddFavoritesIdioms = Loc.tr("FilterDisplay", "tap_heart_icon_to_add_favorites_idioms", fallback: "Tap the heart icon on any idiom to add it to your favorites")
+    /// Try a different search term or add a new word
+    public static let tryDifferentSearchTerm = Loc.tr("FilterDisplay", "try_different_search_term", fallback: "Try a different search term or add a new word")
+    /// Try a different search term or add a new idiom
+    public static let tryDifferentSearchTermIdioms = Loc.tr("FilterDisplay", "try_different_search_term_idioms", fallback: "Try a different search term or add a new idiom")
+    /// Words appear here as you practice them in quizzes
+    public static let wordsAppearHereAsYouPractice = Loc.tr("FilterDisplay", "words_appear_here_as_you_practice", fallback: "Words appear here as you practice them in quizzes")
+    /// Words that need more practice will appear here
+    public static let wordsNeedMorePractice = Loc.tr("FilterDisplay", "words_need_more_practice", fallback: "Words that need more practice will appear here")
+  }
+  public enum Navigation {
+    /// About
+    public static let about = Loc.tr("Navigation", "about", fallback: "About")
+    /// Add Tags
+    public static let addTags = Loc.tr("Navigation", "add_tags", fallback: "Add Tags")
+    /// Close
+    public static let close = Loc.tr("Navigation", "close", fallback: "Close")
+    /// Close screen
+    public static let closeScreen = Loc.tr("Navigation", "close_screen", fallback: "Close screen")
+    /// Debug Panel
+    public static let debugPanel = Loc.tr("Navigation", "debug_panel", fallback: "Debug Panel")
+    /// Definition Quiz
+    public static let definitionQuiz = Loc.tr("Navigation", "definition_quiz", fallback: "Definition Quiz")
+    /// Idiom Details
+    public static let idiomDetails = Loc.tr("Navigation", "idiom_details", fallback: "Idiom Details")
+    /// Quiz Results
+    public static let quizResults = Loc.tr("Navigation", "quiz_results", fallback: "Quiz Results")
+    /// Spelling Quiz
+    public static let spellingQuiz = Loc.tr("Navigation", "spelling_quiz", fallback: "Spelling Quiz")
+    /// Word Details
+    public static let wordDetails = Loc.tr("Navigation", "word_details", fallback: "Word Details")
+    public enum Tabbar {
+      /// Progress
+      public static let progress = Loc.tr("Navigation", "tabbar.progress", fallback: "Progress")
+      /// Quizzes
+      public static let quizzes = Loc.tr("Navigation", "tabbar.quizzes", fallback: "Quizzes")
+      /// Settings
+      public static let settings = Loc.tr("Navigation", "tabbar.settings", fallback: "Settings")
+    }
+  }
+  public enum Notifications {
+    /// You have words that need more practice. Ready for a challenge?
+    public static let difficultWordsChallenge = Loc.tr("Notifications", "difficult_words_challenge", fallback: "You have words that need more practice. Ready for a challenge?")
+    /// Enter email address
+    public static let enterEmailAddress = Loc.tr("Notifications", "enter_email_address", fallback: "Enter email address")
+    /// To receive daily reminders and difficult word alerts, please enable notifications in Settings.
+    public static let permissionDeniedMessage = Loc.tr("Notifications", "permission_denied_message", fallback: "To receive daily reminders and difficult word alerts, please enable notifications in Settings.")
+    /// Notification Permission Required
+    public static let permissionRequired = Loc.tr("Notifications", "permission_required", fallback: "Notification Permission Required")
+    /// Practice Your Difficult Words 📚
+    public static let practiceDifficultWords = Loc.tr("Notifications", "practice_difficult_words", fallback: "Practice Your Difficult Words 📚")
+    /// Don't forget to practice your vocabulary today.
+    public static let practiceVocabularyToday = Loc.tr("Notifications", "practice_vocabulary_today", fallback: "Don't forget to practice your vocabulary today.")
+    /// Test Dictionary Invitation
+    public static let testDictionaryInvitation = Loc.tr("Notifications", "test_dictionary_invitation", fallback: "Test Dictionary Invitation")
+    /// Someone added you to 'Test Dictionary'
+    public static let testDictionaryInvitationBody = Loc.tr("Notifications", "test_dictionary_invitation_body", fallback: "Someone added you to 'Test Dictionary'")
+    /// Time to Practice! 📚
+    public static let timeToPractice = Loc.tr("Notifications", "time_to_practice", fallback: "Time to Practice! 📚")
+  }
+  public enum Onboarding {
+    /// Adaptive quizzes that learn from your progress
+    public static let adaptiveQuizzes = Loc.tr("Onboarding", "adaptive_quizzes", fallback: "Adaptive quizzes that learn from your progress")
+    /// Back
+    public static let back = Loc.tr("Onboarding", "back", fallback: "Back")
+    /// Build Your Vocabulary
+    public static let buildYourVocabulary = Loc.tr("Onboarding", "build_your_vocabulary", fallback: "Build Your Vocabulary")
+    /// Collaborative Learning
+    public static let collaborativeLearning = Loc.tr("Onboarding", "collaborative_learning", fallback: "Collaborative Learning")
+    /// Share dictionaries with friends and family
+    public static let collaborativeLearningDescription = Loc.tr("Onboarding", "collaborative_learning_description", fallback: "Share dictionaries with friends and family")
+    /// Collect Idioms
+    public static let collectIdioms = Loc.tr("Onboarding", "collect_idioms", fallback: "Collect Idioms")
+    /// Learn and practice idioms and expressions from around the world
+    public static let collectIdiomsDescription = Loc.tr("Onboarding", "collect_idioms_description", fallback: "Learn and practice idioms and expressions from around the world")
+    /// Get comprehensive definitions with multiple meanings and contexts
+    public static let comprehensiveDefinitions = Loc.tr("Onboarding", "comprehensive_definitions", fallback: "Get comprehensive definitions with multiple meanings and contexts")
+    /// Create and organize your own vocabulary collections with custom definitions and examples
+    public static let createOrganizeVocabulary = Loc.tr("Onboarding", "create_organize_vocabulary", fallback: "Create and organize your own vocabulary collections with custom definitions and examples")
+    /// Find Definitions
+    public static let findDefinitions = Loc.tr("Onboarding", "find_definitions", fallback: "Find Definitions")
+    /// Get comprehensive definitions with multiple meanings and contexts
+    public static let findDefinitionsDescription = Loc.tr("Onboarding", "find_definitions_description", fallback: "Get comprehensive definitions with multiple meanings and contexts")
+    /// Get Started
+    public static let getStarted = Loc.tr("Onboarding", "get_started", fallback: "Get Started")
+    /// Learn and practice idioms and expressions from around the world
+    public static let learnPracticeIdioms = Loc.tr("Onboarding", "learn_practice_idioms", fallback: "Learn and practice idioms and expressions from around the world")
+    /// My Dictionary
+    public static let myDictionary = Loc.tr("Onboarding", "my_dictionary", fallback: "My Dictionary")
+    /// Natural Voices
+    public static let naturalVoices = Loc.tr("Onboarding", "natural_voices", fallback: "Natural Voices")
+    /// Hundreds of premium voices that sound more human than ever
+    public static let naturalVoicesDescription = Loc.tr("Onboarding", "natural_voices_description", fallback: "Hundreds of premium voices that sound more human than ever")
+    /// Next
+    public static let next = Loc.tr("Onboarding", "next", fallback: "Next")
+    /// Next
+    public static let nextStep = Loc.tr("Onboarding", "next_step", fallback: "Next")
+    /// Your personal vocabulary companion
+    public static let personalVocabularyCompanion = Loc.tr("Onboarding", "personal_vocabulary_companion", fallback: "Your personal vocabulary companion")
+    /// Personal Word List
+    public static let personalWordList = Loc.tr("Onboarding", "personal_word_list", fallback: "Personal Word List")
+    /// Create and organize your own vocabulary collections with custom definitions and examples
+    public static let personalWordListDescription = Loc.tr("Onboarding", "personal_word_list_description", fallback: "Create and organize your own vocabulary collections with custom definitions and examples")
+    /// Personalized Learning
+    public static let personalizedLearning = Loc.tr("Onboarding", "personalized_learning", fallback: "Personalized Learning")
+    /// Progress Tracking
+    public static let progressTracking = Loc.tr("Onboarding", "progress_tracking", fallback: "Progress Tracking")
+    /// Visual insights into your vocabulary growth
+    public static let progressTrackingDescription = Loc.tr("Onboarding", "progress_tracking_description", fallback: "Visual insights into your vocabulary growth")
+    /// Share dictionaries with friends and family
+    public static let shareDictionaries = Loc.tr("Onboarding", "share_dictionaries", fallback: "Share dictionaries with friends and family")
+    /// Smart Quizzes
+    public static let smartQuizzes = Loc.tr("Onboarding", "smart_quizzes", fallback: "Smart Quizzes")
+    /// Adaptive quizzes that learn from your progress
+    public static let smartQuizzesDescription = Loc.tr("Onboarding", "smart_quizzes_description", fallback: "Adaptive quizzes that learn from your progress")
+    /// Start building your vocabulary today and watch your language skills grow.
+    public static let startBuildingVocabulary = Loc.tr("Onboarding", "start_building_vocabulary", fallback: "Start building your vocabulary today and watch your language skills grow.")
+    /// Visual insights into your vocabulary growth
+    public static let visualInsights = Loc.tr("Onboarding", "visual_insights", fallback: "Visual insights into your vocabulary growth")
+    /// Welcome to
+    public static let welcomeTo = Loc.tr("Onboarding", "welcome_to", fallback: "Welcome to")
+    /// You're All Set!
+    public static let youreAllSet = Loc.tr("Onboarding", "youre_all_set", fallback: "You're All Set!")
+  }
+  public enum Plurals {
+    public enum Analytics {
+      /// Plural format key: "%#@COUNT@"
+      public static func pointsCount(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "analytics.points_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
+      }
+    }
+    public enum Idioms {
+      /// Plural format key: "%#@COUNT@"
+      public static func idiomsCount(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "idioms.idioms_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
+      }
+    }
+    public enum SharedDictionaries {
+      /// Plural format key: "%#@COUNT@"
+      public static func collaborators(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "shared_dictionaries.collaborators", p1, fallback: "Plural format key: \"%#@COUNT@\"")
+      }
+      /// Plural format key: "%#@COUNT@ of 1 dictionary created"
+      public static func dictionaryCountCreated(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "shared_dictionaries.dictionary_count_created", p1, fallback: "Plural format key: \"%#@COUNT@ of 1 dictionary created\"")
+      }
+    }
+    public enum Words {
+      /// Plural format key: "%#@COUNT@"
+      public static func wordsCount(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "words.words_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
+      }
+    }
+  }
+  public enum Quizzes {
+    /// Accuracy
+    public static let accuracy = Loc.tr("Quizzes", "accuracy", fallback: "Accuracy")
+    /// Add More Words
+    public static let addMoreWords = Loc.tr("Quizzes", "add_more_words", fallback: "Add More Words")
+    /// Add Words to Shared Dictionary
+    public static let addWordsToSharedDictionary = Loc.tr("Quizzes", "add_words_to_shared_dictionary", fallback: "Add Words to Shared Dictionary")
+    /// Add Your First Word
+    public static let addYourFirstWord = Loc.tr("Quizzes", "add_your_first_word", fallback: "Add Your First Word")
+    /// All Results
+    public static let allResults = Loc.tr("Quizzes", "all_results", fallback: "All Results")
+    /// Ask the dictionary owner to add more words, or switch to a different dictionary!
+    public static let askDictionaryOwnerAddWords = Loc.tr("Quizzes", "ask_dictionary_owner_add_words", fallback: "Ask the dictionary owner to add more words, or switch to a different dictionary!")
+    /// Ask the dictionary owner to add more words, or switch to a different dictionary!
+    public static let askDictionaryOwnerAddWordsOrSwitch = Loc.tr("Quizzes", "ask_dictionary_owner_add_words_or_switch", fallback: "Ask the dictionary owner to add more words, or switch to a different dictionary!")
+    /// Attempt
+    public static let attempt = Loc.tr("Quizzes", "attempt", fallback: "Attempt")
+    /// Back to Quizzes
+    public static let backToQuizzes = Loc.tr("Quizzes", "back_to_quizzes", fallback: "Back to Quizzes")
+    /// Best
+    public static let best = Loc.tr("Quizzes", "best", fallback: "Best")
+    /// Best: %d
+    public static func bestFormat(_ p1: Int) -> String {
+      return Loc.tr("Quizzes", "best_format", p1, fallback: "Best: %d")
+    }
+    /// Best Streak
+    public static let bestStreak = Loc.tr("Quizzes", "best_streak", fallback: "Best Streak")
+    /// Choose the Correct Definition
+    public static let chooseCorrectDefinition = Loc.tr("Quizzes", "choose_correct_definition", fallback: "Choose the Correct Definition")
+    /// Configure your quiz experience
+    public static let configureQuizExperience = Loc.tr("Quizzes", "configure_quiz_experience", fallback: "Configure your quiz experience")
+    /// contributions
+    public static let contributions = Loc.tr("Quizzes", "contributions", fallback: "contributions")
+    /// Correct!
+    public static let correct = Loc.tr("Quizzes", "correct", fallback: "Correct!")
+    /// Correct Answers
+    public static let correctAnswers = Loc.tr("Quizzes", "correct_answers", fallback: "Correct Answers")
+    /// The correct word is '%@'. Moving to next word...
+    public static func correctWordIs(_ p1: Any) -> String {
+      return Loc.tr("Quizzes", "correct_word_is", String(describing: p1), fallback: "The correct word is '%@'. Moving to next word...")
+    }
+    /// Select the correct definition for each word
+    public static let definitionQuizDescription = Loc.tr("Quizzes", "definition_quiz_description", fallback: "Select the correct definition for each word")
+    /// Final Score
+    public static let finalScore = Loc.tr("Quizzes", "final_score", fallback: "Final Score")
+    /// Finish
+    public static let finish = Loc.tr("Quizzes", "finish", fallback: "Finish")
+    /// Focus on words that need review
+    public static let focusWordsNeedReview = Loc.tr("Quizzes", "focus_words_need_review", fallback: "Focus on words that need review")
+    /// Great job! You've completed the definition quiz.
+    public static let greatJobCompletedDefinitionQuiz = Loc.tr("Quizzes", "great_job_completed_definition_quiz", fallback: "Great job! You've completed the definition quiz.")
+    /// Great job! You've completed the spelling quiz.
+    public static let greatJobCompletedSpellingQuiz = Loc.tr("Quizzes", "great_job_completed_spelling_quiz", fallback: "Great job! You've completed the spelling quiz.")
+    /// Hint
+    public static let hint = Loc.tr("Quizzes", "hint", fallback: "Hint")
+    /// Incorrect
+    public static let incorrect = Loc.tr("Quizzes", "incorrect", fallback: "Incorrect")
+    /// Incorrect! Moving to next question...
+    public static let incorrectMovingToNextQuestion = Loc.tr("Quizzes", "incorrect_moving_to_next_question", fallback: "Incorrect! Moving to next question...")
+    /// Keep Adding Words!
+    public static let keepAddingWords = Loc.tr("Quizzes", "keep_adding_words", fallback: "Keep Adding Words!")
+    /// Keep up the good work!
+    public static let keepUpGoodWork = Loc.tr("Quizzes", "keep_up_good_work", fallback: "Keep up the good work!")
+    /// %d
+    public static func maxWords(_ p1: Int) -> String {
+      return Loc.tr("Quizzes", "max_words", p1, fallback: "%d")
+    }
+    /// %d
+    public static func minWords(_ p1: Int) -> String {
+      return Loc.tr("Quizzes", "min_words", p1, fallback: "%d")
+    }
+    /// Moving to next question...
+    public static let movingToNextQuestion = Loc.tr("Quizzes", "moving_to_next_question", fallback: "Moving to next question...")
+    /// Moving to next word...
+    public static let movingToNextWord = Loc.tr("Quizzes", "moving_to_next_word", fallback: "Moving to next word...")
+    /// You need at least 1 hard word to practice in hard words mode. You currently have %d hard words.
+    public static func needAtLeastHardWordPractice(_ p1: Int) -> String {
+      return Loc.tr("Quizzes", "need_at_least_hard_word_practice", p1, fallback: "You need at least 1 hard word to practice in hard words mode. You currently have %d hard words.")
+    }
+    /// Need at least %d words for the quiz.
+    public static func needAtLeastWords(_ p1: Int) -> String {
+      return Loc.tr("Quizzes", "need_at_least_words", p1, fallback: "Need at least %d words for the quiz.")
+    }
+    /// You need at least 10 words to start quizzes. You currently have %d words.
+    public static func needAtLeastWordsStartQuizzes(_ p1: Int) -> String {
+      return Loc.tr("Quizzes", "need_at_least_words_start_quizzes", p1, fallback: "You need at least 10 words to start quizzes. You currently have %d words.")
+    }
+    /// The shared dictionary '%@' needs at least 10 words to start quizzes. It currently has %d words.
+    public static func needsAtLeastWordsStartQuizzes(_ p1: Any, _ p2: Int) -> String {
+      return Loc.tr("Quizzes", "needs_at_least_words_start_quizzes", String(describing: p1), p2, fallback: "The shared dictionary '%@' needs at least 10 words to start quizzes. It currently has %d words.")
+    }
+    /// Next Word
+    public static let nextWord = Loc.tr("Quizzes", "next_word", fallback: "Next Word")
+    /// No difficult words available for quiz
+    public static let noDifficultWordsAvailable = Loc.tr("Quizzes", "no_difficult_words_available", fallback: "No difficult words available for quiz")
+    /// Not enough words available. Need at least %d words for the quiz.
+    public static func notEnoughWordsAvailable(_ p1: Int) -> String {
+      return Loc.tr("Quizzes", "not_enough_words_available", p1, fallback: "Not enough words available. Need at least %d words for the quiz.")
+    }
+    /// Not enough words to review yet
+    public static let notEnoughWordsReview = Loc.tr("Quizzes", "not_enough_words_review", fallback: "Not enough words to review yet")
+    /// Number of words
+    public static let numberWords = Loc.tr("Quizzes", "number_words", fallback: "Number of words")
+    /// Number of words to practice in each session (%d-%d)
+    public static func numberWordsPracticeSession(_ p1: Int, _ p2: Int) -> String {
+      return Loc.tr("Quizzes", "number_words_practice_session", p1, p2, fallback: "Number of words to practice in each session (%d-%d)")
+    }
+    /// Practice Hard Words Only
+    public static let practiceHardWordsOnly = Loc.tr("Quizzes", "practice_hard_words_only", fallback: "Practice Hard Words Only")
+    /// Practice Settings
+    public static let practiceSettings = Loc.tr("Quizzes", "practice_settings", fallback: "Practice Settings")
+    /// Progress
+    public static let progress = Loc.tr("Quizzes", "progress", fallback: "Progress")
+    /// Progress: %d/%d
+    public static func progressFormat(_ p1: Int, _ p2: Int) -> String {
+      return Loc.tr("Quizzes", "progress_format", p1, p2, fallback: "Progress: %d/%d")
+    }
+    /// Quiz Complete!
+    public static let quizComplete = Loc.tr("Quizzes", "quiz_complete", fallback: "Quiz Complete!")
+    /// Quiz Types
+    public static let quizTypes = Loc.tr("Quizzes", "quiz_types", fallback: "Quiz Types")
+    /// Quiz Unavailable
+    public static let quizUnavailable = Loc.tr("Quizzes", "quiz_unavailable", fallback: "Quiz Unavailable")
+    /// Score
+    public static let score = Loc.tr("Quizzes", "score", fallback: "Score")
+    /// Score: %d
+    public static func scoreFormat(_ p1: Int) -> String {
+      return Loc.tr("Quizzes", "score_format", p1, fallback: "Score: %d")
+    }
+    /// Select Dictionary
+    public static let selectDictionary = Loc.tr("Quizzes", "select_dictionary", fallback: "Select Dictionary")
+    /// Select a shared dictionary that is already populated with words.
+    public static let selectSharedDictionaryPopulated = Loc.tr("Quizzes", "select_shared_dictionary_populated", fallback: "Select a shared dictionary that is already populated with words.")
+    /// The shared dictionary '%@' needs at least 1 hard word to practice in hard words mode. It currently has %d hard words.
+    public static func sharedDictionaryNeedsHardWords(_ p1: Any, _ p2: Int) -> String {
+      return Loc.tr("Quizzes", "shared_dictionary_needs_hard_words", String(describing: p1), p2, fallback: "The shared dictionary '%@' needs at least 1 hard word to practice in hard words mode. It currently has %d hard words.")
+    }
+    /// Shared Dictionary Needs More Words!
+    public static let sharedDictionaryNeedsMoreWords = Loc.tr("Quizzes", "shared_dictionary_needs_more_words", fallback: "Shared Dictionary Needs More Words!")
+    /// Skip Word (-2 points)
+    public static let skipWord = Loc.tr("Quizzes", "skip_word", fallback: "Skip Word (-2 points)")
+    /// Test your spelling skills by typing words correctly
+    public static let spellingQuizDescription = Loc.tr("Quizzes", "spelling_quiz_description", fallback: "Test your spelling skills by typing words correctly")
+    /// Start Building Your Vocabulary!
+    public static let startBuildingVocabulary = Loc.tr("Quizzes", "start_building_vocabulary", fallback: "Start Building Your Vocabulary!")
+    /// Streak
+    public static let streak = Loc.tr("Quizzes", "streak", fallback: "Streak")
+    /// 🔥 Streak: %d
+    public static func streakFormat(_ p1: Int) -> String {
+      return Loc.tr("Quizzes", "streak_format", p1, fallback: "🔥 Streak: %d")
+    }
+    /// Submit Answer
+    public static let submitAnswer = Loc.tr("Quizzes", "submit_answer", fallback: "Submit Answer")
+    /// Switch to a different dictionary!
+    public static let switchDifferentDictionary = Loc.tr("Quizzes", "switch_different_dictionary", fallback: "Switch to a different dictionary!")
+    /// Well done!
+    public static let wellDone = Loc.tr("Quizzes", "well_done", fallback: "Well done!")
+    /// Word
+    public static let word = Loc.tr("Quizzes", "word", fallback: "Word")
+    /// The word starts with
+    public static let wordStartsWith = Loc.tr("Quizzes", "word_starts_with", fallback: "The word starts with")
+    /// Words per Session
+    public static let wordsPerSession = Loc.tr("Quizzes", "words_per_session", fallback: "Words per Session")
+    /// You can practice your own vocabulary, or select a shared dictionary that is already populated with words.
+    public static let youCanPracticeVocabulary = Loc.tr("Quizzes", "you_can_practice_vocabulary", fallback: "You can practice your own vocabulary, or select a shared dictionary that is already populated with words.")
+    /// Your Answer
+    public static let yourAnswer = Loc.tr("Quizzes", "your_answer", fallback: "Your Answer")
+    /// Your Results
+    public static let yourResults = Loc.tr("Quizzes", "your_results", fallback: "Your Results")
+    public enum QuizActions {
+      /// Finish
+      public static let finish = Loc.tr("Quizzes", "quiz_actions.finish", fallback: "Finish")
+      /// Incorrect. Try again
+      public static let incorrectTryAgain = Loc.tr("Quizzes", "quiz_actions.incorrect_try_again", fallback: "Incorrect. Try again")
+      /// Next Word
+      public static let nextWord = Loc.tr("Quizzes", "quiz_actions.next_word", fallback: "Next Word")
+      /// No difficult words available for quiz
+      public static let noDifficultWordsAvailable = Loc.tr("Quizzes", "quiz_actions.no_difficult_words_available", fallback: "No difficult words available for quiz")
+      /// Number of words
+      public static let numberOfWords = Loc.tr("Quizzes", "quiz_actions.number_of_words", fallback: "Number of words")
+      /// Submit Answer
+      public static let submitAnswer = Loc.tr("Quizzes", "quiz_actions.submit_answer", fallback: "Submit Answer")
+      /// Try harder :)
+      public static let tryHarder = Loc.tr("Quizzes", "quiz_actions.try_harder", fallback: "Try harder :)")
+      /// Your word is '%@'. Try harder :)
+      public static func yourWordIs(_ p1: Any) -> String {
+        return Loc.tr("Quizzes", "quiz_actions.your_word_is", String(describing: p1), fallback: "Your word is '%@'. Try harder :)")
+      }
+    }
+    public enum QuizList {
+      /// Add More Words
+      public static let addMoreWords = Loc.tr("Quizzes", "quiz_list.add_more_words", fallback: "Add More Words")
+      /// Add Words to Shared Dictionary
+      public static let addWordsToSharedDictionary = Loc.tr("Quizzes", "quiz_list.add_words_to_shared_dictionary", fallback: "Add Words to Shared Dictionary")
+      /// Add Your First Word
+      public static let addYourFirstWord = Loc.tr("Quizzes", "quiz_list.add_your_first_word", fallback: "Add Your First Word")
+      /// Configure your quiz experience
+      public static let configureQuizExperience = Loc.tr("Quizzes", "quiz_list.configure_quiz_experience", fallback: "Configure your quiz experience")
+      /// Focus on words that need review
+      public static let focusOnWordsNeedReview = Loc.tr("Quizzes", "quiz_list.focus_on_words_need_review", fallback: "Focus on words that need review")
+      /// Not enough words to review yet
+      public static let notEnoughWordsReviewYet = Loc.tr("Quizzes", "quiz_list.not_enough_words_review_yet", fallback: "Not enough words to review yet")
+      /// Practice Settings
+      public static let practiceSettings = Loc.tr("Quizzes", "quiz_list.practice_settings", fallback: "Practice Settings")
+      /// Quiz Types
+      public static let quizTypes = Loc.tr("Quizzes", "quiz_list.quiz_types", fallback: "Quiz Types")
+      /// Quizzes help you test your knowledge and reinforce learning!
+      public static let quizzesHelpTestKnowledge = Loc.tr("Quizzes", "quiz_list.quizzes_help_test_knowledge", fallback: "Quizzes help you test your knowledge and reinforce learning!")
+      /// You're %d words away from unlocking quizzes!
+      public static func wordsAwayFromUnlockingQuizzes(_ p1: Int) -> String {
+        return Loc.tr("Quizzes", "quiz_list.words_away_from_unlocking_quizzes", p1, fallback: "You're %d words away from unlocking quizzes!")
+      }
+    }
+    public enum QuizResults {
+      /// Accuracy
+      public static let accuracy = Loc.tr("Quizzes", "quiz_results.accuracy", fallback: "Accuracy")
+      /// All Results
+      public static let allResults = Loc.tr("Quizzes", "quiz_results.all_results", fallback: "All Results")
+      /// Correct
+      public static let correct = Loc.tr("Quizzes", "quiz_results.correct", fallback: "Correct")
+      /// Duration
+      public static let duration = Loc.tr("Quizzes", "quiz_results.duration", fallback: "Duration")
+      /// No Quiz Results Yet
+      public static let noQuizResultsYet = Loc.tr("Quizzes", "quiz_results.no_quiz_results_yet", fallback: "No Quiz Results Yet")
+      /// Quiz
+      public static let quiz = Loc.tr("Quizzes", "quiz_results.quiz", fallback: "Quiz")
+      /// Time Period
+      public static let timePeriod = Loc.tr("Quizzes", "quiz_results.time_period", fallback: "Time Period")
+    }
+    public enum QuizTypes {
+      /// Choose Definition
+      public static let chooseDefinition = Loc.tr("Quizzes", "quiz_types.choose_definition", fallback: "Choose Definition")
+      /// Great job! You've completed the definition quiz.
+      public static let greatJobCompletedDefinitionQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_definition_quiz", fallback: "Great job! You've completed the definition quiz.")
+      /// Great job! You've completed the spelling quiz.
+      public static let greatJobCompletedSpellingQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_spelling_quiz", fallback: "Great job! You've completed the spelling quiz.")
+      /// Select the correct definition for each word
+      public static let selectCorrectDefinition = Loc.tr("Quizzes", "quiz_types.select_correct_definition", fallback: "Select the correct definition for each word")
+      /// Spelling Quiz
+      public static let spellingQuiz = Loc.tr("Quizzes", "quiz_types.spelling_quiz", fallback: "Spelling Quiz")
+      /// Test your spelling skills by typing words correctly
+      public static let testSpellingSkills = Loc.tr("Quizzes", "quiz_types.test_spelling_skills", fallback: "Test your spelling skills by typing words correctly")
+    }
+  }
+  public enum Settings {
+    /// About App
+    public static let aboutApp = Loc.tr("Settings", "about_app", fallback: "About App")
+    /// I created this app because I could not find something that I wanted.
+    /// 
+    /// It is a simple word list manager that allows you to search for words and add their definitions along them without actually translating into a native language.
+    /// 
+    /// I find this best to learn English. Hope it will work for you as well.
+    /// 
+    /// If you have any questions, or want to suggest a feature, please reach out to me on the links below. Thank you for using my app!
+    public static let aboutAppDescription = Loc.tr("Settings", "about_app_description", fallback: "I created this app because I could not find something that I wanted.\n\nIt is a simple word list manager that allows you to search for words and add their definitions along them without actually translating into a native language.\n\nI find this best to learn English. Hope it will work for you as well.\n\nIf you have any questions, or want to suggest a feature, please reach out to me on the links below. Thank you for using my app!")
+    /// About My Dictionary
+    public static let aboutMyDictionary = Loc.tr("Settings", "about_my_dictionary", fallback: "About My Dictionary")
+    /// Accent
+    public static let accent = Loc.tr("Settings", "accent", fallback: "Accent")
+    /// Add and organize words with definitions
+    public static let addOrganizeWords = Loc.tr("Settings", "add_organize_words", fallback: "Add and organize words with definitions")
+    /// Anonymous
+    public static let anonymous = Loc.tr("Settings", "anonymous", fallback: "Anonymous")
+    /// App version:
+    public static let appVersion = Loc.tr("Settings", "app_version", fallback: "App version:")
+    /// Buy Me a Coffee
+    public static let buyMeACoffee = Loc.tr("Settings", "buy_me_a_coffee", fallback: "Buy Me a Coffee")
+    /// Contact Me
+    public static let contactMe = Loc.tr("Settings", "contact_me", fallback: "Contact Me")
+    /// Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Twitter!
+    public static let contactSupport = Loc.tr("Settings", "contact_support", fallback: "Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Twitter!")
+    /// Customize your learning experience
+    public static let customizeLearningExperience = Loc.tr("Settings", "customize_learning_experience", fallback: "Customize your learning experience")
+    /// Daily Reminders
+    public static let dailyReminders = Loc.tr("Settings", "daily_reminders", fallback: "Daily Reminders")
+    /// Get reminded at 8 PM if you haven't opened the app
+    public static let dailyRemindersDescription = Loc.tr("Settings", "daily_reminders_description", fallback: "Get reminded at 8 PM if you haven't opened the app")
+    /// Difficult Words
+    public static let difficultWords = Loc.tr("Settings", "difficult_words", fallback: "Difficult Words")
+    /// Get reminded at 4 PM to practice difficult words
+    public static let difficultWordsDescription = Loc.tr("Settings", "difficult_words_description", fallback: "Get reminded at 4 PM to practice difficult words")
+    /// Download backup from Google
+    public static let downloadBackupFromGoogle = Loc.tr("Settings", "download_backup_from_google", fallback: "Download backup from Google")
+    /// Download backup from Google
+    public static let downloadBackupGoogle = Loc.tr("Settings", "download_backup_google", fallback: "Download backup from Google")
+    /// Download Successful
+    public static let downloadSuccessful = Loc.tr("Settings", "download_successful", fallback: "Download Successful")
+    /// Export Successful
+    public static let exportSuccessful = Loc.tr("Settings", "export_successful", fallback: "Export Successful")
+    /// Export words
+    public static let exportWords = Loc.tr("Settings", "export_words", fallback: "Export words")
+    /// Export Words
+    public static let exportWordsTitle = Loc.tr("Settings", "export_words_title", fallback: "Export Words")
+    /// Features
+    public static let features = Loc.tr("Settings", "features", fallback: "Features")
+    /// Free Plan
+    public static let freePlan = Loc.tr("Settings", "free_plan", fallback: "Free Plan")
+    /// Free users can export up to %d words
+    public static func freeUsersExportLimit(_ p1: Int) -> String {
+      return Loc.tr("Settings", "free_users_export_limit", p1, fallback: "Free users can export up to %d words")
+    }
+    /// Import / Export
+    public static let importExport = Loc.tr("Settings", "import_export", fallback: "Import / Export")
+    /// Please note that import and export only work with files created by this app.
+    public static let importExportNote = Loc.tr("Settings", "import_export_note", fallback: "Please note that import and export only work with files created by this app.")
+    /// Import and export your word collection
+    public static let importExportWordCollection = Loc.tr("Settings", "import_export_word_collection", fallback: "Import and export your word collection")
+    /// Import successful
+    public static let importSuccessful = Loc.tr("Settings", "import_successful", fallback: "Import successful")
+    /// %@ have been imported successfully
+    public static func importSuccessfulMessage(_ p1: Any) -> String {
+      return Loc.tr("Settings", "import_successful_message", String(describing: p1), fallback: "%@ have been imported successfully")
+    }
+    /// Import words
+    public static let importWords = Loc.tr("Settings", "import_words", fallback: "Import words")
+    /// Instagram
+    public static let instagram = Loc.tr("Settings", "instagram", fallback: "Instagram")
+    /// Learn more
+    public static let learnMore = Loc.tr("Settings", "learn_more", fallback: "Learn more")
+    /// Limited features available
+    public static let limitedFeaturesAvailable = Loc.tr("Settings", "limited_features_available", fallback: "Limited features available")
+    /// Manage Tags
+    public static let manageTags = Loc.tr("Settings", "manage_tags", fallback: "Manage Tags")
+    /// Manual sync mode: Use buttons below to upload/download your word lists to Google. Available to all users.
+    public static let manualSyncModeDescription = Loc.tr("Settings", "manual_sync_mode_description", fallback: "Manual sync mode: Use buttons below to upload/download your word lists to Google. Available to all users.")
+    /// No words imported
+    public static let noWordsImported = Loc.tr("Settings", "no_words_imported", fallback: "No words imported")
+    /// We couldn't find any new words to import
+    public static let noWordsImportedMessage = Loc.tr("Settings", "no_words_imported_message", fallback: "We couldn't find any new words to import")
+    /// Notifications
+    public static let notifications = Loc.tr("Settings", "notifications", fallback: "Notifications")
+    /// Organization
+    public static let organization = Loc.tr("Settings", "organization", fallback: "Organization")
+    /// Practice with quizzes and spelling exercises
+    public static let practiceQuizzesSpelling = Loc.tr("Settings", "practice_quizzes_spelling", fallback: "Practice with quizzes and spelling exercises")
+    /// Upgrade to Pro for unlimited features and cross-device sync.
+    public static let proUpgradeDescription = Loc.tr("Settings", "pro_upgrade_description", fallback: "Upgrade to Pro for unlimited features and cross-device sync.")
+    /// Pro User
+    public static let proUser = Loc.tr("Settings", "pro_user", fallback: "Pro User")
+    /// Rate the App
+    public static let rateApp = Loc.tr("Settings", "rate_app", fallback: "Rate the App")
+    /// Select accent
+    public static let selectAccent = Loc.tr("Settings", "select_accent", fallback: "Select accent")
+    /// Shared Dictionaries
+    public static let sharedDictionaries = Loc.tr("Settings", "shared_dictionaries", fallback: "Shared Dictionaries")
+    /// Show definitions in your native language
+    public static let showDefinitionsNativeLanguage = Loc.tr("Settings", "show_definitions_native_language", fallback: "Show definitions in your native language")
+    /// Sign in to sync word lists
+    public static let signInSyncWordLists = Loc.tr("Settings", "sign_in_sync_word_lists", fallback: "Sign in to sync word lists")
+    /// Sign in to create and share word lists with others.
+    public static let signInToCreateShareWordLists = Loc.tr("Settings", "sign_in_to_create_share_word_lists", fallback: "Sign in to create and share word lists with others.")
+    /// Sign in to sync word lists
+    public static let signInToSyncWordLists = Loc.tr("Settings", "sign_in_to_sync_word_lists", fallback: "Sign in to sync word lists")
+    /// Sign Out
+    public static let signOut = Loc.tr("Settings", "sign_out", fallback: "Sign Out")
+    /// Signed in as
+    public static let signedInAs = Loc.tr("Settings", "signed_in_as", fallback: "Signed in as")
+    /// Subscription
+    public static let subscription = Loc.tr("Settings", "subscription", fallback: "Subscription")
+    /// Support
+    public static let support = Loc.tr("Settings", "support", fallback: "Support")
+    /// Create and manage tags to organize your words, and add collaborators to share words with.
+    public static let tagManagementDescription = Loc.tr("Settings", "tag_management_description", fallback: "Create and manage tags to organize your words, and add collaborators to share words with.")
+    /// Track your learning progress
+    public static let trackLearningProgress = Loc.tr("Settings", "track_learning_progress", fallback: "Track your learning progress")
+    /// Translate Definitions
+    public static let translateDefinitions = Loc.tr("Settings", "translate_definitions", fallback: "Translate Definitions")
+    /// Upload backup to Google
+    public static let uploadBackupGoogle = Loc.tr("Settings", "upload_backup_google", fallback: "Upload backup to Google")
+    /// Upload backup to Google
+    public static let uploadBackupToGoogle = Loc.tr("Settings", "upload_backup_to_google", fallback: "Upload backup to Google")
+    /// Upload Successful
+    public static let uploadSuccessful = Loc.tr("Settings", "upload_successful", fallback: "Upload Successful")
+    /// Voice pronunciation support
+    public static let voicePronunciationSupport = Loc.tr("Settings", "voice_pronunciation_support", fallback: "Voice pronunciation support")
+    /// Word Lists & Sync
+    public static let wordListsAndSync = Loc.tr("Settings", "word_lists_and_sync", fallback: "Word Lists & Sync")
+    /// X (Twitter)
+    public static let xTwitter = Loc.tr("Settings", "x_twitter", fallback: "X (Twitter)")
+  }
+  public enum SharedDictionaries {
+    /// Add Collaborator
+    public static let addCollaborator = Loc.tr("SharedDictionaries", "add_collaborator", fallback: "Add Collaborator")
+    /// Add to Shared Dictionary
+    public static let addToSharedDictionary = Loc.tr("SharedDictionaries", "add_to_shared_dictionary", fallback: "Add to Shared Dictionary")
+    /// Add words to this shared dictionary to get started
+    public static let addWordsToSharedDictionary = Loc.tr("SharedDictionaries", "add_words_to_shared_dictionary", fallback: "Add words to this shared dictionary to get started")
+    /// Average Score
+    public static let averageScore = Loc.tr("SharedDictionaries", "average_score", fallback: "Average Score")
+    /// Be the first to rate this word's difficulty
+    public static let beFirstToRateDifficulty = Loc.tr("SharedDictionaries", "be_first_to_rate_difficulty", fallback: "Be the first to rate this word's difficulty")
+    /// • Can add, edit, and delete words
+    public static let canAddEditDeleteWords = Loc.tr("SharedDictionaries", "can_add_edit_delete_words", fallback: "• Can add, edit, and delete words")
+    /// • Can invite other collaborators
+    public static let canInviteCollaborators = Loc.tr("SharedDictionaries", "can_invite_collaborators", fallback: "• Can invite other collaborators")
+    /// • Can manage dictionary settings
+    public static let canManageDictionarySettings = Loc.tr("SharedDictionaries", "can_manage_dictionary_settings", fallback: "• Can manage dictionary settings")
+    /// • Can view all words
+    public static let canViewAllWords = Loc.tr("SharedDictionaries", "can_view_all_words", fallback: "• Can view all words")
+    /// • Cannot invite others
+    public static let cannotInviteOthers = Loc.tr("SharedDictionaries", "cannot_invite_others", fallback: "• Cannot invite others")
+    /// • Cannot make changes
+    public static let cannotMakeChanges = Loc.tr("SharedDictionaries", "cannot_make_changes", fallback: "• Cannot make changes")
+    /// Can't share word
+    public static let cantShareWord = Loc.tr("SharedDictionaries", "cant_share_word", fallback: "Can't share word")
+    /// Collaborate with others
+    public static let collaborateOthers = Loc.tr("SharedDictionaries", "collaborate_others", fallback: "Collaborate with others")
+    /// Collaborative Features
+    public static let collaborativeFeatures = Loc.tr("SharedDictionaries", "collaborative_features", fallback: "Collaborative Features")
+    /// The collaborator will be added with the email and name you provide. They will need to sign in with the same email address to access the shared dictionary.
+    public static let collaboratorAddedEmailName = Loc.tr("SharedDictionaries", "collaborator_added_email_name", fallback: "The collaborator will be added with the email and name you provide. They will need to sign in with the same email address to access the shared dictionary.")
+    /// The user will be added to the shared dictionary. They will receive a notification and can access the dictionary immediately.
+    public static let collaboratorAddedWithEmailName = Loc.tr("SharedDictionaries", "collaborator_added_with_email_name", fallback: "The user will be added to the shared dictionary. They will receive a notification and can access the dictionary immediately.")
+    /// Collaborator Details
+    public static let collaboratorDetails = Loc.tr("SharedDictionaries", "collaborator_details", fallback: "Collaborator Details")
+    /// Collaborators
+    public static let collaborators = Loc.tr("SharedDictionaries", "collaborators", fallback: "Collaborators")
+    /// %d collaborators
+    public static func collaboratorsCount(_ p1: Int) -> String {
+      return Loc.tr("SharedDictionaries", "collaborators_count", p1, fallback: "%d collaborators")
+    }
+    /// Create a shared dictionary to collaborate with others
+    public static let createSharedDictionary = Loc.tr("SharedDictionaries", "create_shared_dictionary", fallback: "Create a shared dictionary to collaborate with others")
+    /// Create a shared dictionary to collaborate with others
+    public static let createSharedDictionaryCollaborate = Loc.tr("SharedDictionaries", "create_shared_dictionary_collaborate", fallback: "Create a shared dictionary to collaborate with others")
+    /// Created
+    public static let created = Loc.tr("SharedDictionaries", "created", fallback: "Created")
+    /// Created by %@
+    public static func createdBy(_ p1: Any) -> String {
+      return Loc.tr("SharedDictionaries", "created_by", String(describing: p1), fallback: "Created by %@")
+    }
+    /// Delete Dictionary
+    public static let deleteDictionary = Loc.tr("SharedDictionaries", "delete_dictionary", fallback: "Delete Dictionary")
+    /// Dictionaries
+    public static let dictionaries = Loc.tr("SharedDictionaries", "dictionaries", fallback: "Dictionaries")
+    /// This dictionary may have been deleted or you may have lost access to it.
+    public static let dictionaryDeletedOrLostAccess = Loc.tr("SharedDictionaries", "dictionary_deleted_or_lost_access", fallback: "This dictionary may have been deleted or you may have lost access to it.")
+    /// Dictionary Details
+    public static let dictionaryDetails = Loc.tr("SharedDictionaries", "dictionary_details", fallback: "Dictionary Details")
+    /// Dictionary Info
+    public static let dictionaryInfo = Loc.tr("SharedDictionaries", "dictionary_info", fallback: "Dictionary Info")
+    /// Dictionary name is required
+    public static let dictionaryNameRequired = Loc.tr("SharedDictionaries", "dictionary_name_required", fallback: "Dictionary name is required")
+    /// Dictionary Selected
+    public static let dictionarySelected = Loc.tr("SharedDictionaries", "dictionary_selected", fallback: "Dictionary Selected")
+    /// Editor
+    public static let editor = Loc.tr("SharedDictionaries", "editor", fallback: "Editor")
+    /// Editor:
+    public static let editorDescription = Loc.tr("SharedDictionaries", "editor_description", fallback: "Editor:")
+    /// Editor:
+    public static let editorRole = Loc.tr("SharedDictionaries", "editor_role", fallback: "Editor:")
+    /// Enter dictionary name
+    public static let enterDictionaryName = Loc.tr("SharedDictionaries", "enter_dictionary_name", fallback: "Enter dictionary name")
+    /// Free users can create one shared dictionary
+    public static let freeUsersOneDictionary = Loc.tr("SharedDictionaries", "free_users_one_dictionary", fallback: "Free users can create one shared dictionary")
+    /// Me
+    public static let me = Loc.tr("SharedDictionaries", "me", fallback: "Me")
+    /// Name
+    public static let name = Loc.tr("SharedDictionaries", "name", fallback: "Name")
+    /// New Shared Dictionary
+    public static let newSharedDictionary = Loc.tr("SharedDictionaries", "new_shared_dictionary", fallback: "New Shared Dictionary")
+    /// No Results
+    public static let noResults = Loc.tr("SharedDictionaries", "no_results", fallback: "No Results")
+    /// No Shared Dictionaries
+    public static let noSharedDictionaries = Loc.tr("SharedDictionaries", "no_shared_dictionaries", fallback: "No Shared Dictionaries")
+    /// No shared dictionaries
+    public static let noSharedDictionariesSidebar = Loc.tr("SharedDictionaries", "no_shared_dictionaries_sidebar", fallback: "No shared dictionaries")
+    /// No words match your current filter
+    public static let noWordsMatchFilter = Loc.tr("SharedDictionaries", "no_words_match_filter", fallback: "No words match your current filter")
+    /// No words yet
+    public static let noWordsYet = Loc.tr("SharedDictionaries", "no_words_yet", fallback: "No words yet")
+    /// Note
+    public static let note = Loc.tr("SharedDictionaries", "note", fallback: "Note")
+    /// of 1 dictionary created
+    public static let ofDictionaryCreated = Loc.tr("SharedDictionaries", "of_dictionary_created", fallback: "of 1 dictionary created")
+    /// Owner
+    public static let owner = Loc.tr("SharedDictionaries", "owner", fallback: "Owner")
+    /// Private
+    public static let privateDictionary = Loc.tr("SharedDictionaries", "private_dictionary", fallback: "Private")
+    /// Role Permissions
+    public static let rolePermissions = Loc.tr("SharedDictionaries", "role_permissions", fallback: "Role Permissions")
+    /// Save to your personal dictionary
+    public static let saveToPersonalDictionary = Loc.tr("SharedDictionaries", "save_to_personal_dictionary", fallback: "Save to your personal dictionary")
+    /// Score: %d
+    public static func score(_ p1: Int) -> String {
+      return Loc.tr("SharedDictionaries", "score", p1, fallback: "Score: %d")
+    }
+    /// Select role
+    public static let selectRole = Loc.tr("SharedDictionaries", "select_role", fallback: "Select role")
+    /// Shared Dictionaries
+    public static let sharedDictionaries = Loc.tr("SharedDictionaries", "shared_dictionaries", fallback: "Shared Dictionaries")
+    /// Please sign in to create a shared dictionary
+    public static let signInToCreateSharedDictionary = Loc.tr("SharedDictionaries", "sign_in_to_create_shared_dictionary", fallback: "Please sign in to create a shared dictionary")
+    /// Viewer
+    public static let viewer = Loc.tr("SharedDictionaries", "viewer", fallback: "Viewer")
+    /// Viewer:
+    public static let viewerDescription = Loc.tr("SharedDictionaries", "viewer_description", fallback: "Viewer:")
+    /// Viewer:
+    public static let viewerRole = Loc.tr("SharedDictionaries", "viewer_role", fallback: "Viewer:")
+    /// Your Dictionaries
+    public static let yourDictionaries = Loc.tr("SharedDictionaries", "your_dictionaries", fallback: "Your Dictionaries")
+    /// Your Role
+    public static let yourRole = Loc.tr("SharedDictionaries", "your_role", fallback: "Your Role")
+    /// Your score
+    public static let yourScore = Loc.tr("SharedDictionaries", "your_score", fallback: "Your score")
+    /// Your status
+    public static let yourStatus = Loc.tr("SharedDictionaries", "your_status", fallback: "Your status")
+    public enum CollaboratorManagement {
+      /// Add
+      public static let add = Loc.tr("SharedDictionaries", "collaborator_management.add", fallback: "Add")
+      /// Add Collaborator
+      public static let addCollaborator = Loc.tr("SharedDictionaries", "collaborator_management.add_collaborator", fallback: "Add Collaborator")
+      /// Continue
+      public static let `continue` = Loc.tr("SharedDictionaries", "collaborator_management.continue", fallback: "Continue")
+      /// Delete Dictionary
+      public static let deleteDictionary = Loc.tr("SharedDictionaries", "collaborator_management.delete_dictionary", fallback: "Delete Dictionary")
+      /// Are you sure you want to delete this shared dictionary? This action cannot be undone.
+      public static let deleteDictionaryConfirmation = Loc.tr("SharedDictionaries", "collaborator_management.delete_dictionary_confirmation", fallback: "Are you sure you want to delete this shared dictionary? This action cannot be undone.")
+      /// Dictionary Details
+      public static let dictionaryDetails = Loc.tr("SharedDictionaries", "collaborator_management.dictionary_details", fallback: "Dictionary Details")
+      /// Dictionary Not Found
+      public static let dictionaryNotFound = Loc.tr("SharedDictionaries", "collaborator_management.dictionary_not_found", fallback: "Dictionary Not Found")
+      /// Email address is required
+      public static let emailAddressRequired = Loc.tr("SharedDictionaries", "collaborator_management.email_address_required", fallback: "Email address is required")
+      /// Make Editor
+      public static let makeEditor = Loc.tr("SharedDictionaries", "collaborator_management.make_editor", fallback: "Make Editor")
+      /// Make Viewer
+      public static let makeViewer = Loc.tr("SharedDictionaries", "collaborator_management.make_viewer", fallback: "Make Viewer")
+      /// Remove
+      public static let remove = Loc.tr("SharedDictionaries", "collaborator_management.remove", fallback: "Remove")
+      /// Role
+      public static let role = Loc.tr("SharedDictionaries", "collaborator_management.role", fallback: "Role")
+      /// Stop watching
+      public static let stopWatching = Loc.tr("SharedDictionaries", "collaborator_management.stop_watching", fallback: "Stop watching")
+      /// Stop watching dictionary
+      public static let stopWatchingDictionary = Loc.tr("SharedDictionaries", "collaborator_management.stop_watching_dictionary", fallback: "Stop watching dictionary")
+      /// Are you sure you want to stop watching this shared dictionary?
+      public static let stopWatchingDictionaryConfirmation = Loc.tr("SharedDictionaries", "collaborator_management.stop_watching_dictionary_confirmation", fallback: "Are you sure you want to stop watching this shared dictionary?")
+      /// Unknown
+      public static let unknown = Loc.tr("SharedDictionaries", "collaborator_management.unknown", fallback: "Unknown")
+      /// Please enter a valid email address
+      public static let validEmailAddress = Loc.tr("SharedDictionaries", "collaborator_management.valid_email_address", fallback: "Please enter a valid email address")
+    }
+    public enum CollaboratorRoles {
+      /// Editor
+      public static let editor = Loc.tr("SharedDictionaries", "collaborator_roles.editor", fallback: "Editor")
+      /// Owner
+      public static let owner = Loc.tr("SharedDictionaries", "collaborator_roles.owner", fallback: "Owner")
+      /// Viewer
+      public static let viewer = Loc.tr("SharedDictionaries", "collaborator_roles.viewer", fallback: "Viewer")
+    }
+    public enum SharedDictionarySelection {
+      /// Add to Shared
+      public static let addToShared = Loc.tr("SharedDictionaries", "shared_dictionary_selection.add_to_shared", fallback: "Add to Shared")
+      /// Add Word to Shared Dictionary
+      public static let addWordToSharedDictionary = Loc.tr("SharedDictionaries", "shared_dictionary_selection.add_word_to_shared_dictionary", fallback: "Add Word to Shared Dictionary")
+      /// Dictionary Selected
+      public static let dictionarySelected = Loc.tr("SharedDictionaries", "shared_dictionary_selection.dictionary_selected", fallback: "Dictionary Selected")
+      /// Select Dictionary
+      public static let selectDictionary = Loc.tr("SharedDictionaries", "shared_dictionary_selection.select_dictionary", fallback: "Select Dictionary")
+      /// unknown
+      public static let unknown = Loc.tr("SharedDictionaries", "shared_dictionary_selection.unknown", fallback: "unknown")
+    }
+  }
+  public enum Subscription {
+    public enum Paywall {
+      /// Active Users
+      public static let activeUsers = Loc.tr("Subscription", "paywall.active_users", fallback: "Active Users")
+      /// App Store Rating
+      public static let appStoreRating = Loc.tr("Subscription", "paywall.app_store_rating", fallback: "App Store Rating")
+      /// By subscribing, you agree to our Terms of Service and Privacy Policy
+      public static let bySubscribingAgreeTerms = Loc.tr("Subscription", "paywall.by_subscribing_agree_terms", fallback: "By subscribing, you agree to our Terms of Service and Privacy Policy")
+      /// Choose Your Plan
+      public static let chooseYourPlan = Loc.tr("Subscription", "paywall.choose_your_plan", fallback: "Choose Your Plan")
+      /// Collaborate
+      public static let collaborate = Loc.tr("Subscription", "paywall.collaborate", fallback: "Collaborate")
+      /// Everything you need to master vocabulary
+      public static let everythingYouNeedToMasterVocabulary = Loc.tr("Subscription", "paywall.everything_you_need_to_master_vocabulary", fallback: "Everything you need to master vocabulary")
+      /// Failed to restore purchases: %@
+      public static func failedToRestorePurchases(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.failed_to_restore_purchases", String(describing: p1), fallback: "Failed to restore purchases: %@")
+      }
+      /// Free Plan
+      public static let freePlan = Loc.tr("Subscription", "paywall.free_plan", fallback: "Free Plan")
+      /// Join thousands of users who've transformed their vocabulary learning
+      public static let joinThousandsUsers = Loc.tr("Subscription", "paywall.join_thousands_users", fallback: "Join thousands of users who've transformed their vocabulary learning")
+      /// Learn with others
+      public static let learnWithOthers = Loc.tr("Subscription", "paywall.learn_with_others", fallback: "Learn with others")
+      /// Limited features available
+      public static let limitedFeaturesAvailable = Loc.tr("Subscription", "paywall.limited_features_available", fallback: "Limited features available")
+      /// No active subscriptions found. Please check your App Store account.
+      public static let noActiveSubscriptionsFound = Loc.tr("Subscription", "paywall.no_active_subscriptions_found", fallback: "No active subscriptions found. Please check your App Store account.")
+      /// Privacy Policy
+      public static let privacyPolicy = Loc.tr("Subscription", "paywall.privacy_policy", fallback: "Privacy Policy")
+      /// Pro User
+      public static let proUser = Loc.tr("Subscription", "paywall.pro_user", fallback: "Pro User")
+      /// Restore Purchases
+      public static let restorePurchases = Loc.tr("Subscription", "paywall.restore_purchases", fallback: "Restore Purchases")
+      /// Save %@
+      public static func savePercentage(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.save_percentage", String(describing: p1), fallback: "Save %@")
+      }
+      /// See your improvement
+      public static let seeYourImprovement = Loc.tr("Subscription", "paywall.see_your_improvement", fallback: "See your improvement")
+      /// Sign In Required
+      public static let signInRequired = Loc.tr("Subscription", "paywall.sign_in_required", fallback: "Sign In Required")
+      /// Start Pro Subscription
+      public static let startProSubscription = Loc.tr("Subscription", "paywall.start_pro_subscription", fallback: "Start Pro Subscription")
+      /// Terms of Service
+      public static let termsOfService = Loc.tr("Subscription", "paywall.terms_of_service", fallback: "Terms of Service")
+      /// Track Progress
+      public static let trackProgress = Loc.tr("Subscription", "paywall.track_progress", fallback: "Track Progress")
+      /// Trusted by learners worldwide
+      public static let trustedByLearnersWorldwide = Loc.tr("Subscription", "paywall.trusted_by_learners_worldwide", fallback: "Trusted by learners worldwide")
+      /// Upgrade to Pro
+      public static let upgradeToPro = Loc.tr("Subscription", "paywall.upgrade_to_pro", fallback: "Upgrade to Pro")
+      /// Words Added
+      public static let wordsAdded = Loc.tr("Subscription", "paywall.words_added", fallback: "Words Added")
+    }
+    public enum ProFeatures {
+      /// Advanced Analytics
+      public static let advancedAnalytics = Loc.tr("Subscription", "pro_features.advanced_analytics", fallback: "Advanced Analytics")
+      /// Create and manage shared dictionaries with others
+      public static let createManageSharedDictionaries = Loc.tr("Subscription", "pro_features.create_manage_shared_dictionaries", fallback: "Create and manage shared dictionaries with others")
+      /// Create Shared Dictionaries
+      public static let createSharedDictionaries = Loc.tr("Subscription", "pro_features.create_shared_dictionaries", fallback: "Create Shared Dictionaries")
+      /// Get detailed insights into your learning progress
+      public static let detailedInsights = Loc.tr("Subscription", "pro_features.detailed_insights", fallback: "Get detailed insights into your learning progress")
+      /// Detailed progress tracking and insights
+      public static let detailedProgressTracking = Loc.tr("Subscription", "pro_features.detailed_progress_tracking", fallback: "Detailed progress tracking and insights")
+      /// Export unlimited words to CSV files
+      public static let exportUnlimitedWords = Loc.tr("Subscription", "pro_features.export_unlimited_words", fallback: "Export unlimited words to CSV files")
+      /// Get priority support when you need help
+      public static let getPrioritySupport = Loc.tr("Subscription", "pro_features.get_priority_support", fallback: "Get priority support when you need help")
+      /// Google Sync
+      public static let googleSync = Loc.tr("Subscription", "pro_features.google_sync", fallback: "Google Sync")
+      /// Organize your words with custom tags for easier search
+      public static let organizeWordsWithTags = Loc.tr("Subscription", "pro_features.organize_words_with_tags", fallback: "Organize your words with custom tags for easier search")
+      /// Priority Support
+      public static let prioritySupport = Loc.tr("Subscription", "pro_features.priority_support", fallback: "Priority Support")
+      /// Get priority support from our team
+      public static let prioritySupportTeam = Loc.tr("Subscription", "pro_features.priority_support_team", fallback: "Get priority support from our team")
+      /// Pro Features
+      public static let proFeatures = Loc.tr("Subscription", "pro_features.pro_features", fallback: "Pro Features")
+      /// Speechify TTS
+      public static let speechifyTts = Loc.tr("Subscription", "pro_features.speechify_tts", fallback: "Speechify TTS")
+      /// Access to Speechify's premium text-to-speech technology. Hundreds of natural-sounding premium voices
+      public static let speechifyTtsDescription = Loc.tr("Subscription", "pro_features.speechify_tts_description", fallback: "Access to Speechify's premium text-to-speech technology. Hundreds of natural-sounding premium voices")
+      /// Sync your words across all devices with Google Drive
+      public static let syncWordsAcrossDevices = Loc.tr("Subscription", "pro_features.sync_words_across_devices", fallback: "Sync your words across all devices with Google Drive")
+      /// Tag Management
+      public static let tagManagement = Loc.tr("Subscription", "pro_features.tag_management", fallback: "Tag Management")
+      /// Unlimited Export
+      public static let unlimitedExport = Loc.tr("Subscription", "pro_features.unlimited_export", fallback: "Unlimited Export")
+      /// Unlock all Pro features
+      public static let unlockAllProFeatures = Loc.tr("Subscription", "pro_features.unlock_all_pro_features", fallback: "Unlock all Pro features")
+    }
+    public enum ProUpgrade {
+      /// Time Period
+      public static let timePeriod = Loc.tr("Subscription", "pro_upgrade.time_period", fallback: "Time Period")
+      /// Upgrade to Pro to see full progress details.
+      public static let upgradeToProProgressDetails = Loc.tr("Subscription", "pro_upgrade.upgrade_to_pro_progress_details", fallback: "Upgrade to Pro to see full progress details.")
+      /// Upgrade to Pro to see full vocabulary growth details.
+      public static let upgradeToProVocabularyGrowth = Loc.tr("Subscription", "pro_upgrade.upgrade_to_pro_vocabulary_growth", fallback: "Upgrade to Pro to see full vocabulary growth details.")
+    }
+  }
+  public enum Tags {
+    /// Add your first tag by tapping the button above.
+    public static let addFirstTag = Loc.tr("Tags", "add_first_tag", fallback: "Add your first tag by tapping the button above.")
+    /// Add your first tag by tapping the button above.
+    public static let addFirstTagDescription = Loc.tr("Tags", "add_first_tag_description", fallback: "Add your first tag by tapping the button above.")
+    /// Add Tag
+    public static let addTag = Loc.tr("Tags", "add_tag", fallback: "Add Tag")
+    /// Add a tag to start using it.
+    public static let addTagToStartUsing = Loc.tr("Tags", "add_tag_to_start_using", fallback: "Add a tag to start using it.")
+    /// Add Tags
+    public static let addTags = Loc.tr("Tags", "add_tags", fallback: "Add Tags")
+    /// Create tags
+    public static let createTags = Loc.tr("Tags", "create_tags", fallback: "Create tags")
+    /// Delete Tag
+    public static let deleteTag = Loc.tr("Tags", "delete_tag", fallback: "Delete Tag")
+    /// This action cannot be undone.
+    public static let deleteTagCannotUndo = Loc.tr("Tags", "delete_tag_cannot_undo", fallback: "This action cannot be undone.")
+    /// Are you sure you want to delete this tag?
+    public static let deleteTagConfirmation = Loc.tr("Tags", "delete_tag_confirmation", fallback: "Are you sure you want to delete this tag?")
+    /// Edit Tag
+    public static let editTag = Loc.tr("Tags", "edit_tag", fallback: "Edit Tag")
+    /// Manage Tags
+    public static let manageTags = Loc.tr("Tags", "manage_tags", fallback: "Manage Tags")
+    /// New Tag
+    public static let newTag = Loc.tr("Tags", "new_tag", fallback: "New Tag")
+    /// No Tags added yet
+    public static let noTagsYet = Loc.tr("Tags", "no_tags_yet", fallback: "No Tags added yet")
+    /// Tag Color
+    public static let tagColor = Loc.tr("Tags", "tag_color", fallback: "Tag Color")
+    /// Select a color to help identify your tag
+    public static let tagColorHelp = Loc.tr("Tags", "tag_color_help", fallback: "Select a color to help identify your tag")
+    /// Tag Management Error
+    public static let tagManagementError = Loc.tr("Tags", "tag_management_error", fallback: "Tag Management Error")
+    /// Tag Name
+    public static let tagName = Loc.tr("Tags", "tag_name", fallback: "Tag Name")
+    /// Choose a descriptive name for your tag
+    public static let tagNameHelp = Loc.tr("Tags", "tag_name_help", fallback: "Choose a descriptive name for your tag")
+    /// Tags help you organize your words. Each word can have up to 5 tags.
+    public static let tagsHelpText = Loc.tr("Tags", "tags_help_text", fallback: "Tags help you organize your words. Each word can have up to 5 tags.")
+    /// Type tag name...
+    public static let typeTagName = Loc.tr("Tags", "type_tag_name", fallback: "Type tag name...")
+    public enum TagColors {
+      /// Blue
+      public static let blue = Loc.tr("Tags", "tag_colors.blue", fallback: "Blue")
+      /// Gray
+      public static let gray = Loc.tr("Tags", "tag_colors.gray", fallback: "Gray")
+      /// Green
+      public static let green = Loc.tr("Tags", "tag_colors.green", fallback: "Green")
+      /// Orange
+      public static let orange = Loc.tr("Tags", "tag_colors.orange", fallback: "Orange")
+      /// Pink
+      public static let pink = Loc.tr("Tags", "tag_colors.pink", fallback: "Pink")
+      /// Purple
+      public static let purple = Loc.tr("Tags", "tag_colors.purple", fallback: "Purple")
+      /// Red
+      public static let red = Loc.tr("Tags", "tag_colors.red", fallback: "Red")
+      /// Yellow
+      public static let yellow = Loc.tr("Tags", "tag_colors.yellow", fallback: "Yellow")
+    }
+    public enum TagSelection {
+      /// No Tags Yet
+      public static let noTagsYet = Loc.tr("Tags", "tag_selection.no_tags_yet", fallback: "No Tags Yet")
+      /// Select Tags
+      public static let selectTags = Loc.tr("Tags", "tag_selection.select_tags", fallback: "Select Tags")
+      /// You can select up to 5 tags per word. Tap a tag to select or deselect it.
+      public static let youCanSelectUpTo5Tags = Loc.tr("Tags", "tag_selection.you_can_select_up_to_5_tags", fallback: "You can select up to 5 tags per word. Tap a tag to select or deselect it.")
+    }
+  }
+  public enum Tts {
+    /// Advertisement
+    public static let advertisement = Loc.tr("TTS", "advertisement", fallback: "Advertisement")
+    /// American Neutral
+    public static let americanNeutral = Loc.tr("TTS", "american-neutral", fallback: "American Neutral")
+    /// Angry
+    public static let angry = Loc.tr("TTS", "angry", fallback: "Angry")
+    /// Animation
+    public static let animation = Loc.tr("TTS", "animation", fallback: "Animation")
+    /// Assertive or Confident
+    public static let assertiveOrConfident = Loc.tr("TTS", "assertive-or-confident", fallback: "Assertive or Confident")
+    /// Audio Settings
+    public static let audioSettings = Loc.tr("TTS", "audio_settings", fallback: "Audio Settings")
+    /// Audiobook
+    public static let audiobook = Loc.tr("TTS", "audiobook", fallback: "Audiobook")
+    /// Audiobook & Narration
+    public static let audiobookAndNarration = Loc.tr("TTS", "audiobook-and-narration", fallback: "Audiobook & Narration")
+    /// Audiobooks & Narration
+    public static let audiobooksAndNarration = Loc.tr("TTS", "audiobooks-and-narration", fallback: "Audiobooks & Narration")
+    /// Australian
+    public static let australian = Loc.tr("TTS", "australian", fallback: "Australian")
+    /// Bright
+    public static let bright = Loc.tr("TTS", "bright", fallback: "Bright")
+    /// British
+    public static let british = Loc.tr("TTS", "british", fallback: "British")
+    /// Calm or Relaxed
+    public static let calmOrRelaxed = Loc.tr("TTS", "calm-or-relaxed", fallback: "Calm or Relaxed")
+    /// Change Voice
+    public static let changeVoice = Loc.tr("TTS", "change_voice", fallback: "Change Voice")
+    /// characters
+    public static let characters = Loc.tr("TTS", "characters", fallback: "characters")
+    /// Cheerful
+    public static let cheerful = Loc.tr("TTS", "cheerful", fallback: "Cheerful")
+    /// Conversational
+    public static let conversational = Loc.tr("TTS", "conversational", fallback: "Conversational")
+    /// Crisp
+    public static let crisp = Loc.tr("TTS", "crisp", fallback: "Crisp")
+    /// Current Voice
+    public static let currentVoice = Loc.tr("TTS", "current_voice", fallback: "Current Voice")
+    /// Customize your text-to-speech experience
+    public static let customizeTtsExperience = Loc.tr("TTS", "customize_tts_experience", fallback: "Customize your text-to-speech experience")
+    /// TTS Dashboard
+    public static let dashboard = Loc.tr("TTS", "dashboard", fallback: "TTS Dashboard")
+    /// Deep
+    public static let deep = Loc.tr("TTS", "deep", fallback: "Deep")
+    /// Default Voice
+    public static let defaultVoice = Loc.tr("TTS", "default_voice", fallback: "Default Voice")
+    /// Direct
+    public static let direct = Loc.tr("TTS", "direct", fallback: "Direct")
+    /// E-Learning
+    public static let eLearning = Loc.tr("TTS", "e-learning", fallback: "E-Learning")
+    /// Energetic
+    public static let energetic = Loc.tr("TTS", "energetic", fallback: "Energetic")
+    /// Enter text to test...
+    public static let enterTextToTest = Loc.tr("TTS", "enter_text_to_test", fallback: "Enter text to test...")
+    /// Fearful
+    public static let fearful = Loc.tr("TTS", "fearful", fallback: "Fearful")
+    /// Female
+    public static let female = Loc.tr("TTS", "female", fallback: "Female")
+    /// Free Google TTS with basic voices and reliable performance
+    public static let freeGoogleTtsDescription = Loc.tr("TTS", "free_google_tts_description", fallback: "Free Google TTS with basic voices and reliable performance")
+    /// Gaming
+    public static let gaming = Loc.tr("TTS", "gaming", fallback: "Gaming")
+    /// High Pitch
+    public static let highPitch = Loc.tr("TTS", "high-pitch", fallback: "High Pitch")
+    /// Indian
+    public static let indian = Loc.tr("TTS", "indian", fallback: "Indian")
+    /// Male
+    public static let male = Loc.tr("TTS", "male", fallback: "Male")
+    /// Meditation
+    public static let meditation = Loc.tr("TTS", "meditation", fallback: "Meditation")
+    /// Middle-aged
+    public static let middleAged = Loc.tr("TTS", "middle-aged", fallback: "Middle-aged")
+    /// Monthly Limit
+    public static let monthlyLimit = Loc.tr("TTS", "monthly_limit", fallback: "Monthly Limit")
+    /// Movie
+    public static let movie = Loc.tr("TTS", "movie", fallback: "Movie")
+    /// Movies, Acting & Gaming
+    public static let moviesActingAndGaming = Loc.tr("TTS", "movies-acting-and-gaming", fallback: "Movies, Acting & Gaming")
+    /// Narration
+    public static let narration = Loc.tr("TTS", "narration", fallback: "Narration")
+    /// Neutral
+    public static let neutral = Loc.tr("TTS", "neutral", fallback: "Neutral")
+    /// Nigerian
+    public static let nigerian = Loc.tr("TTS", "nigerian", fallback: "Nigerian")
+    /// Playing
+    public static let playing = Loc.tr("TTS", "playing", fallback: "Playing")
+    /// Podcast
+    public static let podcast = Loc.tr("TTS", "podcast", fallback: "Podcast")
+    /// Premium TTS Dashboard
+    public static let premiumTtsDashboard = Loc.tr("TTS", "premium_tts_dashboard", fallback: "Premium TTS Dashboard")
+    /// Preview Current Voice
+    public static let previewCurrentVoice = Loc.tr("TTS", "preview_current_voice", fallback: "Preview Current Voice")
+    /// PRO
+    public static let pro = Loc.tr("TTS", "pro", fallback: "PRO")
+    /// Professional
+    public static let professional = Loc.tr("TTS", "professional", fallback: "Professional")
+    /// Provider
+    public static let provider = Loc.tr("TTS", "provider", fallback: "Provider")
+    /// Ready
+    public static let ready = Loc.tr("TTS", "ready", fallback: "Ready")
+    /// Relaxed
+    public static let relaxed = Loc.tr("TTS", "relaxed", fallback: "Relaxed")
+    /// Remaining
+    public static let remaining = Loc.tr("TTS", "remaining", fallback: "Remaining")
+    /// Sad
+    public static let sad = Loc.tr("TTS", "sad", fallback: "Sad")
+    /// Senior
+    public static let senior = Loc.tr("TTS", "senior", fallback: "Senior")
+    /// Social Media
+    public static let socialMedia = Loc.tr("TTS", "social-media", fallback: "Social Media")
+    /// Speech Rate
+    public static let speechRate = Loc.tr("TTS", "speech_rate", fallback: "Speech Rate")
+    /// Speechify Monthly Usage
+    public static let speechifyMonthlyUsage = Loc.tr("TTS", "speechify_monthly_usage", fallback: "Speechify Monthly Usage")
+    /// Stop
+    public static let stop = Loc.tr("TTS", "stop", fallback: "Stop")
+    /// Surprised
+    public static let suprised = Loc.tr("TTS", "suprised", fallback: "Surprised")
+    /// Surprised
+    public static let surprised = Loc.tr("TTS", "surprised", fallback: "Surprised")
+    /// Teen
+    public static let teen = Loc.tr("TTS", "teen", fallback: "Teen")
+    /// Terrified
+    public static let terrified = Loc.tr("TTS", "terrified", fallback: "Terrified")
+    /// Test
+    public static let test = Loc.tr("TTS", "test", fallback: "Test")
+    /// Test Your Settings
+    public static let testYourSettings = Loc.tr("TTS", "test_your_settings", fallback: "Test Your Settings")
+    /// TTS Provider
+    public static let ttsProvider = Loc.tr("TTS", "tts_provider", fallback: "TTS Provider")
+    /// Usage Progress
+    public static let usageProgress = Loc.tr("TTS", "usage_progress", fallback: "Usage Progress")
+    /// Usage Statistics
+    public static let usageStatistics = Loc.tr("TTS", "usage_statistics", fallback: "Usage Statistics")
+    /// Used This Month
+    public static let usedThisMonth = Loc.tr("TTS", "used_this_month", fallback: "Used This Month")
+    /// Voice Customization
+    public static let voiceCustomization = Loc.tr("TTS", "voice_customization", fallback: "Voice Customization")
+    /// Volume
+    public static let volume = Loc.tr("TTS", "volume", fallback: "Volume")
+    /// Warm
+    public static let warm = Loc.tr("TTS", "warm", fallback: "Warm")
+    /// Warm or Friendly
+    public static let warmOrFriendly = Loc.tr("TTS", "warm-or-friendly", fallback: "Warm or Friendly")
+    /// Young Adult
+    public static let youngAdult = Loc.tr("TTS", "young-adult", fallback: "Young Adult")
+    public enum Analytics {
+      /// Characters Used
+      public static let charactersUsed = Loc.tr("TTS", "analytics.characters_used", fallback: "Characters Used")
+      /// Favorite Language
+      public static let favoriteLanguage = Loc.tr("TTS", "analytics.favorite_language", fallback: "Favorite Language")
+      /// Favorite Voice
+      public static let favoriteVoice = Loc.tr("TTS", "analytics.favorite_voice", fallback: "Favorite Voice")
+      /// Premium Usage
+      public static let premiumUsage = Loc.tr("TTS", "analytics.premium_usage", fallback: "Premium Usage")
+      /// Sessions
+      public static let sessions = Loc.tr("TTS", "analytics.sessions", fallback: "Sessions")
+      /// Time Saved
+      public static let timeSaved = Loc.tr("TTS", "analytics.time_saved", fallback: "Time Saved")
+      /// Total Characters
+      public static let totalCharacters = Loc.tr("TTS", "analytics.total_characters", fallback: "Total Characters")
+      /// Total Duration
+      public static let totalDuration = Loc.tr("TTS", "analytics.total_duration", fallback: "Total Duration")
+      /// Total Sessions
+      public static let totalSessions = Loc.tr("TTS", "analytics.total_sessions", fallback: "Total Sessions")
+    }
+    public enum EnglishAccents {
+      /// American
+      public static let american = Loc.tr("TTS", "english_accents.american", fallback: "American")
+      /// Australian
+      public static let australian = Loc.tr("TTS", "english_accents.australian", fallback: "Australian")
+      /// Belgian
+      public static let belgian = Loc.tr("TTS", "english_accents.belgian", fallback: "Belgian")
+      /// British
+      public static let british = Loc.tr("TTS", "english_accents.british", fallback: "British")
+      /// Canadian
+      public static let canadian = Loc.tr("TTS", "english_accents.canadian", fallback: "Canadian")
+      /// Indian
+      public static let indian = Loc.tr("TTS", "english_accents.indian", fallback: "Indian")
+      /// Irish
+      public static let irish = Loc.tr("TTS", "english_accents.irish", fallback: "Irish")
+      /// Singaporean
+      public static let singaporean = Loc.tr("TTS", "english_accents.singaporean", fallback: "Singaporean")
+      /// South African
+      public static let southAfrican = Loc.tr("TTS", "english_accents.south_african", fallback: "South African")
+    }
+    public enum Filters {
+      /// All Accents
+      public static let allAccents = Loc.tr("TTS", "filters.all_accents", fallback: "All Accents")
+      /// All Ages
+      public static let allAges = Loc.tr("TTS", "filters.all_ages", fallback: "All Ages")
+      /// All Genders
+      public static let allGenders = Loc.tr("TTS", "filters.all_genders", fallback: "All Genders")
+      /// All Languages
+      public static let allLanguages = Loc.tr("TTS", "filters.all_languages", fallback: "All Languages")
+      /// All Timbres
+      public static let allTimbres = Loc.tr("TTS", "filters.all_timbres", fallback: "All Timbres")
+      /// All Use Cases
+      public static let allUseCases = Loc.tr("TTS", "filters.all_use_cases", fallback: "All Use Cases")
+      /// Available Voices
+      public static let availableVoices = Loc.tr("TTS", "filters.available_voices", fallback: "Available Voices")
+      /// Filters
+      public static let filters = Loc.tr("TTS", "filters.filters", fallback: "Filters")
+      /// No voices available
+      public static let noVoicesAvailable = Loc.tr("TTS", "filters.no_voices_available", fallback: "No voices available")
+      /// No voices found
+      public static let noVoicesFound = Loc.tr("TTS", "filters.no_voices_found", fallback: "No voices found")
+      /// Try adjusting your search or filters
+      public static let noVoicesFoundMessage = Loc.tr("TTS", "filters.no_voices_found_message", fallback: "Try adjusting your search or filters")
+      /// Reset
+      public static let reset = Loc.tr("TTS", "filters.reset", fallback: "Reset")
+      /// Select Voice
+      public static let selectVoice = Loc.tr("TTS", "filters.select_voice", fallback: "Select Voice")
+    }
+    public enum Models {
+      /// English
+      public static let english = Loc.tr("TTS", "models.english", fallback: "English")
+      /// Speechify's English text-to-speech model offers standard capabilities designed to deliver clear and natural voice output for reading texts. The model focuses on delivering a consistent user experience.
+      public static let englishDescription = Loc.tr("TTS", "models.english_description", fallback: "Speechify's English text-to-speech model offers standard capabilities designed to deliver clear and natural voice output for reading texts. The model focuses on delivering a consistent user experience.")
+      /// Multilingual
+      public static let multilingual = Loc.tr("TTS", "models.multilingual", fallback: "Multilingual")
+      /// Multilingual model allows the usage of all supported languages and supports using multiple languages within a single sentence. The audio output of this model is distinctively different from other models.
+      public static let multilingualDescription = Loc.tr("TTS", "models.multilingual_description", fallback: "Multilingual model allows the usage of all supported languages and supports using multiple languages within a single sentence. The audio output of this model is distinctively different from other models.")
+    }
+    public enum Settings {
+      /// Dashboard
+      public static let dashboard = Loc.tr("TTS", "settings.dashboard", fallback: "Dashboard")
+      /// Speechify
+      public static let speechify = Loc.tr("TTS", "settings.speechify", fallback: "Speechify")
+      /// Speechify's Text-to-Speech AI model is available for all users as a premium feature. It allows you to choose from a wide range of voices and accents, so you can fine-tune your study experience.
+      public static let speechifyDescription = Loc.tr("TTS", "settings.speechify_description", fallback: "Speechify's Text-to-Speech AI model is available for all users as a premium feature. It allows you to choose from a wide range of voices and accents, so you can fine-tune your study experience.")
+      /// Speechify's Text-to-Speech AI model is included in your subscription.
+      public static let speechifyProDescription = Loc.tr("TTS", "settings.speechify_pro_description", fallback: "Speechify's Text-to-Speech AI model is included in your subscription.")
+      /// Text-to-Speech
+      public static let textToSpeech = Loc.tr("TTS", "settings.text_to_speech", fallback: "Text-to-Speech")
+    }
+    public enum Usage {
+      /// Monthly Limit
+      public static let monthlyLimit = Loc.tr("TTS", "usage.monthly_limit", fallback: "Monthly Limit")
+      /// Monthly Limit Exceeded
+      public static let monthlyLimitExceeded = Loc.tr("TTS", "usage.monthly_limit_exceeded", fallback: "Monthly Limit Exceeded")
+      /// You have reached your monthly limit of 50,000 characters for Speechify TTS. Please try again next month or use Google TTS instead.
+      public static let monthlyLimitExceededMessage = Loc.tr("TTS", "usage.monthly_limit_exceeded_message", fallback: "You have reached your monthly limit of 50,000 characters for Speechify TTS. Please try again next month or use Google TTS instead.")
+      /// Monthly Usage
+      public static let monthlyUsage = Loc.tr("TTS", "usage.monthly_usage", fallback: "Monthly Usage")
+      /// Remaining Characters
+      public static let remainingCharacters = Loc.tr("TTS", "usage.remaining_characters", fallback: "Remaining Characters")
+    }
+  }
+  public enum Words {
+    /// Add example
+    public static let addExample = Loc.tr("Words", "add_example", fallback: "Add example")
+    /// Add idiom
+    public static let addIdiom = Loc.tr("Words", "add_idiom", fallback: "Add idiom")
+    /// Add More Words
+    public static let addMoreWords = Loc.tr("Words", "add_more_words", fallback: "Add More Words")
+    /// Add new idiom
+    public static let addNewIdiom = Loc.tr("Words", "add_new_idiom", fallback: "Add new idiom")
+    /// Add New Word
+    public static let addNewWord = Loc.tr("Words", "add_new_word", fallback: "Add New Word")
+    /// Add Tag
+    public static let addTag = Loc.tr("Words", "add_tag", fallback: "Add Tag")
+    /// Add this idiom by tapping on the button above
+    public static let addThisIdiom = Loc.tr("Words", "add_this_idiom", fallback: "Add this idiom by tapping on the button above")
+    /// Add to Shared Dictionary
+    public static let addToSharedDictionary = Loc.tr("Words", "add_to_shared_dictionary", fallback: "Add to Shared Dictionary")
+    /// Add Word
+    public static let addWord = Loc.tr("Words", "add_word", fallback: "Add Word")
+    /// Add Your First Word
+    public static let addYourFirstWord = Loc.tr("Words", "add_your_first_word", fallback: "Add Your First Word")
+    /// All idioms
+    public static let allIdioms = Loc.tr("Words", "all_idioms", fallback: "All idioms")
+    /// All Words
+    public static let allWords = Loc.tr("Words", "all_words", fallback: "All Words")
+    /// Alphabetically
+    public static let alphabetically = Loc.tr("Words", "alphabetically", fallback: "Alphabetically")
+    /// Begin to add idioms to your list by tapping on plus icon in upper left corner
+    public static let beginAddIdioms = Loc.tr("Words", "begin_add_idioms", fallback: "Begin to add idioms to your list by tapping on plus icon in upper left corner")
+    /// By Part of Speech
+    public static let byPartOfSpeech = Loc.tr("Words", "by_part_of_speech", fallback: "By Part of Speech")
+    /// Create Tags
+    public static let createTags = Loc.tr("Words", "create_tags", fallback: "Create Tags")
+    /// Definition
+    public static let definition = Loc.tr("Words", "definition", fallback: "Definition")
+    /// Delete idiom
+    public static let deleteIdiom = Loc.tr("Words", "delete_idiom", fallback: "Delete idiom")
+    /// Are you sure you want to delete this idiom?
+    public static let deleteIdiomConfirmation = Loc.tr("Words", "delete_idiom_confirmation", fallback: "Are you sure you want to delete this idiom?")
+    /// Delete Word
+    public static let deleteWord = Loc.tr("Words", "delete_word", fallback: "Delete Word")
+    /// Are you sure you want to delete this word?
+    public static let deleteWordConfirmation = Loc.tr("Words", "delete_word_confirmation", fallback: "Are you sure you want to delete this word?")
+    /// Difficulty
+    public static let difficulty = Loc.tr("Words", "difficulty", fallback: "Difficulty")
+    /// Earliest First
+    public static let earliestFirst = Loc.tr("Words", "earliest_first", fallback: "Earliest First")
+    /// Edit example
+    public static let editExample = Loc.tr("Words", "edit_example", fallback: "Edit example")
+    /// Enter definition
+    public static let enterDefinition = Loc.tr("Words", "enter_definition", fallback: "Enter definition")
+    /// There is an error loading definitions. Please try again.
+    public static let errorLoadingDefinitions = Loc.tr("Words", "error_loading_definitions", fallback: "There is an error loading definitions. Please try again.")
+    /// Example
+    public static let example = Loc.tr("Words", "example", fallback: "Example")
+    /// Examples
+    public static let examples = Loc.tr("Words", "examples", fallback: "Examples")
+    /// Favorite
+    public static let favorite = Loc.tr("Words", "favorite", fallback: "Favorite")
+    /// Favorite Idioms
+    public static let favoriteIdioms = Loc.tr("Words", "favorite_idioms", fallback: "Favorite Idioms")
+    /// Favorite Words
+    public static let favoriteWords = Loc.tr("Words", "favorite_words", fallback: "Favorite Words")
+    /// Favorites
+    public static let favorites = Loc.tr("Words", "favorites", fallback: "Favorites")
+    /// Filter
+    public static let filter = Loc.tr("Words", "filter", fallback: "Filter")
+    /// Found
+    public static let found = Loc.tr("Words", "found", fallback: "Found")
+    /// Found
+    public static let foundIdioms = Loc.tr("Words", "found_idioms", fallback: "Found")
+    /// Idiom
+    public static let idiom = Loc.tr("Words", "idiom", fallback: "Idiom")
+    /// Idioms
+    public static let idioms = Loc.tr("Words", "idioms", fallback: "Idioms")
+    /// Impressive Vocabulary!
+    public static let impressiveVocabulary = Loc.tr("Words", "impressive_vocabulary", fallback: "Impressive Vocabulary!")
+    /// You've built a collection of **%d words**! Your dedication to learning is inspiring.
+    public static func impressiveVocabularyMessage(_ p1: Int) -> String {
+      return Loc.tr("Words", "impressive_vocabulary_message", p1, fallback: "You've built a collection of **%d words**! Your dedication to learning is inspiring.")
+    }
+    /// In Progress
+    public static let inProgress = Loc.tr("Words", "in_progress", fallback: "In Progress")
+    /// Input Language
+    public static let inputLanguage = Loc.tr("Words", "input_language", fallback: "Input Language")
+    /// Language
+    public static let language = Loc.tr("Words", "language", fallback: "Language")
+    /// Latest First
+    public static let latestFirst = Loc.tr("Words", "latest_first", fallback: "Latest First")
+    /// Mastered
+    public static let mastered = Loc.tr("Words", "mastered", fallback: "Mastered")
+    /// Mastered Words
+    public static let masteredWords = Loc.tr("Words", "mastered_words", fallback: "Mastered Words")
+    /// Needs Review
+    public static let needsReview = Loc.tr("Words", "needs_review", fallback: "Needs Review")
+    /// New
+    public static let new = Loc.tr("Words", "new", fallback: "New")
+    /// New Words
+    public static let newWords = Loc.tr("Words", "new_words", fallback: "New Words")
+    /// No definition
+    public static let noDefinition = Loc.tr("Words", "no_definition", fallback: "No definition")
+    /// No examples yet
+    public static let noExamplesYet = Loc.tr("Words", "no_examples_yet", fallback: "No examples yet")
+    /// No idioms found
+    public static let noIdiomsFound = Loc.tr("Words", "no_idioms_found", fallback: "No idioms found")
+    /// No tags added yet.
+    public static let noTagsAddedYet = Loc.tr("Words", "no_tags_added_yet", fallback: "No tags added yet.")
+    /// No tags selected
+    public static let noTagsSelected = Loc.tr("Words", "no_tags_selected", fallback: "No tags selected")
+    /// No transcription
+    public static let noTranscription = Loc.tr("Words", "no_transcription", fallback: "No transcription")
+    /// Part Of Speech
+    public static let partOfSpeech = Loc.tr("Words", "part_of_speech", fallback: "Part Of Speech")
+    /// Private Dictionary
+    public static let privateDictionary = Loc.tr("Words", "private_dictionary", fallback: "Private Dictionary")
+    /// Pronunciation
+    public static let pronunciation = Loc.tr("Words", "pronunciation", fallback: "Pronunciation")
+    /// Quiz-based
+    public static let quizBased = Loc.tr("Words", "quiz_based", fallback: "Quiz-based")
+    /// Score
+    public static let score = Loc.tr("Words", "score", fallback: "Score")
+    /// Search
+    public static let search = Loc.tr("Words", "search", fallback: "Search")
+    /// Search idioms...
+    public static let searchIdioms = Loc.tr("Words", "search_idioms", fallback: "Search idioms...")
+    /// Search Results
+    public static let searchResults = Loc.tr("Words", "search_results", fallback: "Search Results")
+    /// Search words...
+    public static let searchWords = Loc.tr("Words", "search_words", fallback: "Search words...")
+    /// Select a definition
+    public static let selectDefinition = Loc.tr("Words", "select_definition", fallback: "Select a definition")
+    /// Shared Dictionary
+    public static let sharedDictionary = Loc.tr("Words", "shared_dictionary", fallback: "Shared Dictionary")
+    /// Sort
+    public static let sort = Loc.tr("Words", "sort", fallback: "Sort")
+    /// Tag
+    public static let tag = Loc.tr("Words", "tag", fallback: "Tag")
+    /// Tagged Words
+    public static let taggedWords = Loc.tr("Words", "tagged_words", fallback: "Tagged Words")
+    /// Tags
+    public static let tags = Loc.tr("Words", "tags", fallback: "Tags")
+    /// Transcription
+    public static let transcription = Loc.tr("Words", "transcription", fallback: "Transcription")
+    /// Translating definitions...
+    public static let translatingDefinitions = Loc.tr("Words", "translating_definitions", fallback: "Translating definitions...")
+    /// Translating word...
+    public static let translatingWord = Loc.tr("Words", "translating_word", fallback: "Translating word...")
+    /// Type an example here
+    public static let typeExampleHere = Loc.tr("Words", "type_example_here", fallback: "Type an example here")
+    /// Type a word
+    public static let typeWord = Loc.tr("Words", "type_word", fallback: "Type a word")
+    /// Type a word and press 'Search' to find its definitions
+    public static let typeWordAndPressSearch = Loc.tr("Words", "type_word_and_press_search", fallback: "Type a word and press 'Search' to find its definitions")
+    /// Type the word here...
+    public static let typeWordHere = Loc.tr("Words", "type_word_here", fallback: "Type the word here...")
+    /// Word
+    public static let word = Loc.tr("Words", "word", fallback: "Word")
+    /// Word Details
+    public static let wordDetails = Loc.tr("Words", "word_details", fallback: "Word Details")
+    /// Words
+    public static let words = Loc.tr("Words", "words", fallback: "Words")
+    /// Words In Progress
+    public static let wordsInProgress = Loc.tr("Words", "words_in_progress", fallback: "Words In Progress")
+    /// Words Needing Review
+    public static let wordsNeedingReview = Loc.tr("Words", "words_needing_review", fallback: "Words Needing Review")
+    public enum Difficulty {
+      /// In Progress
+      public static let inProgress = Loc.tr("Words", "difficulty.in_progress", fallback: "In Progress")
+      /// Mastered
+      public static let mastered = Loc.tr("Words", "difficulty.mastered", fallback: "Mastered")
+      /// Needs Review
+      public static let needsReview = Loc.tr("Words", "difficulty.needs_review", fallback: "Needs Review")
+      /// New
+      public static let new = Loc.tr("Words", "difficulty.new", fallback: "New")
+    }
+    public enum EmptyStates {
+      /// No Favorite Words
+      public static let noFavoriteWords = Loc.tr("Words", "empty_states.no_favorite_words", fallback: "No Favorite Words")
+      /// No Idioms Yet
+      public static let noIdiomsYet = Loc.tr("Words", "empty_states.no_idioms_yet", fallback: "No Idioms Yet")
+      /// No Search Results
+      public static let noSearchResults = Loc.tr("Words", "empty_states.no_search_results", fallback: "No Search Results")
+      /// No Words Yet
+      public static let noWordsYet = Loc.tr("Words", "empty_states.no_words_yet", fallback: "No Words Yet")
+      /// Start improving your vocabulary by adding your first idiom
+      public static let startImprovingVocabulary = Loc.tr("Words", "empty_states.start_improving_vocabulary", fallback: "Start improving your vocabulary by adding your first idiom")
+      /// Tap the heart icon on any idiom to add it to your favorites
+      public static let tapHeartIconToAddFavorites = Loc.tr("Words", "empty_states.tap_heart_icon_to_add_favorites", fallback: "Tap the heart icon on any idiom to add it to your favorites")
+      /// Try a different search term or add a new idiom
+      public static let tryDifferentSearchTerm = Loc.tr("Words", "empty_states.try_different_search_term", fallback: "Try a different search term or add a new idiom")
+    }
+    public enum InputLanguage {
+      /// Auto Detect
+      public static let autoDetect = Loc.tr("Words", "input_language.auto_detect", fallback: "Auto Detect")
+    }
+    public enum PartOfSpeech {
+      public enum Full {
+        /// Adjective
+        public static let adjective = Loc.tr("Words", "part_of_speech.full.adjective", fallback: "Adjective")
+        /// Adverb
+        public static let adverb = Loc.tr("Words", "part_of_speech.full.adverb", fallback: "Adverb")
+        /// Conjunction
+        public static let conjunction = Loc.tr("Words", "part_of_speech.full.conjunction", fallback: "Conjunction")
+        /// Exclamation
+        public static let exclamation = Loc.tr("Words", "part_of_speech.full.exclamation", fallback: "Exclamation")
+        /// Interjection
+        public static let interjection = Loc.tr("Words", "part_of_speech.full.interjection", fallback: "Interjection")
+        /// Noun
+        public static let noun = Loc.tr("Words", "part_of_speech.full.noun", fallback: "Noun")
+        /// Preposition
+        public static let preposition = Loc.tr("Words", "part_of_speech.full.preposition", fallback: "Preposition")
+        /// Pronoun
+        public static let pronoun = Loc.tr("Words", "part_of_speech.full.pronoun", fallback: "Pronoun")
+        /// Unknown
+        public static let unknown = Loc.tr("Words", "part_of_speech.full.unknown", fallback: "Unknown")
+        /// Verb
+        public static let verb = Loc.tr("Words", "part_of_speech.full.verb", fallback: "Verb")
+      }
+      public enum Short {
+        /// Adj.
+        public static let adjective = Loc.tr("Words", "part_of_speech.short.adjective", fallback: "Adj.")
+        /// Adv.
+        public static let adverb = Loc.tr("Words", "part_of_speech.short.adverb", fallback: "Adv.")
+        /// Conj.
+        public static let conjunction = Loc.tr("Words", "part_of_speech.short.conjunction", fallback: "Conj.")
+        /// Excl.
+        public static let exclamation = Loc.tr("Words", "part_of_speech.short.exclamation", fallback: "Excl.")
+        /// Interj.
+        public static let interjection = Loc.tr("Words", "part_of_speech.short.interjection", fallback: "Interj.")
+        /// Noun
+        public static let noun = Loc.tr("Words", "part_of_speech.short.noun", fallback: "Noun")
+        /// Prep.
+        public static let preposition = Loc.tr("Words", "part_of_speech.short.preposition", fallback: "Prep.")
+        /// Pron.
+        public static let pronoun = Loc.tr("Words", "part_of_speech.short.pronoun", fallback: "Pron.")
+        /// Unkn.
+        public static let unknown = Loc.tr("Words", "part_of_speech.short.unknown", fallback: "Unkn.")
+        /// Verb
+        public static let verb = Loc.tr("Words", "part_of_speech.short.verb", fallback: "Verb")
+      }
+    }
+    public enum Sorting {
+      /// Alphabetically
+      public static let alphabetically = Loc.tr("Words", "sorting.alphabetically", fallback: "Alphabetically")
+      /// By Part of Speech
+      public static let byPartOfSpeech = Loc.tr("Words", "sorting.by_part_of_speech", fallback: "By Part of Speech")
+      /// Earliest first
+      public static let earliestFirst = Loc.tr("Words", "sorting.earliest_first", fallback: "Earliest first")
+      /// Latest first
+      public static let latestFirst = Loc.tr("Words", "sorting.latest_first", fallback: "Latest first")
+    }
+    public enum WordDetails {
+      /// Add example
+      public static let addExample = Loc.tr("Words", "word_details.add_example", fallback: "Add example")
+      /// Definition
+      public static let definition = Loc.tr("Words", "word_details.definition", fallback: "Definition")
+      /// Delete failed
+      public static let deleteFailed = Loc.tr("Words", "word_details.delete_failed", fallback: "Delete failed")
+      /// Delete word
+      public static let deleteWord = Loc.tr("Words", "word_details.delete_word", fallback: "Delete word")
+      /// Difficulty
+      public static let difficulty = Loc.tr("Words", "word_details.difficulty", fallback: "Difficulty")
+      /// Edit example
+      public static let editExample = Loc.tr("Words", "word_details.edit_example", fallback: "Edit example")
+      /// Example
+      public static let example = Loc.tr("Words", "word_details.example", fallback: "Example")
+      /// Examples
+      public static let examples = Loc.tr("Words", "word_details.examples", fallback: "Examples")
+      /// Part of Speech
+      public static let partOfSpeech = Loc.tr("Words", "word_details.part_of_speech", fallback: "Part of Speech")
+      /// Transcription
+      public static let transcription = Loc.tr("Words", "word_details.transcription", fallback: "Transcription")
+      /// Type an example here
+      public static let typeExampleHere = Loc.tr("Words", "word_details.type_example_here", fallback: "Type an example here")
+    }
+    public enum WordList {
+      /// All Words
+      public static let allWords = Loc.tr("Words", "word_list.all_words", fallback: "All Words")
+      /// Favorite
+      public static let favorite = Loc.tr("Words", "word_list.favorite", fallback: "Favorite")
+      /// Manage Tags
+      public static let manageTags = Loc.tr("Words", "word_list.manage_tags", fallback: "Manage Tags")
+    }
+  }
+}
+// swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
+// swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
+
+// MARK: - Implementation Details
+
+extension Loc {
+  private static func tr(_ table: String, _ key: String, _ args: CVarArg..., fallback value: String) -> String {
+    let format = BundleToken.bundle.localizedString(forKey: key, value: value, table: table)
+    return String(format: format, locale: Locale.current, arguments: args)
+  }
+}
+
+// swiftlint:disable convenience_type
+private final class BundleToken {
+  static let bundle: Bundle = {
+    #if SWIFT_PACKAGE
+    return Bundle.module
+    #else
+    return Bundle(for: BundleToken.self)
+    #endif
+  }()
+}
+// swiftlint:enable convenience_type

@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "Varslingstillatelse kreves";
-"notifications.permission_denied_message" = "For å motta daglige påminnelser og varsler om vanskelige ord, vennligst aktiver varsler i Innstillinger.";
+"permission_required" = "Varslingstillatelse kreves";
+"permission_denied_message" = "For å motta daglige påminnelser og varsler om vanskelige ord, vennligst aktiver varsler i Innstillinger.";
 
-"notifications.time_to_practice" = "Tid for å øve! 📚";
-"notifications.practice_vocabulary_today" = "Ikke glem å øve på vokabularet ditt i dag.";
-"notifications.practice_difficult_words" = "Øv på vanskelige ord 📚";
-"notifications.difficult_words_challenge" = "Du har ord som trenger mer øving. Klar for utfordringen?";
-"notifications.test_dictionary_invitation" = "Invitasjon til testordbok";
-"notifications.test_dictionary_invitation_body" = "Noen har lagt deg til i 'Testordbok'";
+"time_to_practice" = "Tid for å øve! 📚";
+"practice_vocabulary_today" = "Ikke glem å øve på vokabularet ditt i dag.";
+"practice_difficult_words" = "Øv på vanskelige ord 📚";
+"difficult_words_challenge" = "Du har ord som trenger mer øving. Klar for utfordringen?";
+"test_dictionary_invitation" = "Invitasjon til testordbok";
+"test_dictionary_invitation_body" = "Noen har lagt deg til i 'Testordbok'";
 

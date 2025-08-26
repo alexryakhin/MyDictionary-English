@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Manage Tags";
-"tags.tags_help_text" = "Tags help you organize your words. Each word can have up to 5 tags.";
-"tags.no_tags_yet" = "No Tags added yet";
-"tags.add_first_tag" = "Add your first tag by tapping the button above.";
-"tags.add_tag" = "Add Tag";
-"tags.add_first_tag_description" = "Add your first tag by tapping the button above.";
-"tags.add_tag_to_start_using" = "Add a tag to start using it.";
-"tags.add_tags" = "Add Tags";
-"tags.create_tags" = "Create tags";
-"tags.delete_tag" = "Delete Tag";
-"tags.delete_tag_confirmation" = "Are you sure you want to delete this tag?";
-"tags.delete_tag_cannot_undo" = "This action cannot be undone.";
-"tags.tag_name" = "Tag Name";
-"tags.tag_name_help" = "Choose a descriptive name for your tag";
-"tags.type_tag_name" = "Type tag name...";
-"tags.tag_color" = "Tag Color";
-"tags.tag_color_help" = "Select a color to help identify your tag";
-"tags.edit_tag" = "Edit Tag";
-"tags.new_tag" = "New Tag";
-"tags.tag_management_error" = "Tag Management Error";
+"manage_tags" = "Manage Tags";
+"tags_help_text" = "Tags help you organize your words. Each word can have up to 5 tags.";
+"no_tags_yet" = "No Tags added yet";
+"add_first_tag" = "Add your first tag by tapping the button above.";
+"add_tag" = "Add Tag";
+"add_first_tag_description" = "Add your first tag by tapping the button above.";
+"add_tag_to_start_using" = "Add a tag to start using it.";
+"add_tags" = "Add Tags";
+"create_tags" = "Create tags";
+"delete_tag" = "Delete Tag";
+"delete_tag_confirmation" = "Are you sure you want to delete this tag?";
+"delete_tag_cannot_undo" = "This action cannot be undone.";
+"tag_name" = "Tag Name";
+"tag_name_help" = "Choose a descriptive name for your tag";
+"type_tag_name" = "Type tag name...";
+"tag_color" = "Tag Color";
+"tag_color_help" = "Select a color to help identify your tag";
+"edit_tag" = "Edit Tag";
+"new_tag" = "New Tag";
+"tag_management_error" = "Tag Management Error";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Select Tags";

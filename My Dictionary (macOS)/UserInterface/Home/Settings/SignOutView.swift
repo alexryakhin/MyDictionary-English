@@ -30,19 +30,19 @@ struct SignOutView: View {
                                 .foregroundStyle(.accent)
                         }
 
-                        Text(Loc.Auth.signOut.localized)
+                        Text(Loc.Auth.signOut)
                             .font(.headline)
                             .fontWeight(.semibold)
                     }
 
                     // Message
                     VStack(spacing: 8) {
-                        Text(Loc.Auth.noWorriesWontRemoveWords.localized)
+                        Text(Loc.Auth.noWorriesWontRemoveWords)
                             .font(.body)
                             .fontWeight(.medium)
                             .multilineTextAlignment(.center)
 
-                        Text(Loc.Auth.vocabularyStayOnDevice.localized)
+                        Text(Loc.Auth.vocabularyStayOnDevice)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
@@ -50,11 +50,11 @@ struct SignOutView: View {
 
                     // Buttons
                     VStack(spacing: 12) {
-                        ActionButton(Loc.Auth.signOut.localized, color: .red, style: .borderedProminent) {
+                        ActionButton(Loc.Auth.signOut, color: .red, style: .borderedProminent) {
                             authenticationService.signOut()
                         }
 
-                        ActionButton(Loc.Actions.cancel.localized) {
+                        ActionButton(Loc.Actions.cancel) {
                             authenticationService.toggleSignOutView()
                         }
                     }

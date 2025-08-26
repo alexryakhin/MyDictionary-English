@@ -20,7 +20,7 @@ struct ErrorView: View {
                 .foregroundStyle(.red)
             
             // Error title
-                            Text(Loc.App.somethingWentWrong.localized)
+                            Text(Loc.Errors.somethingWentWrong)
                 .font(.title2)
                 .bold()
             
@@ -31,7 +31,7 @@ struct ErrorView: View {
                 .multilineTextAlignment(.center)
             
             // Retry button
-            Button(Loc.App.tryAgain.localized) {
+            Button(Loc.Actions.retry) {
                 // Restart the app or retry initialization
                 exit(0)
             }

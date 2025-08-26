@@ -34,14 +34,14 @@ struct AuthenticationView: View {
 
                 Text(
                     shownBeforePaywall
-                    ? Loc.Auth.signInBeforeSubscribing.localized
-                    : Loc.Auth.signInToSyncWordLists.localized
+                    ? Loc.Auth.signInBeforeSubscribing
+                    : Loc.Auth.signInToSyncWordLists
                 )
                 .font(.title2)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
 
-                Text(Loc.Auth.signInToAccessWordLists.localized)
+                Text(Loc.Auth.signInToAccessWordLists)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -86,7 +86,7 @@ struct AuthenticationView: View {
                     }
                 } label: {
                     Label {
-                        Text(Loc.Auth.signInWithGoogle.localized)
+                        Text(Loc.Auth.signInWithGoogle)
                     } icon: {
                         Image(.googleLogo).renderingMode(.template)
                     }
@@ -102,7 +102,7 @@ struct AuthenticationView: View {
 
 
                 if shownBeforePaywall {
-                    Button(Loc.Actions.skipForNow.localized) {
+                    Button(Loc.Actions.skipForNow) {
                         dismiss()
                     }
                     .foregroundStyle(.secondary)
@@ -116,7 +116,7 @@ struct AuthenticationView: View {
             if shownBeforePaywall {
                 // Footer
                 VStack(spacing: 8) {
-                    Text(Loc.Auth.canAlwaysSignInLater.localized)
+                    Text(Loc.Auth.canAlwaysSignInLater)
                         .font(.caption)
                         .foregroundStyle(.secondary)
 
@@ -137,7 +137,7 @@ struct AuthenticationView: View {
             title: "Sign In",
             mode: .inline,
             trailingContent: {
-                HeaderButton(Loc.Actions.cancel.localized) {
+                HeaderButton(Loc.Actions.cancel) {
                     dismiss()
                 }
             }

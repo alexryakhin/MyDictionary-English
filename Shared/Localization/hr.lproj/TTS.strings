@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Svi slučajevi upotrebe";
-"tts.filters.all_ages" = "Sve dobne skupine";
-"tts.filters.all_timbres" = "Svi tonovi glasa";
-"tts.filters.all_accents" = "Svi naglasci";
-"tts.filters.all_languages" = "Svi jezici";
-"tts.filters.all_genders" = "Svi spolovi";
-"tts.filters.filters" = "Filteri";
-"tts.filters.reset" = "Poništi";
-"tts.filters.select_voice" = "Odaberi glas";
-"tts.filters.available_voices" = "Dostupni glasovi";
-"tts.filters.no_voices_available" = "Nema dostupnih glasova";
-"tts.filters.no_voices_found" = "Nisu pronađeni glasovi";
-"tts.filters.no_voices_found_message" = "Pokušajte prilagoditi pretragu ili filtre";
+"filters.all_use_cases" = "Svi slučajevi upotrebe";
+"filters.all_ages" = "Sve dobne skupine";
+"filters.all_timbres" = "Svi tonovi glasa";
+"filters.all_accents" = "Svi naglasci";
+"filters.all_languages" = "Svi jezici";
+"filters.all_genders" = "Svi spolovi";
+"filters.filters" = "Filteri";
+"filters.reset" = "Poništi";
+"filters.select_voice" = "Odaberi glas";
+"filters.available_voices" = "Dostupni glasovi";
+"filters.no_voices_available" = "Nema dostupnih glasova";
+"filters.no_voices_found" = "Nisu pronađeni glasovi";
+"filters.no_voices_found_message" = "Pokušajte prilagoditi pretragu ili filtre";
 
-"tts.usage.monthly_limit_exceeded" = "Prekoračena mjesečna granica";
-"tts.usage.monthly_limit_exceeded_message" = "Dosegli ste mjesečno ograničenje od 50.000 znakova za Speechify TTS. Pokušajte ponovno sljedeći mjesec ili koristite Google TTS.";
-"tts.usage.remaining_characters" = "Preostali znakovi";
-"tts.usage.monthly_usage" = "Mjesečna upotreba";
-"tts.usage.monthly_limit" = "Mjesečna granica";
+"usage.monthly_limit_exceeded" = "Prekoračena mjesečna granica";
+"usage.monthly_limit_exceeded_message" = "Dosegli ste mjesečno ograničenje od 50.000 znakova za Speechify TTS. Pokušajte ponovno sljedeći mjesec ili koristite Google TTS.";
+"usage.remaining_characters" = "Preostali znakovi";
+"usage.monthly_usage" = "Mjesečna upotreba";
+"usage.monthly_limit" = "Mjesečna granica";
 
 // TTS Voice Filter Values
 "advertisement" = "Reklama";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "TTS nadzorna ploča";
-"tts.premium_tts_dashboard" = "Vrhunska TTS nadzorna ploča";
-"tts.customize_tts_experience" = "Prilagodite svoje iskustvo pretvaranja teksta u govor";
-"tts.playing" = "Reproducira se";
-"tts.ready" = "Spremno";
-"tts.provider" = "Pružatelj usluge";
-"tts.tts_provider" = "TTS pružatelj usluge";
-"tts.voice_customization" = "Prilagodba glasa";
-"tts.current_voice" = "Trenutni glas";
-"tts.default_voice" = "Zadani glas";
-"tts.preview_current_voice" = "Pregled trenutnog glasa";
-"tts.change_voice" = "Promijeni glas";
-"tts.audio_settings" = "Postavke zvuka";
-"tts.speech_rate" = "Brzina govora";
-"tts.volume" = "Glasnoća";
-"tts.test_your_settings" = "Testirajte svoje postavke";
-"tts.enter_text_to_test" = "Unesite tekst za testiranje...";
-"tts.stop" = "Zaustavi";
-"tts.test" = "Test";
-"tts.usage_statistics" = "Statistike upotrebe";
-"tts.speechify_monthly_usage" = "Mjesečna upotreba Speechify";
-"tts.monthly_limit" = "Mjesečna granica";
-"tts.used_this_month" = "Korišteno ovaj mjesec";
-"tts.remaining" = "Preostalo";
-"tts.usage_progress" = "Napredak upotrebe";
-"tts.characters" = "znakovi";
+"dashboard" = "TTS nadzorna ploča";
+"premium_tts_dashboard" = "Vrhunska TTS nadzorna ploča";
+"customize_tts_experience" = "Prilagodite svoje iskustvo pretvaranja teksta u govor";
+"playing" = "Reproducira se";
+"ready" = "Spremno";
+"provider" = "Pružatelj usluge";
+"tts_provider" = "TTS pružatelj usluge";
+"voice_customization" = "Prilagodba glasa";
+"current_voice" = "Trenutni glas";
+"default_voice" = "Zadani glas";
+"preview_current_voice" = "Pregled trenutnog glasa";
+"change_voice" = "Promijeni glas";
+"audio_settings" = "Postavke zvuka";
+"speech_rate" = "Brzina govora";
+"volume" = "Glasnoća";
+"test_your_settings" = "Testirajte svoje postavke";
+"enter_text_to_test" = "Unesite tekst za testiranje...";
+"stop" = "Zaustavi";
+"test" = "Test";
+"usage_statistics" = "Statistike upotrebe";
+"speechify_monthly_usage" = "Mjesečna upotreba Speechify";
+"monthly_limit" = "Mjesečna granica";
+"used_this_month" = "Korišteno ovaj mjesec";
+"remaining" = "Preostalo";
+"usage_progress" = "Napredak upotrebe";
+"characters" = "znakovi";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "Korišteni znakovi";
-"tts.analytics.sessions" = "Sesije";
-"tts.analytics.favorite_voice" = "Omiljeni glas";
-"tts.analytics.time_saved" = "Ušteđeno vrijeme";
-"tts.analytics.total_characters" = "Ukupno znakova";
-"tts.analytics.total_sessions" = "Ukupno sesija";
-"tts.analytics.total_duration" = "Ukupno trajanje";
-"tts.analytics.favorite_language" = "Omiljeni jezik";
-"tts.analytics.premium_usage" = "Vrhunska upotreba";
+"analytics.characters_used" = "Korišteni znakovi";
+"analytics.sessions" = "Sesije";
+"analytics.favorite_voice" = "Omiljeni glas";
+"analytics.time_saved" = "Ušteđeno vrijeme";
+"analytics.total_characters" = "Ukupno znakova";
+"analytics.total_sessions" = "Ukupno sesija";
+"analytics.total_duration" = "Ukupno trajanje";
+"analytics.favorite_language" = "Omiljeni jezik";
+"analytics.premium_usage" = "Vrhunska upotreba";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "Pretvaranje teksta u govor";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Model pretvaranja teksta u govor od Speechify dostupan je svim korisnicima kao vrhunska značajka. Omogućuje vam odabir iz širokog spektra glasova i naglasaka kako biste prilagodili svoje iskustvo učenja.";
-"tts.settings.speechify_pro_description" = "Model pretvaranja teksta u govor od Speechify uključen je u vašu pretplatu.";
-"tts.settings.dashboard" = "Nadzorna ploča";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Besplatni Google TTS s osnovnim glasovima i pouzdanim performansama";
+"settings.text_to_speech" = "Pretvaranje teksta u govor";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Model pretvaranja teksta u govor od Speechify dostupan je svim korisnicima kao vrhunska značajka. Omogućuje vam odabir iz širokog spektra glasova i naglasaka kako biste prilagodili svoje iskustvo učenja.";
+"settings.speechify_pro_description" = "Model pretvaranja teksta u govor od Speechify uključen je u vašu pretplatu.";
+"settings.dashboard" = "Nadzorna ploča";
+"pro" = "Pro";
+"free_google_tts_description" = "Besplatni Google TTS s osnovnim glasovima i pouzdanim performansama";
 
 // TTS Models
-"tts.models.english" = "Engleski";
-"tts.models.multilingual" = "Višejezični";
-"tts.models.english_description" = "Model pretvaranja teksta u govor na engleskom jeziku od Speechify nudi standardne značajke dizajnirane za pružanje jasnog i prirodnog zvučnog izlaza za čitanje tekstova. Model se fokusira na pružanje dosljednog korisničkog iskustva.";
-"tts.models.multilingual_description" = "Višejezični model omogućuje korištenje svih podržanih jezika i podržava korištenje više jezika unutar jedne rečenice. Zvučni izlaz ovog modela značajno se razlikuje od ostalih modela.";
+"models.english" = "Engleski";
+"models.multilingual" = "Višejezični";
+"models.english_description" = "Model pretvaranja teksta u govor na engleskom jeziku od Speechify nudi standardne značajke dizajnirane za pružanje jasnog i prirodnog zvučnog izlaza za čitanje tekstova. Model se fokusira na pružanje dosljednog korisničkog iskustva.";
+"models.multilingual_description" = "Višejezični model omogućuje korištenje svih podržanih jezika i podržava korištenje više jezika unutar jedne rečenice. Zvučni izlaz ovog modela značajno se razlikuje od ostalih modela.";
 
 // MARK: - English Accents
 "english_accents.australian" = "Australski";

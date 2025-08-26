@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Abone olmadan önce oturum açın";
+"sign_in_with_google" = "Google ile Oturum Aç";
+"can_always_sign_in_later" = "Daha sonra ayarlar üzerinden her zaman oturum açabilirsiniz";
+"link_additional_accounts" = "Ek Hesapları Bağla";
+"accounts_linked_successfully" = "Hesaplar başarıyla bağlandı";
+"sign_out_confirmation" = "Oturumu Kapat";
+"your_words_are_safe" = "Kelimeleriniz güvende";
+"cloud_sync_disabled" = "Bulut senkronizasyonu devre dışı bırakılacak";
+"sign_out" = "Oturumu Kapat";
+"no_worries_wont_remove_words" = "Endişelenmeyin! Kelimelerinizi silmeyeceğiz.";
+"vocabulary_stay_on_device" = "Kelime dağarcığınız bu cihazda kalır. Başka bir hesapla oturum açarsanız verileriniz birleştirilir.";
+"all_vocabulary_remain_device" = "Tüm kelimeler, tanımlar ve ilerlemeler bu cihazda kalır. Oturum açmadan uygulamayı kullanmaya devam edebilirsiniz.";
+"word_lists_shared_data_cleared" = "Kelime listeleri ve paylaşılan veriler silinecek. Başka bir hesapla oturum açarsanız yerel kelimeleriniz yeni hesabın verileriyle birleştirilir.";
+"sign_in_to_access_word_lists" = "Tüm cihazlarda kelime listelerinize erişmek ve başkalarıyla işbirliği yapmak için oturum açın.";
+"link_google" = "Google ile Bağla";
+"link_apple" = "Apple ile Bağla";
+"sign_in_to_sync_word_lists" = "Kelime listelerini senkronize etmek için oturum aç";
+"sign_out_error_title" = "Hata!";
+"sign_out_error_message" = "Oturum kapatılırken bir şeyler ters gitti. Daha sonra tekrar deneyin.";
+"sign_in_required_for_restore" = "Satın alımları geri yüklemek için oturum açılması gerekiyor.";
+"sign_in_required_for_pro_features" = "Pro özelliklerine erişmek için oturum açılması gerekiyor, örneğin %@.";
+"sign_in_failed" = "Oturum açma başarısız. Tekrar deneyin.";
+"sign_out_failed" = "Oturum kapatma başarısız. Tekrar deneyin.";
+"user_not_found" = "Kullanıcı bulunamadı.";
+"network_error" = "Ağ hatası. Bağlantınızı kontrol edin.";
+"account_linking_failed" = "Hesap bağlama başarısız. Tekrar deneyin.";
+
+// Registration Benefits
+"registration_benefits" = "Kayıt Avantajları";
+"access_subscription_all_devices" = "Tüm cihazlarınızda aboneliğinize erişin";
+"sync_progress_cross_platform" = "İlerlemenizi iOS ve Android arasında senkronize edin";
+"backup_data_securely" = "Verilerinizi bulutta güvenli bir şekilde yedekleyin";
+"register_anytime_from_settings" = "Bu özellikleri etkinleştirmek için Ayarlar'dan istediğiniz zaman kayıt olabilirsiniz";
+"account_registration" = "Hesap Kaydı";
+"register_for_cross_platform_access" = "Tüm cihazlarınızda aboneliğinize erişmek ve ilerlemenizi senkronize etmek için kayıt olun";
+"active_subscription_notification" = "Aktif bir aboneliğiniz var!";
+"register_to_unlock_cross_platform" = "Platformlar arası erişimi açmak için kayıt olun";
+"register_now" = "Şimdi Kayıt Ol";
+
+// Subscription Security
+"subscription_access_restricted" = "Abonelik Erişimi Kısıtlandı";
+"subscription_associated_different_account" = "Bu abonelik farklı bir hesapla ilişkilidir. Pro özelliklerine erişmek için lütfen bu aboneliği satın alan hesapla giriş yapın.";
+
+// Profile
+"profile" = "Profil";
+"account_linking" = "Hesap Bağlama";
+"account_linking_description" = "Android cihazlarda aboneliğinize erişmek için Google hesabı bağlamanız gerekir. Platformlar arası abonelik paylaşımı için her iki hesabı da bağlayın.";
+"link_google_for_android" = "Google Hesabı Bağla";
+"link_apple_for_cross_platform" = "Apple ID Bağla";
+"current_account" = "Mevcut Hesap";
+"linked_accounts" = "Bağlı Hesaplar";
+"no_linked_accounts" = "Bağlı hesap yok";
+
+"cross_platform_button_description" = "Platformlar arası abonelik paylaşımı için";
+"nickname" = "Takma ad";
+"nickname_current" = "Mevcut takma ad";
+"nickname_not_set" = "Takma ad belirlenmedi";
+"nickname_description" = "Başkalarının sizi bulması ve paylaşılan sözlüklere eklemesi için kullanılabilecek benzersiz bir takma ad belirleyin. Bu, e-posta adreslerini kullanmaktan daha uygundur.";
+"edit_nickname" = "Takma adı düzenle";
+"nickname_cannot_be_empty" = "Takma ad boş olamaz";
+"nickname_already_taken" = "Bu takma ad zaten alınmış. Lütfen başka bir tane seçin.";
+"nickname_invalid_format" = "Takma ad yalnızca harf, rakam ve alt çizgi içerebilir.";
+"search_method" = "Arama yöntemi";
+"find_user_by_email" = "E-posta ile kullanıcı bul";
+"find_user_by_nickname" = "Takma ad ile kullanıcı bul";
+"enter_email_address" = "E-posta adresini gir";
+"enter_nickname" = "Takma ad gir";
+"found_user" = "Kullanıcı bulundu";
+"user_not_found" = "Kullanıcı bulunamadı";
+"user_not_found_message" = "Sağlanan bilgilerle kullanıcı bulunamadı. Lütfen aramanızı kontrol edin ve tekrar deneyin.";
+
+"enter_name" = "İsim gir";
+"search_by" = "Şuna göre ara";
+"unknown_user" = "Bilinmeyen kullanıcı";
+"email" = "E-posta";
+"apple_id" = "Apple Kimliği";
+"google_account" = "Google Hesabı";
+
+

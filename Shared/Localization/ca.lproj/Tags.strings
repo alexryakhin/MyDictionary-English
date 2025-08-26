@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Gestiona etiquetes";
-"tags.tags_help_text" = "Les etiquetes t'ajuden a organitzar les teves paraules. Cada paraula pot tenir fins a 5 etiquetes.";
-"tags.no_tags_yet" = "Encara no s'han afegit etiquetes";
-"tags.add_first_tag" = "Afegeix la teva primera etiqueta prement el botó de dalt.";
-"tags.add_tag" = "Afegeix una etiqueta";
-"tags.add_first_tag_description" = "Afegeix la teva primera etiqueta prement el botó de dalt.";
-"tags.add_tag_to_start_using" = "Afegeix una etiqueta per començar a utilitzar-la.";
-"tags.add_tags" = "Afegeix etiquetes";
-"tags.create_tags" = "Crea etiquetes";
-"tags.delete_tag" = "Elimina l'etiqueta";
-"tags.delete_tag_confirmation" = "Segur que vols eliminar aquesta etiqueta?";
-"tags.delete_tag_cannot_undo" = "Aquesta acció no es pot desfer.";
-"tags.tag_name" = "Nom de l'etiqueta";
-"tags.tag_name_help" = "Tria un nom descriptiu per a la teva etiqueta";
-"tags.type_tag_name" = "Escriu el nom de l'etiqueta...";
-"tags.tag_color" = "Color de l'etiqueta";
-"tags.tag_color_help" = "Selecciona un color per ajudar a identificar la teva etiqueta";
-"tags.edit_tag" = "Edita l'etiqueta";
-"tags.new_tag" = "Etiqueta nova";
-"tags.tag_management_error" = "Error en la gestió d'etiquetes";
+"manage_tags" = "Gestiona etiquetes";
+"tags_help_text" = "Les etiquetes t'ajuden a organitzar les teves paraules. Cada paraula pot tenir fins a 5 etiquetes.";
+"no_tags_yet" = "Encara no s'han afegit etiquetes";
+"add_first_tag" = "Afegeix la teva primera etiqueta prement el botó de dalt.";
+"add_tag" = "Afegeix una etiqueta";
+"add_first_tag_description" = "Afegeix la teva primera etiqueta prement el botó de dalt.";
+"add_tag_to_start_using" = "Afegeix una etiqueta per començar a utilitzar-la.";
+"add_tags" = "Afegeix etiquetes";
+"create_tags" = "Crea etiquetes";
+"delete_tag" = "Elimina l'etiqueta";
+"delete_tag_confirmation" = "Segur que vols eliminar aquesta etiqueta?";
+"delete_tag_cannot_undo" = "Aquesta acció no es pot desfer.";
+"tag_name" = "Nom de l'etiqueta";
+"tag_name_help" = "Tria un nom descriptiu per a la teva etiqueta";
+"type_tag_name" = "Escriu el nom de l'etiqueta...";
+"tag_color" = "Color de l'etiqueta";
+"tag_color_help" = "Selecciona un color per ajudar a identificar la teva etiqueta";
+"edit_tag" = "Edita l'etiqueta";
+"new_tag" = "Etiqueta nova";
+"tag_management_error" = "Error en la gestió d'etiquetes";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Selecciona etiquetes";

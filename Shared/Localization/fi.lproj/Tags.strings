@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Hallinnoi tunnisteita";
-"tags.tags_help_text" = "Tunnisteet auttavat sinua järjestämään sanoja. Jokaisella sanalla voi olla enintään 5 tunnistetta.";
-"tags.no_tags_yet" = "Ei vielä lisättyjä tunnisteita";
-"tags.add_first_tag" = "Lisää ensimmäinen tunnisteesi klikkaamalla yllä olevaa painiketta.";
-"tags.add_tag" = "Lisää tunniste";
-"tags.add_first_tag_description" = "Lisää ensimmäinen tunnisteesi klikkaamalla yllä olevaa painiketta.";
-"tags.add_tag_to_start_using" = "Lisää tunniste aloittaaksesi sen käytön.";
-"tags.add_tags" = "Lisää tunnisteita";
-"tags.create_tags" = "Luo tunnisteita";
-"tags.delete_tag" = "Poista tunniste";
-"tags.delete_tag_confirmation" = "Haluatko varmasti poistaa tämän tunnisteen?";
-"tags.delete_tag_cannot_undo" = "Tätä toimintoa ei voi kumota.";
-"tags.tag_name" = "Tunnisteen nimi";
-"tags.tag_name_help" = "Valitse kuvaava nimi tunnisteellesi";
-"tags.type_tag_name" = "Kirjoita tunnisteen nimi...";
-"tags.tag_color" = "Tunnisteen väri";
-"tags.tag_color_help" = "Valitse väri, jotta tunniste on helpompi tunnistaa";
-"tags.edit_tag" = "Muokkaa tunnistetta";
-"tags.new_tag" = "Uusi tunniste";
-"tags.tag_management_error" = "Virhe tunnisteiden hallinnassa";
+"manage_tags" = "Hallinnoi tunnisteita";
+"tags_help_text" = "Tunnisteet auttavat sinua järjestämään sanoja. Jokaisella sanalla voi olla enintään 5 tunnistetta.";
+"no_tags_yet" = "Ei vielä lisättyjä tunnisteita";
+"add_first_tag" = "Lisää ensimmäinen tunnisteesi klikkaamalla yllä olevaa painiketta.";
+"add_tag" = "Lisää tunniste";
+"add_first_tag_description" = "Lisää ensimmäinen tunnisteesi klikkaamalla yllä olevaa painiketta.";
+"add_tag_to_start_using" = "Lisää tunniste aloittaaksesi sen käytön.";
+"add_tags" = "Lisää tunnisteita";
+"create_tags" = "Luo tunnisteita";
+"delete_tag" = "Poista tunniste";
+"delete_tag_confirmation" = "Haluatko varmasti poistaa tämän tunnisteen?";
+"delete_tag_cannot_undo" = "Tätä toimintoa ei voi kumota.";
+"tag_name" = "Tunnisteen nimi";
+"tag_name_help" = "Valitse kuvaava nimi tunnisteellesi";
+"type_tag_name" = "Kirjoita tunnisteen nimi...";
+"tag_color" = "Tunnisteen väri";
+"tag_color_help" = "Valitse väri, jotta tunniste on helpompi tunnistaa";
+"edit_tag" = "Muokkaa tunnistetta";
+"new_tag" = "Uusi tunniste";
+"tag_management_error" = "Virhe tunnisteiden hallinnassa";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Valitse tunnisteet";

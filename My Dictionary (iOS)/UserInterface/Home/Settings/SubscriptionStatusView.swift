@@ -29,7 +29,7 @@ struct SubscriptionStatusView: View {
                 HStack {
                     Image(systemName: "crown.fill")
                         .foregroundStyle(.yellow)
-                    Text(Loc.Paywall.proUser.localized)
+                    Text(Loc.Subscription.Paywall.proUser)
                         .font(.body)
                         .fontWeight(.semibold)
                 }
@@ -58,11 +58,11 @@ struct SubscriptionStatusView: View {
         VStack(spacing: 12) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(Loc.Paywall.freePlan.localized)
+                    Text(Loc.Subscription.Paywall.freePlan)
                         .font(.body)
                         .fontWeight(.semibold)
                     
-                    Text(Loc.Paywall.limitedFeaturesAvailable.localized)
+                    Text(Loc.Subscription.Paywall.limitedFeaturesAvailable)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -74,7 +74,7 @@ struct SubscriptionStatusView: View {
                     .font(.title2)
             }
             
-            ActionButton(Loc.Paywall.upgradeToPro.localized) {
+            ActionButton(Loc.Subscription.Paywall.upgradeToPro) {
                 PaywallService.shared.isShowingPaywall = true
             }
         }

@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "所有使用場景";
-"tts.filters.all_ages" = "所有年齡";
-"tts.filters.all_timbres" = "所有音色";
-"tts.filters.all_accents" = "所有口音";
-"tts.filters.all_languages" = "所有語言";
-"tts.filters.all_genders" = "所有性別";
-"tts.filters.filters" = "篩選";
-"tts.filters.reset" = "重置";
-"tts.filters.select_voice" = "選擇語音";
-"tts.filters.available_voices" = "可用語音";
-"tts.filters.no_voices_available" = "無可用語音";
-"tts.filters.no_voices_found" = "未找到語音";
-"tts.filters.no_voices_found_message" = "請嘗試調整搜尋或篩選條件";
+"filters.all_use_cases" = "所有使用場景";
+"filters.all_ages" = "所有年齡";
+"filters.all_timbres" = "所有音色";
+"filters.all_accents" = "所有口音";
+"filters.all_languages" = "所有語言";
+"filters.all_genders" = "所有性別";
+"filters.filters" = "篩選";
+"filters.reset" = "重置";
+"filters.select_voice" = "選擇語音";
+"filters.available_voices" = "可用語音";
+"filters.no_voices_available" = "無可用語音";
+"filters.no_voices_found" = "未找到語音";
+"filters.no_voices_found_message" = "請嘗試調整搜尋或篩選條件";
 
-"tts.usage.monthly_limit_exceeded" = "月度限制已超";
-"tts.usage.monthly_limit_exceeded_message" = "您已達到Speechify TTS的50,000字符月度限制。請在下個月重試，或使用Google TTS。";
-"tts.usage.remaining_characters" = "剩餘字符";
-"tts.usage.monthly_usage" = "月度使用量";
-"tts.usage.monthly_limit" = "月度限制";
+"usage.monthly_limit_exceeded" = "月度限制已超";
+"usage.monthly_limit_exceeded_message" = "您已達到Speechify TTS的50,000字符月度限制。請在下個月重試，或使用Google TTS。";
+"usage.remaining_characters" = "剩餘字符";
+"usage.monthly_usage" = "月度使用量";
+"usage.monthly_limit" = "月度限制";
 
 // TTS Voice Filter Values
 "advertisement" = "廣告";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "TTS儀表板";
-"tts.premium_tts_dashboard" = "優質TTS儀表板";
-"tts.customize_tts_experience" = "自定義您的文本轉語音體驗";
-"tts.playing" = "播放中";
-"tts.ready" = "準備就緒";
-"tts.provider" = "提供商";
-"tts.tts_provider" = "TTS提供商";
-"tts.voice_customization" = "語音定制";
-"tts.current_voice" = "當前語音";
-"tts.default_voice" = "默認語音";
-"tts.preview_current_voice" = "預覽當前語音";
-"tts.change_voice" = "更改語音";
-"tts.audio_settings" = "音頻設置";
-"tts.speech_rate" = "語速";
-"tts.volume" = "音量";
-"tts.test_your_settings" = "測試您的設置";
-"tts.enter_text_to_test" = "輸入測試文本...";
-"tts.stop" = "停止";
-"tts.test" = "測試";
-"tts.usage_statistics" = "使用統計";
-"tts.speechify_monthly_usage" = "Speechify月度使用量";
-"tts.monthly_limit" = "月度限制";
-"tts.used_this_month" = "本月已用";
-"tts.remaining" = "剩餘";
-"tts.usage_progress" = "使用進度";
-"tts.characters" = "字符";
+"dashboard" = "TTS儀表板";
+"premium_tts_dashboard" = "優質TTS儀表板";
+"customize_tts_experience" = "自定義您的文本轉語音體驗";
+"playing" = "播放中";
+"ready" = "準備就緒";
+"provider" = "提供商";
+"tts_provider" = "TTS提供商";
+"voice_customization" = "語音定制";
+"current_voice" = "當前語音";
+"default_voice" = "默認語音";
+"preview_current_voice" = "預覽當前語音";
+"change_voice" = "更改語音";
+"audio_settings" = "音頻設置";
+"speech_rate" = "語速";
+"volume" = "音量";
+"test_your_settings" = "測試您的設置";
+"enter_text_to_test" = "輸入測試文本...";
+"stop" = "停止";
+"test" = "測試";
+"usage_statistics" = "使用統計";
+"speechify_monthly_usage" = "Speechify月度使用量";
+"monthly_limit" = "月度限制";
+"used_this_month" = "本月已用";
+"remaining" = "剩餘";
+"usage_progress" = "使用進度";
+"characters" = "字符";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "已用字符";
-"tts.analytics.sessions" = "會話";
-"tts.analytics.favorite_voice" = "最喜歡的語音";
-"tts.analytics.time_saved" = "節省的時間";
-"tts.analytics.total_characters" = "總字符數";
-"tts.analytics.total_sessions" = "總會話數";
-"tts.analytics.total_duration" = "總時長";
-"tts.analytics.favorite_language" = "最喜歡的語言";
-"tts.analytics.premium_usage" = "優質使用";
+"analytics.characters_used" = "已用字符";
+"analytics.sessions" = "會話";
+"analytics.favorite_voice" = "最喜歡的語音";
+"analytics.time_saved" = "節省的時間";
+"analytics.total_characters" = "總字符數";
+"analytics.total_sessions" = "總會話數";
+"analytics.total_duration" = "總時長";
+"analytics.favorite_language" = "最喜歡的語言";
+"analytics.premium_usage" = "優質使用";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "文本轉語音";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechify的文本轉語音模型作為優質功能對所有用戶開放。您可以從多種語音和口音中選擇，以定制您的學習體驗。";
-"tts.settings.speechify_pro_description" = "Speechify的文本轉語音模型包含在您的訂閱中。";
-"tts.settings.dashboard" = "儀表板";
-"tts.pro" = "專業版";
-"tts.free_google_tts_description" = "免費的Google TTS，提供基本語音和可靠性能";
+"settings.text_to_speech" = "文本轉語音";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Speechify的文本轉語音模型作為優質功能對所有用戶開放。您可以從多種語音和口音中選擇，以定制您的學習體驗。";
+"settings.speechify_pro_description" = "Speechify的文本轉語音模型包含在您的訂閱中。";
+"settings.dashboard" = "儀表板";
+"pro" = "專業版";
+"free_google_tts_description" = "免費的Google TTS，提供基本語音和可靠性能";
 
 // TTS Models
-"tts.models.english" = "英語";
-"tts.models.multilingual" = "多語言";
-"tts.models.english_description" = "Speechify的英語文本轉語音模型提供標準功能，旨在為文本閱讀提供清晰、自然的語音輸出。該模型專注於提供一致的用戶體驗。";
-"tts.models.multilingual_description" = "多語言模型支持所有受支持語言的使用，並允許在單個句子中使用多種語言。該模型的音頻輸出與其他模型明顯不同。";
+"models.english" = "英語";
+"models.multilingual" = "多語言";
+"models.english_description" = "Speechify的英語文本轉語音模型提供標準功能，旨在為文本閱讀提供清晰、自然的語音輸出。該模型專注於提供一致的用戶體驗。";
+"models.multilingual_description" = "多語言模型支持所有受支持語言的使用，並允許在單個句子中使用多種語言。該模型的音頻輸出與其他模型明顯不同。";
 
 // MARK: - English Accents
 "english_accents.australian" = "澳大利亞口音";

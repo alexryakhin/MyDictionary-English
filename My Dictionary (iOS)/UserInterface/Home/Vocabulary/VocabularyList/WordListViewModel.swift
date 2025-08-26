@@ -88,29 +88,29 @@ final class WordListViewModel: BaseViewModel {
     }
 
     var wordsCount: String {
-        Loc.Words.wordsCount.localized(wordsFiltered.count)
+        Loc.Plurals.Words.wordsCount(wordsFiltered.count)
     }
     
     var filterStateTitle: String {
         switch filterState {
         case .none:
-            return Loc.Words.allWords.localized
+            return Loc.Words.allWords
         case .favorite:
-            return Loc.Words.favoriteWords.localized
+            return Loc.Words.favoriteWords
         case .search:
-            return Loc.Words.searchResults.localized
+            return Loc.Words.searchResults
         case .tag:
-            return selectedTag?.name ?? Loc.Words.taggedWords.localized
+            return selectedTag?.name ?? Loc.Words.taggedWords
         case .new:
-            return Loc.Words.newWords.localized
+            return Loc.Words.newWords
         case .inProgress:
-            return Loc.Words.wordsInProgress.localized
+            return Loc.Words.wordsInProgress
         case .needsReview:
-            return Loc.Words.wordsNeedingReview.localized
+            return Loc.Words.wordsNeedingReview
         case .mastered:
-            return Loc.Words.masteredWords.localized
+            return Loc.Words.masteredWords
         @unknown default:
-            return Loc.Words.words.localized
+            return Loc.Words.words
         }
     }
 
@@ -165,10 +165,10 @@ final class WordListViewModel: BaseViewModel {
     private func deleteWord(_ wordModel: CDWord) {
         showAlert(
             withModel: .init(
-                title: Loc.Words.deleteWord.localized,
-                message: Loc.Words.deleteWordConfirmation.localized,
-                actionText: Loc.Actions.cancel.localized,
-                destructiveActionText: Loc.Actions.delete.localized,
+                title: Loc.Words.deleteWord,
+                message: Loc.Words.deleteWordConfirmation,
+                actionText: Loc.Actions.cancel,
+                destructiveActionText: Loc.Actions.delete,
                 action: {
                     AnalyticsService.shared.logEvent(.wordRemovingCanceled)
                 },

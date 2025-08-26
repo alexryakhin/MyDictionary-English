@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Minden használati eset";
-"tts.filters.all_ages" = "Minden korosztály";
-"tts.filters.all_timbres" = "Minden hangszín";
-"tts.filters.all_accents" = "Minden akcentus";
-"tts.filters.all_languages" = "Minden nyelv";
-"tts.filters.all_genders" = "Minden nem";
-"tts.filters.filters" = "Szűrők";
-"tts.filters.reset" = "Visszaállítás";
-"tts.filters.select_voice" = "Hang kiválasztása";
-"tts.filters.available_voices" = "Elérhető hangok";
-"tts.filters.no_voices_available" = "Nincsenek elérhető hangok";
-"tts.filters.no_voices_found" = "Nem található hang";
-"tts.filters.no_voices_found_message" = "Próbálja meg módosítani a keresést vagy a szűrőket";
+"filters.all_use_cases" = "Minden használati eset";
+"filters.all_ages" = "Minden korosztály";
+"filters.all_timbres" = "Minden hangszín";
+"filters.all_accents" = "Minden akcentus";
+"filters.all_languages" = "Minden nyelv";
+"filters.all_genders" = "Minden nem";
+"filters.filters" = "Szűrők";
+"filters.reset" = "Visszaállítás";
+"filters.select_voice" = "Hang kiválasztása";
+"filters.available_voices" = "Elérhető hangok";
+"filters.no_voices_available" = "Nincsenek elérhető hangok";
+"filters.no_voices_found" = "Nem található hang";
+"filters.no_voices_found_message" = "Próbálja meg módosítani a keresést vagy a szűrőket";
 
-"tts.usage.monthly_limit_exceeded" = "Havi korlát túllépve";
-"tts.usage.monthly_limit_exceeded_message" = "Elérte a Speechify TTS havi 50 000 karakteres korlátját. Próbálja újra a következő hónapban, vagy használja a Google TTS-t.";
-"tts.usage.remaining_characters" = "Hátralévő karakterek";
-"tts.usage.monthly_usage" = "Havi használat";
-"tts.usage.monthly_limit" = "Havi korlát";
+"usage.monthly_limit_exceeded" = "Havi korlát túllépve";
+"usage.monthly_limit_exceeded_message" = "Elérte a Speechify TTS havi 50 000 karakteres korlátját. Próbálja újra a következő hónapban, vagy használja a Google TTS-t.";
+"usage.remaining_characters" = "Hátralévő karakterek";
+"usage.monthly_usage" = "Havi használat";
+"usage.monthly_limit" = "Havi korlát";
 
 // TTS Voice Filter Values
 "advertisement" = "Hirdetés";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "TTS műszerfal";
-"tts.premium_tts_dashboard" = "Prémium TTS műszerfal";
-"tts.customize_tts_experience" = "Testreszabhatja szövegfelolvasási élményét";
-"tts.playing" = "Lejátszás";
-"tts.ready" = "Kész";
-"tts.provider" = "Szolgáltató";
-"tts.tts_provider" = "TTS szolgáltató";
-"tts.voice_customization" = "Hang testreszabása";
-"tts.current_voice" = "Jelenlegi hang";
-"tts.default_voice" = "Alapértelmezett hang";
-"tts.preview_current_voice" = "Jelenlegi hang előnézete";
-"tts.change_voice" = "Hang megváltoztatása";
-"tts.audio_settings" = "Hangbeállítások";
-"tts.speech_rate" = "Beszédsebesség";
-"tts.volume" = "Hangerő";
-"tts.test_your_settings" = "Tesztelje beállításait";
-"tts.enter_text_to_test" = "Adjon meg szöveget teszteléshez...";
-"tts.stop" = "Leállítás";
-"tts.test" = "Teszt";
-"tts.usage_statistics" = "Használati statisztikák";
-"tts.speechify_monthly_usage" = "Speechify havi használat";
-"tts.monthly_limit" = "Havi korlát";
-"tts.used_this_month" = "Ebben a hónapban használt";
-"tts.remaining" = "Hátralévő";
-"tts.usage_progress" = "Használati előrehaladás";
-"tts.characters" = "karakter";
+"dashboard" = "TTS műszerfal";
+"premium_tts_dashboard" = "Prémium TTS műszerfal";
+"customize_tts_experience" = "Testreszabhatja szövegfelolvasási élményét";
+"playing" = "Lejátszás";
+"ready" = "Kész";
+"provider" = "Szolgáltató";
+"tts_provider" = "TTS szolgáltató";
+"voice_customization" = "Hang testreszabása";
+"current_voice" = "Jelenlegi hang";
+"default_voice" = "Alapértelmezett hang";
+"preview_current_voice" = "Jelenlegi hang előnézete";
+"change_voice" = "Hang megváltoztatása";
+"audio_settings" = "Hangbeállítások";
+"speech_rate" = "Beszédsebesség";
+"volume" = "Hangerő";
+"test_your_settings" = "Tesztelje beállításait";
+"enter_text_to_test" = "Adjon meg szöveget teszteléshez...";
+"stop" = "Leállítás";
+"test" = "Teszt";
+"usage_statistics" = "Használati statisztikák";
+"speechify_monthly_usage" = "Speechify havi használat";
+"monthly_limit" = "Havi korlát";
+"used_this_month" = "Ebben a hónapban használt";
+"remaining" = "Hátralévő";
+"usage_progress" = "Használati előrehaladás";
+"characters" = "karakter";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "Felhasznált karakterek";
-"tts.analytics.sessions" = "Munkamenetek";
-"tts.analytics.favorite_voice" = "Kedvenc hang";
-"tts.analytics.time_saved" = "Megtakarított idő";
-"tts.analytics.total_characters" = "Összes karakter";
-"tts.analytics.total_sessions" = "Összes munkamenet";
-"tts.analytics.total_duration" = "Összes időtartam";
-"tts.analytics.favorite_language" = "Kedvenc nyelv";
-"tts.analytics.premium_usage" = "Prémium használat";
+"analytics.characters_used" = "Felhasznált karakterek";
+"analytics.sessions" = "Munkamenetek";
+"analytics.favorite_voice" = "Kedvenc hang";
+"analytics.time_saved" = "Megtakarított idő";
+"analytics.total_characters" = "Összes karakter";
+"analytics.total_sessions" = "Összes munkamenet";
+"analytics.total_duration" = "Összes időtartam";
+"analytics.favorite_language" = "Kedvenc nyelv";
+"analytics.premium_usage" = "Prémium használat";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "Szövegfelolvasás";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "A Speechify szövegfelolvasó modellje minden felhasználó számára elérhető prémium funkcióként. Lehetővé teszi, hogy széles körű hangok és akcentusok közül válasszon, hogy testreszabhassa tanulási élményét.";
-"tts.settings.speechify_pro_description" = "A Speechify szövegfelolvasó modellje az előfizetésében szerepel.";
-"tts.settings.dashboard" = "Műszerfal";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Ingyenes Google TTS alapvető hangokkal és megbízható teljesítménnyel";
+"settings.text_to_speech" = "Szövegfelolvasás";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "A Speechify szövegfelolvasó modellje minden felhasználó számára elérhető prémium funkcióként. Lehetővé teszi, hogy széles körű hangok és akcentusok közül válasszon, hogy testreszabhassa tanulási élményét.";
+"settings.speechify_pro_description" = "A Speechify szövegfelolvasó modellje az előfizetésében szerepel.";
+"settings.dashboard" = "Műszerfal";
+"pro" = "Pro";
+"free_google_tts_description" = "Ingyenes Google TTS alapvető hangokkal és megbízható teljesítménnyel";
 
 // TTS Models
-"tts.models.english" = "Angol";
-"tts.models.multilingual" = "Többnyelvű";
-"tts.models.english_description" = "A Speechify angol szövegfelolvasó modellje standard funkciókat kínál, amelyek célja tiszta és természetes hangkimenet biztosítása a szövegek olvasásához. A modell a következetes felhasználói élmény biztosítására fókuszál.";
-"tts.models.multilingual_description" = "A többnyelvű modell lehetővé teszi az összes támogatott nyelv használatát, és támogatja több nyelv használatát egyetlen mondaton belül. A modell hangkimenete jelentősen különbözik a többi modelltől.";
+"models.english" = "Angol";
+"models.multilingual" = "Többnyelvű";
+"models.english_description" = "A Speechify angol szövegfelolvasó modellje standard funkciókat kínál, amelyek célja tiszta és természetes hangkimenet biztosítása a szövegek olvasásához. A modell a következetes felhasználói élmény biztosítására fókuszál.";
+"models.multilingual_description" = "A többnyelvű modell lehetővé teszi az összes támogatott nyelv használatát, és támogatja több nyelv használatát egyetlen mondaton belül. A modell hangkimenete jelentősen különbözik a többi modelltől.";
 
 // MARK: - English Accents
 "english_accents.australian" = "Ausztrál";

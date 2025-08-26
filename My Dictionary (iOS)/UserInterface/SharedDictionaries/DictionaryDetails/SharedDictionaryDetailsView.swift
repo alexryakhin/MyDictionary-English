@@ -23,10 +23,10 @@ struct SharedDictionaryDetailsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                CustomSectionView(header: Loc.App.dictionaryInfo.localized, hPadding: .zero) {
+                CustomSectionView(header: Loc.SharedDictionaries.dictionaryInfo, hPadding: .zero) {
                     FormWithDivider {
                         HStack {
-                            Text(Loc.SharedDictionaries.name.localized)
+                            Text(Loc.SharedDictionaries.name)
                             Spacer()
                             Text(dictionary.name)
                                 .foregroundStyle(.secondary)
@@ -34,7 +34,7 @@ struct SharedDictionaryDetailsView: View {
                         .padding(vertical: 12, horizontal: 16)
 
                         HStack {
-                            Text(Loc.SharedDictionaries.created.localized)
+                            Text(Loc.SharedDictionaries.created)
                             Spacer()
                             Text(dictionary.createdAt, style: .date)
                                 .foregroundStyle(.secondary)
@@ -42,16 +42,16 @@ struct SharedDictionaryDetailsView: View {
                         .padding(vertical: 12, horizontal: 16)
 
                         HStack {
-                            Text(Loc.SharedDictionaries.yourRole.localized)
+                            Text(Loc.SharedDictionaries.yourRole)
                             Spacer()
-                            Text(dictionary.userRole?.displayValue ?? Loc.CollaboratorManagement.unknown.localized)
+                            Text(dictionary.userRole?.displayValue ?? Loc.SharedDictionaries.CollaboratorManagement.unknown)
                                 .foregroundStyle(.secondary)
                         }
                         .padding(vertical: 12, horizontal: 16)
                     }
                 }
 
-                CustomSectionView(header: Loc.App.collaborators.localized, hPadding: .zero) {
+                CustomSectionView(header: Loc.SharedDictionaries.collaborators, hPadding: .zero) {
                     ListWithDivider(dictionary.collaborators) { collaborator in
                         HStack {
                             VStack(alignment: .leading) {
@@ -71,18 +71,18 @@ struct SharedDictionaryDetailsView: View {
                                 Menu {
                                     switch collaborator.role {
                                     case .editor:
-                                        Button(Loc.CollaboratorManagement.makeViewer.localized) {
+                                        Button(Loc.SharedDictionaries.CollaboratorManagement.makeViewer) {
                                             updateRole(email: collaborator.email, role: .viewer)
                                         }
                                     case .viewer:
-                                        Button(Loc.CollaboratorManagement.makeEditor.localized) {
+                                        Button(Loc.SharedDictionaries.CollaboratorManagement.makeEditor) {
                                             updateRole(email: collaborator.email, role: .editor)
                                         }
                                     default:
                                         EmptyView()
                                     }
 
-                                    Button(Loc.CollaboratorManagement.remove.localized, role: .destructive) {
+                                    Button(Loc.SharedDictionaries.CollaboratorManagement.remove, role: .destructive) {
                                         removeCollaborator(email: collaborator.email)
                                     }
                                 } label: {
@@ -90,7 +90,7 @@ struct SharedDictionaryDetailsView: View {
                                         .foregroundStyle(.secondary)
                                 }
                             } else if collaborator.email == authenticationService.userEmail {
-                                Text(Loc.SharedDictionaries.me.localized)
+                                Text(Loc.SharedDictionaries.me)
                                     .font(.caption)
                                     .padding(vertical: 2, horizontal: 6)
                                     .background(.accent.opacity(0.1))
@@ -102,18 +102,18 @@ struct SharedDictionaryDetailsView: View {
                     }
                 } trailingContent: {
                     if dictionary.canEdit {
-                        HeaderButton(Loc.CollaboratorManagement.add.localized, icon: "plus", size: .small, style: .borderedProminent) {
+                        HeaderButton(Loc.SharedDictionaries.CollaboratorManagement.add, icon: "plus", size: .small, style: .borderedProminent) {
                             showingAddCollaborator = true
                         }
                     }
                 }
 
                 if dictionary.isOwner {
-                    ActionButton(Loc.CollaboratorManagement.deleteDictionary.localized, color: .red) {
+                    ActionButton(Loc.SharedDictionaries.CollaboratorManagement.deleteDictionary, color: .red) {
                         AlertCenter.shared.showAlert(
                             with: .deleteConfirmation(
-                                title: Loc.CollaboratorManagement.deleteDictionary.localized,
-                                message: Loc.CollaboratorManagement.deleteDictionaryConfirmation.localized,
+                                title: Loc.SharedDictionaries.CollaboratorManagement.deleteDictionary,
+                                message: Loc.SharedDictionaries.CollaboratorManagement.deleteDictionaryConfirmation,
                                 onDelete: {
                                     Task {
                                         await deleteDictionary()
@@ -123,12 +123,12 @@ struct SharedDictionaryDetailsView: View {
                         )
                     }
                 } else if let userEmail = authenticationService.userEmail {
-                    ActionButton(Loc.CollaboratorManagement.stopWatching.localized, color: .red) {
+                    ActionButton(Loc.SharedDictionaries.CollaboratorManagement.stopWatching, color: .red) {
                         AlertCenter.shared.showAlert(
                             with: .deleteConfirmation(
-                                title: Loc.CollaboratorManagement.stopWatchingDictionary.localized,
-                                message: Loc.CollaboratorManagement.stopWatchingDictionaryConfirmation.localized,
-                                deleteText: Loc.CollaboratorManagement.continue.localized,
+                                title: Loc.SharedDictionaries.CollaboratorManagement.stopWatchingDictionary,
+                                message: Loc.SharedDictionaries.CollaboratorManagement.stopWatchingDictionaryConfirmation,
+                                deleteText: Loc.SharedDictionaries.CollaboratorManagement.continue,
                                 onDelete: {
                                     removeCollaborator(email: userEmail)
                                     dismiss()
@@ -147,7 +147,7 @@ struct SharedDictionaryDetailsView: View {
         }
         .groupedBackground()
         .navigation(
-            title: Loc.CollaboratorManagement.dictionaryDetails.localized,
+            title: Loc.SharedDictionaries.CollaboratorManagement.dictionaryDetails,
             mode: .inline,
             showsBackButton: true
         )

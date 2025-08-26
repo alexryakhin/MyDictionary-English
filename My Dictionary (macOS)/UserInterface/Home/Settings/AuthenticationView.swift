@@ -24,7 +24,7 @@ struct AuthenticationView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            NavigationBarView(title: Loc.Actions.signIn.localized)
+            NavigationBarView(title: Loc.Actions.signIn)
 
             Spacer()
 
@@ -34,12 +34,12 @@ struct AuthenticationView: View {
                     .font(.system(size: 80))
                     .foregroundStyle(.accent)
 
-                Text(shownBeforePaywall ? Loc.Auth.signInBeforeSubscribing.localized : Loc.Auth.signInToSyncWordLists.localized)
+                Text(shownBeforePaywall ? Loc.Auth.signInBeforeSubscribing : Loc.Auth.signInToSyncWordLists)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
 
-                Text(Loc.Auth.signInToAccessWordLists.localized)
+                Text(Loc.Auth.signInToAccessWordLists)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -84,7 +84,7 @@ struct AuthenticationView: View {
                     }
                 } label: {
                     Label {
-                        Text(Loc.Auth.signInWithGoogle.localized)
+                        Text(Loc.Auth.signInWithGoogle)
                     } icon: {
                         Image(.googleLogo)
                             .renderingMode(.template)
@@ -102,7 +102,7 @@ struct AuthenticationView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 12))
 
                 if shownBeforePaywall {
-                    Button(Loc.Actions.skipForNow.localized) {
+                    Button(Loc.Actions.skipForNow) {
                         dismiss()
                     }
                     .foregroundStyle(.secondary)
@@ -117,7 +117,7 @@ struct AuthenticationView: View {
             if shownBeforePaywall {
                 // Footer
                 VStack(spacing: 8) {
-                    Text(Loc.Auth.canAlwaysSignInLater.localized)
+                    Text(Loc.Auth.canAlwaysSignInLater)
                         .font(.caption)
                         .foregroundStyle(.secondary)
 

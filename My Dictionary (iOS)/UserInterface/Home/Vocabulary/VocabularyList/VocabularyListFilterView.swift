@@ -20,7 +20,7 @@ struct VocabularyListFilterView: View {
                 HStack(spacing: 8) {
                     // All Words Filter
                     TagView(
-                        text: Loc.FilterDisplay.all.localized,
+                        text: Loc.FilterDisplay.all,
                         color: .blue,
                         style: wordListViewModel.filterState == .none ? .selected : .regular
                     )
@@ -30,7 +30,7 @@ struct VocabularyListFilterView: View {
 
                     // Favorite Words Filter
                     TagView(
-                        text: Loc.FilterDisplay.favorite.localized,
+                        text: Loc.FilterDisplay.favorite,
                         color: .accentColor,
                         style: wordListViewModel.filterState == .favorite ? .selected : .regular
                     )
@@ -40,7 +40,7 @@ struct VocabularyListFilterView: View {
 
                     // Difficulty Filters
                     TagView(
-                        text: Loc.FilterDisplay.new.localized,
+                        text: Loc.FilterDisplay.new,
                         color: .secondary,
                         style: wordListViewModel.filterState == .new ? .selected : .regular
                     )
@@ -49,7 +49,7 @@ struct VocabularyListFilterView: View {
                     }
 
                     TagView(
-                        text: Loc.FilterDisplay.inProgress.localized,
+                        text: Loc.FilterDisplay.inProgress,
                         color: .orange,
                         style: wordListViewModel.filterState == .inProgress ? .selected : .regular
                     )
@@ -58,7 +58,7 @@ struct VocabularyListFilterView: View {
                     }
 
                     TagView(
-                        text: Loc.FilterDisplay.needsReview.localized,
+                        text: Loc.FilterDisplay.needsReview,
                         color: .red,
                         style: wordListViewModel.filterState == .needsReview ? .selected : .regular
                     )
@@ -67,7 +67,7 @@ struct VocabularyListFilterView: View {
                     }
 
                     TagView(
-                        text: Loc.FilterDisplay.mastered.localized,
+                        text: Loc.FilterDisplay.mastered,
                         color: .accent,
                         style: wordListViewModel.filterState == .mastered ? .selected : .regular
                     )
@@ -89,7 +89,7 @@ struct VocabularyListFilterView: View {
 
                     // Add Tag Button
                     TagView(
-                        text: Loc.WordList.manageTags.localized,
+                        text: Loc.Words.WordList.manageTags,
                         systemImage: "plus",
                         color: .blue
                     )

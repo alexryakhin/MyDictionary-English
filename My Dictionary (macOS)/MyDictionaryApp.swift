@@ -24,7 +24,7 @@ struct MyDictionaryApp: App {
     }
 
     var body: some Scene {
-        Window(Loc.MacOS.myDictionary.localized, id: WindowID.main) {
+        Window(Loc.Onboarding.myDictionary, id: WindowID.main) {
             SideBarView()
                 .fontDesign(.rounded)
                 .tint(.accent)
@@ -37,7 +37,7 @@ struct MyDictionaryApp: App {
                 Button {
                     openWindow(id: WindowID.about)
                 } label: {
-                    Text(Loc.App.aboutMyDictionary.localized)
+                    Text(Loc.Settings.aboutMyDictionary)
                 }
             }
             
@@ -47,7 +47,7 @@ struct MyDictionaryApp: App {
                 Button {
                     openWindow(id: WindowID.debug)
                 } label: {
-                    Text(Loc.MacOS.debugPanel.localized)
+                    Text("Debug panel")
                 }
                 .keyboardShortcut("d", modifiers: [.command, .shift])
             }
@@ -55,14 +55,14 @@ struct MyDictionaryApp: App {
         }
         .defaultSize(width: 900, height: 500)
 
-        Window(Loc.MacOS.aboutMyDictionary.localized, id: WindowID.about) {
+        Window(Loc.Settings.aboutMyDictionary, id: WindowID.about) {
             AboutAppView()
         }
         .defaultSize(width: 600, height: 600)
 
         // DO NOT TRANSLATE DEBUG
         #if DEBUG
-        Window(Loc.MacOS.debugPanel.localized, id: WindowID.debug) {
+        Window("Debug panel", id: WindowID.debug) {
             DebugView()
         }
         .defaultSize(width: 600, height: 800)

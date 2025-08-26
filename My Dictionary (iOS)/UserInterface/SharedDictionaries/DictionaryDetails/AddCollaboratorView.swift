@@ -29,9 +29,9 @@ struct AddCollaboratorView: View {
         var localizedName: String {
             switch self {
             case .email:
-                return Loc.Auth.email.localized
+                return Loc.Auth.email
             case .nickname:
-                return Loc.Auth.nickname.localized
+                return Loc.Auth.nickname
             }
         }
     }
@@ -40,8 +40,8 @@ struct AddCollaboratorView: View {
         ScrollView {
             VStack(spacing: 16) {
                 // Search Mode Selection
-                CustomSectionView(header: Loc.Auth.searchMethod.localized) {
-                    Picker(Loc.Auth.searchBy.localized, selection: $searchMode) {
+                CustomSectionView(header: Loc.Auth.searchMethod) {
+                    Picker(Loc.Auth.searchBy, selection: $searchMode) {
                         ForEach(SearchMode.allCases, id: \.self) { mode in
                             Text(mode.localizedName).tag(mode)
                         }
@@ -50,11 +50,11 @@ struct AddCollaboratorView: View {
                 }
                 
                 // Search Section
-                CustomSectionView(header: searchMode == .email ? Loc.Auth.findUserByEmail.localized : Loc.Auth.findUserByNickname.localized) {
+                CustomSectionView(header: searchMode == .email ? Loc.Auth.findUserByEmail : Loc.Auth.findUserByNickname) {
                     VStack(spacing: 12) {
                         HStack {
                             TextField(
-                                searchMode == .email ? Loc.Auth.enterEmailAddress.localized : Loc.Auth.enterNickname.localized,
+                                searchMode == .email ? Loc.Auth.enterEmailAddress : Loc.Auth.enterNickname,
                                 text: $searchQuery
                             )
                             .autocorrectionDisabled()
@@ -92,7 +92,7 @@ struct AddCollaboratorView: View {
                 
                 // Found User Section
                 if let foundUser = foundUser {
-                    CustomSectionView(header: Loc.Auth.foundUser.localized) {
+                    CustomSectionView(header: Loc.Auth.foundUser) {
                         VStack(spacing: 12) {
                             HStack {
                                 Image(systemName: "person.circle.fill")
@@ -100,7 +100,7 @@ struct AddCollaboratorView: View {
                                     .foregroundStyle(.accent)
                                 
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text(foundUser.displayName ?? Loc.Auth.unknownUser.localized)
+                                    Text(foundUser.displayName ?? Loc.Auth.unknownUser)
                                         .font(.body)
                                         .fontWeight(.medium)
                                     
@@ -127,25 +127,25 @@ struct AddCollaboratorView: View {
                 }
 
                 // Role Selection
-                CustomSectionView(header: Loc.App.rolePermissions.localized, hPadding: .zero) {
+                CustomSectionView(header: Loc.SharedDictionaries.rolePermissions, hPadding: .zero) {
                     FormWithDivider {
                         VStack(alignment: .leading, spacing: 8) {
-                            Text(Loc.SharedDictionaries.editorRole.localized)
+                            Text(Loc.SharedDictionaries.editorRole)
                                 .font(.headline)
-                            Text(Loc.SharedDictionaries.canAddEditDeleteWords.localized)
-                            Text(Loc.SharedDictionaries.canInviteCollaborators.localized)
-                            Text(Loc.SharedDictionaries.canManageDictionarySettings.localized)
+                            Text(Loc.SharedDictionaries.canAddEditDeleteWords)
+                            Text(Loc.SharedDictionaries.canInviteCollaborators)
+                            Text(Loc.SharedDictionaries.canManageDictionarySettings)
                         }
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 12, horizontal: 16)
 
                         VStack(alignment: .leading, spacing: 8) {
-                            Text(Loc.SharedDictionaries.viewer.localized)
+                            Text(Loc.SharedDictionaries.viewer)
                                 .font(.headline)
-                            Text(Loc.SharedDictionaries.canViewAllWords.localized)
-                            Text(Loc.SharedDictionaries.cannotMakeChanges.localized)
-                            Text(Loc.SharedDictionaries.cannotInviteOthers.localized)
+                            Text(Loc.SharedDictionaries.canViewAllWords)
+                            Text(Loc.SharedDictionaries.cannotMakeChanges)
+                            Text(Loc.SharedDictionaries.cannotInviteOthers)
                         }
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -154,9 +154,9 @@ struct AddCollaboratorView: View {
                 }
                 
                 // Note Section
-                CustomSectionView(header: Loc.App.note.localized, hPadding: .zero) {
+                CustomSectionView(header: Loc.SharedDictionaries.note, hPadding: .zero) {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(Loc.SharedDictionaries.collaboratorAddedWithEmailName.localized)
+                        Text(Loc.SharedDictionaries.collaboratorAddedWithEmailName)
                     }
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -172,7 +172,7 @@ struct AddCollaboratorView: View {
         }
         .groupedBackground()
         .navigation(
-            title: Loc.CollaboratorManagement.addCollaborator.localized,
+            title: Loc.SharedDictionaries.CollaboratorManagement.addCollaborator,
             mode: .inline,
             trailingContent: {
                 HeaderButton(icon: "xmark") {
@@ -182,7 +182,7 @@ struct AddCollaboratorView: View {
         )
         .safeAreaInset(edge: .bottom) {
             AsyncActionButton(
-                Loc.CollaboratorManagement.addCollaborator.localized,
+                Loc.SharedDictionaries.CollaboratorManagement.addCollaborator,
                 style: .borderedProminent
             ) {
                 try await addCollaborator()
@@ -194,17 +194,17 @@ struct AddCollaboratorView: View {
 
     private func addCollaborator() async throws {
         guard let foundUser = foundUser else {
-            showAlertWithMessage(Loc.Auth.userNotFound.localized)
+            showAlertWithMessage(Loc.Auth.userNotFound)
             return
         }
 
         guard !foundUser.email.isEmpty else {
-            showAlertWithMessage(Loc.CollaboratorManagement.emailAddressRequired.localized)
+            showAlertWithMessage(Loc.SharedDictionaries.CollaboratorManagement.emailAddressRequired)
             return
         }
 
         guard foundUser.email.contains("@") else {
-            showAlertWithMessage(Loc.CollaboratorManagement.validEmailAddress.localized)
+            showAlertWithMessage(Loc.SharedDictionaries.CollaboratorManagement.validEmailAddress)
             return
         }
 

@@ -34,11 +34,11 @@ struct AddIdiomView: View {
             Color.systemGroupedBackground.ignoresSafeArea()
         }
         .navigation(
-            title: Loc.Idioms.addNewIdiom.localized,
+            title: Loc.Words.addNewIdiom,
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
-                HeaderButton(Loc.Actions.save.localized, size: .medium, style: .borderedProminent) {
+                HeaderButton(Loc.Actions.save, size: .medium, style: .borderedProminent) {
                     viewModel.handle(.save)
                 }
             }
@@ -53,14 +53,14 @@ struct AddIdiomView: View {
     }
 
     var idiomCellView: some View {
-        CellWrapper(Loc.Idioms.idiom.localized) {
-            CustomTextField(Loc.App.typeWordHere.localized, text: $viewModel.inputIdiom, submitLabel: .done, axis: .horizontal)
+        CellWrapper(Loc.Words.idiom) {
+            CustomTextField(Loc.Words.typeWordHere, text: $viewModel.inputIdiom, submitLabel: .done, axis: .horizontal)
                 .autocorrectionDisabled()
         }
     }
 
     var inputLanguageCellView: some View {
-        CellWrapper(Loc.Words.inputLanguage.localized) {
+        CellWrapper(Loc.Words.inputLanguage) {
             Menu {
                 ForEach(InputLanguage.allCases.filter { $0 != .auto }, id: \.self) { language in
                     Button {
@@ -87,23 +87,23 @@ struct AddIdiomView: View {
     }
 
     var definitionCellView: some View {
-        CellWrapper(Loc.Words.definition.localized) {
-            CustomTextField(Loc.App.enterDefinition.localized, text: $viewModel.definitionField, axis: .vertical)
+        CellWrapper(Loc.Words.definition) {
+            CustomTextField(Loc.Words.enterDefinition, text: $viewModel.definitionField, axis: .vertical)
                 .autocorrectionDisabled()
         }
     }
 
     var tagsCellView: some View {
-        CellWrapper(Loc.App.tags.localized) {
+        CellWrapper(Loc.Words.tags) {
             if viewModel.selectedTags.isEmpty {
-                Text(Loc.Words.noTagsSelected.localized)
+                Text(Loc.Words.noTagsSelected)
                     .foregroundStyle(.secondary)
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(viewModel.selectedTags, id: \.id) { tag in
                             Menu {
-                                Button(Loc.Actions.remove.localized, role: .destructive) {
+                                Button(Loc.Actions.remove, role: .destructive) {
                                     viewModel.handle(.toggleTag(tag))
                                 }
                             } label: {

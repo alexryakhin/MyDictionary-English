@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "訂閱前請先登錄";
+"sign_in_with_google" = "使用谷歌帳戶登錄";
+"can_always_sign_in_later" = "你隨時可以從設置中登錄";
+"link_additional_accounts" = "關聯其他帳戶";
+"accounts_linked_successfully" = "帳戶關聯成功";
+"sign_out_confirmation" = "登出";
+"your_words_are_safe" = "你的單詞是安全的";
+"cloud_sync_disabled" = "雲同步將被禁用";
+"sign_out" = "登出";
+"no_worries_wont_remove_words" = "無需擔心！我們不會刪除你的單詞。";
+"vocabulary_stay_on_device" = "你的詞彙將保留在此設備上。如果使用其他帳戶登錄，你的數據將合併。";
+"all_vocabulary_remain_device" = "所有詞彙、定義和進度將保留在此設備上。你可以繼續離線使用應用。";
+"word_lists_shared_data_cleared" = "單詞列表和共享數據將被清除。如果使用其他帳戶登錄，你的本地單詞將與新帳戶數據合併。";
+"sign_in_to_access_word_lists" = "登錄以在所有設備上訪問你的單詞列表並與他人協作。";
+"link_google" = "關聯谷歌帳戶";
+"link_apple" = "關聯蘋果帳戶";
+"sign_in_to_sync_word_lists" = "登錄以同步單詞列表";
+"sign_out_error_title" = "哦不！";
+"sign_out_error_message" = "登出時出錯。請稍後重試。";
+"sign_in_required_for_restore" = "需要登錄以恢復你的購買。";
+"sign_in_required_for_pro_features" = "需要登錄以訪問專業功能，如 %@。";
+"sign_in_failed" = "登錄失敗。請重試。";
+"sign_out_failed" = "登出失敗。請重試。";
+"user_not_found" = "未找到用戶。";
+"network_error" = "網絡錯誤。請檢查你的連接。";
+"account_linking_failed" = "帳戶關聯失敗。請重試。";
+
+// Registration Benefits
+"registration_benefits" = "註冊優勢";
+"access_subscription_all_devices" = "在所有設備上訪問你的訂閱";
+"sync_progress_cross_platform" = "在iOS和Android之間同步你的進度";
+"backup_data_securely" = "在雲端安全備份你的數據";
+"register_anytime_from_settings" = "你可以隨時從設置中註冊以啟用這些功能";
+"account_registration" = "帳戶註冊";
+"register_for_cross_platform_access" = "註冊以在所有設備上訪問你的訂閱並同步你的進度";
+"active_subscription_notification" = "你有一個活躍的訂閱！";
+"register_to_unlock_cross_platform" = "註冊以解鎖跨平台訪問";
+"register_now" = "立即註冊";
+
+// Subscription Security
+"subscription_access_restricted" = "訂閱訪問受限";
+"subscription_associated_different_account" = "此訂閱與不同帳戶關聯。請使用購買此訂閱的帳戶登錄以訪問專業功能。";
+
+// Profile
+"profile" = "個人資料";
+"account_linking" = "帳戶關聯";
+"account_linking_description" = "要在Android設備上訪問你的訂閱，你需要關聯Google帳戶。要在平台間共享訂閱，請關聯兩個帳戶。";
+"link_google_for_android" = "關聯Google帳戶";
+"link_apple_for_cross_platform" = "關聯Apple ID";
+"current_account" = "當前帳戶";
+"linked_accounts" = "已關聯帳戶";
+"no_linked_accounts" = "暫無已關聯帳戶";
+
+"cross_platform_button_description" = "用於跨平台訂閱共享";
+"nickname" = "暱稱";
+"nickname_current" = "當前暱稱";
+"nickname_not_set" = "未設置暱稱";
+"nickname_description" = "設置一個獨特的暱稱，供他人查找並將您添加到共享詞典中。這比使用電子郵件地址更方便。";
+"edit_nickname" = "編輯暱稱";
+"nickname_cannot_be_empty" = "暱稱不能為空";
+"nickname_already_taken" = "此暱稱已被使用。請另選一個。";
+"nickname_invalid_format" = "暱稱只能包含字母、數字和下劃線。";
+"search_method" = "搜尋方式";
+"find_user_by_email" = "通過電子郵件查找用戶";
+"find_user_by_nickname" = "通過暱稱查找用戶";
+"enter_email_address" = "輸入電子郵件地址";
+"enter_nickname" = "輸入暱稱";
+"found_user" = "找到用戶";
+"user_not_found" = "未找到用戶";
+"user_not_found_message" = "未找到與提供信息匹配的用戶。請檢查搜尋並重試。";
+
+"enter_name" = "輸入姓名";
+"search_by" = "搜尋方式";
+"unknown_user" = "未知用戶";
+"email" = "電子郵件";
+"apple_id" = "Apple ID";
+"google_account" = "Google帳戶";
+
+

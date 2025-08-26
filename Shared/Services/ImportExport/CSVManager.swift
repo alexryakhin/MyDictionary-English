@@ -112,9 +112,9 @@ final class CSVManager {
             DispatchQueue.main.async {
                 AlertCenter.shared.showAlert(
                     with: .info(
-                        title: Loc.App.importSuccessful.localized,
-                        message: Loc.App.importSuccessfulMessage.localized(
-                            Loc.Words.wordsCount.localized(count)
+                        title: Loc.Settings.importSuccessful,
+                        message: Loc.Settings.importSuccessfulMessage(
+                            Loc.Plurals.Words.wordsCount(count)
                         )
                     )
                 )
@@ -123,8 +123,8 @@ final class CSVManager {
             DispatchQueue.main.async {
                 AlertCenter.shared.showAlert(
                     with: .info(
-                        title: Loc.App.noWordsImported.localized,
-                        message: Loc.App.noWordsImportedMessage.localized
+                        title: Loc.Settings.noWordsImported,
+                        message: Loc.Settings.noWordsImportedMessage
                     )
                 )
             }

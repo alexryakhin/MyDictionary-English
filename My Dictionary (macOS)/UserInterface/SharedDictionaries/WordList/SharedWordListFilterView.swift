@@ -16,7 +16,7 @@ struct SharedWordListFilterView: View {
                 HStack(spacing: 8) {
                     // All Words Filter
                     TagView(
-                        text: Loc.FilterDisplay.all.localized,
+                        text: Loc.FilterDisplay.all,
                         color: .blue,
                         style: viewModel.filterState == .none ? .selected : .regular
                     )
@@ -26,7 +26,7 @@ struct SharedWordListFilterView: View {
 
                     // Favorite Words Filter
                     TagView(
-                        text: Loc.FilterDisplay.favorite.localized,
+                        text: Loc.FilterDisplay.favorite,
                         color: .accentColor,
                         style: viewModel.filterState == .favorite ? .selected : .regular
                     )
@@ -36,7 +36,7 @@ struct SharedWordListFilterView: View {
 
                     // Difficulty Filters
                     TagView(
-                        text: Loc.FilterDisplay.new.localized,
+                        text: Loc.FilterDisplay.new,
                         color: .secondary,
                         style: viewModel.filterState == .new ? .selected : .regular
                     )
@@ -45,7 +45,7 @@ struct SharedWordListFilterView: View {
                     }
 
                     TagView(
-                        text: Loc.FilterDisplay.inProgress.localized,
+                        text: Loc.FilterDisplay.inProgress,
                         color: .orange,
                         style: viewModel.filterState == .inProgress ? .selected : .regular
                     )
@@ -54,7 +54,7 @@ struct SharedWordListFilterView: View {
                     }
 
                     TagView(
-                        text: Loc.FilterDisplay.needsReview.localized,
+                        text: Loc.FilterDisplay.needsReview,
                         color: .red,
                         style: viewModel.filterState == .needsReview ? .selected : .regular
                     )
@@ -63,7 +63,7 @@ struct SharedWordListFilterView: View {
                     }
 
                     TagView(
-                        text: Loc.FilterDisplay.mastered.localized,
+                        text: Loc.FilterDisplay.mastered,
                         color: .accent,
                         style: viewModel.filterState == .mastered ? .selected : .regular
                     )

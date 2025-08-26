@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "需要通知權限";
-"notifications.permission_denied_message" = "要接收每日提醒和難點詞彙警報，請在設置中啟用通知。";
+"permission_required" = "需要通知權限";
+"permission_denied_message" = "要接收每日提醒和難點詞彙警報，請在設置中啟用通知。";
 
-"notifications.time_to_practice" = "練習時間到！ 📚";
-"notifications.practice_vocabulary_today" = "今天別忘了練習你的詞彙。";
-"notifications.practice_difficult_words" = "練習你的困難單詞 📚";
-"notifications.difficult_words_challenge" = "你有需要更多練習的單詞。準備好挑戰了嗎？";
-"notifications.test_dictionary_invitation" = "測試詞典邀請";
-"notifications.test_dictionary_invitation_body" = "有人將你添加到“測試詞典”";
+"time_to_practice" = "練習時間到！ 📚";
+"practice_vocabulary_today" = "今天別忘了練習你的詞彙。";
+"practice_difficult_words" = "練習你的困難單詞 📚";
+"difficult_words_challenge" = "你有需要更多練習的單詞。準備好挑戰了嗎？";
+"test_dictionary_invitation" = "測試詞典邀請";
+"test_dictionary_invitation_body" = "有人將你添加到“測試詞典”";
 

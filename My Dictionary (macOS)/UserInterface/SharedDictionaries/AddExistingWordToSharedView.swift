@@ -30,7 +30,7 @@ struct AddExistingWordToSharedView: View {
                     HStack {
                         Image(systemName: "textformat")
                             .foregroundStyle(.accent)
-                        Text(Loc.Words.wordDetails.localized)
+                        Text(Loc.Words.wordDetails)
                             .font(.headline)
                         Spacer()
                     }
@@ -75,7 +75,7 @@ struct AddExistingWordToSharedView: View {
                         Image(systemName: selectedDictionaryId == nil ? "person" : "person.2")
                             .foregroundStyle(selectedDictionaryId == nil ? .blue : .accent)
 
-                        Text(selectedDictionaryId == nil ? Loc.SharedDictionarySelection.selectDictionary.localized : Loc.SharedDictionarySelection.dictionarySelected.localized)
+                        Text(selectedDictionaryId == nil ? Loc.SharedDictionaries.SharedDictionarySelection.selectDictionary : Loc.SharedDictionaries.SharedDictionarySelection.dictionarySelected)
                             .foregroundStyle(selectedDictionaryId == nil ? .blue : .primary)
 
                         Spacer()
@@ -91,16 +91,16 @@ struct AddExistingWordToSharedView: View {
             .padding(12)
         } navigationBar: {
             NavigationBarView(
-                title: Loc.SharedDictionarySelection.addToShared.localized,
+                title: Loc.SharedDictionaries.SharedDictionarySelection.addToShared,
                 trailingContent: {
                     AsyncHeaderButton(
-                        Loc.App.addToSharedDictionary.localized,
+                        Loc.SharedDictionaries.addToSharedDictionary,
                         style: .borderedProminent
                     ) {
                         try await addWordToSelectedDictionary()
                     }
                     .disabled(selectedDictionaryId == nil)
-                    .help(Loc.SharedDictionarySelection.addWordToSharedDictionary.localized)
+                    .help(Loc.SharedDictionaries.SharedDictionarySelection.addWordToSharedDictionary)
                 }
             )
         }

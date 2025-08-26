@@ -36,31 +36,31 @@ enum PartOfSpeech: String, CaseIterable {
 
     var displayName: String {
         switch self {
-        case .noun: return Loc.PartOfSpeech.Full.noun.localized
-        case .verb: return Loc.PartOfSpeech.Full.verb.localized
-        case .adjective: return Loc.PartOfSpeech.Full.adjective.localized
-        case .adverb: return Loc.PartOfSpeech.Full.adverb.localized
-        case .conjunction: return Loc.PartOfSpeech.Full.conjunction.localized
-        case .pronoun: return Loc.PartOfSpeech.Full.pronoun.localized
-        case .preposition: return Loc.PartOfSpeech.Full.preposition.localized
-        case .exclamation: return Loc.PartOfSpeech.Full.exclamation.localized
-        case .interjection: return Loc.PartOfSpeech.Full.interjection.localized
-        case .unknown: return Loc.PartOfSpeech.Full.unknown.localized
+        case .noun: return Loc.Words.PartOfSpeech.Full.noun
+        case .verb: return Loc.Words.PartOfSpeech.Full.verb
+        case .adjective: return Loc.Words.PartOfSpeech.Full.adjective
+        case .adverb: return Loc.Words.PartOfSpeech.Full.adverb
+        case .conjunction: return Loc.Words.PartOfSpeech.Full.conjunction
+        case .pronoun: return Loc.Words.PartOfSpeech.Full.pronoun
+        case .preposition: return Loc.Words.PartOfSpeech.Full.preposition
+        case .exclamation: return Loc.Words.PartOfSpeech.Full.exclamation
+        case .interjection: return Loc.Words.PartOfSpeech.Full.interjection
+        case .unknown: return Loc.Words.PartOfSpeech.Full.unknown
         }
     }
 
     var displayNameShort: String {
         switch self {
-        case .noun: return Loc.PartOfSpeech.Short.noun.localized
-        case .verb: return Loc.PartOfSpeech.Short.verb.localized
-        case .adjective: return Loc.PartOfSpeech.Short.adjective.localized
-        case .adverb: return Loc.PartOfSpeech.Short.adverb.localized
-        case .conjunction: return Loc.PartOfSpeech.Short.conjunction.localized
-        case .pronoun: return Loc.PartOfSpeech.Short.pronoun.localized
-        case .preposition: return Loc.PartOfSpeech.Short.preposition.localized
-        case .exclamation: return Loc.PartOfSpeech.Short.exclamation.localized
-        case .interjection: return Loc.PartOfSpeech.Short.interjection.localized
-        case .unknown: return Loc.PartOfSpeech.Short.unknown.localized
+        case .noun: return Loc.Words.PartOfSpeech.Short.noun
+        case .verb: return Loc.Words.PartOfSpeech.Short.verb
+        case .adjective: return Loc.Words.PartOfSpeech.Short.adjective
+        case .adverb: return Loc.Words.PartOfSpeech.Short.adverb
+        case .conjunction: return Loc.Words.PartOfSpeech.Short.conjunction
+        case .pronoun: return Loc.Words.PartOfSpeech.Short.pronoun
+        case .preposition: return Loc.Words.PartOfSpeech.Short.preposition
+        case .exclamation: return Loc.Words.PartOfSpeech.Short.exclamation
+        case .interjection: return Loc.Words.PartOfSpeech.Short.interjection
+        case .unknown: return Loc.Words.PartOfSpeech.Short.unknown
         }
     }
 }

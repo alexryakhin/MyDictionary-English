@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "ต้องได้รับอนุญาตการแจ้งเตือน";
-"notifications.permission_denied_message" = "เพื่อรับการแจ้งเตือนรายวันและคำเตือนสำหรับคำยาก กรุณาเปิดใช้งานการแจ้งเตือนใน การตั้งค่า";
+"permission_required" = "ต้องได้รับอนุญาตการแจ้งเตือน";
+"permission_denied_message" = "เพื่อรับการแจ้งเตือนรายวันและคำเตือนสำหรับคำยาก กรุณาเปิดใช้งานการแจ้งเตือนใน การตั้งค่า";
 
-"notifications.time_to_practice" = "ถึงเวลาฝึก! 📚";
-"notifications.practice_vocabulary_today" = "อย่าลืมฝึกคำศัพท์ของคุณวันนี้";
-"notifications.practice_difficult_words" = "ฝึกคำศัพท์ที่ยาก 📚";
-"notifications.difficult_words_challenge" = "คุณมีคำศัพท์ที่ต้องการฝึกเพิ่ม พร้อมสำหรับความท้าทายหรือยัง";
-"notifications.test_dictionary_invitation" = "คำเชิญพจนานุกรมทดสอบ";
-"notifications.test_dictionary_invitation_body" = "มีคนเพิ่มคุณใน 'พจนานุกรมทดสอบ'";
+"time_to_practice" = "ถึงเวลาฝึก! 📚";
+"practice_vocabulary_today" = "อย่าลืมฝึกคำศัพท์ของคุณวันนี้";
+"practice_difficult_words" = "ฝึกคำศัพท์ที่ยาก 📚";
+"difficult_words_challenge" = "คุณมีคำศัพท์ที่ต้องการฝึกเพิ่ม พร้อมสำหรับความท้าทายหรือยัง";
+"test_dictionary_invitation" = "คำเชิญพจนานุกรมทดสอบ";
+"test_dictionary_invitation_body" = "มีคนเพิ่มคุณใน 'พจนานุกรมทดสอบ'";
 

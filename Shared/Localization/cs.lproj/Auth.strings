@@ -1,0 +1,78 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Přihlaste se před předplacením";
+"sign_in_with_google" = "Přihlásit se přes Google";
+"can_always_sign_in_later" = "Vždy se můžete přihlásit později z nastavení";
+"link_additional_accounts" = "Propojit další účty";
+"accounts_linked_successfully" = "Účty úspěšně propojeny";
+"sign_out_confirmation" = "Odhlásit se";
+"your_words_are_safe" = "Vaše slova jsou v bezpečí";
+"cloud_sync_disabled" = "Synchronizace s cloudem bude deaktivována";
+"sign_out" = "Odhlásit se";
+"no_worries_wont_remove_words" = "Nebojte se! Vaše slova neodstraníme.";
+"vocabulary_stay_on_device" = "Vaše slovní zásoba zůstane na tomto zařízení. Pokud se přihlásíte s jiným účtem, vaše data se sloučí.";
+"all_vocabulary_remain_device" = "Všechny vaše slova, definice a pokrok zůstanou na tomto zařízení. Aplikaci můžete nadále používat offline.";
+"word_lists_shared_data_cleared" = "Seznamy slov a sdílená data budou vymazána. Pokud se přihlásíte s jiným účtem, vaše lokální slova se sloučí s daty nového účtu.";
+"sign_in_to_access_word_lists" = "Přihlaste se pro přístup k vašim seznamům slov na všech zařízeních a spolupráci s ostatními.";
+"link_google" = "Propojit s Googlem";
+"link_apple" = "Propojit s Apple";
+"sign_in_to_sync_word_lists" = "Přihlásit se k synchronizaci seznamů slov";
+"sign_out_error_title" = "Jejda!";
+"sign_out_error_message" = "Při odhlašování došlo k chybě. Zkuste to znovu později.";
+"sign_in_required_for_restore" = "Pro obnovení vašich nákupů je nutné se přihlásit.";
+"sign_in_required_for_pro_features" = "Pro přístup k funkcím Pro, jako je %@, je nutné se přihlásit.";
+"sign_in_failed" = "Přihlášení selhalo. Zkuste to znovu.";
+"sign_out_failed" = "Odhlášení selhalo. Zkuste to znovu.";
+"user_not_found" = "Uživatel nenalezen.";
+"network_error" = "Chyba sítě. Zkontrolujte své připojení.";
+"account_linking_failed" = "Propojení účtu selhalo. Zkuste to znovu.";
+
+// Profile
+"profile" = "Profil";
+"account_linking" = "Propojení Účtů";
+"account_linking_description" = "Pro přístup k vašemu předplatnému na zařízeních Android musíte propojit účet Google. Pro sdílení předplatného mezi platformami propojte oba účty.";
+"link_google_for_android" = "Propojit Účet Google";
+"link_apple_for_cross_platform" = "Propojit Apple ID";
+"current_account" = "Aktuální Účet";
+"linked_accounts" = "Propojené Účty";
+"no_linked_accounts" = "Žádné propojené účty";
+
+"registration_benefits" = "Výhody Registrace";
+"access_subscription_all_devices" = "Přístup k vašemu předplatnému na všech vašich zařízeních";
+"sync_progress_cross_platform" = "Synchronizace vašeho pokroku mezi iOS a Android";
+"backup_data_securely" = "Bezpečné zálohování vašich dat v cloudu";
+"register_anytime_from_settings" = "Můžete se zaregistrovat kdykoliv z Nastavení pro povolení těchto funkcí";
+"account_registration" = "Registrace Účtu";
+"register_for_cross_platform_access" = "Zaregistrujte se pro přístup k vašemu předplatnému na všech vašich zařízeních a synchronizaci pokroku";
+"active_subscription_notification" = "Máte aktivní předplatné!";
+"register_to_unlock_cross_platform" = "Zaregistrujte se pro odemknutí přístupu napříč platformami";
+"register_now" = "Zaregistrovat Se Nyní";
+
+"subscription_access_restricted" = "Přístup k Předplatnému Omezen";
+"subscription_associated_different_account" = "Toto předplatné je spojeno s jiným účtem. Přihlaste se prosím s účtem, který zakoupil toto předplatné, pro přístup k Pro funkcím.";
+
+"cross_platform_button_description" = "Pro sdílení předplatného napříč platformami";
+"nickname" = "Přezdívka";
+"nickname_current" = "Aktuální přezdívka";
+"nickname_not_set" = "Přezdívka není nastavena";
+"nickname_description" = "Nastavte si jedinečnou přezdívku, kterou mohou ostatní použít k nalezení a přidání vás do sdílených slovníků. To je pohodlnější než používání e-mailových adres.";
+"edit_nickname" = "Upravit přezdívku";
+"nickname_cannot_be_empty" = "Přezdívka nemůže být prázdná";
+"nickname_already_taken" = "Tato přezdívka je již obsazena. Vyberte jinou.";
+"nickname_invalid_format" = "Přezdívka může obsahovat pouze písmena, číslice a podtržítka.";
+"search_method" = "Metoda vyhledávání";
+"find_user_by_email" = "Najít uživatele podle e-mailu";
+"find_user_by_nickname" = "Najít uživatele podle přezdívky";
+"enter_email_address" = "Zadejte e-mailovou adresu";
+"enter_nickname" = "Zadejte přezdívku";
+"found_user" = "Uživatel nalezen";
+"user_not_found" = "Uživatel nenalezen";
+"user_not_found_message" = "Žádný uživatel nebyl nalezen s poskytnutými informacemi. Zkontrolujte vyhledávání a zkuste to znovu.";
+
+"enter_name" = "Zadejte jméno";
+"search_by" = "Hledat podle";
+"unknown_user" = "Neznámý uživatel";
+"email" = "E-mail";
+"apple_id" = "Apple ID";
+"google_account" = "Účet Google";
+
+

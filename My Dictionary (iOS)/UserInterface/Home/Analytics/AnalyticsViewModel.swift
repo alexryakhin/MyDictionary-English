@@ -15,9 +15,9 @@ enum TimePeriod: CaseIterable {
     
     var displayName: String {
         switch self {
-        case .week: return Loc.TimePeriod.week.localized
-        case .month: return Loc.TimePeriod.month.localized
-        case .year: return Loc.TimePeriod.year.localized
+        case .week: return Loc.Analytics.TimePeriod.week
+        case .month: return Loc.Analytics.TimePeriod.month
+        case .year: return Loc.Analytics.TimePeriod.year
         }
     }
     

@@ -4,12 +4,28 @@
 # Localizable strings
 strings:
   inputs:
-    - Shared/Localization/en.lproj/Localizable.strings
+    - Shared/Localization/en.lproj/Onboarding.strings
+    - Shared/Localization/en.lproj/Words.strings
+    - Shared/Localization/en.lproj/Actions.strings
+    - Shared/Localization/en.lproj/Quizzes.strings
+    - Shared/Localization/en.lproj/Settings.strings
+    - Shared/Localization/en.lproj/Auth.strings
+    - Shared/Localization/en.lproj/SharedDictionaries.strings
+    - Shared/Localization/en.lproj/Errors.strings
+    - Shared/Localization/en.lproj/Analytics.strings
+    - Shared/Localization/en.lproj/Subscription.strings
+    - Shared/Localization/en.lproj/Navigation.strings
+    - Shared/Localization/en.lproj/TTS.strings
+    - Shared/Localization/en.lproj/Notifications.strings
+    - Shared/Localization/en.lproj/Tags.strings
+    - Shared/Localization/en.lproj/FilterDisplay.strings
+    - Shared/Localization/en.lproj/Coffee.strings
+    - Shared/Localization/en.lproj/Plurals.stringsdict
   outputs:
     templateName: structured-swift5
-    output: Shared/Localization/Generated/L10n.swift
+    output: Shared/Localization/Generated/Loc.swift
     params:
-      enumName: L10n
+      enumName: Loc
       publicAccess: true
       generateStringExtensions: true
       generateSwiftUIBindings: true

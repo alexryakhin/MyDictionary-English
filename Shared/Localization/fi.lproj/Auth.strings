@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Kirjaudu sisään ennen tilaamista";
+"sign_in_with_google" = "Kirjaudu sisään Googlella";
+"can_always_sign_in_later" = "Voit aina kirjautua sisään myöhemmin asetuksista";
+"link_additional_accounts" = "Linkitä lisätilit";
+"accounts_linked_successfully" = "Tilit linkitetty onnistuneesti";
+"sign_out_confirmation" = "Kirjaudu ulos";
+"your_words_are_safe" = "Sanasi ovat turvassa";
+"cloud_sync_disabled" = "Pilvipalvelun synkronointi poistetaan käytöstä";
+"sign_out" = "Kirjaudu ulos";
+"no_worries_wont_remove_words" = "Ei hätää! Emme poista sanojasi.";
+"vocabulary_stay_on_device" = "Sanastosi jää tälle laitteelle. Jos kirjaudut sisään toisella tilillä, tietosi yhdistetään.";
+"all_vocabulary_remain_device" = "Kaikki sanasi, määritelmäsi ja edistymisesi jäävät tälle laitteelle. Voit jatkaa sovelluksen käyttöä ilman sisäänkirjautumista.";
+"word_lists_shared_data_cleared" = "Sanalistat ja jaetut tiedot tyhjennetään. Jos kirjaudut sisään toisella tilillä, paikalliset sanasi yhdistetään uuden tilin tietoihin.";
+"sign_in_to_access_word_lists" = "Kirjaudu sisään päästäksesi sanalistoihisi kaikilla laitteilla ja tehdäksesi yhteistyötä muiden kanssa.";
+"link_google" = "Linkitä Googleen";
+"link_apple" = "Linkitä Appleen";
+"sign_in_to_sync_word_lists" = "Kirjaudu sisään synkronoidaksesi sanalistat";
+"sign_out_error_title" = "Hups!";
+"sign_out_error_message" = "Jokin meni pieleen uloskirjautumisen aikana. Yritä uudelleen myöhemmin.";
+"sign_in_required_for_restore" = "Sisäänkirjautuminen vaaditaan ostosten palauttamiseksi.";
+"sign_in_required_for_pro_features" = "Sisäänkirjautuminen vaaditaan Pro-ominaisuuksien, kuten %@:n, käyttöön.";
+"sign_in_failed" = "Sisäänkirjautuminen epäonnistui. Yritä uudelleen.";
+"sign_out_failed" = "Uloskirjautuminen epäonnistui. Yritä uudelleen.";
+"user_not_found" = "Käyttäjää ei löydy.";
+"network_error" = "Verkkovirhe. Tarkista yhteys.";
+"account_linking_failed" = "Tilin linkittäminen epäonnistui. Yritä uudelleen.";
+
+// Registration Benefits
+"registration_benefits" = "Rekisteröitymisen Edut";
+"access_subscription_all_devices" = "Pääsy tilaukseesi kaikilla laitteillasi";
+"sync_progress_cross_platform" = "Synkronoi edistymisesi iOS:n ja Androidin välillä";
+"backup_data_securely" = "Varmuuskopioi tietosi turvallisesti pilveen";
+"register_anytime_from_settings" = "Voit rekisteröityä milloin tahansa Asetuksista ottaaksesi nämä ominaisuudet käyttöön";
+"account_registration" = "Tilin Rekisteröityminen";
+"register_for_cross_platform_access" = "Rekisteröidy päästäksesi tilaukseesi kaikilla laitteillasi ja synkronoidaksesi edistymisesi";
+"active_subscription_notification" = "Sinulla on aktiivinen tilaus!";
+"register_to_unlock_cross_platform" = "Rekisteröidy avataksesi ylitysplatforma-pääsyn";
+"register_now" = "Rekisteröidy Nyt";
+
+// Subscription Security
+"subscription_access_restricted" = "Tilauksen Pääsy Rajoitettu";
+"subscription_associated_different_account" = "Tämä tilaus on liitetty eri tiliin. Kirjaudu sisään tilillä, joka osti tämän tilauksen, päästäksesi Pro-ominaisuuksiin.";
+
+// Profile
+"profile" = "Profiili";
+"account_linking" = "Tilin Linkittäminen";
+"account_linking_description" = "Päästäksesi tilaukseesi Android-laitteilla, sinun on linkittävä Google-tili. Jakamalla tilauksia ylitysplatforma, linkitä molemmat tilit.";
+"link_google_for_android" = "Linkitä Google-tili";
+"link_apple_for_cross_platform" = "Linkitä Apple ID";
+"current_account" = "Nykyinen Tili";
+"linked_accounts" = "Linkitetyt Tilit";
+"no_linked_accounts" = "Ei linkitettyjä tilejä";
+
+"cross_platform_button_description" = "Alustojen väliseen tilauksen jakamiseen";
+"nickname" = "Nimimerkki";
+"nickname_current" = "Nykyinen nimimerkki";
+"nickname_not_set" = "Nimimerkkiä ei ole asetettu";
+"nickname_description" = "Aseta yksilöllinen nimimerkki, jota muut voivat käyttää löytääkseen sinut ja lisätäkseen sinut jaettuihin sanakirjoihin. Tämä on kätevämpää kuin sähköpostiosoitteiden käyttö.";
+"edit_nickname" = "Muokkaa nimimerkkiä";
+"nickname_cannot_be_empty" = "Nimimerkki ei voi olla tyhjä";
+"nickname_already_taken" = "Tämä nimimerkki on jo käytössä. Valitse toinen.";
+"nickname_invalid_format" = "Nimimerkki voi sisältää vain kirjaimia, numeroita ja alaviivoja.";
+"search_method" = "Hakutapa";
+"find_user_by_email" = "Etsi käyttäjä sähköpostilla";
+"find_user_by_nickname" = "Etsi käyttäjä nimimerkillä";
+"enter_email_address" = "Syötä sähköpostiosoite";
+"enter_nickname" = "Syötä nimimerkki";
+"found_user" = "Käyttäjä löydetty";
+"user_not_found" = "Käyttäjää ei löydy";
+"user_not_found_message" = "Käyttäjää ei löydy annetuilla tiedoilla. Tarkista haku ja yritä uudelleen.";
+
+"enter_name" = "Syötä nimi";
+"search_by" = "Hae";
+"unknown_user" = "Tuntematon käyttäjä";
+"email" = "Sähköposti";
+"apple_id" = "Apple ID";
+"google_account" = "Google-tili";
+
+

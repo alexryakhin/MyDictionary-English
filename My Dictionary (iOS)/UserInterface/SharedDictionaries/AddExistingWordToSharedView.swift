@@ -29,7 +29,7 @@ struct AddExistingWordToSharedView: View {
                     HStack {
                         Image(systemName: "textformat")
                             .foregroundStyle(.accent)
-                        Text(Loc.Words.wordDetails.localized)
+                        Text(Loc.Words.wordDetails)
                             .font(.headline)
                         Spacer()
                     }
@@ -74,7 +74,7 @@ struct AddExistingWordToSharedView: View {
                         Image(systemName: selectedDictionaryId == nil ? "person" : "person.2")
                             .foregroundStyle(selectedDictionaryId == nil ? .blue : .accent)
 
-                        Text(selectedDictionaryId == nil ? Loc.SharedDictionarySelection.selectDictionary.localized : Loc.SharedDictionarySelection.dictionarySelected.localized)
+                        Text(selectedDictionaryId == nil ? Loc.SharedDictionaries.SharedDictionarySelection.selectDictionary : Loc.SharedDictionaries.SharedDictionarySelection.dictionarySelected)
                             .foregroundStyle(selectedDictionaryId == nil ? .blue : .primary)
 
                         Spacer()
@@ -95,7 +95,7 @@ struct AddExistingWordToSharedView: View {
             }
         }
         .groupedBackground()
-        .navigation(title: Loc.SharedDictionarySelection.addToShared.localized, mode: .inline, showsBackButton: true)
+        .navigation(title: Loc.SharedDictionaries.SharedDictionarySelection.addToShared, mode: .inline, showsBackButton: true)
         .sheet(isPresented: $showingDictionarySelection) {
             SharedDictionarySelectionView(selectedDictionaryId: selectedDictionaryId) { dictionaryId in
                 selectedDictionaryId = dictionaryId
@@ -106,7 +106,7 @@ struct AddExistingWordToSharedView: View {
         }
         .safeAreaInset(edge: .bottom) {
             AsyncActionButton(
-                Loc.App.addToSharedDictionary.localized,
+                Loc.SharedDictionaries.addToSharedDictionary,
                 systemImage: "plus",
                 style: .borderedProminent
             ) {

@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "Slová";
-"tabbar.idioms" = "Idiomy";
 "tabbar.quizzes" = "Kvíz";
 "tabbar.progress" = "Pokrok";
 "tabbar.settings" = "Nastavenia";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "Podrobnosti o slove";
-"navigation.idiom_details" = "Podrobnosti o idiome";
-"navigation.add_tags" = "Pridať značky";
-"navigation.about" = "O aplikácii";
-"navigation.debug_panel" = "Panel na ladenie";
-"navigation.quiz_results" = "Výsledky kvízu";
-"navigation.spelling_quiz" = "Kvízy pravopisu";
-"navigation.definition_quiz" = "Kvízy definícií";
-"navigation.close" = "Zatvoriť";
-"navigation.close_screen" = "Zatvoriť obrazovku";
+"word_details" = "Podrobnosti o slove";
+"idiom_details" = "Podrobnosti o idiome";
+"add_tags" = "Pridať značky";
+"about" = "O aplikácii";
+"debug_panel" = "Panel na ladenie";
+"quiz_results" = "Výsledky kvízu";
+"spelling_quiz" = "Kvízy pravopisu";
+"definition_quiz" = "Kvízy definícií";
+"close" = "Zatvoriť";
+"close_screen" = "Zatvoriť obrazovku";
 

@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "إدارة العلامات";
-"tags.tags_help_text" = "تساعد العلامات في تنظيم كلماتك. يمكن أن تحتوي كل كلمة على ما يصل إلى 5 علامات.";
-"tags.no_tags_yet" = "لم تُضف علامات بعد";
-"tags.add_first_tag" = "أضف علامتك الأولى بالنقر على الزر أعلاه.";
-"tags.add_tag" = "إضافة علامة";
-"tags.add_first_tag_description" = "أضف علامتك الأولى بالنقر على الزر أعلاه.";
-"tags.add_tag_to_start_using" = "أضف علامة لبدء استخدامها.";
-"tags.add_tags" = "إضافة علامات";
-"tags.create_tags" = "إنشاء علامات";
-"tags.delete_tag" = "حذف العلامة";
-"tags.delete_tag_confirmation" = "هل أنت متأكد من حذف هذه العلامة؟";
-"tags.delete_tag_cannot_undo" = "لا يمكن التراجع عن هذا الإجراء.";
-"tags.tag_name" = "اسم العلامة";
-"tags.tag_name_help" = "اختر اسمًا وصفيًا لعلامتك";
-"tags.type_tag_name" = "اكتب اسم العلامة...";
-"tags.tag_color" = "لون العلامة";
-"tags.tag_color_help" = "اختر لونًا للمساعدة في تحديد علامتك";
-"tags.edit_tag" = "تعديل العلامة";
-"tags.new_tag" = "علامة جديدة";
-"tags.tag_management_error" = "خطأ في إدارة العلامات";
+"manage_tags" = "إدارة العلامات";
+"tags_help_text" = "تساعد العلامات في تنظيم كلماتك. يمكن أن تحتوي كل كلمة على ما يصل إلى 5 علامات.";
+"no_tags_yet" = "لم تُضف علامات بعد";
+"add_first_tag" = "أضف علامتك الأولى بالنقر على الزر أعلاه.";
+"add_tag" = "إضافة علامة";
+"add_first_tag_description" = "أضف علامتك الأولى بالنقر على الزر أعلاه.";
+"add_tag_to_start_using" = "أضف علامة لبدء استخدامها.";
+"add_tags" = "إضافة علامات";
+"create_tags" = "إنشاء علامات";
+"delete_tag" = "حذف العلامة";
+"delete_tag_confirmation" = "هل أنت متأكد من حذف هذه العلامة؟";
+"delete_tag_cannot_undo" = "لا يمكن التراجع عن هذا الإجراء.";
+"tag_name" = "اسم العلامة";
+"tag_name_help" = "اختر اسمًا وصفيًا لعلامتك";
+"type_tag_name" = "اكتب اسم العلامة...";
+"tag_color" = "لون العلامة";
+"tag_color_help" = "اختر لونًا للمساعدة في تحديد علامتك";
+"edit_tag" = "تعديل العلامة";
+"new_tag" = "علامة جديدة";
+"tag_management_error" = "خطأ في إدارة العلامات";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "اختر العلامات";

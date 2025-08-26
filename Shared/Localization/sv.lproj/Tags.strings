@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Hantera taggar";
-"tags.tags_help_text" = "Taggar hjälper dig att organisera dina ord. Varje ord kan ha upp till 5 taggar.";
-"tags.no_tags_yet" = "Inga taggar har lagts till ännu";
-"tags.add_first_tag" = "Lägg till din första tagg genom att klicka på knappen ovan.";
-"tags.add_tag" = "Lägg till tagg";
-"tags.add_first_tag_description" = "Lägg till din första tagg genom att klicka på knappen ovan.";
-"tags.add_tag_to_start_using" = "Lägg till en tagg för att börja använda dem.";
-"tags.add_tags" = "Lägg till taggar";
-"tags.create_tags" = "Skapa taggar";
-"tags.delete_tag" = "Radera tagg";
-"tags.delete_tag_confirmation" = "Är du säker på att du vill radera denna tagg?";
-"tags.delete_tag_cannot_undo" = "Denna åtgärd kan inte ångras.";
-"tags.tag_name" = "Taggnamn";
-"tags.tag_name_help" = "Välj ett beskrivande namn för din tagg";
-"tags.type_tag_name" = "Skriv taggnamn...";
-"tags.tag_color" = "Taggfärg";
-"tags.tag_color_help" = "Välj en färg för att göra din tagg lättigenkännlig";
-"tags.edit_tag" = "Redigera tagg";
-"tags.new_tag" = "Ny tagg";
-"tags.tag_management_error" = "Fel vid hantering av taggar";
+"manage_tags" = "Hantera taggar";
+"tags_help_text" = "Taggar hjälper dig att organisera dina ord. Varje ord kan ha upp till 5 taggar.";
+"no_tags_yet" = "Inga taggar har lagts till ännu";
+"add_first_tag" = "Lägg till din första tagg genom att klicka på knappen ovan.";
+"add_tag" = "Lägg till tagg";
+"add_first_tag_description" = "Lägg till din första tagg genom att klicka på knappen ovan.";
+"add_tag_to_start_using" = "Lägg till en tagg för att börja använda dem.";
+"add_tags" = "Lägg till taggar";
+"create_tags" = "Skapa taggar";
+"delete_tag" = "Radera tagg";
+"delete_tag_confirmation" = "Är du säker på att du vill radera denna tagg?";
+"delete_tag_cannot_undo" = "Denna åtgärd kan inte ångras.";
+"tag_name" = "Taggnamn";
+"tag_name_help" = "Välj ett beskrivande namn för din tagg";
+"type_tag_name" = "Skriv taggnamn...";
+"tag_color" = "Taggfärg";
+"tag_color_help" = "Välj en färg för att göra din tagg lättigenkännlig";
+"edit_tag" = "Redigera tagg";
+"new_tag" = "Ny tagg";
+"tag_management_error" = "Fel vid hantering av taggar";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Välj taggar";

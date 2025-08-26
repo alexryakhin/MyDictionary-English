@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "शब्द";
-"tabbar.idioms" = "मुहावरे";
 "tabbar.quizzes" = "क्विज़";
 "tabbar.progress" = "प्रगति";
 "tabbar.settings" = "सेटिंग्स";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "शब्द विवरण";
-"navigation.idiom_details" = "मुहावरा विवरण";
-"navigation.add_tags" = "टैग जोड़ें";
-"navigation.about" = "ऐप के बारे में";
-"navigation.debug_panel" = "डीबग पैनल";
-"navigation.quiz_results" = "क्विज़ परिणाम";
-"navigation.spelling_quiz" = "वर्तनी क्विज़";
-"navigation.definition_quiz" = "परिभाषा क्विज़";
-"navigation.close" = "बंद करें";
-"navigation.close_screen" = "स्क्रीन बंद करें";
+"word_details" = "शब्द विवरण";
+"idiom_details" = "मुहावरा विवरण";
+"add_tags" = "टैग जोड़ें";
+"about" = "ऐप के बारे में";
+"debug_panel" = "डीबग पैनल";
+"quiz_results" = "क्विज़ परिणाम";
+"spelling_quiz" = "वर्तनी क्विज़";
+"definition_quiz" = "परिभाषा क्विज़";
+"close" = "बंद करें";
+"close_screen" = "स्क्रीन बंद करें";
 

@@ -103,6 +103,6 @@ final class TagManagementViewModel: BaseViewModel {
     }
     
     private func handleError(_ error: Error) {
-        AlertCenter.shared.showAlert(with: .info(title: Loc.Tags.tagManagementError.localized, message: error.localizedDescription))
+        AlertCenter.shared.showAlert(with: .info(title: Loc.Tags.tagManagementError, message: error.localizedDescription))
     }
 } 

@@ -186,7 +186,7 @@ enum QuizDictionary: Hashable, Identifiable {
     var name: String {
         switch self {
         case .privateDictionary:
-            return Loc.Words.privateDictionary.localized
+            return Loc.Words.privateDictionary
         case .sharedDictionary(let dictionary):
             return dictionary.name
         }

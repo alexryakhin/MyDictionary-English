@@ -16,7 +16,7 @@ enum TTSProvider: String, CaseIterable {
         case .google:
             return "Google"
         case .speechify:
-            return Loc.TTS.speechify.localized
+            return Loc.Tts.Settings.speechify
         }
     }
     
@@ -36,15 +36,15 @@ enum SpeechifyModel: String, CaseIterable {
 
     var displayName: String {
         switch self {
-        case .english: Loc.TTS.english.localized
-        case .multilingual: Loc.TTS.multilingual.localized
+        case .english: Loc.Tts.Models.english
+        case .multilingual: Loc.Tts.Models.multilingual
         }
     }
 
     var description: String {
         switch self {
-        case .english: Loc.TTS.englishModelDescription.localized
-        case .multilingual: Loc.TTS.multilingualModelDescription.localized
+        case .english: Loc.Tts.Models.englishDescription
+        case .multilingual: Loc.Tts.Models.multilingualDescription
         }
     }
 }

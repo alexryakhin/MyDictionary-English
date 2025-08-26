@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "כל מקרי השימוש";
-"tts.filters.all_ages" = "כל הגילאים";
-"tts.filters.all_timbres" = "כל גווני הקול";
-"tts.filters.all_accents" = "כל המבטאים";
-"tts.filters.all_languages" = "כל השפות";
-"tts.filters.all_genders" = "כל המינים";
-"tts.filters.filters" = "מסננים";
-"tts.filters.reset" = "איפוס";
-"tts.filters.select_voice" = "בחר קול";
-"tts.filters.available_voices" = "קולות זמינים";
-"tts.filters.no_voices_available" = "אין קולות זמינים";
-"tts.filters.no_voices_found" = "לא נמצאו קולות";
-"tts.filters.no_voices_found_message" = "נסה להתאים את החיפוש או המסננים";
+"filters.all_use_cases" = "כל מקרי השימוש";
+"filters.all_ages" = "כל הגילאים";
+"filters.all_timbres" = "כל גווני הקול";
+"filters.all_accents" = "כל המבטאים";
+"filters.all_languages" = "כל השפות";
+"filters.all_genders" = "כל המינים";
+"filters.filters" = "מסננים";
+"filters.reset" = "איפוס";
+"filters.select_voice" = "בחר קול";
+"filters.available_voices" = "קולות זמינים";
+"filters.no_voices_available" = "אין קולות זמינים";
+"filters.no_voices_found" = "לא נמצאו קולות";
+"filters.no_voices_found_message" = "נסה להתאים את החיפוש או המסננים";
 
-"tts.usage.monthly_limit_exceeded" = "חרגת ממגבלת התווים החודשית";
-"tts.usage.monthly_limit_exceeded_message" = "הגעת למגבלת החודשית של 50,000 תווים עבור Speechify TTS. אנא נסה שוב בחודש הבא או השתמש ב-Google TTS במקום.";
-"tts.usage.remaining_characters" = "תווים נותרים";
-"tts.usage.monthly_usage" = "שימוש חודשי";
-"tts.usage.monthly_limit" = "מגבלה חודשית";
+"usage.monthly_limit_exceeded" = "חרגת ממגבלת התווים החודשית";
+"usage.monthly_limit_exceeded_message" = "הגעת למגבלת החודשית של 50,000 תווים עבור Speechify TTS. אנא נסה שוב בחודש הבא או השתמש ב-Google TTS במקום.";
+"usage.remaining_characters" = "תווים נותרים";
+"usage.monthly_usage" = "שימוש חודשי";
+"usage.monthly_limit" = "מגבלה חודשית";
 
 // TTS Voice Filter Values
 "advertisement" = "פרסומת";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "לוח בקרה TTS";
-"tts.premium_tts_dashboard" = "לוח בקרה TTS פרימיום";
-"tts.customize_tts_experience" = "התאם אישית את חוויית הטקסט לדיבור שלך";
-"tts.playing" = "מנגן";
-"tts.ready" = "מוכן";
-"tts.provider" = "ספק";
-"tts.tts_provider" = "ספק TTS";
-"tts.voice_customization" = "התאמה אישית של קול";
-"tts.current_voice" = "קול נוכחי";
-"tts.default_voice" = "קול ברירת מחדל";
-"tts.preview_current_voice" = "תצוגה מקדימה של הקול הנוכחי";
-"tts.change_voice" = "שנה קול";
-"tts.audio_settings" = "הגדרות שמע";
-"tts.speech_rate" = "קצב דיבור";
-"tts.volume" = "עוצמת קול";
-"tts.test_your_settings" = "בדוק את ההגדרות שלך";
-"tts.enter_text_to_test" = "הזן טקסט לבדיקה...";
-"tts.stop" = "עצור";
-"tts.test" = "בדיקה";
-"tts.usage_statistics" = "סטטיסטיקות שימוש";
-"tts.speechify_monthly_usage" = "שימוש חודשי ב-Speechify";
-"tts.monthly_limit" = "מגבלה חודשית";
-"tts.used_this_month" = "נעשה שימוש החודש";
-"tts.remaining" = "נותר";
-"tts.usage_progress" = "התקדמות שימוש";
-"tts.characters" = "תווים";
+"dashboard" = "לוח בקרה TTS";
+"premium_tts_dashboard" = "לוח בקרה TTS פרימיום";
+"customize_tts_experience" = "התאם אישית את חוויית הטקסט לדיבור שלך";
+"playing" = "מנגן";
+"ready" = "מוכן";
+"provider" = "ספק";
+"tts_provider" = "ספק TTS";
+"voice_customization" = "התאמה אישית של קול";
+"current_voice" = "קול נוכחי";
+"default_voice" = "קול ברירת מחדל";
+"preview_current_voice" = "תצוגה מקדימה של הקול הנוכחי";
+"change_voice" = "שנה קול";
+"audio_settings" = "הגדרות שמע";
+"speech_rate" = "קצב דיבור";
+"volume" = "עוצמת קול";
+"test_your_settings" = "בדוק את ההגדרות שלך";
+"enter_text_to_test" = "הזן טקסט לבדיקה...";
+"stop" = "עצור";
+"test" = "בדיקה";
+"usage_statistics" = "סטטיסטיקות שימוש";
+"speechify_monthly_usage" = "שימוש חודשי ב-Speechify";
+"monthly_limit" = "מגבלה חודשית";
+"used_this_month" = "נעשה שימוש החודש";
+"remaining" = "נותר";
+"usage_progress" = "התקדמות שימוש";
+"characters" = "תווים";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "תווים בשימוש";
-"tts.analytics.sessions" = "מפגשים";
-"tts.analytics.favorite_voice" = "קול מועדף";
-"tts.analytics.time_saved" = "זמן שנחסך";
-"tts.analytics.total_characters" = "סהכ תווים";
-"tts.analytics.total_sessions" = "סהכ מפגשים";
-"tts.analytics.total_duration" = "משך זמן כולל";
-"tts.analytics.favorite_language" = "שפה מועדפת";
-"tts.analytics.premium_usage" = "שימוש פרימיום";
+"analytics.characters_used" = "תווים בשימוש";
+"analytics.sessions" = "מפגשים";
+"analytics.favorite_voice" = "קול מועדף";
+"analytics.time_saved" = "זמן שנחסך";
+"analytics.total_characters" = "סהכ תווים";
+"analytics.total_sessions" = "סהכ מפגשים";
+"analytics.total_duration" = "משך זמן כולל";
+"analytics.favorite_language" = "שפה מועדפת";
+"analytics.premium_usage" = "שימוש פרימיום";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "טקסט לדיבור";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "מודל טקסט לדיבור של Speechify זמין לכל המשתמשים כתכונה פרימיום. הוא מאפשר לך לבחור ממגוון רחב של קולות ומבטאים, כדי להתאים אישית את חוויית הלימוד שלך.";
-"tts.settings.speechify_pro_description" = "מודל טקסט לדיבור של Speechify כלול במנוי שלך.";
-"tts.settings.dashboard" = "לוח בקרה";
-"tts.pro" = "פרו";
-"tts.free_google_tts_description" = "Google TTS חינמי עם קולות בסיסיים וביצועים אמינים";
+"settings.text_to_speech" = "טקסט לדיבור";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "מודל טקסט לדיבור של Speechify זמין לכל המשתמשים כתכונה פרימיום. הוא מאפשר לך לבחור ממגוון רחב של קולות ומבטאים, כדי להתאים אישית את חוויית הלימוד שלך.";
+"settings.speechify_pro_description" = "מודל טקסט לדיבור של Speechify כלול במנוי שלך.";
+"settings.dashboard" = "לוח בקרה";
+"pro" = "פרו";
+"free_google_tts_description" = "Google TTS חינמי עם קולות בסיסיים וביצועים אמינים";
 
 // TTS Models
-"tts.models.english" = "אנגלית";
-"tts.models.multilingual" = "רב-לשוני";
-"tts.models.english_description" = "מודל טקסט לדיבור באנגלית של Speechify מציע יכולות סטנדרטיות המיועדות לספק פלט קולי ברור וטבעי לקריאת טקסטים. המודל מתמקד במתן חוויית משתמש עקבית.";
-"tts.models.multilingual_description" = "המודל הרב-לשוני מאפשר שימוש בכל השפות הנתמכות ותומך בשימוש במספר שפות במשפט אחד. הפלט הקולי של מודל זה שונה באופן מובהק ממודלים אחרים.";
+"models.english" = "אנגלית";
+"models.multilingual" = "רב-לשוני";
+"models.english_description" = "מודל טקסט לדיבור באנגלית של Speechify מציע יכולות סטנדרטיות המיועדות לספק פלט קולי ברור וטבעי לקריאת טקסטים. המודל מתמקד במתן חוויית משתמש עקבית.";
+"models.multilingual_description" = "המודל הרב-לשוני מאפשר שימוש בכל השפות הנתמכות ותומך בשימוש במספר שפות במשפט אחד. הפלט הקולי של מודל זה שונה באופן מובהק ממודלים אחרים.";
 
 // MARK: - English Accents
 "english_accents.australian" = "אוסטרלי";

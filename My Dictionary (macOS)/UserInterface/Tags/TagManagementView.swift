@@ -14,8 +14,8 @@ struct TagManagementView: View {
     var body: some View {
         ScrollViewWithCustomNavBar {
             CustomSectionView(
-                header: Loc.Tags.manageTags.localized,
-                footer: Loc.Tags.tagsHelpText.localized,
+                header: Loc.Tags.manageTags,
+                footer: Loc.Tags.tagsHelpText,
                 hPadding: 0
             ) {
                 if viewModel.tags.isNotEmpty {
@@ -29,19 +29,19 @@ struct TagManagementView: View {
                     }
                 } else {
                     ContentUnavailableView(
-                        Loc.Tags.noTagsYet.localized,
+                        Loc.Tags.noTagsYet,
                         systemImage: "tag.fill",
-                        description: Text(Loc.Tags.addFirstTagDescription.localized)
+                        description: Text(Loc.Tags.addFirstTagDescription)
                     )
                 }
             } trailingContent: {
-                HeaderButton(Loc.Tags.addTag.localized, icon: "plus", size: .small, style: .borderedProminent) {
+                HeaderButton(Loc.Tags.addTag, icon: "plus", size: .small, style: .borderedProminent) {
                     viewModel.handle(.addTag)
                 }
             }
             .padding(12)
         } navigationBar: {
-            NavigationBarView(title: Loc.Tags.manageTags.localized)
+            NavigationBarView(title: Loc.Tags.manageTags)
         }
         .groupedBackground()
         .sheet(isPresented: $viewModel.showingAddEditSheet) {

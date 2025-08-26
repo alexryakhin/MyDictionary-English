@@ -368,11 +368,11 @@ enum DataSyncError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidUserEmail:
-            return Loc.Errors.invalidUserEmail.localized
+            return Loc.Errors.invalidUserEmail
         case .networkError:
-            return Loc.Errors.networkErrorOccurred.localized
+            return Loc.Errors.networkErrorOccurred
         case .syncFailed:
-            return Loc.Errors.syncFailed.localized
+            return Loc.Errors.syncFailed
         }
     }
 }

@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "单词";
-"tabbar.idioms" = "习语";
 "tabbar.quizzes" = "测验";
 "tabbar.progress" = "进度";
 "tabbar.settings" = "设置";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "单词详情";
-"navigation.idiom_details" = "习语详情";
-"navigation.add_tags" = "添加标签";
-"navigation.about" = "关于";
-"navigation.debug_panel" = "调试面板";
-"navigation.quiz_results" = "测验结果";
-"navigation.spelling_quiz" = "拼写测验";
-"navigation.definition_quiz" = "定义测验";
-"navigation.close" = "关闭";
-"navigation.close_screen" = "关闭屏幕";
+"word_details" = "单词详情";
+"idiom_details" = "习语详情";
+"add_tags" = "添加标签";
+"about" = "关于";
+"debug_panel" = "调试面板";
+"quiz_results" = "测验结果";
+"spelling_quiz" = "拼写测验";
+"definition_quiz" = "定义测验";
+"close" = "关闭";
+"close_screen" = "关闭屏幕";
 

@@ -75,8 +75,8 @@ final class IdiomListViewModel: BaseViewModel {
     private func deleteIdiom(with id: String) {
         showAlert(
             withModel: .deleteConfirmation(
-                title: Loc.Idioms.deleteIdiom.localized,
-                message: Loc.Idioms.deleteIdiomConfirmation.localized,
+                title: Loc.Words.deleteIdiom,
+                message: Loc.Words.deleteIdiomConfirmation,
                 onCancel: {
                     AnalyticsService.shared.logEvent(.idiomRemovingCanceled)
                 },
@@ -156,29 +156,29 @@ final class IdiomListViewModel: BaseViewModel {
     }
     
     var idiomsCount: String {
-        Loc.Idioms.idiomsCount.localized(idiomsFiltered.count)
+        Loc.Plurals.Idioms.idiomsCount(idiomsFiltered.count)
     }
 
     var filterStateTitle: String {
         switch filterState {
         case .none:
-            return Loc.Idioms.allIdioms.localized
+            return Loc.Words.allIdioms
         case .favorite:
-            return Loc.Idioms.favorites.localized
+            return Loc.Words.favorites
         case .search:
-            return Loc.Idioms.found.localized
+            return Loc.Words.found
         case .new:
-            return Loc.FilterDisplay.new.localized
+            return Loc.FilterDisplay.new
         case .inProgress:
-            return Loc.FilterDisplay.inProgress.localized
+            return Loc.FilterDisplay.inProgress
         case .needsReview:
-            return Loc.FilterDisplay.needsReview.localized
+            return Loc.FilterDisplay.needsReview
         case .mastered:
-            return Loc.FilterDisplay.mastered.localized
+            return Loc.FilterDisplay.mastered
         case .tag:
-            return selectedTag?.name ?? Loc.Idioms.idioms.localized
+            return selectedTag?.name ?? Loc.Words.idioms
         @unknown default:
-            return Loc.Idioms.idioms.localized
+            return Loc.Words.idioms
         }
     }
 

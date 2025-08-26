@@ -122,19 +122,19 @@ struct OnboardingView: View {
             Spacer()
 
             VStack(spacing: 16) {
-                Text(Loc.Onboarding.welcomeTo.localized)
+                Text(Loc.Onboarding.welcomeTo)
                     .font(.title2)
                     .foregroundStyle(.secondary)
                     .opacity(animateContent ? 1 : 0)
                     .offset(y: animateContent ? 0 : 20)
                 
-                Text(Loc.Onboarding.myDictionary.localized)
+                Text(Loc.Onboarding.myDictionary)
                     .font(.system(size: 42, weight: .bold, design: .rounded))
                     .foregroundStyle(.primary)
                     .opacity(animateContent ? 1 : 0)
                     .offset(y: animateContent ? 0 : 20)
                 
-                Text(Loc.Onboarding.personalVocabularyCompanion.localized)
+                Text(Loc.Onboarding.personalVocabularyCompanion)
                     .font(.title3)
                     .foregroundStyle(.secondary)
                     .opacity(animateContent ? 1 : 0)
@@ -155,7 +155,7 @@ struct OnboardingView: View {
         VStack(spacing: 0) {
             Spacer()
             
-            Text(Loc.Onboarding.buildYourVocabulary.localized)
+            Text(Loc.Onboarding.buildYourVocabulary)
                 .font(.system(.largeTitle, design: .rounded, weight: .bold))
                 .foregroundStyle(.primary)
                 .multilineTextAlignment(.center)
@@ -189,7 +189,7 @@ struct OnboardingView: View {
         VStack(spacing: 0) {
             Spacer()
             
-            Text(Loc.Onboarding.personalizedLearning.localized)
+            Text(Loc.Onboarding.personalizedLearning)
                 .font(.system(.largeTitle, design: .rounded, weight: .bold))
                 .foregroundStyle(.primary)
                 .multilineTextAlignment(.center)
@@ -201,8 +201,8 @@ struct OnboardingView: View {
             VStack(spacing: 16) {
                 PersonalizationCard(
                     icon: "brain.head.profile",
-                    title: Loc.Onboarding.smartQuizzes.localized,
-                    description: Loc.Onboarding.smartQuizzesDescription.localized,
+                    title: Loc.Onboarding.smartQuizzes,
+                    description: Loc.Onboarding.smartQuizzesDescription,
                     color: .blue
                 )
                 .opacity(animateContent ? 1 : 0)
@@ -210,8 +210,8 @@ struct OnboardingView: View {
                 
                 PersonalizationCard(
                     icon: "chart.line.uptrend.xyaxis",
-                    title: Loc.Onboarding.progressTracking.localized,
-                    description: Loc.Onboarding.progressTrackingDescription.localized,
+                    title: Loc.Onboarding.progressTracking,
+                    description: Loc.Onboarding.progressTrackingDescription,
                     color: .accent
                 )
                 .opacity(animateContent ? 1 : 0)
@@ -219,8 +219,8 @@ struct OnboardingView: View {
                 
                 PersonalizationCard(
                     icon: "person.wave.2.fill",
-                    title: Loc.Onboarding.naturalVoices.localized,
-                    description: Loc.Onboarding.naturalVoicesDescription.localized,
+                    title: Loc.Onboarding.naturalVoices,
+                    description: Loc.Onboarding.naturalVoicesDescription,
                     color: .orange
                 )
                 .opacity(animateContent ? 1 : 0)
@@ -228,8 +228,8 @@ struct OnboardingView: View {
                 
                 PersonalizationCard(
                     icon: "person.2.fill",
-                    title: Loc.Onboarding.collaborativeLearning.localized,
-                    description: Loc.Onboarding.collaborativeLearningDescription.localized,
+                    title: Loc.Onboarding.collaborativeLearning,
+                    description: Loc.Onboarding.collaborativeLearningDescription,
                     color: .purple
                 )
                 .opacity(animateContent ? 1 : 0)
@@ -264,13 +264,13 @@ struct OnboardingView: View {
             Spacer()
 
             VStack(spacing: 16) {
-                Text(Loc.Onboarding.youreAllSet.localized)
+                Text(Loc.Onboarding.youreAllSet)
                     .font(.system(.largeTitle, design: .rounded, weight: .bold))
                     .foregroundStyle(.primary)
                     .opacity(animateContent ? 1 : 0)
                     .offset(y: animateContent ? 0 : 20)
                 
-                Text(Loc.Onboarding.startBuildingVocabulary.localized)
+                Text(Loc.Onboarding.startBuildingVocabulary)
                     .font(.title3)
                     .foregroundStyle(.secondary)
                     .opacity(animateContent ? 1 : 0)
@@ -289,7 +289,7 @@ struct OnboardingView: View {
     private var navigationButtons: some View {
         HStack(spacing: 16) {
             if currentStep > 0 {
-                ActionButton(Loc.Onboarding.back.localized) {
+                ActionButton(Loc.Onboarding.back) {
                     slideDirection = .right
                     withAnimation(.easeInOut(duration: 0.6)) {
                         currentStep -= 1
@@ -298,7 +298,7 @@ struct OnboardingView: View {
             }
             
             ActionButton(
-                currentStep == totalSteps - 1 ? Loc.Onboarding.getStarted.localized : Loc.Onboarding.next.localized,
+                currentStep == totalSteps - 1 ? Loc.Onboarding.getStarted : Loc.Onboarding.next,
                 style: .borderedProminent
             ) {
                 if currentStep < totalSteps - 1 {
@@ -327,18 +327,18 @@ struct OnboardingView: View {
         [
             OnboardingFeature(
                 icon: "text.justify",
-                title: Loc.Onboarding.personalWordList.localized,
-                description: Loc.Onboarding.personalWordListDescription.localized
+                title: Loc.Onboarding.personalWordList,
+                description: Loc.Onboarding.personalWordListDescription
             ),
             OnboardingFeature(
                 icon: "network",
-                title: Loc.Onboarding.findDefinitions.localized,
-                description: Loc.Onboarding.findDefinitionsDescription.localized
+                title: Loc.Onboarding.findDefinitions,
+                description: Loc.Onboarding.findDefinitionsDescription
             ),
             OnboardingFeature(
                 icon: "scroll",
-                title: Loc.Onboarding.collectIdioms.localized,
-                description: Loc.Onboarding.collectIdiomsDescription.localized
+                title: Loc.Onboarding.collectIdioms,
+                description: Loc.Onboarding.collectIdiomsDescription
             )
         ]
     }

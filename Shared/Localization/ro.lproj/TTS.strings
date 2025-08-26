@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Toate cazurile de utilizare";
-"tts.filters.all_ages" = "Toate vârstele";
-"tts.filters.all_timbres" = "Toate timbrurile";
-"tts.filters.all_accents" = "Toate accentele";
-"tts.filters.all_languages" = "Toate limbile";
-"tts.filters.all_genders" = "Toate genurile";
-"tts.filters.filters" = "Filtre";
-"tts.filters.reset" = "Resetare";
-"tts.filters.select_voice" = "Selectați vocea";
-"tts.filters.available_voices" = "Voci disponibile";
-"tts.filters.no_voices_available" = "Nicio voce disponibilă";
-"tts.filters.no_voices_found" = "Nicio voce găsită";
-"tts.filters.no_voices_found_message" = "Încercați să ajustați căutarea sau filtrele";
+"filters.all_use_cases" = "Toate cazurile de utilizare";
+"filters.all_ages" = "Toate vârstele";
+"filters.all_timbres" = "Toate timbrurile";
+"filters.all_accents" = "Toate accentele";
+"filters.all_languages" = "Toate limbile";
+"filters.all_genders" = "Toate genurile";
+"filters.filters" = "Filtre";
+"filters.reset" = "Resetare";
+"filters.select_voice" = "Selectați vocea";
+"filters.available_voices" = "Voci disponibile";
+"filters.no_voices_available" = "Nicio voce disponibilă";
+"filters.no_voices_found" = "Nicio voce găsită";
+"filters.no_voices_found_message" = "Încercați să ajustați căutarea sau filtrele";
 
-"tts.usage.monthly_limit_exceeded" = "Limită lunară depășită";
-"tts.usage.monthly_limit_exceeded_message" = "Ați atins limita lunară de 50.000 de caractere pentru Speechify TTS. Încercați din nou luna viitoare sau folosiți Google TTS.";
-"tts.usage.remaining_characters" = "Caractere rămase";
-"tts.usage.monthly_usage" = "Utilizare lunară";
-"tts.usage.monthly_limit" = "Limită lunară";
+"usage.monthly_limit_exceeded" = "Limită lunară depășită";
+"usage.monthly_limit_exceeded_message" = "Ați atins limita lunară de 50.000 de caractere pentru Speechify TTS. Încercați din nou luna viitoare sau folosiți Google TTS.";
+"usage.remaining_characters" = "Caractere rămase";
+"usage.monthly_usage" = "Utilizare lunară";
+"usage.monthly_limit" = "Limită lunară";
 
 // TTS Voice Filter Values
 "advertisement" = "Reclamă";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "Tablou de bord TTS";
-"tts.premium_tts_dashboard" = "Tablou de bord TTS premium";
-"tts.customize_tts_experience" = "Personalizați-vă experiența de conversie text în vorbire";
-"tts.playing" = "În redare";
-"tts.ready" = "Gata";
-"tts.provider" = "Furnizor";
-"tts.tts_provider" = "Furnizor TTS";
-"tts.voice_customization" = "Personalizare voce";
-"tts.current_voice" = "Voce curentă";
-"tts.default_voice" = "Voce implicită";
-"tts.preview_current_voice" = "Previzualizați vocea curentă";
-"tts.change_voice" = "Schimbați vocea";
-"tts.audio_settings" = "Setări audio";
-"tts.speech_rate" = "Viteza vorbirii";
-"tts.volume" = "Volum";
-"tts.test_your_settings" = "Testați-vă setările";
-"tts.enter_text_to_test" = "Introduceți text pentru testare...";
-"tts.stop" = "Oprire";
-"tts.test" = "Test";
-"tts.usage_statistics" = "Statistici de utilizare";
-"tts.speechify_monthly_usage" = "Utilizare lunară Speechify";
-"tts.monthly_limit" = "Limită lunară";
-"tts.used_this_month" = "Utilizat în această lună";
-"tts.remaining" = "Rămas";
-"tts.usage_progress" = "Progresul utilizării";
-"tts.characters" = "caractere";
+"dashboard" = "Tablou de bord TTS";
+"premium_tts_dashboard" = "Tablou de bord TTS premium";
+"customize_tts_experience" = "Personalizați-vă experiența de conversie text în vorbire";
+"playing" = "În redare";
+"ready" = "Gata";
+"provider" = "Furnizor";
+"tts_provider" = "Furnizor TTS";
+"voice_customization" = "Personalizare voce";
+"current_voice" = "Voce curentă";
+"default_voice" = "Voce implicită";
+"preview_current_voice" = "Previzualizați vocea curentă";
+"change_voice" = "Schimbați vocea";
+"audio_settings" = "Setări audio";
+"speech_rate" = "Viteza vorbirii";
+"volume" = "Volum";
+"test_your_settings" = "Testați-vă setările";
+"enter_text_to_test" = "Introduceți text pentru testare...";
+"stop" = "Oprire";
+"test" = "Test";
+"usage_statistics" = "Statistici de utilizare";
+"speechify_monthly_usage" = "Utilizare lunară Speechify";
+"monthly_limit" = "Limită lunară";
+"used_this_month" = "Utilizat în această lună";
+"remaining" = "Rămas";
+"usage_progress" = "Progresul utilizării";
+"characters" = "caractere";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "Caractere utilizate";
-"tts.analytics.sessions" = "Sesiuni";
-"tts.analytics.favorite_voice" = "Voce preferată";
-"tts.analytics.time_saved" = "Timp economisit";
-"tts.analytics.total_characters" = "Total caractere";
-"tts.analytics.total_sessions" = "Total sesiuni";
-"tts.analytics.total_duration" = "Durată totală";
-"tts.analytics.favorite_language" = "Limba preferată";
-"tts.analytics.premium_usage" = "Utilizare premium";
+"analytics.characters_used" = "Caractere utilizate";
+"analytics.sessions" = "Sesiuni";
+"analytics.favorite_voice" = "Voce preferată";
+"analytics.time_saved" = "Timp economisit";
+"analytics.total_characters" = "Total caractere";
+"analytics.total_sessions" = "Total sesiuni";
+"analytics.total_duration" = "Durată totală";
+"analytics.favorite_language" = "Limba preferată";
+"analytics.premium_usage" = "Utilizare premium";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "Text în vorbire";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Modelul de conversie text în vorbire de la Speechify este disponibil pentru toți utilizatorii ca funcție premium. Vă permite să alegeți dintr-o gamă largă de voci și accente, pentru a vă personaliza experiența de învățare.";
-"tts.settings.speechify_pro_description" = "Modelul de conversie text în vorbire de la Speechify este inclus în abonamentul dumneavoastră.";
-"tts.settings.dashboard" = "Tablou de bord";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Google TTS gratuit cu voci de bază și performanță fiabilă";
+"settings.text_to_speech" = "Text în vorbire";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Modelul de conversie text în vorbire de la Speechify este disponibil pentru toți utilizatorii ca funcție premium. Vă permite să alegeți dintr-o gamă largă de voci și accente, pentru a vă personaliza experiența de învățare.";
+"settings.speechify_pro_description" = "Modelul de conversie text în vorbire de la Speechify este inclus în abonamentul dumneavoastră.";
+"settings.dashboard" = "Tablou de bord";
+"pro" = "Pro";
+"free_google_tts_description" = "Google TTS gratuit cu voci de bază și performanță fiabilă";
 
 // TTS Models
-"tts.models.english" = "Engleză";
-"tts.models.multilingual" = "Multilingv";
-"tts.models.english_description" = "Modelul de conversie text în vorbire în limba engleză de la Speechify oferă funcționalități standard concepute pentru a oferi un sunet clar și natural pentru citirea textelor. Modelul se concentrează pe oferirea unei experiențe consistente pentru utilizator.";
-"tts.models.multilingual_description" = "Modelul multilingv permite utilizarea tuturor limbilor suportate și susține utilizarea mai multor limbi într-o singură propoziție. Sunetul acestui model diferă semnificativ de alte modele.";
+"models.english" = "Engleză";
+"models.multilingual" = "Multilingv";
+"models.english_description" = "Modelul de conversie text în vorbire în limba engleză de la Speechify oferă funcționalități standard concepute pentru a oferi un sunet clar și natural pentru citirea textelor. Modelul se concentrează pe oferirea unei experiențe consistente pentru utilizator.";
+"models.multilingual_description" = "Modelul multilingv permite utilizarea tuturor limbilor suportate și susține utilizarea mai multor limbi într-o singură propoziție. Sunetul acestui model diferă semnificativ de alte modele.";
 
 // MARK: - English Accents
 "english_accents.australian" = "Australian";

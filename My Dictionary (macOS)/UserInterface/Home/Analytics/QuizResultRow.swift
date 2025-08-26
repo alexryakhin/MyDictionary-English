@@ -25,7 +25,7 @@ struct QuizResultRow: View {
             Spacer()
 
             VStack(alignment: .trailing, spacing: 4) {
-                Text(Loc.Analytics.pointsCount.localized(Int(session.score)))
+                Text(Loc.Plurals.Analytics.pointsCount(Int(session.score)))
                     .font(.body)
                     .fontWeight(.semibold)
                     .foregroundStyle(.accent)

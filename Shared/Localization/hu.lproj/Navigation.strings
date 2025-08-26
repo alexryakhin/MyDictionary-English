@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "Szavak";
-"tabbar.idioms" = "Kifejezések";
 "tabbar.quizzes" = "Kvizek";
 "tabbar.progress" = "Haladás";
 "tabbar.settings" = "Beállítások";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "Szó részletei";
-"navigation.idiom_details" = "Kifejezés részletei";
-"navigation.add_tags" = "Címkék hozzáadása";
-"navigation.about" = "Az alkalmazásról";
-"navigation.debug_panel" = "Hibakereső panel";
-"navigation.quiz_results" = "Kviz eredmények";
-"navigation.spelling_quiz" = "Helyesírási kviz";
-"navigation.definition_quiz" = "Definíció kviz";
-"navigation.close" = "Bezárás";
-"navigation.close_screen" = "Képernyő bezárása";
+"word_details" = "Szó részletei";
+"idiom_details" = "Kifejezés részletei";
+"add_tags" = "Címkék hozzáadása";
+"about" = "Az alkalmazásról";
+"debug_panel" = "Hibakereső panel";
+"quiz_results" = "Kviz eredmények";
+"spelling_quiz" = "Helyesírási kviz";
+"definition_quiz" = "Definíció kviz";
+"close" = "Bezárás";
+"close_screen" = "Képernyő bezárása";
 

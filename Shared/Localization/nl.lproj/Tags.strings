@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Tags beheren";
-"tags.tags_help_text" = "Tags helpen je om woorden te organiseren. Elk woord kan maximaal 5 tags hebben.";
-"tags.no_tags_yet" = "Nog geen tags toegevoegd";
-"tags.add_first_tag" = "Voeg je eerste tag toe door op de knop hierboven te klikken.";
-"tags.add_tag" = "Tag toevoegen";
-"tags.add_first_tag_description" = "Voeg je eerste tag toe door op de knop hierboven te klikken.";
-"tags.add_tag_to_start_using" = "Voeg een tag toe om te beginnen met gebruiken.";
-"tags.add_tags" = "Tags toevoegen";
-"tags.create_tags" = "Tags aanmaken";
-"tags.delete_tag" = "Tag verwijderen";
-"tags.delete_tag_confirmation" = "Weet je zeker dat je deze tag wilt verwijderen?";
-"tags.delete_tag_cannot_undo" = "Deze actie kan niet ongedaan worden gemaakt.";
-"tags.tag_name" = "Tagnaam";
-"tags.tag_name_help" = "Kies een beschrijvende naam voor je tag";
-"tags.type_tag_name" = "Typ tagnaam...";
-"tags.tag_color" = "Tagkleur";
-"tags.tag_color_help" = "Kies een kleur om je tag gemakkelijk te herkennen";
-"tags.edit_tag" = "Tag bewerken";
-"tags.new_tag" = "Nieuwe tag";
-"tags.tag_management_error" = "Fout bij tagbeheer";
+"manage_tags" = "Tags beheren";
+"tags_help_text" = "Tags helpen je om woorden te organiseren. Elk woord kan maximaal 5 tags hebben.";
+"no_tags_yet" = "Nog geen tags toegevoegd";
+"add_first_tag" = "Voeg je eerste tag toe door op de knop hierboven te klikken.";
+"add_tag" = "Tag toevoegen";
+"add_first_tag_description" = "Voeg je eerste tag toe door op de knop hierboven te klikken.";
+"add_tag_to_start_using" = "Voeg een tag toe om te beginnen met gebruiken.";
+"add_tags" = "Tags toevoegen";
+"create_tags" = "Tags aanmaken";
+"delete_tag" = "Tag verwijderen";
+"delete_tag_confirmation" = "Weet je zeker dat je deze tag wilt verwijderen?";
+"delete_tag_cannot_undo" = "Deze actie kan niet ongedaan worden gemaakt.";
+"tag_name" = "Tagnaam";
+"tag_name_help" = "Kies een beschrijvende naam voor je tag";
+"type_tag_name" = "Typ tagnaam...";
+"tag_color" = "Tagkleur";
+"tag_color_help" = "Kies een kleur om je tag gemakkelijk te herkennen";
+"edit_tag" = "Tag bewerken";
+"new_tag" = "Nieuwe tag";
+"tag_management_error" = "Fout bij tagbeheer";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Tags selecteren";

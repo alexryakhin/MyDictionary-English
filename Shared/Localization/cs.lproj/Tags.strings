@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "Spravovat štítky";
-"tags.tags_help_text" = "Štítky vám pomáhají organizovat slova. Každé slovo může mít až 5 štítků.";
-"tags.no_tags_yet" = "Zatím nebyly přidány žádné štítky";
-"tags.add_first_tag" = "Přidejte svůj první štítek kliknutím na tlačítko výše.";
-"tags.add_tag" = "Přidat štítek";
-"tags.add_first_tag_description" = "Přidejte svůj první štítek kliknutím na tlačítko výše.";
-"tags.add_tag_to_start_using" = "Přidejte štítek, abyste mohli začít používat.";
-"tags.add_tags" = "Přidat štítky";
-"tags.create_tags" = "Vytvořit štítky";
-"tags.delete_tag" = "Smazat štítek";
-"tags.delete_tag_confirmation" = "Jste si jisti, že chcete tento štítek smazat?";
-"tags.delete_tag_cannot_undo" = "Tato akce je nevratná.";
-"tags.tag_name" = "Název štítku";
-"tags.tag_name_help" = "Vyberte popisný název pro svůj štítek";
-"tags.type_tag_name" = "Zadejte název štítku...";
-"tags.tag_color" = "Barva štítku";
-"tags.tag_color_help" = "Vyberte barvu, která vám pomůže rozpoznat váš štítek";
-"tags.edit_tag" = "Upravit štítek";
-"tags.new_tag" = "Nový štítek";
-"tags.tag_management_error" = "Chyba správy štítků";
+"manage_tags" = "Spravovat štítky";
+"tags_help_text" = "Štítky vám pomáhají organizovat slova. Každé slovo může mít až 5 štítků.";
+"no_tags_yet" = "Zatím nebyly přidány žádné štítky";
+"add_first_tag" = "Přidejte svůj první štítek kliknutím na tlačítko výše.";
+"add_tag" = "Přidat štítek";
+"add_first_tag_description" = "Přidejte svůj první štítek kliknutím na tlačítko výše.";
+"add_tag_to_start_using" = "Přidejte štítek, abyste mohli začít používat.";
+"add_tags" = "Přidat štítky";
+"create_tags" = "Vytvořit štítky";
+"delete_tag" = "Smazat štítek";
+"delete_tag_confirmation" = "Jste si jisti, že chcete tento štítek smazat?";
+"delete_tag_cannot_undo" = "Tato akce je nevratná.";
+"tag_name" = "Název štítku";
+"tag_name_help" = "Vyberte popisný název pro svůj štítek";
+"type_tag_name" = "Zadejte název štítku...";
+"tag_color" = "Barva štítku";
+"tag_color_help" = "Vyberte barvu, která vám pomůže rozpoznat váš štítek";
+"edit_tag" = "Upravit štítek";
+"new_tag" = "Nový štítek";
+"tag_management_error" = "Chyba správy štítků";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "Vybrat štítky";

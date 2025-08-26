@@ -1,24 +1,24 @@
 // MARK: - Tags Flow
-"tags.manage_tags" = "จัดการแท็ก";
-"tags.tags_help_text" = "แท็กช่วยคุณจัดระเบียบคำศัพท์ คำศัพท์แต่ละคำสามารถมีได้ถึง 5 แท็ก";
-"tags.no_tags_yet" = "ยังไม่ได้เพิ่มแท็ก";
-"tags.add_first_tag" = "เพิ่มแท็กแรกของคุณโดยกดปุ่มด้านบน";
-"tags.add_tag" = "เพิ่มแท็ก";
-"tags.add_first_tag_description" = "เพิ่มแท็กแรกของคุณโดยกดปุ่มด้านบน";
-"tags.add_tag_to_start_using" = "เพิ่มแท็กเพื่อเริ่มใช้งาน";
-"tags.add_tags" = "เพิ่มแท็ก";
-"tags.create_tags" = "สร้างแท็ก";
-"tags.delete_tag" = "ลบแท็ก";
-"tags.delete_tag_confirmation" = "คุณแน่ใจหรือไม่ว่าต้องการลบแท็กนี้";
-"tags.delete_tag_cannot_undo" = "การกระทำนี้ไม่สามารถย้อนกลับได้";
-"tags.tag_name" = "ชื่อแท็ก";
-"tags.tag_name_help" = "เลือกชื่อที่อธิบายแท็กของคุณ";
-"tags.type_tag_name" = "พิมพ์ชื่อแท็ก...";
-"tags.tag_color" = "สีของแท็ก";
-"tags.tag_color_help" = "เลือกสีเพื่อให้แท็กของคุณจดจำได้ง่าย";
-"tags.edit_tag" = "แก้ไขแท็ก";
-"tags.new_tag" = "แท็กใหม่";
-"tags.tag_management_error" = "ข้อผิดพลาดในการจัดการแท็ก";
+"manage_tags" = "จัดการแท็ก";
+"tags_help_text" = "แท็กช่วยคุณจัดระเบียบคำศัพท์ คำศัพท์แต่ละคำสามารถมีได้ถึง 5 แท็ก";
+"no_tags_yet" = "ยังไม่ได้เพิ่มแท็ก";
+"add_first_tag" = "เพิ่มแท็กแรกของคุณโดยกดปุ่มด้านบน";
+"add_tag" = "เพิ่มแท็ก";
+"add_first_tag_description" = "เพิ่มแท็กแรกของคุณโดยกดปุ่มด้านบน";
+"add_tag_to_start_using" = "เพิ่มแท็กเพื่อเริ่มใช้งาน";
+"add_tags" = "เพิ่มแท็ก";
+"create_tags" = "สร้างแท็ก";
+"delete_tag" = "ลบแท็ก";
+"delete_tag_confirmation" = "คุณแน่ใจหรือไม่ว่าต้องการลบแท็กนี้";
+"delete_tag_cannot_undo" = "การกระทำนี้ไม่สามารถย้อนกลับได้";
+"tag_name" = "ชื่อแท็ก";
+"tag_name_help" = "เลือกชื่อที่อธิบายแท็กของคุณ";
+"type_tag_name" = "พิมพ์ชื่อแท็ก...";
+"tag_color" = "สีของแท็ก";
+"tag_color_help" = "เลือกสีเพื่อให้แท็กของคุณจดจำได้ง่าย";
+"edit_tag" = "แก้ไขแท็ก";
+"new_tag" = "แท็กใหม่";
+"tag_management_error" = "ข้อผิดพลาดในการจัดการแท็ก";
 
 // MARK: - Tag Selection
 "tag_selection.select_tags" = "เลือกแท็ก";

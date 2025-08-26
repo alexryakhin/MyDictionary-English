@@ -1,0 +1,80 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "Log masuk sebelum melanggan";
+"sign_in_with_google" = "Log Masuk dengan Google";
+"can_always_sign_in_later" = "Anda boleh log masuk kemudian dari tetapan";
+"link_additional_accounts" = "Link Akaun Tambahan";
+"accounts_linked_successfully" = "Akaun berjaya dilink";
+"sign_out_confirmation" = "Log Keluar";
+"your_words_are_safe" = "Perkataan anda selamat";
+"cloud_sync_disabled" = "Penyegerakan awan akan dinyahaktifkan";
+"sign_out" = "Log Keluar";
+"no_worries_wont_remove_words" = "Jangan risau! Kami tidak akan memadam perkataan anda.";
+"vocabulary_stay_on_device" = "Kosa kata anda akan kekal di peranti ini. Jika anda log masuk dengan akaun lain, data anda akan digabungkan.";
+"all_vocabulary_remain_device" = "Semua perkataan, definisi, dan kemajuan anda akan kekal di peranti ini. Anda boleh terus menggunakan apl tanpa log masuk.";
+"word_lists_shared_data_cleared" = "Senarai perkataan dan data kongsi akan dikosongkan. Jika anda log masuk dengan akaun lain, perkataan tempatan anda akan digabungkan dengan data akaun baru.";
+"sign_in_to_access_word_lists" = "Log masuk untuk mengakses senarai perkataan anda di semua peranti dan bekerjasama dengan orang lain.";
+"link_google" = "Link Google";
+"link_apple" = "Link Apple";
+"sign_in_to_sync_word_lists" = "Log masuk untuk menyegerakkan senarai perkataan";
+"sign_out_error_title" = "Alamak!";
+"sign_out_error_message" = "Sesuatu telah berlaku semasa log keluar. Cuba lagi kemudian.";
+"sign_in_required_for_restore" = "Log masuk diperlukan untuk memulihkan pembelian.";
+"sign_in_required_for_pro_features" = "Log masuk diperlukan untuk mengakses ciri Pro seperti %@.";
+"sign_in_failed" = "Log masuk gagal. Cuba lagi.";
+"sign_out_failed" = "Log keluar gagal. Cuba lagi.";
+"user_not_found" = "Pengguna tidak ditemui.";
+"network_error" = "Ralat rangkaian. Semak sambungan anda.";
+"account_linking_failed" = "Link akaun gagal. Cuba lagi.";
+
+// Registration Benefits
+"registration_benefits" = "Manfaat Pendaftaran";
+"access_subscription_all_devices" = "Akses langganan anda di semua peranti";
+"sync_progress_cross_platform" = "Segerakkan kemajuan anda antara iOS dan Android";
+"backup_data_securely" = "Sandarkan data anda dengan selamat di awan";
+"register_anytime_from_settings" = "Anda boleh mendaftar pada bila-bila masa dari Tetapan untuk mengaktifkan ciri-ciri ini";
+"account_registration" = "Pendaftaran Akaun";
+"register_for_cross_platform_access" = "Daftar untuk mengakses langganan anda di semua peranti dan segerakkan kemajuan anda";
+"active_subscription_notification" = "Anda mempunyai langganan aktif!";
+"register_to_unlock_cross_platform" = "Daftar untuk membuka akses merentas platform";
+"register_now" = "Daftar Sekarang";
+
+// Subscription Security
+"subscription_access_restricted" = "Akses Langganan Dihadkan";
+"subscription_associated_different_account" = "Langganan ini dikaitkan dengan akaun yang berbeza. Sila log masuk dengan akaun yang membeli langganan ini untuk mengakses ciri Pro.";
+
+// Profile
+"profile" = "Profil";
+"account_linking" = "Link Akaun";
+"account_linking_description" = "Untuk mengakses langganan anda di peranti Android, anda perlu link akaun Google. Untuk berkongsi langganan merentas platform, link kedua-dua akaun.";
+"link_google_for_android" = "Link Akaun Google";
+"link_apple_for_cross_platform" = "Link Apple ID";
+"current_account" = "Akaun Semasa";
+"linked_accounts" = "Akaun Berlink";
+"no_linked_accounts" = "Tiada akaun berlink";
+
+"cross_platform_button_description" = "Untuk perkongsian langganan merentas platform";
+"nickname" = "Nama samaran";
+"nickname_current" = "Nama samaran semasa";
+"nickname_not_set" = "Nama samaran belum ditetapkan";
+"nickname_description" = "Tetapkan nama samaran unik yang boleh digunakan oleh orang lain untuk mencari dan menambahkan anda ke dalam kamus berkongsi. Ini lebih mudah daripada menggunakan alamat e-mel.";
+"edit_nickname" = "Edit nama samaran";
+"nickname_cannot_be_empty" = "Nama samaran tidak boleh kosong";
+"nickname_already_taken" = "Nama samaran ini sudah digunakan. Pilih yang lain.";
+"nickname_invalid_format" = "Nama samaran hanya boleh mengandungi huruf, nombor, dan garis bawah.";
+"search_method" = "Kaedah carian";
+"find_user_by_email" = "Cari pengguna melalui e-mel";
+"find_user_by_nickname" = "Cari pengguna melalui nama samaran";
+"enter_email_address" = "Masukkan alamat e-mel";
+"enter_nickname" = "Masukkan nama samaran";
+"found_user" = "Pengguna ditemui";
+"user_not_found" = "Pengguna tidak ditemui";
+"user_not_found_message" = "Tiada pengguna ditemui dengan maklumat yang diberikan. Semak carian anda dan cuba lagi.";
+
+"enter_name" = "Masukkan nama";
+"search_by" = "Cari mengikut";
+"unknown_user" = "Pengguna tidak dikenali";
+"email" = "E-mel";
+"apple_id" = "Apple ID";
+"google_account" = "Akaun Google";
+
+

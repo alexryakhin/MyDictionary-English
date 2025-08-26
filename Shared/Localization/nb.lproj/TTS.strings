@@ -1,23 +1,23 @@
 // MARK: - TTS Voice Filters
-"tts.filters.all_use_cases" = "Alle brukstilfeller";
-"tts.filters.all_ages" = "Alle aldre";
-"tts.filters.all_timbres" = "Alle klangfarger";
-"tts.filters.all_accents" = "Alle aksenter";
-"tts.filters.all_languages" = "Alle språk";
-"tts.filters.all_genders" = "Alle kjønn";
-"tts.filters.filters" = "Filtre";
-"tts.filters.reset" = "Tilbakestill";
-"tts.filters.select_voice" = "Velg stemme";
-"tts.filters.available_voices" = "Tilgjengelige stemmer";
-"tts.filters.no_voices_available" = "Ingen stemmer tilgjengelig";
-"tts.filters.no_voices_found" = "Ingen stemmer funnet";
-"tts.filters.no_voices_found_message" = "Prøv å justere søket eller filtrene dine";
+"filters.all_use_cases" = "Alle brukstilfeller";
+"filters.all_ages" = "Alle aldre";
+"filters.all_timbres" = "Alle klangfarger";
+"filters.all_accents" = "Alle aksenter";
+"filters.all_languages" = "Alle språk";
+"filters.all_genders" = "Alle kjønn";
+"filters.filters" = "Filtre";
+"filters.reset" = "Tilbakestill";
+"filters.select_voice" = "Velg stemme";
+"filters.available_voices" = "Tilgjengelige stemmer";
+"filters.no_voices_available" = "Ingen stemmer tilgjengelig";
+"filters.no_voices_found" = "Ingen stemmer funnet";
+"filters.no_voices_found_message" = "Prøv å justere søket eller filtrene dine";
 
-"tts.usage.monthly_limit_exceeded" = "Månedlig grense overskredet";
-"tts.usage.monthly_limit_exceeded_message" = "Du har nådd den månedlige grensen på 50 000 tegn for Speechify TTS. Prøv igjen neste måned eller bruk Google TTS i stedet.";
-"tts.usage.remaining_characters" = "Gjenstående tegn";
-"tts.usage.monthly_usage" = "Månedlig bruk";
-"tts.usage.monthly_limit" = "Månedlig grense";
+"usage.monthly_limit_exceeded" = "Månedlig grense overskredet";
+"usage.monthly_limit_exceeded_message" = "Du har nådd den månedlige grensen på 50 000 tegn for Speechify TTS. Prøv igjen neste måned eller bruk Google TTS i stedet.";
+"usage.remaining_characters" = "Gjenstående tegn";
+"usage.monthly_usage" = "Månedlig bruk";
+"usage.monthly_limit" = "Månedlig grense";
 
 // TTS Voice Filter Values
 "advertisement" = "Reklame";
@@ -75,58 +75,58 @@
 
 
 // TTS Dashboard
-"tts.dashboard" = "TTS-dashbord";
-"tts.premium_tts_dashboard" = "Premium TTS-dashbord";
-"tts.customize_tts_experience" = "Tilpass din tekst-til-tale-opplevelse";
-"tts.playing" = "Spiller";
-"tts.ready" = "Klar";
-"tts.provider" = "Leverandør";
-"tts.tts_provider" = "TTS-leverandør";
-"tts.voice_customization" = "Stemetilpasning";
-"tts.current_voice" = "Nåværende stemme";
-"tts.default_voice" = "Standard stemme";
-"tts.preview_current_voice" = "Forhåndsvis nåværende stemme";
-"tts.change_voice" = "Endre stemme";
-"tts.audio_settings" = "Lydinnstillinger";
-"tts.speech_rate" = "Talehastighet";
-"tts.volume" = "Volum";
-"tts.test_your_settings" = "Test innstillingene dine";
-"tts.enter_text_to_test" = "Skriv inn tekst for å teste...";
-"tts.stop" = "Stopp";
-"tts.test" = "Test";
-"tts.usage_statistics" = "Bruksstatistikk";
-"tts.speechify_monthly_usage" = "Speechify månedlig bruk";
-"tts.monthly_limit" = "Månedlig grense";
-"tts.used_this_month" = "Brukt denne måneden";
-"tts.remaining" = "Gjenstående";
-"tts.usage_progress" = "Bruksfremgang";
-"tts.characters" = "tegn";
+"dashboard" = "TTS-dashbord";
+"premium_tts_dashboard" = "Premium TTS-dashbord";
+"customize_tts_experience" = "Tilpass din tekst-til-tale-opplevelse";
+"playing" = "Spiller";
+"ready" = "Klar";
+"provider" = "Leverandør";
+"tts_provider" = "TTS-leverandør";
+"voice_customization" = "Stemetilpasning";
+"current_voice" = "Nåværende stemme";
+"default_voice" = "Standard stemme";
+"preview_current_voice" = "Forhåndsvis nåværende stemme";
+"change_voice" = "Endre stemme";
+"audio_settings" = "Lydinnstillinger";
+"speech_rate" = "Talehastighet";
+"volume" = "Volum";
+"test_your_settings" = "Test innstillingene dine";
+"enter_text_to_test" = "Skriv inn tekst for å teste...";
+"stop" = "Stopp";
+"test" = "Test";
+"usage_statistics" = "Bruksstatistikk";
+"speechify_monthly_usage" = "Speechify månedlig bruk";
+"monthly_limit" = "Månedlig grense";
+"used_this_month" = "Brukt denne måneden";
+"remaining" = "Gjenstående";
+"usage_progress" = "Bruksfremgang";
+"characters" = "tegn";
 
 // TTS Analytics
-"tts.analytics.characters_used" = "Brukte tegn";
-"tts.analytics.sessions" = "Økter";
-"tts.analytics.favorite_voice" = "Favorittstemme";
-"tts.analytics.time_saved" = "Sparet tid";
-"tts.analytics.total_characters" = "Totalt antall tegn";
-"tts.analytics.total_sessions" = "Totalt antall økter";
-"tts.analytics.total_duration" = "Total varighet";
-"tts.analytics.favorite_language" = "Favorittspråk";
-"tts.analytics.premium_usage" = "Premiumbruk";
+"analytics.characters_used" = "Brukte tegn";
+"analytics.sessions" = "Økter";
+"analytics.favorite_voice" = "Favorittstemme";
+"analytics.time_saved" = "Sparet tid";
+"analytics.total_characters" = "Totalt antall tegn";
+"analytics.total_sessions" = "Totalt antall økter";
+"analytics.total_duration" = "Total varighet";
+"analytics.favorite_language" = "Favorittspråk";
+"analytics.premium_usage" = "Premiumbruk";
 
 // TTS Settings
-"tts.settings.text_to_speech" = "Tekst-til-tale";
-"tts.settings.speechify" = "Speechify";
-"tts.settings.speechify_description" = "Speechifys tekst-til-tale-modell er tilgjengelig for alle brukere som en premiumfunksjon. Den lar deg velge fra et bredt utvalg av stemmer og aksenter, slik at du kan tilpasse studieopplevelsen din.";
-"tts.settings.speechify_pro_description" = "Speechifys tekst-til-tale-modell er inkludert i abonnementet ditt.";
-"tts.settings.dashboard" = "Dashbord";
-"tts.pro" = "Pro";
-"tts.free_google_tts_description" = "Gratis Google TTS med grunnleggende stemmer og pålitelig ytelse";
+"settings.text_to_speech" = "Tekst-til-tale";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Speechifys tekst-til-tale-modell er tilgjengelig for alle brukere som en premiumfunksjon. Den lar deg velge fra et bredt utvalg av stemmer og aksenter, slik at du kan tilpasse studieopplevelsen din.";
+"settings.speechify_pro_description" = "Speechifys tekst-til-tale-modell er inkludert i abonnementet ditt.";
+"settings.dashboard" = "Dashbord";
+"pro" = "Pro";
+"free_google_tts_description" = "Gratis Google TTS med grunnleggende stemmer og pålitelig ytelse";
 
 // TTS Models
-"tts.models.english" = "Engelsk";
-"tts.models.multilingual" = "Fler språk";
-"tts.models.english_description" = "Speechifys engelske tekst-til-tale-modell tilbyr standardfunksjoner designet for å levere klar og naturlig lydutgang for tekstlesing. Modellen fokuserer på å gi en konsistent brukeropplevelse.";
-"tts.models.multilingual_description" = "Den flerspråklige modellen tillater bruk av alle støttede språk og støtter bruk av flere språk innenfor en enkelt setning. Lydutgangen fra denne modellen skiller seg tydelig fra andre modeller.";
+"models.english" = "Engelsk";
+"models.multilingual" = "Fler språk";
+"models.english_description" = "Speechifys engelske tekst-til-tale-modell tilbyr standardfunksjoner designet for å levere klar og naturlig lydutgang for tekstlesing. Modellen fokuserer på å gi en konsistent brukeropplevelse.";
+"models.multilingual_description" = "Den flerspråklige modellen tillater bruk av alle støttede språk og støtter bruk av flere språk innenfor en enkelt setning. Lydutgangen fra denne modellen skiller seg tydelig fra andre modeller.";
 
 // MARK: - English Accents
 "english_accents.australian" = "Australsk";

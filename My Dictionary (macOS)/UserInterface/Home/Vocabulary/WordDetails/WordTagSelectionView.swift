@@ -18,14 +18,14 @@ struct WordTagSelectionView: View {
     var body: some View {
         ScrollViewWithCustomNavBar {
             CustomSectionView(
-                header: Loc.TagSelection.selectTags.localized,
-                footer: Loc.TagSelection.youCanSelectUpTo5Tags.localized
+                header: Loc.Tags.TagSelection.selectTags,
+                footer: Loc.Tags.TagSelection.youCanSelectUpTo5Tags
             ) {
                 if tagService.tags.isEmpty {
                     ContentUnavailableView(
-                        Loc.TagSelection.noTagsYet.localized,
+                        Loc.Tags.TagSelection.noTagsYet,
                         systemImage: "tag",
-                        description: Text(Loc.Tags.addTagToStartUsing.localized)
+                        description: Text(Loc.Tags.addTagToStartUsing)
                     )
                     .padding(.vertical, 16)
                 } else {
@@ -45,13 +45,13 @@ struct WordTagSelectionView: View {
                     .padding(.bottom, 12)
                 }
             } trailingContent: {
-                HeaderButton(Loc.Tags.createTags.localized, icon: "tag", size: .small, style: .borderedProminent) {
+                HeaderButton(Loc.Tags.createTags, icon: "tag", size: .small, style: .borderedProminent) {
                     isShowingAddTagSheet.toggle()
                 }
             }
             .padding(12)
         } navigationBar: {
-            NavigationBarView(title: Loc.Tags.addTags.localized)
+            NavigationBarView(title: Loc.Tags.addTags)
         }
         .groupedBackground()
         .sheet(isPresented: $isShowingAddTagSheet) {

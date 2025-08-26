@@ -16,13 +16,13 @@ enum TabBarItem: CaseIterable {
     var title: String {
         switch self {
         case .myDictionary:
-            return Loc.App.myDictionary.localized
+            return Loc.Onboarding.myDictionary
         case .quizzes:
-            return Loc.TabBar.quizzes.localized
+            return Loc.Navigation.Tabbar.quizzes
         case .analytics:
-            return Loc.TabBar.progress.localized
+            return Loc.Navigation.Tabbar.progress
         case .settings:
-            return Loc.TabBar.settings.localized
+            return Loc.Navigation.Tabbar.settings
         }
     }
 

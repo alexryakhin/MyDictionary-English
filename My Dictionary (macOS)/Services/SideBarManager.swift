@@ -84,9 +84,9 @@ enum SideBarTab: Hashable {
 
     var title: String {
         switch self {
-        case .myDictionary: return Loc.App.myDictionary.localized
-        case .quizzes: return Loc.TabBar.quizzes.localized
-        case .analytics: return Loc.TabBar.progress.localized
+        case .myDictionary: return Loc.Onboarding.myDictionary
+        case .quizzes: return Loc.Navigation.Tabbar.quizzes
+        case .analytics: return Loc.Navigation.Tabbar.progress
         case .sharedDictionary(let dictionary): return dictionary.name
         }
     }
@@ -102,10 +102,10 @@ enum SideBarTab: Hashable {
 
     var selectDetailsText: String? {
         switch self {
-        case .myDictionary: Loc.Actions.selectWord.localized
-        case .quizzes: Loc.Actions.selectQuiz.localized
+        case .myDictionary: Loc.Actions.selectWord
+        case .quizzes: Loc.Actions.selectQuiz
         case .analytics: nil
-        case .sharedDictionary: Loc.Actions.selectWord.localized
+        case .sharedDictionary: Loc.Actions.selectWord
         }
     }
 

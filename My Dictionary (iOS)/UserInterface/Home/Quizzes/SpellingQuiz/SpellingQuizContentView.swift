@@ -20,7 +20,7 @@ struct SpellingQuizContentView: View {
                         .font(.system(size: 60))
                         .foregroundStyle(.red.gradient)
                     
-                    Text(Loc.Quizzes.quizUnavailable.localized)
+                    Text(Loc.Quizzes.quizUnavailable)
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
@@ -34,7 +34,7 @@ struct SpellingQuizContentView: View {
                 .padding(.horizontal, 32)
                 
                 ActionButton(
-                    Loc.Quizzes.backToQuizzes.localized,
+                    Loc.Quizzes.backToQuizzes,
                     systemImage: "chevron.left",
                     style: .borderedProminent
                 ) {
@@ -69,10 +69,10 @@ struct SpellingQuizContentView: View {
             }
             .groupedBackground()
             .navigation(
-                title: Loc.Navigation.spellingQuiz.localized,
+                title: Loc.Navigation.spellingQuiz,
                 mode: .inline,
                 trailingContent: {
-                    HeaderButton(Loc.Actions.exit.localized) {
+                    HeaderButton(Loc.Actions.exit) {
                         dismiss()
                     }
                 },
@@ -106,12 +106,12 @@ struct SpellingQuizContentView: View {
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("\(Loc.Quizzes.progress.localized): \(viewModel.itemsPlayed.count)/\(viewModel.totalQuestions)")
+                    Text("\(Loc.Quizzes.progress): \(viewModel.itemsPlayed.count)/\(viewModel.totalQuestions)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
                     if viewModel.currentStreak > 0 {
-                        Text("🔥 \(Loc.Quizzes.streak.localized): \(viewModel.currentStreak)")
+                        Text("🔥 \(Loc.Quizzes.streak): \(viewModel.currentStreak)")
                             .font(.caption)
                             .foregroundStyle(.orange)
                             .fontWeight(.medium)
@@ -121,12 +121,12 @@ struct SpellingQuizContentView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 2) {
-                    Text("\(Loc.Quizzes.score.localized): \(viewModel.score)")
+                    Text("\(Loc.Quizzes.score): \(viewModel.score)")
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundStyle(.blue)
                     
-                    Text("\(Loc.Quizzes.best.localized): \(viewModel.bestStreak)")
+                    Text("\(Loc.Quizzes.best): \(viewModel.bestStreak)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -141,7 +141,7 @@ struct SpellingQuizContentView: View {
                     .font(.title2)
                     .foregroundStyle(.blue)
                 
-                Text(Loc.Words.definition.localized)
+                Text(Loc.Words.definition)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
@@ -162,7 +162,7 @@ struct SpellingQuizContentView: View {
                     Image(systemName: "lightbulb.fill")
                         .foregroundStyle(.yellow)
                     
-                    Text("\(Loc.Quizzes.hint.localized): \(Loc.App.wordStartsWith.localized) '\(randomItem.quiz_text.prefix(1).uppercased())'")
+                    Text("\(Loc.Quizzes.hint): \(Loc.Quizzes.wordStartsWith) '\(randomItem.quiz_text.prefix(1).uppercased())'")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
@@ -187,20 +187,20 @@ struct SpellingQuizContentView: View {
                     .font(.title2)
                     .foregroundStyle(.accent)
 
-                Text(Loc.Quizzes.yourAnswer.localized)
+                Text(Loc.Quizzes.yourAnswer)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
                 Spacer()
                 
                 if viewModel.attemptCount > 0 {
-                    Text("\(Loc.Quizzes.attempt.localized) \(viewModel.attemptCount)")
+                    Text("\(Loc.Quizzes.attempt) \(viewModel.attemptCount)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
             }
             
-                            TextField(Loc.App.typeWordHere.localized, text: $viewModel.answerTextField, axis: .vertical)
+                            TextField(Loc.Words.typeWordHere, text: $viewModel.answerTextField, axis: .vertical)
                 .padding(vertical: 8, horizontal: 12)
                 .background(Color.tertiarySystemGroupedBackground)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -218,7 +218,7 @@ struct SpellingQuizContentView: View {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(.accent)
 
-                    Text([Loc.Quizzes.correct.localized, Loc.Quizzes.wellDone.localized, Loc.Quizzes.keepUpGoodWork.localized].randomElement() ?? Loc.Quizzes.correct.localized)
+                    Text([Loc.Quizzes.correct, Loc.Quizzes.wellDone, Loc.Quizzes.keepUpGoodWork].randomElement() ?? Loc.Quizzes.correct)
                         .font(.caption)
                         .foregroundStyle(.accent)
 
@@ -231,7 +231,7 @@ struct SpellingQuizContentView: View {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.red)
                     
-                    Text(Loc.Quizzes.correctWordIs.localized(viewModel.randomItem?.quiz_text ?? ""))
+                    Text(Loc.Quizzes.correctWordIs(viewModel.randomItem?.quiz_text ?? ""))
                         .font(.caption)
                         .foregroundStyle(.red)
                     
@@ -265,7 +265,7 @@ struct SpellingQuizContentView: View {
         let isMovingOnToNextWord = viewModel.isShowingCorrectAnswer || viewModel.attemptCount >= 3
         VStack(spacing: 12) {
             ActionButton(
-                isMovingOnToNextWord ? Loc.Quizzes.nextWord.localized : Loc.Quizzes.submitAnswer.localized,
+                isMovingOnToNextWord ? Loc.Quizzes.nextWord : Loc.Quizzes.submitAnswer,
                 systemImage: isMovingOnToNextWord ? "arrow.right.circle.fill" : "checkmark.circle.fill",
                 style: .borderedProminent
             ) {
@@ -279,7 +279,7 @@ struct SpellingQuizContentView: View {
             }
             .disabled(viewModel.answerTextField.isEmpty)
 
-            ActionButton(Loc.Quizzes.skipWord.localized, systemImage: "arrow.right.circle") {
+            ActionButton(Loc.Quizzes.skipWord, systemImage: "arrow.right.circle") {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     viewModel.handle(.skipItem)
                 }
@@ -306,11 +306,11 @@ struct SpellingQuizContentView: View {
                 }
                 
                 VStack(spacing: 12) {
-                    Text(Loc.Quizzes.quizComplete.localized)
+                    Text(Loc.Quizzes.quizComplete)
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    Text(Loc.Quizzes.greatJobCompletedSpellingQuiz.localized)
+                    Text(Loc.Quizzes.greatJobCompletedSpellingQuiz)
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -318,13 +318,13 @@ struct SpellingQuizContentView: View {
                 
                 // Score Card
                 VStack(spacing: 16) {
-                    Text(Loc.Quizzes.yourResults.localized)
+                    Text(Loc.Quizzes.yourResults)
                         .font(.headline)
                         .fontWeight(.semibold)
                     
                     VStack(spacing: 12) {
                         HStack {
-                            Text(Loc.Quizzes.finalScore.localized)
+                            Text(Loc.Quizzes.finalScore)
                             Spacer()
                             Text("\(viewModel.score)")
                                 .fontWeight(.bold)
@@ -332,14 +332,14 @@ struct SpellingQuizContentView: View {
                         }
                         
                         HStack {
-                            Text(Loc.Quizzes.correctAnswers.localized)
+                            Text(Loc.Quizzes.correctAnswers)
                             Spacer()
                             Text("\(viewModel.correctAnswers)/\(viewModel.itemsPlayed.count)")
                                 .fontWeight(.medium)
                         }
                         
                         HStack {
-                            Text(Loc.Quizzes.bestStreak.localized)
+                            Text(Loc.Quizzes.bestStreak)
                             Spacer()
                             Text("\(viewModel.bestStreak)")
                                 .fontWeight(.medium)
@@ -347,7 +347,7 @@ struct SpellingQuizContentView: View {
                         }
                         
                         HStack {
-                            Text(Loc.Quizzes.accuracy.localized)
+                            Text(Loc.Quizzes.accuracy)
                             Spacer()
                             Text("\(Int(calculateAccuracy()))%")
                                 .fontWeight(.medium)
@@ -379,10 +379,10 @@ struct SpellingQuizContentView: View {
             Spacer()
 
             VStack(spacing: 12) {
-                ActionButton(Loc.Actions.tryAgain.localized, systemImage: "arrow.clockwise", style: .borderedProminent) {
+                ActionButton(Loc.Actions.tryAgain, systemImage: "arrow.clockwise", style: .borderedProminent) {
                     viewModel.handle(.restartQuiz)
                 }
-                ActionButton(Loc.Quizzes.backToQuizzes.localized, systemImage: "chevron.left") {
+                ActionButton(Loc.Quizzes.backToQuizzes, systemImage: "chevron.left") {
                     dismiss()
                 }
             }
@@ -404,9 +404,9 @@ struct SpellingQuizContentView: View {
         guard let randomItem = viewModel.randomItem else { return "" }
 
         if viewModel.attemptCount > 2 {
-            return Loc.QuizActions.yourWordIs.localized(randomItem.quiz_text.trimmed)
+            return Loc.Quizzes.QuizActions.yourWordIs(randomItem.quiz_text.trimmed)
         } else {
-            return Loc.QuizActions.incorrectTryAgain.localized
+            return Loc.Quizzes.QuizActions.incorrectTryAgain
         }
     }
 

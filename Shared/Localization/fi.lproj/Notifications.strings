@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "Ilmoituslupa vaaditaan";
-"notifications.permission_denied_message" = "Saadaksesi päivittäisiä muistutuksia ja vaikeiden sanojen hälytyksiä, ota ilmoitukset käyttöön Asetuksista.";
+"permission_required" = "Ilmoituslupa vaaditaan";
+"permission_denied_message" = "Saadaksesi päivittäisiä muistutuksia ja vaikeiden sanojen hälytyksiä, ota ilmoitukset käyttöön Asetuksista.";
 
-"notifications.time_to_practice" = "Aika harjoitella! 📚";
-"notifications.practice_vocabulary_today" = "Älä unohda harjoitella sanastoasi tänään.";
-"notifications.practice_difficult_words" = "Harjoittele vaikeita sanoja 📚";
-"notifications.difficult_words_challenge" = "Sinulla on sanoja, jotka tarvitsevat lisää harjoittelua. Valmis haasteeseen?";
-"notifications.test_dictionary_invitation" = "Kutsu testisanakirjaan";
-"notifications.test_dictionary_invitation_body" = "Joku on lisännyt sinut 'Testisanakirjaan'";
+"time_to_practice" = "Aika harjoitella! 📚";
+"practice_vocabulary_today" = "Älä unohda harjoitella sanastoasi tänään.";
+"practice_difficult_words" = "Harjoittele vaikeita sanoja 📚";
+"difficult_words_challenge" = "Sinulla on sanoja, jotka tarvitsevat lisää harjoittelua. Valmis haasteeseen?";
+"test_dictionary_invitation" = "Kutsu testisanakirjaan";
+"test_dictionary_invitation_body" = "Joku on lisännyt sinut 'Testisanakirjaan'";
 

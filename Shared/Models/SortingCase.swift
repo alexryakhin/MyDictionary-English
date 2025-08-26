@@ -18,13 +18,13 @@ enum SortingCase: String, CaseIterable {
     var displayName: String {
         switch self {
         case .latest:
-            return Loc.Sorting.latestFirst.localized
+            return Loc.Words.Sorting.latestFirst
         case .earliest:
-            return Loc.Sorting.earliestFirst.localized
+            return Loc.Words.Sorting.earliestFirst
         case .alphabetically:
-            return Loc.Sorting.alphabetically.localized
+            return Loc.Words.Sorting.alphabetically
         case .partOfSpeech:
-            return Loc.Sorting.byPartOfSpeech.localized
+            return Loc.Words.Sorting.byPartOfSpeech
         }
     }
 }

@@ -38,11 +38,11 @@ struct QuizResultsView: View {
                 }
 
                 VStack(spacing: 12) {
-                    Text(Loc.Quizzes.quizComplete.localized)
+                    Text(Loc.Quizzes.quizComplete)
                         .font(.title)
                         .fontWeight(.bold)
 
-                    Text(Loc.Quizzes.greatJobCompletedDefinitionQuiz.localized)
+                    Text(Loc.Quizzes.greatJobCompletedDefinitionQuiz)
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -50,13 +50,13 @@ struct QuizResultsView: View {
 
                 // Score Card
                 VStack(spacing: 16) {
-                    Text(Loc.Quizzes.yourResults.localized)
+                    Text(Loc.Quizzes.yourResults)
                         .font(.headline)
                         .fontWeight(.semibold)
 
                     VStack(spacing: 12) {
                         HStack {
-                            Text(Loc.Quizzes.finalScore.localized)
+                            Text(Loc.Quizzes.finalScore)
                             Spacer()
                             Text("\(model.score)")
                                 .fontWeight(.bold)
@@ -64,14 +64,14 @@ struct QuizResultsView: View {
                         }
 
                         HStack {
-                            Text(Loc.Quizzes.correctAnswers.localized)
+                            Text(Loc.Quizzes.correctAnswers)
                             Spacer()
                             Text("\(model.correctAnswers)/\(model.wordsPlayed)")
                                 .fontWeight(.medium)
                         }
 
                         HStack {
-                            Text(Loc.Quizzes.bestStreak.localized)
+                            Text(Loc.Quizzes.bestStreak)
                             Spacer()
                             Text("\(model.bestStreak)")
                                 .fontWeight(.medium)
@@ -79,7 +79,7 @@ struct QuizResultsView: View {
                         }
 
                         HStack {
-                            Text(Loc.Quizzes.accuracy.localized)
+                            Text(Loc.Quizzes.accuracy)
                             Spacer()
                             Text("\(Int((Double(model.correctAnswers) / Double(model.wordsPlayed)) * 100))%")
                                 .fontWeight(.medium)
@@ -97,10 +97,10 @@ struct QuizResultsView: View {
             Spacer()
 
             VStack(spacing: 12) {
-                ActionButton(Loc.Actions.tryAgain.localized, systemImage: "arrow.clockwise", style: .borderedProminent) {
+                ActionButton(Loc.Actions.tryAgain, systemImage: "arrow.clockwise", style: .borderedProminent) {
                     onRestart()
                 }
-                ActionButton(Loc.Quizzes.backToQuizzes.localized, systemImage: "chevron.left") {
+                ActionButton(Loc.Quizzes.backToQuizzes, systemImage: "chevron.left") {
                     onFinish()
                 }
             }

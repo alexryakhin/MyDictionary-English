@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "الكلمات";
-"tabbar.idioms" = "التعابير";
 "tabbar.quizzes" = "الاختبارات";
 "tabbar.progress" = "التقدم";
 "tabbar.settings" = "الإعدادات";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "تفاصيل الكلمة";
-"navigation.idiom_details" = "تفاصيل التعبير";
-"navigation.add_tags" = "إضافة علامات";
-"navigation.about" = "حول";
-"navigation.debug_panel" = "لوحة التصحيح";
-"navigation.quiz_results" = "نتائج الاختبار";
-"navigation.spelling_quiz" = "اختبار الإملاء";
-"navigation.definition_quiz" = "اختبار التعريف";
-"navigation.close" = "إغلاق";
-"navigation.close_screen" = "إغلاق الشاشة";
+"word_details" = "تفاصيل الكلمة";
+"idiom_details" = "تفاصيل التعبير";
+"add_tags" = "إضافة علامات";
+"about" = "حول";
+"debug_panel" = "لوحة التصحيح";
+"quiz_results" = "نتائج الاختبار";
+"spelling_quiz" = "اختبار الإملاء";
+"definition_quiz" = "اختبار التعريف";
+"close" = "إغلاق";
+"close_screen" = "إغلاق الشاشة";
 

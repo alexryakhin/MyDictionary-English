@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "Woorden";
-"tabbar.idioms" = "Idiomen";
 "tabbar.quizzes" = "Quizzen";
 "tabbar.progress" = "Voortgang";
 "tabbar.settings" = "Instellingen";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "Woorddetails";
-"navigation.idiom_details" = "Idioomdetails";
-"navigation.add_tags" = "Tags toevoegen";
-"navigation.about" = "Over de app";
-"navigation.debug_panel" = "Debugpaneel";
-"navigation.quiz_results" = "Quizresultaten";
-"navigation.spelling_quiz" = "Spelquiz";
-"navigation.definition_quiz" = "Definitiequiz";
-"navigation.close" = "Sluiten";
-"navigation.close_screen" = "Scherm sluiten";
+"word_details" = "Woorddetails";
+"idiom_details" = "Idioomdetails";
+"add_tags" = "Tags toevoegen";
+"about" = "Over de app";
+"debug_panel" = "Debugpaneel";
+"quiz_results" = "Quizresultaten";
+"spelling_quiz" = "Spelquiz";
+"definition_quiz" = "Definitiequiz";
+"close" = "Sluiten";
+"close_screen" = "Scherm sluiten";
 

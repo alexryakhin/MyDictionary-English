@@ -36,17 +36,17 @@ struct AddWordView: View {
             .editModeDisabling()
         } navigationBar: {
             NavigationBarView(
-                title: Loc.Words.addNewWord.localized,
+                title: Loc.Words.addNewWord,
                 trailingContent: {
-                    HeaderButton(Loc.Actions.save.localized, style: .borderedProminent) {
+                    HeaderButton(Loc.Actions.save, style: .borderedProminent) {
                         viewModel.handle(.saveToSharedDictionary(selectedDictionaryId))
                     }
-                    .help(Loc.Actions.saveWord.localized)
+                    .help(Loc.Actions.saveWord)
                 },
                 bottomContent: {
                     if authenticationService.isSignedIn {
                         HeaderButton(
-                            selectedDictionaryId == nil ? Loc.Words.privateDictionary.localized : Loc.Words.sharedDictionary.localized,
+                            selectedDictionaryId == nil ? Loc.Words.privateDictionary : Loc.Words.sharedDictionary,
                             icon: selectedDictionaryId == nil ? "person" : "person.2",
                         ) {
                             showingDictionarySelection = true
@@ -74,8 +74,8 @@ struct AddWordView: View {
     }
 
     var wordCellView: some View {
-        CellWrapper(Loc.Words.word.localized) {
-            CustomTextField(Loc.Words.typeWord.localized, text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
+        CellWrapper(Loc.Words.word) {
+            CustomTextField(Loc.Words.typeWord, text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
                 if viewModel.inputWord.isNotEmpty {
                     viewModel.handle(.fetchData)
                 }
@@ -85,7 +85,7 @@ struct AddWordView: View {
     }
 
     var inputLanguageCellView: some View {
-        CellWrapper(Loc.Words.inputLanguage.localized) {
+        CellWrapper(Loc.Words.inputLanguage) {
             Menu {
                 ForEach(InputLanguage.allCases, id: \.self) { language in
                     Button {
@@ -113,15 +113,15 @@ struct AddWordView: View {
     }
 
     var definitionCellView: some View {
-        CellWrapper(Loc.Words.definition.localized) {
-            CustomTextField(Loc.App.enterDefinition.localized, text: $viewModel.descriptionField)
+        CellWrapper(Loc.Words.definition) {
+            CustomTextField(Loc.Words.enterDefinition, text: $viewModel.descriptionField)
                 .autocorrectionDisabled()
         }
     }
 
     @ViewBuilder
     var partOfSpeechCellView: some View {
-        CellWrapper(Loc.Words.partOfSpeech.localized) {
+        CellWrapper(Loc.Words.partOfSpeech) {
             Menu {
                 ForEach(PartOfSpeech.allCases, id: \.self) { partOfSpeech in
                     Button {
@@ -134,7 +134,7 @@ struct AddWordView: View {
                     }
                 }
             } label: {
-                Text(viewModel.partOfSpeech?.displayName ?? Loc.App.selectValue.localized)
+                Text(viewModel.partOfSpeech?.displayName ?? Loc.Actions.selectValue)
             }
             .buttonStyle(.plain)
         }
@@ -143,7 +143,7 @@ struct AddWordView: View {
     @ViewBuilder
     var phoneticsCellView: some View {
         if let pronunciation = viewModel.pronunciation?.nilIfEmpty {
-            CellWrapper(Loc.App.pronunciation.localized) {
+            CellWrapper(Loc.Words.pronunciation) {
                 Text(pronunciation)
             } trailingContent: {
                 AsyncHeaderButton(
@@ -159,16 +159,16 @@ struct AddWordView: View {
 
     @ViewBuilder
     var tagsCellView: some View {
-        CellWrapper(Loc.App.tags.localized) {
+        CellWrapper(Loc.Words.tags) {
             if viewModel.selectedTags.isEmpty {
-                Text(Loc.Words.noTagsSelected.localized)
+                Text(Loc.Words.noTagsSelected)
                     .foregroundStyle(.secondary)
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(viewModel.selectedTags, id: \.id) { tag in
                             Menu {
-                                Button(Loc.Actions.remove.localized, role: .destructive) {
+                                Button(Loc.Actions.remove, role: .destructive) {
                                     viewModel.handle(.toggleTag(tag))
                                 }
                             } label: {
@@ -194,7 +194,7 @@ struct AddWordView: View {
 
     @ViewBuilder
     var definitionsSectionView: some View {
-        CustomSectionView(header: Loc.App.selectDefinition.localized, hPadding: .zero) {
+        CustomSectionView(header: Loc.Words.selectDefinition, hPadding: .zero) {
             switch viewModel.status {
             case .loading:
                 VStack(spacing: 16) {
@@ -208,7 +208,7 @@ struct AddWordView: View {
                         HStack {
                             LoaderView()
                                 .frame(width: 24, height: 24)
-                            Text(GlobalConstant.isEnglishLanguage ? Loc.App.translatingWord.localized : Loc.App.translatingDefinitions.localized)
+                            Text(GlobalConstant.isEnglishLanguage ? Loc.Words.translatingWord : Loc.Words.translatingDefinitions)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -222,9 +222,9 @@ struct AddWordView: View {
                         .font(.largeTitle)
                         .foregroundStyle(.orange)
                 } description: {
-                    Text(Loc.Words.errorLoadingDefinitions.localized)
+                    Text(Loc.Words.errorLoadingDefinitions)
                 } actions: {
-                    HeaderButton(Loc.App.retry.localized, icon: "magnifyingglass", style: .borderedProminent) {
+                    HeaderButton(Loc.Actions.retry, icon: "magnifyingglass", style: .borderedProminent) {
                         viewModel.handle(.fetchData)
                     }
                 }
@@ -237,7 +237,7 @@ struct AddWordView: View {
                 FormWithDivider {
                     ForEach(Array(definitionsToShow.enumerated()), id: \.element.id) { offset, definition in
                         FormWithDivider {
-                            CellWrapper("\(Loc.Words.definition.localized) \(offset + 1), \(definition.partOfSpeech.displayName)") {
+                            CellWrapper("\(Loc.Words.definition) \(offset + 1), \(definition.partOfSpeech.displayName)") {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(definition.text)
                                         .multilineTextAlignment(.leading)
@@ -264,7 +264,7 @@ struct AddWordView: View {
                             // Show examples from original definition
                             if offset < viewModel.definitions.count {
                                 ForEach(viewModel.definitions[offset].examples, id: \.self) { example in
-                                    CellWrapper(Loc.App.example.localized) {
+                                    CellWrapper(Loc.Words.example) {
                                         Text(example)
                                     }
                                 }
@@ -276,10 +276,10 @@ struct AddWordView: View {
                 ContentUnavailableView {
                     EmptyView()
                 } description: {
-                    Text(Loc.Words.typeWordAndPressSearch.localized)
+                    Text(Loc.Words.typeWordAndPressSearch)
                 } actions: {
                     HeaderButton(
-                        Loc.Actions.search.localized,
+                        Loc.Actions.search,
                         icon: "magnifyingglass",
                         style: .borderedProminent
                     ) {

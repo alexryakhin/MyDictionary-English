@@ -1,12 +1,12 @@
 // MARK: - Notifications
 
-"notifications.permission_required" = "Izin notifikasi diperlukan";
-"notifications.permission_denied_message" = "Untuk menerima pengingat harian dan peringatan untuk kata-kata sulit, aktifkan notifikasi di Pengaturan.";
+"permission_required" = "Izin notifikasi diperlukan";
+"permission_denied_message" = "Untuk menerima pengingat harian dan peringatan untuk kata-kata sulit, aktifkan notifikasi di Pengaturan.";
 
-"notifications.time_to_practice" = "Waktunya berlatih! 📚";
-"notifications.practice_vocabulary_today" = "Jangan lupa untuk melatih kosakata Anda hari ini.";
-"notifications.practice_difficult_words" = "Latih kata-kata sulit 📚";
-"notifications.difficult_words_challenge" = "Anda memiliki kata-kata yang perlu lebih banyak latihan. Siap untuk tantangan?";
-"notifications.test_dictionary_invitation" = "Undangan Kamus Tes";
-"notifications.test_dictionary_invitation_body" = "Seseorang telah menambahkan Anda ke 'Kamus Tes'";
+"time_to_practice" = "Waktunya berlatih! 📚";
+"practice_vocabulary_today" = "Jangan lupa untuk melatih kosakata Anda hari ini.";
+"practice_difficult_words" = "Latih kata-kata sulit 📚";
+"difficult_words_challenge" = "Anda memiliki kata-kata yang perlu lebih banyak latihan. Siap untuk tantangan?";
+"test_dictionary_invitation" = "Undangan Kamus Tes";
+"test_dictionary_invitation_body" = "Seseorang telah menambahkan Anda ke 'Kamus Tes'";
 

@@ -80,7 +80,7 @@ extension View {
         .buttonStyle(.plain)
     }
 
-    func errorReceived(title: String = Loc.App.error.localized, _ error: Error) {
+    func errorReceived(title: String = Loc.Errors.error, _ error: Error) {
         Task { @MainActor in
             AlertCenter.shared.showAlert(with: .info(title: title, message: error.localizedDescription))
         }
@@ -88,7 +88,7 @@ extension View {
 
     func showAlertWithMessage(_ message: String) {
         Task { @MainActor in
-            AlertCenter.shared.showAlert(with: .info(title: Loc.App.oops.localized, message: message))
+            AlertCenter.shared.showAlert(with: .info(title: Loc.Errors.oops, message: message))
         }
     }
 

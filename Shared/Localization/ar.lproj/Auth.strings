@@ -1,0 +1,78 @@
+// MARK: - Authentication
+"sign_in_before_subscribing" = "تسجيل الدخول قبل الاشتراك";
+"sign_in_with_google" = "تسجيل الدخول بحساب جوجل";
+"can_always_sign_in_later" = "يمكنك دائمًا تسجيل الدخول لاحقًا من الإعدادات";
+"link_additional_accounts" = "ربط حسابات إضافية";
+"accounts_linked_successfully" = "تم ربط الحسابات بنجاح";
+"sign_out_confirmation" = "تسجيل الخروج";
+"your_words_are_safe" = "كلماتك آمنة";
+"cloud_sync_disabled" = "سيتم تعطيل المزامنة السحابية";
+"sign_out" = "تسجيل الخروج";
+"no_worries_wont_remove_words" = "لا داعي للقلق! لن نزيل كلماتك.";
+"vocabulary_stay_on_device" = "ستبقى مفرداتك على هذا الجهاز. إذا سجلت الدخول بحساب آخر، ستُدمج بياناتك.";
+"all_vocabulary_remain_device" = "ستبقى جميع كلمات المفردات والتعريفات والتقدم على هذا الجهاز. يمكنك متابعة استخدام التطبيق دون اتصال.";
+"word_lists_shared_data_cleared" = "سيتم مسح قوائم الكلمات والبيانات المشتركة. إذا سجلت الدخول بحساب آخر، ستُدمج كلماتك المحلية مع بيانات الحساب الجديد.";
+"sign_in_to_access_word_lists" = "تسجيل الدخول للوصول إلى قوائم الكلمات عبر جميع أجهزتك والتعاون مع الآخرين.";
+"link_google" = "ربط بحساب جوجل";
+"link_apple" = "ربط بحساب أبل";
+"sign_in_to_sync_word_lists" = "تسجيل الدخول لمزامنة قوائم الكلمات";
+"sign_out_error_title" = "أوه لا!";
+"sign_out_error_message" = "حدث خطأ أثناء تسجيل الخروج. حاول مرة أخرى لاحقًا.";
+"sign_in_required_for_restore" = "تحتاج إلى تسجيل الدخول لاستعادة مشترياتك.";
+"sign_in_required_for_pro_features" = "تحتاج إلى تسجيل الدخول للوصول إلى ميزات المحترف مثل %@.";
+"sign_in_failed" = "فشل تسجيل الدخول. حاول مرة أخرى.";
+"sign_out_failed" = "فشل تسجيل الخروج. حاول مرة أخرى.";
+"user_not_found" = "لم يتم العثور على المستخدم.";
+"network_error" = "خطأ في الشبكة. تحقق من اتصالك.";
+"account_linking_failed" = "فشل ربط الحسابات. حاول مرة أخرى.";
+
+// Registration Benefits
+"registration_benefits" = "مزايا التسجيل";
+"access_subscription_all_devices" = "الوصول إلى اشتراكك على جميع أجهزتك";
+"sync_progress_cross_platform" = "مزامنة تقدمك بين iOS وAndroid";
+"backup_data_securely" = "النسخ الاحتياطي لبياناتك بأمان في السحابة";
+"register_anytime_from_settings" = "يمكنك التسجيل في أي وقت من الإعدادات لتفعيل هذه الميزات";
+"account_registration" = "تسجيل الحساب";
+"register_for_cross_platform_access" = "سجل للوصول إلى اشتراكك على جميع أجهزتك ومزامنة تقدمك";
+"active_subscription_notification" = "لديك اشتراك نشط!";
+"register_to_unlock_cross_platform" = "سجل لفتح الوصول عبر المنصات";
+"register_now" = "سجل الآن";
+
+// Subscription Security
+"subscription_access_restricted" = "الوصول إلى الاشتراك مقيد";
+"subscription_associated_different_account" = "هذا الاشتراك مرتبط بحساب مختلف. يرجى تسجيل الدخول بالحساب الذي اشترى هذا الاشتراك للوصول إلى ميزات المحترف.";
+
+// Profile
+"profile" = "الملف الشخصي";
+"account_linking" = "ربط الحساب";
+"account_linking_description" = "للوصول إلى اشتراكك على أجهزة Android، تحتاج إلى ربط حساب Google. لمشاركة الاشتراكات عبر المنصات، اربط كلا الحسابين.";
+"link_google_for_android" = "ربط حساب Google";
+"link_apple_for_cross_platform" = "ربط Apple ID";
+"current_account" = "الحساب الحالي";
+"linked_accounts" = "الحسابات المرتبطة";
+"no_linked_accounts" = "لا توجد حسابات مرتبطة";
+
+"cross_platform_button_description" = "لمشاركة الاشتراك عبر المنصات";
+"nickname" = "اللقب";
+"nickname_current" = "اللقب الحالي";
+"nickname_not_set" = "لم يتم تعيين اللقب";
+"nickname_description" = "قم بتعيين لقب فريد يمكن للآخرين استخدامه للعثور عليك وإضافتك إلى القواميس المشتركة. هذا أكثر ملاءمة من استخدام عناوين البريد الإلكتروني.";
+"edit_nickname" = "تعديل اللقب";
+"nickname_cannot_be_empty" = "لا يمكن أن يكون اللقب فارغًا";
+"nickname_already_taken" = "هذا اللقب مستخدم بالفعل. يرجى اختيار واحد آخر.";
+"nickname_invalid_format" = "يمكن أن يحتوي اللقب على حروف وأرقام وشرطات سفلية فقط.";
+"search_method" = "طريقة البحث";
+"find_user_by_email" = "ابحث عن مستخدم عبر البريد الإلكتروني";
+"find_user_by_nickname" = "ابحث عن مستخدم عبر اللقب";
+"enter_email_address" = "أدخل عنوان البريد الإلكتروني";
+"enter_nickname" = "أدخل اللقب";
+"found_user" = "تم العثور على المستخدم";
+"user_not_found" = "لم يتم العثور على المستخدم";
+"user_not_found_message" = "لم يتم العثور على مستخدم بالمعلومات المقدمة. يرجى التحقق من البحث والمحاولة مرة أخرى.";
+
+"enter_name" = "أدخل الاسم";
+"search_by" = "البحث بواسطة";
+"unknown_user" = "مستخدم غير معروف";
+"email" = "البريد الإلكتروني";
+"apple_id" = "معرف Apple";
+"google_account" = "حساب Google";

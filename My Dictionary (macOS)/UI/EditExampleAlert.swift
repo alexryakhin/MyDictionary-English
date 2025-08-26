@@ -15,17 +15,17 @@ struct EditExampleAlert: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            Text(Loc.Words.editExample.localized)
+            Text(Loc.Words.editExample)
                 .font(.title2)
                 .bold()
                 .padding()
 
-            TextField(Loc.App.example.localized, text: $exampleText, axis: .vertical)
+            TextField(Loc.Words.example, text: $exampleText, axis: .vertical)
                 .textFieldStyle(.plain)
                 .clippedWithPaddingAndBackground(cornerRadius: 12)
 
-            ActionButton(Loc.Actions.save.localized, style: .borderedProminent, action: onSave)
-            ActionButton(Loc.Actions.cancel.localized, action: onCancel)
+            ActionButton(Loc.Actions.save, style: .borderedProminent, action: onSave)
+            ActionButton(Loc.Actions.cancel, action: onCancel)
         }
         .padding(12)
         .groupedBackground()

@@ -16,8 +16,8 @@ struct AddSharedDictionaryView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                CustomSectionView(header: Loc.SharedDictionaries.name.localized) {
-                    TextField(Loc.SharedDictionaries.enterDictionaryName.localized, text: $name)
+                CustomSectionView(header: Loc.SharedDictionaries.name) {
+                    TextField(Loc.SharedDictionaries.enterDictionaryName, text: $name)
                         .submitLabel(.done)
                         .textContentType(.organizationName)
                         .padding(vertical: 8, horizontal: 12)
@@ -33,14 +33,14 @@ struct AddSharedDictionaryView: View {
             }
         }
         .safeAreaInset(edge: .bottom) {
-            AsyncActionButton(Loc.SharedDictionaries.createSharedDictionary.localized) {
+            AsyncActionButton(Loc.SharedDictionaries.createSharedDictionary) {
                 try await createDictionary()
             }
             .padding(vertical: 12, horizontal: 16)
         }
         .groupedBackground()
         .navigation(
-            title: Loc.SharedDictionaries.newSharedDictionary.localized,
+            title: Loc.SharedDictionaries.newSharedDictionary,
             mode: .inline,
             trailingContent: {
                 HeaderButton(icon: "xmark") {
@@ -53,12 +53,12 @@ struct AddSharedDictionaryView: View {
     
     private func createDictionary() async throws {
         guard !name.isEmpty else {
-            showAlertWithMessage(Loc.SharedDictionaries.dictionaryNameRequired.localized)
+            showAlertWithMessage(Loc.SharedDictionaries.dictionaryNameRequired)
             return
         }
         
         guard let userId = authenticationService.userId else {
-            showAlertWithMessage(Loc.SharedDictionaries.signInToCreateSharedDictionary.localized)
+            showAlertWithMessage(Loc.SharedDictionaries.signInToCreateSharedDictionary)
             return
         }
         try await dictionaryService.createSharedDictionary(

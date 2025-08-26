@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "Słowa";
-"tabbar.idioms" = "Wyrażenia";
 "tabbar.quizzes" = "Quizy";
 "tabbar.progress" = "Postępy";
 "tabbar.settings" = "Ustawienia";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "Szczegóły słowa";
-"navigation.idiom_details" = "Szczegóły wyrażenia";
-"navigation.add_tags" = "Dodaj etykiety";
-"navigation.about" = "O aplikacji";
-"navigation.debug_panel" = "Panel debugowania";
-"navigation.quiz_results" = "Wyniki quizu";
-"navigation.spelling_quiz" = "Quiz ortograficzny";
-"navigation.definition_quiz" = "Quiz definicji";
-"navigation.close" = "Zamknij";
-"navigation.close_screen" = "Zamknij ekran";
+"word_details" = "Szczegóły słowa";
+"idiom_details" = "Szczegóły wyrażenia";
+"add_tags" = "Dodaj etykiety";
+"about" = "O aplikacji";
+"debug_panel" = "Panel debugowania";
+"quiz_results" = "Wyniki quizu";
+"spelling_quiz" = "Quiz ortograficzny";
+"definition_quiz" = "Quiz definicji";
+"close" = "Zamknij";
+"close_screen" = "Zamknij ekran";
 

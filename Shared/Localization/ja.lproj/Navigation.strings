@@ -1,19 +1,17 @@
 // MARK: - Tab Bar
-"tabbar.words" = "単語";
-"tabbar.idioms" = "慣用句";
 "tabbar.quizzes" = "クイズ";
 "tabbar.progress" = "進捗";
 "tabbar.settings" = "設定";
 
 // MARK: - Navigation Titles
-"navigation.word_details" = "単語の詳細";
-"navigation.idiom_details" = "慣用句の詳細";
-"navigation.add_tags" = "タグの追加";
-"navigation.about" = "アプリについて";
-"navigation.debug_panel" = "デバッグパネル";
-"navigation.quiz_results" = "クイズ結果";
-"navigation.spelling_quiz" = "綴りクイズ";
-"navigation.definition_quiz" = "定義クイズ";
-"navigation.close" = "閉じる";
-"navigation.close_screen" = "画面を閉じる";
+"word_details" = "単語の詳細";
+"idiom_details" = "慣用句の詳細";
+"add_tags" = "タグの追加";
+"about" = "アプリについて";
+"debug_panel" = "デバッグパネル";
+"quiz_results" = "クイズ結果";
+"spelling_quiz" = "綴りクイズ";
+"definition_quiz" = "定義クイズ";
+"close" = "閉じる";
+"close_screen" = "画面を閉じる";
 

@@ -28,7 +28,7 @@ struct SubscriptionPlan: Identifiable, Hashable {
         // Calculate savings for yearly plans
         if product.subscriptionPeriod?.unit == .year {
             // Compare with monthly price to show savings
-            self.savings = Loc.Paywall.savePercentage.localized("37%")
+            self.savings = Loc.Subscription.Paywall.savePercentage("37%")
         } else {
             self.savings = nil
         }
@@ -55,23 +55,23 @@ enum SubscriptionFeature: String, CaseIterable {
 
     var displayName: String {
         switch self {
-        case .premiumTTS: Loc.ProFeatures.speechifyTTS.localized
-        case .unlimitedExport: Loc.ProFeatures.unlimitedExport.localized
-        case .createSharedDictionaries: Loc.ProFeatures.createSharedDictionaries.localized
-        case .tagManagement: Loc.ProFeatures.tagManagement.localized
-        case .advancedAnalytics: Loc.ProFeatures.advancedAnalytics.localized
-        case .prioritySupport: Loc.ProFeatures.prioritySupport.localized
+        case .premiumTTS: Loc.Subscription.ProFeatures.speechifyTts
+        case .unlimitedExport: Loc.Subscription.ProFeatures.unlimitedExport
+        case .createSharedDictionaries: Loc.Subscription.ProFeatures.createSharedDictionaries
+        case .tagManagement: Loc.Subscription.ProFeatures.tagManagement
+        case .advancedAnalytics: Loc.Subscription.ProFeatures.advancedAnalytics
+        case .prioritySupport: Loc.Subscription.ProFeatures.prioritySupport
         }
     }
 
     var description: String {
         switch self {
-        case .premiumTTS: Loc.ProFeatures.speechifyTTSDescription.localized
-        case .unlimitedExport: Loc.ProFeatures.syncWordsAcrossDevices.localized
-        case .createSharedDictionaries: Loc.ProFeatures.createManageSharedDictionaries.localized
-        case .tagManagement: Loc.ProFeatures.organizeWordsWithTags.localized
-        case .advancedAnalytics: Loc.ProFeatures.detailedInsights.localized
-        case .prioritySupport: Loc.ProFeatures.prioritySupportTeam.localized
+        case .premiumTTS: Loc.Subscription.ProFeatures.speechifyTtsDescription
+        case .unlimitedExport: Loc.Subscription.ProFeatures.syncWordsAcrossDevices
+        case .createSharedDictionaries: Loc.Subscription.ProFeatures.createManageSharedDictionaries
+        case .tagManagement: Loc.Subscription.ProFeatures.organizeWordsWithTags
+        case .advancedAnalytics: Loc.Subscription.ProFeatures.detailedInsights
+        case .prioritySupport: Loc.Subscription.ProFeatures.prioritySupportTeam
         }
     }
 
@@ -591,8 +591,8 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     @MainActor
     private func showSubscriptionOwnershipAlert() async {
         AlertCenter.shared.showAlert(with: .info(
-            title: Loc.Auth.subscriptionAccessRestricted.localized,
-            message: Loc.Auth.subscriptionAssociatedDifferentAccount.localized
+            title: Loc.Auth.subscriptionAccessRestricted,
+            message: Loc.Auth.subscriptionAssociatedDifferentAccount
         ))
     }
 
@@ -678,13 +678,13 @@ enum SubscriptionError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .noOfferingsAvailable:
-            return Loc.Errors.noOfferingsAvailable.localized
+            return Loc.Errors.noOfferingsAvailable
         case .packageNotFound:
-            return Loc.Errors.packageNotFound.localized
+            return Loc.Errors.packageNotFound
         case .purchaseFailed:
-            return Loc.Errors.purchaseFailed.localized
+            return Loc.Errors.purchaseFailed
         case .restoreFailed:
-            return Loc.Errors.restoreFailed.localized
+            return Loc.Errors.restoreFailed
         }
     }
 }

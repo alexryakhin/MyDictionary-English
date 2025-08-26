@@ -50,7 +50,7 @@ enum TTSDashboard {
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
             } navigationBar: {
-                NavigationBarView(title: Loc.TTS.ttsDashboard.localized, mode: .large, showsDismissButton: true)
+                NavigationBarView(title: Loc.Tts.dashboard, mode: .large, showsDismissButton: true)
             }
             .groupedBackground()
             .sheet(isPresented: $showingVoicePicker) {
@@ -64,7 +64,7 @@ enum TTSDashboard {
         // MARK: - Header Section
 
         private var dashboardHeader: some View {
-            CustomSectionView(header: Loc.TTS.premiumTTSDashboard.localized) {
+            CustomSectionView(header: Loc.Tts.premiumTtsDashboard) {
                 VStack(spacing: 12) {
                     HStack {
                         Image(systemName: "speaker.wave.3.fill")
@@ -72,7 +72,7 @@ enum TTSDashboard {
                             .foregroundStyle(.accent)
 
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(Loc.TTS.customizeTTSSExperience.localized)
+                            Text(Loc.Tts.customizeTtsExperience)
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                         }
@@ -86,20 +86,20 @@ enum TTSDashboard {
                             .fill(ttsPlayer.isPlaying ? Color.green : Color.gray)
                             .frame(width: 8, height: 8)
 
-                        Text(ttsPlayer.isPlaying ? Loc.TTS.playing.localized : Loc.TTS.ready.localized)
+                        Text(ttsPlayer.isPlaying ? Loc.Tts.playing : Loc.Tts.ready)
                             .font(.caption)
                             .foregroundStyle(.secondary)
 
                         Spacer()
 
-                        Text("\(Loc.TTS.provider.localized): \(ttsPlayer.selectedTTSProvider.displayName)")
+                        Text("\(Loc.Tts.provider): \(ttsPlayer.selectedTTSProvider.displayName)")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
                 }
             } trailingContent: {
                 TagView(
-                    text: Loc.TTS.pro.localized,
+                    text: Loc.Tts.pro,
                     systemImage: "crown.fill",
                     color: .systemYellow
                 )
@@ -109,7 +109,7 @@ enum TTSDashboard {
         // MARK: - Provider Section
 
         private var providerSection: some View {
-            CustomSectionView(header: Loc.TTS.ttsProvider.localized) {
+            CustomSectionView(header: Loc.Tts.ttsProvider) {
                 VStack(spacing: 8) {
                     ForEach(TTSProvider.allCases, id: \.self) { provider in
                         ProviderCard(
@@ -131,7 +131,7 @@ enum TTSDashboard {
         // MARK: - Voice Customization Section
 
         private var voiceCustomizationSection: some View {
-            CustomSectionView(header: Loc.TTS.voiceCustomization.localized) {
+            CustomSectionView(header: Loc.Tts.voiceCustomization) {
                 VStack(spacing: 12) {
                     // Current voice display
                     HStack(spacing: 8) {
@@ -140,7 +140,7 @@ enum TTSDashboard {
                             .font(.title3)
 
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(Loc.TTS.currentVoice.localized)
+                            Text(Loc.Tts.currentVoice)
                                 .font(.headline)
                                 .foregroundStyle(.primary)
                             if let currentVoice = ttsPlayer.selectedSpeechifyVoiceModel {
@@ -148,7 +148,7 @@ enum TTSDashboard {
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             } else {
-                                Text(Loc.TTS.defaultVoice.localized)
+                                Text(Loc.Tts.defaultVoice)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -160,7 +160,7 @@ enum TTSDashboard {
 
                     // Voice preview
                     AsyncActionButton(
-                        Loc.TTS.previewCurrentVoice.localized,
+                        Loc.Tts.previewCurrentVoice,
                         systemImage: "play.circle.fill"
                     ) {
                         try await previewCurrentVoice()
@@ -168,7 +168,7 @@ enum TTSDashboard {
                 }
             } trailingContent: {
                 HeaderButton(
-                    Loc.TTS.changeVoice.localized,
+                    Loc.Tts.changeVoice,
                     icon: "person.crop.circle.badge.plus",
                     size: .small
                 ) {
@@ -178,7 +178,7 @@ enum TTSDashboard {
         }
 
         private var modelSection: some View {
-            CustomSectionView(header: Loc.TTS.voiceCustomization.localized) {
+            CustomSectionView(header: Loc.Tts.voiceCustomization) {
                 VStack(spacing: 12) {
                     ForEach(SpeechifyModel.allCases, id: \.self) { model in
                         ModelRowView(
@@ -205,11 +205,11 @@ enum TTSDashboard {
         // MARK: - Audio Settings Section
 
         private var audioSettingsSection: some View {
-            CustomSectionView(header: Loc.TTS.audioSettings.localized) {
+            CustomSectionView(header: Loc.Tts.audioSettings) {
                 VStack(spacing: 16) {
                     // Speech Rate
                     AudioSettingSlider(
-                        title: Loc.TTS.speechRate.localized,
+                        title: Loc.Tts.speechRate,
                         value: $ttsPlayer.speechRate,
                         range: 0.5...2.0,
                         icon: "speedometer"
@@ -217,7 +217,7 @@ enum TTSDashboard {
 
                     // Volume
                     AudioSettingSlider(
-                        title: Loc.TTS.volume.localized,
+                        title: Loc.Tts.volume,
                         value: $ttsPlayer.volume,
                         range: 0.0...1.0,
                         icon: "speaker.wave.2"
@@ -225,7 +225,7 @@ enum TTSDashboard {
                 }
             } trailingContent: {
                 HeaderButton(
-                    Loc.Actions.reset.localized,
+                    Loc.Actions.reset,
                     icon: "arrow.clockwise",
                     color: .red,
                     size: .small
@@ -238,16 +238,16 @@ enum TTSDashboard {
         // MARK: - Test Section
 
         private var testSection: some View {
-            CustomSectionView(header: Loc.TTS.testYourSettings.localized) {
+            CustomSectionView(header: Loc.Tts.testYourSettings) {
                 VStack(spacing: 12) {
-                    TextField(Loc.TTS.enterTextToTest.localized, text: $ttsPlayer.testText, axis: .vertical)
+                    TextField(Loc.Tts.enterTextToTest, text: $ttsPlayer.testText, axis: .vertical)
                         .textFieldStyle(.plain)
                         .padding(vertical: 12, horizontal: 16)
                         .clippedWithBackground(.tertiarySystemGroupedBackground, cornerRadius: 12)
                         .lineLimit(3...6)
 
                     AsyncActionButton(
-                        ttsPlayer.isPlaying ? Loc.TTS.stop.localized : Loc.TTS.test.localized,
+                        ttsPlayer.isPlaying ? Loc.Tts.stop : Loc.Tts.test,
                         systemImage: ttsPlayer.isPlaying ? "stop.fill" : "play.fill",
                         style: ttsPlayer.isPlaying ? .bordered : .borderedProminent
                     ) {
@@ -261,20 +261,20 @@ enum TTSDashboard {
         // MARK: - Usage Statistics Section
 
         private var usageStatisticsSection: some View {
-            CustomSectionView(header: Loc.TTS.usageStatistics.localized) {
+            CustomSectionView(header: Loc.Tts.usageStatistics) {
                 LazyVGrid(
                     columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2),
                     spacing: 12
                 ) {
                     StatCard(
-                        title: Loc.TTS.charactersUsed.localized,
+                        title: Loc.Tts.Analytics.charactersUsed,
                         value: usageTracker.totalCharactersFormatted,
                         icon: "textformat.abc",
                         color: .blue
                     )
 
                     StatCard(
-                        title: Loc.TTS.sessions.localized,
+                        title: Loc.Tts.Analytics.sessions,
                         value: usageTracker.totalSessionsFormatted,
                         icon: "play.circle",
                         color: .accent
@@ -284,7 +284,7 @@ enum TTSDashboard {
                         $0.id == usageTracker.favoriteVoice
                     }) {
                         StatCard(
-                            title: Loc.TTS.favoriteVoice.localized,
+                            title: Loc.Tts.Analytics.favoriteVoice,
                             value: voice.displayName,
                             icon: "person.circle",
                             color: .purple
@@ -292,7 +292,7 @@ enum TTSDashboard {
                     }
 
                     StatCard(
-                        title: Loc.TTS.timeSaved.localized,
+                        title: Loc.Tts.Analytics.timeSaved,
                         value: usageTracker.timeSaved,
                         icon: "clock",
                         color: .orange
@@ -304,16 +304,16 @@ enum TTSDashboard {
         // MARK: - Speechify Monthly Usage Section
 
         private var speechifyMonthlyUsageSection: some View {
-            CustomSectionView(header: Loc.TTS.speechifyMonthlyUsage.localized) {
+            CustomSectionView(header: Loc.Tts.speechifyMonthlyUsage) {
                 VStack(spacing: 12) {
                     // Usage Overview
                     FormWithDivider {
                         HStack {
-                            Text(Loc.TTS.monthlyLimit.localized)
+                            Text(Loc.Tts.monthlyLimit)
                                 .font(.headline)
                                 .fontWeight(.semibold)
                             Spacer()
-                            Text("\(usageTracker.getMonthlySpeechifyLimit().formatted()) \(Loc.TTS.characters.localized)")
+                            Text("\(usageTracker.getMonthlySpeechifyLimit().formatted()) \(Loc.Tts.characters)")
                                 .font(.headline)
                                 .fontWeight(.semibold)
                                 .foregroundStyle(.accent)
@@ -321,22 +321,22 @@ enum TTSDashboard {
                         .padding(vertical: 12, horizontal: 16)
 
                         HStack {
-                            Text(Loc.TTS.usedThisMonth.localized)
+                            Text(Loc.Tts.usedThisMonth)
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                             Spacer()
-                            Text("\(usageTracker.getCurrentMonthSpeechifyUsage().formatted()) \(Loc.TTS.characters.localized)")
+                            Text("\(usageTracker.getCurrentMonthSpeechifyUsage().formatted()) \(Loc.Tts.characters)")
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                         }
                         .padding(vertical: 12, horizontal: 16)
 
                         HStack {
-                            Text(Loc.TTS.remaining.localized)
+                            Text(Loc.Tts.remaining)
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                             Spacer()
-                            Text("\(usageTracker.getRemainingSpeechifyCharacters().formatted()) \(Loc.TTS.characters.localized)")
+                            Text("\(usageTracker.getRemainingSpeechifyCharacters().formatted()) \(Loc.Tts.characters)")
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                                 .foregroundStyle(usageTracker.getRemainingSpeechifyCharacters() < 5000 ? .orange : .blue)
@@ -351,7 +351,7 @@ enum TTSDashboard {
                     // Progress Bar
                     VStack(spacing: 8) {
                         HStack {
-                            Text(Loc.TTS.usageProgress.localized)
+                            Text(Loc.Tts.usageProgress)
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                             Spacer()
@@ -443,9 +443,9 @@ enum TTSDashboard {
         private var providerDescription: String {
             switch provider {
             case .google:
-                return Loc.TTS.freeGoogleTTSDescription.localized
+                return Loc.Tts.freeGoogleTtsDescription
             case .speechify:
-                return Loc.TTS.speechifyDescription.localized
+                return Loc.Tts.Settings.speechifyDescription
             }
         }
     }
