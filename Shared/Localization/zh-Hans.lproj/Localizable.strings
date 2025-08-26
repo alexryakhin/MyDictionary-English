@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "喜欢这个应用吗？";
 "coffee.helpful_learning_journey" = "如果我的词典在你的学习旅程中有所帮助，请考虑请我喝杯咖啡！ ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "服务条款";
-"paywall.privacy_policy" = "隐私政策";
-"paywall.upgrade_to_pro" = "升级到专业版";
-"paywall.restore_purchases" = "恢复购买";
-"paywall.track_progress" = "跟踪进度";
-"paywall.see_your_improvement" = "查看你的进步";
-"paywall.collaborate" = "协作";
-"paywall.learn_with_others" = "与他人一起学习";
-"paywall.everything_you_need_to_master_vocabulary" = "掌握词汇所需的一切";
-"paywall.choose_your_plan" = "选择你的计划";
-"paywall.start_pro_subscription" = "开始专业版订阅";
-"paywall.trusted_by_learners_worldwide" = "受到全球学习者的信赖";
-"paywall.app_store_rating" = "应用商店评分";
-"paywall.active_users" = "活跃用户";
-"paywall.words_added" = "已添加单词";
-"paywall.sign_in_required" = "需要登录";
-"paywall.join_thousands_users" = "加入数千名改变词汇学习体验的用户";
-"paywall.by_subscribing_agree_terms" = "订阅即表示你同意我们的服务条款和隐私政策";
-"paywall.pro_user" = "专业用户";
-"paywall.free_plan" = "免费计划";
-"paywall.limited_features_available" = "可用功能有限";
-"paywall.no_active_subscriptions_found" = "未找到活跃订阅。请检查你的应用商店账户。";
-"paywall.failed_to_restore_purchases" = "无法恢复购买：%@";
-"paywall.save_percentage" = "节省 %@";
-
 // MARK: - Difficulty
 "difficulty.new" = "新";
 "difficulty.in_progress" = "进行中";
@@ -234,24 +208,6 @@
 "tag_selection.no_tags_yet" = "尚未添加标签";
 "tag_selection.you_can_select_up_to_5_tags" = "每个单词最多可选择 5 个标签。点击标签以选择或取消选择。";
 
-// MARK: - Pro Features
-"pro_features.google_sync" = "谷歌同步";
-"pro_features.unlimited_export" = "无限导出";
-"pro_features.create_shared_dictionaries" = "创建共享词典";
-"pro_features.advanced_analytics" = "高级分析";
-"pro_features.priority_support" = "优先支持";
-"pro_features.pro_features" = "专业功能";
-"pro_features.tag_management" = "标签管理";
-"pro_features.sync_words_across_devices" = "使用谷歌云端硬盘跨设备同步你的单词";
-"pro_features.export_unlimited_words" = "将无限数量的单词导出到 CSV 文件";
-"pro_features.create_manage_shared_dictionaries" = "创建和管理与他人共享的词典";
-"pro_features.detailed_insights" = "获取关于学习进度的详细洞察";
-"pro_features.priority_support_team" = "从我们的团队获得优先支持";
-"pro_features.unlock_all_pro_features" = "解锁所有专业功能";
-"pro_features.organize_words_with_tags" = "使用自定义标签组织你的单词以便于搜索";
-"pro_features.detailed_progress_tracking" = "详细的进度跟踪和洞察";
-"pro_features.get_priority_support" = "在需要帮助时获得优先支持";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "暂无单词";
 "empty_states.no_idioms_yet" = "暂无习语";
@@ -323,11 +279,6 @@
 "shared_dictionary_selection.add_to_shared" = "添加到共享";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "向共享词典添加单词";
 "shared_dictionary_selection.unknown" = "未知";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "升级到专业版以查看完整的进度详情。";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "升级到专业版以查看完整的词汇增长详情。";
-"pro_upgrade.time_period" = "时间段";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "角色";

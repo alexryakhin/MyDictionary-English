@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "شروط الخدمة";
+"paywall.privacy_policy" = "سياسة الخصوصية";
+"paywall.upgrade_to_pro" = "الترقية إلى المحترف";
+"paywall.restore_purchases" = "استعادة المشتريات";
+"paywall.track_progress" = "تتبع التقدم";
+"paywall.see_your_improvement" = "شاهد تحسنك";
+"paywall.collaborate" = "التعاون";
+"paywall.learn_with_others" = "تعلم مع الآخرين";
+"paywall.everything_you_need_to_master_vocabulary" = "كل ما تحتاجه لإتقان المفردات";
+"paywall.choose_your_plan" = "اختر خطتك";
+"paywall.start_pro_subscription" = "ابدأ اشتراك المحترف";
+"paywall.trusted_by_learners_worldwide" = "موثوق به من قبل المتعلمين في جميع أنحاء العالم";
+"paywall.app_store_rating" = "تقييم متجر التطبيقات";
+"paywall.active_users" = "المستخدمون النشطون";
+"paywall.words_added" = "الكلمات المضافة";
+"paywall.sign_in_required" = "تسجيل الدخول مطلوب";
+"paywall.join_thousands_users" = "انضم إلى آلاف المستخدمين الذين غيروا تجربة تعلم المفردات";
+"paywall.by_subscribing_agree_terms" = "بالاشتراك، فإنك توافق على شروط الخدمة وسياسة الخصوصية";
+"paywall.pro_user" = "مستخدم محترف";
+"paywall.free_plan" = "الخطة المجانية";
+"paywall.limited_features_available" = "ميزات محدودة متاحة";
+"paywall.no_active_subscriptions_found" = "لم يتم العثور على اشتراكات نشطة. تحقق من حساب متجر التطبيقات.";
+"paywall.failed_to_restore_purchases" = "فشل في استعادة المشتريات: %@";
+"paywall.save_percentage" = "وفر %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "مزامنة جوجل";
+"pro_features.unlimited_export" = "تصدير غير محدود";
+"pro_features.create_shared_dictionaries" = "إنشاء قواميس مشتركة";
+"pro_features.advanced_analytics" = "تحليلات متقدمة";
+"pro_features.priority_support" = "دعم ذو أولوية";
+"pro_features.pro_features" = "ميزات المحترف";
+"pro_features.tag_management" = "إدارة العلامات";
+"pro_features.sync_words_across_devices" = "مزامنة كلماتك عبر جميع الأجهزة باستخدام جوجل درايف";
+"pro_features.export_unlimited_words" = "تصدير كلمات غير محدودة إلى ملفات CSV";
+"pro_features.create_manage_shared_dictionaries" = "إنشاء وإدارة قواميس مشتركة مع الآخرين";
+"pro_features.detailed_insights" = "احصل على رؤى تفصيلية حول تقدم التعلم";
+"pro_features.priority_support_team" = "احصل على دعم ذو أولوية من فريقنا";
+"pro_features.unlock_all_pro_features" = "فتح جميع ميزات المحترف";
+"pro_features.organize_words_with_tags" = "نظم كلماتك باستخدام علامات مخصصة للبحث بسهولة";
+"pro_features.detailed_progress_tracking" = "تتبع التقدم التفصيلي والرؤى";
+"pro_features.get_priority_support" = "احصل على دعم ذو أولوية عندما تحتاج إلى المساعدة";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "قم بالترقية إلى المحترف لمشاهدة تفاصيل التقدم الكاملة.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "قم بالترقية إلى المحترف لمشاهدة تفاصيل نمو المفردات الكاملة.";
+"pro_upgrade.time_period" = "الفترة الزمنية";
+

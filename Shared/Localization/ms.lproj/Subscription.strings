@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Terma Perkhidmatan";
+"paywall.privacy_policy" = "Dasar Privasi";
+"paywall.upgrade_to_pro" = "Naik Taraf ke Pro";
+"paywall.restore_purchases" = "Pulihkan Pembelian";
+"paywall.track_progress" = "Jejaki Kemajuan";
+"paywall.see_your_improvement" = "Lihat peningkatan anda";
+"paywall.collaborate" = "Bekerjasama";
+"paywall.learn_with_others" = "Belajar dengan orang lain";
+"paywall.everything_you_need_to_master_vocabulary" = "Segala yang anda perlukan untuk menguasai kosa kata";
+"paywall.choose_your_plan" = "Pilih Pelan Anda";
+"paywall.start_pro_subscription" = "Mula Langganan Pro";
+"paywall.trusted_by_learners_worldwide" = "Dipercayai oleh pelajar di seluruh dunia";
+"paywall.app_store_rating" = "Penilaian App Store";
+"paywall.active_users" = "Pengguna Aktif";
+"paywall.words_added" = "Perkataan Ditambah";
+"paywall.sign_in_required" = "Log masuk diperlukan";
+"paywall.join_thousands_users" = "Sertai ribuan pengguna yang telah mengubah pembelajaran kosa kata mereka";
+"paywall.by_subscribing_agree_terms" = "Dengan melanggan, anda bersetuju dengan Terma Perkhidmatan dan Dasar Privasi kami";
+"paywall.pro_user" = "Pengguna Pro";
+"paywall.free_plan" = "Pelan Percuma";
+"paywall.limited_features_available" = "Ciri terhad tersedia";
+"paywall.no_active_subscriptions_found" = "Tiada langganan aktif ditemui. Semak akaun App Store anda.";
+"paywall.failed_to_restore_purchases" = "Gagal memulihkan pembelian: %@";
+"paywall.save_percentage" = "Jimat %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Penyegerakan Google";
+"pro_features.unlimited_export" = "Eksport Tanpa Had";
+"pro_features.create_shared_dictionaries" = "Cipta Kamus Kongsi";
+"pro_features.advanced_analytics" = "Analitik Lanjutan";
+"pro_features.priority_support" = "Sokongan Keutamaan";
+"pro_features.pro_features" = "Ciri Pro";
+"pro_features.tag_management" = "Pengurusan Tag";
+"pro_features.sync_words_across_devices" = "Segerakkan perkataan anda di semua peranti dengan Google Drive";
+"pro_features.export_unlimited_words" = "Eksport perkataan tanpa had ke fail CSV";
+"pro_features.create_manage_shared_dictionaries" = "Cipta dan urus kamus kongsi dengan orang lain";
+"pro_features.detailed_insights" = "Dapatkan pandangan terperinci tentang kemajuan pembelajaran anda";
+"pro_features.priority_support_team" = "Terima sokongan keutamaan daripada pasukan kami";
+"pro_features.unlock_all_pro_features" = "Buka kunci semua ciri Pro";
+"pro_features.organize_words_with_tags" = "Susun perkataan anda dengan tag tersuai untuk carian yang lebih mudah";
+"pro_features.detailed_progress_tracking" = "Penjejakan kemajuan terperinci dan pandangan";
+"pro_features.get_priority_support" = "Terima sokongan keutamaan apabila anda memerlukan bantuan";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Naik taraf ke Pro untuk melihat semua butiran kemajuan anda.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Naik taraf ke Pro untuk melihat semua butiran pertumbuhan kosa kata anda.";
+"pro_upgrade.time_period" = "Tempoh Masa";
+

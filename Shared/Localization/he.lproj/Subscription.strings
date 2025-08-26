@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "תנאי שירות";
+"paywall.privacy_policy" = "מדיניות פרטיות";
+"paywall.upgrade_to_pro" = "שדרג ל-Pro";
+"paywall.restore_purchases" = "שחזור רכישות";
+"paywall.track_progress" = "מעקב אחר התקדמות";
+"paywall.see_your_improvement" = "ראה את השיפור שלך";
+"paywall.collaborate" = "שיתוף פעולה";
+"paywall.learn_with_others" = "למד עם אחרים";
+"paywall.everything_you_need_to_master_vocabulary" = "כל מה שאתה צריך כדי לשלוט באוצר המילים שלך";
+"paywall.choose_your_plan" = "בחר את התוכנית שלך";
+"paywall.start_pro_subscription" = "התחל מנוי Pro";
+"paywall.trusted_by_learners_worldwide" = "מהימן על ידי לומדים ברחבי העולם";
+"paywall.app_store_rating" = "דירוג חנות האפליקציות";
+"paywall.active_users" = "משתמשים פעילים";
+"paywall.words_added" = "מילים שנוספו";
+"paywall.sign_in_required" = "נדרשת התחברות";
+"paywall.join_thousands_users" = "הצטרף לאלפי משתמשים ששינו את תהליך למידת אוצר המילים שלהם";
+"paywall.by_subscribing_agree_terms" = "בהרשמה, אתה מסכים לתנאי השירות ולמדיניות הפרטיות שלנו";
+"paywall.pro_user" = "משתמש Pro";
+"paywall.free_plan" = "תוכנית חינם";
+"paywall.limited_features_available" = "תכונות מוגבלות זמינות";
+"paywall.no_active_subscriptions_found" = "לא נמצאו מנויים פעילים. בדוק את חשבונך בחנות האפליקציות.";
+"paywall.failed_to_restore_purchases" = "שחזור הרכישות נכשל: %@";
+"paywall.save_percentage" = "חסוך %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "סנכרון גוגל";
+"pro_features.unlimited_export" = "ייצוא ללא הגבלה";
+"pro_features.create_shared_dictionaries" = "יצירת מילונים משותפים";
+"pro_features.advanced_analytics" = "ניתוחים מתקדמים";
+"pro_features.priority_support" = "תמיכה בעדיפות";
+"pro_features.pro_features" = "תכונות Pro";
+"pro_features.tag_management" = "ניהול תגיות";
+"pro_features.sync_words_across_devices" = "סנכרן את המילים שלך בכל המכשירים עם Google Drive";
+"pro_features.export_unlimited_words" = "ייצא מספר בלתי מוגבל של מילים לקבצי CSV";
+"pro_features.create_manage_shared_dictionaries" = "צור ונהל מילונים משותפים עם אחרים";
+"pro_features.detailed_insights" = "קבל תובנות מפורטות על התקדמות הלמידה שלך";
+"pro_features.priority_support_team" = "קבל תמיכה בעדיפות מהצוות שלנו";
+"pro_features.unlock_all_pro_features" = "פתח את כל תכונות Pro";
+"pro_features.organize_words_with_tags" = "ארגן את המילים שלך עם תגיות מותאמות אישית לחיפוש קל יותר";
+"pro_features.detailed_progress_tracking" = "מעקב התקדמות מפורט ותובנות";
+"pro_features.get_priority_support" = "קבל תמיכה בעדיפות כאשר אתה זקוק לעזרה";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "שדרג ל-Pro כדי לראות את כל פרטי ההתקדמות.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "שדרג ל-Pro כדי לראות את כל פרטי צמיחת אוצר המילים.";
+"pro_upgrade.time_period" = "תקופת זמן";
+

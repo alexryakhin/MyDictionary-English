@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "เงื่อนไขการให้บริการ";
+"paywall.privacy_policy" = "นโยบายความเป็นส่วนตัว";
+"paywall.upgrade_to_pro" = "อัปเกรดเป็น Pro";
+"paywall.restore_purchases" = "กู้คืนการซื้อ";
+"paywall.track_progress" = "ติดตามความคืบหน้า";
+"paywall.see_your_improvement" = "ดูการพัฒนาของคุณ";
+"paywall.collaborate" = "ร่วมงาน";
+"paywall.learn_with_others" = "เรียนรู้ร่วมกับผู้อื่น";
+"paywall.everything_you_need_to_master_vocabulary" = "ทุกสิ่งที่คุณต้องการเพื่อเชี่ยวชาญคลังคำศัพท์";
+"paywall.choose_your_plan" = "เลือกแผนของคุณ";
+"paywall.start_pro_subscription" = "เริ่มสมัครสมาชิก Pro";
+"paywall.trusted_by_learners_worldwide" = "ได้รับความไว้วางใจจากผู้เรียนทั่วโลก";
+"paywall.app_store_rating" = "คะแนนใน App Store";
+"paywall.active_users" = "ผู้ใช้ที่ใช้งาน";
+"paywall.words_added" = "คำศัพท์ที่เพิ่ม";
+"paywall.sign_in_required" = "ต้องลงชื่อเข้าใช้";
+"paywall.join_thousands_users" = "เข้าร่วมกับผู้ใช้หลายพันคนที่เปลี่ยนการเรียนรู้คำศัพท์ของพวกเขา";
+"paywall.by_subscribing_agree_terms" = "โดยการสมัครสมาชิก คุณยอมรับเงื่อนไขการให้บริการและนโยบายความเป็นส่วนตัวของเรา";
+"paywall.pro_user" = "ผู้ใช้ Pro";
+"paywall.free_plan" = "แผนฟรี";
+"paywall.limited_features_available" = "ฟีเจอร์จำกัดพร้อมใช้งาน";
+"paywall.no_active_subscriptions_found" = "ไม่พบการสมัครสมาชิกที่ใช้งาน ตรวจสอบบัญชี App Store ของคุณ";
+"paywall.failed_to_restore_purchases" = "ไม่สามารถกู้คืนการซื้อ: %@";
+"paywall.save_percentage" = "ประหยัด %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "ซิงค์กับ Google";
+"pro_features.unlimited_export" = "ส่งออกไม่จำกัด";
+"pro_features.create_shared_dictionaries" = "สร้างพจนานุกรมที่แชร์";
+"pro_features.advanced_analytics" = "การวิเคราะห์ขั้นสูง";
+"pro_features.priority_support" = "การสนับสนุนลำดับแรก";
+"pro_features.pro_features" = "ฟีเจอร์ Pro";
+"pro_features.tag_management" = "การจัดการแท็ก";
+"pro_features.sync_words_across_devices" = "ซิงค์คำศัพท์ของคุณในทุกอุปกรณ์ด้วย Google Drive";
+"pro_features.export_unlimited_words" = "ส่งออกคำศัพท์ไม่จำกัดไปยังไฟล์ CSV";
+"pro_features.create_manage_shared_dictionaries" = "สร้างและจัดการพจนานุกรมที่แชร์กับผู้อื่น";
+"pro_features.detailed_insights" = "รับข้อมูลเชิงลึกโดยละเอียดเกี่ยวกับความคืบหน้าของการเรียนรู้";
+"pro_features.priority_support_team" = "รับการสนับสนุนลำดับแรกจากทีมของเรา";
+"pro_features.unlock_all_pro_features" = "ปลดล็อกฟีเจอร์ Pro ทั้งหมด";
+"pro_features.organize_words_with_tags" = "จัดระเบียบคำศัพท์ของคุณด้วยแท็กที่กำหนดเองเพื่อการค้นหาที่ง่ายขึ้น";
+"pro_features.detailed_progress_tracking" = "การติดตามความคืบหน้าและการวิเคราะห์โดยละเอียด";
+"pro_features.get_priority_support" = "รับการสนับสนุนลำดับแรกเมื่อคุณต้องการความช่วยเหลือ";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "อัปเกรดเป็น Pro เพื่อดูรายละเอียดความคืบหน้าทั้งหมด";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "อัปเกรดเป็น Pro เพื่อดูรายละเอียดการเติบโตของคลังคำศัพท์ทั้งหมด";
+"pro_upgrade.time_period" = "ช่วงเวลา";
+

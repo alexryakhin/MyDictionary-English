@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "利用規約";
+"paywall.privacy_policy" = "プライバシーポリシー";
+"paywall.upgrade_to_pro" = "プロにアップグレード";
+"paywall.restore_purchases" = "購入を復元";
+"paywall.track_progress" = "進捗を追跡";
+"paywall.see_your_improvement" = "あなたの進歩を確認";
+"paywall.collaborate" = "コラボレーション";
+"paywall.learn_with_others" = "他の人と学ぶ";
+"paywall.everything_you_need_to_master_vocabulary" = "語彙を習得するために必要なすべて";
+"paywall.choose_your_plan" = "プランを選択";
+"paywall.start_pro_subscription" = "プロサブスクリプションを開始";
+"paywall.trusted_by_learners_worldwide" = "世界中の学習者に信頼されています";
+"paywall.app_store_rating" = "App Store評価";
+"paywall.active_users" = "アクティブユーザー";
+"paywall.words_added" = "追加された単語";
+"paywall.sign_in_required" = "ログインが必要です";
+"paywall.join_thousands_users" = "語彙学習を変えた何千人ものユーザーに参加";
+"paywall.by_subscribing_agree_terms" = "サブスクリプションすることで、利用規約とプライバシーポリシーに同意します";
+"paywall.pro_user" = "プロユーザー";
+"paywall.free_plan" = "無料プラン";
+"paywall.limited_features_available" = "制限された機能が利用可能";
+"paywall.no_active_subscriptions_found" = "アクティブなサブスクリプションが見つかりません。App Storeアカウントを確認してください。";
+"paywall.failed_to_restore_purchases" = "購入の復元に失敗しました：%@";
+"paywall.save_percentage" = "%@節約";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google同期";
+"pro_features.unlimited_export" = "無制限エクスポート";
+"pro_features.create_shared_dictionaries" = "共有辞書の作成";
+"pro_features.advanced_analytics" = "高度な分析";
+"pro_features.priority_support" = "優先サポート";
+"pro_features.pro_features" = "プロ機能";
+"pro_features.tag_management" = "タグ管理";
+"pro_features.sync_words_across_devices" = "Googleドライブで全デバイス間で単語を同期";
+"pro_features.export_unlimited_words" = "CSVファイルに無制限の単語をエクスポート";
+"pro_features.create_manage_shared_dictionaries" = "他の人と共有辞書を作成・管理";
+"pro_features.detailed_insights" = "学習の進捗に関する詳細な洞察";
+"pro_features.priority_support_team" = "私たちのチームからの優先サポート";
+"pro_features.unlock_all_pro_features" = "すべてのプロ機能をアンロック";
+"pro_features.organize_words_with_tags" = "カスタムタグで単語を整理して検索を簡単に";
+"pro_features.detailed_progress_tracking" = "詳細な進捗追跡と洞察";
+"pro_features.get_priority_support" = "必要なときに優先サポートを受け取る";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "すべての進捗詳細を確認するためにプロにアップグレード。";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "語彙の成長のすべての詳細を確認するためにプロにアップグレード。";
+"pro_upgrade.time_period" = "期間";
+

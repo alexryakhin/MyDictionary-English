@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "Liker du appen?";
 "coffee.helpful_learning_journey" = "Hvis Min ordbok har vært nyttig i læringsreisen din, vurder å kjøpe meg en kaffe! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "Vilkår for bruk";
-"paywall.privacy_policy" = "Personvernerklæring";
-"paywall.upgrade_to_pro" = "Oppgrader til Pro";
-"paywall.restore_purchases" = "Gjenopprett kjøp";
-"paywall.track_progress" = "Spor fremgang";
-"paywall.see_your_improvement" = "Se forbedringene dine";
-"paywall.collaborate" = "Samarbeid";
-"paywall.learn_with_others" = "Lær med andre";
-"paywall.everything_you_need_to_master_vocabulary" = "Alt du trenger for å mestre vokabularet ditt";
-"paywall.choose_your_plan" = "Velg din plan";
-"paywall.start_pro_subscription" = "Start Pro-abonnement";
-"paywall.trusted_by_learners_worldwide" = "Stolt på av lærende over hele verden";
-"paywall.app_store_rating" = "App Store-vurdering";
-"paywall.active_users" = "Aktive brukere";
-"paywall.words_added" = "Ord lagt til";
-"paywall.sign_in_required" = "Innlogging kreves";
-"paywall.join_thousands_users" = "Bli med tusenvis av brukere som har transformert vokabularlæringen sin";
-"paywall.by_subscribing_agree_terms" = "Ved å abonnere godtar du våre Vilkår for bruk og Personvernerklæring";
-"paywall.pro_user" = "Pro-bruker";
-"paywall.free_plan" = "Gratisplan";
-"paywall.limited_features_available" = "Begrensede funksjoner tilgjengelig";
-"paywall.no_active_subscriptions_found" = "Ingen aktive abonnementer funnet. Sjekk App Store-kontoen din.";
-"paywall.failed_to_restore_purchases" = "Kunne ikke gjenopprette kjøp: %@";
-"paywall.save_percentage" = "Spar %@";
-
 // MARK: - Difficulty
 "difficulty.new" = "Nytt";
 "difficulty.in_progress" = "Under arbeid";
@@ -233,24 +207,6 @@
 "tag_selection.select_tags" = "Velg etiketter";
 "tag_selection.no_tags_yet" = "Ingen etiketter ennå";
 "tag_selection.you_can_select_up_to_5_tags" = "Du kan velge opptil 5 etiketter per ord. Trykk på etiketter for å velge eller fjerne valg.";
-
-// MARK: - Pro Features
-"pro_features.google_sync" = "Google-synkronisering";
-"pro_features.unlimited_export" = "Ubegrenset eksport";
-"pro_features.create_shared_dictionaries" = "Opprett delte ordbøker";
-"pro_features.advanced_analytics" = "Avansert analyse";
-"pro_features.priority_support" = "Prioritert støtte";
-"pro_features.pro_features" = "Pro-funksjoner";
-"pro_features.tag_management" = "Etikettadministrasjon";
-"pro_features.sync_words_across_devices" = "Synkroniser ord på tvers av enheter med Google Drive";
-"pro_features.export_unlimited_words" = "Eksporter ubegrensede ord til CSV-fil";
-"pro_features.create_manage_shared_dictionaries" = "Opprett og administrer delte ordbøker med andre";
-"pro_features.detailed_insights" = "Få detaljerte innsikter om læringsfremgangen din";
-"pro_features.priority_support_team" = "Få prioritert støtte fra teamet vårt";
-"pro_features.unlock_all_pro_features" = "Lås opp alle Pro-funksjoner";
-"pro_features.organize_words_with_tags" = "Organiser ordene dine med tilpassede etiketter for enklere søk";
-"pro_features.detailed_progress_tracking" = "Detaljert fremgangssporing og innsikter";
-"pro_features.get_priority_support" = "Få prioritert støtte når du trenger hjelp";
 
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Ingen ord ennå";
@@ -337,11 +293,6 @@
 "shared_dictionary_selection.add_to_shared" = "Legg til i delt";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "Legg til ord i delt ordbok";
 "shared_dictionary_selection.unknown" = "Ukjent";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "Oppgrader til Pro for å se alle fremgangsdetaljer.";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Oppgrader til Pro for å se alle detaljer om vokabularveksten din.";
-"pro_upgrade.time_period" = "Tidsperiode";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "Rolle";

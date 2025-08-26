@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Ketentuan Layanan";
+"paywall.privacy_policy" = "Kebijakan Privasi";
+"paywall.upgrade_to_pro" = "Tingkatkan ke Pro";
+"paywall.restore_purchases" = "Pulihkan Pembelian";
+"paywall.track_progress" = "Lacak Kemajuan";
+"paywall.see_your_improvement" = "Lihat peningkatan Anda";
+"paywall.collaborate" = "Kolaborasi";
+"paywall.learn_with_others" = "Belajar bersama orang lain";
+"paywall.everything_you_need_to_master_vocabulary" = "Segala yang Anda butuhkan untuk menguasai kosakata";
+"paywall.choose_your_plan" = "Pilih Paket Anda";
+"paywall.start_pro_subscription" = "Mulai Langganan Pro";
+"paywall.trusted_by_learners_worldwide" = "Dipercaya oleh pelajar di seluruh dunia";
+"paywall.app_store_rating" = "Peringkat App Store";
+"paywall.active_users" = "Pengguna Aktif";
+"paywall.words_added" = "Kata Ditambahkan";
+"paywall.sign_in_required" = "Masuk diperlukan";
+"paywall.join_thousands_users" = "Bergabunglah dengan ribuan pengguna yang telah mengubah pembelajaran kosakata mereka";
+"paywall.by_subscribing_agree_terms" = "Dengan berlangganan, Anda setuju dengan Ketentuan Layanan dan Kebijakan Privasi kami";
+"paywall.pro_user" = "Pengguna Pro";
+"paywall.free_plan" = "Paket Gratis";
+"paywall.limited_features_available" = "Fitur terbatas tersedia";
+"paywall.no_active_subscriptions_found" = "Tidak ditemukan langganan aktif. Silakan periksa akun App Store Anda.";
+"paywall.failed_to_restore_purchases" = "Gagal memulihkan pembelian: %@";
+"paywall.save_percentage" = "Hemat %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Sinkronisasi Google";
+"pro_features.unlimited_export" = "Ekspor Tanpa Batas";
+"pro_features.create_shared_dictionaries" = "Buat Kamus Bersama";
+"pro_features.advanced_analytics" = "Analitik Lanjutan";
+"pro_features.priority_support" = "Dukungan Prioritas";
+"pro_features.pro_features" = "Fitur Pro";
+"pro_features.tag_management" = "Pengelolaan Tag";
+"pro_features.sync_words_across_devices" = "Sinkronkan kata Anda di semua perangkat dengan Google Drive";
+"pro_features.export_unlimited_words" = "Ekspor kata tanpa batas ke file CSV";
+"pro_features.create_manage_shared_dictionaries" = "Buat dan kelola kamus bersama dengan orang lain";
+"pro_features.detailed_insights" = "Dapatkan wawasan mendetail tentang kemajuan belajar Anda";
+"pro_features.priority_support_team" = "Dapatkan dukungan prioritas dari tim kami";
+"pro_features.unlock_all_pro_features" = "Buka semua fitur Pro";
+"pro_features.organize_words_with_tags" = "Atur kata Anda dengan tag khusus untuk pencarian yang lebih mudah";
+"pro_features.detailed_progress_tracking" = "Pelacakan kemajuan mendetail dan wawasan";
+"pro_features.get_priority_support" = "Dapatkan dukungan prioritas saat Anda membutuhkan bantuan";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Tingkatkan ke Pro untuk melihat semua detail kemajuan Anda.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Tingkatkan ke Pro untuk melihat semua detail pertumbuhan kosakata Anda.";
+"pro_upgrade.time_period" = "Periode Waktu";
+

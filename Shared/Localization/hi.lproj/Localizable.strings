@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "क्या आपको ऐप पसंद है?";
 "coffee.helpful_learning_journey" = "यदि मेरा शब्दकोश आपके सीखने की यात्रा में मददगार रहा है, तो मेरे लिए एक कॉफी खरीदने पर विचार करें! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "सेवा की शर्तें";
-"paywall.privacy_policy" = "गोपनीयता नीति";
-"paywall.upgrade_to_pro" = "प्रो में अपग्रेड करें";
-"paywall.restore_purchases" = "खरीदारी पुनर्स्थापित करें";
-"paywall.track_progress" = "प्रगति ट्रैक करें";
-"paywall.see_your_improvement" = "अपना सुधार देखें";
-"paywall.collaborate" = "सहयोग";
-"paywall.learn_with_others" = "दूसरों के साथ सीखें";
-"paywall.everything_you_need_to_master_vocabulary" = "आपकी शब्दावली में महारत हासिल करने के लिए आवश्यक सब कुछ";
-"paywall.choose_your_plan" = "अपनी योजना चुनें";
-"paywall.start_pro_subscription" = "प्रो सदस्यता शुरू करें";
-"paywall.trusted_by_learners_worldwide" = "दुनिया भर के शिक्षार्थियों द्वारा विश्वसनीय";
-"paywall.app_store_rating" = "ऐप स्टोर रेटिंग";
-"paywall.active_users" = "सक्रिय उपयोगकर्ता";
-"paywall.words_added" = "शब्द जोड़े गए";
-"paywall.sign_in_required" = "साइन इन आवश्यक";
-"paywall.join_thousands_users" = "हजारों उपयोगकर्ताओं में शामिल हों जिन्होंने अपनी शब्दावली सीखने को बदल दिया है";
-"paywall.by_subscribing_agree_terms" = "सदस्यता लेकर, आप हमारी सेवा की शर्तों और गोपनीयता नीति से सहमत होते हैं";
-"paywall.pro_user" = "प्रो उपयोगकर्ता";
-"paywall.free_plan" = "मुफ्त योजना";
-"paywall.limited_features_available" = "सीमित सुविधाएं उपलब्ध";
-"paywall.no_active_subscriptions_found" = "कोई सक्रिय सदस्यता नहीं मिली। कृपया अपने ऐप स्टोर खाते की जांच करें।";
-"paywall.failed_to_restore_purchases" = "खरीदारी पुनर्स्थापित करने में विफल: %@";
-"paywall.save_percentage" = "%@ बचाएं";
-
 // MARK: - Difficulty
 "difficulty.new" = "नया";
 "difficulty.in_progress" = "प्रगति में";
@@ -233,24 +207,6 @@
 "tag_selection.select_tags" = "टैग चुनें";
 "tag_selection.no_tags_yet" = "अभी तक कोई टैग नहीं";
 "tag_selection.you_can_select_up_to_5_tags" = "आप प्रति शब्द अधिकतम 5 टैग चुन सकते हैं। टैग को चुनने या अचयन करने के लिए उस पर टैप करें।";
-
-// MARK: - Pro Features
-"pro_features.google_sync" = "गूगल सिंक";
-"pro_features.unlimited_export" = "असीमित निर्यात";
-"pro_features.create_shared_dictionaries" = "साझा शब्दकोश बनाएं";
-"pro_features.advanced_analytics" = "उन्नत विश्लेषण";
-"pro_features.priority_support" = "प्राथमिकता समर्थन";
-"pro_features.pro_features" = "प्रो सुविधाएं";
-"pro_features.tag_management" = "टैग प्रबंधन";
-"pro_features.sync_words_across_devices" = "Google Drive के साथ सभी डिवाइसों पर अपने शब्दों को सिंक करें";
-"pro_features.export_unlimited_words" = "CSV फ़ाइलों में असीमित शब्द निर्यात करें";
-"pro_features.create_manage_shared_dictionaries" = "दूसरों के साथ साझा शब्दकोश बनाएं और प्रबंधन करें";
-"pro_features.detailed_insights" = "अपनी सीखने की प्रगति पर विस्तृत अंतर्दृष्टि प्राप्त करें";
-"pro_features.priority_support_team" = "हमारी टीम से प्राथमिकता समर्थन प्राप्त करें";
-"pro_features.unlock_all_pro_features" = "सभी प्रो सुविधाएं अनलॉक करें";
-"pro_features.organize_words_with_tags" = "आसान खोज के लिए कस्टम टैग के साथ अपने शब्दों को व्यवस्थित करें";
-"pro_features.detailed_progress_tracking" = "विस्तृत प्रगति ट्रैकिंग और अंतर्दृष्टि";
-"pro_features.get_priority_support" = "जब आपको सहायता की आवश्यकता हो तो प्राथमिकता समर्थन प्राप्त करें";
 
 // MARK: - Empty States
 "empty_states.no_words_yet" = "अभी तक कोई शब्द नहीं";
@@ -337,11 +293,6 @@
 "shared_dictionary_selection.add_to_shared" = "साझा में जोड़ें";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "साझा शब्दकोश में शब्द जोड़ें";
 "shared_dictionary_selection.unknown" = "अज्ञात";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "अपनी प्रगति के सभी विवरण देखने के लिए प्रो में अपग्रेड करें।";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "अपनी शब्दावली वृद्धि के सभी विवरण देखने के लिए प्रो में अपग्रेड करें।";
-"pro_upgrade.time_period" = "समय अवधि";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "भूमिका";

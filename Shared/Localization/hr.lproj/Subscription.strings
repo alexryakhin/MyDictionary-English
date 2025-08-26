@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Uvjeti korištenja";
+"paywall.privacy_policy" = "Politika privatnosti";
+"paywall.upgrade_to_pro" = "Nadogradi na Pro";
+"paywall.restore_purchases" = "Vrati kupnje";
+"paywall.track_progress" = "Prati napredak";
+"paywall.see_your_improvement" = "Pogledajte svoje poboljšanje";
+"paywall.collaborate" = "Suradnja";
+"paywall.learn_with_others" = "Učite s drugima";
+"paywall.everything_you_need_to_master_vocabulary" = "Sve što vam treba za svladavanje vokabulara";
+"paywall.choose_your_plan" = "Odaberite svoj plan";
+"paywall.start_pro_subscription" = "Započnite Pro pretplatu";
+"paywall.trusted_by_learners_worldwide" = "Povjerenje učenika diljem svijeta";
+"paywall.app_store_rating" = "Ocjena App Storea";
+"paywall.active_users" = "Aktivni korisnici";
+"paywall.words_added" = "Dodane riječi";
+"paywall.sign_in_required" = "Potrebna je prijava";
+"paywall.join_thousands_users" = "Pridružite se tisućama korisnika koji su transformirali svoje učenje vokabulara";
+"paywall.by_subscribing_agree_terms" = "Pretplatom prihvaćate naše Uvjete korištenja i Politiku privatnosti";
+"paywall.pro_user" = "Pro korisnik";
+"paywall.free_plan" = "Besplatni plan";
+"paywall.limited_features_available" = "Dostupne su ograničene značajke";
+"paywall.no_active_subscriptions_found" = "Nema pronađenih aktivnih pretplata. Provjerite svoj račun na App Storeu.";
+"paywall.failed_to_restore_purchases" = "Vraćanje kupnji nije uspjelo: %@";
+"paywall.save_percentage" = "Uštedite %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google sinkronizacija";
+"pro_features.unlimited_export" = "Neograničeni izvoz";
+"pro_features.create_shared_dictionaries" = "Stvori zajedničke rječnike";
+"pro_features.advanced_analytics" = "Napredna analitika";
+"pro_features.priority_support" = "Prioritetna podrška";
+"pro_features.pro_features" = "Pro značajke";
+"pro_features.tag_management" = "Upravljanje oznakama";
+"pro_features.sync_words_across_devices" = "Sinkronizirajte svoje riječi na svim uređajima s Google Driveom";
+"pro_features.export_unlimited_words" = "Izvezite neograničen broj riječi u CSV datoteke";
+"pro_features.create_manage_shared_dictionaries" = "Stvorite i upravljajte zajedničkim rječnicima s drugima";
+"pro_features.detailed_insights" = "Dobijte detaljne uvide u svoj napredak u učenju";
+"pro_features.priority_support_team" = "Dobijte prioritetnu podršku od našeg tima";
+"pro_features.unlock_all_pro_features" = "Otključajte sve Pro značajke";
+"pro_features.organize_words_with_tags" = "Organizirajte svoje riječi s prilagođenim oznakama za lakše pretraživanje";
+"pro_features.detailed_progress_tracking" = "Detaljno praćenje napretka i uvidi";
+"pro_features.get_priority_support" = "Dobijte prioritetnu podršku kada vam je potrebna pomoć";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Nadogradite na Pro za prikaz potpunih detalja napretka.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Nadogradite na Pro za prikaz potpunih detalja rasta vokabulara.";
+"pro_upgrade.time_period" = "Vremensko razdoblje";
+

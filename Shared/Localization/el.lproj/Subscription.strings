@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Όροι Χρήσης";
+"paywall.privacy_policy" = "Πολιτική Απορρήτου";
+"paywall.upgrade_to_pro" = "Αναβάθμιση σε Pro";
+"paywall.restore_purchases" = "Επαναφορά Αγορών";
+"paywall.track_progress" = "Παρακολούθηση Προόδου";
+"paywall.see_your_improvement" = "Δες τη Βελτίωσή σου";
+"paywall.collaborate" = "Συνεργασία";
+"paywall.learn_with_others" = "Μάθε με άλλους";
+"paywall.everything_you_need_to_master_vocabulary" = "Όλα όσα χρειάζεσαι για να κατακτήσεις το λεξιλόγιό σου";
+"paywall.choose_your_plan" = "Επίλεξε το Πλάνο σου";
+"paywall.start_pro_subscription" = "Ξεκίνα Συνδρομή Pro";
+"paywall.trusted_by_learners_worldwide" = "Εμπιστεύονται μαθητές παγκοσμίως";
+"paywall.app_store_rating" = "Βαθμολογία App Store";
+"paywall.active_users" = "Ενεργοί Χρήστες";
+"paywall.words_added" = "Προστέθηκαν Λέξεις";
+"paywall.sign_in_required" = "Απαιτείται σύνδεση";
+"paywall.join_thousands_users" = "Εντάξου σε χιλιάδες χρήστες που έχουν μεταμορφώσει τη μάθηση λεξιλογίου τους";
+"paywall.by_subscribing_agree_terms" = "Με την εγγραφή, συμφωνείς με τους Όρους Χρήσης και την Πολιτική Απορρήτου μας";
+"paywall.pro_user" = "Χρήστης Pro";
+"paywall.free_plan" = "Δωρεάν Πλάνο";
+"paywall.limited_features_available" = "Περιορισμένες λειτουργίες διαθέσιμες";
+"paywall.no_active_subscriptions_found" = "Δεν βρέθηκαν ενεργές συνδρομές. Ελέγξτε τον λογαριασμό σας στο App Store.";
+"paywall.failed_to_restore_purchases" = "Αποτυχία επαναφοράς αγορών: %@";
+"paywall.save_percentage" = "Εξοικονόμησε %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Συγχρονισμός Google";
+"pro_features.unlimited_export" = "Απεριόριστη Εξαγωγή";
+"pro_features.create_shared_dictionaries" = "Δημιουργία Κοινόχρηστων Λεξικών";
+"pro_features.advanced_analytics" = "Προηγμένες Αναλύσεις";
+"pro_features.priority_support" = "Προτεραιότητα Υποστήριξης";
+"pro_features.pro_features" = "Λειτουργίες Pro";
+"pro_features.tag_management" = "Διαχείριση Ετικετών";
+"pro_features.sync_words_across_devices" = "Συγχρόνισε τις λέξεις σου σε όλες τις συσκευές με το Google Drive";
+"pro_features.export_unlimited_words" = "Εξάγε απεριόριστο αριθμό λέξεων σε αρχεία CSV";
+"pro_features.create_manage_shared_dictionaries" = "Δημιούργησε και διαχειρίσου κοινόχρηστα λεξικά με άλλους";
+"pro_features.detailed_insights" = "Απόκτησε λεπτομερείς πληροφορίες για την πρόοδο μάθησής σου";
+"pro_features.priority_support_team" = "Λάβε υποστήριξη προτεραιότητας από την ομάδα μας";
+"pro_features.unlock_all_pro_features" = "Ξεκλείδωσε όλες τις λειτουργίες Pro";
+"pro_features.organize_words_with_tags" = "Οργάνωσε τις λέξεις σου με προσαρμοσμένες ετικέτες για ευκολότερη αναζήτηση";
+"pro_features.detailed_progress_tracking" = "Λεπτομερής παρακολούθηση προόδου και πληροφορίες";
+"pro_features.get_priority_support" = "Λάβε υποστήριξη προτεραιότητας όταν χρειάζεσαι βοήθεια";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Αναβάθμισε σε Pro για να δεις όλες τις λεπτομέρειες της προόδου σου.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Αναβάθμισε σε Pro για να δεις όλες τις λεπτομέρειες της ανάπτυξης του λεξιλογίου σου.";
+"pro_upgrade.time_period" = "Χρονική Περίοδος";
+

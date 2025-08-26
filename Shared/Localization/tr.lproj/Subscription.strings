@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Hizmet Şartları";
+"paywall.privacy_policy" = "Gizlilik Politikası";
+"paywall.upgrade_to_pro" = "Pro'ya Yükselt";
+"paywall.restore_purchases" = "Satın Almaları Geri Yükle";
+"paywall.track_progress" = "İlerlemeyi Takip Et";
+"paywall.see_your_improvement" = "Gelişiminizi Görün";
+"paywall.collaborate" = "İşbirliği Yap";
+"paywall.learn_with_others" = "Başkalarıyla Öğren";
+"paywall.everything_you_need_to_master_vocabulary" = "Kelime dağarcığınıza hâkim olmak için ihtiyacınız olan her şey";
+"paywall.choose_your_plan" = "Planınızı Seçin";
+"paywall.start_pro_subscription" = "Pro Aboneliğini Başlat";
+"paywall.trusted_by_learners_worldwide" = "Dünya çapındaki öğrenciler tarafından güveniliyor";
+"paywall.app_store_rating" = "App Store Derecelendirmesi";
+"paywall.active_users" = "Aktif Kullanıcılar";
+"paywall.words_added" = "Eklenen Kelimeler";
+"paywall.sign_in_required" = "Oturum açılması gerekiyor";
+"paywall.join_thousands_users" = "Kelime öğrenimini dönüştüren binlerce kullanıcıya katılın";
+"paywall.by_subscribing_agree_terms" = "Abone olarak Hizmet Şartlarımız ve Gizlilik Politikamızı kabul etmiş olursunuz";
+"paywall.pro_user" = "Pro Kullanıcı";
+"paywall.free_plan" = "Ücretsiz Plan";
+"paywall.limited_features_available" = "Sınırlı özellikler mevcut";
+"paywall.no_active_subscriptions_found" = "Aktif abonelik bulunamadı. App Store hesabınızı kontrol edin.";
+"paywall.failed_to_restore_purchases" = "Satın alımları geri yükleme başarısız: %@";
+"paywall.save_percentage" = "%@ Tasarruf Edin";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google ile Senkronizasyon";
+"pro_features.unlimited_export" = "Sınırsız Dışa Aktarma";
+"pro_features.create_shared_dictionaries" = "Paylaşılan Sözlükler Oluştur";
+"pro_features.advanced_analytics" = "Gelişmiş Analitik";
+"pro_features.priority_support" = "Öncelikli Destek";
+"pro_features.pro_features" = "Pro Özellikler";
+"pro_features.tag_management" = "Etiket Yönetimi";
+"pro_features.sync_words_across_devices" = "Kelimelerinizi Google Drive ile tüm cihazlarda senkronize edin";
+"pro_features.export_unlimited_words" = "Sınırsız kelimeyi CSV dosyasına dışa aktarın";
+"pro_features.create_manage_shared_dictionaries" = "Başkalarıyla paylaşılan sözlükler oluşturun ve yönetin";
+"pro_features.detailed_insights" = "Öğrenme ilerlemeniz hakkında ayrıntılı bilgiler edinin";
+"pro_features.priority_support_team" = "Ekibimizden öncelikli destek alın";
+"pro_features.unlock_all_pro_features" = "Tüm Pro özelliklerini aç";
+"pro_features.organize_words_with_tags" = "Kelimelerinizi özel etiketlerle düzenleyerek kolayca bulun";
+"pro_features.detailed_progress_tracking" = "Ayrıntılı ilerleme takibi ve analitik";
+"pro_features.get_priority_support" = "Yardıma ihtiyacınız olduğunda öncelikli destek alın";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "İlerleme detaylarınızın tamamını görmek için Pro'ya yükseltin.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Kelime dağarcığınızın büyümesinin tüm detaylarını görmek için Pro'ya yükseltin.";
+"pro_upgrade.time_period" = "Zaman Dilimi";
+

@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "Îți place aplicația?";
 "coffee.helpful_learning_journey" = "Dacă Dicționarul Meu te-a ajutat în călătoria ta de învățare, ia în considerare să-mi cumperi o cafea! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "Termeni de Serviciu";
-"paywall.privacy_policy" = "Politica de Confidențialitate";
-"paywall.upgrade_to_pro" = "Actualizează la Pro";
-"paywall.restore_purchases" = "Restaurează Achizițiile";
-"paywall.track_progress" = "Urmărește Progresul";
-"paywall.see_your_improvement" = "Vezi-ți îmbunătățirile";
-"paywall.collaborate" = "Colaborează";
-"paywall.learn_with_others" = "Învață cu alții";
-"paywall.everything_you_need_to_master_vocabulary" = "Tot ce ai nevoie pentru a stăpâni vocabularul";
-"paywall.choose_your_plan" = "Alege-ți Planul";
-"paywall.start_pro_subscription" = "Începe Abonamentul Pro";
-"paywall.trusted_by_learners_worldwide" = "De încredere pentru cursanți din întreaga lume";
-"paywall.app_store_rating" = "Evaluare App Store";
-"paywall.active_users" = "Utilizatori Activi";
-"paywall.words_added" = "Cuvinte Adăugate";
-"paywall.sign_in_required" = "Conectare necesară";
-"paywall.join_thousands_users" = "Alătură-te miilor de utilizatori care și-au transformat învățarea vocabularului";
-"paywall.by_subscribing_agree_terms" = "Prin abonare, ești de acord cu Termenii noștri de Serviciu și Politica de Confidențialitate";
-"paywall.pro_user" = "Utilizator Pro";
-"paywall.free_plan" = "Plan Gratuit";
-"paywall.limited_features_available" = "Funcționalități limitate disponibile";
-"paywall.no_active_subscriptions_found" = "Niciun abonament activ găsit. Verifică-ți contul în App Store.";
-"paywall.failed_to_restore_purchases" = "Eșec la restaurarea achizițiilor: %@";
-"paywall.save_percentage" = "Economisește %@";
-
 // MARK: - Difficulty
 "difficulty.new" = "Nou";
 "difficulty.in_progress" = "În Progres";
@@ -233,24 +207,6 @@
 "tag_selection.select_tags" = "Selectează Etichete";
 "tag_selection.no_tags_yet" = "Nicio etichetă încă";
 "tag_selection.you_can_select_up_to_5_tags" = "Poți selecta până la 5 etichete per cuvânt. Atinge etichetele pentru a le selecta sau deselecta.";
-
-// MARK: - Pro Features
-"pro_features.google_sync" = "Sincronizare cu Google";
-"pro_features.unlimited_export" = "Export Nelimitat";
-"pro_features.create_shared_dictionaries" = "Creează Dicționare Partajate";
-"pro_features.advanced_analytics" = "Analize Avansate";
-"pro_features.priority_support" = "Suport Prioritar";
-"pro_features.pro_features" = "Funcționalități Pro";
-"pro_features.tag_management" = "Gestionare Etichete";
-"pro_features.sync_words_across_devices" = "Sincronizează-ți cuvintele pe toate dispozitivele cu Google Drive";
-"pro_features.export_unlimited_words" = "Exportă cuvinte nelimitate în fișier CSV";
-"pro_features.create_manage_shared_dictionaries" = "Creează și gestionează dicționare partajate cu alții";
-"pro_features.detailed_insights" = "Obține informații detaliate despre progresul tău de învățare";
-"pro_features.priority_support_team" = "Primește suport prioritar de la echipa noastră";
-"pro_features.unlock_all_pro_features" = "Deblochează toate funcționalitățile Pro";
-"pro_features.organize_words_with_tags" = "Organizează-ți cuvintele cu etichete personalizate pentru o căutare mai ușoară";
-"pro_features.detailed_progress_tracking" = "Urmărire detaliată a progresului și informații";
-"pro_features.get_priority_support" = "Primește suport prioritar când ai nevoie de ajutor";
 
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Niciun cuvânt încă";
@@ -337,11 +293,6 @@
 "shared_dictionary_selection.add_to_shared" = "Adaugă la Partajat";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "Adaugă cuvânt la dicționarul partajat";
 "shared_dictionary_selection.unknown" = "Necunoscut";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "Actualizează la Pro pentru a vedea toate detaliile progresului tău.";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Actualizează la Pro pentru a vedea toate detaliile creșterii vocabularului tău.";
-"pro_upgrade.time_period" = "Perioadă de Timp";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "Rol";

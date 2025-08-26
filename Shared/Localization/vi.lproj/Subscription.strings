@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Điều khoản dịch vụ";
+"paywall.privacy_policy" = "Chính sách bảo mật";
+"paywall.upgrade_to_pro" = "Nâng cấp lên Pro";
+"paywall.restore_purchases" = "Khôi phục giao dịch mua";
+"paywall.track_progress" = "Theo dõi tiến độ";
+"paywall.see_your_improvement" = "Xem sự tiến bộ của bạn";
+"paywall.collaborate" = "Cộng tác";
+"paywall.learn_with_others" = "Học cùng người khác";
+"paywall.everything_you_need_to_master_vocabulary" = "Mọi thứ bạn cần để làm chủ vốn từ vựng";
+"paywall.choose_your_plan" = "Chọn gói của bạn";
+"paywall.start_pro_subscription" = "Bắt đầu gói Pro";
+"paywall.trusted_by_learners_worldwide" = "Được tin tưởng bởi học viên trên toàn thế giới";
+"paywall.app_store_rating" = "Xếp hạng App Store";
+"paywall.active_users" = "Người dùng hoạt động";
+"paywall.words_added" = "Từ đã thêm";
+"paywall.sign_in_required" = "Cần đăng nhập";
+"paywall.join_thousands_users" = "Tham gia cùng hàng ngàn người dùng đang chuyển đổi việc học từ vựng";
+"paywall.by_subscribing_agree_terms" = "Bằng cách đăng ký, bạn đồng ý với Điều khoản dịch vụ và Chính sách bảo mật của chúng tôi";
+"paywall.pro_user" = "Người dùng Pro";
+"paywall.free_plan" = "Gói miễn phí";
+"paywall.limited_features_available" = "Tính năng hạn chế có sẵn";
+"paywall.no_active_subscriptions_found" = "Không tìm thấy gói đăng ký hoạt động. Vui lòng kiểm tra tài khoản App Store của bạn.";
+"paywall.failed_to_restore_purchases" = "Khôi phục giao dịch mua thất bại: %@";
+"paywall.save_percentage" = "Tiết kiệm %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Đồng bộ với Google";
+"pro_features.unlimited_export" = "Xuất không giới hạn";
+"pro_features.create_shared_dictionaries" = "Tạo từ điển chia sẻ";
+"pro_features.advanced_analytics" = "Phân tích nâng cao";
+"pro_features.priority_support" = "Hỗ trợ ưu tiên";
+"pro_features.pro_features" = "Tính năng Pro";
+"pro_features.tag_management" = "Quản lý thẻ";
+"pro_features.sync_words_across_devices" = "Đồng bộ từ của bạn trên tất cả thiết bị với Google Drive";
+"pro_features.export_unlimited_words" = "Xuất số lượng từ không giới hạn sang tệp CSV";
+"pro_features.create_manage_shared_dictionaries" = "Tạo và quản lý từ điển chia sẻ với người khác";
+"pro_features.detailed_insights" = "Nhận thông tin chi tiết về tiến độ học tập của bạn";
+"pro_features.priority_support_team" = "Nhận hỗ trợ ưu tiên từ đội ngũ của chúng tôi";
+"pro_features.unlock_all_pro_features" = "Mở khóa tất cả tính năng Pro";
+"pro_features.organize_words_with_tags" = "Sắp xếp từ của bạn bằng thẻ tùy chỉnh để dễ dàng tìm kiếm";
+"pro_features.detailed_progress_tracking" = "Theo dõi tiến độ chi tiết và phân tích";
+"pro_features.get_priority_support" = "Nhận hỗ trợ ưu tiên khi bạn cần giúp đỡ";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Nâng cấp lên Pro để xem toàn bộ chi tiết tiến độ của bạn.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Nâng cấp lên Pro để xem toàn bộ chi tiết về sự phát triển vốn từ vựng của bạn.";
+"pro_upgrade.time_period" = "Khoảng thời gian";
+

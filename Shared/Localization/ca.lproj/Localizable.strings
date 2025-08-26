@@ -134,35 +134,6 @@
 "coffee.enjoying_the_app" = "Gaudint de l'aplicació?";
 "coffee.helpful_learning_journey" = "Si El meu diccionari t'ha estat útil en el teu viatge d'aprenentatge, considera comprar-me un cafè! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "Condicions del servei";
-"paywall.privacy_policy" = "Política de privadesa";
-"paywall.upgrade_to_pro" = "Actualitza a Pro";
-"paywall.restore_purchases" = "Restaura compres";
-"paywall.track_progress" = "Fes seguiment del progrés";
-"paywall.see_your_improvement" = "Veure la teva millora";
-"paywall.collaborate" = "Col·labora";
-"paywall.learn_with_others" = "Aprèn amb altres";
-"paywall.everything_you_need_to_master_vocabulary" = "Tot el que necessites per dominar el vocabulari";
-"paywall.choose_your_plan" = "Tria el teu pla";
-"paywall.start_pro_subscription" = "Comença una subscripció Pro";
-"paywall.trusted_by_learners_worldwide" = "Confiada per aprenents d'arreu del món";
-"paywall.app_store_rating" = "Valoració de l'App Store";
-"paywall.active_users" = "Usuaris actius";
-"paywall.words_added" = "Paraules afegides";
-"paywall.sign_in_required" = "Cal iniciar sessió";
-"paywall.join_thousands_users" = "Uneix-te a milers d'usuaris que han transformat el seu aprenentatge de vocabulari";
-"paywall.by_subscribing_agree_terms" = "En subscriure't, acceptes les nostres Condicions del servei i la Política de privadesa";
-"paywall.pro_user" = "Usuari Pro";
-"paywall.free_plan" = "Pla gratuït";
-"paywall.limited_features_available" = "Funcions limitades disponibles";
-"paywall.terms_of_service" = "Condicions del servei";
-"paywall.privacy_policy" = "Política de privadesa";
-"paywall.restore_purchases" = "Restaura compres";
-"paywall.no_active_subscriptions_found" = "No s'han trobat subscripcions actives. Comprova el teu compte de l'App Store.";
-"paywall.failed_to_restore_purchases" = "No s'han pogut restaurar les compres: %@";
-"paywall.save_percentage" = "Estalvia %@";
-
 // MARK: - Difficulty
 "difficulty.new" = "Nou";
 "difficulty.in_progress" = "En progrés";
@@ -236,24 +207,6 @@
 "tag_selection.select_tags" = "Selecciona etiquetes";
 "tag_selection.no_tags_yet" = "Encara no hi ha etiquetes";
 "tag_selection.you_can_select_up_to_5_tags" = "Pots seleccionar fins a 5 etiquetes per paraula. Toca una etiqueta per seleccionar-la o desseleccionar-la.";
-
-// MARK: - Pro Features
-"pro_features.google_sync" = "Sincronització amb Google";
-"pro_features.unlimited_export" = "Exportació il·limitada";
-"pro_features.create_shared_dictionaries" = "Crea diccionaris compartits";
-"pro_features.advanced_analytics" = "Analítiques avançades";
-"pro_features.priority_support" = "Suport prioritari";
-"pro_features.pro_features" = "Funcions Pro";
-"pro_features.tag_management" = "Gestió d'etiquetes";
-"pro_features.sync_words_across_devices" = "Sincronitza les teves paraules en tots els dispositius amb Google Drive";
-"pro_features.export_unlimited_words" = "Exporta paraules il·limitades a fitxers CSV";
-"pro_features.create_manage_shared_dictionaries" = "Crea i gestiona diccionaris compartits amb altres";
-"pro_features.detailed_insights" = "Obtén informació detallada sobre el teu progrés d'aprenentatge";
-"pro_features.priority_support_team" = "Obtén suport prioritari del nostre equip";
-"pro_features.unlock_all_pro_features" = "Desbloqueja totes les funcions Pro";
-"pro_features.organize_words_with_tags" = "Organitza les teves paraules amb etiquetes personalitzades per a una cerca més fàcil";
-"pro_features.detailed_progress_tracking" = "Seguiment detallat del progrés i informació";
-"pro_features.get_priority_support" = "Obtén suport prioritari quan necessitis ajuda";
 
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Encara no hi ha paraules";
@@ -340,11 +293,6 @@
 "shared_dictionary_selection.add_to_shared" = "Afegeix al compartit";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "Afegeix una paraula al diccionari compartit";
 "shared_dictionary_selection.unknown" = "Desconegut";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "Actualitza a Pro per veure els detalls complets del progrés.";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Actualitza a Pro per veure els detalls complets del creixement del vocabulari.";
-"pro_upgrade.time_period" = "Període de temps";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "Rol";

@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "Uygulamadan keyif alıyor musunuz?";
 "coffee.helpful_learning_journey" = "Sözlüğüm öğrenme yolculuğunuzda size yardımcı olduysa, bana bir kahve ısmarlamayı düşünün! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "Hizmet Şartları";
-"paywall.privacy_policy" = "Gizlilik Politikası";
-"paywall.upgrade_to_pro" = "Pro'ya Yükselt";
-"paywall.restore_purchases" = "Satın Almaları Geri Yükle";
-"paywall.track_progress" = "İlerlemeyi Takip Et";
-"paywall.see_your_improvement" = "Gelişiminizi Görün";
-"paywall.collaborate" = "İşbirliği Yap";
-"paywall.learn_with_others" = "Başkalarıyla Öğren";
-"paywall.everything_you_need_to_master_vocabulary" = "Kelime dağarcığınıza hâkim olmak için ihtiyacınız olan her şey";
-"paywall.choose_your_plan" = "Planınızı Seçin";
-"paywall.start_pro_subscription" = "Pro Aboneliğini Başlat";
-"paywall.trusted_by_learners_worldwide" = "Dünya çapındaki öğrenciler tarafından güveniliyor";
-"paywall.app_store_rating" = "App Store Derecelendirmesi";
-"paywall.active_users" = "Aktif Kullanıcılar";
-"paywall.words_added" = "Eklenen Kelimeler";
-"paywall.sign_in_required" = "Oturum açılması gerekiyor";
-"paywall.join_thousands_users" = "Kelime öğrenimini dönüştüren binlerce kullanıcıya katılın";
-"paywall.by_subscribing_agree_terms" = "Abone olarak Hizmet Şartlarımız ve Gizlilik Politikamızı kabul etmiş olursunuz";
-"paywall.pro_user" = "Pro Kullanıcı";
-"paywall.free_plan" = "Ücretsiz Plan";
-"paywall.limited_features_available" = "Sınırlı özellikler mevcut";
-"paywall.no_active_subscriptions_found" = "Aktif abonelik bulunamadı. App Store hesabınızı kontrol edin.";
-"paywall.failed_to_restore_purchases" = "Satın alımları geri yükleme başarısız: %@";
-"paywall.save_percentage" = "%@ Tasarruf Edin";
-
 // MARK: - Difficulty
 "difficulty.new" = "Yeni";
 "difficulty.in_progress" = "Devam Ediyor";
@@ -234,24 +208,6 @@
 "tag_selection.no_tags_yet" = "Henüz etiket yok";
 "tag_selection.you_can_select_up_to_5_tags" = "Her kelime için en fazla 5 etiket seçebilirsiniz. Etiketleri seçmek veya seçimden çıkarmak için tıklayın.";
 
-// MARK: - Pro Features
-"pro_features.google_sync" = "Google ile Senkronizasyon";
-"pro_features.unlimited_export" = "Sınırsız Dışa Aktarma";
-"pro_features.create_shared_dictionaries" = "Paylaşılan Sözlükler Oluştur";
-"pro_features.advanced_analytics" = "Gelişmiş Analitik";
-"pro_features.priority_support" = "Öncelikli Destek";
-"pro_features.pro_features" = "Pro Özellikler";
-"pro_features.tag_management" = "Etiket Yönetimi";
-"pro_features.sync_words_across_devices" = "Kelimelerinizi Google Drive ile tüm cihazlarda senkronize edin";
-"pro_features.export_unlimited_words" = "Sınırsız kelimeyi CSV dosyasına dışa aktarın";
-"pro_features.create_manage_shared_dictionaries" = "Başkalarıyla paylaşılan sözlükler oluşturun ve yönetin";
-"pro_features.detailed_insights" = "Öğrenme ilerlemeniz hakkında ayrıntılı bilgiler edinin";
-"pro_features.priority_support_team" = "Ekibimizden öncelikli destek alın";
-"pro_features.unlock_all_pro_features" = "Tüm Pro özelliklerini aç";
-"pro_features.organize_words_with_tags" = "Kelimelerinizi özel etiketlerle düzenleyerek kolayca bulun";
-"pro_features.detailed_progress_tracking" = "Ayrıntılı ilerleme takibi ve analitik";
-"pro_features.get_priority_support" = "Yardıma ihtiyacınız olduğunda öncelikli destek alın";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Henüz kelime yok";
 "empty_states.no_idioms_yet" = "Henüz deyim yok";
@@ -323,11 +279,6 @@
 "shared_dictionary_selection.add_to_shared" = "Paylaşılanlara Ekle";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "Paylaşılan sözlüğe kelime ekle";
 "shared_dictionary_selection.unknown" = "Bilinmiyor";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "İlerleme detaylarınızın tamamını görmek için Pro'ya yükseltin.";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Kelime dağarcığınızın büyümesinin tüm detaylarını görmek için Pro'ya yükseltin.";
-"pro_upgrade.time_period" = "Zaman Dilimi";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "Rol";

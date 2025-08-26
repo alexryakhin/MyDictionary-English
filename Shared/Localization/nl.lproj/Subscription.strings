@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Servicevoorwaarden";
+"paywall.privacy_policy" = "Privacybeleid";
+"paywall.upgrade_to_pro" = "Upgraden naar Pro";
+"paywall.restore_purchases" = "Aankopen herstellen";
+"paywall.track_progress" = "Voortgang volgen";
+"paywall.see_your_improvement" = "Zie je verbetering";
+"paywall.collaborate" = "Samenwerken";
+"paywall.learn_with_others" = "Leer met anderen";
+"paywall.everything_you_need_to_master_vocabulary" = "Alles wat je nodig hebt om je woordenschat te beheersen";
+"paywall.choose_your_plan" = "Kies je plan";
+"paywall.start_pro_subscription" = "Start Pro-abonnement";
+"paywall.trusted_by_learners_worldwide" = "Vertrouwd door lerenden wereldwijd";
+"paywall.app_store_rating" = "App Store-beoordeling";
+"paywall.active_users" = "Actieve gebruikers";
+"paywall.words_added" = "Toegevoegde woorden";
+"paywall.sign_in_required" = "Inloggen vereist";
+"paywall.join_thousands_users" = "Sluit je aan bij duizenden gebruikers die hun woordenschatleerproces hebben getransformeerd";
+"paywall.by_subscribing_agree_terms" = "Door te abonneren ga je akkoord met onze Servicevoorwaarden en Privacybeleid";
+"paywall.pro_user" = "Pro-gebruiker";
+"paywall.free_plan" = "Gratis plan";
+"paywall.limited_features_available" = "Beperkte functies beschikbaar";
+"paywall.no_active_subscriptions_found" = "Geen actieve abonnementen gevonden. Controleer je App Store-account.";
+"paywall.failed_to_restore_purchases" = "Herstellen van aankopen mislukt: %@";
+"paywall.save_percentage" = "Bespaar %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google-synchronisatie";
+"pro_features.unlimited_export" = "Onbeperkt exporteren";
+"pro_features.create_shared_dictionaries" = "Gedeelde woordenboeken aanmaken";
+"pro_features.advanced_analytics" = "Geavanceerde analyses";
+"pro_features.priority_support" = "Prioriteitsondersteuning";
+"pro_features.pro_features" = "Pro-functies";
+"pro_features.tag_management" = "Tagbeheer";
+"pro_features.sync_words_across_devices" = "Synchroniseer je woorden tussen apparaten met Google Drive";
+"pro_features.export_unlimited_words" = "Exporteer een onbeperkt aantal woorden naar CSV-bestanden";
+"pro_features.create_manage_shared_dictionaries" = "Maak en beheer gedeelde woordenboeken met anderen";
+"pro_features.detailed_insights" = "Krijg gedetailleerde inzichten in je leerprogressie";
+"pro_features.priority_support_team" = "Krijg prioriteitsondersteuning van ons team";
+"pro_features.unlock_all_pro_features" = "Ontgrendel alle Pro-functies";
+"pro_features.organize_words_with_tags" = "Organiseer je woorden met aangepaste tags voor eenvoudiger zoeken";
+"pro_features.detailed_progress_tracking" = "Gedetailleerde voortgangsregistratie en inzichten";
+"pro_features.get_priority_support" = "Krijg prioriteitsondersteuning wanneer je hulp nodig hebt";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Upgrade naar Pro om volledige voortgangsdetails te zien.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgrade naar Pro om volledige details van woordenschatgroei te zien.";
+"pro_upgrade.time_period" = "Tijdsperiode";
+

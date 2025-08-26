@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "Líbí se vám tato aplikace?";
 "coffee.helpful_learning_journey" = "Pokud vám Můj slovník pomohl na vaší cestě učení, zvažte, že mě pozvete na kávu! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "Podmínky služby";
-"paywall.privacy_policy" = "Zásady ochrany osobních údajů";
-"paywall.upgrade_to_pro" = "Upgradovat na Pro";
-"paywall.restore_purchases" = "Obnovit nákupy";
-"paywall.track_progress" = "Sledovat pokrok";
-"paywall.see_your_improvement" = "Podívejte se na své zlepšení";
-"paywall.collaborate" = "Spolupracovat";
-"paywall.learn_with_others" = "Učte se s ostatními";
-"paywall.everything_you_need_to_master_vocabulary" = "Vše, co potřebujete k zvládnutí slovní zásoby";
-"paywall.choose_your_plan" = "Vyberte svůj plán";
-"paywall.start_pro_subscription" = "Zahájit předplatné Pro";
-"paywall.trusted_by_learners_worldwide" = "Důvěřují mu studenti po celém světě";
-"paywall.app_store_rating" = "Hodnocení App Store";
-"paywall.active_users" = "Aktivní uživatelé";
-"paywall.words_added" = "Přidaná slova";
-"paywall.sign_in_required" = "Je vyžadováno přihlášení";
-"paywall.join_thousands_users" = "Připojte se k tisícům uživatelů, kteří transformovali své učení slovní zásoby";
-"paywall.by_subscribing_agree_terms" = "Předplatným souhlasíte s našimi Podmínkami služby a Zásadami ochrany osobních údajů";
-"paywall.pro_user" = "Pro uživatel";
-"paywall.free_plan" = "Bezplatný plán";
-"paywall.limited_features_available" = "Dostupné omezené funkce";
-"paywall.no_active_subscriptions_found" = "Nenalezeny žádné aktivní předplatné. Zkontrolujte svůj účet v App Store.";
-"paywall.failed_to_restore_purchases" = "Obnovení nákupů selhalo: %@";
-"paywall.save_percentage" = "Ušetřete %@";
-
 // MARK: - Difficulty
 "difficulty.new" = "Nové";
 "difficulty.in_progress" = "Probíhá";
@@ -233,24 +207,6 @@
 "tag_selection.select_tags" = "Vybrat štítky";
 "tag_selection.no_tags_yet" = "Zatím nebyly přidány žádné štítky";
 "tag_selection.you_can_select_up_to_5_tags" = "Pro každé slovo můžete vybrat až 5 štítků. Klepnutím na štítek jej vyberte nebo zrušte výběr.";
-
-// MARK: - Pro Features
-"pro_features.google_sync" = "Synchronizace s Google";
-"pro_features.unlimited_export" = "Neomezený export";
-"pro_features.create_shared_dictionaries" = "Vytvořit sdílené slovníky";
-"pro_features.advanced_analytics" = "Pokročilá analytika";
-"pro_features.priority_support" = "Prioritní podpora";
-"pro_features.pro_features" = "Pro funkce";
-"pro_features.tag_management" = "Správa štítků";
-"pro_features.sync_words_across_devices" = "Synchronizujte svá slova napříč zařízeními pomocí Google Drive";
-"pro_features.export_unlimited_words" = "Exportujte neomezený počet slov do CSV souborů";
-"pro_features.create_manage_shared_dictionaries" = "Vytvořte a spravujte sdílené slovníky s ostatními";
-"pro_features.detailed_insights" = "Získejte podrobné přehledy o svém pokroku v učení";
-"pro_features.priority_support_team" = "Získejte prioritní podporu od našeho týmu";
-"pro_features.unlock_all_pro_features" = "Odemkněte všechny funkce Pro";
-"pro_features.organize_words_with_tags" = "Organizujte svá slova pomocí vlastních štítků pro snadnější vyhledávání";
-"pro_features.detailed_progress_tracking" = "Podrobné sledování pokroku a přehledy";
-"pro_features.get_priority_support" = "Získejte prioritní podporu, když potřebujete pomoc";
 
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Zatím žádná slova";
@@ -337,11 +293,6 @@
 "shared_dictionary_selection.add_to_shared" = "Přidat do sdíleného";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "Přidat slovo do sdíleného slovníku";
 "shared_dictionary_selection.unknown" = "Neznámý";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "Upgradujte na Pro pro zobrazení úplných podrobností o pokroku.";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgradujte na Pro pro zobrazení úplných podrobností o růstu slovní zásoby.";
-"pro_upgrade.time_period" = "Časové období";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "Role";

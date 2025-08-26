@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Servicevilkår";
+"paywall.privacy_policy" = "Privatlivspolitik";
+"paywall.upgrade_to_pro" = "Opgrader til Pro";
+"paywall.restore_purchases" = "Gendan køb";
+"paywall.track_progress" = "Spor fremskridt";
+"paywall.see_your_improvement" = "Se din forbedring";
+"paywall.collaborate" = "Samarbejd";
+"paywall.learn_with_others" = "Lær med andre";
+"paywall.everything_you_need_to_master_vocabulary" = "Alt, hvad du behøver for at mestre dit ordforråd";
+"paywall.choose_your_plan" = "Vælg din plan";
+"paywall.start_pro_subscription" = "Start Pro-abonnement";
+"paywall.trusted_by_learners_worldwide" = "Betroet af lærende verden over";
+"paywall.app_store_rating" = "App Store-bedømmelse";
+"paywall.active_users" = "Aktive brugere";
+"paywall.words_added" = "Tilføjede ord";
+"paywall.sign_in_required" = "Log ind påkrævet";
+"paywall.join_thousands_users" = "Slut dig til tusinder af brugere, der har transformeret deres ordforrådslæring";
+"paywall.by_subscribing_agree_terms" = "Ved at abonnere accepterer du vores Servicevilkår og Privatlivspolitik";
+"paywall.pro_user" = "Pro-bruger";
+"paywall.free_plan" = "Gratis plan";
+"paywall.limited_features_available" = "Begrænsede funktioner tilgængelige";
+"paywall.no_active_subscriptions_found" = "Ingen aktive abonnementer fundet. Tjek din App Store-konto.";
+"paywall.failed_to_restore_purchases" = "Gendannelse af køb mislykkedes: %@";
+"paywall.save_percentage" = "Spar %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google-synkronisering";
+"pro_features.unlimited_export" = "Ubegrænset eksport";
+"pro_features.create_shared_dictionaries" = "Opret delte ordbøger";
+"pro_features.advanced_analytics" = "Avanceret analyse";
+"pro_features.priority_support" = "Prioriteret support";
+"pro_features.pro_features" = "Pro-funktioner";
+"pro_features.tag_management" = "Tag-administration";
+"pro_features.sync_words_across_devices" = "Synkroniser dine ord på tværs af enheder med Google Drive";
+"pro_features.export_unlimited_words" = "Eksporter ubegrænset antal ord til CSV-filer";
+"pro_features.create_manage_shared_dictionaries" = "Opret og administrer delte ordbøger med andre";
+"pro_features.detailed_insights" = "Få detaljerede indsigter i dine læringsfremskridt";
+"pro_features.priority_support_team" = "Få prioriteret support fra vores team";
+"pro_features.unlock_all_pro_features" = "Lås op for alle Pro-funktioner";
+"pro_features.organize_words_with_tags" = "Organiser dine ord med tilpassede tags for lettere søgning";
+"pro_features.detailed_progress_tracking" = "Detaljeret fremskridtssporing og indsigter";
+"pro_features.get_priority_support" = "Få prioriteret support, når du har brug for hjælp";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Opgrader til Pro for at se fulde detaljer om fremskridt.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Opgrader til Pro for at se fulde detaljer om ordforrådsvækst.";
+"pro_upgrade.time_period" = "Tidsperiode";
+

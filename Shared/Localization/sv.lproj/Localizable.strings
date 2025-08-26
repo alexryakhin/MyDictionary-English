@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "Gillar du appen?";
 "coffee.helpful_learning_journey" = "Om Min Ordbok har hjälpt dig på din läranderesa, överväg att köpa mig en kaffe! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "Användarvillkor";
-"paywall.privacy_policy" = "Integritetspolicy";
-"paywall.upgrade_to_pro" = "Uppgradera till Pro";
-"paywall.restore_purchases" = "Återställ köp";
-"paywall.track_progress" = "Spåra framsteg";
-"paywall.see_your_improvement" = "Se dina förbättringar";
-"paywall.collaborate" = "Samarbeta";
-"paywall.learn_with_others" = "Lär dig med andra";
-"paywall.everything_you_need_to_master_vocabulary" = "Allt du behöver för att bemästra ditt ordförråd";
-"paywall.choose_your_plan" = "Välj din plan";
-"paywall.start_pro_subscription" = "Starta Pro-prenumeration";
-"paywall.trusted_by_learners_worldwide" = "Betrodd av elever världen över";
-"paywall.app_store_rating" = "Betyg i App Store";
-"paywall.active_users" = "Aktiva användare";
-"paywall.words_added" = "Tillagda ord";
-"paywall.sign_in_required" = "Inloggning krävs";
-"paywall.join_thousands_users" = "Gå med tusentals användare som har transformerat sitt ordförrådslärande";
-"paywall.by_subscribing_agree_terms" = "Genom att prenumerera godkänner du våra Användarvillkor och Integritetspolicy";
-"paywall.pro_user" = "Pro-användare";
-"paywall.free_plan" = "Gratisplan";
-"paywall.limited_features_available" = "Begränsade funktioner tillgängliga";
-"paywall.no_active_subscriptions_found" = "Inga aktiva prenumerationer hittades. Kontrollera ditt konto i App Store.";
-"paywall.failed_to_restore_purchases" = "Misslyckades med att återställa köp: %@";
-"paywall.save_percentage" = "Spara %@";
-
 // MARK: - Difficulty
 "difficulty.new" = "Nytt";
 "difficulty.in_progress" = "Pågående";
@@ -234,24 +208,6 @@
 "tag_selection.no_tags_yet" = "Inga taggar ännu";
 "tag_selection.you_can_select_up_to_5_tags" = "Du kan välja upp till 5 taggar per ord. Klicka på taggarna för att välja eller avmarkera dem.";
 
-// MARK: - Pro Features
-"pro_features.google_sync" = "Synkronisering med Google";
-"pro_features.unlimited_export" = "Obegränsad export";
-"pro_features.create_shared_dictionaries" = "Skapa delade ordböcker";
-"pro_features.advanced_analytics" = "Avancerad analys";
-"pro_features.priority_support" = "Prioriterad support";
-"pro_features.pro_features" = "Pro-funktioner";
-"pro_features.tag_management" = "Tagg-hantering";
-"pro_features.sync_words_across_devices" = "Synkronisera dina ord över alla enheter med Google Drive";
-"pro_features.export_unlimited_words" = "Exportera obegränsat antal ord till CSV-fil";
-"pro_features.create_manage_shared_dictionaries" = "Skapa och hantera delade ordböcker med andra";
-"pro_features.detailed_insights" = "Få detaljerade insikter om dina lärandeframsteg";
-"pro_features.priority_support_team" = "Få prioriterad support från vårt team";
-"pro_features.unlock_all_pro_features" = "Lås upp alla Pro-funktioner";
-"pro_features.organize_words_with_tags" = "Organisera dina ord med anpassade taggar för enklare sökning";
-"pro_features.detailed_progress_tracking" = "Detaljerad spårning av framsteg och analys";
-"pro_features.get_priority_support" = "Få prioriterad support när du behöver hjälp";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Inga ord ännu";
 "empty_states.no_idioms_yet" = "Inga uttryck ännu";
@@ -323,11 +279,6 @@
 "shared_dictionary_selection.add_to_shared" = "Lägg till i delad";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "Lägg till ord i delad ordbok";
 "shared_dictionary_selection.unknown" = "Okänd";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "Uppgradera till Pro för att se alla detaljer om dina framsteg.";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Uppgradera till Pro för att se alla detaljer om tillväxten av ditt ordförråd.";
-"pro_upgrade.time_period" = "Tidsperiod";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "Roll";

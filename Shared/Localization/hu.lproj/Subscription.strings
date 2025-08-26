@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Szolgáltatási feltételek";
+"paywall.privacy_policy" = "Adatvédelmi irányelvek";
+"paywall.upgrade_to_pro" = "Frissítés Pro-ra";
+"paywall.restore_purchases" = "Vásárlások visszaállítása";
+"paywall.track_progress" = "Haladás nyomon követése";
+"paywall.see_your_improvement" = "Lásd a fejlődésedet";
+"paywall.collaborate" = "Együttműködés";
+"paywall.learn_with_others" = "Tanulj másokkal";
+"paywall.everything_you_need_to_master_vocabulary" = "Minden, amire szükséged van a szókincsed elsajátításához";
+"paywall.choose_your_plan" = "Válaszd ki a tervedet";
+"paywall.start_pro_subscription" = "Pro előfizetés indítása";
+"paywall.trusted_by_learners_worldwide" = "Tanulók világszerte megbíznak benne";
+"paywall.app_store_rating" = "App Store értékelés";
+"paywall.active_users" = "Aktív felhasználók";
+"paywall.words_added" = "Hozzáadott szavak";
+"paywall.sign_in_required" = "Bejelentkezés szükséges";
+"paywall.join_thousands_users" = "Csatlakozz több ezer felhasználóhoz, akik megváltoztatták a szókincstanulásukat";
+"paywall.by_subscribing_agree_terms" = "Az előfizetéssel elfogadod a szolgáltatási feltételeinket és adatvédelmi irányelveinket";
+"paywall.pro_user" = "Pro felhasználó";
+"paywall.free_plan" = "Ingyenes csomag";
+"paywall.limited_features_available" = "Korlátozott funkciók elérhetők";
+"paywall.no_active_subscriptions_found" = "Nem találtunk aktív előfizetéseket. Ellenőrizd az App Store fiókodat.";
+"paywall.failed_to_restore_purchases" = "A vásárlások visszaállítása sikertelen: %@";
+"paywall.save_percentage" = "%@ megtakarítás";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google szinkronizálás";
+"pro_features.unlimited_export" = "Korlátlan exportálás";
+"pro_features.create_shared_dictionaries" = "Megosztott szótárak létrehozása";
+"pro_features.advanced_analytics" = "Haladó analitikák";
+"pro_features.priority_support" = "Elsőbbségi támogatás";
+"pro_features.pro_features" = "Pro funkciók";
+"pro_features.tag_management" = "Címke kezelés";
+"pro_features.sync_words_across_devices" = "Szinkronizáld a szavaidat minden eszközödön a Google Drive-val";
+"pro_features.export_unlimited_words" = "Exportálj korlátlan számú szót CSV fájlokba";
+"pro_features.create_manage_shared_dictionaries" = "Hozz létre és kezelj megosztott szótárakat másokkal";
+"pro_features.detailed_insights" = "Részletes betekintés a tanulási haladásodba";
+"pro_features.priority_support_team" = "Elsőbbségi támogatás a csapatunktól";
+"pro_features.unlock_all_pro_features" = "Oldd fel az összes Pro funkciót";
+"pro_features.organize_words_with_tags" = "Rendezd szavaidat egyedi címkékkel a könnyebb keresés érdekében";
+"pro_features.detailed_progress_tracking" = "Részletes haladás nyomon követése és betekintések";
+"pro_features.get_priority_support" = "Kapj elsőbbségi támogatást, amikor segítségre van szükséged";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Frissíts Pro-ra, hogy lásd az összes haladási részletet.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Frissíts Pro-ra, hogy lásd a szókincsed növekedésének minden részletét.";
+"pro_upgrade.time_period" = "Időszak";
+

@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "Nautitko sovelluksesta?";
 "coffee.helpful_learning_journey" = "Jos Oma Sanakirja on auttanut sinua oppimismatkallasi, harkitse kahvin ostamista minulle! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "Käyttöehdot";
-"paywall.privacy_policy" = "Tietosuojakäytäntö";
-"paywall.upgrade_to_pro" = "Päivitä Pro-versioon";
-"paywall.restore_purchases" = "Palauta ostokset";
-"paywall.track_progress" = "Seuraa edistymistä";
-"paywall.see_your_improvement" = "Näe parannuksesi";
-"paywall.collaborate" = "Tee yhteistyötä";
-"paywall.learn_with_others" = "Opi muiden kanssa";
-"paywall.everything_you_need_to_master_vocabulary" = "Kaikki, mitä tarvitset sanastosi hallintaan";
-"paywall.choose_your_plan" = "Valitse suunnitelmasi";
-"paywall.start_pro_subscription" = "Aloita Pro-tilaus";
-"paywall.trusted_by_learners_worldwide" = "Luotettu oppijoiden keskuudessa maailmanlaajuisesti";
-"paywall.app_store_rating" = "App Store -arvio";
-"paywall.active_users" = "Aktiiviset käyttäjät";
-"paywall.words_added" = "Lisätyt sanat";
-"paywall.sign_in_required" = "Sisäänkirjautuminen vaaditaan";
-"paywall.join_thousands_users" = "Liity tuhansien käyttäjien joukkoon, jotka ovat muuttaneet sanasto-oppimistaan";
-"paywall.by_subscribing_agree_terms" = "Tilaamalla hyväksyt käyttöehtomme ja tietosuojakäytäntömme";
-"paywall.pro_user" = "Pro-käyttäjä";
-"paywall.free_plan" = "Ilmainen suunnitelma";
-"paywall.limited_features_available" = "Rajoitetut ominaisuudet käytettävissä";
-"paywall.no_active_subscriptions_found" = "Aktiivisia tilauksia ei löytynyt. Tarkista App Store -tilisi.";
-"paywall.failed_to_restore_purchases" = "Ostosten palauttaminen epäonnistui: %@";
-"paywall.save_percentage" = "Säästä %@";
-
 // MARK: - Difficulty
 "difficulty.new" = "Uusi";
 "difficulty.in_progress" = "Käsittelyssä";
@@ -233,24 +207,6 @@
 "tag_selection.select_tags" = "Valitse tunnisteet";
 "tag_selection.no_tags_yet" = "Ei vielä tunnisteita";
 "tag_selection.you_can_select_up_to_5_tags" = "Voit valita enintään 5 tunnistetta per sana. Napauta tunnistetta valitaksesi tai poistaaksesi sen.";
-
-// MARK: - Pro Features
-"pro_features.google_sync" = "Google-synkronointi";
-"pro_features.unlimited_export" = "Rajoittamaton vienti";
-"pro_features.create_shared_dictionaries" = "Luo jaettuja sanakirjoja";
-"pro_features.advanced_analytics" = "Edistynyt analytiikka";
-"pro_features.priority_support" = "Ensisijainen tuki";
-"pro_features.pro_features" = "Pro-ominaisuudet";
-"pro_features.tag_management" = "Tunnisteiden hallinta";
-"pro_features.sync_words_across_devices" = "Synkronoi sanasi laitteiden välillä Google Driven avulla";
-"pro_features.export_unlimited_words" = "Vie rajoittamaton määrä sanoja CSV-tiedostoihin";
-"pro_features.create_manage_shared_dictionaries" = "Luo ja hallinnoi jaettuja sanakirjoja muiden kanssa";
-"pro_features.detailed_insights" = "Saat yksityiskohtaisia näkemyksiä oppimisedistymisestäsi";
-"pro_features.priority_support_team" = "Saat ensisijaista tukea tiimiltämme";
-"pro_features.unlock_all_pro_features" = "Avaa kaikki Pro-ominaisuudet";
-"pro_features.organize_words_with_tags" = "Järjestä sanasi mukautetuilla tunnisteilla helpompaa hakua varten";
-"pro_features.detailed_progress_tracking" = "Yksityiskohtainen edistymisen seuranta ja näkemykset";
-"pro_features.get_priority_support" = "Saat ensisijaista tukea, kun tarvitset apua";
 
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Ei vielä sanoja";
@@ -337,11 +293,6 @@
 "shared_dictionary_selection.add_to_shared" = "Lisää jaettuun";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "Lisää sana jaettuun sanakirjaan";
 "shared_dictionary_selection.unknown" = "Tuntematon";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "Päivitä Pro-versioon nähdäksesi täydet edistymistiedot.";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Päivitä Pro-versioon nähdäksesi täydet sanaston kasvutiedot.";
-"pro_upgrade.time_period" = "Aikajakso";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "Rooli";

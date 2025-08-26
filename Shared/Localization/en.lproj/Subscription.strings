@@ -1,0 +1,54 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Terms of Service";
+"paywall.privacy_policy" = "Privacy Policy";
+"paywall.upgrade_to_pro" = "Upgrade to Pro";
+"paywall.restore_purchases" = "Restore Purchases";
+"paywall.track_progress" = "Track Progress";
+"paywall.see_your_improvement" = "See your improvement";
+"paywall.collaborate" = "Collaborate";
+"paywall.learn_with_others" = "Learn with others";
+"paywall.everything_you_need_to_master_vocabulary" = "Everything you need to master vocabulary";
+"paywall.choose_your_plan" = "Choose Your Plan";
+"paywall.start_pro_subscription" = "Start Pro Subscription";
+"paywall.trusted_by_learners_worldwide" = "Trusted by learners worldwide";
+"paywall.app_store_rating" = "App Store Rating";
+"paywall.active_users" = "Active Users";
+"paywall.words_added" = "Words Added";
+"paywall.sign_in_required" = "Sign In Required";
+"paywall.join_thousands_users" = "Join thousands of users who've transformed their vocabulary learning";
+"paywall.by_subscribing_agree_terms" = "By subscribing, you agree to our Terms of Service and Privacy Policy";
+"paywall.pro_user" = "Pro User";
+"paywall.free_plan" = "Free Plan";
+"paywall.limited_features_available" = "Limited features available";
+"paywall.terms_of_service" = "Terms of Service";
+"paywall.privacy_policy" = "Privacy Policy";
+"paywall.restore_purchases" = "Restore Purchases";
+"paywall.no_active_subscriptions_found" = "No active subscriptions found. Please check your App Store account.";
+"paywall.failed_to_restore_purchases" = "Failed to restore purchases: %@";
+"paywall.save_percentage" = "Save %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Google Sync";
+"pro_features.unlimited_export" = "Unlimited Export";
+"pro_features.create_shared_dictionaries" = "Create Shared Dictionaries";
+"pro_features.advanced_analytics" = "Advanced Analytics";
+"pro_features.priority_support" = "Priority Support";
+"pro_features.pro_features" = "Pro Features";
+"pro_features.tag_management" = "Tag Management";
+"pro_features.sync_words_across_devices" = "Sync your words across all devices with Google Drive";
+"pro_features.export_unlimited_words" = "Export unlimited words to CSV files";
+"pro_features.create_manage_shared_dictionaries" = "Create and manage shared dictionaries with others";
+"pro_features.detailed_insights" = "Get detailed insights into your learning progress";
+"pro_features.priority_support_team" = "Get priority support from our team";
+"pro_features.unlock_all_pro_features" = "Unlock all Pro features";
+"pro_features.organize_words_with_tags" = "Organize your words with custom tags for easier search";
+"pro_features.detailed_progress_tracking" = "Detailed progress tracking and insights";
+"pro_features.get_priority_support" = "Get priority support when you need help";
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Access to Speechify's premium text-to-speech technology. Hundreds of natural-sounding premium voices";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Upgrade to Pro to see full progress details.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgrade to Pro to see full vocabulary growth details.";
+"pro_upgrade.time_period" = "Time Period";
+

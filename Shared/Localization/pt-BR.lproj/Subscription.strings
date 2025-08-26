@@ -1,0 +1,49 @@
+// MARK: - Paywall
+"paywall.terms_of_service" = "Termos de Serviço";
+"paywall.privacy_policy" = "Política de Privacidade";
+"paywall.upgrade_to_pro" = "Atualizar para Pro";
+"paywall.restore_purchases" = "Restaurar Compras";
+"paywall.track_progress" = "Acompanhar Progresso";
+"paywall.see_your_improvement" = "Veja sua melhoria";
+"paywall.collaborate" = "Colaborar";
+"paywall.learn_with_others" = "Aprenda com outros";
+"paywall.everything_you_need_to_master_vocabulary" = "Tudo o que você precisa para dominar o vocabulário";
+"paywall.choose_your_plan" = "Escolha seu Plano";
+"paywall.start_pro_subscription" = "Iniciar Assinatura Pro";
+"paywall.trusted_by_learners_worldwide" = "Confiado por aprendizes em todo o mundo";
+"paywall.app_store_rating" = "Avaliação na App Store";
+"paywall.active_users" = "Usuários Ativos";
+"paywall.words_added" = "Palavras Adicionadas";
+"paywall.sign_in_required" = "Login necessário";
+"paywall.join_thousands_users" = "Junte-se a milhares de usuários que transformaram seu aprendizado de vocabulário";
+"paywall.by_subscribing_agree_terms" = "Ao assinar, você concorda com nossos Termos de Serviço e Política de Privacidade";
+"paywall.pro_user" = "Usuário Pro";
+"paywall.free_plan" = "Plano Gratuito";
+"paywall.limited_features_available" = "Recursos limitados disponíveis";
+"paywall.no_active_subscriptions_found" = "Nenhuma assinatura ativa encontrada. Verifique sua conta na App Store.";
+"paywall.failed_to_restore_purchases" = "Falha ao restaurar compras: %@";
+"paywall.save_percentage" = "Economize %@";
+
+// MARK: - Pro Features
+"pro_features.google_sync" = "Sincronização com Google";
+"pro_features.unlimited_export" = "Exportação Ilimitada";
+"pro_features.create_shared_dictionaries" = "Criar Dicionários Compartilhados";
+"pro_features.advanced_analytics" = "Análises Avançadas";
+"pro_features.priority_support" = "Suporte Prioritário";
+"pro_features.pro_features" = "Recursos Pro";
+"pro_features.tag_management" = "Gerenciamento de Etiquetas";
+"pro_features.sync_words_across_devices" = "Sincronize suas palavras em todos os dispositivos com o Google Drive";
+"pro_features.export_unlimited_words" = "Exporte palavras ilimitadas para arquivo CSV";
+"pro_features.create_manage_shared_dictionaries" = "Crie e gerencie dicionários compartilhados com outros";
+"pro_features.detailed_insights" = "Obtenha insights detalhados sobre seu progresso de aprendizado";
+"pro_features.priority_support_team" = "Receba suporte prioritário da nossa equipe";
+"pro_features.unlock_all_pro_features" = "Desbloqueie todos os recursos Pro";
+"pro_features.organize_words_with_tags" = "Organize suas palavras com etiquetas personalizadas para uma busca mais fácil";
+"pro_features.detailed_progress_tracking" = "Acompanhamento detalhado de progresso e insights";
+"pro_features.get_priority_support" = "Receba suporte prioritário quando precisar de ajuda";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Atualize para o Pro para ver todos os detalhes do seu progresso.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Atualize para o Pro para ver todos os detalhes do crescimento do seu vocabulário.";
+"pro_upgrade.time_period" = "Período de Tempo";
+

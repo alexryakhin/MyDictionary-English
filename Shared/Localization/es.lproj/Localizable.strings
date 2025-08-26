@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "¿Disfrutas de la aplicación?";
 "coffee.helpful_learning_journey" = "Si Mi Diccionario te ha ayudado en tu viaje de aprendizaje, ¡considera comprarme un café! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "Términos de servicio";
-"paywall.privacy_policy" = "Política de privacidad";
-"paywall.upgrade_to_pro" = "Actualizar a Pro";
-"paywall.restore_purchases" = "Restaurar compras";
-"paywall.track_progress" = "Seguimiento del progreso";
-"paywall.see_your_improvement" = "Ver tus mejoras";
-"paywall.collaborate" = "Colaborar";
-"paywall.learn_with_others" = "Aprender con otros";
-"paywall.everything_you_need_to_master_vocabulary" = "Todo lo que necesitas para dominar el vocabulario";
-"paywall.choose_your_plan" = "Elige tu plan";
-"paywall.start_pro_subscription" = "Iniciar suscripción Pro";
-"paywall.trusted_by_learners_worldwide" = "Confiado por estudiantes de todo el mundo";
-"paywall.app_store_rating" = "Calificación en App Store";
-"paywall.active_users" = "Usuarios activos";
-"paywall.words_added" = "Palabras añadidas";
-"paywall.sign_in_required" = "Se requiere iniciar sesión";
-"paywall.join_thousands_users" = "Únete a miles de usuarios que han transformado su aprendizaje de vocabulario";
-"paywall.by_subscribing_agree_terms" = "Al suscribirte, aceptas nuestros Términos de servicio y Política de privacidad";
-"paywall.pro_user" = "Usuario Pro";
-"paywall.free_plan" = "Plan gratuito";
-"paywall.limited_features_available" = "Funciones limitadas disponibles";
-"paywall.no_active_subscriptions_found" = "No se encontraron suscripciones activas. Verifica tu cuenta en App Store.";
-"paywall.failed_to_restore_purchases" = "No se pudieron restaurar las compras: %@";
-"paywall.save_percentage" = "Ahorrar %@";
-
 // MARK: - Difficulty
 "difficulty.new" = "Nuevo";
 "difficulty.in_progress" = "En progreso";
@@ -233,24 +207,6 @@
 "tag_selection.select_tags" = "Seleccionar etiquetas";
 "tag_selection.no_tags_yet" = "Aún no hay etiquetas";
 "tag_selection.you_can_select_up_to_5_tags" = "Puedes seleccionar hasta 5 etiquetas por palabra. Pulsa en las etiquetas para seleccionarlas o deseleccionarlas.";
-
-// MARK: - Pro Features
-"pro_features.google_sync" = "Sincronización con Google";
-"pro_features.unlimited_export" = "Exportación ilimitada";
-"pro_features.create_shared_dictionaries" = "Crear diccionarios compartidos";
-"pro_features.advanced_analytics" = "Analíticas avanzadas";
-"pro_features.priority_support" = "Soporte prioritario";
-"pro_features.pro_features" = "Funciones Pro";
-"pro_features.tag_management" = "Gestión de etiquetas";
-"pro_features.sync_words_across_devices" = "Sincroniza tus palabras en todos los dispositivos con Google Drive";
-"pro_features.export_unlimited_words" = "Exporta un número ilimitado de palabras a un archivo CSV";
-"pro_features.create_manage_shared_dictionaries" = "Crea y gestiona diccionarios compartidos con otros";
-"pro_features.detailed_insights" = "Obtén información detallada sobre tu progreso de aprendizaje";
-"pro_features.priority_support_team" = "Recibe soporte prioritario de nuestro equipo";
-"pro_features.unlock_all_pro_features" = "Desbloquea todas las funciones Pro";
-"pro_features.organize_words_with_tags" = "Organiza tus palabras con etiquetas personalizadas para una búsqueda más fácil";
-"pro_features.detailed_progress_tracking" = "Seguimiento detallado del progreso y analíticas";
-"pro_features.get_priority_support" = "Obtén soporte prioritario cuando necesites ayuda";
 
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Aún no hay palabras";
@@ -337,11 +293,6 @@
 "shared_dictionary_selection.add_to_shared" = "Añadir a compartido";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "Añadir palabra al diccionario compartido";
 "shared_dictionary_selection.unknown" = "Desconocido";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "Actualiza a Pro para ver todos los detalles de tu progreso.";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Actualiza a Pro para ver todos los detalles del crecimiento de tu vocabulario.";
-"pro_upgrade.time_period" = "Período de tiempo";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "Rol";

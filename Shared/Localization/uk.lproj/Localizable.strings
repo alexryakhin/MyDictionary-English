@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "Подобається програма?";
 "coffee.helpful_learning_journey" = "Якщо мій словник допоміг вам у вашій навчальній подорожі, подумайте про те, щоб купити мені каву! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "Умови надання послуг";
-"paywall.privacy_policy" = "Політика конфіденційності";
-"paywall.upgrade_to_pro" = "Оновити до Pro";
-"paywall.restore_purchases" = "Відновити покупки";
-"paywall.track_progress" = "Відстежувати прогрес";
-"paywall.see_your_improvement" = "Побачте свій прогрес";
-"paywall.collaborate" = "Співпрацювати";
-"paywall.learn_with_others" = "Вчитися з іншими";
-"paywall.everything_you_need_to_master_vocabulary" = "Усе, що вам потрібно для опанування словникового запасу";
-"paywall.choose_your_plan" = "Виберіть свій план";
-"paywall.start_pro_subscription" = "Почати підписку Pro";
-"paywall.trusted_by_learners_worldwide" = "Довіряють учні по всьому світу";
-"paywall.app_store_rating" = "Рейтинг в App Store";
-"paywall.active_users" = "Активні користувачі";
-"paywall.words_added" = "Додані слова";
-"paywall.sign_in_required" = "Потрібен вхід";
-"paywall.join_thousands_users" = "Приєднуйтесь до тисяч користувачів, які трансформують своє вивчення словникового запасу";
-"paywall.by_subscribing_agree_terms" = "Оформлюючи підписку, ви погоджуєтеся з нашими Умовами надання послуг та Політикою конфіденційності";
-"paywall.pro_user" = "Користувач Pro";
-"paywall.free_plan" = "Безкоштовний план";
-"paywall.limited_features_available" = "Доступні обмежені функції";
-"paywall.no_active_subscriptions_found" = "Активних підписок не знайдено. Перевірте свій обліковий запис App Store";
-"paywall.failed_to_restore_purchases" = "Не вдалося відновити покупки: %@";
-"paywall.save_percentage" = "Заощаджуйте %@";
-
 // MARK: - Difficulty
 "difficulty.new" = "Нове";
 "difficulty.in_progress" = "В процесі";
@@ -234,24 +208,6 @@
 "tag_selection.no_tags_yet" = "Поки немає тегів";
 "tag_selection.you_can_select_up_to_5_tags" = "Ви можете вибрати до 5 тегів на слово. Натисніть на тег, щоб вибрати або скасувати вибір";
 
-// MARK: - Pro Features
-"pro_features.google_sync" = "Синхронізація з Google";
-"pro_features.unlimited_export" = "Необмежений експорт";
-"pro_features.create_shared_dictionaries" = "Створити спільні словники";
-"pro_features.advanced_analytics" = "Розширена аналітика";
-"pro_features.priority_support" = "Пріоритетна підтримка";
-"pro_features.pro_features" = "Функції Pro";
-"pro_features.tag_management" = "Керування тегами";
-"pro_features.sync_words_across_devices" = "Синхронізуйте слова на всіх пристроях через Google Drive";
-"pro_features.export_unlimited_words" = "Експортуйте необмежену кількість слів у файл CSV";
-"pro_features.create_manage_shared_dictionaries" = "Створюйте та керуйте спільними словниками з іншими";
-"pro_features.detailed_insights" = "Отримуйте детальну інформацію про прогрес вашого навчання";
-"pro_features.priority_support_team" = "Отримуйте пріоритетну підтримку від нашої команди";
-"pro_features.unlock_all_pro_features" = "Розблокуйте всі функції Pro";
-"pro_features.organize_words_with_tags" = "Впорядковуйте слова за допомогою власних тегів для легшого пошуку";
-"pro_features.detailed_progress_tracking" = "Детальне відстеження прогресу та аналітика";
-"pro_features.get_priority_support" = "Отримуйте пріоритетну підтримку, коли вам потрібна допомога";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Поки немає слів";
 "empty_states.no_idioms_yet" = "Поки немає ідіом";
@@ -323,11 +279,6 @@
 "shared_dictionary_selection.add_to_shared" = "Додати до спільного";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "Додати слово до спільного словника";
 "shared_dictionary_selection.unknown" = "Невідомо";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "Оновіть до Pro, щоб переглянути всі деталі прогресу";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Оновіть до Pro, щоб переглянути всі деталі зростання словникового запасу";
-"pro_upgrade.time_period" = "Період часу";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "Роль";

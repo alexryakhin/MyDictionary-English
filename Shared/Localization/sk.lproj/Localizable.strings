@@ -134,32 +134,6 @@
 "coffee.enjoying_the_app" = "Páči sa vám aplikácia?";
 "coffee.helpful_learning_journey" = "Ak vám Môj slovník pomohol vo vašej ceste za učením, zvážte kúpu kávy! ☕️";
 
-// MARK: - Paywall
-"paywall.terms_of_service" = "Podmienky služby";
-"paywall.privacy_policy" = "Zásady ochrany osobných údajov";
-"paywall.upgrade_to_pro" = "Aktualizovať na Pro";
-"paywall.restore_purchases" = "Obnoviť nákupy";
-"paywall.track_progress" = "Sledovať pokrok";
-"paywall.see_your_improvement" = "Vidieť svoje zlepšenia";
-"paywall.collaborate" = "Spolupracovať";
-"paywall.learn_with_others" = "Učiť sa s ostatnými";
-"paywall.everything_you_need_to_master_vocabulary" = "Všetko, čo potrebujete na zvládnutie slovnej zásoby";
-"paywall.choose_your_plan" = "Vyberte si svoj plán";
-"paywall.start_pro_subscription" = "Začať predplatné Pro";
-"paywall.trusted_by_learners_worldwide" = "Dôverujú mu študenti na celom svete";
-"paywall.app_store_rating" = "Hodnotenie v App Store";
-"paywall.active_users" = "Aktívni používatelia";
-"paywall.words_added" = "Pridané slová";
-"paywall.sign_in_required" = "Vyžaduje sa prihlásenie";
-"paywall.join_thousands_users" = "Pridajte sa k tisíckam používateľov, ktorí transformovali svoje učenie slovnej zásoby";
-"paywall.by_subscribing_agree_terms" = "Predplatným súhlasíte s našimi Podmienkami služby a Zásadami ochrany osobných údajov";
-"paywall.pro_user" = "Používateľ Pro";
-"paywall.free_plan" = "Bezplatný plán";
-"paywall.limited_features_available" = "Obmedzené funkcie k dispozícii";
-"paywall.no_active_subscriptions_found" = "Nenašli sa žiadne aktívne predplatné. Skontrolujte svoj účet v App Store.";
-"paywall.failed_to_restore_purchases" = "Obnovenie nákupov zlyhalo: %@";
-"paywall.save_percentage" = "Ušetriť %@";
-
 // MARK: - Difficulty
 "difficulty.new" = "Nové";
 "difficulty.in_progress" = "V procese";
@@ -234,24 +208,6 @@
 "tag_selection.no_tags_yet" = "Zatiaľ žiadne značky";
 "tag_selection.you_can_select_up_to_5_tags" = "Môžete vybrať až 5 značiek na slovo. Kliknite na značky, aby ste ich vybrali alebo zrušili výber.";
 
-// MARK: - Pro Features
-"pro_features.google_sync" = "Synchronizácia s Google";
-"pro_features.unlimited_export" = "Neobmedzený export";
-"pro_features.create_shared_dictionaries" = "Vytvárať zdieľané slovníky";
-"pro_features.advanced_analytics" = "Pokročilá analytika";
-"pro_features.priority_support" = "Prioritná podpora";
-"pro_features.pro_features" = "Funkcie Pro";
-"pro_features.tag_management" = "Správa značiek";
-"pro_features.sync_words_across_devices" = "Synchronizujte svoje slová na všetkých zariadeniach s Google Drive";
-"pro_features.export_unlimited_words" = "Exportujte neobmedzený počet slov do CSV súboru";
-"pro_features.create_manage_shared_dictionaries" = "Vytvárajte a spravujte zdieľané slovníky s ostatnými";
-"pro_features.detailed_insights" = "Získajte podrobné prehľady o vašom pokroku v učení";
-"pro_features.priority_support_team" = "Získajte prioritnú podporu od nášho tímu";
-"pro_features.unlock_all_pro_features" = "Odomknite všetky funkcie Pro";
-"pro_features.organize_words_with_tags" = "Organizujte svoje slová pomocou vlastných značiek pre jednoduchšie vyhľadávanie";
-"pro_features.detailed_progress_tracking" = "Podrobné sledovanie pokroku a prehľady";
-"pro_features.get_priority_support" = "Získajte prioritnú podporu, keď potrebujete pomoc";
-
 // MARK: - Empty States
 "empty_states.no_words_yet" = "Zatiaľ žiadne slová";
 "empty_states.no_idioms_yet" = "Zatiaľ žiadne idiomy";
@@ -323,11 +279,6 @@
 "shared_dictionary_selection.add_to_shared" = "Pridať do zdieľaného";
 "shared_dictionary_selection.add_word_to_shared_dictionary" = "Pridať slovo do zdieľaného slovníka";
 "shared_dictionary_selection.unknown" = "Neznáme";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "Aktualizujte na Pro, aby ste videli všetky podrobnosti o vašom pokroku.";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Aktualizujte na Pro, aby ste videli všetky podrobnosti o raste vašej slovnej zásoby.";
-"pro_upgrade.time_period" = "Časové obdobie";
 
 // MARK: - Collaborator Management
 "collaborator_management.role" = "Rola";
