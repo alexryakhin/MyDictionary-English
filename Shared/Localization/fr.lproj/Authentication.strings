@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Connectez-vous avant de vous abonner";
+"auth.sign_in_with_google" = "Se connecter avec Google";
+"auth.can_always_sign_in_later" = "Vous pouvez toujours vous connecter plus tard depuis les paramètres";
+"auth.link_additional_accounts" = "Lier des comptes supplémentaires";
+"auth.accounts_linked_successfully" = "Comptes liés avec succès";
+"auth.sign_out_confirmation" = "Se déconnecter";
+"auth.your_words_are_safe" = "Vos mots sont en sécurité";
+"auth.cloud_sync_disabled" = "La synchronisation cloud sera désactivée";
+"auth.sign_out" = "Se déconnecter";
+"auth.no_worries_wont_remove_words" = "Pas d'inquiétude ! Nous ne supprimerons pas vos mots.";
+"auth.vocabulary_stay_on_device" = "Votre vocabulaire reste sur cet appareil. Si vous vous connectez avec un autre compte, vos données seront fusionnées.";
+"auth.all_vocabulary_remain_device" = "Tous vos mots, définitions et progrès restent sur cet appareil. Vous pouvez continuer à utiliser l'application sans être connecté.";
+"auth.word_lists_shared_data_cleared" = "Les listes de mots et les données partagées seront effacées. Si vous vous connectez avec un autre compte, vos mots locaux seront fusionnés avec les données du nouveau compte.";
+"auth.sign_in_to_access_word_lists" = "Connectez-vous pour accéder à vos listes de mots sur tous les appareils et collaborer avec d'autres.";
+"auth.link_google" = "Lier à Google";
+"auth.link_apple" = "Lier à Apple";
+"auth.sign_in_to_sync_word_lists" = "Connectez-vous pour synchroniser les listes de mots";
+"auth.sign_out_error_title" = "Oups !";
+"auth.sign_out_error_message" = "Quelque chose s'est mal passé lors de la déconnexion. Réessayez plus tard.";
+"auth.sign_in_required_for_restore" = "La connexion est requise pour restaurer vos achats.";
+"auth.sign_in_required_for_pro_features" = "La connexion est requise pour accéder aux fonctionnalités Pro comme %@.";
+"auth.sign_in_failed" = "Échec de la connexion. Réessayez.";
+"auth.sign_out_failed" = "Échec de la déconnexion. Réessayez.";
+"auth.user_not_found" = "Utilisateur non trouvé.";
+"auth.network_error" = "Erreur réseau. Vérifiez votre connexion.";
+"auth.account_linking_failed" = "Échec de la liaison du compte. Réessayez.";
+
+// Registration Benefits
+"auth.registration_benefits" = "Avantages de l'Inscription";
+"auth.access_subscription_all_devices" = "Accédez à votre abonnement sur tous vos appareils";
+"auth.sync_progress_cross_platform" = "Synchronisez votre progression entre iOS et Android";
+"auth.backup_data_securely" = "Sauvegardez vos données en toute sécurité dans le cloud";
+"auth.register_anytime_from_settings" = "Vous pouvez vous inscrire à tout moment depuis les Paramètres pour activer ces fonctionnalités";
+"auth.account_registration" = "Inscription de Compte";
+"auth.register_for_cross_platform_access" = "Inscrivez-vous pour accéder à votre abonnement sur tous vos appareils et synchroniser votre progression";
+"auth.active_subscription_notification" = "Vous avez un abonnement actif !";
+"auth.register_to_unlock_cross_platform" = "Inscrivez-vous pour débloquer l'accès multiplateforme";
+"auth.register_now" = "S'Inscrire Maintenant";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Accès à l'Abonnement Restreint";
+"auth.subscription_associated_different_account" = "Cet abonnement est associé à un compte différent. Veuillez vous connecter avec le compte qui a acheté cet abonnement pour accéder aux fonctionnalités Pro.";
+
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Liaison de Compte";
+"auth.account_linking_description" = "Pour accéder à votre abonnement sur les appareils Android, vous devez lier un compte Google. Pour partager les abonnements entre plateformes, liez les deux comptes.";
+"auth.link_google_for_android" = "Lier le Compte Google";
+"auth.link_apple_for_cross_platform" = "Lier l'Apple ID";
+"auth.current_account" = "Compte Actuel";
+"auth.linked_accounts" = "Comptes Liés";
+"auth.no_linked_accounts" = "Aucun compte lié";
+

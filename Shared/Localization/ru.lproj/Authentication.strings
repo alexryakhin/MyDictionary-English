@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Войдите перед подпиской";
+"auth.sign_in_with_google" = "Войти через Google";
+"auth.can_always_sign_in_later" = "Вы всегда можете войти позже в настройках";
+"auth.link_additional_accounts" = "Связать дополнительные аккаунты";
+"auth.accounts_linked_successfully" = "Аккаунты успешно связаны";
+"auth.sign_out_confirmation" = "Выйти";
+"auth.your_words_are_safe" = "Ваши слова в безопасности";
+"auth.cloud_sync_disabled" = "Синхронизация с облаком будет отключена";
+"auth.sign_out" = "Выйти";
+"auth.no_worries_wont_remove_words" = "Не волнуйтесь! Мы не удалим ваши слова.";
+"auth.vocabulary_stay_on_device" = "Ваш словарный запас останется на этом устройстве. Если вы войдёте с другим аккаунтом, ваши данные будут объединены.";
+"auth.all_vocabulary_remain_device" = "Все слова, определения и прогресс останутся на этом устройстве. Вы можете продолжать использовать приложение без входа.";
+"auth.word_lists_shared_data_cleared" = "Списки слов и общие данные будут очищены. Если вы войдёте с другим аккаунтом, ваши локальные слова будут объединены с данными нового аккаунта.";
+"auth.sign_in_to_access_word_lists" = "Войдите, чтобы получить доступ к вашим спискам слов на всех устройствах и сотрудничать с другими.";
+"auth.link_google" = "Связать с Google";
+"auth.link_apple" = "Связать с Apple";
+"auth.sign_in_to_sync_word_lists" = "Войдите, чтобы синхронизировать списки слов";
+"auth.sign_out_error_title" = "Упс!";
+"auth.sign_out_error_message" = "Что-то пошло не так при выходе. Попробуйте снова позже.";
+"auth.sign_in_required_for_restore" = "Требуется вход для восстановления покупок.";
+"auth.sign_in_required_for_pro_features" = "Требуется вход для доступа к функциям Pro, таким как %@.";
+"auth.sign_in_failed" = "Ошибка входа. Попробуйте снова.";
+"auth.sign_out_failed" = "Ошибка выхода. Попробуйте снова.";
+"auth.user_not_found" = "Пользователь не найден.";
+"auth.network_error" = "Ошибка сети. Проверьте ваше соединение.";
+"auth.account_linking_failed" = "Не удалось связать аккаунт. Попробуйте снова.";
+
+// Registration Benefits
+"auth.registration_benefits" = "Преимущества Регистрации";
+"auth.access_subscription_all_devices" = "Получите доступ к подписке на всех ваших устройствах";
+"auth.sync_progress_cross_platform" = "Синхронизируйте ваш прогресс между iOS и Android";
+"auth.backup_data_securely" = "Безопасно резервируйте ваши данные в облаке";
+"auth.register_anytime_from_settings" = "Вы можете зарегистрироваться в любое время из Настроек для активации этих функций";
+"auth.account_registration" = "Регистрация Аккаунта";
+"auth.register_for_cross_platform_access" = "Зарегистрируйтесь для доступа к подписке на всех ваших устройствах и синхронизации прогресса";
+"auth.active_subscription_notification" = "У вас активная подписка!";
+"auth.register_to_unlock_cross_platform" = "Зарегистрируйтесь для разблокировки кросс-платформенного доступа";
+"auth.register_now" = "Зарегистрироваться Сейчас";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Доступ к Подписке Ограничен";
+"auth.subscription_associated_different_account" = "Эта подписка связана с другим аккаунтом. Пожалуйста, войдите с аккаунтом, который купил эту подписку, для доступа к функциям Pro.";
+
+// Profile
+"auth.profile" = "Профиль";
+"auth.account_linking" = "Связывание Аккаунтов";
+"auth.account_linking_description" = "Для доступа к подписке на устройствах Android вам нужно связать аккаунт Google. Для совместного использования подписок между платформами свяжите оба аккаунта.";
+"auth.link_google_for_android" = "Связать Аккаунт Google";
+"auth.link_apple_for_cross_platform" = "Связать Apple ID";
+"auth.current_account" = "Текущий Аккаунт";
+"auth.linked_accounts" = "Связанные Аккаунты";
+"auth.no_linked_accounts" = "Нет связанных аккаунтов";
+

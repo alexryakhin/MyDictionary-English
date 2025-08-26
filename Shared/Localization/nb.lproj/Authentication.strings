@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Logg inn før du abonnerer";
+"auth.sign_in_with_google" = "Logg inn med Google";
+"auth.can_always_sign_in_later" = "Du kan alltid logge inn senere fra innstillinger";
+"auth.link_additional_accounts" = "Koble til flere kontoer";
+"auth.accounts_linked_successfully" = "Kontoer koblet vellykket";
+"auth.sign_out_confirmation" = "Logg ut";
+"auth.your_words_are_safe" = "Ordene dine er trygge";
+"auth.cloud_sync_disabled" = "Sky-synkronisering vil bli deaktivert";
+"auth.sign_out" = "Logg ut";
+"auth.no_worries_wont_remove_words" = "Ingen bekymringer! Vi sletter ikke ordene dine.";
+"auth.vocabulary_stay_on_device" = "Vokabularet ditt forblir på denne enheten. Hvis du logger inn med en annen konto, vil dataene dine bli slått sammen.";
+"auth.all_vocabulary_remain_device" = "Alle ord, definisjoner og fremgang forblir på denne enheten. Du kan fortsette å bruke appen uten å logge inn.";
+"auth.word_lists_shared_data_cleared" = "Ordlister og delte data vil bli slettet. Hvis du logger inn med en annen konto, vil lokale ord bli slått sammen med den nye kontoens data.";
+"auth.sign_in_to_access_word_lists" = "Logg inn for å få tilgang til ordlistene dine på alle enheter og samarbeide med andre.";
+"auth.link_google" = "Koble til Google";
+"auth.link_apple" = "Koble til Apple";
+"auth.sign_in_to_sync_word_lists" = "Logg inn for å synkronisere ordlister";
+"auth.sign_out_error_title" = "Ops!";
+"auth.sign_out_error_message" = "Noe gikk galt under utlogging. Prøv igjen senere.";
+"auth.sign_in_required_for_restore" = "Innlogging kreves for å gjenopprette kjøp.";
+"auth.sign_in_required_for_pro_features" = "Innlogging kreves for å få tilgang til Pro-funksjoner som %@.";
+"auth.sign_in_failed" = "Innlogging mislyktes. Prøv igjen.";
+"auth.sign_out_failed" = "Utlogging mislyktes. Prøv igjen.";
+"auth.user_not_found" = "Bruker ikke funnet.";
+"auth.network_error" = "Nettverksfeil. Sjekk tilkoblingen din.";
+"auth.account_linking_failed" = "Kobling av konto mislyktes. Prøv igjen.";
+
+// Registration Benefits
+"auth.registration_benefits" = "Registreringsfordeler";
+"auth.access_subscription_all_devices" = "Få tilgang til abonnementet ditt på alle enhetene dine";
+"auth.sync_progress_cross_platform" = "Synkroniser fremgangen din mellom iOS og Android";
+"auth.backup_data_securely" = "Sikker backup av dataene dine i skyen";
+"auth.register_anytime_from_settings" = "Du kan registrere deg når som helst fra Innstillinger for å aktivere disse funksjonene";
+"auth.account_registration" = "Kontoregistrering";
+"auth.register_for_cross_platform_access" = "Registrer deg for å få tilgang til abonnementet ditt på alle enhetene dine og synkronisere fremgangen din";
+"auth.active_subscription_notification" = "Du har et aktivt abonnement!";
+"auth.register_to_unlock_cross_platform" = "Registrer deg for å låse opp tvers av plattformer-tilgang";
+"auth.register_now" = "Registrer Deg Nå";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Abonnementstilgang Begrenset";
+"auth.subscription_associated_different_account" = "Dette abonnementet er knyttet til en annen konto. Vennligst logg inn med kontoen som kjøpte dette abonnementet for å få tilgang til Pro-funksjoner.";
+
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Kontokobling";
+"auth.account_linking_description" = "For å få tilgang til abonnementet ditt på Android-enheter, må du koble til en Google-konto. For å dele abonnementer på tvers av plattformer, koble til begge kontoer.";
+"auth.link_google_for_android" = "Koble til Google-konto";
+"auth.link_apple_for_cross_platform" = "Koble til Apple ID";
+"auth.current_account" = "Gjeldende Konto";
+"auth.linked_accounts" = "Koblede Kontoer";
+"auth.no_linked_accounts" = "Ingen koblede kontoer";
+

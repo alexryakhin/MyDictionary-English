@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Увійдіть перед оформленням підписки";
+"auth.sign_in_with_google" = "Увійти через Google";
+"auth.can_always_sign_in_later" = "Ви завжди можете увійти пізніше на сторінці налаштувань";
+"auth.link_additional_accounts" = "Підключити додаткові облікові записи";
+"auth.accounts_linked_successfully" = "Облікові записи успішно підключено";
+"auth.sign_out_confirmation" = "Вийти з системи";
+"auth.your_words_are_safe" = "Ваші слова в безпеці";
+"auth.cloud_sync_disabled" = "Синхронізація з хмарою буде відключена";
+"auth.sign_out" = "Вийти з системи";
+"auth.no_worries_wont_remove_words" = "Не хвилюйтеся! Ми не видалимо ваші слова";
+"auth.vocabulary_stay_on_device" = "Ваш словниковий запас залишиться на цьому пристрої. Якщо ви увійдете через інший обліковий запис, ваші дані будуть об'єднані";
+"auth.all_vocabulary_remain_device" = "Усі слова, визначення та прогрес залишаться на цьому пристрої. Ви можете продовжувати використовувати програму без входу";
+"auth.word_lists_shared_data_cleared" = "Списки слів та спільні дані буде видалено. Якщо ви увійдете через інший обліковий запис, ваші локальні слова будуть об'єднані з даними нового облікового запису";
+"auth.sign_in_to_access_word_lists" = "Увійдіть, щоб отримати доступ до ваших списків слів на всіх пристроях та співпрацювати з іншими";
+"auth.link_google" = "Підключити Google";
+"auth.link_apple" = "Підключити Apple";
+"auth.sign_in_to_sync_word_lists" = "Увійдіть, щоб синхронізувати списки слів";
+"auth.sign_out_error_title" = "Ой!";
+"auth.sign_out_error_message" = "Під час виходу з системи сталася помилка. Спробуйте ще раз пізніше";
+"auth.sign_in_required_for_restore" = "Потрібен вхід для відновлення покупок";
+"auth.sign_in_required_for_pro_features" = "Потрібен вхід для доступу до функцій Pro, наприклад %@";
+"auth.sign_in_failed" = "Не вдалося увійти. Спробуйте ще раз";
+"auth.sign_out_failed" = "Не вдалося вийти. Спробуйте ще раз";
+"auth.user_not_found" = "Користувача не знайдено";
+"auth.network_error" = "Помилка мережі. Перевірте ваше з'єднання";
+"auth.account_linking_failed" = "Не вдалося підключити обліковий запис. Спробуйте ще раз";
+
+// Registration Benefits
+"auth.registration_benefits" = "Переваги Реєстрації";
+"auth.access_subscription_all_devices" = "Отримайте доступ до підписки на всіх ваших пристроях";
+"auth.sync_progress_cross_platform" = "Синхронізуйте ваш прогрес між iOS та Android";
+"auth.backup_data_securely" = "Безпечно резервуйте ваші дані в хмарі";
+"auth.register_anytime_from_settings" = "Ви можете зареєструватися в будь-який час з Налаштувань для активації цих функцій";
+"auth.account_registration" = "Реєстрація Облікового Запису";
+"auth.register_for_cross_platform_access" = "Зареєструйтеся для доступу до підписки на всіх ваших пристроях та синхронізації прогресу";
+"auth.active_subscription_notification" = "У вас активна підписка!";
+"auth.register_to_unlock_cross_platform" = "Зареєструйтеся для розблокування крос-платформеного доступу";
+"auth.register_now" = "Зареєструватися Зараз";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Доступ до Підписки Обмежений";
+"auth.subscription_associated_different_account" = "Ця підписка пов'язана з іншим обліковим записом. Будь ласка, увійдіть з обліковим записом, який купив цю підписку, для доступу до функцій Pro.";
+
+// Profile
+"auth.profile" = "Профіль";
+"auth.account_linking" = "Підключення Облікових Записів";
+"auth.account_linking_description" = "Для доступу до вашої підписки на пристроях Android вам потрібно підключити обліковий запис Google. Для обміну підписками між платформами підключіть обидва облікові записи.";
+"auth.link_google_for_android" = "Підключити Обліковий Запис Google";
+"auth.link_apple_for_cross_platform" = "Підключити Apple ID";
+"auth.current_account" = "Поточний Обліковий Запис";
+"auth.linked_accounts" = "Підключені Облікові Записи";
+"auth.no_linked_accounts" = "Немає підключених облікових записів";
+

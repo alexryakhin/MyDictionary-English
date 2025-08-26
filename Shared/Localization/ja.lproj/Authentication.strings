@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "サブスクリプション前にログイン";
+"auth.sign_in_with_google" = "Googleでログイン";
+"auth.can_always_sign_in_later" = "後で設定からいつでもログイン可能";
+"auth.link_additional_accounts" = "追加のアカウントをリンク";
+"auth.accounts_linked_successfully" = "アカウントが正常にリンクされました";
+"auth.sign_out_confirmation" = "ログアウト";
+"auth.your_words_are_safe" = "あなたの単語は安全です";
+"auth.cloud_sync_disabled" = "クラウド同期が無効になります";
+"auth.sign_out" = "ログアウト";
+"auth.no_worries_wont_remove_words" = "ご心配なく！単語は削除しません。";
+"auth.vocabulary_stay_on_device" = "あなたの語彙はこのデバイスに残ります。別のアカウントでログインすると、データが統合されます。";
+"auth.all_vocabulary_remain_device" = "すべての単語、定義、進捗はこのデバイスに残ります。ログインせずにアプリを続けて使用できます。";
+"auth.word_lists_shared_data_cleared" = "単語リストと共有データがクリアされます。別のアカウントでログインすると、ローカルの単語が新しいアカウントのデータと統合されます。";
+"auth.sign_in_to_access_word_lists" = "すべてのデバイスで単語リストにアクセスし、他の人とコラボレーションするためにログイン。";
+"auth.link_google" = "Googleとリンク";
+"auth.link_apple" = "Appleとリンク";
+"auth.sign_in_to_sync_word_lists" = "単語リストを同期するためにログイン";
+"auth.sign_out_error_title" = "おっと！";
+"auth.sign_out_error_message" = "ログアウト中に問題が発生しました。後でもう一度お試しください。";
+"auth.sign_in_required_for_restore" = "購入を復元するにはログインが必要です。";
+"auth.sign_in_required_for_pro_features" = "%@などのプロ機能にアクセスするにはログインが必要です。";
+"auth.sign_in_failed" = "ログインに失敗しました。もう一度お試しください。";
+"auth.sign_out_failed" = "ログアウトに失敗しました。もう一度お試しください。";
+"auth.user_not_found" = "ユーザーが見つかりません。";
+"auth.network_error" = "ネットワークエラー。接続を確認してください。";
+"auth.account_linking_failed" = "アカウントのリンクに失敗しました。もう一度お試しください。";
+
+// Registration Benefits
+"auth.registration_benefits" = "登録のメリット";
+"auth.access_subscription_all_devices" = "すべてのデバイスでサブスクリプションにアクセス";
+"auth.sync_progress_cross_platform" = "iOSとAndroid間で進捗を同期";
+"auth.backup_data_securely" = "データをクラウドで安全にバックアップ";
+"auth.register_anytime_from_settings" = "設定からいつでも登録してこれらの機能を有効にできます";
+"auth.account_registration" = "アカウント登録";
+"auth.register_for_cross_platform_access" = "すべてのデバイスでサブスクリプションにアクセスし、進捗を同期するために登録してください";
+"auth.active_subscription_notification" = "アクティブなサブスクリプションがあります！";
+"auth.register_to_unlock_cross_platform" = "クロスプラットフォームアクセスを解除するために登録";
+"auth.register_now" = "今すぐ登録";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "サブスクリプションアクセス制限";
+"auth.subscription_associated_different_account" = "このサブスクリプションは別のアカウントに関連付けられています。プロ機能にアクセスするには、このサブスクリプションを購入したアカウントでログインしてください。";
+
+// Profile
+"auth.profile" = "プロフィール";
+"auth.account_linking" = "アカウントリンク";
+"auth.account_linking_description" = "Androidデバイスでサブスクリプションにアクセスするには、Googleアカウントをリンクする必要があります。プラットフォーム間でサブスクリプションを共有するには、両方のアカウントをリンクしてください。";
+"auth.link_google_for_android" = "Googleアカウントをリンク";
+"auth.link_apple_for_cross_platform" = "Apple IDをリンク";
+"auth.current_account" = "現在のアカウント";
+"auth.linked_accounts" = "リンクされたアカウント";
+"auth.no_linked_accounts" = "リンクされたアカウントなし";
+

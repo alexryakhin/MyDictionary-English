@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Inicia sessió abans de subscriure't";
+"auth.sign_in_with_google" = "Inicia sessió amb Google";
+"auth.can_always_sign_in_later" = "Sempre pots iniciar sessió més tard des de la configuració";
+"auth.link_additional_accounts" = "Enllaça comptes addicionals";
+"auth.accounts_linked_successfully" = "Comptes enllaçats amb èxit";
+"auth.sign_out_confirmation" = "Tanca la sessió";
+"auth.your_words_are_safe" = "Les teves paraules estan segures";
+"auth.cloud_sync_disabled" = "La sincronització al núvol es desactivarà";
+"auth.sign_out" = "Tanca la sessió";
+"auth.no_worries_wont_remove_words" = "Cap preocupació! No eliminarem les teves paraules.";
+"auth.vocabulary_stay_on_device" = "El teu vocabulari romandrà en aquest dispositiu. Si inicies sessió amb un altre compte, les teves dades es combinaran.";
+"auth.all_vocabulary_remain_device" = "Totes les teves paraules de vocabulari, definicions i progrés romandran en aquest dispositiu. Pots continuar utilitzant l'aplicació sense connexió.";
+"auth.word_lists_shared_data_cleared" = "Les llistes de paraules i les dades compartides s'esborraran. Si inicies sessió amb un altre compte, les teves paraules locals es combinaran amb les dades del nou compte.";
+"auth.sign_in_to_access_word_lists" = "Inicia sessió per accedir a les teves llistes de paraules en tots els teus dispositius i col·laborar amb altres.";
+"auth.link_google" = "Enllaça amb Google";
+"auth.link_apple" = "Enllaça amb Apple";
+"auth.sign_in_to_sync_word_lists" = "Inicia sessió per sincronitzar les teves llistes de paraules";
+"auth.sign_out_error_title" = "Oh no!";
+"auth.sign_out_error_message" = "Alguna cosa ha anat malament en tancar la sessió. Torna-ho a provar més tard.";
+"auth.sign_in_required_for_restore" = "Cal que iniciïs sessió per restaurar les teves compres.";
+"auth.sign_in_required_for_pro_features" = "Cal que iniciïs sessió per accedir a les funcions Pro com %@.";
+"auth.sign_in_failed" = "No s'ha pogut iniciar la sessió. Torna-ho a provar.";
+"auth.sign_out_failed" = "No s'ha pogut tancar la sessió. Torna-ho a provar.";
+"auth.user_not_found" = "Usuari no trobat.";
+"auth.network_error" = "Error de xarxa. Comprova la teva connexió.";
+"auth.account_linking_failed" = "No s'han pogut enllaçar els comptes. Torna-ho a provar.";
+
+// Registration Benefits
+"auth.registration_benefits" = "Avantatges del Registre";
+"auth.access_subscription_all_devices" = "Accedeix a la teva subscripció a tots els teus dispositius";
+"auth.sync_progress_cross_platform" = "Sincronitza el teu progrés entre iOS i Android";
+"auth.backup_data_securely" = "Fes còpia de seguretat de les teves dades de forma segura al núvol";
+"auth.register_anytime_from_settings" = "Pots registrar-te en qualsevol moment des de Configuració per activar aquestes funcions";
+"auth.account_registration" = "Registre de Compte";
+"auth.register_for_cross_platform_access" = "Registra't per accedir a la teva subscripció a tots els teus dispositius i sincronitzar el teu progrés";
+"auth.active_subscription_notification" = "Tens una subscripció activa!";
+"auth.register_to_unlock_cross_platform" = "Registra't per desbloquejar l'accés multiplataforma";
+"auth.register_now" = "Registra't Ara";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Accés a la Subscripció Restringit";
+"auth.subscription_associated_different_account" = "Aquesta subscripció està associada a un compte diferent. Si us plau, inicia sessió amb el compte que ha comprat aquesta subscripció per accedir a les funcions Pro.";
+
+// Profile
+"auth.profile" = "Perfil";
+"auth.account_linking" = "Enllaç de Comptes";
+"auth.account_linking_description" = "Per accedir a la teva subscripció a dispositius Android, necessites enllaçar un compte de Google. Per compartir subscripcions entre plataformes, enllaça ambdós comptes.";
+"auth.link_google_for_android" = "Enllaça Compte de Google";
+"auth.link_apple_for_cross_platform" = "Enllaça Apple ID";
+"auth.current_account" = "Compte Actual";
+"auth.linked_accounts" = "Comptes Enllaçats";
+"auth.no_linked_accounts" = "Cap compte enllaçat";
+

@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "تسجيل الدخول قبل الاشتراك";
+"auth.sign_in_with_google" = "تسجيل الدخول بحساب جوجل";
+"auth.can_always_sign_in_later" = "يمكنك دائمًا تسجيل الدخول لاحقًا من الإعدادات";
+"auth.link_additional_accounts" = "ربط حسابات إضافية";
+"auth.accounts_linked_successfully" = "تم ربط الحسابات بنجاح";
+"auth.sign_out_confirmation" = "تسجيل الخروج";
+"auth.your_words_are_safe" = "كلماتك آمنة";
+"auth.cloud_sync_disabled" = "سيتم تعطيل المزامنة السحابية";
+"auth.sign_out" = "تسجيل الخروج";
+"auth.no_worries_wont_remove_words" = "لا داعي للقلق! لن نزيل كلماتك.";
+"auth.vocabulary_stay_on_device" = "ستبقى مفرداتك على هذا الجهاز. إذا سجلت الدخول بحساب آخر، ستُدمج بياناتك.";
+"auth.all_vocabulary_remain_device" = "ستبقى جميع كلمات المفردات والتعريفات والتقدم على هذا الجهاز. يمكنك متابعة استخدام التطبيق دون اتصال.";
+"auth.word_lists_shared_data_cleared" = "سيتم مسح قوائم الكلمات والبيانات المشتركة. إذا سجلت الدخول بحساب آخر، ستُدمج كلماتك المحلية مع بيانات الحساب الجديد.";
+"auth.sign_in_to_access_word_lists" = "تسجيل الدخول للوصول إلى قوائم الكلمات عبر جميع أجهزتك والتعاون مع الآخرين.";
+"auth.link_google" = "ربط بحساب جوجل";
+"auth.link_apple" = "ربط بحساب أبل";
+"auth.sign_in_to_sync_word_lists" = "تسجيل الدخول لمزامنة قوائم الكلمات";
+"auth.sign_out_error_title" = "أوه لا!";
+"auth.sign_out_error_message" = "حدث خطأ أثناء تسجيل الخروج. حاول مرة أخرى لاحقًا.";
+"auth.sign_in_required_for_restore" = "تحتاج إلى تسجيل الدخول لاستعادة مشترياتك.";
+"auth.sign_in_required_for_pro_features" = "تحتاج إلى تسجيل الدخول للوصول إلى ميزات المحترف مثل %@.";
+"auth.sign_in_failed" = "فشل تسجيل الدخول. حاول مرة أخرى.";
+"auth.sign_out_failed" = "فشل تسجيل الخروج. حاول مرة أخرى.";
+"auth.user_not_found" = "لم يتم العثور على المستخدم.";
+"auth.network_error" = "خطأ في الشبكة. تحقق من اتصالك.";
+"auth.account_linking_failed" = "فشل ربط الحسابات. حاول مرة أخرى.";
+
+// Registration Benefits
+"auth.registration_benefits" = "مزايا التسجيل";
+"auth.access_subscription_all_devices" = "الوصول إلى اشتراكك على جميع أجهزتك";
+"auth.sync_progress_cross_platform" = "مزامنة تقدمك بين iOS وAndroid";
+"auth.backup_data_securely" = "النسخ الاحتياطي لبياناتك بأمان في السحابة";
+"auth.register_anytime_from_settings" = "يمكنك التسجيل في أي وقت من الإعدادات لتفعيل هذه الميزات";
+"auth.account_registration" = "تسجيل الحساب";
+"auth.register_for_cross_platform_access" = "سجل للوصول إلى اشتراكك على جميع أجهزتك ومزامنة تقدمك";
+"auth.active_subscription_notification" = "لديك اشتراك نشط!";
+"auth.register_to_unlock_cross_platform" = "سجل لفتح الوصول عبر المنصات";
+"auth.register_now" = "سجل الآن";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "الوصول إلى الاشتراك مقيد";
+"auth.subscription_associated_different_account" = "هذا الاشتراك مرتبط بحساب مختلف. يرجى تسجيل الدخول بالحساب الذي اشترى هذا الاشتراك للوصول إلى ميزات المحترف.";
+
+// Profile
+"auth.profile" = "الملف الشخصي";
+"auth.account_linking" = "ربط الحساب";
+"auth.account_linking_description" = "للوصول إلى اشتراكك على أجهزة Android، تحتاج إلى ربط حساب Google. لمشاركة الاشتراكات عبر المنصات، اربط كلا الحسابين.";
+"auth.link_google_for_android" = "ربط حساب Google";
+"auth.link_apple_for_cross_platform" = "ربط Apple ID";
+"auth.current_account" = "الحساب الحالي";
+"auth.linked_accounts" = "الحسابات المرتبطة";
+"auth.no_linked_accounts" = "لا توجد حسابات مرتبطة";
+

@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "訂閱前請先登錄";
+"auth.sign_in_with_google" = "使用谷歌帳戶登錄";
+"auth.can_always_sign_in_later" = "你隨時可以從設置中登錄";
+"auth.link_additional_accounts" = "關聯其他帳戶";
+"auth.accounts_linked_successfully" = "帳戶關聯成功";
+"auth.sign_out_confirmation" = "登出";
+"auth.your_words_are_safe" = "你的單詞是安全的";
+"auth.cloud_sync_disabled" = "雲同步將被禁用";
+"auth.sign_out" = "登出";
+"auth.no_worries_wont_remove_words" = "無需擔心！我們不會刪除你的單詞。";
+"auth.vocabulary_stay_on_device" = "你的詞彙將保留在此設備上。如果使用其他帳戶登錄，你的數據將合併。";
+"auth.all_vocabulary_remain_device" = "所有詞彙、定義和進度將保留在此設備上。你可以繼續離線使用應用。";
+"auth.word_lists_shared_data_cleared" = "單詞列表和共享數據將被清除。如果使用其他帳戶登錄，你的本地單詞將與新帳戶數據合併。";
+"auth.sign_in_to_access_word_lists" = "登錄以在所有設備上訪問你的單詞列表並與他人協作。";
+"auth.link_google" = "關聯谷歌帳戶";
+"auth.link_apple" = "關聯蘋果帳戶";
+"auth.sign_in_to_sync_word_lists" = "登錄以同步單詞列表";
+"auth.sign_out_error_title" = "哦不！";
+"auth.sign_out_error_message" = "登出時出錯。請稍後重試。";
+"auth.sign_in_required_for_restore" = "需要登錄以恢復你的購買。";
+"auth.sign_in_required_for_pro_features" = "需要登錄以訪問專業功能，如 %@。";
+"auth.sign_in_failed" = "登錄失敗。請重試。";
+"auth.sign_out_failed" = "登出失敗。請重試。";
+"auth.user_not_found" = "未找到用戶。";
+"auth.network_error" = "網絡錯誤。請檢查你的連接。";
+"auth.account_linking_failed" = "帳戶關聯失敗。請重試。";
+
+// Registration Benefits
+"auth.registration_benefits" = "註冊優勢";
+"auth.access_subscription_all_devices" = "在所有設備上訪問你的訂閱";
+"auth.sync_progress_cross_platform" = "在iOS和Android之間同步你的進度";
+"auth.backup_data_securely" = "在雲端安全備份你的數據";
+"auth.register_anytime_from_settings" = "你可以隨時從設置中註冊以啟用這些功能";
+"auth.account_registration" = "帳戶註冊";
+"auth.register_for_cross_platform_access" = "註冊以在所有設備上訪問你的訂閱並同步你的進度";
+"auth.active_subscription_notification" = "你有一個活躍的訂閱！";
+"auth.register_to_unlock_cross_platform" = "註冊以解鎖跨平台訪問";
+"auth.register_now" = "立即註冊";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "訂閱訪問受限";
+"auth.subscription_associated_different_account" = "此訂閱與不同帳戶關聯。請使用購買此訂閱的帳戶登錄以訪問專業功能。";
+
+// Profile
+"auth.profile" = "個人資料";
+"auth.account_linking" = "帳戶關聯";
+"auth.account_linking_description" = "要在Android設備上訪問你的訂閱，你需要關聯Google帳戶。要在平台間共享訂閱，請關聯兩個帳戶。";
+"auth.link_google_for_android" = "關聯Google帳戶";
+"auth.link_apple_for_cross_platform" = "關聯Apple ID";
+"auth.current_account" = "當前帳戶";
+"auth.linked_accounts" = "已關聯帳戶";
+"auth.no_linked_accounts" = "暫無已關聯帳戶";
+

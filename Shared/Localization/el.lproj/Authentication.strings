@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Συνδέσου πριν εγγραφείς";
+"auth.sign_in_with_google" = "Σύνδεση με Google";
+"auth.can_always_sign_in_later" = "Μπορείς πάντα να συνδεθείς αργότερα από τις ρυθμίσεις";
+"auth.link_additional_accounts" = "Σύνδεση Πρόσθετων Λογαριασμών";
+"auth.accounts_linked_successfully" = "Οι λογαριασμοί συνδέθηκαν με επιτυχία";
+"auth.sign_out_confirmation" = "Αποσύνδεση";
+"auth.your_words_are_safe" = "Οι λέξεις σου είναι ασφαλείς";
+"auth.cloud_sync_disabled" = "Ο συγχρονισμός στο cloud θα απενεργοποιηθεί";
+"auth.sign_out" = "Αποσύνδεση";
+"auth.no_worries_wont_remove_words" = "Μην ανησυχείς! Δεν θα διαγράψουμε τις λέξεις σου.";
+"auth.vocabulary_stay_on_device" = "Το λεξιλόγιό σου παραμένει σε αυτή τη συσκευή. Αν συνδεθείς με διαφορετικό λογαριασμό, τα δεδομένα σου θα συγχωνευθούν.";
+"auth.all_vocabulary_remain_device" = "Όλες οι λέξεις, οι ορισμοί και η πρόοδός σου παραμένουν σε αυτή τη συσκευή. Μπορείς να συνεχίσεις να χρησιμοποιείς την εφαρμογή χωρίς σύνδεση.";
+"auth.word_lists_shared_data_cleared" = "Οι λίστες λέξεων και τα κοινόχρηστα δεδομένα θα εκκαθαριστούν. Αν συνδεθείς με διαφορετικό λογαριασμό, οι τοπικές σου λέξεις θα συγχωνευθούν με τα δεδομένα του νέου λογαριασμού.";
+"auth.sign_in_to_access_word_lists" = "Συνδέσου για να αποκτήσεις πρόσβαση στις λίστες λέξεων σου σε όλες τις συσκευές και να συνεργαστείς με άλλους.";
+"auth.link_google" = "Σύνδεση με Google";
+"auth.link_apple" = "Σύνδεση με Apple";
+"auth.sign_in_to_sync_word_lists" = "Συνδέσου για να συγχρονίσεις τις λίστες λέξεων";
+"auth.sign_out_error_title" = "Ουπς!";
+"auth.sign_out_error_message" = "Κάτι πήγε στραβά κατά την αποσύνδεση. Προσπάθησε ξανά αργότερα.";
+"auth.sign_in_required_for_restore" = "Απαιτείται σύνδεση για την επαναφορά των αγορών σου.";
+"auth.sign_in_required_for_pro_features" = "Απαιτείται σύνδεση για την πρόσβαση σε λειτουργίες Pro, όπως το %@.";
+"auth.sign_in_failed" = "Η σύνδεση απέτυχε. Προσπάθησε ξανά.";
+"auth.sign_out_failed" = "Η αποσύνδεση απέτυχε. Προσπάθησε ξανά.";
+"auth.user_not_found" = "Ο χρήστης δεν βρέθηκε.";
+"auth.network_error" = "Σφάλμα δικτύου. Ελέγξτε τη σύνδεσή σας.";
+"auth.account_linking_failed" = "Η σύνδεση λογαριασμού απέτυχε. Προσπάθησε ξανά.";
+
+// Registration Benefits
+"auth.registration_benefits" = "Πλεονεκτήματα Εγγραφής";
+"auth.access_subscription_all_devices" = "Πρόσβαση στη συνδρομή σου σε όλες τις συσκευές σου";
+"auth.sync_progress_cross_platform" = "Συγχρονισμός της προόδου σου μεταξύ iOS και Android";
+"auth.backup_data_securely" = "Ασφαλής δημιουργία αντιγράφων ασφαλείας των δεδομένων σου στο cloud";
+"auth.register_anytime_from_settings" = "Μπορείς να εγγραφείς οποιαδήποτε στιγμή από τις Ρυθμίσεις για να ενεργοποιήσεις αυτές τις λειτουργίες";
+"auth.account_registration" = "Εγγραφή Λογαριασμού";
+"auth.register_for_cross_platform_access" = "Εγγράψου για πρόσβαση στη συνδρομή σου σε όλες τις συσκευές σου και συγχρονισμό της προόδου σου";
+"auth.active_subscription_notification" = "Έχεις ενεργή συνδρομή!";
+"auth.register_to_unlock_cross_platform" = "Εγγράψου για να ξεκλειδώσεις την πρόσβαση διαπλατφορμικά";
+"auth.register_now" = "Εγγραφή Τώρα";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Πρόσβαση Συνδρομής Περιορισμένη";
+"auth.subscription_associated_different_account" = "Αυτή η συνδρομή συνδέεται με διαφορετικό λογαριασμό. Συνδέσου με τον λογαριασμό που αγόρασε αυτή τη συνδρομή για πρόσβαση στις λειτουργίες Pro.";
+
+// Profile
+"auth.profile" = "Προφίλ";
+"auth.account_linking" = "Σύνδεση Λογαριασμών";
+"auth.account_linking_description" = "Για πρόσβαση στη συνδρομή σου σε συσκευές Android, πρέπει να συνδέσεις έναν λογαριασμό Google. Για κοινή χρήση συνδρομών διαπλατφορμικά, συνδέστε και τους δύο λογαριασμούς.";
+"auth.link_google_for_android" = "Σύνδεση Λογαριασμού Google";
+"auth.link_apple_for_cross_platform" = "Σύνδεση Apple ID";
+"auth.current_account" = "Τρέχων Λογαριασμός";
+"auth.linked_accounts" = "Συνδεδεμένοι Λογαριασμοί";
+"auth.no_linked_accounts" = "Κανένας συνδεδεμένος λογαριασμός";
+

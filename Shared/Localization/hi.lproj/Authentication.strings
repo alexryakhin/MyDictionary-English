@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "सदस्यता लेने से पहले साइन इन करें";
+"auth.sign_in_with_google" = "गूगल के साथ साइन इन करें";
+"auth.can_always_sign_in_later" = "आप हमेशा सेटिंग्स से बाद में साइन इन कर सकते हैं";
+"auth.link_additional_accounts" = "अतिरिक्त खातों को लिंक करें";
+"auth.accounts_linked_successfully" = "खाते सफलतापूर्वक लिंक किए गए";
+"auth.sign_out_confirmation" = "साइन आउट";
+"auth.your_words_are_safe" = "आपके शब्द सुरक्षित हैं";
+"auth.cloud_sync_disabled" = "क्लाउड सिंक अक्षम हो जाएगा";
+"auth.sign_out" = "साइन आउट";
+"auth.no_worries_wont_remove_words" = "चिंता न करें! हम आपके शब्दों को नहीं हटाएंगे।";
+"auth.vocabulary_stay_on_device" = "आपकी शब्दावली इस डिवाइस पर रहती है। यदि आप किसी अन्य खाते से साइन इन करते हैं, तो आपका डेटा मर्ज हो जाएगा।";
+"auth.all_vocabulary_remain_device" = "आपके सभी शब्द, परिभाषाएं और प्रगति इस डिवाइस पर रहते हैं। आप बिना साइन इन किए ऐप का उपयोग जारी रख सकते हैं।";
+"auth.word_lists_shared_data_cleared" = "शब्द सूचियां और साझा डेटा साफ हो जाएंगे। यदि आप किसी अन्य खाते से साइन इन करते हैं, तो आपके स्थानीय शब्द नए खाते के डेटा के साथ मर्ज हो जाएंगे।";
+"auth.sign_in_to_access_word_lists" = "सभी डिवाइसों पर अपनी शब्द सूचियों तक पहुंचने और दूसरों के साथ सहयोग करने के लिए साइन इन करें।";
+"auth.link_google" = "गूगल से लिंक करें";
+"auth.link_apple" = "एप्पल से लिंक करें";
+"auth.sign_in_to_sync_word_lists" = "शब्द सूचियों को सिंक करने के लिए साइन इन करें";
+"auth.sign_out_error_title" = "उफ़!";
+"auth.sign_out_error_message" = "साइन आउट के दौरान कुछ गलत हो गया। कृपया बाद में पुनः प्रयास करें।";
+"auth.sign_in_required_for_restore" = "अपनी खरीदारी को पुनर्स्थापित करने के लिए साइन इन आवश्यक है।";
+"auth.sign_in_required_for_pro_features" = "%@ जैसी प्रो सुविधाओं तक पहुंचने के लिए साइन इन आवश्यक है।";
+"auth.sign_in_failed" = "साइन इन विफल। कृपया पुनः प्रयास करें।";
+"auth.sign_out_failed" = "साइन आउट विफल। कृपया पुनः प्रयास करें।";
+"auth.user_not_found" = "उपयोगकर्ता नहीं मिला।";
+"auth.network_error" = "नेटवर्क त्रुटि। कृपया अपना कनेक्शन जांचें।";
+"auth.account_linking_failed" = "खाता लिंकिंग विफल। कृपया पुनः प्रयास करें।";
+
+// Registration Benefits
+"auth.registration_benefits" = "पंजीकरण के लाभ";
+"auth.access_subscription_all_devices" = "अपनी सभी डिवाइस पर सदस्यता तक पहुंच";
+"auth.sync_progress_cross_platform" = "iOS और Android के बीच अपनी प्रगति सिंक करें";
+"auth.backup_data_securely" = "क्लाउड में अपना डेटा सुरक्षित रूप से बैकअप करें";
+"auth.register_anytime_from_settings" = "आप इन सुविधाओं को सक्षम करने के लिए किसी भी समय सेटिंग्स से पंजीकरण कर सकते हैं";
+"auth.account_registration" = "खाता पंजीकरण";
+"auth.register_for_cross_platform_access" = "अपनी सभी डिवाइस पर सदस्यता तक पहुंच और अपनी प्रगति सिंक करने के लिए पंजीकरण करें";
+"auth.active_subscription_notification" = "आपकी एक सक्रिय सदस्यता है!";
+"auth.register_to_unlock_cross_platform" = "क्रॉस-प्लेटफॉर्म पहुंच अनलॉक करने के लिए पंजीकरण करें";
+"auth.register_now" = "अभी पंजीकरण करें";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "सदस्यता पहुंच प्रतिबंधित";
+"auth.subscription_associated_different_account" = "यह सदस्यता एक अलग खाते से जुड़ी है। कृपया प्रो सुविधाओं तक पहुंचने के लिए उस खाते से साइन इन करें जिसने यह सदस्यता खरीदी थी।";
+
+// Profile
+"auth.profile" = "प्रोफ़ाइल";
+"auth.account_linking" = "खाता लिंकिंग";
+"auth.account_linking_description" = "Android डिवाइस पर अपनी सदस्यता तक पहुंचने के लिए, आपको Google खाता लिंक करना होगा। प्लेटफॉर्म के बीच सदस्यताओं को साझा करने के लिए, दोनों खातों को लिंक करें।";
+"auth.link_google_for_android" = "Google खाता लिंक करें";
+"auth.link_apple_for_cross_platform" = "Apple ID लिंक करें";
+"auth.current_account" = "वर्तमान खाता";
+"auth.linked_accounts" = "लिंक किए गए खाते";
+"auth.no_linked_accounts" = "कोई लिंक किए गए खाते नहीं";
+

@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Abone olmadan önce oturum açın";
+"auth.sign_in_with_google" = "Google ile Oturum Aç";
+"auth.can_always_sign_in_later" = "Daha sonra ayarlar üzerinden her zaman oturum açabilirsiniz";
+"auth.link_additional_accounts" = "Ek Hesapları Bağla";
+"auth.accounts_linked_successfully" = "Hesaplar başarıyla bağlandı";
+"auth.sign_out_confirmation" = "Oturumu Kapat";
+"auth.your_words_are_safe" = "Kelimeleriniz güvende";
+"auth.cloud_sync_disabled" = "Bulut senkronizasyonu devre dışı bırakılacak";
+"auth.sign_out" = "Oturumu Kapat";
+"auth.no_worries_wont_remove_words" = "Endişelenmeyin! Kelimelerinizi silmeyeceğiz.";
+"auth.vocabulary_stay_on_device" = "Kelime dağarcığınız bu cihazda kalır. Başka bir hesapla oturum açarsanız verileriniz birleştirilir.";
+"auth.all_vocabulary_remain_device" = "Tüm kelimeler, tanımlar ve ilerlemeler bu cihazda kalır. Oturum açmadan uygulamayı kullanmaya devam edebilirsiniz.";
+"auth.word_lists_shared_data_cleared" = "Kelime listeleri ve paylaşılan veriler silinecek. Başka bir hesapla oturum açarsanız yerel kelimeleriniz yeni hesabın verileriyle birleştirilir.";
+"auth.sign_in_to_access_word_lists" = "Tüm cihazlarda kelime listelerinize erişmek ve başkalarıyla işbirliği yapmak için oturum açın.";
+"auth.link_google" = "Google ile Bağla";
+"auth.link_apple" = "Apple ile Bağla";
+"auth.sign_in_to_sync_word_lists" = "Kelime listelerini senkronize etmek için oturum aç";
+"auth.sign_out_error_title" = "Hata!";
+"auth.sign_out_error_message" = "Oturum kapatılırken bir şeyler ters gitti. Daha sonra tekrar deneyin.";
+"auth.sign_in_required_for_restore" = "Satın alımları geri yüklemek için oturum açılması gerekiyor.";
+"auth.sign_in_required_for_pro_features" = "Pro özelliklerine erişmek için oturum açılması gerekiyor, örneğin %@.";
+"auth.sign_in_failed" = "Oturum açma başarısız. Tekrar deneyin.";
+"auth.sign_out_failed" = "Oturum kapatma başarısız. Tekrar deneyin.";
+"auth.user_not_found" = "Kullanıcı bulunamadı.";
+"auth.network_error" = "Ağ hatası. Bağlantınızı kontrol edin.";
+"auth.account_linking_failed" = "Hesap bağlama başarısız. Tekrar deneyin.";
+
+// Registration Benefits
+"auth.registration_benefits" = "Kayıt Avantajları";
+"auth.access_subscription_all_devices" = "Tüm cihazlarınızda aboneliğinize erişin";
+"auth.sync_progress_cross_platform" = "İlerlemenizi iOS ve Android arasında senkronize edin";
+"auth.backup_data_securely" = "Verilerinizi bulutta güvenli bir şekilde yedekleyin";
+"auth.register_anytime_from_settings" = "Bu özellikleri etkinleştirmek için Ayarlar'dan istediğiniz zaman kayıt olabilirsiniz";
+"auth.account_registration" = "Hesap Kaydı";
+"auth.register_for_cross_platform_access" = "Tüm cihazlarınızda aboneliğinize erişmek ve ilerlemenizi senkronize etmek için kayıt olun";
+"auth.active_subscription_notification" = "Aktif bir aboneliğiniz var!";
+"auth.register_to_unlock_cross_platform" = "Platformlar arası erişimi açmak için kayıt olun";
+"auth.register_now" = "Şimdi Kayıt Ol";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Abonelik Erişimi Kısıtlandı";
+"auth.subscription_associated_different_account" = "Bu abonelik farklı bir hesapla ilişkilidir. Pro özelliklerine erişmek için lütfen bu aboneliği satın alan hesapla giriş yapın.";
+
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Hesap Bağlama";
+"auth.account_linking_description" = "Android cihazlarda aboneliğinize erişmek için Google hesabı bağlamanız gerekir. Platformlar arası abonelik paylaşımı için her iki hesabı da bağlayın.";
+"auth.link_google_for_android" = "Google Hesabı Bağla";
+"auth.link_apple_for_cross_platform" = "Apple ID Bağla";
+"auth.current_account" = "Mevcut Hesap";
+"auth.linked_accounts" = "Bağlı Hesaplar";
+"auth.no_linked_accounts" = "Bağlı hesap yok";
+

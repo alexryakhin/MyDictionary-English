@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "订阅前请先登录";
+"auth.sign_in_with_google" = "使用谷歌账户登录";
+"auth.can_always_sign_in_later" = "你随时可以从设置中登录";
+"auth.link_additional_accounts" = "关联其他账户";
+"auth.accounts_linked_successfully" = "账户关联成功";
+"auth.sign_out_confirmation" = "登出";
+"auth.your_words_are_safe" = "你的单词是安全的";
+"auth.cloud_sync_disabled" = "云同步将被禁用";
+"auth.sign_out" = "登出";
+"auth.no_worries_wont_remove_words" = "无需担心！我们不会删除你的单词。";
+"auth.vocabulary_stay_on_device" = "你的词汇将保留在此设备上。如果使用其他账户登录，你的数据将合并。";
+"auth.all_vocabulary_remain_device" = "所有词汇、定义和进度将保留在此设备上。你可以继续离线使用应用。";
+"auth.word_lists_shared_data_cleared" = "单词列表和共享数据将被清除。如果使用其他账户登录，你的本地单词将与新账户数据合并。";
+"auth.sign_in_to_access_word_lists" = "登录以在所有设备上访问你的单词列表并与他人协作。";
+"auth.link_google" = "关联谷歌账户";
+"auth.link_apple" = "关联苹果账户";
+"auth.sign_in_to_sync_word_lists" = "登录以同步单词列表";
+"auth.sign_out_error_title" = "哦不！";
+"auth.sign_out_error_message" = "登出时出错。请稍后重试。";
+"auth.sign_in_required_for_restore" = "需要登录以恢复你的购买。";
+"auth.sign_in_required_for_pro_features" = "需要登录以访问专业功能，如 %@。";
+"auth.sign_in_failed" = "登录失败。请重试。";
+"auth.sign_out_failed" = "登出失败。请重试。";
+"auth.user_not_found" = "未找到用户。";
+"auth.network_error" = "网络错误。请检查你的连接。";
+"auth.account_linking_failed" = "账户关联失败。请重试。";
+
+// Registration Benefits
+"auth.registration_benefits" = "注册优势";
+"auth.access_subscription_all_devices" = "在所有设备上访问你的订阅";
+"auth.sync_progress_cross_platform" = "在iOS和Android之间同步你的进度";
+"auth.backup_data_securely" = "在云端安全备份你的数据";
+"auth.register_anytime_from_settings" = "你可以随时从设置中注册以启用这些功能";
+"auth.account_registration" = "账户注册";
+"auth.register_for_cross_platform_access" = "注册以在所有设备上访问你的订阅并同步你的进度";
+"auth.active_subscription_notification" = "你有一个活跃的订阅！";
+"auth.register_to_unlock_cross_platform" = "注册以解锁跨平台访问";
+"auth.register_now" = "立即注册";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "订阅访问受限";
+"auth.subscription_associated_different_account" = "此订阅与不同账户关联。请使用购买此订阅的账户登录以访问专业功能。";
+
+// Profile
+"auth.profile" = "个人资料";
+"auth.account_linking" = "账户关联";
+"auth.account_linking_description" = "要在Android设备上访问你的订阅，你需要关联Google账户。要在平台间共享订阅，请关联两个账户。";
+"auth.link_google_for_android" = "关联Google账户";
+"auth.link_apple_for_cross_platform" = "关联Apple ID";
+"auth.current_account" = "当前账户";
+"auth.linked_accounts" = "已关联账户";
+"auth.no_linked_accounts" = "无关联账户";
+

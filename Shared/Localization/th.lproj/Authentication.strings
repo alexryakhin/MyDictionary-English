@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "ลงชื่อเข้าใช้ก่อนสมัครสมาชิก";
+"auth.sign_in_with_google" = "ลงชื่อเข้าใช้ด้วย Google";
+"auth.can_always_sign_in_later" = "คุณสามารถลงชื่อเข้าใช้ได้ในภายหลังในหน้าการตั้งค่า";
+"auth.link_additional_accounts" = "เชื่อมต่อบัญชีเพิ่มเติม";
+"auth.accounts_linked_successfully" = "เชื่อมต่อบัญชีสำเร็จ";
+"auth.sign_out_confirmation" = "ออกจากระบบ";
+"auth.your_words_are_safe" = "คำศัพท์ของคุณปลอดภัย";
+"auth.cloud_sync_disabled" = "การซิงค์กับคลาวด์จะถูกปิดใช้งาน";
+"auth.sign_out" = "ออกจากระบบ";
+"auth.no_worries_wont_remove_words" = "ไม่ต้องกังวล! เราไม่ลบคำศัพท์ของคุณ";
+"auth.vocabulary_stay_on_device" = "คลังคำศัพท์ของคุณจะยังคงอยู่ในอุปกรณ์นี้ หากคุณลงชื่อเข้าใช้ด้วยบัญชีอื่น ข้อมูลของคุณจะถูกรวม";
+"auth.all_vocabulary_remain_device" = "คำศัพท์ ความหมาย และความคืบหน้าทั้งหมดจะยังคงอยู่ในอุปกรณ์นี้ คุณสามารถใช้แอปต่อไปโดยไม่ต้องลงชื่อเข้าใช้";
+"auth.word_lists_shared_data_cleared" = "รายการคำศัพท์และข้อมูลที่แชร์จะถูกลบ หากคุณลงชื่อเข้าใช้ด้วยบัญชีอื่น คำศัพท์ในเครื่องของคุณจะถูกรวมกับข้อมูลของบัญชีใหม่";
+"auth.sign_in_to_access_word_lists" = "ลงชื่อเข้าใช้เพื่อเข้าถึงรายการคำศัพท์ของคุณในทุกอุปกรณ์และร่วมงานกับผู้อื่น";
+"auth.link_google" = "เชื่อมต่อกับ Google";
+"auth.link_apple" = "เชื่อมต่อกับ Apple";
+"auth.sign_in_to_sync_word_lists" = "ลงชื่อเข้าใช้เพื่อซิงค์รายการคำศัพท์";
+"auth.sign_out_error_title" = "อุ๊ย!";
+"auth.sign_out_error_message" = "เกิดข้อผิดพลาดขณะออกจากระบบ ลองใหม่ในภายหลัง";
+"auth.sign_in_required_for_restore" = "ต้องลงชื่อเข้าใช้เพื่อกู้คืนการซื้อ";
+"auth.sign_in_required_for_pro_features" = "ต้องลงชื่อเข้าใช้เพื่อเข้าถึงฟีเจอร์ Pro เช่น %@";
+"auth.sign_in_failed" = "ลงชื่อเข้าใช้ล้มเหลว ลองใหม่";
+"auth.sign_out_failed" = "ออกจากระบบล้มเหลว ลองใหม่";
+"auth.user_not_found" = "ไม่พบผู้ใช้";
+"auth.network_error" = "ข้อผิดพลาดเครือข่าย ตรวจสอบการเชื่อมต่อของคุณ";
+"auth.account_linking_failed" = "การเชื่อมต่อบัญชีล้มเหลว ลองใหม่";
+
+// Registration Benefits
+"auth.registration_benefits" = "ประโยชน์ของการลงทะเบียน";
+"auth.access_subscription_all_devices" = "เข้าถึงการสมัครสมาชิกของคุณในอุปกรณ์ทั้งหมด";
+"auth.sync_progress_cross_platform" = "ซิงค์ความคืบหน้าของคุณระหว่าง iOS และ Android";
+"auth.backup_data_securely" = "สำรองข้อมูลของคุณอย่างปลอดภัยในคลาวด์";
+"auth.register_anytime_from_settings" = "คุณสามารถลงทะเบียนได้ทุกเมื่อจากการตั้งค่าเพื่อเปิดใช้งานฟีเจอร์เหล่านี้";
+"auth.account_registration" = "การลงทะเบียนบัญชี";
+"auth.register_for_cross_platform_access" = "ลงทะเบียนเพื่อเข้าถึงการสมัครสมาชิกของคุณในอุปกรณ์ทั้งหมดและซิงค์ความคืบหน้าของคุณ";
+"auth.active_subscription_notification" = "คุณมีการสมัครสมาชิกที่ใช้งานอยู่!";
+"auth.register_to_unlock_cross_platform" = "ลงทะเบียนเพื่อปลดล็อกการเข้าถึงข้ามแพลตฟอร์ม";
+"auth.register_now" = "ลงทะเบียนตอนนี้";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "การเข้าถึงการสมัครสมาชิกถูกจำกัด";
+"auth.subscription_associated_different_account" = "การสมัครสมาชิกนี้เชื่อมโยงกับบัญชีอื่น กรุณาลงชื่อเข้าใช้ด้วยบัญชีที่ซื้อการสมัครสมาชิกนี้เพื่อเข้าถึงฟีเจอร์ Pro";
+
+// Profile
+"auth.profile" = "โปรไฟล์";
+"auth.account_linking" = "การเชื่อมต่อบัญชี";
+"auth.account_linking_description" = "เพื่อเข้าถึงการสมัครสมาชิกของคุณในอุปกรณ์ Android คุณต้องเชื่อมต่อบัญชี Google เพื่อแชร์การสมัครสมาชิกระหว่างแพลตฟอร์ม เชื่อมต่อทั้งสองบัญชี";
+"auth.link_google_for_android" = "เชื่อมต่อบัญชี Google";
+"auth.link_apple_for_cross_platform" = "เชื่อมต่อ Apple ID";
+"auth.current_account" = "บัญชีปัจจุบัน";
+"auth.linked_accounts" = "บัญชีที่เชื่อมต่อ";
+"auth.no_linked_accounts" = "ไม่มีบัญชีที่เชื่อมต่อ";
+

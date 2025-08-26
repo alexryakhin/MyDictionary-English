@@ -1,0 +1,54 @@
+// MARK: - Authentication
+"auth.sign_in_before_subscribing" = "Logga in innan du prenumererar";
+"auth.sign_in_with_google" = "Logga in med Google";
+"auth.can_always_sign_in_later" = "Du kan alltid logga in senare i inställningarna";
+"auth.link_additional_accounts" = "Länka ytterligare konton";
+"auth.accounts_linked_successfully" = "Konton länkade framgångsrikt";
+"auth.sign_out_confirmation" = "Logga ut";
+"auth.your_words_are_safe" = "Dina ord är säkra";
+"auth.cloud_sync_disabled" = "Synkronisering med molnet kommer att inaktiveras";
+"auth.sign_out" = "Logga ut";
+"auth.no_worries_wont_remove_words" = "Ingen oro! Vi tar inte bort dina ord.";
+"auth.vocabulary_stay_on_device" = "Ditt ordförråd stannar på denna enhet. Om du loggar in med ett annat konto kommer dina data att slås samman.";
+"auth.all_vocabulary_remain_device" = "Alla ord, definitioner och framsteg stannar på denna enhet. Du kan fortsätta använda appen utan att logga in.";
+"auth.word_lists_shared_data_cleared" = "Ordlistor och delade data raderas. Om du loggar in med ett annat konto kommer dina lokala ord att slås samman med det nya kontots data.";
+"auth.sign_in_to_access_word_lists" = "Logga in för att få tillgång till dina ordlistor på alla enheter och samarbeta med andra.";
+"auth.link_google" = "Länka med Google";
+"auth.link_apple" = "Länka med Apple";
+"auth.sign_in_to_sync_word_lists" = "Logga in för att synkronisera ordlistor";
+"auth.sign_out_error_title" = "Oj!";
+"auth.sign_out_error_message" = "Något gick fel vid utloggning. Försök igen senare.";
+"auth.sign_in_required_for_restore" = "Inloggning krävs för att återställa köp.";
+"auth.sign_in_required_for_pro_features" = "Inloggning krävs för att få tillgång till Pro-funktioner, som %@.";
+"auth.sign_in_failed" = "Inloggning misslyckades. Försök igen.";
+"auth.sign_out_failed" = "Utloggning misslyckades. Försök igen.";
+"auth.user_not_found" = "Användare hittades inte.";
+"auth.network_error" = "Nätverksfel. Kontrollera din anslutning.";
+"auth.account_linking_failed" = "Länkning av konto misslyckades. Försök igen.";
+
+// Registration Benefits
+"auth.registration_benefits" = "Registreringsfördelar";
+"auth.access_subscription_all_devices" = "Få tillgång till din prenumeration på alla dina enheter";
+"auth.sync_progress_cross_platform" = "Synkronisera din framsteg mellan iOS och Android";
+"auth.backup_data_securely" = "Säker säkerhetskopiering av dina data i molnet";
+"auth.register_anytime_from_settings" = "Du kan registrera dig när som helst från Inställningar för att aktivera dessa funktioner";
+"auth.account_registration" = "Kontoregistrering";
+"auth.register_for_cross_platform_access" = "Registrera dig för att få tillgång till din prenumeration på alla dina enheter och synkronisera din framsteg";
+"auth.active_subscription_notification" = "Du har en aktiv prenumeration!";
+"auth.register_to_unlock_cross_platform" = "Registrera dig för att låsa upp plattformsoberoende åtkomst";
+"auth.register_now" = "Registrera Dig Nu";
+
+// Subscription Security
+"auth.subscription_access_restricted" = "Prenumerationsåtkomst Begränsad";
+"auth.subscription_associated_different_account" = "Denna prenumeration är kopplad till ett annat konto. Logga in med kontot som köpte denna prenumeration för att få tillgång till Pro-funktioner.";
+
+// Profile
+"auth.profile" = "Profil";
+"auth.account_linking" = "Kontolänkning";
+"auth.account_linking_description" = "För att få tillgång till din prenumeration på Android-enheter behöver du länka ett Google-konto. För att dela prenumerationer mellan plattformar, länka båda kontona.";
+"auth.link_google_for_android" = "Länka Google-konto";
+"auth.link_apple_for_cross_platform" = "Länka Apple ID";
+"auth.current_account" = "Aktuellt Konto";
+"auth.linked_accounts" = "Länkade Konton";
+"auth.no_linked_accounts" = "Inga länkade konton";
+
