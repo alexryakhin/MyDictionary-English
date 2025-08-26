@@ -128,34 +128,3 @@
 "filter_display.words_need_more_practice" = "Words that need more practice will appear here";
 "filter_display.idioms_need_more_practice" = "Idioms that need more practice will appear here";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Owner";
-"collaborator_roles.editor" = "Editor";
-"collaborator_roles.viewer" = "Viewer";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Select Dictionary";
-"shared_dictionary_selection.dictionary_selected" = "Dictionary Selected";
-"shared_dictionary_selection.add_to_shared" = "Add to Shared";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Add Word to Shared Dictionary";
-"shared_dictionary_selection.unknown" = "unknown";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Role";
-"collaborator_management.add_collaborator" = "Add Collaborator";
-"collaborator_management.email_address_required" = "Email address is required";
-"collaborator_management.valid_email_address" = "Please enter a valid email address";
-"collaborator_management.make_viewer" = "Make Viewer";
-"collaborator_management.make_editor" = "Make Editor";
-"collaborator_management.remove" = "Remove";
-"collaborator_management.add" = "Add";
-"collaborator_management.delete_dictionary" = "Delete Dictionary";
-"collaborator_management.delete_dictionary_confirmation" = "Are you sure you want to delete this shared dictionary? This action cannot be undone.";
-"collaborator_management.stop_watching" = "Stop watching";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Are you sure you want to stop watching this shared dictionary?";
-"collaborator_management.stop_watching_dictionary" = "Stop watching dictionary";
-"collaborator_management.continue" = "Continue";
-"collaborator_management.dictionary_not_found" = "Dictionary Not Found";
-"collaborator_management.dictionary_details" = "Dictionary Details";
-"collaborator_management.unknown" = "Unknown";
-

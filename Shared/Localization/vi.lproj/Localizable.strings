@@ -112,34 +112,3 @@
 "filter_display.words_appear_here_as_you_practice" = "Từ sẽ xuất hiện tại đây khi bạn luyện tập với các bài kiểm tra";
 "filter_display.words_need_more_practice" = "Từ cần luyện tập thêm sẽ xuất hiện tại đây";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Chủ sở hữu";
-"collaborator_roles.editor" = "Biên tập viên";
-"collaborator_roles.viewer" = "Người xem";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Chọn từ điển";
-"shared_dictionary_selection.dictionary_selected" = "Đã chọn từ điển";
-"shared_dictionary_selection.add_to_shared" = "Thêm vào chia sẻ";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Thêm từ vào từ điển chia sẻ";
-"shared_dictionary_selection.unknown" = "Không xác định";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Vai trò";
-"collaborator_management.add_collaborator" = "Thêm cộng tác viên";
-"collaborator_management.email_address_required" = "Yêu cầu địa chỉ email";
-"collaborator_management.valid_email_address" = "Nhập địa chỉ email hợp lệ";
-"collaborator_management.make_viewer" = "Đặt làm người xem";
-"collaborator_management.make_editor" = "Đặt làm biên tập viên";
-"collaborator_management.remove" = "Xóa";
-"collaborator_management.add" = "Thêm";
-"collaborator_management.delete_dictionary" = "Xóa từ điển";
-"collaborator_management.delete_dictionary_confirmation" = "Bạn có chắc chắn muốn xóa từ điển chia sẻ này không? Hành động này không thể hoàn tác.";
-"collaborator_management.stop_watching" = "Ngừng theo dõi";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Bạn có chắc chắn muốn ngừng theo dõi từ điển chia sẻ này không?";
-"collaborator_management.stop_watching_dictionary" = "Ngừng theo dõi từ điển";
-"collaborator_management.continue" = "Tiếp tục";
-"collaborator_management.dictionary_not_found" = "Không tìm thấy từ điển";
-"collaborator_management.dictionary_details" = "Chi tiết từ điển";
-"collaborator_management.unknown" = "Không xác định";
-

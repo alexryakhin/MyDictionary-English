@@ -51,3 +51,34 @@
 "shared_dictionaries.your_status" = "El teu estat";
 "shared_dictionaries.average_score" = "Puntuació mitjana";
 
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Propietari";
+"collaborator_roles.editor" = "Editor";
+"collaborator_roles.viewer" = "Espectador";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Selecciona un diccionari";
+"shared_dictionary_selection.dictionary_selected" = "Diccionari seleccionat";
+"shared_dictionary_selection.add_to_shared" = "Afegeix al compartit";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Afegeix una paraula al diccionari compartit";
+"shared_dictionary_selection.unknown" = "Desconegut";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Rol";
+"collaborator_management.add_collaborator" = "Afegeix un col·laborador";
+"collaborator_management.email_address_required" = "L'adreça de correu electrònic és obligatòria";
+"collaborator_management.valid_email_address" = "Introdueix una adreça de correu electrònic vàlida";
+"collaborator_management.make_viewer" = "Fes espectador";
+"collaborator_management.make_editor" = "Fes editor";
+"collaborator_management.remove" = "Elimina";
+"collaborator_management.add" = "Afegeix";
+"collaborator_management.delete_dictionary" = "Elimina el diccionari";
+"collaborator_management.delete_dictionary_confirmation" = "Segur que vols eliminar aquest diccionari compartit? Aquesta acció no es pot desfer.";
+"collaborator_management.stop_watching" = "Deixa de mirar";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Segur que vols deixar de mirar aquest diccionari compartit?";
+"collaborator_management.stop_watching_dictionary" = "Deixa de mirar el diccionari";
+"collaborator_management.continue" = "Continua";
+"collaborator_management.dictionary_not_found" = "Diccionari no trobat";
+"collaborator_management.dictionary_details" = "Detalls del diccionari";
+"collaborator_management.unknown" = "Desconegut";
+

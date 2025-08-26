@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "Ord som trenger mer øvelse vil vises her";
 "filter_display.idioms_need_more_practice" = "Uttrykk som trenger mer øvelse vil vises her";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Eier";
-"collaborator_roles.editor" = "Redaktør";
-"collaborator_roles.viewer" = "Seer";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Velg ordbok";
-"shared_dictionary_selection.dictionary_selected" = "Ordbok valgt";
-"shared_dictionary_selection.add_to_shared" = "Legg til i delt";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Legg til ord i delt ordbok";
-"shared_dictionary_selection.unknown" = "Ukjent";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Rolle";
-"collaborator_management.add_collaborator" = "Legg til samarbeidspartner";
-"collaborator_management.email_address_required" = "E-postadresse kreves";
-"collaborator_management.valid_email_address" = "Skriv inn en gyldig e-postadresse";
-"collaborator_management.make_viewer" = "Gjør til seer";
-"collaborator_management.make_editor" = "Gjør til redaktør";
-"collaborator_management.remove" = "Fjern";
-"collaborator_management.add" = "Legg til";
-"collaborator_management.delete_dictionary" = "Slett ordbok";
-"collaborator_management.delete_dictionary_confirmation" = "Er du sikker på at du vil slette denne delte ordboken? Denne handlingen kan ikke angres.";
-"collaborator_management.stop_watching" = "Stopp å observere";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Er du sikker på at du vil stoppe å observere denne delte ordboken?";
-"collaborator_management.stop_watching_dictionary" = "Stopp å observere ordbok";
-"collaborator_management.continue" = "Fortsett";
-"collaborator_management.dictionary_not_found" = "Ordbok ikke funnet";
-"collaborator_management.dictionary_details" = "Ordbokdetaljer";
-"collaborator_management.unknown" = "Ukjent";
-

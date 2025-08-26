@@ -51,3 +51,34 @@
 "shared_dictionaries.your_status" = "あなたの状態";
 "shared_dictionaries.average_score" = "平均スコア";
 
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "オーナー";
+"collaborator_roles.editor" = "編集者";
+"collaborator_roles.viewer" = "閲覧者";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "辞書を選択";
+"shared_dictionary_selection.dictionary_selected" = "辞書が選択されました";
+"shared_dictionary_selection.add_to_shared" = "共有に追加";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "共有辞書に単語を追加";
+"shared_dictionary_selection.unknown" = "不明";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "役割";
+"collaborator_management.add_collaborator" = "コラボレーターを追加";
+"collaborator_management.email_address_required" = "メールアドレスが必要です";
+"collaborator_management.valid_email_address" = "有効なメールアドレスを入力してください";
+"collaborator_management.make_viewer" = "閲覧者に設定";
+"collaborator_management.make_editor" = "編集者に設定";
+"collaborator_management.remove" = "削除";
+"collaborator_management.add" = "追加";
+"collaborator_management.delete_dictionary" = "辞書を削除";
+"collaborator_management.delete_dictionary_confirmation" = "この共有辞書を削除してもよろしいですか？この操作は元に戻せません。";
+"collaborator_management.stop_watching" = "観察を停止";
+"collaborator_management.stop_watching_dictionary_confirmation" = "この共有辞書の観察を停止してもよろしいですか？";
+"collaborator_management.stop_watching_dictionary" = "辞書の観察を停止";
+"collaborator_management.continue" = "続ける";
+"collaborator_management.dictionary_not_found" = "辞書が見つかりません";
+"collaborator_management.dictionary_details" = "辞書の詳細";
+"collaborator_management.unknown" = "不明";
+

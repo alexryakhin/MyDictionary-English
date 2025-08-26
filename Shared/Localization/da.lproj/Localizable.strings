@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "Ord, der kræver mere øvelse, vil vises her";
 "filter_display.idioms_need_more_practice" = "Idiomer, der kræver mere øvelse, vil vises her";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Ejer";
-"collaborator_roles.editor" = "Redaktør";
-"collaborator_roles.viewer" = "Seer";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Vælg ordbog";
-"shared_dictionary_selection.dictionary_selected" = "Ordbog valgt";
-"shared_dictionary_selection.add_to_shared" = "Tilføj til delt";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Tilføj ord til delt ordbog";
-"shared_dictionary_selection.unknown" = "Ukendt";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Rolle";
-"collaborator_management.add_collaborator" = "Tilføj samarbejdspartner";
-"collaborator_management.email_address_required" = "E-mailadresse er påkrævet";
-"collaborator_management.valid_email_address" = "Indtast en gyldig e-mailadresse";
-"collaborator_management.make_viewer" = "Udnævn til seer";
-"collaborator_management.make_editor" = "Udnævn til redaktør";
-"collaborator_management.remove" = "Fjern";
-"collaborator_management.add" = "Tilføj";
-"collaborator_management.delete_dictionary" = "Slet ordbog";
-"collaborator_management.delete_dictionary_confirmation" = "Er du sikker på, at du vil slette denne delte ordbog? Denne handling kan ikke fortrydes.";
-"collaborator_management.stop_watching" = "Stop med at se";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Er du sikker på, at du vil stoppe med at se denne delte ordbog?";
-"collaborator_management.stop_watching_dictionary" = "Stop med at se ordbog";
-"collaborator_management.continue" = "Fortsæt";
-"collaborator_management.dictionary_not_found" = "Ordbog ikke fundet";
-"collaborator_management.dictionary_details" = "Ordbogdetaljer";
-"collaborator_management.unknown" = "Ukendt";
-

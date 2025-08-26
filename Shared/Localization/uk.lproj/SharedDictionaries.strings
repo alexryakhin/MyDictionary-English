@@ -51,3 +51,34 @@
 "shared_dictionaries.your_status" = "Ваш статус";
 "shared_dictionaries.average_score" = "Середній бал";
 
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Власник";
+"collaborator_roles.editor" = "Редактор";
+"collaborator_roles.viewer" = "Глядач";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Вибрати словник";
+"shared_dictionary_selection.dictionary_selected" = "Словник вибрано";
+"shared_dictionary_selection.add_to_shared" = "Додати до спільного";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Додати слово до спільного словника";
+"shared_dictionary_selection.unknown" = "Невідомо";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Роль";
+"collaborator_management.add_collaborator" = "Додати співавтора";
+"collaborator_management.email_address_required" = "Потрібна адреса електронної пошти";
+"collaborator_management.valid_email_address" = "Введіть дійсну адресу електронної пошти";
+"collaborator_management.make_viewer" = "Зробити глядачем";
+"collaborator_management.make_editor" = "Зробити редактором";
+"collaborator_management.remove" = "Видалити";
+"collaborator_management.add" = "Додати";
+"collaborator_management.delete_dictionary" = "Видалити словник";
+"collaborator_management.delete_dictionary_confirmation" = "Ви впевнені, що хочете видалити цей спільний словник? Цю дію не можна скасувати";
+"collaborator_management.stop_watching" = "Припинити спостереження";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Ви впевнені, що хочете припинити спостереження за цим спільним словником?";
+"collaborator_management.stop_watching_dictionary" = "Припинити спостереження за словником";
+"collaborator_management.continue" = "Продовжити";
+"collaborator_management.dictionary_not_found" = "Словник не знайдено";
+"collaborator_management.dictionary_details" = "Деталі словника";
+"collaborator_management.unknown" = "Невідомо";
+

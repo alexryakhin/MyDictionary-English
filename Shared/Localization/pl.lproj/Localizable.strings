@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "Słowa, które wymagają więcej praktyki, pojawią się tutaj";
 "filter_display.idioms_need_more_practice" = "Idiomy, które wymagają więcej praktyki, pojawią się tutaj";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Właściciel";
-"collaborator_roles.editor" = "Edytor";
-"collaborator_roles.viewer" = "Widz";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Wybierz słownik";
-"shared_dictionary_selection.dictionary_selected" = "Słownik wybrany";
-"shared_dictionary_selection.add_to_shared" = "Dodaj do wspólnego";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Dodaj słowo do wspólnego słownika";
-"shared_dictionary_selection.unknown" = "Nieznany";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Rola";
-"collaborator_management.add_collaborator" = "Dodaj współpracownika";
-"collaborator_management.email_address_required" = "Adres e-mail jest wymagany";
-"collaborator_management.valid_email_address" = "Wpisz prawidłowy adres e-mail";
-"collaborator_management.make_viewer" = "Ustaw jako widz";
-"collaborator_management.make_editor" = "Ustaw jako edytor";
-"collaborator_management.remove" = "Usuń";
-"collaborator_management.add" = "Dodaj";
-"collaborator_management.delete_dictionary" = "Usuń słownik";
-"collaborator_management.delete_dictionary_confirmation" = "Czy na pewno chcesz usunąć ten wspólny słownik? Tej akcji nie można cofnąć.";
-"collaborator_management.stop_watching" = "Przestań obserwować";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Czy na pewno chcesz przestać obserwować ten wspólny słownik?";
-"collaborator_management.stop_watching_dictionary" = "Przestań obserwować słownik";
-"collaborator_management.continue" = "Kontynuuj";
-"collaborator_management.dictionary_not_found" = "Słownik nie znaleziony";
-"collaborator_management.dictionary_details" = "Szczegóły słownika";
-"collaborator_management.unknown" = "Nieznany";
-

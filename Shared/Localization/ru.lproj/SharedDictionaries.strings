@@ -51,3 +51,34 @@
 "shared_dictionaries.your_status" = "Ваш статус";
 "shared_dictionaries.average_score" = "Средний счёт";
 
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Владелец";
+"collaborator_roles.editor" = "Редактор";
+"collaborator_roles.viewer" = "Зритель";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Выбрать словарь";
+"shared_dictionary_selection.dictionary_selected" = "Словарь выбран";
+"shared_dictionary_selection.add_to_shared" = "Добавить в общий";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Добавить слово в общий словарь";
+"shared_dictionary_selection.unknown" = "Неизвестно";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Роль";
+"collaborator_management.add_collaborator" = "Добавить соавтора";
+"collaborator_management.email_address_required" = "Адрес электронной почты обязателен";
+"collaborator_management.valid_email_address" = "Введите действительный адрес электронной почты";
+"collaborator_management.make_viewer" = "Сделать зрителем";
+"collaborator_management.make_editor" = "Сделать редактором";
+"collaborator_management.remove" = "Удалить";
+"collaborator_management.add" = "Добавить";
+"collaborator_management.delete_dictionary" = "Удалить словарь";
+"collaborator_management.delete_dictionary_confirmation" = "Вы уверены, что хотите удалить этот общий словарь? Это действие нельзя отменить.";
+"collaborator_management.stop_watching" = "Прекратить наблюдение";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Вы уверены, что хотите прекратить наблюдение за этим общим словарём?";
+"collaborator_management.stop_watching_dictionary" = "Прекратить наблюдение за словарём";
+"collaborator_management.continue" = "Продолжить";
+"collaborator_management.dictionary_not_found" = "Словарь не найден";
+"collaborator_management.dictionary_details" = "Подробности о словаре";
+"collaborator_management.unknown" = "Неизвестно";
+

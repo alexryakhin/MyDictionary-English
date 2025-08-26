@@ -51,3 +51,34 @@
 "shared_dictionaries.your_status" = "Votre statut";
 "shared_dictionaries.average_score" = "Score moyen";
 
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Propriétaire";
+"collaborator_roles.editor" = "Éditeur";
+"collaborator_roles.viewer" = "Spectateur";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Sélectionner un dictionnaire";
+"shared_dictionary_selection.dictionary_selected" = "Dictionnaire sélectionné";
+"shared_dictionary_selection.add_to_shared" = "Ajouter au partagé";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Ajouter un mot au dictionnaire partagé";
+"shared_dictionary_selection.unknown" = "Inconnu";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Rôle";
+"collaborator_management.add_collaborator" = "Ajouter un collaborateur";
+"collaborator_management.email_address_required" = "Adresse e-mail requise";
+"collaborator_management.valid_email_address" = "Entrez une adresse e-mail valide";
+"collaborator_management.make_viewer" = "Définir comme spectateur";
+"collaborator_management.make_editor" = "Définir comme éditeur";
+"collaborator_management.remove" = "Supprimer";
+"collaborator_management.add" = "Ajouter";
+"collaborator_management.delete_dictionary" = "Supprimer le dictionnaire";
+"collaborator_management.delete_dictionary_confirmation" = "Êtes-vous sûr de vouloir supprimer ce dictionnaire partagé ? Cette action est irréversible.";
+"collaborator_management.stop_watching" = "Arrêter de suivre";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Êtes-vous sûr de vouloir arrêter de suivre ce dictionnaire partagé ?";
+"collaborator_management.stop_watching_dictionary" = "Arrêter de suivre le dictionnaire";
+"collaborator_management.continue" = "Continuer";
+"collaborator_management.dictionary_not_found" = "Dictionnaire non trouvé";
+"collaborator_management.dictionary_details" = "Détails du dictionnaire";
+"collaborator_management.unknown" = "Inconnu";
+

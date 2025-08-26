@@ -112,34 +112,3 @@
 "filter_display.words_appear_here_as_you_practice" = "Slová sa tu objavia, ako budete cvičiť s kvízmi";
 "filter_display.words_need_more_practice" = "Slová, ktoré potrebujú viac praxe, sa tu objavia";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Vlastník";
-"collaborator_roles.editor" = "Editor";
-"collaborator_roles.viewer" = "Divák";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Vybrať slovník";
-"shared_dictionary_selection.dictionary_selected" = "Slovník vybraný";
-"shared_dictionary_selection.add_to_shared" = "Pridať do zdieľaného";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Pridať slovo do zdieľaného slovníka";
-"shared_dictionary_selection.unknown" = "Neznáme";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Rola";
-"collaborator_management.add_collaborator" = "Pridať spolupracovníka";
-"collaborator_management.email_address_required" = "E-mailová adresa je povinná";
-"collaborator_management.valid_email_address" = "Zadajte platnú e-mailovú adresu";
-"collaborator_management.make_viewer" = "Nastaviť ako diváka";
-"collaborator_management.make_editor" = "Nastaviť ako editora";
-"collaborator_management.remove" = "Odstrániť";
-"collaborator_management.add" = "Pridať";
-"collaborator_management.delete_dictionary" = "Vymazať slovník";
-"collaborator_management.delete_dictionary_confirmation" = "Ste si istý, že chcete vymazať tento zdieľaný slovník? Táto akcia sa nedá vrátiť späť.";
-"collaborator_management.stop_watching" = "Prestať sledovať";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Ste si istý, že chcete prestať sledovať tento zdieľaný slovník?";
-"collaborator_management.stop_watching_dictionary" = "Prestať sledovať slovník";
-"collaborator_management.continue" = "Pokračovať";
-"collaborator_management.dictionary_not_found" = "Slovník nenájdený";
-"collaborator_management.dictionary_details" = "Podrobnosti o slovníku";
-"collaborator_management.unknown" = "Neznáme";
-

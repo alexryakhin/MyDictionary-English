@@ -112,34 +112,3 @@
 "filter_display.words_appear_here_as_you_practice" = "คำศัพท์จะปรากฏที่นี่เมื่อคุณฝึกด้วยแบบทดสอบ";
 "filter_display.words_need_more_practice" = "คำศัพท์ที่ต้องการฝึกเพิ่มจะปรากฏที่นี่";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "เจ้าของ";
-"collaborator_roles.editor" = "ผู้แก้ไข";
-"collaborator_roles.viewer" = "ผู้ดู";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "เลือกพจนานุกรม";
-"shared_dictionary_selection.dictionary_selected" = "เลือกพจนานุกรมแล้ว";
-"shared_dictionary_selection.add_to_shared" = "เพิ่มในที่แชร์";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "เพิ่มคำศัพท์ในพจนานุกรมที่แชร์";
-"shared_dictionary_selection.unknown" = "ไม่ทราบ";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "บทบาท";
-"collaborator_management.add_collaborator" = "เพิ่มผู้ร่วมงาน";
-"collaborator_management.email_address_required" = "ต้องระบุที่อยู่อีเมล";
-"collaborator_management.valid_email_address" = "ป้อนที่อยู่อีเมลที่ถูกต้อง";
-"collaborator_management.make_viewer" = "ตั้งเป็นผู้ดู";
-"collaborator_management.make_editor" = "ตั้งเป็นผู้แก้ไข";
-"collaborator_management.remove" = "ลบ";
-"collaborator_management.add" = "เพิ่ม";
-"collaborator_management.delete_dictionary" = "ลบพจนานุกรม";
-"collaborator_management.delete_dictionary_confirmation" = "คุณแน่ใจหรือไม่ว่าต้องการลบพจนานุกรมที่แชร์นี้ การกระทำนี้ไม่สามารถย้อนกลับได้";
-"collaborator_management.stop_watching" = "หยุดติดตาม";
-"collaborator_management.stop_watching_dictionary_confirmation" = "คุณแน่ใจหรือไม่ว่าต้องการหยุดติดตามพจนานุกรมที่แชร์นี้";
-"collaborator_management.stop_watching_dictionary" = "หยุดติดตามพจนานุกรม";
-"collaborator_management.continue" = "ดำเนินการต่อ";
-"collaborator_management.dictionary_not_found" = "ไม่พบพจนานุกรม";
-"collaborator_management.dictionary_details" = "รายละเอียดพจนานุกรม";
-"collaborator_management.unknown" = "ไม่ทราบ";
-

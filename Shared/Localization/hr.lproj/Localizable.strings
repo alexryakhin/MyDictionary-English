@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "Riječi koje zahtijevaju više vježbe pojavit će se ovdje";
 "filter_display.idioms_need_more_practice" = "Idiomi koji zahtijevaju više vježbe pojavit će se ovdje";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Vlasnik";
-"collaborator_roles.editor" = "Urednik";
-"collaborator_roles.viewer" = "Gledatelj";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Odaberi rječnik";
-"shared_dictionary_selection.dictionary_selected" = "Rječnik odabran";
-"shared_dictionary_selection.add_to_shared" = "Dodaj u zajednički";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Dodaj riječ u zajednički rječnik";
-"shared_dictionary_selection.unknown" = "Nepoznato";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Uloga";
-"collaborator_management.add_collaborator" = "Dodaj suradnika";
-"collaborator_management.email_address_required" = "Adresa e-pošte je obavezna";
-"collaborator_management.valid_email_address" = "Unesite važeću adresu e-pošte";
-"collaborator_management.make_viewer" = "Postavi kao gledatelja";
-"collaborator_management.make_editor" = "Postavi kao urednika";
-"collaborator_management.remove" = "Ukloni";
-"collaborator_management.add" = "Dodaj";
-"collaborator_management.delete_dictionary" = "Izbriši rječnik";
-"collaborator_management.delete_dictionary_confirmation" = "Jeste li sigurni da želite izbrisati ovaj zajednički rječnik? Ova radnja se ne može poništiti.";
-"collaborator_management.stop_watching" = "Prestani gledati";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Jeste li sigurni da želite prestati gledati ovaj zajednički rječnik?";
-"collaborator_management.stop_watching_dictionary" = "Prestani gledati rječnik";
-"collaborator_management.continue" = "Nastavi";
-"collaborator_management.dictionary_not_found" = "Rječnik nije pronađen";
-"collaborator_management.dictionary_details" = "Detalji rječnika";
-"collaborator_management.unknown" = "Nepoznato";
-

@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "Le parole che richied fortesono più pratica appariranno qui";
 "filter_display.idioms_need_more_practice" = "Gli idiomi che richiedono più pratica appariranno qui";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Proprietario";
-"collaborator_roles.editor" = "Editor";
-"collaborator_roles.viewer" = "Visualizzatore";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Seleziona Dizionario";
-"shared_dictionary_selection.dictionary_selected" = "Dizionario Selezionato";
-"shared_dictionary_selection.add_to_shared" = "Aggiungi a Condiviso";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Aggiungi parola al dizionario condiviso";
-"shared_dictionary_selection.unknown" = "Sconosciuto";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Ruolo";
-"collaborator_management.add_collaborator" = "Aggiungi Collaboratore";
-"collaborator_management.email_address_required" = "Indirizzo email richiesto";
-"collaborator_management.valid_email_address" = "Inserisci un indirizzo email valido";
-"collaborator_management.make_viewer" = "Rendi Visualizzatore";
-"collaborator_management.make_editor" = "Rendi Editor";
-"collaborator_management.remove" = "Rimuovi";
-"collaborator_management.add" = "Aggiungi";
-"collaborator_management.delete_dictionary" = "Elimina Dizionario";
-"collaborator_management.delete_dictionary_confirmation" = "Sei sicuro di voler eliminare questo dizionario condiviso? Questa azione non può essere annullata.";
-"collaborator_management.stop_watching" = "Smetti di Osservare";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Sei sicuro di voler smettere di osservare questo dizionario condiviso?";
-"collaborator_management.stop_watching_dictionary" = "Smetti di Osservare il Dizionario";
-"collaborator_management.continue" = "Continua";
-"collaborator_management.dictionary_not_found" = "Dizionario non trovato";
-"collaborator_management.dictionary_details" = "Dettagli Dizionario";
-"collaborator_management.unknown" = "Sconosciuto";
-

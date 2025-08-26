@@ -51,3 +51,34 @@
 "shared_dictionaries.your_status" = "Din status";
 "shared_dictionaries.average_score" = "Genomsnittlig poäng";
 
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Ägare";
+"collaborator_roles.editor" = "Redigerare";
+"collaborator_roles.viewer" = "Visare";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Välj ordbok";
+"shared_dictionary_selection.dictionary_selected" = "Ordbok vald";
+"shared_dictionary_selection.add_to_shared" = "Lägg till i delad";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Lägg till ord i delad ordbok";
+"shared_dictionary_selection.unknown" = "Okänd";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Roll";
+"collaborator_management.add_collaborator" = "Lägg till medarbetare";
+"collaborator_management.email_address_required" = "E-postadress krävs";
+"collaborator_management.valid_email_address" = "Ange en giltig e-postadress";
+"collaborator_management.make_viewer" = "Gör till visare";
+"collaborator_management.make_editor" = "Gör till redigerare";
+"collaborator_management.remove" = "Ta bort";
+"collaborator_management.add" = "Lägg till";
+"collaborator_management.delete_dictionary" = "Radera ordbok";
+"collaborator_management.delete_dictionary_confirmation" = "Är du säker på att du vill radera denna delade ordbok? Denna åtgärd kan inte ångras.";
+"collaborator_management.stop_watching" = "Sluta följa";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Är du säker på att du vill sluta följa denna delade ordbok?";
+"collaborator_management.stop_watching_dictionary" = "Sluta följa ordbok";
+"collaborator_management.continue" = "Fortsätt";
+"collaborator_management.dictionary_not_found" = "Ordbok hittades inte";
+"collaborator_management.dictionary_details" = "Ordbokdetaljer";
+"collaborator_management.unknown" = "Okänd";
+

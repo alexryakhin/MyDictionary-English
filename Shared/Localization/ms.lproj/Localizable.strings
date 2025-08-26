@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "Perkataan yang memerlukan lebih banyak latihan akan muncul di sini";
 "filter_display.idioms_need_more_practice" = "Ungkapan yang memerlukan lebih banyak latihan akan muncul di sini";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Pemilik";
-"collaborator_roles.editor" = "Penyunting";
-"collaborator_roles.viewer" = "Penonton";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Pilih Kamus";
-"shared_dictionary_selection.dictionary_selected" = "Kamus Dipilih";
-"shared_dictionary_selection.add_to_shared" = "Tambah ke Kongsi";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Tambah perkataan ke kamus kongsi";
-"shared_dictionary_selection.unknown" = "Tidak Diketahui";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Peranan";
-"collaborator_management.add_collaborator" = "Tambah Rakan Kerjasama";
-"collaborator_management.email_address_required" = "Alamat e-mel diperlukan";
-"collaborator_management.valid_email_address" = "Masukkan alamat e-mel yang sah";
-"collaborator_management.make_viewer" = "Jadikan Penonton";
-"collaborator_management.make_editor" = "Jadikan Penyunting";
-"collaborator_management.remove" = "Buang";
-"collaborator_management.add" = "Tambah";
-"collaborator_management.delete_dictionary" = "Padam Kamus";
-"collaborator_management.delete_dictionary_confirmation" = "Adakah anda pasti ingin memadam kamus kongsi ini? Tindakan ini tidak boleh dibatalkan.";
-"collaborator_management.stop_watching" = "Berhenti Memerhati";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Adakah anda pasti ingin berhenti memerhati kamus kongsi ini?";
-"collaborator_management.stop_watching_dictionary" = "Berhenti Memerhati Kamus";
-"collaborator_management.continue" = "Teruskan";
-"collaborator_management.dictionary_not_found" = "Kamus tidak ditemui";
-"collaborator_management.dictionary_details" = "Butiran Kamus";
-"collaborator_management.unknown" = "Tidak Diketahui";
-

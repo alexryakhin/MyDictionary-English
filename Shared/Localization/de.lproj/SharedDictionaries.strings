@@ -51,3 +51,34 @@
 "shared_dictionaries.your_status" = "Ihr Status";
 "shared_dictionaries.average_score" = "Durchschnittliche Punktzahl";
 
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Besitzer";
+"collaborator_roles.editor" = "Editor";
+"collaborator_roles.viewer" = "Zuschauer";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Wörterbuch auswählen";
+"shared_dictionary_selection.dictionary_selected" = "Wörterbuch ausgewählt";
+"shared_dictionary_selection.add_to_shared" = "Zum Geteilten hinzufügen";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Wort zum geteilten Wörterbuch hinzufügen";
+"shared_dictionary_selection.unknown" = "Unbekannt";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Rolle";
+"collaborator_management.add_collaborator" = "Mitarbeiter hinzufügen";
+"collaborator_management.email_address_required" = "E-Mail-Adresse erforderlich";
+"collaborator_management.valid_email_address" = "Geben Sie eine gültige E-Mail-Adresse ein";
+"collaborator_management.make_viewer" = "Zuschauer machen";
+"collaborator_management.make_editor" = "Editor machen";
+"collaborator_management.remove" = "Entfernen";
+"collaborator_management.add" = "Hinzufügen";
+"collaborator_management.delete_dictionary" = "Wörterbuch löschen";
+"collaborator_management.delete_dictionary_confirmation" = "Sind Sie sicher, dass Sie dieses geteilte Wörterbuch löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.";
+"collaborator_management.stop_watching" = "Beobachten beenden";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Sind Sie sicher, dass Sie dieses geteilte Wörterbuch nicht mehr beobachten möchten?";
+"collaborator_management.stop_watching_dictionary" = "Beobachten des Wörterbuchs beenden";
+"collaborator_management.continue" = "Fortfahren";
+"collaborator_management.dictionary_not_found" = "Wörterbuch nicht gefunden";
+"collaborator_management.dictionary_details" = "Wörterbuchdetails";
+"collaborator_management.unknown" = "Unbekannt";
+

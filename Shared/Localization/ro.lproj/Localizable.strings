@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "Cuvintele care necesită mai multă practică vor apărea aici";
 "filter_display.idioms_need_more_practice" = "Expresiile care necesită mai multă practică vor apărea aici";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Proprietar";
-"collaborator_roles.editor" = "Editor";
-"collaborator_roles.viewer" = "Vizualizator";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Selectează Dicționar";
-"shared_dictionary_selection.dictionary_selected" = "Dicționar Selectat";
-"shared_dictionary_selection.add_to_shared" = "Adaugă la Partajat";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Adaugă cuvânt la dicționarul partajat";
-"shared_dictionary_selection.unknown" = "Necunoscut";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Rol";
-"collaborator_management.add_collaborator" = "Adaugă Colaborator";
-"collaborator_management.email_address_required" = "Adresa de e-mail este obligatorie";
-"collaborator_management.valid_email_address" = "Introdu o adresă de e-mail validă";
-"collaborator_management.make_viewer" = "Setează ca Vizualizator";
-"collaborator_management.make_editor" = "Setează ca Editor";
-"collaborator_management.remove" = "Elimină";
-"collaborator_management.add" = "Adaugă";
-"collaborator_management.delete_dictionary" = "Șterge Dicționar";
-"collaborator_management.delete_dictionary_confirmation" = "Ești sigur că vrei să ștergi acest dicționar partajat? Această acțiune nu poate fi anulată.";
-"collaborator_management.stop_watching" = "Oprește Urmărirea";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Ești sigur că vrei să oprești urmărirea acestui dicționar partajat?";
-"collaborator_management.stop_watching_dictionary" = "Oprește Urmărirea Dicționarului";
-"collaborator_management.continue" = "Continuă";
-"collaborator_management.dictionary_not_found" = "Dicționar negăsit";
-"collaborator_management.dictionary_details" = "Detalii Dicționar";
-"collaborator_management.unknown" = "Necunoscut";
-

@@ -112,34 +112,3 @@
 "filter_display.words_appear_here_as_you_practice" = "单词在测验练习中会出现在这里";
 "filter_display.words_need_more_practice" = "需要更多练习的单词会出现在这里";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "所有者";
-"collaborator_roles.editor" = "编辑者";
-"collaborator_roles.viewer" = "查看者";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "选择词典";
-"shared_dictionary_selection.dictionary_selected" = "已选择词典";
-"shared_dictionary_selection.add_to_shared" = "添加到共享";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "向共享词典添加单词";
-"shared_dictionary_selection.unknown" = "未知";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "角色";
-"collaborator_management.add_collaborator" = "添加协作者";
-"collaborator_management.email_address_required" = "电子邮件地址为必填项";
-"collaborator_management.valid_email_address" = "请输入有效的电子邮件地址";
-"collaborator_management.make_viewer" = "设为查看者";
-"collaborator_management.make_editor" = "设为编辑者";
-"collaborator_management.remove" = "移除";
-"collaborator_management.add" = "添加";
-"collaborator_management.delete_dictionary" = "删除词典";
-"collaborator_management.delete_dictionary_confirmation" = "你确定要删除这个共享词典吗？此操作无法撤销。";
-"collaborator_management.stop_watching" = "停止观看";
-"collaborator_management.stop_watching_dictionary_confirmation" = "你确定要停止观看这个共享词典吗？";
-"collaborator_management.stop_watching_dictionary" = "停止观看词典";
-"collaborator_management.continue" = "继续";
-"collaborator_management.dictionary_not_found" = "未找到词典";
-"collaborator_management.dictionary_details" = "词典详情";
-"collaborator_management.unknown" = "未知";
-

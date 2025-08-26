@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "الكلمات التي تحتاج إلى مزيد من التدريب ستظهر هنا";
 "filter_display.idioms_need_more_practice" = "التعابير التي تحتاج إلى مزيد من التدريب ستظهر هنا";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "المالك";
-"collaborator_roles.editor" = "المحرر";
-"collaborator_roles.viewer" = "المشاهد";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "اختر قاموسًا";
-"shared_dictionary_selection.dictionary_selected" = "تم اختيار القاموس";
-"shared_dictionary_selection.add_to_shared" = "إضافة إلى المشترك";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "إضافة كلمة إلى القاموس المشترك";
-"shared_dictionary_selection.unknown" = "غير معروف";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "الدور";
-"collaborator_management.add_collaborator" = "إضافة متعاون";
-"collaborator_management.email_address_required" = "عنوان البريد الإلكتروني مطلوب";
-"collaborator_management.valid_email_address" = "يرجى إدخال عنوان بريد إلكتروني صالح";
-"collaborator_management. make_viewer" = "جعل مشاهد";
-"collaborator_management.make_editor" = "جعل محرر";
-"collaborator_management.remove" = "إزالة";
-"collaborator_management.add" = "إضافة";
-"collaborator_management.delete_dictionary" = "حذف القاموس";
-"collaborator_management.delete_dictionary_confirmation" = "هل أنت متأكد من حذف هذا القاموس المشترك؟ لا يمكن التراجع عن هذا الإجراء.";
-"collaborator_management.stop_watching" = "إيقاف المشاهدة";
-"collaborator_management.stop_watching_dictionary_confirmation" = "هل أنت متأكد من إيقاف مشاهدة هذا القاموس المشترك؟";
-"collaborator_management.stop_watching_dictionary" = "إيقاف مشاهدة القاموس";
-"collaborator_management.continue" = "متابعة";
-"collaborator_management.dictionary_not_found" = "لم يتم العثور على القاموس";
-"collaborator_management.dictionary_details" = "تفاصيل القاموس";
-"collaborator_management.unknown" = "غير معروف";
-

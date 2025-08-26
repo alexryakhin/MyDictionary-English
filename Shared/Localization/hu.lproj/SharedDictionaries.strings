@@ -51,3 +51,34 @@
 "shared_dictionaries.your_status" = "Állapotod";
 "shared_dictionaries.average_score" = "Átlagos pontszám";
 
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Tulajdonos";
+"collaborator_roles.editor" = "Szerkesztő";
+"collaborator_roles.viewer" = "Néző";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Szótár kiválasztása";
+"shared_dictionary_selection.dictionary_selected" = "Szótár kiválasztva";
+"shared_dictionary_selection.add_to_shared" = "Hozzáadás a megosztotthoz";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Szó hozzáadása a megosztott szótárhoz";
+"shared_dictionary_selection.unknown" = "Ismeretlen";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Szerepkör";
+"collaborator_management.add_collaborator" = "Kollaborátor hozzáadása";
+"collaborator_management.email_address_required" = "E-mail cím szükséges";
+"collaborator_management.valid_email_address" = "Adj meg egy érvényes e-mail címet";
+"collaborator_management.make_viewer" = "Nézővé tétel";
+"collaborator_management.make_editor" = "Szerkesztővé tétel";
+"collaborator_management.remove" = "Eltávolítás";
+"collaborator_management.add" = "Hozzáadás";
+"collaborator_management.delete_dictionary" = "Szótár törlése";
+"collaborator_management.delete_dictionary_confirmation" = "Biztosan törölni szeretnéd ezt a megosztott szótárat? Ez a művelet nem vonható vissza.";
+"collaborator_management.stop_watching" = "Megfigyelés leállítása";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Biztosan le szeretnéd állítani ennek a megosztott szótárnak a megfigyelését?";
+"collaborator_management.stop_watching_dictionary" = "Szótár megfigyelésének leállítása";
+"collaborator_management.continue" = "Folytatás";
+"collaborator_management.dictionary_not_found" = "A szótár nem található";
+"collaborator_management.dictionary_details" = "Szótár részletei";
+"collaborator_management.unknown" = "Ismeretlen";
+

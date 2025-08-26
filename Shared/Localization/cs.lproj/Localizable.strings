@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "Slova, která potřebují více cvičení, se zde objeví";
 "filter_display.idioms_need_more_practice" = "Idiomy, které potřebují více cvičení, se zde objeví";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Vlastník";
-"collaborator_roles.editor" = "Editor";
-"collaborator_roles.viewer" = "Divák";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Vybrat slovník";
-"shared_dictionary_selection.dictionary_selected" = "Slovník vybrán";
-"shared_dictionary_selection.add_to_shared" = "Přidat do sdíleného";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Přidat slovo do sdíleného slovníku";
-"shared_dictionary_selection.unknown" = "Neznámý";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Role";
-"collaborator_management.add_collaborator" = "Přidat spolupracovníka";
-"collaborator_management.email_address_required" = "E-mailová adresa je povinná";
-"collaborator_management.valid_email_address" = "Zadejte platnou e-mailovou adresu";
-"collaborator_management.make_viewer" = "Nastavit jako diváka";
-"collaborator_management.make_editor" = "Nastavit jako editora";
-"collaborator_management.remove" = "Odebrat";
-"collaborator_management.add" = "Přidat";
-"collaborator_management.delete_dictionary" = "Smazat slovník";
-"collaborator_management.delete_dictionary_confirmation" = "Jste si jisti, že chcete smazat tento sdílený slovník? Tato akce je nevratná.";
-"collaborator_management.stop_watching" = "Přestat sledovat";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Jste si jisti, že chcete přestat sledovat tento sdílený slovník?";
-"collaborator_management.stop_watching_dictionary" = "Přestat sledovat slovník";
-"collaborator_management.continue" = "Pokračovat";
-"collaborator_management.dictionary_not_found" = "Slovník nenalezen";
-"collaborator_management.dictionary_details" = "Podrobnosti slovníku";
-"collaborator_management.unknown" = "Neznámý";
-

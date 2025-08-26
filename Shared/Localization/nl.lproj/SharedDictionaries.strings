@@ -51,3 +51,34 @@
 "shared_dictionaries.your_status" = "Jouw status";
 "shared_dictionaries.average_score" = "Gemiddelde score";
 
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Eigenaar";
+"collaborator_roles.editor" = "Editor";
+"collaborator_roles.viewer" = "Kijker";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Woordenboek selecteren";
+"shared_dictionary_selection.dictionary_selected" = "Woordenboek geselecteerd";
+"shared_dictionary_selection.add_to_shared" = "Toevoegen aan gedeeld";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Woord toevoegen aan gedeeld woordenboek";
+"shared_dictionary_selection.unknown" = "Onbekend";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Rol";
+"collaborator_management.add_collaborator" = "Medewerker toevoegen";
+"collaborator_management.email_address_required" = "E-mailadres is vereist";
+"collaborator_management.valid_email_address" = "Voer een geldig e-mailadres in";
+"collaborator_management.make_viewer" = "Als kijker instellen";
+"collaborator_management.make_editor" = "Als editor instellen";
+"collaborator_management.remove" = "Verwijderen";
+"collaborator_management.add" = "Toevoegen";
+"collaborator_management.delete_dictionary" = "Woordenboek verwijderen";
+"collaborator_management.delete_dictionary_confirmation" = "Weet je zeker dat je dit gedeelde woordenboek wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.";
+"collaborator_management.stop_watching" = "Stoppen met bekijken";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Weet je zeker dat je wilt stoppen met het bekijken van dit gedeelde woordenboek?";
+"collaborator_management.stop_watching_dictionary" = "Stoppen met bekijken van woordenboek";
+"collaborator_management.continue" = "Doorgaan";
+"collaborator_management.dictionary_not_found" = "Woordenboek niet gevonden";
+"collaborator_management.dictionary_details" = "Woordenboekdetails";
+"collaborator_management.unknown" = "Onbekend";
+

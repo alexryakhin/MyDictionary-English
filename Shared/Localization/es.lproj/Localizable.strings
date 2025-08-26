@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "Las palabras que necesitan más práctica aparecerán aquí";
 "filter_display.idioms_need_more_practice" = "Las expresiones que necesitan más práctica aparecerán aquí";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Propietario";
-"collaborator_roles.editor" = "Editor";
-"collaborator_roles.viewer" = "Observador";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Seleccionar diccionario";
-"shared_dictionary_selection.dictionary_selected" = "Diccionario seleccionado";
-"shared_dictionary_selection.add_to_shared" = "Añadir a compartido";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Añadir palabra al diccionario compartido";
-"shared_dictionary_selection.unknown" = "Desconocido";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Rol";
-"collaborator_management.add_collaborator" = "Añadir colaborador";
-"collaborator_management.email_address_required" = "Se requiere dirección de correo electrónico";
-"collaborator_management.valid_email_address" = "Introduce una dirección de correo electrónico válida";
-"collaborator_management.make_viewer" = "Hacer observador";
-"collaborator_management.make_editor" = "Hacer editor";
-"collaborator_management.remove" = "Eliminar";
-"collaborator_management.add" = "Añadir";
-"collaborator_management.delete_dictionary" = "Eliminar diccionario";
-"collaborator_management.delete_dictionary_confirmation" = "¿Estás seguro de que quieres eliminar este diccionario compartido? Esta acción no se puede deshacer.";
-"collaborator_management.stop_watching" = "Dejar de observar";
-"collaborator_management.stop_watching_dictionary_confirmation" = "¿Estás seguro de que quieres dejar de observar este diccionario compartido?";
-"collaborator_management.stop_watching_dictionary" = "Dejar de observar el diccionario";
-"collaborator_management.continue" = "Continuar";
-"collaborator_management.dictionary_not_found" = "Diccionario no encontrado";
-"collaborator_management.dictionary_details" = "Detalles del diccionario";
-"collaborator_management.unknown" = "Desconocido";
-

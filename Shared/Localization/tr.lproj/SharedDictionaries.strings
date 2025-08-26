@@ -51,3 +51,34 @@
 "shared_dictionaries.your_status" = "Durumunuz";
 "shared_dictionaries.average_score" = "Ortalama Puan";
 
+// MARK: - Collaborator Roles
+"collaborator_roles.owner" = "Sahip";
+"collaborator_roles.editor" = "Editör";
+"collaborator_roles.viewer" = "Görüntüleyici";
+
+// MARK: - Shared Dictionary Selection
+"shared_dictionary_selection.select_dictionary" = "Sözlük Seç";
+"shared_dictionary_selection.dictionary_selected" = "Sözlük seçildi";
+"shared_dictionary_selection.add_to_shared" = "Paylaşılanlara Ekle";
+"shared_dictionary_selection.add_word_to_shared_dictionary" = "Paylaşılan sözlüğe kelime ekle";
+"shared_dictionary_selection.unknown" = "Bilinmiyor";
+
+// MARK: - Collaborator Management
+"collaborator_management.role" = "Rol";
+"collaborator_management.add_collaborator" = "İşbirlikçi Ekle";
+"collaborator_management.email_address_required" = "E-posta adresi gerekli";
+"collaborator_management.valid_email_address" = "Geçerli bir e-posta adresi girin";
+"collaborator_management.make_viewer" = "Görüntüleyici Yap";
+"collaborator_management.make_editor" = "Editör Yap";
+"collaborator_management.remove" = "Kaldır";
+"collaborator_management.add" = "Ekle";
+"collaborator_management.delete_dictionary" = "Sözlüğü Sil";
+"collaborator_management.delete_dictionary_confirmation" = "Bu paylaşılan sözlüğü silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.";
+"collaborator_management.stop_watching" = "Takibi Bırak";
+"collaborator_management.stop_watching_dictionary_confirmation" = "Bu paylaşılan sözlüğü takibi bırakmak istediğinizden emin misiniz?";
+"collaborator_management.stop_watching_dictionary" = "Sözlüğü Takibi Bırak";
+"collaborator_management.continue" = "Devam Et";
+"collaborator_management.dictionary_not_found" = "Sözlük bulunamadı";
+"collaborator_management.dictionary_details" = "Sözlük Detayları";
+"collaborator_management.unknown" = "Bilinmiyor";
+

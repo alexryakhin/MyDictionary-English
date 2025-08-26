@@ -126,34 +126,3 @@
 "filter_display.words_need_more_practice" = "Sanat, jotka tarvitsevat lisää harjoitusta, ilmestyvät tähän";
 "filter_display.idioms_need_more_practice" = "Idioomit, jotka tarvitsevat lisää harjoitusta, ilmestyvät tähän";
 
-// MARK: - Collaborator Roles
-"collaborator_roles.owner" = "Omistaja";
-"collaborator_roles.editor" = "Muokkaaja";
-"collaborator_roles.viewer" = "Katselija";
-
-// MARK: - Shared Dictionary Selection
-"shared_dictionary_selection.select_dictionary" = "Valitse sanakirja";
-"shared_dictionary_selection.dictionary_selected" = "Sanakirja valittu";
-"shared_dictionary_selection.add_to_shared" = "Lisää jaettuun";
-"shared_dictionary_selection.add_word_to_shared_dictionary" = "Lisää sana jaettuun sanakirjaan";
-"shared_dictionary_selection.unknown" = "Tuntematon";
-
-// MARK: - Collaborator Management
-"collaborator_management.role" = "Rooli";
-"collaborator_management.add_collaborator" = "Lisää yhteistyökumppani";
-"collaborator_management.email_address_required" = "Sähköpostiosoite vaaditaan";
-"collaborator_management.valid_email_address" = "Syötä kelvollinen sähköpostiosoite";
-"collaborator_management.make_viewer" = "Tee katselija";
-"collaborator_management.make_editor" = "Tee muokkaaja";
-"collaborator_management.remove" = "Poista";
-"collaborator_management.add" = "Lisää";
-"collaborator_management.delete_dictionary" = "Poista sanakirja";
-"collaborator_management.delete_dictionary_confirmation" = "Haluatko varmasti poistaa tämän jaetun sanakirjan? Tätä toimintoa ei voi kumota.";
-"collaborator_management.stop_watching" = "Lopeta seuraaminen";
-"collaborator_management.stop_watching_dictionary_confirmation" = "Haluatko varmasti lopettaa tämän jaetun sanakirjan seuraamisen?";
-"collaborator_management.stop_watching_dictionary" = "Lopeta sanakirjan seuraaminen";
-"collaborator_management.continue" = "Jatka";
-"collaborator_management.dictionary_not_found" = "Sanakirjaa ei löytynyt";
-"collaborator_management.dictionary_details" = "Sanakirjan tiedot";
-"collaborator_management.unknown" = "Tuntematon";
-
