@@ -63,10 +63,4 @@ Translated on August 17, 2025.
 // MARK: - Coffee Banner
 
 // MARK: - Notifications
-"notifications.time_to_practice" = "C'est l'heure de s'entraîner ! 📚";
-"notifications.practice_vocabulary_today" = "N'oubliez pas de pratiquer votre vocabulaire aujourd'hui.";
-"notifications.practice_difficult_words" = "Pratiquez vos mots difficiles 📚";
-"notifications.difficult_words_challenge" = "Vous avez des mots qui nécessitent plus de pratique. Prêt pour le défi ?";
-"notifications.test_dictionary_invitation" = "Invitation au dictionnaire de test";
-"notifications.test_dictionary_invitation_body" = "Quelqu'un vous a ajouté au 'Dictionnaire de test'";
 

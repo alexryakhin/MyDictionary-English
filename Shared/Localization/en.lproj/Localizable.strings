@@ -63,12 +63,4 @@ Created by Alexander Riakhin on 8/16/25.
 // MARK: - Coffee Banner
 
 // MARK: - Notifications
-"notifications.time_to_practice" = "Time to Practice! 📚";
-"notifications.practice_vocabulary_today" = "Don't forget to practice your vocabulary today.";
-"notifications.practice_difficult_words" = "Practice Your Difficult Words 📚";
-"notifications.difficult_words_challenge" = "You have words that need more practice. Ready for a challenge?";
-"notifications.test_dictionary_invitation" = "Test Dictionary Invitation";
-"notifications.test_dictionary_invitation_body" = "Someone added you to 'Test Dictionary'";
-"notifications.permission_required" = "Notification Permission Required";
-"notifications.permission_denied_message" = "To receive daily reminders and difficult word alerts, please enable notifications in Settings.";
 

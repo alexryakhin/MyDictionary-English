@@ -3,3 +3,10 @@
 "notifications.permission_required" = "Értesítési engedély szükséges";
 "notifications.permission_denied_message" = "A napi emlékeztetők és nehéz szavakra vonatkozó figyelmeztetések fogadásához engedélyezze az értesítéseket a Beállításokban.";
 
+"notifications.time_to_practice" = "Ideje gyakorolni! 📚";
+"notifications.practice_vocabulary_today" = "Ne felejts el ma gyakorolni a szókincsedet.";
+"notifications.practice_difficult_words" = "Gyakorold a nehéz szavakat 📚";
+"notifications.difficult_words_challenge" = "Vannak szavaid, amelyek további gyakorlást igényelnek. Készen állsz a kihívásra?";
+"notifications.test_dictionary_invitation" = "Teszt szótár meghívó";
+"notifications.test_dictionary_invitation_body" = "Valaki hozzáadott téged a 'Teszt szótár'-hoz";
+

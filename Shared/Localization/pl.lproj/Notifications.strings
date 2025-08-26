@@ -3,3 +3,10 @@
 "notifications.permission_required" = "Wymagane pozwolenie na powiadomienia";
 "notifications.permission_denied_message" = "Aby otrzymywać codzienne przypomnienia i powiadomienia o trudnych słowach, włącz powiadomienia w Ustawieniach.";
 
+"notifications.time_to_practice" = "Czas na ćwiczenia! 📚";
+"notifications.practice_vocabulary_today" = "Nie zapomnij ćwiczyć swojego słownictwa dzisiaj.";
+"notifications.practice_difficult_words" = "Ćwicz trudne słowa 📚";
+"notifications.difficult_words_challenge" = "Masz słowa, które wymagają więcej ćwiczeń. Gotowy na wyzwanie?";
+"notifications.test_dictionary_invitation" = "Zaproszenie do słownika testowego";
+"notifications.test_dictionary_invitation_body" = "Ktoś dodał Cię do 'Słownika testowego'";
+

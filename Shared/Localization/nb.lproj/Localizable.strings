@@ -63,10 +63,4 @@ Translated on August 17, 2025.
 // MARK: - Coffee Banner
 
 // MARK: - Notifications
-"notifications.time_to_practice" = "Tid for å øve! 📚";
-"notifications.practice_vocabulary_today" = "Ikke glem å øve på vokabularet ditt i dag.";
-"notifications.practice_difficult_words" = "Øv på vanskelige ord 📚";
-"notifications.difficult_words_challenge" = "Du har ord som trenger mer øving. Klar for utfordringen?";
-"notifications.test_dictionary_invitation" = "Invitasjon til testordbok";
-"notifications.test_dictionary_invitation_body" = "Noen har lagt deg til i 'Testordbok'";
 

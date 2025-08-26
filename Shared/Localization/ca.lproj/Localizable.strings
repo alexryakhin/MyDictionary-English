@@ -63,10 +63,4 @@ Translated on August 17, 2025.
 // MARK: - Coffee Banner
 
 // MARK: - Notifications
-"notifications.time_to_practice" = "Hora de practicar! 📚";
-"notifications.practice_vocabulary_today" = "No oblidis practicar el teu vocabulari avui.";
-"notifications.practice_difficult_words" = "Practica les teves paraules difícils 📚";
-"notifications.difficult_words_challenge" = "Tens paraules que necessiten més pràctica. Preparat per al repte?";
-"notifications.test_dictionary_invitation" = "Invitació al diccionari de prova";
-"notifications.test_dictionary_invitation_body" = "Algú t'ha afegit al 'Diccionari de prova'";
 

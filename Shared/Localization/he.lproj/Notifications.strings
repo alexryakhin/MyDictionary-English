@@ -3,3 +3,10 @@
 "notifications.permission_required" = "נדרשת הרשאת התראות";
 "notifications.permission_denied_message" = "כדי לקבל תזכורות יומיות והתראות על מילים קשות, אנא הפעל התראות בהגדרות.";
 
+"notifications.time_to_practice" = "זמן לתרגל! 📚";
+"notifications.practice_vocabulary_today" = "אל תשכח לתרגל את אוצר המילים שלך היום.";
+"notifications.practice_difficult_words" = "תרגל את המילים הקשות 📚";
+"notifications.difficult_words_challenge" = "יש לך מילים שדורשות תרגול נוסף. מוכן לאתגר?";
+"notifications.test_dictionary_invitation" = "הזמנה למילון בדיקה";
+"notifications.test_dictionary_invitation_body" = "מישהו הוסיף אותך ל'מילון בדיקה'";
+

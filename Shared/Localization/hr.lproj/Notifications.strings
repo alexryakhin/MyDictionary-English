@@ -3,3 +3,10 @@
 "notifications.permission_required" = "Potrebna je dozvola za obavijesti";
 "notifications.permission_denied_message" = "Da biste primali dnevne podsjetnike i upozorenja za teške riječi, omogućite obavijesti u Postavkama.";
 
+"notifications.time_to_practice" = "Vrijeme za vježbanje! 📚";
+"notifications.practice_vocabulary_today" = "Ne zaboravite vježbati svoj vokabular danas.";
+"notifications.practice_difficult_words" = "Vježbajte svoje teške riječi 📚";
+"notifications.difficult_words_challenge" = "Imate riječi koje zahtijevaju više vježbe. Spremni za izazov?";
+"notifications.test_dictionary_invitation" = "Pozivnica za testni rječnik";
+"notifications.test_dictionary_invitation_body" = "Netko vas je dodao u 'Testni rječnik'";
+

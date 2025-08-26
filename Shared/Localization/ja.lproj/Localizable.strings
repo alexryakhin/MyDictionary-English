@@ -63,10 +63,4 @@ Translated on August 17, 2025.
 // MARK: - Coffee Banner
 
 // MARK: - Notifications
-"notifications.time_to_practice" = "練習の時間です！ 📚";
-"notifications.practice_vocabulary_today" = "今日の語彙練習を忘れずに。";
-"notifications.practice_difficult_words" = "難しい単語を練習 📚";
-"notifications.difficult_words_challenge" = "さらに練習が必要な単語があります。挑戦する準備はできていますか？";
-"notifications.test_dictionary_invitation" = "テスト辞書への招待";
-"notifications.test_dictionary_invitation_body" = "誰かがあなたを「テスト辞書」に追加しました";
 

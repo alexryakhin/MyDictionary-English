@@ -63,10 +63,4 @@ Translated on August 18, 2025.
 // MARK: - Coffee Banner
 
 // MARK: - Notifications
-"notifications.time_to_practice" = "Alıştırma Zamanı! 📚";
-"notifications.practice_vocabulary_today" = "Bugün kelime dağarcığınızı çalışmayı unutmayın.";
-"notifications.practice_difficult_words" = "Zor Kelimeleri Çalış 📚";
-"notifications.difficult_words_challenge" = "Daha fazla alıştırma gerektiren kelimeleriniz var. Meydan okumaya hazır mısınız?";
-"notifications.test_dictionary_invitation" = "Test Sözlüğü Davetiyesi";
-"notifications.test_dictionary_invitation_body" = "Biri sizi 'Test Sözlüğü'ne ekledi";
 

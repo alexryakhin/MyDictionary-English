@@ -3,3 +3,10 @@
 "notifications.permission_required" = "مطلوب إذن الإشعارات";
 "notifications.permission_denied_message" = "لتلقي التذكيرات اليومية وتنبيهات الكلمات الصعبة، يرجى تفعيل الإشعارات في الإعدادات.";
 
+"notifications.time_to_practice" = "حان وقت التدريب! 📚";
+"notifications.practice_vocabulary_today" = "لا تنسَ ممارسة مفرداتك اليوم.";
+"notifications.practice_difficult_words" = "مارس كلماتك الصعبة 📚";
+"notifications.difficult_words_challenge" = "لديك كلمات تحتاج إلى مزيد من التدريب. هل أنت جاهز للتحدي؟";
+"notifications.test_dictionary_invitation" = "دعوة لاختبار القاموس";
+"notifications.test_dictionary_invitation_body" = "أضافك شخص ما إلى 'قاموس اختباري'";
+

@@ -63,10 +63,4 @@ Translated on August 17, 2025.
 // MARK: - Coffee Banner
 
 // MARK: - Notifications
-"notifications.time_to_practice" = "Ώρα για εξάσκηση! 📚";
-"notifications.practice_vocabulary_today" = "Μην ξεχάσεις να εξασκήσεις το λεξιλόγιό σου σήμερα.";
-"notifications.practice_difficult_words" = "Εξάσκησε τις δύσκολες λέξεις 📚";
-"notifications.difficult_words_challenge" = "Έχεις λέξεις που χρειάζονται περισσότερη εξάσκηση. Έτοιμος για την πρόκληση;";
-"notifications.test_dictionary_invitation" = "Πρόσκληση σε Δοκιμαστικό Λεξικό";
-"notifications.test_dictionary_invitation_body" = "Κάποιος σε πρόσθεσε στο 'Δοκιμαστικό Λεξικό'";
 

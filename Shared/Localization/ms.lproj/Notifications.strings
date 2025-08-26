@@ -3,3 +3,10 @@
 "notifications.permission_required" = "Kebenaran pemberitahuan diperlukan";
 "notifications.permission_denied_message" = "Untuk menerima peringatan harian dan amaran untuk perkataan sukar, sila aktifkan pemberitahuan dalam Tetapan.";
 
+"notifications.time_to_practice" = "Masa untuk berlatih! 📚";
+"notifications.practice_vocabulary_today" = "Jangan lupa berlatih kosa kata anda hari ini.";
+"notifications.practice_difficult_words" = "Berlatih perkataan sukar 📚";
+"notifications.difficult_words_challenge" = "Anda mempunyai perkataan yang memerlukan lebih latihan. Bersedia untuk cabaran?";
+"notifications.test_dictionary_invitation" = "Jemputan Kamus Ujian";
+"notifications.test_dictionary_invitation_body" = "Seseorang telah menambah anda ke 'Kamus Ujian'";
+

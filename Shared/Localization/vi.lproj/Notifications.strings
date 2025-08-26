@@ -3,3 +3,10 @@
 "notifications.permission_required" = "Yêu cầu quyền thông báo";
 "notifications.permission_denied_message" = "Để nhận nhắc nhở hàng ngày và cảnh báo cho các từ khó, vui lòng bật thông báo trong Cài đặt.";
 
+"notifications.time_to_practice" = "Đến giờ luyện tập! 📚";
+"notifications.practice_vocabulary_today" = "Đừng quên luyện tập vốn từ vựng của bạn hôm nay.";
+"notifications.practice_difficult_words" = "Luyện tập từ khó 📚";
+"notifications.difficult_words_challenge" = "Bạn có những từ cần luyện tập thêm. Sẵn sàng cho thử thách chưa?";
+"notifications.test_dictionary_invitation" = "Lời mời từ điển kiểm tra";
+"notifications.test_dictionary_invitation_body" = "Ai đó đã thêm bạn vào 'Từ điển kiểm tra'";
+

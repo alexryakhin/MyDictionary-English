@@ -63,10 +63,4 @@ Translated on August 17, 2025.
 // MARK: - Coffee Banner
 
 // MARK: - Notifications
-"notifications.time_to_practice" = "Vrijeme za vježbanje! 📚";
-"notifications.practice_vocabulary_today" = "Ne zaboravite vježbati svoj vokabular danas.";
-"notifications.practice_difficult_words" = "Vježbajte svoje teške riječi 📚";
-"notifications.difficult_words_challenge" = "Imate riječi koje zahtijevaju više vježbe. Spremni za izazov?";
-"notifications.test_dictionary_invitation" = "Pozivnica za testni rječnik";
-"notifications.test_dictionary_invitation_body" = "Netko vas je dodao u 'Testni rječnik'";
 

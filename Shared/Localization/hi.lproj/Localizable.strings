@@ -63,10 +63,4 @@ Translated on August 17, 2025.
 // MARK: - Coffee Banner
 
 // MARK: - Notifications
-"notifications.time_to_practice" = "अभ्यास करने का समय! 📚";
-"notifications.practice_vocabulary_today" = "आज अपनी शब्दावली का अभ्यास करना न भूलें।";
-"notifications.practice_difficult_words" = "कठिन शब्दों का अभ्यास करें 📚";
-"notifications.difficult_words_challenge" = "आपके पास ऐसे शब्द हैं जिन्हें अधिक अभ्यास की आवश्यकता है। चुनौती के लिए तैयार?";
-"notifications.test_dictionary_invitation" = "परीक्षण शब्दकोश निमंत्रण";
-"notifications.test_dictionary_invitation_body" = "किसी ने आपको 'परीक्षण शब्दकोश' में जोड़ा है";
 

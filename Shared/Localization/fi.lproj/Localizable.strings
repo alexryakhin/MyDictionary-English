@@ -63,10 +63,4 @@ Translated on August 17, 2025.
 // MARK: - Coffee Banner
 
 // MARK: - Notifications
-"notifications.time_to_practice" = "Aika harjoitella! 📚";
-"notifications.practice_vocabulary_today" = "Älä unohda harjoitella sanastoasi tänään.";
-"notifications.practice_difficult_words" = "Harjoittele vaikeita sanoja 📚";
-"notifications.difficult_words_challenge" = "Sinulla on sanoja, jotka tarvitsevat lisää harjoittelua. Valmis haasteeseen?";
-"notifications.test_dictionary_invitation" = "Kutsu testisanakirjaan";
-"notifications.test_dictionary_invitation_body" = "Joku on lisännyt sinut 'Testisanakirjaan'";
 

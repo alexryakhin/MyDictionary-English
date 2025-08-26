@@ -3,3 +3,10 @@
 "notifications.permission_required" = "Meldingstoestemming vereist";
 "notifications.permission_denied_message" = "Om dagelijkse herinneringen en waarschuwingen voor moeilijke woorden te ontvangen, schakel je meldingen in Instellingen in.";
 
+"notifications.time_to_practice" = "Tijd om te oefenen! 📚";
+"notifications.practice_vocabulary_today" = "Vergeet niet om vandaag je woordenschat te oefenen.";
+"notifications.practice_difficult_words" = "Oefen je moeilijke woorden 📚";
+"notifications.difficult_words_challenge" = "Je hebt woorden die meer oefening nodig hebben. Klaar voor de uitdaging?";
+"notifications.test_dictionary_invitation" = "Uitnodiging voor testwoordenboek";
+"notifications.test_dictionary_invitation_body" = "Iemand heeft je toegevoegd aan 'Testwoordenboek'";
+
