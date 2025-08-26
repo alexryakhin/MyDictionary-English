@@ -55,7 +55,7 @@
 "words.add_tag" = "Přidat štítek";
 "words.no_tags_selected" = "Nebyly vybrány žádné štítky";
 "words.error_loading_definitions" = "Chyba při načítání definic. Zkuste to znovu.";
-"words.type_word_and_press_search" = "Zadejte slovo a klikněte na „Hledat" pro nalezení jeho definic";
+"words.type_word_and_press_search" = "Zadejte slovo a klikněte na Hledat pro nalezení jeho definic";
 "words.word_details" = "Podrobnosti slova";
 "words.no_examples_yet" = "Zatím žádné příklady";
 "words.edit_example" = "Upravit příklad";

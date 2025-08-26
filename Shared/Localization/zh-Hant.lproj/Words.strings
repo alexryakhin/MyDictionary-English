@@ -55,7 +55,7 @@
 "words.add_tag" = "添加標籤";
 "words.no_tags_selected" = "未選擇標籤";
 "words.error_loading_definitions" = "加載定義時出錯。請重試。";
-"words.type_word_and_press_search" = "輸入單詞並點擊"搜索"以查找其定義";
+"words.type_word_and_press_search" = "輸入單詞並點擊搜索以查找其定義";
 "words.word_details" = "單詞詳情";
 "words.no_examples_yet" = "暫無示例";
 "words.edit_example" = "編輯示例";
