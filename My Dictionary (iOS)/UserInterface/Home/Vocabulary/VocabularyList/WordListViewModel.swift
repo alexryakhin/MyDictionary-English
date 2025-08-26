@@ -174,7 +174,7 @@ final class WordListViewModel: BaseViewModel {
                 },
                 destructiveAction: { [weak self, wordModel] in
                     guard let id = wordModel.id?.uuidString else { return }
-                    try? self?.wordsProvider.deleteWord(with: id)
+                    try? self?.wordsProvider.delete(with: id)
                 }
             )
         )

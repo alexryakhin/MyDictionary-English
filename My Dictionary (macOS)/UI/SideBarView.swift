@@ -156,8 +156,8 @@ struct SideBarView: View {
                 .id(sideBarManager.selectedSharedWord?.id)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .layoutPriority(1)
-        case .idiom(let cdIdiom):
-            IdiomDetailsView(idiom: cdIdiom)
+        case .idiom(let cdWord):
+            WordDetailsView(word: cdWord)
                 .id(sideBarManager.selectedIdiom?.id)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .layoutPriority(1)

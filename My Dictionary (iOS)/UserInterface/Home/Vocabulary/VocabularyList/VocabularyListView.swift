@@ -165,7 +165,7 @@ struct VocabularyListView: View {
                     Button {
                         idiomListViewModel.output.send(.showIdiomDetails(idiomModel))
                     } label: {
-                        IdiomListCellView(idiom: idiomModel)
+                        WordListCellView(word: idiomModel)
                             .id(idiomModel.id)
                     }
                     .buttonStyle(.plain)

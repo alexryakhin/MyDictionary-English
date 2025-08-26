@@ -89,9 +89,6 @@ struct VocabularyListView: View {
         .sheet(isPresented: $showAddWord) {
             AddWordView(inputWord: searchText, selectedDictionaryId: nil)
         }
-        .sheet(isPresented: $showAddIdiom) {
-            AddIdiomView(inputIdiom: searchText)
-        }
         .sheet(item: $wordToAddToSharedDictionary) { word in
             AddExistingWordToSharedView(word: word)
         }

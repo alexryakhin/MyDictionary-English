@@ -1,0 +1,179 @@
+//
+//  MeaningsListView.swift
+//  My Dictionary
+//
+//  Created by Alexander Riakhin on 8/1/25.
+//
+
+import SwiftUI
+import Combine
+
+struct MeaningsListView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    @StateObject var word: CDWord
+    
+    @State private var editingMeaning: CDMeaning?
+    @State private var editingDefinition: String = ""
+    @State private var editingExamples: [String] = []
+    @State private var showingDeleteAlert = false
+    @State private var meaningToDelete: CDMeaning?
+    
+    init(word: CDWord) {
+        self._word = StateObject(wrappedValue: word)
+    }
+    
+    var body: some View {
+        ScrollViewWithCustomNavBar {
+            LazyVStack(spacing: 12) {
+                ForEach(Array(word.meaningsArray.enumerated()), id: \.element.id) { index, meaning in
+                    meaningCardView(meaning: meaning, index: index + 1)
+                }
+            }
+            .padding(12)
+            .animation(.default, value: word.meaningsArray)
+        } navigationBar: {
+            NavigationBarView(
+                title: "All Meanings (\(word.meaningsArray.count))",
+                mode: .large,
+                showsDismissButton: true,
+                trailingContent: {
+                    HeaderButton(icon: "plus", size: .medium) {
+                        addNewMeaning()
+                    }
+                }
+            )
+        }
+        .frame(minWidth: 600, minHeight: 400)
+        .alert("Delete Meaning", isPresented: $showingDeleteAlert) {
+            Button("Cancel", role: .cancel) { }
+            Button("Delete", role: .destructive) {
+                if let meaning = meaningToDelete {
+                    deleteMeaning(meaning)
+                }
+            }
+        } message: {
+            Text("Are you sure you want to delete this meaning? This action cannot be undone.")
+        }
+    }
+    
+    private func meaningCardView(meaning: CDMeaning, index: Int) -> some View {
+        CustomSectionView(header: "Meaning \(index)", headerFontStyle: .stealth) {
+            VStack(alignment: .leading, spacing: 12) {
+                // Definition
+                HStack {
+                    Text(meaning.definition ?? "")
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Spacer()
+                    
+                    Menu {
+                        Button {
+                            Task {
+                                try await play(meaning.definition ?? "")
+                            }
+                        } label: {
+                            Label("Listen", systemImage: "speaker.wave.2.fill")
+                        }
+                        
+                        Button {
+                            startEditing(meaning)
+                        } label: {
+                            Label("Edit", systemImage: "pencil")
+                        }
+                        
+                        Divider()
+                        
+                        Button(role: .destructive) {
+                            meaningToDelete = meaning
+                            showingDeleteAlert = true
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                            .foregroundStyle(.secondary)
+                            .font(.title3)
+                    }
+                    .buttonStyle(.plain)
+                }
+                
+                // Examples
+                if !meaning.examplesDecoded.isEmpty {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Examples")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .fontWeight(.medium)
+                        
+                        ForEach(Array(meaning.examplesDecoded.enumerated()), id: \.offset) { exampleIndex, example in
+                            HStack {
+                                Text("\(exampleIndex + 1).")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .frame(width: 20, alignment: .leading)
+                                
+                                Text(example)
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .italic()
+                                
+                                Spacer()
+                                
+                                AsyncHeaderButton(
+                                    icon: "speaker.wave.2.fill",
+                                    size: .small
+                                ) {
+                                    try await play(example)
+                                }
+                                .disabled(TTSPlayer.shared.isPlaying)
+                            }
+                            .padding(.leading, 8)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private func startEditing(_ meaning: CDMeaning) {
+        editingMeaning = meaning
+        editingDefinition = meaning.definition ?? ""
+        editingExamples = meaning.examplesDecoded
+    }
+    
+    private func addNewMeaning() {
+        do {
+            let _ = try word.addMeaning(definition: "New definition", examples: [])
+            saveContext()
+        } catch {
+            print("Failed to add meaning: \(error)")
+        }
+    }
+    
+    private func deleteMeaning(_ meaning: CDMeaning) {
+        do {
+            try word.removeMeaning(meaning)
+            saveContext()
+        } catch {
+            print("Failed to delete meaning: \(error)")
+        }
+    }
+    
+    private func play(_ text: String) async throws {
+        try await TTSPlayer.shared.play(
+            text,
+            targetLanguage: word.languageCode ?? Locale.current.language.languageCode?.identifier
+        )
+    }
+    
+    private func saveContext() {
+        do {
+            try CoreDataService.shared.context.save()
+        } catch {
+            print("Failed to save context: \(error)")
+        }
+    }
+}
+

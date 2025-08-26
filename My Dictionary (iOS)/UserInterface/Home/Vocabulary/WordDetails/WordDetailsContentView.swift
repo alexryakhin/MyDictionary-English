@@ -9,10 +9,6 @@ struct WordDetailsContentView: View {
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
-    @FocusState private var isAddExampleFocused: Bool
-    @State private var isAddingExample = false
-    @State private var editingExampleIndex: Int?
-    @State private var exampleTextFieldStr = ""
     @State private var showingTagSelection = false
 
     init(word: CDWord) {
@@ -24,11 +20,10 @@ struct WordDetailsContentView: View {
             LazyVStack(spacing: 12) {
                 transcriptionSectionView
                 partOfSpeechSectionView
-                definitionSectionView
+                meaningsSectionView
                 difficultySectionView
                 languageSectionView
                 tagsSectionView
-                examplesSectionView
             }
             .padding(.horizontal, 16)
             .animation(.default, value: word)
@@ -64,18 +59,6 @@ struct WordDetailsContentView: View {
         )
         .sheet(isPresented: $showingTagSelection) {
             WordTagSelectionView(word: word)
-        }
-        .alert(Loc.Words.WordDetails.editExample, isPresented: .constant(editingExampleIndex != nil), presenting: editingExampleIndex) { index in
-            TextField(Loc.Words.WordDetails.example, text: $exampleTextFieldStr)
-            Button(Loc.Actions.cancel, role: .cancel) {
-                AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
-            }
-            Button(Loc.Actions.save) {
-                updateExample(at: index, text: exampleTextFieldStr)
-                editingExampleIndex = nil
-                exampleTextFieldStr = .empty
-                AnalyticsService.shared.logEvent(.wordExampleChanged)
-            }
         }
     }
 
@@ -124,31 +107,63 @@ struct WordDetailsContentView: View {
         }
     }
 
-    private var definitionSectionView: some View {
-        CustomSectionView(header: Loc.Words.WordDetails.definition, headerFontStyle: .stealth) {
-            TextField(Loc.Words.WordDetails.definition, text: Binding(
-                get: { word.definition ?? "" },
-                set: { word.definition = $0 }
-            ), axis: .vertical)
-            .focused($isDefinitionFocused)
-            .fontWeight(.semibold)
+    private var meaningsSectionView: some View {
+        let meanings = word.meaningsArray
+        let showLimited = meanings.count > 3
+        let displayMeanings = showLimited ? Array(meanings.prefix(3)) : meanings
+        
+        return CustomSectionView(header: meanings.count > 1 ? "Meanings (\(meanings.count))" : "Meaning", headerFontStyle: .stealth) {
+            if meanings.isEmpty {
+                // Fallback to legacy definition if no meanings exist
+                TextField(Loc.Words.WordDetails.definition, text: Binding(
+                    get: { word.definition ?? "" },
+                    set: { word.definition = $0 }
+                ), axis: .vertical)
+                .focused($isDefinitionFocused)
+                .fontWeight(.semibold)
+            } else {
+                FormWithDivider {
+                    ForEach(Array(displayMeanings.enumerated()), id: \.element.id) { index, meaning in
+                        meaningRowView(meaning: meaning, index: index + 1)
+                    }
+                }
+                
+                if showLimited {
+                    HeaderButton(
+                        "Show all \(meanings.count) meanings",
+                        icon: "list.number",
+                        size: .small
+                    ) {
+                        NavigationManager.shared.navigate(to: .wordMeaningsList(word))
+                    }
+                    .padding(.top, 8)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
         } trailingContent: {
-            if isDefinitionFocused {
-                HeaderButton(Loc.Actions.done, size: .small) {
-                    isDefinitionFocused = false
-                    AnalyticsService.shared.logEvent(.wordDefinitionChanged)
-                    saveContext()
+            if meanings.isEmpty {
+                // Legacy definition controls
+                if isDefinitionFocused {
+                    HeaderButton(Loc.Actions.done, size: .small) {
+                        isDefinitionFocused = false
+                        AnalyticsService.shared.logEvent(.wordDefinitionChanged)
+                        saveContext()
+                    }
+                } else {
+                    AsyncHeaderButton(
+                        Loc.Actions.listen,
+                        icon: "speaker.wave.2.fill",
+                        size: .small
+                    ) {
+                        try await play(word.definition)
+                        AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
+                    }
+                    .disabled(TTSPlayer.shared.isPlaying)
                 }
             } else {
-                AsyncHeaderButton(
-                    Loc.Actions.listen,
-                    icon: "speaker.wave.2.fill",
-                    size: .small
-                ) {
-                    try await play(word.definition)
-                    AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
+                HeaderButton(icon: "plus", size: .small) {
+                    addNewMeaning()
                 }
-                .disabled(TTSPlayer.shared.isPlaying)
             }
         }
     }
@@ -216,100 +231,7 @@ struct WordDetailsContentView: View {
         }
     }
 
-    private var examplesSectionView: some View {
-        CustomSectionView(
-            header: Loc.Words.WordDetails.examples,
-            headerFontStyle: .stealth,
-            hPadding: 0
-        ) {
-            if word.examplesDecoded.isNotEmpty {
-                FormWithDivider {
-                    ForEach(Array(word.examplesDecoded.enumerated()), id: \.offset) { index, example in
-                        HStack {
-                            Text(example)
-                                .frame(maxWidth: .infinity, alignment: .leading)
 
-                            Menu {
-                                Button {
-                                    Task {
-                                        try await play(example)
-                                    }
-                                    AnalyticsService.shared.logEvent(.wordExamplePlayed)
-                                } label: {
-                                    Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
-                                }
-                                .disabled(TTSPlayer.shared.isPlaying)
-                                Button {
-                                    exampleTextFieldStr = example
-                                    editingExampleIndex = index
-                                    AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
-                                } label: {
-                                    Label(Loc.Actions.edit, systemImage: "pencil")
-                                }
-                                Section {
-                                    Button(role: .destructive) {
-                                        removeExample(at: index)
-                                        AnalyticsService.shared.logEvent(.wordExampleRemoved)
-                                    } label: {
-                                        Label(Loc.Actions.delete, systemImage: "trash")
-                                    }
-                                }
-                            } label: {
-                                Image(systemName: "ellipsis")
-                                    .foregroundStyle(.secondary)
-                                    .padding(6)
-                                    .background(Color.black.opacity(0.01))
-                            }
-                        }
-                        .padding(vertical: 12, horizontal: 16)
-                        .contentShape(RoundedRectangle(cornerRadius: 16))
-                    }
-                }
-            } else {
-                Text(Loc.Words.noExamplesYet)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 16)
-            }
-
-            if isAddingExample {
-                InputView(
-                    Loc.Words.WordDetails.typeExampleHere,
-                    submitLabel: .done,
-                    text: $exampleTextFieldStr,
-                    onSubmit: {
-                        addExample(exampleTextFieldStr)
-                        isAddingExample = false
-                        exampleTextFieldStr = .empty
-                        AnalyticsService.shared.logEvent(.wordExampleAdded)
-                    },
-                    trailingButtonLabel: Loc.Actions.cancel
-                ) {
-                    // On cancel
-                    isAddExampleFocused = false
-                    isAddingExample = false
-                    exampleTextFieldStr = .empty
-                }
-                .padding(.top, 12)
-                .padding(.horizontal, 16)
-            }
-        } trailingContent: {
-            if isAddingExample {
-                HeaderButton(Loc.Actions.save, icon: "checkmark", size: .small) {
-                    addExample(exampleTextFieldStr)
-                    isAddingExample = false
-                    exampleTextFieldStr = .empty
-                    AnalyticsService.shared.logEvent(.wordExampleAdded)
-                }
-            } else {
-                HeaderButton(Loc.Words.WordDetails.addExample, icon: "plus", size: .small) {
-                    withAnimation {
-                        isAddingExample.toggle()
-                        AnalyticsService.shared.logEvent(.wordAddExampleTapped)
-                    }
-                }
-            }
-        }
-    }
 
     // MARK: - Private Methods
 
@@ -323,6 +245,61 @@ struct WordDetailsContentView: View {
             } catch {
                 errorReceived(error)
             }
+        }
+    }
+    
+    @ViewBuilder
+    private func meaningRowView(meaning: CDMeaning, index: Int) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text("\(index).")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                
+                Text(meaning.definition ?? "")
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                AsyncHeaderButton(
+                    icon: "speaker.wave.2.fill",
+                    size: .small
+                ) {
+                    try await play(meaning.definition)
+                }
+                .disabled(TTSPlayer.shared.isPlaying)
+            }
+            
+            // Show examples for this meaning
+            let examples = meaning.examplesDecoded
+            if !examples.isEmpty {
+                ForEach(Array(examples.enumerated()), id: \.offset) { exampleIndex, example in
+                    HStack {
+                        Text("•")
+                            .foregroundColor(.secondary)
+                        Text(example)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                    }
+                    .padding(.leading, 16)
+                }
+            }
+        }
+        .padding(.vertical, 4)
+    }
+    
+    private func showAllMeanings() {
+        // TODO: Navigate to full meanings list view
+        // This could be a sheet or navigation to a dedicated view
+    }
+    
+    private func addNewMeaning() {
+        do {
+            let _ = try word.addMeaning(definition: "New definition", examples: [])
+            saveContext()
+        } catch {
+            errorReceived(error)
         }
     }
 
@@ -340,29 +317,6 @@ struct WordDetailsContentView: View {
         word.partOfSpeech = value.rawValue
         saveContext()
         AnalyticsService.shared.logEvent(.partOfSpeechChanged)
-    }
-
-    private func addExample(_ example: String) {
-        guard !example.isEmpty else { return }
-        var currentExamples = word.examplesDecoded
-        currentExamples.append(example)
-        try? word.updateExamples(currentExamples)
-        saveContext()
-    }
-
-    private func updateExample(at index: Int, text: String) {
-        guard !text.isEmpty else { return }
-        var currentExamples = word.examplesDecoded
-        currentExamples[index] = text
-        try? word.updateExamples(currentExamples)
-        saveContext()
-    }
-
-    private func removeExample(at index: Int) {
-        var currentExamples = word.examplesDecoded
-        currentExamples.remove(at: index)
-        try? word.updateExamples(currentExamples)
-        saveContext()
     }
 
     private func showDeleteAlert() {
@@ -385,7 +339,7 @@ struct WordDetailsContentView: View {
         guard let id = word.id?.uuidString else { return }
 
         do {
-            try WordsProvider.shared.deleteWord(with: id)
+            try WordsProvider.shared.delete(with: id)
         } catch {
             errorReceived(title: Loc.Words.WordDetails.deleteFailed, error)
         }

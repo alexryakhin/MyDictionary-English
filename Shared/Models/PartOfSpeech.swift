@@ -17,6 +17,8 @@ enum PartOfSpeech: String, CaseIterable {
     case preposition
     case exclamation
     case interjection
+    case idiom
+    case phrase
     case unknown // Handles unexpected values
 
     init(rawValue: String?) {
@@ -30,6 +32,8 @@ enum PartOfSpeech: String, CaseIterable {
         case "preposition": self = .preposition
         case "exclamation": self = .exclamation
         case "interjection": self = .interjection
+        case "idiom": self = .idiom
+        case "phrase": self = .phrase
         default: self = .unknown
         }
     }
@@ -45,6 +49,8 @@ enum PartOfSpeech: String, CaseIterable {
         case .preposition: return Loc.Words.PartOfSpeech.Full.preposition
         case .exclamation: return Loc.Words.PartOfSpeech.Full.exclamation
         case .interjection: return Loc.Words.PartOfSpeech.Full.interjection
+        case .idiom: return "Idiom"
+        case .phrase: return "Phrase"
         case .unknown: return Loc.Words.PartOfSpeech.Full.unknown
         }
     }
@@ -60,7 +66,24 @@ enum PartOfSpeech: String, CaseIterable {
         case .preposition: return Loc.Words.PartOfSpeech.Short.preposition
         case .exclamation: return Loc.Words.PartOfSpeech.Short.exclamation
         case .interjection: return Loc.Words.PartOfSpeech.Short.interjection
+        case .idiom: return "Idiom"
+        case .phrase: return "Phrase"
         case .unknown: return Loc.Words.PartOfSpeech.Short.unknown
         }
+    }
+    
+    /// Returns true if this part of speech represents an expression (idiom or phrase)
+    var isExpression: Bool {
+        return self == .idiom || self == .phrase
+    }
+    
+    /// Returns all standard word part-of-speech cases (excluding expressions)
+    static var wordCases: [PartOfSpeech] {
+        return allCases.filter { !$0.isExpression && $0 != .unknown }
+    }
+    
+    /// Returns all expression part-of-speech cases
+    static var expressionCases: [PartOfSpeech] {
+        return [.idiom, .phrase]
     }
 }

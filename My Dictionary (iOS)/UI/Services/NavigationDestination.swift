@@ -11,15 +11,13 @@ enum NavigationDestination: Hashable {
     // MARK: - Word-related destinations
     case addWord(String)
     case wordDetails(CDWord)
+    case wordMeaningsList(CDWord)
     case addExistingWordToShared(CDWord)
     
     // MARK: - Shared word destinations
     case sharedWordDetails(SharedWord, dictionaryId: String)
-    
-    // MARK: - Idiom-related destinations
-    case addIdiom(String)
-    case idiomDetails(CDIdiom)
-    
+    case sharedWordMeaningsList(SharedWord, dictionaryId: String)
+
     // MARK: - Quiz-related destinations
     case spellingQuiz(QuizPreset)
     case chooseDefinitionQuiz(QuizPreset)

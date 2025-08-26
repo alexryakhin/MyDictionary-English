@@ -93,8 +93,6 @@ struct MainTabView: View {
         switch destination {
         case .addWord(let inputWord):
             AddWordView(inputWord: inputWord)
-        case .addIdiom(let inputIdiom):
-            AddIdiomView(inputIdiom: inputIdiom)
         case .quizResultsList:
             QuizResultsList.ContentView()
         case .aboutApp:
@@ -121,16 +119,18 @@ struct MainTabView: View {
             })
         case .wordDetails(let word):
             WordDetailsContentView(word: word)
+        case .wordMeaningsList(let word):
+            MeaningsListView(word: word)
         case .addExistingWordToShared(let word):
             AddExistingWordToSharedView(word: word)
-        case .idiomDetails(let idiom):
-            IdiomDetailsContentView(idiom: idiom)
         case .sharedDictionaryWords(let dictionary):
             SharedDictionaryWordsView(dictionary: dictionary)
         case .sharedDictionaryDetails(let dictionary):
             SharedDictionaryDetailsView(dictionary: dictionary)
         case .sharedWordDetails(let word, let dictionaryId):
             SharedWordDetailsView(word: word, dictionaryId: dictionaryId)
+        case .sharedWordMeaningsList(let word, let dictionaryId):
+            SharedMeaningsListView(word: word, dictionaryId: dictionaryId)
         case .sharedWordDifficultyStats(let word):
             SharedWordDifficultyStatsView(word: word)
         }

@@ -155,7 +155,7 @@ final class WordListViewModel: BaseViewModel {
                 },
                 onDelete: { [weak self, wordModel] in
                     guard let id = wordModel.id?.uuidString else { return }
-                    try? self?.wordsProvider.deleteWord(with: id)
+                    try? self?.wordsProvider.delete(with: id)
                 }
             )
         )

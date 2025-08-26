@@ -29,18 +29,21 @@ final class CSVManager {
         let fileName = "MyDictionaryExport.csv"
         let filePath = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
 
-        var csvString = "word,definition,partOfSpeech,phonetic,is_favorite,timestamp,id,examples,languageCode\n"
+        var csvString = "word,definition,partOfSpeech,phonetic,is_favorite,timestamp,id,examples,languageCode,meanings_count\n"
 
         for wordModel in wordModels {
             let date: String = (wordModel.timestamp ?? Date()).csvString
             let word = wordModel.wordItself ?? ""
-            let definition = wordModel.definition ?? ""
+            // Use primary definition for CSV (legacy format)
+            let definition = wordModel.primaryDefinition ?? wordModel.definition ?? ""
             let partOfSpeech = wordModel.partOfSpeech ?? ""
             let phonetic = wordModel.phonetic ?? ""
             let isFavorite = wordModel.isFavorite ? "true" : "false"
             let id = wordModel.id?.uuidString ?? ""
-            let examples = wordModel.examplesDecoded.joined(separator: ";")
+            // Use all examples from all meanings for CSV
+            let examples = wordModel.allExamples.joined(separator: ";")
             let languageCode = wordModel.languageCode ?? "en"
+            let meaningsCount = wordModel.meaningsArray.count
             
             let csvRow = [
                 word,
@@ -51,7 +54,8 @@ final class CSVManager {
                 date,
                 id,
                 examples,
-                languageCode
+                languageCode,
+                String(meaningsCount)
             ]
                 .map { "\"\($0)\"" } // Wrap in quotes to handle commas in data
                 .joined(separator: ",")
@@ -84,7 +88,6 @@ final class CSVManager {
 
             let newWord = CDWord(context: coreDataService.context)
             newWord.wordItself = columns[0]
-            newWord.definition = columns[1]
             newWord.partOfSpeech = columns[2]
             newWord.phonetic = columns[3]
             newWord.isFavorite = (columns[4].lowercased() == "true")
@@ -92,9 +95,26 @@ final class CSVManager {
             newWord.id = UUID(uuidString: columns[6])
             newWord.isSynced = false // Mark as unsynced to trigger Firebase sync
             newWord.updatedAt = Date()
-
+            
+            // Create a meaning from the CSV definition and examples (legacy format)
+            let definition = columns[1]
             let examplesArray = columns[7].components(separatedBy: ";")
                 .filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+            
+            // Create meaning using the new structure
+            if !definition.isEmpty {
+                let meaning = try CDMeaning.create(
+                    in: coreDataService.context,
+                    definition: definition,
+                    examples: examplesArray,
+                    order: 0,
+                    for: newWord
+                )
+                newWord.addToMeanings(meaning)
+            }
+            
+            // Keep legacy definition for backward compatibility during migration period
+            newWord.definition = definition
             if examplesArray.isNotEmpty {
                 let examplesData = try JSONEncoder().encode(examplesArray)
                 newWord.examples = examplesData

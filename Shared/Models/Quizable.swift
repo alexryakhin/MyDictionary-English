@@ -58,7 +58,8 @@ extension CDWord: Quizable {
     }
     
     var quiz_definition: String {
-        return self.definition ?? ""
+        // Use primary meaning if available, fallback to legacy definition
+        return self.primaryDefinition ?? self.definition ?? ""
     }
     
     var quiz_partOfSpeech: String? {
@@ -78,7 +79,11 @@ extension CDWord: Quizable {
     }
 
     var quiz_itemType: QuizItemType {
-        .word
+        // Check if this is an expression (idiom/phrase) based on partOfSpeech
+        if self.isExpression {
+            return .idiom // Keep .idiom for backward compatibility with existing quiz logic
+        }
+        return .word
     }
 
     func quiz_updateDifficultyScore(_ points: Int) {
