@@ -74,28 +74,3 @@
 "notifications.test_dictionary_invitation" = "คำเชิญพจนานุกรมทดสอบ";
 "notifications.test_dictionary_invitation_body" = "มีคนเพิ่มคุณใน 'พจนานุกรมทดสอบ'";
 
-// MARK: - Filter Display Names
-"filter_display.all_words" = "คำศัพท์ทั้งหมด";
-"filter_display.favorite" = "รายการโปรด";
-"filter_display.search" = "ค้นหา";
-"filter_display.tag" = "แท็ก";
-"filter_display.new" = "ใหม่";
-"filter_display.in_progress" = "กำลังดำเนินการ";
-"filter_display.needs_review" = "ต้องทบทวน";
-"filter_display.mastered" = "เชี่ยวชาญ";
-"filter_display.no_words_yet" = "ยังไม่มีคำศัพท์";
-"filter_display.no_favorite_words" = "ไม่มีคำศัพท์โปรด";
-"filter_display.no_search_results" = "ไม่มีผลการค้นหา";
-"filter_display.no_tagged_words" = "ไม่มีคำศัพท์ที่มีแท็ก";
-"filter_display.no_new_words" = "ไม่มีคำศัพท์ใหม่";
-"filter_display.no_words_in_progress" = "ไม่มีคำศัพท์ที่กำลังดำเนินการ";
-"filter_display.no_words_need_review" = "ไม่มีคำศัพท์ที่ต้องทบทวน";
-"filter_display.no_mastered_words" = "ไม่มีคำศัพท์ที่เชี่ยวชาญ";
-"filter_display.start_building_vocabulary" = "เริ่มสร้างคลังคำศัพท์ของคุณโดยเพิ่มคำศัพท์แรก";
-"filter_display.tap_heart_icon_to_add_favorites" = "กดไอคอนรูปหัวใจบนคำศัพท์ใดๆ เพื่อเพิ่มลงในรายการโปรด";
-"filter_display.try_different_search_term" = "ลองใช้คำค้นหาอื่นหรือเพิ่มคำศัพท์ใหม่";
-"filter_display.add_tags_to_organize" = "เพิ่มแท็กในคำศัพท์ของคุณเพื่อการจัดระเบียบที่ดีขึ้น";
-"filter_display.new_words_appear_here" = "คำศัพท์ใหม่จะปรากฏที่นี่หลังจากเพิ่มลงในรายการของคุณ";
-"filter_display.words_appear_here_as_you_practice" = "คำศัพท์จะปรากฏที่นี่เมื่อคุณฝึกด้วยแบบทดสอบ";
-"filter_display.words_need_more_practice" = "คำศัพท์ที่ต้องการฝึกเพิ่มจะปรากฏที่นี่";
-

@@ -1,0 +1,25 @@
+// MARK: - Filter Display Names
+"filter_display.all_words" = "Všetky slová";
+"filter_display.favorite" = "Obľúbené";
+"filter_display.search" = "Hľadať";
+"filter_display.tag" = "Značka";
+"filter_display.new" = "Nové";
+"filter_display.in_progress" = "V procese";
+"filter_display.needs_review" = "Potrebuje opakovanie";
+"filter_display.mastered" = "Zvládnuté";
+"filter_display.no_words_yet" = "Zatiaľ žiadne slová";
+"filter_display.no_favorite_words" = "Žiadne obľúbené slová";
+"filter_display.no_search_results" = "Žiadne výsledky vyhľadávania";
+"filter_display.no_tagged_words" = "Žiadne označené slová";
+"filter_display.no_new_words" = "Žiadne nové slová";
+"filter_display.no_words_in_progress" = "Žiadne slová v procese";
+"filter_display.no_words_need_review" = "Žiadne slová nepotrebujú opakovanie";
+"filter_display.no_mastered_words" = "Žiadne zvládnuté slová";
+"filter_display.start_building_vocabulary" = "Začnite si budovať slovnú zásobu pridaním prvého slova";
+"filter_display.tap_heart_icon_to_add_favorites" = "Kliknite na ikonu srdca na akomkoľvek slove, aby ste ho pridali do obľúbených";
+"filter_display.try_different_search_term" = "Skúste iný vyhľadávací výraz alebo pridajte nové slovo";
+"filter_display.add_tags_to_organize" = "Pridajte značky k vašim slovám pre lepšiu organizáciu";
+"filter_display.new_words_appear_here" = "Nové slová sa tu objavia po ich pridaní do vášho zoznamu";
+"filter_display.words_appear_here_as_you_practice" = "Slová sa tu objavia, ako budete cvičiť s kvízmi";
+"filter_display.words_need_more_practice" = "Slová, ktoré potrebujú viac praxe, sa tu objavia";
+

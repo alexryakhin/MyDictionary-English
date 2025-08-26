@@ -74,28 +74,3 @@
 "notifications.test_dictionary_invitation" = "Запрошення до тестового словника";
 "notifications.test_dictionary_invitation_body" = "Хтось додав вас до 'Тестового словника'";
 
-// MARK: - Filter Display Names
-"filter_display.all_words" = "Усі слова";
-"filter_display.favorite" = "Обране";
-"filter_display.search" = "Пошук";
-"filter_display.tag" = "Тег";
-"filter_display.new" = "Нове";
-"filter_display.in_progress" = "В процесі";
-"filter_display.needs_review" = "Потрібен повтор";
-"filter_display.mastered" = "Опановане";
-"filter_display.no_words_yet" = "Поки немає слів";
-"filter_display.no_favorite_words" = "Немає обраних слів";
-"filter_display.no_search_results" = "Немає результатів пошуку";
-"filter_display.no_tagged_words" = "Немає слів із тегами";
-"filter_display.no_new_words" = "Немає нових слів";
-"filter_display.no_words_in_progress" = "Немає слів у процесі";
-"filter_display.no_words_need_review" = "Немає слів, що потребують повтору";
-"filter_display.no_mastered_words" = "Немає опанованих слів";
-"filter_display.start_building_vocabulary" = "Почніть створювати свій словниковий запас, додавши перше слово";
-"filter_display.tap_heart_icon_to_add_favorites" = "Натисніть значок серця на будь-якому слові, щоб додати його до обраного";
-"filter_display.try_different_search_term" = "Спробуйте інший пошуковий запит або додайте нове слово";
-"filter_display.add_tags_to_organize" = "Додайте теги до слів для кращого впорядкування";
-"filter_display.new_words_appear_here" = "Нові слова з'являться тут після додавання до вашого списку";
-"filter_display.words_appear_here_as_you_practice" = "Слова з'являться тут, коли ви практикуватимете з тестами";
-"filter_display.words_need_more_practice" = "Слова, які потребують додаткової практики, з'являться тут";
-

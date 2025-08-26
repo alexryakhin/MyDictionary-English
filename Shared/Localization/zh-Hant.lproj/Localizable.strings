@@ -74,28 +74,3 @@
 "notifications.test_dictionary_invitation" = "測試詞典邀請";
 "notifications.test_dictionary_invitation_body" = "有人將你添加到“測試詞典”";
 
-// MARK: - Filter Display Names
-"filter_display.all_words" = "所有單詞";
-"filter_display.favorite" = "收藏";
-"filter_display.search" = "搜索";
-"filter_display.tag" = "標籤";
-"filter_display.new" = "新";
-"filter_display.in_progress" = "進行中";
-"filter_display.needs_review" = "需要複習";
-"filter_display.mastered" = "已掌握";
-"filter_display.no_words_yet" = "暫無單詞";
-"filter_display.no_favorite_words" = "暫無收藏的單詞";
-"filter_display.no_search_results" = "無搜索結果";
-"filter_display.no_tagged_words" = "暫無標記的單詞";
-"filter_display.no_new_words" = "暫無新單詞";
-"filter_display.no_words_in_progress" = "暫無進行中的單詞";
-"filter_display.no_words_need_review" = "暫無需要複習的單詞";
-"filter_display.no_mastered_words" = "暫無已掌握的單詞";
-"filter_display.start_building_vocabulary" = "通過添加你的第一個單詞開始構建你的詞彙庫";
-"filter_display.tap_heart_icon_to_add_favorites" = "點擊任何單詞上的心形圖標將其添加到收藏";
-"filter_display.try_different_search_term" = "嘗試不同的搜索詞或添加新單詞";
-"filter_display.add_tags_to_organize" = "為你的單詞添加標籤以更好地組織";
-"filter_display.new_words_appear_here" = "新單詞在添加到列表時會出現在這裡";
-"filter_display.words_appear_here_as_you_practice" = "單詞在測驗練習中會出現在這裡";
-"filter_display.words_need_more_practice" = "需要更多練習的單詞會出現在這裡";
-

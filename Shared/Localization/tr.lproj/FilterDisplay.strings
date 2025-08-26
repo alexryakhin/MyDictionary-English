@@ -1,0 +1,25 @@
+// MARK: - Filter Display Names
+"filter_display.all_words" = "Tüm Kelimeler";
+"filter_display.favorite" = "Favori";
+"filter_display.search" = "Ara";
+"filter_display.tag" = "Etiket";
+"filter_display.new" = "Yeni";
+"filter_display.in_progress" = "Devam Ediyor";
+"filter_display.needs_review" = "Tekrar Gerekli";
+"filter_display.mastered" = "Hâkim Olunan";
+"filter_display.no_words_yet" = "Henüz kelime yok";
+"filter_display.no_favorite_words" = "Favori kelime yok";
+"filter_display.no_search_results" = "Arama sonucu yok";
+"filter_display.no_tagged_words" = "Etiketli kelime yok";
+"filter_display.no_new_words" = "Yeni kelime yok";
+"filter_display.no_words_in_progress" = "Devam eden kelime yok";
+"filter_display.no_words_need_review" = "Tekrar gereken kelime yok";
+"filter_display.no_mastered_words" = "Hâkim olunan kelime yok";
+"filter_display.start_building_vocabulary" = "İlk kelimeyi ekleyerek kelime dağarcığınızı oluşturmaya başlayın";
+"filter_display.tap_heart_icon_to_add_favorites" = "Favorilere eklemek için herhangi bir kelimenin üzerindeki kalp simgesine tıklayın";
+"filter_display.try_different_search_term" = "Farklı bir arama terimi deneyin veya yeni bir kelime ekleyin";
+"filter_display.add_tags_to_organize" = "Kelimelerinizi daha iyi düzenlemek için etiketler ekleyin";
+"filter_display.new_words_appear_here" = "Yeni kelimeler listenize eklendikten sonra burada görünecek";
+"filter_display.words_appear_here_as_you_practice" = "Testlerle alıştırma yaptıkça kelimeler burada görünecek";
+"filter_display.words_need_more_practice" = "Daha fazla alıştırma gerektiren kelimeler burada görünecek";
+
