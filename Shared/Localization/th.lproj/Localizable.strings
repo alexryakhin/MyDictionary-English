@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "สนุกกับแอปนี้หรือไม่";
 "coffee.helpful_learning_journey" = "หากพจนานุกรมของฉันช่วยคุณในการเดินทางเรียนรู้ ลองพิจารณาซื้อกาแฟให้ฉัน! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "สัปดาห์";
-"time_period.month" = "เดือน";
-"time_period.year" = "ปี";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "ถึงเวลาฝึก! 📚";
 "notifications.practice_vocabulary_today" = "อย่าลืมฝึกคำศัพท์ของคุณวันนี้";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "คุณมีคำศัพท์ที่ต้องการฝึกเพิ่ม พร้อมสำหรับความท้าทายหรือยัง";
 "notifications.test_dictionary_invitation" = "คำเชิญพจนานุกรมทดสอบ";
 "notifications.test_dictionary_invitation_body" = "มีคนเพิ่มคุณใน 'พจนานุกรมทดสอบ'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "พจนานุกรมของฉัน";
-"macos.about_my_dictionary" = "เกี่ยวกับพจนานุกรมของฉัน";
-"macos.debug_panel" = "แผงดีบัก";
-"macos.settings" = "การตั้งค่า";
-"macos.about" = "เกี่ยวกับ";
-"macos.shared_dictionaries" = "พจนานุกรมที่แชร์";
 
 // MARK: - Filter Display Names
 "filter_display.all_words" = "คำศัพท์ทั้งหมด";

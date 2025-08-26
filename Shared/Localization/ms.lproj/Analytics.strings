@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Jumlah Penilaian";
 "analytics.view_detailed_statistics" = "Lihat Statistik Terperinci";
 
+// MARK: - Time Period
+"time_period.week" = "Minggu";
+"time_period.month" = "Bulan";
+"time_period.year" = "Tahun";
+

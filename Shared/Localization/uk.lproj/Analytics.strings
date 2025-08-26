@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Загальні оцінки";
 "analytics.view_detailed_statistics" = "Переглянути детальну статистику";
 
+// MARK: - Time Period
+"time_period.week" = "Тиждень";
+"time_period.month" = "Місяць";
+"time_period.year" = "Рік";
+

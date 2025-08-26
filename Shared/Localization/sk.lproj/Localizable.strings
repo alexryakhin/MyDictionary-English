@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Páči sa vám aplikácia?";
 "coffee.helpful_learning_journey" = "Ak vám Môj slovník pomohol vo vašej ceste za učením, zvážte kúpu kávy! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Týždeň";
-"time_period.month" = "Mesiac";
-"time_period.year" = "Rok";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Čas na cvičenie! 📚";
 "notifications.practice_vocabulary_today" = "Nezabudnite si dnes precvičiť slovnú zásobu.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Máte slová, ktoré potrebujú viac praxe. Ste pripravení na výzvu?";
 "notifications.test_dictionary_invitation" = "Pozvánka do testovacieho slovníka";
 "notifications.test_dictionary_invitation_body" = "Niekto vás pridal do 'Testovacieho slovníka'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Môj slovník";
-"macos.about_my_dictionary" = "O Môj slovník";
-"macos.debug_panel" = "Panel na ladenie";
-"macos.settings" = "Nastavenia";
-"macos.about" = "O aplikácii";
-"macos.shared_dictionaries" = "Zdieľané slovníky";
 
 // MARK: - Filter Display Names
 "filter_display.all_words" = "Všetky slová";

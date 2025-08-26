@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "נהנה מהאפליקציה?";
 "coffee.helpful_learning_journey" = "אם המילון שלי עזר לך במסע הלמידה שלך, שקול לקנות לי קפה! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "שבוע";
-"time_period.month" = "חודש";
-"time_period.year" = "שנה";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "זמן לתרגל! 📚";
 "notifications.practice_vocabulary_today" = "אל תשכח לתרגל את אוצר המילים שלך היום.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "יש לך מילים שדורשות תרגול נוסף. מוכן לאתגר?";
 "notifications.test_dictionary_invitation" = "הזמנה למילון בדיקה";
 "notifications.test_dictionary_invitation_body" = "מישהו הוסיף אותך ל'מילון בדיקה'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "המילון שלי";
-"macos.about_my_dictionary" = "אודות המילון שלי";
-"macos.debug_panel" = "לוח ניפוי שגיאות";
-"macos.settings" = "הגדרות";
-"macos.about" = "אודות האפליקציה";
-"macos.shared_dictionaries" = "מילונים משותפים";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "הכל";

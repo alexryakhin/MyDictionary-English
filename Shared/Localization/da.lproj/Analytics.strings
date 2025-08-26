@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Samlede bedømmelser";
 "analytics.view_detailed_statistics" = "Se detaljerede statistikker";
 
+// MARK: - Time Period
+"time_period.week" = "Uge";
+"time_period.month" = "Måned";
+"time_period.year" = "År";
+

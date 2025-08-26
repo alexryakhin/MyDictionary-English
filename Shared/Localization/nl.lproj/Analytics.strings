@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Totaal aantal beoordelingen";
 "analytics.view_detailed_statistics" = "Gedetailleerde statistieken bekijken";
 
+// MARK: - Time Period
+"time_period.week" = "Week";
+"time_period.month" = "Maand";
+"time_period.year" = "Jaar";
+

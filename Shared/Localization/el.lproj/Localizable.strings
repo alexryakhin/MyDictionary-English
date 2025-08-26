@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Σου αρέσει η εφαρμογή;";
 "coffee.helpful_learning_journey" = "Αν το Λεξικό Μου σε έχει βοηθήσει στο ταξίδι μάθησής σου, σκέψου να μου κεράσεις έναν καφέ! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Εβδομάδα";
-"time_period.month" = "Μήνας";
-"time_period.year" = "Έτος";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Ώρα για εξάσκηση! 📚";
 "notifications.practice_vocabulary_today" = "Μην ξεχάσεις να εξασκήσεις το λεξιλόγιό σου σήμερα.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Έχεις λέξεις που χρειάζονται περισσότερη εξάσκηση. Έτοιμος για την πρόκληση;";
 "notifications.test_dictionary_invitation" = "Πρόσκληση σε Δοκιμαστικό Λεξικό";
 "notifications.test_dictionary_invitation_body" = "Κάποιος σε πρόσθεσε στο 'Δοκιμαστικό Λεξικό'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Το Λεξικό Μου";
-"macos.about_my_dictionary" = "Σχετικά με το Λεξικό Μου";
-"macos.debug_panel" = "Πίνακας Αποσφαλμάτωσης";
-"macos.settings" = "Ρυθμίσεις";
-"macos.about" = "Σχετικά με την Εφαρμογή";
-"macos.shared_dictionaries" = "Κοινόχρηστα Λεξικά";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "Όλα";

@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Líbí se vám tato aplikace?";
 "coffee.helpful_learning_journey" = "Pokud vám Můj slovník pomohl na vaší cestě učení, zvažte, že mě pozvete na kávu! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Týden";
-"time_period.month" = "Měsíc";
-"time_period.year" = "Rok";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Čas na cvičení! 📚";
 "notifications.practice_vocabulary_today" = "Nezapomeňte dnes procvičovat svou slovní zásobu.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Máte slova, která potřebují více cvičení. Připraveni na výzvu?";
 "notifications.test_dictionary_invitation" = "Pozvánka do testovacího slovníku";
 "notifications.test_dictionary_invitation_body" = "Někdo vás přidal do 'Testovacího slovníku'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Můj slovník";
-"macos.about_my_dictionary" = "O mém slovníku";
-"macos.debug_panel" = "Panel pro ladění";
-"macos.settings" = "Nastavení";
-"macos.about" = "O aplikaci";
-"macos.shared_dictionaries" = "Sdílené slovníky";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "Vše";

@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Uygulamadan keyif alıyor musunuz?";
 "coffee.helpful_learning_journey" = "Sözlüğüm öğrenme yolculuğunuzda size yardımcı olduysa, bana bir kahve ısmarlamayı düşünün! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Hafta";
-"time_period.month" = "Ay";
-"time_period.year" = "Yıl";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Alıştırma Zamanı! 📚";
 "notifications.practice_vocabulary_today" = "Bugün kelime dağarcığınızı çalışmayı unutmayın.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Daha fazla alıştırma gerektiren kelimeleriniz var. Meydan okumaya hazır mısınız?";
 "notifications.test_dictionary_invitation" = "Test Sözlüğü Davetiyesi";
 "notifications.test_dictionary_invitation_body" = "Biri sizi 'Test Sözlüğü'ne ekledi";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Sözlüğüm";
-"macos.about_my_dictionary" = "Sözlüğüm Hakkında";
-"macos.debug_panel" = "Hata Ayıklama Paneli";
-"macos.settings" = "Ayarlar";
-"macos.about" = "Hakkında";
-"macos.shared_dictionaries" = "Paylaşılan Sözlükler";
 
 // MARK: - Filter Display Names
 "filter_display.all_words" = "Tüm Kelimeler";

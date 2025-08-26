@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Összes értékelés";
 "analytics.view_detailed_statistics" = "Részletes statisztikák megtekintése";
 
+// MARK: - Time Period
+"time_period.week" = "Hét";
+"time_period.month" = "Hónap";
+"time_period.year" = "Év";
+

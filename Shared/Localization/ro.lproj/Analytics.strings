@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Total Evaluări";
 "analytics.view_detailed_statistics" = "Vezi Statistici Detaliate";
 
+// MARK: - Time Period
+"time_period.week" = "Săptămână";
+"time_period.month" = "Lună";
+"time_period.year" = "An";
+

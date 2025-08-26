@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "คะแนนทั้งหมด";
 "analytics.view_detailed_statistics" = "ดูสถิติโดยละเอียด";
 
+// MARK: - Time Period
+"time_period.week" = "สัปดาห์";
+"time_period.month" = "เดือน";
+"time_period.year" = "ปี";
+

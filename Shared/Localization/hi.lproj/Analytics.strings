@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "कुल रेटिंग";
 "analytics.view_detailed_statistics" = "विस्तृत सांख्यिकी देखें";
 
+// MARK: - Time Period
+"time_period.week" = "सप्ताह";
+"time_period.month" = "महीना";
+"time_period.year" = "वर्ष";
+

@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Totalt antall vurderinger";
 "analytics.view_detailed_statistics" = "Vis detaljert statistikk";
 
+// MARK: - Time Period
+"time_period.week" = "Uke";
+"time_period.month" = "Måned";
+"time_period.year" = "År";
+

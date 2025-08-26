@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Nyder du appen?";
 "coffee.helpful_learning_journey" = "Hvis Min Ordbog har hjulpet dig på din læringsrejse, så overvej at købe mig en kaffe! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Uge";
-"time_period.month" = "Måned";
-"time_period.year" = "År";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Tid til at øve! 📚";
 "notifications.practice_vocabulary_today" = "Glem ikke at øve dit ordforråd i dag.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Du har ord, der kræver mere øvelse. Klar til udfordringen?";
 "notifications.test_dictionary_invitation" = "Invitation til testordbog";
 "notifications.test_dictionary_invitation_body" = "Nogen har tilføjet dig til 'Testordbog'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Min Ordbog";
-"macos.about_my_dictionary" = "Om Min Ordbog";
-"macos.debug_panel" = "Fejlfindingspanel";
-"macos.settings" = "Indstillinger";
-"macos.about" = "Om appen";
-"macos.shared_dictionaries" = "Delte ordbøger";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "Alle";

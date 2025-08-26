@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "إجمالي التقييمات";
 "analytics.view_detailed_statistics" = "عرض الإحصائيات التفصيلية";
 
+// MARK: - Time Period
+"time_period.week" = "أسبوع";
+"time_period.month" = "شهر";
+"time_period.year" = "سنة";
+

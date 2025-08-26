@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "क्या आपको ऐप पसंद है?";
 "coffee.helpful_learning_journey" = "यदि मेरा शब्दकोश आपके सीखने की यात्रा में मददगार रहा है, तो मेरे लिए एक कॉफी खरीदने पर विचार करें! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "सप्ताह";
-"time_period.month" = "महीना";
-"time_period.year" = "वर्ष";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "अभ्यास करने का समय! 📚";
 "notifications.practice_vocabulary_today" = "आज अपनी शब्दावली का अभ्यास करना न भूलें।";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "आपके पास ऐसे शब्द हैं जिन्हें अधिक अभ्यास की आवश्यकता है। चुनौती के लिए तैयार?";
 "notifications.test_dictionary_invitation" = "परीक्षण शब्दकोश निमंत्रण";
 "notifications.test_dictionary_invitation_body" = "किसी ने आपको 'परीक्षण शब्दकोश' में जोड़ा है";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "मेरा शब्दकोश";
-"macos.about_my_dictionary" = "मेरे शब्दकोश के बारे में";
-"macos.debug_panel" = "डीबग पैनल";
-"macos.settings" = "सेटिंग्स";
-"macos.about" = "ऐप के बारे में";
-"macos.shared_dictionaries" = "साझा शब्दकोश";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "सभी";

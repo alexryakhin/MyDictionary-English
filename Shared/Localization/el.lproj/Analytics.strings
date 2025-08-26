@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Συνολικές Βαθμολογίες";
 "analytics.view_detailed_statistics" = "Προβολή Λεπτομερών Στατιστικών";
 
+// MARK: - Time Period
+"time_period.week" = "Εβδομάδα";
+"time_period.month" = "Μήνας";
+"time_period.year" = "Έτος";
+

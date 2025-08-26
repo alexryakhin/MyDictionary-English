@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Enjoying the app?";
 "coffee.helpful_learning_journey" = "If My Dictionary has been helpful in your learning journey, consider buying me a coffee! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Week";
-"time_period.month" = "Month";
-"time_period.year" = "Year";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Time to Practice! 📚";
 "notifications.practice_vocabulary_today" = "Don't forget to practice your vocabulary today.";
@@ -80,14 +75,6 @@
 "notifications.test_dictionary_invitation_body" = "Someone added you to 'Test Dictionary'";
 "notifications.permission_required" = "Notification Permission Required";
 "notifications.permission_denied_message" = "To receive daily reminders and difficult word alerts, please enable notifications in Settings.";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "My Dictionary";
-"macos.about_my_dictionary" = "About My Dictionary";
-"macos.debug_panel" = "Debug Panel";
-"macos.settings" = "Settings";
-"macos.about" = "About";
-"macos.shared_dictionaries" = "Shared Dictionaries";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "All";

@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Élvezed az alkalmazást?";
 "coffee.helpful_learning_journey" = "Ha a Saját szótár segített a tanulási utadon, fontold meg, hogy vegyél nekem egy kávét! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Hét";
-"time_period.month" = "Hónap";
-"time_period.year" = "Év";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Ideje gyakorolni! 📚";
 "notifications.practice_vocabulary_today" = "Ne felejts el ma gyakorolni a szókincsedet.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Vannak szavaid, amelyek további gyakorlást igényelnek. Készen állsz a kihívásra?";
 "notifications.test_dictionary_invitation" = "Teszt szótár meghívó";
 "notifications.test_dictionary_invitation_body" = "Valaki hozzáadott téged a 'Teszt szótár'-hoz";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Saját szótár";
-"macos.about_my_dictionary" = "A Saját szótárról";
-"macos.debug_panel" = "Hibakereső panel";
-"macos.settings" = "Beállítások";
-"macos.about" = "Az alkalmazásról";
-"macos.shared_dictionaries" = "Megosztott szótárak";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "Összes";

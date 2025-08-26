@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Всего оценок";
 "analytics.view_detailed_statistics" = "Посмотреть подробную статистику";
 
+// MARK: - Time Period
+"time_period.week" = "Неделя";
+"time_period.month" = "Месяц";
+"time_period.year" = "Год";
+

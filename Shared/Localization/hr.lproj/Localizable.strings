@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Uživate li u aplikaciji?";
 "coffee.helpful_learning_journey" = "Ako vam je Moj rječnik pomogao u vašem putovanju učenja, razmislite o tome da me častite kavom! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Tjedan";
-"time_period.month" = "Mjesec";
-"time_period.year" = "Godina";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Vrijeme za vježbanje! 📚";
 "notifications.practice_vocabulary_today" = "Ne zaboravite vježbati svoj vokabular danas.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Imate riječi koje zahtijevaju više vježbe. Spremni za izazov?";
 "notifications.test_dictionary_invitation" = "Pozivnica za testni rječnik";
 "notifications.test_dictionary_invitation_body" = "Netko vas je dodao u 'Testni rječnik'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Moj rječnik";
-"macos.about_my_dictionary" = "O Mojem rječniku";
-"macos.debug_panel" = "Ploča za otklanjanje pogrešaka";
-"macos.settings" = "Postavke";
-"macos.about" = "O aplikaciji";
-"macos.shared_dictionaries" = "Zajednički rječnici";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "Svi";

@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Celkové hodnocení";
 "analytics.view_detailed_statistics" = "Zobrazit podrobné statistiky";
 
+// MARK: - Time Period
+"time_period.week" = "Týden";
+"time_period.month" = "Měsíc";
+"time_period.year" = "Rok";
+

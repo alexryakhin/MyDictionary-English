@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Menikmati aplikasi ini?";
 "coffee.helpful_learning_journey" = "Jika Kamus Saya membantu perjalanan belajar Anda, pertimbangkan untuk membelikan saya kopi! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Minggu";
-"time_period.month" = "Bulan";
-"time_period.year" = "Tahun";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Waktunya berlatih! 📚";
 "notifications.practice_vocabulary_today" = "Jangan lupa untuk melatih kosakata Anda hari ini.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Anda memiliki kata-kata yang perlu lebih banyak latihan. Siap untuk tantangan?";
 "notifications.test_dictionary_invitation" = "Undangan Kamus Tes";
 "notifications.test_dictionary_invitation_body" = "Seseorang telah menambahkan Anda ke 'Kamus Tes'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Kamus Saya";
-"macos.about_my_dictionary" = "Tentang Kamus Saya";
-"macos.debug_panel" = "Panel Debug";
-"macos.settings" = "Pengaturan";
-"macos.about" = "Tentang Aplikasi";
-"macos.shared_dictionaries" = "Kamus Bersama";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "Semua";

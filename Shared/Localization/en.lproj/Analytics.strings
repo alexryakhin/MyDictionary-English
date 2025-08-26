@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Total Ratings";
 "analytics.view_detailed_statistics" = "View Detailed Statistics";
 
+// MARK: - Time Period
+"time_period.week" = "Week";
+"time_period.month" = "Month";
+"time_period.year" = "Year";
+

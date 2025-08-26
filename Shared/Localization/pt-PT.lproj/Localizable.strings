@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Está a gostar da aplicação?";
 "coffee.helpful_learning_journey" = "Se O Meu Dicionário foi útil na sua jornada de aprendizagem, considere oferecer-me um café! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Semana";
-"time_period.month" = "Mês";
-"time_period.year" = "Ano";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Hora de praticar! 📚";
 "notifications.practice_vocabulary_today" = "Não se esqueça de praticar o seu vocabulário hoje.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Tem palavras que precisam de mais prática. Pronto para o desafio?";
 "notifications.test_dictionary_invitation" = "Convite para Dicionário de Teste";
 "notifications.test_dictionary_invitation_body" = "Alguém o adicionou ao 'Dicionário de Teste'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "O Meu Dicionário";
-"macos.about_my_dictionary" = "Sobre O Meu Dicionário";
-"macos.debug_panel" = "Painel de Depuração";
-"macos.settings" = "Definições";
-"macos.about" = "Sobre a Aplicação";
-"macos.shared_dictionaries" = "Dicionários Partilhados";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "Todos";

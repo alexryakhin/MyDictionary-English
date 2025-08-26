@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Toplam Derecelendirme";
 "analytics.view_detailed_statistics" = "Ayrıntılı İstatistikleri Görüntüle";
 
+// MARK: - Time Period
+"time_period.week" = "Hafta";
+"time_period.month" = "Ay";
+"time_period.year" = "Yıl";
+

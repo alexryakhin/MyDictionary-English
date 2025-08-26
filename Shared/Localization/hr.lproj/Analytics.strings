@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Ukupne ocjene";
 "analytics.view_detailed_statistics" = "Pogledaj detaljne statistike";
 
+// MARK: - Time Period
+"time_period.week" = "Tjedan";
+"time_period.month" = "Mjesec";
+"time_period.year" = "Godina";
+

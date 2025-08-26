@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Arvioiden kokonaismäärä";
 "analytics.view_detailed_statistics" = "Näytä yksityiskohtaiset tilastot";
 
+// MARK: - Time Period
+"time_period.week" = "Viikko";
+"time_period.month" = "Kuukausi";
+"time_period.year" = "Vuosi";
+

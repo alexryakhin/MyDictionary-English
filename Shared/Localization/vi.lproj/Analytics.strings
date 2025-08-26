@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Tổng số xếp hạng";
 "analytics.view_detailed_statistics" = "Xem thống kê chi tiết";
 
+// MARK: - Time Period
+"time_period.week" = "Tuần";
+"time_period.month" = "Tháng";
+"time_period.year" = "Năm";
+

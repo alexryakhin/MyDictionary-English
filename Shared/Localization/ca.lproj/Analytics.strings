@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Valoracions totals";
 "analytics.view_detailed_statistics" = "Veure estadístiques detallades";
 
+// MARK: - Time Period
+"time_period.week" = "Setmana";
+"time_period.month" = "Mes";
+"time_period.year" = "Any";
+

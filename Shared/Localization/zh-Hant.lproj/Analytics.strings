@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "總評分";
 "analytics.view_detailed_statistics" = "查看詳細統計";
 
+// MARK: - Time Period
+"time_period.week" = "週";
+"time_period.month" = "月";
+"time_period.year" = "年";
+

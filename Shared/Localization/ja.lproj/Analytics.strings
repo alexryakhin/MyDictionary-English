@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "評価の合計";
 "analytics.view_detailed_statistics" = "詳細統計を表示";
 
+// MARK: - Time Period
+"time_period.week" = "週";
+"time_period.month" = "月";
+"time_period.year" = "年";
+

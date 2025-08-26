@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Nautitko sovelluksesta?";
 "coffee.helpful_learning_journey" = "Jos Oma Sanakirja on auttanut sinua oppimismatkallasi, harkitse kahvin ostamista minulle! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Viikko";
-"time_period.month" = "Kuukausi";
-"time_period.year" = "Vuosi";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Aika harjoitella! 📚";
 "notifications.practice_vocabulary_today" = "Älä unohda harjoitella sanastoasi tänään.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Sinulla on sanoja, jotka tarvitsevat lisää harjoittelua. Valmis haasteeseen?";
 "notifications.test_dictionary_invitation" = "Kutsu testisanakirjaan";
 "notifications.test_dictionary_invitation_body" = "Joku on lisännyt sinut 'Testisanakirjaan'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Oma Sanakirja";
-"macos.about_my_dictionary" = "Tietoa Oma Sanakirja";
-"macos.debug_panel" = "Vianetsintäpaneeli";
-"macos.settings" = "Asetukset";
-"macos.about" = "Tietoa sovelluksesta";
-"macos.shared_dictionaries" = "Jaetut sanakirjat";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "Kaikki";

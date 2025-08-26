@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Подобається програма?";
 "coffee.helpful_learning_journey" = "Якщо мій словник допоміг вам у вашій навчальній подорожі, подумайте про те, щоб купити мені каву! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Тиждень";
-"time_period.month" = "Місяць";
-"time_period.year" = "Рік";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Час практикувати! 📚";
 "notifications.practice_vocabulary_today" = "Не забудьте попрактикувати свій словниковий запас сьогодні";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "У вас є слова, які потребують додаткової практики. Готові до виклику?";
 "notifications.test_dictionary_invitation" = "Запрошення до тестового словника";
 "notifications.test_dictionary_invitation_body" = "Хтось додав вас до 'Тестового словника'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Мій словник";
-"macos.about_my_dictionary" = "Про мій словник";
-"macos.debug_panel" = "Панель налагодження";
-"macos.settings" = "Налаштування";
-"macos.about" = "Про програму";
-"macos.shared_dictionaries" = "Спільні словники";
 
 // MARK: - Filter Display Names
 "filter_display.all_words" = "Усі слова";

@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Bevalt de app je?";
 "coffee.helpful_learning_journey" = "Als Mijn Woordenboek je heeft geholpen op je leerreis, overweeg dan om mij een koffie te trakteren! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Week";
-"time_period.month" = "Maand";
-"time_period.year" = "Jaar";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Tijd om te oefenen! 📚";
 "notifications.practice_vocabulary_today" = "Vergeet niet om vandaag je woordenschat te oefenen.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Je hebt woorden die meer oefening nodig hebben. Klaar voor de uitdaging?";
 "notifications.test_dictionary_invitation" = "Uitnodiging voor testwoordenboek";
 "notifications.test_dictionary_invitation_body" = "Iemand heeft je toegevoegd aan 'Testwoordenboek'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Mijn Woordenboek";
-"macos.about_my_dictionary" = "Over Mijn Woordenboek";
-"macos.debug_panel" = "Debugpaneel";
-"macos.settings" = "Instellingen";
-"macos.about" = "Over de app";
-"macos.shared_dictionaries" = "Gedeelde woordenboeken";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "Alles";

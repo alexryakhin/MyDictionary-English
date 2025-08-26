@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "喜歡這個應用嗎？";
 "coffee.helpful_learning_journey" = "如果我的詞典在你的學習旅程中有所幫助，請考慮請我喝杯咖啡！ ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "週";
-"time_period.month" = "月";
-"time_period.year" = "年";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "練習時間到！ 📚";
 "notifications.practice_vocabulary_today" = "今天別忘了練習你的詞彙。";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "你有需要更多練習的單詞。準備好挑戰了嗎？";
 "notifications.test_dictionary_invitation" = "測試詞典邀請";
 "notifications.test_dictionary_invitation_body" = "有人將你添加到“測試詞典”";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "我的詞典";
-"macos.about_my_dictionary" = "關於我的詞典";
-"macos.debug_panel" = "調試面板";
-"macos.settings" = "設置";
-"macos.about" = "關於";
-"macos.shared_dictionaries" = "共享詞典";
 
 // MARK: - Filter Display Names
 "filter_display.all_words" = "所有單詞";

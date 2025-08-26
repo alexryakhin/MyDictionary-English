@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Bạn có thích ứng dụng này không?";
 "coffee.helpful_learning_journey" = "Nếu Từ điển của tôi đã giúp ích cho hành trình học tập của bạn, hãy cân nhắc mua cho tôi một ly cà phê! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Tuần";
-"time_period.month" = "Tháng";
-"time_period.year" = "Năm";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Đến giờ luyện tập! 📚";
 "notifications.practice_vocabulary_today" = "Đừng quên luyện tập vốn từ vựng của bạn hôm nay.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Bạn có những từ cần luyện tập thêm. Sẵn sàng cho thử thách chưa?";
 "notifications.test_dictionary_invitation" = "Lời mời từ điển kiểm tra";
 "notifications.test_dictionary_invitation_body" = "Ai đó đã thêm bạn vào 'Từ điển kiểm tra'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Từ điển của tôi";
-"macos.about_my_dictionary" = "Giới thiệu về Từ điển của tôi";
-"macos.debug_panel" = "Bảng gỡ lỗi";
-"macos.settings" = "Cài đặt";
-"macos.about" = "Giới thiệu";
-"macos.shared_dictionaries" = "Từ điển chia sẻ";
 
 // MARK: - Filter Display Names
 "filter_display.all_words" = "Tất cả từ";

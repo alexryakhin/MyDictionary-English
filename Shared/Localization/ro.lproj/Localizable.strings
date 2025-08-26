@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "Îți place aplicația?";
 "coffee.helpful_learning_journey" = "Dacă Dicționarul Meu te-a ajutat în călătoria ta de învățare, ia în considerare să-mi cumperi o cafea! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "Săptămână";
-"time_period.month" = "Lună";
-"time_period.year" = "An";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "E timpul să exersezi! 📚";
 "notifications.practice_vocabulary_today" = "Nu uita să-ți exersezi vocabularul astăzi.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "Ai cuvinte care necesită mai multă practică. Ești gata pentru provocare?";
 "notifications.test_dictionary_invitation" = "Invitație la Dicționar de Test";
 "notifications.test_dictionary_invitation_body" = "Cineva te-a adăugat la 'Dicționar de Test'";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "Dicționarul Meu";
-"macos.about_my_dictionary" = "Despre Dicționarul Meu";
-"macos.debug_panel" = "Panou de Depanare";
-"macos.settings" = "Setări";
-"macos.about" = "Despre Aplicație";
-"macos.shared_dictionaries" = "Dicționare Partajate";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "Toate";

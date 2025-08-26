@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "アプリを楽しんでいますか？";
 "coffee.helpful_learning_journey" = "マイ辞書があなたの学習の旅に役立ったなら、コーヒーをおごってください！ ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "週";
-"time_period.month" = "月";
-"time_period.year" = "年";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "練習の時間です！ 📚";
 "notifications.practice_vocabulary_today" = "今日の語彙練習を忘れずに。";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "さらに練習が必要な単語があります。挑戦する準備はできていますか？";
 "notifications.test_dictionary_invitation" = "テスト辞書への招待";
 "notifications.test_dictionary_invitation_body" = "誰かがあなたを「テスト辞書」に追加しました";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "マイ辞書";
-"macos.about_my_dictionary" = "マイ辞書について";
-"macos.debug_panel" = "デバッグパネル";
-"macos.settings" = "設定";
-"macos.about" = "アプリについて";
-"macos.shared_dictionaries" = "共有辞書";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "すべて";

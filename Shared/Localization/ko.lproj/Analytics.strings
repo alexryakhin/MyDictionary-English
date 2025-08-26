@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "총 평가";
 "analytics.view_detailed_statistics" = "자세한 통계 보기";
 
+// MARK: - Time Period
+"time_period.week" = "주";
+"time_period.month" = "월";
+"time_period.year" = "년";
+

@@ -66,11 +66,6 @@
 "coffee.enjoying_the_app" = "앱을 즐기고 있나요?";
 "coffee.helpful_learning_journey" = "내 사전이 학습 여정에 도움이 되었다면, 커피 한 잔을 사주세요! ☕️";
 
-// MARK: - Time Period
-"time_period.week" = "주";
-"time_period.month" = "월";
-"time_period.year" = "년";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "연습할 시간입니다! 📚";
 "notifications.practice_vocabulary_today" = "오늘 어휘 연습을 잊지 마세요.";
@@ -78,14 +73,6 @@
 "notifications.difficult_words_challenge" = "더 많은 연습이 필요한 단어가 있습니다. 도전할 준비 되셨나요?";
 "notifications.test_dictionary_invitation" = "테스트 사전 초대";
 "notifications.test_dictionary_invitation_body" = "누군가가 당신을 '테스트 사전'에 추가했습니다";
-
-// MARK: - macOS UI
-"macos.my_dictionary" = "내 사전";
-"macos.about_my_dictionary" = "내 사전에 대해";
-"macos.debug_panel" = "디버그 패널";
-"macos.settings" = "설정";
-"macos.about" = "앱 정보";
-"macos.shared_dictionaries" = "공유 사전";
 
 // MARK: - Filter Display Names
 "filter_display.all" = "전체";

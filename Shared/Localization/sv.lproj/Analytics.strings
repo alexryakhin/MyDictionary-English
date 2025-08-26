@@ -34,3 +34,8 @@
 "analytics.total_ratings" = "Totalt antal betyg";
 "analytics.view_detailed_statistics" = "Visa detaljerad statistik";
 
+// MARK: - Time Period
+"time_period.week" = "Vecka";
+"time_period.month" = "Månad";
+"time_period.year" = "År";
+
