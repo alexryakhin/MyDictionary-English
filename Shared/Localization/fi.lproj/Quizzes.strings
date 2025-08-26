@@ -69,3 +69,42 @@
 "quizzes.best_format" = "Paras: %d";
 "quizzes.ask_dictionary_owner_add_words_or_switch" = "Pyydä sanakirjan omistajaa lisäämään lisää sanoja tai vaihda toiseen sanakirjaan!";
 
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Kaikki tulokset";
+"quiz_results.no_quiz_results_yet" = "Ei vielä visan tuloksia";
+"quiz_results.quiz" = "Visa";
+"quiz_results.accuracy" = "Tarkkuus";
+"quiz_results.correct" = "Oikein";
+"quiz_results.duration" = "Kesto";
+"quiz_results.time_period" = "Aikajakso";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Visatyypit";
+"quiz_list.practice_settings" = "Harjoitteluasetukset";
+"quiz_list.configure_quiz_experience" = "Mukauta visakokemuksesi";
+"quiz_list.focus_on_words_need_review" = "Keskity tarkistusta vaativiin sanoihin";
+"quiz_list.not_enough_words_review_yet" = "Ei vielä tarpeeksi sanoja tarkistettavaksi";
+"quiz_list.add_words_to_shared_dictionary" = "Lisää sanoja jaettuun sanakirjaan";
+"quiz_list.add_your_first_word" = "Lisää ensimmäinen sanasi";
+"quiz_list.add_more_words" = "Lisää lisää sanoja";
+"quiz_list.quizzes_help_test_knowledge" = "Visat auttavat testaamaan tietojasi ja vahvistamaan oppimistasi!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Olet %d sanaa päässä visojen avaamisesta!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Lopeta";
+"quiz_actions.next_word" = "Seuraava sana";
+"quiz_actions.submit_answer" = "Lähetä vastaus";
+"quiz_actions.number_of_words" = "Sanojen määrä";
+"quiz_actions.no_difficult_words_available" = "Ei vaikeita sanoja saatavilla visaan";
+"quiz_actions.your_word_is" = "Sanasi on '%@'. Tee paremmin :)";
+"quiz_actions.try_harder" = "Tee paremmin :)";
+"quiz_actions.incorrect_try_again" = "Väärin. Yritä uudelleen";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Oikeinkirjoitusvisa";
+"quiz_types.choose_definition" = "Valitse määritelmä";
+"quiz_types.test_spelling_skills" = "Testaa oikeinkirjoitustaitojasi kirjoittamalla sanat oikein";
+"quiz_types.select_correct_definition" = "Valitse oikea määritelmä jokaiselle sanalle";
+"quiz_types.great_job_completed_spelling_quiz" = "Hienoa työtä! Olet suorittanut oikeinkirjoitusvisan.";
+"quiz_types.great_job_completed_definition_quiz" = "Hienoa työtä! Olet suorittanut määritelmävisan.";
+

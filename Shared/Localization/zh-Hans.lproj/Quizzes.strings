@@ -69,3 +69,42 @@
 "quizzes.best_format" = "最佳：%d";
 "quizzes.ask_dictionary_owner_add_words_or_switch" = "请词典所有者添加更多单词，或切换到其他词典！";
 
+// MARK: - Quiz Results
+"quiz_results.all_results" = "所有结果";
+"quiz_results.no_quiz_results_yet" = "暂无测验结果";
+"quiz_results.quiz" = "测验";
+"quiz_results.accuracy" = "准确率";
+"quiz_results.correct" = "正确";
+"quiz_results.duration" = "时长";
+"quiz_results.time_period" = "时间段";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "测验类型";
+"quiz_list.practice_settings" = "练习设置";
+"quiz_list.configure_quiz_experience" = "配置你的测验体验";
+"quiz_list.focus_on_words_need_review" = "专注于需要复习的单词";
+"quiz_list.not_enough_words_review_yet" = "尚未有足够单词可复习";
+"quiz_list.add_words_to_shared_dictionary" = "向共享词典添加单词";
+"quiz_list.add_your_first_word" = "添加你的第一个单词";
+"quiz_list.add_more_words" = "添加更多单词";
+"quiz_list.quizzes_help_test_knowledge" = "测验帮助测试你的知识并加强学习！";
+"quiz_list.words_away_from_unlocking_quizzes" = "你还差 %d 个单词即可解锁测验！";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "完成";
+"quiz_actions.next_word" = "下一个单词";
+"quiz_actions.submit_answer" = "提交答案";
+"quiz_actions.number_of_words" = "单词数量";
+"quiz_actions.no_difficult_words_available" = "没有困难单词可用于测验";
+"quiz_actions.your_word_is" = "你的单词是 '%@'。再努力一点 :)";
+"quiz_actions.try_harder" = "再努力一点 :)";
+"quiz_actions.incorrect_try_again" = "错误。请重试";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "拼写测验";
+"quiz_types.choose_definition" = "选择定义";
+"quiz_types.test_spelling_skills" = "通过正确拼写单词测试你的拼写技能";
+"quiz_types.select_correct_definition" = "为每个单词选择正确的定义";
+"quiz_types.great_job_completed_spelling_quiz" = "干得好！你已完成拼写测验。";
+"quiz_types.great_job_completed_definition_quiz" = "干得好！你已完成定义测验。";
+

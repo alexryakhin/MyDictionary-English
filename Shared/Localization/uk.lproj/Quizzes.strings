@@ -69,3 +69,42 @@
 "quizzes.best_format" = "Найкращий: %d";
 "quizzes.ask_dictionary_owner_add_words_or_switch" = "Попросіть власника словника додати більше слів або переключіться на інший словник";
 
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Усі результати";
+"quiz_results.no_quiz_results_yet" = "Поки немає результатів тестів";
+"quiz_results.quiz" = "Тест";
+"quiz_results.accuracy" = "Точність";
+"quiz_results.correct" = "Правильно";
+"quiz_results.duration" = "Тривалість";
+"quiz_results.time_period" = "Період часу";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Типи тестів";
+"quiz_list.practice_settings" = "Налаштування практики";
+"quiz_list.configure_quiz_experience" = "Налаштуйте свій досвід тестування";
+"quiz_list.focus_on_words_need_review" = "Зосередьтеся на словах, що потребують повтору";
+"quiz_list.not_enough_words_review_yet" = "Недостатньо слів для повтору";
+"quiz_list.add_words_to_shared_dictionary" = "Додайте слова до спільного словника";
+"quiz_list.add_your_first_word" = "Додайте ваше перше слово";
+"quiz_list.add_more_words" = "Додайте більше слів";
+"quiz_list.quizzes_help_test_knowledge" = "Тести допомагають перевірити ваші знання та зміцнити навчання!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Вам бракує %d слів, щоб розблокувати тести!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Завершити";
+"quiz_actions.next_word" = "Наступне слово";
+"quiz_actions.submit_answer" = "Надіслати відповідь";
+"quiz_actions.number_of_words" = "Кількість слів";
+"quiz_actions.no_difficult_words_available" = "Немає складних слів для тесту";
+"quiz_actions.your_word_is" = "Ваше слово було '%@'. Старайтесь краще!";
+"quiz_actions.try_harder" = "Старайтесь краще!";
+"quiz_actions.incorrect_try_again" = "Неправильно. Спробуйте ще раз";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Тест на правопис";
+"quiz_types.choose_definition" = "Вибрати визначення";
+"quiz_types.test_spelling_skills" = "Перевірте свої навички правопису, правильно написавши слова";
+"quiz_types.select_correct_definition" = "Виберіть правильне визначення для кожного слова";
+"quiz_types.great_job_completed_spelling_quiz" = "Чудова робота! Ви завершили тест на правопис";
+"quiz_types.great_job_completed_definition_quiz" = "Чудова робота! Ви завершили тест на визначення";
+

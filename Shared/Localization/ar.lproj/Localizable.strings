@@ -71,37 +71,6 @@
 "time_period.month" = "شهر";
 "time_period.year" = "سنة";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "جميع النتائج";
-"quiz_results.no_quiz_results_yet" = "لا توجد نتائج اختبارات بعد";
-"quiz_results.quiz" = "اختبار";
-"quiz_results.accuracy" = "الدقة";
-"quiz_results.correct" = "صحيح";
-"quiz_results.duration" = "المدة";
-"quiz_results.time_period" = "الفترة الزمنية";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "أنواع الاختبارات";
-"quiz_list.practice_settings" = "إعدادات التدريب";
-"quiz_list.configure_quiz_experience" = "قم بتهيئة تجربة الاختبار الخاصة بك";
-"quiz_list.focus_on_words_need_review" = "التركيز على الكلمات التي تحتاج إلى مراجعة";
-"quiz_list.not_enough_words_review_yet" = "لا توجد كلمات كافية للمراجعة بعد";
-"quiz_list.add_words_to_shared_dictionary" = "إضافة كلمات إلى القاموس المشترك";
-"quiz_list.add_your_first_word" = "أضف كلمتك الأولى";
-"quiz_list.add_more_words" = "أضف المزيد من الكلمات";
-"quiz_list.quizzes_help_test_knowledge" = "تساعد الاختبارات في اختبار معرفتك وتعزيز التعلم!";
-"quiz_list.words_away_from_unlocking_quizzes" = "أنت بعيد %d كلمات عن فتح الاختبارات!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "إنهاء";
-"quiz_actions.next_word" = "الكلمة التالية";
-"quiz_actions.submit_answer" = "إرسال الإجابة";
-"quiz_actions.number_of_words" = "عدد الكلمات";
-"quiz_actions.no_difficult_words_available" = "لا توجد كلمات صعبة متاحة للاختبار";
-"quiz_actions.your_word_is" = "كلمتك هي '%@'. حاول بجهد أكبر :)";
-"quiz_actions.try_harder" = "حاول بجهد أكبر :)";
-"quiz_actions.incorrect_try_again" = "غير صحيح. حاول مرة أخرى";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "حان وقت التدريب! 📚";
 "notifications.practice_vocabulary_today" = "لا تنسَ ممارسة مفرداتك اليوم.";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "لم يتم العثور على القاموس";
 "collaborator_management.dictionary_details" = "تفاصيل القاموس";
 "collaborator_management.unknown" = "غير معروف";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "اختبار الإملاء";
-"quiz_types.choose_definition" = "اختر التعريف";
-"quiz_types.test_spelling_skills" = "اختبر مهاراتك الإملائية بكتابة الكلمات بشكل صحيح";
-"quiz_types.select_correct_definition" = "اختر التعريف الصحيح لكل كلمة";
-"quiz_types.great_job_completed_spelling_quiz" = "عمل رائع! لقد أكملت اختبار الإملاء.";
-"quiz_types.great_job_completed_definition_quiz" = "عمل رائع! لقد أكملت اختبار التعريف.";
 

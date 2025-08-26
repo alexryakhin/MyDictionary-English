@@ -69,3 +69,42 @@
 "quizzes.best_format" = "En İyi: %d";
 "quizzes.ask_dictionary_owner_add_words_or_switch" = "Sözlük sahibinden daha fazla kelime eklemesini isteyin veya başka bir sözlüğe geçin!";
 
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Tüm Sonuçlar";
+"quiz_results.no_quiz_results_yet" = "Henüz test sonucu yok";
+"quiz_results.quiz" = "Test";
+"quiz_results.accuracy" = "Doğruluk";
+"quiz_results.correct" = "Doğru";
+"quiz_results.duration" = "Süre";
+"quiz_results.time_period" = "Zaman Dilimi";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Test Türleri";
+"quiz_list.practice_settings" = "Alıştırma Ayarları";
+"quiz_list.configure_quiz_experience" = "Test deneyiminizi özelleştirin";
+"quiz_list.focus_on_words_need_review" = "Tekrar gereken kelimelere odaklan";
+"quiz_list.not_enough_words_review_yet" = "Tekrar için yeterli kelime yok";
+"quiz_list.add_words_to_shared_dictionary" = "Paylaşılan sözlüğe kelime ekleyin";
+"quiz_list.add_your_first_word" = "İlk kelimenizi ekleyin";
+"quiz_list.add_more_words" = "Daha fazla kelime ekleyin";
+"quiz_list.quizzes_help_test_knowledge" = "Testler bilginizi sınamanıza ve öğrenmeyi pekiştirmenize yardımcı olur!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Testleri açmak için %d kelime eksik!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Bitir";
+"quiz_actions.next_word" = "Sonraki Kelime";
+"quiz_actions.submit_answer" = "Cevabı Gönder";
+"quiz_actions.number_of_words" = "Kelime Sayısı";
+"quiz_actions.no_difficult_words_available" = "Test için zor kelime yok";
+"quiz_actions.your_word_is" = "Kelimeniz '%@' idi. Daha iyi deneyin!";
+"quiz_actions.try_harder" = "Daha fazla çaba göster!";
+"quiz_actions.incorrect_try_again" = "Yanlış. Tekrar deneyin";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Yazım Testi";
+"quiz_types.choose_definition" = "Tanımı Seç";
+"quiz_types.test_spelling_skills" = "Kelimeleri doğru yazarak yazım becerilerinizi test edin";
+"quiz_types.select_correct_definition" = "Her kelime için doğru tanımı seçin";
+"quiz_types.great_job_completed_spelling_quiz" = "Harika iş! Yazım testini tamamladınız.";
+"quiz_types.great_job_completed_definition_quiz" = "Harika iş! Tanım testini tamamladınız.";
+

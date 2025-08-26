@@ -69,3 +69,42 @@
 "quizzes.best_format" = "Лучший: %d";
 "quizzes.ask_dictionary_owner_add_words_or_switch" = "Попросите владельца словаря добавить больше слов или переключитесь на другой словарь!";
 
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Все результаты";
+"quiz_results.no_quiz_results_yet" = "Результатов викторин пока нет";
+"quiz_results.quiz" = "Викторина";
+"quiz_results.accuracy" = "Точность";
+"quiz_results.correct" = "Правильно";
+"quiz_results.duration" = "Продолжительность";
+"quiz_results.time_period" = "Период времени";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Типы викторин";
+"quiz_list.practice_settings" = "Настройки практики";
+"quiz_list.configure_quiz_experience" = "Настройте свой опыт прохождения викторин";
+"quiz_list.focus_on_words_need_review" = "Сосредоточьтесь на словах, требующих повторения";
+"quiz_list.not_enough_words_review_yet" = "Недостаточно слов для повторения";
+"quiz_list.add_words_to_shared_dictionary" = "Добавьте слова в общий словарь";
+"quiz_list.add_your_first_word" = "Добавьте своё первое слово";
+"quiz_list.add_more_words" = "Добавьте ещё слова";
+"quiz_list.quizzes_help_test_knowledge" = "Викторины помогают проверить ваши знания и укрепить обучение!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Осталось %d слов для разблокировки викторин!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Завершить";
+"quiz_actions.next_word" = "Следующее слово";
+"quiz_actions.submit_answer" = "Отправить ответ";
+"quiz_actions.number_of_words" = "Количество слов";
+"quiz_actions.no_difficult_words_available" = "Нет сложных слов для викторины";
+"quiz_actions.your_word_is" = "Ваше слово было '%@'. Старайтесь лучше!";
+"quiz_actions.try_harder" = "Старайтесь лучше!";
+"quiz_actions.incorrect_try_again" = "Неправильно. Попробуйте снова";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Викторина по правописанию";
+"quiz_types.choose_definition" = "Выбрать определение";
+"quiz_types.test_spelling_skills" = "Проверьте свои навыки правописания, правильно написав слова";
+"quiz_types.select_correct_definition" = "Выберите правильное определение для каждого слова";
+"quiz_types.great_job_completed_spelling_quiz" = "Отличная работа! Вы завершили викторину по правописанию.";
+"quiz_types.great_job_completed_definition_quiz" = "Отличная работа! Вы завершили викторину по определениям.";
+

@@ -69,3 +69,42 @@
 "quizzes.best_format" = "Migliore: %d";
 "quizzes.ask_dictionary_owner_add_words_or_switch" = "Chiedi al proprietario del dizionario di aggiungere più parole o passa a un altro dizionario!";
 
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Tutti i Risultati";
+"quiz_results.no_quiz_results_yet" = "Nessun risultato quiz ancora";
+"quiz_results.quiz" = "Quiz";
+"quiz_results.accuracy" = "Precisione";
+"quiz_results.correct" = "Corretto";
+"quiz_results.duration" = "Durata";
+"quiz_results.time_period" = "Periodo di Tempo";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Tipi di Quiz";
+"quiz_list.practice_settings" = "Impostazioni di Pratica";
+"quiz_list.configure_quiz_experience" = "Configura la tua esperienza di quiz";
+"quiz_list.focus_on_words_need_review" = "Concentrati sulle parole che richiedono revisione";
+"quiz_list.not_enough_words_review_yet" = "Non ci sono abbastanza parole da rivedere";
+"quiz_list.add_words_to_shared_dictionary" = "Aggiungi parole al dizionario condiviso";
+"quiz_list.add_your_first_word" = "Aggiungi la tua prima parola";
+"quiz_list.add_more_words" = "Aggiungi altre parole";
+"quiz_list.quizzes_help_test_knowledge" = "I quiz aiutano a testare le tue conoscenze e a rafforzare il tuo apprendimento!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Sei a %d parole dall'attivare i quiz!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Termina";
+"quiz_actions.next_word" = "Parola Successiva";
+"quiz_actions.submit_answer" = "Invia Risposta";
+"quiz_actions.number_of_words" = "Numero di Parole";
+"quiz_actions.no_difficult_words_available" = "Nessuna parola difficile disponibile per il quiz";
+"quiz_actions.your_word_is" = "La tua parola è '%@'. Migliora :)";
+"quiz_actions.try_harder" = "Prova più duramente :)";
+"quiz_actions.incorrect_try_again" = "Sbagliato. Riprova";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Quiz di Ortografia";
+"quiz_types.choose_definition" = "Scegli Definizione";
+"quiz_types.test_spelling_skills" = "Metti alla prova le tue abilità di ortografia scrivendo correttamente le parole";
+"quiz_types.select_correct_definition" = "Scegli la definizione corretta per ogni parola";
+"quiz_types.great_job_completed_spelling_quiz" = "Ottimo lavoro! Hai completato il quiz di ortografia.";
+"quiz_types.great_job_completed_definition_quiz" = "Ottimo lavoro! Hai completato il quiz di definizione.";
+

@@ -71,37 +71,6 @@
 "time_period.month" = "Mes";
 "time_period.year" = "Año";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Todos los resultados";
-"quiz_results.no_quiz_results_yet" = "Aún no hay resultados de cuestionarios";
-"quiz_results.quiz" = "Cuestionario";
-"quiz_results.accuracy" = "Precisión";
-"quiz_results.correct" = "Correcto";
-"quiz_results.duration" = "Duración";
-"quiz_results.time_period" = "Período de tiempo";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Tipos de cuestionarios";
-"quiz_list.practice_settings" = "Ajustes de práctica";
-"quiz_list.configure_quiz_experience" = "Configura tu experiencia con los cuestionarios";
-"quiz_list.focus_on_words_need_review" = "Centrarte en palabras que necesitan repaso";
-"quiz_list.not_enough_words_review_yet" = "No hay suficientes palabras para repasar";
-"quiz_list.add_words_to_shared_dictionary" = "Añade palabras al diccionario compartido";
-"quiz_list.add_your_first_word" = "Añade tu primera palabra";
-"quiz_list.add_more_words" = "Añade más palabras";
-"quiz_list.quizzes_help_test_knowledge" = "¡Los cuestionarios te ayudan a probar tus conocimientos y reforzar el aprendizaje!";
-"quiz_list.words_away_from_unlocking_quizzes" = "¡Te faltan %d palabras para desbloquear los cuestionarios!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Finalizar";
-"quiz_actions.next_word" = "Siguiente palabra";
-"quiz_actions.submit_answer" = "Enviar respuesta";
-"quiz_actions.number_of_words" = "Número de palabras";
-"quiz_actions.no_difficult_words_available" = "No hay palabras difíciles disponibles para el cuestionario";
-"quiz_actions.your_word_is" = "Tu palabra fue '%@'. ¡Esfuérzate más!";
-"quiz_actions.try_harder" = "¡Esfuérzate más!";
-"quiz_actions.incorrect_try_again" = "Incorrecto. Intenta de nuevo";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "¡Hora de practicar! 📚";
 "notifications.practice_vocabulary_today" = "No olvides practicar tu vocabulario hoy.";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "Diccionario no encontrado";
 "collaborator_management.dictionary_details" = "Detalles del diccionario";
 "collaborator_management.unknown" = "Desconocido";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Cuestionario de ortografía";
-"quiz_types.choose_definition" = "Elegir definición";
-"quiz_types.test_spelling_skills" = "Pon a prueba tus habilidades de ortografía escribiendo correctamente las palabras";
-"quiz_types.select_correct_definition" = "Selecciona la definición correcta para cada palabra";
-"quiz_types.great_job_completed_spelling_quiz" = "¡Gran trabajo! Has completado el cuestionario de ortografía.";
-"quiz_types.great_job_completed_definition_quiz" = "¡Gran trabajo! Has completado el cuestionario de definiciones.";
 

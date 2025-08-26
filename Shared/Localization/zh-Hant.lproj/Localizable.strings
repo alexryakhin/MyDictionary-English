@@ -71,37 +71,6 @@
 "time_period.month" = "月";
 "time_period.year" = "年";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "所有結果";
-"quiz_results.no_quiz_results_yet" = "暫無測驗結果";
-"quiz_results.quiz" = "測驗";
-"quiz_results.accuracy" = "準確率";
-"quiz_results.correct" = "正確";
-"quiz_results.duration" = "時長";
-"quiz_results.time_period" = "時間段";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "測驗類型";
-"quiz_list.practice_settings" = "練習設置";
-"quiz_list.configure_quiz_experience" = "配置你的測驗體驗";
-"quiz_list.focus_on_words_need_review" = "專注於需要複習的單詞";
-"quiz_list.not_enough_words_review_yet" = "尚未有足夠單詞可複習";
-"quiz_list.add_words_to_shared_dictionary" = "向共享詞典添加單詞";
-"quiz_list.add_your_first_word" = "添加你的第一個單詞";
-"quiz_list.add_more_words" = "添加更多單詞";
-"quiz_list.quizzes_help_test_knowledge" = "測驗幫助測試你的知識並加強學習！";
-"quiz_list.words_away_from_unlocking_quizzes" = "你還差 %d 個單詞即可解鎖測驗！";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "完成";
-"quiz_actions.next_word" = "下一個單詞";
-"quiz_actions.submit_answer" = "提交答案";
-"quiz_actions.number_of_words" = "單詞數量";
-"quiz_actions.no_difficult_words_available" = "沒有困難單詞可用于測驗";
-"quiz_actions.your_word_is" = "你的單詞是 '%@'。再努力一點 :)";
-"quiz_actions.try_harder" = "再努力一點 :)";
-"quiz_actions.incorrect_try_again" = "錯誤。請重試";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "練習時間到！ 📚";
 "notifications.practice_vocabulary_today" = "今天別忘了練習你的詞彙。";
@@ -173,12 +142,4 @@
 "collaborator_management.dictionary_not_found" = "未找到詞典";
 "collaborator_management.dictionary_details" = "詞典詳情";
 "collaborator_management.unknown" = "未知";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "拼寫測驗";
-"quiz_types.choose_definition" = "選擇定義";
-"quiz_types.test_spelling_skills" = "通過正確拼寫單詞測試你的拼寫技能";
-"quiz_types.select_correct_definition" = "為每個單詞選擇正確的定義";
-"quiz_types.great_job_completed_spelling_quiz" = "幹得好！你已完成拼寫測驗。";
-"quiz_types.great_job_completed_definition_quiz" = "幹得好！你已完成定義測驗。";
 

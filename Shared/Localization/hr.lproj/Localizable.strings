@@ -71,37 +71,6 @@
 "time_period.month" = "Mjesec";
 "time_period.year" = "Godina";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Svi rezultati";
-"quiz_results.no_quiz_results_yet" = "Još nema rezultata kvizova";
-"quiz_results.quiz" = "Kviz";
-"quiz_results.accuracy" = "Točnost";
-"quiz_results.correct" = "Točno";
-"quiz_results.duration" = "Trajanje";
-"quiz_results.time_period" = "Vremensko razdoblje";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Vrste kvizova";
-"quiz_list.practice_settings" = "Postavke vježbanja";
-"quiz_list.configure_quiz_experience" = "Konfigurirajte svoje iskustvo s kvizovima";
-"quiz_list.focus_on_words_need_review" = "Fokusiraj se na riječi koje treba pregledati";
-"quiz_list.not_enough_words_review_yet" = "Još nema dovoljno riječi za pregled";
-"quiz_list.add_words_to_shared_dictionary" = "Dodaj riječi u zajednički rječnik";
-"quiz_list.add_your_first_word" = "Dodaj svoju prvu riječ";
-"quiz_list.add_more_words" = "Dodaj više riječi";
-"quiz_list.quizzes_help_test_knowledge" = "Kvizovi pomažu testirati vaše znanje i pojačati učenje!";
-"quiz_list.words_away_from_unlocking_quizzes" = "Nedostaje vam %d riječi za otključavanje kvizova!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Završi";
-"quiz_actions.next_word" = "Sljedeća riječ";
-"quiz_actions.submit_answer" = "Pošalji odgovor";
-"quiz_actions.number_of_words" = "Broj riječi";
-"quiz_actions.no_difficult_words_available" = "Nema dostupnih teških riječi za kviz";
-"quiz_actions.your_word_is" = "Vaša riječ je '%@'. Potrudite se više :)";
-"quiz_actions.try_harder" = "Potrudite se više :)";
-"quiz_actions.incorrect_try_again" = "Netočno. Pokušajte ponovno";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Vrijeme za vježbanje! 📚";
 "notifications.practice_vocabulary_today" = "Ne zaboravite vježbati svoj vokabular danas.";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "Rječnik nije pronađen";
 "collaborator_management.dictionary_details" = "Detalji rječnika";
 "collaborator_management.unknown" = "Nepoznato";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Kviz pravopisa";
-"quiz_types.choose_definition" = "Odaberi definiciju";
-"quiz_types.test_spelling_skills" = "Testirajte svoje vještine pravopisa točnim pisanjem riječi";
-"quiz_types.select_correct_definition" = "Odaberite točnu definiciju za svaku riječ";
-"quiz_types.great_job_completed_spelling_quiz" = "Odličan posao! Završili ste kviz pravopisa.";
-"quiz_types.great_job_completed_definition_quiz" = "Odličan posao! Završili ste kviz definicija.";
 

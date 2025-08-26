@@ -71,37 +71,6 @@
 "time_period.month" = "Μήνας";
 "time_period.year" = "Έτος";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Όλα τα Αποτελέσματα";
-"quiz_results.no_quiz_results_yet" = "Κανένα αποτέλεσμα κουίζ ακόμα";
-"quiz_results.quiz" = "Κουίζ";
-"quiz_results.accuracy" = "Ακρίβεια";
-"quiz_results.correct" = "Σωστό";
-"quiz_results.duration" = "Διάρκεια";
-"quiz_results.time_period" = "Χρονική Περίοδος";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Τύποι Κουίζ";
-"quiz_list.practice_settings" = "Ρυθμίσεις Εξάσκησης";
-"quiz_list.configure_quiz_experience" = "Προσαρμογή της Εμπειρίας Κουίζ";
-"quiz_list.focus_on_words_need_review" = "Εστίαση σε λέξεις που χρειάζονται επανεξέταση";
-"quiz_list.not_enough_words_review_yet" = "Δεν υπάρχουν αρκετές λέξεις για επανεξέταση ακόμα";
-"quiz_list.add_words_to_shared_dictionary" = "Πρόσθεσε λέξεις στο κοινόχρηστο λεξικό";
-"quiz_list.add_your_first_word" = "Πρόσθεσε την πρώτη σου λέξη";
-"quiz_list.add_more_words" = "Πρόσθεσε περισσότερες λέξεις";
-"quiz_list.quizzes_help_test_knowledge" = "Τα κουίζ βοηθούν στη δοκιμή των γνώσεών σου και στην ενίσχυση της μάθησης!";
-"quiz_list.words_away_from_unlocking_quizzes" = "Είσαι %d λέξεις μακριά από το ξεκλείδωμα των κουίζ!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Τέλος";
-"quiz_actions.next_word" = "Επόμενη Λέξη";
-"quiz_actions.submit_answer" = "Υποβολή Απάντησης";
-"quiz_actions.number_of_words" = "Αριθμός Λέξεων";
-"quiz_actions.no_difficult_words_available" = "Καμία δύσκολη λέξη διαθέσιμη για το κουίζ";
-"quiz_actions.your_word_is" = "Η λέξη σου είναι '%@'. Κάνε καλύτερα :)";
-"quiz_actions.try_harder" = "Κάνε καλύτερα :)";
-"quiz_actions.incorrect_try_again" = "Λάθος. Προσπάθησε ξανά";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Ώρα για εξάσκηση! 📚";
 "notifications.practice_vocabulary_today" = "Μην ξεχάσεις να εξασκήσεις το λεξιλόγιό σου σήμερα.";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "Το λεξικό δεν βρέθηκε";
 "collaborator_management.dictionary_details" = "Λεπτομέρειες Λεξικού";
 "collaborator_management.unknown" = "Άγνωστο";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Κουίζ Ορθογραφίας";
-"quiz_types.choose_definition" = "Επιλογή Ορισμού";
-"quiz_types.test_spelling_skills" = "Δοκίμασε τις ορθογραφικές σου δεξιότητες γράφοντας σωστά τις λέξεις";
-"quiz_types.select_correct_definition" = "Επίλεξε τον σωστό ορισμό για κάθε λέξη";
-"quiz_types.great_job_completed_spelling_quiz" = "Εξαιρετική δουλειά! Ολοκλήρωσες το κουίζ ορθογραφίας.";
-"quiz_types.great_job_completed_definition_quiz" = "Εξαιρετική δουλειά! Ολοκλήρωσες το κουίζ ορισμού.";
 

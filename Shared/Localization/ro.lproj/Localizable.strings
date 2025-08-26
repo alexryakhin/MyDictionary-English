@@ -71,37 +71,6 @@
 "time_period.month" = "Lună";
 "time_period.year" = "An";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Toate Rezultatele";
-"quiz_results.no_quiz_results_yet" = "Fără rezultate la teste încă";
-"quiz_results.quiz" = "Test";
-"quiz_results.accuracy" = "Acuratețe";
-"quiz_results.correct" = "Corect";
-"quiz_results.duration" = "Durată";
-"quiz_results.time_period" = "Perioadă de Timp";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Tipuri de Teste";
-"quiz_list.practice_settings" = "Setări de Practică";
-"quiz_list.configure_quiz_experience" = "Configurează-ți experiența cu testele";
-"quiz_list.focus_on_words_need_review" = "Concentrează-te pe cuvinte care necesită revizuire";
-"quiz_list.not_enough_words_review_yet" = "Nu sunt suficiente cuvinte pentru revizuire încă";
-"quiz_list.add_words_to_shared_dictionary" = "Adaugă cuvinte la dicționarul partajat";
-"quiz_list.add_your_first_word" = "Adaugă primul tău cuvânt";
-"quiz_list.add_more_words" = "Adaugă mai multe cuvinte";
-"quiz_list.quizzes_help_test_knowledge" = "Testele te ajută să-ți testezi cunoștințele și să-ți consolidezi învățarea!";
-"quiz_list.words_away_from_unlocking_quizzes" = "Mai ai nevoie de %d cuvinte pentru a debloca testele!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Finalizează";
-"quiz_actions.next_word" = "Următorul Cuvânt";
-"quiz_actions.submit_answer" = "Trimite Răspunsul";
-"quiz_actions.number_of_words" = "Număr de Cuvinte";
-"quiz_actions.no_difficult_words_available" = "Niciun cuvânt dificil disponibil pentru test";
-"quiz_actions.your_word_is" = "Cuvântul tău a fost '%@'. Încearcă mai bine!";
-"quiz_actions.try_harder" = "Încearcă mai mult!";
-"quiz_actions.incorrect_try_again" = "Incorect. Încearcă din nou";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "E timpul să exersezi! 📚";
 "notifications.practice_vocabulary_today" = "Nu uita să-ți exersezi vocabularul astăzi.";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "Dicționar negăsit";
 "collaborator_management.dictionary_details" = "Detalii Dicționar";
 "collaborator_management.unknown" = "Necunoscut";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Test de Ortografie";
-"quiz_types.choose_definition" = "Alege Definiția";
-"quiz_types.test_spelling_skills" = "Testează-ți abilitățile de ortografie scriind corect cuvintele";
-"quiz_types.select_correct_definition" = "Alege definiția corectă pentru fiecare cuvânt";
-"quiz_types.great_job_completed_spelling_quiz" = "Bună treabă! Ai finalizat testul de ortografie.";
-"quiz_types.great_job_completed_definition_quiz" = "Bună treabă! Ai finalizat testul de definiție.";
 

@@ -71,37 +71,6 @@
 "time_period.month" = "เดือน";
 "time_period.year" = "ปี";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "ผลลัพธ์ทั้งหมด";
-"quiz_results.no_quiz_results_yet" = "ยังไม่มีผลลัพธ์แบบทดสอบ";
-"quiz_results.quiz" = "แบบทดสอบ";
-"quiz_results.accuracy" = "ความแม่นยำ";
-"quiz_results.correct" = "ถูกต้อง";
-"quiz_results.duration" = "ระยะเวลา";
-"quiz_results.time_period" = "ช่วงเวลา";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "ประเภทแบบทดสอบ";
-"quiz_list.practice_settings" = "การตั้งค่าการฝึก";
-"quiz_list.configure_quiz_experience" = "ปรับแต่งประสบการณ์แบบทดสอบของคุณ";
-"quiz_list.focus_on_words_need_review" = "เน้นคำศัพท์ที่ต้องทบทวน";
-"quiz_list.not_enough_words_review_yet" = "ไม่มีคำศัพท์เพียงพอสำหรับทบทวน";
-"quiz_list.add_words_to_shared_dictionary" = "เพิ่มคำศัพท์ในพจนานุกรมที่แชร์";
-"quiz_list.add_your_first_word" = "เพิ่มคำศัพท์คำแรกของคุณ";
-"quiz_list.add_more_words" = "เพิ่มคำศัพท์เพิ่มเติม";
-"quiz_list.quizzes_help_test_knowledge" = "แบบทดสอบช่วยคุณทดสอบความรู้และเสริมสร้างการเรียนรู้!";
-"quiz_list.words_away_from_unlocking_quizzes" = "คุณขาด %d คำศัพท์เพื่อปลดล็อกแบบทดสอบ!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "เสร็จสิ้น";
-"quiz_actions.next_word" = "คำศัพท์ถัดไป";
-"quiz_actions.submit_answer" = "ส่งคำตอบ";
-"quiz_actions.number_of_words" = "จำนวนคำศัพท์";
-"quiz_actions.no_difficult_words_available" = "ไม่มีคำศัพท์ที่ยากสำหรับแบบทดสอบ";
-"quiz_actions.your_word_is" = "คำศัพท์ของคุณคือ '%@' พยายามให้มากกว่านี้!";
-"quiz_actions.try_harder" = "พยายามให้มากกว่านี้!";
-"quiz_actions.incorrect_try_again" = "ไม่ถูกต้อง ลองใหม่";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "ถึงเวลาฝึก! 📚";
 "notifications.practice_vocabulary_today" = "อย่าลืมฝึกคำศัพท์ของคุณวันนี้";
@@ -173,12 +142,4 @@
 "collaborator_management.dictionary_not_found" = "ไม่พบพจนานุกรม";
 "collaborator_management.dictionary_details" = "รายละเอียดพจนานุกรม";
 "collaborator_management.unknown" = "ไม่ทราบ";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "แบบทดสอบการสะกดคำ";
-"quiz_types.choose_definition" = "เลือกความหมาย";
-"quiz_types.test_spelling_skills" = "ทดสอบทักษะการสะกดคำของคุณโดยสะกดคำให้ถูกต้อง";
-"quiz_types.select_correct_definition" = "เลือกความหมายที่ถูกต้องสำหรับแต่ละคำ";
-"quiz_types.great_job_completed_spelling_quiz" = "เยี่ยมมาก! คุณทำแบบทดสอบการสะกดคำเสร็จแล้ว";
-"quiz_types.great_job_completed_definition_quiz" = "เยี่ยมมาก! คุณทำแบบทดสอบความหมายเสร็จแล้ว";
 

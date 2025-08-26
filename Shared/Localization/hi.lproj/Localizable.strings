@@ -71,37 +71,6 @@
 "time_period.month" = "महीना";
 "time_period.year" = "वर्ष";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "सभी परिणाम";
-"quiz_results.no_quiz_results_yet" = "अभी तक कोई क्विज़ परिणाम नहीं";
-"quiz_results.quiz" = "क्विज़";
-"quiz_results.accuracy" = "सटीकता";
-"quiz_results.correct" = "सही";
-"quiz_results.duration" = "अवधि";
-"quiz_results.time_period" = "समय अवधि";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "क्विज़ प्रकार";
-"quiz_list.practice_settings" = "अभ्यास सेटिंग्स";
-"quiz_list.configure_quiz_experience" = "अपने क्विज़ अनुभव को कॉन्फ़िगर करें";
-"quiz_list.focus_on_words_need_review" = "समीक्षा की आवश्यकता वाले शब्दों पर ध्यान दें";
-"quiz_list.not_enough_words_review_yet" = "समीक्षा के लिए अभी तक पर्याप्त शब्द नहीं हैं";
-"quiz_list.add_words_to_shared_dictionary" = "साझा शब्दकोश में शब्द जोड़ें";
-"quiz_list.add_your_first_word" = "अपना पहला शब्द जोड़ें";
-"quiz_list.add_more_words" = "और शब्द जोड़ें";
-"quiz_list.quizzes_help_test_knowledge" = "क्विज़ आपके ज्ञान का परीक्षण करने और आपकी सीख को मजबूत करने में मदद करते हैं!";
-"quiz_list.words_away_from_unlocking_quizzes" = "आप क्विज़ अनलॉक करने से %d शब्द दूर हैं!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "समाप्त";
-"quiz_actions.next_word" = "अगला शब्द";
-"quiz_actions.submit_answer" = "उत्तर जमा करें";
-"quiz_actions.number_of_words" = "शब्दों की संख्या";
-"quiz_actions.no_difficult_words_available" = "क्विज़ के लिए कोई कठिन शब्द उपलब्ध नहीं";
-"quiz_actions.your_word_is" = "आपका शब्द है '%@'। बेहतर करें :)";
-"quiz_actions.try_harder" = "बेहतर करें :)";
-"quiz_actions.incorrect_try_again" = "गलत। पुनः प्रयास करें";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "अभ्यास करने का समय! 📚";
 "notifications.practice_vocabulary_today" = "आज अपनी शब्दावली का अभ्यास करना न भूलें।";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "शब्दकोश नहीं मिला";
 "collaborator_management.dictionary_details" = "शब्दकोश विवरण";
 "collaborator_management.unknown" = "अज्ञात";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "वर्तनी क्विज़";
-"quiz_types.choose_definition" = "परिभाषा चुनें";
-"quiz_types.test_spelling_skills" = "शब्दों को सही ढंग से लिखकर अपनी वर्तनी कौशल का परीक्षण करें";
-"quiz_types.select_correct_definition" = "प्रत्येक शब्द के लिए सही परिभाषा चुनें";
-"quiz_types.great_job_completed_spelling_quiz" = "शानदार काम! आपने वर्तनी क्विज़ पूरा किया।";
-"quiz_types.great_job_completed_definition_quiz" = "शानदार काम! आपने परिभाषा क्विज़ पूरा किया।";
 

@@ -71,37 +71,6 @@
 "time_period.month" = "Tháng";
 "time_period.year" = "Năm";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Tất cả kết quả";
-"quiz_results.no_quiz_results_yet" = "Chưa có kết quả bài kiểm tra";
-"quiz_results.quiz" = "Bài kiểm tra";
-"quiz_results.accuracy" = "Độ chính xác";
-"quiz_results.correct" = "Đúng";
-"quiz_results.duration" = "Thời lượng";
-"quiz_results.time_period" = "Khoảng thời gian";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Loại bài kiểm tra";
-"quiz_list.practice_settings" = "Cài đặt luyện tập";
-"quiz_list.configure_quiz_experience" = "Tùy chỉnh trải nghiệm bài kiểm tra của bạn";
-"quiz_list.focus_on_words_need_review" = "Tập trung vào các từ cần ôn tập";
-"quiz_list.not_enough_words_review_yet" = "Không đủ từ để ôn tập";
-"quiz_list.add_words_to_shared_dictionary" = "Thêm từ vào từ điển chia sẻ";
-"quiz_list.add_your_first_word" = "Thêm từ đầu tiên của bạn";
-"quiz_list.add_more_words" = "Thêm nhiều từ hơn";
-"quiz_list.quizzes_help_test_knowledge" = "Các bài kiểm tra giúp bạn kiểm tra kiến thức và củng cố việc học!";
-"quiz_list.words_away_from_unlocking_quizzes" = "Bạn còn thiếu %d từ để mở khóa bài kiểm tra!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Hoàn thành";
-"quiz_actions.next_word" = "Từ tiếp theo";
-"quiz_actions.submit_answer" = "Nộp câu trả lời";
-"quiz_actions.number_of_words" = "Số lượng từ";
-"quiz_actions.no_difficult_words_available" = "Không có từ khó nào để kiểm tra";
-"quiz_actions.your_word_is" = "Từ của bạn là '%@'. Hãy cố gắng hơn!";
-"quiz_actions.try_harder" = "Cố gắng hơn nữa!";
-"quiz_actions.incorrect_try_again" = "Sai. Thử lại";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Đến giờ luyện tập! 📚";
 "notifications.practice_vocabulary_today" = "Đừng quên luyện tập vốn từ vựng của bạn hôm nay.";
@@ -173,12 +142,4 @@
 "collaborator_management.dictionary_not_found" = "Không tìm thấy từ điển";
 "collaborator_management.dictionary_details" = "Chi tiết từ điển";
 "collaborator_management.unknown" = "Không xác định";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Bài kiểm tra chính tả";
-"quiz_types.choose_definition" = "Chọn định nghĩa";
-"quiz_types.test_spelling_skills" = "Kiểm tra kỹ năng chính tả của bạn bằng cách viết đúng các từ";
-"quiz_types.select_correct_definition" = "Chọn định nghĩa đúng cho mỗi từ";
-"quiz_types.great_job_completed_spelling_quiz" = "Làm tốt lắm! Bạn đã hoàn thành bài kiểm tra chính tả.";
-"quiz_types.great_job_completed_definition_quiz" = "Làm tốt lắm! Bạn đã hoàn thành bài kiểm tra định nghĩa.";
 

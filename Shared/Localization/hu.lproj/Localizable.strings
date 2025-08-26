@@ -71,37 +71,6 @@
 "time_period.month" = "Hónap";
 "time_period.year" = "Év";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Összes eredmény";
-"quiz_results.no_quiz_results_yet" = "Még nincsenek kviz eredmények";
-"quiz_results.quiz" = "Kviz";
-"quiz_results.accuracy" = "Pontosság";
-"quiz_results.correct" = "Helyes";
-"quiz_results.duration" = "Időtartam";
-"quiz_results.time_period" = "Időszak";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Kviz típusok";
-"quiz_list.practice_settings" = "Gyakorlási beállítások";
-"quiz_list.configure_quiz_experience" = "Állítsd be a kviz élményedet";
-"quiz_list.focus_on_words_need_review" = "Fókuszálj a felülvizsgálatra váró szavakra";
-"quiz_list.not_enough_words_review_yet" = "Még nincs elég szó a felülvizsgálathoz";
-"quiz_list.add_words_to_shared_dictionary" = "Szavak hozzáadása a megosztott szótárhoz";
-"quiz_list.add_your_first_word" = "Add hozzá az első szavad";
-"quiz_list.add_more_words" = "További szavak hozzáadása";
-"quiz_list.quizzes_help_test_knowledge" = "A kvizek segítenek tesztelni a tudásodat és erősíteni a tanulásodat!";
-"quiz_list.words_away_from_unlocking_quizzes" = "%d szóra vagy a kvizek feloldásától!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Befejezés";
-"quiz_actions.next_word" = "Következő szó";
-"quiz_actions.submit_answer" = "Válasz elküldése";
-"quiz_actions.number_of_words" = "Szavak száma";
-"quiz_actions.no_difficult_words_available" = "Nincsenek nehéz szavak a kvizhez";
-"quiz_actions.your_word_is" = "A szavad: '%@'. Javíts rajta :)";
-"quiz_actions.try_harder" = "Próbáld keményebben :)";
-"quiz_actions.incorrect_try_again" = "Helytelen. Próbáld újra";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Ideje gyakorolni! 📚";
 "notifications.practice_vocabulary_today" = "Ne felejts el ma gyakorolni a szókincsedet.";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "A szótár nem található";
 "collaborator_management.dictionary_details" = "Szótár részletei";
 "collaborator_management.unknown" = "Ismeretlen";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Helyesírási kviz";
-"quiz_types.choose_definition" = "Definíció választása";
-"quiz_types.test_spelling_skills" = "Teszteld helyesírási készségeidet a szavak helyes leírásával";
-"quiz_types.select_correct_definition" = "Válaszd ki a helyes definíciót minden szóhoz";
-"quiz_types.great_job_completed_spelling_quiz" = "Nagyszerű munka! Befejezted a helyesírási kvizt.";
-"quiz_types.great_job_completed_definition_quiz" = "Nagyszerű munka! Befejezted a definíció kvizt.";
 

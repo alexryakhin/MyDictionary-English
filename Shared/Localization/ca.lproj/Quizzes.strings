@@ -69,3 +69,42 @@
 "quizzes.best_format" = "Millor: %d";
 "quizzes.ask_dictionary_owner_add_words_or_switch" = "Demana al propietari del diccionari que afegeixi més paraules o canvia a un altre diccionari!";
 
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Tots els resultats";
+"quiz_results.no_quiz_results_yet" = "Encara no hi ha resultats de qüestionaris";
+"quiz_results.quiz" = "Qüestionari";
+"quiz_results.accuracy" = "Precisió";
+"quiz_results.correct" = "Correcte";
+"quiz_results.duration" = "Durada";
+"quiz_results.time_period" = "Període de temps";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Tipus de qüestionaris";
+"quiz_list.practice_settings" = "Configuració de pràctica";
+"quiz_list.configure_quiz_experience" = "Configura la teva experiència de qüestionari";
+"quiz_list.focus_on_words_need_review" = "Centra't en paraules que necessiten revisió";
+"quiz_list.not_enough_words_review_yet" = "No hi ha prou paraules per revisar encara";
+"quiz_list.add_words_to_shared_dictionary" = "Afegeix paraules al diccionari compartit";
+"quiz_list.add_your_first_word" = "Afegeix la teva primera paraula";
+"quiz_list.add_more_words" = "Afegeix més paraules";
+"quiz_list.quizzes_help_test_knowledge" = "Els qüestionaris t'ajuden a provar els teus coneixements i reforçar l'aprenentatge!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Et falten %d paraules per desbloquejar els qüestionaris!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Acaba";
+"quiz_actions.next_word" = "Paraula següent";
+"quiz_actions.submit_answer" = "Envia la resposta";
+"quiz_actions.number_of_words" = "Nombre de paraules";
+"quiz_actions.no_difficult_words_available" = "No hi ha paraules difícils disponibles per al qüestionari";
+"quiz_actions.your_word_is" = "La teva paraula és '%@'. Esforça't més :)";
+"quiz_actions.try_harder" = "Esforça't més :)";
+"quiz_actions.incorrect_try_again" = "Incorrecte. Torna-ho a provar";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Qüestionari d'ortografia";
+"quiz_types.choose_definition" = "Tria la definició";
+"quiz_types.test_spelling_skills" = "Posa a prova les teves habilitats d'ortografia escrivint paraules correctament";
+"quiz_types.select_correct_definition" = "Selecciona la definició correcta per a cada paraula";
+"quiz_types.great_job_completed_spelling_quiz" = "Gran feina! Has completat el qüestionari d'ortografia.";
+"quiz_types.great_job_completed_definition_quiz" = "Gran feina! Has completat el qüestionari de definició.";
+

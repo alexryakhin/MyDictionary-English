@@ -71,37 +71,6 @@
 "time_period.month" = "Bulan";
 "time_period.year" = "Tahun";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Semua Hasil";
-"quiz_results.no_quiz_results_yet" = "Belum ada hasil kuis";
-"quiz_results.quiz" = "Kuis";
-"quiz_results.accuracy" = "Akurasi";
-"quiz_results.correct" = "Benar";
-"quiz_results.duration" = "Durasi";
-"quiz_results.time_period" = "Periode Waktu";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Jenis Kuis";
-"quiz_list.practice_settings" = "Pengaturan Latihan";
-"quiz_list.configure_quiz_experience" = "Konfigurasikan pengalaman kuis Anda";
-"quiz_list.focus_on_words_need_review" = "Fokus pada kata-kata yang perlu ditinjau";
-"quiz_list.not_enough_words_review_yet" = "Belum cukup kata untuk ditinjau";
-"quiz_list.add_words_to_shared_dictionary" = "Tambah kata ke kamus bersama";
-"quiz_list.add_your_first_word" = "Tambah kata pertama Anda";
-"quiz_list.add_more_words" = "Tambah lebih banyak kata";
-"quiz_list.quizzes_help_test_knowledge" = "Kuis membantu menguji pengetahuan Anda dan memperkuat pembelajaran Anda!";
-"quiz_list.words_away_from_unlocking_quizzes" = "Anda %d kata lagi dari membuka kuis!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Selesai";
-"quiz_actions.next_word" = "Kata Berikutnya";
-"quiz_actions.submit_answer" = "Kirim Jawaban";
-"quiz_actions.number_of_words" = "Jumlah Kata";
-"quiz_actions.no_difficult_words_available" = "Tidak ada kata sulit yang tersedia untuk kuis";
-"quiz_actions.your_word_is" = "Kata Anda adalah '%@'. Lakukan lebih baik :)";
-"quiz_actions.try_harder" = "Coba lebih keras :)";
-"quiz_actions.incorrect_try_again" = "Salah. Coba lagi";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Waktunya berlatih! 📚";
 "notifications.practice_vocabulary_today" = "Jangan lupa untuk melatih kosakata Anda hari ini.";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "Kamus tidak ditemukan";
 "collaborator_management.dictionary_details" = "Detail Kamus";
 "collaborator_management.unknown" = "Tidak Diketahui";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Kuis Ejaan";
-"quiz_types.choose_definition" = "Pilih Definisi";
-"quiz_types.test_spelling_skills" = "Uji keterampilan ejaan Anda dengan menulis kata dengan benar";
-"quiz_types.select_correct_definition" = "Pilih definisi yang benar untuk setiap kata";
-"quiz_types.great_job_completed_spelling_quiz" = "Kerja hebat! Anda telah menyelesaikan kuis ejaan.";
-"quiz_types.great_job_completed_definition_quiz" = "Kerja hebat! Anda telah menyelesaikan kuis definisi.";
 

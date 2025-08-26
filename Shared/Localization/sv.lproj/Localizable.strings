@@ -71,37 +71,6 @@
 "time_period.month" = "Månad";
 "time_period.year" = "År";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Alla resultat";
-"quiz_results.no_quiz_results_yet" = "Inga quizresultat ännu";
-"quiz_results.quiz" = "Quiz";
-"quiz_results.accuracy" = "Noggrannhet";
-"quiz_results.correct" = "Rätt";
-"quiz_results.duration" = "Varaktighet";
-"quiz_results.time_period" = "Tidsperiod";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Quiztyper";
-"quiz_list.practice_settings" = "Övningsinställningar";
-"quiz_list.configure_quiz_experience" = "Anpassa din quizupplevelse";
-"quiz_list.focus_on_words_need_review" = "Fokusera på ord som behöver repetition";
-"quiz_list.not_enough_words_review_yet" = "Inte tillräckligt med ord för repetition ännu";
-"quiz_list.add_words_to_shared_dictionary" = "Lägg till ord i den delade ordboken";
-"quiz_list.add_your_first_word" = "Lägg till ditt första ord";
-"quiz_list.add_more_words" = "Lägg till fler ord";
-"quiz_list.quizzes_help_test_knowledge" = "Quiz hjälper dig att testa dina kunskaper och förstärka lärandet!";
-"quiz_list.words_away_from_unlocking_quizzes" = "Du är %d ord från att låsa upp quiz!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Slutför";
-"quiz_actions.next_word" = "Nästa ord";
-"quiz_actions.submit_answer" = "Skicka svar";
-"quiz_actions.number_of_words" = "Antal ord";
-"quiz_actions.no_difficult_words_available" = "Inga svåra ord tillgängliga för quiz";
-"quiz_actions.your_word_is" = "Ditt ord var '%@'. Försök bättre!";
-"quiz_actions.try_harder" = "Försök hårdare!";
-"quiz_actions.incorrect_try_again" = "Fel. Försök igen";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Dags att öva! 📚";
 "notifications.practice_vocabulary_today" = "Glöm inte att öva ditt ordförråd idag.";
@@ -173,12 +142,4 @@
 "collaborator_management.dictionary_not_found" = "Ordbok hittades inte";
 "collaborator_management.dictionary_details" = "Ordbokdetaljer";
 "collaborator_management.unknown" = "Okänd";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Stavningsquiz";
-"quiz_types.choose_definition" = "Välj definition";
-"quiz_types.test_spelling_skills" = "Testa dina stavningsförmågor genom att stava ord korrekt";
-"quiz_types.select_correct_definition" = "Välj rätt definition för varje ord";
-"quiz_types.great_job_completed_spelling_quiz" = "Bra jobbat! Du har slutfört stavningsquizet.";
-"quiz_types.great_job_completed_definition_quiz" = "Bra jobbat! Du har slutfört definitionsquizet.";
 

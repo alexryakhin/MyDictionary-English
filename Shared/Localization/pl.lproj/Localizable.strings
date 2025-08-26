@@ -71,37 +71,6 @@
 "time_period.month" = "Miesiąc";
 "time_period.year" = "Rok";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Wszystkie wyniki";
-"quiz_results.no_quiz_results_yet" = "Brak wyników quizów";
-"quiz_results.quiz" = "Quiz";
-"quiz_results.accuracy" = "Dokładność";
-"quiz_results.correct" = "Poprawnie";
-"quiz_results.duration" = "Czas trwania";
-"quiz_results.time_period" = "Okres czasu";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Typy quizów";
-"quiz_list.practice_settings" = "Ustawienia ćwiczeń";
-"quiz_list.configure_quiz_experience" = "Skonfiguruj swoje doświadczenie z quizami";
-"quiz_list.focus_on_words_need_review" = "Skup się na słowach wymagających przeglądu";
-"quiz_list.not_enough_words_review_yet" = "Za mało słów do przeglądu";
-"quiz_list.add_words_to_shared_dictionary" = "Dodaj słowa do wspólnego słownika";
-"quiz_list.add_your_first_word" = "Dodaj swoje pierwsze słowo";
-"quiz_list.add_more_words" = "Dodaj więcej słów";
-"quiz_list.quizzes_help_test_knowledge" = "Quizy pomagają testować Twoją wiedzę i wzmacniać naukę!";
-"quiz_list.words_away_from_unlocking_quizzes" = "Brakuje Ci %d słów, aby odblokować quizy!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Zakończ";
-"quiz_actions.next_word" = "Następne słowo";
-"quiz_actions.submit_answer" = "Wyślij odpowiedź";
-"quiz_actions.number_of_words" = "Liczba słów";
-"quiz_actions.no_difficult_words_available" = "Brak trudnych słów dostępnych dla quizu";
-"quiz_actions.your_word_is" = "Twoje słowo to '%@'. Spróbuj lepiej :)";
-"quiz_actions.try_harder" = "Spróbuj bardziej :)";
-"quiz_actions.incorrect_try_again" = "Niepoprawnie. Spróbuj ponownie";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Czas na ćwiczenia! 📚";
 "notifications.practice_vocabulary_today" = "Nie zapomnij ćwiczyć swojego słownictwa dzisiaj.";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "Słownik nie znaleziony";
 "collaborator_management.dictionary_details" = "Szczegóły słownika";
 "collaborator_management.unknown" = "Nieznany";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Quiz ortograficzny";
-"quiz_types.choose_definition" = "Wybierz definicję";
-"quiz_types.test_spelling_skills" = "Sprawdź swoje umiejętności ortograficzne, poprawnie pisząc słowa";
-"quiz_types.select_correct_definition" = "Wybierz poprawną definicję dla każdego słowa";
-"quiz_types.great_job_completed_spelling_quiz" = "Świetna robota! Ukończyłeś quiz ortograficzny.";
-"quiz_types.great_job_completed_definition_quiz" = "Świetna robota! Ukończyłeś quiz definicji.";
 

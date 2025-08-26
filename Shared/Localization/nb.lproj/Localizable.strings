@@ -71,37 +71,6 @@
 "time_period.month" = "Måned";
 "time_period.year" = "År";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Alle resultater";
-"quiz_results.no_quiz_results_yet" = "Ingen quizresultater ennå";
-"quiz_results.quiz" = "Quiz";
-"quiz_results.accuracy" = "Nøyaktighet";
-"quiz_results.correct" = "Riktig";
-"quiz_results.duration" = "Varighet";
-"quiz_results.time_period" = "Tidsperiode";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Quiztyper";
-"quiz_list.practice_settings" = "Øvingsinnstillinger";
-"quiz_list.configure_quiz_experience" = "Konfigurer quizopplevelsen din";
-"quiz_list.focus_on_words_need_review" = "Fokuser på ord som trenger gjennomgang";
-"quiz_list.not_enough_words_review_yet" = "Ikke nok ord å gjennomgå ennå";
-"quiz_list.add_words_to_shared_dictionary" = "Legg til ord i delt ordbok";
-"quiz_list.add_your_first_word" = "Legg til ditt første ord";
-"quiz_list.add_more_words" = "Legg til flere ord";
-"quiz_list.quizzes_help_test_knowledge" = "Quizzer hjelper deg med å teste kunnskapen din og forsterke læringen din!";
-"quiz_list.words_away_from_unlocking_quizzes" = "Du er %d ord unna å låse opp quizzer!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Fullfør";
-"quiz_actions.next_word" = "Neste ord";
-"quiz_actions.submit_answer" = "Send svar";
-"quiz_actions.number_of_words" = "Antall ord";
-"quiz_actions.no_difficult_words_available" = "Ingen vanskelige ord tilgjengelig for quiz";
-"quiz_actions.your_word_is" = "Ditt ord var '%@'. Prøv hardere :)";
-"quiz_actions.try_harder" = "Prøv hardere :)";
-"quiz_actions.incorrect_try_again" = "Feil. Prøv igjen";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Tid for å øve! 📚";
 "notifications.practice_vocabulary_today" = "Ikke glem å øve på vokabularet ditt i dag.";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "Ordbok ikke funnet";
 "collaborator_management.dictionary_details" = "Ordbokdetaljer";
 "collaborator_management.unknown" = "Ukjent";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Stavequiz";
-"quiz_types.choose_definition" = "Velg definisjon";
-"quiz_types.test_spelling_skills" = "Test staveferdighetene dine ved å stave ord korrekt";
-"quiz_types.select_correct_definition" = "Velg riktig definisjon for hvert ord";
-"quiz_types.great_job_completed_spelling_quiz" = "Flott jobb! Du har fullført stavequizen.";
-"quiz_types.great_job_completed_definition_quiz" = "Flott jobb! Du har fullført definisjonsquizen.";
 

@@ -71,37 +71,6 @@
 "time_period.month" = "Měsíc";
 "time_period.year" = "Rok";
 
-// MARK: - Quiz Results
-"quiz_results.all_results" = "Všechny výsledky";
-"quiz_results.no_quiz_results_yet" = "Zatím žádné výsledky kvízů";
-"quiz_results.quiz" = "Kvízy";
-"quiz_results.accuracy" = "Přesnost";
-"quiz_results.correct" = "Správně";
-"quiz_results.duration" = "Doba trvání";
-"quiz_results.time_period" = "Časové období";
-
-// MARK: - Quiz List
-"quiz_list.quiz_types" = "Typy kvízů";
-"quiz_list.practice_settings" = "Nastavení cvičení";
-"quiz_list.configure_quiz_experience" = "Konfigurujte své zážitky z kvízu";
-"quiz_list.focus_on_words_need_review" = "Zaměřte se na slova, která potřebují opakování";
-"quiz_list.not_enough_words_review_yet" = "Zatím není dostatek slov k opakování";
-"quiz_list.add_words_to_shared_dictionary" = "Přidat slova do sdíleného slovníku";
-"quiz_list.add_your_first_word" = "Přidejte své první slovo";
-"quiz_list.add_more_words" = "Přidat další slova";
-"quiz_list.quizzes_help_test_knowledge" = "Kvízy pomáhají testovat vaše znalosti a posilují učení!";
-"quiz_list.words_away_from_unlocking_quizzes" = "Chybí vám %d slov k odemčení kvízů!";
-
-// MARK: - Quiz Actions
-"quiz_actions.finish" = "Dokončit";
-"quiz_actions.next_word" = "Další slovo";
-"quiz_actions.submit_answer" = "Odeslat odpověď";
-"quiz_actions.number_of_words" = "Počet slov";
-"quiz_actions.no_difficult_words_available" = "Nejsou dostupná žádná obtížná slova pro kvíz";
-"quiz_actions.your_word_is" = "Vaše slovo je '%@'. Zkuste to více :)";
-"quiz_actions.try_harder" = "Zkuste to více :)";
-"quiz_actions.incorrect_try_again" = "Nesprávně. Zkuste to znovu";
-
 // MARK: - Notifications
 "notifications.time_to_practice" = "Čas na cvičení! 📚";
 "notifications.practice_vocabulary_today" = "Nezapomeňte dnes procvičovat svou slovní zásobu.";
@@ -187,12 +156,4 @@
 "collaborator_management.dictionary_not_found" = "Slovník nenalezen";
 "collaborator_management.dictionary_details" = "Podrobnosti slovníku";
 "collaborator_management.unknown" = "Neznámý";
-
-// MARK: - Quiz Types
-"quiz_types.spelling_quiz" = "Kvízy pravopisu";
-"quiz_types.choose_definition" = "Vybrat definici";
-"quiz_types.test_spelling_skills" = "Otestujte své pravopisné dovednosti správným psaním slov";
-"quiz_types.select_correct_definition" = "Vyberte správnou definici pro každé slovo";
-"quiz_types.great_job_completed_spelling_quiz" = "Skvělá práce! Dokončili jste kvíz pravopisu.";
-"quiz_types.great_job_completed_definition_quiz" = "Skvělá práce! Dokončili jste kvíz definic.";
 

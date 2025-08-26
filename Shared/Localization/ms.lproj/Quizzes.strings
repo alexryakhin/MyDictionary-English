@@ -69,3 +69,42 @@
 "quizzes.best_format" = "Terbaik: %d";
 "quizzes.ask_dictionary_owner_add_words_or_switch" = "Minta pemilik kamus untuk menambah lebih banyak perkataan atau tukar ke kamus lain!";
 
+// MARK: - Quiz Results
+"quiz_results.all_results" = "Semua Keputusan";
+"quiz_results.no_quiz_results_yet" = "Belum ada keputusan kui";
+"quiz_results.quiz" = "Kui";
+"quiz_results.accuracy" = "Ketepatan";
+"quiz_results.correct" = "Betul";
+"quiz_results.duration" = "Tempoh";
+"quiz_results.time_period" = "Tempoh Masa";
+
+// MARK: - Quiz List
+"quiz_list.quiz_types" = "Jenis Kui";
+"quiz_list.practice_settings" = "Tetapan Latihan";
+"quiz_list.configure_quiz_experience" = "Konfigurasi pengalaman kui anda";
+"quiz_list.focus_on_words_need_review" = "Fokus pada perkataan yang perlu disemak";
+"quiz_list.not_enough_words_review_yet" = "Tidak cukup perkataan untuk disemak";
+"quiz_list.add_words_to_shared_dictionary" = "Tambah perkataan ke kamus kongsi";
+"quiz_list.add_your_first_word" = "Tambah perkataan pertama anda";
+"quiz_list.add_more_words" = "Tambah lebih banyak perkataan";
+"quiz_list.quizzes_help_test_knowledge" = "Kui membantu menguji pengetahuan anda dan mengukuhkan pembelajaran anda!";
+"quiz_list.words_away_from_unlocking_quizzes" = "Anda kekurangan %d perkataan untuk membuka kunci kui!";
+
+// MARK: - Quiz Actions
+"quiz_actions.finish" = "Selesai";
+"quiz_actions.next_word" = "Perkataan Seterusnya";
+"quiz_actions.submit_answer" = "Hantar Jawapan";
+"quiz_actions.number_of_words" = "Bilangan Perkataan";
+"quiz_actions.no_difficult_words_available" = "Tiada perkataan sukar tersedia untuk kui";
+"quiz_actions.your_word_is" = "Perkataan anda ialah '%@'. Cuba lebih baik :)";
+"quiz_actions.try_harder" = "Cuba lebih keras :)";
+"quiz_actions.incorrect_try_again" = "Salah. Cuba lagi";
+
+// MARK: - Quiz Types
+"quiz_types.spelling_quiz" = "Kui Ejaan";
+"quiz_types.choose_definition" = "Pilih Definisi";
+"quiz_types.test_spelling_skills" = "Uji kemahiran ejaan anda dengan mengeja perkataan dengan betul";
+"quiz_types.select_correct_definition" = "Pilih definisi yang betul untuk setiap perkataan";
+"quiz_types.great_job_completed_spelling_quiz" = "Kerja hebat! Anda telah selesai kui ejaan.";
+"quiz_types.great_job_completed_definition_quiz" = "Kerja hebat! Anda telah selesai kui definisi.";
+
