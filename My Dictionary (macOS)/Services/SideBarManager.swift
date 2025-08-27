@@ -12,7 +12,7 @@ final class SideBarManager: ObservableObject {
     enum DetailItem: Hashable {
         case word(CDWord)
         case sharedWord(SharedWord, dictionaryId: String)
-        case idiom(CDIdiom)
+        case idiom(CDWord)
         case quiz(QuizItem)
     }
 
@@ -28,7 +28,7 @@ final class SideBarManager: ObservableObject {
         }
     }
     @Published var selectedSharedWord: SharedWord? = nil
-    @Published var selectedIdiom: CDIdiom? = nil {
+    @Published var selectedIdiom: CDWord? = nil {
         willSet {
             if selectedWord != nil {
                 selectedWord = nil

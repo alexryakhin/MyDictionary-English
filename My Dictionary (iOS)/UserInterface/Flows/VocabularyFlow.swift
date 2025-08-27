@@ -49,9 +49,9 @@ struct VocabularyFlow: View {
     private func handleIdiomsOutput(_ output: IdiomListViewModel.Output) {
         switch output {
         case .showIdiomDetails(let idiom):
-            navigationManager.navigationPath.append(NavigationDestination.idiomDetails(idiom))
+            navigationManager.navigationPath.append(NavigationDestination.wordDetails(idiom))
         case .showAddIdiom(let input):
-            navigationManager.navigationPath.append(NavigationDestination.addIdiom(input))
+            navigationManager.navigationPath.append(NavigationDestination.addWord(input))
         }
     }
 }

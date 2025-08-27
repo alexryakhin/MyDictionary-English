@@ -22,6 +22,7 @@ struct MyDictionaryApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
+                .migrationAware()
                 .fontDesign(.rounded)
                 .tint(.accent)
                 // DO NOT TRANSLATE DEBUG

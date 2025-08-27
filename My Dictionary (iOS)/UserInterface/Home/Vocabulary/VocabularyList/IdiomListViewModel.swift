@@ -12,19 +12,19 @@ import Combine
 final class IdiomListViewModel: BaseViewModel {
 
     enum Output {
-        case showIdiomDetails(CDIdiom)
+        case showIdiomDetails(CDWord)
         case showAddIdiom(String)
     }
 
     enum Input {
-        case deleteIdiom(idiom: CDIdiom)
+        case deleteIdiom(idiom: CDWord)
         case filterChanged(FilterCase, tag: CDTag? = nil)
     }
 
     var output = PassthroughSubject<Output, Never>()
 
-    @Published var idioms: [CDIdiom] = []
-    @Published var selectedIdiom: CDIdiom?
+    @Published var idioms: [CDWord] = []
+    @Published var selectedIdiom: CDWord?
     @Published var sortingState: SortingCase = .latest {
         didSet {
             sortIdioms()
@@ -40,7 +40,7 @@ final class IdiomListViewModel: BaseViewModel {
     @Published var searchText = ""
     @Published var selectedTag: CDTag?
 
-    private let idiomsProvider: IdiomsProvider = .shared
+    private let wordsProvider: WordsProvider = .shared
     private let tagService: TagService = .shared
     private var cancellables = Set<AnyCancellable>()
 
@@ -60,7 +60,7 @@ final class IdiomListViewModel: BaseViewModel {
     }
 
     private func setupBindings() {
-        idiomsProvider.$idioms
+        wordsProvider.$expressions
             .receive(on: DispatchQueue.main)
             .sink { [weak self] idioms in
                 self?.idioms = idioms
@@ -86,7 +86,7 @@ final class IdiomListViewModel: BaseViewModel {
                     AnalyticsService.shared.logEvent(.idiomRemovingCanceled)
                 },
                 onDelete: { [weak self, id] in
-                    self?.idiomsProvider.delete(with: id)
+                    try? self?.wordsProvider.delete(with: id)
                     AnalyticsService.shared.logEvent(.idiomRemoved)
                 }
             )
@@ -95,7 +95,7 @@ final class IdiomListViewModel: BaseViewModel {
 
     // MARK: - Computed Properties
     
-    var idiomsFiltered: [CDIdiom] {
+    var idiomsFiltered: [CDWord] {
         switch filterState {
         case .none:
             return idioms
@@ -118,38 +118,38 @@ final class IdiomListViewModel: BaseViewModel {
         }
     }
 
-    var favoriteIdioms: [CDIdiom] {
+    var favoriteIdioms: [CDWord] {
         idioms.filter { $0.isFavorite }
     }
 
-    var searchResults: [CDIdiom] {
+    var searchResults: [CDWord] {
         idioms.filter { model in
             guard !searchText.isEmpty else { return true }
-            return model.idiomItself?.localizedStandardContains(searchText) ?? false
+            return model.wordItself?.localizedStandardContains(searchText) ?? false
         }
     }
 
     // MARK: - Difficulty-based filtering
 
-    var newIdioms: [CDIdiom] {
+    var newIdioms: [CDWord] {
         idioms.filter { $0.difficultyLevel == .new }
     }
 
-    var inProgressIdioms: [CDIdiom] {
+    var inProgressIdioms: [CDWord] {
         idioms.filter { $0.difficultyLevel == .inProgress }
     }
 
-    var needsReviewIdioms: [CDIdiom] {
+    var needsReviewIdioms: [CDWord] {
         idioms.filter { $0.difficultyLevel == .needsReview }
     }
 
-    var masteredIdioms: [CDIdiom] {
+    var masteredIdioms: [CDWord] {
         idioms.filter { $0.difficultyLevel == .mastered }
     }
 
     // MARK: - Tag-based filtering
 
-    var taggedIdioms: [CDIdiom] {
+    var taggedIdioms: [CDWord] {
         guard let selectedTag = selectedTag else { return idioms }
         return idioms.filter { idiom in
             idiom.tagsArray.contains { $0.id == selectedTag.id }
@@ -199,7 +199,7 @@ final class IdiomListViewModel: BaseViewModel {
             })
         case .alphabetically:
             idioms.sort(by: { lhs, rhs in
-                (lhs.idiomItself ?? "") < (rhs.idiomItself ?? "")
+                (lhs.wordItself ?? "") < (rhs.wordItself ?? "")
             })
         case .partOfSpeech:
             break

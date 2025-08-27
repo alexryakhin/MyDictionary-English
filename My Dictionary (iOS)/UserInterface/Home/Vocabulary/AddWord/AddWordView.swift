@@ -256,13 +256,13 @@ struct AddWordView: View {
                                     }
                                 }
                             } trailingContent: {
-                                checkboxImage(definition.id)
+                                multiSelectCheckboxImage(definition.id)
                                     .onTap {
-                                        definitionSelected(definition, index: offset)
+                                        definitionToggled(definition, index: offset)
                                     }
                             }
                             .onTapGesture {
-                                definitionSelected(definition, index: offset)
+                                definitionToggled(definition, index: offset)
                             }
 
                             // Show examples from original definition
@@ -292,14 +292,14 @@ struct AddWordView: View {
     }
 
     @ViewBuilder
-    private func checkboxImage(_ currentId: String) -> some View {
-        let isSelected = currentId == viewModel.selectedDefinition?.id
+    private func multiSelectCheckboxImage(_ currentId: String) -> some View {
+        let isSelected = viewModel.selectedDefinitions.contains { $0.id == currentId }
         Image(systemName: isSelected ? "checkmark.square.fill" : "square")
             .frame(sideLength: 20)
     }
 
-    private func definitionSelected(_ definition: WordDefinition, index: Int) {
-        viewModel.handle(.selectDefinition(definition))
+    private func definitionToggled(_ definition: WordDefinition, index: Int) {
+        viewModel.handle(.toggleDefinition(definition))
         HapticManager.shared.triggerSelection()
         endEditing()
         AnalyticsService.shared.logEvent(.definitionSelected)

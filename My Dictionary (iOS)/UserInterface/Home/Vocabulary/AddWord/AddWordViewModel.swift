@@ -8,7 +8,8 @@ final class AddWordViewModel: BaseViewModel {
         case saveToSharedDictionary(String?)
         case fetchData
         case selectPartOfSpeech(PartOfSpeech)
-        case selectDefinition(WordDefinition)
+        case selectDefinition(WordDefinition) // Keep for backward compatibility
+        case toggleDefinition(WordDefinition) // New multi-select action
         case toggleTag(CDTag)
         case showTagSelection
         case selectInputLanguage(InputLanguage)
@@ -19,7 +20,8 @@ final class AddWordViewModel: BaseViewModel {
 
     @Published private(set) var status: FetchingStatus = .blank
     @Published private(set) var definitions: [WordDefinition] = []
-    @Published private(set) var selectedDefinition: WordDefinition?
+    @Published private(set) var selectedDefinition: WordDefinition? // Keep for backward compatibility
+    @Published private(set) var selectedDefinitions: [WordDefinition] = [] // New multi-select array
     @Published private(set) var pronunciation: String?
     @Published private(set) var partOfSpeech: PartOfSpeech?
     @Published var selectedTags: [CDTag] = []
@@ -70,6 +72,8 @@ final class AddWordViewModel: BaseViewModel {
             self.partOfSpeech = partOfSpeech
         case .selectDefinition(let definition):
             self.selectedDefinition = definition
+        case .toggleDefinition(let definition):
+            toggleDefinition(definition)
         case .toggleTag(let tag):
             toggleTag(tag)
         case .showTagSelection:
@@ -163,7 +167,10 @@ final class AddWordViewModel: BaseViewModel {
     }
     
     private func saveWordToDictionary(_ dictionaryId: String?) {
-        if !inputWord.isEmpty, !descriptionField.isEmpty {
+        // Check if we have either manual definition or selected definitions
+        let hasDefinitions = !descriptionField.isEmpty || !selectedDefinitions.isEmpty
+        
+        if !inputWord.isEmpty, hasDefinitions {
             do {
                 // Get the detected language code from the translation response
                 let languageCode = detectedLanguageCode ?? "en"
@@ -171,15 +178,35 @@ final class AddWordViewModel: BaseViewModel {
                 if let dictionaryId = dictionaryId {
                     saveWordToSharedDictionary(dictionaryId, languageCode: languageCode)
                 } else {
-                    try addWordManager.addNewWord(
-                        word: inputWord.capitalizingFirstLetter(),
-                        definition: descriptionField.capitalizingFirstLetter(),
-                        partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
-                        phonetic: pronunciation,
-                        examples: selectedDefinition?.examples ?? [],
-                        tags: selectedTags,
-                        languageCode: languageCode
-                    )
+                    // Use new multi-meaning method if we have selected definitions
+                    if !selectedDefinitions.isEmpty {
+                        let meaningData = selectedDefinitions.map { definition in
+                            MeaningData(
+                                definition: definition.text,
+                                examples: definition.examples
+                            )
+                        }
+                        
+                        try addWordManager.addNewWordWithMeanings(
+                            word: inputWord.capitalizingFirstLetter(),
+                            partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
+                            phonetic: pronunciation,
+                            meanings: meaningData,
+                            tags: selectedTags,
+                            languageCode: languageCode
+                        )
+                    } else {
+                        // Fallback to old method for manual definition
+                        try addWordManager.addNewWord(
+                            word: inputWord.capitalizingFirstLetter(),
+                            definition: descriptionField.capitalizingFirstLetter(),
+                            partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
+                            phonetic: pronunciation,
+                            examples: selectedDefinition?.examples ?? [],
+                            tags: selectedTags,
+                            languageCode: languageCode
+                        )
+                    }
                     HapticManager.shared.triggerNotification(type: .success)
                     AnalyticsService.shared.logEvent(.wordAdded)
                     dismissPublisher.send()
@@ -193,13 +220,28 @@ final class AddWordViewModel: BaseViewModel {
     }
     
     private func saveWordToSharedDictionary(_ dictionaryId: String, languageCode: String) {
+        // Create meanings from selected definitions or manual input
+        let meanings: [WordMeaning]
+        if !selectedDefinitions.isEmpty {
+            meanings = selectedDefinitions.map { definition in
+                WordMeaning(
+                    definition: definition.text,
+                    examples: definition.examples
+                )
+            }
+        } else {
+            meanings = [WordMeaning(
+                definition: descriptionField.capitalizingFirstLetter(),
+                examples: selectedDefinition?.examples ?? []
+            )]
+        }
+        
         let word = Word(
             id: UUID().uuidString,
             wordItself: inputWord.capitalizingFirstLetter(),
-            definition: descriptionField.capitalizingFirstLetter(),
+            meanings: meanings,
             partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
             phonetic: pronunciation,
-            examples: selectedDefinition?.examples ?? [],
             tags: [], // Don't include tags for shared dictionary words
             difficultyScore: 0,
             languageCode: languageCode,
@@ -258,12 +300,24 @@ final class AddWordViewModel: BaseViewModel {
             .store(in: &cancellables)
     }
 
+    private func toggleDefinition(_ definition: WordDefinition) {
+        if let index = selectedDefinitions.firstIndex(where: { $0.id == definition.id }) {
+            selectedDefinitions.remove(at: index)
+        } else {
+            selectedDefinitions.append(definition)
+        }
+        
+        // Update backward compatibility property
+        selectedDefinition = selectedDefinitions.first
+    }
+    
     private func reset() {
         withAnimation { [weak self] in
             self?.descriptionField = ""
             self?.status = .blank
             self?.definitions = []
             self?.selectedDefinition = nil
+            self?.selectedDefinitions = []
             self?.pronunciation = ""
             self?.partOfSpeech = nil
             self?.selectedTags = []

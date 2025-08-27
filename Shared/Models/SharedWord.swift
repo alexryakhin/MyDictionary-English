@@ -8,13 +8,28 @@
 import Foundation
 import FirebaseFirestore
 
+struct SharedWordMeaning: Codable, Hashable, Identifiable {
+    let id: String
+    var definition: String
+    var examples: [String]
+    var order: Int
+    let timestamp: Date
+    
+    init(id: String = UUID().uuidString, definition: String, examples: [String] = [], order: Int = 0, timestamp: Date = Date()) {
+        self.id = id
+        self.definition = definition
+        self.examples = examples
+        self.order = order
+        self.timestamp = timestamp
+    }
+}
+
 struct SharedWord: Codable, Hashable {
     let id: String
     let wordItself: String
-    var definition: String
+    var meanings: [SharedWordMeaning] // New: Multiple meanings support
     var partOfSpeech: String
     var phonetic: String?
-    var examples: [String]
     let languageCode: String
     let timestamp: Date
     let updatedAt: Date
@@ -33,6 +48,38 @@ struct SharedWord: Codable, Hashable {
     init(
         id: String,
         wordItself: String,
+        meanings: [SharedWordMeaning],
+        partOfSpeech: String,
+        phonetic: String?,
+        languageCode: String,
+        timestamp: Date = Date(),
+        updatedAt: Date = Date(),
+        addedByEmail: String,
+        addedByDisplayName: String? = nil,
+        addedAt: Date = Date(),
+        likes: [String: Bool] = [:],
+        difficulties: [String: Int] = [:]
+    ) {
+        self.id = id
+        self.wordItself = wordItself
+        self.meanings = meanings
+        self.partOfSpeech = partOfSpeech
+        self.phonetic = phonetic
+        self.languageCode = languageCode
+        self.timestamp = timestamp
+        self.updatedAt = updatedAt
+
+        self.addedByEmail = addedByEmail
+        self.addedByDisplayName = addedByDisplayName
+        self.addedAt = addedAt
+        self.likes = likes
+        self.difficulties = difficulties
+    }
+    
+    // Convenience initializer for single meaning (backward compatibility)
+    init(
+        id: String,
+        wordItself: String,
         definition: String,
         partOfSpeech: String,
         phonetic: String?,
@@ -46,32 +93,39 @@ struct SharedWord: Codable, Hashable {
         likes: [String: Bool] = [:],
         difficulties: [String: Int] = [:]
     ) {
-        self.id = id
-        self.wordItself = wordItself
-        self.definition = definition
-        self.partOfSpeech = partOfSpeech
-        self.phonetic = phonetic
-        self.examples = examples
-        self.languageCode = languageCode
-        self.timestamp = timestamp
-        self.updatedAt = updatedAt
-
-        self.addedByEmail = addedByEmail
-        self.addedByDisplayName = addedByDisplayName
-        self.addedAt = addedAt
-        self.likes = likes
-        self.difficulties = difficulties
+        let meaning = SharedWordMeaning(definition: definition, examples: examples, order: 0)
+        self.init(
+            id: id,
+            wordItself: wordItself,
+            meanings: [meaning],
+            partOfSpeech: partOfSpeech,
+            phonetic: phonetic,
+            languageCode: languageCode,
+            timestamp: timestamp,
+            updatedAt: updatedAt,
+            addedByEmail: addedByEmail,
+            addedByDisplayName: addedByDisplayName,
+            addedAt: addedAt,
+            likes: likes,
+            difficulties: difficulties
+        )
     }
     
     // MARK: - Conversion from Word
     
     init(from word: Word, addedByEmail: String, addedByDisplayName: String? = nil) {
+        // Convert single Word to SharedWord with single meaning
+        let meaning = SharedWordMeaning(
+            definition: word.definition,
+            examples: word.examples,
+            order: 0
+        )
+        
         self.id = word.id
         self.wordItself = word.wordItself
-        self.definition = word.definition
+        self.meanings = [meaning]
         self.partOfSpeech = word.partOfSpeech
         self.phonetic = word.phonetic
-        self.examples = word.examples
         self.languageCode = word.languageCode
         self.timestamp = word.timestamp
         self.updatedAt = word.updatedAt
@@ -81,6 +135,33 @@ struct SharedWord: Codable, Hashable {
         self.addedAt = Date()
         self.likes = [:]
         self.difficulties = [:]
+    }
+    
+    // MARK: - Computed Properties for Backward Compatibility
+    
+    /// Primary meaning (first meaning)
+    var primaryMeaning: SharedWordMeaning? {
+        return meanings.first
+    }
+    
+    /// Primary definition for backward compatibility
+    var definition: String {
+        return primaryMeaning?.definition ?? ""
+    }
+    
+    /// Primary examples for backward compatibility  
+    var examples: [String] {
+        return primaryMeaning?.examples ?? []
+    }
+    
+    /// All examples from all meanings
+    var allExamples: [String] {
+        return meanings.flatMap { $0.examples }
+    }
+    
+    /// Sorted meanings by order
+    var sortedMeanings: [SharedWordMeaning] {
+        return meanings.sorted { $0.order < $1.order }
     }
 
     var shouldShowLanguageLabel: Bool {
@@ -138,12 +219,22 @@ struct SharedWord: Codable, Hashable {
     // MARK: - Firestore Conversion
     
     func toFirestoreDictionary() -> [String: Any] {
+        // Convert meanings to Firestore format
+        let meaningsData = meanings.map { meaning in
+            return [
+                "id": meaning.id,
+                "definition": meaning.definition,
+                "examples": meaning.examples,
+                "order": meaning.order,
+                "timestamp": Timestamp(date: meaning.timestamp)
+            ]
+        }
+        
         var dict: [String: Any] = [
             "wordItself": wordItself,
-            "definition": definition,
+            "meanings": meaningsData, // New: Multiple meanings
             "partOfSpeech": partOfSpeech,
             "phonetic": phonetic ?? "",
-            "examples": examples,
             "languageCode": languageCode,
             "timestamp": Timestamp(date: timestamp),
             "updatedAt": Timestamp(date: updatedAt),
@@ -162,13 +253,51 @@ struct SharedWord: Codable, Hashable {
     
     static func fromFirestoreDictionary(_ data: [String: Any], id: String) -> SharedWord? {
         guard let wordItself = data["wordItself"] as? String,
-              let definition = data["definition"] as? String,
               let partOfSpeech = data["partOfSpeech"] as? String,
-              let examples = data["examples"] as? [String],
               let languageCode = data["languageCode"] as? String,
               let timestamp = data["timestamp"] as? Timestamp,
               let addedByEmail = data["addedByEmail"] as? String,
               let addedAt = data["addedAt"] as? Timestamp else {
+            return nil
+        }
+        
+        // Parse meanings (new format) or fallback to legacy format
+        var meanings: [SharedWordMeaning] = []
+        
+        if let meaningsData = data["meanings"] as? [[String: Any]] {
+            // New format: Multiple meanings
+            for meaningData in meaningsData {
+                guard let meaningId = meaningData["id"] as? String,
+                      let definition = meaningData["definition"] as? String,
+                      let examples = meaningData["examples"] as? [String],
+                      let order = meaningData["order"] as? Int,
+                      let meaningTimestamp = meaningData["timestamp"] as? Timestamp else {
+                    continue
+                }
+                
+                let meaning = SharedWordMeaning(
+                    id: meaningId,
+                    definition: definition,
+                    examples: examples,
+                    order: order,
+                    timestamp: meaningTimestamp.dateValue()
+                )
+                meanings.append(meaning)
+            }
+        } else if let definition = data["definition"] as? String,
+                  let examples = data["examples"] as? [String] {
+            // Legacy format: Single definition and examples
+            let meaning = SharedWordMeaning(
+                definition: definition,
+                examples: examples,
+                order: 0,
+                timestamp: timestamp.dateValue()
+            )
+            meanings = [meaning]
+        }
+        
+        // Ensure we have at least one meaning
+        if meanings.isEmpty {
             return nil
         }
         
@@ -183,10 +312,9 @@ struct SharedWord: Codable, Hashable {
         return SharedWord(
             id: id,
             wordItself: wordItself,
-            definition: definition,
+            meanings: meanings,
             partOfSpeech: partOfSpeech,
             phonetic: data["phonetic"] as? String,
-            examples: examples,
             languageCode: languageCode,
             timestamp: timestamp.dateValue(),
             updatedAt: updatedAt.dateValue(),

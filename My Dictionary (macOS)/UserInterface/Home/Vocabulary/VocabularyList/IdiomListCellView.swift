@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct IdiomListCellView: View {
-    @StateObject private var idiom: CDIdiom
+    @StateObject private var idiom: CDWord
     @StateObject private var sideBarManager = SideBarManager.shared
 
     private var isSelected: Bool {
         sideBarManager.selectedIdiom == idiom
     }
 
-    init(idiom: CDIdiom) {
+    init(idiom: CDWord) {
         self._idiom = StateObject(wrappedValue: idiom)
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 8) {
-                Text(idiom.idiomItself ?? "")
+                Text(idiom.wordItself ?? "")
                     .bold()
                     .foregroundStyle(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)

@@ -15,17 +15,13 @@ struct SharedWordDetailsView: View {
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
-    @FocusState private var isAddExampleFocused: Bool
-    @State private var isAddingExample = false
-    @State private var editingExampleIndex: Int?
-    @State private var exampleTextFieldStr = ""
 
     @State private var showingDetailedStatistics: Bool = false
+    @State private var showingMeaningsList: Bool = false
 
     // Mutable state for editable fields
     @State private var phoneticText: String = ""
     @State private var definitionText: String = ""
-    @State private var examples: [String] = []
 
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var authenticationService = AuthenticationService.shared
@@ -46,7 +42,6 @@ struct SharedWordDetailsView: View {
         // Initialize mutable state with current word values
         self._phoneticText = State(wrappedValue: word.phonetic ?? "")
         self._definitionText = State(wrappedValue: word.definition)
-        self._examples = State(wrappedValue: word.examples)
     }
 
     var body: some View {
@@ -54,10 +49,8 @@ struct SharedWordDetailsView: View {
             LazyVStack(spacing: 12) {
                 transcriptionSectionView
                 partOfSpeechSectionView
-                definitionSectionView
-
+                meaningsSectionView
                 languageSectionView
-                examplesSectionView
                 collaborativeFeaturesSection
             }
             .padding(12)
@@ -99,23 +92,12 @@ struct SharedWordDetailsView: View {
                 }
             }
         }
-        .sheet(item: $editingExampleIndex) { index in
-            EditExampleAlert(
-                exampleText: $exampleTextFieldStr,
-                onCancel: {
-                    AnalyticsService.shared.logEvent(.wordExampleChangingCanceled)
-                    editingExampleIndex = nil
-                },
-                onSave: {
-                    updateExample(at: index, text: exampleTextFieldStr)
-                    editingExampleIndex = nil
-                    exampleTextFieldStr = .empty
-                    AnalyticsService.shared.logEvent(.wordExampleChanged)
-                }
-            )
-        }
+
         .sheet(isPresented: $showingDetailedStatistics) {
             SharedWordDifficultyStatsView(word: word)
+        }
+        .sheet(isPresented: $showingMeaningsList) {
+            SharedMeaningsListView(word: word, dictionaryId: dictionaryId)
         }
         .onAppear {
             // Start real-time listener for this specific word
@@ -131,7 +113,6 @@ struct SharedWordDetailsView: View {
                     // Also update the local state variables to keep them in sync
                     self.phoneticText = updatedWord.phonetic ?? ""
                     self.definitionText = updatedWord.definition
-                    self.examples = updatedWord.examples
                 }
             }
         }
@@ -192,35 +173,69 @@ struct SharedWordDetailsView: View {
         }
     }
 
-    private var definitionSectionView: some View {
-        CustomSectionView(header: Loc.Words.definition, headerFontStyle: .stealth) {
-            if canEdit {
-                TextField(Loc.Words.definition, text: $definitionText, axis: .vertical)
-                    .textFieldStyle(.plain)
-                    .focused($isDefinitionFocused)
-                    .fontWeight(.semibold)
+    private var meaningsSectionView: some View {
+        let meanings = word.meanings
+        let showLimited = meanings.count > 3
+        let displayMeanings = showLimited ? Array(meanings.prefix(3)) : meanings
+        
+        return CustomSectionView(header: meanings.count > 1 ? "Meanings (\(meanings.count))" : "Meaning", headerFontStyle: .stealth) {
+            if meanings.isEmpty {
+                // Fallback to legacy definition if no meanings exist
+                if canEdit {
+                    TextField(Loc.Words.definition, text: $definitionText, axis: .vertical)
+                        .textFieldStyle(.plain)
+                        .focused($isDefinitionFocused)
+                        .fontWeight(.semibold)
+                } else {
+                    Text(definitionText.nilIfEmpty ?? Loc.Words.noDefinition)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .fontWeight(.semibold)
+                }
             } else {
-                Text(definitionText.nilIfEmpty ?? Loc.Words.noDefinition)
+                FormWithDivider {
+                    ForEach(Array(displayMeanings.enumerated()), id: \.element.id) { index, meaning in
+                        meaningRowView(meaning: meaning, index: index + 1)
+                    }
+                }
+                
+                if showLimited {
+                    HeaderButton(
+                        "Show all \(meanings.count) meanings",
+                        icon: "list.number",
+                        size: .small
+                    ) {
+                        showingMeaningsList = true
+                    }
+                    .padding(.top, 8)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .fontWeight(.semibold)
+                }
             }
         } trailingContent: {
-            if isDefinitionFocused {
-                HeaderButton(Loc.Actions.done, size: .small) {
-                    isDefinitionFocused = false
-                    saveDefinition()
-                    AnalyticsService.shared.logEvent(.wordDefinitionChanged)
+            if meanings.isEmpty {
+                // Legacy definition controls
+                if isDefinitionFocused {
+                    HeaderButton(Loc.Actions.done, size: .small) {
+                        isDefinitionFocused = false
+                        saveDefinition()
+                        AnalyticsService.shared.logEvent(.wordDefinitionChanged)
+                    }
+                } else {
+                    AsyncHeaderButton(
+                        Loc.Actions.listen,
+                        icon: "speaker.wave.2.fill",
+                        size: .small
+                    ) {
+                        try await play(word.definition)
+                        AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
+                    }
+                    .disabled(TTSPlayer.shared.isPlaying)
                 }
             } else {
-                AsyncHeaderButton(
-                    Loc.Actions.listen,
-                    icon: "speaker.wave.2.fill",
-                    size: .small
-                ) {
-                    try await play(word.definition)
-                    AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
+                if canEdit {
+                    HeaderButton(icon: "plus", size: .small) {
+                        addNewMeaning()
+                    }
                 }
-                .disabled(TTSPlayer.shared.isPlaying)
             }
         }
     }
@@ -243,104 +258,53 @@ struct SharedWordDetailsView: View {
         }
     }
 
-    private var examplesSectionView: some View {
-        CustomSectionView(
-            header: Loc.Words.examples,
-            headerFontStyle: .stealth,
-            hPadding: 0
-        ) {
-            if !examples.isEmpty {
-                FormWithDivider {
-                    ForEach(Array(examples.enumerated()), id: \.offset) { index, example in
-                        HStack {
-                            Text(example)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-
-                            Menu {
-                                Button {
-                                    Task {
-                                        try await play(example)
-                                    }
-                                    AnalyticsService.shared.logEvent(.wordExamplePlayed)
-                                } label: {
-                                    Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
-                                }
-                                .disabled(TTSPlayer.shared.isPlaying)
-                                if canEdit {
-                                    Button {
-                                        exampleTextFieldStr = example
-                                        editingExampleIndex = index
-                                        AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
-                                    } label: {
-                                        Label(Loc.Actions.edit, systemImage: "pencil")
-                                    }
-                                    Section {
-                                        Button(role: .destructive) {
-                                            removeExample(at: index)
-                                            AnalyticsService.shared.logEvent(.wordExampleRemoved)
-                                        } label: {
-                                            Label(Loc.Actions.delete, systemImage: "trash")
-                                        }
-                                    }
-                                }
-                            } label: {
-                                Image(systemName: "ellipsis")
-                                    .foregroundStyle(.secondary)
-                                    .padding(6)
-                                    .background(Color.black.opacity(0.01))
-                            }
-                            .buttonStyle(.plain)
-                        }
-                        .padding(vertical: 12, horizontal: 16)
-                        .contentShape(RoundedRectangle(cornerRadius: 16))
-                    }
-                }
-            } else {
-                Text(Loc.Words.noExamplesYet)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 16)
-            }
-
-            if isAddingExample {
-                InputView(
-                    Loc.Words.typeExampleHere,
-                    submitLabel: .done,
-                    text: $exampleTextFieldStr,
-                    onSubmit: {
-                        addExample(exampleTextFieldStr)
-                        isAddingExample = false
-                        exampleTextFieldStr = .empty
-                        AnalyticsService.shared.logEvent(.wordExampleAdded)
-                    },
-                    trailingButtonLabel: Loc.Actions.cancel
+    private func meaningRowView(meaning: SharedWordMeaning, index: Int) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text("\(index).")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                
+                Text(meaning.definition)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                AsyncHeaderButton(
+                    icon: "speaker.wave.2.fill",
+                    size: .small
                 ) {
-                    // On cancel
-                    isAddExampleFocused = false
-                    isAddingExample = false
-                    exampleTextFieldStr = .empty
+                    try await play(meaning.definition)
+                    AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                 }
-                .padding(.top, 12)
-                .padding(.horizontal, 16)
+                .disabled(TTSPlayer.shared.isPlaying)
             }
-        } trailingContent: {
-            if canEdit {
-                if isAddingExample {
-                    HeaderButton(Loc.Actions.save, icon: "checkmark", size: .small) {
-                        addExample(exampleTextFieldStr)
-                        isAddingExample = false
-                        exampleTextFieldStr = .empty
-                        AnalyticsService.shared.logEvent(.wordExampleAdded)
-                    }
-                } else {
-                    HeaderButton(Loc.Words.addExample, icon: "plus", size: .small) {
-                        withAnimation {
-                            isAddingExample.toggle()
-                            AnalyticsService.shared.logEvent(.wordAddExampleTapped)
+            
+            // Show examples for this meaning
+            if !meaning.examples.isEmpty {
+                ForEach(meaning.examples, id: \.self) { example in
+                    HStack {
+                        Text(example)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .italic()
+                        
+                        Spacer()
+                        
+                        AsyncHeaderButton(
+                            icon: "speaker.wave.2.fill",
+                            size: .small
+                        ) {
+                            try await play(example)
+                            AnalyticsService.shared.logEvent(.wordExamplePlayed)
                         }
+                        .disabled(TTSPlayer.shared.isPlaying)
                     }
+                    .padding(.leading, 20)
                 }
             }
         }
+        .padding(.vertical, 8)
     }
 
     // MARK: - Collaborative Features Section
@@ -423,7 +387,29 @@ struct SharedWordDetailsView: View {
     private func saveDefinition() {
         Task {
             var updatedWord = word
-            updatedWord.definition = definitionText
+            // Update the primary meaning's definition
+            if var primaryMeaning = updatedWord.primaryMeaning {
+                primaryMeaning.definition = definitionText
+                var meanings = updatedWord.meanings
+                if let index = meanings.firstIndex(where: { $0.id == primaryMeaning.id }) {
+                    meanings[index] = primaryMeaning
+                    updatedWord = SharedWord(
+                        id: updatedWord.id,
+                        wordItself: updatedWord.wordItself,
+                        meanings: meanings,
+                        partOfSpeech: updatedWord.partOfSpeech,
+                        phonetic: updatedWord.phonetic,
+                        languageCode: updatedWord.languageCode,
+                        timestamp: updatedWord.timestamp,
+                        updatedAt: Date(),
+                        addedByEmail: updatedWord.addedByEmail,
+                        addedByDisplayName: updatedWord.addedByDisplayName,
+                        addedAt: updatedWord.addedAt,
+                        likes: updatedWord.likes,
+                        difficulties: updatedWord.difficulties
+                    )
+                }
+            }
             await saveWordToFirebase(updatedWord)
         }
     }
@@ -466,28 +452,20 @@ struct SharedWordDetailsView: View {
         }
     }
 
-    private func addExample(_ example: String) {
-        guard !example.isEmpty else { return }
-        examples.append(example)
-        saveExamples()
-    }
 
-    private func updateExample(at index: Int, text: String) {
-        guard !text.isEmpty, index < examples.count else { return }
-        examples[index] = text
-        saveExamples()
-    }
-
-    private func removeExample(at index: Int) {
-        guard index < examples.count else { return }
-        examples.remove(at: index)
-        saveExamples()
-    }
-
-    private func saveExamples() {
+    
+    private func addNewMeaning() {
+        // Create a new meaning and add it to the word
+        let newMeaning = SharedWordMeaning(
+            definition: "New definition",
+            examples: [],
+            order: word.meanings.count
+        )
+        
+        var updatedWord = word
+        updatedWord.meanings.append(newMeaning)
+        
         Task {
-            var updatedWord = word
-            updatedWord.examples = examples
             await saveWordToFirebase(updatedWord)
         }
     }

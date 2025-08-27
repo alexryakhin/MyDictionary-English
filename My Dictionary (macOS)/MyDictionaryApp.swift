@@ -26,6 +26,7 @@ struct MyDictionaryApp: App {
     var body: some Scene {
         Window(Loc.Onboarding.myDictionary, id: WindowID.main) {
             SideBarView()
+                .migrationAware()
                 .fontDesign(.rounded)
                 .tint(.accent)
                 .frame(width: 900, height: 550)
@@ -60,6 +61,11 @@ struct MyDictionaryApp: App {
         }
         .defaultSize(width: 600, height: 600)
 
+        Settings {
+            SettingsView()
+        }
+        .defaultSize(width: 500, height: 650)
+
         // DO NOT TRANSLATE DEBUG
         #if DEBUG
         Window("Debug panel", id: WindowID.debug) {
@@ -67,11 +73,6 @@ struct MyDictionaryApp: App {
         }
         .defaultSize(width: 600, height: 800)
         #endif
-
-        Settings {
-            SettingsView()
-        }
-        .defaultSize(width: 500, height: 650)
     }
 }
 

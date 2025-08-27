@@ -20,7 +20,6 @@ final class QuizItemsProvider: ObservableObject {
     @Published var availableDictionaries: [QuizDictionary] = []
 
     private lazy var wordsProvider: WordsProvider = .shared
-    private lazy var idiomsProvider: IdiomsProvider = .shared
     private lazy var dictionaryService: DictionaryService = .shared
     private var cancellables = Set<AnyCancellable>()
 
@@ -118,7 +117,7 @@ final class QuizItemsProvider: ObservableObject {
             .store(in: &cancellables)
 
         wordsProvider.$words
-            .combineLatest(idiomsProvider.$idioms)
+            .combineLatest(wordsProvider.$expressions)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.updateAvailableItems()
@@ -155,7 +154,9 @@ final class QuizItemsProvider: ObservableObject {
     private func updateAvailableItems() {
         switch selectedDictionary {
         case .privateDictionary:
-            availableItems = wordsProvider.words + idiomsProvider.idioms
+            // After migration, expressions (idioms/phrases) are part of wordsProvider.expressions
+            // Use both words and expressions for comprehensive quiz coverage
+            availableItems = wordsProvider.words + wordsProvider.expressions
         case .sharedDictionary(let dictionary):
             // Get words from cache
             let cachedItems = dictionaryService.sharedWords[dictionary.id] ?? []
