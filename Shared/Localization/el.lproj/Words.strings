@@ -127,6 +127,9 @@
 "part_of_speech.full.pronoun" = "Αντωνυμία";
 "part_of_speech.full.preposition" = "Πρόθεση";
 "part_of_speech.full.exclamation" = "Επιφώνημα";
+"part_of_speech.full.interjection" = "Επιφώνημα";
+"part_of_speech.full.idiom" = "Ιδιωματισμός";
+"part_of_speech.full.phrase" = "Φράση";
 "part_of_speech.full.unknown" = "Άγνωστο";
 
 "part_of_speech.short.noun" = "Ουσ.";
@@ -134,10 +137,40 @@
 "part_of_speech.short.adjective" = "Επίθ.";
 "part_of_speech.short.adverb" = "Επίρ.";
 "part_of_speech.short.conjunction" = "Σύνδ.";
-"part_of_speech.short.pronoun" = "Αντων.";
+"part_of_speech.short.pronoun" = "Αντ.";
 "part_of_speech.short.preposition" = "Πρόθ.";
 "part_of_speech.short.exclamation" = "Επιφ.";
-"part_of_speech.short.unknown" = "Άγνωστο";
+"part_of_speech.short.interjection" = "Επιφ.";
+"part_of_speech.short.idiom" = "Ιδιωμ.";
+"part_of_speech.short.phrase" = "Φράση";
+"part_of_speech.short.unknown" = "Άγν.";
 
-"actions.settings" = "Ρυθμίσεις";
+"new_definition" = "Νέος ορισμός";
+"enter_definition" = "Εισαγάγετε ορισμό";
+"pronunciation" = "Προφορά";
+"select_definition" = "Επιλέξτε έναν ορισμό";
+"translating_word" = "Μετάφραση λέξης...";
+"translating_definitions" = "Μετάφραση ορισμών...";
+"type_word_here" = "Πληκτρολογήστε τη λέξη εδώ...";
+"type_new_example_here" = "Πληκτρολογήστε νέο παράδειγμα εδώ...";
+"example" = "Παράδειγμα";
+"part_of_speech" = "Μέρος του λόγου";
 
+// MARK: - Meanings
+"all_meanings" = "Όλες οι σημασίες";
+"meanings" = "Σημασίες";
+"meaning" = "Σημασία";
+"show_all_meanings" = "Εμφάνιση όλων των σημασιών";
+"edit_meaning" = "Επεξεργασία σημασίας";
+"delete_meaning" = "Διαγραφή σημασίας";
+"delete_meaning_confirmation" = "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτή τη σημασία;";
+"meaning_updated" = "Η σημασία ενημερώθηκε";
+"meaning_removed" = "Η σημασία αφαιρέθηκε";
+"meaning_removing_canceled" = "Η διαγραφή της σημασίας ακυρώθηκε";
+"meaning_played" = "Η σημασία αναπαράχθηκε";
+
+// MARK: - Notes
+"notes" = "Σημειώσεις";
+"no_notes" = "Χωρίς σημειώσεις";
+"add_notes" = "Προσθήκη σημειώσεων...";
+"notes_updated" = "Οι σημειώσεις ενημερώθηκαν";

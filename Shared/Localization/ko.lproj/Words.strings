@@ -127,17 +127,50 @@
 "part_of_speech.full.pronoun" = "대명사";
 "part_of_speech.full.preposition" = "전치사";
 "part_of_speech.full.exclamation" = "감탄사";
+"part_of_speech.full.interjection" = "간투사";
+"part_of_speech.full.idiom" = "관용구";
+"part_of_speech.full.phrase" = "구";
 "part_of_speech.full.unknown" = "알 수 없음";
 
-"part_of_speech.short.noun" = "명";
-"part_of_speech.short.verb" = "동";
-"part_of_speech.short.adjective" = "형";
-"part_of_speech.short.adverb" = "부";
-"part_of_speech.short.conjunction" = "접";
-"part_of_speech.short.pronoun" = "대";
-"part_of_speech.short.preposition" = "전";
-"part_of_speech.short.exclamation" = "감";
-"part_of_speech.short.unknown" = "알 수 없음";
+"part_of_speech.short.noun" = "명사";
+"part_of_speech.short.verb" = "동사";
+"part_of_speech.short.adjective" = "형.";
+"part_of_speech.short.adverb" = "부.";
+"part_of_speech.short.conjunction" = "접.";
+"part_of_speech.short.pronoun" = "대.";
+"part_of_speech.short.preposition" = "전.";
+"part_of_speech.short.exclamation" = "감.";
+"part_of_speech.short.interjection" = "간.";
+"part_of_speech.short.idiom" = "관용";
+"part_of_speech.short.phrase" = "구";
+"part_of_speech.short.unknown" = "알수없음";
 
-"actions.settings" = "설정";
+"new_definition" = "새 정의";
+"enter_definition" = "정의 입력";
+"pronunciation" = "발음";
+"select_definition" = "정의 선택";
+"translating_word" = "단어 번역 중...";
+"translating_definitions" = "정의 번역 중...";
+"type_word_here" = "여기에 단어 입력...";
+"type_new_example_here" = "여기에 새 예시 입력...";
+"example" = "예시";
+"part_of_speech" = "품사";
 
+// MARK: - Meanings
+"all_meanings" = "모든 의미";
+"meanings" = "의미";
+"meaning" = "의미";
+"show_all_meanings" = "모든 의미 보기";
+"edit_meaning" = "의미 편집";
+"delete_meaning" = "의미 삭제";
+"delete_meaning_confirmation" = "이 의미를 삭제하시겠습니까?";
+"meaning_updated" = "의미가 업데이트되었습니다";
+"meaning_removed" = "의미가 삭제되었습니다";
+"meaning_removing_canceled" = "의미 삭제가 취소되었습니다";
+"meaning_played" = "의미가 재생되었습니다";
+
+// MARK: - Notes
+"notes" = "노트";
+"no_notes" = "노트 없음";
+"add_notes" = "노트 추가...";
+"notes_updated" = "노트가 업데이트되었습니다";

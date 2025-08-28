@@ -49,8 +49,8 @@ enum PartOfSpeech: String, CaseIterable {
         case .preposition: return Loc.Words.PartOfSpeech.Full.preposition
         case .exclamation: return Loc.Words.PartOfSpeech.Full.exclamation
         case .interjection: return Loc.Words.PartOfSpeech.Full.interjection
-        case .idiom: return "Idiom"
-        case .phrase: return "Phrase"
+        case .idiom: return Loc.Words.PartOfSpeech.Full.idiom
+        case .phrase: return Loc.Words.PartOfSpeech.Full.phrase
         case .unknown: return Loc.Words.PartOfSpeech.Full.unknown
         }
     }
@@ -66,8 +66,8 @@ enum PartOfSpeech: String, CaseIterable {
         case .preposition: return Loc.Words.PartOfSpeech.Short.preposition
         case .exclamation: return Loc.Words.PartOfSpeech.Short.exclamation
         case .interjection: return Loc.Words.PartOfSpeech.Short.interjection
-        case .idiom: return "Idiom"
-        case .phrase: return "Phrase"
+        case .idiom: return Loc.Words.PartOfSpeech.Short.idiom
+        case .phrase: return Loc.Words.PartOfSpeech.Short.phrase
         case .unknown: return Loc.Words.PartOfSpeech.Short.unknown
         }
     }

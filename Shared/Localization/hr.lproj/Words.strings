@@ -126,7 +126,10 @@
 "part_of_speech.full.conjunction" = "Veznik";
 "part_of_speech.full.pronoun" = "Zamjenica";
 "part_of_speech.full.preposition" = "Prijedlog";
-"part_of_speech.full.exclamation" = "Usklik";
+"part_of_speech.full.exclamation" = "Uskličnik";
+"part_of_speech.full.interjection" = "Umetnuta riječ";
+"part_of_speech.full.idiom" = "Idiom";
+"part_of_speech.full.phrase" = "Fraza";
 "part_of_speech.full.unknown" = "Nepoznato";
 
 "part_of_speech.short.noun" = "Imen.";
@@ -134,10 +137,40 @@
 "part_of_speech.short.adjective" = "Prid.";
 "part_of_speech.short.adverb" = "Pril.";
 "part_of_speech.short.conjunction" = "Vez.";
-"part_of_speech.short.pronoun" = "Zamj.";
+"part_of_speech.short.pronoun" = "Zam.";
 "part_of_speech.short.preposition" = "Prij.";
 "part_of_speech.short.exclamation" = "Uskl.";
-"part_of_speech.short.unknown" = "Nepoz.";
+"part_of_speech.short.interjection" = "Umet.";
+"part_of_speech.short.idiom" = "Idiom";
+"part_of_speech.short.phrase" = "Fraza";
+"part_of_speech.short.unknown" = "Nep.";
 
-"actions.settings" = "Postavke";
+"new_definition" = "Nova definicija";
+"enter_definition" = "Unesite definiciju";
+"pronunciation" = "Izgovor";
+"select_definition" = "Odaberite definiciju";
+"translating_word" = "Prevođenje riječi...";
+"translating_definitions" = "Prevođenje definicija...";
+"type_word_here" = "Upišite riječ ovdje...";
+"type_new_example_here" = "Upišite novi primjer ovdje...";
+"example" = "Primjer";
+"part_of_speech" = "Vrsta riječi";
 
+// MARK: - Meanings
+"all_meanings" = "Sva značenja";
+"meanings" = "Značenja";
+"meaning" = "Značenje";
+"show_all_meanings" = "Prikaži sva značenja";
+"edit_meaning" = "Uredi značenje";
+"delete_meaning" = "Izbriši značenje";
+"delete_meaning_confirmation" = "Jeste li sigurni da želite izbrisati ovo značenje?";
+"meaning_updated" = "Značenje ažurirano";
+"meaning_removed" = "Značenje uklonjeno";
+"meaning_removing_canceled" = "Uklanjanje značenja otkazano";
+"meaning_played" = "Značenje reproducirano";
+
+// MARK: - Notes
+"notes" = "Bilješke";
+"no_notes" = "Nema bilješki";
+"add_notes" = "Dodaj bilješke...";
+"notes_updated" = "Bilješke ažurirane";

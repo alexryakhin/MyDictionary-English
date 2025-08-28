@@ -127,6 +127,9 @@
 "part_of_speech.full.pronoun" = "Pronomini";
 "part_of_speech.full.preposition" = "Prepositio";
 "part_of_speech.full.exclamation" = "Huudahdus";
+"part_of_speech.full.interjection" = "Interjektio";
+"part_of_speech.full.idiom" = "Idioomi";
+"part_of_speech.full.phrase" = "Fraasi";
 "part_of_speech.full.unknown" = "Tuntematon";
 
 "part_of_speech.short.noun" = "Subst.";
@@ -137,7 +140,37 @@
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Prep.";
 "part_of_speech.short.exclamation" = "Huud.";
-"part_of_speech.short.unknown" = "Tuntematon";
+"part_of_speech.short.interjection" = "Interj.";
+"part_of_speech.short.idiom" = "Idioomi";
+"part_of_speech.short.phrase" = "Fraasi";
+"part_of_speech.short.unknown" = "Tunt.";
 
-"actions.settings" = "Asetukset";
+"new_definition" = "Uusi määritelmä";
+"enter_definition" = "Syötä määritelmä";
+"pronunciation" = "Ääntäminen";
+"select_definition" = "Valitse määritelmä";
+"translating_word" = "Käännetään sanaa...";
+"translating_definitions" = "Käännetään määritelmiä...";
+"type_word_here" = "Kirjoita sana tähän...";
+"type_new_example_here" = "Kirjoita uusi esimerkki tähän...";
+"example" = "Esimerkki";
+"part_of_speech" = "Sanaluokka";
 
+// MARK: - Meanings
+"all_meanings" = "Kaikki merkitykset";
+"meanings" = "Merkitykset";
+"meaning" = "Merkitys";
+"show_all_meanings" = "Näytä kaikki merkitykset";
+"edit_meaning" = "Muokkaa merkitystä";
+"delete_meaning" = "Poista merkitys";
+"delete_meaning_confirmation" = "Oletko varma, että haluat poistaa tämän merkityksen?";
+"meaning_updated" = "Merkitys päivitetty";
+"meaning_removed" = "Merkitys poistettu";
+"meaning_removing_canceled" = "Merkityksen poistaminen peruutettu";
+"meaning_played" = "Merkitys toistettu";
+
+// MARK: - Notes
+"notes" = "Muistiinpanot";
+"no_notes" = "Ei muistiinpanoja";
+"add_notes" = "Lisää muistiinpanoja...";
+"notes_updated" = "Muistiinpanot päivitetty";

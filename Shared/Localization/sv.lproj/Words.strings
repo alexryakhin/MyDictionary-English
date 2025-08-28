@@ -126,8 +126,11 @@
 "part_of_speech.full.conjunction" = "Konjunktion";
 "part_of_speech.full.pronoun" = "Pronomen";
 "part_of_speech.full.preposition" = "Preposition";
-"part_of_speech.full.exclamation" = "Utrop";
-"part_of_speech.full.unknown" = "Okänd";
+"part_of_speech.full.exclamation" = "Utropsord";
+"part_of_speech.full.interjection" = "Interjektion";
+"part_of_speech.full.idiom" = "Idiom";
+"part_of_speech.full.phrase" = "Fras";
+"part_of_speech.full.unknown" = "Okänt";
 
 "part_of_speech.short.noun" = "Subst.";
 "part_of_speech.short.verb" = "Verb";
@@ -137,7 +140,37 @@
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Prep.";
 "part_of_speech.short.exclamation" = "Utr.";
-"part_of_speech.short.unknown" = "Okänd";
+"part_of_speech.short.interjection" = "Interj.";
+"part_of_speech.short.idiom" = "Idiom";
+"part_of_speech.short.phrase" = "Fras";
+"part_of_speech.short.unknown" = "Okänt";
 
-"actions.settings" = "Inställningar";
+"new_definition" = "Ny definition";
+"enter_definition" = "Ange definition";
+"pronunciation" = "Uttal";
+"select_definition" = "Välj en definition";
+"translating_word" = "Översätter ord...";
+"translating_definitions" = "Översätter definitioner...";
+"type_word_here" = "Skriv ordet här...";
+"type_new_example_here" = "Skriv ett nytt exempel här...";
+"example" = "Exempel";
+"part_of_speech" = "Ordklass";
 
+// MARK: - Meanings
+"all_meanings" = "Alla betydelser";
+"meanings" = "Betydelser";
+"meaning" = "Betydelse";
+"show_all_meanings" = "Visa alla betydelser";
+"edit_meaning" = "Redigera betydelse";
+"delete_meaning" = "Radera betydelse";
+"delete_meaning_confirmation" = "Är du säker på att du vill radera denna betydelse?";
+"meaning_updated" = "Betydelse uppdaterad";
+"meaning_removed" = "Betydelse borttagen";
+"meaning_removing_canceled" = "Borttagning av betydelse avbruten";
+"meaning_played" = "Betydelse spelad";
+
+// MARK: - Notes
+"notes" = "Anteckningar";
+"no_notes" = "Inga anteckningar";
+"add_notes" = "Lägg till anteckningar...";
+"notes_updated" = "Anteckningar uppdaterade";

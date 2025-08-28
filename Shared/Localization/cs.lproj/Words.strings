@@ -127,7 +127,10 @@
 "part_of_speech.full.pronoun" = "Zájmeno";
 "part_of_speech.full.preposition" = "Předložka";
 "part_of_speech.full.exclamation" = "Vykřičník";
-"part_of_speech.full.unknown" = "Neznámý";
+"part_of_speech.full.interjection" = "Citoslovce";
+"part_of_speech.full.idiom" = "Idiom";
+"part_of_speech.full.phrase" = "Fráze";
+"part_of_speech.full.unknown" = "Neznámé";
 
 "part_of_speech.short.noun" = "Podst.";
 "part_of_speech.short.verb" = "Slov.";
@@ -137,11 +140,37 @@
 "part_of_speech.short.pronoun" = "Zájm.";
 "part_of_speech.short.preposition" = "Předl.";
 "part_of_speech.short.exclamation" = "Vykř.";
+"part_of_speech.short.interjection" = "Cit.";
+"part_of_speech.short.idiom" = "Idiom";
+"part_of_speech.short.phrase" = "Fráze";
 "part_of_speech.short.unknown" = "Nezn.";
 
-// Registration Benefits
+"new_definition" = "Nová definice";
+"enter_definition" = "Zadejte definici";
+"pronunciation" = "Výslovnost";
+"select_definition" = "Vyberte definici";
+"translating_word" = "Překládá se slovo...";
+"translating_definitions" = "Překládají se definice...";
+"type_word_here" = "Zadejte slovo zde...";
+"type_new_example_here" = "Zadejte nový příklad zde...";
+"example" = "Příklad";
+"part_of_speech" = "Slovní druh";
 
-// Subscription Security
+// MARK: - Meanings
+"all_meanings" = "Všechny významy";
+"meanings" = "Významy";
+"meaning" = "Význam";
+"show_all_meanings" = "Zobrazit všechny významy";
+"edit_meaning" = "Upravit význam";
+"delete_meaning" = "Smazat význam";
+"delete_meaning_confirmation" = "Opravdu chcete smazat tento význam?";
+"meaning_updated" = "Význam aktualizován";
+"meaning_removed" = "Význam odstraněn";
+"meaning_removing_canceled" = "Odstranění významu zrušeno";
+"meaning_played" = "Význam přehrán";
 
-"actions.settings" = "Nastavení";
-
+// MARK: - Notes
+"notes" = "Poznámky";
+"no_notes" = "Žádné poznámky";
+"add_notes" = "Přidat poznámky...";
+"notes_updated" = "Poznámky aktualizovány";

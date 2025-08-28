@@ -127,6 +127,9 @@
 "part_of_speech.full.pronoun" = "Pronume";
 "part_of_speech.full.preposition" = "Prepoziție";
 "part_of_speech.full.exclamation" = "Exclamație";
+"part_of_speech.full.interjection" = "Interjecție";
+"part_of_speech.full.idiom" = "Idiom";
+"part_of_speech.full.phrase" = "Frază";
 "part_of_speech.full.unknown" = "Necunoscut";
 
 "part_of_speech.short.noun" = "Subst.";
@@ -137,7 +140,37 @@
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Prep.";
 "part_of_speech.short.exclamation" = "Excl.";
+"part_of_speech.short.interjection" = "Interj.";
+"part_of_speech.short.idiom" = "Idiom";
+"part_of_speech.short.phrase" = "Frază";
 "part_of_speech.short.unknown" = "Nec.";
 
-"actions.settings" = "Setări";
+"new_definition" = "Definiție nouă";
+"enter_definition" = "Introduceți definiția";
+"pronunciation" = "Pronunție";
+"select_definition" = "Selectați o definiție";
+"translating_word" = "Se traduce cuvântul...";
+"translating_definitions" = "Se traduc definițiile...";
+"type_word_here" = "Tastați cuvântul aici...";
+"type_new_example_here" = "Tastați un exemplu nou aici...";
+"example" = "Exemplu";
+"part_of_speech" = "Parte de vorbire";
 
+// MARK: - Meanings
+"all_meanings" = "Toate sensurile";
+"meanings" = "Sensuri";
+"meaning" = "Sens";
+"show_all_meanings" = "Afișează toate sensurile";
+"edit_meaning" = "Editează sensul";
+"delete_meaning" = "Șterge sensul";
+"delete_meaning_confirmation" = "Sunteți sigur că doriți să ștergeți acest sens?";
+"meaning_updated" = "Sens actualizat";
+"meaning_removed" = "Sens șters";
+"meaning_removing_canceled" = "Ștergerea sensului anulată";
+"meaning_played" = "Sens redat";
+
+// MARK: - Notes
+"notes" = "Note";
+"no_notes" = "Fără note";
+"add_notes" = "Adăugați note...";
+"notes_updated" = "Note actualizate";

@@ -129,6 +129,9 @@
 "part_of_speech.full.pronoun" = "Pronom";
 "part_of_speech.full.preposition" = "Preposició";
 "part_of_speech.full.exclamation" = "Exclamació";
+"part_of_speech.full.interjection" = "Interjecció";
+"part_of_speech.full.idiom" = "Idioma";
+"part_of_speech.full.phrase" = "Frase";
 "part_of_speech.full.unknown" = "Desconegut";
 
 "part_of_speech.short.noun" = "Subst.";
@@ -139,7 +142,37 @@
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Prep.";
 "part_of_speech.short.exclamation" = "Excl.";
+"part_of_speech.short.interjection" = "Interj.";
+"part_of_speech.short.idiom" = "Idioma";
+"part_of_speech.short.phrase" = "Frase";
 "part_of_speech.short.unknown" = "Desc.";
 
-"actions.settings" = "Configuració";
+"new_definition" = "Nova definició";
+"enter_definition" = "Introduïu la definició";
+"pronunciation" = "Pronunciació";
+"select_definition" = "Seleccioneu una definició";
+"translating_word" = "Traduint paraula...";
+"translating_definitions" = "Traduint definicions...";
+"type_word_here" = "Escriviu la paraula aquí...";
+"type_new_example_here" = "Escriviu un exemple nou aquí...";
+"example" = "Exemple";
+"part_of_speech" = "Part del discurs";
 
+// MARK: - Meanings
+"all_meanings" = "Tots els significats";
+"meanings" = "Significats";
+"meaning" = "Significat";
+"show_all_meanings" = "Mostra tots els significats";
+"edit_meaning" = "Edita el significat";
+"delete_meaning" = "Suprimeix el significat";
+"delete_meaning_confirmation" = "Esteu segur que voleu suprimir aquest significat?";
+"meaning_updated" = "Significat actualitzat";
+"meaning_removed" = "Significat suprimit";
+"meaning_removing_canceled" = "Supressió del significat cancel·lada";
+"meaning_played" = "Significat reproduït";
+
+// MARK: - Notes
+"notes" = "Notes";
+"no_notes" = "Sense notes";
+"add_notes" = "Afegeix notes...";
+"notes_updated" = "Notes actualitzades";

@@ -13,11 +13,7 @@ struct MeaningsListView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var word: CDWord
     
-    @State private var editingMeaning: CDMeaning?
-    @State private var editingDefinition: String = ""
-    @State private var editingExamples: [String] = []
-    @State private var showingDeleteAlert = false
-    @State private var meaningToDelete: CDMeaning?
+    @State private var meaningToEdit: CDMeaning?
     
     init(word: CDWord) {
         self._word = StateObject(wrappedValue: word)
@@ -44,6 +40,9 @@ struct MeaningsListView: View {
                 }
             }
         )
+        .sheet(item: $meaningToEdit) { meaning in
+            MeaningEditView(meaning: meaning)
+        }
     }
     
     private func meaningCardView(meaning: CDMeaning, index: Int) -> some View {
@@ -79,8 +78,7 @@ struct MeaningsListView: View {
                         Divider()
                         
                         Button(role: .destructive) {
-                            meaningToDelete = meaning
-                            showingDeleteAlert = true
+                            deleteMeaning(meaning)
                         } label: {
                             Label(Loc.Actions.delete, systemImage: "trash")
                                 .tint(.red)
@@ -128,9 +126,7 @@ struct MeaningsListView: View {
     }
     
     private func startEditing(_ meaning: CDMeaning) {
-        editingMeaning = meaning
-        editingDefinition = meaning.definition ?? ""
-        editingExamples = meaning.examplesDecoded
+        meaningToEdit = meaning
     }
     
     private func addNewMeaning() {
@@ -143,10 +139,22 @@ struct MeaningsListView: View {
     }
     
     private func deleteMeaning(_ meaning: CDMeaning) {
-        word.removeMeaning(meaning)
-        saveContext()
+        AlertCenter.shared.showAlert(
+            with: .deleteConfirmation(
+                title: Loc.Words.deleteMeaning,
+                message: Loc.Words.deleteMeaningConfirmation,
+                onCancel: {
+                    AnalyticsService.shared.logEvent(.meaningRemovingCanceled)
+                },
+                onDelete: {
+                    word.removeMeaning(meaning)
+                    saveContext()
+                    AnalyticsService.shared.logEvent(.meaningRemoved)
+                }
+            )
+        )
     }
-    
+
     private func play(_ text: String) async throws {
         try await TTSPlayer.shared.play(
             text,

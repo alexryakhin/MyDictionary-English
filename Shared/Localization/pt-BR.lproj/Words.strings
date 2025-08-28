@@ -127,6 +127,9 @@
 "part_of_speech.full.pronoun" = "Pronome";
 "part_of_speech.full.preposition" = "Preposição";
 "part_of_speech.full.exclamation" = "Exclamação";
+"part_of_speech.full.interjection" = "Interjeição";
+"part_of_speech.full.idiom" = "Idioma";
+"part_of_speech.full.phrase" = "Frase";
 "part_of_speech.full.unknown" = "Desconhecido";
 
 "part_of_speech.short.noun" = "Subst.";
@@ -137,7 +140,37 @@
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Prep.";
 "part_of_speech.short.exclamation" = "Excl.";
-"part_of_speech.short.unknown" = "Desconh.";
+"part_of_speech.short.interjection" = "Interj.";
+"part_of_speech.short.idiom" = "Idioma";
+"part_of_speech.short.phrase" = "Frase";
+"part_of_speech.short.unknown" = "Desc.";
 
-"actions.settings" = "Configurações";
+"new_definition" = "Nova definição";
+"enter_definition" = "Inserir definição";
+"pronunciation" = "Pronúncia";
+"select_definition" = "Selecionar uma definição";
+"translating_word" = "Traduzindo palavra...";
+"translating_definitions" = "Traduzindo definições...";
+"type_word_here" = "Digite a palavra aqui...";
+"type_new_example_here" = "Digite um novo exemplo aqui...";
+"example" = "Exemplo";
+"part_of_speech" = "Parte do discurso";
 
+// MARK: - Meanings
+"all_meanings" = "Todos os significados";
+"meanings" = "Significados";
+"meaning" = "Significado";
+"show_all_meanings" = "Mostrar todos os significados";
+"edit_meaning" = "Editar significado";
+"delete_meaning" = "Excluir significado";
+"delete_meaning_confirmation" = "Tem certeza de que deseja excluir este significado?";
+"meaning_updated" = "Significado atualizado";
+"meaning_removed" = "Significado removido";
+"meaning_removing_canceled" = "Remoção de significado cancelada";
+"meaning_played" = "Significado reproduzido";
+
+// MARK: - Notes
+"notes" = "Notas";
+"no_notes" = "Sem notas";
+"add_notes" = "Adicionar notas...";
+"notes_updated" = "Notas atualizadas";

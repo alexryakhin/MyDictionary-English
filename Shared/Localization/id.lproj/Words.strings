@@ -119,25 +119,58 @@
 "empty_states.try_different_search_term" = "Coba istilah pencarian lain atau tambahkan ungkapan baru";
 
 // MARK: - Part of Speech
-"part_of_speech.full.noun" = "Kata Benda";
-"part_of_speech.full.verb" = "Kata Kerja";
-"part_of_speech.full.adjective" = "Kata Sifat";
-"part_of_speech.full.adverb" = "Kata Keterangan";
-"part_of_speech.full.conjunction" = "Kata Sambung";
-"part_of_speech.full.pronoun" = "Kata Ganti";
-"part_of_speech.full.preposition" = "Kata Depan";
-"part_of_speech.full.exclamation" = "Seruan";
-"part_of_speech.full.unknown" = "Tidak Diketahui";
+"part_of_speech.full.noun" = "Kata benda";
+"part_of_speech.full.verb" = "Kata kerja";
+"part_of_speech.full.adjective" = "Kata sifat";
+"part_of_speech.full.adverb" = "Kata keterangan";
+"part_of_speech.full.conjunction" = "Kata sambung";
+"part_of_speech.full.pronoun" = "Kata ganti";
+"part_of_speech.full.preposition" = "Kata depan";
+"part_of_speech.full.exclamation" = "Kata seru";
+"part_of_speech.full.interjection" = "Kata seru";
+"part_of_speech.full.idiom" = "Idiom";
+"part_of_speech.full.phrase" = "Frasa";
+"part_of_speech.full.unknown" = "Tidak diketahui";
 
-"part_of_speech.short.noun" = "Benda";
-"part_of_speech.short.verb" = "Kerja";
-"part_of_speech.short.adjective" = "Sifat";
-"part_of_speech.short.adverb" = "Ket.";
-"part_of_speech.short.conjunction" = "Samb.";
-"part_of_speech.short.pronoun" = "Ganti";
-"part_of_speech.short.preposition" = "Depan";
-"part_of_speech.short.exclamation" = "Seru";
-"part_of_speech.short.unknown" = "Tdk Diketahui";
+"part_of_speech.short.noun" = "K.benda";
+"part_of_speech.short.verb" = "K.kerja";
+"part_of_speech.short.adjective" = "K.sifat";
+"part_of_speech.short.adverb" = "K.ket.";
+"part_of_speech.short.conjunction" = "K.samb.";
+"part_of_speech.short.pronoun" = "K.ganti";
+"part_of_speech.short.preposition" = "K.depan";
+"part_of_speech.short.exclamation" = "K.seru";
+"part_of_speech.short.interjection" = "K.seru";
+"part_of_speech.short.idiom" = "Idiom";
+"part_of_speech.short.phrase" = "Frasa";
+"part_of_speech.short.unknown" = "T.diket.";
 
-"actions.settings" = "Pengaturan";
+"new_definition" = "Definisi baru";
+"enter_definition" = "Masukkan definisi";
+"pronunciation" = "Pelafalan";
+"select_definition" = "Pilih definisi";
+"translating_word" = "Menerjemahkan kata...";
+"translating_definitions" = "Menerjemahkan definisi...";
+"type_word_here" = "Ketik kata di sini...";
+"type_new_example_here" = "Ketik contoh baru di sini...";
+"example" = "Contoh";
+"part_of_speech" = "Jenis kata";
 
+// MARK: - Meanings
+"all_meanings" = "Semua arti";
+"meanings" = "Arti";
+"meaning" = "Arti";
+"show_all_meanings" = "Tampilkan semua arti";
+"edit_meaning" = "Edit arti";
+"delete_meaning" = "Hapus arti";
+"delete_meaning_confirmation" = "Apakah Anda yakin ingin menghapus arti ini?";
+"meaning_updated" = "Arti diperbarui";
+"meaning_removed" = "Arti dihapus";
+"meaning_removing_canceled" = "Penghapusan arti dibatalkan";
+"meaning_played" = "Arti dimainkan";
+
+// MARK: - Notes
+"notes" = "Catatan";
+"no_notes" = "Tidak ada catatan";
+"add_notes" = "Tambah catatan...";
+"notes_updated" = "Catatan diperbarui";

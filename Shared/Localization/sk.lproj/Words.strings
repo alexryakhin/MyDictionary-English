@@ -127,6 +127,9 @@
 "part_of_speech.full.pronoun" = "Zámeno";
 "part_of_speech.full.preposition" = "Predložka";
 "part_of_speech.full.exclamation" = "Výkričník";
+"part_of_speech.full.interjection" = "Citoslovce";
+"part_of_speech.full.idiom" = "Idiom";
+"part_of_speech.full.phrase" = "Fráza";
 "part_of_speech.full.unknown" = "Neznáme";
 
 "part_of_speech.short.noun" = "Podst.";
@@ -137,7 +140,37 @@
 "part_of_speech.short.pronoun" = "Zám.";
 "part_of_speech.short.preposition" = "Predl.";
 "part_of_speech.short.exclamation" = "Výkr.";
+"part_of_speech.short.interjection" = "Cit.";
+"part_of_speech.short.idiom" = "Idiom";
+"part_of_speech.short.phrase" = "Fráza";
 "part_of_speech.short.unknown" = "Nezn.";
 
-"actions.settings" = "Nastavenia";
+"new_definition" = "Nová definícia";
+"enter_definition" = "Zadajte definíciu";
+"pronunciation" = "Výslovnosť";
+"select_definition" = "Vyberte definíciu";
+"translating_word" = "Prekladá sa slovo...";
+"translating_definitions" = "Prekladajú sa definície...";
+"type_word_here" = "Zadajte slovo sem...";
+"type_new_example_here" = "Zadajte nový príklad sem...";
+"example" = "Príklad";
+"part_of_speech" = "Slovný druh";
 
+// MARK: - Meanings
+"all_meanings" = "Všetky významy";
+"meanings" = "Významy";
+"meaning" = "Význam";
+"show_all_meanings" = "Zobraziť všetky významy";
+"edit_meaning" = "Upraviť význam";
+"delete_meaning" = "Zmazať význam";
+"delete_meaning_confirmation" = "Ste si istý, že chcete zmazať tento význam?";
+"meaning_updated" = "Význam aktualizovaný";
+"meaning_removed" = "Význam odstránený";
+"meaning_removing_canceled" = "Odstránenie významu zrušené";
+"meaning_played" = "Význam prehratý";
+
+// MARK: - Notes
+"notes" = "Poznámky";
+"no_notes" = "Žiadne poznámky";
+"add_notes" = "Pridať poznámky...";
+"notes_updated" = "Poznámky aktualizované";

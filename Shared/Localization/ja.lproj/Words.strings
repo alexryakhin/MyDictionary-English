@@ -127,17 +127,50 @@
 "part_of_speech.full.pronoun" = "代名詞";
 "part_of_speech.full.preposition" = "前置詞";
 "part_of_speech.full.exclamation" = "感嘆詞";
+"part_of_speech.full.interjection" = "間投詞";
+"part_of_speech.full.idiom" = "慣用句";
+"part_of_speech.full.phrase" = "句";
 "part_of_speech.full.unknown" = "不明";
 
 "part_of_speech.short.noun" = "名詞";
 "part_of_speech.short.verb" = "動詞";
-"part_of_speech.short.adjective" = "形";
-"part_of_speech.short.adverb" = "副";
-"part_of_speech.short.conjunction" = "接";
-"part_of_speech.short.pronoun" = "代";
-"part_of_speech.short.preposition" = "前";
-"part_of_speech.short.exclamation" = "感";
+"part_of_speech.short.adjective" = "形.";
+"part_of_speech.short.adverb" = "副.";
+"part_of_speech.short.conjunction" = "接.";
+"part_of_speech.short.pronoun" = "代.";
+"part_of_speech.short.preposition" = "前.";
+"part_of_speech.short.exclamation" = "感.";
+"part_of_speech.short.interjection" = "間.";
+"part_of_speech.short.idiom" = "慣用";
+"part_of_speech.short.phrase" = "句";
 "part_of_speech.short.unknown" = "不明";
 
-"actions.settings" = "設定";
+"new_definition" = "新しい定義";
+"enter_definition" = "定義を入力";
+"pronunciation" = "発音";
+"select_definition" = "定義を選択";
+"translating_word" = "単語を翻訳中...";
+"translating_definitions" = "定義を翻訳中...";
+"type_word_here" = "ここに単語を入力...";
+"type_new_example_here" = "新しい例をここに入力...";
+"example" = "例";
+"part_of_speech" = "品詞";
 
+// MARK: - Meanings
+"all_meanings" = "すべての意味";
+"meanings" = "意味";
+"meaning" = "意味";
+"show_all_meanings" = "すべての意味を表示";
+"edit_meaning" = "意味を編集";
+"delete_meaning" = "意味を削除";
+"delete_meaning_confirmation" = "この意味を削除してもよろしいですか？";
+"meaning_updated" = "意味が更新されました";
+"meaning_removed" = "意味が削除されました";
+"meaning_removing_canceled" = "意味の削除がキャンセルされました";
+"meaning_played" = "意味が再生されました";
+
+// MARK: - Notes
+"notes" = "ノート";
+"no_notes" = "ノートがありません";
+"add_notes" = "ノートを追加...";
+"notes_updated" = "ノートが更新されました";

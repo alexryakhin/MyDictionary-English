@@ -127,17 +127,50 @@
 "part_of_speech.full.pronoun" = "Zaimek";
 "part_of_speech.full.preposition" = "Przyimek";
 "part_of_speech.full.exclamation" = "Wykrzyknik";
+"part_of_speech.full.interjection" = "Wykrzyknik";
+"part_of_speech.full.idiom" = "Idiom";
+"part_of_speech.full.phrase" = "Fraza";
 "part_of_speech.full.unknown" = "Nieznany";
 
 "part_of_speech.short.noun" = "Rzecz.";
 "part_of_speech.short.verb" = "Czas.";
-"part_of_speech.short.adjective" = "Przym.";
-"part_of_speech.short.adverb" = "Przysł.";
+"part_of_speech.short.adjective" = "Prz.";
+"part_of_speech.short.adverb" = "Przys.";
 "part_of_speech.short.conjunction" = "Spój.";
 "part_of_speech.short.pronoun" = "Zaim.";
-"part_of_speech.short.preposition" = "Przyim.";
-"part_of_speech.short.exclamation" = "Wykrz.";
-"part_of_speech.short.unknown" = "Niezn.";
+"part_of_speech.short.preposition" = "Przy.";
+"part_of_speech.short.exclamation" = "Wykr.";
+"part_of_speech.short.interjection" = "Wykr.";
+"part_of_speech.short.idiom" = "Idiom";
+"part_of_speech.short.phrase" = "Fraza";
+"part_of_speech.short.unknown" = "Niez.";
 
-"actions.settings" = "Ustawienia";
+"new_definition" = "Nowa definicja";
+"enter_definition" = "Wprowadź definicję";
+"pronunciation" = "Wymowa";
+"select_definition" = "Wybierz definicję";
+"translating_word" = "Tłumaczenie słowa...";
+"translating_definitions" = "Tłumaczenie definicji...";
+"type_word_here" = "Wpisz słowo tutaj...";
+"type_new_example_here" = "Wpisz nowy przykład tutaj...";
+"example" = "Przykład";
+"part_of_speech" = "Część mowy";
 
+// MARK: - Meanings
+"all_meanings" = "Wszystkie znaczenia";
+"meanings" = "Znaczenia";
+"meaning" = "Znaczenie";
+"show_all_meanings" = "Pokaż wszystkie znaczenia";
+"edit_meaning" = "Edytuj znaczenie";
+"delete_meaning" = "Usuń znaczenie";
+"delete_meaning_confirmation" = "Czy na pewno chcesz usunąć to znaczenie?";
+"meaning_updated" = "Znaczenie zaktualizowane";
+"meaning_removed" = "Znaczenie usunięte";
+"meaning_removing_canceled" = "Usuwanie znaczenia anulowane";
+"meaning_played" = "Znaczenie odtworzone";
+
+// MARK: - Notes
+"notes" = "Notatki";
+"no_notes" = "Brak notatek";
+"add_notes" = "Dodaj notatki...";
+"notes_updated" = "Notatki zaktualizowane";

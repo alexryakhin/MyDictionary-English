@@ -127,9 +127,12 @@
 "part_of_speech.full.pronoun" = "Névmás";
 "part_of_speech.full.preposition" = "Elöljárószó";
 "part_of_speech.full.exclamation" = "Felkiáltás";
+"part_of_speech.full.interjection" = "Indulatszó";
+"part_of_speech.full.idiom" = "Kifejezés";
+"part_of_speech.full.phrase" = "Kifejezés";
 "part_of_speech.full.unknown" = "Ismeretlen";
 
-"part_of_speech.short.noun" = "Főn.";
+"part_of_speech.short.noun" = "Főnév";
 "part_of_speech.short.verb" = "Ige";
 "part_of_speech.short.adjective" = "Mell.";
 "part_of_speech.short.adverb" = "Hat.";
@@ -137,7 +140,37 @@
 "part_of_speech.short.pronoun" = "Név.";
 "part_of_speech.short.preposition" = "Elöl.";
 "part_of_speech.short.exclamation" = "Felk.";
-"part_of_speech.short.unknown" = "Ismeretlen";
+"part_of_speech.short.interjection" = "Ind.";
+"part_of_speech.short.idiom" = "Kif.";
+"part_of_speech.short.phrase" = "Kif.";
+"part_of_speech.short.unknown" = "Ism.";
 
-"actions.settings" = "Beállítások";
+"new_definition" = "Új meghatározás";
+"enter_definition" = "Adja meg a meghatározást";
+"pronunciation" = "Kiejtés";
+"select_definition" = "Válasszon meghatározást";
+"translating_word" = "Szó fordítása...";
+"translating_definitions" = "Meghatározások fordítása...";
+"type_word_here" = "Írja be a szót ide...";
+"type_new_example_here" = "Írjon be új példát ide...";
+"example" = "Példa";
+"part_of_speech" = "Szófaj";
 
+// MARK: - Meanings
+"all_meanings" = "Minden jelentés";
+"meanings" = "Jelentések";
+"meaning" = "Jelentés";
+"show_all_meanings" = "Összes jelentés megjelenítése";
+"edit_meaning" = "Jelentés szerkesztése";
+"delete_meaning" = "Jelentés törlése";
+"delete_meaning_confirmation" = "Biztosan törölni szeretné ezt a jelentést?";
+"meaning_updated" = "Jelentés frissítve";
+"meaning_removed" = "Jelentés eltávolítva";
+"meaning_removing_canceled" = "Jelentés eltávolítása megszakítva";
+"meaning_played" = "Jelentés lejátszva";
+
+// MARK: - Notes
+"notes" = "Jegyzetek";
+"no_notes" = "Nincsenek jegyzetek";
+"add_notes" = "Jegyzetek hozzáadása...";
+"notes_updated" = "Jegyzetek frissítve";

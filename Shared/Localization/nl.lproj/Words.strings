@@ -127,17 +127,50 @@
 "part_of_speech.full.pronoun" = "Voornaamwoord";
 "part_of_speech.full.preposition" = "Voorzetsel";
 "part_of_speech.full.exclamation" = "Uitroep";
+"part_of_speech.full.interjection" = "Tussenwerpsel";
+"part_of_speech.full.idiom" = "Idioom";
+"part_of_speech.full.phrase" = "Zinsdeel";
 "part_of_speech.full.unknown" = "Onbekend";
 
-"part_of_speech.short.noun" = "Zelfst. n.";
-"part_of_speech.short.verb" = "Werkw.";
-"part_of_speech.short.adjective" = "Bijv. n.";
+"part_of_speech.short.noun" = "Z.n.";
+"part_of_speech.short.verb" = "W.w.";
+"part_of_speech.short.adjective" = "B.n.";
 "part_of_speech.short.adverb" = "Bijw.";
-"part_of_speech.short.conjunction" = "Voegw.";
-"part_of_speech.short.pronoun" = "Voornaamw.";
-"part_of_speech.short.preposition" = "Voorz.";
-"part_of_speech.short.exclamation" = "Uitroep";
-"part_of_speech.short.unknown" = "Onbekend";
+"part_of_speech.short.conjunction" = "Voeg.";
+"part_of_speech.short.pronoun" = "V.n.";
+"part_of_speech.short.preposition" = "Vz.";
+"part_of_speech.short.exclamation" = "Uitr.";
+"part_of_speech.short.interjection" = "Tuss.";
+"part_of_speech.short.idiom" = "Idioom";
+"part_of_speech.short.phrase" = "Zinsdeel";
+"part_of_speech.short.unknown" = "Onb.";
 
-"actions.settings" = "Instellingen";
+"new_definition" = "Nieuwe definitie";
+"enter_definition" = "Voer definitie in";
+"pronunciation" = "Uitspraak";
+"select_definition" = "Selecteer een definitie";
+"translating_word" = "Woord vertalen...";
+"translating_definitions" = "Definities vertalen...";
+"type_word_here" = "Typ het woord hier...";
+"type_new_example_here" = "Typ een nieuw voorbeeld hier...";
+"example" = "Voorbeeld";
+"part_of_speech" = "Woordsoort";
 
+// MARK: - Meanings
+"all_meanings" = "Alle betekenissen";
+"meanings" = "Betekenissen";
+"meaning" = "Betekenis";
+"show_all_meanings" = "Toon alle betekenissen";
+"edit_meaning" = "Betekenis bewerken";
+"delete_meaning" = "Betekenis verwijderen";
+"delete_meaning_confirmation" = "Weet je zeker dat je deze betekenis wilt verwijderen?";
+"meaning_updated" = "Betekenis bijgewerkt";
+"meaning_removed" = "Betekenis verwijderd";
+"meaning_removing_canceled" = "Verwijdering van betekenis geannuleerd";
+"meaning_played" = "Betekenis afgespeeld";
+
+// MARK: - Notes
+"notes" = "Notities";
+"no_notes" = "Geen notities";
+"add_notes" = "Notities toevoegen...";
+"notes_updated" = "Notities bijgewerkt";

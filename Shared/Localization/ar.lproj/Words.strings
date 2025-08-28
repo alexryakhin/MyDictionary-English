@@ -127,6 +127,9 @@
 "part_of_speech.full.pronoun" = "ضمير";
 "part_of_speech.full.preposition" = "حرف جر";
 "part_of_speech.full.exclamation" = "تعجب";
+"part_of_speech.full.interjection" = "تدخل";
+"part_of_speech.full.idiom" = "تعبير اصطلاحي";
+"part_of_speech.full.phrase" = "عبارة";
 "part_of_speech.full.unknown" = "غير معروف";
 
 "part_of_speech.short.noun" = "اسم";
@@ -137,7 +140,38 @@
 "part_of_speech.short.pronoun" = "ضمير";
 "part_of_speech.short.preposition" = "جر";
 "part_of_speech.short.exclamation" = "تعجب";
-"part_of_speech.short.unknown" = "غير معروف";
+"part_of_speech.short.interjection" = "تدخل";
+"part_of_speech.short.idiom" = "اصطلاح";
+"part_of_speech.short.phrase" = "عبارة";
+"part_of_speech.short.unknown" = "غير مع.";
 
-"actions.settings" = "الإعدادات";
+"new_definition" = "تعريف جديد";
+"enter_definition" = "أدخل التعريف";
+"pronunciation" = "النطق";
+"select_definition" = "اختر تعريفًا";
+"translating_word" = "جارٍ ترجمة الكلمة...";
+"translating_definitions" = "جارٍ ترجمة التعريفات...";
+"type_word_here" = "اكتب الكلمة هنا...";
+"type_new_example_here" = "اكتب مثالًا جديدًا هنا...";
+"example" = "مثال";
+"part_of_speech" = "جزء من الكلام";
+
+// MARK: - Meanings
+"all_meanings" = "جميع المعاني";
+"meanings" = "المعاني";
+"meaning" = "المعنى";
+"show_all_meanings" = "إظهار جميع المعاني";
+"edit_meaning" = "تعديل المعنى";
+"delete_meaning" = "حذف المعنى";
+"delete_meaning_confirmation" = "هل أنت متأكد من أنك تريد حذف هذا المعنى؟";
+"meaning_updated" = "تم تحديث المعنى";
+"meaning_removed" = "تم حذف المعنى";
+"meaning_removing_canceled" = "تم إلغاء حذف المعنى";
+"meaning_played" = "تم تشغيل المعنى";
+
+// MARK: - Notes
+"notes" = "ملاحظات";
+"no_notes" = "لا توجد ملاحظات";
+"add_notes" = "إضافة ملاحظات...";
+"notes_updated" = "تم تحديث الملاحظات";
 

@@ -127,17 +127,50 @@
 "part_of_speech.full.pronoun" = "सर्वनाम";
 "part_of_speech.full.preposition" = "पूर्वसर्ग";
 "part_of_speech.full.exclamation" = "विस्मयादिबोधक";
+"part_of_speech.full.interjection" = "विस्मयसूचक";
+"part_of_speech.full.idiom" = "मुहावरा";
+"part_of_speech.full.phrase" = "वाक्यांश";
 "part_of_speech.full.unknown" = "अज्ञात";
 
 "part_of_speech.short.noun" = "संज्ञा";
 "part_of_speech.short.verb" = "क्रिया";
-"part_of_speech.short.adjective" = "विशेषण";
-"part_of_speech.short.adverb" = "क्रियाविशेषण";
-"part_of_speech.short.conjunction" = "संयोजक";
-"part_of_speech.short.pronoun" = "सर्वनाम";
-"part_of_speech.short.preposition" = "पूर्वसर्ग";
-"part_of_speech.short.exclamation" = "विस्मय.";
+"part_of_speech.short.adjective" = "विशे.";
+"part_of_speech.short.adverb" = "क्रियावि.";
+"part_of_speech.short.conjunction" = "संयो.";
+"part_of_speech.short.pronoun" = "सर्व.";
+"part_of_speech.short.preposition" = "पूर्व.";
+"part_of_speech.short.exclamation" = "विस्म.";
+"part_of_speech.short.interjection" = "विस्म.सू.";
+"part_of_speech.short.idiom" = "मुहावरा";
+"part_of_speech.short.phrase" = "वाक्यांश";
 "part_of_speech.short.unknown" = "अज्ञात";
 
-"actions.settings" = "सेटिंग्स";
+"new_definition" = "नई परिभाषा";
+"enter_definition" = "परिभाषा दर्ज करें";
+"pronunciation" = "उच्चारण";
+"select_definition" = "परिभाषा चुनें";
+"translating_word" = "शब्द का अनुवाद हो रहा है...";
+"translating_definitions" = "परिभाषाओं का अनुवाद हो रहा है...";
+"type_word_here" = "यहां शब्द टाइप करें...";
+"type_new_example_here" = "यहां नया उदाहरण टाइप करें...";
+"example" = "उदाहरण";
+"part_of_speech" = "शब्द भेद";
 
+// MARK: - Meanings
+"all_meanings" = "सभी अर्थ";
+"meanings" = "अर्थ";
+"meaning" = "अर्थ";
+"show_all_meanings" = "सभी अर्थ दिखाएं";
+"edit_meaning" = "अर्थ संपादित करें";
+"delete_meaning" = "अर्थ हटाएं";
+"delete_meaning_confirmation" = "क्या आप वाकई इस अर्थ को हटाना चाहते हैं?";
+"meaning_updated" = "अर्थ अपडेट किया गया";
+"meaning_removed" = "अर्थ हटाया गया";
+"meaning_removing_canceled" = "अर्थ हटाना रद्द किया गया";
+"meaning_played" = "अर्थ चलाया गया";
+
+// MARK: - Notes
+"notes" = "नोट्स";
+"no_notes" = "कोई नोट्स नहीं";
+"add_notes" = "नोट्स जोड़ें...";
+"notes_updated" = "नोट्स अपडेट किए गए";

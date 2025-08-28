@@ -119,25 +119,58 @@
 "empty_states.try_different_search_term" = "Prøv et andet søgeord eller tilføj et nyt idiom";
 
 // MARK: - Part of Speech
-"part_of_speech.full.noun" = "Navneord";
-"part_of_speech.full.verb" = "Udsagnsord";
-"part_of_speech.full.adjective" = "Tillægsord";
-"part_of_speech.full.adverb" = "Biord";
-"part_of_speech.full.conjunction" = "Bindeord";
-"part_of_speech.full.pronoun" = "Stedord";
-"part_of_speech.full.preposition" = "Forholdsord";
+"part_of_speech.full.noun" = "Substantiv";
+"part_of_speech.full.verb" = "Verbum";
+"part_of_speech.full.adjective" = "Adjektiv";
+"part_of_speech.full.adverb" = "Adverbium";
+"part_of_speech.full.conjunction" = "Konjunktion";
+"part_of_speech.full.pronoun" = "Pronomen";
+"part_of_speech.full.preposition" = "Præposition";
 "part_of_speech.full.exclamation" = "Udråbsord";
+"part_of_speech.full.interjection" = "Interjektion";
+"part_of_speech.full.idiom" = "Idiom";
+"part_of_speech.full.phrase" = "Frase";
 "part_of_speech.full.unknown" = "Ukendt";
 
-"part_of_speech.short.noun" = "Navn.";
-"part_of_speech.short.verb" = "Uds.";
-"part_of_speech.short.adjective" = "Till.";
-"part_of_speech.short.adverb" = "Bior.";
-"part_of_speech.short.conjunction" = "Bind.";
-"part_of_speech.short.pronoun" = "Sted.";
-"part_of_speech.short.preposition" = "Forh.";
-"part_of_speech.short.exclamation" = "Udrå.";
+"part_of_speech.short.noun" = "Subst.";
+"part_of_speech.short.verb" = "Verb.";
+"part_of_speech.short.adjective" = "Adj.";
+"part_of_speech.short.adverb" = "Adv.";
+"part_of_speech.short.conjunction" = "Konj.";
+"part_of_speech.short.pronoun" = "Pron.";
+"part_of_speech.short.preposition" = "Præp.";
+"part_of_speech.short.exclamation" = "Udr.";
+"part_of_speech.short.interjection" = "Interj.";
+"part_of_speech.short.idiom" = "Idiom";
+"part_of_speech.short.phrase" = "Frase";
 "part_of_speech.short.unknown" = "Ukendt";
 
-"actions.settings" = "Indstillinger";
+"new_definition" = "Ny definition";
+"enter_definition" = "Indtast definition";
+"pronunciation" = "Udtale";
+"select_definition" = "Vælg en definition";
+"translating_word" = "Oversætter ord...";
+"translating_definitions" = "Oversætter definitioner...";
+"type_word_here" = "Skriv ordet her...";
+"type_new_example_here" = "Skriv et nyt eksempel her...";
+"example" = "Eksempel";
+"part_of_speech" = "Ordklasse";
 
+// MARK: - Meanings
+"all_meanings" = "Alle betydninger";
+"meanings" = "Betydninger";
+"meaning" = "Betydning";
+"show_all_meanings" = "Vis alle betydninger";
+"edit_meaning" = "Rediger betydning";
+"delete_meaning" = "Slet betydning";
+"delete_meaning_confirmation" = "Er du sikker på, at du vil slette denne betydning?";
+"meaning_updated" = "Betydning opdateret";
+"meaning_removed" = "Betydning fjernet";
+"meaning_removing_canceled" = "Fjerning af betydning annulleret";
+"meaning_played" = "Betydning afspillet";
+
+// MARK: - Notes
+"notes" = "Noter";
+"no_notes" = "Ingen noter";
+"add_notes" = "Tilføj noter...";
+"notes_updated" = "Noter opdateret";

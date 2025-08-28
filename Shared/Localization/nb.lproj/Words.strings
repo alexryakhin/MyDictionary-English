@@ -127,6 +127,9 @@
 "part_of_speech.full.pronoun" = "Pronomen";
 "part_of_speech.full.preposition" = "Preposisjon";
 "part_of_speech.full.exclamation" = "Utropsord";
+"part_of_speech.full.interjection" = "Interjeksjon";
+"part_of_speech.full.idiom" = "Idiom";
+"part_of_speech.full.phrase" = "Frase";
 "part_of_speech.full.unknown" = "Ukjent";
 
 "part_of_speech.short.noun" = "Subst.";
@@ -137,7 +140,37 @@
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Prep.";
 "part_of_speech.short.exclamation" = "Utr.";
-"part_of_speech.short.unknown" = "Ukjent";
+"part_of_speech.short.interjection" = "Interj.";
+"part_of_speech.short.idiom" = "Idiom";
+"part_of_speech.short.phrase" = "Frase";
+"part_of_speech.short.unknown" = "Ukj.";
 
-"actions.settings" = "Innstillinger";
+"new_definition" = "Ny definisjon";
+"enter_definition" = "Angi definisjon";
+"pronunciation" = "Uttale";
+"select_definition" = "Velg en definisjon";
+"translating_word" = "Oversetter ord...";
+"translating_definitions" = "Oversetter definisjoner...";
+"type_word_here" = "Skriv ordet her...";
+"type_new_example_here" = "Skriv et nytt eksempel her...";
+"example" = "Eksempel";
+"part_of_speech" = "Ordklasse";
 
+// MARK: - Meanings
+"all_meanings" = "Alle betydninger";
+"meanings" = "Betydninger";
+"meaning" = "Betydning";
+"show_all_meanings" = "Vis alle betydninger";
+"edit_meaning" = "Rediger betydning";
+"delete_meaning" = "Slett betydning";
+"delete_meaning_confirmation" = "Er du sikker på at du vil slette denne betydningen?";
+"meaning_updated" = "Betydning oppdatert";
+"meaning_removed" = "Betydning fjernet";
+"meaning_removing_canceled" = "Fjerning av betydning avbrutt";
+"meaning_played" = "Betydning spilt";
+
+// MARK: - Notes
+"notes" = "Notater";
+"no_notes" = "Ingen notater";
+"add_notes" = "Legg til notater...";
+"notes_updated" = "Notater oppdatert";

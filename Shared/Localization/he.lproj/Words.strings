@@ -124,20 +124,53 @@
 "part_of_speech.full.adjective" = "שם תואר";
 "part_of_speech.full.adverb" = "תואר הפועל";
 "part_of_speech.full.conjunction" = "מילת חיבור";
-"part_of_speech.full.pronoun" = "כינוי";
+"part_of_speech.full.pronoun" = "כינוי גוף";
 "part_of_speech.full.preposition" = "מילת יחס";
 "part_of_speech.full.exclamation" = "קריאה";
+"part_of_speech.full.interjection" = "מילת קריאה";
+"part_of_speech.full.idiom" = "ביטוי";
+"part_of_speech.full.phrase" = "ביטוי";
 "part_of_speech.full.unknown" = "לא ידוע";
 
 "part_of_speech.short.noun" = "שם ע.";
 "part_of_speech.short.verb" = "פועל";
-"part_of_speech.short.adjective" = "שם ת.";
-"part_of_speech.short.adverb" = "תואר פ.";
-"part_of_speech.short.conjunction" = "חיבור";
-"part_of_speech.short.pronoun" = "כינוי";
+"part_of_speech.short.adjective" = "תואר";
+"part_of_speech.short.adverb" = "תו.פ.";
+"part_of_speech.short.conjunction" = "חיב.";
+"part_of_speech.short.pronoun" = "כינ.";
 "part_of_speech.short.preposition" = "יחס";
-"part_of_speech.short.exclamation" = "קריאה";
-"part_of_speech.short.unknown" = "לא ידוע";
+"part_of_speech.short.exclamation" = "קריא.";
+"part_of_speech.short.interjection" = "מ.קר.";
+"part_of_speech.short.idiom" = "ביטוי";
+"part_of_speech.short.phrase" = "ביטוי";
+"part_of_speech.short.unknown" = "לא יד.";
 
-"actions.settings" = "הגדרות";
+"new_definition" = "הגדרה חדשה";
+"enter_definition" = "הזן הגדרה";
+"pronunciation" = "הגייה";
+"select_definition" = "בחר הגדרה";
+"translating_word" = "מתרגם מילה...";
+"translating_definitions" = "מתרגם הגדרות...";
+"type_word_here" = "הקלד מילה כאן...";
+"type_new_example_here" = "הקלד דוגמה חדשה כאן...";
+"example" = "דוגמה";
+"part_of_speech" = "חלק דיבר";
 
+// MARK: - Meanings
+"all_meanings" = "כל המשמעויות";
+"meanings" = "משמעויות";
+"meaning" = "משמעות";
+"show_all_meanings" = "הצג את כל המשמעויות";
+"edit_meaning" = "ערוך משמעות";
+"delete_meaning" = "מחק משמעות";
+"delete_meaning_confirmation" = "האם אתה בטוח שברצונך למחוק משמעות זו?";
+"meaning_updated" = "משמעות עודכנה";
+"meaning_removed" = "משמעות הוסרה";
+"meaning_removing_canceled" = "מחיקת המשמעות בוטלה";
+"meaning_played" = "משמעות הושמעה";
+
+// MARK: - Notes
+"notes" = "הערות";
+"no_notes" = "אין הערות";
+"add_notes" = "הוסף הערות...";
+"notes_updated" = "הערות עודכנו";

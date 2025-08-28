@@ -119,7 +119,7 @@
 "empty_states.try_different_search_term" = "Versuchen Sie einen anderen Suchbegriff oder fügen Sie eine neue Redewendung hinzu";
 
 // MARK: - Part of Speech
-"part_of_speech.full.noun" = "Substantiv";
+"part_of_speech.full.noun" = "Nomen";
 "part_of_speech.full.verb" = "Verb";
 "part_of_speech.full.adjective" = "Adjektiv";
 "part_of_speech.full.adverb" = "Adverb";
@@ -127,9 +127,12 @@
 "part_of_speech.full.pronoun" = "Pronomen";
 "part_of_speech.full.preposition" = "Präposition";
 "part_of_speech.full.exclamation" = "Ausruf";
+"part_of_speech.full.interjection" = "Interjektion";
+"part_of_speech.full.idiom" = "Redewendung";
+"part_of_speech.full.phrase" = "Phrase";
 "part_of_speech.full.unknown" = "Unbekannt";
 
-"part_of_speech.short.noun" = "Subst.";
+"part_of_speech.short.noun" = "Nomen";
 "part_of_speech.short.verb" = "Verb";
 "part_of_speech.short.adjective" = "Adj.";
 "part_of_speech.short.adverb" = "Adv.";
@@ -137,7 +140,37 @@
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Präp.";
 "part_of_speech.short.exclamation" = "Ausr.";
-"part_of_speech.short.unknown" = "Unbekannt";
+"part_of_speech.short.interjection" = "Interj.";
+"part_of_speech.short.idiom" = "Redew.";
+"part_of_speech.short.phrase" = "Phrase";
+"part_of_speech.short.unknown" = "Unbek.";
 
-"actions.settings" = "Einstellungen";
+"new_definition" = "Neue Definition";
+"enter_definition" = "Definition eingeben";
+"pronunciation" = "Aussprache";
+"select_definition" = "Definition auswählen";
+"translating_word" = "Wort wird übersetzt...";
+"translating_definitions" = "Definitionen werden übersetzt...";
+"type_word_here" = "Wort hier eingeben...";
+"type_new_example_here" = "Neues Beispiel hier eingeben...";
+"example" = "Beispiel";
+"part_of_speech" = "Wortart";
 
+// MARK: - Meanings
+"all_meanings" = "Alle Bedeutungen";
+"meanings" = "Bedeutungen";
+"meaning" = "Bedeutung";
+"show_all_meanings" = "Alle Bedeutungen anzeigen";
+"edit_meaning" = "Bedeutung bearbeiten";
+"delete_meaning" = "Bedeutung löschen";
+"delete_meaning_confirmation" = "Sind Sie sicher, dass Sie diese Bedeutung löschen möchten?";
+"meaning_updated" = "Bedeutung aktualisiert";
+"meaning_removed" = "Bedeutung entfernt";
+"meaning_removing_canceled" = "Entfernen der Bedeutung abgebrochen";
+"meaning_played" = "Bedeutung abgespielt";
+
+// MARK: - Notes
+"notes" = "Notizen";
+"no_notes" = "Keine Notizen";
+"add_notes" = "Notizen hinzufügen...";
+"notes_updated" = "Notizen aktualisiert";

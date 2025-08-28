@@ -127,17 +127,50 @@
 "part_of_speech.full.pronoun" = "Местоимение";
 "part_of_speech.full.preposition" = "Предлог";
 "part_of_speech.full.exclamation" = "Восклицание";
+"part_of_speech.full.interjection" = "Междометие";
+"part_of_speech.full.idiom" = "Выражение";
+"part_of_speech.full.phrase" = "Фраза";
 "part_of_speech.full.unknown" = "Неизвестно";
 
 "part_of_speech.short.noun" = "Сущ.";
-"part_of_speech.short.verb" = "Глаг.";
+"part_of_speech.short.verb" = "Гл.";
 "part_of_speech.short.adjective" = "Прил.";
 "part_of_speech.short.adverb" = "Нар.";
 "part_of_speech.short.conjunction" = "Союз";
 "part_of_speech.short.pronoun" = "Мест.";
 "part_of_speech.short.preposition" = "Пред.";
 "part_of_speech.short.exclamation" = "Воскл.";
+"part_of_speech.short.interjection" = "Межд.";
+"part_of_speech.short.idiom" = "Выраж.";
+"part_of_speech.short.phrase" = "Фраза";
 "part_of_speech.short.unknown" = "Неизв.";
 
-"actions.settings" = "Настройки";
+"new_definition" = "Новое определение";
+"enter_definition" = "Введите определение";
+"pronunciation" = "Произношение";
+"select_definition" = "Выберите определение";
+"translating_word" = "Перевод слова...";
+"translating_definitions" = "Перевод определений...";
+"type_word_here" = "Введите слово здесь...";
+"type_new_example_here" = "Введите новый пример здесь...";
+"example" = "Пример";
+"part_of_speech" = "Часть речи";
 
+// MARK: - Meanings
+"all_meanings" = "Все значения";
+"meanings" = "Значения";
+"meaning" = "Значение";
+"show_all_meanings" = "Показать все значения";
+"edit_meaning" = "Редактировать значение";
+"delete_meaning" = "Удалить значение";
+"delete_meaning_confirmation" = "Вы уверены, что хотите удалить это значение?";
+"meaning_updated" = "Значение обновлено";
+"meaning_removed" = "Значение удалено";
+"meaning_removing_canceled" = "Удаление значения отменено";
+"meaning_played" = "Значение воспроизведено";
+
+// MARK: - Notes
+"notes" = "Заметки";
+"no_notes" = "Нет заметок";
+"add_notes" = "Добавить заметки...";
+"notes_updated" = "Заметки обновлены";

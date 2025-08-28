@@ -126,18 +126,51 @@
 "part_of_speech.full.conjunction" = "Liên từ";
 "part_of_speech.full.pronoun" = "Đại từ";
 "part_of_speech.full.preposition" = "Giới từ";
-"part_of_speech.full.exclamation" = "Cảm thán";
+"part_of_speech.full.exclamation" = "Thán từ";
+"part_of_speech.full.interjection" = "Thán từ";
+"part_of_speech.full.idiom" = "Thành ngữ";
+"part_of_speech.full.phrase" = "Cụm từ";
 "part_of_speech.full.unknown" = "Không xác định";
 
-"part_of_speech.short.noun" = "D.t.";
-"part_of_speech.short.verb" = "Đ.t.";
-"part_of_speech.short.adjective" = "T.t.";
-"part_of_speech.short.adverb" = "Tr.t.";
-"part_of_speech.short.conjunction" = "L.t.";
-"part_of_speech.short.pronoun" = "Đ.từ.";
-"part_of_speech.short.preposition" = "G.t.";
-"part_of_speech.short.exclamation" = "C.t.";
-"part_of_speech.short.unknown" = "K.xđ.";
+"part_of_speech.short.noun" = "Danh";
+"part_of_speech.short.verb" = "Động";
+"part_of_speech.short.adjective" = "Tính";
+"part_of_speech.short.adverb" = "Trạng";
+"part_of_speech.short.conjunction" = "Liên";
+"part_of_speech.short.pronoun" = "Đại";
+"part_of_speech.short.preposition" = "Giới";
+"part_of_speech.short.exclamation" = "Thán";
+"part_of_speech.short.interjection" = "Thán";
+"part_of_speech.short.idiom" = "Thành ngữ";
+"part_of_speech.short.phrase" = "Cụm từ";
+"part_of_speech.short.unknown" = "K.xđ";
 
-"actions.settings" = "Cài đặt";
+"new_definition" = "Định nghĩa mới";
+"enter_definition" = "Nhập định nghĩa";
+"pronunciation" = "Phát âm";
+"select_definition" = "Chọn một định nghĩa";
+"translating_word" = "Đang dịch từ...";
+"translating_definitions" = "Đang dịch các định nghĩa...";
+"type_word_here" = "Nhập từ tại đây...";
+"type_new_example_here" = "Nhập ví dụ mới tại đây...";
+"example" = "Ví dụ";
+"part_of_speech" = "Loại từ";
 
+// MARK: - Meanings
+"all_meanings" = "Tất cả các ý nghĩa";
+"meanings" = "Ý nghĩa";
+"meaning" = "Ý nghĩa";
+"show_all_meanings" = "Hiển thị tất cả các ý nghĩa";
+"edit_meaning" = "Chỉnh sửa ý nghĩa";
+"delete_meaning" = "Xóa ý nghĩa";
+"delete_meaning_confirmation" = "Bạn có chắc chắn muốn xóa ý nghĩa này không?";
+"meaning_updated" = "Ý nghĩa đã được cập nhật";
+"meaning_removed" = "Ý nghĩa đã được xóa";
+"meaning_removing_canceled" = "Xóa ý nghĩa đã bị hủy";
+"meaning_played" = "Ý nghĩa đã được phát";
+
+// MARK: - Notes
+"notes" = "Ghi chú";
+"no_notes" = "Không có ghi chú";
+"add_notes" = "Thêm ghi chú...";
+"notes_updated" = "Ghi chú đã được cập nhật";

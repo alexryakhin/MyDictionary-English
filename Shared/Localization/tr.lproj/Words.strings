@@ -127,17 +127,50 @@
 "part_of_speech.full.pronoun" = "Zamir";
 "part_of_speech.full.preposition" = "Edat";
 "part_of_speech.full.exclamation" = "Ünlem";
+"part_of_speech.full.interjection" = "Ünlem";
+"part_of_speech.full.idiom" = "Deyim";
+"part_of_speech.full.phrase" = "İfade";
 "part_of_speech.full.unknown" = "Bilinmiyor";
 
-"part_of_speech.short.noun" = "İsm.";
-"part_of_speech.short.verb" = "F.";
+"part_of_speech.short.noun" = "İsim";
+"part_of_speech.short.verb" = "Fiil";
 "part_of_speech.short.adjective" = "Sıf.";
-"part_of_speech.short.adverb" = "Zrf.";
-"part_of_speech.short.conjunction" = "Bğl.";
-"part_of_speech.short.pronoun" = "Zmr.";
-"part_of_speech.short.preposition" = "Edt.";
+"part_of_speech.short.adverb" = "Zarf";
+"part_of_speech.short.conjunction" = "Bağ.";
+"part_of_speech.short.pronoun" = "Zam.";
+"part_of_speech.short.preposition" = "Edat";
 "part_of_speech.short.exclamation" = "Ünl.";
-"part_of_speech.short.unknown" = "Bilinmiyor";
+"part_of_speech.short.interjection" = "Ünl.";
+"part_of_speech.short.idiom" = "Deyim";
+"part_of_speech.short.phrase" = "İfade";
+"part_of_speech.short.unknown" = "Bil.";
 
-"actions.settings" = "Ayarlar";
+"new_definition" = "Yeni tanım";
+"enter_definition" = "Tanım gir";
+"pronunciation" = "Telaffuz";
+"select_definition" = "Bir tanım seç";
+"translating_word" = "Kelime çevriliyor...";
+"translating_definitions" = "Tanımlar çevriliyor...";
+"type_word_here" = "Kelimeyi buraya yaz...";
+"type_new_example_here" = "Yeni örneği buraya yaz...";
+"example" = "Örnek";
+"part_of_speech" = "Sözcük türü";
 
+// MARK: - Meanings
+"all_meanings" = "Tüm anlamlar";
+"meanings" = "Anlamlar";
+"meaning" = "Anlam";
+"show_all_meanings" = "Tüm anlamları göster";
+"edit_meaning" = "Anlamı düzenle";
+"delete_meaning" = "Anlamı sil";
+"delete_meaning_confirmation" = "Bu anlamı silmek istediğinizden emin misiniz?";
+"meaning_updated" = "Anlam güncellendi";
+"meaning_removed" = "Anlam silindi";
+"meaning_removing_canceled" = "Anlam silme iptal edildi";
+"meaning_played" = "Anlam oynatıldı";
+
+// MARK: - Notes
+"notes" = "Notlar";
+"no_notes" = "Not yok";
+"add_notes" = "Not ekle...";
+"notes_updated" = "Notlar güncellendi";

@@ -127,17 +127,50 @@
 "part_of_speech.full.pronoun" = "代词";
 "part_of_speech.full.preposition" = "介词";
 "part_of_speech.full.exclamation" = "感叹词";
+"part_of_speech.full.interjection" = "感叹词";
+"part_of_speech.full.idiom" = "成语";
+"part_of_speech.full.phrase" = "短语";
 "part_of_speech.full.unknown" = "未知";
 
-"part_of_speech.short.noun" = "名";
-"part_of_speech.short.verb" = "动";
-"part_of_speech.short.adjective" = "形";
-"part_of_speech.short.adverb" = "副";
-"part_of_speech.short.conjunction" = "连";
-"part_of_speech.short.pronoun" = "代";
-"part_of_speech.short.preposition" = "介";
-"part_of_speech.short.exclamation" = "感";
+"part_of_speech.short.noun" = "名词";
+"part_of_speech.short.verb" = "动词";
+"part_of_speech.short.adjective" = "形.";
+"part_of_speech.short.adverb" = "副.";
+"part_of_speech.short.conjunction" = "连.";
+"part_of_speech.short.pronoun" = "代.";
+"part_of_speech.short.preposition" = "介.";
+"part_of_speech.short.exclamation" = "感.";
+"part_of_speech.short.interjection" = "感.";
+"part_of_speech.short.idiom" = "成语";
+"part_of_speech.short.phrase" = "短语";
 "part_of_speech.short.unknown" = "未知";
 
-"actions.settings" = "设置";
+"new_definition" = "新定义";
+"enter_definition" = "输入定义";
+"pronunciation" = "发音";
+"select_definition" = "选择定义";
+"translating_word" = "正在翻译单词...";
+"translating_definitions" = "正在翻译定义...";
+"type_word_here" = "在此输入单词...";
+"type_new_example_here" = "在此输入新示例...";
+"example" = "示例";
+"part_of_speech" = "词性";
 
+// MARK: - Meanings
+"all_meanings" = "所有含义";
+"meanings" = "含义";
+"meaning" = "含义";
+"show_all_meanings" = "显示所有含义";
+"edit_meaning" = "编辑含义";
+"delete_meaning" = "删除含义";
+"delete_meaning_confirmation" = "您确定要删除此含义吗？";
+"meaning_updated" = "含义已更新";
+"meaning_removed" = "含义已删除";
+"meaning_removing_canceled" = "取消删除含义";
+"meaning_played" = "含义已播放";
+
+// MARK: - Notes
+"notes" = "笔记";
+"no_notes" = "无笔记";
+"add_notes" = "添加笔记...";
+"notes_updated" = "笔记已更新";

@@ -127,17 +127,50 @@
 "part_of_speech.full.pronoun" = "Займенник";
 "part_of_speech.full.preposition" = "Прийменник";
 "part_of_speech.full.exclamation" = "Вигук";
+"part_of_speech.full.interjection" = "Вигук";
+"part_of_speech.full.idiom" = "Ідіома";
+"part_of_speech.full.phrase" = "Фраза";
 "part_of_speech.full.unknown" = "Невідомо";
 
-"part_of_speech.short.noun" = "Ім.";
+"part_of_speech.short.noun" = "Імен.";
 "part_of_speech.short.verb" = "Дієсл.";
-"part_of_speech.short.adjective" = "Прикм.";
+"part_of_speech.short.adjective" = "Прик.";
 "part_of_speech.short.adverb" = "Присл.";
 "part_of_speech.short.conjunction" = "Спол.";
 "part_of_speech.short.pronoun" = "Займ.";
 "part_of_speech.short.preposition" = "Прийм.";
 "part_of_speech.short.exclamation" = "Виг.";
-"part_of_speech.short.unknown" = "Невідомо";
+"part_of_speech.short.interjection" = "Виг.";
+"part_of_speech.short.idiom" = "Ідіома";
+"part_of_speech.short.phrase" = "Фраза";
+"part_of_speech.short.unknown" = "Невід.";
 
-"actions.settings" = "Налаштування";
+"new_definition" = "Нове визначення";
+"enter_definition" = "Введіть визначення";
+"pronunciation" = "Вимова";
+"select_definition" = "Виберіть визначення";
+"translating_word" = "Переклад слова...";
+"translating_definitions" = "Переклад визначень...";
+"type_word_here" = "Введіть слово тут...";
+"type_new_example_here" = "Введіть новий приклад тут...";
+"example" = "Приклад";
+"part_of_speech" = "Частина мови";
 
+// MARK: - Meanings
+"all_meanings" = "Усі значення";
+"meanings" = "Значення";
+"meaning" = "Значення";
+"show_all_meanings" = "Показати всі значення";
+"edit_meaning" = "Редагувати значення";
+"delete_meaning" = "Видалити значення";
+"delete_meaning_confirmation" = "Ви впевнені, що хочете видалити це значення?";
+"meaning_updated" = "Значення оновлено";
+"meaning_removed" = "Значення видалено";
+"meaning_removing_canceled" = "Видалення значення скасовано";
+"meaning_played" = "Значення відтворено";
+
+// MARK: - Notes
+"notes" = "Нотатки";
+"no_notes" = "Немає нотаток";
+"add_notes" = "Додати нотатки...";
+"notes_updated" = "Нотатки оновлено";
