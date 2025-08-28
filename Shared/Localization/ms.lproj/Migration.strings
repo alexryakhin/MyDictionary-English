@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Mengemas kini kamus anda";
+"enhancing_vocabulary_message" = "Kami meningkatkan perbendaharaan kata anda dengan ciri baharu";
+"please_dont_close_app" = "Sila jangan tutup aplikasi semasa proses ini";
+"data_safe_upgrade_message" = "Data anda sedang dinaik taraf dengan selamat dan akan kekal utuh";
+"migration_error" = "Ralat penghijrahan";
+"migration_failed_message" = "Penghijrahan gagal: %@\n\nAdakah anda mahu cuba lagi?";

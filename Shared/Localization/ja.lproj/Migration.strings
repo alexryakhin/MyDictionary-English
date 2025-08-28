@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "辞書を更新中";
+"enhancing_vocabulary_message" = "新しい機能で語彙を向上させています";
+"please_dont_close_app" = "この処理中はアプリを閉じないでください";
+"data_safe_upgrade_message" = "データは安全にアップグレードされ、そのまま保持されます";
+"migration_error" = "移行エラー";
+"migration_failed_message" = "移行に失敗しました: %@\n\n再試行しますか？";

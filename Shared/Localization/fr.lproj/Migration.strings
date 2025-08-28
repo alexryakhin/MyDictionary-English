@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Mise à jour de votre dictionnaire";
+"enhancing_vocabulary_message" = "Nous améliorons votre vocabulaire avec de nouvelles fonctionnalités";
+"please_dont_close_app" = "Veuillez ne pas fermer l'application pendant ce processus";
+"data_safe_upgrade_message" = "Vos données sont mises à jour en toute sécurité et resteront intactes";
+"migration_error" = "Erreur de migration";
+"migration_failed_message" = "La migration a échoué : %@\n\nVoulez-vous réessayer ?";

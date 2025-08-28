@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "사전 업데이트 중";
+"enhancing_vocabulary_message" = "새로운 기능으로 어휘를 향상시키고 있습니다";
+"please_dont_close_app" = "이 과정 중에는 앱을 닫지 마세요";
+"data_safe_upgrade_message" = "데이터가 안전하게 업그레이드되고 그대로 유지됩니다";
+"migration_error" = "마이그레이션 오류";
+"migration_failed_message" = "마이그레이션에 실패했습니다: %@\n\n다시 시도하시겠습니까?";

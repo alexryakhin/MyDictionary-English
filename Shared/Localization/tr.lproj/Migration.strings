@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Sözlüğünüz güncelleniyor";
+"enhancing_vocabulary_message" = "Yeni özelliklerle kelime haznenizi geliştiriyoruz";
+"please_dont_close_app" = "Lütfen bu işlem sırasında uygulamayı kapatmayın";
+"data_safe_upgrade_message" = "Verileriniz güvenli bir şekilde yükseltiliyor ve bozulmadan kalacak";
+"migration_error" = "Geçiş hatası";
+"migration_failed_message" = "Geçiş başarısız: %@\n\nTekrar denemek ister misiniz?";

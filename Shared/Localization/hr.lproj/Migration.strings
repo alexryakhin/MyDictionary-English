@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Ažuriranje rječnika";
+"enhancing_vocabulary_message" = "Poboljšavamo vaš rječnik novim funkcijama";
+"please_dont_close_app" = "Molimo ne zatvarajte aplikaciju tijekom ovog procesa";
+"data_safe_upgrade_message" = "Vaši podaci se sigurno ažuriraju i ostat će netaknuti";
+"migration_error" = "Greška migracije";
+"migration_failed_message" = "Migracija nije uspjela: %@\n\nŽelite li pokušati ponovno?";

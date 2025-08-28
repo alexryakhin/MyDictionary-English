@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Szótár frissítése";
+"enhancing_vocabulary_message" = "Új funkciókkal fejlesztjük szókincsét";
+"please_dont_close_app" = "Kérjük, ne zárja be az alkalmazást a folyamat során";
+"data_safe_upgrade_message" = "Adatai biztonságosan frissülnek és sértetlenek maradnak";
+"migration_error" = "Migrációs hiba";
+"migration_failed_message" = "A migráció sikertelen: %@\n\nSzeretné újra próbálni?";

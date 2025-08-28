@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Aktualizácia slovníka";
+"enhancing_vocabulary_message" = "Vylepšujeme vašu slovnú zásobu novými funkciami";
+"please_dont_close_app" = "Počas tohto procesu nezatvárajte aplikáciu";
+"data_safe_upgrade_message" = "Vaše údaje sa bezpečne aktualizujú a zostanú nedotknuté";
+"migration_error" = "Chyba migrácie";
+"migration_failed_message" = "Migrácia zlyhala: %@\n\nChcete to skúsiť znova?";

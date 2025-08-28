@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "מעדכן את המילון שלך";
+"enhancing_vocabulary_message" = "אנו משפרים את אוצר המילים שלך עם תכונות חדשות";
+"please_dont_close_app" = "אנא אל תסגור את האפליקציה במהלך תהליך זה";
+"data_safe_upgrade_message" = "הנתונים שלך מתעדכנים בבטחה ויישארו שלמים";
+"migration_error" = "שגיאת העברה";
+"migration_failed_message" = "ההעברה נכשלה: %@\n\nהאם תרצה לנסות שוב?";

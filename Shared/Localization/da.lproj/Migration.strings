@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Opdaterer din ordbog";
+"enhancing_vocabulary_message" = "Vi forbedrer dit ordforråd med nye funktioner";
+"please_dont_close_app" = "Luk ikke appen under denne proces";
+"data_safe_upgrade_message" = "Dine data opdateres sikkert og forbliver intakte";
+"migration_error" = "Migreringsfejl";
+"migration_failed_message" = "Migration mislykkedes: %@\n\nVil du prøve igen?";

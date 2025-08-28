@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "आपकी डिक्शनरी अपडेट हो रही है";
+"enhancing_vocabulary_message" = "हम नई सुविधाओं के साथ आपकी शब्दावली को बेहतर बना रहे हैं";
+"please_dont_close_app" = "कृपया इस प्रक्रिया के दौरान ऐप को बंद न करें";
+"data_safe_upgrade_message" = "आपका डेटा सुरक्षित रूप से अपग्रेड हो रहा है और बरकरार रहेगा";
+"migration_error" = "माइग्रेशन त्रुटि";
+"migration_failed_message" = "माइग्रेशन विफल: %@\n\nक्या आप फिर से कोशिश करना चाहते हैं?";

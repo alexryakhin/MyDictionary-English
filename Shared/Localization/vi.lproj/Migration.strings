@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Đang cập nhật từ điển của bạn";
+"enhancing_vocabulary_message" = "Chúng tôi đang cải thiện từ vựng của bạn với các tính năng mới";
+"please_dont_close_app" = "Vui lòng không đóng ứng dụng trong quá trình này";
+"data_safe_upgrade_message" = "Dữ liệu của bạn đang được nâng cấp an toàn và sẽ vẫn nguyên vẹn";
+"migration_error" = "Lỗi di chuyển";
+"migration_failed_message" = "Di chuyển thất bại: %@\n\nBạn có muốn thử lại không?";

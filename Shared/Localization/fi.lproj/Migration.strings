@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Päivitetään sanakirjaasi";
+"enhancing_vocabulary_message" = "Parannamme sanavarastasi uusilla ominaisuuksilla";
+"please_dont_close_app" = "Älä sulje sovellusta tämän prosessin aikana";
+"data_safe_upgrade_message" = "Tietosi päivitetään turvallisesti ja pysyvät ehjinä";
+"migration_error" = "Siirtovirhe";
+"migration_failed_message" = "Siirto epäonnistui: %@\n\nHaluatko yrittää uudelleen?";

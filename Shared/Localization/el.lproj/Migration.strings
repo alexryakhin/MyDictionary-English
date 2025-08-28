@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Ενημέρωση λεξικού";
+"enhancing_vocabulary_message" = "Βελτιώνουμε το λεξιλόγιό σας με νέες λειτουργίες";
+"please_dont_close_app" = "Μην κλείσετε την εφαρμογή κατά τη διάρκεια αυτής της διαδικασίας";
+"data_safe_upgrade_message" = "Τα δεδομένα σας αναβαθμίζονται με ασφάλεια και θα παραμείνουν άθικτα";
+"migration_error" = "Σφάλμα μετάβασης";
+"migration_failed_message" = "Η μετάβαση απέτυχε: %@\n\nΘέλετε να δοκιμάσετε ξανά;";

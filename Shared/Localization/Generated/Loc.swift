@@ -574,6 +574,24 @@ public enum Loc {
     /// Words that need more practice will appear here
     public static let wordsNeedMorePractice = Loc.tr("FilterDisplay", "words_need_more_practice", fallback: "Words that need more practice will appear here")
   }
+  public enum Migration {
+    /// Your data is being safely upgraded and will remain intact
+    public static let dataSafeUpgradeMessage = Loc.tr("Migration", "data_safe_upgrade_message", fallback: "Your data is being safely upgraded and will remain intact")
+    /// We're enhancing your vocabulary with new features
+    public static let enhancingVocabularyMessage = Loc.tr("Migration", "enhancing_vocabulary_message", fallback: "We're enhancing your vocabulary with new features")
+    /// Migration Error
+    public static let migrationError = Loc.tr("Migration", "migration_error", fallback: "Migration Error")
+    /// Migration failed: %@
+    /// 
+    /// Would you like to retry?
+    public static func migrationFailedMessage(_ p1: Any) -> String {
+      return Loc.tr("Migration", "migration_failed_message", String(describing: p1), fallback: "Migration failed: %@\n\nWould you like to retry?")
+    }
+    /// Please don't close the app during this process
+    public static let pleaseDontCloseApp = Loc.tr("Migration", "please_dont_close_app", fallback: "Please don't close the app during this process")
+    /// Updating Your Dictionary
+    public static let updatingYourDictionary = Loc.tr("Migration", "updating_your_dictionary", fallback: "Updating Your Dictionary")
+  }
   public enum Navigation {
     /// About
     public static let about = Loc.tr("Navigation", "about", fallback: "About")

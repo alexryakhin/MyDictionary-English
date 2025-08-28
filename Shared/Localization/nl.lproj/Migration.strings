@@ -1,0 +1,7 @@
+// MARK: - Migration
+"updating_your_dictionary" = "Je woordenboek bijwerken";
+"enhancing_vocabulary_message" = "We verbeteren je vocabulaire met nieuwe functies";
+"please_dont_close_app" = "Sluit de app niet tijdens dit proces";
+"data_safe_upgrade_message" = "Je gegevens worden veilig bijgewerkt en blijven intact";
+"migration_error" = "Migratiefout";
+"migration_failed_message" = "Migratie mislukt: %@\n\nWil je het opnieuw proberen?";
