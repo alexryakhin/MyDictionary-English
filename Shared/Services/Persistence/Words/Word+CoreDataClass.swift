@@ -20,6 +20,7 @@ final class CDWord: NSManagedObject, Identifiable {
     @NSManaged var definition: String? // Keep for migration, will be deprecated
     @NSManaged var partOfSpeech: String?
     @NSManaged var phonetic: String?
+    @NSManaged var notes: String?
     @NSManaged var id: UUID?
     @NSManaged var timestamp: Date?
     @NSManaged var updatedAt: Date?

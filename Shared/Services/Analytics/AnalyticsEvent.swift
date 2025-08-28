@@ -48,6 +48,10 @@ enum AnalyticsEvent: String {
     case removeWordMenuButtonTapped
     case wordPhoneticsChanged
     case wordDifficultyChanged
+    case meaningRemovingCanceled
+    case meaningPlayed
+    case meaningUpdated
+    case meaningRemoved
 
     case idiomsListFilterSelected
     case idiomsListSortingSelected

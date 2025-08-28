@@ -31,6 +31,7 @@ struct Word: Codable, Identifiable {
     let meanings: [WordMeaning] // New: Multiple meanings support
     let partOfSpeech: String
     let phonetic: String?
+    let notes: String?
     let tags: [String]
     let difficultyScore: Int
     let languageCode: String
@@ -45,6 +46,7 @@ struct Word: Codable, Identifiable {
         case meanings
         case partOfSpeech
         case phonetic
+        case notes
         case tags
         case difficultyScore
         case languageCode
@@ -103,6 +105,7 @@ struct Word: Codable, Identifiable {
             "meanings": meaningsData, // New: Multiple meanings
             "partOfSpeech": partOfSpeech,
             "phonetic": phonetic ?? "",
+            "notes": notes ?? "",
             "tags": tags,
             "difficultyScore": difficultyScore,
             "languageCode": languageCode,
@@ -177,6 +180,7 @@ struct Word: Codable, Identifiable {
             meanings: meanings,
             partOfSpeech: partOfSpeech,
             phonetic: data["phonetic"] as? String,
+            notes: data["notes"] as? String,
             tags: tags,
             difficultyScore: difficultyScore,
             languageCode: languageCode,
@@ -230,6 +234,7 @@ extension Word {
         self.meanings = meanings
         self.partOfSpeech = partOfSpeech
         self.phonetic = entity.phonetic
+        self.notes = entity.notes
         self.tags = entity.tagsArray.map { $0.name ?? "" }
         self.difficultyScore = Int(entity.difficultyScore)
         self.languageCode = entity.languageCode ?? "en" // Default to English if not set
@@ -245,6 +250,7 @@ extension Word {
         entity.wordItself = wordItself
         entity.partOfSpeech = partOfSpeech
         entity.phonetic = phonetic
+        entity.notes = notes
         entity.difficultyScore = Int32(difficultyScore)
         entity.languageCode = languageCode
         entity.isFavorite = isFavorite

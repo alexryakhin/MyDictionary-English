@@ -129,8 +129,6 @@ struct MainTabView: View {
             SharedDictionaryDetailsView(dictionary: dictionary)
         case .sharedWordDetails(let word, let dictionaryId):
             SharedWordDetailsView(word: word, dictionaryId: dictionaryId)
-        case .sharedWordMeaningsList(let word, let dictionaryId):
-            SharedMeaningsListView(word: word, dictionaryId: dictionaryId)
         case .sharedWordDifficultyStats(let word):
             SharedWordDifficultyStatsView(word: word)
         }

@@ -242,6 +242,7 @@ final class AddWordViewModel: BaseViewModel {
             meanings: meanings,
             partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
             phonetic: pronunciation,
+            notes: .empty,
             tags: [], // Don't include tags for shared dictionary words
             difficultyScore: 0,
             languageCode: languageCode,

@@ -9,9 +9,11 @@ struct WordDetailsView: View {
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
+    @FocusState private var isNotesFocused: Bool
     @State private var showingTagSelection = false
     @State private var showingAddToSharedDictionary = false
     @State private var showingMeaningsList = false
+    @State private var meaningToEdit: CDMeaning?
 
     init(word: CDWord) {
         self._word = StateObject(wrappedValue: word)
@@ -23,6 +25,7 @@ struct WordDetailsView: View {
                 transcriptionSectionView
                 partOfSpeechSectionView
                 meaningsSectionView
+                notesSectionView
                 difficultySectionView
                 languageSectionView
                 tagsSectionView
@@ -83,6 +86,9 @@ struct WordDetailsView: View {
         }
         .sheet(isPresented: $showingMeaningsList) {
             MeaningsListView(word: word)
+        }
+        .sheet(item: $meaningToEdit) { meaning in
+            MeaningEditView(meaning: meaning)
         }
     }
 
@@ -147,11 +153,15 @@ struct WordDetailsView: View {
         let showLimited = meanings.count > 3
         let displayMeanings = showLimited ? Array(meanings.prefix(3)) : meanings
         
-        return CustomSectionView(header: meanings.count > 1 ? "Meanings (\(meanings.count))" : "Meaning", headerFontStyle: .stealth) {
+        return CustomSectionView(
+            header: meanings.count > 1 ? "\(Loc.Words.meanings) (\(meanings.count))" : Loc.Words.meaning,
+            headerFontStyle: .stealth,
+            hPadding: .zero
+        ) {
             if meanings.isEmpty {
                 // Fallback to legacy definition if no meanings exist
                 TextField(
-                    Loc.Words.definition,
+                    Loc.Words.WordDetails.definition,
                     text: Binding(
                         get: { word.definition ?? "" },
                         set: { word.definition = $0 }
@@ -161,6 +171,7 @@ struct WordDetailsView: View {
                 .textFieldStyle(.plain)
                 .focused($isDefinitionFocused)
                 .fontWeight(.semibold)
+                .padding(vertical: 12, horizontal: 16)
             } else {
                 FormWithDivider {
                     ForEach(Array(displayMeanings.enumerated()), id: \.element.id) { index, meaning in
@@ -170,13 +181,14 @@ struct WordDetailsView: View {
                 
                 if showLimited {
                     HeaderButton(
-                        "Show all \(meanings.count) meanings",
+                        "\(Loc.Words.showAllMeanings) (\(meanings.count))",
                         icon: "list.number",
                         size: .small
                     ) {
                         showingMeaningsList = true
                     }
                     .padding(.top, 8)
+                    .padding(.horizontal, 16)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
@@ -203,6 +215,32 @@ struct WordDetailsView: View {
             } else {
                 HeaderButton(icon: "plus", size: .small) {
                     addNewMeaning()
+                }
+            }
+        }
+    }
+
+    private var notesSectionView: some View {
+        CustomSectionView(
+            header: Loc.Words.notes,
+            headerFontStyle: .stealth
+        ) {
+            TextField(
+                Loc.Words.addNotes,
+                text: Binding(
+                    get: { word.notes ?? "" },
+                    set: { word.notes = $0 }
+                ),
+                axis: .vertical
+            )
+            .textFieldStyle(.plain)
+            .focused($isNotesFocused)
+            .fontWeight(.semibold)
+        } trailingContent: {
+            if isNotesFocused {
+                HeaderButton(Loc.Actions.done, size: .small) {
+                    isNotesFocused = false
+                    saveContext()
                 }
             }
         }
@@ -286,43 +324,83 @@ struct WordDetailsView: View {
     
     @ViewBuilder
     private func meaningRowView(meaning: CDMeaning, index: Int) -> some View {
+        let definition = meaning.definition ?? Loc.Words.WordDetails.definition
+
         VStack(alignment: .leading, spacing: 8) {
-            HStack {
+            HStack(alignment: .firstTextBaseline) {
                 Text("\(index).")
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text(meaning.definition ?? "")
+                Text(definition)
                     .fontWeight(.semibold)
                 
                 Spacer()
-                
-                AsyncHeaderButton(
-                    icon: "speaker.wave.2.fill",
-                    size: .small
-                ) {
-                    try await play(meaning.definition)
+
+                Menu {
+                    Button {
+                        Task {
+                            try await play(definition)
+                        }
+                        AnalyticsService.shared.logEvent(.meaningPlayed)
+                    } label: {
+                        Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
+                    }
+                    .disabled(TTSPlayer.shared.isPlaying)
+                    Button {
+                        meaningToEdit = meaning
+                        AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
+                    } label: {
+                        Label(Loc.Actions.edit, systemImage: "pencil")
+                    }
+                    Section {
+                        Button(role: .destructive) {
+                            deleteMeaning(meaning)
+                            AnalyticsService.shared.logEvent(.wordExampleRemoved)
+                        } label: {
+                            Label(Loc.Actions.delete, systemImage: "trash")
+                                .tint(.red)
+                        }
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .foregroundStyle(.secondary)
+                        .padding(6)
+                        .contentShape(Rectangle())
                 }
-                .disabled(TTSPlayer.shared.isPlaying)
+                .buttonStyle(.plain)
             }
             
             // Show examples for this meaning
             let examples = meaning.examplesDecoded
             if !examples.isEmpty {
-                ForEach(Array(examples.enumerated()), id: \.offset) { exampleIndex, example in
+                ForEach(Array(examples.enumerated()), id: \.offset) { _, example in
                     HStack {
                         Text("•")
                             .foregroundColor(.secondary)
-                        Text(example)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                        Menu {
+                            Button {
+                                Task {
+                                    try await play(example)
+                                }
+                                AnalyticsService.shared.logEvent(.wordExamplePlayed)
+                            } label: {
+                                Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
+                            }
+                            .disabled(TTSPlayer.shared.isPlaying)
+                        } label: {
+                            Text(example)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .buttonStyle(.plain)
                         Spacer()
                     }
                     .padding(.leading, 16)
                 }
             }
         }
-        .padding(.vertical, 4)
+        .padding(vertical: 12, horizontal: 16)
     }
     
     private func showAllMeanings() {
@@ -332,7 +410,7 @@ struct WordDetailsView: View {
     
     private func addNewMeaning() {
         do {
-            let _ = try word.addMeaning(definition: "New definition", examples: [])
+            let _ = try word.addMeaning(definition: Loc.Words.newDefinition, examples: [])
             saveContext()
         } catch {
             errorReceived(error)
@@ -400,5 +478,22 @@ struct WordDetailsView: View {
         try? TagService.shared.removeTagFromWord(tag, word: word)
         saveContext()
         AnalyticsService.shared.logEvent(.tagRemovedFromWord)
+    }
+    
+    private func deleteMeaning(_ meaning: CDMeaning) {
+        AlertCenter.shared.showAlert(
+            with: .deleteConfirmation(
+                title: Loc.Words.deleteMeaning,
+                message: Loc.Words.deleteMeaningConfirmation,
+                onCancel: {
+                    AnalyticsService.shared.logEvent(.meaningRemovingCanceled)
+                },
+                onDelete: {
+                    word.removeMeaning(meaning)
+                    saveContext()
+                    AnalyticsService.shared.logEvent(.meaningRemoved)
+                }
+            )
+        )
     }
 }

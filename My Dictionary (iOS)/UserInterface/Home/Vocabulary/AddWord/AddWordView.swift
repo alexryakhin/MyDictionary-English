@@ -176,6 +176,7 @@ struct AddWordView: View {
                                 Button(Loc.Actions.remove, role: .destructive) {
                                     viewModel.handle(.toggleTag(tag))
                                 }
+                                .tint(.red)
                             } label: {
                                 TagView(
                                     text: tag.name.orEmpty,

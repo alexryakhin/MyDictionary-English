@@ -607,8 +607,6 @@ public enum Loc {
   public enum Notifications {
     /// You have words that need more practice. Ready for a challenge?
     public static let difficultWordsChallenge = Loc.tr("Notifications", "difficult_words_challenge", fallback: "You have words that need more practice. Ready for a challenge?")
-    /// Enter email address
-    public static let enterEmailAddress = Loc.tr("Notifications", "enter_email_address", fallback: "Enter email address")
     /// To receive daily reminders and difficult word alerts, please enable notifications in Settings.
     public static let permissionDeniedMessage = Loc.tr("Notifications", "permission_denied_message", fallback: "To receive daily reminders and difficult word alerts, please enable notifications in Settings.")
     /// Notification Permission Required
@@ -1713,6 +1711,8 @@ public enum Loc {
     public static let addNewIdiom = Loc.tr("Words", "add_new_idiom", fallback: "Add new idiom")
     /// Add New Word
     public static let addNewWord = Loc.tr("Words", "add_new_word", fallback: "Add New Word")
+    /// Add notes...
+    public static let addNotes = Loc.tr("Words", "add_notes", fallback: "Add notes...")
     /// Add Tag
     public static let addTag = Loc.tr("Words", "add_tag", fallback: "Add Tag")
     /// Add this idiom by tapping on the button above
@@ -1725,6 +1725,8 @@ public enum Loc {
     public static let addYourFirstWord = Loc.tr("Words", "add_your_first_word", fallback: "Add Your First Word")
     /// All idioms
     public static let allIdioms = Loc.tr("Words", "all_idioms", fallback: "All idioms")
+    /// All meanings
+    public static let allMeanings = Loc.tr("Words", "all_meanings", fallback: "All meanings")
     /// All Words
     public static let allWords = Loc.tr("Words", "all_words", fallback: "All Words")
     /// Alphabetically
@@ -1741,6 +1743,10 @@ public enum Loc {
     public static let deleteIdiom = Loc.tr("Words", "delete_idiom", fallback: "Delete idiom")
     /// Are you sure you want to delete this idiom?
     public static let deleteIdiomConfirmation = Loc.tr("Words", "delete_idiom_confirmation", fallback: "Are you sure you want to delete this idiom?")
+    /// Delete Meaning
+    public static let deleteMeaning = Loc.tr("Words", "delete_meaning", fallback: "Delete Meaning")
+    /// Are you sure you want to delete this meaning?
+    public static let deleteMeaningConfirmation = Loc.tr("Words", "delete_meaning_confirmation", fallback: "Are you sure you want to delete this meaning?")
     /// Delete Word
     public static let deleteWord = Loc.tr("Words", "delete_word", fallback: "Delete Word")
     /// Are you sure you want to delete this word?
@@ -1751,6 +1757,8 @@ public enum Loc {
     public static let earliestFirst = Loc.tr("Words", "earliest_first", fallback: "Earliest First")
     /// Edit example
     public static let editExample = Loc.tr("Words", "edit_example", fallback: "Edit example")
+    /// Edit meaning
+    public static let editMeaning = Loc.tr("Words", "edit_meaning", fallback: "Edit meaning")
     /// Enter definition
     public static let enterDefinition = Loc.tr("Words", "enter_definition", fallback: "Enter definition")
     /// There is an error loading definitions. Please try again.
@@ -1795,10 +1803,24 @@ public enum Loc {
     public static let mastered = Loc.tr("Words", "mastered", fallback: "Mastered")
     /// Mastered Words
     public static let masteredWords = Loc.tr("Words", "mastered_words", fallback: "Mastered Words")
+    /// Meaning
+    public static let meaning = Loc.tr("Words", "meaning", fallback: "Meaning")
+    /// Meaning played
+    public static let meaningPlayed = Loc.tr("Words", "meaning_played", fallback: "Meaning played")
+    /// Meaning removed
+    public static let meaningRemoved = Loc.tr("Words", "meaning_removed", fallback: "Meaning removed")
+    /// Meaning removal canceled
+    public static let meaningRemovingCanceled = Loc.tr("Words", "meaning_removing_canceled", fallback: "Meaning removal canceled")
+    /// Meaning updated
+    public static let meaningUpdated = Loc.tr("Words", "meaning_updated", fallback: "Meaning updated")
+    /// Meanings
+    public static let meanings = Loc.tr("Words", "meanings", fallback: "Meanings")
     /// Needs Review
     public static let needsReview = Loc.tr("Words", "needs_review", fallback: "Needs Review")
     /// New
     public static let new = Loc.tr("Words", "new", fallback: "New")
+    /// New definition
+    public static let newDefinition = Loc.tr("Words", "new_definition", fallback: "New definition")
     /// New Words
     public static let newWords = Loc.tr("Words", "new_words", fallback: "New Words")
     /// No definition
@@ -1807,12 +1829,18 @@ public enum Loc {
     public static let noExamplesYet = Loc.tr("Words", "no_examples_yet", fallback: "No examples yet")
     /// No idioms found
     public static let noIdiomsFound = Loc.tr("Words", "no_idioms_found", fallback: "No idioms found")
+    /// No notes
+    public static let noNotes = Loc.tr("Words", "no_notes", fallback: "No notes")
     /// No tags added yet.
     public static let noTagsAddedYet = Loc.tr("Words", "no_tags_added_yet", fallback: "No tags added yet.")
     /// No tags selected
     public static let noTagsSelected = Loc.tr("Words", "no_tags_selected", fallback: "No tags selected")
     /// No transcription
     public static let noTranscription = Loc.tr("Words", "no_transcription", fallback: "No transcription")
+    /// Notes
+    public static let notes = Loc.tr("Words", "notes", fallback: "Notes")
+    /// Notes updated
+    public static let notesUpdated = Loc.tr("Words", "notes_updated", fallback: "Notes updated")
     /// Part Of Speech
     public static let partOfSpeech = Loc.tr("Words", "part_of_speech", fallback: "Part Of Speech")
     /// Private Dictionary
@@ -1835,6 +1863,8 @@ public enum Loc {
     public static let selectDefinition = Loc.tr("Words", "select_definition", fallback: "Select a definition")
     /// Shared Dictionary
     public static let sharedDictionary = Loc.tr("Words", "shared_dictionary", fallback: "Shared Dictionary")
+    /// Show all meanings
+    public static let showAllMeanings = Loc.tr("Words", "show_all_meanings", fallback: "Show all meanings")
     /// Sort
     public static let sort = Loc.tr("Words", "sort", fallback: "Sort")
     /// Tag
@@ -1851,6 +1881,8 @@ public enum Loc {
     public static let translatingWord = Loc.tr("Words", "translating_word", fallback: "Translating word...")
     /// Type an example here
     public static let typeExampleHere = Loc.tr("Words", "type_example_here", fallback: "Type an example here")
+    /// Type new example here...
+    public static let typeNewExampleHere = Loc.tr("Words", "type_new_example_here", fallback: "Type new example here...")
     /// Type a word
     public static let typeWord = Loc.tr("Words", "type_word", fallback: "Type a word")
     /// Type a word and press 'Search' to find its definitions
@@ -1907,10 +1939,14 @@ public enum Loc {
         public static let conjunction = Loc.tr("Words", "part_of_speech.full.conjunction", fallback: "Conjunction")
         /// Exclamation
         public static let exclamation = Loc.tr("Words", "part_of_speech.full.exclamation", fallback: "Exclamation")
+        /// Idiom
+        public static let idiom = Loc.tr("Words", "part_of_speech.full.idiom", fallback: "Idiom")
         /// Interjection
         public static let interjection = Loc.tr("Words", "part_of_speech.full.interjection", fallback: "Interjection")
         /// Noun
         public static let noun = Loc.tr("Words", "part_of_speech.full.noun", fallback: "Noun")
+        /// Phrase
+        public static let phrase = Loc.tr("Words", "part_of_speech.full.phrase", fallback: "Phrase")
         /// Preposition
         public static let preposition = Loc.tr("Words", "part_of_speech.full.preposition", fallback: "Preposition")
         /// Pronoun
@@ -1929,10 +1965,14 @@ public enum Loc {
         public static let conjunction = Loc.tr("Words", "part_of_speech.short.conjunction", fallback: "Conj.")
         /// Excl.
         public static let exclamation = Loc.tr("Words", "part_of_speech.short.exclamation", fallback: "Excl.")
+        /// Idiom
+        public static let idiom = Loc.tr("Words", "part_of_speech.short.idiom", fallback: "Idiom")
         /// Interj.
         public static let interjection = Loc.tr("Words", "part_of_speech.short.interjection", fallback: "Interj.")
         /// Noun
         public static let noun = Loc.tr("Words", "part_of_speech.short.noun", fallback: "Noun")
+        /// Phrase
+        public static let phrase = Loc.tr("Words", "part_of_speech.short.phrase", fallback: "Phrase")
         /// Prep.
         public static let preposition = Loc.tr("Words", "part_of_speech.short.preposition", fallback: "Prep.")
         /// Pron.

@@ -82,12 +82,18 @@ struct SharedDictionaryDetailsView: View {
                                         EmptyView()
                                     }
 
-                                    Button(Loc.SharedDictionaries.CollaboratorManagement.remove, role: .destructive) {
+                                    Button(
+                                        Loc.SharedDictionaries.CollaboratorManagement.remove,
+                                        role: .destructive
+                                    ) {
                                         removeCollaborator(email: collaborator.email)
                                     }
+                                    .tint(.red)
                                 } label: {
-                                    Image(systemName: "ellipsis.circle")
+                                    Image(systemName: "ellipsis")
                                         .foregroundStyle(.secondary)
+                                        .padding(6)
+                                        .contentShape(Rectangle())
                                 }
                             } else if collaborator.email == authenticationService.userEmail {
                                 Text(Loc.SharedDictionaries.me)

@@ -30,6 +30,7 @@ struct SharedWord: Codable, Hashable {
     var meanings: [SharedWordMeaning] // New: Multiple meanings support
     var partOfSpeech: String
     var phonetic: String?
+    var notes: String?
     let languageCode: String
     let timestamp: Date
     let updatedAt: Date
@@ -51,6 +52,7 @@ struct SharedWord: Codable, Hashable {
         meanings: [SharedWordMeaning],
         partOfSpeech: String,
         phonetic: String?,
+        notes: String?,
         languageCode: String,
         timestamp: Date = Date(),
         updatedAt: Date = Date(),
@@ -65,6 +67,7 @@ struct SharedWord: Codable, Hashable {
         self.meanings = meanings
         self.partOfSpeech = partOfSpeech
         self.phonetic = phonetic
+        self.notes = notes
         self.languageCode = languageCode
         self.timestamp = timestamp
         self.updatedAt = updatedAt
@@ -83,6 +86,7 @@ struct SharedWord: Codable, Hashable {
         definition: String,
         partOfSpeech: String,
         phonetic: String?,
+        notes: String?,
         examples: [String],
         languageCode: String,
         timestamp: Date = Date(),
@@ -100,6 +104,7 @@ struct SharedWord: Codable, Hashable {
             meanings: [meaning],
             partOfSpeech: partOfSpeech,
             phonetic: phonetic,
+            notes: notes,
             languageCode: languageCode,
             timestamp: timestamp,
             updatedAt: updatedAt,
@@ -126,6 +131,7 @@ struct SharedWord: Codable, Hashable {
         self.meanings = [meaning]
         self.partOfSpeech = word.partOfSpeech
         self.phonetic = word.phonetic
+        self.notes = word.notes
         self.languageCode = word.languageCode
         self.timestamp = word.timestamp
         self.updatedAt = word.updatedAt
@@ -235,6 +241,7 @@ struct SharedWord: Codable, Hashable {
             "meanings": meaningsData, // New: Multiple meanings
             "partOfSpeech": partOfSpeech,
             "phonetic": phonetic ?? "",
+            "notes": notes ?? "",
             "languageCode": languageCode,
             "timestamp": Timestamp(date: timestamp),
             "updatedAt": Timestamp(date: updatedAt),
@@ -315,6 +322,7 @@ struct SharedWord: Codable, Hashable {
             meanings: meanings,
             partOfSpeech: partOfSpeech,
             phonetic: data["phonetic"] as? String,
+            notes: data["notes"] as? String,
             languageCode: languageCode,
             timestamp: timestamp.dateValue(),
             updatedAt: updatedAt.dateValue(),

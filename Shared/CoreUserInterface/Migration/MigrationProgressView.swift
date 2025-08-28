@@ -84,7 +84,7 @@ struct MigrationProgressView: View {
             Button("Retry") {
                 retryMigration()
             }
-            Button("Cancel", role: .cancel) { }
+            Button(Loc.Actions.cancel, role: .cancel) { }
         } message: {
             if let error = migrationService.error {
                 Text("Migration failed: \(error.localizedDescription)\n\nWould you like to retry?")

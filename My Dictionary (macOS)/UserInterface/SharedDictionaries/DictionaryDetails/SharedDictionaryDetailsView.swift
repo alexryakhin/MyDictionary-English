@@ -86,8 +86,10 @@ struct SharedDictionaryDetailsView: View {
                                         removeCollaborator(email: collaborator.email)
                                     }
                                 } label: {
-                                    Image(systemName: "ellipsis.circle")
+                                    Image(systemName: "ellipsis")
                                         .foregroundStyle(.secondary)
+                                        .padding(6)
+                                        .contentShape(Rectangle())
                                 }
                                 .buttonStyle(.plain)
                             } else if collaborator.email == authenticationService.userEmail {

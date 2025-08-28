@@ -63,7 +63,7 @@ struct DebugView: View {
                 .textInputAutocapitalization(.never)
                 #endif
 
-           Button("Cancel", role: .cancel) {
+           Button(Loc.Actions.cancel, role: .cancel) {
                 testNotificationEmail = ""
             }
         } message: {

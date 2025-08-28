@@ -13,15 +13,11 @@ struct SharedMeaningsListView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject private var dictionaryService = DictionaryService.shared
     
-    @State private var word: SharedWord
+    @Binding var word: SharedWord
     private let dictionaryId: String
     
-    @State private var editingMeaning: SharedWordMeaning?
-    @State private var editingDefinition: String = ""
-    @State private var editingExamples: [String] = []
-    @State private var showingDeleteAlert = false
-    @State private var meaningToDelete: SharedWordMeaning?
-    
+    @State private var meaningToEdit: SharedWordMeaning?
+
     private var canEdit: Bool {
         guard let dictionary = dictionaryService.sharedDictionaries.first(where: { $0.id == dictionaryId }) else {
             return false
@@ -29,8 +25,8 @@ struct SharedMeaningsListView: View {
         return dictionary.canEdit
     }
     
-    init(word: SharedWord, dictionaryId: String) {
-        self._word = State(wrappedValue: word)
+    init(word: Binding<SharedWord>, dictionaryId: String) {
+        self._word = word
         self.dictionaryId = dictionaryId
     }
     
@@ -45,7 +41,7 @@ struct SharedMeaningsListView: View {
             .animation(.default, value: word.meanings)
         } navigationBar: {
             NavigationBarView(
-                title: "All Meanings (\(word.meanings.count))",
+                title: "\(Loc.Words.allMeanings) (\(word.meanings.count))",
                 mode: .large,
                 showsDismissButton: true,
                 trailingContent: {
@@ -56,38 +52,14 @@ struct SharedMeaningsListView: View {
             )
         }
         .frame(minWidth: 600, minHeight: 400)
-        .alert("Delete Meaning", isPresented: $showingDeleteAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("Delete", role: .destructive) {
-                if let meaning = meaningToDelete {
-                    deleteMeaning(meaning)
-                }
-            }
-        } message: {
-            Text("Are you sure you want to delete this meaning? This action cannot be undone.")
-        }
-        .onAppear {
-            // Start real-time listener for this specific word
-            dictionaryService.startSharedWordListener(
-                dictionaryId: dictionaryId,
-                wordId: word.id
-            ) { updatedWord in
-                guard let updatedWord else { return }
-                
-                // Update the word state on the main thread
-                DispatchQueue.main.async {
-                    self.word = updatedWord
-                }
-            }
-        }
-        .onDisappear {
-            // Stop the real-time listener when leaving the view
-            dictionaryService.stopSharedWordListener(dictionaryId: dictionaryId, wordId: word.id)
+        .groupedBackground()
+        .sheet(item: $meaningToEdit) { meaning in
+            SharedMeaningEditView(meaning: meaning, dictionaryId: dictionaryId, wordId: word.id)
         }
     }
     
     private func meaningCardView(meaning: SharedWordMeaning, index: Int) -> some View {
-        CustomSectionView(header: "Meaning \(index)", headerFontStyle: .stealth) {
+        CustomSectionView(header: "\(Loc.Words.meaning) \(index)", headerFontStyle: .stealth) {
             VStack(alignment: .leading, spacing: 12) {
                 // Definition
                 HStack {
@@ -103,29 +75,30 @@ struct SharedMeaningsListView: View {
                                 try await play(meaning.definition)
                             }
                         } label: {
-                            Label("Listen", systemImage: "speaker.wave.2.fill")
+                            Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                         }
                         
                         if canEdit {
                             Button {
                                 startEditing(meaning)
                             } label: {
-                                Label("Edit", systemImage: "pencil")
+                                Label(Loc.Actions.edit, systemImage: "pencil")
                             }
                             
                             Divider()
                             
                             Button(role: .destructive) {
-                                meaningToDelete = meaning
-                                showingDeleteAlert = true
+                                deleteMeaningAlert(meaning)
                             } label: {
-                                Label("Delete", systemImage: "trash")
+                                Label(Loc.Actions.delete, systemImage: "trash")
+                                    .tint(.red)
                             }
                         }
                     } label: {
-                        Image(systemName: "ellipsis.circle")
+                        Image(systemName: "ellipsis")
                             .foregroundStyle(.secondary)
-                            .font(.title3)
+                            .padding(6)
+                            .contentShape(Rectangle())
                     }
                     .buttonStyle(.plain)
                 }
@@ -133,7 +106,7 @@ struct SharedMeaningsListView: View {
                 // Examples
                 if !meaning.examples.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Examples")
+                        Text(Loc.Words.examples)
                             .font(.caption)
                             .foregroundColor(.secondary)
                             .fontWeight(.medium)
@@ -169,14 +142,12 @@ struct SharedMeaningsListView: View {
     }
     
     private func startEditing(_ meaning: SharedWordMeaning) {
-        editingMeaning = meaning
-        editingDefinition = meaning.definition
-        editingExamples = meaning.examples
+        meaningToEdit = meaning
     }
     
     private func addNewMeaning() {
         let newMeaning = SharedWordMeaning(
-            definition: "New definition",
+            definition: Loc.Words.newDefinition,
             examples: [],
             order: word.meanings.count
         )
@@ -187,6 +158,22 @@ struct SharedMeaningsListView: View {
         Task {
             await saveWordToFirebase(updatedWord)
         }
+    }
+    
+    private func deleteMeaningAlert(_ meaning: SharedWordMeaning) {
+        AlertCenter.shared.showAlert(
+            with: .deleteConfirmation(
+                title: Loc.Words.deleteMeaning,
+                message: Loc.Words.deleteMeaningConfirmation,
+                onCancel: {
+                    AnalyticsService.shared.logEvent(.meaningRemovingCanceled)
+                },
+                onDelete: {
+                    deleteMeaning(meaning)
+                    AnalyticsService.shared.logEvent(.meaningRemoved)
+                }
+            )
+        )
     }
     
     private func deleteMeaning(_ meaning: SharedWordMeaning) {
@@ -224,4 +211,3 @@ struct SharedMeaningsListView: View {
         )
     }
 }
-

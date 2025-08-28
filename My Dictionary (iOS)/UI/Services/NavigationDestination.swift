@@ -16,7 +16,6 @@ enum NavigationDestination: Hashable {
     
     // MARK: - Shared word destinations
     case sharedWordDetails(SharedWord, dictionaryId: String)
-    case sharedWordMeaningsList(SharedWord, dictionaryId: String)
 
     // MARK: - Quiz-related destinations
     case spellingQuiz(QuizPreset)

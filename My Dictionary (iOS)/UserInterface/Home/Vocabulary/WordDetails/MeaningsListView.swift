@@ -35,7 +35,7 @@ struct MeaningsListView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "All Meanings (\(word.meaningsArray.count))",
+            title: "\(Loc.Words.allMeanings) (\(word.meaningsArray.count))",
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
@@ -44,20 +44,14 @@ struct MeaningsListView: View {
                 }
             }
         )
-        .alert("Delete Meaning", isPresented: $showingDeleteAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("Delete", role: .destructive) {
-                if let meaning = meaningToDelete {
-                    deleteMeaning(meaning)
-                }
-            }
-        } message: {
-            Text("Are you sure you want to delete this meaning? This action cannot be undone.")
-        }
     }
     
     private func meaningCardView(meaning: CDMeaning, index: Int) -> some View {
-        CustomSectionView(header: "Meaning \(index)", headerFontStyle: .stealth) {
+        CustomSectionView(
+            header: "\(Loc.Words.meaning) \(index)",
+            headerFontStyle: .stealth,
+            hPadding: .zero
+        ) {
             VStack(alignment: .leading, spacing: 12) {
                 // Definition
                 HStack {
@@ -73,13 +67,13 @@ struct MeaningsListView: View {
                                 try await play(meaning.definition ?? "")
                             }
                         } label: {
-                            Label("Listen", systemImage: "speaker.wave.2.fill")
+                            Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                         }
                         
                         Button {
                             startEditing(meaning)
                         } label: {
-                            Label("Edit", systemImage: "pencil")
+                            Label(Loc.Actions.edit, systemImage: "pencil")
                         }
                         
                         Divider()
@@ -88,46 +82,44 @@ struct MeaningsListView: View {
                             meaningToDelete = meaning
                             showingDeleteAlert = true
                         } label: {
-                            Label("Delete", systemImage: "trash")
+                            Label(Loc.Actions.delete, systemImage: "trash")
+                                .tint(.red)
                         }
                     } label: {
-                        Image(systemName: "ellipsis.circle")
+                        Image(systemName: "ellipsis")
                             .foregroundStyle(.secondary)
-                            .font(.title3)
+                            .padding(6)
+                            .contentShape(Rectangle())
                     }
                 }
-                
+                .padding(.horizontal, 16)
+
                 // Examples
-                if !meaning.examplesDecoded.isEmpty {
+                if meaning.examplesDecoded.isNotEmpty {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Examples")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .fontWeight(.medium)
-                        
-                        ForEach(Array(meaning.examplesDecoded.enumerated()), id: \.offset) { exampleIndex, example in
+                        ForEach(Array(meaning.examplesDecoded.enumerated()), id: \.offset) { _, example in
                             HStack {
-                                Text("\(exampleIndex + 1).")
-                                    .font(.caption)
+                                Text("•")
                                     .foregroundColor(.secondary)
-                                    .frame(width: 20, alignment: .leading)
-                                
-                                Text(example)
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                                    .italic()
-                                
-                                Spacer()
-                                
-                                AsyncHeaderButton(
-                                    icon: "speaker.wave.2.fill",
-                                    size: .small
-                                ) {
-                                    try await play(example)
+                                Menu {
+                                    Button {
+                                        Task {
+                                            try await play(example)
+                                        }
+                                        AnalyticsService.shared.logEvent(.wordExamplePlayed)
+                                    } label: {
+                                        Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
+                                    }
+                                    .disabled(TTSPlayer.shared.isPlaying)
+                                } label: {
+                                    Text(example)
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
                                 }
-                                .disabled(TTSPlayer.shared.isPlaying)
+                                .buttonStyle(.plain)
+                                Spacer()
                             }
-                            .padding(.leading, 8)
+                            .padding(.leading, 16)
                         }
                     }
                 }
@@ -143,20 +135,16 @@ struct MeaningsListView: View {
     
     private func addNewMeaning() {
         do {
-            let _ = try word.addMeaning(definition: "New definition", examples: [])
+            let _ = try word.addMeaning(definition: Loc.Words.newDefinition, examples: [])
             saveContext()
         } catch {
-            print("Failed to add meaning: \(error)")
+            errorReceived(error)
         }
     }
     
     private func deleteMeaning(_ meaning: CDMeaning) {
-        do {
-            try word.removeMeaning(meaning)
-            saveContext()
-        } catch {
-            print("Failed to delete meaning: \(error)")
-        }
+        word.removeMeaning(meaning)
+        saveContext()
     }
     
     private func play(_ text: String) async throws {
@@ -170,7 +158,7 @@ struct MeaningsListView: View {
         do {
             try CoreDataService.shared.context.save()
         } catch {
-            print("Failed to save context: \(error)")
+            errorReceived(error)
         }
     }
 }

@@ -57,7 +57,7 @@ struct VocabularyListView: View {
             title: Loc.Onboarding.myDictionary,
             mode: .large,
             trailingContent: {
-                HeaderButtonMenu(icon: "ellipsis.circle") {
+                HeaderButtonMenu(icon: "ellipsis") {
                     // Words sorting
                     Picker(Loc.Words.sort, selection: $sortingState) {
                         ForEach(SortingCase.allCases, id: \.self) { item in
@@ -130,6 +130,7 @@ struct VocabularyListView: View {
                                 wordListViewModel.handle(.deleteWord(word: wordModel))
                             } label: {
                                 Label(Loc.Actions.delete, systemImage: "trash")
+                                    .tint(.red)
                             }
                         }
                 }
@@ -174,6 +175,7 @@ struct VocabularyListView: View {
                             idiomListViewModel.handle(.deleteIdiom(idiom: idiomModel))
                         } label: {
                             Label(Loc.Actions.delete, systemImage: "trash")
+                                .tint(.red)
                         }
                     }
                 }

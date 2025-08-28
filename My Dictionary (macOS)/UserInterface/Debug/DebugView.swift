@@ -55,7 +55,7 @@ struct DebugView: View {
             TextField("Enter email address", text: $testNotificationEmail)
                 .autocorrectionDisabled()
                 .textFieldStyle(.plain)
-           Button("Cancel", role: .cancel) {
+           Button(Loc.Actions.cancel, role: .cancel) {
                 testNotificationEmail = ""
             }
         } message: {
