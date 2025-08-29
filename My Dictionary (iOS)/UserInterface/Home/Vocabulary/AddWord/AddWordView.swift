@@ -9,9 +9,12 @@ struct AddWordView: View {
 
     @StateObject private var authenticationService = AuthenticationService.shared
 
-    init(inputWord: String, selectedDictionaryId: String? = nil) {
-        self._viewModel = .init(wrappedValue: .init(inputWord: inputWord))
+    private let isWord: Bool
+
+    init(input: String, selectedDictionaryId: String? = nil, isWord: Bool) {
+        self._viewModel = .init(wrappedValue: .init(input: input, isWord: isWord))
         self._selectedDictionaryId = State(initialValue: selectedDictionaryId)
+        self.isWord = isWord
     }
 
     var body: some View {
@@ -44,7 +47,7 @@ struct AddWordView: View {
             Color.systemGroupedBackground.ignoresSafeArea()
         }
         .navigation(
-            title: Loc.Words.addNewWord,
+            title: isWord ? Loc.Words.addWord : Loc.Words.addIdiom,
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
@@ -81,8 +84,13 @@ struct AddWordView: View {
     }
 
     var wordCellView: some View {
-        CellWrapper(Loc.Words.word) {
-            CustomTextField(Loc.Words.typeWord, text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
+        CellWrapper(isWord ? Loc.Words.word : Loc.Words.idiom) {
+            CustomTextField(
+                isWord ? Loc.Words.typeWord : Loc.Words.idiom,
+                text: $viewModel.inputWord,
+                submitLabel: .search,
+                axis: .horizontal
+            ) {
                 if viewModel.inputWord.isNotEmpty {
                     viewModel.handle(.fetchData)
                 }
@@ -129,7 +137,7 @@ struct AddWordView: View {
     var partOfSpeechCellView: some View {
         CellWrapper(Loc.Words.partOfSpeech) {
             Menu {
-                ForEach(PartOfSpeech.allCases, id: \.self) { partOfSpeech in
+                ForEach(isWord ? PartOfSpeech.wordCases : PartOfSpeech.expressionCases, id: \.self) { partOfSpeech in
                     Button {
                         viewModel.handle(.selectPartOfSpeech(partOfSpeech))
                     } label: {
@@ -241,12 +249,18 @@ struct AddWordView: View {
 
                 FormWithDivider {
                     ForEach(Array(definitionsToShow.enumerated()), id: \.element.id) { offset, definition in
-                        FormWithDivider {
-                            CellWrapper("\(Loc.Words.definition) \(offset + 1), \(definition.partOfSpeech.displayName)") {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("\(Loc.Words.definition) \(offset + 1), \(definition.partOfSpeech.displayName)")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.leading)
+
+                            HStack(alignment: .firstTextBaseline) {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(definition.text)
                                         .multilineTextAlignment(.leading)
                                         .foregroundStyle(.primary)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
 
                                     // Show original definition if translated (only for non-English locales)
                                     if !GlobalConstant.isEnglishLanguage && viewModel.translateDefinitions && offset < viewModel.definitions.count {
@@ -254,9 +268,9 @@ struct AddWordView: View {
                                             .font(.caption)
                                             .foregroundStyle(.secondary)
                                             .italic()
+                                            .frame(maxWidth: .infinity, alignment: .leading)
                                     }
                                 }
-                            } trailingContent: {
                                 multiSelectCheckboxImage(definition.id)
                                     .onTap {
                                         definitionToggled(definition, index: offset)
@@ -269,12 +283,31 @@ struct AddWordView: View {
                             // Show examples from original definition
                             if offset < viewModel.definitions.count {
                                 ForEach(viewModel.definitions[offset].examples, id: \.self) { example in
-                                    CellWrapper(Loc.Words.example) {
-                                        Text(example)
+                                    HStack {
+                                        Text("•")
+                                            .foregroundColor(.secondary)
+                                        Menu {
+                                            Button {
+                                                Task {
+                                                    try await viewModel.play(example)
+                                                }
+                                                AnalyticsService.shared.logEvent(.wordExamplePlayed)
+                                            } label: {
+                                                Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
+                                            }
+                                            .disabled(TTSPlayer.shared.isPlaying)
+                                        } label: {
+                                            Text(example)
+                                                .font(.caption)
+                                                .foregroundColor(.secondary)
+                                        }
+                                        .buttonStyle(.plain)
+                                        Spacer()
                                     }
                                 }
                             }
                         }
+                        .padding(vertical: 12, horizontal: 16)
                     }
                 }
             case .blank:

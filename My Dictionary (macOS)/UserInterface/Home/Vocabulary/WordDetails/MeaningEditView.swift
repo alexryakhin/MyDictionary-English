@@ -181,9 +181,6 @@ struct MeaningEditView: View {
     
     private func play(_ text: String) async throws {
         guard !text.isEmpty else { return }
-        try await TTSPlayer.shared.play(
-            text,
-            targetLanguage: Locale.current.language.languageCode?.identifier
-        )
+        try await TTSPlayer.shared.play(text)
     }
 }

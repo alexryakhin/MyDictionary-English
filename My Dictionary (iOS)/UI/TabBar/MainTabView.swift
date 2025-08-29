@@ -91,8 +91,8 @@ struct MainTabView: View {
     @ViewBuilder
     private func destinationView(for destination: NavigationDestination) -> some View {
         switch destination {
-        case .addWord(let inputWord):
-            AddWordView(inputWord: inputWord)
+        case .addWord(let input, let isWord):
+            AddWordView(input: input, isWord: isWord)
         case .quizResultsList:
             QuizResultsList.ContentView()
         case .aboutApp:

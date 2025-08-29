@@ -38,7 +38,7 @@ struct VocabularyFlow: View {
         case .showWordDetails(let word):
             navigationManager.navigationPath.append(NavigationDestination.wordDetails(word))
         case .showAddWord(let inputWord):
-            navigationManager.navigationPath.append(NavigationDestination.addWord(inputWord))
+            navigationManager.navigationPath.append(NavigationDestination.addWord(inputWord, true))
         case .showSharedDictionaries:
             navigationManager.navigationPath.append(NavigationDestination.sharedDictionariesList)
         case .showAddExistingWordToShared(let word):
@@ -51,7 +51,7 @@ struct VocabularyFlow: View {
         case .showIdiomDetails(let idiom):
             navigationManager.navigationPath.append(NavigationDestination.wordDetails(idiom))
         case .showAddIdiom(let input):
-            navigationManager.navigationPath.append(NavigationDestination.addWord(input))
+            navigationManager.navigationPath.append(NavigationDestination.addWord(input, false))
         }
     }
 }

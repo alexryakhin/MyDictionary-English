@@ -518,12 +518,7 @@ struct SharedWordDetailsView: View {
 
     private func play(_ text: String?, isWord: Bool = false) async throws {
         guard let text else { return }
-        try await TTSPlayer.shared.play(
-            text,
-            targetLanguage: isWord
-            ? word.languageCode
-            : Locale.current.language.languageCode?.identifier
-        )
+        try await TTSPlayer.shared.play(text)
     }
 
     private func updatePartOfSpeech(_ value: PartOfSpeech) {

@@ -159,10 +159,7 @@ struct MeaningsListView: View {
     }
 
     private func play(_ text: String) async throws {
-        try await TTSPlayer.shared.play(
-            text,
-            targetLanguage: word.languageCode ?? Locale.current.language.languageCode?.identifier
-        )
+        try await TTSPlayer.shared.play(text)
     }
 
     private func saveContext() {

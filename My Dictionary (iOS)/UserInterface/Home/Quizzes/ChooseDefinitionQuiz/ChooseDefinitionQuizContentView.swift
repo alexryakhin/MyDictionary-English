@@ -378,12 +378,6 @@ struct ChooseDefinitionQuizContentView: View {
 
     private func play(_ text: String?, isWord: Bool = false) async throws {
         guard let text else { return }
-
-        try await TTSPlayer.shared.play(
-            text,
-            targetLanguage: isWord
-            ? viewModel.correctItem.quiz_languageCode
-            : Locale.current.language.languageCode?.identifier
-        )
+        try await TTSPlayer.shared.play(text)
     }
 }

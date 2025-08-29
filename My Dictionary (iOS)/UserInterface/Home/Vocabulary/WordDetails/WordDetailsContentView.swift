@@ -38,7 +38,9 @@ struct WordDetailsContentView: View {
         }
         .groupedBackground()
         .navigation(
-            title: Loc.Navigation.wordDetails,
+            title: word.partOfSpeechDecoded.isExpression
+            ? Loc.Navigation.idiomDetails
+            : Loc.Navigation.wordDetails,
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
@@ -369,12 +371,7 @@ struct WordDetailsContentView: View {
 
     private func play(_ text: String?, isWord: Bool = false) async throws {
         guard let text else { return }
-        try await TTSPlayer.shared.play(
-            text,
-            targetLanguage: isWord
-            ? word.languageCode
-            : Locale.current.language.languageCode?.identifier
-        )
+        try await TTSPlayer.shared.play(text)
     }
 
     private func updatePartOfSpeech(_ value: PartOfSpeech) {

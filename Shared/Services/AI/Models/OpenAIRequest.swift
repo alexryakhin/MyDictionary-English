@@ -88,18 +88,26 @@ struct AIWordResponse: Codable {
     let pronunciation: String
 }
 
+struct AIRelatedWordWithDefinition: Codable {
+    let word: String
+    let definition: String
+    let example: String
+    let partOfSpeech: String
+}
+
 // MARK: - OpenAI JSON Response
 struct OpenAIWordResponse: Codable {
     let pronunciation: String
     let definitions: [AIWordDefinition]
 }
 
-struct ExamplesResponse: Codable {
-    let examples: [String]
+struct OpenAIRelatedWordsResponse: Codable {
+    let relatedWords: [OpenAIRelatedWordData]
 }
 
-struct QuizResponse: Codable {
-    let question: String
-    let correctAnswer: String
-    let distractors: [String]
+struct OpenAIRelatedWordData: Codable {
+    let word: String
+    let definition: String
+    let example: String
+    let partOfSpeech: String
 }

@@ -504,12 +504,9 @@ struct DebugView: View {
             do {
                 print("🚀 [DebugView] Starting OpenAI connection test...")
                 let aiService = AIServiceManager.shared
-                let testDefinition = try await aiService.enhanceWordDefinition(
-                    word: "test",
-                    originalDefinition: "A trial or experiment",
-                    wordLanguage: .english,
-                    context: "debug testing",
-                    userLevel: "beginner"
+                let testDefinition = try await aiService.generateWordInformation(
+                    for: "test",
+                    inputLanguage: .english
                 )
                 
                 print("✅ [DebugView] OpenAI connection test successful")

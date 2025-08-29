@@ -205,9 +205,6 @@ struct SharedMeaningsListView: View {
     }
     
     private func play(_ text: String) async throws {
-        try await TTSPlayer.shared.play(
-            text,
-            targetLanguage: word.languageCode
-        )
+        try await TTSPlayer.shared.play(text)
     }
 }

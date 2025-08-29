@@ -36,12 +36,16 @@ final class TTSPlayer: NSObject, ObservableObject {
         loadAvailableVoices()
     }
     
-    func play(_ text: String, targetLanguage: String?) async throws {
+    func play(_ text: String) async throws {
         guard text.isNotEmpty, !isPlaying else { return }
-        
+        let detectedLanguage = LanguageDetector.shared.detectLanguage(for: text)
+        let selectedAccent = detectedLanguage == .english
+        ? selectedEnglishAccent.localeCode
+        : detectedLanguage.languageCode
+
         // Determine which provider to use
-        let provider = determineProvider(for: targetLanguage)
-        
+        let provider = determineProvider(for: selectedAccent)
+
         // Check Speechify usage limits if using Speechify
         if provider == .speechify {
             if await !TTSUsageTracker.shared.canUseSpeechify(text: text) {
@@ -52,12 +56,12 @@ final class TTSPlayer: NSObject, ObservableObject {
         do {
             switch provider {
             case .google:
-                try await playWithGoogle(text: text, targetLanguage: targetLanguage)
+                try await playWithGoogle(text: text, targetLanguage: selectedAccent)
             case .speechify:
                 try await playWithSpeechify(
                     text: text,
                     voice: selectedSpeechifyVoice,
-                    targetLanguage: targetLanguage
+                    targetLanguage: detectedLanguage.languageCode
                 )
             }
             
@@ -66,32 +70,32 @@ final class TTSPlayer: NSObject, ObservableObject {
                 TTSUsageTracker.shared.trackTTSUsage(
                     text: text,
                     provider: provider,
-                    language: targetLanguage ?? "en",
+                    language: detectedLanguage.languageCode,
                     voice: provider == .speechify ? selectedSpeechifyVoice : nil
                 )
             }
         } catch TTSError.premiumFeatureRequired {
             // Fallback to Google TTS if premium feature is required but not available
-            try await playWithGoogle(text: text, targetLanguage: targetLanguage)
-            
+            try await playWithGoogle(text: text, targetLanguage: selectedAccent)
+
             // Track fallback usage
             await MainActor.run {
                 TTSUsageTracker.shared.trackTTSUsage(
                     text: text,
                     provider: .google,
-                    language: targetLanguage ?? "en"
+                    language: detectedLanguage.languageCode
                 )
             }
         } catch TTSError.monthlyLimitExceeded {
             // Fallback to Google TTS if monthly limit is exceeded
-            try await playWithGoogle(text: text, targetLanguage: targetLanguage)
-            
+            try await playWithGoogle(text: text, targetLanguage: selectedAccent)
+
             // Track fallback usage
             await MainActor.run {
                 TTSUsageTracker.shared.trackTTSUsage(
                     text: text,
                     provider: .google,
-                    language: targetLanguage ?? "en"
+                    language: detectedLanguage.languageCode
                 )
             }
         } catch {
@@ -116,7 +120,7 @@ final class TTSPlayer: NSObject, ObservableObject {
         }
     }
 
-    private func determineProvider(for targetLanguage: String?) -> TTSProvider {
+    private func determineProvider(for targetLanguage: String) -> TTSProvider {
         // If user selected Speechify and has premium, use it
         if selectedTTSProvider == .speechify && SubscriptionService.shared.isProUser {
             return .speechify
@@ -126,16 +130,9 @@ final class TTSPlayer: NSObject, ObservableObject {
         return .google
     }
     
-    private func playWithGoogle(text: String, targetLanguage: String?) async throws {
-        var tl: String?
-        if targetLanguage == nil || targetLanguage == "en" {
-            tl = selectedEnglishAccent.localeCode
-        } else {
-            tl = targetLanguage
-        }
-
+    private func playWithGoogle(text: String, targetLanguage: String) async throws {
         let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=\(escapedText)&tl=\(tl ?? selectedEnglishAccent.localeCode)"
+        let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=\(escapedText)&tl=\(targetLanguage)"
         guard let url = URL(string: urlString) else { return }
 
         #if os(iOS)
@@ -146,10 +143,10 @@ final class TTSPlayer: NSObject, ObservableObject {
         try await play(from: temporaryDownloadURL)
     }
     
-    private func playWithSpeechify(text: String, voice: String, targetLanguage: String?) async throws {
+    private func playWithSpeechify(text: String, voice: String, targetLanguage: String) async throws {
         let request = TTSRequest(
             text: text,
-            language: targetLanguage ?? "en-US",
+            language: targetLanguage,
             voice: voice,
             provider: .speechify,
             model: selectedSpeechifyModel,

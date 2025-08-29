@@ -198,10 +198,7 @@ enum TTSDashboard {
             if let currentVoice = ttsPlayer.selectedSpeechifyVoiceModel {
                 try await ttsPlayer.previewSpeechifyVoice(currentVoice)
             } else {
-                try await ttsPlayer.play(
-                    ttsPlayer.testText,
-                    targetLanguage: InputLanguage.english.languageCode
-                )
+                try await ttsPlayer.play(ttsPlayer.testText)
             }
         }
 
@@ -349,7 +346,7 @@ enum TTSDashboard {
             let language = ttsPlayer.availableVoices.first(where: { 
                 $0.id == ttsPlayer.selectedSpeechifyVoice
             })?.language ?? "en-US"
-            try await ttsPlayer.play(ttsPlayer.testText, targetLanguage: language)
+            try await ttsPlayer.play(ttsPlayer.testText)
         }
 
         private func resetSettings() {

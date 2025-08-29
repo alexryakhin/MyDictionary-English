@@ -40,12 +40,15 @@ final class AddWordViewModel: BaseViewModel {
     private let translationService = GoogleTranslateService.shared
     private let dictionaryService = DictionaryService.shared
     private let dataSyncService = DataSyncService.shared
+    private let languageDetector = LanguageDetector.shared
 
+    private let isWord: Bool
     private let localeLanguageCode: String
     private var cancellables = Set<AnyCancellable>()
 
-    init(inputWord: String = "") {
-        self.inputWord = inputWord
+    init(input: String = "", isWord: Bool) {
+        self.inputWord = input
+        self.isWord = isWord
         self.localeLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
 
         // Force translateDefinitions to false for English locales
@@ -102,6 +105,14 @@ final class AddWordViewModel: BaseViewModel {
                     // Always translate single words to English for API lookup
                     isTranslating = true
                     AnalyticsService.shared.logEvent(.translationRequested)
+                    
+                    // Detect language using Apple's Natural Language framework
+                    let detectedLanguage = languageDetector.detectLanguage(for: inputWord)
+                    
+                    // Update selectedInputLanguage from auto to detected language
+                    if selectedInputLanguage.isAuto {
+                        selectedInputLanguage = detectedLanguage
+                    }
                     
                     let translationResponse: TranslationResponse
                     if selectedInputLanguage.isAuto {
@@ -269,7 +280,7 @@ final class AddWordViewModel: BaseViewModel {
 
     func play(_ text: String?) async throws {
         guard let text else { return }
-        try await ttsPlayer.play(text, targetLanguage: selectedInputLanguage.languageCode)
+        try await ttsPlayer.play(text)
     }
 
     private func setupBindings() {
@@ -390,4 +401,6 @@ final class AddWordViewModel: BaseViewModel {
             }
         }
     }
+    
+
 }

@@ -39,22 +39,19 @@ final class OpenAIAPIService: AIServiceInterface {
         for word: String,
         maxDefinitions: Int = 10,
         inputLanguage: InputLanguage,
-        userLanguage: String? = nil,
+        userLanguage: String,
         userId: String
     ) async throws -> AIWordResponse {
         print("🔍 [OpenAIAPIService] generateWordInformation called for word: '\(word)'")
         print("🔍 [OpenAIAPIService] Max definitions: \(maxDefinitions)")
-        print("🔍 [OpenAIAPIService] Target language: \(userLanguage ?? "auto-detect")")
         print("🔍 [OpenAIAPIService] User ID: \(userId)")
-
-        let finalUserLanguage = userLanguage ?? getCurrentAppLanguage()
-        print("🔍 [OpenAIAPIService] Final user language: \(finalUserLanguage)")
+        print("🔍 [OpenAIAPIService] User language: \(userLanguage)")
 
         let prompt = buildWordInformationPrompt(
             word: word,
             maxDefinitions: maxDefinitions,
             inputLanguage: inputLanguage.englishName,
-            userLanguage: finalUserLanguage
+            userLanguage: userLanguage
         )
 
         print("🔍 [OpenAIAPIService] Built prompt for OpenAI")
@@ -69,6 +66,39 @@ final class OpenAIAPIService: AIServiceInterface {
             return wordInfo
         } catch {
             print("❌ [OpenAIAPIService] Failed to generate word information: \(error.localizedDescription)")
+            throw error
+        }
+    }
+
+    func generateRelatedWords(
+        for word: String,
+        context: String,
+        maxWords: Int,
+        userId: String
+    ) async throws -> [AIRelatedWordWithDefinition] {
+        print("🔍 [OpenAIAPIService] generateRelatedWords called for word: '\(word)'")
+        print("🔍 [OpenAIAPIService] Context: \(context)")
+        print("🔍 [OpenAIAPIService] Max words: \(maxWords)")
+        print("🔍 [OpenAIAPIService] User ID: \(userId)")
+
+        let prompt = buildRelatedWordsPrompt(
+            word: word,
+            context: context,
+            maxWords: maxWords
+        )
+
+        print("🔍 [OpenAIAPIService] Built prompt for related words")
+
+        do {
+            let response = try await makeOpenAIRequest(prompt: prompt)
+            print("✅ [OpenAIAPIService] Received response for related words")
+
+            let relatedWords = parseRelatedWordsResponse(response)
+            print("✅ [OpenAIAPIService] Parsed \(relatedWords.count) related words")
+
+            return relatedWords
+        } catch {
+            print("❌ [OpenAIAPIService] Failed to generate related words: \(error.localizedDescription)")
             throw error
         }
     }
@@ -167,9 +197,50 @@ final class OpenAIAPIService: AIServiceInterface {
         15. Include both formal and informal usage contexts
         16. As this is for educational purposes, include ALL meanings including slang, profanity, and informal expressions when they exist
         17. Provide accurate linguistic information regardless of content sensitivity - this helps language learners understand real-world usage
+        18. CRITICAL: Definitions should NOT mention the input word itself - they should explain the concept without using the word being defined (this is essential for quiz functionality)
         """
 
         print("🔍 [OpenAIAPIService] Built prompt for word '\(word)' in \(userLanguage)")
+        return prompt
+    }
+
+    private func buildRelatedWordsPrompt(
+        word: String,
+        context: String,
+        maxWords: Int
+    ) -> String {
+        let prompt = """
+            IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Based on the provided word and context, generate a list of semantically related words that would be useful for vocabulary learning.
+            
+            Word: \(word)
+            Context: \(context)
+            
+            Provide up to \(maxWords) related words in the following JSON format:
+            
+            {
+              "relatedWords": [
+                {
+                  "word": "[related word]",
+                  "definition": "[1-2 sentence definition explaining the relationship or meaning]",
+                  "example": "[1 sentence example showing usage]",
+                  "partOfSpeech": "[noun, verb, adjective, adverb, etc.]"
+                }
+              ]
+            }
+            
+            IMPORTANT RULES:
+            1. Return ONLY valid JSON - no additional text before or after
+            2. Focus on words that are semantically related to the input word
+            3. Include synonyms, antonyms, hypernyms, hyponyms, and contextually related words
+            4. Definitions should be clear and educational
+            5. Examples should be practical and show real usage
+            6. Part of speech should be accurate
+            7. Avoid very obscure or technical words unless they're directly related
+            8. Prioritize words that would be useful for vocabulary building
+            9. Use proper JSON escaping for quotes and special characters
+            10. Each word should have a clear relationship to the input word
+            """
+
         return prompt
     }
 
@@ -302,49 +373,84 @@ final class OpenAIAPIService: AIServiceInterface {
         )
     }
 
-    private func getCurrentAppLanguage() -> String {
-        let preferredLanguage = Locale.preferredLanguages.first ?? "en"
-        let languageCode = preferredLanguage.prefix(2).lowercased()
+    private func parseRelatedWordsResponse(_ response: String) -> [AIRelatedWordWithDefinition] {
+        print("🔍 [OpenAIAPIService] Parsing related words response...")
 
-        let languageMap: [String: String] = [
-            "en": "English",
-            "es": "Spanish",
-            "fr": "French",
-            "de": "German",
-            "it": "Italian",
-            "pt": "Portuguese",
-            "ru": "Russian",
-            "ja": "Japanese",
-            "ko": "Korean",
-            "zh": "Chinese",
-            "ar": "Arabic",
-            "hi": "Hindi",
-            "tr": "Turkish",
-            "pl": "Polish",
-            "nl": "Dutch",
-            "sv": "Swedish",
-            "da": "Danish",
-            "no": "Norwegian",
-            "fi": "Finnish",
-            "cs": "Czech",
-            "sk": "Slovak",
-            "hu": "Hungarian",
-            "ro": "Romanian",
-            "bg": "Bulgarian",
-            "hr": "Croatian",
-            "sl": "Slovenian",
-            "et": "Estonian",
-            "lv": "Latvian",
-            "lt": "Lithuanian",
-            "el": "Greek",
-            "he": "Hebrew",
-            "th": "Thai",
-            "vi": "Vietnamese",
-            "id": "Indonesian",
-            "ms": "Malay"
-        ]
+        let cleanedResponse = cleanJSONResponse(response)
+        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
 
-        return languageMap[languageCode] ?? "English"
+        do {
+            let decoder = JSONDecoder()
+            let openAIResponse = try decoder.decode(OpenAIRelatedWordsResponse.self, from: cleanedResponse.data(using: .utf8)!)
+
+            let relatedWords = openAIResponse.relatedWords.map { wordData in
+                AIRelatedWordWithDefinition(
+                    word: wordData.word,
+                    definition: wordData.definition,
+                    example: wordData.example,
+                    partOfSpeech: wordData.partOfSpeech
+                )
+            }
+
+            print("✅ [OpenAIAPIService] Successfully parsed \(relatedWords.count) related words")
+            return relatedWords
+        } catch {
+            print("❌ [OpenAIAPIService] JSON parsing failed: \(error.localizedDescription)")
+            print("🔄 [OpenAIAPIService] Falling back to text parsing...")
+            return parseRelatedWordsResponseFallback(response)
+        }
+    }
+
+    private func parseRelatedWordsResponseFallback(_ response: String) -> [AIRelatedWordWithDefinition] {
+        print("🔍 [OpenAIAPIService] Using fallback text parsing for related words...")
+
+        var relatedWords: [AIRelatedWordWithDefinition] = []
+
+        // Simple fallback parsing - extract words and basic info
+        let lines = response.components(separatedBy: .newlines)
+        var currentWord = ""
+        var currentDefinition = ""
+        var currentExample = ""
+        var currentPartOfSpeech = "noun"
+
+        for line in lines {
+            let trimmedLine = line.trimmingCharacters(in: .whitespacesAndNewlines)
+
+            if trimmedLine.isEmpty { continue }
+
+            // Look for word patterns
+            if trimmedLine.contains("word:") || trimmedLine.contains("Word:") {
+                if !currentWord.isEmpty && !currentDefinition.isEmpty {
+                    relatedWords.append(AIRelatedWordWithDefinition(
+                        word: currentWord,
+                        definition: currentDefinition,
+                        example: currentExample,
+                        partOfSpeech: currentPartOfSpeech
+                    ))
+                }
+                currentWord = trimmedLine.replacingOccurrences(of: "word:", with: "").replacingOccurrences(of: "Word:", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
+                currentDefinition = ""
+                currentExample = ""
+                currentPartOfSpeech = "noun"
+            } else if trimmedLine.contains("definition:") || trimmedLine.contains("Definition:") {
+                currentDefinition = trimmedLine.replacingOccurrences(of: "definition:", with: "").replacingOccurrences(of: "Definition:", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
+            } else if trimmedLine.contains("example:") || trimmedLine.contains("Example:") {
+                currentExample = trimmedLine.replacingOccurrences(of: "example:", with: "").replacingOccurrences(of: "Example:", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+        }
+
+        // Add the last word
+        if !currentWord.isEmpty && !currentDefinition.isEmpty {
+            relatedWords.append(AIRelatedWordWithDefinition(
+                word: currentWord,
+                definition: currentDefinition,
+                example: currentExample,
+                partOfSpeech: currentPartOfSpeech
+            ))
+        }
+
+        print("🔍 [OpenAIAPIService] Fallback parsing found \(relatedWords.count) related words")
+        return relatedWords
     }
 }
 
