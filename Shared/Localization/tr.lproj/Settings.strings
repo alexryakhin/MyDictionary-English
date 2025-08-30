@@ -57,3 +57,15 @@
 "import_export_note" = "Not: İçe ve dışa aktarma yalnızca bu uygulama tarafından oluşturulan dosyalarla çalışır.";
 "buy_me_a_coffee" = "Bana Kahve Ismarla";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Veri Bakımı";
+"data_maintenance_description" = "Uygulama performansını artırmak için yinelenen kelimeleri ve anlamları temizleyin";
+"check_for_duplicates" = "Yinelenenleri Kontrol Et";
+"clean_up_duplicates" = "Yinelenenleri Temizle";
+"duplicates_found" = "Yinelenenler Bulundu";
+"duplicates_found_message" = "%d yinelenen kelime, %d yinelenen anlam ve %d yinelenen etiket bulundu. Bunları kaldırmak için 'Yinelenenleri Temizle'yi kullanın.";
+"no_duplicates" = "Yinelenen Yok";
+"no_duplicates_message" = "Sözlüğünüzde yinelenen kelime, anlam veya etiket bulunamadı.";
+"cleanup_completed" = "Temizlik Tamamlandı";
+"cleanup_completed_message" = "%d yinelenen başarıyla temizlendi:\n• %d yinelenen kelime\n• %d yinelenen anlam\n• %d yinelenen etiket\n• %d birleştirilen anlam\n• %d birleştirilen etiket ilişkisi";
+

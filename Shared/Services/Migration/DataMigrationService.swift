@@ -110,11 +110,31 @@ final class DataMigrationService: ObservableObject {
             // Check available storage
             try await checkAvailableStorage()
             
+            // Clean up any existing duplicates before migration
+            await MainActor.run {
+                progress = MigrationProgress(phase: .starting, currentItem: 0, totalItems: 1, message: "Checking for duplicates...")
+            }
+            
+            let cleanupResult = try detectAndCleanupDuplicates()
+            if cleanupResult.totalChanges > 0 {
+                logInfo("🧹 Cleaned up \(cleanupResult.totalChanges) duplicates before migration")
+            }
+            
             // Perform migration phases
             try await migrateWordDefinitions()
             try await migrateIdiomsToWords()
             try await validateMigration()
             try await cleanup()
+            
+            // Final duplicate cleanup after migration
+            await MainActor.run {
+                progress = MigrationProgress(phase: .cleanup, currentItem: 0, totalItems: 1, message: "Final duplicate check...")
+            }
+            
+            let finalCleanupResult = try detectAndCleanupDuplicates()
+            if finalCleanupResult.totalChanges > 0 {
+                logInfo("🧹 Final cleanup: removed \(finalCleanupResult.totalChanges) duplicates after migration")
+            }
             
             // Mark migration as completed
             await MainActor.run {
@@ -175,6 +195,7 @@ final class DataMigrationService: ObservableObject {
         }
         
         var migratedCount = 0
+        var skippedCount = 0
         
         for (index, word) in allWords.enumerated() {
             // Skip if word already has meanings
@@ -196,6 +217,29 @@ final class DataMigrationService: ObservableObject {
                 word.addToMeanings(meaning)
                 migratedCount += 1
                 logInfo("Migrated definition for word: \(word.wordItself ?? "unknown") - def: '\(definition.isEmpty ? "[empty]" : String(definition.prefix(50)))...')")
+            } else {
+                // Word already has meanings, check for duplicates
+                let existingDefinitions = Set(word.meaningsArray.compactMap { $0.definition })
+                let legacyDefinition = word.definition ?? ""
+                
+                // Only add legacy definition if it doesn't already exist as a meaning
+                if !legacyDefinition.isEmpty && !existingDefinitions.contains(legacyDefinition) {
+                    let examples = word.examplesDecoded
+                    let meaning = try CDMeaning.create(
+                        in: context,
+                        definition: legacyDefinition,
+                        examples: examples,
+                        order: Int32(word.meaningsArray.count), // Add as last meaning
+                        for: word
+                    )
+                    
+                    word.addToMeanings(meaning)
+                    migratedCount += 1
+                    logInfo("Added legacy definition as new meaning for word: \(word.wordItself ?? "unknown")")
+                } else {
+                    skippedCount += 1
+                    logInfo("Skipped duplicate definition for word: \(word.wordItself ?? "unknown")")
+                }
             }
             
             // Update progress every 10 words
@@ -212,7 +256,7 @@ final class DataMigrationService: ObservableObject {
         }
         
         try context.save()
-        logInfo("✅ Phase 1 completed: Migrated \(migratedCount) word definitions out of \(totalWords) total words")
+        logInfo("✅ Phase 1 completed: Migrated \(migratedCount) word definitions, skipped \(skippedCount) duplicates out of \(totalWords) total words")
     }
     
     /// Phase 2: Migrate CDIdiom entities to CDWord entities
@@ -240,24 +284,40 @@ final class DataMigrationService: ObservableObject {
         }
         
         var migratedIdiomCount = 0
+        var skippedCount = 0
         
         for (index, idiom) in idioms.enumerated() {
+            let idiomText = idiom.idiomItself ?? ""
+            
             // Check if this idiom was already migrated by looking for existing CDWord with same text and idiom type
             let existingWordRequest = CDWord.fetchRequest()
             existingWordRequest.predicate = NSPredicate(format: "wordItself == %@ AND partOfSpeech == %@", 
-                                                       idiom.idiomItself ?? "", "idiom")
+                                                       idiomText, "idiom")
             existingWordRequest.fetchLimit = 1
             
             let existingWords = try context.fetch(existingWordRequest)
             if !existingWords.isEmpty {
-                logInfo("Skipping already migrated idiom: \(idiom.idiomItself ?? "unknown")")
+                logInfo("Skipping already migrated idiom: \(idiomText)")
+                skippedCount += 1
+                continue
+            }
+            
+            // Additional check: look for any word with the same text (case-insensitive)
+            let duplicateWordRequest = CDWord.fetchRequest()
+            duplicateWordRequest.predicate = NSPredicate(format: "wordItself ==[c] %@", idiomText)
+            duplicateWordRequest.fetchLimit = 1
+            
+            let duplicateWords = try context.fetch(duplicateWordRequest)
+            if !duplicateWords.isEmpty {
+                logInfo("Skipping idiom that already exists as word: \(idiomText)")
+                skippedCount += 1
                 continue
             }
             
             // Create new CDWord with partOfSpeech = "idiom"
             let newWord = CDWord(context: context)
             newWord.id = UUID()
-            newWord.wordItself = idiom.idiomItself
+            newWord.wordItself = idiomText
             newWord.partOfSpeech = "idiom"
             newWord.phonetic = nil // Idioms don't typically have phonetic info
             newWord.languageCode = idiom.languageCode
@@ -290,7 +350,7 @@ final class DataMigrationService: ObservableObject {
             }
             
             migratedIdiomCount += 1
-            logInfo("Migrated idiom: \(idiom.idiomItself ?? "unknown")")
+            logInfo("Migrated idiom: \(idiomText)")
             
             // Update progress every 5 idioms (they're usually fewer)
             if index % 5 == 0 || index == totalIdioms - 1 {
@@ -306,7 +366,7 @@ final class DataMigrationService: ObservableObject {
         }
         
         try context.save()
-        logInfo("✅ Phase 2 completed: Migrated \(migratedIdiomCount) new idioms out of \(totalIdioms) total idioms")
+        logInfo("✅ Phase 2 completed: Migrated \(migratedIdiomCount) new idioms, skipped \(skippedCount) duplicates out of \(totalIdioms) total idioms")
     }
     
     /// Phase 3: Validate migration success
@@ -402,23 +462,15 @@ final class DataMigrationService: ObservableObject {
     /// Attempts to rollback the migration
     private func rollbackMigration() async {
         logInfo("🔄 Attempting migration rollback")
-        
-        do {
-            let context = coreDataService.context
-            
-            // This is a simplified rollback - in practice, you might want to keep a backup
-            // For now, we'll just mark migration as failed and let user retry
-            await MainActor.run {
-                userDefaults.set(false, forKey: migrationCompletedKey)
-                let attempts = userDefaults.integer(forKey: migrationAttemptsKey)
-                userDefaults.set(attempts + 1, forKey: migrationAttemptsKey)
-            }
-            
-            logInfo("✅ Migration marked for retry")
-            
-        } catch {
-            logError("❌ Rollback failed: \(error)")
+        // This is a simplified rollback - in practice, you might want to keep a backup
+        // For now, we'll just mark migration as failed and let user retry
+        await MainActor.run {
+            userDefaults.set(false, forKey: migrationCompletedKey)
+            let attempts = userDefaults.integer(forKey: migrationAttemptsKey)
+            userDefaults.set(attempts + 1, forKey: migrationAttemptsKey)
         }
+
+        logInfo("✅ Migration marked for retry")
     }
     
     /// Resets migration state for testing or retry
@@ -472,6 +524,221 @@ final class DataMigrationService: ObservableObject {
         logInfo("✅ Cleaned up \(duplicatesToDelete.count) duplicate idiom words")
     }
     
+    /// Public method to manually run duplicate cleanup
+    func runDuplicateCleanup() async throws -> DuplicateCleanupResult {
+        guard !isInProgress else {
+            throw MigrationError.migrationAlreadyInProgress
+        }
+        
+        await MainActor.run {
+            isInProgress = true
+            error = nil
+            progress = MigrationProgress(phase: .cleanup, currentItem: 0, totalItems: 1, message: "Checking for duplicates...")
+        }
+        
+        do {
+            let result = try detectAndCleanupDuplicates()
+            
+            await MainActor.run {
+                progress = MigrationProgress(phase: .completed, currentItem: 1, totalItems: 1, message: "Duplicate cleanup completed!")
+                isInProgress = false
+            }
+            
+            logInfo("✅ Manual duplicate cleanup completed: \(result.totalChanges) changes made")
+            return result
+            
+        } catch {
+            await MainActor.run {
+                self.error = error
+                self.progress = MigrationProgress(phase: .failed, currentItem: 0, totalItems: 1, message: error.localizedDescription)
+                self.isInProgress = false
+            }
+            
+            logError("❌ Duplicate cleanup failed: \(error)")
+            throw error
+        }
+    }
+    
+    /// Comprehensive duplicate detection and cleanup for all word types
+    func detectAndCleanupDuplicates() throws -> DuplicateCleanupResult {
+        let context = coreDataService.context
+        var result = DuplicateCleanupResult()
+        
+        logInfo("🔍 Starting comprehensive duplicate detection")
+        
+        // 1. Find duplicate words by text (case-insensitive)
+        let allWordsRequest = CDWord.fetchRequest()
+        allWordsRequest.sortDescriptors = [
+            NSSortDescriptor(key: "wordItself", ascending: true),
+            NSSortDescriptor(key: "timestamp", ascending: true)
+        ]
+        
+        let allWords = try context.fetch(allWordsRequest)
+        var wordGroups: [String: [CDWord]] = [:]
+        
+        // Group words by their lowercase text
+        for word in allWords {
+            let wordText = word.wordItself ?? ""
+            let key = wordText.lowercased()
+            if wordGroups[key] == nil {
+                wordGroups[key] = []
+            }
+            wordGroups[key]?.append(word)
+        }
+        
+        // Find groups with more than one word
+        for (key, words) in wordGroups {
+            if words.count > 1 {
+                logInfo("Found \(words.count) duplicate words for text: '\(key)'")
+                
+                // Keep the oldest word (first by timestamp) and mark others for deletion
+                let sortedWords = words.sorted { 
+                    ($0.timestamp ?? Date.distantPast) < ($1.timestamp ?? Date.distantPast)
+                }
+                
+                let wordToKeep = sortedWords.first!
+                let duplicatesToDelete = Array(sortedWords.dropFirst())
+                
+                // Merge meanings from duplicates into the word to keep
+                for duplicate in duplicatesToDelete {
+                    for meaning in duplicate.meaningsArray {
+                        // Check if this meaning already exists in the word to keep
+                        let existingMeaning = wordToKeep.meaningsArray.first { existing in
+                            existing.definition == meaning.definition
+                        }
+                        
+                        if existingMeaning == nil {
+                            // Move meaning to the word to keep
+                            duplicate.removeFromMeanings(meaning)
+                            wordToKeep.addToMeanings(meaning)
+                            meaning.word = wordToKeep
+                            result.mergedMeanings += 1
+                        }
+                    }
+                    
+                    // Merge tags
+                    for tag in duplicate.tagsArray {
+                        if !wordToKeep.tagsArray.contains(where: { $0.id == tag.id }) {
+                            duplicate.removeFromTags(tag)
+                            wordToKeep.addToTags(tag)
+                            result.mergedTags += 1
+                        }
+                    }
+                    
+                    // Keep the favorite status if any duplicate is favorite
+                    if duplicate.isFavorite {
+                        wordToKeep.isFavorite = true
+                    }
+                    
+                    // Keep the highest difficulty score
+                    if duplicate.difficultyScore > wordToKeep.difficultyScore {
+                        wordToKeep.difficultyScore = duplicate.difficultyScore
+                    }
+                    
+                    context.delete(duplicate)
+                    result.deletedWords += 1
+                }
+            }
+        }
+        
+        // 2. Find duplicate meanings within the same word
+        let wordsWithMultipleMeanings = allWords.filter { $0.meaningsArray.count > 1 }
+        
+        for word in wordsWithMultipleMeanings {
+            var seenDefinitions: Set<String> = []
+            var meaningsToDelete: [CDMeaning] = []
+            
+            for meaning in word.meaningsArray {
+                let definition = meaning.definition ?? ""
+                if seenDefinitions.contains(definition) {
+                    meaningsToDelete.append(meaning)
+                    logInfo("Found duplicate meaning for word '\(word.wordItself ?? "")': '\(String(definition.prefix(50)))...'")
+                } else {
+                    seenDefinitions.insert(definition)
+                }
+            }
+            
+            for meaning in meaningsToDelete {
+                word.removeFromMeanings(meaning)
+                context.delete(meaning)
+                result.deletedMeanings += 1
+            }
+        }
+        
+        // 3. Find duplicate tags
+        let allTagsRequest = CDTag.fetchRequest()
+        allTagsRequest.sortDescriptors = [
+            NSSortDescriptor(key: "name", ascending: true),
+            NSSortDescriptor(key: "timestamp", ascending: true)
+        ]
+        
+        let allTags = try context.fetch(allTagsRequest)
+        var tagGroups: [String: [CDTag]] = [:]
+        
+        for tag in allTags {
+            let tagName = tag.name ?? ""
+            let key = tagName.lowercased()
+            if tagGroups[key] == nil {
+                tagGroups[key] = []
+            }
+            tagGroups[key]?.append(tag)
+        }
+        
+        for (key, tags) in tagGroups {
+            if tags.count > 1 {
+                logInfo("Found \(tags.count) duplicate tags for name: '\(key)'")
+                
+                let sortedTags = tags.sorted { 
+                    ($0.timestamp ?? Date.distantPast) < ($1.timestamp ?? Date.distantPast)
+                }
+                
+                let tagToKeep = sortedTags.first!
+                let duplicatesToDelete = Array(sortedTags.dropFirst())
+                
+                // Merge word relationships
+                for duplicate in duplicatesToDelete {
+                    for word in duplicate.wordsArray {
+                        duplicate.removeFromWords(word)
+                        tagToKeep.addToWords(word)
+                    }
+                    
+                    // Merge idiom relationships (if any still exist)
+                    for idiom in duplicate.idiomsArray {
+                        duplicate.removeFromIdioms(idiom)
+                        tagToKeep.addToIdioms(idiom)
+                    }
+                    
+                    context.delete(duplicate)
+                    result.deletedTags += 1
+                }
+            }
+        }
+        
+        try context.save()
+        
+        logInfo("✅ Duplicate cleanup completed:")
+        logInfo("  - Deleted \(result.deletedWords) duplicate words")
+        logInfo("  - Deleted \(result.deletedMeanings) duplicate meanings")
+        logInfo("  - Deleted \(result.deletedTags) duplicate tags")
+        logInfo("  - Merged \(result.mergedMeanings) meanings")
+        logInfo("  - Merged \(result.mergedTags) tag relationships")
+        
+        return result
+    }
+    
+    /// Result of duplicate cleanup operation
+    struct DuplicateCleanupResult {
+        var deletedWords: Int = 0
+        var deletedMeanings: Int = 0
+        var deletedTags: Int = 0
+        var mergedMeanings: Int = 0
+        var mergedTags: Int = 0
+        
+        var totalChanges: Int {
+            return deletedWords + deletedMeanings + deletedTags + mergedMeanings + mergedTags
+        }
+    }
+    
     /// Returns migration statistics
     var migrationStats: [String: Any] {
         return [
@@ -480,5 +747,119 @@ final class DataMigrationService: ObservableObject {
             "lastDate": userDefaults.object(forKey: lastMigrationDateKey) as? Date ?? Date.distantPast,
             "attempts": userDefaults.integer(forKey: migrationAttemptsKey)
         ]
+    }
+    
+    /// Check for duplicates without cleaning them up (for diagnostics)
+    func checkForDuplicates() throws -> DuplicateAnalysisResult {
+        let context = coreDataService.context
+        var result = DuplicateAnalysisResult()
+        
+        logInfo("🔍 Starting duplicate analysis (read-only)")
+        
+        // 1. Check for duplicate words by text (case-insensitive)
+        let allWordsRequest = CDWord.fetchRequest()
+        allWordsRequest.sortDescriptors = [
+            NSSortDescriptor(key: "wordItself", ascending: true),
+            NSSortDescriptor(key: "timestamp", ascending: true)
+        ]
+        
+        let allWords = try context.fetch(allWordsRequest)
+        var wordGroups: [String: [CDWord]] = [:]
+        
+        // Group words by their lowercase text
+        for word in allWords {
+            let wordText = word.wordItself ?? ""
+            let key = wordText.lowercased()
+            if wordGroups[key] == nil {
+                wordGroups[key] = []
+            }
+            wordGroups[key]?.append(word)
+        }
+        
+        // Count groups with more than one word
+        for (key, words) in wordGroups {
+            if words.count > 1 {
+                result.duplicateWords[key] = words
+                logInfo("Found \(words.count) duplicate words for text: '\(key)'")
+            }
+        }
+        
+        // 2. Check for duplicate meanings within the same word
+        let wordsWithMultipleMeanings = allWords.filter { $0.meaningsArray.count > 1 }
+        
+        for word in wordsWithMultipleMeanings {
+            var seenDefinitions: Set<String> = []
+            var duplicateMeanings: [CDMeaning] = []
+            
+            for meaning in word.meaningsArray {
+                let definition = meaning.definition ?? ""
+                if seenDefinitions.contains(definition) {
+                    duplicateMeanings.append(meaning)
+                } else {
+                    seenDefinitions.insert(definition)
+                }
+            }
+            
+            if !duplicateMeanings.isEmpty {
+                result.duplicateMeanings[word.wordItself ?? ""] = duplicateMeanings
+                logInfo("Found \(duplicateMeanings.count) duplicate meanings for word: '\(word.wordItself ?? "")'")
+            }
+        }
+        
+        // 3. Check for duplicate tags
+        let allTagsRequest = CDTag.fetchRequest()
+        allTagsRequest.sortDescriptors = [
+            NSSortDescriptor(key: "name", ascending: true),
+            NSSortDescriptor(key: "timestamp", ascending: true)
+        ]
+        
+        let allTags = try context.fetch(allTagsRequest)
+        var tagGroups: [String: [CDTag]] = [:]
+        
+        for tag in allTags {
+            let tagName = tag.name ?? ""
+            let key = tagName.lowercased()
+            if tagGroups[key] == nil {
+                tagGroups[key] = []
+            }
+            tagGroups[key]?.append(tag)
+        }
+        
+        for (key, tags) in tagGroups {
+            if tags.count > 1 {
+                result.duplicateTags[key] = tags
+                logInfo("Found \(tags.count) duplicate tags for name: '\(key)'")
+            }
+        }
+        
+        logInfo("✅ Duplicate analysis completed:")
+        logInfo("  - Found \(result.duplicateWords.count) groups of duplicate words")
+        logInfo("  - Found \(result.duplicateMeanings.count) words with duplicate meanings")
+        logInfo("  - Found \(result.duplicateTags.count) groups of duplicate tags")
+        
+        return result
+    }
+    
+    /// Result of duplicate analysis (read-only)
+    struct DuplicateAnalysisResult {
+        var duplicateWords: [String: [CDWord]] = [:]
+        var duplicateMeanings: [String: [CDMeaning]] = [:]
+        var duplicateTags: [String: [CDTag]] = [:]
+        
+        var totalDuplicateWords: Int {
+            return duplicateWords.values.reduce(0) { $0 + $1.count }
+        }
+        
+        var totalDuplicateMeanings: Int {
+            return duplicateMeanings.values.reduce(0) { $0 + $1.count }
+        }
+        
+        var totalDuplicateTags: Int {
+            return duplicateTags.values.reduce(0) { $0 + $1.count }
+        }
+        
+        var hasDuplicates: Bool {
+            return !duplicateWords.isEmpty || !duplicateMeanings.isEmpty || !duplicateTags.isEmpty
+        }
     }
 }

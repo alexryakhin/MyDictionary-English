@@ -57,3 +57,15 @@
 "import_export_note" = "请注意，导入和导出仅适用于此应用创建的文件。";
 "buy_me_a_coffee" = "请我喝杯咖啡";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "数据维护";
+"data_maintenance_description" = "清理重复的单词和含义以提高应用性能";
+"check_for_duplicates" = "检查重复";
+"clean_up_duplicates" = "清理重复";
+"duplicates_found" = "发现重复";
+"duplicates_found_message" = "发现 %d 个重复单词、%d 个重复含义和 %d 个重复标签。使用'清理重复'来删除它们。";
+"no_duplicates" = "无重复";
+"no_duplicates_message" = "在你的词典中未发现重复的单词、含义或标签。";
+"cleanup_completed" = "清理完成";
+"cleanup_completed_message" = "成功清理了 %d 个重复项：\n• %d 个重复单词\n• %d 个重复含义\n• %d 个重复标签\n• %d 个含义已合并\n• %d 个标签关系已合并";
+

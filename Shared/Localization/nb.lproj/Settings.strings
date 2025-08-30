@@ -57,3 +57,15 @@
 "import_export_note" = "Merk: Importering og eksportering fungerer bare med filer opprettet av denne appen.";
 "buy_me_a_coffee" = "Kjøp meg en kaffe";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Data vedlikehold";
+"data_maintenance_description" = "Rydd opp i duplikate ord og betydninger for å forbedre app-ytelse";
+"check_for_duplicates" = "Sjekk duplikater";
+"clean_up_duplicates" = "Rydd opp i duplikater";
+"duplicates_found" = "Duplikater funnet";
+"duplicates_found_message" = "Fant %d duplikate ord, %d duplikate betydninger og %d duplikate etiketter. Bruk 'Rydd opp i duplikater' for å fjerne dem.";
+"no_duplicates" = "Ingen duplikater";
+"no_duplicates_message" = "Ingen duplikate ord, betydninger eller etiketter ble funnet i ordboken din.";
+"cleanup_completed" = "Opprydding fullført";
+"cleanup_completed_message" = "Ryddet opp i %d duplikater:\n• %d duplikate ord\n• %d duplikate betydninger\n• %d duplikate etiketter\n• %d sammenflettede betydninger\n• %d sammenflettede etikettrelasjoner";
+

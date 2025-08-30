@@ -57,3 +57,15 @@
 "import_export_note" = "請注意，導入和導出僅適用於此應用創建的文件。";
 "buy_me_a_coffee" = "請我喝杯咖啡";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "數據維護";
+"data_maintenance_description" = "清理重複的單詞和含義以提高應用性能";
+"check_for_duplicates" = "檢查重複";
+"clean_up_duplicates" = "清理重複";
+"duplicates_found" = "發現重複";
+"duplicates_found_message" = "發現 %d 個重複單詞、%d 個重複含義和 %d 個重複標籤。使用'清理重複'來刪除它們。";
+"no_duplicates" = "無重複";
+"no_duplicates_message" = "在你的詞典中未發現重複的單詞、含義或標籤。";
+"cleanup_completed" = "清理完成";
+"cleanup_completed_message" = "成功清理了 %d 個重複項：\n• %d 個重複單詞\n• %d 個重複含義\n• %d 個重複標籤\n• %d 個含義已合併\n• %d 個標籤關係已合併";
+

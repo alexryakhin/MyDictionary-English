@@ -1081,6 +1081,21 @@ public enum Loc {
     public static let appVersion = Loc.tr("Settings", "app_version", fallback: "App version:")
     /// Buy Me a Coffee
     public static let buyMeACoffee = Loc.tr("Settings", "buy_me_a_coffee", fallback: "Buy Me a Coffee")
+    /// Check for Duplicates
+    public static let checkForDuplicates = Loc.tr("Settings", "check_for_duplicates", fallback: "Check for Duplicates")
+    /// Clean Up Duplicates
+    public static let cleanUpDuplicates = Loc.tr("Settings", "clean_up_duplicates", fallback: "Clean Up Duplicates")
+    /// Cleanup Completed
+    public static let cleanupCompleted = Loc.tr("Settings", "cleanup_completed", fallback: "Cleanup Completed")
+    /// Successfully cleaned up %d duplicates:
+    /// • %d duplicate words
+    /// • %d duplicate meanings
+    /// • %d duplicate tags
+    /// • %d meanings merged
+    /// • %d tag relationships merged
+    public static func cleanupCompletedMessage(_ p1: Int, _ p2: Int, _ p3: Int, _ p4: Int, _ p5: Int, _ p6: Int) -> String {
+      return Loc.tr("Settings", "cleanup_completed_message", p1, p2, p3, p4, p5, p6, fallback: "Successfully cleaned up %d duplicates:\n• %d duplicate words\n• %d duplicate meanings\n• %d duplicate tags\n• %d meanings merged\n• %d tag relationships merged")
+    }
     /// Contact Me
     public static let contactMe = Loc.tr("Settings", "contact_me", fallback: "Contact Me")
     /// Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Twitter!
@@ -1091,6 +1106,10 @@ public enum Loc {
     public static let dailyReminders = Loc.tr("Settings", "daily_reminders", fallback: "Daily Reminders")
     /// Get reminded at 8 PM if you haven't opened the app
     public static let dailyRemindersDescription = Loc.tr("Settings", "daily_reminders_description", fallback: "Get reminded at 8 PM if you haven't opened the app")
+    /// Data Maintenance
+    public static let dataMaintenance = Loc.tr("Settings", "data_maintenance", fallback: "Data Maintenance")
+    /// Clean up duplicate words and meanings to improve app performance
+    public static let dataMaintenanceDescription = Loc.tr("Settings", "data_maintenance_description", fallback: "Clean up duplicate words and meanings to improve app performance")
     /// Difficult Words
     public static let difficultWords = Loc.tr("Settings", "difficult_words", fallback: "Difficult Words")
     /// Get reminded at 4 PM to practice difficult words
@@ -1101,6 +1120,12 @@ public enum Loc {
     public static let downloadBackupGoogle = Loc.tr("Settings", "download_backup_google", fallback: "Download backup from Google")
     /// Download Successful
     public static let downloadSuccessful = Loc.tr("Settings", "download_successful", fallback: "Download Successful")
+    /// Duplicates Found
+    public static let duplicatesFound = Loc.tr("Settings", "duplicates_found", fallback: "Duplicates Found")
+    /// Found %d duplicate words, %d duplicate meanings, and %d duplicate tags. Use 'Clean Up Duplicates' to remove them.
+    public static func duplicatesFoundMessage(_ p1: Int, _ p2: Int, _ p3: Int) -> String {
+      return Loc.tr("Settings", "duplicates_found_message", p1, p2, p3, fallback: "Found %d duplicate words, %d duplicate meanings, and %d duplicate tags. Use 'Clean Up Duplicates' to remove them.")
+    }
     /// Export Successful
     public static let exportSuccessful = Loc.tr("Settings", "export_successful", fallback: "Export Successful")
     /// Export words
@@ -1139,6 +1164,10 @@ public enum Loc {
     public static let manageTags = Loc.tr("Settings", "manage_tags", fallback: "Manage Tags")
     /// Manual sync mode: Use buttons below to upload/download your word lists to Google. Available to all users.
     public static let manualSyncModeDescription = Loc.tr("Settings", "manual_sync_mode_description", fallback: "Manual sync mode: Use buttons below to upload/download your word lists to Google. Available to all users.")
+    /// No Duplicates
+    public static let noDuplicates = Loc.tr("Settings", "no_duplicates", fallback: "No Duplicates")
+    /// No duplicate words, meanings, or tags were found in your dictionary.
+    public static let noDuplicatesMessage = Loc.tr("Settings", "no_duplicates_message", fallback: "No duplicate words, meanings, or tags were found in your dictionary.")
     /// No words imported
     public static let noWordsImported = Loc.tr("Settings", "no_words_imported", fallback: "No words imported")
     /// We couldn't find any new words to import

@@ -57,3 +57,15 @@
 "import_export_note" = "Bitte beachten Sie, dass Importieren und Exportieren nur mit Dateien funktioniert, die von dieser App erstellt wurden.";
 "buy_me_a_coffee" = "Kaufen Sie mir einen Kaffee";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Datenwartung";
+"data_maintenance_description" = "Bereinigen Sie doppelte Wörter und Bedeutungen, um die App-Leistung zu verbessern";
+"check_for_duplicates" = "Duplikate prüfen";
+"clean_up_duplicates" = "Duplikate bereinigen";
+"duplicates_found" = "Duplikate gefunden";
+"duplicates_found_message" = "%d doppelte Wörter, %d doppelte Bedeutungen und %d doppelte Tags gefunden. Verwenden Sie 'Duplikate bereinigen', um sie zu entfernen.";
+"no_duplicates" = "Keine Duplikate";
+"no_duplicates_message" = "Es wurden keine doppelten Wörter, Bedeutungen oder Tags in Ihrem Wörterbuch gefunden.";
+"cleanup_completed" = "Bereinigung abgeschlossen";
+"cleanup_completed_message" = "Erfolgreich %d Duplikate bereinigt:\n• %d doppelte Wörter\n• %d doppelte Bedeutungen\n• %d doppelte Tags\n• %d Bedeutungen zusammengeführt\n• %d Tag-Beziehungen zusammengeführt";
+

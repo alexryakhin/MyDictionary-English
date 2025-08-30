@@ -57,3 +57,15 @@
 "import_export_note" = "يرجى ملاحظة أن الاستيراد والتصدير يعملان فقط مع الملفات التي أنشأها هذا التطبيق.";
 "buy_me_a_coffee" = "اشترِ لي قهوة";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "صيانة البيانات";
+"data_maintenance_description" = "تنظيف الكلمات والمعاني المكررة لتحسين أداء التطبيق";
+"check_for_duplicates" = "فحص المكررات";
+"clean_up_duplicates" = "تنظيف المكررات";
+"duplicates_found" = "تم العثور على مكررات";
+"duplicates_found_message" = "تم العثور على %d كلمة مكررة و %d معنى مكرر و %d علامة مكررة. استخدم 'تنظيف المكررات' لإزالتها.";
+"no_duplicates" = "لا توجد مكررات";
+"no_duplicates_message" = "لم يتم العثور على كلمات أو معاني أو علامات مكررة في قاموسك.";
+"cleanup_completed" = "اكتمل التنظيف";
+"cleanup_completed_message" = "تم تنظيف %d مكرر بنجاح:\n• %d كلمة مكررة\n• %d معنى مكرر\n• %d علامة مكررة\n• %d معنى مدمج\n• %d علاقة علامة مدمجة";
+

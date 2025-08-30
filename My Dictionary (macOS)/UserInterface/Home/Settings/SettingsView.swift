@@ -16,7 +16,7 @@ struct SettingsView: View {
     @Environment(\.openWindow) var openWindow
     @Environment(\.requestReview) var requestReview
 
-    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
+    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = true
 
     @StateObject private var viewModel = SettingsViewModel()
     @StateObject private var authenticationService = AuthenticationService.shared
@@ -257,6 +257,30 @@ struct SettingsView: View {
                                 .foregroundStyle(.secondary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.top, 4)
+                        }
+                    }
+                    .padding(.bottom, 12)
+                }
+
+                // MARK: - Data Maintenance
+
+                CustomSectionView(
+                    header: Loc.Settings.dataMaintenance,
+                    footer: Loc.Settings.dataMaintenanceDescription
+                ) {
+                    VStack(spacing: 8) {
+                        AsyncActionButton(
+                            Loc.Settings.checkForDuplicates,
+                            systemImage: "magnifyingglass"
+                        ) {
+                            await viewModel.checkForDuplicates()
+                        }
+                        
+                        AsyncActionButton(
+                            Loc.Settings.cleanUpDuplicates,
+                            systemImage: "trash"
+                        ) {
+                            await viewModel.cleanupDuplicates()
                         }
                     }
                     .padding(.bottom, 12)

@@ -57,3 +57,15 @@
 "import_export_note" = "Lưu ý: Nhập và xuất chỉ hoạt động với các tệp do ứng dụng này tạo ra.";
 "buy_me_a_coffee" = "Mua cà phê cho tôi";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Bảo trì dữ liệu";
+"data_maintenance_description" = "Dọn dẹp các từ và nghĩa trùng lặp để cải thiện hiệu suất ứng dụng";
+"check_for_duplicates" = "Kiểm tra trùng lặp";
+"clean_up_duplicates" = "Dọn dẹp trùng lặp";
+"duplicates_found" = "Tìm thấy trùng lặp";
+"duplicates_found_message" = "Tìm thấy %d từ trùng lặp, %d nghĩa trùng lặp và %d thẻ trùng lặp. Sử dụng 'Dọn dẹp trùng lặp' để xóa chúng.";
+"no_duplicates" = "Không có trùng lặp";
+"no_duplicates_message" = "Không tìm thấy từ, nghĩa hoặc thẻ trùng lặp trong từ điển của bạn.";
+"cleanup_completed" = "Dọn dẹp hoàn tất";
+"cleanup_completed_message" = "Đã dọn dẹp thành công %d trùng lặp:\n• %d từ trùng lặp\n• %d nghĩa trùng lặp\n• %d thẻ trùng lặp\n• %d nghĩa đã hợp nhất\n• %d mối quan hệ thẻ đã hợp nhất";
+

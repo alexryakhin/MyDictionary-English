@@ -57,3 +57,15 @@
 "import_export_note" = "שימו לב שייבוא וייצוא עובדים רק עם קבצים שנוצרו על ידי אפליקציה זו.";
 "buy_me_a_coffee" = "קנה לי קפה";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "תחזוקת נתונים";
+"data_maintenance_description" = "נקה מילים ומשמעויות כפולות כדי לשפר את ביצועי האפליקציה";
+"check_for_duplicates" = "בדוק כפילויות";
+"clean_up_duplicates" = "נקה כפילויות";
+"duplicates_found" = "נמצאו כפילויות";
+"duplicates_found_message" = "נמצאו %d מילים כפולות, %d משמעויות כפולות ו-%d תגיות כפולות. השתמש ב'נקה כפילויות' כדי להסיר אותן.";
+"no_duplicates" = "אין כפילויות";
+"no_duplicates_message" = "לא נמצאו מילים, משמעויות או תגיות כפולות במילון שלך.";
+"cleanup_completed" = "הניקוי הושלם";
+"cleanup_completed_message" = "נוקו בהצלחה %d כפילויות:\n• %d מילים כפולות\n• %d משמעויות כפולות\n• %d תגיות כפולות\n• %d משמעויות שמוזגו\n• %d קשרי תגיות שמוזגו";
+

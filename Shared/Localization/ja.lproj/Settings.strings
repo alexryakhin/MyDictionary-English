@@ -57,3 +57,15 @@
 "import_export_note" = "注意：インポートとエクスポートは、このアプリで作成されたファイルでのみ機能します。";
 "buy_me_a_coffee" = "コーヒーをおごる";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "データメンテナンス";
+"data_maintenance_description" = "重複する単語と意味をクリーンアップしてアプリのパフォーマンスを向上";
+"check_for_duplicates" = "重複をチェック";
+"clean_up_duplicates" = "重複をクリーンアップ";
+"duplicates_found" = "重複が見つかりました";
+"duplicates_found_message" = "%d個の重複する単語、%d個の重複する意味、%d個の重複するタグが見つかりました。'重複をクリーンアップ'を使用して削除してください。";
+"no_duplicates" = "重複なし";
+"no_duplicates_message" = "辞書に重複する単語、意味、またはタグは見つかりませんでした。";
+"cleanup_completed" = "クリーンアップ完了";
+"cleanup_completed_message" = "%d個の重複を正常にクリーンアップしました：\n• %d個の重複する単語\n• %d個の重複する意味\n• %d個の重複するタグ\n• %d個の意味がマージされました\n• %d個のタグ関係がマージされました";
+

@@ -161,4 +161,39 @@ final class SettingsViewModel: BaseViewModel {
         }
         try await DataSyncService.shared.downloadBackupFromGoogle(userEmail: userEmail)
     }
+    
+    // MARK: - Data Maintenance Methods
+    
+    func checkForDuplicates() async {
+        do {
+            let result = try DataMigrationService.shared.checkForDuplicates()
+            
+            if result.hasDuplicates {
+                showAlert(withModel: .info(
+                    title: Loc.Settings.duplicatesFound,
+                    message: Loc.Settings.duplicatesFoundMessage(result.totalDuplicateWords, result.totalDuplicateMeanings, result.totalDuplicateTags)
+                ))
+            } else {
+                showAlert(withModel: .info(
+                    title: Loc.Settings.noDuplicates,
+                    message: Loc.Settings.noDuplicatesMessage
+                ))
+            }
+        } catch {
+            errorReceived(error)
+        }
+    }
+    
+    func cleanupDuplicates() async {
+        do {
+            let result = try await DataMigrationService.shared.runDuplicateCleanup()
+            
+            showAlert(withModel: .info(
+                title: Loc.Settings.cleanupCompleted,
+                message: Loc.Settings.cleanupCompletedMessage(result.totalChanges, result.deletedWords, result.deletedMeanings, result.deletedTags, result.mergedMeanings, result.mergedTags)
+            ))
+        } catch {
+            errorReceived(error)
+        }
+    }
 }

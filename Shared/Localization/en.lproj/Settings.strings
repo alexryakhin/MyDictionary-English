@@ -62,3 +62,15 @@
 "import_successful_message" = "%@ have been imported successfully";
 "no_words_imported" = "No words imported";
 "no_words_imported_message" = "We couldn't find any new words to import";
+
+// MARK: - Data Maintenance
+"data_maintenance" = "Data Maintenance";
+"data_maintenance_description" = "Clean up duplicate words and meanings to improve app performance";
+"check_for_duplicates" = "Check for Duplicates";
+"clean_up_duplicates" = "Clean Up Duplicates";
+"duplicates_found" = "Duplicates Found";
+"duplicates_found_message" = "Found %d duplicate words, %d duplicate meanings, and %d duplicate tags. Use 'Clean Up Duplicates' to remove them.";
+"no_duplicates" = "No Duplicates";
+"no_duplicates_message" = "No duplicate words, meanings, or tags were found in your dictionary.";
+"cleanup_completed" = "Cleanup Completed";
+"cleanup_completed_message" = "Successfully cleaned up %d duplicates:\n• %d duplicate words\n• %d duplicate meanings\n• %d duplicate tags\n• %d meanings merged\n• %d tag relationships merged";

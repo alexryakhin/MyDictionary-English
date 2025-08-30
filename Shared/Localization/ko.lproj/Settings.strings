@@ -57,3 +57,15 @@
 "import_export_note" = "참고: 가져오기 및 내보내기는 이 앱에서 생성된 파일에서만 작동합니다.";
 "buy_me_a_coffee" = "커피 한 잔 사주세요";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "데이터 유지보수";
+"data_maintenance_description" = "앱 성능 향상을 위해 중복된 단어와 의미를 정리하세요";
+"check_for_duplicates" = "중복 확인";
+"clean_up_duplicates" = "중복 정리";
+"duplicates_found" = "중복 발견";
+"duplicates_found_message" = "%d개의 중복된 단어, %d개의 중복된 의미, %d개의 중복된 태그를 발견했습니다. '중복 정리'를 사용하여 제거하세요.";
+"no_duplicates" = "중복 없음";
+"no_duplicates_message" = "사전에서 중복된 단어, 의미 또는 태그를 찾을 수 없습니다.";
+"cleanup_completed" = "정리 완료";
+"cleanup_completed_message" = "%d개의 중복을 성공적으로 정리했습니다:\n• %d개의 중복된 단어\n• %d개의 중복된 의미\n• %d개의 중복된 태그\n• %d개의 병합된 의미\n• %d개의 병합된 태그 관계";
+

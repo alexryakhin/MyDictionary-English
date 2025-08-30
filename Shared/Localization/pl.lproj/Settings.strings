@@ -57,3 +57,15 @@
 "import_export_note" = "Uwaga: import i eksport działają tylko z plikami utworzonymi przez tę aplikację.";
 "buy_me_a_coffee" = "Kup mi kawę";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Konserwacja danych";
+"data_maintenance_description" = "Wyczyść duplikaty słów i znaczeń, aby poprawić wydajność aplikacji";
+"check_for_duplicates" = "Sprawdź duplikaty";
+"clean_up_duplicates" = "Wyczyść duplikaty";
+"duplicates_found" = "Znaleziono duplikaty";
+"duplicates_found_message" = "Znaleziono %d duplikatów słów, %d duplikatów znaczeń i %d duplikatów etykiet. Użyj 'Wyczyść duplikaty', aby je usunąć.";
+"no_duplicates" = "Brak duplikatów";
+"no_duplicates_message" = "W słowniku nie znaleziono duplikatów słów, znaczeń ani etykiet.";
+"cleanup_completed" = "Czyszczenie zakończone";
+"cleanup_completed_message" = "Pomyślnie wyczyszczono %d duplikatów:\n• %d duplikatów słów\n• %d duplikatów znaczeń\n• %d duplikatów etykiet\n• %d połączonych znaczeń\n• %d połączonych relacji etykiet";
+

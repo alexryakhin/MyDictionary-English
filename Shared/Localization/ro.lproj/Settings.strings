@@ -57,3 +57,15 @@
 "import_export_note" = "Notă: Importul și exportul funcționează doar cu fișiere create de această aplicație.";
 "buy_me_a_coffee" = "Cumpără-mi o Cafea";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Întreținerea Datelor";
+"data_maintenance_description" = "Curăță cuvinte și semnificații duplicate pentru a îmbunătăți performanța aplicației";
+"check_for_duplicates" = "Verifică Duplicatele";
+"clean_up_duplicates" = "Curăță Duplicatele";
+"duplicates_found" = "Duplicate Găsite";
+"duplicates_found_message" = "Găsite %d cuvinte duplicate, %d semnificații duplicate și %d etichete duplicate. Folosește 'Curăță Duplicatele' pentru a le elimina.";
+"no_duplicates" = "Fără Duplicate";
+"no_duplicates_message" = "Nu s-au găsit cuvinte, semnificații sau etichete duplicate în dicționarul tău.";
+"cleanup_completed" = "Curățarea Finalizată";
+"cleanup_completed_message" = "Curățarea cu succes a %d duplicate:\n• %d cuvinte duplicate\n• %d semnificații duplicate\n• %d etichete duplicate\n• %d semnificații îmbinate\n• %d relații de etichete îmbinate";
+

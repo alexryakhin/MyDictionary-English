@@ -57,3 +57,15 @@
 "import_export_note" = "Vezměte prosím na vědomí, že import a export fungují pouze se soubory vytvořenými touto aplikací.";
 "buy_me_a_coffee" = "Kupte mi kávu";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Údržba dat";
+"data_maintenance_description" = "Vyčistit duplicitní slova a významy pro zlepšení výkonu aplikace";
+"check_for_duplicates" = "Zkontrolovat duplikáty";
+"clean_up_duplicates" = "Vyčistit duplikáty";
+"duplicates_found" = "Nalezeny duplikáty";
+"duplicates_found_message" = "Nalezeno %d duplicitních slov, %d duplicitních významů a %d duplicitních štítků. Použijte 'Vyčistit duplikáty' k jejich odstranění.";
+"no_duplicates" = "Žádné duplikáty";
+"no_duplicates_message" = "Ve vašem slovníku nebyla nalezena žádná duplicitní slova, významy nebo štítky.";
+"cleanup_completed" = "Čištění dokončeno";
+"cleanup_completed_message" = "Úspěšně vyčištěno %d duplikátů:\n• %d duplicitních slov\n• %d duplicitních významů\n• %d duplicitních štítků\n• %d sloučených významů\n• %d sloučených vztahů štítků";
+

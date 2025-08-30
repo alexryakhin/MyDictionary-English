@@ -57,3 +57,15 @@
 "import_export_note" = "Nota: import dan eksport hanya berfungsi dengan fail yang dicipta oleh apl ini.";
 "buy_me_a_coffee" = "Beli Saya Kopi";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Penyelenggaraan Data";
+"data_maintenance_description" = "Bersihkan perkataan dan makna pendua untuk meningkatkan prestasi apl";
+"check_for_duplicates" = "Periksa Pendua";
+"clean_up_duplicates" = "Bersihkan Pendua";
+"duplicates_found" = "Pendua Dijumpai";
+"duplicates_found_message" = "Dijumpai %d perkataan pendua, %d makna pendua dan %d tag pendua. Gunakan 'Bersihkan Pendua' untuk membuangnya.";
+"no_duplicates" = "Tiada Pendua";
+"no_duplicates_message" = "Tiada perkataan, makna, atau tag pendua dijumpai dalam kamus anda.";
+"cleanup_completed" = "Pembersihan Selesai";
+"cleanup_completed_message" = "Berjaya membersihkan %d pendua:\n• %d perkataan pendua\n• %d makna pendua\n• %d tag pendua\n• %d makna digabungkan\n• %d hubungan tag digabungkan";
+

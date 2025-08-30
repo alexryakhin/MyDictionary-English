@@ -57,3 +57,15 @@
 "import_export_note" = "Figyelmeztetés: az importálás és exportálás csak az alkalmazás által létrehozott fájlokkal működik.";
 "buy_me_a_coffee" = "Vegyél nekem egy kávét";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Adatok karbantartása";
+"data_maintenance_description" = "Tisztítsd meg a duplikált szavakat és jelentéseket az alkalmazás teljesítményének javítása érdekében";
+"check_for_duplicates" = "Duplikátumok ellenőrzése";
+"clean_up_duplicates" = "Duplikátumok tisztítása";
+"duplicates_found" = "Duplikátumok találhatók";
+"duplicates_found_message" = "%d duplikált szó, %d duplikált jelentés és %d duplikált címke található. Használd a 'Duplikátumok tisztítása' funkciót az eltávolításukhoz.";
+"no_duplicates" = "Nincsenek duplikátumok";
+"no_duplicates_message" = "Nem találhatók duplikált szavak, jelentések vagy címkék a szótárában.";
+"cleanup_completed" = "Tisztítás befejezve";
+"cleanup_completed_message" = "Sikeresen tisztítva %d duplikátum:\n• %d duplikált szó\n• %d duplikált jelentés\n• %d duplikált címke\n• %d egyesített jelentés\n• %d egyesített címke kapcsolat";
+

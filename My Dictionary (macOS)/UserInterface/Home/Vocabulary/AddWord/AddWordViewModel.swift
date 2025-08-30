@@ -30,7 +30,7 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var isTranslating: Bool = false
     @Published private(set) var translatedDefinitions: [WordDefinition] = []
     @Published private(set) var isUsingAI: Bool = false
-    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
+    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = true
     @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .auto
     private var detectedLanguageCode: String?
     

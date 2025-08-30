@@ -57,3 +57,15 @@
 "import_export_note" = "Imajte na umu da uvoz i izvoz funkcioniraju samo s datotekama stvorenima ovom aplikacijom.";
 "buy_me_a_coffee" = "Časti me kavom";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Održavanje podataka";
+"data_maintenance_description" = "Očistite duplikate riječi i značenja za poboljšanje performansi aplikacije";
+"check_for_duplicates" = "Provjeri duplikate";
+"clean_up_duplicates" = "Očisti duplikate";
+"duplicates_found" = "Pronađeni duplikati";
+"duplicates_found_message" = "Pronađeno %d duplikata riječi, %d duplikata značenja i %d duplikata oznaka. Koristite 'Očisti duplikate' za njihovo uklanjanje.";
+"no_duplicates" = "Nema duplikata";
+"no_duplicates_message" = "U vašem rječniku nisu pronađeni duplikati riječi, značenja ili oznaka.";
+"cleanup_completed" = "Čišćenje završeno";
+"cleanup_completed_message" = "Uspješno očišćeno %d duplikata:\n• %d duplikata riječi\n• %d duplikata značenja\n• %d duplikata oznaka\n• %d spojenih značenja\n• %d spojenih odnosa oznaka";
+

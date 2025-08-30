@@ -57,3 +57,15 @@
 "import_export_note" = "Perhatikan bahwa impor dan ekspor hanya berfungsi dengan file yang dibuat oleh aplikasi ini.";
 "buy_me_a_coffee" = "Beli Saya Kopi";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Pemeliharaan Data";
+"data_maintenance_description" = "Bersihkan kata dan makna duplikat untuk meningkatkan kinerja aplikasi";
+"check_for_duplicates" = "Periksa Duplikat";
+"clean_up_duplicates" = "Bersihkan Duplikat";
+"duplicates_found" = "Duplikat Ditemukan";
+"duplicates_found_message" = "Ditemukan %d kata duplikat, %d makna duplikat dan %d tag duplikat. Gunakan 'Bersihkan Duplikat' untuk menghapusnya.";
+"no_duplicates" = "Tidak Ada Duplikat";
+"no_duplicates_message" = "Tidak ditemukan kata, makna, atau tag duplikat di kamus Anda.";
+"cleanup_completed" = "Pembersihan Selesai";
+"cleanup_completed_message" = "Berhasil membersihkan %d duplikat:\n• %d kata duplikat\n• %d makna duplikat\n• %d tag duplikat\n• %d makna digabungkan\n• %d hubungan tag digabungkan";
+

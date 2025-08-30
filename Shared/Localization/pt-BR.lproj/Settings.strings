@@ -57,3 +57,15 @@
 "import_export_note" = "Nota: Importação e exportação funcionam apenas com arquivos criados por este aplicativo.";
 "buy_me_a_coffee" = "Me Pague um Café";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Manutenção de Dados";
+"data_maintenance_description" = "Limpe palavras e significados duplicados para melhorar o desempenho do aplicativo";
+"check_for_duplicates" = "Verificar Duplicatas";
+"clean_up_duplicates" = "Limpar Duplicatas";
+"duplicates_found" = "Duplicatas Encontradas";
+"duplicates_found_message" = "Encontradas %d palavras duplicadas, %d significados duplicados e %d etiquetas duplicadas. Use 'Limpar Duplicatas' para removê-las.";
+"no_duplicates" = "Sem Duplicatas";
+"no_duplicates_message" = "Nenhuma palavra, significado ou etiqueta duplicada foi encontrada em seu dicionário.";
+"cleanup_completed" = "Limpeza Concluída";
+"cleanup_completed_message" = "Limpeza bem-sucedida de %d duplicatas:\n• %d palavras duplicadas\n• %d significados duplicados\n• %d etiquetas duplicadas\n• %d significados mesclados\n• %d relacionamentos de etiquetas mesclados";
+

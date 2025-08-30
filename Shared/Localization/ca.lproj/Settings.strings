@@ -57,3 +57,15 @@
 "import_export_note" = "Tingues en compte que la importació i exportació només funcionen amb fitxers creats per aquesta aplicació.";
 "buy_me_a_coffee" = "Compra'm un cafè";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Manteniment de dades";
+"data_maintenance_description" = "Neteja paraules i significats duplicats per millorar el rendiment de l'aplicació";
+"check_for_duplicates" = "Comprova duplicats";
+"clean_up_duplicates" = "Neteja duplicats";
+"duplicates_found" = "Duplicats trobats";
+"duplicates_found_message" = "S'han trobat %d paraules duplicades, %d significats duplicats i %d etiquetes duplicades. Utilitza 'Neteja duplicats' per eliminar-les.";
+"no_duplicates" = "Sense duplicats";
+"no_duplicates_message" = "No s'han trobat paraules, significats o etiquetes duplicades al teu diccionari.";
+"cleanup_completed" = "Neteja completada";
+"cleanup_completed_message" = "S'han netejat amb èxit %d duplicats:\n• %d paraules duplicades\n• %d significats duplicats\n• %d etiquetes duplicades\n• %d significats fusionats\n• %d relacions d'etiquetes fusionades";
+

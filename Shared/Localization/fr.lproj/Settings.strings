@@ -57,3 +57,15 @@
 "import_export_note" = "Notez que l'importation et l'exportation ne fonctionnent qu'avec les fichiers créés par cette application.";
 "buy_me_a_coffee" = "Offrez-moi un café";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Maintenance des données";
+"data_maintenance_description" = "Nettoyez les mots et significations en double pour améliorer les performances de l'application";
+"check_for_duplicates" = "Vérifier les doublons";
+"clean_up_duplicates" = "Nettoyer les doublons";
+"duplicates_found" = "Doublons trouvés";
+"duplicates_found_message" = "Trouvé %d mots en double, %d significations en double et %d étiquettes en double. Utilisez 'Nettoyer les doublons' pour les supprimer.";
+"no_duplicates" = "Aucun doublon";
+"no_duplicates_message" = "Aucun mot, signification ou étiquette en double n'a été trouvé dans votre dictionnaire.";
+"cleanup_completed" = "Nettoyage terminé";
+"cleanup_completed_message" = "Nettoyage réussi de %d doublons :\n• %d mots en double\n• %d significations en double\n• %d étiquettes en double\n• %d significations fusionnées\n• %d relations d'étiquettes fusionnées";
+

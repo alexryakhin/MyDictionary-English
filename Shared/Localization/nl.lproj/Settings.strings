@@ -57,3 +57,15 @@
 "import_export_note" = "Houd er rekening mee dat importeren en exporteren alleen werken met bestanden die door deze app zijn gemaakt.";
 "buy_me_a_coffee" = "Koop een koffie voor mij";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Gegevensonderhoud";
+"data_maintenance_description" = "Ruim dubbele woorden en betekenissen op om de app-prestaties te verbeteren";
+"check_for_duplicates" = "Controleer duplicaten";
+"clean_up_duplicates" = "Ruim duplicaten op";
+"duplicates_found" = "Duplicaten gevonden";
+"duplicates_found_message" = "Gevonden %d dubbele woorden, %d dubbele betekenissen en %d dubbele tags. Gebruik 'Ruim duplicaten op' om ze te verwijderen.";
+"no_duplicates" = "Geen duplicaten";
+"no_duplicates_message" = "Er zijn geen dubbele woorden, betekenissen of tags gevonden in je woordenboek.";
+"cleanup_completed" = "Opruiming voltooid";
+"cleanup_completed_message" = "Succesvol %d duplicaten opgeruimd:\n• %d dubbele woorden\n• %d dubbele betekenissen\n• %d dubbele tags\n• %d samengevoegde betekenissen\n• %d samengevoegde tag-relaties";
+

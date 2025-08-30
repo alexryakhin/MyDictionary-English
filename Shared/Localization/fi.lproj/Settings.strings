@@ -57,3 +57,15 @@
 "import_export_note" = "Huomaa, että tuonti ja vienti toimivat vain tämän sovelluksen luomien tiedostojen kanssa.";
 "buy_me_a_coffee" = "Osta minulle kahvi";
 
+// MARK: - Data Maintenance
+"data_maintenance" = "Tietojen ylläpito";
+"data_maintenance_description" = "Puhdista päällekkäiset sanat ja merkitykset parantaaksesi sovelluksen suorituskykyä";
+"check_for_duplicates" = "Tarkista päällekkäisyydet";
+"clean_up_duplicates" = "Puhdista päällekkäisyydet";
+"duplicates_found" = "Päällekkäisyydet löydetty";
+"duplicates_found_message" = "Löydettiin %d päällekkäistä sanaa, %d päällekkäistä merkitystä ja %d päällekkäistä tunnistetta. Käytä 'Puhdista päällekkäisyydet' poistaaksesi ne.";
+"no_duplicates" = "Ei päällekkäisyyksiä";
+"no_duplicates_message" = "Sanakirjastasi ei löytynyt päällekkäisiä sanoja, merkityksiä tai tunnisteita.";
+"cleanup_completed" = "Puhdistus valmis";
+"cleanup_completed_message" = "Puhdistettiin onnistuneesti %d päällekkäisyyttä:\n• %d päällekkäistä sanaa\n• %d päällekkäistä merkitystä\n• %d päällekkäistä tunnistetta\n• %d yhdistettyä merkitystä\n• %d yhdistettyä tunnisterelatiota";
+

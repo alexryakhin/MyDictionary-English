@@ -14,7 +14,7 @@ struct SettingsView: View {
 
     @Environment(\.requestReview) var requestReview
     @ObservedObject var viewModel: SettingsViewModel
-    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = false
+    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = true
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var paywallService = PaywallService.shared
@@ -247,6 +247,30 @@ struct SettingsView: View {
                                 .foregroundStyle(.secondary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.top, 4)
+                        }
+                    }
+                    .padding(.bottom, 12)
+                }
+
+                // MARK: - Data Maintenance
+
+                CustomSectionView(
+                    header: Loc.Settings.dataMaintenance,
+                    footer: Loc.Settings.dataMaintenanceDescription
+                ) {
+                    VStack(spacing: 8) {
+                        AsyncActionButton(
+                            Loc.Settings.checkForDuplicates,
+                            systemImage: "magnifyingglass"
+                        ) {
+                            await viewModel.checkForDuplicates()
+                        }
+                        
+                        AsyncActionButton(
+                            Loc.Settings.cleanUpDuplicates,
+                            systemImage: "trash"
+                        ) {
+                            await viewModel.cleanupDuplicates()
                         }
                     }
                     .padding(.bottom, 12)
