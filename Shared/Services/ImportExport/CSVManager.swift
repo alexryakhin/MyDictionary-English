@@ -20,6 +20,8 @@ final class CSVManager {
     private init() {}
 
     /// Export Core Data words to a CSV file
+    /// DEPRECATED: This method is no longer used. Use JSONImportExportService for JSON export instead.
+    /*
     func exportWordsToCSV(wordModels: [CDWord]) -> URL? {
         let subscriptionService = SubscriptionService.shared
         
@@ -71,6 +73,7 @@ final class CSVManager {
             return nil
         }
     }
+    */
 
     /// Import a CSV file and save words to Core Data
     func importWordsFromCSV(url: URL, currentWordIds: [String]) throws {

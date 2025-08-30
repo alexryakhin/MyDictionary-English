@@ -15,6 +15,7 @@ struct AddWordView: View {
     init(input: String, selectedDictionaryId: String? = nil, isWord: Bool) {
         self._viewModel = .init(wrappedValue: .init(input: input, isWord: isWord))
         self._selectedDictionaryId = State(initialValue: selectedDictionaryId)
+        self.isWord = isWord
     }
 
     var body: some View {
@@ -55,7 +56,7 @@ struct AddWordView: View {
             .editModeDisabling()
         } navigationBar: {
             NavigationBarView(
-                title: Loc.Words.addNewWord,
+                title: isWord ? Loc.Words.addWord : Loc.Words.addIdiom,
                 trailingContent: {
                     HeaderButton(Loc.Actions.save, style: .borderedProminent) {
                         viewModel.handle(.saveToSharedDictionary(selectedDictionaryId))
@@ -97,8 +98,13 @@ struct AddWordView: View {
     }
 
     var wordCellView: some View {
-        CellWrapper(Loc.Words.word) {
-            CustomTextField(Loc.Words.typeWord, text: $viewModel.inputWord, submitLabel: .search, axis: .horizontal) {
+        CellWrapper(isWord ? Loc.Words.word : Loc.Words.idiom) {
+            CustomTextField(
+                isWord ? Loc.Words.typeWord : Loc.Words.idiom,
+                text: $viewModel.inputWord,
+                submitLabel: .search,
+                axis: .horizontal
+            ) {
                 if viewModel.inputWord.isNotEmpty, (isWord || viewModel.canUseAI) {
                     viewModel.handle(.fetchData)
                 }
@@ -146,7 +152,7 @@ struct AddWordView: View {
     var partOfSpeechCellView: some View {
         CellWrapper(Loc.Words.partOfSpeech) {
             Menu {
-                ForEach(PartOfSpeech.allCases, id: \.self) { partOfSpeech in
+                ForEach(isWord ? PartOfSpeech.wordCases : PartOfSpeech.expressionCases, id: \.self) { partOfSpeech in
                     Button {
                         viewModel.handle(.selectPartOfSpeech(partOfSpeech))
                     } label: {

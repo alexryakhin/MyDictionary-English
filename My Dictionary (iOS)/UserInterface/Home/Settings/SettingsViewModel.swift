@@ -1,5 +1,6 @@
 import Combine
 import SwiftUI
+import Foundation
 
 final class SettingsViewModel: BaseViewModel {
 
@@ -68,7 +69,16 @@ final class SettingsViewModel: BaseViewModel {
         }
 
         Task { @MainActor in
-            exportWordsUrl = csvManager.exportWordsToCSV(wordModels: words)
+            // Use JSON v2.0 format for export
+            do {
+                let jsonData = try JSONImportExportService.shared.exportVocabulary()
+                let fileName = "MyDictionaryExport.json"
+                let filePath = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
+                try jsonData.write(to: filePath)
+                exportWordsUrl = filePath
+            } catch {
+                errorReceived(error)
+            }
         }
     }
 
@@ -77,13 +87,38 @@ final class SettingsViewModel: BaseViewModel {
             errorReceived(CoreError.internalError(.cannotAccessSecurityScopedResource))
             return
         }
-        do {
-            try csvManager.importWordsFromCSV(
-                url: url,
-                currentWordIds: words.compactMap { $0.id?.uuidString }
-            )
-        } catch {
-            errorReceived(error)
+        
+        Task {
+            do {
+                let fileData = try Data(contentsOf: url)
+                let fileExtension = url.pathExtension.lowercased()
+                
+                if fileExtension == "json" {
+                    // Import JSON format (supports both v2.0 and legacy)
+                    let result = try JSONImportExportService.shared.importVocabulary(from: fileData, overwriteExisting: false)
+                    
+                    await MainActor.run {
+                        AlertCenter.shared.showAlert(
+                            with: .info(
+                                title: Loc.Settings.importSuccessful,
+                                message: "Imported \(result.importedCount) words from JSON format. Skipped \(result.skippedCount) duplicates."
+                            )
+                        )
+                    }
+                } else if fileExtension == "csv" {
+                    // Import CSV format (legacy)
+                    try csvManager.importWordsFromCSV(
+                        url: url,
+                        currentWordIds: words.compactMap { $0.id?.uuidString }
+                    )
+                } else {
+                    throw ImportError.invalidFormat
+                }
+            } catch {
+                await MainActor.run {
+                    errorReceived(error)
+                }
+            }
         }
     }
 

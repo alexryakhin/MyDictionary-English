@@ -298,7 +298,7 @@ struct SettingsView: View {
         .navigation(title: Loc.Navigation.Tabbar.settings, mode: .large)
         .fileImporter(
             isPresented: $viewModel.isImporting,
-            allowedContentTypes: [UTType.commaSeparatedText],
+            allowedContentTypes: [UTType.commaSeparatedText, UTType.json],
             allowsMultipleSelection: false
         ) { result in
             switch result {

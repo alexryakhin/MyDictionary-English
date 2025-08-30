@@ -54,7 +54,7 @@ final class AIService: AIServiceInterface {
         self.apiService = OpenAIAPIService()
         print("🔧 [AIService] Using OpenAIAPIService for DEBUG mode")
 #else
-        self.apiService = FirebaseOpenAIProxy.shared
+        self.apiService = FirebaseOpenAIProxy()
         print("🔧 [AIService] Using FirebaseOpenAIProxy for RELEASE mode")
 #endif
     }

@@ -1,5 +1,6 @@
 import Combine
 import SwiftUI
+import Foundation
 
 final class SettingsViewModel: BaseViewModel {
 
@@ -56,7 +57,16 @@ final class SettingsViewModel: BaseViewModel {
         }
 
         Task { @MainActor in
-            exportWordsUrl = csvManager.exportWordsToCSV(wordModels: words)
+            // Use JSON v2.0 format for export
+            do {
+                let jsonData = try JSONImportExportService.shared.exportVocabulary()
+                let fileName = "MyDictionaryExport.json"
+                let filePath = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
+                try jsonData.write(to: filePath)
+                exportWordsUrl = filePath
+            } catch {
+                errorReceived(error)
+            }
         }
     }
 #elseif os(macOS)
@@ -70,26 +80,29 @@ final class SettingsViewModel: BaseViewModel {
         }
 
         let panel = NSSavePanel()
-        panel.allowedContentTypes = [.commaSeparatedText]
-        panel.nameFieldStringValue = "Words.csv"
+        panel.allowedContentTypes = [.json]
+        panel.nameFieldStringValue = "MyDictionaryExport.json"
         panel.canCreateDirectories = true
         panel.isExtensionHidden = false
         panel.title = Loc.Settings.exportWordsTitle
 
         Task { @MainActor in
             let response = await panel.begin()
-            let tempURL = csvManager.exportWordsToCSV(wordModels: words)
-            guard response == .OK, let url = panel.url, let tempURL else { return }
+            guard response == .OK, let url = panel.url else { return }
+            
             do {
+                // Use JSON v2.0 format for export
+                let jsonData = try JSONImportExportService.shared.exportVocabulary()
+                
                 guard url.startAccessingSecurityScopedResource() else {
                     throw CoreError.internalError(.cannotAccessSecurityScopedResource)
                 }
                 defer { url.stopAccessingSecurityScopedResource() }
 
-                try FileManager.default.copyItem(at: tempURL, to: url)
+                try jsonData.write(to: url)
                 showAlert(withModel: .info(
                     title: Loc.Settings.exportSuccessful,
-                    message: "Words exported successfully."
+                    message: "Words exported successfully in JSON format."
                 ))
             } catch {
                 errorReceived(error)
@@ -103,13 +116,36 @@ final class SettingsViewModel: BaseViewModel {
             errorReceived(CoreError.internalError(.cannotAccessSecurityScopedResource))
             return
         }
-        do {
-            try csvManager.importWordsFromCSV(
-                url: url,
-                currentWordIds: words.compactMap { $0.id?.uuidString }
-            )
-        } catch {
-            errorReceived(error)
+        
+        Task {
+            do {
+                let fileData = try Data(contentsOf: url)
+                let fileExtension = url.pathExtension.lowercased()
+                
+                if fileExtension == "json" {
+                    // Import JSON format (supports both v2.0 and legacy)
+                    let result = try JSONImportExportService.shared.importVocabulary(from: fileData, overwriteExisting: false)
+                    
+                    await MainActor.run {
+                        showAlert(withModel: .info(
+                            title: Loc.Settings.importSuccessful,
+                            message: "Imported \(result.importedCount) words from JSON format. Skipped \(result.skippedCount) duplicates."
+                        ))
+                    }
+                } else if fileExtension == "csv" {
+                    // Import CSV format (legacy)
+                    try csvManager.importWordsFromCSV(
+                        url: url,
+                        currentWordIds: words.compactMap { $0.id?.uuidString }
+                    )
+                } else {
+                    throw ImportError.invalidFormat
+                }
+            } catch {
+                await MainActor.run {
+                    errorReceived(error)
+                }
+            }
         }
     }
 

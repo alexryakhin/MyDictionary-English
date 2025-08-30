@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Accesso alla tecnologia di sintesi vocale premium di Speechify. Centinaia di voci premium dal suono naturale";
+"pro_features.ai_definitions" = "Definizioni IA";
+"pro_features.ai_definitions_description" = "Ottieni definizioni intelligenti e consapevoli del contesto alimentate da tecnologia IA avanzata";
 

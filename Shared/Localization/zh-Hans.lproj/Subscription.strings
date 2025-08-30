@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "访问Speechify的优质文本转语音技术。数百种自然声音的优质语音";
+"pro_features.ai_definitions" = "AI 定义";
+"pro_features.ai_definitions_description" = "获得由先进 AI 技术驱动的智能、上下文感知的定义";
 

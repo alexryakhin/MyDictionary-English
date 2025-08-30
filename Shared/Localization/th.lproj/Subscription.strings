@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "เข้าถึงเทคโนโลยีแปลงข้อความเป็นคำพูดระดับพรีเมียมของ Speechify เสียงพรีเมียมที่ฟังดูเป็นธรรมชาตินับร้อย";
+"pro_features.ai_definitions" = "คำจำกัดความ AI";
+"pro_features.ai_definitions_description" = "รับคำจำกัดความที่ฉลาดและตระหนักถึงบริบทซึ่งขับเคลื่อนด้วยเทคโนโลยี AI ขั้นสูง";
 

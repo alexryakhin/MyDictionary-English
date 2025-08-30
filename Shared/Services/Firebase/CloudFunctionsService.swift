@@ -199,6 +199,7 @@ final class CloudFunctionsService {
     func openAIProxy(
         word: String,
         maxDefinitions: Int,
+        inputLanguage: String,
         userLanguage: String
     ) async throws -> FirebaseOpenAIResponse {
         return try await makeRequest(
@@ -207,6 +208,7 @@ final class CloudFunctionsService {
             body: [
                 "word": word,
                 "maxDefinitions": maxDefinitions,
+                "inputLanguage": inputLanguage,
                 "userLanguage": userLanguage
             ],
             responseType: FirebaseOpenAIResponse.self

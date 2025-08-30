@@ -303,7 +303,7 @@ struct SettingsView: View {
         .navigationTitle(Loc.Navigation.Tabbar.settings)
         .fileImporter(
             isPresented: $viewModel.isImporting,
-            allowedContentTypes: [UTType.commaSeparatedText],
+            allowedContentTypes: [UTType.commaSeparatedText, UTType.json],
             allowsMultipleSelection: false
         ) { result in
             switch result {

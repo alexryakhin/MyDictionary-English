@@ -195,7 +195,7 @@ exports.openAIProxy = onRequest({
     }
     
     try {
-        const { word, maxDefinitions, userLanguage, userId } = req.body;
+        const { word, maxDefinitions, inputLanguage, userLanguage, userId } = req.body;
         
         // Validate required fields
         if (!word || !userId) {
@@ -239,11 +239,11 @@ exports.openAIProxy = onRequest({
                 },
                 {
                     role: "user",
-                    content: buildWordInformationPrompt(word, maxDefinitions || 5, userLanguage || 'English')
+                    content: buildWordInformationPrompt(word, maxDefinitions || 5, inputLanguage || 'English', userLanguage || 'English')
                 }
             ],
             temperature: 0.3,
-            max_tokens: 500
+            max_tokens: 2000
         };
         
         // Make request to OpenAI
@@ -420,8 +420,8 @@ exports.synthesizeSpeech = onRequest({
 });
 
 // Helper function to build the prompt
-function buildWordInformationPrompt(word, maxDefinitions, userLanguage) {
-    return `Provide information for the word '${word}' in ${userLanguage} in the following JSON format:
+function buildWordInformationPrompt(word, maxDefinitions, inputLanguage, userLanguage) {
+    return `IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. User's language is ${userLanguage}, and he/she learns ${inputLanguage}. Provide comprehensive information for the word/phrase '${word}' in ${userLanguage} and examples in ${inputLanguage} in the following JSON format:
 
 {
   "pronunciation": "[phonetic pronunciation]",
@@ -429,24 +429,33 @@ function buildWordInformationPrompt(word, maxDefinitions, userLanguage) {
     {
       "partOfSpeech": "[Part of Speech in English]",
       "definition": "[1-3 sentence definition in ${userLanguage}]",
-      "examples": [
-        "[1-2 sentence example in the language of the input word]",
-        "[1-2 sentence example in the language of the input word]"
-      ]
+              "examples": [
+          "[1-2 sentence example in ${inputLanguage}]",
+          "[1-2 sentence example in ${inputLanguage}]"
+        ]
     }
   ]
 }
 
 IMPORTANT RULES:
 1. Return ONLY valid JSON - no additional text before or after
-2. Definition must be in the ${userLanguage}. Examples should be in the language of the input word.
-3. Pronunciation should be of the original input word using International Phonetic Alphabet
-4. If the input word is in a different language, provide definition in the ${userLanguage}, but do not translate the word.
-5. Keep definitions concise (1-3 sentences) and examples practical (1-2 sentences each)
-6. Include the most common meanings first
-7. Provide up to ${maxDefinitions} definitions
-8. Each definition should have 2-3 examples
-9. Use proper JSON escaping for quotes and special characters`;
+2. Definition must be in the ${userLanguage}. Examples must be in ${inputLanguage}.
+3. Part of speech should be chosen from: 'noun', 'verb', 'adjective', 'adverb', 'conjunction', 'pronoun', 'preposition', 'exclamation', 'interjection', 'idiom', 'phrase', 'unknown'.
+4. Pronunciation should be of the original input word using International Phonetic Alphabet
+5. Focus on COMMON, EVERYDAY meanings and uses first, not just religious or specialized meanings
+6. Include different meanings and contexts - avoid repetitive definitions that mean the same thing
+7. For phrases and expressions, include both literal and figurative meanings
+8. Include idiomatic uses, slang, and colloquial expressions when applicable
+9. Keep definitions concise (1-3 sentences) and examples practical (1-2 sentences each)
+10. Provide up to ${maxDefinitions} distinct definitions
+11. Each definition should have 2-3 examples
+12. Use proper JSON escaping for quotes and special characters
+13. If the word/phrase has multiple distinct meanings, prioritize the most commonly used ones in everyday language
+14. For religious names/phrases, also include their use as exclamations, expressions of surprise, or in casual speech
+15. Include both formal and informal usage contexts
+16. As this is for educational purposes, include ALL meanings including slang, profanity, and informal expressions when they exist
+17. Provide accurate linguistic information regardless of content sensitivity - this helps language learners understand real-world usage
+18. CRITICAL: Definitions should NOT mention the input word itself - they should explain the concept without using the word being defined (this is essential for quiz functionality)`;
 }
 
 // Helper function to check user usage limits

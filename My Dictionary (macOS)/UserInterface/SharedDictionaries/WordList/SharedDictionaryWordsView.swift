@@ -99,8 +99,9 @@ struct SharedDictionaryWordsView: View {
         }
         .sheet(isPresented: $showingAddWord) {
             AddWordView(
-                inputWord: viewModel.searchText,
-                selectedDictionaryId: dictionary.id
+                input: viewModel.searchText,
+                selectedDictionaryId: dictionary.id,
+                isWord: true
             )
         }
         .sheet(isPresented: $showingDictionaryDetails) {

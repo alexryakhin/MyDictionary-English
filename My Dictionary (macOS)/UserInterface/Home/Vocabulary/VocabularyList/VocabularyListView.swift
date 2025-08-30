@@ -79,15 +79,18 @@ struct VocabularyListView: View {
             AnalyticsService.shared.logEvent(.wordsListOpened)
             checkAndShowRatingBanner()
         }
-        .onChange(of: wordListViewModel.words.count) { _ in
+        .onChange(of: wordListViewModel.words.count) {
             checkAndShowRatingBanner()
         }
-        .onChange(of: searchText) { newValue in
-            wordListViewModel.searchText = newValue
-            idiomListViewModel.searchText = newValue
+        .onChange(of: searchText) {
+            wordListViewModel.searchText = searchText
+            idiomListViewModel.searchText = searchText
         }
         .sheet(isPresented: $showAddWord) {
-            AddWordView(inputWord: searchText, selectedDictionaryId: nil)
+            AddWordView(input: searchText, selectedDictionaryId: nil, isWord: true)
+        }
+        .sheet(isPresented: $showAddIdiom) {
+            AddWordView(input: searchText, selectedDictionaryId: nil, isWord: false)
         }
         .sheet(item: $wordToAddToSharedDictionary) { word in
             AddExistingWordToSharedView(word: word)

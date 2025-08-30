@@ -14,28 +14,13 @@ final class FirebaseOpenAIProxy: AIAPIServiceInterface {
         userId: String
     ) async throws -> AIWordResponse {
         print("🔍 [FirebaseOpenAIProxy] generateWordInformation called for word: '\(word)'")
-        print("🔍 [FirebaseOpenAIProxy] User ID: \(userId)")
-        print("🔍 [FirebaseOpenAIProxy] User language: \(userLanguage)")
-        print("🚀 [FirebaseOpenAIProxy] Making request to Firebase Functions...")
-
-        do {
-            let response = try await cloudFunctionsService.openAIProxy(
-                word: word,
-                maxDefinitions: maxDefinitions,
-                userLanguage: userLanguage
-            )
-
-            print("✅ [FirebaseOpenAIProxy] Successfully received response from Firebase Functions")
-            print("🔍 [FirebaseOpenAIProxy] Usage - Prompt tokens: \(response.usage?.promptTokens ?? 0)")
-            print("🔍 [FirebaseOpenAIProxy] Usage - Completion tokens: \(response.usage?.completionTokens ?? 0)")
-            print("🔍 [FirebaseOpenAIProxy] Usage - Total tokens: \(response.usage?.totalTokens ?? 0)")
-
-            // Parse the JSON response from OpenAI
-            return try parseWordInformationResponse(response.data)
-        } catch {
-            print("❌ [FirebaseOpenAIProxy] Error: \(error.localizedDescription)")
-            throw CoreError.networkError(.serverUnreachable)
-        }
+        let response = try await cloudFunctionsService.openAIProxy(
+            word: word,
+            maxDefinitions: maxDefinitions,
+            inputLanguage: inputLanguage.englishName,
+            userLanguage: userLanguage
+        )
+        return try parseWordInformationResponse(response.data)
     }
 
     // MARK: - Private Methods
@@ -45,37 +30,35 @@ final class FirebaseOpenAIProxy: AIAPIServiceInterface {
 
         // Clean the response - remove any extra text before or after JSON
         let cleanedResponse = cleanJSONResponse(response)
-        print("🔍 [FirebaseOpenAIProxy] Cleaned response: \(cleanedResponse)")
 
-        do {
-            let jsonData = cleanedResponse.data(using: .utf8)!
-            let openAIResponse = try JSONDecoder().decode(OpenAIWordResponse.self, from: jsonData)
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAIWordResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
 
-            print("✅ [FirebaseOpenAIProxy] Successfully parsed JSON with \(openAIResponse.definitions.count) definitions")
-            print("🔍 [FirebaseOpenAIProxy] Pronunciation: \(openAIResponse.pronunciation)")
+        let wordResponse = AIWordResponse(
+            definitions: openAIResponse.definitions,
+            pronunciation: openAIResponse.pronunciation
+        )
 
-            return AIWordResponse(
-                definitions: openAIResponse.definitions,
-                pronunciation: openAIResponse.pronunciation
-            )
-        } catch {
-            print("❌ [FirebaseOpenAIProxy] JSON parsing failed: \(error.localizedDescription)")
-            throw CoreError.networkError(.serverUnreachable)
-        }
+        return wordResponse
     }
 
     private func cleanJSONResponse(_ response: String) -> String {
-        // Remove any text before the first {
-        if let startIndex = response.firstIndex(of: "{") {
-            let jsonStart = String(response[startIndex...])
+        var cleaned = response.trimmingCharacters(in: .whitespacesAndNewlines)
 
-            // Find the last } to get complete JSON
-            if let endIndex = jsonStart.lastIndex(of: "}") {
-                let jsonEnd = String(jsonStart[...endIndex])
-                return jsonEnd
-            }
+        // Remove markdown code blocks if present
+        if cleaned.hasPrefix("```json") {
+            cleaned = String(cleaned.dropFirst(7))
+        }
+        if cleaned.hasPrefix("```") {
+            cleaned = String(cleaned.dropFirst(3))
+        }
+        if cleaned.hasSuffix("```") {
+            cleaned = String(cleaned.dropLast(3))
         }
 
-        return response
+        cleaned = cleaned.trimmingCharacters(in: .whitespacesAndNewlines)
+        return cleaned
     }
 }

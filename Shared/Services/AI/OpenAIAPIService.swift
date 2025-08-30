@@ -60,7 +60,7 @@ final class OpenAIAPIService: AIAPIServiceInterface {
             let response = try await makeOpenAIRequest(prompt: prompt)
             print("✅ [OpenAIAPIService] Received response from OpenAI")
 
-            let wordInfo = parseWordInformationResponse(response)
+            let wordInfo = try parseWordInformationResponse(response)
             print("✅ [OpenAIAPIService] Parsed response with \(wordInfo.definitions.count) definitions")
 
             return wordInfo
@@ -93,7 +93,7 @@ final class OpenAIAPIService: AIAPIServiceInterface {
             let response = try await makeOpenAIRequest(prompt: prompt)
             print("✅ [OpenAIAPIService] Received response for related words")
 
-            let relatedWords = parseRelatedWordsResponse(response)
+            let relatedWords = try parseRelatedWordsResponse(response)
             print("✅ [OpenAIAPIService] Parsed \(relatedWords.count) related words")
 
             return relatedWords
@@ -244,30 +244,51 @@ final class OpenAIAPIService: AIAPIServiceInterface {
         return prompt
     }
 
-    private func parseWordInformationResponse(_ response: String) -> AIWordResponse {
+    private func parseWordInformationResponse(_ response: String) throws -> AIWordResponse {
         print("🔍 [OpenAIAPIService] Parsing JSON response...")
+        print("🔍 [FirebaseOpenAIProxy] Response: \(response)")
 
         let cleanedResponse = cleanJSONResponse(response)
         print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
 
-        do {
-            let decoder = JSONDecoder()
-            let openAIResponse = try decoder.decode(OpenAIWordResponse.self, from: cleanedResponse.data(using: .utf8)!)
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAIWordResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
 
-            let wordResponse = AIWordResponse(
-                definitions: openAIResponse.definitions,
-                pronunciation: openAIResponse.pronunciation
+        let wordResponse = AIWordResponse(
+            definitions: openAIResponse.definitions,
+            pronunciation: openAIResponse.pronunciation
+        )
+
+        print("✅ [OpenAIAPIService] Successfully parsed JSON with \(wordResponse.definitions.count) definitions")
+        print("🔍 [OpenAIAPIService] Pronunciation: \(wordResponse.pronunciation)")
+
+        return wordResponse
+    }
+
+    private func parseRelatedWordsResponse(_ response: String) throws -> [AIRelatedWordWithDefinition] {
+        print("🔍 [OpenAIAPIService] Parsing related words response...")
+
+        let cleanedResponse = cleanJSONResponse(response)
+        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
+
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAIRelatedWordsResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
+
+        let relatedWords = openAIResponse.relatedWords.map { wordData in
+            AIRelatedWordWithDefinition(
+                word: wordData.word,
+                definition: wordData.definition,
+                example: wordData.example,
+                partOfSpeech: wordData.partOfSpeech
             )
-
-            print("✅ [OpenAIAPIService] Successfully parsed JSON with \(wordResponse.definitions.count) definitions")
-            print("🔍 [OpenAIAPIService] Pronunciation: \(wordResponse.pronunciation)")
-
-            return wordResponse
-        } catch {
-            print("❌ [OpenAIAPIService] JSON parsing failed: \(error.localizedDescription)")
-            print("🔄 [OpenAIAPIService] Falling back to text parsing...")
-            return parseWordInformationResponseFallback(response)
         }
+
+        print("✅ [OpenAIAPIService] Successfully parsed \(relatedWords.count) related words")
+        return relatedWords
     }
 
     private func cleanJSONResponse(_ response: String) -> String {
@@ -286,171 +307,6 @@ final class OpenAIAPIService: AIAPIServiceInterface {
 
         cleaned = cleaned.trimmingCharacters(in: .whitespacesAndNewlines)
         return cleaned
-    }
-
-    private func parseWordInformationResponseFallback(_ response: String) -> AIWordResponse {
-        print("🔍 [OpenAIAPIService] Using fallback text parsing...")
-
-        var definitions: [AIWordDefinition] = []
-        var pronunciation = ""
-
-        let lines = response.components(separatedBy: .newlines)
-        var currentDefinition: String?
-        var currentPartOfSpeech: String?
-        var currentExamples: [String] = []
-
-        for line in lines {
-            let trimmedLine = line.trimmingCharacters(in: .whitespacesAndNewlines)
-
-            if trimmedLine.isEmpty { continue }
-
-            // Check for pronunciation
-            if trimmedLine.contains("Pronunciation:") || trimmedLine.contains("произношение:") {
-                pronunciation = trimmedLine.replacingOccurrences(of: "Pronunciation:", with: "")
-                    .replacingOccurrences(of: "произношение:", with: "")
-                    .trimmingCharacters(in: .whitespacesAndNewlines)
-                    .replacingOccurrences(of: "[", with: "")
-                    .replacingOccurrences(of: "]", with: "")
-                continue
-            }
-
-            // Check for new definition (numbered)
-            if let range = trimmedLine.range(of: #"^\d+\."#, options: .regularExpression) {
-                // Save previous definition if exists
-                if let def = currentDefinition, let pos = currentPartOfSpeech {
-                    definitions.append(AIWordDefinition(
-                        partOfSpeech: pos,
-                        definition: def,
-                        examples: currentExamples
-                    ))
-                }
-
-                // Start new definition
-                let definitionText = String(trimmedLine[range.upperBound...]).trimmingCharacters(in: .whitespacesAndNewlines)
-                currentDefinition = definitionText
-                currentExamples = []
-
-                // Try to extract part of speech
-                if let dotRange = definitionText.range(of: ". ") {
-                    currentPartOfSpeech = String(definitionText[..<dotRange.lowerBound]).trimmingCharacters(in: .whitespacesAndNewlines)
-                    currentDefinition = String(definitionText[dotRange.upperBound...]).trimmingCharacters(in: .whitespacesAndNewlines)
-                } else {
-                    currentPartOfSpeech = "noun" // Default
-                }
-                continue
-            }
-
-            // Check for examples (usually start with dash or bullet)
-            if trimmedLine.hasPrefix("-") || trimmedLine.hasPrefix("•") || trimmedLine.hasPrefix("*") {
-                let example = trimmedLine.replacingOccurrences(of: "-", with: "")
-                    .replacingOccurrences(of: "•", with: "")
-                    .replacingOccurrences(of: "*", with: "")
-                    .trimmingCharacters(in: .whitespacesAndNewlines)
-                currentExamples.append(example)
-                continue
-            }
-
-            // If we have a current definition, append to it
-            if currentDefinition != nil {
-                currentDefinition = (currentDefinition ?? "") + " " + trimmedLine
-            }
-        }
-
-        // Add the last definition
-        if let def = currentDefinition, let pos = currentPartOfSpeech {
-            definitions.append(AIWordDefinition(
-                partOfSpeech: pos,
-                definition: def,
-                examples: currentExamples
-            ))
-        }
-
-        print("🔍 [OpenAIAPIService] Fallback parsing found \(definitions.count) definitions")
-
-        return AIWordResponse(
-            definitions: definitions,
-            pronunciation: pronunciation.isEmpty ? "[pronunciation]" : pronunciation
-        )
-    }
-
-    private func parseRelatedWordsResponse(_ response: String) -> [AIRelatedWordWithDefinition] {
-        print("🔍 [OpenAIAPIService] Parsing related words response...")
-
-        let cleanedResponse = cleanJSONResponse(response)
-        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
-
-        do {
-            let decoder = JSONDecoder()
-            let openAIResponse = try decoder.decode(OpenAIRelatedWordsResponse.self, from: cleanedResponse.data(using: .utf8)!)
-
-            let relatedWords = openAIResponse.relatedWords.map { wordData in
-                AIRelatedWordWithDefinition(
-                    word: wordData.word,
-                    definition: wordData.definition,
-                    example: wordData.example,
-                    partOfSpeech: wordData.partOfSpeech
-                )
-            }
-
-            print("✅ [OpenAIAPIService] Successfully parsed \(relatedWords.count) related words")
-            return relatedWords
-        } catch {
-            print("❌ [OpenAIAPIService] JSON parsing failed: \(error.localizedDescription)")
-            print("🔄 [OpenAIAPIService] Falling back to text parsing...")
-            return parseRelatedWordsResponseFallback(response)
-        }
-    }
-
-    private func parseRelatedWordsResponseFallback(_ response: String) -> [AIRelatedWordWithDefinition] {
-        print("🔍 [OpenAIAPIService] Using fallback text parsing for related words...")
-
-        var relatedWords: [AIRelatedWordWithDefinition] = []
-
-        // Simple fallback parsing - extract words and basic info
-        let lines = response.components(separatedBy: .newlines)
-        var currentWord = ""
-        var currentDefinition = ""
-        var currentExample = ""
-        var currentPartOfSpeech = "noun"
-
-        for line in lines {
-            let trimmedLine = line.trimmingCharacters(in: .whitespacesAndNewlines)
-
-            if trimmedLine.isEmpty { continue }
-
-            // Look for word patterns
-            if trimmedLine.contains("word:") || trimmedLine.contains("Word:") {
-                if !currentWord.isEmpty && !currentDefinition.isEmpty {
-                    relatedWords.append(AIRelatedWordWithDefinition(
-                        word: currentWord,
-                        definition: currentDefinition,
-                        example: currentExample,
-                        partOfSpeech: currentPartOfSpeech
-                    ))
-                }
-                currentWord = trimmedLine.replacingOccurrences(of: "word:", with: "").replacingOccurrences(of: "Word:", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
-                currentDefinition = ""
-                currentExample = ""
-                currentPartOfSpeech = "noun"
-            } else if trimmedLine.contains("definition:") || trimmedLine.contains("Definition:") {
-                currentDefinition = trimmedLine.replacingOccurrences(of: "definition:", with: "").replacingOccurrences(of: "Definition:", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
-            } else if trimmedLine.contains("example:") || trimmedLine.contains("Example:") {
-                currentExample = trimmedLine.replacingOccurrences(of: "example:", with: "").replacingOccurrences(of: "Example:", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
-            }
-        }
-
-        // Add the last word
-        if !currentWord.isEmpty && !currentDefinition.isEmpty {
-            relatedWords.append(AIRelatedWordWithDefinition(
-                word: currentWord,
-                definition: currentDefinition,
-                example: currentExample,
-                partOfSpeech: currentPartOfSpeech
-            ))
-        }
-
-        print("🔍 [OpenAIAPIService] Fallback parsing found \(relatedWords.count) related words")
-        return relatedWords
     }
 }
 

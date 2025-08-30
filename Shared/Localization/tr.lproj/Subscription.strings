@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Speechify'nin premium metin-konuşma teknolojisine erişim. Doğal seslere sahip yüzlerce premium ses";
+"pro_features.ai_definitions" = "AI tanımları";
+"pro_features.ai_definitions_description" = "Gelişmiş AI teknolojisi tarafından desteklenen akıllı, bağlam bilinçli tanımlar alın";
 

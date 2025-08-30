@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Speechifyのプレミアムテキスト読み上げ技術へのアクセス。自然に聞こえる数百のプレミアム音声";
+"pro_features.ai_definitions" = "AI定義";
+"pro_features.ai_definitions_description" = "高度なAI技術によって駆動される、インテリジェントでコンテキストを意識した定義を取得";
 

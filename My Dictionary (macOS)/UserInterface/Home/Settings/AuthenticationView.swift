@@ -33,7 +33,7 @@ struct AuthenticationView: View {
             VStack(spacing: 16) {
                 Image(systemName: feature.iconName)
                     .font(.system(size: 80))
-                    .foregroundStyle(feature.iconColor)
+                    .foregroundStyle(.accent)
 
                 Text(feature.displayTitle)
                     .font(.title2)

@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Πρόσβαση στην premium τεχνολογία μετατροπής κειμένου σε ομιλία της Speechify. Εκατοντάδες φυσικά ακουστικές premium φωνές";
+"pro_features.ai_definitions" = "Ορισμοί AI";
+"pro_features.ai_definitions_description" = "Λάβετε έξυπνους, συνειδητούς του περιεχομένου ορισμούς που τροφοδοτούνται από προηγμένη τεχνολογία AI";
 

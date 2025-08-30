@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Доступ до преміум-технології перетворення тексту в мову від Speechify. Сотні природно звучачих преміум-голосів";
+"pro_features.ai_definitions" = "AI визначення";
+"pro_features.ai_definitions_description" = "Отримуйте інтелектуальні, контекстно-обізнані визначення, керовані передовою технологією AI";
 

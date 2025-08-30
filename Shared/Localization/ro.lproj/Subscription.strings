@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Acces la tehnologia premium de conversie text în vorbire de la Speechify. Sute de voci premium cu sunet natural";
+"pro_features.ai_definitions" = "Definiții AI";
+"pro_features.ai_definitions_description" = "Obțineți definiții inteligente și conștiente de context alimentate de tehnologia AI avansată";
 
