@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Erhalten Sie unbegrenzte KI-gestützte Definitionen, erweiterte Analysen und weitere Premium-Funktionen.";
 "ai_usage.upgrade_button" = "Auf Pro upgraden";
 "ai_usage_limit_exceeded" = "Tägliches KI-Nutzungslimit erreicht. Upgrade auf Pro für unbegrenzte KI-gestützte Definitionen.";
+"ai_sign_in_required" = "Anmelden, um KI-Funktionen zu nutzen";
+"ai_sign_in_required_message" = "Um KI-gestützte Definitionen zu nutzen, melden Sie sich in Ihrem Konto an.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "KI berechnet...";

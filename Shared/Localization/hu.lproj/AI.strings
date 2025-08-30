@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Szerezzen korlátlan AI-alapú definíciókat, fejlett elemzéseket és további prémium funkciókat.";
 "ai_usage.upgrade_button" = "Frissítés Pro-ra";
 "ai_usage_limit_exceeded" = "Elérte a napi AI használati limitet. Frissítsen Pro-ra korlátlan AI-alapú definíciókért.";
+"ai_sign_in_required" = "Jelentkezzen be az AI funkciók használatához";
+"ai_sign_in_required_message" = "Az AI-alapú definíciók használatához jelentkezzen be fiókjába.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI számol...";

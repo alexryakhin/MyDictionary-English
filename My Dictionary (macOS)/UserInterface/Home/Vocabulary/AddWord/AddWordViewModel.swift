@@ -61,11 +61,13 @@ final class AddWordViewModel: BaseViewModel {
     private let languageDetector = LanguageDetector.shared
     private let aiService = AIService.shared
 
+    private let isWord: Bool
     private let localeLanguageCode: String
     private var cancellables = Set<AnyCancellable>()
 
-    init(inputWord: String = "") {
-        self.inputWord = inputWord
+    init(input: String = "", isWord: Bool) {
+        self.inputWord = input
+        self.isWord = isWord
         self.localeLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
 
         // Force translateDefinitions to false for English locales
@@ -118,8 +120,8 @@ final class AddWordViewModel: BaseViewModel {
                 let shouldRequestPronunciation: Bool
                 let detectedLanguageCode: String
 
-                // Check if AI service is available and user can make AI request
-                if aiService.canMakeAIRequest() {
+                // Check if user is authenticated and AI service is available
+                if AuthenticationService.shared.isSignedIn && aiService.canMakeAIRequest() {
                     // Use AI service for definitions
                     isUsingAI = true
                     AnalyticsService.shared.logEvent(.aiRequested)

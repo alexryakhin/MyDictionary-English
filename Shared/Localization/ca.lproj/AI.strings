@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Obtén definicions impulsades per IA il·limitades, anàlisis avançades i més funcions premium.";
 "ai_usage.upgrade_button" = "Actualitzar a Pro";
 "ai_usage_limit_exceeded" = "Límit diari d'ús d'IA assolit. Actualitza a Pro per a definicions impulsades per IA il·limitades.";
+"ai_sign_in_required" = "Inicia sessió per utilitzar funcions d'IA";
+"ai_sign_in_required_message" = "Per utilitzar definicions impulsades per IA, inicia sessió al teu compte.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "La IA està calculant...";

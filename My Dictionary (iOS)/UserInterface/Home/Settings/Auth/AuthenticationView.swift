@@ -16,10 +16,11 @@ struct AuthenticationView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dismiss) private var dismiss
     @State private var showingAccountLinking = false
-    let shownBeforePaywall: Bool
+    
+    private let feature: SignInFeature
 
-    init(shownBeforePaywall: Bool = false) {
-        self.shownBeforePaywall = shownBeforePaywall
+    init(feature: SignInFeature) {
+        self.feature = feature
     }
 
     var body: some View {
@@ -28,20 +29,16 @@ struct AuthenticationView: View {
 
             // Header
             VStack(spacing: 16) {
-                Image(systemName: "person.circle.fill")
+                Image(systemName: feature.iconName)
                     .font(.system(size: 80))
                     .foregroundStyle(.accent)
 
-                Text(
-                    shownBeforePaywall
-                    ? Loc.Auth.signInBeforeSubscribing
-                    : Loc.Auth.signInToSyncWordLists
-                )
-                .font(.title2)
-                .fontWeight(.semibold)
-                .multilineTextAlignment(.center)
+                Text(feature.displayTitle)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
 
-                Text(Loc.Auth.signInToAccessWordLists)
+                Text(feature.displayMessage)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -98,34 +95,10 @@ struct AuthenticationView: View {
                 .disabled(authService.authenticationState == .loading)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .shadow(radius: 2)
-
-
-
-                if shownBeforePaywall {
-                    Button(Loc.Actions.skipForNow) {
-                        dismiss()
-                    }
-                    .foregroundStyle(.secondary)
-                    .padding(.vertical, 12)
-                }
             }
             .padding(.horizontal, 32)
 
             Spacer()
-
-            if shownBeforePaywall {
-                // Footer
-                VStack(spacing: 8) {
-                    Text(Loc.Auth.canAlwaysSignInLater)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-
-                    if authService.authenticationState == .loading {
-                        LoaderView()
-                            .frame(width: 24, height: 24)
-                    }
-                }
-            }
         }
         .if(isPad) { view in
             view
@@ -143,7 +116,7 @@ struct AuthenticationView: View {
             }
         )
         .onChange(of: authService.authenticationState) { state in
-            if state == .signedIn && !shownBeforePaywall {
+            if state == .signedIn {
                 dismiss()
             }
         }

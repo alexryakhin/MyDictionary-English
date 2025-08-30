@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Sınırsız AI destekli tanımlar, gelişmiş analizler ve daha fazla premium özellik edinin.";
 "ai_usage.upgrade_button" = "Pro'ya Yükselt";
 "ai_usage_limit_exceeded" = "Günlük AI kullanım limiti aşıldı. Sınırsız AI destekli tanımlar için Pro'ya yükseltin.";
+"ai_sign_in_required" = "AI özelliklerini kullanmak için giriş yapın";
+"ai_sign_in_required_message" = "AI destekli tanımları kullanmak için hesabınıza giriş yapın.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI hesaplıyor...";

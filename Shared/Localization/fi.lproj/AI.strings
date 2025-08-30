@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Saa rajoittamattomia AI-pohjaisia määritelmiä, edistyneitä analyysejä ja muita premium-ominaisuuksia.";
 "ai_usage.upgrade_button" = "Päivitä Pro:hon";
 "ai_usage_limit_exceeded" = "Päivittäinen AI-käyttöraja saavutettu. Päivitä Pro:hon rajoittamattomille AI-pohjaisille määritelmille.";
+"ai_sign_in_required" = "Kirjaudu sisään käyttääksesi AI-toimintoja";
+"ai_sign_in_required_message" = "Käyttääksesi AI-pohjaisia määritelmiä, kirjaudu sisään tilillesi.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI laskee...";

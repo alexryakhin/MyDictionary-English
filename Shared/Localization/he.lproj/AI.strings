@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "קבל הגדרות מונעות AI בלתי מוגבלות, ניתוחים מתקדמים ועוד תכונות פרימיום.";
 "ai_usage.upgrade_button" = "שדרג ל-Pro";
 "ai_usage_limit_exceeded" = "הגעת למגבלת השימוש היומית ב-AI. שדרג ל-Pro עבור הגדרות מונעות AI בלתי מוגבלות.";
+"ai_sign_in_required" = "התחבר כדי להשתמש בתכונות AI";
+"ai_sign_in_required_message" = "כדי להשתמש בהגדרות מונעות AI, התחבר לחשבון שלך.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI מחשב...";

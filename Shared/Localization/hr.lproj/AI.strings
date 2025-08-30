@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Dobijte neograničene definicije pokretane AI-jem, napredne analize i više premium značajki.";
 "ai_usage.upgrade_button" = "Nadogradite na Pro";
 "ai_usage_limit_exceeded" = "Dostignut dnevni limit korištenja AI-ja. Nadogradite na Pro za neograničene definicije pokretane AI-jem.";
+"ai_sign_in_required" = "Prijavite se za korištenje AI funkcija";
+"ai_sign_in_required_message" = "Za korištenje definicija pokretanih AI-jem, prijavite se na svoj račun.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI računa...";

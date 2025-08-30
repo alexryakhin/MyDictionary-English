@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "รับคำจำกัดความที่ขับเคลื่อนด้วย AI ไม่จำกัด การวิเคราะห์ขั้นสูง และคุณสมบัติพรีเมียมเพิ่มเติม";
 "ai_usage.upgrade_button" = "อัปเกรดเป็น Pro";
 "ai_usage_limit_exceeded" = "ถึงขีดจำกัดการใช้งาน AI รายวันแล้ว อัปเกรดเป็น Pro สำหรับคำจำกัดความที่ขับเคลื่อนด้วย AI ไม่จำกัด";
+"ai_sign_in_required" = "เข้าสู่ระบบเพื่อใช้ฟีเจอร์ AI";
+"ai_sign_in_required_message" = "เพื่อใช้คำจำกัดความที่ขับเคลื่อนด้วย AI กรุณาเข้าสู่ระบบในบัญชีของคุณ";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI กำลังคำนวณ...";

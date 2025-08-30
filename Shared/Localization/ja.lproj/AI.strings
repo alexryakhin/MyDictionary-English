@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "AI駆動の定義を無制限に取得し、高度な分析やその他のプレミアム機能を利用できます。";
 "ai_usage.upgrade_button" = "Proにアップグレード";
 "ai_usage_limit_exceeded" = "1日のAI使用制限に達しました。Proにアップグレードして無制限のAI駆動定義を取得してください。";
+"ai_sign_in_required" = "AI機能を使用するにはサインインしてください";
+"ai_sign_in_required_message" = "AI駆動定義を使用するには、アカウントにサインインしてください。";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AIが計算中...";

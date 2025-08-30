@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Dapatkan definisi berasaskan AI tidak terhad, analisis lanjutan, dan ciri premium lain.";
 "ai_usage.upgrade_button" = "Naik Taraf ke Pro";
 "ai_usage_limit_exceeded" = "Had penggunaan AI harian dicapai. Naik taraf ke Pro untuk definisi berasaskan AI tidak terhad.";
+"ai_sign_in_required" = "Log masuk untuk menggunakan ciri AI";
+"ai_sign_in_required_message" = "Untuk menggunakan definisi berasaskan AI, sila log masuk ke akaun anda.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI sedang mengira...";

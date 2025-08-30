@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Nhận định nghĩa được hỗ trợ bởi AI không giới hạn, phân tích nâng cao và nhiều tính năng premium khác.";
 "ai_usage.upgrade_button" = "Nâng cấp lên Pro";
 "ai_usage_limit_exceeded" = "Đã đạt giới hạn sử dụng AI hàng ngày. Nâng cấp lên Pro cho định nghĩa được hỗ trợ bởi AI không giới hạn.";
+"ai_sign_in_required" = "Đăng nhập để sử dụng tính năng AI";
+"ai_sign_in_required_message" = "Để sử dụng định nghĩa được hỗ trợ bởi AI, vui lòng đăng nhập vào tài khoản của bạn.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI đang tính toán...";

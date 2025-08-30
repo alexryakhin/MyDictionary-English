@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Krijg onbeperkte AI-aangedreven definities, geavanceerde analyses en meer premium functies.";
 "ai_usage.upgrade_button" = "Upgrade naar Pro";
 "ai_usage_limit_exceeded" = "Dagelijks AI-gebruikslimiet bereikt. Upgrade naar Pro voor onbeperkte AI-aangedreven definities.";
+"ai_sign_in_required" = "Log in om AI-functies te gebruiken";
+"ai_sign_in_required_message" = "Om AI-aangedreven definities te gebruiken, log in op je account.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI berekent...";

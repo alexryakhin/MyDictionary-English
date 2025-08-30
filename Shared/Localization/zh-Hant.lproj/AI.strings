@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "獲得無限AI驅動的定義、高級分析和其他高級功能。";
 "ai_usage.upgrade_button" = "升級到Pro";
 "ai_usage_limit_exceeded" = "已達到每日AI使用限制。升級到Pro獲得無限AI驅動的定義。";
+"ai_sign_in_required" = "登入以使用AI功能";
+"ai_sign_in_required_message" = "要使用AI驅動的定義，請登入您的帳戶。";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI正在計算...";

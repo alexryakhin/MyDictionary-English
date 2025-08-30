@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Obtenha definições alimentadas por IA ilimitadas, análises avançadas e mais recursos premium.";
 "ai_usage.upgrade_button" = "Atualizar para Pro";
 "ai_usage_limit_exceeded" = "Limite diário de uso de IA atingido. Atualize para Pro para definições alimentadas por IA ilimitadas.";
+"ai_sign_in_required" = "Entre para usar recursos de IA";
+"ai_sign_in_required_message" = "Para usar definições alimentadas por IA, entre na sua conta.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "IA está processando...";

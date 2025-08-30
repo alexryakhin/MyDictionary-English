@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Get unlimited AI-powered definitions, advanced analytics, and more premium features.";
 "ai_usage.upgrade_button" = "Upgrade to Pro";
 "ai_usage_limit_exceeded" = "Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.";
+"ai_sign_in_required" = "Sign in to use AI features";
+"ai_sign_in_required_message" = "To use AI-powered definitions, please sign in to your account.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI is computing...";

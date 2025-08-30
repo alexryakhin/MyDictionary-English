@@ -129,6 +129,10 @@ public enum Loc {
     public static let yes = Loc.tr("Actions", "yes", fallback: "Yes")
   }
   public enum Ai {
+    /// Sign in to use AI features
+    public static let aiSignInRequired = Loc.tr("AI", "ai_sign_in_required", fallback: "Sign in to use AI features")
+    /// To use AI-powered definitions, please sign in to your account.
+    public static let aiSignInRequiredMessage = Loc.tr("AI", "ai_sign_in_required_message", fallback: "To use AI-powered definitions, please sign in to your account.")
     /// Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.
     public static let aiUsageLimitExceeded = Loc.tr("AI", "ai_usage_limit_exceeded", fallback: "Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.")
     public enum AiAnimation {

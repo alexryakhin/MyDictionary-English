@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Otrzymuj nieograniczone definicje napędzane AI, zaawansowane analizy i więcej funkcji premium.";
 "ai_usage.upgrade_button" = "Przejdź na Pro";
 "ai_usage_limit_exceeded" = "Osiągnięto dzienny limit użycia AI. Przejdź na Pro dla nieograniczonych definicji napędzanych AI.";
+"ai_sign_in_required" = "Zaloguj się, aby korzystać z funkcji AI";
+"ai_sign_in_required_message" = "Aby korzystać z definicji napędzanych AI, zaloguj się na swoje konto.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI oblicza...";

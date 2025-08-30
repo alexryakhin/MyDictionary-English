@@ -12,6 +12,7 @@ final class AIUsageTracker {
     static let shared = AIUsageTracker()
     
     private let dailyLimit = 10
+    private let authenticationService = AuthenticationService.shared
     private let subscriptionService = SubscriptionService.shared
     
     private init() {}
@@ -19,6 +20,11 @@ final class AIUsageTracker {
     /// Checks if the user can make an AI request
     /// - Returns: true if user can make AI request, false otherwise
     func canMakeAIRequest() -> Bool {
+        // Only authenticated users can call AI
+        guard authenticationService.isSignedIn else {
+            return false
+        }
+
         // Pro users have unlimited access
         if subscriptionService.isProUser {
             return true

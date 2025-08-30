@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Obține definiții alimentate de AI nelimitate, analize avansate și mai multe funcții premium.";
 "ai_usage.upgrade_button" = "Actualizează la Pro";
 "ai_usage_limit_exceeded" = "Limita zilnică de utilizare AI atinsă. Actualizează la Pro pentru definiții alimentate de AI nelimitate.";
+"ai_sign_in_required" = "Conectați-vă pentru a utiliza funcțiile AI";
+"ai_sign_in_required_message" = "Pentru a utiliza definițiile alimentate de AI, vă rugăm să vă conectați la contul dvs.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI calculează...";

@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "获得无限AI驱动的定义、高级分析和其他高级功能。";
 "ai_usage.upgrade_button" = "升级到Pro";
 "ai_usage_limit_exceeded" = "已达到每日AI使用限制。升级到Pro获得无限AI驱动的定义。";
+"ai_sign_in_required" = "登录以使用AI功能";
+"ai_sign_in_required_message" = "要使用AI驱动的定义，请登录您的账户。";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI正在计算...";

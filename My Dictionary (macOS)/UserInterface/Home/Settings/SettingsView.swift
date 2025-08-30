@@ -316,7 +316,7 @@ struct SettingsView: View {
             }
         }
         .sheet(isPresented: $showingSignIn) {
-            AuthenticationView()
+            AuthenticationView(feature: .syncWords)
         }
         .sheet(isPresented: $showingTagManagement) {
             TagManagementView()

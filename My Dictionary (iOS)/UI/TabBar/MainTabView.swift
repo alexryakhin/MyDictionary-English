@@ -102,7 +102,7 @@ struct MainTabView: View {
         case .sharedDictionariesList:
             SharedDictionariesListView()
         case .authentication:
-            AuthenticationView()
+            AuthenticationView(feature: .syncWords)
         case .profile:
             ProfileView()
         case .ttsDashboard:

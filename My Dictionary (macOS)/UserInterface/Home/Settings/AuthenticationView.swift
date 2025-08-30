@@ -16,10 +16,11 @@ struct AuthenticationView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dismiss) private var dismiss
     @State private var showingAccountLinking = false
-    let shownBeforePaywall: Bool
+    
+    private let feature: SignInFeature
 
-    init(shownBeforePaywall: Bool = false) {
-        self.shownBeforePaywall = shownBeforePaywall
+    init(feature: SignInFeature) {
+        self.feature = feature
     }
 
     var body: some View {
@@ -30,16 +31,16 @@ struct AuthenticationView: View {
 
             // Header
             VStack(spacing: 16) {
-                Image(systemName: "person.circle.fill")
+                Image(systemName: feature.iconName)
                     .font(.system(size: 80))
-                    .foregroundStyle(.accent)
+                    .foregroundStyle(feature.iconColor)
 
-                Text(shownBeforePaywall ? Loc.Auth.signInBeforeSubscribing : Loc.Auth.signInToSyncWordLists)
+                Text(feature.displayTitle)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
 
-                Text(Loc.Auth.signInToAccessWordLists)
+                Text(feature.displayMessage)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -100,38 +101,16 @@ struct AuthenticationView: View {
                 .frame(height: 56)
                 .disabled(authService.authenticationState == .loading)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
-
-                if shownBeforePaywall {
-                    Button(Loc.Actions.skipForNow) {
-                        dismiss()
-                    }
-                    .foregroundStyle(.secondary)
-                    .padding(.vertical, 12)
-                }
             }
             .frame(maxWidth: 300, alignment: .top)
             .padding(.horizontal, 32)
 
             Spacer()
-
-            if shownBeforePaywall {
-                // Footer
-                VStack(spacing: 8) {
-                    Text(Loc.Auth.canAlwaysSignInLater)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-
-                    if authService.authenticationState == .loading {
-                        LoaderView()
-                            .frame(width: 24, height: 24)
-                    }
-                }
-            }
         }
         .padding(12)
         .groupedBackground()
         .onChange(of: authService.authenticationState) { state in
-            if state == .signedIn && !shownBeforePaywall {
+            if state == .signedIn {
                 dismiss()
             }
         }

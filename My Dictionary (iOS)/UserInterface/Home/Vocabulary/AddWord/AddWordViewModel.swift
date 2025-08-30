@@ -120,8 +120,8 @@ final class AddWordViewModel: BaseViewModel {
                 let shouldRequestPronunciation: Bool
                 let detectedLanguageCode: String
 
-                // Check if AI service is available and user can make AI request
-                if aiService.canMakeAIRequest() {
+                // Check if user is authenticated and AI service is available
+                if AuthenticationService.shared.isSignedIn && aiService.canMakeAIRequest() {
                     // Use AI service for definitions
                     isUsingAI = true
                     AnalyticsService.shared.logEvent(.aiRequested)

@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Få ubegrensede AI-drevne definisjoner, avanserte analyser og flere premium-funksjoner.";
 "ai_usage.upgrade_button" = "Oppgrader til Pro";
 "ai_usage_limit_exceeded" = "Daglig AI-brukergrense nådd. Oppgrader til Pro for ubegrensede AI-drevne definisjoner.";
+"ai_sign_in_required" = "Logg inn for å bruke AI-funksjoner";
+"ai_sign_in_required_message" = "For å bruke AI-drevne definisjoner, logg inn på kontoen din.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI beregner...";

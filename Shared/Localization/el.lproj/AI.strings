@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Λάβετε απεριόριστους ορισμούς με AI, προηγμένες αναλύσεις και περισσότερες premium λειτουργίες.";
 "ai_usage.upgrade_button" = "Αναβάθμιση σε Pro";
 "ai_usage_limit_exceeded" = "Έφτασε το ημερήσιο όριο χρήσης AI. Αναβαθμίστε σε Pro για απεριόριστους ορισμούς με AI.";
+"ai_sign_in_required" = "Συνδεθείτε για να χρησιμοποιήσετε λειτουργίες AI";
+"ai_sign_in_required_message" = "Για να χρησιμοποιήσετε ορισμούς με AI, συνδεθείτε στον λογαριασμό σας.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "Το AI υπολογίζει...";

@@ -5,6 +5,8 @@
 "ai_usage.upgrade_banner_message" = "Získajte neobmedzené definície poháňané AI, pokročilé analýzy a ďalšie prémiové funkcie.";
 "ai_usage.upgrade_button" = "Inovovať na Pro";
 "ai_usage_limit_exceeded" = "Dosiahnutý denný limit používania AI. Inovujte na Pro pre neobmedzené definície poháňané AI.";
+"ai_sign_in_required" = "Prihláste sa na používanie funkcií AI";
+"ai_sign_in_required_message" = "Pre používanie definícií poháňaných AI sa prihláste na svoj účet.";
 
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI počíta...";
