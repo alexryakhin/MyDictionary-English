@@ -1469,6 +1469,10 @@ public enum Loc {
     public enum ProFeatures {
       /// Advanced Analytics
       public static let advancedAnalytics = Loc.tr("Subscription", "pro_features.advanced_analytics", fallback: "Advanced Analytics")
+      /// AI Definitions
+      public static let aiDefinitions = Loc.tr("Subscription", "pro_features.ai_definitions", fallback: "AI Definitions")
+      /// Get intelligent, context-aware definitions powered by advanced AI technology
+      public static let aiDefinitionsDescription = Loc.tr("Subscription", "pro_features.ai_definitions_description", fallback: "Get intelligent, context-aware definitions powered by advanced AI technology")
       /// Create and manage shared dictionaries with others
       public static let createManageSharedDictionaries = Loc.tr("Subscription", "pro_features.create_manage_shared_dictionaries", fallback: "Create and manage shared dictionaries with others")
       /// Create Shared Dictionaries

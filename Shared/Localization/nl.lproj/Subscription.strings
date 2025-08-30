@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Toegang tot de premium tekst-naar-spraaktechnologie van Speechify. Honderden natuurlijk klinkende premium stemmen";
+"pro_features.ai_definitions" = "AI-definities";
+"pro_features.ai_definitions_description" = "Krijg intelligente, contextbewuste definities aangedreven door geavanceerde AI-technologie";
 

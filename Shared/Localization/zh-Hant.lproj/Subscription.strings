@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "訪問Speechify的優質文本轉語音技術。數百種自然聲音的優質語音";
+"pro_features.ai_definitions" = "AI 定義";
+"pro_features.ai_definitions_description" = "獲得由先進 AI 技術驅動的智慧、上下文感知的定義";
 

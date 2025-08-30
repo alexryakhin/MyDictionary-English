@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Tillgång till Speechifys premiumteknik för text-till-tal. Hundratals naturligt klingande premiumröster";
+"pro_features.ai_definitions" = "AI-definitioner";
+"pro_features.ai_definitions_description" = "Få intelligenta, kontextmedvetna definitioner driven av avancerad AI-teknik";
 

@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Truy cập công nghệ chuyển đổi văn bản thành giọng nói cao cấp của Speechify. Hàng trăm giọng nói cao cấp nghe tự nhiên";
+"pro_features.ai_definitions" = "Định nghĩa AI";
+"pro_features.ai_definitions_description" = "Nhận các định nghĩa thông minh và nhận thức ngữ cảnh được hỗ trợ bởi công nghệ AI tiên tiến";
 

@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Akses kepada teknologi teks ke pertuturan premium Speechify. Beratus-ratus suara premium yang kedengaran semula jadi";
+"pro_features.ai_definitions" = "Definisi AI";
+"pro_features.ai_definitions_description" = "Dapatkan definisi pintar dan sedar konteks yang dikuasakan oleh teknologi AI termaju";
 

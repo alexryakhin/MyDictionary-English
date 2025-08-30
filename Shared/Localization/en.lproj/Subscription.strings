@@ -46,6 +46,8 @@
 "pro_features.get_priority_support" = "Get priority support when you need help";
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Access to Speechify's premium text-to-speech technology. Hundreds of natural-sounding premium voices";
+"pro_features.ai_definitions" = "AI Definitions";
+"pro_features.ai_definitions_description" = "Get intelligent, context-aware definitions powered by advanced AI technology";
 
 // MARK: - Pro Upgrade Messages
 "pro_upgrade.upgrade_to_pro_progress_details" = "Upgrade to Pro to see full progress details.";

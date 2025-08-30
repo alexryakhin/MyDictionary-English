@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "גישה לטכנולוגיית טקסט לדיבור פרימיום של Speechify. מאות קולות פרימיום בעלי צליל טבעי";
+"pro_features.ai_definitions" = "הגדרות AI";
+"pro_features.ai_definitions_description" = "קבל הגדרות חכמות ומודעות להקשר המונעות על ידי טכנולוגיית AI מתקדמת";
 

@@ -49,4 +49,6 @@
 
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Přístup k prémiové technologii převodu textu na řeč od Speechify. Stovky přirozeně znějících prémiových hlasů";
+"pro_features.ai_definitions" = "AI definice";
+"pro_features.ai_definitions_description" = "Získejte inteligentní, kontextově uvědomělé definice poháněné pokročilou AI technologií";
 
