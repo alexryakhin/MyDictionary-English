@@ -375,6 +375,8 @@ public enum Loc {
     public static let deviceMutedOrVolumeLow = Loc.tr("Errors", "device_muted_or_volume_low", fallback: "Device muted or volume too low")
     /// You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries.
     public static let dictionaryLimitReached = Loc.tr("Errors", "dictionary_limit_reached", fallback: "You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries.")
+    /// Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.
+    public static let aiUsageLimitExceeded = Loc.tr("Errors", "ai_usage_limit_exceeded", fallback: "Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.")
     /// Dictionary not found
     public static let dictionaryNotFound = Loc.tr("Errors", "dictionary_not_found", fallback: "Dictionary not found")
     /// Error
@@ -2034,6 +2036,20 @@ public enum Loc {
       public static let transcription = Loc.tr("Words", "word_details.transcription", fallback: "Transcription")
       /// Type an example here
       public static let typeExampleHere = Loc.tr("Words", "word_details.type_example_here", fallback: "Type an example here")
+    }
+    public enum AIUsage {
+      /// %d AI requests remaining today
+      public static func remainingRequests(_ p1: Int) -> String {
+        return Loc.tr("Words", "ai_usage.remaining_requests", p1, fallback: "%d AI requests remaining today")
+      }
+      /// Unlimited AI requests with Pro
+      public static let unlimitedRequests = Loc.tr("Words", "ai_usage.unlimited_requests", fallback: "Unlimited AI requests with Pro")
+      /// Upgrade to Pro for Unlimited AI
+      public static let upgradeBannerTitle = Loc.tr("Words", "ai_usage.upgrade_banner_title", fallback: "Upgrade to Pro for Unlimited AI")
+      /// Get unlimited AI-powered definitions, advanced analytics, and more premium features.
+      public static let upgradeBannerMessage = Loc.tr("Words", "ai_usage.upgrade_banner_message", fallback: "Get unlimited AI-powered definitions, advanced analytics, and more premium features.")
+      /// Upgrade to Pro
+      public static let upgradeButton = Loc.tr("Words", "ai_usage.upgrade_button", fallback: "Upgrade to Pro")
     }
     public enum WordList {
       /// All Words

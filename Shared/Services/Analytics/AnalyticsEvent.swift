@@ -122,6 +122,11 @@ enum AnalyticsEvent: String {
     case translationFailed
     case definitionTranslationEnabled
     case definitionTranslationDisabled
+    
+    // AI Service Events
+    case aiRequested
+    case aiCompleted
+    case aiFailed
 
     // Authentication Events
     case signInWithGoogleTapped

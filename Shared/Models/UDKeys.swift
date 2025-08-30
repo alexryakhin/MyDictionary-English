@@ -49,6 +49,10 @@ enum UDKeys {
     // Firebase Settings
     static let deviceID = "DeviceID"
     static let fcmToken = "FCMToken"
+    
+    // AI Service Usage Tracking
+    static let aiUsageCount = "aiUsageCount"
+    static let aiUsageDate = "aiUsageDate"
 }
 
 enum UDService {
@@ -222,5 +226,21 @@ enum UDService {
     static var fcmToken: String? {
         get { UserDefaults.standard.string(forKey: UDKeys.fcmToken) }
         set { UserDefaults.standard.set(newValue, forKey: UDKeys.fcmToken) }
+    }
+    
+    // AI Service Usage Tracking
+    static var aiUsageCount: Int {
+        get { UserDefaults.standard.integer(forKey: UDKeys.aiUsageCount) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.aiUsageCount) }
+    }
+    
+    static var aiUsageDate: Date? {
+        get {
+            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.aiUsageDate)
+            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
+        }
+        set {
+            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.aiUsageDate)
+        }
     }
 }

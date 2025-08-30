@@ -31,6 +31,14 @@ struct AddWordView: View {
                 .clippedWithBackground()
 
                 definitionsSectionView
+                
+                // AI Usage Caption
+                aiUsageCaptionView
+                
+                // AI Upgrade Banner (when limit reached)
+                if !viewModel.isProUser && !viewModel.canUseAI {
+                    aiUpgradeBannerView
+                }
             }
             .padding(12)
             .editModeDisabling()
@@ -302,5 +310,69 @@ struct AddWordView: View {
         viewModel.handle(.toggleDefinition(definition))
         endEditing()
         AnalyticsService.shared.logEvent(.definitionSelected)
+    }
+    
+    // MARK: - AI Usage Views
+    
+    @ViewBuilder
+    private var aiUsageCaptionView: some View {
+        if !viewModel.isProUser {
+            HStack {
+                Image(systemName: "brain.head.profile")
+                    .foregroundStyle(.secondary)
+                    .font(.caption)
+                
+                Text(viewModel.aiRemainingRequests == 0 ? 
+                     Loc.Words.AIUsage.unlimitedRequests : 
+                     Loc.Words.AIUsage.remainingRequests(viewModel.aiRemainingRequests))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
+        }
+    }
+    
+    @ViewBuilder
+    private var aiUpgradeBannerView: some View {
+        VStack(spacing: 12) {
+            HStack {
+                Image(systemName: "sparkles")
+                    .foregroundStyle(.accent)
+                    .font(.title2)
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(Loc.Words.AIUsage.upgradeBannerTitle)
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+                    
+                    Text(Loc.Words.AIUsage.upgradeBannerMessage)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.leading)
+                }
+                
+                Spacer()
+            }
+            
+            HeaderButton(Loc.Words.AIUsage.upgradeButton, style: .borderedProminent) {
+                // Navigate to subscription screen
+                // This will be handled by the parent view or navigation
+                AnalyticsService.shared.logEvent(.paywallPresented)
+            }
+            .frame(maxWidth: .infinity)
+        }
+        .padding(16)
+        .background {
+            RoundedRectangle(cornerRadius: 12)
+                .fill(.accent.opacity(0.1))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(.accent.opacity(0.3), lineWidth: 1)
+                }
+        }
+        .padding(.horizontal, 16)
     }
 }

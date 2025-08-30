@@ -193,7 +193,7 @@ final class AIDemoViewModel: ObservableObject {
     @Published var wordInformation: AIWordResponse?
     @Published var error: String?
     
-    private let aiService = AIServiceManager.shared
+    private let aiService = AIService.shared
     
     var currentLanguage: String {
         let preferredLanguage = Locale.preferredLanguages.first ?? "en"

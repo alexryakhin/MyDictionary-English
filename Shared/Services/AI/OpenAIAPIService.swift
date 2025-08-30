@@ -11,7 +11,7 @@ import Foundation
 
 // MARK: - OpenAI API Service
 
-final class OpenAIAPIService: AIServiceInterface {
+final class OpenAIAPIService: AIAPIServiceInterface {
 
     // MARK: - Properties
 

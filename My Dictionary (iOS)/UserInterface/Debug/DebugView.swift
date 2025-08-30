@@ -503,7 +503,7 @@ struct DebugView: View {
         Task {
             do {
                 print("🚀 [DebugView] Starting OpenAI connection test...")
-                let aiService = AIServiceManager.shared
+                let aiService = AIService.shared
                 let testDefinition = try await aiService.generateWordInformation(
                     for: "test",
                     inputLanguage: .english

@@ -2,10 +2,9 @@ import Foundation
 
 // MARK: - Firebase OpenAI Proxy Service
 
-final class FirebaseOpenAIProxy: AIServiceInterface {
-    static let shared = FirebaseOpenAIProxy()
+final class FirebaseOpenAIProxy: AIAPIServiceInterface {
 
-    private init() {}
+    private let cloudFunctionsService = CloudFunctionsService.shared
 
     func generateWordInformation(
         for word: String,
@@ -20,7 +19,7 @@ final class FirebaseOpenAIProxy: AIServiceInterface {
         print("🚀 [FirebaseOpenAIProxy] Making request to Firebase Functions...")
 
         do {
-            let response = try await CloudFunctionsService.shared.openAIProxy(
+            let response = try await cloudFunctionsService.openAIProxy(
                 word: word,
                 maxDefinitions: maxDefinitions,
                 userLanguage: userLanguage
