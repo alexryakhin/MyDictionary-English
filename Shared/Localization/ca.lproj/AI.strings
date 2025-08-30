@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d sol·licituds d'IA restants avui";
+"ai_usage.unlimited_requests" = "Sol·licituds d'IA il·limitades amb Pro";
+"ai_usage.upgrade_banner_title" = "Actualitza a Pro per a IA Il·limitat";
+"ai_usage.upgrade_banner_message" = "Obtén definicions impulsades per IA il·limitades, anàlisis avançades i més funcions premium.";
+"ai_usage.upgrade_button" = "Actualitzar a Pro";
+"ai_usage_limit_exceeded" = "Límit diari d'ús d'IA assolit. Actualitza a Pro per a definicions impulsades per IA il·limitades.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "La IA està calculant...";
+"ai_loading.analyzing_context" = "Analitzant context...";
+"ai_loading.finding_definitions" = "Cercant definicions...";
+"ai_loading.processing_language" = "Processant llengua...";
+"ai_loading.running_algorithms" = "Executant algoritmes...";
+"ai_loading.understanding_meaning" = "Entenent significat...";
+"ai_loading.generating_insights" = "Generant insights...";
+"ai_loading.learning_patterns" = "Aprenent patrons...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Executant algoritmes avançats";
+"ai_loading_desc.examining_relationships" = "Examinant relacions entre paraules";
+"ai_loading_desc.searching_knowledge" = "Cercant a la base de coneixement";
+"ai_loading_desc.understanding_nuances" = "Entenent matisos lingüístics";
+"ai_loading_desc.applying_machine_learning" = "Aplicant aprenentatge automàtic";
+"ai_loading_desc.extracting_semantic" = "Extraient significat semàntic";
+"ai_loading_desc.creating_definitions" = "Creant definicions compreses";
+"ai_loading_desc.identifying_patterns" = "Identificant patrons d'ús";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "La IA està pensant...";
+"ai_animation.analyzing_word" = "Analitzant la teva paraula amb IA avançada";
+"ai_animation.analyzing" = "La IA està analitzant...";
+"ai_animation.finding_definitions" = "Cercant les definicions perfectes per a tu";
+"ai_animation.processing" = "Processament d'IA...";
+"ai_animation.learning" = "La IA està aprenent...";
+"ai_animation.processing_neural" = "Processant la teva paraula amb xarxes neuronals";

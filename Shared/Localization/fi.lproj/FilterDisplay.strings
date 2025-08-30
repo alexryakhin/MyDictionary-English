@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Sanat, jotka tarvitsevat lisää harjoitusta, ilmestyvät tähän";
 "idioms_need_more_practice" = "Idioomit, jotka tarvitsevat lisää harjoitusta, ilmestyvät tähän";
 
+// MARK: - Language Filter
+"language" = "Kieli";
+"no_words_with_selected_language" = "Ei sanoja tällä kielellä";
+"no_idioms_with_selected_language" = "Ei idioomeja tällä kielellä";
+"no_words_with_selected_language_description" = "Valitse kieli, kun lisäät sanan seuraavan kerran";
+"no_idioms_with_selected_language_description" = "Valitse kieli, kun lisäät idioomin seuraavan kerran";

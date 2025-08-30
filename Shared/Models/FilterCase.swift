@@ -18,6 +18,7 @@ enum FilterCase: CaseIterable {
     case favorite
     case search
     case tag
+    case language
     case new
     case inProgress
     case needsReview
@@ -35,6 +36,8 @@ enum FilterCase: CaseIterable {
             return Loc.FilterDisplay.search
         case .tag:
             return Loc.FilterDisplay.tag
+        case .language:
+            return Loc.FilterDisplay.language
         case .new:
             return Loc.FilterDisplay.new
         case .inProgress:
@@ -58,6 +61,8 @@ enum FilterCase: CaseIterable {
                 return Loc.FilterDisplay.noSearchResults
             case .tag:
                 return Loc.FilterDisplay.noTaggedWords
+            case .language:
+                return Loc.FilterDisplay.noWordsWithSelectedLanguage
             case .new:
                 return Loc.FilterDisplay.noNewWords
             case .inProgress:
@@ -77,6 +82,8 @@ enum FilterCase: CaseIterable {
                 return Loc.FilterDisplay.noSearchResults
             case .tag:
                 return Loc.FilterDisplay.noTaggedIdioms
+            case .language:
+                return Loc.FilterDisplay.noIdiomsWithSelectedLanguage
             case .new:
                 return Loc.FilterDisplay.noNewIdioms
             case .inProgress:
@@ -101,6 +108,8 @@ enum FilterCase: CaseIterable {
                 return Loc.FilterDisplay.tryDifferentSearchTerm
             case .tag:
                 return Loc.FilterDisplay.addTagsToOrganize
+            case .language:
+                return Loc.FilterDisplay.noWordsWithSelectedLanguageDescription
             case .new:
                 return Loc.FilterDisplay.newWordsAppearHere
             case .inProgress:
@@ -120,6 +129,8 @@ enum FilterCase: CaseIterable {
                 return Loc.FilterDisplay.tryDifferentSearchTermIdioms
             case .tag:
                 return Loc.FilterDisplay.addTagsToOrganizeIdioms
+            case .language:
+                return Loc.FilterDisplay.noIdiomsWithSelectedLanguageDescription
             case .new:
                 return Loc.FilterDisplay.newIdiomsAppearHere
             case .inProgress:
@@ -145,6 +156,8 @@ enum FilterCase: CaseIterable {
             return "magnifyingglass"
         case .tag:
             return "tag"
+        case .language:
+            return "globe"
         case .new:
             return "plus.circle"
         case .inProgress:

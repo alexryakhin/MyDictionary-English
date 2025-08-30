@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Wörter, die mehr Übung benötigen, erscheinen hier";
 "idioms_need_more_practice" = "Redewendungen, die mehr Übung benötigen, erscheinen hier";
 
+// MARK: - Language Filter
+"language" = "Sprache";
+"no_words_with_selected_language" = "Keine Wörter in dieser Sprache";
+"no_idioms_with_selected_language" = "Keine Redewendungen in dieser Sprache";
+"no_words_with_selected_language_description" = "Wählen Sie eine Sprache aus, wenn Sie das nächste Mal ein Wort hinzufügen";
+"no_idioms_with_selected_language_description" = "Wählen Sie eine Sprache aus, wenn Sie das nächste Mal eine Redewendung hinzufügen";

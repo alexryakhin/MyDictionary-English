@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d permintaan AI tersisa hari ini";
+"ai_usage.unlimited_requests" = "Permintaan AI tak terbatas dengan Pro";
+"ai_usage.upgrade_banner_title" = "Upgrade ke Pro untuk AI Tak Terbatas";
+"ai_usage.upgrade_banner_message" = "Dapatkan definisi berbasis AI tak terbatas, analisis lanjutan, dan fitur premium lainnya.";
+"ai_usage.upgrade_button" = "Upgrade ke Pro";
+"ai_usage_limit_exceeded" = "Batas penggunaan AI harian tercapai. Upgrade ke Pro untuk definisi berbasis AI tak terbatas.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI sedang menghitung...";
+"ai_loading.analyzing_context" = "Menganalisis konteks...";
+"ai_loading.finding_definitions" = "Mencari definisi...";
+"ai_loading.processing_language" = "Memproses bahasa...";
+"ai_loading.running_algorithms" = "Menjalankan algoritma...";
+"ai_loading.understanding_meaning" = "Memahami makna...";
+"ai_loading.generating_insights" = "Menghasilkan wawasan...";
+"ai_loading.learning_patterns" = "Belajar pola...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Menjalankan algoritma lanjutan";
+"ai_loading_desc.examining_relationships" = "Menguji hubungan antar kata";
+"ai_loading_desc.searching_knowledge" = "Mencari di basis pengetahuan";
+"ai_loading_desc.understanding_nuances" = "Memahami nuansa bahasa";
+"ai_loading_desc.applying_machine_learning" = "Menerapkan pembelajaran mesin";
+"ai_loading_desc.extracting_semantic" = "Mengekstrak makna semantik";
+"ai_loading_desc.creating_definitions" = "Membuat definisi komprehensif";
+"ai_loading_desc.identifying_patterns" = "Mengidentifikasi pola penggunaan";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI sedang berpikir...";
+"ai_animation.analyzing_word" = "Menganalisis kata Anda dengan AI lanjutan";
+"ai_animation.analyzing" = "AI sedang menganalisis...";
+"ai_animation.finding_definitions" = "Mencari definisi sempurna untuk Anda";
+"ai_animation.processing" = "Pemrosesan AI...";
+"ai_animation.learning" = "AI sedang belajar...";
+"ai_animation.processing_neural" = "Memproses kata Anda dengan jaringan saraf";

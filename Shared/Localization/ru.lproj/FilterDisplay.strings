@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Слова, требующие больше практики, появятся здесь";
 "idioms_need_more_practice" = "Выражения, требующие больше практики, появятся здесь";
 
+// MARK: - Language Filter
+"language" = "Язык";
+"no_words_with_selected_language" = "Нет слов на этом языке";
+"no_idioms_with_selected_language" = "Нет выражений на этом языке";
+"no_words_with_selected_language_description" = "Выберите язык при добавлении слова в следующий раз";
+"no_idioms_with_selected_language_description" = "Выберите язык при добавлении выражения в следующий раз";

@@ -37,3 +37,9 @@
 "words_need_more_practice" = "الكلمات التي تحتاج إلى مزيد من التدريب ستظهر هنا";
 "idioms_need_more_practice" = "التعابير التي تحتاج إلى مزيد من التدريب ستظهر هنا";
 
+// MARK: - Language Filter
+"language" = "اللغة";
+"no_words_with_selected_language" = "لا توجد كلمات بهذه اللغة";
+"no_idioms_with_selected_language" = "لا توجد تعابير بهذه اللغة";
+"no_words_with_selected_language_description" = "اختر لغة عند إضافة كلمة في المرة القادمة";
+"no_idioms_with_selected_language_description" = "اختر لغة عند إضافة تعبير في المرة القادمة";

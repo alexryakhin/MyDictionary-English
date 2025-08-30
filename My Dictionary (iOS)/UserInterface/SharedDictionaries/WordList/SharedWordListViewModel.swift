@@ -16,7 +16,7 @@ final class SharedWordListViewModel: BaseViewModel {
     }
 
     enum Input {
-        case filterChanged(FilterCase)
+        case filterChanged(FilterCase, language: InputLanguage? = nil)
     }
 
     var output = PassthroughSubject<Output, Never>()
@@ -34,6 +34,8 @@ final class SharedWordListViewModel: BaseViewModel {
             sortWords()
         }
     }
+    @Published var selectedLanguage: InputLanguage?
+    @Published private(set) var availableLanguages: [InputLanguage] = []
 
     private let dictionaryService = DictionaryService.shared
     private let authenticationService = AuthenticationService.shared
@@ -56,9 +58,8 @@ final class SharedWordListViewModel: BaseViewModel {
             return words.filter { getDifficultyForWord($0) == .needsReview }
         case .mastered:
             return words.filter { getDifficultyForWord($0) == .mastered }
-        case .tag:
-            // Shared words don't have tags, so return all words
-            return words
+        case .language:
+            return languageFilteredWords
         @unknown default:
             fatalError("Unhandled event")
         }
@@ -76,6 +77,13 @@ final class SharedWordListViewModel: BaseViewModel {
                    word.definition.localizedStandardContains(searchText)
         }
     }
+    
+    var languageFilteredWords: [SharedWord] {
+        guard let selectedLanguage else { return words }
+        return words.filter { word in
+            word.languageCode == selectedLanguage.rawValue
+        }
+    }
 
     var wordsCount: String {
         Loc.Plurals.Words.wordsCount(wordsFiltered.count)
@@ -89,8 +97,8 @@ final class SharedWordListViewModel: BaseViewModel {
             return Loc.FilterDisplay.favorite
         case .search:
             return Loc.FilterDisplay.search
-        case .tag:
-            return Loc.FilterDisplay.all // Shared words don't have tags
+        case .language:
+            return selectedLanguage?.displayName ?? Loc.Words.language
         case .new:
             return Loc.FilterDisplay.new
         case .inProgress:
@@ -112,8 +120,9 @@ final class SharedWordListViewModel: BaseViewModel {
 
     func handle(_ input: Input) {
         switch input {
-        case .filterChanged(let filter):
+        case .filterChanged(let filter, let language):
             filterState = filter
+            selectedLanguage = language
         }
     }
 
@@ -125,6 +134,9 @@ final class SharedWordListViewModel: BaseViewModel {
                 guard let self = self else { return }
                 self.words = sharedWords[self.dictionaryId] ?? []
                 self.sortWords()
+                self.availableLanguages = self.words.compactMap {
+                    InputLanguage(rawValue: $0.languageCode)
+                }.removedDuplicates
             }
             .store(in: &cancellables)
 

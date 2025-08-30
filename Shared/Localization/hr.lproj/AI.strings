@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d AI zahtjeva preostalo danas";
+"ai_usage.unlimited_requests" = "Neograničeni AI zahtjevi s Pro";
+"ai_usage.upgrade_banner_title" = "Nadogradite na Pro za Neograničeni AI";
+"ai_usage.upgrade_banner_message" = "Dobijte neograničene definicije pokretane AI-jem, napredne analize i više premium značajki.";
+"ai_usage.upgrade_button" = "Nadogradite na Pro";
+"ai_usage_limit_exceeded" = "Dostignut dnevni limit korištenja AI-ja. Nadogradite na Pro za neograničene definicije pokretane AI-jem.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI računa...";
+"ai_loading.analyzing_context" = "Analiziranje konteksta...";
+"ai_loading.finding_definitions" = "Traženje definicija...";
+"ai_loading.processing_language" = "Obrada jezika...";
+"ai_loading.running_algorithms" = "Pokretanje algoritama...";
+"ai_loading.understanding_meaning" = "Razumijevanje značenja...";
+"ai_loading.generating_insights" = "Generiranje uvida...";
+"ai_loading.learning_patterns" = "Učenje obrazaca...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Pokretanje naprednih algoritama";
+"ai_loading_desc.examining_relationships" = "Ispitivanje odnosa između riječi";
+"ai_loading_desc.searching_knowledge" = "Pretraživanje baze znanja";
+"ai_loading_desc.understanding_nuances" = "Razumijevanje jezičnih nijansi";
+"ai_loading_desc.applying_machine_learning" = "Primjena strojnog učenja";
+"ai_loading_desc.extracting_semantic" = "Izdvajanje semantičkog značenja";
+"ai_loading_desc.creating_definitions" = "Stvaranje sveobuhvatnih definicija";
+"ai_loading_desc.identifying_patterns" = "Identificiranje obrazaca korištenja";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI razmišlja...";
+"ai_animation.analyzing_word" = "Analiziranje vaše riječi naprednim AI-jem";
+"ai_animation.analyzing" = "AI analizira...";
+"ai_animation.finding_definitions" = "Traženje savršenih definicija za vas";
+"ai_animation.processing" = "AI obrada...";
+"ai_animation.learning" = "AI uči...";
+"ai_animation.processing_neural" = "Obrada vaše riječi neuronskim mrežama";

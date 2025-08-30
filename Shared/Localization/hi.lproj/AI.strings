@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "आज %d AI अनुरोध बाकी";
+"ai_usage.unlimited_requests" = "Pro के साथ असीमित AI अनुरोध";
+"ai_usage.upgrade_banner_title" = "असीमित AI के लिए Pro में अपग्रेड करें";
+"ai_usage.upgrade_banner_message" = "असीमित AI-संचालित परिभाषाएं, उन्नत विश्लेषण और अधिक प्रीमियम सुविधाएं प्राप्त करें।";
+"ai_usage.upgrade_button" = "Pro में अपग्रेड करें";
+"ai_usage_limit_exceeded" = "दैनिक AI उपयोग सीमा पहुंच गई। असीमित AI-संचालित परिभाषाओं के लिए Pro में अपग्रेड करें।";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI गणना कर रहा है...";
+"ai_loading.analyzing_context" = "संदर्भ का विश्लेषण...";
+"ai_loading.finding_definitions" = "परिभाषाएं खोज रहा है...";
+"ai_loading.processing_language" = "भाषा प्रसंस्करण...";
+"ai_loading.running_algorithms" = "एल्गोरिथम चला रहा है...";
+"ai_loading.understanding_meaning" = "अर्थ समझ रहा है...";
+"ai_loading.generating_insights" = "अंतर्दृष्टि उत्पन्न कर रहा है...";
+"ai_loading.learning_patterns" = "पैटर्न सीख रहा है...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "उन्नत एल्गोरिथम चला रहा है";
+"ai_loading_desc.examining_relationships" = "शब्दों के बीच संबंधों की जांच";
+"ai_loading_desc.searching_knowledge" = "ज्ञान आधार में खोज";
+"ai_loading_desc.understanding_nuances" = "भाषाई बारीकियों को समझना";
+"ai_loading_desc.applying_machine_learning" = "मशीन लर्निंग लागू करना";
+"ai_loading_desc.extracting_semantic" = "अर्थगत अर्थ निकालना";
+"ai_loading_desc.creating_definitions" = "व्यापक परिभाषाएं बनाना";
+"ai_loading_desc.identifying_patterns" = "उपयोग पैटर्न की पहचान";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI सोच रहा है...";
+"ai_animation.analyzing_word" = "आपके शब्द का उन्नत AI से विश्लेषण";
+"ai_animation.analyzing" = "AI विश्लेषण कर रहा है...";
+"ai_animation.finding_definitions" = "आपके लिए सही परिभाषाएं खोज रहा है";
+"ai_animation.processing" = "AI प्रसंस्करण...";
+"ai_animation.learning" = "AI सीख रहा है...";
+"ai_animation.processing_neural" = "आपके शब्द का न्यूरल नेटवर्क से प्रसंस्करण";

@@ -142,7 +142,6 @@ struct VocabularyListView: View {
                 AnalyticsService.shared.logEvent(.addWordTapped)
             }
         }
-        .animation(.default, value: wordListViewModel.wordsFiltered)
         .animation(.default, value: wordListViewModel.filterState)
         .animation(.default, value: wordListViewModel.sortingState)
     }
@@ -189,7 +188,6 @@ struct VocabularyListView: View {
                 showAddIdiom = true
             }
         }
-        .animation(.default, value: idiomListViewModel.idiomsFiltered)
         .animation(.default, value: idiomListViewModel.filterState)
     }
 

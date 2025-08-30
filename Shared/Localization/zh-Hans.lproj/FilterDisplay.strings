@@ -23,3 +23,9 @@
 "words_appear_here_as_you_practice" = "单词在测验练习中会出现在这里";
 "words_need_more_practice" = "需要更多练习的单词会出现在这里";
 
+// MARK: - Language Filter
+"language" = "语言";
+"no_words_with_selected_language" = "此语言暂无单词";
+"no_idioms_with_selected_language" = "此语言暂无习语";
+"no_words_with_selected_language_description" = "下次添加单词时请选择语言";
+"no_idioms_with_selected_language_description" = "下次添加习语时请选择语言";

@@ -98,13 +98,6 @@
 "word_details.difficulty" = "Difficulty";
 "word_details.examples" = "Examples";
 "word_details.edit_example" = "Edit example";
-
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d AI requests remaining today";
-"ai_usage.unlimited_requests" = "Unlimited AI requests with Pro";
-"ai_usage.upgrade_banner_title" = "Upgrade to Pro for Unlimited AI";
-"ai_usage.upgrade_banner_message" = "Get unlimited AI-powered definitions, advanced analytics, and more premium features.";
-"ai_usage.upgrade_button" = "Upgrade to Pro";
 "word_details.example" = "Example";
 "word_details.type_example_here" = "Type an example here";
 "word_details.add_example" = "Add example";
@@ -181,3 +174,5 @@
 "no_notes" = "No notes";
 "add_notes" = "Add notes...";
 "notes_updated" = "Notes updated";
+
+

@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Les paraules que necessiten més pràctica apareixeran aquí";
 "idioms_need_more_practice" = "Els modismes que necessiten més pràctica apareixeran aquí";
 
+// MARK: - Language Filter
+"language" = "Idioma";
+"no_words_with_selected_language" = "Sense paraules en aquest idioma";
+"no_idioms_with_selected_language" = "Sense modismes en aquest idioma";
+"no_words_with_selected_language_description" = "Selecciona un idioma la propera vegada que afegeixis una paraula";
+"no_idioms_with_selected_language_description" = "Selecciona un idioma la propera vegada que afegeixis un modisme";

@@ -73,4 +73,8 @@ enum InputLanguage: String, CaseIterable {
     var languageCode: String {
         return rawValue
     }
-} 
+
+    static var casesWithoutAuto: [InputLanguage] {
+        Self.allCases.filter { $0 != .auto }
+    }
+}

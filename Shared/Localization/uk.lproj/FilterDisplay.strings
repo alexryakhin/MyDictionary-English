@@ -23,3 +23,9 @@
 "words_appear_here_as_you_practice" = "Слова з'являться тут, коли ви практикуватимете з тестами";
 "words_need_more_practice" = "Слова, які потребують додаткової практики, з'являться тут";
 
+// MARK: - Language Filter
+"language" = "Мова";
+"no_words_with_selected_language" = "Немає слів цією мовою";
+"no_idioms_with_selected_language" = "Немає виразів цією мовою";
+"no_words_with_selected_language_description" = "Виберіть мову наступного разу при додаванні слова";
+"no_idioms_with_selected_language_description" = "Виберіть мову наступного разу при додаванні виразу";

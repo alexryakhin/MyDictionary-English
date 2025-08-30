@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "Bugün %d AI isteği kaldı";
+"ai_usage.unlimited_requests" = "Pro ile sınırsız AI istekleri";
+"ai_usage.upgrade_banner_title" = "Sınırsız AI için Pro'ya Yükseltin";
+"ai_usage.upgrade_banner_message" = "Sınırsız AI destekli tanımlar, gelişmiş analizler ve daha fazla premium özellik edinin.";
+"ai_usage.upgrade_button" = "Pro'ya Yükselt";
+"ai_usage_limit_exceeded" = "Günlük AI kullanım limiti aşıldı. Sınırsız AI destekli tanımlar için Pro'ya yükseltin.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI hesaplıyor...";
+"ai_loading.analyzing_context" = "Bağlam analiz ediliyor...";
+"ai_loading.finding_definitions" = "Tanımlar aranıyor...";
+"ai_loading.processing_language" = "Dil işleniyor...";
+"ai_loading.running_algorithms" = "Algoritmalar çalıştırılıyor...";
+"ai_loading.understanding_meaning" = "Anlam anlaşılıyor...";
+"ai_loading.generating_insights" = "İçgörüler oluşturuluyor...";
+"ai_loading.learning_patterns" = "Kalıplar öğreniliyor...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Gelişmiş algoritmalar çalıştırılıyor";
+"ai_loading_desc.examining_relationships" = "Kelime ilişkileri inceleniyor";
+"ai_loading_desc.searching_knowledge" = "Bilgi tabanında aranıyor";
+"ai_loading_desc.understanding_nuances" = "Dil nüansları anlaşılıyor";
+"ai_loading_desc.applying_machine_learning" = "Makine öğrenmesi uygulanıyor";
+"ai_loading_desc.extracting_semantic" = "Anlamsal anlam çıkarılıyor";
+"ai_loading_desc.creating_definitions" = "Kapsamlı tanımlar oluşturuluyor";
+"ai_loading_desc.identifying_patterns" = "Kullanım kalıpları tanımlanıyor";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI düşünüyor...";
+"ai_animation.analyzing_word" = "Kelimeniz gelişmiş AI ile analiz ediliyor";
+"ai_animation.analyzing" = "AI analiz ediyor...";
+"ai_animation.finding_definitions" = "Sizin için mükemmel tanımlar aranıyor";
+"ai_animation.processing" = "AI işleniyor...";
+"ai_animation.learning" = "AI öğreniyor...";
+"ai_animation.processing_neural" = "Kelimeniz sinir ağları ile işleniyor";

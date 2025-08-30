@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d запитів ШІ залишилося сьогодні";
+"ai_usage.unlimited_requests" = "Необмежені запити ШІ з Pro";
+"ai_usage.upgrade_banner_title" = "Оновіться до Pro для Необмеженого ШІ";
+"ai_usage.upgrade_banner_message" = "Отримайте необмежені визначення на базі ШІ, розширену аналітику та інші преміум-функції.";
+"ai_usage.upgrade_button" = "Оновитися до Pro";
+"ai_usage_limit_exceeded" = "Досягнуто денний ліміт використання ШІ. Оновіться до Pro для необмежених визначень на базі ШІ.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "ШІ обчислює...";
+"ai_loading.analyzing_context" = "Аналіз контексту...";
+"ai_loading.finding_definitions" = "Пошук визначень...";
+"ai_loading.processing_language" = "Обробка мови...";
+"ai_loading.running_algorithms" = "Запуск алгоритмів...";
+"ai_loading.understanding_meaning" = "Розуміння значення...";
+"ai_loading.generating_insights" = "Генерація інсайтів...";
+"ai_loading.learning_patterns" = "Вивчення патернів...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Запуск просунутих алгоритмів";
+"ai_loading_desc.examining_relationships" = "Вивчення зв'язків між словами";
+"ai_loading_desc.searching_knowledge" = "Пошук у базі знань";
+"ai_loading_desc.understanding_nuances" = "Розуміння мовних нюансів";
+"ai_loading_desc.applying_machine_learning" = "Застосування машинного навчання";
+"ai_loading_desc.extracting_semantic" = "Витяг семантичного значення";
+"ai_loading_desc.creating_definitions" = "Створення комплексних визначень";
+"ai_loading_desc.identifying_patterns" = "Виявлення патернів використання";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "ШІ думає...";
+"ai_animation.analyzing_word" = "Аналіз вашого слова просунутим ШІ";
+"ai_animation.analyzing" = "ШІ аналізує...";
+"ai_animation.finding_definitions" = "Пошук ідеальних визначень для вас";
+"ai_animation.processing" = "Обробка ШІ...";
+"ai_animation.learning" = "ШІ вчиться...";
+"ai_animation.processing_neural" = "Обробка вашого слова нейронними мережами";

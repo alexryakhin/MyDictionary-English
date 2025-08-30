@@ -18,7 +18,7 @@ final class IdiomListViewModel: BaseViewModel {
 
     enum Input {
         case deleteIdiom(idiom: CDWord)
-        case filterChanged(FilterCase, tag: CDTag? = nil)
+        case filterChanged(FilterCase, tag: CDTag? = nil, language: InputLanguage? = nil)
     }
 
     var output = PassthroughSubject<Output, Never>()
@@ -39,6 +39,8 @@ final class IdiomListViewModel: BaseViewModel {
     }
     @Published var searchText = ""
     @Published var selectedTag: CDTag?
+    @Published var selectedLanguage: InputLanguage?
+    @Published private(set) var availableLanguages: [InputLanguage] = []
 
     private let wordsProvider: WordsProvider = .shared
     private let tagService: TagService = .shared
@@ -53,9 +55,10 @@ final class IdiomListViewModel: BaseViewModel {
         switch input {
         case .deleteIdiom(let idiom):
             deleteIdiom(with: idiom.id?.uuidString ?? "")
-        case .filterChanged(let filter, let tag):
+        case .filterChanged(let filter, let tag, let language):
             filterState = filter
             selectedTag = tag
+            selectedLanguage = language
         }
     }
 
@@ -65,6 +68,9 @@ final class IdiomListViewModel: BaseViewModel {
             .sink { [weak self] idioms in
                 self?.idioms = idioms
                 self?.sortIdioms()
+                self?.availableLanguages = idioms.compactMap {
+                    InputLanguage(rawValue: $0.languageCode ?? "en")
+                }
             }
             .store(in: &cancellables)
 
@@ -113,6 +119,8 @@ final class IdiomListViewModel: BaseViewModel {
             return masteredIdioms
         case .tag:
             return taggedIdioms
+        case .language:
+            return languageFilteredIdioms
         @unknown default:
             return idioms
         }
@@ -156,6 +164,13 @@ final class IdiomListViewModel: BaseViewModel {
         }
     }
 
+    var languageFilteredIdioms: [CDWord] {
+        guard let selectedLanguage else { return idioms }
+        return idioms.filter { idiom in
+            idiom.languageCode == selectedLanguage.rawValue
+        }
+    }
+
     var availableTags: [CDTag] {
         tagService.tags
     }
@@ -182,6 +197,8 @@ final class IdiomListViewModel: BaseViewModel {
             return Loc.FilterDisplay.mastered
         case .tag:
             return selectedTag?.name ?? Loc.Words.idioms
+        case .language:
+            return selectedLanguage?.displayName ?? Loc.Words.language
         @unknown default:
             return Loc.Words.idioms
         }

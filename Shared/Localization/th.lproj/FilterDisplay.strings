@@ -23,3 +23,9 @@
 "words_appear_here_as_you_practice" = "คำศัพท์จะปรากฏที่นี่เมื่อคุณฝึกด้วยแบบทดสอบ";
 "words_need_more_practice" = "คำศัพท์ที่ต้องการฝึกเพิ่มจะปรากฏที่นี่";
 
+// MARK: - Language Filter
+"language" = "ภาษา";
+"no_words_with_selected_language" = "ไม่มีคำศัพท์ในภาษานี้";
+"no_idioms_with_selected_language" = "ไม่มีสำนวนในภาษานี้";
+"no_words_with_selected_language_description" = "เลือกภาษาครั้งต่อไปเมื่อเพิ่มคำศัพท์";
+"no_idioms_with_selected_language_description" = "เลือกภาษาครั้งต่อไปเมื่อเพิ่มสำนวน";

@@ -23,3 +23,9 @@
 "words_appear_here_as_you_practice" = "Testlerle alıştırma yaptıkça kelimeler burada görünecek";
 "words_need_more_practice" = "Daha fazla alıştırma gerektiren kelimeler burada görünecek";
 
+// MARK: - Language Filter
+"language" = "Dil";
+"no_words_with_selected_language" = "Bu dilde kelime yok";
+"no_idioms_with_selected_language" = "Bu dilde deyim yok";
+"no_words_with_selected_language_description" = "Bir dahaki sefere kelime eklerken dil seçin";
+"no_idioms_with_selected_language_description" = "Bir dahaki sefere deyim eklerken dil seçin";

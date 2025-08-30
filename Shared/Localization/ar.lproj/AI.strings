@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d طلب ذكاء اصطناعي متبقي اليوم";
+"ai_usage.unlimited_requests" = "طلبات ذكاء اصطناعي غير محدودة مع Pro";
+"ai_usage.upgrade_banner_title" = "ارتقِ إلى Pro للحصول على ذكاء اصطناعي غير محدود";
+"ai_usage.upgrade_banner_message" = "احصل على تعريفات مدعومة بالذكاء الاصطناعي غير محدودة، وتحليلات متقدمة، والمزيد من الميزات المتميزة.";
+"ai_usage.upgrade_button" = "الارتقاء إلى Pro";
+"ai_usage_limit_exceeded" = "تم الوصول إلى الحد اليومي لاستخدام الذكاء الاصطناعي. ارتقِ إلى Pro للحصول على تعريفات مدعومة بالذكاء الاصطناعي غير محدودة.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "الذكاء الاصطناعي يحسب...";
+"ai_loading.analyzing_context" = "تحليل السياق...";
+"ai_loading.finding_definitions" = "البحث عن التعريفات...";
+"ai_loading.processing_language" = "معالجة اللغة...";
+"ai_loading.running_algorithms" = "تشغيل الخوارزميات...";
+"ai_loading.understanding_meaning" = "فهم المعنى...";
+"ai_loading.generating_insights" = "توليد الرؤى...";
+"ai_loading.learning_patterns" = "تعلم الأنماط...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "تشغيل خوارزميات متقدمة";
+"ai_loading_desc.examining_relationships" = "فحص العلاقات بين الكلمات";
+"ai_loading_desc.searching_knowledge" = "البحث في قاعدة المعرفة";
+"ai_loading_desc.understanding_nuances" = "فهم دقائق اللغة";
+"ai_loading_desc.applying_machine_learning" = "تطبيق التعلم الآلي";
+"ai_loading_desc.extracting_semantic" = "استخراج المعنى الدلالي";
+"ai_loading_desc.creating_definitions" = "إنشاء تعريفات شاملة";
+"ai_loading_desc.identifying_patterns" = "تحديد أنماط الاستخدام";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "الذكاء الاصطناعي يفكر...";
+"ai_animation.analyzing_word" = "تحليل كلمتك بالذكاء الاصطناعي المتقدم";
+"ai_animation.analyzing" = "الذكاء الاصطناعي يحلل...";
+"ai_animation.finding_definitions" = "البحث عن التعريفات المثالية لك";
+"ai_animation.processing" = "معالجة الذكاء الاصطناعي...";
+"ai_animation.learning" = "الذكاء الاصطناعي يتعلم...";
+"ai_animation.processing_neural" = "معالجة كلمتك بالشبكات العصبية";

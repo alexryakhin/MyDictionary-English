@@ -43,15 +43,16 @@ struct AISparklesAnimation: View {
             }
             
             VStack(spacing: 8) {
-                Text("AI is analyzing...")
+                Text(Loc.Ai.AiAnimation.analyzing)
                     .font(.headline)
                     .foregroundStyle(.primary)
                 
-                Text("Finding the perfect definitions for you")
+                Text(Loc.Ai.AiAnimation.findingDefinitions)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
             }
+            .frame(maxWidth: .infinity, alignment: .center)
         }
         .padding(20)
         .background {

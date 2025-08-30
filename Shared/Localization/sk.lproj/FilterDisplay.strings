@@ -23,3 +23,9 @@
 "words_appear_here_as_you_practice" = "Slová sa tu objavia, ako budete cvičiť s kvízmi";
 "words_need_more_practice" = "Slová, ktoré potrebujú viac praxe, sa tu objavia";
 
+// MARK: - Language Filter
+"language" = "Jazyk";
+"no_words_with_selected_language" = "Žiadne slová v tomto jazyku";
+"no_idioms_with_selected_language" = "Žiadne idiomy v tomto jazyku";
+"no_words_with_selected_language_description" = "Vyberte jazyk nabudúce pri pridávaní slova";
+"no_idioms_with_selected_language_description" = "Vyberte jazyk nabudúce pri pridávaní idiomu";

@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d αιτήματα AI απέμειναν σήμερα";
+"ai_usage.unlimited_requests" = "Απεριόριστα αιτήματα AI με Pro";
+"ai_usage.upgrade_banner_title" = "Αναβάθμιση σε Pro για Απεριόριστο AI";
+"ai_usage.upgrade_banner_message" = "Λάβετε απεριόριστους ορισμούς με AI, προηγμένες αναλύσεις και περισσότερες premium λειτουργίες.";
+"ai_usage.upgrade_button" = "Αναβάθμιση σε Pro";
+"ai_usage_limit_exceeded" = "Έφτασε το ημερήσιο όριο χρήσης AI. Αναβαθμίστε σε Pro για απεριόριστους ορισμούς με AI.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "Το AI υπολογίζει...";
+"ai_loading.analyzing_context" = "Ανάλυση περιεχομένου...";
+"ai_loading.finding_definitions" = "Εύρεση ορισμών...";
+"ai_loading.processing_language" = "Επεξεργασία γλώσσας...";
+"ai_loading.running_algorithms" = "Εκτέλεση αλγορίθμων...";
+"ai_loading.understanding_meaning" = "Κατανόηση σημασίας...";
+"ai_loading.generating_insights" = "Δημιουργία πληροφοριών...";
+"ai_loading.learning_patterns" = "Μάθηση μοτίβων...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Εκτέλεση προηγμένων αλγορίθμων";
+"ai_loading_desc.examining_relationships" = "Εξέταση σχέσεων λέξεων";
+"ai_loading_desc.searching_knowledge" = "Αναζήτηση στη βάση γνώσης";
+"ai_loading_desc.understanding_nuances" = "Κατανόηση γλωσσικών αποχρώσεων";
+"ai_loading_desc.applying_machine_learning" = "Εφαρμογή μηχανικής μάθησης";
+"ai_loading_desc.extracting_semantic" = "Εξαγωγή σημασιολογικής σημασίας";
+"ai_loading_desc.creating_definitions" = "Δημιουργία ολοκληρωμένων ορισμών";
+"ai_loading_desc.identifying_patterns" = "Ταυτοποίηση μοτίβων χρήσης";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "Το AI σκέφτεται...";
+"ai_animation.analyzing_word" = "Ανάλυση της λέξης σας με προηγμένο AI";
+"ai_animation.analyzing" = "Το AI αναλύει...";
+"ai_animation.finding_definitions" = "Εύρεση τέλειων ορισμών για εσάς";
+"ai_animation.processing" = "Επεξεργασία AI...";
+"ai_animation.learning" = "Το AI μαθαίνει...";
+"ai_animation.processing_neural" = "Επεξεργασία της λέξης σας με νευρωνικά δίκτυα";

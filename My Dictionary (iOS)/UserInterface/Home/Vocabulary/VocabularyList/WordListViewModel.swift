@@ -19,7 +19,7 @@ final class WordListViewModel: BaseViewModel {
 
     enum Input {
         case deleteWord(word: CDWord)
-        case filterChanged(FilterCase, tag: CDTag? = nil)
+        case filterChanged(FilterCase, tag: CDTag? = nil, language: InputLanguage? = nil)
     }
 
     var output = PassthroughSubject<Output, Never>()
@@ -40,7 +40,9 @@ final class WordListViewModel: BaseViewModel {
         }
     }
     @Published var selectedTag: CDTag?
+    @Published var selectedLanguage: InputLanguage?
     @Published private(set) var availableTags: [CDTag] = []
+    @Published private(set) var availableLanguages: [InputLanguage] = []
 
     private let wordsProvider: WordsProvider = .shared
     private let tagService: TagService = .shared
@@ -56,6 +58,8 @@ final class WordListViewModel: BaseViewModel {
             return searchResults
         case .tag:
             return tagFilteredWords
+        case .language:
+            return languageFilteredWords
         case .new:
             return words.filter { $0.difficultyLevel == .new }
         case .inProgress:
@@ -81,9 +85,16 @@ final class WordListViewModel: BaseViewModel {
     }
     
     var tagFilteredWords: [CDWord] {
-        guard let selectedTag = selectedTag else { return words }
+        guard let selectedTag else { return words }
         return words.filter { word in
             word.tagsArray.contains { $0.id == selectedTag.id }
+        }
+    }
+    
+    var languageFilteredWords: [CDWord] {
+        guard let selectedLanguage else { return words }
+        return words.filter { word in
+            word.languageCode == selectedLanguage.rawValue
         }
     }
 
@@ -101,6 +112,8 @@ final class WordListViewModel: BaseViewModel {
             return Loc.Words.searchResults
         case .tag:
             return selectedTag?.name ?? Loc.Words.taggedWords
+        case .language:
+            return selectedLanguage?.displayName ?? Loc.Words.language
         case .new:
             return Loc.Words.newWords
         case .inProgress:
@@ -123,9 +136,10 @@ final class WordListViewModel: BaseViewModel {
         switch input {
         case .deleteWord(let word):
             deleteWord(word)
-        case .filterChanged(let filter, let tag):
+        case .filterChanged(let filter, let tag, let language):
             filterState = filter
             selectedTag = tag
+            selectedLanguage = language
         }
     }
 
@@ -135,6 +149,9 @@ final class WordListViewModel: BaseViewModel {
             .sink { [weak self] words in
                 self?.words = words
                 self?.sortWords()
+                self?.availableLanguages = words.compactMap {
+                    InputLanguage(rawValue: $0.languageCode ?? "en")
+                }
             }
             .store(in: &cancellables)
 
@@ -158,8 +175,6 @@ final class WordListViewModel: BaseViewModel {
                 self?.availableTags = tags
             }
             .store(in: &cancellables)
-
-        // No real-time updates for private words in manual mode
     }
 
     private func deleteWord(_ wordModel: CDWord) {

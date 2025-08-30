@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Słowa, które wymagają więcej praktyki, pojawią się tutaj";
 "idioms_need_more_practice" = "Idiomy, które wymagają więcej praktyki, pojawią się tutaj";
 
+// MARK: - Language Filter
+"language" = "Język";
+"no_words_with_selected_language" = "Brak słów w tym języku";
+"no_idioms_with_selected_language" = "Brak idiomów w tym języku";
+"no_words_with_selected_language_description" = "Wybierz język przy dodawaniu słowa następnym razem";
+"no_idioms_with_selected_language_description" = "Wybierz język przy dodawaniu idiomu następnym razem";

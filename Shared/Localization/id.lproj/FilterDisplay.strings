@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Kata-kata yang perlu lebih banyak latihan akan muncul di sini";
 "idioms_need_more_practice" = "Idiom yang perlu lebih banyak latihan akan muncul di sini";
 
+// MARK: - Language Filter
+"language" = "Bahasa";
+"no_words_with_selected_language" = "Tidak ada kata dalam bahasa ini";
+"no_idioms_with_selected_language" = "Tidak ada idiom dalam bahasa ini";
+"no_words_with_selected_language_description" = "Pilih bahasa saat menambahkan kata lain kali";
+"no_idioms_with_selected_language_description" = "Pilih bahasa saat menambahkan idiom lain kali";

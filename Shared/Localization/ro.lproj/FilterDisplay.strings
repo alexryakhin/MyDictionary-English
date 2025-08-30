@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Cuvintele care necesită mai multă practică vor apărea aici";
 "idioms_need_more_practice" = "Expresiile care necesită mai multă practică vor apărea aici";
 
+// MARK: - Language Filter
+"language" = "Limbă";
+"no_words_with_selected_language" = "Fără cuvinte în această limbă";
+"no_idioms_with_selected_language" = "Fără expresii în această limbă";
+"no_words_with_selected_language_description" = "Selectează o limbă data viitoare când adaugi un cuvânt";
+"no_idioms_with_selected_language_description" = "Selectează o limbă data viitoare când adaugi o expresie";

@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Slova, která potřebují více cvičení, se zde objeví";
 "idioms_need_more_practice" = "Idiomy, které potřebují více cvičení, se zde objeví";
 
+// MARK: - Language Filter
+"language" = "Jazyk";
+"no_words_with_selected_language" = "Žádná slova v tomto jazyce";
+"no_idioms_with_selected_language" = "Žádné idiomy v tomto jazyce";
+"no_words_with_selected_language_description" = "Vyberte jazyk při příštím přidání slova";
+"no_idioms_with_selected_language_description" = "Vyberte jazyk při příštím přidání idiomu";

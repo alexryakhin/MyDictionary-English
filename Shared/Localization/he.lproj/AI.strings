@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d בקשות AI נותרו היום";
+"ai_usage.unlimited_requests" = "בקשות AI בלתי מוגבלות עם Pro";
+"ai_usage.upgrade_banner_title" = "שדרג ל-Pro עבור AI בלתי מוגבל";
+"ai_usage.upgrade_banner_message" = "קבל הגדרות מונעות AI בלתי מוגבלות, ניתוחים מתקדמים ועוד תכונות פרימיום.";
+"ai_usage.upgrade_button" = "שדרג ל-Pro";
+"ai_usage_limit_exceeded" = "הגעת למגבלת השימוש היומית ב-AI. שדרג ל-Pro עבור הגדרות מונעות AI בלתי מוגבלות.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI מחשב...";
+"ai_loading.analyzing_context" = "מנתח הקשר...";
+"ai_loading.finding_definitions" = "מוצא הגדרות...";
+"ai_loading.processing_language" = "מעבד שפה...";
+"ai_loading.running_algorithms" = "מריץ אלגוריתמים...";
+"ai_loading.understanding_meaning" = "מבין משמעות...";
+"ai_loading.generating_insights" = "מייצר תובנות...";
+"ai_loading.learning_patterns" = "לומד דפוסים...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "מריץ אלגוריתמים מתקדמים";
+"ai_loading_desc.examining_relationships" = "בודק קשרים בין מילים";
+"ai_loading_desc.searching_knowledge" = "מחפש במסד הידע";
+"ai_loading_desc.understanding_nuances" = "מבין ניואנסים לשוניים";
+"ai_loading_desc.applying_machine_learning" = "מיישם למידת מכונה";
+"ai_loading_desc.extracting_semantic" = "מחלץ משמעות סמנטית";
+"ai_loading_desc.creating_definitions" = "יוצר הגדרות מקיפות";
+"ai_loading_desc.identifying_patterns" = "מזהה דפוסי שימוש";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI חושב...";
+"ai_animation.analyzing_word" = "מנתח את המילה שלך עם AI מתקדם";
+"ai_animation.analyzing" = "AI מנתח...";
+"ai_animation.finding_definitions" = "מוצא הגדרות מושלמות עבורך";
+"ai_animation.processing" = "עיבוד AI...";
+"ai_animation.learning" = "AI לומד...";
+"ai_animation.processing_neural" = "מעבד את המילה שלך עם רשתות עצביות";

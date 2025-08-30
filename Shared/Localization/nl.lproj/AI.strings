@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d AI-verzoeken vandaag over";
+"ai_usage.unlimited_requests" = "Onbeperkte AI-verzoeken met Pro";
+"ai_usage.upgrade_banner_title" = "Upgrade naar Pro voor Onbeperkte AI";
+"ai_usage.upgrade_banner_message" = "Krijg onbeperkte AI-aangedreven definities, geavanceerde analyses en meer premium functies.";
+"ai_usage.upgrade_button" = "Upgrade naar Pro";
+"ai_usage_limit_exceeded" = "Dagelijks AI-gebruikslimiet bereikt. Upgrade naar Pro voor onbeperkte AI-aangedreven definities.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI berekent...";
+"ai_loading.analyzing_context" = "Context analyseren...";
+"ai_loading.finding_definitions" = "Definities zoeken...";
+"ai_loading.processing_language" = "Taal verwerken...";
+"ai_loading.running_algorithms" = "Algoritmes uitvoeren...";
+"ai_loading.understanding_meaning" = "Betekenis begrijpen...";
+"ai_loading.generating_insights" = "Inzichten genereren...";
+"ai_loading.learning_patterns" = "Patronen leren...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Geavanceerde algoritmes uitvoeren";
+"ai_loading_desc.examining_relationships" = "Woordrelaties onderzoeken";
+"ai_loading_desc.searching_knowledge" = "Kennisbank doorzoeken";
+"ai_loading_desc.understanding_nuances" = "Taalnuances begrijpen";
+"ai_loading_desc.applying_machine_learning" = "Machine learning toepassen";
+"ai_loading_desc.extracting_semantic" = "Semantische betekenis extraheren";
+"ai_loading_desc.creating_definitions" = "Uitgebreide definities maken";
+"ai_loading_desc.identifying_patterns" = "Gebruikspatronen identificeren";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI denkt...";
+"ai_animation.analyzing_word" = "Uw woord analyseren met geavanceerde AI";
+"ai_animation.analyzing" = "AI analyseert...";
+"ai_animation.finding_definitions" = "Perfecte definities voor u zoeken";
+"ai_animation.processing" = "AI-verwerking...";
+"ai_animation.learning" = "AI leert...";
+"ai_animation.processing_neural" = "Uw woord verwerken met neurale netwerken";

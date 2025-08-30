@@ -23,3 +23,9 @@
 "words_appear_here_as_you_practice" = "Từ sẽ xuất hiện tại đây khi bạn luyện tập với các bài kiểm tra";
 "words_need_more_practice" = "Từ cần luyện tập thêm sẽ xuất hiện tại đây";
 
+// MARK: - Language Filter
+"language" = "Ngôn ngữ";
+"no_words_with_selected_language" = "Không có từ nào trong ngôn ngữ này";
+"no_idioms_with_selected_language" = "Không có thành ngữ nào trong ngôn ngữ này";
+"no_words_with_selected_language_description" = "Chọn ngôn ngữ lần sau khi thêm từ";
+"no_idioms_with_selected_language_description" = "Chọn ngôn ngữ lần sau khi thêm thành ngữ";

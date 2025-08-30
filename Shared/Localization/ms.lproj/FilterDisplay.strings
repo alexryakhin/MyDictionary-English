@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Perkataan yang memerlukan lebih banyak latihan akan muncul di sini";
 "idioms_need_more_practice" = "Ungkapan yang memerlukan lebih banyak latihan akan muncul di sini";
 
+// MARK: - Language Filter
+"language" = "Bahasa";
+"no_words_with_selected_language" = "Tiada perkataan dalam bahasa ini";
+"no_idioms_with_selected_language" = "Tiada ungkapan dalam bahasa ini";
+"no_words_with_selected_language_description" = "Pilih bahasa apabila menambah perkataan lain kali";
+"no_idioms_with_selected_language_description" = "Pilih bahasa apabila menambah ungkapan lain kali";

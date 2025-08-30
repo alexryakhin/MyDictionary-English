@@ -10,6 +10,9 @@ import SwiftUI
 struct SharedWordListFilterView: View {
     @ObservedObject var viewModel: SharedWordListViewModel
     
+    @State private var selectedFilterCase: FilterCase = .none
+    @State private var selectedLanguage: InputLanguage?
+    
     var body: some View {
         if viewModel.words.isNotEmpty {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -18,59 +21,112 @@ struct SharedWordListFilterView: View {
                     TagView(
                         text: Loc.FilterDisplay.all,
                         color: .blue,
-                        style: viewModel.filterState == .none ? .selected : .regular
+                        style: selectedFilterCase == .none ? .selected : .regular
                     )
                     .onTap {
-                        viewModel.handle(.filterChanged(.none))
+                        selectedFilterCase = .none
                     }
 
+                    // Favorite Words Filter
                     TagView(
                         text: Loc.FilterDisplay.favorite,
                         color: .accentColor,
-                        style: viewModel.filterState == .favorite ? .selected : .regular
+                        style: selectedFilterCase == .favorite ? .selected : .regular
                     )
                     .onTap {
-                        viewModel.handle(.filterChanged(.favorite))
+                        selectedFilterCase = .favorite
                     }
 
-                    TagView(
-                        text: Loc.FilterDisplay.new,
-                        color: .secondary,
-                        style: viewModel.filterState == .new ? .selected : .regular
-                    )
-                    .onTap {
-                        viewModel.handle(.filterChanged(.new))
+                    // Difficulty Filter
+                    var difficultyMenuTitle: String {
+                        switch selectedFilterCase {
+                        case .new: Loc.FilterDisplay.new
+                        case .inProgress: Loc.FilterDisplay.inProgress
+                        case .needsReview: Loc.FilterDisplay.needsReview
+                        case .mastered: Loc.FilterDisplay.mastered
+                        default: Loc.Words.difficulty
+                        }
+                    }
+                    var difficultyMenuColor: Color {
+                        switch selectedFilterCase {
+                        case .new: .secondary
+                        case .inProgress: .orange
+                        case .needsReview: .red
+                        case .mastered: .accent
+                        default: .indigo
+                        }
+                    }
+                    var difficultyMenuStyle: TagView.Style {
+                        switch selectedFilterCase {
+                        case .new: .selected
+                        case .inProgress: .selected
+                        case .needsReview: .selected
+                        case .mastered: .selected
+                        default: .regular
+                        }
+                    }
+                    Menu {
+                        Picker(Loc.Words.difficulty, selection: $selectedFilterCase) {
+                            Text(Loc.FilterDisplay.new).tag(FilterCase.new)
+                            Text(Loc.FilterDisplay.inProgress).tag(FilterCase.inProgress)
+                            Text(Loc.FilterDisplay.needsReview).tag(FilterCase.needsReview)
+                            Text(Loc.FilterDisplay.mastered).tag(FilterCase.mastered)
+                        }
+                        .pickerStyle(.inline)
+                    } label: {
+                        TagView(
+                            text: difficultyMenuTitle,
+                            color: difficultyMenuColor,
+                            style: difficultyMenuStyle
+                        )
                     }
 
-                    TagView(
-                        text: Loc.FilterDisplay.inProgress,
-                        color: .orange,
-                        style: viewModel.filterState == .inProgress ? .selected : .regular
-                    )
-                    .onTap {
-                        viewModel.handle(.filterChanged(.inProgress))
-                    }
 
-                    TagView(
-                        text: Loc.FilterDisplay.needsReview,
-                        color: .red,
-                        style: viewModel.filterState == .needsReview ? .selected : .regular
-                    )
-                    .onTap {
-                        viewModel.handle(.filterChanged(.needsReview))
-                    }
 
-                    TagView(
-                        text: Loc.FilterDisplay.mastered,
-                        color: .accent,
-                        style: viewModel.filterState == .mastered ? .selected : .regular
-                    )
-                    .onTap {
-                        viewModel.handle(.filterChanged(.mastered))
+                    // Language Filter
+                    let languages = viewModel.availableLanguages
+                    if languages.count > 1 {
+                        Menu {
+                            Picker(Loc.FilterDisplay.language, selection: $selectedLanguage) {
+                                ForEach(languages, id: \.self) { language in
+                                    Text(language.displayName)
+                                        .tag(language)
+                                }
+                            }
+                            .pickerStyle(.inline)
+                        } label: {
+                            TagView(
+                                text: selectedLanguage?.displayName ?? Loc.FilterDisplay.language,
+                                color: .purple,
+                                style: selectedLanguage == nil ? .regular : .selected
+                            )
+                        }
                     }
                 }
             }
             .scrollClipDisabled()
+            .onChange(of: selectedFilterCase) {
+                if selectedFilterCase != .language {
+                    selectedLanguage = nil
+                }
+                handleFilterChanged(
+                    selectedFilterCase,
+                    language: selectedLanguage
+                )
+            }
+            .onChange(of: selectedLanguage) {
+                if let selectedLanguage {
+                    selectedFilterCase = .language
+                    handleFilterChanged(
+                        selectedFilterCase,
+                        language: selectedLanguage
+                    )
+                }
+            }
         }
+    }
+
+    private func handleFilterChanged(_ filter: FilterCase, language: InputLanguage? = nil) {
+        viewModel.handle(.filterChanged(filter, language: language))
     }
 }

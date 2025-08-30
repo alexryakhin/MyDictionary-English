@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Woorden die meer oefening nodig hebben, verschijnen hier";
 "idioms_need_more_practice" = "Idiomen die meer oefening nodig hebben, verschijnen hier";
 
+// MARK: - Language Filter
+"language" = "Taal";
+"no_words_with_selected_language" = "Geen woorden in deze taal";
+"no_idioms_with_selected_language" = "Geen idiomen in deze taal";
+"no_words_with_selected_language_description" = "Selecteer een taal wanneer je de volgende keer een woord toevoegt";
+"no_idioms_with_selected_language_description" = "Selecteer een taal wanneer je de volgende keer een idioom toevoegt";

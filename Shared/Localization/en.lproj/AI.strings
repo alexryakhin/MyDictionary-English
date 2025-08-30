@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d AI requests remaining today";
+"ai_usage.unlimited_requests" = "Unlimited AI requests with Pro";
+"ai_usage.upgrade_banner_title" = "Upgrade to Pro for Unlimited AI";
+"ai_usage.upgrade_banner_message" = "Get unlimited AI-powered definitions, advanced analytics, and more premium features.";
+"ai_usage.upgrade_button" = "Upgrade to Pro";
+"ai_usage_limit_exceeded" = "Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI is computing...";
+"ai_loading.analyzing_context" = "Analyzing context...";
+"ai_loading.finding_definitions" = "Finding definitions...";
+"ai_loading.processing_language" = "Processing language...";
+"ai_loading.running_algorithms" = "Running algorithms...";
+"ai_loading.understanding_meaning" = "Understanding meaning...";
+"ai_loading.generating_insights" = "Generating insights...";
+"ai_loading.learning_patterns" = "Learning patterns...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Running advanced algorithms";
+"ai_loading_desc.examining_relationships" = "Examining word relationships";
+"ai_loading_desc.searching_knowledge" = "Searching through knowledge base";
+"ai_loading_desc.understanding_nuances" = "Understanding language nuances";
+"ai_loading_desc.applying_machine_learning" = "Applying machine learning";
+"ai_loading_desc.extracting_semantic" = "Extracting semantic meaning";
+"ai_loading_desc.creating_definitions" = "Creating comprehensive definitions";
+"ai_loading_desc.identifying_patterns" = "Identifying usage patterns";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI is thinking...";
+"ai_animation.analyzing_word" = "Analyzing your word with advanced AI";
+"ai_animation.analyzing" = "AI is analyzing...";
+"ai_animation.finding_definitions" = "Finding the perfect definitions for you";
+"ai_animation.processing" = "AI Processing...";
+"ai_animation.learning" = "AI is learning...";
+"ai_animation.processing_neural" = "Processing your word with neural networks";

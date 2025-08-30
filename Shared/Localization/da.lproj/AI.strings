@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d AI-anmodninger tilbage i dag";
+"ai_usage.unlimited_requests" = "Ubegrænsede AI-anmodninger med Pro";
+"ai_usage.upgrade_banner_title" = "Opgrader til Pro for Ubegrænset AI";
+"ai_usage.upgrade_banner_message" = "Få ubegrænsede AI-drevne definitioner, avancerede analyser og flere premium-funktioner.";
+"ai_usage.upgrade_button" = "Opgrader til Pro";
+"ai_usage_limit_exceeded" = "Daglig AI-brugsgrænse nået. Opgrader til Pro for ubegrænsede AI-drevne definitioner.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI beregner...";
+"ai_loading.analyzing_context" = "Analyserer kontekst...";
+"ai_loading.finding_definitions" = "Finder definitioner...";
+"ai_loading.processing_language" = "Behandler sprog...";
+"ai_loading.running_algorithms" = "Kører algoritmer...";
+"ai_loading.understanding_meaning" = "Forstår betydning...";
+"ai_loading.generating_insights" = "Genererer indsigter...";
+"ai_loading.learning_patterns" = "Lærer mønstre...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Kører avancerede algoritmer";
+"ai_loading_desc.examining_relationships" = "Undersøger ordrelationer";
+"ai_loading_desc.searching_knowledge" = "Søger i vidensbasen";
+"ai_loading_desc.understanding_nuances" = "Forstår sproglige nuancer";
+"ai_loading_desc.applying_machine_learning" = "Anvender maskinlæring";
+"ai_loading_desc.extracting_semantic" = "Ekstraherer semantisk betydning";
+"ai_loading_desc.creating_definitions" = "Opretter omfattende definitioner";
+"ai_loading_desc.identifying_patterns" = "Identificerer brugsmønstre";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI tænker...";
+"ai_animation.analyzing_word" = "Analyserer dit ord med avanceret AI";
+"ai_animation.analyzing" = "AI analyserer...";
+"ai_animation.finding_definitions" = "Finder perfekte definitioner til dig";
+"ai_animation.processing" = "AI-behandling...";
+"ai_animation.learning" = "AI lærer...";
+"ai_animation.processing_neural" = "Behandler dit ord med neurale netværk";

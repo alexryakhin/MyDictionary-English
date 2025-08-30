@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d AI-pyyntöä jäljellä tänään";
+"ai_usage.unlimited_requests" = "Rajoittamattomat AI-pyynnöt Pro:lla";
+"ai_usage.upgrade_banner_title" = "Päivitä Pro:hon Rajoittamattomalle AI:lle";
+"ai_usage.upgrade_banner_message" = "Saa rajoittamattomia AI-pohjaisia määritelmiä, edistyneitä analyysejä ja muita premium-ominaisuuksia.";
+"ai_usage.upgrade_button" = "Päivitä Pro:hon";
+"ai_usage_limit_exceeded" = "Päivittäinen AI-käyttöraja saavutettu. Päivitä Pro:hon rajoittamattomille AI-pohjaisille määritelmille.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI laskee...";
+"ai_loading.analyzing_context" = "Analysoidaan kontekstia...";
+"ai_loading.finding_definitions" = "Etsitään määritelmiä...";
+"ai_loading.processing_language" = "Käsitellään kieltä...";
+"ai_loading.running_algorithms" = "Suoritetaan algoritmeja...";
+"ai_loading.understanding_meaning" = "Ymmärretään merkitystä...";
+"ai_loading.generating_insights" = "Generoidaan oivalluksia...";
+"ai_loading.learning_patterns" = "Opitaan kuvioita...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Suoritetaan edistyneitä algoritmeja";
+"ai_loading_desc.examining_relationships" = "Tutkitaan sanojen välisiä suhteita";
+"ai_loading_desc.searching_knowledge" = "Etsitään tietokannasta";
+"ai_loading_desc.understanding_nuances" = "Ymmärretään kielellisiä vivahduksia";
+"ai_loading_desc.applying_machine_learning" = "Sovelletaan koneoppimista";
+"ai_loading_desc.extracting_semantic" = "Poimitaan semanttista merkitystä";
+"ai_loading_desc.creating_definitions" = "Luodaan kattavia määritelmiä";
+"ai_loading_desc.identifying_patterns" = "Tunnistetaan käyttökuvioita";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI ajattelee...";
+"ai_animation.analyzing_word" = "Analysoidaan sanaasi edistyneellä AI:lla";
+"ai_animation.analyzing" = "AI analysoi...";
+"ai_animation.finding_definitions" = "Etsitään täydellisiä määritelmiä sinulle";
+"ai_animation.processing" = "AI-käsittely...";
+"ai_animation.learning" = "AI oppii...";
+"ai_animation.processing_neural" = "Käsitellään sanaasi neuroverkkoilla";

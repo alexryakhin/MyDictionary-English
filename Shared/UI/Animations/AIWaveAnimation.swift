@@ -37,15 +37,16 @@ struct AIWaveAnimation: View {
             }
             
             VStack(spacing: 8) {
-                Text("AI is learning...")
+                Text(Loc.Ai.AiAnimation.learning)
                     .font(.headline)
                     .foregroundStyle(.primary)
                 
-                Text("Processing your word with neural networks")
+                Text(Loc.Ai.AiAnimation.processingNeural)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
             }
+            .frame(maxWidth: .infinity, alignment: .center)
         }
         .padding(20)
         .background {

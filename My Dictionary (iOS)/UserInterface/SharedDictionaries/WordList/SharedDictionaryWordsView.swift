@@ -68,7 +68,6 @@ struct SharedDictionaryWordsView: View {
             }
         }
         .groupedBackground()
-        .animation(.default, value: viewModel.wordsFiltered)
         .animation(.default, value: viewModel.filterState)
         .animation(.default, value: viewModel.sortingState)
         .navigation(

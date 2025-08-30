@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d AI požadavků zbývá dnes";
+"ai_usage.unlimited_requests" = "Neomezené AI požadavky s Pro";
+"ai_usage.upgrade_banner_title" = "Upgradujte na Pro pro Neomezené AI";
+"ai_usage.upgrade_banner_message" = "Získejte neomezené definice poháněné AI, pokročilé analýzy a další prémiové funkce.";
+"ai_usage.upgrade_button" = "Upgradovat na Pro";
+"ai_usage_limit_exceeded" = "Dosáhnut denní limit použití AI. Upgradujte na Pro pro neomezené definice poháněné AI.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI počítá...";
+"ai_loading.analyzing_context" = "Analýza kontextu...";
+"ai_loading.finding_definitions" = "Hledání definic...";
+"ai_loading.processing_language" = "Zpracování jazyka...";
+"ai_loading.running_algorithms" = "Spouštění algoritmů...";
+"ai_loading.understanding_meaning" = "Porozumění významu...";
+"ai_loading.generating_insights" = "Generování poznatků...";
+"ai_loading.learning_patterns" = "Učení se vzorů...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Spouštění pokročilých algoritmů";
+"ai_loading_desc.examining_relationships" = "Zkoumání vztahů mezi slovy";
+"ai_loading_desc.searching_knowledge" = "Hledání v znalostní bázi";
+"ai_loading_desc.understanding_nuances" = "Porozumění jazykovým nuancím";
+"ai_loading_desc.applying_machine_learning" = "Aplikace strojového učení";
+"ai_loading_desc.extracting_semantic" = "Extrakce sémantického významu";
+"ai_loading_desc.creating_definitions" = "Vytváření komplexních definic";
+"ai_loading_desc.identifying_patterns" = "Identifikace vzorů použití";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI přemýšlí...";
+"ai_animation.analyzing_word" = "Analýza slova pokročilým AI";
+"ai_animation.analyzing" = "AI analyzuje...";
+"ai_animation.finding_definitions" = "Hledání perfektních definic pro vás";
+"ai_animation.processing" = "AI zpracování...";
+"ai_animation.learning" = "AI se učí...";
+"ai_animation.processing_neural" = "Zpracování slova neuronovými sítěmi";

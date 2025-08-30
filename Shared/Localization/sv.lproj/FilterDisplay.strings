@@ -23,3 +23,9 @@
 "words_appear_here_as_you_practice" = "Ord visas här när du övar med quiz";
 "words_need_more_practice" = "Ord som behöver mer övning visas här";
 
+// MARK: - Language Filter
+"language" = "Språk";
+"no_words_with_selected_language" = "Inga ord på detta språk";
+"no_idioms_with_selected_language" = "Inga idiomatiska uttryck på detta språk";
+"no_words_with_selected_language_description" = "Välj ett språk när du lägger till ett ord nästa gång";
+"no_idioms_with_selected_language_description" = "Välj ett språk när du lägger till ett idiomatiskt uttryck nästa gång";

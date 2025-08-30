@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d запросов ИИ осталось сегодня";
+"ai_usage.unlimited_requests" = "Неограниченные запросы ИИ с Pro";
+"ai_usage.upgrade_banner_title" = "Обновитесь до Pro для неограниченного ИИ";
+"ai_usage.upgrade_banner_message" = "Получите неограниченные определения на базе ИИ, расширенную аналитику и другие премиум-функции.";
+"ai_usage.upgrade_button" = "Обновиться до Pro";
+"ai_usage_limit_exceeded" = "Достигнут дневной лимит использования ИИ. Обновитесь до Pro для неограниченных определений на базе ИИ.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "ИИ вычисляет...";
+"ai_loading.analyzing_context" = "Анализируем контекст...";
+"ai_loading.finding_definitions" = "Ищем определения...";
+"ai_loading.processing_language" = "Обрабатываем язык...";
+"ai_loading.running_algorithms" = "Запускаем алгоритмы...";
+"ai_loading.understanding_meaning" = "Понимаем значение...";
+"ai_loading.generating_insights" = "Генерируем инсайты...";
+"ai_loading.learning_patterns" = "Изучаем паттерны...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Запуск продвинутых алгоритмов";
+"ai_loading_desc.examining_relationships" = "Изучение связей между словами";
+"ai_loading_desc.searching_knowledge" = "Поиск в базе знаний";
+"ai_loading_desc.understanding_nuances" = "Понимание языковых нюансов";
+"ai_loading_desc.applying_machine_learning" = "Применение машинного обучения";
+"ai_loading_desc.extracting_semantic" = "Извлечение семантического значения";
+"ai_loading_desc.creating_definitions" = "Создание комплексных определений";
+"ai_loading_desc.identifying_patterns" = "Выявление паттернов использования";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "ИИ думает...";
+"ai_animation.analyzing_word" = "Анализируем ваше слово с продвинутым ИИ";
+"ai_animation.analyzing" = "ИИ анализирует...";
+"ai_animation.finding_definitions" = "Ищем идеальные определения для вас";
+"ai_animation.processing" = "Обработка ИИ...";
+"ai_animation.learning" = "ИИ учится...";
+"ai_animation.processing_neural" = "Обрабатываем ваше слово нейронными сетями";

@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d AI kérés maradt ma";
+"ai_usage.unlimited_requests" = "Korlátlan AI kérések Pro-val";
+"ai_usage.upgrade_banner_title" = "Frissítsen Pro-ra Korlátlan AI-ért";
+"ai_usage.upgrade_banner_message" = "Szerezzen korlátlan AI-alapú definíciókat, fejlett elemzéseket és további prémium funkciókat.";
+"ai_usage.upgrade_button" = "Frissítés Pro-ra";
+"ai_usage_limit_exceeded" = "Elérte a napi AI használati limitet. Frissítsen Pro-ra korlátlan AI-alapú definíciókért.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI számol...";
+"ai_loading.analyzing_context" = "Kontextus elemzése...";
+"ai_loading.finding_definitions" = "Definíciók keresése...";
+"ai_loading.processing_language" = "Nyelv feldolgozása...";
+"ai_loading.running_algorithms" = "Algoritmusok futtatása...";
+"ai_loading.understanding_meaning" = "Jelentés megértése...";
+"ai_loading.generating_insights" = "Bepillantások generálása...";
+"ai_loading.learning_patterns" = "Minták tanulása...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Fejlett algoritmusok futtatása";
+"ai_loading_desc.examining_relationships" = "Szókapcsolatok vizsgálata";
+"ai_loading_desc.searching_knowledge" = "Tudásbázis keresése";
+"ai_loading_desc.understanding_nuances" = "Nyelvi árnyalatok megértése";
+"ai_loading_desc.applying_machine_learning" = "Gépi tanulás alkalmazása";
+"ai_loading_desc.extracting_semantic" = "Szemantikai jelentés kinyerése";
+"ai_loading_desc.creating_definitions" = "Átfogó definíciók létrehozása";
+"ai_loading_desc.identifying_patterns" = "Használati minták azonosítása";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI gondolkodik...";
+"ai_animation.analyzing_word" = "Szó elemzése fejlett AI-val";
+"ai_animation.analyzing" = "AI elemzi...";
+"ai_animation.finding_definitions" = "Tökéletes definíciók keresése Önnek";
+"ai_animation.processing" = "AI feldolgozás...";
+"ai_animation.learning" = "AI tanul...";
+"ai_animation.processing_neural" = "Szó feldolgozása neurális hálózatokkal";

@@ -27,15 +27,16 @@ struct AIBrainPulseAnimation: View {
                 )
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("AI is thinking...")
+                Text(Loc.Ai.AiAnimation.thinking)
                     .font(.headline)
                     .foregroundStyle(.primary)
                 
-                Text("Analyzing your word with advanced AI")
+                Text(Loc.Ai.AiAnimation.analyzingWord)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
-            
+            .frame(maxWidth: .infinity, alignment: .leading)
+
             Spacer()
             
             // Rotating dots

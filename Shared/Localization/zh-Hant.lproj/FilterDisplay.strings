@@ -23,3 +23,9 @@
 "words_appear_here_as_you_practice" = "單詞在測驗練習中會出現在這裡";
 "words_need_more_practice" = "需要更多練習的單詞會出現在這裡";
 
+// MARK: - Language Filter
+"language" = "語言";
+"no_words_with_selected_language" = "此語言暫無單詞";
+"no_idioms_with_selected_language" = "此語言暫無習語";
+"no_words_with_selected_language_description" = "下次添加單詞時請選擇語言";
+"no_idioms_with_selected_language_description" = "下次添加習語時請選擇語言";

@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "오늘 남은 AI 요청 %d회";
+"ai_usage.unlimited_requests" = "Pro로 무제한 AI 요청";
+"ai_usage.upgrade_banner_title" = "Pro로 업그레이드하여 무제한 AI";
+"ai_usage.upgrade_banner_message" = "AI 기반 정의를 무제한으로 받고, 고급 분석 및 기타 프리미엄 기능을 이용하세요.";
+"ai_usage.upgrade_button" = "Pro로 업그레이드";
+"ai_usage_limit_exceeded" = "일일 AI 사용 한도에 도달했습니다. Pro로 업그레이드하여 무제한 AI 기반 정의를 받으세요.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI가 계산 중...";
+"ai_loading.analyzing_context" = "컨텍스트 분석 중...";
+"ai_loading.finding_definitions" = "정의 검색 중...";
+"ai_loading.processing_language" = "언어 처리 중...";
+"ai_loading.running_algorithms" = "알고리즘 실행 중...";
+"ai_loading.understanding_meaning" = "의미 이해 중...";
+"ai_loading.generating_insights" = "인사이트 생성 중...";
+"ai_loading.learning_patterns" = "패턴 학습 중...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "고급 알고리즘 실행 중";
+"ai_loading_desc.examining_relationships" = "단어 간 관계 조사 중";
+"ai_loading_desc.searching_knowledge" = "지식 베이스 검색 중";
+"ai_loading_desc.understanding_nuances" = "언어 뉘앙스 이해 중";
+"ai_loading_desc.applying_machine_learning" = "머신러닝 적용 중";
+"ai_loading_desc.extracting_semantic" = "의미론적 의미 추출 중";
+"ai_loading_desc.creating_definitions" = "포괄적 정의 생성 중";
+"ai_loading_desc.identifying_patterns" = "사용 패턴 식별 중";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI가 생각 중...";
+"ai_animation.analyzing_word" = "고급 AI로 단어 분석 중";
+"ai_animation.analyzing" = "AI가 분석 중...";
+"ai_animation.finding_definitions" = "완벽한 정의 검색 중";
+"ai_animation.processing" = "AI 처리 중...";
+"ai_animation.learning" = "AI가 학습 중...";
+"ai_animation.processing_neural" = "신경망으로 단어 처리 중";

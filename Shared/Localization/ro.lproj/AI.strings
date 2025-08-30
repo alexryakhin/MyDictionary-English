@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d cereri AI rămase astăzi";
+"ai_usage.unlimited_requests" = "Cereri AI nelimitate cu Pro";
+"ai_usage.upgrade_banner_title" = "Actualizează la Pro pentru AI Nelimitat";
+"ai_usage.upgrade_banner_message" = "Obține definiții alimentate de AI nelimitate, analize avansate și mai multe funcții premium.";
+"ai_usage.upgrade_button" = "Actualizează la Pro";
+"ai_usage_limit_exceeded" = "Limita zilnică de utilizare AI atinsă. Actualizează la Pro pentru definiții alimentate de AI nelimitate.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI calculează...";
+"ai_loading.analyzing_context" = "Analizarea contextului...";
+"ai_loading.finding_definitions" = "Căutarea definițiilor...";
+"ai_loading.processing_language" = "Procesarea limbii...";
+"ai_loading.running_algorithms" = "Rularea algoritmilor...";
+"ai_loading.understanding_meaning" = "Înțelegerea sensului...";
+"ai_loading.generating_insights" = "Generarea insight-urilor...";
+"ai_loading.learning_patterns" = "Învățarea modelelor...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Rularea algoritmilor avansați";
+"ai_loading_desc.examining_relationships" = "Examinarea relațiilor între cuvinte";
+"ai_loading_desc.searching_knowledge" = "Căutarea în baza de cunoștințe";
+"ai_loading_desc.understanding_nuances" = "Înțelegerea nuanțelor lingvistice";
+"ai_loading_desc.applying_machine_learning" = "Aplicarea învățării automate";
+"ai_loading_desc.extracting_semantic" = "Extragerea semnificației semantice";
+"ai_loading_desc.creating_definitions" = "Crearea definițiilor cuprinzătoare";
+"ai_loading_desc.identifying_patterns" = "Identificarea modelelor de utilizare";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI gândește...";
+"ai_animation.analyzing_word" = "Analizarea cuvântului tău cu AI avansat";
+"ai_animation.analyzing" = "AI analizează...";
+"ai_animation.finding_definitions" = "Găsirea definițiilor perfecte pentru tine";
+"ai_animation.processing" = "Procesarea AI...";
+"ai_animation.learning" = "AI învață...";
+"ai_animation.processing_neural" = "Procesarea cuvântului tău cu rețele neuronale";

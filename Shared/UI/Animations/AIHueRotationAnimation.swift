@@ -27,10 +27,11 @@ struct AIHueRotationAnimation: View {
                 )
             
             VStack(alignment: .leading, spacing: 6) {
-                Text("AI Processing...")
+                Text(Loc.Ai.AiAnimation.processing)
                     .font(.headline)
                     .foregroundStyle(.primary)
-                
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
                 // Animated progress dots
                 HStack(spacing: 4) {
                     ForEach(0..<3, id: \.self) { index in

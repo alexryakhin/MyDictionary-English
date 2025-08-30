@@ -37,3 +37,9 @@
 "words_need_more_practice" = "A több gyakorlást igénylő szavak itt jelennek meg";
 "idioms_need_more_practice" = "A több gyakorlást igénylő idiómák itt jelennek meg";
 
+// MARK: - Language Filter
+"language" = "Nyelv";
+"no_words_with_selected_language" = "Nincsenek szavak ebben a nyelvben";
+"no_idioms_with_selected_language" = "Nincsenek idiómák ebben a nyelvben";
+"no_words_with_selected_language_description" = "Válassz nyelvet, amikor legközelebb hozzáadsz egy szót";
+"no_idioms_with_selected_language_description" = "Válassz nyelvet, amikor legközebb hozzáadsz egy idiómát";

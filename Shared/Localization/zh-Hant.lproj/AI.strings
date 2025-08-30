@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "今日剩餘%d次AI請求";
+"ai_usage.unlimited_requests" = "Pro版無限AI請求";
+"ai_usage.upgrade_banner_title" = "升級到Pro獲得無限AI";
+"ai_usage.upgrade_banner_message" = "獲得無限AI驅動的定義、高級分析和其他高級功能。";
+"ai_usage.upgrade_button" = "升級到Pro";
+"ai_usage_limit_exceeded" = "已達到每日AI使用限制。升級到Pro獲得無限AI驅動的定義。";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI正在計算...";
+"ai_loading.analyzing_context" = "分析上下文...";
+"ai_loading.finding_definitions" = "查找定義...";
+"ai_loading.processing_language" = "處理語言...";
+"ai_loading.running_algorithms" = "運行算法...";
+"ai_loading.understanding_meaning" = "理解含義...";
+"ai_loading.generating_insights" = "生成洞察...";
+"ai_loading.learning_patterns" = "學習模式...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "運行高級算法";
+"ai_loading_desc.examining_relationships" = "檢查詞彙關係";
+"ai_loading_desc.searching_knowledge" = "搜索知識庫";
+"ai_loading_desc.understanding_nuances" = "理解語言細微差別";
+"ai_loading_desc.applying_machine_learning" = "應用機器學習";
+"ai_loading_desc.extracting_semantic" = "提取語義含義";
+"ai_loading_desc.creating_definitions" = "創建全面定義";
+"ai_loading_desc.identifying_patterns" = "識別使用模式";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI正在思考...";
+"ai_animation.analyzing_word" = "用高級AI分析您的詞彙";
+"ai_animation.analyzing" = "AI正在分析...";
+"ai_animation.finding_definitions" = "為您找到完美定義";
+"ai_animation.processing" = "AI處理中...";
+"ai_animation.learning" = "AI正在學習...";
+"ai_animation.processing_neural" = "用神經網絡處理您的詞彙";

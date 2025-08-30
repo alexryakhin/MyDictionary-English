@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "今日残り%d回のAIリクエスト";
+"ai_usage.unlimited_requests" = "Proで無制限のAIリクエスト";
+"ai_usage.upgrade_banner_title" = "Proにアップグレードして無制限のAI";
+"ai_usage.upgrade_banner_message" = "AI駆動の定義を無制限に取得し、高度な分析やその他のプレミアム機能を利用できます。";
+"ai_usage.upgrade_button" = "Proにアップグレード";
+"ai_usage_limit_exceeded" = "1日のAI使用制限に達しました。Proにアップグレードして無制限のAI駆動定義を取得してください。";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AIが計算中...";
+"ai_loading.analyzing_context" = "コンテキストを分析中...";
+"ai_loading.finding_definitions" = "定義を検索中...";
+"ai_loading.processing_language" = "言語を処理中...";
+"ai_loading.running_algorithms" = "アルゴリズムを実行中...";
+"ai_loading.understanding_meaning" = "意味を理解中...";
+"ai_loading.generating_insights" = "洞察を生成中...";
+"ai_loading.learning_patterns" = "パターンを学習中...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "高度なアルゴリズムを実行中";
+"ai_loading_desc.examining_relationships" = "単語間の関係を調査中";
+"ai_loading_desc.searching_knowledge" = "知識ベースを検索中";
+"ai_loading_desc.understanding_nuances" = "言語のニュアンスを理解中";
+"ai_loading_desc.applying_machine_learning" = "機械学習を適用中";
+"ai_loading_desc.extracting_semantic" = "意味論的意味を抽出中";
+"ai_loading_desc.creating_definitions" = "包括的な定義を作成中";
+"ai_loading_desc.identifying_patterns" = "使用パターンを識別中";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AIが考え中...";
+"ai_animation.analyzing_word" = "高度なAIで単語を分析中";
+"ai_animation.analyzing" = "AIが分析中...";
+"ai_animation.finding_definitions" = "完璧な定義を検索中";
+"ai_animation.processing" = "AI処理中...";
+"ai_animation.learning" = "AIが学習中...";
+"ai_animation.processing_neural" = "ニューラルネットワークで単語を処理中";

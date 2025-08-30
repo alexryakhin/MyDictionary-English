@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Las palabras que necesitan más práctica aparecerán aquí";
 "idioms_need_more_practice" = "Las expresiones que necesitan más práctica aparecerán aquí";
 
+// MARK: - Language Filter
+"language" = "Idioma";
+"no_words_with_selected_language" = "No hay palabras en este idioma";
+"no_idioms_with_selected_language" = "No hay expresiones en este idioma";
+"no_words_with_selected_language_description" = "Selecciona un idioma cuando añadas una palabra la próxima vez";
+"no_idioms_with_selected_language_description" = "Selecciona un idioma cuando añadas una expresión la próxima vez";

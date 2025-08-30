@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Ord som trenger mer øvelse vil vises her";
 "idioms_need_more_practice" = "Uttrykk som trenger mer øvelse vil vises her";
 
+// MARK: - Language Filter
+"language" = "Språk";
+"no_words_with_selected_language" = "Ingen ord på dette språket";
+"no_idioms_with_selected_language" = "Ingen uttrykk på dette språket";
+"no_words_with_selected_language_description" = "Velg et språk neste gang du legger til et ord";
+"no_idioms_with_selected_language_description" = "Velg et språk neste gang du legger til et uttrykk";

@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d zapytań AI pozostało dziś";
+"ai_usage.unlimited_requests" = "Nieograniczone zapytania AI z Pro";
+"ai_usage.upgrade_banner_title" = "Przejdź na Pro dla Nieograniczonego AI";
+"ai_usage.upgrade_banner_message" = "Otrzymuj nieograniczone definicje napędzane AI, zaawansowane analizy i więcej funkcji premium.";
+"ai_usage.upgrade_button" = "Przejdź na Pro";
+"ai_usage_limit_exceeded" = "Osiągnięto dzienny limit użycia AI. Przejdź na Pro dla nieograniczonych definicji napędzanych AI.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI oblicza...";
+"ai_loading.analyzing_context" = "Analizowanie kontekstu...";
+"ai_loading.finding_definitions" = "Wyszukiwanie definicji...";
+"ai_loading.processing_language" = "Przetwarzanie języka...";
+"ai_loading.running_algorithms" = "Uruchamianie algorytmów...";
+"ai_loading.understanding_meaning" = "Rozumienie znaczenia...";
+"ai_loading.generating_insights" = "Generowanie spostrzeżeń...";
+"ai_loading.learning_patterns" = "Uczenie się wzorców...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Uruchamianie zaawansowanych algorytmów";
+"ai_loading_desc.examining_relationships" = "Badanie relacji między słowami";
+"ai_loading_desc.searching_knowledge" = "Przeszukiwanie bazy wiedzy";
+"ai_loading_desc.understanding_nuances" = "Rozumienie niuansów językowych";
+"ai_loading_desc.applying_machine_learning" = "Stosowanie uczenia maszynowego";
+"ai_loading_desc.extracting_semantic" = "Ekstrakcja znaczenia semantycznego";
+"ai_loading_desc.creating_definitions" = "Tworzenie kompleksowych definicji";
+"ai_loading_desc.identifying_patterns" = "Identyfikacja wzorców użycia";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI myśli...";
+"ai_animation.analyzing_word" = "Analizowanie słowa zaawansowanym AI";
+"ai_animation.analyzing" = "AI analizuje...";
+"ai_animation.finding_definitions" = "Znajdowanie idealnych definicji dla Ciebie";
+"ai_animation.processing" = "Przetwarzanie AI...";
+"ai_animation.learning" = "AI się uczy...";
+"ai_animation.processing_neural" = "Przetwarzanie słowa sieciami neuronowymi";

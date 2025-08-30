@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d KI-Anfragen heute übrig";
+"ai_usage.unlimited_requests" = "Unbegrenzte KI-Anfragen mit Pro";
+"ai_usage.upgrade_banner_title" = "Upgrade auf Pro für unbegrenzte KI";
+"ai_usage.upgrade_banner_message" = "Erhalten Sie unbegrenzte KI-gestützte Definitionen, erweiterte Analysen und weitere Premium-Funktionen.";
+"ai_usage.upgrade_button" = "Auf Pro upgraden";
+"ai_usage_limit_exceeded" = "Tägliches KI-Nutzungslimit erreicht. Upgrade auf Pro für unbegrenzte KI-gestützte Definitionen.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "KI berechnet...";
+"ai_loading.analyzing_context" = "Kontext analysieren...";
+"ai_loading.finding_definitions" = "Definitionen finden...";
+"ai_loading.processing_language" = "Sprache verarbeiten...";
+"ai_loading.running_algorithms" = "Algorithmen ausführen...";
+"ai_loading.understanding_meaning" = "Bedeutung verstehen...";
+"ai_loading.generating_insights" = "Einblicke generieren...";
+"ai_loading.learning_patterns" = "Muster lernen...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Erweiterte Algorithmen ausführen";
+"ai_loading_desc.examining_relationships" = "Wortbeziehungen untersuchen";
+"ai_loading_desc.searching_knowledge" = "Wissensdatenbank durchsuchen";
+"ai_loading_desc.understanding_nuances" = "Sprachnuancen verstehen";
+"ai_loading_desc.applying_machine_learning" = "Maschinelles Lernen anwenden";
+"ai_loading_desc.extracting_semantic" = "Semantische Bedeutung extrahieren";
+"ai_loading_desc.creating_definitions" = "Umfassende Definitionen erstellen";
+"ai_loading_desc.identifying_patterns" = "Nutzungsmuster identifizieren";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "KI denkt...";
+"ai_animation.analyzing_word" = "Ihr Wort mit fortschrittlicher KI analysieren";
+"ai_animation.analyzing" = "KI analysiert...";
+"ai_animation.finding_definitions" = "Perfekte Definitionen für Sie finden";
+"ai_animation.processing" = "KI-Verarbeitung...";
+"ai_animation.learning" = "KI lernt...";
+"ai_animation.processing_neural" = "Ihr Wort mit neuronalen Netzen verarbeiten";

@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d yêu cầu AI còn lại hôm nay";
+"ai_usage.unlimited_requests" = "Yêu cầu AI không giới hạn với Pro";
+"ai_usage.upgrade_banner_title" = "Nâng cấp lên Pro cho AI Không giới hạn";
+"ai_usage.upgrade_banner_message" = "Nhận định nghĩa được hỗ trợ bởi AI không giới hạn, phân tích nâng cao và nhiều tính năng premium khác.";
+"ai_usage.upgrade_button" = "Nâng cấp lên Pro";
+"ai_usage_limit_exceeded" = "Đã đạt giới hạn sử dụng AI hàng ngày. Nâng cấp lên Pro cho định nghĩa được hỗ trợ bởi AI không giới hạn.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI đang tính toán...";
+"ai_loading.analyzing_context" = "Phân tích ngữ cảnh...";
+"ai_loading.finding_definitions" = "Tìm định nghĩa...";
+"ai_loading.processing_language" = "Xử lý ngôn ngữ...";
+"ai_loading.running_algorithms" = "Chạy thuật toán...";
+"ai_loading.understanding_meaning" = "Hiểu ý nghĩa...";
+"ai_loading.generating_insights" = "Tạo thông tin chi tiết...";
+"ai_loading.learning_patterns" = "Học mẫu...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Chạy thuật toán nâng cao";
+"ai_loading_desc.examining_relationships" = "Kiểm tra mối quan hệ giữa các từ";
+"ai_loading_desc.searching_knowledge" = "Tìm kiếm trong cơ sở kiến thức";
+"ai_loading_desc.understanding_nuances" = "Hiểu sắc thái ngôn ngữ";
+"ai_loading_desc.applying_machine_learning" = "Áp dụng học máy";
+"ai_loading_desc.extracting_semantic" = "Trích xuất ý nghĩa ngữ nghĩa";
+"ai_loading_desc.creating_definitions" = "Tạo định nghĩa toàn diện";
+"ai_loading_desc.identifying_patterns" = "Xác định mẫu sử dụng";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI đang suy nghĩ...";
+"ai_animation.analyzing_word" = "Phân tích từ của bạn với AI nâng cao";
+"ai_animation.analyzing" = "AI đang phân tích...";
+"ai_animation.finding_definitions" = "Tìm định nghĩa hoàn hảo cho bạn";
+"ai_animation.processing" = "Xử lý AI...";
+"ai_animation.learning" = "AI đang học...";
+"ai_animation.processing_neural" = "Xử lý từ của bạn với mạng nơ-ron";

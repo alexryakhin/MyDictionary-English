@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d AI požiadaviek zostáva dnes";
+"ai_usage.unlimited_requests" = "Neobmedzené AI požiadavky s Pro";
+"ai_usage.upgrade_banner_title" = "Inovujte na Pro pre Neobmedzené AI";
+"ai_usage.upgrade_banner_message" = "Získajte neobmedzené definície poháňané AI, pokročilé analýzy a ďalšie prémiové funkcie.";
+"ai_usage.upgrade_button" = "Inovovať na Pro";
+"ai_usage_limit_exceeded" = "Dosiahnutý denný limit používania AI. Inovujte na Pro pre neobmedzené definície poháňané AI.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI počíta...";
+"ai_loading.analyzing_context" = "Analýza kontextu...";
+"ai_loading.finding_definitions" = "Hľadanie definícií...";
+"ai_loading.processing_language" = "Spracovanie jazyka...";
+"ai_loading.running_algorithms" = "Spúšťanie algoritmov...";
+"ai_loading.understanding_meaning" = "Pochopenie významu...";
+"ai_loading.generating_insights" = "Generovanie poznatkov...";
+"ai_loading.learning_patterns" = "Učenie sa vzorov...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Spúšťanie pokročilých algoritmov";
+"ai_loading_desc.examining_relationships" = "Skúmanie vzťahov medzi slovami";
+"ai_loading_desc.searching_knowledge" = "Hľadanie v znalostnej báze";
+"ai_loading_desc.understanding_nuances" = "Pochopenie jazykových nuancií";
+"ai_loading_desc.applying_machine_learning" = "Aplikácia strojového učenia";
+"ai_loading_desc.extracting_semantic" = "Extrakcia sémantického významu";
+"ai_loading_desc.creating_definitions" = "Vytváranie komplexných definícií";
+"ai_loading_desc.identifying_patterns" = "Identifikácia vzorov používania";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI myslí...";
+"ai_animation.analyzing_word" = "Analýza slova pokročilým AI";
+"ai_animation.analyzing" = "AI analyzuje...";
+"ai_animation.finding_definitions" = "Hľadanie perfektných definícií pre vás";
+"ai_animation.processing" = "AI spracovanie...";
+"ai_animation.learning" = "AI sa učí...";
+"ai_animation.processing_neural" = "Spracovanie slova neurónovými sieťami";

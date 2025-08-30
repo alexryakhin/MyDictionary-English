@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "เหลือคำขอ AI %d ครั้งวันนี้";
+"ai_usage.unlimited_requests" = "คำขอ AI ไม่จำกัดด้วย Pro";
+"ai_usage.upgrade_banner_title" = "อัปเกรดเป็น Pro สำหรับ AI ไม่จำกัด";
+"ai_usage.upgrade_banner_message" = "รับคำจำกัดความที่ขับเคลื่อนด้วย AI ไม่จำกัด การวิเคราะห์ขั้นสูง และคุณสมบัติพรีเมียมเพิ่มเติม";
+"ai_usage.upgrade_button" = "อัปเกรดเป็น Pro";
+"ai_usage_limit_exceeded" = "ถึงขีดจำกัดการใช้งาน AI รายวันแล้ว อัปเกรดเป็น Pro สำหรับคำจำกัดความที่ขับเคลื่อนด้วย AI ไม่จำกัด";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI กำลังคำนวณ...";
+"ai_loading.analyzing_context" = "วิเคราะห์บริบท...";
+"ai_loading.finding_definitions" = "ค้นหาคำจำกัดความ...";
+"ai_loading.processing_language" = "ประมวลผลภาษา...";
+"ai_loading.running_algorithms" = "รันอัลกอริทึม...";
+"ai_loading.understanding_meaning" = "เข้าใจความหมาย...";
+"ai_loading.generating_insights" = "สร้างข้อมูลเชิงลึก...";
+"ai_loading.learning_patterns" = "เรียนรู้รูปแบบ...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "รันอัลกอริทึมขั้นสูง";
+"ai_loading_desc.examining_relationships" = "ตรวจสอบความสัมพันธ์ระหว่างคำ";
+"ai_loading_desc.searching_knowledge" = "ค้นหาในฐานความรู้";
+"ai_loading_desc.understanding_nuances" = "เข้าใจความแตกต่างของภาษา";
+"ai_loading_desc.applying_machine_learning" = "ใช้การเรียนรู้ของเครื่อง";
+"ai_loading_desc.extracting_semantic" = "ดึงความหมายเชิงความหมาย";
+"ai_loading_desc.creating_definitions" = "สร้างคำจำกัดความที่ครอบคลุม";
+"ai_loading_desc.identifying_patterns" = "ระบุรูปแบบการใช้งาน";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI กำลังคิด...";
+"ai_animation.analyzing_word" = "วิเคราะห์คำของคุณด้วย AI ขั้นสูง";
+"ai_animation.analyzing" = "AI กำลังวิเคราะห์...";
+"ai_animation.finding_definitions" = "ค้นหาคำจำกัดความที่สมบูรณ์แบบสำหรับคุณ";
+"ai_animation.processing" = "ประมวลผล AI...";
+"ai_animation.learning" = "AI กำลังเรียนรู้...";
+"ai_animation.processing_neural" = "ประมวลผลคำของคุณด้วยเครือข่ายประสาท";

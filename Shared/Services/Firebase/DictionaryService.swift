@@ -888,7 +888,7 @@ enum DictionaryError: Error, LocalizedError {
         case .dictionaryLimitReached:
             return Loc.Errors.dictionaryLimitReached
         case .aiUsageLimitExceeded:
-            return Loc.Errors.aiUsageLimitExceeded
+            return Loc.Ai.aiUsageLimitExceeded
         }
     }
 }

@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Οι λέξεις που χρειάζονται περισσότερη εξάσκηση θα εμφανιστούν εδώ";
 "idioms_need_more_practice" = "Οι ιδιωματισμοί που χρειάζονται περισσότερη εξάσκηση θα εμφανιστούν εδώ";
 
+// MARK: - Language Filter
+"language" = "Γλώσσα";
+"no_words_with_selected_language" = "Καμία λέξη σε αυτή τη γλώσσα";
+"no_idioms_with_selected_language" = "Κανένας ιδιωματισμός σε αυτή τη γλώσσα";
+"no_words_with_selected_language_description" = "Επιλέξτε μια γλώσσα όταν προσθέτετε μια λέξη την επόμενη φορά";
+"no_idioms_with_selected_language_description" = "Επιλέξτε μια γλώσσα όταν προσθέτετε έναν ιδιωματισμό την επόμενη φορά";

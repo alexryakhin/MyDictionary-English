@@ -37,3 +37,9 @@
 "words_need_more_practice" = "מילים שצריכות יותר תרגול יופיעו כאן";
 "idioms_need_more_practice" = "ביטויים שצריכים יותר תרגול יופיעו כאן";
 
+// MARK: - Language Filter
+"language" = "שפה";
+"no_words_with_selected_language" = "אין מילים בשפה זו";
+"no_idioms_with_selected_language" = "אין ביטויים בשפה זו";
+"no_words_with_selected_language_description" = "בחר שפה בפעם הבאה שתוסיף מילה";
+"no_idioms_with_selected_language_description" = "בחר שפה בפעם הבאה שתוסיף ביטוי";

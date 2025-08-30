@@ -218,25 +218,31 @@ struct AddWordView: View {
         CustomSectionView(header: Loc.Words.selectDefinition, hPadding: .zero) {
             switch viewModel.status {
             case .loading:
-                VStack(spacing: 16) {
-                    LazyVStack {
-                        ForEach(0..<3) { _ in
-                            ShimmerView(height: 100)
+                if viewModel.isUsingAI {
+                    AICircularProgressAnimation()
+                        .frame(maxWidth: 350)
+                        .padding(.horizontal, 16)
+                } else {
+                    VStack(spacing: 16) {
+                        LazyVStack {
+                            ForEach(0..<3) { _ in
+                                ShimmerView(height: 100)
+                            }
                         }
-                    }
 
-                    if viewModel.isTranslating {
-                        HStack {
-                            LoaderView()
-                                .frame(width: 24, height: 24)
-                            Text(GlobalConstant.isEnglishLanguage ? Loc.Words.translatingWord : Loc.Words.translatingDefinitions)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                        if viewModel.isTranslating {
+                            HStack {
+                                LoaderView()
+                                    .frame(width: 24, height: 24)
+                                Text(GlobalConstant.isEnglishLanguage ? Loc.Words.translatingWord : Loc.Words.translatingDefinitions)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .padding(.top, 8)
                         }
-                        .padding(.top, 8)
                     }
+                    .padding(.horizontal, 16)
                 }
-                .padding(.horizontal, 16)
             case .error:
                 ContentUnavailableView {
                     Image(systemName: "exclamationmark.triangle")
@@ -357,9 +363,9 @@ struct AddWordView: View {
                     .foregroundStyle(.secondary)
                     .font(.caption)
                 
-                Text(viewModel.aiRemainingRequests == 0 ? 
-                     Loc.Words.AIUsage.unlimitedRequests : 
-                     Loc.Words.AIUsage.remainingRequests(viewModel.aiRemainingRequests))
+                                  Text(viewModel.aiRemainingRequests == 0 ? 
+                      Loc.Ai.AiUsage.unlimitedRequests : 
+                      Loc.Ai.AiUsage.remainingRequests(viewModel.aiRemainingRequests))
                     .font(.caption)
                     .foregroundStyle(.secondary)
                 
@@ -379,11 +385,11 @@ struct AddWordView: View {
                     .font(.title2)
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(Loc.Words.AIUsage.upgradeBannerTitle)
+                    Text(Loc.Ai.AiUsage.upgradeBannerTitle)
                         .font(.headline)
                         .foregroundStyle(.primary)
                     
-                    Text(Loc.Words.AIUsage.upgradeBannerMessage)
+                    Text(Loc.Ai.AiUsage.upgradeBannerMessage)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.leading)
@@ -392,7 +398,7 @@ struct AddWordView: View {
                 Spacer()
             }
             
-            HeaderButton(Loc.Words.AIUsage.upgradeButton, style: .borderedProminent) {
+            HeaderButton(Loc.Ai.AiUsage.upgradeButton, style: .borderedProminent) {
                 // Navigate to subscription screen
                 // This will be handled by the parent view or navigation
                 AnalyticsService.shared.logEvent(.paywallPresented)

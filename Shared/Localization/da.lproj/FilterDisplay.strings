@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Ord, der kræver mere øvelse, vil vises her";
 "idioms_need_more_practice" = "Idiomer, der kræver mere øvelse, vil vises her";
 
+// MARK: - Language Filter
+"language" = "Sprog";
+"no_words_with_selected_language" = "Ingen ord på dette sprog";
+"no_idioms_with_selected_language" = "Ingen idiomer på dette sprog";
+"no_words_with_selected_language_description" = "Vælg et sprog næste gang du tilføjer et ord";
+"no_idioms_with_selected_language_description" = "Vælg et sprog næste gang du tilføjer et idiom";

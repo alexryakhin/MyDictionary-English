@@ -42,7 +42,7 @@ struct VocabularyListView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
+            LazyVStack(spacing: 16) {
                 wordsSection
                 idiomsSection
                 ratingBannerView
@@ -97,9 +97,9 @@ struct VocabularyListView: View {
         .onChange(of: wordListViewModel.words.count) {
             checkAndShowRatingBanner()
         }
-        .onChange(of: searchText) { newValue in
-            wordListViewModel.searchText = newValue
-            idiomListViewModel.searchText = newValue
+        .onChange(of: searchText) {
+            wordListViewModel.searchText = searchText
+            idiomListViewModel.searchText = searchText
         }
     }
 
@@ -114,7 +114,7 @@ struct VocabularyListView: View {
             if wordListViewModel.wordsFiltered.isNotEmpty {
                 ListWithDivider(wordListViewModel.wordsFiltered) { wordModel in
                     WordListCellView(word: wordModel)
-                        .id(wordModel.id)
+                        .id(wordModel)
                         .onTap {
                             wordListViewModel.output.send(.showWordDetails(wordModel))
                         }
@@ -148,7 +148,6 @@ struct VocabularyListView: View {
                 wordListViewModel.output.send(.showAddWord(searchText))
             }
         }
-        .animation(.default, value: wordListViewModel.wordsFiltered)
         .animation(.default, value: wordListViewModel.filterState)
         .animation(.default, value: wordListViewModel.sortingState)
     }
@@ -167,7 +166,7 @@ struct VocabularyListView: View {
                         idiomListViewModel.output.send(.showIdiomDetails(idiomModel))
                     } label: {
                         WordListCellView(word: idiomModel)
-                            .id(idiomModel.id)
+                            .id(idiomModel)
                     }
                     .buttonStyle(.plain)
                     .contextMenu {
@@ -197,7 +196,6 @@ struct VocabularyListView: View {
                 idiomListViewModel.output.send(.showAddIdiom(searchText))
             }
         }
-        .animation(.default, value: idiomListViewModel.idiomsFiltered)
         .animation(.default, value: idiomListViewModel.filterState)
     }
 

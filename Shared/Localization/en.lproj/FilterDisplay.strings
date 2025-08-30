@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Words that need more practice will appear here";
 "idioms_need_more_practice" = "Idioms that need more practice will appear here";
 
+// MARK: - Language Filter
+"language" = "Language";
+"no_words_with_selected_language" = "No words in this language";
+"no_idioms_with_selected_language" = "No idioms in this language";
+"no_words_with_selected_language_description" = "Select a language when you add a word next time";
+"no_idioms_with_selected_language_description" = "Select a language when you add a idiom next time";

@@ -37,3 +37,9 @@
 "words_need_more_practice" = "さらに練習が必要な単語がここに表示されます";
 "idioms_need_more_practice" = "さらに練習が必要な慣用句がここに表示されます";
 
+// MARK: - Language Filter
+"language" = "言語";
+"no_words_with_selected_language" = "この言語の単語がありません";
+"no_idioms_with_selected_language" = "この言語の慣用句がありません";
+"no_words_with_selected_language_description" = "次回単語を追加する際に言語を選択してください";
+"no_idioms_with_selected_language_description" = "次回慣用句を追加する際に言語を選択してください";

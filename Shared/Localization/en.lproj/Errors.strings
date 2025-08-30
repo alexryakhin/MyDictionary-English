@@ -65,7 +65,6 @@
 "permission_denied" = "You don't have permission to perform this action";
 "user_not_authenticated" = "User must be authenticated";
 "dictionary_limit_reached" = "You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries.";
-"ai_usage_limit_exceeded" = "Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.";
 
 
 "something_went_wrong" = "Something went wrong";

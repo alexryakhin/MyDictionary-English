@@ -37,3 +37,9 @@
 "words_need_more_practice" = "Riječi koje zahtijevaju više vježbe pojavit će se ovdje";
 "idioms_need_more_practice" = "Idiomi koji zahtijevaju više vježbe pojavit će se ovdje";
 
+// MARK: - Language Filter
+"language" = "Jezik";
+"no_words_with_selected_language" = "Nema riječi na ovom jeziku";
+"no_idioms_with_selected_language" = "Nema idioma na ovom jeziku";
+"no_words_with_selected_language_description" = "Odaberite jezik sljedeći put kada dodate riječ";
+"no_idioms_with_selected_language_description" = "Odaberite jezik sljedeći put kada dodate idiom";

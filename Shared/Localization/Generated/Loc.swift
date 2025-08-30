@@ -128,6 +128,76 @@ public enum Loc {
     /// Yes
     public static let yes = Loc.tr("Actions", "yes", fallback: "Yes")
   }
+  public enum Ai {
+    /// Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.
+    public static let aiUsageLimitExceeded = Loc.tr("AI", "ai_usage_limit_exceeded", fallback: "Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.")
+    public enum AiAnimation {
+      /// AI is analyzing...
+      public static let analyzing = Loc.tr("AI", "ai_animation.analyzing", fallback: "AI is analyzing...")
+      /// Analyzing your word with advanced AI
+      public static let analyzingWord = Loc.tr("AI", "ai_animation.analyzing_word", fallback: "Analyzing your word with advanced AI")
+      /// Finding the perfect definitions for you
+      public static let findingDefinitions = Loc.tr("AI", "ai_animation.finding_definitions", fallback: "Finding the perfect definitions for you")
+      /// AI is learning...
+      public static let learning = Loc.tr("AI", "ai_animation.learning", fallback: "AI is learning...")
+      /// AI Processing...
+      public static let processing = Loc.tr("AI", "ai_animation.processing", fallback: "AI Processing...")
+      /// Processing your word with neural networks
+      public static let processingNeural = Loc.tr("AI", "ai_animation.processing_neural", fallback: "Processing your word with neural networks")
+      /// AI is thinking...
+      public static let thinking = Loc.tr("AI", "ai_animation.thinking", fallback: "AI is thinking...")
+    }
+    public enum AiLoading {
+      /// Analyzing context...
+      public static let analyzingContext = Loc.tr("AI", "ai_loading.analyzing_context", fallback: "Analyzing context...")
+      /// AI is computing...
+      public static let computing = Loc.tr("AI", "ai_loading.computing", fallback: "AI is computing...")
+      /// Finding definitions...
+      public static let findingDefinitions = Loc.tr("AI", "ai_loading.finding_definitions", fallback: "Finding definitions...")
+      /// Generating insights...
+      public static let generatingInsights = Loc.tr("AI", "ai_loading.generating_insights", fallback: "Generating insights...")
+      /// Learning patterns...
+      public static let learningPatterns = Loc.tr("AI", "ai_loading.learning_patterns", fallback: "Learning patterns...")
+      /// Processing language...
+      public static let processingLanguage = Loc.tr("AI", "ai_loading.processing_language", fallback: "Processing language...")
+      /// Running algorithms...
+      public static let runningAlgorithms = Loc.tr("AI", "ai_loading.running_algorithms", fallback: "Running algorithms...")
+      /// Understanding meaning...
+      public static let understandingMeaning = Loc.tr("AI", "ai_loading.understanding_meaning", fallback: "Understanding meaning...")
+    }
+    public enum AiLoadingDesc {
+      /// Applying machine learning
+      public static let applyingMachineLearning = Loc.tr("AI", "ai_loading_desc.applying_machine_learning", fallback: "Applying machine learning")
+      /// Creating comprehensive definitions
+      public static let creatingDefinitions = Loc.tr("AI", "ai_loading_desc.creating_definitions", fallback: "Creating comprehensive definitions")
+      /// Examining word relationships
+      public static let examiningRelationships = Loc.tr("AI", "ai_loading_desc.examining_relationships", fallback: "Examining word relationships")
+      /// Extracting semantic meaning
+      public static let extractingSemantic = Loc.tr("AI", "ai_loading_desc.extracting_semantic", fallback: "Extracting semantic meaning")
+      /// Identifying usage patterns
+      public static let identifyingPatterns = Loc.tr("AI", "ai_loading_desc.identifying_patterns", fallback: "Identifying usage patterns")
+      /// Running advanced algorithms
+      public static let runningAlgorithms = Loc.tr("AI", "ai_loading_desc.running_algorithms", fallback: "Running advanced algorithms")
+      /// Searching through knowledge base
+      public static let searchingKnowledge = Loc.tr("AI", "ai_loading_desc.searching_knowledge", fallback: "Searching through knowledge base")
+      /// Understanding language nuances
+      public static let understandingNuances = Loc.tr("AI", "ai_loading_desc.understanding_nuances", fallback: "Understanding language nuances")
+    }
+    public enum AiUsage {
+      /// %d AI requests remaining today
+      public static func remainingRequests(_ p1: Int) -> String {
+        return Loc.tr("AI", "ai_usage.remaining_requests", p1, fallback: "%d AI requests remaining today")
+      }
+      /// Unlimited AI requests with Pro
+      public static let unlimitedRequests = Loc.tr("AI", "ai_usage.unlimited_requests", fallback: "Unlimited AI requests with Pro")
+      /// Get unlimited AI-powered definitions, advanced analytics, and more premium features.
+      public static let upgradeBannerMessage = Loc.tr("AI", "ai_usage.upgrade_banner_message", fallback: "Get unlimited AI-powered definitions, advanced analytics, and more premium features.")
+      /// Upgrade to Pro for Unlimited AI
+      public static let upgradeBannerTitle = Loc.tr("AI", "ai_usage.upgrade_banner_title", fallback: "Upgrade to Pro for Unlimited AI")
+      /// Upgrade to Pro
+      public static let upgradeButton = Loc.tr("AI", "ai_usage.upgrade_button", fallback: "Upgrade to Pro")
+    }
+  }
   public enum Analytics {
     /// Accuracy
     public static let accuracy = Loc.tr("Analytics", "accuracy", fallback: "Accuracy")
@@ -375,8 +445,6 @@ public enum Loc {
     public static let deviceMutedOrVolumeLow = Loc.tr("Errors", "device_muted_or_volume_low", fallback: "Device muted or volume too low")
     /// You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries.
     public static let dictionaryLimitReached = Loc.tr("Errors", "dictionary_limit_reached", fallback: "You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries.")
-    /// Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.
-    public static let aiUsageLimitExceeded = Loc.tr("Errors", "ai_usage_limit_exceeded", fallback: "Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.")
     /// Dictionary not found
     public static let dictionaryNotFound = Loc.tr("Errors", "dictionary_not_found", fallback: "Dictionary not found")
     /// Error
@@ -515,6 +583,8 @@ public enum Loc {
     public static let idiomsNeedMorePractice = Loc.tr("FilterDisplay", "idioms_need_more_practice", fallback: "Idioms that need more practice will appear here")
     /// In Progress
     public static let inProgress = Loc.tr("FilterDisplay", "in_progress", fallback: "In Progress")
+    /// Language
+    public static let language = Loc.tr("FilterDisplay", "language", fallback: "Language")
     /// Mastered
     public static let mastered = Loc.tr("FilterDisplay", "mastered", fallback: "Mastered")
     /// Needs Review
@@ -533,6 +603,10 @@ public enum Loc {
     public static let noIdiomsInProgress = Loc.tr("FilterDisplay", "no_idioms_in_progress", fallback: "No Idioms In Progress")
     /// No Idioms Need Review
     public static let noIdiomsNeedReview = Loc.tr("FilterDisplay", "no_idioms_need_review", fallback: "No Idioms Need Review")
+    /// No idioms in this language
+    public static let noIdiomsWithSelectedLanguage = Loc.tr("FilterDisplay", "no_idioms_with_selected_language", fallback: "No idioms in this language")
+    /// Select a language when you add a idiom next time
+    public static let noIdiomsWithSelectedLanguageDescription = Loc.tr("FilterDisplay", "no_idioms_with_selected_language_description", fallback: "Select a language when you add a idiom next time")
     /// No Idioms Yet
     public static let noIdiomsYet = Loc.tr("FilterDisplay", "no_idioms_yet", fallback: "No Idioms Yet")
     /// No Mastered Idioms
@@ -553,6 +627,10 @@ public enum Loc {
     public static let noWordsInProgress = Loc.tr("FilterDisplay", "no_words_in_progress", fallback: "No Words In Progress")
     /// No Words Need Review
     public static let noWordsNeedReview = Loc.tr("FilterDisplay", "no_words_need_review", fallback: "No Words Need Review")
+    /// No words in this language
+    public static let noWordsWithSelectedLanguage = Loc.tr("FilterDisplay", "no_words_with_selected_language", fallback: "No words in this language")
+    /// Select a language when you add a word next time
+    public static let noWordsWithSelectedLanguageDescription = Loc.tr("FilterDisplay", "no_words_with_selected_language_description", fallback: "Select a language when you add a word next time")
     /// No Words Yet
     public static let noWordsYet = Loc.tr("FilterDisplay", "no_words_yet", fallback: "No Words Yet")
     /// Search
@@ -2036,20 +2114,6 @@ public enum Loc {
       public static let transcription = Loc.tr("Words", "word_details.transcription", fallback: "Transcription")
       /// Type an example here
       public static let typeExampleHere = Loc.tr("Words", "word_details.type_example_here", fallback: "Type an example here")
-    }
-    public enum AIUsage {
-      /// %d AI requests remaining today
-      public static func remainingRequests(_ p1: Int) -> String {
-        return Loc.tr("Words", "ai_usage.remaining_requests", p1, fallback: "%d AI requests remaining today")
-      }
-      /// Unlimited AI requests with Pro
-      public static let unlimitedRequests = Loc.tr("Words", "ai_usage.unlimited_requests", fallback: "Unlimited AI requests with Pro")
-      /// Upgrade to Pro for Unlimited AI
-      public static let upgradeBannerTitle = Loc.tr("Words", "ai_usage.upgrade_banner_title", fallback: "Upgrade to Pro for Unlimited AI")
-      /// Get unlimited AI-powered definitions, advanced analytics, and more premium features.
-      public static let upgradeBannerMessage = Loc.tr("Words", "ai_usage.upgrade_banner_message", fallback: "Get unlimited AI-powered definitions, advanced analytics, and more premium features.")
-      /// Upgrade to Pro
-      public static let upgradeButton = Loc.tr("Words", "ai_usage.upgrade_button", fallback: "Upgrade to Pro")
     }
     public enum WordList {
       /// All Words

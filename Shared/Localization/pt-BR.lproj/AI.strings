@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d solicitações de IA restantes hoje";
+"ai_usage.unlimited_requests" = "Solicitações de IA ilimitadas com Pro";
+"ai_usage.upgrade_banner_title" = "Atualize para Pro para IA Ilimitada";
+"ai_usage.upgrade_banner_message" = "Obtenha definições alimentadas por IA ilimitadas, análises avançadas e mais recursos premium.";
+"ai_usage.upgrade_button" = "Atualizar para Pro";
+"ai_usage_limit_exceeded" = "Limite diário de uso de IA atingido. Atualize para Pro para definições alimentadas por IA ilimitadas.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "IA está processando...";
+"ai_loading.analyzing_context" = "Analisando contexto...";
+"ai_loading.finding_definitions" = "Procurando definições...";
+"ai_loading.processing_language" = "Processando idioma...";
+"ai_loading.running_algorithms" = "Executando algoritmos...";
+"ai_loading.understanding_meaning" = "Entendendo significado...";
+"ai_loading.generating_insights" = "Gerando insights...";
+"ai_loading.learning_patterns" = "Aprendendo padrões...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Executando algoritmos avançados";
+"ai_loading_desc.examining_relationships" = "Examinando relacionamentos entre palavras";
+"ai_loading_desc.searching_knowledge" = "Procurando na base de conhecimento";
+"ai_loading_desc.understanding_nuances" = "Entendendo nuances do idioma";
+"ai_loading_desc.applying_machine_learning" = "Aplicando aprendizado de máquina";
+"ai_loading_desc.extracting_semantic" = "Extraindo significado semântico";
+"ai_loading_desc.creating_definitions" = "Criando definições abrangentes";
+"ai_loading_desc.identifying_patterns" = "Identificando padrões de uso";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "IA está pensando...";
+"ai_animation.analyzing_word" = "Analisando sua palavra com IA avançada";
+"ai_animation.analyzing" = "IA está analisando...";
+"ai_animation.finding_definitions" = "Encontrando as definições perfeitas para você";
+"ai_animation.processing" = "Processamento de IA...";
+"ai_animation.learning" = "IA está aprendendo...";
+"ai_animation.processing_neural" = "Processando sua palavra com redes neurais";

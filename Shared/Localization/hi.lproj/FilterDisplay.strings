@@ -37,3 +37,9 @@
 "words_need_more_practice" = "जिन शब्दों को और अभ्यास की आवश्यकता है वे यहाँ दिखाई देंगे";
 "idioms_need_more_practice" = "जिन मुहावरों को और अभ्यास की आवश्यकता है वे यहाँ दिखाई देंगे";
 
+// MARK: - Language Filter
+"language" = "भाषा";
+"no_words_with_selected_language" = "इस भाषा में कोई शब्द नहीं";
+"no_idioms_with_selected_language" = "इस भाषा में कोई मुहावरे नहीं";
+"no_words_with_selected_language_description" = "अगली बार शब्द जोड़ते समय भाषा चुनें";
+"no_idioms_with_selected_language_description" = "अगली बार मुहावरा जोड़ते समय भाषा चुनें";

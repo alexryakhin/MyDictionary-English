@@ -1,0 +1,36 @@
+// MARK: - AI Usage
+"ai_usage.remaining_requests" = "%d AI-förfrågningar kvar idag";
+"ai_usage.unlimited_requests" = "Obegränsade AI-förfrågningar med Pro";
+"ai_usage.upgrade_banner_title" = "Uppgradera till Pro för Obegränsad AI";
+"ai_usage.upgrade_banner_message" = "Få obegränsade AI-drivna definitioner, avancerad analys och fler premium-funktioner.";
+"ai_usage.upgrade_button" = "Uppgradera till Pro";
+"ai_usage_limit_exceeded" = "Daglig AI-användningsgräns nådd. Uppgradera till Pro för obegränsade AI-drivna definitioner.";
+
+// MARK: - AI Loading States
+"ai_loading.computing" = "AI beräknar...";
+"ai_loading.analyzing_context" = "Analyserar kontext...";
+"ai_loading.finding_definitions" = "Hittar definitioner...";
+"ai_loading.processing_language" = "Bearbetar språk...";
+"ai_loading.running_algorithms" = "Kör algoritmer...";
+"ai_loading.understanding_meaning" = "Förstår betydelse...";
+"ai_loading.generating_insights" = "Genererar insikter...";
+"ai_loading.learning_patterns" = "Lär sig mönster...";
+
+// MARK: - AI Loading Descriptions
+"ai_loading_desc.running_algorithms" = "Kör avancerade algoritmer";
+"ai_loading_desc.examining_relationships" = "Undersöker ordrelationer";
+"ai_loading_desc.searching_knowledge" = "Söker i kunskapsbasen";
+"ai_loading_desc.understanding_nuances" = "Förstår språkliga nyanser";
+"ai_loading_desc.applying_machine_learning" = "Tillämpar maskininlärning";
+"ai_loading_desc.extracting_semantic" = "Extraherar semantisk betydelse";
+"ai_loading_desc.creating_definitions" = "Skapar omfattande definitioner";
+"ai_loading_desc.identifying_patterns" = "Identifierar användningsmönster";
+
+// MARK: - AI Animation States
+"ai_animation.thinking" = "AI tänker...";
+"ai_animation.analyzing_word" = "Analyserar ditt ord med avancerad AI";
+"ai_animation.analyzing" = "AI analyserar...";
+"ai_animation.finding_definitions" = "Hittar perfekta definitioner för dig";
+"ai_animation.processing" = "AI-bearbetning...";
+"ai_animation.learning" = "AI lär sig...";
+"ai_animation.processing_neural" = "Bearbetar ditt ord med neurala nätverk";
