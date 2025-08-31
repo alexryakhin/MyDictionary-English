@@ -200,17 +200,52 @@ final class CloudFunctionsService {
         word: String,
         maxDefinitions: Int,
         inputLanguage: String,
-        userLanguage: String
+        userLanguage: String,
+        sentence: String? = nil,
+        sentences: [(sentence: String, targetWord: String)]? = nil,
+        contextQuestions: Bool = false,
+        fillInTheBlank: Bool = false,
+        singleContextQuestion: Bool = false,
+        singleFillInTheBlank: Bool = false,
+        wordLanguage: String? = nil,
+        words: [String]? = nil
     ) async throws -> FirebaseOpenAIResponse {
+        var body: [String: Any] = [
+            "word": word,
+            "maxDefinitions": maxDefinitions,
+            "inputLanguage": inputLanguage,
+            "userLanguage": userLanguage
+        ]
+        
+        // Add optional parameters for quiz functionality
+        if let sentences = sentences {
+            body["sentences"] = sentences
+        } else if let sentence = sentence {
+            body["sentence"] = sentence
+        }
+        if contextQuestions {
+            body["contextQuestions"] = true
+        }
+        if let words = words {
+            body["words"] = words
+        }
+        if fillInTheBlank {
+            body["fillInTheBlank"] = true
+        }
+        if singleContextQuestion {
+            body["singleContextQuestion"] = true
+        }
+        if singleFillInTheBlank {
+            body["singleFillInTheBlank"] = true
+        }
+        if let wordLanguage = wordLanguage {
+            body["wordLanguage"] = wordLanguage
+        }
+        
         return try await makeRequest(
             to: .openAIProxy,
             method: .POST,
-            body: [
-                "word": word,
-                "maxDefinitions": maxDefinitions,
-                "inputLanguage": inputLanguage,
-                "userLanguage": userLanguage
-            ],
+            body: body,
             responseType: FirebaseOpenAIResponse.self
         )
     }

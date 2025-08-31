@@ -109,3 +109,71 @@
 "all_results" = "Alle resultater";
 "word_starts_with" = "Ordet starter med";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Skriv en setning der '%@' brukes korrekt:";
+"ai_quiz.sentence_placeholder" = "Skriv setningen din her...";
+"ai_quiz.ai_evaluating" = "KI vurderer setningen din...";
+"ai_quiz.feedback" = "Tilbakemelding:";
+"ai_quiz.usage_score" = "Brukspoeng: %d/100";
+"ai_quiz.grammar_score" = "Grammatikkpoeng: %d/100";
+"ai_quiz.overall_score" = "Totalpoeng: %d/100";
+"ai_quiz.excellent_usage" = "Utmerket bruk! Setningen din viser perfekt forståelse.";
+"ai_quiz.good_usage" = "God bruk! Setningen din viser god forståelse med mindre forbedringer mulige.";
+"ai_quiz.fair_usage" = "Greit bruk. Vurder konteksten og betydningen nøye.";
+"ai_quiz.incorrect_usage" = "Feil bruk. Gå gjennom ordets betydning og prøv igjen.";
+
+"ai_quiz.choose_correct_sentence" = "Velg setningen der '%@' brukes korrekt:";
+"ai_quiz.option" = "Alternativ %d";
+"ai_quiz.explanation" = "Forklaring:";
+"ai_quiz.correct_usage_explanation" = "Denne setningen bruker '%@' korrekt fordi %@";
+"ai_quiz.incorrect_usage_explanation" = "Denne setningen bruker '%@' feil fordi %@";
+
+"ai_quiz.fill_in_blank_story" = "Fyll inn tomrommet med '%@':";
+"ai_quiz.story_context" = "Konteksten til historien:";
+"ai_quiz.blank_placeholder" = "Skriv ordet her...";
+"ai_quiz.context_hint" = "Tips: Vurder konteksten til historien og ordets betydning";
+"ai_quiz.ai_context_feedback" = "Konteksttilbakemelding:";
+"ai_quiz.perfect_context_fit" = "Perfekt! Ordet passer perfekt i denne konteksten.";
+"ai_quiz.good_context_fit" = "Bra! Ordet fungerer godt i denne konteksten.";
+"ai_quiz.context_mismatch" = "Ordet passer ikke helt i denne konteksten. Vurder historiens betydning.";
+
+"ai_quiz.submit_for_evaluation" = "Send inn for vurdering";
+"ai_quiz.evaluating_with_ai" = "Vurderer med KI...";
+"ai_quiz.ai_processing" = "Behandler svaret ditt...";
+"ai_quiz.ai_analysis_complete" = "Analyse fullført";
+"ai_quiz.view_detailed_explanations" = "Se detaljerte forklaringer";
+"ai_quiz.detailed_explanations" = "Detaljerte forklaringer";
+"ai_quiz.suggestions" = "Forslag";
+"ai_quiz.skipped_word" = "Hoppet over ord";
+"ai_quiz.skipped_word_message" = "Dette ordet ble hoppet over under quizen. Ingen vurdering er tilgjengelig for hoppede ord.";
+"ai_quiz.your_sentence" = "Din setning";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Genererer fyll-ut-tomrom-historier...";
+"loading.fill_in_blank_description" = "KI lager engasjerende historier med tomrom for å teste forståelsen din av ordbruk i kontekst.";
+"loading.loading_next_story" = "Laster neste historie...";
+"loading.preparing_next_story" = "KI forbereder neste historie for deg.";
+"loading.generating_context_questions" = "Genererer kontekstspørsmål...";
+"loading.context_questions_description" = "KI lager flervalgsspørsmål for å teste forståelsen din av ordbruk i kontekst.";
+"loading.loading_next_question" = "Laster neste spørsmål...";
+"loading.preparing_next_question" = "KI forbereder neste spørsmål for deg.";
+"loading.failed_to_load_quiz" = "Kunne ikke laste quizen";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Spørsmål";
+"ui.options" = "Alternativer";
+"ui.suggestions" = "Forslag";
+"ui.question_number" = "Spørsmål %d";
+"ui.you_skipped_question" = "Du hoppet over dette spørsmålet. Her er det riktige svaret og forklaringen:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Setningsskriving";
+"quiz_types.context_multiple_choice" = "Kontekstbruk";
+"quiz_types.fill_in_the_blank" = "Fyll ut tomrommet";
+"quiz_types.write_sentences_with_ai" = "Skriv setninger med korrekt ordbruk og KI-evaluering";
+"quiz_types.choose_correct_usage" = "Velg setningen der ordet brukes korrekt";
+"quiz_types.fill_blanks_in_context" = "Fyll ut tomrommene med riktig ord i konteksten";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Flott jobb! Du har fullført quizen om setningsskriving.";
+"quiz_types.great_job_completed_context_quiz" = "Flott jobb! Du har fullført quizen om kontekstbruk.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Flott jobb! Du har fullført quizen om å fylle ut tomrommet.";
+"quiz_available_once_a_day_message" = "Beklager, quizen er kun tilgjengelig én gang per dag. Abonner på PRO for ubegrenset tilgang!";

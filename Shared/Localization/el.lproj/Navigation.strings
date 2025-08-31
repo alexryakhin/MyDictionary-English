@@ -12,6 +12,9 @@
 "quiz_results" = "Αποτελέσματα Κουίζ";
 "spelling_quiz" = "Κουίζ Ορθογραφίας";
 "definition_quiz" = "Κουίζ Ορισμού";
+"sentence_writing_quiz" = "Κουίζ Γράψιμου Προτάσεων";
+"context_multiple_choice_quiz" = "Κουίζ Χρήσης στο Πλαίσιο";
+"fill_in_the_blank_quiz" = "Κουίζ Συμπλήρωσης Κενών";
 "close" = "Κλείσιμο";
 "close_screen" = "Κλείσιμο Οθόνης";
 

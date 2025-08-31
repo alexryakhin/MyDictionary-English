@@ -12,6 +12,9 @@
 "quiz_results" = "Kviz eredmények";
 "spelling_quiz" = "Helyesírási kviz";
 "definition_quiz" = "Definíció kviz";
+"sentence_writing_quiz" = "Mondatírási kviz";
+"context_multiple_choice_quiz" = "Kontextus használati kviz";
+"fill_in_the_blank_quiz" = "Üres helyek kitöltési kviz";
 "close" = "Bezárás";
 "close_screen" = "Képernyő bezárása";
 

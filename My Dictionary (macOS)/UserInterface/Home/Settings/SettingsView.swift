@@ -16,8 +16,6 @@ struct SettingsView: View {
     @Environment(\.openWindow) var openWindow
     @Environment(\.requestReview) var requestReview
 
-    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = true
-
     @StateObject private var viewModel = SettingsViewModel()
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var subscriptionService = SubscriptionService.shared
@@ -35,7 +33,6 @@ struct SettingsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 12) {
-                translateDefinitionsSection
                 ttsSection
 
                 // MARK: - Notifications
@@ -333,26 +330,6 @@ struct SettingsView: View {
         .onReceive(authenticationService.$authenticationState) { state in
             if state == .signedOut {
                 showingProfile = false
-            }
-        }
-    }
-
-    // MARK: - Translate Definitions Section
-
-    @ViewBuilder
-    private var translateDefinitionsSection: some View {
-        if !GlobalConstant.isEnglishLanguage {
-            CustomSectionView(header: Loc.Settings.translateDefinitions) {
-                HStack {
-                    Text(Loc.Settings.showDefinitionsNativeLanguage)
-                        .font(.body)
-                        .fontWeight(.medium)
-                    Spacer()
-                    Toggle(Loc.Settings.showDefinitionsNativeLanguage, isOn: $translateDefinitions)
-                        .labelsHidden()
-                }
-                .padding(vertical: 12, horizontal: 16)
-                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
             }
         }
     }

@@ -109,3 +109,71 @@
 "all_results" = "Все результаты";
 "word_starts_with" = "Слово начинается с";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Напишите предложение, правильно используя '%@':";
+"ai_quiz.sentence_placeholder" = "Введите ваше предложение здесь...";
+"ai_quiz.ai_evaluating" = "ИИ оценивает ваше предложение...";
+"ai_quiz.feedback" = "Обратная связь:";
+"ai_quiz.usage_score" = "Оценка использования: %d/100";
+"ai_quiz.grammar_score" = "Оценка грамматики: %d/100";
+"ai_quiz.overall_score" = "Общая оценка: %d/100";
+"ai_quiz.excellent_usage" = "Отличное использование! Ваше предложение демонстрирует идеальное понимание.";
+"ai_quiz.good_usage" = "Хорошее использование! Ваше предложение показывает хорошее понимание с возможными незначительными улучшениями.";
+"ai_quiz.fair_usage" = "Удовлетворительное использование. Рассмотрите контекст и значение более внимательно.";
+"ai_quiz.incorrect_usage" = "Неправильное использование. Проверьте значение слова и попробуйте снова.";
+
+"ai_quiz.choose_correct_sentence" = "Выберите предложение, в котором '%@' используется правильно:";
+"ai_quiz.option" = "Вариант %d";
+"ai_quiz.explanation" = "Объяснение:";
+"ai_quiz.correct_usage_explanation" = "Это предложение правильно использует '%@', потому что %@";
+"ai_quiz.incorrect_usage_explanation" = "Это предложение неправильно использует '%@', потому что %@";
+
+"ai_quiz.fill_in_blank_story" = "Заполните пропуск словом '%@':";
+"ai_quiz.story_context" = "Контекст истории:";
+"ai_quiz.blank_placeholder" = "Введите слово здесь...";
+"ai_quiz.context_hint" = "Подсказка: Учитывайте контекст истории и значение слова";
+"ai_quiz.ai_context_feedback" = "Обратная связь по контексту:";
+"ai_quiz.perfect_context_fit" = "Идеально! Слово отлично подходит к этому контексту.";
+"ai_quiz.good_context_fit" = "Хорошо! Слово хорошо подходит к этому контексту.";
+"ai_quiz.context_mismatch" = "Слово не совсем подходит к этому контексту. Учитывайте значение истории.";
+
+"ai_quiz.submit_for_evaluation" = "Отправить на оценку";
+"ai_quiz.evaluating_with_ai" = "Оценка с помощью ИИ...";
+"ai_quiz.ai_processing" = "Обработка вашего ответа...";
+"ai_quiz.ai_analysis_complete" = "Анализ завершен";
+"ai_quiz.view_detailed_explanations" = "Просмотреть подробные объяснения";
+"ai_quiz.detailed_explanations" = "Подробные объяснения";
+"ai_quiz.suggestions" = "Предложения";
+"ai_quiz.skipped_word" = "Пропущенное слово";
+"ai_quiz.skipped_word_message" = "Это слово было пропущено во время викторины. Для пропущенных слов оценка недоступна.";
+"ai_quiz.your_sentence" = "Ваше предложение";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Генерация историй с пропусками...";
+"loading.fill_in_blank_description" = "ИИ создает увлекательные истории с пропусками для проверки вашего понимания использования слов в контексте.";
+"loading.loading_next_story" = "Загрузка следующей истории...";
+"loading.preparing_next_story" = "ИИ готовит следующую историю для вас.";
+"loading.generating_context_questions" = "Генерация контекстных вопросов...";
+"loading.context_questions_description" = "ИИ создает вопросы с множественным выбором для проверки вашего понимания использования слов в контексте.";
+"loading.loading_next_question" = "Загрузка следующего вопроса...";
+"loading.preparing_next_question" = "ИИ готовит следующий вопрос для вас.";
+"loading.failed_to_load_quiz" = "Не удалось загрузить викторину";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Вопрос";
+"ui.options" = "Варианты";
+"ui.suggestions" = "Предложения";
+"ui.question_number" = "Вопрос %d";
+"ui.you_skipped_question" = "Вы пропустили этот вопрос. Вот правильный ответ и объяснение:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Написание предложений";
+"quiz_types.context_multiple_choice" = "Использование в контексте";
+"quiz_types.fill_in_the_blank" = "Заполнение пропусков";
+"quiz_types.write_sentences_with_ai" = "Напишите предложения, правильно используя слова, с оценкой ИИ";
+"quiz_types.choose_correct_usage" = "Выберите предложение, в котором слово использовано правильно";
+"quiz_types.fill_blanks_in_context" = "Заполните пропуски правильным словом в контексте";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Отличная работа! Вы завершили викторину по написанию предложений.";
+"quiz_types.great_job_completed_context_quiz" = "Отличная работа! Вы завершили викторину по использованию в контексте.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Отличная работа! Вы завершили викторину по заполнению пропусков.";
+"quiz_available_once_a_day_message" = "Извините, викторина доступна только один раз в день. Подпишитесь на PRO для неограниченного доступа!";

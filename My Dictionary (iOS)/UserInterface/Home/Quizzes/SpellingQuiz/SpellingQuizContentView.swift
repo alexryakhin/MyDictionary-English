@@ -14,17 +14,17 @@ struct SpellingQuizContentView: View {
             // Error state
             VStack(spacing: 24) {
                 Spacer()
-                
+
                 VStack(spacing: 16) {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .font(.system(size: 60))
                         .foregroundStyle(.red.gradient)
-                    
+
                     Text(Loc.Quizzes.quizUnavailable)
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
-                    
+
                     Text(errorMessage)
                         .font(.body)
                         .foregroundStyle(.secondary)
@@ -32,7 +32,7 @@ struct SpellingQuizContentView: View {
                         .lineSpacing(4)
                 }
                 .padding(.horizontal, 32)
-                
+
                 ActionButton(
                     Loc.Quizzes.backToQuizzes,
                     systemImage: "chevron.left",
@@ -41,7 +41,7 @@ struct SpellingQuizContentView: View {
                     dismiss()
                 }
                 .padding(.horizontal, 32)
-                
+
                 Spacer()
             }
             .groupedBackground()
@@ -93,8 +93,19 @@ struct SpellingQuizContentView: View {
                 dismiss()
             }
         } else {
-            // Completion View
-            completionView
+            QuizResultsView(
+                model: .init(
+                    quiz: .spelling,
+                    score: viewModel.score,
+                    correctAnswers: viewModel.correctAnswers,
+                    itemsPlayed: viewModel.itemsPlayed.count,
+                    accuracyContributions: viewModel.accuracyContributions.values.reduce(0, +),
+                    bestStreak: viewModel.bestStreak
+                ),
+                onFinish: {
+                    dismiss()
+                }
+            )
         }
     }
 
@@ -109,7 +120,7 @@ struct SpellingQuizContentView: View {
                     Text("\(Loc.Quizzes.progress): \(viewModel.itemsPlayed.count)/\(viewModel.totalQuestions)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    
+
                     if viewModel.currentStreak > 0 {
                         Text("🔥 \(Loc.Quizzes.streak): \(viewModel.currentStreak)")
                             .font(.caption)
@@ -117,15 +128,15 @@ struct SpellingQuizContentView: View {
                             .fontWeight(.medium)
                     }
                 }
-                
+
                 Spacer()
-                
+
                 VStack(alignment: .trailing, spacing: 2) {
                     Text("\(Loc.Quizzes.score): \(viewModel.score)")
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundStyle(.blue)
-                    
+
                     Text("\(Loc.Quizzes.best): \(viewModel.bestStreak)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -140,32 +151,47 @@ struct SpellingQuizContentView: View {
                 Image(systemName: "text.quote")
                     .font(.title2)
                     .foregroundStyle(.blue)
-                
+
                 Text(Loc.Words.definition)
                     .font(.headline)
                     .fontWeight(.semibold)
-                
+
                 Spacer()
             }
-            
+
             Text(viewModel.randomItem?.quiz_definition ?? "")
                 .font(.body)
                 .lineSpacing(4)
                 .multilineTextAlignment(.leading)
-            
-            TagView(text: PartOfSpeech(rawValue: viewModel.randomItem?.quiz_partOfSpeech).displayName, color: .blue, size: .small, style: .regular)
-                .frame(maxWidth: .infinity, alignment: .leading)
+
+            HStack {
+                TagView(
+                    text: PartOfSpeech(rawValue: viewModel.randomItem?.quiz_partOfSpeech).displayName,
+                    color: .accent,
+                    size: .small,
+                    style: .regular
+                )
+                if let languageCode = viewModel.randomItem?.quiz_languageCode {
+                    TagView(
+                        text: languageCode.uppercased(),
+                        color: .blue,
+                        size: .small,
+                        style: .regular
+                    )
+                }
+                Spacer()
+            }
 
             // Hint section
             if viewModel.isShowingHint, let randomItem = viewModel.randomItem {
                 HStack {
                     Image(systemName: "lightbulb.fill")
                         .foregroundStyle(.yellow)
-                    
+
                     Text("\(Loc.Quizzes.hint): \(Loc.Quizzes.wordStartsWith) '\(randomItem.quiz_text.prefix(1).uppercased())'")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    
+
                     Spacer()
                 }
                 .padding(.horizontal, 12)
@@ -190,17 +216,17 @@ struct SpellingQuizContentView: View {
                 Text(Loc.Quizzes.yourAnswer)
                     .font(.headline)
                     .fontWeight(.semibold)
-                
+
                 Spacer()
-                
+
                 if viewModel.attemptCount > 0 {
                     Text("\(Loc.Quizzes.attempt) \(viewModel.attemptCount)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
             }
-            
-                            TextField(Loc.Words.typeWordHere, text: $viewModel.answerTextField, axis: .vertical)
+
+            TextField(Loc.Words.typeWordHere, text: $viewModel.answerTextField, axis: .vertical)
                 .padding(vertical: 8, horizontal: 12)
                 .background(Color.tertiarySystemGroupedBackground)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -212,7 +238,7 @@ struct SpellingQuizContentView: View {
                         }
                     }
                 }
-            
+
             if viewModel.isShowingCorrectAnswer {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
@@ -230,11 +256,11 @@ struct SpellingQuizContentView: View {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.red)
-                    
+
                     Text(Loc.Quizzes.correctWordIs(viewModel.randomItem?.quiz_text ?? ""))
                         .font(.caption)
                         .foregroundStyle(.red)
-                    
+
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
@@ -243,11 +269,11 @@ struct SpellingQuizContentView: View {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.orange)
-                    
+
                     Text(incorrectMessage)
                         .font(.caption)
                         .foregroundStyle(.orange)
-                    
+
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
@@ -279,124 +305,14 @@ struct SpellingQuizContentView: View {
             }
             .disabled(viewModel.answerTextField.isEmpty)
 
-            ActionButton(Loc.Quizzes.skipWord, systemImage: "arrow.right.circle") {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    viewModel.handle(.skipItem)
-                }
-            }
-            .disabled(isMovingOnToNextWord)
-        }
-    }
-
-    private var completionView: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            
-            VStack(spacing: 24) {
-                // Success Icon
-                ZStack {
-                    Circle()
-                        .fill(.accent.gradient)
-                        .frame(width: 80, height: 80)
-                    
-                    Image(systemName: "checkmark")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
-                }
-                
-                VStack(spacing: 12) {
-                    Text(Loc.Quizzes.quizComplete)
-                        .font(.title)
-                        .fontWeight(.bold)
-                    
-                    Text(Loc.Quizzes.greatJobCompletedSpellingQuiz)
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                }
-                
-                // Score Card
-                VStack(spacing: 16) {
-                    Text(Loc.Quizzes.yourResults)
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                    
-                    VStack(spacing: 12) {
-                        HStack {
-                            Text(Loc.Quizzes.finalScore)
-                            Spacer()
-                            Text("\(viewModel.score)")
-                                .fontWeight(.bold)
-                                .foregroundStyle(.blue)
-                        }
-                        
-                        HStack {
-                            Text(Loc.Quizzes.correctAnswers)
-                            Spacer()
-                            Text("\(viewModel.correctAnswers)/\(viewModel.itemsPlayed.count)")
-                                .fontWeight(.medium)
-                        }
-                        
-                        HStack {
-                            Text(Loc.Quizzes.bestStreak)
-                            Spacer()
-                            Text("\(viewModel.bestStreak)")
-                                .fontWeight(.medium)
-                                .foregroundStyle(.orange)
-                        }
-                        
-                        HStack {
-                            Text(Loc.Quizzes.accuracy)
-                            Spacer()
-                            Text("\(Int(calculateAccuracy()))%")
-                                .fontWeight(.medium)
-                                .foregroundStyle(.accent)
-                        }
-
-                        // DO NOT TRANSLATE DEBUG
-                        #if DEBUG
-                        if viewModel.itemsPlayed.count > 0 {
-                            HStack {
-                                Text("Debug")
-                                Spacer()
-                                Text("contributions: \(viewModel.accuracyContributions.values.map { String(format: "%.2f", $0) }.joined(separator: ", "))")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                        #endif
+            if !viewModel.isLastQuestion {
+                ActionButton(Loc.Quizzes.skipWord, systemImage: "arrow.right.circle") {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        viewModel.handle(.skipItem)
                     }
-                    .font(.body)
                 }
-                .padding(24)
-                .background(Color.secondarySystemGroupedBackground)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-                .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+                .disabled(isMovingOnToNextWord)
             }
-            .padding(.horizontal, 32)
-
-            Spacer()
-
-            VStack(spacing: 12) {
-                ActionButton(Loc.Actions.tryAgain, systemImage: "arrow.clockwise", style: .borderedProminent) {
-                    viewModel.handle(.restartQuiz)
-                }
-                ActionButton(Loc.Quizzes.backToQuizzes, systemImage: "chevron.left") {
-                    dismiss()
-                }
-            }
-            .padding(.horizontal, 32)
-        }
-        .padding(.vertical, 16)
-        .if(isPad) { view in
-            view
-                .frame(maxWidth: 550, alignment: .center)
-                .frame(maxWidth: .infinity, alignment: .center)
-        }
-        .groupedBackground()
-        .onReceive(viewModel.dismissPublisher) {
-            dismiss()
         }
     }
 
@@ -408,18 +324,5 @@ struct SpellingQuizContentView: View {
         } else {
             return Loc.Quizzes.QuizActions.incorrectTryAgain
         }
-    }
-
-    private func calculateAccuracy() -> Double {
-        let itemsPlayedCount = Double(viewModel.itemsPlayed.count)
-        
-        if itemsPlayedCount == 0 {
-            return 0.0
-        }
-        
-        // Calculate accuracy based on contributions
-        let totalAccuracyContribution = viewModel.accuracyContributions.values.reduce(0, +)
-        let averageAccuracy = totalAccuracyContribution / itemsPlayedCount
-        return averageAccuracy * 100
     }
 }

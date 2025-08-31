@@ -12,6 +12,9 @@
 "quiz_results" = "Visan tulokset";
 "spelling_quiz" = "Oikeinkirjoitusvisa";
 "definition_quiz" = "Määritelmävisa";
+"sentence_writing_quiz" = "Lauseiden kirjoittamisen visa";
+"context_multiple_choice_quiz" = "Kontekstin käytön visa";
+"fill_in_the_blank_quiz" = "Täytä tyhjä kohta -visa";
 "close" = "Sulje";
 "close_screen" = "Sulje näyttö";
 

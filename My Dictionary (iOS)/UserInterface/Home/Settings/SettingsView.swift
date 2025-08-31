@@ -14,7 +14,6 @@ struct SettingsView: View {
 
     @Environment(\.requestReview) var requestReview
     @ObservedObject var viewModel: SettingsViewModel
-    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = true
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var paywallService = PaywallService.shared
@@ -29,7 +28,6 @@ struct SettingsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                translateDefinitionsSection
                 ttsSection
 
                 // MARK: - Notifications
@@ -315,17 +313,6 @@ struct SettingsView: View {
         }
         .sheet(item: $viewModel.exportWordsUrl) { url in
             ShareSheet(activityItems: [url])
-        }
-    }
-
-    // MARK: - Translate Definitions Section
-
-    @ViewBuilder
-    private var translateDefinitionsSection: some View {
-        if !GlobalConstant.isEnglishLanguage {
-            CustomSectionView(header: Loc.Settings.translateDefinitions) {
-                Toggle(Loc.Settings.showDefinitionsNativeLanguage, isOn: $translateDefinitions)
-            }
         }
     }
 

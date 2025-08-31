@@ -12,6 +12,9 @@
 "quiz_results" = "測驗結果";
 "spelling_quiz" = "拼寫測驗";
 "definition_quiz" = "定義測驗";
+"sentence_writing_quiz" = "句子寫作測驗";
+"context_multiple_choice_quiz" = "上下文使用測驗";
+"fill_in_the_blank_quiz" = "填空測驗";
 "close" = "關閉";
 "close_screen" = "關閉屏幕";
 

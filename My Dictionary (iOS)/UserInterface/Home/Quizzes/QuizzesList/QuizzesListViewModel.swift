@@ -14,10 +14,14 @@ final class QuizzesListViewModel: BaseViewModel {
     enum Output {
         case showSpellingQuiz(QuizPreset)
         case showChooseDefinitionQuiz(QuizPreset)
+        case showSentenceWritingQuiz(QuizPreset)
+        case showContextMultipleChoiceQuiz(QuizPreset)
+        case showFillInTheBlankQuiz(QuizPreset)
         case showSharedDictionary(SharedDictionary)
     }
 
     enum Input {
+        case showQuiz(Quiz, QuizPreset)
         case dictionarySelected(QuizDictionary)
     }
 
@@ -27,6 +31,7 @@ final class QuizzesListViewModel: BaseViewModel {
     @Published var selectedDictionary: QuizDictionary = .privateDictionary
 
     private let quizItemsProvider: QuizItemsProvider = .shared
+    private let quizUsageTracker: QuizUsageTracker = .shared
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
@@ -43,6 +48,43 @@ final class QuizzesListViewModel: BaseViewModel {
             // If it's a shared dictionary, ensure items are loaded
             if case .sharedDictionary(let sharedDictionary) = dictionary {
                 quizItemsProvider.loadItemsForSharedDictionary(sharedDictionary)
+            }
+        case .showQuiz(let quiz, let preset):
+            switch quiz {
+            case .spelling:
+                output.send(.showSpellingQuiz(preset))
+            case .chooseDefinition:
+                output.send(.showChooseDefinitionQuiz(preset))
+            case .sentenceWriting:
+                do {
+                    guard try quizUsageTracker.canRunQuizToday(.sentenceWriting) else {
+                        showQuizUnavailableAlert()
+                        return
+                    }
+                    output.send(.showSentenceWritingQuiz(preset))
+                } catch {
+                    errorReceived(error)
+                }
+            case .contextMultipleChoice:
+                do {
+                    guard try quizUsageTracker.canRunQuizToday(.contextMultipleChoice) else {
+                        showQuizUnavailableAlert()
+                        return
+                    }
+                    output.send(.showContextMultipleChoiceQuiz(preset))
+                } catch {
+                    errorReceived(error)
+                }
+            case .fillInTheBlank:
+                do {
+                    guard try quizUsageTracker.canRunQuizToday(.fillInTheBlank) else {
+                        showQuizUnavailableAlert()
+                        return
+                    }
+                    output.send(.showFillInTheBlankQuiz(preset))
+                } catch {
+                    errorReceived(error)
+                }
             }
         }
     }
@@ -109,14 +151,22 @@ final class QuizzesListViewModel: BaseViewModel {
                 self?.selectedDictionary = dictionary
             }
             .store(in: &cancellables)
-        
-        // Listen to available items changes (important for shared dictionaries)
-        quizItemsProvider.$availableItems
-            .receive(on: RunLoop.main)
-            .sink { [weak self] _ in
-                // UI will automatically update when items change
-                // No need for explicit logging here to avoid console spam
-            }
-            .store(in: &cancellables)
+    }
+
+    private func showQuizUnavailableAlert() {
+        Task { @MainActor in
+            showAlert(
+                withModel: .init(
+                    title: Loc.Errors.oops,
+                    message: Loc.Quizzes.quizAvailableOnceADayMessage,
+                    actionText: Loc.Actions.ok,
+                    additionalActionText: Loc.Subscription.Paywall.upgradeToPro,
+                    action: {},
+                    additionalAction: {
+                        PaywallService.shared.isShowingPaywall = true
+                    }
+                )
+            )
+        }
     }
 }

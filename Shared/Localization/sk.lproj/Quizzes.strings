@@ -109,3 +109,71 @@
 "all_results" = "Všetky výsledky";
 "word_starts_with" = "Slovo začína na";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Napíšte vetu, ktorá správne používa '%@':";
+"ai_quiz.sentence_placeholder" = "Sem napíšte svoju vetu...";
+"ai_quiz.ai_evaluating" = "Umelá inteligencia hodnotí vašu vetu...";
+"ai_quiz.feedback" = "Spätná väzba:";
+"ai_quiz.usage_score" = "Skóre použitia: %d/100";
+"ai_quiz.grammar_score" = "Skóre gramatiky: %d/100";
+"ai_quiz.overall_score" = "Celkové skóre: %d/100";
+"ai_quiz.excellent_usage" = "Vynikajúce použitie! Vaša veta ukazuje dokonalé pochopenie.";
+"ai_quiz.good_usage" = "Dobré použitie! Vaša veta ukazuje dobré pochopenie s možnými drobnými vylepšeniami.";
+"ai_quiz.fair_usage" = "Priemerné použitie. Zvážte kontext a význam starostlivejšie.";
+"ai_quiz.incorrect_usage" = "Nesprávne použitie. Skontrolujte význam slova a skúste to znova.";
+
+"ai_quiz.choose_correct_sentence" = "Vyberte vetu, v ktorej je '%@' použité správne:";
+"ai_quiz.option" = "Možnosť %d";
+"ai_quiz.explanation" = "Vysvetlenie:";
+"ai_quiz.correct_usage_explanation" = "Táto veta používa '%@' správne, pretože %@";
+"ai_quiz.incorrect_usage_explanation" = "Táto veta používa '%@' nesprávne, pretože %@";
+
+"ai_quiz.fill_in_blank_story" = "Vyplňte prázdne miesto slovom '%@':";
+"ai_quiz.story_context" = "Kontext príbehu:";
+"ai_quiz.blank_placeholder" = "Sem napíšte slovo...";
+"ai_quiz.context_hint" = "Tip: Zvážte kontext príbehu a význam slova";
+"ai_quiz.ai_context_feedback" = "Spätná väzba na kontext:";
+"ai_quiz.perfect_context_fit" = "Perfektné! Slovo dokonale zapadá do tohto kontextu.";
+"ai_quiz.good_context_fit" = "Dobré! Slovo v tomto kontexte dobre funguje.";
+"ai_quiz.context_mismatch" = "Slovo do tohto kontextu úplne nepasuje. Zvážte význam príbehu.";
+
+"ai_quiz.submit_for_evaluation" = "Odoslať na hodnotenie";
+"ai_quiz.evaluating_with_ai" = "Hodnotenie pomocou umelej inteligencie...";
+"ai_quiz.ai_processing" = "Spracúva sa vaša odpoveď...";
+"ai_quiz.ai_analysis_complete" = "Analýza dokončená";
+"ai_quiz.view_detailed_explanations" = "Zobraziť podrobné vysvetlenia";
+"ai_quiz.detailed_explanations" = "Podrobné vysvetlenia";
+"ai_quiz.suggestions" = "Návrhy";
+"ai_quiz.skipped_word" = "Preskočené slovo";
+"ai_quiz.skipped_word_message" = "Toto slovo bolo počas kvízu preskočené. Pre preskočené slová nie je k dispozícii hodnotenie.";
+"ai_quiz.your_sentence" = "Vaša veta";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Generovanie príbehov s prázdnymi miestami...";
+"loading.fill_in_blank_description" = "Umelá inteligencia vytvára pútavé príbehy s prázdnymi miestami, aby otestovala vaše pochopenie použitia slov v kontexte.";
+"loading.loading_next_story" = "Načítava sa ďalší príbeh...";
+"loading.preparing_next_story" = "Umelá inteligencia pripravuje ďalší príbeh pre vás.";
+"loading.generating_context_questions" = "Generovanie kontextových otázok...";
+"loading.context_questions_description" = "Umelá inteligencia vytvára otázky s viacerými možnosťami, aby otestovala vaše pochopenie použitia slov v kontexte.";
+"loading.loading_next_question" = "Načítava sa ďalšia otázka...";
+"loading.preparing_next_question" = "Umelá inteligencia pripravuje ďalšiu otázku pre vás.";
+"loading.failed_to_load_quiz" = "Nepodarilo sa načítať kvíz";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Otázka";
+"ui.options" = "Možnosti";
+"ui.suggestions" = "Návrhy";
+"ui.question_number" = "Otázka %d";
+"ui.you_skipped_question" = "Preskočili ste túto otázku. Tu je správna odpoveď a vysvetlenie:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Písanie viet";
+"quiz_types.context_multiple_choice" = "Použitie v kontexte";
+"quiz_types.fill_in_the_blank" = "Vyplňovanie prázdnych miest";
+"quiz_types.write_sentences_with_ai" = "Napíšte vety správne používajúce slová s hodnotením AI";
+"quiz_types.choose_correct_usage" = "Vyberte vetu, v ktorej je slovo použité správne";
+"quiz_types.fill_blanks_in_context" = "Vyplňte prázdne miesta správnym slovom v kontexte";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Skvelá práca! Dokončili ste kvíz písania viet.";
+"quiz_types.great_job_completed_context_quiz" = "Skvelá práca! Dokončili ste kvíz použitia v kontexte.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Skvelá práca! Dokončili ste kvíz vyplňovania prázdnych miest.";
+"quiz_available_once_a_day_message" = "Prepáčte, kvíz je k dispozícii len raz denne. Predplaťte si PRO pre neobmedzený prístup!";

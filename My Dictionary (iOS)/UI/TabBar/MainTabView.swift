@@ -111,12 +111,12 @@ struct MainTabView: View {
             SpellingQuizContentView(preset: preset)
         case .chooseDefinitionQuiz(let preset):
             ChooseDefinitionQuizContentView(preset: preset)
-        case .quizResults(let model):
-            QuizResultsView(model: model, onRestart: {
-                navigationManager.navigateBack()
-            }, onFinish: {
-                navigationManager.popToRoot()
-            })
+        case .sentenceWritingQuiz(let preset):
+            SentenceWritingQuizContentView(preset: preset)
+        case .contextMultipleChoiceQuiz(let preset):
+            ContextMultipleChoiceQuizContentView(preset: preset)
+        case .fillInTheBlankQuiz(let preset):
+            FillInTheBlankQuizContentView(preset: preset)
         case .wordDetails(let word):
             WordDetailsContentView(word: word)
         case .wordMeaningsList(let word):

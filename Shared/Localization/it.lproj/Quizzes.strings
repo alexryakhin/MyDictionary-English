@@ -109,3 +109,71 @@
 "all_results" = "Tutti i risultati";
 "word_starts_with" = "La parola inizia con";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Scrivi una frase usando '%@' correttamente:";
+"ai_quiz.sentence_placeholder" = "Digita la tua frase qui...";
+"ai_quiz.ai_evaluating" = "L'IA sta valutando la tua frase...";
+"ai_quiz.feedback" = "Feedback:";
+"ai_quiz.usage_score" = "Punteggio di utilizzo: %d/100";
+"ai_quiz.grammar_score" = "Punteggio di grammatica: %d/100";
+"ai_quiz.overall_score" = "Punteggio complessivo: %d/100";
+"ai_quiz.excellent_usage" = "Uso eccellente! La tua frase dimostra una comprensione perfetta.";
+"ai_quiz.good_usage" = "Buon uso! La tua frase mostra una buona comprensione con piccoli miglioramenti possibili.";
+"ai_quiz.fair_usage" = "Uso discreto. Considera il contesto e il significato più attentamente.";
+"ai_quiz.incorrect_usage" = "Uso scorretto. Rivedi il significato della parola e riprova.";
+
+"ai_quiz.choose_correct_sentence" = "Scegli la frase in cui '%@' è usato correttamente:";
+"ai_quiz.option" = "Opzione %d";
+"ai_quiz.explanation" = "Spiegazione:";
+"ai_quiz.correct_usage_explanation" = "Questa frase usa '%@' correttamente perché %@";
+"ai_quiz.incorrect_usage_explanation" = "Questa frase usa '%@' scorrettamente perché %@";
+
+"ai_quiz.fill_in_blank_story" = "Riempi lo spazio con '%@':";
+"ai_quiz.story_context" = "Contesto della storia:";
+"ai_quiz.blank_placeholder" = "Digita la parola qui...";
+"ai_quiz.context_hint" = "Suggerimento: Considera il contesto della storia e il significato della parola";
+"ai_quiz.ai_context_feedback" = "Feedback sul contesto:";
+"ai_quiz.perfect_context_fit" = "Perfetto! La parola si adatta perfettamente a questo contesto.";
+"ai_quiz.good_context_fit" = "Bene! La parola funziona bene in questo contesto.";
+"ai_quiz.context_mismatch" = "La parola non si adatta del tutto a questo contesto. Considera il significato della storia.";
+
+"ai_quiz.submit_for_evaluation" = "Invia per la valutazione";
+"ai_quiz.evaluating_with_ai" = "Valutazione con IA...";
+"ai_quiz.ai_processing" = "Elaborazione della tua risposta...";
+"ai_quiz.ai_analysis_complete" = "Analisi completata";
+"ai_quiz.view_detailed_explanations" = "Visualizza spiegazioni dettagliate";
+"ai_quiz.detailed_explanations" = "Spiegazioni dettagliate";
+"ai_quiz.suggestions" = "Suggerimenti";
+"ai_quiz.skipped_word" = "Parola saltata";
+"ai_quiz.skipped_word_message" = "Questa parola è stata saltata durante il quiz. Non è disponibile alcuna valutazione per le parole saltate.";
+"ai_quiz.your_sentence" = "La tua frase";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Generazione di storie a riempimento...";
+"loading.fill_in_blank_description" = "L'IA sta creando storie coinvolgenti con spazi vuoti per testare la tua comprensione dell'uso delle parole nel contesto.";
+"loading.loading_next_story" = "Caricamento della prossima storia...";
+"loading.preparing_next_story" = "L'IA sta preparando la prossima storia per te.";
+"loading.generating_context_questions" = "Generazione di domande contestuali...";
+"loading.context_questions_description" = "L'IA sta creando domande a scelta multipla per testare la tua comprensione dell'uso delle parole nel contesto.";
+"loading.loading_next_question" = "Caricamento della prossima domanda...";
+"loading.preparing_next_question" = "L'IA sta preparando la prossima domanda per te.";
+"loading.failed_to_load_quiz" = "Impossibile caricare il quiz";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Domanda";
+"ui.options" = "Opzioni";
+"ui.suggestions" = "Suggerimenti";
+"ui.question_number" = "Domanda %d";
+"ui.you_skipped_question" = "Hai saltato questa domanda. Ecco la risposta corretta e la spiegazione:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Scrittura di frasi";
+"quiz_types.context_multiple_choice" = "Uso nel contesto";
+"quiz_types.fill_in_the_blank" = "Riempi gli spazi";
+"quiz_types.write_sentences_with_ai" = "Scrivi frasi usando le parole correttamente con valutazione dell'IA";
+"quiz_types.choose_correct_usage" = "Scegli la frase in cui la parola è usata correttamente";
+"quiz_types.fill_blanks_in_context" = "Riempi gli spazi con la parola corretta nel contesto";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Ottimo lavoro! Hai completato il quiz di scrittura di frasi.";
+"quiz_types.great_job_completed_context_quiz" = "Ottimo lavoro! Hai completato il quiz di uso nel contesto.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Ottimo lavoro! Hai completato il quiz di riempimento degli spazi.";
+"quiz_available_once_a_day_message" = "Spiacenti, il quiz è disponibile solo una volta al giorno. Iscriviti a PRO per accesso illimitato!";

@@ -26,6 +26,7 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var itemsPlayed: [any Quizable] = []
     @Published private(set) var correctItemIds: [String] = []
     @Published private(set) var isQuizComplete = false
+    @Published private(set) var isLastQuestion = false
     
     // Game state
     @Published private(set) var isShowingHint = false
@@ -190,6 +191,7 @@ final class SpellingQuizViewModel: BaseViewModel {
         itemsPlayed = []
         correctItemIds = []
         isQuizComplete = false
+        isLastQuestion = false
         isShowingHint = false
         isShowingCorrectAnswer = false
         currentStreak = 0
@@ -207,7 +209,7 @@ final class SpellingQuizViewModel: BaseViewModel {
         let accuracy = itemsPlayed.count > 0 ? accuracyContributions.values.reduce(0, +) / Double(itemsPlayed.count) : 0.0
                 
         quizAnalyticsService.saveQuizSession(
-            quizType: Quiz.spelling.title,
+            quizType: Quiz.spelling.rawValue,
             score: score,
             correctAnswers: correctAnswers,
             totalItems: itemsPlayed.count, // Use items actually played
@@ -242,6 +244,8 @@ final class SpellingQuizViewModel: BaseViewModel {
         } else if !items.isEmpty {
             // Move to next item
             self.randomItem = items.randomElement()
+            // Check if this will be the last question
+            isLastQuestion = itemsPlayed.count + 1 >= preset.itemCount
         } else {
             // No more items available, complete quiz
             self.randomItem = nil

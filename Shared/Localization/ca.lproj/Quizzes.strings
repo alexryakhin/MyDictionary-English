@@ -109,3 +109,71 @@
 "all_results" = "Tots els resultats";
 "word_starts_with" = "La paraula comença per";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Escriu una frase utilitzant '%@' correctament:";
+"ai_quiz.sentence_placeholder" = "Escriu la teva frase aquí...";
+"ai_quiz.ai_evaluating" = "La IA està avaluant la teva frase...";
+"ai_quiz.feedback" = "Retroacció:";
+"ai_quiz.usage_score" = "Puntuació d'ús: %d/100";
+"ai_quiz.grammar_score" = "Puntuació de gramàtica: %d/100";
+"ai_quiz.overall_score" = "Puntuació global: %d/100";
+"ai_quiz.excellent_usage" = "Ús excel·lent! La teva frase demostra una comprensió perfecta.";
+"ai_quiz.good_usage" = "Bon ús! La teva frase mostra una bona comprensió amb millores menors possibles.";
+"ai_quiz.fair_usage" = "Ús acceptable. Considera el context i el significat més acuradament.";
+"ai_quiz.incorrect_usage" = "Ús incorrecte. Revisa el significat de la paraula i torna-ho a provar.";
+
+"ai_quiz.choose_correct_sentence" = "Tria la frase on '%@' s'utilitza correctament:";
+"ai_quiz.option" = "Opció %d";
+"ai_quiz.explanation" = "Explicació:";
+"ai_quiz.correct_usage_explanation" = "Aquesta frase utilitza '%@' correctament perquè %@";
+"ai_quiz.incorrect_usage_explanation" = "Aquesta frase utilitza '%@' incorrectament perquè %@";
+
+"ai_quiz.fill_in_blank_story" = "Omple el buit amb '%@':";
+"ai_quiz.story_context" = "Context de la història:";
+"ai_quiz.blank_placeholder" = "Escriu la paraula aquí...";
+"ai_quiz.context_hint" = "Consell: Considera el context de la història i el significat de la paraula";
+"ai_quiz.ai_context_feedback" = "Retroacció de context:";
+"ai_quiz.perfect_context_fit" = "Perfecte! La paraula encaixa perfectament en aquest context.";
+"ai_quiz.good_context_fit" = "Bé! La paraula funciona bé en aquest context.";
+"ai_quiz.context_mismatch" = "La paraula no encaixa del tot en aquest context. Considera el significat de la història.";
+
+"ai_quiz.submit_for_evaluation" = "Envia per a l'avaluació";
+"ai_quiz.evaluating_with_ai" = "Avaluació amb IA...";
+"ai_quiz.ai_processing" = "Processant la teva resposta...";
+"ai_quiz.ai_analysis_complete" = "Anàlisi completada";
+"ai_quiz.view_detailed_explanations" = "Veure explicacions detallades";
+"ai_quiz.detailed_explanations" = "Explicacions detallades";
+"ai_quiz.suggestions" = "Suggeriments";
+"ai_quiz.skipped_word" = "Paraula omesa";
+"ai_quiz.skipped_word_message" = "Aquesta paraula va ser omesa durant el qüestionari. No hi ha avaluació disponible per a paraules omeses.";
+"ai_quiz.your_sentence" = "La teva frase";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Generant històries per omplir buits...";
+"loading.fill_in_blank_description" = "La IA està creant històries atractives amb buits per provar la teva comprensió de l'ús de paraules en context.";
+"loading.loading_next_story" = "Carregant la següent història...";
+"loading.preparing_next_story" = "La IA està preparant la següent història per a tu.";
+"loading.generating_context_questions" = "Generant preguntes de context...";
+"loading.context_questions_description" = "La IA està creant preguntes d'opció múltiple per provar la teva comprensió de l'ús de paraules en context.";
+"loading.loading_next_question" = "Carregant la següent pregunta...";
+"loading.preparing_next_question" = "La IA està preparant la següent pregunta per a tu.";
+"loading.failed_to_load_quiz" = "No s'ha pogut carregar el qüestionari";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Pregunta";
+"ui.options" = "Opcions";
+"ui.suggestions" = "Suggeriments";
+"ui.question_number" = "Pregunta %d";
+"ui.you_skipped_question" = "Has omès aquesta pregunta. Aquí tens la resposta correcta i l'explicació:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Escriptura de frases";
+"quiz_types.context_multiple_choice" = "Ús en context";
+"quiz_types.fill_in_the_blank" = "Omplir els buits";
+"quiz_types.write_sentences_with_ai" = "Escriu frases utilitzant paraules correctament amb avaluació d'IA";
+"quiz_types.choose_correct_usage" = "Tria la frase on la paraula s'utilitza correctament";
+"quiz_types.fill_blanks_in_context" = "Omple els buits amb la paraula correcta en context";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Bona feina! Has completat el qüestionari d'escriptura de frases.";
+"quiz_types.great_job_completed_context_quiz" = "Bona feina! Has completat el qüestionari d'ús en context.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bona feina! Has completat el qüestionari d'omplir els buits.";
+"quiz_available_once_a_day_message" = "Ho sentim, el qüestionari només està disponible una vegada al dia. Subscriu-te a PRO per a accés il·limitat!";

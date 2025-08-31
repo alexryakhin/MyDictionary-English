@@ -12,6 +12,9 @@
 "quiz_results" = "نتائج الاختبار";
 "spelling_quiz" = "اختبار الإملاء";
 "definition_quiz" = "اختبار التعريف";
+"sentence_writing_quiz" = "اختبار كتابة الجمل";
+"context_multiple_choice_quiz" = "اختبار الاستخدام في السياق";
+"fill_in_the_blank_quiz" = "اختبار ملء الفراغات";
 "close" = "إغلاق";
 "close_screen" = "إغلاق الشاشة";
 

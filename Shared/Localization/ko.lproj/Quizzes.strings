@@ -109,3 +109,71 @@
 "all_results" = "모든 결과";
 "word_starts_with" = "단어는 다음으로 시작합니다";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "'%@'을(를) 올바르게 사용하여 문장을 작성하세요:";
+"ai_quiz.sentence_placeholder" = "여기에 문장을 입력하세요...";
+"ai_quiz.ai_evaluating" = "AI가 당신의 문장을 평가하고 있습니다...";
+"ai_quiz.feedback" = "피드백:";
+"ai_quiz.usage_score" = "사용 점수: %d/100";
+"ai_quiz.grammar_score" = "문법 점수: %d/100";
+"ai_quiz.overall_score" = "종합 점수: %d/100";
+"ai_quiz.excellent_usage" = "훌륭한 사용! 당신의 문장은 완벽한 이해를 보여줍니다.";
+"ai_quiz.good_usage" = "좋은 사용! 당신의 문장은 좋은 이해를 보여주며 약간의 개선이 가능합니다.";
+"ai_quiz.fair_usage" = "보통 사용. 문맥과 의미를 더 신중히 고려하세요.";
+"ai_quiz.incorrect_usage" = "잘못된 사용. 단어의 의미를 검토하고 다시 시도하세요.";
+
+"ai_quiz.choose_correct_sentence" = "'%@'이(가) 올바르게 사용된 문장을 선택하세요:";
+"ai_quiz.option" = "옵션 %d";
+"ai_quiz.explanation" = "설명:";
+"ai_quiz.correct_usage_explanation" = "이 문장은 '%@'을(를) 올바르게 사용했습니다. 왜냐하면 %@";
+"ai_quiz.incorrect_usage_explanation" = "이 문장은 '%@'을(를) 잘못 사용했습니다. 왜냐하면 %@";
+
+"ai_quiz.fill_in_blank_story" = "'%@'으로 빈칸을 채우세요:";
+"ai_quiz.story_context" = "이야기 문맥:";
+"ai_quiz.blank_placeholder" = "여기에 단어를 입력하세요...";
+"ai_quiz.context_hint" = "힌트: 이야기의 문맥과 단어의 의미를 고려하세요";
+"ai_quiz.ai_context_feedback" = "문맥 피드백:";
+"ai_quiz.perfect_context_fit" = "완벽합니다! 이 단어는 이 문맥에 완벽하게 맞습니다.";
+"ai_quiz.good_context_fit" = "좋습니다! 이 단어는 이 문맥에서 잘 작동합니다.";
+"ai_quiz.context_mismatch" = "이 단어는 이 문맥에 잘 맞지 않습니다. 이야기의 의미를 고려하세요.";
+
+"ai_quiz.submit_for_evaluation" = "평가를 위해 제출";
+"ai_quiz.evaluating_with_ai" = "AI로 평가 중...";
+"ai_quiz.ai_processing" = "당신의 답변을 처리 중...";
+"ai_quiz.ai_analysis_complete" = "분석 완료";
+"ai_quiz.view_detailed_explanations" = "자세한 설명 보기";
+"ai_quiz.detailed_explanations" = "자세한 설명";
+"ai_quiz.suggestions" = "제안";
+"ai_quiz.skipped_word" = "건너뛴 단어";
+"ai_quiz.skipped_word_message" = "이 단어는 퀴즈 중 건너뛰었습니다. 건너뛴 단어에 대한 평가는 제공되지 않습니다.";
+"ai_quiz.your_sentence" = "당신의 문장";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "빈칸 채우기 이야기를 생성 중...";
+"loading.fill_in_blank_description" = "AI가 문맥에서 단어 사용에 대한 이해를 테스트하기 위해 매력적인 이야기를 생성하고 있습니다.";
+"loading.loading_next_story" = "다음 이야기 로드 중...";
+"loading.preparing_next_story" = "AI가 당신을 위해 다음 이야기를 준비하고 있습니다.";
+"loading.generating_context_questions" = "문맥 질문 생성 중...";
+"loading.context_questions_description" = "AI가 문맥에서 단어 사용에 대한 이해를 테스트하기 위해 다지선다 질문을 생성하고 있습니다.";
+"loading.loading_next_question" = "다음 질문 로드 중...";
+"loading.preparing_next_question" = "AI가 당신을 위해 다음 질문을 준비하고 있습니다.";
+"loading.failed_to_load_quiz" = "퀴즈를 로드하지 못했습니다";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "질문";
+"ui.options" = "옵션";
+"ui.suggestions" = "제안";
+"ui.question_number" = "질문 %d";
+"ui.you_skipped_question" = "이 질문을 건너뛰었습니다. 다음은 정답과 설명입니다:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "문장 작성";
+"quiz_types.context_multiple_choice" = "문맥 사용";
+"quiz_types.fill_in_the_blank" = "빈칸 채우기";
+"quiz_types.write_sentences_with_ai" = "AI 평가를 통해 단어를 올바르게 사용하여 문장 작성";
+"quiz_types.choose_correct_usage" = "단어가 올바르게 사용된 문장을 선택";
+"quiz_types.fill_blanks_in_context" = "문맥에 맞는 올바른 단어로 빈칸 채우기";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "훌륭합니다! 문장 작성 퀴즈를 완료했습니다.";
+"quiz_types.great_job_completed_context_quiz" = "훌륭합니다! 문맥 사용 퀴즈를 완료했습니다.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "훌륭합니다! 빈칸 채우기 퀴즈를 완료했습니다.";
+"quiz_available_once_a_day_message" = "죄송합니다. 퀴즈는 하루에 한 번만 이용할 수 있습니다. PRO에 가입하여 무제한 액세스를 받으세요!";

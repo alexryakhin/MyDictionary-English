@@ -12,6 +12,9 @@
 "quiz_results" = "תוצאות חידון";
 "spelling_quiz" = "חידון איות";
 "definition_quiz" = "חידון הגדרות";
+"sentence_writing_quiz" = "חידון כתיבת משפטים";
+"context_multiple_choice_quiz" = "חידון שימוש בהקשר";
+"fill_in_the_blank_quiz" = "חידון מילוי החסר";
 "close" = "סגירה";
 "close_screen" = "סגירת מסך";
 

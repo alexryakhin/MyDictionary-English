@@ -109,3 +109,71 @@
 "all_results" = "すべての結果";
 "word_starts_with" = "単語は以下で始まります";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "'%@'を正しく使って文を書いてください：";
+"ai_quiz.sentence_placeholder" = "ここに文を入力してください...";
+"ai_quiz.ai_evaluating" = "AIがあなたの文を評価しています...";
+"ai_quiz.feedback" = "フィードバック：";
+"ai_quiz.usage_score" = "使用スコア：%d/100";
+"ai_quiz.grammar_score" = "文法スコア：%d/100";
+"ai_quiz.overall_score" = "総合スコア：%d/100";
+"ai_quiz.excellent_usage" = "素晴らしい使用！あなたの文は完璧な理解を示しています。";
+"ai_quiz.good_usage" = "良い使用！あなたの文は良い理解を示しており、わずかな改善が可能です。";
+"ai_quiz.fair_usage" = "まずまずの使用。文脈と意味をより注意深く考えてください。";
+"ai_quiz.incorrect_usage" = "不正な使用。単語の意味を確認して、もう一度試してください。";
+
+"ai_quiz.choose_correct_sentence" = "'%@'が正しく使われている文を選んでください：";
+"ai_quiz.option" = "選択肢 %d";
+"ai_quiz.explanation" = "説明：";
+"ai_quiz.correct_usage_explanation" = "この文は'%@'を正しく使用しています。なぜなら%@";
+"ai_quiz.incorrect_usage_explanation" = "この文は'%@'を正しく使用していません。なぜなら%@";
+
+"ai_quiz.fill_in_blank_story" = "'%@'で空欄を埋めてください：";
+"ai_quiz.story_context" = "物語の文脈：";
+"ai_quiz.blank_placeholder" = "ここに単語を入力してください...";
+"ai_quiz.context_hint" = "ヒント：物語の文脈と単語の意味を考慮してください";
+"ai_quiz.ai_context_feedback" = "文脈フィードバック：";
+"ai_quiz.perfect_context_fit" = "完璧！この文脈に単語が完全に適合しています。";
+"ai_quiz.good_context_fit" = "良い！この文脈で単語がうまく機能しています。";
+"ai_quiz.context_mismatch" = "この文脈には単語があまり適合していません。物語の意味を考えてください。";
+
+"ai_quiz.submit_for_evaluation" = "評価のために送信";
+"ai_quiz.evaluating_with_ai" = "AIで評価中...";
+"ai_quiz.ai_processing" = "あなたの回答を処理中...";
+"ai_quiz.ai_analysis_complete" = "分析が完了しました";
+"ai_quiz.view_detailed_explanations" = "詳細な説明を表示";
+"ai_quiz.detailed_explanations" = "詳細な説明";
+"ai_quiz.suggestions" = "提案";
+"ai_quiz.skipped_word" = "スキップされた単語";
+"ai_quiz.skipped_word_message" = "この単語はクイズ中にスキップされました。スキップされた単語には評価がありません。";
+"ai_quiz.your_sentence" = "あなたの文";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "空欄を埋める物語を生成中...";
+"loading.fill_in_blank_description" = "AIは、文脈での単語の使用をテストするための魅力的な物語を生成しています。";
+"loading.loading_next_story" = "次の物語を読み込み中...";
+"loading.preparing_next_story" = "AIがあなたのために次の物語を準備しています。";
+"loading.generating_context_questions" = "文脈の質問を生成中...";
+"loading.context_questions_description" = "AIは、文脈での単語の使用をテストするための多肢選択問題を生成しています。";
+"loading.loading_next_question" = "次の質問を読み込み中...";
+"loading.preparing_next_question" = "AIがあなたのために次の質問を準備しています。";
+"loading.failed_to_load_quiz" = "クイズの読み込みに失敗しました";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "質問";
+"ui.options" = "選択肢";
+"ui.suggestions" = "提案";
+"ui.question_number" = "質問 %d";
+"ui.you_skipped_question" = "この質問をスキップしました。正しい回答と説明はこちら：";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "文の作成";
+"quiz_types.context_multiple_choice" = "文脈の使用";
+"quiz_types.fill_in_the_blank" = "空欄補充";
+"quiz_types.write_sentences_with_ai" = "AI評価を使用して単語を正しく使った文を書く";
+"quiz_types.choose_correct_usage" = "単語が正しく使われている文を選ぶ";
+"quiz_types.fill_blanks_in_context" = "文脈に合った正しい単語で空欄を埋める";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "素晴らしい！文の作成クイズを完了しました。";
+"quiz_types.great_job_completed_context_quiz" = "素晴らしい！文脈の使用クイズを完了しました。";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "素晴らしい！空欄補充クイズを完了しました。";
+"quiz_available_once_a_day_message" = "申し訳ありませんが、クイズは1日1回のみ利用可能です。PROに登録して無制限アクセスを取得してください！";

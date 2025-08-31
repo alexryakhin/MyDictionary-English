@@ -109,3 +109,71 @@
 "all_results" = "כל התוצאות";
 "word_starts_with" = "המילה מתחילה ב";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "כתוב משפט המשתמש ב-'%@' בצורה נכונה:";
+"ai_quiz.sentence_placeholder" = "הקלד את המשפט שלך כאן...";
+"ai_quiz.ai_evaluating" = "הבינה המלאכותית מעריכה את המשפט שלך...";
+"ai_quiz.feedback" = "משוב:";
+"ai_quiz.usage_score" = "ציון שימוש: %d/100";
+"ai_quiz.grammar_score" = "ציון דקדוק: %d/100";
+"ai_quiz.overall_score" = "ציון כולל: %d/100";
+"ai_quiz.excellent_usage" = "שימוש מעולה! המשפט שלך מראה הבנה מושלמת.";
+"ai_quiz.good_usage" = "שימוש טוב! המשפט שלך מראה הבנה טובה עם שיפורים קלים אפשריים.";
+"ai_quiz.fair_usage" = "שימוש סביר. שקול את ההקשר ואת המשמעות ביתר דיוק.";
+"ai_quiz.incorrect_usage" = "שימוש שגוי. בדוק את משמעות המילה ונסה שוב.";
+
+"ai_quiz.choose_correct_sentence" = "בחר את המשפט שבו '%@' משמש בצורה נכונה:";
+"ai_quiz.option" = "אפשרות %d";
+"ai_quiz.explanation" = "הסבר:";
+"ai_quiz.correct_usage_explanation" = "משפט זה משתמש ב-'%@' בצורה נכונה מפני ש%@";
+"ai_quiz.incorrect_usage_explanation" = "משפט זה משתמש ב-'%@' בצורה שגויה מפני ש%@";
+
+"ai_quiz.fill_in_blank_story" = "מלא את החסר עם '%@':";
+"ai_quiz.story_context" = "הקשר הסיפור:";
+"ai_quiz.blank_placeholder" = "הקלד את המילה כאן...";
+"ai_quiz.context_hint" = "רמז: שקול את ההקשר של הסיפור ואת משמעות המילה";
+"ai_quiz.ai_context_feedback" = "משוב הקשר:";
+"ai_quiz.perfect_context_fit" = "מושלם! המילה מתאימה באופן מושלם להקשר זה.";
+"ai_quiz.good_context_fit" = "טוב! המילה עובדת היטב בהקשר זה.";
+"ai_quiz.context_mismatch" = "המילה לא ממש מתאימה להקשר זה. שקול את משמעות הסיפור.";
+
+"ai_quiz.submit_for_evaluation" = "שלח להערכה";
+"ai_quiz.evaluating_with_ai" = "מעריך עם בינה מלאכותית...";
+"ai_quiz.ai_processing" = "מעבד את תשובתך...";
+"ai_quiz.ai_analysis_complete" = "הניתוח הושלם";
+"ai_quiz.view_detailed_explanations" = "צפה בהסברים מפורטים";
+"ai_quiz.detailed_explanations" = "הסברים מפורטים";
+"ai_quiz.suggestions" = "הצעות";
+"ai_quiz.skipped_word" = "מילה שהודחה";
+"ai_quiz.skipped_word_message" = "מילה זו הודחה במהלך החידון. אין הערכה זמינה למילים שהודחו.";
+"ai_quiz.your_sentence" = "המשפט שלך";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "מייצר סיפורים למילוי חסר...";
+"loading.fill_in_blank_description" = "הבינה המלאכותית יוצרת סיפורים מרתקים עם חסרים כדי לבדוק את הבנתך בשימוש במילים בהקשר.";
+"loading.loading_next_story" = "טוען את הסיפור הבא...";
+"loading.preparing_next_story" = "הבינה המלאכותית מכינה את הסיפור הבא עבורך.";
+"loading.generating_context_questions" = "מייצר שאלות הקשר...";
+"loading.context_questions_description" = "הבינה המלאכותית יוצרת שאלות רב-ברירה כדי לבדוק את הבנתך בשימוש במילים בהקשר.";
+"loading.loading_next_question" = "טוען את השאלה הבאה...";
+"loading.preparing_next_question" = "הבינה המלאכותית מכינה את השאלה הבאה עבורך.";
+"loading.failed_to_load_quiz" = "נכשל בטעינת החידון";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "שאלה";
+"ui.options" = "אפשרויות";
+"ui.suggestions" = "הצעות";
+"ui.question_number" = "שאלה %d";
+"ui.you_skipped_question" = "דילגת על שאלה זו. הנה התשובה הנכונה וההסבר:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "כתיבת משפטים";
+"quiz_types.context_multiple_choice" = "שימוש בהקשר";
+"quiz_types.fill_in_the_blank" = "מילוי החסר";
+"quiz_types.write_sentences_with_ai" = "כתוב משפטים תוך שימוש נכון במילים עם הערכת בינה מלאכותית";
+"quiz_types.choose_correct_usage" = "בחר את המשפט שבו המילה משמשת נכון";
+"quiz_types.fill_blanks_in_context" = "מלא את החסר במילה הנכונה בהקשר";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "כל הכבוד! השלמת את החידון של כתיבת משפטים.";
+"quiz_types.great_job_completed_context_quiz" = "כל הכבוד! השלמת את החידון של שימוש בהקשר.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "כל הכבוד! השלמת את החידון של מילוי החסר.";
+"quiz_available_once_a_day_message" = "מצטערים, החידון זמין רק פעם אחת ביום. הירשם ל-PRO לגישה בלתי מוגבלת!";

@@ -109,3 +109,71 @@
 "all_results" = "Alle resultaten";
 "word_starts_with" = "Het woord begint met";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Schrijf een zin waarin '%@' correct wordt gebruikt:";
+"ai_quiz.sentence_placeholder" = "Typ uw zin hier...";
+"ai_quiz.ai_evaluating" = "AI evalueert uw zin...";
+"ai_quiz.feedback" = "Feedback:";
+"ai_quiz.usage_score" = "Gebruiksscore: %d/100";
+"ai_quiz.grammar_score" = "Grammaticascore: %d/100";
+"ai_quiz.overall_score" = "Totale score: %d/100";
+"ai_quiz.excellent_usage" = "Uitstekend gebruik! Uw zin toont perfect begrip.";
+"ai_quiz.good_usage" = "Goed gebruik! Uw zin toont goed begrip met kleine verbeteringen mogelijk.";
+"ai_quiz.fair_usage" = "Redelijk gebruik. Overweeg de context en betekenis zorgvuldiger.";
+"ai_quiz.incorrect_usage" = "Onjuist gebruik. Bekijk de betekenis van het woord en probeer opnieuw.";
+
+"ai_quiz.choose_correct_sentence" = "Kies de zin waarin '%@' correct wordt gebruikt:";
+"ai_quiz.option" = "Optie %d";
+"ai_quiz.explanation" = "Uitleg:";
+"ai_quiz.correct_usage_explanation" = "Deze zin gebruikt '%@' correct omdat %@";
+"ai_quiz.incorrect_usage_explanation" = "Deze zin gebruikt '%@' onjuist omdat %@";
+
+"ai_quiz.fill_in_blank_story" = "Vul de lege plek in met '%@':";
+"ai_quiz.story_context" = "Context van het verhaal:";
+"ai_quiz.blank_placeholder" = "Typ het woord hier...";
+"ai_quiz.context_hint" = "Tip: Overweeg de context van het verhaal en de betekenis van het woord";
+"ai_quiz.ai_context_feedback" = "Contextfeedback:";
+"ai_quiz.perfect_context_fit" = "Perfect! Het woord past perfect in deze context.";
+"ai_quiz.good_context_fit" = "Goed! Het woord werkt goed in deze context.";
+"ai_quiz.context_mismatch" = "Het woord past niet helemaal in deze context. Overweeg de betekenis van het verhaal.";
+
+"ai_quiz.submit_for_evaluation" = "Indienen voor evaluatie";
+"ai_quiz.evaluating_with_ai" = "Evaluatie met AI...";
+"ai_quiz.ai_processing" = "Uw antwoord wordt verwerkt...";
+"ai_quiz.ai_analysis_complete" = "Analyse voltooid";
+"ai_quiz.view_detailed_explanations" = "Bekijk gedetailleerde uitleg";
+"ai_quiz.detailed_explanations" = "Gedetailleerde uitleg";
+"ai_quiz.suggestions" = "Suggesties";
+"ai_quiz.skipped_word" = "Overgeslagen woord";
+"ai_quiz.skipped_word_message" = "Dit woord is overgeslagen tijdens de quiz. Er is geen evaluatie beschikbaar voor overgeslagen woorden.";
+"ai_quiz.your_sentence" = "Uw zin";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Lückentext-Geschichten werden generiert...";
+"loading.fill_in_blank_description" = "KI erstellt fesselnde Geschichten mit Lücken, um Ihr Verständnis der Wortverwendung im Kontext zu testen.";
+"loading.loading_next_story" = "Nächste Geschichte wird geladen...";
+"loading.preparing_next_story" = "KI bereitet die nächste Geschichte für Sie vor.";
+"loading.generating_context_questions" = "Kontextfragen werden generiert...";
+"loading.context_questions_description" = "KI erstellt Multiple-Choice-Fragen, um Ihr Verständnis der Wortverwendung im Kontext zu testen.";
+"loading.loading_next_question" = "Nächste Frage wird geladen...";
+"loading.preparing_next_question" = "KI bereitet die nächste Frage für Sie vor.";
+"loading.failed_to_load_quiz" = "Quiz konnte nicht geladen werden";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Vraag";
+"ui.options" = "Opties";
+"ui.suggestions" = "Suggesties";
+"ui.question_number" = "Vraag %d";
+"ui.you_skipped_question" = "U hebt deze vraag overgeslagen. Hier is het juiste antwoord en de uitleg:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Zinschrijven";
+"quiz_types.context_multiple_choice" = "Gebruik in Context";
+"quiz_types.fill_in_the_blank" = "Gatenvullen";
+"quiz_types.write_sentences_with_ai" = "Schrijf zinnen met correct woordgebruik en AI-evaluatie";
+"quiz_types.choose_correct_usage" = "Kies de zin waarin het woord correct wordt gebruikt";
+"quiz_types.fill_blanks_in_context" = "Vul de lege plekken in met het juiste woord in de context";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Goed gedaan! Je hebt de quiz over zinschrijven voltooid.";
+"quiz_types.great_job_completed_context_quiz" = "Goed gedaan! Je hebt de quiz over gebruik in context voltooid.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Goed gedaan! Je hebt de quiz over gatenvullen voltooid.";
+"quiz_available_once_a_day_message" = "Sorry, de quiz is slechts één keer per dag beschikbaar. Abonneer je op PRO voor onbeperkte toegang!";

@@ -12,6 +12,9 @@
 "quiz_results" = "Quizresultater";
 "spelling_quiz" = "Stavequiz";
 "definition_quiz" = "Definitionsquiz";
+"sentence_writing_quiz" = "Sætningsskrivningsquiz";
+"context_multiple_choice_quiz" = "Kontekstbrugsquiz";
+"fill_in_the_blank_quiz" = "Udfyld tomrum quiz";
 "close" = "Luk";
 "close_screen" = "Luk skærm";
 

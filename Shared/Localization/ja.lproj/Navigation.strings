@@ -12,6 +12,9 @@
 "quiz_results" = "クイズ結果";
 "spelling_quiz" = "綴りクイズ";
 "definition_quiz" = "定義クイズ";
+"sentence_writing_quiz" = "文の作成クイズ";
+"context_multiple_choice_quiz" = "文脈の使用クイズ";
+"fill_in_the_blank_quiz" = "空欄補充クイズ";
 "close" = "閉じる";
 "close_screen" = "画面を閉じる";
 

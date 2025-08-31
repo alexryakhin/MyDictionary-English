@@ -12,6 +12,9 @@
 "quiz_results" = "Rezultate Test";
 "spelling_quiz" = "Test de Ortografie";
 "definition_quiz" = "Test de Definiție";
+"sentence_writing_quiz" = "Test de Scriere a Propozițiilor";
+"context_multiple_choice_quiz" = "Test de Utilizare în Context";
+"fill_in_the_blank_quiz" = "Test de Completare a Spațiilor";
 "close" = "Închide";
 "close_screen" = "Închide Ecranul";
 

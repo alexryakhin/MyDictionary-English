@@ -7,18 +7,30 @@
 
 import SwiftUI
 
-struct QuizResultsView: View {
+struct QuizResultsView<AdditionalAction: View>: View {
 
     struct Model: Hashable {
+        let quiz: Quiz
         let score: Int
         let correctAnswers: Int
-        let wordsPlayed: Int
+        let itemsPlayed: Int
+        let accuracyContributions: Double
         let bestStreak: Int
     }
 
     let model: Model
-    let onRestart: VoidHandler
+    let additionalAction: () -> AdditionalAction
     let onFinish: VoidHandler
+
+    init(
+        model: Model,
+        @ViewBuilder additionalAction: @escaping () -> AdditionalAction = { EmptyView() },
+        onFinish: @escaping VoidHandler
+    ) {
+        self.model = model
+        self.additionalAction = additionalAction
+        self.onFinish = onFinish
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -42,7 +54,7 @@ struct QuizResultsView: View {
                         .font(.title)
                         .fontWeight(.bold)
 
-                    Text(Loc.Quizzes.greatJobCompletedDefinitionQuiz)
+                    Text(model.quiz.completionDescription)
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -66,7 +78,7 @@ struct QuizResultsView: View {
                         HStack {
                             Text(Loc.Quizzes.correctAnswers)
                             Spacer()
-                            Text("\(model.correctAnswers)/\(model.wordsPlayed)")
+                            Text("\(model.correctAnswers)/\(model.itemsPlayed)")
                                 .fontWeight(.medium)
                         }
 
@@ -81,7 +93,7 @@ struct QuizResultsView: View {
                         HStack {
                             Text(Loc.Quizzes.accuracy)
                             Spacer()
-                            Text("\(Int((Double(model.correctAnswers) / Double(model.wordsPlayed)) * 100))%")
+                            Text("\(Int(calculatedAccuracy()))%")
                                 .fontWeight(.medium)
                                 .foregroundStyle(.accent)
                         }
@@ -97,9 +109,7 @@ struct QuizResultsView: View {
             Spacer()
 
             VStack(spacing: 12) {
-                ActionButton(Loc.Actions.tryAgain, systemImage: "arrow.clockwise", style: .borderedProminent) {
-                    onRestart()
-                }
+                additionalAction()
                 ActionButton(Loc.Quizzes.backToQuizzes, systemImage: "chevron.left") {
                     onFinish()
                 }
@@ -110,12 +120,34 @@ struct QuizResultsView: View {
         }
         .groupedBackground()
     }
+
+    private func calculatedAccuracy() -> Double {
+        guard model.accuracyContributions != .zero else {
+            return (Double(model.correctAnswers) / Double(model.itemsPlayed)) * 100
+        }
+
+        let wordsPlayedCount = Double(model.itemsPlayed)
+
+        if wordsPlayedCount == 0 {
+            return 0.0
+        }
+
+        // Calculate accuracy based on contributions
+        let averageAccuracy = model.accuracyContributions / wordsPlayedCount
+        return averageAccuracy * 100
+    }
 }
 
 #Preview {
     QuizResultsView(
-        model: .init(score: 50, correctAnswers: 10, wordsPlayed: 10, bestStreak: 10),
-        onRestart: {},
+        model: .init(
+            quiz: .chooseDefinition,
+            score: 50,
+            correctAnswers: 10,
+            itemsPlayed: 10,
+            accuracyContributions: .zero,
+            bestStreak: 10
+        ),
         onFinish: {}
     )
 }

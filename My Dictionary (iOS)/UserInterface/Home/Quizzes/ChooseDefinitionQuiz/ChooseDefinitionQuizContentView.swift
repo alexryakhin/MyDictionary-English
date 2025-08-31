@@ -65,7 +65,19 @@ struct ChooseDefinitionQuizContentView: View {
                         }
                     }
                 } else {
-                    completionView
+                    QuizResultsView(
+                        model: .init(
+                            quiz: .chooseDefinition,
+                            score: viewModel.score,
+                            correctAnswers: viewModel.correctAnswers,
+                            itemsPlayed: viewModel.itemsPlayed.count,
+                            accuracyContributions: 0,
+                            bestStreak: viewModel.bestStreak
+                        ),
+                        onFinish: {
+                            dismiss()
+                        }
+                    )
                 }
             }
         }
@@ -252,107 +264,17 @@ struct ChooseDefinitionQuizContentView: View {
 
     private var actionButtons: some View {
         VStack(spacing: 12) {
-            ActionButton(Loc.Quizzes.skipWord, systemImage: "arrow.right.circle", color: .secondary) {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    viewModel.handle(.skipItem)
+            if !viewModel.isLastQuestion {
+                ActionButton(Loc.Quizzes.skipWord, systemImage: "arrow.right.circle", color: .secondary) {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        viewModel.handle(.skipItem)
+                    }
                 }
             }
         }
     }
 
-    private var completionView: some View {
-        VStack(spacing: 32) {
-            Spacer()
-            
-            VStack(spacing: 24) {
-                // Success Icon
-                ZStack {
-                    Circle()
-                        .fill(.accent.gradient)
-                        .frame(width: 80, height: 80)
-                    
-                    Image(systemName: "checkmark")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
-                }
-                
-                VStack(spacing: 12) {
-                    Text(Loc.Quizzes.quizComplete)
-                        .font(.title)
-                        .fontWeight(.bold)
-                    
-                    Text(Loc.Quizzes.greatJobCompletedDefinitionQuiz)
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                }
-                
-                // Score Card
-                VStack(spacing: 16) {
-                    Text(Loc.Quizzes.yourResults)
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                    
-                    VStack(spacing: 12) {
-                        HStack {
-                            Text(Loc.Quizzes.finalScore)
-                            Spacer()
-                            Text("\(viewModel.score)")
-                                .fontWeight(.bold)
-                                .foregroundStyle(.accent)
-                        }
-                        
-                        HStack {
-                            Text(Loc.Quizzes.correctAnswers)
-                            Spacer()
-                            Text("\(viewModel.correctAnswers)/\(viewModel.itemsPlayed.count)")
-                                .fontWeight(.medium)
-                        }
-                        
-                        HStack {
-                            Text(Loc.Quizzes.bestStreak)
-                            Spacer()
-                            Text("\(viewModel.bestStreak)")
-                                .fontWeight(.medium)
-                                .foregroundStyle(.orange)
-                        }
-                        
-                        HStack {
-                            Text(Loc.Quizzes.accuracy)
-                            Spacer()
-                            Text("\(Int((Double(viewModel.correctAnswers) / Double(viewModel.itemsPlayed.count)) * 100))%")
-                                .fontWeight(.medium)
-                                .foregroundStyle(.accent)
-                        }
-                    }
-                    .font(.body)
-                }
-                .padding(24)
-                .clippedWithBackground()
-                .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
-            }
-            .padding(.horizontal, 32)
-            
-            VStack(spacing: 12) {
-                ActionButton(Loc.Actions.tryAgain, systemImage: "arrow.clockwise", style: .borderedProminent) {
-                    viewModel.handle(.restartQuiz)
-                }
-                ActionButton(Loc.Quizzes.backToQuizzes, systemImage: "chevron.left") {
-                    dismiss()
-                }
-            }
-            .padding(.horizontal, 32)
-            
-            Spacer()
-        }
-        .if(isPad) { view in
-            view
-                .frame(maxWidth: 550, alignment: .center)
-                .frame(maxWidth: .infinity, alignment: .center)
-        }
-        .groupedBackground()
-    }
+
 
     private func backgroundColor(for index: Int) -> Color {
         switch viewModel.answerFeedback {

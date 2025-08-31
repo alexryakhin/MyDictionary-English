@@ -12,6 +12,9 @@
 "quiz_results" = "Quizresultaten";
 "spelling_quiz" = "Spelquiz";
 "definition_quiz" = "Definitiequiz";
+"sentence_writing_quiz" = "Zinschrijfquiz";
+"context_multiple_choice_quiz" = "Contextgebruikquiz";
+"fill_in_the_blank_quiz" = "Gatenvulquiz";
 "close" = "Sluiten";
 "close_screen" = "Scherm sluiten";
 

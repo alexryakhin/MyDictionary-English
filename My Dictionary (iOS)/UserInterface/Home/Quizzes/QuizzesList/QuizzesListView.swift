@@ -73,43 +73,22 @@ struct QuizzesListView: View {
                     footer: Loc.Quizzes.youCanPracticeVocabulary
                 ) {
                     VStack(spacing: 8) {
-                        Button {
-                            viewModel.output.send(
-                                .showSpellingQuiz(
-                                    .init(
-                                        itemCount: Int(practiceItemCount),
-                                        hardItemsOnly: viewModel.showingHardItemsOnly,
-                                        mode: .all
-                                    )
-                                )
+                        ForEach(Quiz.allCases, id: \.self) { quiz in
+                            Button {
+                                viewModel.handle(.showQuiz(quiz, .init(
+                                    itemCount: Int(practiceItemCount),
+                                    hardItemsOnly: viewModel.showingHardItemsOnly,
+                                    mode: .all
+                                )))
+                            } label: {
+                                QuizCardView(quiz: quiz)
+                            }
+                            .buttonStyle(.plain)
+                            .clippedWithPaddingAndBackground(
+                                Color.tertiarySystemGroupedBackground,
+                                cornerRadius: 16
                             )
-                        } label: {
-                            QuizCardView(quiz: .spelling)
                         }
-                        .buttonStyle(.plain)
-                        .clippedWithPaddingAndBackground(
-                            Color.tertiarySystemGroupedBackground,
-                            cornerRadius: 16
-                        )
-
-                        Button {
-                            viewModel.output.send(
-                                .showChooseDefinitionQuiz(
-                                    .init(
-                                        itemCount: Int(practiceItemCount),
-                                        hardItemsOnly: viewModel.showingHardItemsOnly,
-                                        mode: .all
-                                    )
-                                )
-                            )
-                        } label: {
-                            QuizCardView(quiz: .chooseDefinition)
-                        }
-                        .buttonStyle(.plain)
-                        .clippedWithPaddingAndBackground(
-                            Color.tertiarySystemGroupedBackground,
-                            cornerRadius: 16
-                        )
                     }
                     .padding(.bottom, 12)
                 }

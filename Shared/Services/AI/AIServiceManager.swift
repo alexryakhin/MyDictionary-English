@@ -19,6 +19,26 @@ protocol AIAPIServiceInterface {
         userLanguage: String,
         userId: String
     ) async throws -> AIWordResponse
+    
+    func evaluateSentences(
+        sentences: [(sentence: String, targetWord: String)],
+        userId: String,
+        userLanguage: String
+    ) async throws -> [AISentenceEvaluation]
+    
+    func generateSingleContextQuestion(
+        word: String,
+        wordLanguage: String,
+        userId: String,
+        userLanguage: String
+    ) async throws -> AIContextQuestion
+    
+    func generateSingleFillInTheBlankStory(
+        word: String,
+        wordLanguage: String,
+        userId: String,
+        userLanguage: String
+    ) async throws -> AIFillInTheBlankStory
 }
 
 // MARK: - AI Service Manager Interface
@@ -30,6 +50,20 @@ protocol AIServiceInterface {
         inputLanguage: InputLanguage
     ) async throws -> AIWordResponse
     
+    func evaluateSentences(
+        sentences: [(sentence: String, targetWord: String)]
+    ) async throws -> [AISentenceEvaluation]
+
+    func generateSingleContextQuestion(
+        word: String,
+        wordLanguage: String
+    ) async throws -> AIContextQuestion
+    
+    func generateSingleFillInTheBlankStory(
+        word: String,
+        wordLanguage: String
+    ) async throws -> AIFillInTheBlankStory
+    
     /// Checks if the user can make an AI request
     func canMakeAIRequest() -> Bool
     
@@ -38,6 +72,17 @@ protocol AIServiceInterface {
     
     /// Gets the total daily limit
     func getDailyLimit() -> Int
+    
+    // MARK: - Quiz Usage Tracking
+    
+    /// Checks if the user can run a specific AI quiz today
+    func canRunQuizToday(_ quizType: Quiz) -> Bool
+    
+    /// Checks if a specific quiz type uses AI
+    func isAIQuiz(_ quizType: Quiz) -> Bool
+    
+    /// Gets all AI quiz types
+    func getAIQuizzes() -> [Quiz]
 }
 
 // MARK: - AI Service Manager
@@ -48,6 +93,7 @@ final class AIService: AIServiceInterface {
 
     private let apiService: AIAPIServiceInterface
     private let usageTracker = AIUsageTracker.shared
+    private let quizUsageTracker = QuizUsageTracker.shared
 
     private init() {
 #if DEBUG
@@ -91,6 +137,31 @@ final class AIService: AIServiceInterface {
         }
     }
     
+    func evaluateSentences(
+        sentences: [(sentence: String, targetWord: String)]
+    ) async throws -> [AISentenceEvaluation] {
+        do {
+            // Check if user can make AI request
+            guard usageTracker.canMakeAIRequest() else {
+                throw DictionaryError.aiUsageLimitExceeded
+            }
+            
+            guard let userId = Auth.auth().currentUser?.uid else {
+                throw DictionaryError.userNotAuthenticated
+            }
+
+            let response = try await apiService.evaluateSentences(
+                sentences: sentences,
+                userId: userId,
+                userLanguage: getCurrentAppLanguage()
+            )
+
+            return response
+        } catch {
+            throw error
+        }
+    }
+
     func canMakeAIRequest() -> Bool {
         return usageTracker.canMakeAIRequest()
     }
@@ -102,10 +173,86 @@ final class AIService: AIServiceInterface {
     func getDailyLimit() -> Int {
         return usageTracker.getDailyLimit()
     }
+    
+    // MARK: - Quiz Usage Tracking
+    
+    /// Checks if the user can run a specific AI quiz today
+    /// - Parameter quizType: The type of quiz to check
+    /// - Returns: true if user can run the quiz today, false otherwise
+    func canRunQuizToday(_ quizType: Quiz) -> Bool {
+        return (try? quizUsageTracker.canRunQuizToday(quizType)) ?? false
+    }
+
+    /// Checks if a specific quiz type uses AI
+    /// - Parameter quizType: The quiz type to check
+    /// - Returns: true if the quiz uses AI, false otherwise
+    func isAIQuiz(_ quizType: Quiz) -> Bool {
+        return quizUsageTracker.isAIQuiz(quizType)
+    }
+    
+    /// Gets all AI quiz types
+    /// - Returns: Array of AI-powered quiz types
+    func getAIQuizzes() -> [Quiz] {
+        return quizUsageTracker.getAIQuizzes()
+    }
 
     private func getCurrentAppLanguage() -> String {
         let currentLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
         return Locale(identifier: "en_US").localizedString(forLanguageCode: currentLanguageCode) ?? "English"
+    }
+    
+    func generateSingleContextQuestion(
+        word: String,
+        wordLanguage: String
+    ) async throws -> AIContextQuestion {
+        do {
+            // Check if user can make AI request
+            guard usageTracker.canMakeAIRequest() else {
+                throw DictionaryError.aiUsageLimitExceeded
+            }
+            
+            guard let userId = Auth.auth().currentUser?.uid else {
+                throw DictionaryError.userNotAuthenticated
+            }
+
+            let response = try await apiService.generateSingleContextQuestion(
+                word: word,
+                wordLanguage: wordLanguage,
+                userId: userId,
+                userLanguage: getCurrentAppLanguage()
+            )
+
+            return response
+        } catch {
+            throw error
+        }
+    }
+    
+    func generateSingleFillInTheBlankStory(
+        word: String,
+        wordLanguage: String
+    ) async throws -> AIFillInTheBlankStory {
+        do {
+            // Check if user can make AI request
+            guard usageTracker.canMakeAIRequest() else {
+                throw DictionaryError.aiUsageLimitExceeded
+            }
+            
+            guard let userId = Auth.auth().currentUser?.uid else {
+                throw DictionaryError.userNotAuthenticated
+            }
+
+            let response = try await apiService.generateSingleFillInTheBlankStory(
+                word: word,
+                wordLanguage: wordLanguage,
+                userId: userId,
+                userLanguage: getCurrentAppLanguage()
+            )
+
+            return response
+        } catch {
+            throw error
+        }
     }
 }
 

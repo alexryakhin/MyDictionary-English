@@ -109,3 +109,71 @@
 "all_results" = "所有結果";
 "word_starts_with" = "單字以以下開頭";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "使用「%@」正確寫一個句子：";
+"ai_quiz.sentence_placeholder" = "在此輸入您的句子...";
+"ai_quiz.ai_evaluating" = "人工智能正在評估您的句子...";
+"ai_quiz.feedback" = "反饋：";
+"ai_quiz.usage_score" = "使用評分：%d/100";
+"ai_quiz.grammar_score" = "語法評分：%d/100";
+"ai_quiz.overall_score" = "總評分：%d/100";
+"ai_quiz.excellent_usage" = "優秀使用！您的句子展示了完美的理解。";
+"ai_quiz.good_usage" = "良好使用！您的句子展示了良好的理解，可能有小的改進空間。";
+"ai_quiz.fair_usage" = "一般使用。請更仔細地考慮上下文和詞義。";
+"ai_quiz.incorrect_usage" = "使用錯誤。請審視詞義並重試。";
+
+"ai_quiz.choose_correct_sentence" = "選擇正確使用「%@」的句子：";
+"ai_quiz.option" = "選項 %d";
+"ai_quiz.explanation" = "解釋：";
+"ai_quiz.correct_usage_explanation" = "此句子正確使用「%@」，因為%@";
+"ai_quiz.incorrect_usage_explanation" = "此句子錯誤使用「%@」，因為%@";
+
+"ai_quiz.fill_in_blank_story" = "用「%@」填空：";
+"ai_quiz.story_context" = "故事背景：";
+"ai_quiz.blank_placeholder" = "在此輸入詞語...";
+"ai_quiz.context_hint" = "提示：考慮故事背景和詞語含義";
+"ai_quiz.ai_context_feedback" = "上下文反饋：";
+"ai_quiz.perfect_context_fit" = "完美！此詞語完全適合此背景。";
+"ai_quiz.good_context_fit" = "良好！此詞語在此背景下表現良好。";
+"ai_quiz.context_mismatch" = "此詞語不太適合此背景。請考慮故事的含義。";
+
+"ai_quiz.submit_for_evaluation" = "提交以供評估";
+"ai_quiz.evaluating_with_ai" = "人工智能評估中...";
+"ai_quiz.ai_processing" = "正在處理您的答案...";
+"ai_quiz.ai_analysis_complete" = "分析完成";
+"ai_quiz.view_detailed_explanations" = "查看詳細解釋";
+"ai_quiz.detailed_explanations" = "詳細解釋";
+"ai_quiz.suggestions" = "建議";
+"ai_quiz.skipped_word" = "跳過的詞語";
+"ai_quiz.skipped_word_message" = "此詞語在測驗中被跳過。跳過的詞語沒有評估。";
+"ai_quiz.your_sentence" = "您的句子";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "正在生成填空故事...";
+"loading.fill_in_blank_description" = "人工智能正在創建引人入勝的填空故事，以測試您對詞語在上下文中的使用理解。";
+"loading.loading_next_story" = "正在加載下一個故事...";
+"loading.preparing_next_story" = "人工智能正在為您準備下一個故事。";
+"loading.generating_context_questions" = "正在生成上下文問題...";
+"loading.context_questions_description" = "人工智能正在創建多選題，以測試您對詞語在上下文中的使用理解。";
+"loading.loading_next_question" = "正在加載下一個問題...";
+"loading.preparing_next_question" = "人工智能正在為您準備下一個問題。";
+"loading.failed_to_load_quiz" = "無法加載測驗";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "問題";
+"ui.options" = "選項";
+"ui.suggestions" = "建議";
+"ui.question_number" = "問題 %d";
+"ui.you_skipped_question" = "您跳過了此問題。這是正確答案和解釋：";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "句子寫作";
+"quiz_types.context_multiple_choice" = "上下文使用";
+"quiz_types.fill_in_the_blank" = "填空";
+"quiz_types.write_sentences_with_ai" = "使用人工智能評估正確使用詞語寫句子";
+"quiz_types.choose_correct_usage" = "選擇詞語使用正確的句子";
+"quiz_types.fill_blanks_in_context" = "在上下文中用正確的詞語填空";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "幹得好！你完成了句子寫作測驗。";
+"quiz_types.great_job_completed_context_quiz" = "幹得好！你完成了上下文使用測驗。";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "幹得好！你完成了填空測驗。";
+"quiz_available_once_a_day_message" = "抱歉，測驗每天只能使用一次。訂閱PRO獲得無限訪問權限！";

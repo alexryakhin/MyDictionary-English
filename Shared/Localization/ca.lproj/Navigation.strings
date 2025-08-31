@@ -12,6 +12,9 @@
 "quiz_results" = "Resultats del qüestionari";
 "spelling_quiz" = "Qüestionari d'ortografia";
 "definition_quiz" = "Qüestionari de definició";
+"sentence_writing_quiz" = "Qüestionari d'escriptura de frases";
+"context_multiple_choice_quiz" = "Qüestionari d'ús en context";
+"fill_in_the_blank_quiz" = "Qüestionari d'omplir els buits";
 "close" = "Tanca";
 "close_screen" = "Tanca la pantalla";
 

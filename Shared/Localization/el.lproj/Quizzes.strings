@@ -109,3 +109,71 @@
 "all_results" = "Όλα τα αποτελέσματα";
 "word_starts_with" = "Η λέξη ξεκινάει με";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Γράψτε μια πρόταση χρησιμοποιώντας σωστά το '%@':";
+"ai_quiz.sentence_placeholder" = "Πληκτρολογήστε την πρότασή σας εδώ...";
+"ai_quiz.ai_evaluating" = "Η τεχνητή νοημοσύνη αξιολογεί την πρότασή σας...";
+"ai_quiz.feedback" = "Ανατροφοδότηση:";
+"ai_quiz.usage_score" = "Βαθμολογία χρήσης: %d/100";
+"ai_quiz.grammar_score" = "Βαθμολογία γραμματικής: %d/100";
+"ai_quiz.overall_score" = "Συνολική βαθμολογία: %d/100";
+"ai_quiz.excellent_usage" = "Εξαιρετική χρήση! Η πρότασή σας δείχνει τέλεια κατανόηση.";
+"ai_quiz.good_usage" = "Καλή χρήση! Η πρότασή σας δείχνει καλή κατανόηση με πιθανές μικρές βελτιώσεις.";
+"ai_quiz.fair_usage" = "Μέτρια χρήση. Εξετάστε το πλαίσιο και τη σημασία πιο προσεκτικά.";
+"ai_quiz.incorrect_usage" = "Λανθασμένη χρήση. Ελέγξτε τη σημασία της λέξης και δοκιμάστε ξανά.";
+
+"ai_quiz.choose_correct_sentence" = "Επιλέξτε την πρόταση όπου το '%@' χρησιμοποιείται σωστά:";
+"ai_quiz.option" = "Επιλογή %d";
+"ai_quiz.explanation" = "Εξήγηση:";
+"ai_quiz.correct_usage_explanation" = "Αυτή η πρόταση χρησιμοποιεί το '%@' σωστά επειδή %@";
+"ai_quiz.incorrect_usage_explanation" = "Αυτή η πρόταση χρησιμοποιεί το '%@' λανθασμένα επειδή %@";
+
+"ai_quiz.fill_in_blank_story" = "Συμπληρώστε το κενό με το '%@':";
+"ai_quiz.story_context" = "Πλαίσιο ιστορίας:";
+"ai_quiz.blank_placeholder" = "Πληκτρολογήστε τη λέξη εδώ...";
+"ai_quiz.context_hint" = "Υπόδειξη: Εξετάστε το πλαίσιο της ιστορίας και τη σημασία της λέξης";
+"ai_quiz.ai_context_feedback" = "Ανατροφοδότηση πλαισίου:";
+"ai_quiz.perfect_context_fit" = "Τέλειο! Η λέξη ταιριάζει απόλυτα σε αυτό το πλαίσιο.";
+"ai_quiz.good_context_fit" = "Καλή! Η λέξη λειτουργεί καλά σε αυτό το πλαίσιο.";
+"ai_quiz.context_mismatch" = "Η λέξη δεν ταιριάζει απόλυτα σε αυτό το πλαίσιο. Εξετάστε τη σημασία της ιστορίας.";
+
+"ai_quiz.submit_for_evaluation" = "Υποβολή για αξιολόγηση";
+"ai_quiz.evaluating_with_ai" = "Αξιολόγηση με τεχνητή νοημοσύνη...";
+"ai_quiz.ai_processing" = "Επεξεργασία της απάντησής σας...";
+"ai_quiz.ai_analysis_complete" = "Η ανάλυση ολοκληρώθηκε";
+"ai_quiz.view_detailed_explanations" = "Προβολή λεπτομερών εξηγήσεων";
+"ai_quiz.detailed_explanations" = "Λεπτομερείς εξηγήσεις";
+"ai_quiz.suggestions" = "Προτάσεις";
+"ai_quiz.skipped_word" = "Παραλειφθείσα λέξη";
+"ai_quiz.skipped_word_message" = "Αυτή η λέξη παραλείφθηκε κατά τη διάρκεια του κουίζ. Δεν υπάρχει διαθέσιμη αξιολόγηση για παραλειφθείσες λέξεις.";
+"ai_quiz.your_sentence" = "Η πρότασή σας";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Δημιουργία ιστοριών με κενά...";
+"loading.fill_in_blank_description" = "Η τεχνητή νοημοσύνη δημιουργεί συναρπαστικές ιστορίες με κενά για να δοκιμάσει την κατανόησή σας στη χρήση λέξεων στο πλαίσιο.";
+"loading.loading_next_story" = "Φόρτωση επόμενης ιστορίας...";
+"loading.preparing_next_story" = "Η τεχνητή νοημοσύνη προετοιμάζει την επόμενη ιστορία για εσάς.";
+"loading.generating_context_questions" = "Δημιουργία ερωτήσεων πλαισίου...";
+"loading.context_questions_description" = "Η τεχνητή νοημοσύνη δημιουργεί ερωτήσεις πολλαπλής επιλογής για να δοκιμάσει την κατανόησή σας στη χρήση λέξεων στο πλαίσιο.";
+"loading.loading_next_question" = "Φόρτωση επόμενης ερώτησης...";
+"loading.preparing_next_question" = "Η τεχνητή νοημοσύνη προετοιμάζει την επόμενη ερώτηση για εσάς.";
+"loading.failed_to_load_quiz" = "Αποτυχία φόρτωσης του κουίζ";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Ερώτηση";
+"ui.options" = "Επιλογές";
+"ui.suggestions" = "Προτάσεις";
+"ui.question_number" = "Ερώτηση %d";
+"ui.you_skipped_question" = "Παραλείψατε αυτή την ερώτηση. Εδώ είναι η σωστή απάντηση και η εξήγηση:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Γράψιμο προτάσεων";
+"quiz_types.context_multiple_choice" = "Χρήση στο πλαίσιο";
+"quiz_types.fill_in_the_blank" = "Συμπλήρωση κενών";
+"quiz_types.write_sentences_with_ai" = "Γράψτε προτάσεις χρησιμοποιώντας λέξεις σωστά με αξιολόγηση από τεχνητή νοημοσύνη";
+"quiz_types.choose_correct_usage" = "Επιλέξτε την πρόταση όπου η λέξη χρησιμοποιείται σωστά";
+"quiz_types.fill_blanks_in_context" = "Συμπληρώστε τα κενά με τη σωστή λέξη στο πλαίσιο";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Μπράβο! Ολοκληρώσατε το κουίζ γράψιμου προτάσεων.";
+"quiz_types.great_job_completed_context_quiz" = "Μπράβο! Ολοκληρώσατε το κουίζ χρήσης στο πλαίσιο.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Μπράβο! Ολοκληρώσατε το κουίζ συμπλήρωσης κενών.";
+"quiz_available_once_a_day_message" = "Συγγνώμη, το κουίζ είναι διαθέσιμο μόνο μία φορά την ημέρα. Εγγραφείτε στο PRO για απεριόριστη πρόσβαση!";

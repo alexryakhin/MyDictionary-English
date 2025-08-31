@@ -44,13 +44,13 @@
 "pro_features.organize_words_with_tags" = "Organize your words with custom tags for easier search";
 "pro_features.detailed_progress_tracking" = "Detailed progress tracking and insights";
 "pro_features.get_priority_support" = "Get priority support when you need help";
-"pro_features.speechify_tts" = "Speechify TTS";
-"pro_features.speechify_tts_description" = "Access to Speechify's premium text-to-speech technology. Hundreds of natural-sounding premium voices";
-"pro_features.ai_definitions" = "AI Definitions";
-"pro_features.ai_definitions_description" = "Get intelligent, context-aware definitions powered by advanced AI technology";
 
 // MARK: - Pro Upgrade Messages
 "pro_upgrade.upgrade_to_pro_progress_details" = "Upgrade to Pro to see full progress details.";
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgrade to Pro to see full vocabulary growth details.";
 "pro_upgrade.time_period" = "Time Period";
 
+"pro_features.speechify_tts" = "Speechify TTS";
+"pro_features.speechify_tts_description" = "Access to Speechify's premium text-to-speech technology. Hundreds of natural-sounding premium voices";
+"pro_features.ai_definitions" = "AI Definitions";
+"pro_features.ai_definitions_description" = "Get intelligent, context-aware definitions powered by advanced AI technology";

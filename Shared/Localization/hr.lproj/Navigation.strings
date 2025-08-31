@@ -12,6 +12,9 @@
 "quiz_results" = "Rezultati kviza";
 "spelling_quiz" = "Kviz pravopisa";
 "definition_quiz" = "Kviz definicija";
+"sentence_writing_quiz" = "Kviz pisanja rečenica";
+"context_multiple_choice_quiz" = "Kviz korištenja u kontekstu";
+"fill_in_the_blank_quiz" = "Kviz ispunjavanja praznina";
 "close" = "Zatvori";
 "close_screen" = "Zatvori zaslon";
 

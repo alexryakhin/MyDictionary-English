@@ -12,6 +12,9 @@
 "quiz_results" = "Keputusan Kui";
 "spelling_quiz" = "Kui Ejaan";
 "definition_quiz" = "Kui Definisi";
+"sentence_writing_quiz" = "Kui Penulisan Ayat";
+"context_multiple_choice_quiz" = "Kui Penggunaan dalam Konteks";
+"fill_in_the_blank_quiz" = "Kui Isi Tempat Kosong";
 "close" = "Tutup";
 "close_screen" = "Tutup Skrin";
 

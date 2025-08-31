@@ -685,14 +685,20 @@ public enum Loc {
     public static let close = Loc.tr("Navigation", "close", fallback: "Close")
     /// Close screen
     public static let closeScreen = Loc.tr("Navigation", "close_screen", fallback: "Close screen")
+    /// Context Usage Quiz
+    public static let contextMultipleChoiceQuiz = Loc.tr("Navigation", "context_multiple_choice_quiz", fallback: "Context Usage Quiz")
     /// Debug Panel
     public static let debugPanel = Loc.tr("Navigation", "debug_panel", fallback: "Debug Panel")
     /// Definition Quiz
     public static let definitionQuiz = Loc.tr("Navigation", "definition_quiz", fallback: "Definition Quiz")
+    /// Fill in the Blank Quiz
+    public static let fillInTheBlankQuiz = Loc.tr("Navigation", "fill_in_the_blank_quiz", fallback: "Fill in the Blank Quiz")
     /// Idiom Details
     public static let idiomDetails = Loc.tr("Navigation", "idiom_details", fallback: "Idiom Details")
     /// Quiz Results
     public static let quizResults = Loc.tr("Navigation", "quiz_results", fallback: "Quiz Results")
+    /// Sentence Writing Quiz
+    public static let sentenceWritingQuiz = Loc.tr("Navigation", "sentence_writing_quiz", fallback: "Sentence Writing Quiz")
     /// Spelling Quiz
     public static let spellingQuiz = Loc.tr("Navigation", "spelling_quiz", fallback: "Spelling Quiz")
     /// Word Details
@@ -935,6 +941,8 @@ public enum Loc {
     public static func progressFormat(_ p1: Int, _ p2: Int) -> String {
       return Loc.tr("Quizzes", "progress_format", p1, p2, fallback: "Progress: %d/%d")
     }
+    /// Sorry, quiz is only available once a day. Subscribe to PRO for unlimited access!
+    public static let quizAvailableOnceADayMessage = Loc.tr("Quizzes", "quiz_available_once_a_day_message", fallback: "Sorry, quiz is only available once a day. Subscribe to PRO for unlimited access!")
     /// Quiz Complete!
     public static let quizComplete = Loc.tr("Quizzes", "quiz_complete", fallback: "Quiz Complete!")
     /// Quiz Types
@@ -987,6 +995,114 @@ public enum Loc {
     public static let yourAnswer = Loc.tr("Quizzes", "your_answer", fallback: "Your Answer")
     /// Your Results
     public static let yourResults = Loc.tr("Quizzes", "your_results", fallback: "Your Results")
+    public enum AiQuiz {
+      /// Analysis complete
+      public static let aiAnalysisComplete = Loc.tr("Quizzes", "ai_quiz.ai_analysis_complete", fallback: "Analysis complete")
+      /// Context Feedback:
+      public static let aiContextFeedback = Loc.tr("Quizzes", "ai_quiz.ai_context_feedback", fallback: "Context Feedback:")
+      /// AI is evaluating your sentence...
+      public static let aiEvaluating = Loc.tr("Quizzes", "ai_quiz.ai_evaluating", fallback: "AI is evaluating your sentence...")
+      /// Processing your answer...
+      public static let aiProcessing = Loc.tr("Quizzes", "ai_quiz.ai_processing", fallback: "Processing your answer...")
+      /// Type the word here...
+      public static let blankPlaceholder = Loc.tr("Quizzes", "ai_quiz.blank_placeholder", fallback: "Type the word here...")
+      /// Choose the sentence where '%@' is used correctly:
+      public static func chooseCorrectSentence(_ p1: Any) -> String {
+        return Loc.tr("Quizzes", "ai_quiz.choose_correct_sentence", String(describing: p1), fallback: "Choose the sentence where '%@' is used correctly:")
+      }
+      /// Hint: Consider the story context and word meaning
+      public static let contextHint = Loc.tr("Quizzes", "ai_quiz.context_hint", fallback: "Hint: Consider the story context and word meaning")
+      /// The word doesn't quite fit this context. Consider the story meaning.
+      public static let contextMismatch = Loc.tr("Quizzes", "ai_quiz.context_mismatch", fallback: "The word doesn't quite fit this context. Consider the story meaning.")
+      /// This sentence uses '%@' correctly because %@
+      public static func correctUsageExplanation(_ p1: Any, _ p2: Any) -> String {
+        return Loc.tr("Quizzes", "ai_quiz.correct_usage_explanation", String(describing: p1), String(describing: p2), fallback: "This sentence uses '%@' correctly because %@")
+      }
+      /// Detailed Explanations
+      public static let detailedExplanations = Loc.tr("Quizzes", "ai_quiz.detailed_explanations", fallback: "Detailed Explanations")
+      /// Evaluating with AI...
+      public static let evaluatingWithAi = Loc.tr("Quizzes", "ai_quiz.evaluating_with_ai", fallback: "Evaluating with AI...")
+      /// Excellent usage! Your sentence demonstrates perfect understanding.
+      public static let excellentUsage = Loc.tr("Quizzes", "ai_quiz.excellent_usage", fallback: "Excellent usage! Your sentence demonstrates perfect understanding.")
+      /// Explanation:
+      public static let explanation = Loc.tr("Quizzes", "ai_quiz.explanation", fallback: "Explanation:")
+      /// Fair usage. Consider the context and meaning more carefully.
+      public static let fairUsage = Loc.tr("Quizzes", "ai_quiz.fair_usage", fallback: "Fair usage. Consider the context and meaning more carefully.")
+      /// Feedback:
+      public static let feedback = Loc.tr("Quizzes", "ai_quiz.feedback", fallback: "Feedback:")
+      /// Fill in the blank with '%@':
+      public static func fillInBlankStory(_ p1: Any) -> String {
+        return Loc.tr("Quizzes", "ai_quiz.fill_in_blank_story", String(describing: p1), fallback: "Fill in the blank with '%@':")
+      }
+      /// Good! The word works well in this context.
+      public static let goodContextFit = Loc.tr("Quizzes", "ai_quiz.good_context_fit", fallback: "Good! The word works well in this context.")
+      /// Good usage! Your sentence shows good understanding with minor improvements possible.
+      public static let goodUsage = Loc.tr("Quizzes", "ai_quiz.good_usage", fallback: "Good usage! Your sentence shows good understanding with minor improvements possible.")
+      /// Grammar Score: %d/100
+      public static func grammarScore(_ p1: Int) -> String {
+        return Loc.tr("Quizzes", "ai_quiz.grammar_score", p1, fallback: "Grammar Score: %d/100")
+      }
+      /// Incorrect usage. Review the word's meaning and try again.
+      public static let incorrectUsage = Loc.tr("Quizzes", "ai_quiz.incorrect_usage", fallback: "Incorrect usage. Review the word's meaning and try again.")
+      /// This sentence uses '%@' incorrectly because %@
+      public static func incorrectUsageExplanation(_ p1: Any, _ p2: Any) -> String {
+        return Loc.tr("Quizzes", "ai_quiz.incorrect_usage_explanation", String(describing: p1), String(describing: p2), fallback: "This sentence uses '%@' incorrectly because %@")
+      }
+      /// Option %d
+      public static func option(_ p1: Int) -> String {
+        return Loc.tr("Quizzes", "ai_quiz.option", p1, fallback: "Option %d")
+      }
+      /// Overall Score: %d/100
+      public static func overallScore(_ p1: Int) -> String {
+        return Loc.tr("Quizzes", "ai_quiz.overall_score", p1, fallback: "Overall Score: %d/100")
+      }
+      /// Perfect! The word fits perfectly in this context.
+      public static let perfectContextFit = Loc.tr("Quizzes", "ai_quiz.perfect_context_fit", fallback: "Perfect! The word fits perfectly in this context.")
+      /// Type your sentence here...
+      public static let sentencePlaceholder = Loc.tr("Quizzes", "ai_quiz.sentence_placeholder", fallback: "Type your sentence here...")
+      /// Skipped Word
+      public static let skippedWord = Loc.tr("Quizzes", "ai_quiz.skipped_word", fallback: "Skipped Word")
+      /// This word was skipped during the quiz. No evaluation is available for skipped words.
+      public static let skippedWordMessage = Loc.tr("Quizzes", "ai_quiz.skipped_word_message", fallback: "This word was skipped during the quiz. No evaluation is available for skipped words.")
+      /// Story Context:
+      public static let storyContext = Loc.tr("Quizzes", "ai_quiz.story_context", fallback: "Story Context:")
+      /// Submit for evaluation
+      public static let submitForEvaluation = Loc.tr("Quizzes", "ai_quiz.submit_for_evaluation", fallback: "Submit for evaluation")
+      /// Suggestions
+      public static let suggestions = Loc.tr("Quizzes", "ai_quiz.suggestions", fallback: "Suggestions")
+      /// Usage Score: %d/100
+      public static func usageScore(_ p1: Int) -> String {
+        return Loc.tr("Quizzes", "ai_quiz.usage_score", p1, fallback: "Usage Score: %d/100")
+      }
+      /// View detailed explanations
+      public static let viewDetailedExplanations = Loc.tr("Quizzes", "ai_quiz.view_detailed_explanations", fallback: "View detailed explanations")
+      /// Write a sentence using '%@' correctly:
+      public static func writeSentenceForWord(_ p1: Any) -> String {
+        return Loc.tr("Quizzes", "ai_quiz.write_sentence_for_word", String(describing: p1), fallback: "Write a sentence using '%@' correctly:")
+      }
+      /// Your Sentence
+      public static let yourSentence = Loc.tr("Quizzes", "ai_quiz.your_sentence", fallback: "Your Sentence")
+    }
+    public enum Loading {
+      /// AI is creating multiple choice questions to test your understanding of word usage in context.
+      public static let contextQuestionsDescription = Loc.tr("Quizzes", "loading.context_questions_description", fallback: "AI is creating multiple choice questions to test your understanding of word usage in context.")
+      /// Failed to load quiz
+      public static let failedToLoadQuiz = Loc.tr("Quizzes", "loading.failed_to_load_quiz", fallback: "Failed to load quiz")
+      /// AI is creating engaging stories with blanks to test your understanding of word usage in context.
+      public static let fillInBlankDescription = Loc.tr("Quizzes", "loading.fill_in_blank_description", fallback: "AI is creating engaging stories with blanks to test your understanding of word usage in context.")
+      /// Generating context questions...
+      public static let generatingContextQuestions = Loc.tr("Quizzes", "loading.generating_context_questions", fallback: "Generating context questions...")
+      /// Generating fill-in-the-blank stories...
+      public static let generatingFillInBlankStories = Loc.tr("Quizzes", "loading.generating_fill_in_blank_stories", fallback: "Generating fill-in-the-blank stories...")
+      /// Loading next question...
+      public static let loadingNextQuestion = Loc.tr("Quizzes", "loading.loading_next_question", fallback: "Loading next question...")
+      /// Loading next story...
+      public static let loadingNextStory = Loc.tr("Quizzes", "loading.loading_next_story", fallback: "Loading next story...")
+      /// AI is preparing the next question for you.
+      public static let preparingNextQuestion = Loc.tr("Quizzes", "loading.preparing_next_question", fallback: "AI is preparing the next question for you.")
+      /// AI is preparing the next story for you.
+      public static let preparingNextStory = Loc.tr("Quizzes", "loading.preparing_next_story", fallback: "AI is preparing the next story for you.")
+    }
     public enum QuizActions {
       /// Finish
       public static let finish = Loc.tr("Quizzes", "quiz_actions.finish", fallback: "Finish")
@@ -1048,18 +1164,50 @@ public enum Loc {
       public static let timePeriod = Loc.tr("Quizzes", "quiz_results.time_period", fallback: "Time Period")
     }
     public enum QuizTypes {
+      /// Choose the sentence where the word is used correctly
+      public static let chooseCorrectUsage = Loc.tr("Quizzes", "quiz_types.choose_correct_usage", fallback: "Choose the sentence where the word is used correctly")
       /// Choose Definition
       public static let chooseDefinition = Loc.tr("Quizzes", "quiz_types.choose_definition", fallback: "Choose Definition")
+      /// Context Usage
+      public static let contextMultipleChoice = Loc.tr("Quizzes", "quiz_types.context_multiple_choice", fallback: "Context Usage")
+      /// Fill in the blanks with the correct word in context
+      public static let fillBlanksInContext = Loc.tr("Quizzes", "quiz_types.fill_blanks_in_context", fallback: "Fill in the blanks with the correct word in context")
+      /// Fill in the Blank
+      public static let fillInTheBlank = Loc.tr("Quizzes", "quiz_types.fill_in_the_blank", fallback: "Fill in the Blank")
+      /// Great job! You've completed the context usage quiz.
+      public static let greatJobCompletedContextQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_context_quiz", fallback: "Great job! You've completed the context usage quiz.")
       /// Great job! You've completed the definition quiz.
       public static let greatJobCompletedDefinitionQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_definition_quiz", fallback: "Great job! You've completed the definition quiz.")
+      /// Great job! You've completed the fill in the blank quiz.
+      public static let greatJobCompletedFillInTheBlankQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_fill_in_the_blank_quiz", fallback: "Great job! You've completed the fill in the blank quiz.")
+      /// Great job! You've completed the sentence writing quiz.
+      public static let greatJobCompletedSentenceWritingQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_sentence_writing_quiz", fallback: "Great job! You've completed the sentence writing quiz.")
       /// Great job! You've completed the spelling quiz.
       public static let greatJobCompletedSpellingQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_spelling_quiz", fallback: "Great job! You've completed the spelling quiz.")
       /// Select the correct definition for each word
       public static let selectCorrectDefinition = Loc.tr("Quizzes", "quiz_types.select_correct_definition", fallback: "Select the correct definition for each word")
+      /// Sentence Writing
+      public static let sentenceWriting = Loc.tr("Quizzes", "quiz_types.sentence_writing", fallback: "Sentence Writing")
       /// Spelling Quiz
       public static let spellingQuiz = Loc.tr("Quizzes", "quiz_types.spelling_quiz", fallback: "Spelling Quiz")
       /// Test your spelling skills by typing words correctly
       public static let testSpellingSkills = Loc.tr("Quizzes", "quiz_types.test_spelling_skills", fallback: "Test your spelling skills by typing words correctly")
+      /// Write sentences using words correctly with AI evaluation
+      public static let writeSentencesWithAi = Loc.tr("Quizzes", "quiz_types.write_sentences_with_ai", fallback: "Write sentences using words correctly with AI evaluation")
+    }
+    public enum Ui {
+      /// Options
+      public static let options = Loc.tr("Quizzes", "ui.options", fallback: "Options")
+      /// Question
+      public static let question = Loc.tr("Quizzes", "ui.question", fallback: "Question")
+      /// Question %d
+      public static func questionNumber(_ p1: Int) -> String {
+        return Loc.tr("Quizzes", "ui.question_number", p1, fallback: "Question %d")
+      }
+      /// Suggestions
+      public static let suggestions = Loc.tr("Quizzes", "ui.suggestions", fallback: "Suggestions")
+      /// You skipped this question. Here's the correct answer and explanation:
+      public static let youSkippedQuestion = Loc.tr("Quizzes", "ui.you_skipped_question", fallback: "You skipped this question. Here's the correct answer and explanation:")
     }
   }
   public enum Settings {

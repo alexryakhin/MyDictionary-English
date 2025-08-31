@@ -12,6 +12,9 @@
 "quiz_results" = "Результати тесту";
 "spelling_quiz" = "Тест на правопис";
 "definition_quiz" = "Тест на визначення";
+"sentence_writing_quiz" = "Тест на написання речень";
+"context_multiple_choice_quiz" = "Тест на використання в контексті";
+"fill_in_the_blank_quiz" = "Тест на заповнення пропусків";
 "close" = "Закрити";
 "close_screen" = "Закрити екран";
 

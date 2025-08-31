@@ -109,3 +109,71 @@
 "all_results" = "Wszystkie wyniki";
 "word_starts_with" = "Słowo zaczyna się od";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Skriv en sætning, der bruger '%@' korrekt:";
+"ai_quiz.sentence_placeholder" = "Skriv din sætning her...";
+"ai_quiz.ai_evaluating" = "AI evaluerer din sætning...";
+"ai_quiz.feedback" = "Feedback:";
+"ai_quiz.usage_score" = "Brugsscore: %d/100";
+"ai_quiz.grammar_score" = "Grammatikscore: %d/100";
+"ai_quiz.overall_score" = "Samlet score: %d/100";
+"ai_quiz.excellent_usage" = "Fremragende brug! Din sætning viser perfekt forståelse.";
+"ai_quiz.good_usage" = "God brug! Din sætning viser god forståelse med mindre forbedringer mulige.";
+"ai_quiz.fair_usage" = "Rimelig brug. Overvej konteksten og betydningen mere omhyggeligt.";
+"ai_quiz.incorrect_usage" = "Forkert brug. Gennemgå ordets betydning og prøv igen.";
+
+"ai_quiz.choose_correct_sentence" = "Vælg sætningen, hvor '%@' bruges korrekt:";
+"ai_quiz.option" = "Mulighed %d";
+"ai_quiz.explanation" = "Forklaring:";
+"ai_quiz.correct_usage_explanation" = "Denne sætning bruger '%@' korrekt, fordi %@";
+"ai_quiz.incorrect_usage_explanation" = "Denne sætning bruger '%@' forkert, fordi %@";
+
+"ai_quiz.fill_in_blank_story" = "Udfyld det tomme felt med '%@':";
+"ai_quiz.story_context" = "Historiens kontekst:";
+"ai_quiz.blank_placeholder" = "Skriv ordet her...";
+"ai_quiz.context_hint" = "Tip: Overvej historiens kontekst og ordets betydning";
+"ai_quiz.ai_context_feedback" = "Kontekstfeedback:";
+"ai_quiz.perfect_context_fit" = "Perfekt! Ordet passer perfekt i denne kontekst.";
+"ai_quiz.good_context_fit" = "Godt! Ordet fungerer godt i denne kontekst.";
+"ai_quiz.context_mismatch" = "Ordet passer ikke helt i denne kontekst. Overvej historiens betydning.";
+
+"ai_quiz.submit_for_evaluation" = "Indsend til evaluering";
+"ai_quiz.evaluating_with_ai" = "Evaluerer med AI...";
+"ai_quiz.ai_processing" = "Behandler dit svar...";
+"ai_quiz.ai_analysis_complete" = "Analyse færdig";
+"ai_quiz.view_detailed_explanations" = "Se detaljerede forklaringer";
+"ai_quiz.detailed_explanations" = "Detaljerede forklaringer";
+"ai_quiz.suggestions" = "Forslag";
+"ai_quiz.skipped_word" = "Udeladt ord";
+"ai_quiz.skipped_word_message" = "Dette ord blev udeladt under quizen. Ingen evaluering er tilgængelig for udeladte ord.";
+"ai_quiz.your_sentence" = "Din sætning";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Genererer udfyld-de-tomme-historier...";
+"loading.fill_in_blank_description" = "AI skaber engagerende historier med tomme felter for at teste din forståelse af ordbrug i kontekst.";
+"loading.loading_next_story" = "Indlæser næste historie...";
+"loading.preparing_next_story" = "AI forbereder næste historie til dig.";
+"loading.generating_context_questions" = "Genererer kontekstspørgsmål...";
+"loading.context_questions_description" = "AI skaber multiple choice-spørgsmål for at teste din forståelse af ordbrug i kontekst.";
+"loading.loading_next_question" = "Indlæser næste spørgsmål...";
+"loading.preparing_next_question" = "AI forbereder næste spørgsmål til dig.";
+"loading.failed_to_load_quiz" = "Kunne ikke indlæse quizzen";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Spørgsmål";
+"ui.options" = "Muligheder";
+"ui.suggestions" = "Forslag";
+"ui.question_number" = "Spørgsmål %d";
+"ui.you_skipped_question" = "Du sprang dette spørgsmål over. Her er det korrekte svar og forklaringen:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Pisanie zdań";
+"quiz_types.context_multiple_choice" = "Użycie w kontekście";
+"quiz_types.fill_in_the_blank" = "Wypełnianie luk";
+"quiz_types.write_sentences_with_ai" = "Napisz zdania, poprawnie używając słów, z oceną AI";
+"quiz_types.choose_correct_usage" = "Wybierz zdanie, w którym słowo jest użyte poprawnie";
+"quiz_types.fill_blanks_in_context" = "Wypełnij luki odpowiednim słowem w kontekście";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Świetna robota! Ukończyłeś quiz pisania zdań.";
+"quiz_types.great_job_completed_context_quiz" = "Świetna robota! Ukończyłeś quiz użycia w kontekście.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Świetna robota! Ukończyłeś quiz wypełniania luk.";
+"quiz_available_once_a_day_message" = "Przepraszamy, quiz jest dostępny tylko raz dziennie. Subskrybuj PRO, aby uzyskać nieograniczony dostęp!";

@@ -22,7 +22,6 @@ enum UDKeys {
     static let practiceItemCount = "practiceItemCount"
 
     // Translation Settings
-    static let translateDefinitions = "translateDefinitions"
     static let inputLanguage = "inputLanguage"
     static let idiomInputLanguage = "idiomInputLanguage"
 
@@ -53,6 +52,11 @@ enum UDKeys {
     // AI Service Usage Tracking
     static let aiUsageCount = "aiUsageCount"
     static let aiUsageDate = "aiUsageDate"
+    
+    // AI Quiz Usage Tracking (separate from general AI usage)
+    static let contextMultipleChoiceQuizUsageDate = "contextMultipleChoiceQuizUsageDate"
+    static let fillInTheBlankQuizUsageDate = "fillInTheBlankQuizUsageDate"
+    static let sentenceWritingQuizUsageDate = "sentenceWritingQuizUsageDate"
 }
 
 enum UDService {
@@ -96,12 +100,6 @@ enum UDService {
     static var practiceItemCount: Int {
         get { UserDefaults.standard.integer(forKey: UDKeys.practiceItemCount) }
         set { UserDefaults.standard.set(newValue, forKey: UDKeys.practiceItemCount) }
-    }
-
-    // Translation Settings
-    static var translateDefinitions: Bool {
-        get { UserDefaults.standard.bool(forKey: UDKeys.translateDefinitions) }
-        set { UserDefaults.standard.set(newValue, forKey: UDKeys.translateDefinitions) }
     }
 
     static var inputLanguage: String? {
@@ -241,6 +239,37 @@ enum UDService {
         }
         set {
             UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.aiUsageDate)
+        }
+    }
+    
+    // AI Quiz Usage Tracking (separate from general AI usage)
+    static var contextMultipleChoiceQuizUsageDate: Date? {
+        get {
+            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.contextMultipleChoiceQuizUsageDate)
+            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
+        }
+        set {
+            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.contextMultipleChoiceQuizUsageDate)
+        }
+    }
+    
+    static var fillInTheBlankQuizUsageDate: Date? {
+        get {
+            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.fillInTheBlankQuizUsageDate)
+            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
+        }
+        set {
+            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.fillInTheBlankQuizUsageDate)
+        }
+    }
+    
+    static var sentenceWritingQuizUsageDate: Date? {
+        get {
+            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.sentenceWritingQuizUsageDate)
+            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
+        }
+        set {
+            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.sentenceWritingQuizUsageDate)
         }
     }
 }

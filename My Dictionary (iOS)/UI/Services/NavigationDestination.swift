@@ -20,7 +20,9 @@ enum NavigationDestination: Hashable {
     // MARK: - Quiz-related destinations
     case spellingQuiz(QuizPreset)
     case chooseDefinitionQuiz(QuizPreset)
-    case quizResults(QuizResultsView.Model)
+    case sentenceWritingQuiz(QuizPreset)
+    case contextMultipleChoiceQuiz(QuizPreset)
+    case fillInTheBlankQuiz(QuizPreset)
 
     // MARK: - Analytics destinations
     case quizResultsList

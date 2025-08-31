@@ -12,6 +12,9 @@
 "quiz_results" = "Výsledky kvízu";
 "spelling_quiz" = "Kvízy pravopisu";
 "definition_quiz" = "Kvízy definic";
+"sentence_writing_quiz" = "Kvízy psaní vět";
+"context_multiple_choice_quiz" = "Kvízy použití v kontextu";
+"fill_in_the_blank_quiz" = "Kvízy vyplňování prázdných míst";
 "close" = "Zavřít";
 "close_screen" = "Zavřít obrazovku";
 

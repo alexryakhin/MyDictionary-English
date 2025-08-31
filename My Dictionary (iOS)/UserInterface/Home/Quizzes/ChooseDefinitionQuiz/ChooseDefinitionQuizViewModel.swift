@@ -28,6 +28,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     @Published private(set) var itemsPlayed: [any Quizable] = []
     @Published private(set) var correctItemIds: [String] = []
     @Published private(set) var isQuizComplete = false
+    @Published private(set) var isLastQuestion = false
     
     // Game state
     @Published private(set) var currentStreak = 0
@@ -156,6 +157,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         } else {
             // Get next question
             getNextQuestion()
+            // Check if this will be the last question
+            isLastQuestion = questionsAnswered + 1 >= preset.itemCount
         }
         
         HapticManager.shared.triggerNotification(type: .warning)
@@ -229,6 +232,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         itemsPlayed = []
         correctItemIds = []
         isQuizComplete = false
+        isLastQuestion = false
         currentStreak = 0
         questionsAnswered = 0
         usedItems.removeAll()
@@ -280,6 +284,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         
         // Get next question (quiz completion is already checked in answerSelected)
         getNextQuestion()
+        // Check if this will be the last question
+        isLastQuestion = questionsAnswered + 1 >= preset.itemCount
     }
     
     private func saveQuizSession() {

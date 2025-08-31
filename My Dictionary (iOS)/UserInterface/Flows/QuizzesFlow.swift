@@ -31,6 +31,12 @@ struct QuizzesFlow: View {
             navigationManager.navigationPath.append(NavigationDestination.spellingQuiz(preset))
         case .showChooseDefinitionQuiz(let preset):
             navigationManager.navigationPath.append(NavigationDestination.chooseDefinitionQuiz(preset))
+        case .showSentenceWritingQuiz(let preset):
+            navigationManager.navigationPath.append(NavigationDestination.sentenceWritingQuiz(preset))
+        case .showContextMultipleChoiceQuiz(let preset):
+            navigationManager.navigationPath.append(NavigationDestination.contextMultipleChoiceQuiz(preset))
+        case .showFillInTheBlankQuiz(let preset):
+            navigationManager.navigationPath.append(NavigationDestination.fillInTheBlankQuiz(preset))
         case .showSharedDictionary(let dictionary):
             navigationManager.navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
         }

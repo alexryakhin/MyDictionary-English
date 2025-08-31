@@ -12,6 +12,9 @@
 "quiz_results" = "퀴즈 결과";
 "spelling_quiz" = "철자 퀴즈";
 "definition_quiz" = "정의 퀴즈";
+"sentence_writing_quiz" = "문장 작성 퀴즈";
+"context_multiple_choice_quiz" = "문맥 사용 퀴즈";
+"fill_in_the_blank_quiz" = "빈칸 채우기 퀴즈";
 "close" = "닫기";
 "close_screen" = "화면 닫기";
 

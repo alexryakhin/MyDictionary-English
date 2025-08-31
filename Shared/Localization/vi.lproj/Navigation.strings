@@ -12,6 +12,9 @@
 "quiz_results" = "Kết quả bài kiểm tra";
 "spelling_quiz" = "Bài kiểm tra chính tả";
 "definition_quiz" = "Bài kiểm tra định nghĩa";
+"sentence_writing_quiz" = "Bài kiểm tra viết câu";
+"context_multiple_choice_quiz" = "Bài kiểm tra sử dụng trong ngữ cảnh";
+"fill_in_the_blank_quiz" = "Bài kiểm tra điền vào chỗ trống";
 "close" = "Đóng";
 "close_screen" = "Đóng màn hình";
 

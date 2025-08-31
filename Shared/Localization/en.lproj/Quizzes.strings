@@ -107,6 +107,74 @@
 "quiz_types.great_job_completed_spelling_quiz" = "Great job! You've completed the spelling quiz.";
 "quiz_types.great_job_completed_definition_quiz" = "Great job! You've completed the definition quiz.";
 
-
 "all_results" = "All Results";
 "word_starts_with" = "The word starts with";
+
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Write a sentence using '%@' correctly:";
+"ai_quiz.sentence_placeholder" = "Type your sentence here...";
+"ai_quiz.ai_evaluating" = "AI is evaluating your sentence...";
+"ai_quiz.feedback" = "Feedback:";
+"ai_quiz.usage_score" = "Usage Score: %d/100";
+"ai_quiz.grammar_score" = "Grammar Score: %d/100";
+"ai_quiz.overall_score" = "Overall Score: %d/100";
+"ai_quiz.excellent_usage" = "Excellent usage! Your sentence demonstrates perfect understanding.";
+"ai_quiz.good_usage" = "Good usage! Your sentence shows good understanding with minor improvements possible.";
+"ai_quiz.fair_usage" = "Fair usage. Consider the context and meaning more carefully.";
+"ai_quiz.incorrect_usage" = "Incorrect usage. Review the word's meaning and try again.";
+
+"ai_quiz.choose_correct_sentence" = "Choose the sentence where '%@' is used correctly:";
+"ai_quiz.option" = "Option %d";
+"ai_quiz.explanation" = "Explanation:";
+"ai_quiz.correct_usage_explanation" = "This sentence uses '%@' correctly because %@";
+"ai_quiz.incorrect_usage_explanation" = "This sentence uses '%@' incorrectly because %@";
+
+"ai_quiz.fill_in_blank_story" = "Fill in the blank with '%@':";
+"ai_quiz.story_context" = "Story Context:";
+"ai_quiz.blank_placeholder" = "Type the word here...";
+"ai_quiz.context_hint" = "Hint: Consider the story context and word meaning";
+"ai_quiz.ai_context_feedback" = "Context Feedback:";
+"ai_quiz.perfect_context_fit" = "Perfect! The word fits perfectly in this context.";
+"ai_quiz.good_context_fit" = "Good! The word works well in this context.";
+"ai_quiz.context_mismatch" = "The word doesn't quite fit this context. Consider the story meaning.";
+
+"ai_quiz.submit_for_evaluation" = "Submit for evaluation";
+"ai_quiz.evaluating_with_ai" = "Evaluating with AI...";
+"ai_quiz.ai_processing" = "Processing your answer...";
+"ai_quiz.ai_analysis_complete" = "Analysis complete";
+"ai_quiz.view_detailed_explanations" = "View detailed explanations";
+"ai_quiz.detailed_explanations" = "Detailed Explanations";
+"ai_quiz.suggestions" = "Suggestions";
+"ai_quiz.skipped_word" = "Skipped Word";
+"ai_quiz.skipped_word_message" = "This word was skipped during the quiz. No evaluation is available for skipped words.";
+"ai_quiz.your_sentence" = "Your Sentence";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Generating fill-in-the-blank stories...";
+"loading.fill_in_blank_description" = "AI is creating engaging stories with blanks to test your understanding of word usage in context.";
+"loading.loading_next_story" = "Loading next story...";
+"loading.preparing_next_story" = "AI is preparing the next story for you.";
+"loading.generating_context_questions" = "Generating context questions...";
+"loading.context_questions_description" = "AI is creating multiple choice questions to test your understanding of word usage in context.";
+"loading.loading_next_question" = "Loading next question...";
+"loading.preparing_next_question" = "AI is preparing the next question for you.";
+"loading.failed_to_load_quiz" = "Failed to load quiz";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Question";
+"ui.options" = "Options";
+"ui.suggestions" = "Suggestions";
+"ui.question_number" = "Question %d";
+"ui.you_skipped_question" = "You skipped this question. Here's the correct answer and explanation:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Sentence Writing";
+"quiz_types.context_multiple_choice" = "Context Usage";
+"quiz_types.fill_in_the_blank" = "Fill in the Blank";
+"quiz_types.write_sentences_with_ai" = "Write sentences using words correctly with AI evaluation";
+"quiz_types.choose_correct_usage" = "Choose the sentence where the word is used correctly";
+"quiz_types.fill_blanks_in_context" = "Fill in the blanks with the correct word in context";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Great job! You've completed the sentence writing quiz.";
+"quiz_types.great_job_completed_context_quiz" = "Great job! You've completed the context usage quiz.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Great job! You've completed the fill in the blank quiz.";
+"quiz_available_once_a_day_message" = "Sorry, quiz is only available once a day. Subscribe to PRO for unlimited access!";

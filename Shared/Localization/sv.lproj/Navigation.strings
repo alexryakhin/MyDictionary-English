@@ -12,6 +12,9 @@
 "quiz_results" = "Quizresultat";
 "spelling_quiz" = "Stavningsquiz";
 "definition_quiz" = "Definitionsquiz";
+"sentence_writing_quiz" = "Meningar skrivningsquiz";
+"context_multiple_choice_quiz" = "Kontextanvändningsquiz";
+"fill_in_the_blank_quiz" = "Fyll i luckan quiz";
 "close" = "Stäng";
 "close_screen" = "Stäng skärm";
 

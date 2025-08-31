@@ -30,7 +30,6 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var isTranslating: Bool = false
     @Published private(set) var translatedDefinitions: [WordDefinition] = []
     @Published private(set) var isUsingAI: Bool = false
-    @AppStorage(UDKeys.translateDefinitions) var translateDefinitions: Bool = true
     @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .auto
     private var detectedLanguageCode: String?
     
@@ -69,11 +68,6 @@ final class AddWordViewModel: BaseViewModel {
         self.inputWord = input
         self.isWord = isWord
         self.localeLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
-
-        // Force translateDefinitions to false for English locales
-        if GlobalConstant.isEnglishLanguage {
-            self.translateDefinitions = false
-        }
 
         super.init()
         setupBindings()
@@ -211,8 +205,8 @@ final class AddWordViewModel: BaseViewModel {
 
                 // Only translate definitions if:
                 // 1. User's locale is not English
-                // 2. translateDefinitions setting is enabled
-                if !GlobalConstant.isEnglishLanguage && translateDefinitions {
+                // 2. Not using AI
+                if !GlobalConstant.isEnglishLanguage && !isUsingAI {
                     await translateDefinitions()
                 }
 
@@ -394,8 +388,8 @@ final class AddWordViewModel: BaseViewModel {
     }
 
     private func translateDefinitions() async {
-        // Only translate if not English locale and setting is enabled
-        guard !GlobalConstant.isEnglishLanguage && translateDefinitions else { return }
+        // Only translate if not English locale and not using AI
+        guard !GlobalConstant.isEnglishLanguage && !isUsingAI else { return }
 
         isTranslating = true
         AnalyticsService.shared.logEvent(.translationRequested)

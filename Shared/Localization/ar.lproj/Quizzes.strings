@@ -109,3 +109,71 @@
 "all_results" = "جميع النتائج";
 "word_starts_with" = "الكلمة تبدأ بـ";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "اكتب جملة باستخدام '%@' بشكل صحيح:";
+"ai_quiz.sentence_placeholder" = "اكتب جملتك هنا...";
+"ai_quiz.ai_evaluating" = "الذكاء الاصطناعي يقيّم جملتك...";
+"ai_quiz.feedback" = "التغذية الراجعة:";
+"ai_quiz.usage_score" = "درجة الاستخدام: %d/100";
+"ai_quiz.grammar_score" = "درجة القواعد: %d/100";
+"ai_quiz.overall_score" = "الدرجة الإجمالية: %d/100";
+"ai_quiz.excellent_usage" = "استخدام ممتاز! جملتك تظهر فهمًا مثاليًا.";
+"ai_quiz.good_usage" = "استخدام جيد! جملتك تظهر فهمًا جيدًا مع إمكانية إجراء تحسينات طفيفة.";
+"ai_quiz.fair_usage" = "استخدام مقبول. فكر في السياق والمعنى بعناية أكبر.";
+"ai_quiz.incorrect_usage" = "استخدام غير صحيح. راجع معنى الكلمة وحاول مرة أخرى.";
+
+"ai_quiz.choose_correct_sentence" = "اختر الجملة التي تُستخدم فيها '%@' بشكل صحيح:";
+"ai_quiz.option" = "الخيار %d";
+"ai_quiz.explanation" = "التفسير:";
+"ai_quiz.correct_usage_explanation" = "هذه الجملة تستخدم '%@' بشكل صحيح لأن %@";
+"ai_quiz.incorrect_usage_explanation" = "هذه الجملة تستخدم '%@' بشكل غير صحيح لأن %@";
+
+"ai_quiz.fill_in_blank_story" = "املأ الفراغ بـ '%@':";
+"ai_quiz.story_context" = "سياق القصة:";
+"ai_quiz.blank_placeholder" = "اكتب الكلمة هنا...";
+"ai_quiz.context_hint" = "تلميح: فكر في سياق القصة ومعنى الكلمة";
+"ai_quiz.ai_context_feedback" = "تغذية راجعة السياق:";
+"ai_quiz.perfect_context_fit" = "مثالي! الكلمة تناسب هذا السياق تمامًا.";
+"ai_quiz.good_context_fit" = "جيد! الكلمة تعمل بشكل جيد في هذا السياق.";
+"ai_quiz.context_mismatch" = "الكلمة لا تناسب هذا السياق تمامًا. فكر في معنى القصة.";
+
+"ai_quiz.submit_for_evaluation" = "إرسال للتقييم";
+"ai_quiz.evaluating_with_ai" = "يتم التقييم بواسطة الذكاء الاصطناعي...";
+"ai_quiz.ai_processing" = "جارٍ معالجة إجابتك...";
+"ai_quiz.ai_analysis_complete" = "اكتمل التحليل";
+"ai_quiz.view_detailed_explanations" = "عرض التفسيرات التفصيلية";
+"ai_quiz.detailed_explanations" = "التفسيرات التفصيلية";
+"ai_quiz.suggestions" = "اقتراحات";
+"ai_quiz.skipped_word" = "كلمة تم تخطيها";
+"ai_quiz.skipped_word_message" = "تم تخطي هذه الكلمة أثناء الاختبار. لا يتوفر تقييم للكلمات التي تم تخطيها.";
+"ai_quiz.your_sentence" = "جملتك";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "جارٍ إنشاء قصص لملء الفراغات...";
+"loading.fill_in_blank_description" = "الذكاء الاصطناعي ينشئ قصصًا جذابة تحتوي على فراغات لاختبار فهمك لاستخدام الكلمات في السياق.";
+"loading.loading_next_story" = "جارٍ تحميل القصة التالية...";
+"loading.preparing_next_story" = "الذكاء الاصطناعي يجهز القصة التالية لك.";
+"loading.generating_context_questions" = "جارٍ إنشاء أسئلة السياق...";
+"loading.context_questions_description" = "الذكاء الاصطناعي ينشئ أسئلة اختيار من متعدد لاختبار فهمك لاستخدام الكلمات في السياق.";
+"loading.loading_next_question" = "جارٍ تحميل السؤال التالي...";
+"loading.preparing_next_question" = "الذكاء الاصطناعي يجهز السؤال التالي لك.";
+"loading.failed_to_load_quiz" = "فشل تحميل الاختبار";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "سؤال";
+"ui.options" = "خيارات";
+"ui.suggestions" = "اقتراحات";
+"ui.question_number" = "السؤال %d";
+"ui.you_skipped_question" = "لقد تخطيت هذا السؤال. إليك الإجابة الصحيحة والتفسير:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "كتابة الجمل";
+"quiz_types.context_multiple_choice" = "الاستخدام في السياق";
+"quiz_types.fill_in_the_blank" = "املأ الفراغ";
+"quiz_types.write_sentences_with_ai" = "اكتب جملًا باستخدام الكلمات بشكل صحيح مع تقييم الذكاء الاصطناعي";
+"quiz_types.choose_correct_usage" = "اختر الجملة التي تُستخدم فيها الكلمة بشكل صحيح";
+"quiz_types.fill_blanks_in_context" = "املأ الفراغات بالكلمة الصحيحة في السياق";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "عمل رائع! لقد أكملت اختبار كتابة الجمل.";
+"quiz_types.great_job_completed_context_quiz" = "عمل رائع! لقد أكملت اختبار الاستخدام في السياق.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "عمل رائع! لقد أكملت اختبار ملء الفراغ.";
+"quiz_available_once_a_day_message" = "عذراً، الاختبار متاح مرة واحدة فقط في اليوم. اشترك في PRO للحصول على وصول غير محدود!";

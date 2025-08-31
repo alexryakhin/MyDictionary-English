@@ -12,6 +12,9 @@
 "quiz_results" = "क्विज़ परिणाम";
 "spelling_quiz" = "वर्तनी क्विज़";
 "definition_quiz" = "परिभाषा क्विज़";
+"sentence_writing_quiz" = "वाक्य लेखन क्विज़";
+"context_multiple_choice_quiz" = "संदर्भ उपयोग क्विज़";
+"fill_in_the_blank_quiz" = "रिक्त स्थान भरने का क्विज़";
 "close" = "बंद करें";
 "close_screen" = "स्क्रीन बंद करें";
 

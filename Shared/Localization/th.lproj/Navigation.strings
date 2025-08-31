@@ -12,6 +12,9 @@
 "quiz_results" = "ผลลัพธ์แบบทดสอบ";
 "spelling_quiz" = "แบบทดสอบการสะกดคำ";
 "definition_quiz" = "แบบทดสอบความหมาย";
+"sentence_writing_quiz" = "แบบทดสอบการเขียนประโยค";
+"context_multiple_choice_quiz" = "แบบทดสอบการใช้ในบริบท";
+"fill_in_the_blank_quiz" = "แบบทดสอบเติมคำในช่องว่าง";
 "close" = "ปิด";
 "close_screen" = "ปิดหน้าจอ";
 

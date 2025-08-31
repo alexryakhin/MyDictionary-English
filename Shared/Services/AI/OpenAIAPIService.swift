@@ -102,6 +102,89 @@ final class OpenAIAPIService: AIAPIServiceInterface {
             throw error
         }
     }
+    
+    func evaluateSentences(
+        sentences: [(sentence: String, targetWord: String)],
+        userId: String,
+        userLanguage: String
+    ) async throws -> [AISentenceEvaluation] {
+        print("🔍 [OpenAIAPIService] evaluateSentences called for \(sentences.count) sentences")
+        print("🔍 [OpenAIAPIService] User ID: \(userId)")
+
+        let prompt = buildSentencesEvaluationPrompt(
+            sentences: sentences,
+            userLanguage: userLanguage
+        )
+
+        print("🔍 [OpenAIAPIService] Built prompt for sentences evaluation")
+
+        do {
+            let response = try await makeOpenAIRequest(prompt: prompt)
+            print("✅ [OpenAIAPIService] Received response for sentences evaluation")
+
+            let evaluations = try parseSentencesEvaluationResponse(response)
+            print("✅ [OpenAIAPIService] Parsed \(evaluations.count) sentence evaluations")
+
+            return evaluations
+        } catch {
+            print("❌ [OpenAIAPIService] Failed to evaluate sentences: \(error.localizedDescription)")
+            throw error
+        }
+    }
+
+    func generateSingleContextQuestion(
+        word: String,
+        wordLanguage: String,
+        userId: String,
+        userLanguage: String
+    ) async throws -> AIContextQuestion {
+        print("🔍 [OpenAIAPIService] generateSingleContextQuestion called for word: '\(word)' in language: '\(wordLanguage)'")
+        print("🔍 [OpenAIAPIService] User ID: \(userId)")
+
+        let prompt = buildSingleContextQuestionPrompt(word: word, wordLanguage: wordLanguage, userLanguage: userLanguage)
+
+        print("🔍 [OpenAIAPIService] Built prompt for single context question")
+
+        do {
+            let response = try await makeOpenAIRequest(prompt: prompt)
+            print("✅ [OpenAIAPIService] Received response for single context question")
+
+            let contextQuestion = try parseSingleContextQuestionResponse(response)
+            print("✅ [OpenAIAPIService] Parsed single context question")
+
+            return contextQuestion
+        } catch {
+            print("❌ [OpenAIAPIService] Failed to generate single context question: \(error.localizedDescription)")
+            throw error
+        }
+    }
+    
+    func generateSingleFillInTheBlankStory(
+        word: String,
+        wordLanguage: String,
+        userId: String,
+        userLanguage: String
+    ) async throws -> AIFillInTheBlankStory {
+        print("🔍 [OpenAIAPIService] generateSingleFillInTheBlankStory called for word: '\(word)' in language: '\(wordLanguage)'")
+        print("🔍 [OpenAIAPIService] User ID: \(userId)")
+
+        let prompt = buildSingleFillInTheBlankStoryPrompt(word: word, wordLanguage: wordLanguage, userLanguage: userLanguage)
+
+        print("🔍 [OpenAIAPIService] Built prompt for single fill in the blank story")
+
+        do {
+            let response = try await makeOpenAIRequest(prompt: prompt)
+            print("✅ [OpenAIAPIService] Received response for single fill in the blank story")
+
+            let story = try parseSingleFillInTheBlankStoryResponse(response)
+            print("✅ [OpenAIAPIService] Parsed single fill in the blank story")
+
+            return story
+        } catch {
+            print("❌ [OpenAIAPIService] Failed to generate single fill in the blank story: \(error.localizedDescription)")
+            throw error
+        }
+    }
 
     // MARK: - Private Methods
 
@@ -114,7 +197,7 @@ final class OpenAIAPIService: AIAPIServiceInterface {
                 OpenAIMessage(role: "user", content: prompt)
             ],
             temperature: 0.7,
-            maxTokens: 1000
+            maxTokens: 2000
         )
 
         var urlRequest = URLRequest(url: URL(string: baseURL)!)
@@ -243,6 +326,461 @@ final class OpenAIAPIService: AIAPIServiceInterface {
 
         return prompt
     }
+    
+    private func buildSentenceEvaluationPrompt(
+        sentence: String,
+        targetWord: String,
+        userLanguage: String
+    ) -> String {
+        let prompt = """
+            IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Evaluate the given sentence for correct usage of the target word.
+            
+            Target Word: \(targetWord)
+            Sentence: \(sentence)
+            User Language: \(userLanguage)
+            
+            Evaluate the sentence and provide feedback in \(userLanguage) in the following JSON format:
+            
+            {
+              "usageScore": [0-100 score for correct word usage and meaning],
+              "grammarScore": [0-100 score for grammar and syntax],
+              "overallScore": [0-100 overall score combining usage and grammar],
+              "feedback": "[2-3 sentence detailed feedback explaining the evaluation in \(userLanguage)]",
+              "isCorrect": [true if overall score >= 60, false otherwise],
+              "suggestions": [
+                "[specific suggestion for improvement in \(userLanguage)]",
+                "[another suggestion if applicable in \(userLanguage)]"
+              ]
+            }
+            
+            IMPORTANT RULES:
+            1. Return ONLY valid JSON - no additional text before or after
+            2. Usage score focuses on whether the word is used correctly in context
+            3. Grammar score focuses on sentence structure and syntax
+            4. Overall score should be a weighted average (usage 70%, grammar 30%)
+            5. Feedback should be educational and constructive in \(userLanguage)
+            6. isCorrect should be true if the word is used correctly (overall score >= 60)
+            7. Suggestions should be specific and actionable in \(userLanguage)
+            8. Use proper JSON escaping for quotes and special characters
+            9. Be encouraging but honest about mistakes
+            10. Consider context, meaning, and natural language usage
+            11. All feedback and suggestions must be in \(userLanguage)
+            """
+
+        return prompt
+    }
+    
+    private func buildContextQuestionPrompt(word: String, userLanguage: String) -> String {
+        let prompt = """
+            IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a multiple choice question to test understanding of word usage in context.
+            
+            Target Word: \(word)
+            User Language: \(userLanguage)
+            
+            Create a question with 4 options in the following JSON format:
+            
+            {
+              "word": "\(word)",
+              "question": "Choose the sentence where '\(word)' is used correctly:",
+              "options": [
+                {
+                  "text": "[sentence using the word incorrectly or in wrong context]",
+                  "isCorrect": false,
+                  "explanation": "[brief explanation of why this usage is incorrect]"
+                },
+                {
+                  "text": "[sentence using the word correctly]",
+                  "isCorrect": true,
+                  "explanation": "[brief explanation of why this usage is correct]"
+                },
+                {
+                  "text": "[sentence using the word incorrectly or in wrong context]",
+                  "isCorrect": false,
+                  "explanation": "[brief explanation of why this usage is incorrect]"
+                },
+                {
+                  "text": "[sentence using the word incorrectly or in wrong context]",
+                  "isCorrect": false,
+                  "explanation": "[brief explanation of why this usage is incorrect]"
+                }
+              ],
+              "correctOptionIndex": [1-based index of the correct option],
+              "explanation": "[detailed explanation of the correct answer and why other options are wrong in \(userLanguage)]"
+            }
+            
+            IMPORTANT RULES:
+            1. Return ONLY valid JSON - no additional text before or after
+            2. Only ONE option should be correct (isCorrect: true)
+            3. Incorrect options should show common mistakes or wrong contexts
+            4. Sentences should be natural and realistic
+            5. correctOptionIndex should be 1, 2, 3, or 4 (1-based indexing)
+            6. Explanations should be educational and clear in \(userLanguage)
+            7. Use proper JSON escaping for quotes and special characters
+            8. Make the question challenging but fair
+            9. Consider different meanings and contexts of the word
+            10. Ensure the correct answer is clearly the best choice
+            11. The explanation must be provided in \(userLanguage)
+            """
+
+        return prompt
+    }
+    
+    private func buildFillInTheBlankStoryPrompt(word: String, userLanguage: String) -> String {
+        let prompt = """
+            IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a short story with a blank that should be filled with the target word.
+            
+            Target Word: \(word)
+            User Language: \(userLanguage)
+            
+            Create a story in the following JSON format:
+            
+            {
+              "word": "\(word)",
+              "story": "[short story (2-3 sentences) with a blank space where the word should go. Use '___' to represent the blank]",
+              "blankPosition": [position of the blank in the story (1-based)],
+              "context": "[brief explanation of the story context and why the word fits in \(userLanguage)]",
+              "hint": "[helpful hint about the word's meaning or usage in \(userLanguage)]",
+              "isCorrect": true,
+              "feedback": "[feedback message for when the word is correctly filled in in \(userLanguage)]"
+            }
+            
+            IMPORTANT RULES:
+            1. Return ONLY valid JSON - no additional text before or after
+            2. Story should be engaging and provide clear context for the word
+            3. The blank should be in a natural position where the word makes sense
+            4. Use '___' to represent the blank space
+            5. blankPosition should indicate which blank (if multiple) contains the target word
+            6. Context should explain why this word fits in this story in \(userLanguage)
+            7. Hint should be helpful but not give away the answer in \(userLanguage)
+            8. Use proper JSON escaping for quotes and special characters
+            9. Story should be appropriate for language learning
+            10. The word should be the best choice for the blank
+            11. All feedback, hints, and context explanations must be in \(userLanguage)
+            """
+
+        return prompt
+    }
+    
+    // MARK: - New Batch Prompt Builders
+    
+    private func buildSentencesEvaluationPrompt(
+        sentences: [(sentence: String, targetWord: String)],
+        userLanguage: String
+    ) -> String {
+        let sentencesList = sentences.enumerated().map { index, item in
+            "\(index + 1). Target Word: '\(item.targetWord)' | Sentence: '\(item.sentence)'"
+        }.joined(separator: "\n")
+        
+        let prompt = """
+            IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Evaluate the given sentences for correct usage of their target words.
+            
+            User Language: \(userLanguage)
+            
+            Sentences to evaluate:
+            \(sentencesList)
+            
+            Evaluate each sentence and provide feedback in \(userLanguage) in the following JSON format:
+            
+            {
+              "evaluations": [
+                {
+                  "targetWord": "\(sentences[0].targetWord)",
+                  "sentence": "\(sentences[0].sentence)",
+                  "usageScore": [0-100 score for correct word usage and meaning],
+                  "grammarScore": [0-100 score for grammar and syntax],
+                  "overallScore": [0-100 overall score combining usage and grammar],
+                  "feedback": "[2-3 sentence detailed feedback explaining the evaluation in \(userLanguage)]",
+                  "isCorrect": [true if overall score >= 60, false otherwise],
+                  "suggestions": [
+                    "[specific suggestion for improvement in \(userLanguage)]",
+                    "[another suggestion if applicable in \(userLanguage)]"
+                  ]
+                }
+              ]
+            }
+            
+            IMPORTANT RULES:
+            1. Return ONLY valid JSON - no additional text before or after
+            2. Evaluate each sentence independently
+            3. Usage score focuses on whether the word is used correctly in context
+            4. Grammar score focuses on sentence structure and syntax
+            5. Overall score should be a weighted average (usage 70%, grammar 30%)
+            6. Feedback should be educational and constructive in \(userLanguage)
+            7. isCorrect should be true if the word is used correctly (overall score >= 60)
+            8. Suggestions should be specific and actionable in \(userLanguage)
+            9. Use proper JSON escaping for quotes and special characters
+            10. Be encouraging but honest about mistakes
+            11. Consider context, meaning, and natural language usage
+            12. All feedback and suggestions must be in \(userLanguage)
+            """
+
+        return prompt
+    }
+    
+    private func buildContextQuestionsPrompt(
+        words: [String],
+        userLanguage: String
+    ) -> String {
+        let wordsList = words.enumerated().map { index, word in
+            "\(index + 1). '\(word)'"
+        }.joined(separator: "\n")
+        
+        let prompt = """
+            IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create multiple choice questions to test understanding of word usage in context.
+            
+            User Language: \(userLanguage)
+            
+            Words to create questions for:
+            \(wordsList)
+            
+            Create one question per word with 4 options in the following JSON format:
+            
+            {
+              "questions": [
+                {
+                  "word": "\(words[0])",
+                  "question": "Choose the sentence where '\(words[0])' is used correctly:",
+                  "options": [
+                    {
+                      "text": "[sentence using the word incorrectly or in wrong context]",
+                      "isCorrect": false,
+                      "explanation": "[brief explanation of why this usage is incorrect]"
+                    },
+                    {
+                      "text": "[sentence using the word correctly]",
+                      "isCorrect": true,
+                      "explanation": "[brief explanation of why this usage is correct]"
+                    },
+                    {
+                      "text": "[sentence using the word incorrectly or in wrong context]",
+                      "isCorrect": false,
+                      "explanation": "[brief explanation of why this usage is incorrect]"
+                    },
+                    {
+                      "text": "[sentence using the word incorrectly or in wrong context]",
+                      "isCorrect": false,
+                      "explanation": "[brief explanation of why this usage is incorrect]"
+                    }
+                  ],
+                  "correctOptionIndex": [1-based index of the correct option],
+                  "explanation": "[detailed explanation of the correct answer and why other options are wrong in \(userLanguage)]"
+                }
+              ]
+            }
+            
+            IMPORTANT RULES:
+            1. Return ONLY valid JSON - no additional text before or after
+            2. Create one question per word in the order provided
+            3. Only ONE option should be correct (isCorrect: true) per question
+            4. Incorrect options should show common mistakes or wrong contexts
+            5. Sentences should be natural and realistic
+            6. correctOptionIndex should be 1, 2, 3, or 4 (1-based indexing)
+            7. Explanations should be educational and clear in \(userLanguage)
+            8. Use proper JSON escaping for quotes and special characters
+            9. Make the questions challenging but fair
+            10. Consider different meanings and contexts of each word
+            11. Ensure the correct answer is clearly the best choice
+            12. The explanation must be provided in \(userLanguage)
+            """
+
+        return prompt
+    }
+    
+    private func buildSingleContextQuestionPrompt(
+        word: String,
+        wordLanguage: String,
+        userLanguage: String
+    ) -> String {
+        let prompt = """
+            IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a multiple choice question to test understanding of word usage in context.
+            
+            Word Language: \(wordLanguage)
+            User Language: \(userLanguage)
+            
+            Word to create question for: '\(word)' (in \(wordLanguage))
+            
+            Create one question with 4 options in the following JSON format:
+            
+            {
+              "question": {
+                "word": "\(word)",
+                "question": "Choose the sentence where '\(word)' is used correctly:",
+                "options": [
+                  {
+                    "text": "[sentence in \(wordLanguage) using the word incorrectly or in wrong context]",
+                    "isCorrect": false,
+                    "explanation": "[brief explanation of why this usage is incorrect in \(userLanguage)]"
+                  },
+                  {
+                    "text": "[sentence in \(wordLanguage) using the word correctly]",
+                    "isCorrect": true,
+                    "explanation": "[brief explanation of why this usage is correct in \(userLanguage)]"
+                  },
+                  {
+                    "text": "[sentence in \(wordLanguage) using the word incorrectly or in wrong context]",
+                    "isCorrect": false,
+                    "explanation": "[brief explanation of why this usage is incorrect in \(userLanguage)]"
+                  },
+                  {
+                    "text": "[sentence in \(wordLanguage) using the word incorrectly or in wrong context]",
+                    "isCorrect": false,
+                    "explanation": "[brief explanation of why this usage is incorrect in \(userLanguage)]"
+                  }
+                ],
+                "correctOptionIndex": [1-based index of the correct option],
+                "explanation": "[detailed explanation of the correct answer and why other options are wrong in \(userLanguage)]"
+              }
+            }
+            
+            IMPORTANT RULES:
+            1. Return ONLY valid JSON - no additional text before or after
+            2. Only ONE option should be correct (isCorrect: true)
+            3. All sentences must be in \(wordLanguage) (the word's language)
+            4. Only explanations should be in \(userLanguage) (the user's language)
+            5. Incorrect options should show common mistakes or wrong contexts in \(wordLanguage)
+            6. Sentences should be natural and realistic in \(wordLanguage)
+            7. correctOptionIndex should be 1, 2, 3, or 4 (1-based indexing)
+            8. Explanations should be educational and clear in \(userLanguage)
+            9. Use proper JSON escaping for quotes and special characters
+            10. Make the question challenging but fair
+            11. Consider different meanings and contexts of the word in \(wordLanguage)
+            12. Ensure the correct answer is clearly the best choice
+            """
+
+        return prompt
+    }
+    
+    private func buildSingleFillInTheBlankStoryPrompt(
+        word: String,
+        wordLanguage: String,
+        userLanguage: String
+    ) -> String {
+        let prompt = """
+            IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a multiple-choice fill-in-the-blank story for vocabulary practice.
+            
+            Word Language: \(wordLanguage)
+            User Language: \(userLanguage)
+            
+            Word to create story for: '\(word)' (in \(wordLanguage))
+            
+            Create one story in the following JSON format:
+            
+            {
+              "story": {
+                "word": "\(word)",
+                "story": "[short story in \(wordLanguage) (2-3 sentences) with a blank space where the word should go. Use '___' to represent the blank]",
+                "options": [
+                  {
+                    "text": "[correct word/phrase in \(wordLanguage)]",
+                    "isCorrect": true,
+                    "explanation": "[explanation of why this is correct in \(userLanguage)]"
+                  },
+                  {
+                    "text": "[incorrect option 1 in \(wordLanguage)]",
+                    "isCorrect": false,
+                    "explanation": "[explanation of why this is incorrect in \(userLanguage)]"
+                  },
+                  {
+                    "text": "[incorrect option 2 in \(wordLanguage)]",
+                    "isCorrect": false,
+                    "explanation": "[explanation of why this is incorrect in \(userLanguage)]"
+                  },
+                  {
+                    "text": "[incorrect option 3 in \(wordLanguage)]",
+                    "isCorrect": false,
+                    "explanation": "[explanation of why this is incorrect in \(userLanguage)]"
+                  }
+                ],
+                "correctOptionIndex": [1-based index of the correct option],
+                "explanation": "[overall explanation of the story and correct answer in \(userLanguage)]"
+              }
+            }
+            
+            IMPORTANT RULES:
+            1. Return ONLY valid JSON - no additional text before or after
+            2. Provide exactly 4 options: 1 correct and 3 incorrect
+            3. correctOptionIndex should be 1-based (1, 2, 3, or 4)
+            4. All story content and options must be in \(wordLanguage) (the word's language)
+            5. Only explanations should be in \(userLanguage) (the user's language)
+            6. Incorrect options should be plausible but clearly wrong in \(wordLanguage)
+            7. Each option should have a clear explanation in \(userLanguage)
+            8. Story should be appropriate for language learning
+            9. The correct word should be the best choice for the blank
+            10. Use proper JSON escaping for quotes and special characters
+            """
+
+        return prompt
+    }
+    
+    private func buildFillInTheBlankStoriesPrompt(
+        words: [String],
+        userLanguage: String
+    ) -> String {
+        let wordsList = words.enumerated().map { index, word in
+            "\(index + 1). '\(word)'"
+        }.joined(separator: "\n")
+        
+        let prompt = """
+            IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create multiple-choice fill-in-the-blank stories for vocabulary practice.
+            
+            User Language: \(userLanguage)
+            
+            Words to create stories for:
+            \(wordsList)
+            
+            Create one story per word in the following JSON format:
+            
+            {
+              "stories": [
+                {
+                  "word": "\(words[0])",
+                  "story": "[short story (2-3 sentences) with a blank space where the word should go. Use '___' to represent the blank]",
+                  "options": [
+                    {
+                      "text": "[correct word/phrase]",
+                      "isCorrect": true,
+                      "explanation": "[explanation of why this is correct in \(userLanguage)]"
+                    },
+                    {
+                      "text": "[incorrect option 1]",
+                      "isCorrect": false,
+                      "explanation": "[explanation of why this is incorrect in \(userLanguage)]"
+                    },
+                    {
+                      "text": "[incorrect option 2]",
+                      "isCorrect": false,
+                      "explanation": "[explanation of why this is incorrect in \(userLanguage)]"
+                    },
+                    {
+                      "text": "[incorrect option 3]",
+                      "isCorrect": false,
+                      "explanation": "[explanation of why this is incorrect in \(userLanguage)]"
+                    }
+                  ],
+                  "correctOptionIndex": 1,
+                  "explanation": "[overall explanation of the story and correct answer in \(userLanguage)]"
+                }
+              ]
+            }
+            
+            IMPORTANT RULES:
+            1. Return ONLY valid JSON - no additional text before or after
+            2. Create one story per word in the order provided
+            3. Story should be engaging and provide clear context for the word
+            4. The blank should be in a natural position where the word makes sense
+            5. Use '___' to represent the blank space
+            6. Provide exactly 4 options: 1 correct and 3 incorrect
+            7. correctOptionIndex should be 1-based (1, 2, 3, or 4)
+            8. Incorrect options should be plausible but clearly wrong
+            9. Each option should have a clear explanation
+            10. Story should be appropriate for language learning
+            11. The correct word should be the best choice for the blank
+            12. All explanations must be in \(userLanguage)
+            13. Use proper JSON escaping for quotes and special characters
+            """
+
+        return prompt
+    }
 
     private func parseWordInformationResponse(_ response: String) throws -> AIWordResponse {
         print("🔍 [OpenAIAPIService] Parsing JSON response...")
@@ -290,8 +828,259 @@ final class OpenAIAPIService: AIAPIServiceInterface {
         print("✅ [OpenAIAPIService] Successfully parsed \(relatedWords.count) related words")
         return relatedWords
     }
+    
+    private func parseSentenceEvaluationResponse(_ response: String) throws -> AISentenceEvaluation {
+        print("🔍 [OpenAIAPIService] Parsing sentence evaluation response...")
+
+        let cleanedResponse = cleanJSONResponse(response)
+        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
+
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAISentenceEvaluationResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
+
+        let evaluation = AISentenceEvaluation(
+            targetWord: openAIResponse.targetWord,
+            sentence: openAIResponse.sentence,
+            usageScore: openAIResponse.usageScore,
+            grammarScore: openAIResponse.grammarScore,
+            overallScore: openAIResponse.overallScore,
+            feedback: openAIResponse.feedback,
+            isCorrect: openAIResponse.isCorrect,
+            suggestions: openAIResponse.suggestions
+        )
+
+        print("✅ [OpenAIAPIService] Successfully parsed sentence evaluation")
+        return evaluation
+    }
+    
+    private func parseContextQuestionResponse(_ response: String) throws -> AIContextQuestion {
+        print("🔍 [OpenAIAPIService] Parsing context question response...")
+
+        let cleanedResponse = cleanJSONResponse(response)
+        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
+
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAIContextQuestionResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
+
+        let options = openAIResponse.options.map { optionData in
+            AIContextOption(
+                text: optionData.text,
+                isCorrect: optionData.isCorrect,
+                explanation: optionData.explanation
+            )
+        }
+
+        let contextQuestion = AIContextQuestion(
+            word: openAIResponse.word,
+            question: openAIResponse.question,
+            options: options,
+            correctOptionIndex: openAIResponse.correctOptionIndex,
+            explanation: openAIResponse.explanation
+        )
+
+        print("✅ [OpenAIAPIService] Successfully parsed context question")
+        return contextQuestion
+    }
+    
+    private func parseFillInTheBlankStoryResponse(_ response: String) throws -> AIFillInTheBlankStory {
+        print("🔍 [OpenAIAPIService] Parsing fill in the blank story response...")
+
+        let cleanedResponse = cleanJSONResponse(response)
+        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
+
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAIFillInTheBlankStoryResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
+
+        let options = openAIResponse.options.map { optionData in
+            AIFillInTheBlankOption(
+                text: optionData.text,
+                isCorrect: optionData.isCorrect,
+                explanation: optionData.explanation
+            )
+        }
+
+        let story = AIFillInTheBlankStory(
+            word: openAIResponse.word,
+            story: openAIResponse.story,
+            options: options,
+            correctOptionIndex: openAIResponse.correctOptionIndex,
+            explanation: openAIResponse.explanation
+        )
+
+        print("✅ [OpenAIAPIService] Successfully parsed fill in the blank story")
+        return story
+    }
+    
+    // MARK: - New Batch Parsing Methods
+    
+    private func parseSentencesEvaluationResponse(_ response: String) throws -> [AISentenceEvaluation] {
+        print("🔍 [OpenAIAPIService] Parsing sentences evaluation response...")
+
+        let cleanedResponse = cleanJSONResponse(response)
+        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
+
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAISentencesEvaluationResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
+
+        let evaluations = openAIResponse.evaluations.map { evaluationData in
+            AISentenceEvaluation(
+                targetWord: evaluationData.targetWord,
+                sentence: evaluationData.sentence,
+                usageScore: evaluationData.usageScore,
+                grammarScore: evaluationData.grammarScore,
+                overallScore: evaluationData.overallScore,
+                feedback: evaluationData.feedback,
+                isCorrect: evaluationData.isCorrect,
+                suggestions: evaluationData.suggestions
+            )
+        }
+
+        print("✅ [OpenAIAPIService] Successfully parsed \(evaluations.count) sentence evaluations")
+        return evaluations
+    }
+    
+    private func parseContextQuestionsResponse(_ response: String) throws -> [AIContextQuestion] {
+        print("🔍 [OpenAIAPIService] Parsing context questions response...")
+
+        let cleanedResponse = cleanJSONResponse(response)
+        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
+
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAIContextQuestionsResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
+
+        let questions = openAIResponse.questions.map { questionData in
+            let options = questionData.options.map { optionData in
+                AIContextOption(
+                    text: optionData.text,
+                    isCorrect: optionData.isCorrect,
+                    explanation: optionData.explanation
+                )
+            }
+            
+            return AIContextQuestion(
+                word: questionData.word,
+                question: questionData.question,
+                options: options,
+                correctOptionIndex: questionData.correctOptionIndex,
+                explanation: questionData.explanation
+            )
+        }
+
+        print("✅ [OpenAIAPIService] Successfully parsed \(questions.count) context questions")
+        return questions
+    }
+    
+    private func parseFillInTheBlankStoriesResponse(_ response: String) throws -> [AIFillInTheBlankStory] {
+        print("🔍 [OpenAIAPIService] Parsing fill in the blank stories response...")
+
+        let cleanedResponse = cleanJSONResponse(response)
+        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
+
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAIFillInTheBlankStoriesResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
+
+        let stories = openAIResponse.stories.map { storyData in
+            let options = storyData.options.map { optionData in
+                AIFillInTheBlankOption(
+                    text: optionData.text,
+                    isCorrect: optionData.isCorrect,
+                    explanation: optionData.explanation
+                )
+            }
+            
+            return AIFillInTheBlankStory(
+                word: storyData.word,
+                story: storyData.story,
+                options: options,
+                correctOptionIndex: storyData.correctOptionIndex,
+                explanation: storyData.explanation
+            )
+        }
+
+        print("✅ [OpenAIAPIService] Successfully parsed \(stories.count) fill in the blank stories")
+        return stories
+    }
+    
+    private func parseSingleContextQuestionResponse(_ response: String) throws -> AIContextQuestion {
+        print("🔍 [OpenAIAPIService] Parsing single context question response...")
+        print("🔍 [OpenAIAPIService] Response: \(response)")
+
+        let cleanedResponse = cleanJSONResponse(response)
+        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
+
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAISingleContextQuestionResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
+
+        let questionData = openAIResponse.question
+        let options = questionData.options.map { optionData in
+            AIContextOption(
+                text: optionData.text,
+                isCorrect: optionData.isCorrect,
+                explanation: optionData.explanation
+            )
+        }
+        
+        let question = AIContextQuestion(
+            word: questionData.word,
+            question: questionData.question,
+            options: options,
+            correctOptionIndex: questionData.correctOptionIndex,
+            explanation: questionData.explanation
+        )
+
+        print("✅ [OpenAIAPIService] Successfully parsed single context question")
+        return question
+    }
+    
+    private func parseSingleFillInTheBlankStoryResponse(_ response: String) throws -> AIFillInTheBlankStory {
+        print("🔍 [OpenAIAPIService] Parsing single fill in the blank story response...")
+
+        let cleanedResponse = cleanJSONResponse(response)
+        print("🔍 [OpenAIAPIService] Cleaned response: \(cleanedResponse)")
+
+        let openAIResponse = try JSONDecoder().decode(
+            OpenAISingleFillInTheBlankStoryResponse.self,
+            from: cleanedResponse.data(using: .utf8)!
+        )
+
+        let storyData = openAIResponse.story
+        let options = storyData.options.map { optionData in
+            AIFillInTheBlankOption(
+                text: optionData.text,
+                isCorrect: optionData.isCorrect,
+                explanation: optionData.explanation
+            )
+        }
+        
+        let story = AIFillInTheBlankStory(
+            word: storyData.word,
+            story: storyData.story,
+            options: options,
+            correctOptionIndex: storyData.correctOptionIndex,
+            explanation: storyData.explanation
+        )
+
+        print("✅ [OpenAIAPIService] Successfully parsed single fill in the blank story")
+        return story
+    }
 
     private func cleanJSONResponse(_ response: String) -> String {
+        guard !response.isEmpty else { return response }
+        
         var cleaned = response.trimmingCharacters(in: .whitespacesAndNewlines)
 
         // Remove markdown code blocks if present
@@ -306,7 +1095,58 @@ final class OpenAIAPIService: AIAPIServiceInterface {
         }
 
         cleaned = cleaned.trimmingCharacters(in: .whitespacesAndNewlines)
-        return cleaned
+        
+        // Try to fix common JSON issues
+        do {
+            // First, try to parse as-is
+            _ = try JSONSerialization.jsonObject(with: cleaned.data(using: .utf8)!, options: [])
+            return cleaned
+        } catch {
+            print("🔧 [OpenAIAPIService] JSON parsing failed, attempting to fix...")
+            
+            // Count braces and brackets to see if we're missing closing ones
+            let openBraces = cleaned.components(separatedBy: "{").count - 1
+            let closeBraces = cleaned.components(separatedBy: "}").count - 1
+            let openBrackets = cleaned.components(separatedBy: "[").count - 1
+            let closeBrackets = cleaned.components(separatedBy: "]").count - 1
+            
+            // Add missing closing braces
+            if openBraces > closeBraces {
+                let missingBraces = openBraces - closeBraces
+                cleaned += String(repeating: "}", count: missingBraces)
+            }
+            
+            // Add missing closing brackets
+            if openBrackets > closeBrackets {
+                let missingBrackets = openBrackets - closeBrackets
+                cleaned += String(repeating: "]", count: missingBrackets)
+            }
+            
+            // Try parsing again
+            do {
+                _ = try JSONSerialization.jsonObject(with: cleaned.data(using: .utf8)!, options: [])
+                print("✅ [OpenAIAPIService] Successfully fixed JSON by adding missing braces/brackets")
+                return cleaned
+            } catch {
+                print("🔧 [OpenAIAPIService] Still failed to parse JSON after fixing braces")
+                
+                // If still failing, try to extract the JSON part
+                if let jsonStart = cleaned.firstIndex(of: "{") {
+                    let jsonPart = String(cleaned[jsonStart...])
+                    do {
+                        _ = try JSONSerialization.jsonObject(with: jsonPart.data(using: .utf8)!, options: [])
+                        print("✅ [OpenAIAPIService] Successfully extracted JSON part")
+                        return jsonPart
+                    } catch {
+                        print("🔧 [OpenAIAPIService] Failed to extract valid JSON part")
+                    }
+                }
+                
+                // Return original if all attempts fail
+                print("🔧 [OpenAIAPIService] Returning original response as fallback")
+                return response
+            }
+        }
     }
 }
 

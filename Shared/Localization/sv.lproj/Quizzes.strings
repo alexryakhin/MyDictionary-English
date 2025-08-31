@@ -109,3 +109,71 @@
 "all_results" = "Alla resultat";
 "word_starts_with" = "Ordet börjar med";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Skriv en mening där '%@' används korrekt:";
+"ai_quiz.sentence_placeholder" = "Skriv din mening här...";
+"ai_quiz.ai_evaluating" = "AI utvärderar din mening...";
+"ai_quiz.feedback" = "Återkoppling:";
+"ai_quiz.usage_score" = "Användningspoäng: %d/100";
+"ai_quiz.grammar_score" = "Grammatikpoäng: %d/100";
+"ai_quiz.overall_score" = "Totalpoäng: %d/100";
+"ai_quiz.excellent_usage" = "Utmärkt användning! Din mening visar perfekt förståelse.";
+"ai_quiz.good_usage" = "Bra användning! Din mening visar god förståelse med mindre förbättringar möjliga.";
+"ai_quiz.fair_usage" = "Godkänd användning. Överväg sammanhang och betydelse noggrannare.";
+"ai_quiz.incorrect_usage" = "Felaktig användning. Granska ordets betydelse och försök igen.";
+
+"ai_quiz.choose_correct_sentence" = "Välj meningen där '%@' används korrekt:";
+"ai_quiz.option" = "Alternativ %d";
+"ai_quiz.explanation" = "Förklaring:";
+"ai_quiz.correct_usage_explanation" = "Denna mening använder '%@' korrekt eftersom %@";
+"ai_quiz.incorrect_usage_explanation" = "Denna mening använder '%@' felaktigt eftersom %@";
+
+"ai_quiz.fill_in_blank_story" = "Fyll i luckan med '%@':";
+"ai_quiz.story_context" = "Berättelsens sammanhang:";
+"ai_quiz.blank_placeholder" = "Skriv ordet här...";
+"ai_quiz.context_hint" = "Tips: Överväg berättelsens sammanhang och ordets betydelse";
+"ai_quiz.ai_context_feedback" = "Sammanhangsåterkoppling:";
+"ai_quiz.perfect_context_fit" = "Perfekt! Ordet passar perfekt i detta sammanhang.";
+"ai_quiz.good_context_fit" = "Bra! Ordet fungerar bra i detta sammanhang.";
+"ai_quiz.context_mismatch" = "Ordet passar inte riktigt i detta sammanhang. Överväg berättelsens betydelse.";
+
+"ai_quiz.submit_for_evaluation" = "Skicka för utvärdering";
+"ai_quiz.evaluating_with_ai" = "Utvärderar med AI...";
+"ai_quiz.ai_processing" = "Bearbetar ditt svar...";
+"ai_quiz.ai_analysis_complete" = "Analys klar";
+"ai_quiz.view_detailed_explanations" = "Visa detaljerade förklaringar";
+"ai_quiz.detailed_explanations" = "Detaljerade förklaringar";
+"ai_quiz.suggestions" = "Förslag";
+"ai_quiz.skipped_word" = "Hoppade över ord";
+"ai_quiz.skipped_word_message" = "Detta ord hoppades över under quizzet. Ingen utvärdering är tillgänglig för överhoppade ord.";
+"ai_quiz.your_sentence" = "Din mening";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Genererar fyll-i-luckan-berättelser...";
+"loading.fill_in_blank_description" = "AI skapar engagerande berättelser med luckor för att testa din förståelse av ordanvändning i sammanhang.";
+"loading.loading_next_story" = "Laddar nästa berättelse...";
+"loading.preparing_next_story" = "AI förbereder nästa berättelse för dig.";
+"loading.generating_context_questions" = "Genererar kontextfrågor...";
+"loading.context_questions_description" = "AI skapar flervalsfrågor för att testa din förståelse av ordanvändning i sammanhang.";
+"loading.loading_next_question" = "Laddar nästa fråga...";
+"loading.preparing_next_question" = "AI förbereder nästa fråga för dig.";
+"loading.failed_to_load_quiz" = "Misslyckades med att ladda quizzet";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Fråga";
+"ui.options" = "Alternativ";
+"ui.suggestions" = "Förslag";
+"ui.question_number" = "Fråga %d";
+"ui.you_skipped_question" = "Du hoppade över denna fråga. Här är det rätta svaret och förklaringen:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Meningskrivning";
+"quiz_types.context_multiple_choice" = "Kontextanvändning";
+"quiz_types.fill_in_the_blank" = "Fyll i luckan";
+"quiz_types.write_sentences_with_ai" = "Skriv meningar med korrekt ordanvändning och AI-utvärdering";
+"quiz_types.choose_correct_usage" = "Välj meningen där ordet används korrekt";
+"quiz_types.fill_blanks_in_context" = "Fyll i luckorna med rätt ord i kontexten";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Bra jobbat! Du har slutfört quizzet om meningskrivning.";
+"quiz_types.great_job_completed_context_quiz" = "Bra jobbat! Du har slutfört quizzet om kontextanvändning.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bra jobbat! Du har slutfört quizzet om att fylla i luckan.";
+"quiz_available_once_a_day_message" = "Tyvärr är quizzet endast tillgängligt en gång per dag. Prenumerera på PRO för obegränsad åtkomst!";

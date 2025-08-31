@@ -12,6 +12,9 @@
 "quiz_results" = "Wyniki quizu";
 "spelling_quiz" = "Quiz ortograficzny";
 "definition_quiz" = "Quiz definicji";
+"sentence_writing_quiz" = "Quiz pisania zdań";
+"context_multiple_choice_quiz" = "Quiz użycia w kontekście";
+"fill_in_the_blank_quiz" = "Quiz wypełniania luk";
 "close" = "Zamknij";
 "close_screen" = "Zamknij ekran";
 

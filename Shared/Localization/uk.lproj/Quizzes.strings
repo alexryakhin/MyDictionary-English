@@ -109,3 +109,71 @@
 "all_results" = "Всі результати";
 "word_starts_with" = "Слово починається з";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Напишіть речення, яке правильно використовує '%@':";
+"ai_quiz.sentence_placeholder" = "Введіть ваше речення тут...";
+"ai_quiz.ai_evaluating" = "Штучний інтелект оцінює ваше речення...";
+"ai_quiz.feedback" = "Зворотний зв'язок:";
+"ai_quiz.usage_score" = "Оцінка використання: %d/100";
+"ai_quiz.grammar_score" = "Оцінка граматики: %d/100";
+"ai_quiz.overall_score" = "Загальна оцінка: %d/100";
+"ai_quiz.excellent_usage" = "Відмінне використання! Ваше речення демонструє ідеальне розуміння.";
+"ai_quiz.good_usage" = "Гарне використання! Ваше речення показує гарне розуміння з можливими незначними покращеннями.";
+"ai_quiz.fair_usage" = "Задовільне використання. Розгляньте контекст і значення уважніше.";
+"ai_quiz.incorrect_usage" = "Неправильне використання. Перегляньте значення слова і спробуйте ще раз.";
+
+"ai_quiz.choose_correct_sentence" = "Виберіть речення, в якому '%@' використано правильно:";
+"ai_quiz.option" = "Варіант %d";
+"ai_quiz.explanation" = "Пояснення:";
+"ai_quiz.correct_usage_explanation" = "Це речення правильно використовує '%@', тому що %@";
+"ai_quiz.incorrect_usage_explanation" = "Це речення неправильно використовує '%@', тому що %@";
+
+"ai_quiz.fill_in_blank_story" = "Заповніть пропуск словом '%@':";
+"ai_quiz.story_context" = "Контекст історії:";
+"ai_quiz.blank_placeholder" = "Введіть слово тут...";
+"ai_quiz.context_hint" = "Підказка: Враховуйте контекст історії та значення слова";
+"ai_quiz.ai_context_feedback" = "Зворотний зв'язок щодо контексту:";
+"ai_quiz.perfect_context_fit" = "Ідеально! Слово ідеально підходить до цього контексту.";
+"ai_quiz.good_context_fit" = "Добре! Слово добре працює в цьому контексті.";
+"ai_quiz.context_mismatch" = "Слово не зовсім підходить до цього контексту. Враховуйте значення історії.";
+
+"ai_quiz.submit_for_evaluation" = "Надіслати для оцінки";
+"ai_quiz.evaluating_with_ai" = "Оцінка за допомогою штучного інтелекту...";
+"ai_quiz.ai_processing" = "Обробка вашої відповіді...";
+"ai_quiz.ai_analysis_complete" = "Аналіз завершено";
+"ai_quiz.view_detailed_explanations" = "Переглянути детальні пояснення";
+"ai_quiz.detailed_explanations" = "Детальні пояснення";
+"ai_quiz.suggestions" = "Пропозиції";
+"ai_quiz.skipped_word" = "Пропущене слово";
+"ai_quiz.skipped_word_message" = "Це слово було пропущено під час вікторини. Для пропущених слів оцінка недоступна.";
+"ai_quiz.your_sentence" = "Ваше речення";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Генерація історій із пропусками...";
+"loading.fill_in_blank_description" = "Штучний інтелект створює захоплюючі історії з пропусками для перевірки вашого розуміння використання слів у контексті.";
+"loading.loading_next_story" = "Завантаження наступної історії...";
+"loading.preparing_next_story" = "Штучний інтелект готує наступну історію для вас.";
+"loading.generating_context_questions" = "Генерація контекстних питань...";
+"loading.context_questions_description" = "Штучний інтелект створює питання з множинним вибором для перевірки вашого розуміння використання слів у контексті.";
+"loading.loading_next_question" = "Завантаження наступного питання...";
+"loading.preparing_next_question" = "Штучний інтелект готує наступне питання для вас.";
+"loading.failed_to_load_quiz" = "Не вдалося завантажити вікторину";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Питання";
+"ui.options" = "Варіанти";
+"ui.suggestions" = "Пропозиції";
+"ui.question_number" = "Питання %d";
+"ui.you_skipped_question" = "Ви пропустили це питання. Ось правильна відповідь і пояснення:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Написання речень";
+"quiz_types.context_multiple_choice" = "Використання в контексті";
+"quiz_types.fill_in_the_blank" = "Заповнення пропусків";
+"quiz_types.write_sentences_with_ai" = "Напишіть речення, правильно використовуючи слова, з оцінкою ШІ";
+"quiz_types.choose_correct_usage" = "Виберіть речення, в якому слово використано правильно";
+"quiz_types.fill_blanks_in_context" = "Заповніть пропуски правильним словом у контексті";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Чудова робота! Ви завершили вікторину з написання речень.";
+"quiz_types.great_job_completed_context_quiz" = "Чудова робота! Ви завершили вікторину з використання в контексті.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Чудова робота! Ви завершили вікторину із заповнення пропусків.";
+"quiz_available_once_a_day_message" = "Вибачте, вікторина доступна лише один раз на день. Підпишіться на PRO для необмеженого доступу!";

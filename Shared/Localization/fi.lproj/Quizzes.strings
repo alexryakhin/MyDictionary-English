@@ -109,3 +109,71 @@
 "all_results" = "Kaikki tulokset";
 "word_starts_with" = "Sana alkaa sanalla";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Kirjoita lause, jossa '%@' käytetään oikein:";
+"ai_quiz.sentence_placeholder" = "Kirjoita lauseesi tähän...";
+"ai_quiz.ai_evaluating" = "Tekoäly arvioi lauseesi...";
+"ai_quiz.feedback" = "Palaute:";
+"ai_quiz.usage_score" = "Käytön pistemäärä: %d/100";
+"ai_quiz.grammar_score" = "Kieliopin pistemäärä: %d/100";
+"ai_quiz.overall_score" = "Kokonaispistemäärä: %d/100";
+"ai_quiz.excellent_usage" = "Erinomainen käyttö! Lauseesi osoittaa täydellistä ymmärrystä.";
+"ai_quiz.good_usage" = "Hyvä käyttö! Lauseesi osoittaa hyvää ymmärrystä, pienet parannukset mahdollisia.";
+"ai_quiz.fair_usage" = "Kohtuullinen käyttö. Harkitse kontekstia ja merkitystä tarkemmin.";
+"ai_quiz.incorrect_usage" = "Virheellinen käyttö. Tarkista sanan merkitys ja yritä uudelleen.";
+
+"ai_quiz.choose_correct_sentence" = "Valitse lause, jossa '%@' on käytetty oikein:";
+"ai_quiz.option" = "Vaihtoehto %d";
+"ai_quiz.explanation" = "Selitys:";
+"ai_quiz.correct_usage_explanation" = "Tämä lause käyttää '%@' oikein, koska %@";
+"ai_quiz.incorrect_usage_explanation" = "Tämä lause käyttää '%@' väärin, koska %@";
+
+"ai_quiz.fill_in_blank_story" = "Täytä tyhjä kohta sanalla '%@':";
+"ai_quiz.story_context" = "Tarinan konteksti:";
+"ai_quiz.blank_placeholder" = "Kirjoita sana tähän...";
+"ai_quiz.context_hint" = "Vinkki: Harkitse tarinan kontekstia ja sanan merkitystä";
+"ai_quiz.ai_context_feedback" = "Kontekstipalaute:";
+"ai_quiz.perfect_context_fit" = "Täydellinen! Sana sopii täydellisesti tähän kontekstiin.";
+"ai_quiz.good_context_fit" = "Hyvä! Sana toimii hyvin tässä kontekstissa.";
+"ai_quiz.context_mismatch" = "Sana ei aivan sovi tähän kontekstiin. Harkitse tarinan merkitystä.";
+
+"ai_quiz.submit_for_evaluation" = "Lähetä arvioitavaksi";
+"ai_quiz.evaluating_with_ai" = "Arvioidaan tekoälyllä...";
+"ai_quiz.ai_processing" = "Käsitellään vastaustasi...";
+"ai_quiz.ai_analysis_complete" = "Analyysi valmis";
+"ai_quiz.view_detailed_explanations" = "Näytä yksityiskohtaiset selitykset";
+"ai_quiz.detailed_explanations" = "Yksityiskohtaiset selitykset";
+"ai_quiz.suggestions" = "Ehdotukset";
+"ai_quiz.skipped_word" = "Ohitettu sana";
+"ai_quiz.skipped_word_message" = "Tämä sana ohitettiin kyselyn aikana. Ohitettujen sanojen arviointia ei ole saatavilla.";
+"ai_quiz.your_sentence" = "Lauseesi";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Luodaan täytä-tyhjä-kohtaan-tarinoita...";
+"loading.fill_in_blank_description" = "Tekoäly luo kiehtovia tarinoita tyhjillä kohdilla testatakseen ymmärrystäsi sanojen käytöstä kontekstissa.";
+"loading.loading_next_story" = "Ladataan seuraavaa tarinaa...";
+"loading.preparing_next_story" = "Tekoäly valmistelee seuraavaa tarinaa sinulle.";
+"loading.generating_context_questions" = "Luodaan kontekstikysymyksiä...";
+"loading.context_questions_description" = "Tekoäly luo monivalintakysymyksiä testatakseen ymmärrystäsi sanojen käytöstä kontekstissa.";
+"loading.loading_next_question" = "Ladataan seuraavaa kysymystä...";
+"loading.preparing_next_question" = "Tekoäly valmistelee seuraavaa kysymystä sinulle.";
+"loading.failed_to_load_quiz" = "Kyselyn lataaminen epäonnistui";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Kysymys";
+"ui.options" = "Vaihtoehdot";
+"ui.suggestions" = "Ehdotukset";
+"ui.question_number" = "Kysymys %d";
+"ui.you_skipped_question" = "Ohitit tämän kysymyksen. Tässä on oikea vastaus ja selitys:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Lauseiden kirjoittaminen";
+"quiz_types.context_multiple_choice" = "Kontekstin käyttö";
+"quiz_types.fill_in_the_blank" = "Täytä tyhjä kohta";
+"quiz_types.write_sentences_with_ai" = "Kirjoita lauseita käyttäen sanoja oikein tekoälyn arvioinnilla";
+"quiz_types.choose_correct_usage" = "Valitse lause, jossa sana on käytetty oikein";
+"quiz_types.fill_blanks_in_context" = "Täytä tyhjät kohdat oikealla sanalla kontekstissa";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Hienoa työtä! Olet suorittanut lauseiden kirjoittamisen kyselyn.";
+"quiz_types.great_job_completed_context_quiz" = "Hienoa työtä! Olet suorittanut kontekstin käytön kyselyn.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Hienoa työtä! Olet suorittanut täytä tyhjä kohta -kyselyn.";
+"quiz_available_once_a_day_message" = "Anteeksi, kysely on saatavilla vain kerran päivässä. Tilaa PRO rajoittamattomalle pääsylle!";

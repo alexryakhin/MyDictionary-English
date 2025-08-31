@@ -109,3 +109,71 @@
 "all_results" = "Minden eredmény";
 "word_starts_with" = "A szó ezzel kezdődik";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Írj egy mondatot, amely helyesen használja a(z) '%@' szót:";
+"ai_quiz.sentence_placeholder" = "Írd ide a mondatodat...";
+"ai_quiz.ai_evaluating" = "A mesterséges intelligencia értékeli a mondatodat...";
+"ai_quiz.feedback" = "Visszajelzés:";
+"ai_quiz.usage_score" = "Használati pontszám: %d/100";
+"ai_quiz.grammar_score" = "Nyelvtani pontszám: %d/100";
+"ai_quiz.overall_score" = "Összesített pontszám: %d/100";
+"ai_quiz.excellent_usage" = "Kiváló használat! A mondatod tökéletes megértést mutat.";
+"ai_quiz.good_usage" = "Jó használat! A mondatod jó megértést mutat, kisebb fejlesztések lehetségesek.";
+"ai_quiz.fair_usage" = "Közepes használat. Gondold át alaposabban a kontextust és a jelentést.";
+"ai_quiz.incorrect_usage" = "Helytelen használat. Nézd át a szó jelentését, és próbáld újra.";
+
+"ai_quiz.choose_correct_sentence" = "Válaszd ki azt a mondatot, amelyben a(z) '%@' helyesen van használva:";
+"ai_quiz.option" = "Opció %d";
+"ai_quiz.explanation" = "Magyarázat:";
+"ai_quiz.correct_usage_explanation" = "Ez a mondat helyesen használja a(z) '%@' szót, mert %@";
+"ai_quiz.incorrect_usage_explanation" = "Ez a mondat helytelenül használja a(z) '%@' szót, mert %@";
+
+"ai_quiz.fill_in_blank_story" = "Töltsd ki az üres helyet a(z) '%@' szóval:";
+"ai_quiz.story_context" = "Történet kontextusa:";
+"ai_quiz.blank_placeholder" = "Írd ide a szót...";
+"ai_quiz.context_hint" = "Tipp: Vedd figyelembe a történet kontextusát és a szó jelentését";
+"ai_quiz.ai_context_feedback" = "Kontextus visszajelzés:";
+"ai_quiz.perfect_context_fit" = "Tökéletes! A szó tökéletesen illik ebbe a kontextusba.";
+"ai_quiz.good_context_fit" = "Jó! A szó jól működik ebben a kontextusban.";
+"ai_quiz.context_mismatch" = "A szó nem igazán illik ebbe a kontextusba. Gondold át a történet jelentését.";
+
+"ai_quiz.submit_for_evaluation" = "Küldés értékelésre";
+"ai_quiz.evaluating_with_ai" = "Értékelés mesterséges intelligenciával...";
+"ai_quiz.ai_processing" = "A válaszod feldolgozása folyamatban...";
+"ai_quiz.ai_analysis_complete" = "Elemzés befejezve";
+"ai_quiz.view_detailed_explanations" = "Részletes magyarázatok megtekintése";
+"ai_quiz.detailed_explanations" = "Részletes magyarázatok";
+"ai_quiz.suggestions" = "Javaslatok";
+"ai_quiz.skipped_word" = "Kihagyatott szó";
+"ai_quiz.skipped_word_message" = "Ezt a szót kihagytad a kvíz során. A kihagyatott szavakhoz nem áll rendelkezésre értékelés.";
+"ai_quiz.your_sentence" = "A mondatod";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Kitöltendő történetek generálása...";
+"loading.fill_in_blank_description" = "A mesterséges intelligencia izgalmas történeteket hoz létre üres helyekkel, hogy tesztelje a szavaid kontextusban való használatának megértését.";
+"loading.loading_next_story" = "Következő történet betöltése...";
+"loading.preparing_next_story" = "A mesterséges intelligencia előkészíti a következő történetet számodra.";
+"loading.generating_context_questions" = "Kontextus kérdések generálása...";
+"loading.context_questions_description" = "A mesterséges intelligencia többválasztós kérdéseket hoz létre, hogy tesztelje a szavaid kontextusban való használatának megértését.";
+"loading.loading_next_question" = "Következő kérdés betöltése...";
+"loading.preparing_next_question" = "A mesterséges intelligencia előkészíti a következő kérdést számodra.";
+"loading.failed_to_load_quiz" = "A kvíz betöltése nem sikerült";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Kérdés";
+"ui.options" = "Opciók";
+"ui.suggestions" = "Javaslatok";
+"ui.question_number" = "Kérdés %d";
+"ui.you_skipped_question" = "Kihagytad ezt a kérdést. Íme a helyes válasz és a magyarázat:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Mondatírás";
+"quiz_types.context_multiple_choice" = "Kontextus használata";
+"quiz_types.fill_in_the_blank" = "Üres helyek kitöltése";
+"quiz_types.write_sentences_with_ai" = "Írjon mondatokat helyesen használt szavakkal és AI-értékeléssel";
+"quiz_types.choose_correct_usage" = "Válassza ki a mondatot, amelyben a szó helyesen van használva";
+"quiz_types.fill_blanks_in_context" = "Töltse ki az üres helyeket a megfelelő szóval a kontextusban";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Nagyszerű munka! Befejezte a mondatírási kvízt.";
+"quiz_types.great_job_completed_context_quiz" = "Nagyszerű munka! Befejezte a kontextus használati kvízt.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Nagyszerű munka! Befejezte az üres helyek kitöltési kvízt.";
+"quiz_available_once_a_day_message" = "Sajnáljuk, a kvíz csak naponta egyszer érhető el. Iratkozzon fel a PRO-ra korlátlan hozzáférésért!";

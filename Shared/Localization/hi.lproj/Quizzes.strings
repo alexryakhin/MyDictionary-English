@@ -109,3 +109,71 @@
 "all_results" = "सभी परिणाम";
 "word_starts_with" = "शब्द इससे शुरू होता है";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "'%@' का सही उपयोग करके एक वाक्य लिखें:";
+"ai_quiz.sentence_placeholder" = "यहां अपना वाक्य टाइप करें...";
+"ai_quiz.ai_evaluating" = "AI आपके वाक्य का मूल्यांकन कर रहा है...";
+"ai_quiz.feedback" = "प्रतिक्रिया:";
+"ai_quiz.usage_score" = "उपयोग स्कोर: %d/100";
+"ai_quiz.grammar_score" = "व्याकरण स्कोर: %d/100";
+"ai_quiz.overall_score" = "कुल स्कोर: %d/100";
+"ai_quiz.excellent_usage" = "उत्कृष्ट उपयोग! आपका वाक्य पूर्ण समझ को दर्शाता है।";
+"ai_quiz.good_usage" = "अच्छा उपयोग! आपका वाक्य अच्छी समझ को दर्शाता है, जिसमें मामूली सुधार संभव हैं।";
+"ai_quiz.fair_usage" = "ठीक उपयोग। संदर्भ और अर्थ पर अधिक ध्यान दें।";
+"ai_quiz.incorrect_usage" = "गलत उपयोग। शब्द के अर्थ की समीक्षा करें और फिर से प्रयास करें।";
+
+"ai_quiz.choose_correct_sentence" = "वह वाक्य चुनें जिसमें '%@' का उपयोग सही है:";
+"ai_quiz.option" = "विकल्प %d";
+"ai_quiz.explanation" = "विश्लेषण:";
+"ai_quiz.correct_usage_explanation" = "यह वाक्य '%@' का सही उपयोग करता है क्योंकि %@";
+"ai_quiz.incorrect_usage_explanation" = "यह वाक्य '%@' का गलत उपयोग करता है क्योंकि %@";
+
+"ai_quiz.fill_in_blank_story" = "'%@' के साथ रिक्त स्थान भरें:";
+"ai_quiz.story_context" = "कहानी का संदर्भ:";
+"ai_quiz.blank_placeholder" = "यहां शब्द टाइप करें...";
+"ai_quiz.context_hint" = "संकेत: कहानी के संदर्भ और शब्द के अर्थ पर विचार करें";
+"ai_quiz.ai_context_feedback" = "संदर्भ प्रतिक्रिया:";
+"ai_quiz.perfect_context_fit" = "उत्तम! यह शब्द इस संदर्भ में पूरी तरह फिट बैठता है।";
+"ai_quiz.good_context_fit" = "अच्छा! यह शब्द इस संदर्भ में अच्छी तरह काम करता है।";
+"ai_quiz.context_mismatch" = "यह शब्द इस संदर्भ में पूरी तरह फिट नहीं बैठता। कहानी के अर्थ पर विचार करें।";
+
+"ai_quiz.submit_for_evaluation" = "मूल्यांकन के लिए जमा करें";
+"ai_quiz.evaluating_with_ai" = "AI के साथ मूल्यांकन...";
+"ai_quiz.ai_processing" = "आपके उत्तर को संसाधित किया जा रहा है...";
+"ai_quiz.ai_analysis_complete" = "विश्लेषण पूर्ण";
+"ai_quiz.view_detailed_explanations" = "विस्तृत विश्लेषण देखें";
+"ai_quiz.detailed_explanations" = "विस्तृत विश्लेषण";
+"ai_quiz.suggestions" = "सुझाव";
+"ai_quiz.skipped_word" = "छोड़ा गया शब्द";
+"ai_quiz.skipped_word_message" = "यह शब्द क्विज़ के दौरान छोड़ दिया गया था। छोड़े गए शब्दों के लिए कोई मूल्यांकन उपलब्ध नहीं है।";
+"ai_quiz.your_sentence" = "आपका वाक्य";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "रिक्त स्थान भरने वाली कहानियां उत्पन्न की जा रही हैं...";
+"loading.fill_in_blank_description" = "AI संदर्भ में शब्द उपयोग की समझ को परखने के लिए आकर्षक कहानियां बना रहा है।";
+"loading.loading_next_story" = "अगली कहानी लोड हो रही है...";
+"loading.preparing_next_story" = "AI आपके लिए अगली कहानी तैयार कर रहा है।";
+"loading.generating_context_questions" = "संदर्भ प्रश्न उत्पन्न किए जा रहे हैं...";
+"loading.context_questions_description" = "AI संदर्भ में शब्द उपयोग की समझ को परखने के लिए बहुविकल्पीय प्रश्न बना रहा है।";
+"loading.loading_next_question" = "अगला प्रश्न लोड हो रहा है...";
+"loading.preparing_next_question" = "AI आपके लिए अगला प्रश्न तैयार कर रहा है।";
+"loading.failed_to_load_quiz" = "क्विज़ लोड करने में विफल";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "प्रश्न";
+"ui.options" = "विकल्प";
+"ui.suggestions" = "सुझाव";
+"ui.question_number" = "प्रश्न %d";
+"ui.you_skipped_question" = "आपने इस प्रश्न को छोड़ दिया। यहाँ सही उत्तर और विश्लेषण है:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "वाक्य लेखन";
+"quiz_types.context_multiple_choice" = "संदर्भ उपयोग";
+"quiz_types.fill_in_the_blank" = "रिक्त स्थान भरें";
+"quiz_types.write_sentences_with_ai" = "AI मूल्यांकन के साथ शब्दों का सही उपयोग करके वाक्य लिखें";
+"quiz_types.choose_correct_usage" = "वह वाक्य चुनें जिसमें शब्द का उपयोग सही है";
+"quiz_types.fill_blanks_in_context" = "संदर्भ में सही शब्द के साथ रिक्त स्थान भरें";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "शानदार काम! आपने वाक्य लेखन क्विज़ पूरा कर लिया है।";
+"quiz_types.great_job_completed_context_quiz" = "शानदार काम! आपने संदर्भ उपयोग क्विज़ पूरा कर लिया है।";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "शानदार काम! आपने रिक्त स्थान भरने का क्विज़ पूरा कर लिया है।";
+"quiz_available_once_a_day_message" = "क्षमा करें, क्विज़ केवल दिन में एक बार उपलब्ध है। असीमित पहुंच के लिए PRO की सदस्यता लें!";

@@ -12,6 +12,9 @@
 "quiz_results" = "Результаты";
 "spelling_quiz" = "Правописание";
 "definition_quiz" = "Определения";
+"sentence_writing_quiz" = "Написание предложений";
+"context_multiple_choice_quiz" = "Использование в контексте";
+"fill_in_the_blank_quiz" = "Заполнение пропусков";
 "close" = "Закрыть";
 "close_screen" = "Закрыть экран";
 

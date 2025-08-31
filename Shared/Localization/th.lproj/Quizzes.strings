@@ -109,3 +109,71 @@
 "all_results" = "ผลลัพธ์ทั้งหมด";
 "word_starts_with" = "คำเริ่มต้นด้วย";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "เขียนประโยคโดยใช้ '%@' อย่างถูกต้อง:";
+"ai_quiz.sentence_placeholder" = "พิมพ์ประโยคของคุณที่นี่...";
+"ai_quiz.ai_evaluating" = "AI กำลังประเมินประโยคของคุณ...";
+"ai_quiz.feedback" = "ความคิดเห็น:";
+"ai_quiz.usage_score" = "คะแนนการใช้งาน: %d/100";
+"ai_quiz.grammar_score" = "คะแนนไวยากรณ์: %d/100";
+"ai_quiz.overall_score" = "คะแนนรวม: %d/100";
+"ai_quiz.excellent_usage" = "การใช้งานยอดเยี่ยม! ประโยคของคุณแสดงถึงความเข้าใจที่สมบูรณ์แบบ";
+"ai_quiz.good_usage" = "การใช้งานดี! ประโยคของคุณแสดงถึงความเข้าใจที่ดีและอาจมีการปรับปรุงเล็กน้อย";
+"ai_quiz.fair_usage" = "การใช้งานปานกลาง พิจารณาบริบทและความหมายให้รอบคอบมากขึ้น";
+"ai_quiz.incorrect_usage" = "การใช้งานไม่ถูกต้อง ตรวจสอบความหมายของคำและลองใหม่";
+
+"ai_quiz.choose_correct_sentence" = "เลือกประโยคที่ใช้ '%@' อย่างถูกต้อง:";
+"ai_quiz.option" = "ตัวเลือก %d";
+"ai_quiz.explanation" = "คำอธิบาย:";
+"ai_quiz.correct_usage_explanation" = "ประโยคนี้ใช้ '%@' อย่างถูกต้องเพราะ %@";
+"ai_quiz.incorrect_usage_explanation" = "ประโยคนี้ใช้ '%@' อย่างไม่ถูกต้องเพราะ %@";
+
+"ai_quiz.fill_in_blank_story" = "เติมคำในช่องว่างด้วย '%@':";
+"ai_quiz.story_context" = "บริบทของเรื่องราว:";
+"ai_quiz.blank_placeholder" = "พิมพ์คำที่นี่...";
+"ai_quiz.context_hint" = "คำใบ้: พิจารณาบริบทของเรื่องราวและความหมายของคำ";
+"ai_quiz.ai_context_feedback" = "ความคิดเห็นเกี่ยวกับบริบท:";
+"ai_quiz.perfect_context_fit" = "สมบูรณ์แบบ! คำนี้เหมาะสมอย่างสมบูรณ์ในบริบทนี้";
+"ai_quiz.good_context_fit" = "ดี! คำนี้เหมาะสมดีในบริบทนี้";
+"ai_quiz.context_mismatch" = "คำนี้ไม่ค่อยเหมาะสมกับบริบทนี้ พิจารณาความหมายของเรื่องราว";
+
+"ai_quiz.submit_for_evaluation" = "ส่งเพื่อประเมิน";
+"ai_quiz.evaluating_with_ai" = "กำลังประเมินด้วย AI...";
+"ai_quiz.ai_processing" = "กำลังประมวลผลคำตอบของคุณ...";
+"ai_quiz.ai_analysis_complete" = "การวิเคราะห์เสร็จสิ้น";
+"ai_quiz.view_detailed_explanations" = "ดูคำอธิบายโดยละเอียด";
+"ai_quiz.detailed_explanations" = "คำอธิบายโดยละเอียด";
+"ai_quiz.suggestions" = "ข้อเสนอแนะ";
+"ai_quiz.skipped_word" = "คำที่ข้าม";
+"ai_quiz.skipped_word_message" = "คำนี้ถูกข้ามในระหว่างการทดสอบ ไม่มีการประเมินสำหรับคำที่ข้าม";
+"ai_quiz.your_sentence" = "ประโยคของคุณ";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "กำลังสร้างเรื่องราวเติมคำในช่องว่าง...";
+"loading.fill_in_blank_description" = "AI กำลังสร้างเรื่องราวที่น่าสนใจพร้อมช่องว่างเพื่อทดสอบความเข้าใจในการใช้คำในบริบท";
+"loading.loading_next_story" = "กำลังโหลดเรื่องราวถัดไป...";
+"loading.preparing_next_story" = "AI กำลังเตรียมเรื่องราวถัดไปสำหรับคุณ";
+"loading.generating_context_questions" = "กำลังสร้างคำถามบริบท...";
+"loading.context_questions_description" = "AI กำลังสร้างคำถามแบบเลือกตอบเพื่อทดสอบความเข้าใจในการใช้คำในบริบท";
+"loading.loading_next_question" = "กำลังโหลดคำถามถัดไป...";
+"loading.preparing_next_question" = "AI กำลังเตรียมคำถามถัดไปสำหรับคุณ";
+"loading.failed_to_load_quiz" = "ไม่สามารถโหลดแบบทดสอบได้";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "คำถาม";
+"ui.options" = "ตัวเลือก";
+"ui.suggestions" = "ข้อเสนอแนะ";
+"ui.question_number" = "คำถาม %d";
+"ui.you_skipped_question" = "คุณข้ามคำถามนี้ นี่คือคำตอบที่ถูกต้องและคำอธิบาย:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "การเขียนประโยค";
+"quiz_types.context_multiple_choice" = "การใช้ในบริบท";
+"quiz_types.fill_in_the_blank" = "เติมคำในช่องว่าง";
+"quiz_types.write_sentences_with_ai" = "เขียนประโยคโดยใช้คำอย่างถูกต้องพร้อมการประเมินโดย AI";
+"quiz_types.choose_correct_usage" = "เลือกประโยคที่ใช้คำอย่างถูกต้อง";
+"quiz_types.fill_blanks_in_context" = "เติมช่องว่างด้วยคำที่ถูกต้องในบริบท";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบการเขียนประโยคเสร็จแล้ว";
+"quiz_types.great_job_completed_context_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบการใช้ในบริบทเสร็จแล้ว";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบเติมคำในช่องว่างเสร็จแล้ว";
+"quiz_available_once_a_day_message" = "ขออภัย แบบทดสอบสามารถใช้ได้เพียงครั้งเดียวต่อวัน สมัครสมาชิก PRO เพื่อเข้าถึงไม่จำกัด!";

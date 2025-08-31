@@ -109,3 +109,71 @@
 "all_results" = "Tüm sonuçlar";
 "word_starts_with" = "Kelime şununla başlıyor";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "'%@' kelimesini doğru kullanarak bir cümle yazın:";
+"ai_quiz.sentence_placeholder" = "Cümlenizi buraya yazın...";
+"ai_quiz.ai_evaluating" = "Yapay zeka cümlenizi değerlendiriyor...";
+"ai_quiz.feedback" = "Geri bildirim:";
+"ai_quiz.usage_score" = "Kullanım puanı: %d/100";
+"ai_quiz.grammar_score" = "Dilbilgisi puanı: %d/100";
+"ai_quiz.overall_score" = "Genel puan: %d/100";
+"ai_quiz.excellent_usage" = "Mükemmel kullanım! Cümleniz mükemmel bir anlayış gösteriyor.";
+"ai_quiz.good_usage" = "İyi kullanım! Cümleniz iyi bir anlayış gösteriyor, küçük iyileştirmeler mümkün.";
+"ai_quiz.fair_usage" = "Orta düzey kullanım. Bağlamı ve anlamı daha dikkatli düşünün.";
+"ai_quiz.incorrect_usage" = "Yanlış kullanım. Kelimenin anlamını gözden geçirin ve tekrar deneyin.";
+
+"ai_quiz.choose_correct_sentence" = "'%@' kelimesinin doğru kullanıldığı cümleyi seçin:";
+"ai_quiz.option" = "Seçenek %d";
+"ai_quiz.explanation" = "Açıklama:";
+"ai_quiz.correct_usage_explanation" = "Bu cümle '%@' kelimesini doğru kullanıyor çünkü %@";
+"ai_quiz.incorrect_usage_explanation" = "Bu cümle '%@' kelimesini yanlış kullanıyor çünkü %@";
+
+"ai_quiz.fill_in_blank_story" = "'%@' ile boşluğu doldurun:";
+"ai_quiz.story_context" = "Hikaye bağlamı:";
+"ai_quiz.blank_placeholder" = "Kelimeyi buraya yazın...";
+"ai_quiz.context_hint" = "İpucu: Hikayenin bağlamını ve kelimenin anlamını düşünün";
+"ai_quiz.ai_context_feedback" = "Bağlam geri bildirimi:";
+"ai_quiz.perfect_context_fit" = "Mükemmel! Kelime bu bağlama tam uyuyor.";
+"ai_quiz.good_context_fit" = "İyi! Kelime bu bağlamda iyi çalışıyor.";
+"ai_quiz.context_mismatch" = "Kelime bu bağlama tam uymuyor. Hikayenin anlamını düşünün.";
+
+"ai_quiz.submit_for_evaluation" = "Değerlendirme için gönder";
+"ai_quiz.evaluating_with_ai" = "Yapay zeka ile değerlendiriliyor...";
+"ai_quiz.ai_processing" = "Cevabınız işleniyor...";
+"ai_quiz.ai_analysis_complete" = "Analiz tamamlandı";
+"ai_quiz.view_detailed_explanations" = "Ayrıntılı açıklamaları görüntüle";
+"ai_quiz.detailed_explanations" = "Ayrıntılı açıklamalar";
+"ai_quiz.suggestions" = "Öneriler";
+"ai_quiz.skipped_word" = "Atlanan kelime";
+"ai_quiz.skipped_word_message" = "Bu kelime sınav sırasında atlandı. Atlanan kelimeler için değerlendirme mevcut değil.";
+"ai_quiz.your_sentence" = "Cümleniz";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Boşluk doldurma hikayeleri oluşturuluyor...";
+"loading.fill_in_blank_description" = "Yapay zeka, bağlamda kelime kullanım anlayışınızı test etmek için ilgi çekici hikayeler oluşturuyor.";
+"loading.loading_next_story" = "Sonraki hikaye yükleniyor...";
+"loading.preparing_next_story" = "Yapay zeka sizin için sonraki hikayeyi hazırlıyor.";
+"loading.generating_context_questions" = "Bağlam soruları oluşturuluyor...";
+"loading.context_questions_description" = "Yapay zeka, bağlamda kelime kullanım anlayışınızı test etmek için çoktan seçmeli sorular oluşturuyor.";
+"loading.loading_next_question" = "Sonraki soru yükleniyor...";
+"loading.preparing_next_question" = "Yapay zeka sizin için sonraki soruyu hazırlıyor.";
+"loading.failed_to_load_quiz" = "Sınav yüklenemedi";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Soru";
+"ui.options" = "Seçenekler";
+"ui.suggestions" = "Öneriler";
+"ui.question_number" = "Soru %d";
+"ui.you_skipped_question" = "Bu soruyu atladınız. İşte doğru cevap ve açıklama:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Cümle Yazma";
+"quiz_types.context_multiple_choice" = "Bağlam Kullanımı";
+"quiz_types.fill_in_the_blank" = "Boşluk Doldurma";
+"quiz_types.write_sentences_with_ai" = "AI değerlendirmesi ile kelimeleri doğru kullanarak cümleler yazın";
+"quiz_types.choose_correct_usage" = "Kelimenin doğru kullanıldığı cümleyi seçin";
+"quiz_types.fill_blanks_in_context" = "Bağlamda doğru kelime ile boşlukları doldurun";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Harika iş! Cümle yazma sınavını tamamladınız.";
+"quiz_types.great_job_completed_context_quiz" = "Harika iş! Bağlam kullanımı sınavını tamamladınız.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Harika iş! Boşluk doldurma sınavını tamamladınız.";
+"quiz_available_once_a_day_message" = "Üzgünüz, sınav günde sadece bir kez kullanılabilir. Sınırsız erişim için PRO'ya abone olun!";

@@ -12,6 +12,9 @@
 "quiz_results" = "Test Sonuçları";
 "spelling_quiz" = "Yazım Testi";
 "definition_quiz" = "Tanım Testi";
+"sentence_writing_quiz" = "Cümle Yazma Testi";
+"context_multiple_choice_quiz" = "Bağlam Kullanım Testi";
+"fill_in_the_blank_quiz" = "Boşluk Doldurma Testi";
 "close" = "Kapat";
 "close_screen" = "Ekranı Kapat";
 

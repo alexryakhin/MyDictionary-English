@@ -109,3 +109,71 @@
 "all_results" = "Semua hasil";
 "word_starts_with" = "Perkataan bermula dengan";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Tulis ayat yang menggunakan '%@' dengan betul:";
+"ai_quiz.sentence_placeholder" = "Taip ayat anda di sini...";
+"ai_quiz.ai_evaluating" = "AI sedang menilai ayat anda...";
+"ai_quiz.feedback" = "Maklum balas:";
+"ai_quiz.usage_score" = "Skor penggunaan: %d/100";
+"ai_quiz.grammar_score" = "Skor tatabahasa: %d/100";
+"ai_quiz.overall_score" = "Skor keseluruhan: %d/100";
+"ai_quiz.excellent_usage" = "Penggunaan cemerlang! Ayat anda menunjukkan pemahaman yang sempurna.";
+"ai_quiz.good_usage" = "Penggunaan baik! Ayat anda menunjukkan pemahaman yang baik dengan sedikit penambahbaikan mungkin.";
+"ai_quiz.fair_usage" = "Penggunaan sederhana. Pertimbangkan konteks dan makna dengan lebih teliti.";
+"ai_quiz.incorrect_usage" = "Penggunaan salah. Semak semula makna perkataan dan cuba lagi.";
+
+"ai_quiz.choose_correct_sentence" = "Pilih ayat yang menggunakan '%@' dengan betul:";
+"ai_quiz.option" = "Pilihan %d";
+"ai_quiz.explanation" = "Penjelasan:";
+"ai_quiz.correct_usage_explanation" = "Ayat ini menggunakan '%@' dengan betul kerana %@";
+"ai_quiz.incorrect_usage_explanation" = "Ayat ini menggunakan '%@' dengan salah kerana %@";
+
+"ai_quiz.fill_in_blank_story" = "Isi tempat kosong dengan '%@':";
+"ai_quiz.story_context" = "Konteks cerita:";
+"ai_quiz.blank_placeholder" = "Taip perkataan di sini...";
+"ai_quiz.context_hint" = "Petunjuk: Pertimbangkan konteks cerita dan makna perkataan";
+"ai_quiz.ai_context_feedback" = "Maklum balas konteks:";
+"ai_quiz.perfect_context_fit" = "Sempurna! Perkataan ini sangat sesuai dengan konteks ini.";
+"ai_quiz.good_context_fit" = "Baik! Perkataan ini berfungsi dengan baik dalam konteks ini.";
+"ai_quiz.context_mismatch" = "Perkataan ini tidak begitu sesuai dengan konteks ini. Pertimbangkan makna cerita.";
+
+"ai_quiz.submit_for_evaluation" = "Hantar untuk penilaian";
+"ai_quiz.evaluating_with_ai" = "Menilai dengan AI...";
+"ai_quiz.ai_processing" = "Memproses jawapan anda...";
+"ai_quiz.ai_analysis_complete" = "Analisis selesai";
+"ai_quiz.view_detailed_explanations" = "Lihat penjelasan terperinci";
+"ai_quiz.detailed_explanations" = "Penjelasan terperinci";
+"ai_quiz.suggestions" = "Cadangan";
+"ai_quiz.skipped_word" = "Perkataan dilangkau";
+"ai_quiz.skipped_word_message" = "Perkataan ini dilangkau semasa kuiz. Tiada penilaian tersedia untuk perkataan yang dilangkau.";
+"ai_quiz.your_sentence" = "Ayat anda";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Menghasilkan cerita isi tempat kosong...";
+"loading.fill_in_blank_description" = "AI sedang mencipta cerita menarik dengan tempat kosong untuk menguji pemahaman anda tentang penggunaan perkataan dalam konteks.";
+"loading.loading_next_story" = "Memuat cerita seterusnya...";
+"loading.preparing_next_story" = "AI sedang menyediakan cerita seterusnya untuk anda.";
+"loading.generating_context_questions" = "Menghasilkan soalan konteks...";
+"loading.context_questions_description" = "AI sedang mencipta soalan pelbagai pilihan untuk menguji pemahaman anda tentang penggunaan perkataan dalam konteks.";
+"loading.loading_next_question" = "Memuat soalan seterusnya...";
+"loading.preparing_next_question" = "AI sedang menyediakan soalan seterusnya untuk anda.";
+"loading.failed_to_load_quiz" = "Gagal memuat kuiz";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Soalan";
+"ui.options" = "Pilihan";
+"ui.suggestions" = "Cadangan";
+"ui.question_number" = "Soalan %d";
+"ui.you_skipped_question" = "Anda melangkau soalan ini. Berikut adalah jawapan yang betul dan penjelasan:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Penulisan Ayat";
+"quiz_types.context_multiple_choice" = "Penggunaan dalam Konteks";
+"quiz_types.fill_in_the_blank" = "Isi Tempat Kosong";
+"quiz_types.write_sentences_with_ai" = "Tulis ayat menggunakan perkataan dengan betul dengan penilaian AI";
+"quiz_types.choose_correct_usage" = "Pilih ayat di mana perkataan digunakan dengan betul";
+"quiz_types.fill_blanks_in_context" = "Isi tempat kosong dengan perkataan yang betul dalam konteks";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Kerja hebat! Anda telah menyelesaikan kuiz penulisan ayat.";
+"quiz_types.great_job_completed_context_quiz" = "Kerja hebat! Anda telah menyelesaikan kuiz penggunaan dalam konteks.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Kerja hebat! Anda telah menyelesaikan kuiz isi tempat kosong.";
+"quiz_available_once_a_day_message" = "Maaf, kuiz hanya tersedia sekali sehari. Langgan PRO untuk akses tanpa had!";

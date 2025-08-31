@@ -109,3 +109,71 @@
 "all_results" = "Svi rezultati";
 "word_starts_with" = "Riječ počinje s";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Napišite rečenicu koja ispravno koristi '%@':";
+"ai_quiz.sentence_placeholder" = "Upišite svoju rečenicu ovdje...";
+"ai_quiz.ai_evaluating" = "Umjetna inteligencija ocjenjuje vašu rečenicu...";
+"ai_quiz.feedback" = "Povratne informacije:";
+"ai_quiz.usage_score" = "Ocjena korištenja: %d/100";
+"ai_quiz.grammar_score" = "Ocjena gramatike: %d/100";
+"ai_quiz.overall_score" = "Ukupna ocjena: %d/100";
+"ai_quiz.excellent_usage" = "Izvrsno korištenje! Vaša rečenica pokazuje savršeno razumijevanje.";
+"ai_quiz.good_usage" = "Dobro korištenje! Vaša rečenica pokazuje dobro razumijevanje uz moguće manje poboljšanja.";
+"ai_quiz.fair_usage" = "Prihvatljivo korištenje. Razmotrite kontekst i značenje pažljivije.";
+"ai_quiz.incorrect_usage" = "Neispravno korištenje. Pregledajte značenje riječi i pokušajte ponovno.";
+
+"ai_quiz.choose_correct_sentence" = "Odaberite rečenicu u kojoj je '%@' ispravno korišteno:";
+"ai_quiz.option" = "Opcija %d";
+"ai_quiz.explanation" = "Objašnjenje:";
+"ai_quiz.correct_usage_explanation" = "Ova rečenica ispravno koristi '%@' jer %@";
+"ai_quiz.incorrect_usage_explanation" = "Ova rečenica neispravno koristi '%@' jer %@";
+
+"ai_quiz.fill_in_blank_story" = "Ispunite prazninu s '%@':";
+"ai_quiz.story_context" = "Kontekst priče:";
+"ai_quiz.blank_placeholder" = "Upišite riječ ovdje...";
+"ai_quiz.context_hint" = "Savjet: Razmotrite kontekst priče i značenje riječi";
+"ai_quiz.ai_context_feedback" = "Povratne informacije o kontekstu:";
+"ai_quiz.perfect_context_fit" = "Savršeno! Riječ savršeno odgovara ovom kontekstu.";
+"ai_quiz.good_context_fit" = "Dobro! Riječ dobro funkcionira u ovom kontekstu.";
+"ai_quiz.context_mismatch" = "Riječ ne odgovara u potpunosti ovom kontekstu. Razmotrite značenje priče.";
+
+"ai_quiz.submit_for_evaluation" = "Pošalji na ocjenjivanje";
+"ai_quiz.evaluating_with_ai" = "Ocjenjivanje s umjetnom inteligencijom...";
+"ai_quiz.ai_processing" = "Obrada vašeg odgovora...";
+"ai_quiz.ai_analysis_complete" = "Analiza završena";
+"ai_quiz.view_detailed_explanations" = "Pogledaj detaljna objašnjenja";
+"ai_quiz.detailed_explanations" = "Detaljna objašnjenja";
+"ai_quiz.suggestions" = "Prijedlozi";
+"ai_quiz.skipped_word" = "Preskočena riječ";
+"ai_quiz.skipped_word_message" = "Ova riječ je preskočena tijekom kviza. Nema dostupnog ocjenjivanja za preskočene riječi.";
+"ai_quiz.your_sentence" = "Vaša rečenica";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Generiranje priča s prazninama...";
+"loading.fill_in_blank_description" = "Umjetna inteligencija stvara zanimljive priče s prazninama kako bi testirala vaše razumijevanje korištenja riječi u kontekstu.";
+"loading.loading_next_story" = "Učitavanje sljedeće priče...";
+"loading.preparing_next_story" = "Umjetna inteligencija priprema sljedeću priču za vas.";
+"loading.generating_context_questions" = "Generiranje kontekstualnih pitanja...";
+"loading.context_questions_description" = "Umjetna inteligencija stvara pitanja s više odgovora kako bi testirala vaše razumijevanje korištenja riječi u kontekstu.";
+"loading.loading_next_question" = "Učitavanje sljedećeg pitanja...";
+"loading.preparing_next_question" = "Umjetna inteligencija priprema sljedeće pitanje za vas.";
+"loading.failed_to_load_quiz" = "Neuspjelo učitavanje kviza";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Pitanje";
+"ui.options" = "Opcije";
+"ui.suggestions" = "Prijedlozi";
+"ui.question_number" = "Pitanje %d";
+"ui.you_skipped_question" = "Preskočili ste ovo pitanje. Evo ispravnog odgovora i objašnjenja:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Pisanje rečenica";
+"quiz_types.context_multiple_choice" = "Korištenje u kontekstu";
+"quiz_types.fill_in_the_blank" = "Ispunjavanje praznina";
+"quiz_types.write_sentences_with_ai" = "Napišite rečenice koristeći riječi ispravno uz ocjenu umjetne inteligencije";
+"quiz_types.choose_correct_usage" = "Odaberite rečenicu u kojoj je riječ ispravno korištena";
+"quiz_types.fill_blanks_in_context" = "Ispunite praznine s ispravnom riječi u kontekstu";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Odličan posao! Završili ste kviz pisanja rečenica.";
+"quiz_types.great_job_completed_context_quiz" = "Odličan posao! Završili ste kviz korištenja u kontekstu.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Odličan posao! Završili ste kviz ispunjavanja praznina.";
+"quiz_available_once_a_day_message" = "Oprostite, kviz je dostupan samo jednom dnevno. Pretplatite se na PRO za neograničen pristup!";

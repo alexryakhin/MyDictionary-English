@@ -109,3 +109,71 @@
 "all_results" = "Tất cả kết quả";
 "word_starts_with" = "Từ bắt đầu bằng";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Viết một câu sử dụng đúng '%@':";
+"ai_quiz.sentence_placeholder" = "Nhập câu của bạn tại đây...";
+"ai_quiz.ai_evaluating" = "AI đang đánh giá câu của bạn...";
+"ai_quiz.feedback" = "Phản hồi:";
+"ai_quiz.usage_score" = "Điểm sử dụng: %d/100";
+"ai_quiz.grammar_score" = "Điểm ngữ pháp: %d/100";
+"ai_quiz.overall_score" = "Tổng điểm: %d/100";
+"ai_quiz.excellent_usage" = "Sử dụng xuất sắc! Câu của bạn thể hiện sự hiểu biết hoàn hảo.";
+"ai_quiz.good_usage" = "Sử dụng tốt! Câu của bạn thể hiện sự hiểu biết tốt với một vài cải tiến nhỏ có thể thực hiện.";
+"ai_quiz.fair_usage" = "Sử dụng trung bình. Hãy xem xét ngữ cảnh và ý nghĩa cẩn thận hơn.";
+"ai_quiz.incorrect_usage" = "Sử dụng không đúng. Hãy xem lại ý nghĩa của từ và thử lại.";
+
+"ai_quiz.choose_correct_sentence" = "Chọn câu mà '%@' được sử dụng đúng:";
+"ai_quiz.option" = "Lựa chọn %d";
+"ai_quiz.explanation" = "Giải thích:";
+"ai_quiz.correct_usage_explanation" = "Câu này sử dụng '%@' đúng vì %@";
+"ai_quiz.incorrect_usage_explanation" = "Câu này sử dụng '%@' không đúng vì %@";
+
+"ai_quiz.fill_in_blank_story" = "Điền vào chỗ trống với '%@':";
+"ai_quiz.story_context" = "Bối cảnh câu chuyện:";
+"ai_quiz.blank_placeholder" = "Nhập từ tại đây...";
+"ai_quiz.context_hint" = "Gợi ý: Xem xét bối cảnh câu chuyện và ý nghĩa của từ";
+"ai_quiz.ai_context_feedback" = "Phản hồi bối cảnh:";
+"ai_quiz.perfect_context_fit" = "Hoàn hảo! Từ này hoàn toàn phù hợp với bối cảnh này.";
+"ai_quiz.good_context_fit" = "Tốt! Từ này hoạt động tốt trong bối cảnh này.";
+"ai_quiz.context_mismatch" = "Từ này không hoàn toàn phù hợp với bối cảnh này. Hãy xem xét ý nghĩa của câu chuyện.";
+
+"ai_quiz.submit_for_evaluation" = "Gửi để đánh giá";
+"ai_quiz.evaluating_with_ai" = "Đang đánh giá với AI...";
+"ai_quiz.ai_processing" = "Đang xử lý câu trả lời của bạn...";
+"ai_quiz.ai_analysis_complete" = "Phân tích hoàn tất";
+"ai_quiz.view_detailed_explanations" = "Xem giải thích chi tiết";
+"ai_quiz.detailed_explanations" = "Giải thích chi tiết";
+"ai_quiz.suggestions" = "Gợi ý";
+"ai_quiz.skipped_word" = "Từ bị bỏ qua";
+"ai_quiz.skipped_word_message" = "Từ này đã bị bỏ qua trong bài kiểm tra. Không có đánh giá nào cho các từ bị bỏ qua.";
+"ai_quiz.your_sentence" = "Câu của bạn";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Đang tạo câu chuyện điền vào chỗ trống...";
+"loading.fill_in_blank_description" = "AI đang tạo ra những câu chuyện hấp dẫn với chỗ trống để kiểm tra sự hiểu biết của bạn về cách sử dụng từ trong bối cảnh.";
+"loading.loading_next_story" = "Đang tải câu chuyện tiếp theo...";
+"loading.preparing_next_story" = "AI đang chuẩn bị câu chuyện tiếp theo cho bạn.";
+"loading.generating_context_questions" = "Đang tạo câu hỏi bối cảnh...";
+"loading.context_questions_description" = "AI đang tạo câu hỏi trắc nghiệm để kiểm tra sự hiểu biết của bạn về cách sử dụng từ trong bối cảnh.";
+"loading.loading_next_question" = "Đang tải câu hỏi tiếp theo...";
+"loading.preparing_next_question" = "AI đang chuẩn bị câu hỏi tiếp theo cho bạn.";
+"loading.failed_to_load_quiz" = "Không thể tải bài kiểm tra";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Câu hỏi";
+"ui.options" = "Lựa chọn";
+"ui.suggestions" = "Gợi ý";
+"ui.question_number" = "Câu hỏi %d";
+"ui.you_skipped_question" = "Bạn đã bỏ qua câu hỏi này. Đây là câu trả lời đúng và giải thích:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Viết câu";
+"quiz_types.context_multiple_choice" = "Sử dụng trong ngữ cảnh";
+"quiz_types.fill_in_the_blank" = "Điền vào chỗ trống";
+"quiz_types.write_sentences_with_ai" = "Viết câu sử dụng từ đúng với đánh giá của AI";
+"quiz_types.choose_correct_usage" = "Chọn câu sử dụng từ đúng";
+"quiz_types.fill_blanks_in_context" = "Điền vào chỗ trống với từ đúng trong ngữ cảnh";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Tuyệt vời! Bạn đã hoàn thành bài kiểm tra viết câu.";
+"quiz_types.great_job_completed_context_quiz" = "Tuyệt vời! Bạn đã hoàn thành bài kiểm tra sử dụng trong ngữ cảnh.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Tuyệt vời! Bạn đã hoàn thành bài kiểm tra điền vào chỗ trống.";
+"quiz_available_once_a_day_message" = "Xin lỗi, bài kiểm tra chỉ có thể sử dụng một lần mỗi ngày. Đăng ký PRO để có quyền truy cập không giới hạn!";

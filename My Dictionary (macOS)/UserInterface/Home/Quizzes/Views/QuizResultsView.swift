@@ -19,7 +19,6 @@ struct QuizResultsView: View {
     }
 
     let model: Model
-    let onRestart: VoidHandler
 
     var body: some View {
         VStack(spacing: 0) {
@@ -97,14 +96,6 @@ struct QuizResultsView: View {
 
             Spacer()
 
-            VStack(spacing: 12) {
-                ActionButton(Loc.Actions.tryAgain, systemImage: "arrow.clockwise", style: .borderedProminent) {
-                    onRestart()
-                }
-            }
-            .padding(.horizontal, 32)
-
-            Spacer()
         }
         .groupedBackground()
     }
@@ -135,8 +126,6 @@ struct QuizResultsView: View {
             itemsPlayed: 10,
             accuracyContributions: .zero,
             bestStreak: 10
-        ),
-        onRestart: {
-        }
+        )
     )
 }

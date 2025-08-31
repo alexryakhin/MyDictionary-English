@@ -84,6 +84,28 @@ enum AnalyticsEvent: String {
     case spellingQuizOpened
     case spellingQuizAnswerConfirmed
     case spellingQuizWordSkipped
+    case spellingQuizRestarted
+    
+    case definitionQuizOpened
+    case definitionQuizAnswerSelected
+    case definitionQuizWordSkipped
+    case definitionQuizRestarted
+    
+    // AI Quiz Events
+    case sentenceWritingQuizOpened
+    case sentenceWritingQuizAnswerConfirmed
+    case sentenceWritingQuizWordSkipped
+    case sentenceWritingQuizRestarted
+    
+    case contextMultipleChoiceQuizOpened
+    case contextMultipleChoiceQuizAnswerConfirmed
+    case contextMultipleChoiceQuizWordSkipped
+    case contextMultipleChoiceQuizRestarted
+    
+    case fillInTheBlankQuizOpened
+    case fillInTheBlankQuizAnswerConfirmed
+    case fillInTheBlankQuizWordSkipped
+    case fillInTheBlankQuizRestarted
     
     // Rating Banner Events
     case ratingBannerTapped
@@ -92,11 +114,6 @@ enum AnalyticsEvent: String {
     // Coffee Banner Events
     case coffeeBannerTapped
     case coffeeBannerDismissed
-    case spellingQuizRestarted
-    case definitionQuizOpened
-    case definitionQuizAnswerSelected
-    case definitionQuizWordSkipped
-    case definitionQuizRestarted
 
     case tagCreated
     case tagUpdated

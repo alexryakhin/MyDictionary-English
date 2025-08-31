@@ -270,7 +270,9 @@ struct AddWordView: View {
                 .clippedWithPaddingAndBackground()
                 .padding(.horizontal, 16)
             case .ready:
-                let definitionsToShow = (!GlobalConstant.isEnglishLanguage && viewModel.translateDefinitions) ?
+                // When using AI, always show the original definitions since AI provides them in the user's language
+                // For traditional API, use translated definitions if available and needed
+                let definitionsToShow = (!viewModel.translatedDefinitions.isEmpty && !GlobalConstant.isEnglishLanguage) ?
                 viewModel.translatedDefinitions : viewModel.definitions
 
                 FormWithDivider {
@@ -289,7 +291,7 @@ struct AddWordView: View {
                                         .frame(maxWidth: .infinity, alignment: .leading)
 
                                     // Show original definition if translated (only for non-English locales)
-                                    if !GlobalConstant.isEnglishLanguage && viewModel.translateDefinitions && offset < viewModel.definitions.count {
+                                    if !GlobalConstant.isEnglishLanguage && offset < viewModel.definitions.count {
                                         Text(viewModel.definitions[offset].text)
                                             .font(.caption)
                                             .foregroundStyle(.secondary)

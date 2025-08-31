@@ -12,5 +12,8 @@
 "quiz_results" = "Quiz Results";
 "spelling_quiz" = "Spelling Quiz";
 "definition_quiz" = "Definition Quiz";
+"sentence_writing_quiz" = "Sentence Writing Quiz";
+"context_multiple_choice_quiz" = "Context Usage Quiz";
+"fill_in_the_blank_quiz" = "Fill in the Blank Quiz";
 "close" = "Close";
 "close_screen" = "Close screen";

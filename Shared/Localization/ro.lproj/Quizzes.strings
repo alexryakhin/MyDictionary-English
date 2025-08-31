@@ -109,3 +109,71 @@
 "all_results" = "Toate rezultatele";
 "word_starts_with" = "Cuvântul începe cu";
 
+// MARK: - AI Quiz Specific Strings
+"ai_quiz.write_sentence_for_word" = "Scrie o propoziție care folosește corect '%@':";
+"ai_quiz.sentence_placeholder" = "Tastează propoziția ta aici...";
+"ai_quiz.ai_evaluating" = "Inteligența artificială îți evaluează propoziția...";
+"ai_quiz.feedback" = "Feedback:";
+"ai_quiz.usage_score" = "Scor utilizare: %d/100";
+"ai_quiz.grammar_score" = "Scor gramatică: %d/100";
+"ai_quiz.overall_score" = "Scor total: %d/100";
+"ai_quiz.excellent_usage" = "Utilizare excelentă! Propoziția ta demonstrează o înțelegere perfectă.";
+"ai_quiz.good_usage" = "Utilizare bună! Propoziția ta arată o bună înțelegere, cu posibile îmbunătățiri minore.";
+"ai_quiz.fair_usage" = "Utilizare acceptabilă. Ia în considerare contextul și sensul mai atent.";
+"ai_quiz.incorrect_usage" = "Utilizare incorectă. Verifică sensul cuvântului și încearcă din nou.";
+
+"ai_quiz.choose_correct_sentence" = "Alege propoziția în care '%@' este folosit corect:";
+"ai_quiz.option" = "Opțiune %d";
+"ai_quiz.explanation" = "Explicație:";
+"ai_quiz.correct_usage_explanation" = "Această propoziție folosește '%@' corect, deoarece %@";
+"ai_quiz.incorrect_usage_explanation" = "Această propoziție folosește '%@' incorect, deoarece %@";
+
+"ai_quiz.fill_in_blank_story" = "Completează spațiul liber cu '%@':";
+"ai_quiz.story_context" = "Contextul poveștii:";
+"ai_quiz.blank_placeholder" = "Tastează cuvântul aici...";
+"ai_quiz.context_hint" = "Sfat: Ia în considerare contextul poveștii și sensul cuvântului";
+"ai_quiz.ai_context_feedback" = "Feedback context:";
+"ai_quiz.perfect_context_fit" = "Perfect! Cuvântul se potrivește perfect în acest context.";
+"ai_quiz.good_context_fit" = "Bun! Cuvântul funcționează bine în acest context.";
+"ai_quiz.context_mismatch" = "Cuvântul nu se potrivește complet în acest context. Ia în considerare sensul poveștii.";
+
+"ai_quiz.submit_for_evaluation" = "Trimite pentru evaluare";
+"ai_quiz.evaluating_with_ai" = "Evaluare cu inteligență artificială...";
+"ai_quiz.ai_processing" = "Procesarea răspunsului tău...";
+"ai_quiz.ai_analysis_complete" = "Analiză finalizată";
+"ai_quiz.view_detailed_explanations" = "Vezi explicații detaliate";
+"ai_quiz.detailed_explanations" = "Explicații detaliate";
+"ai_quiz.suggestions" = "Sugestii";
+"ai_quiz.skipped_word" = "Cuvânt omis";
+"ai_quiz.skipped_word_message" = "Acest cuvânt a fost omis în timpul testului. Nu există evaluare disponibilă pentru cuvintele omise.";
+"ai_quiz.your_sentence" = "Propoziția ta";
+
+// MARK: - Quiz Loading States
+"loading.generating_fill_in_blank_stories" = "Generare povești cu spații libere...";
+"loading.fill_in_blank_description" = "Inteligența artificială creează povești captivante cu spații libere pentru a-ți testa înțelegerea utilizării cuvintelor în context.";
+"loading.loading_next_story" = "Încărcarea următoarei povești...";
+"loading.preparing_next_story" = "Inteligența artificială pregătește următoarea poveste pentru tine.";
+"loading.generating_context_questions" = "Generare întrebări contextuale...";
+"loading.context_questions_description" = "Inteligența artificială creează întrebări cu răspunsuri multiple pentru a-ți testa înțelegerea utilizării cuvintelor în context.";
+"loading.loading_next_question" = "Încărcarea următoarei întrebări...";
+"loading.preparing_next_question" = "Inteligența artificială pregătește următoarea întrebare pentru tine.";
+"loading.failed_to_load_quiz" = "Nu s-a putut încărca testul";
+
+// MARK: - Quiz UI Elements
+"ui.question" = "Întrebare";
+"ui.options" = "Opțiuni";
+"ui.suggestions" = "Sugestii";
+"ui.question_number" = "Întrebare %d";
+"ui.you_skipped_question" = "Ai omis această întrebare. Iată răspunsul corect și explicația:";
+
+// MARK: - AI Quiz Types
+"quiz_types.sentence_writing" = "Scriere de propoziții";
+"quiz_types.context_multiple_choice" = "Utilizare în context";
+"quiz_types.fill_in_the_blank" = "Completarea spațiilor libere";
+"quiz_types.write_sentences_with_ai" = "Scrie propoziții folosind cuvinte corect cu evaluare IA";
+"quiz_types.choose_correct_usage" = "Alege propoziția în care cuvântul este folosit corect";
+"quiz_types.fill_blanks_in_context" = "Completează spațiile libere cu cuvântul corect în context";
+"quiz_types.great_job_completed_sentence_writing_quiz" = "Bună treabă! Ai finalizat testul de scriere a propozițiilor.";
+"quiz_types.great_job_completed_context_quiz" = "Bună treabă! Ai finalizat testul de utilizare în context.";
+"quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bună treabă! Ai finalizat testul de completare a spațiilor libere.";
+"quiz_available_once_a_day_message" = "Ne pare rău, testul este disponibil doar o dată pe zi. Abonează-te la PRO pentru acces nelimitat!";
