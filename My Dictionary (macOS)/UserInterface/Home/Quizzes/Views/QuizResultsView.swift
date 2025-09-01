@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct QuizResultsView: View {
+struct QuizResultsView<AdditionalAction: View>: View {
 
     struct Model: Hashable {
         let quiz: Quiz
@@ -19,6 +19,15 @@ struct QuizResultsView: View {
     }
 
     let model: Model
+    let additionalAction: () -> AdditionalAction
+
+    init(
+        model: Model,
+        @ViewBuilder additionalAction: @escaping () -> AdditionalAction = { EmptyView() }
+    ) {
+        self.model = model
+        self.additionalAction = additionalAction
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -91,11 +100,12 @@ struct QuizResultsView: View {
                 .padding(24)
                 .clippedWithBackground()
                 .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+
+                additionalAction()
             }
             .padding(.horizontal, 32)
 
             Spacer()
-
         }
         .groupedBackground()
     }

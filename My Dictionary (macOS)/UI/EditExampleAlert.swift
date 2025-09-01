@@ -20,9 +20,13 @@ struct EditExampleAlert: View {
                 .bold()
                 .padding()
 
-            TextField(Loc.Words.example, text: $exampleText, axis: .vertical)
-                .textFieldStyle(.plain)
-                .clippedWithPaddingAndBackground(cornerRadius: 12)
+            TextField(
+                Loc.Words.example,
+                text: $exampleText,
+                axis: .vertical
+            )
+            .textFieldStyle(.plain)
+            .clippedWithPaddingAndBackground(cornerRadius: 12)
 
             ActionButton(Loc.Actions.save, style: .borderedProminent, action: onSave)
             ActionButton(Loc.Actions.cancel, action: onCancel)

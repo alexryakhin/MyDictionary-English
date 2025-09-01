@@ -231,6 +231,7 @@ struct ContextMultipleChoiceQuizContentView: View {
 
     private func questionSection(_ contextQuestion: AIContextQuestion) -> some View {
         VStack(alignment: .leading, spacing: 12) {
+            let question = Loc.Quizzes.AiQuiz.chooseCorrectSentence(contextQuestion.word)
             HStack {
                 Image(systemName: "text.quote")
                     .font(.title2)
@@ -247,12 +248,12 @@ struct ContextMultipleChoiceQuizContentView: View {
                     icon: "speaker.wave.2.fill",
                     size: .small
                 ) {
-                    try await play(contextQuestion.question)
+                    try await play(question)
                 }
-                .disabled(TTSPlayer.shared.isPlaying || contextQuestion.question.isEmpty)
+                .disabled(TTSPlayer.shared.isPlaying || question.isEmpty)
             }
             
-            Text(contextQuestion.question)
+            Text(question)
                 .font(.body)
                 .lineSpacing(4)
                 .multilineTextAlignment(.leading)
@@ -305,25 +306,22 @@ struct ContextMultipleChoiceQuizContentView: View {
                             }
                         }
                     } label: {
-                        HStack {
+                        HStack(spacing: 8) {
                             Text("\(index + 1).")
                                 .font(.body)
                                 .fontWeight(.medium)
                                 .foregroundStyle(.secondary)
-                                .frame(width: 30, alignment: .leading)
                             
                             Text(option.text)
                                 .font(.body)
                                 .lineSpacing(2)
                                 .multilineTextAlignment(.leading)
                                 .foregroundStyle(optionColor(for: index))
-                            
-                            Spacer()
-                            
-                            if viewModel.selectedOptionIndex == index {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundStyle(.accent)
-                            }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundStyle(.accent)
+                                .opacity(viewModel.selectedOptionIndex == index ? 1 : 0)
                         }
                         .padding(16)
                         .background(optionBackgroundColor(for: index))

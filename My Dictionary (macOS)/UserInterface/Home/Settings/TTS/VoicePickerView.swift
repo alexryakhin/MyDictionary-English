@@ -20,12 +20,7 @@ struct VoicePickerView: View {
     var body: some View {
         ScrollViewWithCustomNavBar {
             voiceList
-                .padding(.horizontal, 16)
-                .if(isPad) { view in
-                    view
-                        .frame(maxWidth: 550, alignment: .center)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                }
+                .padding(12)
         } navigationBar: {
             NavigationBarView(
                 title: Loc.Tts.Filters.selectVoice,

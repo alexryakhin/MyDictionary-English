@@ -74,10 +74,7 @@ struct SpellingQuizView: View {
                     itemsPlayed: viewModel.itemsPlayed.count,
                     accuracyContributions: viewModel.accuracyContributions.values.reduce(0, +),
                     bestStreak: viewModel.bestStreak
-                ),
-                onRestart: {
-                    viewModel.handle(.restartQuiz)
-                }
+                )
             )
         }
     }

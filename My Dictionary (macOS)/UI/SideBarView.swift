@@ -173,6 +173,21 @@ struct SideBarView: View {
                     .id(sideBarManager.selectedQuiz)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .layoutPriority(1)
+            case .sentenceWriting(let preset):
+                SentenceWritingQuizContentView(preset: preset)
+                    .id(sideBarManager.selectedQuiz)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .layoutPriority(1)
+            case .contextMultipleChoice(let preset):
+                ContextMultipleChoiceQuizContentView(preset: preset)
+                    .id(sideBarManager.selectedQuiz)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .layoutPriority(1)
+            case .fillInTheBlank(let preset):
+                FillInTheBlankQuizContentView(preset: preset)
+                    .id(sideBarManager.selectedQuiz)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .layoutPriority(1)
             }
         case nil:
             if let text = sideBarManager.selectedTab?.selectDetailsText {

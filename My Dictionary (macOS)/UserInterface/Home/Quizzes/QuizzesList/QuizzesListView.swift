@@ -99,6 +99,57 @@ struct QuizzesListView: View {
                             Color.tertiarySystemGroupedBackground,
                             cornerRadius: 16
                         )
+                        
+                        Button {
+                            sideBarManager.selectedQuiz = .sentenceWriting(
+                                .init(
+                                    itemCount: practiceItemCount,
+                                    hardItemsOnly: viewModel.showingHardItemsOnly,
+                                    mode: .all
+                                )
+                            )
+                        } label: {
+                            QuizCardView(quiz: .sentenceWriting)
+                        }
+                        .buttonStyle(.plain)
+                        .clippedWithPaddingAndBackground(
+                            Color.tertiarySystemGroupedBackground,
+                            cornerRadius: 16
+                        )
+                        
+                        Button {
+                            sideBarManager.selectedQuiz = .contextMultipleChoice(
+                                .init(
+                                    itemCount: practiceItemCount,
+                                    hardItemsOnly: viewModel.showingHardItemsOnly,
+                                    mode: .all
+                                )
+                            )
+                        } label: {
+                            QuizCardView(quiz: .contextMultipleChoice)
+                        }
+                        .buttonStyle(.plain)
+                        .clippedWithPaddingAndBackground(
+                            Color.tertiarySystemGroupedBackground,
+                            cornerRadius: 16
+                        )
+                        
+                        Button {
+                            sideBarManager.selectedQuiz = .fillInTheBlank(
+                                .init(
+                                    itemCount: practiceItemCount,
+                                    hardItemsOnly: viewModel.showingHardItemsOnly,
+                                    mode: .all
+                                )
+                            )
+                        } label: {
+                            QuizCardView(quiz: .fillInTheBlank)
+                        }
+                        .buttonStyle(.plain)
+                        .clippedWithPaddingAndBackground(
+                            Color.tertiarySystemGroupedBackground,
+                            cornerRadius: 16
+                        )
                     }
                     .padding(.bottom, 12)
                 }

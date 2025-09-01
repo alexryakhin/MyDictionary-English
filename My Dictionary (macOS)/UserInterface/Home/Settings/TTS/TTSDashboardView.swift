@@ -43,12 +43,7 @@ enum TTSDashboard {
                     // Speechify Monthly Usage
                     speechifyMonthlyUsageSection
                 }
-                .padding(16)
-                .if(isPad) { view in
-                    view
-                        .frame(maxWidth: 550, alignment: .center)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                }
+                .padding(12)
             } navigationBar: {
                 NavigationBarView(title: Loc.Tts.dashboard, mode: .large, showsDismissButton: true)
             }

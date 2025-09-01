@@ -66,10 +66,7 @@ struct ChooseDefinitionQuizView: View {
                             itemsPlayed: viewModel.itemsPlayed.count,
                             accuracyContributions: .zero, // for spelling quiz
                             bestStreak: viewModel.bestStreak
-                        ),
-                        onRestart: {
-                            viewModel.handle(.restartQuiz)
-                        }
+                        )
                     )
                 }
             }

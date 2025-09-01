@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct FillInTheBlankQuizContentView: View {
+struct ContextMultipleChoiceQuizContentView: View {
 
-    @StateObject private var viewModel: FillInTheBlankQuizViewModel
+    @StateObject private var viewModel: ContextMultipleChoiceQuizViewModel
     @Environment(\.dismiss) private var dismiss
 
     init(preset: QuizPreset) {
-        self._viewModel = StateObject(wrappedValue: FillInTheBlankQuizViewModel(preset: preset))
+        self._viewModel = StateObject(wrappedValue: ContextMultipleChoiceQuizViewModel(preset: preset))
     }
 
     var body: some View {
@@ -49,118 +49,99 @@ struct FillInTheBlankQuizContentView: View {
             .onReceive(viewModel.dismissPublisher) {
                 dismiss()
             }
-        } else if viewModel.items.isNotEmpty && !viewModel.isQuizComplete && viewModel.aiStory != nil && viewModel.loadingStatus == .ready {
-                ScrollView {
-                    VStack(spacing: 16) {
-                        // Story Section
-                        if let story = viewModel.aiStory {
-                            storySection(story)
-                        }
-
-                        // Options Section
-                        if let story = viewModel.aiStory {
-                            optionsSection(story)
-                        }
-
-                        // AI Explanation Section
-                        if viewModel.isAnswerSubmitted, let story = viewModel.aiStory {
-                            aiExplanationSection(story)
-                        }
-
-                        // Action Buttons
-                        actionButtons
-                    }
-                    .padding(.horizontal, 16)
-                    .if(isPad) { view in
-                        view
-                            .frame(maxWidth: 550, alignment: .center)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                    }
-                }
-                .groupedBackground()
-                .navigation(
-                    title: Loc.Navigation.fillInTheBlankQuiz,
-                    mode: .inline,
-                    trailingContent: {
-                        HeaderButton(Loc.Actions.exit) {
-                            dismiss()
-                        }
-                    },
-                    bottomContent: { headerView }
-                )
-                .onAppear {
-                    AnalyticsService.shared.logEvent(.fillInTheBlankQuizOpened)
-                }
-                .onDisappear {
-                    // Handle early exit - save current progress if quiz is in progress
-                    if !viewModel.isQuizComplete && viewModel.itemsPlayed.count > 0 {
-                        viewModel.handle(.dismiss)
-                    }
-                }
-                .onReceive(viewModel.dismissPublisher) {
-                    dismiss()
-                }
-            } else if viewModel.isQuizComplete {
-                QuizResultsView(
-                    model: .init(
-                        quiz: .fillInTheBlank,
-                        score: viewModel.score,
-                        correctAnswers: viewModel.correctAnswers,
-                        itemsPlayed: viewModel.itemsPlayed.count,
-                        accuracyContributions: viewModel.accuracyContributions.values.reduce(0, +),
-                        bestStreak: viewModel.bestStreak
-                    ),
-                    onFinish: {
-                        dismiss()
-                    }
-                )
-            } else {
-                // Loading state - show AI loading animation
-                VStack(spacing: 24) {
-                    Spacer()
+        } else if let contextQuestion = viewModel.aiContextQuestion, viewModel.items.isNotEmpty && !viewModel.isQuizComplete && viewModel.loadingStatus == .ready {
+            // Quiz content is ready
+            ScrollView {
+                VStack(spacing: 16) {
+                    headerView
                     
-                    switch viewModel.loadingStatus {
-                    case .initializing, .generatingFirstStory:
-                        VStack(spacing: 24) {
-                            AICircularProgressAnimation()
-                                .frame(maxWidth: 300)
-                            
-                            Text(Loc.Quizzes.Loading.generatingFillInBlankStories)
-                                .font(.headline)
-                                .foregroundStyle(.primary)
-                            
-                            Text(Loc.Quizzes.Loading.fillInBlankDescription)
-                                .font(.body)
-                                .foregroundStyle(.secondary)
-                                .multilineTextAlignment(.center)
-                                .lineSpacing(4)
-                        }
-                        .padding(.horizontal, 32)
+                    // Question Section
+                    questionSection(contextQuestion)
+
+                    // Options Section
+                    optionsSection(contextQuestion)
+
+                    // AI Explanation Section
+                    if viewModel.isAnswerSubmitted {
+                        aiExplanationSection(contextQuestion)
+                    }
+
+                    // Action Buttons
+                    actionButtons
+                }
+                .padding(12)
+            }
+            .groupedBackground()
+            .onAppear {
+                AnalyticsService.shared.logEvent(.contextMultipleChoiceQuizOpened)
+            }
+            .onDisappear {
+                // Handle early exit - save current progress if quiz is in progress
+                if !viewModel.isQuizComplete && viewModel.itemsPlayed.count > 0 {
+                    viewModel.handle(.dismiss)
+                }
+            }
+            .onReceive(viewModel.dismissPublisher) {
+                dismiss()
+            }
+        } else if viewModel.isQuizComplete {
+            QuizResultsView(
+                model: .init(
+                    quiz: .contextMultipleChoice,
+                    score: viewModel.score,
+                    correctAnswers: viewModel.correctAnswers,
+                    itemsPlayed: viewModel.itemsPlayed.count,
+                    accuracyContributions: viewModel.accuracyContributions.values.reduce(0, +),
+                    bestStreak: viewModel.bestStreak
+                )
+            )
+        } else {
+            // Loading state - show AI loading animation
+            VStack(spacing: 24) {
+                Spacer()
+                
+                switch viewModel.loadingStatus {
+                case .initializing, .generatingFirstQuestion:
+                    VStack(spacing: 24) {
+                        AICircularProgressAnimation()
+                            .frame(maxWidth: 300)
                         
-                    case .prefetching:
-                        // Show loading only when waiting for the current item to be available
-                        VStack(spacing: 24) {
-                            AICircularProgressAnimation()
-                                .frame(maxWidth: 300)
-                            
-                            Text(Loc.Quizzes.Loading.loadingNextStory)
-                                .font(.headline)
-                                .foregroundStyle(.primary)
-                            
-                            Text(Loc.Quizzes.Loading.preparingNextStory)
-                                .font(.body)
-                                .foregroundStyle(.secondary)
-                                .multilineTextAlignment(.center)
-                                .lineSpacing(4)
-                        }
-                        .padding(.horizontal, 32)
+                        Text(Loc.Quizzes.Loading.generatingContextQuestions)
+                            .font(.headline)
+                            .foregroundStyle(.primary)
                         
-                                    case .error(let errorMessage):
+                        Text(Loc.Quizzes.Loading.contextQuestionsDescription)
+                            .font(.body)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(4)
+                    }
+                    .padding(.horizontal, 32)
+                    
+                case .prefetching:
+                    // Show loading only when waiting for the current item to be available
+                    VStack(spacing: 24) {
+                        AICircularProgressAnimation()
+                            .frame(maxWidth: 300)
+                        
+                        Text(Loc.Quizzes.Loading.loadingNextQuestion)
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+                        
+                        Text(Loc.Quizzes.Loading.preparingNextQuestion)
+                            .font(.body)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(4)
+                    }
+                    .padding(.horizontal, 32)
+                    
+                case .error(let errorMessage):
                     VStack(spacing: 24) {
                         VStack(spacing: 16) {
                             Image(systemName: "exclamationmark.triangle.fill")
                                 .font(.system(size: 60))
-                                .foregroundStyle(.purple.gradient)
+                                .foregroundStyle(.orange.gradient)
                             
                             Text(Loc.Quizzes.Loading.failedToLoadQuiz)
                                 .font(.title2)
@@ -183,83 +164,79 @@ struct FillInTheBlankQuizContentView: View {
                         }
                         .padding(.horizontal, 32)
                     }
-                        
-                    case .ready:
-                        // This should not happen in this else block, but just in case
-                        EmptyView()
-                    }
                     
-                    Spacer()
-                }
-                .frame(maxWidth: .infinity, alignment: .center)
-                .groupedBackground()
-            }
-    }
-
-    private var headerView: some View {
-        VStack(spacing: 6) {
-            // Progress Bar
-            ProgressView(value: Double(viewModel.itemsPlayed.count), total: Double(viewModel.totalQuestions))
-                .progressViewStyle(.linear)
-
-            HStack {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("\(Loc.Quizzes.progress): \(viewModel.itemsPlayed.count)/\(viewModel.totalQuestions)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    
-                    if viewModel.currentStreak > 0 {
-                        Text("🔥 \(Loc.Quizzes.streak): \(viewModel.currentStreak)")
-                            .font(.caption)
-                            .foregroundStyle(.orange)
-                            .fontWeight(.medium)
-                    }
+                case .ready:
+                    // This should not happen in this else block, but just in case
+                    EmptyView()
                 }
                 
                 Spacer()
-                
-                VStack(alignment: .trailing, spacing: 2) {
-                    Text("\(Loc.Quizzes.score): \(viewModel.score)")
-                        .font(.caption)
-                        .fontWeight(.medium)
-                        .foregroundStyle(.blue)
-                    
-                    Text("\(Loc.Quizzes.best): \(viewModel.bestStreak)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
             }
+            .frame(maxWidth: .infinity, alignment: .center)
+            .groupedBackground()
         }
     }
 
-    private func storySection(_ story: AIFillInTheBlankStory) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
+    private var headerView: some View {
+        QuizProgressHeader(
+            model: .init(
+                itemsPlayed: viewModel.itemsPlayed.count,
+                totalQuestions: viewModel.totalQuestions,
+                currentStreak: viewModel.currentStreak,
+                score: viewModel.score,
+                bestStreak: viewModel.bestStreak
+            )
+        )
+        .clippedWithPaddingAndBackground(cornerRadius: 16, showShadow: true)
+    }
+
+    private func questionSection(_ contextQuestion: AIContextQuestion) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            let question = Loc.Quizzes.AiQuiz.chooseCorrectSentence(contextQuestion.word)
             HStack {
-                Image(systemName: "book")
+                Image(systemName: "text.quote")
                     .font(.title2)
                     .foregroundStyle(.accent)
                 
-                Text(Loc.Quizzes.AiQuiz.storyContext)
+                Text(Loc.Quizzes.Ui.question)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
                 Spacer()
-
+                
                 AsyncHeaderButton(
                     Loc.Actions.listen,
                     icon: "speaker.wave.2.fill",
                     size: .small
                 ) {
-                    try await play(story.story)
+                    try await play(question)
                 }
-                .disabled(TTSPlayer.shared.isPlaying || story.story.isEmpty)
+                .disabled(TTSPlayer.shared.isPlaying || question.isEmpty)
             }
             
-            Text(story.story)
+            Text(question)
                 .font(.body)
                 .lineSpacing(4)
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
+
+            HStack {
+                TagView(
+                    text: PartOfSpeech(rawValue: viewModel.currentItem?.quiz_partOfSpeech).displayName,
+                    color: .accent,
+                    size: .small,
+                    style: .regular
+                )
+                if let languageCode = viewModel.currentItem?.quiz_languageCode {
+                    TagView(
+                        text: languageCode.uppercased(),
+                        color: .blue,
+                        size: .small,
+                        style: .regular
+                    )
+                }
+                Spacer()
+            }
         }
         .padding(20)
         .background(Color.secondarySystemGroupedBackground)
@@ -267,7 +244,7 @@ struct FillInTheBlankQuizContentView: View {
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
-    private func optionsSection(_ story: AIFillInTheBlankStory) -> some View {
+    private func optionsSection(_ contextQuestion: AIContextQuestion) -> some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Image(systemName: "list.bullet.circle")
@@ -295,7 +272,7 @@ struct FillInTheBlankQuizContentView: View {
                                 .font(.body)
                                 .fontWeight(.medium)
                                 .foregroundStyle(.secondary)
-
+                            
                             Text(option.text)
                                 .font(.body)
                                 .lineSpacing(2)
@@ -322,7 +299,7 @@ struct FillInTheBlankQuizContentView: View {
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
-    private func aiExplanationSection(_ story: AIFillInTheBlankStory) -> some View {
+    private func aiExplanationSection(_ contextQuestion: AIContextQuestion) -> some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Image(systemName: viewModel.isAnswerCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
@@ -336,7 +313,7 @@ struct FillInTheBlankQuizContentView: View {
                 Spacer()
             }
             
-            // Show the explanation for the selected option or general explanation for skipped questions
+            // Show the explanation for the selected option
             if let selectedIndex = viewModel.selectedOptionIndex,
                selectedIndex < viewModel.shuffledOptions.count {
                 let selectedOption = viewModel.shuffledOptions[selectedIndex]
@@ -345,14 +322,7 @@ struct FillInTheBlankQuizContentView: View {
                     .lineSpacing(4)
                     .multilineTextAlignment(.leading)
             } else {
-                // Show general explanation for skipped questions
-                Text(Loc.Quizzes.Ui.youSkippedQuestion)
-                    .font(.body)
-                    .fontWeight(.medium)
-                    .foregroundStyle(.secondary)
-                    .padding(.bottom, 8)
-                
-                Text(story.explanation)
+                Text(contextQuestion.explanation)
                     .font(.body)
                     .lineSpacing(4)
                     .multilineTextAlignment(.leading)
@@ -425,7 +395,7 @@ struct FillInTheBlankQuizContentView: View {
             }
         }
     }
-
+    
     private func play(_ text: String) async throws {
         guard !text.isEmpty else { return }
         try await TTSPlayer.shared.play(text)
@@ -452,5 +422,5 @@ private struct StatRow: View {
 }
 
 #Preview {
-    FillInTheBlankQuizContentView(preset: QuizPreset(itemCount: 10, hardItemsOnly: false, mode: .all))
+    ContextMultipleChoiceQuizContentView(preset: QuizPreset(itemCount: 10, hardItemsOnly: false, mode: .all))
 }
