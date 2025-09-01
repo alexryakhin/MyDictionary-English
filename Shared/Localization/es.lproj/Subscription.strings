@@ -51,4 +51,6 @@
 "pro_features.speechify_tts_description" = "Acceso a la tecnología de texto a voz premium de Speechify. Cientos de voces premium con sonido natural";
 "pro_features.ai_definitions" = "Definiciones con IA";
 "pro_features.ai_definitions_description" = "Obtén definiciones inteligentes y conscientes del contexto impulsadas por tecnología de IA avanzada";
+"pro_features.ai_quizzes" = "Cuestionarios con IA";
+"pro_features.ai_quizzes_description" = "Practica tu vocabulario con cuestionarios personalizados de IA que se adaptan a tu estilo de aprendizaje.";
 

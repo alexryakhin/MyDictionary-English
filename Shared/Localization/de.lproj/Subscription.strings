@@ -51,4 +51,6 @@
 "pro_features.speechify_tts_description" = "Zugriff auf die Premium-Text-to-Speech-Technologie von Speechify. Hunderte von natürlich klingenden Premium-Stimmen";
 "pro_features.ai_definitions" = "KI-Definitionen";
 "pro_features.ai_definitions_description" = "Erhalten Sie intelligente, kontextbewusste Definitionen, die von fortschrittlicher KI-Technologie unterstützt werden";
+"pro_features.ai_quizzes" = "KI-Quiz";
+"pro_features.ai_quizzes_description" = "Üben Sie Ihren Wortschatz mit personalisierten KI-Quiz, die sich an Ihren Lernstil anpassen.";
 

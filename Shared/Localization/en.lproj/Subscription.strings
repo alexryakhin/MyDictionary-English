@@ -54,3 +54,5 @@
 "pro_features.speechify_tts_description" = "Access to Speechify's premium text-to-speech technology. Hundreds of natural-sounding premium voices";
 "pro_features.ai_definitions" = "AI Definitions";
 "pro_features.ai_definitions_description" = "Get intelligent, context-aware definitions powered by advanced AI technology";
+"pro_features.ai_quizzes" = "AI Quizzes";
+"pro_features.ai_quizzes_description" = "Practice your vocabulary with personalized AI quizzes that adapt to your learning style.";

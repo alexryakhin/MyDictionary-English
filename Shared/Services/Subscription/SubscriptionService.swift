@@ -47,6 +47,7 @@ struct SubscriptionPlan: Identifiable, Hashable {
 
 enum SubscriptionFeature: String, CaseIterable {
     case aiDefinitions = "ai_definitions"
+    case aiQuizzes = "ai_quizzes"
     case premiumTTS = "premium_tts"
     case unlimitedExport = "unlimited_export"
     case createSharedDictionaries = "create_shared_dictionaries"
@@ -57,6 +58,7 @@ enum SubscriptionFeature: String, CaseIterable {
     var displayName: String {
         switch self {
         case .aiDefinitions: Loc.Subscription.ProFeatures.aiDefinitions
+        case .aiQuizzes: Loc.Subscription.ProFeatures.aiQuizzes
         case .premiumTTS: Loc.Subscription.ProFeatures.speechifyTts
         case .unlimitedExport: Loc.Subscription.ProFeatures.unlimitedExport
         case .createSharedDictionaries: Loc.Subscription.ProFeatures.createSharedDictionaries
@@ -69,6 +71,7 @@ enum SubscriptionFeature: String, CaseIterable {
     var description: String {
         switch self {
         case .aiDefinitions: Loc.Subscription.ProFeatures.aiDefinitionsDescription
+        case .aiQuizzes: Loc.Subscription.ProFeatures.aiQuizzesDescription
         case .premiumTTS: Loc.Subscription.ProFeatures.speechifyTtsDescription
         case .unlimitedExport: Loc.Subscription.ProFeatures.syncWordsAcrossDevices
         case .createSharedDictionaries: Loc.Subscription.ProFeatures.createManageSharedDictionaries
@@ -80,7 +83,8 @@ enum SubscriptionFeature: String, CaseIterable {
 
     var iconName: String {
         switch self {
-        case .aiDefinitions: "brain.head.profile"
+        case .aiDefinitions: "character.magnify"
+        case .aiQuizzes: "brain.head.profile"
         case .premiumTTS: "person.wave.2.fill"
         case .unlimitedExport: "square.and.arrow.up"
         case .createSharedDictionaries: "person.2.fill"

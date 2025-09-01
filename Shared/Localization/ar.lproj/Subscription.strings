@@ -51,3 +51,5 @@
 "pro_features.speechify_tts_description" = "الوصول إلى تقنية تحويل النص إلى كلام المميزة من Speechify. مئات الأصوات المميزة ذات الصوت الطبيعي";
 "pro_features.ai_definitions" = "تعريفات الذكاء الاصطناعي";
 "pro_features.ai_definitions_description" = "احصل على تعريفات ذكية وواعية بالسياق مدعومة بتقنية الذكاء الاصطناعي المتقدمة";
+"pro_features.ai_quizzes" = "اختبارات الذكاء الاصطناعي";
+"pro_features.ai_quizzes_description" = "تدرب على مفرداتك مع اختبارات ذكية شخصية تتكيف مع أسلوب تعلمك.";

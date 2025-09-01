@@ -54,4 +54,6 @@
 "pro_features.speechify_tts_description" = "Accés a la tecnologia premium de text a veu de Speechify. Centenars de veus premium amb so natural";
 "pro_features.ai_definitions" = "Definicions amb IA";
 "pro_features.ai_definitions_description" = "Obtén definicions intel·ligents i conscients del context impulsades per tecnologia d'IA avançada";
+"pro_features.ai_quizzes" = "Qüestionaris amb IA";
+"pro_features.ai_quizzes_description" = "Practica el teu vocabulari amb qüestionaris personalitzats d'IA que s'adapten al teu estil d'aprenentatge.";
 

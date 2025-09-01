@@ -1621,6 +1621,10 @@ public enum Loc {
       public static let aiDefinitions = Loc.tr("Subscription", "pro_features.ai_definitions", fallback: "AI Definitions")
       /// Get intelligent, context-aware definitions powered by advanced AI technology
       public static let aiDefinitionsDescription = Loc.tr("Subscription", "pro_features.ai_definitions_description", fallback: "Get intelligent, context-aware definitions powered by advanced AI technology")
+      /// AI Quizzes
+      public static let aiQuizzes = Loc.tr("Subscription", "pro_features.ai_quizzes", fallback: "AI Quizzes")
+      /// Practice your vocabulary with personalized AI quizzes that adapt to your learning style.
+      public static let aiQuizzesDescription = Loc.tr("Subscription", "pro_features.ai_quizzes_description", fallback: "Practice your vocabulary with personalized AI quizzes that adapt to your learning style.")
       /// Create and manage shared dictionaries with others
       public static let createManageSharedDictionaries = Loc.tr("Subscription", "pro_features.create_manage_shared_dictionaries", fallback: "Create and manage shared dictionaries with others")
       /// Create Shared Dictionaries

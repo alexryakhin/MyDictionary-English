@@ -51,4 +51,6 @@
 "pro_features.speechify_tts_description" = "Adgang til Speechifys premium tekst-til-tale-teknologi. Hundreder af naturligt klingende premiumstemmer";
 "pro_features.ai_definitions" = "AI-definitioner";
 "pro_features.ai_definitions_description" = "Få intelligente, kontekstbevidste definitioner drevet af avanceret AI-teknologi";
+"pro_features.ai_quizzes" = "AI-quiz";
+"pro_features.ai_quizzes_description" = "Øv dit ordforråd med personaliserede AI-quiz, der tilpasser sig din læringsstil.";
 

@@ -51,4 +51,6 @@
 "pro_features.speechify_tts_description" = "Pristup vrhunskoj tehnologiji pretvaranja teksta u govor od Speechify. Stotine prirodno zvučećih vrhunskih glasova";
 "pro_features.ai_definitions" = "AI definicije";
 "pro_features.ai_definitions_description" = "Dobijte pametne, kontekstno svjesne definicije pokretane naprednom AI tehnologijom";
+"pro_features.ai_quizzes" = "AI kvizovi";
+"pro_features.ai_quizzes_description" = "Vježbajte svoj rječnik s personaliziranim AI kvizovima koji se prilagođavaju vašem stilu učenja.";
 

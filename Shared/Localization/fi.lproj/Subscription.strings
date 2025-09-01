@@ -51,4 +51,6 @@
 "pro_features.speechify_tts_description" = "Pääsy Speechifyn premium-teksti-puheeksi-teknologiaan. Satoja luonnollisesti kuulostavia premium-ääniä";
 "pro_features.ai_definitions" = "AI-määritelmät";
 "pro_features.ai_definitions_description" = "Saa älykkäitä, kontekstitietoisia määritelmiä, joita tukee edistynyt AI-teknologia";
+"pro_features.ai_quizzes" = "AI-kyselyt";
+"pro_features.ai_quizzes_description" = "Harjoittele sanavarastosi henkilökohtaisilla AI-kyselyillä, jotka mukautuvat oppimistyylisi.";
 

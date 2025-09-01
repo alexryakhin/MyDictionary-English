@@ -51,4 +51,6 @@
 "pro_features.speechify_tts_description" = "Speechify'nin premium metin-konuşma teknolojisine erişim. Doğal seslere sahip yüzlerce premium ses";
 "pro_features.ai_definitions" = "AI tanımları";
 "pro_features.ai_definitions_description" = "Gelişmiş AI teknolojisi tarafından desteklenen akıllı, bağlam bilinçli tanımlar alın";
+"pro_features.ai_quizzes" = "AI testleri";
+"pro_features.ai_quizzes_description" = "Öğrenme tarzınıza uyum sağlayan kişiselleştirilmiş AI testleri ile kelime dağarcığınızı pratik yapın.";
 

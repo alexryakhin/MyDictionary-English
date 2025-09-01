@@ -51,4 +51,6 @@
 "pro_features.speechify_tts_description" = "Hozzáférés a Speechify prémium szövegfelolvasó technológiájához. Több száz természetes hangzású prémium hang";
 "pro_features.ai_definitions" = "AI definíciók";
 "pro_features.ai_definitions_description" = "Kapjon intelligens, kontextus-tudatos definíciókat, amelyeket fejlett AI technológia hajt";
+"pro_features.ai_quizzes" = "AI kvízek";
+"pro_features.ai_quizzes_description" = "Gyakorolja szókincsét személyre szabott AI kvízekkel, amelyek alkalmazkodnak a tanulási stílusához.";
 
