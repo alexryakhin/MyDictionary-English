@@ -36,12 +36,12 @@ final class TTSPlayer: NSObject, ObservableObject {
         loadAvailableVoices()
     }
     
-    func play(_ text: String) async throws {
+    func play(_ text: String, languageCode: String? = nil) async throws {
         guard text.isNotEmpty, !isPlaying else { return }
-        let detectedLanguage = LanguageDetector.shared.detectLanguage(for: text)
-        let selectedAccent = detectedLanguage == .english
+        let detectedLanguageCode = languageCode ?? LanguageDetector.shared.detectLanguage(for: text).languageCode
+        let selectedAccent = detectedLanguageCode == InputLanguage.english.rawValue
         ? selectedEnglishAccent.localeCode
-        : detectedLanguage.languageCode
+        : detectedLanguageCode
 
         // Determine which provider to use
         let provider = determineProvider(for: selectedAccent)
@@ -61,7 +61,7 @@ final class TTSPlayer: NSObject, ObservableObject {
                 try await playWithSpeechify(
                     text: text,
                     voice: selectedSpeechifyVoice,
-                    targetLanguage: detectedLanguage.languageCode
+                    targetLanguage: detectedLanguageCode
                 )
             }
             
@@ -70,7 +70,7 @@ final class TTSPlayer: NSObject, ObservableObject {
                 TTSUsageTracker.shared.trackTTSUsage(
                     text: text,
                     provider: provider,
-                    language: detectedLanguage.languageCode,
+                    language: detectedLanguageCode,
                     voice: provider == .speechify ? selectedSpeechifyVoice : nil
                 )
             }
@@ -83,7 +83,7 @@ final class TTSPlayer: NSObject, ObservableObject {
                 TTSUsageTracker.shared.trackTTSUsage(
                     text: text,
                     provider: .google,
-                    language: detectedLanguage.languageCode
+                    language: detectedLanguageCode
                 )
             }
         } catch TTSError.monthlyLimitExceeded {
@@ -95,7 +95,7 @@ final class TTSPlayer: NSObject, ObservableObject {
                 TTSUsageTracker.shared.trackTTSUsage(
                     text: text,
                     provider: .google,
-                    language: detectedLanguage.languageCode
+                    language: detectedLanguageCode
                 )
             }
         } catch {

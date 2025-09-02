@@ -291,7 +291,9 @@ struct AddWordView: View {
                                         .frame(maxWidth: .infinity, alignment: .leading)
 
                                     // Show original definition if translated (only for non-English locales)
-                                    if !GlobalConstant.isEnglishLanguage && offset < viewModel.definitions.count {
+                                    if !GlobalConstant.isEnglishLanguage
+                                        && offset < viewModel.definitions.count
+                                        && viewModel.translatedDefinitions.isNotEmpty {
                                         Text(viewModel.definitions[offset].text)
                                             .font(.caption)
                                             .foregroundStyle(.secondary)

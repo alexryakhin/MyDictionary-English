@@ -119,26 +119,26 @@ final class AddWordViewModel: BaseViewModel {
                     // Use AI service for definitions
                     isUsingAI = true
                     AnalyticsService.shared.logEvent(.aiRequested)
-                    
+
                     // Detect language using Apple's Natural Language framework
                     let detectedLanguage = languageDetector.detectLanguage(for: inputWord)
-                    
+
                     // Update selectedInputLanguage from auto to detected language
                     if selectedInputLanguage.isAuto {
                         selectedInputLanguage = detectedLanguage
                     }
-                    
+
                     // Use AI service to get definitions
                     let aiResponse = try await aiService.generateWordInformation(
                         for: inputWord,
                         maxDefinitions: 10,
                         inputLanguage: selectedInputLanguage
                     )
-                    
+
                     self.definitions = aiResponse.toWordDefinitions()
                     self.pronunciation = aiResponse.pronunciation
                     self.detectedLanguageCode = selectedInputLanguage.languageCode
-                    
+
                     // AI provides context-aware definitions, so no translation needed
                     isUsingAI = false
                     AnalyticsService.shared.logEvent(.aiCompleted)
@@ -147,32 +147,32 @@ final class AddWordViewModel: BaseViewModel {
                 } else {
                     // Fall back to traditional translation + API approach
                     if isSingleWord {
-                    // Always translate single words to English for API lookup
-                    isTranslating = true
-                    AnalyticsService.shared.logEvent(.translationRequested)
-                    
-                    // Detect language using Apple's Natural Language framework
-                    let detectedLanguage = languageDetector.detectLanguage(for: inputWord)
-                    
-                    // Update selectedInputLanguage from auto to detected language
-                    if selectedInputLanguage.isAuto {
-                        selectedInputLanguage = detectedLanguage
-                    }
+                        // Always translate single words to English for API lookup
+                        isTranslating = true
+                        AnalyticsService.shared.logEvent(.translationRequested)
 
-                    let translationResponse: TranslationResponse
-                    if selectedInputLanguage.isAuto {
-                        // Auto-detect language
-                        translationResponse = try await translationService.translateToEnglish(inputWord)
-                    } else {
-                        // Use selected language
-                        translationResponse = try await translationService.translateFromLanguage(inputWord, from: selectedInputLanguage.languageCode)
-                    }
+                        // Detect language using Apple's Natural Language framework
+                        let detectedLanguage = languageDetector.detectLanguage(for: inputWord)
 
-                    wordToSearch = translationResponse.text
-                    self.detectedLanguageCode = translationResponse.languageCode
-                    // Only request pronunciation if the detected language IS English
-                    shouldRequestPronunciation = translationResponse.languageCode == "en"
-                    isTranslating = false
+                        // Update selectedInputLanguage from auto to detected language
+                        if selectedInputLanguage.isAuto {
+                            selectedInputLanguage = detectedLanguage
+                        }
+
+                        let translationResponse: TranslationResponse
+                        if selectedInputLanguage.isAuto {
+                            // Auto-detect language
+                            translationResponse = try await translationService.translateToEnglish(inputWord)
+                        } else {
+                            // Use selected language
+                            translationResponse = try await translationService.translateFromLanguage(inputWord, from: selectedInputLanguage.languageCode)
+                        }
+
+                        wordToSearch = translationResponse.text
+                        self.detectedLanguageCode = translationResponse.languageCode
+                        // Only request pronunciation if the detected language IS English
+                        shouldRequestPronunciation = translationResponse.languageCode == "en"
+                        isTranslating = false
                     } else {
                         // Use original input for multi-word phrases
                         wordToSearch = inputWord
@@ -203,9 +203,7 @@ final class AddWordViewModel: BaseViewModel {
                 self.definitions = try await definitions
                 self.pronunciation = pronunciation ?? ""
 
-                // Only translate definitions if:
-                // 1. User's locale is not English
-                // 2. Not using AI
+                // Only translate definitions if user's locale is not English and not using AI
                 if !GlobalConstant.isEnglishLanguage && !isUsingAI {
                     await translateDefinitions()
                 }

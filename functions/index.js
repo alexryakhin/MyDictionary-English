@@ -560,7 +560,7 @@ IMPORTANT RULES:
 15. Include both formal and informal usage contexts
 16. As this is for educational purposes, include ALL meanings including slang, profanity, and informal expressions when they exist
 17. Provide accurate linguistic information regardless of content sensitivity - this helps language learners understand real-world usage
-18. CRITICAL: Definitions should NOT mention the input word itself - they should explain the concept without using the word being defined (this is essential for quiz functionality)`;
+18. CRITICAL: Definitions should NOT mention the input word itself - they should explain the concept without using the word being defined (this is essential for quiz functionality), but examples should include the word so a student will see a real usage.`;
 }
 
 // Helper function to check user usage limits

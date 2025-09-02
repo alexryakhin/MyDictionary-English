@@ -265,27 +265,37 @@ struct AddWordView: View {
                 .clippedWithPaddingAndBackground()
                 .padding(16)
             case .ready:
-                let definitionsToShow = (!GlobalConstant.isEnglishLanguage) ?
+                // When using AI, always show the original definitions since AI provides them in the user's language
+                // For traditional API, use translated definitions if available and needed
+                let definitionsToShow = (!viewModel.translatedDefinitions.isEmpty && !GlobalConstant.isEnglishLanguage) ?
                 viewModel.translatedDefinitions : viewModel.definitions
 
                 FormWithDivider {
                     ForEach(Array(definitionsToShow.enumerated()), id: \.element.id) { offset, definition in
-                        FormWithDivider {
-                            CellWrapper("\(Loc.Words.definition) \(offset + 1), \(definition.partOfSpeech.displayName)") {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("\(Loc.Words.definition) \(offset + 1), \(definition.partOfSpeech.displayName)")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.leading)
+
+                            HStack(alignment: .firstTextBaseline) {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(definition.text)
                                         .multilineTextAlignment(.leading)
                                         .foregroundStyle(.primary)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
 
                                     // Show original definition if translated (only for non-English locales)
-                                    if !GlobalConstant.isEnglishLanguage && offset < viewModel.definitions.count {
+                                    if !GlobalConstant.isEnglishLanguage
+                                        && offset < viewModel.definitions.count
+                                        && viewModel.translatedDefinitions.isNotEmpty {
                                         Text(viewModel.definitions[offset].text)
                                             .font(.caption)
                                             .foregroundStyle(.secondary)
                                             .italic()
+                                            .frame(maxWidth: .infinity, alignment: .leading)
                                     }
                                 }
-                            } trailingContent: {
                                 multiSelectCheckboxImage(definition.id)
                                     .onTap {
                                         definitionToggled(definition, index: offset)
@@ -298,12 +308,31 @@ struct AddWordView: View {
                             // Show examples from original definition
                             if offset < viewModel.definitions.count {
                                 ForEach(viewModel.definitions[offset].examples, id: \.self) { example in
-                                    CellWrapper(Loc.Words.example) {
-                                        Text(example)
+                                    HStack {
+                                        Text("•")
+                                            .foregroundColor(.secondary)
+                                        Menu {
+                                            Button {
+                                                Task {
+                                                    try await viewModel.play(example)
+                                                }
+                                                AnalyticsService.shared.logEvent(.wordExamplePlayed)
+                                            } label: {
+                                                Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
+                                            }
+                                            .disabled(TTSPlayer.shared.isPlaying)
+                                        } label: {
+                                            Text(example)
+                                                .font(.caption)
+                                                .foregroundColor(.secondary)
+                                        }
+                                        .buttonStyle(.plain)
+                                        Spacer()
                                     }
                                 }
                             }
                         }
+                        .padding(vertical: 12, horizontal: 16)
                     }
                 }
             case .blank:

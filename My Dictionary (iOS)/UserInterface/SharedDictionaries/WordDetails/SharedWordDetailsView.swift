@@ -143,7 +143,7 @@ struct SharedWordDetailsView: View {
                     icon: "speaker.wave.2.fill",
                     size: .small
                 ) {
-                    try await play(word.wordItself)
+                    try await play(word.wordItself, isWord: true)
                 }
                 .disabled(TTSPlayer.shared.isPlaying)
             }
@@ -504,9 +504,15 @@ struct SharedWordDetailsView: View {
         }
     }
 
-    private func play(_ text: String?) async throws {
+    private func play(
+        _ text: String?,
+        isWord: Bool = false
+    ) async throws {
         guard let text else { return }
-        try await TTSPlayer.shared.play(text)
+        try await TTSPlayer.shared.play(
+            text,
+            languageCode: isWord ? word.languageCode : nil
+        )
     }
 
     private func updatePartOfSpeech(_ value: PartOfSpeech) {

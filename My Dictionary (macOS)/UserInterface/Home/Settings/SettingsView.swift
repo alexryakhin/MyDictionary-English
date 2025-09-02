@@ -370,7 +370,7 @@ struct SettingsView: View {
                         Text(Loc.Tts.currentVoice)
                             .font(.headline)
                             .foregroundStyle(.primary)
-                        if subscriptionService.isProUser, let currentVoice = ttsPlayer.selectedSpeechifyVoiceModel {
+                        if subscriptionService.isProUser, ttsPlayer.selectedTTSProvider == .speechify, let currentVoice = ttsPlayer.selectedSpeechifyVoiceModel {
                             Text([currentVoice.name, currentVoice.languageDisplayName].joined(separator: ", "))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
