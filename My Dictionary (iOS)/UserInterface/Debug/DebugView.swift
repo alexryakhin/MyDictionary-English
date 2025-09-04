@@ -11,6 +11,7 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 import FirebaseMessaging
+import CoreData
 
 struct DebugView: View {
     @Environment(\.dismiss) private var dismiss
@@ -297,6 +298,10 @@ struct DebugView: View {
                     clearDictionaryCache()
                 }
 
+                HeaderButton("Generate Sample Words") {
+                    generateSampleWords()
+                }
+
 
             }
         }
@@ -531,5 +536,249 @@ struct DebugView: View {
         print("💾 [DebugView] AI cache cleared")
         showAlert("AI cache cleared")
     }
+    
+    // MARK: - Sample Data Generation
+    
+    private func generateSampleWords() {
+        print("🔍 [DebugView] generateSampleWords called")
+        
+        let sampleWords = [
+            // Spanish words first
+            SampleWord(
+                word: "Serendipia",
+                partOfSpeech: .noun,
+                phonetic: "/se.ɾenˈdi.pja/",
+                meanings: [
+                    SampleMeaning(
+                        definition: "The occurrence and development of events by chance in a happy or beneficial way.",
+                        examples: [
+                            "Encontrar a mi futuro socio en esa cafetería fue pura serendipia.",
+                            "El descubrimiento de la penicilina fue un accidente serendípico."
+                        ]
+                    )
+                ],
+                languageCode: "es",
+                notes: "Love this word! Reminds me of when I found my dream job by chance at that coffee shop."
+            ),
+            SampleWord(
+                word: "Efímero",
+                partOfSpeech: .adjective,
+                phonetic: "/eˈfi.me.ɾo/",
+                meanings: [
+                    SampleMeaning(
+                        definition: "Lasting for a very short time; transitory.",
+                        examples: [
+                            "La belleza de los cerezos es efímera, dura solo unos días.",
+                            "La fama en las redes sociales puede ser efímera y fugaz."
+                        ]
+                    )
+                ],
+                languageCode: "es",
+                notes: "Like my vacation memories - gone too fast but so beautiful while they lasted."
+            ),
+            
+            // English words with varied parts of speech
+            SampleWord(
+                word: "Serendipity",
+                partOfSpeech: .noun,
+                phonetic: "/ˌserənˈdipədē/",
+                meanings: [
+                    SampleMeaning(
+                        definition: "The occurrence and development of events by chance in a happy or beneficial way.",
+                        examples: [
+                            "Meeting my future business partner at that coffee shop was pure serendipity.",
+                            "The discovery of penicillin was a serendipitous accident."
+                        ]
+                    )
+                ],
+                languageCode: "en",
+                notes: "My favorite word! Used it in my college essay and got accepted."
+            ),
+            SampleWord(
+                word: "Ephemeral",
+                partOfSpeech: .adjective,
+                phonetic: "/əˈfem(ə)rəl/",
+                meanings: [
+                    SampleMeaning(
+                        definition: "Lasting for a very short time; transitory.",
+                        examples: [
+                            "The beauty of cherry blossoms is ephemeral, lasting only a few days.",
+                            "Social media fame can be ephemeral and fleeting."
+                        ]
+                    )
+                ],
+                languageCode: "en",
+                notes: "Like my vacation memories - gone too fast but so beautiful while they lasted."
+            ),
+            SampleWord(
+                word: "Ubiquitous",
+                partOfSpeech: .adjective,
+                phonetic: "/yo͞oˈbikwədəs/",
+                meanings: [
+                    SampleMeaning(
+                        definition: "Present, appearing, or found everywhere.",
+                        examples: [
+                            "Smartphones have become ubiquitous in modern society.",
+                            "Coffee shops are ubiquitous in this neighborhood."
+                        ]
+                    )
+                ],
+                languageCode: "en",
+                notes: "Hard to pronounce but so useful! My professor uses this word all the time."
+            ),
+
+            // Add more varied parts of speech
+            SampleWord(
+                word: "Persevere",
+                partOfSpeech: .verb,
+                phonetic: "/ˌpərsəˈvir/",
+                meanings: [
+                    SampleMeaning(
+                        definition: "To persist in a course of action or belief despite difficulty or opposition.",
+                        examples: [
+                            "She persevered through all the challenges to achieve her dream.",
+                            "The team persevered and eventually won the championship."
+                        ]
+                    )
+                ],
+                languageCode: "en",
+                notes: "My mom's favorite word. She says this is how I learned to walk!"
+            ),
+            SampleWord(
+                word: "Swiftly",
+                partOfSpeech: .adverb,
+                phonetic: "/ˈswiftlē/",
+                meanings: [
+                    SampleMeaning(
+                        definition: "In a swift manner; rapidly or quickly.",
+                        examples: [
+                            "The bird flew swiftly through the air.",
+                            "She moved swiftly to catch the falling object."
+                        ]
+                    )
+                ],
+                languageCode: "en",
+                notes: "Perfect for describing how I run to catch the bus every morning!"
+            ),
+            SampleWord(
+                word: "Beneath",
+                partOfSpeech: .preposition,
+                phonetic: "/bəˈnēTH/",
+                meanings: [
+                    SampleMeaning(
+                        definition: "In or to a lower position than; under.",
+                        examples: [
+                            "The treasure was buried beneath the old oak tree.",
+                            "She found her keys beneath the pile of papers."
+                        ]
+                    )
+                ],
+                languageCode: "en",
+                notes: "Always lose my keys beneath something. This word describes my life!"
+            ),
+            SampleWord(
+                word: "Alas",
+                partOfSpeech: .interjection,
+                phonetic: "/əˈlas/",
+                meanings: [
+                    SampleMeaning(
+                        definition: "Used to express sorrow, regret, or concern.",
+                        examples: [
+                            "Alas, the beautiful garden was destroyed by the storm.",
+                            "Alas, I cannot attend the party due to prior commitments."
+                        ]
+                    )
+                ],
+                languageCode: "en",
+                notes: "Sounds so dramatic! I use this when I'm being sarcastic with friends."
+            ),
+            SampleWord(
+                word: "Nevertheless",
+                partOfSpeech: .adverb,
+                phonetic: "/ˌnevərTHəˈles/",
+                meanings: [
+                    SampleMeaning(
+                        definition: "In spite of that; notwithstanding; all the same.",
+                        examples: [
+                            "The weather was terrible; nevertheless, we had a great time.",
+                            "He was tired, but nevertheless he continued working."
+                        ]
+                    )
+                ],
+                languageCode: "en",
+                notes: "My go-to word for essays. Makes me sound smart and formal!"
+            )
+        ]
+        
+        Task {
+            do {
+                var createdCount = 0
+                
+                for sampleWord in sampleWords {
+                    try await createWordFromSample(sampleWord)
+                    createdCount += 1
+                }
+                
+                await MainActor.run {
+                    showAlert("Successfully created \(createdCount) sample words! 🎉\n\nIncluding Spanish and English words with varied parts of speech and personal notes.")
+                }
+            } catch {
+                await MainActor.run {
+                    showAlert("Error creating sample words: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    private func createWordFromSample(_ sampleWord: SampleWord) async throws {
+        let context = CoreDataService.shared.context
+        
+        try await context.perform {
+            let newWord = CDWord(context: context)
+            newWord.id = UUID()
+            newWord.wordItself = sampleWord.word
+            newWord.partOfSpeech = sampleWord.partOfSpeech.rawValue
+            newWord.phonetic = sampleWord.phonetic
+            newWord.languageCode = sampleWord.languageCode
+            newWord.timestamp = Date()
+            newWord.updatedAt = Date()
+            newWord.isSynced = false
+            newWord.isFavorite = Bool.random()
+            newWord.difficultyScore = Int32.random(in: -20...60)
+            newWord.notes = sampleWord.notes
+            
+            // Add meanings
+            for (index, meaningData) in sampleWord.meanings.enumerated() {
+                let meaning = try CDMeaning.create(
+                    in: context,
+                    definition: meaningData.definition,
+                    examples: meaningData.examples,
+                    order: Int32(index),
+                    for: newWord
+                )
+                newWord.addToMeanings(meaning)
+            }
+            
+            // Save the word
+            try context.save()
+            print("✅ [DebugView] Created sample word: \(sampleWord.word)")
+        }
+    }
+}
+
+// MARK: - Sample Data Structures
+
+private struct SampleWord {
+    let word: String
+    let partOfSpeech: PartOfSpeech
+    let phonetic: String
+    let meanings: [SampleMeaning]
+    let languageCode: String
+    let notes: String
+}
+
+private struct SampleMeaning {
+    let definition: String
+    let examples: [String]
 }
 #endif
