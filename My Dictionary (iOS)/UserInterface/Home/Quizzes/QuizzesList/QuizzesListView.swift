@@ -62,6 +62,8 @@ struct QuizzesListView: View {
                 }
             }
         }
+        .hideIfOffline()
+        
     }
 
     private var quizzesList: some View {
@@ -88,6 +90,9 @@ struct QuizzesListView: View {
                                 Color.tertiarySystemGroupedBackground,
                                 cornerRadius: 16
                             )
+                            .if(quiz.isOnlineQuiz) {
+                                $0.hideIfOffline()
+                            }
                         }
                     }
                     .padding(.bottom, 12)

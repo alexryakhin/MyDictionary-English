@@ -14,6 +14,7 @@ final class TTSPlayer: NSObject, ObservableObject {
     static let shared = TTSPlayer()
 
     private var player: AVAudioPlayer?
+    private var speechSynthesizer: AVSpeechSynthesizer?
     @AppStorage(UDKeys.selectedEnglishAccent) private var selectedEnglishAccent: EnglishAccent = .american
     @AppStorage(UDKeys.selectedTTSProvider) var selectedTTSProvider: TTSProvider = .google
     @AppStorage(UDKeys.selectedSpeechifyVoice) var selectedSpeechifyVoice: String = "erik"
@@ -33,9 +34,10 @@ final class TTSPlayer: NSObject, ObservableObject {
 
     private override init() {
         super.init()
+        setupSpeechSynthesizer()
         loadAvailableVoices()
     }
-    
+
     func play(_ text: String, languageCode: String? = nil) async throws {
         guard text.isNotEmpty, !isPlaying else { return }
         let detectedLanguageCode = languageCode ?? LanguageDetector.shared.detectLanguage(for: text).languageCode
@@ -52,7 +54,7 @@ final class TTSPlayer: NSObject, ObservableObject {
                 throw TTSError.monthlyLimitExceeded
             }
         }
-        
+
         do {
             switch provider {
             case .google:
@@ -63,8 +65,10 @@ final class TTSPlayer: NSObject, ObservableObject {
                     voice: selectedSpeechifyVoice,
                     targetLanguage: detectedLanguageCode
                 )
+            case .system:
+                try await playWithSystem(text: text, languageCode: detectedLanguageCode)
             }
-            
+
             // Track usage
             await MainActor.run {
                 TTSUsageTracker.shared.trackTTSUsage(
@@ -121,28 +125,34 @@ final class TTSPlayer: NSObject, ObservableObject {
     }
 
     private func determineProvider(for targetLanguage: String) -> TTSProvider {
+        // Check if user is offline - use system TTS as backup
+        let reachabilityService = ReachabilityService.shared
+        if reachabilityService.isOffline {
+            return .system
+        }
+
         // If user selected Speechify and has premium, use it
         if selectedTTSProvider == .speechify && SubscriptionService.shared.isProUser {
             return .speechify
         }
-        
+
         // Otherwise use Google TTS
         return .google
     }
-    
+
     private func playWithGoogle(text: String, targetLanguage: String) async throws {
         let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=\(escapedText)&tl=\(targetLanguage)"
         guard let url = URL(string: urlString) else { return }
 
-        #if os(iOS)
+#if os(iOS)
         let _ = try setupAudioSession()
-        #endif
-        
+#endif
+
         let temporaryDownloadURL = try await temporaryDownloadURL(for: url)
         try await play(from: temporaryDownloadURL)
     }
-    
+
     private func playWithSpeechify(text: String, voice: String, targetLanguage: String) async throws {
         let request = TTSRequest(
             text: text,
@@ -152,14 +162,43 @@ final class TTSPlayer: NSObject, ObservableObject {
             model: selectedSpeechifyModel,
             audioFormat: "wav"
         )
-        
+
         let response = try await speechifyService.synthesizeSpeech(request: request)
-        
+
         // Save audio data to temporary file and play
         let tempURL = try saveAudioDataToTempFile(response.audioData)
         try await play(from: tempURL)
     }
-    
+
+    private func playWithSystem(text: String, languageCode: String) async throws {
+        guard let synthesizer = speechSynthesizer else {
+            throw CoreError.internalError(.cannotSetupAudioSession)
+        }
+
+        // Stop any current speech
+        if synthesizer.isSpeaking {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+
+        // Create utterance with the text
+        let utterance = AVSpeechUtterance(string: text)
+
+        // Set language
+        utterance.voice = AVSpeechSynthesisVoice(language: languageCode)
+
+        // Apply user preferences
+        utterance.rate = Float(speechRate * 0.5) // Scale down for better control
+        utterance.volume = Float(volume)
+        utterance.pitchMultiplier = 1.0
+
+        // Update UI state
+        await MainActor.run {
+            isPlaying = true
+        }
+
+        synthesizer.speak(utterance)
+    }
+
     private func saveAudioDataToTempFile(_ audioData: Data) throws -> URL {
         let tempDir = FileManager.default.temporaryDirectory
         let tempFile = tempDir.appendingPathComponent("speechify_audio_\(UUID().uuidString).wav")
@@ -168,7 +207,7 @@ final class TTSPlayer: NSObject, ObservableObject {
         try audioData.write(to: tempFile)
         return tempFile
     }
-    
+
     func loadAvailableVoices() {
         guard availableVoices.isEmpty else { return }
 
@@ -179,7 +218,12 @@ final class TTSPlayer: NSObject, ObservableObject {
         }
     }
 
-    #if os(iOS)
+    private func setupSpeechSynthesizer() {
+        speechSynthesizer = AVSpeechSynthesizer()
+        speechSynthesizer?.delegate = self
+    }
+
+#if os(iOS)
     private func setupAudioSession() throws -> AVAudioSession {
         let session = AVAudioSession.sharedInstance()
         do {
@@ -190,21 +234,21 @@ final class TTSPlayer: NSObject, ObservableObject {
             throw CoreError.internalError(.cannotSetupAudioSession)
         }
     }
-    #endif
+#endif
 
     private func temporaryDownloadURL(for url: URL) async throws -> URL {
         let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy)
 
         do {
             let (tempURL, _) = try await URLSession.shared.download(for: request)
-            
+
             // Copy the downloaded file to a more permanent temporary location
             let tempDir = FileManager.default.temporaryDirectory
             let permanentTempFile = tempDir.appendingPathComponent("preview_audio_\(UUID().uuidString).mp3")
-            
+
             try FileManager.default.copyItem(at: tempURL, to: permanentTempFile)
             print("✅ [TTSPlayer] Successfully saved preview audio to \(permanentTempFile.path)")
-            
+
             return permanentTempFile
         } catch {
             throw CoreError.networkError(.noData)
@@ -216,10 +260,10 @@ final class TTSPlayer: NSObject, ObservableObject {
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.delegate = self
-            
+
             // Enable rate modification
             player?.enableRate = true
-            
+
             // Apply audio settings
             player?.rate = Float(speechRate)
             player?.volume = Float(volume)
@@ -233,9 +277,10 @@ final class TTSPlayer: NSObject, ObservableObject {
             throw CoreError.internalError(.cannotPlayAudio)
         }
     }
-    
+
     func stop() {
         player?.stop()
+        speechSynthesizer?.stopSpeaking(at: .immediate)
         isPlaying = false
     }
 }
@@ -248,8 +293,30 @@ extension TTSPlayer: AVAudioPlayerDelegate {
             isPlaying = false
         }
     }
-    
+
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        Task { @MainActor in
+            isPlaying = false
+        }
+    }
+}
+
+// MARK: - AVSpeechSynthesizerDelegate
+
+extension TTSPlayer: AVSpeechSynthesizerDelegate {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        Task { @MainActor in
+            isPlaying = false
+        }
+    }
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+        Task { @MainActor in
+            isPlaying = false
+        }
+    }
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance) {
         Task { @MainActor in
             isPlaying = false
         }

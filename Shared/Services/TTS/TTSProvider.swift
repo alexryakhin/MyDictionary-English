@@ -10,6 +10,7 @@ import Foundation
 enum TTSProvider: String, CaseIterable {
     case google = "google"
     case speechify = "speechify"
+    case system = "system"
     
     var displayName: String {
         switch self {
@@ -17,6 +18,8 @@ enum TTSProvider: String, CaseIterable {
             return "Google"
         case .speechify:
             return Loc.Tts.Settings.speechify
+        case .system:
+            return "System"
         }
     }
     
@@ -26,6 +29,8 @@ enum TTSProvider: String, CaseIterable {
             return false
         case .speechify:
             return true
+        case .system:
+            return false
         }
     }
 }

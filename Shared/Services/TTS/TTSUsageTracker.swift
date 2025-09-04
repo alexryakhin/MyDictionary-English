@@ -282,6 +282,8 @@ final class TTSUsageTracker: ObservableObject {
         case .speechify:
             usageStats.speechifyCharacters += characterCount
             updateMonthlySpeechifyUsage(characterCount)
+        case .system:
+            break
         }
 
         // Update session count

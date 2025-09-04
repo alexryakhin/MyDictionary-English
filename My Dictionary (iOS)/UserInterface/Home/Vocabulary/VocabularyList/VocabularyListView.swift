@@ -57,7 +57,7 @@ struct VocabularyListView: View {
             title: Loc.Onboarding.myDictionary,
             mode: .large,
             trailingContent: {
-                HeaderButtonMenu(icon: "ellipsis") {
+                HeaderButtonMenu(icon: "arrow.up.arrow.down") {
                     // Words sorting
                     Picker(Loc.Words.sort, selection: $sortingState) {
                         ForEach(SortingCase.allCases, id: \.self) { item in
@@ -75,6 +75,8 @@ struct VocabularyListView: View {
                     HeaderButton(icon: "person.2") {
                         wordListViewModel.output.send(.showSharedDictionaries)
                     }
+                    .hideIfOffline()
+                    
                 }
             },
             bottomContent: {

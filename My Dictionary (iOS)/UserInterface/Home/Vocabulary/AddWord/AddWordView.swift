@@ -36,6 +36,7 @@ struct AddWordView: View {
 
                 if isWord || viewModel.canUseAI {
                     definitionsSectionView
+                        .hideIfOffline()
                 }
 
                 // AI Sign-in Required Banner (when not authenticated)
@@ -43,12 +44,15 @@ struct AddWordView: View {
                     BannerView.aiSignInRequired {
                         isSignInPresented = true
                     }
+                    .hideIfOffline()
                 } else {
                     // AI Usage Caption
                     aiUsageCaptionView
+                        .hideIfOffline()
                     // AI Upgrade Banner (when limit reached)
                     if !viewModel.isProUser && !viewModel.canUseAI {
                         BannerView.aiUpgrade()
+                            .hideIfOffline()
                     }
                 }
             }
@@ -83,6 +87,7 @@ struct AddWordView: View {
                         showingDictionarySelection = true
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .hideIfOffline()
                 }
             }
         )

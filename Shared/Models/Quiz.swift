@@ -91,4 +91,13 @@ enum Quiz: String, CaseIterable, Identifiable {
             return Loc.Quizzes.QuizTypes.greatJobCompletedFillInTheBlankQuiz
         }
     }
+
+    var isOnlineQuiz: Bool {
+        switch self {
+        case .sentenceWriting, .contextMultipleChoice, .fillInTheBlank:
+            return true
+        default:
+            return false
+        }
+    }
 }

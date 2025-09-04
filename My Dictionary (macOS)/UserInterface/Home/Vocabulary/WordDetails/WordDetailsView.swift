@@ -55,6 +55,8 @@ struct WordDetailsView: View {
                         Image(systemName: "person.2.badge.plus")
                     }
                     .help(Loc.Words.addToSharedDictionary)
+                    .hideIfOffline()
+                    
                 }
 
                 // Favorite button

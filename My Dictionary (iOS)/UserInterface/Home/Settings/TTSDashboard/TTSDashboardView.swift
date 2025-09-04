@@ -410,6 +410,8 @@ enum TTSDashboard {
                 return Loc.Tts.freeGoogleTtsDescription
             case .speechify:
                 return Loc.Tts.Settings.speechifyDescription
+            case .system:
+                return "System"
             }
         }
     }

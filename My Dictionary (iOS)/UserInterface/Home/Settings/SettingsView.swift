@@ -29,6 +29,7 @@ struct SettingsView: View {
         ScrollView {
             VStack(spacing: 16) {
                 ttsSection
+                    .hideIfOffline()
 
                 // MARK: - Notifications
 
@@ -193,6 +194,7 @@ struct SettingsView: View {
                         .padding(.bottom, 12)
                     }
                 }
+                .hideIfOffline()
 
                 // MARK: - Tag Management
 
@@ -209,6 +211,7 @@ struct SettingsView: View {
                             ActionButton(Loc.Settings.sharedDictionaries, systemImage: "person.2") {
                                 viewModel.output.send(.showSharedDictionaries)
                             }
+                            .hideIfOffline()
                         }
                     }
                     .padding(.bottom, 12)

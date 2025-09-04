@@ -94,6 +94,7 @@ final class AIService: AIServiceInterface {
     private let apiService: AIAPIServiceInterface
     private let usageTracker = AIUsageTracker.shared
     private let quizUsageTracker = QuizUsageTracker.shared
+    private let reachabilityService = ReachabilityService.shared
 
     private init() {
 #if DEBUG
@@ -110,6 +111,9 @@ final class AIService: AIServiceInterface {
         maxDefinitions: Int = 10,
         inputLanguage: InputLanguage
     ) async throws -> AIWordResponse {
+        guard reachabilityService.isOffline == false else {
+            throw DictionaryError.networkError
+        }
         do {
             // Check if user can make AI request
             guard usageTracker.canMakeAIRequest() else {
@@ -140,6 +144,10 @@ final class AIService: AIServiceInterface {
     func evaluateSentences(
         sentences: [(sentence: String, targetWord: String)]
     ) async throws -> [AISentenceEvaluation] {
+        guard reachabilityService.isOffline == false else {
+            throw DictionaryError.networkError
+        }
+
         do {
             // Check if user can make AI request
             guard usageTracker.canMakeAIRequest() else {
@@ -205,6 +213,10 @@ final class AIService: AIServiceInterface {
         word: String,
         wordLanguage: String
     ) async throws -> AIContextQuestion {
+        guard reachabilityService.isOffline == false else {
+            throw DictionaryError.networkError
+        }
+
         do {
             // Check if user can make AI request
             guard usageTracker.canMakeAIRequest() else {
@@ -232,6 +244,10 @@ final class AIService: AIServiceInterface {
         word: String,
         wordLanguage: String
     ) async throws -> AIFillInTheBlankStory {
+        guard reachabilityService.isOffline == false else {
+            throw DictionaryError.networkError
+        }
+
         do {
             // Check if user can make AI request
             guard usageTracker.canMakeAIRequest() else {

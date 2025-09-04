@@ -50,6 +50,7 @@ final class AddWordViewModel: BaseViewModel {
         return SubscriptionService.shared.isProUser
     }
 
+    private let reachabilityService: ReachabilityService = .shared
     private let unifiedAPIService: UnifiedAPIService = .shared
     private let addWordManager: AddWordManager = .shared
     private let ttsPlayer: TTSPlayer = .shared
@@ -100,6 +101,7 @@ final class AddWordViewModel: BaseViewModel {
     }
 
     private func fetchData() {
+        guard reachabilityService.isOffline == false else { return }
         Task { @MainActor in
             reset()
             do {
@@ -233,7 +235,7 @@ final class AddWordViewModel: BaseViewModel {
         if !inputWord.isEmpty, hasDefinitions {
             do {
                 // Get the detected language code from the translation response
-                let languageCode = detectedLanguageCode ?? "en"
+                let languageCode: String = detectedLanguageCode ?? languageDetector.detectLanguage(for: inputWord).languageCode
 
                 if let dictionaryId = dictionaryId {
                     saveWordToSharedDictionary(dictionaryId, languageCode: languageCode)
@@ -387,6 +389,7 @@ final class AddWordViewModel: BaseViewModel {
     }
 
     private func translateDefinitions() async {
+        guard reachabilityService.isOffline == false else { return }
         // Only translate if not English locale and not using AI
         guard !GlobalConstant.isEnglishLanguage && !isUsingAI else { return }
 
@@ -451,6 +454,4 @@ final class AddWordViewModel: BaseViewModel {
             }
         }
     }
-    
-
 }

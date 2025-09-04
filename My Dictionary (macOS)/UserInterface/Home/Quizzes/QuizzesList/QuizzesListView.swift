@@ -49,6 +49,8 @@ struct QuizzesListView: View {
                     }
                 }
                 .help(Loc.Quizzes.selectDictionary)
+                .hideIfOffline()
+                
             }
         }
         .onAppear {
@@ -66,90 +68,37 @@ struct QuizzesListView: View {
                     footer: Loc.Quizzes.youCanPracticeVocabulary
                 ) {
                     VStack(spacing: 8) {
-                        Button {
-                            sideBarManager.selectedQuiz = .spelling(
-                                .init(
+                        ForEach(Quiz.allCases, id: \.self) { quiz in
+                            Button {
+                                let preset: QuizPreset = .init(
                                     itemCount: practiceItemCount,
                                     hardItemsOnly: viewModel.showingHardItemsOnly,
                                     mode: .all
                                 )
+                                switch quiz {
+                                case .spelling:
+                                    sideBarManager.selectedQuiz = .spelling(preset)
+                                case .chooseDefinition:
+                                    sideBarManager.selectedQuiz = .chooseDefinition(preset)
+                                case .sentenceWriting:
+                                    sideBarManager.selectedQuiz = .sentenceWriting(preset)
+                                case .contextMultipleChoice:
+                                    sideBarManager.selectedQuiz = .contextMultipleChoice(preset)
+                                case .fillInTheBlank:
+                                    sideBarManager.selectedQuiz = .fillInTheBlank(preset)
+                                }
+                            } label: {
+                                QuizCardView(quiz: quiz)
+                            }
+                            .buttonStyle(.plain)
+                            .clippedWithPaddingAndBackground(
+                                Color.tertiarySystemGroupedBackground,
+                                cornerRadius: 16
                             )
-                        } label: {
-                            QuizCardView(quiz: .spelling)
+                            .if(quiz.isOnlineQuiz) {
+                                $0.hideIfOffline()
+                            }
                         }
-                        .buttonStyle(.plain)
-                        .clippedWithPaddingAndBackground(
-                            Color.tertiarySystemGroupedBackground,
-                            cornerRadius: 16
-                        )
-                        
-                        Button {
-                            sideBarManager.selectedQuiz = .chooseDefinition(
-                                .init(
-                                    itemCount: practiceItemCount,
-                                    hardItemsOnly: viewModel.showingHardItemsOnly,
-                                    mode: .all
-                                )
-                            )
-                        } label: {
-                            QuizCardView(quiz: .chooseDefinition)
-                        }
-                        .buttonStyle(.plain)
-                        .clippedWithPaddingAndBackground(
-                            Color.tertiarySystemGroupedBackground,
-                            cornerRadius: 16
-                        )
-                        
-                        Button {
-                            sideBarManager.selectedQuiz = .sentenceWriting(
-                                .init(
-                                    itemCount: practiceItemCount,
-                                    hardItemsOnly: viewModel.showingHardItemsOnly,
-                                    mode: .all
-                                )
-                            )
-                        } label: {
-                            QuizCardView(quiz: .sentenceWriting)
-                        }
-                        .buttonStyle(.plain)
-                        .clippedWithPaddingAndBackground(
-                            Color.tertiarySystemGroupedBackground,
-                            cornerRadius: 16
-                        )
-                        
-                        Button {
-                            sideBarManager.selectedQuiz = .contextMultipleChoice(
-                                .init(
-                                    itemCount: practiceItemCount,
-                                    hardItemsOnly: viewModel.showingHardItemsOnly,
-                                    mode: .all
-                                )
-                            )
-                        } label: {
-                            QuizCardView(quiz: .contextMultipleChoice)
-                        }
-                        .buttonStyle(.plain)
-                        .clippedWithPaddingAndBackground(
-                            Color.tertiarySystemGroupedBackground,
-                            cornerRadius: 16
-                        )
-                        
-                        Button {
-                            sideBarManager.selectedQuiz = .fillInTheBlank(
-                                .init(
-                                    itemCount: practiceItemCount,
-                                    hardItemsOnly: viewModel.showingHardItemsOnly,
-                                    mode: .all
-                                )
-                            )
-                        } label: {
-                            QuizCardView(quiz: .fillInTheBlank)
-                        }
-                        .buttonStyle(.plain)
-                        .clippedWithPaddingAndBackground(
-                            Color.tertiarySystemGroupedBackground,
-                            cornerRadius: 16
-                        )
                     }
                     .padding(.bottom, 12)
                 }

@@ -84,6 +84,8 @@ struct SideBarView: View {
                         }
                     }
                 }
+                .hideIfOffline()
+                
             }
         }
         .scrollContentBackground(.hidden)
