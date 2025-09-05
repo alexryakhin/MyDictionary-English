@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dictionary - Learn Vocabulary Together</title>
-    <meta name="description" content="Transform your vocabulary learning with My Dictionary! Create personalized dictionaries, collaborate with others, and track your progress across all devices.">
-    <meta name="keywords" content="dictionary, vocabulary, learning, collaboration, flashcards, language, study, words, education, quiz, progress, analytics, sync, shared">
+    <title>My Dictionary (Multi-language) - Learn Vocabulary with AI</title>
+    <meta name="description" content="Master vocabulary in any language with My Dictionary - learn through understanding meanings, not translations. Build your personal dictionary with AI-powered definitions and achieve true fluency across multiple languages!">
+    <meta name="keywords" content="dictionary,vocabulary,word,quiz,language,learn,english,idiom,sync,definition,game,list,education,ai,multi-language">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/app-icon.png">
@@ -14,15 +14,15 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mydictionary.app/">
-    <meta property="og:title" content="My Dictionary - Learn Vocabulary Together">
-    <meta property="og:description" content="Transform your vocabulary learning with My Dictionary! Create personalized dictionaries, collaborate with others, and track your progress across all devices.">
+    <meta property="og:title" content="My Dictionary (Multi-language) - Learn Vocabulary with AI">
+    <meta property="og:description" content="Master vocabulary in any language with My Dictionary - learn through understanding meanings, not translations. Build your personal dictionary with AI-powered definitions and achieve true fluency across multiple languages!">
     <meta property="og:image" content="https://mydictionary.app/images/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://mydictionary.app/">
-    <meta property="twitter:title" content="My Dictionary - Learn Vocabulary Together">
-    <meta property="twitter:description" content="Transform your vocabulary learning with My Dictionary! Create personalized dictionaries, collaborate with others, and track your progress across all devices.">
+    <meta property="twitter:title" content="My Dictionary (Multi-language) - Learn Vocabulary with AI">
+    <meta property="twitter:description" content="Master vocabulary in any language with My Dictionary - learn through understanding meanings, not translations. Build your personal dictionary with AI-powered definitions and achieve true fluency across multiple languages!">
     <meta property="twitter:image" content="https://mydictionary.app/images/twitter-image.png">
 
     <style>
@@ -156,6 +156,119 @@
             color: white;
         }
 
+        /* Philosophy Section */
+        .philosophy {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .philosophy-text h2 {
+            font-size: 2.5rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-subtitle {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .story-section {
+            margin-bottom: 3rem;
+        }
+
+        .story-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #495057;
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy-highlight {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .philosophy-highlight h3 {
+            color: #28a745;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .philosophy-points {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .point {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
+        }
+
+        .point strong {
+            color: #28a745;
+        }
+
+        .learning-journey {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .journey-step {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .journey-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: #28a745;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .step-content p {
+            color: #6c757d;
+            margin: 0;
+        }
+
         /* Features Section */
         .features {
             padding: 5rem 0;
@@ -269,8 +382,10 @@
         .screenshot-image {
             width: 100%;
             height: 400px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 10px 10px 0 0;
+            padding: 16px;
+            box-sizing: border-box;
         }
 
         .screenshot-info {
@@ -465,6 +580,21 @@
                 align-items: center;
             }
 
+            .philosophy-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .philosophy-text h2 {
+                font-size: 2rem;
+            }
+
+            .journey-step {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
             }
@@ -642,7 +772,7 @@
         <nav class="nav">
             <div class="logo">
                 <img src="images/app-icon.png" alt="My Dictionary App Icon">
-                My Dictionary
+                My Dictionary (Multi-language)
             </div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
@@ -657,10 +787,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="fade-in-up">Learn Vocabulary Together</h1>
+            <h1 class="fade-in-up">Learn Vocabulary with AI</h1>
             <p class="hero-subtitle fade-in-up">
-                Transform your vocabulary learning with My Dictionary! Create personalized dictionaries, 
-                collaborate with others, and track your progress across all devices.
+                Master vocabulary in any language with My Dictionary! Learn through understanding meanings, not translations. 
+                Build your personal dictionary with AI-powered definitions and achieve true fluency across multiple languages.
             </p>
             <div class="cta-buttons fade-in-up">
                 <a href="#download" class="cta-button">
@@ -673,34 +803,97 @@
         </div>
     </section>
 
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h2>Understand, Don't Just Translate</h2>
+                    <p class="philosophy-subtitle">The story behind My Dictionary and why understanding beats translation every time.</p>
+                    
+                    <div class="story-section">
+                        <p>My name is Alexander, and I'm the creator of My Dictionary. Four years ago, I was struggling to learn English as a Russian speaker with no English-speaking environment around me. I was tired of traditional translation-based learning methods that never seemed to stick.</p>
+                        
+                        <p>Then I discovered a powerful concept: <strong>learn every language as if it's your first</strong>. Instead of constantly translating between languages, I started building understanding through meanings and context. I would write definitions in Russian to explain English words, not translate them. This created a deeper, more natural understanding.</p>
+                        
+                        <p>But doing this manually in textbooks was exhausting. So I built My Dictionary to automate this process and make it accessible to everyone. As my English improved, I naturally transitioned to writing definitions in English itself, building true fluency.</p>
+                        
+                        <p>Today, I'm fluent in English and use it as my primary language for daily life. I'm proud of this journey and want every language learner to experience the same transformation.</p>
+                    </div>
+                    
+                    <div class="philosophy-highlight">
+                        <h3>Why Understanding Beats Translation</h3>
+                        <div class="philosophy-points">
+                            <div class="point">
+                                <strong>Deep Learning:</strong> Understanding meanings creates lasting knowledge, not just word-for-word memorization.
+                            </div>
+                            <div class="point">
+                                <strong>Natural Fluency:</strong> You learn to think in the target language, not constantly translate in your head.
+                            </div>
+                            <div class="point">
+                                <strong>Context Mastery:</strong> You grasp how words work in different situations, not just their dictionary equivalents.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="philosophy-visual">
+                    <div class="learning-journey">
+                        <div class="journey-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Start with Understanding</h4>
+                                <p>Learn meanings in your native language to build solid foundations</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Build Context</h4>
+                                <p>See words in real examples and situations, not isolated translations</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Achieve Fluency</h4>
+                                <p>Think naturally in your target language without mental translation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
             <div class="section-header">
                 <h2>Why Choose My Dictionary?</h2>
-                <p>Powerful features designed to make vocabulary learning effective, collaborative, and enjoyable.</p>
+                <p>AI-powered features designed to make vocabulary learning effective, collaborative, and enjoyable across multiple languages.</p>
             </div>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="images/personal-dictionary.svg" alt="Personal Dictionary Icon">
+                        <img src="images/chat-with-ai.svg" alt="AI Definitions Image">
                     </div>
-                    <h3>Personal Dictionary</h3>
-                    <p>Create and organize your own vocabulary lists with definitions, examples, and personal notes.</p>
+                    <h3>AI-Powered Definitions</h3>
+                    <p>Advanced AI-generated definitions with comprehensive word meanings, multiple contexts, examples, and support for idioms and phrases.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="images/shared-dictionaries.svg" alt="Shared Dictionaries Icon">
+                        <img src="images/around-the-world.svg" alt="Multi-Language Support Image">
                     </div>
-                    <h3>Shared Dictionaries</h3>
-                    <p>Collaborate with friends, classmates, or study groups on shared vocabulary lists in real-time.</p>
+                    <h3>Multi-Language Support</h3>
+                    <p>Support for multiple languages including English, German, Russian, Croatian, and more with automatic language detection.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="images/progress-analytics.svg" alt="Progress Analytics Icon">
+                        <img src="images/progress-analytics.svg" alt="Progress Analytics Image">
                     </div>
                     <h3>Progress Analytics</h3>
                     <p>Track your learning progress with detailed insights, statistics, and performance metrics.</p>
@@ -708,26 +901,26 @@
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="images/interactive-quizzes.svg" alt="Interactive Quizzes Icon">
+                        <img src="images/interactive-quizzes.svg" alt="Interactive Quizzes Image">
                     </div>
-                    <h3>Interactive Quizzes</h3>
-                    <p>Test your knowledge with customizable quizzes and flashcards to reinforce learning.</p>
+                    <h3>AI-Powered Quizzes</h3>
+                    <p>Sentence Writing Quiz with AI feedback, Context Multiple Choice Quiz, and Fill in the Blank Quiz with AI guidance and explanations.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="images/cross-platform-sync.svg" alt="Cross-Platform Sync Icon">
+                        <img src="images/smart-organization.svg" alt="Smart Organization Image">
                     </div>
-                    <h3>Cross-Platform Sync</h3>
-                    <p>Access your dictionaries seamlessly across iOS, macOS, and web with automatic synchronization.</p>
+                    <h3>Smart Organization</h3>
+                    <p>Create custom tags with color coding, organize vocabulary with difficulty tracking, and filter words for targeted practice.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="images/advanced-features.svg" alt="Advanced Features Icon">
+                        <img src="images/shared-dictionaries.svg" alt="Shared Dictionaries Image">
                     </div>
-                    <h3>Advanced Features</h3>
-                    <p>Unlock unlimited exports, advanced analytics, and priority support with Pro subscription.</p>
+                    <h3>Collaborative Learning</h3>
+                    <p>Create and share dictionaries with friends and family, real-time collaboration, and role-based access control.</p>
                 </div>
             </div>
         </div>
@@ -743,15 +936,15 @@
             
             <div class="screenshots-grid">
                 <div class="screenshot-card">
-                    <img src="images/screenshot-ios-main.jpg" alt="iOS Main Screen" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="images/screenshot-ios-main.png" alt="iOS Main Screen" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="screenshot-info">
                         <h3>Main Dictionary View</h3>
-                        <p>Clean, organized interface for managing your vocabulary lists</p>
+                        <p>Clean, organized interface for managing your vocabulary</p>
                     </div>
                 </div>
                 
                 <div class="screenshot-card">
-                    <img src="images/screenshot-macos-interface.jpg" alt="macOS Interface" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="images/screenshot-macos-interface.png" alt="macOS Interface" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="screenshot-info">
                         <h3>Desktop Experience</h3>
                         <p>Full-featured desktop app with sidebar navigation and advanced editing</p>
@@ -759,34 +952,34 @@
                 </div>
                                 
                 <div class="screenshot-card">
-                    <img src="images/screenshot-definitions.jpg" alt="Find New Definitions" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="images/screenshot-details.png" alt="Rich Definitions" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="screenshot-info">
-                        <h3>Find New Definitions</h3>
-                        <p>Find out different meanings of words you think you know</p>
+                        <h3>Rich Definitions & Examples</h3>
+                        <p>Definitions with comprehensive word meanings, multiple contexts, examples, and support for idioms and phrases.</p>
                     </div>
                 </div>
 
                 <div class="screenshot-card">
-                    <img src="images/screenshot-quiz-mode.jpg" alt="Quiz Mode" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="images/screenshot-quiz.png" alt="Quiz Mode" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="screenshot-info">
                         <h3>Interactive Quizzes</h3>
-                        <p>Test your knowledge with customizable quizzes and flashcards</p>
+                        <p>Improve your vocabulary every day with interactive quizzes</p>
                     </div>
                 </div>
                 
                 <div class="screenshot-card">
-                    <img src="images/screenshot-analytics.jpg" alt="Analytics Dashboard" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="images/screenshot-multilanguage.png" alt="Multi-Language Support" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="screenshot-info">
-                        <h3>Progress Tracking</h3>
-                        <p>Detailed analytics and insights to monitor your learning progress</p>
+                        <h3>30+ languages supported</h3>
+                        <p>Support for multiple languages including English, German, Russian, Croatian, and more with automatic language detection</p>
                     </div>
                 </div>
                 
                 <div class="screenshot-card">
-                    <img src="images/screenshot-settings.jpg" alt="Settings & Customization" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="images/screenshot-settings.png" alt="Settings & Customization" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="screenshot-info">
                         <h3>App Settings</h3>
-                        <p>Customize your learning experience with powerful settings</p>
+                        <p>Choose your preferred TTS Voice, set notifications, and more</p>
                     </div>
                 </div>
             </div>
@@ -904,8 +1097,8 @@
                         <div class="pricing-price">$0</div>
                     </div>
                     <ul class="pricing-features">
-                        <li>✓ Create personal dictionary</li>
-                        <li>✓ Add words with definitions</li>
+                        <li>✓ AI-powered definitions</li>
+                        <li>✓ Multi-language support</li>
                         <li>✓ Basic quizzes and flashcards</li>
                         <li>✓ Progress tracking</li>
                         <li>✓ Cross-platform sync</li>
@@ -920,7 +1113,7 @@
                     </div>
                     <ul class="pricing-features">
                         <li>✓ Everything in Free</li>
-                        <li>✓ Unlimited exports and imports</li>
+                        <li>✓ AI-powered quizzes with feedback</li>
                         <li>✓ Create shared dictionaries</li>
                         <li>✓ Advanced analytics</li>
                         <li>✓ Priority customer support</li>
@@ -950,7 +1143,7 @@
     <section id="download" class="download">
         <div class="container">
             <h2>Download My Dictionary Today</h2>
-            <p>Available on iOS and macOS. Start building your vocabulary with the power of collaboration!</p>
+            <p>Available on iOS and macOS. Master vocabulary in any language with AI-powered definitions and collaborative features!</p>
             
             <div class="download-buttons">
                 <a href="https://apps.apple.com/us/app/my-dictionary-english/id1588418793" class="download-button">
@@ -965,16 +1158,16 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>My Dictionary</h3>
-                <p>Transform your vocabulary learning with collaborative features and advanced analytics.</p>
+                <h3>My Dictionary (Multi-language)</h3>
+                <p>Master vocabulary in any language with AI-powered definitions, collaborative features, and advanced analytics.</p>
             </div>
             
             <div class="footer-section">
                 <h3>Features</h3>
-                <a href="#features">Personal Dictionary</a>
-                <a href="#features">Shared Dictionaries</a>
-                <a href="#features">Progress Analytics</a>
-                <a href="#features">Interactive Quizzes</a>
+                <a href="#features">AI-Powered Definitions</a>
+                <a href="#features">Multi-Language Support</a>
+                <a href="#features">AI-Powered Quizzes</a>
+                <a href="#features">Smart Organization</a>
             </div>
             
             <div class="footer-section">
@@ -994,7 +1187,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 My Dictionary. All rights reserved. Made with ❤️ for language learners.</p>
+            <p>&copy; 2025 My Dictionary (Multi-language). All rights reserved. Made with ❤️ for language learners.</p>
         </div>
     </footer>
 
