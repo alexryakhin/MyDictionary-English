@@ -4,6 +4,7 @@ struct ChooseDefinitionQuizView: View {
 
     @StateObject private var viewModel: ChooseDefinitionQuizViewModel
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     init(preset: QuizPreset) {
         self._viewModel = StateObject(wrappedValue: ChooseDefinitionQuizViewModel(
@@ -125,7 +126,7 @@ struct ChooseDefinitionQuizView: View {
                 ) {
                     try await play(viewModel.correctItem.quiz_text, isItem: true)
                 }
-                .disabled(TTSPlayer.shared.isPlaying)
+                .disabled(ttsPlayer.isPlaying)
             }
             
             Text(viewModel.correctItem.quiz_text)
@@ -265,6 +266,6 @@ struct ChooseDefinitionQuizView: View {
 
     private func play(_ text: String?, isItem: Bool = false) async throws {
         guard let text else { return }
-        try await TTSPlayer.shared.play(text)
+        try await ttsPlayer.play(text)
     }
 }

@@ -28,6 +28,7 @@ struct SharedWordDetailsView: View {
 
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var authenticationService = AuthenticationService.shared
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     @State private var word: SharedWord
     private let dictionaryId: String
@@ -157,7 +158,7 @@ struct SharedWordDetailsView: View {
                 ) {
                     try await play(word.wordItself, isWord: true)
                 }
-                .disabled(TTSPlayer.shared.isPlaying)
+                .disabled(ttsPlayer.isPlaying)
             }
         }
     }
@@ -244,7 +245,7 @@ struct SharedWordDetailsView: View {
                         try await play(word.definition)
                         AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                     }
-                    .disabled(TTSPlayer.shared.isPlaying)
+                    .disabled(ttsPlayer.isPlaying)
                 }
             } else {
                 if canEdit {
@@ -320,7 +321,7 @@ struct SharedWordDetailsView: View {
                     } label: {
                         Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                     }
-                    .disabled(TTSPlayer.shared.isPlaying)
+                    .disabled(ttsPlayer.isPlaying)
                     
                     if canEdit {
                         Button {
@@ -364,7 +365,7 @@ struct SharedWordDetailsView: View {
                             } label: {
                                 Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                             }
-                            .disabled(TTSPlayer.shared.isPlaying)
+                            .disabled(ttsPlayer.isPlaying)
                         } label: {
                             Text(example)
                                 .font(.caption)
@@ -521,7 +522,7 @@ struct SharedWordDetailsView: View {
         isWord: Bool = false
     ) async throws {
         guard let text else { return }
-        try await TTSPlayer.shared.play(
+        try await ttsPlayer.play(
             text,
             languageCode: isWord ? word.languageCode : nil
         )

@@ -4,6 +4,7 @@ struct SentenceWritingQuizContentView: View {
 
     @StateObject private var viewModel: SentenceWritingQuizViewModel
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var ttsPlayer = TTSPlayer.shared
     @State private var showingDetailedExplanations = false
 
     init(preset: QuizPreset) {
@@ -191,7 +192,7 @@ struct SentenceWritingQuizContentView: View {
                 ) {
                     try await play(question)
                 }
-                .disabled(TTSPlayer.shared.isPlaying || question.isEmpty)
+                .disabled(ttsPlayer.isPlaying || question.isEmpty)
             }
 
             Text(question)
@@ -377,7 +378,7 @@ struct SentenceWritingQuizContentView: View {
 
     private func play(_ text: String) async throws {
         guard !text.isEmpty else { return }
-        try await TTSPlayer.shared.play(text)
+        try await ttsPlayer.play(text)
     }
 }
 

@@ -4,6 +4,7 @@ struct FillInTheBlankQuizContentView: View {
 
     @StateObject private var viewModel: FillInTheBlankQuizViewModel
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     init(preset: QuizPreset) {
         self._viewModel = StateObject(wrappedValue: FillInTheBlankQuizViewModel(preset: preset))
@@ -252,7 +253,7 @@ struct FillInTheBlankQuizContentView: View {
                 ) {
                     try await play(story.story)
                 }
-                .disabled(TTSPlayer.shared.isPlaying || story.story.isEmpty)
+                .disabled(ttsPlayer.isPlaying || story.story.isEmpty)
             }
             
             Text(story.story)
@@ -428,7 +429,7 @@ struct FillInTheBlankQuizContentView: View {
 
     private func play(_ text: String) async throws {
         guard !text.isEmpty else { return }
-        try await TTSPlayer.shared.play(text)
+        try await ttsPlayer.play(text)
     }
 }
 

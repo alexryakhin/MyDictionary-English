@@ -4,6 +4,7 @@ struct ContextMultipleChoiceQuizContentView: View {
 
     @StateObject private var viewModel: ContextMultipleChoiceQuizViewModel
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     init(preset: QuizPreset) {
         self._viewModel = StateObject(wrappedValue: ContextMultipleChoiceQuizViewModel(preset: preset))
@@ -250,7 +251,7 @@ struct ContextMultipleChoiceQuizContentView: View {
                 ) {
                     try await play(question)
                 }
-                .disabled(TTSPlayer.shared.isPlaying || question.isEmpty)
+                .disabled(ttsPlayer.isPlaying || question.isEmpty)
             }
             
             Text(question)
@@ -437,7 +438,7 @@ struct ContextMultipleChoiceQuizContentView: View {
     
     private func play(_ text: String) async throws {
         guard !text.isEmpty else { return }
-        try await TTSPlayer.shared.play(text)
+        try await ttsPlayer.play(text)
     }
 }
 

@@ -9,10 +9,11 @@ import SwiftUI
 import Combine
 
 struct MeaningsListView: View {
-
+    
     @Environment(\.dismiss) private var dismiss
     @StateObject var word: CDWord
-
+    @StateObject private var ttsPlayer = TTSPlayer.shared
+    
     @State private var meaningToEdit: CDMeaning?
 
     init(word: CDWord) {
@@ -118,7 +119,7 @@ struct MeaningsListView: View {
                                 ) {
                                     try await play(example)
                                 }
-                                .disabled(TTSPlayer.shared.isPlaying)
+                                .disabled(ttsPlayer.isPlaying)
                             }
                             .padding(.leading, 8)
                         }
@@ -159,7 +160,7 @@ struct MeaningsListView: View {
     }
 
     private func play(_ text: String) async throws {
-        try await TTSPlayer.shared.play(text)
+        try await ttsPlayer.play(text)
     }
 
     private func saveContext() {

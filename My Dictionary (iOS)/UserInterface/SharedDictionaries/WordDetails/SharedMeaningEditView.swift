@@ -11,6 +11,7 @@ struct SharedMeaningEditView: View {
     
     @State private var meaning: SharedWordMeaning
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var ttsPlayer = TTSPlayer.shared
     
     @State private var definitionText: String = ""
     @State private var examples: [String] = []
@@ -81,7 +82,7 @@ struct SharedMeaningEditView: View {
                 ) {
                     try await play(definitionText)
                 }
-                .disabled(TTSPlayer.shared.isPlaying || definitionText.isEmpty)
+                .disabled(ttsPlayer.isPlaying || definitionText.isEmpty)
             }
         }
     }
@@ -140,7 +141,7 @@ struct SharedMeaningEditView: View {
             ) {
                 try await play(example)
             }
-            .disabled(TTSPlayer.shared.isPlaying)
+            .disabled(ttsPlayer.isPlaying)
             
             HeaderButton(icon: "trash", color: .red, size: .small) {
                 removeExample(at: index)
@@ -211,6 +212,6 @@ struct SharedMeaningEditView: View {
     
     private func play(_ text: String) async throws {
         guard !text.isEmpty else { return }
-        try await TTSPlayer.shared.play(text)
+        try await ttsPlayer.play(text)
     }
 }

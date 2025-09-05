@@ -12,7 +12,8 @@ struct SharedMeaningsListView: View {
     
     @Environment(\.dismiss) private var dismiss
     @StateObject private var dictionaryService = DictionaryService.shared
-    
+    @StateObject private var ttsPlayer = TTSPlayer.shared
+
     @Binding var word: SharedWord
     private let dictionaryId: String
     
@@ -131,7 +132,7 @@ struct SharedMeaningsListView: View {
                                 ) {
                                     try await play(example)
                                 }
-                                .disabled(TTSPlayer.shared.isPlaying)
+                                .disabled(ttsPlayer.isPlaying)
                             }
                             .padding(.leading, 8)
                         }
@@ -205,6 +206,6 @@ struct SharedMeaningsListView: View {
     }
     
     private func play(_ text: String) async throws {
-        try await TTSPlayer.shared.play(text)
+        try await ttsPlayer.play(text)
     }
 }

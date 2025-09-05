@@ -4,6 +4,7 @@ struct ChooseDefinitionQuizContentView: View {
 
     @StateObject private var viewModel: ChooseDefinitionQuizViewModel
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     init(preset: QuizPreset) {
         self._viewModel = StateObject(wrappedValue: ChooseDefinitionQuizViewModel(preset: preset))
@@ -160,7 +161,7 @@ struct ChooseDefinitionQuizContentView: View {
                 AsyncHeaderButton(icon: "speaker.wave.2.fill", size: .small) {
                     try await play(viewModel.correctItem.quiz_text, isWord: true)
                 }
-                .disabled(TTSPlayer.shared.isPlaying)
+                .disabled(ttsPlayer.isPlaying)
             }
             
             Text(viewModel.correctItem.quiz_text)
@@ -303,7 +304,7 @@ struct ChooseDefinitionQuizContentView: View {
         isWord: Bool = false
     ) async throws {
         guard let text else { return }
-        try await TTSPlayer.shared.play(
+        try await ttsPlayer.play(
             text,
             languageCode: isWord ? viewModel.correctItem.quiz_languageCode : nil
         )

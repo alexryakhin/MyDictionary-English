@@ -9,6 +9,7 @@ struct AddWordView: View {
     @State private var isSignInPresented = false
 
     @StateObject private var authenticationService = AuthenticationService.shared
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     private let isWord: Bool
 
@@ -191,7 +192,7 @@ struct AddWordView: View {
                 ) {
                     try await viewModel.play(viewModel.inputWord)
                 }
-                .disabled(TTSPlayer.shared.isPlaying)
+                .disabled(ttsPlayer.isPlaying)
             }
         }
     }
@@ -330,7 +331,7 @@ struct AddWordView: View {
                                             } label: {
                                                 Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                                             }
-                                            .disabled(TTSPlayer.shared.isPlaying)
+                                            .disabled(ttsPlayer.isPlaying)
                                         } label: {
                                             Text(example)
                                                 .font(.caption)

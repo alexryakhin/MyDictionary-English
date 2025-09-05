@@ -6,6 +6,7 @@ struct WordDetailsContentView: View {
 
     @StateObject var word: CDWord
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
@@ -92,7 +93,7 @@ struct WordDetailsContentView: View {
                 ) {
                     try await play(word.wordItself, isWord: true)
                 }
-                .disabled(TTSPlayer.shared.isPlaying)
+                .disabled(ttsPlayer.isPlaying)
             }
         }
     }
@@ -172,7 +173,7 @@ struct WordDetailsContentView: View {
                         try await play(word.definition)
                         AnalyticsService.shared.logEvent(.wordDefinitionPlayed)
                     }
-                    .disabled(TTSPlayer.shared.isPlaying)
+                    .disabled(ttsPlayer.isPlaying)
                 }
             } else {
                 HeaderButton(icon: "plus", size: .small) {
@@ -304,7 +305,7 @@ struct WordDetailsContentView: View {
                     } label: {
                         Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                     }
-                    .disabled(TTSPlayer.shared.isPlaying)
+                    .disabled(ttsPlayer.isPlaying)
                     Button {
                         meaningToEdit = meaning
                         AnalyticsService.shared.logEvent(.wordExampleChangeButtonTapped)
@@ -344,7 +345,7 @@ struct WordDetailsContentView: View {
                             } label: {
                                 Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                             }
-                            .disabled(TTSPlayer.shared.isPlaying)
+                            .disabled(ttsPlayer.isPlaying)
                         } label: {
                             Text(example)
                                 .font(.caption)
@@ -374,7 +375,7 @@ struct WordDetailsContentView: View {
         isWord: Bool = false
     ) async throws {
         guard let text else { return }
-        try await TTSPlayer.shared.play(
+        try await ttsPlayer.play(
             text,
             languageCode: isWord ? word.languageCode : nil
         )

@@ -12,6 +12,7 @@ struct MeaningsListView: View {
     
     @Environment(\.dismiss) private var dismiss
     @StateObject var word: CDWord
+    @StateObject private var ttsPlayer = TTSPlayer.shared
     
     @State private var meaningToEdit: CDMeaning?
     
@@ -108,7 +109,7 @@ struct MeaningsListView: View {
                                     } label: {
                                         Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                                     }
-                                    .disabled(TTSPlayer.shared.isPlaying)
+                                    .disabled(ttsPlayer.isPlaying)
                                 } label: {
                                     Text(example)
                                         .font(.caption)
@@ -156,7 +157,7 @@ struct MeaningsListView: View {
     }
 
     private func play(_ text: String) async throws {
-        try await TTSPlayer.shared.play(text)
+        try await ttsPlayer.play(text)
     }
     
     private func saveContext() {
