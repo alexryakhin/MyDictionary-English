@@ -114,21 +114,15 @@ final class AddWordViewModel: BaseViewModel {
 
                 let wordToSearch: String
                 let shouldRequestPronunciation: Bool
-                let detectedLanguageCode: String
+
+                // Detect and update language for both AI and non-AI paths
+                detectAndUpdateLanguage()
 
                 // Check if user is authenticated and AI service is available
                 if AuthenticationService.shared.isSignedIn && aiService.canMakeAIRequest() {
                     // Use AI service for definitions
                     isUsingAI = true
                     AnalyticsService.shared.logEvent(.aiRequested)
-                    
-                    // Detect language using Apple's Natural Language framework
-                    let detectedLanguage = languageDetector.detectLanguage(for: inputWord)
-                    
-                    // Update selectedInputLanguage from auto to detected language
-                    if selectedInputLanguage.isAuto {
-                        selectedInputLanguage = detectedLanguage
-                    }
                     
                     // Use AI service to get definitions
                     let aiResponse = try await aiService.generateWordInformation(
@@ -139,7 +133,6 @@ final class AddWordViewModel: BaseViewModel {
                     
                     self.definitions = aiResponse.toWordDefinitions()
                     self.pronunciation = aiResponse.pronunciation
-                    self.detectedLanguageCode = selectedInputLanguage.languageCode
                     
                     // AI provides context-aware definitions, so no translation needed
                     isUsingAI = false
@@ -153,14 +146,6 @@ final class AddWordViewModel: BaseViewModel {
                         isTranslating = true
                         AnalyticsService.shared.logEvent(.translationRequested)
                         
-                        // Detect language using Apple's Natural Language framework
-                        let detectedLanguage = languageDetector.detectLanguage(for: inputWord)
-                        
-                        // Update selectedInputLanguage from auto to detected language
-                        if selectedInputLanguage.isAuto {
-                            selectedInputLanguage = detectedLanguage
-                        }
-                        
                         let translationResponse: TranslationResponse
                         if selectedInputLanguage.isAuto {
                             // Auto-detect language
@@ -171,7 +156,6 @@ final class AddWordViewModel: BaseViewModel {
                         }
                         
                         wordToSearch = translationResponse.text
-                        self.detectedLanguageCode = translationResponse.languageCode
                         // Only request pronunciation if the detected language IS English
                         shouldRequestPronunciation = translationResponse.languageCode == "en"
                         isTranslating = false
@@ -453,5 +437,18 @@ final class AddWordViewModel: BaseViewModel {
                 errorReceived(CoreError.internalError(.maxTagsReached))
             }
         }
+    }
+    
+    private func detectAndUpdateLanguage() {
+        // Detect language using Apple's Natural Language framework
+        let detectedLanguage = languageDetector.detectLanguage(for: inputWord)
+        
+        // Update selectedInputLanguage from auto to detected language
+        if selectedInputLanguage.isAuto {
+            selectedInputLanguage = detectedLanguage
+        }
+        
+        // Set detected language code immediately after detection
+        self.detectedLanguageCode = selectedInputLanguage.languageCode
     }
 }
