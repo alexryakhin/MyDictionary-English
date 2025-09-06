@@ -41,6 +41,7 @@ final class AnalyticsViewModel: BaseViewModel {
 
     @Published private(set) var progressSummary: ProgressSummary?
     @Published private(set) var quizSessions: [CDQuizSession] = []
+    @Published private(set) var quizActivityData: [MonthChartView.ActivityData] = []
     @Published private(set) var isLoading = false
     @Published var selectedTimePeriod: TimePeriod = .month
     @Published var selectedQuizMonth: Date = Date()
@@ -78,6 +79,7 @@ final class AnalyticsViewModel: BaseViewModel {
             isLoading = true
             progressSummary = quizAnalyticsService.getProgressSummary()
             quizSessions = quizAnalyticsService.getQuizSessions()
+            generateQuizActivityData()
             isLoading = false
         }
     }
@@ -147,7 +149,7 @@ final class AnalyticsViewModel: BaseViewModel {
         return data
     }
 
-    var quizActivityData: [MonthChartView.ActivityData] {
+    func generateQuizActivityData() {
         let calendar = Calendar.current
         var activityData: [MonthChartView.ActivityData] = []
 
@@ -166,15 +168,6 @@ final class AnalyticsViewModel: BaseViewModel {
             activityData.append(contentsOf: monthActivityData)
         }
 
-        return activityData
-    }
-
-    var availableQuizMonths: [Date] {
-        let calendar = Calendar.current
-        let uniqueMonths = Set<Date>(quizSessions.compactMap { session in
-            guard let date = session.date else { return nil }
-            return calendar.dateInterval(of: .month, for: date)?.start
-        })
-        return Array(uniqueMonths).sorted(by: >)
+        quizActivityData = activityData
     }
 }

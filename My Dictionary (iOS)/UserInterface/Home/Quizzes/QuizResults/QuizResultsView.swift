@@ -118,7 +118,11 @@ struct QuizResultsView<AdditionalAction: View>: View {
 
             Spacer()
         }
-        .groupedBackground()
+        .background(
+            Color.systemGroupedBackground
+                .displayConfetti(isActive: .constant(calculatedAccuracy() >= 80))
+                .ignoresSafeArea()
+        )
     }
 
     private func calculatedAccuracy() -> Double {
