@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "अभी तक कोई कठिनाई रेटिंग नहीं";
 "total_ratings" = "कुल रेटिंग";
 "view_detailed_statistics" = "विस्तृत सांख्यिकी देखें";
+"quiz_activity" = "क्विज़ गतिविधि";
+"no_quiz_activity" = "कोई क्विज़ गतिविधि नहीं";
+"complete_first_quiz_activity" = "यहाँ गतिविधि देखने के लिए अपना पहला क्विज़ पूरा करें";
+"less" = "कम";
+"more" = "अधिक";
 
 // MARK: - Time Period
 "time_period.week" = "सप्ताह";

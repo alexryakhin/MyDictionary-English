@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Zatím žádná hodnocení obtížnosti";
 "total_ratings" = "Celkové hodnocení";
 "view_detailed_statistics" = "Zobrazit podrobné statistiky";
+"quiz_activity" = "Aktivita kvízů";
+"no_quiz_activity" = "Žádná aktivita kvízů";
+"complete_first_quiz_activity" = "Dokončete svůj první kvíz, abyste zde viděli aktivitu";
+"less" = "Méně";
+"more" = "Více";
 
 // MARK: - Time Period
 "time_period.week" = "Týden";

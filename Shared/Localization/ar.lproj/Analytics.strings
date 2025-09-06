@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "لا توجد تقييمات صعوبة بعد";
 "total_ratings" = "إجمالي التقييمات";
 "view_detailed_statistics" = "عرض الإحصائيات التفصيلية";
+"quiz_activity" = "نشاط الاختبارات";
+"no_quiz_activity" = "لا يوجد نشاط اختبارات";
+"complete_first_quiz_activity" = "أكمل اختبارك الأول لرؤية النشاط هنا";
+"less" = "أقل";
+"more" = "أكثر";
 
 // MARK: - Time Period
 "time_period.week" = "أسبوع";

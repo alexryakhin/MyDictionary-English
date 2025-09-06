@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Ei vielä vaikeustasoarvioita";
 "total_ratings" = "Arvioiden kokonaismäärä";
 "view_detailed_statistics" = "Näytä yksityiskohtaiset tilastot";
+"quiz_activity" = "Tietokilpailuaktiviteetti";
+"no_quiz_activity" = "Ei tietokilpailuaktiviteettia";
+"complete_first_quiz_activity" = "Suorita ensimmäinen tietokilpailusi nähdäksesi aktiviteetin täällä";
+"less" = "Vähemmän";
+"more" = "Enemmän";
 
 // MARK: - Time Period
 "time_period.week" = "Viikko";

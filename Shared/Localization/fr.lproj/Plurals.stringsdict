@@ -82,5 +82,41 @@
 			<string>%d points</string>
 		</dict>
 	</dict>
+	<key>analytics.quizzes_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>Aucun quiz</string>
+			<key>one</key>
+			<string>%d quiz</string>
+			<key>other</key>
+			<string>%d quiz</string>
+		</dict>
+	</dict>
+	<key>analytics.quizzes_completed_this_month</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Vous avez terminé %#@COUNT@ ce mois-ci.</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>aucun quiz</string>
+			<key>one</key>
+			<string>%d quiz</string>
+			<key>other</key>
+			<string>%d quiz</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

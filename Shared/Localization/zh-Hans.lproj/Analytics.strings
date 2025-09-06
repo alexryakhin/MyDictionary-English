@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "暂无难度评分";
 "total_ratings" = "总评分";
 "view_detailed_statistics" = "查看详细统计";
+"quiz_activity" = "测验活动";
+"no_quiz_activity" = "无测验活动";
+"complete_first_quiz_activity" = "完成您的第一个测验以在此处查看活动";
+"less" = "较少";
+"more" = "较多";
 
 // MARK: - Time Period
 "time_period.week" = "周";

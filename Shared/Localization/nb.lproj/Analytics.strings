@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Ingen vanskelighetsvurderinger ennå";
 "total_ratings" = "Totalt antall vurderinger";
 "view_detailed_statistics" = "Vis detaljert statistikk";
+"quiz_activity" = "Quiz-aktivitet";
+"no_quiz_activity" = "Ingen quiz-aktivitet";
+"complete_first_quiz_activity" = "Fullfør din første quiz for å se aktivitet her";
+"less" = "Mindre";
+"more" = "Mer";
 
 // MARK: - Time Period
 "time_period.week" = "Uke";

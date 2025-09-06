@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Fără evaluări de dificultate încă";
 "total_ratings" = "Total Evaluări";
 "view_detailed_statistics" = "Vezi Statistici Detaliate";
+"quiz_activity" = "Activitate chestionare";
+"no_quiz_activity" = "Fără activitate chestionare";
+"complete_first_quiz_activity" = "Completează primul tău chestionar pentru a vedea activitatea aici";
+"less" = "Mai puțin";
+"more" = "Mai mult";
 
 // MARK: - Time Period
 "time_period.week" = "Săptămână";

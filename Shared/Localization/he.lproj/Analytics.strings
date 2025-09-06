@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "אין דירוגי קושי עדיין";
 "analytics.total_ratings" = "סה\"כ דירוגים";
 "view_detailed_statistics" = "הצג סטטיסטיקות מפורטות";
+"quiz_activity" = "פעילות חידונים";
+"no_quiz_activity" = "אין פעילות חידונים";
+"complete_first_quiz_activity" = "השלם את החידון הראשון שלך כדי לראות פעילות כאן";
+"less" = "פחות";
+"more" = "יותר";
 
 // MARK: - Time Period
 "time_period.week" = "שבוע";

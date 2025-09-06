@@ -12,6 +12,7 @@ struct AnalyticsView: View {
     @StateObject private var subscriptionService: SubscriptionService = .shared
     @StateObject private var viewModel = AnalyticsViewModel()
     @State private var showingQuizResults: Bool = false
+    @State private var showingQuizActivity: Bool = false
 
     var body: some View {
         ScrollView {
@@ -28,6 +29,9 @@ struct AnalyticsView: View {
                 LazyVStack(spacing: 12) {
                     // Progress Overview
                     progressOverviewSection
+
+                    // Quiz Activity Chart
+                    quizActivitySection
 
                     // TTS Analytics (Pro users only)
                     if SubscriptionService.shared.isProUser {
@@ -52,6 +56,9 @@ struct AnalyticsView: View {
         .sheet(isPresented: $showingQuizResults) {
             QuizResultsList.ContentView(quizSessions: viewModel.quizSessions)
         }
+        .sheet(isPresented: $showingQuizActivity) {
+            AllQuizActivityView()
+        }
         .onAppear {
             AnalyticsService.shared.logEvent(.analyticsOpened)
             viewModel.loadData()
@@ -64,6 +71,21 @@ struct AnalyticsView: View {
         CustomSectionView(header: Loc.Tts.usageStatistics) {
             TTSAnalyticsView()
         }
+    }
+    
+    // MARK: - Quiz Activity Section
+    
+    private var quizActivitySection: some View {
+        QuizActivityChart(
+            data: viewModel.quizActivityData,
+            onShowAllMonths: {
+                if subscriptionService.isProUser {
+                    showingQuizActivity = true
+                } else {
+                    PaywallService.shared.isShowingPaywall = true
+                }
+            }
+        )
     }
 
     // MARK: - Progress Overview Section

@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Nog geen moeilijkheidsgraadbeoordelingen";
 "total_ratings" = "Totaal aantal beoordelingen";
 "view_detailed_statistics" = "Gedetailleerde statistieken bekijken";
+"quiz_activity" = "Quiz-activiteit";
+"no_quiz_activity" = "Geen quiz-activiteit";
+"complete_first_quiz_activity" = "Voltooi je eerste quiz om hier activiteit te zien";
+"less" = "Minder";
+"more" = "Meer";
 
 // MARK: - Time Period
 "time_period.week" = "Week";

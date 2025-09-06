@@ -95,6 +95,8 @@ struct MainTabView: View {
             AddWordView(input: input, isWord: isWord)
         case .quizResultsList:
             QuizResultsList.ContentView()
+        case .allQuizActivity:
+            AllQuizActivityView()
         case .aboutApp:
             AboutAppContentView()
         case .tagManagement:

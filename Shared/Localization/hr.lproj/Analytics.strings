@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Još nema ocjena težine";
 "total_ratings" = "Ukupne ocjene";
 "view_detailed_statistics" = "Pogledaj detaljne statistike";
+"quiz_activity" = "Aktivnost kvizova";
+"no_quiz_activity" = "Nema aktivnosti kvizova";
+"complete_first_quiz_activity" = "Završite svoj prvi kviz da vidite aktivnost ovdje";
+"less" = "Manje";
+"more" = "Više";
 
 // MARK: - Time Period
 "time_period.week" = "Tjedan";

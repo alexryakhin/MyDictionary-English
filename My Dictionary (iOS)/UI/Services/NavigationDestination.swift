@@ -26,6 +26,7 @@ enum NavigationDestination: Hashable {
 
     // MARK: - Analytics destinations
     case quizResultsList
+    case allQuizActivity
 
     // MARK: - Shared dictionary destinations
     case sharedDictionaryWords(SharedDictionary)

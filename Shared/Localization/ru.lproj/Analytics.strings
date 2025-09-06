@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Оценок сложности пока нет";
 "total_ratings" = "Всего оценок";
 "view_detailed_statistics" = "Посмотреть подробную статистику";
+"quiz_activity" = "Активность по викторинам";
+"no_quiz_activity" = "Нет активности по викторинам";
+"complete_first_quiz_activity" = "Завершите свою первую викторину, чтобы увидеть активность здесь";
+"less" = "Меньше";
+"more" = "Больше";
 
 // MARK: - Time Period
 "time_period.week" = "Неделя";

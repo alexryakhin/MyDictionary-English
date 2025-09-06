@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "暫無難度評分";
 "total_ratings" = "總評分";
 "view_detailed_statistics" = "查看詳細統計";
+"quiz_activity" = "測驗活動";
+"no_quiz_activity" = "無測驗活動";
+"complete_first_quiz_activity" = "完成您的第一個測驗以在此處查看活動";
+"less" = "較少";
+"more" = "較多";
 
 // MARK: - Time Period
 "time_period.week" = "週";

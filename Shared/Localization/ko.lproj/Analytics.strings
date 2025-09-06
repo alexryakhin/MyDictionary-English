@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "아직 난이도 평가가 없습니다";
 "total_ratings" = "총 평가";
 "view_detailed_statistics" = "자세한 통계 보기";
+"quiz_activity" = "퀴즈 활동";
+"no_quiz_activity" = "퀴즈 활동 없음";
+"complete_first_quiz_activity" = "첫 번째 퀴즈를 완료하여 여기서 활동을 확인하세요";
+"less" = "적음";
+"more" = "많음";
 
 // MARK: - Time Period
 "time_period.week" = "주";

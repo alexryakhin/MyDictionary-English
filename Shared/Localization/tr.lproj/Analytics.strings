@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Henüz zorluk derecesi yok";
 "total_ratings" = "Toplam Derecelendirme";
 "view_detailed_statistics" = "Ayrıntılı İstatistikleri Görüntüle";
+"quiz_activity" = "Test aktivitesi";
+"no_quiz_activity" = "Test aktivitesi yok";
+"complete_first_quiz_activity" = "Burada aktiviteyi görmek için ilk testinizi tamamlayın";
+"less" = "Az";
+"more" = "Çok";
 
 // MARK: - Time Period
 "time_period.week" = "Hafta";

@@ -211,6 +211,8 @@ public enum Loc {
     public static let best = Loc.tr("Analytics", "best", fallback: "Best")
     /// Complete your first quiz to see results here
     public static let completeFirstQuiz = Loc.tr("Analytics", "complete_first_quiz", fallback: "Complete your first quiz to see results here")
+    /// Complete your first quiz to see activity here
+    public static let completeFirstQuizActivity = Loc.tr("Analytics", "complete_first_quiz_activity", fallback: "Complete your first quiz to see activity here")
     /// Complete your first quiz to see results here
     public static let completeFirstQuizResults = Loc.tr("Analytics", "complete_first_quiz_results", fallback: "Complete your first quiz to see results here")
     /// Complete quizzes to see your vocabulary growth over time
@@ -231,12 +233,18 @@ public enum Loc {
     public static func lastTimePeriod(_ p1: Any) -> String {
       return Loc.tr("Analytics", "last_time_period", String(describing: p1), fallback: "Last %@")
     }
+    /// Less
+    public static let less = Loc.tr("Analytics", "less", fallback: "Less")
     /// Loading progress data...
     public static let loadingProgressData = Loc.tr("Analytics", "loading_progress_data", fallback: "Loading progress data...")
+    /// More
+    public static let more = Loc.tr("Analytics", "more", fallback: "More")
     /// No difficulty ratings yet
     public static let noDifficultyRatingsYet = Loc.tr("Analytics", "no_difficulty_ratings_yet", fallback: "No difficulty ratings yet")
     /// No Growth Data Yet
     public static let noGrowthDataYet = Loc.tr("Analytics", "no_growth_data_yet", fallback: "No Growth Data Yet")
+    /// No Quiz Activity
+    public static let noQuizActivity = Loc.tr("Analytics", "no_quiz_activity", fallback: "No Quiz Activity")
     /// No Quiz Results Yet
     public static let noQuizResultsYet = Loc.tr("Analytics", "no_quiz_results_yet", fallback: "No Quiz Results Yet")
     /// Overview
@@ -247,6 +255,8 @@ public enum Loc {
     public static let practiceTime = Loc.tr("Analytics", "practice_time", fallback: "Practice Time")
     /// Progress
     public static let progress = Loc.tr("Analytics", "progress", fallback: "Progress")
+    /// Quiz Activity
+    public static let quizActivity = Loc.tr("Analytics", "quiz_activity", fallback: "Quiz Activity")
     /// Recent Quiz Results
     public static let recentQuizResults = Loc.tr("Analytics", "recent_quiz_results", fallback: "Recent Quiz Results")
     /// Score
@@ -799,6 +809,14 @@ public enum Loc {
       /// Plural format key: "%#@COUNT@"
       public static func pointsCount(_ p1: Int) -> String {
         return Loc.tr("Plurals", "analytics.points_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
+      }
+      /// Plural format key: "You have completed %#@COUNT@ this month."
+      public static func quizzesCompletedThisMonth(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "analytics.quizzes_completed_this_month", p1, fallback: "Plural format key: \"You have completed %#@COUNT@ this month.\"")
+      }
+      /// Plural format key: "%#@COUNT@"
+      public static func quizzesCount(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "analytics.quizzes_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
       }
     }
     public enum Idioms {

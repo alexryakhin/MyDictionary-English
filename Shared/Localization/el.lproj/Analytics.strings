@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Καμία βαθμολογία δυσκολίας ακόμα";
 "total_ratings" = "Συνολικές Βαθμολογίες";
 "view_detailed_statistics" = "Προβολή Λεπτομερών Στατιστικών";
+"quiz_activity" = "Δραστηριότητα κουίζ";
+"no_quiz_activity" = "Καμία δραστηριότητα κουίζ";
+"complete_first_quiz_activity" = "Ολοκληρώστε το πρώτο σας κουίζ για να δείτε δραστηριότητα εδώ";
+"less" = "Λιγότερο";
+"more" = "Περισσότερο";
 
 // MARK: - Time Period
 "time_period.week" = "Εβδομάδα";

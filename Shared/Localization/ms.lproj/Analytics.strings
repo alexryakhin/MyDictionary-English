@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Belum ada penilaian kesukaran";
 "total_ratings" = "Jumlah Penilaian";
 "view_detailed_statistics" = "Lihat Statistik Terperinci";
+"quiz_activity" = "Aktiviti kuiz";
+"no_quiz_activity" = "Tiada aktiviti kuiz";
+"complete_first_quiz_activity" = "Selesaikan kuiz pertama anda untuk melihat aktiviti di sini";
+"less" = "Kurang";
+"more" = "Lebih";
 
 // MARK: - Time Period
 "time_period.week" = "Minggu";

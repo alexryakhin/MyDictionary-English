@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Chưa có xếp hạng độ khó";
 "total_ratings" = "Tổng số xếp hạng";
 "view_detailed_statistics" = "Xem thống kê chi tiết";
+"quiz_activity" = "Hoạt động bài kiểm tra";
+"no_quiz_activity" = "Không có hoạt động bài kiểm tra";
+"complete_first_quiz_activity" = "Hoàn thành bài kiểm tra đầu tiên của bạn để xem hoạt động ở đây";
+"less" = "Ít hơn";
+"more" = "Nhiều hơn";
 
 // MARK: - Time Period
 "time_period.week" = "Tuần";

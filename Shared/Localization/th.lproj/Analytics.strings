@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "ยังไม่มีการให้คะแนนความยาก";
 "total_ratings" = "คะแนนทั้งหมด";
 "view_detailed_statistics" = "ดูสถิติโดยละเอียด";
+"quiz_activity" = "กิจกรรมแบบทดสอบ";
+"no_quiz_activity" = "ไม่มีกิจกรรมแบบทดสอบ";
+"complete_first_quiz_activity" = "ทำแบบทดสอบแรกของคุณให้เสร็จเพื่อดูกิจกรรมที่นี่";
+"less" = "น้อย";
+"more" = "มาก";
 
 // MARK: - Time Period
 "time_period.week" = "สัปดาห์";

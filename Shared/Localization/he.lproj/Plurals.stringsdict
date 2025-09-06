@@ -102,5 +102,49 @@
 			<string>%d נקודות</string>
 		</dict>
 	</dict>
+	<key>analytics.quizzes_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>אין חידונים</string>
+			<key>one</key>
+			<string>%d חידון</string>
+			<key>two</key>
+			<string>%d חידונים</string>
+			<key>many</key>
+			<string>%d חידונים</string>
+			<key>other</key>
+			<string>%d חידונים</string>
+		</dict>
+	</dict>
+	<key>analytics.quizzes_completed_this_month</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>השלמת %#@COUNT@ החודש.</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>אין חידונים</string>
+			<key>one</key>
+			<string>%d חידון</string>
+			<key>two</key>
+			<string>%d חידונים</string>
+			<key>many</key>
+			<string>%d חידונים</string>
+			<key>other</key>
+			<string>%d חידונים</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

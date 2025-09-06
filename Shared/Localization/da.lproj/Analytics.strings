@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Ingen sværhedsgradsbedømmelser endnu";
 "total_ratings" = "Samlede bedømmelser";
 "view_detailed_statistics" = "Se detaljerede statistikker";
+"quiz_activity" = "Quiz-aktivitet";
+"no_quiz_activity" = "Ingen quiz-aktivitet";
+"complete_first_quiz_activity" = "Fuldfør dit første quiz for at se aktivitet her";
+"less" = "Mindre";
+"more" = "Mere";
 
 // MARK: - Time Period
 "time_period.week" = "Uge";

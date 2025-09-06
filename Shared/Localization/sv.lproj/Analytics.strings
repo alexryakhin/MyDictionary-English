@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Inga svårighetsbetyg ännu";
 "total_ratings" = "Totalt antal betyg";
 "view_detailed_statistics" = "Visa detaljerad statistik";
+"quiz_activity" = "Quiz-aktivitet";
+"no_quiz_activity" = "Ingen quiz-aktivitet";
+"complete_first_quiz_activity" = "Slutför din första quiz för att se aktivitet här";
+"less" = "Mindre";
+"more" = "Mer";
 
 // MARK: - Time Period
 "time_period.week" = "Vecka";

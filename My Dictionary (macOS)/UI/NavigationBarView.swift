@@ -73,6 +73,5 @@ struct NavigationBarView<TrailingContent: View, BottomContent: View>: View {
             bottomContent()
         }
         .padding(vertical: vPadding, horizontal: hPadding)
-        .toolbar(.hidden, for: .windowToolbar)
     }
 }

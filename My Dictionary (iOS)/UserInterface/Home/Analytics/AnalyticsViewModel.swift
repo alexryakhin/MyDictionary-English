@@ -12,7 +12,7 @@ enum TimePeriod: CaseIterable {
     case week
     case month
     case year
-    
+
     var displayName: String {
         switch self {
         case .week: return Loc.Analytics.TimePeriod.week
@@ -20,7 +20,7 @@ enum TimePeriod: CaseIterable {
         case .year: return Loc.Analytics.TimePeriod.year
         }
     }
-    
+
     var days: Int {
         switch self {
         case .week: return 7
@@ -31,27 +31,29 @@ enum TimePeriod: CaseIterable {
 }
 
 final class AnalyticsViewModel: BaseViewModel {
-    
+
     enum Output {
         case showQuizResultsList
+        case showAllQuizActivity
     }
 
     var output = PassthroughSubject<Output, Never>()
-    
+
     @Published private(set) var progressSummary: ProgressSummary?
     @Published private(set) var quizSessions: [CDQuizSession] = []
     @Published private(set) var isLoading = false
     @Published var selectedTimePeriod: TimePeriod = .month
-    
+    @Published var selectedQuizMonth: Date = Date()
+
     private let quizAnalyticsService = QuizAnalyticsService.shared
     private var cancellables = Set<AnyCancellable>()
-    
+
     override init() {
         super.init()
         loadData()
         setupReactiveUpdates()
     }
-    
+
     private func setupReactiveUpdates() {
         // Listen to Core Data changes
         CoreDataService.shared.dataUpdatedPublisher
@@ -60,7 +62,7 @@ final class AnalyticsViewModel: BaseViewModel {
                 self?.loadData()
             }
             .store(in: &cancellables)
-        
+
         // Listen to shared dictionary changes with debouncing to prevent excessive refreshes
         DictionaryService.shared.$sharedWords
             .debounce(for: .seconds(1.0), scheduler: DispatchQueue.main)
@@ -70,7 +72,7 @@ final class AnalyticsViewModel: BaseViewModel {
             }
             .store(in: &cancellables)
     }
-    
+
     func loadData() {
         Task { @MainActor in
             isLoading = true
@@ -79,38 +81,42 @@ final class AnalyticsViewModel: BaseViewModel {
             isLoading = false
         }
     }
-    
+
     func refreshData() {
         loadData()
     }
-    
+
+    func showAllQuizActivity() {
+        output.send(.showAllQuizActivity)
+    }
+
     // MARK: - Computed Properties
-    
+
     var totalPracticeTimeFormatted: String {
         guard let summary = progressSummary else { return "0min" }
-        
+
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
         formatter.unitsStyle = .abbreviated
         formatter.maximumUnitCount = 2
         formatter.zeroFormattingBehavior = .dropAll
-        
+
         let timeInterval = summary.totalPracticeTime
         return formatter.string(from: timeInterval) ?? "0min"
     }
-    
+
     var averageAccuracyFormatted: String {
         guard let summary = progressSummary else { return "0%" }
         return "\(Int(summary.averageAccuracy * 100))%"
     }
-    
+
     var vocabularyGrowthData: [VocabularyLineChart.Model] {
         // Get words to create vocabulary growth data
         let words = quizAnalyticsService.getAllItems()
         let calendar = Calendar.current
         let today = Date()
         var data: [VocabularyLineChart.Model] = []
-        
+
         // Create data for selected time period
         for i in 0..<selectedTimePeriod.days {
             if let date = calendar.date(byAdding: .day, value: -i, to: today) {
@@ -122,11 +128,11 @@ final class AnalyticsViewModel: BaseViewModel {
                         toGranularity: .day
                     ) != .orderedDescending
                 }.count
-                
+
                 data.append(VocabularyLineChart.Model(date: date, count: wordsAddedByDate))
             }
         }
-        
+
         // If no real data, create mock data based on current vocabulary size
         if data.allSatisfy({ $0.count == 0 }) {
             let currentSize = progressSummary?.vocabularySize ?? 0
@@ -137,7 +143,38 @@ final class AnalyticsViewModel: BaseViewModel {
                 }
             }
         }
-        
+
         return data
     }
-} 
+
+    var quizActivityData: [MonthChartView.ActivityData] {
+        let calendar = Calendar.current
+        var activityData: [MonthChartView.ActivityData] = []
+
+        // Get data for both current month and previous month (what the chart displays)
+        let currentMonth = Date()
+        let previousMonth = calendar.date(byAdding: .month, value: -1, to: currentMonth) ?? currentMonth
+
+        // Process both months
+        let monthsToProcess = [previousMonth, currentMonth]
+
+        for monthToProcess in monthsToProcess {
+            let monthActivityData = quizAnalyticsService.generateActivityDataForMonth(
+                monthStart: monthToProcess,
+                sessions: quizSessions
+            )
+            activityData.append(contentsOf: monthActivityData)
+        }
+
+        return activityData
+    }
+
+    var availableQuizMonths: [Date] {
+        let calendar = Calendar.current
+        let uniqueMonths = Set<Date>(quizSessions.compactMap { session in
+            guard let date = session.date else { return nil }
+            return calendar.dateInterval(of: .month, for: date)?.start
+        })
+        return Array(uniqueMonths).sorted(by: >)
+    }
+}

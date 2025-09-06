@@ -158,10 +158,13 @@ final class QuizAnalyticsService {
     
     // MARK: - Analytics Queries
     
-    func getQuizSessions(limit: Int = 50) -> [CDQuizSession] {
+    func getQuizSessions(limit: Int? = nil) -> [CDQuizSession] {
         let request = CDQuizSession.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        request.fetchLimit = limit
+        
+        if let limit = limit {
+            request.fetchLimit = limit
+        }
         
         do {
             return try coreDataService.context.fetch(request)
@@ -228,6 +231,56 @@ final class QuizAnalyticsService {
         items.append(contentsOf: sharedWords)
 
         return items
+    }
+    
+    func generateActivityDataForMonth(
+        monthStart: Date,
+        sessions: [CDQuizSession]
+    ) -> [MonthChartView.ActivityData] {
+        let calendar = Calendar.current
+        guard let monthInterval = calendar.dateInterval(of: .month, for: monthStart) else {
+            return []
+        }
+        
+        var activityData: [MonthChartView.ActivityData] = []
+        var currentDate = monthInterval.start
+        
+        while currentDate < monthInterval.end {
+            // Find sessions for this date
+            let sessionsOnDate = sessions.filter { session in
+                guard let sessionDate = session.date else { return false }
+                let sessionComponents = calendar.dateComponents([.year, .month, .day], from: sessionDate)
+                let currentComponents = calendar.dateComponents([.year, .month, .day], from: currentDate)
+                return sessionComponents.year == currentComponents.year &&
+                       sessionComponents.month == currentComponents.month &&
+                       sessionComponents.day == currentComponents.day
+            }
+            
+            let quizCount = sessionsOnDate.count
+            
+            // Calculate grid coordinates for the month
+            let dayOfWeek = calendar.component(.weekday, from: currentDate) - 1 // 0 = Sunday, 1 = Monday, etc.
+            let dayOfMonth = calendar.component(.day, from: currentDate)
+            
+            // Calculate which week of the month this day belongs to
+            let firstDayOfMonth = monthInterval.start
+            let firstDayOfWeek = calendar.component(.weekday, from: firstDayOfMonth) - 1 // 0 = Sunday, 1 = Monday, etc.
+            
+            // Calculate the week number: (dayOfMonth - 1 + firstDayOfWeek) / 7
+            let calculatedWeek = (dayOfMonth - 1 + firstDayOfWeek) / 7
+            
+            activityData.append(MonthChartView.ActivityData(
+                date: currentDate,
+                week: calculatedWeek,
+                day: dayOfWeek,
+                quizCount: quizCount
+            ))
+            
+            // Move to next day
+            currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate) ?? currentDate
+        }
+        
+        return activityData
     }
     
     func getProgressSummary() -> ProgressSummary {

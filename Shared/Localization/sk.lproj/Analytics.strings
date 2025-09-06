@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Zatiaľ žiadne hodnotenia obtiažnosti";
 "total_ratings" = "Celkový počet hodnotení";
 "view_detailed_statistics" = "Zobraziť podrobné štatistiky";
+"quiz_activity" = "Aktivita kvízov";
+"no_quiz_activity" = "Žiadna aktivita kvízov";
+"complete_first_quiz_activity" = "Dokončite svoj prvý kvíz, aby ste tu videli aktivitu";
+"less" = "Menej";
+"more" = "Viac";
 
 // MARK: - Time Period
 "time_period.week" = "Týždeň";

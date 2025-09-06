@@ -72,5 +72,35 @@
 			<string>%d điểm</string>
 		</dict>
 	</dict>
+	<key>analytics.quizzes_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>Không có bài kiểm tra</string>
+			<key>other</key>
+			<string>%d bài kiểm tra</string>
+		</dict>
+	</dict>
+	<key>analytics.quizzes_completed_this_month</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Bạn đã hoàn thành %#@COUNT@ trong tháng này.</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>other</key>
+			<string>%d bài kiểm tra</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

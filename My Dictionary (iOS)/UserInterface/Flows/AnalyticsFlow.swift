@@ -29,6 +29,8 @@ struct AnalyticsFlow: View {
         switch output {
         case .showQuizResultsList:
             navigationManager.navigationPath.append(NavigationDestination.quizResultsList)
+        case .showAllQuizActivity:
+            navigationManager.navigationPath.append(NavigationDestination.allQuizActivity)
         }
     }
 }

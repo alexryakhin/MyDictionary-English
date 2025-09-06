@@ -33,6 +33,9 @@ struct AnalyticsView: View {
                     // Progress Overview
                     progressOverviewSection
 
+                    // Quiz Activity Chart
+                    quizActivitySection
+
                     // TTS Analytics (Pro users only)
                     if SubscriptionService.shared.isProUser {
                         ttsAnalyticsSection
@@ -69,6 +72,21 @@ struct AnalyticsView: View {
         CustomSectionView(header: Loc.Tts.usageStatistics) {
             TTSAnalyticsView()
         }
+    }
+    
+    // MARK: - Quiz Activity Section
+    
+    private var quizActivitySection: some View {
+        QuizActivityChart(
+            data: viewModel.quizActivityData,
+            onShowAllMonths: {
+                if subscriptionService.isProUser {
+                    viewModel.showAllQuizActivity()
+                } else {
+                    PaywallService.shared.isShowingPaywall = true
+                }
+            }
+        )
     }
     
     // MARK: - Progress Overview Section

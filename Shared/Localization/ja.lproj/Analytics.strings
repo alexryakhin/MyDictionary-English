@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "まだ難易度評価がありません";
 "total_ratings" = "評価の合計";
 "view_detailed_statistics" = "詳細統計を表示";
+"quiz_activity" = "クイズ活動";
+"no_quiz_activity" = "クイズ活動なし";
+"complete_first_quiz_activity" = "最初のクイズを完了して、ここで活動を確認してください";
+"less" = "少ない";
+"more" = "多い";
 
 // MARK: - Time Period
 "time_period.week" = "週";

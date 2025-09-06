@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Még nincsenek nehézségi értékelések";
 "total_ratings" = "Összes értékelés";
 "view_detailed_statistics" = "Részletes statisztikák megtekintése";
+"quiz_activity" = "Kvíz tevékenység";
+"no_quiz_activity" = "Nincs kvíz tevékenység";
+"complete_first_quiz_activity" = "Fejezd be az első kvízedet, hogy itt lássd a tevékenységet";
+"less" = "Kevesebb";
+"more" = "Több";
 
 // MARK: - Time Period
 "time_period.week" = "Hét";

@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Noch keine Schwierigkeitsbewertungen";
 "total_ratings" = "Gesamtbewertungen";
 "view_detailed_statistics" = "Detaillierte Statistiken anzeigen";
+"quiz_activity" = "Quiz-Aktivität";
+"no_quiz_activity" = "Keine Quiz-Aktivität";
+"complete_first_quiz_activity" = "Schließen Sie Ihr erstes Quiz ab, um hier Aktivität zu sehen";
+"less" = "Weniger";
+"more" = "Mehr";
 
 // MARK: - Time Period
 "time_period.week" = "Woche";

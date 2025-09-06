@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Поки немає оцінок складності";
 "total_ratings" = "Загальні оцінки";
 "view_detailed_statistics" = "Переглянути детальну статистику";
+"quiz_activity" = "Активність вікторин";
+"no_quiz_activity" = "Немає активності вікторин";
+"complete_first_quiz_activity" = "Завершіть свою першу вікторину, щоб побачити активність тут";
+"less" = "Менше";
+"more" = "Більше";
 
 // MARK: - Time Period
 "time_period.week" = "Тиждень";

@@ -30,6 +30,11 @@
 "no_difficulty_ratings_yet" = "Encara no hi ha valoracions de dificultat";
 "total_ratings" = "Valoracions totals";
 "view_detailed_statistics" = "Veure estadístiques detallades";
+"quiz_activity" = "Activitat de qüestionaris";
+"no_quiz_activity" = "Sense activitat de qüestionaris";
+"complete_first_quiz_activity" = "Completa el teu primer qüestionari per veure l'activitat aquí";
+"less" = "Menys";
+"more" = "Més";
 
 // MARK: - Time Period
 "time_period.week" = "Setmana";
