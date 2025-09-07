@@ -12,7 +12,6 @@ enum TTSDashboard {
         @StateObject private var ttsPlayer = TTSPlayer.shared
         @StateObject private var usageTracker = TTSUsageTracker.shared
         @State private var showingVoicePreview = false
-        @State private var showingPremiumAlert = false
         @State private var showingVoicePicker = false
 
         var body: some View {
@@ -58,9 +57,6 @@ enum TTSDashboard {
             )
             .sheet(isPresented: $showingVoicePicker) {
                 VoicePickerView()
-            }
-            .onAppear {
-                checkPremiumAccess()
             }
         }
 
@@ -119,11 +115,7 @@ enum TTSDashboard {
                             provider: provider,
                             isSelected: ttsPlayer.selectedTTSProvider == provider,
                             onTapAction: {
-                                if provider.isPremium && !SubscriptionService.shared.isProUser {
-                                    showingPremiumAlert = true
-                                } else {
-                                    ttsPlayer.selectedTTSProvider = provider
-                                }
+                                ttsPlayer.selectedTTSProvider = provider
                             }
                         )
                     }
@@ -335,12 +327,6 @@ enum TTSDashboard {
         }
 
         // MARK: - Helper Methods
-
-        private func checkPremiumAccess() {
-            if !SubscriptionService.shared.isProUser {
-                showingPremiumAlert = true
-            }
-        }
 
         private func testTTS() async throws {
             let language = ttsPlayer.availableVoices.first(where: { 

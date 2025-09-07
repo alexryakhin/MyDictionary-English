@@ -12,7 +12,6 @@ enum TTSDashboard {
         @StateObject private var ttsPlayer = TTSPlayer.shared
         @StateObject private var usageTracker = TTSUsageTracker.shared
         @State private var showingVoicePreview = false
-        @State private var showingPremiumAlert = false
         @State private var showingVoicePicker = false
 
         var body: some View {
@@ -50,9 +49,6 @@ enum TTSDashboard {
             .groupedBackground()
             .sheet(isPresented: $showingVoicePicker) {
                 VoicePickerView()
-            }
-            .onAppear {
-                checkPremiumAccess()
             }
         }
 
@@ -111,11 +107,7 @@ enum TTSDashboard {
                             provider: provider,
                             isSelected: ttsPlayer.selectedTTSProvider == provider,
                             onTapAction: {
-                                if provider.isPremium && !SubscriptionService.shared.isProUser {
-                                    showingPremiumAlert = true
-                                } else {
-                                    ttsPlayer.selectedTTSProvider = provider
-                                }
+                                ttsPlayer.selectedTTSProvider = provider
                             }
                         )
                     }
@@ -254,42 +246,7 @@ enum TTSDashboard {
 
         private var usageStatisticsSection: some View {
             CustomSectionView(header: Loc.Tts.usageStatistics) {
-                LazyVGrid(
-                    columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2),
-                    spacing: 12
-                ) {
-                    StatCard(
-                        title: Loc.Tts.Analytics.charactersUsed,
-                        value: usageTracker.totalCharactersFormatted,
-                        icon: "textformat.abc",
-                        color: .blue
-                    )
-
-                    StatCard(
-                        title: Loc.Tts.Analytics.sessions,
-                        value: usageTracker.totalSessionsFormatted,
-                        icon: "play.circle",
-                        color: .accent
-                    )
-
-                    if let voice = ttsPlayer.availableVoices.first(where: {
-                        $0.id == usageTracker.favoriteVoice
-                    }) {
-                        StatCard(
-                            title: Loc.Tts.Analytics.favoriteVoice,
-                            value: voice.displayName,
-                            icon: "person.circle",
-                            color: .purple
-                        )
-                    }
-
-                    StatCard(
-                        title: Loc.Tts.Analytics.timeSaved,
-                        value: usageTracker.timeSaved,
-                        icon: "clock",
-                        color: .orange
-                    )
-                }
+                TTSAnalyticsView()
             }
         }
 
@@ -363,12 +320,6 @@ enum TTSDashboard {
         }
 
         // MARK: - Helper Methods
-
-        private func checkPremiumAccess() {
-            if !SubscriptionService.shared.isProUser {
-                showingPremiumAlert = true
-            }
-        }
 
         private func testTTS() async throws {
             let language = ttsPlayer.availableVoices.first(where: { 

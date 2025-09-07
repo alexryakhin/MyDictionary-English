@@ -189,7 +189,7 @@ func copyToClipboard(_ string: String) {
 
 func openURL(_ url: URL) {
     #if os(iOS)
-    openURL(url)
+    UIApplication.shared.open(url)
     #elseif os(macOS)
     NSWorkspace.shared.open(url)
     #endif

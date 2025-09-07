@@ -62,7 +62,6 @@ struct AnalyticsView: View {
         }
         .onAppear {
             AnalyticsService.shared.logEvent(.analyticsOpened)
-            viewModel.loadData()
         }
     }
     
