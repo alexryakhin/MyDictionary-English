@@ -1,0 +1,1392 @@
+{
+    "collections": [
+      {
+        "id": "icet-001",
+        "title": "ICET",
+        "words": [
+          {
+            "id": "engineer-001",
+            "text": "engineer",
+            "phonetics": "/ˌɛndʒɪˈnɪər/",
+            "partOfSpeech": "noun",
+            "definition": "A person who designs or builds machines, engines, or structures",
+            "examples": [
+              "The engineer fixed the broken bridge.",
+              "She works as an engineer in a tech firm."
+            ]
+          },
+          {
+            "id": "team-001",
+            "text": "team",
+            "phonetics": "/tim/",
+            "partOfSpeech": "noun",
+            "definition": "A group of people working together",
+            "examples": [
+              "Our team won the competition.",
+              "He leads a team of engineers."
+            ]
+          },
+          {
+            "id": "contest-001",
+            "text": "contest",
+            "phonetics": "/ˈkɒntɛst/",
+            "partOfSpeech": "noun",
+            "definition": "An event where people compete",
+            "examples": [
+              "The contest was held last weekend.",
+              "She entered a contest for young engineers."
+            ]
+          }
+        ],
+        "level": "B1",
+        "tagValue": "ICET",
+        "languageCode": "en",
+        "description": "International Contest of Children's Engineering Teams",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "top-100-verbs-001",
+        "title": "Top 100 Verbs",
+        "words": [
+          {
+            "id": "run-001",
+            "text": "run",
+            "phonetics": "/rʌn/",
+            "partOfSpeech": "verb",
+            "definition": "To move at a speed faster than walking",
+            "examples": [
+              "He runs every morning.",
+              "The dog ran across the park."
+            ]
+          },
+          {
+            "id": "write-001",
+            "text": "write",
+            "phonetics": "/raɪt/",
+            "partOfSpeech": "verb",
+            "definition": "To compose or set down on paper",
+            "examples": [
+              "She writes a letter every week.",
+              "He wrote a book about his travels."
+            ]
+          },
+          {
+            "id": "read-001",
+            "text": "read",
+            "phonetics": "/rid/",
+            "partOfSpeech": "verb",
+            "definition": "To look at and comprehend written text",
+            "examples": [
+              "I read a novel last night.",
+              "She reads the newspaper daily."
+            ]
+          }
+        ],
+        "level": "A1",
+        "tagValue": "Verbs",
+        "languageCode": "en",
+        "description": "100 words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "travel-abroad-001",
+        "title": "Travelling abroad",
+        "words": [
+          {
+            "id": "travel-001",
+            "text": "travel",
+            "phonetics": "/ˈtrævəl/",
+            "partOfSpeech": "verb",
+            "definition": "To go from one place to another",
+            "examples": [
+              "We travel to Europe every summer.",
+              "He loves to travel abroad."
+            ]
+          },
+          {
+            "id": "prepare-001",
+            "text": "prepare",
+            "phonetics": "/prɪˈpɛər/",
+            "partOfSpeech": "verb",
+            "definition": "To make ready in advance",
+            "examples": [
+              "She prepared a suitcase for the trip.",
+              "We need to prepare for the journey."
+            ]
+          },
+          {
+            "id": "passport-001",
+            "text": "passport",
+            "phonetics": "/ˈpæspɔrt/",
+            "partOfSpeech": "noun",
+            "definition": "An official travel document",
+            "examples": [
+              "Check your passport before leaving.",
+              "He lost his passport at the airport."
+            ]
+          }
+        ],
+        "level": "A2",
+        "tagValue": "Travel",
+        "languageCode": "en",
+        "description": "Prepare for a trip in advance",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "favorite-tv-001",
+        "title": "Favourite TV shows",
+        "words": [
+          {
+            "id": "firefly-001",
+            "text": "firefly",
+            "phonetics": "/ˈfaɪərˌflaɪ/",
+            "partOfSpeech": "noun",
+            "definition": "A TV show about space adventures",
+            "examples": [
+              "Firefly is a cult classic series.",
+              "Have you watched Firefly yet?"
+            ]
+          },
+          {
+            "id": "downton-001",
+            "text": "Downton",
+            "phonetics": "/ˈdaʊntən/",
+            "partOfSpeech": "noun",
+            "definition": "A TV series about a British estate",
+            "examples": [
+              "Downton Abbey has many fans.",
+              "She enjoys watching Downton Abbey."
+            ]
+          },
+          {
+            "id": "stranger-001",
+            "text": "Stranger",
+            "phonetics": "/ˈstreɪndʒər/",
+            "partOfSpeech": "noun",
+            "definition": "A TV show with supernatural themes",
+            "examples": [
+              "Stranger Things is very popular.",
+              "He binge-watched Stranger Things."
+            ]
+          }
+        ],
+        "level": "B1",
+        "tagValue": "TV Shows",
+        "languageCode": "en",
+        "description": "38 words, 95 words, 100 words, 99 words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "international-exams-001",
+        "title": "International exams",
+        "words": [
+          {
+            "id": "toefl-001",
+            "text": "TOEFL",
+            "phonetics": "/ˈtoʊfəl/",
+            "partOfSpeech": "noun",
+            "definition": "Test of English as a Foreign Language",
+            "examples": [
+              "She is preparing for the TOEFL.",
+              "TOEFL scores are required for admission."
+            ]
+          },
+          {
+            "id": "ielts-001",
+            "text": "IELTS",
+            "phonetics": "/ˈaɪɛlts/",
+            "partOfSpeech": "noun",
+            "definition": "International English Language Testing System",
+            "examples": [
+              "He took the IELTS last month.",
+              "IELTS is accepted by many universities."
+            ]
+          },
+          {
+            "id": "prepare-001",
+            "text": "prepare",
+            "phonetics": "/prɪˈpɛər/",
+            "partOfSpeech": "verb",
+            "definition": "To get ready for an exam",
+            "examples": [
+              "They prepare for exams every year.",
+              "She prepared diligently for the test."
+            ]
+          }
+        ],
+        "level": "B2",
+        "tagValue": "Exams",
+        "languageCode": "en",
+        "description": "Preparing for TOEFL, IELTS, academic vocabulary",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "youtube-001",
+        "title": "Youtube",
+        "words": [
+          {
+            "id": "good-001",
+            "text": "good",
+            "phonetics": "/ɡʊd/",
+            "partOfSpeech": "adjective",
+            "definition": "Positive or favorable",
+            "examples": [
+              "He said something good about you.",
+              "Good weather is expected tomorrow."
+            ]
+          },
+          {
+            "id": "bad-001",
+            "text": "bad",
+            "phonetics": "/bæd/",
+            "partOfSpeech": "adjective",
+            "definition": "Unfavorable or negative",
+            "examples": [
+              "The news was bad for the team.",
+              "She felt bad after the argument."
+            ]
+          },
+          {
+            "id": "say-001",
+            "text": "say",
+            "phonetics": "/seɪ/",
+            "partOfSpeech": "verb",
+            "definition": "To express in words",
+            "examples": [
+              "He said hello to everyone.",
+              "What did she say about it?"
+            ]
+          }
+        ],
+        "level": "A1",
+        "tagValue": "Youtube",
+        "languageCode": "en",
+        "description": "20 ways of saying Good and Bad, 12 words, 14 words, 17 words, 6 words, 7 words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "beginners-001",
+        "title": "For beginners",
+        "words": [
+          {
+            "id": "hello-001",
+            "text": "hello",
+            "phonetics": "/həˈloʊ/",
+            "partOfSpeech": "interjection",
+            "definition": "A greeting",
+            "examples": [
+              "She said hello with a smile.",
+              "Hello, how can I help you?"
+            ]
+          },
+          {
+            "id": "thank-001",
+            "text": "thank",
+            "phonetics": "/θæŋk/",
+            "partOfSpeech": "verb",
+            "definition": "To express gratitude",
+            "examples": [
+              "Thank you for your help.",
+              "He thanked her for the gift."
+            ]
+          },
+          {
+            "id": "learn-001",
+            "text": "learn",
+            "phonetics": "/lɜrn/",
+            "partOfSpeech": "verb",
+            "definition": "To gain knowledge",
+            "examples": [
+              "I want to learn English.",
+              "She learns new words every day."
+            ]
+          }
+        ],
+        "level": "A1",
+        "tagValue": "Beginners",
+        "languageCode": "en",
+        "description": "148 words, 37 words, 20 words, 10 words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "psychology-001",
+        "title": "Psychology and relationships",
+        "words": [
+          {
+            "id": "feeling-001",
+            "text": "feeling",
+            "phonetics": "/ˈfilɪŋ/",
+            "partOfSpeech": "noun",
+            "definition": "An emotional state",
+            "examples": [
+              "I have a good feeling about this.",
+              "Her feelings were hurt by the comment."
+            ]
+          },
+          {
+            "id": "emotion-001",
+            "text": "emotion",
+            "phonetics": "/ɪˈmoʊʃən/",
+            "partOfSpeech": "noun",
+            "definition": "A strong feeling",
+            "examples": [
+              "He expressed his emotions openly.",
+              "Love is a powerful emotion."
+            ]
+          },
+          {
+            "id": "relationship-001",
+            "text": "relationship",
+            "phonetics": "/rɪˈleɪʃənˌʃɪp/",
+            "partOfSpeech": "noun",
+            "definition": "A connection between people",
+            "examples": [
+              "They have a strong relationship.",
+              "Working on our relationship is important."
+            ]
+          }
+        ],
+        "level": "B1",
+        "tagValue": "Psychology",
+        "languageCode": "en",
+        "description": "34 words, 68 words, 58 words, 80 words, 40 words, 87 words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "it-startups-001",
+        "title": "IT and startups",
+        "words": [
+          {
+            "id": "security-001",
+            "text": "security",
+            "phonetics": "/sɪˈkjʊrɪti/",
+            "partOfSpeech": "noun",
+            "definition": "Protection against threats",
+            "examples": [
+              "We need to improve security online.",
+              "The company invested in security systems."
+            ]
+          },
+          {
+            "id": "startup-001",
+            "text": "startup",
+            "phonetics": "/ˈstɑrtˌʌp/",
+            "partOfSpeech": "noun",
+            "definition": "A new business venture",
+            "examples": [
+              "The startup attracted many investors.",
+              "She works for a tech startup."
+            ]
+          },
+          {
+            "id": "technology-001",
+            "text": "technology",
+            "phonetics": "/tɛkˈnɒlədʒi/",
+            "partOfSpeech": "noun",
+            "definition": "The application of scientific knowledge",
+            "examples": [
+              "New technology improves our lives.",
+              "He studies technology at university."
+            ]
+          }
+        ],
+        "level": "B2",
+        "tagValue": "IT",
+        "languageCode": "en",
+        "description": "97 words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "english-work-001",
+        "title": "English for work",
+        "words": [
+          {
+            "id": "test-001",
+            "text": "test",
+            "phonetics": "/tɛst/",
+            "partOfSpeech": "noun",
+            "definition": "An examination or evaluation",
+            "examples": [
+              "The test was very challenging.",
+              "She passed the job test."
+            ]
+          },
+          {
+            "id": "write-001",
+            "text": "write",
+            "phonetics": "/raɪt/",
+            "partOfSpeech": "verb",
+            "definition": "To compose documents",
+            "examples": [
+              "He writes reports for the company.",
+              "She wrote a CV for the job."
+            ]
+          },
+          {
+            "id": "interview-001",
+            "text": "interview",
+            "phonetics": "/ˈɪntərˌvju/",
+            "partOfSpeech": "noun",
+            "definition": "A formal meeting for assessment",
+            "examples": [
+              "The interview went very well.",
+              "He has an interview tomorrow."
+            ]
+          }
+        ],
+        "level": "B2",
+        "tagValue": "Work",
+        "languageCode": "en",
+        "description": "120 words, 73 words, 80 words, 99 words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "events-001",
+        "title": "Events",
+        "words": [
+          {
+            "id": "conference-001",
+            "text": "conference",
+            "phonetics": "/ˈkɒnfərəns/",
+            "partOfSpeech": "noun",
+            "definition": "A formal meeting for discussion",
+            "examples": [
+              "The conference was very informative.",
+              "She attended a marketing conference."
+            ]
+          },
+          {
+            "id": "vidcon-001",
+            "text": "VidCon",
+            "phonetics": "/ˈvɪdˌkɒn/",
+            "partOfSpeech": "noun",
+            "definition": "A convention for video content",
+            "examples": [
+              "VidCon attracts many YouTubers.",
+              "He spoke at VidCon last year."
+            ]
+          },
+          {
+            "id": "donor-001",
+            "text": "donor",
+            "phonetics": "/ˈdoʊnər/",
+            "partOfSpeech": "noun",
+            "definition": "A person who gives something",
+            "examples": [
+              "The donor gave blood to save lives.",
+              "She became a regular blood donor."
+            ]
+          }
+        ],
+        "level": "B1",
+        "tagValue": "Events",
+        "languageCode": "en",
+        "description": "70 words, 68 words, 50 words, 94 words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "phrasal-verbs-001",
+        "title": "100 Powerful Phrasal Verbs",
+        "words": [
+          {
+            "id": "break-down-001",
+            "text": "break down",
+            "phonetics": "/breɪk daʊn/",
+            "partOfSpeech": "phrasal verb",
+            "definition": "To stop functioning",
+            "examples": [
+              "The car broke down on the highway.",
+              "Negotiations broke down yesterday."
+            ]
+          },
+          {
+            "id": "bring-up-001",
+            "text": "bring up",
+            "phonetics": "/brɪŋ ʌp/",
+            "partOfSpeech": "phrasal verb",
+            "definition": "To mention a topic",
+            "examples": [
+              "He brought up an interesting point.",
+              "She brought up her childhood memories."
+            ]
+          },
+          {
+            "id": "call-off-001",
+            "text": "call off",
+            "phonetics": "/kɔl ɔf/",
+            "partOfSpeech": "phrasal verb",
+            "definition": "To cancel something",
+            "examples": [
+              "They called off the event due to rain.",
+              "The match was called off."
+            ]
+          }
+        ],
+        "level": "B1",
+        "tagValue": "Phrasal Verbs",
+        "languageCode": "en",
+        "description": "100 powerful phrasal verbs for English learning",
+        "imageUrl": null,
+        "isPremium": true
+      },
+      {
+        "id": "describing-people-001",
+        "title": "Describing people",
+        "words": [
+          {
+            "id": "tall-001",
+            "text": "tall",
+            "phonetics": "/tɔl/",
+            "partOfSpeech": "adjective",
+            "definition": "Having greater than average height",
+            "examples": [
+              "He is a tall man with dark hair.",
+              "The tall building stands out."
+            ]
+          },
+          {
+            "id": "kind-001",
+            "text": "kind",
+            "phonetics": "/kaɪnd/",
+            "partOfSpeech": "adjective",
+            "definition": "Friendly and generous",
+            "examples": [
+              "She is a very kind person.",
+              "He did a kind deed for a stranger."
+            ]
+          },
+          {
+            "id": "smart-001",
+            "text": "smart",
+            "phonetics": "/smɑrt/",
+            "partOfSpeech": "adjective",
+            "definition": "Intelligent or well-dressed",
+            "examples": [
+              "She is a smart student.",
+              "He looked smart in his suit."
+            ]
+          }
+        ],
+        "level": "A2",
+        "tagValue": "People",
+        "languageCode": "en",
+        "description": "Useful words for describing people",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "meeting-people-001",
+        "title": "Meeting people",
+        "words": [
+          {
+            "id": "introduce-001",
+            "text": "introduce",
+            "phonetics": "/ˌɪntrəˈdus/",
+            "partOfSpeech": "verb",
+            "definition": "To present someone formally",
+            "examples": [
+              "Let me introduce you to my friend.",
+              "She introduced herself at the meeting."
+            ]
+          },
+          {
+            "id": "greet-001",
+            "text": "greet",
+            "phonetics": "/ɡrit/",
+            "partOfSpeech": "verb",
+            "definition": "To welcome or say hello",
+            "examples": [
+              "He greeted everyone with a smile.",
+              "She greeted her guests warmly."
+            ]
+          },
+          {
+            "id": "conversation-001",
+            "text": "conversation",
+            "phonetics": "/ˌkɒnvərˈseɪʃən/",
+            "partOfSpeech": "noun",
+            "definition": "An informal talk",
+            "examples": [
+              "We had a nice conversation.",
+              "Starting a conversation can be easy."
+            ]
+          }
+        ],
+        "level": "A2",
+        "tagValue": "Social",
+        "languageCode": "en",
+        "description": "46 words, 33 words, 14 words, 37 words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "websites-services-001",
+        "title": "Websites and services in English",
+        "words": [
+          {
+            "id": "dating-001",
+            "text": "dating",
+            "phonetics": "/ˈdeɪtɪŋ/",
+            "partOfSpeech": "noun",
+            "definition": "The activity of going out with someone",
+            "examples": [
+              "Dating can be fun with the right person.",
+              "He tried dating apps to meet people."
+            ]
+          },
+          {
+            "id": "shopping-001",
+            "text": "shopping",
+            "phonetics": "/ˈʃɒpɪŋ/",
+            "partOfSpeech": "noun",
+            "definition": "The activity of buying goods",
+            "examples": [
+              "Online shopping is very convenient.",
+              "She loves shopping for clothes."
+            ]
+          },
+          {
+            "id": "social-001",
+            "text": "social",
+            "phonetics": "/ˈsoʊʃəl/",
+            "partOfSpeech": "adjective",
+            "definition": "Relating to society",
+            "examples": [
+              "Social media connects people worldwide.",
+              "He is active on social platforms."
+            ]
+          }
+        ],
+        "level": "B1",
+        "tagValue": "Websites",
+        "languageCode": "en",
+        "description": "20 words, 73 words, 55 words, 59 words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "gold-3000-001",
+        "title": "Gold 3000",
+        "words": [
+          {
+            "id": "essential-001",
+            "text": "essential",
+            "phonetics": "/ɪˈsɛnʃəl/",
+            "partOfSpeech": "adjective",
+            "definition": "Absolutely necessary; extremely important",
+            "examples": [
+              "Water is essential for life.",
+              "It's essential that you arrive on time."
+            ]
+          },
+          {
+            "id": "develop-001",
+            "text": "develop",
+            "phonetics": "/dɪˈvɛləp/",
+            "partOfSpeech": "verb",
+            "definition": "To grow or cause to grow and become more mature, advanced, or elaborate",
+            "examples": [
+              "The company is developing new products.",
+              "Children develop language skills gradually."
+            ]
+          },
+          {
+            "id": "important-001",
+            "text": "important",
+            "phonetics": "/ɪmˈpɔrtənt/",
+            "partOfSpeech": "adjective",
+            "definition": "Of great significance or value",
+            "examples": [
+              "It's important to study regularly.",
+              "This is an important decision."
+            ]
+          },
+          {
+            "id": "system-001",
+            "text": "system",
+            "phonetics": "/ˈsɪstəm/",
+            "partOfSpeech": "noun",
+            "definition": "A set of connected things or parts forming a complex whole",
+            "examples": [
+              "The education system needs reform.",
+              "Our computer system is down."
+            ]
+          },
+          {
+            "id": "process-001",
+            "text": "process",
+            "phonetics": "/ˈprɑsɛs/",
+            "partOfSpeech": "noun",
+            "definition": "A series of actions or steps taken to achieve a particular end",
+            "examples": [
+              "The hiring process takes two weeks.",
+              "Learning is a gradual process."
+            ]
+          },
+          {
+            "id": "provide-001",
+            "text": "provide",
+            "phonetics": "/prəˈvaɪd/",
+            "partOfSpeech": "verb",
+            "definition": "To make available for use; supply",
+            "examples": [
+              "The school provides free meals.",
+              "Can you provide more information?"
+            ]
+          },
+          {
+            "id": "include-001",
+            "text": "include",
+            "phonetics": "/ɪnˈklud/",
+            "partOfSpeech": "verb",
+            "definition": "To comprise or contain as part of a whole",
+            "examples": [
+              "The price includes tax.",
+              "Please include your contact information."
+            ]
+          },
+          {
+            "id": "create-001",
+            "text": "create",
+            "phonetics": "/kriˈeɪt/",
+            "partOfSpeech": "verb",
+            "definition": "To bring something into existence",
+            "examples": [
+              "Artists create beautiful paintings.",
+              "We need to create a new strategy."
+            ]
+          }
+        ],
+        "level": "A2",
+        "tagValue": "Gold 3000",
+        "languageCode": "en",
+        "description": "With these words you will understand up to 85% of English speech and texts",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "youtube-good-bad-001",
+        "title": "20 ways of saying Good and Bad",
+        "words": [
+          {
+            "id": "excellent-001",
+            "text": "excellent",
+            "phonetics": "/ˈɛksələnt/",
+            "partOfSpeech": "adjective",
+            "definition": "Extremely good; outstanding",
+            "examples": [
+              "The food at that restaurant is excellent.",
+              "She did an excellent job on the project."
+            ]
+          },
+          {
+            "id": "outstanding-001",
+            "text": "outstanding",
+            "phonetics": "/aʊtˈstændɪŋ/",
+            "partOfSpeech": "adjective",
+            "definition": "Exceptionally good; remarkable",
+            "examples": [
+              "His performance was outstanding.",
+              "The view from the mountain is outstanding."
+            ]
+          },
+          {
+            "id": "terrible-001",
+            "text": "terrible",
+            "phonetics": "/ˈtɛrəbəl/",
+            "partOfSpeech": "adjective",
+            "definition": "Extremely bad or serious",
+            "examples": [
+              "The weather was terrible yesterday.",
+              "I had a terrible headache."
+            ]
+          },
+          {
+            "id": "awful-001",
+            "text": "awful",
+            "phonetics": "/ˈɔfəl/",
+            "partOfSpeech": "adjective",
+            "definition": "Very bad or unpleasant",
+            "examples": [
+              "The traffic was awful this morning.",
+              "That movie was awful."
+            ]
+          },
+          {
+            "id": "fantastic-001",
+            "text": "fantastic",
+            "phonetics": "/fænˈtæstɪk/",
+            "partOfSpeech": "adjective",
+            "definition": "Extraordinarily good or attractive",
+            "examples": [
+              "We had a fantastic time at the party.",
+              "The concert was fantastic."
+            ]
+          },
+          {
+            "id": "horrible-001",
+            "text": "horrible",
+            "phonetics": "/ˈhɔrəbəl/",
+            "partOfSpeech": "adjective",
+            "definition": "Causing or likely to cause horror; shocking",
+            "examples": [
+              "The accident was horrible.",
+              "I had a horrible nightmare."
+            ]
+          },
+          {
+            "id": "brilliant-001",
+            "text": "brilliant",
+            "phonetics": "/ˈbrɪljənt/",
+            "partOfSpeech": "adjective",
+            "definition": "Exceptionally clever or talented",
+            "examples": [
+              "That's a brilliant idea!",
+              "She's a brilliant student."
+            ]
+          },
+          {
+            "id": "dreadful-001",
+            "text": "dreadful",
+            "phonetics": "/ˈdrɛdfəl/",
+            "partOfSpeech": "adjective",
+            "definition": "Causing or involving great suffering, fear, or unhappiness",
+            "examples": [
+              "The news was dreadful.",
+              "I feel dreadful about what happened."
+            ]
+          },
+          {
+            "id": "wonderful-001",
+            "text": "wonderful",
+            "phonetics": "/ˈwʌndərfəl/",
+            "partOfSpeech": "adjective",
+            "definition": "Inspiring delight, pleasure, or admiration",
+            "examples": [
+              "It was a wonderful experience.",
+              "You look wonderful tonight."
+            ]
+          }
+        ],
+        "level": "B1",
+        "tagValue": "YouTube",
+        "languageCode": "en",
+        "description": "Learn alternative ways to express good and bad",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "british-slang-001",
+        "title": "British Slang",
+        "words": [
+          {
+            "id": "brilliant-002",
+            "text": "brilliant",
+            "phonetics": "/ˈbrɪljənt/",
+            "partOfSpeech": "adjective",
+            "definition": "Excellent; wonderful (British slang)",
+            "examples": [
+              "That's brilliant, mate!",
+              "The weather is brilliant today."
+            ]
+          },
+          {
+            "id": "cheers-001",
+            "text": "cheers",
+            "phonetics": "/tʃɪrz/",
+            "partOfSpeech": "exclamation",
+            "definition": "Thank you; goodbye (British slang)",
+            "examples": [
+              "Cheers for the help!",
+              "Cheers, see you later!"
+            ]
+          },
+          {
+            "id": "mate-001",
+            "text": "mate",
+            "phonetics": "/meɪt/",
+            "partOfSpeech": "noun",
+            "definition": "Friend; buddy (British slang)",
+            "examples": [
+              "How are you, mate?",
+              "He's my best mate."
+            ]
+          },
+          {
+            "id": "bloke-001",
+            "text": "bloke",
+            "phonetics": "/bloʊk/",
+            "partOfSpeech": "noun",
+            "definition": "A man; guy (British slang)",
+            "examples": [
+              "He's a nice bloke.",
+              "Some bloke called for you."
+            ]
+          },
+          {
+            "id": "chuffed-001",
+            "text": "chuffed",
+            "phonetics": "/tʃʌft/",
+            "partOfSpeech": "adjective",
+            "definition": "Very pleased; delighted (British slang)",
+            "examples": [
+              "I'm chuffed to bits!",
+              "She was chuffed with her exam results."
+            ]
+          },
+          {
+            "id": "gobsmacked-001",
+            "text": "gobsmacked",
+            "phonetics": "/ˈgɑbsmækt/",
+            "partOfSpeech": "adjective",
+            "definition": "Utterly astonished; amazed (British slang)",
+            "examples": [
+              "I was gobsmacked by the news.",
+              "The audience was gobsmacked."
+            ]
+          },
+          {
+            "id": "knackered-001",
+            "text": "knackered",
+            "phonetics": "/ˈnækərd/",
+            "partOfSpeech": "adjective",
+            "definition": "Extremely tired; exhausted (British slang)",
+            "examples": [
+              "I'm absolutely knackered.",
+              "After the long walk, we were knackered."
+            ]
+          },
+          {
+            "id": "gutted-001",
+            "text": "gutted",
+            "phonetics": "/ˈgʌtɪd/",
+            "partOfSpeech": "adjective",
+            "definition": "Devastated; extremely disappointed (British slang)",
+            "examples": [
+              "I'm gutted about the result.",
+              "She was gutted when she failed."
+            ]
+          },
+          {
+            "id": "mental-001",
+            "text": "mental",
+            "phonetics": "/ˈmɛntəl/",
+            "partOfSpeech": "adjective",
+            "definition": "Crazy; insane (British slang)",
+            "examples": [
+              "That's mental!",
+              "He's gone completely mental."
+            ]
+          }
+        ],
+        "level": "B2",
+        "tagValue": "British Slang",
+        "languageCode": "en",
+        "description": "Essential British slang expressions",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "words-drive-crazy-001",
+        "title": "Words that drive crazy",
+        "words": [
+          {
+            "id": "literally-001",
+            "text": "literally",
+            "phonetics": "/ˈlɪtərəli/",
+            "partOfSpeech": "adverb",
+            "definition": "In a literal manner or sense; exactly",
+            "examples": [
+              "I literally just arrived.",
+              "The word is often misused in conversation."
+            ]
+          },
+          {
+            "id": "irregardless-001",
+            "text": "irregardless",
+            "phonetics": "/ˌɪrɪˈgɑrdləs/",
+            "partOfSpeech": "adverb",
+            "definition": "Regardless (considered nonstandard)",
+            "examples": [
+              "Irregardless of the weather, we'll go.",
+              "This word drives grammar enthusiasts crazy."
+            ]
+          },
+          {
+            "id": "nauseous-001",
+            "text": "nauseous",
+            "phonetics": "/ˈnɔʃəs/",
+            "partOfSpeech": "adjective",
+            "definition": "Causing nausea; sickening",
+            "examples": [
+              "The smell was nauseous.",
+              "Often confused with 'nauseated'."
+            ]
+          },
+          {
+            "id": "flammable-001",
+            "text": "flammable",
+            "phonetics": "/ˈflæməbəl/",
+            "partOfSpeech": "adjective",
+            "definition": "Easily set on fire; combustible",
+            "examples": [
+              "Gasoline is highly flammable.",
+              "Often confused with 'inflammable'."
+            ]
+          },
+          {
+            "id": "affect-001",
+            "text": "affect",
+            "phonetics": "/əˈfɛkt/",
+            "partOfSpeech": "verb",
+            "definition": "To have an effect on; make a difference to",
+            "examples": [
+              "The weather affects my mood.",
+              "Often confused with 'effect'."
+            ]
+          },
+          {
+            "id": "effect-001",
+            "text": "effect",
+            "phonetics": "/ɪˈfɛkt/",
+            "partOfSpeech": "noun",
+            "definition": "A change which is a result or consequence of an action",
+            "examples": [
+              "The effect of the medicine was immediate.",
+              "Often confused with 'affect'."
+            ]
+          },
+          {
+            "id": "loose-001",
+            "text": "loose",
+            "phonetics": "/lus/",
+            "partOfSpeech": "adjective",
+            "definition": "Not firmly or tightly fixed in place",
+            "examples": [
+              "The screw is loose.",
+              "Often confused with 'lose'."
+            ]
+          },
+          {
+            "id": "lose-001",
+            "text": "lose",
+            "phonetics": "/luz/",
+            "partOfSpeech": "verb",
+            "definition": "Be deprived of or cease to have or retain something",
+            "examples": [
+              "Don't lose your keys.",
+              "Often confused with 'loose'."
+            ]
+          },
+          {
+            "id": "your-001",
+            "text": "your",
+            "phonetics": "/jʊr/",
+            "partOfSpeech": "pronoun",
+            "definition": "Belonging to or associated with the person being addressed",
+            "examples": [
+              "Is this your book?",
+              "Often confused with 'you're'."
+            ]
+          }
+        ],
+        "level": "B2",
+        "tagValue": "Grammar",
+        "languageCode": "en",
+        "description": "Commonly confused and misused words",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "why-english-hard-001",
+        "title": "Why learning English is hard",
+        "words": [
+          {
+            "id": "pronunciation-001",
+            "text": "pronunciation",
+            "phonetics": "/prəˌnʌnsiˈeɪʃən/",
+            "partOfSpeech": "noun",
+            "definition": "The way in which a word is pronounced",
+            "examples": [
+              "English pronunciation can be tricky.",
+              "I'm working on my pronunciation."
+            ]
+          },
+          {
+            "id": "spelling-001",
+            "text": "spelling",
+            "phonetics": "/ˈspɛlɪŋ/",
+            "partOfSpeech": "noun",
+            "definition": "The process of writing or naming the letters of a word",
+            "examples": [
+              "English spelling is inconsistent.",
+              "Check your spelling before submitting."
+            ]
+          },
+          {
+            "id": "homophones-001",
+            "text": "homophones",
+            "phonetics": "/ˈhɑməˌfoʊnz/",
+            "partOfSpeech": "noun",
+            "definition": "Words that sound the same but have different meanings",
+            "examples": [
+              "English has many homophones like 'there' and 'their'.",
+              "Homophones make English confusing."
+            ]
+          },
+          {
+            "id": "irregular-001",
+            "text": "irregular",
+            "phonetics": "/ɪˈrɛgjələr/",
+            "partOfSpeech": "adjective",
+            "definition": "Not following the normal pattern or rules",
+            "examples": [
+              "English has many irregular verbs.",
+              "The spelling is irregular."
+            ]
+          },
+          {
+            "id": "exception-001",
+            "text": "exception",
+            "phonetics": "/ɪkˈsɛpʃən/",
+            "partOfSpeech": "noun",
+            "definition": "A person or thing that is excluded from a general statement",
+            "examples": [
+              "There are many exceptions to English rules.",
+              "This is an exception to the rule."
+            ]
+          },
+          {
+            "id": "confusing-001",
+            "text": "confusing",
+            "phonetics": "/kənˈfjuzɪŋ/",
+            "partOfSpeech": "adjective",
+            "definition": "Bewildering or perplexing",
+            "examples": [
+              "English grammar can be confusing.",
+              "The rules are confusing for learners."
+            ]
+          },
+          {
+            "id": "challenging-001",
+            "text": "challenging",
+            "phonetics": "/ˈtʃæləndʒɪŋ/",
+            "partOfSpeech": "adjective",
+            "definition": "Testing one's abilities; demanding",
+            "examples": [
+              "Learning English is challenging but rewarding.",
+              "This exercise is quite challenging."
+            ]
+          },
+          {
+            "id": "frustrating-001",
+            "text": "frustrating",
+            "phonetics": "/ˈfrʌstreɪtɪŋ/",
+            "partOfSpeech": "adjective",
+            "definition": "Causing annoyance or upset because of inability to change something",
+            "examples": [
+              "It's frustrating when you can't express yourself.",
+              "The irregular verbs are frustrating to memorize."
+            ]
+          },
+          {
+            "id": "complex-001",
+            "text": "complex",
+            "phonetics": "/kəmˈplɛks/",
+            "partOfSpeech": "adjective",
+            "definition": "Consisting of many different and connected parts",
+            "examples": [
+              "English grammar is very complex.",
+              "The language has a complex structure."
+            ]
+          }
+        ],
+        "level": "B1",
+        "tagValue": "Learning",
+        "languageCode": "en",
+        "description": "Words that explain why English is difficult to learn",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "trends-6-001",
+        "title": "Trends #6",
+        "words": [
+          {
+            "id": "viral-001",
+            "text": "viral",
+            "phonetics": "/ˈvaɪrəl/",
+            "partOfSpeech": "adjective",
+            "definition": "Relating to or involving an image, video, piece of information, etc., that is circulated rapidly and widely from one Internet user to another",
+            "examples": [
+              "The video went viral on social media.",
+              "This meme is going viral."
+            ]
+          },
+          {
+            "id": "influencer-001",
+            "text": "influencer",
+            "phonetics": "/ˈɪnfluənsər/",
+            "partOfSpeech": "noun",
+            "definition": "A person with the ability to influence potential buyers of a product or service by promoting or recommending the items on social media",
+            "examples": [
+              "She's a popular fashion influencer.",
+              "The influencer promoted the new product."
+            ]
+          },
+          {
+            "id": "hashtag-001",
+            "text": "hashtag",
+            "phonetics": "/ˈhæʃtæg/",
+            "partOfSpeech": "noun",
+            "definition": "A word or phrase preceded by a hash sign (#), used on social media to identify messages on a specific topic",
+            "examples": [
+              "Use the hashtag #trending for more visibility.",
+              "The hashtag became popular overnight."
+            ]
+          },
+          {
+            "id": "streaming-001",
+            "text": "streaming",
+            "phonetics": "/ˈstrimɪŋ/",
+            "partOfSpeech": "noun",
+            "definition": "The practice of transmitting or receiving data, especially video and audio material, over a computer network as a steady, continuous flow",
+            "examples": [
+              "Streaming services are very popular now.",
+              "I love streaming movies online."
+            ]
+          },
+          {
+            "id": "podcast-001",
+            "text": "podcast",
+            "phonetics": "/ˈpɑdkæst/",
+            "partOfSpeech": "noun",
+            "definition": "A digital audio file made available on the Internet for downloading to a computer or mobile device",
+            "examples": [
+              "I listen to podcasts during my commute.",
+              "This podcast is very informative."
+            ]
+          },
+          {
+            "id": "binge-001",
+            "text": "binge",
+            "phonetics": "/bɪndʒ/",
+            "partOfSpeech": "verb",
+            "definition": "Watch multiple episodes of a television program in rapid succession",
+            "examples": [
+              "I binge-watched the entire series.",
+              "Let's binge this show tonight."
+            ]
+          }
+        ],
+        "level": "B1",
+        "tagValue": "Trends",
+        "languageCode": "en",
+        "description": "Current social media and internet trends",
+        "imageUrl": null,
+        "isPremium": false
+      },
+      {
+        "id": "idioms-ass-001",
+        "title": "Idioms with ass",
+        "words": [
+          {
+            "id": "kick-ass-001",
+            "text": "kick ass",
+            "phonetics": "/kɪk æs/",
+            "partOfSpeech": "phrasal verb",
+            "definition": "To be extremely good or impressive; to defeat decisively",
+            "examples": [
+              "This new movie kicks ass!",
+              "Our team kicked ass in the competition."
+            ]
+          },
+          {
+            "id": "pain-in-the-ass-001",
+            "text": "pain in the ass",
+            "phonetics": "/peɪn ɪn ði æs/",
+            "partOfSpeech": "noun phrase",
+            "definition": "Someone or something that is very annoying or troublesome",
+            "examples": [
+              "This traffic is a real pain in the ass.",
+              "He's such a pain in the ass."
+            ]
+          },
+          {
+            "id": "work-your-ass-off-001",
+            "text": "work your ass off",
+            "phonetics": "/wɜrk jʊr æs ɔf/",
+            "partOfSpeech": "phrasal verb",
+            "definition": "To work extremely hard",
+            "examples": [
+              "I've been working my ass off all week.",
+              "She worked her ass off to get that promotion."
+            ]
+          },
+          {
+            "id": "smart-ass-001",
+            "text": "smart ass",
+            "phonetics": "/smɑrt æs/",
+            "partOfSpeech": "noun",
+            "definition": "A person who is irritatingly clever or sarcastic",
+            "examples": [
+              "Don't be such a smart ass.",
+              "He's always being a smart ass in class."
+            ]
+          },
+          {
+            "id": "dumb-ass-001",
+            "text": "dumb ass",
+            "phonetics": "/dʌm æs/",
+            "partOfSpeech": "noun",
+            "definition": "A stupid or foolish person",
+            "examples": [
+              "Don't be such a dumb ass.",
+              "That was a dumb ass thing to do."
+            ]
+          },
+          {
+            "id": "kick-some-ass-001",
+            "text": "kick some ass",
+            "phonetics": "/kɪk sʌm æs/",
+            "partOfSpeech": "phrasal verb",
+            "definition": "To defeat or overcome someone or something decisively",
+            "examples": [
+              "Let's go kick some ass in this game!",
+              "Time to kick some ass and take names."
+            ]
+          },
+          {
+            "id": "get-off-your-ass-001",
+            "text": "get off your ass",
+            "phonetics": "/gɛt ɔf jʊr æs/",
+            "partOfSpeech": "phrasal verb",
+            "definition": "To stop being lazy and start doing something",
+            "examples": [
+              "Get off your ass and help me!",
+              "It's time to get off your ass and find a job."
+            ]
+          }
+        ],
+        "level": "B2",
+        "tagValue": "Ass Idioms",
+        "languageCode": "en",
+        "description": "Common idioms using the word 'ass'",
+        "imageUrl": null,
+        "isPremium": true
+      }
+    ],
+    "lastUpdated": "2025-09-10T12:55:00Z",
+    "version": "1.0.0"
+  }

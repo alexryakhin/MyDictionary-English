@@ -34,6 +34,10 @@ enum NavigationDestination: Hashable {
     case sharedDictionariesList
     case sharedWordDifficultyStats(word: SharedWord)
 
+    // MARK: - Word Collections destinations
+    case wordCollections
+    case wordCollectionDetails(WordCollection)
+    
     // MARK: - Settings destinations
     case aboutApp
     case tagManagement

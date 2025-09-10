@@ -25,6 +25,7 @@ struct VocabularyListView: View {
     var hasRatedApp: Bool = false
 
     @StateObject private var dictionaryService = DictionaryService.shared
+    @StateObject private var collectionsManager = WordCollectionsManager.shared
     @State private var showRatingBanner = false
     @State private var searchText = ""
     @State private var sortingState: SortingCase = .latest
@@ -43,6 +44,7 @@ struct VocabularyListView: View {
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
+                wordCollectionsSection
                 wordsSection
                 idiomsSection
                 ratingBannerView
@@ -95,6 +97,11 @@ struct VocabularyListView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.wordsListOpened)
             checkAndShowRatingBanner()
+            
+            // Fetch word collections on app launch
+            Task {
+                await collectionsManager.fetchCollections()
+            }
         }
         .onChange(of: wordListViewModel.words.count) {
             checkAndShowRatingBanner()
@@ -102,6 +109,46 @@ struct VocabularyListView: View {
         .onChange(of: searchText) {
             wordListViewModel.searchText = searchText
             idiomListViewModel.searchText = searchText
+        }
+    }
+
+    // MARK: - Word Collections Section
+
+    private var wordCollectionsSection: some View {
+        Group {
+            if collectionsManager.hasCollections {
+                CustomSectionView(
+                    header: "Word Collections",
+                    footer: "\(collectionsManager.collections.count) collections available"
+                ) {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 12) {
+                            ForEach(collectionsManager.collections.prefix(5)) { collection in
+                                WordCollectionPreviewCard(collection: collection)
+                            }
+                            
+                            // View all button
+                            Button {
+                                navigationManager.navigationPath.append(NavigationDestination.wordCollections)
+                            } label: {
+                                VStack {
+                                    Image(systemName: "ellipsis.circle.fill")
+                                        .font(.title)
+                                        .foregroundColor(.blue)
+                                    Text("View All")
+                                        .font(.caption)
+                                        .foregroundColor(.blue)
+                                }
+                                .frame(width: 80, height: 80)
+                                .background(Color.blue.opacity(0.1))
+                                .cornerRadius(12)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                        .padding(.horizontal, 16)
+                    }
+                }
+            }
         }
     }
 

@@ -125,6 +125,10 @@ struct MainTabView: View {
             SharedWordDetailsView(word: word, dictionaryId: dictionaryId)
         case .sharedWordDifficultyStats(let word):
             SharedWordDifficultyStatsView(word: word)
+        case .wordCollections:
+            WordCollectionsView()
+        case .wordCollectionDetails(let collection):
+            WordCollectionDetailsView(collection: collection)
         }
     }
 }
