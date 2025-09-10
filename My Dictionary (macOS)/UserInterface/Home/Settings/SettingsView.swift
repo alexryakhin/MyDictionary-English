@@ -390,7 +390,7 @@ struct SettingsView: View {
                 .padding(vertical: 12, horizontal: 16)
                 .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
 
-                if !subscriptionService.isProUser && GlobalConstant.isEnglishLanguage {
+                if ttsPlayer.selectedTTSProvider == .google && GlobalConstant.isEnglishLanguage {
                     HStack(spacing: 8) {
                         Text(Loc.Settings.selectAccent)
                             .frame(maxWidth: .infinity, alignment: .leading)

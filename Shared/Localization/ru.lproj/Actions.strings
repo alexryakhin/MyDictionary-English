@@ -20,9 +20,9 @@
 "create" = "Создать";
 "manage" = "Управлять";
 "select" = "Выбрать";
-"select_word" = "Выбрать слово";
-"select_idiom" = "Выбрать выражение";
-"select_quiz" = "Выбрать викторину";
+"select_word" = "Выберите слово";
+"select_idiom" = "Выберите выражение";
+"select_quiz" = "Выберите викторину";
 "sign_out" = "Выйти";
 "sign_in" = "Войти";
 "upgrade" = "Обновить";

@@ -19,6 +19,7 @@ struct MainTabView: View {
     @StateObject var authenticationService: AuthenticationService = .shared
     @StateObject var subscriptionService: SubscriptionService = .shared
     @StateObject var sessionManager: SessionManager = .shared
+    @StateObject var keyboardManager: KeyboardManager = .shared
 
     var body: some View {
         NavigationStack(path: $navigationManager.navigationPath) {
@@ -76,6 +77,7 @@ struct MainTabView: View {
                 HapticManager.shared.triggerImpact(style: .soft)
             }
         )
+        .hidden(keyboardManager.isKeyboardPresented)
     }
     
     @ViewBuilder
