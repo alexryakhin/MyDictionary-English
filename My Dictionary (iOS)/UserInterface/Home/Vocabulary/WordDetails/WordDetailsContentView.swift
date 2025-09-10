@@ -224,14 +224,22 @@ struct WordDetailsContentView: View {
 
     @ViewBuilder
     private var languageSectionView: some View {
-        if word.shouldShowLanguageLabel {
-            CustomSectionView(header: Loc.Words.language, headerFontStyle: .stealth) {
-                HStack {
-                    Text(word.languageDisplayName)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+        CustomSectionView(header: Loc.Words.language, headerFontStyle: .stealth) {
+            HStack {
+                Text(word.languageDisplayName)
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
-                    if let languageCode = word.languageCode {
-                        TagView(text: languageCode.uppercased(), color: .blue, size: .mini)
+                if let languageCode = word.languageCode {
+                    TagView(text: languageCode.uppercased(), color: .blue, size: .mini)
+                }
+            }
+        } trailingContent: {
+            HeaderButtonMenu(Loc.Actions.edit, size: .small) {
+                ForEach(InputLanguage.casesWithoutAuto, id: \.self) { lang in
+                    Button {
+                        updateLanguage(lang)
+                    } label: {
+                        Text(lang.displayName)
                     }
                 }
             }
@@ -385,6 +393,12 @@ struct WordDetailsContentView: View {
         word.partOfSpeech = value.rawValue
         saveContext()
         AnalyticsService.shared.logEvent(.partOfSpeechChanged)
+    }
+
+    private func updateLanguage(_ value: InputLanguage) {
+        word.languageCode = value.rawValue
+        saveContext()
+        AnalyticsService.shared.logEvent(.wordLanguageCodeChanged)
     }
 
     private func showDeleteAlert() {

@@ -51,7 +51,7 @@ struct FillInTheBlankQuizContentView: View {
                 dismiss()
             }
         } else if viewModel.items.isNotEmpty && !viewModel.isQuizComplete && viewModel.aiStory != nil && viewModel.loadingStatus == .ready {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
                     headerView
 

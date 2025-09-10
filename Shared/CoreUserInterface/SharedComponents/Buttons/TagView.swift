@@ -86,6 +86,7 @@ struct TagView: View {
         .foregroundStyle(foregroundStyle.gradient)
         .background(backgroundStyle.gradient)
         .clipShape(Capsule())
+        .glassEffectIfAvailable(.tint(backgroundStyle), in: Capsule())
     }
 
     var foregroundStyle: Color {

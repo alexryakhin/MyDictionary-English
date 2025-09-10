@@ -31,7 +31,7 @@ struct SharedWord: Codable, Hashable {
     var partOfSpeech: String
     var phonetic: String?
     var notes: String?
-    let languageCode: String
+    var languageCode: String
     let timestamp: Date
     let updatedAt: Date
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuizzesListView: View {
-        
+
     @StateObject private var viewModel = QuizzesListViewModel()
     @StateObject private var sideBarManager = SideBarManager.shared
     @AppStorage(UDKeys.practiceItemCount) private var practiceItemCount: Int = 10
@@ -17,7 +17,7 @@ struct QuizzesListView: View {
         ZStack {
             Color.systemGroupedBackground
                 .ignoresSafeArea()
-            
+
             if viewModel.hasEnoughItems {
                 quizzesList
             } else {
@@ -50,7 +50,6 @@ struct QuizzesListView: View {
                 }
                 .help(Loc.Quizzes.selectDictionary)
                 .hideIfOffline()
-                
             }
         }
         .onAppear {
@@ -58,9 +57,9 @@ struct QuizzesListView: View {
             QuizItemsProvider.shared.refreshAvailableDictionaries()
         }
     }
-    
+
     private var quizzesList: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(spacing: 12) {
                 // Quiz Types Section
                 CustomSectionView(
@@ -102,7 +101,7 @@ struct QuizzesListView: View {
                     }
                     .padding(.bottom, 12)
                 }
-                
+
                 // Practice Settings Section
                 if viewModel.items.count >= 20 {
                     CustomSectionView(
@@ -124,9 +123,9 @@ struct QuizzesListView: View {
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                                 }
-                                
+
                                 Spacer()
-                                
+
                                 Toggle("", isOn: $viewModel.showingHardItemsOnly)
                                     .labelsHidden()
                                     .disabled(!viewModel.hasHardItems)
@@ -135,7 +134,7 @@ struct QuizzesListView: View {
                                 Color.tertiarySystemGroupedBackground,
                                 cornerRadius: 16
                             )
-                            
+
                             // Item Count Slider
                             VStack(alignment: .leading, spacing: 8) {
                                 let availableItems = viewModel.showingHardItemsOnly ? viewModel.filteredItems : viewModel.items
@@ -176,16 +175,16 @@ struct QuizzesListView: View {
             .padding(12)
         }
     }
-    
+
     private var insufficientItemsPlaceholder: some View {
         VStack(spacing: 24) {
             Spacer()
-            
+
             VStack(spacing: 16) {
                 Image(systemName: "brain.head.profile")
                     .font(.system(size: 60))
                     .foregroundStyle(.accent.gradient)
-                
+
                 if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
                     Text(Loc.Quizzes.sharedDictionaryNeedsMoreWords)
                         .font(.title2)
@@ -201,7 +200,7 @@ struct QuizzesListView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                 }
-                
+
                 Text(viewModel.insufficientItemsMessage)
                     .font(.body)
                     .foregroundStyle(.secondary)
@@ -209,7 +208,7 @@ struct QuizzesListView: View {
                     .lineSpacing(4)
             }
             .padding(.horizontal, 32)
-            
+
             VStack(spacing: 12) {
                 if case .sharedDictionary(let dictionary) = viewModel.selectedDictionary {
                     // For shared dictionaries, show different actions
@@ -244,7 +243,7 @@ struct QuizzesListView: View {
                 }
             }
             .padding(.horizontal, 32)
-            
+
             Spacer()
         }
     }

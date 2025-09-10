@@ -68,24 +68,14 @@ struct MainTabView: View {
 
     @ViewBuilder
     private var tabBarView: some View {
-        let tabCases = TabBarItem.allCases
-        HStack {
-            ForEach(tabCases, id: \.self) { tab in
-                TabButton(
-                    title: tab.title,
-                    image: tab.image,
-                    imageSelected: tab.selectedImage,
-                    isSelected: tabManager.selectedTab == tab
-                ) {
-                    tabManager.switchToTab(tab)
-                    HapticManager.shared.triggerImpact(style: .soft)
-                }
+        GlassTabBar(
+            activeTab: Binding {
+                tabManager.selectedTab
+            } set: { newTab in
+                tabManager.switchToTab(newTab)
+                HapticManager.shared.triggerImpact(style: .soft)
             }
-        }
-        .padding(vertical: 12, horizontal: 16)
-        .clippedWithBackgroundMaterial(.ultraThinMaterial, cornerRadius: 32)
-        .shadow(radius: 2)
-        .padding(8)
+        )
     }
     
     @ViewBuilder

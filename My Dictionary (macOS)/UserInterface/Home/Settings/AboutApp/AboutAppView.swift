@@ -9,7 +9,7 @@ struct AboutAppView: View {
     @StateObject var viewModel = AboutAppViewModel()
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(spacing: 12) {
                 // MARK: - About
                 CustomSectionView(header: Loc.Settings.aboutApp) {

@@ -194,3 +194,50 @@ func openURL(_ url: URL) {
     NSWorkspace.shared.open(url)
     #endif
 }
+
+enum GlassEffect {
+    case regular
+    case clear
+    case identity
+    case tint(Color?)
+    case interactive(Bool)
+
+    @available(macOS 26.0, *)
+    @available(iOS 26.0, *)
+    var glass: Glass {
+        switch self {
+        case .regular:
+            return .regular
+        case .clear:
+            return .clear
+        case .identity:
+            return .identity
+        case .tint(let color):
+            return Glass.clear.tint(color)
+        case let .interactive(isEnabled):
+            return Glass.clear.interactive(isEnabled)
+        }
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func glassEffectIfAvailable(
+        _ glass: GlassEffect = .clear,
+        in shape: some Shape = RoundedRectangle(cornerRadius: 16)
+    ) -> some View {
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self.glassEffect(glass.glass, in: shape)
+        } else {
+            self
+        }
+    }
+}
+
+var isGlassAvailable: Bool {
+    if #available(iOS 26.0, macOS 26.0, *) {
+        return true
+    } else {
+        return false
+    }
+}

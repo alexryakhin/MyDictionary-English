@@ -51,4 +51,8 @@ enum TabBarItem: CaseIterable {
             return "gearshape.fill"
         }
     }
+
+    var index: Int {
+        Self.allCases.firstIndex(of: self) ?? 0
+    }
 }

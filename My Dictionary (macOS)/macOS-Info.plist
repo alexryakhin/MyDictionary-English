@@ -13,6 +13,8 @@
 	<string>My Dictionary</string>
 	<key>CFBundleName</key>
 	<string>My Dictionary</string>
+	<key>UIDesignRequiresCompatibility</key>
+	<true/>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

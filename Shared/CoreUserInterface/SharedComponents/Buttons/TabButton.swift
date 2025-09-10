@@ -56,6 +56,7 @@ struct TabButton: View {
             .frame(maxWidth: .infinity)
             .contentShape(Rectangle())
             .foregroundStyle(foregroundStyle)
+            .padding(vertical: 12, horizontal: 16)
         }
         .buttonStyle(.plain)
         .disabled(isDisabled)

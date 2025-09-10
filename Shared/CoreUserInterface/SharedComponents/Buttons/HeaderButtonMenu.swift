@@ -94,8 +94,9 @@ struct HeaderButtonMenu<Content: View>: View {
             .padding(.vertical, size.vPadding)
             .foregroundStyle(foregroundStyle.gradient)
             .background(backgroundStyle.gradient)
+            .glassEffectIfAvailable(.tint(backgroundStyle), in: Capsule())
+            .clipShape(Capsule())
         }
-        .clipShape(Capsule())
         .buttonStyle(.plain)
         .animation(.easeInOut, value: style)
     }

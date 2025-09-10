@@ -99,7 +99,8 @@ struct SideBarView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)
-                        .clippedWithBackgroundMaterial(cornerRadius: 12)
+                        .clippedWithBackgroundMaterial(cornerRadius: 12, showShadow: true)
+                        .glassEffectIfAvailable(in: RoundedRectangle(cornerRadius: 12))
                 }
                 .buttonStyle(.plain)
 
@@ -110,7 +111,8 @@ struct SideBarView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)
-                        .clippedWithBackgroundMaterial(cornerRadius: 12)
+                        .clippedWithBackgroundMaterial(cornerRadius: 12, showShadow: true)
+                        .glassEffectIfAvailable(in: RoundedRectangle(cornerRadius: 12))
                 }
                 .buttonStyle(.plain)
             }

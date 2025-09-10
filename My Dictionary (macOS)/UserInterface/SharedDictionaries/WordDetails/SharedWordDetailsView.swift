@@ -115,7 +115,7 @@ struct SharedWordDetailsView: View {
                 wordId: word.id
             ) { updatedWord in
                 guard let updatedWord else { return }
-                
+
                 // Update the word state on the main thread
                 DispatchQueue.main.async {
                     self.word = updatedWord
@@ -187,7 +187,7 @@ struct SharedWordDetailsView: View {
         let meanings = word.meanings
         let showLimited = meanings.count > 3
         let displayMeanings = showLimited ? Array(meanings.prefix(3)) : meanings
-        
+
         return CustomSectionView(
             header: meanings.count > 1 ? "\(Loc.Words.meanings) (\(meanings.count))" : Loc.Words.meaning,
             headerFontStyle: .stealth,
@@ -213,7 +213,7 @@ struct SharedWordDetailsView: View {
                         meaningRowView(meaning: meaning, index: index + 1)
                     }
                 }
-                
+
                 if showLimited {
                     HeaderButton(
                         "\(Loc.Words.showAllMeanings) (\(meanings.count))",
@@ -284,17 +284,25 @@ struct SharedWordDetailsView: View {
 
     @ViewBuilder
     private var languageSectionView: some View {
-        if word.shouldShowLanguageLabel {
-            CustomSectionView(header: Loc.Words.language, headerFontStyle: .stealth) {
-                HStack {
-                    Text(word.languageDisplayName)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+        CustomSectionView(header: Loc.Words.language, headerFontStyle: .stealth) {
+            HStack {
+                Text(word.languageDisplayName)
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
-                    TagView(
-                        text: word.languageCode.uppercased(),
-                        color: .blue,
-                        size: .mini
-                    )
+                TagView(
+                    text: word.languageCode.uppercased(),
+                    color: .blue,
+                    size: .mini
+                )
+            }
+        } trailingContent: {
+            HeaderButtonMenu(Loc.Actions.edit, size: .small) {
+                ForEach(InputLanguage.casesWithoutAuto, id: \.self) { lang in
+                    Button {
+                        updateLanguage(lang)
+                    } label: {
+                        Text(lang.displayName)
+                    }
                 }
             }
         }
@@ -306,10 +314,10 @@ struct SharedWordDetailsView: View {
                 Text("\(index).")
                     .font(.caption)
                     .foregroundColor(.secondary)
-                
+
                 Text(meaning.definition)
                     .fontWeight(.semibold)
-                
+
                 Spacer()
 
                 Menu {
@@ -322,7 +330,7 @@ struct SharedWordDetailsView: View {
                         Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                     }
                     .disabled(ttsPlayer.isPlaying)
-                    
+
                     if canEdit {
                         Button {
                             meaningToEdit = meaning
@@ -330,7 +338,7 @@ struct SharedWordDetailsView: View {
                         } label: {
                             Label(Loc.Actions.edit, systemImage: "pencil")
                         }
-                        
+
                         Section {
                             Button(role: .destructive) {
                                 deleteMeaning(meaning)
@@ -349,7 +357,7 @@ struct SharedWordDetailsView: View {
                 }
                 .buttonStyle(.plain)
             }
-            
+
             // Show examples for this meaning
             if !meaning.examples.isEmpty {
                 ForEach(meaning.examples, id: \.self) { example in
@@ -489,7 +497,7 @@ struct SharedWordDetailsView: View {
             await saveWordToFirebase(updatedWord)
         }
     }
-    
+
     private func saveNotes() {
         Task {
             var updatedWord = word
@@ -537,8 +545,15 @@ struct SharedWordDetailsView: View {
         }
     }
 
+    private func updateLanguage(_ value: InputLanguage) {
+        Task {
+            var updatedWord = word
+            updatedWord.languageCode = value.rawValue
+            await saveWordToFirebase(updatedWord)
+            AnalyticsService.shared.logEvent(.wordLanguageCodeChanged)
+        }
+    }
 
-    
     private func addNewMeaning() {
         // Create a new meaning and add it to the word
         let newMeaning = SharedWordMeaning(
@@ -546,10 +561,10 @@ struct SharedWordDetailsView: View {
             examples: [],
             order: word.meanings.count
         )
-        
+
         var updatedWord = word
         updatedWord.meanings.append(newMeaning)
-        
+
         Task {
             await saveWordToFirebase(updatedWord)
         }
@@ -604,7 +619,7 @@ struct SharedWordDetailsView: View {
             )
         )
     }
-    
+
     private func deleteMeaning(_ meaning: SharedWordMeaning) {
         AlertCenter.shared.showAlert(
             with: .deleteConfirmation(

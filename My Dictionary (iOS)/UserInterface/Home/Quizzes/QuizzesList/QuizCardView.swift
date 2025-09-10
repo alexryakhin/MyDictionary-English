@@ -22,7 +22,8 @@ struct QuizCardView: View {
                     .font(.title2)
                     .foregroundStyle(.white)
             }
-            
+            .glassEffectIfAvailable(in: RoundedRectangle(cornerRadius: 12))
+
             VStack(alignment: .leading, spacing: 4) {
                 Text(quiz.title)
                     .font(.headline)
@@ -41,5 +42,6 @@ struct QuizCardView: View {
         }
         .padding(.vertical, 4)
         .multilineTextAlignment(.leading)
+        .contentShape(.rect)
     }
 }

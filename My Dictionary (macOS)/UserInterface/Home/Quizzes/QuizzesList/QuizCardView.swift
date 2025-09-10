@@ -17,12 +17,13 @@ struct QuizCardView: View {
                 RoundedRectangle(cornerRadius: 12)
                     .fill(quiz.color.gradient)
                     .frame(width: 50, height: 50)
-                
+
                 Image(systemName: quiz.iconName)
                     .font(.title2)
                     .foregroundStyle(.white)
             }
-            
+            .glassEffectIfAvailable(in: RoundedRectangle(cornerRadius: 12))
+
             VStack(alignment: .leading, spacing: 4) {
                 Text(quiz.title)
                     .font(.headline)
@@ -41,5 +42,6 @@ struct QuizCardView: View {
         }
         .padding(.vertical, 4)
         .multilineTextAlignment(.leading)
+        .contentShape(.rect)
     }
 }

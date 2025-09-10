@@ -93,6 +93,6 @@ enum InputLanguage: String, CaseIterable {
     }
 
     static var casesWithoutAuto: [InputLanguage] {
-        Self.allCases.filter { $0 != .auto }
+        Self.allCases.filter { $0 != .auto }.sorted { $0.displayName < $1.displayName }
     }
 }

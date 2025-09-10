@@ -16,7 +16,7 @@ struct ScrollViewWithReader<Content: View>: View {
     init(
         scrollOffset: Binding<CGFloat>,
         axis: Axis.Set = .vertical,
-        showsIndicators: Bool = true,
+        showsIndicators: Bool = false,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self._scrollOffset = scrollOffset

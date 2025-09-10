@@ -52,7 +52,7 @@ struct SentenceWritingQuizContentView: View {
                 dismiss()
             }
         } else if !viewModel.isQuizComplete {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
                     headerView
 

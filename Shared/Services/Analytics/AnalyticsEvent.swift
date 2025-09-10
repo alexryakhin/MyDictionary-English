@@ -130,6 +130,7 @@ enum AnalyticsEvent: String {
     case instagramButtonTapped
     case exportToCSVButtonTapped
     case importFromCSVButtonTapped
+    case wordLanguageCodeChanged
     case languageAccentChanged
     case aboutAppTapped
     case requestReviewTapped
