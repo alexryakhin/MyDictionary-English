@@ -20,7 +20,7 @@ struct WordCollectionsView: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 16) {
+            VStack(spacing: 16) {
                 if collectionsManager.isLoading {
                     loadingView
                 } else if collectionsManager.hasCollections {
@@ -35,9 +35,11 @@ struct WordCollectionsView: View {
                     .frame(maxWidth: 550, alignment: .center)
             }
         }
+        .groupedBackground()
         .navigation(
             title: "Word Catalog",
-            mode: .large,
+            mode: .inline,
+            showsBackButton: true,
             trailingContent: {
                 if !collectionsManager.isLoading {
                     HeaderButton(icon: "arrow.clockwise") {
@@ -144,11 +146,13 @@ struct WordCollectionsView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     ForEach(collections) { collection in
-                        FeaturedCollectionCard(collection: collection)
+                        WordCollectionPreviewCard(collection: collection)
                     }
                 }
-                .padding(.horizontal, 16)
+                .scrollTargetLayout()
             }
+            .scrollTargetBehavior(.viewAligned)
+            .scrollClipDisabled()
         }
     }
     
@@ -160,13 +164,14 @@ struct WordCollectionsView: View {
             footer: "\(collections.count) collections"
         ) {
             LazyVGrid(columns: [
-                GridItem(.flexible()),
-                GridItem(.flexible())
+                GridItem(.flexible(), spacing: 12),
+                GridItem(.flexible(), spacing: 12)
             ], spacing: 12) {
                 ForEach(collections) { collection in
-                    CollectionCard(collection: collection)
+                    WordCollectionGridPreviewCard(collection: collection)
                 }
             }
+            .padding(.bottom, 12)
         }
     }
     
@@ -206,121 +211,6 @@ struct WordCollectionsView: View {
         }
         
         return collections
-    }
-}
-
-// MARK: - Collection Card Components
-
-struct CollectionCard: View {
-    let collection: WordCollection
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            // Collection image placeholder
-            RoundedRectangle(cornerRadius: 8)
-                .fill(Color.gray.opacity(0.2))
-                .frame(height: 80)
-                .overlay(
-                    Image(systemName: "book.closed.fill")
-                        .font(.title2)
-                        .foregroundColor(.secondary)
-                )
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(collection.title)
-                    .font(.headline)
-                    .lineLimit(2)
-                
-                Text(collection.wordCountText)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                
-                HStack {
-                    Text(collection.level.displayName)
-                        .font(.caption2)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
-                        .background(levelColor(for: collection.level).opacity(0.2))
-                        .foregroundColor(levelColor(for: collection.level))
-                        .cornerRadius(4)
-                    
-                    Spacer()
-                    
-                    if collection.isPremium {
-                        Image(systemName: "crown.fill")
-                            .font(.caption2)
-                            .foregroundColor(.yellow)
-                    }
-                }
-            }
-        }
-        .padding(12)
-        .background(Color(.systemBackground))
-        .cornerRadius(12)
-        .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
-    }
-    
-    private func levelColor(for level: WordLevel) -> Color {
-        switch level {
-        case .a1, .a2:
-            return .green
-        case .b1, .b2:
-            return .orange
-        case .c1, .c2:
-            return .red
-        }
-    }
-}
-
-struct FeaturedCollectionCard: View {
-    let collection: WordCollection
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Featured image
-            RoundedRectangle(cornerRadius: 12)
-                .fill(
-                    LinearGradient(
-                        colors: [.blue.opacity(0.8), .purple.opacity(0.8)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .frame(width: 200, height: 120)
-                .overlay(
-                    VStack {
-                        Image(systemName: "star.fill")
-                            .font(.title)
-                            .foregroundColor(.white)
-                        Text(collection.title)
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                    }
-                )
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(collection.title)
-                    .font(.headline)
-                    .lineLimit(2)
-                
-                if let description = collection.description {
-                    Text(description)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .lineLimit(3)
-                }
-                
-                Text(collection.wordCountText)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
-            .frame(width: 200, alignment: .leading)
-        }
-        .padding(12)
-        .background(Color(.systemBackground))
-        .cornerRadius(16)
-        .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
     }
 }
 

@@ -57,8 +57,8 @@ final class WordCollectionsManager: ObservableObject {
             var allCollections: [WordCollection] = []
             
             for key in WordCollectionKeys.allCases {
-                if let jsonString = remoteConfig.configValue(forKey: key.rawValue).stringValue,
-                   !jsonString.isEmpty {
+                let jsonString = remoteConfig.configValue(forKey: key.rawValue).stringValue
+                if !jsonString.isEmpty {
                     let collections = try parseCollections(from: jsonString, languageCode: key.languageCode)
                     allCollections.append(contentsOf: collections)
                 }
@@ -131,8 +131,14 @@ final class WordCollectionsManager: ObservableObject {
             throw WordCollectionsError.invalidJSONData
         }
         
-        let response = try JSONDecoder().decode(WordCollectionsResponse.self, from: data)
-        return response.collections
+        do {
+            let response = try JSONDecoder().decode(WordCollectionsResponse.self, from: data)
+            return response.collections
+        } catch {
+            print("❌ [WordCollectionsManager] JSON parsing error: \(error)")
+            print("❌ [WordCollectionsManager] JSON string preview: \(String(jsonString.prefix(200)))...")
+            throw WordCollectionsError.parsingError
+        }
     }
     
     private func loadCachedCollections() {

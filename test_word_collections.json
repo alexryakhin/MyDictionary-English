@@ -1,0 +1,29 @@
+{
+  "collections": [
+    {
+      "id": "test-collection-001",
+      "title": "Test Collection",
+      "words": [
+        {
+          "id": "test-word-001",
+          "text": "test",
+          "phonetics": "/tɛst/",
+          "partOfSpeech": "noun",
+          "definition": "A procedure intended to establish the quality, performance, or reliability of something",
+          "examples": [
+            "This is a test example.",
+            "The test was successful."
+          ]
+        }
+      ],
+      "level": "A1",
+      "tagValue": "Test",
+      "languageCode": "en",
+      "description": "A test collection for validation",
+      "imageUrl": null,
+      "isPremium": false
+    }
+  ],
+  "lastUpdated": "2025-01-27T10:00:00Z",
+  "version": "1.0.0"
+}

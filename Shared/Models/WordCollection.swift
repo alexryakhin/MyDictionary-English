@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// Represents a single word within a word collection
 struct WordCollectionItem: Codable, Identifiable, Hashable {
@@ -95,30 +96,21 @@ enum WordLevel: String, Codable, CaseIterable {
     /// Returns a description for the level
     var description: String {
         switch self {
-        case .a1:
-            return "Beginner"
-        case .a2:
-            return "Elementary"
-        case .b1:
-            return "Intermediate"
-        case .b2:
-            return "Upper Intermediate"
-        case .c1:
-            return "Advanced"
-        case .c2:
-            return "Proficiency"
+        case .a1: "Beginner"
+        case .a2: "Elementary"
+        case .b1: "Intermediate"
+        case .b2: "Upper Intermediate"
+        case .c1: "Advanced"
+        case .c2: "Proficiency"
         }
     }
     
     /// Returns the color associated with the level
-    var color: String {
+    var color: Color {
         switch self {
-        case .a1, .a2:
-            return "green"
-        case .b1, .b2:
-            return "orange"
-        case .c1, .c2:
-            return "red"
+        case .a1, .a2: .green
+        case .b1, .b2: .orange
+        case .c1, .c2: .red
         }
     }
 }
@@ -126,12 +118,12 @@ enum WordLevel: String, Codable, CaseIterable {
 /// Container for multiple word collections
 struct WordCollectionsResponse: Codable {
     let collections: [WordCollection]
-    let lastUpdated: Date?
+    let lastUpdated: String?
     let version: String?
     
     init(
         collections: [WordCollection],
-        lastUpdated: Date? = nil,
+        lastUpdated: String? = nil,
         version: String? = nil
     ) {
         self.collections = collections

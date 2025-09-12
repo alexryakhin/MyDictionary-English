@@ -26,6 +26,7 @@ struct VocabularyListView: View {
 
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var collectionsManager = WordCollectionsManager.shared
+    @StateObject private var navigationManager = NavigationManager.shared
     @State private var showRatingBanner = false
     @State private var searchText = ""
     @State private var sortingState: SortingCase = .latest
@@ -126,26 +127,15 @@ struct VocabularyListView: View {
                             ForEach(collectionsManager.collections.prefix(5)) { collection in
                                 WordCollectionPreviewCard(collection: collection)
                             }
-                            
-                            // View all button
-                            Button {
-                                navigationManager.navigationPath.append(NavigationDestination.wordCollections)
-                            } label: {
-                                VStack {
-                                    Image(systemName: "ellipsis.circle.fill")
-                                        .font(.title)
-                                        .foregroundColor(.blue)
-                                    Text("View All")
-                                        .font(.caption)
-                                        .foregroundColor(.blue)
-                                }
-                                .frame(width: 80, height: 80)
-                                .background(Color.blue.opacity(0.1))
-                                .cornerRadius(12)
-                            }
-                            .buttonStyle(.plain)
                         }
-                        .padding(.horizontal, 16)
+                        .scrollTargetLayout()
+                    }
+                    .scrollTargetBehavior(.viewAligned)
+                    .scrollClipDisabled()
+                    .padding(.bottom, 12)
+                } trailingContent: {
+                    HeaderButton(Loc.Actions.viewAll, size: .small, style: .borderedProminent) {
+                        navigationManager.navigationPath.append(NavigationDestination.wordCollections)
                     }
                 }
             }

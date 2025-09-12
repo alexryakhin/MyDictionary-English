@@ -1,63 +1,524 @@
 {
     "collections": [
       {
-        "id": "icet-001",
-        "title": "ICET",
-        "words": [
-          {
-            "id": "engineer-001",
-            "text": "engineer",
-            "phonetics": "/ˌɛndʒɪˈnɪər/",
-            "partOfSpeech": "noun",
-            "definition": "A person who designs or builds machines, engines, or structures",
-            "examples": [
-              "The engineer fixed the broken bridge.",
-              "She works as an engineer in a tech firm."
-            ]
-          },
-          {
-            "id": "team-001",
-            "text": "team",
-            "phonetics": "/tim/",
-            "partOfSpeech": "noun",
-            "definition": "A group of people working together",
-            "examples": [
-              "Our team won the competition.",
-              "He leads a team of engineers."
-            ]
-          },
-          {
-            "id": "contest-001",
-            "text": "contest",
-            "phonetics": "/ˈkɒntɛst/",
-            "partOfSpeech": "noun",
-            "definition": "An event where people compete",
-            "examples": [
-              "The contest was held last weekend.",
-              "She entered a contest for young engineers."
-            ]
-          }
-        ],
-        "level": "B1",
-        "tagValue": "ICET",
-        "languageCode": "en",
-        "description": "International Contest of Children's Engineering Teams",
-        "imageUrl": null,
-        "isPremium": false
-      },
-      {
         "id": "top-100-verbs-001",
         "title": "Top 100 Verbs",
         "words": [
           {
-            "id": "run-001",
-            "text": "run",
-            "phonetics": "/rʌn/",
+            "id": "be-001",
+            "text": "be",
+            "phonetics": "/bi/",
             "partOfSpeech": "verb",
-            "definition": "To move at a speed faster than walking",
+            "definition": "To exist; to have a specific quality or identity",
             "examples": [
-              "He runs every morning.",
-              "The dog ran across the park."
+              "I am happy.",
+              "She is a teacher."
+            ]
+          },
+          {
+            "id": "have-001",
+            "text": "have",
+            "phonetics": "/hæv/",
+            "partOfSpeech": "verb",
+            "definition": "To possess or own something",
+            "examples": [
+              "I have a car.",
+              "She has three children."
+            ]
+          },
+          {
+            "id": "do-001",
+            "text": "do",
+            "phonetics": "/du/",
+            "partOfSpeech": "verb",
+            "definition": "To perform or carry out an action",
+            "examples": [
+              "What do you do for work?",
+              "I do my homework every day."
+            ]
+          },
+          {
+            "id": "say-001",
+            "text": "say",
+            "phonetics": "/seɪ/",
+            "partOfSpeech": "verb",
+            "definition": "To express something in words",
+            "examples": [
+              "What did you say?",
+              "She says hello to everyone."
+            ]
+          },
+          {
+            "id": "get-001",
+            "text": "get",
+            "phonetics": "/gɛt/",
+            "partOfSpeech": "verb",
+            "definition": "To obtain or receive something",
+            "examples": [
+              "I need to get some milk.",
+              "She got a promotion at work."
+            ]
+          },
+          {
+            "id": "make-001",
+            "text": "make",
+            "phonetics": "/meɪk/",
+            "partOfSpeech": "verb",
+            "definition": "To create or produce something",
+            "examples": [
+              "I make coffee every morning.",
+              "She makes beautiful paintings."
+            ]
+          },
+          {
+            "id": "go-001",
+            "text": "go",
+            "phonetics": "/goʊ/",
+            "partOfSpeech": "verb",
+            "definition": "To move from one place to another",
+            "examples": [
+              "I go to work by bus.",
+              "Let's go to the movies."
+            ]
+          },
+          {
+            "id": "know-001",
+            "text": "know",
+            "phonetics": "/noʊ/",
+            "partOfSpeech": "verb",
+            "definition": "To have information or understanding about something",
+            "examples": [
+              "I know the answer.",
+              "Do you know where she lives?"
+            ]
+          },
+          {
+            "id": "take-001",
+            "text": "take",
+            "phonetics": "/teɪk/",
+            "partOfSpeech": "verb",
+            "definition": "To get hold of something and move it",
+            "examples": [
+              "Take your umbrella with you.",
+              "I'll take the bus to work."
+            ]
+          },
+          {
+            "id": "see-001",
+            "text": "see",
+            "phonetics": "/si/",
+            "partOfSpeech": "verb",
+            "definition": "To perceive with the eyes",
+            "examples": [
+              "I can see the mountains.",
+              "Did you see that movie?"
+            ]
+          },
+          {
+            "id": "come-001",
+            "text": "come",
+            "phonetics": "/kʌm/",
+            "partOfSpeech": "verb",
+            "definition": "To move toward or arrive at a place",
+            "examples": [
+              "Come here please.",
+              "She comes to visit every week."
+            ]
+          },
+          {
+            "id": "think-001",
+            "text": "think",
+            "phonetics": "/θɪŋk/",
+            "partOfSpeech": "verb",
+            "definition": "To have a particular opinion or belief",
+            "examples": [
+              "I think it's a good idea.",
+              "What do you think about this?"
+            ]
+          },
+          {
+            "id": "look-001",
+            "text": "look",
+            "phonetics": "/lʊk/",
+            "partOfSpeech": "verb",
+            "definition": "To direct one's gaze toward someone or something",
+            "examples": [
+              "Look at that beautiful sunset.",
+              "She looks tired today."
+            ]
+          },
+          {
+            "id": "want-001",
+            "text": "want",
+            "phonetics": "/wɑnt/",
+            "partOfSpeech": "verb",
+            "definition": "To have a desire to possess or do something",
+            "examples": [
+              "I want a cup of coffee.",
+              "What do you want for dinner?"
+            ]
+          },
+          {
+            "id": "give-001",
+            "text": "give",
+            "phonetics": "/gɪv/",
+            "partOfSpeech": "verb",
+            "definition": "To transfer the possession of something to someone",
+            "examples": [
+              "Give me your hand.",
+              "She gives great advice."
+            ]
+          },
+          {
+            "id": "use-001",
+            "text": "use",
+            "phonetics": "/juz/",
+            "partOfSpeech": "verb",
+            "definition": "To employ for a purpose",
+            "examples": [
+              "I use my phone every day.",
+              "How do you use this machine?"
+            ]
+          },
+          {
+            "id": "find-001",
+            "text": "find",
+            "phonetics": "/faɪnd/",
+            "partOfSpeech": "verb",
+            "definition": "To discover or locate something",
+            "examples": [
+              "I can't find my keys.",
+              "She found a new job."
+            ]
+          },
+          {
+            "id": "tell-001",
+            "text": "tell",
+            "phonetics": "/tɛl/",
+            "partOfSpeech": "verb",
+            "definition": "To communicate information to someone",
+            "examples": [
+              "Tell me about your day.",
+              "He told a funny story."
+            ]
+          },
+          {
+            "id": "ask-001",
+            "text": "ask",
+            "phonetics": "/æsk/",
+            "partOfSpeech": "verb",
+            "definition": "To request information or help",
+            "examples": [
+              "Ask me any question.",
+              "She asked for directions."
+            ]
+          },
+          {
+            "id": "work-001",
+            "text": "work",
+            "phonetics": "/wɜrk/",
+            "partOfSpeech": "verb",
+            "definition": "To be engaged in physical or mental activity",
+            "examples": [
+              "I work at a bank.",
+              "This plan won't work."
+            ]
+          },
+          {
+            "id": "seem-001",
+            "text": "seem",
+            "phonetics": "/sim/",
+            "partOfSpeech": "verb",
+            "definition": "To give the impression of being something",
+            "examples": [
+              "It seems like a good idea.",
+              "She seems happy today."
+            ]
+          },
+          {
+            "id": "feel-001",
+            "text": "feel",
+            "phonetics": "/fil/",
+            "partOfSpeech": "verb",
+            "definition": "To experience an emotion or sensation",
+            "examples": [
+              "I feel tired today.",
+              "How do you feel about this?"
+            ]
+          },
+          {
+            "id": "try-001",
+            "text": "try",
+            "phonetics": "/traɪ/",
+            "partOfSpeech": "verb",
+            "definition": "To attempt to do something",
+            "examples": [
+              "Try to be on time.",
+              "I'll try my best."
+            ]
+          },
+          {
+            "id": "leave-001",
+            "text": "leave",
+            "phonetics": "/liv/",
+            "partOfSpeech": "verb",
+            "definition": "To go away from a place",
+            "examples": [
+              "I leave work at 5 PM.",
+              "Don't leave me alone."
+            ]
+          },
+          {
+            "id": "call-001",
+            "text": "call",
+            "phonetics": "/kɔl/",
+            "partOfSpeech": "verb",
+            "definition": "To contact someone by phone",
+            "examples": [
+              "Call me later.",
+              "I'll call you tomorrow."
+            ]
+          },
+          {
+            "id": "must-001",
+            "text": "must",
+            "phonetics": "/mʌst/",
+            "partOfSpeech": "verb",
+            "definition": "To be obliged to do something",
+            "examples": [
+              "You must study hard.",
+              "I must go now."
+            ]
+          },
+          {
+            "id": "will-001",
+            "text": "will",
+            "phonetics": "/wɪl/",
+            "partOfSpeech": "verb",
+            "definition": "Used to express future tense",
+            "examples": [
+              "I will help you.",
+              "She will come tomorrow."
+            ]
+          },
+          {
+            "id": "use-002",
+            "text": "use",
+            "phonetics": "/juz/",
+            "partOfSpeech": "verb",
+            "definition": "To employ for a purpose",
+            "examples": [
+              "Use your time wisely.",
+              "Can I use your phone?"
+            ]
+          },
+          {
+            "id": "find-002",
+            "text": "find",
+            "phonetics": "/faɪnd/",
+            "partOfSpeech": "verb",
+            "definition": "To discover or locate something",
+            "examples": [
+              "Find a good restaurant.",
+              "I found my lost keys."
+            ]
+          },
+          {
+            "id": "give-002",
+            "text": "give",
+            "phonetics": "/gɪv/",
+            "partOfSpeech": "verb",
+            "definition": "To transfer the possession of something",
+            "examples": [
+              "Give me a chance.",
+              "She gave me a gift."
+            ]
+          },
+          {
+            "id": "tell-002",
+            "text": "tell",
+            "phonetics": "/tɛl/",
+            "partOfSpeech": "verb",
+            "definition": "To communicate information",
+            "examples": [
+              "Tell me the truth.",
+              "He told a joke."
+            ]
+          },
+          {
+            "id": "work-002",
+            "text": "work",
+            "phonetics": "/wɜrk/",
+            "partOfSpeech": "verb",
+            "definition": "To function or operate",
+            "examples": [
+              "The machine works well.",
+              "This strategy works."
+            ]
+          },
+          {
+            "id": "call-002",
+            "text": "call",
+            "phonetics": "/kɔl/",
+            "partOfSpeech": "verb",
+            "definition": "To give someone a name",
+            "examples": [
+              "What do you call this?",
+              "They call him John."
+            ]
+          },
+          {
+            "id": "try-002",
+            "text": "try",
+            "phonetics": "/traɪ/",
+            "partOfSpeech": "verb",
+            "definition": "To test or sample something",
+            "examples": [
+              "Try this food.",
+              "I tried the new restaurant."
+            ]
+          },
+          {
+            "id": "ask-002",
+            "text": "ask",
+            "phonetics": "/æsk/",
+            "partOfSpeech": "verb",
+            "definition": "To invite someone to do something",
+            "examples": [
+              "Ask him to come.",
+              "She asked me to help."
+            ]
+          },
+          {
+            "id": "need-001",
+            "text": "need",
+            "phonetics": "/nid/",
+            "partOfSpeech": "verb",
+            "definition": "To require something essential",
+            "examples": [
+              "I need some help.",
+              "We need more time."
+            ]
+          },
+          {
+            "id": "feel-002",
+            "text": "feel",
+            "phonetics": "/fil/",
+            "partOfSpeech": "verb",
+            "definition": "To touch or handle something",
+            "examples": [
+              "Feel this fabric.",
+              "I can feel the wind."
+            ]
+          },
+          {
+            "id": "become-001",
+            "text": "become",
+            "phonetics": "/bɪˈkʌm/",
+            "partOfSpeech": "verb",
+            "definition": "To begin to be something",
+            "examples": [
+              "She became a doctor.",
+              "It's becoming dark."
+            ]
+          },
+          {
+            "id": "put-001",
+            "text": "put",
+            "phonetics": "/pʊt/",
+            "partOfSpeech": "verb",
+            "definition": "To place something in a position",
+            "examples": [
+              "Put the book on the table.",
+              "I put my keys in my pocket."
+            ]
+          },
+          {
+            "id": "mean-001",
+            "text": "mean",
+            "phonetics": "/min/",
+            "partOfSpeech": "verb",
+            "definition": "To intend to convey or refer to",
+            "examples": [
+              "What do you mean?",
+              "I mean what I say."
+            ]
+          },
+          {
+            "id": "keep-001",
+            "text": "keep",
+            "phonetics": "/kip/",
+            "partOfSpeech": "verb",
+            "definition": "To continue to have or hold",
+            "examples": [
+              "Keep your money safe.",
+              "I keep my promises."
+            ]
+          },
+          {
+            "id": "let-001",
+            "text": "let",
+            "phonetics": "/lɛt/",
+            "partOfSpeech": "verb",
+            "definition": "To allow someone to do something",
+            "examples": [
+              "Let me help you.",
+              "Don't let him go."
+            ]
+          },
+          {
+            "id": "begin-001",
+            "text": "begin",
+            "phonetics": "/bɪˈgɪn/",
+            "partOfSpeech": "verb",
+            "definition": "To start doing something",
+            "examples": [
+              "Let's begin the meeting.",
+              "I begin work at 9 AM."
+            ]
+          },
+          {
+            "id": "help-001",
+            "text": "help",
+            "phonetics": "/hɛlp/",
+            "partOfSpeech": "verb",
+            "definition": "To make it easier for someone to do something",
+            "examples": [
+              "Can you help me?",
+              "I help my mother cook."
+            ]
+          },
+          {
+            "id": "turn-001",
+            "text": "turn",
+            "phonetics": "/tɜrn/",
+            "partOfSpeech": "verb",
+            "definition": "To move in a circular direction",
+            "examples": [
+              "Turn left at the corner.",
+              "The wheel turns slowly."
+            ]
+          },
+          {
+            "id": "start-001",
+            "text": "start",
+            "phonetics": "/stɑrt/",
+            "partOfSpeech": "verb",
+            "definition": "To begin doing something",
+            "examples": [
+              "Start the engine.",
+              "I start school tomorrow."
+            ]
+          },
+          {
+            "id": "bring-001",
+            "text": "bring",
+            "phonetics": "/brɪŋ/",
+            "partOfSpeech": "verb",
+            "definition": "To take or carry something with you",
+            "examples": [
+              "Bring your umbrella.",
+              "She brings lunch to work."
             ]
           },
           {
@@ -67,8 +528,206 @@
             "partOfSpeech": "verb",
             "definition": "To compose or set down on paper",
             "examples": [
-              "She writes a letter every week.",
-              "He wrote a book about his travels."
+              "Write your name here.",
+              "I write in my diary daily."
+            ]
+          },
+          {
+            "id": "provide-001",
+            "text": "provide",
+            "phonetics": "/prəˈvaɪd/",
+            "partOfSpeech": "verb",
+            "definition": "To make available for use",
+            "examples": [
+              "The school provides books.",
+              "I provide help when needed."
+            ]
+          },
+          {
+            "id": "sit-001",
+            "text": "sit",
+            "phonetics": "/sɪt/",
+            "partOfSpeech": "verb",
+            "definition": "To rest on one's bottom",
+            "examples": [
+              "Sit down please.",
+              "I sit at my desk all day."
+            ]
+          },
+          {
+            "id": "stand-001",
+            "text": "stand",
+            "phonetics": "/stænd/",
+            "partOfSpeech": "verb",
+            "definition": "To be in an upright position",
+            "examples": [
+              "Stand up straight.",
+              "I stand in line at the store."
+            ]
+          },
+          {
+            "id": "lose-001",
+            "text": "lose",
+            "phonetics": "/luz/",
+            "partOfSpeech": "verb",
+            "definition": "To be deprived of something",
+            "examples": [
+              "Don't lose your keys.",
+              "I lose weight by exercising."
+            ]
+          },
+          {
+            "id": "pay-001",
+            "text": "pay",
+            "phonetics": "/peɪ/",
+            "partOfSpeech": "verb",
+            "definition": "To give money for goods or services",
+            "examples": [
+              "I pay the bill.",
+              "She pays for her education."
+            ]
+          },
+          {
+            "id": "meet-001",
+            "text": "meet",
+            "phonetics": "/mit/",
+            "partOfSpeech": "verb",
+            "definition": "To come into the presence of someone",
+            "examples": [
+              "Nice to meet you.",
+              "We meet every Tuesday."
+            ]
+          },
+          {
+            "id": "include-001",
+            "text": "include",
+            "phonetics": "/ɪnˈklud/",
+            "partOfSpeech": "verb",
+            "definition": "To comprise or contain as part of a whole",
+            "examples": [
+              "The price includes tax.",
+              "Please include your contact information."
+            ]
+          },
+          {
+            "id": "continue-001",
+            "text": "continue",
+            "phonetics": "/kənˈtɪnju/",
+            "partOfSpeech": "verb",
+            "definition": "To keep doing something without stopping",
+            "examples": [
+              "Continue with your work.",
+              "The rain continues all day."
+            ]
+          },
+          {
+            "id": "set-001",
+            "text": "set",
+            "phonetics": "/sɛt/",
+            "partOfSpeech": "verb",
+            "definition": "To put something in a particular place",
+            "examples": [
+              "Set the table for dinner.",
+              "I set my alarm for 7 AM."
+            ]
+          },
+          {
+            "id": "learn-001",
+            "text": "learn",
+            "phonetics": "/lɜrn/",
+            "partOfSpeech": "verb",
+            "definition": "To gain knowledge or skills",
+            "examples": [
+              "I learn English every day.",
+              "Children learn quickly."
+            ]
+          },
+          {
+            "id": "change-001",
+            "text": "change",
+            "phonetics": "/tʃeɪndʒ/",
+            "partOfSpeech": "verb",
+            "definition": "To make or become different",
+            "examples": [
+              "Change your clothes.",
+              "The weather changes often."
+            ]
+          },
+          {
+            "id": "lead-001",
+            "text": "lead",
+            "phonetics": "/lid/",
+            "partOfSpeech": "verb",
+            "definition": "To guide or direct someone",
+            "examples": [
+              "Lead the way.",
+              "She leads the team."
+            ]
+          },
+          {
+            "id": "understand-001",
+            "text": "understand",
+            "phonetics": "/ˌʌndərˈstænd/",
+            "partOfSpeech": "verb",
+            "definition": "To perceive the meaning of something",
+            "examples": [
+              "I understand the problem.",
+              "Do you understand me?"
+            ]
+          },
+          {
+            "id": "watch-001",
+            "text": "watch",
+            "phonetics": "/wɑtʃ/",
+            "partOfSpeech": "verb",
+            "definition": "To look at or observe attentively",
+            "examples": [
+              "Watch the movie with me.",
+              "I watch TV every evening."
+            ]
+          },
+          {
+            "id": "follow-001",
+            "text": "follow",
+            "phonetics": "/ˈfɑloʊ/",
+            "partOfSpeech": "verb",
+            "definition": "To go or come after someone",
+            "examples": [
+              "Follow me to the office.",
+              "The dog follows its owner."
+            ]
+          },
+          {
+            "id": "stop-001",
+            "text": "stop",
+            "phonetics": "/stɑp/",
+            "partOfSpeech": "verb",
+            "definition": "To cease moving or doing something",
+            "examples": [
+              "Stop the car here.",
+              "I stop working at 5 PM."
+            ]
+          },
+          {
+            "id": "create-001",
+            "text": "create",
+            "phonetics": "/kriˈeɪt/",
+            "partOfSpeech": "verb",
+            "definition": "To bring something into existence",
+            "examples": [
+              "Create a new document.",
+              "Artists create beautiful paintings."
+            ]
+          },
+          {
+            "id": "speak-001",
+            "text": "speak",
+            "phonetics": "/spik/",
+            "partOfSpeech": "verb",
+            "definition": "To say words in order to communicate",
+            "examples": [
+              "Speak clearly please.",
+              "I speak three languages."
             ]
           },
           {
@@ -78,15 +737,378 @@
             "partOfSpeech": "verb",
             "definition": "To look at and comprehend written text",
             "examples": [
-              "I read a novel last night.",
-              "She reads the newspaper daily."
+              "Read this book.",
+              "I read the newspaper daily."
+            ]
+          },
+          {
+            "id": "allow-001",
+            "text": "allow",
+            "phonetics": "/əˈlaʊ/",
+            "partOfSpeech": "verb",
+            "definition": "To give permission for something",
+            "examples": [
+              "Allow me to help you.",
+              "The teacher allows questions."
+            ]
+          },
+          {
+            "id": "add-001",
+            "text": "add",
+            "phonetics": "/æd/",
+            "partOfSpeech": "verb",
+            "definition": "To join or combine something",
+            "examples": [
+              "Add sugar to the coffee.",
+              "I add new words to my vocabulary."
+            ]
+          },
+          {
+            "id": "spend-001",
+            "text": "spend",
+            "phonetics": "/spɛnd/",
+            "partOfSpeech": "verb",
+            "definition": "To use money to pay for something",
+            "examples": [
+              "I spend money on books.",
+              "She spends time with family."
+            ]
+          },
+          {
+            "id": "grow-001",
+            "text": "grow",
+            "phonetics": "/groʊ/",
+            "partOfSpeech": "verb",
+            "definition": "To increase in size or develop",
+            "examples": [
+              "Plants grow in the garden.",
+              "Children grow quickly."
+            ]
+          },
+          {
+            "id": "open-001",
+            "text": "open",
+            "phonetics": "/ˈoʊpən/",
+            "partOfSpeech": "verb",
+            "definition": "To move something to allow access",
+            "examples": [
+              "Open the door please.",
+              "I open my eyes in the morning."
+            ]
+          },
+          {
+            "id": "walk-001",
+            "text": "walk",
+            "phonetics": "/wɔk/",
+            "partOfSpeech": "verb",
+            "definition": "To move on foot at a regular pace",
+            "examples": [
+              "Walk to the store.",
+              "I walk my dog every day."
+            ]
+          },
+          {
+            "id": "win-001",
+            "text": "win",
+            "phonetics": "/wɪn/",
+            "partOfSpeech": "verb",
+            "definition": "To be successful in a contest",
+            "examples": [
+              "We win the game.",
+              "She wins the competition."
+            ]
+          },
+          {
+            "id": "offer-001",
+            "text": "offer",
+            "phonetics": "/ˈɔfər/",
+            "partOfSpeech": "verb",
+            "definition": "To present something for acceptance",
+            "examples": [
+              "I offer you my help.",
+              "The store offers discounts."
+            ]
+          },
+          {
+            "id": "remember-001",
+            "text": "remember",
+            "phonetics": "/rɪˈmɛmbər/",
+            "partOfSpeech": "verb",
+            "definition": "To have in or be able to bring to one's mind",
+            "examples": [
+              "Remember to call me.",
+              "I remember my childhood."
+            ]
+          },
+          {
+            "id": "love-001",
+            "text": "love",
+            "phonetics": "/lʌv/",
+            "partOfSpeech": "verb",
+            "definition": "To feel deep affection for someone",
+            "examples": [
+              "I love my family.",
+              "She loves reading books."
+            ]
+          },
+          {
+            "id": "consider-001",
+            "text": "consider",
+            "phonetics": "/kənˈsɪdər/",
+            "partOfSpeech": "verb",
+            "definition": "To think carefully about something",
+            "examples": [
+              "Consider all options.",
+              "I consider him a friend."
+            ]
+          },
+          {
+            "id": "appear-001",
+            "text": "appear",
+            "phonetics": "/əˈpɪr/",
+            "partOfSpeech": "verb",
+            "definition": "To become visible or noticeable",
+            "examples": [
+              "The sun appears in the morning.",
+              "She appears happy today."
+            ]
+          },
+          {
+            "id": "buy-001",
+            "text": "buy",
+            "phonetics": "/baɪ/",
+            "partOfSpeech": "verb",
+            "definition": "To obtain something by paying for it",
+            "examples": [
+              "I buy groceries every week.",
+              "She buys a new car."
+            ]
+          },
+          {
+            "id": "wait-001",
+            "text": "wait",
+            "phonetics": "/weɪt/",
+            "partOfSpeech": "verb",
+            "definition": "To stay in one place until something happens",
+            "examples": [
+              "Wait for me here.",
+              "I wait for the bus."
+            ]
+          },
+          {
+            "id": "serve-001",
+            "text": "serve",
+            "phonetics": "/sɜrv/",
+            "partOfSpeech": "verb",
+            "definition": "To perform duties or services for someone",
+            "examples": [
+              "Serve the customers well.",
+              "I serve my country."
+            ]
+          },
+          {
+            "id": "die-001",
+            "text": "die",
+            "phonetics": "/daɪ/",
+            "partOfSpeech": "verb",
+            "definition": "To stop living",
+            "examples": [
+              "The flowers die without water.",
+              "He died peacefully."
+            ]
+          },
+          {
+            "id": "send-001",
+            "text": "send",
+            "phonetics": "/sɛnd/",
+            "partOfSpeech": "verb",
+            "definition": "To cause something to go to another place",
+            "examples": [
+              "Send me an email.",
+              "I send a letter to my friend."
+            ]
+          },
+          {
+            "id": "expect-001",
+            "text": "expect",
+            "phonetics": "/ɪkˈspɛkt/",
+            "partOfSpeech": "verb",
+            "definition": "To regard something as likely to happen",
+            "examples": [
+              "I expect good results.",
+              "She expects to arrive on time."
+            ]
+          },
+          {
+            "id": "build-001",
+            "text": "build",
+            "phonetics": "/bɪld/",
+            "partOfSpeech": "verb",
+            "definition": "To construct something by putting parts together",
+            "examples": [
+              "Build a house.",
+              "I build my career step by step."
+            ]
+          },
+          {
+            "id": "stay-001",
+            "text": "stay",
+            "phonetics": "/steɪ/",
+            "partOfSpeech": "verb",
+            "definition": "To remain in the same place",
+            "examples": [
+              "Stay here with me.",
+              "I stay at home today."
+            ]
+          },
+          {
+            "id": "fall-001",
+            "text": "fall",
+            "phonetics": "/fɔl/",
+            "partOfSpeech": "verb",
+            "definition": "To move downward under the force of gravity",
+            "examples": [
+              "The leaves fall in autumn.",
+              "Don't fall down the stairs."
+            ]
+          },
+          {
+            "id": "cut-001",
+            "text": "cut",
+            "phonetics": "/kʌt/",
+            "partOfSpeech": "verb",
+            "definition": "To make an opening or incision with a sharp tool",
+            "examples": [
+              "Cut the paper with scissors.",
+              "I cut my finger accidentally."
+            ]
+          },
+          {
+            "id": "reach-001",
+            "text": "reach",
+            "phonetics": "/ritʃ/",
+            "partOfSpeech": "verb",
+            "definition": "To stretch out an arm to touch something",
+            "examples": [
+              "Reach for the stars.",
+              "I can't reach the top shelf."
+            ]
+          },
+          {
+            "id": "kill-001",
+            "text": "kill",
+            "phonetics": "/kɪl/",
+            "partOfSpeech": "verb",
+            "definition": "To cause the death of a living thing",
+            "examples": [
+              "The poison kills insects.",
+              "Time kills all pain."
+            ]
+          },
+          {
+            "id": "remain-001",
+            "text": "remain",
+            "phonetics": "/rɪˈmeɪn/",
+            "partOfSpeech": "verb",
+            "definition": "To continue to exist or be left over",
+            "examples": [
+              "Only a few questions remain.",
+              "I remain optimistic."
+            ]
+          },
+          {
+            "id": "suggest-001",
+            "text": "suggest",
+            "phonetics": "/səgˈdʒɛst/",
+            "partOfSpeech": "verb",
+            "definition": "To put forward for consideration",
+            "examples": [
+              "I suggest we go home.",
+              "She suggests a new approach."
+            ]
+          },
+          {
+            "id": "raise-001",
+            "text": "raise",
+            "phonetics": "/reɪz/",
+            "partOfSpeech": "verb",
+            "definition": "To lift or move to a higher position",
+            "examples": [
+              "Raise your hand if you know the answer.",
+              "They raise their children well."
+            ]
+          },
+          {
+            "id": "pass-001",
+            "text": "pass",
+            "phonetics": "/pæs/",
+            "partOfSpeech": "verb",
+            "definition": "To move past or through something",
+            "examples": [
+              "Pass me the salt please.",
+              "I pass the test easily."
+            ]
+          },
+          {
+            "id": "sell-001",
+            "text": "sell",
+            "phonetics": "/sɛl/",
+            "partOfSpeech": "verb",
+            "definition": "To give something in exchange for money",
+            "examples": [
+              "I sell my old car.",
+              "The store sells books."
+            ]
+          },
+          {
+            "id": "require-001",
+            "text": "require",
+            "phonetics": "/rɪˈkwaɪər/",
+            "partOfSpeech": "verb",
+            "definition": "To need something for a particular purpose",
+            "examples": [
+              "This job requires experience.",
+              "The law requires a license."
+            ]
+          },
+          {
+            "id": "report-001",
+            "text": "report",
+            "phonetics": "/rɪˈpɔrt/",
+            "partOfSpeech": "verb",
+            "definition": "To give an account of something",
+            "examples": [
+              "Report the accident to the police.",
+              "I report to my boss daily."
+            ]
+          },
+          {
+            "id": "decide-001",
+            "text": "decide",
+            "phonetics": "/dɪˈsaɪd/",
+            "partOfSpeech": "verb",
+            "definition": "To make a choice or reach a conclusion",
+            "examples": [
+              "Decide what you want to eat.",
+              "I decide to study harder."
+            ]
+          },
+          {
+            "id": "pull-001",
+            "text": "pull",
+            "phonetics": "/pʊl/",
+            "partOfSpeech": "verb",
+            "definition": "To exert force on something to move it toward oneself",
+            "examples": [
+              "Pull the door to open it.",
+              "I pull the rope hard."
             ]
           }
         ],
         "level": "A1",
         "tagValue": "Verbs",
         "languageCode": "en",
-        "description": "100 words",
+        "description": "The 100 most common verbs in English",
         "imageUrl": null,
         "isPremium": false
       },

@@ -28,6 +28,8 @@
 		5370F6912E405358009238EB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6902E405358009238EB /* GoogleSignInSwift */; };
 		5370F6932E4053C1009238EB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6922E4053C1009238EB /* GoogleSignIn */; };
 		5370F6952E4053C6009238EB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5370F6942E4053C6009238EB /* GoogleSignInSwift */; };
+		537530D62E73DE25008BA41A /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 537530D52E73DE25008BA41A /* FirebaseRemoteConfig */; };
+		537530D82E73DE2B008BA41A /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 537530D72E73DE2B008BA41A /* FirebaseRemoteConfig */; };
 		539839692E48D9AC006ECF2D /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 539839682E48D9AC006ECF2D /* ReceiptParser */; };
 		5398396B2E48D9AC006ECF2D /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 5398396A2E48D9AC006ECF2D /* RevenueCat */; };
 		5398396D2E48D9AC006ECF2D /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5398396C2E48D9AC006ECF2D /* RevenueCatUI */; };
@@ -112,6 +114,7 @@
 				5370F6952E4053C6009238EB /* GoogleSignInSwift in Frameworks */,
 				530D2C552D983E780040C247 /* FirebaseCrashlytics in Frameworks */,
 				5398397B2E48EAA3006ECF2D /* RevenueCat in Frameworks */,
+				537530D82E73DE2B008BA41A /* FirebaseRemoteConfig in Frameworks */,
 				53C13D072E4ECFAA00622B37 /* Flow in Frameworks */,
 				5370F6932E4053C1009238EB /* GoogleSignIn in Frameworks */,
 				5370F6882E4052F1009238EB /* FirebaseAuth in Frameworks */,
@@ -136,6 +139,7 @@
 				5370F6822E4052E3009238EB /* FirebaseAuth in Frameworks */,
 				53310BCC2D7E238F00C1DE8B /* FirebaseCrashlytics in Frameworks */,
 				532C151F2E3CC38600552599 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				537530D62E73DE25008BA41A /* FirebaseRemoteConfig in Frameworks */,
 				539839692E48D9AC006ECF2D /* ReceiptParser in Frameworks */,
 				5370F6862E4052ED009238EB /* FirebaseStorage in Frameworks */,
 				5330097B2E43895E00C3057B /* FirebaseFunctions in Frameworks */,
@@ -215,6 +219,7 @@
 				5398397E2E48EAAC006ECF2D /* ReceiptParser */,
 				53C13D062E4ECFAA00622B37 /* Flow */,
 				53C13D092E4ED01F00622B37 /* FirebaseMessaging */,
+				537530D72E73DE2B008BA41A /* FirebaseRemoteConfig */,
 			);
 			productName = "My Dictionary (macOS)";
 			productReference = 530D2C332D9836920040C247 /* My Dictionary.app */;
@@ -254,6 +259,7 @@
 				5398396A2E48D9AC006ECF2D /* RevenueCat */,
 				5398396C2E48D9AC006ECF2D /* RevenueCatUI */,
 				5326DBDA2E49C99D00C83354 /* FirebaseMessaging */,
+				537530D52E73DE25008BA41A /* FirebaseRemoteConfig */,
 			);
 			productName = "My Dictionary";
 			productReference = 53E9A7542D7C3383007E9F28 /* My Dictionary.app */;
@@ -798,6 +804,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5370F68D2E405358009238EB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		537530D52E73DE25008BA41A /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		537530D72E73DE2B008BA41A /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53310BA02D7E20D600C1DE8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
 		};
 		539839682E48D9AC006ECF2D /* ReceiptParser */ = {
 			isa = XCSwiftPackageProductDependency;
