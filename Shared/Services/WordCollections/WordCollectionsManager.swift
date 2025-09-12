@@ -9,17 +9,6 @@ import Foundation
 import FirebaseRemoteConfig
 import Combine
 
-// MARK: - Cache Metadata
-
-private struct CacheMetadata: Codable {
-    let timestamp: Date
-    let version: String?
-    
-    var isExpired: Bool {
-        Date().timeIntervalSince(timestamp) > 24 * 60 * 60 // 24 hours
-    }
-}
-
 /// Manager responsible for fetching and managing word collections from Firebase Remote Config
 final class WordCollectionsManager: ObservableObject {
     
@@ -38,15 +27,12 @@ final class WordCollectionsManager: ObservableObject {
     
     private let remoteConfig = RemoteConfig.remoteConfig()
     private var cancellables = Set<AnyCancellable>()
-    private let cacheExpirationInterval: TimeInterval = 24 * 60 * 60 // 24 hours
-    private let cacheFileName = "word_collections_cache.json"
-    private let cacheMetadataFileName = "word_collections_cache_metadata.json"
     
     // MARK: - Initialization
     
     private init() {
         setupRemoteConfig()
-        // Load cached collections on initialization
+        // Fetch collections on initialization
         Task {
             await fetchCollections()
         }
@@ -60,30 +46,8 @@ final class WordCollectionsManager: ObservableObject {
         isLoading = true
         error = nil
         
-        // Check if we have valid cached data first
-        if let cachedCollections = loadCachedCollections(), !cachedCollections.isEmpty {
-            self.collections = cachedCollections
-            self.hasCollections = true
-            self.isLoading = false
-            print("📱 [WordCollectionsManager] Using cached collections (\(cachedCollections.count) items)")
-            
-            // Still try to fetch fresh data in background if cache is expired
-            if isCacheExpired() {
-                print("⏰ [WordCollectionsManager] Cache expired, fetching fresh data...")
-                await fetchFreshCollections()
-            }
-            return
-        }
-        
-        // No valid cache, fetch fresh data
-        await fetchFreshCollections()
-    }
-    
-    /// Fetches fresh collections from Firebase Remote Config
-    @MainActor
-    private func fetchFreshCollections() async {
         do {
-            // Fetch and activate remote config
+            // Fetch and activate remote config (uses Firebase's built-in cache)
             let status = try await remoteConfig.fetchAndActivate()
             
             if status == .successFetchedFromRemote {
@@ -97,9 +61,13 @@ final class WordCollectionsManager: ObservableObject {
             
             for key in WordCollectionKeys.allCases {
                 let jsonString = remoteConfig.configValue(forKey: key.rawValue).stringValue
+                print("🔍 [WordCollectionsManager] Key: \(key.rawValue), JSON length: \(jsonString.count)")
                 if !jsonString.isEmpty {
                     let collections = try parseCollections(from: jsonString, languageCode: key.languageCode)
                     allCollections.append(contentsOf: collections)
+                    print("✅ [WordCollectionsManager] Parsed \(collections.count) collections from \(key.rawValue)")
+                } else {
+                    print("⚠️ [WordCollectionsManager] Empty JSON for key: \(key.rawValue)")
                 }
             }
             
@@ -107,9 +75,6 @@ final class WordCollectionsManager: ObservableObject {
             self.collections = allCollections
             self.hasCollections = !allCollections.isEmpty
             self.isLoading = false
-            
-            // Cache collections locally
-            cacheCollections(allCollections)
             
             print("✅ [WordCollectionsManager] Loaded \(allCollections.count) word collections")
             
@@ -153,24 +118,36 @@ final class WordCollectionsManager: ObservableObject {
         return grouped
     }
     
-    /// Clears the cached collections
-    func clearCache() {
-        guard let cacheURL = getCacheURL(for: cacheFileName),
-              let metadataURL = getCacheURL(for: cacheMetadataFileName) else {
-            return
+    /// Force refresh from Firebase Remote Config (bypasses Firebase cache)
+    @MainActor
+    func forceRefresh() async {
+        print("🔄 [WordCollectionsManager] Force refreshing from Firebase...")
+        
+        // Force fetch from remote (ignores minimumFetchInterval)
+        do {
+            let status = try await remoteConfig.fetch()
+            try await remoteConfig.activate()
+            
+            if status == .success {
+                print("✅ [WordCollectionsManager] Force refresh successful")
+                await fetchCollections()
+            } else {
+                print("❌ [WordCollectionsManager] Force refresh failed with status: \(status)")
+            }
+        } catch {
+            print("❌ [WordCollectionsManager] Force refresh error: \(error)")
         }
-        
-        try? FileManager.default.removeItem(at: cacheURL)
-        try? FileManager.default.removeItem(at: metadataURL)
-        
-        print("🗑️ [WordCollectionsManager] Cache cleared")
     }
     
     // MARK: - Private Methods
     
     private func setupRemoteConfig() {
         let settings = RemoteConfigSettings()
-        settings.minimumFetchInterval = 3600 // 1 hour
+        #if DEBUG
+        settings.minimumFetchInterval = 0 // No cache in debug mode
+        #else
+        settings.minimumFetchInterval = 3600 // 1 hour in production
+        #endif
         remoteConfig.configSettings = settings
         
         // Set default values
@@ -193,92 +170,6 @@ final class WordCollectionsManager: ObservableObject {
         }
     }
     
-    private func loadCachedCollections() -> [WordCollection]? {
-        guard let cacheURL = getCacheURL(for: cacheFileName),
-              let metadataURL = getCacheURL(for: cacheMetadataFileName) else {
-            return nil
-        }
-        
-        // Check if cache files exist
-        guard FileManager.default.fileExists(atPath: cacheURL.path),
-              FileManager.default.fileExists(atPath: metadataURL.path) else {
-            return nil
-        }
-        
-        // Load and check metadata
-        guard let metadataData = try? Data(contentsOf: metadataURL),
-              let metadata = try? JSONDecoder().decode(CacheMetadata.self, from: metadataData) else {
-            return nil
-        }
-        
-        // Check if cache is expired
-        if metadata.isExpired {
-            print("⏰ [WordCollectionsManager] Cache expired, removing old cache files")
-            try? FileManager.default.removeItem(at: cacheURL)
-            try? FileManager.default.removeItem(at: metadataURL)
-            return nil
-        }
-        
-        // Load cached collections
-        guard let data = try? Data(contentsOf: cacheURL),
-              let cachedCollections = try? JSONDecoder().decode([WordCollection].self, from: data) else {
-            return nil
-        }
-        
-        print("📱 [WordCollectionsManager] Loaded \(cachedCollections.count) cached collections (cached at: \(metadata.timestamp))")
-        return cachedCollections
-    }
-    
-    private func cacheCollections(_ collections: [WordCollection]) {
-        guard let cacheURL = getCacheURL(for: cacheFileName),
-              let metadataURL = getCacheURL(for: cacheMetadataFileName) else {
-            print("❌ [WordCollectionsManager] Failed to get cache URLs")
-            return
-        }
-        
-        // Create cache directory if it doesn't exist
-        let cacheDirectory = cacheURL.deletingLastPathComponent()
-        try? FileManager.default.createDirectory(at: cacheDirectory, withIntermediateDirectories: true)
-        
-        // Encode and save collections
-        guard let data = try? JSONEncoder().encode(collections) else {
-            print("❌ [WordCollectionsManager] Failed to encode collections")
-            return
-        }
-        
-        do {
-            try data.write(to: cacheURL)
-            
-            // Save metadata
-            let metadata = CacheMetadata(timestamp: Date(), version: nil)
-            let metadataData = try JSONEncoder().encode(metadata)
-            try metadataData.write(to: metadataURL)
-            
-            print("💾 [WordCollectionsManager] Cached \(collections.count) collections to cache directory")
-        } catch {
-            print("❌ [WordCollectionsManager] Failed to write cache: \(error)")
-        }
-    }
-    
-    private func isCacheExpired() -> Bool {
-        guard let metadataURL = getCacheURL(for: cacheMetadataFileName) else {
-            return true
-        }
-        
-        guard let metadataData = try? Data(contentsOf: metadataURL),
-              let metadata = try? JSONDecoder().decode(CacheMetadata.self, from: metadataData) else {
-            return true
-        }
-        
-        return metadata.isExpired
-    }
-    
-    private func getCacheURL(for fileName: String) -> URL? {
-        guard let cacheDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else {
-            return nil
-        }
-        return cacheDirectory.appendingPathComponent("WordCollections").appendingPathComponent(fileName)
-    }
 }
 
 // MARK: - Error Types

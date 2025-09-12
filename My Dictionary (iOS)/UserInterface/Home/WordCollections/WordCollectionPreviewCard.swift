@@ -18,7 +18,7 @@ struct WordCollectionPreviewCard: View {
             VStack(alignment: .leading, spacing: 8) {
                 // Collection image placeholder
                 AsyncImage(
-                    url: URL(string: "https://plus.unsplash.com/premium_photo-1666739032615-ecbd14dfb543?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZW5nbGlzaHxlbnwwfHwwfHx8MA%3D%3D"),
+                    url: collection.imageURL,
                     content: { image in
                         image
                             .resizable()
@@ -27,20 +27,28 @@ struct WordCollectionPreviewCard: View {
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                     },
                     placeholder: {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(
-                                LinearGradient(
-                                    colors: [.blue.opacity(0.3), .purple.opacity(0.3)],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
+                        if let imageName = collection.localImageName {
+                            Image(imageName)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 120, height: 80)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                        } else {
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [.blue.opacity(0.3), .purple.opacity(0.3)],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
                                 )
-                            )
-                            .frame(width: 120, height: 80)
-                            .overlay(
-                                Image(systemName: "book.closed.fill")
-                                    .font(.title2)
-                                    .foregroundColor(.white)
-                            )
+                                .frame(width: 120, height: 80)
+                                .overlay(
+                                    Image(systemName: "book.closed.fill")
+                                        .font(.title2)
+                                        .foregroundColor(.white)
+                                )
+                        }
                     }
                 )
                 .overlay(alignment: .topTrailing) {
@@ -88,7 +96,7 @@ struct WordCollectionGridPreviewCard: View {
                 // Collection image placeholder
                 GeometryReader { geo in
                     AsyncImage(
-                        url: URL(string: "https://plus.unsplash.com/premium_photo-1666739032615-ecbd14dfb543?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZW5nbGlzaHxlbnwwfHwwfHx8MA%3D%3D"),
+                        url: collection.imageURL,
                         content: { image in
                             image
                                 .resizable()
@@ -97,20 +105,28 @@ struct WordCollectionGridPreviewCard: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         },
                         placeholder: {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(
-                                    LinearGradient(
-                                        colors: [.blue.opacity(0.3), .purple.opacity(0.3)],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
+                            if let imageName = collection.localImageName {
+                                Image(imageName)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: geo.size.width, height: geo.size.height)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                            } else {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(
+                                        LinearGradient(
+                                            colors: [.blue.opacity(0.3), .purple.opacity(0.3)],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
                                     )
-                                )
-                                .frame(width: geo.size.width, height: geo.size.height)
-                                .overlay(
-                                    Image(systemName: "book.closed.fill")
-                                        .font(.title2)
-                                        .foregroundColor(.white)
-                                )
+                                    .frame(width: geo.size.width, height: geo.size.height)
+                                    .overlay(
+                                        Image(systemName: "book.closed.fill")
+                                            .font(.title2)
+                                            .foregroundColor(.white)
+                                    )
+                            }
                         }
                     )
                 }

@@ -42,10 +42,8 @@ struct WordCollectionsView: View {
             showsBackButton: true,
             trailingContent: {
                 if !collectionsManager.isLoading {
-                    HeaderButton(icon: "arrow.clockwise") {
-                        Task {
-                            await collectionsManager.fetchCollections()
-                        }
+                    AsyncHeaderButton(icon: "arrow.clockwise") {
+                        await collectionsManager.forceRefresh()
                     }
                 }
             },
@@ -59,11 +57,6 @@ struct WordCollectionsView: View {
                 }
             }
         )
-        .onAppear {
-            Task {
-                await collectionsManager.fetchCollections()
-            }
-        }
         .onChange(of: searchText) {
             // Filter collections based on search text
         }

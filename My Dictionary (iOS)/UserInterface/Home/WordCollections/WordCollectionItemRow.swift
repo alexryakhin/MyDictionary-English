@@ -13,27 +13,29 @@ struct WordCollectionItemRow: View {
     
     var body: some View {
         Button(action: onTap) {
-            HStack(alignment: .top, spacing: 12) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(word.text)
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                    
-                    if let phonetics = word.phonetics {
-                        Text(phonetics)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    Text(word.definition)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        .lineLimit(2)
-                }
-                
-                Spacer()
+            VStack(spacing: 4) {
+                HStack(alignment: .top, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(word.text)
+                            .font(.headline)
+                            .foregroundColor(.primary)
 
-                TagView(text: word.partOfSpeech, color: .blue, size: .mini)
+                        if let phonetics = word.phonetics {
+                            Text(phonetics)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    TagView(text: word.partOfSpeech, color: .blue, size: .mini)
+                }
+
+                Text(word.definition)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .lineLimit(2)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(vertical: 12, horizontal: 16)
             .contentShape(.rect)

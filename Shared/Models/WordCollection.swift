@@ -44,6 +44,7 @@ struct WordCollection: Codable, Identifiable, Hashable {
     let languageCode: String
     let description: String?
     let imageUrl: String?
+    let localImageName: String?
     let isPremium: Bool
     
     init(
@@ -55,6 +56,7 @@ struct WordCollection: Codable, Identifiable, Hashable {
         languageCode: String,
         description: String? = nil,
         imageUrl: String? = nil,
+        localImageName: String? = nil,
         isPremium: Bool = false
     ) {
         self.id = id
@@ -65,6 +67,7 @@ struct WordCollection: Codable, Identifiable, Hashable {
         self.languageCode = languageCode
         self.description = description
         self.imageUrl = imageUrl
+        self.localImageName = localImageName
         self.isPremium = isPremium
     }
     
@@ -76,6 +79,11 @@ struct WordCollection: Codable, Identifiable, Hashable {
     /// Returns a formatted word count string
     var wordCountText: String {
         return "\(wordCount) \(wordCount == 1 ? "word" : "words")"
+    }
+
+    var imageURL: URL? {
+        guard let imageUrl else { return nil }
+        return URL(string: imageUrl)
     }
 }
 

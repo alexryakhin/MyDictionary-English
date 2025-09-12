@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "book-glasses.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

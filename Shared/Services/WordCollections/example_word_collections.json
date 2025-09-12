@@ -1110,6 +1110,7 @@
         "languageCode": "en",
         "description": "The 100 most common verbs in English",
         "imageUrl": null,
+        "localImageName": "dictionary",
         "isPremium": false
       },
       {
@@ -1265,7 +1266,8 @@
         "languageCode": "en",
         "description": "Trending slang from social media and youth culture",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "tv-netflix",
+        "isPremium": true
       },
       {
         "id": "ai-tech-buzzwords-001",
@@ -1409,7 +1411,8 @@
         "languageCode": "en",
         "description": "Rising with Gen AI advancements and digital nomad lifestyles",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "laptop",
+        "isPremium": true
       },
       {
         "id": "sustainability-eco-living-001",
@@ -1542,7 +1545,8 @@
         "languageCode": "en",
         "description": "Popular in 2025 lifestyle trends like eco-minimalism",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "seagull",
+        "isPremium": true
       },
       {
         "id": "beauty-self-care-trends-001",
@@ -1675,7 +1679,8 @@
         "languageCode": "en",
         "description": "From skincare routines and wellness apps",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "cool-woman",
+        "isPremium": true
       },
       {
         "id": "food-culinary-vocab-001",
@@ -1819,7 +1824,8 @@
         "languageCode": "en",
         "description": "Inspired by global diets and climavore trends",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "market",
+        "isPremium": true
       },
       {
         "id": "travel-adventure-terms-001",
@@ -1974,7 +1980,8 @@
         "languageCode": "en",
         "description": "Tied to digital nomad and global trends",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "car-ride",
+        "isPremium": true
       },
       {
         "id": "emotions-mental-health-001",
@@ -2118,7 +2125,8 @@
         "languageCode": "en",
         "description": "From wellness apps and modern self-improvement",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "studying",
+        "isPremium": true
       },
       {
         "id": "social-media-internet-slang-001",
@@ -2273,7 +2281,8 @@
         "languageCode": "en",
         "description": "Viral from TikTok, X, and meme culture",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "youtube",
+        "isPremium": true
       },
       {
         "id": "fitness-wellness-vocab-001",
@@ -2428,7 +2437,8 @@
         "languageCode": "en",
         "description": "From gamified health apps like Duolingo for gym",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "work-1",
+        "isPremium": true
       },
       {
         "id": "everyday-modern-phrases-001",
@@ -2572,7 +2582,8 @@
         "languageCode": "en",
         "description": "Adapted as single words or short terms for quick learning, from 2025 dictionary additions",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "hello-1",
+        "isPremium": true
       },
       {
         "id": "sight-words-001",
@@ -2716,6 +2727,7 @@
         "languageCode": "en",
         "description": "Basic high-frequency words from Dolch/Fry lists, for kindergarten-1st grade reading fluency",
         "imageUrl": null,
+        "localImageName": "books-2",
         "isPremium": false
       },
       {
@@ -2860,6 +2872,7 @@
         "languageCode": "en",
         "description": "Everyday relational terms, common in early school storytelling",
         "imageUrl": null,
+        "localImageName": "london-bridge",
         "isPremium": false
       },
       {
@@ -2993,6 +3006,7 @@
         "languageCode": "en",
         "description": "Practical items from classroom units, for descriptive language",
         "imageUrl": null,
+        "localImageName": "pencil",
         "isPremium": false
       },
       {
@@ -3137,6 +3151,7 @@
         "languageCode": "en",
         "description": "Visual basics for art and math integration in elementary",
         "imageUrl": null,
+        "localImageName": "color-letters",
         "isPremium": false
       },
       {
@@ -3281,6 +3296,7 @@
         "languageCode": "en",
         "description": "Simple nouns from nature/science units, for categorization games",
         "imageUrl": null,
+        "localImageName": "dog",
         "isPremium": false
       },
       {
@@ -3425,7 +3441,8 @@
         "languageCode": "en",
         "description": "C1-level alternatives to common words, for varied essay expression in IELTS/TOEFL",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "book-glasses",
+        "isPremium": true
       },
       {
         "id": "abstract-concepts-001",
@@ -3569,7 +3586,8 @@
         "languageCode": "en",
         "description": "C1-C2 terms for opinions and arguments, common in TOEFL reading/speaking",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "studying-2",
+        "isPremium": true
       },
       {
         "id": "environment-society-001",
@@ -3724,7 +3742,8 @@
         "languageCode": "en",
         "description": "C2-level topic words for IELTS Task 2 essays on global issues",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "flag-uk",
+        "isPremium": true
       },
       {
         "id": "emotions-relationships-001",
@@ -3868,7 +3887,8 @@
         "languageCode": "en",
         "description": "Advanced C1 descriptors for TOEFL integrated tasks and personal narratives",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "microphone",
+        "isPremium": true
       },
       {
         "id": "idioms-phrasal-verbs-001",
@@ -4023,7 +4043,8 @@
         "languageCode": "en",
         "description": "C1-C2 expressions for natural fluency in IELTS speaking",
         "imageUrl": null,
-        "isPremium": false
+        "localImageName": "tv",
+        "isPremium": true
       },
       {
         "id": "top-30-phrasal-verbs-001",
@@ -4365,6 +4386,7 @@
         "languageCode": "en",
         "description": "Essential for daily conversation and writing, ranked by commonality",
         "imageUrl": null,
+        "localImageName": "sticky-notes",
         "isPremium": false
       },
       {
@@ -4542,6 +4564,7 @@
         "languageCode": "en",
         "description": "Figurative expressions for natural fluency in speaking and reading",
         "imageUrl": null,
+        "localImageName": "sat",
         "isPremium": false
       }
     ],
