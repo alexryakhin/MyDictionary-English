@@ -98,11 +98,6 @@ struct VocabularyListView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.wordsListOpened)
             checkAndShowRatingBanner()
-            
-            // Fetch word collections on app launch
-            Task {
-                await collectionsManager.fetchCollections()
-            }
         }
         .onChange(of: wordListViewModel.words.count) {
             checkAndShowRatingBanner()
