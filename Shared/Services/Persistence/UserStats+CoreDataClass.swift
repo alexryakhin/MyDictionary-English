@@ -9,6 +9,6 @@ import Foundation
 import CoreData
 
 @objc(CDUserStats)
-public class CDUserStats: NSManagedObject {
+class CDUserStats: NSManagedObject {
 
 } 

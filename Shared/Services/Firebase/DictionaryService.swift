@@ -97,7 +97,7 @@ final class DictionaryService: ObservableObject {
         }
 
         // First, we need to find the user by email
-        // This requires a user lookup service or a public user directory
+        // This requires a user lookup service or a user directory
         // For now, we'll require the userId to be provided instead of email
         throw DictionaryError.invalidInput
     }
@@ -673,7 +673,7 @@ final class DictionaryService: ObservableObject {
         return canCreate
     }
 
-    /// Public method to check if user can create more shared dictionaries
+    /// method to check if user can create more shared dictionaries
     /// Returns true if user can create, false if limit reached
     func canCreateMoreSharedDictionaries() -> Bool {
         guard let userId = authenticationService.userId else {

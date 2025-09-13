@@ -38,7 +38,7 @@ final class WordCollectionsManager: ObservableObject {
         }
     }
     
-    // MARK: - Public Methods
+    // MARK: - Methods
     
     /// Fetches word collections from Firebase Remote Config
     @MainActor

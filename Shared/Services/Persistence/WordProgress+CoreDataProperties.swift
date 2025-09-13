@@ -10,19 +10,19 @@ import CoreData
 
 extension CDWordProgress {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDWordProgress> {
+    @nonobjc class func fetchRequest() -> NSFetchRequest<CDWordProgress> {
         return NSFetchRequest<CDWordProgress>(entityName: "WordProgress")
     }
 
-    @NSManaged public var averageResponseTime: Double
-    @NSManaged public var consecutiveCorrect: Int32
-    @NSManaged public var correctAttempts: Int32
-    @NSManaged public var difficultyScore: Double
-    @NSManaged public var id: UUID?
-    @NSManaged public var lastPracticed: Date?
-    @NSManaged public var masteryLevel: String?
-    @NSManaged public var totalAttempts: Int32
-    @NSManaged public var wordId: String?
+    @NSManaged var averageResponseTime: Double
+    @NSManaged var consecutiveCorrect: Int32
+    @NSManaged var correctAttempts: Int32
+    @NSManaged var difficultyScore: Double
+    @NSManaged var id: UUID?
+    @NSManaged var lastPracticed: Date?
+    @NSManaged var masteryLevel: String?
+    @NSManaged var totalAttempts: Int32
+    @NSManaged var wordId: String?
 
 }
 

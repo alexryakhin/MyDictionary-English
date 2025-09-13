@@ -524,7 +524,7 @@ final class DataMigrationService: ObservableObject {
         logInfo("✅ Cleaned up \(duplicatesToDelete.count) duplicate idiom words")
     }
     
-    /// Public method to manually run duplicate cleanup
+    /// method to manually run duplicate cleanup
     func runDuplicateCleanup() async throws -> DuplicateCleanupResult {
         guard !isInProgress else {
             throw MigrationError.migrationAlreadyInProgress

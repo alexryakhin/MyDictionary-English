@@ -31,7 +31,7 @@ final class PaywallService: ObservableObject {
     
     private init() {}
     
-    // MARK: - Public Methods
+    // MARK: - Methods
     
     /// Presents the paywall when a user tries to access a Pro feature
     /// - Parameters:

@@ -164,29 +164,29 @@ final class CDWord: NSManagedObject, Identifiable {
 // MARK: - Generated accessors for meanings
 extension CDWord {
     @objc(addMeaningsObject:)
-    @NSManaged public func addToMeanings(_ value: CDMeaning)
+    @NSManaged func addToMeanings(_ value: CDMeaning)
 
     @objc(removeMeaningsObject:)
-    @NSManaged public func removeFromMeanings(_ value: CDMeaning)
+    @NSManaged func removeFromMeanings(_ value: CDMeaning)
 
     @objc(addMeanings:)
-    @NSManaged public func addToMeanings(_ values: NSSet)
+    @NSManaged func addToMeanings(_ values: NSSet)
 
     @objc(removeMeanings:)
-    @NSManaged public func removeFromMeanings(_ values: NSSet)
+    @NSManaged func removeFromMeanings(_ values: NSSet)
 }
 
 // MARK: - Generated accessors for tags
 extension CDWord {
     @objc(addTagsObject:)
-    @NSManaged public func addToTags(_ value: CDTag)
+    @NSManaged func addToTags(_ value: CDTag)
 
     @objc(removeTagsObject:)
-    @NSManaged public func removeFromTags(_ value: CDTag)
+    @NSManaged func removeFromTags(_ value: CDTag)
 
     @objc(addTags:)
-    @NSManaged public func addToTags(_ values: NSSet)
+    @NSManaged func addToTags(_ values: NSSet)
 
     @objc(removeTags:)
-    @NSManaged public func removeFromTags(_ values: NSSet)
+    @NSManaged func removeFromTags(_ values: NSSet)
 }

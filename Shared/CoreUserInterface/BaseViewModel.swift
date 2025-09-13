@@ -12,7 +12,7 @@ import SwiftUI
 @MainActor
 open class BaseViewModel: ObservableObject {
 
-    public let dismissPublisher = PassthroughSubject<Void, Never>()
+    let dismissPublisher = PassthroughSubject<Void, Never>()
 
     private var cancellables = Set<AnyCancellable>()
     

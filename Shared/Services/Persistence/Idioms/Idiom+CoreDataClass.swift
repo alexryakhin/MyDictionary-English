@@ -67,14 +67,14 @@ final class CDIdiom: NSManagedObject, Identifiable {
 // MARK: - Generated accessors for tags
 extension CDIdiom {
     @objc(addTagsObject:)
-    @NSManaged public func addToTags(_ value: CDTag)
+    @NSManaged func addToTags(_ value: CDTag)
 
     @objc(removeTagsObject:)
-    @NSManaged public func removeFromTags(_ value: CDTag)
+    @NSManaged func removeFromTags(_ value: CDTag)
 
     @objc(addTags:)
-    @NSManaged public func addToTags(_ values: NSSet)
+    @NSManaged func addToTags(_ values: NSSet)
 
     @objc(removeTags:)
-    @NSManaged public func removeFromTags(_ values: NSSet)
+    @NSManaged func removeFromTags(_ values: NSSet)
 }

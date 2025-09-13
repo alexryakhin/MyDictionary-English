@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="3">
+    <entity name="Assessment" representedClassName="CDAssessment" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="type" optional="YES" attributeType="String" defaultValueString="daily_progress"/>
+        <attribute name="level" optional="YES" attributeType="String" defaultValueString="beginner"/>
+        <attribute name="targetLevel" optional="YES" attributeType="String" defaultValueString="elementary"/>
+        <attribute name="questions" optional="YES" attributeType="Binary"/>
+        <attribute name="passingCriteria" optional="YES" attributeType="Binary"/>
+        <attribute name="score" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="passed" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="results" optional="YES" attributeType="Binary"/>
+        <attribute name="completedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="syncedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="learningProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LearningProfile" inverseName="assessments" inverseEntity="LearningProfile"/>
+    </entity>
+    <entity name="Idiom" representedClassName="CDIdiom" syncable="YES">
+        <attribute name="definition" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="difficultyScore" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="examples" optional="YES" attributeType="Binary"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="idiomItself" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="languageCode" optional="YES" attributeType="String" defaultValueString="en"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="idioms" inverseEntity="Tag"/>
+    </entity>
+    <entity name="IdiomProgress" representedClassName="CDIdiomProgress" syncable="YES">
+        <attribute name="averageResponseTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="consecutiveCorrect" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="correctAttempts" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="difficultyScore" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="idiomId" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="lastPracticed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="masteryLevel" optional="YES" attributeType="String" defaultValueString="inProgress"/>
+        <attribute name="totalAttempts" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="LearningPlan" representedClassName="CDLearningPlan" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="targetLanguage" optional="YES" attributeType="String" defaultValueString="english"/>
+        <attribute name="currentLevel" optional="YES" attributeType="String" defaultValueString="beginner"/>
+        <attribute name="totalDuration" optional="YES" attributeType="Integer 32" defaultValueString="30" usesScalarValueType="YES"/>
+        <attribute name="dailyStructure" optional="YES" attributeType="Binary"/>
+        <attribute name="weeklyThemes" optional="YES" attributeType="Binary"/>
+        <attribute name="assessmentCheckpoints" optional="YES" attributeType="Binary"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="syncedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="learningProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LearningProfile" inverseName="learningPlan" inverseEntity="LearningProfile"/>
+        <relationship name="lessons" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Lesson" inverseName="learningPlan" inverseEntity="Lesson"/>
+    </entity>
+    <entity name="LearningProfile" representedClassName="CDLearningProfile" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="targetLanguage" optional="YES" attributeType="String" defaultValueString="english"/>
+        <attribute name="currentLevel" optional="YES" attributeType="String" defaultValueString="beginner"/>
+        <attribute name="interests" optional="YES" attributeType="Binary"/>
+        <attribute name="goals" optional="YES" attributeType="Binary"/>
+        <attribute name="timeCommitment" optional="YES" attributeType="String" defaultValueString="casual"/>
+        <attribute name="learningStyle" optional="YES" attributeType="String" defaultValueString="balanced"/>
+        <attribute name="nativeLanguage" optional="YES" attributeType="String" defaultValueString="english"/>
+        <attribute name="motivation" optional="YES" attributeType="String" defaultValueString="personal"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="syncedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="learningPlan" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="LearningPlan" inverseName="learningProfile" inverseEntity="LearningPlan"/>
+        <relationship name="lessons" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Lesson" inverseName="learningProfile" inverseEntity="Lesson"/>
+        <relationship name="assessments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Assessment" inverseName="learningProfile" inverseEntity="Assessment"/>
+        <relationship name="progress" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Progress" inverseName="learningProfile" inverseEntity="Progress"/>
+    </entity>
+    <entity name="Lesson" representedClassName="CDLesson" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="learningPlanId" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="type" optional="YES" attributeType="String" defaultValueString="vocabulary"/>
+        <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="week" optional="YES" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="theme" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="title" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="content" optional="YES" attributeType="Binary"/>
+        <attribute name="estimatedDuration" optional="YES" attributeType="Integer 16" defaultValueString="15" usesScalarValueType="YES"/>
+        <attribute name="difficulty" optional="YES" attributeType="String" defaultValueString="beginner"/>
+        <attribute name="status" optional="YES" attributeType="String" defaultValueString="not_started"/>
+        <attribute name="completedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="timeSpent" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="syncedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="learningProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LearningProfile" inverseName="lessons" inverseEntity="LearningProfile"/>
+        <relationship name="learningPlan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LearningPlan" inverseName="lessons" inverseEntity="LearningPlan"/>
+    </entity>
+    <entity name="Meaning" representedClassName="CDMeaning" syncable="YES">
+        <attribute name="definition" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="examples" optional="YES" attributeType="Binary"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="word" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="meanings" inverseEntity="Word"/>
+    </entity>
+    <entity name="Progress" representedClassName="CDProgress" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="currentDay" optional="YES" attributeType="Integer 32" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="totalDaysCompleted" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalLessonsCompleted" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalWordsLearned" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalStudyTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="currentStreak" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="longestStreak" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastStudyDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="syncedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="learningProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LearningProfile" inverseName="progress" inverseEntity="LearningProfile"/>
+    </entity>
+    <entity name="QuizSession" representedClassName="CDQuizSession" syncable="YES">
+        <attribute name="accuracy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="correctAnswers" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="quizType" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="score" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalWords" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wordsPracticed" optional="YES" attributeType="Binary"/>
+    </entity>
+    <entity name="Tag" representedClassName="CDTag" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String" defaultValueString="blue"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="idioms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Idiom" inverseName="tags" inverseEntity="Idiom"/>
+        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="tags" inverseEntity="Word"/>
+    </entity>
+    <entity name="UserStats" representedClassName="CDUserStats" syncable="YES">
+        <attribute name="averageAccuracy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="currentStreak" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastPracticeDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="longestStreak" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalPracticeTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalSessions" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalWordsStudied" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="vocabularySize" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Word" representedClassName="CDWord" syncable="YES">
+        <attribute name="definition" optional="YES" attributeType="String"/>
+        <attribute name="difficultyScore" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="examples" optional="YES" attributeType="Binary"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isSynced" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="languageCode" optional="YES" attributeType="String" defaultValueString="en"/>
+        <attribute name="partOfSpeech" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="phonetic" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="wordItself" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="notes" optional="YES" attributeType="String" defaultValueString=""/>
+        <relationship name="meanings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Meaning" inverseName="word" inverseEntity="Meaning"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="words" inverseEntity="Tag"/>
+    </entity>
+    <entity name="WordProgress" representedClassName="CDWordProgress" syncable="YES">
+        <attribute name="averageResponseTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="consecutiveCorrect" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="correctAttempts" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="difficultyScore" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastPracticed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="masteryLevel" optional="YES" attributeType="String" defaultValueString="inProgress"/>
+        <attribute name="totalAttempts" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wordId" optional="YES" attributeType="String" defaultValueString=""/>
+    </entity>
+</model>

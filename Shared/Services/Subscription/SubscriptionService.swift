@@ -523,7 +523,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
         return currentCount < getSharedDictionaryLimit()
     }
 
-    /// Public method to manually sync subscription status to Firestore
+    /// method to manually sync subscription status to Firestore
     func syncSubscriptionStatus() async {
         await syncSubscriptionStatusToFirestore()
     }

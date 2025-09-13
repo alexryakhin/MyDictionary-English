@@ -10,19 +10,19 @@ import CoreData
 
 extension CDUserStats {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDUserStats> {
+    @nonobjc class func fetchRequest() -> NSFetchRequest<CDUserStats> {
         return NSFetchRequest<CDUserStats>(entityName: "UserStats")
     }
 
-    @NSManaged public var averageAccuracy: Double
-    @NSManaged public var currentStreak: Int32
-    @NSManaged public var id: UUID?
-    @NSManaged public var lastPracticeDate: Date?
-    @NSManaged public var longestStreak: Int32
-    @NSManaged public var totalPracticeTime: Double
-    @NSManaged public var totalSessions: Int32
-    @NSManaged public var totalWordsStudied: Int32
-    @NSManaged public var vocabularySize: Int32
+    @NSManaged var averageAccuracy: Double
+    @NSManaged var currentStreak: Int32
+    @NSManaged var id: UUID?
+    @NSManaged var lastPracticeDate: Date?
+    @NSManaged var longestStreak: Int32
+    @NSManaged var totalPracticeTime: Double
+    @NSManaged var totalSessions: Int32
+    @NSManaged var totalWordsStudied: Int32
+    @NSManaged var vocabularySize: Int32
 
 }
 

@@ -15,7 +15,7 @@ final class FirebaseOpenAIProxy: AIAPIServiceInterface {
         print("🔧 [FirebaseOpenAIProxy] Using Firebase Cloud Functions proxy")
     }
 
-    // MARK: - Public Methods
+    // MARK: - Methods
 
     func generateWordInformation(
         for word: String,

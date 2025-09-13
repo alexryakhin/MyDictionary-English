@@ -9,6 +9,6 @@ import Foundation
 import CoreData
 
 @objc(CDWordProgress)
-public class CDWordProgress: NSManagedObject {
+class CDWordProgress: NSManagedObject {
 
 } 

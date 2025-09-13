@@ -10,19 +10,19 @@ import CoreData
 
 extension CDQuizSession {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDQuizSession> {
+    @nonobjc class func fetchRequest() -> NSFetchRequest<CDQuizSession> {
         return NSFetchRequest<CDQuizSession>(entityName: "QuizSession")
     }
 
-    @NSManaged public var accuracy: Double
-    @NSManaged public var correctAnswers: Int32
-    @NSManaged public var date: Date?
-    @NSManaged public var duration: Double
-    @NSManaged public var id: UUID?
-    @NSManaged public var quizType: String?
-    @NSManaged public var score: Int32
-    @NSManaged public var totalWords: Int32
-    @NSManaged public var wordsPracticed: Data?
+    @NSManaged var accuracy: Double
+    @NSManaged var correctAnswers: Int32
+    @NSManaged var date: Date?
+    @NSManaged var duration: Double
+    @NSManaged var id: UUID?
+    @NSManaged var quizType: String?
+    @NSManaged var score: Int32
+    @NSManaged var totalWords: Int32
+    @NSManaged var wordsPracticed: Data?
 
     var quiz: Quiz? {
         Quiz(rawValue: quizType.orEmpty)

@@ -36,7 +36,7 @@ final class ReachabilityService: ObservableObject {
         networkMonitor.cancel()
     }
 
-    // MARK: - Public Methods
+    // MARK: - Methods
 
     /// Determines if internet-dependent features should be shown
     /// - Returns: True if internet features should be shown, false otherwise

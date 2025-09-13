@@ -33,7 +33,7 @@ final class OpenAIAPIService: AIAPIServiceInterface {
         print("⚠️ [OpenAIAPIService] Using direct OpenAI API calls - API key should be set for local development")
     }
 
-    // MARK: - Public Methods
+    // MARK: - Methods
 
     func generateWordInformation(
         for word: String,

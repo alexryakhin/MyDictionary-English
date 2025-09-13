@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct InputView: View {
+struct InputView: View {
 
     let placeholder: String
     let submitLabel: SubmitLabel
@@ -15,7 +15,7 @@ public struct InputView: View {
     let trailingButtonLabel: String?
     let onSubmit: VoidHandler?
     let onTrailingButtonTap: VoidHandler?
-    @Binding public var text: String
+    @Binding var text: String
     @FocusState private var isFocused
 
     @State private var showsTrailingButton: Bool = false
@@ -47,7 +47,7 @@ public struct InputView: View {
         )
     }
 
-    public var body: some View {
+    var body: some View {
         HStack(spacing: 8) {
             HStack(spacing: 8) {
                 leadingIcon

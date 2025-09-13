@@ -31,7 +31,7 @@ final class QuizItemsProvider: ObservableObject {
         }
     }
 
-    // MARK: - Public Methods
+    // MARK: - Methods
 
     /// Forces a refresh of available dictionaries and words
     func refreshAvailableDictionaries() {

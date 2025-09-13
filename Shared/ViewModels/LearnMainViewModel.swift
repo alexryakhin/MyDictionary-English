@@ -61,7 +61,7 @@ final class LearnMainViewModel: ObservableObject {
         )
     }
     
-    // MARK: - Public Methods
+    // MARK: - Methods
     
     func loadUserProfile() {
         // Load from UserDefaults (demo implementation)
