@@ -184,12 +184,13 @@ final class LearningOnboardingViewModel: ObservableObject {
     // MARK: - Private Methods
     
     private func saveLearningProfile(_ profile: LearningProfile) async {
-        // TODO: Implement saving to Core Data or UserDefaults
         print("📚 Saving learning profile: \(profile)")
         
-        // For now, just save to UserDefaults as a demo
+        // Save to UserDefaults
         if let encoded = try? JSONEncoder().encode(profile) {
             UserDefaults.standard.set(encoded, forKey: "learning_profile")
+            UserDefaults.standard.set(true, forKey: "has_completed_learning_onboarding")
+            print("✅ Learning profile saved successfully")
         }
     }
     

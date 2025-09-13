@@ -9,8 +9,25 @@ import SwiftUI
 
 struct LearningTabView: View {
     @State private var showingOnboarding = false
+    @State private var hasCompletedOnboarding = false
     
     var body: some View {
+        Group {
+            if hasCompletedOnboarding {
+                LearnMainView()
+            } else {
+                onboardingView
+            }
+        }
+        .onAppear {
+            checkOnboardingStatus()
+        }
+        .sheet(isPresented: $showingOnboarding) {
+            LearningOnboardingView()
+        }
+    }
+    
+    private var onboardingView: some View {
         ScrollView {
             VStack(spacing: 32) {
                 // Header Section
@@ -41,7 +58,7 @@ struct LearningTabView: View {
                         
                         ActionButton(
                             "Continue Learning",
-                            systemImage: "play.circle.fill",
+                            systemImage: "graduationcap.fill",
                             style: .bordered
                         ) {
                             // TODO: Implement continue learning
@@ -58,9 +75,11 @@ struct LearningTabView: View {
             mode: .large,
             showsBackButton: false
         )
-        .sheet(isPresented: $showingOnboarding) {
-            LearningOnboardingView()
-        }
+    }
+    
+    private func checkOnboardingStatus() {
+        // Check if user has completed onboarding
+        hasCompletedOnboarding = UserDefaults.standard.data(forKey: "learning_profile") != nil
     }
 }
 
