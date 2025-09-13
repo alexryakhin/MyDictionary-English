@@ -34,6 +34,9 @@ struct MainTabView: View {
                             idiomListViewModel: idiomListViewModel
                         )
                         .transition(tabManager.getSlideTransition())
+                    case .learn:
+                        LearnFlow()
+                            .transition(tabManager.getSlideTransition())
                     case .quizzes:
                         QuizzesFlow(viewModel: quizzesViewModel)
                             .transition(tabManager.getSlideTransition())

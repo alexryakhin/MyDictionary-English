@@ -1,0 +1,1709 @@
+{
+  "collections": [
+    {
+      "id": "top-50-russian-words-001",
+      "title": "Top 50 Russian Words",
+      "words": [
+        {
+          "id": "i-001",
+          "text": "и",
+          "phonetics": "/i/",
+          "partOfSpeech": "conjunction",
+          "definition": "Joins two things together, like \"apple and orange\"",
+          "examples": [
+            "Яблоко и апельсин - фрукты.",
+            "Мама и папа дома."
+          ]
+        },
+        {
+          "id": "v-001",
+          "text": "в",
+          "phonetics": "/v/",
+          "partOfSpeech": "preposition",
+          "definition": "Shows something is inside or within another thing, like being in a box",
+          "examples": [
+            "Книга в сумке.",
+            "Я живу в Москве."
+          ]
+        },
+        {
+          "id": "ne-001",
+          "text": "не",
+          "phonetics": "/nʲe/",
+          "partOfSpeech": "particle",
+          "definition": "Means \"no\" or the opposite, like not happy means sad",
+          "examples": [
+            "Я не грустный.",
+            "Не хочу есть."
+          ]
+        },
+        {
+          "id": "na-001",
+          "text": "на",
+          "phonetics": "/na/",
+          "partOfSpeech": "preposition",
+          "definition": "Shows something is on top of or at a place, like a hat on your head",
+          "examples": [
+            "Шляпа на голове.",
+            "Книга на столе."
+          ]
+        },
+        {
+          "id": "ya-001",
+          "text": "я",
+          "phonetics": "/ja/",
+          "partOfSpeech": "pronoun",
+          "definition": "What you use to talk about yourself, like \"I am happy\"",
+          "examples": [
+            "Я счастливый.",
+            "Я учусь в школе."
+          ]
+        },
+        {
+          "id": "byt-001",
+          "text": "быть",
+          "phonetics": "/bɨtʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Existing or becoming something, like to be a friend",
+          "examples": [
+            "Хочу быть врачом.",
+            "Быть другом - хорошо."
+          ]
+        },
+        {
+          "id": "on-001",
+          "text": "он",
+          "phonetics": "/on/",
+          "partOfSpeech": "pronoun",
+          "definition": "For a boy or a thing that acts like a boy, like \"he runs\"",
+          "examples": [
+            "Он бегает быстро.",
+            "Он мой брат."
+          ]
+        },
+        {
+          "id": "s-001",
+          "text": "с",
+          "phonetics": "/s/",
+          "partOfSpeech": "preposition",
+          "definition": "Means together with someone, like playing with a friend",
+          "examples": [
+            "Играю с другом.",
+            "Иду с мамой."
+          ]
+        },
+        {
+          "id": "a-001",
+          "text": "а",
+          "phonetics": "/a/",
+          "partOfSpeech": "conjunction",
+          "definition": "Connects ideas, sometimes like \"but\" or just adding more",
+          "examples": [
+            "Я устал, а он нет.",
+            "Красное яблоко, а не зеленое."
+          ]
+        },
+        {
+          "id": "chto-001",
+          "text": "что",
+          "phonetics": "/ʂto/",
+          "partOfSpeech": "pronoun",
+          "definition": "To ask or say \"what\" something is, like \"What is this?\"",
+          "examples": [
+            "Что это такое?",
+            "Что ты делаешь?"
+          ]
+        },
+        {
+          "id": "oni-001",
+          "text": "они",
+          "phonetics": "/aˈni/",
+          "partOfSpeech": "pronoun",
+          "definition": "For a group of people or things, like \"they are here\"",
+          "examples": [
+            "Они здесь.",
+            "Они мои друзья."
+          ]
+        },
+        {
+          "id": "etot-001",
+          "text": "этот",
+          "phonetics": "/ˈetət/",
+          "partOfSpeech": "pronoun",
+          "definition": "Points to something close by, like \"this toy\" for a boy's toy",
+          "examples": [
+            "Этот мяч мой.",
+            "Этот дом красивый."
+          ]
+        },
+        {
+          "id": "za-001",
+          "text": "за",
+          "phonetics": "/za/",
+          "partOfSpeech": "preposition",
+          "definition": "Means for something or behind it, like waiting for a bus",
+          "examples": [
+            "Жду за автобусом.",
+            "Работаю за столом."
+          ]
+        },
+        {
+          "id": "po-001",
+          "text": "по",
+          "phonetics": "/po/",
+          "partOfSpeech": "preposition",
+          "definition": "For moving along something, like walking by the river",
+          "examples": [
+            "Иду по улице.",
+            "Плыву по реке."
+          ]
+        },
+        {
+          "id": "k-001",
+          "text": "к",
+          "phonetics": "/k/",
+          "partOfSpeech": "preposition",
+          "definition": "Shows direction to something, like going to school",
+          "examples": [
+            "Иду к школе.",
+            "Подхожу к другу."
+          ]
+        },
+        {
+          "id": "ot-001",
+          "text": "от",
+          "phonetics": "/ot/",
+          "partOfSpeech": "preposition",
+          "definition": "Means away from or coming from a place, like from home",
+          "examples": [
+            "Иду от дома.",
+            "Письмо от мамы."
+          ]
+        },
+        {
+          "id": "ona-001",
+          "text": "она",
+          "phonetics": "/aˈna/",
+          "partOfSpeech": "pronoun",
+          "definition": "For a girl or a thing that acts like a girl, like \"she dances\"",
+          "examples": [
+            "Она танцует.",
+            "Она моя сестра."
+          ]
+        },
+        {
+          "id": "kak-001",
+          "text": "как",
+          "phonetics": "/kak/",
+          "partOfSpeech": "adverb",
+          "definition": "Asks or says the way something happens, like \"how do you fly?\"",
+          "examples": [
+            "Как дела?",
+            "Как ты летаешь?"
+          ]
+        },
+        {
+          "id": "u-001",
+          "text": "у",
+          "phonetics": "/u/",
+          "partOfSpeech": "preposition",
+          "definition": "Shows near or belonging to someone, like at your friend's house",
+          "examples": [
+            "У друга дома.",
+            "У меня есть книга."
+          ]
+        },
+        {
+          "id": "vy-001",
+          "text": "вы",
+          "phonetics": "/vɨ/",
+          "partOfSpeech": "pronoun",
+          "definition": "For \"you\" when talking to more than one person or politely",
+          "examples": [
+            "Вы говорите по-русски?",
+            "Вы мои друзья."
+          ]
+        },
+        {
+          "id": "iz-001",
+          "text": "из",
+          "phonetics": "/iz/",
+          "partOfSpeech": "preposition",
+          "definition": "Means coming out of or made from something, like out of a tree",
+          "examples": [
+            "Выхожу из дома.",
+            "Стол из дерева."
+          ]
+        },
+        {
+          "id": "skazat-001",
+          "text": "сказать",
+          "phonetics": "/skaˈzatʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Using words to tell or share something, like saying hello",
+          "examples": [
+            "Сказать привет.",
+            "Что ты хочешь сказать?"
+          ]
+        },
+        {
+          "id": "tot-001",
+          "text": "тот",
+          "phonetics": "/tot/",
+          "partOfSpeech": "pronoun",
+          "definition": "Points to something farther away, like \"that ball over there\"",
+          "examples": [
+            "Тот мяч далеко.",
+            "Тот дом высокий."
+          ]
+        },
+        {
+          "id": "vse-001",
+          "text": "все",
+          "phonetics": "/fsʲe/",
+          "partOfSpeech": "pronoun",
+          "definition": "Means every single one, like all the cookies",
+          "examples": [
+            "Все печенья съел.",
+            "Все дети играют."
+          ]
+        },
+        {
+          "id": "odin-001",
+          "text": "один",
+          "phonetics": "/aˈdʲin/",
+          "partOfSpeech": "numeral",
+          "definition": "The number one, like one apple",
+          "examples": [
+            "Одно яблоко.",
+            "Один мальчик."
+          ]
+        },
+        {
+          "id": "no-001",
+          "text": "но",
+          "phonetics": "/no/",
+          "partOfSpeech": "conjunction",
+          "definition": "Shows a different idea, like \"I like cake but not broccoli\"",
+          "examples": [
+            "Люблю торт, но не брокколи.",
+            "Устал, но продолжаю работать."
+          ]
+        },
+        {
+          "id": "my-001",
+          "text": "мы",
+          "phonetics": "/mɨ/",
+          "partOfSpeech": "pronoun",
+          "definition": "For you and others together, like \"we play\"",
+          "examples": [
+            "Мы играем.",
+            "Мы друзья."
+          ]
+        },
+        {
+          "id": "tak-001",
+          "text": "так",
+          "phonetics": "/tak/",
+          "partOfSpeech": "adverb",
+          "definition": "Means in that way or like so, like doing it just like this",
+          "examples": [
+            "Делаю так.",
+            "Так правильно."
+          ]
+        },
+        {
+          "id": "ego-001",
+          "text": "его",
+          "phonetics": "/jɪˈvo/",
+          "partOfSpeech": "pronoun",
+          "definition": "For something belonging to him or pointing to him",
+          "examples": [
+            "Его книга.",
+            "Вижу его."
+          ]
+        },
+        {
+          "id": "tolko-001",
+          "text": "только",
+          "phonetics": "/ˈtolʲkə/",
+          "partOfSpeech": "adverb",
+          "definition": "Means just this one or nothing else, like only one cookie",
+          "examples": [
+            "Только одно печенье.",
+            "Только я знаю."
+          ]
+        },
+        {
+          "id": "novyy-001",
+          "text": "новый",
+          "phonetics": "/ˈnovɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Something fresh or never used before, like a new toy",
+          "examples": [
+            "Новая игрушка.",
+            "Новый год."
+          ]
+        },
+        {
+          "id": "god-001",
+          "text": "год",
+          "phonetics": "/ɡot/",
+          "partOfSpeech": "noun",
+          "definition": "The time it takes Earth to go around the sun once",
+          "examples": [
+            "Новый год праздник.",
+            "Мне пять лет."
+          ]
+        },
+        {
+          "id": "chelovek-001",
+          "text": "человек",
+          "phonetics": "/tɕɪlɐˈvʲek/",
+          "partOfSpeech": "noun",
+          "definition": "Any person, like you or your teacher",
+          "examples": [
+            "Хороший человек.",
+            "Человек читает книгу."
+          ]
+        },
+        {
+          "id": "vremya-001",
+          "text": "время",
+          "phonetics": "/ˈvrʲemʲə/",
+          "partOfSpeech": "noun",
+          "definition": "When things happen, like playtime or bedtime",
+          "examples": [
+            "Время играть.",
+            "Время спать."
+          ]
+        },
+        {
+          "id": "delo-001",
+          "text": "дело",
+          "phonetics": "/ˈdʲelə/",
+          "partOfSpeech": "noun",
+          "definition": "A task or something important to do, like homework",
+          "examples": [
+            "Важное дело.",
+            "Дело в том, что..."
+          ]
+        },
+        {
+          "id": "ruka-001",
+          "text": "рука",
+          "phonetics": "/ruˈka/",
+          "partOfSpeech": "noun",
+          "definition": "The part of your body you use to hold things",
+          "examples": [
+            "Поднимаю руку.",
+            "Рука болит."
+          ]
+        },
+        {
+          "id": "rabotat-001",
+          "text": "работать",
+          "phonetics": "/rɐˈbotətʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Doing a job or making something happen",
+          "examples": [
+            "Работаю в офисе.",
+            "Машина работает."
+          ]
+        },
+        {
+          "id": "slovo-001",
+          "text": "слово",
+          "phonetics": "/ˈslovə/",
+          "partOfSpeech": "noun",
+          "definition": "A spoken or written sound that means something",
+          "examples": [
+            "Новое слово.",
+            "Слово \"привет\"."
+          ]
+        },
+        {
+          "id": "tozhe-001",
+          "text": "тоже",
+          "phonetics": "/ˈtoʐə/",
+          "partOfSpeech": "adverb",
+          "definition": "Means the same or in addition, like me too!",
+          "examples": [
+            "Я тоже!",
+            "Тоже хочу."
+          ]
+        },
+        {
+          "id": "strana-001",
+          "text": "страна",
+          "phonetics": "/strɐˈna/",
+          "partOfSpeech": "noun",
+          "definition": "A big place where people live with their own rules",
+          "examples": [
+            "Моя страна - Россия.",
+            "Большая страна."
+          ]
+        },
+        {
+          "id": "pervyy-001",
+          "text": "первый",
+          "phonetics": "/ˈpʲervɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "The one that comes before all others, like first place",
+          "examples": [
+            "Первый день.",
+            "Первый урок."
+          ]
+        },
+        {
+          "id": "posledniy-001",
+          "text": "последний",
+          "phonetics": "/pɐˈslʲedʲnʲɪj/",
+          "partOfSpeech": "adjective",
+          "definition": "The one at the very end, like the last cookie",
+          "examples": [
+            "Последнее печенье.",
+            "Последний день."
+          ]
+        },
+        {
+          "id": "zhizn-001",
+          "text": "жизнь",
+          "phonetics": "/ʐɨzʲnʲ/",
+          "partOfSpeech": "noun",
+          "definition": "Being alive and all the fun and adventures",
+          "examples": [
+            "Хорошая жизнь.",
+            "Жизнь прекрасна."
+          ]
+        },
+        {
+          "id": "den-001",
+          "text": "день",
+          "phonetics": "/dʲenʲ/",
+          "partOfSpeech": "noun",
+          "definition": "The time from morning until you sleep at night",
+          "examples": [
+            "Хороший день.",
+            "День рождения."
+          ]
+        },
+        {
+          "id": "vlast-001",
+          "text": "власть",
+          "phonetics": "/vlastʲ/",
+          "partOfSpeech": "noun",
+          "definition": "Being in charge or having the power to decide",
+          "examples": [
+            "Власть президента.",
+            "Иметь власть."
+          ]
+        },
+        {
+          "id": "mir-001",
+          "text": "мир",
+          "phonetics": "/mʲir/",
+          "partOfSpeech": "noun",
+          "definition": "The whole big world or when everyone gets along",
+          "examples": [
+            "Весь мир.",
+            "Мир во всем мире."
+          ]
+        },
+        {
+          "id": "golova-001",
+          "text": "голова",
+          "phonetics": "/ɡɐˈlovə/",
+          "partOfSpeech": "noun",
+          "definition": "The top part of your body where your brain and eyes are",
+          "examples": [
+            "Болит голова.",
+            "Умная голова."
+          ]
+        },
+        {
+          "id": "sistema-001",
+          "text": "система",
+          "phonetics": "/sʲɪˈstʲemə/",
+          "partOfSpeech": "noun",
+          "definition": "A group of things that work together, like a toy set",
+          "examples": [
+            "Компьютерная система.",
+            "Система образования."
+          ]
+        },
+        {
+          "id": "vopros-001",
+          "text": "вопрос",
+          "phonetics": "/vɐˈpros/",
+          "partOfSpeech": "noun",
+          "definition": "Something you wonder about and ask to learn more",
+          "examples": [
+            "Хороший вопрос.",
+            "Задать вопрос."
+          ]
+        }
+      ],
+      "level": "A1",
+      "tagValue": "Russian Basics",
+      "languageCode": "ru",
+      "description": "The 50 most essential Russian words for beginners",
+      "imageUrl": null,
+      "localImageName": "flag-uk",
+      "isPremium": false
+    },
+    {
+      "id": "a2-everyday-actions-001",
+      "title": "Everyday Actions",
+      "words": [
+        {
+          "id": "idti-001",
+          "text": "идти",
+          "phonetics": "/ɪˈdʲi/",
+          "partOfSpeech": "verb",
+          "definition": "Moving by walking, like going to the park",
+          "examples": [
+            "Иду в парк.",
+            "Идти домой."
+          ]
+        },
+        {
+          "id": "est-001",
+          "text": "есть",
+          "phonetics": "/jesʲtʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Putting food in your mouth and eating, like having breakfast",
+          "examples": [
+            "Ем завтрак.",
+            "Что ты ешь?"
+          ]
+        },
+        {
+          "id": "pit-001",
+          "text": "пить",
+          "phonetics": "/pʲitʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Taking a drink, like sipping water",
+          "examples": [
+            "Пью воду.",
+            "Пить чай."
+          ]
+        },
+        {
+          "id": "chitat-001",
+          "text": "читать",
+          "phonetics": "/tɕɪˈtatʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Looking at words in a book to understand them",
+          "examples": [
+            "Читаю книгу.",
+            "Люблю читать."
+          ]
+        },
+        {
+          "id": "pisat-001",
+          "text": "писать",
+          "phonetics": "/pʲɪˈsatʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Making letters or words on paper with a pen",
+          "examples": [
+            "Пишу письмо.",
+            "Писать ручкой."
+          ]
+        },
+        {
+          "id": "smotret-001",
+          "text": "смотреть",
+          "phonetics": "/smɐˈtrʲetʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Using your eyes to see something, like watching TV",
+          "examples": [
+            "Смотрю телевизор.",
+            "Смотреть фильм."
+          ]
+        },
+        {
+          "id": "slushat-001",
+          "text": "слушать",
+          "phonetics": "/ˈsluʂətʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Using your ears to hear music or someone talking",
+          "examples": [
+            "Слушаю музыку.",
+            "Слушать учителя."
+          ]
+        },
+        {
+          "id": "govorit-001",
+          "text": "говорить",
+          "phonetics": "/ɡɐvɐˈrʲitʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Using words to talk to someone",
+          "examples": [
+            "Говорю с другом.",
+            "Говорить по-русски."
+          ]
+        },
+        {
+          "id": "spat-001",
+          "text": "спать",
+          "phonetics": "/spatʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Resting with your eyes closed at night",
+          "examples": [
+            "Сплю ночью.",
+            "Хочу спать."
+          ]
+        },
+        {
+          "id": "zhit-001",
+          "text": "жить",
+          "phonetics": "/ʐɨtʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Being alive and staying in a place, like living in a house",
+          "examples": [
+            "Живу в Москве.",
+            "Жить с семьей."
+          ]
+        },
+        {
+          "id": "uchitsya-001",
+          "text": "учиться",
+          "phonetics": "/uˈtɕit͡sə/",
+          "partOfSpeech": "verb",
+          "definition": "Learning something new, like studying at school",
+          "examples": [
+            "Учусь в школе.",
+            "Учиться читать."
+          ]
+        },
+        {
+          "id": "pokupat-001",
+          "text": "покупать",
+          "phonetics": "/pɐkuˈpatʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Getting something by giving money, like buying candy",
+          "examples": [
+            "Покупаю конфеты.",
+            "Покупать продукты."
+          ]
+        }
+      ],
+      "level": "A2",
+      "tagValue": "Daily Actions",
+      "languageCode": "ru",
+      "description": "Basic verbs for daily activities, useful for beginners",
+      "imageUrl": null,
+      "localImageName": "work-1",
+      "isPremium": false
+    },
+    {
+      "id": "a2-people-places-001",
+      "title": "People and Places",
+      "words": [
+        {
+          "id": "drug-001",
+          "text": "друг",
+          "phonetics": "/druk/",
+          "partOfSpeech": "noun",
+          "definition": "Someone you like to play or talk with, like a best friend",
+          "examples": [
+            "Мой лучший друг.",
+            "Играю с другом."
+          ]
+        },
+        {
+          "id": "mama-001",
+          "text": "мама",
+          "phonetics": "/ˈmamə/",
+          "partOfSpeech": "noun",
+          "definition": "The woman who takes care of you, like your mom",
+          "examples": [
+            "Мама готовит ужин.",
+            "Люблю маму."
+          ]
+        },
+        {
+          "id": "papa-001",
+          "text": "папа",
+          "phonetics": "/ˈpapə/",
+          "partOfSpeech": "noun",
+          "definition": "The man who takes care of you, like your dad",
+          "examples": [
+            "Папа работает.",
+            "Папа читает газету."
+          ]
+        },
+        {
+          "id": "shkola-001",
+          "text": "школа",
+          "phonetics": "/ˈʂkolə/",
+          "partOfSpeech": "noun",
+          "definition": "The place where you learn with teachers and friends",
+          "examples": [
+            "Иду в школу.",
+            "Школа большая."
+          ]
+        },
+        {
+          "id": "dom-001",
+          "text": "дом",
+          "phonetics": "/dom/",
+          "partOfSpeech": "noun",
+          "definition": "The building where you live and sleep",
+          "examples": [
+            "Мой дом красивый.",
+            "Иду домой."
+          ]
+        },
+        {
+          "id": "gorod-001",
+          "text": "город",
+          "phonetics": "/ˈɡorət/",
+          "partOfSpeech": "noun",
+          "definition": "A big place with lots of houses and shops, like a city",
+          "examples": [
+            "Живу в большом городе.",
+            "Город Москва."
+          ]
+        },
+        {
+          "id": "ulitsa-001",
+          "text": "улица",
+          "phonetics": "/uˈlʲit͡sə/",
+          "partOfSpeech": "noun",
+          "definition": "The path outside where cars and people go, like a street",
+          "examples": [
+            "Иду по улице.",
+            "Улица тихая."
+          ]
+        },
+        {
+          "id": "kniga-001",
+          "text": "книга",
+          "phonetics": "/ˈknʲiɡə/",
+          "partOfSpeech": "noun",
+          "definition": "Pages with words or pictures you read, like a storybook",
+          "examples": [
+            "Читаю интересную книгу.",
+            "Книга на столе."
+          ]
+        },
+        {
+          "id": "magazin-001",
+          "text": "магазин",
+          "phonetics": "/məɡɐˈzʲin/",
+          "partOfSpeech": "noun",
+          "definition": "A place where you buy things, like a store",
+          "examples": [
+            "Иду в магазин.",
+            "Магазин продуктов."
+          ]
+        },
+        {
+          "id": "rebyonok-001",
+          "text": "ребёнок",
+          "phonetics": "/rʲɪˈbʲonək/",
+          "partOfSpeech": "noun",
+          "definition": "A young person, like a kid or baby",
+          "examples": [
+            "Маленький ребёнок.",
+            "Ребёнок играет."
+          ]
+        }
+      ],
+      "level": "A2",
+      "tagValue": "People Places",
+      "languageCode": "ru",
+      "description": "Nouns for describing relationships and locations",
+      "imageUrl": null,
+      "localImageName": "hello-1",
+      "isPremium": false
+    },
+    {
+      "id": "b1-feelings-descriptions-001",
+      "title": "Feelings and Descriptions",
+      "words": [
+        {
+          "id": "khoroshiy-001",
+          "text": "хороший",
+          "phonetics": "/xɐˈroʂɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Something nice or great, like a good day",
+          "examples": [
+            "У него хорошие манеры и отличное образование.",
+            "Это хороший пример того, как нужно решать подобные проблемы."
+          ]
+        },
+        {
+          "id": "plokhoy-001",
+          "text": "плохой",
+          "phonetics": "/plɐˈxoj/",
+          "partOfSpeech": "adjective",
+          "definition": "Something not nice, like a bad mood",
+          "examples": [
+            "У него плохая репутация в профессиональных кругах.",
+            "Это плохой знак для развития нашего проекта."
+          ]
+        },
+        {
+          "id": "vesyolyy-001",
+          "text": "весёлый",
+          "phonetics": "/vʲɪˈsʲolɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Feeling happy and full of energy, like a fun party",
+          "examples": [
+            "Она всегда была весёлой и жизнерадостной личностью.",
+            "Мы провели весёлый вечер в кругу друзей."
+          ]
+        },
+        {
+          "id": "grustnyy-001",
+          "text": "грустный",
+          "phonetics": "/ˈɡrustnɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Feeling sad, like when you miss a friend",
+          "examples": [
+            "Этот грустный момент в фильме заставил всех плакать.",
+            "У неё было грустное выражение лица после полученных новостей."
+          ]
+        },
+        {
+          "id": "krasivyy-001",
+          "text": "красивый",
+          "phonetics": "/krɐˈsʲivɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Looking very pretty, like a colorful flower",
+          "examples": [
+            "Архитектор создал красивый проект современного здания.",
+            "Она написала красивую речь для церемонии вручения наград."
+          ]
+        },
+        {
+          "id": "umnyy-001",
+          "text": "умный",
+          "phonetics": "/ˈumnɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Knowing a lot, like a clever kid who solves puzzles",
+          "examples": [
+            "Он принял умное решение, которое сэкономило компании миллионы.",
+            "Этот умный подход к решению проблемы заслуживает внимания."
+          ]
+        },
+        {
+          "id": "dobryy-001",
+          "text": "добрый",
+          "phonetics": "/ˈdobrɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Being kind and helpful, like sharing toys",
+          "examples": [
+            "Она известна как добрый и отзывчивый руководитель.",
+            "Его добрые намерения помогли многим людям в трудной ситуации."
+          ]
+        },
+        {
+          "id": "vazhnyy-001",
+          "text": "важный",
+          "phonetics": "/ˈvaʐnɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Something that matters a lot, like an important test",
+          "examples": [
+            "Это важный этап в развитии нашей компании.",
+            "Важно учитывать все факторы при принятии стратегических решений."
+          ]
+        },
+        {
+          "id": "interesnyy-001",
+          "text": "интересный",
+          "phonetics": "/ɪntʲɪˈrʲesnɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Something exciting to know about, like an interesting story",
+          "examples": [
+            "Это интересный подход к решению экологических проблем.",
+            "Он представил интересную теорию о развитии искусственного интеллекта."
+          ]
+        },
+        {
+          "id": "trudnyy-001",
+          "text": "трудный",
+          "phonetics": "/ˈtrudnɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Hard to do, like a tough game",
+          "examples": [
+            "Это трудный период для всей отрасли, но мы справимся.",
+            "Трудные переговоры потребовали от нас максимальной концентрации."
+          ]
+        }
+      ],
+      "level": "B1",
+      "tagValue": "Feelings",
+      "languageCode": "ru",
+      "description": "Adjectives for expressing emotions and qualities",
+      "imageUrl": null,
+      "localImageName": "studying",
+      "isPremium": true
+    },
+    {
+      "id": "b1-time-events-001",
+      "title": "Time and Events",
+      "words": [
+        {
+          "id": "segodnya-001",
+          "text": "сегодня",
+          "phonetics": "/sʲɪˈɡodʲnʲə/",
+          "partOfSpeech": "adverb",
+          "definition": "The day that's happening right now, like today",
+          "examples": [
+            "Сегодня мы обсуждаем важные изменения в политике компании.",
+            "Сегодняшняя встреча была очень продуктивной."
+          ]
+        },
+        {
+          "id": "zavtra-001",
+          "text": "завтра",
+          "phonetics": "/ˈzavtrə/",
+          "partOfSpeech": "adverb",
+          "definition": "The day after today, like tomorrow",
+          "examples": [
+            "Завтра у нас важная презентация для инвесторов.",
+            "Завтрашний дедлайн требует от нас максимальной концентрации."
+          ]
+        },
+        {
+          "id": "vchera-001",
+          "text": "вчера",
+          "phonetics": "/ftɕɪˈra/",
+          "partOfSpeech": "adverb",
+          "definition": "The day before today, like yesterday",
+          "examples": [
+            "Вчерашние переговоры прошли успешно.",
+            "Вчера мы завершили важный этап проекта."
+          ]
+        },
+        {
+          "id": "nedelya-001",
+          "text": "неделя",
+          "phonetics": "/nʲɪˈdʲelʲə/",
+          "partOfSpeech": "noun",
+          "definition": "Seven days together, like a week",
+          "examples": [
+            "На следующей неделе мы планируем запустить новый продукт.",
+            "Эта неделя была очень насыщенной в плане работы."
+          ]
+        },
+        {
+          "id": "mesyats-001",
+          "text": "месяц",
+          "phonetics": "/ˈmʲesʲɪt͡s/",
+          "partOfSpeech": "noun",
+          "definition": "A chunk of time, like 30 days for a month",
+          "examples": [
+            "В прошлом месяце мы увеличили продажи на 15%.",
+            "В течение месяца мы должны завершить этот проект."
+          ]
+        },
+        {
+          "id": "utro-001",
+          "text": "утро",
+          "phonetics": "/ˈutrə/",
+          "partOfSpeech": "noun",
+          "definition": "The time when the sun comes up, like morning",
+          "examples": [
+            "Утром у нас запланирована важная встреча с клиентами.",
+            "Раннее утро - лучшее время для продуктивной работы."
+          ]
+        },
+        {
+          "id": "vecher-001",
+          "text": "вечер",
+          "phonetics": "/ˈvʲetɕɪr/",
+          "partOfSpeech": "noun",
+          "definition": "The time when it gets dark, like evening",
+          "examples": [
+            "Вечером мы подводим итоги рабочего дня.",
+            "Деловой вечер с партнёрами прошёл в дружеской атмосфере."
+          ]
+        },
+        {
+          "id": "prazdnik-001",
+          "text": "праздник",
+          "phonetics": "/ˈprazʲnʲɪk/",
+          "partOfSpeech": "noun",
+          "definition": "A special day for fun, like a holiday or party",
+          "examples": [
+            "Корпоративный праздник объединил всех сотрудников компании.",
+            "Этот праздник имеет большое значение для нашей культуры."
+          ]
+        },
+        {
+          "id": "vstrecha-001",
+          "text": "встреча",
+          "phonetics": "/ˈfstrʲetɕə/",
+          "partOfSpeech": "noun",
+          "definition": "When people come together to talk, like a meeting",
+          "examples": [
+            "Встреча с инвесторами прошла успешно.",
+            "Стратегическая встреча определила направление развития компании."
+          ]
+        },
+        {
+          "id": "poezdka-001",
+          "text": "поездка",
+          "phonetics": "/pɐˈjestkə/",
+          "partOfSpeech": "noun",
+          "definition": "Traveling somewhere, like a trip to the zoo",
+          "examples": [
+            "Деловая поездка в Европу принесла новые возможности.",
+            "Эта поездка расширила наши профессиональные горизонты."
+          ]
+        }
+      ],
+      "level": "B1",
+      "tagValue": "Time Events",
+      "languageCode": "ru",
+      "description": "Words for discussing schedules and activities",
+      "imageUrl": null,
+      "localImageName": "car-ride",
+      "isPremium": true
+    },
+    {
+      "id": "b2-work-society-001",
+      "title": "Work and Society",
+      "words": [
+        {
+          "id": "rabota-001",
+          "text": "работа",
+          "phonetics": "/rɐˈbotə/",
+          "partOfSpeech": "noun",
+          "definition": "Doing tasks for a job, like working at a store",
+          "examples": [
+            "Наша работа требует постоянного совершенствования навыков.",
+            "Качественная работа - основа успешного бизнеса."
+          ]
+        },
+        {
+          "id": "professiya-001",
+          "text": "профессия",
+          "phonetics": "/prɐˈfʲesʲɪjə/",
+          "partOfSpeech": "noun",
+          "definition": "The kind of job you do, like being a teacher",
+          "examples": [
+            "Выбор профессии определяет всю дальнейшую карьеру человека.",
+            "Современные профессии требуют постоянного обучения и адаптации."
+          ]
+        },
+        {
+          "id": "zarplata-001",
+          "text": "зарплата",
+          "phonetics": "/zɐrˈplatə/",
+          "partOfSpeech": "noun",
+          "definition": "Money you get for working, like a paycheck",
+          "examples": [
+            "Конкурентоспособная зарплата привлекает лучших специалистов.",
+            "Индексация зарплаты учитывает инфляцию и рост стоимости жизни."
+          ]
+        },
+        {
+          "id": "obshchestvo-001",
+          "text": "общество",
+          "phonetics": "/ɐpˈɕːestvə/",
+          "partOfSpeech": "noun",
+          "definition": "All the people living together, like a community",
+          "examples": [
+            "Современное общество сталкивается с новыми вызовами цифровой эпохи.",
+            "Гражданское общество играет важную роль в демократическом развитии."
+          ]
+        },
+        {
+          "id": "zakon-001",
+          "text": "закон",
+          "phonetics": "/zɐˈkon/",
+          "partOfSpeech": "noun",
+          "definition": "A rule everyone must follow, like a law",
+          "examples": [
+            "Новый закон о защите персональных данных вступил в силу.",
+            "Соблюдение законов - основа правового государства."
+          ]
+        },
+        {
+          "id": "kultura-001",
+          "text": "культура",
+          "phonetics": "/kulʲˈturə/",
+          "partOfSpeech": "noun",
+          "definition": "The way people live, like music and traditions",
+          "examples": [
+            "Корпоративная культура влияет на эффективность работы команды.",
+            "Культурное наследие требует бережного сохранения для будущих поколений."
+          ]
+        },
+        {
+          "id": "ekonomika-001",
+          "text": "экономика",
+          "phonetics": "/ɪkɐˈnomʲɪkə/",
+          "partOfSpeech": "noun",
+          "definition": "How money and businesses work in a place",
+          "examples": [
+            "Цифровая экономика трансформирует традиционные бизнес-модели.",
+            "Устойчивое развитие экономики требует инновационных решений."
+          ]
+        },
+        {
+          "id": "upravlyat-001",
+          "text": "управлять",
+          "phonetics": "/uprɐˈvlʲatʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Being in charge of something, like running a team",
+          "examples": [
+            "Эффективно управлять ресурсами - ключевой навык современного менеджера.",
+            "Управлять изменениями в организации требует стратегического мышления."
+          ]
+        },
+        {
+          "id": "razvivat-001",
+          "text": "развивать",
+          "phonetics": "/rɐzvʲɪˈvatʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Making something grow better, like improving a skill",
+          "examples": [
+            "Компания инвестирует в развитие человеческого капитала.",
+            "Развивать инновационные технологии - приоритет современного бизнеса."
+          ]
+        },
+        {
+          "id": "sozdavat-001",
+          "text": "создавать",
+          "phonetics": "/sɐzdɐˈvatʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Making something new, like creating a drawing",
+          "examples": [
+            "Создавать ценность для клиентов - основная цель любого бизнеса.",
+            "Инновационные компании создают продукты, которые меняют мир."
+          ]
+        }
+      ],
+      "level": "B2",
+      "tagValue": "Work Society",
+      "languageCode": "ru",
+      "description": "Words for jobs and community, common in conversations",
+      "imageUrl": null,
+      "localImageName": "office-1",
+      "isPremium": true
+    },
+    {
+      "id": "c1-abstract-concepts-001",
+      "title": "Abstract Concepts",
+      "words": [
+        {
+          "id": "svoboda-001",
+          "text": "свобода",
+          "phonetics": "/svɐˈbodə/",
+          "partOfSpeech": "noun",
+          "definition": "Being able to do what you want, like freedom",
+          "examples": [
+            "Свобода слова является основополагающим принципом демократического общества.",
+            "Экономическая свобода способствует инновационному развитию и конкуренции."
+          ]
+        },
+        {
+          "id": "spravedlivost-001",
+          "text": "справедливость",
+          "phonetics": "/sprɐvʲɪˈdlʲivəstʲ/",
+          "partOfSpeech": "noun",
+          "definition": "When things are fair and right, like justice",
+          "examples": [
+            "Социальная справедливость требует равного доступа к образованию и здравоохранению.",
+            "Правовая справедливость обеспечивает защиту прав и интересов всех граждан."
+          ]
+        },
+        {
+          "id": "otvetstvennost-001",
+          "text": "ответственность",
+          "phonetics": "/ɐtvʲɪtstvʲɪˈnnostʲ/",
+          "partOfSpeech": "noun",
+          "definition": "Being in charge of doing the right thing, like duty",
+          "examples": [
+            "Корпоративная социальная ответственность влияет на репутацию компании.",
+            "Личная ответственность за свои решения формирует характер человека."
+          ]
+        },
+        {
+          "id": "vozmozhnost-001",
+          "text": "возможность",
+          "phonetics": "/vɐzmɐʐˈnostʲ/",
+          "partOfSpeech": "noun",
+          "definition": "A chance to do something, like an opportunity",
+          "examples": [
+            "Цифровизация открывает новые возможности для развития бизнеса.",
+            "Образование предоставляет возможности для личностного и профессионального роста."
+          ]
+        },
+        {
+          "id": "tsel-001",
+          "text": "цель",
+          "phonetics": "/t͡sʲelʲ/",
+          "partOfSpeech": "noun",
+          "definition": "Something you want to achieve, like a goal",
+          "examples": [
+            "Стратегические цели компании определяют долгосрочное направление развития.",
+            "Достижение поставленных целей требует системного подхода и последовательности."
+          ]
+        },
+        {
+          "id": "vliyanie-001",
+          "text": "влияние",
+          "phonetics": "/vlʲɪˈjænʲɪjə/",
+          "partOfSpeech": "noun",
+          "definition": "Changing how things happen, like having influence",
+          "examples": [
+            "Глобализация оказывает значительное влияние на национальные экономики.",
+            "Медиа оказывают мощное влияние на формирование общественного мнения."
+          ]
+        },
+        {
+          "id": "doverie-001",
+          "text": "доверие",
+          "phonetics": "/dɐˈvʲerʲɪjə/",
+          "partOfSpeech": "noun",
+          "definition": "Believing someone will do what they say, like trust",
+          "examples": [
+            "Доверие между партнёрами является основой успешного сотрудничества.",
+            "Восстановление доверия в обществе требует прозрачности и честности."
+          ]
+        },
+        {
+          "id": "reshat-001",
+          "text": "решать",
+          "phonetics": "/rʲɪˈʂatʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Choosing what to do after thinking, like deciding",
+          "examples": [
+            "Руководство должно решать сложные вопросы с учётом всех заинтересованных сторон.",
+            "Современные технологии помогают решать глобальные проблемы человечества."
+          ]
+        },
+        {
+          "id": "analizirovat-001",
+          "text": "анализировать",
+          "phonetics": "/ɐnəlʲɪˈzʲirəvətʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Looking closely to understand something, like analyzing a story",
+          "examples": [
+            "Эксперты анализируют тенденции рынка для прогнозирования будущего развития.",
+            "Анализировать данные необходимо для принятия обоснованных решений."
+          ]
+        },
+        {
+          "id": "dostigat-001",
+          "text": "достигать",
+          "phonetics": "/dɐstʲɪˈɡatʲ/",
+          "partOfSpeech": "verb",
+          "definition": "Getting to your goal, like achieving a dream",
+          "examples": [
+            "Компания стремится достигать высоких стандартов качества продукции.",
+            "Достигать поставленных целей возможно только при командной работе."
+          ]
+        }
+      ],
+      "level": "C1",
+      "tagValue": "Abstract Concepts",
+      "languageCode": "ru",
+      "description": "Advanced words for ideas and discussions",
+      "imageUrl": null,
+      "localImageName": "studying-2",
+      "isPremium": true
+    },
+    {
+      "id": "c2-nuanced-descriptions-001",
+      "title": "Nuanced Descriptions",
+      "words": [
+        {
+          "id": "unikalnyy-001",
+          "text": "уникальный",
+          "phonetics": "/unʲɪˈkalʲnɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "One of a kind, like a special snowflake",
+          "examples": [
+            "Этот уникальный подход к решению проблемы революционизирует всю отрасль.",
+            "Уникальные характеристики продукта обеспечивают ему конкурентное преимущество на рынке."
+          ]
+        },
+        {
+          "id": "slozhnyy-001",
+          "text": "сложный",
+          "phonetics": "/ˈsloʐnɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Really hard to figure out, like a tricky puzzle",
+          "examples": [
+            "Сложные экономические процессы требуют глубокого анализа и экспертной оценки.",
+            "Это сложная многоуровневая система, которая требует тщательного изучения."
+          ]
+        },
+        {
+          "id": "effektivnyy-001",
+          "text": "эффективный",
+          "phonetics": "/ɪfʲɪkˈtʲivnɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Working really well, like a plan that saves time",
+          "examples": [
+            "Эффективное управление ресурсами является ключевым фактором успеха организации.",
+            "Разработка эффективных стратегий требует комплексного подхода и инновационного мышления."
+          ]
+        },
+        {
+          "id": "neozhidannyy-001",
+          "text": "неожиданный",
+          "phonetics": "/nʲɪɐʐɪˈdannɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Happening when you didn't expect, like a surprise party",
+          "examples": [
+            "Неожиданные изменения в законодательстве потребовали пересмотра бизнес-стратегии.",
+            "Это неожиданное открытие может кардинально изменить наше понимание проблемы."
+          ]
+        },
+        {
+          "id": "ustoychivyy-001",
+          "text": "устойчивый",
+          "phonetics": "/ustɐˈjʂtɕivɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Staying strong and steady, like a tree in a storm",
+          "examples": [
+            "Устойчивое развитие экономики требует долгосрочного планирования и инвестиций.",
+            "Создание устойчивой экосистемы инноваций является приоритетом государственной политики."
+          ]
+        },
+        {
+          "id": "protivorechivyy-001",
+          "text": "противоречивый",
+          "phonetics": "/prɐtʲɪvɐˈrʲetɕivɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Causing arguments because it's not clear, like a confusing rule",
+          "examples": [
+            "Противоречивые данные исследования требуют дополнительного анализа и верификации.",
+            "Это противоречивое решение вызвало широкую дискуссию в экспертном сообществе."
+          ]
+        },
+        {
+          "id": "glubokiy-001",
+          "text": "глубокий",
+          "phonetics": "/ˈɡlubəkʲɪj/",
+          "partOfSpeech": "adjective",
+          "definition": "Going far down or really meaningful, like a deep thought",
+          "examples": [
+            "Глубокий анализ рынка выявил скрытые тенденции и возможности для роста.",
+            "Это глубокое исследование проливает свет на сложные социальные процессы."
+          ]
+        },
+        {
+          "id": "podrobnyy-001",
+          "text": "подробный",
+          "phonetics": "/pɐˈdrobnɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Full of details, like a story explaining everything",
+          "examples": [
+            "Подробный отчёт содержит исчерпывающую информацию о результатах проекта.",
+            "Требуется подробное изучение всех аспектов проблемы для принятия обоснованного решения."
+          ]
+        },
+        {
+          "id": "kriticheskiy-001",
+          "text": "критический",
+          "phonetics": "/krʲɪˈtʲitɕɪskʲɪj/",
+          "partOfSpeech": "adjective",
+          "definition": "Judging something carefully, like a critical review",
+          "examples": [
+            "Критический анализ ситуации показал необходимость кардинальных изменений.",
+            "Это критический момент для принятия стратегических решений, определяющих будущее компании."
+          ]
+        },
+        {
+          "id": "znachitelnyy-001",
+          "text": "значительный",
+          "phonetics": "/znɐˈtɕitʲɪlʲnɨj/",
+          "partOfSpeech": "adjective",
+          "definition": "Really important or big, like a major change",
+          "examples": [
+            "Значительные инвестиции в исследования и разработки принесли впечатляющие результаты.",
+            "Это значительное достижение открывает новые перспективы для развития технологий."
+          ]
+        }
+      ],
+      "level": "C2",
+      "tagValue": "Nuanced Descriptions",
+      "languageCode": "ru",
+      "description": "Sophisticated adjectives for precise expression",
+      "imageUrl": null,
+      "localImageName": "gold",
+      "isPremium": true
+    },
+    {
+      "id": "russian-conversational-phrases-001",
+      "title": "Russian Conversational Phrases",
+      "words": [
+        {
+          "id": "kak-dela-001",
+          "text": "Как дела?",
+          "phonetics": "/kak dʲɪˈla/",
+          "partOfSpeech": "phrase",
+          "definition": "Asking someone how they're doing, like \"How are you?\"",
+          "examples": [
+            "Привет! Как дела?",
+            "Как дела на работе?"
+          ]
+        },
+        {
+          "id": "spasibo-bolshoe-001",
+          "text": "Спасибо большое!",
+          "phonetics": "/spɐˈsʲibə bɐlʲˈʂoje/",
+          "partOfSpeech": "phrase",
+          "definition": "Saying thank you a lot, like \"Thanks so much!\"",
+          "examples": [
+            "Спасибо большое за помощь!",
+            "Спасибо большое за подарок!"
+          ]
+        },
+        {
+          "id": "pozhaluysta-001",
+          "text": "Пожалуйста",
+          "phonetics": "/pɐʐɐˈlujstə/",
+          "partOfSpeech": "phrase",
+          "definition": "Saying please when asking for something or \"you're welcome.\"",
+          "examples": [
+            "Пожалуйста, передайте мне соль.",
+            "— Спасибо! — Пожалуйста!"
+          ]
+        },
+        {
+          "id": "izvini-001",
+          "text": "Извини",
+          "phonetics": "/ɪzvʲɪˈnʲi/",
+          "partOfSpeech": "phrase",
+          "definition": "Saying sorry for something small, like bumping into someone",
+          "examples": [
+            "Извини, я случайно толкнул тебя.",
+            "Извини за опоздание."
+          ]
+        },
+        {
+          "id": "chto-novogo-001",
+          "text": "Что нового?",
+          "phonetics": "/ʂto nɐˈvovə/",
+          "partOfSpeech": "phrase",
+          "definition": "Asking what's new with someone, like \"What's up?\"",
+          "examples": [
+            "Привет! Что нового?",
+            "Что нового в твоей жизни?"
+          ]
+        },
+        {
+          "id": "davay-001",
+          "text": "Давай!",
+          "phonetics": "/dɐˈvaj/",
+          "partOfSpeech": "phrase",
+          "definition": "Encouraging someone to go for it, like \"Come on!\"",
+          "examples": [
+            "Давай, ты справишься!",
+            "Давай попробуем ещё раз!"
+          ]
+        },
+        {
+          "id": "bez-problem-001",
+          "text": "Без проблем",
+          "phonetics": "/bʲes prɐˈblʲem/",
+          "partOfSpeech": "phrase",
+          "definition": "Saying something is easy, like \"No problem!\"",
+          "examples": [
+            "— Можешь помочь? — Без проблем!",
+            "Это сделать без проблем."
+          ]
+        },
+        {
+          "id": "udachi-001",
+          "text": "Удачи!",
+          "phonetics": "/uˈdatɕɪ/",
+          "partOfSpeech": "phrase",
+          "definition": "Wishing someone good luck",
+          "examples": [
+            "Удачи на экзамене!",
+            "Удачи в новом проекте!"
+          ]
+        },
+        {
+          "id": "ya-ne-ponimayu-001",
+          "text": "Я не понимаю",
+          "phonetics": "/ja nʲe pɐnʲɪˈmaju/",
+          "partOfSpeech": "phrase",
+          "definition": "Saying you don't get something, like \"I don't understand\"",
+          "examples": [
+            "Я не понимаю, что ты имеешь в виду.",
+            "Я не понимаю эту задачу."
+          ]
+        },
+        {
+          "id": "skoro-uvidimsya-001",
+          "text": "Скоро увидимся",
+          "phonetics": "/ˈskorə uvʲɪˈdʲimsʲə/",
+          "partOfSpeech": "phrase",
+          "definition": "Saying you'll see someone soon, like \"See you later!\"",
+          "examples": [
+            "Пока! Скоро увидимся!",
+            "Скоро увидимся на встрече."
+          ]
+        },
+        {
+          "id": "mne-vsyo-ravno-001",
+          "text": "Мне всё равно",
+          "phonetics": "/mnʲe fsʲo rɐˈvno/",
+          "partOfSpeech": "phrase",
+          "definition": "Saying you don't care, like \"It doesn't matter to me\"",
+          "examples": [
+            "Мне всё равно, куда мы пойдём.",
+            "Мне всё равно, что думают другие."
+          ]
+        },
+        {
+          "id": "kakoy-segodnya-den-001",
+          "text": "Какой сегодня день?",
+          "phonetics": "/kɐˈkoj sʲɪˈɡodʲnʲə dʲenʲ/",
+          "partOfSpeech": "phrase",
+          "definition": "Asking what day it is, like \"What day is today?\"",
+          "examples": [
+            "Какой сегодня день недели?",
+            "Какой сегодня день? — Понедельник."
+          ]
+        }
+      ],
+      "level": "A2",
+      "tagValue": "Conversational",
+      "languageCode": "ru",
+      "description": "Common expressions for everyday communication",
+      "imageUrl": null,
+      "localImageName": "microphone",
+      "isPremium": false
+    },
+    {
+      "id": "russian-idioms-001",
+      "title": "Russian Idioms",
+      "words": [
+        {
+          "id": "veshat-lapshu-na-ushi-001",
+          "text": "Вешать лапшу на уши",
+          "phonetics": "/vʲɪˈʂatʲ ˈlapʂu nɐ ˈuʂɪ/",
+          "partOfSpeech": "idiom",
+          "definition": "Telling a silly lie to trick someone, like \"pulling their leg\"",
+          "examples": [
+            "Не вешай мне лапшу на уши!",
+            "Он постоянно вешает лапшу на уши своим друзьям."
+          ]
+        },
+        {
+          "id": "kak-dve-kapli-vody-001",
+          "text": "Как две капли воды",
+          "phonetics": "/kak dvʲe ˈkaplʲɪ vɐˈdɨ/",
+          "partOfSpeech": "idiom",
+          "definition": "Two things that look exactly the same, like \"two peas in a pod\"",
+          "examples": [
+            "Они похожи как две капли воды.",
+            "Эти картины похожи как две капли воды."
+          ]
+        },
+        {
+          "id": "derzhat-yazyk-za-zubami-001",
+          "text": "Держать язык за зубами",
+          "phonetics": "/dʲɪrˈʐatʲ jɪˈzɨk zɐ zuˈbamʲɪ/",
+          "partOfSpeech": "idiom",
+          "definition": "Keeping a secret, like \"keeping your mouth shut\"",
+          "examples": [
+            "Держи язык за зубами!",
+            "Он умеет держать язык за зубами."
+          ]
+        },
+        {
+          "id": "kot-naplakal-001",
+          "text": "Кот наплакал",
+          "phonetics": "/kot nɐˈplakəl/",
+          "partOfSpeech": "idiom",
+          "definition": "A very small amount, like \"not enough to matter\"",
+          "examples": [
+            "Денег у него кот наплакал.",
+            "Времени осталось кот наплакал."
+          ]
+        },
+        {
+          "id": "bit-baklushi-001",
+          "text": "Бить баклуши",
+          "phonetics": "/bʲitʲ bɐˈkluʂɪ/",
+          "partOfSpeech": "idiom",
+          "definition": "Wasting time doing nothing, like \"sitting around lazily\"",
+          "examples": [
+            "Он целый день бьёт баклуши.",
+            "Хватит бить баклуши, займись делом!"
+          ]
+        },
+        {
+          "id": "vodit-za-nos-001",
+          "text": "Водить за нос",
+          "phonetics": "/vɐˈdʲitʲ zɐ nos/",
+          "partOfSpeech": "idiom",
+          "definition": "Fooling someone for a long time, like \"leading them on\"",
+          "examples": [
+            "Он долго водил её за нос.",
+            "Не давай себя водить за нос!"
+          ]
+        },
+        {
+          "id": "sest-v-luzhu-001",
+          "text": "Сесть в лужу",
+          "phonetics": "/sʲestʲ v ˈluʐu/",
+          "partOfSpeech": "idiom",
+          "definition": "Making a mistake that's embarrassing, like \"messing up big time\"",
+          "examples": [
+            "Он сел в лужу на экзамене.",
+            "Не хочу сесть в лужу перед начальством."
+          ]
+        },
+        {
+          "id": "ni-zgi-ne-vidno-001",
+          "text": "Ни зги не видно",
+          "phonetics": "/nʲɪ zɡʲɪ nʲe ˈvʲidnə/",
+          "partOfSpeech": "idiom",
+          "definition": "When it's too dark to see anything, like \"pitch black\"",
+          "examples": [
+            "На улице ни зги не видно.",
+            "В комнате ни зги не видно."
+          ]
+        },
+        {
+          "id": "kak-sneg-na-golovu-001",
+          "text": "Как снег на голову",
+          "phonetics": "/kak snʲek nɐ ɡɐlɐˈvu/",
+          "partOfSpeech": "idiom",
+          "definition": "Something surprising happens suddenly, like \"out of the blue\"",
+          "examples": [
+            "Это известие свалилось как снег на голову.",
+            "Он появился как снег на голову."
+          ]
+        },
+        {
+          "id": "lomat-golovu-001",
+          "text": "Ломать голову",
+          "phonetics": "/lɐˈmatʲ ɡɐlɐˈvu/",
+          "partOfSpeech": "idiom",
+          "definition": "Thinking really hard about something, like \"racking your brain\"",
+          "examples": [
+            "Я ломаю голову над этой задачей.",
+            "Он долго ломал голову над решением."
+          ]
+        }
+      ],
+      "level": "B2",
+      "tagValue": "Idioms",
+      "languageCode": "ru",
+      "description": "Figurative expressions for cultural fluency",
+      "imageUrl": null,
+      "localImageName": "sticky-notes",
+      "isPremium": true
+    }
+  ],
+  "lastUpdated": "2025-09-10T12:55:00Z",
+  "version": "1.0.0"
+}

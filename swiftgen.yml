@@ -22,6 +22,7 @@ strings:
     - Shared/Localization/en.lproj/Coffee.strings
     - Shared/Localization/en.lproj/Migration.strings
     - Shared/Localization/en.lproj/AI.strings
+    - Shared/Localization/en.lproj/Learning.strings
     - Shared/Localization/en.lproj/Plurals.stringsdict
   outputs:
     templateName: structured-swift5

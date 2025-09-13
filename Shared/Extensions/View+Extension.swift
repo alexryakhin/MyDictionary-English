@@ -219,25 +219,3 @@ enum GlassEffect {
         }
     }
 }
-
-extension View {
-    @ViewBuilder
-    func glassEffectIfAvailable(
-        _ glass: GlassEffect = .clear,
-        in shape: some Shape = RoundedRectangle(cornerRadius: 16)
-    ) -> some View {
-        if #available(iOS 26.0, macOS 26.0, *) {
-            self.glassEffect(glass.glass, in: shape)
-        } else {
-            self
-        }
-    }
-}
-
-var isGlassAvailable: Bool {
-    if #available(iOS 26.0, macOS 26.0, *) {
-        return true
-    } else {
-        return false
-    }
-}

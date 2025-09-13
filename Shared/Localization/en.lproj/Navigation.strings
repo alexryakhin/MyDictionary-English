@@ -1,4 +1,5 @@
 // MARK: - Tab Bar
+"tabbar.learn" = "Learn";
 "tabbar.quizzes" = "Quizzes";
 "tabbar.progress" = "Progress";
 "tabbar.settings" = "Settings";

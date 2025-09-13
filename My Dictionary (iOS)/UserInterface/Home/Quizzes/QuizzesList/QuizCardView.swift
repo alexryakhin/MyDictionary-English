@@ -22,7 +22,6 @@ struct QuizCardView: View {
                     .font(.title2)
                     .foregroundStyle(.white)
             }
-            .glassEffectIfAvailable(in: RoundedRectangle(cornerRadius: 12))
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(quiz.title)
