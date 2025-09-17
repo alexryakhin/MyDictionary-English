@@ -14,7 +14,7 @@ struct LearnMainView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 32) {
+            VStack(spacing: 16) {
                 // Welcome Header
                 welcomeHeader
                 

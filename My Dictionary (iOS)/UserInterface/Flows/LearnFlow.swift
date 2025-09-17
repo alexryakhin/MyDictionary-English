@@ -18,7 +18,6 @@ struct LearnFlow: View {
 
     var body: some View {
         LearningTabView()
-            .environmentObject(learningOnboardingViewModel)
             .onReceive(learningOnboardingViewModel.output) { output in
                 handleLearningOutput(output)
             }

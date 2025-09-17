@@ -19,6 +19,7 @@ struct DebugView: View {
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var paywallService = PaywallService.shared
+    @StateObject private var featureToggleService = FeatureToggleService.shared
 
     @State private var showingAlert = false
     @State private var alertMessage = ""
@@ -33,6 +34,7 @@ struct DebugView: View {
         NavigationView {
             List {
                 userInfoSection
+                featureToggleSection
                 pushNotificationsSection
                 subscriptionTestingSection
                 dictionaryTestingSection
@@ -111,6 +113,44 @@ struct DebugView: View {
                     Spacer()
                     Text(subscriptionService.isProUser ? "Yes" : "No")
                         .foregroundStyle(subscriptionService.isProUser ? .accent : .red)
+                }
+            }
+        }
+    }
+
+    private var featureToggleSection: some View {
+        Section("Feature Toggles") {
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(FeatureToggleItem.allCases, id: \.rawValue) { feature in
+                    HStack {
+                        Text(feature.rawValue)
+                            .fontWeight(.medium)
+                        Spacer()
+                        Toggle("", isOn: Binding(
+                            get: { featureToggleService.isEnabled(feature) },
+                            set: { newValue in
+                                // Update the local dictionary for immediate UI feedback
+                                featureToggleService.featureToggles[feature] = newValue
+                                showAlert("\(feature.rawValue) \(newValue ? "enabled" : "disabled") locally")
+                            }
+                        ))
+                        .labelsHidden()
+                    }
+                    .padding(.vertical, 2)
+                }
+                
+                HeaderButton("Refresh from Firebase") {
+                    Task {
+                        await featureToggleService.fetchFeatureToggles()
+                        showAlert("Feature toggles refreshed from Firebase")
+                    }
+                }
+                
+                HeaderButton("Force Refresh (Bypass Cache)") {
+                    Task {
+                        await featureToggleService.forceRefresh()
+                        showAlert("Feature toggles force refreshed from Firebase")
+                    }
                 }
             }
         }

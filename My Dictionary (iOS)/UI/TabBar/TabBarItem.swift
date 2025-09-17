@@ -14,6 +14,14 @@ enum TabBarItem: CaseIterable {
     case analytics
     case settings
 
+    static var allCases: [TabBarItem] {
+        if FeatureToggleService.shared.isEnabled(.learnFeature) {
+            return [.myDictionary, .learn, .quizzes, .analytics, .settings]
+        } else {
+            return [.myDictionary, .quizzes, .analytics, .settings]
+        }
+    }
+
     var title: String {
         switch self {
         case .myDictionary:
@@ -34,7 +42,7 @@ enum TabBarItem: CaseIterable {
         case .myDictionary:
             return "textformat"
         case .learn:
-            return "book.fill"
+            return "book"
         case .quizzes:
             return "brain.head.profile"
         case .analytics:
@@ -51,7 +59,7 @@ enum TabBarItem: CaseIterable {
         case .learn:
             return "book.fill"
         case .quizzes:
-            return "brain.head.profile"
+            return "brain.head.profile.fill"
         case .analytics:
             return "chart.line.uptrend.xyaxis"
         case .settings:

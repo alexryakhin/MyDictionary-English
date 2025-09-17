@@ -178,6 +178,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         // Initialize MessagingService AFTER Firebase is configured
         _ = MessagingService.shared
 
+        // Initialize FeatureToggleService AFTER Firebase is configured
+        _ = FeatureToggleService.shared
+
         // Log analytics event
         AnalyticsService.shared.logEvent(.appOpened)
 

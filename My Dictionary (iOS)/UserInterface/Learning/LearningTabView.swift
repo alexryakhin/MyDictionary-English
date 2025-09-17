@@ -12,7 +12,7 @@ struct LearningTabView: View {
     @State private var hasCompletedOnboarding = false
     
     var body: some View {
-        Group {
+        VStack {
             if hasCompletedOnboarding {
                 LearnMainView()
             } else {
@@ -29,7 +29,7 @@ struct LearningTabView: View {
     
     private var onboardingView: some View {
         ScrollView {
-            VStack(spacing: 32) {
+            VStack(spacing: 16) {
                 // Header Section
                 CustomSectionView(header: Loc.Learning.Tabbar.learn) {
                     VStack(spacing: 20) {
@@ -67,7 +67,7 @@ struct LearningTabView: View {
                     .padding(.vertical, 8)
                 }
             }
-            .padding(.horizontal, 16)
+            .padding(16)
         }
         .groupedBackground()
         .navigation(

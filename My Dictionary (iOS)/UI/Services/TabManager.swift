@@ -36,8 +36,8 @@ final class TabManager: ObservableObject {
     }
     
     func getSlideTransition() -> AnyTransition {
-        let tabOrder: [TabBarItem] = [.myDictionary, .quizzes, .analytics, .settings]
-        
+        let tabOrder: [TabBarItem] = [.myDictionary, .learn, .quizzes, .analytics, .settings]
+
         let willSetIndex = tabOrder.firstIndex(of: willSetTab) ?? 0
         let currentIndex = tabOrder.firstIndex(of: currentTab) ?? 0
 
