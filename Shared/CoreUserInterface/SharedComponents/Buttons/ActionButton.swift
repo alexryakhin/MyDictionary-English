@@ -53,7 +53,8 @@ struct ActionButton: View {
             .foregroundStyle(foregroundStyle.gradient)
             .frame(maxWidth: .infinity)
             .background(backgroundStyle.gradient)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .glassEffectIfAvailable(.regular, in: .rect(cornerRadius: 16))
+            .clipShape(.rect(cornerRadius: 16))
         }
         .buttonStyle(.plain)
     }

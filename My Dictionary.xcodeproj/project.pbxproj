@@ -381,7 +381,7 @@
 		530D2C442D9836930040C247 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MyDictionaryIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/MyDictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -413,7 +413,7 @@
 		530D2C452D9836930040C247 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MyDictionaryIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary (macOS)/MyDictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -445,7 +445,7 @@
 		53E9A7822D7C3385007E9F28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MyDictionaryIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary (iOS)/Resources/My_Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -482,7 +482,7 @@
 		53E9A7832D7C3385007E9F28 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MyDictionaryIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "My Dictionary (iOS)/Resources/My_Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;

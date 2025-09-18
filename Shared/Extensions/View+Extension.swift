@@ -54,7 +54,10 @@ extension View {
     }
 
     @ViewBuilder
-    func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+    func `if`<Content: View>(
+        _ condition: Bool,
+        @ViewBuilder transform: (Self) -> Content
+    ) -> some View {
         if condition {
             transform(self)
         } else {
@@ -63,7 +66,10 @@ extension View {
     }
 
     @ViewBuilder
-    func ifLet<T, Result: View>(_ value: T?, transform: (Self, T) -> Result) -> some View {
+    func ifLet<T, Result: View>(
+        _ value: T?,
+        @ViewBuilder transform: (Self, T) -> Result
+    ) -> some View {
         if let value = value {
             transform(self, value)
         } else {
@@ -228,6 +234,22 @@ extension View {
     ) -> some View {
         if #available(iOS 26.0, macOS 26.0, *) {
             self.glassEffect(glass.glass, in: shape)
+        } else {
+            self
+        }
+    }
+
+    @ViewBuilder
+    func glassBackgroundEffectIfAvailable(
+        _ glass: GlassEffect = .clear,
+        in shape: some Shape = RoundedRectangle(cornerRadius: 16)
+    ) -> some View {
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self
+                .background(
+                    Color.clear
+                        .glassEffect(glass.glass, in: shape)
+                )
         } else {
             self
         }

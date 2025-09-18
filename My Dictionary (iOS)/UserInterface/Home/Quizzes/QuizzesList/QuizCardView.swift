@@ -17,7 +17,8 @@ struct QuizCardView: View {
                 RoundedRectangle(cornerRadius: 12)
                     .fill(quiz.color.gradient)
                     .frame(width: 50, height: 50)
-                
+                    .glassEffectIfAvailable(.regular, in: .rect(cornerRadius: 12))
+
                 Image(systemName: quiz.iconName)
                     .font(.title2)
                     .foregroundStyle(.white)

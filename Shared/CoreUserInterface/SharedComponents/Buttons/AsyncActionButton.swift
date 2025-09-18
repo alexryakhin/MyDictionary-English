@@ -71,7 +71,8 @@ struct AsyncActionButton: View {
                         .frame(width: 16, height: 16)
                 }
             }
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .glassEffectIfAvailable(.regular, in: .rect(cornerRadius: 16))
+            .clipShape(.rect(cornerRadius: 16))
         }
         .buttonStyle(.plain)
         .allowsHitTesting(!isLoading)
