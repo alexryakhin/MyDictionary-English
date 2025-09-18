@@ -36,7 +36,6 @@ final class WordListViewModel: BaseViewModel {
     @Published var filterState: FilterCase = .none {
         didSet {
             sortWords()
-            AnalyticsService.shared.logEvent(.wordsListFilterSelected)
         }
     }
     @Published var selectedTag: CDTag?

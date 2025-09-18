@@ -15,6 +15,10 @@ struct WordCollectionDetailsView: View {
     @State private var searchText = ""
     @State private var selectedWord: WordCollectionItem?
     @State private var showAddToDictionary = false
+    @State private var showSuccessAlert = false
+    @State private var addedWordsCount = 0
+    @State private var duplicateWordsCount = 0
+    @State private var isAddingAll = false
     
     // MARK: - Body
     
@@ -44,8 +48,9 @@ struct WordCollectionDetailsView: View {
                     size: .small,
                     style: .borderedProminent
                 ) {
-                    showAddToDictionary = true
+                    addAllWords()
                 }
+                .disabled(isAddingAll)
             },
             bottomContent: {
                 InputView.searchView(
@@ -59,6 +64,15 @@ struct WordCollectionDetailsView: View {
         }
         .sheet(item: $selectedWord) { word in
             WordCollectionItemDetailsView(word: word, collection: collection)
+        }
+        .alert("Import Complete", isPresented: $showSuccessAlert) {
+            Button("OK") { }
+        } message: {
+            if duplicateWordsCount > 0 {
+                Text("Successfully added \(addedWordsCount) words to your dictionary. \(duplicateWordsCount) words were already in your dictionary and were skipped.")
+            } else {
+                Text("Successfully added \(addedWordsCount) words to your dictionary.")
+            }
         }
     }
     
@@ -128,6 +142,31 @@ struct WordCollectionDetailsView: View {
                     WordCollectionItemRow(word: word) {
                         selectedWord = word
                     }
+                }
+            }
+        }
+    }
+    
+    // MARK: - Actions
+    
+    private func addAllWords() {
+        isAddingAll = true
+        
+        Task {
+            do {
+                let result = try await WordCollectionImportService.shared.importAllWords(from: collection)
+                
+                await MainActor.run {
+                    addedWordsCount = result.addedCount
+                    duplicateWordsCount = result.duplicateCount
+                    isAddingAll = false
+                    showSuccessAlert = true
+                }
+            } catch {
+                await MainActor.run {
+                    isAddingAll = false
+                    // Handle error - could show error alert
+                    print("Error importing all words: \(error)")
                 }
             }
         }

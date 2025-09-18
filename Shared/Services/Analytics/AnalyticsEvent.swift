@@ -18,7 +18,6 @@ enum AnalyticsEvent: String {
     case quizResultsDetailOpened
     case quizActivityDetailOpened
 
-    case wordsListFilterSelected
     case wordsListSortingSelected
 
     case addWordTapped
@@ -54,7 +53,6 @@ enum AnalyticsEvent: String {
     case meaningUpdated
     case meaningRemoved
 
-    case idiomsListFilterSelected
     case idiomsListSortingSelected
 
     case addIdiomTapped

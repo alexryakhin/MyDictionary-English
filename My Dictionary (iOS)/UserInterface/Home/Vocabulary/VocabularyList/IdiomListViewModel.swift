@@ -34,7 +34,6 @@ final class IdiomListViewModel: BaseViewModel {
     @Published var filterState: FilterCase = .none {
         didSet {
             sortIdioms()
-            AnalyticsService.shared.logEvent(.idiomsListFilterSelected)
         }
     }
     @Published var searchText = ""

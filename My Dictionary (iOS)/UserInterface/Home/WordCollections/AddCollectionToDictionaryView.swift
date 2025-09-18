@@ -12,6 +12,9 @@ struct AddCollectionToDictionaryView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedWords: Set<String> = []
     @State private var isAdding = false
+    @State private var showSuccessAlert = false
+    @State private var addedWordsCount = 0
+    @State private var duplicateWordsCount = 0
     
     var body: some View {
         ScrollView {
@@ -64,17 +67,42 @@ struct AddCollectionToDictionaryView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
         )
+        .alert("Import Complete", isPresented: $showSuccessAlert) {
+            Button("OK") {
+                dismiss()
+            }
+        } message: {
+            if duplicateWordsCount > 0 {
+                Text("Successfully added \(addedWordsCount) words to your dictionary. \(duplicateWordsCount) words were already in your dictionary and were skipped.")
+            } else {
+                Text("Successfully added \(addedWordsCount) words to your dictionary.")
+            }
+        }
     }
     
     private func addSelectedWords() {
         isAdding = true
         
-        // TODO: Implement adding words to dictionary
-        // This would convert WordCollectionItem to Word and save to Core Data
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            isAdding = false
-            dismiss()
+        Task {
+            do {
+                let result = try await WordCollectionImportService.shared.importWords(
+                    from: collection,
+                    selectedWordIds: selectedWords
+                )
+                
+                await MainActor.run {
+                    addedWordsCount = result.addedCount
+                    duplicateWordsCount = result.duplicateCount
+                    isAdding = false
+                    showSuccessAlert = true
+                }
+            } catch {
+                await MainActor.run {
+                    isAdding = false
+                    // Handle error - could show error alert
+                    print("Error importing words: \(error)")
+                }
+            }
         }
     }
 }
