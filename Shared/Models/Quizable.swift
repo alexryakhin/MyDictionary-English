@@ -29,6 +29,8 @@ protocol Quizable: Identifiable {
     var quiz_timestamp: Date { get }
     var quiz_itemType: QuizItemType { get }
     var difficultyLevel: Difficulty { get }
+    var quiz_imageUrl: String? { get } // Optional image URL from Pexels
+    var quiz_imageLocalPath: String? { get } // Optional local image path
 
     /// Updates the difficulty score of the item based on quiz performance
     /// - Parameter points: Points to add (positive for correct, negative for incorrect)
@@ -84,6 +86,14 @@ extension CDWord: Quizable {
             return .idiom // Keep .idiom for backward compatibility with existing quiz logic
         }
         return .word
+    }
+    
+    var quiz_imageUrl: String? {
+        return self.imageUrl
+    }
+    
+    var quiz_imageLocalPath: String? {
+        return self.imageLocalPath
     }
 
     func quiz_updateDifficultyScore(_ points: Int) {
@@ -155,6 +165,14 @@ extension CDIdiom: Quizable {
 
     var quiz_itemType: QuizItemType {
         .idiom
+    }
+    
+    var quiz_imageUrl: String? {
+        return nil // Idioms don't have images yet
+    }
+    
+    var quiz_imageLocalPath: String? {
+        return nil // Idioms don't have images yet
     }
 
     func quiz_updateDifficultyScore(_ points: Int) {
@@ -228,6 +246,14 @@ extension SharedWord: Quizable {
 
     var quiz_itemType: QuizItemType {
         .sharedWord
+    }
+    
+    var quiz_imageUrl: String? {
+        return self.imageUrl
+    }
+    
+    var quiz_imageLocalPath: String? {
+        return self.imageLocalPath
     }
 
     var difficultyLevel: Difficulty {

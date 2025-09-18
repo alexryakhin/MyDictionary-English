@@ -31,6 +31,8 @@ final class CDWord: NSManagedObject, Identifiable {
     @NSManaged var languageCode: String?
     @NSManaged var isSynced: Bool
     @NSManaged var meanings: NSSet?
+    @NSManaged var imageUrl: String?
+    @NSManaged var imageLocalPath: String?
 
     // MARK: - Legacy Properties (for migration)
     var examplesDecoded: [String] {

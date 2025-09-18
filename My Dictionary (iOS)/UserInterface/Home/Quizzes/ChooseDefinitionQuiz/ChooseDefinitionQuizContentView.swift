@@ -146,8 +146,8 @@ struct ChooseDefinitionQuizContentView: View {
     }
 
     private var wordCard: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 8) {
                 Image(systemName: "textformat")
                     .font(.title2)
                     .foregroundStyle(.accent)
@@ -163,21 +163,31 @@ struct ChooseDefinitionQuizContentView: View {
                 }
                 .disabled(ttsPlayer.isPlaying)
             }
-            
-            Text(viewModel.correctItem.quiz_text)
-                .font(.title2)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.leading)
 
-            TagView(
-                text: PartOfSpeech(rawValue: viewModel.correctItem.quiz_partOfSpeech).displayName,
-                color: .accent,
-                size: .small,
-                style: .regular
-            )
+            // Word Image (if available)
+            if let imageLocalPath = viewModel.correctItem.quiz_imageLocalPath {
+                HStack(alignment: .bottom, spacing: 8) {
+                    QuizImageView(localPath: imageLocalPath, webUrl: viewModel.correctItem.quiz_imageUrl)
+                    Spacer()
+                }
+            }
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text(viewModel.correctItem.quiz_text)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.leading)
+
+                TagView(
+                    text: PartOfSpeech(rawValue: viewModel.correctItem.quiz_partOfSpeech).displayName,
+                    color: .accent,
+                    size: .small,
+                    style: .regular
+                )
+            }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(20)
+        .padding(16)
         .clippedWithBackground()
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
@@ -274,8 +284,6 @@ struct ChooseDefinitionQuizContentView: View {
             }
         }
     }
-
-
 
     private func backgroundColor(for index: Int) -> Color {
         switch viewModel.answerFeedback {

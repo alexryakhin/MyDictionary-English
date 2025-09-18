@@ -195,6 +195,14 @@ struct SentenceWritingQuizContentView: View {
                 .disabled(ttsPlayer.isPlaying || question.isEmpty)
             }
 
+            // Word Image (if available)
+            if let imageLocalPath = viewModel.currentItem?.quiz_imageLocalPath {
+                HStack {
+                    QuizImageView(localPath: imageLocalPath, webUrl: viewModel.currentItem?.quiz_imageUrl)
+                    Spacer()
+                }
+            }
+
             Text(question)
                 .font(.body)
                 .lineSpacing(4)

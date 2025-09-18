@@ -53,6 +53,17 @@ final class WordsProvider: ObservableObject {
         let fetchRequest = CDWord.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
         if let object = try coreDataService.context.fetch(fetchRequest).first {
+            // Clean up associated image file before deleting the word
+            if let imageLocalPath = object.imageLocalPath, !imageLocalPath.isEmpty {
+                do {
+                    try PexelsService.shared.deleteImage(at: imageLocalPath)
+                    print("🗑️ [WordsProvider] Deleted image file: \(imageLocalPath)")
+                } catch {
+                    print("⚠️ [WordsProvider] Failed to delete image file: \(error.localizedDescription)")
+                    // Continue with word deletion even if image cleanup fails
+                }
+            }
+            
             coreDataService.context.delete(object)
             #if os(macOS)
             SideBarManager.shared.selectedWord = nil

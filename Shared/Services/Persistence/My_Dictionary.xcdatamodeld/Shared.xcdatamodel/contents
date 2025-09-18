@@ -65,6 +65,8 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="wordItself" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="imageLocalPath" optional="YES" attributeType="String"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="words" inverseEntity="Tag"/>
     </entity>
     <entity name="WordProgress" representedClassName="CDWordProgress" syncable="YES">

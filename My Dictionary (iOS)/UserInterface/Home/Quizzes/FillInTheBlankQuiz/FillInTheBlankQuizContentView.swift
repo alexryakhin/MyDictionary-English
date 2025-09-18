@@ -256,6 +256,15 @@ struct FillInTheBlankQuizContentView: View {
                 .disabled(ttsPlayer.isPlaying || story.story.isEmpty)
             }
             
+            // Word Image (if available) - show the image for the word being tested
+            if let currentItem = viewModel.currentItem,
+               let imageLocalPath = currentItem.quiz_imageLocalPath {
+                HStack {
+                    QuizImageView(localPath: imageLocalPath, webUrl: currentItem.quiz_imageUrl)
+                    Spacer()
+                }
+            }
+            
             Text(story.story)
                 .font(.body)
                 .lineSpacing(4)

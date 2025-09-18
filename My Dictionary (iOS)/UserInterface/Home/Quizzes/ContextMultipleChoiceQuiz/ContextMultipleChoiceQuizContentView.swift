@@ -260,6 +260,14 @@ struct ContextMultipleChoiceQuizContentView: View {
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
+            // Word Image (if available)
+            if let imageLocalPath = viewModel.currentItem?.quiz_imageLocalPath {
+                HStack(alignment: .bottom, spacing: 8) {
+                    QuizImageView(localPath: imageLocalPath, webUrl: viewModel.currentItem?.quiz_imageUrl)
+                    Spacer()
+                }
+            }
+
             HStack {
                 TagView(
                     text: PartOfSpeech(rawValue: viewModel.currentItem?.quiz_partOfSpeech).displayName,

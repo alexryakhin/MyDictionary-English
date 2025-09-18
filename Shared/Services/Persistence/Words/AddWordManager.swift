@@ -12,14 +12,16 @@ final class AddWordManager {
     private init() {}
 
     /// Adds a new word with a single meaning (legacy method for backward compatibility)
-    func addNewWord(word: String, definition: String, partOfSpeech: String, phonetic: String?, examples: [String], tags: [CDTag] = [], languageCode: String? = nil) throws {
+    func addNewWord(word: String, definition: String, partOfSpeech: String, phonetic: String?, examples: [String], tags: [CDTag] = [], languageCode: String? = nil, imageUrl: String? = nil, imageLocalPath: String? = nil) throws {
         try addNewWordWithMeanings(
             word: word,
             partOfSpeech: partOfSpeech,
             phonetic: phonetic,
             meanings: [MeaningData(definition: definition, examples: examples)],
             tags: tags,
-            languageCode: languageCode
+            languageCode: languageCode,
+            imageUrl: imageUrl,
+            imageLocalPath: imageLocalPath
         )
     }
     
@@ -30,7 +32,9 @@ final class AddWordManager {
         phonetic: String? = nil,
         meanings: [MeaningData],
         tags: [CDTag] = [],
-        languageCode: String? = nil
+        languageCode: String? = nil,
+        imageUrl: String? = nil,
+        imageLocalPath: String? = nil
     ) throws {
         print("🔍 [AddWordManager] addNewWordWithMeanings called with word: '\(word)'")
         
@@ -46,6 +50,8 @@ final class AddWordManager {
         newWord.languageCode = languageCode
         newWord.timestamp = Date()
         newWord.isSynced = false // Mark as not synced initially
+        newWord.imageUrl = imageUrl
+        newWord.imageLocalPath = imageLocalPath
         print("📝 [AddWordManager] Created CDWord with id: \(newWord.id?.uuidString ?? "nil")")
         
         // Add meanings

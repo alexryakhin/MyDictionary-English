@@ -146,7 +146,7 @@ struct SpellingQuizContentView: View {
     }
 
     private var definitionCard: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Image(systemName: "text.quote")
                     .font(.title2)
@@ -157,6 +157,14 @@ struct SpellingQuizContentView: View {
                     .fontWeight(.semibold)
 
                 Spacer()
+            }
+
+            // Word Image (if available)
+            if let imageLocalPath = viewModel.randomItem?.quiz_imageLocalPath {
+                HStack {
+                    QuizImageView(localPath: imageLocalPath, webUrl: viewModel.randomItem?.quiz_imageUrl)
+                    Spacer()
+                }
             }
 
             Text(viewModel.randomItem?.quiz_definition ?? "")

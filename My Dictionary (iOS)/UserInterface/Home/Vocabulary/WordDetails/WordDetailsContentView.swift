@@ -4,6 +4,11 @@ import Flow
 
 struct WordDetailsContentView: View {
 
+    private enum Constant {
+        static let imageHeight: CGFloat = 200
+        static let headerHeight: CGFloat = 200
+    }
+
     @StateObject var word: CDWord
     @Environment(\.dismiss) private var dismiss
     @StateObject private var ttsPlayer = TTSPlayer.shared
@@ -13,61 +18,229 @@ struct WordDetailsContentView: View {
     @FocusState private var isNotesFocused: Bool
     @State private var showingTagSelection = false
     @State private var meaningToEdit: CDMeaning?
+    @State private var scrollOffset: CGFloat = .zero
+    @State private var image: Image?
+    @State private var shouldHaveNavigationTitle: Bool = false
+    @State private var showingImageSelection = false
+
+    var imageExists: Bool {
+        word.imageLocalPath != nil || image != nil
+    }
 
     init(word: CDWord) {
         self._word = StateObject(wrappedValue: word)
     }
 
     var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 12) {
-                transcriptionSectionView
-                partOfSpeechSectionView
-                meaningsSectionView
-                notesSectionView
-                difficultySectionView
-                languageSectionView
-                tagsSectionView
+        ScrollViewWithReader(scrollOffset: $scrollOffset) {
+            VStack(spacing: 0) {
+                // Hero Image Section
+                if let image {
+                    heroImageView(image: image)
+                }
+
+                // Content
+                VStack(spacing: 16) {
+                    if !imageExists {
+                        // Image Section (only show if no image exists)
+                        imageSectionView
+                    } else {
+                        // Word Header
+                        wordHeaderView
+                    }
+
+                    // Content Sections
+                    LazyVStack(spacing: 12) {
+                        transcriptionSectionView
+                        partOfSpeechSectionView
+                        meaningsSectionView
+                        notesSectionView
+                        difficultySectionView
+                        languageSectionView
+                        tagsSectionView
+                    }
+                }
+                .if(isPad) { view in
+                    view.frame(maxWidth: 550, alignment: .center)
+                }
+                .padding(.horizontal, 16)
             }
-            .padding(.horizontal, 16)
-            .animation(.default, value: word)
-            .if(isPad) { view in
-                view
-                    .frame(maxWidth: 550, alignment: .center)
-                    .frame(maxWidth: .infinity, alignment: .center)
+            .onChange(of: scrollOffset) { newValue in
+                guard imageExists else {
+                    shouldHaveNavigationTitle = true
+                    return
+                }
+                let topOffset: CGFloat = imageExists ? Constant.imageHeight : 1
+                withAnimation {
+                    shouldHaveNavigationTitle = newValue <= -topOffset
+                }
             }
         }
-        .groupedBackground()
-        .navigation(
-            title: word.partOfSpeechDecoded.isExpression
-            ? Loc.Navigation.idiomDetails
-            : Loc.Navigation.wordDetails,
-            mode: .inline,
-            showsBackButton: true,
-            trailingContent: {
-                HeaderButton(icon: "trash", color: .red) {
-                    showDeleteAlert()
-                }
-                HeaderButton(icon: word.isFavorite ? "heart.fill" : "heart") {
+        .safeAreaInset(edge: .top) {
+            CustomNavigationBar(
+                title: word.wordItself ?? "",
+                isFavorite: word.isFavorite,
+                onFavorite: {
                     word.isFavorite.toggle()
                     saveContext()
                     AnalyticsService.shared.logEvent(.wordFavoriteTapped)
+                },
+                onDelete: { showDeleteAlert() }
+            )
+            .opacity(shouldHaveNavigationTitle ? 1 : 0)
+            .overlay(alignment: .top) {
+                HStack {
+                    HeaderButton(icon: "chevron.left") {
+                        dismiss()
+                    }
+
+                    Spacer()
+
+                    HStack(spacing: 4) {
+                        HeaderButton(
+                            icon: "trash",
+                            color: .red,
+                        ) {
+                            showDeleteAlert()
+                        }
+                        HeaderButton(
+                            icon: word.isFavorite ? "heart.fill" : "heart",
+                        ) {
+                            word.isFavorite.toggle()
+                            saveContext()
+                            AnalyticsService.shared.logEvent(.wordFavoriteTapped)
+                        }
+                    }
                 }
-                .animation(.easeInOut(duration: 0.2), value: word.isFavorite)
-            },
-            bottomContent: {
-                Text(word.wordItself ?? "")
-                    .font(.largeTitle)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
-                    .bold()
+                .padding(vertical: 12, horizontal: 16)
+                .opacity(!shouldHaveNavigationTitle ? 1 : 0)
+                .padding(12)
             }
-        )
+        }
+        .groupedBackground()
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarHidden(true)
         .sheet(isPresented: $showingTagSelection) {
             WordTagSelectionView(word: word)
         }
         .sheet(item: $meaningToEdit) { meaning in
             MeaningEditView(meaning: meaning)
+        }
+        .sheet(isPresented: $showingImageSelection) {
+            ImageSelectionView(
+                word: word.wordItself ?? "",
+                languageCode: word.languageCode,
+                onImageSelected: { imageUrl, localPath in
+                    // Update the word with the new image
+                    word.imageUrl = imageUrl
+                    word.imageLocalPath = localPath
+
+                    // Update the image state
+                    if let uiImage = PexelsService.shared.getImageFromLocalPath(localPath) {
+                        image = Image(uiImage: uiImage)
+                        shouldHaveNavigationTitle = false
+                    }
+
+                    saveContext()
+                },
+                onDismiss: {
+                    showingImageSelection = false
+                }
+            )
+        }
+        .onAppear {
+            // Check if image exists and set state with fallback
+            if let imageLocalPath = word.imageLocalPath {
+                print("🔍 [WordDetails] Image path: \(imageLocalPath)")
+                print("🌐 [WordDetails] Image URL: \(word.imageUrl ?? "nil")")
+
+                Task {
+                    let result = await PexelsService.shared.getImageWithFallback(
+                        localPath: imageLocalPath,
+                        webUrl: word.imageUrl
+                    )
+
+                    await MainActor.run {
+                        if let uiImage = result.image {
+                            print("✅ [WordDetails] Image loaded successfully (with fallback if needed)")
+                            image = Image(uiImage: uiImage)
+
+                            // Update Core Data with new relative path if fallback was used
+                            if let newLocalPath = result.newLocalPath {
+                                print("🔄 [WordDetails] Updating Core Data with new relative path: \(newLocalPath)")
+                                word.imageLocalPath = newLocalPath
+                                saveContext()
+                            }
+                        } else {
+                            print("❌ [WordDetails] Image failed to load even with fallback")
+                            image = nil
+                        }
+                    }
+                }
+            } else {
+                print("🔍 [WordDetails] No image path found")
+                image = nil
+            }
+        }
+    }
+
+    // MARK: - Hero Image View
+    private func heroImageView(image: Image) -> some View {
+        GeometryReader { geometry in
+            let offset = geometry.frame(in: .global).minY
+            let height = max(Constant.imageHeight, Constant.imageHeight + offset)
+
+            image
+                .resizable()
+                .scaledToFill()
+                .frame(width: geometry.size.width, height: height)
+                .clipped()
+                .overlay(
+                    LinearGradient(
+                        gradient: Gradient(colors: [.clear, Color.systemGroupedBackground]),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .frame(height: 100),
+                    alignment: .bottom
+                )
+                .offset(y: offset > 0 ? -offset : 0)
+                .frame(height: height)
+        }
+        .frame(height: Constant.imageHeight)
+    }
+
+    // MARK: - Word Header
+    @ViewBuilder
+    private var wordHeaderView: some View {
+        if let wordItself = word.wordItself {
+            Text(wordItself)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundStyle(.primary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .opacity(!shouldHaveNavigationTitle ? 1 : 0)
+                .padding(.horizontal, 12)
+        }
+    }
+
+    private var imageSectionView: some View {
+        CustomSectionView(header: "Image", headerFontStyle: .stealth) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("No image added yet")
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+
+                Text("Add a visual representation to help you remember this word")
+                    .font(.subheadline)
+                    .foregroundStyle(.tertiary)
+            }
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        } trailingContent: {
+            HeaderButton("Add Image", icon: "photo", size: .small) {
+                showingImageSelection = true
+            }
         }
     }
 
@@ -120,7 +293,7 @@ struct WordDetailsContentView: View {
         let meanings = word.meaningsArray
         let showLimited = meanings.count > 3
         let displayMeanings = showLimited ? Array(meanings.prefix(3)) : meanings
-        
+
         return CustomSectionView(
             header: meanings.count > 1 ? "\(Loc.Words.meanings) (\(meanings.count))" : Loc.Words.meaning,
             headerFontStyle: .stealth,
@@ -141,7 +314,7 @@ struct WordDetailsContentView: View {
                         meaningRowView(meaning: meaning, index: index + 1)
                     }
                 }
-                
+
                 if showLimited {
                     HeaderButton(
                         "\(Loc.Words.showAllMeanings) (\(meanings.count))",
@@ -272,8 +445,6 @@ struct WordDetailsContentView: View {
         }
     }
 
-
-
     // MARK: - Private Methods
 
     private func saveContext() {
@@ -288,7 +459,7 @@ struct WordDetailsContentView: View {
             }
         }
     }
-    
+
     @ViewBuilder
     private func meaningRowView(meaning: CDMeaning, index: Int) -> some View {
         let definition = meaning.definition ?? Loc.Words.definition
@@ -298,10 +469,10 @@ struct WordDetailsContentView: View {
                 Text("\(index).")
                     .font(.caption)
                     .foregroundColor(.secondary)
-                
+
                 Text(definition)
                     .fontWeight(.semibold)
-                
+
                 Spacer()
 
                 Menu {
@@ -336,7 +507,7 @@ struct WordDetailsContentView: View {
                         .contentShape(Rectangle())
                 }
             }
-            
+
             // Show examples for this meaning
             let examples = meaning.examplesDecoded
             if !examples.isEmpty {
@@ -432,7 +603,7 @@ struct WordDetailsContentView: View {
         saveContext()
         AnalyticsService.shared.logEvent(.tagRemovedFromWord)
     }
-    
+
     private func editMeaning(_ meaning: CDMeaning) {
         meaningToEdit = meaning
     }
@@ -452,5 +623,58 @@ struct WordDetailsContentView: View {
                 }
             )
         )
+    }
+}
+
+// MARK: - Supporting Views
+
+struct CustomNavigationBar: View {
+    let title: String
+    let isFavorite: Bool
+    let onFavorite: () -> Void
+    let onDelete: () -> Void
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                HeaderButton(icon: "chevron.left") {
+                    dismiss()
+                }
+
+                Text(Loc.Words.wordDetails)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                HStack(spacing: 4) {
+                    HeaderButton(
+                        icon: "trash",
+                        color: .red,
+                        action: onDelete
+                    )
+                    HeaderButton(
+                        icon: isFavorite ? "heart.fill" : "heart",
+                        action: onFavorite
+                    )
+                }
+            }
+
+            Text(title)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .lineLimit(2)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(vertical: 12, horizontal: 16)
+        .glassBackgroundEffectIfAvailable(.regular, in: RoundedRectangle(cornerRadius: 32))
+        .if(isGlassAvailable == false) {
+            $0
+                .clippedWithBackgroundMaterial(.ultraThinMaterial, cornerRadius: 32)
+                .shadow(radius: 2)
+        }
+        .padding(12)
+        .animation(.easeInOut(duration: 0.3), value: true)
     }
 }

@@ -13,6 +13,8 @@ final class AddWordViewModel: BaseViewModel {
         case toggleTag(CDTag)
         case showTagSelection
         case selectInputLanguage(InputLanguage)
+        case showImageSelection
+        case selectImage(String, String) // imageUrl, localPath
     }
 
     @Published var inputWord = ""
@@ -26,10 +28,13 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var partOfSpeech: PartOfSpeech?
     @Published var selectedTags: [CDTag] = []
     @Published var showingTagSelection = false
+    @Published var showingImageSelection = false
     @Published private(set) var availableTags: [CDTag] = []
     @Published private(set) var isTranslating: Bool = false
     @Published private(set) var translatedDefinitions: [WordDefinition] = []
     @Published private(set) var isUsingAI: Bool = false
+    @Published private(set) var selectedImageUrl: String?
+    @Published private(set) var selectedImageLocalPath: String?
     @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .auto
     private var detectedLanguageCode: String?
     
@@ -97,6 +102,11 @@ final class AddWordViewModel: BaseViewModel {
             showingTagSelection = true
         case .selectInputLanguage(let language):
             selectedInputLanguage = language
+        case .showImageSelection:
+            showingImageSelection = true
+        case .selectImage(let imageUrl, let localPath):
+            selectedImageUrl = imageUrl
+            selectedImageLocalPath = localPath
         }
     }
 
@@ -239,7 +249,9 @@ final class AddWordViewModel: BaseViewModel {
                             phonetic: pronunciation,
                             meanings: meaningData,
                             tags: selectedTags,
-                            languageCode: languageCode
+                            languageCode: languageCode,
+                            imageUrl: selectedImageUrl,
+                            imageLocalPath: selectedImageLocalPath
                         )
                     } else {
                         // Fallback to old method for manual definition
@@ -250,7 +262,9 @@ final class AddWordViewModel: BaseViewModel {
                             phonetic: pronunciation,
                             examples: selectedDefinition?.examples ?? [],
                             tags: selectedTags,
-                            languageCode: languageCode
+                            languageCode: languageCode,
+                            imageUrl: selectedImageUrl,
+                            imageLocalPath: selectedImageLocalPath
                         )
                     }
                     HapticManager.shared.triggerNotification(type: .success)
@@ -295,7 +309,9 @@ final class AddWordViewModel: BaseViewModel {
             isFavorite: false,
             timestamp: Date(),
             updatedAt: Date(),
-            isSynced: true
+            isSynced: true,
+            imageUrl: selectedImageUrl,
+            imageLocalPath: selectedImageLocalPath
         )
 
         Task {

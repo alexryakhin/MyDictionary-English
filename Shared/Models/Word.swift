@@ -39,6 +39,8 @@ struct Word: Codable, Identifiable {
     let timestamp: Date // Created at date
     let updatedAt: Date // Last updated date
     let isSynced: Bool
+    let imageUrl: String? // Pexels image URL
+    let imageLocalPath: String? // Local path to saved image
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -54,6 +56,8 @@ struct Word: Codable, Identifiable {
         case timestamp
         case updatedAt
         case isSynced
+        case imageUrl
+        case imageLocalPath
     }
     
     // MARK: - Computed Properties for Backward Compatibility
@@ -112,7 +116,9 @@ struct Word: Codable, Identifiable {
             "isFavorite": isFavorite,
             "timestamp": Timestamp(date: timestamp),
             "updatedAt": Timestamp(date: updatedAt),
-            "isSynced": isSynced
+            "isSynced": isSynced,
+            "imageUrl": imageUrl ?? "",
+            "imageLocalPath": imageLocalPath ?? ""
         ]
         return dict
     }
@@ -187,7 +193,9 @@ struct Word: Codable, Identifiable {
             isFavorite: isFavorite,
             timestamp: timestamp.dateValue(),
             updatedAt: updatedAt.dateValue(),
-            isSynced: isSynced
+            isSynced: isSynced,
+            imageUrl: data["imageUrl"] as? String,
+            imageLocalPath: data["imageLocalPath"] as? String
         )
     }
 }
@@ -242,6 +250,8 @@ extension Word {
         self.timestamp = timestamp
         self.updatedAt = entity.updatedAt ?? timestamp // Use updatedAt if available, otherwise fallback to timestamp
         self.isSynced = entity.isSynced
+        self.imageUrl = entity.imageUrl
+        self.imageLocalPath = entity.imageLocalPath
     }
 
     func toCoreDataEntity() -> CDWord {
@@ -257,6 +267,8 @@ extension Word {
         entity.timestamp = timestamp
         entity.updatedAt = updatedAt
         entity.isSynced = isSynced
+        entity.imageUrl = imageUrl
+        entity.imageLocalPath = imageLocalPath
         
         // Create CDMeanings from WordMeanings
         for wordMeaning in meanings {

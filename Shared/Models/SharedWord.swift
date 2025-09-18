@@ -34,6 +34,8 @@ struct SharedWord: Codable, Hashable {
     var languageCode: String
     let timestamp: Date
     let updatedAt: Date
+    var imageUrl: String? // Pexels image URL
+    var imageLocalPath: String? // Local path to saved image
 
     // Collaborator information
     let addedByEmail: String
@@ -60,7 +62,9 @@ struct SharedWord: Codable, Hashable {
         addedByDisplayName: String? = nil,
         addedAt: Date = Date(),
         likes: [String: Bool] = [:],
-        difficulties: [String: Int] = [:]
+        difficulties: [String: Int] = [:],
+        imageUrl: String? = nil,
+        imageLocalPath: String? = nil
     ) {
         self.id = id
         self.wordItself = wordItself
@@ -71,6 +75,8 @@ struct SharedWord: Codable, Hashable {
         self.languageCode = languageCode
         self.timestamp = timestamp
         self.updatedAt = updatedAt
+        self.imageUrl = imageUrl
+        self.imageLocalPath = imageLocalPath
 
         self.addedByEmail = addedByEmail
         self.addedByDisplayName = addedByDisplayName
