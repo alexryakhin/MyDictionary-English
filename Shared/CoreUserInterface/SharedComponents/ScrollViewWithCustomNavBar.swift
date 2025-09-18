@@ -33,7 +33,11 @@ struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
             navigationBar()
                 .background {
                     VStack(spacing: 0) {
-                        Color.clear.background(.ultraThinMaterial)
+                        Color.clear
+                            .glassBackgroundEffectIfAvailable(.regular, in: .rect)
+                            .if(isGlassAvailable == false) {
+                                $0.background(.ultraThinMaterial)
+                            }
                         Divider()
                     }
                     .opacity(navigationBarOpacity)

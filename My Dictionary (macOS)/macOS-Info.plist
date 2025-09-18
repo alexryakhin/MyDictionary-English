@@ -14,7 +14,7 @@
 	<key>CFBundleName</key>
 	<string>My Dictionary</string>
 	<key>UIDesignRequiresCompatibility</key>
-	<true/>
+	<false/>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
