@@ -1,0 +1,3159 @@
+{
+  "collections": [
+    {
+      "id": "top-50-spanish-words-001",
+      "title": "Top 50 Spanish Words",
+      "words": [
+        {
+          "id": "y-001",
+          "text": "y",
+          "phonetics": "/i/",
+          "partOfSpeech": "conjunction",
+          "definition": "Joins two things together, like \"apple and orange\"",
+          "examples": [
+            "Manzana y naranja son frutas.",
+            "Mamá y papá están en casa."
+          ]
+        },
+        {
+          "id": "en-001",
+          "text": "en",
+          "phonetics": "/en/",
+          "partOfSpeech": "preposition",
+          "definition": "Shows something is inside or within another thing, like being in a box",
+          "examples": [
+            "El libro está en la mochila.",
+            "Vivo en Madrid."
+          ]
+        },
+        {
+          "id": "no-001",
+          "text": "no",
+          "phonetics": "/no/",
+          "partOfSpeech": "adverb",
+          "definition": "Means \"no\" or the opposite, like not happy means sad",
+          "examples": [
+            "No estoy triste.",
+            "No quiero comer."
+          ]
+        },
+        {
+          "id": "de-001",
+          "text": "de",
+          "phonetics": "/de/",
+          "partOfSpeech": "preposition",
+          "definition": "Shows possession or origin, like \"book of John\" or \"from Spain\"",
+          "examples": [
+            "El libro de María.",
+            "Soy de México."
+          ]
+        },
+        {
+          "id": "yo-001",
+          "text": "yo",
+          "phonetics": "/ʝo/",
+          "partOfSpeech": "pronoun",
+          "definition": "What you use to talk about yourself, like \"I am happy\"",
+          "examples": [
+            "Yo soy feliz.",
+            "Yo estudio en la universidad."
+          ]
+        },
+        {
+          "id": "ser-001",
+          "text": "ser",
+          "phonetics": "/ser/",
+          "partOfSpeech": "verb",
+          "definition": "To be (permanent characteristics), like to be a friend or to be tall",
+          "examples": [
+            "Quiero ser médico.",
+            "Ser amigo es bueno."
+          ]
+        },
+        {
+          "id": "el-001",
+          "text": "el",
+          "phonetics": "/el/",
+          "partOfSpeech": "article",
+          "definition": "The (masculine), used before masculine nouns",
+          "examples": [
+            "El perro es grande.",
+            "El libro está en la mesa."
+          ]
+        },
+        {
+          "id": "con-001",
+          "text": "con",
+          "phonetics": "/kon/",
+          "partOfSpeech": "preposition",
+          "definition": "Means together with someone, like playing with a friend",
+          "examples": [
+            "Juego con mi amigo.",
+            "Voy con mi mamá."
+          ]
+        },
+        {
+          "id": "que-001",
+          "text": "que",
+          "phonetics": "/ke/",
+          "partOfSpeech": "conjunction",
+          "definition": "That, which, or who - connects ideas or describes things",
+          "examples": [
+            "El libro que leo es interesante.",
+            "La persona que conocí ayer."
+          ]
+        },
+        {
+          "id": "la-001",
+          "text": "la",
+          "phonetics": "/la/",
+          "partOfSpeech": "article",
+          "definition": "The (feminine), used before feminine nouns",
+          "examples": [
+            "La casa es bonita.",
+            "La comida está lista."
+          ]
+        },
+        {
+          "id": "un-001",
+          "text": "un",
+          "phonetics": "/un/",
+          "partOfSpeech": "article",
+          "definition": "A or an (masculine), used before masculine nouns",
+          "examples": [
+            "Tengo un perro.",
+            "Es un buen día."
+          ]
+        },
+        {
+          "id": "una-001",
+          "text": "una",
+          "phonetics": "/una/",
+          "partOfSpeech": "article",
+          "definition": "A or an (feminine), used before feminine nouns",
+          "examples": [
+            "Tengo una gata.",
+            "Es una buena idea."
+          ]
+        },
+        {
+          "id": "es-001",
+          "text": "es",
+          "phonetics": "/es/",
+          "partOfSpeech": "verb",
+          "definition": "Is (third person singular of ser), like \"he is tall\"",
+          "examples": [
+            "Él es alto.",
+            "Mi hermana es doctora."
+          ]
+        },
+        {
+          "id": "se-001",
+          "text": "se",
+          "phonetics": "/se/",
+          "partOfSpeech": "pronoun",
+          "definition": "Reflexive pronoun, like \"he washes himself\"",
+          "examples": [
+            "Se lava las manos.",
+            "Se levanta temprano."
+          ]
+        },
+        {
+          "id": "por-001",
+          "text": "por",
+          "phonetics": "/por/",
+          "partOfSpeech": "preposition",
+          "definition": "For, by, or through - shows reason, means, or movement",
+          "examples": [
+            "Gracias por la ayuda.",
+            "Voy por el parque."
+          ]
+        },
+        {
+          "id": "para-001",
+          "text": "para",
+          "phonetics": "/para/",
+          "partOfSpeech": "preposition",
+          "definition": "For or to - shows purpose or destination",
+          "examples": [
+            "Este regalo es para ti.",
+            "Estudio para el examen."
+          ]
+        },
+        {
+          "id": "del-001",
+          "text": "del",
+          "phonetics": "/del/",
+          "partOfSpeech": "preposition",
+          "definition": "Of the (masculine), contraction of de + el",
+          "examples": [
+            "El color del coche es rojo.",
+            "La puerta del edificio."
+          ]
+        },
+        {
+          "id": "los-001",
+          "text": "los",
+          "phonetics": "/los/",
+          "partOfSpeech": "article",
+          "definition": "The (masculine plural), used before masculine plural nouns",
+          "examples": [
+            "Los niños juegan.",
+            "Los libros están en la estantería."
+          ]
+        },
+        {
+          "id": "las-001",
+          "text": "las",
+          "phonetics": "/las/",
+          "partOfSpeech": "article",
+          "definition": "The (feminine plural), used before feminine plural nouns",
+          "examples": [
+            "Las flores son bonitas.",
+            "Las casas están cerca."
+          ]
+        },
+        {
+          "id": "le-001",
+          "text": "le",
+          "phonetics": "/le/",
+          "partOfSpeech": "pronoun",
+          "definition": "To him/her/it (indirect object), like \"I give him the book\"",
+          "examples": [
+            "Le doy el libro.",
+            "Le gusta la música."
+          ]
+        },
+        {
+          "id": "lo-001",
+          "text": "lo",
+          "phonetics": "/lo/",
+          "partOfSpeech": "pronoun",
+          "definition": "It (masculine direct object), like \"I see it\"",
+          "examples": [
+            "Lo veo todos los días.",
+            "Lo compré ayer."
+          ]
+        },
+        {
+          "id": "su-001",
+          "text": "su",
+          "phonetics": "/su/",
+          "partOfSpeech": "pronoun",
+          "definition": "His, her, its, or your (formal) - shows possession",
+          "examples": [
+            "Su casa es grande.",
+            "Su nombre es María."
+          ]
+        },
+        {
+          "id": "me-001",
+          "text": "me",
+          "phonetics": "/me/",
+          "partOfSpeech": "pronoun",
+          "definition": "Me (direct or indirect object), like \"he sees me\" or \"he gives me\"",
+          "examples": [
+            "Me ve en el espejo.",
+            "Me da un regalo."
+          ]
+        },
+        {
+          "id": "te-001",
+          "text": "te",
+          "phonetics": "/te/",
+          "partOfSpeech": "pronoun",
+          "definition": "You (direct or indirect object), like \"I see you\" or \"I give you\"",
+          "examples": [
+            "Te veo mañana.",
+            "Te doy mi número."
+          ]
+        },
+        {
+          "id": "mi-001",
+          "text": "mi",
+          "phonetics": "/mi/",
+          "partOfSpeech": "pronoun",
+          "definition": "My - shows possession, like \"my book\"",
+          "examples": [
+            "Mi libro está aquí.",
+            "Mi familia es grande."
+          ]
+        },
+        {
+          "id": "tu-001",
+          "text": "tu",
+          "phonetics": "/tu/",
+          "partOfSpeech": "pronoun",
+          "definition": "Your (informal) - shows possession, like \"your book\"",
+          "examples": [
+            "Tu coche es rápido.",
+            "Tu casa es bonita."
+          ]
+        },
+        {
+          "id": "si-001",
+          "text": "si",
+          "phonetics": "/si/",
+          "partOfSpeech": "conjunction",
+          "definition": "If - shows a condition, like \"if it rains\"",
+          "examples": [
+            "Si llueve, me quedo en casa.",
+            "Si estudias, aprobarás."
+          ]
+        },
+        {
+          "id": "pero-001",
+          "text": "pero",
+          "phonetics": "/pero/",
+          "partOfSpeech": "conjunction",
+          "definition": "But - shows contrast, like \"I like it but it's expensive\"",
+          "examples": [
+            "Me gusta pero es caro.",
+            "Quiero ir pero no puedo."
+          ]
+        },
+        {
+          "id": "muy-001",
+          "text": "muy",
+          "phonetics": "/muj/",
+          "partOfSpeech": "adverb",
+          "definition": "Very - makes adjectives stronger, like \"very big\"",
+          "examples": [
+            "Es muy grande.",
+            "Está muy lejos."
+          ]
+        },
+        {
+          "id": "mas-001",
+          "text": "más",
+          "phonetics": "/mas/",
+          "partOfSpeech": "adverb",
+          "definition": "More - shows comparison, like \"more beautiful\"",
+          "examples": [
+            "Es más bonito.",
+            "Quiero más tiempo."
+          ]
+        },
+        {
+          "id": "como-001",
+          "text": "como",
+          "phonetics": "/komo/",
+          "partOfSpeech": "adverb",
+          "definition": "Like or as - shows similarity, like \"like a bird\"",
+          "examples": [
+            "Vuela como un pájaro.",
+            "Es como mi hermano."
+          ]
+        },
+        {
+          "id": "todo-001",
+          "text": "todo",
+          "phonetics": "/todo/",
+          "partOfSpeech": "adjective",
+          "definition": "All or every - means everything or everyone",
+          "examples": [
+            "Todo el mundo está aquí.",
+            "Todo está bien."
+          ]
+        },
+        {
+          "id": "esta-001",
+          "text": "esta",
+          "phonetics": "/esta/",
+          "partOfSpeech": "pronoun",
+          "definition": "This (feminine) - points to something close, like \"this book\"",
+          "examples": [
+            "Esta casa es mía.",
+            "Esta comida está rica."
+          ]
+        },
+        {
+          "id": "este-001",
+          "text": "este",
+          "phonetics": "/este/",
+          "partOfSpeech": "pronoun",
+          "definition": "This (masculine) - points to something close, like \"this car\"",
+          "examples": [
+            "Este coche es nuevo.",
+            "Este libro es interesante."
+          ]
+        },
+        {
+          "id": "bien-001",
+          "text": "bien",
+          "phonetics": "/bjen/",
+          "partOfSpeech": "adverb",
+          "definition": "Well or good - shows how something is done",
+          "examples": [
+            "Habla bien español.",
+            "Todo va bien."
+          ]
+        },
+        {
+          "id": "solo-001",
+          "text": "solo",
+          "phonetics": "/solo/",
+          "partOfSpeech": "adverb",
+          "definition": "Only or just - means nothing more, like \"only one\"",
+          "examples": [
+            "Solo quiero agua.",
+            "Solo tengo un hermano."
+          ]
+        },
+        {
+          "id": "tambien-001",
+          "text": "también",
+          "phonetics": "/tambjen/",
+          "partOfSpeech": "adverb",
+          "definition": "Also or too - adds something more, like \"me too\"",
+          "examples": [
+            "Yo también quiero ir.",
+            "También me gusta la música."
+          ]
+        },
+        {
+          "id": "ahora-001",
+          "text": "ahora",
+          "phonetics": "/aora/",
+          "partOfSpeech": "adverb",
+          "definition": "Now - means at this moment, like \"I'm here now\"",
+          "examples": [
+            "Ahora estoy aquí.",
+            "Ahora mismo voy."
+          ]
+        },
+        {
+          "id": "aqui-001",
+          "text": "aquí",
+          "phonetics": "/aki/",
+          "partOfSpeech": "adverb",
+          "definition": "Here - shows location close to speaker, like \"I'm here\"",
+          "examples": [
+            "Estoy aquí.",
+            "Aquí está mi casa."
+          ]
+        },
+        {
+          "id": "alli-001",
+          "text": "allí",
+          "phonetics": "/aʝi/",
+          "partOfSpeech": "adverb",
+          "definition": "There - shows location away from speaker, like \"it's there\"",
+          "examples": [
+            "Está allí.",
+            "Allí vive mi abuela."
+          ]
+        },
+        {
+          "id": "cuando-001",
+          "text": "cuando",
+          "phonetics": "/kwando/",
+          "partOfSpeech": "adverb",
+          "definition": "When - asks about time, like \"when do you arrive?\"",
+          "examples": [
+            "¿Cuándo llegas?",
+            "Cuando llueve, me quedo en casa."
+          ]
+        },
+        {
+          "id": "donde-001",
+          "text": "dónde",
+          "phonetics": "/donde/",
+          "partOfSpeech": "adverb",
+          "definition": "Where - asks about place, like \"where is the book?\"",
+          "examples": [
+            "¿Dónde está el libro?",
+            "No sé dónde vive."
+          ]
+        },
+        {
+          "id": "como-002",
+          "text": "cómo",
+          "phonetics": "/komo/",
+          "partOfSpeech": "adverb",
+          "definition": "How - asks about manner, like \"how are you?\"",
+          "examples": [
+            "¿Cómo estás?",
+            "No sé cómo hacerlo."
+          ]
+        },
+        {
+          "id": "que-002",
+          "text": "qué",
+          "phonetics": "/ke/",
+          "partOfSpeech": "pronoun",
+          "definition": "What - asks about things, like \"what is this?\"",
+          "examples": [
+            "¿Qué es esto?",
+            "No sé qué hacer."
+          ]
+        },
+        {
+          "id": "quien-001",
+          "text": "quién",
+          "phonetics": "/kjen/",
+          "partOfSpeech": "pronoun",
+          "definition": "Who - asks about people, like \"who is that?\"",
+          "examples": [
+            "¿Quién es él?",
+            "No sé quién llamó."
+          ]
+        },
+        {
+          "id": "porque-001",
+          "text": "porque",
+          "phonetics": "/porke/",
+          "partOfSpeech": "conjunction",
+          "definition": "Because - gives a reason, like \"because it's raining\"",
+          "examples": [
+            "No voy porque llueve.",
+            "Está triste porque perdió el juego."
+          ]
+        },
+        {
+          "id": "hasta-001",
+          "text": "hasta",
+          "phonetics": "/asta/",
+          "partOfSpeech": "preposition",
+          "definition": "Until or up to - shows limit, like \"until tomorrow\"",
+          "examples": [
+            "Trabajo hasta las cinco.",
+            "Hasta mañana."
+          ]
+        },
+        {
+          "id": "desde-001",
+          "text": "desde",
+          "phonetics": "/desde/",
+          "partOfSpeech": "preposition",
+          "definition": "Since or from - shows starting point, like \"since Monday\"",
+          "examples": [
+            "Trabajo desde las ocho.",
+            "Desde ayer estoy enfermo."
+          ]
+        },
+        {
+          "id": "entre-001",
+          "text": "entre",
+          "phonetics": "/entre/",
+          "partOfSpeech": "preposition",
+          "definition": "Between or among - shows position, like \"between two things\"",
+          "examples": [
+            "Está entre los dos árboles.",
+            "Entre amigos nos ayudamos."
+          ]
+        },
+        {
+          "id": "sobre-001",
+          "text": "sobre",
+          "phonetics": "/sobre/",
+          "partOfSpeech": "preposition",
+          "definition": "On, about, or over - shows position or topic, like \"on the table\"",
+          "examples": [
+            "El libro está sobre la mesa.",
+            "Hablamos sobre el trabajo."
+          ]
+        },
+        {
+          "id": "bajo-001",
+          "text": "bajo",
+          "phonetics": "/baxo/",
+          "partOfSpeech": "preposition",
+          "definition": "Under or below - shows position, like \"under the table\"",
+          "examples": [
+            "El gato está bajo la mesa.",
+            "Bajo la lluvia caminamos."
+          ]
+        },
+        {
+          "id": "soy-001",
+          "text": "soy",
+          "phonetics": "/soj/",
+          "partOfSpeech": "verb",
+          "definition": "I am (first person of ser), like \"I am a student\"",
+          "examples": [
+            "Soy estudiante.",
+            "Soy de España."
+          ]
+        },
+        {
+          "id": "eres-001",
+          "text": "eres",
+          "phonetics": "/eres/",
+          "partOfSpeech": "verb",
+          "definition": "You are (second person of ser), like \"you are tall\"",
+          "examples": [
+            "Eres muy alto.",
+            "Eres mi mejor amigo."
+          ]
+        },
+        {
+          "id": "somos-001",
+          "text": "somos",
+          "phonetics": "/somos/",
+          "partOfSpeech": "verb",
+          "definition": "We are (first person plural of ser), like \"we are friends\"",
+          "examples": [
+            "Somos amigos.",
+            "Somos de la misma ciudad."
+          ]
+        },
+        {
+          "id": "son-001",
+          "text": "son",
+          "phonetics": "/son/",
+          "partOfSpeech": "verb",
+          "definition": "They are (third person plural of ser), like \"they are students\"",
+          "examples": [
+            "Son estudiantes.",
+            "Son muy simpáticos."
+          ]
+        }
+      ],
+      "level": "A1",
+      "tagValue": "Essential Words",
+      "languageCode": "es",
+      "description": "The 50 most essential Spanish words for beginners",
+      "imageUrl": null,
+      "localImageName": "dictionary",
+      "isPremium": false
+    },
+    {
+      "id": "everyday-actions-001",
+      "title": "Everyday Actions",
+      "words": [
+        {
+          "id": "hablar-001",
+          "text": "hablar",
+          "phonetics": "/ablar/",
+          "partOfSpeech": "verb",
+          "definition": "To speak or talk - using your voice to communicate",
+          "examples": [
+            "Hablo español muy bien.",
+            "Necesito hablar contigo."
+          ]
+        },
+        {
+          "id": "comer-001",
+          "text": "comer",
+          "phonetics": "/komer/",
+          "partOfSpeech": "verb",
+          "definition": "To eat - putting food in your mouth and swallowing it",
+          "examples": [
+            "Como frutas todos los días.",
+            "¿Quieres comer conmigo?"
+          ]
+        },
+        {
+          "id": "beber-001",
+          "text": "beber",
+          "phonetics": "/beber/",
+          "partOfSpeech": "verb",
+          "definition": "To drink - taking liquid into your mouth and swallowing it",
+          "examples": [
+            "Bebo agua cuando tengo sed.",
+            "Me gusta beber café por la mañana."
+          ]
+        },
+        {
+          "id": "dormir-001",
+          "text": "dormir",
+          "phonetics": "/dormir/",
+          "partOfSpeech": "verb",
+          "definition": "To sleep - resting with your eyes closed at night",
+          "examples": [
+            "Duermo ocho horas cada noche.",
+            "Los bebés duermen mucho."
+          ]
+        },
+        {
+          "id": "trabajar-001",
+          "text": "trabajar",
+          "phonetics": "/trabaxar/",
+          "partOfSpeech": "verb",
+          "definition": "To work - doing a job or activity to earn money",
+          "examples": [
+            "Trabajo en una oficina.",
+            "Mi padre trabaja mucho."
+          ]
+        },
+        {
+          "id": "estudiar-001",
+          "text": "estudiar",
+          "phonetics": "/estudjar/",
+          "partOfSpeech": "verb",
+          "definition": "To study - learning by reading, practicing, or memorizing",
+          "examples": [
+            "Estudio español en la universidad.",
+            "Los estudiantes estudian para los exámenes."
+          ]
+        },
+        {
+          "id": "leer-001",
+          "text": "leer",
+          "phonetics": "/leer/",
+          "partOfSpeech": "verb",
+          "definition": "To read - looking at words and understanding their meaning",
+          "examples": [
+            "Leo un libro cada mes.",
+            "Los niños aprenden a leer en la escuela."
+          ]
+        },
+        {
+          "id": "escribir-001",
+          "text": "escribir",
+          "phonetics": "/eskribir/",
+          "partOfSpeech": "verb",
+          "definition": "To write - making letters and words with a pen or keyboard",
+          "examples": [
+            "Escribo cartas a mi familia.",
+            "Los periodistas escriben noticias."
+          ]
+        },
+        {
+          "id": "caminar-001",
+          "text": "caminar",
+          "phonetics": "/kaminar/",
+          "partOfSpeech": "verb",
+          "definition": "To walk - moving on foot, one step after another",
+          "examples": [
+            "Camino al trabajo todos los días.",
+            "Nos gusta caminar por el parque."
+          ]
+        },
+        {
+          "id": "correr-001",
+          "text": "correr",
+          "phonetics": "/korer/",
+          "partOfSpeech": "verb",
+          "definition": "To run - moving quickly on foot, faster than walking",
+          "examples": [
+            "Corro en el gimnasio tres veces por semana.",
+            "Los atletas corren muy rápido."
+          ]
+        },
+        {
+          "id": "conducir-001",
+          "text": "conducir",
+          "phonetics": "/konduθir/",
+          "partOfSpeech": "verb",
+          "definition": "To drive - controlling a car or vehicle to move from place to place",
+          "examples": [
+            "Conduzco al trabajo cada día.",
+            "Mi hermana conduce muy bien."
+          ]
+        },
+        {
+          "id": "comprar-001",
+          "text": "comprar",
+          "phonetics": "/komprar/",
+          "partOfSpeech": "verb",
+          "definition": "To buy - getting something by paying money for it",
+          "examples": [
+            "Compro comida en el supermercado.",
+            "Quiero comprar un coche nuevo."
+          ]
+        },
+        {
+          "id": "vender-001",
+          "text": "vender",
+          "phonetics": "/bender/",
+          "partOfSpeech": "verb",
+          "definition": "To sell - giving something to someone in exchange for money",
+          "examples": [
+            "Vendo mi coche viejo.",
+            "La tienda vende ropa."
+          ]
+        },
+        {
+          "id": "cocinar-001",
+          "text": "cocinar",
+          "phonetics": "/koθinar/",
+          "partOfSpeech": "verb",
+          "definition": "To cook - preparing food by heating it or mixing ingredients",
+          "examples": [
+            "Cocino la cena para mi familia.",
+            "Me gusta cocinar platos italianos."
+          ]
+        },
+        {
+          "id": "limpiar-001",
+          "text": "limpiar",
+          "phonetics": "/limpjar/",
+          "partOfSpeech": "verb",
+          "definition": "To clean - making something free from dirt or mess",
+          "examples": [
+            "Limpio mi habitación los sábados.",
+            "La señora limpia la casa todos los días."
+          ]
+        },
+        {
+          "id": "lavar-001",
+          "text": "lavar",
+          "phonetics": "/labar/",
+          "partOfSpeech": "verb",
+          "definition": "To wash - cleaning something with water and soap",
+          "examples": [
+            "Lavo los platos después de comer.",
+            "Me lavo las manos antes de comer."
+          ]
+        },
+        {
+          "id": "vestir-001",
+          "text": "vestir",
+          "phonetics": "/bestir/",
+          "partOfSpeech": "verb",
+          "definition": "To dress - putting on clothes to cover your body",
+          "examples": [
+            "Me visto rápido por la mañana.",
+            "Los niños se visten solos."
+          ]
+        },
+        {
+          "id": "despertar-001",
+          "text": "despertar",
+          "phonetics": "/despertar/",
+          "partOfSpeech": "verb",
+          "definition": "To wake up - stopping sleeping and becoming conscious",
+          "examples": [
+            "Me despierto a las siete de la mañana.",
+            "El ruido me despertó."
+          ]
+        },
+        {
+          "id": "levantar-001",
+          "text": "levantar",
+          "phonetics": "/levantar/",
+          "partOfSpeech": "verb",
+          "definition": "To lift or get up - moving something or yourself upward",
+          "examples": [
+            "Levanto pesas en el gimnasio.",
+            "Me levanto de la cama temprano."
+          ]
+        },
+        {
+          "id": "sentar-001",
+          "text": "sentar",
+          "phonetics": "/sentar/",
+          "partOfSpeech": "verb",
+          "definition": "To sit - placing your body on a chair or surface",
+          "examples": [
+            "Me siento en la silla.",
+            "Los estudiantes se sientan en el aula."
+          ]
+        },
+        {
+          "id": "parar-001",
+          "text": "parar",
+          "phonetics": "/parar/",
+          "partOfSpeech": "verb",
+          "definition": "To stop - ending movement or activity",
+          "examples": [
+            "Paro el coche en el semáforo.",
+            "No puedo parar de reír."
+          ]
+        },
+        {
+          "id": "empezar-001",
+          "text": "empezar",
+          "phonetics": "/empeθar/",
+          "partOfSpeech": "verb",
+          "definition": "To start or begin - beginning an action or activity",
+          "examples": [
+            "Empiezo a trabajar a las nueve.",
+            "La película empieza a las ocho."
+          ]
+        },
+        {
+          "id": "terminar-001",
+          "text": "terminar",
+          "phonetics": "/terminar/",
+          "partOfSpeech": "verb",
+          "definition": "To finish or end - completing something or reaching the end",
+          "examples": [
+            "Termino el trabajo a las cinco.",
+            "La clase termina a las tres."
+          ]
+        },
+        {
+          "id": "ayudar-001",
+          "text": "ayudar",
+          "phonetics": "/ajudar/",
+          "partOfSpeech": "verb",
+          "definition": "To help - giving assistance or support to someone",
+          "examples": [
+            "Ayudo a mi madre en la cocina.",
+            "¿Puedes ayudarme con esto?"
+          ]
+        },
+        {
+          "id": "necesitar-001",
+          "text": "necesitar",
+          "phonetics": "/neθesitar/",
+          "partOfSpeech": "verb",
+          "definition": "To need - requiring something because it's necessary",
+          "examples": [
+            "Necesito dinero para comprar comida.",
+            "Los niños necesitan dormir mucho."
+          ]
+        },
+        {
+          "id": "querer-001",
+          "text": "querer",
+          "phonetics": "/kerer/",
+          "partOfSpeech": "verb",
+          "definition": "To want or love - desiring something or having affection",
+          "examples": [
+            "Quiero un helado.",
+            "Quiero mucho a mi familia."
+          ]
+        },
+        {
+          "id": "gustar-001",
+          "text": "gustar",
+          "phonetics": "/gustar/",
+          "partOfSpeech": "verb",
+          "definition": "To like - finding something pleasant or enjoyable",
+          "examples": [
+            "Me gusta la música clásica.",
+            "¿Te gusta el café?"
+          ]
+        },
+        {
+          "id": "ver-001",
+          "text": "ver",
+          "phonetics": "/ber/",
+          "partOfSpeech": "verb",
+          "definition": "To see - using your eyes to notice or observe something",
+          "examples": [
+            "Veo una película en el cine.",
+            "No puedo ver bien sin gafas."
+          ]
+        },
+        {
+          "id": "oir-001",
+          "text": "oír",
+          "phonetics": "/oir/",
+          "partOfSpeech": "verb",
+          "definition": "To hear - using your ears to receive sound",
+          "examples": [
+            "Oigo música en la radio.",
+            "No puedo oír bien."
+          ]
+        },
+        {
+          "id": "tocar-001",
+          "text": "tocar",
+          "phonetics": "/tokar/",
+          "partOfSpeech": "verb",
+          "definition": "To touch or play - making contact with something or playing an instrument",
+          "examples": [
+            "Toco la guitarra muy bien.",
+            "No toques el fuego."
+          ]
+        },
+        {
+          "id": "oler-001",
+          "text": "oler",
+          "phonetics": "/oler/",
+          "partOfSpeech": "verb",
+          "definition": "To smell - using your nose to detect odors",
+          "examples": [
+            "Huelo flores en el jardín.",
+            "Esta comida huele muy bien."
+          ]
+        },
+        {
+          "id": "saber-001",
+          "text": "saber",
+          "phonetics": "/saber/",
+          "partOfSpeech": "verb",
+          "definition": "To know - having information or knowledge about something",
+          "examples": [
+            "Sé la respuesta a la pregunta.",
+            "¿Sabes dónde vive María?"
+          ]
+        },
+        {
+          "id": "conocer-001",
+          "text": "conocer",
+          "phonetics": "/konoθer/",
+          "partOfSpeech": "verb",
+          "definition": "To know or meet - being familiar with someone or something",
+          "examples": [
+            "Conozco a tu hermana.",
+            "Conozco muy bien esta ciudad."
+          ]
+        },
+        {
+          "id": "entender-001",
+          "text": "entender",
+          "phonetics": "/entender/",
+          "partOfSpeech": "verb",
+          "definition": "To understand - comprehending the meaning of something",
+          "examples": [
+            "Entiendo lo que dices.",
+            "No entiendo esta lección."
+          ]
+        },
+        {
+          "id": "aprender-001",
+          "text": "aprender",
+          "phonetics": "/aprender/",
+          "partOfSpeech": "verb",
+          "definition": "To learn - gaining knowledge or skill through study or experience",
+          "examples": [
+            "Aprendo español en la escuela.",
+            "Los niños aprenden rápido."
+          ]
+        },
+        {
+          "id": "enseñar-001",
+          "text": "enseñar",
+          "phonetics": "/enseɲar/",
+          "partOfSpeech": "verb",
+          "definition": "To teach - helping someone learn by giving knowledge or skills",
+          "examples": [
+            "Enseño matemáticas en la universidad.",
+            "Mi padre me enseña a conducir."
+          ]
+        },
+        {
+          "id": "jugar-001",
+          "text": "jugar",
+          "phonetics": "/xugar/",
+          "partOfSpeech": "verb",
+          "definition": "To play - engaging in games or activities for fun",
+          "examples": [
+            "Juego fútbol con mis amigos.",
+            "Los niños juegan en el parque."
+          ]
+        },
+        {
+          "id": "cantar-001",
+          "text": "cantar",
+          "phonetics": "/kantar/",
+          "partOfSpeech": "verb",
+          "definition": "To sing - making musical sounds with your voice",
+          "examples": [
+            "Canto en el coro de la iglesia.",
+            "Me gusta cantar en la ducha."
+          ]
+        },
+        {
+          "id": "bailar-001",
+          "text": "bailar",
+          "phonetics": "/bajlar/",
+          "partOfSpeech": "verb",
+          "definition": "To dance - moving your body rhythmically to music",
+          "examples": [
+            "Bailo salsa los viernes.",
+            "¿Quieres bailar conmigo?"
+          ]
+        },
+        {
+          "id": "viajar-001",
+          "text": "viajar",
+          "phonetics": "/bjaχar/",
+          "partOfSpeech": "verb",
+          "definition": "To travel - going from one place to another, usually far away",
+          "examples": [
+            "Viajo a España cada verano.",
+            "Me gusta viajar por el mundo."
+          ]
+        },
+        {
+          "id": "visitar-001",
+          "text": "visitar",
+          "phonetics": "/bisitar/",
+          "partOfSpeech": "verb",
+          "definition": "To visit - going to see someone or someplace",
+          "examples": [
+            "Visito a mis abuelos los domingos.",
+            "Quiero visitar el museo."
+          ]
+        },
+        {
+          "id": "llamar-001",
+          "text": "llamar",
+          "phonetics": "/ʝamar/",
+          "partOfSpeech": "verb",
+          "definition": "To call - using a phone to contact someone or getting someone's attention",
+          "examples": [
+            "Llamo a mi madre por teléfono.",
+            "Me llaman por mi nombre."
+          ]
+        },
+        {
+          "id": "esperar-001",
+          "text": "esperar",
+          "phonetics": "/esperar/",
+          "partOfSpeech": "verb",
+          "definition": "To wait or hope - staying in a place until something happens or wishing for something",
+          "examples": [
+            "Espero el autobús en la parada.",
+            "Espero que llueva mañana."
+          ]
+        },
+        {
+          "id": "buscar-001",
+          "text": "buscar",
+          "phonetics": "/buskar/",
+          "partOfSpeech": "verb",
+          "definition": "To look for or search - trying to find something",
+          "examples": [
+            "Busco mis llaves por toda la casa.",
+            "Busco trabajo en el periódico."
+          ]
+        },
+        {
+          "id": "encontrar-001",
+          "text": "encontrar",
+          "phonetics": "/enkontrar/",
+          "partOfSpeech": "verb",
+          "definition": "To find - discovering something you were looking for",
+          "examples": [
+            "Encuentro mi libro en la biblioteca.",
+            "No puedo encontrar mis gafas."
+          ]
+        },
+        {
+          "id": "perder-001",
+          "text": "perder",
+          "phonetics": "/perder/",
+          "partOfSpeech": "verb",
+          "definition": "To lose - no longer having something you had before",
+          "examples": [
+            "Pierdo mi dinero en el casino.",
+            "No quiero perder a mi mejor amigo."
+          ]
+        },
+        {
+          "id": "ganar-001",
+          "text": "ganar",
+          "phonetics": "/ganar/",
+          "partOfSpeech": "verb",
+          "definition": "To win or earn - being successful in a competition or getting money from work",
+          "examples": [
+            "Gano el partido de fútbol.",
+            "Gano dinero trabajando."
+          ]
+        }
+      ],
+      "level": "A2",
+      "tagValue": "Verbs",
+      "languageCode": "es",
+      "description": "Essential Spanish verbs for daily activities and communication",
+      "imageUrl": null,
+      "localImageName": "work-1",
+      "isPremium": false
+    },
+    {
+      "id": "people-and-places-001",
+      "title": "People and Places",
+      "words": [
+        {
+          "id": "persona-001",
+          "text": "persona",
+          "phonetics": "/persona/",
+          "partOfSpeech": "noun",
+          "definition": "Person - a human being, any individual",
+          "examples": [
+            "Esa persona es muy amable.",
+            "Conozco a muchas personas interesantes."
+          ]
+        },
+        {
+          "id": "hombre-001",
+          "text": "hombre",
+          "phonetics": "/ombre/",
+          "partOfSpeech": "noun",
+          "definition": "Man - an adult male human being",
+          "examples": [
+            "Ese hombre es mi padre.",
+            "Los hombres trabajan en la construcción."
+          ]
+        },
+        {
+          "id": "mujer-001",
+          "text": "mujer",
+          "phonetics": "/muxer/",
+          "partOfSpeech": "noun",
+          "definition": "Woman - an adult female human being",
+          "examples": [
+            "Esa mujer es mi madre.",
+            "Las mujeres son muy inteligentes."
+          ]
+        },
+        {
+          "id": "niño-001",
+          "text": "niño",
+          "phonetics": "/niɲo/",
+          "partOfSpeech": "noun",
+          "definition": "Child or boy - a young person, especially a male child",
+          "examples": [
+            "El niño juega en el parque.",
+            "Los niños van a la escuela."
+          ]
+        },
+        {
+          "id": "niña-001",
+          "text": "niña",
+          "phonetics": "/niɲa/",
+          "partOfSpeech": "noun",
+          "definition": "Girl - a young female person",
+          "examples": [
+            "La niña lee un libro.",
+            "Las niñas cantan muy bien."
+          ]
+        },
+        {
+          "id": "familia-001",
+          "text": "familia",
+          "phonetics": "/familja/",
+          "partOfSpeech": "noun",
+          "definition": "Family - a group of people related by blood or marriage",
+          "examples": [
+            "Mi familia es muy grande.",
+            "La familia come juntos los domingos."
+          ]
+        },
+        {
+          "id": "amigo-001",
+          "text": "amigo",
+          "phonetics": "/amigo/",
+          "partOfSpeech": "noun",
+          "definition": "Friend - a person you like and know well",
+          "examples": [
+            "Mi mejor amigo vive en Barcelona.",
+            "Los amigos se ayudan mutuamente."
+          ]
+        },
+        {
+          "id": "casa-001",
+          "text": "casa",
+          "phonetics": "/kasa/",
+          "partOfSpeech": "noun",
+          "definition": "House or home - a building where people live",
+          "examples": [
+            "Mi casa es muy cómoda.",
+            "Vamos a casa después del trabajo."
+          ]
+        },
+        {
+          "id": "ciudad-001",
+          "text": "ciudad",
+          "phonetics": "/θjuðað/",
+          "partOfSpeech": "noun",
+          "definition": "City - a large town with many buildings and people",
+          "examples": [
+            "Madrid es una ciudad muy bonita.",
+            "Vivo en una ciudad grande."
+          ]
+        },
+        {
+          "id": "país-001",
+          "text": "país",
+          "phonetics": "/pais/",
+          "partOfSpeech": "noun",
+          "definition": "Country - a nation with its own government and territory",
+          "examples": [
+            "España es mi país favorito.",
+            "Viajo a muchos países diferentes."
+          ]
+        },
+        {
+          "id": "calle-001",
+          "text": "calle",
+          "phonetics": "/kaʎe/",
+          "partOfSpeech": "noun",
+          "definition": "Street - a public road in a city or town",
+          "examples": [
+            "Mi casa está en la calle Mayor.",
+            "Caminamos por la calle principal."
+          ]
+        },
+        {
+          "id": "trabajo-001",
+          "text": "trabajo",
+          "phonetics": "/traβaxo/",
+          "partOfSpeech": "noun",
+          "definition": "Work or job - activity done to earn money",
+          "examples": [
+            "Mi trabajo es muy interesante.",
+            "Busco un nuevo trabajo."
+          ]
+        },
+        {
+          "id": "escuela-001",
+          "text": "escuela",
+          "phonetics": "/eskwela/",
+          "partOfSpeech": "noun",
+          "definition": "School - a place where children go to learn",
+          "examples": [
+            "Los niños van a la escuela todos los días.",
+            "Mi escuela está cerca de casa."
+          ]
+        },
+        {
+          "id": "hospital-001",
+          "text": "hospital",
+          "phonetics": "/ospital/",
+          "partOfSpeech": "noun",
+          "definition": "Hospital - a place where sick people go for medical treatment",
+          "examples": [
+            "El médico trabaja en el hospital.",
+            "Mi abuela está en el hospital."
+          ]
+        },
+        {
+          "id": "tienda-001",
+          "text": "tienda",
+          "phonetics": "/tjenda/",
+          "partOfSpeech": "noun",
+          "definition": "Store or shop - a place where you can buy things",
+          "examples": [
+            "Compro pan en la tienda.",
+            "La tienda cierra a las ocho."
+          ]
+        },
+        {
+          "id": "restaurante-001",
+          "text": "restaurante",
+          "phonetics": "/restawrante/",
+          "partOfSpeech": "noun",
+          "definition": "Restaurant - a place where you can eat food that others prepare",
+          "examples": [
+            "Cenamos en un restaurante italiano.",
+            "El restaurante tiene muy buena comida."
+          ]
+        },
+        {
+          "id": "parque-001",
+          "text": "parque",
+          "phonetics": "/parke/",
+          "partOfSpeech": "noun",
+          "definition": "Park - a public area with grass, trees, and paths for recreation",
+          "examples": [
+            "Los niños juegan en el parque.",
+            "Hago ejercicio en el parque todos los días."
+          ]
+        },
+        {
+          "id": "playa-001",
+          "text": "playa",
+          "phonetics": "/plaʝa/",
+          "partOfSpeech": "noun",
+          "definition": "Beach - an area of sand next to the ocean or sea",
+          "examples": [
+            "Vamos a la playa en verano.",
+            "La playa está muy bonita hoy."
+          ]
+        },
+        {
+          "id": "montaña-001",
+          "text": "montaña",
+          "phonetics": "/montaɲa/",
+          "partOfSpeech": "noun",
+          "definition": "Mountain - a very high hill with steep sides",
+          "examples": [
+            "Escalamos la montaña más alta.",
+            "Las montañas están cubiertas de nieve."
+          ]
+        },
+        {
+          "id": "río-001",
+          "text": "río",
+          "phonetics": "/rio/",
+          "partOfSpeech": "noun",
+          "definition": "River - a large natural stream of water flowing to the sea",
+          "examples": [
+            "El río pasa por el centro de la ciudad.",
+            "Nadamos en el río durante el verano."
+          ]
+        },
+        {
+          "id": "bosque-001",
+          "text": "bosque",
+          "phonetics": "/boske/",
+          "partOfSpeech": "noun",
+          "definition": "Forest - a large area covered with trees",
+          "examples": [
+            "Caminamos por el bosque.",
+            "El bosque es muy tranquilo."
+          ]
+        }
+      ],
+      "level": "A1",
+      "tagValue": "People & Places",
+      "languageCode": "es",
+      "description": "Essential Spanish nouns for people, family, and common locations",
+      "imageUrl": null,
+      "localImageName": "london-bridge",
+      "isPremium": false
+    },
+    {
+      "id": "feelings-and-descriptions-001",
+      "title": "Feelings and Descriptions",
+      "words": [
+        {
+          "id": "feliz-001",
+          "text": "feliz",
+          "phonetics": "/felis/",
+          "partOfSpeech": "adjective",
+          "definition": "Happy - feeling joy or pleasure",
+          "examples": [
+            "Estoy muy feliz hoy.",
+            "Los niños están felices en el parque."
+          ]
+        },
+        {
+          "id": "triste-001",
+          "text": "triste",
+          "phonetics": "/triste/",
+          "partOfSpeech": "adjective",
+          "definition": "Sad - feeling sorrow or unhappiness",
+          "examples": [
+            "Me siento triste cuando llueve.",
+            "La película tiene un final triste."
+          ]
+        },
+        {
+          "id": "enojado-001",
+          "text": "enojado",
+          "phonetics": "/enoxaðo/",
+          "partOfSpeech": "adjective",
+          "definition": "Angry - feeling strong displeasure or irritation",
+          "examples": [
+            "Mi padre está enojado conmigo.",
+            "No me gusta cuando estoy enojado."
+          ]
+        },
+        {
+          "id": "nervioso-001",
+          "text": "nervioso",
+          "phonetics": "/nerβjoso/",
+          "partOfSpeech": "adjective",
+          "definition": "Nervous - feeling anxious or worried",
+          "examples": [
+            "Estoy nervioso antes del examen.",
+            "Los perros se ponen nerviosos con los truenos."
+          ]
+        },
+        {
+          "id": "cansado-001",
+          "text": "cansado",
+          "phonetics": "/kansaðo/",
+          "partOfSpeech": "adjective",
+          "definition": "Tired - needing rest or sleep",
+          "examples": [
+            "Estoy muy cansado después del trabajo.",
+            "Los niños están cansados al final del día."
+          ]
+        },
+        {
+          "id": "emocionado-001",
+          "text": "emocionado",
+          "phonetics": "/emoθjonaðo/",
+          "partOfSpeech": "adjective",
+          "definition": "Excited - feeling enthusiastic and eager",
+          "examples": [
+            "Estoy emocionado por las vacaciones.",
+            "Los niños están emocionados con los regalos."
+          ]
+        },
+        {
+          "id": "sorprendido-001",
+          "text": "sorprendido",
+          "phonetics": "/sorprendiðo/",
+          "partOfSpeech": "adjective",
+          "definition": "Surprised - feeling unexpected amazement",
+          "examples": [
+            "Estoy sorprendido por la noticia.",
+            "Mi madre se quedó sorprendida al verme."
+          ]
+        },
+        {
+          "id": "preocupado-001",
+          "text": "preocupado",
+          "phonetics": "/preokupaðo/",
+          "partOfSpeech": "adjective",
+          "definition": "Worried - feeling anxious about something",
+          "examples": [
+            "Estoy preocupado por mi salud.",
+            "Los padres están preocupados por sus hijos."
+          ]
+        },
+        {
+          "id": "grande-001",
+          "text": "grande",
+          "phonetics": "/grande/",
+          "partOfSpeech": "adjective",
+          "definition": "Big or large - of considerable size",
+          "examples": [
+            "Tengo una casa grande.",
+            "El elefante es un animal grande."
+          ]
+        },
+        {
+          "id": "pequeño-001",
+          "text": "pequeño",
+          "phonetics": "/pekeɲo/",
+          "partOfSpeech": "adjective",
+          "definition": "Small or little - of limited size",
+          "examples": [
+            "Tengo un perro pequeño.",
+            "La habitación es muy pequeña."
+          ]
+        },
+        {
+          "id": "alto-001",
+          "text": "alto",
+          "phonetics": "/alto/",
+          "partOfSpeech": "adjective",
+          "definition": "Tall or high - having great height",
+          "examples": [
+            "Mi hermano es muy alto.",
+            "La montaña es muy alta."
+          ]
+        },
+        {
+          "id": "bajo-001",
+          "text": "bajo",
+          "phonetics": "/baxo/",
+          "partOfSpeech": "adjective",
+          "definition": "Short or low - having little height",
+          "examples": [
+            "Soy más bajo que mi padre.",
+            "La mesa es muy baja."
+          ]
+        },
+        {
+          "id": "bonito-001",
+          "text": "bonito",
+          "phonetics": "/bonito/",
+          "partOfSpeech": "adjective",
+          "definition": "Pretty or beautiful - pleasing to look at",
+          "examples": [
+            "La chica es muy bonita.",
+            "El jardín está muy bonito."
+          ]
+        },
+        {
+          "id": "feo-001",
+          "text": "feo",
+          "phonetics": "/feo/",
+          "partOfSpeech": "adjective",
+          "definition": "Ugly - unpleasant to look at",
+          "examples": [
+            "El edificio es muy feo.",
+            "No me gusta ese color feo."
+          ]
+        },
+        {
+          "id": "bueno-001",
+          "text": "bueno",
+          "phonetics": "/bweno/",
+          "partOfSpeech": "adjective",
+          "definition": "Good - of high quality or morally right",
+          "examples": [
+            "Es un buen estudiante.",
+            "La comida está muy buena."
+          ]
+        },
+        {
+          "id": "malo-001",
+          "text": "malo",
+          "phonetics": "/malo/",
+          "partOfSpeech": "adjective",
+          "definition": "Bad - of poor quality or morally wrong",
+          "examples": [
+            "El tiempo está muy malo hoy.",
+            "No es bueno ser malo con los demás."
+          ]
+        },
+        {
+          "id": "fácil-001",
+          "text": "fácil",
+          "phonetics": "/faθil/",
+          "partOfSpeech": "adjective",
+          "definition": "Easy - not difficult to do or understand",
+          "examples": [
+            "El examen es muy fácil.",
+            "Es fácil aprender español."
+          ]
+        },
+        {
+          "id": "difícil-001",
+          "text": "difícil",
+          "phonetics": "/difiθil/",
+          "partOfSpeech": "adjective",
+          "definition": "Difficult or hard - not easy to do or understand",
+          "examples": [
+            "Las matemáticas son difíciles.",
+            "Es difícil encontrar trabajo."
+          ]
+        },
+        {
+          "id": "rápido-001",
+          "text": "rápido",
+          "phonetics": "/rapiðo/",
+          "partOfSpeech": "adjective",
+          "definition": "Fast or quick - moving or happening at high speed",
+          "examples": [
+            "El coche es muy rápido.",
+            "Corro muy rápido en la carrera."
+          ]
+        },
+        {
+          "id": "lento-001",
+          "text": "lento",
+          "phonetics": "/lento/",
+          "partOfSpeech": "adjective",
+          "definition": "Slow - moving or happening at low speed",
+          "examples": [
+            "El caracol es muy lento.",
+            "El internet está muy lento hoy."
+          ]
+        },
+        {
+          "id": "nuevo-001",
+          "text": "nuevo",
+          "phonetics": "/nweβo/",
+          "partOfSpeech": "adjective",
+          "definition": "New - recently made or discovered",
+          "examples": [
+            "Tengo un coche nuevo.",
+            "La casa es completamente nueva."
+          ]
+        },
+        {
+          "id": "viejo-001",
+          "text": "viejo",
+          "phonetics": "/bjejo/",
+          "partOfSpeech": "adjective",
+          "definition": "Old - having existed for a long time",
+          "examples": [
+            "Mi abuelo es muy viejo.",
+            "Este libro es muy viejo."
+          ]
+        },
+        {
+          "id": "joven-001",
+          "text": "joven",
+          "phonetics": "/xoven/",
+          "partOfSpeech": "adjective",
+          "definition": "Young - having lived for a short time",
+          "examples": [
+            "Soy muy joven para casarme.",
+            "Los jóvenes estudian en la universidad."
+          ]
+        },
+        {
+          "id": "caliente-001",
+          "text": "caliente",
+          "phonetics": "/kaljente/",
+          "partOfSpeech": "adjective",
+          "definition": "Hot - having a high temperature",
+          "examples": [
+            "El café está muy caliente.",
+            "Hace mucho calor, está caliente."
+          ]
+        },
+        {
+          "id": "frío-001",
+          "text": "frío",
+          "phonetics": "/frio/",
+          "partOfSpeech": "adjective",
+          "definition": "Cold - having a low temperature",
+          "examples": [
+            "El agua está muy fría.",
+            "Hace frío en invierno."
+          ]
+        },
+        {
+          "id": "rico-001",
+          "text": "rico",
+          "phonetics": "/riko/",
+          "partOfSpeech": "adjective",
+          "definition": "Rich or delicious - having a lot of money or tasting very good",
+          "examples": [
+            "El hombre es muy rico.",
+            "La comida está muy rica."
+          ]
+        },
+        {
+          "id": "pobre-001",
+          "text": "pobre",
+          "phonetics": "/pobre/",
+          "partOfSpeech": "adjective",
+          "definition": "Poor - having little money or resources",
+          "examples": [
+            "La familia es muy pobre.",
+            "Ayudo a los pobres cuando puedo."
+          ]
+        },
+        {
+          "id": "limpio-001",
+          "text": "limpio",
+          "phonetics": "/limpjo/",
+          "partOfSpeech": "adjective",
+          "definition": "Clean - free from dirt or impurities",
+          "examples": [
+            "Mi habitación está muy limpia.",
+            "El agua está limpia y clara."
+          ]
+        },
+        {
+          "id": "sucio-001",
+          "text": "sucio",
+          "phonetics": "/suθjo/",
+          "partOfSpeech": "adjective",
+          "definition": "Dirty - covered with dirt or impurities",
+          "examples": [
+            "Los zapatos están muy sucios.",
+            "No me gusta estar sucio."
+          ]
+        }
+      ],
+      "level": "A2",
+      "tagValue": "Adjectives",
+      "languageCode": "es",
+      "description": "Essential Spanish adjectives for describing feelings, emotions, and characteristics",
+      "imageUrl": null,
+      "localImageName": "studying",
+      "isPremium": false
+    },
+    {
+      "id": "time-and-events-001",
+      "title": "Time and Events",
+      "words": [
+        {
+          "id": "tiempo-001",
+          "text": "tiempo",
+          "phonetics": "/tjempo/",
+          "partOfSpeech": "noun",
+          "definition": "Time - the indefinite continued progress of existence",
+          "examples": [
+            "No tengo tiempo para eso.",
+            "El tiempo pasa muy rápido."
+          ]
+        },
+        {
+          "id": "hora-001",
+          "text": "hora",
+          "phonetics": "/ora/",
+          "partOfSpeech": "noun",
+          "definition": "Hour - a period of time equal to 60 minutes",
+          "examples": [
+            "Son las tres de la tarde.",
+            "Trabajo ocho horas al día."
+          ]
+        },
+        {
+          "id": "minuto-001",
+          "text": "minuto",
+          "phonetics": "/minuto/",
+          "partOfSpeech": "noun",
+          "definition": "Minute - a period of time equal to 60 seconds",
+          "examples": [
+            "Espera un minuto, por favor.",
+            "Llegué cinco minutos tarde."
+          ]
+        },
+        {
+          "id": "segundo-001",
+          "text": "segundo",
+          "phonetics": "/segunðo/",
+          "partOfSpeech": "noun",
+          "definition": "Second - a very short period of time",
+          "examples": [
+            "Espera un segundo.",
+            "El reloj marca los segundos."
+          ]
+        },
+        {
+          "id": "día-001",
+          "text": "día",
+          "phonetics": "/dia/",
+          "partOfSpeech": "noun",
+          "definition": "Day - a 24-hour period",
+          "examples": [
+            "Hoy es un día hermoso.",
+            "Trabajo todos los días."
+          ]
+        },
+        {
+          "id": "noche-001",
+          "text": "noche",
+          "phonetics": "/notʃe/",
+          "partOfSpeech": "noun",
+          "definition": "Night - the period of darkness between sunset and sunrise",
+          "examples": [
+            "Buenas noches.",
+            "La noche es muy tranquila."
+          ]
+        },
+        {
+          "id": "mañana-001",
+          "text": "mañana",
+          "phonetics": "/maɲana/",
+          "partOfSpeech": "noun",
+          "definition": "Morning - the early part of the day",
+          "examples": [
+            "Buenos días, buenas mañanas.",
+            "Me levanto temprano en la mañana."
+          ]
+        },
+        {
+          "id": "tarde-001",
+          "text": "tarde",
+          "phonetics": "/tarðe/",
+          "partOfSpeech": "noun",
+          "definition": "Afternoon - the period between noon and evening",
+          "examples": [
+            "Buenas tardes.",
+            "Voy al parque en la tarde."
+          ]
+        },
+        {
+          "id": "semana-001",
+          "text": "semana",
+          "phonetics": "/semana/",
+          "partOfSpeech": "noun",
+          "definition": "Week - a period of seven days",
+          "examples": [
+            "Trabajo toda la semana.",
+            "La próxima semana voy de vacaciones."
+          ]
+        },
+        {
+          "id": "mes-001",
+          "text": "mes",
+          "phonetics": "/mes/",
+          "partOfSpeech": "noun",
+          "definition": "Month - a period of about four weeks",
+          "examples": [
+            "Este mes es enero.",
+            "Pago el alquiler cada mes."
+          ]
+        },
+        {
+          "id": "año-001",
+          "text": "año",
+          "phonetics": "/aɲo/",
+          "partOfSpeech": "noun",
+          "definition": "Year - a period of 12 months",
+          "examples": [
+            "Este año tengo 25 años.",
+            "El año pasado viajé a España."
+          ]
+        },
+        {
+          "id": "ayer-001",
+          "text": "ayer",
+          "phonetics": "/ajer/",
+          "partOfSpeech": "adverb",
+          "definition": "Yesterday - the day before today",
+          "examples": [
+            "Ayer fui al cine.",
+            "Ayer llovió mucho."
+          ]
+        },
+        {
+          "id": "hoy-001",
+          "text": "hoy",
+          "phonetics": "/oj/",
+          "partOfSpeech": "adverb",
+          "definition": "Today - this present day",
+          "examples": [
+            "Hoy es lunes.",
+            "Hoy tengo mucho trabajo."
+          ]
+        },
+        {
+          "id": "mañana-002",
+          "text": "mañana",
+          "phonetics": "/maɲana/",
+          "partOfSpeech": "adverb",
+          "definition": "Tomorrow - the day after today",
+          "examples": [
+            "Mañana voy al médico.",
+            "Mañana será un día mejor."
+          ]
+        },
+        {
+          "id": "ahora-001",
+          "text": "ahora",
+          "phonetics": "/aora/",
+          "partOfSpeech": "adverb",
+          "definition": "Now - at the present time",
+          "examples": [
+            "Ahora estoy trabajando.",
+            "¿Qué haces ahora?"
+          ]
+        },
+        {
+          "id": "después-001",
+          "text": "después",
+          "phonetics": "/despues/",
+          "partOfSpeech": "adverb",
+          "definition": "After or later - following in time",
+          "examples": [
+            "Después de comer, voy a dormir.",
+            "Te llamo después."
+          ]
+        },
+        {
+          "id": "antes-001",
+          "text": "antes",
+          "phonetics": "/antes/",
+          "partOfSpeech": "adverb",
+          "definition": "Before or earlier - preceding in time",
+          "examples": [
+            "Antes de salir, cierro la puerta.",
+            "Antes era más joven."
+          ]
+        },
+        {
+          "id": "siempre-001",
+          "text": "siempre",
+          "phonetics": "/sjempre/",
+          "partOfSpeech": "adverb",
+          "definition": "Always - at all times",
+          "examples": [
+            "Siempre llego puntual.",
+            "Siempre te querré."
+          ]
+        },
+        {
+          "id": "nunca-001",
+          "text": "nunca",
+          "phonetics": "/nunka/",
+          "partOfSpeech": "adverb",
+          "definition": "Never - at no time",
+          "examples": [
+            "Nunca he estado en París.",
+            "Nunca olvido tu cumpleaños."
+          ]
+        },
+        {
+          "id": "a veces-001",
+          "text": "a veces",
+          "phonetics": "/a βeθes/",
+          "partOfSpeech": "adverb",
+          "definition": "Sometimes - occasionally",
+          "examples": [
+            "A veces voy al gimnasio.",
+            "A veces me siento triste."
+          ]
+        },
+        {
+          "id": "fiesta-001",
+          "text": "fiesta",
+          "phonetics": "/fjesta/",
+          "partOfSpeech": "noun",
+          "definition": "Party or celebration - a social gathering",
+          "examples": [
+            "Voy a una fiesta esta noche.",
+            "La fiesta de cumpleaños fue divertida."
+          ]
+        },
+        {
+          "id": "cumpleaños-001",
+          "text": "cumpleaños",
+          "phonetics": "/kumpleaɲos/",
+          "partOfSpeech": "noun",
+          "definition": "Birthday - the anniversary of the day someone was born",
+          "examples": [
+            "Hoy es mi cumpleaños.",
+            "¿Cuándo es tu cumpleaños?"
+          ]
+        },
+        {
+          "id": "vacaciones-001",
+          "text": "vacaciones",
+          "phonetics": "/bakaθjones/",
+          "partOfSpeech": "noun",
+          "definition": "Vacation or holidays - a period of time away from work",
+          "examples": [
+            "Me voy de vacaciones en julio.",
+            "Las vacaciones fueron maravillosas."
+          ]
+        },
+        {
+          "id": "trabajo-002",
+          "text": "trabajo",
+          "phonetics": "/traβaxo/",
+          "partOfSpeech": "noun",
+          "definition": "Work or job - activity done to earn money",
+          "examples": [
+            "Mi trabajo es muy interesante.",
+            "Busco un nuevo trabajo."
+          ]
+        },
+        {
+          "id": "descanso-001",
+          "text": "descanso",
+          "phonetics": "/deskanso/",
+          "partOfSpeech": "noun",
+          "definition": "Rest or break - a period of relaxation",
+          "examples": [
+            "Necesito un descanso.",
+            "El descanso del almuerzo es a las 12."
+          ]
+        }
+      ],
+      "level": "A1",
+      "tagValue": "Time",
+      "languageCode": "es",
+      "description": "Essential Spanish vocabulary for time, dates, and daily events",
+      "imageUrl": null,
+      "localImageName": "clock",
+      "isPremium": false
+    },
+    {
+      "id": "spanish-conversational-phrases-001",
+      "title": "Spanish Conversational Phrases",
+      "words": [
+        {
+          "id": "hola-001",
+          "text": "hola",
+          "phonetics": "/ola/",
+          "partOfSpeech": "interjection",
+          "definition": "Hello - a greeting used when meeting someone",
+          "examples": [
+            "¡Hola! ¿Cómo estás?",
+            "Hola, me llamo María."
+          ]
+        },
+        {
+          "id": "adiós-001",
+          "text": "adiós",
+          "phonetics": "/aðjos/",
+          "partOfSpeech": "interjection",
+          "definition": "Goodbye - used when leaving or ending a conversation",
+          "examples": [
+            "Adiós, nos vemos mañana.",
+            "¡Adiós! Que tengas buen día."
+          ]
+        },
+        {
+          "id": "por favor-001",
+          "text": "por favor",
+          "phonetics": "/por faβor/",
+          "partOfSpeech": "phrase",
+          "definition": "Please - used to make a polite request",
+          "examples": [
+            "¿Puedes ayudarme, por favor?",
+            "Un café, por favor."
+          ]
+        },
+        {
+          "id": "gracias-001",
+          "text": "gracias",
+          "phonetics": "/graθjas/",
+          "partOfSpeech": "interjection",
+          "definition": "Thank you - used to express gratitude",
+          "examples": [
+            "Gracias por tu ayuda.",
+            "Muchas gracias por el regalo."
+          ]
+        },
+        {
+          "id": "de nada-001",
+          "text": "de nada",
+          "phonetics": "/de naða/",
+          "partOfSpeech": "phrase",
+          "definition": "You're welcome - a response to thank you",
+          "examples": [
+            "Gracias. - De nada.",
+            "De nada, fue un placer ayudarte."
+          ]
+        },
+        {
+          "id": "lo siento-001",
+          "text": "lo siento",
+          "phonetics": "/lo sjento/",
+          "partOfSpeech": "phrase",
+          "definition": "I'm sorry - used to apologize",
+          "examples": [
+            "Lo siento por llegar tarde.",
+            "Lo siento mucho por tu pérdida."
+          ]
+        },
+        {
+          "id": "perdón-001",
+          "text": "perdón",
+          "phonetics": "/perðon/",
+          "partOfSpeech": "interjection",
+          "definition": "Excuse me or sorry - used to get attention or apologize",
+          "examples": [
+            "Perdón, ¿dónde está el baño?",
+            "Perdón por interrumpir."
+          ]
+        },
+        {
+          "id": "disculpe-001",
+          "text": "disculpe",
+          "phonetics": "/diskulpe/",
+          "partOfSpeech": "interjection",
+          "definition": "Excuse me - a polite way to get someone's attention",
+          "examples": [
+            "Disculpe, ¿qué hora es?",
+            "Disculpe, ¿puede ayudarme?"
+          ]
+        },
+        {
+          "id": "con permiso-001",
+          "text": "con permiso",
+          "phonetics": "/kon permisso/",
+          "partOfSpeech": "phrase",
+          "definition": "Excuse me - used when passing through or interrupting",
+          "examples": [
+            "Con permiso, necesito pasar.",
+            "Con permiso, tengo una pregunta."
+          ]
+        },
+        {
+          "id": "buenos días-001",
+          "text": "buenos días",
+          "phonetics": "/bwenos dias/",
+          "partOfSpeech": "phrase",
+          "definition": "Good morning - a greeting used in the morning",
+          "examples": [
+            "Buenos días, ¿cómo amaneció?",
+            "Buenos días a todos."
+          ]
+        },
+        {
+          "id": "buenas tardes-001",
+          "text": "buenas tardes",
+          "phonetics": "/bwenas tarðes/",
+          "partOfSpeech": "phrase",
+          "definition": "Good afternoon - a greeting used in the afternoon",
+          "examples": [
+            "Buenas tardes, ¿en qué puedo ayudarle?",
+            "Buenas tardes, señora."
+          ]
+        },
+        {
+          "id": "buenas noches-001",
+          "text": "buenas noches",
+          "phonetics": "/bwenas notʃes/",
+          "partOfSpeech": "phrase",
+          "definition": "Good evening or good night - used in the evening or when going to bed",
+          "examples": [
+            "Buenas noches, que descansen.",
+            "Buenas noches, hasta mañana."
+          ]
+        },
+        {
+          "id": "¿cómo está usted?-001",
+          "text": "¿cómo está usted?",
+          "phonetics": "/komo esta usteð/",
+          "partOfSpeech": "phrase",
+          "definition": "How are you? (formal) - a polite way to ask about someone's well-being",
+          "examples": [
+            "¿Cómo está usted hoy?",
+            "Buenos días, ¿cómo está usted?"
+          ]
+        },
+        {
+          "id": "¿cómo estás?-001",
+          "text": "¿cómo estás?",
+          "phonetics": "/komo estas/",
+          "partOfSpeech": "phrase",
+          "definition": "How are you? (informal) - a casual way to ask about someone's well-being",
+          "examples": [
+            "Hola, ¿cómo estás?",
+            "¿Cómo estás hoy?"
+          ]
+        },
+        {
+          "id": "muy bien-001",
+          "text": "muy bien",
+          "phonetics": "/muj βjen/",
+          "partOfSpeech": "phrase",
+          "definition": "Very well - a positive response to how are you",
+          "examples": [
+            "¿Cómo estás? - Muy bien, gracias.",
+            "Todo está muy bien aquí."
+          ]
+        },
+        {
+          "id": "más o menos-001",
+          "text": "más o menos",
+          "phonetics": "/mas o menos/",
+          "partOfSpeech": "phrase",
+          "definition": "So-so or more or less - a neutral response to how are you",
+          "examples": [
+            "¿Cómo estás? - Más o menos.",
+            "El trabajo va más o menos bien."
+          ]
+        },
+        {
+          "id": "¿qué tal?-001",
+          "text": "¿qué tal?",
+          "phonetics": "/ke tal/",
+          "partOfSpeech": "phrase",
+          "definition": "How's it going? - a casual way to ask how things are",
+          "examples": [
+            "¿Qué tal tu día?",
+            "¿Qué tal el trabajo?"
+          ]
+        },
+        {
+          "id": "¿cómo se llama?-001",
+          "text": "¿cómo se llama?",
+          "phonetics": "/komo se ʎama/",
+          "partOfSpeech": "phrase",
+          "definition": "What's your name? (formal) - used to ask someone's name politely",
+          "examples": [
+            "Disculpe, ¿cómo se llama?",
+            "¿Cómo se llama usted?"
+          ]
+        },
+        {
+          "id": "¿cómo te llamas?-001",
+          "text": "¿cómo te llamas?",
+          "phonetics": "/komo te ʎamas/",
+          "partOfSpeech": "phrase",
+          "definition": "What's your name? (informal) - used to ask someone's name casually",
+          "examples": [
+            "Hola, ¿cómo te llamas?",
+            "¿Cómo te llamas tú?"
+          ]
+        },
+        {
+          "id": "me llamo-001",
+          "text": "me llamo",
+          "phonetics": "/me ʎamo/",
+          "partOfSpeech": "phrase",
+          "definition": "My name is - used to introduce yourself",
+          "examples": [
+            "Me llamo Carlos.",
+            "Hola, me llamo Ana."
+          ]
+        },
+        {
+          "id": "mucho gusto-001",
+          "text": "mucho gusto",
+          "phonetics": "/mutʃo gusto/",
+          "partOfSpeech": "phrase",
+          "definition": "Nice to meet you - used when meeting someone for the first time",
+          "examples": [
+            "Mucho gusto en conocerte.",
+            "Mucho gusto, soy María."
+          ]
+        },
+        {
+          "id": "igualmente-001",
+          "text": "igualmente",
+          "phonetics": "/igwalmente/",
+          "partOfSpeech": "adverb",
+          "definition": "Likewise or same here - a response to nice to meet you",
+          "examples": [
+            "Mucho gusto. - Igualmente.",
+            "Que tengas buen día. - Igualmente."
+          ]
+        },
+        {
+          "id": "¿habla inglés?-001",
+          "text": "¿habla inglés?",
+          "phonetics": "/aβla ingles/",
+          "partOfSpeech": "phrase",
+          "definition": "Do you speak English? (formal) - used to ask if someone speaks English",
+          "examples": [
+            "Disculpe, ¿habla inglés?",
+            "¿Habla inglés usted?"
+          ]
+        },
+        {
+          "id": "no entiendo-001",
+          "text": "no entiendo",
+          "phonetics": "/no entjendo/",
+          "partOfSpeech": "phrase",
+          "definition": "I don't understand - used when you don't understand something",
+          "examples": [
+            "No entiendo lo que dices.",
+            "Perdón, no entiendo."
+          ]
+        },
+        {
+          "id": "habla más despacio-001",
+          "text": "habla más despacio",
+          "phonetics": "/aβla mas despaθjo/",
+          "partOfSpeech": "phrase",
+          "definition": "Speak more slowly - used to ask someone to slow down their speech",
+          "examples": [
+            "Por favor, habla más despacio.",
+            "No entiendo, habla más despacio."
+          ]
+        }
+      ],
+      "level": "A1",
+      "tagValue": "Conversation",
+      "languageCode": "es",
+      "description": "Essential Spanish phrases for everyday conversations and social interactions",
+      "imageUrl": null,
+      "localImageName": "hello-1",
+      "isPremium": false
+    },
+    {
+      "id": "spanish-idioms-001",
+      "title": "Spanish Idioms",
+      "words": [
+        {
+          "id": "costar un ojo de la cara-001",
+          "text": "costar un ojo de la cara",
+          "phonetics": "/kostar un oxo ðe la kara/",
+          "partOfSpeech": "idiom",
+          "definition": "To cost an arm and a leg - something is very expensive",
+          "examples": [
+            "Este coche cuesta un ojo de la cara.",
+            "Las vacaciones costaron un ojo de la cara."
+          ]
+        },
+        {
+          "id": "estar en las nubes-001",
+          "text": "estar en las nubes",
+          "phonetics": "/estar en las nubes/",
+          "partOfSpeech": "idiom",
+          "definition": "To be in the clouds - to be daydreaming or not paying attention",
+          "examples": [
+            "No escuché nada, estaba en las nubes.",
+            "Siempre está en las nubes en clase."
+          ]
+        },
+        {
+          "id": "ser pan comido-001",
+          "text": "ser pan comido",
+          "phonetics": "/ser pan komiðo/",
+          "partOfSpeech": "idiom",
+          "definition": "To be a piece of cake - something is very easy",
+          "examples": [
+            "Este examen es pan comido.",
+            "Para él, las matemáticas son pan comido."
+          ]
+        },
+        {
+          "id": "llover a cántaros-001",
+          "text": "llover a cántaros",
+          "phonetics": "/ʎoβer a kantaros/",
+          "partOfSpeech": "idiom",
+          "definition": "To rain cats and dogs - it's raining very heavily",
+          "examples": [
+            "Ayer llovió a cántaros.",
+            "No salgas, está lloviendo a cántaros."
+          ]
+        },
+        {
+          "id": "estar como una cabra-001",
+          "text": "estar como una cabra",
+          "phonetics": "/estar komo una kaβra/",
+          "partOfSpeech": "idiom",
+          "definition": "To be crazy or acting strangely",
+          "examples": [
+            "Mi hermano está como una cabra.",
+            "No le hagas caso, está como una cabra."
+          ]
+        },
+        {
+          "id": "tirar la casa por la ventana-001",
+          "text": "tirar la casa por la ventana",
+          "phonetics": "/tirar la kasa por la βentana/",
+          "partOfSpeech": "idiom",
+          "definition": "To spare no expense - to spend a lot of money on something",
+          "examples": [
+            "En la boda tiraron la casa por la ventana.",
+            "Para su cumpleaños tiró la casa por la ventana."
+          ]
+        },
+        {
+          "id": "estar en el séptimo cielo-001",
+          "text": "estar en el séptimo cielo",
+          "phonetics": "/estar en el septimo θjelo/",
+          "partOfSpeech": "idiom",
+          "definition": "To be on cloud nine - to be extremely happy",
+          "examples": [
+            "Está en el séptimo cielo con su nuevo trabajo.",
+            "Cuando ganó el premio, estaba en el séptimo cielo."
+          ]
+        },
+        {
+          "id": "no tener pelos en la lengua-001",
+          "text": "no tener pelos en la lengua",
+          "phonetics": "/no tener pelos en la leŋgwa/",
+          "partOfSpeech": "idiom",
+          "definition": "To not mince words - to speak directly and honestly",
+          "examples": [
+            "Mi abuela no tiene pelos en la lengua.",
+            "Le dije la verdad, no tengo pelos en la lengua."
+          ]
+        },
+        {
+          "id": "estar hasta las narices-001",
+          "text": "estar hasta las narices",
+          "phonetics": "/estar asta las narices/",
+          "partOfSpeech": "idiom",
+          "definition": "To be fed up - to be very annoyed or tired of something",
+          "examples": [
+            "Estoy hasta las narices de este trabajo.",
+            "Está hasta las narices de que le digan qué hacer."
+          ]
+        },
+        {
+          "id": "ser más viejo que Matusalén-001",
+          "text": "ser más viejo que Matusalén",
+          "phonetics": "/ser mas bjexo ke matusalen/",
+          "partOfSpeech": "idiom",
+          "definition": "To be as old as Methuselah - to be very old",
+          "examples": [
+            "Mi abuelo es más viejo que Matusalén.",
+            "Ese coche es más viejo que Matusalén."
+          ]
+        },
+        {
+          "id": "estar en el quinto pino-001",
+          "text": "estar en el quinto pino",
+          "phonetics": "/estar en el kinto pino/",
+          "partOfSpeech": "idiom",
+          "definition": "To be in the middle of nowhere - to be very far away",
+          "examples": [
+            "Su casa está en el quinto pino.",
+            "El restaurante está en el quinto pino."
+          ]
+        },
+        {
+          "id": "ser uña y carne-001",
+          "text": "ser uña y carne",
+          "phonetics": "/ser uɲa i karne/",
+          "partOfSpeech": "idiom",
+          "definition": "To be thick as thieves - to be very close friends",
+          "examples": [
+            "Ellos son uña y carne desde niños.",
+            "Mi hermana y yo somos uña y carne."
+          ]
+        },
+        {
+          "id": "estar como pez en el agua-001",
+          "text": "estar como pez en el agua",
+          "phonetics": "/estar komo peθ en el aɣwa/",
+          "partOfSpeech": "idiom",
+          "definition": "To be like a fish in water - to feel very comfortable in a situation",
+          "examples": [
+            "En la playa está como pez en el agua.",
+            "En su trabajo está como pez en el agua."
+          ]
+        },
+        {
+          "id": "no hay moros en la costa-001",
+          "text": "no hay moros en la costa",
+          "phonetics": "/no aj moros en la kosta/",
+          "partOfSpeech": "idiom",
+          "definition": "The coast is clear - there's no danger or obstacles",
+          "examples": [
+            "No hay moros en la costa, podemos salir.",
+            "Espera hasta que no haya moros en la costa."
+          ]
+        },
+        {
+          "id": "estar en la luna de Valencia-001",
+          "text": "estar en la luna de Valencia",
+          "phonetics": "/estar en la luna ðe βalenθja/",
+          "partOfSpeech": "idiom",
+          "definition": "To be in a dream world - to be unrealistic or not paying attention",
+          "examples": [
+            "Siempre está en la luna de Valencia.",
+            "No le hables, está en la luna de Valencia."
+          ]
+        },
+        {
+          "id": "ser más listo que el hambre-001",
+          "text": "ser más listo que el hambre",
+          "phonetics": "/ser mas listo ke el ambre/",
+          "partOfSpeech": "idiom",
+          "definition": "To be very clever or smart",
+          "examples": [
+            "Mi hijo es más listo que el hambre.",
+            "Esa chica es más lista que el hambre."
+          ]
+        },
+        {
+          "id": "estar hecho un ají-001",
+          "text": "estar hecho un ají",
+          "phonetics": "/estar etʃo un axi/",
+          "partOfSpeech": "idiom",
+          "definition": "To be very angry - to be red with anger",
+          "examples": [
+            "Cuando se enteró, estaba hecho un ají.",
+            "No le hables, está hecho un ají."
+          ]
+        },
+        {
+          "id": "ser del año de la pera-001",
+          "text": "ser del año de la pera",
+          "phonetics": "/ser ðel aɲo ðe la pera/",
+          "partOfSpeech": "idiom",
+          "definition": "To be very old or outdated",
+          "examples": [
+            "Ese coche es del año de la pera.",
+            "Su teléfono es del año de la pera."
+          ]
+        },
+        {
+          "id": "estar como una moto-001",
+          "text": "estar como una moto",
+          "phonetics": "/estar komo una moto/",
+          "partOfSpeech": "idiom",
+          "definition": "To be very excited or hyperactive",
+          "examples": [
+            "Los niños están como una moto.",
+            "Está como una moto con las vacaciones."
+          ]
+        },
+        {
+          "id": "no dar pie con bola-001",
+          "text": "no dar pie con bola",
+          "phonetics": "/no ðar pje kon βola/",
+          "partOfSpeech": "idiom",
+          "definition": "To not get anything right - to be unsuccessful at everything",
+          "examples": [
+            "Hoy no doy pie con bola.",
+            "En el trabajo no doy pie con bola."
+          ]
+        }
+      ],
+      "level": "B2",
+      "tagValue": "Idioms",
+      "languageCode": "es",
+      "description": "Common Spanish idioms and expressions for natural fluency",
+      "imageUrl": null,
+      "localImageName": "tv",
+      "isPremium": true
+    },
+    {
+      "id": "business-and-work-001",
+      "title": "Business and Work",
+      "words": [
+        {
+          "id": "empresa-001",
+          "text": "empresa",
+          "phonetics": "/empresa/",
+          "partOfSpeech": "noun",
+          "definition": "Company or business - an organization that provides goods or services",
+          "examples": [
+            "Trabajo en una empresa multinacional.",
+            "La empresa tiene más de 500 empleados."
+          ]
+        },
+        {
+          "id": "empleado-001",
+          "text": "empleado",
+          "phonetics": "/empleaðo/",
+          "partOfSpeech": "noun",
+          "definition": "Employee - a person who works for a company",
+          "examples": [
+            "Soy empleado de una empresa de tecnología.",
+            "Los empleados están muy contentos con el nuevo jefe."
+          ]
+        },
+        {
+          "id": "jefe-001",
+          "text": "jefe",
+          "phonetics": "/xefe/",
+          "partOfSpeech": "noun",
+          "definition": "Boss or manager - a person in charge of others at work",
+          "examples": [
+            "Mi jefe es muy exigente pero justo.",
+            "El jefe de departamento está en una reunión."
+          ]
+        },
+        {
+          "id": "reunión-001",
+          "text": "reunión",
+          "phonetics": "/reunjon/",
+          "partOfSpeech": "noun",
+          "definition": "Meeting - a gathering of people to discuss business matters",
+          "examples": [
+            "Tenemos una reunión importante mañana.",
+            "La reunión duró más de dos horas."
+          ]
+        },
+        {
+          "id": "proyecto-001",
+          "text": "proyecto",
+          "phonetics": "/proxekto/",
+          "partOfSpeech": "noun",
+          "definition": "Project - a planned piece of work with specific goals",
+          "examples": [
+            "Estoy trabajando en un proyecto muy interesante.",
+            "El proyecto debe estar terminado en un mes."
+          ]
+        },
+        {
+          "id": "presupuesto-001",
+          "text": "presupuesto",
+          "phonetics": "/presupwesto/",
+          "partOfSpeech": "noun",
+          "definition": "Budget - a plan for spending money",
+          "examples": [
+            "El presupuesto para este año es muy ajustado.",
+            "Necesitamos aprobar el presupuesto del proyecto."
+          ]
+        },
+        {
+          "id": "contrato-001",
+          "text": "contrato",
+          "phonetics": "/kontrato/",
+          "partOfSpeech": "noun",
+          "definition": "Contract - a legal agreement between parties",
+          "examples": [
+            "Firmé un contrato de trabajo por dos años.",
+            "El contrato expira el próximo mes."
+          ]
+        },
+        {
+          "id": "salario-001",
+          "text": "salario",
+          "phonetics": "/salarjo/",
+          "partOfSpeech": "noun",
+          "definition": "Salary - the money paid regularly for work",
+          "examples": [
+            "Mi salario es muy competitivo.",
+            "El salario se paga mensualmente."
+          ]
+        },
+        {
+          "id": "horario-001",
+          "text": "horario",
+          "phonetics": "/orarjo/",
+          "partOfSpeech": "noun",
+          "definition": "Schedule or timetable - a plan of when things happen",
+          "examples": [
+            "Mi horario de trabajo es de 9 a 6.",
+            "¿Cuál es tu horario de clases?"
+          ]
+        },
+        {
+          "id": "vacaciones-002",
+          "text": "vacaciones",
+          "phonetics": "/bakaθjones/",
+          "partOfSpeech": "noun",
+          "definition": "Vacation or holidays - time off from work",
+          "examples": [
+            "Me voy de vacaciones en agosto.",
+            "Tengo dos semanas de vacaciones por año."
+          ]
+        },
+        {
+          "id": "despedir-001",
+          "text": "despedir",
+          "phonetics": "/despedir/",
+          "partOfSpeech": "verb",
+          "definition": "To fire or dismiss - to end someone's employment",
+          "examples": [
+            "Despidieron a varios empleados.",
+            "No quieren despedir a nadie más."
+          ]
+        },
+        {
+          "id": "contratar-001",
+          "text": "contratar",
+          "phonetics": "/kontratar/",
+          "partOfSpeech": "verb",
+          "definition": "To hire - to give someone a job",
+          "examples": [
+            "La empresa va a contratar nuevos empleados.",
+            "Contrataron a un nuevo gerente."
+          ]
+        },
+        {
+          "id": "negociar-001",
+          "text": "negociar",
+          "phonetics": "/neɣoθjar/",
+          "partOfSpeech": "verb",
+          "definition": "To negotiate - to discuss to reach an agreement",
+          "examples": [
+            "Necesitamos negociar el precio.",
+            "Negociaron durante horas."
+          ]
+        },
+        {
+          "id": "invertir-001",
+          "text": "invertir",
+          "phonetics": "/imβertir/",
+          "partOfSpeech": "verb",
+          "definition": "To invest - to put money into something to make a profit",
+          "examples": [
+            "Voy a invertir en acciones.",
+            "La empresa invierte mucho en tecnología."
+          ]
+        },
+        {
+          "id": "competir-001",
+          "text": "competir",
+          "phonetics": "/kompetir/",
+          "partOfSpeech": "verb",
+          "definition": "To compete - to try to win against others",
+          "examples": [
+            "Nuestra empresa compite con las mejores.",
+            "Es difícil competir en este mercado."
+          ]
+        },
+        {
+          "id": "desarrollar-001",
+          "text": "desarrollar",
+          "phonetics": "/desaroʎar/",
+          "partOfSpeech": "verb",
+          "definition": "To develop - to grow or improve something",
+          "examples": [
+            "Estamos desarrollando un nuevo producto.",
+            "Necesito desarrollar mis habilidades."
+          ]
+        },
+        {
+          "id": "organizar-001",
+          "text": "organizar",
+          "phonetics": "/orɣanizar/",
+          "partOfSpeech": "verb",
+          "definition": "To organize - to arrange things in order",
+          "examples": [
+            "Voy a organizar la reunión.",
+            "Necesito organizar mejor mi tiempo."
+          ]
+        },
+        {
+          "id": "supervisar-001",
+          "text": "supervisar",
+          "phonetics": "/superβisar/",
+          "partOfSpeech": "verb",
+          "definition": "To supervise - to watch and direct work",
+          "examples": [
+            "Mi trabajo es supervisar el proyecto.",
+            "Necesitamos supervisar la calidad."
+          ]
+        },
+        {
+          "id": "entrevista-001",
+          "text": "entrevista",
+          "phonetics": "/entreβista/",
+          "partOfSpeech": "noun",
+          "definition": "Interview - a formal meeting to assess a candidate",
+          "examples": [
+            "Tengo una entrevista de trabajo mañana.",
+            "La entrevista fue muy difícil."
+          ]
+        },
+        {
+          "id": "curriculum-001",
+          "text": "currículum",
+          "phonetics": "/kurrikulum/",
+          "partOfSpeech": "noun",
+          "definition": "Resume or CV - a document with work experience and qualifications",
+          "examples": [
+            "Envié mi currículum a varias empresas.",
+            "Mi currículum está actualizado."
+          ]
+        },
+        {
+          "id": "experiencia-001",
+          "text": "experiencia",
+          "phonetics": "/eksperjenθja/",
+          "partOfSpeech": "noun",
+          "definition": "Experience - knowledge gained from doing something",
+          "examples": [
+            "Tengo mucha experiencia en ventas.",
+            "La experiencia es muy importante."
+          ]
+        },
+        {
+          "id": "habilidad-001",
+          "text": "habilidad",
+          "phonetics": "/aβilidað/",
+          "partOfSpeech": "noun",
+          "definition": "Skill - the ability to do something well",
+          "examples": [
+            "Mis habilidades incluyen programación.",
+            "Necesitas desarrollar nuevas habilidades."
+          ]
+        },
+        {
+          "id": "objetivo-001",
+          "text": "objetivo",
+          "phonetics": "/oβxetivo/",
+          "partOfSpeech": "noun",
+          "definition": "Objective or goal - something you want to achieve",
+          "examples": [
+            "Mi objetivo es ser gerente.",
+            "Los objetivos del proyecto son claros."
+          ]
+        },
+        {
+          "id": "estrategia-001",
+          "text": "estrategia",
+          "phonetics": "/estratexja/",
+          "partOfSpeech": "noun",
+          "definition": "Strategy - a plan to achieve a goal",
+          "examples": [
+            "Necesitamos una nueva estrategia de marketing.",
+            "La estrategia funcionó muy bien."
+          ]
+        },
+        {
+          "id": "productividad-001",
+          "text": "productividad",
+          "phonetics": "/produktiβidað/",
+          "partOfSpeech": "noun",
+          "definition": "Productivity - the rate at which work is done",
+          "examples": [
+            "La productividad ha aumentado este año.",
+            "Necesitamos mejorar la productividad."
+          ]
+        }
+      ],
+      "level": "B1",
+      "tagValue": "Business",
+      "languageCode": "es",
+      "description": "Essential Spanish vocabulary for business, work, and professional environments",
+      "imageUrl": null,
+      "localImageName": "work-1",
+      "isPremium": true
+    },
+    {
+      "id": "travel-and-tourism-001",
+      "title": "Travel and Tourism",
+      "words": [
+        {
+          "id": "viaje-001",
+          "text": "viaje",
+          "phonetics": "/bjaxe/",
+          "partOfSpeech": "noun",
+          "definition": "Trip or journey - an act of traveling from one place to another",
+          "examples": [
+            "Mi viaje a España fue increíble.",
+            "¿Cuánto duró tu viaje?"
+          ]
+        },
+        {
+          "id": "viajar-001",
+          "text": "viajar",
+          "phonetics": "/bjaχar/",
+          "partOfSpeech": "verb",
+          "definition": "To travel - to go from one place to another",
+          "examples": [
+            "Me gusta viajar por el mundo.",
+            "Viajamos en avión a París."
+          ]
+        },
+        {
+          "id": "turista-001",
+          "text": "turista",
+          "phonetics": "/turista/",
+          "partOfSpeech": "noun",
+          "definition": "Tourist - a person who travels for pleasure",
+          "examples": [
+            "Soy turista en esta ciudad.",
+            "Los turistas visitan muchos museos."
+          ]
+        },
+        {
+          "id": "destino-001",
+          "text": "destino",
+          "phonetics": "/destino/",
+          "partOfSpeech": "noun",
+          "definition": "Destination - the place where someone is going",
+          "examples": [
+            "Mi destino favorito es Italia.",
+            "¿Cuál es tu próximo destino?"
+          ]
+        },
+        {
+          "id": "aeropuerto-001",
+          "text": "aeropuerto",
+          "phonetics": "/aeropwerto/",
+          "partOfSpeech": "noun",
+          "definition": "Airport - a place where planes take off and land",
+          "examples": [
+            "El aeropuerto está muy lejos.",
+            "Llegamos al aeropuerto temprano."
+          ]
+        },
+        {
+          "id": "avión-001",
+          "text": "avión",
+          "phonetics": "/aβjon/",
+          "partOfSpeech": "noun",
+          "definition": "Airplane - a vehicle that flies through the air",
+          "examples": [
+            "El avión despegó a las 3 PM.",
+            "Prefiero viajar en avión."
+          ]
+        },
+        {
+          "id": "tren-001",
+          "text": "tren",
+          "phonetics": "/tren/",
+          "partOfSpeech": "noun",
+          "definition": "Train - a vehicle that runs on tracks",
+          "examples": [
+            "El tren es muy cómodo.",
+            "Tomamos el tren a Barcelona."
+          ]
+        },
+        {
+          "id": "autobús-001",
+          "text": "autobús",
+          "phonetics": "/awtoβus/",
+          "partOfSpeech": "noun",
+          "definition": "Bus - a large vehicle that carries many passengers",
+          "examples": [
+            "El autobús sale cada hora.",
+            "Vamos en autobús al centro."
+          ]
+        },
+        {
+          "id": "taxi-001",
+          "text": "taxi",
+          "phonetics": "/taksi/",
+          "partOfSpeech": "noun",
+          "definition": "Taxi - a car that you pay to take you somewhere",
+          "examples": [
+            "Llamé un taxi para ir al hotel.",
+            "El taxi es muy caro aquí."
+          ]
+        },
+        {
+          "id": "hotel-001",
+          "text": "hotel",
+          "phonetics": "/otel/",
+          "partOfSpeech": "noun",
+          "definition": "Hotel - a place where travelers can stay overnight",
+          "examples": [
+            "El hotel tiene piscina.",
+            "Reservé una habitación en el hotel."
+          ]
+        },
+        {
+          "id": "habitación-001",
+          "text": "habitación",
+          "phonetics": "/aβitaθjon/",
+          "partOfSpeech": "noun",
+          "definition": "Room - a space in a hotel where you sleep",
+          "examples": [
+            "La habitación es muy cómoda.",
+            "¿Tienen habitaciones disponibles?"
+          ]
+        },
+        {
+          "id": "reservar-001",
+          "text": "reservar",
+          "phonetics": "/reserβar/",
+          "partOfSpeech": "verb",
+          "definition": "To book or reserve - to arrange to use something later",
+          "examples": [
+            "Necesito reservar una mesa.",
+            "Reservé el hotel por internet."
+          ]
+        },
+        {
+          "id": "equipaje-001",
+          "text": "equipaje",
+          "phonetics": "/ekipaxe/",
+          "partOfSpeech": "noun",
+          "definition": "Luggage - bags and suitcases for traveling",
+          "examples": [
+            "Mi equipaje está muy pesado.",
+            "¿Dónde está la sala de equipajes?"
+          ]
+        },
+        {
+          "id": "pasaporte-001",
+          "text": "pasaporte",
+          "phonetics": "/pasaporte/",
+          "partOfSpeech": "noun",
+          "definition": "Passport - a document needed to travel to other countries",
+          "examples": [
+            "Necesito renovar mi pasaporte.",
+            "¿Tienes tu pasaporte?"
+          ]
+        },
+        {
+          "id": "visa-001",
+          "text": "visa",
+          "phonetics": "/bisa/",
+          "partOfSpeech": "noun",
+          "definition": "Visa - official permission to enter a country",
+          "examples": [
+            "Necesito una visa para viajar a Estados Unidos.",
+            "La visa expira en seis meses."
+          ]
+        },
+        {
+          "id": "billete-001",
+          "text": "billete",
+          "phonetics": "/biʎete/",
+          "partOfSpeech": "noun",
+          "definition": "Ticket - a piece of paper that allows you to travel",
+          "examples": [
+            "Compré el billete de avión.",
+            "¿Dónde está mi billete?"
+          ]
+        },
+        {
+          "id": "maleta-001",
+          "text": "maleta",
+          "phonetics": "/maleta/",
+          "partOfSpeech": "noun",
+          "definition": "Suitcase - a large bag for carrying clothes when traveling",
+          "examples": [
+            "Mi maleta está llena.",
+            "¿Dónde está la maleta?"
+          ]
+        },
+        {
+          "id": "mochila-001",
+          "text": "mochila",
+          "phonetics": "/motʃila/",
+          "partOfSpeech": "noun",
+          "definition": "Backpack - a bag carried on the back",
+          "examples": [
+            "Llevo una mochila pequeña.",
+            "La mochila es muy práctica."
+          ]
+        },
+        {
+          "id": "mapa-001",
+          "text": "mapa",
+          "phonetics": "/mapa/",
+          "partOfSpeech": "noun",
+          "definition": "Map - a drawing that shows where places are",
+          "examples": [
+            "Necesito un mapa de la ciudad.",
+            "El mapa está en el teléfono."
+          ]
+        },
+        {
+          "id": "guía-001",
+          "text": "guía",
+          "phonetics": "/ɣia/",
+          "partOfSpeech": "noun",
+          "definition": "Guide - a person who shows tourists around",
+          "examples": [
+            "El guía nos explicó la historia.",
+            "Contratamos un guía turístico."
+          ]
+        },
+        {
+          "id": "excursión-001",
+          "text": "excursión",
+          "phonetics": "/ekskurθjon/",
+          "partOfSpeech": "noun",
+          "definition": "Excursion or trip - a short journey for pleasure",
+          "examples": [
+            "Hicimos una excursión a la montaña.",
+            "La excursión duró todo el día."
+          ]
+        },
+        {
+          "id": "monumento-001",
+          "text": "monumento",
+          "phonetics": "/monumento/",
+          "partOfSpeech": "noun",
+          "definition": "Monument - a structure built to remember someone or something",
+          "examples": [
+            "Visitamos muchos monumentos históricos.",
+            "El monumento es muy impresionante."
+          ]
+        },
+        {
+          "id": "museo-001",
+          "text": "museo",
+          "phonetics": "/museo/",
+          "partOfSpeech": "noun",
+          "definition": "Museum - a building where you can see art and historical objects",
+          "examples": [
+            "El museo está cerrado los lunes.",
+            "Visitamos el museo de arte."
+          ]
+        },
+        {
+          "id": "playa-002",
+          "text": "playa",
+          "phonetics": "/plaʝa/",
+          "partOfSpeech": "noun",
+          "definition": "Beach - an area of sand next to the ocean",
+          "examples": [
+            "La playa está muy bonita.",
+            "Vamos a la playa todos los días."
+          ]
+        },
+        {
+          "id": "montaña-002",
+          "text": "montaña",
+          "phonetics": "/montaɲa/",
+          "partOfSpeech": "noun",
+          "definition": "Mountain - a very high hill",
+          "examples": [
+            "Las montañas están cubiertas de nieve.",
+            "Escalamos la montaña más alta."
+          ]
+        },
+        {
+          "id": "cultura-001",
+          "text": "cultura",
+          "phonetics": "/kultura/",
+          "partOfSpeech": "noun",
+          "definition": "Culture - the customs and traditions of a country",
+          "examples": [
+            "Me interesa mucho la cultura local.",
+            "La cultura española es muy rica."
+          ]
+        },
+        {
+          "id": "tradición-001",
+          "text": "tradición",
+          "phonetics": "/traðiθjon/",
+          "partOfSpeech": "noun",
+          "definition": "Tradition - a custom that has been passed down through generations",
+          "examples": [
+            "Es una tradición muy antigua.",
+            "Respetamos las tradiciones locales."
+          ]
+        },
+        {
+          "id": "gastronomía-001",
+          "text": "gastronomía",
+          "phonetics": "/ɡastronomia/",
+          "partOfSpeech": "noun",
+          "definition": "Gastronomy - the art of cooking and eating good food",
+          "examples": [
+            "La gastronomía española es famosa.",
+            "Me encanta la gastronomía local."
+          ]
+        },
+        {
+          "id": "souvenir-001",
+          "text": "souvenir",
+          "phonetics": "/suvenir/",
+          "partOfSpeech": "noun",
+          "definition": "Souvenir - something you buy to remember a place",
+          "examples": [
+            "Compré muchos souvenirs para mi familia.",
+            "¿Dónde puedo comprar souvenirs?"
+          ]
+        }
+      ],
+      "level": "B1",
+      "tagValue": "Travel",
+      "languageCode": "es",
+      "description": "Essential Spanish vocabulary for travel, tourism, and cultural experiences",
+      "imageUrl": null,
+      "localImageName": "car-ride",
+      "isPremium": true
+    }
+  ],
+  "lastUpdated": "2025-09-18T12:55:00Z",
+  "version": "1.0.0"
+}  
