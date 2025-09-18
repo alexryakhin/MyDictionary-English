@@ -18,12 +18,20 @@ final class QuizItemsProvider: ObservableObject {
     @Published var availableItems: [any Quizable] = []
     @Published var selectedDictionary: QuizDictionary = .privateDictionary
     @Published var availableDictionaries: [QuizDictionary] = []
+    @Published var selectedLanguage: InputLanguage? = nil
+    @Published var availableLanguages: [InputLanguage] = []
 
     private lazy var wordsProvider: WordsProvider = .shared
     private lazy var dictionaryService: DictionaryService = .shared
     private var cancellables = Set<AnyCancellable>()
 
     private init() {
+        // Load saved language filter
+        if let savedLanguageCode = UDService.quizLanguageFilter,
+           let savedLanguage = InputLanguage(rawValue: savedLanguageCode) {
+            selectedLanguage = savedLanguage
+        }
+        
         // Defer setup to avoid initialization order issues
         DispatchQueue.main.async { [weak self] in
             self?.setupBindings()
@@ -50,15 +58,33 @@ final class QuizItemsProvider: ObservableObject {
     func loadItemsForSharedDictionary(_ dictionary: SharedDictionary) {
         setupListenerForDictionary(dictionary.id)
     }
+    
+    /// Sets the selected language for filtering quiz words
+    func setSelectedLanguage(_ language: InputLanguage?) {
+        selectedLanguage = language
+        
+        // Save to UserDefaults
+        UDService.quizLanguageFilter = language?.rawValue
+    }
 
     /// Gets words for a quiz based on the selected dictionary and filters
     /// - Parameters:
     ///   - preset: Quiz preset containing word count and difficulty settings
     /// - Returns: Array of words for the quiz (all available words, not limited by word count)
     func getItemsForQuiz(with preset: QuizPreset) -> [any Quizable] {
-        let filteredItems = preset.hardItemsOnly
+        var filteredItems = preset.hardItemsOnly
         ? availableItems.filter { $0.difficultyLevel == .needsReview }
         : availableItems
+        
+        // Apply language filter if selected
+        if let selectedLanguage = selectedLanguage {
+            filteredItems = filteredItems.filter { item in
+                if let word = item as? CDWord {
+                    return word.languageCode == selectedLanguage.rawValue
+                }
+                return false
+            }
+        }
 
         return Array(filteredItems.shuffled())
     }
@@ -69,9 +95,19 @@ final class QuizItemsProvider: ObservableObject {
     ///   - hardItemsOnly: Whether to only include difficult words
     /// - Returns: Whether enough words are available
     func hasEnoughItems(itemCount: Int, hardItemsOnly: Bool = false) -> Bool {
-        let filteredItems = hardItemsOnly
+        var filteredItems = hardItemsOnly
         ? availableItems.filter { $0.difficultyLevel == .needsReview }
         : availableItems
+        
+        // Apply language filter if selected
+        if let selectedLanguage = selectedLanguage {
+            filteredItems = filteredItems.filter { item in
+                if let word = item as? CDWord {
+                    return word.languageCode == selectedLanguage.rawValue
+                }
+                return false
+            }
+        }
 
         return filteredItems.count >= itemCount
     }
@@ -79,13 +115,37 @@ final class QuizItemsProvider: ObservableObject {
     /// Gets the minimum required words for hard words mode
     /// - Returns: Number of hard words available
     func getHardItemsCount() -> Int {
-        return availableItems.filter { $0.difficultyLevel == .needsReview }.count
+        var hardItems = availableItems.filter { $0.difficultyLevel == .needsReview }
+        
+        // Apply language filter if selected
+        if let selectedLanguage = selectedLanguage {
+            hardItems = hardItems.filter { item in
+                if let word = item as? CDWord {
+                    return word.languageCode == selectedLanguage.rawValue
+                }
+                return false
+            }
+        }
+        
+        return hardItems.count
     }
 
     /// Gets the total number of words available
     /// - Returns: Total number of words
     func getTotalItemsCount() -> Int {
-        return availableItems.count
+        var items = availableItems
+        
+        // Apply language filter if selected
+        if let selectedLanguage = selectedLanguage {
+            items = items.filter { item in
+                if let word = item as? CDWord {
+                    return word.languageCode == selectedLanguage.rawValue
+                }
+                return false
+            }
+        }
+        
+        return items.count
     }
 
     // MARK: - Private Methods
@@ -113,6 +173,16 @@ final class QuizItemsProvider: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.updateAvailableItems()
+                self?.updateAvailableLanguages()
+            }
+            .store(in: &cancellables)
+            
+        // Listen to selected language changes
+        $selectedLanguage
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                // Language filter change doesn't need to update items immediately
+                // Items are filtered on-demand in getItemsForQuiz
             }
             .store(in: &cancellables)
 
@@ -121,6 +191,7 @@ final class QuizItemsProvider: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.updateAvailableItems()
+                self?.updateAvailableLanguages()
             }
             .store(in: &cancellables)
 
@@ -161,6 +232,23 @@ final class QuizItemsProvider: ObservableObject {
             // Get words from cache
             let cachedItems = dictionaryService.sharedWords[dictionary.id] ?? []
             availableItems = cachedItems
+        }
+    }
+    
+    private func updateAvailableLanguages() {
+        let languages = availableItems.compactMap { item -> InputLanguage? in
+            if let word = item as? CDWord {
+                return InputLanguage(rawValue: word.languageCode ?? "en")
+            }
+            return nil
+        }
+        
+        // Remove duplicates and sort
+        availableLanguages = Array(Set(languages)).sorted { $0.displayName < $1.displayName }
+        
+        // If current selected language is no longer available, clear it
+        if let selectedLanguage = selectedLanguage, !availableLanguages.contains(selectedLanguage) {
+            self.selectedLanguage = nil
         }
     }
 

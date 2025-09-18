@@ -20,6 +20,7 @@ enum UDKeys {
 
     // Practice Settings
     static let practiceItemCount = "practiceItemCount"
+    static let quizLanguageFilter = "quizLanguageFilter"
 
     // Translation Settings
     static let inputLanguage = "inputLanguage"
@@ -105,6 +106,11 @@ enum UDService {
     static var inputLanguage: String? {
         get { UserDefaults.standard.string(forKey: UDKeys.inputLanguage) }
         set { UserDefaults.standard.set(newValue, forKey: UDKeys.inputLanguage) }
+    }
+    
+    static var quizLanguageFilter: String? {
+        get { UserDefaults.standard.string(forKey: UDKeys.quizLanguageFilter) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.quizLanguageFilter) }
     }
 
     static var idiomInputLanguage: String? {

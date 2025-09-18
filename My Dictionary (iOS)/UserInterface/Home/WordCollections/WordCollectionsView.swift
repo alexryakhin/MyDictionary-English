@@ -127,7 +127,7 @@ struct WordCollectionsView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
                 // Language picker
-                HeaderButtonMenu("Language", icon: "chevron.down") {
+                HeaderButtonMenu("Language", icon: "chevron.down", size: .small) {
                     Picker("Language", selection: $selectedLanguage) {
                         Text("All Languages")
                             .tag("all")
@@ -140,7 +140,7 @@ struct WordCollectionsView: View {
                 }
 
                 // Level picker
-                HeaderButtonMenu("Level", icon: "chevron.down") {
+                HeaderButtonMenu("Level", icon: "chevron.down", size: .small) {
                     Picker("Level", selection: $selectedLevel) {
                         Text("All Levels")
                             .tag(nil as WordLevel?)
