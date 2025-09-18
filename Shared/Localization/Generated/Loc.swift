@@ -1991,6 +1991,10 @@ public enum Loc {
       public static let getPrioritySupport = Loc.tr("Subscription", "pro_features.get_priority_support", fallback: "Get priority support when you need help")
       /// Google Sync
       public static let googleSync = Loc.tr("Subscription", "pro_features.google_sync", fallback: "Google Sync")
+      /// Visual Learning with Images
+      public static let images = Loc.tr("Subscription", "pro_features.images", fallback: "Visual Learning with Images")
+      /// Add beautiful, relevant images to your words for better memory retention and visual learning
+      public static let imagesDescription = Loc.tr("Subscription", "pro_features.images_description", fallback: "Add beautiful, relevant images to your words for better memory retention and visual learning")
       /// Organize your words with custom tags for easier search
       public static let organizeWordsWithTags = Loc.tr("Subscription", "pro_features.organize_words_with_tags", fallback: "Organize your words with custom tags for easier search")
       /// Priority Support
@@ -2011,6 +2015,10 @@ public enum Loc {
       public static let unlimitedExport = Loc.tr("Subscription", "pro_features.unlimited_export", fallback: "Unlimited Export")
       /// Unlock all Pro features
       public static let unlockAllProFeatures = Loc.tr("Subscription", "pro_features.unlock_all_pro_features", fallback: "Unlock all Pro features")
+      /// Word Collections
+      public static let wordCollections = Loc.tr("Subscription", "pro_features.word_collections", fallback: "Word Collections")
+      /// Organize your vocabulary into themed collections for better learning and organization
+      public static let wordCollectionsDescription = Loc.tr("Subscription", "pro_features.word_collections_description", fallback: "Organize your vocabulary into themed collections for better learning and organization")
     }
     public enum ProUpgrade {
       /// Time Period

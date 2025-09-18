@@ -12,6 +12,8 @@ struct WordDetailsContentView: View {
     @StateObject var word: CDWord
     @Environment(\.dismiss) private var dismiss
     @StateObject private var ttsPlayer = TTSPlayer.shared
+    @StateObject private var subscriptionService = SubscriptionService.shared
+    @StateObject private var paywallService = PaywallService.shared
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
@@ -22,6 +24,7 @@ struct WordDetailsContentView: View {
     @State private var image: Image?
     @State private var shouldHaveNavigationTitle: Bool = false
     @State private var showingImageSelection = false
+    @State private var showingImageOnboarding = false
 
     var imageExists: Bool {
         word.imageLocalPath != nil || image != nil
@@ -58,6 +61,11 @@ struct WordDetailsContentView: View {
                         difficultySectionView
                         languageSectionView
                         tagsSectionView
+                        
+                        // Remove Image Button (only show if image exists)
+                        if imageExists {
+                            removeImageButton
+                        }
                     }
                 }
                 .if(isPad) { view in
@@ -148,6 +156,8 @@ struct WordDetailsContentView: View {
                 }
             )
         }
+        .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
+        .withPaywall()
         .onAppear {
             // Check if image exists and set state with fallback
             if let imageLocalPath = word.imageLocalPath {
@@ -239,7 +249,7 @@ struct WordDetailsContentView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
             HeaderButton("Add Image", icon: "photo", size: .small) {
-                showingImageSelection = true
+                showingImageOnboarding = true
             }
         }
     }
@@ -444,6 +454,18 @@ struct WordDetailsContentView: View {
             }
         }
     }
+    
+    private var removeImageButton: some View {
+        Button {
+            removeImage()
+        } label: {
+            Text("Remove Image")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.top, 8)
+    }
 
     // MARK: - Private Methods
 
@@ -456,6 +478,40 @@ struct WordDetailsContentView: View {
                 try CoreDataService.shared.saveContext()
             } catch {
                 errorReceived(error)
+            }
+        }
+    }
+    
+    private func removeImage() {
+        // Delete the image file from documents directory
+        if let imageLocalPath = word.imageLocalPath {
+            try? PexelsService.shared.deleteImage(at: imageLocalPath)
+        }
+        
+        // Clear image data from Core Data
+        word.imageUrl = nil
+        word.imageLocalPath = nil
+        
+        // Clear the image state
+        image = nil
+        
+        // Save changes
+        saveContext()
+    }
+    
+    private func handleOnboardingCompletion() {
+        // Check if user is premium
+        if subscriptionService.isProUser {
+            // User is premium, allow image selection
+            showingImageSelection = true
+        } else {
+            // User is not premium, show paywall
+            paywallService.presentPaywall(for: .images) { didSubscribe in
+                if didSubscribe {
+                    // User subscribed, allow image selection
+                    showingImageSelection = true
+                }
+                // If user didn't subscribe, do nothing (stay on word details)
             }
         }
     }

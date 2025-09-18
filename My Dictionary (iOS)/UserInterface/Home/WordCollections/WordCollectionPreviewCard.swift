@@ -13,7 +13,7 @@ struct WordCollectionPreviewCard: View {
     
     var body: some View {
         Button {
-            navigationManager.navigationPath.append(NavigationDestination.wordCollectionDetails(collection))
+            handleCollectionTap()
         } label: {
             VStack(alignment: .leading, spacing: 8) {
                 // Collection image placeholder
@@ -82,6 +82,22 @@ struct WordCollectionPreviewCard: View {
         }
         .buttonStyle(.plain)
     }
+    
+    private func handleCollectionTap() {
+        // Check if this is a premium collection and user doesn't have premium access
+        if collection.isPremium && !SubscriptionService.shared.isProUser {
+            PaywallService.shared.presentPaywall(for: .wordCollections) { didSubscribe in
+                if didSubscribe {
+                    // User subscribed, now allow navigation to collection details
+                    navigationManager.navigationPath.append(NavigationDestination.wordCollectionDetails(collection))
+                }
+                // If user didn't subscribe, don't navigate - they stay on the collections list
+            }
+        } else {
+            // Free collection or user has premium access - allow navigation
+            navigationManager.navigationPath.append(NavigationDestination.wordCollectionDetails(collection))
+        }
+    }
 }
 
 struct WordCollectionGridPreviewCard: View {
@@ -90,7 +106,7 @@ struct WordCollectionGridPreviewCard: View {
 
     var body: some View {
         Button {
-            navigationManager.navigationPath.append(NavigationDestination.wordCollectionDetails(collection))
+            handleCollectionTap()
         } label: {
             VStack(alignment: .leading, spacing: 8) {
                 // Collection image placeholder
@@ -161,6 +177,22 @@ struct WordCollectionGridPreviewCard: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
         .buttonStyle(.plain)
+    }
+    
+    private func handleCollectionTap() {
+        // Check if this is a premium collection and user doesn't have premium access
+        if collection.isPremium && !SubscriptionService.shared.isProUser {
+            PaywallService.shared.presentPaywall(for: .wordCollections) { didSubscribe in
+                if didSubscribe {
+                    // User subscribed, now allow navigation to collection details
+                    navigationManager.navigationPath.append(NavigationDestination.wordCollectionDetails(collection))
+                }
+                // If user didn't subscribe, don't navigate - they stay on the collections list
+            }
+        } else {
+            // Free collection or user has premium access - allow navigation
+            navigationManager.navigationPath.append(NavigationDestination.wordCollectionDetails(collection))
+        }
     }
 }
 

@@ -56,3 +56,7 @@
 "pro_features.ai_definitions_description" = "Get intelligent, context-aware definitions powered by advanced AI technology";
 "pro_features.ai_quizzes" = "AI Quizzes";
 "pro_features.ai_quizzes_description" = "Practice your vocabulary with personalized AI quizzes that adapt to your learning style.";
+"pro_features.images" = "Visual Learning with Images";
+"pro_features.images_description" = "Add beautiful, relevant images to your words for better memory retention and visual learning";
+"pro_features.word_collections" = "Word Collections";
+"pro_features.word_collections_description" = "Organize your vocabulary into themed collections for better learning and organization";

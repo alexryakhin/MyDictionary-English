@@ -48,6 +48,8 @@ struct SubscriptionPlan: Identifiable, Hashable {
 enum SubscriptionFeature: String, CaseIterable {
     case aiDefinitions = "ai_definitions"
     case aiQuizzes = "ai_quizzes"
+    case images = "images"
+    case wordCollections = "word_collections"
     case premiumTTS = "premium_tts"
     case unlimitedExport = "unlimited_export"
     case createSharedDictionaries = "create_shared_dictionaries"
@@ -65,6 +67,8 @@ enum SubscriptionFeature: String, CaseIterable {
         case .tagManagement: Loc.Subscription.ProFeatures.tagManagement
         case .advancedAnalytics: Loc.Subscription.ProFeatures.advancedAnalytics
         case .prioritySupport: Loc.Subscription.ProFeatures.prioritySupport
+        case .images: Loc.Subscription.ProFeatures.images
+        case .wordCollections: Loc.Subscription.ProFeatures.wordCollections
         }
     }
 
@@ -78,6 +82,8 @@ enum SubscriptionFeature: String, CaseIterable {
         case .tagManagement: Loc.Subscription.ProFeatures.organizeWordsWithTags
         case .advancedAnalytics: Loc.Subscription.ProFeatures.detailedInsights
         case .prioritySupport: Loc.Subscription.ProFeatures.prioritySupportTeam
+        case .images: Loc.Subscription.ProFeatures.imagesDescription
+        case .wordCollections: Loc.Subscription.ProFeatures.wordCollectionsDescription
         }
     }
 
@@ -91,6 +97,8 @@ enum SubscriptionFeature: String, CaseIterable {
         case .tagManagement: "tag.fill"
         case .advancedAnalytics: "chart.bar.fill"
         case .prioritySupport: "star.fill"
+        case .images: "photo.fill"
+        case .wordCollections: "folder.fill"
         }
     }
 }

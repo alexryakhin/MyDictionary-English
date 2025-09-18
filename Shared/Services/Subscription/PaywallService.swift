@@ -44,12 +44,6 @@ final class PaywallService: ObservableObject {
             return
         }
         
-        // Check if user is authenticated before showing paywall
-        guard AuthenticationService.shared.isSignedIn else {
-            showAuthenticationRequiredAlert(for: reason, completion: completion)
-            return
-        }
-        
         paywallPresentationReason = reason
         paywallCompletionHandler = completion
         isShowingPaywall = true
@@ -178,6 +172,8 @@ enum PaywallReason: String, CaseIterable {
     case createSharedDictionaries = "create_shared_dictionaries"
     case advancedAnalytics = "advanced_analytics"
     case prioritySupport = "priority_support"
+    case images = "images"
+    case wordCollections = "word_collections"
     case general = "general"
     
     var title: String {
@@ -192,6 +188,10 @@ enum PaywallReason: String, CaseIterable {
             return Loc.Subscription.ProFeatures.advancedAnalytics
         case .prioritySupport:
             return Loc.Subscription.ProFeatures.prioritySupport
+        case .images:
+            return Loc.Subscription.ProFeatures.images
+        case .wordCollections:
+            return Loc.Subscription.ProFeatures.wordCollections
         case .general:
             return Loc.Subscription.ProFeatures.proFeatures
         }
@@ -209,6 +209,10 @@ enum PaywallReason: String, CaseIterable {
             return Loc.Subscription.ProFeatures.detailedInsights
         case .prioritySupport:
             return Loc.Subscription.ProFeatures.prioritySupportTeam
+        case .images:
+            return Loc.Subscription.ProFeatures.imagesDescription
+        case .wordCollections:
+            return Loc.Subscription.ProFeatures.wordCollectionsDescription
         case .general:
             return Loc.Subscription.ProFeatures.unlockAllProFeatures
         }
@@ -226,6 +230,10 @@ enum PaywallReason: String, CaseIterable {
             return "chart.bar"
         case .prioritySupport:
             return "star"
+        case .images:
+            return "photo.fill"
+        case .wordCollections:
+            return "folder.fill"
         case .general:
             return "crown"
         }

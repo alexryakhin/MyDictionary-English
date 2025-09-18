@@ -32,6 +32,7 @@ struct SharedWordDetailsView: View {
     @State private var image: Image?
     @State private var shouldHaveNavigationTitle: Bool = false
     @State private var showingImageSelection = false
+    @State private var showingImageOnboarding = false
 
     var imageExists: Bool {
         word.imageLocalPath != nil && image != nil
@@ -90,6 +91,11 @@ struct SharedWordDetailsView: View {
                             notesSectionView
                             languageSectionView
                             collaborativeFeaturesSection
+                            
+                            // Remove Image Button (only show if image exists and user can edit)
+                            if imageExists && canEdit {
+                                removeImageButton
+                            }
                         }
                     }
                     .if(isPad) { view in
@@ -209,6 +215,8 @@ struct SharedWordDetailsView: View {
                 }
             )
         }
+        .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
+        .withPaywall()
         .onAppear {
             // Check if image exists and set state with fallback
             if let imageLocalPath = word.imageLocalPath {
@@ -337,7 +345,7 @@ struct SharedWordDetailsView: View {
             .padding(.vertical, 20)
         } trailingContent: {
             HeaderButton("Add Image", icon: "plus", size: .small) {
-                showingImageSelection = true
+                showingImageOnboarding = true
             }
         }
     }
@@ -614,6 +622,18 @@ struct SharedWordDetailsView: View {
             .padding(.bottom, 12)
         }
     }
+    
+    private var removeImageButton: some View {
+        Button {
+            removeImage()
+        } label: {
+            Text("Remove Image")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.top, 8)
+    }
 
     @ViewBuilder
     private var likeAndDifficultyControls: some View {
@@ -731,6 +751,43 @@ struct SharedWordDetailsView: View {
             HapticManager.shared.triggerNotification(type: .success)
         } catch {
             errorReceived(title: Loc.Errors.updateFailed, error)
+        }
+    }
+    
+    private func removeImage() {
+        // Delete the image file from documents directory
+        if let imageLocalPath = word.imageLocalPath {
+            try? PexelsService.shared.deleteImage(at: imageLocalPath)
+        }
+        
+        // Create updated word without image data
+        var updatedWord = word
+        updatedWord.imageUrl = nil
+        updatedWord.imageLocalPath = nil
+        
+        // Clear the image state
+        image = nil
+        
+        // Save changes to Firebase
+        Task {
+            await saveWordToFirebase(updatedWord)
+        }
+    }
+    
+    private func handleOnboardingCompletion() {
+        // Check if user is premium
+        if SubscriptionService.shared.isProUser {
+            // User is premium, allow image selection
+            showingImageSelection = true
+        } else {
+            // User is not premium, show paywall
+            PaywallService.shared.presentPaywall(for: .images) { didSubscribe in
+                if didSubscribe {
+                    // User subscribed, allow image selection
+                    showingImageSelection = true
+                }
+                // If user didn't subscribe, do nothing (stay on word details)
+            }
         }
     }
 

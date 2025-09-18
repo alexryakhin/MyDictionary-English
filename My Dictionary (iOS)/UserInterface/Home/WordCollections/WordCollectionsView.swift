@@ -15,6 +15,7 @@ struct WordCollectionsView: View {
     @State private var selectedLanguage: String = "all"
     @State private var selectedLevel: WordLevel?
     @State private var searchText = ""
+    @State private var showingPaywall = false
     
     // MARK: - Body
     
@@ -60,6 +61,7 @@ struct WordCollectionsView: View {
         .onChange(of: searchText) {
             // Filter collections based on search text
         }
+        .withPaywall()
     }
     
     // MARK: - Loading View
