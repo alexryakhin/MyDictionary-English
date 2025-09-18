@@ -98,6 +98,8 @@ struct WordCollectionsView: View {
                     let languageCollections = filteredCollections(for: languageCode)
                     if !languageCollections.isEmpty {
                         languageSection(languageCode: languageCode, collections: languageCollections)
+                    } else {
+                        emptyStateView
                     }
                 }
             } else {
@@ -105,6 +107,8 @@ struct WordCollectionsView: View {
                 let selectedLanguageCollections = filteredCollections(for: selectedLanguage)
                 if !selectedLanguageCollections.isEmpty {
                     selectedLanguageSection(collections: selectedLanguageCollections)
+                } else {
+                    emptyStateView
                 }
             }
         }
@@ -116,7 +120,7 @@ struct WordCollectionsView: View {
         ContentUnavailableView(
             "No Collections Available",
             systemImage: "book.closed",
-            description: Text("Word collections will appear here when they become available.")
+            description: Text("Try changing filters or using a different search term.")
         )
         .padding(.vertical, 60)
     }
@@ -125,7 +129,7 @@ struct WordCollectionsView: View {
     
     private var filtersView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 12) {
+            HStack(spacing: 8) {
                 // Language picker
                 HeaderButtonMenu("Language", icon: "chevron.down", size: .small) {
                     Picker("Language", selection: $selectedLanguage) {

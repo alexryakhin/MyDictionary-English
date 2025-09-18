@@ -107,6 +107,7 @@ enum AnalyticsEvent: String {
     case fillInTheBlankQuizRestarted
     
     // Rating Banner Events
+    case ratingRequested
     case ratingBannerTapped
     case ratingBannerDismissed
     

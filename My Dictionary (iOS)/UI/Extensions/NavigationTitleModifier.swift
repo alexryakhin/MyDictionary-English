@@ -60,7 +60,8 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
                 .glassBackgroundEffectIfAvailable(.regular, in: RoundedRectangle(cornerRadius: 32))
                 .if(isGlassAvailable == false) {
                     $0
-                        .clippedWithBackgroundMaterial(.ultraThinMaterial, cornerRadius: 32, showShadow: true)
+                        .clippedWithBackgroundMaterial(.ultraThinMaterial, cornerRadius: 32)
+                        .shadow(radius: 2)
                 }
                 .padding(vertical: vPadding, horizontal: hPadding)
             }

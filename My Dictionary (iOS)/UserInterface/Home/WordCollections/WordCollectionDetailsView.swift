@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct WordCollectionDetailsView: View {
     
     // MARK: - Properties
     
-    let collection: WordCollection
+    let originalCollection: WordCollection
+    @StateObject private var viewModel: WordCollectionDetailsViewModel
     @State private var searchText = ""
     @State private var selectedWord: WordCollectionItem?
     @State private var showAddToDictionary = false
@@ -19,6 +21,26 @@ struct WordCollectionDetailsView: View {
     @State private var addedWordsCount = 0
     @State private var duplicateWordsCount = 0
     @State private var isAddingAll = false
+    
+    // MARK: - StoreKit
+    @Environment(\.requestReview) var requestReview
+    
+    // MARK: - Rating Request Properties
+    @AppStorage(UDKeys.hasRatedApp)
+    private var hasRatedApp: Bool = false
+    
+    @AppStorage(UDKeys.lastRatingRequestDate)
+    private var lastRatingRequestDate: TimeInterval = .zero
+    
+    @AppStorage(UDKeys.ratingRequestCount)
+    private var ratingRequestCount: Int = 0
+    
+    // MARK: - Initialization
+    
+    init(collection: WordCollection) {
+        self.originalCollection = collection
+        self._viewModel = StateObject(wrappedValue: WordCollectionDetailsViewModel(collection: collection))
+    }
     
     // MARK: - Body
     
@@ -39,7 +61,7 @@ struct WordCollectionDetailsView: View {
         }
         .groupedBackground()
         .navigation(
-            title: collection.title,
+            title: viewModel.collection.title,
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
@@ -60,13 +82,16 @@ struct WordCollectionDetailsView: View {
             }
         )
         .sheet(isPresented: $showAddToDictionary) {
-            AddCollectionToDictionaryView(collection: collection)
+            AddCollectionToDictionaryView(collection: viewModel.collection)
         }
         .sheet(item: $selectedWord) { word in
-            WordCollectionItemDetailsView(word: word, collection: collection)
+            WordCollectionItemDetailsView(word: word, collection: viewModel.collection)
         }
         .alert("Import Complete", isPresented: $showSuccessAlert) {
-            Button("OK") { }
+            Button("OK") {
+                // Request review after successful import
+                requestReviewIfAppropriate()
+            }
         } message: {
             if duplicateWordsCount > 0 {
                 Text("Successfully added \(addedWordsCount) words to your dictionary. \(duplicateWordsCount) words were already in your dictionary and were skipped.")
@@ -79,24 +104,24 @@ struct WordCollectionDetailsView: View {
     // MARK: - Collection Header
     
     private var collectionHeader: some View {
-        CustomSectionView(header: collection.title) {
+        CustomSectionView(header: viewModel.collection.title) {
             VStack(alignment: .leading, spacing: 16) {
                 // Collection info
                 VStack(alignment: .leading, spacing: 8) {
-                    if let description = collection.description {
+                    if let description = viewModel.collection.description {
                         Text(description)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
                     HStack {
                         TagView(
-                            text: collection.wordCountText,
+                            text: viewModel.collection.wordCountText,
                             color: .blue,
                             size: .small
                         )
                         TagView(
-                            text: collection.level.displayName,
-                            color: collection.level.color,
+                            text: viewModel.collection.level.displayName,
+                            color: viewModel.collection.level.color,
                             size: .small
                         )
 
@@ -112,9 +137,20 @@ struct WordCollectionDetailsView: View {
                 ) {
                     showAddToDictionary = true
                 }
+                
+                // Translation button (only show if locale is not English)
+                if !GlobalConstant.isEnglishLanguage {
+                    AsyncActionButton(
+                        "Translate Definitions",
+                        systemImage: "globe",
+                        style: .bordered
+                    ) {
+                        await viewModel.translateDefinitions()
+                    }
+                }
             }
         } trailingContent: {
-            if collection.isPremium {
+            if viewModel.collection.isPremium {
                 Image(systemName: "crown.fill")
                     .foregroundColor(.yellow)
             }
@@ -154,7 +190,7 @@ struct WordCollectionDetailsView: View {
         
         Task {
             do {
-                let result = try await WordCollectionImportService.shared.importAllWords(from: collection)
+                let result = try await WordCollectionImportService.shared.importAllWords(from: viewModel.collection)
                 
                 await MainActor.run {
                     addedWordsCount = result.addedCount
@@ -176,14 +212,45 @@ struct WordCollectionDetailsView: View {
     
     private var filteredWords: [WordCollectionItem] {
         if searchText.isEmpty {
-            return collection.words
+            return viewModel.collection.words
         } else {
-            return collection.words.filter { word in
+            return viewModel.collection.words.filter { word in
                 word.text.localizedCaseInsensitiveContains(searchText) ||
                 word.definition.localizedCaseInsensitiveContains(searchText) ||
                 word.examples.contains { $0.localizedCaseInsensitiveContains(searchText) }
             }
         }
+    }
+    
+    // MARK: - Review Request Logic
+    
+    private func requestReviewIfAppropriate() {
+        // Don't request if user has already rated
+        guard !hasRatedApp else { return }
+        
+        // Don't request too frequently (at least 7 days between requests)
+        let daysSinceLastRequest = Calendar.current.dateComponents(
+            [.day],
+            from: Date(timeIntervalSince1970: lastRatingRequestDate),
+            to: .now
+        ).day ?? 0
+        guard daysSinceLastRequest >= 7 else { return }
+        
+        // Don't request too many times (max 3 times)
+        guard ratingRequestCount < 3 else { return }
+        
+        // Only request if we successfully added words (not just duplicates)
+        guard addedWordsCount > 0 else { return }
+        
+        // Request the review
+        requestReview()
+        
+        // Update tracking variables
+        lastRatingRequestDate = Date.now.timeIntervalSince1970
+        ratingRequestCount += 1
+        
+        // Log analytics event
+        AnalyticsService.shared.logEvent(.ratingRequested)
     }
 }
 

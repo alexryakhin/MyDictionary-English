@@ -628,7 +628,7 @@
                     "text": "hablar",
                     "phonetics": "/ablar/",
                     "partOfSpeech": "verb",
-                    "definition": "To speak or talk - using your voice to communicate",
+                    "definition": "Using your voice to communicate",
                     "examples": [
                         "Hablo español muy bien.",
                         "Necesito hablar contigo."
@@ -639,7 +639,7 @@
                     "text": "comer",
                     "phonetics": "/komer/",
                     "partOfSpeech": "verb",
-                    "definition": "To eat - putting food in your mouth and swallowing it",
+                    "definition": "Putting food in your mouth and swallowing it",
                     "examples": [
                         "Como frutas todos los días.",
                         "¿Quieres comer conmigo?"
@@ -650,7 +650,7 @@
                     "text": "beber",
                     "phonetics": "/beber/",
                     "partOfSpeech": "verb",
-                    "definition": "To drink - taking liquid into your mouth and swallowing it",
+                    "definition": "Taking liquid into your mouth and swallowing it",
                     "examples": [
                         "Bebo agua cuando tengo sed.",
                         "Me gusta beber café por la mañana."
@@ -661,7 +661,7 @@
                     "text": "dormir",
                     "phonetics": "/dormir/",
                     "partOfSpeech": "verb",
-                    "definition": "To sleep - resting with your eyes closed at night",
+                    "definition": "Resting with your eyes closed at night",
                     "examples": [
                         "Duermo ocho horas cada noche.",
                         "Los bebés duermen mucho."
@@ -672,7 +672,7 @@
                     "text": "trabajar",
                     "phonetics": "/trabaxar/",
                     "partOfSpeech": "verb",
-                    "definition": "To work - doing a job or activity to earn money",
+                    "definition": "Doing a job or activity to earn money",
                     "examples": [
                         "Trabajo en una oficina.",
                         "Mi padre trabaja mucho."
@@ -683,7 +683,7 @@
                     "text": "estudiar",
                     "phonetics": "/estudjar/",
                     "partOfSpeech": "verb",
-                    "definition": "To study - learning by reading, practicing, or memorizing",
+                    "definition": "Learning by reading, practicing, or memorizing",
                     "examples": [
                         "Estudio español en la universidad.",
                         "Los estudiantes estudian para los exámenes."
@@ -694,7 +694,7 @@
                     "text": "leer",
                     "phonetics": "/leer/",
                     "partOfSpeech": "verb",
-                    "definition": "To read - looking at words and understanding their meaning",
+                    "definition": "Looking at words and understanding their meaning",
                     "examples": [
                         "Leo un libro cada mes.",
                         "Los niños aprenden a leer en la escuela."
@@ -705,7 +705,7 @@
                     "text": "escribir",
                     "phonetics": "/eskribir/",
                     "partOfSpeech": "verb",
-                    "definition": "To write - making letters and words with a pen or keyboard",
+                    "definition": "Making letters and words with a pen or keyboard",
                     "examples": [
                         "Escribo cartas a mi familia.",
                         "Los periodistas escriben noticias."
@@ -716,7 +716,7 @@
                     "text": "caminar",
                     "phonetics": "/kaminar/",
                     "partOfSpeech": "verb",
-                    "definition": "To walk - moving on foot, one step after another",
+                    "definition": "Moving on foot, one step after another",
                     "examples": [
                         "Camino al trabajo todos los días.",
                         "Nos gusta caminar por el parque."
@@ -727,7 +727,7 @@
                     "text": "correr",
                     "phonetics": "/korer/",
                     "partOfSpeech": "verb",
-                    "definition": "To run - moving quickly on foot, faster than walking",
+                    "definition": "Moving quickly on foot, faster than walking",
                     "examples": [
                         "Corro en el gimnasio tres veces por semana.",
                         "Los atletas corren muy rápido."
@@ -738,7 +738,7 @@
                     "text": "conducir",
                     "phonetics": "/konduθir/",
                     "partOfSpeech": "verb",
-                    "definition": "To drive - controlling a car or vehicle to move from place to place",
+                    "definition": "Controlling a car or vehicle to move from place to place",
                     "examples": [
                         "Conduzco al trabajo cada día.",
                         "Mi hermana conduce muy bien."
@@ -749,7 +749,7 @@
                     "text": "comprar",
                     "phonetics": "/komprar/",
                     "partOfSpeech": "verb",
-                    "definition": "To buy - getting something by paying money for it",
+                    "definition": "Getting something by paying money for it",
                     "examples": [
                         "Compro comida en el supermercado.",
                         "Quiero comprar un coche nuevo."
@@ -760,7 +760,7 @@
                     "text": "vender",
                     "phonetics": "/bender/",
                     "partOfSpeech": "verb",
-                    "definition": "To sell - giving something to someone in exchange for money",
+                    "definition": "Giving something to someone in exchange for money",
                     "examples": [
                         "Vendo mi coche viejo.",
                         "La tienda vende ropa."
@@ -771,7 +771,7 @@
                     "text": "cocinar",
                     "phonetics": "/koθinar/",
                     "partOfSpeech": "verb",
-                    "definition": "To cook - preparing food by heating it or mixing ingredients",
+                    "definition": "Preparing food by heating it or mixing ingredients",
                     "examples": [
                         "Cocino la cena para mi familia.",
                         "Me gusta cocinar platos italianos."
@@ -782,7 +782,7 @@
                     "text": "limpiar",
                     "phonetics": "/limpjar/",
                     "partOfSpeech": "verb",
-                    "definition": "To clean - making something free from dirt or mess",
+                    "definition": "making something free from dirt or mess",
                     "examples": [
                         "Limpio mi habitación los sábados.",
                         "La señora limpia la casa todos los días."
@@ -793,7 +793,7 @@
                     "text": "lavar",
                     "phonetics": "/labar/",
                     "partOfSpeech": "verb",
-                    "definition": "To wash - cleaning something with water and soap",
+                    "definition": "cleaning something with water and soap",
                     "examples": [
                         "Lavo los platos después de comer.",
                         "Me lavo las manos antes de comer."
@@ -804,7 +804,7 @@
                     "text": "vestir",
                     "phonetics": "/bestir/",
                     "partOfSpeech": "verb",
-                    "definition": "To dress - putting on clothes to cover your body",
+                    "definition": "putting on clothes to cover your body",
                     "examples": [
                         "Me visto rápido por la mañana.",
                         "Los niños se visten solos."
@@ -815,7 +815,7 @@
                     "text": "despertar",
                     "phonetics": "/despertar/",
                     "partOfSpeech": "verb",
-                    "definition": "To wake up - stopping sleeping and becoming conscious",
+                    "definition": "stopping sleeping and becoming conscious",
                     "examples": [
                         "Me despierto a las siete de la mañana.",
                         "El ruido me despertó."
@@ -826,7 +826,7 @@
                     "text": "levantar",
                     "phonetics": "/levantar/",
                     "partOfSpeech": "verb",
-                    "definition": "To lift or get up - moving something or yourself upward",
+                    "definition": "moving something or yourself upward",
                     "examples": [
                         "Levanto pesas en el gimnasio.",
                         "Me levanto de la cama temprano."
@@ -837,7 +837,7 @@
                     "text": "sentar",
                     "phonetics": "/sentar/",
                     "partOfSpeech": "verb",
-                    "definition": "To sit - placing your body on a chair or surface",
+                    "definition": "placing your body on a chair or surface",
                     "examples": [
                         "Me siento en la silla.",
                         "Los estudiantes se sientan en el aula."
@@ -848,7 +848,7 @@
                     "text": "parar",
                     "phonetics": "/parar/",
                     "partOfSpeech": "verb",
-                    "definition": "To stop - ending movement or activity",
+                    "definition": "ending movement or activity",
                     "examples": [
                         "Paro el coche en el semáforo.",
                         "No puedo parar de reír."
@@ -859,7 +859,7 @@
                     "text": "empezar",
                     "phonetics": "/empeθar/",
                     "partOfSpeech": "verb",
-                    "definition": "To start or begin - beginning an action or activity",
+                    "definition": "beginning an action or activity",
                     "examples": [
                         "Empiezo a trabajar a las nueve.",
                         "La película empieza a las ocho."
@@ -870,7 +870,7 @@
                     "text": "terminar",
                     "phonetics": "/terminar/",
                     "partOfSpeech": "verb",
-                    "definition": "To finish or end - completing something or reaching the end",
+                    "definition": "completing something or reaching the end",
                     "examples": [
                         "Termino el trabajo a las cinco.",
                         "La clase termina a las tres."
@@ -881,7 +881,7 @@
                     "text": "ayudar",
                     "phonetics": "/ajudar/",
                     "partOfSpeech": "verb",
-                    "definition": "To help - giving assistance or support to someone",
+                    "definition": "giving assistance or support to someone",
                     "examples": [
                         "Ayudo a mi madre en la cocina.",
                         "¿Puedes ayudarme con esto?"
@@ -892,7 +892,7 @@
                     "text": "necesitar",
                     "phonetics": "/neθesitar/",
                     "partOfSpeech": "verb",
-                    "definition": "To need - requiring something because it's necessary",
+                    "definition": "requiring something because it's necessary",
                     "examples": [
                         "Necesito dinero para comprar comida.",
                         "Los niños necesitan dormir mucho."
@@ -903,7 +903,7 @@
                     "text": "querer",
                     "phonetics": "/kerer/",
                     "partOfSpeech": "verb",
-                    "definition": "To want or love - desiring something or having affection",
+                    "definition": "desiring something or having affection",
                     "examples": [
                         "Quiero un helado.",
                         "Quiero mucho a mi familia."
@@ -914,7 +914,7 @@
                     "text": "gustar",
                     "phonetics": "/gustar/",
                     "partOfSpeech": "verb",
-                    "definition": "To like - finding something pleasant or enjoyable",
+                    "definition": "finding something pleasant or enjoyable",
                     "examples": [
                         "Me gusta la música clásica.",
                         "¿Te gusta el café?"
@@ -925,7 +925,7 @@
                     "text": "ver",
                     "phonetics": "/ber/",
                     "partOfSpeech": "verb",
-                    "definition": "To see - using your eyes to notice or observe something",
+                    "definition": "using your eyes to notice or observe something",
                     "examples": [
                         "Veo una película en el cine.",
                         "No puedo ver bien sin gafas."
@@ -936,7 +936,7 @@
                     "text": "oír",
                     "phonetics": "/oir/",
                     "partOfSpeech": "verb",
-                    "definition": "To hear - using your ears to receive sound",
+                    "definition": "using your ears to receive sound",
                     "examples": [
                         "Oigo música en la radio.",
                         "No puedo oír bien."
@@ -947,7 +947,7 @@
                     "text": "tocar",
                     "phonetics": "/tokar/",
                     "partOfSpeech": "verb",
-                    "definition": "To touch or play - making contact with something or playing an instrument",
+                    "definition": "making contact with something or playing an instrument",
                     "examples": [
                         "Toco la guitarra muy bien.",
                         "No toques el fuego."
@@ -958,7 +958,7 @@
                     "text": "oler",
                     "phonetics": "/oler/",
                     "partOfSpeech": "verb",
-                    "definition": "To smell - using your nose to detect odors",
+                    "definition": "using your nose to detect odors",
                     "examples": [
                         "Huelo flores en el jardín.",
                         "Esta comida huele muy bien."
@@ -969,7 +969,7 @@
                     "text": "saber",
                     "phonetics": "/saber/",
                     "partOfSpeech": "verb",
-                    "definition": "To know - having information or knowledge about something",
+                    "definition": "having information or knowledge about something",
                     "examples": [
                         "Sé la respuesta a la pregunta.",
                         "¿Sabes dónde vive María?"
@@ -980,7 +980,7 @@
                     "text": "conocer",
                     "phonetics": "/konoθer/",
                     "partOfSpeech": "verb",
-                    "definition": "To know or meet - being familiar with someone or something",
+                    "definition": "being familiar with someone or something",
                     "examples": [
                         "Conozco a tu hermana.",
                         "Conozco muy bien esta ciudad."
@@ -991,7 +991,7 @@
                     "text": "entender",
                     "phonetics": "/entender/",
                     "partOfSpeech": "verb",
-                    "definition": "To understand - comprehending the meaning of something",
+                    "definition": "comprehending the meaning of something",
                     "examples": [
                         "Entiendo lo que dices.",
                         "No entiendo esta lección."
@@ -1002,7 +1002,7 @@
                     "text": "aprender",
                     "phonetics": "/aprender/",
                     "partOfSpeech": "verb",
-                    "definition": "To learn - gaining knowledge or skill through study or experience",
+                    "definition": "gaining knowledge or skill through study or experience",
                     "examples": [
                         "Aprendo español en la escuela.",
                         "Los niños aprenden rápido."
@@ -1013,7 +1013,7 @@
                     "text": "enseñar",
                     "phonetics": "/enseɲar/",
                     "partOfSpeech": "verb",
-                    "definition": "To teach - helping someone learn by giving knowledge or skills",
+                    "definition": "helping someone learn by giving knowledge or skills",
                     "examples": [
                         "Enseño matemáticas en la universidad.",
                         "Mi padre me enseña a conducir."
@@ -1024,7 +1024,7 @@
                     "text": "jugar",
                     "phonetics": "/xugar/",
                     "partOfSpeech": "verb",
-                    "definition": "To play - engaging in games or activities for fun",
+                    "definition": "engaging in games or activities for fun",
                     "examples": [
                         "Juego fútbol con mis amigos.",
                         "Los niños juegan en el parque."
@@ -1035,7 +1035,7 @@
                     "text": "cantar",
                     "phonetics": "/kantar/",
                     "partOfSpeech": "verb",
-                    "definition": "To sing - making musical sounds with your voice",
+                    "definition": "making musical sounds with your voice",
                     "examples": [
                         "Canto en el coro de la iglesia.",
                         "Me gusta cantar en la ducha."
@@ -1046,7 +1046,7 @@
                     "text": "bailar",
                     "phonetics": "/bajlar/",
                     "partOfSpeech": "verb",
-                    "definition": "To dance - moving your body rhythmically to music",
+                    "definition": "moving your body rhythmically to music",
                     "examples": [
                         "Bailo salsa los viernes.",
                         "¿Quieres bailar conmigo?"
@@ -1057,7 +1057,7 @@
                     "text": "viajar",
                     "phonetics": "/bjaχar/",
                     "partOfSpeech": "verb",
-                    "definition": "To travel - going from one place to another, usually far away",
+                    "definition": "going from one place to another, usually far away",
                     "examples": [
                         "Viajo a España cada verano.",
                         "Me gusta viajar por el mundo."
@@ -1068,7 +1068,7 @@
                     "text": "visitar",
                     "phonetics": "/bisitar/",
                     "partOfSpeech": "verb",
-                    "definition": "To visit - going to see someone or someplace",
+                    "definition": "going to see someone or someplace",
                     "examples": [
                         "Visito a mis abuelos los domingos.",
                         "Quiero visitar el museo."
@@ -1079,7 +1079,7 @@
                     "text": "llamar",
                     "phonetics": "/ʝamar/",
                     "partOfSpeech": "verb",
-                    "definition": "To call - using a phone to contact someone or getting someone's attention",
+                    "definition": "using a phone to contact someone or getting someone's attention",
                     "examples": [
                         "Llamo a mi madre por teléfono.",
                         "Me llaman por mi nombre."
@@ -1090,7 +1090,7 @@
                     "text": "esperar",
                     "phonetics": "/esperar/",
                     "partOfSpeech": "verb",
-                    "definition": "To wait or hope - staying in a place until something happens or wishing for something",
+                    "definition": "staying in a place until something happens or wishing for something",
                     "examples": [
                         "Espero el autobús en la parada.",
                         "Espero que llueva mañana."
@@ -1101,7 +1101,7 @@
                     "text": "buscar",
                     "phonetics": "/buskar/",
                     "partOfSpeech": "verb",
-                    "definition": "To look for or search - trying to find something",
+                    "definition": "trying to find something",
                     "examples": [
                         "Busco mis llaves por toda la casa.",
                         "Busco trabajo en el periódico."
@@ -1112,7 +1112,7 @@
                     "text": "encontrar",
                     "phonetics": "/enkontrar/",
                     "partOfSpeech": "verb",
-                    "definition": "To find - discovering something you were looking for",
+                    "definition": "discovering something you were looking for",
                     "examples": [
                         "Encuentro mi libro en la biblioteca.",
                         "No puedo encontrar mis gafas."
@@ -1123,7 +1123,7 @@
                     "text": "perder",
                     "phonetics": "/perder/",
                     "partOfSpeech": "verb",
-                    "definition": "To lose - no longer having something you had before",
+                    "definition": "no longer having something you had before",
                     "examples": [
                         "Pierdo mi dinero en el casino.",
                         "No quiero perder a mi mejor amigo."
@@ -1134,7 +1134,7 @@
                     "text": "ganar",
                     "phonetics": "/ganar/",
                     "partOfSpeech": "verb",
-                    "definition": "To win or earn - being successful in a competition or getting money from work",
+                    "definition": "being successful in a competition or getting money from work",
                     "examples": [
                         "Gano el partido de fútbol.",
                         "Gano dinero trabajando."
@@ -2315,7 +2315,7 @@
                     "text": "costar un ojo de la cara",
                     "phonetics": "/kostar un oxo ðe la kara/",
                     "partOfSpeech": "idiom",
-                    "definition": "To cost an arm and a leg - something is very expensive",
+                    "definition": "Something is very expensive",
                     "examples": [
                         "Este coche cuesta un ojo de la cara.",
                         "Las vacaciones costaron un ojo de la cara."
@@ -2326,7 +2326,7 @@
                     "text": "estar en las nubes",
                     "phonetics": "/estar en las nubes/",
                     "partOfSpeech": "idiom",
-                    "definition": "To be in the clouds - to be daydreaming or not paying attention",
+                    "definition": "To be daydreaming or not paying attention",
                     "examples": [
                         "No escuché nada, estaba en las nubes.",
                         "Siempre está en las nubes en clase."
@@ -2337,7 +2337,7 @@
                     "text": "ser pan comido",
                     "phonetics": "/ser pan komiðo/",
                     "partOfSpeech": "idiom",
-                    "definition": "To be a piece of cake - something is very easy",
+                    "definition": "Something is very easy",
                     "examples": [
                         "Este examen es pan comido.",
                         "Para él, las matemáticas son pan comido."
@@ -2348,7 +2348,7 @@
                     "text": "llover a cántaros",
                     "phonetics": "/ʎoβer a kantaros/",
                     "partOfSpeech": "idiom",
-                    "definition": "To rain cats and dogs - it's raining very heavily",
+                    "definition": "It's raining very heavily",
                     "examples": [
                         "Ayer llovió a cántaros.",
                         "No salgas, está lloviendo a cántaros."
@@ -2370,7 +2370,7 @@
                     "text": "tirar la casa por la ventana",
                     "phonetics": "/tirar la kasa por la βentana/",
                     "partOfSpeech": "idiom",
-                    "definition": "To spare no expense - to spend a lot of money on something",
+                    "definition": "To spend a lot of money on something",
                     "examples": [
                         "En la boda tiraron la casa por la ventana.",
                         "Para su cumpleaños tiró la casa por la ventana."
@@ -2381,7 +2381,7 @@
                     "text": "estar en el séptimo cielo",
                     "phonetics": "/estar en el septimo θjelo/",
                     "partOfSpeech": "idiom",
-                    "definition": "To be on cloud nine - to be extremely happy",
+                    "definition": "To be extremely happy",
                     "examples": [
                         "Está en el séptimo cielo con su nuevo trabajo.",
                         "Cuando ganó el premio, estaba en el séptimo cielo."
@@ -2392,7 +2392,7 @@
                     "text": "no tener pelos en la lengua",
                     "phonetics": "/no tener pelos en la leŋgwa/",
                     "partOfSpeech": "idiom",
-                    "definition": "To not mince words - to speak directly and honestly",
+                    "definition": "To speak directly and honestly",
                     "examples": [
                         "Mi abuela no tiene pelos en la lengua.",
                         "Le dije la verdad, no tengo pelos en la lengua."
@@ -2403,7 +2403,7 @@
                     "text": "estar hasta las narices",
                     "phonetics": "/estar asta las narices/",
                     "partOfSpeech": "idiom",
-                    "definition": "To be fed up - to be very annoyed or tired of something",
+                    "definition": "to be very annoyed or tired of something",
                     "examples": [
                         "Estoy hasta las narices de este trabajo.",
                         "Está hasta las narices de que le digan qué hacer."
@@ -2414,7 +2414,7 @@
                     "text": "ser más viejo que Matusalén",
                     "phonetics": "/ser mas bjexo ke matusalen/",
                     "partOfSpeech": "idiom",
-                    "definition": "To be as old as Methuselah - to be very old",
+                    "definition": "to be very old",
                     "examples": [
                         "Mi abuelo es más viejo que Matusalén.",
                         "Ese coche es más viejo que Matusalén."
@@ -2425,7 +2425,7 @@
                     "text": "estar en el quinto pino",
                     "phonetics": "/estar en el kinto pino/",
                     "partOfSpeech": "idiom",
-                    "definition": "To be in the middle of nowhere - to be very far away",
+                    "definition": "To be very far away",
                     "examples": [
                         "Su casa está en el quinto pino.",
                         "El restaurante está en el quinto pino."
@@ -2436,7 +2436,7 @@
                     "text": "ser uña y carne",
                     "phonetics": "/ser uɲa i karne/",
                     "partOfSpeech": "idiom",
-                    "definition": "To be thick as thieves - to be very close friends",
+                    "definition": "To be very close friends",
                     "examples": [
                         "Ellos son uña y carne desde niños.",
                         "Mi hermana y yo somos uña y carne."
@@ -2447,7 +2447,7 @@
                     "text": "estar como pez en el agua",
                     "phonetics": "/estar komo peθ en el aɣwa/",
                     "partOfSpeech": "idiom",
-                    "definition": "To be like a fish in water - to feel very comfortable in a situation",
+                    "definition": "To feel very comfortable in a situation",
                     "examples": [
                         "En la playa está como pez en el agua.",
                         "En su trabajo está como pez en el agua."
@@ -2458,7 +2458,7 @@
                     "text": "no hay moros en la costa",
                     "phonetics": "/no aj moros en la kosta/",
                     "partOfSpeech": "idiom",
-                    "definition": "The coast is clear - there's no danger or obstacles",
+                    "definition": "There's no danger or obstacles",
                     "examples": [
                         "No hay moros en la costa, podemos salir.",
                         "Espera hasta que no haya moros en la costa."
@@ -2469,7 +2469,7 @@
                     "text": "estar en la luna de Valencia",
                     "phonetics": "/estar en la luna ðe βalenθja/",
                     "partOfSpeech": "idiom",
-                    "definition": "To be in a dream world - to be unrealistic or not paying attention",
+                    "definition": "To be unrealistic or not paying attention",
                     "examples": [
                         "Siempre está en la luna de Valencia.",
                         "No le hables, está en la luna de Valencia."
@@ -2491,7 +2491,7 @@
                     "text": "estar hecho un ají",
                     "phonetics": "/estar etʃo un axi/",
                     "partOfSpeech": "idiom",
-                    "definition": "To be very angry - to be red with anger",
+                    "definition": "To be red with anger",
                     "examples": [
                         "Cuando se enteró, estaba hecho un ají.",
                         "No le hables, está hecho un ají."
@@ -2524,7 +2524,7 @@
                     "text": "no dar pie con bola",
                     "phonetics": "/no ðar pje kon βola/",
                     "partOfSpeech": "idiom",
-                    "definition": "To not get anything right - to be unsuccessful at everything",
+                    "definition": "To be unsuccessful at everything",
                     "examples": [
                         "Hoy no doy pie con bola.",
                         "En el trabajo no doy pie con bola."
@@ -2549,7 +2549,7 @@
                     "text": "empresa",
                     "phonetics": "/empresa/",
                     "partOfSpeech": "noun",
-                    "definition": "Company or business - an organization that provides goods or services",
+                    "definition": "An organization that provides goods or services",
                     "examples": [
                         "Trabajo en una empresa multinacional.",
                         "La empresa tiene más de 500 empleados."
@@ -2560,7 +2560,7 @@
                     "text": "empleado",
                     "phonetics": "/empleaðo/",
                     "partOfSpeech": "noun",
-                    "definition": "Employee - a person who works for a company",
+                    "definition": "A person who works for a company",
                     "examples": [
                         "Soy empleado de una empresa de tecnología.",
                         "Los empleados están muy contentos con el nuevo jefe."
@@ -2571,7 +2571,7 @@
                     "text": "jefe",
                     "phonetics": "/xefe/",
                     "partOfSpeech": "noun",
-                    "definition": "Boss or manager - a person in charge of others at work",
+                    "definition": "A person in charge of others at work",
                     "examples": [
                         "Mi jefe es muy exigente pero justo.",
                         "El jefe de departamento está en una reunión."
@@ -2582,7 +2582,7 @@
                     "text": "reunión",
                     "phonetics": "/reunjon/",
                     "partOfSpeech": "noun",
-                    "definition": "Meeting - a gathering of people to discuss business matters",
+                    "definition": "A gathering of people to discuss business matters",
                     "examples": [
                         "Tenemos una reunión importante mañana.",
                         "La reunión duró más de dos horas."
@@ -2593,7 +2593,7 @@
                     "text": "proyecto",
                     "phonetics": "/proxekto/",
                     "partOfSpeech": "noun",
-                    "definition": "Project - a planned piece of work with specific goals",
+                    "definition": "A planned piece of work with specific goals",
                     "examples": [
                         "Estoy trabajando en un proyecto muy interesante.",
                         "El proyecto debe estar terminado en un mes."
@@ -2604,7 +2604,7 @@
                     "text": "presupuesto",
                     "phonetics": "/presupwesto/",
                     "partOfSpeech": "noun",
-                    "definition": "Budget - a plan for spending money",
+                    "definition": "A plan for spending money",
                     "examples": [
                         "El presupuesto para este año es muy ajustado.",
                         "Necesitamos aprobar el presupuesto del proyecto."
@@ -2615,7 +2615,7 @@
                     "text": "contrato",
                     "phonetics": "/kontrato/",
                     "partOfSpeech": "noun",
-                    "definition": "Contract - a legal agreement between parties",
+                    "definition": "A legal agreement between parties",
                     "examples": [
                         "Firmé un contrato de trabajo por dos años.",
                         "El contrato expira el próximo mes."
@@ -2659,7 +2659,7 @@
                     "text": "despedir",
                     "phonetics": "/despedir/",
                     "partOfSpeech": "verb",
-                    "definition": "To fire or dismiss - to end someone's employment",
+                    "definition": "To end someone's employment",
                     "examples": [
                         "Despidieron a varios empleados.",
                         "No quieren despedir a nadie más."
@@ -2670,7 +2670,7 @@
                     "text": "contratar",
                     "phonetics": "/kontratar/",
                     "partOfSpeech": "verb",
-                    "definition": "To hire - to give someone a job",
+                    "definition": "To give someone a job",
                     "examples": [
                         "La empresa va a contratar nuevos empleados.",
                         "Contrataron a un nuevo gerente."
@@ -2681,7 +2681,7 @@
                     "text": "negociar",
                     "phonetics": "/neɣoθjar/",
                     "partOfSpeech": "verb",
-                    "definition": "To negotiate - to discuss to reach an agreement",
+                    "definition": "To discuss to reach an agreement",
                     "examples": [
                         "Necesitamos negociar el precio.",
                         "Negociaron durante horas."
@@ -2692,7 +2692,7 @@
                     "text": "invertir",
                     "phonetics": "/imβertir/",
                     "partOfSpeech": "verb",
-                    "definition": "To invest - to put money into something to make a profit",
+                    "definition": "To put money into something to make a profit",
                     "examples": [
                         "Voy a invertir en acciones.",
                         "La empresa invierte mucho en tecnología."
@@ -2703,7 +2703,7 @@
                     "text": "competir",
                     "phonetics": "/kompetir/",
                     "partOfSpeech": "verb",
-                    "definition": "To compete - to try to win against others",
+                    "definition": "To try to win against others",
                     "examples": [
                         "Nuestra empresa compite con las mejores.",
                         "Es difícil competir en este mercado."
@@ -2714,7 +2714,7 @@
                     "text": "desarrollar",
                     "phonetics": "/desaroʎar/",
                     "partOfSpeech": "verb",
-                    "definition": "To develop - to grow or improve something",
+                    "definition": "To grow or improve something",
                     "examples": [
                         "Estamos desarrollando un nuevo producto.",
                         "Necesito desarrollar mis habilidades."
@@ -2725,7 +2725,7 @@
                     "text": "organizar",
                     "phonetics": "/orɣanizar/",
                     "partOfSpeech": "verb",
-                    "definition": "To organize - to arrange things in order",
+                    "definition": "To arrange things in order",
                     "examples": [
                         "Voy a organizar la reunión.",
                         "Necesito organizar mejor mi tiempo."
@@ -2736,7 +2736,7 @@
                     "text": "supervisar",
                     "phonetics": "/superβisar/",
                     "partOfSpeech": "verb",
-                    "definition": "To supervise - to watch and direct work",
+                    "definition": "To watch and direct work",
                     "examples": [
                         "Mi trabajo es supervisar el proyecto.",
                         "Necesitamos supervisar la calidad."
@@ -2747,7 +2747,7 @@
                     "text": "entrevista",
                     "phonetics": "/entreβista/",
                     "partOfSpeech": "noun",
-                    "definition": "Interview - a formal meeting to assess a candidate",
+                    "definition": "A formal meeting to assess a candidate",
                     "examples": [
                         "Tengo una entrevista de trabajo mañana.",
                         "La entrevista fue muy difícil."
@@ -2849,7 +2849,7 @@
                     "text": "viajar",
                     "phonetics": "/bjaχar/",
                     "partOfSpeech": "verb",
-                    "definition": "To travel - to go from one place to another",
+                    "definition": "To go from one place to another",
                     "examples": [
                         "Me gusta viajar por el mundo.",
                         "Viajamos en avión a París."
@@ -2860,7 +2860,7 @@
                     "text": "turista",
                     "phonetics": "/turista/",
                     "partOfSpeech": "noun",
-                    "definition": "Tourist - a person who travels for pleasure",
+                    "definition": "A person who travels for pleasure",
                     "examples": [
                         "Soy turista en esta ciudad.",
                         "Los turistas visitan muchos museos."
@@ -2871,7 +2871,7 @@
                     "text": "destino",
                     "phonetics": "/destino/",
                     "partOfSpeech": "noun",
-                    "definition": "Destination - the place where someone is going",
+                    "definition": "The place where someone is going",
                     "examples": [
                         "Mi destino favorito es Italia.",
                         "¿Cuál es tu próximo destino?"
@@ -2882,7 +2882,7 @@
                     "text": "aeropuerto",
                     "phonetics": "/aeropwerto/",
                     "partOfSpeech": "noun",
-                    "definition": "Airport - a place where planes take off and land",
+                    "definition": "A place where planes take off and land",
                     "examples": [
                         "El aeropuerto está muy lejos.",
                         "Llegamos al aeropuerto temprano."
@@ -2893,7 +2893,7 @@
                     "text": "avión",
                     "phonetics": "/aβjon/",
                     "partOfSpeech": "noun",
-                    "definition": "Airplane - a vehicle that flies through the air",
+                    "definition": "A vehicle that flies through the air",
                     "examples": [
                         "El avión despegó a las 3 PM.",
                         "Prefiero viajar en avión."
@@ -2904,7 +2904,7 @@
                     "text": "tren",
                     "phonetics": "/tren/",
                     "partOfSpeech": "noun",
-                    "definition": "Train - a vehicle that runs on tracks",
+                    "definition": "A vehicle that runs on tracks",
                     "examples": [
                         "El tren es muy cómodo.",
                         "Tomamos el tren a Barcelona."
@@ -2915,7 +2915,7 @@
                     "text": "autobús",
                     "phonetics": "/awtoβus/",
                     "partOfSpeech": "noun",
-                    "definition": "Bus - a large vehicle that carries many passengers",
+                    "definition": "A large vehicle that carries many passengers",
                     "examples": [
                         "El autobús sale cada hora.",
                         "Vamos en autobús al centro."
@@ -2926,7 +2926,7 @@
                     "text": "taxi",
                     "phonetics": "/taksi/",
                     "partOfSpeech": "noun",
-                    "definition": "Taxi - a car that you pay to take you somewhere",
+                    "definition": "A car that you pay to take you somewhere",
                     "examples": [
                         "Llamé un taxi para ir al hotel.",
                         "El taxi es muy caro aquí."
@@ -2937,7 +2937,7 @@
                     "text": "hotel",
                     "phonetics": "/otel/",
                     "partOfSpeech": "noun",
-                    "definition": "Hotel - a place where travelers can stay overnight",
+                    "definition": "A place where travelers can stay overnight",
                     "examples": [
                         "El hotel tiene piscina.",
                         "Reservé una habitación en el hotel."
@@ -2948,7 +2948,7 @@
                     "text": "habitación",
                     "phonetics": "/aβitaθjon/",
                     "partOfSpeech": "noun",
-                    "definition": "Room - a space in a hotel where you sleep",
+                    "definition": "A room in a hotel where you sleep",
                     "examples": [
                         "La habitación es muy cómoda.",
                         "¿Tienen habitaciones disponibles?"
@@ -2959,7 +2959,7 @@
                     "text": "reservar",
                     "phonetics": "/reserβar/",
                     "partOfSpeech": "verb",
-                    "definition": "To book or reserve - to arrange to use something later",
+                    "definition": "To arrange to use something later",
                     "examples": [
                         "Necesito reservar una mesa.",
                         "Reservé el hotel por internet."
@@ -2970,7 +2970,7 @@
                     "text": "equipaje",
                     "phonetics": "/ekipaxe/",
                     "partOfSpeech": "noun",
-                    "definition": "Luggage - bags and suitcases for traveling",
+                    "definition": "Bags and suitcases for traveling",
                     "examples": [
                         "Mi equipaje está muy pesado.",
                         "¿Dónde está la sala de equipajes?"
@@ -2981,7 +2981,7 @@
                     "text": "pasaporte",
                     "phonetics": "/pasaporte/",
                     "partOfSpeech": "noun",
-                    "definition": "Passport - a document needed to travel to other countries",
+                    "definition": "A document needed to travel to other countries",
                     "examples": [
                         "Necesito renovar mi pasaporte.",
                         "¿Tienes tu pasaporte?"
@@ -2992,7 +2992,7 @@
                     "text": "visa",
                     "phonetics": "/bisa/",
                     "partOfSpeech": "noun",
-                    "definition": "Visa - official permission to enter a country",
+                    "definition": "Official permission to enter a country",
                     "examples": [
                         "Necesito una visa para viajar a Estados Unidos.",
                         "La visa expira en seis meses."
@@ -3003,7 +3003,7 @@
                     "text": "billete",
                     "phonetics": "/biʎete/",
                     "partOfSpeech": "noun",
-                    "definition": "Ticket - a piece of paper that allows you to travel",
+                    "definition": "A piece of paper that allows you to travel",
                     "examples": [
                         "Compré el billete de avión.",
                         "¿Dónde está mi billete?"
@@ -3014,7 +3014,7 @@
                     "text": "maleta",
                     "phonetics": "/maleta/",
                     "partOfSpeech": "noun",
-                    "definition": "Suitcase - a large bag for carrying clothes when traveling",
+                    "definition": "A large bag for carrying clothes when traveling",
                     "examples": [
                         "Mi maleta está llena.",
                         "¿Dónde está la maleta?"
@@ -3025,7 +3025,7 @@
                     "text": "mochila",
                     "phonetics": "/motʃila/",
                     "partOfSpeech": "noun",
-                    "definition": "Backpack - a bag carried on the back",
+                    "definition": "A bag carried on the back",
                     "examples": [
                         "Llevo una mochila pequeña.",
                         "La mochila es muy práctica."
@@ -3036,7 +3036,7 @@
                     "text": "mapa",
                     "phonetics": "/mapa/",
                     "partOfSpeech": "noun",
-                    "definition": "Map - a drawing that shows where places are",
+                    "definition": "A drawing that shows where places are",
                     "examples": [
                         "Necesito un mapa de la ciudad.",
                         "El mapa está en el teléfono."
@@ -3047,7 +3047,7 @@
                     "text": "guía",
                     "phonetics": "/ɣia/",
                     "partOfSpeech": "noun",
-                    "definition": "Guide - a person who shows tourists around",
+                    "definition": "A person who shows tourists around",
                     "examples": [
                         "El guía nos explicó la historia.",
                         "Contratamos un guía turístico."
@@ -3058,7 +3058,7 @@
                     "text": "excursión",
                     "phonetics": "/ekskurθjon/",
                     "partOfSpeech": "noun",
-                    "definition": "Excursion or trip - a short journey for pleasure",
+                    "definition": "A short journey for pleasure or learning about something while traveling",
                     "examples": [
                         "Hicimos una excursión a la montaña.",
                         "La excursión duró todo el día."
@@ -3069,7 +3069,7 @@
                     "text": "monumento",
                     "phonetics": "/monumento/",
                     "partOfSpeech": "noun",
-                    "definition": "Monument - a structure built to remember someone or something",
+                    "definition": "A structure built to remember someone or something",
                     "examples": [
                         "Visitamos muchos monumentos históricos.",
                         "El monumento es muy impresionante."
@@ -3080,7 +3080,7 @@
                     "text": "museo",
                     "phonetics": "/museo/",
                     "partOfSpeech": "noun",
-                    "definition": "Museum - a building where you can see art and historical objects",
+                    "definition": "A building where you can see art and historical objects",
                     "examples": [
                         "El museo está cerrado los lunes.",
                         "Visitamos el museo de arte."
@@ -3091,7 +3091,7 @@
                     "text": "playa",
                     "phonetics": "/plaʝa/",
                     "partOfSpeech": "noun",
-                    "definition": "Beach - an area of sand next to the ocean",
+                    "definition": "An area of sand next to the ocean",
                     "examples": [
                         "La playa está muy bonita.",
                         "Vamos a la playa todos los días."
@@ -3102,7 +3102,7 @@
                     "text": "montaña",
                     "phonetics": "/montaɲa/",
                     "partOfSpeech": "noun",
-                    "definition": "Mountain - a very high hill",
+                    "definition": "A very high hill",
                     "examples": [
                         "Las montañas están cubiertas de nieve.",
                         "Escalamos la montaña más alta."
@@ -3113,7 +3113,7 @@
                     "text": "cultura",
                     "phonetics": "/kultura/",
                     "partOfSpeech": "noun",
-                    "definition": "Culture - the customs and traditions of a country",
+                    "definition": "The customs and traditions of a country",
                     "examples": [
                         "Me interesa mucho la cultura local.",
                         "La cultura española es muy rica."
@@ -3124,7 +3124,7 @@
                     "text": "tradición",
                     "phonetics": "/traðiθjon/",
                     "partOfSpeech": "noun",
-                    "definition": "Tradition - a custom that has been passed down through generations",
+                    "definition": "A custom that has been passed down through generations",
                     "examples": [
                         "Es una tradición muy antigua.",
                         "Respetamos las tradiciones locales."
@@ -3135,7 +3135,7 @@
                     "text": "gastronomía",
                     "phonetics": "/ɡastronomia/",
                     "partOfSpeech": "noun",
-                    "definition": "Gastronomy - the art of cooking and eating good food",
+                    "definition": "The art of cooking and eating good food",
                     "examples": [
                         "La gastronomía española es famosa.",
                         "Me encanta la gastronomía local."

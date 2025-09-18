@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct AddCollectionToDictionaryView: View {
     let collection: WordCollection
@@ -15,6 +16,19 @@ struct AddCollectionToDictionaryView: View {
     @State private var showSuccessAlert = false
     @State private var addedWordsCount = 0
     @State private var duplicateWordsCount = 0
+    
+    // MARK: - StoreKit
+    @Environment(\.requestReview) var requestReview
+    
+    // MARK: - Rating Request Properties
+    @AppStorage(UDKeys.hasRatedApp)
+    private var hasRatedApp: Bool = false
+    
+    @AppStorage(UDKeys.lastRatingRequestDate)
+    private var lastRatingRequestDate: TimeInterval = .zero
+    
+    @AppStorage(UDKeys.ratingRequestCount)
+    private var ratingRequestCount: Int = 0
     
     var body: some View {
         ScrollView {
@@ -69,6 +83,8 @@ struct AddCollectionToDictionaryView: View {
         )
         .alert("Import Complete", isPresented: $showSuccessAlert) {
             Button("OK") {
+                // Request review after successful import
+                requestReviewIfAppropriate()
                 dismiss()
             }
         } message: {
@@ -104,5 +120,36 @@ struct AddCollectionToDictionaryView: View {
                 }
             }
         }
+    }
+    
+    // MARK: - Review Request Logic
+    
+    private func requestReviewIfAppropriate() {
+        // Don't request if user has already rated
+        guard !hasRatedApp else { return }
+        
+        // Don't request too frequently (at least 7 days between requests)
+        let daysSinceLastRequest = Calendar.current.dateComponents(
+            [.day],
+            from: Date(timeIntervalSince1970: lastRatingRequestDate),
+            to: .now
+        ).day ?? 0
+        guard daysSinceLastRequest >= 7 else { return }
+        
+        // Don't request too many times (max 3 times)
+        guard ratingRequestCount < 3 else { return }
+        
+        // Only request if we successfully added words (not just duplicates)
+        guard addedWordsCount > 0 else { return }
+        
+        // Request the review
+        requestReview()
+        
+        // Update tracking variables
+        lastRatingRequestDate = Date.now.timeIntervalSince1970
+        ratingRequestCount += 1
+        
+        // Log analytics event
+        AnalyticsService.shared.logEvent(.ratingRequested)
     }
 }
