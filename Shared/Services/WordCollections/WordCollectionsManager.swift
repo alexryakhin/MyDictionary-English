@@ -118,6 +118,23 @@ final class WordCollectionsManager: ObservableObject {
         return grouped
     }
     
+    /// Returns only featured collections
+    func featuredCollections() -> [WordCollection] {
+        return collections.filter { $0.isFeatured }
+    }
+    
+    /// Returns featured collections for a specific language
+    func featuredCollections(for languageCode: String) -> [WordCollection] {
+        return collections.filter { $0.languageCode == languageCode && $0.isFeatured }
+    }
+    
+    /// Returns collections grouped by featured status
+    func collectionsGroupedByFeatured() -> (featured: [WordCollection], regular: [WordCollection]) {
+        let featured = collections.filter { $0.isFeatured }
+        let regular = collections.filter { !$0.isFeatured }
+        return (featured: featured, regular: regular)
+    }
+    
     /// Force refresh from Firebase Remote Config (bypasses Firebase cache)
     @MainActor
     func forceRefresh() async {

@@ -28,7 +28,7 @@ struct WordCollectionItemDetailsView: View {
                             .foregroundColor(.secondary)
                     }
 
-                    TagView(text: word.partOfSpeech, color: .blue)
+                    TagView(text: word.partOfSpeech.displayName, color: .blue)
                 }
 
                 // Definition

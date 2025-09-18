@@ -12,7 +12,7 @@ struct WordCollectionsView: View {
     // MARK: - Properties
     
     @StateObject private var collectionsManager = WordCollectionsManager.shared
-    @State private var selectedLanguage: String = "en"
+    @State private var selectedLanguage: String = "all"
     @State private var selectedLevel: WordLevel?
     @State private var searchText = ""
     
@@ -80,16 +80,31 @@ struct WordCollectionsView: View {
     
     private var collectionsContent: some View {
         LazyVStack(spacing: 20) {
-            // Featured collections section
-            if let featuredCollections = featuredCollections, !featuredCollections.isEmpty {
-                featuredCollectionsSection(featuredCollections)
+            // Featured collections section (only show if "All Languages" is selected or for specific language)
+            if selectedLanguage == "all" {
+                if let featuredCollections = featuredCollections, !featuredCollections.isEmpty {
+                    featuredCollectionsSection(featuredCollections)
+                }
+            } else {
+                if let featuredCollections = featuredCollectionsForSelectedLanguage, !featuredCollections.isEmpty {
+                    featuredCollectionsSection(featuredCollections)
+                }
             }
             
-            // Collections grouped by language
-            ForEach(availableLanguages, id: \.self) { languageCode in
-                let languageCollections = filteredCollections(for: languageCode)
-                if !languageCollections.isEmpty {
-                    languageSection(languageCode: languageCode, collections: languageCollections)
+            // Show collections based on selected language
+            if selectedLanguage == "all" {
+                // Show all languages grouped
+                ForEach(availableLanguages, id: \.self) { languageCode in
+                    let languageCollections = filteredCollections(for: languageCode)
+                    if !languageCollections.isEmpty {
+                        languageSection(languageCode: languageCode, collections: languageCollections)
+                    }
+                }
+            } else {
+                // Show only selected language
+                let selectedLanguageCollections = filteredCollections(for: selectedLanguage)
+                if !selectedLanguageCollections.isEmpty {
+                    selectedLanguageSection(collections: selectedLanguageCollections)
                 }
             }
         }
@@ -109,26 +124,34 @@ struct WordCollectionsView: View {
     // MARK: - Filters View
     
     private var filtersView: some View {
-        HStack(spacing: 12) {
-            // Language picker
-            Picker("Language", selection: $selectedLanguage) {
-                ForEach(availableLanguages, id: \.self) { languageCode in
-                    Text(WordCollectionKeys.allCases.first { $0.languageCode == languageCode }?.displayName ?? languageCode.uppercased())
-                        .tag(languageCode)
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 12) {
+                // Language picker
+                HeaderButtonMenu("Language", icon: "chevron.down") {
+                    Picker("Language", selection: $selectedLanguage) {
+                        Text("All Languages")
+                            .tag("all")
+                        ForEach(availableLanguages, id: \.self) { languageCode in
+                            Text(WordCollectionKeys.allCases.first { $0.languageCode == languageCode }?.displayName ?? languageCode.uppercased())
+                                .tag(languageCode)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                }
+
+                // Level picker
+                HeaderButtonMenu("Level", icon: "chevron.down") {
+                    Picker("Level", selection: $selectedLevel) {
+                        Text("All Levels")
+                            .tag(nil as WordLevel?)
+                        ForEach(WordLevel.allCases, id: \.self) { level in
+                            Text(level.displayName)
+                                .tag(level as WordLevel?)
+                        }
+                    }
+                    .pickerStyle(.inline)
                 }
             }
-            .pickerStyle(.menu)
-            
-            // Level picker
-            Picker("Level", selection: $selectedLevel) {
-                Text("All Levels")
-                    .tag(nil as WordLevel?)
-                ForEach(WordLevel.allCases, id: \.self) { level in
-                    Text(level.displayName)
-                        .tag(level as WordLevel?)
-                }
-            }
-            .pickerStyle(.menu)
         }
     }
     
@@ -168,6 +191,20 @@ struct WordCollectionsView: View {
         }
     }
     
+    // MARK: - Selected Language Section
+    
+    private func selectedLanguageSection(collections: [WordCollection]) -> some View {
+        LazyVGrid(columns: [
+            GridItem(.flexible(), spacing: 12),
+            GridItem(.flexible(), spacing: 12)
+        ], spacing: 12) {
+            ForEach(collections) { collection in
+                WordCollectionGridPreviewCard(collection: collection)
+            }
+        }
+        .padding(.bottom, 12)
+    }
+    
     // MARK: - Computed Properties
     
     private var availableLanguages: [String] {
@@ -176,13 +213,14 @@ struct WordCollectionsView: View {
     }
     
     private var featuredCollections: [WordCollection]? {
-        // Return collections marked as premium or with special titles
-        let featured = collectionsManager.collections.filter { collection in
-            collection.isPremium || 
-            collection.title.lowercased().contains("gold") ||
-            collection.title.lowercased().contains("essential") ||
-            collection.title.lowercased().contains("top")
-        }
+        // Return collections marked as featured using the new isFeatured flag
+        let featured = collectionsManager.featuredCollections()
+        return featured.isEmpty ? nil : Array(featured.prefix(3))
+    }
+    
+    private var featuredCollectionsForSelectedLanguage: [WordCollection]? {
+        // Return featured collections for the selected language
+        let featured = collectionsManager.featuredCollections(for: selectedLanguage)
         return featured.isEmpty ? nil : Array(featured.prefix(3))
     }
     
@@ -203,7 +241,21 @@ struct WordCollectionsView: View {
             }
         }
         
-        return collections
+        // Sort collections: featured first, then by level, then by title
+        return collections.sorted { collection1, collection2 in
+            // Featured collections first
+            if collection1.isFeatured != collection2.isFeatured {
+                return collection1.isFeatured
+            }
+            
+            // Then by level (A1, A2, B1, B2, C1, C2)
+            if collection1.level != collection2.level {
+                return collection1.level.rawValue < collection2.level.rawValue
+            }
+            
+            // Finally by title alphabetically
+            return collection1.title.localizedCaseInsensitiveCompare(collection2.title) == .orderedAscending
+        }
     }
 }
 

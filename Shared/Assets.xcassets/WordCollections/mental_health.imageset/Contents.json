@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "mental_health.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

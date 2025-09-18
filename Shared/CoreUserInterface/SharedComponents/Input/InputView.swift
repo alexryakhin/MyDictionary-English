@@ -84,6 +84,7 @@ public struct InputView: View {
             if showsTrailingButton, let trailingButtonLabel {
                 HeaderButton(trailingButtonLabel) {
                     HapticManager.shared.triggerImpact(style: .light)
+                    text = ""
                     endEditing()
                     onTrailingButtonTap?()
                 }

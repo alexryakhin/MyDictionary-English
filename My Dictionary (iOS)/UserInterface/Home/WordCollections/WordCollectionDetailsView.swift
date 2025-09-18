@@ -156,7 +156,7 @@ struct WordCollectionDetailsView: View {
                 WordCollectionItem(
                     text: "negotiate",
                     phonetics: "/nɪˈɡoʊʃiˌeɪt/",
-                    partOfSpeech: "verb",
+                    partOfSpeech: .verb,
                     definition: "To discuss something with someone in order to reach an agreement",
                     examples: ["We need to negotiate a better price.", "The union is negotiating with management."]
                 )

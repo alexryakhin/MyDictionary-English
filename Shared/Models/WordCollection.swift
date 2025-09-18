@@ -13,7 +13,7 @@ struct WordCollectionItem: Codable, Identifiable, Hashable {
     let id: String
     let text: String
     let phonetics: String?
-    let partOfSpeech: String
+    let partOfSpeech: PartOfSpeech
     let definition: String
     let examples: [String]
     
@@ -21,7 +21,7 @@ struct WordCollectionItem: Codable, Identifiable, Hashable {
         id: String = UUID().uuidString,
         text: String,
         phonetics: String? = nil,
-        partOfSpeech: String,
+        partOfSpeech: PartOfSpeech,
         definition: String,
         examples: [String] = []
     ) {
@@ -46,6 +46,7 @@ struct WordCollection: Codable, Identifiable, Hashable {
     let imageUrl: String?
     let localImageName: String?
     let isPremium: Bool
+    let isFeatured: Bool
     
     init(
         id: String = UUID().uuidString,
@@ -57,7 +58,8 @@ struct WordCollection: Codable, Identifiable, Hashable {
         description: String? = nil,
         imageUrl: String? = nil,
         localImageName: String? = nil,
-        isPremium: Bool = false
+        isPremium: Bool = false,
+        isFeatured: Bool = false
     ) {
         self.id = id
         self.title = title
@@ -69,6 +71,7 @@ struct WordCollection: Codable, Identifiable, Hashable {
         self.imageUrl = imageUrl
         self.localImageName = localImageName
         self.isPremium = isPremium
+        self.isFeatured = isFeatured
     }
     
     /// Returns the number of words in the collection
