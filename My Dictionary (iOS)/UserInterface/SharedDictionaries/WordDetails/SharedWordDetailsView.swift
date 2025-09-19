@@ -99,7 +99,9 @@ struct SharedWordDetailsView: View {
                         }
                     }
                     .if(isPad) { view in
-                        view.frame(maxWidth: 550, alignment: .center)
+                        view
+                            .frame(maxWidth: 550, alignment: .center)
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
                     .padding(16)
                 }
@@ -194,7 +196,7 @@ struct SharedWordDetailsView: View {
         .sheet(isPresented: $showingImageSelection) {
             ImageSelectionView(
                 word: word.wordItself,
-                languageCode: word.languageCode,
+                language: InputLanguage(rawValue: word.languageCode) ?? .english,
                 onImageSelected: { imageUrl, localPath in
                     // Update the word with the new image
                     var updatedWord = word
@@ -509,7 +511,7 @@ struct SharedWordDetailsView: View {
             }
         } trailingContent: {
             HeaderButtonMenu(Loc.Actions.edit, size: .small) {
-                ForEach(InputLanguage.casesWithoutAuto, id: \.self) { lang in
+                ForEach(InputLanguage.allCasesSorted, id: \.self) { lang in
                     Button {
                         updateLanguage(lang)
                     } label: {

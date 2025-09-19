@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "连词";
 "part_of_speech.full.pronoun" = "代词";
 "part_of_speech.full.preposition" = "介词";
+"part_of_speech.full.article" = "冠词";
 "part_of_speech.full.exclamation" = "感叹词";
 "part_of_speech.full.interjection" = "感叹词";
 "part_of_speech.full.idiom" = "成语";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "连.";
 "part_of_speech.short.pronoun" = "代.";
 "part_of_speech.short.preposition" = "介.";
+"part_of_speech.short.article" = "冠.";
 "part_of_speech.short.exclamation" = "感.";
 "part_of_speech.short.interjection" = "感.";
 "part_of_speech.short.idiom" = "成语";

@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Союз";
 "part_of_speech.full.pronoun" = "Местоимение";
 "part_of_speech.full.preposition" = "Предлог";
+"part_of_speech.full.article" = "Артикль";
 "part_of_speech.full.exclamation" = "Восклицание";
 "part_of_speech.full.interjection" = "Междометие";
 "part_of_speech.full.idiom" = "Выражение";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Союз";
 "part_of_speech.short.pronoun" = "Мест.";
 "part_of_speech.short.preposition" = "Пред.";
+"part_of_speech.short.article" = "Арт.";
 "part_of_speech.short.exclamation" = "Воскл.";
 "part_of_speech.short.interjection" = "Межд.";
 "part_of_speech.short.idiom" = "Выраж.";

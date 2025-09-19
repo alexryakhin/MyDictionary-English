@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Conjuncție";
 "part_of_speech.full.pronoun" = "Pronume";
 "part_of_speech.full.preposition" = "Prepoziție";
+"part_of_speech.full.article" = "Articol";
 "part_of_speech.full.exclamation" = "Exclamație";
 "part_of_speech.full.interjection" = "Interjecție";
 "part_of_speech.full.idiom" = "Idiom";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Conj.";
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.article" = "Art.";
 "part_of_speech.short.exclamation" = "Excl.";
 "part_of_speech.short.interjection" = "Interj.";
 "part_of_speech.short.idiom" = "Idiom";

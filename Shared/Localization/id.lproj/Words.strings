@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Kata sambung";
 "part_of_speech.full.pronoun" = "Kata ganti";
 "part_of_speech.full.preposition" = "Kata depan";
+"part_of_speech.full.article" = "Kata sandang";
 "part_of_speech.full.exclamation" = "Kata seru";
 "part_of_speech.full.interjection" = "Kata seru";
 "part_of_speech.full.idiom" = "Idiom";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "K.samb.";
 "part_of_speech.short.pronoun" = "K.ganti";
 "part_of_speech.short.preposition" = "K.depan";
+"part_of_speech.short.article" = "K.sandang";
 "part_of_speech.short.exclamation" = "K.seru";
 "part_of_speech.short.interjection" = "K.seru";
 "part_of_speech.short.idiom" = "Idiom";

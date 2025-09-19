@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Voegwoord";
 "part_of_speech.full.pronoun" = "Voornaamwoord";
 "part_of_speech.full.preposition" = "Voorzetsel";
+"part_of_speech.full.article" = "Lidwoord";
 "part_of_speech.full.exclamation" = "Uitroep";
 "part_of_speech.full.interjection" = "Tussenwerpsel";
 "part_of_speech.full.idiom" = "Idioom";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Voeg.";
 "part_of_speech.short.pronoun" = "V.n.";
 "part_of_speech.short.preposition" = "Vz.";
+"part_of_speech.short.article" = "Lw.";
 "part_of_speech.short.exclamation" = "Uitr.";
 "part_of_speech.short.interjection" = "Tuss.";
 "part_of_speech.short.idiom" = "Idioom";

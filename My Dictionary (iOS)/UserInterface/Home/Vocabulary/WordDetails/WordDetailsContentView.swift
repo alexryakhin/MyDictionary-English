@@ -40,36 +40,41 @@ struct WordDetailsContentView: View {
                 // Hero Image Section
                 if let image {
                     heroImageView(image: image)
+                        .overlay(alignment: .bottom) {
+                            wordHeaderView
+                                .padding(.horizontal, 28)
+                                .padding(.bottom, 12)
+                                .if(isPad) { view in
+                                    view
+                                        .frame(maxWidth: 600, alignment: .center)
+                                }
+                        }
                 }
 
-                // Content
-                VStack(spacing: 16) {
+                // Content Sections
+                LazyVStack(spacing: 12) {
                     if !imageExists {
                         // Image Section (only show if no image exists)
                         imageSectionView
-                    } else {
-                        // Word Header
-                        wordHeaderView
                     }
 
-                    // Content Sections
-                    LazyVStack(spacing: 12) {
-                        transcriptionSectionView
-                        partOfSpeechSectionView
-                        meaningsSectionView
-                        notesSectionView
-                        difficultySectionView
-                        languageSectionView
-                        tagsSectionView
-                        
-                        // Remove Image Button (only show if image exists)
-                        if imageExists {
-                            removeImageButton
-                        }
+                    transcriptionSectionView
+                    partOfSpeechSectionView
+                    meaningsSectionView
+                    notesSectionView
+                    difficultySectionView
+                    languageSectionView
+                    tagsSectionView
+
+                    // Remove Image Button (only show if image exists)
+                    if imageExists {
+                        removeImageButton
                     }
                 }
                 .if(isPad) { view in
-                    view.frame(maxWidth: 550, alignment: .center)
+                    view
+                        .frame(maxWidth: 550, alignment: .center)
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
                 .padding(.horizontal, 16)
             }
@@ -123,6 +128,10 @@ struct WordDetailsContentView: View {
                 .padding(vertical: 12, horizontal: 16)
                 .opacity(!shouldHaveNavigationTitle ? 1 : 0)
                 .padding(12)
+                .if(isPad) { view in
+                    view
+                        .frame(maxWidth: 600, alignment: .center)
+                }
             }
         }
         .groupedBackground()
@@ -137,7 +146,7 @@ struct WordDetailsContentView: View {
         .sheet(isPresented: $showingImageSelection) {
             ImageSelectionView(
                 word: word.wordItself ?? "",
-                languageCode: word.languageCode,
+                language: InputLanguage(rawValue: word.languageCode ?? "en") ?? .english,
                 onImageSelected: { imageUrl, localPath in
                     // Update the word with the new image
                     word.imageUrl = imageUrl
@@ -184,12 +193,14 @@ struct WordDetailsContentView: View {
                         } else {
                             print("❌ [WordDetails] Image failed to load even with fallback")
                             image = nil
+                            shouldHaveNavigationTitle = true
                         }
                     }
                 }
             } else {
                 print("🔍 [WordDetails] No image path found")
                 image = nil
+                shouldHaveNavigationTitle = true
             }
         }
     }
@@ -230,7 +241,6 @@ struct WordDetailsContentView: View {
                 .foregroundStyle(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .opacity(!shouldHaveNavigationTitle ? 1 : 0)
-                .padding(.horizontal, 12)
         }
     }
 
@@ -418,7 +428,7 @@ struct WordDetailsContentView: View {
             }
         } trailingContent: {
             HeaderButtonMenu(Loc.Actions.edit, size: .small) {
-                ForEach(InputLanguage.casesWithoutAuto, id: \.self) { lang in
+                ForEach(InputLanguage.allCasesSorted, id: \.self) { lang in
                     Button {
                         updateLanguage(lang)
                     } label: {
@@ -732,5 +742,9 @@ struct CustomNavigationBar: View {
         }
         .padding(12)
         .animation(.easeInOut(duration: 0.3), value: true)
+        .if(isPad) { view in
+            view
+                .frame(maxWidth: 600, alignment: .center)
+        }
     }
 }

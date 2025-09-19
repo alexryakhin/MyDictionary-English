@@ -128,6 +128,7 @@
 "part_of_speech.full.conjunction" = "Conjunció";
 "part_of_speech.full.pronoun" = "Pronom";
 "part_of_speech.full.preposition" = "Preposició";
+"part_of_speech.full.article" = "Article";
 "part_of_speech.full.exclamation" = "Exclamació";
 "part_of_speech.full.interjection" = "Interjecció";
 "part_of_speech.full.idiom" = "Idioma";
@@ -141,6 +142,7 @@
 "part_of_speech.short.conjunction" = "Conj.";
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.article" = "Art.";
 "part_of_speech.short.exclamation" = "Excl.";
 "part_of_speech.short.interjection" = "Interj.";
 "part_of_speech.short.idiom" = "Idioma";

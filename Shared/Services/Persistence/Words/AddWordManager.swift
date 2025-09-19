@@ -49,6 +49,7 @@ final class AddWordManager {
         newWord.phonetic = phonetic
         newWord.languageCode = languageCode
         newWord.timestamp = Date()
+        newWord.updatedAt = Date()
         newWord.isSynced = false // Mark as not synced initially
         newWord.imageUrl = imageUrl
         newWord.imageLocalPath = imageLocalPath

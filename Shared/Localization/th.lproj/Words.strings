@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "คำสันธาน";
 "part_of_speech.full.pronoun" = "คำสรรพนาม";
 "part_of_speech.full.preposition" = "คำบุพบท";
+"part_of_speech.full.article" = "คำนำหน้านาม";
 "part_of_speech.full.exclamation" = "คำอุทาน";
 "part_of_speech.full.interjection" = "คำแทรก";
 "part_of_speech.full.idiom" = "สำนวน";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "สัน.";
 "part_of_speech.short.pronoun" = "สรร.";
 "part_of_speech.short.preposition" = "บุ.";
+"part_of_speech.short.article" = "นำ.";
 "part_of_speech.short.exclamation" = "อุ.";
 "part_of_speech.short.interjection" = "แทรก";
 "part_of_speech.short.idiom" = "สำนวน";

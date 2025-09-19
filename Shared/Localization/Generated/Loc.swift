@@ -2582,6 +2582,8 @@ public enum Loc {
         public static let adjective = Loc.tr("Words", "part_of_speech.full.adjective", fallback: "Adjective")
         /// Adverb
         public static let adverb = Loc.tr("Words", "part_of_speech.full.adverb", fallback: "Adverb")
+        /// Article
+        public static let article = Loc.tr("Words", "part_of_speech.full.article", fallback: "Article")
         /// Conjunction
         public static let conjunction = Loc.tr("Words", "part_of_speech.full.conjunction", fallback: "Conjunction")
         /// Exclamation
@@ -2608,6 +2610,8 @@ public enum Loc {
         public static let adjective = Loc.tr("Words", "part_of_speech.short.adjective", fallback: "Adj.")
         /// Adv.
         public static let adverb = Loc.tr("Words", "part_of_speech.short.adverb", fallback: "Adv.")
+        /// Art.
+        public static let article = Loc.tr("Words", "part_of_speech.short.article", fallback: "Art.")
         /// Conj.
         public static let conjunction = Loc.tr("Words", "part_of_speech.short.conjunction", fallback: "Conj.")
         /// Excl.

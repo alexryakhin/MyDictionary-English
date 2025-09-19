@@ -11,6 +11,7 @@ struct ImageSelectionView: View {
     private let pexelsService = PexelsService.shared
 
     @State private var searchQuery: String = ""
+    @State private var language: InputLanguage = .english
     @State private var photos: [PexelsPhoto] = []
     @State private var isLoading = false
     @State private var errorMessage: String?
@@ -18,13 +19,17 @@ struct ImageSelectionView: View {
     @State private var isDownloading = false
     
     let word: String
-    let languageCode: String?
     let onImageSelected: (String, String) -> Void // (imageUrl, localPath)
     let onDismiss: () -> Void
     
-    init(word: String, languageCode: String?, onImageSelected: @escaping (String, String) -> Void, onDismiss: @escaping () -> Void) {
+    init(
+        word: String,
+        language: InputLanguage,
+        onImageSelected: @escaping (String, String) -> Void,
+        onDismiss: @escaping () -> Void
+    ) {
         self.word = word
-        self.languageCode = languageCode
+        self._language = .init(initialValue: language)
         self.onImageSelected = onImageSelected
         self.onDismiss = onDismiss
     }
@@ -98,7 +103,12 @@ struct ImageSelectionView: View {
             },
             bottomContent: {
                 HStack(spacing: 8) {
-                    InputView("Search for different images...", text: $searchQuery, onSubmit: {
+                    InputView(
+                        "Search for different images...",
+                        showInputLanguagePicker: true,
+                        text: $searchQuery,
+                        inputLanguage: $language,
+                        onSubmit: {
                         searchImages()
                     })
                     HeaderButton(icon: "magnifyingglass") {
@@ -124,7 +134,7 @@ struct ImageSelectionView: View {
             do {
                 let results = try await pexelsService.searchImages(
                     query: searchQuery,
-                    languageCode: word == searchQuery ? languageCode : nil,
+                    language: language,
                     perPage: 15,
                     orientation: "landscape"
                 )
@@ -206,7 +216,7 @@ struct ImageThumbnailView: View {
 #Preview {
     ImageSelectionView(
         word: "apple",
-        languageCode: "en",
+        language: .english,
         onImageSelected: { _, _ in },
         onDismiss: { }
     )

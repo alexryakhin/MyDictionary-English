@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Bağlaç";
 "part_of_speech.full.pronoun" = "Zamir";
 "part_of_speech.full.preposition" = "Edat";
+"part_of_speech.full.article" = "Tanımlık";
 "part_of_speech.full.exclamation" = "Ünlem";
 "part_of_speech.full.interjection" = "Ünlem";
 "part_of_speech.full.idiom" = "Deyim";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Bağ.";
 "part_of_speech.short.pronoun" = "Zam.";
 "part_of_speech.short.preposition" = "Edat";
+"part_of_speech.short.article" = "Tan.";
 "part_of_speech.short.exclamation" = "Ünl.";
 "part_of_speech.short.interjection" = "Ünl.";
 "part_of_speech.short.idiom" = "Deyim";

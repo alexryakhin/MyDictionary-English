@@ -49,7 +49,8 @@ final class WordCollectionsManager: ObservableObject {
         do {
             // Fetch and activate remote config (uses Firebase's built-in cache)
             let status = try await remoteConfig.fetchAndActivate()
-            
+            print("✅ [WordCollectionsManager] Status retrieving remote config: \(status)")
+
             if status == .successFetchedFromRemote {
                 print("✅ [WordCollectionsManager] Successfully fetched remote config")
             } else {
@@ -66,6 +67,10 @@ final class WordCollectionsManager: ObservableObject {
                     let collections = try parseCollections(from: jsonString, languageCode: key.languageCode)
                     allCollections.append(contentsOf: collections)
                     print("✅ [WordCollectionsManager] Parsed \(collections.count) collections from \(key.rawValue)")
+                } else if let jsonString = try? Bundle.main.string(forResource: key.rawValue, withExtension: "json") {
+                    let collections = try parseCollections(from: jsonString, languageCode: key.languageCode)
+                    allCollections.append(contentsOf: collections)
+                    print("⚠️ [WordCollectionsManager] Parsed \(collections.count) collections from local \(key.rawValue).json")
                 } else {
                     print("⚠️ [WordCollectionsManager] Empty JSON for key: \(key.rawValue)")
                 }
@@ -168,7 +173,12 @@ final class WordCollectionsManager: ObservableObject {
         remoteConfig.configSettings = settings
         
         // Set default values
-        let defaults: [String: NSObject] = [:]
+        var defaults = [String: NSObject]()
+        for key in WordCollectionKeys.allCases {
+            if let jsonString = try? Bundle.main.string(forResource: key.rawValue, withExtension: "json") {
+                defaults[key.rawValue] = jsonString as NSObject
+            }
+        }
         remoteConfig.setDefaults(defaults)
     }
     

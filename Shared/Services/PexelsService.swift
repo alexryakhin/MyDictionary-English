@@ -78,7 +78,7 @@ final class PexelsService {
     
     // MARK: - Image Search
     
-    func searchImages(query: String, languageCode: String? = nil, perPage: Int = 15, orientation: String = "landscape") async throws -> [PexelsPhoto] {
+    func searchImages(query: String, language: InputLanguage, perPage: Int = 15, orientation: String = "landscape") async throws -> [PexelsPhoto] {
         print("🔍 [PexelsService] Starting image search for query: '\(query)' with perPage: \(perPage), orientation: \(orientation)")
         
         guard apiKey.isNotEmpty else {
@@ -87,7 +87,7 @@ final class PexelsService {
         }
         
         // Detect language and translate to English if needed
-        let searchQuery = await getEnglishSearchQuery(for: query, languageCode: languageCode)
+        let searchQuery = await getEnglishSearchQuery(for: query, language: language)
         print("🌍 [PexelsService] Final search query: '\(searchQuery)'")
         
         let encodedQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
@@ -383,21 +383,16 @@ final class PexelsService {
         return documentsDirectory
     }
 
-    private func getEnglishSearchQuery(for query: String, languageCode: String? = nil) async -> String {
-        // Detect the language of the input query
-        let detectedLanguage = LanguageDetector.shared.detectLanguage(for: query)
+    private func getEnglishSearchQuery(for query: String, language: InputLanguage) async -> String {
 
         // If it's already English, use the original query
-        if detectedLanguage == .english || languageCode == "en" {
+        guard language != .english else {
             print("🌍 [PexelsService] Query is already in English: '\(query)'")
             return query
         }
 
-        // If it's not English, translate to English
-        print("🌍 [PexelsService] Detected language: \(languageCode ?? detectedLanguage.rawValue), translating to English...")
-
         do {
-            let translationResponse = try await GoogleTranslateService.shared.translateFromLanguage(query, from: languageCode ?? detectedLanguage.rawValue)
+            let translationResponse = try await GoogleTranslateService.shared.translateFromLanguage(query, from: language.rawValue)
             print("🌍 [PexelsService] Translated '\(query)' to '\(translationResponse.text)'")
             return translationResponse.text
         } catch {

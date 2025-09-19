@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Σύνδεσμος";
 "part_of_speech.full.pronoun" = "Αντωνυμία";
 "part_of_speech.full.preposition" = "Πρόθεση";
+"part_of_speech.full.article" = "Άρθρο";
 "part_of_speech.full.exclamation" = "Επιφώνημα";
 "part_of_speech.full.interjection" = "Επιφώνημα";
 "part_of_speech.full.idiom" = "Ιδιωματισμός";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Σύνδ.";
 "part_of_speech.short.pronoun" = "Αντ.";
 "part_of_speech.short.preposition" = "Πρόθ.";
+"part_of_speech.short.article" = "Άρθ.";
 "part_of_speech.short.exclamation" = "Επιφ.";
 "part_of_speech.short.interjection" = "Επιφ.";
 "part_of_speech.short.idiom" = "Ιδιωμ.";

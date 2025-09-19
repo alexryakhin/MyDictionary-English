@@ -21,7 +21,8 @@
       "languageCode": "en",
       "description": "A test collection for validation",
       "imageUrl": null,
-      "isPremium": false
+      "isPremium": false,
+      "isFeatured": false
     }
   ],
   "lastUpdated": "2025-01-27T10:00:00Z",

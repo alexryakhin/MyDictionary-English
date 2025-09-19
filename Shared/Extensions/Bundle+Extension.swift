@@ -58,4 +58,13 @@ extension Bundle {
             throw BundleError.failedToDecode
         }
     }
+
+    func string(forResource file: String, withExtension: String? = nil) throws -> String {
+        guard let url = self.url(forResource: file, withExtension: withExtension) else {
+            logError("Failed to locate \(file) in bundle.")
+            throw BundleError.fileNotFound
+        }
+        
+        return try String(contentsOf: url)
+    }
 }

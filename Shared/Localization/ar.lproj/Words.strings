@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "حرف عطف";
 "part_of_speech.full.pronoun" = "ضمير";
 "part_of_speech.full.preposition" = "حرف جر";
+"part_of_speech.full.article" = "أداة تعريف";
 "part_of_speech.full.exclamation" = "تعجب";
 "part_of_speech.full.interjection" = "تدخل";
 "part_of_speech.full.idiom" = "تعبير اصطلاحي";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "عطف";
 "part_of_speech.short.pronoun" = "ضمير";
 "part_of_speech.short.preposition" = "جر";
+"part_of_speech.short.article" = "أداة";
 "part_of_speech.short.exclamation" = "تعجب";
 "part_of_speech.short.interjection" = "تدخل";
 "part_of_speech.short.idiom" = "اصطلاح";

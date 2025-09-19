@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Veznik";
 "part_of_speech.full.pronoun" = "Zamjenica";
 "part_of_speech.full.preposition" = "Prijedlog";
+"part_of_speech.full.article" = "Član";
 "part_of_speech.full.exclamation" = "Uskličnik";
 "part_of_speech.full.interjection" = "Umetnuta riječ";
 "part_of_speech.full.idiom" = "Idiom";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Vez.";
 "part_of_speech.short.pronoun" = "Zam.";
 "part_of_speech.short.preposition" = "Prij.";
+"part_of_speech.short.article" = "Čl.";
 "part_of_speech.short.exclamation" = "Uskl.";
 "part_of_speech.short.interjection" = "Umet.";
 "part_of_speech.short.idiom" = "Idiom";

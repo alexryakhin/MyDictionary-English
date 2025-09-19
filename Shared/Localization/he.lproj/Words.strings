@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "מילת חיבור";
 "part_of_speech.full.pronoun" = "כינוי גוף";
 "part_of_speech.full.preposition" = "מילת יחס";
+"part_of_speech.full.article" = "ה' הידיעה";
 "part_of_speech.full.exclamation" = "קריאה";
 "part_of_speech.full.interjection" = "מילת קריאה";
 "part_of_speech.full.idiom" = "ביטוי";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "חיב.";
 "part_of_speech.short.pronoun" = "כינ.";
 "part_of_speech.short.preposition" = "יחס";
+"part_of_speech.short.article" = "ה'";
 "part_of_speech.short.exclamation" = "קריא.";
 "part_of_speech.short.interjection" = "מ.קר.";
 "part_of_speech.short.idiom" = "ביטוי";

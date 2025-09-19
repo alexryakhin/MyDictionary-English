@@ -127,6 +127,7 @@
 "part_of_speech.full.conjunction" = "Conjunción";
 "part_of_speech.full.pronoun" = "Pronombre";
 "part_of_speech.full.preposition" = "Preposición";
+"part_of_speech.full.article" = "Artículo";
 "part_of_speech.full.exclamation" = "Exclamación";
 "part_of_speech.full.interjection" = "Interjección";
 "part_of_speech.full.idiom" = "Idioma";
@@ -140,6 +141,7 @@
 "part_of_speech.short.conjunction" = "Conj.";
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Prep.";
+"part_of_speech.short.article" = "Art.";
 "part_of_speech.short.exclamation" = "Excl.";
 "part_of_speech.short.interjection" = "Interj.";
 "part_of_speech.short.idiom" = "Idioma";

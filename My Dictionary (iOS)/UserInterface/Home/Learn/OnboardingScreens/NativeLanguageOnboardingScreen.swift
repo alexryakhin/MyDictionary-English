@@ -33,7 +33,7 @@ struct NativeLanguageOnboardingScreen: View {
                 // Native Language Selection Section
                 CustomSectionView(header: "Available Languages") {
                     HFlow(alignment: .top, spacing: 12) {
-                        ForEach(InputLanguage.casesWithoutAuto, id: \.self) { language in
+                        ForEach(InputLanguage.allCasesSorted, id: \.self) { language in
                             LanguageCard(
                                 language: language,
                                 isSelected: viewModel.nativeLanguage == language

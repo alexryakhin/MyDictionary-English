@@ -99,22 +99,19 @@ final class WordCollectionImportService {
                     newWord.partOfSpeech = wordItem.partOfSpeech.rawValue
                     newWord.phonetic = wordItem.phonetics
                     newWord.languageCode = collection.languageCode
+                    newWord.notes = "From collection \(collection.title)"
                     newWord.timestamp = Date()
+                    newWord.updatedAt = Date()
                     newWord.isSynced = false
                     
-                    // Create meaning for the word
-                    let meaning = CDMeaning(context: context)
-                    meaning.id = UUID()
-                    meaning.definition = wordItem.definition
-                    meaning.order = 0
-                    meaning.timestamp = Date()
-                    meaning.word = newWord
-                    
-                    // Encode examples
-                    if !wordItem.examples.isEmpty {
-                        let examplesData = try JSONEncoder().encode(wordItem.examples)
-                        meaning.examples = examplesData
-                    }
+                    // Create meaning for the word using the proper create method
+                    let meaning = try CDMeaning.create(
+                        in: context,
+                        definition: wordItem.definition,
+                        examples: wordItem.examples,
+                        order: 0,
+                        for: newWord
+                    )
                     
                     // Add meaning to word
                     newWord.addToMeanings(meaning)

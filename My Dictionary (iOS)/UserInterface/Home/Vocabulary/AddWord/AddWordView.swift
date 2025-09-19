@@ -28,6 +28,7 @@ struct AddWordView: View {
                     definitionCellView
                     partOfSpeechCellView
                     phoneticsCellView
+                    imageCellView
                     // Only show tags for private words (not shared dictionary)
                     if selectedDictionaryId == nil {
                         tagsCellView
@@ -38,11 +39,6 @@ struct AddWordView: View {
                 if isWord || viewModel.canUseAI {
                     definitionsSectionView
                         .hideIfOffline()
-                }
-                
-                // Image selection section
-                if !viewModel.selectedDefinitions.isEmpty || !viewModel.descriptionField.isEmpty {
-                    imageSelectionSectionView
                 }
 
                 // AI Sign-in Required Banner (when not authenticated)
@@ -107,7 +103,7 @@ struct AddWordView: View {
         .sheet(isPresented: $viewModel.showingImageSelection) {
             ImageSelectionView(
                 word: viewModel.inputWord,
-                languageCode: viewModel.selectedInputLanguage == .auto ? nil : viewModel.selectedInputLanguage.rawValue,
+                language: viewModel.selectedInputLanguage,
                 onImageSelected: { imageUrl, localPath in
                     viewModel.handle(.selectImage(imageUrl, localPath))
                 },
@@ -127,6 +123,8 @@ struct AddWordView: View {
         .withPaywall()
     }
 
+    // MARK: - Word
+
     var wordCellView: some View {
         CellWrapper(isWord ? Loc.Words.word : Loc.Words.idiom) {
             CustomTextField(
@@ -143,10 +141,12 @@ struct AddWordView: View {
         }
     }
 
+    // MARK: - Input language
+
     var inputLanguageCellView: some View {
         CellWrapper(Loc.Words.inputLanguage) {
             Menu {
-                ForEach(InputLanguage.allCases, id: \.self) { language in
+                ForEach(InputLanguage.allCasesSorted, id: \.self) { language in
                     Button {
                         viewModel.handle(.selectInputLanguage(language))
                     } label: {
@@ -170,12 +170,16 @@ struct AddWordView: View {
         }
     }
 
+    // MARK: - Definition
+
     var definitionCellView: some View {
         CellWrapper(Loc.Words.definition) {
             CustomTextField(Loc.Words.enterDefinition, text: $viewModel.descriptionField)
                 .autocorrectionDisabled()
         }
     }
+
+    // MARK: - Part of speech
 
     @ViewBuilder
     var partOfSpeechCellView: some View {
@@ -197,6 +201,8 @@ struct AddWordView: View {
         }
     }
 
+    // MARK: - Phonetics
+
     @ViewBuilder
     var phoneticsCellView: some View {
         if let pronunciation = viewModel.pronunciation?.nilIfEmpty {
@@ -211,6 +217,65 @@ struct AddWordView: View {
                 }
                 .disabled(ttsPlayer.isPlaying)
             }
+        }
+    }
+
+    // MARK: - Image Selection
+
+    @ViewBuilder
+    private var imageCellView: some View {
+        CellWrapper("Image") {
+            VStack(alignment: .leading, spacing: 12) {
+                if let imageLocalPath = viewModel.selectedImageLocalPath,
+                   let image = PexelsService.shared.getImageFromLocalPath(imageLocalPath) {
+                    // Show selected image
+                    HStack {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 60, height: 60)
+                            .clipped()
+                            .cornerRadius(8)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Selected Image")
+                            Text("Tap to change")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        Spacer()
+
+                        HeaderButton(Loc.Actions.remove) {
+                            viewModel.handle(.selectImage("", ""))
+                        }
+                        .buttonStyle(.bordered)
+                        .foregroundColor(.red)
+                    }
+                } else {
+                    HStack {
+                        Image(systemName: "photo")
+                            .font(.title2)
+                            .foregroundStyle(.secondary)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Add Image")
+                                .font(.headline)
+                                .foregroundStyle(.primary)
+                            Text("Search for images related to this word")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        Spacer()
+
+                        Image(systemName: "chevron.right")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }                }
+            }
+        } onTapAction: {
+            viewModel.handle(.showImageSelection)
         }
     }
 
@@ -414,75 +479,4 @@ struct AddWordView: View {
             .padding(.vertical, 8)
         }
     }
-    
-    // MARK: - Image Selection Views
-    
-    @ViewBuilder
-    private var imageSelectionSectionView: some View {
-        CustomSectionView(header: "Image", hPadding: .zero) {
-            VStack(alignment: .leading, spacing: 12) {
-                if let imageLocalPath = viewModel.selectedImageLocalPath,
-                   let image = PexelsService.shared.getImageFromLocalPath(imageLocalPath) {
-                    // Show selected image
-                    HStack {
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 60, height: 60)
-                            .clipped()
-                            .cornerRadius(8)
-                        
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Selected Image")
-                                .font(.headline)
-                            Text("Tap to change")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                        
-                        Spacer()
-                        
-                        Button("Remove") {
-                            viewModel.handle(.selectImage("", ""))
-                        }
-                        .buttonStyle(.bordered)
-                        .foregroundColor(.red)
-                    }
-                    .onTapGesture {
-                        viewModel.handle(.showImageSelection)
-                    }
-                } else {
-                    // Show add image button
-                    Button {
-                        viewModel.handle(.showImageSelection)
-                    } label: {
-                        HStack {
-                            Image(systemName: "photo")
-                                .font(.title2)
-                                .foregroundStyle(.secondary)
-                            
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Add Image")
-                                    .font(.headline)
-                                    .foregroundStyle(.primary)
-                                Text("Search for images related to this word")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-            .padding(16)
-        }
-        .clippedWithBackground()
-    }
-
 }

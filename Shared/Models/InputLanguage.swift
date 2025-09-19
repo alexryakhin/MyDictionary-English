@@ -7,8 +7,7 @@
 
 import Foundation
 
-enum InputLanguage: String, Codable, CaseIterable {
-    case auto = "auto"
+public enum InputLanguage: String, Codable, CaseIterable {
     case english = "en"
     case french = "fr"
     case spanish = "es"
@@ -67,32 +66,18 @@ enum InputLanguage: String, Codable, CaseIterable {
     case kazakh = "kk"
     
     var displayName: String {
-        switch self {
-        case .auto:
-            return Loc.Words.InputLanguage.autoDetect
-        default:
-            return Locale.current.localizedString(forLanguageCode: rawValue)?.capitalized ?? rawValue.uppercased()
-        }
+        Locale.current.localizedString(forLanguageCode: rawValue)?.capitalized ?? rawValue.uppercased()
     }
 
     var englishName: String {
-        switch self {
-        case .auto:
-            return "Auto-detected language"
-        default:
-            return Locale(identifier: "en_US").localizedString(forLanguageCode: rawValue)?.capitalized ?? rawValue.uppercased()
-        }
+        Locale(identifier: "en_US").localizedString(forLanguageCode: rawValue)?.capitalized ?? rawValue.uppercased()
     }
 
-    var isAuto: Bool {
-        return self == .auto
-    }
-    
     var languageCode: String {
         return rawValue
     }
 
-    static var casesWithoutAuto: [InputLanguage] {
-        Self.allCases.filter { $0 != .auto }.sorted { $0.displayName < $1.displayName }
+    static var allCasesSorted: [InputLanguage] {
+        Self.allCases.sorted { $0.displayName < $1.displayName }
     }
 }

@@ -35,22 +35,21 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var isUsingAI: Bool = false
     @Published private(set) var selectedImageUrl: String?
     @Published private(set) var selectedImageLocalPath: String?
-    @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .auto
-    private var detectedLanguageCode: String?
-    
+    @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .english
+
     // AI Usage tracking
     var aiRemainingRequests: Int {
         return aiService.getRemainingRequests()
     }
-    
+
     var aiDailyLimit: Int {
         return aiService.getDailyLimit()
     }
-    
+
     var canUseAI: Bool {
         return aiService.canMakeAIRequest()
     }
-    
+
     var isProUser: Bool {
         return SubscriptionService.shared.isProUser
     }
@@ -63,7 +62,6 @@ final class AddWordViewModel: BaseViewModel {
     private let translationService = GoogleTranslateService.shared
     private let dictionaryService = DictionaryService.shared
     private let dataSyncService = DataSyncService.shared
-    private let languageDetector = LanguageDetector.shared
     private let aiService = AIService.shared
 
     private let isWord: Bool
@@ -125,25 +123,22 @@ final class AddWordViewModel: BaseViewModel {
                 let wordToSearch: String
                 let shouldRequestPronunciation: Bool
 
-                // Detect and update language for both AI and non-AI paths
-                detectAndUpdateLanguage()
-
                 // Check if user is authenticated and AI service is available
                 if AuthenticationService.shared.isSignedIn && aiService.canMakeAIRequest() {
                     // Use AI service for definitions
                     isUsingAI = true
                     AnalyticsService.shared.logEvent(.aiRequested)
-                    
+
                     // Use AI service to get definitions
                     let aiResponse = try await aiService.generateWordInformation(
                         for: inputWord,
                         maxDefinitions: 10,
                         inputLanguage: selectedInputLanguage
                     )
-                    
+
                     self.definitions = aiResponse.toWordDefinitions()
                     self.pronunciation = aiResponse.pronunciation
-                    
+
                     // AI provides context-aware definitions, so no translation needed
                     isUsingAI = false
                     AnalyticsService.shared.logEvent(.aiCompleted)
@@ -155,16 +150,12 @@ final class AddWordViewModel: BaseViewModel {
                         // Always translate single words to English for API lookup
                         isTranslating = true
                         AnalyticsService.shared.logEvent(.translationRequested)
-                        
-                        let translationResponse: TranslationResponse
-                        if selectedInputLanguage.isAuto {
-                            // Auto-detect language
-                            translationResponse = try await translationService.translateToEnglish(inputWord)
-                        } else {
-                            // Use selected language
-                            translationResponse = try await translationService.translateFromLanguage(inputWord, from: selectedInputLanguage.languageCode)
-                        }
-                        
+
+                        let translationResponse = try await translationService.translateFromLanguage(
+                            inputWord,
+                            from: selectedInputLanguage.languageCode
+                        )
+
                         wordToSearch = translationResponse.text
                         // Only request pronunciation if the detected language IS English
                         shouldRequestPronunciation = translationResponse.languageCode == "en"
@@ -172,7 +163,6 @@ final class AddWordViewModel: BaseViewModel {
                     } else {
                         // Use original input for multi-word phrases
                         wordToSearch = inputWord
-                        self.detectedLanguageCode = "en" // Assume English for multi-word phrases
                         shouldRequestPronunciation = true // Always request for multi-word phrases
                     }
                 }
@@ -184,7 +174,7 @@ final class AddWordViewModel: BaseViewModel {
                     for: wordToSearch.lowercased(),
                     params: .init()
                 )
-                
+
                 // Conditionally fetch pronunciation based on detected language
                 let pronunciation: String?
                 if shouldRequestPronunciation {
@@ -221,18 +211,15 @@ final class AddWordViewModel: BaseViewModel {
     private func saveWord() {
         saveWordToDictionary(nil)
     }
-    
+
     private func saveWordToDictionary(_ dictionaryId: String?) {
         // Check if we have either manual definition or selected definitions
         let hasDefinitions = !descriptionField.isEmpty || !selectedDefinitions.isEmpty
-        
+
         if !inputWord.isEmpty, hasDefinitions {
             do {
-                // Get the detected language code from the translation response
-                let languageCode: String = detectedLanguageCode ?? languageDetector.detectLanguage(for: inputWord).languageCode
-
                 if let dictionaryId = dictionaryId {
-                    saveWordToSharedDictionary(dictionaryId, languageCode: languageCode)
+                    saveWordToSharedDictionary(dictionaryId, languageCode: selectedInputLanguage.rawValue)
                 } else {
                     // Use new multi-meaning method if we have selected definitions
                     if !selectedDefinitions.isEmpty {
@@ -242,14 +229,14 @@ final class AddWordViewModel: BaseViewModel {
                                 examples: definition.examples
                             )
                         }
-                        
+
                         try addWordManager.addNewWordWithMeanings(
                             word: inputWord.capitalizingFirstLetter(),
                             partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
                             phonetic: pronunciation,
                             meanings: meaningData,
                             tags: selectedTags,
-                            languageCode: languageCode,
+                            languageCode: selectedInputLanguage.rawValue,
                             imageUrl: selectedImageUrl,
                             imageLocalPath: selectedImageLocalPath
                         )
@@ -262,7 +249,7 @@ final class AddWordViewModel: BaseViewModel {
                             phonetic: pronunciation,
                             examples: selectedDefinition?.examples ?? [],
                             tags: selectedTags,
-                            languageCode: languageCode,
+                            languageCode: selectedInputLanguage.rawValue,
                             imageUrl: selectedImageUrl,
                             imageLocalPath: selectedImageLocalPath
                         )
@@ -278,7 +265,7 @@ final class AddWordViewModel: BaseViewModel {
             errorReceived(CoreError.internalError(.inputCannotBeEmpty))
         }
     }
-    
+
     private func saveWordToSharedDictionary(_ dictionaryId: String, languageCode: String) {
         // Create meanings from selected definitions or manual input
         let meanings: [WordMeaning]
@@ -295,7 +282,7 @@ final class AddWordViewModel: BaseViewModel {
                 examples: selectedDefinition?.examples ?? []
             )]
         }
-        
+
         let word = Word(
             id: UUID().uuidString,
             wordItself: inputWord.capitalizingFirstLetter(),
@@ -369,11 +356,11 @@ final class AddWordViewModel: BaseViewModel {
         } else {
             selectedDefinitions.append(definition)
         }
-        
+
         // Update backward compatibility property
         selectedDefinition = selectedDefinitions.first
     }
-    
+
     private func reset() {
         withAnimation { [weak self] in
             self?.descriptionField = ""
@@ -430,10 +417,10 @@ final class AddWordViewModel: BaseViewModel {
             for await (index, translatedDefinition) in group {
                 orderedResults.append((index, translatedDefinition))
             }
-            
+
             // Sort by the original index to maintain order
             orderedResults.sort { $0.0 < $1.0 }
-            
+
             // Extract the translated definitions in correct order
             translatedDefinitions = orderedResults.compactMap { $0.1 }
         }
@@ -453,18 +440,5 @@ final class AddWordViewModel: BaseViewModel {
                 errorReceived(CoreError.internalError(.maxTagsReached))
             }
         }
-    }
-    
-    private func detectAndUpdateLanguage() {
-        // Detect language using Apple's Natural Language framework
-        let detectedLanguage = languageDetector.detectLanguage(for: inputWord)
-        
-        // Update selectedInputLanguage from auto to detected language
-        if selectedInputLanguage.isAuto {
-            selectedInputLanguage = detectedLanguage
-        }
-        
-        // Set detected language code immediately after detection
-        self.detectedLanguageCode = selectedInputLanguage.languageCode
     }
 }

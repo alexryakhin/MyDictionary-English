@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Сполучник";
 "part_of_speech.full.pronoun" = "Займенник";
 "part_of_speech.full.preposition" = "Прийменник";
+"part_of_speech.full.article" = "Артикль";
 "part_of_speech.full.exclamation" = "Вигук";
 "part_of_speech.full.interjection" = "Вигук";
 "part_of_speech.full.idiom" = "Ідіома";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Спол.";
 "part_of_speech.short.pronoun" = "Займ.";
 "part_of_speech.short.preposition" = "Прийм.";
+"part_of_speech.short.article" = "Арт.";
 "part_of_speech.short.exclamation" = "Виг.";
 "part_of_speech.short.interjection" = "Виг.";
 "part_of_speech.short.idiom" = "Ідіома";

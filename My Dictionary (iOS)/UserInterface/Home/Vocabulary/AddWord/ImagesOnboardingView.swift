@@ -48,9 +48,7 @@ struct ImagesOnboardingView: View {
             // Bottom Controls
             bottomControlsView
         }
-        .background(Color(.systemGroupedBackground))
-        .cornerRadius(20, corners: [.topLeft, .topRight])
-        .shadow(radius: 10)
+        .groupedBackground()
     }
     
     // MARK: - Header View
@@ -86,62 +84,15 @@ struct ImagesOnboardingView: View {
     // MARK: - Page 1: Word Details with Image
     
     private var wordDetailsPreviewPage: some View {
-        VStack(spacing: 24) {
-            // Mock Word Details Screen
-            VStack(spacing: 0) {
-                // Hero Image
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(
-                        LinearGradient(
-                            colors: [.blue.opacity(0.3), .purple.opacity(0.3)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .frame(height: 200)
-                    .overlay {
-                        VStack {
-                            Image(systemName: "photo.fill")
-                                .font(.system(size: 40))
-                                .foregroundColor(.white)
-                            Text("Beautiful Word Image")
-                                .font(.caption)
-                                .foregroundColor(.white)
-                        }
-                    }
-                
-                // Word Content
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        Text("Apple")
-                            .font(.title)
-                            .fontWeight(.bold)
-                        Spacer()
-                        Image(systemName: "heart.fill")
-                            .foregroundColor(.red)
-                    }
-                    
-                    Text("A round fruit with red or green skin")
-                        .font(.body)
-                        .foregroundColor(.secondary)
-                    
-                    HStack {
-                        Text("Noun")
-                            .font(.caption)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(Color.blue.opacity(0.2))
-                            .cornerRadius(8)
-                        Spacer()
-                    }
-                }
-                .padding()
-                .background(Color(.systemBackground))
-            }
-            .cornerRadius(16)
-            .shadow(radius: 8)
-            .padding(.horizontal, 20)
-            
+        VStack(spacing: 0) {
+            // Word Details Screenshot
+            Image(.wordWithImageScreenshot)
+                .resizable()
+                .scaledToFit()
+                .clipShape(.rect(cornerRadius: 16))
+                .shadow(radius: 8)
+                .padding(16)
+
             // Description
             VStack(spacing: 12) {
                 Text("See Your Words Come to Life")
@@ -162,58 +113,46 @@ struct ImagesOnboardingView: View {
     
     private var addImageInDetailsPage: some View {
         VStack(spacing: 24) {
-            // Animation/Video Placeholder
+            // Image Slideshow
             VStack(spacing: 16) {
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.black.opacity(0.1))
+                ImageSlideshowView()
                     .frame(height: 200)
-                    .overlay {
-                        VStack(spacing: 12) {
-                            Image(systemName: "play.circle.fill")
-                                .font(.system(size: 50))
-                                .foregroundColor(.accentColor)
-                            
-                            Text("Tap to play animation")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                    }
-                
+                    .clipShape(.rect(cornerRadius: 16))
+                    .shadow(radius: 8)
+                    .padding(16)
+
                 // Step-by-step instructions
                 VStack(alignment: .leading, spacing: 12) {
+                    Spacer()
+
+                    Text("Add Images to Existing Words")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+
+                    Spacer()
+
                     instructionStep(
                         number: 1,
-                        title: "Open any word",
-                        description: "Tap on any word in your dictionary"
-                    )
-                    
-                    instructionStep(
-                        number: 2,
                         title: "Find the image section",
                         description: "Scroll down to see the 'Add Image' button"
                     )
                     
                     instructionStep(
-                        number: 3,
+                        number: 2,
                         title: "Choose your image",
                         description: "Browse thousands of high-quality photos"
                     )
+                    
+                    instructionStep(
+                        number: 3,
+                        title: "Click 'Done'",
+                        description: "Enjoy your customized word now!"
+                    )
+
+                    Spacer()
                 }
             }
             .padding(.horizontal, 20)
-            
-            // Description
-            VStack(spacing: 12) {
-                Text("Add Images to Existing Words")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                
-                Text("Transform any word in your dictionary by adding a relevant image. It's quick, easy, and makes learning more engaging.")
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-            }
-            .padding(.horizontal, 24)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -360,11 +299,11 @@ struct ImagesOnboardingView: View {
     // MARK: - Bottom Controls
     
     private var bottomControlsView: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 12) {
             // Action Buttons
             HStack(spacing: 12) {
                 if currentPage > 0 {
-                    Button("Previous") {
+                    ActionButton(Loc.Actions.back) {
                         withAnimation {
                             currentPage -= 1
                         }
@@ -374,7 +313,7 @@ struct ImagesOnboardingView: View {
                 }
                 
                 if currentPage < totalPages - 1 {
-                    Button("Next") {
+                    ActionButton(Loc.Actions.next, style: .borderedProminent) {
                         withAnimation {
                             currentPage += 1
                         }
@@ -382,7 +321,7 @@ struct ImagesOnboardingView: View {
                     .buttonStyle(.borderedProminent)
                     .frame(maxWidth: .infinity)
                 } else {
-                    Button("Get Started") {
+                    ActionButton("Get Started", style: .borderedProminent) {
                         isPresented = false
                         onCompleted?()
                     }
@@ -390,19 +329,17 @@ struct ImagesOnboardingView: View {
                     .frame(maxWidth: .infinity)
                 }
             }
-            .padding(.horizontal, 24)
-            
+
             // Skip Button
-            if currentPage < totalPages - 1 {
-                Button("Skip") {
-                    isPresented = false
-                    onCompleted?()
-                }
-                .font(.caption)
-                .foregroundColor(.secondary)
+            Button("Skip") {
+                isPresented = false
+                onCompleted?()
             }
+            .font(.caption)
+            .foregroundColor(.secondary)
+            .hidden(currentPage == totalPages - 1)
         }
-        .padding(.bottom, 24)
+        .padding(vertical: 12, horizontal: 16)
     }
     
     // MARK: - Helper Views
@@ -469,6 +406,68 @@ struct RoundedCorner: Shape {
             cornerRadii: CGSize(width: radius, height: radius)
         )
         return Path(path.cgPath)
+    }
+}
+
+// MARK: - Image Slideshow View
+
+private struct ImageSlideshowView: View {
+    @State private var currentImageIndex = 0
+    @State private var timer: Timer?
+    
+    private let images = [
+        "word_image_onboarding_1step",
+        "word_image_onboarding_2step", 
+        "word_image_onboarding_3step"
+    ]
+    
+    private let imageChangeInterval: TimeInterval = 3.0
+    
+    var body: some View {
+        ZStack {
+            // Current Image
+            Image(images[currentImageIndex])
+                .resizable()
+                .scaledToFit()
+                .transition(.asymmetric(
+                    insertion: .move(edge: .trailing).combined(with: .opacity),
+                    removal: .move(edge: .leading).combined(with: .opacity)
+                ))
+            
+            // Image Indicators
+            VStack {
+                Spacer()
+                HStack(spacing: 8) {
+                    ForEach(0..<images.count, id: \.self) { index in
+                        Circle()
+                            .fill(index == currentImageIndex ? Color.white : Color.white.opacity(0.5))
+                            .frame(width: 8, height: 8)
+                            .scaleEffect(index == currentImageIndex ? 1.2 : 1.0)
+                            .animation(.easeInOut(duration: 0.3), value: currentImageIndex)
+                    }
+                }
+                .padding(.bottom, 16)
+            }
+        }
+        .onAppear {
+            startSlideshow()
+        }
+        .onDisappear {
+            stopSlideshow()
+        }
+    }
+    
+    private func startSlideshow() {
+        timer = Timer.scheduledTimer(withTimeInterval: imageChangeInterval, repeats: true) { _ in
+            withAnimation(.easeInOut(duration: 0.5)) {
+                currentImageIndex = (currentImageIndex + 1) % images.count
+            }
+        }
+    }
+    
+    private func stopSlideshow() {
+        timer?.invalidate()
+        timer = nil
     }
 }
 

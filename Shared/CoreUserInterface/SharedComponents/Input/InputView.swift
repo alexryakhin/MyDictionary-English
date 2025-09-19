@@ -11,11 +11,13 @@ public struct InputView: View {
 
     let placeholder: String
     let submitLabel: SubmitLabel
+    let showInputLanguagePicker: Bool
     let leadingIcon: Image?
     let trailingButtonLabel: String?
     let onSubmit: VoidHandler?
     let onTrailingButtonTap: VoidHandler?
     @Binding public var text: String
+    @Binding public var inputLanguage: InputLanguage
     @FocusState private var isFocused
 
     @State private var showsTrailingButton: Bool = false
@@ -24,7 +26,9 @@ public struct InputView: View {
         _ placeholder: String,
         leadingIcon: Image? = nil,
         submitLabel: SubmitLabel = .done,
+        showInputLanguagePicker: Bool = false,
         text: Binding<String>,
+        inputLanguage: Binding<InputLanguage> = .constant(.english),
         onSubmit: VoidHandler? = nil,
         trailingButtonLabel: String? = nil,
         onTrailingButtonTap: VoidHandler? = nil
@@ -34,8 +38,10 @@ public struct InputView: View {
         self.trailingButtonLabel = trailingButtonLabel
         self.submitLabel = submitLabel
         self._text = text
+        self._inputLanguage = inputLanguage
         self.onSubmit = onSubmit
         self.onTrailingButtonTap = onTrailingButtonTap
+        self.showInputLanguagePicker = showInputLanguagePicker
     }
 
     static func searchView(_ placeholder: String, searchText: Binding<String>) -> InputView {
@@ -75,6 +81,19 @@ public struct InputView: View {
                     }
                     .foregroundStyle(.secondary)
                     .buttonStyle(.plain)
+                }
+                if text.isEmpty && showInputLanguagePicker {
+                    Menu {
+                        ForEach(InputLanguage.allCasesSorted, id: \.self) { lang in
+                            Button {
+                                inputLanguage = lang
+                            } label: {
+                                Text(lang.displayName)
+                            }
+                        }
+                    } label: {
+                        TagView(text: inputLanguage.rawValue.uppercased(), color: .blue, size: .mini)
+                    }
                 }
             }
             .padding(vertical: 8, horizontal: 12)

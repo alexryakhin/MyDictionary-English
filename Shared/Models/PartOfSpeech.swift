@@ -15,6 +15,7 @@ enum PartOfSpeech: String, CaseIterable, Codable {
     case conjunction
     case pronoun
     case preposition
+    case article
     case exclamation
     case interjection
     case idiom
@@ -30,6 +31,7 @@ enum PartOfSpeech: String, CaseIterable, Codable {
         case "conjunction": self = .conjunction
         case "pronoun": self = .pronoun
         case "preposition": self = .preposition
+        case "article": self = .article
         case "exclamation": self = .exclamation
         case "interjection": self = .interjection
         case "idiom": self = .idiom
@@ -47,6 +49,7 @@ enum PartOfSpeech: String, CaseIterable, Codable {
         case .conjunction: return Loc.Words.PartOfSpeech.Full.conjunction
         case .pronoun: return Loc.Words.PartOfSpeech.Full.pronoun
         case .preposition: return Loc.Words.PartOfSpeech.Full.preposition
+        case .article: return Loc.Words.PartOfSpeech.Full.article
         case .exclamation: return Loc.Words.PartOfSpeech.Full.exclamation
         case .interjection: return Loc.Words.PartOfSpeech.Full.interjection
         case .idiom: return Loc.Words.PartOfSpeech.Full.idiom
@@ -64,6 +67,7 @@ enum PartOfSpeech: String, CaseIterable, Codable {
         case .conjunction: return Loc.Words.PartOfSpeech.Short.conjunction
         case .pronoun: return Loc.Words.PartOfSpeech.Short.pronoun
         case .preposition: return Loc.Words.PartOfSpeech.Short.preposition
+        case .article: return Loc.Words.PartOfSpeech.Short.article
         case .exclamation: return Loc.Words.PartOfSpeech.Short.exclamation
         case .interjection: return Loc.Words.PartOfSpeech.Short.interjection
         case .idiom: return Loc.Words.PartOfSpeech.Short.idiom

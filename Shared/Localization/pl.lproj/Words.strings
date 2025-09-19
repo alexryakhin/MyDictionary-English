@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Spójnik";
 "part_of_speech.full.pronoun" = "Zaimek";
 "part_of_speech.full.preposition" = "Przyimek";
+"part_of_speech.full.article" = "Artykuł";
 "part_of_speech.full.exclamation" = "Wykrzyknik";
 "part_of_speech.full.interjection" = "Wykrzyknik";
 "part_of_speech.full.idiom" = "Idiom";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Spój.";
 "part_of_speech.short.pronoun" = "Zaim.";
 "part_of_speech.short.preposition" = "Przy.";
+"part_of_speech.short.article" = "Art.";
 "part_of_speech.short.exclamation" = "Wykr.";
 "part_of_speech.short.interjection" = "Wykr.";
 "part_of_speech.short.idiom" = "Idiom";

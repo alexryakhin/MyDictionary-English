@@ -297,7 +297,7 @@ struct SharedWordDetailsView: View {
             }
         } trailingContent: {
             HeaderButtonMenu(Loc.Actions.edit, size: .small) {
-                ForEach(InputLanguage.casesWithoutAuto, id: \.self) { lang in
+                ForEach(InputLanguage.allCasesSorted, id: \.self) { lang in
                     Button {
                         updateLanguage(lang)
                     } label: {

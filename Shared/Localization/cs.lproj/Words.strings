@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Spojka";
 "part_of_speech.full.pronoun" = "Zájmeno";
 "part_of_speech.full.preposition" = "Předložka";
+"part_of_speech.full.article" = "Člen";
 "part_of_speech.full.exclamation" = "Vykřičník";
 "part_of_speech.full.interjection" = "Citoslovce";
 "part_of_speech.full.idiom" = "Idiom";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Spoj.";
 "part_of_speech.short.pronoun" = "Zájm.";
 "part_of_speech.short.preposition" = "Předl.";
+"part_of_speech.short.article" = "Čl.";
 "part_of_speech.short.exclamation" = "Vykř.";
 "part_of_speech.short.interjection" = "Cit.";
 "part_of_speech.short.idiom" = "Idiom";

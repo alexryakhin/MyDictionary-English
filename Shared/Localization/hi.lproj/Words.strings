@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "संयोजक";
 "part_of_speech.full.pronoun" = "सर्वनाम";
 "part_of_speech.full.preposition" = "पूर्वसर्ग";
+"part_of_speech.full.article" = "उपपद";
 "part_of_speech.full.exclamation" = "विस्मयादिबोधक";
 "part_of_speech.full.interjection" = "विस्मयसूचक";
 "part_of_speech.full.idiom" = "मुहावरा";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "संयो.";
 "part_of_speech.short.pronoun" = "सर्व.";
 "part_of_speech.short.preposition" = "पूर्व.";
+"part_of_speech.short.article" = "उपपद";
 "part_of_speech.short.exclamation" = "विस्म.";
 "part_of_speech.short.interjection" = "विस्म.सू.";
 "part_of_speech.short.idiom" = "मुहावरा";

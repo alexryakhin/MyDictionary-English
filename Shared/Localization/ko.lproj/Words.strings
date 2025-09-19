@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "접속사";
 "part_of_speech.full.pronoun" = "대명사";
 "part_of_speech.full.preposition" = "전치사";
+"part_of_speech.full.article" = "관사";
 "part_of_speech.full.exclamation" = "감탄사";
 "part_of_speech.full.interjection" = "간투사";
 "part_of_speech.full.idiom" = "관용구";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "접.";
 "part_of_speech.short.pronoun" = "대.";
 "part_of_speech.short.preposition" = "전.";
+"part_of_speech.short.article" = "관.";
 "part_of_speech.short.exclamation" = "감.";
 "part_of_speech.short.interjection" = "간.";
 "part_of_speech.short.idiom" = "관용";

@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Kötőszó";
 "part_of_speech.full.pronoun" = "Névmás";
 "part_of_speech.full.preposition" = "Elöljárószó";
+"part_of_speech.full.article" = "Névmás";
 "part_of_speech.full.exclamation" = "Felkiáltás";
 "part_of_speech.full.interjection" = "Indulatszó";
 "part_of_speech.full.idiom" = "Kifejezés";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Köt.";
 "part_of_speech.short.pronoun" = "Név.";
 "part_of_speech.short.preposition" = "Elöl.";
+"part_of_speech.short.article" = "Név.";
 "part_of_speech.short.exclamation" = "Felk.";
 "part_of_speech.short.interjection" = "Ind.";
 "part_of_speech.short.idiom" = "Kif.";

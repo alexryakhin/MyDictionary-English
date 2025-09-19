@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Konjunktion";
 "part_of_speech.full.pronoun" = "Pronomen";
 "part_of_speech.full.preposition" = "Præposition";
+"part_of_speech.full.article" = "Artikel";
 "part_of_speech.full.exclamation" = "Udråbsord";
 "part_of_speech.full.interjection" = "Interjektion";
 "part_of_speech.full.idiom" = "Idiom";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Konj.";
 "part_of_speech.short.pronoun" = "Pron.";
 "part_of_speech.short.preposition" = "Præp.";
+"part_of_speech.short.article" = "Art.";
 "part_of_speech.short.exclamation" = "Udr.";
 "part_of_speech.short.interjection" = "Interj.";
 "part_of_speech.short.idiom" = "Idiom";

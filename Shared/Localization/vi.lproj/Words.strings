@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "Liên từ";
 "part_of_speech.full.pronoun" = "Đại từ";
 "part_of_speech.full.preposition" = "Giới từ";
+"part_of_speech.full.article" = "Mạo từ";
 "part_of_speech.full.exclamation" = "Thán từ";
 "part_of_speech.full.interjection" = "Thán từ";
 "part_of_speech.full.idiom" = "Thành ngữ";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "Liên";
 "part_of_speech.short.pronoun" = "Đại";
 "part_of_speech.short.preposition" = "Giới";
+"part_of_speech.short.article" = "Mạo";
 "part_of_speech.short.exclamation" = "Thán";
 "part_of_speech.short.interjection" = "Thán";
 "part_of_speech.short.idiom" = "Thành ngữ";

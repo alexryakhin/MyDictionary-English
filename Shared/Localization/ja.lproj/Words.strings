@@ -126,6 +126,7 @@
 "part_of_speech.full.conjunction" = "接続詞";
 "part_of_speech.full.pronoun" = "代名詞";
 "part_of_speech.full.preposition" = "前置詞";
+"part_of_speech.full.article" = "冠詞";
 "part_of_speech.full.exclamation" = "感嘆詞";
 "part_of_speech.full.interjection" = "間投詞";
 "part_of_speech.full.idiom" = "慣用句";
@@ -139,6 +140,7 @@
 "part_of_speech.short.conjunction" = "接.";
 "part_of_speech.short.pronoun" = "代.";
 "part_of_speech.short.preposition" = "前.";
+"part_of_speech.short.article" = "冠.";
 "part_of_speech.short.exclamation" = "感.";
 "part_of_speech.short.interjection" = "間.";
 "part_of_speech.short.idiom" = "慣用";
