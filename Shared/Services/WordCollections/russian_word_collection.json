@@ -525,7 +525,7 @@
                     "id": "da-001",
                     "text": "да",
                     "phonetics": "/da/",
-                    "partOfSpeech": "particle",
+                    "partOfSpeech": "pharse",
                     "definition": "Слово, которым ты отвечаешь, когда согласен или когда что-то правда.",
                     "examples": [
                         "Да, я хочу мороженое!",
@@ -536,11 +536,22 @@
                     "id": "net-001",
                     "text": "нет",
                     "phonetics": "/nʲet/",
-                    "partOfSpeech": "particle",
+                    "partOfSpeech": "pharse",
                     "definition": "Слово, которым ты отвечаешь, когда не согласен или когда чего-то нет.",
                     "examples": [
                         "Нет, я не хочу спать.",
                         "Нет, сегодня нет дождя."
+                    ]
+                },
+                {
+                    "id": "spasibo-001",
+                    "text": "спасибо",
+                    "phonetics": "/spɐˈsʲibə/",
+                    "partOfSpeech": "pharse",
+                    "definition": "Слово, которое ты говоришь, когда кто-то сделал для тебя что-то хорошее. Показывает, что ты благодарен.",
+                    "examples": [
+                        "Спасибо за помощь!",
+                        "Спасибо за вкусный торт."
                     ]
                 }
             ],
@@ -785,7 +796,7 @@
             "imageUrl": null,
             "localImageName": "animals",
             "isPremium": false,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "semya-lyudi-001",
@@ -953,7 +964,7 @@
             "imageUrl": null,
             "localImageName": "family",
             "isPremium": false,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "chasti-tela-001",
@@ -1121,7 +1132,7 @@
             "imageUrl": null,
             "localImageName": "self_care",
             "isPremium": false,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "eda-napitki-001",
@@ -1300,7 +1311,7 @@
             "imageUrl": null,
             "localImageName": "breakfast",
             "isPremium": false,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "odezhda-001",
@@ -1457,7 +1468,7 @@
             "imageUrl": null,
             "localImageName": "cool-woman",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "dom-komnata-001",
@@ -1636,7 +1647,7 @@
             "imageUrl": null,
             "localImageName": "office-1",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "gorod-mesta-001",
@@ -1793,7 +1804,7 @@
             "imageUrl": null,
             "localImageName": "moscow",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "vremya-dni-001",
@@ -1961,7 +1972,7 @@
             "imageUrl": null,
             "localImageName": "clock",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "pogoda-vremena-001",
@@ -2129,7 +2140,7 @@
             "imageUrl": null,
             "localImageName": "forest",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "transport-001",
@@ -2242,7 +2253,7 @@
             "imageUrl": null,
             "localImageName": "car-ride",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "shkola-ucheba-001",
@@ -2388,7 +2399,7 @@
             "imageUrl": null,
             "localImageName": "school",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "rabota-professii-001",
@@ -2501,7 +2512,7 @@
             "imageUrl": null,
             "localImageName": "office-2",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "sport-igry-001",
@@ -2636,7 +2647,7 @@
             "imageUrl": null,
             "localImageName": "studying",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "emotsii-chuvstva-001",
@@ -2848,7 +2859,7 @@
             "imageUrl": null,
             "localImageName": "mental_health",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "kharakter-lichnost-001",
@@ -3060,7 +3071,7 @@
             "imageUrl": null,
             "localImageName": "mental_health2",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "zdorove-meditsina-001",
@@ -3250,7 +3261,7 @@
             "imageUrl": null,
             "localImageName": "self_care1",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "priroda-ekologiya-001",
@@ -3429,7 +3440,7 @@
             "imageUrl": null,
             "localImageName": "ecology",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "tekhnologii-internet-001",
@@ -3597,7 +3608,7 @@
             "imageUrl": null,
             "localImageName": "laptop",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "obshchestvo-politika-001",
@@ -3776,7 +3787,7 @@
             "imageUrl": null,
             "localImageName": "society",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "ekonomika-finansy-001",
@@ -3966,7 +3977,7 @@
             "imageUrl": null,
             "localImageName": "business",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "kultura-iskusstvo-001",
@@ -4145,7 +4156,7 @@
             "imageUrl": null,
             "localImageName": "books-1",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "obrazovanie-karera-001",
@@ -4313,7 +4324,7 @@
             "imageUrl": null,
             "localImageName": "studying-2",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "nauka-issledovaniya-001",
@@ -4481,7 +4492,7 @@
             "imageUrl": null,
             "localImageName": "book-glasses",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         },
         {
             "id": "psikhologiya-povedenie-001",
@@ -5029,7 +5040,7 @@
             "imageUrl": null,
             "localImageName": "books-2",
             "isPremium": true,
-            "isFeatured": true
+            "isFeatured": false
         }
     ],
     "lastUpdated": "2025-09-10T12:55:00Z",

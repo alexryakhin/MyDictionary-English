@@ -143,7 +143,7 @@ struct WordCollectionDetailsView: View {
                 }
                 
                 // Translation button (only show if locale is not English)
-                if !GlobalConstant.isEnglishLanguage {
+                if Locale.current.language.languageCode?.identifier != viewModel.collection.languageCode {
                     AsyncActionButton(
                         Loc.WordCollections.translateDefinitions,
                         systemImage: "globe",

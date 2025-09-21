@@ -98,12 +98,10 @@ struct WordCollectionsView: View {
             if selectedLanguage == "all" {
                 // Show all languages grouped
                 ForEach(availableLanguages, id: \.self) { languageCode in
-                    let languageCollections = filteredCollections(for: languageCode)
-                    if !languageCollections.isEmpty {
-                        languageSection(languageCode: languageCode, collections: languageCollections)
-                    } else {
-                        emptyStateView
-                    }
+                    languageSection(
+                        languageCode: languageCode,
+                        collections: filteredCollections(for: languageCode)
+                    )
                 }
             } else {
                 // Show only selected language
@@ -194,15 +192,23 @@ struct WordCollectionsView: View {
             header: WordCollectionKeys.allCases.first { $0.languageCode == languageCode }?.displayName ?? languageCode.uppercased(),
             footer: Loc.Plurals.WordCollections.collectionsCount(collections.count)
         ) {
-            LazyVGrid(columns: [
-                GridItem(.flexible(), spacing: 12),
-                GridItem(.flexible(), spacing: 12)
-            ], spacing: 12) {
-                ForEach(collections) { collection in
-                    WordCollectionGridPreviewCard(collection: collection)
+            if collections.isNotEmpty {
+                LazyVGrid(columns: [
+                    GridItem(.flexible(), spacing: 12),
+                    GridItem(.flexible(), spacing: 12)
+                ], spacing: 12) {
+                    ForEach(collections) { collection in
+                        WordCollectionGridPreviewCard(collection: collection)
+                    }
                 }
+                .padding(.bottom, 12)
+            } else {
+                ContentUnavailableView(
+                    Loc.WordCollections.noCollectionsAvailable,
+                    systemImage: "book.closed",
+                    description: Text(Loc.WordCollections.noCollectionsAvailableDescription)
+                )
             }
-            .padding(.bottom, 12)
         }
     }
     
@@ -230,7 +236,7 @@ struct WordCollectionsView: View {
     private var featuredCollections: [WordCollection]? {
         // Return collections marked as featured using the new isFeatured flag
         let featured = collectionsManager.featuredCollections()
-        return featured.isEmpty ? nil : Array(featured.prefix(3))
+        return featured.isEmpty ? nil : Array(featured.prefix(10))
     }
     
     private var featuredCollectionsForSelectedLanguage: [WordCollection]? {
@@ -256,19 +262,14 @@ struct WordCollectionsView: View {
             }
         }
         
-        // Sort collections: featured first, then by level, then by title
+        // Sort collections: by level, then by title
         return collections.sorted { collection1, collection2 in
-            // Featured collections first
-            if collection1.isFeatured != collection2.isFeatured {
-                return collection1.isFeatured
-            }
-            
-            // Then by level (A1, A2, B1, B2, C1, C2)
+            // Sort by level (A1, A2, B1, B2, C1, C2)
             if collection1.level != collection2.level {
                 return collection1.level.rawValue < collection2.level.rawValue
             }
             
-            // Finally by title alphabetically
+            // Sort by title alphabetically
             return collection1.title.localizedCaseInsensitiveCompare(collection2.title) == .orderedAscending
         }
     }

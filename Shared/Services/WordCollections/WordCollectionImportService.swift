@@ -99,7 +99,7 @@ final class WordCollectionImportService {
                     newWord.partOfSpeech = wordItem.partOfSpeech.rawValue
                     newWord.phonetic = wordItem.phonetics
                     newWord.languageCode = collection.languageCode
-                    newWord.notes = "From collection \(collection.title)"
+                    newWord.notes = "\(Loc.WordCollections.fromCollection) \(collection.title)"
                     newWord.timestamp = Date()
                     newWord.updatedAt = Date()
                     newWord.isSynced = false

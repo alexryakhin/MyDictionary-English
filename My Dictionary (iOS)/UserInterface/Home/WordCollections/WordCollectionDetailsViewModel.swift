@@ -44,11 +44,6 @@ final class WordCollectionDetailsViewModel: ObservableObject {
     
     /// Manually triggers translation of definitions
     func translateDefinitions() async {
-        // Only translate if user's locale is not English
-        guard !GlobalConstant.isEnglishLanguage else {
-            return
-        }
-        
         isTranslating = true
         translationError = nil
         
@@ -75,6 +70,7 @@ final class WordCollectionDetailsViewModel: ObservableObject {
                     do {
                         let translatedDefinition = try await self.translationService.translateDefinition(
                             word.definition,
+                            from: self.collection.languageCode,
                             to: self.localeLanguageCode
                         )
                         

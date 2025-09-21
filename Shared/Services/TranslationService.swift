@@ -15,7 +15,7 @@ struct TranslationResponse {
 protocol TranslationService {
     func translateToEnglish(_ word: String) async throws(CoreError) -> TranslationResponse
     func translateFromLanguage(_ word: String, from languageCode: String) async throws(CoreError) -> TranslationResponse
-    func translateDefinition(_ definition: String, to languageCode: String) async throws(CoreError) -> String
+    func translateDefinition(_ definition: String, from sl: String, to tl: String) async throws(CoreError) -> String
 }
 
 final class GoogleTranslateService: TranslationService {
@@ -55,12 +55,12 @@ final class GoogleTranslateService: TranslationService {
         return translationResponse
     }
     
-    func translateDefinition(_ definition: String, to languageCode: String) async throws(CoreError) -> String {
+    func translateDefinition(_ definition: String, from sl: String, to tl: String) async throws(CoreError) -> String {
         var components = URLComponents(string: baseURL)
         components?.queryItems = [
             URLQueryItem(name: "client", value: "gtx"),
-            URLQueryItem(name: "sl", value: "en"),
-            URLQueryItem(name: "tl", value: languageCode),
+            URLQueryItem(name: "sl", value: sl),
+            URLQueryItem(name: "tl", value: tl),
             URLQueryItem(name: "dt", value: "t"),
             URLQueryItem(name: "q", value: definition)
         ]

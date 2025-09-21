@@ -121,7 +121,7 @@ struct VocabularyListView: View {
                 ) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 12) {
-                            ForEach(collectionsManager.collections.prefix(5)) { collection in
+                            ForEach(collectionsManager.collections.filter(\.isFeatured).prefix(10)) { collection in
                                 WordCollectionPreviewCard(collection: collection)
                             }
                         }

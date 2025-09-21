@@ -55,7 +55,7 @@ struct WordCollectionItemDetailsView: View {
 
                 // Collection info
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("From Collection")
+                    Text(Loc.WordCollections.fromCollection)
                         .font(.headline)
                     Text(collection.title)
                         .font(.body)

@@ -40,6 +40,12 @@ enum PartOfSpeech: String, CaseIterable, Codable {
         }
     }
 
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self)
+        self = .init(rawValue: rawValue)
+    }
+
     var displayName: String {
         switch self {
         case .noun: return Loc.Words.PartOfSpeech.Full.noun

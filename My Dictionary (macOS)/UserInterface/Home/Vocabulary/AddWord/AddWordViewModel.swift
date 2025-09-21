@@ -388,6 +388,7 @@ final class AddWordViewModel: BaseViewModel {
                     do {
                         let translatedText = try await self.translationService.translateDefinition(
                             definition.text,
+                            from: "en",
                             to: self.localeLanguageCode
                         )
 

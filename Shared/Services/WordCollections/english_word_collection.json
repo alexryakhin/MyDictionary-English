@@ -1110,9 +1110,9 @@
             "languageCode": "en",
             "description": "The 100 most common verbs in English",
             "imageUrl": null,
-            "localImageName": "books-1",
+            "localImageName": "books-2",
             "isPremium": false,
-            "isFeatured": false
+            "isFeatured": true
         },
         {
             "id": "gen-z-slang-001",
@@ -1269,7 +1269,7 @@
             "imageUrl": null,
             "localImageName": "gen_z",
             "isPremium": true,
-            "isFeatured": false
+            "isFeatured": true
         },
         {
             "id": "ai-tech-buzzwords-001",
@@ -3459,7 +3459,7 @@
             "imageUrl": null,
             "localImageName": "book-glasses",
             "isPremium": true,
-            "isFeatured": false
+            "isFeatured": true
         },
         {
             "id": "abstract-concepts-001",
