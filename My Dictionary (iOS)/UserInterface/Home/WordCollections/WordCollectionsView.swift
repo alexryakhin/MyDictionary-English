@@ -39,7 +39,7 @@ struct WordCollectionsView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "Word Catalog",
+            title: Loc.WordCollections.wordCatalog,
             mode: .inline,
             showsBackButton: true,
             trailingContent: {
@@ -52,7 +52,7 @@ struct WordCollectionsView: View {
             bottomContent: {
                 VStack(spacing: 12) {
                     InputView.searchView(
-                        "Search collections",
+                        Loc.WordCollections.searchCollections,
                         searchText: $searchText
                     )
                     filtersView
@@ -71,7 +71,7 @@ struct WordCollectionsView: View {
         VStack(spacing: 16) {
             ProgressView()
                 .scaleEffect(1.2)
-            Text("Loading word collections...")
+            Text(Loc.WordCollections.loadingWordCollections)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
         }
@@ -121,9 +121,9 @@ struct WordCollectionsView: View {
     
     private var emptyStateView: some View {
         ContentUnavailableView(
-            "No Collections Available",
+            Loc.WordCollections.noCollectionsAvailable,
             systemImage: "book.closed",
-            description: Text("Try changing filters or using a different search term.")
+            description: Text(Loc.WordCollections.noCollectionsAvailableDescription)
         )
         .padding(.vertical, 60)
     }
@@ -134,9 +134,14 @@ struct WordCollectionsView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
                 // Language picker
-                HeaderButtonMenu("Language", icon: "chevron.down", size: .small) {
-                    Picker("Language", selection: $selectedLanguage) {
-                        Text("All Languages")
+                var languageMenuTitle: String {
+                    selectedLanguage == "all"
+                    ? Loc.WordCollections.allLanguages
+                    : WordCollectionKeys.allCases.first { $0.languageCode == selectedLanguage }?.displayName ?? selectedLanguage.uppercased()
+                }
+                HeaderButtonMenu(languageMenuTitle, icon: "chevron.down", size: .small) {
+                    Picker(Loc.WordCollections.language, selection: $selectedLanguage) {
+                        Text(Loc.WordCollections.allLanguages)
                             .tag("all")
                         ForEach(availableLanguages, id: \.self) { languageCode in
                             Text(WordCollectionKeys.allCases.first { $0.languageCode == languageCode }?.displayName ?? languageCode.uppercased())
@@ -147,9 +152,12 @@ struct WordCollectionsView: View {
                 }
 
                 // Level picker
-                HeaderButtonMenu("Level", icon: "chevron.down", size: .small) {
-                    Picker("Level", selection: $selectedLevel) {
-                        Text("All Levels")
+                var levelMenuTitle: String {
+                    selectedLevel?.displayName ?? Loc.WordCollections.allLevels
+                }
+                HeaderButtonMenu(levelMenuTitle, icon: "chevron.down", size: .small) {
+                    Picker(Loc.WordCollections.level, selection: $selectedLevel) {
+                        Text(Loc.WordCollections.allLevels)
                             .tag(nil as WordLevel?)
                         ForEach(WordLevel.allCases, id: \.self) { level in
                             Text(level.displayName)
@@ -165,7 +173,7 @@ struct WordCollectionsView: View {
     // MARK: - Featured Collections Section
     
     private func featuredCollectionsSection(_ collections: [WordCollection]) -> some View {
-        CustomSectionView(header: "Featured") {
+        CustomSectionView(header: Loc.WordCollections.featured) {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     ForEach(collections) { collection in
@@ -184,7 +192,7 @@ struct WordCollectionsView: View {
     private func languageSection(languageCode: String, collections: [WordCollection]) -> some View {
         CustomSectionView(
             header: WordCollectionKeys.allCases.first { $0.languageCode == languageCode }?.displayName ?? languageCode.uppercased(),
-            footer: "\(collections.count) collections"
+            footer: Loc.Plurals.WordCollections.collectionsCount(collections.count)
         ) {
             LazyVGrid(columns: [
                 GridItem(.flexible(), spacing: 12),

@@ -145,6 +145,46 @@
                 <key>other</key>
                 <string>%d викторин</string>
             </dict>
-        </dict>
-    </dict>
+	</dict>
+	<key>word_collections.collections_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d коллекция</string>
+			<key>few</key>
+			<string>%d коллекции</string>
+			<key>many</key>
+			<string>%d коллекций</string>
+			<key>other</key>
+			<string>%d коллекций</string>
+		</dict>
+	</dict>
+	<key>word_collections.collections_available</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d коллекция доступна</string>
+			<key>few</key>
+			<string>%d коллекции доступны</string>
+			<key>many</key>
+			<string>%d коллекций доступно</string>
+			<key>other</key>
+			<string>%d коллекций доступно</string>
+		</dict>
+	</dict>
+</dict>
 </plist>

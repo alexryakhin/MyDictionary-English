@@ -113,7 +113,7 @@ struct WordCollection: Codable, Identifiable, Hashable {
     
     /// Returns a formatted word count string
     var wordCountText: String {
-        return "\(wordCount) \(wordCount == 1 ? "word" : "words")"
+        Loc.Plurals.Words.wordsCount(wordCount)
     }
 
     var imageURL: URL? {
@@ -133,18 +133,25 @@ enum WordLevel: String, Codable, CaseIterable {
     
     /// Returns a display name for the level
     var displayName: String {
-        return rawValue
+        switch self {
+        case .a1: Loc.WordCollections.Level.a1
+        case .a2: Loc.WordCollections.Level.a2
+        case .b1: Loc.WordCollections.Level.b1
+        case .b2: Loc.WordCollections.Level.b2
+        case .c1: Loc.WordCollections.Level.c1
+        case .c2: Loc.WordCollections.Level.c2
+        }
     }
     
     /// Returns a description for the level
     var description: String {
         switch self {
-        case .a1: "Beginner"
-        case .a2: "Elementary"
-        case .b1: "Intermediate"
-        case .b2: "Upper Intermediate"
-        case .c1: "Advanced"
-        case .c2: "Proficiency"
+        case .a1: Loc.WordCollections.Level.a1Title
+        case .a2: Loc.WordCollections.Level.a2Title
+        case .b1: Loc.WordCollections.Level.b1Title
+        case .b2: Loc.WordCollections.Level.b2Title
+        case .c1: Loc.WordCollections.Level.c1Title
+        case .c2: Loc.WordCollections.Level.c2Title
         }
     }
     

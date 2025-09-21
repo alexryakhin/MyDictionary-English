@@ -146,5 +146,49 @@
 			<string>%d חידונים</string>
 		</dict>
 	</dict>
+	<key>word_collections.collections_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>%d אוסף</string>
+			<key>one</key>
+			<string>%d אוסף</string>
+			<key>two</key>
+			<string>%d אוספים</string>
+			<key>many</key>
+			<string>%d אוספים</string>
+			<key>other</key>
+			<string>%d אוספים</string>
+		</dict>
+	</dict>
+	<key>word_collections.collections_available</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>%d אוסף זמין</string>
+			<key>one</key>
+			<string>%d אוסף זמין</string>
+			<key>two</key>
+			<string>%d אוספים זמינים</string>
+			<key>many</key>
+			<string>%d אוספים זמינים</string>
+			<key>other</key>
+			<string>%d אוספים זמינים</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

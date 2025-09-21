@@ -116,8 +116,8 @@ struct VocabularyListView: View {
         Group {
             if collectionsManager.hasCollections {
                 CustomSectionView(
-                    header: "Word Collections",
-                    footer: "\(collectionsManager.collections.count) collections available"
+                    header: Loc.WordCollections.wordCatalog,
+                    footer: Loc.Plurals.WordCollections.collectionsAvailable(collectionsManager.collections.count)
                 ) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 12) {

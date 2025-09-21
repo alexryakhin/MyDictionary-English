@@ -67,7 +67,7 @@ struct WordCollectionItemDetailsView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "Details",
+            title: Loc.WordCollections.details,
             mode: .inline,
             trailingContent: {
                 HeaderButton(Loc.Actions.done) {

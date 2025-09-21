@@ -132,5 +132,41 @@
 			<string>%d teste</string>
 		</dict>
 	</dict>
+	<key>word_collections.collections_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d colecție</string>
+			<key>few</key>
+			<string>%d colecții</string>
+			<key>other</key>
+			<string>%d de colecții</string>
+		</dict>
+	</dict>
+	<key>word_collections.collections_available</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d colecție disponibilă</string>
+			<key>few</key>
+			<string>%d colecții disponibile</string>
+			<key>other</key>
+			<string>%d de colecții disponibile</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

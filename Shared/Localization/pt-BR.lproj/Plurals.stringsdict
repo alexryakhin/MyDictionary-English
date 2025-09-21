@@ -118,5 +118,37 @@
 			<string>%d questionários</string>
 		</dict>
 	</dict>
+	<key>word_collections.collections_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d coleção</string>
+			<key>other</key>
+			<string>%d coleções</string>
+		</dict>
+	</dict>
+	<key>word_collections.collections_available</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d coleção disponível</string>
+			<key>other</key>
+			<string>%d coleções disponíveis</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

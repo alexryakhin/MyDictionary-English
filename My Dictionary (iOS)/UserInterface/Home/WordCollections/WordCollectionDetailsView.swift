@@ -67,7 +67,7 @@ struct WordCollectionDetailsView: View {
             showsBackButton: true,
             trailingContent: {
                 HeaderButton(
-                    "Add All",
+                    Loc.WordCollections.addAll,
                     size: .small,
                     style: .borderedProminent
                 ) {
@@ -77,7 +77,7 @@ struct WordCollectionDetailsView: View {
             },
             bottomContent: {
                 InputView.searchView(
-                    "Search words",
+                    Loc.WordCollections.searchWords,
                     searchText: $searchText
                 )
             }
@@ -88,16 +88,19 @@ struct WordCollectionDetailsView: View {
         .sheet(item: $selectedWord) { word in
             WordCollectionItemDetailsView(word: word, collection: viewModel.collection)
         }
-        .alert("Import Complete", isPresented: $showSuccessAlert) {
-            Button("OK") {
+        .alert(Loc.WordCollections.importComplete, isPresented: $showSuccessAlert) {
+            Button(Loc.Actions.ok) {
                 // Request review after successful import
                 requestReviewIfAppropriate()
             }
         } message: {
             if duplicateWordsCount > 0 {
-                Text("Successfully added \(addedWordsCount) words to your dictionary. \(duplicateWordsCount) words were already in your dictionary and were skipped.")
+                Text(Loc.WordCollections.importSuccessWithDuplicates(
+                    Loc.Plurals.Words.wordsCount(addedWordsCount),
+                    Loc.Plurals.Words.wordsCount(duplicateWordsCount)
+                ))
             } else {
-                Text("Successfully added \(addedWordsCount) words to your dictionary.")
+                Text(Loc.WordCollections.importSuccess(Loc.Plurals.Words.wordsCount(addedWordsCount)))
             }
         }
     }
@@ -132,7 +135,7 @@ struct WordCollectionDetailsView: View {
                 
                 // Add to dictionary button
                 ActionButton(
-                    "Add to My Dictionary",
+                    Loc.WordCollections.addToMyDictionary,
                     systemImage: "plus.circle.fill",
                     style: .borderedProminent
                 ) {
@@ -142,7 +145,7 @@ struct WordCollectionDetailsView: View {
                 // Translation button (only show if locale is not English)
                 if !GlobalConstant.isEnglishLanguage {
                     AsyncActionButton(
-                        "Translate Definitions",
+                        Loc.WordCollections.translateDefinitions,
                         systemImage: "globe",
                         style: .bordered
                     ) {
@@ -162,16 +165,16 @@ struct WordCollectionDetailsView: View {
     
     private var wordsSection: some View {
         CustomSectionView(
-            header: "Contains:",
+            header: Loc.WordCollections.contains,
             headerFontStyle: .stealth,
-            footer: "\(filteredWords.count) words",
+            footer: Loc.Plurals.Words.wordsCount(filteredWords.count),
             hPadding: .zero
         ) {
             if filteredWords.isEmpty {
                 ContentUnavailableView(
-                    "No words found",
+                    Loc.WordCollections.noWordsFound,
                     systemImage: "magnifyingglass",
-                    description: Text("Try adjusting your search terms.")
+                    description: Text(Loc.WordCollections.noWordsFoundDescription)
                 )
                 .padding(.vertical, 24)
             } else {

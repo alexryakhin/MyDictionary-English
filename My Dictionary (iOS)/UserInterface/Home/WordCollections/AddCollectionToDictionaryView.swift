@@ -63,7 +63,7 @@ struct AddCollectionToDictionaryView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "Add Words",
+            title: Loc.WordCollections.addWords,
             mode: .inline,
             trailingContent: {
                 HeaderButton(Loc.Actions.cancel, size: .small) {
@@ -75,23 +75,26 @@ struct AddCollectionToDictionaryView: View {
                 .disabled(selectedWords.count == 0)
             },
             bottomContent: {
-                Text("Select words from '\(collection.title)' to add to your personal dictionary.")
+                Text(Loc.WordCollections.selectWordsDescription(collection.title))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
         )
-        .alert("Import Complete", isPresented: $showSuccessAlert) {
-            Button("OK") {
+        .alert(Loc.WordCollections.importComplete, isPresented: $showSuccessAlert) {
+            Button(Loc.Actions.ok) {
                 // Request review after successful import
                 requestReviewIfAppropriate()
                 dismiss()
             }
         } message: {
             if duplicateWordsCount > 0 {
-                Text("Successfully added \(addedWordsCount) words to your dictionary. \(duplicateWordsCount) words were already in your dictionary and were skipped.")
+                Text(Loc.WordCollections.importSuccessWithDuplicates(
+                    Loc.Plurals.Words.wordsCount(addedWordsCount),
+                    Loc.Plurals.Words.wordsCount(duplicateWordsCount)
+                ))
             } else {
-                Text("Successfully added \(addedWordsCount) words to your dictionary.")
+                Text(Loc.WordCollections.importSuccess(Loc.Plurals.Words.wordsCount(addedWordsCount)))
             }
         }
     }

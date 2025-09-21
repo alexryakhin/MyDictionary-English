@@ -1169,6 +1169,16 @@ public enum Loc {
         return Loc.tr("Plurals", "shared_dictionaries.dictionary_count_created", p1, fallback: "Plural format key: \"%#@COUNT@ of 1 dictionary created\"")
       }
     }
+    public enum WordCollections {
+      /// Plural format key: "%#@COUNT@"
+      public static func collectionsAvailable(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "word_collections.collections_available", p1, fallback: "Plural format key: \"%#@COUNT@\"")
+      }
+      /// Plural format key: "%#@COUNT@"
+      public static func collectionsCount(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "word_collections.collections_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
+      }
+    }
     public enum Words {
       /// Plural format key: "%#@COUNT@"
       public static func wordsCount(_ p1: Int) -> String {
@@ -2345,6 +2355,88 @@ public enum Loc {
       public static let monthlyUsage = Loc.tr("TTS", "usage.monthly_usage", fallback: "Monthly Usage")
       /// Remaining Characters
       public static let remainingCharacters = Loc.tr("TTS", "usage.remaining_characters", fallback: "Remaining Characters")
+    }
+  }
+  public enum WordCollections {
+    /// Add All
+    public static let addAll = Loc.tr("WordCollections", "add_all", fallback: "Add All")
+    /// Add to My Dictionary
+    public static let addToMyDictionary = Loc.tr("WordCollections", "add_to_my_dictionary", fallback: "Add to My Dictionary")
+    /// Add Words
+    public static let addWords = Loc.tr("WordCollections", "add_words", fallback: "Add Words")
+    /// All Languages
+    public static let allLanguages = Loc.tr("WordCollections", "all_languages", fallback: "All Languages")
+    /// All Levels
+    public static let allLevels = Loc.tr("WordCollections", "all_levels", fallback: "All Levels")
+    /// Contains:
+    public static let contains = Loc.tr("WordCollections", "contains", fallback: "Contains:")
+    /// Details
+    public static let details = Loc.tr("WordCollections", "details", fallback: "Details")
+    /// Featured
+    public static let featured = Loc.tr("WordCollections", "featured", fallback: "Featured")
+    /// From Collection
+    public static let fromCollection = Loc.tr("WordCollections", "from_collection", fallback: "From Collection")
+    /// Import Complete
+    public static let importComplete = Loc.tr("WordCollections", "import_complete", fallback: "Import Complete")
+    /// Successfully added %@ to your dictionary.
+    public static func importSuccess(_ p1: Any) -> String {
+      return Loc.tr("WordCollections", "import_success", String(describing: p1), fallback: "Successfully added %@ to your dictionary.")
+    }
+    /// Successfully added %@ to your dictionary. %@ were already in your dictionary and were skipped.
+    public static func importSuccessWithDuplicates(_ p1: Any, _ p2: Any) -> String {
+      return Loc.tr("WordCollections", "import_success_with_duplicates", String(describing: p1), String(describing: p2), fallback: "Successfully added %@ to your dictionary. %@ were already in your dictionary and were skipped.")
+    }
+    /// Language
+    public static let language = Loc.tr("WordCollections", "language", fallback: "Language")
+    /// Level
+    public static let level = Loc.tr("WordCollections", "level", fallback: "Level")
+    /// Loading word collections...
+    public static let loadingWordCollections = Loc.tr("WordCollections", "loading_word_collections", fallback: "Loading word collections...")
+    /// No Collections Available
+    public static let noCollectionsAvailable = Loc.tr("WordCollections", "no_collections_available", fallback: "No Collections Available")
+    /// Try changing filters or using a different search term.
+    public static let noCollectionsAvailableDescription = Loc.tr("WordCollections", "no_collections_available_description", fallback: "Try changing filters or using a different search term.")
+    /// No words found
+    public static let noWordsFound = Loc.tr("WordCollections", "no_words_found", fallback: "No words found")
+    /// Try adjusting your search terms.
+    public static let noWordsFoundDescription = Loc.tr("WordCollections", "no_words_found_description", fallback: "Try adjusting your search terms.")
+    /// Search collections
+    public static let searchCollections = Loc.tr("WordCollections", "search_collections", fallback: "Search collections")
+    /// Search words
+    public static let searchWords = Loc.tr("WordCollections", "search_words", fallback: "Search words")
+    /// Select words from '%@' to add to your personal dictionary.
+    public static func selectWordsDescription(_ p1: Any) -> String {
+      return Loc.tr("WordCollections", "select_words_description", String(describing: p1), fallback: "Select words from '%@' to add to your personal dictionary.")
+    }
+    /// Translate Definitions
+    public static let translateDefinitions = Loc.tr("WordCollections", "translate_definitions", fallback: "Translate Definitions")
+    /// Word Catalog
+    public static let wordCatalog = Loc.tr("WordCollections", "word_catalog", fallback: "Word Catalog")
+    public enum Level {
+      /// A1
+      public static let a1 = Loc.tr("WordCollections", "level.a1", fallback: "A1")
+      /// Beginner
+      public static let a1Title = Loc.tr("WordCollections", "level.a1_title", fallback: "Beginner")
+      /// A2
+      public static let a2 = Loc.tr("WordCollections", "level.a2", fallback: "A2")
+      /// Elementary
+      public static let a2Title = Loc.tr("WordCollections", "level.a2_title", fallback: "Elementary")
+      /// B1
+      public static let b1 = Loc.tr("WordCollections", "level.b1", fallback: "B1")
+      /// Intermediate
+      public static let b1Title = Loc.tr("WordCollections", "level.b1_title", fallback: "Intermediate")
+      /// B2
+      public static let b2 = Loc.tr("WordCollections", "level.b2", fallback: "B2")
+      /// Upper Intermediate
+      public static let b2Title = Loc.tr("WordCollections", "level.b2_title", fallback: "Upper Intermediate")
+      /// C1
+      public static let c1 = Loc.tr("WordCollections", "level.c1", fallback: "C1")
+      /// Advanced
+      public static let c1Title = Loc.tr("WordCollections", "level.c1_title", fallback: "Advanced")
+      /// C2
+      public static let c2 = Loc.tr("WordCollections", "level.c2", fallback: "C2")
+      /// Proficiency
+      public static let c2Title = Loc.tr("WordCollections", "level.c2_title", fallback: "Proficiency")
     }
   }
   public enum Words {

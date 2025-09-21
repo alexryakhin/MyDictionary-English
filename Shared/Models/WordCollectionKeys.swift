@@ -48,27 +48,6 @@ enum WordCollectionKeys: String, CaseIterable {
     
     /// Returns a display name for the collection
     var displayName: String {
-        switch self {
-        case .englishWordCollection:
-            return "English"
-        case .russianWordCollection:
-            return "Russian"
-        case .spanishWordCollection:
-            return "Spanish"
-        case .frenchWordCollection:
-            return "French"
-        case .germanWordCollection:
-            return "German"
-        case .italianWordCollection:
-            return "Italian"
-        case .portugueseWordCollection:
-            return "Portuguese"
-        case .chineseWordCollection:
-            return "Chinese"
-        case .japaneseWordCollection:
-            return "Japanese"
-        case .koreanWordCollection:
-            return "Korean"
-        }
+        Locale.current.localizedString(forLanguageCode: languageCode)?.capitalized ?? languageCode.uppercased()
     }
 }
