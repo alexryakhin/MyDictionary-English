@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "画像";
+"image_section.no_image_added_yet" = "まだ画像が追加されていません";
+"image_section.add_visual_representation" = "この単語を覚えるのに役立つ視覚的表現を追加してください";
+"image_section.add_image" = "画像を追加";
+"image_section.remove_image" = "画像を削除";
+
+// MARK: - Image Selection
+"image_selection.title" = "画像を選択";
+"image_selection.initial_message" = "画像がここに表示されます。単語やフレーズで検索できます。正しい入力言語を選択することを忘れないでください！";
+"image_selection.searching" = "'%@'の画像を検索中...";
+"image_selection.no_images_found" = "'%@'の画像が見つかりませんでした";
+"image_selection.retry" = "再試行";
+"image_selection.search_placeholder" = "異なる画像を検索...";
+"image_selection.failed_to_download" = "画像のダウンロードに失敗しました: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "選択された画像";
+"add_word_image.tap_to_change" = "タップして変更";
+"add_word_image.add_image" = "画像を追加";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "視覚的学習をお見逃しなく！";
+"image_premium.renew_pro_status" = "単語と一緒に美しい画像を楽しみ続けるために、プロステータスを更新してください。";
+"image_premium.upgrade_to_pro" = "プロにアップグレード";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "画像で学習を向上させる";
+"images_onboarding.see_words_come_to_life" = "単語が生き生きとしているのを見る";
+"images_onboarding.every_word_description" = "辞書のすべての単語に、覚えやすく理解しやすくする美しく関連性のある画像を追加できます。";
+"images_onboarding.add_images_to_existing" = "既存の単語に画像を追加";
+"images_onboarding.step1_find_image_section" = "画像セクションを見つける";
+"images_onboarding.step1_description" = "下にスクロールして「画像を追加」ボタンを確認";
+"images_onboarding.step2_choose_image" = "画像を選択";
+"images_onboarding.step2_description" = "数千の高品質写真を閲覧";
+"images_onboarding.step3_click_done" = "「完了」をクリック";
+"images_onboarding.step3_description" = "カスタマイズされた単語をお楽しみください！";
+"images_onboarding.add_images_during_creation" = "単語作成中に画像を追加";
+"images_onboarding.start_with_complete_vocabulary" = "新しい単語を追加する際、関連する画像を即座に検索して追加できます。初日から完全な視覚的語彙で始めましょう。";
+"images_onboarding.images_make_quizzes_effective" = "画像がクイズをより効果的にする";
+"images_onboarding.visual_learning_improves_memory" = "クイズで練習する際、画像は単語とその意味の間により強力なつながりを作るのに役立ちます。視覚的学習は記憶保持の向上が証明されています。";
+"images_onboarding.get_started" = "始める";
+"images_onboarding.skip" = "スキップ";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "これは何ですか？";
+"quiz_answer.cranberry" = "クランベリー";
+"quiz_answer.strawberry" = "イチゴ";
+"quiz_answer.cherry" = "チェリー";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "単語";
+"form_field.enter_your_word" = "単語を入力...";
+"form_field.definitions" = "定義";
+"form_field.add_definitions" = "定義を追加...";
+"form_field.image" = "画像";
+"form_field.add_image" = "画像を追加";

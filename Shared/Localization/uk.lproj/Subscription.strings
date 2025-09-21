@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Заощаджуйте %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Візуальне Навчання з Зображеннями";
+"pro_features.images_description" = "Додавайте красиві, релевантні зображення до ваших слів для кращого запам'ятовування та візуального навчання";
+"pro_features.word_collections" = "Колекції Слів";
+"pro_features.word_collections_description" = "Організуйте ваш словник у тематичні колекції для кращого навчання та організації";
 "pro_features.google_sync" = "Синхронізація з Google";
 "pro_features.unlimited_export" = "Необмежений експорт";
 "pro_features.create_shared_dictionaries" = "Створити спільні словники";

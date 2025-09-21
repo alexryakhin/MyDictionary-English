@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Εξοικονόμησε %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Οπτική Μάθηση με Εικόνες";
+"pro_features.images_description" = "Προσθέστε όμορφες, σχετικές εικόνες στις λέξεις σας για καλύτερη διατήρηση μνήμης και οπτική μάθηση";
+"pro_features.word_collections" = "Συλλογές Λέξεων";
+"pro_features.word_collections_description" = "Οργανώστε το λεξιλόγιό σας σε θεματικές συλλογές για καλύτερη μάθηση και οργάνωση";
 "pro_features.google_sync" = "Συγχρονισμός Google";
 "pro_features.unlimited_export" = "Απεριόριστη Εξαγωγή";
 "pro_features.create_shared_dictionaries" = "Δημιουργία Κοινόχρηστων Λεξικών";

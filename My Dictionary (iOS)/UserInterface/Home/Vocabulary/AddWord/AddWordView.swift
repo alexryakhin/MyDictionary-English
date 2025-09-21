@@ -7,6 +7,7 @@ struct AddWordView: View {
     @State private var showingDictionarySelection = false
     @State private var selectedDictionaryId: String? = nil
     @State private var isSignInPresented = false
+    @State private var showingImageOnboarding = false
 
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var ttsPlayer = TTSPlayer.shared
@@ -120,6 +121,7 @@ struct AddWordView: View {
         .sheet(isPresented: $isSignInPresented) {
             AuthenticationView(feature: .useAI)
         }
+        .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
         .withPaywall()
     }
 
@@ -224,7 +226,7 @@ struct AddWordView: View {
 
     @ViewBuilder
     private var imageCellView: some View {
-        CellWrapper("Image") {
+        CellWrapper(Loc.WordImages.ImageSection.title) {
             VStack(alignment: .leading, spacing: 12) {
                 if let imageLocalPath = viewModel.selectedImageLocalPath,
                    let image = PexelsService.shared.getImageFromLocalPath(imageLocalPath) {
@@ -238,32 +240,26 @@ struct AddWordView: View {
                             .cornerRadius(8)
 
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Selected Image")
-                            Text("Tap to change")
+                            Text(Loc.WordImages.AddWordImage.selectedImage)
+                            Text(Loc.WordImages.AddWordImage.tapToChange)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
 
                         Spacer()
 
-                        HeaderButton(Loc.Actions.remove) {
+                        HeaderButton(icon: "trash.fill", color: .red, size: .small) {
                             viewModel.handle(.selectImage("", ""))
                         }
-                        .buttonStyle(.bordered)
-                        .foregroundColor(.red)
                     }
                 } else {
                     HStack {
                         Image(systemName: "photo")
-                            .font(.title2)
+                            .font(.headline)
                             .foregroundStyle(.secondary)
 
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Add Image")
-                                .font(.headline)
-                                .foregroundStyle(.primary)
-                            Text("Search for images related to this word")
-                                .font(.caption)
+                            Text(Loc.WordImages.AddWordImage.addImage)
                                 .foregroundStyle(.secondary)
                         }
 
@@ -275,7 +271,11 @@ struct AddWordView: View {
                     }                }
             }
         } onTapAction: {
-            viewModel.handle(.showImageSelection)
+            if ImagesOnboardingHelper.shouldShowOnboarding() {
+                showingImageOnboarding = true
+            } else {
+                viewModel.handle(.showImageSelection)
+            }
         }
     }
 
@@ -478,5 +478,12 @@ struct AddWordView: View {
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
         }
+    }
+    
+    // MARK: - Onboarding Completion Handler
+    
+    private func handleOnboardingCompletion() {
+        // After onboarding is completed, show image selection
+        viewModel.handle(.showImageSelection)
     }
 }

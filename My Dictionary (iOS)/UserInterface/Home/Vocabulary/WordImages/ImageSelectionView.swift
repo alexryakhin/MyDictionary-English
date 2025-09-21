@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct ImageSelectionView: View {
+
+    enum ScreenState {
+        case initial
+        case loading
+        case photosAvailable([PexelsPhoto])
+        case error(String)
+    }
+
     private let pexelsService = PexelsService.shared
 
     @State private var searchQuery: String = ""
     @State private var language: InputLanguage = .english
-    @State private var photos: [PexelsPhoto] = []
-    @State private var isLoading = false
-    @State private var errorMessage: String?
+    @State private var screenState: ScreenState = .initial
     @State private var selectedPhoto: PexelsPhoto?
-    @State private var isDownloading = false
-    
+
     let word: String
     let onImageSelected: (String, String) -> Void // (imageUrl, localPath)
     let onDismiss: () -> Void
-    
+
     init(
         word: String,
         language: InputLanguage,
@@ -33,84 +38,95 @@ struct ImageSelectionView: View {
         self.onImageSelected = onImageSelected
         self.onDismiss = onDismiss
     }
-    
+
     var body: some View {
         VStack(spacing: 0) {
-            // Content
-            if isLoading {
+            switch screenState {
+            case .initial:
+                ContentUnavailableView {
+                    Image(systemName: "photo.badge.magnifyingglass")
+                        .font(.largeTitle)
+                        .foregroundStyle(.secondary)
+                } description: {
+                    Text(Loc.WordImages.ImageSelection.initialMessage)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            case .loading:
                 VStack {
                     ProgressView()
-                    Text("Searching images for '\(searchQuery)'...")
+                    Text(Loc.WordImages.ImageSelection.searching(searchQuery))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else if let errorMessage = errorMessage {
+            case .photosAvailable(let photos):
+                if photos.isNotEmpty {
+                    ScrollView {
+                        LazyVGrid(columns: [
+                            GridItem(.flexible(), spacing: 8),
+                            GridItem(.flexible(), spacing: 8),
+                            GridItem(.flexible(), spacing: 8)
+                        ], spacing: 8) {
+                            ForEach(photos) { photo in
+                                ImageThumbnailView(
+                                    photo: photo,
+                                    isSelected: selectedPhoto?.id == photo.id,
+                                    onTap: {
+                                        selectedPhoto = photo
+                                    }
+                                )
+                            }
+                        }
+                        .padding()
+                    }
+                } else {
+                    ContentUnavailableView {
+                        Image(systemName: "photo.badge.exclamationmark")
+                            .font(.largeTitle)
+                            .foregroundStyle(.secondary)
+                    } description: {
+                        Text(Loc.WordImages.ImageSelection.noImagesFound(word))
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+            case .error(let errorMessage):
                 ContentUnavailableView {
-                    Image(systemName: "exclamationmark.triangle")
+                    Image(systemName: "photo.trianglebadge.exclamationmark")
                         .font(.largeTitle)
                         .foregroundStyle(.orange)
                 } description: {
                     Text(errorMessage)
                 } actions: {
-                    Button("Retry") {
+                    Button(Loc.WordImages.ImageSelection.retry) {
                         searchImages()
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else if photos.isEmpty {
-                ContentUnavailableView {
-                    Image(systemName: "photo")
-                        .font(.largeTitle)
-                        .foregroundStyle(.secondary)
-                } description: {
-                    Text("No images found for '\(word)'")
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else {
-                ScrollView {
-                    LazyVGrid(columns: [
-                        GridItem(.flexible(), spacing: 8),
-                        GridItem(.flexible(), spacing: 8),
-                        GridItem(.flexible(), spacing: 8)
-                    ], spacing: 8) {
-                        ForEach(photos) { photo in
-                            ImageThumbnailView(
-                                photo: photo,
-                                isSelected: selectedPhoto?.id == photo.id,
-                                onTap: {
-                                    selectedPhoto = photo
-                                }
-                            )
-                        }
-                    }
-                    .padding()
-                }
             }
         }
         .groupedBackground()
         .navigation(
-            title: "Select Image",
+            title: Loc.WordImages.ImageSelection.title,
             mode: .inline,
             trailingContent: {
                 HeaderButton(Loc.Actions.cancel) {
                     onDismiss()
                 }
-                HeaderButton(Loc.Actions.done, style: .borderedProminent) {
-                    selectImage()
+                AsyncHeaderButton(Loc.Actions.done, style: .borderedProminent) {
+                    await selectImage()
                 }
                 .disabled(selectedPhoto == nil)
             },
             bottomContent: {
                 HStack(spacing: 8) {
                     InputView(
-                        "Search for different images...",
+                        Loc.WordImages.ImageSelection.searchPlaceholder,
                         showInputLanguagePicker: true,
                         text: $searchQuery,
                         inputLanguage: $language,
                         onSubmit: {
-                        searchImages()
-                    })
+                            searchImages()
+                        })
                     HeaderButton(icon: "magnifyingglass") {
                         searchImages()
                     }
@@ -118,19 +134,18 @@ struct ImageSelectionView: View {
             }
         )
         .onAppear {
-            // Automatically start searching for the word
+            guard word.isNotEmpty else { return }
             searchQuery = word
             searchImages()
         }
     }
-    
+
     private func searchImages() {
         guard !searchQuery.isEmpty else { return }
-        
-        isLoading = true
-        errorMessage = nil
-        
-        Task {
+
+        screenState = .loading
+
+        Task { @MainActor in
             do {
                 let results = try await pexelsService.searchImages(
                     query: searchQuery,
@@ -138,37 +153,26 @@ struct ImageSelectionView: View {
                     perPage: 15,
                     orientation: "landscape"
                 )
-                await MainActor.run {
-                    self.photos = results
-                    self.isLoading = false
-                }
+                screenState = .photosAvailable(results)
             } catch {
-                await MainActor.run {
-                    self.errorMessage = error.localizedDescription
-                    self.isLoading = false
-                }
+                screenState = .error(error.localizedDescription)
             }
         }
     }
-    
-    private func selectImage() {
+
+    private func selectImage() async {
         guard let photo = selectedPhoto else { return }
-        
-        isDownloading = true
-        
-        Task {
-            do {
-                // Use the word parameter for filename, but searchQuery for the actual search
-                let localPath = try await pexelsService.downloadAndSaveImage(from: photo, for: word)
-                await MainActor.run {
-                    onImageSelected(photo.src.medium, localPath)
-                    onDismiss()
-                }
-            } catch {
-                await MainActor.run {
-                    errorMessage = "Failed to download image: \(error.localizedDescription)"
-                    isDownloading = false
-                }
+
+        do {
+            // Use the word parameter for filename, but searchQuery for the actual search
+            let localPath = try await pexelsService.downloadAndSaveImage(from: photo, for: word)
+            await MainActor.run {
+                onImageSelected(photo.src.medium, localPath)
+                onDismiss()
+            }
+        } catch {
+            await MainActor.run {
+                screenState = .error(Loc.WordImages.ImageSelection.failedToDownload(error.localizedDescription))
             }
         }
     }
@@ -178,7 +182,7 @@ struct ImageThumbnailView: View {
     let photo: PexelsPhoto
     let isSelected: Bool
     let onTap: () -> Void
-    
+
     var body: some View {
         GeometryReader { geo in
             AsyncImage(url: URL(string: photo.src.small)) { image in

@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "이미지";
+"image_section.no_image_added_yet" = "아직 이미지가 추가되지 않았습니다";
+"image_section.add_visual_representation" = "이 단어를 기억하는 데 도움이 되는 시각적 표현을 추가하세요";
+"image_section.add_image" = "이미지 추가";
+"image_section.remove_image" = "이미지 제거";
+
+// MARK: - Image Selection
+"image_selection.title" = "이미지 선택";
+"image_selection.initial_message" = "이미지가 여기에 표시됩니다. 단어나 구문으로 검색할 수 있습니다. 올바른 입력 언어를 선택하는 것을 잊지 마세요!";
+"image_selection.searching" = "'%@'에 대한 이미지 검색 중...";
+"image_selection.no_images_found" = "'%@'에 대한 이미지를 찾을 수 없습니다";
+"image_selection.retry" = "다시 시도";
+"image_selection.search_placeholder" = "다른 이미지 검색...";
+"image_selection.failed_to_download" = "이미지 다운로드 실패: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "선택된 이미지";
+"add_word_image.tap_to_change" = "변경하려면 탭하세요";
+"add_word_image.add_image" = "이미지 추가";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "시각적 학습을 놓치지 마세요!";
+"image_premium.renew_pro_status" = "단어와 함께 아름다운 이미지를 계속 즐기려면 프로 상태를 갱신하세요.";
+"image_premium.upgrade_to_pro" = "프로로 업그레이드";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "이미지로 학습 향상시키기";
+"images_onboarding.see_words_come_to_life" = "단어들이 살아나는 것을 보세요";
+"images_onboarding.every_word_description" = "사전의 모든 단어는 기억하고 이해하는 데 도움이 되는 아름답고 관련성 있는 이미지를 가질 수 있습니다.";
+"images_onboarding.add_images_to_existing" = "기존 단어에 이미지 추가";
+"images_onboarding.step1_find_image_section" = "이미지 섹션 찾기";
+"images_onboarding.step1_description" = "아래로 스크롤하여 '이미지 추가' 버튼을 확인하세요";
+"images_onboarding.step2_choose_image" = "이미지 선택";
+"images_onboarding.step2_description" = "수천 개의 고품질 사진을 탐색하세요";
+"images_onboarding.step3_click_done" = "'완료' 클릭";
+"images_onboarding.step3_description" = "이제 맞춤형 단어를 즐기세요!";
+"images_onboarding.add_images_during_creation" = "단어 생성 중 이미지 추가";
+"images_onboarding.start_with_complete_vocabulary" = "새 단어를 추가할 때 관련 이미지를 즉시 검색하고 추가할 수 있습니다. 첫날부터 완전한 시각적 어휘로 시작하세요.";
+"images_onboarding.images_make_quizzes_effective" = "이미지가 퀴즈를 더 효과적으로 만듭니다";
+"images_onboarding.visual_learning_improves_memory" = "퀴즈로 연습할 때 이미지는 단어와 그 의미 사이에 더 강한 연결을 만드는 데 도움이 됩니다. 시각적 학습은 기억 보존을 개선하는 것으로 입증되었습니다.";
+"images_onboarding.get_started" = "시작하기";
+"images_onboarding.skip" = "건너뛰기";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "이것은 무엇인가요?";
+"quiz_answer.cranberry" = "크랜베리";
+"quiz_answer.strawberry" = "딸기";
+"quiz_answer.cherry" = "체리";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "단어";
+"form_field.enter_your_word" = "단어를 입력하세요...";
+"form_field.definitions" = "정의";
+"form_field.add_definitions" = "정의 추가...";
+"form_field.image" = "이미지";
+"form_field.add_image" = "이미지 추가";

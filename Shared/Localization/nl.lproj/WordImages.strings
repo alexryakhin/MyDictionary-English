@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "Afbeelding";
+"image_section.no_image_added_yet" = "Nog geen afbeelding toegevoegd";
+"image_section.add_visual_representation" = "Voeg een visuele weergave toe om je te helpen dit woord te onthouden";
+"image_section.add_image" = "Afbeelding Toevoegen";
+"image_section.remove_image" = "Afbeelding Verwijderen";
+
+// MARK: - Image Selection
+"image_selection.title" = "Afbeelding Selecteren";
+"image_selection.initial_message" = "Afbeeldingen verschijnen hier. Je kunt zoeken op woord of zin. Vergeet niet de juiste invoertaal te kiezen!";
+"image_selection.searching" = "Zoeken naar afbeeldingen voor '%@'...";
+"image_selection.no_images_found" = "Geen afbeeldingen gevonden voor '%@'";
+"image_selection.retry" = "Opnieuw proberen";
+"image_selection.search_placeholder" = "Zoek naar verschillende afbeeldingen...";
+"image_selection.failed_to_download" = "Afbeelding downloaden mislukt: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "Geselecteerde Afbeelding";
+"add_word_image.tap_to_change" = "Tik om te wijzigen";
+"add_word_image.add_image" = "Afbeelding Toevoegen";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "Mis visueel leren niet!";
+"image_premium.renew_pro_status" = "Verleng je Pro-status om te blijven genieten van mooie afbeeldingen met je woorden.";
+"image_premium.upgrade_to_pro" = "Upgraden naar Pro";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "Verbeter Je Leren met Afbeeldingen";
+"images_onboarding.see_words_come_to_life" = "Zie Je Woorden tot Leven Komen";
+"images_onboarding.every_word_description" = "Elk woord in je woordenboek kan een mooie, relevante afbeelding hebben die je helpt het beter te onthouden en te begrijpen.";
+"images_onboarding.add_images_to_existing" = "Afbeeldingen Toevoegen aan Bestaande Woorden";
+"images_onboarding.step1_find_image_section" = "Vind de afbeelding sectie";
+"images_onboarding.step1_description" = "Scroll naar beneden om de 'Afbeelding Toevoegen' knop te zien";
+"images_onboarding.step2_choose_image" = "Kies je afbeelding";
+"images_onboarding.step2_description" = "Blader door duizenden hoogkwaliteit foto's";
+"images_onboarding.step3_click_done" = "Klik 'Klaar'";
+"images_onboarding.step3_description" = "Geniet nu van je aangepaste woord!";
+"images_onboarding.add_images_during_creation" = "Afbeeldingen Toevoegen tijdens het Maken van Woorden";
+"images_onboarding.start_with_complete_vocabulary" = "Bij het toevoegen van nieuwe woorden kun je onmiddellijk zoeken naar en relevante afbeeldingen toevoegen. Begin met een compleet, visueel vocabulaire vanaf dag één.";
+"images_onboarding.images_make_quizzes_effective" = "Afbeeldingen Maken Quizzes Effectiever";
+"images_onboarding.visual_learning_improves_memory" = "Wanneer je oefent met quizzes, helpen afbeeldingen je sterkere verbanden te leggen tussen woorden en hun betekenissen. Visueel leren is bewezen om geheugenretentie te verbeteren.";
+"images_onboarding.get_started" = "Aan de Slag";
+"images_onboarding.skip" = "Overslaan";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "Wat is dit?";
+"quiz_answer.cranberry" = "Veenbes";
+"quiz_answer.strawberry" = "Aardbei";
+"quiz_answer.cherry" = "Kers";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "Woord";
+"form_field.enter_your_word" = "Voer je woord in...";
+"form_field.definitions" = "Definities";
+"form_field.add_definitions" = "Definities toevoegen...";
+"form_field.image" = "Afbeelding";
+"form_field.add_image" = "Afbeelding Toevoegen";

@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "Bild";
+"image_section.no_image_added_yet" = "Ingen bild tillagd än";
+"image_section.add_visual_representation" = "Lägg till en visuell representation för att hjälpa dig komma ihåg detta ord";
+"image_section.add_image" = "Lägg till Bild";
+"image_section.remove_image" = "Ta bort Bild";
+
+// MARK: - Image Selection
+"image_selection.title" = "Välj Bild";
+"image_selection.initial_message" = "Bilder visas här. Du kan söka efter ett ord eller en fras. Glöm inte att välja rätt inmatningsspråk!";
+"image_selection.searching" = "Söker bilder för '%@'...";
+"image_selection.no_images_found" = "Inga bilder hittades för '%@'";
+"image_selection.retry" = "Försök igen";
+"image_selection.search_placeholder" = "Sök olika bilder...";
+"image_selection.failed_to_download" = "Misslyckades att ladda ner bild: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "Vald Bild";
+"add_word_image.tap_to_change" = "Tryck för att ändra";
+"add_word_image.add_image" = "Lägg till Bild";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "Missa inte visuellt lärande!";
+"image_premium.renew_pro_status" = "Förnya din Pro-status för att fortsätta njuta av vackra bilder med dina ord.";
+"image_premium.upgrade_to_pro" = "Uppgradera till Pro";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "Förbättra Ditt Lärande med Bilder";
+"images_onboarding.see_words_come_to_life" = "Se Dina Ord Komma till Liv";
+"images_onboarding.every_word_description" = "Varje ord i din ordbok kan ha en vacker, relevant bild som hjälper dig komma ihåg och förstå det bättre.";
+"images_onboarding.add_images_to_existing" = "Lägg till Bilder till Befintliga Ord";
+"images_onboarding.step1_find_image_section" = "Hitta bildsektionen";
+"images_onboarding.step1_description" = "Rulla ner för att se 'Lägg till Bild'-knappen";
+"images_onboarding.step2_choose_image" = "Välj din bild";
+"images_onboarding.step2_description" = "Bläddra genom tusentals högkvalitativa foton";
+"images_onboarding.step3_click_done" = "Klicka 'Klar'";
+"images_onboarding.step3_description" = "Njut av ditt anpassade ord nu!";
+"images_onboarding.add_images_during_creation" = "Lägg till Bilder Under Skapande av Ord";
+"images_onboarding.start_with_complete_vocabulary" = "När du lägger till nya ord kan du omedelbart söka efter och lägga till relevanta bilder. Börja med ett komplett, visuellt ordförråd från dag ett.";
+"images_onboarding.images_make_quizzes_effective" = "Bilder Gör Quiz Mer Effektiva";
+"images_onboarding.visual_learning_improves_memory" = "När du tränar med quiz hjälper bilder dig skapa starkare förbindelser mellan ord och deras betydelser. Visuellt lärande har visat sig förbättra minnesretention.";
+"images_onboarding.get_started" = "Kom igång";
+"images_onboarding.skip" = "Hoppa över";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "Vad är detta?";
+"quiz_answer.cranberry" = "Tranbär";
+"quiz_answer.strawberry" = "Jordgubbe";
+"quiz_answer.cherry" = "Körsbär";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "Ord";
+"form_field.enter_your_word" = "Ange ditt ord...";
+"form_field.definitions" = "Definitioner";
+"form_field.add_definitions" = "Lägg till definitioner...";
+"form_field.image" = "Bild";
+"form_field.add_image" = "Lägg till Bild";

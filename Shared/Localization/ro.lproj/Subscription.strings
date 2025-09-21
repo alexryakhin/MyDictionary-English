@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Economisește %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Învățare Vizuală cu Imagini";
+"pro_features.images_description" = "Adăugați imagini frumoase și relevante cuvintelor pentru o reținere mai bună a memoriei și învățare vizuală";
+"pro_features.word_collections" = "Colecții de Cuvinte";
+"pro_features.word_collections_description" = "Organizați vocabularul în colecții tematice pentru o învățare și organizare mai bună";
 "pro_features.google_sync" = "Sincronizare cu Google";
 "pro_features.unlimited_export" = "Export Nelimitat";
 "pro_features.create_shared_dictionaries" = "Creează Dicționare Partajate";

@@ -28,6 +28,11 @@
 "paywall.save_percentage" = "Estalvia %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Aprenentatge Visual amb Imatges";
+"pro_features.images_description" = "Afegeix imatges boniques i rellevants a les teves paraules per millorar la retenció de memòria i l'aprenentatge visual";
+"pro_features.word_collections" = "Col·leccions de Paraules";
+"pro_features.word_collections_description" = "Organitza el teu vocabulari en col·leccions temàtiques per millorar l'aprenentatge i l'organització";
 "pro_features.google_sync" = "Sincronització amb Google";
 "pro_features.unlimited_export" = "Exportació il·limitada";
 "pro_features.create_shared_dictionaries" = "Crea diccionaris compartits";

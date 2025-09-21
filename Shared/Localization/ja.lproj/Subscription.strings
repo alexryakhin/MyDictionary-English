@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "%@節約";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "画像を使った視覚的学習";
+"pro_features.images_description" = "記憶の保持と視覚的学習を向上させるため、単語に美しく関連性のある画像を追加";
+"pro_features.word_collections" = "単語コレクション";
+"pro_features.word_collections_description" = "学習と整理を向上させるため、語彙をテーマ別コレクションに整理";
 "pro_features.google_sync" = "Google同期";
 "pro_features.unlimited_export" = "無制限エクスポート";
 "pro_features.create_shared_dictionaries" = "共有辞書の作成";

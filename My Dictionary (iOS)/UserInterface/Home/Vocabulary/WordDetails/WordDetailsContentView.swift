@@ -27,6 +27,10 @@ struct WordDetailsContentView: View {
     @State private var showingImageOnboarding = false
 
     var imageExists: Bool {
+        (word.imageLocalPath != nil || image != nil) && subscriptionService.isProUser
+    }
+    
+    var hasImageAvailable: Bool {
         word.imageLocalPath != nil || image != nil
     }
 
@@ -37,8 +41,8 @@ struct WordDetailsContentView: View {
     var body: some View {
         ScrollViewWithReader(scrollOffset: $scrollOffset) {
             VStack(spacing: 0) {
-                // Hero Image Section
-                if let image {
+                // Hero Image Section (only show if user is pro)
+                if let image, subscriptionService.isProUser {
                     heroImageView(image: image)
                         .overlay(alignment: .bottom) {
                             wordHeaderView
@@ -53,9 +57,12 @@ struct WordDetailsContentView: View {
 
                 // Content Sections
                 LazyVStack(spacing: 12) {
-                    if !imageExists {
+                    if !hasImageAvailable {
                         // Image Section (only show if no image exists)
                         imageSectionView
+                    } else if hasImageAvailable && !subscriptionService.isProUser {
+                        // Image Premium Section (show if image exists but user is not pro)
+                        imagePremiumSectionView
                     }
 
                     transcriptionSectionView
@@ -66,8 +73,8 @@ struct WordDetailsContentView: View {
                     languageSectionView
                     tagsSectionView
 
-                    // Remove Image Button (only show if image exists)
-                    if imageExists {
+                    // Remove Image Button (only show if image exists and user is pro)
+                    if hasImageAvailable && subscriptionService.isProUser {
                         removeImageButton
                     }
                 }
@@ -79,11 +86,11 @@ struct WordDetailsContentView: View {
                 .padding(.horizontal, 16)
             }
             .onChange(of: scrollOffset) { newValue in
-                guard imageExists else {
+                guard hasImageAvailable && subscriptionService.isProUser else {
                     shouldHaveNavigationTitle = true
                     return
                 }
-                let topOffset: CGFloat = imageExists ? Constant.imageHeight : 1
+                let topOffset: CGFloat = Constant.imageHeight
                 withAnimation {
                     shouldHaveNavigationTitle = newValue <= -topOffset
                 }
@@ -245,21 +252,57 @@ struct WordDetailsContentView: View {
     }
 
     private var imageSectionView: some View {
-        CustomSectionView(header: "Image", headerFontStyle: .stealth) {
+        CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
             VStack(alignment: .leading, spacing: 4) {
-                Text("No image added yet")
+                Text(Loc.WordImages.ImageSection.noImageAddedYet)
                     .font(.headline)
                     .foregroundStyle(.secondary)
 
-                Text("Add a visual representation to help you remember this word")
+                Text(Loc.WordImages.ImageSection.addVisualRepresentation)
                     .font(.subheadline)
                     .foregroundStyle(.tertiary)
             }
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
-            HeaderButton("Add Image", icon: "photo", size: .small) {
-                showingImageOnboarding = true
+            HeaderButton(Loc.WordImages.ImageSection.addImage, icon: "photo", size: .small) {
+                if ImagesOnboardingHelper.shouldShowOnboarding() {
+                    showingImageOnboarding = true
+                } else {
+                    showingImageSelection = true
+                }
+            }
+        }
+    }
+
+    private var imagePremiumSectionView: some View {
+        CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    Image(systemName: "photo.fill")
+                        .foregroundStyle(.orange)
+                        .font(.title2)
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(Loc.WordImages.ImagePremium.dontMissOut)
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+                        
+                        Text(Loc.WordImages.ImagePremium.renewProStatus)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                    
+                    Spacer()
+                }
+            }
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        } trailingContent: {
+            HeaderButton(Loc.WordImages.ImagePremium.upgradeToPro, size: .small, style: .borderedProminent) {
+                paywallService.presentPaywall(for: .images) { didSubscribe in
+                    // Handle subscription result if needed
+                }
             }
         }
     }
@@ -469,11 +512,11 @@ struct WordDetailsContentView: View {
         Button {
             removeImage()
         } label: {
-            Text("Remove Image")
+            Text(Loc.WordImages.ImageSection.removeImage)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
-        .frame(maxWidth: .infinity, alignment: .center)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.top, 8)
     }
 

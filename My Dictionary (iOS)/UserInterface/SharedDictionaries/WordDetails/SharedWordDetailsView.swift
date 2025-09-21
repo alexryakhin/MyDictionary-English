@@ -328,17 +328,17 @@ struct SharedWordDetailsView: View {
     }
 
     private var imageSectionView: some View {
-        CustomSectionView(header: "Image", headerFontStyle: .stealth) {
+        CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
             VStack(spacing: 12) {
                 Image(systemName: "photo")
                     .font(.system(size: 48))
                     .foregroundStyle(.secondary)
                 
-                Text("No image added yet")
+                Text(Loc.WordImages.ImageSection.noImageAddedYet)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                 
-                Text("Add a visual representation to help you remember this word")
+                Text(Loc.WordImages.ImageSection.addVisualRepresentation)
                     .font(.caption)
                     .foregroundStyle(.tertiary)
                     .multilineTextAlignment(.center)
@@ -346,8 +346,12 @@ struct SharedWordDetailsView: View {
             .frame(maxWidth: .infinity)
             .padding(.vertical, 20)
         } trailingContent: {
-            HeaderButton("Add Image", icon: "plus", size: .small) {
-                showingImageOnboarding = true
+            HeaderButton(Loc.WordImages.ImageSection.addImage, icon: "plus", size: .small) {
+                if ImagesOnboardingHelper.shouldShowOnboarding() {
+                    showingImageOnboarding = true
+                } else {
+                    showingImageSelection = true
+                }
             }
         }
     }
@@ -629,7 +633,7 @@ struct SharedWordDetailsView: View {
         Button {
             removeImage()
         } label: {
-            Text("Remove Image")
+            Text(Loc.WordImages.ImageSection.removeImage)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }

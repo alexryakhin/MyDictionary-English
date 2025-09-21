@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "圖片";
+"image_section.no_image_added_yet" = "尚未新增圖片";
+"image_section.add_visual_representation" = "新增視覺表示來幫助您記住這個單字";
+"image_section.add_image" = "新增圖片";
+"image_section.remove_image" = "刪除圖片";
+
+// MARK: - Image Selection
+"image_selection.title" = "選擇圖片";
+"image_selection.initial_message" = "圖片將在此處顯示。您可以按單字或片語搜尋。不要忘記選擇正確的輸入語言！";
+"image_selection.searching" = "正在搜尋'%@'的圖片...";
+"image_selection.no_images_found" = "未找到'%@'的圖片";
+"image_selection.retry" = "重試";
+"image_selection.search_placeholder" = "搜尋不同的圖片...";
+"image_selection.failed_to_download" = "圖片下載失敗：%@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "已選擇的圖片";
+"add_word_image.tap_to_change" = "點擊更改";
+"add_word_image.add_image" = "新增圖片";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "不要錯過視覺學習！";
+"image_premium.renew_pro_status" = "續訂您的Pro狀態，繼續享受與您的單字一起的美麗圖片。";
+"image_premium.upgrade_to_pro" = "升級到Pro";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "用圖片改善您的學習";
+"images_onboarding.see_words_come_to_life" = "看您的單字變得生動";
+"images_onboarding.every_word_description" = "您詞典中的每個單字都可以有一張美麗、相關的圖片，幫助您更好地記住和理解它。";
+"images_onboarding.add_images_to_existing" = "為現有單字新增圖片";
+"images_onboarding.step1_find_image_section" = "找到圖片部分";
+"images_onboarding.step1_description" = "向下滾動查看'新增圖片'按鈕";
+"images_onboarding.step2_choose_image" = "選擇您的圖片";
+"images_onboarding.step2_description" = "瀏覽數千張高品質照片";
+"images_onboarding.step3_click_done" = "點擊'完成'";
+"images_onboarding.step3_description" = "現在享受您自訂的單字！";
+"images_onboarding.add_images_during_creation" = "在建立單字時新增圖片";
+"images_onboarding.start_with_complete_vocabulary" = "新增新單字時，您可以立即搜尋並新增相關圖片。從第一天開始就擁有完整的視覺詞彙。";
+"images_onboarding.images_make_quizzes_effective" = "圖片讓測驗更有效";
+"images_onboarding.visual_learning_improves_memory" = "當您用測驗練習時，圖片幫助您在單字及其含義之間建立更強的聯繫。視覺學習已被證明能改善記憶保持。";
+"images_onboarding.get_started" = "開始";
+"images_onboarding.skip" = "跳過";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "這是什麼？";
+"quiz_answer.cranberry" = "蔓越莓";
+"quiz_answer.strawberry" = "草莓";
+"quiz_answer.cherry" = "櫻桃";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "單字";
+"form_field.enter_your_word" = "輸入您的單字...";
+"form_field.definitions" = "定義";
+"form_field.add_definitions" = "新增定義...";
+"form_field.image" = "圖片";
+"form_field.add_image" = "新增圖片";

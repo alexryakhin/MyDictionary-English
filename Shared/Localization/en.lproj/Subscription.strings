@@ -28,6 +28,11 @@
 "paywall.save_percentage" = "Save %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Visual Learning with Images";
+"pro_features.images_description" = "Add beautiful, relevant images to your words for better memory retention and visual learning";
+"pro_features.word_collections" = "Word Collections";
+"pro_features.word_collections_description" = "Organize your vocabulary into themed collections for better learning and organization";
 "pro_features.google_sync" = "Google Sync";
 "pro_features.unlimited_export" = "Unlimited Export";
 "pro_features.create_shared_dictionaries" = "Create Shared Dictionaries";

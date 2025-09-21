@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "Kuva";
+"image_section.no_image_added_yet" = "Kuvaa ei ole vielä lisätty";
+"image_section.add_visual_representation" = "Lisää visuaalinen esitys auttamaan muistamaan tämän sanan";
+"image_section.add_image" = "Lisää Kuva";
+"image_section.remove_image" = "Poista Kuva";
+
+// MARK: - Image Selection
+"image_selection.title" = "Valitse Kuva";
+"image_selection.initial_message" = "Kuvat näkyvät täällä. Voit hakea sanalla tai lauseella. Muista valita oikea syöttökieli!";
+"image_selection.searching" = "Haetaan kuvia sanalle '%@'...";
+"image_selection.no_images_found" = "Ei kuvia löytynyt sanalle '%@'";
+"image_selection.retry" = "Yritä uudelleen";
+"image_selection.search_placeholder" = "Hae erilaisia kuvia...";
+"image_selection.failed_to_download" = "Kuvan lataaminen epäonnistui: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "Valittu Kuva";
+"add_word_image.tap_to_change" = "Napauta vaihtaaksesi";
+"add_word_image.add_image" = "Lisää Kuva";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "Älä missaa visuaalista oppimista!";
+"image_premium.renew_pro_status" = "Uusi Pro-tilasi jatkaaksesi kauniiden kuvien nauttimista sanojesi kanssa.";
+"image_premium.upgrade_to_pro" = "Päivitä Pro-tilaan";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "Paranna Oppimistasi Kuvilla";
+"images_onboarding.see_words_come_to_life" = "Katso Sanojesi Heräävän Eloon";
+"images_onboarding.every_word_description" = "Jokainen sana sanakirjassasi voi olla kaunis, asiaankuuluva kuva, joka auttaa sinua muistamaan ja ymmärtämään sitä paremmin.";
+"images_onboarding.add_images_to_existing" = "Lisää Kuvia Olemassa Oleviin Sanoihin";
+"images_onboarding.step1_find_image_section" = "Löydä kuvasektio";
+"images_onboarding.step1_description" = "Vieritä alas nähdäksesi 'Lisää Kuva' -painike";
+"images_onboarding.step2_choose_image" = "Valitse kuvasi";
+"images_onboarding.step2_description" = "Selaa tuhansia korkealaatuisia valokuvia";
+"images_onboarding.step3_click_done" = "Klikkaa 'Valmis'";
+"images_onboarding.step3_description" = "Nauti mukautetusta sanastasi nyt!";
+"images_onboarding.add_images_during_creation" = "Lisää Kuvia Sanojen Luonnin Aikana";
+"images_onboarding.start_with_complete_vocabulary" = "Kun lisäät uusia sanoja, voit heti hakea ja lisätä asiaankuuluvia kuvia. Aloita täydellisellä, visuaalisella sanavarastolla ensimmäisestä päivästä.";
+"images_onboarding.images_make_quizzes_effective" = "Kuvat Tekevät Kyselyistä Tehokkaampia";
+"images_onboarding.visual_learning_improves_memory" = "Kun harjoittelet kyselyillä, kuvat auttavat sinua tekemään vahvempia yhteyksiä sanojen ja niiden merkitysten välille. Visuaalinen oppiminen on todistettu parantavan muistin säilyttämistä.";
+"images_onboarding.get_started" = "Aloita";
+"images_onboarding.skip" = "Ohita";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "Mikä tämä on?";
+"quiz_answer.cranberry" = "Karpalo";
+"quiz_answer.strawberry" = "Mansikka";
+"quiz_answer.cherry" = "Kirsikka";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "Sana";
+"form_field.enter_your_word" = "Syötä sanasi...";
+"form_field.definitions" = "Määritelmät";
+"form_field.add_definitions" = "Lisää määritelmiä...";
+"form_field.image" = "Kuva";
+"form_field.add_image" = "Lisää Kuva";

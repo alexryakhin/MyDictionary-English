@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "节省 %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "图像视觉学习";
+"pro_features.images_description" = "为您的单词添加美观相关的图像，提高记忆保持和视觉学习效果";
+"pro_features.word_collections" = "单词收藏";
+"pro_features.word_collections_description" = "将您的词汇组织成主题收藏，以便更好地学习和组织";
 "pro_features.google_sync" = "谷歌同步";
 "pro_features.unlimited_export" = "无限导出";
 "pro_features.create_shared_dictionaries" = "创建共享词典";

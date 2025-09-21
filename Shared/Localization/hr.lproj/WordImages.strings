@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "Slika";
+"image_section.no_image_added_yet" = "Slika još nije dodana";
+"image_section.add_visual_representation" = "Dodajte vizualni prikaz koji će vam pomoći zapamtiti ovu riječ";
+"image_section.add_image" = "Dodaj Sliku";
+"image_section.remove_image" = "Ukloni Sliku";
+
+// MARK: - Image Selection
+"image_selection.title" = "Odaberi Sliku";
+"image_selection.initial_message" = "Slike će se pojaviti ovdje. Možete pretraživati po riječi ili frazi. Ne zaboravite odabrati ispravni jezik unosa!";
+"image_selection.searching" = "Pretražujem slike za '%@'...";
+"image_selection.no_images_found" = "Nema slika za '%@'";
+"image_selection.retry" = "Pokušaj ponovno";
+"image_selection.search_placeholder" = "Pretraži različite slike...";
+"image_selection.failed_to_download" = "Neuspješno preuzimanje slike: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "Odabrana Slika";
+"add_word_image.tap_to_change" = "Dodirnite za promjenu";
+"add_word_image.add_image" = "Dodaj Sliku";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "Ne propustite vizualno učenje!";
+"image_premium.renew_pro_status" = "Obnovite svoj Pro status da nastavite uživati u lijepim slikama sa svojim riječima.";
+"image_premium.upgrade_to_pro" = "Nadograditi na Pro";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "Poboljšajte Svoje Učenje sa Slikama";
+"images_onboarding.see_words_come_to_life" = "Gledajte Kako Vaše Riječi Oživljavaju";
+"images_onboarding.every_word_description" = "Svaka riječ u vašem rječniku može imati lijepu, relevantnu sliku koja vam pomaže bolje je zapamtiti i razumjeti.";
+"images_onboarding.add_images_to_existing" = "Dodajte Slike Postojećim Riječima";
+"images_onboarding.step1_find_image_section" = "Pronađite sekciju slika";
+"images_onboarding.step1_description" = "Pomaknite se dolje da vidite gumb 'Dodaj Sliku'";
+"images_onboarding.step2_choose_image" = "Odaberite svoju sliku";
+"images_onboarding.step2_description" = "Pregledajte tisuće visokokvalitetnih fotografija";
+"images_onboarding.step3_click_done" = "Kliknite 'Gotovo'";
+"images_onboarding.step3_description" = "Uživajte u svojoj prilagođenoj riječi sada!";
+"images_onboarding.add_images_during_creation" = "Dodajte Slike Tijekom Stvaranja Riječi";
+"images_onboarding.start_with_complete_vocabulary" = "Kada dodajete nove riječi, možete odmah pretraživati i dodavati relevantne slike. Počnite s potpunim, vizualnim rječnikom od prvog dana.";
+"images_onboarding.images_make_quizzes_effective" = "Slike Čine Kvizove Učinkovitijima";
+"images_onboarding.visual_learning_improves_memory" = "Kada vježbate s kvizovima, slike vam pomažu stvarati jače veze između riječi i njihovih značenja. Vizualno učenje dokazano poboljšava zadržavanje memorije.";
+"images_onboarding.get_started" = "Počnite";
+"images_onboarding.skip" = "Preskočite";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "Što je ovo?";
+"quiz_answer.cranberry" = "Brusnica";
+"quiz_answer.strawberry" = "Jagoda";
+"quiz_answer.cherry" = "Trešnja";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "Riječ";
+"form_field.enter_your_word" = "Unesite svoju riječ...";
+"form_field.definitions" = "Definicije";
+"form_field.add_definitions" = "Dodaj definicije...";
+"form_field.image" = "Slika";
+"form_field.add_image" = "Dodaj Sliku";

@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "وفر %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "التعلم البصري بالصور";
+"pro_features.images_description" = "أضف صورًا جميلة وذات صلة لكلماتك لتحسين الاحتفاظ بالذاكرة والتعلم البصري";
+"pro_features.word_collections" = "مجموعات الكلمات";
+"pro_features.word_collections_description" = "نظم مفرداتك في مجموعات مواضيعية لتحسين التعلم والتنظيم";
 "pro_features.google_sync" = "مزامنة جوجل";
 "pro_features.unlimited_export" = "تصدير غير محدود";
 "pro_features.create_shared_dictionaries" = "إنشاء قواميس مشتركة";

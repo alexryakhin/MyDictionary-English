@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Bespaar %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Visueel Leren met Afbeeldingen";
+"pro_features.images_description" = "Voeg mooie, relevante afbeeldingen toe aan je woorden voor betere geheugenretentie en visueel leren";
+"pro_features.word_collections" = "Woord Collecties";
+"pro_features.word_collections_description" = "Organiseer je woordenschat in thematische collecties voor beter leren en organisatie";
 "pro_features.google_sync" = "Google-synchronisatie";
 "pro_features.unlimited_export" = "Onbeperkt exporteren";
 "pro_features.create_shared_dictionaries" = "Gedeelde woordenboeken aanmaken";

@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Uštedite %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Vizualno Učenje s Slikama";
+"pro_features.images_description" = "Dodajte lijepe, relevantne slike svojim riječima za bolje zadržavanje memorije i vizualno učenje";
+"pro_features.word_collections" = "Zbirke Riječi";
+"pro_features.word_collections_description" = "Organizirajte svoj rječnik u tematske zbirke za bolje učenje i organizaciju";
 "pro_features.google_sync" = "Google sinkronizacija";
 "pro_features.unlimited_export" = "Neograničeni izvoz";
 "pro_features.create_shared_dictionaries" = "Stvori zajedničke rječnike";

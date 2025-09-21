@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "節省 %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "圖像視覺學習";
+"pro_features.images_description" = "為您的單字添加美觀相關的圖像，提高記憶保持和視覺學習效果";
+"pro_features.word_collections" = "單字收藏";
+"pro_features.word_collections_description" = "將您的詞彙組織成主題收藏，以便更好地學習和組織";
 "pro_features.google_sync" = "谷歌同步";
 "pro_features.unlimited_export" = "無限導出";
 "pro_features.create_shared_dictionaries" = "創建共享詞典";

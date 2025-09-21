@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Säästä %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Visuaalinen Oppiminen Kuvilla";
+"pro_features.images_description" = "Lisää kauniita, asiaankuuluvia kuvia sanoihisi paremman muistin säilyttämisen ja visuaalisen oppimisen vuoksi";
+"pro_features.word_collections" = "Sana Kokoelmat";
+"pro_features.word_collections_description" = "Järjestä sanavarastosi teemallisiin kokoelmiin paremman oppimisen ja järjestelyn vuoksi";
 "pro_features.google_sync" = "Google-synkronointi";
 "pro_features.unlimited_export" = "Rajoittamaton vienti";
 "pro_features.create_shared_dictionaries" = "Luo jaettuja sanakirjoja";

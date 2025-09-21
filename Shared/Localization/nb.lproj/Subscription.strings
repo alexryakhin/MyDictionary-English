@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Spar %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Visuell Læring med Bilder";
+"pro_features.images_description" = "Legg til vakre, relevante bilder til ordene dine for bedre hukommelse og visuell læring";
+"pro_features.word_collections" = "Ord Samlinger";
+"pro_features.word_collections_description" = "Organiser ordforrådet ditt i tematiske samlinger for bedre læring og organisering";
 "pro_features.google_sync" = "Google-synkronisering";
 "pro_features.unlimited_export" = "Ubegrenset eksport";
 "pro_features.create_shared_dictionaries" = "Opprett delte ordbøker";

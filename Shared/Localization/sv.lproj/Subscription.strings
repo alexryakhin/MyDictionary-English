@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Spara %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Visuellt Lärande med Bilder";
+"pro_features.images_description" = "Lägg till vackra, relevanta bilder till dina ord för bättre minnesretention och visuellt lärande";
+"pro_features.word_collections" = "Ord Samlingar";
+"pro_features.word_collections_description" = "Organisera ditt ordförråd i tematiska samlingar för bättre lärande och organisation";
 "pro_features.google_sync" = "Synkronisering med Google";
 "pro_features.unlimited_export" = "Obegränsad export";
 "pro_features.create_shared_dictionaries" = "Skapa delade ordböcker";

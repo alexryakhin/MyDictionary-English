@@ -58,6 +58,9 @@ enum UDKeys {
     static let contextMultipleChoiceQuizUsageDate = "contextMultipleChoiceQuizUsageDate"
     static let fillInTheBlankQuizUsageDate = "fillInTheBlankQuizUsageDate"
     static let sentenceWritingQuizUsageDate = "sentenceWritingQuizUsageDate"
+    
+    // Image Onboarding
+    static let imageOnboardingShown = "imageOnboardingShown"
 }
 
 enum UDService {
@@ -277,5 +280,11 @@ enum UDService {
         set {
             UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.sentenceWritingQuizUsageDate)
         }
+    }
+    
+    // Image Onboarding
+    static var imageOnboardingShown: Bool {
+        get { UserDefaults.standard.bool(forKey: UDKeys.imageOnboardingShown) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.imageOnboardingShown) }
     }
 }

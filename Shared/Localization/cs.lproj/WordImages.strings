@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "Obrázek";
+"image_section.no_image_added_yet" = "Zatím nebyl přidán žádný obrázek";
+"image_section.add_visual_representation" = "Přidejte vizuální reprezentaci, která vám pomůže zapamatovat si toto slovo";
+"image_section.add_image" = "Přidat Obrázek";
+"image_section.remove_image" = "Odebrat Obrázek";
+
+// MARK: - Image Selection
+"image_selection.title" = "Vybrat Obrázek";
+"image_selection.initial_message" = "Obrázky se zobrazí zde. Můžete hledat podle slova nebo fráze. Nezapomeňte vybrat správný vstupní jazyk!";
+"image_selection.searching" = "Hledání obrázků pro '%@'...";
+"image_selection.no_images_found" = "Pro '%@' nebyly nalezeny žádné obrázky";
+"image_selection.retry" = "Zkusit znovu";
+"image_selection.search_placeholder" = "Hledat různé obrázky...";
+"image_selection.failed_to_download" = "Nepodařilo se stáhnout obrázek: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "Vybraný Obrázek";
+"add_word_image.tap_to_change" = "Klepněte pro změnu";
+"add_word_image.add_image" = "Přidat Obrázek";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "Nepromeškejte vizuální učení!";
+"image_premium.renew_pro_status" = "Obnovte svůj Pro status a pokračujte v užívání krásných obrázků se svými slovy.";
+"image_premium.upgrade_to_pro" = "Upgradovat na Pro";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "Zlepšete Své Učení s Obrázky";
+"images_onboarding.see_words_come_to_life" = "Sledujte, jak Vaše Slova Ožívají";
+"images_onboarding.every_word_description" = "Každé slovo ve vašem slovníku může mít krásný, relevantní obrázek, který vám pomůže si ho lépe zapamatovat a pochopit.";
+"images_onboarding.add_images_to_existing" = "Přidat Obrázky k Existujícím Slovům";
+"images_onboarding.step1_find_image_section" = "Najít sekci obrázků";
+"images_onboarding.step1_description" = "Přejděte dolů a uvidíte tlačítko 'Přidat Obrázek'";
+"images_onboarding.step2_choose_image" = "Vyberte svůj obrázek";
+"images_onboarding.step2_description" = "Procházejte tisíce vysoce kvalitních fotografií";
+"images_onboarding.step3_click_done" = "Klikněte 'Hotovo'";
+"images_onboarding.step3_description" = "Užijte si své přizpůsobené slovo nyní!";
+"images_onboarding.add_images_during_creation" = "Přidat Obrázky Během Vytváření Slov";
+"images_onboarding.start_with_complete_vocabulary" = "Při přidávání nových slov můžete okamžitě hledat a přidávat relevantní obrázky. Začněte s úplným vizuálním slovníkem od prvního dne.";
+"images_onboarding.images_make_quizzes_effective" = "Obrázky Dělají Kvízy Účinnějšími";
+"images_onboarding.visual_learning_improves_memory" = "Když cvičíte s kvízy, obrázky vám pomáhají vytvářet silnější spojení mezi slovy a jejich významy. Vizuální učení prokázalo zlepšení uchování paměti.";
+"images_onboarding.get_started" = "Začít";
+"images_onboarding.skip" = "Přeskočit";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "Co je toto?";
+"quiz_answer.cranberry" = "Brusinka";
+"quiz_answer.strawberry" = "Jahoda";
+"quiz_answer.cherry" = "Třešeň";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "Slovo";
+"form_field.enter_your_word" = "Zadejte své slovo...";
+"form_field.definitions" = "Definice";
+"form_field.add_definitions" = "Přidat definice...";
+"form_field.image" = "Obrázek";
+"form_field.add_image" = "Přidat Obrázek";

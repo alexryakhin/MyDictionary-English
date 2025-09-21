@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Tiết kiệm %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Học Tập Trực Quan với Hình Ảnh";
+"pro_features.images_description" = "Thêm hình ảnh đẹp và liên quan vào từ của bạn để cải thiện khả năng ghi nhớ và học tập trực quan";
+"pro_features.word_collections" = "Bộ Sưu Tập Từ";
+"pro_features.word_collections_description" = "Tổ chức từ vựng của bạn thành các bộ sưu tập theo chủ đề để học tập và tổ chức tốt hơn";
 "pro_features.google_sync" = "Đồng bộ với Google";
 "pro_features.unlimited_export" = "Xuất không giới hạn";
 "pro_features.create_shared_dictionaries" = "Tạo từ điển chia sẻ";

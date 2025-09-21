@@ -2439,6 +2439,118 @@ public enum Loc {
       public static let c2Title = Loc.tr("WordCollections", "level.c2_title", fallback: "Proficiency")
     }
   }
+  public enum WordImages {
+    public enum AddWordImage {
+      /// Add Image
+      public static let addImage = Loc.tr("WordImages", "add_word_image.add_image", fallback: "Add Image")
+      /// Selected Image
+      public static let selectedImage = Loc.tr("WordImages", "add_word_image.selected_image", fallback: "Selected Image")
+      /// Tap to change
+      public static let tapToChange = Loc.tr("WordImages", "add_word_image.tap_to_change", fallback: "Tap to change")
+    }
+    public enum FormField {
+      /// Add definitions...
+      public static let addDefinitions = Loc.tr("WordImages", "form_field.add_definitions", fallback: "Add definitions...")
+      /// Add Image
+      public static let addImage = Loc.tr("WordImages", "form_field.add_image", fallback: "Add Image")
+      /// Definitions
+      public static let definitions = Loc.tr("WordImages", "form_field.definitions", fallback: "Definitions")
+      /// Enter your word...
+      public static let enterYourWord = Loc.tr("WordImages", "form_field.enter_your_word", fallback: "Enter your word...")
+      /// Image
+      public static let image = Loc.tr("WordImages", "form_field.image", fallback: "Image")
+      /// Word
+      public static let word = Loc.tr("WordImages", "form_field.word", fallback: "Word")
+    }
+    public enum ImagePremium {
+      /// Don't miss out on visual learning!
+      public static let dontMissOut = Loc.tr("WordImages", "image_premium.dont_miss_out", fallback: "Don't miss out on visual learning!")
+      /// Renew your Pro status to continue enjoying beautiful images with your words.
+      public static let renewProStatus = Loc.tr("WordImages", "image_premium.renew_pro_status", fallback: "Renew your Pro status to continue enjoying beautiful images with your words.")
+      /// Upgrade to Pro
+      public static let upgradeToPro = Loc.tr("WordImages", "image_premium.upgrade_to_pro", fallback: "Upgrade to Pro")
+    }
+    public enum ImageSection {
+      /// Add Image
+      public static let addImage = Loc.tr("WordImages", "image_section.add_image", fallback: "Add Image")
+      /// Add a visual representation to help you remember this word
+      public static let addVisualRepresentation = Loc.tr("WordImages", "image_section.add_visual_representation", fallback: "Add a visual representation to help you remember this word")
+      /// No image added yet
+      public static let noImageAddedYet = Loc.tr("WordImages", "image_section.no_image_added_yet", fallback: "No image added yet")
+      /// Remove Image
+      public static let removeImage = Loc.tr("WordImages", "image_section.remove_image", fallback: "Remove Image")
+      /// Image
+      public static let title = Loc.tr("WordImages", "image_section.title", fallback: "Image")
+    }
+    public enum ImageSelection {
+      /// Failed to download image: %@
+      public static func failedToDownload(_ p1: Any) -> String {
+        return Loc.tr("WordImages", "image_selection.failed_to_download", String(describing: p1), fallback: "Failed to download image: %@")
+      }
+      /// Images will appear here. You can search by a word or a phrase. Don't forget to choose a correct input language!
+      public static let initialMessage = Loc.tr("WordImages", "image_selection.initial_message", fallback: "Images will appear here. You can search by a word or a phrase. Don't forget to choose a correct input language!")
+      /// No images found for '%@'
+      public static func noImagesFound(_ p1: Any) -> String {
+        return Loc.tr("WordImages", "image_selection.no_images_found", String(describing: p1), fallback: "No images found for '%@'")
+      }
+      /// Retry
+      public static let retry = Loc.tr("WordImages", "image_selection.retry", fallback: "Retry")
+      /// Search for different images...
+      public static let searchPlaceholder = Loc.tr("WordImages", "image_selection.search_placeholder", fallback: "Search for different images...")
+      /// Searching images for '%@'...
+      public static func searching(_ p1: Any) -> String {
+        return Loc.tr("WordImages", "image_selection.searching", String(describing: p1), fallback: "Searching images for '%@'...")
+      }
+      /// Select Image
+      public static let title = Loc.tr("WordImages", "image_selection.title", fallback: "Select Image")
+    }
+    public enum ImagesOnboarding {
+      /// Add Images While Creating Words
+      public static let addImagesDuringCreation = Loc.tr("WordImages", "images_onboarding.add_images_during_creation", fallback: "Add Images While Creating Words")
+      /// Add Images to Existing Words
+      public static let addImagesToExisting = Loc.tr("WordImages", "images_onboarding.add_images_to_existing", fallback: "Add Images to Existing Words")
+      /// Every word in your dictionary can have a beautiful, relevant image that helps you remember and understand it better.
+      public static let everyWordDescription = Loc.tr("WordImages", "images_onboarding.every_word_description", fallback: "Every word in your dictionary can have a beautiful, relevant image that helps you remember and understand it better.")
+      /// Get Started
+      public static let getStarted = Loc.tr("WordImages", "images_onboarding.get_started", fallback: "Get Started")
+      /// Images Make Quizzes More Effective
+      public static let imagesMakeQuizzesEffective = Loc.tr("WordImages", "images_onboarding.images_make_quizzes_effective", fallback: "Images Make Quizzes More Effective")
+      /// See Your Words Come to Life
+      public static let seeWordsComeToLife = Loc.tr("WordImages", "images_onboarding.see_words_come_to_life", fallback: "See Your Words Come to Life")
+      /// Skip
+      public static let skip = Loc.tr("WordImages", "images_onboarding.skip", fallback: "Skip")
+      /// When adding new words, you can immediately search for and add relevant images. Start with a complete, visual vocabulary from day one.
+      public static let startWithCompleteVocabulary = Loc.tr("WordImages", "images_onboarding.start_with_complete_vocabulary", fallback: "When adding new words, you can immediately search for and add relevant images. Start with a complete, visual vocabulary from day one.")
+      /// Scroll down to see the 'Add Image' button
+      public static let step1Description = Loc.tr("WordImages", "images_onboarding.step1_description", fallback: "Scroll down to see the 'Add Image' button")
+      /// Find the image section
+      public static let step1FindImageSection = Loc.tr("WordImages", "images_onboarding.step1_find_image_section", fallback: "Find the image section")
+      /// Choose your image
+      public static let step2ChooseImage = Loc.tr("WordImages", "images_onboarding.step2_choose_image", fallback: "Choose your image")
+      /// Browse thousands of high-quality photos
+      public static let step2Description = Loc.tr("WordImages", "images_onboarding.step2_description", fallback: "Browse thousands of high-quality photos")
+      /// Click 'Done'
+      public static let step3ClickDone = Loc.tr("WordImages", "images_onboarding.step3_click_done", fallback: "Click 'Done'")
+      /// Enjoy your customized word now!
+      public static let step3Description = Loc.tr("WordImages", "images_onboarding.step3_description", fallback: "Enjoy your customized word now!")
+      /// Enhance Your Learning with Images
+      public static let title = Loc.tr("WordImages", "images_onboarding.title", fallback: "Enhance Your Learning with Images")
+      /// When you practice with quizzes, images help you make stronger connections between words and their meanings. Visual learning is proven to improve memory retention.
+      public static let visualLearningImprovesMemory = Loc.tr("WordImages", "images_onboarding.visual_learning_improves_memory", fallback: "When you practice with quizzes, images help you make stronger connections between words and their meanings. Visual learning is proven to improve memory retention.")
+    }
+    public enum QuizAnswer {
+      /// Cherry
+      public static let cherry = Loc.tr("WordImages", "quiz_answer.cherry", fallback: "Cherry")
+      /// Cranberry
+      public static let cranberry = Loc.tr("WordImages", "quiz_answer.cranberry", fallback: "Cranberry")
+      /// Strawberry
+      public static let strawberry = Loc.tr("WordImages", "quiz_answer.strawberry", fallback: "Strawberry")
+    }
+    public enum QuizQuestion {
+      /// What is this?
+      public static let whatIsThis = Loc.tr("WordImages", "quiz_question.what_is_this", fallback: "What is this?")
+    }
+  }
   public enum Words {
     /// Add example
     public static let addExample = Loc.tr("Words", "add_example", fallback: "Add example")

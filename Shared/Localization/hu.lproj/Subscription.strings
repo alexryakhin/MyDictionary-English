@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "%@ megtakarítás";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Vizuális Tanulás Képekkel";
+"pro_features.images_description" = "Adj hozzá szép, releváns képeket a szavaidhoz a jobb memória megtartás és vizuális tanulás érdekében";
+"pro_features.word_collections" = "Szó Gyűjtemények";
+"pro_features.word_collections_description" = "Szervezd a szókincsedet tematikus gyűjteményekbe a jobb tanulás és szervezés érdekében";
 "pro_features.google_sync" = "Google szinkronizálás";
 "pro_features.unlimited_export" = "Korlátlan exportálás";
 "pro_features.create_shared_dictionaries" = "Megosztott szótárak létrehozása";

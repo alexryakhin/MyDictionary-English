@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Économisez %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Apprentissage Visuel avec Images";
+"pro_features.images_description" = "Ajoutez de belles images pertinentes à vos mots pour une meilleure rétention de mémoire et un apprentissage visuel";
+"pro_features.word_collections" = "Collections de Mots";
+"pro_features.word_collections_description" = "Organisez votre vocabulaire en collections thématiques pour un meilleur apprentissage et organisation";
 "pro_features.google_sync" = "Synchronisation Google";
 "pro_features.unlimited_export" = "Exportation illimitée";
 "pro_features.create_shared_dictionaries" = "Créer des dictionnaires partagés";

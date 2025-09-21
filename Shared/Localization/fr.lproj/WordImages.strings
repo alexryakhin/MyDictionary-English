@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "Image";
+"image_section.no_image_added_yet" = "Aucune image ajoutée pour le moment";
+"image_section.add_visual_representation" = "Ajoutez une représentation visuelle pour vous aider à vous souvenir de ce mot";
+"image_section.add_image" = "Ajouter Image";
+"image_section.remove_image" = "Supprimer Image";
+
+// MARK: - Image Selection
+"image_selection.title" = "Sélectionner Image";
+"image_selection.initial_message" = "Les images apparaîtront ici. Vous pouvez rechercher par mot ou phrase. N'oubliez pas de choisir la bonne langue d'entrée !";
+"image_selection.searching" = "Recherche d'images pour '%@'...";
+"image_selection.no_images_found" = "Aucune image trouvée pour '%@'";
+"image_selection.retry" = "Réessayer";
+"image_selection.search_placeholder" = "Rechercher différentes images...";
+"image_selection.failed_to_download" = "Échec du téléchargement de l'image : %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "Image Sélectionnée";
+"add_word_image.tap_to_change" = "Appuyez pour changer";
+"add_word_image.add_image" = "Ajouter Image";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "Ne manquez pas l'apprentissage visuel !";
+"image_premium.renew_pro_status" = "Renouvelez votre statut Pro pour continuer à profiter de belles images avec vos mots.";
+"image_premium.upgrade_to_pro" = "Passer à Pro";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "Améliorez Votre Apprentissage avec les Images";
+"images_onboarding.see_words_come_to_life" = "Voir Vos Mots Prendre Vie";
+"images_onboarding.every_word_description" = "Chaque mot de votre dictionnaire peut avoir une belle image pertinente qui vous aide à vous en souvenir et à mieux le comprendre.";
+"images_onboarding.add_images_to_existing" = "Ajouter des Images aux Mots Existants";
+"images_onboarding.step1_find_image_section" = "Trouver la section image";
+"images_onboarding.step1_description" = "Faites défiler vers le bas pour voir le bouton 'Ajouter Image'";
+"images_onboarding.step2_choose_image" = "Choisissez votre image";
+"images_onboarding.step2_description" = "Parcourez des milliers de photos de haute qualité";
+"images_onboarding.step3_click_done" = "Cliquez sur 'Terminé'";
+"images_onboarding.step3_description" = "Profitez de votre mot personnalisé maintenant !";
+"images_onboarding.add_images_during_creation" = "Ajouter des Images Pendant la Création de Mots";
+"images_onboarding.start_with_complete_vocabulary" = "Lors de l'ajout de nouveaux mots, vous pouvez immédiatement rechercher et ajouter des images pertinentes. Commencez avec un vocabulaire visuel complet dès le premier jour.";
+"images_onboarding.images_make_quizzes_effective" = "Les Images Rendent les Quiz Plus Efficaces";
+"images_onboarding.visual_learning_improves_memory" = "Lorsque vous vous entraînez avec des quiz, les images vous aident à établir des connexions plus fortes entre les mots et leurs significations. L'apprentissage visuel s'est avéré améliorer la rétention de mémoire.";
+"images_onboarding.get_started" = "Commencer";
+"images_onboarding.skip" = "Ignorer";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "Qu'est-ce que c'est ?";
+"quiz_answer.cranberry" = "Canneberge";
+"quiz_answer.strawberry" = "Fraise";
+"quiz_answer.cherry" = "Cerise";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "Mot";
+"form_field.enter_your_word" = "Entrez votre mot...";
+"form_field.definitions" = "Définitions";
+"form_field.add_definitions" = "Ajouter des définitions...";
+"form_field.image" = "Image";
+"form_field.add_image" = "Ajouter Image";

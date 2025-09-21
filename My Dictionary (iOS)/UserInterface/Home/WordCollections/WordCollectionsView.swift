@@ -5,6 +5,12 @@
 //  Created by AI Assistant on 1/27/25.
 //
 
+// TODO: Add AI button to create personal word collection
+// - Button should be prominently placed (maybe in header or floating action button)
+// - Should allow users to input topic/theme and generate custom collection
+// - Should use AI to create relevant words with definitions and examples
+// - Generated collection should be saved locally and accessible like other collections
+
 import SwiftUI
 
 struct WordCollectionsView: View {

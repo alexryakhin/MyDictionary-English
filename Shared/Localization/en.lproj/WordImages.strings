@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "Image";
+"image_section.no_image_added_yet" = "No image added yet";
+"image_section.add_visual_representation" = "Add a visual representation to help you remember this word";
+"image_section.add_image" = "Add Image";
+"image_section.remove_image" = "Remove Image";
+
+// MARK: - Image Selection
+"image_selection.title" = "Select Image";
+"image_selection.initial_message" = "Images will appear here. You can search by a word or a phrase. Don't forget to choose a correct input language!";
+"image_selection.searching" = "Searching images for '%@'...";
+"image_selection.no_images_found" = "No images found for '%@'";
+"image_selection.retry" = "Retry";
+"image_selection.search_placeholder" = "Search for different images...";
+"image_selection.failed_to_download" = "Failed to download image: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "Selected Image";
+"add_word_image.tap_to_change" = "Tap to change";
+"add_word_image.add_image" = "Add Image";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "Don't miss out on visual learning!";
+"image_premium.renew_pro_status" = "Renew your Pro status to continue enjoying beautiful images with your words.";
+"image_premium.upgrade_to_pro" = "Upgrade to Pro";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "Enhance Your Learning with Images";
+"images_onboarding.see_words_come_to_life" = "See Your Words Come to Life";
+"images_onboarding.every_word_description" = "Every word in your dictionary can have a beautiful, relevant image that helps you remember and understand it better.";
+"images_onboarding.add_images_to_existing" = "Add Images to Existing Words";
+"images_onboarding.step1_find_image_section" = "Find the image section";
+"images_onboarding.step1_description" = "Scroll down to see the 'Add Image' button";
+"images_onboarding.step2_choose_image" = "Choose your image";
+"images_onboarding.step2_description" = "Browse thousands of high-quality photos";
+"images_onboarding.step3_click_done" = "Click 'Done'";
+"images_onboarding.step3_description" = "Enjoy your customized word now!";
+"images_onboarding.add_images_during_creation" = "Add Images While Creating Words";
+"images_onboarding.start_with_complete_vocabulary" = "When adding new words, you can immediately search for and add relevant images. Start with a complete, visual vocabulary from day one.";
+"images_onboarding.images_make_quizzes_effective" = "Images Make Quizzes More Effective";
+"images_onboarding.visual_learning_improves_memory" = "When you practice with quizzes, images help you make stronger connections between words and their meanings. Visual learning is proven to improve memory retention.";
+"images_onboarding.get_started" = "Get Started";
+"images_onboarding.skip" = "Skip";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "What is this?";
+"quiz_answer.cranberry" = "Cranberry";
+"quiz_answer.strawberry" = "Strawberry";
+"quiz_answer.cherry" = "Cherry";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "Word";
+"form_field.enter_your_word" = "Enter your word...";
+"form_field.definitions" = "Definitions";
+"form_field.add_definitions" = "Add definitions...";
+"form_field.image" = "Image";
+"form_field.add_image" = "Add Image";

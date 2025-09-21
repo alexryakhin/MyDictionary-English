@@ -62,7 +62,7 @@ struct ImagesOnboardingView: View {
                 .padding(.top, 8)
             
             // Title
-            Text("Enhance Your Learning with Images")
+            Text(Loc.WordImages.ImagesOnboarding.title)
                 .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
@@ -95,11 +95,11 @@ struct ImagesOnboardingView: View {
 
             // Description
             VStack(spacing: 12) {
-                Text("See Your Words Come to Life")
+                Text(Loc.WordImages.ImagesOnboarding.seeWordsComeToLife)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
-                Text("Every word in your dictionary can have a beautiful, relevant image that helps you remember and understand it better.")
+                Text(Loc.WordImages.ImagesOnboarding.everyWordDescription)
                     .font(.body)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -115,42 +115,41 @@ struct ImagesOnboardingView: View {
         VStack(spacing: 24) {
             // Image Slideshow
             VStack(spacing: 16) {
+                Spacer()
                 ImageSlideshowView()
                     .frame(height: 200)
                     .clipShape(.rect(cornerRadius: 16))
                     .shadow(radius: 8)
                     .padding(16)
 
-                // Step-by-step instructions
-                VStack(alignment: .leading, spacing: 12) {
-                    Spacer()
+                Spacer()
 
-                    Text("Add Images to Existing Words")
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                Text(Loc.WordImages.ImagesOnboarding.addImagesToExisting)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
 
-                    Spacer()
+                Spacer()
 
-                    instructionStep(
-                        number: 1,
-                        title: "Find the image section",
-                        description: "Scroll down to see the 'Add Image' button"
-                    )
-                    
-                    instructionStep(
-                        number: 2,
-                        title: "Choose your image",
-                        description: "Browse thousands of high-quality photos"
-                    )
-                    
-                    instructionStep(
-                        number: 3,
-                        title: "Click 'Done'",
-                        description: "Enjoy your customized word now!"
-                    )
+                instructionStep(
+                    number: 1,
+                    title: Loc.WordImages.ImagesOnboarding.step1FindImageSection,
+                    description: Loc.WordImages.ImagesOnboarding.step1Description
+                )
 
-                    Spacer()
-                }
+                instructionStep(
+                    number: 2,
+                    title: Loc.WordImages.ImagesOnboarding.step2ChooseImage,
+                    description: Loc.WordImages.ImagesOnboarding.step2Description
+                )
+
+                instructionStep(
+                    number: 3,
+                    title: Loc.WordImages.ImagesOnboarding.step3ClickDone,
+                    description: Loc.WordImages.ImagesOnboarding.step3Description
+                )
+
+                Spacer()
             }
             .padding(.horizontal, 20)
         }
@@ -160,20 +159,23 @@ struct ImagesOnboardingView: View {
     // MARK: - Page 3: How to Add Image During Adding Word
     
     private var addImageDuringAddWordPage: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: 0) {
+
+            Spacer()
+
             // Mock Add Word Screen
             VStack(spacing: 16) {
                 // Word Input
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Word")
+                    Text(Loc.WordImages.FormField.word)
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color(.systemGray6))
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.secondarySystemGroupedBackground)
                         .frame(height: 44)
                         .overlay {
                             HStack {
-                                Text("Enter your word...")
+                                Text(Loc.WordImages.FormField.enterYourWord)
                                     .foregroundColor(.secondary)
                                 Spacer()
                             }
@@ -183,35 +185,36 @@ struct ImagesOnboardingView: View {
                 
                 // Definitions
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Definitions")
+                    Text(Loc.WordImages.FormField.definitions)
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color(.systemGray6))
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.secondarySystemGroupedBackground)
                         .frame(height: 80)
                         .overlay {
                             HStack {
-                                Text("Add definitions...")
+                                Text(Loc.WordImages.FormField.addDefinitions)
                                     .foregroundColor(.secondary)
                                 Spacer()
                             }
                             .padding(.horizontal, 12)
                         }
                 }
+
                 
                 // Image Section
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Image")
+                    Text(Loc.WordImages.FormField.image)
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    RoundedRectangle(cornerRadius: 8)
+                    RoundedRectangle(cornerRadius: 12)
                         .fill(Color.accentColor.opacity(0.1))
                         .frame(height: 60)
                         .overlay {
                             HStack {
                                 Image(systemName: "photo.badge.plus")
                                     .foregroundColor(.accentColor)
-                                Text("Add Image")
+                                Text(Loc.WordImages.FormField.addImage)
                                     .foregroundColor(.accentColor)
                                     .fontWeight(.medium)
                                 Spacer()
@@ -221,19 +224,23 @@ struct ImagesOnboardingView: View {
                 }
             }
             .padding(.horizontal, 20)
-            
+
+            Spacer()
+
             // Description
-            VStack(spacing: 12) {
-                Text("Add Images While Creating Words")
+            VStack(alignment: .center, spacing: 12) {
+                Text(Loc.WordImages.ImagesOnboarding.addImagesDuringCreation)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
-                Text("When adding new words, you can immediately search for and add relevant images. Start with a complete, visual vocabulary from day one.")
+                Text(Loc.WordImages.ImagesOnboarding.startWithCompleteVocabulary)
                     .font(.body)
                     .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
             }
+            .multilineTextAlignment(.center)
             .padding(.horizontal, 24)
+
+            Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -246,51 +253,42 @@ struct ImagesOnboardingView: View {
             VStack(spacing: 16) {
                 // Quiz Question with Image
                 VStack(spacing: 12) {
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(
-                            LinearGradient(
-                                colors: [.green.opacity(0.3), .blue.opacity(0.3)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .frame(height: 120)
-                        .overlay {
-                            VStack {
-                                Image(systemName: "photo.fill")
-                                    .font(.system(size: 30))
-                                    .foregroundColor(.white)
-                                Text("Quiz Image")
-                                    .font(.caption)
-                                    .foregroundColor(.white)
-                            }
-                        }
-                    
-                    Text("What is this?")
+
+                    HStack {
+                        Spacer()
+                        Image(.strawberries)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(.rect(cornerRadius: 12))
+                        Spacer()
+                    }
+                    .frame(height: 120)
+
+                    Text(Loc.WordImages.QuizQuestion.whatIsThis)
                         .font(.headline)
                         .fontWeight(.semibold)
                 }
                 
                 // Answer Options
                 VStack(spacing: 8) {
-                    answerOption(text: "Apple", isCorrect: true)
-                    answerOption(text: "Orange", isCorrect: false)
-                    answerOption(text: "Banana", isCorrect: false)
+                    answerOption(text: Loc.WordImages.QuizAnswer.cranberry, isCorrect: false)
+                    answerOption(text: Loc.WordImages.QuizAnswer.strawberry, isCorrect: true)
+                    answerOption(text: Loc.WordImages.QuizAnswer.cherry, isCorrect: false)
                 }
             }
             .padding(.horizontal, 20)
             
             // Description
             VStack(spacing: 12) {
-                Text("Images Make Quizzes More Effective")
+                Text(Loc.WordImages.ImagesOnboarding.imagesMakeQuizzesEffective)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
-                Text("When you practice with quizzes, images help you make stronger connections between words and their meanings. Visual learning is proven to improve memory retention.")
+                Text(Loc.WordImages.ImagesOnboarding.visualLearningImprovesMemory)
                     .font(.body)
                     .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
             }
+            .multilineTextAlignment(.center)
             .padding(.horizontal, 24)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -321,7 +319,7 @@ struct ImagesOnboardingView: View {
                     .buttonStyle(.borderedProminent)
                     .frame(maxWidth: .infinity)
                 } else {
-                    ActionButton("Get Started", style: .borderedProminent) {
+                    ActionButton(Loc.WordImages.ImagesOnboarding.getStarted, style: .borderedProminent) {
                         isPresented = false
                         onCompleted?()
                     }
@@ -331,7 +329,7 @@ struct ImagesOnboardingView: View {
             }
 
             // Skip Button
-            Button("Skip") {
+            Button(Loc.WordImages.ImagesOnboarding.skip) {
                 isPresented = false
                 onCompleted?()
             }
@@ -363,8 +361,8 @@ struct ImagesOnboardingView: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
-            
-            Spacer()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .multilineTextAlignment(.leading)
         }
     }
     
@@ -381,8 +379,8 @@ struct ImagesOnboardingView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
         .background(
-            RoundedRectangle(cornerRadius: 8)
-                .fill(isCorrect ? Color.green.opacity(0.1) : Color(.systemGray6))
+            RoundedRectangle(cornerRadius: 12)
+                .fill(isCorrect ? Color.green.opacity(0.1) : Color(.secondarySystemGroupedBackground))
         )
     }
 }

@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "Bilde";
+"image_section.no_image_added_yet" = "Ingen bilde lagt til ennå";
+"image_section.add_visual_representation" = "Legg til en visuell representasjon for å hjelpe deg med å huske dette ordet";
+"image_section.add_image" = "Legg til Bilde";
+"image_section.remove_image" = "Fjern Bilde";
+
+// MARK: - Image Selection
+"image_selection.title" = "Velg Bilde";
+"image_selection.initial_message" = "Bilder vil vises her. Du kan søke etter et ord eller en setning. Glem ikke å velge det korrekte inndataspraket!";
+"image_selection.searching" = "Søker etter bilder for '%@'...";
+"image_selection.no_images_found" = "Ingen bilder funnet for '%@'";
+"image_selection.retry" = "Prøv igjen";
+"image_selection.search_placeholder" = "Søk etter forskjellige bilder...";
+"image_selection.failed_to_download" = "Kunne ikke laste ned bilde: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "Valgt Bilde";
+"add_word_image.tap_to_change" = "Trykk for å endre";
+"add_word_image.add_image" = "Legg til Bilde";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "Ikke gå glipp av visuell læring!";
+"image_premium.renew_pro_status" = "Forny din Pro-status for å fortsette å nyte vakre bilder med ordene dine.";
+"image_premium.upgrade_to_pro" = "Oppgrader til Pro";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "Forbedre Din Læring med Bilder";
+"images_onboarding.see_words_come_to_life" = "Se Ordene Dine Komme til Live";
+"images_onboarding.every_word_description" = "Hvert ord i ordboken din kan ha et vakkert, relevant bilde som hjelper deg med å huske og forstå det bedre.";
+"images_onboarding.add_images_to_existing" = "Legg til Bilder til Eksisterende Ord";
+"images_onboarding.step1_find_image_section" = "Finn bilde-seksjonen";
+"images_onboarding.step1_description" = "Rull ned for å se 'Legg til Bilde'-knappen";
+"images_onboarding.step2_choose_image" = "Velg bildet ditt";
+"images_onboarding.step2_description" = "Bla gjennom tusenvis av høykvalitetsfotoer";
+"images_onboarding.step3_click_done" = "Klikk 'Ferdig'";
+"images_onboarding.step3_description" = "Nyt det tilpassede ordet ditt nå!";
+"images_onboarding.add_images_during_creation" = "Legg til Bilder under Opprettelse av Ord";
+"images_onboarding.start_with_complete_vocabulary" = "Når du legger til nye ord, kan du umiddelbart søke etter og legge til relevante bilder. Start med et komplett, visuelt ordforråd fra dag én.";
+"images_onboarding.images_make_quizzes_effective" = "Bilder Gjør Quiz Mer Effektive";
+"images_onboarding.visual_learning_improves_memory" = "Når du øver med quiz, hjelper bilder deg med å lage sterkere forbindelser mellom ord og deres betydninger. Visuell læring har vist seg å forbedre hukommelsesbevarelse.";
+"images_onboarding.get_started" = "Kom i Gang";
+"images_onboarding.skip" = "Hopp over";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "Hva er dette?";
+"quiz_answer.cranberry" = "Tranebær";
+"quiz_answer.strawberry" = "Jordbær";
+"quiz_answer.cherry" = "Kirsebær";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "Ord";
+"form_field.enter_your_word" = "Skriv inn ordet ditt...";
+"form_field.definitions" = "Definisjoner";
+"form_field.add_definitions" = "Legg til definisjoner...";
+"form_field.image" = "Bilde";
+"form_field.add_image" = "Legg til Bilde";

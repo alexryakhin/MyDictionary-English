@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "छवि";
+"image_section.no_image_added_yet" = "अभी तक कोई छवि नहीं जोड़ी गई";
+"image_section.add_visual_representation" = "इस शब्द को याद रखने में आपकी मदद के लिए एक दृश्य प्रतिनिधित्व जोड़ें";
+"image_section.add_image" = "छवि जोड़ें";
+"image_section.remove_image" = "छवि हटाएं";
+
+// MARK: - Image Selection
+"image_selection.title" = "छवि चुनें";
+"image_selection.initial_message" = "छवियां यहां दिखाई देंगी। आप एक शब्द या वाक्यांश से खोज सकते हैं। सही इनपुट भाषा चुनना न भूलें!";
+"image_selection.searching" = "'%@' के लिए छवियां खोज रहे हैं...";
+"image_selection.no_images_found" = "'%@' के लिए कोई छवि नहीं मिली";
+"image_selection.retry" = "पुनः प्रयास करें";
+"image_selection.search_placeholder" = "विभिन्न छवियों की खोज करें...";
+"image_selection.failed_to_download" = "छवि डाउनलोड करने में विफल: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "चयनित छवि";
+"add_word_image.tap_to_change" = "बदलने के लिए टैप करें";
+"add_word_image.add_image" = "छवि जोड़ें";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "दृश्य सीखना न चूकें!";
+"image_premium.renew_pro_status" = "अपने शब्दों के साथ सुंदर छवियों का आनंद लेते रहने के लिए अपनी प्रो स्थिति नवीनीकृत करें।";
+"image_premium.upgrade_to_pro" = "प्रो में अपग्रेड करें";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "छवियों के साथ अपनी सीखने को बेहतर बनाएं";
+"images_onboarding.see_words_come_to_life" = "अपने शब्दों को जीवंत होते देखें";
+"images_onboarding.every_word_description" = "आपकी शब्दावली में हर शब्द एक सुंदर, प्रासंगिक छवि हो सकती है जो आपको इसे बेहतर याद रखने और समझने में मदद करती है।";
+"images_onboarding.add_images_to_existing" = "मौजूदा शब्दों में छवियां जोड़ें";
+"images_onboarding.step1_find_image_section" = "छवि अनुभाग खोजें";
+"images_onboarding.step1_description" = "'छवि जोड़ें' बटन देखने के लिए नीचे स्क्रॉल करें";
+"images_onboarding.step2_choose_image" = "अपनी छवि चुनें";
+"images_onboarding.step2_description" = "हजारों उच्च गुणवत्ता वाली तस्वीरों को ब्राउज़ करें";
+"images_onboarding.step3_click_done" = "'पूर्ण' पर क्लिक करें";
+"images_onboarding.step3_description" = "अब अपने अनुकूलित शब्द का आनंद लें!";
+"images_onboarding.add_images_during_creation" = "शब्द बनाते समय छवियां जोड़ें";
+"images_onboarding.start_with_complete_vocabulary" = "नए शब्द जोड़ते समय, आप तुरंत प्रासंगिक छवियों की खोज और जोड़ सकते हैं। पहले दिन से एक पूर्ण, दृश्य शब्दावली के साथ शुरुआत करें।";
+"images_onboarding.images_make_quizzes_effective" = "छवियां क्विज़ को अधिक प्रभावी बनाती हैं";
+"images_onboarding.visual_learning_improves_memory" = "जब आप क्विज़ के साथ अभ्यास करते हैं, छवियां आपको शब्दों और उनके अर्थों के बीच मजबूत संबंध बनाने में मदद करती हैं। दृश्य सीखने से स्मृति प्रतिधारण में सुधार सिद्ध हुआ है।";
+"images_onboarding.get_started" = "शुरू करें";
+"images_onboarding.skip" = "छोड़ें";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "यह क्या है?";
+"quiz_answer.cranberry" = "क्रैनबेरी";
+"quiz_answer.strawberry" = "स्ट्रॉबेरी";
+"quiz_answer.cherry" = "चेरी";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "शब्द";
+"form_field.enter_your_word" = "अपना शब्द दर्ज करें...";
+"form_field.definitions" = "परिभाषाएं";
+"form_field.add_definitions" = "परिभाषाएं जोड़ें...";
+"form_field.image" = "छवि";
+"form_field.add_image" = "छवि जोड़ें";

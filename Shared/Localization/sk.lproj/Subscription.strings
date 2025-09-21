@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Ušetriť %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Vizuálne Učenie s Obrázkami";
+"pro_features.images_description" = "Pridajte krásne a relevantné obrázky k svojim slovám pre lepšie uchovanie pamäte a vizuálne učenie";
+"pro_features.word_collections" = "Kolekcie Slov";
+"pro_features.word_collections_description" = "Organizujte svoju slovnú zásobu do tematických kolekcií pre lepšie učenie a organizáciu";
 "pro_features.google_sync" = "Synchronizácia s Google";
 "pro_features.unlimited_export" = "Neobmedzený export";
 "pro_features.create_shared_dictionaries" = "Vytvárať zdieľané slovníky";

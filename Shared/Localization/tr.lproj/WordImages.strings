@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "Görsel";
+"image_section.no_image_added_yet" = "Henüz görsel eklenmedi";
+"image_section.add_visual_representation" = "Bu kelimeyi hatırlamanıza yardımcı olacak görsel bir temsil ekleyin";
+"image_section.add_image" = "Görsel Ekle";
+"image_section.remove_image" = "Görseli Kaldır";
+
+// MARK: - Image Selection
+"image_selection.title" = "Görsel Seç";
+"image_selection.initial_message" = "Görseller burada görünecek. Kelime veya ifade ile arama yapabilirsiniz. Doğru giriş dilini seçmeyi unutmayın!";
+"image_selection.searching" = "'%@' için görseller aranıyor...";
+"image_selection.no_images_found" = "'%@' için görsel bulunamadı";
+"image_selection.retry" = "Tekrar dene";
+"image_selection.search_placeholder" = "Farklı görseller ara...";
+"image_selection.failed_to_download" = "Görsel indirme başarısız: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "Seçilen Görsel";
+"add_word_image.tap_to_change" = "Değiştirmek için dokunun";
+"add_word_image.add_image" = "Görsel Ekle";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "Görsel öğrenmeyi kaçırmayın!";
+"image_premium.renew_pro_status" = "Kelimelerinizle güzel görsellerin keyfini çıkarmaya devam etmek için Pro durumunuzu yenileyin.";
+"image_premium.upgrade_to_pro" = "Pro'ya Yükselt";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "Görsellerle Öğrenmenizi Geliştirin";
+"images_onboarding.see_words_come_to_life" = "Kelimelerinizin Canlanmasını Görün";
+"images_onboarding.every_word_description" = "Sözlüğünüzdeki her kelime, onu daha iyi hatırlamanıza ve anlamanıza yardımcı olan güzel, alakalı bir görsele sahip olabilir.";
+"images_onboarding.add_images_to_existing" = "Mevcut Kelimelere Görsel Ekle";
+"images_onboarding.step1_find_image_section" = "Görsel bölümünü bulun";
+"images_onboarding.step1_description" = "'Görsel Ekle' butonunu görmek için aşağı kaydırın";
+"images_onboarding.step2_choose_image" = "Görselinizi seçin";
+"images_onboarding.step2_description" = "Binlerce yüksek kaliteli fotoğrafı tarayın";
+"images_onboarding.step3_click_done" = "'Tamam'a tıklayın";
+"images_onboarding.step3_description" = "Özelleştirilmiş kelimenizin keyfini çıkarın!";
+"images_onboarding.add_images_during_creation" = "Kelimeler Oluştururken Görsel Ekle";
+"images_onboarding.start_with_complete_vocabulary" = "Yeni kelimeler eklerken, alakalı görselleri hemen arayabilir ve ekleyebilirsiniz. İlk günden itibaren eksiksiz, görsel bir kelime hazinesi ile başlayın.";
+"images_onboarding.images_make_quizzes_effective" = "Görseller Sınavları Daha Etkili Yapar";
+"images_onboarding.visual_learning_improves_memory" = "Sınavlarla pratik yaptığınızda, görseller kelimeler ve anlamları arasında daha güçlü bağlantılar kurmanıza yardımcı olur. Görsel öğrenme hafıza tutma becerisini geliştirdiği kanıtlanmıştır.";
+"images_onboarding.get_started" = "Başla";
+"images_onboarding.skip" = "Atla";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "Bu nedir?";
+"quiz_answer.cranberry" = "Kızılcık";
+"quiz_answer.strawberry" = "Çilek";
+"quiz_answer.cherry" = "Kiraz";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "Kelime";
+"form_field.enter_your_word" = "Kelimenizi girin...";
+"form_field.definitions" = "Tanımlar";
+"form_field.add_definitions" = "Tanım ekle...";
+"form_field.image" = "Görsel";
+"form_field.add_image" = "Görsel Ekle";

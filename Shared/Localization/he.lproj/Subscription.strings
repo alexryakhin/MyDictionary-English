@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "חסוך %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "למידה ויזואלית עם תמונות";
+"pro_features.images_description" = "הוסף תמונות יפות ורלוונטיות למילים שלך לשיפור שמירת הזיכרון ולמידה ויזואלית";
+"pro_features.word_collections" = "אוספי מילים";
+"pro_features.word_collections_description" = "ארגן את אוצר המילים שלך לאוספים נושאיים ללמידה וארגון טובים יותר";
 "pro_features.google_sync" = "סנכרון גוגל";
 "pro_features.unlimited_export" = "ייצוא ללא הגבלה";
 "pro_features.create_shared_dictionaries" = "יצירת מילונים משותפים";

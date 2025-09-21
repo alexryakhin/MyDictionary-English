@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "%@ बचाएं";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "छवियों के साथ दृश्य सीखना";
+"pro_features.images_description" = "बेहतर स्मृति प्रतिधारण और दृश्य सीखने के लिए अपने शब्दों में सुंदर, प्रासंगिक छवियां जोड़ें";
+"pro_features.word_collections" = "शब्द संग्रह";
+"pro_features.word_collections_description" = "बेहतर सीखने और संगठन के लिए अपनी शब्दावली को विषयगत संग्रहों में व्यवस्थित करें";
 "pro_features.google_sync" = "गूगल सिंक";
 "pro_features.unlimited_export" = "असीमित निर्यात";
 "pro_features.create_shared_dictionaries" = "साझा शब्दकोश बनाएं";

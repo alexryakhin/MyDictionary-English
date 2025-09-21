@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "Hemat %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Pembelajaran Visual dengan Gambar";
+"pro_features.images_description" = "Tambahkan gambar yang indah dan relevan ke kata-kata Anda untuk retensi memori dan pembelajaran visual yang lebih baik";
+"pro_features.word_collections" = "Koleksi Kata";
+"pro_features.word_collections_description" = "Organisir kosakata Anda ke dalam koleksi tematik untuk pembelajaran dan organisasi yang lebih baik";
 "pro_features.google_sync" = "Sinkronisasi Google";
 "pro_features.unlimited_export" = "Ekspor Tanpa Batas";
 "pro_features.create_shared_dictionaries" = "Buat Kamus Bersama";

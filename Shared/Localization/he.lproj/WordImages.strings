@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "תמונה";
+"image_section.no_image_added_yet" = "עדיין לא נוספה תמונה";
+"image_section.add_visual_representation" = "הוסף ייצוג ויזואלי כדי לעזור לך לזכור את המילה הזו";
+"image_section.add_image" = "הוסף תמונה";
+"image_section.remove_image" = "הסר תמונה";
+
+// MARK: - Image Selection
+"image_selection.title" = "בחר תמונה";
+"image_selection.initial_message" = "תמונות יופיעו כאן. אתה יכול לחפש לפי מילה או ביטוי. אל תשכח לבחור את שפת הקלט הנכונה!";
+"image_selection.searching" = "מחפש תמונות עבור '%@'...";
+"image_selection.no_images_found" = "לא נמצאו תמונות עבור '%@'";
+"image_selection.retry" = "נסה שוב";
+"image_selection.search_placeholder" = "חפש תמונות שונות...";
+"image_selection.failed_to_download" = "נכשל בהורדת התמונה: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "תמונה נבחרת";
+"add_word_image.tap_to_change" = "הקש לשינוי";
+"add_word_image.add_image" = "הוסף תמונה";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "אל תחמיץ למידה ויזואלית!";
+"image_premium.renew_pro_status" = "חדש את סטטוס הפרו שלך כדי להמשיך ליהנות מתמונות יפות עם המילים שלך.";
+"image_premium.upgrade_to_pro" = "שדרג לפרו";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "שפר את הלמידה שלך עם תמונות";
+"images_onboarding.see_words_come_to_life" = "ראה את המילים שלך מתעוררות לחיים";
+"images_onboarding.every_word_description" = "כל מילה במילון שלך יכולה להיות עם תמונה יפה ורלוונטית שעוזרת לך לזכור ולהבין אותה טוב יותר.";
+"images_onboarding.add_images_to_existing" = "הוסף תמונות למילים קיימות";
+"images_onboarding.step1_find_image_section" = "מצא את חלק התמונות";
+"images_onboarding.step1_description" = "גלול למטה כדי לראות את כפתור 'הוסף תמונה'";
+"images_onboarding.step2_choose_image" = "בחר את התמונה שלך";
+"images_onboarding.step2_description" = "עבור על אלפי תמונות באיכות גבוהה";
+"images_onboarding.step3_click_done" = "לחץ על 'סיום'";
+"images_onboarding.step3_description" = "תהנה מהמילה המותאמת אישית שלך עכשיו!";
+"images_onboarding.add_images_during_creation" = "הוסף תמונות במהלך יצירת מילים";
+"images_onboarding.start_with_complete_vocabulary" = "כשאתה מוסיף מילים חדשות, אתה יכול מיד לחפש ולהוסיף תמונות רלוונטיות. התחל עם אוצר מילים ויזואלי מלא מהיום הראשון.";
+"images_onboarding.images_make_quizzes_effective" = "תמונות הופכות חידונים ליעילים יותר";
+"images_onboarding.visual_learning_improves_memory" = "כשאתה מתרגל עם חידונים, תמונות עוזרות לך ליצור קשרים חזקים יותר בין מילים למשמעויות שלהן. למידה ויזואלית הוכחה כמשפרת שמירה על זיכרון.";
+"images_onboarding.get_started" = "התחל";
+"images_onboarding.skip" = "דלג";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "מה זה?";
+"quiz_answer.cranberry" = "חמוציות";
+"quiz_answer.strawberry" = "תות שדה";
+"quiz_answer.cherry" = "דובדבן";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "מילה";
+"form_field.enter_your_word" = "הכנס את המילה שלך...";
+"form_field.definitions" = "הגדרות";
+"form_field.add_definitions" = "הוסף הגדרות...";
+"form_field.image" = "תמונה";
+"form_field.add_image" = "הוסף תמונה";

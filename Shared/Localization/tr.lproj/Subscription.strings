@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "%@ Tasarruf Edin";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "Görsellerle Görsel Öğrenme";
+"pro_features.images_description" = "Daha iyi hafıza tutma ve görsel öğrenme için kelimelerinize güzel, ilgili görseller ekleyin";
+"pro_features.word_collections" = "Kelime Koleksiyonları";
+"pro_features.word_collections_description" = "Daha iyi öğrenme ve organizasyon için kelime dağarcığınızı tematik koleksiyonlara düzenleyin";
 "pro_features.google_sync" = "Google ile Senkronizasyon";
 "pro_features.unlimited_export" = "Sınırsız Dışa Aktarma";
 "pro_features.create_shared_dictionaries" = "Paylaşılan Sözlükler Oluştur";

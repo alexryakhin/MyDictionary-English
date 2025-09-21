@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "ประหยัด %@";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "การเรียนรู้ด้วยภาพ";
+"pro_features.images_description" = "เพิ่มรูปภาพที่สวยงามและเกี่ยวข้องกับคำของคุณเพื่อการจดจำที่ดีขึ้นและการเรียนรู้ด้วยภาพ";
+"pro_features.word_collections" = "คอลเลกชันคำ";
+"pro_features.word_collections_description" = "จัดระเบียบคำศัพท์ของคุณเป็นคอลเลกชันตามธีมเพื่อการเรียนรู้และการจัดระเบียบที่ดีขึ้น";
 "pro_features.google_sync" = "ซิงค์กับ Google";
 "pro_features.unlimited_export" = "ส่งออกไม่จำกัด";
 "pro_features.create_shared_dictionaries" = "สร้างพจนานุกรมที่แชร์";

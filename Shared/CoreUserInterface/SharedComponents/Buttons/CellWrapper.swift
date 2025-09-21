@@ -45,6 +45,7 @@ struct CellWrapper<LeadingContent: View, MainContent: View, TrailingContent: Vie
             .frame(maxWidth: .infinity, alignment: .leading)
             trailingContent()
         }
+        .contentShape(.rect)
         .ifLet(onTapAction) { view, action in
             view.onTap {
                 action()

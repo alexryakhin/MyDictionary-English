@@ -1,0 +1,59 @@
+// MARK: - WordImages
+
+// MARK: - Image Section Headers
+"image_section.title" = "Imagine";
+"image_section.no_image_added_yet" = "Nu a fost adăugată încă nicio imagine";
+"image_section.add_visual_representation" = "Adăugați o reprezentare vizuală pentru a vă ajuta să vă amintiți acest cuvânt";
+"image_section.add_image" = "Adaugă Imagine";
+"image_section.remove_image" = "Elimină Imaginea";
+
+// MARK: - Image Selection
+"image_selection.title" = "Selectează Imaginea";
+"image_selection.initial_message" = "Imaginile vor apărea aici. Puteți căuta după cuvânt sau frază. Nu uitați să alegeți limba de intrare corectă!";
+"image_selection.searching" = "Căutare imagini pentru '%@'...";
+"image_selection.no_images_found" = "Nu au fost găsite imagini pentru '%@'";
+"image_selection.retry" = "Încearcă din nou";
+"image_selection.search_placeholder" = "Căutare imagini diferite...";
+"image_selection.failed_to_download" = "Eșec la descărcarea imaginii: %@";
+
+// MARK: - Add Word Image Section
+"add_word_image.selected_image" = "Imagine Selectată";
+"add_word_image.tap_to_change" = "Atingeți pentru a schimba";
+"add_word_image.add_image" = "Adaugă Imagine";
+
+// MARK: - Image Premium Messages
+"image_premium.dont_miss_out" = "Nu ratați învățarea vizuală!";
+"image_premium.renew_pro_status" = "Reînnoiți-vă statutul Pro pentru a continua să vă bucurați de imagini frumoase cu cuvintele voastre.";
+"image_premium.upgrade_to_pro" = "Actualizează la Pro";
+
+// MARK: - Images Onboarding
+"images_onboarding.title" = "Îmbunătățiți-vă Învățarea cu Imagini";
+"images_onboarding.see_words_come_to_life" = "Vedeți-vă Cuvintele Prinzând Viață";
+"images_onboarding.every_word_description" = "Fiecare cuvânt din dicționarul dvs. poate avea o imagine frumoasă și relevantă care vă ajută să vă amintiți și să înțelegeți mai bine.";
+"images_onboarding.add_images_to_existing" = "Adăugați Imagini la Cuvinte Existente";
+"images_onboarding.step1_find_image_section" = "Găsiți secțiunea de imagini";
+"images_onboarding.step1_description" = "Derulați în jos pentru a vedea butonul 'Adaugă Imagine'";
+"images_onboarding.step2_choose_image" = "Alegeți-vă imaginea";
+"images_onboarding.step2_description" = "Navigați prin mii de fotografii de înaltă calitate";
+"images_onboarding.step3_click_done" = "Faceți clic pe 'Gata'";
+"images_onboarding.step3_description" = "Bucurați-vă de cuvântul dvs. personalizat acum!";
+"images_onboarding.add_images_during_creation" = "Adăugați Imagini în Timpul Creării Cuvintelor";
+"images_onboarding.start_with_complete_vocabulary" = "Când adăugați cuvinte noi, puteți căuta și adăuga imediat imagini relevante. Începeți cu un vocabular vizual complet de la prima zi.";
+"images_onboarding.images_make_quizzes_effective" = "Imaginile Fac Testele Mai Eficiente";
+"images_onboarding.visual_learning_improves_memory" = "Când exersați cu teste, imaginile vă ajută să faceți conexiuni mai puternice între cuvinte și semnificațiile lor. Învățarea vizuală s-a dovedit a îmbunătăți păstrarea memoriei.";
+"images_onboarding.get_started" = "Începeți";
+"images_onboarding.skip" = "Săriți";
+
+// MARK: - Mock Quiz Content
+"quiz_question.what_is_this" = "Ce este aceasta?";
+"quiz_answer.cranberry" = "Merisor";
+"quiz_answer.strawberry" = "Căpșună";
+"quiz_answer.cherry" = "Cireașă";
+
+// MARK: - Mock Form Fields
+"form_field.word" = "Cuvânt";
+"form_field.enter_your_word" = "Introduceți cuvântul dvs...";
+"form_field.definitions" = "Definiții";
+"form_field.add_definitions" = "Adăugați definiții...";
+"form_field.image" = "Imagine";
+"form_field.add_image" = "Adaugă Imagine";

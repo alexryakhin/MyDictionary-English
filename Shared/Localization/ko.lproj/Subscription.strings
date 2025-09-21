@@ -25,6 +25,11 @@
 "paywall.save_percentage" = "%@ 절약";
 
 // MARK: - Pro Features
+
+"pro_features.images" = "이미지로 하는 시각적 학습";
+"pro_features.images_description" = "더 나은 기억력 유지와 시각적 학습을 위해 단어에 아름답고 관련성 있는 이미지 추가";
+"pro_features.word_collections" = "단어 컬렉션";
+"pro_features.word_collections_description" = "더 나은 학습과 정리를 위해 어휘를 주제별 컬렉션으로 구성";
 "pro_features.google_sync" = "Google 동기화";
 "pro_features.unlimited_export" = "무제한 내보내기";
 "pro_features.create_shared_dictionaries" = "공유 사전 생성";
