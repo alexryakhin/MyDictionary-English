@@ -300,8 +300,18 @@ struct WordDetailsContentView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
             HeaderButton(Loc.WordImages.ImagePremium.upgradeToPro, size: .small, style: .borderedProminent) {
+                AnalyticsService.shared.logEvent(.imagePaywallShown, parameters: [
+                    "trigger": "premium_image_access",
+                    "word": word.wordItself ?? "",
+                    "has_existing_image": hasImageAvailable
+                ])
                 paywallService.presentPaywall(for: .images) { didSubscribe in
-                    // Handle subscription result if needed
+                    if didSubscribe {
+                        AnalyticsService.shared.logEvent(.imageUpgradeConversion, parameters: [
+                            "conversion_source": "image_feature",
+                            "previous_subscription_status": "free"
+                        ])
+                    }
                 }
             }
         }
@@ -559,8 +569,16 @@ struct WordDetailsContentView: View {
             showingImageSelection = true
         } else {
             // User is not premium, show paywall
+            AnalyticsService.shared.logEvent(.imagePaywallShown, parameters: [
+                "trigger": "onboarding_completion",
+                "word": word.wordItself ?? ""
+            ])
             paywallService.presentPaywall(for: .images) { didSubscribe in
                 if didSubscribe {
+                    AnalyticsService.shared.logEvent(.imageUpgradeConversion, parameters: [
+                        "conversion_source": "image_feature",
+                        "previous_subscription_status": "free"
+                    ])
                     // User subscribed, allow image selection
                     showingImageSelection = true
                 }

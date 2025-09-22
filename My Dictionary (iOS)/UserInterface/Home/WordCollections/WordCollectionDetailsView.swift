@@ -61,6 +61,17 @@ struct WordCollectionDetailsView: View {
             }
         }
         .groupedBackground()
+        .onAppear {
+            AnalyticsService.shared.logEvent(.wordCollectionDetailsViewed, parameters: [
+                "collection_id": originalCollection.id,
+                "collection_title": originalCollection.title,
+                "collection_level": originalCollection.level.rawValue,
+                "collection_language": originalCollection.languageCode,
+                "is_premium": originalCollection.isPremium,
+                "is_featured": originalCollection.isFeatured,
+                "word_count": originalCollection.words.count
+            ])
+        }
         .navigation(
             title: viewModel.collection.title,
             mode: .inline,
@@ -71,6 +82,12 @@ struct WordCollectionDetailsView: View {
                     size: .small,
                     style: .borderedProminent
                 ) {
+                    AnalyticsService.shared.logEvent(.wordCollectionImportStarted, parameters: [
+                        "collection_id": originalCollection.id,
+                        "collection_title": originalCollection.title,
+                        "word_count": originalCollection.words.count,
+                        "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+                    ])
                     addAllWords()
                 }
                 .disabled(isAddingAll)
@@ -201,6 +218,15 @@ struct WordCollectionDetailsView: View {
                     duplicateWordsCount = result.duplicateCount
                     isAddingAll = false
                     showSuccessAlert = true
+                    
+                    // Log import completion analytics
+                    AnalyticsService.shared.logEvent(.wordCollectionImportCompleted, parameters: [
+                        "collection_id": originalCollection.id,
+                        "collection_title": originalCollection.title,
+                        "words_added": result.addedCount,
+                        "duplicates_found": result.duplicateCount,
+                        "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+                    ])
                 }
             } catch {
                 await MainActor.run {

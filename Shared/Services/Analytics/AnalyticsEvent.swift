@@ -176,6 +176,27 @@ enum AnalyticsEvent: String {
     case sharedWordUnliked
     case sharedWordDifficultyUpdated
     case sharedWordStatsViewed
+    
+    // Word Collections Events
+    case wordCollectionsViewed
+    case wordCollectionsFiltered
+    case wordCollectionDetailsViewed
+    case wordCollectionImportStarted
+    case wordCollectionImportCompleted
+    case wordCollectionPaywallShown
+    case wordCollectionPopularity
+    
+    // Image Events
+    case imageOnboardingShown
+    case imageOnboardingCompleted
+    case imageOnboardingSkipped
+    case imageSelectionOpened
+    case imageSearchPerformed
+    case imageSelected
+    case imageDownloaded
+    case imageRemoved
+    case imagePaywallShown
+    case imageUpgradeConversion
 
     var parameters: [String: Any]? {
         switch self {

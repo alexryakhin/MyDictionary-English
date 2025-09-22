@@ -133,11 +133,15 @@ struct ImageSelectionView: View {
                 }
             }
         )
-        .onAppear {
-            guard word.isNotEmpty else { return }
-            searchQuery = word
-            searchImages()
-        }
+                .onAppear {
+                    AnalyticsService.shared.logEvent(.imageSelectionOpened, parameters: [
+                        "word": word,
+                        "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+                    ])
+                    guard word.isNotEmpty else { return }
+                    searchQuery = word
+                    searchImages()
+                }
     }
 
     private func searchImages() {
@@ -153,6 +157,15 @@ struct ImageSelectionView: View {
                     perPage: 15,
                     orientation: "landscape"
                 )
+                
+                // Log search analytics
+                AnalyticsService.shared.logEvent(.imageSearchPerformed, parameters: [
+                    "search_query": searchQuery,
+                    "results_count": results.count,
+                    "language": language.rawValue,
+                    "word": word
+                ])
+                
                 screenState = .photosAvailable(results)
             } catch {
                 screenState = .error(error.localizedDescription)
@@ -167,6 +180,14 @@ struct ImageSelectionView: View {
             // Use the word parameter for filename, but searchQuery for the actual search
             let localPath = try await pexelsService.downloadAndSaveImage(from: photo, for: word)
             await MainActor.run {
+                // Log image selection analytics
+                AnalyticsService.shared.logEvent(.imageSelected, parameters: [
+                    "word": word,
+                    "image_source": "pexels",
+                    "image_url": photo.src.medium,
+                    "download_success": true
+                ])
+                
                 onImageSelected(photo.src.medium, localPath)
                 onDismiss()
             }

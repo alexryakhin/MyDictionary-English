@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "people-eating-inside-of-cafeteria-during-daytime.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
+  }
+}

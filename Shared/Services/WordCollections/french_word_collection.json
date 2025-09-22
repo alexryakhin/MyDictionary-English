@@ -1,0 +1,569 @@
+{
+    "collections": [
+        {
+            "id": "top_50_french_words",
+            "title": "Top 50 Mots Français",
+            "description": "Les 50 mots français les plus importants pour commencer à apprendre le français",
+            "level": "A1",
+            "tagValue": "français",
+            "languageCode": "fr",
+            "localImageName": "french-flag",
+            "isPremium": false,
+            "isFeatured": true,
+            "words": [
+                {
+                    "id": "bonjour",
+                    "text": "bonjour",
+                    "phonetics": "/bɔ̃.ʒuʁ/",
+                    "partOfSpeech": "interjection",
+                    "definition": "Mot qu'on dit quand on rencontre quelqu'un pendant la journée",
+                    "examples": [
+                        "Bonjour, comment allez-vous ?",
+                        "Je dis bonjour à mes amis."
+                    ]
+                },
+                {
+                    "id": "merci",
+                    "text": "merci",
+                    "phonetics": "/mɛʁ.si/",
+                    "partOfSpeech": "interjection",
+                    "definition": "Mot qu'on dit quand quelqu'un nous aide ou nous donne quelque chose",
+                    "examples": [
+                        "Merci beaucoup pour ton aide !",
+                        "Merci, c'est très gentil."
+                    ]
+                },
+                {
+                    "id": "s'il_vous_plaît",
+                    "text": "s'il vous plaît",
+                    "phonetics": "/si.vu.plɛ/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Mots qu'on dit quand on demande quelque chose poliment",
+                    "examples": [
+                        "Pouvez-vous m'aider, s'il vous plaît ?",
+                        "Un café, s'il vous plaît."
+                    ]
+                },
+                {
+                    "id": "excusez_moi",
+                    "text": "excusez-moi",
+                    "phonetics": "/ɛk.sky.ze.mwa/",
+                    "partOfSpeech": "interjection",
+                    "definition": "Mots qu'on dit quand on veut déranger quelqu'un ou s'excuser",
+                    "examples": [
+                        "Excusez-moi, où est la gare ?",
+                        "Excusez-moi d'être en retard."
+                    ]
+                },
+                {
+                    "id": "oui",
+                    "text": "oui",
+                    "phonetics": "/wi/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Mot qu'on dit quand on est d'accord ou quand quelque chose est vrai",
+                    "examples": [
+                        "Oui, je veux bien !",
+                        "Oui, c'est correct."
+                    ]
+                },
+                {
+                    "id": "non",
+                    "text": "non",
+                    "phonetics": "/nɔ̃/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Mot qu'on dit quand on n'est pas d'accord ou quand quelque chose n'est pas vrai",
+                    "examples": [
+                        "Non, merci.",
+                        "Non, ce n'est pas ça."
+                    ]
+                },
+                {
+                    "id": "bonsoir",
+                    "text": "bonsoir",
+                    "phonetics": "/bɔ̃.swaʁ/",
+                    "partOfSpeech": "interjection",
+                    "definition": "Salutation qu'on dit le soir",
+                    "examples": [
+                        "Bonsoir, comment allez-vous ?",
+                        "Bonsoir et bonne nuit !"
+                    ]
+                },
+                {
+                    "id": "bonne_nuit",
+                    "text": "bonne nuit",
+                    "phonetics": "/bɔn.nɥi/",
+                    "partOfSpeech": "interjection",
+                    "definition": "Mots qu'on dit avant d'aller dormir",
+                    "examples": [
+                        "Bonne nuit, dors bien !",
+                        "Je dis bonne nuit à mes enfants."
+                    ]
+                },
+                {
+                    "id": "au_revoir",
+                    "text": "au revoir",
+                    "phonetics": "/o.ʁə.vwaʁ/",
+                    "partOfSpeech": "interjection",
+                    "definition": "Mots qu'on dit quand on quitte quelqu'un",
+                    "examples": [
+                        "Au revoir, à bientôt !",
+                        "Au revoir, bonne journée !"
+                    ]
+                },
+                {
+                    "id": "à_bientôt",
+                    "text": "à bientôt",
+                    "phonetics": "/a.bjɛ̃.to/",
+                    "partOfSpeech": "interjection",
+                    "definition": "Mots qu'on dit quand on va revoir quelqu'un bientôt",
+                    "examples": [
+                        "À bientôt !",
+                        "À bientôt, mon ami !"
+                    ]
+                },
+                {
+                    "id": "comment_allez_vous",
+                    "text": "comment allez-vous",
+                    "phonetics": "/kɔ.mɑ̃.ta.le.vu/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Question qu'on pose pour demander comment va une personne",
+                    "examples": [
+                        "Comment allez-vous aujourd'hui ?",
+                        "Comment allez-vous, madame ?"
+                    ]
+                },
+                {
+                    "id": "ça_va",
+                    "text": "ça va",
+                    "phonetics": "/sa.va/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Réponse qu'on donne quand on va bien",
+                    "examples": [
+                        "Ça va bien, merci !",
+                        "Ça va, et vous ?"
+                    ]
+                },
+                {
+                    "id": "très_bien",
+                    "text": "très bien",
+                    "phonetics": "/tʁɛ.bjɛ̃/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Mots qu'on dit quand tout va très bien",
+                    "examples": [
+                        "Très bien, merci !",
+                        "Ça va très bien aujourd'hui."
+                    ]
+                },
+                {
+                    "id": "mal",
+                    "text": "mal",
+                    "phonetics": "/mal/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Mot qu'on dit quand quelque chose ne va pas bien",
+                    "examples": [
+                        "Je me sens mal.",
+                        "Ça va mal aujourd'hui."
+                    ]
+                },
+                {
+                    "id": "bien",
+                    "text": "bien",
+                    "phonetics": "/bjɛ̃/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Mot qu'on dit quand quelque chose est bon ou correct",
+                    "examples": [
+                        "C'est très bien !",
+                        "Je vais bien, merci."
+                    ]
+                },
+                {
+                    "id": "je",
+                    "text": "je",
+                    "phonetics": "/ʒə/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Mot qu'on utilise pour parler de soi-même",
+                    "examples": [
+                        "Je suis français.",
+                        "Je vais à l'école."
+                    ]
+                },
+                {
+                    "id": "tu",
+                    "text": "tu",
+                    "phonetics": "/ty/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Mot qu'on utilise pour parler à une personne qu'on connaît bien",
+                    "examples": [
+                        "Tu es mon ami.",
+                        "Tu vas bien ?"
+                    ]
+                },
+                {
+                    "id": "il",
+                    "text": "il",
+                    "phonetics": "/il/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Mot qu'on utilise pour parler d'un garçon ou d'une chose",
+                    "examples": [
+                        "Il est gentil.",
+                        "Il fait beau aujourd'hui."
+                    ]
+                },
+                {
+                    "id": "elle",
+                    "text": "elle",
+                    "phonetics": "/ɛl/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Mot qu'on utilise pour parler d'une fille ou d'une chose",
+                    "examples": [
+                        "Elle est belle.",
+                        "Elle va à l'école."
+                    ]
+                },
+                {
+                    "id": "nous",
+                    "text": "nous",
+                    "phonetics": "/nu/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Mot qu'on utilise pour parler de plusieurs personnes, y compris soi-même",
+                    "examples": [
+                        "Nous sommes amis.",
+                        "Nous allons au parc."
+                    ]
+                },
+                {
+                    "id": "vous",
+                    "text": "vous",
+                    "phonetics": "/vu/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Mot qu'on utilise pour parler à plusieurs personnes ou à une personne qu'on respecte",
+                    "examples": [
+                        "Vous êtes gentils.",
+                        "Comment allez-vous ?"
+                    ]
+                },
+                {
+                    "id": "ils",
+                    "text": "ils",
+                    "phonetics": "/il/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Mot qu'on utilise pour parler de plusieurs garçons ou de plusieurs choses",
+                    "examples": [
+                        "Ils sont grands.",
+                        "Ils jouent au football."
+                    ]
+                },
+                {
+                    "id": "elles",
+                    "text": "elles",
+                    "phonetics": "/ɛl/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Mot qu'on utilise pour parler de plusieurs filles ou de plusieurs choses",
+                    "examples": [
+                        "Elles sont belles.",
+                        "Elles dansent ensemble."
+                    ]
+                },
+                {
+                    "id": "être",
+                    "text": "être",
+                    "phonetics": "/ɛtʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit ce qu'on est ou où on se trouve",
+                    "examples": [
+                        "Je suis étudiant.",
+                        "Tu es à la maison."
+                    ]
+                },
+                {
+                    "id": "avoir",
+                    "text": "avoir",
+                    "phonetics": "/a.vwaʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on possède quelque chose",
+                    "examples": [
+                        "J'ai un chat.",
+                        "Tu as de beaux yeux."
+                    ]
+                },
+                {
+                    "id": "faire",
+                    "text": "faire",
+                    "phonetics": "/fɛʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on crée ou qu'on effectue quelque chose",
+                    "examples": [
+                        "Je fais mes devoirs.",
+                        "Tu fais du sport."
+                    ]
+                },
+                {
+                    "id": "aller",
+                    "text": "aller",
+                    "phonetics": "/a.le/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on se déplace quelque part",
+                    "examples": [
+                        "Je vais à l'école.",
+                        "Tu vas au parc."
+                    ]
+                },
+                {
+                    "id": "venir",
+                    "text": "venir",
+                    "phonetics": "/və.niʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on arrive quelque part",
+                    "examples": [
+                        "Je viens de la maison.",
+                        "Tu viens avec nous ?"
+                    ]
+                },
+                {
+                    "id": "voir",
+                    "text": "voir",
+                    "phonetics": "/vwaʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on regarde quelque chose avec ses yeux",
+                    "examples": [
+                        "Je vois un chat.",
+                        "Tu vois la lune ?"
+                    ]
+                },
+                {
+                    "id": "savoir",
+                    "text": "savoir",
+                    "phonetics": "/sa.vwaʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on connaît quelque chose",
+                    "examples": [
+                        "Je sais la réponse.",
+                        "Tu sais nager ?"
+                    ]
+                },
+                {
+                    "id": "pouvoir",
+                    "text": "pouvoir",
+                    "phonetics": "/pu.vwaʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on a la capacité de faire quelque chose",
+                    "examples": [
+                        "Je peux t'aider.",
+                        "Tu peux venir ?"
+                    ]
+                },
+                {
+                    "id": "vouloir",
+                    "text": "vouloir",
+                    "phonetics": "/vu.lwaʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on désire quelque chose",
+                    "examples": [
+                        "Je veux un gâteau.",
+                        "Tu veux jouer ?"
+                    ]
+                },
+                {
+                    "id": "devoir",
+                    "text": "devoir",
+                    "phonetics": "/də.vwaʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on est obligé de faire quelque chose",
+                    "examples": [
+                        "Je dois faire mes devoirs.",
+                        "Tu dois être gentil."
+                    ]
+                },
+                {
+                    "id": "prendre",
+                    "text": "prendre",
+                    "phonetics": "/pʁɑ̃dʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on saisit quelque chose avec sa main",
+                    "examples": [
+                        "Je prends un livre.",
+                        "Tu prends le bus ?"
+                    ]
+                },
+                {
+                    "id": "donner",
+                    "text": "donner",
+                    "phonetics": "/dɔ.ne/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on offre quelque chose à quelqu'un",
+                    "examples": [
+                        "Je donne un cadeau.",
+                        "Tu donnes ton livre ?"
+                    ]
+                },
+                {
+                    "id": "parler",
+                    "text": "parler",
+                    "phonetics": "/paʁ.le/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on utilise sa voix pour communiquer",
+                    "examples": [
+                        "Je parle français.",
+                        "Tu parles avec tes amis."
+                    ]
+                },
+                {
+                    "id": "écouter",
+                    "text": "écouter",
+                    "phonetics": "/e.ku.te/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on utilise ses oreilles pour entendre",
+                    "examples": [
+                        "J'écoute la musique.",
+                        "Tu écoutes ton professeur."
+                    ]
+                },
+                {
+                    "id": "regarder",
+                    "text": "regarder",
+                    "phonetics": "/ʁə.ɡaʁ.de/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on utilise ses yeux pour voir quelque chose",
+                    "examples": [
+                        "Je regarde la télévision.",
+                        "Tu regardes par la fenêtre."
+                    ]
+                },
+                {
+                    "id": "manger",
+                    "text": "manger",
+                    "phonetics": "/mɑ̃.ʒe/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on met de la nourriture dans sa bouche",
+                    "examples": [
+                        "Je mange une pomme.",
+                        "Tu manges du pain."
+                    ]
+                },
+                {
+                    "id": "boire",
+                    "text": "boire",
+                    "phonetics": "/bwaʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on avale un liquide",
+                    "examples": [
+                        "Je bois de l'eau.",
+                        "Tu bois du jus."
+                    ]
+                },
+                {
+                    "id": "dormir",
+                    "text": "dormir",
+                    "phonetics": "/dɔʁ.miʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on ferme les yeux pour se reposer la nuit",
+                    "examples": [
+                        "Je dors dans mon lit.",
+                        "Tu dors bien ?"
+                    ]
+                },
+                {
+                    "id": "travailler",
+                    "text": "travailler",
+                    "phonetics": "/tʁa.va.je/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on fait quelque chose d'important ou qu'on a un emploi",
+                    "examples": [
+                        "Je travaille à l'école.",
+                        "Tu travailles dur."
+                    ]
+                },
+                {
+                    "id": "jouer",
+                    "text": "jouer",
+                    "phonetics": "/ʒwe/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on s'amuse avec des jeux ou des jouets",
+                    "examples": [
+                        "Je joue au football.",
+                        "Tu joues avec tes amis."
+                    ]
+                },
+                {
+                    "id": "aimer",
+                    "text": "aimer",
+                    "phonetics": "/ɛ.me/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on aime beaucoup quelque chose ou quelqu'un",
+                    "examples": [
+                        "J'aime le chocolat.",
+                        "Tu aimes la musique."
+                    ]
+                },
+                {
+                    "id": "vivre",
+                    "text": "vivre",
+                    "phonetics": "/vivʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on existe et qu'on est en vie",
+                    "examples": [
+                        "Je vis à Paris.",
+                        "Tu vis avec ta famille."
+                    ]
+                },
+                 {
+                     "id": "manger_repas",
+                     "text": "manger",
+                     "phonetics": "/mɑ̃.ʒe/",
+                     "partOfSpeech": "verb",
+                     "definition": "Action de prendre un repas",
+                     "examples": [
+                         "Je mange à midi.",
+                         "Tu manges avec nous ?"
+                     ]
+                 },
+                 {
+                     "id": "marcher",
+                     "text": "marcher",
+                     "phonetics": "/maʁ.ʃe/",
+                     "partOfSpeech": "verb",
+                     "definition": "Mot qui dit qu'on avance en mettant un pied devant l'autre",
+                     "examples": [
+                         "Je marche dans le parc.",
+                         "Tu marches vite."
+                     ]
+                 },
+                 {
+                     "id": "courir",
+                     "text": "courir",
+                     "phonetics": "/ku.ʁiʁ/",
+                     "partOfSpeech": "verb",
+                     "definition": "Mot qui dit qu'on avance très vite en bougeant les jambes",
+                     "examples": [
+                         "Je cours dans le jardin.",
+                         "Tu cours plus vite que moi."
+                     ]
+                 },
+                 {
+                     "id": "apprendre",
+                     "text": "apprendre",
+                     "phonetics": "/a.pʁɑ̃dʁ/",
+                     "partOfSpeech": "verb",
+                     "definition": "Mot qui dit qu'on découvre quelque chose de nouveau",
+                     "examples": [
+                         "J'apprends le français.",
+                         "Tu apprends vite."
+                     ]
+                 },
+                 {
+                     "id": "comprendre",
+                     "text": "comprendre",
+                     "phonetics": "/kɔ̃.pʁɑ̃dʁ/",
+                     "partOfSpeech": "verb",
+                     "definition": "Mot qui dit qu'on sait ce que quelque chose signifie",
+                     "examples": [
+                         "Je comprends la leçon.",
+                         "Tu comprends bien."
+                     ]
+                 }
+            ]
+        }
+    ],
+    "lastUpdated": "2025-01-27T12:00:00Z",
+    "version": "1.0.0"
+}

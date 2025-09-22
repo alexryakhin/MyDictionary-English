@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "a-man-playing-the-violin-or-fiddle-on-the-streets-in-new-orleans-in-the-french-quarter.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
+  }
+}

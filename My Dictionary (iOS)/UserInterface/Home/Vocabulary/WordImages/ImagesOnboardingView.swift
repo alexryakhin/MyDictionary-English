@@ -48,6 +48,11 @@ struct ImagesOnboardingView: View {
             // Bottom Controls
             bottomControlsView
         }
+        .onAppear {
+            AnalyticsService.shared.logEvent(.imageOnboardingShown, parameters: [
+                "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+            ])
+        }
         .groupedBackground()
     }
     
@@ -320,6 +325,11 @@ struct ImagesOnboardingView: View {
                     .frame(maxWidth: .infinity)
                 } else {
                     ActionButton(Loc.WordImages.ImagesOnboarding.getStarted, style: .borderedProminent) {
+                        AnalyticsService.shared.logEvent(.imageOnboardingCompleted, parameters: [
+                            "completion_method": "get_started",
+                            "pages_viewed": currentPage + 1,
+                            "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+                        ])
                         isPresented = false
                         onCompleted?()
                     }
@@ -330,6 +340,10 @@ struct ImagesOnboardingView: View {
 
             // Skip Button
             Button(Loc.WordImages.ImagesOnboarding.skip) {
+                AnalyticsService.shared.logEvent(.imageOnboardingSkipped, parameters: [
+                    "pages_viewed": currentPage + 1,
+                    "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+                ])
                 isPresented = false
                 onCompleted?()
             }

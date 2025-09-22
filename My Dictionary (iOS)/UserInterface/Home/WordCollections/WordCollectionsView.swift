@@ -44,6 +44,9 @@ struct WordCollectionsView: View {
             }
         }
         .groupedBackground()
+        .onAppear {
+            AnalyticsService.shared.logEvent(.wordCollectionsViewed)
+        }
         .navigation(
             title: Loc.WordCollections.wordCatalog,
             mode: .inline,
@@ -65,8 +68,16 @@ struct WordCollectionsView: View {
                 }
             }
         )
-        .onChange(of: searchText) {
+        .onChange(of: searchText) { newValue in
             // Filter collections based on search text
+            if !newValue.isEmpty {
+                AnalyticsService.shared.logEvent(.wordCollectionsFiltered, parameters: [
+                    "filter_type": "search",
+                    "search_query": newValue,
+                    "selected_language": selectedLanguage,
+                    "selected_level": selectedLevel?.rawValue ?? "all"
+                ])
+            }
         }
         .withPaywall()
     }
