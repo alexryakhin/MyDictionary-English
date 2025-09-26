@@ -204,8 +204,8 @@ struct SharedWordDetailsView: View {
                     updatedWord.imageLocalPath = localPath
                     
                     // Update the image state
-                    if let uiImage = PexelsService.shared.getImageFromLocalPath(localPath) {
-                        image = Image(uiImage: uiImage)
+                    if let image = PexelsService.shared.getImageFromLocalPath(localPath) {
+                        self.image = image
                     }
                     
                     Task {
@@ -232,10 +232,10 @@ struct SharedWordDetailsView: View {
                     )
                     
                     await MainActor.run {
-                        if let uiImage = result.image {
+                        if let image = result.image {
                             print("✅ [SharedWordDetails] Image loaded successfully (with fallback if needed)")
-                            image = Image(uiImage: uiImage)
-                            
+                            self.image = image
+
                             // Update Core Data with new relative path if fallback was used
                             if let newLocalPath = result.newLocalPath {
                                 print("🔄 [SharedWordDetails] Updating Core Data with new relative path: \(newLocalPath)")

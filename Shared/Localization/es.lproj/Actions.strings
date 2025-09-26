@@ -23,6 +23,7 @@
 "select_word" = "Seleccionar palabra";
 "select_idiom" = "Seleccionar modismo";
 "select_quiz" = "Seleccionar cuestionario";
+"select_collection" = "Seleccionar colección";
 "sign_out" = "Cerrar sesión";
 "sign_in" = "Iniciar sesión";
 "upgrade" = "Actualizar";

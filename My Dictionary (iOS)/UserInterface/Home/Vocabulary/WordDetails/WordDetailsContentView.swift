@@ -160,8 +160,8 @@ struct WordDetailsContentView: View {
                     word.imageLocalPath = localPath
 
                     // Update the image state
-                    if let uiImage = PexelsService.shared.getImageFromLocalPath(localPath) {
-                        image = Image(uiImage: uiImage)
+                    if let image = PexelsService.shared.getImageFromLocalPath(localPath) {
+                        self.image = image
                         shouldHaveNavigationTitle = false
                     }
 
@@ -187,9 +187,9 @@ struct WordDetailsContentView: View {
                     )
 
                     await MainActor.run {
-                        if let uiImage = result.image {
+                        if let image = result.image {
                             print("✅ [WordDetails] Image loaded successfully (with fallback if needed)")
-                            image = Image(uiImage: uiImage)
+                            self.image = image
 
                             // Update Core Data with new relative path if fallback was used
                             if let newLocalPath = result.newLocalPath {

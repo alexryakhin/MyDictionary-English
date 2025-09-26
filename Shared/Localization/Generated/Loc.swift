@@ -85,6 +85,8 @@ public enum Loc {
     public static let search = Loc.tr("Actions", "search", fallback: "Search")
     /// Select
     public static let select = Loc.tr("Actions", "select", fallback: "Select")
+    /// Select a collection
+    public static let selectCollection = Loc.tr("Actions", "select_collection", fallback: "Select a collection")
     /// Select an idiom
     public static let selectIdiom = Loc.tr("Actions", "select_idiom", fallback: "Select an idiom")
     /// Select a quiz

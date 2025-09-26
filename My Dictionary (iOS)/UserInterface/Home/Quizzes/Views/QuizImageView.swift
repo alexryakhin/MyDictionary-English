@@ -16,8 +16,8 @@ struct QuizImageView: View {
 
     var body: some View {
         if subscriptionService.isProUser {
-            if let uiImage = PexelsService.shared.getImageFromLocalPath(localPath) {
-                Image(uiImage: uiImage)
+            if let image = PexelsService.shared.getImageFromLocalPath(localPath) {
+                image
                     .resizable()
                     .scaledToFit()
                     .frame(maxHeight: 100)

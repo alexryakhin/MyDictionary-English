@@ -23,6 +23,7 @@
 "select_word" = "Sélectionner un mot";
 "select_idiom" = "Sélectionner une expression";
 "select_quiz" = "Sélectionner un quiz";
+"select_collection" = "Sélectionner une collection";
 "sign_out" = "Se déconnecter";
 "sign_in" = "Se connecter";
 "upgrade" = "Passer à la version supérieure";

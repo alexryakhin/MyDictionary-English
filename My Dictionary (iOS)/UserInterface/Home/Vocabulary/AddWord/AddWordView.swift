@@ -232,7 +232,7 @@ struct AddWordView: View {
                    let image = PexelsService.shared.getImageFromLocalPath(imageLocalPath) {
                     // Show selected image
                     HStack {
-                        Image(uiImage: image)
+                        image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 60, height: 60)

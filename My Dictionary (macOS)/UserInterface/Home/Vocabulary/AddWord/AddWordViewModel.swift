@@ -13,6 +13,7 @@ final class AddWordViewModel: BaseViewModel {
         case toggleTag(CDTag)
         case showTagSelection
         case selectInputLanguage(InputLanguage)
+        case selectImage(String, String) // imageUrl, localPath
     }
 
     @Published var inputWord = ""
@@ -30,7 +31,9 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var isTranslating: Bool = false
     @Published private(set) var translatedDefinitions: [WordDefinition] = []
     @Published private(set) var isUsingAI: Bool = false
-    @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .auto
+    @Published private(set) var selectedImageUrl: String?
+    @Published private(set) var selectedImageLocalPath: String?
+    @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .english
     private var detectedLanguageCode: String?
     
     // AI Usage tracking
@@ -96,6 +99,9 @@ final class AddWordViewModel: BaseViewModel {
             showingTagSelection = true
         case .selectInputLanguage(let language):
             selectedInputLanguage = language
+        case .selectImage(let imageUrl, let localPath):
+            selectedImageUrl = imageUrl
+            selectedImageLocalPath = localPath
         }
     }
 
@@ -112,9 +118,6 @@ final class AddWordViewModel: BaseViewModel {
 
                 let wordToSearch: String
                 let shouldRequestPronunciation: Bool
-
-                // Detect and update language for both AI and non-AI paths
-                detectAndUpdateLanguage()
 
                 // Check if user is authenticated and AI service is available
                 if AuthenticationService.shared.isSignedIn && aiService.canMakeAIRequest() {
@@ -144,14 +147,10 @@ final class AddWordViewModel: BaseViewModel {
                         isTranslating = true
                         AnalyticsService.shared.logEvent(.translationRequested)
 
-                        let translationResponse: TranslationResponse
-                        if selectedInputLanguage.isAuto {
-                            // Auto-detect language
-                            translationResponse = try await translationService.translateToEnglish(inputWord)
-                        } else {
-                            // Use selected language
-                            translationResponse = try await translationService.translateFromLanguage(inputWord, from: selectedInputLanguage.languageCode)
-                        }
+                        let translationResponse = try await translationService.translateFromLanguage(
+                            inputWord,
+                            from: selectedInputLanguage.languageCode
+                        )
 
                         wordToSearch = translationResponse.text
                         // Only request pronunciation if the detected language IS English
@@ -293,7 +292,9 @@ final class AddWordViewModel: BaseViewModel {
             isFavorite: false,
             timestamp: Date(),
             updatedAt: Date(),
-            isSynced: true
+            isSynced: true,
+            imageUrl: selectedImageUrl,
+            imageLocalPath: selectedImageLocalPath
         )
 
         Task {
@@ -435,18 +436,4 @@ final class AddWordViewModel: BaseViewModel {
             }
         }
     }
-    
-    private func detectAndUpdateLanguage() {
-        // Detect language using Apple's Natural Language framework
-        let detectedLanguage = languageDetector.detectLanguage(for: inputWord)
-        
-        // Update selectedInputLanguage from auto to detected language
-        if selectedInputLanguage.isAuto {
-            selectedInputLanguage = detectedLanguage
-        }
-        
-        // Set detected language code immediately after detection
-        self.detectedLanguageCode = selectedInputLanguage.languageCode
-    }
-
 }

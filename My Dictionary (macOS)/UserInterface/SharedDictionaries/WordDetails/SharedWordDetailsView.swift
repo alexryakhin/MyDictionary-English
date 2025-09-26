@@ -20,6 +20,11 @@ struct SharedWordDetailsView: View {
     @State private var showingDetailedStatistics: Bool = false
     @State private var showingMeaningsList: Bool = false
     @State private var meaningToEdit: SharedWordMeaning?
+    @State private var image: Image?
+    @State private var showingImageSelection = false
+    @State private var showingImageOnboarding = false
+    @StateObject private var subscriptionService = SubscriptionService.shared
+    @StateObject private var paywallService = PaywallService.shared
 
     // Mutable state for editable fields
     @State private var phoneticText: String = ""
@@ -39,6 +44,14 @@ struct SharedWordDetailsView: View {
         }
         return dictionary.canEdit
     }
+    
+    var imageExists: Bool {
+        (word.imageLocalPath != nil || image != nil) && subscriptionService.isProUser
+    }
+    
+    var hasImageAvailable: Bool {
+        word.imageLocalPath != nil || image != nil
+    }
 
     init(word: SharedWord, dictionaryId: String) {
         self._word = State(wrappedValue: word)
@@ -51,16 +64,42 @@ struct SharedWordDetailsView: View {
 
     var body: some View {
         ScrollViewWithCustomNavBar {
-            LazyVStack(spacing: 12) {
-                transcriptionSectionView
-                partOfSpeechSectionView
-                meaningsSectionView
-                notesSectionView
-                languageSectionView
-                collaborativeFeaturesSection
+            VStack(spacing: 0) {
+                // Hero Image Section (only show if user is pro)
+                if let image, subscriptionService.isProUser {
+                    heroImageView(image: image)
+                        .overlay(alignment: .bottom) {
+                            wordHeaderView
+                                .padding(.horizontal, 28)
+                                .padding(.bottom, 12)
+                        }
+                }
+                
+                // Content Sections
+                LazyVStack(spacing: 12) {
+                    if !hasImageAvailable {
+                        // Image Section (only show if no image exists)
+                        imageSectionView
+                    } else if hasImageAvailable && !subscriptionService.isProUser {
+                        // Image Premium Section (show if image exists but user is not pro)
+                        imagePremiumSectionView
+                    }
+                    
+                    transcriptionSectionView
+                    partOfSpeechSectionView
+                    meaningsSectionView
+                    notesSectionView
+                    languageSectionView
+                    collaborativeFeaturesSection
+                    
+                    // Remove Image Button (only show if image exists and user is pro)
+                    if hasImageAvailable && subscriptionService.isProUser {
+                        removeImageButton
+                    }
+                }
+                .padding(12)
+                .animation(.default, value: word)
             }
-            .padding(12)
-            .animation(.default, value: word)
         } navigationBar: {
             Text(word.wordItself)
                 .font(.largeTitle)
@@ -108,7 +147,23 @@ struct SharedWordDetailsView: View {
         .sheet(item: $meaningToEdit) { meaning in
             SharedMeaningEditView(meaning: meaning, dictionaryId: dictionaryId, wordId: word.id)
         }
+        .sheet(isPresented: $showingImageSelection) {
+            ImageSelectionView(
+                word: word.wordItself,
+                language: .english,
+                onImageSelected: { imageUrl, localPath in
+                    word.imageUrl = imageUrl
+                    word.imageLocalPath = localPath
+                    // Save to shared dictionary if needed
+                },
+                onDismiss: {
+                    showingImageSelection = false
+                }
+            )
+        }
+        .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
         .onAppear {
+            loadImage()
             // Start real-time listener for this specific word
             dictionaryService.startSharedWordListener(
                 dictionaryId: dictionaryId,
@@ -665,6 +720,199 @@ extension SharedWordDetailsView {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .clippedWithPaddingAndBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+        }
+    }
+    
+    // MARK: - Hero Image Views
+    
+    private func heroImageView(image: Image) -> some View {
+        GeometryReader { geometry in
+            let offset = geometry.frame(in: .global).minY
+            let height = max(200, 200 + offset)
+
+            image
+                .resizable()
+                .scaledToFill()
+                .frame(width: geometry.size.width, height: height)
+                .clipped()
+                .overlay(
+                    LinearGradient(
+                        gradient: Gradient(colors: [.clear, Color.systemGroupedBackground]),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .frame(height: 100),
+                    alignment: .bottom
+                )
+                .offset(y: offset > 0 ? -offset : 0)
+                .frame(height: height)
+        }
+        .frame(height: 200)
+    }
+    
+    @ViewBuilder
+    private var wordHeaderView: some View {
+        Text(word.wordItself)
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .foregroundStyle(.primary)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    // MARK: - Image Related Views
+    
+    private var imageSectionView: some View {
+        CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    Image(systemName: "photo")
+                        .foregroundStyle(.secondary)
+                        .font(.title2)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(Loc.WordImages.ImageSection.noImageAddedYet)
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+
+                        Text(Loc.WordImages.ImageSection.addVisualRepresentation)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    Spacer()
+                }
+            }
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        } trailingContent: {
+            Button(Loc.WordImages.ImageSection.addImage) {
+                if ImagesOnboardingHelper.shouldShowOnboarding() {
+                    showingImageOnboarding = true
+                } else {
+                    showingImageSelection = true
+                }
+            }
+            .buttonStyle(.borderedProminent)
+        }
+    }
+    
+    private var imagePremiumSectionView: some View {
+        CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    Image(systemName: "photo.fill")
+                        .foregroundStyle(.orange)
+                        .font(.title2)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(Loc.WordImages.ImagePremium.dontMissOut)
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+
+                        Text(Loc.WordImages.ImagePremium.renewProStatus)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    Spacer()
+                }
+            }
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        } trailingContent: {
+            Button(Loc.WordImages.ImagePremium.upgradeToPro) {
+                AnalyticsService.shared.logEvent(.imagePaywallShown, parameters: [
+                    "trigger": "premium_image_access",
+                    "word": word.wordItself,
+                    "has_existing_image": hasImageAvailable
+                ])
+                paywallService.presentPaywall(for: .images) { didSubscribe in
+                    if didSubscribe {
+                        AnalyticsService.shared.logEvent(.imageUpgradeConversion, parameters: [
+                            "conversion_source": "image_feature",
+                            "previous_subscription_status": "free"
+                        ])
+                    }
+                }
+            }
+            .buttonStyle(.borderedProminent)
+        }
+    }
+    
+    private var removeImageButton: some View {
+        Button(Loc.WordImages.ImageSection.removeImage) {
+            AlertCenter.shared.showAlert(
+                with: .deleteConfirmation(
+                    title: Loc.WordImages.ImageSection.removeImage,
+                    message: "Are you sure you want to remove this image?",
+                    onCancel: {},
+                    onDelete: {
+                        word.imageUrl = nil
+                        word.imageLocalPath = nil
+                        image = nil
+                    }
+                )
+            )
+        }
+        .foregroundStyle(.red)
+    }
+    
+    private func handleOnboardingCompletion() {
+        // Check if user is premium
+        if subscriptionService.isProUser {
+            // User is premium, allow image selection
+            showingImageSelection = true
+        } else {
+            // User is not premium, show paywall
+            AnalyticsService.shared.logEvent(.imagePaywallShown, parameters: [
+                "trigger": "onboarding_completion",
+                "word": word.wordItself
+            ])
+            paywallService.presentPaywall(for: .images) { didSubscribe in
+                if didSubscribe {
+                    AnalyticsService.shared.logEvent(.imageUpgradeConversion, parameters: [
+                        "conversion_source": "image_feature",
+                        "previous_subscription_status": "free"
+                    ])
+                    // User subscribed, allow image selection
+                    showingImageSelection = true
+                }
+                // If user didn't subscribe, do nothing (stay on word details)
+            }
+        }
+    }
+    
+    private func loadImage() {
+        // Check if image exists and set state with fallback
+        if let imageLocalPath = word.imageLocalPath {
+            print("🔍 [SharedWordDetails] Image path: \(imageLocalPath)")
+            print("🌐 [SharedWordDetails] Image URL: \(word.imageUrl ?? "nil")")
+
+            Task {
+                let result = await PexelsService.shared.getImageWithFallback(
+                    localPath: imageLocalPath,
+                    webUrl: word.imageUrl
+                )
+
+                await MainActor.run {
+                    if let image = result.image {
+                        print("✅ [SharedWordDetails] Image loaded successfully (with fallback if needed)")
+                        self.image = image
+
+                        // Update the word with new relative path if fallback was used
+                        if let newLocalPath = result.newLocalPath {
+                            print("🔄 [SharedWordDetails] Updating with new relative path: \(newLocalPath)")
+                            word.imageLocalPath = newLocalPath
+                        }
+                    } else {
+                        print("❌ [SharedWordDetails] Image failed to load even with fallback")
+                        image = nil
+                    }
+                }
+            }
+        } else {
+            print("🔍 [SharedWordDetails] No image path found")
+            image = nil
         }
     }
 }

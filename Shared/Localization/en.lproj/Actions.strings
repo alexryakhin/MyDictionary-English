@@ -23,6 +23,7 @@
 "select_word" = "Select a word";
 "select_idiom" = "Select an idiom";
 "select_quiz" = "Select a quiz";
+"select_collection" = "Select a collection";
 "sign_out" = "Sign Out";
 "sign_in" = "Sign In";
 "upgrade" = "Upgrade";

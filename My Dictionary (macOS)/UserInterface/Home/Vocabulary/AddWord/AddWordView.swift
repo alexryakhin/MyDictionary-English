@@ -7,6 +7,8 @@ struct AddWordView: View {
     @State private var showingDictionarySelection = false
     @State private var selectedDictionaryId: String? = nil
     @State private var isSignInPresented = false
+    @State private var showingImageSelection = false
+    @State private var showingImageOnboarding = false
 
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var ttsPlayer = TTSPlayer.shared
@@ -28,6 +30,7 @@ struct AddWordView: View {
                     definitionCellView
                     partOfSpeechCellView
                     phoneticsCellView
+                    imageCellView
                     // Only show tags for private words (not shared dictionary)
                     if selectedDictionaryId == nil {
                         tagsCellView
@@ -100,6 +103,19 @@ struct AddWordView: View {
         .sheet(isPresented: $isSignInPresented) {
             AuthenticationView(feature: .useAI)
         }
+        .sheet(isPresented: $showingImageSelection) {
+            ImageSelectionView(
+                word: viewModel.inputWord,
+                language: viewModel.selectedInputLanguage,
+                onImageSelected: { imageUrl, localPath in
+                    viewModel.handle(.selectImage(imageUrl, localPath))
+                },
+                onDismiss: {
+                    showingImageSelection = false
+                }
+            )
+        }
+        .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
         .withPaywall()
     }
 
@@ -395,6 +411,66 @@ struct AddWordView: View {
             .padding(.vertical, 8)
         }
     }
+    
+    @ViewBuilder
+    private var imageCellView: some View {
+        CellWrapper(Loc.WordImages.ImageSection.title) {
+            VStack(alignment: .leading, spacing: 12) {
+                if let imageLocalPath = viewModel.selectedImageLocalPath,
+                   let image = PexelsService.shared.getImageFromLocalPath(imageLocalPath) {
+                    // Show selected image
+                    HStack {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 60, height: 60)
+                            .clipped()
+                            .cornerRadius(8)
 
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(Loc.WordImages.AddWordImage.selectedImage)
+                            Text(Loc.WordImages.AddWordImage.tapToChange)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        Spacer()
+
+                        HeaderButton(icon: "trash.fill", color: .red, size: .small) {
+                            viewModel.handle(.selectImage("", ""))
+                        }
+                    }
+                } else {
+                    HStack {
+                        Image(systemName: "photo")
+                            .font(.headline)
+                            .foregroundStyle(.secondary)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(Loc.WordImages.AddWordImage.addImage)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        Spacer()
+
+                        Image(systemName: "chevron.right")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+        } onTapAction: {
+            if ImagesOnboardingHelper.shouldShowOnboarding() {
+                showingImageOnboarding = true
+            } else {
+                showingImageSelection = true
+            }
+        }
+    }
+    
+    private func handleOnboardingCompletion() {
+        // After onboarding is completed, show image selection
+        showingImageSelection = true
+    }
 
 }

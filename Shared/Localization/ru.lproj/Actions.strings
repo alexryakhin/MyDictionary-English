@@ -23,6 +23,7 @@
 "select_word" = "Выберите слово";
 "select_idiom" = "Выберите выражение";
 "select_quiz" = "Выберите викторину";
+"select_collection" = "Выберите коллекцию";
 "sign_out" = "Выйти";
 "sign_in" = "Войти";
 "upgrade" = "Обновить";

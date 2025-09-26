@@ -23,6 +23,7 @@
 "select_word" = "اختيار كلمة";
 "select_idiom" = "اختيار تعبير";
 "select_quiz" = "اختيار اختبار";
+"select_collection" = "اختيار مجموعة";
 "sign_out" = "تسجيل خروج";
 "sign_in" = "تسجيل دخول";
 "upgrade" = "ترقية";

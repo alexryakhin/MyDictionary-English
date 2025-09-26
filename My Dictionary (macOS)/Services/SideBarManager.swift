@@ -17,6 +17,7 @@ final class SideBarManager: ObservableObject {
         case sharedWord(SharedWord, dictionaryId: String)
         case idiom(CDWord)
         case quiz(QuizItem)
+        case wordCollection(WordCollection)
     }
 
     static let shared = SideBarManager()
@@ -28,6 +29,9 @@ final class SideBarManager: ObservableObject {
             if selectedIdiom != nil {
                 selectedIdiom = nil
             }
+            if selectedWordCollection != nil {
+                selectedWordCollection = nil
+            }
         }
     }
     @Published var selectedSharedWord: SharedWord? = nil
@@ -36,9 +40,22 @@ final class SideBarManager: ObservableObject {
             if selectedWord != nil {
                 selectedWord = nil
             }
+            if selectedWordCollection != nil {
+                selectedWordCollection = nil
+            }
         }
     }
     @Published var selectedQuiz: QuizItem? = nil
+    @Published var selectedWordCollection: WordCollection? = nil {
+        willSet {
+            if selectedWord != nil {
+                selectedWord = nil
+            }
+            if selectedIdiom != nil {
+                selectedIdiom = nil
+            }
+        }
+    }
 
     var selectedDetailItem: DetailItem? {
         if let selectedWord = selectedWord {
@@ -51,6 +68,8 @@ final class SideBarManager: ObservableObject {
             return .idiom(selectedIdiom)
         } else if let selectedQuiz = selectedQuiz {
             return .quiz(selectedQuiz)
+        } else if let selectedWordCollection = selectedWordCollection {
+            return .wordCollection(selectedWordCollection)
         } else {
             return nil
         }
@@ -76,11 +95,13 @@ final class SideBarManager: ObservableObject {
         selectedSharedWord = nil
         selectedIdiom = nil
         selectedQuiz = nil
+        selectedWordCollection = nil
     }
 }
 
 enum SideBarTab: Hashable {
     case myDictionary
+    case wordCollections
     case quizzes
     case analytics
     case sharedDictionary(SharedDictionary)
@@ -88,6 +109,7 @@ enum SideBarTab: Hashable {
     var title: String {
         switch self {
         case .myDictionary: return Loc.Onboarding.myDictionary
+        case .wordCollections: return Loc.WordCollections.wordCatalog
         case .quizzes: return Loc.Navigation.Tabbar.quizzes
         case .analytics: return Loc.Navigation.Tabbar.progress
         case .sharedDictionary(let dictionary): return dictionary.name
@@ -97,6 +119,7 @@ enum SideBarTab: Hashable {
     var systemImage: String {
         switch self {
         case .myDictionary: return "textformat"
+        case .wordCollections: return "books.vertical"
         case .quizzes: return "questionmark.circle"
         case .analytics: return "chart.bar"
         case .sharedDictionary: return "person"
@@ -106,11 +129,12 @@ enum SideBarTab: Hashable {
     var selectDetailsText: String? {
         switch self {
         case .myDictionary: Loc.Actions.selectWord
+        case .wordCollections: Loc.Actions.selectCollection
         case .quizzes: Loc.Actions.selectQuiz
         case .analytics: nil
         case .sharedDictionary: Loc.Actions.selectWord
         }
     }
 
-    static let tabs: [SideBarTab] = [.myDictionary, .quizzes, .analytics]
+    static let tabs: [SideBarTab] = [.myDictionary, .wordCollections, .quizzes, .analytics]
 }

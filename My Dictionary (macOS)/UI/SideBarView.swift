@@ -127,6 +127,10 @@ struct SideBarView: View {
             VocabularyListView()
                 .frame(width: 300, alignment: .leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
+        case .wordCollections:
+            WordCollectionsView()
+                .frame(width: 300, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
         case .quizzes:
             QuizzesListView()
                 .frame(width: 300, alignment: .leading)
@@ -191,6 +195,11 @@ struct SideBarView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .layoutPriority(1)
             }
+        case .wordCollection(let collection):
+            WordCollectionDetailsView(collection: collection)
+                .id(sideBarManager.selectedWordCollection?.id)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .layoutPriority(1)
         case nil:
             if let text = sideBarManager.selectedTab?.selectDetailsText {
                 Text(text)

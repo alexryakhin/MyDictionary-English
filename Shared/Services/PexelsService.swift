@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 // MARK: - Pexels API Models
 
@@ -154,11 +159,17 @@ final class PexelsService {
         }
         
         print("✅ [PexelsService] Download successful, creating UIImage...")
+#if os(iOS)
         guard let image = UIImage(data: data) else {
             print("❌ [PexelsService] Failed to create UIImage from downloaded data")
             throw PexelsError.invalidImageData
         }
-        
+#elseif os(macOS)
+        guard let image = NSImage(data: data) else {
+            print("❌ [PexelsService] Failed to create UIImage from downloaded data")
+            throw PexelsError.invalidImageData
+        }
+#endif
         print("🖼️ [PexelsService] UIImage created successfully, size: \(image.size)")
         
         // Compress image to optimize storage
@@ -192,7 +203,7 @@ final class PexelsService {
         return filename
     }
     
-    func getImageFromLocalPath(_ path: String) -> UIImage? {
+    func getImageFromLocalPath(_ path: String) -> Image? {
         print("🔍 [PexelsService] Attempting to load image from path: '\(path)'")
         
         // Construct full path from documents directory
@@ -239,19 +250,30 @@ final class PexelsService {
         }
         
         print("📦 [PexelsService] Read \(data.count) bytes from file")
+#if os(iOS)
         guard let image = UIImage(data: data) else {
             print("❌ [PexelsService] Failed to create UIImage from data at path: \(fullPath)")
             return nil
         }
-        
+#elseif os(macOS)
+        guard let image = NSImage(data: data) else {
+            print("❌ [PexelsService] Failed to create UIImage from data at path: \(fullPath)")
+            return nil
+        }
+#endif
+
         print("✅ [PexelsService] Successfully loaded image from path: \(fullPath)")
         print("🖼️ [PexelsService] Image size: \(image.size)")
-        return image
+#if os(iOS)
+        return Image(uiImage: image)
+#elseif os(macOS)
+        return Image(nsImage: image)
+#endif
     }
     
     // MARK: - Fallback Image Loading
     
-    func getImageWithFallback(localPath: String, webUrl: String?) async -> (image: UIImage?, newLocalPath: String?) {
+    func getImageWithFallback(localPath: String, webUrl: String?) async -> (image: Image?, newLocalPath: String?) {
         print("🔄 [PexelsService] Starting fallback image loading...")
         print("📍 [PexelsService] Local path: '\(localPath)'")
         print("🌐 [PexelsService] Web URL: '\(webUrl ?? "nil")'")
@@ -273,7 +295,12 @@ final class PexelsService {
         do {
             print("📥 [PexelsService] Attempting to re-download from web URL...")
             let reDownloadedImage = try await downloadImageFromUrl(webUrl)
-            
+            #if os(iOS)
+            let image = Image(uiImage: reDownloadedImage)
+            #elseif os(macOS)
+            let image = Image(nsImage: reDownloadedImage)
+            #endif
+
             // Extract filename from the path (handle both absolute and relative paths)
             let filename: String
             if localPath.hasPrefix("/") {
@@ -299,49 +326,79 @@ final class PexelsService {
                     let fileSize = try FileManager.default.attributesOfItem(atPath: fileURL.path)[.size] as? Int64 ?? 0
                     print("✅ [PexelsService] Fallback successful! File size: \(fileSize) bytes")
                     print("📝 [PexelsService] New relative path: \(filename)")
-                    return (reDownloadedImage, filename) // Return image and new path
+                    return (image, filename) // Return image and new path
                 } else {
                     print("❌ [PexelsService] Failed to save re-downloaded image")
-                    return (reDownloadedImage, nil) // Return the image even if saving failed
+                    return (image, nil) // Return the image even if saving failed
                 }
             } else {
                 print("❌ [PexelsService] Failed to compress re-downloaded image")
-                return (reDownloadedImage, nil) // Return the image even if compression failed
+                return (image, nil) // Return the image even if compression failed
             }
         } catch {
             print("❌ [PexelsService] Fallback download failed: \(error.localizedDescription)")
             return (nil, nil)
         }
     }
-    
+
+#if os(iOS)
     private func downloadImageFromUrl(_ urlString: String) async throws -> UIImage {
         print("🌐 [PexelsService] Downloading image from: \(urlString)")
-        
+
         guard let url = URL(string: urlString) else {
             print("❌ [PexelsService] Invalid URL: \(urlString)")
             throw PexelsError.invalidURL
         }
-        
+
         let (data, response) = try await session.data(from: url)
-        
+
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
             print("❌ [PexelsService] Download failed with status: \((response as? HTTPURLResponse)?.statusCode ?? -1)")
             throw PexelsError.downloadFailed
         }
-        
+
         print("📦 [PexelsService] Downloaded \(data.count) bytes from web URL")
-        
+
         guard let image = UIImage(data: data) else {
             print("❌ [PexelsService] Failed to create UIImage from web data")
             throw PexelsError.invalidImageData
         }
-        
+
         print("✅ [PexelsService] Successfully created UIImage from web URL")
         print("🖼️ [PexelsService] Image size: \(image.size)")
         return image
     }
-    
+#elseif os(macOS)
+    private func downloadImageFromUrl(_ urlString: String) async throws -> NSImage {
+        print("🌐 [PexelsService] Downloading image from: \(urlString)")
+
+        guard let url = URL(string: urlString) else {
+            print("❌ [PexelsService] Invalid URL: \(urlString)")
+            throw PexelsError.invalidURL
+        }
+
+        let (data, response) = try await session.data(from: url)
+
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+            print("❌ [PexelsService] Download failed with status: \((response as? HTTPURLResponse)?.statusCode ?? -1)")
+            throw PexelsError.downloadFailed
+        }
+
+        print("📦 [PexelsService] Downloaded \(data.count) bytes from web URL")
+
+        guard let image = NSImage(data: data) else {
+            print("❌ [PexelsService] Failed to create UIImage from web data")
+            throw PexelsError.invalidImageData
+        }
+
+        print("✅ [PexelsService] Successfully created UIImage from web URL")
+        print("🖼️ [PexelsService] Image size: \(image.size)")
+        return image
+    }
+#endif
+
     func deleteImage(at path: String) throws {
         print("🗑️ [PexelsService] Attempting to delete image at path: '\(path)'")
         
@@ -435,3 +492,19 @@ enum PexelsError: LocalizedError {
         }
     }
 }
+
+#if os(macOS)
+extension NSImage {
+    func jpegData(compressionQuality: CGFloat) -> Data? {
+        guard let tiffData = self.tiffRepresentation,
+              let bitmap = NSBitmapImageRep(data: tiffData) else {
+            return nil
+        }
+
+        return bitmap.representation(
+            using: .jpeg,
+            properties: [.compressionFactor: compressionQuality]
+        )
+    }
+}
+#endif
