@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Додайте візуальне представлення, щоб допомогти запам'ятати це слово";
 "image_section.add_image" = "Додати зображення";
 "image_section.remove_image" = "Видалити зображення";
+"image_section.remove_image_description" = "Ви впевнені, що хочете видалити це зображення?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Вибрати зображення";

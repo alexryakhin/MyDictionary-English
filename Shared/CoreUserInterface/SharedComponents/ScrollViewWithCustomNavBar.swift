@@ -13,16 +13,19 @@ struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
     private let navigationBar: () -> NavigationBar
 
     @State private var scrollOffset: CGFloat = .zero
+    @Binding private var scrollOffsetBinding: CGFloat
     private var navigationBarOpacity: CGFloat {
         min(max(-scrollOffset / 20, 0), 1)
     }
 
     init(
+        scrollOffset: Binding<CGFloat> = .constant(.zero),
         @ViewBuilder content: @escaping () -> Content,
-        @ViewBuilder navigationBar: @escaping () -> NavigationBar
+        @ViewBuilder navigationBar: @escaping () -> NavigationBar,
     ) {
         self.content = content
         self.navigationBar = navigationBar
+        self._scrollOffsetBinding = scrollOffset
     }
 
     var body: some View {
@@ -42,6 +45,9 @@ struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
                     }
                     .opacity(navigationBarOpacity)
                 }
+        }
+        .onChange(of: scrollOffset) {
+            scrollOffsetBinding = scrollOffset
         }
     }
 }

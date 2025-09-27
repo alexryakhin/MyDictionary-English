@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Dodajte vizualni prikaz koji će vam pomoći zapamtiti ovu riječ";
 "image_section.add_image" = "Dodaj Sliku";
 "image_section.remove_image" = "Ukloni Sliku";
+"image_section.remove_image_description" = "Jeste li sigurni da želite ukloniti ovu sliku?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Odaberi Sliku";

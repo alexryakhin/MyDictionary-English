@@ -26,9 +26,9 @@
 
 // MARK: - Pro Features
 
-"pro_features.images" = "Визуальное Обучение с Изображениями";
+"pro_features.images" = "Визуальное обучение с изображениями";
 "pro_features.images_description" = "Добавляйте красивые, релевантные изображения к вашим словам для лучшего запоминания и визуального обучения";
-"pro_features.word_collections" = "Коллекции Слов";
+"pro_features.word_collections" = "Коллекции слов";
 "pro_features.word_collections_description" = "Организуйте ваш словарь в тематические коллекции для лучшего обучения и организации";
 "pro_features.google_sync" = "Синхронизация с Google";
 "pro_features.unlimited_export" = "Неограниченный экспорт";

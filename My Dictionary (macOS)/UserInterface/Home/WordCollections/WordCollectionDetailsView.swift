@@ -46,14 +46,14 @@ struct WordCollectionDetailsView: View {
     
     var body: some View {
         ScrollViewWithCustomNavBar {
-            LazyVStack(spacing: 16) {
+            LazyVStack(spacing: 12) {
                 // Collection header
                 collectionHeader
                 
                 // Words list
                 wordsSection
             }
-            .padding(.horizontal, 16)
+            .padding(12)
             .if(isPad) { view in
                 view
                     .frame(maxWidth: 550, alignment: .center)
@@ -63,7 +63,7 @@ struct WordCollectionDetailsView: View {
             NavigationBarView(
                 title: viewModel.collection.title,
                 mode: .inline,
-                showsDismissButton: true,
+                showsDismissButton: false,
                 trailingContent: {
                     HeaderButton(
                         Loc.WordCollections.addAll,
@@ -127,7 +127,7 @@ struct WordCollectionDetailsView: View {
     
     private var collectionHeader: some View {
         CustomSectionView(header: viewModel.collection.title) {
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 12) {
                 // Collection info
                 VStack(alignment: .leading, spacing: 8) {
                     if let description = viewModel.collection.description {

@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Adăugați o reprezentare vizuală pentru a vă ajuta să vă amintiți acest cuvânt";
 "image_section.add_image" = "Adaugă Imagine";
 "image_section.remove_image" = "Elimină Imaginea";
+"image_section.remove_image_description" = "Sunteți sigur că doriți să eliminați această imagine?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Selectează Imaginea";

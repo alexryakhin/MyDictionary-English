@@ -7,6 +7,8 @@ struct WordDetailsView: View {
     @StateObject var word: CDWord
     @Environment(\.dismiss) private var dismiss
     @StateObject private var ttsPlayer = TTSPlayer.shared
+    @StateObject private var subscriptionService = SubscriptionService.shared
+    @StateObject private var paywallService = PaywallService.shared
 
     @FocusState private var isPhoneticsFocused: Bool
     @FocusState private var isDefinitionFocused: Bool
@@ -16,10 +18,10 @@ struct WordDetailsView: View {
     @State private var showingMeaningsList = false
     @State private var meaningToEdit: CDMeaning?
     @State private var image: Image?
+    @State private var scrollOffset: CGFloat = .zero
     @State private var showingImageSelection = false
     @State private var showingImageOnboarding = false
-    @StateObject private var subscriptionService = SubscriptionService.shared
-    @StateObject private var paywallService = PaywallService.shared
+    @State private var shouldHaveNavigationTitle: Bool = false
 
     var imageExists: Bool {
         (word.imageLocalPath != nil || image != nil) && subscriptionService.isProUser
@@ -34,14 +36,14 @@ struct WordDetailsView: View {
     }
 
     var body: some View {
-        ScrollViewWithCustomNavBar {
+        ScrollViewWithReader(scrollOffset: $scrollOffset) {
             VStack(spacing: 0) {
                 // Hero Image Section (only show if user is pro)
                 if let image, subscriptionService.isProUser {
                     heroImageView(image: image)
                         .overlay(alignment: .bottom) {
                             wordHeaderView
-                                .padding(.horizontal, 28)
+                                .padding(.horizontal, 16)
                                 .padding(.bottom, 12)
                         }
                 }
@@ -72,7 +74,8 @@ struct WordDetailsView: View {
                 .padding(12)
                 .animation(.default, value: word)
             }
-        } navigationBar: {
+        }
+        .safeAreaInset(edge: .top) {
             Text(word.wordItself ?? "")
                 .font(.largeTitle)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -81,6 +84,18 @@ struct WordDetailsView: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
                 .padding(.top, 16)
+                .background {
+                    VStack(spacing: 0) {
+                        Color.clear
+                            .glassBackgroundEffectIfAvailable(.regular, in: .rect)
+                            .if(isGlassAvailable == false) {
+                                $0.background(.ultraThinMaterial)
+                            }
+                        Divider()
+                    }
+                    .opacity(shouldHaveNavigationTitle ? 1 : 0)
+                }
+                .opacity(shouldHaveNavigationTitle ? 1 : 0)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .groupedBackground()
@@ -135,10 +150,15 @@ struct WordDetailsView: View {
         .sheet(isPresented: $showingImageSelection) {
             ImageSelectionView(
                 word: word.wordItself ?? "",
-                language: .english,
+                language: InputLanguage(rawValue: word.languageCode ?? "en") ?? .english,
                 onImageSelected: { imageUrl, localPath in
                     word.imageUrl = imageUrl
                     word.imageLocalPath = localPath
+                    // Update the image state
+                    if let image = PexelsService.shared.getImageFromLocalPath(localPath) {
+                        self.image = image
+                        shouldHaveNavigationTitle = false
+                    }
                     try? word.managedObjectContext?.save()
                 },
                 onDismiss: {
@@ -147,8 +167,18 @@ struct WordDetailsView: View {
             )
         }
         .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
-        .onAppear {
-            loadImage()
+        .task {
+            await loadImage()
+        }
+        .onChange(of: scrollOffset) { newValue in
+            guard hasImageAvailable && subscriptionService.isProUser else {
+                shouldHaveNavigationTitle = true
+                return
+            }
+            let topOffset: CGFloat = 200
+            withAnimation {
+                shouldHaveNavigationTitle = newValue <= -topOffset
+            }
         }
     }
 
@@ -470,12 +500,7 @@ struct WordDetailsView: View {
         }
         .padding(vertical: 12, horizontal: 16)
     }
-    
-    private func showAllMeanings() {
-        // TODO: Navigate to full meanings list view
-        // This could be a sheet or navigation to a dedicated view
-    }
-    
+
     private func addNewMeaning() {
         do {
             let _ = try word.addMeaning(definition: Loc.Words.newDefinition, examples: [])
@@ -605,6 +630,7 @@ struct WordDetailsView: View {
                 .fontWeight(.bold)
                 .foregroundStyle(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .opacity(!shouldHaveNavigationTitle ? 1 : 0)
         }
     }
     
@@ -614,10 +640,6 @@ struct WordDetailsView: View {
         CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Image(systemName: "photo")
-                        .foregroundStyle(.secondary)
-                        .font(.title2)
-
                     VStack(alignment: .leading, spacing: 4) {
                         Text(Loc.WordImages.ImageSection.noImageAddedYet)
                             .font(.headline)
@@ -634,14 +656,13 @@ struct WordDetailsView: View {
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
-            Button(Loc.WordImages.ImageSection.addImage) {
+            HeaderButton(Loc.WordImages.ImageSection.addImage, size: .small) {
                 if ImagesOnboardingHelper.shouldShowOnboarding() {
                     showingImageOnboarding = true
                 } else {
                     showingImageSelection = true
                 }
             }
-            .buttonStyle(.borderedProminent)
         }
     }
     
@@ -649,10 +670,6 @@ struct WordDetailsView: View {
         CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Image(systemName: "photo.fill")
-                        .foregroundStyle(.orange)
-                        .font(.title2)
-
                     VStack(alignment: .leading, spacing: 4) {
                         Text(Loc.WordImages.ImagePremium.dontMissOut)
                             .font(.headline)
@@ -669,7 +686,7 @@ struct WordDetailsView: View {
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
-            Button(Loc.WordImages.ImagePremium.upgradeToPro) {
+            HeaderButton(Loc.WordImages.ImagePremium.upgradeToPro, size: .small) {
                 AnalyticsService.shared.logEvent(.imagePaywallShown, parameters: [
                     "trigger": "premium_image_access",
                     "word": word.wordItself ?? "",
@@ -684,7 +701,6 @@ struct WordDetailsView: View {
                     }
                 }
             }
-            .buttonStyle(.borderedProminent)
         }
     }
     
@@ -693,9 +709,12 @@ struct WordDetailsView: View {
             AlertCenter.shared.showAlert(
                 with: .deleteConfirmation(
                     title: Loc.WordImages.ImageSection.removeImage,
-                    message: "Are you sure you want to remove this image?",
-                    onCancel: {},
+                    message: Loc.WordImages.ImageSection.removeImageDescription,
                     onDelete: {
+                        // Delete the image file from documents directory
+                        if let imageLocalPath = word.imageLocalPath {
+                            try? PexelsService.shared.deleteImage(at: imageLocalPath)
+                        }
                         word.imageUrl = nil
                         word.imageLocalPath = nil
                         image = nil
@@ -732,38 +751,40 @@ struct WordDetailsView: View {
         }
     }
     
-    private func loadImage() {
+    private func loadImage() async {
         // Check if image exists and set state with fallback
         if let imageLocalPath = word.imageLocalPath {
+            shouldHaveNavigationTitle = !subscriptionService.isProUser
+
             print("🔍 [WordDetails] Image path: \(imageLocalPath)")
             print("🌐 [WordDetails] Image URL: \(word.imageUrl ?? "nil")")
 
-            Task {
-                let result = await PexelsService.shared.getImageWithFallback(
-                    localPath: imageLocalPath,
-                    webUrl: word.imageUrl
-                )
+            let result = await PexelsService.shared.getImageWithFallback(
+                localPath: imageLocalPath,
+                webUrl: word.imageUrl
+            )
 
-                await MainActor.run {
-                    if let image = result.image {
-                        print("✅ [WordDetails] Image loaded successfully (with fallback if needed)")
-                        self.image = image
+            await MainActor.run {
+                if let image = result.image {
+                    print("✅ [WordDetails] Image loaded successfully (with fallback if needed)")
+                    self.image = image
 
-                        // Update Core Data with new relative path if fallback was used
-                        if let newLocalPath = result.newLocalPath {
-                            print("🔄 [WordDetails] Updating Core Data with new relative path: \(newLocalPath)")
-                            word.imageLocalPath = newLocalPath
-                            saveContext()
-                        }
-                    } else {
-                        print("❌ [WordDetails] Image failed to load even with fallback")
-                        image = nil
+                    // Update Core Data with new relative path if fallback was used
+                    if let newLocalPath = result.newLocalPath {
+                        print("🔄 [WordDetails] Updating Core Data with new relative path: \(newLocalPath)")
+                        word.imageLocalPath = newLocalPath
+                        saveContext()
                     }
+                } else {
+                    print("❌ [WordDetails] Image failed to load even with fallback")
+                    image = nil
+                    shouldHaveNavigationTitle = true
                 }
             }
         } else {
             print("🔍 [WordDetails] No image path found")
             image = nil
+            shouldHaveNavigationTitle = true
         }
     }
 }

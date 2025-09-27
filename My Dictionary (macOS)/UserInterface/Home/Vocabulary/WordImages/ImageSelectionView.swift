@@ -105,6 +105,7 @@ struct ImageSelectionView: View {
             NavigationBarView(
                 title: Loc.WordImages.ImageSelection.title,
                 mode: .inline,
+                showsDismissButton: false,
                 trailingContent: {
                     HeaderButton(Loc.Actions.cancel) {
                         onDismiss()
@@ -131,6 +132,7 @@ struct ImageSelectionView: View {
                 }
             )
         }
+        .frame(width: 500, height: 500)
         .groupedBackground()
         .onAppear {
             AnalyticsService.shared.logEvent(.imageSelectionOpened, parameters: [

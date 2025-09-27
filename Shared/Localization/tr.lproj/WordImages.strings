@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Bu kelimeyi hatırlamanıza yardımcı olacak görsel bir temsil ekleyin";
 "image_section.add_image" = "Görsel Ekle";
 "image_section.remove_image" = "Görseli Kaldır";
+"image_section.remove_image_description" = "Bu görseli kaldırmak istediğinizden emin misiniz?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Görsel Seç";

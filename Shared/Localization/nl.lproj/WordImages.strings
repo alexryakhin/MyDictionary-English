@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Voeg een visuele weergave toe om je te helpen dit woord te onthouden";
 "image_section.add_image" = "Afbeelding Toevoegen";
 "image_section.remove_image" = "Afbeelding Verwijderen";
+"image_section.remove_image_description" = "Weet je zeker dat je deze afbeelding wilt verwijderen?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Afbeelding Selecteren";

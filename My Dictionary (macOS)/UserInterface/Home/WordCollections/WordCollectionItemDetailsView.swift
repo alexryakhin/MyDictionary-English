@@ -10,8 +10,7 @@ import SwiftUI
 struct WordCollectionItemDetailsView: View {
     let word: WordCollectionItem
     let collection: WordCollection
-    @Environment(\.dismiss) private var dismiss
-    
+
     var body: some View {
         ScrollViewWithCustomNavBar {
             VStack(alignment: .leading, spacing: 20) {
@@ -62,19 +61,15 @@ struct WordCollectionItemDetailsView: View {
                         .foregroundColor(.blue)
                 }
             }
+            .padding(12)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 24)
         } navigationBar: {
             NavigationBarView(
                 title: Loc.WordCollections.details,
-                mode: .inline,
-                trailingContent: {
-                    HeaderButton(Loc.Actions.done) {
-                        dismiss()
-                    }
-                }
+                mode: .inline
             )
         }
         .groupedBackground()
+        .frame(width: 400, height: 500)
     }
 }

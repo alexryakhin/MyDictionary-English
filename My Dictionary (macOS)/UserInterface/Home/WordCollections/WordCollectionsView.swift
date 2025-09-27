@@ -26,8 +26,8 @@ struct WordCollectionsView: View {
     // MARK: - Body
     
     var body: some View {
-        ScrollViewWithCustomNavBar {
-            VStack(spacing: 16) {
+        ScrollView {
+            VStack(spacing: 12) {
                 if collectionsManager.isLoading {
                     loadingView
                 } else if collectionsManager.hasCollections {
@@ -36,51 +36,71 @@ struct WordCollectionsView: View {
                     emptyStateView
                 }
             }
-            .padding(.horizontal, 16)
+            .padding(12)
             .if(isPad) { view in
                 view
                     .frame(maxWidth: 550, alignment: .center)
                     .frame(maxWidth: .infinity, alignment: .center)
             }
-        } navigationBar: {
-            NavigationBarView(
-                title: Loc.WordCollections.wordCatalog,
-                mode: .inline,
-                showsDismissButton: true,
-                trailingContent: {
-                    if !collectionsManager.isLoading {
-                        AsyncHeaderButton(icon: "arrow.clockwise") {
-                            await collectionsManager.forceRefresh()
+        }
+        .navigationTitle(Loc.WordCollections.wordCatalog)
+        .toolbarTitleDisplayMode(.inlineLarge)
+        .searchable(text: $searchText, prompt: Loc.WordCollections.searchCollections)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    Task {
+                        await collectionsManager.forceRefresh()
+                    }
+                } label: {
+                    Image(systemName: "arrow.clockwise")
+                }
+            }
+
+            ToolbarItemGroup {
+                // Language picker
+                var languageMenuTitle: String {
+                    selectedLanguage == "all"
+                    ? Loc.WordCollections.allLanguages
+                    : WordCollectionKeys.allCases.first { $0.languageCode == selectedLanguage }?.displayName ?? selectedLanguage.uppercased()
+                }
+                Menu {
+                    Picker(Loc.WordCollections.language, selection: $selectedLanguage) {
+                        Text(Loc.WordCollections.allLanguages)
+                            .tag("all")
+                        ForEach(availableLanguages, id: \.self) { languageCode in
+                            Text(WordCollectionKeys.allCases.first { $0.languageCode == languageCode }?.displayName ?? languageCode.uppercased())
+                                .tag(languageCode)
                         }
                     }
-                },
-                bottomContent: {
-                    VStack(spacing: 12) {
-                        InputView.searchView(
-                            Loc.WordCollections.searchCollections,
-                            searchText: $searchText
-                        )
-                        filtersView
-                    }
+                    .pickerStyle(.inline)
+                } label: {
+                    Text(languageMenuTitle)
                 }
-            )
+
+                // Level picker
+                var levelMenuTitle: String {
+                    selectedLevel?.displayName ?? Loc.WordCollections.allLevels
+                }
+                Menu {
+                    Picker(Loc.WordCollections.level, selection: $selectedLevel) {
+                        Text(Loc.WordCollections.allLevels)
+                            .tag(nil as WordLevel?)
+                        ForEach(WordLevel.allCases, id: \.self) { level in
+                            Text(level.displayName)
+                                .tag(level as WordLevel?)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                } label: {
+                    Text(levelMenuTitle)
+                }
+            }
         }
         .groupedBackground()
         .onAppear {
             AnalyticsService.shared.logEvent(.wordCollectionsViewed)
         }
-        .onChange(of: searchText) { newValue in
-            // Filter collections based on search text
-            if !newValue.isEmpty {
-                AnalyticsService.shared.logEvent(.wordCollectionsFiltered, parameters: [
-                    "filter_type": "search",
-                    "search_query": newValue,
-                    "selected_language": selectedLanguage,
-                    "selected_level": selectedLevel?.rawValue ?? "all"
-                ])
-            }
-        }
-        .withPaywall()
     }
     
     // MARK: - Loading View
@@ -100,7 +120,7 @@ struct WordCollectionsView: View {
     // MARK: - Collections Content
     
     private var collectionsContent: some View {
-        LazyVStack(spacing: 20) {
+        LazyVStack(spacing: 12) {
             // Featured collections section (only show if "All Languages" is selected or for specific language)
             if selectedLanguage == "all" {
                 if let featuredCollections = featuredCollections, !featuredCollections.isEmpty {

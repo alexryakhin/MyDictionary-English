@@ -844,8 +844,7 @@ extension SharedWordDetailsView {
             AlertCenter.shared.showAlert(
                 with: .deleteConfirmation(
                     title: Loc.WordImages.ImageSection.removeImage,
-                    message: "Are you sure you want to remove this image?",
-                    onCancel: {},
+                    message: Loc.WordImages.ImageSection.removeImageDescription,
                     onDelete: {
                         word.imageUrl = nil
                         word.imageLocalPath = nil

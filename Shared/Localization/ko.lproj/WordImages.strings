@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "이 단어를 기억하는 데 도움이 되는 시각적 표현을 추가하세요";
 "image_section.add_image" = "이미지 추가";
 "image_section.remove_image" = "이미지 제거";
+"image_section.remove_image_description" = "이 이미지를 제거하시겠습니까?";
 
 // MARK: - Image Selection
 "image_selection.title" = "이미지 선택";

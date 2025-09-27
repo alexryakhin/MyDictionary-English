@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "新增視覺表示來幫助您記住這個單字";
 "image_section.add_image" = "新增圖片";
 "image_section.remove_image" = "刪除圖片";
+"image_section.remove_image_description" = "您確定要刪除此圖片嗎？";
 
 // MARK: - Image Selection
 "image_selection.title" = "選擇圖片";

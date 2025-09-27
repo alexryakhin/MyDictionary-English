@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Tambahkan representasi visual untuk membantu Anda mengingat kata ini";
 "image_section.add_image" = "Tambah Gambar";
 "image_section.remove_image" = "Hapus Gambar";
+"image_section.remove_image_description" = "Apakah Anda yakin ingin menghapus gambar ini?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Pilih Gambar";

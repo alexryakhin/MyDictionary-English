@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "この単語を覚えるのに役立つ視覚的表現を追加してください";
 "image_section.add_image" = "画像を追加";
 "image_section.remove_image" = "画像を削除";
+"image_section.remove_image_description" = "この画像を削除してもよろしいですか？";
 
 // MARK: - Image Selection
 "image_selection.title" = "画像を選択";

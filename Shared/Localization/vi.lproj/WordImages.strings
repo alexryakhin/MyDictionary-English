@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Thêm biểu diễn trực quan để giúp bạn nhớ từ này";
 "image_section.add_image" = "Thêm Hình ảnh";
 "image_section.remove_image" = "Xóa Hình ảnh";
+"image_section.remove_image_description" = "Bạn có chắc chắn muốn xóa hình ảnh này?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Chọn Hình ảnh";

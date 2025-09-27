@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WordCollectionPreviewCard: View {
+    @StateObject private var paywallService = PaywallService.shared
+    @StateObject private var subscriptionService = SubscriptionService.shared
+    @StateObject private var sideBarManager: SideBarManager = .shared
     let collection: WordCollection
 
     var body: some View {
@@ -84,20 +87,25 @@ struct WordCollectionPreviewCard: View {
     
     private func handleCollectionTap() {
         // Check if this is a premium collection and user doesn't have premium access
-        if collection.isPremium && !SubscriptionService.shared.isProUser {
-            PaywallService.shared.presentPaywall(for: .wordCollections) { didSubscribe in
+        if collection.isPremium && !subscriptionService.isProUser {
+            paywallService.presentPaywall(for: .wordCollections) { didSubscribe in
                 if didSubscribe {
                     // User subscribed, now allow navigation to collection details
+                    sideBarManager.selectedWordCollection = collection
                 }
                 // If user didn't subscribe, don't navigate - they stay on the collections list
             }
         } else {
             // Free collection or user has premium access - allow navigation
+            sideBarManager.selectedWordCollection = collection
         }
     }
 }
 
 struct WordCollectionGridPreviewCard: View {
+    @StateObject private var paywallService = PaywallService.shared
+    @StateObject private var subscriptionService = SubscriptionService.shared
+    @StateObject private var sideBarManager: SideBarManager = .shared
     let collection: WordCollection
 
     var body: some View {
@@ -177,15 +185,17 @@ struct WordCollectionGridPreviewCard: View {
     
     private func handleCollectionTap() {
         // Check if this is a premium collection and user doesn't have premium access
-        if collection.isPremium && !SubscriptionService.shared.isProUser {
-            PaywallService.shared.presentPaywall(for: .wordCollections) { didSubscribe in
+        if collection.isPremium && !subscriptionService.isProUser {
+            paywallService.presentPaywall(for: .wordCollections) { didSubscribe in
                 if didSubscribe {
                     // User subscribed, now allow navigation to collection details
+                    sideBarManager.selectedWordCollection = collection
                 }
                 // If user didn't subscribe, don't navigate - they stay on the collections list
             }
         } else {
             // Free collection or user has premium access - allow navigation
+            sideBarManager.selectedWordCollection = collection
         }
     }
 }

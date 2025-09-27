@@ -174,34 +174,33 @@ struct WordDetailsContentView: View {
         }
         .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
         .withPaywall()
-        .onAppear {
+        .task {
             // Check if image exists and set state with fallback
             if let imageLocalPath = word.imageLocalPath {
+                shouldHaveNavigationTitle = !subscriptionService.isProUser
                 print("🔍 [WordDetails] Image path: \(imageLocalPath)")
                 print("🌐 [WordDetails] Image URL: \(word.imageUrl ?? "nil")")
 
-                Task {
-                    let result = await PexelsService.shared.getImageWithFallback(
-                        localPath: imageLocalPath,
-                        webUrl: word.imageUrl
-                    )
+                let result = await PexelsService.shared.getImageWithFallback(
+                    localPath: imageLocalPath,
+                    webUrl: word.imageUrl
+                )
 
-                    await MainActor.run {
-                        if let image = result.image {
-                            print("✅ [WordDetails] Image loaded successfully (with fallback if needed)")
-                            self.image = image
+                await MainActor.run {
+                    if let image = result.image {
+                        print("✅ [WordDetails] Image loaded successfully (with fallback if needed)")
+                        self.image = image
 
-                            // Update Core Data with new relative path if fallback was used
-                            if let newLocalPath = result.newLocalPath {
-                                print("🔄 [WordDetails] Updating Core Data with new relative path: \(newLocalPath)")
-                                word.imageLocalPath = newLocalPath
-                                saveContext()
-                            }
-                        } else {
-                            print("❌ [WordDetails] Image failed to load even with fallback")
-                            image = nil
-                            shouldHaveNavigationTitle = true
+                        // Update Core Data with new relative path if fallback was used
+                        if let newLocalPath = result.newLocalPath {
+                            print("🔄 [WordDetails] Updating Core Data with new relative path: \(newLocalPath)")
+                            word.imageLocalPath = newLocalPath
+                            saveContext()
                         }
+                    } else {
+                        print("❌ [WordDetails] Image failed to load even with fallback")
+                        image = nil
+                        shouldHaveNavigationTitle = true
                     }
                 }
             } else {
@@ -546,20 +545,28 @@ struct WordDetailsContentView: View {
     }
     
     private func removeImage() {
-        // Delete the image file from documents directory
-        if let imageLocalPath = word.imageLocalPath {
-            try? PexelsService.shared.deleteImage(at: imageLocalPath)
-        }
-        
-        // Clear image data from Core Data
-        word.imageUrl = nil
-        word.imageLocalPath = nil
-        
-        // Clear the image state
-        image = nil
-        
-        // Save changes
-        saveContext()
+        AlertCenter.shared.showAlert(
+            with: .deleteConfirmation(
+                title: Loc.WordImages.ImageSection.removeImage,
+                message: Loc.WordImages.ImageSection.removeImageDescription,
+                onDelete: {
+                    // Delete the image file from documents directory
+                    if let imageLocalPath = word.imageLocalPath {
+                        try? PexelsService.shared.deleteImage(at: imageLocalPath)
+                    }
+
+                    // Clear image data from Core Data
+                    word.imageUrl = nil
+                    word.imageLocalPath = nil
+
+                    // Clear the image state
+                    image = nil
+
+                    // Save changes
+                    saveContext()
+                }
+            )
+        )
     }
     
     private func handleOnboardingCompletion() {

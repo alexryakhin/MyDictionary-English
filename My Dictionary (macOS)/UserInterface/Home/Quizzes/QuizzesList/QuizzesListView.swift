@@ -25,8 +25,9 @@ struct QuizzesListView: View {
             }
         }
         .navigationTitle(Loc.Navigation.Tabbar.quizzes)
+        .toolbarTitleDisplayMode(.inlineLarge)
         .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
+            ToolbarItem(placement: .primaryAction) {
                 // Dictionary picker
                 Menu {
                     ForEach(viewModel.availableDictionaries) { dictionary in

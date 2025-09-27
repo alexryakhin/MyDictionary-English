@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Προσθέστε μια οπτική αναπαράσταση για να σας βοηθήσει να θυμάστε αυτή τη λέξη";
 "image_section.add_image" = "Προσθήκη Εικόνας";
 "image_section.remove_image" = "Αφαίρεση Εικόνας";
+"image_section.remove_image_description" = "Είστε σίγουροι ότι θέλετε να αφαιρέσετε αυτή την εικόνα;";
 
 // MARK: - Image Selection
 "image_selection.title" = "Επιλογή Εικόνας";

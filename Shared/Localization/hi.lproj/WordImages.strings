@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "इस शब्द को याद रखने में आपकी मदद के लिए एक दृश्य प्रतिनिधित्व जोड़ें";
 "image_section.add_image" = "छवि जोड़ें";
 "image_section.remove_image" = "छवि हटाएं";
+"image_section.remove_image_description" = "क्या आप वाकई इस छवि को हटाना चाहते हैं?";
 
 // MARK: - Image Selection
 "image_selection.title" = "छवि चुनें";

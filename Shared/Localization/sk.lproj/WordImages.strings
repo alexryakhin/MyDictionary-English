@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Pridajte vizuálnu reprezentáciu, aby vám pomohla zapamätať si toto slovo";
 "image_section.add_image" = "Pridať Obrázok";
 "image_section.remove_image" = "Odstrániť Obrázok";
+"image_section.remove_image_description" = "Ste si istí, že chcete odstrániť tento obrázok?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Vybrať Obrázok";

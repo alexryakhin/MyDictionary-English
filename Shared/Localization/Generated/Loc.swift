@@ -2481,6 +2481,8 @@ public enum Loc {
       public static let noImageAddedYet = Loc.tr("WordImages", "image_section.no_image_added_yet", fallback: "No image added yet")
       /// Remove Image
       public static let removeImage = Loc.tr("WordImages", "image_section.remove_image", fallback: "Remove Image")
+      /// Are you sure you want to remove this image?
+      public static let removeImageDescription = Loc.tr("WordImages", "image_section.remove_image_description", fallback: "Are you sure you want to remove this image?")
       /// Image
       public static let title = Loc.tr("WordImages", "image_section.title", fallback: "Image")
     }

@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Добавьте визуальное представление, чтобы помочь запомнить это слово";
 "image_section.add_image" = "Добавить изображение";
 "image_section.remove_image" = "Удалить изображение";
+"image_section.remove_image_description" = "Вы уверены, что хотите удалить это изображение?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Выбрать изображение";
@@ -28,16 +29,16 @@
 
 // MARK: - Images Onboarding
 "images_onboarding.title" = "Улучшите ваше обучение с изображениями";
-"images_onboarding.see_words_come_to_life" = "Смотрите, как ваши слова оживают";
+"images_onboarding.see_words_come_to_life" = "Смотрите, как оживают ваши слова";
 "images_onboarding.every_word_description" = "Каждое слово в вашем словаре может иметь красивое, релевантное изображение, которое помогает лучше запомнить и понять его.";
-"images_onboarding.add_images_to_existing" = "Добавить изображения к существующим словам";
-"images_onboarding.step1_find_image_section" = "Найти секцию изображений";
-"images_onboarding.step1_description" = "Прокрутите вниз, чтобы увидеть кнопку 'Добавить изображение'";
+"images_onboarding.add_images_to_existing" = "Добавляйте изображения к существующим словам";
+"images_onboarding.step1_find_image_section" = "Найдите секцию изображений";
+"images_onboarding.step1_description" = "Нажмите на кнопку 'Добавить изображение'";
 "images_onboarding.step2_choose_image" = "Выберите ваше изображение";
 "images_onboarding.step2_description" = "Просмотрите множество высококачественных фотографий";
 "images_onboarding.step3_click_done" = "Нажмите 'Готово'";
-"images_onboarding.step3_description" = "Наслаждайтесь вашим настроенным словом сейчас!";
-"images_onboarding.add_images_during_creation" = "Добавить изображения во время создания слов";
+"images_onboarding.step3_description" = "Изображение будет сохранено для вас!";
+"images_onboarding.add_images_during_creation" = "Добавляйте изображения во время создания слов";
 "images_onboarding.start_with_complete_vocabulary" = "При добавлении новых слов вы можете сразу искать и добавлять релевантные изображения. Начните с полного визуального словаря с первого дня.";
 "images_onboarding.images_make_quizzes_effective" = "Изображения делают викторины более эффективными";
 "images_onboarding.visual_learning_improves_memory" = "Когда вы тренируетесь с викторинами, изображения помогают создавать более сильные связи между словами и их значениями. Визуальное обучение доказано улучшает удержание памяти.";
@@ -53,7 +54,7 @@
 // MARK: - Mock Form Fields
 "form_field.word" = "Слово";
 "form_field.enter_your_word" = "Введите ваше слово...";
-"form_field.definitions" = "Определения";
-"form_field.add_definitions" = "Добавить определения...";
+"form_field.definitions" = "Определение";
+"form_field.add_definitions" = "Добавить определение...";
 "form_field.image" = "Изображение";
 "form_field.add_image" = "Добавить изображение";

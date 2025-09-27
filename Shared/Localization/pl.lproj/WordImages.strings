@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Dodaj reprezentację wizualną, aby pomóc ci zapamiętać to słowo";
 "image_section.add_image" = "Dodaj Obraz";
 "image_section.remove_image" = "Usuń Obraz";
+"image_section.remove_image_description" = "Czy na pewno chcesz usunąć ten obraz?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Wybierz Obraz";

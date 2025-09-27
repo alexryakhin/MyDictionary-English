@@ -29,18 +29,30 @@ struct ImagesOnboardingView: View {
                 // Page 1: Word Details with Image
                 wordDetailsPreviewPage
                     .tag(0)
-                
+                    .tabItem {
+                        Text("1")
+                    }
+
                 // Page 2: How to Add Image in Word Details
                 addImageInDetailsPage
                     .tag(1)
-                
+                    .tabItem {
+                        Text("2")
+                    }
+
                 // Page 3: How to Add Image During Adding Word
                 addImageDuringAddWordPage
                     .tag(2)
-                
+                    .tabItem {
+                        Text("3")
+                    }
+
                 // Page 4: Images in Quizzes
                 imagesInQuizzesPage
                     .tag(3)
+                    .tabItem {
+                        Text("4")
+                    }
             }
             .tabViewStyle(.automatic)
             .animation(.easeInOut, value: currentPage)
@@ -54,42 +66,23 @@ struct ImagesOnboardingView: View {
             ])
         }
         .groupedBackground()
+        .frame(height: 500)
     }
     
     // MARK: - Header View
     
     private var headerView: some View {
-        VStack(spacing: 16) {
-            // Drag Handle
-            RoundedRectangle(cornerRadius: 2.5)
-                .fill(Color.secondary)
-                .frame(width: 36, height: 5)
-                .padding(.top, 8)
-            
-            // Title
-            Text(Loc.WordImages.ImagesOnboarding.title)
-                .font(.title2)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-            
-            // Page Indicator
-            HStack(spacing: 8) {
-                ForEach(0..<totalPages, id: \.self) { index in
-                    Circle()
-                        .fill(index == currentPage ? Color.accentColor : Color.secondary.opacity(0.3))
-                        .frame(width: 8, height: 8)
-                        .animation(.easeInOut, value: currentPage)
-                }
-            }
-        }
-        .padding(.horizontal, 24)
-        .padding(.bottom, 20)
+        Text(Loc.WordImages.ImagesOnboarding.title)
+            .font(.title2)
+            .fontWeight(.bold)
+            .multilineTextAlignment(.center)
+            .padding(16)
     }
     
     // MARK: - Page 1: Word Details with Image
     
     private var wordDetailsPreviewPage: some View {
-        VStack(spacing: 0) {
+        HStack(spacing: 12) {
             // Word Details Screenshot
             Image(.wordWithImageScreenshot)
                 .resizable()
@@ -99,7 +92,7 @@ struct ImagesOnboardingView: View {
                 .padding(16)
 
             // Description
-            VStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 12) {
                 Text(Loc.WordImages.ImagesOnboarding.seeWordsComeToLife)
                     .font(.headline)
                     .fontWeight(.semibold)
@@ -107,34 +100,29 @@ struct ImagesOnboardingView: View {
                 Text(Loc.WordImages.ImagesOnboarding.everyWordDescription)
                     .font(.body)
                     .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
             }
-            .padding(.horizontal, 24)
+            .multilineTextAlignment(.leading)
         }
+        .padding(12)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     // MARK: - Page 2: How to Add Image in Word Details
     
     private var addImageInDetailsPage: some View {
-        VStack(spacing: 24) {
-            // Image Slideshow
-            VStack(spacing: 16) {
-                Spacer()
-                ImageSlideshowView()
-                    .frame(height: 200)
-                    .clipShape(.rect(cornerRadius: 16))
-                    .shadow(radius: 8)
-                    .padding(16)
+        // Image Slideshow
+        HStack(spacing: 12) {
+            ImageSlideshowView()
+                .frame(height: 200)
+                .clipShape(.rect(cornerRadius: 16))
+                .shadow(radius: 8)
+                .padding(16)
 
-                Spacer()
-
+            VStack(alignment: .leading, spacing: 12) {
                 Text(Loc.WordImages.ImagesOnboarding.addImagesToExisting)
                     .font(.headline)
                     .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
-
-                Spacer()
+                    .multilineTextAlignment(.leading)
 
                 instructionStep(
                     number: 1,
@@ -153,23 +141,18 @@ struct ImagesOnboardingView: View {
                     title: Loc.WordImages.ImagesOnboarding.step3ClickDone,
                     description: Loc.WordImages.ImagesOnboarding.step3Description
                 )
-
-                Spacer()
             }
-            .padding(.horizontal, 20)
         }
+        .padding(12)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     // MARK: - Page 3: How to Add Image During Adding Word
     
     private var addImageDuringAddWordPage: some View {
-        VStack(spacing: 0) {
-
-            Spacer()
-
+        HStack(spacing: 12) {
             // Mock Add Word Screen
-            VStack(spacing: 16) {
+            VStack(spacing: 12) {
                 // Word Input
                 VStack(alignment: .leading, spacing: 8) {
                     Text(Loc.WordImages.FormField.word)
@@ -205,7 +188,6 @@ struct ImagesOnboardingView: View {
                             .padding(.horizontal, 12)
                         }
                 }
-
                 
                 // Image Section
                 VStack(alignment: .leading, spacing: 8) {
@@ -228,12 +210,9 @@ struct ImagesOnboardingView: View {
                         }
                 }
             }
-            .padding(.horizontal, 20)
-
-            Spacer()
 
             // Description
-            VStack(alignment: .center, spacing: 12) {
+            VStack(alignment: .leading, spacing: 12) {
                 Text(Loc.WordImages.ImagesOnboarding.addImagesDuringCreation)
                     .font(.headline)
                     .fontWeight(.semibold)
@@ -242,38 +221,32 @@ struct ImagesOnboardingView: View {
                     .font(.body)
                     .foregroundColor(.secondary)
             }
-            .multilineTextAlignment(.center)
-            .padding(.horizontal, 24)
-
-            Spacer()
+            .multilineTextAlignment(.leading)
         }
+        .padding(12)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     // MARK: - Page 4: Images in Quizzes
     
     private var imagesInQuizzesPage: some View {
-        VStack(spacing: 24) {
-            // Mock Quiz Screen
-            VStack(spacing: 16) {
-                // Quiz Question with Image
-                VStack(spacing: 12) {
+        HStack(spacing: 12) {
+            // Quiz Question with Image
+            VStack(spacing: 12) {
+                Text(Loc.WordImages.QuizQuestion.whatIsThis)
+                    .font(.headline)
+                    .fontWeight(.semibold)
 
-                    HStack {
-                        Spacer()
-                        Image(.strawberries)
-                            .resizable()
-                            .scaledToFit()
-                            .clipShape(.rect(cornerRadius: 12))
-                        Spacer()
-                    }
-                    .frame(height: 120)
-
-                    Text(Loc.WordImages.QuizQuestion.whatIsThis)
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                HStack {
+                    Spacer()
+                    Image(.strawberries)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(.rect(cornerRadius: 12))
+                    Spacer()
                 }
-                
+                .frame(height: 120)
+
                 // Answer Options
                 VStack(spacing: 8) {
                     answerOption(text: Loc.WordImages.QuizAnswer.cranberry, isCorrect: false)
@@ -281,21 +254,20 @@ struct ImagesOnboardingView: View {
                     answerOption(text: Loc.WordImages.QuizAnswer.cherry, isCorrect: false)
                 }
             }
-            .padding(.horizontal, 20)
-            
+
             // Description
-            VStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 12) {
                 Text(Loc.WordImages.ImagesOnboarding.imagesMakeQuizzesEffective)
                     .font(.headline)
                     .fontWeight(.semibold)
-                
+
                 Text(Loc.WordImages.ImagesOnboarding.visualLearningImprovesMemory)
                     .font(.body)
                     .foregroundColor(.secondary)
             }
-            .multilineTextAlignment(.center)
-            .padding(.horizontal, 24)
+            .multilineTextAlignment(.leading)
         }
+        .padding(12)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     

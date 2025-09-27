@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Legg til en visuell representasjon for å hjelpe deg med å huske dette ordet";
 "image_section.add_image" = "Legg til Bilde";
 "image_section.remove_image" = "Fjern Bilde";
+"image_section.remove_image_description" = "Er du sikker på at du vil fjerne dette bildet?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Velg Bilde";

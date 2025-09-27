@@ -50,6 +50,7 @@ struct AnalyticsView: View {
         }
         .groupedBackground()
         .navigationTitle(Loc.Analytics.progress)
+        .toolbarTitleDisplayMode(.inlineLarge)
         .refreshable {
             viewModel.refreshData()
         }

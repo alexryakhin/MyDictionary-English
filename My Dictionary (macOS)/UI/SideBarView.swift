@@ -60,7 +60,7 @@ struct SideBarView: View {
             }
 
             if authenticationService.isSignedIn {
-                Section(Loc.SharedDictionaries.sharedDictionaries) {
+                Section(Loc.Settings.sharedDictionaries) {
                     if dictionaryService.sharedDictionaries.isEmpty {
                         Text(Loc.SharedDictionaries.noSharedDictionariesSidebar)
                             .foregroundStyle(.secondary)

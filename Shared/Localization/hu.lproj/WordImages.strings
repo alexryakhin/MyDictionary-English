@@ -6,6 +6,7 @@
 "image_section.add_visual_representation" = "Adjon hozzá vizuális ábrázolást, hogy segítsen emlékezni erre a szóra";
 "image_section.add_image" = "Kép Hozzáadása";
 "image_section.remove_image" = "Kép Eltávolítása";
+"image_section.remove_image_description" = "Biztosan el szeretné távolítani ezt a képet?";
 
 // MARK: - Image Selection
 "image_selection.title" = "Kép Kiválasztása";

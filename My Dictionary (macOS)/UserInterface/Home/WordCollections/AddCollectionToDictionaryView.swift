@@ -59,11 +59,12 @@ struct AddCollectionToDictionaryView: View {
                 }
             }
             .clippedWithBackground(showShadow: true)
-            .padding(vertical: 12, horizontal: 16)
+            .padding(12)
         } navigationBar: {
             NavigationBarView(
                 title: Loc.WordCollections.addWords,
                 mode: .inline,
+                showsDismissButton: false,
                 trailingContent: {
                     HeaderButton(Loc.Actions.cancel, size: .small) {
                         dismiss()
@@ -82,6 +83,7 @@ struct AddCollectionToDictionaryView: View {
             )
         }
         .groupedBackground()
+        .frame(width: 400, height: 500)
         .alert(Loc.WordCollections.importComplete, isPresented: $showSuccessAlert) {
             Button(Loc.Actions.ok) {
                 // Request review after successful import

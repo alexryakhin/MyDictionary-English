@@ -77,12 +77,12 @@ struct SharedWordDetailsView: View {
                     VStack(spacing: 16) {
                         // Word Header
                         wordHeaderView
-                        
+
                         // Image Section (only show if no image exists and user can edit)
                         if !imageExists && canEdit {
                             imageSectionView
                         }
-                        
+
                         // Content Sections
                         LazyVStack(spacing: 12) {
                             transcriptionSectionView
@@ -91,7 +91,7 @@ struct SharedWordDetailsView: View {
                             notesSectionView
                             languageSectionView
                             collaborativeFeaturesSection
-                            
+
                             // Remove Image Button (only show if image exists and user can edit)
                             if imageExists && canEdit {
                                 removeImageButton
@@ -202,12 +202,12 @@ struct SharedWordDetailsView: View {
                     var updatedWord = word
                     updatedWord.imageUrl = imageUrl
                     updatedWord.imageLocalPath = localPath
-                    
+
                     // Update the image state
                     if let image = PexelsService.shared.getImageFromLocalPath(localPath) {
                         self.image = image
                     }
-                    
+
                     Task {
                         await saveWordToFirebase(updatedWord)
                     }
@@ -224,13 +224,13 @@ struct SharedWordDetailsView: View {
             if let imageLocalPath = word.imageLocalPath {
                 print("🔍 [SharedWordDetails] Image path: \(imageLocalPath)")
                 print("🌐 [SharedWordDetails] Image URL: \(word.imageUrl ?? "nil")")
-                
+
                 Task {
                     let result = await PexelsService.shared.getImageWithFallback(
                         localPath: imageLocalPath,
                         webUrl: word.imageUrl
                     )
-                    
+
                     await MainActor.run {
                         if let image = result.image {
                             print("✅ [SharedWordDetails] Image loaded successfully (with fallback if needed)")
@@ -241,7 +241,7 @@ struct SharedWordDetailsView: View {
                                 print("🔄 [SharedWordDetails] Updating Core Data with new relative path: \(newLocalPath)")
                                 var updatedWord = word
                                 updatedWord.imageLocalPath = newLocalPath
-                                
+
                                 Task {
                                     await saveWordToFirebase(updatedWord)
                                 }
@@ -295,7 +295,7 @@ struct SharedWordDetailsView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundStyle(.primary)
-                
+
                 HStack(spacing: 16) {
                     Text(word.partOfSpeech)
                         .font(.subheadline)
@@ -304,7 +304,7 @@ struct SharedWordDetailsView: View {
                         .padding(.vertical, 4)
                         .background(.quaternary)
                         .clipShape(Capsule())
-                    
+
                     if word.isLikedBy(authenticationService.userEmail ?? "") {
                         Label("Liked", systemImage: "heart.fill")
                             .font(.subheadline)
@@ -312,7 +312,7 @@ struct SharedWordDetailsView: View {
                     }
                 }
             }
-            
+
             // Quick Stats
             if let phonetic = word.phonetic, !phonetic.isEmpty {
                 HStack {
@@ -333,11 +333,11 @@ struct SharedWordDetailsView: View {
                 Image(systemName: "photo")
                     .font(.system(size: 48))
                     .foregroundStyle(.secondary)
-                
+
                 Text(Loc.WordImages.ImageSection.noImageAddedYet)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                
+
                 Text(Loc.WordImages.ImageSection.addVisualRepresentation)
                     .font(.caption)
                     .foregroundStyle(.tertiary)
@@ -628,7 +628,7 @@ struct SharedWordDetailsView: View {
             .padding(.bottom, 12)
         }
     }
-    
+
     private var removeImageButton: some View {
         Button {
             removeImage()
@@ -759,25 +759,33 @@ struct SharedWordDetailsView: View {
             errorReceived(title: Loc.Errors.updateFailed, error)
         }
     }
-    
+
     private func removeImage() {
-        // Delete the image file from documents directory
-        if let imageLocalPath = word.imageLocalPath {
-            try? PexelsService.shared.deleteImage(at: imageLocalPath)
-        }
-        
-        // Create updated word without image data
-        var updatedWord = word
-        updatedWord.imageUrl = nil
-        updatedWord.imageLocalPath = nil
-        
-        // Clear the image state
-        image = nil
-        
-        // Save changes to Firebase
-        Task {
-            await saveWordToFirebase(updatedWord)
-        }
+        AlertCenter.shared.showAlert(
+            with: .deleteConfirmation(
+                title: Loc.WordImages.ImageSection.removeImage,
+                message: Loc.WordImages.ImageSection.removeImageDescription,
+                onDelete: {
+                    // Delete the image file from documents directory
+                    if let imageLocalPath = word.imageLocalPath {
+                        try? PexelsService.shared.deleteImage(at: imageLocalPath)
+                    }
+
+                    // Create updated word without image data
+                    var updatedWord = word
+                    updatedWord.imageUrl = nil
+                    updatedWord.imageLocalPath = nil
+
+                    // Clear the image state
+                    image = nil
+
+                    // Save changes to Firebase
+                    Task {
+                        await saveWordToFirebase(updatedWord)
+                    }
+                }
+            )
+        )
     }
     
     private func handleOnboardingCompletion() {
