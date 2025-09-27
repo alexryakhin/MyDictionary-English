@@ -9,6 +9,8 @@ struct AddWordView: View {
     @State private var isSignInPresented = false
     @State private var showingImageOnboarding = false
 
+    @StateObject private var paywallService = PaywallService.shared
+    @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var ttsPlayer = TTSPlayer.shared
 
@@ -483,7 +485,27 @@ struct AddWordView: View {
     // MARK: - Onboarding Completion Handler
     
     private func handleOnboardingCompletion() {
-        // After onboarding is completed, show image selection
-        viewModel.handle(.showImageSelection)
+        // Check if user is premium
+        if subscriptionService.isProUser {
+            // User is premium, allow image selection
+            viewModel.handle(.showImageSelection)
+        } else {
+            // User is not premium, show paywall
+            AnalyticsService.shared.logEvent(.imagePaywallShown, parameters: [
+                "trigger": "onboarding_completion",
+                "word": viewModel.inputWord
+            ])
+            paywallService.presentPaywall(for: .images) { didSubscribe in
+                if didSubscribe {
+                    AnalyticsService.shared.logEvent(.imageUpgradeConversion, parameters: [
+                        "conversion_source": "image_feature",
+                        "previous_subscription_status": "free"
+                    ])
+                    // User subscribed, allow image selection
+                    viewModel.handle(.showImageSelection)
+                }
+                // If user didn't subscribe, do nothing (stay on add word)
+            }
+        }
     }
 }

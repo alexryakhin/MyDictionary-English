@@ -35,11 +35,9 @@ extension View {
 
 // MARK: - Helper for determining if onboarding should be shown
 struct ImagesOnboardingHelper {
-    @StateObject static private var subscriptionService = SubscriptionService.shared
-    
     static func shouldShowOnboarding() -> Bool {
         // If user is not pro, always show onboarding (no state saved)
-        if !subscriptionService.isProUser {
+        if !SubscriptionService.shared.isProUser {
             return true
         }
         

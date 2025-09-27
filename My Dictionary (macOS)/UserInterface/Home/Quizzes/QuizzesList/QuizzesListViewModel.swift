@@ -13,6 +13,8 @@ final class QuizzesListViewModel: BaseViewModel {
 
     enum Input {
         case dictionarySelected(QuizDictionary)
+        case languageSelected(InputLanguage?)
+        case resetAllFilters
     }
 
     @Published var showingHardItemsOnly = false
@@ -36,6 +38,11 @@ final class QuizzesListViewModel: BaseViewModel {
             if case .sharedDictionary(let sharedDictionary) = dictionary {
                 quizItemsProvider.loadItemsForSharedDictionary(sharedDictionary)
             }
+        case .languageSelected(let language):
+            quizItemsProvider.setSelectedLanguage(language)
+        case .resetAllFilters:
+            showingHardItemsOnly = false
+            quizItemsProvider.setSelectedLanguage(nil)
         }
     }
     
@@ -43,6 +50,14 @@ final class QuizzesListViewModel: BaseViewModel {
     
     var availableDictionaries: [QuizDictionary] {
         return quizItemsProvider.availableDictionaries
+    }
+    
+    var availableLanguages: [InputLanguage] {
+        return quizItemsProvider.availableLanguages
+    }
+    
+    var selectedLanguage: InputLanguage? {
+        return quizItemsProvider.selectedLanguage
     }
     
     var items: [any Quizable] {
@@ -60,6 +75,12 @@ final class QuizzesListViewModel: BaseViewModel {
         return items.filter { $0.difficultyLevel == .needsReview }.count > 10
     }
     
+    var hasEnoughTotalItems: Bool {
+        // Check total items without language filtering
+        let totalItems = quizItemsProvider.availableItems.count
+        return totalItems >= 10
+    }
+
     var hasEnoughItems: Bool {
         // For shared dictionaries, check if items are loaded and if there are enough
         if case .sharedDictionary(let dictionary) = selectedDictionary {
@@ -89,6 +110,35 @@ final class QuizzesListViewModel: BaseViewModel {
                 let totalItems = quizItemsProvider.getTotalItemsCount()
                 return Loc.Quizzes.needAtLeastWordsStartQuizzes(totalItems)
             }
+        }
+    }
+    
+    var hasActiveFilters: Bool {
+        return selectedLanguage != nil || showingHardItemsOnly
+    }
+    
+    var activeFiltersDescription: String {
+        var filters: [String] = []
+        
+        if let selectedLanguage = selectedLanguage {
+            filters.append(selectedLanguage.displayName)
+        }
+        
+        if showingHardItemsOnly {
+            filters.append("Hard Words Only")
+        }
+        
+        return filters.joined(separator: ", ")
+    }
+    
+    var filtersInsufficientItemsMessage: String {
+        let filteredItemsCount = quizItemsProvider.getTotalItemsCount()
+
+        if showingHardItemsOnly {
+            let hardItemsCount = quizItemsProvider.getHardItemsCount()
+            return "You need at least 10 hard words with current filters to practice. You currently have \(hardItemsCount) hard words."
+        } else {
+            return "You need at least 10 words with current filters to practice. You currently have \(filteredItemsCount) words."
         }
     }
 

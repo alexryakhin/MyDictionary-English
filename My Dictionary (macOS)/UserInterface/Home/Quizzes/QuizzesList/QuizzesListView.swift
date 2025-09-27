@@ -18,8 +18,14 @@ struct QuizzesListView: View {
             Color.systemGroupedBackground
                 .ignoresSafeArea()
 
-            if viewModel.hasEnoughItems {
-                quizzesList
+            if viewModel.hasEnoughTotalItems {
+                if viewModel.hasEnoughItems {
+                    quizzesList
+                } else if viewModel.hasActiveFilters {
+                    filtersInsufficientWordsPlaceholder
+                } else {
+                    insufficientItemsPlaceholder
+                }
             } else {
                 insufficientItemsPlaceholder
             }
@@ -136,6 +142,39 @@ struct QuizzesListView: View {
                                 cornerRadius: 16
                             )
 
+                            // Language Filter
+                            if viewModel.availableLanguages.count > 1 {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    HStack(spacing: 8) {
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text(Loc.FilterDisplay.language)
+                                                .font(.body)
+                                                .fontWeight(.medium)
+                                            Text("Practice words from a specific language")
+                                                .font(.caption)
+                                                .foregroundStyle(.secondary)
+                                        }
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                                        HeaderButtonMenu(viewModel.selectedLanguage?.displayName ?? Loc.Tts.Filters.allLanguages, size: .small) {
+                                            Button(Loc.Tts.Filters.allLanguages) {
+                                                viewModel.handle(.languageSelected(nil))
+                                            }
+
+                                            ForEach(viewModel.availableLanguages, id: \.self) { language in
+                                                Button(language.displayName) {
+                                                    viewModel.handle(.languageSelected(language))
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .clippedWithPaddingAndBackground(
+                                    Color.tertiarySystemGroupedBackground,
+                                    cornerRadius: 16
+                                )
+                            }
+
                             // Item Count Slider
                             VStack(alignment: .leading, spacing: 8) {
                                 let availableItems = viewModel.showingHardItemsOnly ? viewModel.filteredItems : viewModel.items
@@ -242,6 +281,57 @@ struct QuizzesListView: View {
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                 }
+            }
+            .padding(.horizontal, 32)
+
+            Spacer()
+        }
+    }
+    
+    private var filtersInsufficientWordsPlaceholder: some View {
+        VStack(spacing: 24) {
+            Spacer()
+
+            VStack(spacing: 16) {
+                Image(systemName: "line.3.horizontal.decrease")
+                    .font(.system(size: 60))
+                    .foregroundStyle(.accent.gradient)
+
+                Text("Not Enough Words with Current Filters")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+
+                Text(viewModel.filtersInsufficientItemsMessage)
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.horizontal, 32)
+
+            VStack(spacing: 12) {
+                // Option 1: Add more words
+                ActionButton(
+                    Loc.Words.addMoreWords,
+                    systemImage: "plus.circle.fill",
+                    style: .borderedProminent
+                ) {
+                    SideBarManager.shared.selectedTab = .myDictionary
+                }
+
+                // Option 2: Reset all filters
+                ActionButton(
+                    "Reset All Filters",
+                    systemImage: "line.3.horizontal.decrease",
+                    style: .bordered
+                ) {
+                    viewModel.handle(.resetAllFilters)
+                }
+
+                Text("Add more words or reset your filters to practice with all available words.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
             }
             .padding(.horizontal, 32)
 

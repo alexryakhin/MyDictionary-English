@@ -154,28 +154,37 @@ struct SentenceWritingQuizContentView: View {
                 .disabled(ttsPlayer.isPlaying || question.isEmpty)
             }
 
-            Text(question)
-                .font(.body)
-                .lineSpacing(4)
-                .multilineTextAlignment(.leading)
+            HStack(spacing: 12) {
+                VStack(alignment: .leading) {
+                    Text(question)
+                        .font(.body)
+                        .lineSpacing(4)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Spacer()
+                    HStack {
+                        TagView(
+                            text: PartOfSpeech(rawValue: viewModel.currentItem?.quiz_partOfSpeech).displayName,
+                            color: .accent,
+                            size: .small,
+                            style: .regular
+                        )
+                        if let languageCode = viewModel.currentItem?.quiz_languageCode {
+                            TagView(
+                                text: languageCode.uppercased(),
+                                color: .blue,
+                                size: .small,
+                                style: .regular
+                            )
+                        }
+                    }
+                }
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            HStack {
-                TagView(
-                    text: PartOfSpeech(rawValue: viewModel.currentItem?.quiz_partOfSpeech).displayName,
-                    color: .accent,
-                    size: .small,
-                    style: .regular
-                )
-                if let languageCode = viewModel.currentItem?.quiz_languageCode {
-                    TagView(
-                        text: languageCode.uppercased(),
-                        color: .blue,
-                        size: .small,
-                        style: .regular
-                    )
+                // Word Image (if available)
+                if let imageLocalPath = viewModel.currentItem?.quiz_imageLocalPath {
+                    QuizImageView(localPath: imageLocalPath, webUrl: viewModel.currentItem?.quiz_imageUrl)
                 }
-                Spacer()
             }
         }
         .padding(20)

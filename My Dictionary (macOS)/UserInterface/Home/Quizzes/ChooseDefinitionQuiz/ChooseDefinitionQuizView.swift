@@ -128,19 +128,28 @@ struct ChooseDefinitionQuizView: View {
                 }
                 .disabled(ttsPlayer.isPlaying)
             }
-            
-            Text(viewModel.correctItem.quiz_text)
-                .font(.title2)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.leading)
 
-            TagView(
-                text: PartOfSpeech(rawValue: viewModel.correctItem.quiz_partOfSpeech).displayName,
-                color: .accent,
-                size: .small,
-                style: .regular
-            )
-            .frame(maxWidth: .infinity, alignment: .leading)
+            HStack(spacing: 12) {
+                VStack(alignment: .leading) {
+                    Text(viewModel.correctItem.quiz_text)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                    Spacer()
+                    TagView(
+                        text: PartOfSpeech(rawValue: viewModel.correctItem.quiz_partOfSpeech).displayName,
+                        color: .accent,
+                        size: .small,
+                        style: .regular
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+                // Word Image (if available)
+                if let imageLocalPath = viewModel.correctItem.quiz_imageLocalPath {
+                    QuizImageView(localPath: imageLocalPath, webUrl: viewModel.correctItem.quiz_imageUrl)
+                }
+            }
         }
         .padding(20)
         .clippedWithBackground()

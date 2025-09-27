@@ -106,13 +106,22 @@ struct SpellingQuizView: View {
                 Spacer()
             }
 
-            Text(viewModel.randomItem?.quiz_definition ?? "")
-                .font(.body)
-                .lineSpacing(4)
-                .multilineTextAlignment(.leading)
-
-            TagView(text: PartOfSpeech(rawValue: viewModel.randomItem?.quiz_partOfSpeech).displayName, color: .blue, size: .small, style: .regular)
+            HStack(spacing: 12) {
+                VStack(alignment: .leading) {
+                    Text(viewModel.randomItem?.quiz_definition ?? "")
+                        .font(.body)
+                        .lineSpacing(4)
+                        .multilineTextAlignment(.leading)
+                    Spacer()
+                    TagView(text: PartOfSpeech(rawValue: viewModel.randomItem?.quiz_partOfSpeech).displayName, color: .blue, size: .small, style: .regular)
+                }
                 .frame(maxWidth: .infinity, alignment: .leading)
+
+                // Word Image (if available)
+                if let imageLocalPath = viewModel.randomItem?.quiz_imageLocalPath {
+                    QuizImageView(localPath: imageLocalPath, webUrl: viewModel.randomItem?.quiz_imageUrl)
+                }
+            }
 
             // Hint section
             if viewModel.isShowingHint, let randomItem = viewModel.randomItem {

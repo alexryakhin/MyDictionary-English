@@ -95,42 +95,42 @@ final class QuizzesListViewModel: BaseViewModel {
             }
         }
     }
-    
+
     // MARK: - Computed Properties
-    
+
     var availableDictionaries: [QuizDictionary] {
         return quizItemsProvider.availableDictionaries
     }
-    
+
     var availableLanguages: [InputLanguage] {
         return quizItemsProvider.availableLanguages
     }
-    
+
     var selectedLanguage: InputLanguage? {
         return quizItemsProvider.selectedLanguage
     }
-    
+
     var items: [any Quizable] {
         return quizItemsProvider.availableItems
     }
-    
+
     var filteredItems: [any Quizable] {
         if showingHardItemsOnly {
             return items.filter { $0.difficultyLevel == .needsReview }
         }
         return items
     }
-    
+
     var hasHardItems: Bool {
         return items.filter { $0.difficultyLevel == .needsReview }.count > 10
     }
-    
+
     var hasEnoughTotalItems: Bool {
         // Check total items without language filtering
         let totalItems = quizItemsProvider.availableItems.count
         return totalItems >= 10
     }
-    
+
     var hasEnoughItems: Bool {
         // For shared dictionaries, check if items are loaded and if there are enough
         if case .sharedDictionary(let dictionary) = selectedDictionary {
@@ -141,7 +141,7 @@ final class QuizzesListViewModel: BaseViewModel {
         // For private dictionary, use the existing logic
         return quizItemsProvider.hasEnoughItems(itemCount: 10, hardItemsOnly: showingHardItemsOnly)
     }
-    
+
     var insufficientItemsMessage: String {
         if case .sharedDictionary(let dictionary) = selectedDictionary {
             let totalItems = quizItemsProvider.getTotalItemsCount()
@@ -162,25 +162,25 @@ final class QuizzesListViewModel: BaseViewModel {
             }
         }
     }
-    
+
     var hasActiveFilters: Bool {
         return selectedLanguage != nil || showingHardItemsOnly
     }
-    
+
     var activeFiltersDescription: String {
         var filters: [String] = []
-        
+
         if let selectedLanguage = selectedLanguage {
             filters.append(selectedLanguage.displayName)
         }
-        
+
         if showingHardItemsOnly {
             filters.append("Hard Words Only")
         }
-        
+
         return filters.joined(separator: " + ")
     }
-    
+
     var filtersInsufficientItemsMessage: String {
         let filteredItemsCount = quizItemsProvider.getTotalItemsCount()
 

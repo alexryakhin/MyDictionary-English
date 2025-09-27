@@ -30,7 +30,7 @@ struct VocabularyListView: View {
 
     var body: some View {
         ScrollViewWithCustomNavBar {
-            VStack(spacing: 16) {
+            LazyVStack(spacing: 16) {
                 wordsSection
                 idiomsSection
                 ratingBannerView
