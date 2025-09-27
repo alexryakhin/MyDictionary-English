@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Skvelá práca! Dokončili ste kvíz použitia v kontexte.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Skvelá práca! Dokončili ste kvíz vyplňovania prázdnych miest.";
 "quiz_available_once_a_day_message" = "Prepáčte, kvíz je k dispozícii len raz denne. Predplaťte si PRO pre neobmedzený prístup!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Cvičte slová z konkrétneho jazyka";
+"filters.not_enough_words_current_filters" = "Nedostatok slov s aktuálnymi filtrami";
+"filters.reset_all_filters" = "Resetovať všetky filtre";
+"filters.hard_words_only" = "Len ťažké slová";
+"filters.add_more_words_or_reset" = "Pridajte viac slov alebo resetujte filtre na cvičenie so všetkými dostupnými slovami.";
+"filters.need_10_words_current_filters" = "Potrebujete aspoň 10 slov s aktuálnymi filtrami na cvičenie. Momentálne máte %@.";
+"filters.need_10_hard_words_current_filters" = "Potrebujete aspoň 10 ťažkých slov s aktuálnymi filtrami na cvičenie. Momentálne máte %@.";

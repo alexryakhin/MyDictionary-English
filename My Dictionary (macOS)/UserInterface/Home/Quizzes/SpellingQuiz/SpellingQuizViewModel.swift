@@ -34,6 +34,11 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var accuracyContributions: [String: Double] = [:] // Track accuracy contribution per item
     @Published private(set) var errorMessage: String?
 
+    var correctAnswerText: String? {
+        guard let text = randomItem?.quiz_text.nilIfEmpty else { return nil }
+        return normalizeTextForComparison(text)
+    }
+
     private let QuizItemsProvider: QuizItemsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
@@ -81,7 +86,7 @@ final class SpellingQuizViewModel: BaseViewModel {
               let itemIndex = items.firstIndex(where: { $0.quiz_id == randomItem.quiz_id })
         else { return }
 
-        if answerTextField.lowercased().trimmed == (randomItem.quiz_text.lowercased().trimmed) {
+        if normalizeTextForComparison(answerTextField) == normalizeTextForComparison(randomItem.quiz_text) {
             // Correct answer
             isCorrectAnswer = true
             isShowingCorrectAnswer = true
@@ -276,5 +281,27 @@ final class SpellingQuizViewModel: BaseViewModel {
             // For private items, use the sync method
             item.quiz_updateDifficultyScore(points)
         }
+    }
+    
+    // MARK: - Text Normalization
+    
+    /// Normalizes text for comparison by removing accents, special punctuation, and converting to lowercase
+    /// This allows users to type "como se llama" instead of "¿como se llama?" for Spanish words
+    private func normalizeTextForComparison(_ text: String) -> String {
+        return text
+            .lowercased()
+            .trimmed
+            .folding(options: [.diacriticInsensitive, .caseInsensitive], locale: nil)
+            .replacingOccurrences(of: "¿", with: "")
+            .replacingOccurrences(of: "¡", with: "")
+            .replacingOccurrences(of: "?", with: "")
+            .replacingOccurrences(of: "!", with: "")
+            .replacingOccurrences(of: ".", with: "")
+            .replacingOccurrences(of: ",", with: "")
+            .replacingOccurrences(of: ";", with: "")
+            .replacingOccurrences(of: ":", with: "")
+            .replacingOccurrences(of: "'", with: "")
+            .replacingOccurrences(of: "\"", with: "")
+            .replacingOccurrences(of: " ", with: "")
     }
 }

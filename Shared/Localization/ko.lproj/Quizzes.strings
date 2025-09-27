@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "훌륭합니다! 문맥 사용 퀴즈를 완료했습니다.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "훌륭합니다! 빈칸 채우기 퀴즈를 완료했습니다.";
 "quiz_available_once_a_day_message" = "죄송합니다. 퀴즈는 하루에 한 번만 이용할 수 있습니다. PRO에 가입하여 무제한 액세스를 받으세요!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "특정 언어의 단어 연습하기";
+"filters.not_enough_words_current_filters" = "현재 필터로는 충분한 단어가 없습니다";
+"filters.reset_all_filters" = "모든 필터 재설정";
+"filters.hard_words_only" = "어려운 단어만";
+"filters.add_more_words_or_reset" = "더 많은 단어를 추가하거나 필터를 재설정하여 사용 가능한 모든 단어로 연습하세요.";
+"filters.need_10_words_current_filters" = "연습하려면 현재 필터로 최소 10개의 단어가 필요합니다. 현재 %@개 있습니다.";
+"filters.need_10_hard_words_current_filters" = "연습하려면 현재 필터로 최소 10개의 어려운 단어가 필요합니다. 현재 %@개 있습니다.";

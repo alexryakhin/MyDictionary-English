@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "عمل رائع! لقد أكملت اختبار الاستخدام في السياق.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "عمل رائع! لقد أكملت اختبار ملء الفراغ.";
 "quiz_available_once_a_day_message" = "عذراً، الاختبار متاح مرة واحدة فقط في اليوم. اشترك في PRO للحصول على وصول غير محدود!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "تدرب على كلمات من لغة محددة";
+"filters.not_enough_words_current_filters" = "لا توجد كلمات كافية مع المرشحات الحالية";
+"filters.reset_all_filters" = "إعادة تعيين جميع المرشحات";
+"filters.hard_words_only" = "الكلمات الصعبة فقط";
+"filters.add_more_words_or_reset" = "أضف المزيد من الكلمات أو أعد تعيين المرشحات للتدرب على جميع الكلمات المتاحة.";
+"filters.need_10_words_current_filters" = "تحتاج إلى 10 كلمات على الأقل مع المرشحات الحالية للتدرب. لديك حالياً %@.";
+"filters.need_10_hard_words_current_filters" = "تحتاج إلى 10 كلمات صعبة على الأقل مع المرشحات الحالية للتدرب. لديك حالياً %@.";

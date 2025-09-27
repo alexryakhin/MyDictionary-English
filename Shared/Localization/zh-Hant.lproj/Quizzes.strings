@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "幹得好！你完成了上下文使用測驗。";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "幹得好！你完成了填空測驗。";
 "quiz_available_once_a_day_message" = "抱歉，測驗每天只能使用一次。訂閱PRO獲得無限訪問權限！";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "練習特定語言的單字";
+"filters.not_enough_words_current_filters" = "目前篩選器下沒有足夠的單字";
+"filters.reset_all_filters" = "重置所有篩選器";
+"filters.hard_words_only" = "僅困難單字";
+"filters.add_more_words_or_reset" = "新增更多單字或重置篩選器以練習所有可用單字。";
+"filters.need_10_words_current_filters" = "您需要至少 10 個單字才能使用目前篩選器練習。您目前有 %@。";
+"filters.need_10_hard_words_current_filters" = "您需要至少 10 個困難單字才能使用目前篩選器練習。您目前有 %@。";

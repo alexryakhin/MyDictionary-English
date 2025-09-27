@@ -277,7 +277,6 @@ struct SharedWordDetailsView: View {
                 Text(Loc.WordImages.ImageSection.noImageAddedYet)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-
                 Text(Loc.WordImages.ImageSection.addVisualRepresentation)
                     .font(.caption)
                     .foregroundStyle(.tertiary)
@@ -302,7 +301,6 @@ struct SharedWordDetailsView: View {
                     .font(.subheadline)
                     .foregroundStyle(.primary)
                     .fontWeight(.medium)
-
                 Text(Loc.WordImages.ImagePremium.renewProStatus)
                     .font(.caption)
                     .foregroundStyle(.secondary)

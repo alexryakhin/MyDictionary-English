@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "כל הכבוד! השלמת את החידון של שימוש בהקשר.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "כל הכבוד! השלמת את החידון של מילוי החסר.";
 "quiz_available_once_a_day_message" = "מצטערים, החידון זמין רק פעם אחת ביום. הירשם ל-PRO לגישה בלתי מוגבלת!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "תרגל מילים משפה ספציפית";
+"filters.not_enough_words_current_filters" = "אין מספיק מילים עם המסננים הנוכחיים";
+"filters.reset_all_filters" = "אפס את כל המסננים";
+"filters.hard_words_only" = "רק מילים קשות";
+"filters.add_more_words_or_reset" = "הוסף עוד מילים או אפס את המסננים לתרגול עם כל המילים הזמינות.";
+"filters.need_10_words_current_filters" = "אתה צריך לפחות 10 מילים עם המסננים הנוכחיים לתרגול. יש לך כרגע %@.";
+"filters.need_10_hard_words_current_filters" = "אתה צריך לפחות 10 מילים קשות עם המסננים הנוכחיים לתרגול. יש לך כרגע %@.";

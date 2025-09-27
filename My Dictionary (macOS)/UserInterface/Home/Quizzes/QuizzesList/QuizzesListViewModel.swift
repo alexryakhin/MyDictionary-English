@@ -125,7 +125,7 @@ final class QuizzesListViewModel: BaseViewModel {
         }
         
         if showingHardItemsOnly {
-            filters.append("Hard Words Only")
+            filters.append(Loc.Quizzes.Filters.hardWordsOnly)
         }
         
         return filters.joined(separator: ", ")
@@ -136,9 +136,9 @@ final class QuizzesListViewModel: BaseViewModel {
 
         if showingHardItemsOnly {
             let hardItemsCount = quizItemsProvider.getHardItemsCount()
-            return "You need at least 10 hard words with current filters to practice. You currently have \(hardItemsCount) hard words."
+            return Loc.Quizzes.Filters.need10HardWordsCurrentFilters(Loc.Plurals.Words.wordsCount(hardItemsCount))
         } else {
-            return "You need at least 10 words with current filters to practice. You currently have \(filteredItemsCount) words."
+            return Loc.Quizzes.Filters.need10WordsCurrentFilters(Loc.Plurals.Words.wordsCount(filteredItemsCount))
         }
     }
 

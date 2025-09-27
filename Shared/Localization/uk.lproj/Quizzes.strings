@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Чудова робота! Ви завершили вікторину з використання в контексті.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Чудова робота! Ви завершили вікторину із заповнення пропусків.";
 "quiz_available_once_a_day_message" = "Вибачте, вікторина доступна лише один раз на день. Підпишіться на PRO для необмеженого доступу!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Практикуйте слова з певної мови";
+"filters.not_enough_words_current_filters" = "Недостатньо слів з поточними фільтрами";
+"filters.reset_all_filters" = "Скинути всі фільтри";
+"filters.hard_words_only" = "Тільки складні слова";
+"filters.add_more_words_or_reset" = "Додайте більше слів або скиньте фільтри, щоб практикуватися з усіма доступними словами.";
+"filters.need_10_words_current_filters" = "Вам потрібно принаймні 10 слів з поточними фільтрами для практики. Зараз у вас %@.";
+"filters.need_10_hard_words_current_filters" = "Вам потрібно принаймні 10 складних слів з поточними фільтрами для практики. Зараз у вас %@.";

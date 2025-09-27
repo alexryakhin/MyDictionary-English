@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "素晴らしい！文脈の使用クイズを完了しました。";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "素晴らしい！空欄補充クイズを完了しました。";
 "quiz_available_once_a_day_message" = "申し訳ありませんが、クイズは1日1回のみ利用可能です。PROに登録して無制限アクセスを取得してください！";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "特定の言語の単語を練習する";
+"filters.not_enough_words_current_filters" = "現在のフィルターで十分な単語がありません";
+"filters.reset_all_filters" = "すべてのフィルターをリセット";
+"filters.hard_words_only" = "難しい単語のみ";
+"filters.add_more_words_or_reset" = "より多くの単語を追加するか、フィルターをリセットして利用可能なすべての単語で練習してください。";
+"filters.need_10_words_current_filters" = "練習するには現在のフィルターで少なくとも10個の単語が必要です。現在%@あります。";
+"filters.need_10_hard_words_current_filters" = "練習するには現在のフィルターで少なくとも10個の難しい単語が必要です。現在%@あります。";

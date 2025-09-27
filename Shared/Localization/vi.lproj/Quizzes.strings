@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Tuyệt vời! Bạn đã hoàn thành bài kiểm tra sử dụng trong ngữ cảnh.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Tuyệt vời! Bạn đã hoàn thành bài kiểm tra điền vào chỗ trống.";
 "quiz_available_once_a_day_message" = "Xin lỗi, bài kiểm tra chỉ có thể sử dụng một lần mỗi ngày. Đăng ký PRO để có quyền truy cập không giới hạn!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Luyện tập từ vựng từ một ngôn ngữ cụ thể";
+"filters.not_enough_words_current_filters" = "Không đủ từ với bộ lọc hiện tại";
+"filters.reset_all_filters" = "Đặt lại tất cả bộ lọc";
+"filters.hard_words_only" = "Chỉ từ khó";
+"filters.add_more_words_or_reset" = "Thêm nhiều từ hơn hoặc đặt lại bộ lọc để luyện tập với tất cả các từ có sẵn.";
+"filters.need_10_words_current_filters" = "Bạn cần ít nhất 10 từ với bộ lọc hiện tại để luyện tập. Hiện tại bạn có %@.";
+"filters.need_10_hard_words_current_filters" = "Bạn cần ít nhất 10 từ khó với bộ lọc hiện tại để luyện tập. Hiện tại bạn có %@.";

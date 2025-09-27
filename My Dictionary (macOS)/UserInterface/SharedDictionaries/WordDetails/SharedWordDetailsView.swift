@@ -830,11 +830,9 @@ private extension SharedWordDetailsView {
                 Text(Loc.WordImages.ImagePremium.dontMissOut)
                     .font(.headline)
                     .foregroundStyle(.primary)
-
                 Text(Loc.WordImages.ImagePremium.renewProStatus)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-
             }
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)

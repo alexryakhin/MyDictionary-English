@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Skvělá práce! Dokončili jste kvíz použití v kontextu.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Skvělá práce! Dokončili jste kvíz vyplňování prázdných míst.";
 "quiz_available_once_a_day_message" = "Omlouváme se, kvíz je k dispozici pouze jednou denně. Předplaťte si PRO pro neomezený přístup!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Procvičujte slova z konkrétního jazyka";
+"filters.not_enough_words_current_filters" = "Nedostatek slov s aktuálními filtry";
+"filters.reset_all_filters" = "Resetovat všechny filtry";
+"filters.hard_words_only" = "Pouze obtížná slova";
+"filters.add_more_words_or_reset" = "Přidejte více slov nebo resetujte filtry pro procvičování se všemi dostupnými slovy.";
+"filters.need_10_words_current_filters" = "Potřebujete alespoň 10 slov s aktuálními filtry pro procvičování. Momentálně máte %@.";
+"filters.need_10_hard_words_current_filters" = "Potřebujete alespoň 10 obtížných slov s aktuálními filtry pro procvičování. Momentálně máte %@.";

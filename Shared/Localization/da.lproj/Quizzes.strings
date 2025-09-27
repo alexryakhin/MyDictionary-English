@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Godt arbejde! Du har gennemført quizzen om kontekstbrug.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Godt arbejde! Du har gennemført quizzen om at udfylde tomrummet.";
 "quiz_available_once_a_day_message" = "Beklager, quizzen er kun tilgængelig én gang per dag. Abonner på PRO for ubegrænset adgang!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Øv ord fra et specifikt sprog";
+"filters.not_enough_words_current_filters" = "Ikke nok ord med de nuværende filtre";
+"filters.reset_all_filters" = "Nulstil alle filtre";
+"filters.hard_words_only" = "Kun svære ord";
+"filters.add_more_words_or_reset" = "Tilføj flere ord eller nulstil filtre for at øve med alle tilgængelige ord.";
+"filters.need_10_words_current_filters" = "Du har brug for mindst 10 ord med de nuværende filtre for at øve. Du har i øjeblikket %@.";
+"filters.need_10_hard_words_current_filters" = "Du har brug for mindst 10 svære ord med de nuværende filtre for at øve. Du har i øjeblikket %@.";

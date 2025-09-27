@@ -178,3 +178,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Great job! You've completed the context usage quiz.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Great job! You've completed the fill in the blank quiz.";
 "quiz_available_once_a_day_message" = "Sorry, quiz is only available once a day. Subscribe to PRO for unlimited access!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Practice words from a specific language";
+"filters.not_enough_words_current_filters" = "Not Enough Words with Current Filters";
+"filters.reset_all_filters" = "Reset All Filters";
+"filters.hard_words_only" = "Hard Words Only";
+"filters.add_more_words_or_reset" = "Add more words or reset your filters to practice with all available words.";
+"filters.need_10_words_current_filters" = "You need at least 10 words with current filters to practice. You currently have %@.";
+"filters.need_10_hard_words_current_filters" = "You need at least 10 hard words with current filters to practice. You currently have %@.";

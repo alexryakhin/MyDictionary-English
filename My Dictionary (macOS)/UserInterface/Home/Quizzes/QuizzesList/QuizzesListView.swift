@@ -150,7 +150,7 @@ struct QuizzesListView: View {
                                             Text(Loc.FilterDisplay.language)
                                                 .font(.body)
                                                 .fontWeight(.medium)
-                                            Text("Practice words from a specific language")
+                                            Text(Loc.Quizzes.Filters.practiceWordsSpecificLanguage)
                                                 .font(.caption)
                                                 .foregroundStyle(.secondary)
                                         }
@@ -297,7 +297,7 @@ struct QuizzesListView: View {
                     .font(.system(size: 60))
                     .foregroundStyle(.accent.gradient)
 
-                Text("Not Enough Words with Current Filters")
+                Text(Loc.Quizzes.Filters.notEnoughWordsCurrentFilters)
                     .font(.title2)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
@@ -321,14 +321,14 @@ struct QuizzesListView: View {
 
                 // Option 2: Reset all filters
                 ActionButton(
-                    "Reset All Filters",
+                    Loc.Quizzes.Filters.resetAllFilters,
                     systemImage: "line.3.horizontal.decrease",
                     style: .bordered
                 ) {
                     viewModel.handle(.resetAllFilters)
                 }
 
-                Text("Add more words or reset your filters to practice with all available words.")
+                Text(Loc.Quizzes.Filters.addMoreWordsOrReset)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)

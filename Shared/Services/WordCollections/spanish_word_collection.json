@@ -1156,7 +1156,7 @@
             "words": [
                 {
                     "id": "persona-001",
-                    "text": "persona",
+                    "text": "la persona",
                     "phonetics": "/persona/",
                     "partOfSpeech": "noun",
                     "definition": "Un ser humano, cualquier individuo. Como tú, yo, o cualquier gente que ves.",
@@ -1167,7 +1167,7 @@
                 },
                 {
                     "id": "hombre-001",
-                    "text": "hombre",
+                    "text": "el hombre",
                     "phonetics": "/ombre/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona de género masculino, adulto. Como papá o tu tío.",
@@ -1178,7 +1178,7 @@
                 },
                 {
                     "id": "mujer-001",
-                    "text": "mujer",
+                    "text": "la mujer",
                     "phonetics": "/muxer/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona de género femenino, adulta. Como mamá o tu tía.",
@@ -1189,7 +1189,7 @@
                 },
                 {
                     "id": "nino-001",
-                    "text": "niño",
+                    "text": "el niño",
                     "phonetics": "/niɲo/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona joven de género masculino. Como tú cuando eras pequeño.",
@@ -1200,7 +1200,7 @@
                 },
                 {
                     "id": "nina-001",
-                    "text": "niña",
+                    "text": "la niña",
                     "phonetics": "/niɲa/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona joven de género femenino. Como tú cuando eras pequeña.",
@@ -1211,7 +1211,7 @@
                 },
                 {
                     "id": "familia-001",
-                    "text": "familia",
+                    "text": "la familia",
                     "phonetics": "/familja/",
                     "partOfSpeech": "noun",
                     "definition": "Las personas que viven juntas y se quieren. Como papá, mamá, hermanos y abuelos.",
@@ -1222,7 +1222,7 @@
                 },
                 {
                     "id": "amigo-001",
-                    "text": "amigo",
+                    "text": "el amigo",
                     "phonetics": "/amiɣo/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona que te gusta mucho y con quien juegas. Como tu mejor compañero.",
@@ -1233,7 +1233,7 @@
                 },
                 {
                     "id": "casa-001",
-                    "text": "casa",
+                    "text": "la casa",
                     "phonetics": "/kasa/",
                     "partOfSpeech": "noun",
                     "definition": "El edificio donde vives con tu familia. Como tu hogar.",
@@ -1244,7 +1244,7 @@
                 },
                 {
                     "id": "ciudad-001",
-                    "text": "ciudad",
+                    "text": "la ciudad",
                     "phonetics": "/θjuðað/",
                     "partOfSpeech": "noun",
                     "definition": "Un lugar muy grande con muchas casas, calles y gente. Como Madrid o Barcelona.",
@@ -1255,7 +1255,7 @@
                 },
                 {
                     "id": "pais-001",
-                    "text": "país",
+                    "text": "el país",
                     "phonetics": "/pais/",
                     "partOfSpeech": "noun",
                     "definition": "Una tierra muy grande con su propio gobierno. Como España, Francia o México.",
@@ -1266,7 +1266,7 @@
                 },
                 {
                     "id": "calle-001",
-                    "text": "calle",
+                    "text": "la calle",
                     "phonetics": "/kaʝe/",
                     "partOfSpeech": "noun",
                     "definition": "El camino donde caminan las personas y van los coches. Como la carretera delante de tu casa.",
@@ -1277,7 +1277,7 @@
                 },
                 {
                     "id": "trabajo-001",
-                    "text": "trabajo",
+                    "text": "el trabajo",
                     "phonetics": "/traβaxo/",
                     "partOfSpeech": "noun",
                     "definition": "El lugar donde papá o mamá van para ganar dinero. Como la oficina o la tienda.",
@@ -1288,7 +1288,7 @@
                 },
                 {
                     "id": "escuela-001",
-                    "text": "escuela",
+                    "text": "la escuela",
                     "phonetics": "/eskwela/",
                     "partOfSpeech": "noun",
                     "definition": "El lugar donde van los niños para aprender. Como tu colegio.",
@@ -1299,7 +1299,7 @@
                 },
                 {
                     "id": "hospital-001",
-                    "text": "hospital",
+                    "text": "el hospital",
                     "phonetics": "/ospiтал/",
                     "partOfSpeech": "noun",
                     "definition": "El lugar donde van las personas cuando están enfermas. Como cuando tienes que ir al doctor.",
@@ -1310,7 +1310,7 @@
                 },
                 {
                     "id": "tienda-001",
-                    "text": "tienda",
+                    "text": "la tienda",
                     "phonetics": "/tjenda/",
                     "partOfSpeech": "noun",
                     "definition": "El lugar donde compras cosas. Como donde compras juguetes o comida.",
@@ -1321,7 +1321,7 @@
                 },
                 {
                     "id": "restaurante-001",
-                    "text": "restaurante",
+                    "text": "el restaurante",
                     "phonetics": "/restawrante/",
                     "partOfSpeech": "noun",
                     "definition": "El lugar donde comes comida que no cocinas en casa. Como cuando comes fuera.",
@@ -1332,7 +1332,7 @@
                 },
                 {
                     "id": "parque-001",
-                    "text": "parque",
+                    "text": "el parque",
                     "phonetics": "/parke/",
                     "partOfSpeech": "noun",
                     "definition": "Un lugar con césped, árboles y juegos donde los niños van a jugar.",
@@ -1343,7 +1343,7 @@
                 },
                 {
                     "id": "playa-001",
-                    "text": "playa",
+                    "text": "la playa",
                     "phonetics": "/plaʝa/",
                     "partOfSpeech": "noun",
                     "definition": "El lugar donde hay mucha arena y agua del mar. Como donde haces castillos de arena.",
@@ -1354,7 +1354,7 @@
                 },
                 {
                     "id": "montana-001",
-                    "text": "montaña",
+                    "text": "la montaña",
                     "phonetics": "/montaɲa/",
                     "partOfSpeech": "noun",
                     "definition": "Una tierra muy alta que toca el cielo. Como una colina muy grande.",
@@ -1365,7 +1365,7 @@
                 },
                 {
                     "id": "rio-001",
-                    "text": "río",
+                    "text": "el río",
                     "phonetics": "/rio/",
                     "partOfSpeech": "noun",
                     "definition": "Agua que corre por la tierra. Como un camino de agua que va al mar.",
@@ -1376,7 +1376,7 @@
                 },
                 {
                     "id": "bosque-001",
-                    "text": "bosque",
+                    "text": "el bosque",
                     "phonetics": "/boske/",
                     "partOfSpeech": "noun",
                     "definition": "Un lugar con muchos árboles juntos. Como un jardín muy grande con árboles.",
@@ -1734,7 +1734,7 @@
             "words": [
                 {
                     "id": "tiempo-001",
-                    "text": "tiempo",
+                    "text": "el tiempo",
                     "phonetics": "/tjempo/",
                     "partOfSpeech": "noun",
                     "definition": "Lo que pasa cuando las cosas cambian. Como cuando esperas o cuando juegas.",
@@ -1745,7 +1745,7 @@
                 },
                 {
                     "id": "hora-001",
-                    "text": "hora",
+                    "text": "la hora",
                     "phonetics": "/ora/",
                     "partOfSpeech": "noun",
                     "definition": "Una parte del día. Como cuando dices 'son las tres'.",
@@ -1756,7 +1756,7 @@
                 },
                 {
                     "id": "minuto-001",
-                    "text": "minuto",
+                    "text": "el minuto",
                     "phonetics": "/minuto/",
                     "partOfSpeech": "noun",
                     "definition": "Un pedacito de tiempo. Como cuando cuentas hasta sesenta.",
@@ -1767,7 +1767,7 @@
                 },
                 {
                     "id": "segundo-001",
-                    "text": "segundo",
+                    "text": "el segundo",
                     "phonetics": "/seɣundo/",
                     "partOfSpeech": "noun",
                     "definition": "Un pedacito muy pequeño de tiempo. Como cuando cuentas uno, dos, tres.",
@@ -1778,7 +1778,7 @@
                 },
                 {
                     "id": "dia-001",
-                    "text": "día",
+                    "text": "el día",
                     "phonetics": "/dia/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando sale el sol hasta que se esconde. Como cuando vas al colegio.",
@@ -1789,7 +1789,7 @@
                 },
                 {
                     "id": "noche-001",
-                    "text": "noche",
+                    "text": "la noche",
                     "phonetics": "/noʧe/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando está oscuro y las estrellas salen. Como cuando te vas a dormir.",
@@ -1800,7 +1800,7 @@
                 },
                 {
                     "id": "manana-001",
-                    "text": "mañana",
+                    "text": "la mañana",
                     "phonetics": "/maɲana/",
                     "partOfSpeech": "noun",
                     "definition": "La parte del día cuando te levantas y desayunas. Como antes del mediodía.",
@@ -1811,7 +1811,7 @@
                 },
                 {
                     "id": "tarde-001",
-                    "text": "tarde",
+                    "text": "la tarde",
                     "phonetics": "/tarðe/",
                     "partOfSpeech": "noun",
                     "definition": "La parte del día después del mediodía. Como cuando comes y juegas.",
@@ -1822,7 +1822,7 @@
                 },
                 {
                     "id": "semana-001",
-                    "text": "semana",
+                    "text": "la semana",
                     "phonetics": "/semana/",
                     "partOfSpeech": "noun",
                     "definition": "Siete días juntos. Como desde el lunes hasta el domingo.",
@@ -1833,7 +1833,7 @@
                 },
                 {
                     "id": "mes-001",
-                    "text": "mes",
+                    "text": "el mes",
                     "phonetics": "/mes/",
                     "partOfSpeech": "noun",
                     "definition": "Muchos días juntos. Como enero, febrero, marzo. Hay doce meses en un año.",
@@ -1844,7 +1844,7 @@
                 },
                 {
                     "id": "ano-001",
-                    "text": "año",
+                    "text": "el año",
                     "phonetics": "/aɲo/",
                     "partOfSpeech": "noun",
                     "definition": "Doce meses juntos. Como desde enero hasta diciembre.",
@@ -1954,7 +1954,7 @@
                 },
                 {
                     "id": "fiesta-001",
-                    "text": "fiesta",
+                    "text": "la fiesta",
                     "phonetics": "/fjesta/",
                     "partOfSpeech": "noun",
                     "definition": "Una celebración con música, comida y amigos. Como cuando hay globos y pastel.",
@@ -1965,7 +1965,7 @@
                 },
                 {
                     "id": "cumpleanos-001",
-                    "text": "cumpleaños",
+                    "text": "el cumpleaños",
                     "phonetics": "/kumpleaɲos/",
                     "partOfSpeech": "noun",
                     "definition": "El día especial cuando cumpliste un año más de vida. Como cuando tienes pastel y regalos.",
@@ -1976,7 +1976,7 @@
                 },
                 {
                     "id": "vacaciones-001",
-                    "text": "vacaciones",
+                    "text": "las vacaciones",
                     "phonetics": "/bakaθjones/",
                     "partOfSpeech": "noun",
                     "definition": "Tiempo libre para descansar y divertirse. Como cuando no vas al colegio y viajas.",
@@ -1987,7 +1987,7 @@
                 },
                 {
                     "id": "trabajo-002",
-                    "text": "trabajo",
+                    "text": "el trabajo",
                     "phonetics": "/traβaxo/",
                     "partOfSpeech": "noun",
                     "definition": "Lo que hacen los adultos para ganar dinero. Como lo que hace papá en la oficina.",
@@ -1998,7 +1998,7 @@
                 },
                 {
                     "id": "descanso-001",
-                    "text": "descanso",
+                    "text": "el descanso",
                     "phonetics": "/deskanso/",
                     "partOfSpeech": "noun",
                     "definition": "Tiempo para relajarse y no hacer nada. Como cuando te sientas después de jugar.",
@@ -2546,7 +2546,7 @@
             "words": [
                 {
                     "id": "empresa-001",
-                    "text": "empresa",
+                    "text": "la empresa",
                     "phonetics": "/empresa/",
                     "partOfSpeech": "noun",
                     "definition": "Una compañía donde trabajan muchas personas. Como donde papá va a trabajar todos los días.",
@@ -2557,7 +2557,7 @@
                 },
                 {
                     "id": "empleado-001",
-                    "text": "empleado",
+                    "text": "el empleado",
                     "phonetics": "/empleaðo/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona que trabaja en una empresa. Como papá o mamá cuando van a trabajar.",
@@ -2568,7 +2568,7 @@
                 },
                 {
                     "id": "jefe-001",
-                    "text": "jefe",
+                    "text": "el jefe",
                     "phonetics": "/xefe/",
                     "partOfSpeech": "noun",
                     "definition": "La persona que manda en el trabajo. Como el jefe de papá en la oficina.",
@@ -2579,7 +2579,7 @@
                 },
                 {
                     "id": "reunion-001",
-                    "text": "reunión",
+                    "text": "la reunión",
                     "phonetics": "/reunjon/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando varias personas se juntan para hablar de trabajo. Como cuando papá va a una junta.",
@@ -2590,7 +2590,7 @@
                 },
                 {
                     "id": "proyecto-001",
-                    "text": "proyecto",
+                    "text": "el proyecto",
                     "phonetics": "/proxekto/",
                     "partOfSpeech": "noun",
                     "definition": "Un trabajo grande que toma mucho tiempo. Como cuando construyes algo importante.",
@@ -2601,7 +2601,7 @@
                 },
                 {
                     "id": "presupuesto-001",
-                    "text": "presupuesto",
+                    "text": "el presupuesto",
                     "phonetics": "/presuβwesto/",
                     "partOfSpeech": "noun",
                     "definition": "El dinero que puedes gastar en algo. Como cuando decides cuánto dinero usar.",
@@ -2612,7 +2612,7 @@
                 },
                 {
                     "id": "contrato-001",
-                    "text": "contrato",
+                    "text": "el contrato",
                     "phonetics": "/kontrato/",
                     "partOfSpeech": "noun",
                     "definition": "Un papel que dice qué trabajo harás y cuánto dinero recibirás. Como un acuerdo escrito.",
@@ -2623,7 +2623,7 @@
                 },
                 {
                     "id": "salario-001",
-                    "text": "salario",
+                    "text": "el salario",
                     "phonetics": "/salarjo/",
                     "partOfSpeech": "noun",
                     "definition": "El dinero que recibes por trabajar. Como el dinero que papá gana cada mes.",
@@ -2634,7 +2634,7 @@
                 },
                 {
                     "id": "horario-001",
-                    "text": "horario",
+                    "text": "el horario",
                     "phonetics": "/orarjo/",
                     "partOfSpeech": "noun",
                     "definition": "Las horas que trabajas cada día. Como cuando dices 'trabajo de 9 a 5'.",
@@ -2645,7 +2645,7 @@
                 },
                 {
                     "id": "vacaciones-001",
-                    "text": "vacaciones",
+                    "text": "las vacaciones",
                     "phonetics": "/bakaθjones/",
                     "partOfSpeech": "noun",
                     "definition": "Días libres del trabajo para descansar. Como cuando no trabajas y puedes viajar.",
@@ -2744,7 +2744,7 @@
                 },
                 {
                     "id": "entrevista-001",
-                    "text": "entrevista",
+                    "text": "la entrevista",
                     "phonetics": "/entreβista/",
                     "partOfSpeech": "noun",
                     "definition": "Una charla para ver si alguien puede trabajar en la empresa. Como cuando quieres un trabajo nuevo.",
@@ -2755,7 +2755,7 @@
                 },
                 {
                     "id": "curriculum-001",
-                    "text": "currículum",
+                    "text": "el currículum",
                     "phonetics": "/kurrikulum/",
                     "partOfSpeech": "noun",
                     "definition": "Un papel que dice qué trabajos has hecho antes. Como cuando cuentas tu experiencia.",
@@ -2766,7 +2766,7 @@
                 },
                 {
                     "id": "experiencia-001",
-                    "text": "experiencia",
+                    "text": "la experiencia",
                     "phonetics": "/eksperjenθja/",
                     "partOfSpeech": "noun",
                     "definition": "Lo que has aprendido haciendo trabajos antes. Como cuando ya sabes hacer algo bien.",
@@ -2777,7 +2777,7 @@
                 },
                 {
                     "id": "habilidad-001",
-                    "text": "habilidad",
+                    "text": "la habilidad",
                     "phonetics": "/aβilidað/",
                     "partOfSpeech": "noun",
                     "definition": "Algo que sabes hacer muy bien. Como cuando eres bueno en matemáticas o cocinar.",
@@ -2788,7 +2788,7 @@
                 },
                 {
                     "id": "objetivo-001",
-                    "text": "objetivo",
+                    "text": "el objetivo",
                     "phonetics": "/obxetibo/",
                     "partOfSpeech": "noun",
                     "definition": "Algo que quieres lograr. Como cuando tienes una meta que quieres alcanzar.",
@@ -2799,7 +2799,7 @@
                 },
                 {
                     "id": "estrategia-001",
-                    "text": "estrategia",
+                    "text": "la estrategia",
                     "phonetics": "/estratexja/",
                     "partOfSpeech": "noun",
                     "definition": "Un plan para lograr algo. Como cuando decides cómo hacer algo paso a paso.",
@@ -2810,7 +2810,7 @@
                 },
                 {
                     "id": "productividad-001",
-                    "text": "productividad",
+                    "text": "la productividad",
                     "phonetics": "/produktiβidað/",
                     "partOfSpeech": "noun",
                     "definition": "Qué tan bien trabajas. Como cuando haces mucho trabajo en poco tiempo.",
@@ -2835,7 +2835,7 @@
             "words": [
                 {
                     "id": "viaje-001",
-                    "text": "viaje",
+                    "text": "el viaje",
                     "phonetics": "/bjaxe/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando vas a un lugar lejos de tu casa. Como cuando vas de vacaciones a otro país.",
@@ -2857,7 +2857,7 @@
                 },
                 {
                     "id": "turista-001",
-                    "text": "turista",
+                    "text": "el turista",
                     "phonetics": "/turista/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona que va a visitar un lugar por diversión. Como cuando vas a conocer un país nuevo.",
@@ -2868,7 +2868,7 @@
                 },
                 {
                     "id": "destino-001",
-                    "text": "destino",
+                    "text": "el destino",
                     "phonetics": "/destino/",
                     "partOfSpeech": "noun",
                     "definition": "El lugar al que quieres llegar. Como cuando dices 'mi destino es París'.",
@@ -2879,7 +2879,7 @@
                 },
                 {
                     "id": "aeropuerto-001",
-                    "text": "aeropuerto",
+                    "text": "el aeropuerto",
                     "phonetics": "/aeropwerto/",
                     "partOfSpeech": "noun",
                     "definition": "El lugar donde aterrizan y despegan los aviones. Como cuando tomas un vuelo.",
@@ -2890,7 +2890,7 @@
                 },
                 {
                     "id": "avion-001",
-                    "text": "avión",
+                    "text": "el avión",
                     "phonetics": "/abjon/",
                     "partOfSpeech": "noun",
                     "definition": "Un vehículo que vuela por el cielo. Como cuando vas muy lejos y necesitas volar.",
@@ -2901,7 +2901,7 @@
                 },
                 {
                     "id": "tren-001",
-                    "text": "tren",
+                    "text": "el tren",
                     "phonetics": "/tren/",
                     "partOfSpeech": "noun",
                     "definition": "Un vehículo largo que va sobre rieles. Como cuando viajas por tierra en un transporte público.",
@@ -2912,7 +2912,7 @@
                 },
                 {
                     "id": "autobus-001",
-                    "text": "autobús",
+                    "text": "el autobús",
                     "phonetics": "/awtoβus/",
                     "partOfSpeech": "noun",
                     "definition": "Un vehículo grande donde caben muchas personas. Como cuando viajas por carretera.",
@@ -2923,7 +2923,7 @@
                 },
                 {
                     "id": "taxi-001",
-                    "text": "taxi",
+                    "text": "el taxi",
                     "phonetics": "/taksi/",
                     "partOfSpeech": "noun",
                     "definition": "Un coche que te lleva a donde quieras por dinero. Como cuando necesitas ir rápido a algún lugar.",
@@ -2934,7 +2934,7 @@
                 },
                 {
                     "id": "hotel-001",
-                    "text": "hotel",
+                    "text": "el hotel",
                     "phonetics": "/otel/",
                     "partOfSpeech": "noun",
                     "definition": "Un edificio donde puedes dormir cuando viajas. Como tu casa temporal cuando estás de viaje.",
@@ -2945,7 +2945,7 @@
                 },
                 {
                     "id": "habitacion-001",
-                    "text": "habitación",
+                    "text": "la habitación",
                     "phonetics": "/aβitaθjon/",
                     "partOfSpeech": "noun",
                     "definition": "Un cuarto en el hotel donde duermes. Como tu dormitorio cuando viajas.",
@@ -2967,7 +2967,7 @@
                 },
                 {
                     "id": "equipaje-001",
-                    "text": "equipaje",
+                    "text": "el equipaje",
                     "phonetics": "/ekipaxe/",
                     "partOfSpeech": "noun",
                     "definition": "Las cosas que llevas cuando viajas. Como tu ropa y objetos en las maletas.",
@@ -2978,7 +2978,7 @@
                 },
                 {
                     "id": "pasaporte-001",
-                    "text": "pasaporte",
+                    "text": "el pasaporte",
                     "phonetics": "/pasaporte/",
                     "partOfSpeech": "noun",
                     "definition": "Un documento que dice quién eres y de qué país vienes. Como tu identificación para viajar.",
@@ -2989,7 +2989,7 @@
                 },
                 {
                     "id": "visa-001",
-                    "text": "visa",
+                    "text": "la visa",
                     "phonetics": "/bisa/",
                     "partOfSpeech": "noun",
                     "definition": "Un permiso especial para entrar a otro país. Como cuando un país te deja visitar.",
@@ -3000,7 +3000,7 @@
                 },
                 {
                     "id": "billete-001",
-                    "text": "billete",
+                    "text": "el billete",
                     "phonetics": "/biʝete/",
                     "partOfSpeech": "noun",
                     "definition": "Un papel que te permite viajar en avión, tren o autobús. Como tu entrada para el transporte.",
@@ -3011,7 +3011,7 @@
                 },
                 {
                     "id": "maleta-001",
-                    "text": "maleta",
+                    "text": "la maleta",
                     "phonetics": "/maleta/",
                     "partOfSpeech": "noun",
                     "definition": "Una caja con ruedas donde pones tu ropa para viajar. Como tu cajón de viaje.",
@@ -3022,7 +3022,7 @@
                 },
                 {
                     "id": "mochila-001",
-                    "text": "mochila",
+                    "text": "la mochila",
                     "phonetics": "/moʧila/",
                     "partOfSpeech": "noun",
                     "definition": "Una bolsa que llevas en la espalda. Como cuando caminas y necesitas llevar cosas.",
@@ -3033,7 +3033,7 @@
                 },
                 {
                     "id": "mapa-001",
-                    "text": "mapa",
+                    "text": "el mapa",
                     "phonetics": "/mapa/",
                     "partOfSpeech": "noun",
                     "definition": "Un papel que muestra cómo llegar a los lugares. Como cuando estás perdido y necesitas saber el camino.",
@@ -3044,7 +3044,7 @@
                 },
                 {
                     "id": "guia-001",
-                    "text": "guía",
+                    "text": "la guía",
                     "phonetics": "/ɣia/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona que te muestra los lugares importantes. Como cuando visitas un lugar y alguien te explica todo.",
@@ -3055,7 +3055,7 @@
                 },
                 {
                     "id": "excursion-001",
-                    "text": "excursión",
+                    "text": "la excursión",
                     "phonetics": "/ekskurjon/",
                     "partOfSpeech": "noun",
                     "definition": "Un paseo para visitar lugares bonitos. Como cuando vas a conocer monumentos o lugares especiales.",
@@ -3066,7 +3066,7 @@
                 },
                 {
                     "id": "monumento-001",
-                    "text": "monumento",
+                    "text": "el monumento",
                     "phonetics": "/monumento/",
                     "partOfSpeech": "noun",
                     "definition": "Un edificio o estatua muy importante y viejo. Como cuando visitas algo histórico y famoso.",
@@ -3077,7 +3077,7 @@
                 },
                 {
                     "id": "museo-001",
-                    "text": "museo",
+                    "text": "el museo",
                     "phonetics": "/museo/",
                     "partOfSpeech": "noun",
                     "definition": "Un edificio donde puedes ver cosas viejas e importantes. Como cuando quieres aprender sobre la historia.",
@@ -3088,7 +3088,7 @@
                 },
                 {
                     "id": "playa-001",
-                    "text": "playa",
+                    "text": "la playa",
                     "phonetics": "/plaʝa/",
                     "partOfSpeech": "noun",
                     "definition": "Un lugar con arena y agua del mar. Como cuando quieres nadar y tomar el sol.",
@@ -3099,7 +3099,7 @@
                 },
                 {
                     "id": "montana-001",
-                    "text": "montaña",
+                    "text": "la montaña",
                     "phonetics": "/montaɲa/",
                     "partOfSpeech": "noun",
                     "definition": "Una tierra muy alta que toca el cielo. Como cuando quieres hacer senderismo o esquiar.",
@@ -3110,7 +3110,7 @@
                 },
                 {
                     "id": "cultura-001",
-                    "text": "cultura",
+                    "text": "la cultura",
                     "phonetics": "/kultura/",
                     "partOfSpeech": "noun",
                     "definition": "La manera de vivir de las personas en un lugar. Como sus tradiciones, comida y costumbres.",
@@ -3121,7 +3121,7 @@
                 },
                 {
                     "id": "tradicion-001",
-                    "text": "tradición",
+                    "text": "la tradición",
                     "phonetics": "/traðiθjon/",
                     "partOfSpeech": "noun",
                     "definition": "Algo que las personas hacen desde hace mucho tiempo. Como sus costumbres y celebraciones.",
@@ -3132,7 +3132,7 @@
                 },
                 {
                     "id": "gastronomia-001",
-                    "text": "gastronomía",
+                    "text": "la gastronomía",
                     "phonetics": "/ɡastronomja/",
                     "partOfSpeech": "noun",
                     "definition": "La comida típica de un lugar. Como cuando quieres probar los platos famosos de un país.",
@@ -3143,7 +3143,7 @@
                 },
                 {
                     "id": "souvenir-001",
-                    "text": "souvenir",
+                    "text": "el souvenir",
                     "phonetics": "/suvenir/",
                     "partOfSpeech": "noun",
                     "definition": "Un regalo pequeño que compras para recordar un viaje. Como cuando traes algo bonito para tu familia.",
@@ -3168,7 +3168,7 @@
             "words": [
                 {
                     "id": "investigacion-001",
-                    "text": "investigación",
+                    "text": "la investigación",
                     "phonetics": "/imβestiɣaθjon/",
                     "partOfSpeech": "noun",
                     "definition": "El proceso sistemático de búsqueda, análisis e interpretación de información para generar conocimiento nuevo o validar teorías existentes.",
@@ -3179,7 +3179,7 @@
                 },
                 {
                     "id": "metodologia-001",
-                    "text": "metodología",
+                    "text": "la metodología",
                     "phonetics": "/metodoloxja/",
                     "partOfSpeech": "noun",
                     "definition": "El conjunto de métodos, técnicas y procedimientos utilizados para realizar una investigación de manera sistemática y rigurosa.",
@@ -3190,7 +3190,7 @@
                 },
                 {
                     "id": "hipotesis-001",
-                    "text": "hipótesis",
+                    "text": "la hipótesis",
                     "phonetics": "/ipotesis/",
                     "partOfSpeech": "noun",
                     "definition": "Una proposición o suposición fundamentada que se plantea como punto de partida para una investigación y que debe ser verificada empíricamente.",
@@ -3201,7 +3201,7 @@
                 },
                 {
                     "id": "analisis-001",
-                    "text": "análisis",
+                    "text": "el análisis",
                     "phonetics": "/analisis/",
                     "partOfSpeech": "noun",
                     "definition": "El proceso de examinar, descomponer e interpretar datos o información para identificar patrones, relaciones y tendencias significativas.",
@@ -3212,7 +3212,7 @@
                 },
                 {
                     "id": "sintesis-001",
-                    "text": "síntesis",
+                    "text": "la síntesis",
                     "phonetics": "/sintesis/",
                     "partOfSpeech": "noun",
                     "definition": "El proceso de integrar y combinar información de múltiples fuentes para crear una comprensión coherente y unificada del tema estudiado.",
@@ -3223,7 +3223,7 @@
                 },
                 {
                     "id": "evidencia-001",
-                    "text": "evidencia",
+                    "text": "la evidencia",
                     "phonetics": "/eβiðenθja/",
                     "partOfSpeech": "noun",
                     "definition": "Datos, hechos o pruebas empíricas que respaldan o refutan una afirmación, teoría o hipótesis en el contexto académico o científico.",
@@ -3234,7 +3234,7 @@
                 },
                 {
                     "id": "argumentacion-001",
-                    "text": "argumentación",
+                    "text": "la argumentación",
                     "phonetics": "/arɣumentaθjon/",
                     "partOfSpeech": "noun",
                     "definition": "El proceso de presentar razones, evidencia y lógica de manera estructurada para persuadir o demostrar la validez de una posición académica.",
@@ -3245,7 +3245,7 @@
                 },
                 {
                     "id": "tesis-001",
-                    "text": "tesis",
+                    "text": "la tesis",
                     "phonetics": "/tesis/",
                     "partOfSpeech": "noun",
                     "definition": "Una proposición central o afirmación principal que un investigador defiende mediante evidencia y argumentación en un trabajo académico.",
@@ -3256,7 +3256,7 @@
                 },
                 {
                     "id": "bibliografia-001",
-                    "text": "bibliografía",
+                    "text": "la bibliografía",
                     "phonetics": "/biβljoɣrafja/",
                     "partOfSpeech": "noun",
                     "definition": "Lista sistemática y organizada de todas las fuentes consultadas durante la investigación, incluyendo libros, artículos y documentos académicos.",
@@ -3267,7 +3267,7 @@
                 },
                 {
                     "id": "academia-001",
-                    "text": "academia",
+                    "text": "la academia",
                     "phonetics": "/akaðemja/",
                     "partOfSpeech": "noun",
                     "definition": "La comunidad intelectual y profesional formada por universidades, centros de investigación y académicos dedicados al avance del conocimiento.",
@@ -3278,7 +3278,7 @@
                 },
                 {
                     "id": "paradigma-001",
-                    "text": "paradigma",
+                    "text": "el paradigma",
                     "phonetics": "/paraðiɣma/",
                     "partOfSpeech": "noun",
                     "definition": "Un marco conceptual o modelo teórico que define cómo se entiende y estudia un fenómeno en una disciplina científica o académica.",
@@ -3289,7 +3289,7 @@
                 },
                 {
                     "id": "contexto-001",
-                    "text": "contexto",
+                    "text": "el contexto",
                     "phonetics": "/konteksto/",
                     "partOfSpeech": "noun",
                     "definition": "El entorno, circunstancias o marco de referencia que rodea un fenómeno, evento o información, proporcionando significado y comprensión.",
@@ -3300,7 +3300,7 @@
                 },
                 {
                     "id": "interpretacion-001",
-                    "text": "interpretación",
+                    "text": "la interpretación",
                     "phonetics": "/interprretaθjon/",
                     "partOfSpeech": "noun",
                     "definition": "El proceso de explicar, explicar o dar significado a datos, textos o fenómenos basándose en análisis, teoría y conocimiento previo.",
@@ -3311,7 +3311,7 @@
                 },
                 {
                     "id": "inferencia-001",
-                    "text": "inferencia",
+                    "text": "la inferencia",
                     "phonetics": "/imferenθja/",
                     "partOfSpeech": "noun",
                     "definition": "El proceso de llegar a una conclusión lógica basándose en evidencia disponible, observaciones o premisas establecidas.",
@@ -3322,7 +3322,7 @@
                 },
                 {
                     "id": "contribucion-001",
-                    "text": "contribución",
+                    "text": "la contribución",
                     "phonetics": "/kontriβuθjon/",
                     "partOfSpeech": "noun",
                     "definition": "Un aporte original y significativo al conocimiento, teoría o práctica en un campo de estudio específico.",
@@ -3347,7 +3347,7 @@
             "words": [
                 {
                     "id": "prosa-001",
-                    "text": "prosa",
+                    "text": "la prosa",
                     "phonetics": "/prosa/",
                     "partOfSpeech": "noun",
                     "definition": "Forma de expresión escrita que sigue el ritmo natural del lenguaje, sin las restricciones métricas de la poesía.",
@@ -3358,7 +3358,7 @@
                 },
                 {
                     "id": "poesia-001",
-                    "text": "poesía",
+                    "text": "la poesía",
                     "phonetics": "/poesja/",
                     "partOfSpeech": "noun",
                     "definition": "Forma literaria que utiliza recursos estilísticos como el ritmo, la métrica y las figuras retóricas para expresar emociones e ideas.",
@@ -3369,7 +3369,7 @@
                 },
                 {
                     "id": "metafora-001",
-                    "text": "metáfora",
+                    "text": "la metáfora",
                     "phonetics": "/metafra/",
                     "partOfSpeech": "noun",
                     "definition": "Figura retórica que establece una relación de semejanza entre dos conceptos, identificándolos directamente sin usar comparativos.",
@@ -3380,7 +3380,7 @@
                 },
                 {
                     "id": "alegoria-001",
-                    "text": "alegoría",
+                    "text": "la alegoría",
                     "phonetics": "/aleɣorja/",
                     "partOfSpeech": "noun",
                     "definition": "Narración o descripción en la que elementos concretos representan conceptos abstractos, creando un significado simbólico más profundo.",
@@ -3391,7 +3391,7 @@
                 },
                 {
                     "id": "simbolo-001",
-                    "text": "símbolo",
+                    "text": "el símbolo",
                     "phonetics": "/simbolo/",
                     "partOfSpeech": "noun",
                     "definition": "Elemento que representa o evoca otra cosa por convención cultural o asociación, transmitiendo significados más allá de su forma literal.",
@@ -3402,7 +3402,7 @@
                 },
                 {
                     "id": "ironia-001",
-                    "text": "ironía",
+                    "text": "la ironía",
                     "phonetics": "/ironja/",
                     "partOfSpeech": "noun",
                     "definition": "Recurso literario en el que se expresa lo contrario de lo que se piensa o siente, creando un efecto de contraste o humor sutil.",
@@ -3413,7 +3413,7 @@
                 },
                 {
                     "id": "protagonista-001",
-                    "text": "protagonista",
+                    "text": "el protagonista",
                     "phonetics": "/protaɣonista/",
                     "partOfSpeech": "noun",
                     "definition": "Personaje principal de una obra narrativa o dramática, alrededor del cual gira la acción y cuyo destino constituye el eje central de la historia.",
@@ -3424,7 +3424,7 @@
                 },
                 {
                     "id": "narrador-001",
-                    "text": "narrador",
+                    "text": "el narrador",
                     "phonetics": "/narraðor/",
                     "partOfSpeech": "noun",
                     "definition": "Voz que cuenta la historia, puede ser un personaje dentro de la obra o una entidad externa, determinando la perspectiva y el punto de vista narrativo.",
@@ -3435,7 +3435,7 @@
                 },
                 {
                     "id": "trama-001",
-                    "text": "trama",
+                    "text": "la trama",
                     "phonetics": "/trama/",
                     "partOfSpeech": "noun",
                     "definition": "Secuencia de eventos que constituyen el desarrollo de la acción en una obra narrativa, creando tensión y llevando hacia el desenlace.",
@@ -3446,7 +3446,7 @@
                 },
                 {
                     "id": "desenlace-001",
-                    "text": "desenlace",
+                    "text": "el desenlace",
                     "phonetics": "/desenlase/",
                     "partOfSpeech": "noun",
                     "definition": "Resolución final de los conflictos planteados en la obra, donde se revelan las consecuencias de las acciones y se completa la estructura narrativa.",
@@ -3457,7 +3457,7 @@
                 },
                 {
                     "id": "estilo-001",
-                    "text": "estilo",
+                    "text": "el estilo",
                     "phonetics": "/estilo/",
                     "partOfSpeech": "noun",
                     "definition": "Manera particular de expresarse que caracteriza a un autor, incluyendo su elección de palabras, estructura sintáctica y recursos estilísticos.",
@@ -3468,7 +3468,7 @@
                 },
                 {
                     "id": "atmosfera-001",
-                    "text": "atmósfera",
+                    "text": "la atmósfera",
                     "phonetics": "/atmosfera/",
                     "partOfSpeech": "noun",
                     "definition": "Ambiente emocional o psicológico que envuelve una obra, creado a través de la descripción del entorno, el tono y las emociones transmitidas.",
@@ -3479,7 +3479,7 @@
                 },
                 {
                     "id": "personaje-001",
-                    "text": "personaje",
+                    "text": "el personaje",
                     "phonetics": "/personaxe/",
                     "partOfSpeech": "noun",
                     "definition": "Ser ficticio que participa en la acción de una obra literaria, desarrollado a través de sus acciones, diálogos y características psicológicas.",
@@ -3490,7 +3490,7 @@
                 },
                 {
                     "id": "conflicto-001",
-                    "text": "conflicto",
+                    "text": "el conflicto",
                     "phonetics": "/konflikto/",
                     "partOfSpeech": "noun",
                     "definition": "Oposición o tensión entre fuerzas, ideas o personajes que impulsa la acción narrativa y genera interés dramático en la obra.",
@@ -3501,7 +3501,7 @@
                 },
                 {
                     "id": "sutileza-001",
-                    "text": "sutileza",
+                    "text": "la sutileza",
                     "phonetics": "/sutileθa/",
                     "partOfSpeech": "noun",
                     "definition": "Cualidad de ser delicado, refinado y preciso en la expresión, evitando lo obvio y creando significados múltiples o matices complejos.",
@@ -3593,7 +3593,7 @@
                 },
                 {
                     "id": "hashtag-001",
-                    "text": "hashtag",
+                    "text": "el hashtag",
                     "phonetics": "/aʃtaɣ/",
                     "partOfSpeech": "noun",
                     "definition": "Una palabra o frase que empieza con el símbolo # y se usa para agrupar publicaciones sobre el mismo tema en redes sociales.",
@@ -3604,7 +3604,7 @@
                 },
                 {
                     "id": "influencer-001",
-                    "text": "influencer",
+                    "text": "el influencer",
                     "phonetics": "/imfluenθeɾ/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona famosa en redes sociales que tiene muchos seguidores y puede convencer a la gente de comprar cosas o seguir tendencias.",
@@ -3615,7 +3615,7 @@
                 },
                 {
                     "id": "streamer-001",
-                    "text": "streamer",
+                    "text": "el streamer",
                     "phonetics": "/estɾimeɾ/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona que transmite en vivo juegos, música o actividades en internet para que otros puedan verlo en tiempo real.",
@@ -3626,7 +3626,7 @@
                 },
                 {
                     "id": "youtuber-001",
-                    "text": "youtuber",
+                    "text": "el youtuber",
                     "phonetics": "/jutubeɾ/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona que crea y sube videos en YouTube, ya sea para entretener, enseñar o mostrar su vida diaria.",
@@ -3637,7 +3637,7 @@
                 },
                 {
                     "id": "tutorial-001",
-                    "text": "tutorial",
+                    "text": "el tutorial",
                     "phonetics": "/tutoɾjal/",
                     "partOfSpeech": "noun",
                     "definition": "Un video o guía paso a paso que te enseña cómo hacer algo específico, como dibujar, cocinar o usar un programa.",
@@ -3648,7 +3648,7 @@
                 },
                 {
                     "id": "unboxing-001",
-                    "text": "unboxing",
+                    "text": "el unboxing",
                     "phonetics": "/amboks̪in/",
                     "partOfSpeech": "noun",
                     "definition": "Un video donde alguien abre un paquete nuevo, especialmente productos tecnológicos, y muestra lo que hay adentro.",
@@ -3659,7 +3659,7 @@
                 },
                 {
                     "id": "review-001",
-                    "text": "review",
+                    "text": "el review",
                     "phonetics": "/riβju/",
                     "partOfSpeech": "noun",
                     "definition": "Una opinión o crítica sobre un producto, película, libro o juego que ayuda a otros a decidir si les gustaría.",
@@ -3670,7 +3670,7 @@
                 },
                 {
                     "id": "gameplay-001",
-                    "text": "gameplay",
+                    "text": "el gameplay",
                     "phonetics": "/ɣejplej/",
                     "partOfSpeech": "noun",
                     "definition": "Un video donde muestran cómo se juega un videojuego, incluyendo la acción, gráficos y mecánicas del juego.",
@@ -3681,7 +3681,7 @@
                 },
                 {
                     "id": "live-stream-001",
-                    "text": "live stream",
+                    "text": "el live stream",
                     "phonetics": "/lajβ estɾim/",
                     "partOfSpeech": "noun",
                     "definition": "Una transmisión en vivo por internet donde las personas pueden ver lo que estás haciendo en tiempo real y comentar.",
@@ -3692,7 +3692,7 @@
                 },
                 {
                     "id": "chat-001",
-                    "text": "chat",
+                    "text": "el chat",
                     "phonetics": "/tʃat/",
                     "partOfSpeech": "noun",
                     "definition": "Una conversación en tiempo real por internet donde puedes escribir mensajes y otros pueden responder inmediatamente.",
@@ -3703,7 +3703,7 @@
                 },
                 {
                     "id": "directo-001",
-                    "text": "directo",
+                    "text": "el directo",
                     "phonetics": "/diɾekto/",
                     "partOfSpeech": "noun",
                     "definition": "Una transmisión en vivo en redes sociales como Instagram o Facebook, donde puedes interactuar con la persona en tiempo real.",
@@ -3736,7 +3736,7 @@
                 },
                 {
                     "id": "meme-001",
-                    "text": "meme",
+                    "text": "el meme",
                     "phonetics": "/meme/",
                     "partOfSpeech": "noun",
                     "definition": "Una imagen, video o frase graciosa que se vuelve muy popular en internet y la gente la comparte y modifica.",
@@ -3747,7 +3747,7 @@
                 },
                 {
                     "id": "gif-001",
-                    "text": "gif",
+                    "text": "el gif",
                     "phonetics": "/ɣif/",
                     "partOfSpeech": "noun",
                     "definition": "Una imagen que se mueve en bucle, como un video corto que se repite una y otra vez, muy popular en redes sociales.",
@@ -3758,7 +3758,7 @@
                 },
                 {
                     "id": "emoji-001",
-                    "text": "emoji",
+                    "text": "el emoji",
                     "phonetics": "/emoxi/",
                     "partOfSpeech": "noun",
                     "definition": "Pequeños dibujos o símbolos que representan emociones, objetos o ideas y que usas en mensajes para expresarte.",
@@ -3769,7 +3769,7 @@
                 },
                 {
                     "id": "spoiler-001",
-                    "text": "spoiler",
+                    "text": "el spoiler",
                     "phonetics": "/espojleɾ/",
                     "partOfSpeech": "noun",
                     "definition": "Información que revela algo importante de una película, serie o libro antes de que otros lo vean o lean, arruinando la sorpresa.",
@@ -3780,7 +3780,7 @@
                 },
                 {
                     "id": "clickbait-001",
-                    "text": "clickbait",
+                    "text": "el clickbait",
                     "phonetics": "/klikbejt/",
                     "partOfSpeech": "noun",
                     "definition": "Un título o imagen llamativo y engañoso que hace que quieras hacer clic en un enlace, pero el contenido no es lo que promete.",
@@ -3915,7 +3915,7 @@
                 },
                 {
                     "id": "tio-tia-001",
-                    "text": "tío/tía",
+                    "text": "el tío/la tía",
                     "phonetics": "/ˈtio/ /ˈtia/",
                     "partOfSpeech": "noun",
                     "definition": "Una forma cariñosa de llamar a un amigo o amiga, como si fuera tu familia. Es muy común entre jóvenes.",
@@ -3926,7 +3926,7 @@
                 },
                 {
                     "id": "colega-001",
-                    "text": "colega",
+                    "text": "el colega",
                     "phonetics": "/koˈleɣa/",
                     "partOfSpeech": "noun",
                     "definition": "Una forma amigable de llamar a un compañero o amigo. Como decir 'compañero' pero de manera más cercana.",
@@ -3937,7 +3937,7 @@
                 },
                 {
                     "id": "compa-001",
-                    "text": "compa",
+                    "text": "el compa",
                     "phonetics": "/ˈkompa/",
                     "partOfSpeech": "noun",
                     "definition": "Una forma corta y cariñosa de decir 'compañero' o 'compañera'. Es muy informal y amigable.",
@@ -3948,7 +3948,7 @@
                 },
                 {
                     "id": "bro-001",
-                    "text": "bro",
+                    "text": "el bro",
                     "phonetics": "/bɾo/",
                     "partOfSpeech": "noun",
                     "definition": "Una forma moderna de llamar a tu mejor amigo, como si fuera tu hermano. Viene del inglés 'brother'.",
@@ -3959,7 +3959,7 @@
                 },
                 {
                     "id": "hermano-001",
-                    "text": "hermano",
+                    "text": "el hermano",
                     "phonetics": "/eɾˈmano/",
                     "partOfSpeech": "noun",
                     "definition": "Una forma cariñosa de llamar a un amigo muy cercano, como si fuera tu hermano de verdad. Muestra mucha confianza.",
@@ -4061,7 +4061,7 @@
             "words": [
                 {
                     "id": "concierto-001",
-                    "text": "concierto",
+                    "text": "el concierto",
                     "phonetics": "/konˈθjeɾto/",
                     "partOfSpeech": "noun",
                     "definition": "Un espectáculo en vivo donde los músicos tocan y cantan para mucha gente que va a escucharlos y disfrutar de la música.",
@@ -4072,7 +4072,7 @@
                 },
                 {
                     "id": "festival-001",
-                    "text": "festival",
+                    "text": "el festival",
                     "phonetics": "/festiˈβal/",
                     "partOfSpeech": "noun",
                     "definition": "Un evento muy grande donde tocan muchos grupos de música diferentes durante varios días. Es como muchos conciertos juntos.",
@@ -4083,7 +4083,7 @@
                 },
                 {
                     "id": "musica-001",
-                    "text": "música",
+                    "text": "la música",
                     "phonetics": "/ˈmusika/",
                     "partOfSpeech": "noun",
                     "definition": "Los sonidos bonitos que se hacen con instrumentos o voces, que te hacen sentir emociones y quieren bailar.",
@@ -4094,7 +4094,7 @@
                 },
                 {
                     "id": "cantante-001",
-                    "text": "cantante",
+                    "text": "el cantante",
                     "phonetics": "/kanˈtante/",
                     "partOfSpeech": "noun",
                     "definition": "Una persona que canta canciones, ya sea sola o como parte de un grupo. Es el que pone la voz a la música.",
@@ -4105,7 +4105,7 @@
                 },
                 {
                     "id": "banda-001",
-                    "text": "banda",
+                    "text": "la banda",
                     "phonetics": "/ˈbanda/",
                     "partOfSpeech": "noun",
                     "definition": "Un grupo de personas que tocan música juntas, cada uno con su instrumento diferente, para crear canciones.",
@@ -4116,7 +4116,7 @@
                 },
                 {
                     "id": "guitarra-001",
-                    "text": "guitarra",
+                    "text": "la guitarra",
                     "phonetics": "/ɡiˈtaɾa/",
                     "partOfSpeech": "noun",
                     "definition": "Un instrumento musical que tiene cuerdas y se toca con los dedos o una púa. Puede ser eléctrica o acústica.",
@@ -4127,7 +4127,7 @@
                 },
                 {
                     "id": "piano-001",
-                    "text": "piano",
+                    "text": "el piano",
                     "phonetics": "/ˈpjano/",
                     "partOfSpeech": "noun",
                     "definition": "Un instrumento musical grande con teclas blancas y negras que se tocan con los dedos para hacer música.",
@@ -4138,7 +4138,7 @@
                 },
                 {
                     "id": "bateria-001",
-                    "text": "batería",
+                    "text": "la batería",
                     "phonetics": "/bateˈɾia/",
                     "partOfSpeech": "noun",
                     "definition": "Un conjunto de tambores y platillos que se tocan con baquetas para dar el ritmo a la música.",
@@ -4149,7 +4149,7 @@
                 },
                 {
                     "id": "microfono-001",
-                    "text": "micrófono",
+                    "text": "el micrófono",
                     "phonetics": "/miˈkɾofono/",
                     "partOfSpeech": "noun",
                     "definition": "Un aparato que captura la voz o el sonido y lo hace más fuerte para que todo el mundo pueda escuchar.",
@@ -4160,7 +4160,7 @@
                 },
                 {
                     "id": "escenario-001",
-                    "text": "escenario",
+                    "text": "el escenario",
                     "phonetics": "/esθeˈnaɾjo/",
                     "partOfSpeech": "noun",
                     "definition": "La plataforma elevada donde se paran los músicos y artistas para actuar frente al público.",
@@ -4171,7 +4171,7 @@
                 },
                 {
                     "id": "publico-001",
-                    "text": "público",
+                    "text": "el público",
                     "phonetics": "/ˈpuβliko/",
                     "partOfSpeech": "noun",
                     "definition": "Todas las personas que van a ver un concierto o espectáculo y que escuchan y aplauden a los artistas.",
@@ -4182,7 +4182,7 @@
                 },
                 {
                     "id": "aplausos-001",
-                    "text": "aplausos",
+                    "text": "los aplausos",
                     "phonetics": "/aˈplawsos/",
                     "partOfSpeech": "noun",
                     "definition": "El sonido que hace la gente cuando choca las palmas de las manos para mostrar que les gustó mucho la actuación.",
@@ -4193,7 +4193,7 @@
                 },
                 {
                     "id": "ovacion-001",
-                    "text": "ovación",
+                    "text": "la ovación",
                     "phonetics": "/oβaˈθjon/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando el público está tan contento que aplaude muchísimo tiempo y algunos hasta se ponen de pie.",
@@ -4204,7 +4204,7 @@
                 },
                 {
                     "id": "cancion-001",
-                    "text": "canción",
+                    "text": "la canción",
                     "phonetics": "/kanˈθjon/",
                     "partOfSpeech": "noun",
                     "definition": "Una pieza de música que tiene letra (palabras) y melodía, que se puede cantar y que cuenta una historia o expresa sentimientos.",
@@ -4215,7 +4215,7 @@
                 },
                 {
                     "id": "letra-001",
-                    "text": "letra",
+                    "text": "la letra",
                     "phonetics": "/ˈletɾa/",
                     "partOfSpeech": "noun",
                     "definition": "Las palabras que se cantan en una canción, que cuentan una historia o expresan lo que siente el cantante.",
@@ -4226,7 +4226,7 @@
                 },
                 {
                     "id": "melodia-001",
-                    "text": "melodía",
+                    "text": "la melodía",
                     "phonetics": "/meloˈðia/",
                     "partOfSpeech": "noun",
                     "definition": "La parte de la música que puedes tararear o silbar, la secuencia de notas que suena bonita y que se te queda en la cabeza.",
@@ -4237,7 +4237,7 @@
                 },
                 {
                     "id": "ritmo-001",
-                    "text": "ritmo",
+                    "text": "el ritmo",
                     "phonetics": "/ˈritmo/",
                     "partOfSpeech": "noun",
                     "definition": "El patrón de sonidos que se repite y que te hace querer mover el cuerpo, bailar o dar palmadas.",
@@ -4248,7 +4248,7 @@
                 },
                 {
                     "id": "genero-001",
-                    "text": "género",
+                    "text": "el género",
                     "phonetics": "/ˈxeneɾo/",
                     "partOfSpeech": "noun",
                     "definition": "El tipo o estilo de música que tiene características similares, como el rock, pop, reggaetón, etc.",
@@ -4259,7 +4259,7 @@
                 },
                 {
                     "id": "pop-001",
-                    "text": "pop",
+                    "text": "el pop",
                     "phonetics": "/pop/",
                     "partOfSpeech": "noun",
                     "definition": "Un género de música muy popular que suele ser pegajoso, fácil de recordar y que a mucha gente le gusta.",
@@ -4270,7 +4270,7 @@
                 },
                 {
                     "id": "rock-001",
-                    "text": "rock",
+                    "text": "el rock",
                     "phonetics": "/rok/",
                     "partOfSpeech": "noun",
                     "definition": "Un género de música que usa guitarras eléctricas, batería y voces fuertes. Es música que tiene mucha energía.",
@@ -4281,7 +4281,7 @@
                 },
                 {
                     "id": "reggaeton-001",
-                    "text": "reggaetón",
+                    "text": "el reggaetón",
                     "phonetics": "/reɣaeˈton/",
                     "partOfSpeech": "noun",
                     "definition": "Un género de música muy popular que viene de Latinoamérica, con ritmos pegajosos y que se baila mucho.",
@@ -4292,7 +4292,7 @@
                 },
                 {
                     "id": "salsa-001",
-                    "text": "salsa",
+                    "text": "la salsa",
                     "phonetics": "/ˈsalsa/",
                     "partOfSpeech": "noun",
                     "definition": "Un género de música latina muy bailable que tiene trompetas, percusión y ritmos que te hacen mover todo el cuerpo.",
@@ -4303,7 +4303,7 @@
                 },
                 {
                     "id": "bachata-001",
-                    "text": "bachata",
+                    "text": "la bachata",
                     "phonetics": "/baˈtʃata/",
                     "partOfSpeech": "noun",
                     "definition": "Un género de música romántica de República Dominicana que tiene guitarras y ritmos suaves y sentimentales.",
@@ -4328,7 +4328,7 @@
             "words": [
                 {
                     "id": "noticias-001",
-                    "text": "noticias",
+                    "text": "las noticias",
                     "phonetics": "/noˈtiθjas/",
                     "partOfSpeech": "noun",
                     "definition": "Información importante sobre lo que está pasando en el mundo, en tu país o en tu ciudad. Es lo que te cuentan en la televisión, radio o internet.",
@@ -4339,7 +4339,7 @@
                 },
                 {
                     "id": "actualidad-001",
-                    "text": "actualidad",
+                    "text": "la actualidad",
                     "phonetics": "/aktwaliˈðað/",
                     "partOfSpeech": "noun",
                     "definition": "Todo lo que está pasando ahora mismo, los eventos importantes del presente que afectan a las personas.",
@@ -4350,7 +4350,7 @@
                 },
                 {
                     "id": "politica-001",
-                    "text": "política",
+                    "text": "la política",
                     "phonetics": "/poˈlitika/",
                     "partOfSpeech": "noun",
                     "definition": "Todo lo relacionado con el gobierno, las leyes y cómo se toman las decisiones importantes en un país.",
@@ -4361,7 +4361,7 @@
                 },
                 {
                     "id": "economia-001",
-                    "text": "economía",
+                    "text": "la economía",
                     "phonetics": "/ekonoˈmia/",
                     "partOfSpeech": "noun",
                     "definition": "Todo lo relacionado con el dinero, cómo funciona el país, las empresas y por qué las cosas cuestan lo que cuestan.",
@@ -4372,7 +4372,7 @@
                 },
                 {
                     "id": "sociedad-001",
-                    "text": "sociedad",
+                    "text": "la sociedad",
                     "phonetics": "/soθjeˈðað/",
                     "partOfSpeech": "noun",
                     "definition": "Todas las personas que viven en un lugar y cómo se relacionan entre ellas, las costumbres y formas de vivir.",
@@ -4383,7 +4383,7 @@
                 },
                 {
                     "id": "cultura-001",
-                    "text": "cultura",
+                    "text": "la cultura",
                     "phonetics": "/kulˈtuɾa/",
                     "partOfSpeech": "noun",
                     "definition": "Las tradiciones, costumbres, arte, música y formas de pensar de un grupo de personas o país.",
@@ -4394,7 +4394,7 @@
                 },
                 {
                     "id": "tecnologia-001",
-                    "text": "tecnología",
+                    "text": "la tecnología",
                     "phonetics": "/teknoˈloxja/",
                     "partOfSpeech": "noun",
                     "definition": "Todos los inventos y avances que hacen la vida más fácil, como los teléfonos, computadoras y robots.",
@@ -4405,7 +4405,7 @@
                 },
                 {
                     "id": "medio-ambiente-001",
-                    "text": "medio ambiente",
+                    "text": "el medio ambiente",
                     "phonetics": "/ˈmeðjo amˈbjen̪te/",
                     "partOfSpeech": "noun",
                     "definition": "Todo lo que nos rodea en la naturaleza: el aire, el agua, los árboles, los animales y el planeta Tierra.",
@@ -4416,7 +4416,7 @@
                 },
                 {
                     "id": "salud-001",
-                    "text": "salud",
+                    "text": "la salud",
                     "phonetics": "/saˈluð/",
                     "partOfSpeech": "noun",
                     "definition": "El estado de tu cuerpo y mente, cuando te sientes bien y fuerte, sin enfermedades.",
@@ -4427,7 +4427,7 @@
                 },
                 {
                     "id": "educacion-001",
-                    "text": "educación",
+                    "text": "la educación",
                     "phonetics": "/eðukaˈθjon/",
                     "partOfSpeech": "noun",
                     "definition": "El proceso de aprender cosas nuevas, ir a la escuela, estudiar y adquirir conocimientos importantes.",
@@ -4438,7 +4438,7 @@
                 },
                 {
                     "id": "trabajo-001",
-                    "text": "trabajo",
+                    "text": "el trabajo",
                     "phonetics": "/tɾaˈβaxo/",
                     "partOfSpeech": "noun",
                     "definition": "Las actividades que hacen los adultos para ganar dinero y contribuir a la sociedad, como ser doctor, profesor o ingeniero.",
@@ -4449,7 +4449,7 @@
                 },
                 {
                     "id": "crisis-001",
-                    "text": "crisis",
+                    "text": "la crisis",
                     "phonetics": "/ˈkɾisis/",
                     "partOfSpeech": "noun",
                     "definition": "Un momento muy difícil cuando las cosas no van bien, hay problemas serios y las personas necesitan ayuda.",
@@ -4460,7 +4460,7 @@
                 },
                 {
                     "id": "pandemia-001",
-                    "text": "pandemia",
+                    "text": "la pandemia",
                     "phonetics": "/pandeˈmia/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando una enfermedad se extiende por muchos países del mundo y afecta a muchísimas personas.",
@@ -4471,7 +4471,7 @@
                 },
                 {
                     "id": "vacuna-001",
-                    "text": "vacuna",
+                    "text": "la vacuna",
                     "phonetics": "/baˈkuna/",
                     "partOfSpeech": "noun",
                     "definition": "Una medicina especial que te ponen para protegerte de enfermedades peligrosas. Es como un escudo invisible para tu cuerpo.",
@@ -4482,7 +4482,7 @@
                 },
                 {
                     "id": "cambio-climatico-001",
-                    "text": "cambio climático",
+                    "text": "el cambio climático",
                     "phonetics": "/ˈkambjo kliˈmatiko/",
                     "partOfSpeech": "noun",
                     "definition": "Los cambios en el clima del planeta Tierra, como que hace más calor o más frío de lo normal, y cómo esto afecta al medio ambiente.",
@@ -4493,7 +4493,7 @@
                 },
                 {
                     "id": "sostenibilidad-001",
-                    "text": "sostenibilidad",
+                    "text": "la sostenibilidad",
                     "phonetics": "/sosteniβiliˈðað/",
                     "partOfSpeech": "noun",
                     "definition": "Usar los recursos de manera inteligente para que duren mucho tiempo y no dañen el planeta. Es como cuidar lo que tenemos para el futuro.",
@@ -4504,7 +4504,7 @@
                 },
                 {
                     "id": "globalizacion-001",
-                    "text": "globalización",
+                    "text": "la globalización",
                     "phonetics": "/ɣloβaliθaˈθjon/",
                     "partOfSpeech": "noun",
                     "definition": "Cómo todos los países del mundo están conectados, pueden comunicarse fácilmente y compartir cosas como tecnología, cultura y comercio.",
@@ -4551,7 +4551,7 @@
                 },
                 {
                     "id": "tienda-001",
-                    "text": "tienda",
+                    "text": "la tienda",
                     "phonetics": "/ˈtjen̪da/",
                     "partOfSpeech": "noun",
                     "definition": "Un lugar donde puedes ir a comprar cosas, como ropa, zapatos, juguetes o libros.",
@@ -4562,7 +4562,7 @@
                 },
                 {
                     "id": "supermercado-001",
-                    "text": "supermercado",
+                    "text": "el supermercado",
                     "phonetics": "/supeɾmeɾˈkaðo/",
                     "partOfSpeech": "noun",
                     "definition": "Una tienda muy grande donde puedes comprar comida, productos de limpieza y muchas otras cosas para la casa.",
@@ -4573,7 +4573,7 @@
                 },
                 {
                     "id": "mercado-001",
-                    "text": "mercado",
+                    "text": "el mercado",
                     "phonetics": "/meɾˈkaðo/",
                     "partOfSpeech": "noun",
                     "definition": "Un lugar al aire libre donde diferentes vendedores ponen sus puestos para vender frutas, verduras, ropa y otras cosas.",
@@ -4584,7 +4584,7 @@
                 },
                 {
                     "id": "precio-001",
-                    "text": "precio",
+                    "text": "el precio",
                     "phonetics": "/ˈpɾeθjo/",
                     "partOfSpeech": "noun",
                     "definition": "La cantidad de dinero que tienes que pagar para obtener algo. Es como el coste de las cosas.",
@@ -4595,7 +4595,7 @@
                 },
                 {
                     "id": "oferta-001",
-                    "text": "oferta",
+                    "text": "la oferta",
                     "phonetics": "/oˈfeɾta/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando una tienda vende algo por menos dinero del precio normal, para que más gente lo compre.",
@@ -4606,7 +4606,7 @@
                 },
                 {
                     "id": "descuento-001",
-                    "text": "descuento",
+                    "text": "el descuento",
                     "phonetics": "/desˈkwento/",
                     "partOfSpeech": "noun",
                     "definition": "Una reducción del precio normal de algo. Es como un descuento que te hacen por ser estudiante o por comprar mucho.",
@@ -4617,7 +4617,7 @@
                 },
                 {
                     "id": "rebaja-001",
-                    "text": "rebaja",
+                    "text": "la rebaja",
                     "phonetics": "/reˈβaxa/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando las tiendas bajan los precios de la ropa de temporadas pasadas para venderla más rápido.",
@@ -4628,7 +4628,7 @@
                 },
                 {
                     "id": "marca-001",
-                    "text": "marca",
+                    "text": "la marca",
                     "phonetics": "/ˈmaɾka/",
                     "partOfSpeech": "noun",
                     "definition": "El nombre o símbolo que identifica a una empresa que hace productos, como Nike, Apple o Coca-Cola.",
@@ -4639,7 +4639,7 @@
                 },
                 {
                     "id": "calidad-001",
-                    "text": "calidad",
+                    "text": "la calidad",
                     "phonetics": "/kaliˈðað/",
                     "partOfSpeech": "noun",
                     "definition": "Qué tan bueno o malo es algo. Los productos de buena calidad duran más tiempo y funcionan mejor.",
@@ -4650,7 +4650,7 @@
                 },
                 {
                     "id": "garantia-001",
-                    "text": "garantía",
+                    "text": "la garantía",
                     "phonetics": "/ɡaɾanˈtia/",
                     "partOfSpeech": "noun",
                     "definition": "Una promesa de la tienda o empresa de que si algo se rompe o no funciona, te lo arreglan o te dan uno nuevo gratis.",
@@ -4661,7 +4661,7 @@
                 },
                 {
                     "id": "devolucion-001",
-                    "text": "devolución",
+                    "text": "la devolución",
                     "phonetics": "/deβoluˈθjon/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando llevas algo que compraste de vuelta a la tienda porque no te gustó, no te sirve o está roto.",
@@ -4672,7 +4672,7 @@
                 },
                 {
                     "id": "reembolso-001",
-                    "text": "reembolso",
+                    "text": "el reembolso",
                     "phonetics": "/reemˈbolso/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando la tienda te devuelve el dinero que pagaste por algo que no te gustó o que estaba defectuoso.",
@@ -4683,7 +4683,7 @@
                 },
                 {
                     "id": "envio-001",
-                    "text": "envío",
+                    "text": "el envío",
                     "phonetics": "/emˈβio/",
                     "partOfSpeech": "noun",
                     "definition": "El proceso de enviar algo que compraste por internet a tu casa a través del correo o una empresa de paquetería.",
@@ -4694,7 +4694,7 @@
                 },
                 {
                     "id": "entrega-001",
-                    "text": "entrega",
+                    "text": "la entrega",
                     "phonetics": "/enˈtɾeɣa/",
                     "partOfSpeech": "noun",
                     "definition": "Cuando te traen a casa algo que pediste por internet. Es el momento en que recibes tu compra.",
@@ -4705,7 +4705,7 @@
                 },
                 {
                     "id": "pedido-001",
-                    "text": "pedido",
+                    "text": "el pedido",
                     "phonetics": "/peˈðiðo/",
                     "partOfSpeech": "noun",
                     "definition": "Una solicitud que haces para comprar algo, especialmente por internet. Es como hacer una lista de lo que quieres.",
@@ -4716,7 +4716,7 @@
                 },
                 {
                     "id": "carrito-001",
-                    "text": "carrito",
+                    "text": "el carrito",
                     "phonetics": "/kaˈrito/",
                     "partOfSpeech": "noun",
                     "definition": "El contenedor con ruedas que usas en el supermercado para poner las cosas que vas a comprar antes de ir a pagar.",
@@ -4727,7 +4727,7 @@
                 },
                 {
                     "id": "caja-001",
-                    "text": "caja",
+                    "text": "la caja",
                     "phonetics": "/ˈkaxa/",
                     "partOfSpeech": "noun",
                     "definition": "El lugar donde pagas por las cosas que compraste. Es donde está la cajera o cajero que cobra el dinero.",
@@ -4738,7 +4738,7 @@
                 },
                 {
                     "id": "efectivo-001",
-                    "text": "efectivo",
+                    "text": "el efectivo",
                     "phonetics": "/efeɣˈtiβo/",
                     "partOfSpeech": "noun",
                     "definition": "El dinero en billetes y monedas que puedes tocar, a diferencia de las tarjetas o pagos digitales.",
@@ -4749,7 +4749,7 @@
                 },
                 {
                     "id": "tarjeta-001",
-                    "text": "tarjeta",
+                    "text": "la tarjeta",
                     "phonetics": "/taɾˈxeta/",
                     "partOfSpeech": "noun",
                     "definition": "Una pequeña pieza de plástico que usas para pagar sin necesidad de llevar dinero en efectivo.",
@@ -4760,7 +4760,7 @@
                 },
                 {
                     "id": "pago-001",
-                    "text": "pago",
+                    "text": "el pago",
                     "phonetics": "/ˈpaɣo/",
                     "partOfSpeech": "noun",
                     "definition": "El proceso de dar dinero a cambio de algo que compraste. Es como completar la compra.",

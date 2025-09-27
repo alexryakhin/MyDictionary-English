@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Kerja hebat! Anda telah menyelesaikan kuiz penggunaan dalam konteks.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Kerja hebat! Anda telah menyelesaikan kuiz isi tempat kosong.";
 "quiz_available_once_a_day_message" = "Maaf, kuiz hanya tersedia sekali sehari. Langgan PRO untuk akses tanpa had!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Berlatih perkataan dari bahasa tertentu";
+"filters.not_enough_words_current_filters" = "Tidak cukup perkataan dengan penapis semasa";
+"filters.reset_all_filters" = "Set semula semua penapis";
+"filters.hard_words_only" = "Hanya perkataan sukar";
+"filters.add_more_words_or_reset" = "Tambah lebih banyak perkataan atau set semula penapis untuk berlatih dengan semua perkataan yang tersedia.";
+"filters.need_10_words_current_filters" = "Anda memerlukan sekurang-kurangnya 10 perkataan dengan penapis semasa untuk berlatih. Anda kini mempunyai %@.";
+"filters.need_10_hard_words_current_filters" = "Anda memerlukan sekurang-kurangnya 10 perkataan sukar dengan penapis semasa untuk berlatih. Anda kini mempunyai %@.";

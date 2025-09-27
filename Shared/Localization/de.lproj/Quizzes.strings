@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Gute Arbeit! Sie haben das Quiz zur Kontextnutzung abgeschlossen.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Gute Arbeit! Sie haben das Quiz zum Lückentext abgeschlossen.";
 "quiz_available_once_a_day_message" = "Entschuldigung, das Quiz ist nur einmal täglich verfügbar. Abonnieren Sie PRO für unbegrenzten Zugang!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Wörter aus einer bestimmten Sprache üben";
+"filters.not_enough_words_current_filters" = "Nicht genügend Wörter mit den aktuellen Filtern";
+"filters.reset_all_filters" = "Alle Filter zurücksetzen";
+"filters.hard_words_only" = "Nur schwere Wörter";
+"filters.add_more_words_or_reset" = "Fügen Sie mehr Wörter hinzu oder setzen Sie die Filter zurück, um mit allen verfügbaren Wörtern zu üben.";
+"filters.need_10_words_current_filters" = "Sie benötigen mindestens 10 Wörter mit den aktuellen Filtern zum Üben. Sie haben derzeit %@.";
+"filters.need_10_hard_words_current_filters" = "Sie benötigen mindestens 10 schwere Wörter mit den aktuellen Filtern zum Üben. Sie haben derzeit %@.";

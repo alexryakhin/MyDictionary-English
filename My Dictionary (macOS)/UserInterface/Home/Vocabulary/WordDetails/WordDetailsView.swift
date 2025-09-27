@@ -639,19 +639,12 @@ struct WordDetailsView: View {
     private var imageSectionView: some View {
         CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
             VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(Loc.WordImages.ImageSection.noImageAddedYet)
-                            .font(.headline)
-                            .foregroundStyle(.primary)
-
-                        Text(Loc.WordImages.ImageSection.addVisualRepresentation)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-
-                    Spacer()
-                }
+                Text(Loc.WordImages.ImageSection.noImageAddedYet)
+                    .font(.headline)
+                    .foregroundStyle(.primary)
+                Text(Loc.WordImages.ImageSection.addVisualRepresentation)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
             }
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -669,19 +662,12 @@ struct WordDetailsView: View {
     private var imagePremiumSectionView: some View {
         CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
             VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(Loc.WordImages.ImagePremium.dontMissOut)
-                            .font(.headline)
-                            .foregroundStyle(.primary)
-
-                        Text(Loc.WordImages.ImagePremium.renewProStatus)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-
-                    Spacer()
-                }
+                Text(Loc.WordImages.ImagePremium.dontMissOut)
+                    .font(.headline)
+                    .foregroundStyle(.primary)
+                Text(Loc.WordImages.ImagePremium.renewProStatus)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
             }
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)

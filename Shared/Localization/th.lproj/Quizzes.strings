@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบการใช้ในบริบทเสร็จแล้ว";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบเติมคำในช่องว่างเสร็จแล้ว";
 "quiz_available_once_a_day_message" = "ขออภัย แบบทดสอบสามารถใช้ได้เพียงครั้งเดียวต่อวัน สมัครสมาชิก PRO เพื่อเข้าถึงไม่จำกัด!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "ฝึกคำศัพท์จากภาษาที่เฉพาะเจาะจง";
+"filters.not_enough_words_current_filters" = "ไม่มีคำศัพท์เพียงพอด้วยตัวกรองปัจจุบัน";
+"filters.reset_all_filters" = "รีเซ็ตตัวกรองทั้งหมด";
+"filters.hard_words_only" = "เฉพาะคำยาก";
+"filters.add_more_words_or_reset" = "เพิ่มคำศัพท์เพิ่มเติมหรือรีเซ็ตตัวกรองเพื่อฝึกกับคำศัพท์ที่มีทั้งหมด";
+"filters.need_10_words_current_filters" = "คุณต้องการคำศัพท์อย่างน้อย 10 คำด้วยตัวกรองปัจจุบันเพื่อฝึก ปัจจุบันคุณมี %@";
+"filters.need_10_hard_words_current_filters" = "คุณต้องการคำยากอย่างน้อย 10 คำด้วยตัวกรองปัจจุบันเพื่อฝึก ปัจจุบันคุณมี %@";

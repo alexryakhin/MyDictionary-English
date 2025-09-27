@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Harika iş! Bağlam kullanımı sınavını tamamladınız.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Harika iş! Boşluk doldurma sınavını tamamladınız.";
 "quiz_available_once_a_day_message" = "Üzgünüz, sınav günde sadece bir kez kullanılabilir. Sınırsız erişim için PRO'ya abone olun!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Belirli bir dilden kelimeler pratik yapın";
+"filters.not_enough_words_current_filters" = "Mevcut filtrelerle yeterli kelime yok";
+"filters.reset_all_filters" = "Tüm filtreleri sıfırla";
+"filters.hard_words_only" = "Sadece zor kelimeler";
+"filters.add_more_words_or_reset" = "Daha fazla kelime ekleyin veya mevcut tüm kelimelerle pratik yapmak için filtreleri sıfırlayın.";
+"filters.need_10_words_current_filters" = "Pratik yapmak için mevcut filtrelerle en az 10 kelimeye ihtiyacınız var. Şu anda %@ var.";
+"filters.need_10_hard_words_current_filters" = "Pratik yapmak için mevcut filtrelerle en az 10 zor kelimeye ihtiyacınız var. Şu anda %@ var.";

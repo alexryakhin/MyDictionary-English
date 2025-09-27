@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Bona feina! Has completat el qüestionari d'ús en context.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bona feina! Has completat el qüestionari d'omplir els buits.";
 "quiz_available_once_a_day_message" = "Ho sentim, el qüestionari només està disponible una vegada al dia. Subscriu-te a PRO per a accés il·limitat!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Practica paraules d'un idioma específic";
+"filters.not_enough_words_current_filters" = "No hi ha suficients paraules amb els filtres actuals";
+"filters.reset_all_filters" = "Restablir tots els filtres";
+"filters.hard_words_only" = "Només paraules difícils";
+"filters.add_more_words_or_reset" = "Afegeix més paraules o restableix els filtres per practicar amb totes les paraules disponibles.";
+"filters.need_10_words_current_filters" = "Necessites almenys 10 paraules amb els filtres actuals per practicar. Actualment tens %@.";
+"filters.need_10_hard_words_current_filters" = "Necessites almenys 10 paraules difícils amb els filtres actuals per practicar. Actualment tens %@.";

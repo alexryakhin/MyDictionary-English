@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Goed gedaan! Je hebt de quiz over gebruik in context voltooid.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Goed gedaan! Je hebt de quiz over gatenvullen voltooid.";
 "quiz_available_once_a_day_message" = "Sorry, de quiz is slechts één keer per dag beschikbaar. Abonneer je op PRO voor onbeperkte toegang!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Oefen woorden uit een specifieke taal";
+"filters.not_enough_words_current_filters" = "Niet genoeg woorden met de huidige filters";
+"filters.reset_all_filters" = "Alle filters resetten";
+"filters.hard_words_only" = "Alleen moeilijke woorden";
+"filters.add_more_words_or_reset" = "Voeg meer woorden toe of reset de filters om te oefenen met alle beschikbare woorden.";
+"filters.need_10_words_current_filters" = "Je hebt minstens 10 woorden nodig met de huidige filters om te oefenen. Je hebt momenteel %@.";
+"filters.need_10_hard_words_current_filters" = "Je hebt minstens 10 moeilijke woorden nodig met de huidige filters om te oefenen. Je hebt momenteel %@.";

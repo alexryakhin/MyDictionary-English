@@ -184,7 +184,7 @@ struct ImageSelectionView: View {
                 AnalyticsService.shared.logEvent(.imageSelected, parameters: [
                     "word": word,
                     "image_source": "pexels",
-                    "image_url": photo.src.medium,
+                    "image_url": photo.src.large,
                     "download_success": true
                 ])
                 

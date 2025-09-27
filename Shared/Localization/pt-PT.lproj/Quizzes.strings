@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Ótimo trabalho! Você completou o quiz de uso no contexto.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Ótimo trabalho! Você completou o quiz de preenchimento de lacunas.";
 "quiz_available_once_a_day_message" = "Desculpe, o quiz está disponível apenas uma vez por dia. Subscreva o PRO para acesso ilimitado!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Pratique palavras de um idioma específico";
+"filters.not_enough_words_current_filters" = "Não há palavras suficientes com os filtros atuais";
+"filters.reset_all_filters" = "Repor todos os filtros";
+"filters.hard_words_only" = "Apenas palavras difíceis";
+"filters.add_more_words_or_reset" = "Adicione mais palavras ou reponha os filtros para praticar com todas as palavras disponíveis.";
+"filters.need_10_words_current_filters" = "Precisa de pelo menos 10 palavras com os filtros atuais para praticar. Tem atualmente %@.";
+"filters.need_10_hard_words_current_filters" = "Precisa de pelo menos 10 palavras difíceis com os filtros atuais para praticar. Tem atualmente %@.";

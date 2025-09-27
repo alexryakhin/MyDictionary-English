@@ -183,14 +183,28 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         // Create array with correct word first
         var newItems = [correctItem]
 
-        // Add 2 more items as incorrect options (can reuse items that aren't the correct word)
+        // Add 2 more items as incorrect options with same part of speech to prevent cheating
+        let correctPartOfSpeech = correctItem.quiz_partOfSpeech
         let remainingItems = originalItems.filter { $0.quiz_id != correctItem.quiz_id }
-        if remainingItems.count >= 2 {
+        
+        // First, try to find items with the same part of speech
+        let samePartOfSpeechItems = remainingItems.filter { $0.quiz_partOfSpeech == correctPartOfSpeech }
+
+        if samePartOfSpeechItems.count >= 2 {
+            // Use items with same part of speech as distractors
+            let shuffledSamePOS = samePartOfSpeechItems.shuffled()
+            newItems.append(contentsOf: shuffledSamePOS.prefix(2))
+        } else if samePartOfSpeechItems.count == 1 {
+            // Use the one same POS item + one random item
+            newItems.append(samePartOfSpeechItems[0])
+            let otherItems = remainingItems.filter { $0.quiz_partOfSpeech != correctPartOfSpeech }
+            if let randomOther = otherItems.randomElement() {
+                newItems.append(randomOther)
+            }
+        } else {
+            // Fallback: use any remaining items (same as before)
             let shuffledRemaining = remainingItems.shuffled()
             newItems.append(contentsOf: shuffledRemaining.prefix(2))
-        } else {
-            // If not enough items, just use what we have
-            newItems.append(contentsOf: remainingItems)
         }
 
         // Ensure we always have exactly 3 items

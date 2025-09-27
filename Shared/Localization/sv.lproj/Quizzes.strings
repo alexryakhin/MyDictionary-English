@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Bra jobbat! Du har slutfört quizzet om kontextanvändning.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bra jobbat! Du har slutfört quizzet om att fylla i luckan.";
 "quiz_available_once_a_day_message" = "Tyvärr är quizzet endast tillgängligt en gång per dag. Prenumerera på PRO för obegränsad åtkomst!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Öva ord från ett specifikt språk";
+"filters.not_enough_words_current_filters" = "Inte tillräckligt med ord med de nuvarande filtren";
+"filters.reset_all_filters" = "Återställ alla filter";
+"filters.hard_words_only" = "Endast svåra ord";
+"filters.add_more_words_or_reset" = "Lägg till fler ord eller återställ filter för att öva med alla tillgängliga ord.";
+"filters.need_10_words_current_filters" = "Du behöver minst 10 ord med de nuvarande filtren för att öva. Du har för närvarande %@.";
+"filters.need_10_hard_words_current_filters" = "Du behöver minst 10 svåra ord med de nuvarande filtren för att öva. Du har för närvarande %@.";

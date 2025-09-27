@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Nagyszerű munka! Befejezte a kontextus használati kvízt.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Nagyszerű munka! Befejezte az üres helyek kitöltési kvízt.";
 "quiz_available_once_a_day_message" = "Sajnáljuk, a kvíz csak naponta egyszer érhető el. Iratkozzon fel a PRO-ra korlátlan hozzáférésért!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Gyakorolj szavakat egy adott nyelvből";
+"filters.not_enough_words_current_filters" = "Nincs elég szó a jelenlegi szűrőkkel";
+"filters.reset_all_filters" = "Összes szűrő visszaállítása";
+"filters.hard_words_only" = "Csak nehéz szavak";
+"filters.add_more_words_or_reset" = "Adj hozzá több szót vagy állítsd vissza a szűrőket, hogy gyakorolhass az összes elérhető szóval.";
+"filters.need_10_words_current_filters" = "Legalább 10 szóra van szükséged a jelenlegi szűrőkkel a gyakorláshoz. Jelenleg %@ van.";
+"filters.need_10_hard_words_current_filters" = "Legalább 10 nehéz szóra van szükséged a jelenlegi szűrőkkel a gyakorláshoz. Jelenleg %@ van.";

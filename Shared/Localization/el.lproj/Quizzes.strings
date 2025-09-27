@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Μπράβο! Ολοκληρώσατε το κουίζ χρήσης στο πλαίσιο.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Μπράβο! Ολοκληρώσατε το κουίζ συμπλήρωσης κενών.";
 "quiz_available_once_a_day_message" = "Συγγνώμη, το κουίζ είναι διαθέσιμο μόνο μία φορά την ημέρα. Εγγραφείτε στο PRO για απεριόριστη πρόσβαση!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Εξασκήστε λέξεις από μια συγκεκριμένη γλώσσα";
+"filters.not_enough_words_current_filters" = "Δεν υπάρχουν αρκετές λέξεις με τα τρέχοντα φίλτρα";
+"filters.reset_all_filters" = "Επαναφορά όλων των φίλτρων";
+"filters.hard_words_only" = "Μόνο δύσκολες λέξεις";
+"filters.add_more_words_or_reset" = "Προσθέστε περισσότερες λέξεις ή επαναφέρετε τα φίλτρα για να εξασκήσετε με όλες τις διαθέσιμες λέξεις.";
+"filters.need_10_words_current_filters" = "Χρειάζεστε τουλάχιστον 10 λέξεις με τα τρέχοντα φίλτρα για εξάσκηση. Έχετε αυτή τη στιγμή %@.";
+"filters.need_10_hard_words_current_filters" = "Χρειάζεστε τουλάχιστον 10 δύσκολες λέξεις με τα τρέχοντα φίλτρα για εξάσκηση. Έχετε αυτή τη στιγμή %@.";

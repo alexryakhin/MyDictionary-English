@@ -191,12 +191,12 @@ struct SpellingQuizContentView: View {
             }
 
             // Hint section
-            if viewModel.isShowingHint, let randomItem = viewModel.randomItem {
+            if viewModel.isShowingHint, let text = viewModel.correctAnswerText {
                 HStack {
                     Image(systemName: "lightbulb.fill")
                         .foregroundStyle(.yellow)
 
-                    Text("\(Loc.Quizzes.hint): \(Loc.Quizzes.wordStartsWith) '\(randomItem.quiz_text.prefix(1).uppercased())'")
+                    Text("\(Loc.Quizzes.hint): \(Loc.Quizzes.wordStartsWith) '\(text.prefix(1).uppercased())'")
                         .font(.caption)
                         .foregroundStyle(.secondary)
 

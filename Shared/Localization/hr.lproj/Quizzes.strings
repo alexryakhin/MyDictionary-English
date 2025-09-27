@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "Odličan posao! Završili ste kviz korištenja u kontekstu.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Odličan posao! Završili ste kviz ispunjavanja praznina.";
 "quiz_available_once_a_day_message" = "Oprostite, kviz je dostupan samo jednom dnevno. Pretplatite se na PRO za neograničen pristup!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "Vježbaj riječi određenog jezika";
+"filters.not_enough_words_current_filters" = "Nema dovoljno riječi s trenutnim filtrom";
+"filters.reset_all_filters" = "Resetiraj sve filtre";
+"filters.hard_words_only" = "Samo teške riječi";
+"filters.add_more_words_or_reset" = "Dodaj više riječi ili resetiraj filtre za vježbanje sa svim dostupnim riječima.";
+"filters.need_10_words_current_filters" = "Trebate najmanje 10 riječi s trenutnim filtrom za vježbanje. Trenutno imate %@.";
+"filters.need_10_hard_words_current_filters" = "Trebate najmanje 10 teških riječi s trenutnim filtrom za vježbanje. Trenutno imate %@.";

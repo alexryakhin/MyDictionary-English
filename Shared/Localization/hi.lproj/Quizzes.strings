@@ -177,3 +177,12 @@
 "quiz_types.great_job_completed_context_quiz" = "शानदार काम! आपने संदर्भ उपयोग क्विज़ पूरा कर लिया है।";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "शानदार काम! आपने रिक्त स्थान भरने का क्विज़ पूरा कर लिया है।";
 "quiz_available_once_a_day_message" = "क्षमा करें, क्विज़ केवल दिन में एक बार उपलब्ध है। असीमित पहुंच के लिए PRO की सदस्यता लें!";
+
+// MARK: - Filter Messages
+"filters.practice_words_specific_language" = "एक विशिष्ट भाषा के शब्दों का अभ्यास करें";
+"filters.not_enough_words_current_filters" = "वर्तमान फिल्टर के साथ पर्याप्त शब्द नहीं हैं";
+"filters.reset_all_filters" = "सभी फिल्टर रीसेट करें";
+"filters.hard_words_only" = "केवल कठिन शब्द";
+"filters.add_more_words_or_reset" = "अधिक शब्द जोड़ें या सभी उपलब्ध शब्दों के साथ अभ्यास करने के लिए फिल्टर रीसेट करें।";
+"filters.need_10_words_current_filters" = "अभ्यास के लिए वर्तमान फिल्टर के साथ कम से कम 10 शब्द चाहिए। आपके पास अभी %@ हैं।";
+"filters.need_10_hard_words_current_filters" = "अभ्यास के लिए वर्तमान फिल्टर के साथ कम से कम 10 कठिन शब्द चाहिए। आपके पास अभी %@ हैं।";

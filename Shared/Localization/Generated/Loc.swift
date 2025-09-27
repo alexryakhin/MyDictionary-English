@@ -1447,6 +1447,26 @@ public enum Loc {
       /// Your Sentence
       public static let yourSentence = Loc.tr("Quizzes", "ai_quiz.your_sentence", fallback: "Your Sentence")
     }
+    public enum Filters {
+      /// Add more words or reset your filters to practice with all available words.
+      public static let addMoreWordsOrReset = Loc.tr("Quizzes", "filters.add_more_words_or_reset", fallback: "Add more words or reset your filters to practice with all available words.")
+      /// Hard Words Only
+      public static let hardWordsOnly = Loc.tr("Quizzes", "filters.hard_words_only", fallback: "Hard Words Only")
+      /// You need at least 10 hard words with current filters to practice. You currently have %@.
+      public static func need10HardWordsCurrentFilters(_ p1: Any) -> String {
+        return Loc.tr("Quizzes", "filters.need_10_hard_words_current_filters", String(describing: p1), fallback: "You need at least 10 hard words with current filters to practice. You currently have %@.")
+      }
+      /// You need at least 10 words with current filters to practice. You currently have %@.
+      public static func need10WordsCurrentFilters(_ p1: Any) -> String {
+        return Loc.tr("Quizzes", "filters.need_10_words_current_filters", String(describing: p1), fallback: "You need at least 10 words with current filters to practice. You currently have %@.")
+      }
+      /// Not Enough Words with Current Filters
+      public static let notEnoughWordsCurrentFilters = Loc.tr("Quizzes", "filters.not_enough_words_current_filters", fallback: "Not Enough Words with Current Filters")
+      /// Practice words from a specific language
+      public static let practiceWordsSpecificLanguage = Loc.tr("Quizzes", "filters.practice_words_specific_language", fallback: "Practice words from a specific language")
+      /// Reset All Filters
+      public static let resetAllFilters = Loc.tr("Quizzes", "filters.reset_all_filters", fallback: "Reset All Filters")
+    }
     public enum Loading {
       /// AI is creating multiple choice questions to test your understanding of word usage in context.
       public static let contextQuestionsDescription = Loc.tr("Quizzes", "loading.context_questions_description", fallback: "AI is creating multiple choice questions to test your understanding of word usage in context.")
