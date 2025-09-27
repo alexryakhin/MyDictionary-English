@@ -224,7 +224,13 @@ struct WordDetailsContentView: View {
                 .clipped()
                 .overlay(
                     LinearGradient(
-                        gradient: Gradient(colors: [.clear, Color.systemGroupedBackground]),
+                        gradient: Gradient(
+                            colors: [
+                                Color.systemGroupedBackground.opacity(0),
+                                Color.systemGroupedBackground.opacity(0.5),
+                                Color.systemGroupedBackground
+                            ]
+                        ),
                         startPoint: .top,
                         endPoint: .bottom
                     )
@@ -770,7 +776,7 @@ struct CustomNavigationBar: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 12) {
             HStack {
                 HeaderButton(icon: "chevron.left") {
                     dismiss()

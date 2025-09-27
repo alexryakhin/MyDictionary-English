@@ -12,7 +12,7 @@ import Flow
 struct SharedWordDetailsView: View {
 
     private enum Constant {
-        static let imageHeight: CGFloat = 280
+        static let imageHeight: CGFloat = 200
         static let headerHeight: CGFloat = 200
     }
 
@@ -33,9 +33,15 @@ struct SharedWordDetailsView: View {
     @State private var shouldHaveNavigationTitle: Bool = false
     @State private var showingImageSelection = false
     @State private var showingImageOnboarding = false
+    @StateObject private var subscriptionService = SubscriptionService.shared
+    @StateObject private var paywallService = PaywallService.shared
 
     var imageExists: Bool {
-        word.imageLocalPath != nil && image != nil
+        (word.imageLocalPath != nil || image != nil) && subscriptionService.isProUser
+    }
+
+    var hasImageAvailable: Bool {
+        word.imageLocalPath != nil || image != nil
     }
 
     @StateObject private var dictionaryService = DictionaryService.shared
@@ -62,109 +68,109 @@ struct SharedWordDetailsView: View {
     }
 
     var body: some View {
-        ZStack {
-            Color(.systemGroupedBackground)
-                .ignoresSafeArea()
-
-            ScrollViewWithReader(scrollOffset: $scrollOffset) {
-                VStack(spacing: 0) {
-                    // Hero Image Section
-                    if let image {
-                        heroImageView(image: image)
-                    }
-
-                    // Content
-                    VStack(spacing: 16) {
-                        // Word Header
-                        wordHeaderView
-
-                        // Image Section (only show if no image exists and user can edit)
-                        if !imageExists && canEdit {
-                            imageSectionView
-                        }
-
-                        // Content Sections
-                        LazyVStack(spacing: 12) {
-                            transcriptionSectionView
-                            partOfSpeechSectionView
-                            meaningsSectionView
-                            notesSectionView
-                            languageSectionView
-                            collaborativeFeaturesSection
-
-                            // Remove Image Button (only show if image exists and user can edit)
-                            if imageExists && canEdit {
-                                removeImageButton
-                            }
-                        }
-                    }
-                    .if(isPad) { view in
-                        view
-                            .frame(maxWidth: 550, alignment: .center)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                    }
-                    .padding(16)
-                }
-                .onChange(of: scrollOffset) { newValue in
-                    let topOffset: CGFloat = !imageExists ? 70 : Constant.imageHeight + 30
-                    withAnimation {
-                        shouldHaveNavigationTitle = newValue <= -topOffset
-                    }
-                }
-            }
-            .safeAreaInset(edge: .top) {
-                SharedCustomNavigationBar(
-                    title: word.wordItself,
-                    isLiked: word.isLikedBy(authenticationService.userEmail ?? ""),
-                    likeCount: word.likeCount,
-                    canEdit: canEdit,
-                    onLike: toggleLike,
-                    onDelete: { showDeleteAlert() }
-                )
-                .opacity(shouldHaveNavigationTitle ? 1 : 0)
-                .overlay {
-                    HStack {
-                        Button {
-                            dismiss()
-                        } label: {
-                            Image(systemName: "chevron.left")
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(Capsule())
-
-                        Spacer()
-
-                        HStack(spacing: 4) {
-                            if canEdit {
-                                Button {
-                                    showDeleteAlert()
-                                } label: {
-                                    Image(systemName: "trash")
+        ScrollViewWithReader(scrollOffset: $scrollOffset) {
+            VStack(spacing: 0) {
+                // Hero Image Section (only show if user is pro)
+                if let image, subscriptionService.isProUser {
+                    heroImageView(image: image)
+                        .overlay(alignment: .bottom) {
+                            wordHeaderView
+                                .padding(.horizontal, 28)
+                                .padding(.bottom, 12)
+                                .if(isPad) { view in
+                                    view
+                                        .frame(maxWidth: 600, alignment: .center)
                                 }
-                                .buttonStyle(.borderedProminent)
-                                .clipShape(Capsule())
-                                .tint(.red)
-                            }
-
-                            Button {
-                                toggleLike()
-                            } label: {
-                                Image(systemName: word.isLikedBy(authenticationService.userEmail ?? "") ? "heart.fill" : "heart")
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .clipShape(Capsule())
-                            .tint(.red)
                         }
+                }
+
+                // Content Sections
+                LazyVStack(spacing: 12) {
+                    if !hasImageAvailable && canEdit {
+                        // Image Section (only show if no image exists and user can edit)
+                        imageSectionView
+                    } else if hasImageAvailable && !subscriptionService.isProUser {
+                        // Image Premium Section (show if image exists but user is not pro)
+                        imagePremiumSectionView
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 12)
-                    .opacity(!shouldHaveNavigationTitle ? 1 : 0)
+
+                    transcriptionSectionView
+                    partOfSpeechSectionView
+                    meaningsSectionView
+                    notesSectionView
+                    languageSectionView
+                    collaborativeFeaturesSection
+
+                    // Remove Image Button (only show if image exists and user can edit)
+                    if hasImageAvailable && canEdit && subscriptionService.isProUser {
+                        removeImageButton
+                    }
+                }
+                .if(isPad) { view in
+                    view
+                        .frame(maxWidth: 550, alignment: .center)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
+                .padding(.horizontal, 16)
+                .animation(.default, value: word)
+            }
+            .onChange(of: scrollOffset) { newValue in
+                guard hasImageAvailable && subscriptionService.isProUser else {
+                    shouldHaveNavigationTitle = true
+                    return
+                }
+                let topOffset: CGFloat = Constant.imageHeight
+                withAnimation {
+                    shouldHaveNavigationTitle = newValue <= -topOffset
                 }
             }
         }
+        .safeAreaInset(edge: .top) {
+            SharedCustomNavigationBar(
+                title: word.wordItself,
+                isLiked: word.isLikedBy(authenticationService.userEmail ?? ""),
+                likeCount: word.likeCount,
+                canEdit: canEdit,
+                onLike: toggleLike,
+                onDelete: { showDeleteAlert() }
+            )
+            .opacity(shouldHaveNavigationTitle ? 1 : 0)
+            .overlay(alignment: .top) {
+                HStack {
+                    HeaderButton(icon: "chevron.left") {
+                        dismiss()
+                    }
+
+                    Spacer()
+
+                    HStack(spacing: 4) {
+                        HeaderButton(
+                            icon: "trash",
+                            color: .red,
+                        ) {
+                            showDeleteAlert()
+                        }
+                        let isFavorite: Bool = word.isLikedBy(authenticationService.userEmail ?? "")
+                        HeaderButton(
+                            icon: isFavorite ? "heart.fill" : "heart",
+                        ) {
+                            toggleLike()
+                        }
+                    }
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .opacity(!shouldHaveNavigationTitle ? 1 : 0)
+                .padding(12)
+                .if(isPad) { view in
+                    view
+                        .frame(maxWidth: 600, alignment: .center)
+                }
+            }
+        }
+        .groupedBackground()
         .toolbar(.hidden, for: .navigationBar)
         .navigationBarHidden(true)
-        .onAppear {
+        .task {
             // Start real-time listener for this specific word
             dictionaryService.startSharedWordListener(
                 dictionaryId: dictionaryId,
@@ -181,6 +187,8 @@ struct SharedWordDetailsView: View {
                     self.notesText = updatedWord.notes ?? ""
                 }
             }
+
+            await loadImage()
         }
         .onDisappear {
             // Stop the real-time listener when leaving the view
@@ -219,44 +227,6 @@ struct SharedWordDetailsView: View {
         }
         .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
         .withPaywall()
-        .onAppear {
-            // Check if image exists and set state with fallback
-            if let imageLocalPath = word.imageLocalPath {
-                print("🔍 [SharedWordDetails] Image path: \(imageLocalPath)")
-                print("🌐 [SharedWordDetails] Image URL: \(word.imageUrl ?? "nil")")
-
-                Task {
-                    let result = await PexelsService.shared.getImageWithFallback(
-                        localPath: imageLocalPath,
-                        webUrl: word.imageUrl
-                    )
-
-                    await MainActor.run {
-                        if let image = result.image {
-                            print("✅ [SharedWordDetails] Image loaded successfully (with fallback if needed)")
-                            self.image = image
-
-                            // Update Core Data with new relative path if fallback was used
-                            if let newLocalPath = result.newLocalPath {
-                                print("🔄 [SharedWordDetails] Updating Core Data with new relative path: \(newLocalPath)")
-                                var updatedWord = word
-                                updatedWord.imageLocalPath = newLocalPath
-
-                                Task {
-                                    await saveWordToFirebase(updatedWord)
-                                }
-                            }
-                        } else {
-                            print("❌ [SharedWordDetails] Image failed to load even with fallback")
-                            image = nil
-                        }
-                    }
-                }
-            } else {
-                print("🔍 [SharedWordDetails] No image path found")
-                image = nil
-            }
-        }
     }
 
     // MARK: - Hero Image View
@@ -272,12 +242,17 @@ struct SharedWordDetailsView: View {
                 .clipped()
                 .overlay(
                     LinearGradient(
-                        gradient: Gradient(colors: [.clear, Color(.systemGroupedBackground)]),
+                        gradient: Gradient(
+                            colors: [
+                                Color.systemGroupedBackground.opacity(0),
+                                Color.systemGroupedBackground.opacity(0.5),
+                                Color.systemGroupedBackground
+                            ]
+                        ),
                         startPoint: .top,
                         endPoint: .bottom
                     )
-                    .frame(height: 100)
-                    .offset(y: height - 100),
+                    .frame(height: 100),
                     alignment: .bottom
                 )
                 .offset(y: offset > 0 ? -offset : 0)
@@ -288,52 +263,17 @@ struct SharedWordDetailsView: View {
 
     // MARK: - Word Header
     private var wordHeaderView: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            // Title and Part of Speech
-            VStack(alignment: .leading, spacing: 8) {
-                Text(word.wordItself)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.primary)
-
-                HStack(spacing: 16) {
-                    Text(word.partOfSpeech)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 4)
-                        .background(.quaternary)
-                        .clipShape(Capsule())
-
-                    if word.isLikedBy(authenticationService.userEmail ?? "") {
-                        Label("Liked", systemImage: "heart.fill")
-                            .font(.subheadline)
-                            .foregroundStyle(.red)
-                    }
-                }
-            }
-
-            // Quick Stats
-            if let phonetic = word.phonetic, !phonetic.isEmpty {
-                HStack {
-                    Image(systemName: "speaker.wave.2.fill")
-                        .foregroundStyle(.accent)
-                    Text(phonetic)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        Text(word.wordItself)
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .foregroundStyle(.primary)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .opacity(!shouldHaveNavigationTitle ? 1 : 0)
     }
 
     private var imageSectionView: some View {
         CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
-            VStack(spacing: 12) {
-                Image(systemName: "photo")
-                    .font(.system(size: 48))
-                    .foregroundStyle(.secondary)
-
+            VStack(alignment: .leading, spacing: 12) {
                 Text(Loc.WordImages.ImageSection.noImageAddedYet)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
@@ -341,16 +281,47 @@ struct SharedWordDetailsView: View {
                 Text(Loc.WordImages.ImageSection.addVisualRepresentation)
                     .font(.caption)
                     .foregroundStyle(.tertiary)
-                    .multilineTextAlignment(.center)
             }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 20)
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
             HeaderButton(Loc.WordImages.ImageSection.addImage, icon: "plus", size: .small) {
                 if ImagesOnboardingHelper.shouldShowOnboarding() {
                     showingImageOnboarding = true
                 } else {
                     showingImageSelection = true
+                }
+            }
+        }
+    }
+
+    private var imagePremiumSectionView: some View {
+        CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(Loc.WordImages.ImagePremium.dontMissOut)
+                    .font(.subheadline)
+                    .foregroundStyle(.primary)
+                    .fontWeight(.medium)
+
+                Text(Loc.WordImages.ImagePremium.renewProStatus)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        } trailingContent: {
+            HeaderButton(Loc.WordImages.ImagePremium.upgradeToPro, size: .small, style: .borderedProminent) {
+                AnalyticsService.shared.logEvent(.imagePaywallShown, parameters: [
+                    "trigger": "premium_image_access",
+                    "source": "shared_word_details"
+                ])
+                paywallService.presentPaywall(for: .images) { didSubscribe in
+                    if didSubscribe {
+                        AnalyticsService.shared.logEvent(.imageUpgradeConversion, parameters: [
+                            "source": "shared_word_details"
+                        ])
+                        // If user subscribed, do nothing (stay on word details)
+                    }
                 }
             }
         }
@@ -787,7 +758,7 @@ struct SharedWordDetailsView: View {
             )
         )
     }
-    
+
     private func handleOnboardingCompletion() {
         // Check if user is premium
         if SubscriptionService.shared.isProUser {
@@ -920,6 +891,42 @@ struct SharedWordDetailsView: View {
             )
         )
     }
+
+    private func loadImage() async {
+        // Check if image exists and set state with fallback
+        if let imageLocalPath = word.imageLocalPath {
+            shouldHaveNavigationTitle = !subscriptionService.isProUser
+
+            print("🔍 [SharedWordDetails] Image path: \(imageLocalPath)")
+            print("🌐 [SharedWordDetails] Image URL: \(word.imageUrl ?? "nil")")
+
+            let result = await PexelsService.shared.getImageWithFallback(
+                localPath: imageLocalPath,
+                webUrl: word.imageUrl
+            )
+
+            await MainActor.run {
+                if let image = result.image {
+                    print("✅ [SharedWordDetails] Image loaded successfully (with fallback if needed)")
+                    self.image = image
+
+                    // Update the word with new relative path if fallback was used
+                    if let newLocalPath = result.newLocalPath {
+                        print("🔄 [SharedWordDetails] Updating with new relative path: \(newLocalPath)")
+                        word.imageLocalPath = newLocalPath
+                    }
+                } else {
+                    print("❌ [SharedWordDetails] Image failed to load even with fallback")
+                    image = nil
+                    shouldHaveNavigationTitle = true
+                }
+            }
+        } else {
+            print("🔍 [SharedWordDetails] No image path found")
+            image = nil
+            shouldHaveNavigationTitle = true
+        }
+    }
 }
 
 // MARK: - StatSummaryCard
@@ -960,51 +967,51 @@ struct SharedCustomNavigationBar: View {
     let onLike: () -> Void
     let onDelete: () -> Void
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
-        HStack {
-            Button {
-                dismiss()
-            } label: {
-                Image(systemName: "chevron.left")
-            }
-            .buttonStyle(.bordered)
-            .clipShape(Capsule())
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                HeaderButton(icon: "chevron.left") {
+                    dismiss()
+                }
 
-            Spacer()
-            
+                Text(Loc.Words.wordDetails)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                HStack(spacing: 4) {
+                    HeaderButton(
+                        icon: "trash",
+                        color: .red,
+                        action: onDelete
+                    )
+                    HeaderButton(
+                        icon: isLiked ? "heart.fill" : "heart",
+                        action: onLike
+                    )
+                }
+            }
+
             Text(title)
-                .font(.headline)
-                .fontWeight(.semibold)
-                .lineLimit(1)
-                .frame(maxWidth: .infinity, alignment: .center)
-            
-            Spacer()
-            
-            HStack(spacing: 4) {
-                if canEdit {
-                    Button(action: onDelete) {
-                        Image(systemName: "trash")
-                    }
-                    .buttonStyle(.bordered)
-                    .clipShape(Capsule())
-                    .tint(.red)
-                }
-
-                Button(action: onLike) {
-                    Image(systemName: isLiked ? "heart.fill" : "heart")
-                }
-                .buttonStyle(.bordered)
-                .tint(.red)
-                .clipShape(Capsule())
-            }
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .lineLimit(2)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 12)
-        .background(.ultraThinMaterial)
-        .overlay(alignment: .bottom) {
-            Divider()
+        .padding(vertical: 12, horizontal: 16)
+        .glassBackgroundEffectIfAvailable(.regular, in: RoundedRectangle(cornerRadius: 32))
+        .if(isGlassAvailable == false) {
+            $0
+                .clippedWithBackgroundMaterial(.ultraThinMaterial, cornerRadius: 32)
+                .shadow(radius: 2)
         }
+        .padding(12)
         .animation(.easeInOut(duration: 0.3), value: true)
+        .if(isPad) { view in
+            view
+                .frame(maxWidth: 600, alignment: .center)
+        }
     }
 }

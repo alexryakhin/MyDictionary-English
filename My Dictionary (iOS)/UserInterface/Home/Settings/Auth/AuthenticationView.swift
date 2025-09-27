@@ -73,7 +73,7 @@ struct AuthenticationView: View {
                 }
                 .frame(height: 56)
                 .disabled(authService.authenticationState == .loading)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .clipShape(.capsule)
 
                 // Google Sign-In Button
                 Button {
@@ -93,13 +93,14 @@ struct AuthenticationView: View {
                 .buttonStyle(.borderedProminent)
                 .frame(height: 56)
                 .disabled(authService.authenticationState == .loading)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .clipShape(.capsule)
                 .shadow(radius: 2)
             }
             .padding(.horizontal, 32)
 
             Spacer()
         }
+        .padding(.horizontal, 16)
         .if(isPad) { view in
             view
                 .frame(maxWidth: 550, alignment: .center)

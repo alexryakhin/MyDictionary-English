@@ -141,6 +141,8 @@ struct SharedWord: Codable, Hashable {
         self.languageCode = word.languageCode
         self.timestamp = word.timestamp
         self.updatedAt = word.updatedAt
+        self.imageUrl = word.imageUrl
+        self.imageLocalPath = word.imageLocalPath
 
         self.addedByEmail = addedByEmail
         self.addedByDisplayName = addedByDisplayName
@@ -254,7 +256,9 @@ struct SharedWord: Codable, Hashable {
             "addedByEmail": addedByEmail,
             "addedAt": Timestamp(date: addedAt),
             "likes": likes,
-            "difficulties": difficulties
+            "difficulties": difficulties,
+            "imageUrl": imageUrl ?? "",
+            "imageLocalPath": imageLocalPath ?? ""
         ]
         
         if let addedByDisplayName = addedByDisplayName {
@@ -322,6 +326,10 @@ struct SharedWord: Codable, Hashable {
         let likes = data["likes"] as? [String: Bool] ?? [:]
         let difficulties = data["difficulties"] as? [String: Int] ?? [:]
         
+        // Handle image properties (with defaults for backward compatibility)
+        let imageUrl = (data["imageUrl"] as? String)?.nilIfEmpty
+        let imageLocalPath = (data["imageLocalPath"] as? String)?.nilIfEmpty
+        
         return SharedWord(
             id: id,
             wordItself: wordItself,
@@ -336,7 +344,9 @@ struct SharedWord: Codable, Hashable {
             addedByDisplayName: addedByDisplayName,
             addedAt: addedAt.dateValue(),
             likes: likes,
-            difficulties: difficulties
+            difficulties: difficulties,
+            imageUrl: imageUrl,
+            imageLocalPath: imageLocalPath
         )
     }
 }

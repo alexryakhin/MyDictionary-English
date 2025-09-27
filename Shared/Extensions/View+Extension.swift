@@ -229,7 +229,7 @@ enum GlassEffect {
 extension View {
     @ViewBuilder
     func glassEffectIfAvailable(
-        _ glass: GlassEffect = .clear,
+        _ glass: GlassEffect = .regular,
         in shape: some Shape = RoundedRectangle(cornerRadius: 16)
     ) -> some View {
         if #available(iOS 26.0, macOS 26.0, *) {
@@ -241,7 +241,7 @@ extension View {
 
     @ViewBuilder
     func glassBackgroundEffectIfAvailable(
-        _ glass: GlassEffect = .clear,
+        _ glass: GlassEffect = .regular,
         in shape: some Shape = RoundedRectangle(cornerRadius: 16)
     ) -> some View {
         if #available(iOS 26.0, macOS 26.0, *) {

@@ -21,6 +21,8 @@ struct SharedWordDetailsView: View {
     @State private var showingMeaningsList: Bool = false
     @State private var meaningToEdit: SharedWordMeaning?
     @State private var image: Image?
+    @State private var scrollOffset: CGFloat = .zero
+    @State private var shouldHaveNavigationTitle: Bool = false
     @State private var showingImageSelection = false
     @State private var showingImageOnboarding = false
     @StateObject private var subscriptionService = SubscriptionService.shared
@@ -63,22 +65,22 @@ struct SharedWordDetailsView: View {
     }
 
     var body: some View {
-        ScrollViewWithCustomNavBar {
+        ScrollViewWithReader(scrollOffset: $scrollOffset) {
             VStack(spacing: 0) {
                 // Hero Image Section (only show if user is pro)
                 if let image, subscriptionService.isProUser {
                     heroImageView(image: image)
                         .overlay(alignment: .bottom) {
                             wordHeaderView
-                                .padding(.horizontal, 28)
+                                .padding(.horizontal, 16)
                                 .padding(.bottom, 12)
                         }
                 }
                 
                 // Content Sections
-                LazyVStack(spacing: 12) {
-                    if !hasImageAvailable {
-                        // Image Section (only show if no image exists)
+                LazyVStack(spacing: 8) {
+                    if !hasImageAvailable && canEdit {
+                        // Image Section (only show if no image exists and user can edit)
                         imageSectionView
                     } else if hasImageAvailable && !subscriptionService.isProUser {
                         // Image Premium Section (show if image exists but user is not pro)
@@ -92,23 +94,36 @@ struct SharedWordDetailsView: View {
                     languageSectionView
                     collaborativeFeaturesSection
                     
-                    // Remove Image Button (only show if image exists and user is pro)
-                    if hasImageAvailable && subscriptionService.isProUser {
+                    // Remove Image Button (only show if image exists and user can edit)
+                    if hasImageAvailable && canEdit && subscriptionService.isProUser {
                         removeImageButton
                     }
                 }
                 .padding(12)
                 .animation(.default, value: word)
             }
-        } navigationBar: {
+        }
+        .safeAreaInset(edge: .top) {
             Text(word.wordItself)
                 .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundStyle(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .multilineTextAlignment(.leading)
-                .bold()
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
                 .padding(.top, 16)
+                .background {
+                    VStack(spacing: 0) {
+                        Color.clear
+                            .glassBackgroundEffectIfAvailable(.regular, in: .rect)
+                            .if(isGlassAvailable == false) {
+                                $0.background(.ultraThinMaterial)
+                            }
+                        Divider()
+                    }
+                    .opacity(shouldHaveNavigationTitle ? 1 : 0)
+                }
+                .opacity(shouldHaveNavigationTitle ? 1 : 0)
         }
         .groupedBackground()
         .navigationTitle(Loc.Navigation.wordDetails)
@@ -152,9 +167,20 @@ struct SharedWordDetailsView: View {
                 word: word.wordItself,
                 language: .english,
                 onImageSelected: { imageUrl, localPath in
-                    word.imageUrl = imageUrl
-                    word.imageLocalPath = localPath
-                    // Save to shared dictionary if needed
+                    // Update the word with the new image
+                    var updatedWord = word
+                    updatedWord.imageUrl = imageUrl
+                    updatedWord.imageLocalPath = localPath
+
+                    // Update the image state
+                    if let image = PexelsService.shared.getImageFromLocalPath(localPath) {
+                        self.image = image
+                        shouldHaveNavigationTitle = false
+                    }
+
+                    Task {
+                        await saveWordToFirebase(updatedWord)
+                    }
                 },
                 onDismiss: {
                     showingImageSelection = false
@@ -162,8 +188,8 @@ struct SharedWordDetailsView: View {
             )
         }
         .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
-        .onAppear {
-            loadImage()
+        .task {
+            await loadImage()
             // Start real-time listener for this specific word
             dictionaryService.startSharedWordListener(
                 dictionaryId: dictionaryId,
@@ -179,6 +205,16 @@ struct SharedWordDetailsView: View {
                     self.definitionText = updatedWord.definition
                     self.notesText = updatedWord.notes ?? ""
                 }
+            }
+        }
+        .onChange(of: scrollOffset) { newValue in
+            guard hasImageAvailable && subscriptionService.isProUser else {
+                shouldHaveNavigationTitle = true
+                return
+            }
+            let topOffset: CGFloat = 200
+            withAnimation {
+                shouldHaveNavigationTitle = newValue <= -topOffset
             }
         }
         .onDisappear {
@@ -722,10 +758,13 @@ extension SharedWordDetailsView {
             .clippedWithPaddingAndBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
         }
     }
-    
-    // MARK: - Hero Image Views
-    
-    private func heroImageView(image: Image) -> some View {
+}
+
+// MARK: - Hero Image Views
+
+private extension SharedWordDetailsView {
+
+    func heroImageView(image: Image) -> some View {
         GeometryReader { geometry in
             let offset = geometry.frame(in: .global).minY
             let height = max(200, 200 + offset)
@@ -751,7 +790,7 @@ extension SharedWordDetailsView {
     }
     
     @ViewBuilder
-    private var wordHeaderView: some View {
+    var wordHeaderView: some View {
         Text(word.wordItself)
             .font(.largeTitle)
             .fontWeight(.bold)
@@ -761,66 +800,46 @@ extension SharedWordDetailsView {
     
     // MARK: - Image Related Views
     
-    private var imageSectionView: some View {
+    var imageSectionView: some View {
         CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
             VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    Image(systemName: "photo")
-                        .foregroundStyle(.secondary)
-                        .font(.title2)
+                Text(Loc.WordImages.ImageSection.noImageAddedYet)
+                    .font(.headline)
+                    .foregroundStyle(.primary)
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(Loc.WordImages.ImageSection.noImageAddedYet)
-                            .font(.headline)
-                            .foregroundStyle(.primary)
-
-                        Text(Loc.WordImages.ImageSection.addVisualRepresentation)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-
-                    Spacer()
-                }
+                Text(Loc.WordImages.ImageSection.addVisualRepresentation)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
             }
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
-            Button(Loc.WordImages.ImageSection.addImage) {
+            HeaderButton(Loc.WordImages.ImageSection.addImage, size: .small) {
                 if ImagesOnboardingHelper.shouldShowOnboarding() {
                     showingImageOnboarding = true
                 } else {
                     showingImageSelection = true
                 }
             }
-            .buttonStyle(.borderedProminent)
         }
     }
     
-    private var imagePremiumSectionView: some View {
+    var imagePremiumSectionView: some View {
         CustomSectionView(header: Loc.WordImages.ImageSection.title, headerFontStyle: .stealth) {
             VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    Image(systemName: "photo.fill")
-                        .foregroundStyle(.orange)
-                        .font(.title2)
+                Text(Loc.WordImages.ImagePremium.dontMissOut)
+                    .font(.headline)
+                    .foregroundStyle(.primary)
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(Loc.WordImages.ImagePremium.dontMissOut)
-                            .font(.headline)
-                            .foregroundStyle(.primary)
+                Text(Loc.WordImages.ImagePremium.renewProStatus)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
 
-                        Text(Loc.WordImages.ImagePremium.renewProStatus)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-
-                    Spacer()
-                }
             }
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
         } trailingContent: {
-            Button(Loc.WordImages.ImagePremium.upgradeToPro) {
+            HeaderButton(Loc.WordImages.ImagePremium.upgradeToPro, size: .small, style: .borderedProminent) {
                 AnalyticsService.shared.logEvent(.imagePaywallShown, parameters: [
                     "trigger": "premium_image_access",
                     "word": word.wordItself,
@@ -835,11 +854,10 @@ extension SharedWordDetailsView {
                     }
                 }
             }
-            .buttonStyle(.borderedProminent)
         }
     }
     
-    private var removeImageButton: some View {
+    var removeImageButton: some View {
         Button(Loc.WordImages.ImageSection.removeImage) {
             AlertCenter.shared.showAlert(
                 with: .deleteConfirmation(
@@ -856,7 +874,7 @@ extension SharedWordDetailsView {
         .foregroundStyle(.red)
     }
     
-    private func handleOnboardingCompletion() {
+    func handleOnboardingCompletion() {
         // Check if user is premium
         if subscriptionService.isProUser {
             // User is premium, allow image selection
@@ -881,37 +899,39 @@ extension SharedWordDetailsView {
         }
     }
     
-    private func loadImage() {
+    func loadImage() async {
         // Check if image exists and set state with fallback
         if let imageLocalPath = word.imageLocalPath {
+            shouldHaveNavigationTitle = !subscriptionService.isProUser
+
             print("🔍 [SharedWordDetails] Image path: \(imageLocalPath)")
             print("🌐 [SharedWordDetails] Image URL: \(word.imageUrl ?? "nil")")
 
-            Task {
-                let result = await PexelsService.shared.getImageWithFallback(
-                    localPath: imageLocalPath,
-                    webUrl: word.imageUrl
-                )
+            let result = await PexelsService.shared.getImageWithFallback(
+                localPath: imageLocalPath,
+                webUrl: word.imageUrl
+            )
 
-                await MainActor.run {
-                    if let image = result.image {
-                        print("✅ [SharedWordDetails] Image loaded successfully (with fallback if needed)")
-                        self.image = image
+            await MainActor.run {
+                if let image = result.image {
+                    print("✅ [SharedWordDetails] Image loaded successfully (with fallback if needed)")
+                    self.image = image
 
-                        // Update the word with new relative path if fallback was used
-                        if let newLocalPath = result.newLocalPath {
-                            print("🔄 [SharedWordDetails] Updating with new relative path: \(newLocalPath)")
-                            word.imageLocalPath = newLocalPath
-                        }
-                    } else {
-                        print("❌ [SharedWordDetails] Image failed to load even with fallback")
-                        image = nil
+                    // Update the word with new relative path if fallback was used
+                    if let newLocalPath = result.newLocalPath {
+                        print("🔄 [SharedWordDetails] Updating with new relative path: \(newLocalPath)")
+                        word.imageLocalPath = newLocalPath
                     }
+                } else {
+                    print("❌ [SharedWordDetails] Image failed to load even with fallback")
+                    image = nil
+                    shouldHaveNavigationTitle = true
                 }
             }
         } else {
             print("🔍 [SharedWordDetails] No image path found")
             image = nil
+            shouldHaveNavigationTitle = true
         }
     }
 }
