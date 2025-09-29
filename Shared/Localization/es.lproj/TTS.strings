@@ -138,3 +138,11 @@
 "english_accents.irish" = "Irlandés";
 "english_accents.south_african" = "Sudafricano";
 
+// MARK: - Spanish Accents
+"spanish_accents.castilian" = "Castellano (España)";
+"spanish_accents.mexican" = "Mexicano";
+"spanish_accents.united_states" = "Americano";
+"spanish_accents.colombian" = "Colombiano";
+"spanish_accents.argentine" = "Argentino";
+"spanish_accents.chileno" = "Chileno";
+

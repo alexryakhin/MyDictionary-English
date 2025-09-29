@@ -16,6 +16,7 @@ final class TTSPlayer: NSObject, ObservableObject {
     private var player: AVAudioPlayer?
     private var speechSynthesizer: AVSpeechSynthesizer?
     @AppStorage(UDKeys.selectedEnglishAccent) private var selectedEnglishAccent: EnglishAccent = .american
+    @AppStorage(UDKeys.selectedSpanishAccent) private var selectedSpanishAccent: SpanishAccent = .castilian
     @AppStorage(UDKeys.selectedTTSProvider) var selectedTTSProvider: TTSProvider = .google
     @AppStorage(UDKeys.selectedSpeechifyVoice) var selectedSpeechifyVoice: String = "erik"
     @AppStorage(UDKeys.selectedSpeechifyModel) var selectedSpeechifyModel: SpeechifyModel = .multilingual
@@ -41,9 +42,14 @@ final class TTSPlayer: NSObject, ObservableObject {
     func play(_ text: String, languageCode: String? = nil) async throws {
         guard text.isNotEmpty, !isPlaying else { return }
         let detectedLanguageCode = languageCode ?? LanguageDetector.shared.detectLanguage(for: text).languageCode
-        let selectedAccent = detectedLanguageCode == InputLanguage.english.rawValue
-        ? selectedEnglishAccent.localeCode
-        : detectedLanguageCode
+        let selectedAccent: String
+        if detectedLanguageCode == InputLanguage.english.rawValue {
+            selectedAccent = selectedEnglishAccent.localeCode
+        } else if detectedLanguageCode == InputLanguage.spanish.rawValue {
+            selectedAccent = selectedSpanishAccent.localeCode
+        } else {
+            selectedAccent = detectedLanguageCode
+        }
 
         // Determine which provider to use
         let provider = determineProvider(for: selectedAccent)

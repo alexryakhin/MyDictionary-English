@@ -2370,6 +2370,20 @@ public enum Loc {
       /// Text-to-Speech
       public static let textToSpeech = Loc.tr("TTS", "settings.text_to_speech", fallback: "Text-to-Speech")
     }
+    public enum SpanishAccents {
+      /// Argentine Spanish
+      public static let argentine = Loc.tr("TTS", "spanish_accents.argentine", fallback: "Argentine Spanish")
+      /// Castilian Spanish (Spain)
+      public static let castilian = Loc.tr("TTS", "spanish_accents.castilian", fallback: "Castilian Spanish (Spain)")
+      /// Chilean Spanish
+      public static let chileno = Loc.tr("TTS", "spanish_accents.chileno", fallback: "Chilean Spanish")
+      /// Colombian Spanish
+      public static let colombian = Loc.tr("TTS", "spanish_accents.colombian", fallback: "Colombian Spanish")
+      /// Mexican Spanish
+      public static let mexican = Loc.tr("TTS", "spanish_accents.mexican", fallback: "Mexican Spanish")
+      /// US Spanish
+      public static let unitedStates = Loc.tr("TTS", "spanish_accents.united_states", fallback: "US Spanish")
+    }
     public enum Usage {
       /// Monthly Limit
       public static let monthlyLimit = Loc.tr("TTS", "usage.monthly_limit", fallback: "Monthly Limit")

@@ -47,6 +47,7 @@ enum UDKeys {
     static let hasShownCoffeeThisWeek = "hasShownCoffeeThisWeek"
     static let sessionStartTime = "sessionStartTime"
     static let selectedEnglishAccent = "selectedEnglishAccent"
+    static let selectedSpanishAccent = "selectedSpanishAccent"
 
     // Firebase Settings
     static let deviceID = "DeviceID"
@@ -252,6 +253,11 @@ enum UDService {
     static var selectedEnglishAccent: String? {
         get { UserDefaults.standard.string(forKey: UDKeys.selectedEnglishAccent) }
         set { UserDefaults.standard.set(newValue, forKey: UDKeys.selectedEnglishAccent) }
+    }
+    
+    static var selectedSpanishAccent: String? {
+        get { UserDefaults.standard.string(forKey: UDKeys.selectedSpanishAccent) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.selectedSpanishAccent) }
     }
 
     // Firebase Settings
