@@ -192,6 +192,7 @@ enum AnalyticsEvent: String {
     case imageOnboardingSkipped
     case imageSelectionOpened
     case imageSearchPerformed
+    case imageLoadMorePerformed
     case imageSelected
     case imageDownloaded
     case imageRemoved

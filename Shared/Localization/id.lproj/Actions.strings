@@ -58,3 +58,5 @@
 "name" = "Nama";
 "loading" = "Memuat...";
 "retry" = "Coba lagi";
+"load_more" = "Muat lebih";
+"loading_more" = "Memuat...";

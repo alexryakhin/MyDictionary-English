@@ -33,8 +33,8 @@
 "export_successful" = "導出成功";
 "upload_successful" = "上傳成功";
 "download_successful" = "下載成功";
-"daily_reminders_description" = "如果當天未打開應用，將在晚上8點收到提醒";
-"difficult_words_description" = "在下午4點收到提醒以練習困難單詞";
+"daily_reminders_description" = "如果未打開應用，將收到提醒";
+"difficult_words_description" = "收到提醒以練習困難單詞";
 "free_users_export_limit" = "免費用戶最多可導出 %d 個單詞";
 "app_version" = "應用版本：";
 "about_app_description" = "我創建這個應用是因為我找不到想要的。\n\n它是一個簡單的單詞列表管理器，允許你搜索單詞並添加其定義，而無需翻譯成母語。\n\n我認為這是學習英語的最佳方式。希望它對你也有用。\n\n如果有任何問題或想建議功能，請通過下面的鏈接聯繫我。感謝使用我的應用！";

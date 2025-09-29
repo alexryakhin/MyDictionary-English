@@ -33,10 +33,10 @@ final class NotificationService {
         content.body = Loc.Notifications.practiceVocabularyToday
         content.sound = .default
         
-        // Schedule for 8:00 PM today (only if user hasn't opened app today)
-        var dateComponents = DateComponents()
-        dateComponents.hour = 20 // 8 PM
-        dateComponents.minute = 0
+        // Schedule using user's preferred time from UserDefaults
+        let userTime = UDService.dailyRemindersTime
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([.hour, .minute], from: userTime)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         let request = UNNotificationRequest(identifier: "daily-reminder", content: content, trigger: trigger)
@@ -54,10 +54,10 @@ final class NotificationService {
         content.body = Loc.Notifications.difficultWordsChallenge
         content.sound = .default
         
-        // Schedule for 4:00 PM today
-        var dateComponents = DateComponents()
-        dateComponents.hour = 16 // 4 PM
-        dateComponents.minute = 0
+        // Schedule using user's preferred time from UserDefaults
+        let userTime = UDService.difficultWordsTime
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([.hour, .minute], from: userTime)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         let request = UNNotificationRequest(identifier: "difficult-words-reminder", content: content, trigger: trigger)
@@ -93,7 +93,7 @@ final class NotificationService {
                 }
             }
             
-            // Check for difficult words and schedule 4 PM reminder if enabled
+            // Check for difficult words and schedule reminder if enabled
             if difficultWordsEnabled {
                 let wordProgress = quizAnalyticsService.getWordProgress()
                 let difficultWords = wordProgress.filter { $0.masteryLevel == "needReview" }

@@ -33,8 +33,8 @@
 "export_successful" = "Eksport vellykket";
 "upload_successful" = "Upload vellykket";
 "download_successful" = "Download vellykket";
-"daily_reminders_description" = "Modtag en påmindelse kl. 20:00, hvis du ikke har åbnet appen";
-"difficult_words_description" = "Modtag en påmindelse kl. 16:00 om at øve svære ord";
+"daily_reminders_description" = "Modtag en påmindelse, hvis du ikke har åbnet appen";
+"difficult_words_description" = "Modtag en påmindelse om at øve svære ord";
 "free_users_export_limit" = "Gratis brugere kan eksportere op til %d ord";
 "app_version" = "Appversion:";
 "about_app_description" = "Jeg skabte denne app, fordi jeg ikke kunne finde, hvad jeg ledte efter.\n\nDet er en simpel ordlistehåndtering, der lader dig søge efter ord og tilføje deres definitioner uden oversættelse til dit modersmål.\n\nJeg tror, det er den bedste måde at lære engelsk på. Jeg håber, det vil være nyttigt for dig også.\n\nHvis du har spørgsmål eller ønsker at foreslå en funktion, så kontakt mig via nedenstående links. Tak fordi du bruger min app!";

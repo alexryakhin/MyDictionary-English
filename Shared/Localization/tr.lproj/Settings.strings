@@ -33,8 +33,8 @@
 "export_successful" = "Dışa Aktarma Başarılı";
 "upload_successful" = "Yükleme Başarılı";
 "download_successful" = "İndirme Başarılı";
-"daily_reminders_description" = "O gün uygulamayı açmadıysanız saat 20:00'de hatırlatma alın";
-"difficult_words_description" = "Zor kelimeleri çalışmak için saat 16:00'da hatırlatma alın";
+"daily_reminders_description" = "Uygulamayı açmadıysanız hatırlatma alın";
+"difficult_words_description" = "Zor kelimeleri çalışmak için hatırlatma alın";
 "free_users_export_limit" = "Ücretsiz plan kullanıcıları en fazla %d kelime dışa aktarabilir";
 "app_version" = "Uygulama Sürümü:";
 "about_app_description" = "Bu uygulamayı aradığımı bulamadığım için oluşturdum.\n\nBu, kelimeleri aramanıza ve ana dilinize çevirmeden tanımlar eklemenize olanak tanıyan basit bir kelime listesi yöneticisidir.\n\nİngilizce öğrenmenin en iyi yolu olduğuna inanıyorum. Umarım faydalı bulursunuz.\n\nSorularınız varsa veya özellik önerilerinde bulunmak isterseniz, aşağıdaki bağlantılardan bana ulaşın. Uygulamamı kullandığınız için teşekkürler!";

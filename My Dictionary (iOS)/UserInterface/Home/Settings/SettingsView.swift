@@ -33,10 +33,7 @@ struct SettingsView: View {
 
                 // MARK: - Notifications
 
-                CustomSectionView(
-                    header: Loc.Settings.notifications,
-                    footer: Loc.Settings.dailyRemindersDescription
-                ) {
+                CustomSectionView(header: Loc.Settings.notifications) {
                     VStack(spacing: 8) {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
@@ -46,6 +43,13 @@ struct SettingsView: View {
                                 Text(Loc.Settings.dailyRemindersDescription)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
+                                DatePicker(
+                                    "",
+                                    selection: $viewModel.dailyRemindersTime,
+                                    displayedComponents: .hourAndMinute
+                                )
+                                .datePickerStyle(.compact)
+                                .labelsHidden()
                             }
 
                             Spacer()
@@ -67,6 +71,13 @@ struct SettingsView: View {
                                 Text(Loc.Settings.difficultWordsDescription)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
+                                DatePicker(
+                                    "",
+                                    selection: $viewModel.difficultWordsTime,
+                                    displayedComponents: .hourAndMinute
+                                )
+                                .datePickerStyle(.compact)
+                                .labelsHidden()
                             }
 
                             Spacer()
@@ -80,7 +91,6 @@ struct SettingsView: View {
                         .padding(vertical: 12, horizontal: 16)
                         .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
                     }
-                    .padding(.bottom, 12)
                 }
 
                 // MARK: - Subscription
@@ -129,6 +139,7 @@ struct SettingsView: View {
                             RoundedRectangle(cornerRadius: 12)
                                 .stroke(Color.yellow.opacity(0.3), lineWidth: 1)
                         )
+                        .padding(.bottom, 12)
                     }
                 }
 

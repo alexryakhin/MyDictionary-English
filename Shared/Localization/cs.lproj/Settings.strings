@@ -33,8 +33,8 @@
 "export_successful" = "Export úspěšný";
 "upload_successful" = "Nahrání úspěšné";
 "download_successful" = "Stažení úspěšné";
-"daily_reminders_description" = "Obdržíte připomínku v 20:00, pokud jste ten den aplikaci neotevřeli";
-"difficult_words_description" = "Obdržíte připomínku v 16:00 k procvičování obtížných slov";
+"daily_reminders_description" = "Obdržíte připomínku, pokud jste aplikaci neotevřeli";
+"difficult_words_description" = "Obdržíte připomínku k procvičování obtížných slov";
 "free_users_export_limit" = "Uživatelé bezplatného plánu mohou exportovat až %d slov";
 "app_version" = "Verze aplikace:";
 "about_app_description" = "Vytvořil jsem tuto aplikaci, protože jsem nenašel to, co jsem hledal.\n\nJe to jednoduchý správce seznamu slov, který vám umožňuje vyhledávat slova a přidávat jejich definice bez překladu do mateřského jazyka.\n\nMyslím, že je to nejlepší způsob, jak se učit angličtinu. Doufám, že to bude užitečné i pro vás.\n\nPokud máte nějaké otázky nebo chcete navrhnout funkci, kontaktujte mě prostřednictvím odkazů níže. Děkuji, že používáte mou aplikaci!";

@@ -12,8 +12,15 @@ struct ImageSelectionView: View {
     enum ScreenState {
         case initial
         case loading
-        case photosAvailable([PexelsPhoto])
+        case content
         case error(String)
+    }
+
+    struct ContentModel {
+        var pexelsPhotos: [PexelsPhoto]
+        var hasMorePages: Bool
+        var isLoadingMore: Bool
+        var currentPage: Int
     }
 
     private let pexelsService = PexelsService.shared
@@ -22,6 +29,7 @@ struct ImageSelectionView: View {
     @State private var language: InputLanguage = .english
     @State private var screenState: ScreenState = .initial
     @State private var selectedPhoto: PexelsPhoto?
+    @State private var content: ContentModel?
 
     let word: String
     let onImageSelected: (String, String) -> Void // (imageUrl, localPath)
@@ -59,21 +67,36 @@ struct ImageSelectionView: View {
                         .foregroundStyle(.secondary)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-            case .photosAvailable(let photos):
-                if photos.isNotEmpty {
-                    LazyVGrid(columns: [
-                        GridItem(.flexible(), spacing: 8),
-                        GridItem(.flexible(), spacing: 8),
-                        GridItem(.flexible(), spacing: 8)
-                    ], spacing: 8) {
-                        ForEach(photos) { photo in
-                            ImageThumbnailView(
-                                photo: photo,
-                                isSelected: selectedPhoto?.id == photo.id,
-                                onTap: {
-                                    selectedPhoto = photo
-                                }
-                            )
+            case .content:
+                if let content, content.pexelsPhotos.isNotEmpty {
+                    VStack(spacing: 12) {
+                        LazyVGrid(columns: [
+                            GridItem(.flexible(), spacing: 8),
+                            GridItem(.flexible(), spacing: 8),
+                            GridItem(.flexible(), spacing: 8)
+                        ], spacing: 8) {
+                            ForEach(content.pexelsPhotos) { photo in
+                                ImageThumbnailView(
+                                    photo: photo,
+                                    isSelected: selectedPhoto?.id == photo.id,
+                                    onTap: {
+                                        selectedPhoto = photo
+                                    }
+                                )
+                            }
+                        }
+                        if content.isLoadingMore {
+                            HStack {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                                Text(Loc.Actions.loadingMore)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        } else if content.hasMorePages {
+                            HeaderButton(Loc.Actions.loadMore, icon: "plus.circle") {
+                                loadMoreImages()
+                            }
                         }
                     }
                     .padding()
@@ -152,22 +175,66 @@ struct ImageSelectionView: View {
 
         Task { @MainActor in
             do {
-                let results = try await pexelsService.searchImages(
+                let response = try await pexelsService.searchImages(
                     query: searchQuery,
                     language: language,
                     perPage: 15,
-                    orientation: "landscape"
+                    orientation: "landscape",
+                    page: 1
                 )
                 
                 // Log search analytics
                 AnalyticsService.shared.logEvent(.imageSearchPerformed, parameters: [
                     "search_query": searchQuery,
-                    "results_count": results.count,
+                    "results_count": response.photos.count,
+                    "total_results": response.totalResults,
                     "language": language.rawValue,
                     "word": word
                 ])
+
+                content = .init(
+                    pexelsPhotos: response.photos,
+                    hasMorePages: response.nextPage != nil,
+                    isLoadingMore: false,
+                    currentPage: response.page
+                )
+                screenState = .content
+            } catch {
+                screenState = .error(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func loadMoreImages() {
+        guard let content, content.isLoadingMore == false else { return }
+
+        self.content?.isLoadingMore = true
+
+        Task { @MainActor in
+            do {
+                let response = try await pexelsService.searchImages(
+                    query: searchQuery,
+                    language: language,
+                    perPage: 15,
+                    orientation: "landscape",
+                    page: content.currentPage + 1
+                )
                 
-                screenState = .photosAvailable(results)
+                let allPhotos = content.pexelsPhotos + response.photos
+
+                // Log load more analytics
+                AnalyticsService.shared.logEvent(.imageLoadMorePerformed, parameters: [
+                    "search_query": searchQuery,
+                    "page": content.currentPage + 1,
+                    "new_results_count": response.photos.count,
+                    "total_loaded": allPhotos.count,
+                    "language": language.rawValue,
+                    "word": word
+                ])
+
+                self.content?.pexelsPhotos = allPhotos
+                self.content?.isLoadingMore = false
+                self.content?.currentPage = response.page
             } catch {
                 screenState = .error(error.localizedDescription)
             }

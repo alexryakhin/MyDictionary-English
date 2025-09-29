@@ -27,6 +27,8 @@ final class SettingsViewModel: BaseViewModel {
     @Published var exportWordsUrl: URL?
     @Published var showingTagManagement = false
     @Published var showingSharedDictionaries = false
+    @Published var dailyRemindersTime = UDService.dailyRemindersTime
+    @Published var difficultWordsTime = UDService.difficultWordsTime
 
     private let wordsProvider: WordsProvider = .shared
     private let csvManager: CSVManager = .shared
@@ -49,12 +51,22 @@ final class SettingsViewModel: BaseViewModel {
             .receive(on: RunLoop.main)
             .assign(to: \.words, on: self)
             .store(in: &cancellables)
-    }
 
-    // MARK: - Computed Properties
+        $dailyRemindersTime
+            .removeDuplicates()
+            .debounce(for: .seconds(1), scheduler: RunLoop.main)
+            .sink { [weak self] time in
+                self?.updateDailyRemindersTime(time)
+            }
+            .store(in: &cancellables)
 
-    var hasHardWords: Bool {
-        return words.contains { $0.difficultyLevel == .needsReview }
+        $difficultWordsTime
+            .removeDuplicates()
+            .debounce(for: .seconds(1), scheduler: RunLoop.main)
+            .sink { [weak self] time in
+                self?.updateDifficultWordsTime(time)
+            }
+            .store(in: &cancellables)
     }
 
     func exportWords() {
@@ -167,6 +179,36 @@ final class SettingsViewModel: BaseViewModel {
         } else {
             // If both toggles are off, cancel all notifications
             notificationService.cancelAllNotifications()
+        }
+    }
+    
+    func updateDailyRemindersTime(_ newTime: Date) {
+        dailyRemindersTime = newTime
+        UDService.dailyRemindersTime = newTime
+        
+        // Reschedule notifications with new time
+        if dailyRemindersEnabled {
+            Task {
+                let granted = await notificationService.requestPermission()
+                if granted {
+                    notificationService.scheduleNotificationsForToday()
+                }
+            }
+        }
+    }
+    
+    func updateDifficultWordsTime(_ newTime: Date) {
+        difficultWordsTime = newTime
+        UDService.difficultWordsTime = newTime
+        
+        // Reschedule notifications with new time
+        if difficultWordsEnabled {
+            Task {
+                let granted = await notificationService.requestPermission()
+                if granted {
+                    notificationService.scheduleNotificationsForToday()
+                }
+            }
         }
     }
 

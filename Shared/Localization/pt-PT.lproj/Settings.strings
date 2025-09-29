@@ -33,8 +33,8 @@
 "export_successful" = "Exportação Bem-sucedida";
 "upload_successful" = "Carregamento Bem-sucedido";
 "download_successful" = "Descarregamento Bem-sucedido";
-"daily_reminders_description" = "Receba um lembrete às 20:00 se não abrir a aplicação nesse dia";
-"difficult_words_description" = "Receba um lembrete às 16:00 para praticar palavras difíceis";
+"daily_reminders_description" = "Receba um lembrete se não abrir a aplicação";
+"difficult_words_description" = "Receba um lembrete para praticar palavras difíceis";
 "free_users_export_limit" = "Utilizadores do plano gratuito podem exportar até %d palavras";
 "app_version" = "Versão da Aplicação:";
 "about_app_description" = "Criei esta aplicação porque não encontrei o que procurava.\n\nÉ um gestor de listas de palavras simples que permite pesquisar palavras e adicionar definições sem tradução para a sua língua materna.\n\nAcho que esta é a melhor forma de aprender inglês. Espero que a ache útil.\n\nSe tiver dúvidas ou quiser sugerir funcionalidades, contacte-me através dos links abaixo. Obrigado por usar a minha aplicação!";

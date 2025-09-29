@@ -33,8 +33,8 @@
 "export_successful" = "Exportation réussie";
 "upload_successful" = "Téléversement réussi";
 "download_successful" = "Téléchargement réussi";
-"daily_reminders_description" = "Recevez un rappel à 20h00 si vous n'avez pas ouvert l'application ce jour-là";
-"difficult_words_description" = "Recevez un rappel à 16h00 pour pratiquer les mots difficiles";
+"daily_reminders_description" = "Recevez un rappel si vous n'avez pas ouvert l'application";
+"difficult_words_description" = "Recevez un rappel pour pratiquer les mots difficiles";
 "free_users_export_limit" = "Les utilisateurs gratuits peuvent exporter jusqu'à %d mots";
 "app_version" = "Version de l'application :";
 "about_app_description" = "J'ai créé cette application parce que je ne trouvais pas ce que je cherchais.\n\nC'est un gestionnaire de listes de mots simple qui vous permet de rechercher des mots et d'ajouter leurs définitions sans traduction dans votre langue maternelle.\n\nJe pense que c'est la meilleure façon d'apprendre l'anglais. J'espère que cela vous sera utile aussi.\n\nSi vous avez des questions ou souhaitez suggérer une fonctionnalité, contactez-moi via les liens ci-dessous. Merci d'utiliser mon application !";

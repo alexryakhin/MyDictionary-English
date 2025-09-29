@@ -58,3 +58,5 @@
 "name" = "Név";
 "loading" = "Betöltés...";
 "retry" = "Újrapróbálkozás";
+"load_more" = "Több betöltése";
+"loading_more" = "Betöltés...";

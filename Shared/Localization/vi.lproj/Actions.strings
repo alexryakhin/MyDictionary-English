@@ -58,3 +58,5 @@
 "name" = "Tên";
 "loading" = "Đang tải...";
 "retry" = "Thử lại";
+"load_more" = "Tải thêm";
+"loading_more" = "Đang tải...";

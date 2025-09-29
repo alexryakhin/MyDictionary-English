@@ -83,7 +83,7 @@ final class PexelsService {
     
     // MARK: - Image Search
     
-    func searchImages(query: String, language: InputLanguage, perPage: Int = 15, orientation: String = "landscape") async throws -> [PexelsPhoto] {
+    func searchImages(query: String, language: InputLanguage, perPage: Int = 15, orientation: String = "landscape", page: Int = 1) async throws -> PexelsSearchResponse {
         print("🔍 [PexelsService] Starting image search for query: '\(query)' with perPage: \(perPage), orientation: \(orientation)")
         
         guard apiKey.isNotEmpty else {
@@ -96,7 +96,7 @@ final class PexelsService {
         print("🌍 [PexelsService] Final search query: '\(searchQuery)'")
         
         let encodedQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let urlString = "\(baseURL)/search?query=\(encodedQuery)&per_page=\(perPage)&orientation=\(orientation)"
+        let urlString = "\(baseURL)/search?query=\(encodedQuery)&per_page=\(perPage)&orientation=\(orientation)&page=\(page)"
         
         print("🌐 [PexelsService] Request URL: \(urlString)")
         
@@ -127,8 +127,9 @@ final class PexelsService {
         print("📦 [PexelsService] Response data size: \(data.count) bytes")
         let searchResponse = try JSONDecoder().decode(PexelsSearchResponse.self, from: data)
         print("✅ [PexelsService] Successfully decoded \(searchResponse.photos.count) photos from \(searchResponse.totalResults) total results")
+        print("📄 [PexelsService] Current page: \(searchResponse.page), Next page available: \(searchResponse.nextPage != nil)")
         
-        return searchResponse.photos
+        return searchResponse
     }
     
     // MARK: - Image Download and Storage

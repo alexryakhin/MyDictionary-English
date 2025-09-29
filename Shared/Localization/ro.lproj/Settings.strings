@@ -33,8 +33,8 @@
 "export_successful" = "Export Reușit";
 "upload_successful" = "Încărcare Reușită";
 "download_successful" = "Descărcare Reușită";
-"daily_reminders_description" = "Primește un memento la ora 20:00 dacă nu ai deschis aplicația în acea zi";
-"difficult_words_description" = "Primește un memento la ora 16:00 pentru a exersa cuvinte dificile";
+"daily_reminders_description" = "Primește un memento dacă nu ai deschis aplicația";
+"difficult_words_description" = "Primește un memento pentru a exersa cuvinte dificile";
 "free_users_export_limit" = "Utilizatorii planului gratuit pot exporta până la %d cuvinte";
 "app_version" = "Versiune Aplicație:";
 "about_app_description" = "Am creat această aplicație pentru că nu am găsit ce căutam.\n\nEste un manager simplu de liste de cuvinte care îți permite să cauți cuvinte și să adaugi definiții fără traducere în limba maternă.\n\nCred că aceasta este cea mai bună metodă pentru a învăța engleza. Sper să ți se pară utilă.\n\nDacă ai întrebări sau dorești să sugerezi funcționalități, contactează-mă prin linkurile de mai jos. Îți mulțumesc că folosești aplicația mea!";

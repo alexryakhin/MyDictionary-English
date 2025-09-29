@@ -59,3 +59,5 @@
 "name" = "Name";
 "loading" = "Lädt...";
 "retry" = "Wiederholen";
+"load_more" = "Mehr laden";
+"loading_more" = "Lade mehr...";

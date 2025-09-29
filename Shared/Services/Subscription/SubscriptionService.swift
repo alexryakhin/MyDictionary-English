@@ -119,6 +119,10 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     
     // Debug mode for testing premium features locally
     @Published var debugPremiumMode = false
+    
+    // Track purchase state to prevent delegate updates for cancelled purchases
+    private var isPurchaseInProgress = false
+    private var lastPurchaseWasCancelled = false
 
     private var cancellables = Set<AnyCancellable>()
     
@@ -257,6 +261,14 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
         print("🔔 [SubscriptionService] Received RevenueCat customer info update")
         Task { @MainActor in
+            // Don't update subscription status if the last purchase was cancelled
+            if isPurchaseInProgress && lastPurchaseWasCancelled {
+                print("⚠️ [SubscriptionService] Ignoring subscription update - last purchase was cancelled")
+                isPurchaseInProgress = false
+                lastPurchaseWasCancelled = false
+                return
+            }
+            
             // Only update subscription status if user is authenticated
             if AuthenticationService.shared.isSignedIn {
                 updateSubscriptionStatus(customerInfo: customerInfo)
@@ -455,6 +467,8 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
     func purchasePlan(_ plan: SubscriptionPlan) async throws {
         isLoading = true
         errorMessage = nil
+        isPurchaseInProgress = true
+        lastPurchaseWasCancelled = false
 
         do {
             let offerings = try await Purchases.shared.offerings()
@@ -470,7 +484,17 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             }
 
             let response = try await Purchases.shared.purchase(package: package)
+            
+            // Check if purchase was actually successful
+            if response.customerInfo.entitlements.active.isEmpty {
+                // Purchase completed but no active entitlements - treat as cancelled
+                lastPurchaseWasCancelled = true
+                print("⚠️ [SubscriptionService] Purchase completed but no active entitlements - treating as cancelled")
+                throw SubscriptionError.purchaseCancelled
+            }
+            
             updateSubscriptionStatus(customerInfo: response.customerInfo)
+            isPurchaseInProgress = false
 
             print("✅ [SubscriptionService] Successfully purchased \(plan.displayName)")
 
@@ -479,6 +503,12 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
                 print("ℹ️ [SubscriptionService] Anonymous purchase completed - user can register later for cross-platform access")
             }
         } catch {
+            // Mark purchase as cancelled for delegate handling
+            if error.localizedDescription.lowercased().contains("cancel") {
+                lastPurchaseWasCancelled = true
+                print("🍎‼️ Purchase was cancelled.")
+            }
+            
             errorMessage = "Purchase failed: \(error.localizedDescription)"
             print("❌ [SubscriptionService] Purchase failed: \(error)")
             throw error
@@ -690,6 +720,7 @@ enum SubscriptionError: Error, LocalizedError {
     case packageNotFound
     case purchaseFailed
     case restoreFailed
+    case purchaseCancelled
 
     var errorDescription: String? {
         switch self {
@@ -701,6 +732,8 @@ enum SubscriptionError: Error, LocalizedError {
             return Loc.Errors.purchaseFailed
         case .restoreFailed:
             return Loc.Errors.restoreFailed
+        case .purchaseCancelled:
+            return "Purchase was cancelled"
         }
     }
 }

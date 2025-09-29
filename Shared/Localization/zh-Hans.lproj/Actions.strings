@@ -58,3 +58,5 @@
 "name" = "姓名";
 "loading" = "加载中...";
 "retry" = "重试";
+"load_more" = "加载更多";
+"loading_more" = "加载中...";

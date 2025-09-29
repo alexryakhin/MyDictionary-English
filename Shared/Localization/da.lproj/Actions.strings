@@ -58,3 +58,5 @@
 "name" = "Navn";
 "loading" = "Indlæser...";
 "retry" = "Prøv igen";
+"load_more" = "Indlæs mere";
+"loading_more" = "Indlæser...";

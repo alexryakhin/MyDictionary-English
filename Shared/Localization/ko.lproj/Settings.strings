@@ -33,8 +33,8 @@
 "export_successful" = "내보내기 성공";
 "upload_successful" = "업로드 성공";
 "download_successful" = "다운로드 성공";
-"daily_reminders_description" = "그날 앱을 열지 않았다면 오후 8시에 알림을 받습니다";
-"difficult_words_description" = "어려운 단어 연습을 위해 오후 4시에 알림을 받습니다";
+"daily_reminders_description" = "앱을 열지 않았다면 알림을 받습니다";
+"difficult_words_description" = "어려운 단어 연습을 위해 알림을 받습니다";
 "free_users_export_limit" = "무료 사용자는 최대 %d개의 단어를 내보낼 수 있습니다";
 "app_version" = "앱 버전:";
 "about_app_description" = "원하는 앱을 찾지 못해 이 앱을 만들었습니다.\n\n이 앱은 단어 리스트를 관리하는 간단한 앱으로, 모국어 번역 없이 단어를 검색하고 정의를 추가할 수 있습니다.\n\n이것이 영어를 배우는 가장 좋은 방법이라고 생각합니다. 유용하게 사용되길 바랍니다.\n\n질문이나 기능 제안이 있다면 아래 링크로 연락해주세요. 제 앱을 사용해줘서 감사합니다!";

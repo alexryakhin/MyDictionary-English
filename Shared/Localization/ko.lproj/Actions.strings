@@ -58,3 +58,5 @@
 "name" = "이름";
 "loading" = "로딩 중...";
 "retry" = "다시 시도";
+"load_more" = "더 보기";
+"loading_more" = "로딩 중...";

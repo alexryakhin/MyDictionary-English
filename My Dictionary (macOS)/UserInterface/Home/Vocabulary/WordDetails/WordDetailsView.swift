@@ -691,7 +691,12 @@ struct WordDetailsView: View {
     }
     
     private var removeImageButton: some View {
-        Button(Loc.WordImages.ImageSection.removeImage) {
+        HeaderButton(
+            Loc.WordImages.ImageSection.removeImage,
+            color: .red,
+            size: .small,
+            style: .bordered
+        ) {
             AlertCenter.shared.showAlert(
                 with: .deleteConfirmation(
                     title: Loc.WordImages.ImageSection.removeImage,
@@ -709,7 +714,6 @@ struct WordDetailsView: View {
                 )
             )
         }
-        .foregroundStyle(.red)
     }
     
     private func handleOnboardingCompletion() {

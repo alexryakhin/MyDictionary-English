@@ -59,23 +59,18 @@ final class WordCollectionImportService {
         let existingWords = try getExistingWords()
         let existingWordTexts = Set(existingWords.map { $0.lowercased() })
         
-        var addedCount = 0
-        var duplicateCount = 0
-        
-        // Import each word
-        for wordItem in wordsToImport {
+        // Filter out duplicates and prepare words for import
+        let wordsToAdd = wordsToImport.filter { wordItem in
             let wordText = wordItem.text.lowercased()
-            
-            if existingWordTexts.contains(wordText) {
-                duplicateCount += 1
-                continue
-            }
-            
-            try await addWordToDictionary(wordItem: wordItem, collection: collection)
-            addedCount += 1
+            return !existingWordTexts.contains(wordText)
         }
         
-        return WordCollectionImportResult(addedCount: addedCount, duplicateCount: duplicateCount)
+        let duplicateCount = wordsToImport.count - wordsToAdd.count
+        
+        // Batch create all words in the same context
+        try await createWordsBatch(wordsToAdd: wordsToAdd, collection: collection)
+        
+        return WordCollectionImportResult(addedCount: wordsToAdd.count, duplicateCount: duplicateCount)
     }
     
     private func getExistingWords() throws -> [String] {
@@ -86,38 +81,40 @@ final class WordCollectionImportService {
         return words.compactMap { $0.wordItself }
     }
     
-    private func addWordToDictionary(wordItem: WordCollectionItem, collection: WordCollection) async throws {
+    private func createWordsBatch(wordsToAdd: [WordCollectionItem], collection: WordCollection) async throws {
         return try await withCheckedThrowingContinuation { continuation in
             Task {
                 do {
-                    // Create word directly in Core Data to avoid context issues
                     let context = coreDataService.context
                     
-                    let newWord = CDWord(context: context)
-                    newWord.id = UUID()
-                    newWord.wordItself = wordItem.text
-                    newWord.partOfSpeech = wordItem.partOfSpeech.rawValue
-                    newWord.phonetic = wordItem.phonetics
-                    newWord.languageCode = collection.languageCode
-                    newWord.notes = "\(Loc.WordCollections.fromCollection) \(collection.title)"
-                    newWord.timestamp = Date()
-                    newWord.updatedAt = Date()
-                    newWord.isSynced = false
+                    // Create all words and meanings in the same context
+                    for wordItem in wordsToAdd {
+                        let newWord = CDWord(context: context)
+                        newWord.id = UUID()
+                        newWord.wordItself = wordItem.text
+                        newWord.partOfSpeech = wordItem.partOfSpeech.rawValue
+                        newWord.phonetic = wordItem.phonetics
+                        newWord.languageCode = collection.languageCode
+                        newWord.notes = "\(Loc.WordCollections.fromCollection) \(collection.title)"
+                        newWord.timestamp = Date()
+                        newWord.updatedAt = Date()
+                        newWord.isSynced = false
+                        
+                        // Create meaning for the word using the proper create method
+                        let meaning = try CDMeaning.create(
+                            in: context,
+                            definition: wordItem.definition,
+                            examples: wordItem.examples,
+                            order: 0,
+                            for: newWord
+                        )
+                        
+                        // Add meaning to word (this sets up the bidirectional relationship)
+                        newWord.addToMeanings(meaning)
+                    }
                     
-                    // Create meaning for the word using the proper create method
-                    let meaning = try CDMeaning.create(
-                        in: context,
-                        definition: wordItem.definition,
-                        examples: wordItem.examples,
-                        order: 0,
-                        for: newWord
-                    )
-                    
-                    // Add meaning to word
-                    newWord.addToMeanings(meaning)
-                    
-                    // Save context
-                    try context.save()
+                    // Save context once after creating all words
+                    try coreDataService.saveContext()
                     
                     continuation.resume()
                 } catch {

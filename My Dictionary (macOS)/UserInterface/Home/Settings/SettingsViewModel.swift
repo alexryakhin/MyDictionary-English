@@ -16,6 +16,8 @@ final class SettingsViewModel: BaseViewModel {
     @Published var exportWordsUrl: URL?
     @Published var showingTagManagement = false
     @Published var showingSharedDictionaries = false
+    @Published var dailyRemindersTime = UDService.dailyRemindersTime
+    @Published var difficultWordsTime = UDService.difficultWordsTime
 
     private let wordsProvider: WordsProvider = .shared
     private let csvManager: CSVManager = .shared
@@ -37,39 +39,24 @@ final class SettingsViewModel: BaseViewModel {
             .receive(on: RunLoop.main)
             .assign(to: \.words, on: self)
             .store(in: &cancellables)
-    }
 
-    // MARK: - Computed Properties
-
-    var hasHardWords: Bool {
-        return words.contains { $0.difficultyLevel == .needsReview }
-    }
-#if os(iOS)
-    func exportWords() {
-        guard !words.isEmpty else { return }
-
-        let subscriptionService = SubscriptionService.shared
-        guard subscriptionService.canExportWords(words.count) else {
-            errorReceived(
-                CoreError.internalError(.exportLimitExceeded)
-            )
-            return
-        }
-
-        Task { @MainActor in
-            // Use JSON v2.0 format for export
-            do {
-                let jsonData = try JSONImportExportService.shared.exportVocabulary()
-                let fileName = "MyDictionaryExport.json"
-                let filePath = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
-                try jsonData.write(to: filePath)
-                exportWordsUrl = filePath
-            } catch {
-                errorReceived(error)
+        $dailyRemindersTime
+            .removeDuplicates()
+            .debounce(for: .seconds(1), scheduler: RunLoop.main)
+            .sink { [weak self] time in
+                self?.updateDailyRemindersTime(time)
             }
-        }
+            .store(in: &cancellables)
+
+        $difficultWordsTime
+            .removeDuplicates()
+            .debounce(for: .seconds(1), scheduler: RunLoop.main)
+            .sink { [weak self] time in
+                self?.updateDifficultWordsTime(time)
+            }
+            .store(in: &cancellables)
     }
-#elseif os(macOS)
+
     func exportWords() {
         guard !words.isEmpty else { return }
 
@@ -109,7 +96,6 @@ final class SettingsViewModel: BaseViewModel {
             }
         }
     }
-#endif
 
     func importWords(from url: URL) {
         guard url.startAccessingSecurityScopedResource() else {
@@ -230,6 +216,36 @@ final class SettingsViewModel: BaseViewModel {
             ))
         } catch {
             errorReceived(error)
+        }
+    }
+    
+    func updateDailyRemindersTime(_ newTime: Date) {
+        dailyRemindersTime = newTime
+        UDService.dailyRemindersTime = newTime
+        
+        // Reschedule notifications with new time
+        if dailyRemindersEnabled {
+            Task {
+                let granted = await notificationService.requestPermission()
+                if granted {
+                    notificationService.scheduleNotificationsForToday()
+                }
+            }
+        }
+    }
+    
+    func updateDifficultWordsTime(_ newTime: Date) {
+        difficultWordsTime = newTime
+        UDService.difficultWordsTime = newTime
+        
+        // Reschedule notifications with new time
+        if difficultWordsEnabled {
+            Task {
+                let granted = await notificationService.requestPermission()
+                if granted {
+                    notificationService.scheduleNotificationsForToday()
+                }
+            }
         }
     }
 }

@@ -58,3 +58,5 @@
 "name" = "Navn";
 "loading" = "Laster...";
 "retry" = "Prøv igjen";
+"load_more" = "Last mer";
+"loading_more" = "Laster...";

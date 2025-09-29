@@ -33,8 +33,8 @@
 "export_successful" = "Exporteren geslaagd";
 "upload_successful" = "Uploaden geslaagd";
 "download_successful" = "Downloaden geslaagd";
-"daily_reminders_description" = "Ontvang een herinnering om 20:00 uur als je de app die dag niet hebt geopend";
-"difficult_words_description" = "Ontvang een herinnering om 16:00 uur om moeilijke woorden te oefenen";
+"daily_reminders_description" = "Ontvang een herinnering als je de app niet hebt geopend";
+"difficult_words_description" = "Ontvang een herinnering om moeilijke woorden te oefenen";
 "free_users_export_limit" = "Gratis gebruikers kunnen tot %d woorden exporteren";
 "app_version" = "App-versie:";
 "about_app_description" = "Ik heb deze app gemaakt omdat ik niet vond wat ik zocht.\n\nHet is een eenvoudige woordenlijstbeheerder waarmee je woorden kunt opzoeken en hun definities kunt toevoegen zonder vertaling naar je moedertaal.\n\nIk denk dat dit de beste manier is om Engels te leren. Ik hoop dat het ook voor jou nuttig zal zijn.\n\nAls je vragen hebt of een functie wilt voorstellen, neem dan contact met mij op via de onderstaande links. Bedankt voor het gebruiken van mijn app!";

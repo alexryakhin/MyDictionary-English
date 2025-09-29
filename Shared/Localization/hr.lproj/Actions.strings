@@ -58,3 +58,5 @@
 "name" = "Ime";
 "loading" = "Učitavanje...";
 "retry" = "Pokušaj ponovo";
+"load_more" = "Učitaj više";
+"loading_more" = "Učitavanje...";

@@ -33,8 +33,8 @@
 "export_successful" = "Export úspešný";
 "upload_successful" = "Nahranie úspešné";
 "download_successful" = "Stiahnutie úspešné";
-"daily_reminders_description" = "Dostávajte pripomienku o 20:00, ak ste v ten deň neotvorili aplikáciu";
-"difficult_words_description" = "Dostávajte pripomienku o 16:00 na precvičovanie náročných slov";
+"daily_reminders_description" = "Dostávajte pripomienku, ak ste neotvorili aplikáciu";
+"difficult_words_description" = "Dostávajte pripomienku na precvičovanie náročných slov";
 "free_users_export_limit" = "Používatelia bezplatného plánu môžu exportovať až %d slov";
 "app_version" = "Verzia aplikácie:";
 "about_app_description" = "Vytvoril som túto aplikáciu, pretože som nenašiel to, čo som hľadal.\n\nJe to jednoduchý správca zoznamov slov, ktorý vám umožňuje vyhľadávať slová a pridávať definície bez prekladu do vášho rodného jazyka.\n\nMyslím si, že toto je najlepší spôsob, ako sa učiť angličtinu. Dúfam, že vám bude užitočná.\n\nAk máte otázky alebo chcete navrhnúť funkcie, kontaktujte ma cez odkazy nižšie. Ďakujem, že používate moju aplikáciu!";

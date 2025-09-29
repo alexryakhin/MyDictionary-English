@@ -122,13 +122,25 @@ final class PaywallService: ObservableObject {
         paywallCompletionHandler = nil
     }
     
-    /// Called when user completes a purchase
+    /// Called when user successfully completes a purchase
+    /// This should ONLY be called when the purchase was actually successful
     func handlePurchaseCompleted() {
         isShowingPaywall = false
         paywallPresentationReason = nil
 
-        // Call completion handler with true (user subscribed)
+        // Call completion handler with true (user successfully subscribed)
         paywallCompletionHandler?(true)
+        paywallCompletionHandler = nil
+    }
+    
+    /// Called when user cancels or purchase fails
+    /// This should be called when the purchase was cancelled, failed, or rejected
+    func handlePurchaseFailed() {
+        isShowingPaywall = false
+        paywallPresentationReason = nil
+
+        // Call completion handler with false (user didn't subscribe)
+        paywallCompletionHandler?(false)
         paywallCompletionHandler = nil
     }
     

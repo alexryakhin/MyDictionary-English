@@ -17,6 +17,8 @@ enum UDKeys {
     static let dailyRemindersEnabled = "dailyRemindersEnabled"
     static let difficultWordsEnabled = "difficultWordsEnabled"
     static let difficultWordsAlertsEnabled = "difficultWordsAlertsEnabled"
+    static let dailyRemindersTime = "dailyRemindersTime"
+    static let difficultWordsTime = "difficultWordsTime"
 
     // Practice Settings
     static let practiceItemCount = "practiceItemCount"
@@ -98,6 +100,34 @@ enum UDService {
     static var difficultWordsAlertsEnabled: Bool {
         get { UserDefaults.standard.bool(forKey: UDKeys.difficultWordsAlertsEnabled) }
         set { UserDefaults.standard.set(newValue, forKey: UDKeys.difficultWordsAlertsEnabled) }
+    }
+    
+    static var dailyRemindersTime: Date {
+        get {
+            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.dailyRemindersTime)
+            // Default to 8:00 PM if no time is set
+            if timeInterval == 0 {
+                let calendar = Calendar.current
+                let defaultTime = calendar.date(bySettingHour: 20, minute: 0, second: 0, of: Date()) ?? Date()
+                return defaultTime
+            }
+            return Date(timeIntervalSince1970: timeInterval)
+        }
+        set { UserDefaults.standard.set(newValue.timeIntervalSince1970, forKey: UDKeys.dailyRemindersTime) }
+    }
+    
+    static var difficultWordsTime: Date {
+        get {
+            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.difficultWordsTime)
+            // Default to 4:00 PM if no time is set
+            if timeInterval == 0 {
+                let calendar = Calendar.current
+                let defaultTime = calendar.date(bySettingHour: 16, minute: 0, second: 0, of: Date()) ?? Date()
+                return defaultTime
+            }
+            return Date(timeIntervalSince1970: timeInterval)
+        }
+        set { UserDefaults.standard.set(newValue.timeIntervalSince1970, forKey: UDKeys.difficultWordsTime) }
     }
 
     // Practice Settings

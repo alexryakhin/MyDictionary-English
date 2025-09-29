@@ -58,3 +58,5 @@
 "name" = "Meno";
 "loading" = "Načítava sa...";
 "retry" = "Skúsiť znova";
+"load_more" = "Načítať viac";
+"loading_more" = "Načítava sa...";

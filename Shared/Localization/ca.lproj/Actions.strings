@@ -58,3 +58,5 @@
 "name" = "Nom";
 "loading" = "Carregant...";
 "retry" = "Tornar a provar";
+"load_more" = "Carregar més";
+"loading_more" = "Carregant...";

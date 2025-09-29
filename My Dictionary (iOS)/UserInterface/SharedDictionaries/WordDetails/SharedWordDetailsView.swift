@@ -140,6 +140,7 @@ struct SharedWordDetailsView: View {
                     HeaderButton(icon: "chevron.left") {
                         dismiss()
                     }
+                    .background(in: .capsule)
 
                     Spacer()
 
@@ -150,12 +151,14 @@ struct SharedWordDetailsView: View {
                         ) {
                             showDeleteAlert()
                         }
+                        .background(in: .capsule)
                         let isFavorite: Bool = word.isLikedBy(authenticationService.userEmail ?? "")
                         HeaderButton(
                             icon: isFavorite ? "heart.fill" : "heart",
                         ) {
                             toggleLike()
                         }
+                        .background(in: .capsule)
                     }
                 }
                 .padding(vertical: 12, horizontal: 16)
@@ -599,14 +602,14 @@ struct SharedWordDetailsView: View {
     }
 
     private var removeImageButton: some View {
-        Button {
+        HeaderButton(
+            Loc.WordImages.ImageSection.removeImage,
+            color: .red,
+            size: .small,
+            style: .bordered
+        ) {
             removeImage()
-        } label: {
-            Text(Loc.WordImages.ImageSection.removeImage)
-                .font(.caption)
-                .foregroundStyle(.secondary)
         }
-        .frame(maxWidth: .infinity, alignment: .center)
         .padding(.top, 8)
     }
 

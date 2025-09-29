@@ -33,8 +33,8 @@
 "export_successful" = "Export erfolgreich";
 "upload_successful" = "Hochladen erfolgreich";
 "download_successful" = "Herunterladen erfolgreich";
-"daily_reminders_description" = "Erhalten Sie eine Erinnerung um 20:00 Uhr, wenn Sie die App an diesem Tag nicht geöffnet haben";
-"difficult_words_description" = "Erhalten Sie eine Erinnerung um 16:00 Uhr, um schwierige Wörter zu üben";
+"daily_reminders_description" = "Erhalten Sie eine Erinnerung, wenn Sie die App nicht geöffnet haben";
+"difficult_words_description" = "Erhalten Sie eine Erinnerung, um schwierige Wörter zu üben";
 "free_users_export_limit" = "Kostenlose Benutzer können bis zu %d Wörter exportieren";
 "app_version" = "App-Version:";
 "about_app_description" = "Ich habe diese App entwickelt, weil ich nicht fand, was ich suchte.\n\nEs ist ein einfacher Wortlisten-Manager, mit dem Sie Wörter nachschlagen und deren Definitionen ohne Übersetzung in Ihre Muttersprache hinzufügen können.\n\nIch denke, dies ist der beste Weg, Englisch zu lernen. Ich hoffe, es wird auch für Sie nützlich sein.\n\nWenn Sie Fragen haben oder eine Funktion vorschlagen möchten, kontaktieren Sie mich über die untenstehenden Links. Vielen Dank, dass Sie meine App verwenden!";

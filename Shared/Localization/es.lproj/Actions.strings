@@ -59,3 +59,5 @@
 "name" = "Nombre";
 "loading" = "Cargando...";
 "retry" = "Reintentar";
+"load_more" = "Cargar más";
+"loading_more" = "Cargando más...";

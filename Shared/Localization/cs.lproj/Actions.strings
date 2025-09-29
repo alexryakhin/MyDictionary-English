@@ -58,3 +58,5 @@
 "name" = "Jméno";
 "loading" = "Načítání...";
 "retry" = "Zkusit znovu";
+"load_more" = "Načíst více";
+"loading_more" = "Načítání...";

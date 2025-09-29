@@ -58,3 +58,5 @@
 "name" = "Ad";
 "loading" = "Yükleniyor...";
 "retry" = "Tekrar dene";
+"load_more" = "Daha fazla yükle";
+"loading_more" = "Yükleniyor...";

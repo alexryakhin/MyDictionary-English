@@ -33,8 +33,8 @@
 "export_successful" = "エクスポート成功";
 "upload_successful" = "アップロード成功";
 "download_successful" = "ダウンロード成功";
-"daily_reminders_description" = "その日アプリを開いていない場合、20:00にリマインダーを受け取る";
-"difficult_words_description" = "難しい単語の練習のために16:00にリマインダーを受け取る";
+"daily_reminders_description" = "アプリを開いていない場合にリマインダーを受け取る";
+"difficult_words_description" = "難しい単語の練習のためにリマインダーを受け取る";
 "free_users_export_limit" = "無料ユーザーは最大%d単語をエクスポート可能";
 "app_version" = "アプリバージョン：";
 "about_app_description" = "私は求めていたものが見つからなかったので、このアプリを作成しました。\n\nこれは単語リストを管理するシンプルなアプリで、母国語への翻訳なしで単語を検索し定義を追加できます。\n\nこれが英語を学ぶ最良の方法だと考えています。役に立つことを願っています。\n\n質問や機能の提案があれば、以下のリンクからご連絡ください。私のアプリを使ってくれてありがとう！";

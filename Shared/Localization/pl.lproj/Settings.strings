@@ -33,8 +33,8 @@
 "export_successful" = "Eksport zakończony sukcesem";
 "upload_successful" = "Przesyłanie zakończone sukcesem";
 "download_successful" = "Pobieranie zakończone sukcesem";
-"daily_reminders_description" = "Otrzymuj przypomnienie o 20:00, jeśli nie otworzyłeś aplikacji tego dnia";
-"difficult_words_description" = "Otrzymuj przypomnienie o 16:00, aby ćwiczyć trudne słowa";
+"daily_reminders_description" = "Otrzymuj przypomnienie, jeśli nie otworzyłeś aplikacji";
+"difficult_words_description" = "Otrzymuj przypomnienie, aby ćwiczyć trudne słowa";
 "free_users_export_limit" = "Użytkownicy darmowego planu mogą eksportować do %d słów";
 "app_version" = "Wersja aplikacji:";
 "about_app_description" = "Stworzyłem tę aplikację, ponieważ nie znalazłem tego, czego szukałem.\n\nTo prosty menedżer list słów, który pozwala wyszukiwać słowa i dodawać definicje bez tłumaczenia na język ojczysty.\n\nMyślę, że to najlepszy sposób na naukę angielskiego. Mam nadzieję, że uznasz ją za przydatną.\n\nJeśli masz pytania lub chcesz zaproponować funkcje, skontaktuj się ze mną za pośrednictwem poniższych linków. Dziękuję za korzystanie z mojej aplikacji!";

@@ -856,7 +856,12 @@ private extension SharedWordDetailsView {
     }
     
     var removeImageButton: some View {
-        Button(Loc.WordImages.ImageSection.removeImage) {
+        HeaderButton(
+            Loc.WordImages.ImageSection.removeImage,
+            color: .red,
+            size: .small,
+            style: .bordered
+        ) {
             AlertCenter.shared.showAlert(
                 with: .deleteConfirmation(
                     title: Loc.WordImages.ImageSection.removeImage,
@@ -869,7 +874,6 @@ private extension SharedWordDetailsView {
                 )
             )
         }
-        .foregroundStyle(.red)
     }
     
     func handleOnboardingCompletion() {

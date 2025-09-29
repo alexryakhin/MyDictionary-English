@@ -58,3 +58,5 @@
 "name" = "Nimi";
 "loading" = "Ladataan...";
 "retry" = "Yritä uudelleen";
+"load_more" = "Lataa lisää";
+"loading_more" = "Ladataan...";

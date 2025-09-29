@@ -362,9 +362,12 @@ struct AdvancedPaywallView: View {
 
         do {
             try await subscriptionService.purchasePlan(plan)
+            // Only call handlePurchaseCompleted if purchase was successful
             paywallService.handlePurchaseCompleted()
             dismiss()
         } catch {
+            // Purchase failed or was cancelled - call handlePurchaseFailed
+            paywallService.handlePurchaseFailed()
             errorReceived(error)
         }
 

@@ -81,9 +81,21 @@ struct QuizResultRow: View {
     let session: CDQuizSession
 
     var body: some View {
-        HStack {
+        HStack(spacing: 12) {
+            // Quiz Icon
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(quizColor.gradient)
+                    .frame(width: 36, height: 36)
+                    .glassEffectIfAvailable(.regular, in: .rect(cornerRadius: 8))
+
+                Image(systemName: quizIconName)
+                    .font(.system(size: 20, weight: .medium))
+                    .foregroundStyle(.white)
+            }
+
             VStack(alignment: .leading, spacing: 4) {
-                Text(session.quiz?.title ?? "")
+                Text(session.quiz?.title ?? quizTitleFromType)
                     .font(.body)
                     .fontWeight(.medium)
 
@@ -107,5 +119,81 @@ struct QuizResultRow: View {
         }
         .padding(12)
         .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 12)
+    }
+    
+    // MARK: - Helper Properties
+    
+    private var quizTitleFromType: String {
+        if let quizType = session.quizType {
+            switch quizType {
+            case "sentence_writing":
+                return Loc.Quizzes.QuizTypes.sentenceWriting
+            case "context_multiple_choice":
+                return Loc.Quizzes.QuizTypes.contextMultipleChoice
+            case "fill_in_the_blank":
+                return Loc.Quizzes.QuizTypes.fillInTheBlank
+            case "spelling":
+                return Loc.Quizzes.QuizTypes.spellingQuiz
+            case "definition":
+                return Loc.Quizzes.QuizTypes.chooseDefinition
+            default:
+                return quizType.capitalized
+            }
+        }
+        return ""
+    }
+    
+    private var quizIconName: String {
+        // First try to get the icon from the Quiz enum
+        if let quiz = session.quiz {
+            return quiz.iconName
+        }
+        
+        // If that fails, try to map the quizType string to an icon
+        if let quizType = session.quizType {
+            switch quizType {
+            case "sentence_writing":
+                return "text.bubble"
+            case "context_multiple_choice":
+                return "questionmark.circle"
+            case "fill_in_the_blank":
+                return "textformat.abc"
+            case "spelling":
+                return "pencil.and.outline"
+            case "definition":
+                return "list.bullet.circle"
+            default:
+                return "questionmark.circle"
+            }
+        }
+        
+        return "questionmark.circle"
+    }
+    
+    private var quizColor: Color {
+        // First try to get the color from the Quiz enum
+        if let quiz = session.quiz {
+            return quiz.color
+        }
+        
+        // If that fails, try to map the quizType string to a color
+        if let quizType = session.quizType {
+            switch quizType {
+            case "sentence_writing":
+                return .green
+            case "context_multiple_choice":
+                return .orange
+            case "fill_in_the_blank":
+                return .purple
+            case "spelling":
+                return .blue
+            case "definition":
+                return .accent
+            default:
+                return .gray
+            }
+        }
+        
+        return .gray
     }
 }

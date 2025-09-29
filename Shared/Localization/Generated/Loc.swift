@@ -51,8 +51,12 @@ public enum Loc {
     public static let linkGoogle = Loc.tr("Actions", "link_google", fallback: "Link Google")
     /// Listen
     public static let listen = Loc.tr("Actions", "listen", fallback: "Listen")
+    /// Load more
+    public static let loadMore = Loc.tr("Actions", "load_more", fallback: "Load more")
     /// Loading...
     public static let loading = Loc.tr("Actions", "loading", fallback: "Loading...")
+    /// Loading more...
+    public static let loadingMore = Loc.tr("Actions", "loading_more", fallback: "Loading more...")
     /// Make Editor
     public static let makeEditor = Loc.tr("Actions", "make_editor", fallback: "Make Editor")
     /// Make Viewer
@@ -1640,16 +1644,16 @@ public enum Loc {
     public static let customizeLearningExperience = Loc.tr("Settings", "customize_learning_experience", fallback: "Customize your learning experience")
     /// Daily Reminders
     public static let dailyReminders = Loc.tr("Settings", "daily_reminders", fallback: "Daily Reminders")
-    /// Get reminded at 8 PM if you haven't opened the app
-    public static let dailyRemindersDescription = Loc.tr("Settings", "daily_reminders_description", fallback: "Get reminded at 8 PM if you haven't opened the app")
+    /// Get reminded if you haven't opened the app
+    public static let dailyRemindersDescription = Loc.tr("Settings", "daily_reminders_description", fallback: "Get reminded if you haven't opened the app")
     /// Data Maintenance
     public static let dataMaintenance = Loc.tr("Settings", "data_maintenance", fallback: "Data Maintenance")
     /// Clean up duplicate words and meanings to improve app performance
     public static let dataMaintenanceDescription = Loc.tr("Settings", "data_maintenance_description", fallback: "Clean up duplicate words and meanings to improve app performance")
     /// Difficult Words
     public static let difficultWords = Loc.tr("Settings", "difficult_words", fallback: "Difficult Words")
-    /// Get reminded at 4 PM to practice difficult words
-    public static let difficultWordsDescription = Loc.tr("Settings", "difficult_words_description", fallback: "Get reminded at 4 PM to practice difficult words")
+    /// Get reminded to practice difficult words
+    public static let difficultWordsDescription = Loc.tr("Settings", "difficult_words_description", fallback: "Get reminded to practice difficult words")
     /// Download backup from Google
     public static let downloadBackupFromGoogle = Loc.tr("Settings", "download_backup_from_google", fallback: "Download backup from Google")
     /// Download backup from Google

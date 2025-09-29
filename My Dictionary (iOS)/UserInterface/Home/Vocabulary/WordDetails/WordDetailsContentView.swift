@@ -113,6 +113,7 @@ struct WordDetailsContentView: View {
                     HeaderButton(icon: "chevron.left") {
                         dismiss()
                     }
+                    .background(in: .capsule)
 
                     Spacer()
 
@@ -123,6 +124,7 @@ struct WordDetailsContentView: View {
                         ) {
                             showDeleteAlert()
                         }
+                        .background(in: .capsule)
                         HeaderButton(
                             icon: word.isFavorite ? "heart.fill" : "heart",
                         ) {
@@ -130,6 +132,7 @@ struct WordDetailsContentView: View {
                             saveContext()
                             AnalyticsService.shared.logEvent(.wordFavoriteTapped)
                         }
+                        .background(in: .capsule)
                     }
                 }
                 .padding(vertical: 12, horizontal: 16)
@@ -512,14 +515,14 @@ struct WordDetailsContentView: View {
     }
     
     private var removeImageButton: some View {
-        Button {
+        HeaderButton(
+            Loc.WordImages.ImageSection.removeImage,
+            color: .red,
+            size: .small,
+            style: .bordered
+        ) {
             removeImage()
-        } label: {
-            Text(Loc.WordImages.ImageSection.removeImage)
-                .font(.caption)
-                .foregroundStyle(.secondary)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.top, 8)
     }
 

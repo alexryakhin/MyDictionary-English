@@ -58,3 +58,5 @@
 "name" = "שם";
 "loading" = "טוען...";
 "retry" = "נסה שוב";
+"load_more" = "טען עוד";
+"loading_more" = "טוען...";

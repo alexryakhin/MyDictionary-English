@@ -33,8 +33,8 @@
 "export_successful" = "Exportálás sikeres";
 "upload_successful" = "Feltöltés sikeres";
 "download_successful" = "Letöltés sikeres";
-"daily_reminders_description" = "Kapj emlékeztetőt 20:00-kor, ha aznap nem nyitottad meg az alkalmazást";
-"difficult_words_description" = "Kapj emlékeztetőt 16:00-kor a nehéz szavak gyakorlására";
+"daily_reminders_description" = "Kapj emlékeztetőt, ha nem nyitottad meg az alkalmazást";
+"difficult_words_description" = "Kapj emlékeztetőt a nehéz szavak gyakorlására";
 "free_users_export_limit" = "Ingyenes felhasználók legfeljebb %d szót exportálhatnak";
 "app_version" = "Alkalmazás verzió:";
 "about_app_description" = "Ezt az alkalmazást azért fejlesztettem, mert nem találtam, amit kerestem.\n\nEz egy egyszerű szólista kezelő, amely lehetővé teszi a szavak keresését és definícióik hozzáadását az anyanyelvi fordítás nélkül.\n\nSzerintem ez a legjobb módja az angol nyelv tanulásának. Remélem, hasznosnak találod.\n\nHa kérdésed van vagy funkciókat szeretnél javasolni, lépj kapcsolatba velem az alábbi linkeken keresztül. Köszönöm, hogy használod az alkalmazásomat!";
