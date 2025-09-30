@@ -87,7 +87,6 @@ struct QuizResultRow: View {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(quizColor.gradient)
                     .frame(width: 36, height: 36)
-                    .glassEffectIfAvailable(.regular, in: .rect(cornerRadius: 8))
 
                 Image(systemName: quizIconName)
                     .font(.system(size: 20, weight: .medium))

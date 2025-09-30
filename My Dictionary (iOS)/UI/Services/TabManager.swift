@@ -15,48 +15,15 @@ final class TabManager: ObservableObject {
 
     @Published var selectedTab: TabBarItem = .myDictionary
 
-    // Tab transition tracking
-    @Published private(set) var willSetTab: TabBarItem = .myDictionary
-    @Published private(set) var currentTab: TabBarItem = .quizzes
-
     private init() {}
 
     func switchToTab(_ tab: TabBarItem, animated: Bool = true) {
-        // Track transition lifecycle
-        willSetTab = tab
-        currentTab = selectedTab
-        
         if animated {
-            withAnimation(.bouncy) {
+            withAnimation {
                 selectedTab = tab
             }
         } else {
             selectedTab = tab
-        }
-    }
-    
-    func getSlideTransition() -> AnyTransition {
-        let tabOrder: [TabBarItem] = [.myDictionary, .learn, .quizzes, .analytics, .settings]
-
-        let willSetIndex = tabOrder.firstIndex(of: willSetTab) ?? 0
-        let currentIndex = tabOrder.firstIndex(of: currentTab) ?? 0
-
-        // Use willSet vs current to determine direction
-        if willSetIndex > currentIndex {
-            // Moving right (to higher index)
-            return .asymmetric(
-                insertion: .move(edge: .trailing),
-                removal: .move(edge: .leading)
-            )
-        } else if willSetIndex < currentIndex {
-            // Moving left (to lower index)
-            return .asymmetric(
-                insertion: .move(edge: .leading),
-                removal: .move(edge: .trailing)
-            )
-        } else {
-            // Same tab
-            return .identity
         }
     }
 }

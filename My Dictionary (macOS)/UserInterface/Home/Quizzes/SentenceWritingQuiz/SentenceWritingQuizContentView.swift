@@ -190,7 +190,7 @@ struct SentenceWritingQuizContentView: View {
         .padding(20)
         .background(Color.secondarySystemGroupedBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
     private var sentenceInputSection: some View {
@@ -233,7 +233,7 @@ struct SentenceWritingQuizContentView: View {
         .padding(20)
         .background(Color.secondarySystemGroupedBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
     private func aiEvaluationSection(_ evaluation: AISentenceEvaluation) -> some View {
@@ -316,7 +316,7 @@ struct SentenceWritingQuizContentView: View {
         .padding(20)
         .background(Color.secondarySystemGroupedBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
     @ViewBuilder
@@ -532,7 +532,7 @@ struct DetailedExplanationCard: View {
         .padding(20)
         .background(Color.secondarySystemGroupedBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 }
 
@@ -587,7 +587,7 @@ struct SkippedItemCard: View {
         .padding(20)
         .background(Color.secondarySystemGroupedBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 }
 

@@ -189,7 +189,7 @@ struct ChooseDefinitionQuizContentView: View {
         }
         .padding(16)
         .clippedWithBackground()
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
     private var optionsSection: some View {
@@ -270,7 +270,7 @@ struct ChooseDefinitionQuizContentView: View {
         }
         .padding(20)
         .clippedWithBackground(Color.secondarySystemGroupedBackground)
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
     private var actionButtons: some View {

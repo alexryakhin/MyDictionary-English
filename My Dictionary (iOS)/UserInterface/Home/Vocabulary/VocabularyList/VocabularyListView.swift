@@ -112,28 +112,27 @@ struct VocabularyListView: View {
 
     // MARK: - Word Collections Section
 
+    @ViewBuilder
     private var wordCollectionsSection: some View {
-        Group {
-            if collectionsManager.hasCollections {
-                CustomSectionView(
-                    header: Loc.WordCollections.wordCatalog,
-                    footer: Loc.Plurals.WordCollections.collectionsAvailable(collectionsManager.collections.count)
-                ) {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 12) {
-                            ForEach(collectionsManager.collections.filter(\.isFeatured).prefix(10)) { collection in
-                                WordCollectionPreviewCard(collection: collection)
-                            }
+        if collectionsManager.hasCollections {
+            CustomSectionView(
+                header: Loc.WordCollections.wordCatalog,
+                footer: Loc.Plurals.WordCollections.collectionsAvailable(collectionsManager.collections.count)
+            ) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 12) {
+                        ForEach(collectionsManager.collections.filter(\.isFeatured).prefix(10)) { collection in
+                            WordCollectionPreviewCard(collection: collection)
                         }
-                        .scrollTargetLayout()
                     }
-                    .scrollTargetBehavior(.viewAligned)
-                    .scrollClipDisabled()
-                    .padding(.bottom, 12)
-                } trailingContent: {
-                    HeaderButton(Loc.Actions.viewAll, size: .small, style: .borderedProminent) {
-                        navigationManager.navigationPath.append(NavigationDestination.wordCollections)
-                    }
+                    .scrollTargetLayout()
+                }
+                .scrollTargetBehavior(.viewAligned)
+                .scrollClipDisabled()
+                .padding(.bottom, 12)
+            } trailingContent: {
+                HeaderButton(Loc.Actions.viewAll, size: .small, style: .borderedProminent) {
+                    navigationManager.navigationPath.append(NavigationDestination.wordCollections)
                 }
             }
         }

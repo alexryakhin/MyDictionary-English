@@ -23,50 +23,89 @@ struct MainTabView: View {
 
     var body: some View {
         NavigationStack(path: $navigationManager.navigationPath) {
-            ZStack {
-                Color.systemGroupedBackground
-                    .ignoresSafeArea()
-                HStack {
-                    switch tabManager.selectedTab {
-                    case .myDictionary:
-                        VocabularyFlow(
-                            wordListViewModel: wordListViewModel,
-                            idiomListViewModel: idiomListViewModel
+            if #available(iOS 26.0, *), !isPad {
+                TabView(selection: $tabManager.selectedTab) {
+                    VocabularyFlow(
+                        wordListViewModel: wordListViewModel,
+                        idiomListViewModel: idiomListViewModel
+                    )
+                    .tabItem {
+                        Label(
+                            TabBarItem.myDictionary.title,
+                            systemImage: TabBarItem.myDictionary.image
                         )
-                        .transition(tabManager.getSlideTransition())
-                    case .learn:
-                        LearnFlow()
-                            .transition(tabManager.getSlideTransition())
-                    case .quizzes:
-                        QuizzesFlow(viewModel: quizzesViewModel)
-                            .transition(tabManager.getSlideTransition())
-                    case .analytics:
-                        AnalyticsFlow(viewModel: analyticsViewModel)
-                            .transition(tabManager.getSlideTransition())
-                    case .settings:
-                        SettingsFlow(viewModel: settingsViewModel)
-                            .transition(tabManager.getSlideTransition())
+                    }
+                    .tag(TabBarItem.myDictionary)
+
+                    QuizzesFlow(viewModel: quizzesViewModel)
+                        .tabItem {
+                            Label(
+                                TabBarItem.quizzes.title,
+                                systemImage: TabBarItem.quizzes.image
+                            )
+                        }
+                        .tag(TabBarItem.quizzes)
+
+                    AnalyticsFlow(viewModel: analyticsViewModel)
+                        .tabItem {
+                            Label(
+                                TabBarItem.analytics.title,
+                                systemImage: TabBarItem.analytics.image
+                            )
+                        }
+                        .tag(TabBarItem.analytics)
+
+                    SettingsFlow(viewModel: settingsViewModel)
+                        .tabItem {
+                            Label(
+                                TabBarItem.settings.title,
+                                systemImage: TabBarItem.settings.image
+                            )
+                        }
+                        .tag(TabBarItem.settings)
+                }
+                .navigationDestination(for: NavigationDestination.self) { destination in
+                    destinationView(for: destination)
+                }
+            } else {
+                ZStack {
+                    Color.systemGroupedBackground
+                        .ignoresSafeArea()
+                    HStack {
+                        switch tabManager.selectedTab {
+                        case .myDictionary:
+                            VocabularyFlow(
+                                wordListViewModel: wordListViewModel,
+                                idiomListViewModel: idiomListViewModel
+                            )
+                        case .quizzes:
+                            QuizzesFlow(viewModel: quizzesViewModel)
+                        case .analytics:
+                            AnalyticsFlow(viewModel: analyticsViewModel)
+                        case .settings:
+                            SettingsFlow(viewModel: settingsViewModel)
+                        }
                     }
                 }
+                .safeAreaInset(edge: .bottom) {
+                    tabBarView
+                }
+                .navigationDestination(for: NavigationDestination.self) { destination in
+                    destinationView(for: destination)
+                }
             }
-            .safeAreaInset(edge: .bottom) {
-                tabBarView
-            }
-            .sheet(isPresented: .constant(hasCompletedOnboarding == false)) {
-                hasCompletedOnboarding = true
-            } content: {
-                OnboardingView()
-                    .interactiveDismissDisabled()
-            }
-            .navigationDestination(for: NavigationDestination.self) { destination in
-                destinationView(for: destination)
-            }
-            .withPaywall()
-            .sheet(isPresented: $sessionManager.showCoffeeBanner) {
-                CoffeeBanner()
-                    .presentationDetents([.medium])
-                    .presentationDragIndicator(.visible)
-            }
+        }
+        .sheet(isPresented: .constant(hasCompletedOnboarding == false)) {
+            hasCompletedOnboarding = true
+        } content: {
+            OnboardingView()
+                .interactiveDismissDisabled()
+        }
+        .withPaywall()
+        .sheet(isPresented: $sessionManager.showCoffeeBanner) {
+            CoffeeBanner()
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
         }
     }
 

@@ -389,7 +389,7 @@ extension OnboardingView {
             .background(
                 RoundedRectangle(cornerRadius: 16)
                     .fill(Color.systemBackground)
-                    .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 4)
+                    .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 4)
             )
             .onAppear {
                 withAnimation(.easeInOut(duration: 0.6).delay(delay)) {
@@ -440,7 +440,7 @@ extension OnboardingView {
             .background(
                 RoundedRectangle(cornerRadius: 16)
                     .fill(Color.systemBackground)
-                    .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 4)
+                    .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 4)
             )
             .onAppear {
                 withAnimation(.easeInOut(duration: 0.6)) {

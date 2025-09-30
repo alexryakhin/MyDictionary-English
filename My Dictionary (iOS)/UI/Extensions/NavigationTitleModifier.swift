@@ -56,13 +56,8 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
 
                     bottomContent()
                 }
-                .padding(vertical: 12, horizontal: 16)
-                .glassBackgroundEffectIfAvailable(.regular, in: RoundedRectangle(cornerRadius: 32))
-                .if(isGlassAvailable == false) {
-                    $0.background(.ultraThinMaterial)
-                }
-                .clipShape(.rect(cornerRadius: 32))
-                .shadow(radius: 2)
+                .clippedWithPaddingAndBackgroundMaterial(cornerRadius: 32)
+                .shadow(color: .label.opacity(0.3), radius: 5)
                 .padding(vertical: vPadding, horizontal: hPadding)
             }
             .toolbar(.hidden)

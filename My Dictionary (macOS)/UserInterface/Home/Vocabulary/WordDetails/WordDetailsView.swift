@@ -87,10 +87,7 @@ struct WordDetailsView: View {
                 .background {
                     VStack(spacing: 0) {
                         Color.clear
-                            .glassBackgroundEffectIfAvailable(.regular, in: .rect)
-                            .if(isGlassAvailable == false) {
-                                $0.background(.ultraThinMaterial)
-                            }
+                            .background(.thinMaterial)
                         Divider()
                     }
                     .opacity(shouldHaveNavigationTitle ? 1 : 0)

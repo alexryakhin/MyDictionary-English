@@ -161,7 +161,7 @@ struct SharedWordDetailsView: View {
                         .background(in: .capsule)
                     }
                 }
-                .padding(vertical: 12, horizontal: 16)
+                .padding(16)
                 .opacity(!shouldHaveNavigationTitle ? 1 : 0)
                 .padding(12)
                 .if(isPad) { view in
@@ -173,7 +173,7 @@ struct SharedWordDetailsView: View {
         .groupedBackground()
         .toolbar(.hidden, for: .navigationBar)
         .navigationBarHidden(true)
-        .task {
+        .onAppear {
             // Start real-time listener for this specific word
             dictionaryService.startSharedWordListener(
                 dictionaryId: dictionaryId,
@@ -191,7 +191,7 @@ struct SharedWordDetailsView: View {
                 }
             }
 
-            await loadImage()
+            loadImage()
         }
         .onDisappear {
             // Stop the real-time listener when leaving the view
@@ -893,39 +893,32 @@ struct SharedWordDetailsView: View {
         )
     }
 
-    private func loadImage() async {
-        // Check if image exists and set state with fallback
-        if let imageLocalPath = word.imageLocalPath {
-            shouldHaveNavigationTitle = !subscriptionService.isProUser
+    private func loadImage() {
+        Task { @MainActor in
+            // Check if image exists and set state with fallback
+            if let imageLocalPath = word.imageLocalPath {
+                shouldHaveNavigationTitle = !subscriptionService.isProUser
 
-            print("🔍 [SharedWordDetails] Image path: \(imageLocalPath)")
-            print("🌐 [SharedWordDetails] Image URL: \(word.imageUrl ?? "nil")")
+                let result = await PexelsService.shared.getImageWithFallback(
+                    localPath: imageLocalPath,
+                    webUrl: word.imageUrl
+                )
 
-            let result = await PexelsService.shared.getImageWithFallback(
-                localPath: imageLocalPath,
-                webUrl: word.imageUrl
-            )
-
-            await MainActor.run {
                 if let image = result.image {
-                    print("✅ [SharedWordDetails] Image loaded successfully (with fallback if needed)")
                     self.image = image
 
                     // Update the word with new relative path if fallback was used
                     if let newLocalPath = result.newLocalPath {
-                        print("🔄 [SharedWordDetails] Updating with new relative path: \(newLocalPath)")
                         word.imageLocalPath = newLocalPath
                     }
                 } else {
-                    print("❌ [SharedWordDetails] Image failed to load even with fallback")
                     image = nil
                     shouldHaveNavigationTitle = true
                 }
+            } else {
+                image = nil
+                shouldHaveNavigationTitle = true
             }
-        } else {
-            print("🔍 [SharedWordDetails] No image path found")
-            image = nil
-            shouldHaveNavigationTitle = true
         }
     }
 }
@@ -1001,13 +994,8 @@ struct SharedCustomNavigationBar: View {
                 .lineLimit(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(vertical: 12, horizontal: 16)
-        .glassBackgroundEffectIfAvailable(.regular, in: RoundedRectangle(cornerRadius: 32))
-        .if(isGlassAvailable == false) {
-            $0
-                .clippedWithBackgroundMaterial(.ultraThinMaterial, cornerRadius: 32)
-                .shadow(radius: 2)
-        }
+        .clippedWithPaddingAndBackgroundMaterial(cornerRadius: 32)
+        .shadow(color: .label.opacity(0.3), radius: 5)
         .padding(12)
         .animation(.easeInOut(duration: 0.3), value: true)
         .if(isPad) { view in

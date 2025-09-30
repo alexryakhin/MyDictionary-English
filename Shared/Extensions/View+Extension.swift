@@ -130,12 +130,12 @@ extension View {
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
-                $0.shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+                $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
 
     func clippedWithBackgroundMaterial(
-        _ material: Material = .ultraThinMaterial,
+        _ material: Material = .thinMaterial,
         cornerRadius: CGFloat = 24,
         showShadow: Bool = false
     ) -> some View {
@@ -143,7 +143,7 @@ extension View {
             .background(material)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
-                $0.shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+                $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
 
@@ -157,12 +157,12 @@ extension View {
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
-                $0.shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+                $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
 
     func clippedWithPaddingAndBackgroundMaterial(
-        _ material: Material = .ultraThinMaterial,
+        _ material: Material = .thinMaterial,
         cornerRadius: CGFloat = 24,
         showShadow: Bool = false
     ) -> some View {
@@ -171,7 +171,7 @@ extension View {
             .background(material)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
-                $0.shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+                $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
 }
@@ -199,67 +199,4 @@ func openURL(_ url: URL) {
     #elseif os(macOS)
     NSWorkspace.shared.open(url)
     #endif
-}
-
-enum GlassEffect {
-    case regular
-    case clear
-    case identity
-    case tint(Color?)
-    case interactive(Bool)
-
-    @available(macOS 26.0, *)
-    @available(iOS 26.0, *)
-    var glass: Glass {
-        switch self {
-        case .regular:
-            return .regular
-        case .clear:
-            return .clear
-        case .identity:
-            return .identity
-        case .tint(let color):
-            return Glass.clear.tint(color)
-        case let .interactive(isEnabled):
-            return Glass.clear.interactive(isEnabled)
-        }
-    }
-}
-
-extension View {
-    @ViewBuilder
-    func glassEffectIfAvailable(
-        _ glass: GlassEffect = .regular,
-        in shape: some Shape = RoundedRectangle(cornerRadius: 16)
-    ) -> some View {
-        if #available(iOS 26.0, macOS 26.0, *) {
-            self.glassEffect(glass.glass, in: shape)
-        } else {
-            self
-        }
-    }
-
-    @ViewBuilder
-    func glassBackgroundEffectIfAvailable(
-        _ glass: GlassEffect = .regular,
-        in shape: some Shape = RoundedRectangle(cornerRadius: 16)
-    ) -> some View {
-        if #available(iOS 26.0, macOS 26.0, *) {
-            self
-                .background(
-                    Color.clear
-                        .glassEffect(glass.glass, in: shape)
-                )
-        } else {
-            self
-        }
-    }
-}
-
-var isGlassAvailable: Bool {
-    if #available(iOS 26.0, macOS 26.0, *) {
-        return true
-    } else {
-        return false
-    }
 }

@@ -135,7 +135,7 @@ struct WordDetailsContentView: View {
                         .background(in: .capsule)
                     }
                 }
-                .padding(vertical: 12, horizontal: 16)
+                .padding(16)
                 .opacity(!shouldHaveNavigationTitle ? 1 : 0)
                 .padding(12)
                 .if(isPad) { view in
@@ -177,40 +177,8 @@ struct WordDetailsContentView: View {
         }
         .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
         .withPaywall()
-        .task {
-            // Check if image exists and set state with fallback
-            if let imageLocalPath = word.imageLocalPath {
-                shouldHaveNavigationTitle = !subscriptionService.isProUser
-                print("🔍 [WordDetails] Image path: \(imageLocalPath)")
-                print("🌐 [WordDetails] Image URL: \(word.imageUrl ?? "nil")")
-
-                let result = await PexelsService.shared.getImageWithFallback(
-                    localPath: imageLocalPath,
-                    webUrl: word.imageUrl
-                )
-
-                await MainActor.run {
-                    if let image = result.image {
-                        print("✅ [WordDetails] Image loaded successfully (with fallback if needed)")
-                        self.image = image
-
-                        // Update Core Data with new relative path if fallback was used
-                        if let newLocalPath = result.newLocalPath {
-                            print("🔄 [WordDetails] Updating Core Data with new relative path: \(newLocalPath)")
-                            word.imageLocalPath = newLocalPath
-                            saveContext()
-                        }
-                    } else {
-                        print("❌ [WordDetails] Image failed to load even with fallback")
-                        image = nil
-                        shouldHaveNavigationTitle = true
-                    }
-                }
-            } else {
-                print("🔍 [WordDetails] No image path found")
-                image = nil
-                shouldHaveNavigationTitle = true
-            }
+        .onAppear {
+            loadImage()
         }
     }
 
@@ -540,7 +508,37 @@ struct WordDetailsContentView: View {
             }
         }
     }
-    
+
+    private func loadImage() {
+        Task { @MainActor in
+            // Check if image exists and set state with fallback
+            if let imageLocalPath = word.imageLocalPath {
+                shouldHaveNavigationTitle = !subscriptionService.isProUser
+
+                let result = await PexelsService.shared.getImageWithFallback(
+                    localPath: imageLocalPath,
+                    webUrl: word.imageUrl
+                )
+
+                if let image = result.image {
+                    self.image = image
+
+                    // Update Core Data with new relative path if fallback was used
+                    if let newLocalPath = result.newLocalPath {
+                        word.imageLocalPath = newLocalPath
+                        saveContext()
+                    }
+                } else {
+                    image = nil
+                    shouldHaveNavigationTitle = true
+                }
+            } else {
+                image = nil
+                shouldHaveNavigationTitle = true
+            }
+        }
+    }
+
     private func removeImage() {
         AlertCenter.shared.showAlert(
             with: .deleteConfirmation(
@@ -798,13 +796,8 @@ struct CustomNavigationBar: View {
                 .lineLimit(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(vertical: 12, horizontal: 16)
-        .glassBackgroundEffectIfAvailable(.regular, in: RoundedRectangle(cornerRadius: 32))
-        .if(isGlassAvailable == false) {
-            $0
-                .clippedWithBackgroundMaterial(.ultraThinMaterial, cornerRadius: 32)
-                .shadow(radius: 2)
-        }
+        .clippedWithPaddingAndBackgroundMaterial(cornerRadius: 32)
+        .shadow(color: .label.opacity(0.3), radius: 5)
         .padding(12)
         .animation(.easeInOut(duration: 0.3), value: true)
         .if(isPad) { view in

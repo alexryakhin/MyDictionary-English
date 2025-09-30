@@ -15,7 +15,7 @@ struct SignOutView: View {
         if authenticationService.showingSignOutView {
             ZStack {
                 Color.clear
-                    .background(.ultraThinMaterial)
+                    .background(.thinMaterial)
                     .ignoresSafeArea()
                 VStack(spacing: 20) {
                     // Icon and title

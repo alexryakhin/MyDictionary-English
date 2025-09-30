@@ -94,7 +94,7 @@ struct AuthenticationView: View {
                 .frame(height: 56)
                 .disabled(authService.authenticationState == .loading)
                 .clipShape(.capsule)
-                .shadow(radius: 2)
+                .shadow(color: .label.opacity(0.3), radius: 5)
             }
             .padding(.horizontal, 32)
 

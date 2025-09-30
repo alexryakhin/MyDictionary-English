@@ -9,25 +9,17 @@ import Foundation
 
 enum TabBarItem: CaseIterable {
     case myDictionary
-    case learn
+//    case learn
     case quizzes
     case analytics
     case settings
-
-    static var allCases: [TabBarItem] {
-        if FeatureToggleService.shared.isEnabled(.learnFeature) {
-            return [.myDictionary, .learn, .quizzes, .analytics, .settings]
-        } else {
-            return [.myDictionary, .quizzes, .analytics, .settings]
-        }
-    }
 
     var title: String {
         switch self {
         case .myDictionary:
             return Loc.Onboarding.myDictionary
-        case .learn:
-            return Loc.Learning.Tabbar.learn
+//        case .learn:
+//            return Loc.Learning.Tabbar.learn
         case .quizzes:
             return Loc.Navigation.Tabbar.quizzes
         case .analytics:
@@ -41,8 +33,8 @@ enum TabBarItem: CaseIterable {
         switch self {
         case .myDictionary:
             return "textformat"
-        case .learn:
-            return "book"
+//        case .learn:
+//            return "book"
         case .quizzes:
             return "brain.head.profile"
         case .analytics:
@@ -56,8 +48,8 @@ enum TabBarItem: CaseIterable {
         switch self {
         case .myDictionary:
             return "textformat"
-        case .learn:
-            return "book.fill"
+//        case .learn:
+//            return "book.fill"
         case .quizzes:
             return "brain.head.profile.fill"
         case .analytics:

@@ -289,7 +289,7 @@ struct ContextMultipleChoiceQuizContentView: View {
         .padding(20)
         .background(Color.secondarySystemGroupedBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
     private func optionsSection(_ contextQuestion: AIContextQuestion) -> some View {
@@ -344,7 +344,7 @@ struct ContextMultipleChoiceQuizContentView: View {
         .padding(20)
         .background(Color.secondarySystemGroupedBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
     private func aiExplanationSection(_ contextQuestion: AIContextQuestion) -> some View {
@@ -379,7 +379,7 @@ struct ContextMultipleChoiceQuizContentView: View {
         .padding(20)
         .background(Color.secondarySystemGroupedBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 
     @ViewBuilder

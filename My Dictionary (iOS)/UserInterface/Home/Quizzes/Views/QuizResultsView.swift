@@ -102,7 +102,7 @@ struct QuizResultsView<AdditionalAction: View>: View {
                 }
                 .padding(24)
                 .clippedWithBackground()
-                .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+                .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
             }
             .padding(.horizontal, 32)
 

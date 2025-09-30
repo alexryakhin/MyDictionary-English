@@ -85,7 +85,6 @@ struct TagView: View {
         .padding(.vertical, size.vPadding)
         .foregroundStyle(foregroundStyle.gradient)
         .background(backgroundStyle.gradient)
-        .glassEffectIfAvailable(.regular, in: .capsule)
         .clipShape(.capsule)
     }
 

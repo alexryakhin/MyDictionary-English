@@ -36,28 +36,18 @@ struct GlassTabBar: View {
                     }
                     /// Draggable Active Tab
                     .background(alignment: .leading) {
-                        if isGlassAvailable {
+                        ZStack {
                             Capsule()
-                                .fill(Color.clear)
-                                .frame(width: tabItemWidth, height: tabItemHeight)
-                                .glassEffectIfAvailable(.regular, in: Capsule())
-                                .scaleEffect(isActive ? 1.3 : 1)
-                                .offset(x: dragOffset)
-                        } else {
-                            ZStack {
-                                Capsule()
-                                    .stroke(.gray.opacity(0.25), lineWidth: 3)
-                                    .opacity(isActive ? 1 : 0)
+                                .stroke(.gray.opacity(0.25), lineWidth: isActive ? 3 : 1.5)
 
-                                Capsule()
-                                    .fill(.background)
-                            }
-                            .compositingGroup()
-                            .frame(width: tabItemWidth, height: tabItemHeight)
-                            /// Scaling when drag gesture becomes active
-                            .scaleEffect(isActive ? 1.3 : 1)
-                            .offset(x: dragOffset)
+                            Capsule()
+                                .fill(.thinMaterial)
                         }
+                        .compositingGroup()
+                        .frame(width: tabItemWidth, height: tabItemHeight)
+                        /// Scaling when drag gesture becomes active
+                        .scaleEffect(isActive ? 1.3 : 1)
+                        .offset(x: dragOffset)
                     }
                 }
             }
@@ -145,20 +135,14 @@ struct GlassTabBar: View {
     /// Tab Bar Background View
     @ViewBuilder
     private func TabBarBackground() -> some View {
-        if isGlassAvailable {
+        ZStack {
             Capsule()
-                .fill(Color.clear)
-                .glassEffectIfAvailable(.regular, in: .capsule)
-        } else {
-            ZStack {
-                Capsule()
-                    .stroke(.gray.opacity(0.25), lineWidth: 1.5)
+                .stroke(.gray.opacity(0.25), lineWidth: 1.5)
 
-                Capsule()
-                    .fill(.ultraThinMaterial)
-            }
-            .compositingGroup()
+            Capsule()
+                .fill(.thinMaterial)
         }
+        .compositingGroup()
     }
 }
 
