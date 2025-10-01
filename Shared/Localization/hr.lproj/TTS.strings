@@ -127,14 +127,3 @@
 "models.english_description" = "Model pretvaranja teksta u govor na engleskom jeziku od Speechify nudi standardne značajke dizajnirane za pružanje jasnog i prirodnog zvučnog izlaza za čitanje tekstova. Model se fokusira na pružanje dosljednog korisničkog iskustva.";
 "models.multilingual_description" = "Višejezični model omogućuje korištenje svih podržanih jezika i podržava korištenje više jezika unutar jedne rečenice. Zvučni izlaz ovog modela značajno se razlikuje od ostalih modela.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australski";
-"english_accents.canadian" = "Kanadski";
-"english_accents.british" = "Britanski";
-"english_accents.indian" = "Indijski";
-"english_accents.american" = "Američki";
-"english_accents.belgian" = "Belgijski";
-"english_accents.singaporean" = "Singapurski";
-"english_accents.irish" = "Irski";
-"english_accents.south_african" = "Južnoafrički";
-

@@ -127,14 +127,3 @@
 "models.english_description" = "Speechify का अंग्रेजी टेक्स्ट-टू-स्पीच मॉडल मानक क्षमताएँ प्रदान करता है जो टेक्स्ट पढ़ने के लिए स्पष्ट और प्राकृतिक आवाज़ आउटपुट प्रदान करने के लिए डिज़ाइन किया गया है। यह मॉडल एक सुसंगत उपयोगकर्ता अनुभव प्रदान करने पर केंद्रित है।";
 "models.multilingual_description" = "बहुभाषी मॉडल सभी समर्थित भाषाओं के उपयोग की अनुमति देता है और एक ही वाक्य में कई भाषाओं का उपयोग करने का समर्थन करता है। इस मॉडल का ऑडियो आउटपुट अन्य मॉडलों से स्पष्ट रूप से भिन्न है।";
 
-// MARK: - English Accents
-"english_accents.australian" = "ऑस्ट्रेलियाई";
-"english_accents.canadian" = "कनाडाई";
-"english_accents.british" = "ब्रिटिश";
-"english_accents.indian" = "भारतीय";
-"english_accents.american" = "अमेरिकी";
-"english_accents.belgian" = "बेल्जियाई";
-"english_accents.singaporean" = "सिंगापुरी";
-"english_accents.irish" = "आयरिश";
-"english_accents.south_african" = "दक्षिण अफ्रीकी";
-

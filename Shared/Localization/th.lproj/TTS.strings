@@ -127,14 +127,3 @@
 "models.english_description" = "โมเดลการแปลงข้อความเป็นคำพูดภาษาอังกฤษของ Speechify มีฟีเจอร์มาตรฐานที่ออกแบบมาเพื่อให้ผลลัพธ์เสียงที่ชัดเจนและเป็นธรรมชาติสำหรับการอ่านข้อความ โมเดลนี้มุ่งเน้นที่การมอบประสบการณ์ผู้ใช้ที่สม่ำเสมอ";
 "models.multilingual_description" = "โมเดลหลายภาษาช่วยให้สามารถใช้ทุกภาษาที่รองรับและสนับสนุนการใช้หลายภาษาภายในประโยคเดียว ผลลัพธ์เสียงของโมเดลนี้แตกต่างจากโมเดลอื่นอย่างชัดเจน";
 
-// MARK: - English Accents
-"english_accents.australian" = "ออสเตรเลีย";
-"english_accents.canadian" = "แคนาดา";
-"english_accents.british" = "อังกฤษ";
-"english_accents.indian" = "อินเดีย";
-"english_accents.american" = "อเมริกา";
-"english_accents.belgian" = "เบลเยียม";
-"english_accents.singaporean" = "สิงคโปร์";
-"english_accents.irish" = "ไอริช";
-"english_accents.south_african" = "แอฟริกาใต้";
-

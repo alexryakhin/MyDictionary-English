@@ -127,14 +127,3 @@
 "models.english_description" = "Het Engelse tekst-naar-spraakmodel van Speechify biedt standaardfunctionaliteiten die zijn ontworpen om heldere en natuurlijke spraakuitvoer te leveren voor het lezen van teksten. Het model richt zich op het bieden van een consistente gebruikerservaring.";
 "models.multilingual_description" = "Het meertalige model maakt het gebruik van alle ondersteunde talen mogelijk en ondersteunt het gebruik van meerdere talen binnen één zin. De audio-uitvoer van dit model verschilt duidelijk van andere modellen.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australisch";
-"english_accents.canadian" = "Canadees";
-"english_accents.british" = "Brits";
-"english_accents.indian" = "Indiaas";
-"english_accents.american" = "Amerikaans";
-"english_accents.belgian" = "Belgisch";
-"english_accents.singaporean" = "Singaporees";
-"english_accents.irish" = "Iers";
-"english_accents.south_african" = "Zuid-Afrikaans";
-

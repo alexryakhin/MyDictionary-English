@@ -127,14 +127,3 @@
 "models.english_description" = "Mô hình chuyển đổi văn bản thành giọng nói tiếng Anh của Speechify cung cấp các tính năng tiêu chuẩn được thiết kế để mang lại đầu ra âm thanh rõ ràng và tự nhiên cho việc đọc văn bản. Mô hình tập trung vào việc cung cấp trải nghiệm người dùng nhất quán.";
 "models.multilingual_description" = "Mô hình đa ngôn ngữ cho phép sử dụng tất cả các ngôn ngữ được hỗ trợ và hỗ trợ sử dụng nhiều ngôn ngữ trong một câu. Đầu ra âm thanh của mô hình này khác biệt đáng kể so với các mô hình khác.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Úc";
-"english_accents.canadian" = "Canada";
-"english_accents.british" = "Anh";
-"english_accents.indian" = "Ấn Độ";
-"english_accents.american" = "Mỹ";
-"english_accents.belgian" = "Bỉ";
-"english_accents.singaporean" = "Singapore";
-"english_accents.irish" = "Ireland";
-"english_accents.south_african" = "Nam Phi";
-

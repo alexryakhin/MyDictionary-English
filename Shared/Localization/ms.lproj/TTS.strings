@@ -127,14 +127,3 @@
 "models.english_description" = "Model teks ke pertuturan Bahasa Inggeris Speechify menawarkan ciri-ciri standard yang direka untuk menyampaikan output audio yang jelas dan semula jadi untuk membaca teks. Model ini memberi tumpuan kepada menyediakan pengalaman pengguna yang konsisten.";
 "models.multilingual_description" = "Model berbilang bahasa membolehkan penggunaan semua bahasa yang disokong dan menyokong penggunaan pelbagai bahasa dalam satu ayat. Output audio model ini berbeza dengan ketara daripada model lain.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australia";
-"english_accents.canadian" = "Kanada";
-"english_accents.british" = "British";
-"english_accents.indian" = "India";
-"english_accents.american" = "Amerika";
-"english_accents.belgian" = "Belgium";
-"english_accents.singaporean" = "Singapura";
-"english_accents.irish" = "Ireland";
-"english_accents.south_african" = "Afrika Selatan";
-

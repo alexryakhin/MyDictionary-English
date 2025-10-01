@@ -29,16 +29,7 @@ final class WordCollectionImportService {
     ///   - selectedWordIds: Set of word IDs to import (empty set means import all)
     /// - Returns: ImportResult with counts of added and duplicate words
     func importWords(from collection: WordCollection, selectedWordIds: Set<String> = []) async throws -> WordCollectionImportResult {
-        return try await withCheckedThrowingContinuation { continuation in
-            Task {
-                do {
-                    let result = try await performImport(collection: collection, selectedWordIds: selectedWordIds)
-                    continuation.resume(returning: result)
-                } catch {
-                    continuation.resume(throwing: error)
-                }
-            }
-        }
+        return try await performImport(collection: collection, selectedWordIds: selectedWordIds)
     }
     
     /// Imports all words from a collection (for "Add All" functionality)
@@ -82,45 +73,37 @@ final class WordCollectionImportService {
     }
     
     private func createWordsBatch(wordsToAdd: [WordCollectionItem], collection: WordCollection) async throws {
-        return try await withCheckedThrowingContinuation { continuation in
-            Task {
-                do {
-                    let context = coreDataService.context
-                    
-                    // Create all words and meanings in the same context
-                    for wordItem in wordsToAdd {
-                        let newWord = CDWord(context: context)
-                        newWord.id = UUID()
-                        newWord.wordItself = wordItem.text
-                        newWord.partOfSpeech = wordItem.partOfSpeech.rawValue
-                        newWord.phonetic = wordItem.phonetics
-                        newWord.languageCode = collection.languageCode
-                        newWord.notes = "\(Loc.WordCollections.fromCollection) \(collection.title)"
-                        newWord.timestamp = Date()
-                        newWord.updatedAt = Date()
-                        newWord.isSynced = false
-                        
-                        // Create meaning for the word using the proper create method
-                        let meaning = try CDMeaning.create(
-                            in: context,
-                            definition: wordItem.definition,
-                            examples: wordItem.examples,
-                            order: 0,
-                            for: newWord
-                        )
-                        
-                        // Add meaning to word (this sets up the bidirectional relationship)
-                        newWord.addToMeanings(meaning)
-                    }
-                    
-                    // Save context once after creating all words
-                    try coreDataService.saveContext()
-                    
-                    continuation.resume()
-                } catch {
-                    continuation.resume(throwing: error)
-                }
+        let context = coreDataService.context
+        
+        try await context.perform {
+            // Create all words and meanings in the same context
+            for wordItem in wordsToAdd {
+                let newWord = CDWord(context: context)
+                newWord.id = UUID()
+                newWord.wordItself = wordItem.text
+                newWord.partOfSpeech = wordItem.partOfSpeech.rawValue
+                newWord.phonetic = wordItem.phonetics
+                newWord.languageCode = collection.languageCode
+                newWord.notes = "\(Loc.WordCollections.fromCollection) \(collection.title)"
+                newWord.timestamp = Date()
+                newWord.updatedAt = Date()
+                newWord.isSynced = false
+                
+                // Create meaning for the word using the proper create method
+                let meaning = try CDMeaning.create(
+                    in: context,
+                    definition: wordItem.definition,
+                    examples: wordItem.examples,
+                    order: 0,
+                    for: newWord
+                )
+                
+                // Add meaning to word (this sets up the bidirectional relationship)
+                newWord.addToMeanings(meaning)
             }
+            
+            // Save context once after creating all words
+            try context.save()
         }
     }
 }

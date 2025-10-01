@@ -127,14 +127,3 @@
 "models.english_description" = "Das englische Text-zu-Sprache-Modell von Speechify bietet Standardfunktionen, die für eine klare und natürliche Sprachausgabe beim Lesen von Texten ausgelegt sind. Das Modell konzentriert sich auf ein konsistentes Benutzererlebnis.";
 "models.multilingual_description" = "Das mehrsprachige Modell ermöglicht die Nutzung aller unterstützten Sprachen und unterstützt die Verwendung mehrerer Sprachen in einem einzigen Satz. Die Audioausgabe dieses Modells unterscheidet sich deutlich von anderen Modellen.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australisch";
-"english_accents.canadian" = "Kanadisch";
-"english_accents.british" = "Britisch";
-"english_accents.indian" = "Indisch";
-"english_accents.american" = "Amerikanisch";
-"english_accents.belgian" = "Belgisch";
-"english_accents.singaporean" = "Singapurisch";
-"english_accents.irish" = "Irisch";
-"english_accents.south_african" = "Südafrikanisch";
-

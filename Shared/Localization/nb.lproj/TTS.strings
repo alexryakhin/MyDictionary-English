@@ -127,14 +127,3 @@
 "models.english_description" = "Speechifys engelske tekst-til-tale-modell tilbyr standardfunksjoner designet for å levere klar og naturlig lydutgang for tekstlesing. Modellen fokuserer på å gi en konsistent brukeropplevelse.";
 "models.multilingual_description" = "Den flerspråklige modellen tillater bruk av alle støttede språk og støtter bruk av flere språk innenfor en enkelt setning. Lydutgangen fra denne modellen skiller seg tydelig fra andre modeller.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australsk";
-"english_accents.canadian" = "Kanadisk";
-"english_accents.british" = "Britisk";
-"english_accents.indian" = "Indisk";
-"english_accents.american" = "Amerikansk";
-"english_accents.belgian" = "Belgisk";
-"english_accents.singaporean" = "Singaporsk";
-"english_accents.irish" = "Irsk";
-"english_accents.south_african" = "Sørafrikansk";
-

@@ -127,14 +127,3 @@
 "models.english_description" = "Speechify의 영어 텍스트 음성 변환 모델은 텍스트 읽기에 명확하고 자연스러운 음성 출력을 제공하도록 설계된 표준 기능을 제공합니다. 이 모델은 일관된 사용자 경험에 초점을 맞춥니다.";
 "models.multilingual_description" = "다국어 모델은 지원되는 모든 언어를 사용할 수 있으며, 한 문장 내에서 여러 언어를 사용하는 것을 지원합니다. 이 모델의 오디오 출력은 다른 모델과 뚜렷이 다릅니다.";
 
-// MARK: - English Accents
-"english_accents.australian" = "호주";
-"english_accents.canadian" = "캐나다";
-"english_accents.british" = "영국";
-"english_accents.indian" = "인도";
-"english_accents.american" = "미국";
-"english_accents.belgian" = "벨기에";
-"english_accents.singaporean" = "싱가포르";
-"english_accents.irish" = "아일랜드";
-"english_accents.south_african" = "남아프리카";
-

@@ -209,31 +209,26 @@ struct WordCollectionDetailsView: View {
     private func addAllWords() {
         isAddingAll = true
         
-        Task {
+        Task { @MainActor in
             do {
                 let result = try await WordCollectionImportService.shared.importAllWords(from: viewModel.collection)
                 
-                await MainActor.run {
-                    addedWordsCount = result.addedCount
-                    duplicateWordsCount = result.duplicateCount
-                    isAddingAll = false
-                    showSuccessAlert = true
-                    
-                    // Log import completion analytics
-                    AnalyticsService.shared.logEvent(.wordCollectionImportCompleted, parameters: [
-                        "collection_id": originalCollection.id,
-                        "collection_title": originalCollection.title,
-                        "words_added": result.addedCount,
-                        "duplicates_found": result.duplicateCount,
-                        "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
-                    ])
-                }
+                addedWordsCount = result.addedCount
+                duplicateWordsCount = result.duplicateCount
+                isAddingAll = false
+                showSuccessAlert = true
+
+                // Log import completion analytics
+                AnalyticsService.shared.logEvent(.wordCollectionImportCompleted, parameters: [
+                    "collection_id": originalCollection.id,
+                    "collection_title": originalCollection.title,
+                    "words_added": result.addedCount,
+                    "duplicates_found": result.duplicateCount,
+                    "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+                ])
             } catch {
-                await MainActor.run {
-                    isAddingAll = false
-                    // Handle error - could show error alert
-                    print("Error importing all words: \(error)")
-                }
+                isAddingAll = false
+                errorReceived(title: Loc.Errors.importFailed, error)
             }
         }
     }

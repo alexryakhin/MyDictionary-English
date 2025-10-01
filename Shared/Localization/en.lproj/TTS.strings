@@ -123,23 +123,3 @@
 "british" = "British";
 "indian" = "Indian";
 "nigerian" = "Nigerian";
-
-// MARK: - English Accents
-"english_accents.australian" = "Australian";
-"english_accents.canadian" = "Canadian";
-"english_accents.british" = "British";
-"english_accents.indian" = "Indian";
-"english_accents.american" = "American";
-"english_accents.belgian" = "Belgian";
-"english_accents.singaporean" = "Singaporean";
-"english_accents.irish" = "Irish";
-"english_accents.south_african" = "South African";
-
-// MARK: - Spanish Accents
-"spanish_accents.castilian" = "Castilian (Spain)";
-"spanish_accents.mexican" = "Mexican";
-"spanish_accents.united_states" = "American";
-"spanish_accents.colombian" = "Colombian";
-"spanish_accents.argentine" = "Argentine";
-"spanish_accents.chileno" = "Chilean";
-

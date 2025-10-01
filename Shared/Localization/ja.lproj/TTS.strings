@@ -127,14 +127,3 @@
 "models.english_description" = "Speechifyの英語テキスト読み上げモデルは、テキストの読み上げにクリアで自然な音声出力を提供する標準機能を提供します。このモデルは一貫したユーザー体験に焦点を当てています。";
 "models.multilingual_description" = "多言語モデルは、サポートされているすべての言語の使用を可能にし、1つの文内で複数の言語を使用することをサポートします。このモデルの音声出力は他のモデルと明確に異なります。";
 
-// MARK: - English Accents
-"english_accents.australian" = "オーストラリア";
-"english_accents.canadian" = "カナダ";
-"english_accents.british" = "イギリス";
-"english_accents.indian" = "インド";
-"english_accents.american" = "アメリカ";
-"english_accents.belgian" = "ベルギー";
-"english_accents.singaporean" = "シンガポール";
-"english_accents.irish" = "アイルランド";
-"english_accents.south_african" = "南アフリカ";
-

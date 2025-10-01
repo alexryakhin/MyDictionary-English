@@ -15,8 +15,7 @@ final class TTSPlayer: NSObject, ObservableObject {
 
     private var player: AVAudioPlayer?
     private var speechSynthesizer: AVSpeechSynthesizer?
-    @AppStorage(UDKeys.selectedEnglishAccent) private var selectedEnglishAccent: EnglishAccent = .american
-    @AppStorage(UDKeys.selectedSpanishAccent) private var selectedSpanishAccent: SpanishAccent = .castilian
+    @AppStorage(UDKeys.selectedTTSRegion) private var selectedTTSRegion: CountryRegion = .unitedStates
     @AppStorage(UDKeys.selectedTTSProvider) var selectedTTSProvider: TTSProvider = .google
     @AppStorage(UDKeys.selectedSpeechifyVoice) var selectedSpeechifyVoice: String = "erik"
     @AppStorage(UDKeys.selectedSpeechifyModel) var selectedSpeechifyModel: SpeechifyModel = .multilingual
@@ -42,17 +41,12 @@ final class TTSPlayer: NSObject, ObservableObject {
     func play(_ text: String, languageCode: String? = nil) async throws {
         guard text.isNotEmpty, !isPlaying else { return }
         let detectedLanguageCode = languageCode ?? LanguageDetector.shared.detectLanguage(for: text).languageCode
-        let selectedAccent: String
-        if detectedLanguageCode == InputLanguage.english.rawValue {
-            selectedAccent = selectedEnglishAccent.localeCode
-        } else if detectedLanguageCode == InputLanguage.spanish.rawValue {
-            selectedAccent = selectedSpanishAccent.localeCode
-        } else {
-            selectedAccent = detectedLanguageCode
-        }
+        
+        // Build locale code with selected region (e.g., "en-US", "es-MX")
+        let localeCode = selectedTTSRegion.localeCode(for: detectedLanguageCode)
 
         // Determine which provider to use
-        let provider = determineProvider(for: selectedAccent)
+        let provider = determineProvider(for: localeCode)
 
         // Check Speechify usage limits if using Speechify
         if provider == .speechify {
@@ -64,7 +58,7 @@ final class TTSPlayer: NSObject, ObservableObject {
         do {
             switch provider {
             case .google:
-                try await playWithGoogle(text: text, targetLanguage: selectedAccent)
+                try await playWithGoogle(text: text, targetLanguage: localeCode)
             case .speechify:
                 try await playWithSpeechify(
                     text: text,
@@ -72,7 +66,7 @@ final class TTSPlayer: NSObject, ObservableObject {
                     targetLanguage: detectedLanguageCode
                 )
             case .system:
-                try await playWithSystem(text: text, languageCode: detectedLanguageCode)
+                try await playWithSystem(text: text, languageCode: localeCode)
             }
 
             // Track usage
@@ -86,7 +80,7 @@ final class TTSPlayer: NSObject, ObservableObject {
             }
         } catch TTSError.premiumFeatureRequired {
             // Fallback to Google TTS if premium feature is required but not available
-            try await playWithGoogle(text: text, targetLanguage: selectedAccent)
+            try await playWithGoogle(text: text, targetLanguage: localeCode)
 
             // Track fallback usage
             await MainActor.run {
@@ -98,7 +92,7 @@ final class TTSPlayer: NSObject, ObservableObject {
             }
         } catch TTSError.monthlyLimitExceeded {
             // Fallback to Google TTS if monthly limit is exceeded
-            try await playWithGoogle(text: text, targetLanguage: selectedAccent)
+            try await playWithGoogle(text: text, targetLanguage: localeCode)
 
             // Track fallback usage
             await MainActor.run {

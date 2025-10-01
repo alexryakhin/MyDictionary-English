@@ -127,14 +127,3 @@
 "models.english_description" = "Il modello di sintesi vocale in inglese di Speechify offre capacità standard progettate per fornire un output vocale chiaro e naturale per la lettura di testi. Il modello si concentra su un'esperienza utente coerente.";
 "models.multilingual_description" = "Il modello multilingue consente l'uso di tutte le lingue supportate e supporta l'uso di più lingue all'interno di una singola frase. L'output audio di questo modello è distintamente diverso dagli altri modelli.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australiano";
-"english_accents.canadian" = "Canadese";
-"english_accents.british" = "Britannico";
-"english_accents.indian" = "Indiano";
-"english_accents.american" = "Americano";
-"english_accents.belgian" = "Belga";
-"english_accents.singaporean" = "Singaporeano";
-"english_accents.irish" = "Irlandese";
-"english_accents.south_african" = "Sudafricano";
-

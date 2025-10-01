@@ -381,37 +381,17 @@ struct SettingsView: View {
                 .padding(vertical: 12, horizontal: 16)
                 .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
 
-                if ttsPlayer.selectedTTSProvider == .google && GlobalConstant.isEnglishLanguage {
+                if ttsPlayer.selectedTTSProvider == .google || !subscriptionService.isProUser {
                     HStack(spacing: 8) {
                         Text(Loc.Settings.selectAccent)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        HeaderButtonMenu(viewModel.selectedEnglishAccent.displayName, size: .small) {
+                        HeaderButtonMenu("\(viewModel.selectedTTSRegion.flagEmoji) \(viewModel.selectedTTSRegion.displayName)", size: .small) {
                             Picker(
                                 Loc.Settings.selectAccent,
-                                selection: $viewModel.selectedEnglishAccent
+                                selection: $viewModel.selectedTTSRegion
                             ) {
-                                ForEach(EnglishAccent.allCases, id: \.self) {
-                                    Text($0.displayName).tag($0)
-                                }
-                            }
-                            .pickerStyle(.inline)
-                        }
-                    }
-                    .padding(vertical: 12, horizontal: 16)
-                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
-                }
-                
-                if ttsPlayer.selectedTTSProvider == .google && GlobalConstant.isSpanishLanguage {
-                    HStack(spacing: 8) {
-                        Text(Loc.Settings.selectAccent)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        HeaderButtonMenu(viewModel.selectedSpanishAccent.displayName, size: .small) {
-                            Picker(
-                                Loc.Settings.selectAccent,
-                                selection: $viewModel.selectedSpanishAccent
-                            ) {
-                                ForEach(SpanishAccent.allCases, id: \.self) {
-                                    Text($0.displayName).tag($0)
+                                ForEach(CountryRegion.allCasesSorted, id: \.self) { region in
+                                    Text("\(region.flagEmoji) \(region.displayName)").tag(region)
                                 }
                             }
                             .pickerStyle(.inline)

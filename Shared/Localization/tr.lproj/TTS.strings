@@ -127,14 +127,3 @@
 "models.english_description" = "Speechify'nin İngilizce metin-konuşma modeli, metinleri okumak için net ve doğal bir ses çıkışı sağlamak üzere tasarlanmış standart özellikler sunar. Model, tutarlı bir kullanıcı deneyimi sağlamaya odaklanır.";
 "models.multilingual_description" = "Çok dilli model, desteklenen tüm dillerin kullanımına olanak tanır ve tek bir cümlede birden fazla dilin kullanımını destekler. Bu modelin ses çıkışı, diğer modellerden belirgin şekilde farklıdır.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Avustralya";
-"english_accents.canadian" = "Kanada";
-"english_accents.british" = "İngiliz";
-"english_accents.indian" = "Hint";
-"english_accents.american" = "Amerikan";
-"english_accents.belgian" = "Belçika";
-"english_accents.singaporean" = "Singapur";
-"english_accents.irish" = "İrlanda";
-"english_accents.south_african" = "Güney Afrika";
-

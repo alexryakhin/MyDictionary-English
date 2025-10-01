@@ -127,14 +127,3 @@
 "models.english_description" = "Modelul de conversie text în vorbire în limba engleză de la Speechify oferă funcționalități standard concepute pentru a oferi un sunet clar și natural pentru citirea textelor. Modelul se concentrează pe oferirea unei experiențe consistente pentru utilizator.";
 "models.multilingual_description" = "Modelul multilingv permite utilizarea tuturor limbilor suportate și susține utilizarea mai multor limbi într-o singură propoziție. Sunetul acestui model diferă semnificativ de alte modele.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australian";
-"english_accents.canadian" = "Canadian";
-"english_accents.british" = "Britanic";
-"english_accents.indian" = "Indian";
-"english_accents.american" = "American";
-"english_accents.belgian" = "Belgian";
-"english_accents.singaporean" = "Singaporan";
-"english_accents.irish" = "Irlandez";
-"english_accents.south_african" = "Sud-african";
-

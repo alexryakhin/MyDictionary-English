@@ -127,14 +127,3 @@
 "models.english_description" = "Le modèle de texte à voix en anglais de Speechify offre des capacités standard conçues pour fournir une sortie vocale claire et naturelle pour la lecture de textes. Le modèle se concentre sur une expérience utilisateur cohérente.";
 "models.multilingual_description" = "Le modèle multilingue permet l'utilisation de toutes les langues prises en charge et supporte l'utilisation de plusieurs langues dans une seule phrase. La sortie audio de ce modèle est distinctement différente des autres modèles.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australien";
-"english_accents.canadian" = "Canadien";
-"english_accents.british" = "Britannique";
-"english_accents.indian" = "Indien";
-"english_accents.american" = "Américain";
-"english_accents.belgian" = "Belge";
-"english_accents.singaporean" = "Singapourien";
-"english_accents.irish" = "Irlandais";
-"english_accents.south_african" = "Sud-africain";
-

@@ -127,14 +127,3 @@
 "models.english_description" = "El model de text a veu en anglès de Speechify ofereix funcionalitats estàndard dissenyades per proporcionar una sortida d'àudio clara i natural per a la lectura de textos. El model se centra a oferir una experiència d'usuari coherent.";
 "models.multilingual_description" = "El model multilingüe permet l'ús de tots els idiomes suportats i admet l'ús de múltiples idiomes dins d'una sola frase. La sortida d'àudio d'aquest model és clarament diferent d'altres models.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australià";
-"english_accents.canadian" = "Canadenc";
-"english_accents.british" = "Britànic";
-"english_accents.indian" = "Indi";
-"english_accents.american" = "Americà";
-"english_accents.belgian" = "Belga";
-"english_accents.singaporean" = "Singapurenc";
-"english_accents.irish" = "Irlandès";
-"english_accents.south_african" = "Sud-africà";
-

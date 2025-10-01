@@ -127,14 +127,3 @@
 "models.english_description" = "Speechifyn englanninkielinen teksti-puheeksi-malli tarjoaa standardiominaisuuksia, jotka on suunniteltu tarjoamaan selkeä ja luonnollinen ääniulostulo tekstin lukemiseen. Malli keskittyy tarjoamaan yhtenäisen käyttäjäkokemuksen.";
 "models.multilingual_description" = "Monikielinen malli mahdollistaa kaikkien tuettujen kielten käytön ja tukee useiden kielten käyttöä yhdessä lauseessa. Tämän mallin ääniulostulo eroaa selvästi muista malleista.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australialainen";
-"english_accents.canadian" = "Kanadalainen";
-"english_accents.british" = "Brittiläinen";
-"english_accents.indian" = "Intialainen";
-"english_accents.american" = "Amerikkalainen";
-"english_accents.belgian" = "Belgialainen";
-"english_accents.singaporean" = "Singaporen";
-"english_accents.irish" = "Irlantilainen";
-"english_accents.south_african" = "Eteläafrikkalainen";
-

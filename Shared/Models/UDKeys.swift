@@ -46,8 +46,7 @@ enum UDKeys {
     static let coffeeRequestCount = "coffeeRequestCount"
     static let hasShownCoffeeThisWeek = "hasShownCoffeeThisWeek"
     static let sessionStartTime = "sessionStartTime"
-    static let selectedEnglishAccent = "selectedEnglishAccent"
-    static let selectedSpanishAccent = "selectedSpanishAccent"
+    static let selectedTTSRegion = "selectedTTSRegion"
 
     // Firebase Settings
     static let deviceID = "DeviceID"
@@ -250,14 +249,9 @@ enum UDService {
         }
     }
 
-    static var selectedEnglishAccent: String? {
-        get { UserDefaults.standard.string(forKey: UDKeys.selectedEnglishAccent) }
-        set { UserDefaults.standard.set(newValue, forKey: UDKeys.selectedEnglishAccent) }
-    }
-    
-    static var selectedSpanishAccent: String? {
-        get { UserDefaults.standard.string(forKey: UDKeys.selectedSpanishAccent) }
-        set { UserDefaults.standard.set(newValue, forKey: UDKeys.selectedSpanishAccent) }
+    static var selectedTTSRegion: String? {
+        get { UserDefaults.standard.string(forKey: UDKeys.selectedTTSRegion) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.selectedTTSRegion) }
     }
 
     // Firebase Settings

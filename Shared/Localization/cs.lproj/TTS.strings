@@ -127,14 +127,3 @@
 "models.english_description" = "Model převodu textu na řeč v angličtině od Speechify nabízí standardní funkce navržené tak, aby poskytovaly čistý a přirozený zvukový výstup pro čtení textů. Model se zaměřuje na poskytování konzistentního uživatelského zážitku.";
 "models.multilingual_description" = "Model pro vícero jazyků umožňuje použití všech podporovaných jazyků a podporuje použití více jazyků v jedné větě. Zvukový výstup tohoto modelu se výrazně liší od ostatních modelů.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Australský";
-"english_accents.canadian" = "Kanadský";
-"english_accents.british" = "Britský";
-"english_accents.indian" = "Indický";
-"english_accents.american" = "Americký";
-"english_accents.belgian" = "Belgický";
-"english_accents.singaporean" = "Singapurský";
-"english_accents.irish" = "Irský";
-"english_accents.south_african" = "Jihoafrický";
-

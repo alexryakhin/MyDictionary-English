@@ -2300,26 +2300,6 @@ public enum Loc {
       /// Total Sessions
       public static let totalSessions = Loc.tr("TTS", "analytics.total_sessions", fallback: "Total Sessions")
     }
-    public enum EnglishAccents {
-      /// American
-      public static let american = Loc.tr("TTS", "english_accents.american", fallback: "American")
-      /// Australian
-      public static let australian = Loc.tr("TTS", "english_accents.australian", fallback: "Australian")
-      /// Belgian
-      public static let belgian = Loc.tr("TTS", "english_accents.belgian", fallback: "Belgian")
-      /// British
-      public static let british = Loc.tr("TTS", "english_accents.british", fallback: "British")
-      /// Canadian
-      public static let canadian = Loc.tr("TTS", "english_accents.canadian", fallback: "Canadian")
-      /// Indian
-      public static let indian = Loc.tr("TTS", "english_accents.indian", fallback: "Indian")
-      /// Irish
-      public static let irish = Loc.tr("TTS", "english_accents.irish", fallback: "Irish")
-      /// Singaporean
-      public static let singaporean = Loc.tr("TTS", "english_accents.singaporean", fallback: "Singaporean")
-      /// South African
-      public static let southAfrican = Loc.tr("TTS", "english_accents.south_african", fallback: "South African")
-    }
     public enum Filters {
       /// All Accents
       public static let allAccents = Loc.tr("TTS", "filters.all_accents", fallback: "All Accents")
@@ -2369,20 +2349,6 @@ public enum Loc {
       public static let speechifyProDescription = Loc.tr("TTS", "settings.speechify_pro_description", fallback: "Speechify's Text-to-Speech AI model is included in your subscription.")
       /// Text-to-Speech
       public static let textToSpeech = Loc.tr("TTS", "settings.text_to_speech", fallback: "Text-to-Speech")
-    }
-    public enum SpanishAccents {
-      /// Argentine Spanish
-      public static let argentine = Loc.tr("TTS", "spanish_accents.argentine", fallback: "Argentine Spanish")
-      /// Castilian Spanish (Spain)
-      public static let castilian = Loc.tr("TTS", "spanish_accents.castilian", fallback: "Castilian Spanish (Spain)")
-      /// Chilean Spanish
-      public static let chileno = Loc.tr("TTS", "spanish_accents.chileno", fallback: "Chilean Spanish")
-      /// Colombian Spanish
-      public static let colombian = Loc.tr("TTS", "spanish_accents.colombian", fallback: "Colombian Spanish")
-      /// Mexican Spanish
-      public static let mexican = Loc.tr("TTS", "spanish_accents.mexican", fallback: "Mexican Spanish")
-      /// US Spanish
-      public static let unitedStates = Loc.tr("TTS", "spanish_accents.united_states", fallback: "US Spanish")
     }
     public enum Usage {
       /// Monthly Limit

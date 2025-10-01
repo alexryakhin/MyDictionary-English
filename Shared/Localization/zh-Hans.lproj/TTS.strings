@@ -127,14 +127,3 @@
 "models.english_description" = "Speechify的英语文本转语音模型提供标准功能，旨在为文本阅读提供清晰、自然的语音输出。该模型专注于提供一致的用户体验。";
 "models.multilingual_description" = "多语言模型支持所有受支持语言的使用，并允许在单个句子中使用多种语言。该模型的音频输出与其他模型明显不同。";
 
-// MARK: - English Accents
-"english_accents.australian" = "澳大利亚口音";
-"english_accents.canadian" = "加拿大口音";
-"english_accents.british" = "英国口音";
-"english_accents.indian" = "印度口音";
-"english_accents.american" = "美国口音";
-"english_accents.belgian" = "比利时口音";
-"english_accents.singaporean" = "新加坡口音";
-"english_accents.irish" = "爱尔兰口音";
-"english_accents.south_african" = "南非口音";
-

@@ -127,14 +127,3 @@
 "models.english_description" = "A Speechify angol szövegfelolvasó modellje standard funkciókat kínál, amelyek célja tiszta és természetes hangkimenet biztosítása a szövegek olvasásához. A modell a következetes felhasználói élmény biztosítására fókuszál.";
 "models.multilingual_description" = "A többnyelvű modell lehetővé teszi az összes támogatott nyelv használatát, és támogatja több nyelv használatát egyetlen mondaton belül. A modell hangkimenete jelentősen különbözik a többi modelltől.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Ausztrál";
-"english_accents.canadian" = "Kanadai";
-"english_accents.british" = "Brit";
-"english_accents.indian" = "Indiai";
-"english_accents.american" = "Amerikai";
-"english_accents.belgian" = "Belga";
-"english_accents.singaporean" = "Szingapúri";
-"english_accents.irish" = "Ír";
-"english_accents.south_african" = "Dél-afrikai";
-

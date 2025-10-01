@@ -127,14 +127,3 @@
 "models.english_description" = "Το μοντέλο μετατροπής κειμένου σε ομιλία στα Αγγλικά της Speechify προσφέρει τυπικές λειτουργίες που έχουν σχεδιαστεί για να παρέχουν καθαρή και φυσική έξοδο ήχου για την ανάγνωση κειμένων. Το μοντέλο επικεντρώνεται στην παροχή συνεπούς εμπειρίας χρήστη.";
 "models.multilingual_description" = "Το πολυγλωσσικό μοντέλο επιτρέπει τη χρήση όλων των υποστηριζόμενων γλωσσών και υποστηρίζει τη χρήση πολλαπλών γλωσσών μέσα σε μία πρόταση. Η έξοδος ήχου αυτού του μοντέλου διαφέρει σημαντικά από άλλα μοντέλα.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Αυστραλιανό";
-"english_accents.canadian" = "Καναδικό";
-"english_accents.british" = "Βρετανικό";
-"english_accents.indian" = "Ινδικό";
-"english_accents.american" = "Αμερικανικό";
-"english_accents.belgian" = "Βελγικό";
-"english_accents.singaporean" = "Σιγκαπουριανό";
-"english_accents.irish" = "Ιρλανδικό";
-"english_accents.south_african" = "Νοτιοαφρικανικό";
-

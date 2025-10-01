@@ -127,14 +127,3 @@
 "models.english_description" = "نموذج تحويل النص إلى كلام باللغة الإنجليزية من Speechify يوفر قدرات قياسية مصممة لتقديم مخرجات صوتية واضحة وطبيعية لقراءة النصوص. يركز النموذج على تقديم تجربة مستخدم متسقة.";
 "models.multilingual_description" = "النموذج متعدد اللغات يتيح استخدام جميع اللغات المدعومة ويدعم استخدام لغات متعددة ضمن جملة واحدة. مخرجات الصوت لهذا النموذج تختلف بشكل واضح عن النماذج الأخرى.";
 
-// MARK: - English Accents
-"english_accents.australian" = "أسترالي";
-"english_accents.canadian" = "كندي";
-"english_accents.british" = "بريطاني";
-"english_accents.indian" = "هندي";
-"english_accents.american" = "أمريكي";
-"english_accents.belgian" = "بلجيكي";
-"english_accents.singaporean" = "سنغافوري";
-"english_accents.irish" = "أيرلندي";
-"english_accents.south_african" = "جنوب أفريقي";
-

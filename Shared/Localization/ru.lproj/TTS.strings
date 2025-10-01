@@ -127,14 +127,3 @@
 "models.english_description" = "Модель преобразования текста в речь на английском языке от Speechify предлагает стандартные возможности, разработанные для обеспечения чёткого и естественного голосового вывода при чтении текстов. Модель сосредоточена на предоставлении стабильного пользовательского опыта.";
 "models.multilingual_description" = "Многоязычная модель позволяет использовать все поддерживаемые языки и поддерживает использование нескольких языков в одном предложении. Аудиовыход этой модели заметно отличается от других моделей.";
 
-// MARK: - English Accents
-"english_accents.australian" = "Австралийский";
-"english_accents.canadian" = "Канадский";
-"english_accents.british" = "Британский";
-"english_accents.indian" = "Индийский";
-"english_accents.american" = "Американский";
-"english_accents.belgian" = "Бельгийский";
-"english_accents.singaporean" = "Сингапурский";
-"english_accents.irish" = "Ирландский";
-"english_accents.south_african" = "Южноафриканский";
-
