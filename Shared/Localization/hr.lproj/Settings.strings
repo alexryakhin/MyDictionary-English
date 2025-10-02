@@ -68,4 +68,7 @@
 "no_duplicates_message" = "U vašem rječniku nisu pronađeni duplikati riječi, značenja ili oznaka.";
 "cleanup_completed" = "Čišćenje završeno";
 "cleanup_completed_message" = "Uspješno očišćeno %d duplikata:\n• %d duplikata riječi\n• %d duplikata značenja\n• %d duplikata oznaka\n• %d spojenih značenja\n• %d spojenih odnosa oznaka";
+"email" = "E-pošta";
+"email_not_available" = "E-pošta nije dostupna";
+"please_contact_me_at" = "Molimo kontaktirajte me na: %@";
 

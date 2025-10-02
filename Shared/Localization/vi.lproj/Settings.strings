@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Không tìm thấy từ, nghĩa hoặc thẻ trùng lặp trong từ điển của bạn.";
 "cleanup_completed" = "Dọn dẹp hoàn tất";
 "cleanup_completed_message" = "Đã dọn dẹp thành công %d trùng lặp:\n• %d từ trùng lặp\n• %d nghĩa trùng lặp\n• %d thẻ trùng lặp\n• %d nghĩa đã hợp nhất\n• %d mối quan hệ thẻ đã hợp nhất";
+"email" = "E-mail";
+"email_not_available" = "E-mail không khả dụng";
+"please_contact_me_at" = "Vui lòng liên hệ với tôi tại: %@";
 

@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Tiada perkataan, makna, atau tag pendua dijumpai dalam kamus anda.";
 "cleanup_completed" = "Pembersihan Selesai";
 "cleanup_completed_message" = "Berjaya membersihkan %d pendua:\n• %d perkataan pendua\n• %d makna pendua\n• %d tag pendua\n• %d makna digabungkan\n• %d hubungan tag digabungkan";
+"email" = "E-mel";
+"email_not_available" = "E-mel tidak tersedia";
+"please_contact_me_at" = "Sila hubungi saya di: %@";
 

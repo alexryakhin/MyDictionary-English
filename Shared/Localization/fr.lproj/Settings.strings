@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Aucun mot, signification ou étiquette en double n'a été trouvé dans votre dictionnaire.";
 "cleanup_completed" = "Nettoyage terminé";
 "cleanup_completed_message" = "Nettoyage réussi de %d doublons :\n• %d mots en double\n• %d significations en double\n• %d étiquettes en double\n• %d significations fusionnées\n• %d relations d'étiquettes fusionnées";
+"email" = "E-mail";
+"email_not_available" = "E-mail non disponible";
+"please_contact_me_at" = "Veuillez me contacter à: %@";
 

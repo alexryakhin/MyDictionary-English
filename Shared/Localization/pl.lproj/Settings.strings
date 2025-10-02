@@ -68,4 +68,7 @@
 "no_duplicates_message" = "W słowniku nie znaleziono duplikatów słów, znaczeń ani etykiet.";
 "cleanup_completed" = "Czyszczenie zakończone";
 "cleanup_completed_message" = "Pomyślnie wyczyszczono %d duplikatów:\n• %d duplikatów słów\n• %d duplikatów znaczeń\n• %d duplikatów etykiet\n• %d połączonych znaczeń\n• %d połączonych relacji etykiet";
+"email" = "E-mail";
+"email_not_available" = "E-mail niedostępny";
+"please_contact_me_at" = "Skontaktuj się ze mną: %@";
 

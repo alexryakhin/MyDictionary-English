@@ -29,7 +29,7 @@ struct MyDictionaryApp: App {
                 .migrationAware()
                 .fontDesign(.rounded)
                 .tint(.accent)
-                .frame(width: 1000, height: 640)
+                .frame(minWidth: 1000, minHeight: 640)
                 .background(Color.systemGroupedBackground)
         }
         .windowResizability(.contentSize)

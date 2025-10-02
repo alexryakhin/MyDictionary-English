@@ -51,9 +51,9 @@ struct AboutAppContentView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .multilineTextAlignment(.leading)
 
-                        ActionButton(Loc.Settings.xTwitter, systemImage: "bird") {
-                            openURL(GlobalConstant.twitterUrl)
-                            AnalyticsService.shared.logEvent(.twitterButtonTapped)
+                        ActionButton(Loc.Settings.email, systemImage: "envelope") {
+                            openEmail()
+                            AnalyticsService.shared.logEvent(.emailButtonTapped)
                         }
 
                         ActionButton(Loc.Settings.instagram, systemImage: "camera") {
@@ -91,6 +91,35 @@ struct AboutAppContentView: View {
         .navigation(title: Loc.Navigation.about, mode: .large, showsBackButton: true)
         .onAppear {
             AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
+        }
+    }
+    
+    private func openEmail() {
+        if let url = GlobalConstant.emailURL {
+            if UIApplication.shared.canOpenURL(url) {
+                openURL(url)
+            } else {
+                showEmailAlert()
+            }
+        } else {
+            showEmailAlert()
+        }
+    }
+    
+    private func showEmailAlert() {
+        let alert = UIAlertController(
+            title: Loc.Settings.emailNotAvailable,
+            message: Loc.Settings.pleaseContactMeAt(GlobalConstant.email),
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: Loc.Actions.copyEmail, style: .default) { _ in
+            UIPasteboard.general.string = GlobalConstant.email
+        })
+        alert.addAction(UIAlertAction(title: Loc.Actions.ok, style: .cancel))
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            window.rootViewController?.present(alert, animated: true)
         }
     }
 }

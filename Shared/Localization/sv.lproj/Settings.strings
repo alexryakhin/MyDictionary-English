@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Inga duplicerade ord, betydelser eller taggar hittades i din ordbok.";
 "cleanup_completed" = "Rengöring slutförd";
 "cleanup_completed_message" = "Rensade framgångsrikt %d duplikat:\n• %d duplicerade ord\n• %d duplicerade betydelser\n• %d duplicerade taggar\n• %d sammanslagna betydelser\n• %d sammanslagna taggrelationer";
+"email" = "E-post";
+"email_not_available" = "E-post inte tillgänglig";
+"please_contact_me_at" = "Kontakta mig på: %@";
 

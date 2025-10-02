@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Nem találhatók duplikált szavak, jelentések vagy címkék a szótárában.";
 "cleanup_completed" = "Tisztítás befejezve";
 "cleanup_completed_message" = "Sikeresen tisztítva %d duplikátum:\n• %d duplikált szó\n• %d duplikált jelentés\n• %d duplikált címke\n• %d egyesített jelentés\n• %d egyesített címke kapcsolat";
+"email" = "E-mail";
+"email_not_available" = "E-mail nem elérhető";
+"please_contact_me_at" = "Kérjük, lépjen kapcsolatba velem: %@";
 

@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Sanakirjastasi ei löytynyt päällekkäisiä sanoja, merkityksiä tai tunnisteita.";
 "cleanup_completed" = "Puhdistus valmis";
 "cleanup_completed_message" = "Puhdistettiin onnistuneesti %d päällekkäisyyttä:\n• %d päällekkäistä sanaa\n• %d päällekkäistä merkitystä\n• %d päällekkäistä tunnistetta\n• %d yhdistettyä merkitystä\n• %d yhdistettyä tunnisterelatiota";
+"email" = "Sähköposti";
+"email_not_available" = "Sähköposti ei ole saatavilla";
+"please_contact_me_at" = "Ota yhteyttä minuun: %@";
 

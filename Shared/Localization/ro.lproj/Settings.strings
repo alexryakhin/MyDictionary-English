@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Nu s-au găsit cuvinte, semnificații sau etichete duplicate în dicționarul tău.";
 "cleanup_completed" = "Curățarea Finalizată";
 "cleanup_completed_message" = "Curățarea cu succes a %d duplicate:\n• %d cuvinte duplicate\n• %d semnificații duplicate\n• %d etichete duplicate\n• %d semnificații îmbinate\n• %d relații de etichete îmbinate";
+"email" = "E-mail";
+"email_not_available" = "E-mail nu este disponibil";
+"please_contact_me_at" = "Vă rog să mă contactați la: %@";
 

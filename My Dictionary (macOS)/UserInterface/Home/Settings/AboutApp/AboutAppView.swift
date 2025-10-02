@@ -52,9 +52,9 @@ struct AboutAppView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .multilineTextAlignment(.leading)
 
-                        ActionButton(Loc.Settings.xTwitter, systemImage: "bird") {
-                            openURL(GlobalConstant.twitterUrl)
-                            AnalyticsService.shared.logEvent(.twitterButtonTapped)
+                        ActionButton(Loc.Settings.email, systemImage: "envelope") {
+                            openEmail()
+                            AnalyticsService.shared.logEvent(.emailButtonTapped)
                         }
 
                         ActionButton(Loc.Settings.instagram, systemImage: "camera") {
@@ -106,6 +106,29 @@ extension AboutAppView {
                     .multilineTextAlignment(.leading)
             }
             .padding(vertical: 12, horizontal: 16)
+        }
+    }
+    
+    private func openEmail() {
+        if let url = GlobalConstant.emailURL {
+            openURL(url)
+        } else {
+            showEmailAlert()
+        }
+    }
+    
+    private func showEmailAlert() {
+        let alert = NSAlert()
+        alert.messageText = Loc.Settings.emailNotAvailable
+        alert.informativeText = Loc.Settings.pleaseContactMeAt(GlobalConstant.email)
+        alert.addButton(withTitle: Loc.Actions.copyEmail)
+        alert.addButton(withTitle: Loc.Actions.ok)
+        
+        let response = alert.runModal()
+        if response == .alertFirstButtonReturn {
+            let pasteboard = NSPasteboard.general
+            pasteboard.clearContents()
+            pasteboard.setString(GlobalConstant.email, forType: .string)
         }
     }
 }

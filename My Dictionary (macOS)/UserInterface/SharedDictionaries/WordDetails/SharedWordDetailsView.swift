@@ -21,8 +21,6 @@ struct SharedWordDetailsView: View {
     @State private var showingMeaningsList: Bool = false
     @State private var meaningToEdit: SharedWordMeaning?
     @State private var image: Image?
-    @State private var scrollOffset: CGFloat = .zero
-    @State private var shouldHaveNavigationTitle: Bool = false
     @State private var showingImageSelection = false
     @State private var showingImageOnboarding = false
     @StateObject private var subscriptionService = SubscriptionService.shared
@@ -65,62 +63,47 @@ struct SharedWordDetailsView: View {
     }
 
     var body: some View {
-        ScrollViewWithReader(scrollOffset: $scrollOffset) {
-            VStack(spacing: 0) {
-                // Hero Image Section (only show if user is pro)
-                if let image, subscriptionService.isProUser {
-                    heroImageView(image: image)
-                        .overlay(alignment: .bottom) {
-                            wordHeaderView
-                                .padding(.horizontal, 16)
-                                .padding(.bottom, 12)
-                        }
+        ScrollViewWithCustomNavBar {
+            LazyVStack(spacing: 8) {
+                if !hasImageAvailable && canEdit {
+                    // Image Section (only show if no image exists and user can edit)
+                    imageSectionView
+                } else if hasImageAvailable && !subscriptionService.isProUser {
+                    // Image Premium Section (show if image exists but user is not pro)
+                    imagePremiumSectionView
                 }
-                
-                // Content Sections
-                LazyVStack(spacing: 8) {
-                    if !hasImageAvailable && canEdit {
-                        // Image Section (only show if no image exists and user can edit)
-                        imageSectionView
-                    } else if hasImageAvailable && !subscriptionService.isProUser {
-                        // Image Premium Section (show if image exists but user is not pro)
-                        imagePremiumSectionView
-                    }
-                    
-                    transcriptionSectionView
-                    partOfSpeechSectionView
-                    meaningsSectionView
-                    notesSectionView
-                    languageSectionView
-                    collaborativeFeaturesSection
-                    
-                    // Remove Image Button (only show if image exists and user can edit)
-                    if hasImageAvailable && canEdit && subscriptionService.isProUser {
-                        removeImageButton
-                    }
+
+                transcriptionSectionView
+                partOfSpeechSectionView
+                meaningsSectionView
+                notesSectionView
+                languageSectionView
+                collaborativeFeaturesSection
+
+                // Remove Image Button (only show if image exists and user can edit)
+                if hasImageAvailable && canEdit && subscriptionService.isProUser {
+                    removeImageButton
                 }
-                .padding(12)
-                .animation(.default, value: word)
             }
-        }
-        .safeAreaInset(edge: .top) {
-            Text(word.wordItself)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundStyle(.primary)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                .padding(.top, 16)
-                .background {
-                    VStack(spacing: 0) {
-                        Color.clear
-                            .background(.thinMaterial)
-                        Divider()
+            .padding(12)
+            .animation(.default, value: word)
+        } navigationBar: {
+            if let image, subscriptionService.isProUser {
+                heroImageView(image: image)
+                    .overlay(alignment: .bottomLeading) {
+                        wordHeaderView
+                            .padding(12)
+                            .background(.ultraThinMaterial, in: .capsule)
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 12)
                     }
-                    .opacity(shouldHaveNavigationTitle ? 1 : 0)
-                }
-                .opacity(shouldHaveNavigationTitle ? 1 : 0)
+            } else {
+                wordHeaderView
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 12)
+                    .padding(.top, 24)
+            }
         }
         .groupedBackground()
         .navigationTitle(Loc.Navigation.wordDetails)
@@ -172,7 +155,6 @@ struct SharedWordDetailsView: View {
                     // Update the image state
                     if let image = PexelsService.shared.getImageFromLocalPath(localPath) {
                         self.image = image
-                        shouldHaveNavigationTitle = false
                     }
 
                     Task {
@@ -202,16 +184,6 @@ struct SharedWordDetailsView: View {
                     self.definitionText = updatedWord.definition
                     self.notesText = updatedWord.notes ?? ""
                 }
-            }
-        }
-        .onChange(of: scrollOffset) { newValue in
-            guard hasImageAvailable && subscriptionService.isProUser else {
-                shouldHaveNavigationTitle = true
-                return
-            }
-            let topOffset: CGFloat = 200
-            withAnimation {
-                shouldHaveNavigationTitle = newValue <= -topOffset
             }
         }
         .onDisappear {
@@ -763,27 +735,13 @@ private extension SharedWordDetailsView {
 
     func heroImageView(image: Image) -> some View {
         GeometryReader { geometry in
-            let offset = geometry.frame(in: .global).minY
-            let height = max(200, 200 + offset)
-
             image
                 .resizable()
                 .scaledToFill()
-                .frame(width: geometry.size.width, height: height)
+                .frame(width: geometry.size.width, height: geometry.size.height)
                 .clipped()
-                .overlay(
-                    LinearGradient(
-                        gradient: Gradient(colors: [.clear, Color.systemGroupedBackground]),
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                    .frame(height: 100),
-                    alignment: .bottom
-                )
-                .offset(y: offset > 0 ? -offset : 0)
-                .frame(height: height)
         }
-        .frame(height: 200)
+        .frame(height: 250)
     }
     
     @ViewBuilder
@@ -792,7 +750,6 @@ private extension SharedWordDetailsView {
             .font(.largeTitle)
             .fontWeight(.bold)
             .foregroundStyle(.primary)
-            .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     // MARK: - Image Related Views
@@ -901,11 +858,6 @@ private extension SharedWordDetailsView {
     func loadImage() async {
         // Check if image exists and set state with fallback
         if let imageLocalPath = word.imageLocalPath {
-            shouldHaveNavigationTitle = !subscriptionService.isProUser
-
-            print("🔍 [SharedWordDetails] Image path: \(imageLocalPath)")
-            print("🌐 [SharedWordDetails] Image URL: \(word.imageUrl ?? "nil")")
-
             let result = await PexelsService.shared.getImageWithFallback(
                 localPath: imageLocalPath,
                 webUrl: word.imageUrl
@@ -913,24 +865,19 @@ private extension SharedWordDetailsView {
 
             await MainActor.run {
                 if let image = result.image {
-                    print("✅ [SharedWordDetails] Image loaded successfully (with fallback if needed)")
                     self.image = image
 
                     // Update the word with new relative path if fallback was used
                     if let newLocalPath = result.newLocalPath {
-                        print("🔄 [SharedWordDetails] Updating with new relative path: \(newLocalPath)")
                         word.imageLocalPath = newLocalPath
                     }
                 } else {
-                    print("❌ [SharedWordDetails] Image failed to load even with fallback")
                     image = nil
-                    shouldHaveNavigationTitle = true
                 }
             }
         } else {
             print("🔍 [SharedWordDetails] No image path found")
             image = nil
-            shouldHaveNavigationTitle = true
         }
     }
 }

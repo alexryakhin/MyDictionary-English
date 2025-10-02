@@ -68,4 +68,7 @@
 "no_duplicates_message" = "사전에서 중복된 단어, 의미 또는 태그를 찾을 수 없습니다.";
 "cleanup_completed" = "정리 완료";
 "cleanup_completed_message" = "%d개의 중복을 성공적으로 정리했습니다:\n• %d개의 중복된 단어\n• %d개의 중복된 의미\n• %d개의 중복된 태그\n• %d개의 병합된 의미\n• %d개의 병합된 태그 관계";
+"email" = "이메일";
+"email_not_available" = "이메일을 사용할 수 없습니다";
+"please_contact_me_at" = "다음으로 연락해 주세요: %@";
 

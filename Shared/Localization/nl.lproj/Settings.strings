@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Er zijn geen dubbele woorden, betekenissen of tags gevonden in je woordenboek.";
 "cleanup_completed" = "Opruiming voltooid";
 "cleanup_completed_message" = "Succesvol %d duplicaten opgeruimd:\n• %d dubbele woorden\n• %d dubbele betekenissen\n• %d dubbele tags\n• %d samengevoegde betekenissen\n• %d samengevoegde tag-relaties";
+"email" = "E-mail";
+"email_not_available" = "E-mail niet beschikbaar";
+"please_contact_me_at" = "Neem contact met me op: %@";
 

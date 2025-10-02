@@ -27,6 +27,9 @@
 "voice_pronunciation_support" = "دعم النطق الصوتي";
 "contact_me" = "اتصل بي";
 "x_twitter" = "إكس (تويتر)";
+"email" = "البريد الإلكتروني";
+"email_not_available" = "البريد الإلكتروني غير متاح";
+"please_contact_me_at" = "يرجى التواصل معي على: %@";
 "instagram" = "إنستغرام";
 "support" = "الدعم";
 "rate_app" = "تقييم التطبيق";

@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Der blev ikke fundet duplikerede ord, betydninger eller tags i din ordbog.";
 "cleanup_completed" = "Oprydning fuldført";
 "cleanup_completed_message" = "Ryddede med succes %d duplikater op:\n• %d duplikerede ord\n• %d duplikerede betydninger\n• %d duplikerede tags\n• %d sammenflettede betydninger\n• %d sammenflettede tag-relationer";
+"email" = "E-mail";
+"email_not_available" = "E-mail ikke tilgængelig";
+"please_contact_me_at" = "Kontakt mig venligst på: %@";
 

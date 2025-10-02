@@ -68,4 +68,7 @@
 "no_duplicates_message" = "לא נמצאו מילים, משמעויות או תגיות כפולות במילון שלך.";
 "cleanup_completed" = "הניקוי הושלם";
 "cleanup_completed_message" = "נוקו בהצלחה %d כפילויות:\n• %d מילים כפולות\n• %d משמעויות כפולות\n• %d תגיות כפולות\n• %d משמעויות שמוזגו\n• %d קשרי תגיות שמוזגו";
+"email" = "דואל";
+"email_not_available" = "דואל לא זמין";
+"please_contact_me_at" = "אנא צור איתי קשר ב: %@";
 

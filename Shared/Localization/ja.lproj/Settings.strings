@@ -68,4 +68,7 @@
 "no_duplicates_message" = "辞書に重複する単語、意味、またはタグは見つかりませんでした。";
 "cleanup_completed" = "クリーンアップ完了";
 "cleanup_completed_message" = "%d個の重複を正常にクリーンアップしました：\n• %d個の重複する単語\n• %d個の重複する意味\n• %d個の重複するタグ\n• %d個の意味がマージされました\n• %d個のタグ関係がマージされました";
+"email" = "メール";
+"email_not_available" = "メールが利用できません";
+"please_contact_me_at" = "お問い合わせはこちらまで: %@";
 

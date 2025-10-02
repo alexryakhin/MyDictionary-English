@@ -68,4 +68,7 @@
 "no_duplicates_message" = "No s'han trobat paraules, significats o etiquetes duplicades al teu diccionari.";
 "cleanup_completed" = "Neteja completada";
 "cleanup_completed_message" = "S'han netejat amb èxit %d duplicats:\n• %d paraules duplicades\n• %d significats duplicats\n• %d etiquetes duplicades\n• %d significats fusionats\n• %d relacions d'etiquetes fusionades";
+"email" = "Correu electrònic";
+"email_not_available" = "Correu electrònic no disponible";
+"please_contact_me_at" = "Si us plau, contacta'm a: %@";
 

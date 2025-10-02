@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Ve vašem slovníku nebyla nalezena žádná duplicitní slova, významy nebo štítky.";
 "cleanup_completed" = "Čištění dokončeno";
 "cleanup_completed_message" = "Úspěšně vyčištěno %d duplikátů:\n• %d duplicitních slov\n• %d duplicitních významů\n• %d duplicitních štítků\n• %d sloučených významů\n• %d sloučených vztahů štítků";
+"email" = "E-mail";
+"email_not_available" = "E-mail není k dispozici";
+"please_contact_me_at" = "Prosím, kontaktujte mě na: %@";
 

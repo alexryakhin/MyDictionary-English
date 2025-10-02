@@ -60,8 +60,9 @@ struct ImageSelectionView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             case .loading:
-                VStack {
+                ContentUnavailableView {
                     ProgressView()
+                } description: {
                     Text(Loc.WordImages.ImageSelection.searching(searchQuery))
                         .font(.caption)
                         .foregroundStyle(.secondary)

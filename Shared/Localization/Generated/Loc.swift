@@ -25,6 +25,8 @@ public enum Loc {
     public static let confirm = Loc.tr("Actions", "confirm", fallback: "Confirm")
     /// Copy
     public static let copy = Loc.tr("Actions", "copy", fallback: "Copy")
+    /// Copy Email
+    public static let copyEmail = Loc.tr("Actions", "copy_email", fallback: "Copy Email")
     /// Create
     public static let create = Loc.tr("Actions", "create", fallback: "Create")
     /// Delete
@@ -1666,6 +1668,10 @@ public enum Loc {
     public static func duplicatesFoundMessage(_ p1: Int, _ p2: Int, _ p3: Int) -> String {
       return Loc.tr("Settings", "duplicates_found_message", p1, p2, p3, fallback: "Found %d duplicate words, %d duplicate meanings, and %d duplicate tags. Use 'Clean Up Duplicates' to remove them.")
     }
+    /// Email
+    public static let email = Loc.tr("Settings", "email", fallback: "Email")
+    /// Email Not Available
+    public static let emailNotAvailable = Loc.tr("Settings", "email_not_available", fallback: "Email Not Available")
     /// Export Successful
     public static let exportSuccessful = Loc.tr("Settings", "export_successful", fallback: "Export Successful")
     /// Export words
@@ -1716,6 +1722,10 @@ public enum Loc {
     public static let notifications = Loc.tr("Settings", "notifications", fallback: "Notifications")
     /// Organization
     public static let organization = Loc.tr("Settings", "organization", fallback: "Organization")
+    /// Please contact me at: %@
+    public static func pleaseContactMeAt(_ p1: Any) -> String {
+      return Loc.tr("Settings", "please_contact_me_at", String(describing: p1), fallback: "Please contact me at: %@")
+    }
     /// Practice with quizzes and spelling exercises
     public static let practiceQuizzesSpelling = Loc.tr("Settings", "practice_quizzes_spelling", fallback: "Practice with quizzes and spelling exercises")
     /// Upgrade to Pro for unlimited features and cross-device sync.

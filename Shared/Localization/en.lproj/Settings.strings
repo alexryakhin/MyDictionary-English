@@ -27,6 +27,9 @@
 "voice_pronunciation_support" = "Voice pronunciation support";
 "contact_me" = "Contact Me";
 "x_twitter" = "X (Twitter)";
+"email" = "Email";
+"email_not_available" = "Email Not Available";
+"please_contact_me_at" = "Please contact me at: %@";
 "instagram" = "Instagram";
 "support" = "Support";
 "rate_app" = "Rate the App";

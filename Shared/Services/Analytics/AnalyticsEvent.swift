@@ -125,7 +125,7 @@ enum AnalyticsEvent: String {
     case tagManagementOpened
 
     case buyMeACoffeeTapped
-    case twitterButtonTapped
+    case emailButtonTapped
     case instagramButtonTapped
     case exportToCSVButtonTapped
     case importFromCSVButtonTapped

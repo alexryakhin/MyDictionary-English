@@ -68,4 +68,7 @@
 "no_duplicates_message" = "在你的词典中未发现重复的单词、含义或标签。";
 "cleanup_completed" = "清理完成";
 "cleanup_completed_message" = "成功清理了 %d 个重复项：\n• %d 个重复单词\n• %d 个重复含义\n• %d 个重复标签\n• %d 个含义已合并\n• %d 个标签关系已合并";
+"email" = "电子邮件";
+"email_not_available" = "电子邮件不可用";
+"please_contact_me_at" = "请联系我：%@";
 

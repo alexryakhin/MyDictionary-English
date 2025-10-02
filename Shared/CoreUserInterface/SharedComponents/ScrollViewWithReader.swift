@@ -10,23 +10,20 @@ import SwiftUI
 struct ScrollViewWithReader<Content: View>: View {
     @Binding private var scrollOffset: CGFloat
     private let axis: Axis.Set
-    private let showsIndicators: Bool
     private let content: () -> Content
 
     init(
         scrollOffset: Binding<CGFloat>,
         axis: Axis.Set = .vertical,
-        showsIndicators: Bool = false,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self._scrollOffset = scrollOffset
         self.axis = axis
-        self.showsIndicators = showsIndicators
         self.content = content
     }
     
     var body: some View {
-        ScrollView(axis, showsIndicators: showsIndicators) {
+        ScrollView(axis) {
             content()
                 .background(GeometryReader { geometry in
                     Color.clear.preference(

@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Ingen duplikate ord, betydninger eller etiketter ble funnet i ordboken din.";
 "cleanup_completed" = "Opprydding fullført";
 "cleanup_completed_message" = "Ryddet opp i %d duplikater:\n• %d duplikate ord\n• %d duplikate betydninger\n• %d duplikate etiketter\n• %d sammenflettede betydninger\n• %d sammenflettede etikettrelasjoner";
+"email" = "E-post";
+"email_not_available" = "E-post ikke tilgjengelig";
+"please_contact_me_at" = "Vennligst kontakt meg på: %@";
 

@@ -18,10 +18,8 @@ struct WordDetailsView: View {
     @State private var showingMeaningsList = false
     @State private var meaningToEdit: CDMeaning?
     @State private var image: Image?
-    @State private var scrollOffset: CGFloat = .zero
     @State private var showingImageSelection = false
     @State private var showingImageOnboarding = false
-    @State private var shouldHaveNavigationTitle: Bool = false
 
     var imageExists: Bool {
         (word.imageLocalPath != nil || image != nil) && subscriptionService.isProUser
@@ -36,63 +34,48 @@ struct WordDetailsView: View {
     }
 
     var body: some View {
-        ScrollViewWithReader(scrollOffset: $scrollOffset) {
-            VStack(spacing: 0) {
-                // Hero Image Section (only show if user is pro)
-                if let image, subscriptionService.isProUser {
-                    heroImageView(image: image)
-                        .overlay(alignment: .bottom) {
-                            wordHeaderView
-                                .padding(.horizontal, 16)
-                                .padding(.bottom, 12)
-                        }
+        ScrollViewWithCustomNavBar {
+            LazyVStack(spacing: 8) {
+                if !hasImageAvailable {
+                    // Image Section (only show if no image exists)
+                    imageSectionView
+                } else if hasImageAvailable && !subscriptionService.isProUser {
+                    // Image Premium Section (show if image exists but user is not pro)
+                    imagePremiumSectionView
                 }
-                
-                // Content Sections
-                LazyVStack(spacing: 8) {
-                    if !hasImageAvailable {
-                        // Image Section (only show if no image exists)
-                        imageSectionView
-                    } else if hasImageAvailable && !subscriptionService.isProUser {
-                        // Image Premium Section (show if image exists but user is not pro)
-                        imagePremiumSectionView
-                    }
-                    
-                    transcriptionSectionView
-                    partOfSpeechSectionView
-                    meaningsSectionView
-                    notesSectionView
-                    difficultySectionView
-                    languageSectionView
-                    tagsSectionView
-                    
-                    // Remove Image Button (only show if image exists and user is pro)
-                    if hasImageAvailable && subscriptionService.isProUser {
-                        removeImageButton
-                    }
+
+                transcriptionSectionView
+                partOfSpeechSectionView
+                meaningsSectionView
+                notesSectionView
+                difficultySectionView
+                languageSectionView
+                tagsSectionView
+
+                // Remove Image Button (only show if image exists and user is pro)
+                if hasImageAvailable && subscriptionService.isProUser {
+                    removeImageButton
                 }
-                .padding(12)
-                .animation(.default, value: word)
             }
-        }
-        .safeAreaInset(edge: .top) {
-            Text(word.wordItself ?? "")
-                .font(.largeTitle)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .multilineTextAlignment(.leading)
-                .bold()
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                .padding(.top, 16)
-                .background {
-                    VStack(spacing: 0) {
-                        Color.clear
-                            .background(.thinMaterial)
-                        Divider()
+            .padding(12)
+            .animation(.default, value: word)
+        } navigationBar: {
+            if let image, subscriptionService.isProUser {
+                heroImageView(image: image)
+                    .overlay(alignment: .bottomLeading) {
+                        wordHeaderView
+                            .padding(12)
+                            .background(.ultraThinMaterial, in: .capsule)
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 12)
                     }
-                    .opacity(shouldHaveNavigationTitle ? 1 : 0)
-                }
-                .opacity(shouldHaveNavigationTitle ? 1 : 0)
+            } else {
+                wordHeaderView
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 12)
+                    .padding(.top, 24)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .groupedBackground()
@@ -154,7 +137,6 @@ struct WordDetailsView: View {
                     // Update the image state
                     if let image = PexelsService.shared.getImageFromLocalPath(localPath) {
                         self.image = image
-                        shouldHaveNavigationTitle = false
                     }
                     try? word.managedObjectContext?.save()
                 },
@@ -166,16 +148,6 @@ struct WordDetailsView: View {
         .imagesOnboarding(isPresented: $showingImageOnboarding, onCompleted: handleOnboardingCompletion)
         .task {
             await loadImage()
-        }
-        .onChange(of: scrollOffset) { newValue in
-            guard hasImageAvailable && subscriptionService.isProUser else {
-                shouldHaveNavigationTitle = true
-                return
-            }
-            let topOffset: CGFloat = 200
-            withAnimation {
-                shouldHaveNavigationTitle = newValue <= -topOffset
-            }
         }
     }
 
@@ -596,27 +568,13 @@ struct WordDetailsView: View {
     
     private func heroImageView(image: Image) -> some View {
         GeometryReader { geometry in
-            let offset = geometry.frame(in: .global).minY
-            let height = max(200, 200 + offset)
-
             image
                 .resizable()
                 .scaledToFill()
-                .frame(width: geometry.size.width, height: height)
+                .frame(width: geometry.size.width, height: geometry.size.height)
                 .clipped()
-                .overlay(
-                    LinearGradient(
-                        gradient: Gradient(colors: [.clear, Color.systemGroupedBackground]),
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                    .frame(height: 100),
-                    alignment: .bottom
-                )
-                .offset(y: offset > 0 ? -offset : 0)
-                .frame(height: height)
         }
-        .frame(height: 200)
+        .frame(height: 250)
     }
     
     @ViewBuilder
@@ -626,8 +584,6 @@ struct WordDetailsView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundStyle(.primary)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .opacity(!shouldHaveNavigationTitle ? 1 : 0)
         }
     }
     
@@ -741,11 +697,6 @@ struct WordDetailsView: View {
     private func loadImage() async {
         // Check if image exists and set state with fallback
         if let imageLocalPath = word.imageLocalPath {
-            shouldHaveNavigationTitle = !subscriptionService.isProUser
-
-            print("🔍 [WordDetails] Image path: \(imageLocalPath)")
-            print("🌐 [WordDetails] Image URL: \(word.imageUrl ?? "nil")")
-
             let result = await PexelsService.shared.getImageWithFallback(
                 localPath: imageLocalPath,
                 webUrl: word.imageUrl
@@ -753,25 +704,19 @@ struct WordDetailsView: View {
 
             await MainActor.run {
                 if let image = result.image {
-                    print("✅ [WordDetails] Image loaded successfully (with fallback if needed)")
                     self.image = image
 
                     // Update Core Data with new relative path if fallback was used
                     if let newLocalPath = result.newLocalPath {
-                        print("🔄 [WordDetails] Updating Core Data with new relative path: \(newLocalPath)")
                         word.imageLocalPath = newLocalPath
                         saveContext()
                     }
                 } else {
-                    print("❌ [WordDetails] Image failed to load even with fallback")
                     image = nil
-                    shouldHaveNavigationTitle = true
                 }
             }
         } else {
-            print("🔍 [WordDetails] No image path found")
             image = nil
-            shouldHaveNavigationTitle = true
         }
     }
 }

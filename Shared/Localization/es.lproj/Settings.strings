@@ -68,4 +68,7 @@
 "no_duplicates_message" = "No se encontraron palabras, significados o etiquetas duplicadas en tu diccionario.";
 "cleanup_completed" = "Limpieza completada";
 "cleanup_completed_message" = "Se limpiaron exitosamente %d duplicados:\n• %d palabras duplicadas\n• %d significados duplicados\n• %d etiquetas duplicadas\n• %d significados fusionados\n• %d relaciones de etiquetas fusionadas";
+"email" = "Correo electrónico";
+"email_not_available" = "Correo electrónico no disponible";
+"please_contact_me_at" = "Por favor, contáctame en: %@";
 

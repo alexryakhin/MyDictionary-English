@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Sözlüğünüzde yinelenen kelime, anlam veya etiket bulunamadı.";
 "cleanup_completed" = "Temizlik Tamamlandı";
 "cleanup_completed_message" = "%d yinelenen başarıyla temizlendi:\n• %d yinelenen kelime\n• %d yinelenen anlam\n• %d yinelenen etiket\n• %d birleştirilen anlam\n• %d birleştirilen etiket ilişkisi";
+"email" = "E-posta";
+"email_not_available" = "E-posta kullanılamıyor";
+"please_contact_me_at" = "Lütfen benimle iletişime geçin: %@";
 

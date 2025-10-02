@@ -68,4 +68,7 @@
 "no_duplicates_message" = "Es wurden keine doppelten Wörter, Bedeutungen oder Tags in Ihrem Wörterbuch gefunden.";
 "cleanup_completed" = "Bereinigung abgeschlossen";
 "cleanup_completed_message" = "Erfolgreich %d Duplikate bereinigt:\n• %d doppelte Wörter\n• %d doppelte Bedeutungen\n• %d doppelte Tags\n• %d Bedeutungen zusammengeführt\n• %d Tag-Beziehungen zusammengeführt";
+"email" = "E-Mail";
+"email_not_available" = "E-Mail nicht verfügbar";
+"please_contact_me_at" = "Bitte kontaktieren Sie mich unter: %@";
 
