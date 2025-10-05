@@ -293,12 +293,12 @@ struct AdvancedPaywallView: View {
                 )
 
                 SocialProofCard(
-                    number: "2K+",
+                    number: "5K+",
                     label: Loc.Subscription.Paywall.activeUsers
                 )
 
                 SocialProofCard(
-                    number: "20K+",
+                    number: "100K+",
                     label: Loc.Subscription.Paywall.wordsAdded
                 )
             }

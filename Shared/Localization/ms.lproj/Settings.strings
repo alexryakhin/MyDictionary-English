@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Sesuaikan pengalaman pembelajaran anda";
 "voice_pronunciation_support" = "Sokongan sebutan suara";
 "contact_me" = "Hubungi Saya";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Sokongan";
 "rate_app" = "Nilaikan Apl";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Pengguna percuma boleh mengeksport sehingga %d perkataan";
 "app_version" = "Versi Apl:";
 "about_app_description" = "Saya mencipta apl ini kerana saya tidak menemui apa yang saya cari.\n\nIa adalah pengurus senarai perkataan yang mudah yang membolehkan anda mencari perkataan dan menambah definisi tanpa terjemahan ke dalam bahasa ibunda anda.\n\nSaya fikir ini adalah cara terbaik untuk belajar bahasa Inggeris. Saya harap anda mendapati ia berguna.\n\nJika anda mempunyai soalan atau ingin mencadangkan ciri, hubungi saya melalui pautan di bawah. Terima kasih kerana menggunakan apl saya!";
-"contact_support" = "Ada soalan, cadangan, atau maklum balas? Saya ingin mendengar daripada anda. Hubungi sokongan melalui Instagram atau Twitter!";
+"contact_support" = "Ada soalan, cadangan, atau maklum balas? Saya ingin mendengar daripada anda. Hubungi sokongan melalui Instagram atau Email!";
 "sign_out" = "Log Keluar";
 "upload_backup_to_google" = "Muat Naik Sandaran ke Google";
 "download_backup_from_google" = "Muat Turun Sandaran dari Google";

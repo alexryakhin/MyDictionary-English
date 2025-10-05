@@ -52,7 +52,7 @@ struct ContextMultipleChoiceQuizContentView: View {
             }
         } else if let contextQuestion = viewModel.aiContextQuestion, viewModel.items.isNotEmpty && !viewModel.isQuizComplete && viewModel.loadingStatus == .ready {
             // Quiz content is ready
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 VStack(spacing: 16) {
                     headerView
                     

@@ -15,7 +15,7 @@ struct AnalyticsView: View {
     @State private var showingQuizActivity: Bool = false
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
+        ScrollView {
             if viewModel.isLoading {
                 VStack(spacing: 12) {
                     LoaderView()

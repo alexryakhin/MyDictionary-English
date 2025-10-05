@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Personalize sua experiência de aprendizado";
 "voice_pronunciation_support" = "Suporte para pronúncia por voz";
 "contact_me" = "Entre em Contato";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Suporte";
 "rate_app" = "Avaliar Aplicativo";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Usuários do plano gratuito podem exportar até %d palavras";
 "app_version" = "Versão do Aplicativo:";
 "about_app_description" = "Criei este aplicativo porque não encontrei o que procurava.\n\nÉ um gerenciador de listas de palavras simples que permite buscar palavras e adicionar definições sem tradução para seu idioma nativo.\n\nAcho que esta é a melhor maneira de aprender inglês. Espero que você ache útil.\n\nSe tiver dúvidas ou quiser sugerir recursos, entre em contato comigo pelos links abaixo. Obrigado por usar meu aplicativo!";
-"contact_support" = "Tem dúvidas, sugestões ou feedback? Adoraria ouvir você. Entre em contato com o suporte via Instagram ou Twitter!";
+"contact_support" = "Tem dúvidas, sugestões ou feedback? Adoraria ouvir você. Entre em contato com o suporte via Instagram ou Email!";
 "sign_out" = "Sair";
 "upload_backup_to_google" = "Carregar Backup para o Google";
 "download_backup_from_google" = "Baixar Backup do Google";

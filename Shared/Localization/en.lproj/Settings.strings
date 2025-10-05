@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Customize your learning experience";
 "voice_pronunciation_support" = "Voice pronunciation support";
 "contact_me" = "Contact Me";
-"x_twitter" = "X (Twitter)";
 "email" = "Email";
 "email_not_available" = "Email Not Available";
 "please_contact_me_at" = "Please contact me at: %@";
@@ -41,7 +40,7 @@
 "free_users_export_limit" = "Free users can export up to %d words";
 "app_version" = "App version:";
 "about_app_description" = "I created this app because I could not find something that I wanted.\n\nIt is a simple word list manager that allows you to search for words and add their definitions along them without actually translating into a native language.\n\nI find this best to learn English. Hope it will work for you as well.\n\nIf you have any questions, or want to suggest a feature, please reach out to me on the links below. Thank you for using my app!";
-"contact_support" = "Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Twitter!";
+"contact_support" = "Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or via Email!";
 "sign_out" = "Sign Out";
 "upload_backup_to_google" = "Upload backup to Google";
 "download_backup_from_google" = "Download backup from Google";

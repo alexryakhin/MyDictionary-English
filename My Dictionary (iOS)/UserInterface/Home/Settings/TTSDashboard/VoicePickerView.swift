@@ -20,7 +20,7 @@ struct VoicePickerView: View {
     var body: some View {
         ScrollView {
             voiceList
-                .padding(.horizontal, 16)
+                .padding(vertical: 12, horizontal: 16)
                 .if(isPad) { view in
                     view
                         .frame(maxWidth: 550, alignment: .center)

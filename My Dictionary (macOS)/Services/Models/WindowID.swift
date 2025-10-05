@@ -8,5 +8,6 @@
 enum WindowID {
     static let main = "myDictionary.mainWindow"
     static let about = "myDictionary.aboutWindow"
+    static let analytics = "myDictionary.analyticsWindow"
     static let debug = "myDictionary.debugWindow"
 }

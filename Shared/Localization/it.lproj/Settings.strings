@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Personalizza la tua esperienza di apprendimento";
 "voice_pronunciation_support" = "Supporto per la pronuncia vocale";
 "contact_me" = "Contattami";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Supporto";
 "rate_app" = "Valuta l'App";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Gli utenti gratuiti possono esportare fino a %d parole";
 "app_version" = "Versione dell'App:";
 "about_app_description" = "Ho creato questa app perché non trovavo quello che cercavo.\n\nÈ un semplice gestore di liste di parole che ti permette di cercare parole e aggiungere le loro definizioni senza traduzione nella tua lingua madre.\n\nPenso che sia il modo migliore per imparare l'inglese. Spero che la trovi utile.\n\nSe hai domande o vuoi suggerire funzionalità, contattami tramite i link qui sotto. Grazie per aver usato la mia app!";
-"contact_support" = "Hai domande, suggerimenti o feedback? Mi piacerebbe avere tue notizie. Contatta il supporto tramite Instagram o Twitter!";
+"contact_support" = "Hai domande, suggerimenti o feedback? Mi piacerebbe avere tue notizie. Contatta il supporto tramite Instagram o Email!";
 "sign_out" = "Esci";
 "upload_backup_to_google" = "Carica Backup su Google";
 "download_backup_from_google" = "Scarica Backup da Google";

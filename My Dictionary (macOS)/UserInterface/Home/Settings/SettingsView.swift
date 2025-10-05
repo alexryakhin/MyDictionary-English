@@ -31,7 +31,7 @@ struct SettingsView: View {
     @State private var showingTTSVoiceSelection: Bool = false
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
+        ScrollView {
             VStack(spacing: 12) {
                 ttsSection
                     .hideIfOffline()

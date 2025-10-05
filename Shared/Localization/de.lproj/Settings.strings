@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Passen Sie Ihr Lernerlebnis an";
 "voice_pronunciation_support" = "Unterstützung für Sprachausgabe";
 "contact_me" = "Kontaktieren Sie mich";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Support";
 "rate_app" = "App bewerten";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Kostenlose Benutzer können bis zu %d Wörter exportieren";
 "app_version" = "App-Version:";
 "about_app_description" = "Ich habe diese App entwickelt, weil ich nicht fand, was ich suchte.\n\nEs ist ein einfacher Wortlisten-Manager, mit dem Sie Wörter nachschlagen und deren Definitionen ohne Übersetzung in Ihre Muttersprache hinzufügen können.\n\nIch denke, dies ist der beste Weg, Englisch zu lernen. Ich hoffe, es wird auch für Sie nützlich sein.\n\nWenn Sie Fragen haben oder eine Funktion vorschlagen möchten, kontaktieren Sie mich über die untenstehenden Links. Vielen Dank, dass Sie meine App verwenden!";
-"contact_support" = "Haben Sie Fragen, Vorschläge oder Feedback? Ich würde mich freuen, von Ihnen zu hören. Kontaktieren Sie den Support über Instagram oder Twitter!";
+"contact_support" = "Haben Sie Fragen, Vorschläge oder Feedback? Ich würde mich freuen, von Ihnen zu hören. Kontaktieren Sie den Support über Instagram oder Email!";
 "sign_out" = "Abmelden";
 "upload_backup_to_google" = "Sicherung zu Google hochladen";
 "download_backup_from_google" = "Sicherung von Google herunterladen";

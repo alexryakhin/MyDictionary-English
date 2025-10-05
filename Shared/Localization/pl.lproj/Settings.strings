@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Dostosuj swoje doświadczenie edukacyjne";
 "voice_pronunciation_support" = "Wsparcie dla wymowy głosowej";
 "contact_me" = "Skontaktuj się ze mną";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Wsparcie";
 "rate_app" = "Oceń aplikację";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Użytkownicy darmowego planu mogą eksportować do %d słów";
 "app_version" = "Wersja aplikacji:";
 "about_app_description" = "Stworzyłem tę aplikację, ponieważ nie znalazłem tego, czego szukałem.\n\nTo prosty menedżer list słów, który pozwala wyszukiwać słowa i dodawać definicje bez tłumaczenia na język ojczysty.\n\nMyślę, że to najlepszy sposób na naukę angielskiego. Mam nadzieję, że uznasz ją za przydatną.\n\nJeśli masz pytania lub chcesz zaproponować funkcje, skontaktuj się ze mną za pośrednictwem poniższych linków. Dziękuję za korzystanie z mojej aplikacji!";
-"contact_support" = "Masz pytania, sugestie lub opinie? Chętnie je usłyszę. Skontaktuj się z pomocą techniczną przez Instagram lub Twitter!";
+"contact_support" = "Masz pytania, sugestie lub opinie? Chętnie je usłyszę. Skontaktuj się z pomocą techniczną przez Instagram lub Email!";
 "sign_out" = "Wyloguj się";
 "upload_backup_to_google" = "Prześlij kopię zapasową do Google";
 "download_backup_from_google" = "Pobierz kopię zapasową z Google";

@@ -26,7 +26,6 @@
 "customize_learning_experience" = "学習体験をカスタマイズ";
 "voice_pronunciation_support" = "音声発音サポート";
 "contact_me" = "連絡先";
-"x_twitter" = "X（Twitter）";
 "instagram" = "Instagram";
 "support" = "サポート";
 "rate_app" = "アプリを評価";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "無料ユーザーは最大%d単語をエクスポート可能";
 "app_version" = "アプリバージョン：";
 "about_app_description" = "私は求めていたものが見つからなかったので、このアプリを作成しました。\n\nこれは単語リストを管理するシンプルなアプリで、母国語への翻訳なしで単語を検索し定義を追加できます。\n\nこれが英語を学ぶ最良の方法だと考えています。役に立つことを願っています。\n\n質問や機能の提案があれば、以下のリンクからご連絡ください。私のアプリを使ってくれてありがとう！";
-"contact_support" = "質問、提案、フィードバックはありますか？ぜひお聞かせください。InstagramまたはTwitterでサポートに連絡！";
+"contact_support" = "質問、提案、フィードバックはありますか？ぜひお聞かせください。InstagramまたはEmailでサポートに連絡！";
 "sign_out" = "ログアウト";
 "upload_backup_to_google" = "Googleにバックアップをアップロード";
 "download_backup_from_google" = "Googleからバックアップをダウンロード";

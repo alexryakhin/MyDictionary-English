@@ -1640,8 +1640,8 @@ public enum Loc {
     }
     /// Contact Me
     public static let contactMe = Loc.tr("Settings", "contact_me", fallback: "Contact Me")
-    /// Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Twitter!
-    public static let contactSupport = Loc.tr("Settings", "contact_support", fallback: "Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Twitter!")
+    /// Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Email!
+    public static let contactSupport = Loc.tr("Settings", "contact_support", fallback: "Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Email!")
     /// Customize your learning experience
     public static let customizeLearningExperience = Loc.tr("Settings", "customize_learning_experience", fallback: "Customize your learning experience")
     /// Daily Reminders
@@ -1770,8 +1770,6 @@ public enum Loc {
     public static let voicePronunciationSupport = Loc.tr("Settings", "voice_pronunciation_support", fallback: "Voice pronunciation support")
     /// Word Lists & Sync
     public static let wordListsAndSync = Loc.tr("Settings", "word_lists_and_sync", fallback: "Word Lists & Sync")
-    /// X (Twitter)
-    public static let xTwitter = Loc.tr("Settings", "x_twitter", fallback: "X (Twitter)")
   }
   public enum SharedDictionaries {
     /// Add Collaborator

@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Tilpass læringsopplevelsen din";
 "voice_pronunciation_support" = "Støtte for taleuttale";
 "contact_me" = "Kontakt meg";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Støtte";
 "rate_app" = "Vurder appen";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Gratisbrukere kan eksportere opptil %d ord";
 "app_version" = "Appversjon:";
 "about_app_description" = "Jeg lagde denne appen fordi jeg ikke fant det jeg lette etter.\n\nDet er en enkel ordlistebehandler som lar deg søke opp ord og legge til definisjoner uten oversettelser til morsmålet ditt.\n\nJeg tror dette er den beste måten å lære engelsk på. Jeg håper du finner den nyttig.\n\nHvis du har spørsmål eller ønsker å foreslå funksjoner, kontakt meg via lenkene nedenfor. Takk for at du bruker appen min!";
-"contact_support" = "Har du spørsmål, forslag eller tilbakemeldinger? Jeg vil gjerne høre fra deg. Kontakt støtte via Instagram eller Twitter!";
+"contact_support" = "Har du spørsmål, forslag eller tilbakemeldinger? Jeg vil gjerne høre fra deg. Kontakt støtte via Instagram eller Email!";
 "sign_out" = "Logg ut";
 "upload_backup_to_google" = "Last opp sikkerhetskopi til Google";
 "download_backup_from_google" = "Last ned sikkerhetskopi fra Google";

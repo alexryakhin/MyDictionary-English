@@ -34,6 +34,7 @@ struct MyDictionaryApp: App {
         }
         .windowResizability(.contentSize)
         .commands {
+            SidebarCommands()
             CommandGroup(replacing: CommandGroupPlacement.appInfo) {
                 Button {
                     openWindow(id: WindowID.about)
@@ -59,7 +60,12 @@ struct MyDictionaryApp: App {
         Window(Loc.Settings.aboutMyDictionary, id: WindowID.about) {
             AboutAppView()
         }
-        .defaultSize(width: 600, height: 600)
+        .defaultSize(width: 600, height: 650)
+
+        Window(Loc.Analytics.progress, id: WindowID.analytics) {
+            AnalyticsView()
+        }
+        .defaultSize(width: 450, height: 650)
 
         Settings {
             SettingsView()

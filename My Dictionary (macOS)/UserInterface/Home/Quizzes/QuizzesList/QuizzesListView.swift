@@ -66,7 +66,7 @@ struct QuizzesListView: View {
     }
 
     private var quizzesList: some View {
-        ScrollView(showsIndicators: false) {
+        ScrollView {
             VStack(spacing: 12) {
                 // Quiz Types Section
                 CustomSectionView(

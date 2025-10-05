@@ -103,7 +103,6 @@ enum SideBarTab: Hashable {
     case myDictionary
     case wordCollections
     case quizzes
-    case analytics
     case sharedDictionary(SharedDictionary)
 
     var title: String {
@@ -111,7 +110,6 @@ enum SideBarTab: Hashable {
         case .myDictionary: return Loc.Onboarding.myDictionary
         case .wordCollections: return Loc.WordCollections.wordCatalog
         case .quizzes: return Loc.Navigation.Tabbar.quizzes
-        case .analytics: return Loc.Navigation.Tabbar.progress
         case .sharedDictionary(let dictionary): return dictionary.name
         }
     }
@@ -121,7 +119,6 @@ enum SideBarTab: Hashable {
         case .myDictionary: return "textformat"
         case .wordCollections: return "books.vertical"
         case .quizzes: return "questionmark.circle"
-        case .analytics: return "chart.bar"
         case .sharedDictionary: return "person"
         }
     }
@@ -131,10 +128,9 @@ enum SideBarTab: Hashable {
         case .myDictionary: Loc.Actions.selectWord
         case .wordCollections: Loc.Actions.selectCollection
         case .quizzes: Loc.Actions.selectQuiz
-        case .analytics: nil
         case .sharedDictionary: Loc.Actions.selectWord
         }
     }
 
-    static let tabs: [SideBarTab] = [.myDictionary, .wordCollections, .quizzes, .analytics]
+    static let tabs: [SideBarTab] = [.myDictionary, .wordCollections, .quizzes]
 }

@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Tanulási élmény testreszabása";
 "voice_pronunciation_support" = "Kiejtési hang támogatása";
 "contact_me" = "Kapcsolatfelvétel";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Támogatás";
 "rate_app" = "Alkalmazás értékelése";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Ingyenes felhasználók legfeljebb %d szót exportálhatnak";
 "app_version" = "Alkalmazás verzió:";
 "about_app_description" = "Ezt az alkalmazást azért fejlesztettem, mert nem találtam, amit kerestem.\n\nEz egy egyszerű szólista kezelő, amely lehetővé teszi a szavak keresését és definícióik hozzáadását az anyanyelvi fordítás nélkül.\n\nSzerintem ez a legjobb módja az angol nyelv tanulásának. Remélem, hasznosnak találod.\n\nHa kérdésed van vagy funkciókat szeretnél javasolni, lépj kapcsolatba velem az alábbi linkeken keresztül. Köszönöm, hogy használod az alkalmazásomat!";
-"contact_support" = "Kérdésed, javaslatod vagy visszajelzésed van? Örömmel hallanám. Lépj kapcsolatba a támogatással az Instagramon vagy Twitteren keresztül!";
+"contact_support" = "Kérdésed, javaslatod vagy visszajelzésed van? Örömmel hallanám. Lépj kapcsolatba a támogatással az Instagramon vagy Emailen keresztül!";
 "sign_out" = "Kijelentkezés";
 "upload_backup_to_google" = "Biztonsági mentés feltöltése Google-ra";
 "download_backup_from_google" = "Biztonsági mentés letöltése Google-ról";

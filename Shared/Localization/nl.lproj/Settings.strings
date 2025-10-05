@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Pas je leerervaring aan";
 "voice_pronunciation_support" = "Ondersteuning voor stemuitspraak";
 "contact_me" = "Neem contact met mij op";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Ondersteuning";
 "rate_app" = "App beoordelen";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Gratis gebruikers kunnen tot %d woorden exporteren";
 "app_version" = "App-versie:";
 "about_app_description" = "Ik heb deze app gemaakt omdat ik niet vond wat ik zocht.\n\nHet is een eenvoudige woordenlijstbeheerder waarmee je woorden kunt opzoeken en hun definities kunt toevoegen zonder vertaling naar je moedertaal.\n\nIk denk dat dit de beste manier is om Engels te leren. Ik hoop dat het ook voor jou nuttig zal zijn.\n\nAls je vragen hebt of een functie wilt voorstellen, neem dan contact met mij op via de onderstaande links. Bedankt voor het gebruiken van mijn app!";
-"contact_support" = "Heb je vragen, suggesties of feedback? Ik hoor graag van je. Neem contact op met ondersteuning via Instagram of Twitter!";
+"contact_support" = "Heb je vragen, suggesties of feedback? Ik hoor graag van je. Neem contact op met ondersteuning via Instagram of Email!";
 "sign_out" = "Uitloggen";
 "upload_backup_to_google" = "Back-up uploaden naar Google";
 "download_backup_from_google" = "Back-up downloaden van Google";

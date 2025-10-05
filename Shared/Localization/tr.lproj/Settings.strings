@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Öğrenme deneyiminizi özelleştirin";
 "voice_pronunciation_support" = "Sesli telaffuz desteği";
 "contact_me" = "Bana Ulaşın";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Destek";
 "rate_app" = "Uygulamayı Değerlendir";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Ücretsiz plan kullanıcıları en fazla %d kelime dışa aktarabilir";
 "app_version" = "Uygulama Sürümü:";
 "about_app_description" = "Bu uygulamayı aradığımı bulamadığım için oluşturdum.\n\nBu, kelimeleri aramanıza ve ana dilinize çevirmeden tanımlar eklemenize olanak tanıyan basit bir kelime listesi yöneticisidir.\n\nİngilizce öğrenmenin en iyi yolu olduğuna inanıyorum. Umarım faydalı bulursunuz.\n\nSorularınız varsa veya özellik önerilerinde bulunmak isterseniz, aşağıdaki bağlantılardan bana ulaşın. Uygulamamı kullandığınız için teşekkürler!";
-"contact_support" = "Sorularınız, önerileriniz veya geri bildirimleriniz mi var? Duymayı çok isterim. Instagram veya Twitter üzerinden destek ekibine ulaşın!";
+"contact_support" = "Sorularınız, önerileriniz veya geri bildirimleriniz mi var? Duymayı çok isterim. Instagram veya Email üzerinden destek ekibine ulaşın!";
 "sign_out" = "Oturumu Kapat";
 "upload_backup_to_google" = "Google'a Yedek Yükle";
 "download_backup_from_google" = "Google'dan Yedek İndir";

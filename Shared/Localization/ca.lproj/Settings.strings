@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Personalitza la teva experiència d'aprenentatge";
 "voice_pronunciation_support" = "Suport de pronunciació per veu";
 "contact_me" = "Contacta'm";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Suport";
 "rate_app" = "Valora l'aplicació";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Els usuaris gratuïts poden exportar fins a %d paraules";
 "app_version" = "Versió de l'aplicació:";
 "about_app_description" = "Vaig crear aquesta aplicació perquè no vaig trobar el que volia.\n\nÉs un gestor de llistes de paraules senzill que et permet cercar paraules i afegir-ne les definicions sense traduir-les a la llengua nativa.\n\nTrobo que aquesta és la millor manera d'aprendre anglès. Espero que també et funcioni.\n\nSi tens cap pregunta o vols proposar una funció, contacta'm als enllaços següents. Gràcies per utilitzar la meva aplicació!";
-"contact_support" = "Tens preguntes, suggeriments o comentaris? M'encantaria tenir notícies teves. Contacta amb el suport a Instagram o Twitter!";
+"contact_support" = "Tens preguntes, suggeriments o comentaris? M'encantaria tenir notícies teves. Contacta amb el suport a Instagram o Email!";
 "sign_out" = "Tanca la sessió";
 "upload_backup_to_google" = "Puja una còpia de seguretat a Google";
 "download_backup_from_google" = "Descarrega una còpia de seguretat de Google";

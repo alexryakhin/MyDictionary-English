@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Prispôsobte si zážitok z učenia";
 "voice_pronunciation_support" = "Podpora hlasovej výslovnosti";
 "contact_me" = "Kontaktujte ma";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Podpora";
 "rate_app" = "Ohodnotiť aplikáciu";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Používatelia bezplatného plánu môžu exportovať až %d slov";
 "app_version" = "Verzia aplikácie:";
 "about_app_description" = "Vytvoril som túto aplikáciu, pretože som nenašiel to, čo som hľadal.\n\nJe to jednoduchý správca zoznamov slov, ktorý vám umožňuje vyhľadávať slová a pridávať definície bez prekladu do vášho rodného jazyka.\n\nMyslím si, že toto je najlepší spôsob, ako sa učiť angličtinu. Dúfam, že vám bude užitočná.\n\nAk máte otázky alebo chcete navrhnúť funkcie, kontaktujte ma cez odkazy nižšie. Ďakujem, že používate moju aplikáciu!";
-"contact_support" = "Máte otázky, návrhy alebo spätnú väzbu? Rád by som ich počul. Kontaktujte podporu cez Instagram alebo Twitter!";
+"contact_support" = "Máte otázky, návrhy alebo spätnú väzbu? Rád by som ich počul. Kontaktujte podporu cez Instagram alebo Email!";
 "sign_out" = "Odhlásiť sa";
 "upload_backup_to_google" = "Nahrať zálohu na Google";
 "download_backup_from_google" = "Stiahnuť zálohu z Google";

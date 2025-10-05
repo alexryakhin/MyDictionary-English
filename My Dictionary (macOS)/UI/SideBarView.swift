@@ -14,17 +14,12 @@ struct SideBarView: View {
     var body: some View {
         NavigationSplitView {
             sidebarView
-                .frame(width: 200)
-                .toolbar(removing: .sidebarToggle)
-
+                .navigationSplitViewColumnWidth(200)
+        } content: {
+            contentListView
+                .navigationSplitViewColumnWidth(330)
         } detail: {
-            HStack(spacing: 0) {
-                contentListView
-                if sideBarManager.selectedTab != .analytics {
-                    Divider()
-                }
-                detailView
-            }
+            detailView
         }
         .groupedBackground()
         .navigationSplitViewStyle(.automatic)
@@ -93,13 +88,26 @@ struct SideBarView: View {
         .safeAreaInset(edge: .bottom) {
             VStack {
                 Button {
+                    openWindow(id: WindowID.analytics)
+                } label: {
+                    Label(Loc.Navigation.Tabbar.progress, systemImage: "chart.bar")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(vertical: 10, horizontal: 8)
+                        .font(.title3)
+                        .clippedWithBackgroundMaterial(cornerRadius: 12)
+                        .shadow(color: .label.opacity(0.2), radius: 2)
+                }
+                .buttonStyle(.plain)
+
+                Button {
                     openSettings()
                 } label: {
                     Label(Loc.Navigation.Tabbar.settings, systemImage: "gearshape.fill")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)
-                        .clippedWithBackgroundMaterial(cornerRadius: 12, showShadow: true)
+                        .clippedWithBackgroundMaterial(cornerRadius: 12)
+                        .shadow(color: .label.opacity(0.2), radius: 2)
                 }
                 .buttonStyle(.plain)
 
@@ -110,7 +118,8 @@ struct SideBarView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)
-                        .clippedWithBackgroundMaterial(cornerRadius: 12, showShadow: true)
+                        .clippedWithBackgroundMaterial(cornerRadius: 12)
+                        .shadow(color: .label.opacity(0.2), radius: 2)
                 }
                 .buttonStyle(.plain)
             }
@@ -125,23 +134,13 @@ struct SideBarView: View {
         switch sideBarManager.selectedTab {
         case .myDictionary:
             VocabularyListView()
-                .frame(width: 300, alignment: .leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
         case .wordCollections:
             WordCollectionsView()
-                .frame(width: 300, alignment: .leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
         case .quizzes:
             QuizzesListView()
-                .frame(width: 300, alignment: .leading)
-        case .analytics:
-            AnalyticsView()
-                .frame(width: 450, alignment: .leading)
         case .sharedDictionary(let dictionary):
             SharedDictionaryWordsView(dictionary: dictionary)
                 .id(dictionary.id)
-                .frame(width: 300, alignment: .leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
         case .none:
             EmptyView()
         }

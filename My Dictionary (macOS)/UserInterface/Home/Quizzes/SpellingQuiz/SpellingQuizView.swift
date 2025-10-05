@@ -42,7 +42,7 @@ struct SpellingQuizView: View {
                 dismiss()
             }
         } else if !viewModel.isQuizComplete {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 VStack(spacing: 12) {
                     progressBar
                     definitionCard

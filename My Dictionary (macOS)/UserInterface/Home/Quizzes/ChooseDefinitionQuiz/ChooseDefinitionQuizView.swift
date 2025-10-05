@@ -49,7 +49,7 @@ struct ChooseDefinitionQuizView: View {
                 }
             } else if viewModel.items.isNotEmpty {
                 if !viewModel.isQuizComplete {
-                    ScrollView(showsIndicators: false) {
+                    ScrollView {
                         VStack(spacing: 12) {
                             progressBar
                             itemCard

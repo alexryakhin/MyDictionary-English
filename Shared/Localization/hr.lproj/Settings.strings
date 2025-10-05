@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Prilagodite svoje iskustvo učenja";
 "voice_pronunciation_support" = "Podrška za glasovni izgovor";
 "contact_me" = "Kontaktirajte me";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Podrška";
 "rate_app" = "Ocjenite aplikaciju";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Besplatni korisnici mogu izvesti do %d riječi";
 "app_version" = "Verzija aplikacije:";
 "about_app_description" = "Stvorio sam ovu aplikaciju jer nisam mogao pronaći ono što sam tražio.\n\nTo je jednostavan upravitelj popisa riječi koji vam omogućuje pretraživanje riječi i dodavanje njihovih definicija bez prevođenja na materinji jezik.\n\nMislim da je to najbolji način za učenje engleskog. Nadam se da će i vama poslužiti.\n\nAko imate pitanja ili želite predložiti značajku, kontaktirajte me na donjim poveznicama. Hvala što koristite moju aplikaciju!";
-"contact_support" = "Imate pitanja, prijedloge ili povratne informacije? Volio bih čuti vaše mišljenje. Kontaktirajte podršku na Instagramu ili Twitteru!";
+"contact_support" = "Imate pitanja, prijedloge ili povratne informacije? Volio bih čuti vaše mišljenje. Kontaktirajte podršku na Instagramu ili Emailu!";
 "sign_out" = "Odjavi se";
 "upload_backup_to_google" = "Učitaj sigurnosnu kopiju na Google";
 "download_backup_from_google" = "Preuzmi sigurnosnu kopiju s Googlea";

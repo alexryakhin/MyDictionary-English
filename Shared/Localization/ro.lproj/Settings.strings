@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Personalizează-ți experiența de învățare";
 "voice_pronunciation_support" = "Suport pentru pronunție vocală";
 "contact_me" = "Contactează-mă";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Suport";
 "rate_app" = "Evaluează Aplicația";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Utilizatorii planului gratuit pot exporta până la %d cuvinte";
 "app_version" = "Versiune Aplicație:";
 "about_app_description" = "Am creat această aplicație pentru că nu am găsit ce căutam.\n\nEste un manager simplu de liste de cuvinte care îți permite să cauți cuvinte și să adaugi definiții fără traducere în limba maternă.\n\nCred că aceasta este cea mai bună metodă pentru a învăța engleza. Sper să ți se pară utilă.\n\nDacă ai întrebări sau dorești să sugerezi funcționalități, contactează-mă prin linkurile de mai jos. Îți mulțumesc că folosești aplicația mea!";
-"contact_support" = "Ai întrebări, sugestii sau feedback? Mi-ar plăcea să le aud. Contactează suportul prin Instagram sau Twitter!";
+"contact_support" = "Ai întrebări, sugestii sau feedback? Mi-ar plăcea să le aud. Contactează suportul prin Instagram sau Email!";
 "sign_out" = "Deconectează-te";
 "upload_backup_to_google" = "Încarcă Copie de Rezervă pe Google";
 "download_backup_from_google" = "Descarcă Copie de Rezervă de pe Google";

@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Tùy chỉnh trải nghiệm học tập của bạn";
 "voice_pronunciation_support" = "Hỗ trợ phát âm bằng giọng nói";
 "contact_me" = "Liên hệ với tôi";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Hỗ trợ";
 "rate_app" = "Đánh giá ứng dụng";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Người dùng gói miễn phí có thể xuất tối đa %d từ";
 "app_version" = "Phiên bản ứng dụng:";
 "about_app_description" = "Tôi đã tạo ứng dụng này vì tôi không thể tìm thấy thứ mình cần.\n\nĐây là một trình quản lý danh sách từ đơn giản cho phép bạn tìm kiếm từ và thêm định nghĩa mà không cần dịch sang ngôn ngữ mẹ đẻ.\n\nTôi tin rằng đây là cách tốt nhất để học tiếng Anh. Hy vọng bạn thấy nó hữu ích.\n\nNếu bạn có câu hỏi hoặc đề xuất tính năng, hãy liên hệ với tôi qua các liên kết dưới đây. Cảm ơn bạn đã sử dụng ứng dụng của tôi!";
-"contact_support" = "Có câu hỏi, đề xuất hoặc phản hồi? Tôi rất muốn nghe ý kiến của bạn. Hãy liên hệ với đội hỗ trợ qua Instagram hoặc Twitter!";
+"contact_support" = "Có câu hỏi, đề xuất hoặc phản hồi? Tôi rất muốn nghe ý kiến của bạn. Hãy liên hệ với đội hỗ trợ qua Instagram hoặc Email!";
 "sign_out" = "Đăng xuất";
 "upload_backup_to_google" = "Tải bản sao lưu lên Google";
 "download_backup_from_google" = "Tải bản sao lưu từ Google";

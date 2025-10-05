@@ -8,89 +8,101 @@ struct AboutAppContentView: View {
     @StateObject var viewModel = AboutAppViewModel()
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 16) {
-                // MARK: - About
-                CustomSectionView(header: Loc.Settings.aboutApp) {
-                    VStack(spacing: 24) {
-                        Image(.iconRounded)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 128, height: 128)
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(spacing: 16) {
+                    // MARK: - About
+                    CustomSectionView(header: Loc.Settings.aboutApp) {
+                        VStack(spacing: 24) {
+                            Image(.iconRounded)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 128, height: 128)
 
-                        Text(Loc.Settings.aboutAppDescription)
-                            .multilineTextAlignment(.leading)
+                            Text(Loc.Settings.aboutAppDescription)
+                                .multilineTextAlignment(.leading)
 
-                        HStack(spacing: 8) {
-                            Text(Loc.Settings.appVersion)
-                                .bold()
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            Text(GlobalConstant.currentFullAppVersion)
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                }
-
-                // MARK: - Features
-                CustomSectionView(header: Loc.Settings.features, hPadding: .zero) {
-                    FormWithDivider {
-                        FeatureRow(text: Loc.Settings.addOrganizeWords)
-                        FeatureRow(text: Loc.Settings.practiceQuizzesSpelling)
-                        FeatureRow(text: Loc.Settings.trackLearningProgress)
-                        FeatureRow(text: Loc.Settings.importExportWordCollection)
-                        FeatureRow(text: Loc.Settings.customizeLearningExperience)
-                        FeatureRow(text: Loc.Settings.voicePronunciationSupport)
-                    }
-                }
-
-                // MARK: - Follow Me
-
-                CustomSectionView(header: Loc.Settings.contactMe) {
-                    VStack(spacing: 12) {
-                        Text(Loc.Settings.contactSupport)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .multilineTextAlignment(.leading)
-
-                        ActionButton(Loc.Settings.email, systemImage: "envelope") {
-                            openEmail()
-                            AnalyticsService.shared.logEvent(.emailButtonTapped)
-                        }
-
-                        ActionButton(Loc.Settings.instagram, systemImage: "camera") {
-                            openURL(GlobalConstant.instagramUrl)
-                            AnalyticsService.shared.logEvent(.instagramButtonTapped)
-                        }
-                    }
-                }
-
-                // MARK: - Review section
-
-                CustomSectionView(header: Loc.Settings.support) {
-                    VStack(spacing: 12) {
-                        ActionButton(Loc.Coffee.buyMeACoffee, systemImage: "cup.and.saucer.fill", color: .orange) {
-                            openURL(GlobalConstant.buyMeACoffeeUrl)
-                            AnalyticsService.shared.logEvent(.buyMeACoffeeTapped)
-                        }
-
-                        if viewModel.isShowingRating {
-                            ActionButton(Loc.Settings.rateApp, systemImage: "star.fill", color: .yellow) {
-                                requestReview()
+                            HStack(spacing: 8) {
+                                Text(Loc.Settings.appVersion)
+                                    .bold()
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                Text(GlobalConstant.currentFullAppVersion)
+                                    .foregroundStyle(.secondary)
                             }
                         }
                     }
+
+                    // MARK: - Features
+                    CustomSectionView(header: Loc.Settings.features, hPadding: .zero) {
+                        FormWithDivider {
+                            FeatureRow(text: Loc.Settings.addOrganizeWords)
+                            FeatureRow(text: Loc.Settings.practiceQuizzesSpelling)
+                            FeatureRow(text: Loc.Settings.trackLearningProgress)
+                            FeatureRow(text: Loc.Settings.importExportWordCollection)
+                            FeatureRow(text: Loc.Settings.customizeLearningExperience)
+                            FeatureRow(text: Loc.Settings.voicePronunciationSupport)
+                        }
+                    }
+
+                    // MARK: - Support section
+
+                    CustomSectionView(header: Loc.Settings.contactMe) {
+                        VStack(spacing: 12) {
+                            Text(Loc.Settings.contactSupport)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .multilineTextAlignment(.leading)
+
+                            ActionButton(Loc.Settings.email, systemImage: "envelope") {
+                                openEmail()
+                                AnalyticsService.shared.logEvent(.emailButtonTapped)
+                            }
+
+                            ActionButton(Loc.Settings.instagram, systemImage: "camera") {
+                                openURL(GlobalConstant.instagramUrl)
+                                AnalyticsService.shared.logEvent(.instagramButtonTapped)
+                            }
+
+                            Text(Loc.Coffee.helpfulLearningJourney)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .multilineTextAlignment(.leading)
+
+                            ActionButton(Loc.Coffee.buyMeACoffee, systemImage: "cup.and.saucer.fill", color: .orange) {
+                                openURL(GlobalConstant.buyMeACoffeeUrl)
+                                AnalyticsService.shared.logEvent(.buyMeACoffeeTapped)
+                            }
+
+                            if viewModel.isShowingRating {
+                                ActionButton(Loc.Settings.rateApp, systemImage: "star.fill", color: .yellow) {
+                                    requestReview()
+                                }
+                            }
+                        }
+                    }
+                    .id("Support")
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .if(isPad) { view in
+                    view
+                        .frame(maxWidth: 550, alignment: .center)
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
-            .padding(.horizontal, 16)
-            .if(isPad) { view in
-                view
-                    .frame(maxWidth: 550, alignment: .center)
-                    .frame(maxWidth: .infinity, alignment: .center)
+            .groupedBackground()
+            .navigation(
+                title: Loc.Navigation.about,
+                mode: .large,
+                showsBackButton: true,
+                trailingContent: {
+                    HeaderButton(Loc.Settings.support) {
+                        withAnimation {
+                            proxy.scrollTo("Support", anchor: .top)
+                        }
+                    }
+                }
+            )
+            .onAppear {
+                AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
             }
-        }
-        .groupedBackground()
-        .navigation(title: Loc.Navigation.about, mode: .large, showsBackButton: true)
-        .onAppear {
-            AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
         }
     }
     

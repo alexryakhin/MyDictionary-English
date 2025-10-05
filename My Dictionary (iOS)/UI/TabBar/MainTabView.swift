@@ -87,7 +87,7 @@ struct MainTabView: View {
                         }
                     }
                 }
-                .safeAreaInset(edge: .bottom) {
+                .safeAreaInset(edge: .bottom, spacing: .zero) {
                     tabBarView
                 }
                 .navigationDestination(for: NavigationDestination.self) { destination in

@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Sesuaikan pengalaman belajar Anda";
 "voice_pronunciation_support" = "Dukungan pengucapan suara";
 "contact_me" = "Hubungi Saya";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Dukungan";
 "rate_app" = "Beri Peringkat Aplikasi";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Pengguna gratis dapat mengekspor hingga %d kata";
 "app_version" = "Versi Aplikasi:";
 "about_app_description" = "Saya membuat aplikasi ini karena saya tidak menemukan apa yang saya cari.\n\nIni adalah pengelola daftar kata sederhana yang memungkinkan Anda mencari kata dan menambahkan definisinya tanpa terjemahan ke bahasa ibu Anda.\n\nSaya pikir ini adalah cara terbaik untuk belajar bahasa Inggris. Saya harap Anda merasa ini berguna.\n\nJika Anda memiliki pertanyaan atau ingin menyarankan fitur, hubungi saya melalui tautan di bawah ini. Terima kasih telah menggunakan aplikasi saya!";
-"contact_support" = "Punya pertanyaan, saran, atau masukan? Saya senang mendengar pendapat Anda. Hubungi dukungan melalui Instagram atau Twitter!";
+"contact_support" = "Punya pertanyaan, saran, atau masukan? Saya senang mendengar pendapat Anda. Hubungi dukungan melalui Instagram atau Email!";
 "sign_out" = "Keluar";
 "upload_backup_to_google" = "Unggah Cadangan ke Google";
 "download_backup_from_google" = "Unduh Cadangan dari Google";

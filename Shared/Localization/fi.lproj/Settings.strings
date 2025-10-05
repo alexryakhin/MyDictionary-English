@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Mukauta oppimiskokemustasi";
 "voice_pronunciation_support" = "Ääniohjatun ääntämisen tuki";
 "contact_me" = "Ota yhteyttä";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Tuki";
 "rate_app" = "Arvioi sovellus";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Ilmaiset käyttäjät voivat viedä enintään %d sanaa";
 "app_version" = "Sovelluksen versio:";
 "about_app_description" = "Loin tämän sovelluksen, koska en löytänyt etsimääni.\n\nSe on yksinkertainen sanalistanhallinta, jonka avulla voit hakea sanoja ja lisätä niiden määritelmiä ilman käännöstä äidinkielellesi.\n\nUskon, että tämä on paras tapa oppia englantia. Toivon, että se on hyödyllinen myös sinulle.\n\nJos sinulla on kysyttävää tai haluat ehdottaa ominaisuutta, ota yhteyttä alla olevien linkkien kautta. Kiitos, että käytät sovellustani!";
-"contact_support" = "Onko sinulla kysymyksiä, ehdotuksia tai palautetta? Haluaisin kuulla mielipiteesi. Ota yhteyttä tukeen Instagramin tai Twitterin kautta!";
+"contact_support" = "Onko sinulla kysymyksiä, ehdotuksia tai palautetta? Haluaisin kuulla mielipiteesi. Ota yhteyttä tukeen Instagramin tai Emailin kautta!";
 "sign_out" = "Kirjaudu ulos";
 "upload_backup_to_google" = "Lataa varmuuskopio Googleen";
 "download_backup_from_google" = "Lataa varmuuskopio Googlelta";

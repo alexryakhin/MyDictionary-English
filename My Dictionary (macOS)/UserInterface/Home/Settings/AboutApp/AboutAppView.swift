@@ -9,84 +9,94 @@ struct AboutAppView: View {
     @StateObject var viewModel = AboutAppViewModel()
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(spacing: 12) {
-                // MARK: - About
-                CustomSectionView(header: Loc.Settings.aboutApp) {
-                    VStack(spacing: 24) {
-                        Image(.iconRounded)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 128, height: 128)
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(spacing: 12) {
+                    // MARK: - About
+                    CustomSectionView(header: Loc.Settings.aboutApp) {
+                        VStack(spacing: 24) {
+                            Image(.iconRounded)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 128, height: 128)
 
-                        Text(Loc.Settings.aboutAppDescription)
-                            .multilineTextAlignment(.leading)
+                            Text(Loc.Settings.aboutAppDescription)
+                                .multilineTextAlignment(.leading)
 
-                        HStack(spacing: 8) {
-                            Text(Loc.Settings.appVersion)
-                                .bold()
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            Text(GlobalConstant.currentFullAppVersion)
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                }
-
-                // MARK: - Features
-                CustomSectionView(header: Loc.Settings.features, hPadding: .zero) {
-                    FormWithDivider {
-                        FeatureRow(text: Loc.Settings.addOrganizeWords)
-                        FeatureRow(text: Loc.Settings.practiceQuizzesSpelling)
-                        FeatureRow(text: Loc.Settings.trackLearningProgress)
-                        FeatureRow(text: Loc.Settings.importExportWordCollection)
-                        FeatureRow(text: Loc.Settings.customizeLearningExperience)
-                        FeatureRow(text: Loc.Settings.voicePronunciationSupport)
-                    }
-                }
-
-                // MARK: - Follow Me
-
-                CustomSectionView(header: Loc.Settings.contactMe) {
-                    VStack(spacing: 12) {
-                        Text(Loc.Settings.contactSupport)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .multilineTextAlignment(.leading)
-
-                        ActionButton(Loc.Settings.email, systemImage: "envelope") {
-                            openEmail()
-                            AnalyticsService.shared.logEvent(.emailButtonTapped)
-                        }
-
-                        ActionButton(Loc.Settings.instagram, systemImage: "camera") {
-                            openURL(GlobalConstant.instagramUrl)
-                            AnalyticsService.shared.logEvent(.instagramButtonTapped)
-                        }
-                    }
-                }
-
-                // MARK: - Review section
-
-                CustomSectionView(header: Loc.Settings.support) {
-                    VStack(spacing: 12) {
-                        ActionButton(Loc.Coffee.buyMeACoffee, systemImage: "cup.and.saucer.fill", color: .orange) {
-                            openURL(GlobalConstant.buyMeACoffeeUrl)
-                            AnalyticsService.shared.logEvent(.buyMeACoffeeTapped)
-                        }
-
-                        if viewModel.isShowingRating {
-                            ActionButton(Loc.Settings.rateApp, systemImage: "star.fill", color: .yellow) {
-                                requestReview()
+                            HStack(spacing: 8) {
+                                Text(Loc.Settings.appVersion)
+                                    .bold()
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                Text(GlobalConstant.currentFullAppVersion)
+                                    .foregroundStyle(.secondary)
                             }
+                        }
+                    }
+
+                    // MARK: - Features
+                    CustomSectionView(header: Loc.Settings.features, hPadding: .zero) {
+                        FormWithDivider {
+                            FeatureRow(text: Loc.Settings.addOrganizeWords)
+                            FeatureRow(text: Loc.Settings.practiceQuizzesSpelling)
+                            FeatureRow(text: Loc.Settings.trackLearningProgress)
+                            FeatureRow(text: Loc.Settings.importExportWordCollection)
+                            FeatureRow(text: Loc.Settings.customizeLearningExperience)
+                            FeatureRow(text: Loc.Settings.voicePronunciationSupport)
+                        }
+                    }
+
+                    // MARK: - Support section
+
+                    CustomSectionView(header: Loc.Settings.contactMe) {
+                        VStack(spacing: 12) {
+                            Text(Loc.Settings.contactSupport)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .multilineTextAlignment(.leading)
+
+                            ActionButton(Loc.Settings.email, systemImage: "envelope") {
+                                openEmail()
+                                AnalyticsService.shared.logEvent(.emailButtonTapped)
+                            }
+
+                            ActionButton(Loc.Settings.instagram, systemImage: "camera") {
+                                openURL(GlobalConstant.instagramUrl)
+                                AnalyticsService.shared.logEvent(.instagramButtonTapped)
+                            }
+
+                            Text(Loc.Coffee.helpfulLearningJourney)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .multilineTextAlignment(.leading)
+
+                            ActionButton(Loc.Coffee.buyMeACoffee, systemImage: "cup.and.saucer.fill", color: .orange) {
+                                openURL(GlobalConstant.buyMeACoffeeUrl)
+                                AnalyticsService.shared.logEvent(.buyMeACoffeeTapped)
+                            }
+
+                            if viewModel.isShowingRating {
+                                ActionButton(Loc.Settings.rateApp, systemImage: "star.fill", color: .yellow) {
+                                    requestReview()
+                                }
+                            }
+                        }
+                    }
+                    .id("Support")
+                }
+                .padding(12)
+            }
+            .groupedBackground()
+            .navigationTitle(Loc.Navigation.about)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button(Loc.Settings.support) {
+                        withAnimation {
+                            proxy.scrollTo("Support", anchor: .top)
                         }
                     }
                 }
             }
-            .padding(12)
-        }
-        .groupedBackground()
-        .navigationTitle(Loc.Navigation.about)
-        .onAppear {
-            AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
+            .onAppear {
+                AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
+            }
         }
     }
 }

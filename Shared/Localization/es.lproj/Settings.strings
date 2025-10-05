@@ -26,7 +26,6 @@
 "customize_learning_experience" = "Personaliza tu experiencia de aprendizaje";
 "voice_pronunciation_support" = "Soporte de pronunciación por voz";
 "contact_me" = "Contáctame";
-"x_twitter" = "X (Twitter)";
 "instagram" = "Instagram";
 "support" = "Soporte";
 "rate_app" = "Calificar aplicación";
@@ -38,7 +37,7 @@
 "free_users_export_limit" = "Los usuarios del plan gratuito pueden exportar hasta %d palabras";
 "app_version" = "Versión de la aplicación:";
 "about_app_description" = "Creé esta aplicación porque no encontré lo que buscaba.\n\nEs un administrador simple de listas de palabras que te permite buscar palabras y añadir definiciones sin traducirlas a tu idioma nativo.\n\nCreo que esta es la mejor manera de aprender inglés. Espero que te resulte útil.\n\nSi tienes preguntas o quieres sugerir funciones, contáctame a través de los enlaces de abajo. ¡Gracias por usar mi aplicación!";
-"contact_support" = "¿Tienes preguntas, sugerencias o comentarios? Me encantaría escucharlos. ¡Contacta con el soporte a través de Instagram o Twitter!";
+"contact_support" = "¿Tienes preguntas, sugerencias o comentarios? Me encantaría escucharlos. ¡Contacta con el soporte a través de Instagram o Email!";
 "sign_out" = "Cerrar sesión";
 "upload_backup_to_google" = "Subir copia de seguridad a Google";
 "download_backup_from_google" = "Descargar copia de seguridad de Google";
