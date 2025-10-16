@@ -30,3 +30,134 @@
 "collaborative_learning_description" = "Share dictionaries with friends and family";
 "natural_voices" = "Natural Voices";
 "natural_voices_description" = "Hundreds of premium voices that sound more human than ever";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "What should we call you?";
+"enter_your_name" = "Enter your name";
+"skip" = "Skip";
+"continue" = "Continue";
+
+// User Type
+"which_best_describes_you" = "Which best describes you?";
+"user_type_student" = "Student";
+"user_type_professional" = "Professional";
+"user_type_hobbyist" = "Hobbyist";
+"user_type_other" = "Other";
+"user_type_student_description" = "Learning for school or university";
+"user_type_professional_description" = "Advancing my career";
+"user_type_hobbyist_description" = "Learning for fun";
+"user_type_other_description" = "Other purposes";
+
+// Age Group
+"whats_your_age_group" = "What's your age group?";
+
+// Learning Goals
+"why_are_you_learning" = "Why are you learning languages?";
+"select_up_to_three" = "Select 1-3 goals";
+"learning_goal_career" = "Career Growth";
+"learning_goal_travel" = "Travel & Tourism";
+"learning_goal_education" = "Education";
+"learning_goal_personal_growth" = "Personal Growth";
+"learning_goal_immigration" = "Immigration";
+"learning_goal_family" = "Family & Friends";
+
+// Languages to Study
+"which_languages_to_learn" = "Which languages do you want to learn?";
+"search_languages" = "Search languages";
+"add_language" = "Add Language";
+"select_proficiency_level" = "Select proficiency level";
+"select_at_least_one_language" = "Select at least one language";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Beginner - Basic phrases";
+"cefr_level_a2_description" = "Elementary - Simple conversations";
+"cefr_level_b1_description" = "Intermediate - Independent user";
+"cefr_level_b2_description" = "Upper Intermediate - Complex topics";
+"cefr_level_c1_description" = "Advanced - Fluent expression";
+"cefr_level_c2_description" = "Mastery - Native-like proficiency";
+
+// Native Language
+"whats_your_native_language" = "What's your native language?";
+"search_your_language" = "Search your language";
+
+// Interests
+"what_topics_interest_you" = "What topics interest you?";
+"select_2_to_5_interests" = "Select 2-5 interests";
+"interest_business" = "Business";
+"interest_technology" = "Technology";
+"interest_sports" = "Sports";
+"interest_culture" = "Culture";
+"interest_food" = "Food";
+"interest_entertainment" = "Entertainment";
+"interest_science" = "Science";
+"interest_health" = "Health";
+"interest_travel" = "Travel";
+"interest_education" = "Education";
+
+// Study Intensity
+"how_many_words_per_week" = "How many words do you want to learn per week?";
+"words_per_week" = "%d words/week";
+"estimated_daily_time" = "≈ %d min/day";
+
+// Study Time
+"when_do_you_prefer_to_study" = "When do you prefer to study?";
+"study_time_morning" = "Morning";
+"study_time_afternoon" = "Afternoon";
+"study_time_evening" = "Evening";
+"study_time_flexible" = "Flexible";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Anytime";
+
+// Streak Introduction
+"build_your_learning_streak" = "Build your learning streak!";
+"streak_intro_message" = "Practice every day to build your streak and stay motivated. Don't break the chain!";
+"streak_benefits_title" = "Why streaks matter:";
+"streak_benefit_motivation" = "Stay motivated";
+"streak_benefit_consistency" = "Build consistency";
+"streak_benefit_rewards" = "Earn rewards";
+"sounds_great" = "Sounds Great!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Stay on track with smart reminders";
+"notification_benefit_daily_practice" = "Daily practice reminders";
+"notification_benefit_streak_protection" = "Streak protection alerts";
+"notification_benefit_progress_updates" = "Progress milestones";
+"notification_preview_title" = "Time to practice!";
+"notification_preview_body" = "Keep your streak alive with 10 minutes of practice";
+"enable_notifications" = "Enable Notifications";
+"maybe_later" = "Maybe Later";
+
+// Paywall
+"unlock_full_learning_potential" = "Unlock Your Full Learning Potential";
+"start_7_day_free_trial" = "Start your 7-day free trial";
+"personalized_lessons_for_languages" = "Personalized lessons for %@";
+"ai_powered_practice_for_interests" = "AI-powered practice for %@";
+"unlimited_words_and_quizzes" = "Unlimited words and quizzes";
+"cross_device_sync" = "Cross-device sync";
+"priority_support" = "Priority support";
+"start_free_trial" = "Start Free Trial";
+"monthly" = "Monthly";
+"yearly" = "Yearly";
+"save_percentage" = "Save %d%%";
+
+// Sign In
+"sync_your_progress" = "Sync your progress across devices";
+"sign_in_benefit_cloud_backup" = "Cloud backup";
+"sign_in_benefit_multi_device" = "Multi-device access";
+"sign_in_benefit_shared_dictionaries" = "Shared dictionaries";
+"sign_in_with_apple" = "Sign in with Apple";
+"sign_in_with_google" = "Sign in with Google";
+"skip_for_now" = "Skip for now";
+
+// Success
+"youre_all_set_name" = "You're all set, %@!";
+"ready_to_learn_languages" = "Ready to learn %d languages";
+"start_learning" = "Start Learning";
+
+// Personalization Banner
+"complete_your_profile" = "Complete Your Profile";
+"personalize_your_learning" = "Personalize your learning experience with a quick survey";
+"takes_2_minutes" = "Takes 2 minutes";
+"personalize_now" = "Personalize Now";

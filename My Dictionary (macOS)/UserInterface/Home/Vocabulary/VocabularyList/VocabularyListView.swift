@@ -20,6 +20,7 @@ struct VocabularyListView: View {
     @StateObject private var idiomListViewModel = IdiomListViewModel()
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var sideBarManager = SideBarManager.shared
+    @StateObject private var onboardingService = OnboardingService.shared
 
     @State private var showRatingBanner = false
     @State private var showAddWord = false
@@ -31,6 +32,10 @@ struct VocabularyListView: View {
     var body: some View {
         ScrollViewWithCustomNavBar {
             LazyVStack(spacing: 16) {
+                if onboardingService.showBanner {
+                    PersonalizationBanner()
+                        .transition(.move(edge: .top).combined(with: .opacity))
+                }
                 wordsSection
                 idiomsSection
                 ratingBannerView
@@ -78,6 +83,7 @@ struct VocabularyListView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.wordsListOpened)
             checkAndShowRatingBanner()
+            onboardingService.checkIfShouldShowBanner()
         }
         .onChange(of: wordListViewModel.words.count) {
             checkAndShowRatingBanner()
@@ -250,6 +256,7 @@ struct VocabularyListView: View {
             }
         }
     }
+    
 }
 
 // MARK: - Rating Banner Component

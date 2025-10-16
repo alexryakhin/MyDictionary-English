@@ -115,6 +115,9 @@ final class AuthenticationService: ObservableObject {
 
                 // Create/update user document in Firestore with all required fields
                 await createUserDocument(user: user)
+                
+                // Sync onboarding profile if it exists
+                await syncOnboardingProfile()
 
                 // Set up RevenueCat App User ID for cross-platform subscription sharing
                 await SubscriptionService.shared.setupAppUserID()
@@ -679,6 +682,14 @@ final class AuthenticationService: ObservableObject {
         await DeviceTokenService.shared.registerDeviceToken(token)
     }
 
+    /// Syncs the onboarding profile to Firestore if it exists
+    private func syncOnboardingProfile() async {
+        if let entity = CoreDataService.shared.fetchUserProfile(),
+           let profile = UserOnboardingProfile(from: entity) {
+            try? await profile.syncToFirestore()
+        }
+    }
+    
     private func errorReceived(_ error: Error) {
         Task { @MainActor in
             AlertCenter.shared.showAlert(with: .error(message: error.localizedDescription))

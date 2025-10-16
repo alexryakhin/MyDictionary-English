@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum InputLanguage: String, Codable, CaseIterable {
+public enum InputLanguage: String, Codable, CaseIterable, Identifiable {
     case english = "en"
     case french = "fr"
     case spanish = "es"
@@ -64,7 +64,9 @@ public enum InputLanguage: String, Codable, CaseIterable {
     case tibetan = "bo"
     case ukrainian = "uk"
     case kazakh = "kk"
-    
+
+    public var id: String { rawValue }
+
     var displayName: String {
         Locale.current.localizedString(forLanguageCode: rawValue)?.capitalized ?? rawValue.uppercased()
     }

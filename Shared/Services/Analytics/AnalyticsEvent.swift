@@ -198,6 +198,18 @@ enum AnalyticsEvent: String {
     case imageRemoved
     case imagePaywallShown
     case imageUpgradeConversion
+    
+    // User Onboarding Events
+    case onboardingStarted
+    case onboardingStepCompleted
+    case onboardingCompleted
+    case onboardingAbandoned
+    case onboardingPaywallShown
+    case onboardingPaywallConverted
+    case onboardingPaywallSkipped
+    case personalizationBannerShown
+    case personalizationBannerTapped
+    case personalizationBannerDismissed
 
     var parameters: [String: Any]? {
         switch self {

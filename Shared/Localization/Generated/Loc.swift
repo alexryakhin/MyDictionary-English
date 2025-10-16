@@ -1085,10 +1085,30 @@ public enum Loc {
   public enum Onboarding {
     /// Adaptive quizzes that learn from your progress
     public static let adaptiveQuizzes = Loc.tr("Onboarding", "adaptive_quizzes", fallback: "Adaptive quizzes that learn from your progress")
+    /// Add Language
+    public static let addLanguage = Loc.tr("Onboarding", "add_language", fallback: "Add Language")
+    /// AI-powered practice for %@
+    public static func aiPoweredPracticeForInterests(_ p1: Any) -> String {
+      return Loc.tr("Onboarding", "ai_powered_practice_for_interests", String(describing: p1), fallback: "AI-powered practice for %@")
+    }
     /// Back
     public static let back = Loc.tr("Onboarding", "back", fallback: "Back")
+    /// Build your learning streak!
+    public static let buildYourLearningStreak = Loc.tr("Onboarding", "build_your_learning_streak", fallback: "Build your learning streak!")
     /// Build Your Vocabulary
     public static let buildYourVocabulary = Loc.tr("Onboarding", "build_your_vocabulary", fallback: "Build Your Vocabulary")
+    /// Beginner - Basic phrases
+    public static let cefrLevelA1Description = Loc.tr("Onboarding", "cefr_level_a1_description", fallback: "Beginner - Basic phrases")
+    /// Elementary - Simple conversations
+    public static let cefrLevelA2Description = Loc.tr("Onboarding", "cefr_level_a2_description", fallback: "Elementary - Simple conversations")
+    /// Intermediate - Independent user
+    public static let cefrLevelB1Description = Loc.tr("Onboarding", "cefr_level_b1_description", fallback: "Intermediate - Independent user")
+    /// Upper Intermediate - Complex topics
+    public static let cefrLevelB2Description = Loc.tr("Onboarding", "cefr_level_b2_description", fallback: "Upper Intermediate - Complex topics")
+    /// Advanced - Fluent expression
+    public static let cefrLevelC1Description = Loc.tr("Onboarding", "cefr_level_c1_description", fallback: "Advanced - Fluent expression")
+    /// Mastery - Native-like proficiency
+    public static let cefrLevelC2Description = Loc.tr("Onboarding", "cefr_level_c2_description", fallback: "Mastery - Native-like proficiency")
     /// Collaborative Learning
     public static let collaborativeLearning = Loc.tr("Onboarding", "collaborative_learning", fallback: "Collaborative Learning")
     /// Share dictionaries with friends and family
@@ -1097,18 +1117,70 @@ public enum Loc {
     public static let collectIdioms = Loc.tr("Onboarding", "collect_idioms", fallback: "Collect Idioms")
     /// Learn and practice idioms and expressions from around the world
     public static let collectIdiomsDescription = Loc.tr("Onboarding", "collect_idioms_description", fallback: "Learn and practice idioms and expressions from around the world")
+    /// Complete Your Profile
+    public static let completeYourProfile = Loc.tr("Onboarding", "complete_your_profile", fallback: "Complete Your Profile")
     /// Get comprehensive definitions with multiple meanings and contexts
     public static let comprehensiveDefinitions = Loc.tr("Onboarding", "comprehensive_definitions", fallback: "Get comprehensive definitions with multiple meanings and contexts")
+    /// Continue
+    public static let `continue` = Loc.tr("Onboarding", "continue", fallback: "Continue")
     /// Create and organize your own vocabulary collections with custom definitions and examples
     public static let createOrganizeVocabulary = Loc.tr("Onboarding", "create_organize_vocabulary", fallback: "Create and organize your own vocabulary collections with custom definitions and examples")
+    /// Cross-device sync
+    public static let crossDeviceSync = Loc.tr("Onboarding", "cross_device_sync", fallback: "Cross-device sync")
+    /// Enable Notifications
+    public static let enableNotifications = Loc.tr("Onboarding", "enable_notifications", fallback: "Enable Notifications")
+    /// Enter your name
+    public static let enterYourName = Loc.tr("Onboarding", "enter_your_name", fallback: "Enter your name")
+    /// ≈ %d min/day
+    public static func estimatedDailyTime(_ p1: Int) -> String {
+      return Loc.tr("Onboarding", "estimated_daily_time", p1, fallback: "≈ %d min/day")
+    }
     /// Find Definitions
     public static let findDefinitions = Loc.tr("Onboarding", "find_definitions", fallback: "Find Definitions")
     /// Get comprehensive definitions with multiple meanings and contexts
     public static let findDefinitionsDescription = Loc.tr("Onboarding", "find_definitions_description", fallback: "Get comprehensive definitions with multiple meanings and contexts")
     /// Get Started
     public static let getStarted = Loc.tr("Onboarding", "get_started", fallback: "Get Started")
+    /// How many words do you want to learn per week?
+    public static let howManyWordsPerWeek = Loc.tr("Onboarding", "how_many_words_per_week", fallback: "How many words do you want to learn per week?")
+    /// Business
+    public static let interestBusiness = Loc.tr("Onboarding", "interest_business", fallback: "Business")
+    /// Culture
+    public static let interestCulture = Loc.tr("Onboarding", "interest_culture", fallback: "Culture")
+    /// Education
+    public static let interestEducation = Loc.tr("Onboarding", "interest_education", fallback: "Education")
+    /// Entertainment
+    public static let interestEntertainment = Loc.tr("Onboarding", "interest_entertainment", fallback: "Entertainment")
+    /// Food
+    public static let interestFood = Loc.tr("Onboarding", "interest_food", fallback: "Food")
+    /// Health
+    public static let interestHealth = Loc.tr("Onboarding", "interest_health", fallback: "Health")
+    /// Science
+    public static let interestScience = Loc.tr("Onboarding", "interest_science", fallback: "Science")
+    /// Sports
+    public static let interestSports = Loc.tr("Onboarding", "interest_sports", fallback: "Sports")
+    /// Technology
+    public static let interestTechnology = Loc.tr("Onboarding", "interest_technology", fallback: "Technology")
+    /// Travel
+    public static let interestTravel = Loc.tr("Onboarding", "interest_travel", fallback: "Travel")
     /// Learn and practice idioms and expressions from around the world
     public static let learnPracticeIdioms = Loc.tr("Onboarding", "learn_practice_idioms", fallback: "Learn and practice idioms and expressions from around the world")
+    /// Career Growth
+    public static let learningGoalCareer = Loc.tr("Onboarding", "learning_goal_career", fallback: "Career Growth")
+    /// Education
+    public static let learningGoalEducation = Loc.tr("Onboarding", "learning_goal_education", fallback: "Education")
+    /// Family & Friends
+    public static let learningGoalFamily = Loc.tr("Onboarding", "learning_goal_family", fallback: "Family & Friends")
+    /// Immigration
+    public static let learningGoalImmigration = Loc.tr("Onboarding", "learning_goal_immigration", fallback: "Immigration")
+    /// Personal Growth
+    public static let learningGoalPersonalGrowth = Loc.tr("Onboarding", "learning_goal_personal_growth", fallback: "Personal Growth")
+    /// Travel & Tourism
+    public static let learningGoalTravel = Loc.tr("Onboarding", "learning_goal_travel", fallback: "Travel & Tourism")
+    /// Maybe Later
+    public static let maybeLater = Loc.tr("Onboarding", "maybe_later", fallback: "Maybe Later")
+    /// Monthly
+    public static let monthly = Loc.tr("Onboarding", "monthly", fallback: "Monthly")
     /// My Dictionary
     public static let myDictionary = Loc.tr("Onboarding", "my_dictionary", fallback: "My Dictionary")
     /// Natural Voices
@@ -1119,32 +1191,172 @@ public enum Loc {
     public static let next = Loc.tr("Onboarding", "next", fallback: "Next")
     /// Next
     public static let nextStep = Loc.tr("Onboarding", "next_step", fallback: "Next")
+    /// Daily practice reminders
+    public static let notificationBenefitDailyPractice = Loc.tr("Onboarding", "notification_benefit_daily_practice", fallback: "Daily practice reminders")
+    /// Progress milestones
+    public static let notificationBenefitProgressUpdates = Loc.tr("Onboarding", "notification_benefit_progress_updates", fallback: "Progress milestones")
+    /// Streak protection alerts
+    public static let notificationBenefitStreakProtection = Loc.tr("Onboarding", "notification_benefit_streak_protection", fallback: "Streak protection alerts")
+    /// Keep your streak alive with 10 minutes of practice
+    public static let notificationPreviewBody = Loc.tr("Onboarding", "notification_preview_body", fallback: "Keep your streak alive with 10 minutes of practice")
+    /// Time to practice!
+    public static let notificationPreviewTitle = Loc.tr("Onboarding", "notification_preview_title", fallback: "Time to practice!")
     /// Your personal vocabulary companion
     public static let personalVocabularyCompanion = Loc.tr("Onboarding", "personal_vocabulary_companion", fallback: "Your personal vocabulary companion")
     /// Personal Word List
     public static let personalWordList = Loc.tr("Onboarding", "personal_word_list", fallback: "Personal Word List")
     /// Create and organize your own vocabulary collections with custom definitions and examples
     public static let personalWordListDescription = Loc.tr("Onboarding", "personal_word_list_description", fallback: "Create and organize your own vocabulary collections with custom definitions and examples")
+    /// Personalize Now
+    public static let personalizeNow = Loc.tr("Onboarding", "personalize_now", fallback: "Personalize Now")
+    /// Personalize your learning experience with a quick survey
+    public static let personalizeYourLearning = Loc.tr("Onboarding", "personalize_your_learning", fallback: "Personalize your learning experience with a quick survey")
     /// Personalized Learning
     public static let personalizedLearning = Loc.tr("Onboarding", "personalized_learning", fallback: "Personalized Learning")
+    /// Personalized lessons for %@
+    public static func personalizedLessonsForLanguages(_ p1: Any) -> String {
+      return Loc.tr("Onboarding", "personalized_lessons_for_languages", String(describing: p1), fallback: "Personalized lessons for %@")
+    }
+    /// Priority support
+    public static let prioritySupport = Loc.tr("Onboarding", "priority_support", fallback: "Priority support")
     /// Progress Tracking
     public static let progressTracking = Loc.tr("Onboarding", "progress_tracking", fallback: "Progress Tracking")
     /// Visual insights into your vocabulary growth
     public static let progressTrackingDescription = Loc.tr("Onboarding", "progress_tracking_description", fallback: "Visual insights into your vocabulary growth")
+    /// Ready to learn %d languages
+    public static func readyToLearnLanguages(_ p1: Int) -> String {
+      return Loc.tr("Onboarding", "ready_to_learn_languages", p1, fallback: "Ready to learn %d languages")
+    }
+    /// Save %d%%
+    public static func savePercentage(_ p1: Int) -> String {
+      return Loc.tr("Onboarding", "save_percentage", p1, fallback: "Save %d%%")
+    }
+    /// Search languages
+    public static let searchLanguages = Loc.tr("Onboarding", "search_languages", fallback: "Search languages")
+    /// Search your language
+    public static let searchYourLanguage = Loc.tr("Onboarding", "search_your_language", fallback: "Search your language")
+    /// Select 2-5 interests
+    public static let select2To5Interests = Loc.tr("Onboarding", "select_2_to_5_interests", fallback: "Select 2-5 interests")
+    /// Select at least one language
+    public static let selectAtLeastOneLanguage = Loc.tr("Onboarding", "select_at_least_one_language", fallback: "Select at least one language")
+    /// Select proficiency level
+    public static let selectProficiencyLevel = Loc.tr("Onboarding", "select_proficiency_level", fallback: "Select proficiency level")
+    /// Select 1-3 goals
+    public static let selectUpToThree = Loc.tr("Onboarding", "select_up_to_three", fallback: "Select 1-3 goals")
     /// Share dictionaries with friends and family
     public static let shareDictionaries = Loc.tr("Onboarding", "share_dictionaries", fallback: "Share dictionaries with friends and family")
+    /// Cloud backup
+    public static let signInBenefitCloudBackup = Loc.tr("Onboarding", "sign_in_benefit_cloud_backup", fallback: "Cloud backup")
+    /// Multi-device access
+    public static let signInBenefitMultiDevice = Loc.tr("Onboarding", "sign_in_benefit_multi_device", fallback: "Multi-device access")
+    /// Shared dictionaries
+    public static let signInBenefitSharedDictionaries = Loc.tr("Onboarding", "sign_in_benefit_shared_dictionaries", fallback: "Shared dictionaries")
+    /// Sign in with Apple
+    public static let signInWithApple = Loc.tr("Onboarding", "sign_in_with_apple", fallback: "Sign in with Apple")
+    /// Sign in with Google
+    public static let signInWithGoogle = Loc.tr("Onboarding", "sign_in_with_google", fallback: "Sign in with Google")
+    /// Skip
+    public static let skip = Loc.tr("Onboarding", "skip", fallback: "Skip")
+    /// Skip for now
+    public static let skipForNow = Loc.tr("Onboarding", "skip_for_now", fallback: "Skip for now")
     /// Smart Quizzes
     public static let smartQuizzes = Loc.tr("Onboarding", "smart_quizzes", fallback: "Smart Quizzes")
     /// Adaptive quizzes that learn from your progress
     public static let smartQuizzesDescription = Loc.tr("Onboarding", "smart_quizzes_description", fallback: "Adaptive quizzes that learn from your progress")
+    /// Sounds Great!
+    public static let soundsGreat = Loc.tr("Onboarding", "sounds_great", fallback: "Sounds Great!")
+    /// Start your 7-day free trial
+    public static let start7DayFreeTrial = Loc.tr("Onboarding", "start_7_day_free_trial", fallback: "Start your 7-day free trial")
     /// Start building your vocabulary today and watch your language skills grow.
     public static let startBuildingVocabulary = Loc.tr("Onboarding", "start_building_vocabulary", fallback: "Start building your vocabulary today and watch your language skills grow.")
+    /// Start Free Trial
+    public static let startFreeTrial = Loc.tr("Onboarding", "start_free_trial", fallback: "Start Free Trial")
+    /// Start Learning
+    public static let startLearning = Loc.tr("Onboarding", "start_learning", fallback: "Start Learning")
+    /// Stay on track with smart reminders
+    public static let stayOnTrackWithReminders = Loc.tr("Onboarding", "stay_on_track_with_reminders", fallback: "Stay on track with smart reminders")
+    /// Build consistency
+    public static let streakBenefitConsistency = Loc.tr("Onboarding", "streak_benefit_consistency", fallback: "Build consistency")
+    /// Stay motivated
+    public static let streakBenefitMotivation = Loc.tr("Onboarding", "streak_benefit_motivation", fallback: "Stay motivated")
+    /// Earn rewards
+    public static let streakBenefitRewards = Loc.tr("Onboarding", "streak_benefit_rewards", fallback: "Earn rewards")
+    /// Why streaks matter:
+    public static let streakBenefitsTitle = Loc.tr("Onboarding", "streak_benefits_title", fallback: "Why streaks matter:")
+    /// Practice every day to build your streak and stay motivated. Don't break the chain!
+    public static let streakIntroMessage = Loc.tr("Onboarding", "streak_intro_message", fallback: "Practice every day to build your streak and stay motivated. Don't break the chain!")
+    /// Afternoon
+    public static let studyTimeAfternoon = Loc.tr("Onboarding", "study_time_afternoon", fallback: "Afternoon")
+    /// 12:00 - 18:00
+    public static let studyTimeAfternoonRange = Loc.tr("Onboarding", "study_time_afternoon_range", fallback: "12:00 - 18:00")
+    /// Evening
+    public static let studyTimeEvening = Loc.tr("Onboarding", "study_time_evening", fallback: "Evening")
+    /// 18:00 - 23:00
+    public static let studyTimeEveningRange = Loc.tr("Onboarding", "study_time_evening_range", fallback: "18:00 - 23:00")
+    /// Flexible
+    public static let studyTimeFlexible = Loc.tr("Onboarding", "study_time_flexible", fallback: "Flexible")
+    /// Anytime
+    public static let studyTimeFlexibleRange = Loc.tr("Onboarding", "study_time_flexible_range", fallback: "Anytime")
+    /// Morning
+    public static let studyTimeMorning = Loc.tr("Onboarding", "study_time_morning", fallback: "Morning")
+    /// 6:00 - 12:00
+    public static let studyTimeMorningRange = Loc.tr("Onboarding", "study_time_morning_range", fallback: "6:00 - 12:00")
+    /// Sync your progress across devices
+    public static let syncYourProgress = Loc.tr("Onboarding", "sync_your_progress", fallback: "Sync your progress across devices")
+    /// Takes 2 minutes
+    public static let takes2Minutes = Loc.tr("Onboarding", "takes_2_minutes", fallback: "Takes 2 minutes")
+    /// Unlimited words and quizzes
+    public static let unlimitedWordsAndQuizzes = Loc.tr("Onboarding", "unlimited_words_and_quizzes", fallback: "Unlimited words and quizzes")
+    /// Unlock Your Full Learning Potential
+    public static let unlockFullLearningPotential = Loc.tr("Onboarding", "unlock_full_learning_potential", fallback: "Unlock Your Full Learning Potential")
+    /// Hobbyist
+    public static let userTypeHobbyist = Loc.tr("Onboarding", "user_type_hobbyist", fallback: "Hobbyist")
+    /// Learning for fun
+    public static let userTypeHobbyistDescription = Loc.tr("Onboarding", "user_type_hobbyist_description", fallback: "Learning for fun")
+    /// Other
+    public static let userTypeOther = Loc.tr("Onboarding", "user_type_other", fallback: "Other")
+    /// Other purposes
+    public static let userTypeOtherDescription = Loc.tr("Onboarding", "user_type_other_description", fallback: "Other purposes")
+    /// Professional
+    public static let userTypeProfessional = Loc.tr("Onboarding", "user_type_professional", fallback: "Professional")
+    /// Advancing my career
+    public static let userTypeProfessionalDescription = Loc.tr("Onboarding", "user_type_professional_description", fallback: "Advancing my career")
+    /// Student
+    public static let userTypeStudent = Loc.tr("Onboarding", "user_type_student", fallback: "Student")
+    /// Learning for school or university
+    public static let userTypeStudentDescription = Loc.tr("Onboarding", "user_type_student_description", fallback: "Learning for school or university")
     /// Visual insights into your vocabulary growth
     public static let visualInsights = Loc.tr("Onboarding", "visual_insights", fallback: "Visual insights into your vocabulary growth")
     /// Welcome to
     public static let welcomeTo = Loc.tr("Onboarding", "welcome_to", fallback: "Welcome to")
+    /// What should we call you?
+    public static let whatShouldWeCallYou = Loc.tr("Onboarding", "what_should_we_call_you", fallback: "What should we call you?")
+    /// What topics interest you?
+    public static let whatTopicsInterestYou = Loc.tr("Onboarding", "what_topics_interest_you", fallback: "What topics interest you?")
+    /// What's your age group?
+    public static let whatsYourAgeGroup = Loc.tr("Onboarding", "whats_your_age_group", fallback: "What's your age group?")
+    /// What's your native language?
+    public static let whatsYourNativeLanguage = Loc.tr("Onboarding", "whats_your_native_language", fallback: "What's your native language?")
+    /// When do you prefer to study?
+    public static let whenDoYouPreferToStudy = Loc.tr("Onboarding", "when_do_you_prefer_to_study", fallback: "When do you prefer to study?")
+    /// Which best describes you?
+    public static let whichBestDescribesYou = Loc.tr("Onboarding", "which_best_describes_you", fallback: "Which best describes you?")
+    /// Which languages do you want to learn?
+    public static let whichLanguagesToLearn = Loc.tr("Onboarding", "which_languages_to_learn", fallback: "Which languages do you want to learn?")
+    /// Why are you learning languages?
+    public static let whyAreYouLearning = Loc.tr("Onboarding", "why_are_you_learning", fallback: "Why are you learning languages?")
+    /// %d words/week
+    public static func wordsPerWeek(_ p1: Int) -> String {
+      return Loc.tr("Onboarding", "words_per_week", p1, fallback: "%d words/week")
+    }
+    /// Yearly
+    public static let yearly = Loc.tr("Onboarding", "yearly", fallback: "Yearly")
     /// You're All Set!
     public static let youreAllSet = Loc.tr("Onboarding", "youre_all_set", fallback: "You're All Set!")
+    /// You're all set, %@!
+    public static func youreAllSetName(_ p1: Any) -> String {
+      return Loc.tr("Onboarding", "youre_all_set_name", String(describing: p1), fallback: "You're all set, %@!")
+    }
   }
   public enum Plurals {
     public enum Analytics {
@@ -1640,8 +1852,8 @@ public enum Loc {
     }
     /// Contact Me
     public static let contactMe = Loc.tr("Settings", "contact_me", fallback: "Contact Me")
-    /// Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Email!
-    public static let contactSupport = Loc.tr("Settings", "contact_support", fallback: "Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or Email!")
+    /// Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or via Email!
+    public static let contactSupport = Loc.tr("Settings", "contact_support", fallback: "Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or via Email!")
     /// Customize your learning experience
     public static let customizeLearningExperience = Loc.tr("Settings", "customize_learning_experience", fallback: "Customize your learning experience")
     /// Daily Reminders

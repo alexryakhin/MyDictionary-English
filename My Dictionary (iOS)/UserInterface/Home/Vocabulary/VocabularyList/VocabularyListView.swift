@@ -27,6 +27,7 @@ struct VocabularyListView: View {
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var collectionsManager = WordCollectionsManager.shared
     @StateObject private var navigationManager = NavigationManager.shared
+    @StateObject private var onboardingService = OnboardingService.shared
     @State private var showRatingBanner = false
     @State private var searchText = ""
     @State private var sortingState: SortingCase = .latest
@@ -45,6 +46,10 @@ struct VocabularyListView: View {
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
+                if onboardingService.showBanner {
+                    PersonalizationBanner()
+                        .transition(.move(edge: .top).combined(with: .opacity))
+                }
                 wordCollectionsSection
                 wordsSection
                 idiomsSection
@@ -100,6 +105,7 @@ struct VocabularyListView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.wordsListOpened)
             checkAndShowRatingBanner()
+            onboardingService.checkIfShouldShowBanner()
         }
         .onChange(of: wordListViewModel.words.count) {
             checkAndShowRatingBanner()

@@ -68,4 +68,26 @@ final class CoreDataService {
             }
             .store(in: &cancellables)
     }
+    
+    // MARK: - UserProfile Methods
+    
+    func fetchUserProfile() -> CDUserProfile? {
+        let fetchRequest: NSFetchRequest<CDUserProfile> = CDUserProfile.fetchRequest()
+        do {
+            let profiles = try persistentContainer.viewContext.fetch(fetchRequest)
+            return profiles.first
+        } catch {
+            return nil
+        }
+    }
+    
+    func hasUserProfile() -> Bool {
+        return fetchUserProfile() != nil
+    }
+    
+    func deleteUserProfile() throws {
+        guard let profile = fetchUserProfile() else { return }
+        persistentContainer.viewContext.delete(profile)
+        try saveContext()
+    }
 }
