@@ -125,7 +125,7 @@ struct SharedWordDetailsView: View {
                 }
             }
         }
-        .safeAreaInset(edge: .top) {
+        .safeAreaBarIfAvailable(edge: .top) {
             SharedCustomNavigationBar(
                 title: word.wordItself,
                 isLiked: word.isLikedBy(authenticationService.userEmail ?? ""),

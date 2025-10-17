@@ -180,7 +180,7 @@ struct AddCollaboratorView: View {
                 }
             }
         )
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaBarIfAvailable {
             AsyncActionButton(
                 Loc.SharedDictionaries.CollaboratorManagement.addCollaborator,
                 style: .borderedProminent

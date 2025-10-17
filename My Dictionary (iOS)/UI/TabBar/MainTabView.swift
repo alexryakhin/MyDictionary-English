@@ -19,11 +19,12 @@ struct MainTabView: View {
     @StateObject var authenticationService: AuthenticationService = .shared
     @StateObject var subscriptionService: SubscriptionService = .shared
     @StateObject var sessionManager: SessionManager = .shared
+    @StateObject var onboardingService: OnboardingService = .shared
     @StateObject var keyboardManager: KeyboardManager = .shared
 
     var body: some View {
         NavigationStack(path: $navigationManager.navigationPath) {
-            if #available(iOS 26.0, *), !isPad {
+            if #available(iOS 26.0, *) {
                 TabView(selection: $tabManager.selectedTab) {
                     VocabularyFlow(
                         wordListViewModel: wordListViewModel,
@@ -64,6 +65,7 @@ struct MainTabView: View {
                         }
                         .tag(TabBarItem.settings)
                 }
+                .environment(\.horizontalSizeClass, .compact)
                 .navigationDestination(for: NavigationDestination.self) { destination in
                     destinationView(for: destination)
                 }
@@ -87,7 +89,7 @@ struct MainTabView: View {
                         }
                     }
                 }
-                .safeAreaInset(edge: .bottom, spacing: .zero) {
+                .safeAreaBarIfAvailable {
                     tabBarView
                 }
                 .navigationDestination(for: NavigationDestination.self) { destination in
@@ -95,17 +97,14 @@ struct MainTabView: View {
                 }
             }
         }
-        .sheet(isPresented: .constant(hasCompletedOnboarding == false)) {
-            hasCompletedOnboarding = true
-        } content: {
-            OnboardingView()
-                .interactiveDismissDisabled()
-        }
         .withPaywall()
         .sheet(isPresented: $sessionManager.showCoffeeBanner) {
             CoffeeBanner()
                 .presentationDetents([.medium])
                 .presentationDragIndicator(.visible)
+        }
+        .sheet(isPresented: $onboardingService.showOnboarding) {
+            OnboardingFlow.ContainerView(isNewUser: false)
         }
     }
 

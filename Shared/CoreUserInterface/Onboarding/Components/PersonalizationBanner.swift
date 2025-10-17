@@ -52,8 +52,5 @@ struct PersonalizationBanner: View {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color.accentColor.opacity(0.3), lineWidth: 1)
         )
-        .sheet(isPresented: $onboardingService.showOnboarding) {
-            OnboardingContainerView(isNewUser: false)
-        }
     }
 }

@@ -200,3 +200,30 @@ func openURL(_ url: URL) {
     NSWorkspace.shared.open(url)
     #endif
 }
+
+extension View {
+    @ViewBuilder
+    func safeAreaBarIfAvailable<Content: View>(
+        edge: VerticalEdge = .bottom,
+        alignment: HorizontalAlignment = .center,
+        spacing: CGFloat = .zero,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self
+                .safeAreaBar(edge: edge, alignment: alignment, spacing: spacing, content: content)
+        } else {
+            self
+                .safeAreaInset(edge: edge, alignment: alignment, spacing: spacing, content: content)
+        }
+    }
+
+    @ViewBuilder
+    func materialBackgroundIfNoGlassAvailable(_ material: Material = .ultraThinMaterial) -> some View {
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self
+        } else {
+            self.background(material)
+        }
+    }
+}

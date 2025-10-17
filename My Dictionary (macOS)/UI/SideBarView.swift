@@ -10,6 +10,7 @@ struct SideBarView: View {
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var sessionManager = SessionManager.shared
+    @StateObject private var onboardingService = OnboardingService.shared
 
     var body: some View {
         NavigationSplitView {
@@ -29,10 +30,8 @@ struct SideBarView: View {
                 .presentationDetents([.medium])
                 .presentationDragIndicator(.visible)
         }
-        .sheet(isPresented: .constant(hasCompletedOnboarding == false)) {
-            hasCompletedOnboarding = true
-        } content: {
-            OnboardingView()
+        .sheet(isPresented: $onboardingService.showOnboarding) {
+            OnboardingFlow.ContainerView()
                 .interactiveDismissDisabled()
         }
     }
@@ -85,7 +84,7 @@ struct SideBarView: View {
         }
         .scrollContentBackground(.hidden)
         .listStyle(.sidebar)
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaBarIfAvailable {
             VStack {
                 Button {
                     openWindow(id: WindowID.analytics)

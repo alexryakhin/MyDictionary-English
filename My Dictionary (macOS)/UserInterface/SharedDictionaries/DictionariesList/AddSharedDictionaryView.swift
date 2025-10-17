@@ -30,7 +30,7 @@ struct AddSharedDictionaryView: View {
         } navigationBar: {
             NavigationBarView(title: Loc.SharedDictionaries.newSharedDictionary)
         }
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaBarIfAvailable {
             AsyncActionButton(Loc.SharedDictionaries.createSharedDictionary) {
                 try await createDictionary()
             }

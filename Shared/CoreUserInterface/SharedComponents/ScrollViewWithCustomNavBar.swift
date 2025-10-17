@@ -29,7 +29,7 @@ struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
         ScrollViewWithReader(scrollOffset: $scrollOffset) {
             content()
         }
-        .safeAreaInset(edge: .top, spacing: .zero) {
+        .safeAreaBarIfAvailable(edge: .top) {
             VStack(spacing: .zero) {
                 navigationBar()
                 Divider()

@@ -7,49 +7,107 @@
 
 import SwiftUI
 
-struct OnboardingWelcomeView: View {
-    @ObservedObject var viewModel: OnboardingViewModel
-    
-    var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                Spacer()
-                    .frame(height: 60)
-                
-                // Image
-                Image(systemName: "book.circle.fill")
-                    .resizable()
-                    .frame(width: 120, height: 120)
-                    .foregroundColor(.accentColor)
-                
-                // Title
-                Text(Loc.Onboarding.welcomeTo)
-                    .font(.title2)
-                    .foregroundColor(.secondary)
-                
-                Text(Loc.Onboarding.myDictionary)
-                    .font(.system(size: 42, weight: .bold))
-                    .multilineTextAlignment(.center)
-                
-                // Subtitle
-                Text(Loc.Onboarding.personalVocabularyCompanion)
-                    .font(.title3)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
-                
-                Spacer()
-                    .frame(height: 40)
+extension OnboardingFlow {
+    struct WelcomeView: View {
+        @ObservedObject var viewModel: OnboardingFlow.ViewModel
+        @State private var animateContent = false
+        @State private var animateBackground = false
+        @State private var showPulse = false
+
+        var body: some View {
+            ZStack {
+                // Animated background
+                backgroundGradient
+                    .ignoresSafeArea()
+                    .scaleEffect(animateBackground ? 1.1 : 1.0)
+                    .animation(.easeInOut(duration: 8).repeatForever(autoreverses: true), value: animateBackground)
+
+                ScrollView {
+                    VStack(spacing: 0) {
+                        Spacer()
+                            .frame(height: 60)
+
+                        // App icon with animation
+                        ZStack {
+                            Circle()
+                                .fill(Color.accentColor.opacity(0.1))
+                                .frame(width: 120, height: 120)
+                                .scaleEffect(showPulse ? 1.1 : 1.0)
+
+                            Image(.iconRounded)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 100)
+                                .scaleEffect(animateContent ? 1.0 : 0.5)
+                                .rotationEffect(.degrees(animateContent ? 0 : -180))
+                        }
+                        .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateContent)
+                        .animation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true), value: showPulse)
+
+                        Spacer()
+                            .frame(height: 60)
+
+                        // Title section
+                        VStack(spacing: 16) {
+                            Text(Loc.Onboarding.welcomeTo)
+                                .font(.title2)
+                                .foregroundStyle(.secondary)
+                                .opacity(animateContent ? 1 : 0)
+                                .offset(y: animateContent ? 0 : 20)
+
+                            Text(Loc.Onboarding.myDictionary)
+                                .font(.system(size: 42, weight: .bold, design: .rounded))
+                                .foregroundStyle(.primary)
+                                .opacity(animateContent ? 1 : 0)
+                                .offset(y: animateContent ? 0 : 20)
+
+                            Text(Loc.Onboarding.personalVocabularyCompanion)
+                                .font(.title3)
+                                .foregroundStyle(.secondary)
+                                .opacity(animateContent ? 1 : 0)
+                                .offset(y: animateContent ? 0 : 20)
+                        }
+                        .multilineTextAlignment(.center)
+                        .animation(.easeInOut(duration: 0.8).delay(0.3), value: animateContent)
+                        .padding(.horizontal, 32)
+
+                        Spacer()
+                            .frame(height: 80)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
             }
-            .frame(maxWidth: .infinity)
+            .safeAreaBarIfAvailable {
+                ActionButton(Loc.Onboarding.getStarted, style: .borderedProminent) {
+                    viewModel.navigate(to: .name)
+                }
+                .padding(.horizontal, 24)
+                .padding(.vertical, 16)
+            }
+            .onAppear {
+                withAnimation(.easeInOut(duration: 1.0)) {
+                    animateContent = true
+                    animateBackground = true
+                }
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    withAnimation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true)) {
+                        showPulse = true
+                    }
+                }
+            }
         }
-        .safeAreaInset(edge: .bottom) {
-            ActionButton(Loc.Onboarding.getStarted) {
-                viewModel.navigate(to: .name)
-            }
-            .padding(.horizontal, 24)
-            .padding(.vertical, 16)
+
+        private var backgroundGradient: some View {
+            LinearGradient(
+                colors: [
+                    Color.accentColor.opacity(0.1),
+                    Color.accentColor.opacity(0.05),
+                    Color.systemBackground
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
         }
     }
 }
-

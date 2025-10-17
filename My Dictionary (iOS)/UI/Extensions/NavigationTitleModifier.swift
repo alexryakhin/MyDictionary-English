@@ -27,7 +27,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
 
     func body(content: Content) -> some View {
         content
-            .safeAreaInset(edge: .top, spacing: .zero) {
+            .safeAreaBarIfAvailable(edge: .top) {
                 VStack(spacing: mode == .large ? 12 : 8) {
                     HStack(spacing: 2) {
                         if showsBackButton {

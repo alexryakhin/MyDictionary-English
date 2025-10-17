@@ -7,222 +7,170 @@
 
 import SwiftUI
 
-struct OnboardingLanguagesView: View {
-    @ObservedObject var viewModel: OnboardingViewModel
-    @State private var searchText = ""
-    @State private var selectedLanguage: InputLanguage?
-    @State private var selectedLevel: CEFRLevel = .b1
-    
-    var filteredLanguages: [InputLanguage] {
-        if searchText.isEmpty {
-            return InputLanguage.allCases
+extension OnboardingFlow {
+    struct LanguagesView: View {
+        @ObservedObject var viewModel: OnboardingFlow.ViewModel
+        @State private var searchText = ""
+        @State private var selectedLanguage: InputLanguage?
+        @State private var selectedLevel: CEFRLevel = .b1
+        @State private var animateContent = false
+        @State private var showList = false
+
+        var filteredLanguages: [InputLanguage] {
+            if searchText.isEmpty {
+                return InputLanguage.allCases
+            }
+            return InputLanguage.allCases.filter {
+                $0.displayName.lowercased().contains(searchText.lowercased())
+            }
         }
-        return InputLanguage.allCases.filter {
-            $0.displayName.lowercased().contains(searchText.lowercased())
-        }
-    }
-    
-    var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                Spacer()
-                    .frame(height: 40)
+
+        var body: some View {
+            ZStack {
+                backgroundGradient
+                    .ignoresSafeArea()
                 
-                // Image
-                Image(systemName: "globe")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 80, height: 80)
-                    .foregroundColor(.accentColor)
-                
-                // Title
-                Text(Loc.Onboarding.whichLanguagesToLearn)
-                    .font(.title.bold())
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
-            
-                // Content - Selected languages
-                if !viewModel.studyLanguages.isEmpty {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 12) {
-                            ForEach(viewModel.studyLanguages) { studyLang in
-                                HStack(spacing: 8) {
-                                    VStack(alignment: .leading, spacing: 2) {
-                                        Text(studyLang.language.displayName)
-                                            .font(.subheadline.bold())
-                                        Text(studyLang.proficiencyLevel.rawValue)
-                                            .font(.caption)
-                                            .foregroundColor(.secondary)
-                                    }
-                                    
-                                    Button(action: {
-                                        viewModel.removeStudyLanguage(id: studyLang.id)
-                                    }) {
-                                        Image(systemName: "xmark.circle.fill")
-                                            .foregroundColor(.secondary)
+                ScrollView {
+                    VStack(spacing: 24) {
+                        Spacer()
+                            .frame(height: 40)
+                        
+                        // Animated icon
+                        ZStack {
+                            Circle()
+                                .fill(Color.blue.opacity(0.1))
+                                .frame(width: 120, height: 120)
+                            
+                            Image(systemName: "globe")
+                                .font(.system(size: 50))
+                                .foregroundStyle(Color.blue)
+                                .scaleEffect(animateContent ? 1.0 : 0.5)
+                        }
+                        .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateContent)
+                        
+                        // Title
+                        Text(Loc.Onboarding.whichLanguagesToLearn)
+                            .font(.system(.title, design: .rounded, weight: .bold))
+                            .multilineTextAlignment(.center)
+                            .opacity(animateContent ? 1 : 0)
+                            .offset(y: animateContent ? 0 : 20)
+                            .animation(.easeInOut(duration: 0.8).delay(0.2), value: animateContent)
+                            .padding(.horizontal, 32)
+                        
+                        // Content - Selected languages
+                        if !viewModel.studyLanguages.isEmpty {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 12) {
+                                    ForEach(viewModel.studyLanguages) { studyLang in
+                                        HStack(spacing: 8) {
+                                            VStack(alignment: .leading, spacing: 2) {
+                                                Text(studyLang.language.displayName)
+                                                    .font(.subheadline.bold())
+                                                Text(studyLang.proficiencyLevel.rawValue)
+                                                    .font(.caption)
+                                                    .foregroundColor(.secondary)
+                                            }
+                                            
+                                            Button(action: {
+                                                withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                                                    viewModel.removeStudyLanguage(id: studyLang.id)
+                                                }
+                                            }) {
+                                                Image(systemName: "xmark.circle.fill")
+                                                    .foregroundColor(.secondary)
+                                            }
+                                        }
+                                        .padding(.horizontal, 12)
+                                        .padding(.vertical, 8)
+                                        .background(Color.accentColor.opacity(0.15))
+                                        .cornerRadius(20)
+                                        .transition(.scale.combined(with: .opacity))
                                     }
                                 }
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 8)
-                                .background(Color.accentColor.opacity(0.1))
-                                .cornerRadius(20)
+                                .padding(.horizontal, 24)
+                            }
+                            .transition(.move(edge: .top).combined(with: .opacity))
+                        }
+                        
+                        // Search bar
+                        InputView.searchView(Loc.Onboarding.searchLanguages, searchText: $searchText)
+                            .padding(.horizontal, 24)
+                            .opacity(animateContent ? 1 : 0)
+                            .offset(y: animateContent ? 0 : 20)
+                            .animation(.easeInOut(duration: 0.8).delay(0.4), value: animateContent)
+                        
+                        // Language list
+                        LazyVStack(spacing: 8) {
+                            ForEach(Array(filteredLanguages.enumerated()), id: \.element) { index, language in
+                                if !viewModel.studyLanguages.contains(where: { $0.language == language }) {
+                                    Button(action: {
+                                        selectedLanguage = language
+                                    }) {
+                                        HStack {
+                                            Text(language.displayName)
+                                                .font(.body)
+                                            Spacer()
+                                            Image(systemName: "plus.circle")
+                                                .foregroundColor(.accentColor)
+                                        }
+                                        .padding()
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .fill(Color.systemBackground)
+                                                .shadow(color: .label.opacity(0.03), radius: 4, x: 0, y: 2)
+                                        )
+                                    }
+                                    .buttonStyle(PlainButtonStyle())
+                                    .opacity(showList ? 1 : 0)
+                                    .offset(y: showList ? 0 : 20)
+                                    .animation(.easeInOut(duration: 0.4).delay(0.5 + Double(min(index, 5)) * 0.05), value: showList)
+                                }
                             }
                         }
                         .padding(.horizontal, 24)
                     }
+                    .frame(maxWidth: .infinity)
                 }
-                
-                // Search bar
-                SearchBar(text: $searchText, placeholder: Loc.Onboarding.searchLanguages)
-                    .padding(.horizontal, 24)
-                
-                // Language list
-                LazyVStack(spacing: 8) {
-                    ForEach(filteredLanguages, id: \.self) { language in
-                        if !viewModel.studyLanguages.contains(where: { $0.language == language }) {
-                            Button(action: {
-                                selectedLanguage = language
-                            }) {
-                                HStack {
-                                    Text(language.displayName)
-                                        .font(.body)
-                                    Spacer()
-                                    Image(systemName: "plus.circle")
-                                        .foregroundColor(.accentColor)
-                                }
-                                .padding()
-                                .background(Color.gray.opacity(0.05))
-                                .cornerRadius(12)
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                        }
-                    }
+            }
+            .safeAreaBarIfAvailable {
+                ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
+                    viewModel.navigate(to: .nativeLanguage)
                 }
+                .disabled(viewModel.studyLanguages.isEmpty)
                 .padding(.horizontal, 24)
-                
-                Spacer()
-                    .frame(height: 40)
+                .padding(.vertical, 16)
             }
-            .frame(maxWidth: .infinity)
-        }
-        .safeAreaInset(edge: .bottom) {
-            ActionButton(Loc.Onboarding.continue) {
-                viewModel.navigate(to: .nativeLanguage)
+            .sheet(item: $selectedLanguage) { language in
+                LanguageLevelPicker(
+                    language: language,
+                    selectedLevel: $selectedLevel,
+                    onSave: {
+                        viewModel.addStudyLanguage(language: language, level: selectedLevel)
+                        selectedLanguage = nil
+                    }
+                )
             }
-            .disabled(viewModel.studyLanguages.isEmpty)
-            .padding(.horizontal, 24)
-            .padding(.vertical, 16)
-        }
-        .sheet(item: $selectedLanguage) { language in
-            LanguageLevelPicker(
-                language: language,
-                selectedLevel: $selectedLevel,
-                onSave: {
-                    viewModel.addStudyLanguage(language: language, level: selectedLevel)
-                    selectedLanguage = nil
+            .onAppear {
+                withAnimation {
+                    animateContent = true
                 }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                    showList = true
+                }
+            }
+        }
+        
+        private var backgroundGradient: some View {
+            LinearGradient(
+                colors: [
+                    Color.blue.opacity(0.08),
+                    Color.cyan.opacity(0.05),
+                    Color.systemBackground
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
             )
         }
     }
 }
-
-// MARK: - Helper Views
-
-struct SearchBar: View {
-    @Binding var text: String
-    let placeholder: String
-    
-    var body: some View {
-        HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(.gray)
-            
-            TextField(placeholder, text: $text)
-            
-            if !text.isEmpty {
-                Button(action: { text = "" }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.gray)
-                }
-            }
-        }
-        .padding(12)
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(10)
-    }
-}
-
-struct LanguageLevelPicker: View {
-    let language: InputLanguage
-    @Binding var selectedLevel: CEFRLevel
-    let onSave: () -> Void
-    @Environment(\.dismiss) var dismiss
-    
-    var body: some View {
-        NavigationView {
-            VStack(spacing: 24) {
-                Text(language.displayName)
-                    .font(.title.bold())
-                    .padding(.top, 32)
-                
-                Text(Loc.Onboarding.selectProficiencyLevel)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
-                ScrollView {
-                    VStack(spacing: 12) {
-                        ForEach(CEFRLevel.allCases, id: \.self) { level in
-                            Button(action: { selectedLevel = level }) {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    HStack {
-                                        Text(level.rawValue)
-                                            .font(.headline)
-                                        Spacer()
-                                        if selectedLevel == level {
-                                            Image(systemName: "checkmark.circle.fill")
-                                                .foregroundColor(.accentColor)
-                                        }
-                                    }
-                                    Text(level.description)
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                }
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .fill(selectedLevel == level
-                                              ? Color.accentColor.opacity(0.1)
-                                              : Color.gray.opacity(0.05))
-                                )
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .stroke(selectedLevel == level
-                                                ? Color.accentColor
-                                                : Color.clear, lineWidth: 2)
-                                )
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                        }
-                    }
-                    .padding(.horizontal, 24)
-                }
-                
-                ActionButton(
-                    Loc.Actions.add,
-                    action: onSave
-                )
-                .padding(.horizontal, 24)
-                .padding(.bottom, 32)
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(Loc.Actions.cancel) {
-                        dismiss()
-                    }
-                }
-            }
-        }
-    }
-}
-

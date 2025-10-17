@@ -32,7 +32,7 @@ struct AddSharedDictionaryView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
             }
         }
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaBarIfAvailable {
             AsyncActionButton(Loc.SharedDictionaries.createSharedDictionary) {
                 try await createDictionary()
             }

@@ -104,7 +104,7 @@ struct AddExistingWordToSharedView: View {
         .onAppear {
             dictionaryService.setupSharedDictionariesListener()
         }
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaBarIfAvailable {
             AsyncActionButton(
                 Loc.SharedDictionaries.addToSharedDictionary,
                 systemImage: "plus",

@@ -20,6 +20,7 @@ final class OnboardingService: ObservableObject {
     
     private init() {
         loadProfile()
+        showOnboardingIfNeeded()
     }
     
     // MARK: - Profile Management
@@ -74,6 +75,17 @@ final class OnboardingService: ObservableObject {
                 self?.showBanner = true
                 AnalyticsService.shared.logEvent(.personalizationBannerShown)
             }
+        }
+    }
+
+    func showOnboardingIfNeeded() {
+        let hasCompletedOnboarding = UDService.hasCompletedOnboarding
+        let entity = CoreDataService.shared.fetchUserProfile()
+
+        if hasCompletedOnboarding == false && entity == nil {
+            showOnboarding = true
+        } else {
+            checkIfShouldShowBanner()
         }
     }
 

@@ -105,7 +105,6 @@ struct VocabularyListView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.wordsListOpened)
             checkAndShowRatingBanner()
-            onboardingService.checkIfShouldShowBanner()
         }
         .onChange(of: wordListViewModel.words.count) {
             checkAndShowRatingBanner()

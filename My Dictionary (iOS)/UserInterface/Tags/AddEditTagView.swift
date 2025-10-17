@@ -56,7 +56,7 @@ struct AddEditTagView: View {
                 }
             }
         )
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaBarIfAvailable {
             ActionButton(Loc.Actions.save, style: .borderedProminent) {
                 if subscriptionService.isProUser || viewModel.tags.count < 5 {
                     saveTag()
