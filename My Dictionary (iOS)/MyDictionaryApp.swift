@@ -180,6 +180,12 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     private func setupAppServices() {
         // Configure Firebase FIRST
         FirebaseApp.configure()
+        
+        // Disable Analytics in DEBUG mode
+        #if DEBUG
+        Analytics.setAnalyticsCollectionEnabled(false)
+        print("🔧 [DEBUG] Firebase Analytics disabled")
+        #endif
 
         // Configure Firestore for offline persistence
         let db = Firestore.firestore()

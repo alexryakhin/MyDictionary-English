@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAnalytics
 import Combine
 import UserNotifications
 import AppKit
@@ -21,6 +22,12 @@ struct MyDictionaryApp: App {
     init() {
         // Configure Firebase FIRST
         FirebaseApp.configure()
+        
+        // Disable Analytics in DEBUG mode
+        #if DEBUG
+        Analytics.setAnalyticsCollectionEnabled(false)
+        print("🔧 [DEBUG] Firebase Analytics disabled")
+        #endif
     }
 
     var body: some Scene {
