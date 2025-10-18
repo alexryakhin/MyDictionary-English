@@ -174,6 +174,23 @@ extension View {
                 $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
+
+    func withGradientBackground(_ color: Color = .accentColor) -> some View {
+        ZStack {
+            LinearGradient(
+                colors: [
+                    color.opacity(0.15),
+                    color.opacity(0.1),
+                    Color.systemBackground
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
+            
+            self
+        }
+    }
 }
 
 func endEditing() {

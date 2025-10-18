@@ -103,7 +103,7 @@ struct MainTabView: View {
                 .presentationDetents([.medium])
                 .presentationDragIndicator(.visible)
         }
-        .sheet(isPresented: $onboardingService.showOnboarding) {
+        .fullScreenCover(isPresented: $onboardingService.showOnboarding) {
             OnboardingFlow.ContainerView(isNewUser: false)
         }
     }

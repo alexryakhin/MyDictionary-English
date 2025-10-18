@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "illustration-time.png",
+      "filename" : "illustration-time.svg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "illustration-time 1.png",
+      "filename" : "illustration-time 1.svg",
       "idiom" : "universal"
     }
   ],

@@ -9,7 +9,6 @@ import Foundation
 
 enum TabBarItem: CaseIterable {
     case myDictionary
-//    case learn
     case quizzes
     case analytics
     case settings
@@ -18,8 +17,6 @@ enum TabBarItem: CaseIterable {
         switch self {
         case .myDictionary:
             return Loc.Onboarding.myDictionary
-//        case .learn:
-//            return Loc.Learning.Tabbar.learn
         case .quizzes:
             return Loc.Navigation.Tabbar.quizzes
         case .analytics:
@@ -33,8 +30,6 @@ enum TabBarItem: CaseIterable {
         switch self {
         case .myDictionary:
             return "textformat"
-//        case .learn:
-//            return "book"
         case .quizzes:
             return "brain.head.profile"
         case .analytics:
@@ -48,8 +43,6 @@ enum TabBarItem: CaseIterable {
         switch self {
         case .myDictionary:
             return "textformat"
-//        case .learn:
-//            return "book.fill"
         case .quizzes:
             return "brain.head.profile.fill"
         case .analytics:

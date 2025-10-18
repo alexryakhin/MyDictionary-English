@@ -18,7 +18,6 @@ extension OnboardingFlow {
         @Published var selectedAgeGroup: AgeGroup?
         @Published var selectedGoals: Set<LearningGoal> = []
         @Published var studyLanguages: [StudyLanguage] = []
-        @Published var nativeLanguage: InputLanguage = .english
         @Published var selectedInterests: Set<Interest> = []
         @Published var weeklyWordGoal: Int = 100
         @Published var preferredStudyTime: StudyTime = .evening
@@ -42,11 +41,6 @@ extension OnboardingFlow {
 
             // Load existing profile data if available
             loadExistingProfile()
-
-            // Auto-detect native language if not already set
-            if nativeLanguage == .english && onboardingService.detectNativeLanguage() != .english {
-                self.nativeLanguage = onboardingService.detectNativeLanguage()
-            }
         }
 
         // MARK: - Navigation
@@ -77,7 +71,6 @@ extension OnboardingFlow {
             self.selectedAgeGroup = profile.ageGroup
             self.selectedGoals = Set(profile.learningGoals)
             self.studyLanguages = profile.studyLanguages
-            self.nativeLanguage = profile.nativeLanguage
             self.selectedInterests = Set(profile.interests)
             self.weeklyWordGoal = profile.weeklyWordGoal
             self.preferredStudyTime = profile.preferredStudyTime
@@ -148,7 +141,7 @@ extension OnboardingFlow {
 
         private func createProfile(isCompleted: Bool = false) -> UserOnboardingProfile {
             return UserOnboardingProfile(
-                userName: userName.isEmpty ? "Friend" : userName,
+                userName: userName,
                 userType: selectedUserType ?? .hobbyist,
                 ageGroup: selectedAgeGroup ?? .adult,
                 learningGoals: Array(selectedGoals),
@@ -156,7 +149,6 @@ extension OnboardingFlow {
                 interests: Array(selectedInterests),
                 weeklyWordGoal: weeklyWordGoal,
                 preferredStudyTime: preferredStudyTime,
-                nativeLanguage: nativeLanguage,
                 completedAt: Date(),
                 isCompleted: isCompleted,
                 skippedPaywall: skippedPaywall,

@@ -19,7 +19,6 @@ struct UserOnboardingProfile: Codable {
     var interests: [Interest]
     var weeklyWordGoal: Int
     var preferredStudyTime: StudyTime
-    var nativeLanguage: InputLanguage
     var completedAt: Date
     var isCompleted: Bool
     var skippedPaywall: Bool
@@ -37,7 +36,6 @@ struct UserOnboardingProfile: Codable {
         interests: [Interest] = [],
         weeklyWordGoal: Int = 100,
         preferredStudyTime: StudyTime = .evening,
-        nativeLanguage: InputLanguage = .english,
         completedAt: Date = Date(),
         isCompleted: Bool = false,
         skippedPaywall: Bool = false,
@@ -54,7 +52,6 @@ struct UserOnboardingProfile: Codable {
         self.interests = interests
         self.weeklyWordGoal = weeklyWordGoal
         self.preferredStudyTime = preferredStudyTime
-        self.nativeLanguage = nativeLanguage
         self.completedAt = completedAt
         self.isCompleted = isCompleted
         self.skippedPaywall = skippedPaywall
@@ -74,8 +71,6 @@ struct UserOnboardingProfile: Codable {
               let ageGroup = AgeGroup(rawValue: ageGroupRaw),
               let studyTimeRaw = entity.preferredStudyTime,
               let studyTime = StudyTime(rawValue: studyTimeRaw),
-              let nativeLanguageRaw = entity.nativeLanguage,
-              let nativeLanguage = InputLanguage(rawValue: nativeLanguageRaw),
               let completedAt = entity.completedAt,
               let lastUpdated = entity.lastUpdated else {
             return nil
@@ -86,7 +81,6 @@ struct UserOnboardingProfile: Codable {
         self.userType = userType
         self.ageGroup = ageGroup
         self.preferredStudyTime = studyTime
-        self.nativeLanguage = nativeLanguage
         self.completedAt = completedAt
         self.lastUpdated = lastUpdated
         self.weeklyWordGoal = Int(entity.weeklyWordGoal)
@@ -140,7 +134,6 @@ struct UserOnboardingProfile: Codable {
         entity.ageGroup = self.ageGroup.rawValue
         entity.weeklyWordGoal = Int32(self.weeklyWordGoal)
         entity.preferredStudyTime = self.preferredStudyTime.rawValue
-        entity.nativeLanguage = self.nativeLanguage.rawValue
         entity.completedAt = self.completedAt
         entity.isCompleted = self.isCompleted
         entity.skippedPaywall = self.skippedPaywall
@@ -167,7 +160,6 @@ struct UserOnboardingProfile: Codable {
             "ageGroup": ageGroup.rawValue,
             "weeklyWordGoal": weeklyWordGoal,
             "preferredStudyTime": preferredStudyTime.rawValue,
-            "nativeLanguage": nativeLanguage.rawValue,
             "completedAt": Timestamp(date: completedAt),
             "isCompleted": isCompleted,
             "skippedPaywall": skippedPaywall,

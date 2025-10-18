@@ -18,11 +18,16 @@ struct MyDictionaryApp: App {
     #endif
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var migrationService = DataMigrationService.shared
 
     var body: some Scene {
         WindowGroup {
             MainTabView()
-                .migrationAware()
+                .task {
+                    if migrationService.needsMigration && !migrationService.isInProgress {
+                        try? await migrationService.performMigration()
+                    }
+                }
                 .fontDesign(.rounded)
                 .tint(.accent)
                 // DO NOT TRANSLATE DEBUG
@@ -147,7 +152,15 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         clearNotificationBadge()
     }
     
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Schedule notifications when app goes to background (check for hard words)
+        NotificationService.shared.scheduleNotificationsOnAppExit()
+    }
+    
     func applicationWillTerminate(_ application: UIApplication) {
+        // Schedule notifications when app terminates (check for hard words)
+        NotificationService.shared.scheduleNotificationsOnAppExit()
+        
         // Unregister device token when app terminates
         Task {
             await MessagingService.shared.unregisterCurrentDevice()
@@ -196,21 +209,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     }
 
     private func setupNotifications() {
-        let notificationService = NotificationService.shared
-
-        // Mark app as opened and cancel daily reminder
-        notificationService.markAppAsOpened()
-
-        // Check if user has enabled notifications
-        let dailyRemindersEnabled = UDService.dailyRemindersEnabled
-        let difficultWordsEnabled = UDService.difficultWordsEnabled
-
-        // Only schedule notifications if user has enabled them
-        if dailyRemindersEnabled || difficultWordsEnabled {
-            Task {
-                await notificationService.requestPermission()
-                notificationService.scheduleNotificationsForToday()
-            }
-        }
+        // Notifications are now scheduled when app goes to background/quits
+        // No need to schedule on app launch
     }
 }

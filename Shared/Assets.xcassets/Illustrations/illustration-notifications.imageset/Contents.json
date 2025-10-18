@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "illustration-notifications.png",
+      "filename" : "illustration-push-notifications.svg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "illustration-notifications 1.png",
+      "filename" : "illustration-push-notifications 1.svg",
       "idiom" : "universal"
     }
   ],

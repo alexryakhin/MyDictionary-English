@@ -57,8 +57,6 @@ enum OnboardingFlow {
                 OnboardingFlow.GoalsView(viewModel: viewModel)
             case .languages:
                 OnboardingFlow.LanguagesView(viewModel: viewModel)
-            case .nativeLanguage:
-                OnboardingFlow.NativeLanguageView(viewModel: viewModel)
             case .interests:
                 OnboardingFlow.InterestsView(viewModel: viewModel)
             case .studyIntensity:

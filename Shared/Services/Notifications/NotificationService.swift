@@ -38,7 +38,7 @@ final class NotificationService {
         let calendar = Calendar.current
         let dateComponents = calendar.dateComponents([.hour, .minute], from: userTime)
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: "daily-reminder", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { error in
@@ -59,7 +59,7 @@ final class NotificationService {
         let calendar = Calendar.current
         let dateComponents = calendar.dateComponents([.hour, .minute], from: userTime)
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: "difficult-words-reminder", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { error in
@@ -77,56 +77,66 @@ final class NotificationService {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["daily-reminder"])
     }
     
-    func checkAndScheduleNotifications() {
-        Task {
-            // Check user preferences first
-            let dailyRemindersEnabled = UDService.dailyRemindersEnabled
-            let difficultWordsEnabled = UDService.difficultWordsEnabled
+    func cancelDifficultWordsReminder() {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["difficult-words-reminder"])
+    }
+    
+    /// Schedules notifications based on user preferences
+    /// - Daily reminders: Scheduled daily at set time if enabled (no logic about app opening)
+    /// - Difficult words: Scheduled daily if user has hard words
+    func scheduleNotifications() async {
+        // Check user preferences first
+        let dailyRemindersEnabled = UDService.dailyRemindersEnabled
+        let difficultWordsEnabled = UDService.difficultWordsEnabled
+        
+        // Only proceed if any notifications are enabled
+        guard dailyRemindersEnabled || difficultWordsEnabled else { return }
+        
+        // Check permission status
+        let status = await UNUserNotificationCenter.current().notificationSettings()
+        guard status.authorizationStatus == .authorized else { return }
+        
+        // Cancel all existing notifications
+        cancelAllNotifications()
+        
+        // Schedule daily reminder if enabled (always schedule, regardless of app usage)
+        if dailyRemindersEnabled {
+            scheduleDailyReminder()
+        }
+        
+        // Schedule difficult words reminder if enabled and user has hard words
+        if difficultWordsEnabled {
+            let wordProgress = quizAnalyticsService.getWordProgress()
+            let difficultWords = wordProgress.filter { $0.masteryLevel == "needReview" }
             
-            // Only schedule daily reminder if enabled and user hasn't opened app today
-            if dailyRemindersEnabled {
-                let today = Calendar.current.startOfDay(for: Date())
-                let lastOpened = UDService.lastAppOpenDate ?? Date.distantPast
-                
-                if Calendar.current.startOfDay(for: lastOpened) < today {
-                    scheduleDailyReminder()
-                }
-            }
-            
-            // Check for difficult words and schedule reminder if enabled
-            if difficultWordsEnabled {
-                let wordProgress = quizAnalyticsService.getWordProgress()
-                let difficultWords = wordProgress.filter { $0.masteryLevel == "needReview" }
-                
-                if !difficultWords.isEmpty {
-                    scheduleDifficultWordsReminder()
-                }
+            if !difficultWords.isEmpty {
+                scheduleDifficultWordsReminder()
+            } else {
+                // Cancel difficult words notification if no hard words
+                cancelDifficultWordsReminder()
             }
         }
     }
     
-    func scheduleNotificationsForToday() {
+    /// Called when app goes to background or quits - reschedules notifications
+    func scheduleNotificationsOnAppExit() {
         Task {
-            // Check user preferences first
-            let dailyRemindersEnabled = UDService.dailyRemindersEnabled
-            let difficultWordsEnabled = UDService.difficultWordsEnabled
-            
-            // Only proceed if notifications are enabled
-            guard dailyRemindersEnabled || difficultWordsEnabled else { return }
-            
-            let hasPermission = await requestPermission()
-            guard hasPermission else { return }
-            
-            // Cancel existing notifications
-            cancelAllNotifications()
-            
-            // Schedule new notifications
-            checkAndScheduleNotifications()
+            await scheduleNotifications()
         }
     }
     
-    func markAppAsOpened() {
-        UDService.lastAppOpenDate = Date()
-        cancelDailyReminder()
+    /// Called when user toggles notification settings or changes time
+    func scheduleNotificationsForSettings() {
+        Task {
+            let dailyRemindersEnabled = UDService.dailyRemindersEnabled
+            let difficultWordsEnabled = UDService.difficultWordsEnabled
+            
+            guard dailyRemindersEnabled || difficultWordsEnabled else {
+                cancelAllNotifications()
+                return
+            }
+            
+            await scheduleNotifications()
+        }
     }
 } 

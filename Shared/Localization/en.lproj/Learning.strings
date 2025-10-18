@@ -137,11 +137,6 @@
 "learning_style.balanced" = "Balanced";
 "learning_style.balanced_description" = "I enjoy a mix of different learning methods";
 
-// MARK: - Native Language
-"native_language.what_is_your_native_language" = "What's your native language?";
-"native_language.help_us_explain_things" = "Help us explain things in a way you'll understand best";
-"native_language.select_native_language" = "Select your native language";
-
 // MARK: - Motivation
 "motivation.what_motivates_you" = "What motivates you to learn?";
 "motivation.help_us_keep_you_motivated" = "Help us keep you motivated throughout your journey";

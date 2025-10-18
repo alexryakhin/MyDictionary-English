@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "illustration-native-lang.png",
+      "filename" : "illustration-native-lang.svg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "illustration-native-lang 1.png",
+      "filename" : "illustration-native-lang 1.svg",
       "idiom" : "universal"
     }
   ],

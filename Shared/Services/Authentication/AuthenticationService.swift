@@ -110,8 +110,25 @@ final class AuthenticationService: ObservableObject {
                 await loadAndSyncNickname(user: user)
 
                 // First mark existing words as unsynced, then sync to Firestore, then start real-time listener
-                // Request push notification permissions
+                // Request push notification permissions (for FCM, not local notifications)
                 await requestPushNotificationPermissions()
+                
+                // Request local notification permissions only if user hasn't completed onboarding
+                // (onboarding flow will ask for permissions explicitly)
+                if UDService.hasCompletedOnboarding {
+                    // User already went through onboarding, check if they skipped notifications
+                    // Only request if they have notifications enabled but haven't granted permission yet
+                    let dailyRemindersEnabled = UDService.dailyRemindersEnabled
+                    let difficultWordsEnabled = UDService.difficultWordsEnabled
+                    
+                    if dailyRemindersEnabled || difficultWordsEnabled {
+                        let settings = await UNUserNotificationCenter.current().notificationSettings()
+                        if settings.authorizationStatus == .notDetermined {
+                            // User skipped during onboarding, ask now when they sign in
+                            let _ = await NotificationService.shared.requestPermission()
+                        }
+                    }
+                }
 
                 // Create/update user document in Firestore with all required fields
                 await createUserDocument(user: user)

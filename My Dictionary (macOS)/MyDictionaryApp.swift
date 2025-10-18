@@ -90,15 +90,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
+        // Schedule notifications when app terminates (check for hard words)
+        NotificationService.shared.scheduleNotificationsOnAppExit()
+        
         // Unregister device token when app terminates
         Task {
             await MessagingService.shared.unregisterCurrentDevice()
         }
     }
     
-    func applicationDidBecomeActive(_ aNotification: Notification) {
-        // Mark app as opened and cancel daily reminder
-        NotificationService.shared.markAppAsOpened()
+    func applicationDidResignActive(_ aNotification: Notification) {
+        // Schedule notifications when app goes to background (check for hard words)
+        NotificationService.shared.scheduleNotificationsOnAppExit()
     }
     
     // MARK: - App Services Setup
@@ -132,21 +135,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func setupNotifications() {
-        let notificationService = NotificationService.shared
-
-        // Mark app as opened and cancel daily reminder
-        notificationService.markAppAsOpened()
-
-        // Check if user has enabled notifications
-        let dailyRemindersEnabled = UDService.dailyRemindersEnabled
-        let difficultWordsEnabled = UDService.difficultWordsEnabled
-
-        // Only schedule notifications if user has enabled them
-        if dailyRemindersEnabled || difficultWordsEnabled {
-            Task {
-                await notificationService.requestPermission()
-                notificationService.scheduleNotificationsForToday()
-            }
-        }
+        // Notifications are now scheduled when app goes to background/quits
+        // No need to schedule on app launch
     }
 }

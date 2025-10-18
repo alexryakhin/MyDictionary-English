@@ -225,7 +225,7 @@ final class SpellingQuizViewModel: BaseViewModel {
         )
         
         // Check and schedule notifications after quiz completion
-        NotificationService.shared.checkAndScheduleNotifications()
+        NotificationService.shared.scheduleNotificationsOnAppExit()
     }
 
     private func proceedToNextItem() {

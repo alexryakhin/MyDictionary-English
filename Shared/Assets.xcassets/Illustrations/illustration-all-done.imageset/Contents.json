@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "illustration-all-done.png",
+      "filename" : "illustration-all-done.svg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "illustration-all-done 1.png",
+      "filename" : "illustration-all-done 1.svg",
       "idiom" : "universal"
     }
   ],

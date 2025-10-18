@@ -15,97 +15,78 @@ extension OnboardingFlow {
         @State private var showBenefits = false
 
         var body: some View {
-            ZStack {
-                // Animated background
-                backgroundGradient
-                    .ignoresSafeArea()
+            ScrollView {
+                VStack(spacing: 32) {
+                    Spacer()
+                        .frame(height: 40)
 
-                ScrollView {
-                    VStack(spacing: 32) {
-                        Spacer()
-                            .frame(height: 40)
-
-                        // Animated flame icon
-                        ZStack {
-                            Circle()
-                                .fill(Color.orange.opacity(0.1))
-                                .frame(width: 140, height: 140)
-                                .scaleEffect(animateFlame ? 1.1 : 1.0)
-
-                            Image(systemName: "flame.fill")
-                                .font(.system(size: 70))
-                                .foregroundStyle(
-                                    LinearGradient(
-                                        colors: [.orange, .red],
-                                        startPoint: .top,
-                                        endPoint: .bottom
-                                    )
-                                )
-                                .scaleEffect(animateContent ? 1.0 : 0.5)
-                                .rotationEffect(.degrees(animateFlame ? -10 : 10))
-                        }
+                    // Animated illustration
+                    Image(.illustrationStreak)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxHeight: 200)
+                        .scaleEffect(animateContent ? 1.0 : 0.5)
                         .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateContent)
-                        .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: animateFlame)
 
-                        // Title
-                        VStack(spacing: 16) {
-                            Text(Loc.Onboarding.buildYourLearningStreak)
-                                .font(.system(.largeTitle, design: .rounded, weight: .bold))
-                                .foregroundStyle(.primary)
-                                .multilineTextAlignment(.center)
-                                .opacity(animateContent ? 1 : 0)
-                                .offset(y: animateContent ? 0 : 20)
+                    // Title
+                    VStack(spacing: 16) {
+                        Text(Loc.Onboarding.buildYourLearningStreak)
+                            .font(.system(.largeTitle, design: .rounded, weight: .bold))
+                            .foregroundStyle(.primary)
+                            .multilineTextAlignment(.center)
+                            .opacity(animateContent ? 1 : 0)
+                            .offset(y: animateContent ? 0 : 20)
 
-                            Text(Loc.Onboarding.streakIntroMessage)
-                                .font(.body)
-                                .foregroundStyle(.secondary)
-                                .multilineTextAlignment(.center)
-                                .opacity(animateContent ? 1 : 0)
-                                .offset(y: animateContent ? 0 : 20)
-                        }
-                        .animation(.easeInOut(duration: 0.8).delay(0.3), value: animateContent)
-                        .padding(.horizontal, 32)
-
-                        // Streak benefits
-                        VStack(spacing: 12) {
-                            StreakBenefitRow(
-                                icon: "calendar",
-                                title: "Daily Consistency",
-                                description: "Build a habit that sticks",
-                                delay: 0.0,
-                                show: showBenefits
-                            )
-
-                            StreakBenefitRow(
-                                icon: "chart.line.uptrend.xyaxis",
-                                title: "Track Progress",
-                                description: "Watch your vocabulary grow",
-                                delay: 0.15,
-                                show: showBenefits
-                            )
-
-                            StreakBenefitRow(
-                                icon: "star.fill",
-                                title: "Stay Motivated",
-                                description: "Keep your streak alive",
-                                delay: 0.3,
-                                show: showBenefits
-                            )
-                        }
-                        .padding(.horizontal, 24)
-
-                        Spacer()
-                            .frame(height: 40)
+                        Text(Loc.Onboarding.streakIntroMessage)
+                            .font(.body)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .opacity(animateContent ? 1 : 0)
+                            .offset(y: animateContent ? 0 : 20)
                     }
-                    .frame(maxWidth: .infinity)
+                    .animation(.easeInOut(duration: 0.8).delay(0.3), value: animateContent)
+                    .padding(.horizontal, 16)
+
+                    // Streak benefits
+                    VStack(spacing: 12) {
+                        StreakBenefitRow(
+                            icon: "calendar",
+                            title: "Daily Consistency",
+                            description: "Build a habit that sticks",
+                            delay: 0.0,
+                            show: showBenefits
+                        )
+
+                        StreakBenefitRow(
+                            icon: "chart.line.uptrend.xyaxis",
+                            title: "Track Progress",
+                            description: "Watch your vocabulary grow",
+                            delay: 0.15,
+                            show: showBenefits
+                        )
+
+                        StreakBenefitRow(
+                            icon: "star.fill",
+                            title: "Stay Motivated",
+                            description: "Keep your streak alive",
+                            delay: 0.3,
+                            show: showBenefits
+                        )
+                    }
+                    .padding(.horizontal, 16)
+
+                    Spacer()
+                        .frame(height: 40)
                 }
+                .frame(maxWidth: .infinity)
+                .padding(vertical: 12, horizontal: 16)
             }
+            .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.soundsGreat, style: .borderedProminent) {
                     viewModel.navigate(to: .notifications)
                 }
-                .padding(.horizontal, 24)
-                .padding(.vertical, 16)
+                .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {
                 withAnimation(.easeInOut(duration: 1.0)) {
@@ -119,18 +100,6 @@ extension OnboardingFlow {
                     }
                 }
             }
-        }
-
-        private var backgroundGradient: some View {
-            LinearGradient(
-                colors: [
-                    Color.orange.opacity(0.08),
-                    Color.accentColor.opacity(0.05),
-                    Color.systemBackground
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
         }
     }
 
@@ -170,7 +139,7 @@ extension OnboardingFlow {
             .padding(16)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.systemBackground)
+                    .fill(Color.secondarySystemGroupedBackground)
                     .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 4)
             )
             .opacity(show ? 1 : 0)

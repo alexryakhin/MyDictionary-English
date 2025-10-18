@@ -935,14 +935,6 @@ public enum Loc {
       /// What motivates you to learn?
       public static let whatMotivatesYou = Loc.tr("Learning", "motivation.what_motivates_you", fallback: "What motivates you to learn?")
     }
-    public enum NativeLanguage {
-      /// Help us explain things in a way you'll understand best
-      public static let helpUsExplainThings = Loc.tr("Learning", "native_language.help_us_explain_things", fallback: "Help us explain things in a way you'll understand best")
-      /// Select your native language
-      public static let selectNativeLanguage = Loc.tr("Learning", "native_language.select_native_language", fallback: "Select your native language")
-      /// What's your native language?
-      public static let whatIsYourNativeLanguage = Loc.tr("Learning", "native_language.what_is_your_native_language", fallback: "What's your native language?")
-    }
     public enum Onboarding {
       /// Get Started
       public static let getStarted = Loc.tr("Learning", "onboarding.get_started", fallback: "Get Started")
@@ -1233,8 +1225,6 @@ public enum Loc {
     }
     /// Search languages
     public static let searchLanguages = Loc.tr("Onboarding", "search_languages", fallback: "Search languages")
-    /// Search your language
-    public static let searchYourLanguage = Loc.tr("Onboarding", "search_your_language", fallback: "Search your language")
     /// Select 2-5 interests
     public static let select2To5Interests = Loc.tr("Onboarding", "select_2_to_5_interests", fallback: "Select 2-5 interests")
     /// Select at least one language
@@ -1335,8 +1325,6 @@ public enum Loc {
     public static let whatTopicsInterestYou = Loc.tr("Onboarding", "what_topics_interest_you", fallback: "What topics interest you?")
     /// What's your age group?
     public static let whatsYourAgeGroup = Loc.tr("Onboarding", "whats_your_age_group", fallback: "What's your age group?")
-    /// What's your native language?
-    public static let whatsYourNativeLanguage = Loc.tr("Onboarding", "whats_your_native_language", fallback: "What's your native language?")
     /// When do you prefer to study?
     public static let whenDoYouPreferToStudy = Loc.tr("Onboarding", "when_do_you_prefer_to_study", fallback: "When do you prefer to study?")
     /// Which best describes you?

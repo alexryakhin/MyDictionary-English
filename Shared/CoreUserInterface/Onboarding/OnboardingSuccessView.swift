@@ -16,67 +16,52 @@ extension OnboardingFlow {
         @State private var showCheckmark = false
 
         var body: some View {
-            ZStack {
-                // Animated background
-                backgroundGradient
-                    .ignoresSafeArea()
-                    .scaleEffect(animateBackground ? 1.1 : 1.0)
-                    .animation(.easeInOut(duration: 8).repeatForever(autoreverses: true), value: animateBackground)
+            ScrollView {
+                VStack(spacing: 0) {
+                    Spacer()
+                        .frame(height: 60)
 
-                ScrollView {
-                    VStack(spacing: 0) {
-                        Spacer()
-                            .frame(height: 60)
+                    // Animated illustration
+                    Image(.illustrationAllDone)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxHeight: 230)
+                        .scaleEffect(animateContent ? 1.0 : 0.5)
+                        .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateContent)
 
-                        // Animated success icon
-                        ZStack {
-                            Circle()
-                                .fill(Color.accentColor.opacity(0.1))
-                                .frame(width: 140, height: 140)
-                                .scaleEffect(showPulse ? 1.2 : 1.0)
+                    Spacer()
+                        .frame(height: 60)
 
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.system(size: 60))
-                                .foregroundStyle(Color.accentColor)
-                                .scaleEffect(showCheckmark ? 1.0 : 0.5)
-                                .opacity(showCheckmark ? 1 : 0)
-                        }
-                        .animation(.spring(response: 1.0, dampingFraction: 0.8), value: showCheckmark)
-                        .animation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true), value: showPulse)
+                    // Title section
+                    VStack(spacing: 16) {
+                        Text(Loc.Onboarding.youreAllSetName(viewModel.userName))
+                            .font(.system(.largeTitle, design: .rounded, weight: .bold))
+                            .foregroundStyle(.primary)
+                            .opacity(animateContent ? 1 : 0)
+                            .offset(y: animateContent ? 0 : 20)
 
-                        Spacer()
-                            .frame(height: 60)
-
-                        // Title section
-                        VStack(spacing: 16) {
-                            Text(Loc.Onboarding.youreAllSetName(viewModel.userName.isEmpty ? "Friend" : viewModel.userName))
-                                .font(.system(.largeTitle, design: .rounded, weight: .bold))
-                                .foregroundStyle(.primary)
-                                .opacity(animateContent ? 1 : 0)
-                                .offset(y: animateContent ? 0 : 20)
-
-                            Text(Loc.Onboarding.readyToLearnLanguages(viewModel.studyLanguages.count))
-                                .font(.title3)
-                                .foregroundStyle(.secondary)
-                                .opacity(animateContent ? 1 : 0)
-                                .offset(y: animateContent ? 0 : 20)
-                        }
-                        .multilineTextAlignment(.center)
-                        .animation(.easeInOut(duration: 0.8).delay(0.3), value: animateContent)
-                        .padding(.horizontal, 32)
-
-                        Spacer()
-                            .frame(height: 80)
+                        Text(Loc.Onboarding.readyToLearnLanguages(viewModel.studyLanguages.count))
+                            .font(.title3)
+                            .foregroundStyle(.secondary)
+                            .opacity(animateContent ? 1 : 0)
+                            .offset(y: animateContent ? 0 : 20)
                     }
-                    .frame(maxWidth: .infinity)
+                    .multilineTextAlignment(.center)
+                    .animation(.easeInOut(duration: 0.8).delay(0.3), value: animateContent)
+                    .padding(.horizontal, 16)
+
+                    Spacer()
+                        .frame(height: 80)
                 }
+                .frame(maxWidth: .infinity)
+                .padding(vertical: 12, horizontal: 16)
             }
+            .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.startLearning, style: .borderedProminent) {
                     viewModel.completeOnboarding()
                 }
-                .padding(.horizontal, 24)
-                .padding(.vertical, 16)
+                .padding(vertical: 12, horizontal: 16)
             }
             .overlay(
                 Group {
@@ -106,18 +91,6 @@ extension OnboardingFlow {
                     }
                 }
             }
-        }
-
-        private var backgroundGradient: some View {
-            LinearGradient(
-                colors: [
-                    Color.accentColor.opacity(0.1),
-                    Color.accentColor.opacity(0.05),
-                    Color.systemBackground
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
         }
     }
 }

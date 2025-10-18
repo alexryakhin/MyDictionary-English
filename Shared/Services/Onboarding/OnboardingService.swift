@@ -82,10 +82,10 @@ final class OnboardingService: ObservableObject {
         let hasCompletedOnboarding = UDService.hasCompletedOnboarding
         let entity = CoreDataService.shared.fetchUserProfile()
 
-        if hasCompletedOnboarding == false && entity == nil {
-            showOnboarding = true
-        } else {
+        if hasCompletedOnboarding {
             checkIfShouldShowBanner()
+        } else if entity == nil || entity?.isCompleted == false {
+            showOnboarding = true
         }
     }
 
@@ -117,17 +117,6 @@ final class OnboardingService: ObservableObject {
         if !profile.userName.isEmpty {
             UDService.userNickname = profile.userName
         }
-    }
-    
-    // MARK: - Device Language Detection
-    
-    func detectNativeLanguage() -> InputLanguage {
-        let locale = Locale.current
-        if let languageCode = locale.language.languageCode?.identifier,
-           let language = InputLanguage(rawValue: languageCode) {
-            return language
-        }
-        return .english
     }
 }
 

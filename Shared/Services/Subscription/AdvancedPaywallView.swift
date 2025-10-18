@@ -24,7 +24,7 @@ struct AdvancedPaywallView: View {
     @State private var animatePlans = false
 
     var body: some View {
-        ScrollViewWithCustomNavBar {
+        ScrollView {
             VStack(spacing: 0) {
                 // Hero section with gradient background
                 heroSection
@@ -48,24 +48,14 @@ struct AdvancedPaywallView: View {
                 // Terms and privacy
                 termsSection
             }
-        } navigationBar: {
+        }
+        .withGradientBackground()
+        .safeAreaBarIfAvailable(edge: .top, alignment: .trailing) {
             HeaderButton(icon: "xmark") {
                 paywallService.dismissPaywall()
             }
             .padding(12)
             .frame(maxWidth: .infinity, alignment: .trailing)
-        }
-        .background {
-            LinearGradient(
-                colors: [
-                    Color.accentColor.opacity(0.15),
-                    Color.accentColor.opacity(0.1),
-                    Color.systemBackground
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
         }
         .onAppear {
             startAnimations()

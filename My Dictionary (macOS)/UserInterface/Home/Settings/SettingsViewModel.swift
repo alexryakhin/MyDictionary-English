@@ -139,8 +139,8 @@ final class SettingsViewModel: BaseViewModel {
         Task {
             let granted = await NotificationService.shared.requestPermission()
             if granted {
-                // Schedule notifications for today
-                NotificationService.shared.scheduleNotificationsForToday()
+                // Schedule notifications
+                NotificationService.shared.scheduleNotificationsForSettings()
             }
         }
     }
@@ -151,7 +151,7 @@ final class SettingsViewModel: BaseViewModel {
             Task {
                 let granted = await notificationService.requestPermission()
                 if granted {
-                    notificationService.scheduleNotificationsForToday()
+                    notificationService.scheduleNotificationsForSettings()
                 } else {
                     // If permission denied, turn off the toggles
                     await MainActor.run {
@@ -225,12 +225,7 @@ final class SettingsViewModel: BaseViewModel {
         
         // Reschedule notifications with new time
         if dailyRemindersEnabled {
-            Task {
-                let granted = await notificationService.requestPermission()
-                if granted {
-                    notificationService.scheduleNotificationsForToday()
-                }
-            }
+            notificationService.scheduleNotificationsForSettings()
         }
     }
     
@@ -240,12 +235,7 @@ final class SettingsViewModel: BaseViewModel {
         
         // Reschedule notifications with new time
         if difficultWordsEnabled {
-            Task {
-                let granted = await notificationService.requestPermission()
-                if granted {
-                    notificationService.scheduleNotificationsForToday()
-                }
-            }
+            notificationService.scheduleNotificationsForSettings()
         }
     }
 }

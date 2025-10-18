@@ -15,7 +15,6 @@ extension OnboardingFlow {
         case ageGroup
         case goals
         case languages
-        case nativeLanguage
         case interests
         case studyIntensity
         case studyTime

@@ -23,7 +23,6 @@ extension CDUserProfile {
     @NSManaged public var interestsData: Data?
     @NSManaged public var weeklyWordGoal: Int32
     @NSManaged public var preferredStudyTime: String?
-    @NSManaged public var nativeLanguage: String?
     @NSManaged public var completedAt: Date?
     @NSManaged public var isCompleted: Bool
     @NSManaged public var skippedPaywall: Bool

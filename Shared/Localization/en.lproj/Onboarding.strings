@@ -76,10 +76,6 @@
 "cefr_level_c1_description" = "Advanced - Fluent expression";
 "cefr_level_c2_description" = "Mastery - Native-like proficiency";
 
-// Native Language
-"whats_your_native_language" = "What's your native language?";
-"search_your_language" = "Search your language";
-
 // Interests
 "what_topics_interest_you" = "What topics interest you?";
 "select_2_to_5_interests" = "Select 2-5 interests";
