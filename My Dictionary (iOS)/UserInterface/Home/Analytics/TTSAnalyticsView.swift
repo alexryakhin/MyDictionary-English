@@ -73,7 +73,10 @@ struct TTSAnalyticsView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding(vertical: 12, horizontal: 16)
-            .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+            .clippedWithBackground(
+                Color.tertiarySystemGroupedBackground,
+                in: .rect(cornerRadius: 16)
+            )
         }
     }
 }

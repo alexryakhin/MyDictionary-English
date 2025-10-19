@@ -24,7 +24,7 @@ struct AddEditTagView: View {
                         .textFieldStyle(.plain)
                         .autocorrectionDisabled()
                         .padding(12)
-                        .clippedWithBackground(Color.tertiarySystemFill, cornerRadius: 12)
+                        .clippedWithBackground(Color.tertiarySystemFill, in: .rect(cornerRadius: 12))
                         .padding(.bottom, 12)
                 }
                 CustomSectionView(header: Loc.Tags.tagColor, footer: Loc.Tags.tagColorHelp) {

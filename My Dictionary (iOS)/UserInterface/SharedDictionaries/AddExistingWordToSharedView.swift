@@ -83,7 +83,7 @@ struct AddExistingWordToSharedView: View {
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
-                    .clippedWithPaddingAndBackground(cornerRadius: 16)
+                    .clippedWithPaddingAndBackground(in: .rect(cornerRadius: 16))
                 }
                 .buttonStyle(.plain)
             }

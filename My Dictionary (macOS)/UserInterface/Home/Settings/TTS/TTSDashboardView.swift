@@ -143,7 +143,7 @@ enum TTSDashboard {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(vertical: 12, horizontal: 16)
-                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
 
                     // Voice preview
                     AsyncActionButton(
@@ -227,7 +227,7 @@ enum TTSDashboard {
                     TextField(Loc.Tts.enterTextToTest, text: $ttsPlayer.testText, axis: .vertical)
                         .textFieldStyle(.plain)
                         .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(.tertiarySystemGroupedBackground, cornerRadius: 12)
+                        .clippedWithBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
                         .lineLimit(3...6)
 
                     AsyncActionButton(
@@ -314,7 +314,7 @@ enum TTSDashboard {
                             .progressViewStyle(LinearProgressViewStyle(tint: usageTracker.getSpeechifyUsagePercentage() > 80 ? .orange : .blue))
                     }
                     .padding(vertical: 12, horizontal: 16)
-                    .clippedWithBackground(.tertiarySystemGroupedBackground, cornerRadius: 12)
+                    .clippedWithBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
                 }
             }
         }
@@ -453,7 +453,7 @@ enum TTSDashboard {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding(vertical: 12, horizontal: 16)
-            .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+            .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
         }
     }
 

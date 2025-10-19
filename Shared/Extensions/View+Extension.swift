@@ -123,56 +123,81 @@ extension UIApplication {
 extension View {
     func clippedWithBackground(
         _ color: Color = Color.secondarySystemGroupedBackground,
-        cornerRadius: CGFloat = 24,
+        in shape: some Shape = RoundedRectangle(cornerRadius: 24),
         showShadow: Bool = false
     ) -> some View {
         self
             .background(color)
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .clipShape(shape)
             .if(showShadow) {
                 $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
 
+    @ViewBuilder
     func clippedWithBackgroundMaterial(
         _ material: Material = .thinMaterial,
-        cornerRadius: CGFloat = 24,
+        in shape: some Shape = RoundedRectangle(cornerRadius: 24),
         showShadow: Bool = false
     ) -> some View {
-        self
-            .background(material)
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-            .if(showShadow) {
-                $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
-            }
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self
+                .background(
+                    Color.clear.glassEffect(.regular, in: shape)
+                )
+                .clipShape(shape)
+                .if(showShadow) {
+                    $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
+                }
+        } else {
+            self
+                .background(material)
+                .clipShape(shape)
+                .if(showShadow) {
+                    $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
+                }
+        }
     }
 
     func clippedWithPaddingAndBackground(
         _ color: Color = Color.secondarySystemGroupedBackground,
-        cornerRadius: CGFloat = 24,
+        in shape: some Shape = RoundedRectangle(cornerRadius: 24),
         showShadow: Bool = false
     ) -> some View {
         self
             .padding(16)
             .background(color)
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .clipShape(shape)
             .if(showShadow) {
                 $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
             }
     }
 
+    @ViewBuilder
     func clippedWithPaddingAndBackgroundMaterial(
         _ material: Material = .thinMaterial,
-        cornerRadius: CGFloat = 24,
+        in shape: some Shape = RoundedRectangle(cornerRadius: 24),
         showShadow: Bool = false
     ) -> some View {
-        self
-            .padding(16)
-            .background(material)
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-            .if(showShadow) {
-                $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
-            }
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self
+                .padding(16)
+                .background(
+                    Color.clear.glassEffect(.regular, in: shape)
+                )
+                .clipShape(shape)
+                .if(showShadow) {
+                    $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
+                }
+        } else {
+            self
+                .padding(16)
+                .background(material)
+                .clipShape(shape)
+                .if(showShadow) {
+                    $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
+                }
+        }
     }
 
     func withGradientBackground(_ color: Color = .accentColor) -> some View {
@@ -242,5 +267,98 @@ extension View {
         } else {
             self.background(material)
         }
+    }
+}
+
+enum GlassEffect {
+    case regular
+    case clear
+    case identity
+    case tint(Color?)
+    case interactive(Bool)
+
+    @available(macOS 26.0, *)
+    @available(iOS 26.0, *)
+    var glass: Glass {
+        switch self {
+        case .regular:
+            return .regular
+        case .clear:
+            return .clear
+        case .identity:
+            return .identity
+        case .tint(let color):
+            return Glass.regular.tint(color)
+        case let .interactive(isEnabled):
+            return Glass.regular.interactive(isEnabled)
+        }
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func glassEffectIfAvailable(
+        _ glass: GlassEffect = .regular,
+        in shape: some Shape = RoundedRectangle(cornerRadius: 16)
+    ) -> some View {
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self.glassEffect(glass.glass, in: shape)
+        } else {
+            self
+        }
+    }
+
+    @ViewBuilder
+    func glassBackgroundEffectIfAvailable(
+        _ glass: GlassEffect = .regular,
+        in shape: some Shape = RoundedRectangle(cornerRadius: 16)
+    ) -> some View {
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self
+                .background(
+                    Color.clear
+                        .glassEffect(glass.glass, in: shape)
+                )
+        } else {
+            self
+        }
+    }
+
+    @ViewBuilder
+    func glassEffectIfAvailableWithBackup(
+        _ glass: GlassEffect = .regular,
+        in shape: some Shape = RoundedRectangle(cornerRadius: 16)
+    ) -> some View {
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self.glassEffect(glass.glass, in: shape)
+        } else {
+            self
+                .clippedWithBackgroundMaterial(.regular, in: shape)
+        }
+    }
+
+    @ViewBuilder
+    func glassBackgroundEffectIfAvailableWithBackup(
+        _ glass: GlassEffect = .regular,
+        in shape: some Shape = RoundedRectangle(cornerRadius: 16)
+    ) -> some View {
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self
+                .background(
+                    Color.clear
+                        .glassEffect(glass.glass, in: shape)
+                )
+        } else {
+            self
+                .clippedWithBackgroundMaterial(.regular, in: shape)
+        }
+    }
+}
+
+var isGlassAvailable: Bool {
+    if #available(iOS 26.0, macOS 26.0, *) {
+        return true
+    } else {
+        return false
     }
 }

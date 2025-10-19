@@ -190,7 +190,7 @@ struct ChooseDefinitionQuizView: View {
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
-                        .clippedWithPaddingAndBackground(backgroundColor(for: index), cornerRadius: 12)
+                        .clippedWithPaddingAndBackground(backgroundColor(for: index), in: .rect(cornerRadius: 12))
                         .overlay(
                             RoundedRectangle(cornerRadius: 12)
                                 .stroke(borderColor(for: index), lineWidth: 2)
@@ -214,7 +214,7 @@ struct ChooseDefinitionQuizView: View {
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
-                .clippedWithBackground(.accent.opacity(0.2), cornerRadius: 8)
+                .clippedWithBackground(.accent.opacity(0.2), in: .rect(cornerRadius: 8))
             case .incorrect:
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
@@ -227,7 +227,7 @@ struct ChooseDefinitionQuizView: View {
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
-                .clippedWithBackground(.red.opacity(0.2), cornerRadius: 8)
+                .clippedWithBackground(.red.opacity(0.2), in: .rect(cornerRadius: 8))
             default:
                 EmptyView()
             }

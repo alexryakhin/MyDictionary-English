@@ -45,7 +45,10 @@ struct ProgressCard: View {
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .clippedWithPaddingAndBackground(color.opacity(0.15), cornerRadius: 16)
+        .clippedWithPaddingAndBackground(
+            color.opacity(0.15),
+            in: .rect(cornerRadius: 16)
+        )
     }
 }
 
@@ -72,7 +75,7 @@ struct StatCard: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .clippedWithPaddingAndBackground(
             Color.tertiarySystemGroupedBackground,
-            cornerRadius: 16
+            in: .rect(cornerRadius: 16)
         )
     }
 }
@@ -117,7 +120,10 @@ struct QuizResultRow: View {
             }
         }
         .padding(12)
-        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 12)
+        .clippedWithBackground(
+            Color.tertiarySystemGroupedBackground,
+            in: .rect(cornerRadius: 16)
+        )
     }
     
     // MARK: - Helper Properties

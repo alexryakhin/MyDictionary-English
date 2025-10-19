@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import CoreData
+import ClockKit
 
 final class OnboardingService: ObservableObject {
     static let shared = OnboardingService()
@@ -14,13 +16,22 @@ final class OnboardingService: ObservableObject {
     @Published var showOnboarding = false
     @Published var showBanner = false
     @Published var userProfile: UserOnboardingProfile?
+    @Published var isLoadingFromCloud: Bool = false
+    @Published var cloudLoadingMessage: String = ""
+    @Published var hasFoundCloudProfile: Bool = false
     
     private let coreDataService = CoreDataService.shared
+    private let cloudKitService = CloudKitService.shared
+    private let profileSyncManager = OnboardingProfileSyncManager.shared
     private var cancellables = Set<AnyCancellable>()
     
     private init() {
         loadProfile()
         showOnboardingIfNeeded()
+        // Only cleanup duplicates if we detect multiple profiles
+        if debugProfileCount() > 1 {
+            cleanupDuplicateProfiles()
+        }
     }
     
     // MARK: - Profile Management
@@ -86,6 +97,121 @@ final class OnboardingService: ObservableObject {
             checkIfShouldShowBanner()
         } else if entity == nil || entity?.isCompleted == false {
             showOnboarding = true
+        }
+    }
+    
+    // MARK: - iCloud Profile Check
+    
+    /// Checks for existing profile in iCloud with loading UI
+    func checkForExistingProfileInCloud() async {
+        // Don't check if already has completed onboarding locally
+        if UDService.hasCompletedOnboarding {
+            return
+        }
+        
+        // Check if iCloud is available first
+        let isAvailable = await cloudKitService.checkAvailabilityWithTimeout(timeout: 2.0)
+        
+        guard isAvailable else {
+            // iCloud not available, use local check only
+            await MainActor.run {
+                self.isLoadingFromCloud = false
+            }
+            return
+        }
+        
+        // Show loading UI
+        await MainActor.run {
+            self.isLoadingFromCloud = true
+            self.cloudLoadingMessage = Loc.Onboarding.loadingFromIcloud
+        }
+        
+        // Check for existing profile with timeout
+        let profileExists = await profileSyncManager.checkForExistingProfile()
+        
+        await MainActor.run {
+            self.isLoadingFromCloud = false
+            
+            if profileExists {
+                // Profile found in iCloud, show welcome screen with Get Started button
+                self.hasFoundCloudProfile = true
+                self.showOnboarding = true
+                self.loadProfile()
+            } else {
+                // No profile found, show normal onboarding
+                self.hasFoundCloudProfile = false
+                self.showOnboarding = !UDService.hasCompletedOnboarding
+            }
+        }
+    }
+    
+    // MARK: - Duplicate Cleanup
+    
+    /// Cleans up any duplicate profiles in Core Data
+    private func cleanupDuplicateProfiles() {
+        let context = coreDataService.context
+        let fetchRequest: NSFetchRequest<CDUserProfile> = CDUserProfile.fetchRequest()
+        
+        do {
+            let allProfiles = try context.fetch(fetchRequest)
+            
+            if allProfiles.count > 1 {
+                // Sort by lastUpdated (most recent first)
+                let sortedProfiles = allProfiles.sorted { 
+                    ($0.lastUpdated ?? Date.distantPast) > ($1.lastUpdated ?? Date.distantPast) 
+                }
+                
+                // Keep the most recent one, delete all others
+                for duplicate in sortedProfiles.dropFirst() {
+                    context.delete(duplicate)
+                }
+                
+                try context.save()
+                logInfo("Cleaned up \(sortedProfiles.count - 1) duplicate profile(s)")
+            }
+        } catch {
+            logError("Failed to cleanup duplicate profiles: \(error)")
+        }
+    }
+
+    // MARK: - Cloud Profile Handling
+    
+    /// Called when user presses "Get Started" with existing cloud profile
+    func proceedWithCloudProfile() {
+        // Mark onboarding as completed
+        UDService.hasCompletedOnboarding = true
+        
+        // Dismiss onboarding
+        showOnboarding = false
+        hasFoundCloudProfile = false
+        
+        // Apply profile settings if we have a loaded profile
+        if let profile = userProfile {
+            applyProfileSettings(profile)
+        }
+    }
+    
+    // MARK: - Production Methods
+    
+    /// Production-safe method to clean up duplicates (call this once to fix existing duplicates)
+    func cleanupDuplicatesIfNeeded() async {
+        let profileCount = debugProfileCount()
+        if profileCount > 1 {
+            logInfo("Found \(profileCount) profiles, cleaning up duplicates...")
+            await profileSyncManager.cleanupAllDuplicates()
+        }
+    }
+    
+    /// Debug method to check how many profiles exist
+    func debugProfileCount() -> Int {
+        let context = coreDataService.context
+        let fetchRequest: NSFetchRequest<CDUserProfile> = CDUserProfile.fetchRequest()
+        
+        do {
+            let profiles = try context.fetch(fetchRequest)
+            return profiles.count
+        } catch {
+            return 0
         }
     }
 

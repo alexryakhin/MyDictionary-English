@@ -30,6 +30,6 @@ struct ProgressCard: View {
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .clippedWithPaddingAndBackground(color.opacity(0.15), cornerRadius: 16)
+        .clippedWithPaddingAndBackground(color.opacity(0.15), in: .rect(cornerRadius: 16))
     }
 }

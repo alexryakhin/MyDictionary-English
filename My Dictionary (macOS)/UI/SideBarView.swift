@@ -13,17 +13,23 @@ struct SideBarView: View {
     @StateObject private var onboardingService = OnboardingService.shared
 
     var body: some View {
-        NavigationSplitView {
-            sidebarView
-                .navigationSplitViewColumnWidth(200)
-        } content: {
-            contentListView
-                .navigationSplitViewColumnWidth(330)
-        } detail: {
-            detailView
+        Group {
+            if onboardingService.isLoadingFromCloud {
+                OnboardingLoadingView(message: onboardingService.cloudLoadingMessage)
+            } else {
+                NavigationSplitView {
+                    sidebarView
+                        .navigationSplitViewColumnWidth(200)
+                } content: {
+                    contentListView
+                        .navigationSplitViewColumnWidth(330)
+                } detail: {
+                    detailView
+                }
+                .groupedBackground()
+                .navigationSplitViewStyle(.automatic)
+            }
         }
-        .groupedBackground()
-        .navigationSplitViewStyle(.automatic)
         .withPaywall()
         .sheet(isPresented: $sessionManager.showCoffeeBanner) {
             CoffeeBanner()
@@ -33,6 +39,13 @@ struct SideBarView: View {
         .sheet(isPresented: $onboardingService.showOnboarding) {
             OnboardingFlow.ContainerView()
                 .interactiveDismissDisabled()
+        }
+        .task {
+            // Check for existing profile in iCloud on first launch
+            await onboardingService.checkForExistingProfileInCloud()
+            
+            // Clean up any existing duplicates (production-safe)
+            await onboardingService.cleanupDuplicatesIfNeeded()
         }
     }
 

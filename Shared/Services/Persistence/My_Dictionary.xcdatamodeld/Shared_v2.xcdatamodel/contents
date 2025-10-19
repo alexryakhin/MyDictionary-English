@@ -51,6 +51,7 @@
     </entity>
     <entity name="UserProfile" representedClassName="CDUserProfile" syncable="YES">
         <attribute name="ageGroup" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="cloudKitRecordID" optional="YES" attributeType="String"/>
         <attribute name="completedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="enabledNotifications" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>

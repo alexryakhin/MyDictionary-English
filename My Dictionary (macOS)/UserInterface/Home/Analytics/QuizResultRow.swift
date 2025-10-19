@@ -47,7 +47,7 @@ struct QuizResultRow: View {
             }
         }
         .padding(12)
-        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 12)
+        .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
     }
     
     private var quizTitle: String {

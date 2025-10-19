@@ -157,3 +157,8 @@
 "personalize_your_learning" = "Personalize your learning experience with a quick survey";
 "takes_2_minutes" = "Takes 2 minutes";
 "personalize_now" = "Personalize Now";
+
+// iCloud Sync
+"loading_from_icloud" = "Loading from iCloud...";
+"profile_found" = "Profile Found!";
+"profile_found_message" = "We found your profile from another device. Your settings and preferences are ready to go!";

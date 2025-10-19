@@ -10,6 +10,7 @@ import SwiftUI
 extension OnboardingFlow {
     struct WelcomeView: View {
         @ObservedObject var viewModel: OnboardingFlow.ViewModel
+        @StateObject private var onboardingService = OnboardingService.shared
         @State private var animateContent = false
         @State private var animateBackground = false
         @State private var showPulse = false
@@ -56,16 +57,22 @@ extension OnboardingFlow {
                         .opacity(animateContent ? 1 : 0)
                         .offset(y: animateContent ? 0 : 20)
                 }
-                .multilineTextAlignment(.center)
-                .animation(.easeInOut(duration: 0.8).delay(0.3), value: animateContent)
-                .padding(.horizontal, 16)
             }
             .frame(maxWidth: .infinity)
             .padding(vertical: 12, horizontal: 16)
             .withGradientBackground()
             .safeAreaBarIfAvailable {
-                ActionButton(Loc.Onboarding.getStarted, style: .borderedProminent) {
-                    viewModel.navigate(to: .name)
+                VStack(spacing: 8) {
+                    cloudProfileStatusView
+                        .multilineTextAlignment(.center)
+                        .animation(.easeInOut(duration: 0.8).delay(0.3), value: animateContent)
+
+                    ActionButton(
+                        buttonText,
+                        style: .borderedProminent,
+                        action: handleButtonAction
+                    )
+                    .disabled(onboardingService.isLoadingFromCloud)
                 }
                 .padding(vertical: 12, horizontal: 16)
             }
@@ -80,6 +87,66 @@ extension OnboardingFlow {
                         showPulse = true
                     }
                 }
+            }
+        }
+        
+        // MARK: - Cloud Profile Status View
+        
+        @ViewBuilder
+        private var cloudProfileStatusView: some View {
+            if onboardingService.isLoadingFromCloud {
+                // Loading state
+                HStack(spacing: 8) {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .tint(.accent)
+                    
+                    Text(onboardingService.cloudLoadingMessage)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                }
+                .opacity(animateContent ? 1 : 0)
+                .offset(y: animateContent ? 0 : 20)
+                .animation(.easeInOut(duration: 0.8).delay(0.5), value: animateContent)
+            } else if onboardingService.hasFoundCloudProfile {
+                // Profile found state
+                VStack(spacing: 8) {
+                    Label(Loc.Onboarding.profileFound, systemImage: "checkmark.circle.fill")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    
+                    Text(Loc.Onboarding.profileFoundMessage)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 32)
+                }
+                .opacity(animateContent ? 1 : 0)
+                .offset(y: animateContent ? 0 : 20)
+                .animation(.easeInOut(duration: 0.8).delay(0.5), value: animateContent)
+            }
+        }
+        
+        // MARK: - Button Logic
+        
+        private var buttonText: String {
+            if onboardingService.isLoadingFromCloud {
+                return onboardingService.cloudLoadingMessage
+            } else if onboardingService.hasFoundCloudProfile {
+                return Loc.Onboarding.getStarted
+            } else {
+                return Loc.Onboarding.getStarted
+            }
+        }
+        
+        private func handleButtonAction() {
+            if onboardingService.hasFoundCloudProfile {
+                // User wants to proceed with existing cloud profile
+                onboardingService.proceedWithCloudProfile()
+            } else {
+                // Normal onboarding flow
+                viewModel.navigate(to: .name)
             }
         }
     }

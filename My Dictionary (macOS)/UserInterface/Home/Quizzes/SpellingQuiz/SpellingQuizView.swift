@@ -191,7 +191,7 @@ struct SpellingQuizView: View {
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
-                .clippedWithBackground(.accent.opacity(0.2), cornerRadius: 8)
+                .clippedWithBackground(.accent.opacity(0.2), in: .rect(cornerRadius: 8))
             } else if viewModel.attemptCount >= 3 {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
@@ -204,7 +204,7 @@ struct SpellingQuizView: View {
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
-                .clippedWithBackground(.red.opacity(0.2), cornerRadius: 8)
+                .clippedWithBackground(.red.opacity(0.2), in: .rect(cornerRadius: 8))
             } else if !viewModel.isCorrectAnswer && viewModel.attemptCount > 0 {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
@@ -217,7 +217,7 @@ struct SpellingQuizView: View {
                     Spacer()
                 }
                 .padding(vertical: 8, horizontal: 12)
-                .clippedWithBackground(.orange.opacity(0.2), cornerRadius: 8)
+                .clippedWithBackground(.orange.opacity(0.2), in: .rect(cornerRadius: 8))
             }
         }
         .padding(20)

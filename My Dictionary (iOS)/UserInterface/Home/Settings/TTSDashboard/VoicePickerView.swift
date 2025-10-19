@@ -232,7 +232,7 @@ struct VoicePickerView: View {
                 }
             }
             .padding(vertical: 12, horizontal: 16)
-            .clippedWithBackground(isSelected ? Color.blue.opacity(0.1) : Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+            .clippedWithBackground(isSelected ? Color.blue.opacity(0.1) : Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(isSelected ? Color.blue : Color.clear, lineWidth: 2)

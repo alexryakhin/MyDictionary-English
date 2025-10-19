@@ -61,7 +61,7 @@ struct TagView: View {
     init(
         text: String,
         systemImage: String? = nil,
-        color: Color,
+        color: Color = .accent,
         size: Size = .regular,
         style: Style = .regular
     ) {

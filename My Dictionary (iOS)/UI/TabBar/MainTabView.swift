@@ -24,7 +24,9 @@ struct MainTabView: View {
 
     var body: some View {
         NavigationStack(path: $navigationManager.navigationPath) {
-            if #available(iOS 26.0, *) {
+            if onboardingService.isLoadingFromCloud {
+                OnboardingLoadingView(message: onboardingService.cloudLoadingMessage)
+            } else if #available(iOS 26.0, *) {
                 TabView(selection: $tabManager.selectedTab) {
                     VocabularyFlow(
                         wordListViewModel: wordListViewModel,
@@ -105,6 +107,13 @@ struct MainTabView: View {
         }
         .fullScreenCover(isPresented: $onboardingService.showOnboarding) {
             OnboardingFlow.ContainerView(isNewUser: false)
+        }
+        .task {
+            // Check for existing profile in iCloud on first launch
+            await onboardingService.checkForExistingProfileInCloud()
+            
+            // Clean up any existing duplicates (production-safe)
+            await onboardingService.cleanupDuplicatesIfNeeded()
         }
     }
 

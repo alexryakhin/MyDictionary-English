@@ -724,7 +724,7 @@ extension SharedWordDetailsView {
                     .foregroundStyle(.secondary)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .clippedWithPaddingAndBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+            .clippedWithPaddingAndBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
         }
     }
 }

@@ -48,7 +48,7 @@ struct SubscriptionStatusView: View {
                 .font(.title2)
         }
         .padding(vertical: 12, horizontal: 16)
-        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+        .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
     }
     
     // MARK: - Free User View
@@ -78,7 +78,7 @@ struct SubscriptionStatusView: View {
             }
         }
         .padding(vertical: 12, horizontal: 16)
-        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+        .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
     }
 }
 

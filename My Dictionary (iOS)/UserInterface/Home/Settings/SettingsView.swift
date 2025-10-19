@@ -20,6 +20,7 @@ struct SettingsView: View {
     @StateObject private var dataSyncService = DataSyncService.shared
     @StateObject private var ttsPlayer = TTSPlayer.shared
     @State private var showingTTSVoiceSelection: Bool = false
+    @State private var showLearningPreferences: Bool = false
 
     init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
@@ -61,7 +62,7 @@ struct SettingsView: View {
                                 }
                         }
                         .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
 
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
@@ -89,7 +90,7 @@ struct SettingsView: View {
                                 }
                         }
                         .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
                     }
                 }
 
@@ -174,7 +175,7 @@ struct SettingsView: View {
                             }
                             .padding(vertical: 12, horizontal: 16)
                             .contentShape(RoundedRectangle(cornerRadius: 16))
-                            .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                            .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
                             .onTap {
                                 HapticManager.shared.triggerSelection()
                                 viewModel.output.send(.showProfile)
@@ -200,6 +201,10 @@ struct SettingsView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             ActionButton(Loc.Settings.signInToSyncWordLists, systemImage: "person.circle") {
                                 viewModel.output.send(.showAuthentication)
+                            }
+                            
+                            ActionButton(Loc.Settings.learningPreferences, systemImage: "person.crop.circle.badge.ellipsis.fill") {
+                                showLearningPreferences.toggle()
                             }
                         }
                         .padding(.bottom, 12)
@@ -328,6 +333,9 @@ struct SettingsView: View {
         .sheet(item: $viewModel.exportWordsUrl) { url in
             ShareSheet(activityItems: [url])
         }
+        .sheet(isPresented: $showLearningPreferences) {
+            LearningPreferencesView()
+        }
     }
 
     // MARK: - TTS Section
@@ -355,7 +363,7 @@ struct SettingsView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
 
                 HStack(spacing: 8) {
                     Image(systemName: "person.wave.2.fill")
@@ -379,7 +387,7 @@ struct SettingsView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
 
                 if ttsPlayer.selectedTTSProvider == .google || !subscriptionService.isProUser {
                     HStack(spacing: 8) {
@@ -398,7 +406,7 @@ struct SettingsView: View {
                         }
                     }
                     .padding(vertical: 12, horizontal: 16)
-                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
                 }
             }
         } trailingContent: {

@@ -22,6 +22,7 @@ struct ProfileView: View {
     @State private var isEditingNickname = false
     @State private var editedNickname = ""
     @State private var nicknameErrorMessage: String?
+    @State private var showingLearningPreferences = false
 
     var body: some View {
         ScrollView {
@@ -34,6 +35,9 @@ struct ProfileView: View {
 
                 // Nickname Section
                 nicknameSection
+
+                // Learning Preferences Section
+                learningPreferencesSection
 
                 // Account Linking Section
                 accountLinkingSection
@@ -52,6 +56,9 @@ struct ProfileView: View {
         )
         .overlay {
             SignOutView()
+        }
+        .sheet(isPresented: $showingLearningPreferences) {
+            LearningPreferencesView()
         }
     }
 
@@ -151,7 +158,10 @@ struct ProfileView: View {
                         .foregroundStyle(.green)
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .clippedWithBackground(
+                    Color.tertiarySystemGroupedBackground,
+                    in: .rect(cornerRadius: 16)
+                )
 
                 // Linked accounts
                 if authenticationService.hasGoogleAccount || authenticationService.hasAppleAccount {
@@ -184,7 +194,10 @@ struct ProfileView: View {
                         }
                     }
                     .padding(vertical: 12, horizontal: 16)
-                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                    .clippedWithBackground(
+                        Color.tertiarySystemGroupedBackground,
+                        in: .rect(cornerRadius: 16)
+                    )
                 }
             }
         }
@@ -219,7 +232,10 @@ struct ProfileView: View {
                     }
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .clippedWithBackground(
+                    Color.tertiarySystemGroupedBackground,
+                    in: .rect(cornerRadius: 16)
+                )
                 .padding(.bottom, 12)
             } else {
                 // Display mode
@@ -243,7 +259,7 @@ struct ProfileView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
                 .padding(.bottom, 12)
             }
         } trailingContent: {
@@ -268,6 +284,45 @@ struct ProfileView: View {
             }
         }
         .animation(.default, value: isEditingNickname)
+    }
+
+    // MARK: - Learning Preferences Section
+
+    private var learningPreferencesSection: some View {
+        CustomSectionView(
+            header: Loc.Settings.learningPreferences,
+            footer: Loc.Settings.learningPreferencesDescription
+        ) {
+            Button {
+                showingLearningPreferences = true
+            } label: {
+                HStack {
+                    Image(systemName: "person.crop.circle.badge.ellipsis.fill")
+                        .foregroundColor(.accent)
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(Loc.Settings.customizeLearning)
+                            .font(.body)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.primary)
+                        
+                        Text(Loc.Settings.updateGoalsLanguages)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
+            }
+            .buttonStyle(.plain)
+            .padding(.bottom, 12)
+        }
     }
 
     // MARK: - Account Linking Section
@@ -308,7 +363,7 @@ struct ProfileView: View {
                                 .foregroundStyle(.secondary)
                         }
                         .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
                     }
                     .disabled(authenticationService.authenticationState == .loading)
                 }
@@ -343,7 +398,7 @@ struct ProfileView: View {
                                 .foregroundStyle(.secondary)
                         }
                         .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
                     }
                     .disabled(authenticationService.authenticationState == .loading)
                 }
@@ -359,7 +414,7 @@ struct ProfileView: View {
                         Spacer()
                     }
                     .padding(vertical: 12, horizontal: 16)
-                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
                 }
             }
             .padding(.bottom, 12)

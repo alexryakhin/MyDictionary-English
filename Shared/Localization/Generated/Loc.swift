@@ -1169,6 +1169,8 @@ public enum Loc {
     public static let learningGoalPersonalGrowth = Loc.tr("Onboarding", "learning_goal_personal_growth", fallback: "Personal Growth")
     /// Travel & Tourism
     public static let learningGoalTravel = Loc.tr("Onboarding", "learning_goal_travel", fallback: "Travel & Tourism")
+    /// Loading from iCloud...
+    public static let loadingFromIcloud = Loc.tr("Onboarding", "loading_from_icloud", fallback: "Loading from iCloud...")
     /// Maybe Later
     public static let maybeLater = Loc.tr("Onboarding", "maybe_later", fallback: "Maybe Later")
     /// Monthly
@@ -1211,6 +1213,10 @@ public enum Loc {
     }
     /// Priority support
     public static let prioritySupport = Loc.tr("Onboarding", "priority_support", fallback: "Priority support")
+    /// Profile Found!
+    public static let profileFound = Loc.tr("Onboarding", "profile_found", fallback: "Profile Found!")
+    /// We found your profile from another device. Your settings and preferences are ready to go!
+    public static let profileFoundMessage = Loc.tr("Onboarding", "profile_found_message", fallback: "We found your profile from another device. Your settings and preferences are ready to go!")
     /// Progress Tracking
     public static let progressTracking = Loc.tr("Onboarding", "progress_tracking", fallback: "Progress Tracking")
     /// Visual insights into your vocabulary growth
@@ -1842,6 +1848,8 @@ public enum Loc {
     public static let contactMe = Loc.tr("Settings", "contact_me", fallback: "Contact Me")
     /// Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or via Email!
     public static let contactSupport = Loc.tr("Settings", "contact_support", fallback: "Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or via Email!")
+    /// Customize Learning
+    public static let customizeLearning = Loc.tr("Settings", "customize_learning", fallback: "Customize Learning")
     /// Customize your learning experience
     public static let customizeLearningExperience = Loc.tr("Settings", "customize_learning_experience", fallback: "Customize your learning experience")
     /// Daily Reminders
@@ -1904,6 +1912,10 @@ public enum Loc {
     public static let instagram = Loc.tr("Settings", "instagram", fallback: "Instagram")
     /// Learn more
     public static let learnMore = Loc.tr("Settings", "learn_more", fallback: "Learn more")
+    /// Learning Preferences
+    public static let learningPreferences = Loc.tr("Settings", "learning_preferences", fallback: "Learning Preferences")
+    /// Customize your learning goals, study languages, and preferences
+    public static let learningPreferencesDescription = Loc.tr("Settings", "learning_preferences_description", fallback: "Customize your learning goals, study languages, and preferences")
     /// Limited features available
     public static let limitedFeaturesAvailable = Loc.tr("Settings", "limited_features_available", fallback: "Limited features available")
     /// Manage Tags
@@ -1960,6 +1972,8 @@ public enum Loc {
     public static let trackLearningProgress = Loc.tr("Settings", "track_learning_progress", fallback: "Track your learning progress")
     /// Translate Definitions
     public static let translateDefinitions = Loc.tr("Settings", "translate_definitions", fallback: "Translate Definitions")
+    /// Update your goals, languages, and study preferences
+    public static let updateGoalsLanguages = Loc.tr("Settings", "update_goals_languages", fallback: "Update your goals, languages, and study preferences")
     /// Upload backup to Google
     public static let uploadBackupGoogle = Loc.tr("Settings", "upload_backup_google", fallback: "Upload backup to Google")
     /// Upload backup to Google

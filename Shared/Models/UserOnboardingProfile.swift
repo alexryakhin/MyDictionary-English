@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 struct UserOnboardingProfile: Codable {
     let id: UUID
+    var cloudKitRecordID: String?
     var userName: String
     var userType: UserType
     var ageGroup: AgeGroup
@@ -28,6 +29,7 @@ struct UserOnboardingProfile: Codable {
     
     init(
         id: UUID = UUID(),
+        cloudKitRecordID: String? = nil,
         userName: String = "",
         userType: UserType = .hobbyist,
         ageGroup: AgeGroup = .adult,
@@ -44,6 +46,7 @@ struct UserOnboardingProfile: Codable {
         lastUpdated: Date = Date()
     ) {
         self.id = id
+        self.cloudKitRecordID = cloudKitRecordID
         self.userName = userName
         self.userType = userType
         self.ageGroup = ageGroup
@@ -77,6 +80,7 @@ struct UserOnboardingProfile: Codable {
         }
         
         self.id = id
+        self.cloudKitRecordID = entity.cloudKitRecordID
         self.userName = userName
         self.userType = userType
         self.ageGroup = ageGroup
@@ -116,19 +120,31 @@ struct UserOnboardingProfile: Codable {
     func saveToCoreData() throws -> CDUserProfile {
         let context = CoreDataService.shared.context
         
-        // Check if profile already exists
+        // Try to find existing profile by cloudKitRecordID first (most reliable)
         let fetchRequest: NSFetchRequest<CDUserProfile> = CDUserProfile.fetchRequest()
+        
+        if let cloudKitRecordID = self.cloudKitRecordID {
+            // If we have a cloudKitRecordID, look for existing profile with same ID
+            fetchRequest.predicate = NSPredicate(format: "cloudKitRecordID == %@", cloudKitRecordID)
+        } else {
+            // If no cloudKitRecordID, look for any existing profile
+            // This handles the case where profile was created before CloudKit ID was set
+        }
+        
         let existingProfiles = try context.fetch(fetchRequest)
         
         let entity: CDUserProfile
         if let existing = existingProfiles.first {
+            // Update existing profile
             entity = existing
         } else {
+            // No existing profile found, create new one
             entity = CDUserProfile(context: context)
             entity.id = self.id
         }
         
         // Update properties
+        entity.cloudKitRecordID = self.cloudKitRecordID
         entity.userName = self.userName
         entity.userType = self.userType.rawValue
         entity.ageGroup = self.ageGroup.rawValue
@@ -167,6 +183,10 @@ struct UserOnboardingProfile: Codable {
             "signedIn": signedIn,
             "lastUpdated": Timestamp(date: lastUpdated)
         ]
+        
+        if let cloudKitRecordID = cloudKitRecordID {
+            data["cloudKitRecordID"] = cloudKitRecordID
+        }
         
         // Add arrays as strings
         data["learningGoals"] = learningGoals.map { $0.rawValue }

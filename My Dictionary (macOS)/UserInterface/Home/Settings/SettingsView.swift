@@ -29,6 +29,7 @@ struct SettingsView: View {
     @State private var showingProfile: Bool = false
     @State private var showingTTSDashboard: Bool = false
     @State private var showingTTSVoiceSelection: Bool = false
+    @State private var showingLearningPreferences: Bool = false
 
     var body: some View {
         ScrollView {
@@ -66,7 +67,7 @@ struct SettingsView: View {
                                 }
                         }
                         .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
 
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
@@ -94,7 +95,7 @@ struct SettingsView: View {
                                 }
                         }
                         .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
                     }
                 }
 
@@ -187,7 +188,7 @@ struct SettingsView: View {
                                 .buttonStyle(.plain)
                             }
                             .padding(vertical: 12, horizontal: 16)
-                            .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                            .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
 
                             // Manual sync buttons
                             AsyncActionButton(
@@ -209,6 +210,10 @@ struct SettingsView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             ActionButton(Loc.Settings.signInToSyncWordLists, systemImage: "person.circle") {
                                 showingSignIn = true
+                            }
+                            
+                            ActionButton(Loc.Settings.learningPreferences, systemImage: "person.crop.circle.badge.ellipsis.fill") {
+                                showingLearningPreferences = true
                             }
                         }
                         .padding(.bottom, 12)
@@ -340,6 +345,9 @@ struct SettingsView: View {
         .sheet(isPresented: $showingProfile) {
             ProfileView()
         }
+        .sheet(isPresented: $showingLearningPreferences) {
+            LearningPreferencesView()
+        }
         .onAppear {
             AnalyticsService.shared.logEvent(.settingsOpened)
         }
@@ -375,7 +383,7 @@ struct SettingsView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
 
                 HStack(spacing: 8) {
                     Image(systemName: "person.wave.2.fill")
@@ -399,7 +407,7 @@ struct SettingsView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
 
                 if ttsPlayer.selectedTTSProvider == .google || !subscriptionService.isProUser {
                     HStack(spacing: 8) {
@@ -418,7 +426,7 @@ struct SettingsView: View {
                         }
                     }
                     .padding(vertical: 12, horizontal: 16)
-                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
                 }
             }
         } trailingContent: {

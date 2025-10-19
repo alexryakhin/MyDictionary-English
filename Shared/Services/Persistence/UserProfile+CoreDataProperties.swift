@@ -15,6 +15,7 @@ extension CDUserProfile {
     }
 
     @NSManaged public var id: UUID?
+    @NSManaged public var cloudKitRecordID: String?
     @NSManaged public var userName: String?
     @NSManaged public var userType: String?
     @NSManaged public var ageGroup: String?

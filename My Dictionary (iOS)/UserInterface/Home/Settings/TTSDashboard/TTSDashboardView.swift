@@ -151,7 +151,7 @@ enum TTSDashboard {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(vertical: 12, horizontal: 16)
-                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+                    .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
 
                     // Voice preview
                     AsyncActionButton(
@@ -234,7 +234,7 @@ enum TTSDashboard {
                 VStack(spacing: 12) {
                     TextField(Loc.Tts.enterTextToTest, text: $ttsPlayer.testText, axis: .vertical)
                         .padding(vertical: 12, horizontal: 16)
-                        .clippedWithBackground(.tertiarySystemGroupedBackground, cornerRadius: 12)
+                        .clippedWithBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
                         .lineLimit(3...6)
 
                     AsyncActionButton(
@@ -301,7 +301,7 @@ enum TTSDashboard {
                     }
                     .clippedWithBackground(
                         Color.tertiarySystemGroupedBackground,
-                        cornerRadius: 12
+                        in: .rect(cornerRadius: 12)
                     )
 
                     // Progress Bar
@@ -321,7 +321,7 @@ enum TTSDashboard {
                             .progressViewStyle(LinearProgressViewStyle(tint: usageTracker.getSpeechifyUsagePercentage() > 80 ? .orange : .blue))
                     }
                     .padding(vertical: 12, horizontal: 16)
-                    .clippedWithBackground(.tertiarySystemGroupedBackground, cornerRadius: 12)
+                    .clippedWithBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
                 }
             }
         }
@@ -379,7 +379,7 @@ enum TTSDashboard {
                 isSelected
                 ? Color.accent.opacity(0.1)
                 : Color.tertiarySystemGroupedBackground,
-                cornerRadius: 16
+                in: .rect(cornerRadius: 16)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
@@ -468,7 +468,7 @@ enum TTSDashboard {
                 isSelected
                 ? Color.accent.opacity(0.1)
                 : Color.tertiarySystemGroupedBackground,
-                cornerRadius: 16
+                in: .rect(cornerRadius: 16)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)

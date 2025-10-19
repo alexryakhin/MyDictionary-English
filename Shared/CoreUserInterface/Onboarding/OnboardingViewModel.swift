@@ -99,10 +99,14 @@ extension OnboardingFlow {
 
             Task { @MainActor in
                 do {
-                    // Create profile (mark as completed)
-                    let profile = createProfile(isCompleted: true)
+                    // Get CloudKit record ID FIRST, before creating profile
+                    let cloudKitRecordID = await OnboardingProfileSyncManager.shared.getCloudKitRecordID()
+                    
+                    // Create profile with CloudKit record ID
+                    var profile = createProfile(isCompleted: true)
+                    profile.cloudKitRecordID = cloudKitRecordID
 
-                    // Save to Core Data
+                    // Save to Core Data (will auto-sync to CloudKit)
                     try onboardingService.saveProfile(profile)
 
                     // Apply settings
