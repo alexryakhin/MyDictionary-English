@@ -106,7 +106,7 @@ struct SideBarView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)
-                        .clippedWithBackgroundMaterial(cornerRadius: 12)
+                        .clippedWithBackgroundMaterial(in: .rect(cornerRadius: 12))
                         .shadow(color: .label.opacity(0.2), radius: 2)
                 }
                 .buttonStyle(.plain)
@@ -118,7 +118,7 @@ struct SideBarView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)
-                        .clippedWithBackgroundMaterial(cornerRadius: 12)
+                        .clippedWithBackgroundMaterial(in: .rect(cornerRadius: 12))
                         .shadow(color: .label.opacity(0.2), radius: 2)
                 }
                 .buttonStyle(.plain)
@@ -130,7 +130,7 @@ struct SideBarView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(vertical: 10, horizontal: 8)
                         .font(.title3)
-                        .clippedWithBackgroundMaterial(cornerRadius: 12)
+                        .clippedWithBackgroundMaterial(in: .rect(cornerRadius: 12))
                         .shadow(color: .label.opacity(0.2), radius: 2)
                 }
                 .buttonStyle(.plain)

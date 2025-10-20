@@ -99,7 +99,7 @@ struct QuizzesListView: View {
                             .buttonStyle(.plain)
                             .clippedWithPaddingAndBackground(
                                 Color.tertiarySystemGroupedBackground,
-                                cornerRadius: 16
+                                in: .rect(cornerRadius: 16)
                             )
                             .if(quiz.isOnlineQuiz) {
                                 $0.hideIfOffline()
@@ -139,7 +139,7 @@ struct QuizzesListView: View {
                             }
                             .clippedWithPaddingAndBackground(
                                 Color.tertiarySystemGroupedBackground,
-                                cornerRadius: 16
+                                in: .rect(cornerRadius: 16)
                             )
 
                             // Language Filter
@@ -171,7 +171,7 @@ struct QuizzesListView: View {
                                 }
                                 .clippedWithPaddingAndBackground(
                                     Color.tertiarySystemGroupedBackground,
-                                    cornerRadius: 16
+                                    in: .rect(cornerRadius: 16)
                                 )
                             }
 
@@ -205,7 +205,7 @@ struct QuizzesListView: View {
                             }
                             .clippedWithPaddingAndBackground(
                                 Color.tertiarySystemGroupedBackground,
-                                cornerRadius: 16
+                                in: .rect(cornerRadius: 16)
                             )
                         }
                         .padding(.bottom, 12)

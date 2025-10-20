@@ -26,7 +26,7 @@ struct EditExampleAlert: View {
                 axis: .vertical
             )
             .textFieldStyle(.plain)
-            .clippedWithPaddingAndBackground(cornerRadius: 12)
+            .clippedWithPaddingAndBackground(in: .rect(cornerRadius: 12))
 
             ActionButton(Loc.Actions.save, style: .borderedProminent, action: onSave)
             ActionButton(Loc.Actions.cancel, action: onCancel)

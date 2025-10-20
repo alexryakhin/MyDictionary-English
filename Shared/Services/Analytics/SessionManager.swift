@@ -88,8 +88,8 @@ final class SessionManager: ObservableObject {
         
         currentSessionDuration = Date().timeIntervalSince(startTime)
         
-        // Check for coffee banner trigger (10 minutes = 600 seconds)
-        if currentSessionDuration >= 600 && shouldShowCoffeeBanner() {
+        // Check for coffee banner trigger (20 minutes = 1200 seconds)
+        if currentSessionDuration >= 1200 && shouldShowCoffeeBanner() {
             DispatchQueue.main.async {
                 self.showCoffeeBanner = true
             }

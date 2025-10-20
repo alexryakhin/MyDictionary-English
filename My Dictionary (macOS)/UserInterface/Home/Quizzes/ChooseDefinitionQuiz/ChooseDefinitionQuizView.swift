@@ -97,7 +97,7 @@ struct ChooseDefinitionQuizView: View {
                 bestStreak: viewModel.bestStreak
             )
         )
-        .clippedWithPaddingAndBackground(cornerRadius: 16, showShadow: true)
+        .clippedWithPaddingAndBackground(in: .rect(cornerRadius: 16), showShadow: true)
     }
 
     private var itemCard: some View {

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 import CoreData
-import ClockKit
+import CloudKit
 
 final class OnboardingService: ObservableObject {
     static let shared = OnboardingService()

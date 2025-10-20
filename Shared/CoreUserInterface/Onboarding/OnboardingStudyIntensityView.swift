@@ -43,7 +43,6 @@ extension OnboardingFlow {
                                 .tag(goal)
                         }
                     }
-                    .pickerStyle(.wheel)
                     .padding(.vertical, -16)
                     .opacity(animateContent ? 1 : 0)
                     .scaleEffect(animateContent ? 1.0 : 0.95)

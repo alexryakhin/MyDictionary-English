@@ -30,7 +30,7 @@ struct StatCard: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .clippedWithPaddingAndBackground(
             Color.tertiarySystemGroupedBackground,
-            cornerRadius: 16
+            in: .rect(cornerRadius: 16)
         )
     }
 }

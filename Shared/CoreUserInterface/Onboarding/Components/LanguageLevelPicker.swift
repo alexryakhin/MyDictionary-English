@@ -15,14 +15,18 @@ extension OnboardingFlow {
         @Environment(\.dismiss) var dismiss
 
         var body: some View {
-            NavigationView {
+            NavigationStack {
                 ScrollView {
                     VStack(spacing: 24) {
-                        Text(language.displayName)
-                            .font(.title.bold())
-                        Text(Loc.Onboarding.selectProficiencyLevel)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                        Spacer()
+                            .frame(height: 40)
+                        VStack(spacing: 8) {
+                            Text(language.displayName)
+                                .font(.title.bold())
+                            Text(Loc.Onboarding.selectProficiencyLevel)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
                         VStack(spacing: 12) {
                             ForEach(CEFRLevel.allCases, id: \.self) { level in
                                 Button(action: { selectedLevel = level }) {
@@ -43,9 +47,11 @@ extension OnboardingFlow {
                                     .padding()
                                     .background(
                                         RoundedRectangle(cornerRadius: 12)
-                                            .fill(selectedLevel == level
-                                                  ? Color.accentColor.opacity(0.1)
-                                                  : Color.gray.opacity(0.05))
+                                            .fill(
+                                                selectedLevel == level
+                                                ? Color.accentColor.opacity(0.1)
+                                                : Color.secondarySystemGroupedBackground
+                                            )
                                     )
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 12)
@@ -61,6 +67,7 @@ extension OnboardingFlow {
                     }
                     .padding(vertical: 12, horizontal: 16)
                 }
+                .groupedBackground()
                 .safeAreaBarIfAvailable {
                     ActionButton(
                         Loc.Actions.add,
@@ -69,9 +76,8 @@ extension OnboardingFlow {
                     )
                     .padding(vertical: 12, horizontal: 16)
                 }
-                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
+                    ToolbarItem(placement: .cancellationAction) {
                         Button(Loc.Actions.cancel) {
                             dismiss()
                         }

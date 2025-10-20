@@ -294,7 +294,7 @@ enum TTSDashboard {
                     }
                     .clippedWithBackground(
                         Color.tertiarySystemGroupedBackground,
-                        cornerRadius: 12
+                        in: .rect(cornerRadius: 12)
                     )
 
                     // Progress Bar
@@ -372,7 +372,7 @@ enum TTSDashboard {
                 isSelected
                 ? Color.accent.opacity(0.1)
                 : Color.tertiarySystemGroupedBackground,
-                cornerRadius: 16
+                in: .rect(cornerRadius: 16)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
@@ -492,7 +492,7 @@ enum TTSDashboard {
                 isSelected
                 ? Color.accent.opacity(0.1)
                 : Color.tertiarySystemGroupedBackground,
-                cornerRadius: 16
+                in: .rect(cornerRadius: 16)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)

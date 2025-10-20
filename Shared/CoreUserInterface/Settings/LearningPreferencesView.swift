@@ -31,7 +31,7 @@ struct LearningPreferencesView: View {
     @State private var selectedLevel: CEFRLevel = .b1
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack(spacing: 24) {
                     if let profile = currentProfile {
@@ -64,7 +64,6 @@ struct LearningPreferencesView: View {
             }
             .groupedBackground()
             .navigationTitle("Learning Preferences")
-            .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {

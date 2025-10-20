@@ -127,7 +127,7 @@ struct SentenceWritingQuizContentView: View {
                 bestStreak: viewModel.bestStreak
             )
         )
-        .clippedWithPaddingAndBackground(cornerRadius: 16, showShadow: true)
+        .clippedWithPaddingAndBackground(in: .rect(cornerRadius: 16), showShadow: true)
     }
 
     private var wordCard: some View {

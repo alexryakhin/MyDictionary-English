@@ -92,6 +92,7 @@ extension OnboardingFlow {
         func skipPaywall() {
             skippedPaywall = true
             AnalyticsService.shared.logEvent(.onboardingPaywallSkipped)
+            navigate(to: .success)
         }
 
         func completeOnboarding() {

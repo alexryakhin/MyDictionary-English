@@ -191,7 +191,7 @@ struct FillInTheBlankQuizContentView: View {
                 bestStreak: viewModel.bestStreak
             )
         )
-        .clippedWithPaddingAndBackground(cornerRadius: 16, showShadow: true)
+        .clippedWithPaddingAndBackground(in: .rect(cornerRadius: 16), showShadow: true)
     }
 
     private func storySection(_ story: AIFillInTheBlankStory) -> some View {

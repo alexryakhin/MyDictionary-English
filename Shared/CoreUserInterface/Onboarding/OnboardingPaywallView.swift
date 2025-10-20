@@ -81,14 +81,6 @@ extension OnboardingFlow {
                 }
                 .padding(vertical: 12, horizontal: 16)
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(Loc.Onboarding.skip) {
-                        viewModel.skipPaywall()
-                        viewModel.navigate(to: .success)
-                    }
-                }
-            }
             .onAppear {
                 withAnimation {
                     animateContent = true

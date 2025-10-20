@@ -22,18 +22,22 @@ enum OnboardingFlow {
             NavigationStack(path: $viewModel.navigationPath) {
                 // Initial screen (Welcome)
                 OnboardingFlow.WelcomeView(viewModel: viewModel)
-                    .navigationBarTitleDisplayMode(.inline)
                     .navigationDestination(for: OnboardingFlow.Step.self) { step in
                         stepView(for: step)
-                            .navigationBarTitleDisplayMode(.inline)
                             .navigationBarBackButtonHidden(true)
-                            .toolbar {
-                                ToolbarItem(placement: .navigationBarLeading) {
-                                    Button(action: viewModel.goBack) {
-                                        HStack(spacing: 4) {
-                                            Image(systemName: "chevron.left")
-                                            Text(Loc.Onboarding.back)
-                                        }
+                            .safeAreaBarIfAvailable(edge: .top) {
+                                HStack {
+                                    HeaderButton(
+                                        Loc.Onboarding.back,
+                                        icon: "chevron.left",
+                                        action: viewModel.goBack
+                                    )
+                                    Spacer()
+                                    if step == .paywall {
+                                        HeaderButton(
+                                            Loc.Onboarding.skip,
+                                            action: viewModel.skipPaywall
+                                        )
                                     }
                                 }
                             }
