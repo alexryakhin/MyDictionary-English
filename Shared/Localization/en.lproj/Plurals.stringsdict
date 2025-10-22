@@ -150,5 +150,21 @@
                <string>%d collections available</string>
            </dict>
        </dict>
+       <key>onboarding.languages_count</key>
+       <dict>
+           <key>NSStringLocalizedFormatKey</key>
+           <string>%#@COUNT@</string>
+           <key>COUNT</key>
+           <dict>
+               <key>NSStringFormatSpecTypeKey</key>
+               <string>NSStringPluralRuleType</string>
+               <key>NSStringFormatValueTypeKey</key>
+               <string>d</string>
+               <key>one</key>
+               <string>%d Language</string>
+               <key>other</key>
+               <string>%d Languages</string>
+           </dict>
+       </dict>
    </dict>
 </plist>

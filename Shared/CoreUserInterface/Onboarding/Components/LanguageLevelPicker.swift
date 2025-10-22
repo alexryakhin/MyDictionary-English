@@ -15,74 +15,70 @@ extension OnboardingFlow {
         @Environment(\.dismiss) var dismiss
 
         var body: some View {
-            NavigationStack {
-                ScrollView {
-                    VStack(spacing: 24) {
-                        Spacer()
-                            .frame(height: 40)
-                        VStack(spacing: 8) {
-                            Text(language.displayName)
-                                .font(.title.bold())
-                            Text(Loc.Onboarding.selectProficiencyLevel)
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        }
-                        VStack(spacing: 12) {
-                            ForEach(CEFRLevel.allCases, id: \.self) { level in
-                                Button(action: { selectedLevel = level }) {
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        HStack {
-                                            Text(level.rawValue)
-                                                .font(.headline)
-                                            Spacer()
-                                            if selectedLevel == level {
-                                                Image(systemName: "checkmark.circle.fill")
-                                                    .foregroundColor(.accentColor)
-                                            }
+            ScrollView {
+                VStack(spacing: 24) {
+                    Spacer()
+                        .frame(height: 20)
+                    VStack(spacing: 8) {
+                        Text(language.displayName)
+                            .font(.title.bold())
+                        Text(Loc.Onboarding.selectProficiencyLevel)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    VStack(spacing: 12) {
+                        ForEach(CEFRLevel.allCases, id: \.self) { level in
+                            Button(action: { selectedLevel = level }) {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    HStack {
+                                        Text(level.rawValue)
+                                            .font(.headline)
+                                        Spacer()
+                                        if selectedLevel == level {
+                                            Image(systemName: "checkmark.circle.fill")
+                                                .foregroundColor(.accentColor)
                                         }
-                                        Text(level.description)
-                                            .font(.caption)
-                                            .foregroundColor(.secondary)
                                     }
-                                    .padding()
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 12)
-                                            .fill(
-                                                selectedLevel == level
-                                                ? Color.accentColor.opacity(0.1)
-                                                : Color.secondarySystemGroupedBackground
-                                            )
-                                    )
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 12)
-                                            .stroke(selectedLevel == level
-                                                    ? Color.accentColor
-                                                    : Color.clear, lineWidth: 2)
-                                    )
+                                    Text(level.description)
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
                                 }
-                                .buttonStyle(PlainButtonStyle())
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .fill(
+                                            selectedLevel == level
+                                            ? Color.accentColor.opacity(0.1)
+                                            : Color.secondarySystemGroupedBackground
+                                        )
+                                )
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(selectedLevel == level
+                                                ? Color.accentColor
+                                                : Color.clear, lineWidth: 2)
+                                )
                             }
-                        }
-                        .padding(.horizontal, 16)
-                    }
-                    .padding(vertical: 12, horizontal: 16)
-                }
-                .groupedBackground()
-                .safeAreaBarIfAvailable {
-                    ActionButton(
-                        Loc.Actions.add,
-                        style: .borderedProminent,
-                        action: onSave
-                    )
-                    .padding(vertical: 12, horizontal: 16)
-                }
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button(Loc.Actions.cancel) {
-                            dismiss()
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
+                    .padding(.horizontal, 16)
                 }
+                .padding(vertical: 12, horizontal: 16)
+            }
+            .groupedBackground()
+            .safeAreaBarIfAvailable(edge: .top, alignment: .leading) {
+                HeaderButton(Loc.Actions.cancel) {
+                    dismiss()
+                }
+            }
+            .safeAreaBarIfAvailable {
+                ActionButton(
+                    Loc.Actions.add,
+                    style: .borderedProminent,
+                    action: onSave
+                )
+                .padding(vertical: 12, horizontal: 16)
             }
         }
     }

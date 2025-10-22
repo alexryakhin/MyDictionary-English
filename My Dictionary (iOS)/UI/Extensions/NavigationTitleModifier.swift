@@ -27,7 +27,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
 
     func body(content: Content) -> some View {
         content
-            .safeAreaBarIfAvailable(edge: .top) {
+            .safeAreaInset(edge: .top, spacing: .zero) {
                 VStack(spacing: mode == .large ? 12 : 8) {
                     HStack(spacing: 2) {
                         if showsBackButton {
@@ -56,7 +56,8 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
 
                     bottomContent()
                 }
-                .clippedWithPaddingAndBackgroundMaterial(in: .rect(cornerRadius: 32))
+                .padding(16)
+                .glassBackgroundEffectIfAvailableWithBackup(.regular, in: .rect(cornerRadius: 32))
                 .shadow(color: .label.opacity(0.3), radius: 5)
                 .padding(vertical: vPadding, horizontal: hPadding)
             }

@@ -65,3 +65,20 @@
 "pro_features.images_description" = "Add beautiful, relevant images to your words for better memory retention and visual learning";
 "pro_features.word_collections" = "Word Collections";
 "pro_features.word_collections_description" = "Organize your vocabulary into themed collections for better learning and organization";
+
+// MARK: - Personalized Main Paywall
+"paywall.personalized_title_main" = "%@, unlock your full potential!";
+"paywall.personalized_subtitle_study_main" = "Master %@ vocabulary for academic success and ace your studies!";
+"paywall.personalized_subtitle_work_main" = "Boost your career with professional %@ vocabulary and communication skills!";
+"paywall.personalized_subtitle_travel_main" = "Speak %@ confidently while traveling and connect with people worldwide!";
+"paywall.personalized_subtitle_business_main" = "Excel in %@ business communication and professional contexts!";
+"paywall.personalized_subtitle_default_main" = "Join thousands of %@s who've mastered %@ vocabulary!";
+"paywall.perfect_for_your_goals_main" = "Perfect for Your Goals";
+"paywall.features_tailored_to_journey_main" = "Features tailored to your learning journey";
+"paywall.achievement_master_words_main" = "Master %d new %@ words in your first week";
+"paywall.achievement_academic_writing_main" = "Improve your %@ academic writing and reading comprehension";
+"paywall.achievement_professional_communication_main" = "Enhance your professional %@ communication skills";
+"paywall.achievement_travel_confidence_main" = "Navigate any %@-speaking country with confidence";
+"paywall.achievement_business_communication_main" = "Excel in %@ business communication and professional contexts";
+"paywall.achievement_tech_vocabulary_main" = "Master %@ tech vocabulary and industry terminology";
+"paywall.achievement_business_contexts_main" = "Excel in %@ business contexts and professional communication";

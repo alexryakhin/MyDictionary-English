@@ -796,7 +796,8 @@ struct CustomNavigationBar: View {
                 .lineLimit(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .clippedWithPaddingAndBackgroundMaterial(in: .rect(cornerRadius: 32))
+        .padding(16)
+        .glassBackgroundEffectIfAvailableWithBackup(.regular, in: .rect(cornerRadius: 32))
         .shadow(color: .label.opacity(0.3), radius: 5)
         .padding(12)
         .animation(.easeInOut(duration: 0.3), value: true)

@@ -140,23 +140,12 @@ extension View {
         in shape: some Shape = RoundedRectangle(cornerRadius: 24),
         showShadow: Bool = false
     ) -> some View {
-        if #available(iOS 26.0, macOS 26.0, *) {
-            self
-                .background(
-                    Color.clear.glassEffect(.regular, in: shape)
-                )
-                .clipShape(shape)
-                .if(showShadow) {
-                    $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
-                }
-        } else {
-            self
-                .background(material)
-                .clipShape(shape)
-                .if(showShadow) {
-                    $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
-                }
-        }
+        self
+            .background(material)
+            .clipShape(shape)
+            .if(showShadow) {
+                $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
+            }
     }
 
     func clippedWithPaddingAndBackground(
@@ -179,25 +168,13 @@ extension View {
         in shape: some Shape = RoundedRectangle(cornerRadius: 24),
         showShadow: Bool = false
     ) -> some View {
-        if #available(iOS 26.0, macOS 26.0, *) {
-            self
-                .padding(16)
-                .background(
-                    Color.clear.glassEffect(.regular, in: shape)
-                )
-                .clipShape(shape)
-                .if(showShadow) {
-                    $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
-                }
-        } else {
-            self
-                .padding(16)
-                .background(material)
-                .clipShape(shape)
-                .if(showShadow) {
-                    $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
-                }
-        }
+        self
+            .padding(16)
+            .background(material)
+            .clipShape(shape)
+            .if(showShadow) {
+                $0.shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
+            }
     }
 
     func withGradientBackground(_ color: Color = .accentColor) -> some View {
@@ -330,7 +307,9 @@ extension View {
         in shape: some Shape = RoundedRectangle(cornerRadius: 16)
     ) -> some View {
         if #available(iOS 26.0, macOS 26.0, *) {
-            self.glassEffect(glass.glass, in: shape)
+            self
+                .glassEffect(glass.glass, in: shape)
+                .clipShape(shape)
         } else {
             self
                 .clippedWithBackgroundMaterial(.regular, in: shape)
@@ -348,6 +327,7 @@ extension View {
                     Color.clear
                         .glassEffect(glass.glass, in: shape)
                 )
+                .clipShape(shape)
         } else {
             self
                 .clippedWithBackgroundMaterial(.regular, in: shape)

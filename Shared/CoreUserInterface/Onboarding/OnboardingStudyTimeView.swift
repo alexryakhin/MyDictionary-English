@@ -17,13 +17,13 @@ extension OnboardingFlow {
             ScrollView {
                 VStack(spacing: 32) {
                     Spacer()
-                        .frame(height: 40)
+                        .frame(height: 20)
 
                     // Animated illustration
                     Image(.illustrationTime)
                         .resizable()
                         .scaledToFit()
-                        .frame(maxHeight: 200)
+                        .frame(maxHeight: 240)
                         .scaleEffect(animateContent ? 1.0 : 0.5)
                         .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateContent)
 
@@ -35,7 +35,13 @@ extension OnboardingFlow {
                         .animation(.easeInOut(duration: 0.8).delay(0.2), value: animateContent)
                         .padding(.horizontal, 16)
 
-                    VStack(spacing: 16) {
+                    LazyVGrid(
+                        columns: [
+                            GridItem(.flexible(), spacing: 16),
+                            GridItem(.flexible(), spacing: 16)
+                        ],
+                        spacing: 16
+                    ) {
                         ForEach(Array(StudyTime.allCases.enumerated()), id: \.element) { index, studyTime in
                             SelectableCard(
                                 title: studyTime.displayName,

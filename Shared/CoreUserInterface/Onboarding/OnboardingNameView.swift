@@ -16,6 +16,9 @@ extension OnboardingFlow {
         var body: some View {
             ScrollView {
                 VStack(spacing: 24) {
+                    Spacer()
+                        .frame(height: 20)
+
                     // Animated illustration
                     Image(.illustrationName)
                         .resizable()

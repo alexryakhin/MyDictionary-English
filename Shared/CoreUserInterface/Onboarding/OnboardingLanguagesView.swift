@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Flow
 
 extension OnboardingFlow {
     struct LanguagesView: View {
@@ -28,14 +29,11 @@ extension OnboardingFlow {
         var body: some View {
             ScrollView {
                 VStack(spacing: 24) {
-                    Spacer()
-                        .frame(height: 40)
-
                     // Animated illustration
                     Image(.illustrationPlanet)
                         .resizable()
                         .scaledToFit()
-                        .frame(maxHeight: 200)
+                        .frame(maxHeight: 220)
                         .scaleEffect(animateContent ? 1.0 : 0.5)
                         .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateContent)
 
@@ -50,36 +48,36 @@ extension OnboardingFlow {
 
                     // Content - Selected languages
                     if !viewModel.studyLanguages.isEmpty {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 12) {
-                                ForEach(viewModel.studyLanguages) { studyLang in
-                                    HStack(spacing: 8) {
-                                        VStack(alignment: .leading, spacing: 2) {
-                                            Text(studyLang.language.displayName)
-                                                .font(.subheadline.bold())
-                                            Text(studyLang.proficiencyLevel.rawValue)
-                                                .font(.caption)
-                                                .foregroundColor(.secondary)
-                                        }
-
-                                        Button(action: {
-                                            withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
-                                                viewModel.removeStudyLanguage(id: studyLang.id)
-                                            }
-                                        }) {
-                                            Image(systemName: "xmark.circle.fill")
-                                                .foregroundColor(.secondary)
-                                        }
+                        HFlow(alignment: .top, spacing: 12) {
+                            ForEach(viewModel.studyLanguages) { studyLang in
+                                HStack(spacing: 8) {
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(studyLang.language.displayName)
+                                            .font(.subheadline.bold())
+                                        Text(studyLang.proficiencyLevel.rawValue)
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
                                     }
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 8)
-                                    .background(Color.accentColor.opacity(0.15))
-                                    .cornerRadius(20)
-                                    .transition(.scale.combined(with: .opacity))
+
+                                    Button(action: {
+                                        withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                                            viewModel.removeStudyLanguage(id: studyLang.id)
+                                        }
+                                    }) {
+                                        Image(systemName: "xmark.circle.fill")
+                                            .foregroundColor(.secondary)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 8)
+                                .background(Color.accentColor.opacity(0.15))
+                                .cornerRadius(20)
+                                .transition(.scale.combined(with: .opacity))
                             }
-                            .padding(.horizontal, 16)
                         }
+                        .padding(.horizontal, 16)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .transition(.move(edge: .top).combined(with: .opacity))
                     }
 

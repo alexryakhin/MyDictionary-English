@@ -1351,6 +1351,120 @@ public enum Loc {
     public static func youreAllSetName(_ p1: Any) -> String {
       return Loc.tr("Onboarding", "youre_all_set_name", String(describing: p1), fallback: "You're all set, %@!")
     }
+    public enum Paywall {
+      /// Improve your %@ academic writing and reading comprehension
+      public static func achievementAcademicWriting(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.achievement_academic_writing", String(describing: p1), fallback: "Improve your %@ academic writing and reading comprehension")
+      }
+      /// Excel in %@ business communication and professional contexts
+      public static func achievementBusinessCommunication(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.achievement_business_communication", String(describing: p1), fallback: "Excel in %@ business communication and professional contexts")
+      }
+      /// Excel in %@ business contexts and professional communication
+      public static func achievementBusinessContexts(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.achievement_business_contexts", String(describing: p1), fallback: "Excel in %@ business contexts and professional communication")
+      }
+      /// Master %d new %@ words in your first week
+      public static func achievementMasterWords(_ p1: Int, _ p2: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.achievement_master_words", p1, String(describing: p2), fallback: "Master %d new %@ words in your first week")
+      }
+      /// Enhance your professional %@ communication skills
+      public static func achievementProfessionalCommunication(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.achievement_professional_communication", String(describing: p1), fallback: "Enhance your professional %@ communication skills")
+      }
+      /// Master %@ tech vocabulary and industry terminology
+      public static func achievementTechVocabulary(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.achievement_tech_vocabulary", String(describing: p1), fallback: "Master %@ tech vocabulary and industry terminology")
+      }
+      /// Navigate any %@-speaking country with confidence
+      public static func achievementTravelConfidence(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.achievement_travel_confidence", String(describing: p1), fallback: "Navigate any %@-speaking country with confidence")
+      }
+      /// App Store Rating
+      public static let appStoreRating = Loc.tr("Onboarding", "paywall.app_store_rating", fallback: "App Store Rating")
+      /// Choose Your Plan
+      public static let chooseYourPlan = Loc.tr("Onboarding", "paywall.choose_your_plan", fallback: "Choose Your Plan")
+      /// Continue Free
+      public static let continueFree = Loc.tr("Onboarding", "paywall.continue_free", fallback: "Continue Free")
+      /// Days
+      public static let days = Loc.tr("Onboarding", "paywall.days", fallback: "Days")
+      /// Features tailored to your %@ journey with %@
+      public static func featuresTailoredToJourney(_ p1: Any, _ p2: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.features_tailored_to_journey", String(describing: p1), String(describing: p2), fallback: "Features tailored to your %@ journey with %@")
+      }
+      /// FREE
+      public static let free = Loc.tr("Onboarding", "paywall.free", fallback: "FREE")
+      /// Join thousands of satisfied learners
+      public static let joinThousandsSatisfied = Loc.tr("Onboarding", "paywall.join_thousands_satisfied", fallback: "Join thousands of satisfied learners")
+      /// NEW
+      public static let new = Loc.tr("Onboarding", "paywall.new", fallback: "NEW")
+      /// Cancel anytime • No commitment
+      public static let noCreditCardRequired = Loc.tr("Onboarding", "paywall.no_credit_card_required", fallback: "Cancel anytime • No commitment")
+      /// Perfect for Your %@ Goals
+      public static func perfectForYourGoals(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.perfect_for_your_goals", String(describing: p1), fallback: "Perfect for Your %@ Goals")
+      }
+      /// Personalized for You
+      public static let personalizedForYou = Loc.tr("Onboarding", "paywall.personalized_for_you", fallback: "Personalized for You")
+      /// Excel in %@ business communication and professional contexts!
+      public static func personalizedSubtitleBusiness(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.personalized_subtitle_business", String(describing: p1), fallback: "Excel in %@ business communication and professional contexts!")
+      }
+      /// Join thousands of %@s who've mastered %@ vocabulary!
+      public static func personalizedSubtitleDefault(_ p1: Any, _ p2: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.personalized_subtitle_default", String(describing: p1), String(describing: p2), fallback: "Join thousands of %@s who've mastered %@ vocabulary!")
+      }
+      /// Master %@ vocabulary for academic success and ace your studies!
+      public static func personalizedSubtitleStudy(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.personalized_subtitle_study", String(describing: p1), fallback: "Master %@ vocabulary for academic success and ace your studies!")
+      }
+      /// Speak %@ confidently while traveling and connect with people worldwide!
+      public static func personalizedSubtitleTravel(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.personalized_subtitle_travel", String(describing: p1), fallback: "Speak %@ confidently while traveling and connect with people worldwide!")
+      }
+      /// Boost your career with professional %@ vocabulary and communication skills!
+      public static func personalizedSubtitleWork(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.personalized_subtitle_work", String(describing: p1), fallback: "Boost your career with professional %@ vocabulary and communication skills!")
+      }
+      /// %@, unlock your full learning potential!
+      public static func personalizedTitle(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.personalized_title", String(describing: p1), fallback: "%@, unlock your full learning potential!")
+      }
+      /// Something went wrong. Please try again.
+      public static let purchaseErrorMessage = Loc.tr("Onboarding", "paywall.purchase_error_message", fallback: "Something went wrong. Please try again.")
+      /// Purchase Error
+      public static let purchaseErrorTitle = Loc.tr("Onboarding", "paywall.purchase_error_title", fallback: "Purchase Error")
+      /// RECOMMENDED
+      public static let recommended = Loc.tr("Onboarding", "paywall.recommended", fallback: "RECOMMENDED")
+      /// Reviews
+      public static let reviews = Loc.tr("Onboarding", "paywall.reviews", fallback: "Reviews")
+      /// Skip for Now
+      public static let skipForNow = Loc.tr("Onboarding", "paywall.skip_for_now", fallback: "Skip for Now")
+      /// Skip for Now
+      public static let skipForNowError = Loc.tr("Onboarding", "paywall.skip_for_now_error", fallback: "Skip for Now")
+      /// Start Your 7-Day Free Trial
+      public static let startFreeTrial = Loc.tr("Onboarding", "paywall.start_free_trial", fallback: "Start Your 7-Day Free Trial")
+      /// Start Free Trial - Save 37%
+      public static let startFreeTrialSave = Loc.tr("Onboarding", "paywall.start_free_trial_save", fallback: "Start Free Trial - Save 37%")
+      /// Start free and upgrade when you need advanced features
+      public static let startFreeUpgradeWhenNeeded = Loc.tr("Onboarding", "paywall.start_free_upgrade_when_needed", fallback: "Start free and upgrade when you need advanced features")
+      /// Start My Free Trial Now
+      public static let startMyFreeTrialNow = Loc.tr("Onboarding", "paywall.start_my_free_trial_now", fallback: "Start My Free Trial Now")
+      /// Total Ratings
+      public static let totalRatings = Loc.tr("Onboarding", "paywall.total_ratings", fallback: "Total Ratings")
+      /// Try Again
+      public static let tryAgain = Loc.tr("Onboarding", "paywall.try_again", fallback: "Try Again")
+      /// Learn with images, visual associations, and memory techniques
+      public static let visualLearningDescription = Loc.tr("Onboarding", "paywall.visual_learning_description", fallback: "Learn with images, visual associations, and memory techniques")
+      /// Visual Learning Mode
+      public static let visualLearningMode = Loc.tr("Onboarding", "paywall.visual_learning_mode", fallback: "Visual Learning Mode")
+      /// What Our Users Say
+      public static let whatOurUsersSay = Loc.tr("Onboarding", "paywall.what_our_users_say", fallback: "What Our Users Say")
+      /// Words Goal
+      public static let wordsGoal = Loc.tr("Onboarding", "paywall.words_goal", fallback: "Words Goal")
+      /// Your Personalized 7-Day Journey
+      public static let yourPersonalizedJourney = Loc.tr("Onboarding", "paywall.your_personalized_journey", fallback: "Your Personalized 7-Day Journey")
+    }
   }
   public enum Plurals {
     public enum Analytics {
@@ -1371,6 +1485,12 @@ public enum Loc {
       /// Plural format key: "%#@COUNT@"
       public static func idiomsCount(_ p1: Int) -> String {
         return Loc.tr("Plurals", "idioms.idioms_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
+      }
+    }
+    public enum Onboarding {
+      /// Plural format key: "%#@COUNT@"
+      public static func languagesCount(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "onboarding.languages_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
       }
     }
     public enum SharedDictionaries {
@@ -2171,6 +2291,34 @@ public enum Loc {
   }
   public enum Subscription {
     public enum Paywall {
+      /// Improve your %@ academic writing and reading comprehension
+      public static func achievementAcademicWritingMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.achievement_academic_writing_main", String(describing: p1), fallback: "Improve your %@ academic writing and reading comprehension")
+      }
+      /// Excel in %@ business communication and professional contexts
+      public static func achievementBusinessCommunicationMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.achievement_business_communication_main", String(describing: p1), fallback: "Excel in %@ business communication and professional contexts")
+      }
+      /// Excel in %@ business contexts and professional communication
+      public static func achievementBusinessContextsMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.achievement_business_contexts_main", String(describing: p1), fallback: "Excel in %@ business contexts and professional communication")
+      }
+      /// Master %d new %@ words in your first week
+      public static func achievementMasterWordsMain(_ p1: Int, _ p2: Any) -> String {
+        return Loc.tr("Subscription", "paywall.achievement_master_words_main", p1, String(describing: p2), fallback: "Master %d new %@ words in your first week")
+      }
+      /// Enhance your professional %@ communication skills
+      public static func achievementProfessionalCommunicationMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.achievement_professional_communication_main", String(describing: p1), fallback: "Enhance your professional %@ communication skills")
+      }
+      /// Master %@ tech vocabulary and industry terminology
+      public static func achievementTechVocabularyMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.achievement_tech_vocabulary_main", String(describing: p1), fallback: "Master %@ tech vocabulary and industry terminology")
+      }
+      /// Navigate any %@-speaking country with confidence
+      public static func achievementTravelConfidenceMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.achievement_travel_confidence_main", String(describing: p1), fallback: "Navigate any %@-speaking country with confidence")
+      }
       /// Active Users
       public static let activeUsers = Loc.tr("Subscription", "paywall.active_users", fallback: "Active Users")
       /// App Store Rating
@@ -2187,6 +2335,8 @@ public enum Loc {
       public static func failedToRestorePurchases(_ p1: Any) -> String {
         return Loc.tr("Subscription", "paywall.failed_to_restore_purchases", String(describing: p1), fallback: "Failed to restore purchases: %@")
       }
+      /// Features tailored to your learning journey
+      public static let featuresTailoredToJourneyMain = Loc.tr("Subscription", "paywall.features_tailored_to_journey_main", fallback: "Features tailored to your learning journey")
       /// Free Plan
       public static let freePlan = Loc.tr("Subscription", "paywall.free_plan", fallback: "Free Plan")
       /// Join thousands of users who've transformed their vocabulary learning
@@ -2197,6 +2347,32 @@ public enum Loc {
       public static let limitedFeaturesAvailable = Loc.tr("Subscription", "paywall.limited_features_available", fallback: "Limited features available")
       /// No active subscriptions found. Please check your App Store account.
       public static let noActiveSubscriptionsFound = Loc.tr("Subscription", "paywall.no_active_subscriptions_found", fallback: "No active subscriptions found. Please check your App Store account.")
+      /// Perfect for Your Goals
+      public static let perfectForYourGoalsMain = Loc.tr("Subscription", "paywall.perfect_for_your_goals_main", fallback: "Perfect for Your Goals")
+      /// Excel in %@ business communication and professional contexts!
+      public static func personalizedSubtitleBusinessMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.personalized_subtitle_business_main", String(describing: p1), fallback: "Excel in %@ business communication and professional contexts!")
+      }
+      /// Join thousands of %@s who've mastered %@ vocabulary!
+      public static func personalizedSubtitleDefaultMain(_ p1: Any, _ p2: Any) -> String {
+        return Loc.tr("Subscription", "paywall.personalized_subtitle_default_main", String(describing: p1), String(describing: p2), fallback: "Join thousands of %@s who've mastered %@ vocabulary!")
+      }
+      /// Master %@ vocabulary for academic success and ace your studies!
+      public static func personalizedSubtitleStudyMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.personalized_subtitle_study_main", String(describing: p1), fallback: "Master %@ vocabulary for academic success and ace your studies!")
+      }
+      /// Speak %@ confidently while traveling and connect with people worldwide!
+      public static func personalizedSubtitleTravelMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.personalized_subtitle_travel_main", String(describing: p1), fallback: "Speak %@ confidently while traveling and connect with people worldwide!")
+      }
+      /// Boost your career with professional %@ vocabulary and communication skills!
+      public static func personalizedSubtitleWorkMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.personalized_subtitle_work_main", String(describing: p1), fallback: "Boost your career with professional %@ vocabulary and communication skills!")
+      }
+      /// %@, unlock your full potential!
+      public static func personalizedTitleMain(_ p1: Any) -> String {
+        return Loc.tr("Subscription", "paywall.personalized_title_main", String(describing: p1), fallback: "%@, unlock your full potential!")
+      }
       /// Privacy Policy
       public static let privacyPolicy = Loc.tr("Subscription", "paywall.privacy_policy", fallback: "Privacy Policy")
       /// Pro User

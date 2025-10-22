@@ -86,6 +86,7 @@ struct TagView: View {
         .foregroundStyle(foregroundStyle.gradient)
         .background(backgroundStyle.gradient)
         .clipShape(.capsule)
+        .contentShape(.capsule)
     }
 
     var foregroundStyle: Color {

@@ -23,13 +23,13 @@ extension OnboardingFlow {
             ScrollView {
                 VStack(spacing: 32) {
                     Spacer()
-                        .frame(height: 40)
+                        .frame(height: 20)
 
                     // Animated illustration
                     Image(.illustrationSelection)
                         .resizable()
                         .scaledToFit()
-                        .frame(maxHeight: 200)
+                        .frame(maxHeight: 240)
                         .scaleEffect(animateContent ? 1.0 : 0.5)
                         .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateContent)
 

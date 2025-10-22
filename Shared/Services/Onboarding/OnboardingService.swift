@@ -133,10 +133,25 @@ final class OnboardingService: ObservableObject {
             self.isLoadingFromCloud = false
             
             if profileExists {
-                // Profile found in iCloud, show welcome screen with Get Started button
-                self.hasFoundCloudProfile = true
-                self.showOnboarding = true
-                self.loadProfile()
+                // Check if the found profile is actually completed
+                let hasCompletedProfile: Bool
+                if let entity = self.coreDataService.fetchUserProfile(),
+                   let profile = UserOnboardingProfile(from: entity) {
+                    hasCompletedProfile = profile.isComplete
+                } else {
+                    hasCompletedProfile = false
+                }
+                
+                if hasCompletedProfile {
+                    // Profile found AND completed in iCloud, show welcome screen with Get Started button
+                    self.hasFoundCloudProfile = true
+                    self.showOnboarding = true
+                    self.loadProfile()
+                } else {
+                    // Profile found but not completed, show normal onboarding flow
+                    self.hasFoundCloudProfile = false
+                    self.showOnboarding = true
+                }
             } else {
                 // No profile found, show normal onboarding
                 self.hasFoundCloudProfile = false

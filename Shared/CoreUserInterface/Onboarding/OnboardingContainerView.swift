@@ -40,9 +40,11 @@ enum OnboardingFlow {
                                         )
                                     }
                                 }
+                                .padding(vertical: 12, horizontal: 16)
                             }
                     }
             }
+            .withGradientBackground()
             .interactiveDismissDisabled()
         }
 

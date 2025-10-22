@@ -18,13 +18,13 @@ extension OnboardingFlow {
             ScrollView {
                 VStack(spacing: 32) {
                     Spacer()
-                        .frame(height: 40)
+                        .frame(height: 20)
 
                     // Animated illustration
                     Image(.illustrationTarget)
                         .resizable()
                         .scaledToFit()
-                        .frame(maxHeight: 200)
+                        .frame(maxHeight: 240)
                         .scaleEffect(animateContent ? 1.0 : 0.5)
                         .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateContent)
 
@@ -36,14 +36,16 @@ extension OnboardingFlow {
                         .animation(.easeInOut(duration: 0.8).delay(0.2), value: animateContent)
                         .padding(.horizontal, 16)
 
-                    Picker("Weekly Goal", selection: $viewModel.weeklyWordGoal) {
-                        ForEach(weeklyGoals, id: \.self) { goal in
-                            Text(Loc.Onboarding.wordsPerWeek(goal))
-                                .font(.caption)
-                                .tag(goal)
+                    HeaderButtonMenu(Loc.Onboarding.wordsPerWeek(viewModel.weeklyWordGoal), icon: "chevron.up.chevron.down") {
+                        Picker("Weekly Goal", selection: $viewModel.weeklyWordGoal) {
+                            ForEach(weeklyGoals, id: \.self) { goal in
+                                Text(Loc.Onboarding.wordsPerWeek(goal))
+                                    .font(.caption)
+                                    .tag(goal)
+                            }
                         }
+                        .pickerStyle(.inline)
                     }
-                    .padding(.vertical, -16)
                     .opacity(animateContent ? 1 : 0)
                     .scaleEffect(animateContent ? 1.0 : 0.95)
                     .animation(.easeInOut(duration: 0.8).delay(0.4), value: animateContent)

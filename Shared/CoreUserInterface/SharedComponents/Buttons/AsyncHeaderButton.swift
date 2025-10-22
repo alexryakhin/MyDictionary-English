@@ -113,6 +113,7 @@ struct AsyncHeaderButton: View {
                         .frame(width: size.imageSize, height: size.imageSize)
                 }
             }
+            .glassEffectIfAvailable(in: .capsule)
             .clipShape(.capsule)
         }
         .buttonStyle(.plain)

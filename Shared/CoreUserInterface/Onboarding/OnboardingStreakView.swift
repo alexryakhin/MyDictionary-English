@@ -18,7 +18,7 @@ extension OnboardingFlow {
             ScrollView {
                 VStack(spacing: 32) {
                     Spacer()
-                        .frame(height: 40)
+                        .frame(height: 20)
 
                     // Animated illustration
                     Image(.illustrationStreak)
