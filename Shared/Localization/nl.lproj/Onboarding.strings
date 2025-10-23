@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Deel woordenboeken met vrienden en familie";
 "natural_voices" = "Natuurlijke stemmen";
 "natural_voices_description" = "Honderden premium stemmen die natuurlijker klinken dan ooit";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Dagelijkse Consistentie";
+"streak_benefit_daily_consistency_description" = "Bouw een gewoonte op die blijft";
+"streak_benefit_track_progress_title" = "Volg Voortgang";
+"streak_benefit_track_progress_description" = "Zie je vocabulaire groeien";
+"streak_benefit_stay_motivated_title" = "Blijf Gemotiveerd";
+"streak_benefit_stay_motivated_description" = "Houd je reeks levend";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "We sturen je zachte herinneringen om je te helpen je leerreeks te behouden";
+"notification_benefit_daily_reminders_title" = "Dagelijkse Herinneringen";
+"notification_benefit_daily_reminders_description" = "Mis nooit je studietijd";
+"notification_benefit_smart_timing_title" = "Slimme Timing";
+"notification_benefit_smart_timing_description" = "Gepersonaliseerd naar je schema";
+"notification_benefit_no_spam_title" = "Geen Spam";
+"notification_benefit_no_spam_description" = "Alleen nuttige herinneringen";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Hoe moeten we je noemen?";
+"enter_your_name" = "Voer je naam in";
+"skip" = "Overslaan";
+"continue" = "Doorgaan";
+
+// User Type
+"which_best_describes_you" = "Wat beschrijft jou het beste?";
+"user_type_student" = "Student";
+"user_type_professional" = "Professional";
+"user_type_hobbyist" = "Hobbyist";
+"user_type_other" = "Anders";
+"user_type_student_description" = "Leren voor school of universiteit";
+"user_type_professional_description" = "Mijn carrière vooruithelpen";
+"user_type_hobbyist_description" = "Leren voor de lol";
+"user_type_other_description" = "Andere doeleinden";
+
+// Age Group
+"whats_your_age_group" = "Wat is je leeftijdsgroep?";
+
+// Learning Goals
+"why_are_you_learning" = "Waarom leer je talen?";
+"select_up_to_three" = "Selecteer 1-3 doelen";
+"learning_goal_career" = "Carrièregroei";
+"learning_goal_travel" = "Reizen en Toerisme";
+"learning_goal_education" = "Onderwijs";
+"learning_goal_personal_growth" = "Persoonlijke Groei";
+"learning_goal_immigration" = "Immigratie";
+"learning_goal_family" = "Familie en Vrienden";
+
+// Languages to Study
+"which_languages_to_learn" = "Welke talen wil je leren?";
+"search_languages" = "Zoek talen";
+"add_language" = "Taal Toevoegen";
+"select_proficiency_level" = "Selecteer vaardigheidsniveau";
+"select_at_least_one_language" = "Selecteer ten minste één taal";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Beginner - Basiszinnen";
+"cefr_level_a2_description" = "Elementair - Eenvoudige gesprekken";
+"cefr_level_b1_description" = "Gemiddeld - Onafhankelijke gebruiker";
+"cefr_level_b2_description" = "Gemiddeld-hoog - Complexe onderwerpen";
+"cefr_level_c1_description" = "Gevorderd - Vloeiende uitdrukking";
+"cefr_level_c2_description" = "Vakbekwaam - Bijna moedertaalniveau";
+
+// Interests
+"what_topics_interest_you" = "Welke onderwerpen interesseren je?";
+"select_2_to_5_interests" = "Selecteer 2-5 interesses";
+"interest_business" = "Zakelijk";
+"interest_technology" = "Technologie";
+"interest_sports" = "Sport";
+"interest_culture" = "Cultuur";
+"interest_food" = "Eten";
+"interest_entertainment" = "Entertainment";
+"interest_science" = "Wetenschap";
+"interest_health" = "Gezondheid";
+"interest_travel" = "Reizen";
+"interest_education" = "Onderwijs";
+
+// Study Intensity
+"how_many_words_per_week" = "Hoeveel woorden wil je per week leren?";
+"words_per_week" = "%d woorden/week";
+"estimated_daily_time" = "≈ %d min/dag";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Wanneer studeer je het liefst?";
+"study_time_morning" = "Ochtend";
+"study_time_afternoon" = "Middag";
+"study_time_evening" = "Avond";
+"study_time_flexible" = "Flexibel";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Elke tijd";
+
+// Streak Introduction
+"build_your_learning_streak" = "Bouw je leerreeks op!";
+"streak_intro_message" = "Oefen elke dag om je reeks op te bouwen en gemotiveerd te blijven. Breek de ketting niet!";
+"streak_benefits_title" = "Waarom reeksen belangrijk zijn:";
+"streak_benefit_motivation" = "Blijf gemotiveerd";
+"streak_benefit_consistency" = "Bouw consistentie op";
+"streak_benefit_rewards" = "Verdien beloningen";
+"sounds_great" = "Klinkt Geweldig!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Blijf op koers met slimme herinneringen";
+"notification_benefit_daily_practice" = "Dagelijkse oefenherinneringen";
+"notification_benefit_streak_protection" = "Reeksbeschermingswaarschuwingen";
+"notification_benefit_progress_updates" = "Voortgangsmijlpalen";
+"notification_preview_title" = "Tijd om te oefenen!";
+"notification_preview_body" = "Houd je reeks levend met 10 minuten oefenen";
+"enable_notifications" = "Meldingen Inschakelen";
+"maybe_later" = "Misschien Later";
+
+// Paywall
+"unlock_full_learning_potential" = "Ontgrendel je Volledige Leerpotentieel";
+"start_7_day_free_trial" = "Start je 7-daagse gratis proefperiode";
+"personalized_lessons_for_languages" = "Gepersonaliseerde lessen voor %@";
+"ai_powered_practice_for_interests" = "AI-aangedreven oefening voor %@";
+"unlimited_words_and_quizzes" = "Onbeperkte woorden en quizzen";
+"cross_device_sync" = "Synchronisatie tussen apparaten";
+"priority_support" = "Prioriteitsondersteuning";
+"start_free_trial" = "Start Gratis Proefperiode";
+"monthly" = "Maandelijks";
+"yearly" = "Jaarlijks";
+"save_percentage" = "Bespaar %d%%";
+
+// Sign In
+"sync_your_progress" = "Synchroniseer je voortgang tussen apparaten";
+"sign_in_benefit_cloud_backup" = "Cloudbackup";
+"sign_in_benefit_multi_device" = "Multi-apparaattoegang";
+"sign_in_benefit_shared_dictionaries" = "Gedeelde woordenboeken";
+"sign_in_with_apple" = "Inloggen met Apple";
+"sign_in_with_google" = "Inloggen met Google";
+"skip_for_now" = "Voor nu overslaan";
+
+// Success
+"youre_all_set_name" = "Je bent klaar, %@!";
+"ready_to_learn_languages" = "Klaar om %@ te leren";
+"start_learning" = "Beginnen met Leren";
+
+// Personalization Banner
+"complete_your_profile" = "Voltooi je Profiel";
+"personalize_your_learning" = "Personaliseer je leerervaring met een snelle enquête";
+"takes_2_minutes" = "Duurt 2 minuten";
+"personalize_now" = "Nu Personaliseren";
+
+// iCloud Sync
+"loading_from_icloud" = "Laden vanuit iCloud...";
+"profile_found" = "Profiel Gevonden!";
+"profile_found_message" = "We hebben je profiel van een ander apparaat gevonden. Je instellingen en voorkeuren zijn klaar!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, ontgrendel je volledige leerpotentieel!";
+"paywall.personalized_subtitle_study" = "Beheers %@-vocabulaire voor academisch succes en blink uit in je studies!";
+"paywall.personalized_subtitle_work" = "Stuw je carrière vooruit met professioneel %@-vocabulaire en communicatievaardigheden!";
+"paywall.personalized_subtitle_travel" = "Spreek %@ vol vertrouwen tijdens het reizen en verbind je met mensen over de hele wereld!";
+"paywall.personalized_subtitle_business" = "Blink uit in %@ zakelijke communicatie en professionele contexten!";
+"paywall.personalized_subtitle_default" = "Sluit je aan bij duizenden %@s die %@-vocabulaire hebben beheerst!";
+"paywall.personalized_for_you" = "Gepersonaliseerd voor Jou";
+"paywall.perfect_for_your_goals" = "Perfect voor je %@ Doelen";
+"paywall.features_tailored_to_journey" = "Functies afgestemd op je %@ reis met %@";
+"paywall.visual_learning_mode" = "Visuele Leermodus";
+"paywall.visual_learning_description" = "Leer met afbeeldingen, visuele associaties en geheugentechnieken";
+"paywall.what_our_users_say" = "Wat Onze Gebruikers Zeggen";
+"paywall.join_thousands_satisfied" = "Sluit je aan bij duizenden tevreden leerlingen";
+"paywall.choose_your_plan" = "Kies je Plan";
+"paywall.start_free_upgrade_when_needed" = "Start gratis en upgrade wanneer je geavanceerde functies nodig hebt";
+"paywall.start_free_trial" = "Start Gratis Proefperiode";
+"paywall.continue_free" = "Gratis Doorgaan";
+"paywall.achievement_master_words" = "Beheers %d nieuwe %@-woorden in je eerste week";
+"paywall.achievement_academic_writing" = "Verbeter je %@ academisch schrijven en leesbegrip";
+"paywall.achievement_professional_communication" = "Verbeter je %@ professionele communicatievaardigheden";
+"paywall.achievement_travel_confidence" = "Navigeer vol vertrouwen door elk %@-sprekend land";
+"paywall.achievement_business_communication" = "Blink uit in %@ zakelijke communicatie en professionele contexten";
+"paywall.achievement_tech_vocabulary" = "Beheers %@ technologisch vocabulaire en industrie-terminologie";
+"paywall.achievement_business_contexts" = "Blink uit in %@ zakelijke contexten en professionele communicatie";
+"paywall.days" = "Dagen";
+"paywall.words_goal" = "Woorden Doel";
+"paywall.new" = "NIEUW";
+"paywall.your_personalized_journey" = "Je Gepersonaliseerde 7-Daagse Reis";
+"paywall.start_free_trial" = "Start je 7-Daagse Gratis Proefperiode";
+"paywall.free" = "GRATIS";
+"paywall.recommended" = "AANBEVOLEN";
+"paywall.skip_for_now" = "Voor Nu Overslaan";
+"paywall.start_my_free_trial_now" = "Start Nu Mijn Gratis Proefperiode";
+"paywall.start_free_trial_save" = "Start Gratis Proefperiode - Bespaar %@";
+"paywall.app_store_rating" = "App Store Beoordeling";
+"paywall.total_ratings" = "Totale Beoordelingen";
+"paywall.reviews" = "Recensies";
+

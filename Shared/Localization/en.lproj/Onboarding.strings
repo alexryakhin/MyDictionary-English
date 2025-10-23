@@ -31,6 +31,23 @@
 "natural_voices" = "Natural Voices";
 "natural_voices_description" = "Hundreds of premium voices that sound more human than ever";
 
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Daily Consistency";
+"streak_benefit_daily_consistency_description" = "Build a habit that sticks";
+"streak_benefit_track_progress_title" = "Track Progress";
+"streak_benefit_track_progress_description" = "Watch your vocabulary grow";
+"streak_benefit_stay_motivated_title" = "Stay Motivated";
+"streak_benefit_stay_motivated_description" = "Keep your streak alive";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "We'll send you gentle reminders to help you maintain your learning streak";
+"notification_benefit_daily_reminders_title" = "Daily Reminders";
+"notification_benefit_daily_reminders_description" = "Never miss your study time";
+"notification_benefit_smart_timing_title" = "Smart Timing";
+"notification_benefit_smart_timing_description" = "Personalized to your schedule";
+"notification_benefit_no_spam_title" = "No Spam";
+"notification_benefit_no_spam_description" = "Only helpful reminders";
+
 // MARK: - Personalized Onboarding
 "what_should_we_call_you" = "What should we call you?";
 "enter_your_name" = "Enter your name";

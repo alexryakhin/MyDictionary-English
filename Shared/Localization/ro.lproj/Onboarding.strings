@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Partajează dicționare cu prietenii și familia";
 "natural_voices" = "Voci naturale";
 "natural_voices_description" = "Sute de voci premium care sună mai uman ca niciodată";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Consistență Zilnică";
+"streak_benefit_daily_consistency_description" = "Construiește un obicei care persistă";
+"streak_benefit_track_progress_title" = "Urmărește Progresul";
+"streak_benefit_track_progress_description" = "Urmărește cum crește vocabularul tău";
+"streak_benefit_stay_motivated_title" = "Rămâi Motivat";
+"streak_benefit_stay_motivated_description" = "Păstrează seria ta vie";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Îți vom trimite memento-uri blânde pentru a te ajuta să-ți menții seria de învățare";
+"notification_benefit_daily_reminders_title" = "Memento-uri Zilnice";
+"notification_benefit_daily_reminders_description" = "Nu rata niciodată timpul de studiu";
+"notification_benefit_smart_timing_title" = "Timing Inteligent";
+"notification_benefit_smart_timing_description" = "Personalizat pentru programul tău";
+"notification_benefit_no_spam_title" = "Fără Spam";
+"notification_benefit_no_spam_description" = "Doar memento-uri utile";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Cum ar trebui să te numim?";
+"enter_your_name" = "Introdu numele tău";
+"skip" = "Sări peste";
+"continue" = "Continuă";
+
+// User Type
+"which_best_describes_you" = "Care te descrie cel mai bine?";
+"user_type_student" = "Student";
+"user_type_professional" = "Profesionist";
+"user_type_hobbyist" = "Hobbyist";
+"user_type_other" = "Altul";
+"user_type_student_description" = "Învăț pentru școală sau universitate";
+"user_type_professional_description" = "Îmi avansez cariera";
+"user_type_hobbyist_description" = "Învăț pentru distracție";
+"user_type_other_description" = "Alte scopuri";
+
+// Age Group
+"whats_your_age_group" = "Care este grupa ta de vârstă?";
+
+// Learning Goals
+"why_are_you_learning" = "De ce înveți limbi străine?";
+"select_up_to_three" = "Selectează 1-3 obiective";
+"learning_goal_career" = "Creșterea Carierei";
+"learning_goal_travel" = "Călătorii și Turism";
+"learning_goal_education" = "Educație";
+"learning_goal_personal_growth" = "Creșterea Personală";
+"learning_goal_immigration" = "Imigrare";
+"learning_goal_family" = "Familie și Prieteni";
+
+// Languages to Study
+"which_languages_to_learn" = "Ce limbi vrei să înveți?";
+"search_languages" = "Caută limbi";
+"add_language" = "Adaugă Limbă";
+"select_proficiency_level" = "Selectează nivelul de competență";
+"select_at_least_one_language" = "Selectează cel puțin o limbă";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Începător - Fraze de bază";
+"cefr_level_a2_description" = "Elementar - Conversații simple";
+"cefr_level_b1_description" = "Intermediar - Utilizator independent";
+"cefr_level_b2_description" = "Intermediar Superior - Subiecte complexe";
+"cefr_level_c1_description" = "Avansat - Expresie fluentă";
+"cefr_level_c2_description" = "Maestru - Competență nativă";
+
+// Interests
+"what_topics_interest_you" = "Ce subiecte te interesează?";
+"select_2_to_5_interests" = "Selectează 2-5 interese";
+"interest_business" = "Afaceri";
+"interest_technology" = "Tehnologie";
+"interest_sports" = "Sport";
+"interest_culture" = "Cultură";
+"interest_food" = "Mâncare";
+"interest_entertainment" = "Divertisment";
+"interest_science" = "Știință";
+"interest_health" = "Sănătate";
+"interest_travel" = "Călătorii";
+"interest_education" = "Educație";
+
+// Study Intensity
+"how_many_words_per_week" = "Câte cuvinte vrei să înveți pe săptămână?";
+"words_per_week" = "%d cuvinte/săptămână";
+"estimated_daily_time" = "≈ %d min/zi";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Când preferi să studiezi?";
+"study_time_morning" = "Dimineața";
+"study_time_afternoon" = "După-amiaza";
+"study_time_evening" = "Seara";
+"study_time_flexible" = "Flexibil";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Oricând";
+
+// Streak Introduction
+"build_your_learning_streak" = "Construiește-ți seria de învățare!";
+"streak_intro_message" = "Exersează în fiecare zi pentru a-ți construi seria și rămâi motivat. Nu rupe lanțul!";
+"streak_benefits_title" = "De ce seriile contează:";
+"streak_benefit_motivation" = "Rămâi motivat";
+"streak_benefit_consistency" = "Construiește consistența";
+"streak_benefit_rewards" = "Câștigă recompense";
+"sounds_great" = "Sună minunat!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Rămâi pe drum cu memento-uri inteligente";
+"notification_benefit_daily_practice" = "Memento-uri de practică zilnică";
+"notification_benefit_streak_protection" = "Alerte de protecție a seriei";
+"notification_benefit_progress_updates" = "Repere de progres";
+"notification_preview_title" = "Timpul de practică!";
+"notification_preview_body" = "Păstrează-ți seria vie cu 10 minute de practică";
+"enable_notifications" = "Activează Notificările";
+"maybe_later" = "Poate Mai Târziu";
+
+// Paywall
+"unlock_full_learning_potential" = "Deblochează-ți Potențialul Complet de Învățare";
+"start_7_day_free_trial" = "Începe perioada ta de probă gratuită de 7 zile";
+"personalized_lessons_for_languages" = "Lecții personalizate pentru %@";
+"ai_powered_practice_for_interests" = "Practică alimentată de IA pentru %@";
+"unlimited_words_and_quizzes" = "Cuvinte și teste nelimitate";
+"cross_device_sync" = "Sincronizare între dispozitive";
+"priority_support" = "Suport prioritar";
+"start_free_trial" = "Începe Perioada de Probă Gratuită";
+"monthly" = "Lunar";
+"yearly" = "Anual";
+"save_percentage" = "Economisește %d%%";
+
+// Sign In
+"sync_your_progress" = "Sincronizează-ți progresul între dispozitive";
+"sign_in_benefit_cloud_backup" = "Backup în cloud";
+"sign_in_benefit_multi_device" = "Acces multi-dispozitiv";
+"sign_in_benefit_shared_dictionaries" = "Dicționare partajate";
+"sign_in_with_apple" = "Conectează-te cu Apple";
+"sign_in_with_google" = "Conectează-te cu Google";
+"skip_for_now" = "Sări peste pentru acum";
+
+// Success
+"youre_all_set_name" = "Totul este gata, %@!";
+"ready_to_learn_languages" = "Gata să înveți %@";
+"start_learning" = "Începe Învățarea";
+
+// Personalization Banner
+"complete_your_profile" = "Completează-ți Profilul";
+"personalize_your_learning" = "Personalizează-ți experiența de învățare cu un sondaj rapid";
+"takes_2_minutes" = "Durează 2 minute";
+"personalize_now" = "Personalizează Acum";
+
+// iCloud Sync
+"loading_from_icloud" = "Se încarcă din iCloud...";
+"profile_found" = "Profil Găsit!";
+"profile_found_message" = "Am găsit profilul tău de pe alt dispozitiv. Setările și preferințele tale sunt gata!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, deblochează-ți potențialul complet de învățare!";
+"paywall.personalized_subtitle_study" = "Stăpânește vocabularul %@ pentru succesul academic și excelează în studiile tale!";
+"paywall.personalized_subtitle_work" = "Îți avansezi cariera cu vocabular profesional %@ și abilități de comunicare!";
+"paywall.personalized_subtitle_travel" = "Vorbește %@ cu încredere în timp ce călătorești și conectează-te cu oameni din întreaga lume!";
+"paywall.personalized_subtitle_business" = "Excelează în comunicarea de afaceri %@ și contexte profesionale!";
+"paywall.personalized_subtitle_default" = "Alătură-te miilor de %@s care au stăpânit vocabularul %@!";
+"paywall.personalized_for_you" = "Personalizat pentru Tine";
+"paywall.perfect_for_your_goals" = "Perfect pentru Obiectivele Tale %@";
+"paywall.features_tailored_to_journey" = "Funcționalități adaptate călătoriei tale %@ cu %@";
+"paywall.visual_learning_mode" = "Modul de Învățare Vizuală";
+"paywall.visual_learning_description" = "Învață cu imagini, asociații vizuale și tehnici de memorie";
+"paywall.what_our_users_say" = "Ce Spun Utilizatorii Noștri";
+"paywall.join_thousands_satisfied" = "Alătură-te miilor de învățători mulțumiți";
+"paywall.choose_your_plan" = "Alege-ți Planul";
+"paywall.start_free_upgrade_when_needed" = "Începe gratuit și actualizează când ai nevoie de funcționalități avansate";
+"paywall.start_free_trial" = "Începe Perioada de Probă Gratuită";
+"paywall.continue_free" = "Continuă Gratuit";
+"paywall.achievement_master_words" = "Stăpânește %d cuvinte %@ noi în prima ta săptămână";
+"paywall.achievement_academic_writing" = "Îmbunătățește-ți scrierea academică %@ și înțelegerea lecturii";
+"paywall.achievement_professional_communication" = "Îmbunătățește-ți abilitățile de comunicare profesională %@";
+"paywall.achievement_travel_confidence" = "Navighează în orice țară vorbitoare de %@ cu încredere";
+"paywall.achievement_business_communication" = "Excelează în comunicarea de afaceri %@ și contexte profesionale";
+"paywall.achievement_tech_vocabulary" = "Stăpânește vocabularul tehnologic %@ și terminologia industriei";
+"paywall.achievement_business_contexts" = "Excelează în contexte de afaceri %@ și comunicare profesională";
+"paywall.days" = "Zile";
+"paywall.words_goal" = "Obiectiv Cuvinte";
+"paywall.new" = "NOU";
+"paywall.your_personalized_journey" = "Călătoria Ta Personalizată de 7 Zile";
+"paywall.start_free_trial" = "Începe Perioada Ta de Probă Gratuită de 7 Zile";
+"paywall.free" = "GRATUIT";
+"paywall.recommended" = "RECOMANDAT";
+"paywall.skip_for_now" = "Sări peste pentru acum";
+"paywall.start_my_free_trial_now" = "Începe Perioada Mea de Probă Gratuită Acum";
+"paywall.start_free_trial_save" = "Începe Perioada de Probă Gratuită - Economisește %@";
+"paywall.app_store_rating" = "Evaluarea App Store";
+"paywall.total_ratings" = "Evaluări Totale";
+"paywall.reviews" = "Recenzii";
+

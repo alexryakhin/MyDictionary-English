@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "แชร์พจนานุกรมกับเพื่อนและครอบครัว";
 "natural_voices" = "เสียงธรรมชาติ";
 "natural_voices_description" = "เสียงพรีเมียมหลายร้อยเสียงที่ฟังดูเป็นมนุษย์มากกว่าที่เคย";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "ความสม่ำเสมอทุกวัน";
+"streak_benefit_daily_consistency_description" = "สร้างนิสัยที่ยั่งยืน";
+"streak_benefit_track_progress_title" = "ติดตามความคืบหน้า";
+"streak_benefit_track_progress_description" = "ดูคลังคำศัพท์ของคุณเติบโต";
+"streak_benefit_stay_motivated_title" = "รักษาความกระตือรือร้น";
+"streak_benefit_stay_motivated_description" = "รักษาแถบความต่อเนื่องของคุณ";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "เราจะส่งการแจ้งเตือนที่นุ่มนวลเพื่อช่วยให้คุณรักษาแถบการเรียนรู้ของคุณ";
+"notification_benefit_daily_reminders_title" = "การแจ้งเตือนทุกวัน";
+"notification_benefit_daily_reminders_description" = "ไม่พลาดเวลาศึกษาของคุณ";
+"notification_benefit_smart_timing_title" = "เวลาที่ชาญฉลาด";
+"notification_benefit_smart_timing_description" = "ปรับแต่งตามตารางเวลาของคุณ";
+"notification_benefit_no_spam_title" = "ไม่มีสแปม";
+"notification_benefit_no_spam_description" = "เฉพาะการแจ้งเตือนที่เป็นประโยชน์";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "เราควรเรียกคุณว่าอะไร?";
+"enter_your_name" = "ใส่ชื่อของคุณ";
+"skip" = "ข้าม";
+"continue" = "ดำเนินการต่อ";
+
+// User Type
+"which_best_describes_you" = "ข้อใดอธิบายคุณได้ดีที่สุด?";
+"user_type_student" = "นักเรียน";
+"user_type_professional" = "มืออาชีพ";
+"user_type_hobbyist" = "ผู้ที่เรียนเป็นงานอดิเรก";
+"user_type_other" = "อื่นๆ";
+"user_type_student_description" = "เรียนเพื่อโรงเรียนหรือมหาวิทยาลัย";
+"user_type_professional_description" = "พัฒนาอาชีพของฉัน";
+"user_type_hobbyist_description" = "เรียนเพื่อความสนุก";
+"user_type_other_description" = "วัตถุประสงค์อื่น";
+
+// Age Group
+"whats_your_age_group" = "คุณอยู่ในกลุ่มอายุใด?";
+
+// Learning Goals
+"why_are_you_learning" = "ทำไมคุณถึงเรียนภาษา?";
+"select_up_to_three" = "เลือก 1-3 เป้าหมาย";
+"learning_goal_career" = "การเติบโตในอาชีพ";
+"learning_goal_travel" = "การเดินทางและการท่องเที่ยว";
+"learning_goal_education" = "การศึกษา";
+"learning_goal_personal_growth" = "การเติบโตส่วนตัว";
+"learning_goal_immigration" = "การย้ายถิ่นฐาน";
+"learning_goal_family" = "ครอบครัวและเพื่อน";
+
+// Languages to Study
+"which_languages_to_learn" = "คุณต้องการเรียนภาษาอะไร?";
+"search_languages" = "ค้นหาภาษา";
+"add_language" = "เพิ่มภาษา";
+"select_proficiency_level" = "เลือกระดับความสามารถ";
+"select_at_least_one_language" = "เลือกอย่างน้อยหนึ่งภาษา";
+
+// CEFR Levels
+"cefr_level_a1_description" = "ผู้เริ่มต้น - วลีพื้นฐาน";
+"cefr_level_a2_description" = "ระดับประถม - การสนทนาง่ายๆ";
+"cefr_level_b1_description" = "ระดับกลาง - ผู้ใช้ที่เป็นอิสระ";
+"cefr_level_b2_description" = "ระดับกลางสูง - หัวข้อที่ซับซ้อน";
+"cefr_level_c1_description" = "ระดับสูง - การแสดงออกที่คล่องแคล่ว";
+"cefr_level_c2_description" = "ระดับเชี่ยวชาญ - ความสามารถระดับเจ้าของภาษา";
+
+// Interests
+"what_topics_interest_you" = "หัวข้อใดที่คุณสนใจ?";
+"select_2_to_5_interests" = "เลือก 2-5 ความสนใจ";
+"interest_business" = "ธุรกิจ";
+"interest_technology" = "เทคโนโลยี";
+"interest_sports" = "กีฬา";
+"interest_culture" = "วัฒนธรรม";
+"interest_food" = "อาหาร";
+"interest_entertainment" = "บันเทิง";
+"interest_science" = "วิทยาศาสตร์";
+"interest_health" = "สุขภาพ";
+"interest_travel" = "การเดินทาง";
+"interest_education" = "การศึกษา";
+
+// Study Intensity
+"how_many_words_per_week" = "คุณต้องการเรียนกี่คำต่อสัปดาห์?";
+"words_per_week" = "%d คำ/สัปดาห์";
+"estimated_daily_time" = "≈ %d นาที/วัน";
+
+// Study Time
+"when_do_you_prefer_to_study" = "คุณชอบเรียนเวลาไหน?";
+"study_time_morning" = "เช้า";
+"study_time_afternoon" = "บ่าย";
+"study_time_evening" = "เย็น";
+"study_time_flexible" = "ยืดหยุ่น";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "เวลาใดก็ได้";
+
+// Streak Introduction
+"build_your_learning_streak" = "สร้างแถบการเรียนรู้ของคุณ!";
+"streak_intro_message" = "ฝึกฝนทุกวันเพื่อสร้างแถบของคุณและรักษาความกระตือรือร้น อย่าทำให้ขาด!";
+"streak_benefits_title" = "ทำไมแถบจึงสำคัญ:";
+"streak_benefit_motivation" = "รักษาความกระตือรือร้น";
+"streak_benefit_consistency" = "สร้างความสม่ำเสมอ";
+"streak_benefit_rewards" = "รับรางวัล";
+"sounds_great" = "ฟังดูดี!";
+
+// Notifications
+"stay_on_track_with_reminders" = "ติดตามด้วยการแจ้งเตือนที่ชาญฉลาด";
+"notification_benefit_daily_practice" = "การแจ้งเตือนการฝึกฝนทุกวัน";
+"notification_benefit_streak_protection" = "การแจ้งเตือนการป้องกันแถบ";
+"notification_benefit_progress_updates" = "จุดสำคัญของความคืบหน้า";
+"notification_preview_title" = "เวลาฝึกฝนแล้ว!";
+"notification_preview_body" = "รักษาแถบของคุณให้มีชีวิตด้วยการฝึกฝน 10 นาที";
+"enable_notifications" = "เปิดใช้งานการแจ้งเตือน";
+"maybe_later" = "ไว้ทีหลัง";
+
+// Paywall
+"unlock_full_learning_potential" = "ปลดล็อกศักยภาพการเรียนรู้เต็มรูปแบบของคุณ";
+"start_7_day_free_trial" = "เริ่มทดลองใช้ฟรี 7 วันของคุณ";
+"personalized_lessons_for_languages" = "บทเรียนที่ปรับแต่งสำหรับ %@";
+"ai_powered_practice_for_interests" = "การฝึกฝนที่ขับเคลื่อนด้วย AI สำหรับ %@";
+"unlimited_words_and_quizzes" = "คำศัพท์และแบบทดสอบไม่จำกัด";
+"cross_device_sync" = "ซิงค์ข้ามอุปกรณ์";
+"priority_support" = "การสนับสนุนลำดับความสำคัญ";
+"start_free_trial" = "เริ่มทดลองใช้ฟรี";
+"monthly" = "รายเดือน";
+"yearly" = "รายปี";
+"save_percentage" = "ประหยัด %d%%";
+
+// Sign In
+"sync_your_progress" = "ซิงค์ความคืบหน้าของคุณข้ามอุปกรณ์";
+"sign_in_benefit_cloud_backup" = "สำรองข้อมูลบนคลาวด์";
+"sign_in_benefit_multi_device" = "การเข้าถึงหลายอุปกรณ์";
+"sign_in_benefit_shared_dictionaries" = "พจนานุกรมที่แชร์";
+"sign_in_with_apple" = "เข้าสู่ระบบด้วย Apple";
+"sign_in_with_google" = "เข้าสู่ระบบด้วย Google";
+"skip_for_now" = "ข้ามไปก่อน";
+
+// Success
+"youre_all_set_name" = "คุณพร้อมแล้ว, %@!";
+"ready_to_learn_languages" = "พร้อมเรียน %@";
+"start_learning" = "เริ่มเรียน";
+
+// Personalization Banner
+"complete_your_profile" = "กรอกโปรไฟล์ของคุณ";
+"personalize_your_learning" = "ปรับแต่งประสบการณ์การเรียนรู้ของคุณด้วยการสำรวจอย่างรวดเร็ว";
+"takes_2_minutes" = "ใช้เวลา 2 นาที";
+"personalize_now" = "ปรับแต่งตอนนี้";
+
+// iCloud Sync
+"loading_from_icloud" = "กำลังโหลดจาก iCloud...";
+"profile_found" = "พบโปรไฟล์!";
+"profile_found_message" = "เราพบโปรไฟล์ของคุณจากอุปกรณ์อื่น การตั้งค่าและความชอบของคุณพร้อมใช้งาน!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, ปลดล็อกศักยภาพการเรียนรู้เต็มรูปแบบของคุณ!";
+"paywall.personalized_subtitle_study" = "เชี่ยวชาญคำศัพท์ %@ เพื่อความสำเร็จทางวิชาการและทำคะแนนได้ดีในการเรียน!";
+"paywall.personalized_subtitle_work" = "เพิ่มอาชีพของคุณด้วยคำศัพท์ %@ ระดับมืออาชีพและทักษะการสื่อสาร!";
+"paywall.personalized_subtitle_travel" = "พูด %@ อย่างมั่นใจขณะเดินทางและเชื่อมต่อกับผู้คนทั่วโลก!";
+"paywall.personalized_subtitle_business" = "เก่งในการสื่อสารธุรกิจ %@ และบริบทระดับมืออาชีพ!";
+"paywall.personalized_subtitle_default" = "เข้าร่วมกับคนหลายพันคนที่เชี่ยวชาญคำศัพท์ %@!";
+"paywall.personalized_for_you" = "ปรับแต่งสำหรับคุณ";
+"paywall.perfect_for_your_goals" = "เหมาะสำหรับเป้าหมาย %@ ของคุณ";
+"paywall.features_tailored_to_journey" = "ฟีเจอร์ที่ปรับแต่งสำหรับการเดินทาง %@ ของคุณกับ %@";
+"paywall.visual_learning_mode" = "โหมดการเรียนรู้ด้วยภาพ";
+"paywall.visual_learning_description" = "เรียนรู้ด้วยภาพ การเชื่อมโยงทางสายตา และเทคนิคการจำ";
+"paywall.what_our_users_say" = "ผู้ใช้ของเราพูดอะไร";
+"paywall.join_thousands_satisfied" = "เข้าร่วมกับผู้เรียนที่พึงพอใจหลายพันคน";
+"paywall.choose_your_plan" = "เลือกแผนของคุณ";
+"paywall.start_free_upgrade_when_needed" = "เริ่มฟรีและอัปเกรดเมื่อคุณต้องการฟีเจอร์ขั้นสูง";
+"paywall.start_free_trial" = "เริ่มทดลองใช้ฟรี";
+"paywall.continue_free" = "ดำเนินการต่อฟรี";
+"paywall.achievement_master_words" = "เชี่ยวชาญคำศัพท์ %@ ใหม่ %d คำในสัปดาห์แรกของคุณ";
+"paywall.achievement_academic_writing" = "ปรับปรุงการเขียนเชิงวิชาการ %@ และความเข้าใจในการอ่านของคุณ";
+"paywall.achievement_professional_communication" = "เพิ่มทักษะการสื่อสาร %@ ระดับมืออาชีพของคุณ";
+"paywall.achievement_travel_confidence" = "นำทางในประเทศที่พูด %@ ใดก็ได้อย่างมั่นใจ";
+"paywall.achievement_business_communication" = "เก่งในการสื่อสารธุรกิจ %@ และบริบทระดับมืออาชีพ";
+"paywall.achievement_tech_vocabulary" = "เชี่ยวชาญคำศัพท์เทคโนโลยี %@ และคำศัพท์เฉพาะอุตสาหกรรม";
+"paywall.achievement_business_contexts" = "เก่งในบริบทธุรกิจ %@ และการสื่อสารระดับมืออาชีพ";
+"paywall.days" = "วัน";
+"paywall.words_goal" = "เป้าหมายคำศัพท์";
+"paywall.new" = "ใหม่";
+"paywall.your_personalized_journey" = "การเดินทาง 7 วันที่ปรับแต่งสำหรับคุณ";
+"paywall.start_free_trial" = "เริ่มทดลองใช้ฟรี 7 วันของคุณ";
+"paywall.free" = "ฟรี";
+"paywall.recommended" = "แนะนำ";
+"paywall.skip_for_now" = "ข้ามไปก่อน";
+"paywall.start_my_free_trial_now" = "เริ่มทดลองใช้ฟรีของฉันตอนนี้";
+"paywall.start_free_trial_save" = "เริ่มทดลองใช้ฟรี - ประหยัด %@";
+"paywall.app_store_rating" = "คะแนน App Store";
+"paywall.total_ratings" = "คะแนนรวม";
+"paywall.reviews" = "รีวิว";
+

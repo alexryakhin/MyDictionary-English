@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Oszd meg szótáraidat barátaiddal és családoddal";
 "natural_voices" = "Természetes hangok";
 "natural_voices_description" = "Több száz prémium hang, amelyek emberibbek, mint valaha";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Napi konzisztencia";
+"streak_benefit_daily_consistency_description" = "Építsd fel a megszokást";
+"streak_benefit_track_progress_title" = "Haladás követése";
+"streak_benefit_track_progress_description" = "Nézd, ahogy a szókincsed növekszik";
+"streak_benefit_stay_motivated_title" = "Maradj motivált";
+"streak_benefit_stay_motivated_description" = "Tartsd életben a sorozatod";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Gyengéd emlékeztetőket küldünk, hogy segítsünk fenntartani a tanulási sorozatod";
+"notification_benefit_daily_reminders_title" = "Napi emlékeztetők";
+"notification_benefit_daily_reminders_description" = "Soha ne maradj le a tanulási idődről";
+"notification_benefit_smart_timing_title" = "Okos időzítés";
+"notification_benefit_smart_timing_description" = "Személyre szabott az ütemtervedhez";
+"notification_benefit_no_spam_title" = "Nincs spam";
+"notification_benefit_no_spam_description" = "Csak hasznos emlékeztetők";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Hogyan szólítsunk?";
+"enter_your_name" = "Add meg a neved";
+"skip" = "Kihagyás";
+"continue" = "Folytatás";
+
+// User Type
+"which_best_describes_you" = "Mi jellemez téged a legjobban?";
+"user_type_student" = "Diák";
+"user_type_professional" = "Szakember";
+"user_type_hobbyist" = "Hobista";
+"user_type_other" = "Egyéb";
+"user_type_student_description" = "Tanulás iskolához vagy egyetemhez";
+"user_type_professional_description" = "Karrierem előrehaladása";
+"user_type_hobbyist_description" = "Szórakozásból tanulás";
+"user_type_other_description" = "Egyéb célok";
+
+// Age Group
+"whats_your_age_group" = "Melyik korosztályba tartozol?";
+
+// Learning Goals
+"why_are_you_learning" = "Miért tanulsz nyelveket?";
+"select_up_to_three" = "Válassz 1-3 célt";
+"learning_goal_career" = "Karrierfejlesztés";
+"learning_goal_travel" = "Utazás és turizmus";
+"learning_goal_education" = "Oktatás";
+"learning_goal_personal_growth" = "Személyes fejlődés";
+"learning_goal_immigration" = "Bevándorlás";
+"learning_goal_family" = "Család és barátok";
+
+// Languages to Study
+"which_languages_to_learn" = "Mely nyelveket szeretnél megtanulni?";
+"search_languages" = "Nyelvek keresése";
+"add_language" = "Nyelv hozzáadása";
+"select_proficiency_level" = "Válassz tudásszintet";
+"select_at_least_one_language" = "Válassz legalább egy nyelvet";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Kezdő - Alapvető kifejezések";
+"cefr_level_a2_description" = "Alapszint - Egyszerű beszélgetések";
+"cefr_level_b1_description" = "Középszint - Önálló felhasználó";
+"cefr_level_b2_description" = "Felső középszint - Összetett témák";
+"cefr_level_c1_description" = "Haladó - Folyékony kifejezés";
+"cefr_level_c2_description" = "Mesterfok - Anyanyelvi szintű tudás";
+
+// Interests
+"what_topics_interest_you" = "Milyen témák érdekelnek?";
+"select_2_to_5_interests" = "Válassz 2-5 érdeklődési területet";
+"interest_business" = "Üzlet";
+"interest_technology" = "Technológia";
+"interest_sports" = "Sport";
+"interest_culture" = "Kultúra";
+"interest_food" = "Étel";
+"interest_entertainment" = "Szórakozás";
+"interest_science" = "Tudomány";
+"interest_health" = "Egészség";
+"interest_travel" = "Utazás";
+"interest_education" = "Oktatás";
+
+// Study Intensity
+"how_many_words_per_week" = "Hány szót szeretnél megtanulni hetente?";
+"words_per_week" = "%d szó/hét";
+"estimated_daily_time" = "≈ %d perc/nap";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Mikor szeretsz tanulni?";
+"study_time_morning" = "Reggel";
+"study_time_afternoon" = "Délután";
+"study_time_evening" = "Este";
+"study_time_flexible" = "Rugalmas";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Bármikor";
+
+// Streak Introduction
+"build_your_learning_streak" = "Építsd fel a tanulási sorozatod!";
+"streak_intro_message" = "Gyakorolj minden nap, hogy felépítsd a sorozatod és motivált maradj. Ne szakítsd meg a láncot!";
+"streak_benefits_title" = "Miért fontosak a sorozatok:";
+"streak_benefit_motivation" = "Maradj motivált";
+"streak_benefit_consistency" = "Építsd fel a konzisztenciát";
+"streak_benefit_rewards" = "Szerezz jutalmakat";
+"sounds_great" = "Nagyszerű!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Maradj a pályán okos emlékeztetőkkel";
+"notification_benefit_daily_practice" = "Napi gyakorlási emlékeztetők";
+"notification_benefit_streak_protection" = "Sorozat védelem figyelmeztetések";
+"notification_benefit_progress_updates" = "Haladás mérföldkövek";
+"notification_preview_title" = "Gyakorlás ideje!";
+"notification_preview_body" = "Tartsd életben a sorozatod 10 perces gyakorlással";
+"enable_notifications" = "Értesítések engedélyezése";
+"maybe_later" = "Talán később";
+
+// Paywall
+"unlock_full_learning_potential" = "Nyisd ki a teljes tanulási potenciálod";
+"start_7_day_free_trial" = "Kezdd el a 7 napos ingyenes próbaverziót";
+"personalized_lessons_for_languages" = "Személyre szabott leckék %@ számára";
+"ai_powered_practice_for_interests" = "AI-alapú gyakorlás %@ számára";
+"unlimited_words_and_quizzes" = "Korlátlan szavak és kvízek";
+"cross_device_sync" = "Eszközök közötti szinkronizálás";
+"priority_support" = "Prioritásos támogatás";
+"start_free_trial" = "Ingyenes próbaverzió indítása";
+"monthly" = "Havi";
+"yearly" = "Éves";
+"save_percentage" = "Mentés %d%%";
+
+// Sign In
+"sync_your_progress" = "Szinkronizáld a haladásod eszközök között";
+"sign_in_benefit_cloud_backup" = "Felhő biztonsági mentés";
+"sign_in_benefit_multi_device" = "Több eszközös hozzáférés";
+"sign_in_benefit_shared_dictionaries" = "Megosztott szótárak";
+"sign_in_with_apple" = "Bejelentkezés Apple-lel";
+"sign_in_with_google" = "Bejelentkezés Google-lel";
+"skip_for_now" = "Kihagyás most";
+
+// Success
+"youre_all_set_name" = "Minden kész, %@!";
+"ready_to_learn_languages" = "Készen állsz %@ megtanulására";
+"start_learning" = "Tanulás indítása";
+
+// Personalization Banner
+"complete_your_profile" = "Fejezd be a profilod";
+"personalize_your_learning" = "Személyre szabod a tanulási élményed egy gyors felméréssel";
+"takes_2_minutes" = "2 percet vesz igénybe";
+"personalize_now" = "Személyre szabás most";
+
+// iCloud Sync
+"loading_from_icloud" = "Betöltés az iCloud-ból...";
+"profile_found" = "Profil megtalálva!";
+"profile_found_message" = "Megtaláltuk a profilod egy másik eszközről. A beállításaid és preferenciáid készen állnak!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, nyisd ki a teljes tanulási potenciálod!";
+"paywall.personalized_subtitle_study" = "Ovladd %@ szókincset az akadémiai sikerért és kiváló tanulmányokért!";
+"paywall.personalized_subtitle_work" = "Gyorsítsd fel a karrieredet professzionális %@ szókincs és kommunikációs készségekkel!";
+"paywall.personalized_subtitle_travel" = "Beszélj %@ magabiztosan utazás közben és kapcsolódj emberekhez világszerte!";
+"paywall.personalized_subtitle_business" = "Kiváló %@ üzleti kommunikációban és professzionális kontextusokban!";
+"paywall.personalized_subtitle_default" = "Csatlakozz több ezer %@-hoz, akik elsajátították a %@ szókincset!";
+"paywall.personalized_for_you" = "Személyre szabva neked";
+"paywall.perfect_for_your_goals" = "Tökéletes a %@ céljaidhoz";
+"paywall.features_tailored_to_journey" = "Funkciók a %@ utazásodhoz %@-val";
+"paywall.visual_learning_mode" = "Vizuális tanulási mód";
+"paywall.visual_learning_description" = "Tanulj képekkel, vizuális asszociációkkal és memória technikákkal";
+"paywall.what_our_users_say" = "Mit mondanak a felhasználóink";
+"paywall.join_thousands_satisfied" = "Csatlakozz több ezer elégedett tanulóhoz";
+"paywall.choose_your_plan" = "Válaszd ki a terved";
+"paywall.start_free_upgrade_when_needed" = "Kezdj ingyenesen és frissíts, amikor fejlett funkciókra van szükséged";
+"paywall.start_free_trial" = "Ingyenes próbaverzió indítása";
+"paywall.continue_free" = "Folytatás ingyenesen";
+"paywall.achievement_master_words" = "Ovladd %d új %@ szót az első héten";
+"paywall.achievement_academic_writing" = "Javítsd a %@ akadémiai írásod és olvasási megértésed";
+"paywall.achievement_professional_communication" = "Fejleszd a professzionális %@ kommunikációs készségeidet";
+"paywall.achievement_travel_confidence" = "Navigálj bármely %@ beszélő országban magabiztosan";
+"paywall.achievement_business_communication" = "Kiváló %@ üzleti kommunikációban és professzionális kontextusokban";
+"paywall.achievement_tech_vocabulary" = "Ovladd a %@ tech szókincset és iparági terminológiát";
+"paywall.achievement_business_contexts" = "Kiváló %@ üzleti kontextusokban és professzionális kommunikációban";
+"paywall.days" = "Napok";
+"paywall.words_goal" = "Szavak célja";
+"paywall.new" = "ÚJ";
+"paywall.your_personalized_journey" = "A te személyre szabott 7 napos utazásod";
+"paywall.start_free_trial" = "Kezdd el a 7 napos ingyenes próbaverziód";
+"paywall.free" = "INGYENES";
+"paywall.recommended" = "AJÁNLOTT";
+"paywall.skip_for_now" = "Kihagyás most";
+"paywall.start_my_free_trial_now" = "Kezdd el az ingyenes próbaverziómat most";
+"paywall.start_free_trial_save" = "Ingyenes próbaverzió indítása - Mentés %@";
+"paywall.app_store_rating" = "App Store értékelés";
+"paywall.total_ratings" = "Összes értékelés";
+"paywall.reviews" = "Értékelések";
+

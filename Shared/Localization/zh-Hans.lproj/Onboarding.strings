@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "与朋友和家人共享词典";
 "natural_voices" = "自然语音";
 "natural_voices_description" = "数百种听起来比以往更自然的优质语音";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "每日坚持";
+"streak_benefit_daily_consistency_description" = "建立持久的习惯";
+"streak_benefit_track_progress_title" = "跟踪进度";
+"streak_benefit_track_progress_description" = "观察您的词汇量增长";
+"streak_benefit_stay_motivated_title" = "保持动力";
+"streak_benefit_stay_motivated_description" = "保持您的学习连续记录";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "我们将发送温和的提醒来帮助您保持学习连续记录";
+"notification_benefit_daily_reminders_title" = "每日提醒";
+"notification_benefit_daily_reminders_description" = "永远不要错过您的学习时间";
+"notification_benefit_smart_timing_title" = "智能时间";
+"notification_benefit_smart_timing_description" = "根据您的日程安排个性化";
+"notification_benefit_no_spam_title" = "无垃圾信息";
+"notification_benefit_no_spam_description" = "只发送有用的提醒";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "我们应该怎么称呼您？";
+"enter_your_name" = "输入您的姓名";
+"skip" = "跳过";
+"continue" = "继续";
+
+// User Type
+"which_best_describes_you" = "什么最能描述您？";
+"user_type_student" = "学生";
+"user_type_professional" = "专业人士";
+"user_type_hobbyist" = "爱好者";
+"user_type_other" = "其他";
+"user_type_student_description" = "为学校或大学学习";
+"user_type_professional_description" = "推进我的职业生涯";
+"user_type_hobbyist_description" = "为了乐趣而学习";
+"user_type_other_description" = "其他目的";
+
+// Age Group
+"whats_your_age_group" = "您的年龄组是什么？";
+
+// Learning Goals
+"why_are_you_learning" = "您为什么学习语言？";
+"select_up_to_three" = "选择1-3个目标";
+"learning_goal_career" = "职业发展";
+"learning_goal_travel" = "旅行和旅游";
+"learning_goal_education" = "教育";
+"learning_goal_personal_growth" = "个人成长";
+"learning_goal_immigration" = "移民";
+"learning_goal_family" = "家庭和朋友";
+
+// Languages to Study
+"which_languages_to_learn" = "您想学习哪些语言？";
+"search_languages" = "搜索语言";
+"add_language" = "添加语言";
+"select_proficiency_level" = "选择熟练程度";
+"select_at_least_one_language" = "至少选择一种语言";
+
+// CEFR Levels
+"cefr_level_a1_description" = "初学者 - 基本短语";
+"cefr_level_a2_description" = "初级 - 简单对话";
+"cefr_level_b1_description" = "中级 - 独立用户";
+"cefr_level_b2_description" = "中高级 - 复杂话题";
+"cefr_level_c1_description" = "高级 - 流利表达";
+"cefr_level_c2_description" = "精通 - 接近母语水平";
+
+// Interests
+"what_topics_interest_you" = "什么话题让您感兴趣？";
+"select_2_to_5_interests" = "选择2-5个兴趣";
+"interest_business" = "商业";
+"interest_technology" = "技术";
+"interest_sports" = "体育";
+"interest_culture" = "文化";
+"interest_food" = "食物";
+"interest_entertainment" = "娱乐";
+"interest_science" = "科学";
+"interest_health" = "健康";
+"interest_travel" = "旅行";
+"interest_education" = "教育";
+
+// Study Intensity
+"how_many_words_per_week" = "您每周想学习多少个单词？";
+"words_per_week" = "%d个单词/周";
+"estimated_daily_time" = "≈ %d分钟/天";
+
+// Study Time
+"when_do_you_prefer_to_study" = "您更喜欢什么时候学习？";
+"study_time_morning" = "早上";
+"study_time_afternoon" = "下午";
+"study_time_evening" = "晚上";
+"study_time_flexible" = "灵活";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "任何时间";
+
+// Streak Introduction
+"build_your_learning_streak" = "建立您的学习连续记录！";
+"streak_intro_message" = "每天练习以建立您的连续记录并保持动力。不要打破链条！";
+"streak_benefits_title" = "为什么连续记录很重要：";
+"streak_benefit_motivation" = "保持动力";
+"streak_benefit_consistency" = "建立一致性";
+"streak_benefit_rewards" = "获得奖励";
+"sounds_great" = "听起来很棒！";
+
+// Notifications
+"stay_on_track_with_reminders" = "通过智能提醒保持正轨";
+"notification_benefit_daily_practice" = "日常练习提醒";
+"notification_benefit_streak_protection" = "连续记录保护提醒";
+"notification_benefit_progress_updates" = "进度里程碑";
+"notification_preview_title" = "是时候练习了！";
+"notification_preview_body" = "用10分钟练习保持您的连续记录活跃";
+"enable_notifications" = "启用通知";
+"maybe_later" = "稍后再说";
+
+// Paywall
+"unlock_full_learning_potential" = "解锁您的完整学习潜力";
+"start_7_day_free_trial" = "开始您的7天免费试用";
+"personalized_lessons_for_languages" = "为%@量身定制的课程";
+"ai_powered_practice_for_interests" = "为%@提供AI驱动的练习";
+"unlimited_words_and_quizzes" = "无限单词和测验";
+"cross_device_sync" = "跨设备同步";
+"priority_support" = "优先支持";
+"start_free_trial" = "开始免费试用";
+"monthly" = "月度";
+"yearly" = "年度";
+"save_percentage" = "节省%d%%";
+
+// Sign In
+"sync_your_progress" = "在设备间同步您的进度";
+"sign_in_benefit_cloud_backup" = "云备份";
+"sign_in_benefit_multi_device" = "多设备访问";
+"sign_in_benefit_shared_dictionaries" = "共享词典";
+"sign_in_with_apple" = "使用Apple登录";
+"sign_in_with_google" = "使用Google登录";
+"skip_for_now" = "暂时跳过";
+
+// Success
+"youre_all_set_name" = "您已准备就绪，%@！";
+"ready_to_learn_languages" = "准备学习%@";
+"start_learning" = "开始学习";
+
+// Personalization Banner
+"complete_your_profile" = "完善您的个人资料";
+"personalize_your_learning" = "通过快速调查个性化您的学习体验";
+"takes_2_minutes" = "需要2分钟";
+"personalize_now" = "立即个性化";
+
+// iCloud Sync
+"loading_from_icloud" = "从iCloud加载...";
+"profile_found" = "找到个人资料！";
+"profile_found_message" = "我们从其他设备找到了您的个人资料。您的设置和偏好已准备就绪！";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@，解锁您的完整学习潜力！";
+"paywall.personalized_subtitle_study" = "掌握%@词汇以获得学术成功并在学习中脱颖而出！";
+"paywall.personalized_subtitle_work" = "用专业%@词汇和沟通技能推进您的职业生涯！";
+"paywall.personalized_subtitle_travel" = "在旅行时自信地说%@并与世界各地的人联系！";
+"paywall.personalized_subtitle_business" = "在%@商务沟通和专业环境中脱颖而出！";
+"paywall.personalized_subtitle_default" = "加入数千名掌握%@词汇的%@！";
+"paywall.personalized_for_you" = "为您量身定制";
+"paywall.perfect_for_your_goals" = "完美适合您的%@目标";
+"paywall.features_tailored_to_journey" = "为您的%@与%@之旅量身定制的功能";
+"paywall.visual_learning_mode" = "视觉学习模式";
+"paywall.visual_learning_description" = "通过图像、视觉联想和记忆技巧学习";
+"paywall.what_our_users_say" = "我们的用户怎么说";
+"paywall.join_thousands_satisfied" = "加入数千名满意的学习者";
+"paywall.choose_your_plan" = "选择您的计划";
+"paywall.start_free_upgrade_when_needed" = "免费开始，需要高级功能时升级";
+"paywall.start_free_trial" = "开始免费试用";
+"paywall.continue_free" = "继续免费";
+"paywall.achievement_master_words" = "在第一周掌握%d个新的%@单词";
+"paywall.achievement_academic_writing" = "提高您的%@学术写作和阅读理解";
+"paywall.achievement_professional_communication" = "提高您的%@专业沟通技能";
+"paywall.achievement_travel_confidence" = "自信地导航任何%@国家";
+"paywall.achievement_business_communication" = "在%@商务沟通和专业环境中脱颖而出";
+"paywall.achievement_tech_vocabulary" = "掌握%@技术词汇和行业术语";
+"paywall.achievement_business_contexts" = "在%@商务环境和专业沟通中脱颖而出";
+"paywall.days" = "天";
+"paywall.words_goal" = "单词目标";
+"paywall.new" = "新";
+"paywall.your_personalized_journey" = "您的个性化7天之旅";
+"paywall.start_free_trial" = "开始您的7天免费试用";
+"paywall.free" = "免费";
+"paywall.recommended" = "推荐";
+"paywall.skip_for_now" = "暂时跳过";
+"paywall.start_my_free_trial_now" = "立即开始我的免费试用";
+"paywall.start_free_trial_save" = "开始免费试用 - 节省%@";
+"paywall.app_store_rating" = "App Store评分";
+"paywall.total_ratings" = "总评分";
+"paywall.reviews" = "评论";
+

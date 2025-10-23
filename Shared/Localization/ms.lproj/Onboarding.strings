@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Kongsi kamus dengan rakan dan keluarga";
 "natural_voices" = "Suara semula jadi";
 "natural_voices_description" = "Beratus-ratus suara premium yang kedengaran lebih manusiawi berbanding sebelum ini";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Konsistensi Harian";
+"streak_benefit_daily_consistency_description" = "Bina tabiat yang kekal";
+"streak_benefit_track_progress_title" = "Jejak Kemajuan";
+"streak_benefit_track_progress_description" = "Lihat kosa kata anda berkembang";
+"streak_benefit_stay_motivated_title" = "Tetap Bermotivasi";
+"streak_benefit_stay_motivated_description" = "Jaga streak anda hidup";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Kami akan menghantar peringatan lembut untuk membantu anda mengekalkan streak pembelajaran";
+"notification_benefit_daily_reminders_title" = "Peringatan Harian";
+"notification_benefit_daily_reminders_description" = "Jangan terlepas masa belajar anda";
+"notification_benefit_smart_timing_title" = "Masa Pintar";
+"notification_benefit_smart_timing_description" = "Dipersendirikan mengikut jadual anda";
+"notification_benefit_no_spam_title" = "Tiada Spam";
+"notification_benefit_no_spam_description" = "Hanya peringatan yang membantu";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Apa yang patut kami panggil anda?";
+"enter_your_name" = "Masukkan nama anda";
+"skip" = "Langkau";
+"continue" = "Teruskan";
+
+// User Type
+"which_best_describes_you" = "Apa yang paling menggambarkan anda?";
+"user_type_student" = "Pelajar";
+"user_type_professional" = "Profesional";
+"user_type_hobbyist" = "Hobi";
+"user_type_other" = "Lain-lain";
+"user_type_student_description" = "Belajar untuk sekolah atau universiti";
+"user_type_professional_description" = "Maju dalam kerjaya saya";
+"user_type_hobbyist_description" = "Belajar untuk keseronokan";
+"user_type_other_description" = "Tujuan lain";
+
+// Age Group
+"whats_your_age_group" = "Apakah kumpulan umur anda?";
+
+// Learning Goals
+"why_are_you_learning" = "Mengapa anda belajar bahasa?";
+"select_up_to_three" = "Pilih 1-3 matlamat";
+"learning_goal_career" = "Pertumbuhan Kerjaya";
+"learning_goal_travel" = "Perjalanan & Pelancongan";
+"learning_goal_education" = "Pendidikan";
+"learning_goal_personal_growth" = "Pertumbuhan Peribadi";
+"learning_goal_immigration" = "Imigrasi";
+"learning_goal_family" = "Keluarga & Rakan";
+
+// Languages to Study
+"which_languages_to_learn" = "Bahasa apa yang anda mahu belajar?";
+"search_languages" = "Cari bahasa";
+"add_language" = "Tambah Bahasa";
+"select_proficiency_level" = "Pilih tahap kemahiran";
+"select_at_least_one_language" = "Pilih sekurang-kurangnya satu bahasa";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Pemula - Frasa asas";
+"cefr_level_a2_description" = "Asas - Perbualan mudah";
+"cefr_level_b1_description" = "Pertengahan - Pengguna bebas";
+"cefr_level_b2_description" = "Pertengahan Atas - Topik kompleks";
+"cefr_level_c1_description" = "Lanjutan - Ungkapan lancar";
+"cefr_level_c2_description" = "Kemahiran - Kecekapan seperti penutur asli";
+
+// Interests
+"what_topics_interest_you" = "Topik apa yang menarik minat anda?";
+"select_2_to_5_interests" = "Pilih 2-5 minat";
+"interest_business" = "Perniagaan";
+"interest_technology" = "Teknologi";
+"interest_sports" = "Sukan";
+"interest_culture" = "Budaya";
+"interest_food" = "Makanan";
+"interest_entertainment" = "Hiburan";
+"interest_science" = "Sains";
+"interest_health" = "Kesihatan";
+"interest_travel" = "Perjalanan";
+"interest_education" = "Pendidikan";
+
+// Study Intensity
+"how_many_words_per_week" = "Berapa banyak perkataan yang anda mahu belajar seminggu?";
+"words_per_week" = "%d perkataan/minggu";
+"estimated_daily_time" = "≈ %d min/hari";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Bila anda lebih suka belajar?";
+"study_time_morning" = "Pagi";
+"study_time_afternoon" = "Petang";
+"study_time_evening" = "Malam";
+"study_time_flexible" = "Fleksibel";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Bila-bila masa";
+
+// Streak Introduction
+"build_your_learning_streak" = "Bina streak pembelajaran anda!";
+"streak_intro_message" = "Berlatih setiap hari untuk membina streak anda dan tetap bermotivasi. Jangan putuskan rantai!";
+"streak_benefits_title" = "Mengapa streak penting:";
+"streak_benefit_motivation" = "Tetap bermotivasi";
+"streak_benefit_consistency" = "Bina konsistensi";
+"streak_benefit_rewards" = "Dapatkan ganjaran";
+"sounds_great" = "Kedengaran hebat!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Kekal di landasan dengan peringatan pintar";
+"notification_benefit_daily_practice" = "Peringatan latihan harian";
+"notification_benefit_streak_protection" = "Amaran perlindungan streak";
+"notification_benefit_progress_updates" = "Batu tanda kemajuan";
+"notification_preview_title" = "Masa untuk berlatih!";
+"notification_preview_body" = "Jaga streak anda hidup dengan 10 minit latihan";
+"enable_notifications" = "Aktifkan Pemberitahuan";
+"maybe_later" = "Mungkin nanti";
+
+// Paywall
+"unlock_full_learning_potential" = "Buka Potensi Pembelajaran Penuh Anda";
+"start_7_day_free_trial" = "Mulakan percubaan percuma 7 hari anda";
+"personalized_lessons_for_languages" = "Pelajaran diperibadikan untuk %@";
+"ai_powered_practice_for_interests" = "Latihan berkuasa AI untuk %@";
+"unlimited_words_and_quizzes" = "Perkataan dan kui tanpa had";
+"cross_device_sync" = "Sinkronisasi merentas peranti";
+"priority_support" = "Sokongan keutamaan";
+"start_free_trial" = "Mulakan Percubaan Percuma";
+"monthly" = "Bulanan";
+"yearly" = "Tahunan";
+"save_percentage" = "Jimat %d%%";
+
+// Sign In
+"sync_your_progress" = "Sinkronkan kemajuan anda merentas peranti";
+"sign_in_benefit_cloud_backup" = "Sandaran awan";
+"sign_in_benefit_multi_device" = "Akses berbilang peranti";
+"sign_in_benefit_shared_dictionaries" = "Kamus dikongsi";
+"sign_in_with_apple" = "Log masuk dengan Apple";
+"sign_in_with_google" = "Log masuk dengan Google";
+"skip_for_now" = "Langkau buat masa ini";
+
+// Success
+"youre_all_set_name" = "Anda sudah bersedia, %@!";
+"ready_to_learn_languages" = "Bersedia untuk belajar %@";
+"start_learning" = "Mula Belajar";
+
+// Personalization Banner
+"complete_your_profile" = "Lengkapkan Profil Anda";
+"personalize_your_learning" = "Peribadikan pengalaman pembelajaran anda dengan tinjauan pantas";
+"takes_2_minutes" = "Mengambil masa 2 minit";
+"personalize_now" = "Peribadikan Sekarang";
+
+// iCloud Sync
+"loading_from_icloud" = "Memuatkan dari iCloud...";
+"profile_found" = "Profil Ditemui!";
+"profile_found_message" = "Kami menemui profil anda dari peranti lain. Tetapan dan pilihan anda sudah bersedia!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, buka potensi pembelajaran penuh anda!";
+"paywall.personalized_subtitle_study" = "Kuasai kosa kata %@ untuk kejayaan akademik dan cemerlang dalam pengajian anda!";
+"paywall.personalized_subtitle_work" = "Tingkatkan kerjaya anda dengan kosa kata profesional %@ dan kemahiran komunikasi!";
+"paywall.personalized_subtitle_travel" = "Bercakap %@ dengan yakin semasa melancong dan berhubung dengan orang di seluruh dunia!";
+"paywall.personalized_subtitle_business" = "Cemerlang dalam komunikasi perniagaan %@ dan konteks profesional!";
+"paywall.personalized_subtitle_default" = "Sertai ribuan %@ yang telah menguasai kosa kata %@!";
+"paywall.personalized_for_you" = "Diperibadikan untuk Anda";
+"paywall.perfect_for_your_goals" = "Sempurna untuk Matlamat %@ Anda";
+"paywall.features_tailored_to_journey" = "Ciri-ciri yang disesuaikan dengan perjalanan %@ anda dengan %@";
+"paywall.visual_learning_mode" = "Mod Pembelajaran Visual";
+"paywall.visual_learning_description" = "Belajar dengan imej, persatuan visual, dan teknik memori";
+"paywall.what_our_users_say" = "Apa Kata Pengguna Kami";
+"paywall.join_thousands_satisfied" = "Sertai ribuan pelajar yang berpuas hati";
+"paywall.choose_your_plan" = "Pilih Rancangan Anda";
+"paywall.start_free_upgrade_when_needed" = "Mulakan percuma dan naik taraf apabila anda memerlukan ciri-ciri lanjutan";
+"paywall.start_free_trial" = "Mulakan Percubaan Percuma";
+"paywall.continue_free" = "Teruskan Percuma";
+"paywall.achievement_master_words" = "Kuasai %d perkataan %@ baharu dalam minggu pertama anda";
+"paywall.achievement_academic_writing" = "Tingkatkan penulisan akademik %@ dan pemahaman bacaan anda";
+"paywall.achievement_professional_communication" = "Tingkatkan kemahiran komunikasi profesional %@ anda";
+"paywall.achievement_travel_confidence" = "Navigasi mana-mana negara berbahasa %@ dengan yakin";
+"paywall.achievement_business_communication" = "Cemerlang dalam komunikasi perniagaan %@ dan konteks profesional";
+"paywall.achievement_tech_vocabulary" = "Kuasai kosa kata teknologi %@ dan terminologi industri";
+"paywall.achievement_business_contexts" = "Cemerlang dalam konteks perniagaan %@ dan komunikasi profesional";
+"paywall.days" = "Hari";
+"paywall.words_goal" = "Matlamat Perkataan";
+"paywall.new" = "BAHARU";
+"paywall.your_personalized_journey" = "Perjalanan 7 Hari Diperibadikan Anda";
+"paywall.start_free_trial" = "Mulakan Percubaan Percuma 7 Hari Anda";
+"paywall.free" = "PERCUMA";
+"paywall.recommended" = "DISYORKAN";
+"paywall.skip_for_now" = "Langkau Buat Sementara";
+"paywall.start_my_free_trial_now" = "Mulakan Percubaan Percuma Saya Sekarang";
+"paywall.start_free_trial_save" = "Mulakan Percubaan Percuma - Jimat %@";
+"paywall.app_store_rating" = "Penilaian App Store";
+"paywall.total_ratings" = "Jumlah Penilaian";
+"paywall.reviews" = "Ulasan";
+

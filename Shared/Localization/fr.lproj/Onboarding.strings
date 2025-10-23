@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Partagez des dictionnaires avec vos amis et votre famille";
 "natural_voices" = "Voix naturelles";
 "natural_voices_description" = "Des centaines de voix premium qui sonnent plus humaines que jamais";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Cohérence Quotidienne";
+"streak_benefit_daily_consistency_description" = "Construisez une habitude qui dure";
+"streak_benefit_track_progress_title" = "Suivre les Progrès";
+"streak_benefit_track_progress_description" = "Regardez votre vocabulaire grandir";
+"streak_benefit_stay_motivated_title" = "Restez Motivé";
+"streak_benefit_stay_motivated_description" = "Gardez votre série vivante";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Nous vous enverrons des rappels doux pour vous aider à maintenir votre série d'apprentissage";
+"notification_benefit_daily_reminders_title" = "Rappels Quotidiens";
+"notification_benefit_daily_reminders_description" = "Ne ratez jamais votre temps d'étude";
+"notification_benefit_smart_timing_title" = "Timing Intelligent";
+"notification_benefit_smart_timing_description" = "Personnalisé selon votre emploi du temps";
+"notification_benefit_no_spam_title" = "Pas de Spam";
+"notification_benefit_no_spam_description" = "Seulement des rappels utiles";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Comment devrions-nous vous appeler ?";
+"enter_your_name" = "Entrez votre nom";
+"skip" = "Passer";
+"continue" = "Continuer";
+
+// User Type
+"which_best_describes_you" = "Qu'est-ce qui vous décrit le mieux ?";
+"user_type_student" = "Étudiant";
+"user_type_professional" = "Professionnel";
+"user_type_hobbyist" = "Amateur";
+"user_type_other" = "Autre";
+"user_type_student_description" = "Apprendre pour l'école ou l'université";
+"user_type_professional_description" = "Faire progresser ma carrière";
+"user_type_hobbyist_description" = "Apprendre pour le plaisir";
+"user_type_other_description" = "Autres objectifs";
+
+// Age Group
+"whats_your_age_group" = "Quel est votre groupe d'âge ?";
+
+// Learning Goals
+"why_are_you_learning" = "Pourquoi apprenez-vous des langues ?";
+"select_up_to_three" = "Sélectionnez 1-3 objectifs";
+"learning_goal_career" = "Croissance de Carrière";
+"learning_goal_travel" = "Voyage et Tourisme";
+"learning_goal_education" = "Éducation";
+"learning_goal_personal_growth" = "Croissance Personnelle";
+"learning_goal_immigration" = "Immigration";
+"learning_goal_family" = "Famille et Amis";
+
+// Languages to Study
+"which_languages_to_learn" = "Quelles langues voulez-vous apprendre ?";
+"search_languages" = "Rechercher des langues";
+"add_language" = "Ajouter une Langue";
+"select_proficiency_level" = "Sélectionnez le niveau de compétence";
+"select_at_least_one_language" = "Sélectionnez au moins une langue";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Débutant - Phrases de base";
+"cefr_level_a2_description" = "Élémentaire - Conversations simples";
+"cefr_level_b1_description" = "Intermédiaire - Utilisateur indépendant";
+"cefr_level_b2_description" = "Intermédiaire Supérieur - Sujets complexes";
+"cefr_level_c1_description" = "Avancé - Expression fluide";
+"cefr_level_c2_description" = "Maîtrise - Compétence quasi-naturelle";
+
+// Interests
+"what_topics_interest_you" = "Quels sujets vous intéressent ?";
+"select_2_to_5_interests" = "Sélectionnez 2-5 intérêts";
+"interest_business" = "Affaires";
+"interest_technology" = "Technologie";
+"interest_sports" = "Sports";
+"interest_culture" = "Culture";
+"interest_food" = "Nourriture";
+"interest_entertainment" = "Divertissement";
+"interest_science" = "Science";
+"interest_health" = "Santé";
+"interest_travel" = "Voyage";
+"interest_education" = "Éducation";
+
+// Study Intensity
+"how_many_words_per_week" = "Combien de mots voulez-vous apprendre par semaine ?";
+"words_per_week" = "%d mots/semaine";
+"estimated_daily_time" = "≈ %d min/jour";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Quand préférez-vous étudier ?";
+"study_time_morning" = "Matin";
+"study_time_afternoon" = "Après-midi";
+"study_time_evening" = "Soir";
+"study_time_flexible" = "Flexible";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "N'importe quand";
+
+// Streak Introduction
+"build_your_learning_streak" = "Construisez votre série d'apprentissage !";
+"streak_intro_message" = "Pratiquez chaque jour pour construire votre série et rester motivé. Ne cassez pas la chaîne !";
+"streak_benefits_title" = "Pourquoi les séries comptent :";
+"streak_benefit_motivation" = "Restez motivé";
+"streak_benefit_consistency" = "Construisez la cohérence";
+"streak_benefit_rewards" = "Gagnez des récompenses";
+"sounds_great" = "Ça Sonne Bien !";
+
+// Notifications
+"stay_on_track_with_reminders" = "Restez sur la bonne voie avec des rappels intelligents";
+"notification_benefit_daily_practice" = "Rappels de pratique quotidienne";
+"notification_benefit_streak_protection" = "Alertes de protection de série";
+"notification_benefit_progress_updates" = "Jalons de progrès";
+"notification_preview_title" = "Il est temps de pratiquer !";
+"notification_preview_body" = "Gardez votre série vivante avec 10 minutes de pratique";
+"enable_notifications" = "Activer les Notifications";
+"maybe_later" = "Peut-être Plus Tard";
+
+// Paywall
+"unlock_full_learning_potential" = "Débloquez votre Potentiel d'Apprentissage Complet";
+"start_7_day_free_trial" = "Commencez votre essai gratuit de 7 jours";
+"personalized_lessons_for_languages" = "Leçons personnalisées pour %@";
+"ai_powered_practice_for_interests" = "Pratique alimentée par l'IA pour %@";
+"unlimited_words_and_quizzes" = "Mots et quiz illimités";
+"cross_device_sync" = "Synchronisation entre appareils";
+"priority_support" = "Support prioritaire";
+"start_free_trial" = "Commencer l'Essai Gratuit";
+"monthly" = "Mensuel";
+"yearly" = "Annuel";
+"save_percentage" = "Économisez %d%%";
+
+// Sign In
+"sync_your_progress" = "Synchronisez votre progrès entre appareils";
+"sign_in_benefit_cloud_backup" = "Sauvegarde cloud";
+"sign_in_benefit_multi_device" = "Accès multi-appareils";
+"sign_in_benefit_shared_dictionaries" = "Dictionnaires partagés";
+"sign_in_with_apple" = "Se connecter avec Apple";
+"sign_in_with_google" = "Se connecter avec Google";
+"skip_for_now" = "Passer pour l'instant";
+
+// Success
+"youre_all_set_name" = "Vous êtes prêt, %@ !";
+"ready_to_learn_languages" = "Prêt à apprendre %@";
+"start_learning" = "Commencer à Apprendre";
+
+// Personalization Banner
+"complete_your_profile" = "Complétez votre Profil";
+"personalize_your_learning" = "Personnalisez votre expérience d'apprentissage avec un sondage rapide";
+"takes_2_minutes" = "Prend 2 minutes";
+"personalize_now" = "Personnaliser Maintenant";
+
+// iCloud Sync
+"loading_from_icloud" = "Chargement depuis iCloud...";
+"profile_found" = "Profil Trouvé !";
+"profile_found_message" = "Nous avons trouvé votre profil d'un autre appareil. Vos paramètres et préférences sont prêts !";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, débloquez votre potentiel d'apprentissage complet !";
+"paywall.personalized_subtitle_study" = "Maîtrisez le vocabulaire %@ pour le succès académique et excellez dans vos études !";
+"paywall.personalized_subtitle_work" = "Boostez votre carrière avec le vocabulaire professionnel %@ et les compétences de communication !";
+"paywall.personalized_subtitle_travel" = "Parlez %@ en toute confiance en voyageant et connectez-vous avec des gens du monde entier !";
+"paywall.personalized_subtitle_business" = "Excellez dans la communication d'affaires %@ et les contextes professionnels !";
+"paywall.personalized_subtitle_default" = "Rejoignez des milliers de %@s qui ont maîtrisé le vocabulaire %@ !";
+"paywall.personalized_for_you" = "Personnalisé pour Vous";
+"paywall.perfect_for_your_goals" = "Parfait pour vos Objectifs %@";
+"paywall.features_tailored_to_journey" = "Fonctionnalités adaptées à votre parcours %@ avec %@";
+"paywall.visual_learning_mode" = "Mode d'Apprentissage Visuel";
+"paywall.visual_learning_description" = "Apprenez avec des images, des associations visuelles et des techniques de mémoire";
+"paywall.what_our_users_say" = "Ce que Disent nos Utilisateurs";
+"paywall.join_thousands_satisfied" = "Rejoignez des milliers d'apprenants satisfaits";
+"paywall.choose_your_plan" = "Choisissez votre Plan";
+"paywall.start_free_upgrade_when_needed" = "Commencez gratuitement et mettez à niveau quand vous avez besoin de fonctionnalités avancées";
+"paywall.start_free_trial" = "Commencer l'Essai Gratuit";
+"paywall.continue_free" = "Continuer Gratuitement";
+"paywall.achievement_master_words" = "Maîtrisez %d nouveaux mots %@ dans votre première semaine";
+"paywall.achievement_academic_writing" = "Améliorez votre écriture académique et compréhension de lecture %@";
+"paywall.achievement_professional_communication" = "Améliorez vos compétences de communication professionnelle en %@";
+"paywall.achievement_travel_confidence" = "Naviguez dans n'importe quel pays francophone %@ en toute confiance";
+"paywall.achievement_business_communication" = "Excellez dans la communication d'affaires %@ et les contextes professionnels";
+"paywall.achievement_tech_vocabulary" = "Maîtrisez le vocabulaire technologique %@ et la terminologie de l'industrie";
+"paywall.achievement_business_contexts" = "Excellez dans les contextes d'affaires %@ et la communication professionnelle";
+"paywall.days" = "Jours";
+"paywall.words_goal" = "Objectif de Mots";
+"paywall.new" = "NOUVEAU";
+"paywall.your_personalized_journey" = "Votre Parcours Personnalisé de 7 Jours";
+"paywall.start_free_trial" = "Commencer votre Essai Gratuit de 7 Jours";
+"paywall.free" = "GRATUIT";
+"paywall.recommended" = "RECOMMANDÉ";
+"paywall.skip_for_now" = "Passer pour l'Instant";
+"paywall.start_my_free_trial_now" = "Commencer mon Essai Gratuit Maintenant";
+"paywall.start_free_trial_save" = "Commencer l'Essai Gratuit - Économisez %@";
+"paywall.app_store_rating" = "Note App Store";
+"paywall.total_ratings" = "Notes Totales";
+"paywall.reviews" = "Avis";
+

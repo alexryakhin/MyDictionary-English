@@ -30,3 +30,191 @@
 "collaborative_learning_description" = "شارك القواميس مع الأصدقاء والعائلة";
 "natural_voices" = "أصوات طبيعية";
 "natural_voices_description" = "مئات الأصوات المميزة التي تبدو أكثر إنسانية من أي وقت مضى";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "الانتظام اليومي";
+"streak_benefit_daily_consistency_description" = "بناء عادة تبقى معك";
+"streak_benefit_track_progress_title" = "تتبع التقدم";
+"streak_benefit_track_progress_description" = "شاهد مفرداتك تنمو";
+"streak_benefit_stay_motivated_title" = "ابق متحمسًا";
+"streak_benefit_stay_motivated_description" = "حافظ على سلسلة التعلم الخاصة بك";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "سنرسل لك تذكيرات لطيفة لمساعدتك في الحفاظ على سلسلة التعلم الخاصة بك";
+"notification_benefit_daily_reminders_title" = "تذكيرات يومية";
+"notification_benefit_daily_reminders_description" = "لا تفوت وقت الدراسة أبدًا";
+"notification_benefit_smart_timing_title" = "توقيت ذكي";
+"notification_benefit_smart_timing_description" = "مخصص لجدولك الزمني";
+"notification_benefit_no_spam_title" = "لا إزعاج";
+"notification_benefit_no_spam_description" = "تذكيرات مفيدة فقط";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "كيف يجب أن نناديك؟";
+"enter_your_name" = "أدخل اسمك";
+"skip" = "تخطي";
+"continue" = "متابعة";
+
+// User Type
+"which_best_describes_you" = "ما الذي يصفك بشكل أفضل؟";
+"user_type_student" = "طالب";
+"user_type_professional" = "محترف";
+"user_type_hobbyist" = "هواة";
+"user_type_other" = "آخر";
+"user_type_student_description" = "التعلم للمدرسة أو الجامعة";
+"user_type_professional_description" = "تطوير مسيرتي المهنية";
+"user_type_hobbyist_description" = "التعلم للمتعة";
+"user_type_other_description" = "أغراض أخرى";
+
+// Age Group
+"whats_your_age_group" = "ما هي فئتك العمرية؟";
+
+// Learning Goals
+"why_are_you_learning" = "لماذا تتعلم اللغات؟";
+"select_up_to_three" = "اختر 1-3 أهداف";
+"learning_goal_career" = "النمو المهني";
+"learning_goal_travel" = "السفر والسياحة";
+"learning_goal_education" = "التعليم";
+"learning_goal_personal_growth" = "النمو الشخصي";
+"learning_goal_immigration" = "الهجرة";
+"learning_goal_family" = "العائلة والأصدقاء";
+
+// Languages to Study
+"which_languages_to_learn" = "أي اللغات تريد تعلمها؟";
+"search_languages" = "البحث عن اللغات";
+"add_language" = "إضافة لغة";
+"select_proficiency_level" = "اختر مستوى الكفاءة";
+"select_at_least_one_language" = "اختر لغة واحدة على الأقل";
+
+// CEFR Levels
+"cefr_level_a1_description" = "مبتدئ - عبارات أساسية";
+"cefr_level_a2_description" = "ابتدائي - محادثات بسيطة";
+"cefr_level_b1_description" = "متوسط - مستخدم مستقل";
+"cefr_level_b2_description" = "متوسط متقدم - مواضيع معقدة";
+"cefr_level_c1_description" = "متقدم - تعبير طليق";
+"cefr_level_c2_description" = "إتقان - مستوى قريب من المتحدث الأصلي";
+
+// Interests
+"what_topics_interest_you" = "ما المواضيع التي تهمك؟";
+"select_2_to_5_interests" = "اختر 2-5 اهتمامات";
+"interest_business" = "الأعمال";
+"interest_technology" = "التكنولوجيا";
+"interest_sports" = "الرياضة";
+"interest_culture" = "الثقافة";
+"interest_food" = "الطعام";
+"interest_entertainment" = "الترفيه";
+"interest_science" = "العلوم";
+"interest_health" = "الصحة";
+"interest_travel" = "السفر";
+"interest_education" = "التعليم";
+
+// Study Intensity
+"how_many_words_per_week" = "كم كلمة تريد تعلمها في الأسبوع؟";
+"words_per_week" = "%d كلمة/أسبوع";
+"estimated_daily_time" = "≈ %d دقيقة/يوم";
+
+// Study Time
+"when_do_you_prefer_to_study" = "متى تفضل الدراسة؟";
+"study_time_morning" = "الصباح";
+"study_time_afternoon" = "بعد الظهر";
+"study_time_evening" = "المساء";
+"study_time_flexible" = "مرن";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "أي وقت";
+
+// Streak Introduction
+"build_your_learning_streak" = "ابنِ سلسلة تعلمك!";
+"streak_intro_message" = "تدرب كل يوم لبناء سلسلتك والبقاء متحمسًا. لا تكسر السلسلة!";
+"streak_benefits_title" = "لماذا السلسلة مهمة:";
+"streak_benefit_motivation" = "ابق متحمسًا";
+"streak_benefit_consistency" = "ابنِ الثبات";
+"streak_benefit_rewards" = "اكسب المكافآت";
+"sounds_great" = "يبدو رائعًا!";
+
+// Notifications
+"stay_on_track_with_reminders" = "ابق على المسار الصحيح مع التذكيرات الذكية";
+"notification_benefit_daily_practice" = "تذكيرات الممارسة اليومية";
+"notification_benefit_streak_protection" = "تنبيهات حماية السلسلة";
+"notification_benefit_progress_updates" = "معالم التقدم";
+"notification_preview_title" = "حان وقت الممارسة!";
+"notification_preview_body" = "حافظ على سلسلتك حية مع 10 دقائق من الممارسة";
+"enable_notifications" = "تفعيل الإشعارات";
+"maybe_later" = "ربما لاحقًا";
+
+// Paywall
+"unlock_full_learning_potential" = "أطلق إمكانات التعلم الكاملة";
+"start_7_day_free_trial" = "ابدأ تجربتك المجانية لمدة 7 أيام";
+"personalized_lessons_for_languages" = "دروس مخصصة لـ %@";
+"ai_powered_practice_for_interests" = "ممارسة مدعومة بالذكاء الاصطناعي لـ %@";
+"unlimited_words_and_quizzes" = "كلمات واختبارات غير محدودة";
+"cross_device_sync" = "مزامنة عبر الأجهزة";
+"priority_support" = "دعم أولوي";
+"start_free_trial" = "ابدأ التجربة المجانية";
+"monthly" = "شهري";
+"yearly" = "سنوي";
+"save_percentage" = "وفر %d%%";
+
+// Sign In
+"sync_your_progress" = "مزامنة تقدمك عبر الأجهزة";
+"sign_in_benefit_cloud_backup" = "نسخ احتياطي في السحابة";
+"sign_in_benefit_multi_device" = "وصول متعدد الأجهزة";
+"sign_in_benefit_shared_dictionaries" = "قواميس مشتركة";
+"sign_in_with_apple" = "تسجيل الدخول مع Apple";
+"sign_in_with_google" = "تسجيل الدخول مع Google";
+"skip_for_now" = "تخطي الآن";
+
+// Success
+"youre_all_set_name" = "أنت جاهز، %@!";
+"ready_to_learn_languages" = "جاهز لتعلم %@";
+"start_learning" = "ابدأ التعلم";
+
+// Personalization Banner
+"complete_your_profile" = "أكمل ملفك الشخصي";
+"personalize_your_learning" = "خصص تجربة التعلم مع استطلاع سريع";
+"takes_2_minutes" = "يستغرق دقيقتين";
+"personalize_now" = "خصص الآن";
+
+// iCloud Sync
+"loading_from_icloud" = "جاري التحميل من iCloud...";
+"profile_found" = "تم العثور على الملف الشخصي!";
+"profile_found_message" = "وجدنا ملفك الشخصي من جهاز آخر. إعداداتك وتفضيلاتك جاهزة!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@، أطلق إمكانات التعلم الكاملة!";
+"paywall.personalized_subtitle_study" = "أتقن مفردات %@ للنجاح الأكاديمي وتميز في دراستك!";
+"paywall.personalized_subtitle_work" = "طور مسيرتك المهنية مع مفردات %@ المهنية ومهارات التواصل!";
+"paywall.personalized_subtitle_travel" = "تحدث %@ بثقة أثناء السفر وتواصل مع الناس حول العالم!";
+"paywall.personalized_subtitle_business" = "تميز في التواصل التجاري %@ والسياقات المهنية!";
+"paywall.personalized_subtitle_default" = "انضم إلى آلاف %@ الذين أتقنوا مفردات %@!";
+"paywall.personalized_for_you" = "مخصص لك";
+"paywall.perfect_for_your_goals" = "مثالي لأهدافك %@";
+"paywall.features_tailored_to_journey" = "ميزات مصممة لرحلتك %@ مع %@";
+"paywall.visual_learning_mode" = "وضع التعلم البصري";
+"paywall.visual_learning_description" = "تعلم مع الصور والجمعيات البصرية وتقنيات الذاكرة";
+"paywall.what_our_users_say" = "ما يقوله مستخدمونا";
+"paywall.join_thousands_satisfied" = "انضم إلى آلاف المتعلمين الراضين";
+"paywall.choose_your_plan" = "اختر خطتك";
+"paywall.start_free_upgrade_when_needed" = "ابدأ مجانًا وارتقِ عند الحاجة للميزات المتقدمة";
+"paywall.start_free_trial" = "ابدأ التجربة المجانية";
+"paywall.continue_free" = "تابع مجانًا";
+"paywall.achievement_master_words" = "أتقن %d كلمة جديدة %@ في أسبوعك الأول";
+"paywall.achievement_academic_writing" = "حسن كتابتك الأكاديمية %@ وفهم القراءة";
+"paywall.achievement_professional_communication" = "حسن مهارات التواصل المهني %@";
+"paywall.achievement_travel_confidence" = "تنقل بثقة في أي بلد يتحدث %@";
+"paywall.achievement_business_communication" = "تميز في التواصل التجاري %@ والسياقات المهنية";
+"paywall.achievement_tech_vocabulary" = "أتقن مفردات التكنولوجيا %@ ومصطلحات الصناعة";
+"paywall.achievement_business_contexts" = "تميز في السياقات التجارية %@ والتواصل المهني";
+"paywall.days" = "أيام";
+"paywall.words_goal" = "هدف الكلمات";
+"paywall.new" = "جديد";
+"paywall.your_personalized_journey" = "رحلتك المخصصة لمدة 7 أيام";
+"paywall.start_free_trial" = "ابدأ تجربتك المجانية لمدة 7 أيام";
+"paywall.free" = "مجاني";
+"paywall.recommended" = "موصى به";
+"paywall.skip_for_now" = "تخطي الآن";
+"paywall.start_my_free_trial_now" = "ابدأ تجربتي المجانية الآن";
+"paywall.start_free_trial_save" = "ابدأ التجربة المجانية - وفر %@";
+"paywall.app_store_rating" = "تقييم App Store";
+"paywall.total_ratings" = "إجمالي التقييمات";
+"paywall.reviews" = "المراجعات";

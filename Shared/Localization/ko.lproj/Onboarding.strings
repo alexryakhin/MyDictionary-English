@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "친구 및 가족과 사전을 공유";
 "natural_voices" = "자연스러운 음성";
 "natural_voices_description" = "이제까지보다 더 인간적으로 들리는 수백 개의 프리미엄 음성";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "매일의 일관성";
+"streak_benefit_daily_consistency_description" = "지속되는 습관을 만드세요";
+"streak_benefit_track_progress_title" = "진행 상황 추적";
+"streak_benefit_track_progress_description" = "어휘의 성장을 지켜보세요";
+"streak_benefit_stay_motivated_title" = "동기 유지";
+"streak_benefit_stay_motivated_description" = "연속 기록을 유지하세요";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "학습 연속 기록을 유지하는 데 도움이 되는 부드러운 알림을 보내드립니다";
+"notification_benefit_daily_reminders_title" = "일일 알림";
+"notification_benefit_daily_reminders_description" = "학습 시간을 놓치지 마세요";
+"notification_benefit_smart_timing_title" = "스마트 타이밍";
+"notification_benefit_smart_timing_description" = "당신의 일정에 맞춰 개인화";
+"notification_benefit_no_spam_title" = "스팸 없음";
+"notification_benefit_no_spam_description" = "유용한 알림만";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "어떻게 부르면 될까요?";
+"enter_your_name" = "이름을 입력하세요";
+"skip" = "건너뛰기";
+"continue" = "계속";
+
+// User Type
+"which_best_describes_you" = "당신을 가장 잘 설명하는 것은?";
+"user_type_student" = "학생";
+"user_type_professional" = "전문가";
+"user_type_hobbyist" = "취미인";
+"user_type_other" = "기타";
+"user_type_student_description" = "학교나 대학을 위해";
+"user_type_professional_description" = "경력 발전";
+"user_type_hobbyist_description" = "재미를 위해";
+"user_type_other_description" = "기타 목적";
+
+// Age Group
+"whats_your_age_group" = "당신의 연령대는?";
+
+// Learning Goals
+"why_are_you_learning" = "왜 언어를 배우고 있나요?";
+"select_up_to_three" = "1-3개의 목표를 선택하세요";
+"learning_goal_career" = "경력 성장";
+"learning_goal_travel" = "여행과 관광";
+"learning_goal_education" = "교육";
+"learning_goal_personal_growth" = "개인 성장";
+"learning_goal_immigration" = "이민";
+"learning_goal_family" = "가족과 친구";
+
+// Languages to Study
+"which_languages_to_learn" = "어떤 언어를 배우고 싶나요?";
+"search_languages" = "언어 검색";
+"add_language" = "언어 추가";
+"select_proficiency_level" = "숙련도 선택";
+"select_at_least_one_language" = "최소 하나의 언어를 선택하세요";
+
+// CEFR Levels
+"cefr_level_a1_description" = "초급자 - 기본 구문";
+"cefr_level_a2_description" = "기초 - 간단한 대화";
+"cefr_level_b1_description" = "중급 - 독립적 사용자";
+"cefr_level_b2_description" = "중상급 - 복잡한 주제";
+"cefr_level_c1_description" = "고급 - 유창한 표현";
+"cefr_level_c2_description" = "숙련 - 원어민 수준";
+
+// Interests
+"what_topics_interest_you" = "어떤 주제에 관심이 있나요?";
+"select_2_to_5_interests" = "2-5개의 관심사를 선택하세요";
+"interest_business" = "비즈니스";
+"interest_technology" = "기술";
+"interest_sports" = "스포츠";
+"interest_culture" = "문화";
+"interest_food" = "음식";
+"interest_entertainment" = "엔터테인먼트";
+"interest_science" = "과학";
+"interest_health" = "건강";
+"interest_travel" = "여행";
+"interest_education" = "교육";
+
+// Study Intensity
+"how_many_words_per_week" = "주당 몇 개의 단어를 배우고 싶나요?";
+"words_per_week" = "%d개 단어/주";
+"estimated_daily_time" = "≈ %d분/일";
+
+// Study Time
+"when_do_you_prefer_to_study" = "언제 공부하는 것을 선호하나요?";
+"study_time_morning" = "아침";
+"study_time_afternoon" = "오후";
+"study_time_evening" = "저녁";
+"study_time_flexible" = "유연함";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "언제든지";
+
+// Streak Introduction
+"build_your_learning_streak" = "학습 연속 기록을 만들어보세요!";
+"streak_intro_message" = "매일 연습하여 연속 기록을 만들고 동기를 유지하세요. 체인을 끊지 마세요!";
+"streak_benefits_title" = "왜 연속 기록이 중요한가:";
+"streak_benefit_motivation" = "동기 유지";
+"streak_benefit_consistency" = "일관성 구축";
+"streak_benefit_rewards" = "보상 획득";
+"sounds_great" = "훌륭해요!";
+
+// Notifications
+"stay_on_track_with_reminders" = "스마트 알림으로 정상 궤도 유지";
+"notification_benefit_daily_practice" = "일일 연습 알림";
+"notification_benefit_streak_protection" = "연속 기록 보호 알림";
+"notification_benefit_progress_updates" = "진행 상황 마일스톤";
+"notification_preview_title" = "연습 시간입니다!";
+"notification_preview_body" = "10분 연습으로 연속 기록을 유지하세요";
+"enable_notifications" = "알림 활성화";
+"maybe_later" = "나중에";
+
+// Paywall
+"unlock_full_learning_potential" = "완전한 학습 잠재력 해제";
+"start_7_day_free_trial" = "7일 무료 체험 시작";
+"personalized_lessons_for_languages" = "%@을 위한 개인화된 레슨";
+"ai_powered_practice_for_interests" = "%@을 위한 AI 기반 연습";
+"unlimited_words_and_quizzes" = "무제한 단어와 퀴즈";
+"cross_device_sync" = "기기 간 동기화";
+"priority_support" = "우선 지원";
+"start_free_trial" = "무료 체험 시작";
+"monthly" = "월간";
+"yearly" = "연간";
+"save_percentage" = "%d%% 절약";
+
+// Sign In
+"sync_your_progress" = "기기 간 진행 상황 동기화";
+"sign_in_benefit_cloud_backup" = "클라우드 백업";
+"sign_in_benefit_multi_device" = "다중 기기 액세스";
+"sign_in_benefit_shared_dictionaries" = "공유 사전";
+"sign_in_with_apple" = "Apple로 로그인";
+"sign_in_with_google" = "Google로 로그인";
+"skip_for_now" = "지금은 건너뛰기";
+
+// Success
+"youre_all_set_name" = "준비 완료, %@!";
+"ready_to_learn_languages" = "%@을 배울 준비가 되었습니다";
+"start_learning" = "학습 시작";
+
+// Personalization Banner
+"complete_your_profile" = "프로필 완성";
+"personalize_your_learning" = "빠른 설문으로 학습 경험을 개인화하세요";
+"takes_2_minutes" = "2분 소요";
+"personalize_now" = "지금 개인화";
+
+// iCloud Sync
+"loading_from_icloud" = "iCloud에서 로딩 중...";
+"profile_found" = "프로필 발견!";
+"profile_found_message" = "다른 기기에서 프로필을 찾았습니다. 설정과 선호도가 준비되었습니다!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, 완전한 학습 잠재력을 해제하세요!";
+"paywall.personalized_subtitle_study" = "학술 성공을 위해 %@ 어휘를 마스터하고 학습에서 뛰어난 성과를 거두세요!";
+"paywall.personalized_subtitle_work" = "전문 %@ 어휘와 커뮤니케이션 스킬로 경력을 발전시키세요!";
+"paywall.personalized_subtitle_travel" = "여행 중에 %@을 자신 있게 말하고 전 세계 사람들과 연결하세요!";
+"paywall.personalized_subtitle_business" = "%@ 비즈니스 커뮤니케이션과 전문 환경에서 뛰어난 성과를 거두세요!";
+"paywall.personalized_subtitle_default" = "%@ 어휘를 마스터한 수천 명의 %@에 참여하세요!";
+"paywall.personalized_for_you" = "당신을 위해 개인화";
+"paywall.perfect_for_your_goals" = "당신의 %@ 목표에 완벽";
+"paywall.features_tailored_to_journey" = "당신의 %@과 %@ 여정에 맞춤화된 기능";
+"paywall.visual_learning_mode" = "시각적 학습 모드";
+"paywall.visual_learning_description" = "이미지, 시각적 연상, 기억 기법으로 학습";
+"paywall.what_our_users_say" = "사용자들의 말";
+"paywall.join_thousands_satisfied" = "수천 명의 만족한 학습자에 참여";
+"paywall.choose_your_plan" = "플랜 선택";
+"paywall.start_free_upgrade_when_needed" = "무료로 시작하고 고급 기능이 필요할 때 업그레이드";
+"paywall.start_free_trial" = "무료 체험 시작";
+"paywall.continue_free" = "무료로 계속";
+"paywall.achievement_master_words" = "첫 주에 %d개의 새로운 %@ 단어 마스터";
+"paywall.achievement_academic_writing" = "당신의 %@ 학술 작문과 읽기 이해력 향상";
+"paywall.achievement_professional_communication" = "당신의 %@ 전문 커뮤니케이션 스킬 향상";
+"paywall.achievement_travel_confidence" = "자신 있게 %@ 국가 탐색";
+"paywall.achievement_business_communication" = "%@ 비즈니스 커뮤니케이션과 전문 환경에서 뛰어난 성과";
+"paywall.achievement_tech_vocabulary" = "%@ 기술 어휘와 업계 용어 마스터";
+"paywall.achievement_business_contexts" = "%@ 비즈니스 환경과 전문 커뮤니케이션에서 뛰어난 성과";
+"paywall.days" = "일";
+"paywall.words_goal" = "단어 목표";
+"paywall.new" = "신규";
+"paywall.your_personalized_journey" = "당신의 개인화된 7일 여정";
+"paywall.start_free_trial" = "7일 무료 체험 시작";
+"paywall.free" = "무료";
+"paywall.recommended" = "추천";
+"paywall.skip_for_now" = "지금은 건너뛰기";
+"paywall.start_my_free_trial_now" = "지금 무료 체험 시작";
+"paywall.start_free_trial_save" = "무료 체험 시작 - %@ 절약";
+"paywall.app_store_rating" = "App Store 평점";
+"paywall.total_ratings" = "총 평점";
+"paywall.reviews" = "리뷰";
+

@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Μοιράσου λεξικά με φίλους και οικογένεια";
 "natural_voices" = "Φυσικές φωνές";
 "natural_voices_description" = "Εκατοντάδες premium φωνές που ακούγονται πιο ανθρώπινες από ποτέ";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Καθημερινή Συνοχή";
+"streak_benefit_daily_consistency_description" = "Χτίσε έναν συνήθεια που μένει";
+"streak_benefit_track_progress_title" = "Παρακολούθηση Προόδου";
+"streak_benefit_track_progress_description" = "Δες το λεξιλόγιό σου να αναπτύσσεται";
+"streak_benefit_stay_motivated_title" = "Μείνε Μοτιβιρισμένος";
+"streak_benefit_stay_motivated_description" = "Κράτησε τη σειρά σου ζωντανή";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Θα σου στείλουμε απαλές υπενθυμίσεις για να σε βοηθήσουμε να διατηρήσεις τη σειρά μάθησής σου";
+"notification_benefit_daily_reminders_title" = "Καθημερινές Υπενθυμίσεις";
+"notification_benefit_daily_reminders_description" = "Μη χάσεις ποτέ τον χρόνο μελέτης σου";
+"notification_benefit_smart_timing_title" = "Έξυπνος Χρονοπρογραμματισμός";
+"notification_benefit_smart_timing_description" = "Προσωποποιημένο στο πρόγραμμά σου";
+"notification_benefit_no_spam_title" = "Χωρίς Spam";
+"notification_benefit_no_spam_description" = "Μόνο χρήσιμες υπενθυμίσεις";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Πώς να σε φωνάζουμε;";
+"enter_your_name" = "Εισήγαγε το όνομά σου";
+"skip" = "Παράλειψη";
+"continue" = "Συνέχεια";
+
+// User Type
+"which_best_describes_you" = "Τι σε περιγράφει καλύτερα;";
+"user_type_student" = "Φοιτητής";
+"user_type_professional" = "Επαγγελματίας";
+"user_type_hobbyist" = "Χομπίστας";
+"user_type_other" = "Άλλο";
+"user_type_student_description" = "Μάθηση για σχολείο ή πανεπιστήμιο";
+"user_type_professional_description" = "Προώθηση της καριέρας μου";
+"user_type_hobbyist_description" = "Μάθηση για διασκέδαση";
+"user_type_other_description" = "Άλλοι σκοποί";
+
+// Age Group
+"whats_your_age_group" = "Ποια είναι η ηλικιακή σου ομάδα;";
+
+// Learning Goals
+"why_are_you_learning" = "Γιατί μαθαίνεις γλώσσες;";
+"select_up_to_three" = "Επίλεξε 1-3 στόχους";
+"learning_goal_career" = "Καριερακή Ανάπτυξη";
+"learning_goal_travel" = "Ταξίδια και Τουρισμός";
+"learning_goal_education" = "Εκπαίδευση";
+"learning_goal_personal_growth" = "Προσωπική Ανάπτυξη";
+"learning_goal_immigration" = "Μετανάστευση";
+"learning_goal_family" = "Οικογένεια και Φίλοι";
+
+// Languages to Study
+"which_languages_to_learn" = "Ποιες γλώσσες θέλεις να μάθεις;";
+"search_languages" = "Αναζήτηση γλωσσών";
+"add_language" = "Προσθήκη Γλώσσας";
+"select_proficiency_level" = "Επίλεξε επίπεδο δεξιοτήτων";
+"select_at_least_one_language" = "Επίλεξε τουλάχιστον μία γλώσσα";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Αρχάριος - Βασικές φράσεις";
+"cefr_level_a2_description" = "Στοιχειώδης - Απλές συνομιλίες";
+"cefr_level_b1_description" = "Μεσαίος - Ανεξάρτητος χρήστης";
+"cefr_level_b2_description" = "Ανώτερος Μεσαίος - Πολύπλοκα θέματα";
+"cefr_level_c1_description" = "Προχωρημένος - Ρευστή έκφραση";
+"cefr_level_c2_description" = "Κυριαρχία - Σχεδόν μητρική γλώσσα";
+
+// Interests
+"what_topics_interest_you" = "Ποια θέματα σε ενδιαφέρουν;";
+"select_2_to_5_interests" = "Επίλεξε 2-5 ενδιαφέροντα";
+"interest_business" = "Επιχειρήσεις";
+"interest_technology" = "Τεχνολογία";
+"interest_sports" = "Αθλητισμός";
+"interest_culture" = "Πολιτισμός";
+"interest_food" = "Φαγητό";
+"interest_entertainment" = "Ψυχαγωγία";
+"interest_science" = "Επιστήμη";
+"interest_health" = "Υγεία";
+"interest_travel" = "Ταξίδια";
+"interest_education" = "Εκπαίδευση";
+
+// Study Intensity
+"how_many_words_per_week" = "Πόσες λέξεις θέλεις να μάθεις την εβδομάδα;";
+"words_per_week" = "%d λέξεις/εβδομάδα";
+"estimated_daily_time" = "≈ %d λεπτά/ημέρα";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Πότε προτιμάς να μελετάς;";
+"study_time_morning" = "Πρωί";
+"study_time_afternoon" = "Απόγευμα";
+"study_time_evening" = "Βράδυ";
+"study_time_flexible" = "Ευέλικτο";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Οποιαδήποτε ώρα";
+
+// Streak Introduction
+"build_your_learning_streak" = "Χτίσε τη σειρά μάθησής σου!";
+"streak_intro_message" = "Εξάσκηση κάθε μέρα για να χτίσεις τη σειρά σου και να μείνεις μοτιβιρισμένος. Μη σπάσεις την αλυσίδα!";
+"streak_benefits_title" = "Γιατί οι σειρές έχουν σημασία:";
+"streak_benefit_motivation" = "Μείνε μοτιβιρισμένος";
+"streak_benefit_consistency" = "Χτίσε συνέπεια";
+"streak_benefit_rewards" = "Κέρδισε ανταμοιβές";
+"sounds_great" = "Ακούγεται υπέροχα!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Μείνε στο δρόμο με έξυπνες υπενθυμίσεις";
+"notification_benefit_daily_practice" = "Καθημερινές υπενθυμίσεις εξάσκησης";
+"notification_benefit_streak_protection" = "Ειδοποιήσεις προστασίας σειράς";
+"notification_benefit_progress_updates" = "Ορόσημα προόδου";
+"notification_preview_title" = "Ώρα για εξάσκηση!";
+"notification_preview_body" = "Κράτησε τη σειρά σου ζωντανή με 10 λεπτά εξάσκησης";
+"enable_notifications" = "Ενεργοποίηση Ειδοποιήσεων";
+"maybe_later" = "Ίσως Αργότερα";
+
+// Paywall
+"unlock_full_learning_potential" = "Ξεκλείδωσε το Πλήρες Δυναμικό Μάθησής σου";
+"start_7_day_free_trial" = "Ξεκίνα την 7-ήμερη δωρεάν δοκιμή σου";
+"personalized_lessons_for_languages" = "Προσωποποιημένα μαθήματα για %@";
+"ai_powered_practice_for_interests" = "Εξάσκηση με τεχνητή νοημοσύνη για %@";
+"unlimited_words_and_quizzes" = "Απεριόριστες λέξεις και κουίζ";
+"cross_device_sync" = "Συγχρονισμός συσκευών";
+"priority_support" = "Προτεραιότητα υποστήριξης";
+"start_free_trial" = "Ξεκίνα Δωρεάν Δοκιμή";
+"monthly" = "Μηνιαία";
+"yearly" = "Ετήσια";
+"save_percentage" = "Εconomia %d%%";
+
+// Sign In
+"sync_your_progress" = "Συγχρονίσε την πρόοδό σου σε όλες τις συσκευές";
+"sign_in_benefit_cloud_backup" = "Αντίγραφο ασφαλείας στο cloud";
+"sign_in_benefit_multi_device" = "Πρόσβαση πολλαπλών συσκευών";
+"sign_in_benefit_shared_dictionaries" = "Κοινόχρηστα λεξικά";
+"sign_in_with_apple" = "Σύνδεση με Apple";
+"sign_in_with_google" = "Σύνδεση με Google";
+"skip_for_now" = "Παράλειψη προς το παρόν";
+
+// Success
+"youre_all_set_name" = "Είσαι έτοιμος, %@!";
+"ready_to_learn_languages" = "Έτοιμος να μάθεις %@";
+"start_learning" = "Ξεκίνα Μάθηση";
+
+// Personalization Banner
+"complete_your_profile" = "Ολοκλήρωσε το Προφίλ σου";
+"personalize_your_learning" = "Προσωποποίησε την εμπειρία μάθησής σου με μια γρήγορη έρευνα";
+"takes_2_minutes" = "Παίρνει 2 λεπτά";
+"personalize_now" = "Προσωποποίηση Τώρα";
+
+// iCloud Sync
+"loading_from_icloud" = "Φόρτωση από iCloud...";
+"profile_found" = "Βρέθηκε Προφίλ!";
+"profile_found_message" = "Βρήκαμε το προφίλ σου από άλλη συσκευή. Οι ρυθμίσεις και οι προτιμήσεις σου είναι έτοιμες!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, ξεκλείδωσε το πλήρες δυναμικό μάθησής σου!";
+"paywall.personalized_subtitle_study" = "Κυρίαρχησε το λεξιλόγιο %@ για ακαδημαϊκή επιτυχία και ξεχώρισε στις σπουδές σου!";
+"paywall.personalized_subtitle_work" = "Ενίσχυσε την καριέρα σου με επαγγελματικό λεξιλόγιο %@ και δεξιότητες επικοινωνίας!";
+"paywall.personalized_subtitle_travel" = "Μίλα %@ με αυτοπεποίθηση ενώ ταξιδεύεις και συνδέσου με ανθρώπους παγκοσμίως!";
+"paywall.personalized_subtitle_business" = "Εξέλιξε στην επιχειρηματική επικοινωνία %@ και επαγγελματικά περιβάλλοντα!";
+"paywall.personalized_subtitle_default" = "Ενώσου με χιλιάδες %@s που έχουν κυριαρχήσει στο λεξιλόγιο %@!";
+"paywall.personalized_for_you" = "Προσωποποιημένο για εσένα";
+"paywall.perfect_for_your_goals" = "Τέλειο για τους %@ στόχους σου";
+"paywall.features_tailored_to_journey" = "Χαρακτηριστικά προσαρμοσμένα στο %@ ταξίδι σου με %@";
+"paywall.visual_learning_mode" = "Λειτουργία Οπτικής Μάθησης";
+"paywall.visual_learning_description" = "Μάθε με εικόνες, οπτικές συσχετίσεις και τεχνικές μνήμης";
+"paywall.what_our_users_say" = "Τι Λένε οι Χρήστες μας";
+"paywall.join_thousands_satisfied" = "Ενώσου με χιλιάδες ικανοποιημένους μαθητές";
+"paywall.choose_your_plan" = "Επίλεξε το Σχέδιό σου";
+"paywall.start_free_upgrade_when_needed" = "Ξεκίνα δωρεάν και αναβάθμισε όταν χρειάζεσαι προηγμένα χαρακτηριστικά";
+"paywall.start_free_trial" = "Ξεκίνα Δωρεάν Δοκιμή";
+"paywall.continue_free" = "Συνέχισε Δωρεάν";
+"paywall.achievement_master_words" = "Κυρίαρχησε %d νέες λέξεις %@ την πρώτη εβδομάδα σου";
+"paywall.achievement_academic_writing" = "Βελτίωσε την ακαδημαϊκή σου γραφή %@ και την κατανόηση ανάγνωσης";
+"paywall.achievement_professional_communication" = "Ενίσχυσε τις επαγγελματικές σου δεξιότητες επικοινωνίας %@";
+"paywall.achievement_travel_confidence" = "Πλοήγησε οποιαδήποτε χώρα που μιλάει %@ με αυτοπεποίθηση";
+"paywall.achievement_business_communication" = "Εξέλιξε στην επιχειρηματική επικοινωνία %@ και επαγγελματικά περιβάλλοντα";
+"paywall.achievement_tech_vocabulary" = "Κυρίαρχησε το τεχνολογικό λεξιλόγιο %@ και την ορολογία της βιομηχανίας";
+"paywall.achievement_business_contexts" = "Εξέλιξε σε επιχειρηματικά περιβάλλοντα %@ και επαγγελματική επικοινωνία";
+"paywall.days" = "Ημέρες";
+"paywall.words_goal" = "Στόχος Λέξεων";
+"paywall.new" = "ΝΕΟ";
+"paywall.your_personalized_journey" = "Το Προσωποποιημένο 7-ήμερο Ταξίδι σου";
+"paywall.start_free_trial" = "Ξεκίνα την 7-ήμερη Δωρεάν Δοκιμή σου";
+"paywall.free" = "ΔΩΡΕΑΝ";
+"paywall.recommended" = "ΣΥΝΙΣΤΑΜΕΝΟ";
+"paywall.skip_for_now" = "Παράλειψη προς το παρόν";
+"paywall.start_my_free_trial_now" = "Ξεκίνα τη Δωρεάν Δοκιμή μου Τώρα";
+"paywall.start_free_trial_save" = "Ξεκίνα Δωρεάν Δοκιμή - Εconomia %@";
+"paywall.app_store_rating" = "Αξιολόγηση App Store";
+"paywall.total_ratings" = "Συνολικές Αξιολογήσεις";
+"paywall.reviews" = "Κριτικές";
+

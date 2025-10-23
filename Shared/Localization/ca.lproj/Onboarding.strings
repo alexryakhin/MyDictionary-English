@@ -30,3 +30,191 @@
 "collaborative_learning_description" = "Comparteix diccionaris amb amics i família";
 "natural_voices" = "Veus naturals";
 "natural_voices_description" = "Centenars de veus premium que sonen més humanes que mai";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Consistència Diària";
+"streak_benefit_daily_consistency_description" = "Construeix un hàbit que perduri";
+"streak_benefit_track_progress_title" = "Seguiment del Progrés";
+"streak_benefit_track_progress_description" = "Observa com creix el teu vocabulari";
+"streak_benefit_stay_motivated_title" = "Mantingues-te Motivat";
+"streak_benefit_stay_motivated_description" = "Mantén viva la teva ratxa";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "T'enviarem recordatoris suaus per ajudar-te a mantenir la teva ratxa d'aprenentatge";
+"notification_benefit_daily_reminders_title" = "Recordatoris Diaris";
+"notification_benefit_daily_reminders_description" = "No et perdis mai el teu temps d'estudi";
+"notification_benefit_smart_timing_title" = "Timing Intel·ligent";
+"notification_benefit_smart_timing_description" = "Personalitzat segons la teva agenda";
+"notification_benefit_no_spam_title" = "Sense Spam";
+"notification_benefit_no_spam_description" = "Només recordatoris útils";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Com t'hauríem de dir?";
+"enter_your_name" = "Introdueix el teu nom";
+"skip" = "Omet";
+"continue" = "Continua";
+
+// User Type
+"which_best_describes_you" = "Què et descriu millor?";
+"user_type_student" = "Estudiant";
+"user_type_professional" = "Professional";
+"user_type_hobbyist" = "Aficionat";
+"user_type_other" = "Altres";
+"user_type_student_description" = "Aprenent per a l'escola o la universitat";
+"user_type_professional_description" = "Avançant en la meva carrera";
+"user_type_hobbyist_description" = "Aprenent per diversió";
+"user_type_other_description" = "Altres propòsits";
+
+// Age Group
+"whats_your_age_group" = "Quina és la teva franja d'edat?";
+
+// Learning Goals
+"why_are_you_learning" = "Per què estàs aprenent idiomes?";
+"select_up_to_three" = "Selecciona 1-3 objectius";
+"learning_goal_career" = "Creixement Professional";
+"learning_goal_travel" = "Viatges i Turisme";
+"learning_goal_education" = "Educació";
+"learning_goal_personal_growth" = "Creixement Personal";
+"learning_goal_immigration" = "Immigració";
+"learning_goal_family" = "Família i Amics";
+
+// Languages to Study
+"which_languages_to_learn" = "Quins idiomes vols aprendre?";
+"search_languages" = "Cerca idiomes";
+"add_language" = "Afegir Idioma";
+"select_proficiency_level" = "Selecciona el nivell de competència";
+"select_at_least_one_language" = "Selecciona almenys un idioma";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Iniciant - Frases bàsiques";
+"cefr_level_a2_description" = "Elemental - Converses simples";
+"cefr_level_b1_description" = "Intermedi - Usuari independent";
+"cefr_level_b2_description" = "Intermedi Superior - Temes complexos";
+"cefr_level_c1_description" = "Avançat - Expressió fluida";
+"cefr_level_c2_description" = "Domini - Competència quasi nativa";
+
+// Interests
+"what_topics_interest_you" = "Quins temes t'interessen?";
+"select_2_to_5_interests" = "Selecciona 2-5 interessos";
+"interest_business" = "Negocis";
+"interest_technology" = "Tecnologia";
+"interest_sports" = "Esports";
+"interest_culture" = "Cultura";
+"interest_food" = "Menjar";
+"interest_entertainment" = "Entreteniment";
+"interest_science" = "Ciència";
+"interest_health" = "Salut";
+"interest_travel" = "Viatges";
+"interest_education" = "Educació";
+
+// Study Intensity
+"how_many_words_per_week" = "Quantes paraules vols aprendre per setmana?";
+"words_per_week" = "%d paraules/setmana";
+"estimated_daily_time" = "≈ %d min/dia";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Quan prefereixes estudiar?";
+"study_time_morning" = "Matí";
+"study_time_afternoon" = "Tarda";
+"study_time_evening" = "Vespre";
+"study_time_flexible" = "Flexible";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Qualsevol hora";
+
+// Streak Introduction
+"build_your_learning_streak" = "Construeix la teva ratxa d'aprenentatge!";
+"streak_intro_message" = "Practica cada dia per construir la teva ratxa i mantenir-te motivat. No trenquis la cadena!";
+"streak_benefits_title" = "Per què les ratxes importen:";
+"streak_benefit_motivation" = "Mantingues-te motivat";
+"streak_benefit_consistency" = "Construeix consistència";
+"streak_benefit_rewards" = "Guanya recompenses";
+"sounds_great" = "Sona Genial!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Mantingues-te al dia amb recordatoris intel·ligents";
+"notification_benefit_daily_practice" = "Recordatoris de pràctica diària";
+"notification_benefit_streak_protection" = "Alertes de protecció de ratxa";
+"notification_benefit_progress_updates" = "Fites de progrés";
+"notification_preview_title" = "Hora de practicar!";
+"notification_preview_body" = "Mantén viva la teva ratxa amb 10 minuts de pràctica";
+"enable_notifications" = "Activar Notificacions";
+"maybe_later" = "Potser Després";
+
+// Paywall
+"unlock_full_learning_potential" = "Desbloqueja el Teu Potencial d'Aprenentatge Complet";
+"start_7_day_free_trial" = "Comença la teva prova gratuïta de 7 dies";
+"personalized_lessons_for_languages" = "Lliçons personalitzades per a %@";
+"ai_powered_practice_for_interests" = "Pràctica impulsada per IA per a %@";
+"unlimited_words_and_quizzes" = "Paraules i qüestionaris il·limitats";
+"cross_device_sync" = "Sincronització entre dispositius";
+"priority_support" = "Suport prioritari";
+"start_free_trial" = "Començar Prova Gratuïta";
+"monthly" = "Mensual";
+"yearly" = "Anual";
+"save_percentage" = "Estalvia %d%%";
+
+// Sign In
+"sync_your_progress" = "Sincronitza el teu progrés entre dispositius";
+"sign_in_benefit_cloud_backup" = "Còpia de seguretat al núvol";
+"sign_in_benefit_multi_device" = "Accés multi-dispositiu";
+"sign_in_benefit_shared_dictionaries" = "Diccionaris compartits";
+"sign_in_with_apple" = "Inicia sessió amb Apple";
+"sign_in_with_google" = "Inicia sessió amb Google";
+"skip_for_now" = "Omet per ara";
+
+// Success
+"youre_all_set_name" = "Estàs tot a punt, %@!";
+"ready_to_learn_languages" = "Llest per aprendre %@";
+"start_learning" = "Començar a Aprendre";
+
+// Personalization Banner
+"complete_your_profile" = "Completa el Teu Perfil";
+"personalize_your_learning" = "Personalitza la teva experiència d'aprenentatge amb una enquesta ràpida";
+"takes_2_minutes" = "Porta 2 minuts";
+"personalize_now" = "Personalitzar Ara";
+
+// iCloud Sync
+"loading_from_icloud" = "Carregant des de iCloud...";
+"profile_found" = "Perfil Trobat!";
+"profile_found_message" = "Hem trobat el teu perfil d'un altre dispositiu. Les teves configuracions i preferències estan llestes!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, desbloqueja el teu potencial d'aprenentatge complet!";
+"paywall.personalized_subtitle_study" = "Domina el vocabulari %@ per a l'èxit acadèmic i destaca en els teus estudis!";
+"paywall.personalized_subtitle_work" = "Impulsa la teva carrera amb vocabulari professional %@ i habilitats de comunicació!";
+"paywall.personalized_subtitle_travel" = "Parla %@ amb confiança mentre viatges i connecta amb gent d'arreu del món!";
+"paywall.personalized_subtitle_business" = "Destaca en la comunicació empresarial %@ i contextos professionals!";
+"paywall.personalized_subtitle_default" = "Uneix-te a milers de %@s que han dominat el vocabulari %@!";
+"paywall.personalized_for_you" = "Personalitzat per a Tu";
+"paywall.perfect_for_your_goals" = "Perfecte per als Teus Objectius %@";
+"paywall.features_tailored_to_journey" = "Funcions adaptades al teu viatge %@ amb %@";
+"paywall.visual_learning_mode" = "Mode d'Aprenentatge Visual";
+"paywall.visual_learning_description" = "Aprèn amb imatges, associacions visuals i tècniques de memòria";
+"paywall.what_our_users_say" = "Què Dien els Nostres Usuaris";
+"paywall.join_thousands_satisfied" = "Uneix-te a milers d'estudiants satisfets";
+"paywall.choose_your_plan" = "Tria el Teu Pla";
+"paywall.start_free_upgrade_when_needed" = "Comença gratuït i actualitza quan necessitis funcions avançades";
+"paywall.start_free_trial" = "Començar Prova Gratuïta";
+"paywall.continue_free" = "Continuar Gratuït";
+"paywall.achievement_master_words" = "Domina %d noves paraules %@ en la teva primera setmana";
+"paywall.achievement_academic_writing" = "Millora la teva escriptura acadèmica %@ i comprensió lectora";
+"paywall.achievement_professional_communication" = "Millora les teves habilitats de comunicació professional en %@";
+"paywall.achievement_travel_confidence" = "Navega qualsevol país de parla %@ amb confiança";
+"paywall.achievement_business_communication" = "Destaca en la comunicació empresarial %@ i contextos professionals";
+"paywall.achievement_tech_vocabulary" = "Domina el vocabulari tecnològic %@ i terminologia de la indústria";
+"paywall.achievement_business_contexts" = "Destaca en contextos empresarials %@ i comunicació professional";
+"paywall.days" = "Dies";
+"paywall.words_goal" = "Objectiu de Paraules";
+"paywall.new" = "NOU";
+"paywall.your_personalized_journey" = "El Teu Viatge Personalitzat de 7 Dies";
+"paywall.start_free_trial" = "Comença la Teva Prova Gratuïta de 7 Dies";
+"paywall.free" = "GRATUÏT";
+"paywall.recommended" = "RECOMANAT";
+"paywall.skip_for_now" = "Omet per Ara";
+"paywall.start_my_free_trial_now" = "Començar la Meva Prova Gratuïta Ara";
+"paywall.start_free_trial_save" = "Començar Prova Gratuïta - Estalvia %@";
+"paywall.app_store_rating" = "Valoració de l'App Store";
+"paywall.total_ratings" = "Valoracions Totals";
+"paywall.reviews" = "Resenyes";

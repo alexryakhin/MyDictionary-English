@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Sdílejte slovníky s přáteli a rodinou";
 "natural_voices" = "Přirozené hlasy";
 "natural_voices_description" = "Stovky prémiových hlasů, které zní lidštěji než kdy dříve";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Denní Konzistence";
+"streak_benefit_daily_consistency_description" = "Vybudujte si návyk, který vydrží";
+"streak_benefit_track_progress_title" = "Sledování Pokroku";
+"streak_benefit_track_progress_description" = "Sledujte růst své slovní zásoby";
+"streak_benefit_stay_motivated_title" = "Zůstaňte Motivováni";
+"streak_benefit_stay_motivated_description" = "Udržujte svou sérii naživu";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Pošleme vám jemné připomínky, které vám pomohou udržet vaši učební sérii";
+"notification_benefit_daily_reminders_title" = "Denní Připomínky";
+"notification_benefit_daily_reminders_description" = "Nikdy nezmeškejte svůj čas na studium";
+"notification_benefit_smart_timing_title" = "Chytré Načasování";
+"notification_benefit_smart_timing_description" = "Přizpůsobené vašemu rozvrhu";
+"notification_benefit_no_spam_title" = "Bez Spamu";
+"notification_benefit_no_spam_description" = "Pouze užitečné připomínky";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Jak vás máme oslovovat?";
+"enter_your_name" = "Zadejte své jméno";
+"skip" = "Přeskočit";
+"continue" = "Pokračovat";
+
+// User Type
+"which_best_describes_you" = "Co vás nejlépe popisuje?";
+"user_type_student" = "Student";
+"user_type_professional" = "Profesionál";
+"user_type_hobbyist" = "Koníčkář";
+"user_type_other" = "Jiné";
+"user_type_student_description" = "Učení pro školu nebo univerzitu";
+"user_type_professional_description" = "Rozvoj mé kariéry";
+"user_type_hobbyist_description" = "Učení pro zábavu";
+"user_type_other_description" = "Jiné účely";
+
+// Age Group
+"whats_your_age_group" = "Jaká je vaše věková skupina?";
+
+// Learning Goals
+"why_are_you_learning" = "Proč se učíte jazyky?";
+"select_up_to_three" = "Vyberte 1-3 cíle";
+"learning_goal_career" = "Kariérní Růst";
+"learning_goal_travel" = "Cestování a Turismus";
+"learning_goal_education" = "Vzdělávání";
+"learning_goal_personal_growth" = "Osobní Růst";
+"learning_goal_immigration" = "Imigrace";
+"learning_goal_family" = "Rodina a Přátelé";
+
+// Languages to Study
+"which_languages_to_learn" = "Jaké jazyky se chcete učit?";
+"search_languages" = "Hledat jazyky";
+"add_language" = "Přidat Jazyk";
+"select_proficiency_level" = "Vyberte úroveň znalostí";
+"select_at_least_one_language" = "Vyberte alespoň jeden jazyk";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Začátečník - Základní fráze";
+"cefr_level_a2_description" = "Elementární - Jednoduché konverzace";
+"cefr_level_b1_description" = "Střední - Nezávislý uživatel";
+"cefr_level_b2_description" = "Středně pokročilý - Složitá témata";
+"cefr_level_c1_description" = "Pokročilý - Plynulé vyjadřování";
+"cefr_level_c2_description" = "Mistrovství - Rodilý mluvčí";
+
+// Interests
+"what_topics_interest_you" = "Jaká témata vás zajímají?";
+"select_2_to_5_interests" = "Vyberte 2-5 zájmů";
+"interest_business" = "Podnikání";
+"interest_technology" = "Technologie";
+"interest_sports" = "Sport";
+"interest_culture" = "Kultura";
+"interest_food" = "Jídlo";
+"interest_entertainment" = "Zábava";
+"interest_science" = "Věda";
+"interest_health" = "Zdraví";
+"interest_travel" = "Cestování";
+"interest_education" = "Vzdělávání";
+
+// Study Intensity
+"how_many_words_per_week" = "Kolik slov se chcete učit týdně?";
+"words_per_week" = "%d slov/týden";
+"estimated_daily_time" = "≈ %d min/den";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Kdy se raději učíte?";
+"study_time_morning" = "Ráno";
+"study_time_afternoon" = "Odpoledne";
+"study_time_evening" = "Večer";
+"study_time_flexible" = "Flexibilní";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Kdykoli";
+
+// Streak Introduction
+"build_your_learning_streak" = "Vybudujte si svou učební sérii!";
+"streak_intro_message" = "Cvičte každý den, abyste vybudovali svou sérii a zůstali motivováni. Nepřerušte řetěz!";
+"streak_benefits_title" = "Proč série záleží:";
+"streak_benefit_motivation" = "Zůstaňte motivováni";
+"streak_benefit_consistency" = "Vybudujte konzistenci";
+"streak_benefit_rewards" = "Získejte odměny";
+"sounds_great" = "Zní to skvěle!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Zůstaňte na cestě s chytrými připomínkami";
+"notification_benefit_daily_practice" = "Denní připomínky cvičení";
+"notification_benefit_streak_protection" = "Upozornění na ochranu série";
+"notification_benefit_progress_updates" = "Míle pokroku";
+"notification_preview_title" = "Čas na cvičení!";
+"notification_preview_body" = "Udržujte svou sérii naživu s 10 minutami cvičení";
+"enable_notifications" = "Povolit Oznámení";
+"maybe_later" = "Možná Později";
+
+// Paywall
+"unlock_full_learning_potential" = "Odemkněte svůj plný učební potenciál";
+"start_7_day_free_trial" = "Začněte svou 7denní bezplatnou zkušební verzi";
+"personalized_lessons_for_languages" = "Personalizované lekce pro %@";
+"ai_powered_practice_for_interests" = "Cvičení poháněné AI pro %@";
+"unlimited_words_and_quizzes" = "Neomezená slova a kvízy";
+"cross_device_sync" = "Synchronizace mezi zařízeními";
+"priority_support" = "Prioritní podpora";
+"start_free_trial" = "Začít Bezplatnou Zkušební Verzi";
+"monthly" = "Měsíčně";
+"yearly" = "Ročně";
+"save_percentage" = "Ušetřete %d%%";
+
+// Sign In
+"sync_your_progress" = "Synchronizujte svůj pokrok mezi zařízeními";
+"sign_in_benefit_cloud_backup" = "Záloha v cloudu";
+"sign_in_benefit_multi_device" = "Přístup z více zařízení";
+"sign_in_benefit_shared_dictionaries" = "Sdílené slovníky";
+"sign_in_with_apple" = "Přihlásit se přes Apple";
+"sign_in_with_google" = "Přihlásit se přes Google";
+"skip_for_now" = "Přeskočit zatím";
+
+// Success
+"youre_all_set_name" = "Vše je připraveno, %@!";
+"ready_to_learn_languages" = "Připraveni učit se %@";
+"start_learning" = "Začít Učení";
+
+// Personalization Banner
+"complete_your_profile" = "Dokončete svůj profil";
+"personalize_your_learning" = "Personalizujte svou učební zkušenost rychlým průzkumem";
+"takes_2_minutes" = "Trvá 2 minuty";
+"personalize_now" = "Personalizovat Nyní";
+
+// iCloud Sync
+"loading_from_icloud" = "Načítání z iCloud...";
+"profile_found" = "Profil nalezen!";
+"profile_found_message" = "Našli jsme váš profil z jiného zařízení. Vaše nastavení a preference jsou připraveny!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, odemkněte svůj plný učební potenciál!";
+"paywall.personalized_subtitle_study" = "Ovládněte slovní zásobu %@ pro akademický úspěch a vynikněte ve studiích!";
+"paywall.personalized_subtitle_work" = "Posuňte svou kariéru s profesionální slovní zásobou %@ a komunikačními dovednostmi!";
+"paywall.personalized_subtitle_travel" = "Mluvte %@ sebevědomě při cestování a spojte se s lidmi po celém světě!";
+"paywall.personalized_subtitle_business" = "Vynikněte v obchodní komunikaci %@ a profesionálních kontextech!";
+"paywall.personalized_subtitle_default" = "Připojte se k tisícům %@s, kteří ovládli slovní zásobu %@!";
+"paywall.personalized_for_you" = "Personalizováno pro vás";
+"paywall.perfect_for_your_goals" = "Perfektní pro vaše %@ cíle";
+"paywall.features_tailored_to_journey" = "Funkce přizpůsobené vaší %@ cestě s %@";
+"paywall.visual_learning_mode" = "Vizuální učební režim";
+"paywall.visual_learning_description" = "Učte se s obrázky, vizuálními asociacemi a paměťovými technikami";
+"paywall.what_our_users_say" = "Co říkají naši uživatelé";
+"paywall.join_thousands_satisfied" = "Připojte se k tisícům spokojených studentů";
+"paywall.choose_your_plan" = "Vyberte svůj plán";
+"paywall.start_free_upgrade_when_needed" = "Začněte zdarma a upgradujte, když potřebujete pokročilé funkce";
+"paywall.start_free_trial" = "Začít Bezplatnou Zkušební Verzi";
+"paywall.continue_free" = "Pokračovat Zdarma";
+"paywall.achievement_master_words" = "Ovládněte %d nových slov %@ ve svém prvním týdnu";
+"paywall.achievement_academic_writing" = "Zlepšete svou akademickou psaní %@ a porozumění čtení";
+"paywall.achievement_professional_communication" = "Zlepšete své profesionální komunikační dovednosti v %@";
+"paywall.achievement_travel_confidence" = "Navigujte jakoukoli zemi mluvící %@ s důvěrou";
+"paywall.achievement_business_communication" = "Vynikněte v obchodní komunikaci %@ a profesionálních kontextech";
+"paywall.achievement_tech_vocabulary" = "Ovládněte technickou slovní zásobu %@ a terminologii odvětví";
+"paywall.achievement_business_contexts" = "Vynikněte v obchodních kontextech %@ a profesionální komunikaci";
+"paywall.days" = "Dny";
+"paywall.words_goal" = "Cíl slov";
+"paywall.new" = "NOVÉ";
+"paywall.your_personalized_journey" = "Vaše personalizovaná 7denní cesta";
+"paywall.start_free_trial" = "Začněte svou 7denní bezplatnou zkušební verzi";
+"paywall.free" = "ZDARMA";
+"paywall.recommended" = "DOPORUČENO";
+"paywall.skip_for_now" = "Přeskočit zatím";
+"paywall.start_my_free_trial_now" = "Začít mou bezplatnou zkušební verzi nyní";
+"paywall.start_free_trial_save" = "Začít bezplatnou zkušební verzi - Ušetřit %@";
+"paywall.app_store_rating" = "Hodnocení App Store";
+"paywall.total_ratings" = "Celková hodnocení";
+"paywall.reviews" = "Recenze";
+

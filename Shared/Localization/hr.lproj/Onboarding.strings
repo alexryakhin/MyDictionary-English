@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Dijelite rječnike s prijateljima i obitelji";
 "natural_voices" = "Prirodni glasovi";
 "natural_voices_description" = "Stotine vrhunskih glasova koji zvuče ljudskije nego ikad";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Dnevna konzistentnost";
+"streak_benefit_daily_consistency_description" = "Izgradite naviku koja se drži";
+"streak_benefit_track_progress_title" = "Pratite napredak";
+"streak_benefit_track_progress_description" = "Promatrajte kako vaš vokabular raste";
+"streak_benefit_stay_motivated_title" = "Ostanite motivirani";
+"streak_benefit_stay_motivated_description" = "Održavajte svoju seriju živom";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Poslat ćemo vam nježne podsjetnike da vam pomognu održati svoju seriju učenja";
+"notification_benefit_daily_reminders_title" = "Dnevni podsjetnici";
+"notification_benefit_daily_reminders_description" = "Nikad ne propustite svoje vrijeme učenja";
+"notification_benefit_smart_timing_title" = "Pametno vrijeme";
+"notification_benefit_smart_timing_description" = "Prilagođeno vašem rasporedu";
+"notification_benefit_no_spam_title" = "Bez spama";
+"notification_benefit_no_spam_description" = "Samo korisni podsjetnici";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Kako da vas zovemo?";
+"enter_your_name" = "Unesite svoje ime";
+"skip" = "Preskoči";
+"continue" = "Nastavi";
+
+// User Type
+"which_best_describes_you" = "Što vas najbolje opisuje?";
+"user_type_student" = "Student";
+"user_type_professional" = "Profesionalac";
+"user_type_hobbyist" = "Hobist";
+"user_type_other" = "Ostalo";
+"user_type_student_description" = "Učenje za školu ili sveučilište";
+"user_type_professional_description" = "Napredovanje u karijeri";
+"user_type_hobbyist_description" = "Učenje za zabavu";
+"user_type_other_description" = "Ostale svrhe";
+
+// Age Group
+"whats_your_age_group" = "Koja je vaša dobna skupina?";
+
+// Learning Goals
+"why_are_you_learning" = "Zašto učite jezike?";
+"select_up_to_three" = "Odaberite 1-3 cilja";
+"learning_goal_career" = "Rast karijere";
+"learning_goal_travel" = "Putovanje i turizam";
+"learning_goal_education" = "Obrazovanje";
+"learning_goal_personal_growth" = "Osobni rast";
+"learning_goal_immigration" = "Imigracija";
+"learning_goal_family" = "Obitelj i prijatelji";
+
+// Languages to Study
+"which_languages_to_learn" = "Koje jezike želite učiti?";
+"search_languages" = "Pretraži jezike";
+"add_language" = "Dodaj jezik";
+"select_proficiency_level" = "Odaberite razinu znanja";
+"select_at_least_one_language" = "Odaberite barem jedan jezik";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Početnik - Osnovne fraze";
+"cefr_level_a2_description" = "Osnovni - Jednostavni razgovori";
+"cefr_level_b1_description" = "Srednji - Nezavisan korisnik";
+"cefr_level_b2_description" = "Viši srednji - Složene teme";
+"cefr_level_c1_description" = "Napredni - Tečno izražavanje";
+"cefr_level_c2_description" = "Majstorstvo - Znanje poput izvornog govornika";
+
+// Interests
+"what_topics_interest_you" = "Koje teme vas zanimaju?";
+"select_2_to_5_interests" = "Odaberite 2-5 interesa";
+"interest_business" = "Posao";
+"interest_technology" = "Tehnologija";
+"interest_sports" = "Sport";
+"interest_culture" = "Kultura";
+"interest_food" = "Hrana";
+"interest_entertainment" = "Zabava";
+"interest_science" = "Znanost";
+"interest_health" = "Zdravlje";
+"interest_travel" = "Putovanje";
+"interest_education" = "Obrazovanje";
+
+// Study Intensity
+"how_many_words_per_week" = "Koliko riječi želite naučiti tjedno?";
+"words_per_week" = "%d riječi/tjedno";
+"estimated_daily_time" = "≈ %d min/dan";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Kada preferirate učiti?";
+"study_time_morning" = "Jutro";
+"study_time_afternoon" = "Poslijepodne";
+"study_time_evening" = "Večer";
+"study_time_flexible" = "Fleksibilno";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Bilo kada";
+
+// Streak Introduction
+"build_your_learning_streak" = "Izgradite svoju seriju učenja!";
+"streak_intro_message" = "Vježbajte svaki dan da izgradite svoju seriju i ostanete motivirani. Ne prekidajte lanac!";
+"streak_benefits_title" = "Zašto su serije važne:";
+"streak_benefit_motivation" = "Ostanite motivirani";
+"streak_benefit_consistency" = "Izgradite konzistentnost";
+"streak_benefit_rewards" = "Zaradite nagrade";
+"sounds_great" = "Zvuči odlično!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Ostanite na pravom putu s pametnim podsjetnicima";
+"notification_benefit_daily_practice" = "Dnevni podsjetnici za vježbanje";
+"notification_benefit_streak_protection" = "Upozorenja za zaštitu serije";
+"notification_benefit_progress_updates" = "Prekretnice napretka";
+"notification_preview_title" = "Vrijeme za vježbanje!";
+"notification_preview_body" = "Održavajte svoju seriju živom s 10 minuta vježbanja";
+"enable_notifications" = "Omogući obavještenja";
+"maybe_later" = "Možda kasnije";
+
+// Paywall
+"unlock_full_learning_potential" = "Otključajte svoj puni potencijal učenja";
+"start_7_day_free_trial" = "Započnite svoj 7-dnevni besplatni probni period";
+"personalized_lessons_for_languages" = "Personalizirane lekcije za %@";
+"ai_powered_practice_for_interests" = "AI-pokretana vježba za %@";
+"unlimited_words_and_quizzes" = "Neograničene riječi i kvizovi";
+"cross_device_sync" = "Sinkronizacija između uređaja";
+"priority_support" = "Prioritetna podrška";
+"start_free_trial" = "Započni besplatni probni period";
+"monthly" = "Mjesečno";
+"yearly" = "Godišnje";
+"save_percentage" = "Uštedi %d%%";
+
+// Sign In
+"sync_your_progress" = "Sinkronizirajte svoj napredak između uređaja";
+"sign_in_benefit_cloud_backup" = "Cloud backup";
+"sign_in_benefit_multi_device" = "Pristup s više uređaja";
+"sign_in_benefit_shared_dictionaries" = "Dijeljeni rječnici";
+"sign_in_with_apple" = "Prijavite se s Apple";
+"sign_in_with_google" = "Prijavite se s Google";
+"skip_for_now" = "Preskoči za sada";
+
+// Success
+"youre_all_set_name" = "Sve je spremno, %@!";
+"ready_to_learn_languages" = "Spremni za učenje %@";
+"start_learning" = "Započni učenje";
+
+// Personalization Banner
+"complete_your_profile" = "Završite svoj profil";
+"personalize_your_learning" = "Personalizirajte svoje iskustvo učenja s brzim anketom";
+"takes_2_minutes" = "Traje 2 minute";
+"personalize_now" = "Personaliziraj sada";
+
+// iCloud Sync
+"loading_from_icloud" = "Učitavanje iz iCloud-a...";
+"profile_found" = "Profil pronađen!";
+"profile_found_message" = "Pronašli smo vaš profil s drugog uređaja. Vaše postavke i preferencije su spremne!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, otključajte svoj puni potencijal učenja!";
+"paywall.personalized_subtitle_study" = "Ovladajte %@ vokabularom za akademski uspjeh i odličite u studijima!";
+"paywall.personalized_subtitle_work" = "Ubrzajte svoju karijeru s profesionalnim %@ vokabularom i komunikacijskim vještinama!";
+"paywall.personalized_subtitle_travel" = "Govorite %@ samopouzdano tijekom putovanja i povežite se s ljudima širom svijeta!";
+"paywall.personalized_subtitle_business" = "Odličite u %@ poslovnoj komunikaciji i profesionalnim kontekstima!";
+"paywall.personalized_subtitle_default" = "Pridružite se tisućama %@ koji su ovladali %@ vokabularom!";
+"paywall.personalized_for_you" = "Personalizirano za vas";
+"paywall.perfect_for_your_goals" = "Savršeno za vaše %@ ciljeve";
+"paywall.features_tailored_to_journey" = "Značajke prilagođene vašem %@ putovanju s %@";
+"paywall.visual_learning_mode" = "Vizualni način učenja";
+"paywall.visual_learning_description" = "Učite s slikama, vizualnim asocijacijama i tehnikama pamćenja";
+"paywall.what_our_users_say" = "Što kažu naši korisnici";
+"paywall.join_thousands_satisfied" = "Pridružite se tisućama zadovoljnih učenika";
+"paywall.choose_your_plan" = "Odaberite svoj plan";
+"paywall.start_free_upgrade_when_needed" = "Započnite besplatno i nadogradite kada trebate napredne značajke";
+"paywall.start_free_trial" = "Započni besplatni probni period";
+"paywall.continue_free" = "Nastavi besplatno";
+"paywall.achievement_master_words" = "Ovladajte %d novim %@ riječima u svom prvom tjednu";
+"paywall.achievement_academic_writing" = "Poboljšajte svoje %@ akademsko pisanje i razumijevanje čitanja";
+"paywall.achievement_professional_communication" = "Poboljšajte svoje profesionalne %@ komunikacijske vještine";
+"paywall.achievement_travel_confidence" = "Krećite se bilo kojom %@ zemljom govornika s povjerenjem";
+"paywall.achievement_business_communication" = "Odličite u %@ poslovnoj komunikaciji i profesionalnim kontekstima";
+"paywall.achievement_tech_vocabulary" = "Ovladajte %@ tehnološkim vokabularom i industrijskom terminologijom";
+"paywall.achievement_business_contexts" = "Odličite u %@ poslovnim kontekstima i profesionalnoj komunikaciji";
+"paywall.days" = "Dani";
+"paywall.words_goal" = "Cilj riječi";
+"paywall.new" = "NOVO";
+"paywall.your_personalized_journey" = "Vaše personalizirano 7-dnevno putovanje";
+"paywall.start_free_trial" = "Započnite svoj 7-dnevni besplatni probni period";
+"paywall.free" = "BESPLATNO";
+"paywall.recommended" = "PREPORUČENO";
+"paywall.skip_for_now" = "Preskoči za sada";
+"paywall.start_my_free_trial_now" = "Započni moj besplatni probni period sada";
+"paywall.start_free_trial_save" = "Započni besplatni probni period - Uštedi %@";
+"paywall.app_store_rating" = "App Store ocjena";
+"paywall.total_ratings" = "Ukupne ocjene";
+"paywall.reviews" = "Recenzije";
+

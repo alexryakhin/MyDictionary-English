@@ -1187,14 +1187,28 @@ public enum Loc {
     public static let nextStep = Loc.tr("Onboarding", "next_step", fallback: "Next")
     /// Daily practice reminders
     public static let notificationBenefitDailyPractice = Loc.tr("Onboarding", "notification_benefit_daily_practice", fallback: "Daily practice reminders")
+    /// Never miss your study time
+    public static let notificationBenefitDailyRemindersDescription = Loc.tr("Onboarding", "notification_benefit_daily_reminders_description", fallback: "Never miss your study time")
+    /// Daily Reminders
+    public static let notificationBenefitDailyRemindersTitle = Loc.tr("Onboarding", "notification_benefit_daily_reminders_title", fallback: "Daily Reminders")
+    /// Only helpful reminders
+    public static let notificationBenefitNoSpamDescription = Loc.tr("Onboarding", "notification_benefit_no_spam_description", fallback: "Only helpful reminders")
+    /// No Spam
+    public static let notificationBenefitNoSpamTitle = Loc.tr("Onboarding", "notification_benefit_no_spam_title", fallback: "No Spam")
     /// Progress milestones
     public static let notificationBenefitProgressUpdates = Loc.tr("Onboarding", "notification_benefit_progress_updates", fallback: "Progress milestones")
+    /// Personalized to your schedule
+    public static let notificationBenefitSmartTimingDescription = Loc.tr("Onboarding", "notification_benefit_smart_timing_description", fallback: "Personalized to your schedule")
+    /// Smart Timing
+    public static let notificationBenefitSmartTimingTitle = Loc.tr("Onboarding", "notification_benefit_smart_timing_title", fallback: "Smart Timing")
     /// Streak protection alerts
     public static let notificationBenefitStreakProtection = Loc.tr("Onboarding", "notification_benefit_streak_protection", fallback: "Streak protection alerts")
     /// Keep your streak alive with 10 minutes of practice
     public static let notificationPreviewBody = Loc.tr("Onboarding", "notification_preview_body", fallback: "Keep your streak alive with 10 minutes of practice")
     /// Time to practice!
     public static let notificationPreviewTitle = Loc.tr("Onboarding", "notification_preview_title", fallback: "Time to practice!")
+    /// We'll send you gentle reminders to help you maintain your learning streak
+    public static let notificationsSubtitle = Loc.tr("Onboarding", "notifications_subtitle", fallback: "We'll send you gentle reminders to help you maintain your learning streak")
     /// Your personal vocabulary companion
     public static let personalVocabularyCompanion = Loc.tr("Onboarding", "personal_vocabulary_companion", fallback: "Your personal vocabulary companion")
     /// Personal Word List
@@ -1273,10 +1287,22 @@ public enum Loc {
     public static let stayOnTrackWithReminders = Loc.tr("Onboarding", "stay_on_track_with_reminders", fallback: "Stay on track with smart reminders")
     /// Build consistency
     public static let streakBenefitConsistency = Loc.tr("Onboarding", "streak_benefit_consistency", fallback: "Build consistency")
+    /// Build a habit that sticks
+    public static let streakBenefitDailyConsistencyDescription = Loc.tr("Onboarding", "streak_benefit_daily_consistency_description", fallback: "Build a habit that sticks")
+    /// Daily Consistency
+    public static let streakBenefitDailyConsistencyTitle = Loc.tr("Onboarding", "streak_benefit_daily_consistency_title", fallback: "Daily Consistency")
     /// Stay motivated
     public static let streakBenefitMotivation = Loc.tr("Onboarding", "streak_benefit_motivation", fallback: "Stay motivated")
     /// Earn rewards
     public static let streakBenefitRewards = Loc.tr("Onboarding", "streak_benefit_rewards", fallback: "Earn rewards")
+    /// Keep your streak alive
+    public static let streakBenefitStayMotivatedDescription = Loc.tr("Onboarding", "streak_benefit_stay_motivated_description", fallback: "Keep your streak alive")
+    /// Stay Motivated
+    public static let streakBenefitStayMotivatedTitle = Loc.tr("Onboarding", "streak_benefit_stay_motivated_title", fallback: "Stay Motivated")
+    /// Watch your vocabulary grow
+    public static let streakBenefitTrackProgressDescription = Loc.tr("Onboarding", "streak_benefit_track_progress_description", fallback: "Watch your vocabulary grow")
+    /// Track Progress
+    public static let streakBenefitTrackProgressTitle = Loc.tr("Onboarding", "streak_benefit_track_progress_title", fallback: "Track Progress")
     /// Why streaks matter:
     public static let streakBenefitsTitle = Loc.tr("Onboarding", "streak_benefits_title", fallback: "Why streaks matter:")
     /// Practice every day to build your streak and stay motivated. Don't break the chain!

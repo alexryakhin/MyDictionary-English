@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Sözlükleri arkadaşlarınız ve ailenizle paylaşın";
 "natural_voices" = "Doğal sesler";
 "natural_voices_description" = "Şimdiye kadar olduğundan daha insansı seslere sahip yüzlerce premium ses";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Günlük Tutarlılık";
+"streak_benefit_daily_consistency_description" = "Kalıcı bir alışkanlık oluşturun";
+"streak_benefit_track_progress_title" = "İlerlemeyi Takip Et";
+"streak_benefit_track_progress_description" = "Kelime dağarcığınızın büyümesini izleyin";
+"streak_benefit_stay_motivated_title" = "Motivasyonu Koruyun";
+"streak_benefit_stay_motivated_description" = "Serinizi canlı tutun";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Öğrenme serinizi sürdürmenize yardımcı olmak için nazik hatırlatmalar göndereceğiz";
+"notification_benefit_daily_reminders_title" = "Günlük Hatırlatmalar";
+"notification_benefit_daily_reminders_description" = "Çalışma zamanınızı asla kaçırmayın";
+"notification_benefit_smart_timing_title" = "Akıllı Zamanlama";
+"notification_benefit_smart_timing_description" = "Programınıza göre kişiselleştirilmiş";
+"notification_benefit_no_spam_title" = "Spam Yok";
+"notification_benefit_no_spam_description" = "Sadece faydalı hatırlatmalar";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Size nasıl hitap edelim?";
+"enter_your_name" = "Adınızı girin";
+"skip" = "Atla";
+"continue" = "Devam Et";
+
+// User Type
+"which_best_describes_you" = "Sizi en iyi hangisi tanımlar?";
+"user_type_student" = "Öğrenci";
+"user_type_professional" = "Profesyonel";
+"user_type_hobbyist" = "Hobici";
+"user_type_other" = "Diğer";
+"user_type_student_description" = "Okul veya üniversite için öğreniyorum";
+"user_type_professional_description" = "Kariyerimi ilerletiyorum";
+"user_type_hobbyist_description" = "Eğlence için öğreniyorum";
+"user_type_other_description" = "Diğer amaçlar";
+
+// Age Group
+"whats_your_age_group" = "Yaş grubunuz nedir?";
+
+// Learning Goals
+"why_are_you_learning" = "Neden dil öğreniyorsunuz?";
+"select_up_to_three" = "1-3 hedef seçin";
+"learning_goal_career" = "Kariyer Gelişimi";
+"learning_goal_travel" = "Seyahat ve Turizm";
+"learning_goal_education" = "Eğitim";
+"learning_goal_personal_growth" = "Kişisel Gelişim";
+"learning_goal_immigration" = "Göç";
+"learning_goal_family" = "Aile ve Arkadaşlar";
+
+// Languages to Study
+"which_languages_to_learn" = "Hangi dilleri öğrenmek istiyorsunuz?";
+"search_languages" = "Dil ara";
+"add_language" = "Dil Ekle";
+"select_proficiency_level" = "Yeterlilik seviyesi seçin";
+"select_at_least_one_language" = "En az bir dil seçin";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Başlangıç - Temel ifadeler";
+"cefr_level_a2_description" = "Temel - Basit konuşmalar";
+"cefr_level_b1_description" = "Orta - Bağımsız kullanıcı";
+"cefr_level_b2_description" = "Orta Üst - Karmaşık konular";
+"cefr_level_c1_description" = "İleri - Akıcı ifade";
+"cefr_level_c2_description" = "Ustalık - Ana dil seviyesi yeterlilik";
+
+// Interests
+"what_topics_interest_you" = "Hangi konular ilginizi çekiyor?";
+"select_2_to_5_interests" = "2-5 ilgi alanı seçin";
+"interest_business" = "İş";
+"interest_technology" = "Teknoloji";
+"interest_sports" = "Spor";
+"interest_culture" = "Kültür";
+"interest_food" = "Yemek";
+"interest_entertainment" = "Eğlence";
+"interest_science" = "Bilim";
+"interest_health" = "Sağlık";
+"interest_travel" = "Seyahat";
+"interest_education" = "Eğitim";
+
+// Study Intensity
+"how_many_words_per_week" = "Haftada kaç kelime öğrenmek istiyorsunuz?";
+"words_per_week" = "%d kelime/hafta";
+"estimated_daily_time" = "≈ %d dk/gün";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Ne zaman çalışmayı tercih edersiniz?";
+"study_time_morning" = "Sabah";
+"study_time_afternoon" = "Öğleden sonra";
+"study_time_evening" = "Akşam";
+"study_time_flexible" = "Esnek";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Her zaman";
+
+// Streak Introduction
+"build_your_learning_streak" = "Öğrenme serinizi oluşturun!";
+"streak_intro_message" = "Serinizi oluşturmak ve motive kalmak için her gün pratik yapın. Zinciri kırmayın!";
+"streak_benefits_title" = "Seriler neden önemli:";
+"streak_benefit_motivation" = "Motivasyonu koruyun";
+"streak_benefit_consistency" = "Tutarlılık oluşturun";
+"streak_benefit_rewards" = "Ödül kazanın";
+"sounds_great" = "Harika!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Akıllı hatırlatmalarla yolda kalın";
+"notification_benefit_daily_practice" = "Günlük pratik hatırlatmaları";
+"notification_benefit_streak_protection" = "Seri koruma uyarıları";
+"notification_benefit_progress_updates" = "İlerleme kilometre taşları";
+"notification_preview_title" = "Pratik zamanı!";
+"notification_preview_body" = "10 dakikalık pratikle serinizi canlı tutun";
+"enable_notifications" = "Bildirimleri Etkinleştir";
+"maybe_later" = "Belki Sonra";
+
+// Paywall
+"unlock_full_learning_potential" = "Tam Öğrenme Potansiyelinizi Açın";
+"start_7_day_free_trial" = "7 günlük ücretsiz denemenizi başlatın";
+"personalized_lessons_for_languages" = "%@ için kişiselleştirilmiş dersler";
+"ai_powered_practice_for_interests" = "%@ için AI destekli pratik";
+"unlimited_words_and_quizzes" = "Sınırsız kelime ve testler";
+"cross_device_sync" = "Cihazlar arası senkronizasyon";
+"priority_support" = "Öncelikli destek";
+"start_free_trial" = "Ücretsiz Deneme Başlat";
+"monthly" = "Aylık";
+"yearly" = "Yıllık";
+"save_percentage" = "%d%% tasarruf edin";
+
+// Sign In
+"sync_your_progress" = "İlerlemenizi cihazlar arası senkronize edin";
+"sign_in_benefit_cloud_backup" = "Bulut yedekleme";
+"sign_in_benefit_multi_device" = "Çoklu cihaz erişimi";
+"sign_in_benefit_shared_dictionaries" = "Paylaşılan sözlükler";
+"sign_in_with_apple" = "Apple ile giriş yap";
+"sign_in_with_google" = "Google ile giriş yap";
+"skip_for_now" = "Şimdilik atla";
+
+// Success
+"youre_all_set_name" = "Her şey hazır, %@!";
+"ready_to_learn_languages" = "%@ öğrenmeye hazır";
+"start_learning" = "Öğrenmeye Başla";
+
+// Personalization Banner
+"complete_your_profile" = "Profilinizi Tamamlayın";
+"personalize_your_learning" = "Hızlı bir anketle öğrenme deneyiminizi kişiselleştirin";
+"takes_2_minutes" = "2 dakika sürer";
+"personalize_now" = "Şimdi Kişiselleştir";
+
+// iCloud Sync
+"loading_from_icloud" = "iCloud'dan yükleniyor...";
+"profile_found" = "Profil Bulundu!";
+"profile_found_message" = "Profilinizi başka bir cihazdan bulduk. Ayarlarınız ve tercihleriniz kullanıma hazır!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, tam öğrenme potansiyelinizi açın!";
+"paywall.personalized_subtitle_study" = "Akademik başarı için %@ kelime dağarcığınızı geliştirin ve çalışmalarınızda başarılı olun!";
+"paywall.personalized_subtitle_work" = "Profesyonel %@ kelime dağarcığı ve iletişim becerileriyle kariyerinizi ilerletin!";
+"paywall.personalized_subtitle_travel" = "Seyahat ederken %@ konuşmaya güvenin ve dünya çapında insanlarla bağlantı kurun!";
+"paywall.personalized_subtitle_business" = "%@ iş iletişiminde ve profesyonel bağlamlarda mükemmelleşin!";
+"paywall.personalized_subtitle_default" = "%@ kelime dağarcığını geliştiren binlerce %@ ile katılın!";
+"paywall.personalized_for_you" = "Sizin İçin Kişiselleştirilmiş";
+"paywall.perfect_for_your_goals" = "%@ Hedefleriniz İçin Mükemmel";
+"paywall.features_tailored_to_journey" = "%@ yolculuğunuz için %@ ile özelleştirilmiş özellikler";
+"paywall.visual_learning_mode" = "Görsel Öğrenme Modu";
+"paywall.visual_learning_description" = "Görseller, görsel çağrışımlar ve hafıza teknikleriyle öğrenin";
+"paywall.what_our_users_say" = "Kullanıcılarımız Ne Diyor";
+"paywall.join_thousands_satisfied" = "Binlerce memnun öğrenciye katılın";
+"paywall.choose_your_plan" = "Planınızı Seçin";
+"paywall.start_free_upgrade_when_needed" = "Ücretsiz başlayın ve gelişmiş özelliklere ihtiyaç duyduğunuzda yükseltin";
+"paywall.start_free_trial" = "Ücretsiz Deneme Başlat";
+"paywall.continue_free" = "Ücretsiz Devam Et";
+"paywall.achievement_master_words" = "İlk haftanızda %d yeni %@ kelimesini öğrenin";
+"paywall.achievement_academic_writing" = "%@ akademik yazımınızı ve okuma anlama becerinizi geliştirin";
+"paywall.achievement_professional_communication" = "Profesyonel %@ iletişim becerilerinizi geliştirin";
+"paywall.achievement_travel_confidence" = "Herhangi bir %@ konuşan ülkede güvenle gezinin";
+"paywall.achievement_business_communication" = "%@ iş iletişiminde ve profesyonel bağlamlarda mükemmelleşin";
+"paywall.achievement_tech_vocabulary" = "%@ teknoloji kelime dağarcığını ve endüstri terminolojisini öğrenin";
+"paywall.achievement_business_contexts" = "%@ iş bağlamlarında ve profesyonel iletişimde mükemmelleşin";
+"paywall.days" = "Gün";
+"paywall.words_goal" = "Kelime Hedefi";
+"paywall.new" = "YENİ";
+"paywall.your_personalized_journey" = "Kişiselleştirilmiş 7 Günlük Yolculuğunuz";
+"paywall.start_free_trial" = "7 Günlük Ücretsiz Denemenizi Başlatın";
+"paywall.free" = "ÜCRETSİZ";
+"paywall.recommended" = "ÖNERİLEN";
+"paywall.skip_for_now" = "Şimdilik Atla";
+"paywall.start_my_free_trial_now" = "Ücretsiz Denememi Şimdi Başlat";
+"paywall.start_free_trial_save" = "Ücretsiz Deneme Başlat - %@ Tasarruf Edin";
+"paywall.app_store_rating" = "App Store Puanı";
+"paywall.total_ratings" = "Toplam Puan";
+"paywall.reviews" = "İncelemeler";
+

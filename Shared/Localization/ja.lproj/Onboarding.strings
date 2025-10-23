@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "友達や家族と辞書を共有";
 "natural_voices" = "自然な音声";
 "natural_voices_description" = "これまで以上に人間らしく聞こえる数百のプレミアム音声";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "毎日の一貫性";
+"streak_benefit_daily_consistency_description" = "持続する習慣を築く";
+"streak_benefit_track_progress_title" = "進歩を追跡";
+"streak_benefit_track_progress_description" = "語彙の成長を観察";
+"streak_benefit_stay_motivated_title" = "モチベーションを保つ";
+"streak_benefit_stay_motivated_description" = "ストリークを活かす";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "学習ストリークを維持するために、優しいリマインダーを送信します";
+"notification_benefit_daily_reminders_title" = "毎日のリマインダー";
+"notification_benefit_daily_reminders_description" = "学習時間を逃さない";
+"notification_benefit_smart_timing_title" = "スマートタイミング";
+"notification_benefit_smart_timing_description" = "あなたのスケジュールに合わせて";
+"notification_benefit_no_spam_title" = "スパムなし";
+"notification_benefit_no_spam_description" = "役立つリマインダーのみ";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "どのようにお呼びしましょうか？";
+"enter_your_name" = "お名前を入力してください";
+"skip" = "スキップ";
+"continue" = "続行";
+
+// User Type
+"which_best_describes_you" = "あなたを最もよく表すのはどれですか？";
+"user_type_student" = "学生";
+"user_type_professional" = "プロフェッショナル";
+"user_type_hobbyist" = "趣味人";
+"user_type_other" = "その他";
+"user_type_student_description" = "学校や大学のため";
+"user_type_professional_description" = "キャリアの向上";
+"user_type_hobbyist_description" = "楽しみのために";
+"user_type_other_description" = "その他の目的";
+
+// Age Group
+"whats_your_age_group" = "あなたの年齢層は？";
+
+// Learning Goals
+"why_are_you_learning" = "なぜ言語を学んでいますか？";
+"select_up_to_three" = "1-3つの目標を選択";
+"learning_goal_career" = "キャリア成長";
+"learning_goal_travel" = "旅行と観光";
+"learning_goal_education" = "教育";
+"learning_goal_personal_growth" = "個人成長";
+"learning_goal_immigration" = "移住";
+"learning_goal_family" = "家族と友人";
+
+// Languages to Study
+"which_languages_to_learn" = "どの言語を学びたいですか？";
+"search_languages" = "言語を検索";
+"add_language" = "言語を追加";
+"select_proficiency_level" = "習熟度を選択";
+"select_at_least_one_language" = "少なくとも1つの言語を選択";
+
+// CEFR Levels
+"cefr_level_a1_description" = "初心者 - 基本的なフレーズ";
+"cefr_level_a2_description" = "初級 - 簡単な会話";
+"cefr_level_b1_description" = "中級 - 独立したユーザー";
+"cefr_level_b2_description" = "中上級 - 複雑なトピック";
+"cefr_level_c1_description" = "上級 - 流暢な表現";
+"cefr_level_c2_description" = "熟練 - ネイティブレベル";
+
+// Interests
+"what_topics_interest_you" = "どのトピックに興味がありますか？";
+"select_2_to_5_interests" = "2-5つの興味を選択";
+"interest_business" = "ビジネス";
+"interest_technology" = "テクノロジー";
+"interest_sports" = "スポーツ";
+"interest_culture" = "文化";
+"interest_food" = "食べ物";
+"interest_entertainment" = "エンターテイメント";
+"interest_science" = "科学";
+"interest_health" = "健康";
+"interest_travel" = "旅行";
+"interest_education" = "教育";
+
+// Study Intensity
+"how_many_words_per_week" = "週に何語学びたいですか？";
+"words_per_week" = "%d語/週";
+"estimated_daily_time" = "≈ %d分/日";
+
+// Study Time
+"when_do_you_prefer_to_study" = "いつ学習するのが好きですか？";
+"study_time_morning" = "朝";
+"study_time_afternoon" = "午後";
+"study_time_evening" = "夜";
+"study_time_flexible" = "柔軟";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "いつでも";
+
+// Streak Introduction
+"build_your_learning_streak" = "学習ストリークを築きましょう！";
+"streak_intro_message" = "毎日練習してストリークを築き、モチベーションを保ちましょう。チェーンを壊さないで！";
+"streak_benefits_title" = "なぜストリークが重要なのか：";
+"streak_benefit_motivation" = "モチベーションを保つ";
+"streak_benefit_consistency" = "一貫性を築く";
+"streak_benefit_rewards" = "報酬を得る";
+"sounds_great" = "素晴らしい！";
+
+// Notifications
+"stay_on_track_with_reminders" = "スマートリマインダーで軌道に乗る";
+"notification_benefit_daily_practice" = "日常練習リマインダー";
+"notification_benefit_streak_protection" = "ストリーク保護アラート";
+"notification_benefit_progress_updates" = "進歩のマイルストーン";
+"notification_preview_title" = "練習の時間です！";
+"notification_preview_body" = "10分の練習でストリークを活かしましょう";
+"enable_notifications" = "通知を有効にする";
+"maybe_later" = "後で";
+
+// Paywall
+"unlock_full_learning_potential" = "完全な学習ポテンシャルを解放";
+"start_7_day_free_trial" = "7日間無料トライアルを開始";
+"personalized_lessons_for_languages" = "%@のパーソナライズレッスン";
+"ai_powered_practice_for_interests" = "%@のAI駆動練習";
+"unlimited_words_and_quizzes" = "無制限の単語とクイズ";
+"cross_device_sync" = "デバイス間同期";
+"priority_support" = "優先サポート";
+"start_free_trial" = "無料トライアルを開始";
+"monthly" = "月額";
+"yearly" = "年額";
+"save_percentage" = "%d%%節約";
+
+// Sign In
+"sync_your_progress" = "デバイス間で進歩を同期";
+"sign_in_benefit_cloud_backup" = "クラウドバックアップ";
+"sign_in_benefit_multi_device" = "マルチデバイスアクセス";
+"sign_in_benefit_shared_dictionaries" = "共有辞書";
+"sign_in_with_apple" = "Appleでサインイン";
+"sign_in_with_google" = "Googleでサインイン";
+"skip_for_now" = "今はスキップ";
+
+// Success
+"youre_all_set_name" = "準備完了、%@！";
+"ready_to_learn_languages" = "%@を学ぶ準備ができました";
+"start_learning" = "学習を開始";
+
+// Personalization Banner
+"complete_your_profile" = "プロフィールを完成させる";
+"personalize_your_learning" = "簡単な調査で学習体験をパーソナライズ";
+"takes_2_minutes" = "2分かかります";
+"personalize_now" = "今すぐパーソナライズ";
+
+// iCloud Sync
+"loading_from_icloud" = "iCloudから読み込み中...";
+"profile_found" = "プロフィールが見つかりました！";
+"profile_found_message" = "他のデバイスからプロフィールを見つけました。設定と好みが準備完了です！";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@、完全な学習ポテンシャルを解放しましょう！";
+"paywall.personalized_subtitle_study" = "学術的成功のために%@語彙をマスターし、学習で優秀な成績を収めましょう！";
+"paywall.personalized_subtitle_work" = "プロフェッショナル%@語彙とコミュニケーションスキルでキャリアを推進しましょう！";
+"paywall.personalized_subtitle_travel" = "旅行中に%@を自信を持って話し、世界中の人々とつながりましょう！";
+"paywall.personalized_subtitle_business" = "%@ビジネスコミュニケーションとプロフェッショナルな環境で優秀な成績を収めましょう！";
+"paywall.personalized_subtitle_default" = "%@語彙をマスターした何千人もの%@に参加しましょう！";
+"paywall.personalized_for_you" = "あなたのためにパーソナライズ";
+"paywall.perfect_for_your_goals" = "あなたの%@目標に完璧";
+"paywall.features_tailored_to_journey" = "あなたの%@と%@の旅に合わせた機能";
+"paywall.visual_learning_mode" = "視覚学習モード";
+"paywall.visual_learning_description" = "画像、視覚的連想、記憶技術で学習";
+"paywall.what_our_users_say" = "ユーザーの声";
+"paywall.join_thousands_satisfied" = "何千人もの満足した学習者に参加";
+"paywall.choose_your_plan" = "プランを選択";
+"paywall.start_free_upgrade_when_needed" = "無料で開始し、高度な機能が必要な時にアップグレード";
+"paywall.start_free_trial" = "無料トライアルを開始";
+"paywall.continue_free" = "無料で続行";
+"paywall.achievement_master_words" = "最初の週で%d個の新しい%@単語をマスター";
+"paywall.achievement_academic_writing" = "あなたの%@学術ライティングと読解力を向上";
+"paywall.achievement_professional_communication" = "あなたの%@プロフェッショナルコミュニケーションスキルを向上";
+"paywall.achievement_travel_confidence" = "自信を持って%@国をナビゲート";
+"paywall.achievement_business_communication" = "%@ビジネスコミュニケーションとプロフェッショナルな環境で優秀な成績を収める";
+"paywall.achievement_tech_vocabulary" = "%@テクノロジー語彙と業界用語をマスター";
+"paywall.achievement_business_contexts" = "%@ビジネス環境とプロフェッショナルコミュニケーションで優秀な成績を収める";
+"paywall.days" = "日";
+"paywall.words_goal" = "単語目標";
+"paywall.new" = "新";
+"paywall.your_personalized_journey" = "あなたのパーソナライズされた7日間の旅";
+"paywall.start_free_trial" = "7日間無料トライアルを開始";
+"paywall.free" = "無料";
+"paywall.recommended" = "おすすめ";
+"paywall.skip_for_now" = "今はスキップ";
+"paywall.start_my_free_trial_now" = "今すぐ無料トライアルを開始";
+"paywall.start_free_trial_save" = "無料トライアルを開始 - %@節約";
+"paywall.app_store_rating" = "App Store評価";
+"paywall.total_ratings" = "総評価";
+"paywall.reviews" = "レビュー";
+

@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Jaa sanakirjoja ystävien ja perheen kanssa";
 "natural_voices" = "Luonnolliset äänet";
 "natural_voices_description" = "Satoja premium-ääniä, jotka kuulostavat inhimillisemmiltä kuin koskaan";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Päivittäinen johdonmukaisuus";
+"streak_benefit_daily_consistency_description" = "Rakenna tapa, joka pysyy";
+"streak_benefit_track_progress_title" = "Seuraa edistymistä";
+"streak_benefit_track_progress_description" = "Katso sanastosi kasvavan";
+"streak_benefit_stay_motivated_title" = "Pysy motivoituneena";
+"streak_benefit_stay_motivated_description" = "Pidä putkesi elossa";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Lähetämme sinulle lempeitä muistutuksia auttaaksemme sinua ylläpitämään oppimisputkeasi";
+"notification_benefit_daily_reminders_title" = "Päivittäiset muistutukset";
+"notification_benefit_daily_reminders_description" = "Älä koskaan missaa opiskeluaikaasi";
+"notification_benefit_smart_timing_title" = "Älykäs ajoitus";
+"notification_benefit_smart_timing_description" = "Mukautettu aikatauluusi";
+"notification_benefit_no_spam_title" = "Ei roskapostia";
+"notification_benefit_no_spam_description" = "Vain hyödyllisiä muistutuksia";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Mitä meidän pitäisi kutsua sinua?";
+"enter_your_name" = "Syötä nimesi";
+"skip" = "Ohita";
+"continue" = "Jatka";
+
+// User Type
+"which_best_describes_you" = "Mikä kuvaa sinua parhaiten?";
+"user_type_student" = "Opiskelija";
+"user_type_professional" = "Ammattilainen";
+"user_type_hobbyist" = "Harrastaja";
+"user_type_other" = "Muu";
+"user_type_student_description" = "Oppimista koulua tai yliopistoa varten";
+"user_type_professional_description" = "Uraani edistämistä";
+"user_type_hobbyist_description" = "Oppimista huvin vuoksi";
+"user_type_other_description" = "Muita tarkoituksia";
+
+// Age Group
+"whats_your_age_group" = "Mikä on ikäryhmäsi?";
+
+// Learning Goals
+"why_are_you_learning" = "Miksi opettelet kieliä?";
+"select_up_to_three" = "Valitse 1-3 tavoitetta";
+"learning_goal_career" = "Urakehitys";
+"learning_goal_travel" = "Matkailu ja turismi";
+"learning_goal_education" = "Koulutus";
+"learning_goal_personal_growth" = "Henkilökohtainen kasvu";
+"learning_goal_immigration" = "Maahanmuutto";
+"learning_goal_family" = "Perhe ja ystävät";
+
+// Languages to Study
+"which_languages_to_learn" = "Mitä kieliä haluat oppia?";
+"search_languages" = "Hae kieliä";
+"add_language" = "Lisää kieli";
+"select_proficiency_level" = "Valitse taitotaso";
+"select_at_least_one_language" = "Valitse vähintään yksi kieli";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Aloittelija - Peruslauseet";
+"cefr_level_a2_description" = "Alkeis - Yksinkertaiset keskustelut";
+"cefr_level_b1_description" = "Keskitaso - Itsenäinen käyttäjä";
+"cefr_level_b2_description" = "Ylempi keskitaso - Monimutkaiset aiheet";
+"cefr_level_c1_description" = "Edistynyt - Sujuva ilmaisu";
+"cefr_level_c2_description" = "Mestaruus - Äidinkielen kaltainen taito";
+
+// Interests
+"what_topics_interest_you" = "Mitä aiheita kiinnostavat sinua?";
+"select_2_to_5_interests" = "Valitse 2-5 kiinnostusta";
+"interest_business" = "Liiketoiminta";
+"interest_technology" = "Teknologia";
+"interest_sports" = "Urheilu";
+"interest_culture" = "Kulttuuri";
+"interest_food" = "Ruoka";
+"interest_entertainment" = "Viihde";
+"interest_science" = "Tiede";
+"interest_health" = "Terveys";
+"interest_travel" = "Matkailu";
+"interest_education" = "Koulutus";
+
+// Study Intensity
+"how_many_words_per_week" = "Kuinka monta sanaa haluat oppia viikossa?";
+"words_per_week" = "%d sanaa/viikko";
+"estimated_daily_time" = "≈ %d min/päivä";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Milloin haluat opiskella?";
+"study_time_morning" = "Aamu";
+"study_time_afternoon" = "Iltapäivä";
+"study_time_evening" = "Ilta";
+"study_time_flexible" = "Joustava";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Milloin tahansa";
+
+// Streak Introduction
+"build_your_learning_streak" = "Rakenna oppimisputkesi!";
+"streak_intro_message" = "Harjoittele joka päivä rakentaaksesi putkesi ja pysyäksesi motivoituneena. Älä riko ketjua!";
+"streak_benefits_title" = "Miksi putket ovat tärkeitä:";
+"streak_benefit_motivation" = "Pysy motivoituneena";
+"streak_benefit_consistency" = "Rakenna johdonmukaisuutta";
+"streak_benefit_rewards" = "Ansaitse palkintoja";
+"sounds_great" = "Kuulostaa hienolta!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Pysy radalla älykkäillä muistutuksilla";
+"notification_benefit_daily_practice" = "Päivittäiset harjoittelumuistutukset";
+"notification_benefit_streak_protection" = "Putken suojeluhälytykset";
+"notification_benefit_progress_updates" = "Edistymisen virstanpylväät";
+"notification_preview_title" = "Aika harjoitella!";
+"notification_preview_body" = "Pidä putkesi elossa 10 minuutin harjoittelulla";
+"enable_notifications" = "Ota ilmoitukset käyttöön";
+"maybe_later" = "Ehkä myöhemmin";
+
+// Paywall
+"unlock_full_learning_potential" = "Avaa täysi oppimispotentiaalisi";
+"start_7_day_free_trial" = "Aloita 7 päivän ilmainen kokeilu";
+"personalized_lessons_for_languages" = "Henkilökohtaiset oppitunnit %@:lle";
+"ai_powered_practice_for_interests" = "AI-pohjainen harjoittelu %@:lle";
+"unlimited_words_and_quizzes" = "Rajoittamattomat sanat ja visat";
+"cross_device_sync" = "Laitteiden välinen synkronointi";
+"priority_support" = "Prioriteettituki";
+"start_free_trial" = "Aloita ilmainen kokeilu";
+"monthly" = "Kuukausittain";
+"yearly" = "Vuosittain";
+"save_percentage" = "Säästä %d%%";
+
+// Sign In
+"sync_your_progress" = "Synkronoi edistymisesi laitteiden välillä";
+"sign_in_benefit_cloud_backup" = "Pilvipalvelun varmuuskopio";
+"sign_in_benefit_multi_device" = "Monilaitepääsy";
+"sign_in_benefit_shared_dictionaries" = "Jaetut sanakirjat";
+"sign_in_with_apple" = "Kirjaudu sisään Applella";
+"sign_in_with_google" = "Kirjaudu sisään Googlella";
+"skip_for_now" = "Ohita toistaiseksi";
+
+// Success
+"youre_all_set_name" = "Olet valmis, %@!";
+"ready_to_learn_languages" = "Valmis oppimaan %@";
+"start_learning" = "Aloita oppiminen";
+
+// Personalization Banner
+"complete_your_profile" = "Täydennä profiilisi";
+"personalize_your_learning" = "Mukauta oppimiskokemustasi nopealla kyselyllä";
+"takes_2_minutes" = "Kestää 2 minuuttia";
+"personalize_now" = "Mukauta nyt";
+
+// iCloud Sync
+"loading_from_icloud" = "Ladataan iCloudista...";
+"profile_found" = "Profiili löytyi!";
+"profile_found_message" = "Löysimme profiilisi toiselta laitteelta. Asetuksesi ja mieltymyksesi ovat valmiit!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, avaa täysi oppimispotentiaalisi!";
+"paywall.personalized_subtitle_study" = "Hallitse %@ sanastoa akateemiseen menestykseen ja erottu opiskeluissasi!";
+"paywall.personalized_subtitle_work" = "Kiihdytä uraasi ammattimaisella %@ sanastolla ja viestintätaidoilla!";
+"paywall.personalized_subtitle_travel" = "Puhu %@ varmuudella matkustaessasi ja yhdistä ihmisiin ympäri maailmaa!";
+"paywall.personalized_subtitle_business" = "Erity %@ liiketoimintaviestinnässä ja ammattimaisissa konteksteissa!";
+"paywall.personalized_subtitle_default" = "Liity tuhansiin %@:ia, jotka ovat hallinneet %@ sanaston!";
+"paywall.personalized_for_you" = "Henkilökohtainen sinulle";
+"paywall.perfect_for_your_goals" = "Täydellinen %@ tavoitteillesi";
+"paywall.features_tailored_to_journey" = "Ominaisuudet räätälöity %@ matkaasi %@:lla";
+"paywall.visual_learning_mode" = "Visuaalinen oppimistila";
+"paywall.visual_learning_description" = "Opi kuvien, visuaalisten assosiaatioiden ja muistitekniikoiden avulla";
+"paywall.what_our_users_say" = "Mitä käyttäjämme sanovat";
+"paywall.join_thousands_satisfied" = "Liity tuhansiin tyytyväisiin oppijoihin";
+"paywall.choose_your_plan" = "Valitse suunnitelma";
+"paywall.start_free_upgrade_when_needed" = "Aloita ilmaiseksi ja päivitä kun tarvitset edistyneitä ominaisuuksia";
+"paywall.start_free_trial" = "Aloita ilmainen kokeilu";
+"paywall.continue_free" = "Jatka ilmaiseksi";
+"paywall.achievement_master_words" = "Hallitse %d uutta %@ sanaa ensimmäisellä viikollasi";
+"paywall.achievement_academic_writing" = "Paranna %@ akateemista kirjoitustasi ja lukukäsitystä";
+"paywall.achievement_professional_communication" = "Paranna ammattimaisia %@ viestintätaitojasi";
+"paywall.achievement_travel_confidence" = "Navigoi mitä tahansa %@-puhuvaa maata varmuudella";
+"paywall.achievement_business_communication" = "Erity %@ liiketoimintaviestinnässä ja ammattimaisissa konteksteissa";
+"paywall.achievement_tech_vocabulary" = "Hallitse %@ teknologia sanastoa ja alan terminologiaa";
+"paywall.achievement_business_contexts" = "Erity %@ liiketoimintakonteksteissa ja ammattimaisessa viestinnässä";
+"paywall.days" = "Päivää";
+"paywall.words_goal" = "Sanojen tavoite";
+"paywall.new" = "UUSI";
+"paywall.your_personalized_journey" = "Henkilökohtainen 7 päivän matkasi";
+"paywall.start_free_trial" = "Aloita 7 päivän ilmainen kokeilu";
+"paywall.free" = "ILMAINEN";
+"paywall.recommended" = "SUOSITELTU";
+"paywall.skip_for_now" = "Ohita toistaiseksi";
+"paywall.start_my_free_trial_now" = "Aloita ilmainen kokeiluni nyt";
+"paywall.start_free_trial_save" = "Aloita ilmainen kokeilu - Säästä %@";
+"paywall.app_store_rating" = "App Store arviointi";
+"paywall.total_ratings" = "Yhteensä arviointeja";
+"paywall.reviews" = "Arvostelut";
+

@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Dziel się słownikami z przyjaciółmi i rodziną";
 "natural_voices" = "Naturalne głosy";
 "natural_voices_description" = "Setki wysokiej jakości głosów, które brzmią bardziej ludzko niż kiedykolwiek";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Codzienna Konsekwencja";
+"streak_benefit_daily_consistency_description" = "Zbuduj nawyk, który zostaje";
+"streak_benefit_track_progress_title" = "Śledź Postęp";
+"streak_benefit_track_progress_description" = "Obserwuj wzrost swojego słownictwa";
+"streak_benefit_stay_motivated_title" = "Pozostań Zmotywowany";
+"streak_benefit_stay_motivated_description" = "Utrzymaj swoją serię żywą";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Wyślemy Ci delikatne przypomnienia, aby pomóc Ci utrzymać swoją serię nauki";
+"notification_benefit_daily_reminders_title" = "Codzienne Przypomnienia";
+"notification_benefit_daily_reminders_description" = "Nigdy nie przegap czasu na naukę";
+"notification_benefit_smart_timing_title" = "Inteligentny Timing";
+"notification_benefit_smart_timing_description" = "Spersonalizowane do Twojego harmonogramu";
+"notification_benefit_no_spam_title" = "Bez Spamu";
+"notification_benefit_no_spam_description" = "Tylko pomocne przypomnienia";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Jak powinniśmy Cię nazywać?";
+"enter_your_name" = "Wprowadź swoje imię";
+"skip" = "Pomiń";
+"continue" = "Kontynuuj";
+
+// User Type
+"which_best_describes_you" = "Co najlepiej Cię opisuje?";
+"user_type_student" = "Student";
+"user_type_professional" = "Profesjonalista";
+"user_type_hobbyist" = "Hobbysta";
+"user_type_other" = "Inne";
+"user_type_student_description" = "Nauka dla szkoły lub uniwersytetu";
+"user_type_professional_description" = "Rozwój kariery";
+"user_type_hobbyist_description" = "Nauka dla przyjemności";
+"user_type_other_description" = "Inne cele";
+
+// Age Group
+"whats_your_age_group" = "Jaka jest Twoja grupa wiekowa?";
+
+// Learning Goals
+"why_are_you_learning" = "Dlaczego uczysz się języków?";
+"select_up_to_three" = "Wybierz 1-3 cele";
+"learning_goal_career" = "Rozwój Kariery";
+"learning_goal_travel" = "Podróże i Turystyka";
+"learning_goal_education" = "Edukacja";
+"learning_goal_personal_growth" = "Rozwój Osobisty";
+"learning_goal_immigration" = "Imigracja";
+"learning_goal_family" = "Rodzina i Przyjaciele";
+
+// Languages to Study
+"which_languages_to_learn" = "Jakich języków chcesz się uczyć?";
+"search_languages" = "Szukaj języków";
+"add_language" = "Dodaj Język";
+"select_proficiency_level" = "Wybierz poziom biegłości";
+"select_at_least_one_language" = "Wybierz co najmniej jeden język";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Początkujący - Podstawowe frazy";
+"cefr_level_a2_description" = "Elementarny - Proste rozmowy";
+"cefr_level_b1_description" = "Średni - Niezależny użytkownik";
+"cefr_level_b2_description" = "Średnio-zaawansowany - Złożone tematy";
+"cefr_level_c1_description" = "Zaawansowany - Płynne wyrażanie";
+"cefr_level_c2_description" = "Biegły - Poziom rodzimego użytkownika";
+
+// Interests
+"what_topics_interest_you" = "Jakie tematy Cię interesują?";
+"select_2_to_5_interests" = "Wybierz 2-5 zainteresowań";
+"interest_business" = "Biznes";
+"interest_technology" = "Technologia";
+"interest_sports" = "Sport";
+"interest_culture" = "Kultura";
+"interest_food" = "Jedzenie";
+"interest_entertainment" = "Rozrywka";
+"interest_science" = "Nauka";
+"interest_health" = "Zdrowie";
+"interest_travel" = "Podróże";
+"interest_education" = "Edukacja";
+
+// Study Intensity
+"how_many_words_per_week" = "Ile słów chcesz uczyć się tygodniowo?";
+"words_per_week" = "%d słów/tydzień";
+"estimated_daily_time" = "≈ %d min/dzień";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Kiedy wolisz się uczyć?";
+"study_time_morning" = "Rano";
+"study_time_afternoon" = "Popołudnie";
+"study_time_evening" = "Wieczór";
+"study_time_flexible" = "Elastycznie";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Kiedykolwiek";
+
+// Streak Introduction
+"build_your_learning_streak" = "Zbuduj swoją serię nauki!";
+"streak_intro_message" = "Ćwicz codziennie, aby zbudować swoją serię i pozostać zmotywowanym. Nie przerywaj łańcucha!";
+"streak_benefits_title" = "Dlaczego serie są ważne:";
+"streak_benefit_motivation" = "Pozostań zmotywowany";
+"streak_benefit_consistency" = "Zbuduj konsekwencję";
+"streak_benefit_rewards" = "Zarabiaj nagrody";
+"sounds_great" = "Brzmi Świetnie!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Pozostań na torze ze smart przypomnieniami";
+"notification_benefit_daily_practice" = "Codzienne przypomnienia o ćwiczeniach";
+"notification_benefit_streak_protection" = "Alerty ochrony serii";
+"notification_benefit_progress_updates" = "Kamienie milowe postępu";
+"notification_preview_title" = "Czas na ćwiczenia!";
+"notification_preview_body" = "Utrzymaj swoją serię żywą z 10 minutami ćwiczeń";
+"enable_notifications" = "Włącz Powiadomienia";
+"maybe_later" = "Może Później";
+
+// Paywall
+"unlock_full_learning_potential" = "Odblokuj swój Pełny Potencjał Nauki";
+"start_7_day_free_trial" = "Rozpocznij 7-dniowy bezpłatny okres próbny";
+"personalized_lessons_for_languages" = "Spersonalizowane lekcje dla %@";
+"ai_powered_practice_for_interests" = "Praktyka napędzana AI dla %@";
+"unlimited_words_and_quizzes" = "Nieograniczone słowa i quizy";
+"cross_device_sync" = "Synchronizacja między urządzeniami";
+"priority_support" = "Priorytetowe wsparcie";
+"start_free_trial" = "Rozpocznij Bezpłatny Okres Próbny";
+"monthly" = "Miesięcznie";
+"yearly" = "Rocznie";
+"save_percentage" = "Oszczędź %d%%";
+
+// Sign In
+"sync_your_progress" = "Synchronizuj swój postęp między urządzeniami";
+"sign_in_benefit_cloud_backup" = "Kopia zapasowa w chmurze";
+"sign_in_benefit_multi_device" = "Dostęp wielourządzeniowy";
+"sign_in_benefit_shared_dictionaries" = "Współdzielone słowniki";
+"sign_in_with_apple" = "Zaloguj się przez Apple";
+"sign_in_with_google" = "Zaloguj się przez Google";
+"skip_for_now" = "Pomiń na razie";
+
+// Success
+"youre_all_set_name" = "Wszystko gotowe, %@!";
+"ready_to_learn_languages" = "Gotowy do nauki %@";
+"start_learning" = "Rozpocznij Naukę";
+
+// Personalization Banner
+"complete_your_profile" = "Uzupełnij swój Profil";
+"personalize_your_learning" = "Spersonalizuj swoje doświadczenie nauki szybką ankietą";
+"takes_2_minutes" = "Zajmuje 2 minuty";
+"personalize_now" = "Spersonalizuj Teraz";
+
+// iCloud Sync
+"loading_from_icloud" = "Ładowanie z iCloud...";
+"profile_found" = "Znaleziono Profil!";
+"profile_found_message" = "Znaleźliśmy Twój profil z innego urządzenia. Twoje ustawienia i preferencje są gotowe!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, odblokuj swój pełny potencjał nauki!";
+"paywall.personalized_subtitle_study" = "Opanuj słownictwo %@ dla sukcesu akademickiego i wyróżnij się w nauce!";
+"paywall.personalized_subtitle_work" = "Rozwijaj swoją karierę z profesjonalnym słownictwem %@ i umiejętnościami komunikacyjnymi!";
+"paywall.personalized_subtitle_travel" = "Mów %@ z pewnością podczas podróży i łącz się z ludźmi na całym świecie!";
+"paywall.personalized_subtitle_business" = "Wyróżnij się w komunikacji biznesowej %@ i kontekstach profesjonalnych!";
+"paywall.personalized_subtitle_default" = "Dołącz do tysięcy %@s, które opanowały słownictwo %@!";
+"paywall.personalized_for_you" = "Spersonalizowane dla Ciebie";
+"paywall.perfect_for_your_goals" = "Idealne dla Twoich celów %@";
+"paywall.features_tailored_to_journey" = "Funkcje dostosowane do Twojej podróży %@ z %@";
+"paywall.visual_learning_mode" = "Tryb Nauki Wizualnej";
+"paywall.visual_learning_description" = "Ucz się z obrazami, skojarzeniami wizualnymi i technikami pamięci";
+"paywall.what_our_users_say" = "Co Mówią Nasi Użytkownicy";
+"paywall.join_thousands_satisfied" = "Dołącz do tysięcy zadowolonych uczniów";
+"paywall.choose_your_plan" = "Wybierz swój Plan";
+"paywall.start_free_upgrade_when_needed" = "Rozpocznij za darmo i uaktualnij, gdy potrzebujesz zaawansowanych funkcji";
+"paywall.start_free_trial" = "Rozpocznij Bezpłatny Okres Próbny";
+"paywall.continue_free" = "Kontynuuj Za Darmo";
+"paywall.achievement_master_words" = "Opanuj %d nowych słów %@ w pierwszym tygodniu";
+"paywall.achievement_academic_writing" = "Popraw swoje pisanie akademickie %@ i rozumienie czytania";
+"paywall.achievement_professional_communication" = "Popraw swoje umiejętności komunikacji profesjonalnej w %@";
+"paywall.achievement_travel_confidence" = "Nawiguj z pewnością w każdym kraju mówiącym %@";
+"paywall.achievement_business_communication" = "Wyróżnij się w komunikacji biznesowej %@ i kontekstach profesjonalnych";
+"paywall.achievement_tech_vocabulary" = "Opanuj słownictwo technologiczne %@ i terminologię branżową";
+"paywall.achievement_business_contexts" = "Wyróżnij się w kontekstach biznesowych %@ i komunikacji profesjonalnej";
+"paywall.days" = "Dni";
+"paywall.words_goal" = "Cel Słów";
+"paywall.new" = "NOWY";
+"paywall.your_personalized_journey" = "Twoja Spersonalizowana 7-Dniowa Podróż";
+"paywall.start_free_trial" = "Rozpocznij swój 7-Dniowy Bezpłatny Okres Próbny";
+"paywall.free" = "ZA DARMO";
+"paywall.recommended" = "POLECANE";
+"paywall.skip_for_now" = "Pomiń na Razie";
+"paywall.start_my_free_trial_now" = "Rozpocznij Mój Bezpłatny Okres Próbny Teraz";
+"paywall.start_free_trial_save" = "Rozpocznij Bezpłatny Okres Próbny - Oszczędź %@";
+"paywall.app_store_rating" = "Ocena App Store";
+"paywall.total_ratings" = "Łączne Oceny";
+"paywall.reviews" = "Recenzje";
+

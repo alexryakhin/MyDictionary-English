@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Діліться словниками з друзями та родиною";
 "natural_voices" = "Природні голоси";
 "natural_voices_description" = "Сотні преміум-голосів, які звучать більш людяно, ніж будь-коли";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Щоденна послідовність";
+"streak_benefit_daily_consistency_description" = "Створіть звичку, яка залишається";
+"streak_benefit_track_progress_title" = "Відстеження прогресу";
+"streak_benefit_track_progress_description" = "Спостерігайте за зростанням вашого словникового запасу";
+"streak_benefit_stay_motivated_title" = "Залишайтеся мотивованими";
+"streak_benefit_stay_motivated_description" = "Підтримуйте свою серію живою";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Ми надсилатимемо вам м'які нагадування, щоб допомогти підтримувати вашу серію навчання";
+"notification_benefit_daily_reminders_title" = "Щоденні нагадування";
+"notification_benefit_daily_reminders_description" = "Ніколи не пропускайте час навчання";
+"notification_benefit_smart_timing_title" = "Розумний час";
+"notification_benefit_smart_timing_description" = "Персоналізовано під ваш розклад";
+"notification_benefit_no_spam_title" = "Без спаму";
+"notification_benefit_no_spam_description" = "Тільки корисні нагадування";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Як ми повинні вас називати?";
+"enter_your_name" = "Введіть ваше ім'я";
+"skip" = "Пропустити";
+"continue" = "Продовжити";
+
+// User Type
+"which_best_describes_you" = "Що найкраще описує вас?";
+"user_type_student" = "Студент";
+"user_type_professional" = "Професіонал";
+"user_type_hobbyist" = "Аматор";
+"user_type_other" = "Інше";
+"user_type_student_description" = "Навчання для школи або університету";
+"user_type_professional_description" = "Розвиток моєї кар'єри";
+"user_type_hobbyist_description" = "Навчання для розваги";
+"user_type_other_description" = "Інші цілі";
+
+// Age Group
+"whats_your_age_group" = "Яка ваша вікова група?";
+
+// Learning Goals
+"why_are_you_learning" = "Чому ви вивчаєте мови?";
+"select_up_to_three" = "Виберіть 1-3 цілі";
+"learning_goal_career" = "Розвиток кар'єри";
+"learning_goal_travel" = "Подорожі та туризм";
+"learning_goal_education" = "Освіта";
+"learning_goal_personal_growth" = "Особистісний розвиток";
+"learning_goal_immigration" = "Імміграція";
+"learning_goal_family" = "Сім'я та друзі";
+
+// Languages to Study
+"which_languages_to_learn" = "Які мови ви хочете вивчати?";
+"search_languages" = "Пошук мов";
+"add_language" = "Додати мову";
+"select_proficiency_level" = "Виберіть рівень володіння";
+"select_at_least_one_language" = "Виберіть принаймні одну мову";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Початківець - Базові фрази";
+"cefr_level_a2_description" = "Елементарний - Прості розмови";
+"cefr_level_b1_description" = "Середній - Незалежний користувач";
+"cefr_level_b2_description" = "Вище середнього - Складні теми";
+"cefr_level_c1_description" = "Просунутий - Вільне вираження";
+"cefr_level_c2_description" = "Майстерність - Рівень носія мови";
+
+// Interests
+"what_topics_interest_you" = "Які теми вас цікавлять?";
+"select_2_to_5_interests" = "Виберіть 2-5 інтересів";
+"interest_business" = "Бізнес";
+"interest_technology" = "Технології";
+"interest_sports" = "Спорт";
+"interest_culture" = "Культура";
+"interest_food" = "Їжа";
+"interest_entertainment" = "Розваги";
+"interest_science" = "Наука";
+"interest_health" = "Здоров'я";
+"interest_travel" = "Подорожі";
+"interest_education" = "Освіта";
+
+// Study Intensity
+"how_many_words_per_week" = "Скільки слів ви хочете вивчати на тиждень?";
+"words_per_week" = "%d слів/тиждень";
+"estimated_daily_time" = "≈ %d хв/день";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Коли ви віддаєте перевагу навчанню?";
+"study_time_morning" = "Ранок";
+"study_time_afternoon" = "Після обіду";
+"study_time_evening" = "Вечір";
+"study_time_flexible" = "Гнучкий";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Будь-коли";
+
+// Streak Introduction
+"build_your_learning_streak" = "Створіть свою серію навчання!";
+"streak_intro_message" = "Практикуйтеся щодня, щоб створити свою серію та залишатися мотивованими. Не переривайте ланцюг!";
+"streak_benefits_title" = "Чому серії важливі:";
+"streak_benefit_motivation" = "Залишайтеся мотивованими";
+"streak_benefit_consistency" = "Створюйте послідовність";
+"streak_benefit_rewards" = "Отримуйте нагороди";
+"sounds_great" = "Чудово!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Залишайтеся на шляху з розумними нагадуваннями";
+"notification_benefit_daily_practice" = "Щоденні нагадування про практику";
+"notification_benefit_streak_protection" = "Сповіщення про захист серії";
+"notification_benefit_progress_updates" = "Віхи прогресу";
+"notification_preview_title" = "Час практикуватися!";
+"notification_preview_body" = "Підтримуйте свою серію живою з 10 хвилинами практики";
+"enable_notifications" = "Увімкнути сповіщення";
+"maybe_later" = "Можливо пізніше";
+
+// Paywall
+"unlock_full_learning_potential" = "Розблокуйте свій повний навчальний потенціал";
+"start_7_day_free_trial" = "Почніть свій 7-денний безкоштовний пробний період";
+"personalized_lessons_for_languages" = "Персоналізовані уроки для %@";
+"ai_powered_practice_for_interests" = "Практика на основі ШІ для %@";
+"unlimited_words_and_quizzes" = "Необмежені слова та тести";
+"cross_device_sync" = "Синхронізація між пристроями";
+"priority_support" = "Пріоритетна підтримка";
+"start_free_trial" = "Почніть безкоштовний пробний період";
+"monthly" = "Щомісячно";
+"yearly" = "Щорічно";
+"save_percentage" = "Економте %d%%";
+
+// Sign In
+"sync_your_progress" = "Синхронізуйте свій прогрес між пристроями";
+"sign_in_benefit_cloud_backup" = "Резервне копіювання в хмарі";
+"sign_in_benefit_multi_device" = "Доступ до кількох пристроїв";
+"sign_in_benefit_shared_dictionaries" = "Спільні словники";
+"sign_in_with_apple" = "Увійти через Apple";
+"sign_in_with_google" = "Увійти через Google";
+"skip_for_now" = "Поки що пропустити";
+
+// Success
+"youre_all_set_name" = "Ви готові, %@!";
+"ready_to_learn_languages" = "Готові вивчати %@";
+"start_learning" = "Почніть навчання";
+
+// Personalization Banner
+"complete_your_profile" = "Завершіть свій профіль";
+"personalize_your_learning" = "Персоналізуйте свій навчальний досвід з швидким опитуванням";
+"takes_2_minutes" = "Займає 2 хвилини";
+"personalize_now" = "Персоналізувати зараз";
+
+// iCloud Sync
+"loading_from_icloud" = "Завантаження з iCloud...";
+"profile_found" = "Профіль знайдено!";
+"profile_found_message" = "Ми знайшли ваш профіль з іншого пристрою. Ваші налаштування та уподобання готові до використання!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, розблокуйте свій повний навчальний потенціал!";
+"paywall.personalized_subtitle_study" = "Опануйте %@ словниковий запас для академічного успіху та досягніть успіху в навчанні!";
+"paywall.personalized_subtitle_work" = "Просувайте свою кар'єру з професійним %@ словниковим запасом та навичками спілкування!";
+"paywall.personalized_subtitle_travel" = "Говоріть %@ впевнено під час подорожей та спілкуйтеся з людьми по всьому світу!";
+"paywall.personalized_subtitle_business" = "Досягайте успіху в %@ діловому спілкуванні та професійних контекстах!";
+"paywall.personalized_subtitle_default" = "Приєднуйтеся до тисяч %@, які опанували %@ словниковий запас!";
+"paywall.personalized_for_you" = "Персоналізовано для вас";
+"paywall.perfect_for_your_goals" = "Ідеально для ваших %@ цілей";
+"paywall.features_tailored_to_journey" = "Функції, адаптовані до вашої %@ подорожі з %@";
+"paywall.visual_learning_mode" = "Режим візуального навчання";
+"paywall.visual_learning_description" = "Навчайтеся з зображеннями, візуальними асоціаціями та техніками пам'яті";
+"paywall.what_our_users_say" = "Що кажуть наші користувачі";
+"paywall.join_thousands_satisfied" = "Приєднуйтеся до тисяч задоволених учнів";
+"paywall.choose_your_plan" = "Виберіть свій план";
+"paywall.start_free_upgrade_when_needed" = "Почніть безкоштовно та оновлюйте, коли потрібні розширені функції";
+"paywall.start_free_trial" = "Почніть безкоштовний пробний період";
+"paywall.continue_free" = "Продовжити безкоштовно";
+"paywall.achievement_master_words" = "Опануйте %d нових %@ слів у ваш перший тиждень";
+"paywall.achievement_academic_writing" = "Покращіть ваше %@ академічне письмо та розуміння прочитаного";
+"paywall.achievement_professional_communication" = "Розвивайте ваші професійні %@ навички спілкування";
+"paywall.achievement_travel_confidence" = "Навігуйте в будь-якій %@ мовній країні з впевненістю";
+"paywall.achievement_business_communication" = "Досягайте успіху в %@ діловому спілкуванні та професійних контекстах";
+"paywall.achievement_tech_vocabulary" = "Опануйте %@ технологічний словниковий запас та галузеву термінологію";
+"paywall.achievement_business_contexts" = "Досягайте успіху в %@ ділових контекстах та професійному спілкуванні";
+"paywall.days" = "Дні";
+"paywall.words_goal" = "Мета слів";
+"paywall.new" = "НОВИЙ";
+"paywall.your_personalized_journey" = "Ваша персоналізована 7-денна подорож";
+"paywall.start_free_trial" = "Почніть вашу 7-денну безкоштовну пробну версію";
+"paywall.free" = "БЕЗКОШТОВНО";
+"paywall.recommended" = "РЕКОМЕНДОВАНО";
+"paywall.skip_for_now" = "Поки що пропустити";
+"paywall.start_my_free_trial_now" = "Почніть мою безкоштовну пробну версію зараз";
+"paywall.start_free_trial_save" = "Почніть безкоштовну пробну версію - економте %@";
+"paywall.app_store_rating" = "Рейтинг App Store";
+"paywall.total_ratings" = "Загальні рейтинги";
+"paywall.reviews" = "Відгуки";
+

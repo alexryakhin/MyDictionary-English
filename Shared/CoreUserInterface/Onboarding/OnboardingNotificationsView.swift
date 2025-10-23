@@ -36,7 +36,7 @@ extension OnboardingFlow {
                             .opacity(animateContent ? 1 : 0)
                             .offset(y: animateContent ? 0 : 20)
 
-                        Text("We'll send you gentle reminders to help you maintain your learning streak")
+                        Text(Loc.Onboarding.notificationsSubtitle)
                             .font(.body)
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
@@ -50,24 +50,24 @@ extension OnboardingFlow {
                     VStack(spacing: 12) {
                         NotificationBenefitRow(
                             icon: "alarm",
-                            title: "Daily Reminders",
-                            description: "Never miss your study time",
+                            title: Loc.Onboarding.notificationBenefitDailyRemindersTitle,
+                            description: Loc.Onboarding.notificationBenefitDailyRemindersDescription,
                             delay: 0.0,
                             show: showBenefits
                         )
 
                         NotificationBenefitRow(
                             icon: "sparkles",
-                            title: "Smart Timing",
-                            description: "Personalized to your schedule",
+                            title: Loc.Onboarding.notificationBenefitSmartTimingTitle,
+                            description: Loc.Onboarding.notificationBenefitSmartTimingDescription,
                             delay: 0.15,
                             show: showBenefits
                         )
 
                         NotificationBenefitRow(
                             icon: "hand.raised.fill",
-                            title: "No Spam",
-                            description: "Only helpful reminders",
+                            title: Loc.Onboarding.notificationBenefitNoSpamTitle,
+                            description: Loc.Onboarding.notificationBenefitNoSpamDescription,
                             delay: 0.3,
                             show: showBenefits
                         )

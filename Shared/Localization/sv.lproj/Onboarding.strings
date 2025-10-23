@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Dela ordböcker med vänner och familj";
 "natural_voices" = "Naturliga röster";
 "natural_voices_description" = "Hundratals premiumröster som låter mer mänskliga än någonsin";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Daglig Konsistens";
+"streak_benefit_daily_consistency_description" = "Bygg en vana som håller";
+"streak_benefit_track_progress_title" = "Spåra Framsteg";
+"streak_benefit_track_progress_description" = "Se ditt ordförråd växa";
+"streak_benefit_stay_motivated_title" = "Håll Dig Motiverad";
+"streak_benefit_stay_motivated_description" = "Håll din streak vid liv";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Vi skickar dig mjuka påminnelser för att hjälpa dig att upprätthålla din lärstreak";
+"notification_benefit_daily_reminders_title" = "Dagliga Påminnelser";
+"notification_benefit_daily_reminders_description" = "Missa aldrig din studietid";
+"notification_benefit_smart_timing_title" = "Smart Timing";
+"notification_benefit_smart_timing_description" = "Anpassat till ditt schema";
+"notification_benefit_no_spam_title" = "Ingen Spam";
+"notification_benefit_no_spam_description" = "Endast hjälpsamma påminnelser";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Vad ska vi kalla dig?";
+"enter_your_name" = "Ange ditt namn";
+"skip" = "Hoppa över";
+"continue" = "Fortsätt";
+
+// User Type
+"which_best_describes_you" = "Vilket beskriver dig bäst?";
+"user_type_student" = "Student";
+"user_type_professional" = "Professionell";
+"user_type_hobbyist" = "Hobbyist";
+"user_type_other" = "Annat";
+"user_type_student_description" = "Lära för skola eller universitet";
+"user_type_professional_description" = "Framsteg i min karriär";
+"user_type_hobbyist_description" = "Lära för nöjes skull";
+"user_type_other_description" = "Andra syften";
+
+// Age Group
+"whats_your_age_group" = "Vilken är din åldersgrupp?";
+
+// Learning Goals
+"why_are_you_learning" = "Varför lär du dig språk?";
+"select_up_to_three" = "Välj 1-3 mål";
+"learning_goal_career" = "Karriärutveckling";
+"learning_goal_travel" = "Resor & Turism";
+"learning_goal_education" = "Utbildning";
+"learning_goal_personal_growth" = "Personlig Utveckling";
+"learning_goal_immigration" = "Invandring";
+"learning_goal_family" = "Familj & Vänner";
+
+// Languages to Study
+"which_languages_to_learn" = "Vilka språk vill du lära dig?";
+"search_languages" = "Sök språk";
+"add_language" = "Lägg till Språk";
+"select_proficiency_level" = "Välj färdighetsnivå";
+"select_at_least_one_language" = "Välj minst ett språk";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Nybörjare - Grundläggande fraser";
+"cefr_level_a2_description" = "Elementär - Enkla samtal";
+"cefr_level_b1_description" = "Mellannivå - Oberoende användare";
+"cefr_level_b2_description" = "Högre mellannivå - Komplexa ämnen";
+"cefr_level_c1_description" = "Avancerad - Flytande uttryck";
+"cefr_level_c2_description" = "Mästerskap - Modersmålsliknande färdighet";
+
+// Interests
+"what_topics_interest_you" = "Vilka ämnen intresserar dig?";
+"select_2_to_5_interests" = "Välj 2-5 intressen";
+"interest_business" = "Företag";
+"interest_technology" = "Teknologi";
+"interest_sports" = "Sport";
+"interest_culture" = "Kultur";
+"interest_food" = "Mat";
+"interest_entertainment" = "Underhållning";
+"interest_science" = "Vetenskap";
+"interest_health" = "Hälsa";
+"interest_travel" = "Resor";
+"interest_education" = "Utbildning";
+
+// Study Intensity
+"how_many_words_per_week" = "Hur många ord vill du lära dig per vecka?";
+"words_per_week" = "%d ord/vecka";
+"estimated_daily_time" = "≈ %d min/dag";
+
+// Study Time
+"when_do_you_prefer_to_study" = "När föredrar du att studera?";
+"study_time_morning" = "Morgon";
+"study_time_afternoon" = "Eftermiddag";
+"study_time_evening" = "Kväll";
+"study_time_flexible" = "Flexibel";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "När som helst";
+
+// Streak Introduction
+"build_your_learning_streak" = "Bygg din lärstreak!";
+"streak_intro_message" = "Öva varje dag för att bygga din streak och hålla dig motiverad. Bryt inte kedjan!";
+"streak_benefits_title" = "Varför streaks är viktiga:";
+"streak_benefit_motivation" = "Håll dig motiverad";
+"streak_benefit_consistency" = "Bygg konsistens";
+"streak_benefit_rewards" = "Tjäna belöningar";
+"sounds_great" = "Låter bra!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Håll dig på rätt spår med smarta påminnelser";
+"notification_benefit_daily_practice" = "Dagliga övningspåminnelser";
+"notification_benefit_streak_protection" = "Streak-skyddsvarningar";
+"notification_benefit_progress_updates" = "Framstegsmilstenar";
+"notification_preview_title" = "Dags att öva!";
+"notification_preview_body" = "Håll din streak vid liv med 10 minuters övning";
+"enable_notifications" = "Aktivera Notifieringar";
+"maybe_later" = "Kanske senare";
+
+// Paywall
+"unlock_full_learning_potential" = "Lås upp din fulla lärpotential";
+"start_7_day_free_trial" = "Starta din 7-dagars gratis provperiod";
+"personalized_lessons_for_languages" = "Personliga lektioner för %@";
+"ai_powered_practice_for_interests" = "AI-driven övning för %@";
+"unlimited_words_and_quizzes" = "Obegränsade ord och quiz";
+"cross_device_sync" = "Synkronisering mellan enheter";
+"priority_support" = "Prioritetsstöd";
+"start_free_trial" = "Starta Gratis Provperiod";
+"monthly" = "Månadsvis";
+"yearly" = "Årligen";
+"save_percentage" = "Spara %d%%";
+
+// Sign In
+"sync_your_progress" = "Synkronisera ditt framsteg mellan enheter";
+"sign_in_benefit_cloud_backup" = "Molnbackup";
+"sign_in_benefit_multi_device" = "Multi-enhetsåtkomst";
+"sign_in_benefit_shared_dictionaries" = "Delade ordböcker";
+"sign_in_with_apple" = "Logga in med Apple";
+"sign_in_with_google" = "Logga in med Google";
+"skip_for_now" = "Hoppa över för nu";
+
+// Success
+"youre_all_set_name" = "Du är redo, %@!";
+"ready_to_learn_languages" = "Redo att lära dig %@";
+"start_learning" = "Starta Lärande";
+
+// Personalization Banner
+"complete_your_profile" = "Slutför din profil";
+"personalize_your_learning" = "Personalisera din lärerfarenhet med en snabb undersökning";
+"takes_2_minutes" = "Tar 2 minuter";
+"personalize_now" = "Personalisera Nu";
+
+// iCloud Sync
+"loading_from_icloud" = "Laddar från iCloud...";
+"profile_found" = "Profil hittad!";
+"profile_found_message" = "Vi hittade din profil från en annan enhet. Dina inställningar och preferenser är redo!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, lås upp din fulla lärpotential!";
+"paywall.personalized_subtitle_study" = "Behärska %@ ordförråd för akademisk framgång och excellera i dina studier!";
+"paywall.personalized_subtitle_work" = "Framåt din karriär med professionellt %@ ordförråd och kommunikationsfärdigheter!";
+"paywall.personalized_subtitle_travel" = "Tala %@ självsäkert medan du reser och koppla ihop med människor världen över!";
+"paywall.personalized_subtitle_business" = "Excellera i %@ affärskommunikation och professionella sammanhang!";
+"paywall.personalized_subtitle_default" = "Gå med tusentals %@s som har behärskat %@ ordförråd!";
+"paywall.personalized_for_you" = "Personlig för Dig";
+"paywall.perfect_for_your_goals" = "Perfekt för dina %@ mål";
+"paywall.features_tailored_to_journey" = "Funktioner skräddarsydda för din %@ resa med %@";
+"paywall.visual_learning_mode" = "Visuellt lärläge";
+"paywall.visual_learning_description" = "Lär dig med bilder, visuella associationer och minnestekniker";
+"paywall.what_our_users_say" = "Vad våra användare säger";
+"paywall.join_thousands_satisfied" = "Gå med tusentals nöjda elever";
+"paywall.choose_your_plan" = "Välj din plan";
+"paywall.start_free_upgrade_when_needed" = "Starta gratis och uppgradera när du behöver avancerade funktioner";
+"paywall.start_free_trial" = "Starta Gratis Provperiod";
+"paywall.continue_free" = "Fortsätt Gratis";
+"paywall.achievement_master_words" = "Behärska %d nya %@ ord i din första vecka";
+"paywall.achievement_academic_writing" = "Förbättra ditt %@ akademiska skrivande och läsförståelse";
+"paywall.achievement_professional_communication" = "Förbättra dina professionella %@ kommunikationsfärdigheter";
+"paywall.achievement_travel_confidence" = "Navigera i vilket %@-talande land som helst med självförtroende";
+"paywall.achievement_business_communication" = "Excellera i %@ affärskommunikation och professionella sammanhang";
+"paywall.achievement_tech_vocabulary" = "Behärska %@ teknisk ordförråd och branschterminologi";
+"paywall.achievement_business_contexts" = "Excellera i %@ affärssammanhang och professionell kommunikation";
+"paywall.days" = "Dagar";
+"paywall.words_goal" = "Ord Mål";
+"paywall.new" = "NYTT";
+"paywall.your_personalized_journey" = "Din Personaliserade 7-Dagars Resa";
+"paywall.start_free_trial" = "Starta Din 7-Dagars Gratis Provperiod";
+"paywall.free" = "GRATIS";
+"paywall.recommended" = "REKOMMENDERAD";
+"paywall.skip_for_now" = "Hoppa Över För Nu";
+"paywall.start_my_free_trial_now" = "Starta Min Gratis Provperiod Nu";
+"paywall.start_free_trial_save" = "Starta Gratis Provperiod - Spara %@";
+"paywall.app_store_rating" = "App Store Betyg";
+"paywall.total_ratings" = "Totalt Antal Betyg";
+"paywall.reviews" = "Recensioner";
+

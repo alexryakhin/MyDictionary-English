@@ -51,24 +51,24 @@ extension OnboardingFlow {
                     VStack(spacing: 12) {
                         StreakBenefitRow(
                             icon: "calendar",
-                            title: "Daily Consistency",
-                            description: "Build a habit that sticks",
+                            title: Loc.Onboarding.streakBenefitDailyConsistencyTitle,
+                            description: Loc.Onboarding.streakBenefitDailyConsistencyDescription,
                             delay: 0.0,
                             show: showBenefits
                         )
 
                         StreakBenefitRow(
                             icon: "chart.line.uptrend.xyaxis",
-                            title: "Track Progress",
-                            description: "Watch your vocabulary grow",
+                            title: Loc.Onboarding.streakBenefitTrackProgressTitle,
+                            description: Loc.Onboarding.streakBenefitTrackProgressDescription,
                             delay: 0.15,
                             show: showBenefits
                         )
 
                         StreakBenefitRow(
                             icon: "star.fill",
-                            title: "Stay Motivated",
-                            description: "Keep your streak alive",
+                            title: Loc.Onboarding.streakBenefitStayMotivatedTitle,
+                            description: Loc.Onboarding.streakBenefitStayMotivatedDescription,
                             delay: 0.3,
                             show: showBenefits
                         )

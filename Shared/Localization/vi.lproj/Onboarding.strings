@@ -30,3 +30,192 @@
 "collaborative_learning_description" = "Chia sẻ từ điển với bạn bè và gia đình";
 "natural_voices" = "Giọng nói tự nhiên";
 "natural_voices_description" = "Hàng trăm giọng nói cao cấp nghe giống người hơn bao giờ hết";
+
+// MARK: - Streak Benefits
+"streak_benefit_daily_consistency_title" = "Tính nhất quán hàng ngày";
+"streak_benefit_daily_consistency_description" = "Xây dựng thói quen bền vững";
+"streak_benefit_track_progress_title" = "Theo dõi tiến độ";
+"streak_benefit_track_progress_description" = "Xem vốn từ vựng của bạn phát triển";
+"streak_benefit_stay_motivated_title" = "Giữ động lực";
+"streak_benefit_stay_motivated_description" = "Giữ chuỗi học tập của bạn sống động";
+
+// MARK: - Notification Benefits
+"notifications_subtitle" = "Chúng tôi sẽ gửi cho bạn những lời nhắc nhở nhẹ nhàng để giúp bạn duy trì chuỗi học tập";
+"notification_benefit_daily_reminders_title" = "Lời nhắc nhở hàng ngày";
+"notification_benefit_daily_reminders_description" = "Không bao giờ bỏ lỡ thời gian học tập";
+"notification_benefit_smart_timing_title" = "Thời gian thông minh";
+"notification_benefit_smart_timing_description" = "Cá nhân hóa theo lịch trình của bạn";
+"notification_benefit_no_spam_title" = "Không spam";
+"notification_benefit_no_spam_description" = "Chỉ những lời nhắc nhở hữu ích";
+
+// MARK: - Personalized Onboarding
+"what_should_we_call_you" = "Chúng tôi nên gọi bạn là gì?";
+"enter_your_name" = "Nhập tên của bạn";
+"skip" = "Bỏ qua";
+"continue" = "Tiếp tục";
+
+// User Type
+"which_best_describes_you" = "Điều gì mô tả bạn tốt nhất?";
+"user_type_student" = "Học sinh";
+"user_type_professional" = "Chuyên nghiệp";
+"user_type_hobbyist" = "Người đam mê";
+"user_type_other" = "Khác";
+"user_type_student_description" = "Học cho trường học hoặc đại học";
+"user_type_professional_description" = "Thăng tiến sự nghiệp của tôi";
+"user_type_hobbyist_description" = "Học để giải trí";
+"user_type_other_description" = "Mục đích khác";
+
+// Age Group
+"whats_your_age_group" = "Nhóm tuổi của bạn là gì?";
+
+// Learning Goals
+"why_are_you_learning" = "Tại sao bạn học ngôn ngữ?";
+"select_up_to_three" = "Chọn 1-3 mục tiêu";
+"learning_goal_career" = "Phát triển sự nghiệp";
+"learning_goal_travel" = "Du lịch & Khách sạn";
+"learning_goal_education" = "Giáo dục";
+"learning_goal_personal_growth" = "Phát triển cá nhân";
+"learning_goal_immigration" = "Nhập cư";
+"learning_goal_family" = "Gia đình & Bạn bè";
+
+// Languages to Study
+"which_languages_to_learn" = "Bạn muốn học ngôn ngữ nào?";
+"search_languages" = "Tìm kiếm ngôn ngữ";
+"add_language" = "Thêm ngôn ngữ";
+"select_proficiency_level" = "Chọn trình độ thành thạo";
+"select_at_least_one_language" = "Chọn ít nhất một ngôn ngữ";
+
+// CEFR Levels
+"cefr_level_a1_description" = "Người mới bắt đầu - Cụm từ cơ bản";
+"cefr_level_a2_description" = "Sơ cấp - Cuộc trò chuyện đơn giản";
+"cefr_level_b1_description" = "Trung cấp - Người dùng độc lập";
+"cefr_level_b2_description" = "Trung cấp cao - Chủ đề phức tạp";
+"cefr_level_c1_description" = "Nâng cao - Diễn đạt lưu loát";
+"cefr_level_c2_description" = "Thành thạo - Trình độ như người bản xứ";
+
+// Interests
+"what_topics_interest_you" = "Những chủ đề nào bạn quan tâm?";
+"select_2_to_5_interests" = "Chọn 2-5 sở thích";
+"interest_business" = "Kinh doanh";
+"interest_technology" = "Công nghệ";
+"interest_sports" = "Thể thao";
+"interest_culture" = "Văn hóa";
+"interest_food" = "Ẩm thực";
+"interest_entertainment" = "Giải trí";
+"interest_science" = "Khoa học";
+"interest_health" = "Sức khỏe";
+"interest_travel" = "Du lịch";
+"interest_education" = "Giáo dục";
+
+// Study Intensity
+"how_many_words_per_week" = "Bạn muốn học bao nhiêu từ mỗi tuần?";
+"words_per_week" = "%d từ/tuần";
+"estimated_daily_time" = "≈ %d phút/ngày";
+
+// Study Time
+"when_do_you_prefer_to_study" = "Bạn thích học vào lúc nào?";
+"study_time_morning" = "Sáng";
+"study_time_afternoon" = "Chiều";
+"study_time_evening" = "Tối";
+"study_time_flexible" = "Linh hoạt";
+"study_time_morning_range" = "6:00 - 12:00";
+"study_time_afternoon_range" = "12:00 - 18:00";
+"study_time_evening_range" = "18:00 - 23:00";
+"study_time_flexible_range" = "Bất cứ lúc nào";
+
+// Streak Introduction
+"build_your_learning_streak" = "Xây dựng chuỗi học tập của bạn!";
+"streak_intro_message" = "Luyện tập mỗi ngày để xây dựng chuỗi và giữ động lực. Đừng phá vỡ chuỗi!";
+"streak_benefits_title" = "Tại sao chuỗi quan trọng:";
+"streak_benefit_motivation" = "Giữ động lực";
+"streak_benefit_consistency" = "Xây dựng tính nhất quán";
+"streak_benefit_rewards" = "Kiếm phần thưởng";
+"sounds_great" = "Tuyệt vời!";
+
+// Notifications
+"stay_on_track_with_reminders" = "Giữ đúng hướng với lời nhắc thông minh";
+"notification_benefit_daily_practice" = "Lời nhắc luyện tập hàng ngày";
+"notification_benefit_streak_protection" = "Cảnh báo bảo vệ chuỗi";
+"notification_benefit_progress_updates" = "Cột mốc tiến độ";
+"notification_preview_title" = "Đến giờ luyện tập!";
+"notification_preview_body" = "Giữ chuỗi của bạn sống động với 10 phút luyện tập";
+"enable_notifications" = "Bật thông báo";
+"maybe_later" = "Có thể sau";
+
+// Paywall
+"unlock_full_learning_potential" = "Mở khóa tiềm năng học tập đầy đủ của bạn";
+"start_7_day_free_trial" = "Bắt đầu dùng thử miễn phí 7 ngày";
+"personalized_lessons_for_languages" = "Bài học cá nhân hóa cho %@";
+"ai_powered_practice_for_interests" = "Luyện tập AI cho %@";
+"unlimited_words_and_quizzes" = "Từ vựng và bài kiểm tra không giới hạn";
+"cross_device_sync" = "Đồng bộ đa thiết bị";
+"priority_support" = "Hỗ trợ ưu tiên";
+"start_free_trial" = "Bắt đầu dùng thử miễn phí";
+"monthly" = "Hàng tháng";
+"yearly" = "Hàng năm";
+"save_percentage" = "Tiết kiệm %d%%";
+
+// Sign In
+"sync_your_progress" = "Đồng bộ tiến độ của bạn trên các thiết bị";
+"sign_in_benefit_cloud_backup" = "Sao lưu đám mây";
+"sign_in_benefit_multi_device" = "Truy cập đa thiết bị";
+"sign_in_benefit_shared_dictionaries" = "Từ điển chia sẻ";
+"sign_in_with_apple" = "Đăng nhập bằng Apple";
+"sign_in_with_google" = "Đăng nhập bằng Google";
+"skip_for_now" = "Bỏ qua bây giờ";
+
+// Success
+"youre_all_set_name" = "Bạn đã sẵn sàng, %@!";
+"ready_to_learn_languages" = "Sẵn sàng học %@";
+"start_learning" = "Bắt đầu học";
+
+// Personalization Banner
+"complete_your_profile" = "Hoàn thành hồ sơ của bạn";
+"personalize_your_learning" = "Cá nhân hóa trải nghiệm học tập của bạn với khảo sát nhanh";
+"takes_2_minutes" = "Mất 2 phút";
+"personalize_now" = "Cá nhân hóa ngay";
+
+// iCloud Sync
+"loading_from_icloud" = "Đang tải từ iCloud...";
+"profile_found" = "Đã tìm thấy hồ sơ!";
+"profile_found_message" = "Chúng tôi đã tìm thấy hồ sơ của bạn từ thiết bị khác. Cài đặt và tùy chọn của bạn đã sẵn sàng!";
+
+// MARK: - Personalized Paywall
+"paywall.personalized_title" = "%@, mở khóa tiềm năng học tập đầy đủ của bạn!";
+"paywall.personalized_subtitle_study" = "Thành thạo từ vựng %@ để thành công trong học tập và xuất sắc trong việc học!";
+"paywall.personalized_subtitle_work" = "Thúc đẩy sự nghiệp của bạn với từ vựng %@ chuyên nghiệp và kỹ năng giao tiếp!";
+"paywall.personalized_subtitle_travel" = "Nói %@ một cách tự tin khi du lịch và kết nối với mọi người trên toàn thế giới!";
+"paywall.personalized_subtitle_business" = "Xuất sắc trong giao tiếp kinh doanh %@ và các bối cảnh chuyên nghiệp!";
+"paywall.personalized_subtitle_default" = "Tham gia cùng hàng nghìn %@ đã thành thạo từ vựng %@!";
+"paywall.personalized_for_you" = "Cá nhân hóa cho bạn";
+"paywall.perfect_for_your_goals" = "Hoàn hảo cho mục tiêu %@ của bạn";
+"paywall.features_tailored_to_journey" = "Tính năng được điều chỉnh cho hành trình %@ của bạn với %@";
+"paywall.visual_learning_mode" = "Chế độ học trực quan";
+"paywall.visual_learning_description" = "Học với hình ảnh, liên tưởng trực quan và kỹ thuật ghi nhớ";
+"paywall.what_our_users_say" = "Người dùng của chúng tôi nói gì";
+"paywall.join_thousands_satisfied" = "Tham gia cùng hàng nghìn người học hài lòng";
+"paywall.choose_your_plan" = "Chọn kế hoạch của bạn";
+"paywall.start_free_upgrade_when_needed" = "Bắt đầu miễn phí và nâng cấp khi bạn cần tính năng nâng cao";
+"paywall.start_free_trial" = "Bắt đầu dùng thử miễn phí";
+"paywall.continue_free" = "Tiếp tục miễn phí";
+"paywall.achievement_master_words" = "Thành thạo %d từ %@ mới trong tuần đầu tiên của bạn";
+"paywall.achievement_academic_writing" = "Cải thiện viết học thuật %@ và hiểu đọc của bạn";
+"paywall.achievement_professional_communication" = "Nâng cao kỹ năng giao tiếp %@ chuyên nghiệp của bạn";
+"paywall.achievement_travel_confidence" = "Điều hướng bất kỳ quốc gia nói %@ nào với sự tự tin";
+"paywall.achievement_business_communication" = "Xuất sắc trong giao tiếp kinh doanh %@ và các bối cảnh chuyên nghiệp";
+"paywall.achievement_tech_vocabulary" = "Thành thạo từ vựng công nghệ %@ và thuật ngữ ngành";
+"paywall.achievement_business_contexts" = "Xuất sắc trong các bối cảnh kinh doanh %@ và giao tiếp chuyên nghiệp";
+"paywall.days" = "Ngày";
+"paywall.words_goal" = "Mục tiêu từ vựng";
+"paywall.new" = "MỚI";
+"paywall.your_personalized_journey" = "Hành trình 7 ngày cá nhân hóa của bạn";
+"paywall.start_free_trial" = "Bắt đầu dùng thử miễn phí 7 ngày của bạn";
+"paywall.free" = "MIỄN PHÍ";
+"paywall.recommended" = "ĐƯỢC KHUYẾN NGHỊ";
+"paywall.skip_for_now" = "Bỏ qua bây giờ";
+"paywall.start_my_free_trial_now" = "Bắt đầu dùng thử miễn phí của tôi ngay bây giờ";
+"paywall.start_free_trial_save" = "Bắt đầu dùng thử miễn phí - Tiết kiệm %@";
+"paywall.app_store_rating" = "Đánh giá App Store";
+"paywall.total_ratings" = "Tổng đánh giá";
+"paywall.reviews" = "Đánh giá";
+
