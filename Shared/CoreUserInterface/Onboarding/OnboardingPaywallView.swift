@@ -9,6 +9,7 @@ import SwiftUI
 
 extension OnboardingFlow {
     struct PaywallView: View {
+        @Environment(\.openURL) var openURL
         @ObservedObject var viewModel: OnboardingFlow.ViewModel
         @StateObject private var subscriptionService = SubscriptionService.shared
 
@@ -18,22 +19,14 @@ extension OnboardingFlow {
         @State private var animateButton = false
         @State private var showPulse = false
         @State private var selectedPlan: SubscriptionPlan?
-        @State private var isPurchasing = false
+        @State private var safariURL: URL?
 
-        // Real user reviews from website
-        private let realUserReviews = [
-            UserReview(id: 1, name: "Hydrangia", country: "United Kingdom", rating: 5, text: "I'm very pleased with this app. I can now key in words that I'm not familiar with and test myself with the quiz. So far everything in the app is working well and I'm enjoying it. It's great that it syncs as well as I have it on another device."),
+        // Top 3 most compelling reviews for static display
+        private let topReviews = [
             UserReview(id: 2, name: "Branwiches", country: "United States", rating: 5, text: "I've been looking for something basic and simple like this for over a YEAR. This little My Dictionary app is SO easy to use and EXACTLY what I was looking for. I also LOVE that it lets you enter in your own examples!!"),
-            UserReview(id: 3, name: "Am0rdad", country: "United States", rating: 5, text: "Thank you for creating this. I searched a lot to find this perfection. Actually even better in this format. Thank you."),
-            UserReview(id: 4, name: "TAdi47", country: "India", rating: 5, text: "Absolutely love this app. Great to build your vocabulary and practice the use of these words, apart from spelling and meaning another quiz could be added where you can practice the use of these words. Great job kudos to the team!! :)"),
             UserReview(id: 5, name: "_lynn！", country: "United States", rating: 5, text: "I'm looking for an app which can make my own quizzes for months. And I'm so happy to find the idioms section!! This little app definitely has everything for building your own dictionary! Best dictionary app ever."),
-            UserReview(id: 6, name: "lovoxide", country: "United States", rating: 5, text: "I beg beg beg and plead, add compatibility between users. My friends and I are looking for a shared dictionary app, where we can all have our own dictionaries, and then a large combined overlapping one, the market has NONE.")
+            UserReview(id: 1, name: "Hydrangia", country: "United Kingdom", rating: 5, text: "I'm very pleased with this app. I can now key in words that I'm not familiar with and test myself with the quiz. So far everything in the app is working well and I'm enjoying it. It's great that it syncs as well as I have it on another device.")
         ]
-
-        // Personalized content based on user profile
-        private var urgencyText: String {
-            return Loc.Onboarding.Paywall.personalizedForYou + " • " + Loc.Onboarding.start7DayFreeTrial
-        }
 
         private var perfectForGoalsText: String {
             let language = viewModel.studyLanguages.first?.language.displayName ?? "Language"
@@ -111,54 +104,41 @@ extension OnboardingFlow {
         private var personalizedFeatures: [SubscriptionFeature] {
             var features: [SubscriptionFeature] = []
 
-            // Always include core features
+            // Always include core features (top 3)
             features.append(.aiDefinitions)
             features.append(.aiQuizzes)
+            features.append(.images)
 
-            // Add features based on user goals
+            // Add 1 more feature based on user goals/interests
             if viewModel.selectedGoals.contains(.study) {
                 features.append(.advancedAnalytics)
-            }
-            if viewModel.selectedGoals.contains(.work) {
+            } else if viewModel.selectedGoals.contains(.work) {
                 features.append(.unlimitedExport)
-            }
-            if viewModel.selectedGoals.contains(.travel) {
+            } else if viewModel.selectedGoals.contains(.travel) {
                 features.append(.premiumTTS)
-            }
-
-            // Add features based on interests
-            if viewModel.selectedInterests.contains(.technology) {
+            } else if viewModel.selectedInterests.contains(.technology) {
                 features.append(.wordCollections)
-            }
-            if viewModel.selectedInterests.contains(.business) {
+            } else if viewModel.selectedInterests.contains(.business) {
                 features.append(.createSharedDictionaries)
-            }
-
-            // Add remaining features
-            let allFeatures = SubscriptionFeature.allCases
-            for feature in allFeatures {
-                if !features.contains(feature) {
-                    features.append(feature)
-                }
             }
 
             return features
         }
 
         private var buttonText: String {
-            guard let plan = selectedPlan else {
+            guard let selectedPlan else {
                 return Loc.Onboarding.Paywall.startMyFreeTrialNow
             }
 
-            if plan.product.subscriptionPeriod?.unit == .year {
-                return Loc.Onboarding.Paywall.startFreeTrialSave
+            if selectedPlan.period == .year {
+                return Loc.Onboarding.Paywall.startFreeTrialSave("37%")
             } else {
                 return Loc.Onboarding.Paywall.startMyFreeTrialNow
             }
         }
 
         var body: some View {
-            ScrollView {
+            ScrollView(.vertical) {
                 VStack(spacing: 0) {
                     // Hero section with gradient background
                     heroSection
@@ -177,63 +157,41 @@ extension OnboardingFlow {
                     plansSection
                         .opacity(animateSocialProof ? 1 : 0)
                         .offset(y: animateSocialProof ? 0 : 30)
-
-                    // Value proposition
-                    valuePropositionSection
-                        .opacity(animateSocialProof ? 1 : 0)
-                        .offset(y: animateSocialProof ? 0 : 30)
                 }
             }
             .withGradientBackground()
             .safeAreaBarIfAvailable {
-                VStack(spacing: 16) {
-                    // Subscribe button with gradient
-                    Button {
-                        Task {
-                            await purchaseSelectedPlan()
-                        }
-                    } label: {
-                        HStack {
-                            if isPurchasing {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                                    .scaleEffect(0.8)
-                            } else {
-                                Image(systemName: "rocket.fill")
-                                    .font(.title3)
-                                Text(buttonText)
-                                    .fontWeight(.semibold)
-                                    .font(.headline)
-                            }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .multilineTextAlignment(.center)
-                        .padding(.vertical, 18)
-                        .background(
-                            LinearGradient(
-                                colors: [Color.accentColor, Color.accentColor.opacity(0.8)],
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                        .shadow(color: Color.accentColor.opacity(0.3), radius: 8, x: 0, y: 4)
+                VStack(spacing: 12) {
+                    if let selectedPlan {
+                        Text(Loc.Subscription.Paywall.planAutoRenews(selectedPlan.price, selectedPlan.period.displayName))
+                            .foregroundStyle(.secondary)
+                            .font(.caption)
+                            .multilineTextAlignment(.center)
                     }
-                    .buttonStyle(.plain)
-                    .disabled(isPurchasing)
-                    .scaleEffect(animateButton ? 1.0 : 0.95)
-                    .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(1.2), value: animateButton)
 
-                    // Terms
-                    Text(Loc.Subscription.Paywall.bySubscribingAgreeTerms)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 16)
+                    // Subscribe button - shows "Try for Free" if trial is available
+                    AsyncActionButton(
+                        buttonText,
+                        systemImage: "book.fill",
+                        style: .borderedProminent
+                    ) {
+                        try await purchaseSelectedPlan()
+                    }
+
+                    // Restore button
+                    AsyncActionButton(
+                        Loc.Subscription.Paywall.restoreSubscription,
+                        style: .bordered
+                    ) {
+                        try await subscriptionService.restorePurchases()
+                    }
                 }
+                .scaleEffect(animateButton ? 1.0 : 0.95)
+                .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(1.2), value: animateButton)
                 .padding(vertical: 12, horizontal: 16)
+                .materialBackgroundIfNoGlassAvailable()
             }
+            .safari(url: $safariURL)
             .onAppear {
                 startAnimations()
                 // Set default plan if none selected
@@ -246,7 +204,7 @@ extension OnboardingFlow {
         // MARK: - Hero Section
 
         private var heroSection: some View {
-            VStack(spacing: 20) {
+            VStack(spacing: 24) {
                 Spacer()
                     .frame(height: 20)
 
@@ -254,116 +212,72 @@ extension OnboardingFlow {
                 Image(.illustrationPremium)
                     .resizable()
                     .scaledToFit()
-                    .frame(maxHeight: 200)
+                    .frame(maxHeight: 250)
                     .scaleEffect(animateHeader ? 1.0 : 0.5)
                     .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateHeader)
 
-                VStack(spacing: 12) {
-                    // Personalized urgency
-                    HStack {
-                        Image(systemName: "person.crop.circle.badge.checkmark")
-                            .foregroundStyle(.accent)
-                        Text(urgencyText)
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(.accent)
-                    }
+                // Personalized urgency
+                Label(
+                    Loc.Onboarding.Paywall.personalizedForYou,
+                    systemImage: "person.crop.circle.badge.checkmark"
+                )
+                .foregroundStyle(.accent)
+                .padding(vertical: 12, horizontal: 16)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.accentColor.opacity(0.1))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.accentColor.opacity(0.3), lineWidth: 1)
+                        )
+                )
+
+                Text(personalizedTitle)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+
+                Text(personalizedSubtitle)
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
                     .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(Color.accentColor.opacity(0.1))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color.accentColor.opacity(0.3), lineWidth: 1)
-                            )
-                    )
 
-                    Text(personalizedTitle)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-
-                    Text(personalizedSubtitle)
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 16)
-
-                    // Personalized achievement preview
-                    HStack(spacing: 16) {
-                        VStack(spacing: 4) {
-                            Text("7")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.green)
-                            Text(Loc.Onboarding.Paywall.days)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-
-                        VStack(spacing: 4) {
-                            Text("\(viewModel.weeklyWordGoal)")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.blue)
-                            Text(Loc.Onboarding.Paywall.wordsGoal)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-
-                        VStack(spacing: 4) {
-                            Text("\(viewModel.studyLanguages.count)")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.purple)
-                            Text(Loc.Plurals.Onboarding.languagesCount(viewModel.studyLanguages.count))
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    .padding(.horizontal, 16)
-                }
-
-                // Visual Learning Feature Highlight
-                VStack(spacing: 12) {
-                    HStack {
-                        Image(systemName: "eye.fill")
-                            .foregroundStyle(.purple)
-                            .font(.title2)
-
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(Loc.Onboarding.Paywall.visualLearningMode)
-                                .font(.headline)
-                                .fontWeight(.semibold)
-
-                            Text(Loc.Onboarding.Paywall.visualLearningDescription)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-
-                        Spacer()
-
-                        Text(Loc.Onboarding.Paywall.new)
-                            .font(.caption2)
+                // Personalized achievement preview
+                HStack(spacing: 16) {
+                    Spacer()
+                    VStack(spacing: 4) {
+                        Text("7")
+                            .font(.title)
                             .fontWeight(.bold)
-                            .foregroundStyle(.white)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(
-                                RoundedRectangle(cornerRadius: 6)
-                                    .fill(Color.purple)
-                            )
+                            .foregroundStyle(.green)
+                        Text(Loc.Onboarding.Paywall.days)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                     }
-                    .padding(16)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.purple.opacity(0.1))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.purple.opacity(0.3), lineWidth: 1)
-                            )
-                    )
+                    .frame(maxWidth: .infinity)
+
+                    VStack(spacing: 4) {
+                        Text(viewModel.weeklyWordGoal.formatted())
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.blue)
+                        Text(Loc.Onboarding.Paywall.wordsGoal)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    .frame(maxWidth: .infinity)
+                    VStack(spacing: 4) {
+                        Text(viewModel.studyLanguages.count.formatted())
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.purple)
+                        Text(Loc.Plurals.Onboarding.languagesCountWn(viewModel.studyLanguages.count))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    .frame(maxWidth: .infinity)
+                    Spacer()
                 }
                 .padding(.horizontal, 16)
             }
@@ -373,8 +287,8 @@ extension OnboardingFlow {
         // MARK: - Features Section
 
         private var featuresSection: some View {
-            VStack(alignment: .leading, spacing: 20) {
-                VStack(alignment: .leading, spacing: 8) {
+            VStack(spacing: 20) {
+                VStack(spacing: 8) {
                     Text(perfectForGoalsText)
                         .font(.title2)
                         .fontWeight(.semibold)
@@ -391,7 +305,7 @@ extension OnboardingFlow {
                         PersonalizedFeatureCard(
                             feature: feature,
                             delay: Double(index) * 0.1,
-                            isPriority: index < 3 // First 3 features are priority based on user profile
+                            isPriority: index < 3
                         )
                     }
                 }
@@ -414,131 +328,23 @@ extension OnboardingFlow {
                         .foregroundStyle(.secondary)
                 }
 
-                // Horizontal scrolling reviews
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 16) {
-                        ForEach(realUserReviews, id: \.id) { review in
-                            ReviewCard(review: review)
-                        }
-                    }
-                    .padding(.horizontal, 16)
-                }
-
-                // Trust indicators
-                VStack(spacing: 16) {
-                    HStack(spacing: 20) {
-                        SocialProofCard(
-                            number: "4.8",
-                            label: Loc.Onboarding.Paywall.appStoreRating
-                        )
-
-                        SocialProofCard(
-                            number: "75",
-                            label: Loc.Onboarding.Paywall.totalRatings
-                        )
-
-                        SocialProofCard(
-                            number: "17",
-                            label: Loc.Onboarding.Paywall.reviews
-                        )
+                // Static display of top 3 reviews
+                VStack(spacing: 12) {
+                    ForEach(topReviews, id: \.id) { review in
+                        ReviewCard(review: review)
                     }
                 }
+                .padding(.horizontal, 16)
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 20)
         }
 
-        // MARK: - Value Proposition Section
-
-        private var valuePropositionSection: some View {
-            VStack(spacing: 16) {
-                // Personalized achievements based on user profile
-                VStack(spacing: 12) {
-                    HStack {
-                        Image(systemName: "target")
-                            .foregroundStyle(.accent)
-                        Text(Loc.Onboarding.Paywall.yourPersonalizedJourney)
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                        Spacer()
-                    }
-
-                    VStack(spacing: 8) {
-                        ForEach(0..<personalizedAchievements.count, id: \.self) { index in
-                            let achievement = personalizedAchievements[index]
-                            AchievementRow(
-                                icon: getAchievementIcon(for: index),
-                                text: achievement
-                            )
-                        }
-                    }
-                }
-                .padding(16)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.accentColor.opacity(0.05))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(Color.accentColor.opacity(0.2), lineWidth: 1)
-                        )
-                )
-
-                // Free trial highlight with urgency
-                HStack {
-                    Image(systemName: "gift.fill")
-                        .foregroundStyle(.green)
-                        .font(.title2)
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(Loc.Onboarding.Paywall.startFreeTrial)
-                            .font(.headline)
-                            .fontWeight(.semibold)
-
-                        Text(Loc.Onboarding.Paywall.noCreditCardRequired)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-
-                    Spacer()
-
-                    // Urgency indicator
-                    VStack(spacing: 2) {
-                        Text(Loc.Onboarding.Paywall.free)
-                            .font(.caption)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(Color.green)
-                            )
-
-                        Text("$0")
-                            .font(.caption2)
-                            .foregroundStyle(.green)
-                            .fontWeight(.semibold)
-                    }
-                }
-                .padding(16)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.green.opacity(0.1))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(Color.green.opacity(0.3), lineWidth: 1)
-                        )
-                )
-            }
-            .padding(.horizontal, 16)
-            .padding(.bottom, 20)
-        }
-
         // MARK: - Plans Section
 
         private var plansSection: some View {
-            VStack(alignment: .leading, spacing: 20) {
-                VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .center, spacing: 20) {
+                VStack(alignment: .center, spacing: 8) {
                     Text(Loc.Onboarding.Paywall.chooseYourPlan)
                         .font(.title2)
                         .fontWeight(.semibold)
@@ -547,6 +353,7 @@ extension OnboardingFlow {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
+                .multilineTextAlignment(.center)
                 .padding(.horizontal, 16)
 
                 VStack(spacing: 12) {
@@ -563,6 +370,32 @@ extension OnboardingFlow {
                     }
                 }
                 .padding(.horizontal, 16)
+
+                // Terms of Service & Privacy Policy
+                HStack(spacing: 4) {
+                    Button(Loc.Subscription.Paywall.termsOfService) {
+                        #if os(macOS)
+                        openURL(GlobalConstant.termsOfUse)
+                        #else
+                        safariURL = GlobalConstant.termsOfUse
+                        #endif
+                    }
+                    .buttonStyle(.plain)
+                    .foregroundStyle(.accent)
+                    Text(Loc.Subscription.Paywall.andConjunction)
+                        .foregroundStyle(.secondary)
+                    Button(Loc.Subscription.Paywall.privacyPolicy) {
+                        #if os(macOS)
+                        openURL(GlobalConstant.privacyPolicy)
+                        #else
+                        safariURL = GlobalConstant.privacyPolicy
+                        #endif
+                    }
+                    .buttonStyle(.plain)
+                    .foregroundStyle(.accent)
+                }
+                .font(.caption)
+                .frame(maxWidth: .infinity, alignment: .center)
             }
             .padding(.vertical, 20)
         }
@@ -570,24 +403,20 @@ extension OnboardingFlow {
         // MARK: - Animation Methods
 
         private func startAnimations() {
-            withAnimation(.easeOut(duration: 0.8).delay(0.2)) {
+            withAnimation(.easeOut(duration: 0.6).delay(0.1)) {
                 animateHeader = true
             }
 
-            withAnimation(.easeOut(duration: 0.8).delay(0.4)) {
+            withAnimation(.easeOut(duration: 0.6).delay(0.2)) {
                 animateFeatures = true
             }
 
-            withAnimation(.easeOut(duration: 0.8).delay(0.6)) {
+            withAnimation(.easeOut(duration: 0.6).delay(0.3)) {
                 animateSocialProof = true
             }
 
-            withAnimation(.easeOut(duration: 0.8).delay(0.8)) {
+            withAnimation(.easeOut(duration: 0.6).delay(0.4)) {
                 animateButton = true
-            }
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                showPulse = true
             }
         }
 
@@ -598,24 +427,15 @@ extension OnboardingFlow {
             return icons[index % icons.count]
         }
 
-        private func purchaseSelectedPlan() async {
+        private func purchaseSelectedPlan() async throws {
             guard let plan = selectedPlan else {
                 // No plan selected, proceed to success (user skipped paywall)
                 viewModel.navigate(to: .success)
                 return
             }
 
-            isPurchasing = true
-
-            do {
-                try await subscriptionService.purchasePlan(plan)
-                viewModel.navigate(to: .success)
-            } catch {
-                // If purchase fails, user can use the skip button in OnboardingContainerView
-                print("Purchase failed: \(error.localizedDescription)")
-            }
-
-            isPurchasing = false
+            try await subscriptionService.purchasePlan(plan)
+            viewModel.navigate(to: .success)
         }
     }
 
@@ -861,7 +681,7 @@ extension OnboardingFlow {
                     .multilineTextAlignment(.leading)
             }
             .padding(16)
-            .frame(width: 280)
+            .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .fill(Color.secondarySystemGroupedBackground)
@@ -877,39 +697,38 @@ extension OnboardingFlow {
 
         var body: some View {
             Button(action: action) {
-                HStack {
+                HStack(spacing: 8) {
                     VStack(alignment: .leading, spacing: 6) {
-                        HStack {
-                            Text(plan.displayName)
-                                .font(.headline)
-                                .fontWeight(.semibold)
+                        Text(plan.displayName)
+                            .font(.headline)
+                            .foregroundStyle(.primary)
 
-                            if let savings = plan.savings {
-                                Text(savings)
-                                    .font(.caption)
-                                    .fontWeight(.medium)
-                                    .padding(.horizontal, 8)
-                                    .padding(.vertical, 3)
-                                    .background(
-                                        LinearGradient(
-                                            colors: [.green, .green.opacity(0.8)],
-                                            startPoint: .leading,
-                                            endPoint: .trailing
-                                        )
-                                    )
-                                    .foregroundStyle(.white)
-                                    .clipShape(Capsule())
-                            }
+                        if let pricePerMonth = plan.pricePerMonth {
+                            Text(pricePerMonth + "/" + Loc.Subscription.Period.month)
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
                         }
 
+                        if plan.period == .year {
+                            TagView(text: Loc.Subscription.Paywall.bestValue)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    VStack(alignment: .trailing, spacing: 4) {
                         Text(plan.price)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+                        Text(
+                            plan.period == .year
+                            ? Loc.Subscription.Paywall.annually
+                            : Loc.Subscription.Paywall.monthly
+                        )
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                     }
 
-                    Spacer()
-
-                    Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    Image(systemName: isSelected ? "inset.filled.circle" : "circle")
                         .font(.title2)
                         .foregroundStyle(isSelected ? Color.accentColor : .secondary)
                 }

@@ -58,6 +58,7 @@ extension OnboardingFlow {
                             .opacity(animateContent ? 1 : 0)
                             .offset(y: animateContent ? 0 : 20)
                     }
+                    .multilineTextAlignment(.center)
                 }
                 .frame(maxWidth: .infinity)
                 .padding(vertical: 12, horizontal: 16)

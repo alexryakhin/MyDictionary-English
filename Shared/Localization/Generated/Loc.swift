@@ -1221,9 +1221,9 @@ public enum Loc {
     public static let progressTracking = Loc.tr("Onboarding", "progress_tracking", fallback: "Progress Tracking")
     /// Visual insights into your vocabulary growth
     public static let progressTrackingDescription = Loc.tr("Onboarding", "progress_tracking_description", fallback: "Visual insights into your vocabulary growth")
-    /// Ready to learn %d languages
-    public static func readyToLearnLanguages(_ p1: Int) -> String {
-      return Loc.tr("Onboarding", "ready_to_learn_languages", p1, fallback: "Ready to learn %d languages")
+    /// Ready to learn %@
+    public static func readyToLearnLanguages(_ p1: Any) -> String {
+      return Loc.tr("Onboarding", "ready_to_learn_languages", String(describing: p1), fallback: "Ready to learn %@")
     }
     /// Save %d%%
     public static func savePercentage(_ p1: Int) -> String {
@@ -1398,8 +1398,6 @@ public enum Loc {
       public static let joinThousandsSatisfied = Loc.tr("Onboarding", "paywall.join_thousands_satisfied", fallback: "Join thousands of satisfied learners")
       /// NEW
       public static let new = Loc.tr("Onboarding", "paywall.new", fallback: "NEW")
-      /// Cancel anytime • No commitment
-      public static let noCreditCardRequired = Loc.tr("Onboarding", "paywall.no_credit_card_required", fallback: "Cancel anytime • No commitment")
       /// Perfect for Your %@ Goals
       public static func perfectForYourGoals(_ p1: Any) -> String {
         return Loc.tr("Onboarding", "paywall.perfect_for_your_goals", String(describing: p1), fallback: "Perfect for Your %@ Goals")
@@ -1430,30 +1428,24 @@ public enum Loc {
       public static func personalizedTitle(_ p1: Any) -> String {
         return Loc.tr("Onboarding", "paywall.personalized_title", String(describing: p1), fallback: "%@, unlock your full learning potential!")
       }
-      /// Something went wrong. Please try again.
-      public static let purchaseErrorMessage = Loc.tr("Onboarding", "paywall.purchase_error_message", fallback: "Something went wrong. Please try again.")
-      /// Purchase Error
-      public static let purchaseErrorTitle = Loc.tr("Onboarding", "paywall.purchase_error_title", fallback: "Purchase Error")
       /// RECOMMENDED
       public static let recommended = Loc.tr("Onboarding", "paywall.recommended", fallback: "RECOMMENDED")
       /// Reviews
       public static let reviews = Loc.tr("Onboarding", "paywall.reviews", fallback: "Reviews")
       /// Skip for Now
       public static let skipForNow = Loc.tr("Onboarding", "paywall.skip_for_now", fallback: "Skip for Now")
-      /// Skip for Now
-      public static let skipForNowError = Loc.tr("Onboarding", "paywall.skip_for_now_error", fallback: "Skip for Now")
       /// Start Your 7-Day Free Trial
       public static let startFreeTrial = Loc.tr("Onboarding", "paywall.start_free_trial", fallback: "Start Your 7-Day Free Trial")
-      /// Start Free Trial - Save 37%
-      public static let startFreeTrialSave = Loc.tr("Onboarding", "paywall.start_free_trial_save", fallback: "Start Free Trial - Save 37%")
+      /// Start Free Trial - Save %@
+      public static func startFreeTrialSave(_ p1: Any) -> String {
+        return Loc.tr("Onboarding", "paywall.start_free_trial_save", String(describing: p1), fallback: "Start Free Trial - Save %@")
+      }
       /// Start free and upgrade when you need advanced features
       public static let startFreeUpgradeWhenNeeded = Loc.tr("Onboarding", "paywall.start_free_upgrade_when_needed", fallback: "Start free and upgrade when you need advanced features")
       /// Start My Free Trial Now
       public static let startMyFreeTrialNow = Loc.tr("Onboarding", "paywall.start_my_free_trial_now", fallback: "Start My Free Trial Now")
       /// Total Ratings
       public static let totalRatings = Loc.tr("Onboarding", "paywall.total_ratings", fallback: "Total Ratings")
-      /// Try Again
-      public static let tryAgain = Loc.tr("Onboarding", "paywall.try_again", fallback: "Try Again")
       /// Learn with images, visual associations, and memory techniques
       public static let visualLearningDescription = Loc.tr("Onboarding", "paywall.visual_learning_description", fallback: "Learn with images, visual associations, and memory techniques")
       /// Visual Learning Mode
@@ -1491,6 +1483,10 @@ public enum Loc {
       /// Plural format key: "%#@COUNT@"
       public static func languagesCount(_ p1: Int) -> String {
         return Loc.tr("Plurals", "onboarding.languages_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
+      }
+      /// Plural format key: "%#@COUNT@"
+      public static func languagesCountWn(_ p1: Int) -> String {
+        return Loc.tr("Plurals", "onboarding.languages_count_wn", p1, fallback: "Plural format key: \"%#@COUNT@\"")
       }
     }
     public enum SharedDictionaries {
@@ -2321,10 +2317,14 @@ public enum Loc {
       }
       /// Active Users
       public static let activeUsers = Loc.tr("Subscription", "paywall.active_users", fallback: "Active Users")
+      /// and
+      public static let andConjunction = Loc.tr("Subscription", "paywall.and_conjunction", fallback: "and")
+      /// annually
+      public static let annually = Loc.tr("Subscription", "paywall.annually", fallback: "annually")
       /// App Store Rating
       public static let appStoreRating = Loc.tr("Subscription", "paywall.app_store_rating", fallback: "App Store Rating")
-      /// By subscribing, you agree to our Terms of Service and Privacy Policy
-      public static let bySubscribingAgreeTerms = Loc.tr("Subscription", "paywall.by_subscribing_agree_terms", fallback: "By subscribing, you agree to our Terms of Service and Privacy Policy")
+      /// BEST VALUE
+      public static let bestValue = Loc.tr("Subscription", "paywall.bestValue", fallback: "BEST VALUE")
       /// Choose Your Plan
       public static let chooseYourPlan = Loc.tr("Subscription", "paywall.choose_your_plan", fallback: "Choose Your Plan")
       /// Collaborate
@@ -2345,6 +2345,8 @@ public enum Loc {
       public static let learnWithOthers = Loc.tr("Subscription", "paywall.learn_with_others", fallback: "Learn with others")
       /// Limited features available
       public static let limitedFeaturesAvailable = Loc.tr("Subscription", "paywall.limited_features_available", fallback: "Limited features available")
+      /// monthly
+      public static let monthly = Loc.tr("Subscription", "paywall.monthly", fallback: "monthly")
       /// No active subscriptions found. Please check your App Store account.
       public static let noActiveSubscriptionsFound = Loc.tr("Subscription", "paywall.no_active_subscriptions_found", fallback: "No active subscriptions found. Please check your App Store account.")
       /// Perfect for Your Goals
@@ -2373,12 +2375,16 @@ public enum Loc {
       public static func personalizedTitleMain(_ p1: Any) -> String {
         return Loc.tr("Subscription", "paywall.personalized_title_main", String(describing: p1), fallback: "%@, unlock your full potential!")
       }
+      /// Plan auto-renews for %@/%@ until cancelled.
+      public static func planAutoRenews(_ p1: Any, _ p2: Any) -> String {
+        return Loc.tr("Subscription", "paywall.planAutoRenews", String(describing: p1), String(describing: p2), fallback: "Plan auto-renews for %@/%@ until cancelled.")
+      }
       /// Privacy Policy
       public static let privacyPolicy = Loc.tr("Subscription", "paywall.privacy_policy", fallback: "Privacy Policy")
       /// Pro User
       public static let proUser = Loc.tr("Subscription", "paywall.pro_user", fallback: "Pro User")
-      /// Restore Purchases
-      public static let restorePurchases = Loc.tr("Subscription", "paywall.restore_purchases", fallback: "Restore Purchases")
+      /// Restore Subscription
+      public static let restoreSubscription = Loc.tr("Subscription", "paywall.restore_subscription", fallback: "Restore Subscription")
       /// Save %@
       public static func savePercentage(_ p1: Any) -> String {
         return Loc.tr("Subscription", "paywall.save_percentage", String(describing: p1), fallback: "Save %@")
@@ -2399,6 +2405,16 @@ public enum Loc {
       public static let upgradeToPro = Loc.tr("Subscription", "paywall.upgrade_to_pro", fallback: "Upgrade to Pro")
       /// Words Added
       public static let wordsAdded = Loc.tr("Subscription", "paywall.words_added", fallback: "Words Added")
+    }
+    public enum Period {
+      /// day
+      public static let day = Loc.tr("Subscription", "period.day", fallback: "day")
+      /// month
+      public static let month = Loc.tr("Subscription", "period.month", fallback: "month")
+      /// week
+      public static let week = Loc.tr("Subscription", "period.week", fallback: "week")
+      /// year
+      public static let year = Loc.tr("Subscription", "period.year", fallback: "year")
     }
     public enum ProFeatures {
       /// Advanced Analytics

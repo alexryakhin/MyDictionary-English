@@ -30,7 +30,6 @@ extension OnboardingFlow {
                     // Title
                     Text(Loc.Onboarding.whatShouldWeCallYou)
                         .font(.system(.title, design: .rounded, weight: .bold))
-                        .multilineTextAlignment(.center)
                         .opacity(animateContent ? 1 : 0)
                         .offset(y: animateContent ? 0 : 20)
                         .animation(.easeInOut(duration: 0.8).delay(0.2), value: animateContent)
@@ -39,7 +38,6 @@ extension OnboardingFlow {
                     // Content
                     TextField(Loc.Onboarding.enterYourName, text: $viewModel.userName)
                         .font(.title2)
-                        .multilineTextAlignment(.center)
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 16)
@@ -52,6 +50,7 @@ extension OnboardingFlow {
                         .offset(y: animateContent ? 0 : 20)
                         .animation(.easeInOut(duration: 0.8).delay(0.4), value: animateContent)
                 }
+                .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity)
                 .padding(vertical: 12, horizontal: 16)
             }

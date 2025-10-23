@@ -17,21 +17,16 @@ struct SubscriptionPlan: Identifiable, Hashable {
     let product: StoreProduct
     let displayName: String
     let price: String
-    let savings: String?
+    let pricePerMonth: String?
+    let period: SubscriptionPeriod.Unit
 
     init(product: StoreProduct) {
         self.id = product.productIdentifier
         self.product = product
         self.displayName = product.localizedTitle
         self.price = product.localizedPriceString
-
-        // Calculate savings for yearly plans
-        if product.subscriptionPeriod?.unit == .year {
-            // Compare with monthly price to show savings
-            self.savings = Loc.Subscription.Paywall.savePercentage("37%")
-        } else {
-            self.savings = nil
-        }
+        self.pricePerMonth = product.localizedPricePerMonth
+        self.period = product.subscriptionPeriod?.unit ?? .month
     }
 
     func hash(into hasher: inout Hasher) {
@@ -40,66 +35,6 @@ struct SubscriptionPlan: Identifiable, Hashable {
 
     static func == (lhs: SubscriptionPlan, rhs: SubscriptionPlan) -> Bool {
         lhs.id == rhs.id
-    }
-}
-
-// MARK: - Subscription Features
-
-enum SubscriptionFeature: String, CaseIterable {
-    case aiDefinitions = "ai_definitions"
-    case aiQuizzes = "ai_quizzes"
-    case images = "images"
-    case wordCollections = "word_collections"
-    case premiumTTS = "premium_tts"
-    case unlimitedExport = "unlimited_export"
-    case createSharedDictionaries = "create_shared_dictionaries"
-    case tagManagement = "tag_management"
-    case advancedAnalytics = "advanced_analytics"
-    case prioritySupport = "priority_support"
-
-    var displayName: String {
-        switch self {
-        case .aiDefinitions: Loc.Subscription.ProFeatures.aiDefinitions
-        case .aiQuizzes: Loc.Subscription.ProFeatures.aiQuizzes
-        case .premiumTTS: Loc.Subscription.ProFeatures.speechifyTts
-        case .unlimitedExport: Loc.Subscription.ProFeatures.unlimitedExport
-        case .createSharedDictionaries: Loc.Subscription.ProFeatures.createSharedDictionaries
-        case .tagManagement: Loc.Subscription.ProFeatures.tagManagement
-        case .advancedAnalytics: Loc.Subscription.ProFeatures.advancedAnalytics
-        case .prioritySupport: Loc.Subscription.ProFeatures.prioritySupport
-        case .images: Loc.Subscription.ProFeatures.images
-        case .wordCollections: Loc.Subscription.ProFeatures.wordCollections
-        }
-    }
-
-    var description: String {
-        switch self {
-        case .aiDefinitions: Loc.Subscription.ProFeatures.aiDefinitionsDescription
-        case .aiQuizzes: Loc.Subscription.ProFeatures.aiQuizzesDescription
-        case .premiumTTS: Loc.Subscription.ProFeatures.speechifyTtsDescription
-        case .unlimitedExport: Loc.Subscription.ProFeatures.syncWordsAcrossDevices
-        case .createSharedDictionaries: Loc.Subscription.ProFeatures.createManageSharedDictionaries
-        case .tagManagement: Loc.Subscription.ProFeatures.organizeWordsWithTags
-        case .advancedAnalytics: Loc.Subscription.ProFeatures.detailedInsights
-        case .prioritySupport: Loc.Subscription.ProFeatures.prioritySupportTeam
-        case .images: Loc.Subscription.ProFeatures.imagesDescription
-        case .wordCollections: Loc.Subscription.ProFeatures.wordCollectionsDescription
-        }
-    }
-
-    var iconName: String {
-        switch self {
-        case .aiDefinitions: "character.magnify"
-        case .aiQuizzes: "brain.head.profile"
-        case .premiumTTS: "person.wave.2.fill"
-        case .unlimitedExport: "square.and.arrow.up"
-        case .createSharedDictionaries: "person.2.fill"
-        case .tagManagement: "tag.fill"
-        case .advancedAnalytics: "chart.bar.fill"
-        case .prioritySupport: "star.fill"
-        case .images: "photo.fill"
-        case .wordCollections: "folder.fill"
-        }
     }
 }
 
@@ -529,7 +464,7 @@ final class SubscriptionService: NSObject, ObservableObject, PurchasesDelegate {
             if isProUser {
                 print("✅ [SubscriptionService] Purchases restored successfully")
             } else {
-                print("ℹ️ [SubscriptionService] No active purchases found")
+                throw SubscriptionError.restoreFailed
             }
         } catch {
             errorMessage = "Restore failed: \(error.localizedDescription)"
@@ -720,6 +655,7 @@ enum SubscriptionError: Error, LocalizedError {
     case packageNotFound
     case purchaseFailed
     case restoreFailed
+    case noSubscriptionFound
     case purchaseCancelled
 
     var errorDescription: String? {
@@ -732,6 +668,8 @@ enum SubscriptionError: Error, LocalizedError {
             return Loc.Errors.purchaseFailed
         case .restoreFailed:
             return Loc.Errors.restoreFailed
+        case .noSubscriptionFound:
+            return Loc.Errors.noActiveSubscriptionsFound
         case .purchaseCancelled:
             return "Purchase was cancelled"
         }

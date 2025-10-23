@@ -23,6 +23,7 @@ struct AdvancedPaywallView: View {
     @State private var animateHeader = false
     @State private var animateFeatures = false
     @State private var animatePlans = false
+    @State private var safariURL: URL?
 
     // MARK: - Personalized Content
     
@@ -179,7 +180,8 @@ struct AdvancedPaywallView: View {
                 selectedPlan = subscriptionService.defaultPlan
             }
         }
-        .alert(Loc.Subscription.Paywall.restorePurchases, isPresented: $showingRestoreAlert) {
+        .safari(url: $safariURL)
+        .alert(Loc.Subscription.Paywall.restoreSubscription, isPresented: $showingRestoreAlert) {
             Button(Loc.Actions.ok) { }
         } message: {
             Text(restoreMessage)
@@ -358,7 +360,7 @@ struct AdvancedPaywallView: View {
                     await restorePurchases()
                 }
             } label: {
-                Text(Loc.Subscription.Paywall.restorePurchases)
+                Text(Loc.Subscription.Paywall.restoreSubscription)
                     .font(.body)
                     .foregroundStyle(.secondary)
             }
@@ -444,28 +446,28 @@ struct AdvancedPaywallView: View {
     // MARK: - Terms Section
 
     private var termsSection: some View {
-        VStack(spacing: 8) {
-            Text(Loc.Subscription.Paywall.bySubscribingAgreeTerms)
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-
-            HStack(spacing: 16) {
-                Button(Loc.Subscription.Paywall.termsOfService) {
-                    openURL(GlobalConstant.termsOfUse)
-                }
-                .buttonStyle(.plain)
-                .font(.caption)
-                .foregroundStyle(.accent)
-
-                Button(Loc.Subscription.Paywall.privacyPolicy) {
-                    openURL(GlobalConstant.privacyPolicy)
-                }
-                .buttonStyle(.plain)
-                .font(.caption)
-                .foregroundStyle(.accent)
+        // Terms of Service & Privacy Policy
+        HStack(spacing: 4) {
+            Button(Loc.Subscription.Paywall.termsOfService) {
+                #if os(macOS)
+                openURL(GlobalConstant.termsOfUse)
+                #else
+                safariURL = GlobalConstant.termsOfUse
+                #endif
             }
+            .buttonStyle(.plain)
+            Text(Loc.Subscription.Paywall.andConjunction)
+                .foregroundStyle(.secondary)
+            Button(Loc.Subscription.Paywall.privacyPolicy) {
+                #if os(macOS)
+                openURL(GlobalConstant.privacyPolicy)
+                #else
+                safariURL = GlobalConstant.privacyPolicy
+                #endif
+            }
+            .buttonStyle(.plain)
         }
+        .font(.caption)
         .padding(.horizontal, 16)
         .padding(.bottom, 40)
     }
@@ -624,39 +626,38 @@ struct AdvancedPlanCard: View {
 
     var body: some View {
         Button(action: action) {
-            HStack {
+            HStack(spacing: 8) {
                 VStack(alignment: .leading, spacing: 6) {
-                    HStack {
-                        Text(plan.displayName)
-                            .font(.headline)
-                            .fontWeight(.semibold)
+                    Text(plan.displayName)
+                        .font(.headline)
+                        .foregroundStyle(.primary)
 
-                        if let savings = plan.savings {
-                            Text(savings)
-                                .font(.caption)
-                                .fontWeight(.medium)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 3)
-                                .background(
-                                    LinearGradient(
-                                        colors: [.green, .green.opacity(0.8)],
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
-                                )
-                                .foregroundStyle(.white)
-                                .clipShape(Capsule())
-                        }
+                    if plan.period == .year {
+                        TagView(text: Loc.Subscription.Paywall.bestValue)
                     }
 
+                    if let pricePerMonth = plan.pricePerMonth {
+                        Text(pricePerMonth + "/" + Loc.Subscription.Period.month)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+                VStack(alignment: .trailing, spacing: 4) {
                     Text(plan.price)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+                    Text(
+                        plan.period == .year
+                        ? Loc.Subscription.Paywall.annually
+                        : Loc.Subscription.Paywall.monthly
+                    )
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
                 }
 
-                Spacer()
-
-                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                Image(systemName: isSelected ? "inset.filled.circle" : "circle")
                     .font(.title2)
                     .foregroundStyle(isSelected ? Color.accentColor : .secondary)
             }

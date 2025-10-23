@@ -32,12 +32,14 @@ enum OnboardingFlow {
                                         icon: "chevron.left",
                                         action: viewModel.goBack
                                     )
+                                    .background(in: .capsule)
                                     Spacer()
                                     if step == .paywall {
                                         HeaderButton(
                                             Loc.Onboarding.skip,
                                             action: viewModel.skipPaywall
                                         )
+                                        .background(in: .capsule)
                                     }
                                 }
                                 .padding(vertical: 12, horizontal: 16)

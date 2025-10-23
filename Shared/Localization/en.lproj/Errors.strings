@@ -66,7 +66,6 @@
 "user_not_authenticated" = "User must be authenticated";
 "dictionary_limit_reached" = "You can only create one shared dictionary with the free plan. Upgrade to Pro for unlimited shared dictionaries.";
 
-
 "something_went_wrong" = "Something went wrong";
 "error" = "Error";
 "oops" = "Ooops!";

@@ -71,6 +71,7 @@ extension OnboardingFlow {
                 HeaderButton(Loc.Actions.cancel) {
                     dismiss()
                 }
+                .padding(vertical: 12, horizontal: 16)
             }
             .safeAreaBarIfAvailable {
                 ActionButton(

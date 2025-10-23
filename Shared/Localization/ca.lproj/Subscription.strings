@@ -20,9 +20,6 @@
 "paywall.pro_user" = "Usuari Pro";
 "paywall.free_plan" = "Pla gratuït";
 "paywall.limited_features_available" = "Funcions limitades disponibles";
-"paywall.terms_of_service" = "Condicions del servei";
-"paywall.privacy_policy" = "Política de privadesa";
-"paywall.restore_purchases" = "Restaura compres";
 "paywall.no_active_subscriptions_found" = "No s'han trobat subscripcions actives. Comprova el teu compte de l'App Store.";
 "paywall.failed_to_restore_purchases" = "No s'han pogut restaurar les compres: %@";
 "paywall.save_percentage" = "Estalvia %@";

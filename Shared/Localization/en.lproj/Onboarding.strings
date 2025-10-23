@@ -149,7 +149,7 @@
 
 // Success
 "youre_all_set_name" = "You're all set, %@!";
-"ready_to_learn_languages" = "Ready to learn %d languages";
+"ready_to_learn_languages" = "Ready to learn %@";
 "start_learning" = "Start Learning";
 
 // Personalization Banner
@@ -193,12 +193,11 @@
 "paywall.new" = "NEW";
 "paywall.your_personalized_journey" = "Your Personalized 7-Day Journey";
 "paywall.start_free_trial" = "Start Your 7-Day Free Trial";
-"paywall.no_credit_card_required" = "Cancel anytime • No commitment";
 "paywall.free" = "FREE";
 "paywall.recommended" = "RECOMMENDED";
 "paywall.skip_for_now" = "Skip for Now";
 "paywall.start_my_free_trial_now" = "Start My Free Trial Now";
-"paywall.start_free_trial_save" = "Start Free Trial - Save 37%";
+"paywall.start_free_trial_save" = "Start Free Trial - Save %@";
 "paywall.app_store_rating" = "App Store Rating";
 "paywall.total_ratings" = "Total Ratings";
 "paywall.reviews" = "Reviews";

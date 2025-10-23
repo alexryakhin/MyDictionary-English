@@ -2,7 +2,7 @@
 "paywall.terms_of_service" = "Terms of Service";
 "paywall.privacy_policy" = "Privacy Policy";
 "paywall.upgrade_to_pro" = "Upgrade to Pro";
-"paywall.restore_purchases" = "Restore Purchases";
+"paywall.restore_subscription" = "Restore Subscription";
 "paywall.track_progress" = "Track Progress";
 "paywall.see_your_improvement" = "See your improvement";
 "paywall.collaborate" = "Collaborate";
@@ -16,16 +16,22 @@
 "paywall.words_added" = "Words Added";
 "paywall.sign_in_required" = "Sign In Required";
 "paywall.join_thousands_users" = "Join thousands of users who've transformed their vocabulary learning";
-"paywall.by_subscribing_agree_terms" = "By subscribing, you agree to our Terms of Service and Privacy Policy";
 "paywall.pro_user" = "Pro User";
 "paywall.free_plan" = "Free Plan";
 "paywall.limited_features_available" = "Limited features available";
-"paywall.terms_of_service" = "Terms of Service";
-"paywall.privacy_policy" = "Privacy Policy";
-"paywall.restore_purchases" = "Restore Purchases";
 "paywall.no_active_subscriptions_found" = "No active subscriptions found. Please check your App Store account.";
 "paywall.failed_to_restore_purchases" = "Failed to restore purchases: %@";
 "paywall.save_percentage" = "Save %@";
+"paywall.and_conjunction" = "and";
+"paywall.planAutoRenews" = "Plan auto-renews for %@/%@ until cancelled.";
+"paywall.annually" = "annually";
+"paywall.monthly" = "monthly";
+"paywall.bestValue" = "BEST VALUE";
+
+"period.day" = "day";
+"period.week" = "week";
+"period.month" = "month";
+"period.year" = "year";
 
 // MARK: - Pro Features
 
@@ -49,12 +55,6 @@
 "pro_features.organize_words_with_tags" = "Organize your words with custom tags for easier search";
 "pro_features.detailed_progress_tracking" = "Detailed progress tracking and insights";
 "pro_features.get_priority_support" = "Get priority support when you need help";
-
-// MARK: - Pro Upgrade Messages
-"pro_upgrade.upgrade_to_pro_progress_details" = "Upgrade to Pro to see full progress details.";
-"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgrade to Pro to see full vocabulary growth details.";
-"pro_upgrade.time_period" = "Time Period";
-
 "pro_features.speechify_tts" = "Speechify TTS";
 "pro_features.speechify_tts_description" = "Access to Speechify's premium text-to-speech technology. Hundreds of natural-sounding premium voices";
 "pro_features.ai_definitions" = "AI Definitions";
@@ -65,6 +65,11 @@
 "pro_features.images_description" = "Add beautiful, relevant images to your words for better memory retention and visual learning";
 "pro_features.word_collections" = "Word Collections";
 "pro_features.word_collections_description" = "Organize your vocabulary into themed collections for better learning and organization";
+
+// MARK: - Pro Upgrade Messages
+"pro_upgrade.upgrade_to_pro_progress_details" = "Upgrade to Pro to see full progress details.";
+"pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgrade to Pro to see full vocabulary growth details.";
+"pro_upgrade.time_period" = "Time Period";
 
 // MARK: - Personalized Main Paywall
 "paywall.personalized_title_main" = "%@, unlock your full potential!";

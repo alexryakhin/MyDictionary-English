@@ -19,7 +19,7 @@ extension OnboardingFlow {
         @Published var selectedGoals: Set<LearningGoal> = []
         @Published var studyLanguages: [StudyLanguage] = []
         @Published var selectedInterests: Set<Interest> = []
-        @Published var weeklyWordGoal: Int = 100
+        @Published var weeklyWordGoal: Int = 25
         @Published var preferredStudyTime: StudyTime = .evening
         @Published var enabledNotifications: Bool = false
         @Published var skippedPaywall: Bool = false
