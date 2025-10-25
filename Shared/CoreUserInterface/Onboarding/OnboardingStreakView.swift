@@ -99,6 +99,11 @@ extension OnboardingFlow {
                         showBenefits = true
                     }
                 }
+                
+                // Generate AI paywall content in background so it's ready when user reaches paywall
+                Task {
+                    await PaywallContentService.shared.checkAndGenerateIfNeeded()
+                }
             }
         }
     }

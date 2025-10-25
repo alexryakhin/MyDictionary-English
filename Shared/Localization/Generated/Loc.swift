@@ -2307,34 +2307,6 @@ public enum Loc {
   }
   public enum Subscription {
     public enum Paywall {
-      /// Improve your %@ academic writing and reading comprehension
-      public static func achievementAcademicWritingMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.achievement_academic_writing_main", String(describing: p1), fallback: "Improve your %@ academic writing and reading comprehension")
-      }
-      /// Excel in %@ business communication and professional contexts
-      public static func achievementBusinessCommunicationMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.achievement_business_communication_main", String(describing: p1), fallback: "Excel in %@ business communication and professional contexts")
-      }
-      /// Excel in %@ business contexts and professional communication
-      public static func achievementBusinessContextsMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.achievement_business_contexts_main", String(describing: p1), fallback: "Excel in %@ business contexts and professional communication")
-      }
-      /// Master %d new %@ words in your first week
-      public static func achievementMasterWordsMain(_ p1: Int, _ p2: Any) -> String {
-        return Loc.tr("Subscription", "paywall.achievement_master_words_main", p1, String(describing: p2), fallback: "Master %d new %@ words in your first week")
-      }
-      /// Enhance your professional %@ communication skills
-      public static func achievementProfessionalCommunicationMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.achievement_professional_communication_main", String(describing: p1), fallback: "Enhance your professional %@ communication skills")
-      }
-      /// Master %@ tech vocabulary and industry terminology
-      public static func achievementTechVocabularyMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.achievement_tech_vocabulary_main", String(describing: p1), fallback: "Master %@ tech vocabulary and industry terminology")
-      }
-      /// Navigate any %@-speaking country with confidence
-      public static func achievementTravelConfidenceMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.achievement_travel_confidence_main", String(describing: p1), fallback: "Navigate any %@-speaking country with confidence")
-      }
       /// Active Users
       public static let activeUsers = Loc.tr("Subscription", "paywall.active_users", fallback: "Active Users")
       /// and
@@ -2355,8 +2327,6 @@ public enum Loc {
       public static func failedToRestorePurchases(_ p1: Any) -> String {
         return Loc.tr("Subscription", "paywall.failed_to_restore_purchases", String(describing: p1), fallback: "Failed to restore purchases: %@")
       }
-      /// Features tailored to your learning journey
-      public static let featuresTailoredToJourneyMain = Loc.tr("Subscription", "paywall.features_tailored_to_journey_main", fallback: "Features tailored to your learning journey")
       /// Free Plan
       public static let freePlan = Loc.tr("Subscription", "paywall.free_plan", fallback: "Free Plan")
       /// Join thousands of users who've transformed their vocabulary learning
@@ -2369,32 +2339,6 @@ public enum Loc {
       public static let monthly = Loc.tr("Subscription", "paywall.monthly", fallback: "monthly")
       /// No active subscriptions found. Please check your App Store account.
       public static let noActiveSubscriptionsFound = Loc.tr("Subscription", "paywall.no_active_subscriptions_found", fallback: "No active subscriptions found. Please check your App Store account.")
-      /// Perfect for Your Goals
-      public static let perfectForYourGoalsMain = Loc.tr("Subscription", "paywall.perfect_for_your_goals_main", fallback: "Perfect for Your Goals")
-      /// Excel in %@ business communication and professional contexts!
-      public static func personalizedSubtitleBusinessMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.personalized_subtitle_business_main", String(describing: p1), fallback: "Excel in %@ business communication and professional contexts!")
-      }
-      /// Join thousands of %@s who've mastered %@ vocabulary!
-      public static func personalizedSubtitleDefaultMain(_ p1: Any, _ p2: Any) -> String {
-        return Loc.tr("Subscription", "paywall.personalized_subtitle_default_main", String(describing: p1), String(describing: p2), fallback: "Join thousands of %@s who've mastered %@ vocabulary!")
-      }
-      /// Master %@ vocabulary for academic success and ace your studies!
-      public static func personalizedSubtitleStudyMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.personalized_subtitle_study_main", String(describing: p1), fallback: "Master %@ vocabulary for academic success and ace your studies!")
-      }
-      /// Speak %@ confidently while traveling and connect with people worldwide!
-      public static func personalizedSubtitleTravelMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.personalized_subtitle_travel_main", String(describing: p1), fallback: "Speak %@ confidently while traveling and connect with people worldwide!")
-      }
-      /// Boost your career with professional %@ vocabulary and communication skills!
-      public static func personalizedSubtitleWorkMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.personalized_subtitle_work_main", String(describing: p1), fallback: "Boost your career with professional %@ vocabulary and communication skills!")
-      }
-      /// %@, unlock your full potential!
-      public static func personalizedTitleMain(_ p1: Any) -> String {
-        return Loc.tr("Subscription", "paywall.personalized_title_main", String(describing: p1), fallback: "%@, unlock your full potential!")
-      }
       /// Plan auto-renews for %@/%@ until cancelled.
       public static func planAutoRenews(_ p1: Any, _ p2: Any) -> String {
         return Loc.tr("Subscription", "paywall.planAutoRenews", String(describing: p1), String(describing: p2), fallback: "Plan auto-renews for %@/%@ until cancelled.")
@@ -2425,6 +2369,24 @@ public enum Loc {
       public static let upgradeToPro = Loc.tr("Subscription", "paywall.upgrade_to_pro", fallback: "Upgrade to Pro")
       /// Words Added
       public static let wordsAdded = Loc.tr("Subscription", "paywall.words_added", fallback: "Words Added")
+      public enum Generic {
+        /// Get personalized quizzes and smart word suggestions
+        public static let benefit1Description = Loc.tr("Subscription", "paywall.generic.benefit1_description", fallback: "Get personalized quizzes and smart word suggestions")
+        /// AI-Powered Learning
+        public static let benefit1Title = Loc.tr("Subscription", "paywall.generic.benefit1_title", fallback: "AI-Powered Learning")
+        /// Natural-sounding pronunciation in multiple languages
+        public static let benefit2Description = Loc.tr("Subscription", "paywall.generic.benefit2_description", fallback: "Natural-sounding pronunciation in multiple languages")
+        /// Premium Voice Synthesis
+        public static let benefit2Title = Loc.tr("Subscription", "paywall.generic.benefit2_title", fallback: "Premium Voice Synthesis")
+        /// Access curated vocabulary sets for every topic
+        public static let benefit3Description = Loc.tr("Subscription", "paywall.generic.benefit3_description", fallback: "Access curated vocabulary sets for every topic")
+        /// Unlimited Word Collections
+        public static let benefit3Title = Loc.tr("Subscription", "paywall.generic.benefit3_title", fallback: "Unlimited Word Collections")
+        /// Master any language faster with AI-powered tools
+        public static let subtitle = Loc.tr("Subscription", "paywall.generic.subtitle", fallback: "Master any language faster with AI-powered tools")
+        /// Unlock Premium Features
+        public static let title = Loc.tr("Subscription", "paywall.generic.title", fallback: "Unlock Premium Features")
+      }
     }
     public enum Period {
       /// day

@@ -54,6 +54,10 @@ enum UDKeys {
     
     // Image Onboarding
     static let imageOnboardingShown = "imageOnboardingShown"
+    
+    // AI Paywall Content Cache
+    static let aiPaywallContent = "aiPaywallContent"
+    static let aiPaywallContentTimestamp = "aiPaywallContentTimestamp"
 }
 
 enum UDService {
@@ -260,5 +264,21 @@ enum UDService {
     static var imageOnboardingShown: Bool {
         get { UserDefaults.standard.bool(forKey: UDKeys.imageOnboardingShown) }
         set { UserDefaults.standard.set(newValue, forKey: UDKeys.imageOnboardingShown) }
+    }
+    
+    // AI Paywall Content Cache
+    static var aiPaywallContentData: Data? {
+        get { UserDefaults.standard.data(forKey: UDKeys.aiPaywallContent) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.aiPaywallContent) }
+    }
+    
+    static var aiPaywallContentTimestamp: Date? {
+        get {
+            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.aiPaywallContentTimestamp)
+            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
+        }
+        set {
+            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.aiPaywallContentTimestamp)
+        }
     }
 }

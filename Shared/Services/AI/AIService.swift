@@ -40,7 +40,6 @@ enum AIError: LocalizedError {
 
 // MARK: - AI Service
 
-@MainActor
 final class AIService: ObservableObject {
     
     // MARK: - Singleton
@@ -296,11 +295,7 @@ final class AIService: ObservableObject {
         guard isInitialized else {
             throw AIError.notInitialized
         }
-        
-        guard SubscriptionService.shared.isProUser else {
-            throw AIError.proRequired
-        }
-        
+
         guard let openAI = openAI else {
             throw AIError.notInitialized
         }
@@ -480,5 +475,36 @@ extension AIWordResponse {
                 examples: aiDefinition.examples
             )
         }
+    }
+}
+
+// MARK: - Paywall Content Generation
+
+extension AIService {
+    /// Generates personalized paywall content based on user profile
+    /// Note: This method does NOT check for Pro subscription as non-subscribers need to see the paywall
+    func generatePaywallContent(userProfile: UserOnboardingProfile, userLanguage: String) async throws -> AIPaywallContent {
+        // Check if AI service is initialized (but not Pro status)
+        guard isInitialized else {
+            throw AIError.notInitialized
+        }
+        
+        let prompt = buildPaywallPrompt(userProfile: userProfile, userLanguage: userLanguage)
+        return try await makeAIRequest(prompt: prompt, responseType: AIPaywallContent.self)
+    }
+    
+    private func buildPaywallPrompt(userProfile: UserOnboardingProfile, userLanguage: String) -> String {
+        return """
+        Create a compelling, personalized paywall for a language learning app. Generate content in \(userLanguage) that:
+
+        1. Creates a compelling title that addresses the user by name and highlights their primary learning goal
+        2. Writes a subtitle that emphasizes the target language and learning benefits  
+        3. Selects 3-5 SubscriptionFeature benefits that are most relevant to their user type, goals, and interests
+        4. Writes SHORT, concise descriptions for each selected feature (maximum 3 lines, focus on key benefits)
+
+        Available SubscriptionFeature options: aiDefinitions, aiQuizzes, images, wordCollections, premiumTTS, unlimitedExport, createSharedDictionaries, tagManagement, advancedAnalytics, prioritySupport
+
+        IMPORTANT: Keep feature descriptions brief and punchy. Each description should be 1-2 sentences maximum. Focus on the core benefit, not detailed explanations.
+        """
     }
 }

@@ -198,6 +198,13 @@ extension OnboardingFlow {
                 if selectedPlan == nil {
                     selectedPlan = subscriptionService.defaultPlan
                 }
+                
+                // Pre-generate AI paywall content if not already done
+                if !PaywallContentService.shared.hasGenerated {
+                    Task {
+                        await PaywallContentService.shared.generatePaywallContent()
+                    }
+                }
             }
         }
 

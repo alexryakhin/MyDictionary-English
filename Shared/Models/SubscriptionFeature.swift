@@ -5,7 +5,9 @@
 //  Created by Alexander Riakhin on 10/23/25.
 //
 
-enum SubscriptionFeature: String, CaseIterable {
+import OpenAI
+
+enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertible {
     case aiDefinitions = "ai_definitions"
     case aiQuizzes = "ai_quizzes"
     case images = "images"
@@ -60,5 +62,11 @@ enum SubscriptionFeature: String, CaseIterable {
         case .images: "photo.fill"
         case .wordCollections: "folder.fill"
         }
+    }
+    
+    // MARK: - JSONSchemaEnumConvertible
+
+    var caseNames: [String] {
+        return Self.allCases.map { $0.rawValue }
     }
 }

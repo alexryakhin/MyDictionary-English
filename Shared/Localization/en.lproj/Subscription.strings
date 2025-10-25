@@ -71,19 +71,12 @@
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgrade to Pro to see full vocabulary growth details.";
 "pro_upgrade.time_period" = "Time Period";
 
-// MARK: - Personalized Main Paywall
-"paywall.personalized_title_main" = "%@, unlock your full potential!";
-"paywall.personalized_subtitle_study_main" = "Master %@ vocabulary for academic success and ace your studies!";
-"paywall.personalized_subtitle_work_main" = "Boost your career with professional %@ vocabulary and communication skills!";
-"paywall.personalized_subtitle_travel_main" = "Speak %@ confidently while traveling and connect with people worldwide!";
-"paywall.personalized_subtitle_business_main" = "Excel in %@ business communication and professional contexts!";
-"paywall.personalized_subtitle_default_main" = "Join thousands of %@s who've mastered %@ vocabulary!";
-"paywall.perfect_for_your_goals_main" = "Perfect for Your Goals";
-"paywall.features_tailored_to_journey_main" = "Features tailored to your learning journey";
-"paywall.achievement_master_words_main" = "Master %d new %@ words in your first week";
-"paywall.achievement_academic_writing_main" = "Improve your %@ academic writing and reading comprehension";
-"paywall.achievement_professional_communication_main" = "Enhance your professional %@ communication skills";
-"paywall.achievement_travel_confidence_main" = "Navigate any %@-speaking country with confidence";
-"paywall.achievement_business_communication_main" = "Excel in %@ business communication and professional contexts";
-"paywall.achievement_tech_vocabulary_main" = "Master %@ tech vocabulary and industry terminology";
-"paywall.achievement_business_contexts_main" = "Excel in %@ business contexts and professional communication";
+// MARK: - Generic Paywall (No AI/Profile)
+"paywall.generic.title" = "Unlock Premium Features";
+"paywall.generic.subtitle" = "Master any language faster with AI-powered tools";
+"paywall.generic.benefit1_title" = "AI-Powered Learning";
+"paywall.generic.benefit1_description" = "Get personalized quizzes and smart word suggestions";
+"paywall.generic.benefit2_title" = "Premium Voice Synthesis";
+"paywall.generic.benefit2_description" = "Natural-sounding pronunciation in multiple languages";
+"paywall.generic.benefit3_title" = "Unlimited Word Collections";
+"paywall.generic.benefit3_description" = "Access curated vocabulary sets for every topic";

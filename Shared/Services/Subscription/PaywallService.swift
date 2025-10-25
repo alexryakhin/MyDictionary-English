@@ -260,7 +260,7 @@ struct MyPaywallView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        AdvancedPaywallView()
+        SimplifiedPaywallView()
     }
 }
 

@@ -14,7 +14,6 @@ struct AdvancedPaywallView: View {
 
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var paywallService = PaywallService.shared
-    @StateObject private var onboardingService = OnboardingService.shared
 
     @State private var selectedPlan: SubscriptionPlan?
     @State private var isLoading = false
@@ -24,113 +23,6 @@ struct AdvancedPaywallView: View {
     @State private var animateFeatures = false
     @State private var animatePlans = false
     @State private var safariURL: URL?
-
-    // MARK: - Personalized Content
-    
-    private var personalizedTitle: String {
-        guard let profile = onboardingService.userProfile else {
-            return Loc.Subscription.Paywall.upgradeToPro
-        }
-        
-        let userName = profile.userName.isEmpty ? "there" : profile.userName
-        return Loc.Subscription.Paywall.personalizedTitleMain(userName)
-    }
-    
-    private var personalizedSubtitle: String {
-        guard let profile = onboardingService.userProfile else {
-            return Loc.Subscription.Paywall.joinThousandsUsers
-        }
-        
-        let goals = profile.learningGoals
-        let userType = profile.userType.rawValue
-        let studyLanguages = profile.studyLanguages
-        let primaryLanguage = studyLanguages.first?.language.displayName ?? "your target language"
-        
-        if goals.contains(.study) {
-            return Loc.Subscription.Paywall.personalizedSubtitleStudyMain(primaryLanguage)
-        } else if goals.contains(.work) {
-            return Loc.Subscription.Paywall.personalizedSubtitleWorkMain(primaryLanguage)
-        } else if goals.contains(.travel) {
-            return Loc.Subscription.Paywall.personalizedSubtitleTravelMain(primaryLanguage)
-        } else if goals.contains(.business) {
-            return Loc.Subscription.Paywall.personalizedSubtitleBusinessMain(primaryLanguage)
-        } else {
-            return Loc.Subscription.Paywall.personalizedSubtitleDefaultMain(userType, primaryLanguage)
-        }
-    }
-    
-    private var personalizedFeatures: [SubscriptionFeature] {
-        guard let profile = onboardingService.userProfile else {
-            return SubscriptionFeature.allCases
-        }
-        
-        var features = SubscriptionFeature.allCases
-        
-        // Prioritize features based on user goals and interests
-        if profile.learningGoals.contains(.study) {
-            // Move analytics to front for students
-            if let analyticsIndex = features.firstIndex(of: .advancedAnalytics) {
-                let analytics = features.remove(at: analyticsIndex)
-                features.insert(analytics, at: 0)
-            }
-        }
-        
-        if profile.interests.contains(.technology) {
-            // Move sync to front for tech-savvy users
-            if let syncIndex = features.firstIndex(of: .aiQuizzes) {
-                let sync = features.remove(at: syncIndex)
-                features.insert(sync, at: 0)
-            }
-        }
-        
-        if profile.learningGoals.contains(.work) || profile.learningGoals.contains(.business) {
-            // Move shared dictionaries to front for professional users
-            if let sharedIndex = features.firstIndex(of: .createSharedDictionaries) {
-                let shared = features.remove(at: sharedIndex)
-                features.insert(shared, at: 0)
-            }
-        }
-        
-        return features
-    }
-    
-    private var personalizedAchievements: [String] {
-        guard let profile = onboardingService.userProfile else {
-            return []
-        }
-        
-        var achievements: [String] = []
-        let studyLanguages = profile.studyLanguages
-        let primaryLanguage = studyLanguages.first?.language.displayName ?? "your target language"
-        
-        // Based on weekly goal
-        let dailyGoal = profile.weeklyWordGoal / 7
-        achievements.append(Loc.Subscription.Paywall.achievementMasterWordsMain(dailyGoal * 7, primaryLanguage))
-        
-        // Based on user type and goals
-        if profile.learningGoals.contains(.study) {
-            achievements.append(Loc.Subscription.Paywall.achievementAcademicWritingMain(primaryLanguage))
-        }
-        if profile.learningGoals.contains(.work) {
-            achievements.append(Loc.Subscription.Paywall.achievementProfessionalCommunicationMain(primaryLanguage))
-        }
-        if profile.learningGoals.contains(.travel) {
-            achievements.append(Loc.Subscription.Paywall.achievementTravelConfidenceMain(primaryLanguage))
-        }
-        if profile.learningGoals.contains(.business) {
-            achievements.append(Loc.Subscription.Paywall.achievementBusinessCommunicationMain(primaryLanguage))
-        }
-        
-        // Based on interests
-        if profile.interests.contains(.technology) {
-            achievements.append(Loc.Subscription.Paywall.achievementTechVocabularyMain(primaryLanguage))
-        }
-        if profile.interests.contains(.business) {
-            achievements.append(Loc.Subscription.Paywall.achievementBusinessContextsMain(primaryLanguage))
-        }
-        
-        return achievements
-    }
 
     var body: some View {
         ScrollView {
@@ -142,13 +34,6 @@ struct AdvancedPaywallView: View {
                 featuresSection
                     .opacity(animateFeatures ? 1 : 0)
                     .offset(y: animateFeatures ? 0 : 50)
-
-                // Personalized achievements section
-                if !personalizedAchievements.isEmpty {
-                    personalizedAchievementsSection
-                        .opacity(animateFeatures ? 1 : 0)
-                        .offset(y: animateFeatures ? 0 : 50)
-                }
 
                 // Plans with animations
                 plansSection
@@ -180,12 +65,12 @@ struct AdvancedPaywallView: View {
                 selectedPlan = subscriptionService.defaultPlan
             }
         }
-        .safari(url: $safariURL)
         .alert(Loc.Subscription.Paywall.restoreSubscription, isPresented: $showingRestoreAlert) {
             Button(Loc.Actions.ok) { }
         } message: {
             Text(restoreMessage)
         }
+        .safari(url: $safariURL)
     }
 
     // MARK: - Hero Section
@@ -202,12 +87,12 @@ struct AdvancedPaywallView: View {
                 .padding(.top, 30)
 
             VStack(spacing: 12) {
-                Text(personalizedTitle)
+                Text(Loc.Subscription.Paywall.upgradeToPro)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
 
-                Text(personalizedSubtitle)
+                Text(Loc.Subscription.Paywall.joinThousandsUsers)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -243,38 +128,9 @@ struct AdvancedPaywallView: View {
                 .padding(.horizontal, 16)
 
             VStack(spacing: 12) {
-                ForEach(Array(personalizedFeatures.enumerated()), id: \.element) { index, feature in
+                ForEach(Array(SubscriptionFeature.allCases.enumerated()), id: \.element) { index, feature in
                     AdvancedFeatureCard(
                         feature: feature,
-                        delay: Double(index) * 0.1
-                    )
-                }
-            }
-            .padding(.horizontal, 16)
-        }
-        .padding(.vertical, 20)
-    }
-
-    // MARK: - Personalized Achievements Section
-
-    private var personalizedAchievementsSection: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            VStack(alignment: .leading, spacing: 8) {
-                Text(Loc.Subscription.Paywall.perfectForYourGoalsMain)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                
-                Text(Loc.Subscription.Paywall.featuresTailoredToJourneyMain)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            }
-            .padding(.horizontal, 16)
-
-            VStack(spacing: 12) {
-                ForEach(Array(personalizedAchievements.enumerated()), id: \.offset) { index, achievement in
-                    PersonalizedAchievementCard(
-                        achievement: achievement,
-                        icon: getAchievementIcon(for: achievement),
                         delay: Double(index) * 0.1
                     )
                 }
@@ -319,7 +175,7 @@ struct AdvancedPaywallView: View {
             if !AuthenticationService.shared.isSignedIn {
                 registrationBenefitsSection
             }
-            
+
             // Subscribe button with gradient
             Button {
                 Task {
@@ -370,9 +226,9 @@ struct AdvancedPaywallView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 20)
     }
-    
+
     // MARK: - Registration Benefits Section
-    
+
     private var registrationBenefitsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
@@ -383,7 +239,7 @@ struct AdvancedPaywallView: View {
                     .fontWeight(.medium)
                 Spacer()
             }
-            
+
             VStack(alignment: .leading, spacing: 8) {
                 BenefitRow(
                     icon: "candybarphone",
@@ -398,7 +254,7 @@ struct AdvancedPaywallView: View {
                     text: Loc.Onboarding.shareDictionaries
                 )
             }
-            
+
             Text(Loc.Auth.registerAnytimeFromSettings)
                 .font(.caption)
                 .foregroundStyle(.secondary)
@@ -524,24 +380,6 @@ struct AdvancedPaywallView: View {
 
         isLoading = false
     }
-    
-    // MARK: - Helper Functions
-    
-    private func getAchievementIcon(for achievement: String) -> String {
-        if achievement.contains("words") {
-            return "book.fill"
-        } else if achievement.contains("academic") {
-            return "graduationcap.fill"
-        } else if achievement.contains("professional") || achievement.contains("business") {
-            return "briefcase.fill"
-        } else if achievement.contains("travel") {
-            return "airplane"
-        } else if achievement.contains("tech") {
-            return "laptopcomputer"
-        } else {
-            return "star.fill"
-        }
-    }
 }
 
 // MARK: - Supporting Views
@@ -632,14 +470,14 @@ struct AdvancedPlanCard: View {
                         .font(.headline)
                         .foregroundStyle(.primary)
 
-                    if plan.period == .year {
-                        TagView(text: Loc.Subscription.Paywall.bestValue)
-                    }
-
                     if let pricePerMonth = plan.pricePerMonth {
                         Text(pricePerMonth + "/" + Loc.Subscription.Period.month)
-                            .font(.subheadline)
+                            .font(.footnote)
                             .foregroundStyle(.secondary)
+                    }
+
+                    if plan.period == .year {
+                        TagView(text: Loc.Subscription.Paywall.bestValue)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -700,65 +538,19 @@ struct SocialProofCard: View {
 struct BenefitRow: View {
     let icon: String
     let text: String
-    
+
     var body: some View {
         HStack(spacing: 8) {
             Image(systemName: icon)
                 .font(.caption)
                 .foregroundStyle(.accent)
                 .frame(width: 16)
-            
+
             Text(text)
                 .font(.caption)
                 .foregroundStyle(.primary)
-            
-            Spacer()
-        }
-    }
-}
-
-struct PersonalizedAchievementCard: View {
-    let achievement: String
-    let icon: String
-    let delay: Double
-    @State private var isVisible = false
-
-    var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: icon)
-                .font(.title2)
-                .foregroundStyle(
-                    LinearGradient(
-                        colors: [Color.purple, Color.purple.opacity(0.7)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .frame(width: 28)
-
-            Text(achievement)
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .foregroundStyle(.primary)
-                .multilineTextAlignment(.leading)
 
             Spacer()
-        }
-        .padding(16)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color.purple.opacity(0.1))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color.purple.opacity(0.3), lineWidth: 1)
-                )
-        )
-        .opacity(isVisible ? 1 : 0)
-        .offset(y: isVisible ? 0 : 20)
-        .onAppear {
-            withAnimation(.easeOut(duration: 0.6).delay(delay)) {
-                isVisible = true
-            }
         }
     }
 }
