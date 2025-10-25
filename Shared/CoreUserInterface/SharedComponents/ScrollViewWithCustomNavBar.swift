@@ -25,20 +25,32 @@ struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
         self.navigationBar = navigationBar
     }
 
+    @ViewBuilder
     var body: some View {
-        ScrollViewWithReader(scrollOffset: $scrollOffset) {
-            content()
-        }
-        .safeAreaBarIfAvailable(edge: .top) {
-            VStack(spacing: .zero) {
-                navigationBar()
-                Divider()
-                    .opacity(navigationBarOpacity)
+        if #available(iOS 26, *) {
+            ScrollViewWithReader(scrollOffset: $scrollOffset) {
+                content()
             }
-            .background {
-                Color.clear
-                    .background(.thinMaterial)
-                    .opacity(navigationBarOpacity)
+            .safeAreaBar(
+                edge: .top,
+                spacing: .zero,
+                content: navigationBar
+            )
+        } else {
+            ScrollViewWithReader(scrollOffset: $scrollOffset) {
+                content()
+            }
+            .safeAreaInset(edge: .top, spacing: .zero) {
+                VStack(spacing: .zero) {
+                    navigationBar()
+                    Divider()
+                        .opacity(navigationBarOpacity)
+                }
+                .background {
+                    Color.clear
+                        .background(.thinMaterial)
+                        .opacity(navigationBarOpacity)
+                }
             }
         }
     }

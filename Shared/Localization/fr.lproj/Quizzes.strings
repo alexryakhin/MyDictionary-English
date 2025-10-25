@@ -177,7 +177,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Beau travail ! Vous avez terminé le quiz d'écriture de phrases.";
 "quiz_types.great_job_completed_context_quiz" = "Beau travail ! Vous avez terminé le quiz d'utilisation dans le contexte.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Beau travail ! Vous avez terminé le quiz de remplir les blancs.";
-"quiz_available_once_a_day_message" = "Désolé, le quiz n'est disponible qu'une fois par jour. Abonnez-vous à PRO pour un accès illimité !";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Pratiquez des mots d'une langue spécifique";

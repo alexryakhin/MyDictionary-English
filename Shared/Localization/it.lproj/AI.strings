@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d richieste IA rimanenti oggi";
-"ai_usage.unlimited_requests" = "Richieste IA illimitate con Pro";
-"ai_usage.upgrade_banner_title" = "Passa a Pro per IA Illimitata";
-"ai_usage.upgrade_banner_message" = "Ottieni definizioni alimentate dall'IA illimitate, analisi avanzate e altre funzionalità premium.";
-"ai_usage.upgrade_button" = "Passa a Pro";
-"ai_usage_limit_exceeded" = "Limite giornaliero di utilizzo IA raggiunto. Passa a Pro per definizioni alimentate dall'IA illimitate.";
-"ai_sign_in_required" = "Accedi per utilizzare le funzionalità IA";
-"ai_sign_in_required_message" = "Per utilizzare le definizioni alimentate dall'IA, accedi al tuo account.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "L'IA sta elaborando...";
 "ai_loading.analyzing_context" = "Analizzando il contesto...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Elaborazione IA...";
 "ai_animation.learning" = "L'IA sta imparando...";
 "ai_animation.processing_neural" = "Elaborando la tua parola con reti neurali";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Il servizio AI non è pronto. Riprova più tardi.";
+"ai_error.pro_required" = "Le funzionalità AI sono disponibili con l'abbonamento Pro";
+"ai_error.feature_disabled" = "Le funzionalità AI sono temporaneamente non disponibili";
+"ai_error.invalid_response" = "Ricevuta risposta non valida dall'AI. Riprova.";
+"ai_error.api_error" = "Errore AI: %@";
+"ai_error.network_error" = "Errore di connessione di rete. Controlla la tua connessione Internet.";

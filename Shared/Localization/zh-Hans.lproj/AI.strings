@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "今日剩余%d次AI请求";
-"ai_usage.unlimited_requests" = "Pro版无限AI请求";
-"ai_usage.upgrade_banner_title" = "升级到Pro获得无限AI";
-"ai_usage.upgrade_banner_message" = "获得无限AI驱动的定义、高级分析和其他高级功能。";
-"ai_usage.upgrade_button" = "升级到Pro";
-"ai_usage_limit_exceeded" = "已达到每日AI使用限制。升级到Pro获得无限AI驱动的定义。";
-"ai_sign_in_required" = "登录以使用AI功能";
-"ai_sign_in_required_message" = "要使用AI驱动的定义，请登录您的账户。";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI正在计算...";
 "ai_loading.analyzing_context" = "分析上下文...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI处理中...";
 "ai_animation.learning" = "AI正在学习...";
 "ai_animation.processing_neural" = "用神经网络处理您的词汇";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI服务未就绪。请稍后重试。";
+"ai_error.pro_required" = "AI功能需要Pro订阅";
+"ai_error.feature_disabled" = "AI功能暂时不可用";
+"ai_error.invalid_response" = "收到AI的无效响应。请重试。";
+"ai_error.api_error" = "AI错误：%@";
+"ai_error.network_error" = "网络连接错误。请检查您的互联网连接。";

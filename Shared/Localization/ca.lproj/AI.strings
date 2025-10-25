@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d sol·licituds d'IA restants avui";
-"ai_usage.unlimited_requests" = "Sol·licituds d'IA il·limitades amb Pro";
-"ai_usage.upgrade_banner_title" = "Actualitza a Pro per a IA Il·limitat";
-"ai_usage.upgrade_banner_message" = "Obtén definicions impulsades per IA il·limitades, anàlisis avançades i més funcions premium.";
-"ai_usage.upgrade_button" = "Actualitzar a Pro";
-"ai_usage_limit_exceeded" = "Límit diari d'ús d'IA assolit. Actualitza a Pro per a definicions impulsades per IA il·limitades.";
-"ai_sign_in_required" = "Inicia sessió per utilitzar funcions d'IA";
-"ai_sign_in_required_message" = "Per utilitzar definicions impulsades per IA, inicia sessió al teu compte.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "La IA està calculant...";
 "ai_loading.analyzing_context" = "Analitzant context...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Processament d'IA...";
 "ai_animation.learning" = "La IA està aprenent...";
 "ai_animation.processing_neural" = "Processant la teva paraula amb xarxes neuronals";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "El servei d'IA no està llest. Torna-ho a provar més tard.";
+"ai_error.pro_required" = "Les funcions d'IA estan disponibles amb la subscripció Pro";
+"ai_error.feature_disabled" = "Les funcions d'IA no estan disponibles temporalment";
+"ai_error.invalid_response" = "S'ha rebut una resposta no vàlida de l'IA. Torna-ho a provar.";
+"ai_error.api_error" = "Error d'IA: %@";
+"ai_error.network_error" = "Error de connexió de xarxa. Comprova la teva connexió a Internet.";

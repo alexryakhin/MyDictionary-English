@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Bra jobbat! Du har slutfört quizzet om meningskrivning.";
 "quiz_types.great_job_completed_context_quiz" = "Bra jobbat! Du har slutfört quizzet om kontextanvändning.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bra jobbat! Du har slutfört quizzet om att fylla i luckan.";
-"quiz_available_once_a_day_message" = "Tyvärr är quizzet endast tillgängligt en gång per dag. Prenumerera på PRO för obegränsad åtkomst!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Öva ord från ett specifikt språk";

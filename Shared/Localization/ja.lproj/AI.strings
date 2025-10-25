@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "今日残り%d回のAIリクエスト";
-"ai_usage.unlimited_requests" = "Proで無制限のAIリクエスト";
-"ai_usage.upgrade_banner_title" = "Proにアップグレードして無制限のAI";
-"ai_usage.upgrade_banner_message" = "AI駆動の定義を無制限に取得し、高度な分析やその他のプレミアム機能を利用できます。";
-"ai_usage.upgrade_button" = "Proにアップグレード";
-"ai_usage_limit_exceeded" = "1日のAI使用制限に達しました。Proにアップグレードして無制限のAI駆動定義を取得してください。";
-"ai_sign_in_required" = "AI機能を使用するにはサインインしてください";
-"ai_sign_in_required_message" = "AI駆動定義を使用するには、アカウントにサインインしてください。";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AIが計算中...";
 "ai_loading.analyzing_context" = "コンテキストを分析中...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI処理中...";
 "ai_animation.learning" = "AIが学習中...";
 "ai_animation.processing_neural" = "ニューラルネットワークで単語を処理中";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AIサービスが準備できていません。後でもう一度お試しください。";
+"ai_error.pro_required" = "AI機能はProサブスクリプションで利用可能です";
+"ai_error.feature_disabled" = "AI機能は一時的に利用できません";
+"ai_error.invalid_response" = "AIから無効な応答を受け取りました。もう一度お試しください。";
+"ai_error.api_error" = "AIエラー: %@";
+"ai_error.network_error" = "ネットワーク接続エラー。インターネット接続を確認してください。";

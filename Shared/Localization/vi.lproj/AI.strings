@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d yêu cầu AI còn lại hôm nay";
-"ai_usage.unlimited_requests" = "Yêu cầu AI không giới hạn với Pro";
-"ai_usage.upgrade_banner_title" = "Nâng cấp lên Pro cho AI Không giới hạn";
-"ai_usage.upgrade_banner_message" = "Nhận định nghĩa được hỗ trợ bởi AI không giới hạn, phân tích nâng cao và nhiều tính năng premium khác.";
-"ai_usage.upgrade_button" = "Nâng cấp lên Pro";
-"ai_usage_limit_exceeded" = "Đã đạt giới hạn sử dụng AI hàng ngày. Nâng cấp lên Pro cho định nghĩa được hỗ trợ bởi AI không giới hạn.";
-"ai_sign_in_required" = "Đăng nhập để sử dụng tính năng AI";
-"ai_sign_in_required_message" = "Để sử dụng định nghĩa được hỗ trợ bởi AI, vui lòng đăng nhập vào tài khoản của bạn.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI đang tính toán...";
 "ai_loading.analyzing_context" = "Phân tích ngữ cảnh...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Xử lý AI...";
 "ai_animation.learning" = "AI đang học...";
 "ai_animation.processing_neural" = "Xử lý từ của bạn với mạng nơ-ron";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Dịch vụ AI chưa sẵn sàng. Vui lòng thử lại sau.";
+"ai_error.pro_required" = "Tính năng AI có sẵn với gói đăng ký Pro";
+"ai_error.feature_disabled" = "Tính năng AI tạm thời không khả dụng";
+"ai_error.invalid_response" = "Nhận được phản hồi không hợp lệ từ AI. Vui lòng thử lại.";
+"ai_error.api_error" = "Lỗi AI: %@";
+"ai_error.network_error" = "Lỗi kết nối mạng. Vui lòng kiểm tra kết nối internet của bạn.";

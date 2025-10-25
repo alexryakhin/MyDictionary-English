@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d запитів ШІ залишилося сьогодні";
-"ai_usage.unlimited_requests" = "Необмежені запити ШІ з Pro";
-"ai_usage.upgrade_banner_title" = "Оновіться до Pro для Необмеженого ШІ";
-"ai_usage.upgrade_banner_message" = "Отримайте необмежені визначення на базі ШІ, розширену аналітику та інші преміум-функції.";
-"ai_usage.upgrade_button" = "Оновитися до Pro";
-"ai_usage_limit_exceeded" = "Досягнуто денний ліміт використання ШІ. Оновіться до Pro для необмежених визначень на базі ШІ.";
-"ai_sign_in_required" = "Увійдіть, щоб використовувати функції ШІ";
-"ai_sign_in_required_message" = "Для використання визначень на базі ШІ увійдіть у свій обліковий запис.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "ШІ обчислює...";
 "ai_loading.analyzing_context" = "Аналіз контексту...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Обробка ШІ...";
 "ai_animation.learning" = "ШІ вчиться...";
 "ai_animation.processing_neural" = "Обробка вашого слова нейронними мережами";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Сервіс ШІ не готовий. Спробуйте пізніше.";
+"ai_error.pro_required" = "Функції ШІ доступні з підпискою Pro";
+"ai_error.feature_disabled" = "Функції ШІ тимчасово недоступні";
+"ai_error.invalid_response" = "Отримано некоректну відповідь від ШІ. Спробуйте знову.";
+"ai_error.api_error" = "Помилка ШІ: %@";
+"ai_error.network_error" = "Помилка мережевого з'єднання. Перевірте підключення до інтернету.";

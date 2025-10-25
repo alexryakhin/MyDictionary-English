@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบการเขียนประโยคเสร็จแล้ว";
 "quiz_types.great_job_completed_context_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบการใช้ในบริบทเสร็จแล้ว";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบเติมคำในช่องว่างเสร็จแล้ว";
-"quiz_available_once_a_day_message" = "ขออภัย แบบทดสอบสามารถใช้ได้เพียงครั้งเดียวต่อวัน สมัครสมาชิก PRO เพื่อเข้าถึงไม่จำกัด!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "ฝึกคำศัพท์จากภาษาที่เฉพาะเจาะจง";

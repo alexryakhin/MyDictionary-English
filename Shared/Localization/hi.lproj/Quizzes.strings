@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "शानदार काम! आपने वाक्य लेखन क्विज़ पूरा कर लिया है।";
 "quiz_types.great_job_completed_context_quiz" = "शानदार काम! आपने संदर्भ उपयोग क्विज़ पूरा कर लिया है।";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "शानदार काम! आपने रिक्त स्थान भरने का क्विज़ पूरा कर लिया है।";
-"quiz_available_once_a_day_message" = "क्षमा करें, क्विज़ केवल दिन में एक बार उपलब्ध है। असीमित पहुंच के लिए PRO की सदस्यता लें!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "एक विशिष्ट भाषा के शब्दों का अभ्यास करें";

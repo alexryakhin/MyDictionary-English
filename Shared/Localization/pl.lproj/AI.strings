@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d zapytań AI pozostało dziś";
-"ai_usage.unlimited_requests" = "Nieograniczone zapytania AI z Pro";
-"ai_usage.upgrade_banner_title" = "Przejdź na Pro dla Nieograniczonego AI";
-"ai_usage.upgrade_banner_message" = "Otrzymuj nieograniczone definicje napędzane AI, zaawansowane analizy i więcej funkcji premium.";
-"ai_usage.upgrade_button" = "Przejdź na Pro";
-"ai_usage_limit_exceeded" = "Osiągnięto dzienny limit użycia AI. Przejdź na Pro dla nieograniczonych definicji napędzanych AI.";
-"ai_sign_in_required" = "Zaloguj się, aby korzystać z funkcji AI";
-"ai_sign_in_required_message" = "Aby korzystać z definicji napędzanych AI, zaloguj się na swoje konto.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI oblicza...";
 "ai_loading.analyzing_context" = "Analizowanie kontekstu...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Przetwarzanie AI...";
 "ai_animation.learning" = "AI się uczy...";
 "ai_animation.processing_neural" = "Przetwarzanie słowa sieciami neuronowymi";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Usługa AI nie jest gotowa. Spróbuj ponownie później.";
+"ai_error.pro_required" = "Funkcje AI są dostępne z subskrypcją Pro";
+"ai_error.feature_disabled" = "Funkcje AI są tymczasowo niedostępne";
+"ai_error.invalid_response" = "Otrzymano nieprawidłową odpowiedź od AI. Spróbuj ponownie.";
+"ai_error.api_error" = "Błąd AI: %@";
+"ai_error.network_error" = "Błąd połączenia sieciowego. Sprawdź połączenie internetowe.";

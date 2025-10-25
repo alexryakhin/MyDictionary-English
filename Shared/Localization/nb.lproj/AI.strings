@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d AI-forespørsler igjen i dag";
-"ai_usage.unlimited_requests" = "Ubegrensede AI-forespørsler med Pro";
-"ai_usage.upgrade_banner_title" = "Oppgrader til Pro for Ubegrenset AI";
-"ai_usage.upgrade_banner_message" = "Få ubegrensede AI-drevne definisjoner, avanserte analyser og flere premium-funksjoner.";
-"ai_usage.upgrade_button" = "Oppgrader til Pro";
-"ai_usage_limit_exceeded" = "Daglig AI-brukergrense nådd. Oppgrader til Pro for ubegrensede AI-drevne definisjoner.";
-"ai_sign_in_required" = "Logg inn for å bruke AI-funksjoner";
-"ai_sign_in_required_message" = "For å bruke AI-drevne definisjoner, logg inn på kontoen din.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI beregner...";
 "ai_loading.analyzing_context" = "Analyserer kontekst...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI-behandling...";
 "ai_animation.learning" = "AI lærer...";
 "ai_animation.processing_neural" = "Behandler ordet ditt med nevrale nettverk";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI-tjenesten er ikke klar. Prøv igjen senere.";
+"ai_error.pro_required" = "AI-funksjoner er tilgjengelige med Pro-abonnement";
+"ai_error.feature_disabled" = "AI-funksjoner er midlertidig utilgjengelige";
+"ai_error.invalid_response" = "Mottok ugyldig svar fra AI. Prøv igjen.";
+"ai_error.api_error" = "AI-feil: %@";
+"ai_error.network_error" = "Nettverksforbindelsesfeil. Sjekk internettforbindelsen din.";

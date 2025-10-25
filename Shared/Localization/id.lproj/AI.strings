@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d permintaan AI tersisa hari ini";
-"ai_usage.unlimited_requests" = "Permintaan AI tak terbatas dengan Pro";
-"ai_usage.upgrade_banner_title" = "Upgrade ke Pro untuk AI Tak Terbatas";
-"ai_usage.upgrade_banner_message" = "Dapatkan definisi berbasis AI tak terbatas, analisis lanjutan, dan fitur premium lainnya.";
-"ai_usage.upgrade_button" = "Upgrade ke Pro";
-"ai_usage_limit_exceeded" = "Batas penggunaan AI harian tercapai. Upgrade ke Pro untuk definisi berbasis AI tak terbatas.";
-"ai_sign_in_required" = "Masuk untuk menggunakan fitur AI";
-"ai_sign_in_required_message" = "Untuk menggunakan definisi berbasis AI, silakan masuk ke akun Anda.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI sedang menghitung...";
 "ai_loading.analyzing_context" = "Menganalisis konteks...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Pemrosesan AI...";
 "ai_animation.learning" = "AI sedang belajar...";
 "ai_animation.processing_neural" = "Memproses kata Anda dengan jaringan saraf";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Layanan AI belum siap. Silakan coba lagi nanti.";
+"ai_error.pro_required" = "Fitur AI tersedia dengan langganan Pro";
+"ai_error.feature_disabled" = "Fitur AI sementara tidak tersedia";
+"ai_error.invalid_response" = "Menerima respons tidak valid dari AI. Silakan coba lagi.";
+"ai_error.api_error" = "Kesalahan AI: %@";
+"ai_error.network_error" = "Kesalahan koneksi jaringan. Silakan periksa koneksi internet Anda.";

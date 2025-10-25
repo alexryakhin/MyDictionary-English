@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <plist version="1.0">
 <dict>
 	<key>words.words_count</key>
@@ -216,6 +215,38 @@
 			<string>%d مجموعة متاحة</string>
 			<key>other</key>
 			<string>%d مجموعة متاحة</string>
+		</dict>
+	</dict>
+	<key>onboarding.languages_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d لغة</string>
+			<key>other</key>
+			<string>%d لغات</string>
+		</dict>
+	</dict>
+	<key>onboarding.languages_count_wn</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@COUNT@</string>
+		<key>COUNT</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>لغة</string>
+			<key>other</key>
+			<string>لغات</string>
 		</dict>
 	</dict>
 </dict>

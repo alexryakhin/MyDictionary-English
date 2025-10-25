@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "כל הכבוד! השלמת את החידון של כתיבת משפטים.";
 "quiz_types.great_job_completed_context_quiz" = "כל הכבוד! השלמת את החידון של שימוש בהקשר.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "כל הכבוד! השלמת את החידון של מילוי החסר.";
-"quiz_available_once_a_day_message" = "מצטערים, החידון זמין רק פעם אחת ביום. הירשם ל-PRO לגישה בלתי מוגבלת!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "תרגל מילים משפה ספציפית";

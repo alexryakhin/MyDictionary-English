@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d AI zahtjeva preostalo danas";
-"ai_usage.unlimited_requests" = "Neograničeni AI zahtjevi s Pro";
-"ai_usage.upgrade_banner_title" = "Nadogradite na Pro za Neograničeni AI";
-"ai_usage.upgrade_banner_message" = "Dobijte neograničene definicije pokretane AI-jem, napredne analize i više premium značajki.";
-"ai_usage.upgrade_button" = "Nadogradite na Pro";
-"ai_usage_limit_exceeded" = "Dostignut dnevni limit korištenja AI-ja. Nadogradite na Pro za neograničene definicije pokretane AI-jem.";
-"ai_sign_in_required" = "Prijavite se za korištenje AI funkcija";
-"ai_sign_in_required_message" = "Za korištenje definicija pokretanih AI-jem, prijavite se na svoj račun.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI računa...";
 "ai_loading.analyzing_context" = "Analiziranje konteksta...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI obrada...";
 "ai_animation.learning" = "AI uči...";
 "ai_animation.processing_neural" = "Obrada vaše riječi neuronskim mrežama";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI servis nije spreman. Molimo pokušajte ponovo kasnije.";
+"ai_error.pro_required" = "AI značajke dostupne su s Pro pretplatom";
+"ai_error.feature_disabled" = "AI značajke su privremeno nedostupne";
+"ai_error.invalid_response" = "Primljen nevažeći odgovor od AI-a. Molimo pokušajte ponovo.";
+"ai_error.api_error" = "AI greška: %@";
+"ai_error.network_error" = "Greška mrežne veze. Molimo provjerite svoju internetsku vezu.";

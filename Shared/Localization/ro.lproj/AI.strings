@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d cereri AI rămase astăzi";
-"ai_usage.unlimited_requests" = "Cereri AI nelimitate cu Pro";
-"ai_usage.upgrade_banner_title" = "Actualizează la Pro pentru AI Nelimitat";
-"ai_usage.upgrade_banner_message" = "Obține definiții alimentate de AI nelimitate, analize avansate și mai multe funcții premium.";
-"ai_usage.upgrade_button" = "Actualizează la Pro";
-"ai_usage_limit_exceeded" = "Limita zilnică de utilizare AI atinsă. Actualizează la Pro pentru definiții alimentate de AI nelimitate.";
-"ai_sign_in_required" = "Conectați-vă pentru a utiliza funcțiile AI";
-"ai_sign_in_required_message" = "Pentru a utiliza definițiile alimentate de AI, vă rugăm să vă conectați la contul dvs.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI calculează...";
 "ai_loading.analyzing_context" = "Analizarea contextului...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Procesarea AI...";
 "ai_animation.learning" = "AI învață...";
 "ai_animation.processing_neural" = "Procesarea cuvântului tău cu rețele neuronale";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Serviciul AI nu este gata. Vă rugăm să încercați din nou mai târziu.";
+"ai_error.pro_required" = "Funcțiile AI sunt disponibile cu abonamentul Pro";
+"ai_error.feature_disabled" = "Funcțiile AI sunt temporar indisponibile";
+"ai_error.invalid_response" = "Răspuns invalid primit de la AI. Vă rugăm să încercați din nou.";
+"ai_error.api_error" = "Eroare AI: %@";
+"ai_error.network_error" = "Eroare de conexiune la rețea. Vă rugăm să verificați conexiunea la internet.";

@@ -20,59 +20,42 @@ final class WordCollectionsManager: ObservableObject {
     
     @Published var collections: [WordCollection] = []
     @Published var isLoading = false
-    @Published var error: Error?
     @Published var hasCollections = false
     
     // MARK: - Private Properties
     
-    private let remoteConfig = RemoteConfig.remoteConfig()
+    private let remoteConfigService = RemoteConfigService.shared
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Initialization
     
     private init() {
-        setupRemoteConfig()
-        // Fetch collections on initialization
-        Task {
-            await fetchCollections()
-        }
+        setupBindings()
     }
     
     // MARK: - Public Methods
     
     /// Fetches word collections from Firebase Remote Config
-    @MainActor
-    func fetchCollections() async {
+    func fetchCollections() throws {
         isLoading = true
-        error = nil
-        
-        do {
-            // Fetch and activate remote config (uses Firebase's built-in cache)
-            let status = try await remoteConfig.fetchAndActivate()
-            print("✅ [WordCollectionsManager] Status retrieving remote config: \(status)")
 
-            if status == .successFetchedFromRemote {
-                print("✅ [WordCollectionsManager] Successfully fetched remote config")
-            } else {
-                print("ℹ️ [WordCollectionsManager] Using cached remote config")
-            }
-            
-            // Parse collections from all available keys
+        do {
+            // Parse collections from centralized remote config
             var allCollections: [WordCollection] = []
             
             for key in WordCollectionKeys.allCases {
-                let jsonString = remoteConfig.configValue(forKey: key.rawValue).stringValue
-                print("🔍 [WordCollectionsManager] Key: \(key.rawValue), JSON length: \(jsonString.count)")
-                if !jsonString.isEmpty {
+
+                if let jsonString = remoteConfigService.getWordCollections(for: key) {
+                    debugPrint("🔍 [WordCollectionsManager] Key: \(key.rawValue), JSON length: \(jsonString.count)")
                     let collections = try parseCollections(from: jsonString, languageCode: key.languageCode)
                     allCollections.append(contentsOf: collections)
-                    print("✅ [WordCollectionsManager] Parsed \(collections.count) collections from \(key.rawValue)")
+                    debugPrint("✅ [WordCollectionsManager] Parsed \(collections.count) collections from \(key.rawValue)")
                 } else if let jsonString = try? Bundle.main.string(forResource: key.rawValue, withExtension: "json") {
                     let collections = try parseCollections(from: jsonString, languageCode: key.languageCode)
                     allCollections.append(contentsOf: collections)
-                    print("⚠️ [WordCollectionsManager] Parsed \(collections.count) collections from local \(key.rawValue).json")
+                    debugPrint("⚠️ [WordCollectionsManager] Parsed \(collections.count) collections from local \(key.rawValue).json")
                 } else {
-                    print("⚠️ [WordCollectionsManager] Empty JSON for key: \(key.rawValue)")
+                    debugPrint("⚠️ [WordCollectionsManager] Empty JSON for key: \(key.rawValue)")
                 }
             }
             
@@ -80,13 +63,11 @@ final class WordCollectionsManager: ObservableObject {
             self.collections = allCollections
             self.hasCollections = !allCollections.isEmpty
             self.isLoading = false
-            
-            print("✅ [WordCollectionsManager] Loaded \(allCollections.count) word collections")
-            
+
+            debugPrint("✅ [WordCollectionsManager] Loaded \(allCollections.count) word collections")
         } catch {
-            print("❌ [WordCollectionsManager] Failed to fetch collections: \(error.localizedDescription)")
-            self.error = error
             self.isLoading = false
+            throw error
         }
     }
     
@@ -143,45 +124,11 @@ final class WordCollectionsManager: ObservableObject {
     /// Force refresh from Firebase Remote Config (bypasses Firebase cache)
     @MainActor
     func forceRefresh() async {
-        print("🔄 [WordCollectionsManager] Force refreshing from Firebase...")
-        
-        // Force fetch from remote (ignores minimumFetchInterval)
-        do {
-            let status = try await remoteConfig.fetch()
-            try await remoteConfig.activate()
-            
-            if status == .success {
-                print("✅ [WordCollectionsManager] Force refresh successful")
-                await fetchCollections()
-            } else {
-                print("❌ [WordCollectionsManager] Force refresh failed with status: \(status)")
-            }
-        } catch {
-            print("❌ [WordCollectionsManager] Force refresh error: \(error)")
-        }
+        await remoteConfigService.forceRefresh()
     }
     
     // MARK: - Private Methods
-    
-    private func setupRemoteConfig() {
-        let settings = RemoteConfigSettings()
-        #if DEBUG
-        settings.minimumFetchInterval = 0 // No cache in debug mode
-        #else
-        settings.minimumFetchInterval = 3600 // 1 hour in production
-        #endif
-        remoteConfig.configSettings = settings
-        
-        // Set default values
-        var defaults = [String: NSObject]()
-        for key in WordCollectionKeys.allCases {
-            if let jsonString = try? Bundle.main.string(forResource: key.rawValue, withExtension: "json") {
-                defaults[key.rawValue] = jsonString as NSObject
-            }
-        }
-        remoteConfig.setDefaults(defaults)
-    }
-    
+
     private func parseCollections(from jsonString: String, languageCode: String) throws -> [WordCollection] {
         guard let data = jsonString.data(using: .utf8) else {
             throw WordCollectionsError.invalidJSONData
@@ -191,12 +138,24 @@ final class WordCollectionsManager: ObservableObject {
             let response = try JSONDecoder().decode(WordCollectionsResponse.self, from: data)
             return response.collections
         } catch {
-            print("❌ [WordCollectionsManager] JSON parsing error: \(error)")
-            print("❌ [WordCollectionsManager] JSON string preview: \(String(jsonString.prefix(200)))...")
+            debugPrint("❌ [WordCollectionsManager] JSON parsing error: \(error)")
+            debugPrint("❌ [WordCollectionsManager] JSON string preview: \(String(jsonString.prefix(200)))...")
             throw WordCollectionsError.parsingError
         }
     }
-    
+
+    private func setupBindings() {
+        remoteConfigService.$isInitialized
+            .first(where: { $0 })
+            .sink { [weak self] _ in
+                do {
+                    try self?.fetchCollections()
+                } catch {
+                    debugPrint("❌ [WordCollectionsManager] Failed to fetch word collections: \(error)")
+                }
+            }
+            .store(in: &cancellables)
+    }
 }
 
 // MARK: - Error Types

@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d αιτήματα AI απέμειναν σήμερα";
-"ai_usage.unlimited_requests" = "Απεριόριστα αιτήματα AI με Pro";
-"ai_usage.upgrade_banner_title" = "Αναβάθμιση σε Pro για Απεριόριστο AI";
-"ai_usage.upgrade_banner_message" = "Λάβετε απεριόριστους ορισμούς με AI, προηγμένες αναλύσεις και περισσότερες premium λειτουργίες.";
-"ai_usage.upgrade_button" = "Αναβάθμιση σε Pro";
-"ai_usage_limit_exceeded" = "Έφτασε το ημερήσιο όριο χρήσης AI. Αναβαθμίστε σε Pro για απεριόριστους ορισμούς με AI.";
-"ai_sign_in_required" = "Συνδεθείτε για να χρησιμοποιήσετε λειτουργίες AI";
-"ai_sign_in_required_message" = "Για να χρησιμοποιήσετε ορισμούς με AI, συνδεθείτε στον λογαριασμό σας.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "Το AI υπολογίζει...";
 "ai_loading.analyzing_context" = "Ανάλυση περιεχομένου...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Επεξεργασία AI...";
 "ai_animation.learning" = "Το AI μαθαίνει...";
 "ai_animation.processing_neural" = "Επεξεργασία της λέξης σας με νευρωνικά δίκτυα";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Η υπηρεσία AI δεν είναι έτοιμη. Παρακαλώ δοκιμάστε ξανά αργότερα.";
+"ai_error.pro_required" = "Οι λειτουργίες AI είναι διαθέσιμες με συνδρομή Pro";
+"ai_error.feature_disabled" = "Οι λειτουργίες AI είναι προσωρινά μη διαθέσιμες";
+"ai_error.invalid_response" = "Ελήφθη μη έγκυρη απάντηση από το AI. Παρακαλώ δοκιμάστε ξανά.";
+"ai_error.api_error" = "Σφάλμα AI: %@";
+"ai_error.network_error" = "Σφάλμα σύνδεσης δικτύου. Παρακαλώ ελέγξτε τη σύνδεσή σας στο διαδίκτυο.";

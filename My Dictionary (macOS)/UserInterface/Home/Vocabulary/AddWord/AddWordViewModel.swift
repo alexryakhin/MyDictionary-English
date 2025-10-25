@@ -36,15 +36,7 @@ final class AddWordViewModel: BaseViewModel {
     @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .english
     private var detectedLanguageCode: String?
     
-    // AI Usage tracking
-    var aiRemainingRequests: Int {
-        return aiService.getRemainingRequests()
-    }
-    
-    var aiDailyLimit: Int {
-        return aiService.getDailyLimit()
-    }
-    
+    // AI Access control
     var canUseAI: Bool {
         return aiService.canMakeAIRequest()
     }

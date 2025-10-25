@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d AI requests remaining today";
-"ai_usage.unlimited_requests" = "Unlimited AI requests with Pro";
-"ai_usage.upgrade_banner_title" = "Upgrade to Pro for Unlimited AI";
-"ai_usage.upgrade_banner_message" = "Get unlimited AI-powered definitions, advanced analytics, and more premium features.";
-"ai_usage.upgrade_button" = "Upgrade to Pro";
-"ai_usage_limit_exceeded" = "Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.";
-"ai_sign_in_required" = "Sign in to use AI features";
-"ai_sign_in_required_message" = "To use AI-powered definitions, please sign in to your account.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI is computing...";
 "ai_loading.analyzing_context" = "Analyzing context...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI Processing...";
 "ai_animation.learning" = "AI is learning...";
 "ai_animation.processing_neural" = "Processing your word with neural networks";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI service is not ready. Please try again later.";
+"ai_error.pro_required" = "AI features are available with Pro subscription";
+"ai_error.feature_disabled" = "AI features are temporarily unavailable";
+"ai_error.invalid_response" = "Received invalid response from AI. Please try again.";
+"ai_error.api_error" = "AI Error: %@";
+"ai_error.network_error" = "Network connection error. Please check your internet connection.";

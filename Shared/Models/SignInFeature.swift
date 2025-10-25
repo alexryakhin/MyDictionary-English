@@ -10,14 +10,11 @@ import SwiftUI
 
 enum SignInFeature: CaseIterable {
     case syncWords
-    case useAI
-    
+
     var displayTitle: String {
         switch self {
         case .syncWords:
             return Loc.Auth.signInToSyncWordLists
-        case .useAI:
-            return Loc.Ai.aiSignInRequired
         }
     }
     
@@ -25,8 +22,6 @@ enum SignInFeature: CaseIterable {
         switch self {
         case .syncWords:
             return Loc.Auth.signInToAccessWordLists
-        case .useAI:
-            return Loc.Ai.aiSignInRequiredMessage
         }
     }
     
@@ -34,8 +29,6 @@ enum SignInFeature: CaseIterable {
         switch self {
         case .syncWords:
             return "arrow.triangle.2.circlepath"
-        case .useAI:
-            return "brain.head.profile"
         }
     }
 }

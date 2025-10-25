@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "เหลือคำขอ AI %d ครั้งวันนี้";
-"ai_usage.unlimited_requests" = "คำขอ AI ไม่จำกัดด้วย Pro";
-"ai_usage.upgrade_banner_title" = "อัปเกรดเป็น Pro สำหรับ AI ไม่จำกัด";
-"ai_usage.upgrade_banner_message" = "รับคำจำกัดความที่ขับเคลื่อนด้วย AI ไม่จำกัด การวิเคราะห์ขั้นสูง และคุณสมบัติพรีเมียมเพิ่มเติม";
-"ai_usage.upgrade_button" = "อัปเกรดเป็น Pro";
-"ai_usage_limit_exceeded" = "ถึงขีดจำกัดการใช้งาน AI รายวันแล้ว อัปเกรดเป็น Pro สำหรับคำจำกัดความที่ขับเคลื่อนด้วย AI ไม่จำกัด";
-"ai_sign_in_required" = "เข้าสู่ระบบเพื่อใช้ฟีเจอร์ AI";
-"ai_sign_in_required_message" = "เพื่อใช้คำจำกัดความที่ขับเคลื่อนด้วย AI กรุณาเข้าสู่ระบบในบัญชีของคุณ";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI กำลังคำนวณ...";
 "ai_loading.analyzing_context" = "วิเคราะห์บริบท...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "ประมวลผล AI...";
 "ai_animation.learning" = "AI กำลังเรียนรู้...";
 "ai_animation.processing_neural" = "ประมวลผลคำของคุณด้วยเครือข่ายประสาท";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "บริการ AI ยังไม่พร้อม กรุณาลองใหม่อีกครั้งในภายหลัง";
+"ai_error.pro_required" = "ฟีเจอร์ AI มีให้ใช้งานกับ Pro subscription";
+"ai_error.feature_disabled" = "ฟีเจอร์ AI ไม่สามารถใช้งานได้ชั่วคราว";
+"ai_error.invalid_response" = "ได้รับคำตอบที่ไม่ถูกต้องจาก AI กรุณาลองใหม่อีกครั้ง";
+"ai_error.api_error" = "ข้อผิดพลาด AI: %@";
+"ai_error.network_error" = "ข้อผิดพลาดการเชื่อมต่อเครือข่าย กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณ";

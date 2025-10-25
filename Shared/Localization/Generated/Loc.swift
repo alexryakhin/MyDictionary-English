@@ -137,12 +137,6 @@ public enum Loc {
     public static let yes = Loc.tr("Actions", "yes", fallback: "Yes")
   }
   public enum Ai {
-    /// Sign in to use AI features
-    public static let aiSignInRequired = Loc.tr("AI", "ai_sign_in_required", fallback: "Sign in to use AI features")
-    /// To use AI-powered definitions, please sign in to your account.
-    public static let aiSignInRequiredMessage = Loc.tr("AI", "ai_sign_in_required_message", fallback: "To use AI-powered definitions, please sign in to your account.")
-    /// Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.
-    public static let aiUsageLimitExceeded = Loc.tr("AI", "ai_usage_limit_exceeded", fallback: "Daily AI usage limit reached. Upgrade to Pro for unlimited AI-powered definitions.")
     public enum AiAnimation {
       /// AI is analyzing...
       public static let analyzing = Loc.tr("AI", "ai_animation.analyzing", fallback: "AI is analyzing...")
@@ -158,6 +152,22 @@ public enum Loc {
       public static let processingNeural = Loc.tr("AI", "ai_animation.processing_neural", fallback: "Processing your word with neural networks")
       /// AI is thinking...
       public static let thinking = Loc.tr("AI", "ai_animation.thinking", fallback: "AI is thinking...")
+    }
+    public enum AiError {
+      /// AI Error: %@
+      public static func apiError(_ p1: Any) -> String {
+        return Loc.tr("AI", "ai_error.api_error", String(describing: p1), fallback: "AI Error: %@")
+      }
+      /// AI features are temporarily unavailable
+      public static let featureDisabled = Loc.tr("AI", "ai_error.feature_disabled", fallback: "AI features are temporarily unavailable")
+      /// Received invalid response from AI. Please try again.
+      public static let invalidResponse = Loc.tr("AI", "ai_error.invalid_response", fallback: "Received invalid response from AI. Please try again.")
+      /// Network connection error. Please check your internet connection.
+      public static let networkError = Loc.tr("AI", "ai_error.network_error", fallback: "Network connection error. Please check your internet connection.")
+      /// AI service is not ready. Please try again later.
+      public static let notInitialized = Loc.tr("AI", "ai_error.not_initialized", fallback: "AI service is not ready. Please try again later.")
+      /// AI features are available with Pro subscription
+      public static let proRequired = Loc.tr("AI", "ai_error.pro_required", fallback: "AI features are available with Pro subscription")
     }
     public enum AiLoading {
       /// Analyzing context...
@@ -194,20 +204,6 @@ public enum Loc {
       public static let searchingKnowledge = Loc.tr("AI", "ai_loading_desc.searching_knowledge", fallback: "Searching through knowledge base")
       /// Understanding language nuances
       public static let understandingNuances = Loc.tr("AI", "ai_loading_desc.understanding_nuances", fallback: "Understanding language nuances")
-    }
-    public enum AiUsage {
-      /// %d AI requests remaining today
-      public static func remainingRequests(_ p1: Int) -> String {
-        return Loc.tr("AI", "ai_usage.remaining_requests", p1, fallback: "%d AI requests remaining today")
-      }
-      /// Unlimited AI requests with Pro
-      public static let unlimitedRequests = Loc.tr("AI", "ai_usage.unlimited_requests", fallback: "Unlimited AI requests with Pro")
-      /// Get unlimited AI-powered definitions, advanced analytics, and more premium features.
-      public static let upgradeBannerMessage = Loc.tr("AI", "ai_usage.upgrade_banner_message", fallback: "Get unlimited AI-powered definitions, advanced analytics, and more premium features.")
-      /// Upgrade to Pro for Unlimited AI
-      public static let upgradeBannerTitle = Loc.tr("AI", "ai_usage.upgrade_banner_title", fallback: "Upgrade to Pro for Unlimited AI")
-      /// Upgrade to Pro
-      public static let upgradeButton = Loc.tr("AI", "ai_usage.upgrade_button", fallback: "Upgrade to Pro")
     }
   }
   public enum Analytics {
@@ -1659,8 +1655,6 @@ public enum Loc {
     public static func progressFormat(_ p1: Int, _ p2: Int) -> String {
       return Loc.tr("Quizzes", "progress_format", p1, p2, fallback: "Progress: %d/%d")
     }
-    /// Sorry, quiz is only available once a day. Subscribe to PRO for unlimited access!
-    public static let quizAvailableOnceADayMessage = Loc.tr("Quizzes", "quiz_available_once_a_day_message", fallback: "Sorry, quiz is only available once a day. Subscribe to PRO for unlimited access!")
     /// Quiz Complete!
     public static let quizComplete = Loc.tr("Quizzes", "quiz_complete", fallback: "Quiz Complete!")
     /// Quiz Types

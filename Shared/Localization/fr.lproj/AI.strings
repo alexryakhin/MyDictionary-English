@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d demandes d'IA restantes aujourd'hui";
-"ai_usage.unlimited_requests" = "Demandes d'IA illimitées avec Pro";
-"ai_usage.upgrade_banner_title" = "Passez à Pro pour une IA Illimitée";
-"ai_usage.upgrade_banner_message" = "Obtenez des définitions alimentées par l'IA illimitées, des analyses avancées et plus de fonctionnalités premium.";
-"ai_usage.upgrade_button" = "Passer à Pro";
-"ai_usage_limit_exceeded" = "Limite quotidienne d'utilisation de l'IA atteinte. Passez à Pro pour des définitions alimentées par l'IA illimitées.";
-"ai_sign_in_required" = "Connectez-vous pour utiliser les fonctionnalités d'IA";
-"ai_sign_in_required_message" = "Pour utiliser les définitions alimentées par l'IA, connectez-vous à votre compte.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "L'IA calcule...";
 "ai_loading.analyzing_context" = "Analyse du contexte...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Traitement IA...";
 "ai_animation.learning" = "L'IA apprend...";
 "ai_animation.processing_neural" = "Traitement de votre mot avec des réseaux neuronaux";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Le service IA n'est pas prêt. Veuillez réessayer plus tard.";
+"ai_error.pro_required" = "Les fonctionnalités IA sont disponibles avec l'abonnement Pro";
+"ai_error.feature_disabled" = "Les fonctionnalités IA sont temporairement indisponibles";
+"ai_error.invalid_response" = "Réponse invalide reçue de l'IA. Veuillez réessayer.";
+"ai_error.api_error" = "Erreur IA : %@";
+"ai_error.network_error" = "Erreur de connexion réseau. Vérifiez votre connexion Internet.";

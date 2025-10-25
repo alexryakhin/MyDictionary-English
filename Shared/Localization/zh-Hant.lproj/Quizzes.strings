@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "幹得好！你完成了句子寫作測驗。";
 "quiz_types.great_job_completed_context_quiz" = "幹得好！你完成了上下文使用測驗。";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "幹得好！你完成了填空測驗。";
-"quiz_available_once_a_day_message" = "抱歉，測驗每天只能使用一次。訂閱PRO獲得無限訪問權限！";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "練習特定語言的單字";

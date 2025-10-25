@@ -76,23 +76,11 @@ extension BannerView {
         BannerView(
             icon: "sparkles",
             iconColor: .accent,
-            title: Loc.Ai.AiUsage.upgradeBannerTitle,
-            message: Loc.Ai.AiUsage.upgradeBannerMessage,
-            buttonTitle: Loc.Ai.AiUsage.upgradeButton
+            title: Loc.Subscription.Paywall.upgradeToPro,
+            message: Loc.Ai.AiError.proRequired,
+            buttonTitle: Loc.Actions.upgrade
         ) {
             PaywallService.shared.isShowingPaywall = true
         }
-    }
-
-    /// Creates an AI sign-in required banner
-    static func aiSignInRequired(action: @escaping () -> Void) -> BannerView {
-        BannerView(
-            icon: "person.crop.circle.badge.exclamationmark",
-            iconColor: .orange,
-            title: Loc.Ai.aiSignInRequired,
-            message: Loc.Ai.aiSignInRequiredMessage,
-            buttonTitle: Loc.Actions.signIn,
-            buttonAction: action
-        )
     }
 }

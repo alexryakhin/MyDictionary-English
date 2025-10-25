@@ -200,6 +200,11 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         // Initialize FeatureToggleService AFTER Firebase is configured
         _ = FeatureToggleService.shared
 
+        // Initialize RemoteConfigService AFTER Firebase is configured
+        Task {
+            await RemoteConfigService.shared.fetchConfiguration()
+        }
+
         // Log analytics event
         AnalyticsService.shared.logEvent(.appOpened)
 

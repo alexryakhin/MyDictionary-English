@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <plist version="1.0">
     <dict>
         <key>words.words_count</key>
@@ -186,5 +185,45 @@
 			<string>%d коллекций доступно</string>
 		</dict>
 	</dict>
+    <key>onboarding.languages_count</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@COUNT@</string>
+        <key>COUNT</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>d</string>
+            <key>one</key>
+            <string>%d язык</string>
+            <key>few</key>
+            <string>%d языка</string>
+            <key>many</key>
+            <string>%d языков</string>
+            <key>other</key>
+            <string>%d языков</string>
+        </dict>
+    </dict>
+    <key>onboarding.languages_count_wn</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@COUNT@</string>
+        <key>COUNT</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>d</string>
+            <key>one</key>
+            <string>Язык</string>
+            <key>few</key>
+            <string>Языка</string>
+            <key>many</key>
+            <string>Языков</string>
+            <key>other</key>
+            <string>Языков</string>
+        </dict>
+    </dict>
 </dict>
 </plist>

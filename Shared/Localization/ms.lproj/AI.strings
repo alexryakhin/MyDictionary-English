@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d permintaan AI tinggal hari ini";
-"ai_usage.unlimited_requests" = "Permintaan AI tidak terhad dengan Pro";
-"ai_usage.upgrade_banner_title" = "Naik taraf ke Pro untuk AI Tidak Terhad";
-"ai_usage.upgrade_banner_message" = "Dapatkan definisi berasaskan AI tidak terhad, analisis lanjutan, dan ciri premium lain.";
-"ai_usage.upgrade_button" = "Naik Taraf ke Pro";
-"ai_usage_limit_exceeded" = "Had penggunaan AI harian dicapai. Naik taraf ke Pro untuk definisi berasaskan AI tidak terhad.";
-"ai_sign_in_required" = "Log masuk untuk menggunakan ciri AI";
-"ai_sign_in_required_message" = "Untuk menggunakan definisi berasaskan AI, sila log masuk ke akaun anda.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI sedang mengira...";
 "ai_loading.analyzing_context" = "Menganalisis konteks...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Pemprosesan AI...";
 "ai_animation.learning" = "AI sedang belajar...";
 "ai_animation.processing_neural" = "Memproses perkataan anda dengan rangkaian neural";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Perkhidmatan AI belum siap. Sila cuba lagi kemudian.";
+"ai_error.pro_required" = "Ciri-ciri AI tersedia dengan langganan Pro";
+"ai_error.feature_disabled" = "Ciri-ciri AI tidak tersedia buat sementara";
+"ai_error.invalid_response" = "Menerima respons tidak sah dari AI. Sila cuba lagi.";
+"ai_error.api_error" = "Ralat AI: %@";
+"ai_error.network_error" = "Ralat sambungan rangkaian. Sila periksa sambungan internet anda.";

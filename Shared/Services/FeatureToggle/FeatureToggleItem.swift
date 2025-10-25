@@ -9,12 +9,15 @@ import Foundation
 
 /// Enum representing feature toggle items that can be controlled via Firebase Remote Config
 enum FeatureToggleItem: String, CaseIterable {
+    case aiFeaturesEnabled = "ai_features_enabled"
     case wordCollectionFeature = "word_collection_feature"
     case learnFeature = "learn_feature"
     
     /// Returns the default enabled state for each feature toggle
     var isEnabledByDefault: Bool {
         switch self {
+        case .aiFeaturesEnabled:
+            return true
         case .wordCollectionFeature:
             return true
         case .learnFeature:

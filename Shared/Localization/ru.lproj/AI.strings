@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d запросов ИИ осталось сегодня";
-"ai_usage.unlimited_requests" = "Неограниченные запросы ИИ с Pro";
-"ai_usage.upgrade_banner_title" = "Обновитесь до Pro для неограниченного ИИ";
-"ai_usage.upgrade_banner_message" = "Получите неограниченные определения на базе ИИ, расширенную аналитику и другие премиум-функции.";
-"ai_usage.upgrade_button" = "Обновиться до Pro";
-"ai_usage_limit_exceeded" = "Достигнут дневной лимит использования ИИ. Обновитесь до Pro для неограниченных определений на базе ИИ.";
-"ai_sign_in_required" = "Войдите, чтобы использовать функции ИИ";
-"ai_sign_in_required_message" = "Для использования определений на базе ИИ войдите в свой аккаунт.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "ИИ вычисляет...";
 "ai_loading.analyzing_context" = "Анализируем контекст...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "Обработка ИИ...";
 "ai_animation.learning" = "ИИ учится...";
 "ai_animation.processing_neural" = "Обрабатываем ваше слово нейронными сетями";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Сервис ИИ не готов. Попробуйте позже.";
+"ai_error.pro_required" = "Функции ИИ доступны с подпиской Pro";
+"ai_error.feature_disabled" = "Функции ИИ временно недоступны";
+"ai_error.invalid_response" = "Получен неверный ответ от ИИ. Попробуйте снова.";
+"ai_error.api_error" = "Ошибка ИИ: %@";
+"ai_error.network_error" = "Ошибка сетевого подключения. Проверьте подключение к интернету.";

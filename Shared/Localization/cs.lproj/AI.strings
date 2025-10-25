@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d AI požadavků zbývá dnes";
-"ai_usage.unlimited_requests" = "Neomezené AI požadavky s Pro";
-"ai_usage.upgrade_banner_title" = "Upgradujte na Pro pro Neomezené AI";
-"ai_usage.upgrade_banner_message" = "Získejte neomezené definice poháněné AI, pokročilé analýzy a další prémiové funkce.";
-"ai_usage.upgrade_button" = "Upgradovat na Pro";
-"ai_usage_limit_exceeded" = "Dosáhnut denní limit použití AI. Upgradujte na Pro pro neomezené definice poháněné AI.";
-"ai_sign_in_required" = "Přihlaste se k použití funkcí AI";
-"ai_sign_in_required_message" = "Pro použití definic poháněných AI se přihlaste ke svému účtu.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI počítá...";
 "ai_loading.analyzing_context" = "Analýza kontextu...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI zpracování...";
 "ai_animation.learning" = "AI se učí...";
 "ai_animation.processing_neural" = "Zpracování slova neuronovými sítěmi";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Služba AI není připravena. Zkuste to prosím později.";
+"ai_error.pro_required" = "Funkce AI jsou dostupné s Pro předplatným";
+"ai_error.feature_disabled" = "Funkce AI jsou dočasně nedostupné";
+"ai_error.invalid_response" = "Přijata neplatná odpověď od AI. Zkuste to prosím znovu.";
+"ai_error.api_error" = "Chyba AI: %@";
+"ai_error.network_error" = "Chyba síťového připojení. Zkontrolujte prosím vaše internetové připojení.";

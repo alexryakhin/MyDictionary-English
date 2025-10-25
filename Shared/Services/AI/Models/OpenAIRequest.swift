@@ -6,115 +6,76 @@
 //
 
 import Foundation
+import OpenAI
 
-// MARK: - Firebase OpenAI Proxy Models
+// MARK: - User Profile Context
 
-struct FirebaseOpenAIRequest: Codable {
-    let word: String
-    let maxDefinitions: Int
-    let targetLanguage: String
-    let userId: String
-}
-
-struct FirebaseOpenAIResponse: Codable {
-    let success: Bool
-    let data: String?
-    let usage: UsageData?
-    let error: String?
-
-    struct UsageData: Codable {
-        let promptTokens: Int
-        let completionTokens: Int
-        let totalTokens: Int
-    }
-}
-
-// MARK: - OpenAI API Models
-
-struct OpenAIRequest: Codable {
-    let model: String
-    let messages: [OpenAIMessage]
-    let temperature: Double
-    let maxTokens: Int
-
-    enum CodingKeys: String, CodingKey {
-        case model, messages, temperature
-        case maxTokens = "max_tokens"
-    }
-}
-
-struct OpenAIMessage: Codable {
-    let role: String
-    let content: String
-}
-
-struct OpenAIResponse: Codable {
-    let choices: [OpenAIChoice]
-    let usage: OpenAIUsage
-}
-
-struct OpenAIChoice: Codable {
-    let message: OpenAIMessage
-    let finishReason: String
-
-    enum CodingKeys: String, CodingKey {
-        case message
-        case finishReason = "finish_reason"
-    }
-}
-
-struct OpenAIUsage: Codable {
-    let promptTokens: Int
-    let completionTokens: Int
-    let totalTokens: Int
-
-    enum CodingKeys: String, CodingKey {
-        case promptTokens = "prompt_tokens"
-        case completionTokens = "completion_tokens"
-        case totalTokens = "total_tokens"
+/// User profile context for AI requests to provide personalized responses
+struct AIUserProfileContext: Codable {
+    let userName: String
+    let userType: String
+    let ageGroup: String
+    let learningGoals: [String]
+    let studyLanguages: [String]
+    let interests: [String]
+    let weeklyWordGoal: Int
+    let preferredStudyTime: String
+    
+    init(from profile: UserOnboardingProfile) {
+        self.userName = profile.userName
+        self.userType = profile.userType.rawValue
+        self.ageGroup = profile.ageGroup.rawValue
+        self.learningGoals = profile.learningGoals.map { $0.rawValue }
+        self.studyLanguages = profile.studyLanguages.map { "\($0.language.rawValue) (\($0.proficiencyLevel.rawValue))" }
+        self.interests = profile.interests.map { $0.rawValue }
+        self.weeklyWordGoal = profile.weeklyWordGoal
+        self.preferredStudyTime = profile.preferredStudyTime.rawValue
     }
 }
 
 // MARK: - JSON Response Models
 
-struct AIWordDefinition: Codable {
-    let partOfSpeech: String
+struct AIWordDefinition: Codable, JSONSchemaConvertible {
+    let partOfSpeech: PartOfSpeech
     let definition: String
     let examples: [String]
+    
+    static let example: Self = {
+        .init(
+            partOfSpeech: .noun,
+            definition: "a building or room containing collections of books, periodicals, and sometimes films and recorded music for people to read, borrow, or refer to",
+            examples: [
+                "The university library has over a million books.",
+                "I spent the afternoon studying in the library."
+            ]
+        )
+    }()
 }
 
-struct AIWordResponse: Codable {
+struct AIWordResponse: Codable, JSONSchemaConvertible {
     let definitions: [AIWordDefinition]
     let pronunciation: String
+    
+    static let example: Self = {
+        .init(
+            definitions: [
+                AIWordDefinition.example
+            ],
+            pronunciation: "/ˈlaɪbrəri/"
+        )
+    }()
 }
 
 struct AIRelatedWordWithDefinition: Codable {
     let word: String
     let definition: String
     let example: String
-    let partOfSpeech: String
-}
-
-// MARK: - OpenAI JSON Response
-struct OpenAIWordResponse: Codable {
-    let pronunciation: String
-    let definitions: [AIWordDefinition]
-}
-
-struct OpenAIRelatedWordsResponse: Codable {
-    let relatedWords: [OpenAIRelatedWordData]
-}
-
-struct OpenAIRelatedWordData: Codable {
-    let word: String
-    let definition: String
-    let example: String
-    let partOfSpeech: String
+    let partOfSpeech: PartOfSpeech
 }
 
 // MARK: - AI Quiz Response Models
 
-struct AISentenceEvaluation: Codable {
+struct AISentenceEvaluation: Codable, JSONSchemaConvertible {
     let targetWord: String
     let sentence: String
     let usageScore: Int
@@ -123,23 +84,69 @@ struct AISentenceEvaluation: Codable {
     let feedback: String
     let isCorrect: Bool
     let suggestions: [String]
+    
+    static let example: Self = {
+        .init(
+            targetWord: "library",
+            sentence: "I went to the library to study for my exam.",
+            usageScore: 9,
+            grammarScore: 10,
+            overallScore: 9,
+            feedback: "Excellent usage of the word 'library' in a natural context.",
+            isCorrect: true,
+            suggestions: ["Consider using 'public library' for more specificity"]
+        )
+    }()
 }
 
-struct AIContextQuestion: Codable {
+struct AISentenceEvaluations: Codable, JSONSchemaConvertible {
+    let sentences: [AISentenceEvaluation]
+
+    static let example: Self = {
+        .init(sentences: [AISentenceEvaluation.example])
+    }()
+}
+
+struct AIContextQuestion: Codable, JSONSchemaConvertible {
     let word: String
     let question: String
     let options: [AIContextOption]
     let correctOptionIndex: Int
     let explanation: String
+    
+    static let example: Self = {
+        .init(
+            word: "library",
+            question: "Which sentence best uses the word 'library'?",
+            options: [
+                AIContextOption.example,
+                AIContextOption(
+                    text: "The library is a place where books are stored.",
+                    isCorrect: false,
+                    explanation: "This is a definition, not a usage example."
+                )
+            ],
+            correctOptionIndex: 0,
+            explanation: "The first option shows proper usage of 'library' in a natural sentence context."
+        )
+    }()
 }
 
-struct AIContextOption: Codable {
+struct AIContextOption: Codable, JSONSchemaConvertible {
     let text: String
     let isCorrect: Bool
     let explanation: String
+    
+    static let example: Self = {
+        .init(
+            text: "I borrowed three books from the library yesterday.",
+            isCorrect: true,
+            explanation: "This sentence demonstrates proper usage of 'library' in a natural context."
+        )
+    }()
 }
 
-struct AIFillInTheBlankStory: Codable {
+struct AIFillInTheBlankStory: Codable, JSONSchemaConvertible {
     let word: String
     let story: String
     let options: [AIFillInTheBlankOption]
@@ -159,102 +166,36 @@ struct AIFillInTheBlankStory: Codable {
         self.correctOptionIndex = correctOptionIndex
         self.explanation = explanation
     }
+    
+    static let example: Self = {
+        .init(
+            word: "library",
+            story: "Sarah spent her afternoon at the _____, reading books and studying for her upcoming exam.",
+            options: [
+                AIFillInTheBlankOption.example,
+                AIFillInTheBlankOption(
+                    text: "bookstore",
+                    isCorrect: false,
+                    explanation: "A bookstore is where you buy books, not borrow them."
+                )
+            ],
+            correctOptionIndex: 0,
+            explanation: "Library is the correct answer as it's a place where you can read and study, and typically borrow books."
+        )
+    }()
 }
 
-struct AIFillInTheBlankOption: Codable {
+struct AIFillInTheBlankOption: Codable, JSONSchemaConvertible {
     let text: String
     let isCorrect: Bool
     let explanation: String
+    
+    static let example: Self = {
+        .init(
+            text: "library",
+            isCorrect: true,
+            explanation: "Library is the correct answer as it's a place where you can read and study."
+        )
+    }()
 }
 
-// MARK: - OpenAI Quiz Response Models
-
-struct OpenAISentenceEvaluationResponse: Codable {
-    let targetWord: String
-    let sentence: String
-    let usageScore: Int
-    let grammarScore: Int
-    let overallScore: Int
-    let feedback: String
-    let isCorrect: Bool
-    let suggestions: [String]
-}
-
-struct OpenAIContextQuestionResponse: Codable {
-    let word: String
-    let question: String
-    let options: [OpenAIContextOptionData]
-    let correctOptionIndex: Int
-    let explanation: String
-}
-
-struct OpenAIContextOptionData: Codable {
-    let text: String
-    let isCorrect: Bool
-    let explanation: String
-}
-
-struct OpenAIFillInTheBlankStoryResponse: Codable {
-    let word: String
-    let story: String
-    let options: [OpenAIFillInTheBlankOptionData]
-    let correctOptionIndex: Int
-    let explanation: String
-}
-
-struct OpenAIFillInTheBlankOptionData: Codable {
-    let text: String
-    let isCorrect: Bool
-    let explanation: String
-}
-
-// MARK: - Batch Response Models
-
-struct OpenAISentencesEvaluationResponse: Codable {
-    let evaluations: [OpenAISentenceEvaluationData]
-}
-
-struct OpenAISentenceEvaluationData: Codable {
-    let targetWord: String
-    let sentence: String
-    let usageScore: Int
-    let grammarScore: Int
-    let overallScore: Int
-    let feedback: String
-    let isCorrect: Bool
-    let suggestions: [String]
-}
-
-struct OpenAIContextQuestionsResponse: Codable {
-    let questions: [OpenAIContextQuestionData]
-}
-
-struct OpenAIContextQuestionData: Codable {
-    let word: String
-    let question: String
-    let options: [OpenAIContextOptionData]
-    let correctOptionIndex: Int
-    let explanation: String
-}
-
-struct OpenAIFillInTheBlankStoriesResponse: Codable {
-    let stories: [OpenAIFillInTheBlankStoryData]
-}
-
-struct OpenAIFillInTheBlankStoryData: Codable {
-    let word: String
-    let story: String
-    let options: [OpenAIFillInTheBlankOptionData]
-    let correctOptionIndex: Int
-    let explanation: String
-}
-
-// MARK: - Single Question Response Models
-
-struct OpenAISingleContextQuestionResponse: Codable {
-    let question: OpenAIContextQuestionData
-}
-
-struct OpenAISingleFillInTheBlankStoryResponse: Codable {
-    let story: OpenAIFillInTheBlankStoryData
-}

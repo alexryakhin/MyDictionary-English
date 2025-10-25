@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Odličan posao! Završili ste kviz pisanja rečenica.";
 "quiz_types.great_job_completed_context_quiz" = "Odličan posao! Završili ste kviz korištenja u kontekstu.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Odličan posao! Završili ste kviz ispunjavanja praznina.";
-"quiz_available_once_a_day_message" = "Oprostite, kviz je dostupan samo jednom dnevno. Pretplatite se na PRO za neograničen pristup!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Vježbaj riječi određenog jezika";

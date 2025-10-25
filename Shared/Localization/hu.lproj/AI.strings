@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d AI kérés maradt ma";
-"ai_usage.unlimited_requests" = "Korlátlan AI kérések Pro-val";
-"ai_usage.upgrade_banner_title" = "Frissítsen Pro-ra Korlátlan AI-ért";
-"ai_usage.upgrade_banner_message" = "Szerezzen korlátlan AI-alapú definíciókat, fejlett elemzéseket és további prémium funkciókat.";
-"ai_usage.upgrade_button" = "Frissítés Pro-ra";
-"ai_usage_limit_exceeded" = "Elérte a napi AI használati limitet. Frissítsen Pro-ra korlátlan AI-alapú definíciókért.";
-"ai_sign_in_required" = "Jelentkezzen be az AI funkciók használatához";
-"ai_sign_in_required_message" = "Az AI-alapú definíciók használatához jelentkezzen be fiókjába.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI számol...";
 "ai_loading.analyzing_context" = "Kontextus elemzése...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI feldolgozás...";
 "ai_animation.learning" = "AI tanul...";
 "ai_animation.processing_neural" = "Szó feldolgozása neurális hálózatokkal";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "Az AI szolgáltatás nem kész. Kérjük, próbálja újra később.";
+"ai_error.pro_required" = "Az AI funkciók Pro előfizetéssel érhetők el";
+"ai_error.feature_disabled" = "Az AI funkciók ideiglenesen nem elérhetők";
+"ai_error.invalid_response" = "Érvénytelen válasz érkezett az AI-tól. Kérjük, próbálja újra.";
+"ai_error.api_error" = "AI hiba: %@";
+"ai_error.network_error" = "Hálózati kapcsolat hiba. Kérjük, ellenőrizze internetkapcsolatát.";

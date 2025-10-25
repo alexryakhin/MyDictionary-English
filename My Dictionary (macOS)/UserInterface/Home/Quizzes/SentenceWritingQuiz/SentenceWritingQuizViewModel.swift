@@ -41,7 +41,6 @@ final class SentenceWritingQuizViewModel: BaseViewModel {
     private let quizItemsProvider: QuizItemsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
     private let aiService: AIService = .shared
-    private let quizUsageTracker: QuizUsageTracker = .shared
     private var cancellables = Set<AnyCancellable>()
     private var originalItems: [any Quizable] = []
     private var feedbackTimer: Timer?
@@ -52,10 +51,6 @@ final class SentenceWritingQuizViewModel: BaseViewModel {
     init(preset: QuizPreset) {
         self.preset = preset
         super.init()
-        
-        // Record quiz usage for free users
-        quizUsageTracker.recordQuizOpened(.sentenceWriting)
-        
         setupBindings()
         pauseSharedDictionaryListeners()
     }

@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Bona feina! Has completat el qüestionari d'escriptura de frases.";
 "quiz_types.great_job_completed_context_quiz" = "Bona feina! Has completat el qüestionari d'ús en context.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bona feina! Has completat el qüestionari d'omplir els buits.";
-"quiz_available_once_a_day_message" = "Ho sentim, el qüestionari només està disponible una vegada al dia. Subscriu-te a PRO per a accés il·limitat!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Practica paraules d'un idioma específic";

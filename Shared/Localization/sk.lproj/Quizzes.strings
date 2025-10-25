@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Skvelá práca! Dokončili ste kvíz písania viet.";
 "quiz_types.great_job_completed_context_quiz" = "Skvelá práca! Dokončili ste kvíz použitia v kontexte.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Skvelá práca! Dokončili ste kvíz vyplňovania prázdnych miest.";
-"quiz_available_once_a_day_message" = "Prepáčte, kvíz je k dispozícii len raz denne. Predplaťte si PRO pre neobmedzený prístup!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Cvičte slová z konkrétneho jazyka";

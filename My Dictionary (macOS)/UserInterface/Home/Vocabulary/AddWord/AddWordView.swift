@@ -6,7 +6,6 @@ struct AddWordView: View {
     @StateObject var viewModel: AddWordViewModel
     @State private var showingDictionarySelection = false
     @State private var selectedDictionaryId: String? = nil
-    @State private var isSignInPresented = false
     @State private var showingImageSelection = false
     @State private var showingImageOnboarding = false
 
@@ -45,21 +44,10 @@ struct AddWordView: View {
                         .hideIfOffline()
                 }
 
-                // AI Sign-in Required Banner (when not authenticated)
-                if !authenticationService.isSignedIn {
-                    BannerView.aiSignInRequired {
-                        isSignInPresented = true
-                    }
-                    .hideIfOffline()
-                } else {
-                    // AI Usage Caption
-                    aiUsageCaptionView
+                // AI Upgrade Banner
+                if !viewModel.isProUser && !viewModel.canUseAI {
+                    BannerView.aiUpgrade()
                         .hideIfOffline()
-                    // AI Upgrade Banner (when limit reached)
-                    if !viewModel.isProUser && !viewModel.canUseAI {
-                        BannerView.aiUpgrade()
-                            .hideIfOffline()
-                    }
                 }
             }
             .padding(12)
@@ -87,9 +75,7 @@ struct AddWordView: View {
                 }
             )
         }
-        .background {
-            Color.systemGroupedBackground.ignoresSafeArea()
-        }
+        .groupedBackground()
         .editModeDisabling()
         .onReceive(viewModel.dismissPublisher) { _ in
             dismiss()
@@ -101,9 +87,6 @@ struct AddWordView: View {
             SharedDictionarySelectionView(selectedDictionaryId: selectedDictionaryId) { dictionaryId in
                 selectedDictionaryId = dictionaryId
             }
-        }
-        .sheet(isPresented: $isSignInPresented) {
-            AuthenticationView(feature: .useAI)
         }
         .sheet(isPresented: $showingImageSelection) {
             ImageSelectionView(
@@ -391,7 +374,7 @@ struct AddWordView: View {
         AnalyticsService.shared.logEvent(.definitionSelected)
     }
 
-    // MARK: - AI Usage Views
+    // MARK: - AI Access Views
 
     @ViewBuilder
     private var aiUsageCaptionView: some View {
@@ -401,9 +384,7 @@ struct AddWordView: View {
                     .foregroundStyle(.secondary)
                     .font(.caption)
 
-                Text(viewModel.aiRemainingRequests == 0 ?
-                     Loc.Ai.AiUsage.unlimitedRequests :
-                        Loc.Ai.AiUsage.remainingRequests(viewModel.aiRemainingRequests))
+                Text(Loc.Ai.AiError.proRequired)
                 .font(.caption)
                 .foregroundStyle(.secondary)
 

@@ -871,7 +871,6 @@ enum DictionaryError: Error, LocalizedError {
     case networkError
     case userNotAuthenticated
     case dictionaryLimitReached
-    case aiUsageLimitExceeded
 
     var errorDescription: String? {
         switch self {
@@ -887,8 +886,6 @@ enum DictionaryError: Error, LocalizedError {
             return Loc.Errors.userNotAuthenticated
         case .dictionaryLimitReached:
             return Loc.Errors.dictionaryLimitReached
-        case .aiUsageLimitExceeded:
-            return Loc.Ai.aiUsageLimitExceeded
         }
     }
 }

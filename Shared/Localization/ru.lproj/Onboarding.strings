@@ -182,7 +182,7 @@
 
 // MARK: - Personalized Paywall
 "paywall.personalized_title" = "%@, раскройте свой полный потенциал обучения!";
-"paywall.personalized_subtitle_study" = "Освойте словарь %@ для академического успеха и преуспевайте в учебе!";
+"paywall.personalized_subtitle_study" = "Освойте %@ для академического успеха и преуспевайте в учебе!";
 "paywall.personalized_subtitle_work" = "Продвиньте свою карьеру с профессиональным словарем %@ и навыками общения!";
 "paywall.personalized_subtitle_travel" = "Говорите %@ уверенно во время путешествий и общайтесь с людьми по всему миру!";
 "paywall.personalized_subtitle_business" = "Превосходите в деловом общении %@ и профессиональных контекстах!";
@@ -208,13 +208,13 @@
 "paywall.days" = "Дни";
 "paywall.words_goal" = "Цель Слов";
 "paywall.new" = "НОВОЕ";
-"paywall.your_personalized_journey" = "Ваше Персонализированное 7-Дневное Путешествие";
-"paywall.start_free_trial" = "Начните свою 7-Дневную Бесплатную Пробную Версию";
+"paywall.your_personalized_journey" = "Ваше персонализированное путешествие";
+"paywall.start_free_trial" = "Попробуйте Про версию бесплатно на 7 дней";
 "paywall.free" = "БЕСПЛАТНО";
 "paywall.recommended" = "РЕКОМЕНДУЕТСЯ";
-"paywall.skip_for_now" = "Пропустить Пока";
-"paywall.start_my_free_trial_now" = "Начать мою Бесплатную Пробную Версию Сейчас";
-"paywall.start_free_trial_save" = "Начать Бесплатную Пробную Версию - Экономьте %@";
+"paywall.skip_for_now" = "Пропустить";
+"paywall.start_my_free_trial_now" = "Подписаться бесплатно";
+"paywall.start_free_trial_save" = "Подписаться бесплатно со скидкой %@";
 "paywall.app_store_rating" = "Рейтинг App Store";
 "paywall.total_ratings" = "Общие Рейтинги";
 "paywall.reviews" = "Отзывы";

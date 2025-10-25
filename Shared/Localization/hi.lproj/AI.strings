@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "आज %d AI अनुरोध बाकी";
-"ai_usage.unlimited_requests" = "Pro के साथ असीमित AI अनुरोध";
-"ai_usage.upgrade_banner_title" = "असीमित AI के लिए Pro में अपग्रेड करें";
-"ai_usage.upgrade_banner_message" = "असीमित AI-संचालित परिभाषाएं, उन्नत विश्लेषण और अधिक प्रीमियम सुविधाएं प्राप्त करें।";
-"ai_usage.upgrade_button" = "Pro में अपग्रेड करें";
-"ai_usage_limit_exceeded" = "दैनिक AI उपयोग सीमा पहुंच गई। असीमित AI-संचालित परिभाषाओं के लिए Pro में अपग्रेड करें।";
-"ai_sign_in_required" = "AI सुविधाओं का उपयोग करने के लिए साइन इन करें";
-"ai_sign_in_required_message" = "AI-संचालित परिभाषाओं का उपयोग करने के लिए, कृपया अपने खाते में साइन इन करें।";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI गणना कर रहा है...";
 "ai_loading.analyzing_context" = "संदर्भ का विश्लेषण...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI प्रसंस्करण...";
 "ai_animation.learning" = "AI सीख रहा है...";
 "ai_animation.processing_neural" = "आपके शब्द का न्यूरल नेटवर्क से प्रसंस्करण";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI सेवा तैयार नहीं है। कृपया बाद में पुनः प्रयास करें।";
+"ai_error.pro_required" = "AI सुविधाएं Pro सब्सक्रिप्शन के साथ उपलब्ध हैं";
+"ai_error.feature_disabled" = "AI सुविधाएं अस्थायी रूप से अनुपलब्ध हैं";
+"ai_error.invalid_response" = "AI से अमान्य प्रतिक्रिया प्राप्त हुई। कृपया पुनः प्रयास करें।";
+"ai_error.api_error" = "AI त्रुटि: %@";
+"ai_error.network_error" = "नेटवर्क कनेक्शन त्रुटि। कृपया अपना इंटरनेट कनेक्शन जांचें।";

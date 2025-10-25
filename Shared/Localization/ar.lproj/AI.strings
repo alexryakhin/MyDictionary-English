@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d طلب ذكاء اصطناعي متبقي اليوم";
-"ai_usage.unlimited_requests" = "طلبات ذكاء اصطناعي غير محدودة مع Pro";
-"ai_usage.upgrade_banner_title" = "ارتقِ إلى Pro للحصول على ذكاء اصطناعي غير محدود";
-"ai_usage.upgrade_banner_message" = "احصل على تعريفات مدعومة بالذكاء الاصطناعي غير محدودة، وتحليلات متقدمة، والمزيد من الميزات المتميزة.";
-"ai_usage.upgrade_button" = "الارتقاء إلى Pro";
-"ai_usage_limit_exceeded" = "تم الوصول إلى الحد اليومي لاستخدام الذكاء الاصطناعي. ارتقِ إلى Pro للحصول على تعريفات مدعومة بالذكاء الاصطناعي غير محدودة.";
-"ai_sign_in_required" = "سجل الدخول لاستخدام ميزات الذكاء الاصطناعي";
-"ai_sign_in_required_message" = "لاستخدام التعريفات المدعومة بالذكاء الاصطناعي، يرجى تسجيل الدخول إلى حسابك.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "الذكاء الاصطناعي يحسب...";
 "ai_loading.analyzing_context" = "تحليل السياق...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "معالجة الذكاء الاصطناعي...";
 "ai_animation.learning" = "الذكاء الاصطناعي يتعلم...";
 "ai_animation.processing_neural" = "معالجة كلمتك بالشبكات العصبية";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "خدمة الذكاء الاصطناعي غير جاهزة. يرجى المحاولة مرة أخرى لاحقاً.";
+"ai_error.pro_required" = "ميزات الذكاء الاصطناعي متاحة مع اشتراك Pro";
+"ai_error.feature_disabled" = "ميزات الذكاء الاصطناعي غير متاحة مؤقتاً";
+"ai_error.invalid_response" = "تم استلام استجابة غير صالحة من الذكاء الاصطناعي. يرجى المحاولة مرة أخرى.";
+"ai_error.api_error" = "خطأ في الذكاء الاصطناعي: %@";
+"ai_error.network_error" = "خطأ في الاتصال بالشبكة. يرجى التحقق من اتصال الإنترنت.";

@@ -52,15 +52,6 @@ enum UDKeys {
     static let deviceID = "DeviceID"
     static let fcmToken = "FCMToken"
     
-    // AI Service Usage Tracking
-    static let aiUsageCount = "aiUsageCount"
-    static let aiUsageDate = "aiUsageDate"
-    
-    // AI Quiz Usage Tracking (separate from general AI usage)
-    static let contextMultipleChoiceQuizUsageDate = "contextMultipleChoiceQuizUsageDate"
-    static let fillInTheBlankQuizUsageDate = "fillInTheBlankQuizUsageDate"
-    static let sentenceWritingQuizUsageDate = "sentenceWritingQuizUsageDate"
-    
     // Image Onboarding
     static let imageOnboardingShown = "imageOnboardingShown"
 }
@@ -263,53 +254,6 @@ enum UDService {
     static var fcmToken: String? {
         get { UserDefaults.standard.string(forKey: UDKeys.fcmToken) }
         set { UserDefaults.standard.set(newValue, forKey: UDKeys.fcmToken) }
-    }
-    
-    // AI Service Usage Tracking
-    static var aiUsageCount: Int {
-        get { UserDefaults.standard.integer(forKey: UDKeys.aiUsageCount) }
-        set { UserDefaults.standard.set(newValue, forKey: UDKeys.aiUsageCount) }
-    }
-    
-    static var aiUsageDate: Date? {
-        get {
-            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.aiUsageDate)
-            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
-        }
-        set {
-            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.aiUsageDate)
-        }
-    }
-    
-    // AI Quiz Usage Tracking (separate from general AI usage)
-    static var contextMultipleChoiceQuizUsageDate: Date? {
-        get {
-            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.contextMultipleChoiceQuizUsageDate)
-            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
-        }
-        set {
-            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.contextMultipleChoiceQuizUsageDate)
-        }
-    }
-    
-    static var fillInTheBlankQuizUsageDate: Date? {
-        get {
-            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.fillInTheBlankQuizUsageDate)
-            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
-        }
-        set {
-            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.fillInTheBlankQuizUsageDate)
-        }
-    }
-    
-    static var sentenceWritingQuizUsageDate: Date? {
-        get {
-            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.sentenceWritingQuizUsageDate)
-            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
-        }
-        set {
-            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.sentenceWritingQuizUsageDate)
-        }
     }
     
     // Image Onboarding

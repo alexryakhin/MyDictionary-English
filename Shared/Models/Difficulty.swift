@@ -7,8 +7,9 @@
 
 import Foundation
 import SwiftUI
+import OpenAI
 
-enum Difficulty: Hashable, CaseIterable {
+enum Difficulty: Hashable, CaseIterable, JSONSchemaEnumConvertible {
     case new
     case inProgress
     case needsReview
@@ -60,5 +61,11 @@ enum Difficulty: Hashable, CaseIterable {
         } else {
             self = .new
         }
+    }
+    
+    // MARK: - JSONSchemaEnumConvertible
+
+    var caseNames: [String] {
+        return Self.allCases.map { "\($0)" }
     }
 }

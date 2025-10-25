@@ -96,7 +96,7 @@ struct WordDetailsContentView: View {
                 }
             }
         }
-        .safeAreaBarIfAvailable(edge: .top) {
+        .safeAreaInset(edge: .top, spacing: .zero) {
             CustomNavigationBar(
                 title: word.wordItself ?? "",
                 isFavorite: word.isFavorite,

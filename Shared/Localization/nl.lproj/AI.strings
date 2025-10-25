@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d AI-verzoeken vandaag over";
-"ai_usage.unlimited_requests" = "Onbeperkte AI-verzoeken met Pro";
-"ai_usage.upgrade_banner_title" = "Upgrade naar Pro voor Onbeperkte AI";
-"ai_usage.upgrade_banner_message" = "Krijg onbeperkte AI-aangedreven definities, geavanceerde analyses en meer premium functies.";
-"ai_usage.upgrade_button" = "Upgrade naar Pro";
-"ai_usage_limit_exceeded" = "Dagelijks AI-gebruikslimiet bereikt. Upgrade naar Pro voor onbeperkte AI-aangedreven definities.";
-"ai_sign_in_required" = "Log in om AI-functies te gebruiken";
-"ai_sign_in_required_message" = "Om AI-aangedreven definities te gebruiken, log in op je account.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI berekent...";
 "ai_loading.analyzing_context" = "Context analyseren...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI-verwerking...";
 "ai_animation.learning" = "AI leert...";
 "ai_animation.processing_neural" = "Uw woord verwerken met neurale netwerken";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI-service is niet klaar. Probeer het later opnieuw.";
+"ai_error.pro_required" = "AI-functies zijn beschikbaar met Pro-abonnement";
+"ai_error.feature_disabled" = "AI-functies zijn tijdelijk niet beschikbaar";
+"ai_error.invalid_response" = "Ongeldig antwoord ontvangen van AI. Probeer het opnieuw.";
+"ai_error.api_error" = "AI-fout: %@";
+"ai_error.network_error" = "Netwerkverbindingsfout. Controleer uw internetverbinding.";

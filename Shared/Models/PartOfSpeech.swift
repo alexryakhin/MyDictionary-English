@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import OpenAI
 
-enum PartOfSpeech: String, CaseIterable, Codable {
+enum PartOfSpeech: String, CaseIterable, Codable, JSONSchemaEnumConvertible {
     case noun
     case verb
     case adjective
@@ -95,5 +96,11 @@ enum PartOfSpeech: String, CaseIterable, Codable {
     /// Returns all expression part-of-speech cases
     static var expressionCases: [PartOfSpeech] {
         return [.idiom, .phrase]
+    }
+    
+    // MARK: - JSONSchemaEnumConvertible
+    
+    var caseNames: [String] {
+        return Self.allCases.map { $0.rawValue }
     }
 }

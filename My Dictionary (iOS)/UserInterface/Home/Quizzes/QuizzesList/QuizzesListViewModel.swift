@@ -33,7 +33,7 @@ final class QuizzesListViewModel: BaseViewModel {
     @Published var selectedDictionary: QuizDictionary = .privateDictionary
 
     private let quizItemsProvider: QuizItemsProvider = .shared
-    private let quizUsageTracker: QuizUsageTracker = .shared
+    private let aiService: AIService = .shared
     private var cancellables: Set<AnyCancellable> = []
 
     override init() {
@@ -63,35 +63,23 @@ final class QuizzesListViewModel: BaseViewModel {
             case .chooseDefinition:
                 output.send(.showChooseDefinitionQuiz(preset))
             case .sentenceWriting:
-                do {
-                    guard try quizUsageTracker.canRunQuizToday(.sentenceWriting) else {
-                        showQuizUnavailableAlert()
-                        return
-                    }
-                    output.send(.showSentenceWritingQuiz(preset))
-                } catch {
-                    errorReceived(error)
+                guard aiService.canRunQuizToday(.sentenceWriting) else {
+                    showQuizUnavailableAlert()
+                    return
                 }
+                output.send(.showSentenceWritingQuiz(preset))
             case .contextMultipleChoice:
-                do {
-                    guard try quizUsageTracker.canRunQuizToday(.contextMultipleChoice) else {
-                        showQuizUnavailableAlert()
-                        return
-                    }
-                    output.send(.showContextMultipleChoiceQuiz(preset))
-                } catch {
-                    errorReceived(error)
+                guard aiService.canRunQuizToday(.contextMultipleChoice) else {
+                    showQuizUnavailableAlert()
+                    return
                 }
+                output.send(.showContextMultipleChoiceQuiz(preset))
             case .fillInTheBlank:
-                do {
-                    guard try quizUsageTracker.canRunQuizToday(.fillInTheBlank) else {
-                        showQuizUnavailableAlert()
-                        return
-                    }
-                    output.send(.showFillInTheBlankQuiz(preset))
-                } catch {
-                    errorReceived(error)
+                guard aiService.canRunQuizToday(.fillInTheBlank) else {
+                    showQuizUnavailableAlert()
+                    return
                 }
+                output.send(.showFillInTheBlankQuiz(preset))
             }
         }
     }
@@ -208,7 +196,7 @@ final class QuizzesListViewModel: BaseViewModel {
             showAlert(
                 withModel: .init(
                     title: Loc.Errors.oops,
-                    message: Loc.Quizzes.quizAvailableOnceADayMessage,
+                    message: Loc.Ai.AiError.proRequired,
                     actionText: Loc.Actions.ok,
                     additionalActionText: Loc.Subscription.Paywall.upgradeToPro,
                     action: {},

@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "今日剩餘%d次AI請求";
-"ai_usage.unlimited_requests" = "Pro版無限AI請求";
-"ai_usage.upgrade_banner_title" = "升級到Pro獲得無限AI";
-"ai_usage.upgrade_banner_message" = "獲得無限AI驅動的定義、高級分析和其他高級功能。";
-"ai_usage.upgrade_button" = "升級到Pro";
-"ai_usage_limit_exceeded" = "已達到每日AI使用限制。升級到Pro獲得無限AI驅動的定義。";
-"ai_sign_in_required" = "登入以使用AI功能";
-"ai_sign_in_required_message" = "要使用AI驅動的定義，請登入您的帳戶。";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI正在計算...";
 "ai_loading.analyzing_context" = "分析上下文...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI處理中...";
 "ai_animation.learning" = "AI正在學習...";
 "ai_animation.processing_neural" = "用神經網絡處理您的詞彙";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI服務未就緒。請稍後重試。";
+"ai_error.pro_required" = "AI功能需要Pro訂閱";
+"ai_error.feature_disabled" = "AI功能暫時不可用";
+"ai_error.invalid_response" = "收到AI的無效回應。請重試。";
+"ai_error.api_error" = "AI錯誤：%@";
+"ai_error.network_error" = "網路連線錯誤。請檢查您的網際網路連線。";

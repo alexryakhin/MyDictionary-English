@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d AI-pyyntöä jäljellä tänään";
-"ai_usage.unlimited_requests" = "Rajoittamattomat AI-pyynnöt Pro:lla";
-"ai_usage.upgrade_banner_title" = "Päivitä Pro:hon Rajoittamattomalle AI:lle";
-"ai_usage.upgrade_banner_message" = "Saa rajoittamattomia AI-pohjaisia määritelmiä, edistyneitä analyysejä ja muita premium-ominaisuuksia.";
-"ai_usage.upgrade_button" = "Päivitä Pro:hon";
-"ai_usage_limit_exceeded" = "Päivittäinen AI-käyttöraja saavutettu. Päivitä Pro:hon rajoittamattomille AI-pohjaisille määritelmille.";
-"ai_sign_in_required" = "Kirjaudu sisään käyttääksesi AI-toimintoja";
-"ai_sign_in_required_message" = "Käyttääksesi AI-pohjaisia määritelmiä, kirjaudu sisään tilillesi.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI laskee...";
 "ai_loading.analyzing_context" = "Analysoidaan kontekstia...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI-käsittely...";
 "ai_animation.learning" = "AI oppii...";
 "ai_animation.processing_neural" = "Käsitellään sanaasi neuroverkkoilla";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI-palvelu ei ole valmis. Yritä myöhemmin uudelleen.";
+"ai_error.pro_required" = "AI-ominaisuudet ovat saatavilla Pro-tilauksella";
+"ai_error.feature_disabled" = "AI-ominaisuudet ovat väliaikaisesti poissa käytöstä";
+"ai_error.invalid_response" = "Sai virheellisen vastauksen AI:lta. Yritä uudelleen.";
+"ai_error.api_error" = "AI-virhe: %@";
+"ai_error.network_error" = "Verkkoyhteyden virhe. Tarkista internet-yhteytesi.";

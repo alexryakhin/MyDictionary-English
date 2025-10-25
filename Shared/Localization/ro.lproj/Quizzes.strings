@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Bună treabă! Ai finalizat testul de scriere a propozițiilor.";
 "quiz_types.great_job_completed_context_quiz" = "Bună treabă! Ai finalizat testul de utilizare în context.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bună treabă! Ai finalizat testul de completare a spațiilor libere.";
-"quiz_available_once_a_day_message" = "Ne pare rău, testul este disponibil doar o dată pe zi. Abonează-te la PRO pentru acces nelimitat!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Exersează cuvinte dintr-o limbă specifică";

@@ -37,15 +37,7 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var selectedImageLocalPath: String?
     @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .english
 
-    // AI Usage tracking
-    var aiRemainingRequests: Int {
-        return aiService.getRemainingRequests()
-    }
-
-    var aiDailyLimit: Int {
-        return aiService.getDailyLimit()
-    }
-
+    // AI Access control
     var canUseAI: Bool {
         return aiService.canMakeAIRequest()
     }

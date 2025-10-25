@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "Bugün %d AI isteği kaldı";
-"ai_usage.unlimited_requests" = "Pro ile sınırsız AI istekleri";
-"ai_usage.upgrade_banner_title" = "Sınırsız AI için Pro'ya Yükseltin";
-"ai_usage.upgrade_banner_message" = "Sınırsız AI destekli tanımlar, gelişmiş analizler ve daha fazla premium özellik edinin.";
-"ai_usage.upgrade_button" = "Pro'ya Yükselt";
-"ai_usage_limit_exceeded" = "Günlük AI kullanım limiti aşıldı. Sınırsız AI destekli tanımlar için Pro'ya yükseltin.";
-"ai_sign_in_required" = "AI özelliklerini kullanmak için giriş yapın";
-"ai_sign_in_required_message" = "AI destekli tanımları kullanmak için hesabınıza giriş yapın.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI hesaplıyor...";
 "ai_loading.analyzing_context" = "Bağlam analiz ediliyor...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI işleniyor...";
 "ai_animation.learning" = "AI öğreniyor...";
 "ai_animation.processing_neural" = "Kelimeniz sinir ağları ile işleniyor";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI hizmeti hazır değil. Lütfen daha sonra tekrar deneyin.";
+"ai_error.pro_required" = "AI özellikleri Pro aboneliği ile kullanılabilir";
+"ai_error.feature_disabled" = "AI özellikleri geçici olarak kullanılamıyor";
+"ai_error.invalid_response" = "AI'dan geçersiz yanıt alındı. Lütfen tekrar deneyin.";
+"ai_error.api_error" = "AI Hatası: %@";
+"ai_error.network_error" = "Ağ bağlantı hatası. Lütfen internet bağlantınızı kontrol edin.";

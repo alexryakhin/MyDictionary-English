@@ -54,7 +54,7 @@ enum SpeechifyModel: String, CaseIterable {
     }
 }
 
-enum TTSError: Error {
+enum TTSError: Error, LocalizedError {
     case invalidAPIKey
     case networkError(String)
     case audioError(String)
@@ -62,6 +62,25 @@ enum TTSError: Error {
     case invalidResponse
     case rateLimitExceeded
     case monthlyLimitExceeded
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidAPIKey:
+            return "Invalid or missing API key"
+        case .networkError(let message):
+            return "Network error: \(message)"
+        case .audioError(let message):
+            return "Audio error: \(message)"
+        case .premiumFeatureRequired:
+            return "Premium subscription required"
+        case .invalidResponse:
+            return "Invalid response from TTS service"
+        case .rateLimitExceeded:
+            return "Rate limit exceeded"
+        case .monthlyLimitExceeded:
+            return "Monthly usage limit exceeded"
+        }
+    }
 }
 
 struct TTSRequest {

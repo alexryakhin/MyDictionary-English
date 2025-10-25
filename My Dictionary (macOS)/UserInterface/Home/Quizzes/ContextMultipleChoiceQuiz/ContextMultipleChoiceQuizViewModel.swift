@@ -51,7 +51,6 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
     private let quizItemsProvider: QuizItemsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
     private let aiService: AIService = .shared
-    private let quizUsageTracker: QuizUsageTracker = .shared
     private var cancellables = Set<AnyCancellable>()
     private var originalItems: [any Quizable] = []
     private var feedbackTimer: Timer?
@@ -65,10 +64,6 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
         self.preset = preset
         super.init()
         loadingStatus = .initializing // Start with initializing state
-        
-        // Record quiz usage for free users
-        quizUsageTracker.recordQuizOpened(.contextMultipleChoice)
-        
         setupBindings()
         pauseSharedDictionaryListeners()
     }

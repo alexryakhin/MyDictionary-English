@@ -21,8 +21,6 @@ final class CloudFunctionsService {
     enum Function: String, CaseIterable {
         case checkNicknameAvailability = "checkNicknameAvailability"
         case searchUser = "searchUser"
-        case synthesizeSpeech = "synthesizeSpeech"
-        case openAIProxy = "openAIProxy"
         case sendNotification = "sendNotification"
 
         var url: String {
@@ -148,106 +146,6 @@ final class CloudFunctionsService {
             responseType: UserSearchResponse.self
         )
         return response.user
-    }
-
-    // MARK: - Speechify Integration
-
-    struct SpeechifySynthesizeResponse: Codable {
-        let success: Bool
-        let audioData: String
-        let format: String
-        let voice: String?
-        let billableCharacters: Int?
-        let textLength: Int
-    }
-
-    func synthesizeSpeech(
-        text: String,
-        voice: String?,
-        language: String,
-        model: String,
-        audioFormat: String
-    ) async throws -> SpeechifySynthesizeResponse {
-        return try await makeRequest(
-            to: .synthesizeSpeech,
-            method: .POST,
-            body: [
-                "text": text,
-                "voice": voice ?? "en-US-1",
-                "language": language,
-                "model": model,
-                "audioFormat": audioFormat
-            ],
-            responseType: SpeechifySynthesizeResponse.self
-        )
-    }
-
-    // MARK: - OpenAI Integration
-    
-    struct FirebaseOpenAIResponse: Codable {
-        let success: Bool
-        let data: String
-        let usage: OpenAIUsage?
-    }
-    
-    struct OpenAIUsage: Codable {
-        let promptTokens: Int
-        let completionTokens: Int
-        let totalTokens: Int
-    }
-    
-    func openAIProxy(
-        word: String,
-        maxDefinitions: Int,
-        inputLanguage: String,
-        userLanguage: String,
-        sentence: String? = nil,
-        sentences: [(sentence: String, targetWord: String)]? = nil,
-        contextQuestions: Bool = false,
-        fillInTheBlank: Bool = false,
-        singleContextQuestion: Bool = false,
-        singleFillInTheBlank: Bool = false,
-        wordLanguage: String? = nil,
-        words: [String]? = nil
-    ) async throws -> FirebaseOpenAIResponse {
-        var body: [String: Any] = [
-            "word": word,
-            "maxDefinitions": maxDefinitions,
-            "inputLanguage": inputLanguage,
-            "userLanguage": userLanguage
-        ]
-        
-        // Add optional parameters for quiz functionality
-        if let sentences = sentences {
-            body["sentences"] = sentences
-        } else if let sentence = sentence {
-            body["sentence"] = sentence
-        }
-        if contextQuestions {
-            body["contextQuestions"] = true
-        }
-        if let words = words {
-            body["words"] = words
-        }
-        if fillInTheBlank {
-            body["fillInTheBlank"] = true
-        }
-        if singleContextQuestion {
-            body["singleContextQuestion"] = true
-        }
-        if singleFillInTheBlank {
-            body["singleFillInTheBlank"] = true
-        }
-        if let wordLanguage = wordLanguage {
-            body["wordLanguage"] = wordLanguage
-        }
-        
-        return try await makeRequest(
-            to: .openAIProxy,
-            method: .POST,
-            body: body,
-            responseType: FirebaseOpenAIResponse.self
-        )
     }
 
     // MARK: - Notifications

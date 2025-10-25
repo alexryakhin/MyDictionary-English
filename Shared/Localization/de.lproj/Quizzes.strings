@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Gute Arbeit! Sie haben das Quiz zum Satzschreiben abgeschlossen.";
 "quiz_types.great_job_completed_context_quiz" = "Gute Arbeit! Sie haben das Quiz zur Kontextnutzung abgeschlossen.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Gute Arbeit! Sie haben das Quiz zum Lückentext abgeschlossen.";
-"quiz_available_once_a_day_message" = "Entschuldigung, das Quiz ist nur einmal täglich verfügbar. Abonnieren Sie PRO für unbegrenzten Zugang!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Wörter aus einer bestimmten Sprache üben";

@@ -12,24 +12,19 @@ final class SpeechifyTTSService {
 
     static let shared = SpeechifyTTSService()
 
-    #if DEBUG
-    private let apiKey: String
-    #endif
+    private let remoteConfigService = RemoteConfigService.shared
     private let baseURL = "https://api.sws.speechify.com/v1/audio/speech"
     
     private init() {
-        #if DEBUG
-        self.apiKey = AppConfig.Speechify.apiKey
-        #endif
+        // Initialize with Remote Config
     }
     
     func synthesizeSpeech(request: TTSRequest) async throws -> TTSResponse {
-        #if DEBUG
         guard request.provider == .speechify else {
             throw TTSError.invalidResponse
         }
         
-        guard !apiKey.isEmpty else {
+        guard let apiKey = remoteConfigService.getSpeechifyAPIKey() else {
             throw TTSError.invalidAPIKey
         }
         
@@ -88,14 +83,9 @@ final class SpeechifyTTSService {
             }
             throw TTSError.networkError(error.localizedDescription)
         }
-        #else
-        // In release builds, always use Cloud Functions
-        return try await synthesizeSpeechViaCloudFunction(request: request)
-        #endif
     }
     
     private func parseSpeechifyResponse(data: Data) throws -> TTSResponse {
-        #if DEBUG
         do {
             let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
             
@@ -115,9 +105,6 @@ final class SpeechifyTTSService {
         } catch {
             throw TTSError.invalidResponse
         }
-        #else
-        fatalError("parseSpeechifyResponse should not be called in release builds")
-        #endif
     }
     
     // MARK: - Voice Management
@@ -126,51 +113,12 @@ final class SpeechifyTTSService {
         return try Bundle.main.decode("speechify-voices")
     }
     
-    // MARK: - Cloud Function Integration
-    
-    /// Synthesize speech using Cloud Function
-    func synthesizeSpeechViaCloudFunction(request: TTSRequest) async throws -> TTSResponse {
-        guard request.provider == .speechify else {
-            throw TTSError.invalidResponse
-        }
-        
-        guard SubscriptionService.shared.isProUser else {
-            throw TTSError.premiumFeatureRequired
-        }
-        
-        do {
-            let response = try await CloudFunctionsService.shared.synthesizeSpeech(
-                text: request.text,
-                voice: request.voice,
-                language: request.language,
-                model: request.model.rawValue,
-                audioFormat: request.audioFormat
-            )
-            
-            guard let audioData = Data(base64Encoded: response.audioData) else {
-                throw TTSError.invalidResponse
-            }
-            
-            return TTSResponse(
-                audioData: audioData,
-                format: response.format,
-                billableCharacters: response.billableCharacters
-            )
-        } catch {
-            if error is TTSError {
-                throw error
-            }
-            throw TTSError.networkError(error.localizedDescription)
-        }
-    }
     
     // MARK: - Cache Management
     
     func clearCache() {
-        #if DEBUG
         URLCache.shared.removeAllCachedResponses()
         print("🗑️ [Speechify] URL cache cleared")
-        #endif
     }
 }
 

@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "عمل رائع! لقد أكملت اختبار كتابة الجمل.";
 "quiz_types.great_job_completed_context_quiz" = "عمل رائع! لقد أكملت اختبار الاستخدام في السياق.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "عمل رائع! لقد أكملت اختبار ملء الفراغ.";
-"quiz_available_once_a_day_message" = "عذراً، الاختبار متاح مرة واحدة فقط في اليوم. اشترك في PRO للحصول على وصول غير محدود!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "تدرب على كلمات من لغة محددة";

@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d KI-Anfragen heute übrig";
-"ai_usage.unlimited_requests" = "Unbegrenzte KI-Anfragen mit Pro";
-"ai_usage.upgrade_banner_title" = "Upgrade auf Pro für unbegrenzte KI";
-"ai_usage.upgrade_banner_message" = "Erhalten Sie unbegrenzte KI-gestützte Definitionen, erweiterte Analysen und weitere Premium-Funktionen.";
-"ai_usage.upgrade_button" = "Auf Pro upgraden";
-"ai_usage_limit_exceeded" = "Tägliches KI-Nutzungslimit erreicht. Upgrade auf Pro für unbegrenzte KI-gestützte Definitionen.";
-"ai_sign_in_required" = "Anmelden, um KI-Funktionen zu nutzen";
-"ai_sign_in_required_message" = "Um KI-gestützte Definitionen zu nutzen, melden Sie sich in Ihrem Konto an.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "KI berechnet...";
 "ai_loading.analyzing_context" = "Kontext analysieren...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "KI-Verarbeitung...";
 "ai_animation.learning" = "KI lernt...";
 "ai_animation.processing_neural" = "Ihr Wort mit neuronalen Netzen verarbeiten";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI-Service ist nicht bereit. Bitte versuchen Sie es später erneut.";
+"ai_error.pro_required" = "AI-Funktionen sind mit Pro-Abonnement verfügbar";
+"ai_error.feature_disabled" = "AI-Funktionen sind vorübergehend nicht verfügbar";
+"ai_error.invalid_response" = "Ungültige Antwort von AI erhalten. Bitte versuchen Sie es erneut.";
+"ai_error.api_error" = "AI-Fehler: %@";
+"ai_error.network_error" = "Netzwerkverbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung.";

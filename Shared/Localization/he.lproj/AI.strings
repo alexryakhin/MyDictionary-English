@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d בקשות AI נותרו היום";
-"ai_usage.unlimited_requests" = "בקשות AI בלתי מוגבלות עם Pro";
-"ai_usage.upgrade_banner_title" = "שדרג ל-Pro עבור AI בלתי מוגבל";
-"ai_usage.upgrade_banner_message" = "קבל הגדרות מונעות AI בלתי מוגבלות, ניתוחים מתקדמים ועוד תכונות פרימיום.";
-"ai_usage.upgrade_button" = "שדרג ל-Pro";
-"ai_usage_limit_exceeded" = "הגעת למגבלת השימוש היומית ב-AI. שדרג ל-Pro עבור הגדרות מונעות AI בלתי מוגבלות.";
-"ai_sign_in_required" = "התחבר כדי להשתמש בתכונות AI";
-"ai_sign_in_required_message" = "כדי להשתמש בהגדרות מונעות AI, התחבר לחשבון שלך.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI מחשב...";
 "ai_loading.analyzing_context" = "מנתח הקשר...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "עיבוד AI...";
 "ai_animation.learning" = "AI לומד...";
 "ai_animation.processing_neural" = "מעבד את המילה שלך עם רשתות עצביות";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "שירות הבינה המלאכותית לא מוכן. אנא נסה שוב מאוחר יותר.";
+"ai_error.pro_required" = "תכונות הבינה המלאכותית זמינות עם מנוי Pro";
+"ai_error.feature_disabled" = "תכונות הבינה המלאכותית זמנית לא זמינות";
+"ai_error.invalid_response" = "התקבלה תגובה לא תקינה מהבינה המלאכותית. אנא נסה שוב.";
+"ai_error.api_error" = "שגיאת בינה מלאכותית: %@";
+"ai_error.network_error" = "שגיאת חיבור רשת. אנא בדוק את חיבור האינטרנט שלך.";

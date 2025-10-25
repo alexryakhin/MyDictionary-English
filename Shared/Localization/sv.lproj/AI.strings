@@ -1,13 +1,3 @@
-// MARK: - AI Usage
-"ai_usage.remaining_requests" = "%d AI-förfrågningar kvar idag";
-"ai_usage.unlimited_requests" = "Obegränsade AI-förfrågningar med Pro";
-"ai_usage.upgrade_banner_title" = "Uppgradera till Pro för Obegränsad AI";
-"ai_usage.upgrade_banner_message" = "Få obegränsade AI-drivna definitioner, avancerad analys och fler premium-funktioner.";
-"ai_usage.upgrade_button" = "Uppgradera till Pro";
-"ai_usage_limit_exceeded" = "Daglig AI-användningsgräns nådd. Uppgradera till Pro för obegränsade AI-drivna definitioner.";
-"ai_sign_in_required" = "Logga in för att använda AI-funktioner";
-"ai_sign_in_required_message" = "För att använda AI-drivna definitioner, logga in på ditt konto.";
-
 // MARK: - AI Loading States
 "ai_loading.computing" = "AI beräknar...";
 "ai_loading.analyzing_context" = "Analyserar kontext...";
@@ -36,3 +26,11 @@
 "ai_animation.processing" = "AI-bearbetning...";
 "ai_animation.learning" = "AI lär sig...";
 "ai_animation.processing_neural" = "Bearbetar ditt ord med neurala nätverk";
+
+// MARK: - AI Error Messages
+"ai_error.not_initialized" = "AI-tjänsten är inte redo. Försök igen senare.";
+"ai_error.pro_required" = "AI-funktioner är tillgängliga med Pro-prenumeration";
+"ai_error.feature_disabled" = "AI-funktioner är tillfälligt otillgängliga";
+"ai_error.invalid_response" = "Ogiltigt svar mottaget från AI. Försök igen.";
+"ai_error.api_error" = "AI-fel: %@";
+"ai_error.network_error" = "Nätverksanslutningsfel. Kontrollera din internetanslutning.";

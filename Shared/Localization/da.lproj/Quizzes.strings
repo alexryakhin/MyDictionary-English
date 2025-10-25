@@ -176,7 +176,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Godt arbejde! Du har gennemført quizzen om sætningsskrivning.";
 "quiz_types.great_job_completed_context_quiz" = "Godt arbejde! Du har gennemført quizzen om kontekstbrug.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Godt arbejde! Du har gennemført quizzen om at udfylde tomrummet.";
-"quiz_available_once_a_day_message" = "Beklager, quizzen er kun tilgængelig én gang per dag. Abonner på PRO for ubegrænset adgang!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Øv ord fra et specifikt sprog";

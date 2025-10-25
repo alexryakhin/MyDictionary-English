@@ -177,7 +177,6 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "¡Buen trabajo! Has completado el cuestionario de escritura de frases.";
 "quiz_types.great_job_completed_context_quiz" = "¡Buen trabajo! Has completado el cuestionario de uso en contexto.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "¡Buen trabajo! Has completado el cuestionario de rellenar el espacio.";
-"quiz_available_once_a_day_message" = "Lo siento, el cuestionario solo está disponible una vez al día. ¡Suscríbete a PRO para acceso ilimitado!";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Practica palabras de un idioma específico";
