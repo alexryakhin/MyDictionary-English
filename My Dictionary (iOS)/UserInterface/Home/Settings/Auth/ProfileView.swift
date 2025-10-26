@@ -39,6 +39,9 @@ struct ProfileView: View {
                 // Learning Preferences Section
                 learningPreferencesSection
 
+                // Word Sync Section
+                wordSyncSection
+
                 // Account Linking Section
                 accountLinkingSection
 
@@ -325,6 +328,33 @@ struct ProfileView: View {
         }
     }
 
+    // MARK: - Word Sync Section
+
+    private var wordSyncSection: some View {
+        CustomSectionView(
+            header: Loc.Settings.wordListsAndSync,
+            footer: Loc.Settings.manualSyncModeDescription
+        ) {
+            VStack(spacing: 8) {
+                AsyncActionButton(
+                    Loc.Settings.uploadBackupToGoogle,
+                    systemImage: "icloud.and.arrow.up"
+                ) {
+                    try await uploadBackupToGoogle()
+                }
+
+                AsyncActionButton(
+                    Loc.Settings.downloadBackupFromGoogle,
+                    systemImage: "icloud.and.arrow.down"
+                ) {
+                    try await downloadBackupFromGoogle()
+                }
+            }
+            .padding(.bottom, 12)
+        }
+        .hideIfOffline()
+    }
+
     // MARK: - Account Linking Section
 
     private var accountLinkingSection: some View {
@@ -528,6 +558,24 @@ struct ProfileView: View {
             nicknameErrorMessage = Loc.Errors.unknownError + "\n" + error.localizedDescription
             HapticManager.shared.triggerNotification(type: .error)
         }
+    }
+
+    // MARK: - Word Sync Methods
+
+    private func uploadBackupToGoogle() async throws {
+        guard let userEmail = AuthenticationService.shared.userEmail else {
+            errorReceived(DictionaryError.userNotAuthenticated)
+            return
+        }
+        try await DataSyncService.shared.uploadBackupToGoogle(userEmail: userEmail)
+    }
+
+    private func downloadBackupFromGoogle() async throws {
+        guard let userEmail = AuthenticationService.shared.userEmail else {
+            errorReceived(DictionaryError.userNotAuthenticated)
+            return
+        }
+        try await DataSyncService.shared.downloadBackupFromGoogle(userEmail: userEmail)
     }
 }
 

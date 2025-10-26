@@ -181,20 +181,6 @@ struct SettingsView: View {
                                 viewModel.output.send(.showProfile)
                             }
 
-                            // Manual sync buttons
-                            AsyncActionButton(
-                                Loc.Settings.uploadBackupToGoogle,
-                                systemImage: "icloud.and.arrow.up"
-                            ) {
-                                try await viewModel.uploadBackupToGoogle()
-                            }
-
-                            AsyncActionButton(
-                                Loc.Settings.downloadBackupFromGoogle,
-                                systemImage: "icloud.and.arrow.down"
-                            ) {
-                                try await viewModel.downloadBackupFromGoogle()
-                            }
                         }
                         .padding(.bottom, 12)
                     } else {

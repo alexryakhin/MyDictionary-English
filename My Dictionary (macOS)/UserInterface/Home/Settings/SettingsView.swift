@@ -190,20 +190,6 @@ struct SettingsView: View {
                             .padding(vertical: 12, horizontal: 16)
                             .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
 
-                            // Manual sync buttons
-                            AsyncActionButton(
-                                Loc.Settings.uploadBackupToGoogle,
-                                systemImage: "icloud.and.arrow.up"
-                            ) {
-                                try await viewModel.uploadBackupToGoogle()
-                            }
-
-                            AsyncActionButton(
-                                Loc.Settings.downloadBackupFromGoogle,
-                                systemImage: "icloud.and.arrow.down"
-                            ) {
-                                try await viewModel.downloadBackupFromGoogle()
-                            }
                         }
                         .padding(.bottom, 12)
                     } else {
