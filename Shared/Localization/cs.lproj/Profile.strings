@@ -36,3 +36,24 @@
 "found_user" = "Uživatel nalezen";
 "user_not_found" = "Uživatel nenalezen.";
 "user_not_found_message" = "Žádný uživatel nebyl nalezen s poskytnutými informacemi. Zkontrolujte vyhledávání a zkuste to znovu.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Předvolby Učení";
+"learning_preferences_description" = "Přizpůsobte si své učební cíle, studijní jazyky a preference";
+"customize_learning" = "Přizpůsobit Učení";
+"update_goals_languages" = "Aktualizujte své cíle, jazyky a studijní preference";
+"loading_preferences" = "Načítání preferencí...";
+"no_profile_found" = "Profil nenalezen";
+"profile_information" = "Informace o Profilu";
+"name" = "Jméno";
+"user_type" = "Typ Uživatele";
+"age_group" = "Věková Skupina";
+"not_set" = "Nenastaveno";
+"learning_goals" = "Učební Cíle";
+"study_languages" = "Studijní Jazyky";
+"add_language" = "Přidat Jazyk";
+"interests" = "Zájmy";
+"study_settings" = "Nastavení Studia";
+"weekly_word_goal" = "Týdenní Cíl Slov";
+"words" = "slov";
+"preferred_study_time" = "Preferovaný Čas Studia";

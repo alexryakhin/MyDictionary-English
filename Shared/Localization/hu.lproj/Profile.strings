@@ -36,3 +36,24 @@
 "found_user" = "Felhasználó megtalálva";
 "user_not_found" = "Felhasználó nem található.";
 "user_not_found_message" = "Nem található felhasználó a megadott információkkal. Ellenőrizze a keresést és próbálja újra.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Tanulási Beállítások";
+"learning_preferences_description" = "Testreszabja tanulási céljait, nyelvtantulásait és beállításait";
+"customize_learning" = "Tanulás Testreszabása";
+"update_goals_languages" = "Frissítse céljait, nyelveit és tanulási beállításait";
+"loading_preferences" = "Beállítások betöltése...";
+"no_profile_found" = "Profil nem található";
+"profile_information" = "Profil Információ";
+"name" = "Név";
+"user_type" = "Felhasználó Típusa";
+"age_group" = "Korosztály";
+"not_set" = "Nincs beállítva";
+"learning_goals" = "Tanulási Célok";
+"study_languages" = "Tanult Nyelvek";
+"add_language" = "Nyelv Hozzáadása";
+"interests" = "Érdeklődési Körök";
+"study_settings" = "Tanulási Beállítások";
+"weekly_word_goal" = "Heti Szó Cél";
+"words" = "szavak";
+"preferred_study_time" = "Előnyben Részesített Tanulási Idő";

@@ -36,3 +36,24 @@
 "found_user" = "Đã tìm thấy người dùng";
 "user_not_found" = "Không tìm thấy người dùng.";
 "user_not_found_message" = "Không tìm thấy người dùng với thông tin được cung cấp. Vui lòng kiểm tra tìm kiếm và thử lại.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Tùy chọn Học tập";
+"learning_preferences_description" = "Tùy chỉnh mục tiêu học tập, ngôn ngữ và sở thích của bạn";
+"customize_learning" = "Tùy chỉnh Học tập";
+"update_goals_languages" = "Cập nhật mục tiêu, ngôn ngữ và tùy chọn học tập của bạn";
+"loading_preferences" = "Đang tải tùy chọn...";
+"no_profile_found" = "Không tìm thấy hồ sơ";
+"profile_information" = "Thông tin Hồ sơ";
+"name" = "Tên";
+"user_type" = "Loại Người dùng";
+"age_group" = "Nhóm Tuổi";
+"not_set" = "Chưa đặt";
+"learning_goals" = "Mục tiêu Học tập";
+"study_languages" = "Ngôn ngữ Học tập";
+"add_language" = "Thêm Ngôn ngữ";
+"interests" = "Sở thích";
+"study_settings" = "Cài đặt Học tập";
+"weekly_word_goal" = "Mục tiêu Từ Hàng tuần";
+"words" = "từ";
+"preferred_study_time" = "Thời gian Học Ưa thích";

@@ -36,3 +36,24 @@
 "found_user" = "找到用戶";
 "user_not_found" = "未找到用戶。";
 "user_not_found_message" = "未找到與提供信息匹配的用戶。請檢查搜尋並重試。";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "學習偏好";
+"learning_preferences_description" = "自訂你的學習目標、學習語言和偏好設定";
+"customize_learning" = "自訂學習";
+"update_goals_languages" = "更新你的目標、語言和學習偏好設定";
+"loading_preferences" = "正在載入偏好設定...";
+"no_profile_found" = "未找到個人資料";
+"profile_information" = "個人資料資訊";
+"name" = "姓名";
+"user_type" = "使用者類型";
+"age_group" = "年齡組";
+"not_set" = "未設定";
+"learning_goals" = "學習目標";
+"study_languages" = "學習語言";
+"add_language" = "新增語言";
+"interests" = "興趣";
+"study_settings" = "學習設定";
+"weekly_word_goal" = "每週單字目標";
+"words" = "個單字";
+"preferred_study_time" = "首選學習時間";

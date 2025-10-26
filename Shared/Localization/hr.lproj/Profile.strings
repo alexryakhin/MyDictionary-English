@@ -36,3 +36,24 @@
 "found_user" = "Korisnik pronađen";
 "user_not_found" = "Korisnik nije pronađen.";
 "user_not_found_message" = "Nije pronađen korisnik s priloženim informacijama. Provjerite pretragu i pokušajte ponovno.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Preference Učenja";
+"learning_preferences_description" = "Prilagodite svoje ciljeve učenja, jezike učenja i postavke";
+"customize_learning" = "Prilagoditi Učenje";
+"update_goals_languages" = "Ažurirajte svoje ciljeve, jezike i postavke učenja";
+"loading_preferences" = "Učitavanje postavki...";
+"no_profile_found" = "Profil nije pronađen";
+"profile_information" = "Informacije o Profilu";
+"name" = "Ime";
+"user_type" = "Tip Korisnika";
+"age_group" = "Dobna Skupina";
+"not_set" = "Nije postavljeno";
+"learning_goals" = "Ciljevi Učenja";
+"study_languages" = "Jezici za Učenje";
+"add_language" = "Dodaj Jezik";
+"interests" = "Interesi";
+"study_settings" = "Postavke Učenja";
+"weekly_word_goal" = "Tjedni Cilj Riječi";
+"words" = "riječi";
+"preferred_study_time" = "Preferirano Vrijeme Učenja";

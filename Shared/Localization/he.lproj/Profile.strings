@@ -36,3 +36,24 @@
 "found_user" = "משתמש נמצא";
 "user_not_found" = "משתמש לא נמצא.";
 "user_not_found_message" = "לא נמצא משתמש עם המידע שסופק. אנא בדוק את החיפוש ונסה שוב.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "העדפות למידה";
+"learning_preferences_description" = "התאם את מטרות הלמידה, שפות הלימוד וההעדפות שלך";
+"customize_learning" = "התאמה אישית של למידה";
+"update_goals_languages" = "עדכן את המטרות, השפות וההעדפות שלך";
+"loading_preferences" = "טוען העדפות...";
+"no_profile_found" = "לא נמצא פרופיל";
+"profile_information" = "מידע פרופיל";
+"name" = "שם";
+"user_type" = "סוג משתמש";
+"age_group" = "קבוצת גיל";
+"not_set" = "לא מוגדר";
+"learning_goals" = "מטרות למידה";
+"study_languages" = "שפות לימוד";
+"add_language" = "הוסף שפה";
+"interests" = "תחומי עניין";
+"study_settings" = "הגדרות לימוד";
+"weekly_word_goal" = "יעד מילים שבועי";
+"words" = "מילים";
+"preferred_study_time" = "זמן לימוד מועדף";

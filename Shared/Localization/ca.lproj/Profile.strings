@@ -36,3 +36,24 @@
 "found_user" = "Usuari trobat";
 "user_not_found" = "Usuari no trobat.";
 "user_not_found_message" = "No s'ha trobat cap usuari amb la informació proporcionada. Comprova la cerca i torna-ho a provar.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Preferències d'Aprenentatge";
+"learning_preferences_description" = "Personalitza els teus objectius d'aprenentatge, idiomes d'estudi i preferències";
+"customize_learning" = "Personalitzar Aprenentatge";
+"update_goals_languages" = "Actualitza els teus objectius, idiomes i preferències d'estudi";
+"loading_preferences" = "Carregant preferències...";
+"no_profile_found" = "No s'ha trobat cap perfil";
+"profile_information" = "Informació del Perfil";
+"name" = "Nom";
+"user_type" = "Tipus d'Usuari";
+"age_group" = "Grup d'Edat";
+"not_set" = "No establert";
+"learning_goals" = "Objectius d'Aprenentatge";
+"study_languages" = "Idiomes d'Estudi";
+"add_language" = "Afegir Idioma";
+"interests" = "Interessos";
+"study_settings" = "Configuració d'Estudi";
+"weekly_word_goal" = "Objectiu Setmanal de Paraules";
+"words" = "paraules";
+"preferred_study_time" = "Hora Preferida d'Estudi";

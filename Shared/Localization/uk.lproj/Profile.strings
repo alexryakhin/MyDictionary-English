@@ -36,3 +36,24 @@
 "found_user" = "Користувач знайдений";
 "user_not_found" = "Користувача не знайдено";
 "user_not_found_message" = "Користувача не знайдено за наданою інформацією. Перевірте пошук і спробуйте ще раз.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Налаштування Навчання";
+"learning_preferences_description" = "Налаштуйте свої цілі навчання, мови вивчення та переваги";
+"customize_learning" = "Налаштувати Навчання";
+"update_goals_languages" = "Оновіть свої цілі, мови та налаштування навчання";
+"loading_preferences" = "Завантаження налаштувань...";
+"no_profile_found" = "Профіль не знайдено";
+"profile_information" = "Інформація про Профіль";
+"name" = "Ім'я";
+"user_type" = "Тип Користувача";
+"age_group" = "Вікова Група";
+"not_set" = "Не встановлено";
+"learning_goals" = "Цілі Навчання";
+"study_languages" = "Мови Вивчення";
+"add_language" = "Додати Мову";
+"interests" = "Інтереси";
+"study_settings" = "Налаштування Навчання";
+"weekly_word_goal" = "Тижневий Ціль Слів";
+"words" = "слів";
+"preferred_study_time" = "Бажаний Час Навчання";

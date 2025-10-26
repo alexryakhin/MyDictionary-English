@@ -36,3 +36,24 @@
 "found_user" = "Ο χρήστης βρέθηκε";
 "user_not_found" = "Ο χρήστης δεν βρέθηκε.";
 "user_not_found_message" = "Δεν βρέθηκε χρήστης με τις παρεχόμενες πληροφορίες. Ελέγξτε την αναζήτησή σας και δοκιμάστε ξανά.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Προτιμήσεις Μάθησης";
+"learning_preferences_description" = "Προσαρμόστε τους στόχους μάθησης, τις γλώσσες μελέτης και τις προτιμήσεις σας";
+"customize_learning" = "Προσαρμογή Μάθησης";
+"update_goals_languages" = "Ενημερώστε τους στόχους, τις γλώσσες και τις προτιμήσεις μελέτης σας";
+"loading_preferences" = "Φόρτωση προτιμήσεων...";
+"no_profile_found" = "Δεν βρέθηκε προφίλ";
+"profile_information" = "Πληροφορίες Προφίλ";
+"name" = "Όνομα";
+"user_type" = "Τύπος Χρήστη";
+"age_group" = "Ηλικιακή Ομάδα";
+"not_set" = "Δεν ορίστηκε";
+"learning_goals" = "Στόχοι Μάθησης";
+"study_languages" = "Γλώσσες Μελέτης";
+"add_language" = "Προσθήκη Γλώσσας";
+"interests" = "Ενδιαφέροντα";
+"study_settings" = "Ρυθμίσεις Μελέτης";
+"weekly_word_goal" = "Εβδομαδιαίος Στόχος Λέξεων";
+"words" = "λέξεις";
+"preferred_study_time" = "Προτιμώμενη Ώρα Μελέτης";

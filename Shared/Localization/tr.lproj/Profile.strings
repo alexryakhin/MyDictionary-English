@@ -36,3 +36,24 @@
 "found_user" = "Kullanıcı bulundu";
 "user_not_found" = "Kullanıcı bulunamadı.";
 "user_not_found_message" = "Sağlanan bilgilerle kullanıcı bulunamadı. Lütfen aramanızı kontrol edin ve tekrar deneyin.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Öğrenme Tercihleri";
+"learning_preferences_description" = "Öğrenme hedeflerinizi, çalışma dillerinizi ve tercihlerinizi özelleştirin";
+"customize_learning" = "Öğrenmeyi Özelleştir";
+"update_goals_languages" = "Hedeflerinizi, dillerinizi ve çalışma tercihlerinizi güncelleyin";
+"loading_preferences" = "Tercihler yükleniyor...";
+"no_profile_found" = "Profil bulunamadı";
+"profile_information" = "Profil Bilgileri";
+"name" = "Ad";
+"user_type" = "Kullanıcı Türü";
+"age_group" = "Yaş Grubu";
+"not_set" = "Ayarlanmamış";
+"learning_goals" = "Öğrenme Hedefleri";
+"study_languages" = "Çalışma Dilleri";
+"add_language" = "Dil Ekle";
+"interests" = "İlgi Alanları";
+"study_settings" = "Çalışma Ayarları";
+"weekly_word_goal" = "Haftalık Kelime Hedefi";
+"words" = "kelime";
+"preferred_study_time" = "Tercih Edilen Çalışma Saati";

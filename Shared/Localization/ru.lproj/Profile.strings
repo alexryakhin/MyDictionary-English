@@ -36,3 +36,24 @@
 "found_user" = "Пользователь найден";
 "user_not_found" = "Пользователь не найден.";
 "user_not_found_message" = "Пользователь с предоставленной информацией не найден. Пожалуйста, проверьте поиск и попробуйте снова.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Предпочтения обучения";
+"learning_preferences_description" = "Настройте свои цели обучения, языки изучения и предпочтения";
+"customize_learning" = "Настроить обучение";
+"update_goals_languages" = "Обновите свои цели, языки и предпочтения изучения";
+"loading_preferences" = "Загрузка предпочтений...";
+"no_profile_found" = "Профиль не найден";
+"profile_information" = "Информация профиля";
+"name" = "Имя";
+"user_type" = "Тип пользователя";
+"age_group" = "Возрастная группа";
+"not_set" = "Не установлено";
+"learning_goals" = "Цели обучения";
+"study_languages" = "Языки изучения";
+"add_language" = "Добавить язык";
+"interests" = "Интересы";
+"study_settings" = "Настройки изучения";
+"weekly_word_goal" = "Еженедельная цель слов";
+"words" = "слов";
+"preferred_study_time" = "Предпочтительное время обучения";

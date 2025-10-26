@@ -212,7 +212,10 @@ struct SettingsView: View {
                                 showingSignIn = true
                             }
                             
-                            ActionButton(Loc.Settings.learningPreferences, systemImage: "person.crop.circle.badge.ellipsis.fill") {
+                            ActionButton(
+                                Loc.Profile.learningPreferencesTitle,
+                                systemImage: "person.crop.circle.badge.ellipsis.fill"
+                            ) {
                                 showingLearningPreferences = true
                             }
                         }

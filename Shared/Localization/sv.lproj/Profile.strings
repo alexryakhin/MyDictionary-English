@@ -36,3 +36,24 @@
 "found_user" = "Användare hittades";
 "user_not_found" = "Användare hittades inte.";
 "user_not_found_message" = "Ingen användare hittades med den angivna informationen. Kontrollera din sökning och försök igen.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Lärandeinställningar";
+"learning_preferences_description" = "Anpassa dina inlärningsmål, språk och inställningar";
+"customize_learning" = "Anpassa Lärande";
+"update_goals_languages" = "Uppdatera dina mål, språk och studieinställningar";
+"loading_preferences" = "Laddar inställningar...";
+"no_profile_found" = "Ingen profil hittades";
+"profile_information" = "Profilinformation";
+"name" = "Namn";
+"user_type" = "Användartyp";
+"age_group" = "Åldersgrupp";
+"not_set" = "Inte inställt";
+"learning_goals" = "Inlärningsmål";
+"study_languages" = "Språk att studera";
+"add_language" = "Lägg till språk";
+"interests" = "Intressen";
+"study_settings" = "Studieinställningar";
+"weekly_word_goal" = "Veckomål för ord";
+"words" = "ord";
+"preferred_study_time" = "Föredragen studietid";

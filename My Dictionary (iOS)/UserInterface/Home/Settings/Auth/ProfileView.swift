@@ -290,8 +290,8 @@ struct ProfileView: View {
 
     private var learningPreferencesSection: some View {
         CustomSectionView(
-            header: Loc.Settings.learningPreferences,
-            footer: Loc.Settings.learningPreferencesDescription
+            header: Loc.Profile.learningPreferencesTitle,
+            footer: Loc.Profile.learningPreferencesDescription
         ) {
             Button {
                 showingLearningPreferences = true
@@ -301,12 +301,12 @@ struct ProfileView: View {
                         .foregroundColor(.accent)
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(Loc.Settings.customizeLearning)
+                        Text(Loc.Profile.customizeLearning)
                             .font(.body)
                             .fontWeight(.medium)
                             .foregroundStyle(.primary)
                         
-                        Text(Loc.Settings.updateGoalsLanguages)
+                        Text(Loc.Profile.updateGoalsLanguages)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }

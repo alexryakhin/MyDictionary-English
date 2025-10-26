@@ -36,3 +36,24 @@
 "found_user" = "Found User";
 "user_not_found" = "User not found.";
 "user_not_found_message" = "No user found with the provided information. Please check your search and try again.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Learning Preferences";
+"learning_preferences_description" = "Customize your learning goals, study languages, and preferences";
+"customize_learning" = "Customize Learning";
+"update_goals_languages" = "Update your goals, languages, and study preferences";
+"loading_preferences" = "Loading preferences...";
+"no_profile_found" = "No profile found";
+"profile_information" = "Profile Information";
+"name" = "Name";
+"user_type" = "User Type";
+"age_group" = "Age Group";
+"not_set" = "Not set";
+"learning_goals" = "Learning Goals";
+"study_languages" = "Study Languages";
+"add_language" = "Add Language";
+"interests" = "Interests";
+"study_settings" = "Study Settings";
+"weekly_word_goal" = "Weekly Word Goal";
+"words" = "words";
+"preferred_study_time" = "Preferred Study Time";

@@ -36,3 +36,24 @@
 "found_user" = "พบผู้ใช้";
 "user_not_found" = "ไม่พบผู้ใช้";
 "user_not_found_message" = "ไม่พบผู้ใช้ด้วยข้อมูลที่ให้มา กรุณาตรวจสอบการค้นหาและลองอีกครั้ง";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "การตั้งค่าการเรียนรู้";
+"learning_preferences_description" = "ปรับแต่งเป้าหมายการเรียนรู้ ภาษาที่ศึกษา และการตั้งค่าของคุณ";
+"customize_learning" = "ปรับแต่งการเรียนรู้";
+"update_goals_languages" = "อัปเดตเป้าหมาย ภาษา และการตั้งค่าการเรียนรู้ของคุณ";
+"loading_preferences" = "กำลังโหลดการตั้งค่า...";
+"no_profile_found" = "ไม่พบโปรไฟล์";
+"profile_information" = "ข้อมูลโปรไฟล์";
+"name" = "ชื่อ";
+"user_type" = "ประเภทผู้ใช้";
+"age_group" = "กลุ่มอายุ";
+"not_set" = "ไม่ได้ตั้งค่า";
+"learning_goals" = "เป้าหมายการเรียนรู้";
+"study_languages" = "ภาษาที่ศึกษา";
+"add_language" = "เพิ่มภาษา";
+"interests" = "ความสนใจ";
+"study_settings" = "การตั้งค่าการเรียน";
+"weekly_word_goal" = "เป้าหมายคำสัปดาห์ละ";
+"words" = "คำ";
+"preferred_study_time" = "เวลาที่ชอบเรียน";

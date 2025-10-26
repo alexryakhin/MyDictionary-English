@@ -36,3 +36,24 @@
 "found_user" = "Utilizator găsit";
 "user_not_found" = "Utilizator negăsit.";
 "user_not_found_message" = "Nu s-a găsit niciun utilizator cu informațiile furnizate. Verificați căutarea și încercați din nou.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Preferințe de Învățare";
+"learning_preferences_description" = "Personalizează-ți obiectivele de învățare, limbile și preferințele";
+"customize_learning" = "Personalizează Învățarea";
+"update_goals_languages" = "Actualizează obiectivele, limbile și preferințele tale";
+"loading_preferences" = "Se încarcă preferințele...";
+"no_profile_found" = "Nu a fost găsit niciun profil";
+"profile_information" = "Informații Profil";
+"name" = "Nume";
+"user_type" = "Tip Utilizator";
+"age_group" = "Grup de Vârstă";
+"not_set" = "Nu este setat";
+"learning_goals" = "Obiective de Învățare";
+"study_languages" = "Limbi de Studiu";
+"add_language" = "Adaugă Limbă";
+"interests" = "Interese";
+"study_settings" = "Setări de Studiu";
+"weekly_word_goal" = "Obiectiv Săptămânal de Cuvinte";
+"words" = "cuvinte";
+"preferred_study_time" = "Timp Preferat de Studiu";

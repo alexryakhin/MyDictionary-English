@@ -36,3 +36,24 @@
 "found_user" = "Gebruiker gevonden";
 "user_not_found" = "Gebruiker niet gevonden.";
 "user_not_found_message" = "Geen gebruiker gevonden met de opgegeven informatie. Controleer je zoekopdracht en probeer opnieuw.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Leerinstellingen";
+"learning_preferences_description" = "Pas je leerdoelen, studietalen en voorkeuren aan";
+"customize_learning" = "Leren aanpassen";
+"update_goals_languages" = "Werk je doelen, talen en studievoorkeuren bij";
+"loading_preferences" = "Voorkeuren laden...";
+"no_profile_found" = "Geen profiel gevonden";
+"profile_information" = "Profielinformatie";
+"name" = "Naam";
+"user_type" = "Gebruikerstype";
+"age_group" = "Leeftijdsgroep";
+"not_set" = "Niet ingesteld";
+"learning_goals" = "Leerdoelen";
+"study_languages" = "Studietalen";
+"add_language" = "Taal toevoegen";
+"interests" = "Interesses";
+"study_settings" = "Studie-instellingen";
+"weekly_word_goal" = "Wekelijks Woorddoel";
+"words" = "woorden";
+"preferred_study_time" = "Gewenste Studieperiode";

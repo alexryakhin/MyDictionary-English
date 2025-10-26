@@ -36,3 +36,24 @@
 "found_user" = "Benutzer gefunden";
 "user_not_found" = "Benutzer nicht gefunden.";
 "user_not_found_message" = "Mit den bereitgestellten Informationen wurde kein Benutzer gefunden. Bitte überprüfen Sie Ihre Suche und versuchen Sie es erneut.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Lernpräferenzen";
+"learning_preferences_description" = "Passen Sie Ihre Lernziele, Studien sprachen und Präferenzen an";
+"customize_learning" = "Lernen anpassen";
+"update_goals_languages" = "Aktualisieren Sie Ihre Ziele, Sprachen und Studienpräferenzen";
+"loading_preferences" = "Einstellungen werden geladen...";
+"no_profile_found" = "Kein Profil gefunden";
+"profile_information" = "Profilinformationen";
+"name" = "Name";
+"user_type" = "Benutzertyp";
+"age_group" = "Altersgruppe";
+"not_set" = "Nicht festgelegt";
+"learning_goals" = "Lernziele";
+"study_languages" = "Studiensprachen";
+"add_language" = "Sprache hinzufügen";
+"interests" = "Interessen";
+"study_settings" = "Studieneinstellungen";
+"weekly_word_goal" = "Wöchentliches Wortziel";
+"words" = "Wörter";
+"preferred_study_time" = "Bevorzugte Studienzeit";

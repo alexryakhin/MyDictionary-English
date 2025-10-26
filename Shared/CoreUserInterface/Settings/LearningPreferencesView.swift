@@ -51,10 +51,10 @@ struct LearningPreferencesView: View {
                         studySettingsSection
 
                     } else if isLoading {
-                        ProgressView("Loading preferences...")
+                        ProgressView(Loc.Profile.loadingPreferences)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     } else {
-                        Text("No profile found")
+                        Text(Loc.Profile.noProfileFound)
                             .foregroundColor(.secondary)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
@@ -63,16 +63,16 @@ struct LearningPreferencesView: View {
                 .padding(.vertical, 20)
             }
             .groupedBackground()
-            .navigationTitle("Learning Preferences")
+            .navigationTitle(Loc.Profile.learningPreferencesTitle)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
+                    Button(Loc.Profile.cancel) {
                         dismiss()
                     }
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
+                    Button(Loc.Profile.save) {
                         savePreferences()
                     }
                     .bold()
@@ -99,20 +99,20 @@ struct LearningPreferencesView: View {
 
     @ViewBuilder
     private func profileInfoSection(_ profile: UserOnboardingProfile) -> some View {
-        CustomSectionView(header: "Profile Information", hPadding: .zero) {
+        CustomSectionView(header: Loc.Profile.profileInformation, hPadding: .zero) {
             FormWithDivider {
                 CellWrapper {
-                    Text("Name")
+                    Text(Loc.Profile.name)
                         .font(.body)
                         .fontWeight(.medium)
                 } trailingContent: {
-                    Text(profile.userName.isEmpty ? "Not set" : profile.userName)
+                    Text(profile.userName.isEmpty ? Loc.Profile.notSet : profile.userName)
                         .font(.body)
                         .foregroundColor(.secondary)
                 }
 
                 CellWrapper {
-                    Text("User Type")
+                    Text(Loc.Profile.userType)
                         .font(.body)
                         .fontWeight(.medium)
                 } trailingContent: {
@@ -127,7 +127,7 @@ struct LearningPreferencesView: View {
                 }
 
                 CellWrapper {
-                    Text("Age Group")
+                    Text(Loc.Profile.ageGroup)
                         .font(.body)
                         .fontWeight(.medium)
                 } trailingContent: {
@@ -148,7 +148,7 @@ struct LearningPreferencesView: View {
     // MARK: - Learning Goals Section
 
     private var learningGoalsSection: some View {
-        CustomSectionView(header: "Learning Goals") {
+        CustomSectionView(header: Loc.Profile.learningGoals) {
             HFlow(alignment: .top, spacing: 8) {
                 ForEach(LearningGoal.allCases, id: \.self) { goal in
                     TagView(
@@ -167,7 +167,7 @@ struct LearningPreferencesView: View {
     // MARK: - Study Languages Section
 
     private var studyLanguagesSection: some View {
-        CustomSectionView(header: "Study Languages") {
+        CustomSectionView(header: Loc.Profile.studyLanguages) {
             HFlow(alignment: .top, spacing: 8) {
                 // Show current study languages
                 ForEach(studyLanguages) { language in
@@ -184,7 +184,7 @@ struct LearningPreferencesView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
          } trailingContent: {
-             HeaderButtonMenu("Add Language", size: .small, style: .borderedProminent) {
+             HeaderButtonMenu(Loc.Profile.addLanguage, size: .small, style: .borderedProminent) {
                  ForEach(availableLanguages, id: \.self) { inputLanguage in
                      Button(inputLanguage.displayName) {
                          selectedLanguageToAdd = inputLanguage
@@ -203,7 +203,7 @@ struct LearningPreferencesView: View {
     // MARK: - Interests Section
 
     private var interestsSection: some View {
-        CustomSectionView(header: "Interests") {
+        CustomSectionView(header: Loc.Profile.interests) {
             HFlow(alignment: .top, spacing: 8) {
                 ForEach(Interest.allCases, id: \.self) { interest in
                     TagView(
@@ -222,15 +222,15 @@ struct LearningPreferencesView: View {
     // MARK: - Study Settings Section
 
     private var studySettingsSection: some View {
-        CustomSectionView(header: "Study Settings", hPadding: .zero) {
+        CustomSectionView(header: Loc.Profile.studySettings, hPadding: .zero) {
             FormWithDivider {
                 // Weekly Word Goal
                 CellWrapper {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Weekly Word Goal")
+                        Text(Loc.Profile.weeklyWordGoal)
                             .font(.body)
                             .fontWeight(.medium)
-                        Text("\(weeklyWordGoal) words")
+                        Text("\(weeklyWordGoal) \(Loc.Profile.words)")
                             .font(.body)
                             .foregroundColor(.secondary)
                     }
@@ -240,7 +240,7 @@ struct LearningPreferencesView: View {
 
                 // Preferred Study Time
                 CellWrapper {
-                    Text("Preferred Study Time")
+                    Text(Loc.Profile.preferredStudyTime)
                         .font(.body)
                         .fontWeight(.medium)
                 } trailingContent: {

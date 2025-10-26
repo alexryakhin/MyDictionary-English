@@ -203,7 +203,10 @@ struct SettingsView: View {
                                 viewModel.output.send(.showAuthentication)
                             }
                             
-                            ActionButton(Loc.Settings.learningPreferences, systemImage: "person.crop.circle.badge.ellipsis.fill") {
+                            ActionButton(
+                                Loc.Profile.learningPreferencesTitle,
+                                systemImage: "person.crop.circle.badge.ellipsis.fill"
+                            ) {
                                 showLearningPreferences.toggle()
                             }
                         }

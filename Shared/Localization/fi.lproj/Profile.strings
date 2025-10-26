@@ -36,3 +36,24 @@
 "found_user" = "Käyttäjä löydetty";
 "user_not_found" = "Käyttäjää ei löydy.";
 "user_not_found_message" = "Käyttäjää ei löydy annetuilla tiedoilla. Tarkista haku ja yritä uudelleen.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Oppimisasetukset";
+"learning_preferences_description" = "Mukauta oppimistavoitteesi, opiskelukielesi ja asetuksesi";
+"customize_learning" = "Mukauta Oppimista";
+"update_goals_languages" = "Päivitä tavoitteesi, kielet ja opiskeluasetuksesi";
+"loading_preferences" = "Ladataan asetuksia...";
+"no_profile_found" = "Profiilia ei löytynyt";
+"profile_information" = "Profiilitiedot";
+"name" = "Nimi";
+"user_type" = "Käyttäjätyyppi";
+"age_group" = "Ikäryhmä";
+"not_set" = "Ei asetettu";
+"learning_goals" = "Oppimistavoitteet";
+"study_languages" = "Opiskelukielet";
+"add_language" = "Lisää Kieli";
+"interests" = "Kiinnostukset";
+"study_settings" = "Opiskeluasetukset";
+"weekly_word_goal" = "Viikoittainen Sanamäärä";
+"words" = "sanaa";
+"preferred_study_time" = "Suosittu Opiskeluaika";

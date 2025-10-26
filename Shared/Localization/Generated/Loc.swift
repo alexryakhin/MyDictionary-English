@@ -1155,6 +1155,10 @@ public enum Loc {
     public static let accountLinking = Loc.tr("Profile", "account_linking", fallback: "Account Linking")
     /// To access your subscription on Android devices, you need to link a Google account. For cross-platform subscription sharing, link both accounts.
     public static let accountLinkingDescription = Loc.tr("Profile", "account_linking_description", fallback: "To access your subscription on Android devices, you need to link a Google account. For cross-platform subscription sharing, link both accounts.")
+    /// Add Language
+    public static let addLanguage = Loc.tr("Profile", "add_language", fallback: "Add Language")
+    /// Age Group
+    public static let ageGroup = Loc.tr("Profile", "age_group", fallback: "Age Group")
     /// Apple ID
     public static let appleId = Loc.tr("Profile", "apple_id", fallback: "Apple ID")
     /// Cancel
@@ -1163,6 +1167,8 @@ public enum Loc {
     public static let crossPlatformButtonDescription = Loc.tr("Profile", "cross_platform_button_description", fallback: "For cross-platform subscription sharing")
     /// Current Account
     public static let currentAccount = Loc.tr("Profile", "current_account", fallback: "Current Account")
+    /// Customize Learning
+    public static let customizeLearning = Loc.tr("Profile", "customize_learning", fallback: "Customize Learning")
     /// Edit Nickname
     public static let editNickname = Loc.tr("Profile", "edit_nickname", fallback: "Edit Nickname")
     /// Email
@@ -1181,12 +1187,24 @@ public enum Loc {
     public static let foundUser = Loc.tr("Profile", "found_user", fallback: "Found User")
     /// Google Account
     public static let googleAccount = Loc.tr("Profile", "google_account", fallback: "Google Account")
+    /// Interests
+    public static let interests = Loc.tr("Profile", "interests", fallback: "Interests")
+    /// Learning Goals
+    public static let learningGoals = Loc.tr("Profile", "learning_goals", fallback: "Learning Goals")
+    /// Customize your learning goals, study languages, and preferences
+    public static let learningPreferencesDescription = Loc.tr("Profile", "learning_preferences_description", fallback: "Customize your learning goals, study languages, and preferences")
+    /// Learning Preferences
+    public static let learningPreferencesTitle = Loc.tr("Profile", "learning_preferences_title", fallback: "Learning Preferences")
     /// Link Apple ID
     public static let linkAppleForCrossPlatform = Loc.tr("Profile", "link_apple_for_cross_platform", fallback: "Link Apple ID")
     /// Link Google Account
     public static let linkGoogleForAndroid = Loc.tr("Profile", "link_google_for_android", fallback: "Link Google Account")
     /// Linked Accounts
     public static let linkedAccounts = Loc.tr("Profile", "linked_accounts", fallback: "Linked Accounts")
+    /// Loading preferences...
+    public static let loadingPreferences = Loc.tr("Profile", "loading_preferences", fallback: "Loading preferences...")
+    /// Name
+    public static let name = Loc.tr("Profile", "name", fallback: "Name")
     /// Nickname
     public static let nickname = Loc.tr("Profile", "nickname", fallback: "Nickname")
     /// This nickname is already taken. Please choose a different one.
@@ -1203,20 +1221,40 @@ public enum Loc {
     public static let nicknameNotSet = Loc.tr("Profile", "nickname_not_set", fallback: "Nickname is not set")
     /// No linked accounts
     public static let noLinkedAccounts = Loc.tr("Profile", "no_linked_accounts", fallback: "No linked accounts")
+    /// No profile found
+    public static let noProfileFound = Loc.tr("Profile", "no_profile_found", fallback: "No profile found")
+    /// Not set
+    public static let notSet = Loc.tr("Profile", "not_set", fallback: "Not set")
+    /// Preferred Study Time
+    public static let preferredStudyTime = Loc.tr("Profile", "preferred_study_time", fallback: "Preferred Study Time")
     /// Profile
     public static let profile = Loc.tr("Profile", "profile", fallback: "Profile")
+    /// Profile Information
+    public static let profileInformation = Loc.tr("Profile", "profile_information", fallback: "Profile Information")
     /// Save
     public static let save = Loc.tr("Profile", "save", fallback: "Save")
     /// Search by
     public static let searchBy = Loc.tr("Profile", "search_by", fallback: "Search by")
     /// Search Method
     public static let searchMethod = Loc.tr("Profile", "search_method", fallback: "Search Method")
+    /// Study Languages
+    public static let studyLanguages = Loc.tr("Profile", "study_languages", fallback: "Study Languages")
+    /// Study Settings
+    public static let studySettings = Loc.tr("Profile", "study_settings", fallback: "Study Settings")
     /// Unknown User
     public static let unknownUser = Loc.tr("Profile", "unknown_user", fallback: "Unknown User")
+    /// Update your goals, languages, and study preferences
+    public static let updateGoalsLanguages = Loc.tr("Profile", "update_goals_languages", fallback: "Update your goals, languages, and study preferences")
     /// User not found.
     public static let userNotFound = Loc.tr("Profile", "user_not_found", fallback: "User not found.")
     /// No user found with the provided information. Please check your search and try again.
     public static let userNotFoundMessage = Loc.tr("Profile", "user_not_found_message", fallback: "No user found with the provided information. Please check your search and try again.")
+    /// User Type
+    public static let userType = Loc.tr("Profile", "user_type", fallback: "User Type")
+    /// Weekly Word Goal
+    public static let weeklyWordGoal = Loc.tr("Profile", "weekly_word_goal", fallback: "Weekly Word Goal")
+    /// words
+    public static let words = Loc.tr("Profile", "words", fallback: "words")
   }
   public enum Quizzes {
     /// Accuracy
@@ -1664,8 +1702,6 @@ public enum Loc {
     public static let contactMe = Loc.tr("Settings", "contact_me", fallback: "Contact Me")
     /// Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or via Email!
     public static let contactSupport = Loc.tr("Settings", "contact_support", fallback: "Have questions, suggestions, or feedback? I'd love to hear from you. Reach out to get support on Instagram or via Email!")
-    /// Customize Learning
-    public static let customizeLearning = Loc.tr("Settings", "customize_learning", fallback: "Customize Learning")
     /// Customize your learning experience
     public static let customizeLearningExperience = Loc.tr("Settings", "customize_learning_experience", fallback: "Customize your learning experience")
     /// Daily Reminders
@@ -1728,10 +1764,6 @@ public enum Loc {
     public static let instagram = Loc.tr("Settings", "instagram", fallback: "Instagram")
     /// Learn more
     public static let learnMore = Loc.tr("Settings", "learn_more", fallback: "Learn more")
-    /// Learning Preferences
-    public static let learningPreferences = Loc.tr("Settings", "learning_preferences", fallback: "Learning Preferences")
-    /// Customize your learning goals, study languages, and preferences
-    public static let learningPreferencesDescription = Loc.tr("Settings", "learning_preferences_description", fallback: "Customize your learning goals, study languages, and preferences")
     /// Limited features available
     public static let limitedFeaturesAvailable = Loc.tr("Settings", "limited_features_available", fallback: "Limited features available")
     /// Manage Tags
@@ -1788,8 +1820,6 @@ public enum Loc {
     public static let trackLearningProgress = Loc.tr("Settings", "track_learning_progress", fallback: "Track your learning progress")
     /// Translate Definitions
     public static let translateDefinitions = Loc.tr("Settings", "translate_definitions", fallback: "Translate Definitions")
-    /// Update your goals, languages, and study preferences
-    public static let updateGoalsLanguages = Loc.tr("Settings", "update_goals_languages", fallback: "Update your goals, languages, and study preferences")
     /// Upload backup to Google
     public static let uploadBackupGoogle = Loc.tr("Settings", "upload_backup_google", fallback: "Upload backup to Google")
     /// Upload backup to Google

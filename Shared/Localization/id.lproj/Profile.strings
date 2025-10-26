@@ -36,3 +36,24 @@
 "found_user" = "Pengguna ditemukan";
 "user_not_found" = "Pengguna tidak ditemukan.";
 "user_not_found_message" = "Tidak ada pengguna yang ditemukan dengan informasi yang diberikan. Periksa pencarian Anda dan coba lagi.";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "Preferensi Pembelajaran";
+"learning_preferences_description" = "Sesuaikan tujuan pembelajaran, bahasa studi, dan preferensi Anda";
+"customize_learning" = "Sesuaikan Pembelajaran";
+"update_goals_languages" = "Perbarui tujuan, bahasa, dan preferensi studi Anda";
+"loading_preferences" = "Memuat preferensi...";
+"no_profile_found" = "Profil tidak ditemukan";
+"profile_information" = "Informasi Profil";
+"name" = "Nama";
+"user_type" = "Jenis Pengguna";
+"age_group" = "Kelompok Usia";
+"not_set" = "Tidak diatur";
+"learning_goals" = "Tujuan Pembelajaran";
+"study_languages" = "Bahasa Studi";
+"add_language" = "Tambahkan Bahasa";
+"interests" = "Minat";
+"study_settings" = "Pengaturan Studi";
+"weekly_word_goal" = "Target Kata Mingguan";
+"words" = "kata";
+"preferred_study_time" = "Waktu Belajar Pilihan";

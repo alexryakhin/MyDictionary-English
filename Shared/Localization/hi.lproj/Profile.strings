@@ -36,3 +36,24 @@
 "found_user" = "उपयोगकर्ता मिला";
 "user_not_found" = "उपयोगकर्ता नहीं मिला।";
 "user_not_found_message" = "प्रदान की गई जानकारी के साथ कोई उपयोगकर्ता नहीं मिला। कृपया अपनी खोज की जाँच करें और फिर से प्रयास करें।";
+
+// MARK: - Learning Preferences
+"learning_preferences_title" = "सीखने की प्राथमिकताएं";
+"learning_preferences_description" = "अपने सीखने के लक्ष्यों, अध्ययन की भाषाओं और प्राथमिकताओं को अनुकूलित करें";
+"customize_learning" = "सीखने को अनुकूलित करें";
+"update_goals_languages" = "अपने लक्ष्यों, भाषाओं और अध्ययन प्राथमिकताओं को अपडेट करें";
+"loading_preferences" = "प्राथमिकताएं लोड हो रही हैं...";
+"no_profile_found" = "कोई प्रोफ़ाइल नहीं मिली";
+"profile_information" = "प्रोफ़ाइल जानकारी";
+"name" = "नाम";
+"user_type" = "उपयोगकर्ता प्रकार";
+"age_group" = "आयु समूह";
+"not_set" = "सेट नहीं";
+"learning_goals" = "सीखने के लक्ष्य";
+"study_languages" = "अध्ययन की भाषाएं";
+"add_language" = "भाषा जोड़ें";
+"interests" = "रुचियां";
+"study_settings" = "अध्ययन सेटिंग्स";
+"weekly_word_goal" = "साप्ताहिक शब्द लक्ष्य";
+"words" = "शब्द";
+"preferred_study_time" = "पसंदीदा अध्ययन समय";

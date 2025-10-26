@@ -76,9 +76,3 @@
 "no_duplicates_message" = "No duplicate words, meanings, or tags were found in your dictionary.";
 "cleanup_completed" = "Cleanup Completed";
 "cleanup_completed_message" = "Successfully cleaned up %d duplicates:\n• %d duplicate words\n• %d duplicate meanings\n• %d duplicate tags\n• %d meanings merged\n• %d tag relationships merged";
-
-// MARK: - Learning Preferences
-"learning_preferences" = "Learning Preferences";
-"learning_preferences_description" = "Customize your learning goals, study languages, and preferences";
-"customize_learning" = "Customize Learning";
-"update_goals_languages" = "Update your goals, languages, and study preferences";
