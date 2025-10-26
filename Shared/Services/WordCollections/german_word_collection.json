@@ -1,0 +1,1734 @@
+{
+    "collections": [
+        {
+            "id": "german_food_dining",
+            "title": "Essen und Restaurant",
+            "description": "Grundwortschatz für Essen, Mahlzeiten und Restaurants auf Deutsch",
+            "level": "A2",
+            "tagValue": "deutsch",
+            "languageCode": "de",
+            "localImageName": "breakfast",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "das_brot",
+                    "text": "das Brot",
+                    "phonetics": "/das.bʁoːt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Nahrungsmittel aus Mehl, Wasser und Salz, das man täglich isst",
+                    "examples": [
+                        "Ich esse Brot mit Butter.",
+                        "Der Bäcker macht frisches Brot."
+                    ]
+                },
+                {
+                    "id": "der_kaese",
+                    "text": "der Käse",
+                    "phonetics": "/deːɐ.ˈkɛːzə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Milchprodukt, das man mit Brot oder in Gerichten isst",
+                    "examples": [
+                        "Ich mag deutschen Käse.",
+                        "Käse schmeckt gut mit Wein."
+                    ]
+                },
+                {
+                    "id": "das_fleisch",
+                    "text": "das Fleisch",
+                    "phonetics": "/das.flaɪ̯ʃ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Nahrungsmittel von Tieren, das man isst",
+                    "examples": [
+                        "Ich esse Fleisch zum Abendessen.",
+                        "Das Fleisch ist gut durchgebraten."
+                    ]
+                },
+                {
+                    "id": "das_restaurant",
+                    "text": "das Restaurant",
+                    "phonetics": "/das.ʁɛs.to.ˈʁɑ̃/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo man zubereitete Gerichte essen kann",
+                    "examples": [
+                        "Wir gehen heute ins Restaurant.",
+                        "Dieses Restaurant hat eine gute Küche."
+                    ]
+                },
+                {
+                    "id": "bestellen",
+                    "text": "bestellen",
+                    "phonetics": "/bə.ˈʃtɛ.lən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Dem Kellner sagen, was man essen möchte",
+                    "examples": [
+                        "Ich bestelle ein Fischgericht.",
+                        "Was möchten Sie bestellen?"
+                    ]
+                },
+                {
+                    "id": "die_rechnung",
+                    "text": "die Rechnung",
+                    "phonetics": "/diː.ˈʁɛç.nʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Papier, das zeigt, wie viel man bezahlen muss",
+                    "examples": [
+                        "Die Rechnung, bitte!",
+                        "Die Rechnung beträgt 25 Euro."
+                    ]
+                },
+                {
+                    "id": "der_kellner",
+                    "text": "der Kellner",
+                    "phonetics": "/deːɐ.ˈkɛl.nɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die das Essen in einem Restaurant bringt",
+                    "examples": [
+                        "Der Kellner ist sehr freundlich.",
+                        "Ich frage den Kellner um Rat."
+                    ]
+                },
+                {
+                    "id": "die_speisekarte",
+                    "text": "die Speisekarte",
+                    "phonetics": "/diː.ˈʃpaɪ̯.zə.ˌkaʁ.tə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Liste der Gerichte, die man in einem Restaurant essen kann",
+                    "examples": [
+                        "Können Sie mir die Speisekarte geben?",
+                        "Die Speisekarte hat viele Auswahlmöglichkeiten."
+                    ]
+                },
+                {
+                    "id": "das_gericht",
+                    "text": "das Gericht",
+                    "phonetics": "/das.ɡə.ˈʁɪçt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Zubereitete Nahrung, die man isst",
+                    "examples": [
+                        "Dieses Gericht ist lecker.",
+                        "Welches Gericht empfehlen Sie?"
+                    ]
+                },
+                {
+                    "id": "der_nachspeise",
+                    "text": "der Nachspeise",
+                    "phonetics": "/deːɐ.ˈnaːx.ˌʃpaɪ̯.zə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Süße Nahrung, die man nach dem Hauptgericht isst",
+                    "examples": [
+                        "Ich nehme eine Nachspeise.",
+                        "Die Nachspeise ist sehr gut."
+                    ]
+                },
+                {
+                    "id": "trinken",
+                    "text": "trinken",
+                    "phonetics": "/ˈtʁɪŋ.kən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Eine Flüssigkeit schlucken",
+                    "examples": [
+                        "Ich trinke Wasser.",
+                        "Was möchten Sie trinken?"
+                    ]
+                },
+                {
+                    "id": "der_wein",
+                    "text": "der Wein",
+                    "phonetics": "/deːɐ.vaɪ̯n/",
+                    "partOfSpeech": "noun",
+                    "definition": "Alkoholisches Getränk aus Trauben",
+                    "examples": [
+                        "Dieser Wein ist ausgezeichnet.",
+                        "Ich trinke ein Glas Wein."
+                    ]
+                },
+                {
+                    "id": "das_wasser",
+                    "text": "das Wasser",
+                    "phonetics": "/das.ˈva.sɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Transparente Flüssigkeit, die man trinkt",
+                    "examples": [
+                        "Ich trinke Mineralwasser.",
+                        "Das Wasser ist kühl."
+                    ]
+                },
+                {
+                    "id": "der_kaffee",
+                    "text": "der Kaffee",
+                    "phonetics": "/deːɐ.ka.ˈfeː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Heißes, schwarzes Getränk, das man morgens trinkt",
+                    "examples": [
+                        "Ich trinke einen Milchkaffee.",
+                        "Der Kaffee hier ist sehr gut."
+                    ]
+                },
+                {
+                    "id": "das_fruehstueck",
+                    "text": "das Frühstück",
+                    "phonetics": "/das.ˈfʁyː.ˌʃtʏk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Erste Mahlzeit des Tages",
+                    "examples": [
+                        "Ich frühstücke um 8 Uhr.",
+                        "Das Frühstück ist fertig."
+                    ]
+                },
+                {
+                    "id": "das_mittagessen",
+                    "text": "das Mittagessen",
+                    "phonetics": "/das.ˈmɪ.taːk.ˌɛ.sən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mahlzeit, die man mittags isst",
+                    "examples": [
+                        "Wir essen zusammen zu Mittag.",
+                        "Das Mittagessen wird serviert."
+                    ]
+                },
+                {
+                    "id": "das_abendessen",
+                    "text": "das Abendessen",
+                    "phonetics": "/das.ˈaː.bənt.ˌɛ.sən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mahlzeit, die man abends isst",
+                    "examples": [
+                        "Wir essen um 19 Uhr zu Abend.",
+                        "Das Abendessen ist ausgezeichnet."
+                    ]
+                },
+                {
+                    "id": "essen",
+                    "text": "essen",
+                    "phonetics": "/ˈɛ.sən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Nahrung in den Mund nehmen",
+                    "examples": [
+                        "Ich esse einen Apfel.",
+                        "Wir essen zusammen."
+                    ]
+                },
+                {
+                    "id": "hunger_haben",
+                    "text": "Hunger haben",
+                    "phonetics": "/ˈhʊŋ.ɐ.ˌhaː.bən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Das Gefühl haben, dass man essen möchte",
+                    "examples": [
+                        "Ich habe Hunger, lass uns essen gehen.",
+                        "Hast du Hunger?"
+                    ]
+                },
+                {
+                    "id": "satt_sein",
+                    "text": "satt sein",
+                    "phonetics": "/zat.zaɪ̯n/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Keine Lust mehr haben zu essen",
+                    "examples": [
+                        "Ich bin satt, danke.",
+                        "Bist du satt?"
+                    ]
+                },
+                {
+                    "id": "der_geschmack",
+                    "text": "der Geschmack",
+                    "phonetics": "/deːɐ.ɡə.ˈʃmak/",
+                    "partOfSpeech": "noun",
+                    "definition": "Empfindung, die man beim Essen hat",
+                    "examples": [
+                        "Dieses Gericht hat einen guten Geschmack.",
+                        "Ich mag den Geschmack von Schokolade."
+                    ]
+                },
+                {
+                    "id": "lecker",
+                    "text": "lecker",
+                    "phonetics": "/ˈlɛ.kɐ/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Was sehr gut schmeckt",
+                    "examples": [
+                        "Dieser Kuchen ist lecker.",
+                        "Die Suppe ist lecker."
+                    ]
+                },
+                {
+                    "id": "die_kueche",
+                    "text": "die Küche",
+                    "phonetics": "/diː.ˈkʏ.çə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kunst, Nahrung zuzubereiten",
+                    "examples": [
+                        "Ich mag die deutsche Küche.",
+                        "Die Küche dieses Restaurants ist ausgezeichnet."
+                    ]
+                },
+                {
+                    "id": "kochen",
+                    "text": "kochen",
+                    "phonetics": "/ˈkɔ.xən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Nahrung zubereiten",
+                    "examples": [
+                        "Ich koche für meine Freunde.",
+                        "Sie kocht sehr gut."
+                    ]
+                },
+                {
+                    "id": "das_rezept",
+                    "text": "das Rezept",
+                    "phonetics": "/das.ʁe.ˈt͡sɛpt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Anleitung, wie man ein Gericht zubereitet",
+                    "examples": [
+                        "Ich habe ein gutes Kuchenrezept.",
+                        "Dieses Rezept ist einfach."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_travel_tourism",
+            "title": "Reisen und Tourismus",
+            "description": "Grundwortschatz für Reisen und Deutschland entdecken",
+            "level": "A2",
+            "tagValue": "deutsch",
+            "languageCode": "de",
+            "localImageName": "travel",
+            "isPremium": false,
+            "isFeatured": true,
+            "words": [
+                {
+                    "id": "die_reise",
+                    "text": "die Reise",
+                    "phonetics": "/diː.ˈʁaɪ̯.zə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bewegung, die man macht, um an einen anderen Ort zu gehen",
+                    "examples": [
+                        "Meine Reise nach Deutschland war wunderbar.",
+                        "Ich mag Reisen mit dem Zug."
+                    ]
+                },
+                {
+                    "id": "reisen",
+                    "text": "reisen",
+                    "phonetics": "/ˈʁaɪ̯.zən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Sich bewegen, um an einen anderen Ort zu gehen",
+                    "examples": [
+                        "Ich reise viel für meine Arbeit.",
+                        "Wir reisen gerne zusammen."
+                    ]
+                },
+                {
+                    "id": "das_hotel",
+                    "text": "das Hotel",
+                    "phonetics": "/das.ho.ˈtɛl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo man schläft, wenn man reist",
+                    "examples": [
+                        "Unser Hotel ist nah am Bahnhof.",
+                        "Das Hotel hat eine schöne Aussicht."
+                    ]
+                },
+                {
+                    "id": "der_flughafen",
+                    "text": "der Flughafen",
+                    "phonetics": "/deːɐ.ˈfluːk.ˌhaː.fən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo Flugzeuge ankommen und abfliegen",
+                    "examples": [
+                        "Der Flughafen ist sehr groß.",
+                        "Ich fahre mit dem Taxi zum Flughafen."
+                    ]
+                },
+                {
+                    "id": "der_bahnhof",
+                    "text": "der Bahnhof",
+                    "phonetics": "/deːɐ.ˈbaːn.ˌhoːf/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo Züge ankommen und abfahren",
+                    "examples": [
+                        "Der Bahnhof ist in der Innenstadt.",
+                        "Ich nehme den Zug am Bahnhof."
+                    ]
+                },
+                {
+                    "id": "die_fahrkarte",
+                    "text": "die Fahrkarte",
+                    "phonetics": "/diː.ˈfaːɐ.ˌkaʁ.tə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Papier, das erlaubt zu reisen",
+                    "examples": [
+                        "Ich habe meine Zugfahrkarte gekauft.",
+                        "Die Fahrkarte kostet 50 Euro."
+                    ]
+                },
+                {
+                    "id": "buchen",
+                    "text": "buchen",
+                    "phonetics": "/ˈbuː.xən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Bitten, einen Platz zu reservieren",
+                    "examples": [
+                        "Ich buche ein Hotelzimmer.",
+                        "Man muss im Voraus buchen."
+                    ]
+                },
+                {
+                    "id": "die_buchung",
+                    "text": "die Buchung",
+                    "phonetics": "/diː.ˈbuː.xʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Aktion, etwas zu buchen",
+                    "examples": [
+                        "Meine Buchung ist bestätigt.",
+                        "Ich habe eine Buchung für zwei Personen."
+                    ]
+                },
+                {
+                    "id": "der_tourist",
+                    "text": "der Tourist",
+                    "phonetics": "/deːɐ.tu.ˈʁɪst/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die reist, um Orte zu besuchen",
+                    "examples": [
+                        "Ich bin Tourist in Berlin.",
+                        "Die Touristen besuchen das Brandenburger Tor."
+                    ]
+                },
+                {
+                    "id": "besuchen",
+                    "text": "besuchen",
+                    "phonetics": "/bə.ˈzuː.xən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Interessante Orte ansehen gehen",
+                    "examples": [
+                        "Ich besuche morgen das Museum.",
+                        "Wir besuchen die Stadt zusammen."
+                    ]
+                },
+                {
+                    "id": "der_besuch",
+                    "text": "der Besuch",
+                    "phonetics": "/deːɐ.bə.ˈzuːx/",
+                    "partOfSpeech": "noun",
+                    "definition": "Aktion, einen Ort zu besuchen",
+                    "examples": [
+                        "Der Museumsbesuch dauert zwei Stunden.",
+                        "Ich mag geführte Besuche."
+                    ]
+                },
+                {
+                    "id": "der_fuehrer",
+                    "text": "der Führer",
+                    "phonetics": "/deːɐ.ˈfyː.ʁɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die Touristen die Orte zeigt",
+                    "examples": [
+                        "Der Führer erklärt uns die Geschichte.",
+                        "Unser Führer spricht mehrere Sprachen."
+                    ]
+                },
+                {
+                    "id": "die_karte",
+                    "text": "die Karte",
+                    "phonetics": "/diː.ˈkaʁ.tə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Zeichnung, die Straßen und Orte zeigt",
+                    "examples": [
+                        "Ich brauche eine Stadtkarte.",
+                        "Die Karte ist im Reiseführer."
+                    ]
+                },
+                {
+                    "id": "sich_verirren",
+                    "text": "sich verirren",
+                    "phonetics": "/zɪç.fɛɐ.ˈɪ.ʁən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Nicht mehr wissen, wo man ist",
+                    "examples": [
+                        "Ich habe mich in der Stadt verirrt.",
+                        "Achtung, verirren Sie sich nicht!"
+                    ]
+                },
+                {
+                    "id": "nach_dem_weg_fragen",
+                    "text": "nach dem Weg fragen",
+                    "phonetics": "/naːx.dem.veːk.ˈfʁaː.ɡən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Fragen, wie man irgendwohin geht",
+                    "examples": [
+                        "Ich frage einen Passanten nach dem Weg.",
+                        "Können Sie mir den Weg sagen?"
+                    ]
+                },
+                {
+                    "id": "die_richtung",
+                    "text": "die Richtung",
+                    "phonetics": "/diː.ˈʁɪç.tʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Seite, in die man geht",
+                    "examples": [
+                        "In welche Richtung gehen Sie?",
+                        "Die Richtung zur Innenstadt ist dort."
+                    ]
+                },
+                {
+                    "id": "der_reisepass",
+                    "text": "der Reisepass",
+                    "phonetics": "/deːɐ.ˈʁaɪ̯.zə.ˌpas/",
+                    "partOfSpeech": "noun",
+                    "definition": "Dokument, das erlaubt, in andere Länder zu reisen",
+                    "examples": [
+                        "Ich habe meinen Reisepass vergessen.",
+                        "Der Reisepass ist fünf Jahre gültig."
+                    ]
+                },
+                {
+                    "id": "der_koffer",
+                    "text": "der Koffer",
+                    "phonetics": "/deːɐ.ˈkɔ.fɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Behälter, den man auf Reisen mitnimmt",
+                    "examples": [
+                        "Mein Koffer ist sehr schwer.",
+                        "Ich packe meinen Koffer heute Abend."
+                    ]
+                },
+                {
+                    "id": "den_koffer_packen",
+                    "text": "den Koffer packen",
+                    "phonetics": "/den.ˈkɔ.fɐ.ˈpa.kən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Seine Sachen in den Koffer legen",
+                    "examples": [
+                        "Ich packe meinen Koffer für die Reise.",
+                        "Sie packt ihren Koffer schnell."
+                    ]
+                },
+                {
+                    "id": "die_abreise",
+                    "text": "die Abreise",
+                    "phonetics": "/diː.ˈap.ˌʁaɪ̯.zə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Moment, wo man eine Reise beginnt",
+                    "examples": [
+                        "Die Abreise ist um 8 Uhr morgens.",
+                        "Ich bin bereit für die Abreise."
+                    ]
+                },
+                {
+                    "id": "die_ankunft",
+                    "text": "die Ankunft",
+                    "phonetics": "/diː.ˈan.ˌkʊnft/",
+                    "partOfSpeech": "noun",
+                    "definition": "Moment, wo man am Ziel ankommt",
+                    "examples": [
+                        "Die Ankunft ist um 15 Uhr geplant.",
+                        "Wir sind an der Ankunft."
+                    ]
+                },
+                {
+                    "id": "das_souvenir",
+                    "text": "das Souvenir",
+                    "phonetics": "/das.zu.və.ˈniːɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sache, die man kauft, um sich an eine Reise zu erinnern",
+                    "examples": [
+                        "Ich kaufe ein Souvenir für meine Familie.",
+                        "Dieses Souvenir erinnert mich an Berlin."
+                    ]
+                },
+                {
+                    "id": "das_foto",
+                    "text": "das Foto",
+                    "phonetics": "/das.ˈfo.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bild, das man mit einer Kamera macht",
+                    "examples": [
+                        "Ich mache ein Foto vom Brandenburger Tor.",
+                        "Dieses Foto ist sehr schön."
+                    ]
+                },
+                {
+                    "id": "ein_foto_machen",
+                    "text": "ein Foto machen",
+                    "phonetics": "/aɪ̯n.ˈfo.to.ˈma.xən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Ein Bild mit einer Kamera erstellen",
+                    "examples": [
+                        "Ich mache ein Foto vom Denkmal.",
+                        "Können Sie ein Foto von uns machen?"
+                    ]
+                },
+                {
+                    "id": "das_denkmal",
+                    "text": "das Denkmal",
+                    "phonetics": "/das.ˈdɛŋk.ˌmaːl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wichtiges und altes Gebäude",
+                    "examples": [
+                        "Dieses Denkmal ist sehr berühmt.",
+                        "Wir besuchen die Denkmäler der Stadt."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_business_work",
+            "title": "Geschäft und Arbeit",
+            "description": "Berufsvokabular für die Arbeitswelt und Geschäfte",
+            "level": "B1",
+            "tagValue": "deutsch",
+            "languageCode": "de",
+            "localImageName": "business",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "die_arbeit",
+                    "text": "die Arbeit",
+                    "phonetics": "/diː.ˈaʁ.baɪ̯t/",
+                    "partOfSpeech": "noun",
+                    "definition": "Aktivität, die man macht, um Geld zu verdienen",
+                    "examples": [
+                        "Meine Arbeit ist interessant.",
+                        "Ich suche eine neue Arbeit."
+                    ]
+                },
+                {
+                    "id": "arbeiten",
+                    "text": "arbeiten",
+                    "phonetics": "/ˈaʁ.baɪ̯.tən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Eine Aktivität machen, um Geld zu verdienen",
+                    "examples": [
+                        "Ich arbeite in einem Unternehmen.",
+                        "Sie arbeitet hart."
+                    ]
+                },
+                {
+                    "id": "das_unternehmen",
+                    "text": "das Unternehmen",
+                    "phonetics": "/das.ʊn.tɐ.ˈneː.mən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Organisation, die Geschäfte macht",
+                    "examples": [
+                        "Mein Unternehmen ist sehr groß.",
+                        "Dieses Unternehmen stellt ein."
+                    ]
+                },
+                {
+                    "id": "das_buero",
+                    "text": "das Büro",
+                    "phonetics": "/das.ˈby.ʁo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo man arbeitet",
+                    "examples": [
+                        "Mein Büro ist im dritten Stock.",
+                        "Ich gehe jeden Tag ins Büro."
+                    ]
+                },
+                {
+                    "id": "der_kollege",
+                    "text": "der Kollege",
+                    "phonetics": "/deːɐ.kɔ.ˈleː.ɡə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die mit uns arbeitet",
+                    "examples": [
+                        "Mein Kollege ist sehr nett.",
+                        "Ich esse mit meinen Kollegen zu Mittag."
+                    ]
+                },
+                {
+                    "id": "der_chef",
+                    "text": "der Chef",
+                    "phonetics": "/deːɐ.ʃɛf/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die das Unternehmen leitet",
+                    "examples": [
+                        "Der Chef ist sehr streng.",
+                        "Ich spreche morgen mit dem Chef."
+                    ]
+                },
+                {
+                    "id": "das_meeting",
+                    "text": "das Meeting",
+                    "phonetics": "/das.ˈmiː.tɪŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Moment, wo mehrere Personen sich treffen, um zu sprechen",
+                    "examples": [
+                        "Ich habe ein Meeting um 14 Uhr.",
+                        "Das Meeting dauert zwei Stunden."
+                    ]
+                },
+                {
+                    "id": "das_projekt",
+                    "text": "das Projekt",
+                    "phonetics": "/das.pʁo.ˈjɛkt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Arbeit, die man machen muss",
+                    "examples": [
+                        "Dieses Projekt ist wichtig.",
+                        "Ich arbeite an einem neuen Projekt."
+                    ]
+                },
+                {
+                    "id": "die_aufgabe",
+                    "text": "die Aufgabe",
+                    "phonetics": "/diː.ˈaʊ̯f.ˌɡaː.bə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Besondere Arbeit, die man erledigen muss",
+                    "examples": [
+                        "Meine Aufgabe ist es, mehr zu verkaufen.",
+                        "Diese Aufgabe ist schwierig."
+                    ]
+                },
+                {
+                    "id": "der_kunde",
+                    "text": "der Kunde",
+                    "phonetics": "/deːɐ.ˈkʊn.də/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die unsere Produkte oder Dienstleistungen kauft",
+                    "examples": [
+                        "Dieser Kunde ist sehr wichtig.",
+                        "Ich treffe einen neuen Kunden."
+                    ]
+                },
+                {
+                    "id": "der_verkauf",
+                    "text": "der Verkauf",
+                    "phonetics": "/deːɐ.fɛɐ.ˈkaʊ̯f/",
+                    "partOfSpeech": "noun",
+                    "definition": "Aktion, etwas zu verkaufen",
+                    "examples": [
+                        "Die Verkäufe steigen.",
+                        "Ich arbeite im Verkauf."
+                    ]
+                },
+                {
+                    "id": "verkaufen",
+                    "text": "verkaufen",
+                    "phonetics": "/fɛɐ.ˈkaʊ̯.fən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Etwas gegen Geld geben",
+                    "examples": [
+                        "Ich verkaufe Produkte.",
+                        "Dieses Unternehmen verkauft Autos."
+                    ]
+                },
+                {
+                    "id": "das_gehalt",
+                    "text": "das Gehalt",
+                    "phonetics": "/das.ɡə.ˈhalt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Geld, das man für seine Arbeit bekommt",
+                    "examples": [
+                        "Mein Gehalt ist in Ordnung.",
+                        "Das Gehalt steigt jedes Jahr."
+                    ]
+                },
+                {
+                    "id": "der_vertrag",
+                    "text": "der Vertrag",
+                    "phonetics": "/deːɐ.fɛɐ.ˈtʁaːk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Dokument, das die Bedingungen der Arbeit sagt",
+                    "examples": [
+                        "Ich habe meinen Vertrag unterschrieben.",
+                        "Der Vertrag ist drei Jahre gültig."
+                    ]
+                },
+                {
+                    "id": "die_einstellung",
+                    "text": "die Einstellung",
+                    "phonetics": "/diː.ˈaɪ̯n.ˌʃtɛ.lʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Aktion, jemanden zum Arbeiten zu nehmen",
+                    "examples": [
+                        "Die Einstellung findet morgen statt.",
+                        "Dieses Unternehmen macht Einstellungen."
+                    ]
+                },
+                {
+                    "id": "einstellen",
+                    "text": "einstellen",
+                    "phonetics": "/ˈaɪ̯n.ˌʃtɛ.lən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Jemanden zum Arbeiten nehmen",
+                    "examples": [
+                        "Wir stellen einen neuen Mitarbeiter ein.",
+                        "Dieses Unternehmen stellt viel ein."
+                    ]
+                },
+                {
+                    "id": "der_mitarbeiter",
+                    "text": "der Mitarbeiter",
+                    "phonetics": "/deːɐ.ˈmiːt.ˌaʁ.baɪ̯.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die in einem Unternehmen arbeitet",
+                    "examples": [
+                        "Ich bin Mitarbeiter in dieser Firma.",
+                        "Die Mitarbeiter sind zufrieden."
+                    ]
+                },
+                {
+                    "id": "die_ausbildung",
+                    "text": "die Ausbildung",
+                    "phonetics": "/diː.ˈaʊ̯s.ˌbiː.lʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Lernen, um seine Fähigkeiten zu verbessern",
+                    "examples": [
+                        "Ich mache eine Ausbildung in Informatik.",
+                        "Die Ausbildung dauert eine Woche."
+                    ]
+                },
+                {
+                    "id": "die_faehigkeit",
+                    "text": "die Fähigkeit",
+                    "phonetics": "/diː.ˈfɛː.ɪç.kaɪ̯t/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fähigkeit, etwas zu tun",
+                    "examples": [
+                        "Meine Fähigkeiten werden anerkannt.",
+                        "Diese Fähigkeit ist wichtig."
+                    ]
+                },
+                {
+                    "id": "die_herausforderung",
+                    "text": "die Herausforderung",
+                    "phonetics": "/diː.hɛ.ˈʁaʊ̯s.ˌfoʁ.də.ʁʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Schwierige Situation, die man lösen muss",
+                    "examples": [
+                        "Diese Herausforderung ist spannend.",
+                        "Ich mag berufliche Herausforderungen."
+                    ]
+                },
+                {
+                    "id": "der_erfolg",
+                    "text": "der Erfolg",
+                    "phonetics": "/deːɐ.ɛɐ.ˈfɔlk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Positives Ergebnis, das man bekommt",
+                    "examples": [
+                        "Der Erfolg dieses Projekts ist wichtig.",
+                        "Wir feiern unseren Erfolg."
+                    ]
+                },
+                {
+                    "id": "erfolgreich_sein",
+                    "text": "erfolgreich sein",
+                    "phonetics": "/ɛɐ.ˈfɔlk.ʁɛç.zaɪ̯n/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Ein gutes Ergebnis bekommen",
+                    "examples": [
+                        "Ich bin erfolgreich in meiner Arbeit.",
+                        "Dieses Unternehmen ist erfolgreich."
+                    ]
+                },
+                {
+                    "id": "das_gespraech",
+                    "text": "das Gespräch",
+                    "phonetics": "/das.ɡə.ˈʃpʁɛːç/",
+                    "partOfSpeech": "noun",
+                    "definition": "Moment, wo man über Arbeit spricht",
+                    "examples": [
+                        "Ich habe ein wichtiges Gespräch.",
+                        "Das Gespräch beginnt um 9 Uhr."
+                    ]
+                },
+                {
+                    "id": "der_termine",
+                    "text": "der Termin",
+                    "phonetics": "/deːɐ.tɛɐ.ˈmiːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fester Zeitpunkt, um jemanden zu treffen",
+                    "examples": [
+                        "Ich habe einen Termin mit dem Kunden.",
+                        "Der Termin ist um 15 Uhr."
+                    ]
+                },
+                {
+                    "id": "die_praesentation",
+                    "text": "die Präsentation",
+                    "phonetics": "/diː.pʁe.zɛn.ta.ˈt͡si̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Moment, wo man anderen etwas zeigt",
+                    "examples": [
+                        "Meine Präsentation ist fertig.",
+                        "Die Präsentation dauert 30 Minuten."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_family_relationships",
+            "title": "Familie und Beziehungen",
+            "description": "Wortschatz für Familie und persönliche Beziehungen",
+            "level": "A1",
+            "tagValue": "deutsch",
+            "languageCode": "de",
+            "localImageName": "family",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "die_familie",
+                    "text": "die Familie",
+                    "phonetics": "/diː.fa.ˈmiː.li̯ə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gruppe von Personen, die durch Blut oder Liebe verbunden sind",
+                    "examples": [
+                        "Meine Familie ist sehr wichtig für mich.",
+                        "Ich verbringe gerne Zeit mit meiner Familie."
+                    ]
+                },
+                {
+                    "id": "der_vater",
+                    "text": "der Vater",
+                    "phonetics": "/deːɐ.ˈfaː.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mann, der Kinder hat",
+                    "examples": [
+                        "Mein Vater arbeitet in einem Büro.",
+                        "Der Vater von Marie ist Arzt."
+                    ]
+                },
+                {
+                    "id": "die_mutter",
+                    "text": "die Mutter",
+                    "phonetics": "/diː.ˈmʊ.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Frau, die Kinder hat",
+                    "examples": [
+                        "Meine Mutter kocht sehr gut.",
+                        "Die Mutter von Peter ist Lehrerin."
+                    ]
+                },
+                {
+                    "id": "das_kind",
+                    "text": "das Kind",
+                    "phonetics": "/das.kɪnt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Junge Person, die noch nicht erwachsen ist",
+                    "examples": [
+                        "Dieses Kind spielt im Garten.",
+                        "Die Kinder gehen zur Schule."
+                    ]
+                },
+                {
+                    "id": "der_sohn",
+                    "text": "der Sohn",
+                    "phonetics": "/deːɐ.zoːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Junge in Bezug zu seinen Eltern",
+                    "examples": [
+                        "Mein Sohn ist 10 Jahre alt.",
+                        "Der Sohn meiner Schwester ist sehr nett."
+                    ]
+                },
+                {
+                    "id": "die_tochter",
+                    "text": "die Tochter",
+                    "phonetics": "/diː.ˈtɔx.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mädchen in Bezug zu ihren Eltern",
+                    "examples": [
+                        "Meine Tochter studiert an der Universität.",
+                        "Die Tochter meines Nachbarn ist sehr schön."
+                    ]
+                },
+                {
+                    "id": "der_bruder",
+                    "text": "der Bruder",
+                    "phonetics": "/deːɐ.ˈbʁuː.dɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Junge, der die gleichen Eltern hat",
+                    "examples": [
+                        "Mein Bruder ist älter als ich.",
+                        "Ich habe zwei Brüder und eine Schwester."
+                    ]
+                },
+                {
+                    "id": "die_schwester",
+                    "text": "die Schwester",
+                    "phonetics": "/diː.ˈʃvɛs.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mädchen, das die gleichen Eltern hat",
+                    "examples": [
+                        "Meine Schwester wohnt in Paris.",
+                        "Ich habe eine große Schwester und einen kleinen Bruder."
+                    ]
+                },
+                {
+                    "id": "der_grossvater",
+                    "text": "der Großvater",
+                    "phonetics": "/deːɐ.ˈɡʁoːs.ˌfaː.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Vater des Vaters oder der Mutter",
+                    "examples": [
+                        "Mein Großvater erzählt schöne Geschichten.",
+                        "Der Großvater von Hans ist sehr alt."
+                    ]
+                },
+                {
+                    "id": "die_grossmutter",
+                    "text": "die Großmutter",
+                    "phonetics": "/diː.ˈɡʁoːs.ˌmʊ.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mutter des Vaters oder der Mutter",
+                    "examples": [
+                        "Meine Großmutter macht gute Kuchen.",
+                        "Die Großmutter von Marie ist sehr nett."
+                    ]
+                },
+                {
+                    "id": "der_onkel",
+                    "text": "der Onkel",
+                    "phonetics": "/deːɐ.ˈɔŋ.kəl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bruder des Vaters oder der Mutter",
+                    "examples": [
+                        "Mein Onkel wohnt in England.",
+                        "Der Onkel von Peter ist sehr lustig."
+                    ]
+                },
+                {
+                    "id": "die_tante",
+                    "text": "die Tante",
+                    "phonetics": "/diː.ˈtan.tə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Schwester des Vaters oder der Mutter",
+                    "examples": [
+                        "Meine Tante besucht uns oft.",
+                        "Die Tante von Marie ist sehr großzügig."
+                    ]
+                },
+                {
+                    "id": "der_cousin",
+                    "text": "der Cousin",
+                    "phonetics": "/deːɐ.ku.ˈzɛ̃/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sohn des Onkels oder der Tante",
+                    "examples": [
+                        "Mein Cousin spielt Fußball.",
+                        "Der Cousin von Hans ist sehr intelligent."
+                    ]
+                },
+                {
+                    "id": "die_cousine",
+                    "text": "die Cousine",
+                    "phonetics": "/diː.ku.ˈziːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Tochter des Onkels oder der Tante",
+                    "examples": [
+                        "Meine Cousine tanzt sehr gut.",
+                        "Die Cousine von Peter ist sehr hübsch."
+                    ]
+                },
+                {
+                    "id": "der_ehemann",
+                    "text": "der Ehemann",
+                    "phonetics": "/deːɐ.ˈeː.ə.ˌman/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mann, der mit einer Frau verheiratet ist",
+                    "examples": [
+                        "Mein Ehemann arbeitet in einer Bank.",
+                        "Der Ehemann von Marie ist sehr nett."
+                    ]
+                },
+                {
+                    "id": "die_ehefrau",
+                    "text": "die Ehefrau",
+                    "phonetics": "/diː.ˈeː.ə.ˌfʁaʊ̯/",
+                    "partOfSpeech": "noun",
+                    "definition": "Frau, die mit einem Mann verheiratet ist",
+                    "examples": [
+                        "Meine Ehefrau ist Lehrerin.",
+                        "Die Ehefrau von Hans ist sehr schön."
+                    ]
+                },
+                {
+                    "id": "der_freund",
+                    "text": "der Freund",
+                    "phonetics": "/deːɐ.fʁɔɪ̯nt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die man mag und kennt",
+                    "examples": [
+                        "Mein Freund wohnt in der Nähe.",
+                        "Der Freund von Peter ist sehr sympathisch."
+                    ]
+                },
+                {
+                    "id": "die_freundin",
+                    "text": "die Freundin",
+                    "phonetics": "/diː.ˈfʁɔɪ̯n.dɪn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Frau, die man mag und kennt",
+                    "examples": [
+                        "Meine Freundin arbeitet in einem Laden.",
+                        "Die Freundin von Marie ist sehr lustig."
+                    ]
+                },
+                {
+                    "id": "lieben",
+                    "text": "lieben",
+                    "phonetics": "/ˈliː.bən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Zuneigung für jemanden haben",
+                    "examples": [
+                        "Ich liebe meine Familie sehr.",
+                        "Sie liebt ihre Freunde."
+                    ]
+                },
+                {
+                    "id": "die_liebe",
+                    "text": "die Liebe",
+                    "phonetics": "/diː.ˈliː.bə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sehr starkes Gefühl, das man für jemanden hat",
+                    "examples": [
+                        "Die Liebe meiner Familie ist wichtig.",
+                        "Die Liebe macht glücklich."
+                    ]
+                },
+                {
+                    "id": "sich_verheiraten",
+                    "text": "sich verheiraten",
+                    "phonetics": "/zɪç.fɛɐ.ˈheː.ʁa.tən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Offiziell Ehemann und Ehefrau werden",
+                    "examples": [
+                        "Sie werden im Juni heiraten.",
+                        "Meine Eltern haben vor 20 Jahren geheiratet."
+                    ]
+                },
+                {
+                    "id": "die_hochzeit",
+                    "text": "die Hochzeit",
+                    "phonetics": "/diː.ˈhɔx.ˌtsaɪ̯t/",
+                    "partOfSpeech": "noun",
+                    "definition": "Feier, wo zwei Personen heiraten",
+                    "examples": [
+                        "Die Hochzeit meiner Schwester ist morgen.",
+                        "Die Hochzeit findet in einer Kirche statt."
+                    ]
+                },
+                {
+                    "id": "geboren_werden",
+                    "text": "geboren werden",
+                    "phonetics": "/ɡə.ˈboː.ʁən.ˈveːɐ.dən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Auf die Welt kommen",
+                    "examples": [
+                        "Ich bin in Deutschland geboren.",
+                        "Das Baby wird bald geboren."
+                    ]
+                },
+                {
+                    "id": "wachsen",
+                    "text": "wachsen",
+                    "phonetics": "/ˈvak.sən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Größer und älter werden",
+                    "examples": [
+                        "Die Kinder wachsen schnell.",
+                        "Ich wachse jedes Jahr."
+                    ]
+                },
+                {
+                    "id": "das_haus",
+                    "text": "das Haus",
+                    "phonetics": "/das.haʊ̯s/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo eine Familie wohnt",
+                    "examples": [
+                        "Unser Haus ist sehr gemütlich.",
+                        "Das Haus meiner Eltern ist groß."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_internet_technology",
+            "title": "Internet und Technologie",
+            "description": "Moderner Wortschatz für Informatik, Internet und neue Technologien",
+            "level": "B1",
+            "tagValue": "deutsch",
+            "languageCode": "de",
+            "localImageName": "laptop",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "der_computer",
+                    "text": "der Computer",
+                    "phonetics": "/deːɐ.kɔm.ˈpjuː.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Maschine, die Berechnungen macht und Programme verwendet",
+                    "examples": [
+                        "Mein Computer ist sehr schnell.",
+                        "Ich benutze meinen Computer zum Arbeiten."
+                    ]
+                },
+                {
+                    "id": "das_telefon",
+                    "text": "das Telefon",
+                    "phonetics": "/das.te.le.ˈfoːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gerät, das erlaubt, mit weit entfernten Personen zu sprechen",
+                    "examples": [
+                        "Mein Telefon klingelt.",
+                        "Ich telefoniere mit meiner Mutter."
+                    ]
+                },
+                {
+                    "id": "das_internet",
+                    "text": "das Internet",
+                    "phonetics": "/das.ˈɪn.tɐ.ˌnɛt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Weltweites Netzwerk, das alle Computer verbindet",
+                    "examples": [
+                        "Ich benutze das Internet jeden Tag.",
+                        "Das Internet ist sehr nützlich."
+                    ]
+                },
+                {
+                    "id": "die_website",
+                    "text": "die Website",
+                    "phonetics": "/diː.ˈvɛb.ˌsaɪ̯t/",
+                    "partOfSpeech": "noun",
+                    "definition": "Seite, die man im Internet sehen kann",
+                    "examples": [
+                        "Diese Website ist sehr interessant.",
+                        "Ich besuche viele Websites."
+                    ]
+                },
+                {
+                    "id": "surfen",
+                    "text": "surfen",
+                    "phonetics": "/ˈzʊʁ.fən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Sich im Internet bewegen, um Informationen zu suchen",
+                    "examples": [
+                        "Ich surfe im Internet.",
+                        "Sie surft viel im Web."
+                    ]
+                },
+                {
+                    "id": "die_suchmaschine",
+                    "text": "die Suchmaschine",
+                    "phonetics": "/diː.ˈzuːx.ˌma.ʃiː.nə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Website, die hilft, Informationen im Internet zu finden",
+                    "examples": [
+                        "Google ist eine Suchmaschine.",
+                        "Ich benutze eine Suchmaschine, um Informationen zu finden."
+                    ]
+                },
+                {
+                    "id": "suchen",
+                    "text": "suchen",
+                    "phonetics": "/ˈzuː.xən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Versuchen, etwas zu finden",
+                    "examples": [
+                        "Ich suche Informationen im Internet.",
+                        "Sie sucht ein Restaurant."
+                    ]
+                },
+                {
+                    "id": "herunterladen",
+                    "text": "herunterladen",
+                    "phonetics": "/hɛ.ˈʁʊn.tɐ.ˌlaː.dən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Eine Datei vom Internet auf den Computer kopieren",
+                    "examples": [
+                        "Ich lade ein Foto herunter.",
+                        "Er lädt Musik herunter."
+                    ]
+                },
+                {
+                    "id": "die_datei",
+                    "text": "die Datei",
+                    "phonetics": "/diː.da.ˈtaɪ̯/",
+                    "partOfSpeech": "noun",
+                    "definition": "Dokument, das man auf dem Computer speichern kann",
+                    "examples": [
+                        "Diese Datei ist sehr wichtig.",
+                        "Ich speichere meine Dateien."
+                    ]
+                },
+                {
+                    "id": "speichern",
+                    "text": "speichern",
+                    "phonetics": "/ˈʃpaɪ̯.çɐn/",
+                    "partOfSpeech": "verb",
+                    "definition": "Eine Kopie seiner Dateien behalten",
+                    "examples": [
+                        "Ich speichere meine Arbeit.",
+                        "Man muss regelmäßig speichern."
+                    ]
+                },
+                {
+                    "id": "die_email",
+                    "text": "die E-Mail",
+                    "phonetics": "/diː.ˈiː.mɛɪ̯l/",
+                    "partOfSpeech": "noun",
+                    "definition": "Nachricht, die man über das Internet sendet",
+                    "examples": [
+                        "Ich habe eine E-Mail erhalten.",
+                        "Ich sende ihm eine E-Mail."
+                    ]
+                },
+                {
+                    "id": "senden",
+                    "text": "senden",
+                    "phonetics": "/ˈzɛn.dən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Etwas an jemanden schicken",
+                    "examples": [
+                        "Ich sende eine E-Mail an meinen Freund.",
+                        "Sie sendet Fotos."
+                    ]
+                },
+                {
+                    "id": "empfangen",
+                    "text": "empfangen",
+                    "phonetics": "/ɛm.ˈpfaŋ.ən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Etwas bekommen, das einem geschickt wurde",
+                    "examples": [
+                        "Ich empfange viele E-Mails.",
+                        "Sie empfängt Nachrichten."
+                    ]
+                },
+                {
+                    "id": "die_nachricht",
+                    "text": "die Nachricht",
+                    "phonetics": "/diː.ˈnaːx.ˌʁɪçt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kurzer Text, den man an jemanden sendet",
+                    "examples": [
+                        "Ich habe eine Nachricht für dich.",
+                        "Er sendet eine Nachricht an seine Mutter."
+                    ]
+                },
+                {
+                    "id": "die_tastatur",
+                    "text": "die Tastatur",
+                    "phonetics": "/diː.tas.ta.ˈtuːɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Teil des Computers mit Tasten zum Schreiben",
+                    "examples": [
+                        "Meine Tastatur ist auf Deutsch.",
+                        "Ich tippe auf der Tastatur."
+                    ]
+                },
+                {
+                    "id": "tippen",
+                    "text": "tippen",
+                    "phonetics": "/ˈtɪ.pən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Auf die Tasten der Tastatur drücken",
+                    "examples": [
+                        "Ich tippe einen Text.",
+                        "Sie tippt sehr schnell."
+                    ]
+                },
+                {
+                    "id": "der_bildschirm",
+                    "text": "der Bildschirm",
+                    "phonetics": "/deːɐ.ˈbɪlt.ˌʃɪʁm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Teil des Computers, der Bilder anzeigt",
+                    "examples": [
+                        "Mein Bildschirm ist sehr groß.",
+                        "Der Bildschirm zeigt Text an."
+                    ]
+                },
+                {
+                    "id": "die_maus",
+                    "text": "die Maus",
+                    "phonetics": "/diː.maʊ̯s/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleines Gerät, das man bewegt, um den Computer zu steuern",
+                    "examples": [
+                        "Meine Maus funktioniert nicht mehr.",
+                        "Ich klicke mit der Maus."
+                    ]
+                },
+                {
+                    "id": "klicken",
+                    "text": "klicken",
+                    "phonetics": "/ˈklɪ.kən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Auf den Knopf der Maus drücken",
+                    "examples": [
+                        "Ich klicke auf den Link.",
+                        "Sie klickt zweimal."
+                    ]
+                },
+                {
+                    "id": "der_link",
+                    "text": "der Link",
+                    "phonetics": "/deːɐ.lɪŋk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Text oder Bild, das zu einer anderen Seite führt",
+                    "examples": [
+                        "Dieser Link ist interessant.",
+                        "Ich klicke auf den Link."
+                    ]
+                },
+                {
+                    "id": "das_passwort",
+                    "text": "das Passwort",
+                    "phonetics": "/das.ˈpas.ˌvɔʁt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Geheimes Wort, das man verwendet, um sich anzumelden",
+                    "examples": [
+                        "Mein Passwort ist geheim.",
+                        "Ich habe mein Passwort vergessen."
+                    ]
+                },
+                {
+                    "id": "sich_anmelden",
+                    "text": "sich anmelden",
+                    "phonetics": "/zɪç.ˈan.ˌmeːl.dən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mit seinem Namen und Passwort in ein System eintreten",
+                    "examples": [
+                        "Ich melde mich bei meinem Konto an.",
+                        "Sie meldet sich jeden Tag an."
+                    ]
+                },
+                {
+                    "id": "das_konto",
+                    "text": "das Konto",
+                    "phonetics": "/das.ˈkɔn.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persönlicher Bereich im Internet",
+                    "examples": [
+                        "Ich habe ein Konto auf dieser Website.",
+                        "Mein Konto ist sicher."
+                    ]
+                },
+                {
+                    "id": "das_foto",
+                    "text": "das Foto",
+                    "phonetics": "/das.ˈfo.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bild, das man aufnehmen und teilen kann",
+                    "examples": [
+                        "Dieses Foto ist sehr schön.",
+                        "Ich teile meine Fotos im Internet."
+                    ]
+                },
+                {
+                    "id": "teilen",
+                    "text": "teilen",
+                    "phonetics": "/ˈtaɪ̯.lən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Etwas anderen Personen zeigen",
+                    "examples": [
+                        "Ich teile meine Fotos.",
+                        "Sie teilt ihre Ideen."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_shopping_consumption",
+            "title": "Einkaufen und Konsum",
+            "description": "Wortschatz für Einkäufe und Geldausgaben",
+            "level": "A2",
+            "tagValue": "deutsch",
+            "languageCode": "de",
+            "localImageName": "market",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "der_laden",
+                    "text": "der Laden",
+                    "phonetics": "/deːɐ.ˈlaː.dən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo man Dinge kaufen kann",
+                    "examples": [
+                        "Ich gehe in den Laden, um Brot zu kaufen.",
+                        "Dieser Laden hat schöne Kleidung."
+                    ]
+                },
+                {
+                    "id": "kaufen",
+                    "text": "kaufen",
+                    "phonetics": "/ˈkaʊ̯.fən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Geld geben, um etwas zu bekommen",
+                    "examples": [
+                        "Ich kaufe Obst auf dem Markt.",
+                        "Sie kauft ein neues Buch."
+                    ]
+                },
+                {
+                    "id": "verkaufen",
+                    "text": "verkaufen",
+                    "phonetics": "/fɛɐ.ˈkaʊ̯.fən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Etwas gegen Geld geben",
+                    "examples": [
+                        "Ich verkaufe mein Auto.",
+                        "Dieser Laden verkauft Schuhe."
+                    ]
+                },
+                {
+                    "id": "der_preis",
+                    "text": "der Preis",
+                    "phonetics": "/deːɐ.pʁaɪ̯s/",
+                    "partOfSpeech": "noun",
+                    "definition": "Geldbetrag, den man bezahlen muss",
+                    "examples": [
+                        "Der Preis dieses Kleides ist 50 Euro.",
+                        "Dieser Preis ist sehr vernünftig."
+                    ]
+                },
+                {
+                    "id": "teuer",
+                    "text": "teuer",
+                    "phonetics": "/ˈtɔɪ̯.ɐ/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Was viel Geld kostet",
+                    "examples": [
+                        "Dieses Auto ist sehr teuer.",
+                        "Das Restaurant ist teuer, aber gut."
+                    ]
+                },
+                {
+                    "id": "billig",
+                    "text": "billig",
+                    "phonetics": "/ˈbɪ.lɪç/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Was nicht viel Geld kostet",
+                    "examples": [
+                        "Diese Schuhe sind billig.",
+                        "Ich suche etwas Billiges."
+                    ]
+                },
+                {
+                    "id": "bezahlen",
+                    "text": "bezahlen",
+                    "phonetics": "/bə.ˈtsaː.lən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Geld für etwas geben",
+                    "examples": [
+                        "Ich bezahle mit meiner Kreditkarte.",
+                        "Sie bezahlt bar."
+                    ]
+                },
+                {
+                    "id": "das_geld",
+                    "text": "das Geld",
+                    "phonetics": "/das.ɡɛlt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Tauschmittel, das man zum Kaufen verwendet",
+                    "examples": [
+                        "Ich brauche Geld zum Einkaufen.",
+                        "Geld macht nicht glücklich."
+                    ]
+                },
+                {
+                    "id": "der_euro",
+                    "text": "der Euro",
+                    "phonetics": "/deːɐ.ˈɔɪ̯.ʁo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Währung, die in Europa verwendet wird",
+                    "examples": [
+                        "Das kostet 10 Euro.",
+                        "Ich bezahle in Euro."
+                    ]
+                },
+                {
+                    "id": "die_kreditkarte",
+                    "text": "die Kreditkarte",
+                    "phonetics": "/diː.kʁe.ˈdɪt.ˌkaʁ.tə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleine Karte, die das Bezahlen ermöglicht",
+                    "examples": [
+                        "Ich bezahle mit meiner Kreditkarte.",
+                        "Meine Kreditkarte funktioniert nicht mehr."
+                    ]
+                },
+                {
+                    "id": "das_bargeld",
+                    "text": "das Bargeld",
+                    "phonetics": "/das.ˈbaːɐ.ˌɡɛlt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Geld in Münzen und Scheinen",
+                    "examples": [
+                        "Ich bezahle bar.",
+                        "Haben Sie Wechselgeld?"
+                    ]
+                },
+                {
+                    "id": "das_wechselgeld",
+                    "text": "das Wechselgeld",
+                    "phonetics": "/das.ˈvɛk.səl.ˌɡɛlt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Geld, das man nach einem Kauf zurückbekommt",
+                    "examples": [
+                        "Hier ist Ihr Wechselgeld.",
+                        "Ich brauche Wechselgeld."
+                    ]
+                },
+                {
+                    "id": "die_kasse",
+                    "text": "die Kasse",
+                    "phonetics": "/diː.ˈka.sə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo man in einem Laden bezahlt",
+                    "examples": [
+                        "Ich gehe zur Kasse.",
+                        "Die Kasse ist geschlossen."
+                    ]
+                },
+                {
+                    "id": "die_rechnung",
+                    "text": "die Rechnung",
+                    "phonetics": "/diː.ˈʁɛç.nʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Papier, das zeigt, was man gekauft hat und wie viel es kostet",
+                    "examples": [
+                        "Hier ist Ihre Rechnung.",
+                        "Ich behalte alle meine Rechnungen."
+                    ]
+                },
+                {
+                    "id": "der_beleg",
+                    "text": "der Beleg",
+                    "phonetics": "/deːɐ.bə.ˈleːk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleines Papier, das beweist, dass man bezahlt hat",
+                    "examples": [
+                        "Bewahren Sie Ihren Beleg auf.",
+                        "Der Kassenbeleg ist wichtig."
+                    ]
+                },
+                {
+                    "id": "der_rabatt",
+                    "text": "der Rabatt",
+                    "phonetics": "/deːɐ.ʁa.ˈbat/",
+                    "partOfSpeech": "noun",
+                    "definition": "Preisreduktion auf Artikel",
+                    "examples": [
+                        "Es gibt Rabatte im Januar.",
+                        "Dieser Artikel ist im Rabatt."
+                    ]
+                },
+                {
+                    "id": "die_reduktion",
+                    "text": "die Reduktion",
+                    "phonetics": "/diː.ʁe.dʊk.ˈt͡si̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Verringerung des Preises",
+                    "examples": [
+                        "Ich habe eine Reduktion von 20%.",
+                        "Diese Reduktion ist interessant."
+                    ]
+                },
+                {
+                    "id": "der_einkaufswagen",
+                    "text": "der Einkaufswagen",
+                    "phonetics": "/deːɐ.ˈaɪ̯n.ˌkaʊ̯fs.ˌvaː.ɡən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Behälter, in den man die Artikel legt, die man kaufen möchte",
+                    "examples": [
+                        "Mein Einkaufswagen ist voll.",
+                        "Ich lege die Artikel in den Einkaufswagen."
+                    ]
+                },
+                {
+                    "id": "waehlen",
+                    "text": "wählen",
+                    "phonetics": "/ˈvɛː.lən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Eine Sache aus mehreren nehmen",
+                    "examples": [
+                        "Ich wähle dieses Kleid.",
+                        "Sie wählt sorgfältig aus."
+                    ]
+                },
+                {
+                    "id": "die_wahl",
+                    "text": "die Wahl",
+                    "phonetics": "/diː.vaːl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Möglichkeit, etwas zu nehmen",
+                    "examples": [
+                        "Es gibt viele Wahlmöglichkeiten.",
+                        "Meine Wahl ist getroffen."
+                    ]
+                },
+                {
+                    "id": "probieren",
+                    "text": "probieren",
+                    "phonetics": "/pʁo.ˈbiː.ʁən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Etwas anziehen, um zu sehen, ob es passt",
+                    "examples": [
+                        "Ich möchte diese Jacke probieren.",
+                        "Sie probiert mehrere Schuhe an."
+                    ]
+                },
+                {
+                    "id": "die_groesse",
+                    "text": "die Größe",
+                    "phonetics": "/diː.ˈɡʁøː.sə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Maß, das der Länge entspricht",
+                    "examples": [
+                        "Welche Größe haben Sie?",
+                        "Diese Größe passt mir gut."
+                    ]
+                },
+                {
+                    "id": "die_farbe",
+                    "text": "die Farbe",
+                    "phonetics": "/diː.ˈfaʁ.bə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Visueller Aspekt einer Sache (rot, blau, etc.)",
+                    "examples": [
+                        "Ich mag diese Farbe.",
+                        "Welche Farbe bevorzugen Sie?"
+                    ]
+                },
+                {
+                    "id": "die_qualitaet",
+                    "text": "die Qualität",
+                    "phonetics": "/diː.kva.li.ˈtɛːt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Niveau der Güte eines Produkts",
+                    "examples": [
+                        "Die Qualität dieses Produkts ist ausgezeichnet.",
+                        "Ich bevorzuge Qualität über den Preis."
+                    ]
+                },
+                {
+                    "id": "zurueckgeben",
+                    "text": "zurückgeben",
+                    "phonetics": "/tsu.ˈʁʏk.ˌɡeː.bən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Etwas zurückgeben, das man gekauft hat",
+                    "examples": [
+                        "Ich gebe diesen Artikel zurück.",
+                        "Sie gibt ihre Bestellung zurück."
+                    ]
+                }
+            ]
+        }
+    ],
+    "lastUpdated": "2025-01-27T16:00:00Z",
+    "version": "1.0.0"
+}

@@ -1,0 +1,1723 @@
+{
+    "collections": [
+        {
+            "id": "italian_food_dining",
+            "title": "Cibo e Ristorante",
+            "description": "Vocabolario essenziale per il cibo, i pasti e i ristoranti in italiano",
+            "level": "A2",
+            "tagValue": "italiano",
+            "languageCode": "it",
+            "localImageName": "strawberries",
+            "isPremium": false,
+            "isFeatured": true,
+            "words": [
+                {
+                    "id": "il_pane",
+                    "text": "il pane",
+                    "phonetics": "/il.ˈpa.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Alimento fatto con farina, acqua e sale che si mangia tutti i giorni",
+                    "examples": [
+                        "Mangio il pane con il burro.",
+                        "Il fornaio fa il pane fresco."
+                    ]
+                },
+                {
+                    "id": "il_formaggio",
+                    "text": "il formaggio",
+                    "phonetics": "/il.for.ˈmad.d͡ʒo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Prodotto del latte che si mangia con il pane o nei piatti",
+                    "examples": [
+                        "Mi piace il formaggio italiano.",
+                        "Il formaggio è buono con il vino."
+                    ]
+                },
+                {
+                    "id": "la_carne",
+                    "text": "la carne",
+                    "phonetics": "/la.ˈkar.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Alimento che viene dagli animali che si mangia",
+                    "examples": [
+                        "Mangio la carne a cena.",
+                        "La carne è cotta a puntino."
+                    ]
+                },
+                {
+                    "id": "il_ristorante",
+                    "text": "il ristorante",
+                    "phonetics": "/il.ri.sto.ˈran.te/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto dove si va a mangiare piatti preparati",
+                    "examples": [
+                        "Andiamo al ristorante stasera.",
+                        "Questo ristorante ha una buona cucina."
+                    ]
+                },
+                {
+                    "id": "ordinare",
+                    "text": "ordinare",
+                    "phonetics": "/or.di.ˈna.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Dire al cameriere cosa si vuole mangiare",
+                    "examples": [
+                        "Ordino un piatto di pesce.",
+                        "Cosa volete ordinare?"
+                    ]
+                },
+                {
+                    "id": "il_conto",
+                    "text": "il conto",
+                    "phonetics": "/il.ˈkon.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Foglio che mostra quanto si deve pagare",
+                    "examples": [
+                        "Il conto, per favore!",
+                        "Il conto è di 25 euro."
+                    ]
+                },
+                {
+                    "id": "il_cameriere",
+                    "text": "il cameriere",
+                    "phonetics": "/il.ka.me.ˈrjɛ.re/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona che porta il cibo in un ristorante",
+                    "examples": [
+                        "Il cameriere è molto gentile.",
+                        "Chiedo consiglio al cameriere."
+                    ]
+                },
+                {
+                    "id": "il_menu",
+                    "text": "il menù",
+                    "phonetics": "/il.me.ˈnu/",
+                    "partOfSpeech": "noun",
+                    "definition": "Lista dei piatti che si possono mangiare in un ristorante",
+                    "examples": [
+                        "Può darmi il menù?",
+                        "Il menù ha molte scelte."
+                    ]
+                },
+                {
+                    "id": "il_piatto",
+                    "text": "il piatto",
+                    "phonetics": "/il.ˈpjat.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Cibo preparato che si mangia",
+                    "examples": [
+                        "Questo piatto è delizioso.",
+                        "Quale piatto mi consiglia?"
+                    ]
+                },
+                {
+                    "id": "il_dolce",
+                    "text": "il dolce",
+                    "phonetics": "/il.ˈdol.t͡ʃe/",
+                    "partOfSpeech": "noun",
+                    "definition": "Cibo dolce che si mangia alla fine del pasto",
+                    "examples": [
+                        "Prendo un dolce.",
+                        "Il dolce è molto buono."
+                    ]
+                },
+                {
+                    "id": "bere",
+                    "text": "bere",
+                    "phonetics": "/ˈbe.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Ingoiare un liquido",
+                    "examples": [
+                        "Bevo l'acqua.",
+                        "Cosa volete bere?"
+                    ]
+                },
+                {
+                    "id": "il_vino",
+                    "text": "il vino",
+                    "phonetics": "/il.ˈvi.no/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bevanda alcolica fatta con l'uva",
+                    "examples": [
+                        "Questo vino è eccellente.",
+                        "Bevo un bicchiere di vino."
+                    ]
+                },
+                {
+                    "id": "l_acqua",
+                    "text": "l'acqua",
+                    "phonetics": "/ˈlak.kwa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Liquido trasparente che si beve",
+                    "examples": [
+                        "Bevo l'acqua minerale.",
+                        "L'acqua è fresca."
+                    ]
+                },
+                {
+                    "id": "il_caffe",
+                    "text": "il caffè",
+                    "phonetics": "/il.kaf.ˈfɛ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bevanda calda e nera che si beve la mattina",
+                    "examples": [
+                        "Prendo un caffè con latte.",
+                        "Il caffè qui è molto buono."
+                    ]
+                },
+                {
+                    "id": "la_colazione",
+                    "text": "la colazione",
+                    "phonetics": "/la.ko.la.ˈt͡sjo.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Primo pasto della giornata",
+                    "examples": [
+                        "Faccio colazione alle 8.",
+                        "La colazione è pronta."
+                    ]
+                },
+                {
+                    "id": "il_pranzo",
+                    "text": "il pranzo",
+                    "phonetics": "/il.ˈpran.t͡so/",
+                    "partOfSpeech": "noun",
+                    "definition": "Pasto che si mangia a mezzogiorno",
+                    "examples": [
+                        "Pranziamo insieme.",
+                        "Il pranzo è servito."
+                    ]
+                },
+                {
+                    "id": "la_cena",
+                    "text": "la cena",
+                    "phonetics": "/la.ˈt͡ʃe.na/",
+                    "partOfSpeech": "noun",
+                    "definition": "Pasto che si mangia la sera",
+                    "examples": [
+                        "Ceniamo alle 19.",
+                        "La cena è eccellente."
+                    ]
+                },
+                {
+                    "id": "mangiare",
+                    "text": "mangiare",
+                    "phonetics": "/man.ˈd͡ʒa.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mettere il cibo in bocca",
+                    "examples": [
+                        "Mangio una mela.",
+                        "Mangiamo insieme."
+                    ]
+                },
+                {
+                    "id": "avere_fame",
+                    "text": "avere fame",
+                    "phonetics": "/a.ˈve.re.ˈfa.me/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Sentire di voler mangiare",
+                    "examples": [
+                        "Ho fame, andiamo a mangiare.",
+                        "Hai fame?"
+                    ]
+                },
+                {
+                    "id": "essere_sazio",
+                    "text": "essere sazio",
+                    "phonetics": "/ˈɛs.se.re.ˈsa.t͡sjo/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Non avere più voglia di mangiare",
+                    "examples": [
+                        "Sono sazio, grazie.",
+                        "Sei sazio?"
+                    ]
+                },
+                {
+                    "id": "il_gusto",
+                    "text": "il gusto",
+                    "phonetics": "/il.ˈɡu.sto/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sensazione che si ha quando si mangia",
+                    "examples": [
+                        "Questo piatto ha un buon gusto.",
+                        "Mi piace il gusto del cioccolato."
+                    ]
+                },
+                {
+                    "id": "delizioso",
+                    "text": "delizioso",
+                    "phonetics": "/de.li.ˈt͡sjo.zo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Che ha un ottimo sapore",
+                    "examples": [
+                        "Questa torta è deliziosa.",
+                        "La zuppa è deliziosa."
+                    ]
+                },
+                {
+                    "id": "la_cucina",
+                    "text": "la cucina",
+                    "phonetics": "/la.ku.ˈt͡ʃi.na/",
+                    "partOfSpeech": "noun",
+                    "definition": "Arte di preparare il cibo",
+                    "examples": [
+                        "Mi piace la cucina italiana.",
+                        "La cucina di questo ristorante è eccellente."
+                    ]
+                },
+                {
+                    "id": "cucinare",
+                    "text": "cucinare",
+                    "phonetics": "/ku.t͡ʃi.ˈna.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Preparare il cibo",
+                    "examples": [
+                        "Cucino per i miei amici.",
+                        "Lei cucina molto bene."
+                    ]
+                },
+                {
+                    "id": "la_ricetta",
+                    "text": "la ricetta",
+                    "phonetics": "/la.ri.ˈt͡ʃet.ta/",
+                    "partOfSpeech": "noun",
+                    "definition": "Istruzioni per preparare un piatto",
+                    "examples": [
+                        "Ho una buona ricetta di torta.",
+                        "Questa ricetta è facile."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "italian_travel_tourism",
+            "title": "Viaggi e Turismo",
+            "description": "Vocabolario essenziale per viaggiare e scoprire l'Italia",
+            "level": "A2",
+            "tagValue": "italiano",
+            "languageCode": "it",
+            "localImageName": "the-colosseum-rome-italy-during-daytime",
+            "isPremium": false,
+            "isFeatured": true,
+            "words": [
+                {
+                    "id": "il_viaggio",
+                    "text": "il viaggio",
+                    "phonetics": "/il.ˈvjad.d͡ʒo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Spostamento che si fa per andare in un altro posto",
+                    "examples": [
+                        "Il mio viaggio in Italia è stato magnifico.",
+                        "Mi piacciono i viaggi in treno."
+                    ]
+                },
+                {
+                    "id": "viaggiare",
+                    "text": "viaggiare",
+                    "phonetics": "/vjad.ˈd͡ʒa.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Spostarsi per andare in un altro posto",
+                    "examples": [
+                        "Viaggio molto per lavoro.",
+                        "Amiamo viaggiare insieme."
+                    ]
+                },
+                {
+                    "id": "l_hotel",
+                    "text": "l'hotel",
+                    "phonetics": "/lo.ˈtɛl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto dove si dorme quando si viaggia",
+                    "examples": [
+                        "Il nostro hotel è vicino alla stazione.",
+                        "L'hotel ha una bella vista."
+                    ]
+                },
+                {
+                    "id": "l_aeroporto",
+                    "text": "l'aeroporto",
+                    "phonetics": "/la.e.ro.ˈpor.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto dove arrivano e partono gli aerei",
+                    "examples": [
+                        "L'aeroporto è molto grande.",
+                        "Vado all'aeroporto in taxi."
+                    ]
+                },
+                {
+                    "id": "la_stazione",
+                    "text": "la stazione",
+                    "phonetics": "/la.sta.ˈt͡sjo.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto dove arrivano e partono i treni",
+                    "examples": [
+                        "La stazione è in centro città.",
+                        "Prendo il treno alla stazione."
+                    ]
+                },
+                {
+                    "id": "il_biglietto",
+                    "text": "il biglietto",
+                    "phonetics": "/il.bi.ˈʎet.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Carta che permette di viaggiare",
+                    "examples": [
+                        "Ho comprato il mio biglietto del treno.",
+                        "Il biglietto costa 50 euro."
+                    ]
+                },
+                {
+                    "id": "prenotare",
+                    "text": "prenotare",
+                    "phonetics": "/pre.no.ˈta.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Chiedere di tenere un posto",
+                    "examples": [
+                        "Prenoto una camera d'hotel.",
+                        "Bisogna prenotare in anticipo."
+                    ]
+                },
+                {
+                    "id": "la_prenotazione",
+                    "text": "la prenotazione",
+                    "phonetics": "/la.pre.no.ta.ˈt͡sjo.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Azione di prenotare qualcosa",
+                    "examples": [
+                        "La mia prenotazione è confermata.",
+                        "Ho una prenotazione per due persone."
+                    ]
+                },
+                {
+                    "id": "il_turista",
+                    "text": "il turista",
+                    "phonetics": "/il.tu.ˈri.sta/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona che viaggia per visitare posti",
+                    "examples": [
+                        "Sono turista a Roma.",
+                        "I turisti visitano il Colosseo."
+                    ]
+                },
+                {
+                    "id": "visitare",
+                    "text": "visitare",
+                    "phonetics": "/vi.zi.ˈta.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Andare a vedere posti interessanti",
+                    "examples": [
+                        "Visito il museo domani.",
+                        "Visitiamo la città insieme."
+                    ]
+                },
+                {
+                    "id": "la_visita",
+                    "text": "la visita",
+                    "phonetics": "/la.ˈvi.zi.ta/",
+                    "partOfSpeech": "noun",
+                    "definition": "Azione di visitare un posto",
+                    "examples": [
+                        "La visita del museo dura due ore.",
+                        "Mi piacciono le visite guidate."
+                    ]
+                },
+                {
+                    "id": "la_guida",
+                    "text": "la guida",
+                    "phonetics": "/la.ˈɡwi.da/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona che mostra i posti ai turisti",
+                    "examples": [
+                        "La guida ci spiega la storia.",
+                        "La nostra guida parla diverse lingue."
+                    ]
+                },
+                {
+                    "id": "la_mappa",
+                    "text": "la mappa",
+                    "phonetics": "/la.ˈmap.pa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Disegno che mostra le strade e i luoghi",
+                    "examples": [
+                        "Ho bisogno di una mappa della città.",
+                        "La mappa è nella guida turistica."
+                    ]
+                },
+                {
+                    "id": "perdersi",
+                    "text": "perdersi",
+                    "phonetics": "/per.ˈder.si/",
+                    "partOfSpeech": "verb",
+                    "definition": "Non sapere più dove si è",
+                    "examples": [
+                        "Mi sono perso in città.",
+                        "Attenzione, non perdetevi!"
+                    ]
+                },
+                {
+                    "id": "chiedere_la_strada",
+                    "text": "chiedere la strada",
+                    "phonetics": "/ˈkjɛ.de.re.la.ˈstra.da/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Chiedere come andare da qualche parte",
+                    "examples": [
+                        "Chiedo la strada a un passante.",
+                        "Può dirmi la strada?"
+                    ]
+                },
+                {
+                    "id": "la_direzione",
+                    "text": "la direzione",
+                    "phonetics": "/la.di.re.ˈt͡sjo.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Lato verso cui si va",
+                    "examples": [
+                        "In quale direzione andate?",
+                        "La direzione del centro è da quella parte."
+                    ]
+                },
+                {
+                    "id": "il_passaporto",
+                    "text": "il passaporto",
+                    "phonetics": "/il.pas.sa.ˈpor.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Documento che permette di viaggiare in altri paesi",
+                    "examples": [
+                        "Ho dimenticato il mio passaporto.",
+                        "Il passaporto è valido cinque anni."
+                    ]
+                },
+                {
+                    "id": "la_valigia",
+                    "text": "la valigia",
+                    "phonetics": "/la.va.ˈli.d͡ʒa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Contenitore che si porta in viaggio",
+                    "examples": [
+                        "La mia valigia è molto pesante.",
+                        "Faccio la valigia stasera."
+                    ]
+                },
+                {
+                    "id": "fare_la_valigia",
+                    "text": "fare la valigia",
+                    "phonetics": "/ˈfa.re.la.va.ˈli.d͡ʒa/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Mettere le proprie cose nella valigia",
+                    "examples": [
+                        "Faccio la valigia per il viaggio.",
+                        "Lei fa la valigia velocemente."
+                    ]
+                },
+                {
+                    "id": "la_partenza",
+                    "text": "la partenza",
+                    "phonetics": "/la.par.ˈten.t͡sa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Momento in cui si inizia un viaggio",
+                    "examples": [
+                        "La partenza è alle 8 del mattino.",
+                        "Sono pronto per la partenza."
+                    ]
+                },
+                {
+                    "id": "l_arrivo",
+                    "text": "l'arrivo",
+                    "phonetics": "/lar.ˈri.vo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Momento in cui si arriva a destinazione",
+                    "examples": [
+                        "L'arrivo è previsto alle 15.",
+                        "Siamo all'arrivo."
+                    ]
+                },
+                {
+                    "id": "il_ricordo",
+                    "text": "il ricordo",
+                    "phonetics": "/il.ri.ˈkor.do/",
+                    "partOfSpeech": "noun",
+                    "definition": "Cosa che si compra per ricordare un viaggio",
+                    "examples": [
+                        "Compro un ricordo per la mia famiglia.",
+                        "Questo ricordo mi ricorda Roma."
+                    ]
+                },
+                {
+                    "id": "la_foto",
+                    "text": "la foto",
+                    "phonetics": "/la.ˈfo.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Immagine che si fa con una macchina fotografica",
+                    "examples": [
+                        "Faccio una foto del Colosseo.",
+                        "Questa foto è molto bella."
+                    ]
+                },
+                {
+                    "id": "fare_una_foto",
+                    "text": "fare una foto",
+                    "phonetics": "/ˈfa.re.ˈu.na.ˈfo.to/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Creare un'immagine con una macchina fotografica",
+                    "examples": [
+                        "Faccio una foto del monumento.",
+                        "Può fare una foto di noi?"
+                    ]
+                },
+                {
+                    "id": "il_monumento",
+                    "text": "il monumento",
+                    "phonetics": "/il.mo.nu.ˈmen.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Edificio importante e antico",
+                    "examples": [
+                        "Questo monumento è molto famoso.",
+                        "Visitiamo i monumenti della città."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "italian_business_work",
+            "title": "Affari e Lavoro",
+            "description": "Vocabolario professionale per il mondo del lavoro e degli affari",
+            "level": "B1",
+            "tagValue": "italiano",
+            "languageCode": "it",
+            "localImageName": "office-2",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "il_lavoro",
+                    "text": "il lavoro",
+                    "phonetics": "/il.la.ˈvo.ro/",
+                    "partOfSpeech": "noun",
+                    "definition": "Attività che si fa per guadagnare soldi",
+                    "examples": [
+                        "Il mio lavoro è interessante.",
+                        "Cerco un nuovo lavoro."
+                    ]
+                },
+                {
+                    "id": "lavorare",
+                    "text": "lavorare",
+                    "phonetics": "/la.vo.ˈra.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Fare un'attività per guadagnare soldi",
+                    "examples": [
+                        "Lavoro in un'azienda.",
+                        "Lei lavora sodo."
+                    ]
+                },
+                {
+                    "id": "l_azienda",
+                    "text": "l'azienda",
+                    "phonetics": "/la.ˈt͡sjen.da/",
+                    "partOfSpeech": "noun",
+                    "definition": "Organizzazione che fa affari",
+                    "examples": [
+                        "La mia azienda è molto grande.",
+                        "Questa azienda assume."
+                    ]
+                },
+                {
+                    "id": "l_ufficio",
+                    "text": "l'ufficio",
+                    "phonetics": "/lu.ˈfit.t͡ʃo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto dove si lavora",
+                    "examples": [
+                        "Il mio ufficio è al terzo piano.",
+                        "Vado in ufficio tutti i giorni."
+                    ]
+                },
+                {
+                    "id": "il_collega",
+                    "text": "il collega",
+                    "phonetics": "/il.kol.ˈle.ɡa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona che lavora con noi",
+                    "examples": [
+                        "Il mio collega è molto simpatico.",
+                        "Pranzo con i miei colleghi."
+                    ]
+                },
+                {
+                    "id": "il_capo",
+                    "text": "il capo",
+                    "phonetics": "/il.ˈka.po/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona che dirige l'azienda",
+                    "examples": [
+                        "Il capo è molto severo.",
+                        "Parlo con il capo domani."
+                    ]
+                },
+                {
+                    "id": "la_riunione",
+                    "text": "la riunione",
+                    "phonetics": "/la.rju.ˈnjo.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Momento in cui più persone si incontrano per parlare",
+                    "examples": [
+                        "Ho una riunione alle 14.",
+                        "La riunione dura due ore."
+                    ]
+                },
+                {
+                    "id": "il_progetto",
+                    "text": "il progetto",
+                    "phonetics": "/il.pro.ˈd͡ʒet.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Lavoro che si deve fare",
+                    "examples": [
+                        "Questo progetto è importante.",
+                        "Lavoro su un nuovo progetto."
+                    ]
+                },
+                {
+                    "id": "il_compito",
+                    "text": "il compito",
+                    "phonetics": "/il.kom.ˈpi.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Lavoro speciale che si deve completare",
+                    "examples": [
+                        "Il mio compito è vendere di più.",
+                        "Questo compito è difficile."
+                    ]
+                },
+                {
+                    "id": "il_cliente",
+                    "text": "il cliente",
+                    "phonetics": "/il.kli.ˈen.te/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona che compra i nostri prodotti o servizi",
+                    "examples": [
+                        "Questo cliente è molto importante.",
+                        "Incontro un nuovo cliente."
+                    ]
+                },
+                {
+                    "id": "la_vendita",
+                    "text": "la vendita",
+                    "phonetics": "/la.ven.ˈdi.ta/",
+                    "partOfSpeech": "noun",
+                    "definition": "Azione di vendere qualcosa",
+                    "examples": [
+                        "Le vendite aumentano.",
+                        "Lavoro nelle vendite."
+                    ]
+                },
+                {
+                    "id": "vendere",
+                    "text": "vendere",
+                    "phonetics": "/ˈven.de.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Dare qualcosa in cambio di soldi",
+                    "examples": [
+                        "Vendo prodotti.",
+                        "Questa azienda vende automobili."
+                    ]
+                },
+                {
+                    "id": "lo_stipendio",
+                    "text": "lo stipendio",
+                    "phonetics": "/lo.sti.ˈpen.djo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Soldi che si ricevono per il proprio lavoro",
+                    "examples": [
+                        "Il mio stipendio è a posto.",
+                        "Lo stipendio aumenta ogni anno."
+                    ]
+                },
+                {
+                    "id": "il_contratto",
+                    "text": "il contratto",
+                    "phonetics": "/il.kon.ˈtrat.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Documento che dice le condizioni del lavoro",
+                    "examples": [
+                        "Ho firmato il mio contratto.",
+                        "Il contratto è valido tre anni."
+                    ]
+                },
+                {
+                    "id": "l_assunzione",
+                    "text": "l'assunzione",
+                    "phonetics": "/las.sun.ˈt͡sjo.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Azione di prendere qualcuno per lavorare",
+                    "examples": [
+                        "L'assunzione avviene domani.",
+                        "Questa azienda fa assunzioni."
+                    ]
+                },
+                {
+                    "id": "assumere",
+                    "text": "assumere",
+                    "phonetics": "/as.ˈsu.me.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Prendere qualcuno per lavorare",
+                    "examples": [
+                        "Assumiamo un nuovo dipendente.",
+                        "Questa azienda assume molto."
+                    ]
+                },
+                {
+                    "id": "il_dipendente",
+                    "text": "il dipendente",
+                    "phonetics": "/il.di.pen.ˈden.te/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona che lavora in un'azienda",
+                    "examples": [
+                        "Sono dipendente in questa società.",
+                        "I dipendenti sono soddisfatti."
+                    ]
+                },
+                {
+                    "id": "la_formazione",
+                    "text": "la formazione",
+                    "phonetics": "/la.for.ma.ˈt͡sjo.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Apprendimento per migliorare le proprie capacità",
+                    "examples": [
+                        "Faccio una formazione in informatica.",
+                        "La formazione dura una settimana."
+                    ]
+                },
+                {
+                    "id": "la_capacita",
+                    "text": "la capacità",
+                    "phonetics": "/la.ka.pa.ˈt͡ʃi.ta/",
+                    "partOfSpeech": "noun",
+                    "definition": "Abilità di fare qualcosa",
+                    "examples": [
+                        "Le mie capacità sono riconosciute.",
+                        "Questa capacità è importante."
+                    ]
+                },
+                {
+                    "id": "la_sfida",
+                    "text": "la sfida",
+                    "phonetics": "/la.ˈsfi.da/",
+                    "partOfSpeech": "noun",
+                    "definition": "Situazione difficile che si deve risolvere",
+                    "examples": [
+                        "Questa sfida è emozionante.",
+                        "Mi piacciono le sfide professionali."
+                    ]
+                },
+                {
+                    "id": "il_successo",
+                    "text": "il successo",
+                    "phonetics": "/il.sut.ˈt͡ʃes.so/",
+                    "partOfSpeech": "noun",
+                    "definition": "Risultato positivo che si ottiene",
+                    "examples": [
+                        "Il successo di questo progetto è importante.",
+                        "Celebriamo il nostro successo."
+                    ]
+                },
+                {
+                    "id": "riuscire",
+                    "text": "riuscire",
+                    "phonetics": "/rju.ˈʃi.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Ottenere un buon risultato",
+                    "examples": [
+                        "Riesco nel mio lavoro.",
+                        "Questa azienda riesce bene."
+                    ]
+                },
+                {
+                    "id": "la_riunione_aziendale",
+                    "text": "la riunione aziendale",
+                    "phonetics": "/la.rju.ˈnjo.ne.a.t͡sjen.ˈda.le/",
+                    "partOfSpeech": "noun",
+                    "definition": "Momento in cui si discute di lavoro",
+                    "examples": [
+                        "Ho una riunione aziendale importante.",
+                        "La riunione inizia alle 9."
+                    ]
+                },
+                {
+                    "id": "l_appuntamento",
+                    "text": "l'appuntamento",
+                    "phonetics": "/lap.pun.ta.ˈmen.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Momento fisso per incontrare qualcuno",
+                    "examples": [
+                        "Ho un appuntamento con il cliente.",
+                        "L'appuntamento è alle 15."
+                    ]
+                },
+                {
+                    "id": "la_presentazione",
+                    "text": "la presentazione",
+                    "phonetics": "/la.pre.zen.ta.ˈt͡sjo.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Momento in cui si mostra qualcosa ad altri",
+                    "examples": [
+                        "La mia presentazione è pronta.",
+                        "La presentazione dura 30 minuti."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "italian_family_relationships",
+            "title": "Famiglia e Relazioni",
+            "description": "Vocabolario per parlare di famiglia e relazioni personali",
+            "level": "A1",
+            "tagValue": "italiano",
+            "languageCode": "it",
+            "localImageName": "family3",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "la_famiglia",
+                    "text": "la famiglia",
+                    "phonetics": "/la.fa.ˈmi.ʎa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gruppo di persone che vivono insieme e sono parenti",
+                    "examples": [
+                        "La mia famiglia è molto grande.",
+                        "Amo la mia famiglia."
+                    ]
+                },
+                {
+                    "id": "il_padre",
+                    "text": "il padre",
+                    "phonetics": "/il.ˈpa.dre/",
+                    "partOfSpeech": "noun",
+                    "definition": "Uomo che ha dei figli",
+                    "examples": [
+                        "Il mio padre lavora molto.",
+                        "Il padre è gentile."
+                    ]
+                },
+                {
+                    "id": "la_madre",
+                    "text": "la madre",
+                    "phonetics": "/la.ˈma.dre/",
+                    "partOfSpeech": "noun",
+                    "definition": "Donna che ha dei figli",
+                    "examples": [
+                        "La mia madre cucina bene.",
+                        "La madre è paziente."
+                    ]
+                },
+                {
+                    "id": "il_figlio",
+                    "text": "il figlio",
+                    "phonetics": "/il.ˈfi.ʎo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bambino o adulto maschio di una famiglia",
+                    "examples": [
+                        "Il mio figlio ha 10 anni.",
+                        "Il figlio studia molto."
+                    ]
+                },
+                {
+                    "id": "la_figlia",
+                    "text": "la figlia",
+                    "phonetics": "/la.ˈfi.ʎa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bambina o adulta femmina di una famiglia",
+                    "examples": [
+                        "La mia figlia è intelligente.",
+                        "La figlia aiuta la madre."
+                    ]
+                },
+                {
+                    "id": "il_fratello",
+                    "text": "il fratello",
+                    "phonetics": "/il.fra.ˈtel.lo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ragazzo che ha gli stessi genitori",
+                    "examples": [
+                        "Il mio fratello è più grande.",
+                        "Il fratello gioca con me."
+                    ]
+                },
+                {
+                    "id": "la_sorella",
+                    "text": "la sorella",
+                    "phonetics": "/la.so.ˈrel.la/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ragazza che ha gli stessi genitori",
+                    "examples": [
+                        "La mia sorella è bella.",
+                        "La sorella mi aiuta."
+                    ]
+                },
+                {
+                    "id": "il_nonno",
+                    "text": "il nonno",
+                    "phonetics": "/il.ˈnon.no/",
+                    "partOfSpeech": "noun",
+                    "definition": "Padre del padre o della madre",
+                    "examples": [
+                        "Il mio nonno racconta storie.",
+                        "Il nonno è saggio."
+                    ]
+                },
+                {
+                    "id": "la_nonna",
+                    "text": "la nonna",
+                    "phonetics": "/la.ˈnon.na/",
+                    "partOfSpeech": "noun",
+                    "definition": "Madre del padre o della madre",
+                    "examples": [
+                        "La mia nonna cucina dolci.",
+                        "La nonna è dolce."
+                    ]
+                },
+                {
+                    "id": "lo_zio",
+                    "text": "lo zio",
+                    "phonetics": "/lo.ˈt͡sjo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fratello del padre o della madre",
+                    "examples": [
+                        "Il mio zio è simpatico.",
+                        "Lo zio porta regali."
+                    ]
+                },
+                {
+                    "id": "la_zia",
+                    "text": "la zia",
+                    "phonetics": "/la.ˈt͡sja/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sorella del padre o della madre",
+                    "examples": [
+                        "La mia zia è gentile.",
+                        "La zia mi abbraccia."
+                    ]
+                },
+                {
+                    "id": "il_cugino",
+                    "text": "il cugino",
+                    "phonetics": "/il.ku.ˈd͡ʒi.no/",
+                    "partOfSpeech": "noun",
+                    "definition": "Figlio dello zio o della zia",
+                    "examples": [
+                        "Il mio cugino è divertente.",
+                        "Il cugino gioca con me."
+                    ]
+                },
+                {
+                    "id": "la_cugina",
+                    "text": "la cugina",
+                    "phonetics": "/la.ku.ˈd͡ʒi.na/",
+                    "partOfSpeech": "noun",
+                    "definition": "Figlia dello zio o della zia",
+                    "examples": [
+                        "La mia cugina è carina.",
+                        "La cugina studia con me."
+                    ]
+                },
+                {
+                    "id": "il_marito",
+                    "text": "il marito",
+                    "phonetics": "/il.ma.ˈri.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Uomo sposato con una donna",
+                    "examples": [
+                        "Il mio marito è bravo.",
+                        "Il marito lavora sodo."
+                    ]
+                },
+                {
+                    "id": "la_moglie",
+                    "text": "la moglie",
+                    "phonetics": "/la.ˈmo.ʎe/",
+                    "partOfSpeech": "noun",
+                    "definition": "Donna sposata con un uomo",
+                    "examples": [
+                        "La mia moglie è bella.",
+                        "La moglie cucina bene."
+                    ]
+                },
+                {
+                    "id": "il_fidanzato",
+                    "text": "il fidanzato",
+                    "phonetics": "/il.fi.dan.ˈt͡sa.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Uomo che ama una donna ma non è sposato",
+                    "examples": [
+                        "Il mio fidanzato è romantico.",
+                        "Il fidanzato mi porta fiori."
+                    ]
+                },
+                {
+                    "id": "la_fidanzata",
+                    "text": "la fidanzata",
+                    "phonetics": "/la.fi.dan.ˈt͡sa.ta/",
+                    "partOfSpeech": "noun",
+                    "definition": "Donna che ama un uomo ma non è sposata",
+                    "examples": [
+                        "La mia fidanzata è dolce.",
+                        "La fidanzata mi sorride."
+                    ]
+                },
+                {
+                    "id": "l_amico",
+                    "text": "l'amico",
+                    "phonetics": "/la.ˈmi.ko/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona che si conosce bene e si vuole bene",
+                    "examples": [
+                        "Il mio amico è leale.",
+                        "L'amico mi aiuta sempre."
+                    ]
+                },
+                {
+                    "id": "l_amica",
+                    "text": "l'amica",
+                    "phonetics": "/la.ˈmi.ka/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona femmina che si conosce bene e si vuole bene",
+                    "examples": [
+                        "La mia amica è simpatica.",
+                        "L'amica mi ascolta."
+                    ]
+                },
+                {
+                    "id": "il_vicino",
+                    "text": "il vicino",
+                    "phonetics": "/il.vi.ˈt͡ʃi.no/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona che vive vicino a noi",
+                    "examples": [
+                        "Il mio vicino è gentile.",
+                        "Il vicino mi saluta."
+                    ]
+                },
+                {
+                    "id": "la_vicina",
+                    "text": "la vicina",
+                    "phonetics": "/la.vi.ˈt͡ʃi.na/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona femmina che vive vicino a noi",
+                    "examples": [
+                        "La mia vicina è socievole.",
+                        "La vicina mi aiuta."
+                    ]
+                },
+                {
+                    "id": "amare",
+                    "text": "amare",
+                    "phonetics": "/a.ˈma.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Voler bene a qualcuno molto",
+                    "examples": [
+                        "Amo la mia famiglia.",
+                        "Ti amo molto."
+                    ]
+                },
+                {
+                    "id": "voler_bene",
+                    "text": "voler bene",
+                    "phonetics": "/vo.ˈler.ˈbe.ne/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Avere affetto per qualcuno",
+                    "examples": [
+                        "Voglio bene ai miei genitori.",
+                        "Lei vuole bene ai bambini."
+                    ]
+                },
+                {
+                    "id": "il_bambino",
+                    "text": "il bambino",
+                    "phonetics": "/il.bam.ˈbi.no/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona giovane che non è ancora adulta",
+                    "examples": [
+                        "Il bambino gioca nel parco.",
+                        "I bambini sono felici."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "italian_internet_technology",
+            "title": "Internet e Tecnologia",
+            "description": "Vocabolario moderno per il mondo digitale e tecnologico",
+            "level": "B1",
+            "tagValue": "italiano",
+            "languageCode": "it",
+            "localImageName": "socials2",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "l_internet",
+                    "text": "l'internet",
+                    "phonetics": "/lin.ˈter.net/",
+                    "partOfSpeech": "noun",
+                    "definition": "Rete mondiale di computer collegati",
+                    "examples": [
+                        "L'internet è molto utile.",
+                        "Navigo su internet ogni giorno."
+                    ]
+                },
+                {
+                    "id": "il_computer",
+                    "text": "il computer",
+                    "phonetics": "/il.kom.ˈpju.ter/",
+                    "partOfSpeech": "noun",
+                    "definition": "Macchina che fa calcoli e gestisce informazioni",
+                    "examples": [
+                        "Il mio computer è veloce.",
+                        "Uso il computer per lavorare."
+                    ]
+                },
+                {
+                    "id": "il_telefono",
+                    "text": "il telefono",
+                    "phonetics": "/il.te.ˈle.fo.no/",
+                    "partOfSpeech": "noun",
+                    "definition": "Apparecchio per parlare con persone lontane",
+                    "examples": [
+                        "Il mio telefono è nuovo.",
+                        "Chiamo con il telefono."
+                    ]
+                },
+                {
+                    "id": "il_smartphone",
+                    "text": "lo smartphone",
+                    "phonetics": "/lo.ˈsmart.fon/",
+                    "partOfSpeech": "noun",
+                    "definition": "Telefono intelligente che fa molte cose",
+                    "examples": [
+                        "Il mio smartphone è moderno.",
+                        "Uso lo smartphone per tutto."
+                    ]
+                },
+                {
+                    "id": "il_sito_web",
+                    "text": "il sito web",
+                    "phonetics": "/il.ˈsi.to.ˈweb/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto su internet dove si trovano informazioni",
+                    "examples": [
+                        "Questo sito web è interessante.",
+                        "Visito molti siti web."
+                    ]
+                },
+                {
+                    "id": "la_pagina_web",
+                    "text": "la pagina web",
+                    "phonetics": "/la.ˈpa.d͡ʒi.na.ˈweb/",
+                    "partOfSpeech": "noun",
+                    "definition": "Parte di un sito web con informazioni",
+                    "examples": [
+                        "Questa pagina web è chiara.",
+                        "Leggo la pagina web."
+                    ]
+                },
+                {
+                    "id": "navigare",
+                    "text": "navigare",
+                    "phonetics": "/na.vi.ˈɡa.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Muoversi su internet per trovare informazioni",
+                    "examples": [
+                        "Navigo su internet.",
+                        "Navigo per trovare informazioni."
+                    ]
+                },
+                {
+                    "id": "il_browser",
+                    "text": "il browser",
+                    "phonetics": "/il.ˈbrau.zer/",
+                    "partOfSpeech": "noun",
+                    "definition": "Programma per navigare su internet",
+                    "examples": [
+                        "Il mio browser è veloce.",
+                        "Uso un browser moderno."
+                    ]
+                },
+                {
+                    "id": "la_ricerca",
+                    "text": "la ricerca",
+                    "phonetics": "/la.ri.ˈker.t͡ʃa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Azione di cercare informazioni su internet",
+                    "examples": [
+                        "Faccio una ricerca su Google.",
+                        "La ricerca mi aiuta a trovare."
+                    ]
+                },
+                {
+                    "id": "cercare",
+                    "text": "cercare",
+                    "phonetics": "/t͡ʃer.ˈka.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Trovare informazioni su internet",
+                    "examples": [
+                        "Cerco informazioni su internet.",
+                        "Cerco la risposta."
+                    ]
+                },
+                {
+                    "id": "l_email",
+                    "text": "l'email",
+                    "phonetics": "/le.ˈmejl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Messaggio che si invia per computer",
+                    "examples": [
+                        "Ho ricevuto un'email.",
+                        "Invio un'email al collega."
+                    ]
+                },
+                {
+                    "id": "inviare",
+                    "text": "inviare",
+                    "phonetics": "/in.ˈvja.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mandare qualcosa a qualcuno",
+                    "examples": [
+                        "Invio un messaggio.",
+                        "Invio i documenti per email."
+                    ]
+                },
+                {
+                    "id": "il_messaggio",
+                    "text": "il messaggio",
+                    "phonetics": "/il.mes.ˈsad.d͡ʒo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Informazione che si manda a qualcuno",
+                    "examples": [
+                        "Il mio messaggio è importante.",
+                        "Leggo il messaggio."
+                    ]
+                },
+                {
+                    "id": "la_password",
+                    "text": "la password",
+                    "phonetics": "/la.ˈpas.wer/",
+                    "partOfSpeech": "noun",
+                    "definition": "Parola segreta per accedere a qualcosa",
+                    "examples": [
+                        "La mia password è sicura.",
+                        "Non dimentico la password."
+                    ]
+                },
+                {
+                    "id": "l_account",
+                    "text": "l'account",
+                    "phonetics": "/lak.ˈkaunt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Profilo personale su internet",
+                    "examples": [
+                        "Il mio account è attivo.",
+                        "Creo un nuovo account."
+                    ]
+                },
+                {
+                    "id": "accedere",
+                    "text": "accedere",
+                    "phonetics": "/at.ˈt͡ʃe.de.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Entrare in un sistema con la password",
+                    "examples": [
+                        "Accedo al mio account.",
+                        "Non riesco ad accedere."
+                    ]
+                },
+                {
+                    "id": "il_download",
+                    "text": "il download",
+                    "phonetics": "/il.ˈdaun.lod/",
+                    "partOfSpeech": "noun",
+                    "definition": "Azione di scaricare qualcosa da internet",
+                    "examples": [
+                        "Il download è lento.",
+                        "Faccio il download del file."
+                    ]
+                },
+                {
+                    "id": "scaricare",
+                    "text": "scaricare",
+                    "phonetics": "/ska.ri.ˈka.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Prendere qualcosa da internet sul proprio computer",
+                    "examples": [
+                        "Scarico un'applicazione.",
+                        "Scarico la musica."
+                    ]
+                },
+                {
+                    "id": "l_applicazione",
+                    "text": "l'applicazione",
+                    "phonetics": "/lap.pli.ka.ˈt͡sjo.ne/",
+                    "partOfSpeech": "noun",
+                    "definition": "Programma per fare cose specifiche",
+                    "examples": [
+                        "Questa applicazione è utile.",
+                        "Uso molte applicazioni."
+                    ]
+                },
+                {
+                    "id": "l_app",
+                    "text": "l'app",
+                    "phonetics": "/lap/",
+                    "partOfSpeech": "noun",
+                    "definition": "Applicazione per smartphone",
+                    "examples": [
+                        "La mia app preferita è Instagram.",
+                        "Scarico una nuova app."
+                    ]
+                },
+                {
+                    "id": "il_social_network",
+                    "text": "il social network",
+                    "phonetics": "/il.ˈso.ʃal.ˈnet.work/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto su internet dove si incontrano persone",
+                    "examples": [
+                        "Facebook è un social network.",
+                        "Uso i social network."
+                    ]
+                },
+                {
+                    "id": "il_profilo",
+                    "text": "il profilo",
+                    "phonetics": "/il.pro.ˈfi.lo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Informazioni personali su internet",
+                    "examples": [
+                        "Il mio profilo è completo.",
+                        "Aggiorno il profilo."
+                    ]
+                },
+                {
+                    "id": "il_post",
+                    "text": "il post",
+                    "phonetics": "/il.ˈpost/",
+                    "partOfSpeech": "noun",
+                    "definition": "Messaggio che si mette su internet",
+                    "examples": [
+                        "Il mio post ha molti like.",
+                        "Scrivo un post interessante."
+                    ]
+                },
+                {
+                    "id": "il_like",
+                    "text": "il like",
+                    "phonetics": "/il.ˈlajk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Segno di apprezzamento su internet",
+                    "examples": [
+                        "Il mio post ha molti like.",
+                        "Do un like al post."
+                    ]
+                },
+                {
+                    "id": "il_commento",
+                    "text": "il commento",
+                    "phonetics": "/il.kom.ˈmen.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Scritto che si fa su un post",
+                    "examples": [
+                        "Il mio commento è positivo.",
+                        "Scrivo un commento."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "italian_shopping_consumption",
+            "title": "Shopping e Consumo",
+            "description": "Vocabolario per fare acquisti e gestire il denaro",
+            "level": "A2",
+            "tagValue": "italiano",
+            "languageCode": "it",
+            "localImageName": "market",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "il_magazzino",
+                    "text": "il magazzino",
+                    "phonetics": "/il.ma.ɡat.ˈt͡si.no/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto grande dove si vendono molte cose",
+                    "examples": [
+                        "Vado al magazzino per comprare.",
+                        "Il magazzino è molto grande."
+                    ]
+                },
+                {
+                    "id": "il_negozio",
+                    "text": "il negozio",
+                    "phonetics": "/il.ne.ˈɡo.t͡sjo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto dove si vendono cose",
+                    "examples": [
+                        "Il negozio è aperto.",
+                        "Entro nel negozio."
+                    ]
+                },
+                {
+                    "id": "il_centro_commerciale",
+                    "text": "il centro commerciale",
+                    "phonetics": "/il.ˈt͡ʃen.tro.kom.mer.ˈt͡ʃa.le/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto grande con molti negozi",
+                    "examples": [
+                        "Il centro commerciale ha molti negozi.",
+                        "Vado al centro commerciale."
+                    ]
+                },
+                {
+                    "id": "comprare",
+                    "text": "comprare",
+                    "phonetics": "/kom.ˈpra.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Dare soldi per avere qualcosa",
+                    "examples": [
+                        "Compro una maglietta.",
+                        "Compra sempre qui."
+                    ]
+                },
+                {
+                    "id": "l_acquisto",
+                    "text": "l'acquisto",
+                    "phonetics": "/lak.ˈkwi.sto/",
+                    "partOfSpeech": "noun",
+                    "definition": "Azione di comprare qualcosa",
+                    "examples": [
+                        "Il mio acquisto costa 50 euro.",
+                        "Faccio un acquisto importante."
+                    ]
+                },
+                {
+                    "id": "vendere",
+                    "text": "vendere",
+                    "phonetics": "/ˈven.de.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Dare qualcosa in cambio di soldi",
+                    "examples": [
+                        "Vendo la mia macchina.",
+                        "Questo negozio vende vestiti."
+                    ]
+                },
+                {
+                    "id": "il_prezzo",
+                    "text": "il prezzo",
+                    "phonetics": "/il.ˈpret.t͡so/",
+                    "partOfSpeech": "noun",
+                    "definition": "Quanto costa qualcosa",
+                    "examples": [
+                        "Il prezzo è alto.",
+                        "Qual è il prezzo?"
+                    ]
+                },
+                {
+                    "id": "costare",
+                    "text": "costare",
+                    "phonetics": "/kos.ˈta.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Avere un certo prezzo",
+                    "examples": [
+                        "Questa maglietta costa 20 euro.",
+                        "Quanto costa?"
+                    ]
+                },
+                {
+                    "id": "caro",
+                    "text": "caro",
+                    "phonetics": "/ˈka.ro/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Che costa molto",
+                    "examples": [
+                        "Questo vestito è caro.",
+                        "Non compro cose care."
+                    ]
+                },
+                {
+                    "id": "economico",
+                    "text": "economico",
+                    "phonetics": "/e.ko.ˈno.mi.ko/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Che costa poco",
+                    "examples": [
+                        "Questo negozio è economico.",
+                        "Cerco cose economiche."
+                    ]
+                },
+                {
+                    "id": "il_sconto",
+                    "text": "lo sconto",
+                    "phonetics": "/lo.ˈskon.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Riduzione del prezzo",
+                    "examples": [
+                        "C'è uno sconto del 20%.",
+                        "Lo sconto è buono."
+                    ]
+                },
+                {
+                    "id": "il_saldo",
+                    "text": "il saldo",
+                    "phonetics": "/il.ˈsal.do/",
+                    "partOfSpeech": "noun",
+                    "definition": "Periodo in cui i prezzi sono ridotti",
+                    "examples": [
+                        "I saldi iniziano domani.",
+                        "Aspetto i saldi per comprare."
+                    ]
+                },
+                {
+                    "id": "pagare",
+                    "text": "pagare",
+                    "phonetics": "/pa.ˈɡa.re/",
+                    "partOfSpeech": "verb",
+                    "definition": "Dare soldi per qualcosa",
+                    "examples": [
+                        "Pago con la carta.",
+                        "Quanto devo pagare?"
+                    ]
+                },
+                {
+                    "id": "il_pagamento",
+                    "text": "il pagamento",
+                    "phonetics": "/il.pa.ɡa.ˈmen.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Azione di pagare",
+                    "examples": [
+                        "Il pagamento è completato.",
+                        "Accetto diversi tipi di pagamento."
+                    ]
+                },
+                {
+                    "id": "i_soldi",
+                    "text": "i soldi",
+                    "phonetics": "/i.ˈsol.di/",
+                    "partOfSpeech": "noun",
+                    "definition": "Cosa che si usa per comprare",
+                    "examples": [
+                        "Ho pochi soldi.",
+                        "I soldi non bastano."
+                    ]
+                },
+                {
+                    "id": "l_euro",
+                    "text": "l'euro",
+                    "phonetics": "/ˈeu.ro/",
+                    "partOfSpeech": "noun",
+                    "definition": "Moneta che si usa in Europa",
+                    "examples": [
+                        "Costa 10 euro.",
+                        "Pago in euro."
+                    ]
+                },
+                {
+                    "id": "la_carta_di_credito",
+                    "text": "la carta di credito",
+                    "phonetics": "/la.ˈkar.ta.di.ˈkre.di.to/",
+                    "partOfSpeech": "noun",
+                    "definition": "Carta per pagare senza contanti",
+                    "examples": [
+                        "Pago con la carta di credito.",
+                        "La carta di credito è comoda."
+                    ]
+                },
+                {
+                    "id": "il_contante",
+                    "text": "il contante",
+                    "phonetics": "/il.kon.ˈtan.te/",
+                    "partOfSpeech": "noun",
+                    "definition": "Soldi in monete e banconote",
+                    "examples": [
+                        "Pago in contanti.",
+                        "Non ho contanti."
+                    ]
+                },
+                {
+                    "id": "il_carrello",
+                    "text": "il carrello",
+                    "phonetics": "/il.kar.ˈrel.lo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Cosa che si usa per portare le cose che si compra",
+                    "examples": [
+                        "Prendo un carrello.",
+                        "Il carrello è pieno."
+                    ]
+                },
+                {
+                    "id": "la_cassa",
+                    "text": "la cassa",
+                    "phonetics": "/la.ˈkas.sa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Posto dove si paga",
+                    "examples": [
+                        "Vado alla cassa.",
+                        "La cassa è libera."
+                    ]
+                },
+                {
+                    "id": "il_cassiere",
+                    "text": "il cassiere",
+                    "phonetics": "/il.kas.ˈsjɛ.re/",
+                    "partOfSpeech": "noun",
+                    "definition": "Persona che lavora alla cassa",
+                    "examples": [
+                        "Il cassiere è gentile.",
+                        "Parlo con il cassiere."
+                    ]
+                },
+                {
+                    "id": "la_ricevuta",
+                    "text": "la ricevuta",
+                    "phonetics": "/la.ri.t͡ʃe.ˈvu.ta/",
+                    "partOfSpeech": "noun",
+                    "definition": "Foglio che prova che si è pagato",
+                    "examples": [
+                        "Mi dà la ricevuta?",
+                        "Conservo la ricevuta."
+                    ]
+                },
+                {
+                    "id": "il_scontrino",
+                    "text": "lo scontrino",
+                    "phonetics": "/lo.skon.ˈtri.no/",
+                    "partOfSpeech": "noun",
+                    "definition": "Piccolo foglio che prova l'acquisto",
+                    "examples": [
+                        "Prendo lo scontrino.",
+                        "Lo scontrino è importante."
+                    ]
+                },
+                {
+                    "id": "la_spesa",
+                    "text": "la spesa",
+                    "phonetics": "/la.ˈspe.sa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Cose che si compra",
+                    "examples": [
+                        "Faccio la spesa al supermercato.",
+                        "La spesa è pesante."
+                    ]
+                },
+                {
+                    "id": "fare_la_spesa",
+                    "text": "fare la spesa",
+                    "phonetics": "/ˈfa.re.la.ˈspe.sa/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Andare a comprare cose da mangiare",
+                    "examples": [
+                        "Faccio la spesa ogni settimana.",
+                        "Andiamo a fare la spesa insieme."
+                    ]
+                }
+            ]
+        }
+    ],
+    "lastUpdated": "2025-01-27T17:00:00Z",
+    "version": "1.0.0"
+}
