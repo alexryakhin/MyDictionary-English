@@ -103,47 +103,6 @@ struct SettingsView: View {
                     SubscriptionStatusView()
                 }
 
-                // MARK: - Registration Prompt for Anonymous Pro Users
-
-                if subscriptionService.isProUser && !authenticationService.isSignedIn {
-                    CustomSectionView(
-                        header: Loc.Auth.accountRegistration,
-                        footer: Loc.Auth.registerForCrossPlatformAccess
-                    ) {
-                        VStack(spacing: 12) {
-                            HStack {
-                                Image(systemName: "crown.fill")
-                                    .foregroundStyle(.yellow)
-                                    .font(.title2)
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text(Loc.Auth.activeSubscriptionNotification)
-                                        .font(.headline)
-                                        .fontWeight(.semibold)
-                                    Text(Loc.Auth.registerToUnlockCrossPlatform)
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
-                                }
-                                Spacer()
-                            }
-                            ActionButton(
-                                Loc.Auth.registerNow,
-                                systemImage: "person.crop.circle.badge.plus",
-                                style: .borderedProminent
-                            ) {
-                                viewModel.output.send(.showAuthentication)
-                            }
-                        }
-                        .padding(16)
-                        .background(Color.yellow.opacity(0.1))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(Color.yellow.opacity(0.3), lineWidth: 1)
-                        )
-                        .padding(.bottom, 12)
-                    }
-                }
-
                 // MARK: - Word Lists & Sync
 
                 CustomSectionView(
