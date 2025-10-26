@@ -34,6 +34,10 @@ final class SpellingQuizViewModel: BaseViewModel {
     @Published private(set) var bestStreak = 0
     @Published private(set) var accuracyContributions: [String: Double] = [:] // Track accuracy contribution per item
     @Published private(set) var errorMessage: String?
+    
+    // Streak tracking
+    @Published private(set) var showStreakAnimation = false
+    @Published private(set) var currentDayStreak: Int?
 
     var correctAnswerText: String? {
         guard let text = randomItem?.quiz_text.nilIfEmpty else { return nil }
@@ -202,6 +206,8 @@ final class SpellingQuizViewModel: BaseViewModel {
         currentStreak = 0
         accuracyContributions = [:]
         sessionStartTime = Date()
+        showStreakAnimation = false
+        currentDayStreak = nil
         
         HapticManager.shared.triggerNotification(type: .success)
         AnalyticsService.shared.logEvent(.spellingQuizRestarted)
@@ -210,6 +216,9 @@ final class SpellingQuizViewModel: BaseViewModel {
     private func saveQuizSession() {
         guard itemsPlayed.count > 0 else { return }
 
+        // Check if this is the first quiz today before saving
+        let wasFirstQuizToday = quizAnalyticsService.isFirstQuizToday()
+        
         let duration = Date().timeIntervalSince(sessionStartTime)
         let accuracy = itemsPlayed.count > 0 ? accuracyContributions.values.reduce(0, +) / Double(itemsPlayed.count) : 0.0
                 
@@ -223,6 +232,13 @@ final class SpellingQuizViewModel: BaseViewModel {
             itemsPracticed: itemsPlayed,
             correctItemIds: correctItemIds
         )
+        
+        // If this was the first quiz today, calculate streak and show animation
+        if wasFirstQuizToday {
+            let newStreak = quizAnalyticsService.calculateCurrentStreak()
+            showStreakAnimation = true
+            currentDayStreak = newStreak
+        }
         
         // Check and schedule notifications after quiz completion
         NotificationService.shared.scheduleNotificationsOnAppExit()

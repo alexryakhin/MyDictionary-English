@@ -19,6 +19,7 @@
 "accuracy" = "Độ chính xác";
 "progress" = "Tiến độ";
 "streak" = "Chuỗi";
+"dayStreak" =  "Chuỗi ngày";
 "best" = "Tốt nhất";
 "score" = "Điểm";
 "correct_answers" = "Câu trả lời đúng";

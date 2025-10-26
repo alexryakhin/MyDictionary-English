@@ -67,7 +67,9 @@ struct ChooseDefinitionQuizView: View {
                             itemsPlayed: viewModel.itemsPlayed.count,
                             accuracyContributions: .zero, // for spelling quiz
                             bestStreak: viewModel.bestStreak
-                        )
+                        ),
+                        showStreak: viewModel.showStreakAnimation,
+                        currentDayStreak: viewModel.currentDayStreak
                     )
                 }
             }

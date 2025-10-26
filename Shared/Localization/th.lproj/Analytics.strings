@@ -19,6 +19,7 @@
 "accuracy" = "ความแม่นยำ";
 "progress" = "ความคืบหน้า";
 "streak" = "สตรีค";
+"dayStreak" =  "สตรีควัน";
 "best" = "ดีที่สุด";
 "score" = "คะแนน";
 "correct_answers" = "คำตอบที่ถูกต้อง";

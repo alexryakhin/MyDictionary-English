@@ -21,108 +21,122 @@ struct QuizResultsView<AdditionalAction: View>: View {
     let model: Model
     let additionalAction: () -> AdditionalAction
     let onFinish: VoidHandler
-
+    
+    @State private var showStreakAnimation = false
+    @State private var currentDayStreak: Int?
+    
     init(
         model: Model,
+        showStreak: Bool = false,
+        currentDayStreak: Int? = nil,
         @ViewBuilder additionalAction: @escaping () -> AdditionalAction = { EmptyView() },
         onFinish: @escaping VoidHandler
     ) {
         self.model = model
+        self._showStreakAnimation = State(initialValue: showStreak)
+        self._currentDayStreak = State(initialValue: currentDayStreak)
         self.additionalAction = additionalAction
         self.onFinish = onFinish
     }
-
+    
     var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
+        ZStack {
+            VStack(spacing: 0) {
+                Spacer()
 
-            VStack(spacing: 24) {
-                // Success Icon
-                ZStack {
-                    Circle()
-                        .fill(.accent.gradient)
-                        .frame(width: 80, height: 80)
+                VStack(spacing: 24) {
+                    // Success Icon
+                    ZStack {
+                        Circle()
+                            .fill(.accent.gradient)
+                            .frame(width: 80, height: 80)
 
-                    Image(systemName: "checkmark")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
-                }
-
-                VStack(spacing: 12) {
-                    Text(Loc.Quizzes.quizComplete)
-                        .font(.title)
-                        .fontWeight(.bold)
-
-                    Text(model.quiz.completionDescription)
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                }
-
-                // Score Card
-                VStack(spacing: 16) {
-                    Text(Loc.Quizzes.yourResults)
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                        Image(systemName: "checkmark")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                    }
 
                     VStack(spacing: 12) {
-                        HStack {
-                            Text(Loc.Quizzes.finalScore)
-                            Spacer()
-                            Text("\(model.score)")
-                                .fontWeight(.bold)
-                                .foregroundStyle(.accent)
-                        }
+                        Text(Loc.Quizzes.quizComplete)
+                            .font(.title)
+                            .fontWeight(.bold)
 
-                        HStack {
-                            Text(Loc.Quizzes.correctAnswers)
-                            Spacer()
-                            Text("\(model.correctAnswers)/\(model.itemsPlayed)")
-                                .fontWeight(.medium)
-                        }
-
-                        HStack {
-                            Text(Loc.Quizzes.bestStreak)
-                            Spacer()
-                            Text("\(model.bestStreak)")
-                                .fontWeight(.medium)
-                                .foregroundStyle(.orange)
-                        }
-
-                        HStack {
-                            Text(Loc.Quizzes.accuracy)
-                            Spacer()
-                            Text("\(Int(calculatedAccuracy()))%")
-                                .fontWeight(.medium)
-                                .foregroundStyle(.accent)
-                        }
+                        Text(model.quiz.completionDescription)
+                            .font(.body)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
                     }
-                    .font(.body)
+
+                    // Score Card
+                    VStack(spacing: 16) {
+                        Text(Loc.Quizzes.yourResults)
+                            .font(.headline)
+                            .fontWeight(.semibold)
+
+                        VStack(spacing: 12) {
+                            HStack {
+                                Text(Loc.Quizzes.finalScore)
+                                Spacer()
+                                Text("\(model.score)")
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.accent)
+                            }
+
+                            HStack {
+                                Text(Loc.Quizzes.correctAnswers)
+                                Spacer()
+                                Text("\(model.correctAnswers)/\(model.itemsPlayed)")
+                                    .fontWeight(.medium)
+                            }
+
+                            HStack {
+                                Text(Loc.Quizzes.bestStreak)
+                                Spacer()
+                                Text("\(model.bestStreak)")
+                                    .fontWeight(.medium)
+                                    .foregroundStyle(.orange)
+                            }
+
+                            HStack {
+                                Text(Loc.Quizzes.accuracy)
+                                Spacer()
+                                Text("\(Int(calculatedAccuracy()))%")
+                                    .fontWeight(.medium)
+                                    .foregroundStyle(.accent)
+                            }
+                        }
+                        .font(.body)
+                    }
+                    .padding(24)
+                    .clippedWithBackground()
+                    .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
                 }
-                .padding(24)
-                .clippedWithBackground()
-                .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
-            }
-            .padding(.horizontal, 32)
+                .padding(.horizontal, 32)
 
-            Spacer()
+                Spacer()
 
-            VStack(spacing: 12) {
-                additionalAction()
-                ActionButton(Loc.Quizzes.backToQuizzes, systemImage: "chevron.left") {
-                    onFinish()
+                VStack(spacing: 12) {
+                    additionalAction()
+                    ActionButton(Loc.Quizzes.backToQuizzes, systemImage: "chevron.left") {
+                        onFinish()
+                    }
                 }
-            }
-            .padding(.horizontal, 32)
+                .padding(.horizontal, 32)
 
-            Spacer()
+                Spacer()
+            }
+            .background(
+                Color.systemGroupedBackground
+                    .displayConfetti(isActive: .constant(calculatedAccuracy() >= 80))
+                    .ignoresSafeArea()
+            )
+            
+            // Streak animation overlay
+            if showStreakAnimation, let streak = currentDayStreak {
+                StreakProgressionAnimation(isActive: $showStreakAnimation, targetStreak: streak)
+            }
         }
-        .background(
-            Color.systemGroupedBackground
-                .displayConfetti(isActive: .constant(calculatedAccuracy() >= 80))
-                .ignoresSafeArea()
-        )
     }
 
     private func calculatedAccuracy() -> Double {

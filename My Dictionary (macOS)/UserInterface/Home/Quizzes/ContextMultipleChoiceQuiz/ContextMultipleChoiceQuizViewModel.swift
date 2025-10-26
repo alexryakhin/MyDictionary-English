@@ -47,6 +47,10 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
     @Published private(set) var currentStreak = 0
     @Published private(set) var bestStreak = 0
     @Published private(set) var accuracyContributions: [String: Double] = [:]
+    
+    // Streak tracking
+    @Published private(set) var showStreakAnimation = false
+    @Published private(set) var currentDayStreak: Int?
 
     private let quizItemsProvider: QuizItemsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
@@ -283,6 +287,8 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
         questionIndex = 0
         isLastQuestion = false
         waitingForItemId = nil
+        showStreakAnimation = false
+        currentDayStreak = nil
 
         // Generate first question and start prefetching
         generateFirstContextQuestion()
@@ -339,6 +345,9 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
     
     private func saveQuizSession() {
         guard itemsPlayed.count > 0 else { return }
+        
+        // Check if this is the first quiz today before saving
+        let wasFirstQuizToday = quizAnalyticsService.isFirstQuizToday()
 
         let duration = Date().timeIntervalSince(sessionStartTime)
         let accuracy = itemsPlayed.count > 0 ? accuracyContributions.values.reduce(0, +) / Double(itemsPlayed.count) : 0.0
@@ -353,6 +362,13 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
             itemsPracticed: itemsPlayed,
             correctItemIds: correctItemIds
         )
+        
+        // If this was the first quiz today, calculate streak and show animation
+        if wasFirstQuizToday {
+            let newStreak = quizAnalyticsService.calculateCurrentStreak()
+            showStreakAnimation = true
+            currentDayStreak = newStreak
+        }
     }
     
     private func updateItemScore(_ item: any Quizable, points: Int) {

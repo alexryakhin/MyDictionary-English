@@ -19,6 +19,7 @@
 "accuracy" = "الدقة";
 "progress" = "التقدم";
 "streak" = "السلسلة";
+"dayStreak" =  "سلسلة الأيام";
 "best" = "الأفضل";
 "score" = "النقاط";
 "correct_answers" = "الإجابات الصحيحة";

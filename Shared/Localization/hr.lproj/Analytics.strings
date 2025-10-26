@@ -19,6 +19,7 @@
 "accuracy" = "Točnost";
 "progress" = "Napredak";
 "streak" = "Niz";
+"dayStreak" =  "Dnevni niz";
 "best" = "Najbolji";
 "score" = "Rezultat";
 "correct_answers" = "Točni odgovori";

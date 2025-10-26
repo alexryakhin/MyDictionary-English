@@ -111,6 +111,8 @@ struct FillInTheBlankQuizContentView: View {
                         accuracyContributions: viewModel.accuracyContributions.values.reduce(0, +),
                         bestStreak: viewModel.bestStreak
                     ),
+                    showStreak: viewModel.showStreakAnimation,
+                    currentDayStreak: viewModel.currentDayStreak,
                     onFinish: {
                         dismiss()
                     }

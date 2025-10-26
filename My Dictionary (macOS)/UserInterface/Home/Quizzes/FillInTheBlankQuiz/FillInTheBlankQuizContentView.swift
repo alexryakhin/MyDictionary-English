@@ -91,7 +91,9 @@ struct FillInTheBlankQuizContentView: View {
                     itemsPlayed: viewModel.itemsPlayed.count,
                     accuracyContributions: viewModel.accuracyContributions.values.reduce(0, +),
                     bestStreak: viewModel.bestStreak
-                )
+                ),
+                showStreak: viewModel.showStreakAnimation,
+                currentDayStreak: viewModel.currentDayStreak
             )
         } else {
             // Loading state - show AI loading animation

@@ -19,6 +19,7 @@
 "accuracy" = "Ketepatan";
 "progress" = "Kemajuan";
 "streak" = "Strik";
+"dayStreak" =  "Strik Hari";
 "best" = "Terbaik";
 "score" = "Skor";
 "correct_answers" = "Jawapan Betul";

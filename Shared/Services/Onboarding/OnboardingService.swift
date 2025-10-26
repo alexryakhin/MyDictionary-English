@@ -247,8 +247,8 @@ final class OnboardingService: ObservableObject {
         
         // Apply practice settings based on weekly word goal
         let dailyGoal = profile.weeklyWordGoal / 7
-        UDService.practiceItemCount = min(max(dailyGoal, 5), 50)
-        
+        UDService.practiceItemCount = min(max(dailyGoal, 10), 50)
+
         // Set primary language filter if user has study languages
         if let primaryLanguage = profile.primaryLanguage {
             UDService.quizLanguageFilter = primaryLanguage.rawValue

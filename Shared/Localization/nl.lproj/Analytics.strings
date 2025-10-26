@@ -19,6 +19,7 @@
 "accuracy" = "Nauwkeurigheid";
 "progress" = "Voortgang";
 "streak" = "Reeks";
+"dayStreak" =  "Dagreeks";
 "best" = "Beste";
 "score" = "Score";
 "correct_answers" = "Correcte antwoorden";

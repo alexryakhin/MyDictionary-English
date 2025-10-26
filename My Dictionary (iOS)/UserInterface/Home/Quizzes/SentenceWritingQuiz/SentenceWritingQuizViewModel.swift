@@ -37,6 +37,10 @@ final class SentenceWritingQuizViewModel: BaseViewModel {
     @Published private(set) var accuracyContributions: [String: Double] = [:]
     @Published private(set) var errorMessage: String?
     @Published private(set) var isLoading = false
+    
+    // Streak tracking
+    @Published private(set) var showStreakAnimation = false
+    @Published private(set) var currentDayStreak: Int?
 
     private let quizItemsProvider: QuizItemsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
@@ -286,6 +290,8 @@ final class SentenceWritingQuizViewModel: BaseViewModel {
         isLoading = false
         isEvaluatingAllSentences = false
         userSentences = []
+        showStreakAnimation = false
+        currentDayStreak = nil
         
         HapticManager.shared.triggerNotification(type: .success)
         AnalyticsService.shared.logEvent(.sentenceWritingQuizRestarted)
@@ -293,6 +299,9 @@ final class SentenceWritingQuizViewModel: BaseViewModel {
     
     private func saveQuizSession() {
         guard itemsPlayed.count > 0 else { return }
+        
+        // Check if this is the first quiz today before saving
+        let wasFirstQuizToday = quizAnalyticsService.isFirstQuizToday()
 
         let duration = Date().timeIntervalSince(sessionStartTime)
         let accuracy = itemsPlayed.count > 0 ? accuracyContributions.values.reduce(0, +) / Double(itemsPlayed.count) : 0.0
@@ -307,6 +316,13 @@ final class SentenceWritingQuizViewModel: BaseViewModel {
             itemsPracticed: itemsPlayed,
             correctItemIds: correctItemIds
         )
+        
+        // If this was the first quiz today, calculate streak and show animation
+        if wasFirstQuizToday {
+            let newStreak = quizAnalyticsService.calculateCurrentStreak()
+            showStreakAnimation = true
+            currentDayStreak = newStreak
+        }
     }
     
     private func updateItemScore(_ item: any Quizable, points: Int) {

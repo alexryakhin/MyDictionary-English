@@ -19,6 +19,7 @@
 "accuracy" = "Pontosság";
 "progress" = "Haladás";
 "streak" = "Sorozat";
+"dayStreak" =  "Napi sorozat";
 "best" = "Legjobb";
 "score" = "Pontszám";
 "correct_answers" = "Helyes válaszok";

@@ -19,21 +19,33 @@ struct QuizResultsView<AdditionalAction: View>: View {
     }
 
     let model: Model
+    let showStreak: Bool
+    let currentDayStreak: Int?
     let additionalAction: () -> AdditionalAction
+
+    @State private var showStreakAnimation = false
+    @State private var currentDayStreakState: Int?
 
     init(
         model: Model,
+        showStreak: Bool = false,
+        currentDayStreak: Int? = nil,
         @ViewBuilder additionalAction: @escaping () -> AdditionalAction = { EmptyView() }
     ) {
         self.model = model
+        self.showStreak = showStreak
+        self.currentDayStreak = currentDayStreak
+        self._showStreakAnimation = State(initialValue: showStreak)
+        self._currentDayStreakState = State(initialValue: currentDayStreak)
         self.additionalAction = additionalAction
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
+        ZStack {
+            VStack(spacing: 0) {
+                Spacer()
 
-            VStack(spacing: 24) {
+                VStack(spacing: 24) {
                 // Success Icon
                 ZStack {
                     Circle()
@@ -102,16 +114,22 @@ struct QuizResultsView<AdditionalAction: View>: View {
                 .shadow(color: .label.opacity(0.05), radius: 8, x: 0, y: 2)
 
                 additionalAction()
-            }
-            .padding(.horizontal, 32)
+                }
+                .padding(.horizontal, 32)
 
-            Spacer()
+                Spacer()
+            }
+            .background(
+                Color.systemGroupedBackground
+                    .displayConfetti(isActive: .constant(calculatedAccuracy() >= 80))
+                    .ignoresSafeArea()
+            )
+            
+            // Streak animation overlay
+            if showStreakAnimation, let streak = currentDayStreakState {
+                StreakProgressionAnimation(isActive: $showStreakAnimation, targetStreak: streak)
+            }
         }
-        .background(
-            Color.systemGroupedBackground
-                .displayConfetti(isActive: .constant(calculatedAccuracy() >= 80))
-                .ignoresSafeArea()
-        )
     }
 
     private func calculatedAccuracy() -> Double {

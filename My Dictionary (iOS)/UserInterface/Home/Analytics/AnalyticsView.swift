@@ -30,6 +30,9 @@ struct AnalyticsView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 LazyVStack(spacing: 16) {
+                    // Streak Section
+                    streakSection
+                    
                     // Progress Overview
                     progressOverviewSection
 
@@ -63,6 +66,12 @@ struct AnalyticsView: View {
         .onAppear {
             AnalyticsService.shared.logEvent(.analyticsOpened)
         }
+    }
+    
+    // MARK: - Streak Section
+    
+    private var streakSection: some View {
+        StreakCard(streak: viewModel.currentStreak)
     }
     
     // MARK: - TTS Analytics Section

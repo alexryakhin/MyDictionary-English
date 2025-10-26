@@ -19,6 +19,7 @@
 "accuracy" = "Точность";
 "progress" = "Прогресс";
 "streak" = "Серия";
+"dayStreak" = "Серия дней";
 "best" = "Лучший";
 "score" = "Счёт";
 "correct_answers" = "Правильные ответы";

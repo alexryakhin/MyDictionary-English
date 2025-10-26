@@ -19,6 +19,7 @@
 "accuracy" = "Doğruluk";
 "progress" = "İlerleme";
 "streak" = "Seri";
+"dayStreak" =  "Gün serisi";
 "best" = "En İyi";
 "score" = "Puan";
 "correct_answers" = "Doğru Cevaplar";

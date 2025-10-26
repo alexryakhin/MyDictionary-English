@@ -19,6 +19,7 @@
 "accuracy" = "Acuratețe";
 "progress" = "Progres";
 "streak" = "Serie";
+"dayStreak" =  "Serie de zile";
 "best" = "Cel mai Bun";
 "score" = "Scor";
 "correct_answers" = "Răspunsuri Corecte";

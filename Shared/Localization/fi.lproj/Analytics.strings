@@ -19,6 +19,7 @@
 "accuracy" = "Tarkkuus";
 "progress" = "Edistyminen";
 "streak" = "Putki";
+"dayStreak" =  "Päiväsarja";
 "best" = "Paras";
 "score" = "Pisteet";
 "correct_answers" = "Oikeat vastaukset";

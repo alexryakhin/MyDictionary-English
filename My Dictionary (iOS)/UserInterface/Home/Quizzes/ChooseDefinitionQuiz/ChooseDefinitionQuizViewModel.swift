@@ -35,6 +35,10 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     @Published private(set) var bestStreak = 0
     @Published private(set) var questionsAnswered = 0
     @Published private(set) var errorMessage: String?
+    
+    // Streak tracking
+    @Published private(set) var showStreakAnimation = false
+    @Published private(set) var currentDayStreak: Int?
 
     private let QuizItemsProvider: QuizItemsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
@@ -251,6 +255,8 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         questionsAnswered = 0
         usedItems.removeAll()
         sessionStartTime = Date()
+        showStreakAnimation = false
+        currentDayStreak = nil
         
         // Set up the first question
         getNextQuestion()
@@ -304,6 +310,9 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     
     private func saveQuizSession() {
         guard itemsPlayed.count > 0 else { return }
+        
+        // Check if this is the first quiz today before saving
+        let wasFirstQuizToday = quizAnalyticsService.isFirstQuizToday()
 
         let duration = Date().timeIntervalSince(sessionStartTime)
         let accuracy = itemsPlayed.count > 0 ? Double(correctAnswers) / Double(itemsPlayed.count) : 0.0
@@ -318,6 +327,13 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
             itemsPracticed: itemsPlayed,
             correctItemIds: correctItemIds
         )
+        
+        // If this was the first quiz today, calculate streak and show animation
+        if wasFirstQuizToday {
+            let newStreak = quizAnalyticsService.calculateCurrentStreak()
+            showStreakAnimation = true
+            currentDayStreak = newStreak
+        }
         
         // Check and schedule notifications after quiz completion
         NotificationService.shared.scheduleNotificationsOnAppExit()

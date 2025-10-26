@@ -75,6 +75,8 @@ struct ChooseDefinitionQuizContentView: View {
                             accuracyContributions: 0,
                             bestStreak: viewModel.bestStreak
                         ),
+                        showStreak: viewModel.showStreakAnimation,
+                        currentDayStreak: viewModel.currentDayStreak,
                         onFinish: {
                             dismiss()
                         }

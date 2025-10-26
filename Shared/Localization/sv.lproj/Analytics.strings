@@ -19,6 +19,7 @@
 "accuracy" = "Noggrannhet";
 "progress" = "Framsteg";
 "streak" = "Svit";
+"dayStreak" =  "Dagssvit";
 "best" = "Bästa";
 "score" = "Poäng";
 "correct_answers" = "Rätta svar";

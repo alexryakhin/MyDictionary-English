@@ -110,6 +110,8 @@ struct SentenceWritingQuizContentView: View {
                     accuracyContributions: viewModel.accuracyContributions.values.reduce(0, +),
                     bestStreak: viewModel.bestStreak
                 ),
+                showStreak: viewModel.showStreakAnimation,
+                currentDayStreak: viewModel.currentDayStreak,
                 additionalAction: {
                     if !viewModel.itemsPlayed.isEmpty {
                         ActionButton(

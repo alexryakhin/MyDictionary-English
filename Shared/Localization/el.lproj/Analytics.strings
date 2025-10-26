@@ -19,6 +19,7 @@
 "accuracy" = "Ακρίβεια";
 "progress" = "Πρόοδος";
 "streak" = "Σερί";
+"dayStreak" =  "Σειρά ημερών";
 "best" = "Καλύτερο";
 "score" = "Βαθμολογία";
 "correct_answers" = "Σωστές Απαντήσεις";

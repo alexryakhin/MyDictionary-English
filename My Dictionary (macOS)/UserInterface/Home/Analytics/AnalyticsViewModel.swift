@@ -36,6 +36,7 @@ final class AnalyticsViewModel: BaseViewModel {
     @Published private(set) var quizSessions: [CDQuizSession] = []
     @Published private(set) var quizActivityData: [MonthChartView.ActivityData] = []
     @Published private(set) var isLoading = false
+    @Published private(set) var currentStreak: Int = 0
     @Published var selectedTimePeriod: TimePeriod = .month
     @Published var selectedQuizMonth: Date = Date()
 
@@ -72,6 +73,7 @@ final class AnalyticsViewModel: BaseViewModel {
             isLoading = true
             progressSummary = quizAnalyticsService.getProgressSummary()
             quizSessions = quizAnalyticsService.getQuizSessions()
+            currentStreak = quizAnalyticsService.calculateCurrentStreak()
             generateQuizActivityData()
             isLoading = false
         }

@@ -225,6 +225,8 @@ public enum Loc {
     public static let completeQuizzesGrowthData = Loc.tr("Analytics", "complete_quizzes_growth_data", fallback: "Complete quizzes to see your vocabulary growth over time")
     /// Correct Answers
     public static let correctAnswers = Loc.tr("Analytics", "correct_answers", fallback: "Correct Answers")
+    /// Day Streak
+    public static let dayStreak = Loc.tr("Analytics", "dayStreak", fallback: "Day Streak")
     /// Difficulty Statistics
     public static let difficultyStatistics = Loc.tr("Analytics", "difficulty_statistics", fallback: "Difficulty Statistics")
     /// Duration

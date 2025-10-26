@@ -19,6 +19,7 @@
 "accuracy" = "正確性";
 "progress" = "進捗";
 "streak" = "連続正解";
+"dayStreak" =  "日連続";
 "best" = "最高";
 "score" = "スコア";
 "correct_answers" = "正解";

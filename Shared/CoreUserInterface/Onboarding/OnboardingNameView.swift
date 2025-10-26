@@ -59,6 +59,7 @@ extension OnboardingFlow {
                 ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
                     viewModel.navigate(to: .userType)
                 }
+                .disabled(viewModel.userName.isEmpty)
                 .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {

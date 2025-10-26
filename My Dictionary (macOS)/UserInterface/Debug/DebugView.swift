@@ -354,6 +354,11 @@ struct DebugView: View {
                     showAppInfo()
                 }
 
+                HeaderButton("Remove Today's Quiz Results") {
+                    removeTodayQuizResults()
+                }
+                .foregroundStyle(.orange)
+
                 HeaderButton("Test Crash (Debug)") {
                     testCrash()
                 }
@@ -413,9 +418,9 @@ struct DebugView: View {
     private func testWordStudyNotification() {
         // Get a random word from the dictionary
         let context = CoreDataService.shared.context
-        let request = CDWord.fetchRequest()
-        let words = (try? context.fetch(request)) ?? []
-        
+        let fetchRequest = CDWord.fetchRequest()
+        let words = (try? context.fetch(fetchRequest)) ?? []
+
         guard let randomWord = words.randomElement() else {
             showAlert("No words found in dictionary")
             return
@@ -529,6 +534,31 @@ struct DebugView: View {
 
     private func testCrash() {
         fatalError("Debug crash test")
+    }
+    
+    private func removeTodayQuizResults() {
+        let context = CoreDataService.shared.context
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: today) ?? Date()
+        
+        let request = CDQuizSession.fetchRequest()
+        request.predicate = NSPredicate(format: "date >= %@ AND date < %@", today as NSDate, tomorrow as NSDate)
+        
+        do {
+            let sessions = try context.fetch(request)
+            let count = sessions.count
+            
+            for session in sessions {
+                context.delete(session)
+            }
+            
+            try context.save()
+            
+            showAlert("Successfully removed \(count) quiz session(s) from today")
+        } catch {
+            showAlert("Error removing quiz sessions: \(error.localizedDescription)")
+        }
     }
     
     private func copyToClipboard(_ text: String) {

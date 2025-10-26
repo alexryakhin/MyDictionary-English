@@ -173,6 +173,70 @@ final class QuizAnalyticsService {
         }
     }
     
+    // MARK: - Streak Calculation
+    
+    func calculateCurrentStreak() -> Int {
+        let sessions = getQuizSessions()
+        guard !sessions.isEmpty else { return 0 }
+        
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        
+        // Group sessions by day
+        var daysWithQuizzes: Set<String> = []
+        for session in sessions {
+            guard let sessionDate = session.date else { continue }
+            let dateString = calendar.startOfDay(for: sessionDate).description
+            daysWithQuizzes.insert(dateString)
+        }
+        
+        // Count consecutive days starting from today
+        var streak = 0
+        var currentDate = today
+        
+        // Check if today has quizzes
+        let todayString = currentDate.description
+        guard daysWithQuizzes.contains(todayString) else {
+            return 0
+        }
+        
+        // Count backwards through consecutive days
+        while true {
+            let dateString = currentDate.description
+            
+            if daysWithQuizzes.contains(dateString) {
+                streak += 1
+                // Move to previous day
+                if let previousDay = calendar.date(byAdding: .day, value: -1, to: currentDate) {
+                    currentDate = previousDay
+                } else {
+                    break
+                }
+            } else {
+                // Gap found, stop counting
+                break
+            }
+        }
+        
+        return streak
+    }
+    
+    func isFirstQuizToday() -> Bool {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: today) ?? Date()
+        
+        let request = CDQuizSession.fetchRequest()
+        request.predicate = NSPredicate(format: "date >= %@ AND date < %@", today as NSDate, tomorrow as NSDate)
+        
+        do {
+            let count = try coreDataService.context.count(for: request)
+            return count == 0
+        } catch {
+            return true // If error, assume it's the first quiz
+        }
+    }
+    
     func getUserStats() -> CDUserStats? {
         let request = CDUserStats.fetchRequest()
         

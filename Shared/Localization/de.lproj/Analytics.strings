@@ -19,6 +19,7 @@
 "accuracy" = "Genauigkeit";
 "progress" = "Fortschritt";
 "streak" = "Serie";
+"dayStreak" =  "Tagesserie";
 "best" = "Beste";
 "score" = "Punktzahl";
 "correct_answers" = "Richtige Antworten";

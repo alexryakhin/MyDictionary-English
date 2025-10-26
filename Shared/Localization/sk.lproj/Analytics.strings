@@ -19,6 +19,7 @@
 "accuracy" = "Presnosť";
 "progress" = "Pokrok";
 "streak" = "Séria";
+"dayStreak" =  "Denná séria";
 "best" = "Najlepšie";
 "score" = "Skóre";
 "correct_answers" = "Správne odpovede";

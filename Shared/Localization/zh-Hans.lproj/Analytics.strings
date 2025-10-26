@@ -19,6 +19,7 @@
 "accuracy" = "准确率";
 "progress" = "进度";
 "streak" = "连胜";
+"dayStreak" =  "连续天数";
 "best" = "最佳";
 "score" = "分数";
 "correct_answers" = "正确答案";

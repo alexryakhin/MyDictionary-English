@@ -27,6 +27,9 @@ struct AnalyticsView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 LazyVStack(spacing: 12) {
+                    // Streak Section
+                    streakSection
+                    
                     // Progress Overview
                     progressOverviewSection
 
@@ -88,6 +91,12 @@ struct AnalyticsView: View {
         )
     }
 
+    // MARK: - Streak Section
+    
+    private var streakSection: some View {
+        StreakCard(streak: viewModel.currentStreak)
+    }
+    
     // MARK: - Progress Overview Section
     
     private var progressOverviewSection: some View {

@@ -19,6 +19,7 @@
 "accuracy" = "Precisió";
 "progress" = "Progrés";
 "streak" = "Ratxa";
+"dayStreak" =  "Ratxa de dies";
 "best" = "Millor";
 "score" = "Puntuació";
 "correct_answers" = "Respostes correctes";
