@@ -222,7 +222,7 @@ final class AddWordViewModel: BaseViewModel {
                         }
                         
                         try addWordManager.addNewWordWithMeanings(
-                            word: inputWord.capitalizingFirstLetter(),
+                            word: inputWord,
                             partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
                             phonetic: pronunciation,
                             meanings: meaningData,
@@ -234,8 +234,8 @@ final class AddWordViewModel: BaseViewModel {
                     } else {
                         // Fallback to old method for manual definition
                         try addWordManager.addNewWord(
-                            word: inputWord.capitalizingFirstLetter(),
-                            definition: descriptionField.capitalizingFirstLetter(),
+                            word: inputWord,
+                            definition: descriptionField,
                             partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
                             phonetic: pronunciation,
                             examples: selectedDefinition?.examples ?? [],
@@ -268,14 +268,14 @@ final class AddWordViewModel: BaseViewModel {
             }
         } else {
             meanings = [WordMeaning(
-                definition: descriptionField.capitalizingFirstLetter(),
+                definition: descriptionField,
                 examples: selectedDefinition?.examples ?? []
             )]
         }
         
         let word = Word(
             id: UUID().uuidString,
-            wordItself: inputWord.capitalizingFirstLetter(),
+            wordItself: inputWord,
             meanings: meanings,
             partOfSpeech: partOfSpeech?.rawValue ?? "unknown",
             phonetic: pronunciation,

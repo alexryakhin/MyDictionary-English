@@ -3,7 +3,6 @@ import SwiftUI
 struct FillInTheBlankQuizContentView: View {
 
     @StateObject private var viewModel: FillInTheBlankQuizViewModel
-    @Environment(\.dismiss) private var dismiss
     @StateObject private var ttsPlayer = TTSPlayer.shared
 
     init(preset: QuizPreset) {
@@ -34,22 +33,20 @@ struct FillInTheBlankQuizContentView: View {
                 }
                 .padding(.horizontal, 32)
 
-                ActionButton(
-                    Loc.Quizzes.backToQuizzes,
-                    systemImage: "chevron.left",
-                    style: .borderedProminent
-                ) {
-                    dismiss()
+                if errorMessage == Loc.Ai.AiError.proRequired {
+                    ActionButton(
+                        Loc.Subscription.Paywall.upgradeToPro,
+                        style: .borderedProminent
+                    ) {
+                        PaywallService.shared.presentPaywall(for: .aiQuizzes)
+                    }
+                    .padding(.horizontal, 32)
                 }
-                .padding(.horizontal, 32)
 
                 Spacer()
             }
             .frame(maxWidth: .infinity, alignment: .center)
             .groupedBackground()
-            .onReceive(viewModel.dismissPublisher) {
-                dismiss()
-            }
         } else if viewModel.items.isNotEmpty && !viewModel.isQuizComplete && viewModel.aiStory != nil && viewModel.loadingStatus == .ready {
             ScrollView {
                 VStack(spacing: 16) {
@@ -84,9 +81,6 @@ struct FillInTheBlankQuizContentView: View {
                 if !viewModel.isQuizComplete && viewModel.itemsPlayed.count > 0 {
                     viewModel.handle(.dismiss)
                 }
-            }
-            .onReceive(viewModel.dismissPublisher) {
-                dismiss()
             }
         } else if viewModel.isQuizComplete {
             QuizResultsView(

@@ -54,8 +54,6 @@ struct InteractiveText: View {
     }
 }
 
-// MARK: - Word Action Sheet (Removed - using Menu instead)
-
 #Preview {
     VStack(spacing: 20) {
         InteractiveText(

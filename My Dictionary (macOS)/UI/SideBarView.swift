@@ -31,11 +31,6 @@ struct SideBarView: View {
             }
         }
         .withPaywall()
-        .sheet(isPresented: $sessionManager.showCoffeeBanner) {
-            CoffeeBanner()
-                .presentationDetents([.medium])
-                .presentationDragIndicator(.visible)
-        }
         .sheet(isPresented: $onboardingService.showOnboarding) {
             OnboardingFlow.ContainerView()
                 .interactiveDismissDisabled()

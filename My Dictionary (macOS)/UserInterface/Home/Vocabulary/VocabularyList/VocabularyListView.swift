@@ -21,6 +21,7 @@ struct VocabularyListView: View {
     @StateObject private var dictionaryService = DictionaryService.shared
     @StateObject private var sideBarManager = SideBarManager.shared
     @StateObject private var onboardingService = OnboardingService.shared
+    @StateObject private var sessionManager = SessionManager.shared
 
     @State private var showRatingBanner = false
     @State private var showAddWord = false
@@ -99,6 +100,11 @@ struct VocabularyListView: View {
         }
         .sheet(item: $wordToAddToSharedDictionary) { word in
             AddExistingWordToSharedView(word: word)
+        }
+        .sheet(isPresented: $sessionManager.showCoffeeBanner) {
+            CoffeeBanner()
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
         }
     }
 

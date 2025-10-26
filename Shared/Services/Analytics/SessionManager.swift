@@ -99,6 +99,11 @@ final class SessionManager: ObservableObject {
     // MARK: - Coffee Banner Logic
     
     private func shouldShowCoffeeBanner() -> Bool {
+        // Don't show if user hasn't completed onboarding
+        if !UDService.hasCompletedOnboarding {
+            return false
+        }
+        
         // Don't show if already shown this week
         if UDService.hasShownCoffeeThisWeek {
             return false

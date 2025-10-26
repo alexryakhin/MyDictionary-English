@@ -28,6 +28,7 @@ struct VocabularyListView: View {
     @StateObject private var collectionsManager = WordCollectionsManager.shared
     @StateObject private var navigationManager = NavigationManager.shared
     @StateObject private var onboardingService = OnboardingService.shared
+    @StateObject private var sessionManager = SessionManager.shared
     @State private var showRatingBanner = false
     @State private var searchText = ""
     @State private var sortingState: SortingCase = .latest
@@ -112,6 +113,11 @@ struct VocabularyListView: View {
         .onChange(of: searchText) {
             wordListViewModel.searchText = searchText
             idiomListViewModel.searchText = searchText
+        }
+        .sheet(isPresented: $sessionManager.showCoffeeBanner) {
+            CoffeeBanner()
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
         }
     }
 

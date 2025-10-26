@@ -98,11 +98,6 @@ struct MainTabView: View {
             }
         }
         .withPaywall()
-        .sheet(isPresented: $sessionManager.showCoffeeBanner) {
-            CoffeeBanner()
-                .presentationDetents([.medium])
-                .presentationDragIndicator(.visible)
-        }
         .fullScreenCover(isPresented: $onboardingService.showOnboarding) {
             OnboardingFlow.ContainerView(isNewUser: false)
         }

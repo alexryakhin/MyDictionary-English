@@ -3,7 +3,6 @@ import SwiftUI
 struct SentenceWritingQuizContentView: View {
 
     @StateObject private var viewModel: SentenceWritingQuizViewModel
-    @Environment(\.dismiss) private var dismiss
     @StateObject private var ttsPlayer = TTSPlayer.shared
     @State private var showingDetailedExplanations = false
 
@@ -35,22 +34,20 @@ struct SentenceWritingQuizContentView: View {
                 }
                 .padding(.horizontal, 32)
 
-                ActionButton(
-                    Loc.Quizzes.backToQuizzes,
-                    systemImage: "chevron.left",
-                    style: .borderedProminent
-                ) {
-                    dismiss()
+                if errorMessage == Loc.Ai.AiError.proRequired {
+                    ActionButton(
+                        Loc.Subscription.Paywall.upgradeToPro,
+                        style: .borderedProminent
+                    ) {
+                        PaywallService.shared.presentPaywall(for: .aiQuizzes)
+                    }
+                    .padding(.horizontal, 32)
                 }
-                .padding(.horizontal, 32)
 
                 Spacer()
             }
             .frame(maxWidth: .infinity, alignment: .center)
             .groupedBackground()
-            .onReceive(viewModel.dismissPublisher) {
-                dismiss()
-            }
         } else if !viewModel.isQuizComplete {
             ScrollView {
                 VStack(spacing: 16) {
@@ -81,9 +78,6 @@ struct SentenceWritingQuizContentView: View {
                 if !viewModel.isQuizComplete && viewModel.itemsPlayed.count > 0 {
                     viewModel.handle(.dismiss)
                 }
-            }
-            .onReceive(viewModel.dismissPublisher) {
-                dismiss()
             }
         } else {
             QuizResultsView(

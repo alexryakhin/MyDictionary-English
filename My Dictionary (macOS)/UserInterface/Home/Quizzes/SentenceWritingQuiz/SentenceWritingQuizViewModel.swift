@@ -40,6 +40,7 @@ final class SentenceWritingQuizViewModel: BaseViewModel {
 
     private let quizItemsProvider: QuizItemsProvider = .shared
     private let quizAnalyticsService: QuizAnalyticsService = .shared
+    private let subscriptionService: SubscriptionService = .shared
     private let aiService: AIService = .shared
     private var cancellables = Set<AnyCancellable>()
     private var originalItems: [any Quizable] = []
@@ -53,6 +54,7 @@ final class SentenceWritingQuizViewModel: BaseViewModel {
         super.init()
         setupBindings()
         pauseSharedDictionaryListeners()
+        checkProSubscription()
     }
     
     deinit {
@@ -79,6 +81,12 @@ final class SentenceWritingQuizViewModel: BaseViewModel {
                 saveQuizSession()
             }
             dismissPublisher.send()
+        }
+    }
+
+    private func checkProSubscription() {
+        if subscriptionService.isProUser == false {
+            errorMessage = Loc.Ai.AiError.proRequired
         }
     }
 
