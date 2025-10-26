@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Vergeet niet om vandaag je woordenschat te oefenen.";
 "practice_difficult_words" = "Oefen je moeilijke woorden 📚";
 "difficult_words_challenge" = "Je hebt woorden die meer oefening nodig hebben. Klaar voor de uitdaging?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nVoorbeeld: %@";
 "test_dictionary_invitation" = "Uitnodiging voor testwoordenboek";
 "test_dictionary_invitation_body" = "Iemand heeft je toegevoegd aan 'Testwoordenboek'";
 

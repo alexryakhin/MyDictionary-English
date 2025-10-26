@@ -180,42 +180,4 @@
 "profile_found" = "Profil Găsit!";
 "profile_found_message" = "Am găsit profilul tău de pe alt dispozitiv. Setările și preferințele tale sunt gata!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, deblochează-ți potențialul complet de învățare!";
-"paywall.personalized_subtitle_study" = "Stăpânește vocabularul %@ pentru succesul academic și excelează în studiile tale!";
-"paywall.personalized_subtitle_work" = "Îți avansezi cariera cu vocabular profesional %@ și abilități de comunicare!";
-"paywall.personalized_subtitle_travel" = "Vorbește %@ cu încredere în timp ce călătorești și conectează-te cu oameni din întreaga lume!";
-"paywall.personalized_subtitle_business" = "Excelează în comunicarea de afaceri %@ și contexte profesionale!";
-"paywall.personalized_subtitle_default" = "Alătură-te miilor de %@s care au stăpânit vocabularul %@!";
-"paywall.personalized_for_you" = "Personalizat pentru Tine";
-"paywall.perfect_for_your_goals" = "Perfect pentru Obiectivele Tale %@";
-"paywall.features_tailored_to_journey" = "Funcționalități adaptate călătoriei tale %@ cu %@";
-"paywall.visual_learning_mode" = "Modul de Învățare Vizuală";
-"paywall.visual_learning_description" = "Învață cu imagini, asociații vizuale și tehnici de memorie";
-"paywall.what_our_users_say" = "Ce Spun Utilizatorii Noștri";
-"paywall.join_thousands_satisfied" = "Alătură-te miilor de învățători mulțumiți";
-"paywall.choose_your_plan" = "Alege-ți Planul";
-"paywall.start_free_upgrade_when_needed" = "Începe gratuit și actualizează când ai nevoie de funcționalități avansate";
-"paywall.start_free_trial" = "Începe Perioada de Probă Gratuită";
-"paywall.continue_free" = "Continuă Gratuit";
-"paywall.achievement_master_words" = "Stăpânește %d cuvinte %@ noi în prima ta săptămână";
-"paywall.achievement_academic_writing" = "Îmbunătățește-ți scrierea academică %@ și înțelegerea lecturii";
-"paywall.achievement_professional_communication" = "Îmbunătățește-ți abilitățile de comunicare profesională %@";
-"paywall.achievement_travel_confidence" = "Navighează în orice țară vorbitoare de %@ cu încredere";
-"paywall.achievement_business_communication" = "Excelează în comunicarea de afaceri %@ și contexte profesionale";
-"paywall.achievement_tech_vocabulary" = "Stăpânește vocabularul tehnologic %@ și terminologia industriei";
-"paywall.achievement_business_contexts" = "Excelează în contexte de afaceri %@ și comunicare profesională";
-"paywall.days" = "Zile";
-"paywall.words_goal" = "Obiectiv Cuvinte";
-"paywall.new" = "NOU";
-"paywall.your_personalized_journey" = "Călătoria Ta Personalizată de 7 Zile";
-"paywall.start_free_trial" = "Începe Perioada Ta de Probă Gratuită de 7 Zile";
-"paywall.free" = "GRATUIT";
-"paywall.recommended" = "RECOMANDAT";
-"paywall.skip_for_now" = "Sări peste pentru acum";
-"paywall.start_my_free_trial_now" = "Începe Perioada Mea de Probă Gratuită Acum";
-"paywall.start_free_trial_save" = "Începe Perioada de Probă Gratuită - Economisește %@";
-"paywall.app_store_rating" = "Evaluarea App Store";
-"paywall.total_ratings" = "Evaluări Totale";
-"paywall.reviews" = "Recenzii";
 

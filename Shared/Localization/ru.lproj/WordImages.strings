@@ -30,7 +30,7 @@
 // MARK: - Images Onboarding
 "images_onboarding.title" = "Улучшите ваше обучение с изображениями";
 "images_onboarding.see_words_come_to_life" = "Смотрите, как оживают ваши слова";
-"images_onboarding.every_word_description" = "Каждое слово в вашем словаре может иметь красивое, релевантное изображение, которое помогает лучше запомнить и понять его.";
+"images_onboarding.every_word_description" = "Каждое слово в вашем словаре может иметь красивое, подходящее изображение, которое помогает лучше запомнить и понять его.";
 "images_onboarding.add_images_to_existing" = "Добавляйте изображения к существующим словам";
 "images_onboarding.step1_find_image_section" = "Найдите секцию изображений";
 "images_onboarding.step1_description" = "Нажмите на кнопку 'Добавить изображение'";
@@ -39,9 +39,9 @@
 "images_onboarding.step3_click_done" = "Нажмите 'Готово'";
 "images_onboarding.step3_description" = "Изображение будет сохранено для вас!";
 "images_onboarding.add_images_during_creation" = "Добавляйте изображения во время создания слов";
-"images_onboarding.start_with_complete_vocabulary" = "При добавлении новых слов вы можете сразу искать и добавлять релевантные изображения. Начните с полного визуального словаря с первого дня.";
+"images_onboarding.start_with_complete_vocabulary" = "При добавлении новых слов вы можете сразу искать и добавлять подходящие изображения. Начните с полного визуального словаря с первого дня.";
 "images_onboarding.images_make_quizzes_effective" = "Изображения делают викторины более эффективными";
-"images_onboarding.visual_learning_improves_memory" = "Когда вы тренируетесь с викторинами, изображения помогают создавать более сильные связи между словами и их значениями. Визуальное обучение доказано улучшает удержание памяти.";
+"images_onboarding.visual_learning_improves_memory" = "Когда вы тренируетесь с викторинами, изображения помогают создавать более сильные связи между словами и их значениями. Визуальное обучение доказано улучшает запоминание.";
 "images_onboarding.get_started" = "Начать";
 "images_onboarding.skip" = "Пропустить";
 

@@ -34,6 +34,8 @@
 "download_successful" = "Descarga exitosa";
 "daily_reminders_description" = "Recibe un recordatorio si no has abierto la aplicación";
 "difficult_words_description" = "Recibe un recordatorio para practicar palabras difíciles";
+"word_study_reminders" = "Recordatorios de Estudio de Palabras";
+"word_study_reminders_description" = "Recibe vocabulario aleatorio durante tu tiempo de estudio";
 "free_users_export_limit" = "Los usuarios del plan gratuito pueden exportar hasta %d palabras";
 "app_version" = "Versión de la aplicación:";
 "about_app_description" = "Creé esta aplicación porque no encontré lo que buscaba.\n\nEs un administrador simple de listas de palabras que te permite buscar palabras y añadir definiciones sin traducirlas a tu idioma nativo.\n\nCreo que esta es la mejor manera de aprender inglés. Espero que te resulte útil.\n\nSi tienes preguntas o quieres sugerir funciones, contáctame a través de los enlaces de abajo. ¡Gracias por usar mi aplicación!";

@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "لا تنسَ ممارسة مفرداتك اليوم.";
 "practice_difficult_words" = "مارس كلماتك الصعبة 📚";
 "difficult_words_challenge" = "لديك كلمات تحتاج إلى مزيد من التدريب. هل أنت جاهز للتحدي؟";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nمثال: %@";
 "test_dictionary_invitation" = "دعوة لاختبار القاموس";
 "test_dictionary_invitation_body" = "أضافك شخص ما إلى 'قاموس اختباري'";
 

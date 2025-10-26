@@ -180,42 +180,4 @@
 "profile_found" = "प्रोफाइल मिला!";
 "profile_found_message" = "हमें दूसरे डिवाइस से आपका प्रोफाइल मिला। आपकी सेटिंग्स और प्राथमिकताएं तैयार हैं!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, अपनी पूरी सीखने की क्षमता को अनलॉक करें!";
-"paywall.personalized_subtitle_study" = "अकादमिक सफलता के लिए %@ शब्दावली में महारत हासिल करें और अपनी पढ़ाई में उत्कृष्टता प्राप्त करें!";
-"paywall.personalized_subtitle_work" = "पेशेवर %@ शब्दावली और संचार कौशल के साथ अपने करियर को बढ़ावा दें!";
-"paywall.personalized_subtitle_travel" = "यात्रा के दौरान %@ में आत्मविश्वास से बात करें और दुनिया भर के लोगों से जुड़ें!";
-"paywall.personalized_subtitle_business" = "%@ व्यापारिक संचार और पेशेवर संदर्भों में उत्कृष्टता प्राप्त करें!";
-"paywall.personalized_subtitle_default" = "हजारों %@ में शामिल हों जिन्होंने %@ शब्दावली में महारत हासिल की है!";
-"paywall.personalized_for_you" = "आपके लिए व्यक्तिगत";
-"paywall.perfect_for_your_goals" = "आपके %@ लक्ष्यों के लिए परफेक्ट";
-"paywall.features_tailored_to_journey" = "%@ के साथ आपकी %@ यात्रा के लिए तैयार की गई सुविधाएं";
-"paywall.visual_learning_mode" = "विजुअल लर्निंग मोड";
-"paywall.visual_learning_description" = "छवियों, दृश्य संघों और स्मृति तकनीकों के साथ सीखें";
-"paywall.what_our_users_say" = "हमारे उपयोगकर्ता क्या कहते हैं";
-"paywall.join_thousands_satisfied" = "हजारों संतुष्ट शिक्षार्थियों में शामिल हों";
-"paywall.choose_your_plan" = "अपना प्लान चुनें";
-"paywall.start_free_upgrade_when_needed" = "मुफ्त शुरू करें और जब आपको उन्नत सुविधाओं की आवश्यकता हो तो अपग्रेड करें";
-"paywall.start_free_trial" = "मुफ्त परीक्षण शुरू करें";
-"paywall.continue_free" = "मुफ्त जारी रखें";
-"paywall.achievement_master_words" = "अपने पहले सप्ताह में %d नए %@ शब्दों में महारत हासिल करें";
-"paywall.achievement_academic_writing" = "अपने %@ अकादमिक लेखन और पढ़ने की समझ में सुधार करें";
-"paywall.achievement_professional_communication" = "अपने पेशेवर %@ संचार कौशल को बढ़ाएं";
-"paywall.achievement_travel_confidence" = "किसी भी %@-भाषी देश में आत्मविश्वास से नेविगेट करें";
-"paywall.achievement_business_communication" = "%@ व्यापारिक संचार और पेशेवर संदर्भों में उत्कृष्टता प्राप्त करें";
-"paywall.achievement_tech_vocabulary" = "%@ तकनीकी शब्दावली और उद्योग शब्दावली में महारत हासिल करें";
-"paywall.achievement_business_contexts" = "%@ व्यापारिक संदर्भों और पेशेवर संचार में उत्कृष्टता प्राप्त करें";
-"paywall.days" = "दिन";
-"paywall.words_goal" = "शब्द लक्ष्य";
-"paywall.new" = "नया";
-"paywall.your_personalized_journey" = "आपकी व्यक्तिगत 7-दिवसीय यात्रा";
-"paywall.start_free_trial" = "अपना 7-दिवसीय मुफ्त परीक्षण शुरू करें";
-"paywall.free" = "मुफ्त";
-"paywall.recommended" = "अनुशंसित";
-"paywall.skip_for_now" = "अभी के लिए छोड़ें";
-"paywall.start_my_free_trial_now" = "अभी मेरा मुफ्त परीक्षण शुरू करें";
-"paywall.start_free_trial_save" = "मुफ्त परीक्षण शुरू करें - %@ बचाएं";
-"paywall.app_store_rating" = "ऐप स्टोर रेटिंग";
-"paywall.total_ratings" = "कुल रेटिंग";
-"paywall.reviews" = "समीक्षाएं";
 

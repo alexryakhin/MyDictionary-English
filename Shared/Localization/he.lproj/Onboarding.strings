@@ -180,42 +180,4 @@
 "profile_found" = "פרופיל נמצא!";
 "profile_found_message" = "מצאנו את הפרופיל שלך ממכשיר אחר. ההגדרות וההעדפות שלך מוכנות!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, שחרר את הפוטנציאל המלא שלך ללמידה!";
-"paywall.personalized_subtitle_study" = "שלוט באוצר המילים של %@ להצלחה אקדמית והצלח בלימודים!";
-"paywall.personalized_subtitle_work" = "קדם את הקריירה שלך עם אוצר מילים מקצועי ב-%@ וכישורי תקשורת!";
-"paywall.personalized_subtitle_travel" = "דבר %@ בביטחון בזמן נסיעות והתחבר עם אנשים ברחבי העולם!";
-"paywall.personalized_subtitle_business" = "הצטיין בתקשורת עסקית ב-%@ ובהקשרים מקצועיים!";
-"paywall.personalized_subtitle_default" = "הצטרף לאלפי %@ ששלטו באוצר המילים של %@!";
-"paywall.personalized_for_you" = "מותאם אישית עבורך";
-"paywall.perfect_for_your_goals" = "מושלם עבור היעדים שלך ב-%@";
-"paywall.features_tailored_to_journey" = "תכונות המותאמות למסע שלך ב-%@ עם %@";
-"paywall.visual_learning_mode" = "מצב למידה חזותית";
-"paywall.visual_learning_description" = "למד עם תמונות, אסוציאציות חזותיות וטכניקות זיכרון";
-"paywall.what_our_users_say" = "מה המשתמשים שלנו אומרים";
-"paywall.join_thousands_satisfied" = "הצטרף לאלפי לומדים מרוצים";
-"paywall.choose_your_plan" = "בחר את התוכנית שלך";
-"paywall.start_free_upgrade_when_needed" = "התחל בחינם ושדרג כשאתה צריך תכונות מתקדמות";
-"paywall.start_free_trial" = "התחל ניסיון חינמי";
-"paywall.continue_free" = "המשך בחינם";
-"paywall.achievement_master_words" = "שלוט ב-%d מילים חדשות ב-%@ בשבוע הראשון שלך";
-"paywall.achievement_academic_writing" = "שפר את הכתיבה האקדמית והבנת הנקרא שלך ב-%@";
-"paywall.achievement_professional_communication" = "שפר את כישורי התקשורת המקצועית שלך ב-%@";
-"paywall.achievement_travel_confidence" = "ניווט בכל מדינה דוברת %@ בביטחון";
-"paywall.achievement_business_communication" = "הצטיין בתקשורת עסקית ב-%@ ובהקשרים מקצועיים";
-"paywall.achievement_tech_vocabulary" = "שלוט באוצר מילים טכנולוגי ב-%@ ובטרמינולוגיה תעשייתית";
-"paywall.achievement_business_contexts" = "הצטיין בהקשרים עסקיים ב-%@ ובתקשורת מקצועית";
-"paywall.days" = "ימים";
-"paywall.words_goal" = "יעד מילים";
-"paywall.new" = "חדש";
-"paywall.your_personalized_journey" = "המסע המותאם אישית של 7 הימים שלך";
-"paywall.start_free_trial" = "התחל את הניסיון החינמי של 7 הימים שלך";
-"paywall.free" = "חינם";
-"paywall.recommended" = "מומלץ";
-"paywall.skip_for_now" = "דלג לעת עתה";
-"paywall.start_my_free_trial_now" = "התחל את הניסיון החינמי שלי עכשיו";
-"paywall.start_free_trial_save" = "התחל ניסיון חינמי - חסוך %@";
-"paywall.app_store_rating" = "דירוג App Store";
-"paywall.total_ratings" = "סה\"כ דירוגים";
-"paywall.reviews" = "ביקורות";
 

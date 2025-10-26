@@ -180,42 +180,4 @@
 "profile_found" = "Profiili löytyi!";
 "profile_found_message" = "Löysimme profiilisi toiselta laitteelta. Asetuksesi ja mieltymyksesi ovat valmiit!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, avaa täysi oppimispotentiaalisi!";
-"paywall.personalized_subtitle_study" = "Hallitse %@ sanastoa akateemiseen menestykseen ja erottu opiskeluissasi!";
-"paywall.personalized_subtitle_work" = "Kiihdytä uraasi ammattimaisella %@ sanastolla ja viestintätaidoilla!";
-"paywall.personalized_subtitle_travel" = "Puhu %@ varmuudella matkustaessasi ja yhdistä ihmisiin ympäri maailmaa!";
-"paywall.personalized_subtitle_business" = "Erity %@ liiketoimintaviestinnässä ja ammattimaisissa konteksteissa!";
-"paywall.personalized_subtitle_default" = "Liity tuhansiin %@:ia, jotka ovat hallinneet %@ sanaston!";
-"paywall.personalized_for_you" = "Henkilökohtainen sinulle";
-"paywall.perfect_for_your_goals" = "Täydellinen %@ tavoitteillesi";
-"paywall.features_tailored_to_journey" = "Ominaisuudet räätälöity %@ matkaasi %@:lla";
-"paywall.visual_learning_mode" = "Visuaalinen oppimistila";
-"paywall.visual_learning_description" = "Opi kuvien, visuaalisten assosiaatioiden ja muistitekniikoiden avulla";
-"paywall.what_our_users_say" = "Mitä käyttäjämme sanovat";
-"paywall.join_thousands_satisfied" = "Liity tuhansiin tyytyväisiin oppijoihin";
-"paywall.choose_your_plan" = "Valitse suunnitelma";
-"paywall.start_free_upgrade_when_needed" = "Aloita ilmaiseksi ja päivitä kun tarvitset edistyneitä ominaisuuksia";
-"paywall.start_free_trial" = "Aloita ilmainen kokeilu";
-"paywall.continue_free" = "Jatka ilmaiseksi";
-"paywall.achievement_master_words" = "Hallitse %d uutta %@ sanaa ensimmäisellä viikollasi";
-"paywall.achievement_academic_writing" = "Paranna %@ akateemista kirjoitustasi ja lukukäsitystä";
-"paywall.achievement_professional_communication" = "Paranna ammattimaisia %@ viestintätaitojasi";
-"paywall.achievement_travel_confidence" = "Navigoi mitä tahansa %@-puhuvaa maata varmuudella";
-"paywall.achievement_business_communication" = "Erity %@ liiketoimintaviestinnässä ja ammattimaisissa konteksteissa";
-"paywall.achievement_tech_vocabulary" = "Hallitse %@ teknologia sanastoa ja alan terminologiaa";
-"paywall.achievement_business_contexts" = "Erity %@ liiketoimintakonteksteissa ja ammattimaisessa viestinnässä";
-"paywall.days" = "Päivää";
-"paywall.words_goal" = "Sanojen tavoite";
-"paywall.new" = "UUSI";
-"paywall.your_personalized_journey" = "Henkilökohtainen 7 päivän matkasi";
-"paywall.start_free_trial" = "Aloita 7 päivän ilmainen kokeilu";
-"paywall.free" = "ILMAINEN";
-"paywall.recommended" = "SUOSITELTU";
-"paywall.skip_for_now" = "Ohita toistaiseksi";
-"paywall.start_my_free_trial_now" = "Aloita ilmainen kokeiluni nyt";
-"paywall.start_free_trial_save" = "Aloita ilmainen kokeilu - Säästä %@";
-"paywall.app_store_rating" = "App Store arviointi";
-"paywall.total_ratings" = "Yhteensä arviointeja";
-"paywall.reviews" = "Arvostelut";
 

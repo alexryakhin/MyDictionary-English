@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Bugün kelime dağarcığınızı çalışmayı unutmayın.";
 "practice_difficult_words" = "Zor Kelimeleri Çalış 📚";
 "difficult_words_challenge" = "Daha fazla alıştırma gerektiren kelimeleriniz var. Meydan okumaya hazır mısınız?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nÖrnek: %@";
 "test_dictionary_invitation" = "Test Sözlüğü Davetiyesi";
 "test_dictionary_invitation_body" = "Biri sizi 'Test Sözlüğü'ne ekledi";
 

@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "今天别忘了练习你的词汇。";
 "practice_difficult_words" = "练习你的困难单词 📚";
 "difficult_words_challenge" = "你有需要更多练习的单词。准备好挑战了吗？";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\n例句：%@";
 "test_dictionary_invitation" = "测试词典邀请";
 "test_dictionary_invitation_body" = "有人将你添加到“测试词典”";
 

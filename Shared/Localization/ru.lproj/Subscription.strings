@@ -17,7 +17,7 @@
 "paywall.words_added" = "Добавлено слов";
 "paywall.sign_in_required" = "Требуется вход";
 "paywall.join_thousands_users" = "Присоединяйтесь к тысячам пользователей, которые преобразили своё изучение словарного запаса";
-"paywall.by_subscribing_agree_terms" = "Подписываясь, вы соглашаетесь с нашими Условиями обслуживания и Политикой конфиденциальности";
+"paywall.by_subscribing_agree_terms" = "Подписываясь, вы соглашаетесь с нашими условиями обслуживания и политикой конфиденциальности";
 "paywall.pro_user" = "Пользователь Pro";
 "paywall.free_plan" = "Бесплатный план";
 "paywall.limited_features_available" = "Доступны ограниченные функции";
@@ -29,7 +29,7 @@
 "paywall.annually" = "ежегодно";
 "paywall.monthly" = "ежемесячно";
 "paywall.bestValue" = "ЛУЧШАЯ ЦЕНА";
-"paywall.try_for_free" = "Попробовать Бесплатно";
+"paywall.try_for_free" = "Попробовать бесплатно";
 "paywall.trialThenAutoRenews" = "Бесплатная пробная версия на %d дней, затем %@/%@ до отмены.";
 
 "period.day" = "день";

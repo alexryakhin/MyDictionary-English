@@ -180,42 +180,4 @@
 "profile_found" = "Profil gefunden!";
 "profile_found_message" = "Wir haben Ihr Profil von einem anderen Gerät gefunden. Ihre Einstellungen und Präferenzen sind bereit!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, schalten Sie Ihr volles Lernpotenzial frei!";
-"paywall.personalized_subtitle_study" = "Meistern Sie %@-Vokabular für akademischen Erfolg und glänzen Sie in Ihren Studien!";
-"paywall.personalized_subtitle_work" = "Fördern Sie Ihre Karriere mit professionellem %@-Vokabular und Kommunikationsfähigkeiten!";
-"paywall.personalized_subtitle_travel" = "Sprechen Sie %@ selbstbewusst beim Reisen und verbinden Sie sich mit Menschen weltweit!";
-"paywall.personalized_subtitle_business" = "Glänzen Sie in %@-Geschäftskommunikation und professionellen Kontexten!";
-"paywall.personalized_subtitle_default" = "Schließen Sie sich Tausenden von %@s an, die %@-Vokabular gemeistert haben!";
-"paywall.personalized_for_you" = "Für Sie personalisiert";
-"paywall.perfect_for_your_goals" = "Perfekt für Ihre %@-Ziele";
-"paywall.features_tailored_to_journey" = "Funktionen, die auf Ihre %@-Reise mit %@ zugeschnitten sind";
-"paywall.visual_learning_mode" = "Visueller Lernmodus";
-"paywall.visual_learning_description" = "Lernen Sie mit Bildern, visuellen Assoziationen und Gedächtnistechniken";
-"paywall.what_our_users_say" = "Was unsere Nutzer sagen";
-"paywall.join_thousands_satisfied" = "Schließen Sie sich Tausenden zufriedener Lerner an";
-"paywall.choose_your_plan" = "Wählen Sie Ihren Plan";
-"paywall.start_free_upgrade_when_needed" = "Beginnen Sie kostenlos und upgraden Sie, wenn Sie erweiterte Funktionen benötigen";
-"paywall.start_free_trial" = "Kostenlose Testversion starten";
-"paywall.continue_free" = "Kostenlos fortfahren";
-"paywall.achievement_master_words" = "Meistern Sie %d neue %@-Wörter in Ihrer ersten Woche";
-"paywall.achievement_academic_writing" = "Verbessern Sie Ihr %@-akademisches Schreiben und Leseverständnis";
-"paywall.achievement_professional_communication" = "Verbessern Sie Ihre professionellen %@-Kommunikationsfähigkeiten";
-"paywall.achievement_travel_confidence" = "Navigieren Sie jedes %@-sprechende Land mit Selbstvertrauen";
-"paywall.achievement_business_communication" = "Glänzen Sie in %@-Geschäftskommunikation und professionellen Kontexten";
-"paywall.achievement_tech_vocabulary" = "Meistern Sie %@-Tech-Vokabular und Branchenterminologie";
-"paywall.achievement_business_contexts" = "Glänzen Sie in %@-Geschäftskontexten und professioneller Kommunikation";
-"paywall.days" = "Tage";
-"paywall.words_goal" = "Wort-Ziel";
-"paywall.new" = "NEU";
-"paywall.your_personalized_journey" = "Ihre personalisierte 7-Tage-Reise";
-"paywall.start_free_trial" = "Starten Sie Ihre 7-tägige kostenlose Testversion";
-"paywall.free" = "KOSTENLOS";
-"paywall.recommended" = "EMPFOHLEN";
-"paywall.skip_for_now" = "Für jetzt überspringen";
-"paywall.start_my_free_trial_now" = "Starten Sie jetzt meine kostenlose Testversion";
-"paywall.start_free_trial_save" = "Kostenlose Testversion starten - Sparen Sie %@";
-"paywall.app_store_rating" = "App Store Bewertung";
-"paywall.total_ratings" = "Gesamtbewertungen";
-"paywall.reviews" = "Bewertungen";
 

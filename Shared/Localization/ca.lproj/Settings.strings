@@ -34,6 +34,8 @@
 "download_successful" = "Descàrrega exitosa";
 "daily_reminders_description" = "Rep un recordatori si no has obert l'aplicació";
 "difficult_words_description" = "Rep un recordatori per practicar paraules difícils";
+"word_study_reminders" = "Recordatoris d'Estudi de Paraules";
+"word_study_reminders_description" = "Rep vocabulari aleatori durant el teu temps d'estudi";
 "free_users_export_limit" = "Els usuaris gratuïts poden exportar fins a %d paraules";
 "app_version" = "Versió de l'aplicació:";
 "about_app_description" = "Vaig crear aquesta aplicació perquè no vaig trobar el que volia.\n\nÉs un gestor de llistes de paraules senzill que et permet cercar paraules i afegir-ne les definicions sense traduir-les a la llengua nativa.\n\nTrobo que aquesta és la millor manera d'aprendre anglès. Espero que també et funcioni.\n\nSi tens cap pregunta o vols proposar una funció, contacta'm als enllaços següents. Gràcies per utilitzar la meva aplicació!";

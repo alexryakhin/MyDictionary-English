@@ -180,42 +180,4 @@
 "profile_found" = "프로필 발견!";
 "profile_found_message" = "다른 기기에서 프로필을 찾았습니다. 설정과 선호도가 준비되었습니다!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, 완전한 학습 잠재력을 해제하세요!";
-"paywall.personalized_subtitle_study" = "학술 성공을 위해 %@ 어휘를 마스터하고 학습에서 뛰어난 성과를 거두세요!";
-"paywall.personalized_subtitle_work" = "전문 %@ 어휘와 커뮤니케이션 스킬로 경력을 발전시키세요!";
-"paywall.personalized_subtitle_travel" = "여행 중에 %@을 자신 있게 말하고 전 세계 사람들과 연결하세요!";
-"paywall.personalized_subtitle_business" = "%@ 비즈니스 커뮤니케이션과 전문 환경에서 뛰어난 성과를 거두세요!";
-"paywall.personalized_subtitle_default" = "%@ 어휘를 마스터한 수천 명의 %@에 참여하세요!";
-"paywall.personalized_for_you" = "당신을 위해 개인화";
-"paywall.perfect_for_your_goals" = "당신의 %@ 목표에 완벽";
-"paywall.features_tailored_to_journey" = "당신의 %@과 %@ 여정에 맞춤화된 기능";
-"paywall.visual_learning_mode" = "시각적 학습 모드";
-"paywall.visual_learning_description" = "이미지, 시각적 연상, 기억 기법으로 학습";
-"paywall.what_our_users_say" = "사용자들의 말";
-"paywall.join_thousands_satisfied" = "수천 명의 만족한 학습자에 참여";
-"paywall.choose_your_plan" = "플랜 선택";
-"paywall.start_free_upgrade_when_needed" = "무료로 시작하고 고급 기능이 필요할 때 업그레이드";
-"paywall.start_free_trial" = "무료 체험 시작";
-"paywall.continue_free" = "무료로 계속";
-"paywall.achievement_master_words" = "첫 주에 %d개의 새로운 %@ 단어 마스터";
-"paywall.achievement_academic_writing" = "당신의 %@ 학술 작문과 읽기 이해력 향상";
-"paywall.achievement_professional_communication" = "당신의 %@ 전문 커뮤니케이션 스킬 향상";
-"paywall.achievement_travel_confidence" = "자신 있게 %@ 국가 탐색";
-"paywall.achievement_business_communication" = "%@ 비즈니스 커뮤니케이션과 전문 환경에서 뛰어난 성과";
-"paywall.achievement_tech_vocabulary" = "%@ 기술 어휘와 업계 용어 마스터";
-"paywall.achievement_business_contexts" = "%@ 비즈니스 환경과 전문 커뮤니케이션에서 뛰어난 성과";
-"paywall.days" = "일";
-"paywall.words_goal" = "단어 목표";
-"paywall.new" = "신규";
-"paywall.your_personalized_journey" = "당신의 개인화된 7일 여정";
-"paywall.start_free_trial" = "7일 무료 체험 시작";
-"paywall.free" = "무료";
-"paywall.recommended" = "추천";
-"paywall.skip_for_now" = "지금은 건너뛰기";
-"paywall.start_my_free_trial_now" = "지금 무료 체험 시작";
-"paywall.start_free_trial_save" = "무료 체험 시작 - %@ 절약";
-"paywall.app_store_rating" = "App Store 평점";
-"paywall.total_ratings" = "총 평점";
-"paywall.reviews" = "리뷰";
 

@@ -34,6 +34,8 @@
 "download_successful" = "Preuzimanje uspješno";
 "daily_reminders_description" = "Primite podsjetnik ako niste otvorili aplikaciju";
 "difficult_words_description" = "Primite podsjetnik za vježbanje teških riječi";
+"word_study_reminders" = "Podsjetnici za Učenje Riječi";
+"word_study_reminders_description" = "Primite slučajni vokabular tijekom vašeg vremena učenja";
 "free_users_export_limit" = "Besplatni korisnici mogu izvesti do %d riječi";
 "app_version" = "Verzija aplikacije:";
 "about_app_description" = "Stvorio sam ovu aplikaciju jer nisam mogao pronaći ono što sam tražio.\n\nTo je jednostavan upravitelj popisa riječi koji vam omogućuje pretraživanje riječi i dodavanje njihovih definicija bez prevođenja na materinji jezik.\n\nMislim da je to najbolji način za učenje engleskog. Nadam se da će i vama poslužiti.\n\nAko imate pitanja ili želite predložiti značajku, kontaktirajte me na donjim poveznicama. Hvala što koristite moju aplikaciju!";

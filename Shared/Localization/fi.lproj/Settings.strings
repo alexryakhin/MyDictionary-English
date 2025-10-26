@@ -34,6 +34,8 @@
 "download_successful" = "Lataaminen onnistui";
 "daily_reminders_description" = "Saat muistutuksen, jos et ole avannut sovellusta";
 "difficult_words_description" = "Saat muistutuksen harjoitella vaikeita sanoja";
+"word_study_reminders" = "Sananopiskelu Muistutukset";
+"word_study_reminders_description" = "Saat satunnaista sanastoa opiskeluaikasi aikana";
 "free_users_export_limit" = "Ilmaiset käyttäjät voivat viedä enintään %d sanaa";
 "app_version" = "Sovelluksen versio:";
 "about_app_description" = "Loin tämän sovelluksen, koska en löytänyt etsimääni.\n\nSe on yksinkertainen sanalistanhallinta, jonka avulla voit hakea sanoja ja lisätä niiden määritelmiä ilman käännöstä äidinkielellesi.\n\nUskon, että tämä on paras tapa oppia englantia. Toivon, että se on hyödyllinen myös sinulle.\n\nJos sinulla on kysyttävää tai haluat ehdottaa ominaisuutta, ota yhteyttä alla olevien linkkien kautta. Kiitos, että käytät sovellustani!";

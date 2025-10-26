@@ -180,42 +180,4 @@
 "profile_found" = "プロフィールが見つかりました！";
 "profile_found_message" = "他のデバイスからプロフィールを見つけました。設定と好みが準備完了です！";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@、完全な学習ポテンシャルを解放しましょう！";
-"paywall.personalized_subtitle_study" = "学術的成功のために%@語彙をマスターし、学習で優秀な成績を収めましょう！";
-"paywall.personalized_subtitle_work" = "プロフェッショナル%@語彙とコミュニケーションスキルでキャリアを推進しましょう！";
-"paywall.personalized_subtitle_travel" = "旅行中に%@を自信を持って話し、世界中の人々とつながりましょう！";
-"paywall.personalized_subtitle_business" = "%@ビジネスコミュニケーションとプロフェッショナルな環境で優秀な成績を収めましょう！";
-"paywall.personalized_subtitle_default" = "%@語彙をマスターした何千人もの%@に参加しましょう！";
-"paywall.personalized_for_you" = "あなたのためにパーソナライズ";
-"paywall.perfect_for_your_goals" = "あなたの%@目標に完璧";
-"paywall.features_tailored_to_journey" = "あなたの%@と%@の旅に合わせた機能";
-"paywall.visual_learning_mode" = "視覚学習モード";
-"paywall.visual_learning_description" = "画像、視覚的連想、記憶技術で学習";
-"paywall.what_our_users_say" = "ユーザーの声";
-"paywall.join_thousands_satisfied" = "何千人もの満足した学習者に参加";
-"paywall.choose_your_plan" = "プランを選択";
-"paywall.start_free_upgrade_when_needed" = "無料で開始し、高度な機能が必要な時にアップグレード";
-"paywall.start_free_trial" = "無料トライアルを開始";
-"paywall.continue_free" = "無料で続行";
-"paywall.achievement_master_words" = "最初の週で%d個の新しい%@単語をマスター";
-"paywall.achievement_academic_writing" = "あなたの%@学術ライティングと読解力を向上";
-"paywall.achievement_professional_communication" = "あなたの%@プロフェッショナルコミュニケーションスキルを向上";
-"paywall.achievement_travel_confidence" = "自信を持って%@国をナビゲート";
-"paywall.achievement_business_communication" = "%@ビジネスコミュニケーションとプロフェッショナルな環境で優秀な成績を収める";
-"paywall.achievement_tech_vocabulary" = "%@テクノロジー語彙と業界用語をマスター";
-"paywall.achievement_business_contexts" = "%@ビジネス環境とプロフェッショナルコミュニケーションで優秀な成績を収める";
-"paywall.days" = "日";
-"paywall.words_goal" = "単語目標";
-"paywall.new" = "新";
-"paywall.your_personalized_journey" = "あなたのパーソナライズされた7日間の旅";
-"paywall.start_free_trial" = "7日間無料トライアルを開始";
-"paywall.free" = "無料";
-"paywall.recommended" = "おすすめ";
-"paywall.skip_for_now" = "今はスキップ";
-"paywall.start_my_free_trial_now" = "今すぐ無料トライアルを開始";
-"paywall.start_free_trial_save" = "無料トライアルを開始 - %@節約";
-"paywall.app_store_rating" = "App Store評価";
-"paywall.total_ratings" = "総評価";
-"paywall.reviews" = "レビュー";
 

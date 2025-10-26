@@ -14,13 +14,13 @@
 "ai_loading_desc.searching_knowledge" = "Поиск в базе знаний";
 "ai_loading_desc.understanding_nuances" = "Понимание языковых нюансов";
 "ai_loading_desc.applying_machine_learning" = "Применение машинного обучения";
-"ai_loading_desc.extracting_semantic" = "Извлечение семантического значения";
-"ai_loading_desc.creating_definitions" = "Создание комплексных определений";
+"ai_loading_desc.extracting_semantic" = "Извлечение смыслового значения";
+"ai_loading_desc.creating_definitions" = "Создание подробных определений";
 "ai_loading_desc.identifying_patterns" = "Выявление паттернов использования";
 
 // MARK: - AI Animation States
 "ai_animation.thinking" = "ИИ думает...";
-"ai_animation.analyzing_word" = "Анализируем ваше слово с продвинутым ИИ";
+"ai_animation.analyzing_word" = "Анализируем ваше слово с помощью продвинутого ИИ";
 "ai_animation.analyzing" = "ИИ анализирует...";
 "ai_animation.finding_definitions" = "Ищем идеальные определения для вас";
 "ai_animation.processing" = "Обработка ИИ...";

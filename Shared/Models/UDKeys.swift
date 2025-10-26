@@ -19,6 +19,9 @@ enum UDKeys {
     static let difficultWordsAlertsEnabled = "difficultWordsAlertsEnabled"
     static let dailyRemindersTime = "dailyRemindersTime"
     static let difficultWordsTime = "difficultWordsTime"
+    static let wordStudyNotificationsEnabled = "wordStudyNotificationsEnabled"
+    static let lastWordStudyNotificationDate = "lastWordStudyNotificationDate"
+    static let shownWordIdsToday = "shownWordIdsToday"
 
     // Practice Settings
     static let practiceItemCount = "practiceItemCount"
@@ -123,6 +126,26 @@ enum UDService {
             return Date(timeIntervalSince1970: timeInterval)
         }
         set { UserDefaults.standard.set(newValue.timeIntervalSince1970, forKey: UDKeys.difficultWordsTime) }
+    }
+    
+    static var wordStudyNotificationsEnabled: Bool {
+        get { UserDefaults.standard.bool(forKey: UDKeys.wordStudyNotificationsEnabled) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.wordStudyNotificationsEnabled) }
+    }
+    
+    static var lastWordStudyNotificationDate: Date? {
+        get {
+            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.lastWordStudyNotificationDate)
+            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
+        }
+        set {
+            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.lastWordStudyNotificationDate)
+        }
+    }
+    
+    static var shownWordIdsToday: [String] {
+        get { UserDefaults.standard.stringArray(forKey: UDKeys.shownWordIdsToday) ?? [] }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.shownWordIdsToday) }
     }
 
     // Practice Settings

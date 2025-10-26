@@ -37,6 +37,8 @@
 "download_successful" = "Download Successful";
 "daily_reminders_description" = "Get reminded if you haven't opened the app";
 "difficult_words_description" = "Get reminded to practice difficult words";
+"word_study_reminders" = "Word Study Reminders";
+"word_study_reminders_description" = "Get random vocabulary during your study time";
 "free_users_export_limit" = "Free users can export up to %d words";
 "app_version" = "App version:";
 "about_app_description" = "I created this app because I could not find something that I wanted.\n\nIt is a simple word list manager that allows you to search for words and add their definitions along them without actually translating into a native language.\n\nI find this best to learn English. Hope it will work for you as well.\n\nIf you have any questions, or want to suggest a feature, please reach out to me on the links below. Thank you for using my app!";

@@ -180,42 +180,4 @@
 "profile_found" = "找到個人資料！";
 "profile_found_message" = "我們從其他設備找到了您的個人資料。您的設定和偏好已準備就緒！";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@，解鎖您的完整學習潛力！";
-"paywall.personalized_subtitle_study" = "掌握%@詞彙以獲得學術成功並在學習中脫穎而出！";
-"paywall.personalized_subtitle_work" = "用專業%@詞彙和溝通技能推進您的職業生涯！";
-"paywall.personalized_subtitle_travel" = "在旅行時自信地說%@並與世界各地的人聯繫！";
-"paywall.personalized_subtitle_business" = "在%@商務溝通和專業環境中脫穎而出！";
-"paywall.personalized_subtitle_default" = "加入數千名掌握%@詞彙的%@！";
-"paywall.personalized_for_you" = "為您量身定制";
-"paywall.perfect_for_your_goals" = "完美適合您的%@目標";
-"paywall.features_tailored_to_journey" = "為您的%@與%@之旅量身定制的功能";
-"paywall.visual_learning_mode" = "視覺學習模式";
-"paywall.visual_learning_description" = "通過圖像、視覺聯想和記憶技巧學習";
-"paywall.what_our_users_say" = "我們的用戶怎麼說";
-"paywall.join_thousands_satisfied" = "加入數千名滿意的學習者";
-"paywall.choose_your_plan" = "選擇您的計劃";
-"paywall.start_free_upgrade_when_needed" = "免費開始，需要高級功能時升級";
-"paywall.start_free_trial" = "開始免費試用";
-"paywall.continue_free" = "繼續免費";
-"paywall.achievement_master_words" = "在第一週掌握%d個新的%@單詞";
-"paywall.achievement_academic_writing" = "提高您的%@學術寫作和閱讀理解";
-"paywall.achievement_professional_communication" = "提高您的%@專業溝通技能";
-"paywall.achievement_travel_confidence" = "自信地導航任何%@國家";
-"paywall.achievement_business_communication" = "在%@商務溝通和專業環境中脫穎而出";
-"paywall.achievement_tech_vocabulary" = "掌握%@技術詞彙和行業術語";
-"paywall.achievement_business_contexts" = "在%@商務環境和專業溝通中脫穎而出";
-"paywall.days" = "天";
-"paywall.words_goal" = "單詞目標";
-"paywall.new" = "新";
-"paywall.your_personalized_journey" = "您的個性化7天之旅";
-"paywall.start_free_trial" = "開始您的7天免費試用";
-"paywall.free" = "免費";
-"paywall.recommended" = "推薦";
-"paywall.skip_for_now" = "暫時跳過";
-"paywall.start_my_free_trial_now" = "立即開始我的免費試用";
-"paywall.start_free_trial_save" = "開始免費試用 - 節省%@";
-"paywall.app_store_rating" = "App Store評分";
-"paywall.total_ratings" = "總評分";
-"paywall.reviews" = "評論";
 

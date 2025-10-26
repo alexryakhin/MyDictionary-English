@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Ne zaboravite vježbati svoj vokabular danas.";
 "practice_difficult_words" = "Vježbajte svoje teške riječi 📚";
 "difficult_words_challenge" = "Imate riječi koje zahtijevaju više vježbe. Spremni za izazov?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nPrimjer: %@";
 "test_dictionary_invitation" = "Pozivnica za testni rječnik";
 "test_dictionary_invitation_body" = "Netko vas je dodao u 'Testni rječnik'";
 

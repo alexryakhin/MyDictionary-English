@@ -180,42 +180,4 @@
 "profile_found" = "พบโปรไฟล์!";
 "profile_found_message" = "เราพบโปรไฟล์ของคุณจากอุปกรณ์อื่น การตั้งค่าและความชอบของคุณพร้อมใช้งาน!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, ปลดล็อกศักยภาพการเรียนรู้เต็มรูปแบบของคุณ!";
-"paywall.personalized_subtitle_study" = "เชี่ยวชาญคำศัพท์ %@ เพื่อความสำเร็จทางวิชาการและทำคะแนนได้ดีในการเรียน!";
-"paywall.personalized_subtitle_work" = "เพิ่มอาชีพของคุณด้วยคำศัพท์ %@ ระดับมืออาชีพและทักษะการสื่อสาร!";
-"paywall.personalized_subtitle_travel" = "พูด %@ อย่างมั่นใจขณะเดินทางและเชื่อมต่อกับผู้คนทั่วโลก!";
-"paywall.personalized_subtitle_business" = "เก่งในการสื่อสารธุรกิจ %@ และบริบทระดับมืออาชีพ!";
-"paywall.personalized_subtitle_default" = "เข้าร่วมกับคนหลายพันคนที่เชี่ยวชาญคำศัพท์ %@!";
-"paywall.personalized_for_you" = "ปรับแต่งสำหรับคุณ";
-"paywall.perfect_for_your_goals" = "เหมาะสำหรับเป้าหมาย %@ ของคุณ";
-"paywall.features_tailored_to_journey" = "ฟีเจอร์ที่ปรับแต่งสำหรับการเดินทาง %@ ของคุณกับ %@";
-"paywall.visual_learning_mode" = "โหมดการเรียนรู้ด้วยภาพ";
-"paywall.visual_learning_description" = "เรียนรู้ด้วยภาพ การเชื่อมโยงทางสายตา และเทคนิคการจำ";
-"paywall.what_our_users_say" = "ผู้ใช้ของเราพูดอะไร";
-"paywall.join_thousands_satisfied" = "เข้าร่วมกับผู้เรียนที่พึงพอใจหลายพันคน";
-"paywall.choose_your_plan" = "เลือกแผนของคุณ";
-"paywall.start_free_upgrade_when_needed" = "เริ่มฟรีและอัปเกรดเมื่อคุณต้องการฟีเจอร์ขั้นสูง";
-"paywall.start_free_trial" = "เริ่มทดลองใช้ฟรี";
-"paywall.continue_free" = "ดำเนินการต่อฟรี";
-"paywall.achievement_master_words" = "เชี่ยวชาญคำศัพท์ %@ ใหม่ %d คำในสัปดาห์แรกของคุณ";
-"paywall.achievement_academic_writing" = "ปรับปรุงการเขียนเชิงวิชาการ %@ และความเข้าใจในการอ่านของคุณ";
-"paywall.achievement_professional_communication" = "เพิ่มทักษะการสื่อสาร %@ ระดับมืออาชีพของคุณ";
-"paywall.achievement_travel_confidence" = "นำทางในประเทศที่พูด %@ ใดก็ได้อย่างมั่นใจ";
-"paywall.achievement_business_communication" = "เก่งในการสื่อสารธุรกิจ %@ และบริบทระดับมืออาชีพ";
-"paywall.achievement_tech_vocabulary" = "เชี่ยวชาญคำศัพท์เทคโนโลยี %@ และคำศัพท์เฉพาะอุตสาหกรรม";
-"paywall.achievement_business_contexts" = "เก่งในบริบทธุรกิจ %@ และการสื่อสารระดับมืออาชีพ";
-"paywall.days" = "วัน";
-"paywall.words_goal" = "เป้าหมายคำศัพท์";
-"paywall.new" = "ใหม่";
-"paywall.your_personalized_journey" = "การเดินทาง 7 วันที่ปรับแต่งสำหรับคุณ";
-"paywall.start_free_trial" = "เริ่มทดลองใช้ฟรี 7 วันของคุณ";
-"paywall.free" = "ฟรี";
-"paywall.recommended" = "แนะนำ";
-"paywall.skip_for_now" = "ข้ามไปก่อน";
-"paywall.start_my_free_trial_now" = "เริ่มทดลองใช้ฟรีของฉันตอนนี้";
-"paywall.start_free_trial_save" = "เริ่มทดลองใช้ฟรี - ประหยัด %@";
-"paywall.app_store_rating" = "คะแนน App Store";
-"paywall.total_ratings" = "คะแนนรวม";
-"paywall.reviews" = "รีวิว";
 

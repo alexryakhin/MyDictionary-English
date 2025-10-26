@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Glöm inte att öva ditt ordförråd idag.";
 "practice_difficult_words" = "Öva svåra ord 📚";
 "difficult_words_challenge" = "Du har ord som behöver mer övning. Är du redo för utmaningen?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nExempel: %@";
 "test_dictionary_invitation" = "Inbjudan till testordbok";
 "test_dictionary_invitation_body" = "Någon har lagt till dig i 'Testordbok'";
 

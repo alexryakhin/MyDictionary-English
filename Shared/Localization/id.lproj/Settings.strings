@@ -34,6 +34,8 @@
 "download_successful" = "Unduh Berhasil";
 "daily_reminders_description" = "Dapatkan pengingat jika Anda belum membuka aplikasi";
 "difficult_words_description" = "Dapatkan pengingat untuk melatih kata-kata sulit";
+"word_study_reminders" = "Pengingat Belajar Kata";
+"word_study_reminders_description" = "Dapatkan kosakata acak selama waktu belajar Anda";
 "free_users_export_limit" = "Pengguna gratis dapat mengekspor hingga %d kata";
 "app_version" = "Versi Aplikasi:";
 "about_app_description" = "Saya membuat aplikasi ini karena saya tidak menemukan apa yang saya cari.\n\nIni adalah pengelola daftar kata sederhana yang memungkinkan Anda mencari kata dan menambahkan definisinya tanpa terjemahan ke bahasa ibu Anda.\n\nSaya pikir ini adalah cara terbaik untuk belajar bahasa Inggris. Saya harap Anda merasa ini berguna.\n\nJika Anda memiliki pertanyaan atau ingin menyarankan fitur, hubungi saya melalui tautan di bawah ini. Terima kasih telah menggunakan aplikasi saya!";

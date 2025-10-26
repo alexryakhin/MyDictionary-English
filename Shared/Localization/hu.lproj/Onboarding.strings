@@ -180,42 +180,4 @@
 "profile_found" = "Profil megtalálva!";
 "profile_found_message" = "Megtaláltuk a profilod egy másik eszközről. A beállításaid és preferenciáid készen állnak!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, nyisd ki a teljes tanulási potenciálod!";
-"paywall.personalized_subtitle_study" = "Ovladd %@ szókincset az akadémiai sikerért és kiváló tanulmányokért!";
-"paywall.personalized_subtitle_work" = "Gyorsítsd fel a karrieredet professzionális %@ szókincs és kommunikációs készségekkel!";
-"paywall.personalized_subtitle_travel" = "Beszélj %@ magabiztosan utazás közben és kapcsolódj emberekhez világszerte!";
-"paywall.personalized_subtitle_business" = "Kiváló %@ üzleti kommunikációban és professzionális kontextusokban!";
-"paywall.personalized_subtitle_default" = "Csatlakozz több ezer %@-hoz, akik elsajátították a %@ szókincset!";
-"paywall.personalized_for_you" = "Személyre szabva neked";
-"paywall.perfect_for_your_goals" = "Tökéletes a %@ céljaidhoz";
-"paywall.features_tailored_to_journey" = "Funkciók a %@ utazásodhoz %@-val";
-"paywall.visual_learning_mode" = "Vizuális tanulási mód";
-"paywall.visual_learning_description" = "Tanulj képekkel, vizuális asszociációkkal és memória technikákkal";
-"paywall.what_our_users_say" = "Mit mondanak a felhasználóink";
-"paywall.join_thousands_satisfied" = "Csatlakozz több ezer elégedett tanulóhoz";
-"paywall.choose_your_plan" = "Válaszd ki a terved";
-"paywall.start_free_upgrade_when_needed" = "Kezdj ingyenesen és frissíts, amikor fejlett funkciókra van szükséged";
-"paywall.start_free_trial" = "Ingyenes próbaverzió indítása";
-"paywall.continue_free" = "Folytatás ingyenesen";
-"paywall.achievement_master_words" = "Ovladd %d új %@ szót az első héten";
-"paywall.achievement_academic_writing" = "Javítsd a %@ akadémiai írásod és olvasási megértésed";
-"paywall.achievement_professional_communication" = "Fejleszd a professzionális %@ kommunikációs készségeidet";
-"paywall.achievement_travel_confidence" = "Navigálj bármely %@ beszélő országban magabiztosan";
-"paywall.achievement_business_communication" = "Kiváló %@ üzleti kommunikációban és professzionális kontextusokban";
-"paywall.achievement_tech_vocabulary" = "Ovladd a %@ tech szókincset és iparági terminológiát";
-"paywall.achievement_business_contexts" = "Kiváló %@ üzleti kontextusokban és professzionális kommunikációban";
-"paywall.days" = "Napok";
-"paywall.words_goal" = "Szavak célja";
-"paywall.new" = "ÚJ";
-"paywall.your_personalized_journey" = "A te személyre szabott 7 napos utazásod";
-"paywall.start_free_trial" = "Kezdd el a 7 napos ingyenes próbaverziód";
-"paywall.free" = "INGYENES";
-"paywall.recommended" = "AJÁNLOTT";
-"paywall.skip_for_now" = "Kihagyás most";
-"paywall.start_my_free_trial_now" = "Kezdd el az ingyenes próbaverziómat most";
-"paywall.start_free_trial_save" = "Ingyenes próbaverzió indítása - Mentés %@";
-"paywall.app_store_rating" = "App Store értékelés";
-"paywall.total_ratings" = "Összes értékelés";
-"paywall.reviews" = "Értékelések";
 

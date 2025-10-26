@@ -180,42 +180,4 @@
 "profile_found" = "Profil Ditemukan!";
 "profile_found_message" = "Kami menemukan profil Anda dari perangkat lain. Pengaturan dan preferensi Anda siap digunakan!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, buka potensi pembelajaran penuh Anda!";
-"paywall.personalized_subtitle_study" = "Kuasai kosakata %@ untuk sukses akademik dan unggul dalam studi Anda!";
-"paywall.personalized_subtitle_work" = "Tingkatkan karier Anda dengan kosakata profesional %@ dan keterampilan komunikasi!";
-"paywall.personalized_subtitle_travel" = "Berbicara %@ dengan percaya diri saat bepergian dan terhubung dengan orang-orang di seluruh dunia!";
-"paywall.personalized_subtitle_business" = "Unggul dalam komunikasi bisnis %@ dan konteks profesional!";
-"paywall.personalized_subtitle_default" = "Bergabunglah dengan ribuan %@ yang telah menguasai kosakata %@!";
-"paywall.personalized_for_you" = "Dipersonalisasi untuk Anda";
-"paywall.perfect_for_your_goals" = "Sempurna untuk Tujuan %@ Anda";
-"paywall.features_tailored_to_journey" = "Fitur yang disesuaikan dengan perjalanan %@ Anda dengan %@";
-"paywall.visual_learning_mode" = "Mode Pembelajaran Visual";
-"paywall.visual_learning_description" = "Belajar dengan gambar, asosiasi visual, dan teknik memori";
-"paywall.what_our_users_say" = "Apa Kata Pengguna Kami";
-"paywall.join_thousands_satisfied" = "Bergabunglah dengan ribuan pembelajar yang puas";
-"paywall.choose_your_plan" = "Pilih Rencana Anda";
-"paywall.start_free_upgrade_when_needed" = "Mulai gratis dan upgrade saat Anda membutuhkan fitur canggih";
-"paywall.start_free_trial" = "Mulai Uji Coba Gratis";
-"paywall.continue_free" = "Lanjutkan Gratis";
-"paywall.achievement_master_words" = "Kuasai %d kata %@ baru di minggu pertama Anda";
-"paywall.achievement_academic_writing" = "Tingkatkan penulisan akademik %@ dan pemahaman membaca Anda";
-"paywall.achievement_professional_communication" = "Tingkatkan keterampilan komunikasi profesional %@ Anda";
-"paywall.achievement_travel_confidence" = "Navigasi di negara berbahasa %@ dengan percaya diri";
-"paywall.achievement_business_communication" = "Unggul dalam komunikasi bisnis %@ dan konteks profesional";
-"paywall.achievement_tech_vocabulary" = "Kuasai kosakata teknologi %@ dan terminologi industri";
-"paywall.achievement_business_contexts" = "Unggul dalam konteks bisnis %@ dan komunikasi profesional";
-"paywall.days" = "Hari";
-"paywall.words_goal" = "Tujuan Kata";
-"paywall.new" = "BARU";
-"paywall.your_personalized_journey" = "Perjalanan 7 Hari yang Dipersonalisasi Anda";
-"paywall.start_free_trial" = "Mulai Uji Coba Gratis 7 Hari Anda";
-"paywall.free" = "GRATIS";
-"paywall.recommended" = "DIREKOMENDASIKAN";
-"paywall.skip_for_now" = "Lewati untuk Sekarang";
-"paywall.start_my_free_trial_now" = "Mulai Uji Coba Gratis Saya Sekarang";
-"paywall.start_free_trial_save" = "Mulai Uji Coba Gratis - Hemat %@";
-"paywall.app_store_rating" = "Rating App Store";
-"paywall.total_ratings" = "Total Rating";
-"paywall.reviews" = "Ulasan";
 

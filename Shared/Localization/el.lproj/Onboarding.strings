@@ -180,42 +180,4 @@
 "profile_found" = "Βρέθηκε Προφίλ!";
 "profile_found_message" = "Βρήκαμε το προφίλ σου από άλλη συσκευή. Οι ρυθμίσεις και οι προτιμήσεις σου είναι έτοιμες!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, ξεκλείδωσε το πλήρες δυναμικό μάθησής σου!";
-"paywall.personalized_subtitle_study" = "Κυρίαρχησε το λεξιλόγιο %@ για ακαδημαϊκή επιτυχία και ξεχώρισε στις σπουδές σου!";
-"paywall.personalized_subtitle_work" = "Ενίσχυσε την καριέρα σου με επαγγελματικό λεξιλόγιο %@ και δεξιότητες επικοινωνίας!";
-"paywall.personalized_subtitle_travel" = "Μίλα %@ με αυτοπεποίθηση ενώ ταξιδεύεις και συνδέσου με ανθρώπους παγκοσμίως!";
-"paywall.personalized_subtitle_business" = "Εξέλιξε στην επιχειρηματική επικοινωνία %@ και επαγγελματικά περιβάλλοντα!";
-"paywall.personalized_subtitle_default" = "Ενώσου με χιλιάδες %@s που έχουν κυριαρχήσει στο λεξιλόγιο %@!";
-"paywall.personalized_for_you" = "Προσωποποιημένο για εσένα";
-"paywall.perfect_for_your_goals" = "Τέλειο για τους %@ στόχους σου";
-"paywall.features_tailored_to_journey" = "Χαρακτηριστικά προσαρμοσμένα στο %@ ταξίδι σου με %@";
-"paywall.visual_learning_mode" = "Λειτουργία Οπτικής Μάθησης";
-"paywall.visual_learning_description" = "Μάθε με εικόνες, οπτικές συσχετίσεις και τεχνικές μνήμης";
-"paywall.what_our_users_say" = "Τι Λένε οι Χρήστες μας";
-"paywall.join_thousands_satisfied" = "Ενώσου με χιλιάδες ικανοποιημένους μαθητές";
-"paywall.choose_your_plan" = "Επίλεξε το Σχέδιό σου";
-"paywall.start_free_upgrade_when_needed" = "Ξεκίνα δωρεάν και αναβάθμισε όταν χρειάζεσαι προηγμένα χαρακτηριστικά";
-"paywall.start_free_trial" = "Ξεκίνα Δωρεάν Δοκιμή";
-"paywall.continue_free" = "Συνέχισε Δωρεάν";
-"paywall.achievement_master_words" = "Κυρίαρχησε %d νέες λέξεις %@ την πρώτη εβδομάδα σου";
-"paywall.achievement_academic_writing" = "Βελτίωσε την ακαδημαϊκή σου γραφή %@ και την κατανόηση ανάγνωσης";
-"paywall.achievement_professional_communication" = "Ενίσχυσε τις επαγγελματικές σου δεξιότητες επικοινωνίας %@";
-"paywall.achievement_travel_confidence" = "Πλοήγησε οποιαδήποτε χώρα που μιλάει %@ με αυτοπεποίθηση";
-"paywall.achievement_business_communication" = "Εξέλιξε στην επιχειρηματική επικοινωνία %@ και επαγγελματικά περιβάλλοντα";
-"paywall.achievement_tech_vocabulary" = "Κυρίαρχησε το τεχνολογικό λεξιλόγιο %@ και την ορολογία της βιομηχανίας";
-"paywall.achievement_business_contexts" = "Εξέλιξε σε επιχειρηματικά περιβάλλοντα %@ και επαγγελματική επικοινωνία";
-"paywall.days" = "Ημέρες";
-"paywall.words_goal" = "Στόχος Λέξεων";
-"paywall.new" = "ΝΕΟ";
-"paywall.your_personalized_journey" = "Το Προσωποποιημένο 7-ήμερο Ταξίδι σου";
-"paywall.start_free_trial" = "Ξεκίνα την 7-ήμερη Δωρεάν Δοκιμή σου";
-"paywall.free" = "ΔΩΡΕΑΝ";
-"paywall.recommended" = "ΣΥΝΙΣΤΑΜΕΝΟ";
-"paywall.skip_for_now" = "Παράλειψη προς το παρόν";
-"paywall.start_my_free_trial_now" = "Ξεκίνα τη Δωρεάν Δοκιμή μου Τώρα";
-"paywall.start_free_trial_save" = "Ξεκίνα Δωρεάν Δοκιμή - Εconomia %@";
-"paywall.app_store_rating" = "Αξιολόγηση App Store";
-"paywall.total_ratings" = "Συνολικές Αξιολογήσεις";
-"paywall.reviews" = "Κριτικές";
 

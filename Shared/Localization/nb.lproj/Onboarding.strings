@@ -180,42 +180,4 @@
 "profile_found" = "Profil Funnet!";
 "profile_found_message" = "Vi fant profilen din fra en annen enhet. Innstillingene og preferansene dine er klare!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, lås opp ditt fulle læringspotensial!";
-"paywall.personalized_subtitle_study" = "Mestre %@ vokabular for akademisk suksess og topp studiene dine!";
-"paywall.personalized_subtitle_work" = "Fremme karrieren din med profesjonelt %@ vokabular og kommunikasjonsferdigheter!";
-"paywall.personalized_subtitle_travel" = "Snakk %@ selvsikkert mens du reiser og koble til med mennesker over hele verden!";
-"paywall.personalized_subtitle_business" = "Utmerke deg i %@ forretningskommunikasjon og profesjonelle sammenhenger!";
-"paywall.personalized_subtitle_default" = "Bli med tusenvis av %@s som har mestret %@ vokabular!";
-"paywall.personalized_for_you" = "Tilpasset for Deg";
-"paywall.perfect_for_your_goals" = "Perfekt for dine %@ mål";
-"paywall.features_tailored_to_journey" = "Funksjoner tilpasset din %@ reise med %@";
-"paywall.visual_learning_mode" = "Visuell Læringsmodus";
-"paywall.visual_learning_description" = "Lær med bilder, visuelle assosiasjoner og hukommelsesteknikker";
-"paywall.what_our_users_say" = "Hva Våre Brukere Sier";
-"paywall.join_thousands_satisfied" = "Bli med tusenvis av tilfredse lærere";
-"paywall.choose_your_plan" = "Velg Din Plan";
-"paywall.start_free_upgrade_when_needed" = "Start gratis og oppgrader når du trenger avanserte funksjoner";
-"paywall.start_free_trial" = "Start Gratis Prøveperiode";
-"paywall.continue_free" = "Fortsett Gratis";
-"paywall.achievement_master_words" = "Mestre %d nye %@ ord i din første uke";
-"paywall.achievement_academic_writing" = "Forbedre din %@ akademiske skriving og leseforståelse";
-"paywall.achievement_professional_communication" = "Forbedre dine profesjonelle %@ kommunikasjonsferdigheter";
-"paywall.achievement_travel_confidence" = "Naviger i ethvert %@-talende land med selvtillit";
-"paywall.achievement_business_communication" = "Utmerke deg i %@ forretningskommunikasjon og profesjonelle sammenhenger";
-"paywall.achievement_tech_vocabulary" = "Mestre %@ teknologivokabular og bransjeterminologi";
-"paywall.achievement_business_contexts" = "Utmerke deg i %@ forretningssammenhenger og profesjonell kommunikasjon";
-"paywall.days" = "Dager";
-"paywall.words_goal" = "Ord Mål";
-"paywall.new" = "NY";
-"paywall.your_personalized_journey" = "Din Tilpassede 7-Dagers Reise";
-"paywall.start_free_trial" = "Start Din 7-Dagers Gratis Prøveperiode";
-"paywall.free" = "GRATIS";
-"paywall.recommended" = "ANBEFALT";
-"paywall.skip_for_now" = "Hopp over for nå";
-"paywall.start_my_free_trial_now" = "Start Min Gratis Prøveperiode Nå";
-"paywall.start_free_trial_save" = "Start Gratis Prøveperiode - Spar %@";
-"paywall.app_store_rating" = "App Store Vurdering";
-"paywall.total_ratings" = "Totale Vurderinger";
-"paywall.reviews" = "Anmeldelser";
 

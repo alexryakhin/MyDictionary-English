@@ -180,42 +180,4 @@
 "profile_found" = "Profiel Gevonden!";
 "profile_found_message" = "We hebben je profiel van een ander apparaat gevonden. Je instellingen en voorkeuren zijn klaar!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, ontgrendel je volledige leerpotentieel!";
-"paywall.personalized_subtitle_study" = "Beheers %@-vocabulaire voor academisch succes en blink uit in je studies!";
-"paywall.personalized_subtitle_work" = "Stuw je carrière vooruit met professioneel %@-vocabulaire en communicatievaardigheden!";
-"paywall.personalized_subtitle_travel" = "Spreek %@ vol vertrouwen tijdens het reizen en verbind je met mensen over de hele wereld!";
-"paywall.personalized_subtitle_business" = "Blink uit in %@ zakelijke communicatie en professionele contexten!";
-"paywall.personalized_subtitle_default" = "Sluit je aan bij duizenden %@s die %@-vocabulaire hebben beheerst!";
-"paywall.personalized_for_you" = "Gepersonaliseerd voor Jou";
-"paywall.perfect_for_your_goals" = "Perfect voor je %@ Doelen";
-"paywall.features_tailored_to_journey" = "Functies afgestemd op je %@ reis met %@";
-"paywall.visual_learning_mode" = "Visuele Leermodus";
-"paywall.visual_learning_description" = "Leer met afbeeldingen, visuele associaties en geheugentechnieken";
-"paywall.what_our_users_say" = "Wat Onze Gebruikers Zeggen";
-"paywall.join_thousands_satisfied" = "Sluit je aan bij duizenden tevreden leerlingen";
-"paywall.choose_your_plan" = "Kies je Plan";
-"paywall.start_free_upgrade_when_needed" = "Start gratis en upgrade wanneer je geavanceerde functies nodig hebt";
-"paywall.start_free_trial" = "Start Gratis Proefperiode";
-"paywall.continue_free" = "Gratis Doorgaan";
-"paywall.achievement_master_words" = "Beheers %d nieuwe %@-woorden in je eerste week";
-"paywall.achievement_academic_writing" = "Verbeter je %@ academisch schrijven en leesbegrip";
-"paywall.achievement_professional_communication" = "Verbeter je %@ professionele communicatievaardigheden";
-"paywall.achievement_travel_confidence" = "Navigeer vol vertrouwen door elk %@-sprekend land";
-"paywall.achievement_business_communication" = "Blink uit in %@ zakelijke communicatie en professionele contexten";
-"paywall.achievement_tech_vocabulary" = "Beheers %@ technologisch vocabulaire en industrie-terminologie";
-"paywall.achievement_business_contexts" = "Blink uit in %@ zakelijke contexten en professionele communicatie";
-"paywall.days" = "Dagen";
-"paywall.words_goal" = "Woorden Doel";
-"paywall.new" = "NIEUW";
-"paywall.your_personalized_journey" = "Je Gepersonaliseerde 7-Daagse Reis";
-"paywall.start_free_trial" = "Start je 7-Daagse Gratis Proefperiode";
-"paywall.free" = "GRATIS";
-"paywall.recommended" = "AANBEVOLEN";
-"paywall.skip_for_now" = "Voor Nu Overslaan";
-"paywall.start_my_free_trial_now" = "Start Nu Mijn Gratis Proefperiode";
-"paywall.start_free_trial_save" = "Start Gratis Proefperiode - Bespaar %@";
-"paywall.app_store_rating" = "App Store Beoordeling";
-"paywall.total_ratings" = "Totale Beoordelingen";
-"paywall.reviews" = "Recensies";
 

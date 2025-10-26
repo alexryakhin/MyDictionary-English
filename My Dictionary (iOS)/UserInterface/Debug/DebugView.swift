@@ -186,6 +186,10 @@ struct DebugView: View {
                 HeaderButton("Check Notification Settings") {
                     checkNotificationSettings()
                 }
+                
+                HeaderButton("Test Word Study Notification (1 min)") {
+                    testWordStudyNotification()
+                }
             }
         }
     }
@@ -445,6 +449,41 @@ struct DebugView: View {
                     showAlert("Failed to schedule test notification: \(error.localizedDescription)")
                 } else {
                     showAlert("Test notification scheduled successfully")
+                }
+            }
+        }
+    }
+    
+    private func testWordStudyNotification() {
+        // Get a random word from the dictionary
+        let context = CoreDataService.shared.context
+        let fetchRequest = CDWord.fetchRequest()
+        let words = (try? context.fetch(fetchRequest)) ?? []
+
+        guard let randomWord = words.randomElement() else {
+            showAlert("No words found in dictionary")
+            return
+        }
+        
+        // Create notification content
+        let content = UNMutableNotificationContent()
+        content.title = Loc.Notifications.wordStudyTitle(randomWord.wordItself ?? "Unknown")
+        
+        let definition = randomWord.primaryDefinition ?? "No definition available"
+        let example = randomWord.primaryMeaning?.examplesDecoded.first ?? "No example available"
+        content.body = Loc.Notifications.wordStudyBody(definition, example)
+        content.sound = .default
+        
+        // Schedule for 1 minute from now
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
+        let request = UNNotificationRequest(identifier: "debug-word-study", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    showAlert("Failed to schedule word study notification: \(error.localizedDescription)")
+                } else {
+                    showAlert("Word study notification scheduled for 1 minute: \(randomWord.wordItself ?? "Unknown")")
                 }
             }
         }

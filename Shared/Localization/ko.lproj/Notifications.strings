@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "오늘 어휘 연습을 잊지 마세요.";
 "practice_difficult_words" = "어려운 단어 연습 📚";
 "difficult_words_challenge" = "더 많은 연습이 필요한 단어가 있습니다. 도전할 준비 되셨나요?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\n예시: %@";
 "test_dictionary_invitation" = "테스트 사전 초대";
 "test_dictionary_invitation_body" = "누군가가 당신을 '테스트 사전'에 추가했습니다";
 

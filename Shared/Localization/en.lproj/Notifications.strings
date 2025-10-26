@@ -7,5 +7,7 @@
 "practice_vocabulary_today" = "Don't forget to practice your vocabulary today.";
 "practice_difficult_words" = "Practice Your Difficult Words 📚";
 "difficult_words_challenge" = "You have words that need more practice. Ready for a challenge?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nExample: %@";
 "test_dictionary_invitation" = "Test Dictionary Invitation";
 "test_dictionary_invitation_body" = "Someone added you to 'Test Dictionary'";

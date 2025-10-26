@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Не забудьте попрактикувати свій словниковий запас сьогодні";
 "practice_difficult_words" = "Практикуйте складні слова 📚";
 "difficult_words_challenge" = "У вас є слова, які потребують додаткової практики. Готові до виклику?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nПриклад: %@";
 "test_dictionary_invitation" = "Запрошення до тестового словника";
 "test_dictionary_invitation_body" = "Хтось додав вас до 'Тестового словника'";
 

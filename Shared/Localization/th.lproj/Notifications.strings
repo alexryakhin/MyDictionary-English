@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "อย่าลืมฝึกคำศัพท์ของคุณวันนี้";
 "practice_difficult_words" = "ฝึกคำศัพท์ที่ยาก 📚";
 "difficult_words_challenge" = "คุณมีคำศัพท์ที่ต้องการฝึกเพิ่ม พร้อมสำหรับความท้าทายหรือยัง";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nตัวอย่าง: %@";
 "test_dictionary_invitation" = "คำเชิญพจนานุกรมทดสอบ";
 "test_dictionary_invitation_body" = "มีคนเพิ่มคุณใน 'พจนานุกรมทดสอบ'";
 

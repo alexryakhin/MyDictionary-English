@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "आज अपनी शब्दावली का अभ्यास करना न भूलें।";
 "practice_difficult_words" = "कठिन शब्दों का अभ्यास करें 📚";
 "difficult_words_challenge" = "आपके पास ऐसे शब्द हैं जिन्हें अधिक अभ्यास की आवश्यकता है। चुनौती के लिए तैयार?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nउदाहरण: %@";
 "test_dictionary_invitation" = "परीक्षण शब्दकोश निमंत्रण";
 "test_dictionary_invitation_body" = "किसी ने आपको 'परीक्षण शब्दकोश' में जोड़ा है";
 

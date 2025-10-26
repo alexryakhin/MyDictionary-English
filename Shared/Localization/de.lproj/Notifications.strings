@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Vergessen Sie nicht, heute Ihren Wortschatz zu üben.";
 "practice_difficult_words" = "Üben Sie Ihre schwierigen Wörter 📚";
 "difficult_words_challenge" = "Sie haben Wörter, die mehr Übung benötigen. Bereit für die Herausforderung?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nBeispiel: %@";
 "test_dictionary_invitation" = "Einladung zum Testwörterbuch";
 "test_dictionary_invitation_body" = "Jemand hat Sie zum 'Testwörterbuch' hinzugefügt";
 

@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "今日の語彙練習を忘れずに。";
 "practice_difficult_words" = "難しい単語を練習 📚";
 "difficult_words_challenge" = "さらに練習が必要な単語があります。挑戦する準備はできていますか？";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\n例：%@";
 "test_dictionary_invitation" = "テスト辞書への招待";
 "test_dictionary_invitation_body" = "誰かがあなたを「テスト辞書」に追加しました";
 

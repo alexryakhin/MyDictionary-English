@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Nezapomeňte dnes procvičovat svou slovní zásobu.";
 "practice_difficult_words" = "Procvičujte svá obtížná slova 📚";
 "difficult_words_challenge" = "Máte slova, která potřebují více cvičení. Připraveni na výzvu?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nPříklad: %@";
 "test_dictionary_invitation" = "Pozvánka do testovacího slovníku";
 "test_dictionary_invitation_body" = "Někdo vás přidal do 'Testovacího slovníku'";
 

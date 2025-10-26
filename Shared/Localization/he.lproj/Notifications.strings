@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "אל תשכח לתרגל את אוצר המילים שלך היום.";
 "practice_difficult_words" = "תרגל את המילים הקשות 📚";
 "difficult_words_challenge" = "יש לך מילים שדורשות תרגול נוסף. מוכן לאתגר?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nדוגמה: %@";
 "test_dictionary_invitation" = "הזמנה למילון בדיקה";
 "test_dictionary_invitation_body" = "מישהו הוסיף אותך ל'מילון בדיקה'";
 

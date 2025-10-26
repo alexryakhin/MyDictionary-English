@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Älä unohda harjoitella sanastoasi tänään.";
 "practice_difficult_words" = "Harjoittele vaikeita sanoja 📚";
 "difficult_words_challenge" = "Sinulla on sanoja, jotka tarvitsevat lisää harjoittelua. Valmis haasteeseen?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nEsimerkki: %@";
 "test_dictionary_invitation" = "Kutsu testisanakirjaan";
 "test_dictionary_invitation_body" = "Joku on lisännyt sinut 'Testisanakirjaan'";
 

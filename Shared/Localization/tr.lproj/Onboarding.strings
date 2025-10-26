@@ -180,42 +180,4 @@
 "profile_found" = "Profil Bulundu!";
 "profile_found_message" = "Profilinizi başka bir cihazdan bulduk. Ayarlarınız ve tercihleriniz kullanıma hazır!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, tam öğrenme potansiyelinizi açın!";
-"paywall.personalized_subtitle_study" = "Akademik başarı için %@ kelime dağarcığınızı geliştirin ve çalışmalarınızda başarılı olun!";
-"paywall.personalized_subtitle_work" = "Profesyonel %@ kelime dağarcığı ve iletişim becerileriyle kariyerinizi ilerletin!";
-"paywall.personalized_subtitle_travel" = "Seyahat ederken %@ konuşmaya güvenin ve dünya çapında insanlarla bağlantı kurun!";
-"paywall.personalized_subtitle_business" = "%@ iş iletişiminde ve profesyonel bağlamlarda mükemmelleşin!";
-"paywall.personalized_subtitle_default" = "%@ kelime dağarcığını geliştiren binlerce %@ ile katılın!";
-"paywall.personalized_for_you" = "Sizin İçin Kişiselleştirilmiş";
-"paywall.perfect_for_your_goals" = "%@ Hedefleriniz İçin Mükemmel";
-"paywall.features_tailored_to_journey" = "%@ yolculuğunuz için %@ ile özelleştirilmiş özellikler";
-"paywall.visual_learning_mode" = "Görsel Öğrenme Modu";
-"paywall.visual_learning_description" = "Görseller, görsel çağrışımlar ve hafıza teknikleriyle öğrenin";
-"paywall.what_our_users_say" = "Kullanıcılarımız Ne Diyor";
-"paywall.join_thousands_satisfied" = "Binlerce memnun öğrenciye katılın";
-"paywall.choose_your_plan" = "Planınızı Seçin";
-"paywall.start_free_upgrade_when_needed" = "Ücretsiz başlayın ve gelişmiş özelliklere ihtiyaç duyduğunuzda yükseltin";
-"paywall.start_free_trial" = "Ücretsiz Deneme Başlat";
-"paywall.continue_free" = "Ücretsiz Devam Et";
-"paywall.achievement_master_words" = "İlk haftanızda %d yeni %@ kelimesini öğrenin";
-"paywall.achievement_academic_writing" = "%@ akademik yazımınızı ve okuma anlama becerinizi geliştirin";
-"paywall.achievement_professional_communication" = "Profesyonel %@ iletişim becerilerinizi geliştirin";
-"paywall.achievement_travel_confidence" = "Herhangi bir %@ konuşan ülkede güvenle gezinin";
-"paywall.achievement_business_communication" = "%@ iş iletişiminde ve profesyonel bağlamlarda mükemmelleşin";
-"paywall.achievement_tech_vocabulary" = "%@ teknoloji kelime dağarcığını ve endüstri terminolojisini öğrenin";
-"paywall.achievement_business_contexts" = "%@ iş bağlamlarında ve profesyonel iletişimde mükemmelleşin";
-"paywall.days" = "Gün";
-"paywall.words_goal" = "Kelime Hedefi";
-"paywall.new" = "YENİ";
-"paywall.your_personalized_journey" = "Kişiselleştirilmiş 7 Günlük Yolculuğunuz";
-"paywall.start_free_trial" = "7 Günlük Ücretsiz Denemenizi Başlatın";
-"paywall.free" = "ÜCRETSİZ";
-"paywall.recommended" = "ÖNERİLEN";
-"paywall.skip_for_now" = "Şimdilik Atla";
-"paywall.start_my_free_trial_now" = "Ücretsiz Denememi Şimdi Başlat";
-"paywall.start_free_trial_save" = "Ücretsiz Deneme Başlat - %@ Tasarruf Edin";
-"paywall.app_store_rating" = "App Store Puanı";
-"paywall.total_ratings" = "Toplam Puan";
-"paywall.reviews" = "İncelemeler";
 

@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Nu uita să-ți exersezi vocabularul astăzi.";
 "practice_difficult_words" = "Exersează cuvinte dificile 📚";
 "difficult_words_challenge" = "Ai cuvinte care necesită mai multă practică. Ești gata pentru provocare?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nExemplu: %@";
 "test_dictionary_invitation" = "Invitație la Dicționar de Test";
 "test_dictionary_invitation_body" = "Cineva te-a adăugat la 'Dicționar de Test'";
 

@@ -34,6 +34,8 @@
 "download_successful" = "下载成功";
 "daily_reminders_description" = "如果未打开应用，将收到提醒";
 "difficult_words_description" = "收到提醒以练习困难单词";
+"word_study_reminders" = "单词学习提醒";
+"word_study_reminders_description" = "在学习时间获得随机词汇";
 "free_users_export_limit" = "免费用户最多可导出 %d 个单词";
 "app_version" = "应用版本：";
 "about_app_description" = "我创建这个应用是因为我找不到想要的。\n\n它是一个简单的单词列表管理器，允许你搜索单词并添加其定义，而无需翻译成母语。\n\n我认为这是学习英语的最佳方式。希望它对你也有用。\n\n如果有任何问题或想建议功能，请通过下面的链接联系我。感谢使用我的应用！";

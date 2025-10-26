@@ -180,42 +180,4 @@
 "profile_found" = "Đã tìm thấy hồ sơ!";
 "profile_found_message" = "Chúng tôi đã tìm thấy hồ sơ của bạn từ thiết bị khác. Cài đặt và tùy chọn của bạn đã sẵn sàng!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, mở khóa tiềm năng học tập đầy đủ của bạn!";
-"paywall.personalized_subtitle_study" = "Thành thạo từ vựng %@ để thành công trong học tập và xuất sắc trong việc học!";
-"paywall.personalized_subtitle_work" = "Thúc đẩy sự nghiệp của bạn với từ vựng %@ chuyên nghiệp và kỹ năng giao tiếp!";
-"paywall.personalized_subtitle_travel" = "Nói %@ một cách tự tin khi du lịch và kết nối với mọi người trên toàn thế giới!";
-"paywall.personalized_subtitle_business" = "Xuất sắc trong giao tiếp kinh doanh %@ và các bối cảnh chuyên nghiệp!";
-"paywall.personalized_subtitle_default" = "Tham gia cùng hàng nghìn %@ đã thành thạo từ vựng %@!";
-"paywall.personalized_for_you" = "Cá nhân hóa cho bạn";
-"paywall.perfect_for_your_goals" = "Hoàn hảo cho mục tiêu %@ của bạn";
-"paywall.features_tailored_to_journey" = "Tính năng được điều chỉnh cho hành trình %@ của bạn với %@";
-"paywall.visual_learning_mode" = "Chế độ học trực quan";
-"paywall.visual_learning_description" = "Học với hình ảnh, liên tưởng trực quan và kỹ thuật ghi nhớ";
-"paywall.what_our_users_say" = "Người dùng của chúng tôi nói gì";
-"paywall.join_thousands_satisfied" = "Tham gia cùng hàng nghìn người học hài lòng";
-"paywall.choose_your_plan" = "Chọn kế hoạch của bạn";
-"paywall.start_free_upgrade_when_needed" = "Bắt đầu miễn phí và nâng cấp khi bạn cần tính năng nâng cao";
-"paywall.start_free_trial" = "Bắt đầu dùng thử miễn phí";
-"paywall.continue_free" = "Tiếp tục miễn phí";
-"paywall.achievement_master_words" = "Thành thạo %d từ %@ mới trong tuần đầu tiên của bạn";
-"paywall.achievement_academic_writing" = "Cải thiện viết học thuật %@ và hiểu đọc của bạn";
-"paywall.achievement_professional_communication" = "Nâng cao kỹ năng giao tiếp %@ chuyên nghiệp của bạn";
-"paywall.achievement_travel_confidence" = "Điều hướng bất kỳ quốc gia nói %@ nào với sự tự tin";
-"paywall.achievement_business_communication" = "Xuất sắc trong giao tiếp kinh doanh %@ và các bối cảnh chuyên nghiệp";
-"paywall.achievement_tech_vocabulary" = "Thành thạo từ vựng công nghệ %@ và thuật ngữ ngành";
-"paywall.achievement_business_contexts" = "Xuất sắc trong các bối cảnh kinh doanh %@ và giao tiếp chuyên nghiệp";
-"paywall.days" = "Ngày";
-"paywall.words_goal" = "Mục tiêu từ vựng";
-"paywall.new" = "MỚI";
-"paywall.your_personalized_journey" = "Hành trình 7 ngày cá nhân hóa của bạn";
-"paywall.start_free_trial" = "Bắt đầu dùng thử miễn phí 7 ngày của bạn";
-"paywall.free" = "MIỄN PHÍ";
-"paywall.recommended" = "ĐƯỢC KHUYẾN NGHỊ";
-"paywall.skip_for_now" = "Bỏ qua bây giờ";
-"paywall.start_my_free_trial_now" = "Bắt đầu dùng thử miễn phí của tôi ngay bây giờ";
-"paywall.start_free_trial_save" = "Bắt đầu dùng thử miễn phí - Tiết kiệm %@";
-"paywall.app_store_rating" = "Đánh giá App Store";
-"paywall.total_ratings" = "Tổng đánh giá";
-"paywall.reviews" = "Đánh giá";
 

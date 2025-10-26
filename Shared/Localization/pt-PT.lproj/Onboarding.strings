@@ -180,42 +180,4 @@
 "profile_found" = "Perfil Encontrado!";
 "profile_found_message" = "Encontrámos o seu perfil de outro dispositivo. As suas configurações e preferências estão prontas!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, desbloqueie o seu potencial de aprendizagem completo!";
-"paywall.personalized_subtitle_study" = "Domine o vocabulário %@ para sucesso académico e destaque nos seus estudos!";
-"paywall.personalized_subtitle_work" = "Impulsione a sua carreira com vocabulário profissional %@ e competências de comunicação!";
-"paywall.personalized_subtitle_travel" = "Fale %@ com confiança enquanto viaja e conecte-se com pessoas em todo o mundo!";
-"paywall.personalized_subtitle_business" = "Destaque-se na comunicação empresarial %@ e contextos profissionais!";
-"paywall.personalized_subtitle_default" = "Junte-se a milhares de %@s que dominaram o vocabulário %@!";
-"paywall.personalized_for_you" = "Personalizado para Si";
-"paywall.perfect_for_your_goals" = "Perfeito para os Seus Objetivos %@";
-"paywall.features_tailored_to_journey" = "Funcionalidades adaptadas à sua jornada %@ com %@";
-"paywall.visual_learning_mode" = "Modo de Aprendizagem Visual";
-"paywall.visual_learning_description" = "Aprenda com imagens, associações visuais e técnicas de memória";
-"paywall.what_our_users_say" = "O Que Os Nossos Utilizadores Dizem";
-"paywall.join_thousands_satisfied" = "Junte-se a milhares de aprendizes satisfeitos";
-"paywall.choose_your_plan" = "Escolha o Seu Plano";
-"paywall.start_free_upgrade_when_needed" = "Comece grátis e atualize quando precisar de funcionalidades avançadas";
-"paywall.start_free_trial" = "Iniciar Período de Teste Gratuito";
-"paywall.continue_free" = "Continuar Grátis";
-"paywall.achievement_master_words" = "Domine %d palavras %@ novas na sua primeira semana";
-"paywall.achievement_academic_writing" = "Melhore a sua escrita académica %@ e compreensão de leitura";
-"paywall.achievement_professional_communication" = "Melhore as suas competências de comunicação profissional %@";
-"paywall.achievement_travel_confidence" = "Navegue em qualquer país de língua %@ com confiança";
-"paywall.achievement_business_communication" = "Destaque-se na comunicação empresarial %@ e contextos profissionais";
-"paywall.achievement_tech_vocabulary" = "Domine o vocabulário tecnológico %@ e terminologia da indústria";
-"paywall.achievement_business_contexts" = "Destaque-se em contextos empresariais %@ e comunicação profissional";
-"paywall.days" = "Dias";
-"paywall.words_goal" = "Objetivo de Palavras";
-"paywall.new" = "NOVO";
-"paywall.your_personalized_journey" = "A Sua Jornada Personalizada de 7 Dias";
-"paywall.start_free_trial" = "Inicie o Seu Período de Teste Gratuito de 7 Dias";
-"paywall.free" = "GRÁTIS";
-"paywall.recommended" = "RECOMENDADO";
-"paywall.skip_for_now" = "Saltar por Agora";
-"paywall.start_my_free_trial_now" = "Iniciar o Meu Período de Teste Gratuito Agora";
-"paywall.start_free_trial_save" = "Iniciar Período de Teste Gratuito - Poupe %@";
-"paywall.app_store_rating" = "Classificação da App Store";
-"paywall.total_ratings" = "Classificações Totais";
-"paywall.reviews" = "Avaliações";
 

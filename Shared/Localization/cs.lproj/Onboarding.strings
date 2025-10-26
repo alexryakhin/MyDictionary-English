@@ -180,42 +180,4 @@
 "profile_found" = "Profil nalezen!";
 "profile_found_message" = "Našli jsme váš profil z jiného zařízení. Vaše nastavení a preference jsou připraveny!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, odemkněte svůj plný učební potenciál!";
-"paywall.personalized_subtitle_study" = "Ovládněte slovní zásobu %@ pro akademický úspěch a vynikněte ve studiích!";
-"paywall.personalized_subtitle_work" = "Posuňte svou kariéru s profesionální slovní zásobou %@ a komunikačními dovednostmi!";
-"paywall.personalized_subtitle_travel" = "Mluvte %@ sebevědomě při cestování a spojte se s lidmi po celém světě!";
-"paywall.personalized_subtitle_business" = "Vynikněte v obchodní komunikaci %@ a profesionálních kontextech!";
-"paywall.personalized_subtitle_default" = "Připojte se k tisícům %@s, kteří ovládli slovní zásobu %@!";
-"paywall.personalized_for_you" = "Personalizováno pro vás";
-"paywall.perfect_for_your_goals" = "Perfektní pro vaše %@ cíle";
-"paywall.features_tailored_to_journey" = "Funkce přizpůsobené vaší %@ cestě s %@";
-"paywall.visual_learning_mode" = "Vizuální učební režim";
-"paywall.visual_learning_description" = "Učte se s obrázky, vizuálními asociacemi a paměťovými technikami";
-"paywall.what_our_users_say" = "Co říkají naši uživatelé";
-"paywall.join_thousands_satisfied" = "Připojte se k tisícům spokojených studentů";
-"paywall.choose_your_plan" = "Vyberte svůj plán";
-"paywall.start_free_upgrade_when_needed" = "Začněte zdarma a upgradujte, když potřebujete pokročilé funkce";
-"paywall.start_free_trial" = "Začít Bezplatnou Zkušební Verzi";
-"paywall.continue_free" = "Pokračovat Zdarma";
-"paywall.achievement_master_words" = "Ovládněte %d nových slov %@ ve svém prvním týdnu";
-"paywall.achievement_academic_writing" = "Zlepšete svou akademickou psaní %@ a porozumění čtení";
-"paywall.achievement_professional_communication" = "Zlepšete své profesionální komunikační dovednosti v %@";
-"paywall.achievement_travel_confidence" = "Navigujte jakoukoli zemi mluvící %@ s důvěrou";
-"paywall.achievement_business_communication" = "Vynikněte v obchodní komunikaci %@ a profesionálních kontextech";
-"paywall.achievement_tech_vocabulary" = "Ovládněte technickou slovní zásobu %@ a terminologii odvětví";
-"paywall.achievement_business_contexts" = "Vynikněte v obchodních kontextech %@ a profesionální komunikaci";
-"paywall.days" = "Dny";
-"paywall.words_goal" = "Cíl slov";
-"paywall.new" = "NOVÉ";
-"paywall.your_personalized_journey" = "Vaše personalizovaná 7denní cesta";
-"paywall.start_free_trial" = "Začněte svou 7denní bezplatnou zkušební verzi";
-"paywall.free" = "ZDARMA";
-"paywall.recommended" = "DOPORUČENO";
-"paywall.skip_for_now" = "Přeskočit zatím";
-"paywall.start_my_free_trial_now" = "Začít mou bezplatnou zkušební verzi nyní";
-"paywall.start_free_trial_save" = "Začít bezplatnou zkušební verzi - Ušetřit %@";
-"paywall.app_store_rating" = "Hodnocení App Store";
-"paywall.total_ratings" = "Celková hodnocení";
-"paywall.reviews" = "Recenze";
 

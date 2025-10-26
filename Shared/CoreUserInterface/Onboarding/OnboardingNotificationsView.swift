@@ -87,6 +87,12 @@ extension OnboardingFlow {
                         await NotificationService.shared.requestPermission()
                         await MainActor.run {
                             viewModel.enabledNotifications = true
+                            // Enable word study notifications by default if user has a study time preference
+                            if let userProfile = CoreDataService.shared.fetchUserProfile(),
+                               let studyTime = userProfile.preferredStudyTime,
+                               !studyTime.isEmpty {
+                                UDService.wordStudyNotificationsEnabled = true
+                            }
                             if viewModel.subscriptionService.isProUser {
                                 viewModel.navigate(to: .success)
                             } else {

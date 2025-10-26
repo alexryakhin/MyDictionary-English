@@ -34,6 +34,8 @@
 "download_successful" = "Download Riuscito";
 "daily_reminders_description" = "Ricevi un promemoria se non hai aperto l'app";
 "difficult_words_description" = "Ricevi un promemoria per esercitarti con le parole difficili";
+"word_study_reminders" = "Promemoria di Studio delle Parole";
+"word_study_reminders_description" = "Ricevi vocabolario casuale durante il tuo tempo di studio";
 "free_users_export_limit" = "Gli utenti gratuiti possono esportare fino a %d parole";
 "app_version" = "Versione dell'App:";
 "about_app_description" = "Ho creato questa app perché non trovavo quello che cercavo.\n\nÈ un semplice gestore di liste di parole che ti permette di cercare parole e aggiungere le loro definizioni senza traduzione nella tua lingua madre.\n\nPenso che sia il modo migliore per imparare l'inglese. Spero che la trovi utile.\n\nSe hai domande o vuoi suggerire funzionalità, contattami tramite i link qui sotto. Grazie per aver usato la mia app!";

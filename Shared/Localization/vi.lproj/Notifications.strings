@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Đừng quên luyện tập vốn từ vựng của bạn hôm nay.";
 "practice_difficult_words" = "Luyện tập từ khó 📚";
 "difficult_words_challenge" = "Bạn có những từ cần luyện tập thêm. Sẵn sàng cho thử thách chưa?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nVí dụ: %@";
 "test_dictionary_invitation" = "Lời mời từ điển kiểm tra";
 "test_dictionary_invitation_body" = "Ai đó đã thêm bạn vào 'Từ điển kiểm tra'";
 

@@ -180,42 +180,4 @@
 "profile_found" = "Profil pronađen!";
 "profile_found_message" = "Pronašli smo vaš profil s drugog uređaja. Vaše postavke i preferencije su spremne!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, otključajte svoj puni potencijal učenja!";
-"paywall.personalized_subtitle_study" = "Ovladajte %@ vokabularom za akademski uspjeh i odličite u studijima!";
-"paywall.personalized_subtitle_work" = "Ubrzajte svoju karijeru s profesionalnim %@ vokabularom i komunikacijskim vještinama!";
-"paywall.personalized_subtitle_travel" = "Govorite %@ samopouzdano tijekom putovanja i povežite se s ljudima širom svijeta!";
-"paywall.personalized_subtitle_business" = "Odličite u %@ poslovnoj komunikaciji i profesionalnim kontekstima!";
-"paywall.personalized_subtitle_default" = "Pridružite se tisućama %@ koji su ovladali %@ vokabularom!";
-"paywall.personalized_for_you" = "Personalizirano za vas";
-"paywall.perfect_for_your_goals" = "Savršeno za vaše %@ ciljeve";
-"paywall.features_tailored_to_journey" = "Značajke prilagođene vašem %@ putovanju s %@";
-"paywall.visual_learning_mode" = "Vizualni način učenja";
-"paywall.visual_learning_description" = "Učite s slikama, vizualnim asocijacijama i tehnikama pamćenja";
-"paywall.what_our_users_say" = "Što kažu naši korisnici";
-"paywall.join_thousands_satisfied" = "Pridružite se tisućama zadovoljnih učenika";
-"paywall.choose_your_plan" = "Odaberite svoj plan";
-"paywall.start_free_upgrade_when_needed" = "Započnite besplatno i nadogradite kada trebate napredne značajke";
-"paywall.start_free_trial" = "Započni besplatni probni period";
-"paywall.continue_free" = "Nastavi besplatno";
-"paywall.achievement_master_words" = "Ovladajte %d novim %@ riječima u svom prvom tjednu";
-"paywall.achievement_academic_writing" = "Poboljšajte svoje %@ akademsko pisanje i razumijevanje čitanja";
-"paywall.achievement_professional_communication" = "Poboljšajte svoje profesionalne %@ komunikacijske vještine";
-"paywall.achievement_travel_confidence" = "Krećite se bilo kojom %@ zemljom govornika s povjerenjem";
-"paywall.achievement_business_communication" = "Odličite u %@ poslovnoj komunikaciji i profesionalnim kontekstima";
-"paywall.achievement_tech_vocabulary" = "Ovladajte %@ tehnološkim vokabularom i industrijskom terminologijom";
-"paywall.achievement_business_contexts" = "Odličite u %@ poslovnim kontekstima i profesionalnoj komunikaciji";
-"paywall.days" = "Dani";
-"paywall.words_goal" = "Cilj riječi";
-"paywall.new" = "NOVO";
-"paywall.your_personalized_journey" = "Vaše personalizirano 7-dnevno putovanje";
-"paywall.start_free_trial" = "Započnite svoj 7-dnevni besplatni probni period";
-"paywall.free" = "BESPLATNO";
-"paywall.recommended" = "PREPORUČENO";
-"paywall.skip_for_now" = "Preskoči za sada";
-"paywall.start_my_free_trial_now" = "Započni moj besplatni probni period sada";
-"paywall.start_free_trial_save" = "Započni besplatni probni period - Uštedi %@";
-"paywall.app_store_rating" = "App Store ocjena";
-"paywall.total_ratings" = "Ukupne ocjene";
-"paywall.reviews" = "Recenzije";
 

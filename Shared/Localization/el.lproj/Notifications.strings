@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Μην ξεχάσεις να εξασκήσεις το λεξιλόγιό σου σήμερα.";
 "practice_difficult_words" = "Εξάσκησε τις δύσκολες λέξεις 📚";
 "difficult_words_challenge" = "Έχεις λέξεις που χρειάζονται περισσότερη εξάσκηση. Έτοιμος για την πρόκληση;";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nΠαράδειγμα: %@";
 "test_dictionary_invitation" = "Πρόσκληση σε Δοκιμαστικό Λεξικό";
 "test_dictionary_invitation_body" = "Κάποιος σε πρόσθεσε στο 'Δοκιμαστικό Λεξικό'";
 

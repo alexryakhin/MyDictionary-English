@@ -180,42 +180,4 @@
 "profile_found" = "Профіль знайдено!";
 "profile_found_message" = "Ми знайшли ваш профіль з іншого пристрою. Ваші налаштування та уподобання готові до використання!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, розблокуйте свій повний навчальний потенціал!";
-"paywall.personalized_subtitle_study" = "Опануйте %@ словниковий запас для академічного успіху та досягніть успіху в навчанні!";
-"paywall.personalized_subtitle_work" = "Просувайте свою кар'єру з професійним %@ словниковим запасом та навичками спілкування!";
-"paywall.personalized_subtitle_travel" = "Говоріть %@ впевнено під час подорожей та спілкуйтеся з людьми по всьому світу!";
-"paywall.personalized_subtitle_business" = "Досягайте успіху в %@ діловому спілкуванні та професійних контекстах!";
-"paywall.personalized_subtitle_default" = "Приєднуйтеся до тисяч %@, які опанували %@ словниковий запас!";
-"paywall.personalized_for_you" = "Персоналізовано для вас";
-"paywall.perfect_for_your_goals" = "Ідеально для ваших %@ цілей";
-"paywall.features_tailored_to_journey" = "Функції, адаптовані до вашої %@ подорожі з %@";
-"paywall.visual_learning_mode" = "Режим візуального навчання";
-"paywall.visual_learning_description" = "Навчайтеся з зображеннями, візуальними асоціаціями та техніками пам'яті";
-"paywall.what_our_users_say" = "Що кажуть наші користувачі";
-"paywall.join_thousands_satisfied" = "Приєднуйтеся до тисяч задоволених учнів";
-"paywall.choose_your_plan" = "Виберіть свій план";
-"paywall.start_free_upgrade_when_needed" = "Почніть безкоштовно та оновлюйте, коли потрібні розширені функції";
-"paywall.start_free_trial" = "Почніть безкоштовний пробний період";
-"paywall.continue_free" = "Продовжити безкоштовно";
-"paywall.achievement_master_words" = "Опануйте %d нових %@ слів у ваш перший тиждень";
-"paywall.achievement_academic_writing" = "Покращіть ваше %@ академічне письмо та розуміння прочитаного";
-"paywall.achievement_professional_communication" = "Розвивайте ваші професійні %@ навички спілкування";
-"paywall.achievement_travel_confidence" = "Навігуйте в будь-якій %@ мовній країні з впевненістю";
-"paywall.achievement_business_communication" = "Досягайте успіху в %@ діловому спілкуванні та професійних контекстах";
-"paywall.achievement_tech_vocabulary" = "Опануйте %@ технологічний словниковий запас та галузеву термінологію";
-"paywall.achievement_business_contexts" = "Досягайте успіху в %@ ділових контекстах та професійному спілкуванні";
-"paywall.days" = "Дні";
-"paywall.words_goal" = "Мета слів";
-"paywall.new" = "НОВИЙ";
-"paywall.your_personalized_journey" = "Ваша персоналізована 7-денна подорож";
-"paywall.start_free_trial" = "Почніть вашу 7-денну безкоштовну пробну версію";
-"paywall.free" = "БЕЗКОШТОВНО";
-"paywall.recommended" = "РЕКОМЕНДОВАНО";
-"paywall.skip_for_now" = "Поки що пропустити";
-"paywall.start_my_free_trial_now" = "Почніть мою безкоштовну пробну версію зараз";
-"paywall.start_free_trial_save" = "Почніть безкоштовну пробну версію - економте %@";
-"paywall.app_store_rating" = "Рейтинг App Store";
-"paywall.total_ratings" = "Загальні рейтинги";
-"paywall.reviews" = "Відгуки";
 

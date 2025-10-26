@@ -41,6 +41,28 @@ struct SettingsView: View {
 
                 CustomSectionView(header: Loc.Settings.notifications) {
                     VStack(spacing: 8) {
+                        // Word Study Notifications (first in stack)
+                        HStack {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(Loc.Settings.wordStudyReminders)
+                                    .font(.body)
+                                    .fontWeight(.medium)
+                                Text(Loc.Settings.wordStudyRemindersDescription)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+
+                            Spacer()
+
+                            Toggle("", isOn: $viewModel.wordStudyNotificationsEnabled)
+                                .labelsHidden()
+                                .onChange(of: viewModel.wordStudyNotificationsEnabled) {
+                                    viewModel.updateNotificationSettings()
+                                }
+                        }
+                        .padding(vertical: 12, horizontal: 16)
+                        .clippedWithBackground(Color.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 16))
+
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(Loc.Settings.dailyReminders)

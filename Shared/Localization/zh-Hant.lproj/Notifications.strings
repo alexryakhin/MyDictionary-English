@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "今天別忘了練習你的詞彙。";
 "practice_difficult_words" = "練習你的困難單詞 📚";
 "difficult_words_challenge" = "你有需要更多練習的單詞。準備好挑戰了嗎？";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\n例句：%@";
 "test_dictionary_invitation" = "測試詞典邀請";
 "test_dictionary_invitation_body" = "有人將你添加到“測試詞典”";
 

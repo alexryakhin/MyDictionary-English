@@ -180,42 +180,4 @@
 "profile_found" = "找到个人资料！";
 "profile_found_message" = "我们从其他设备找到了您的个人资料。您的设置和偏好已准备就绪！";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@，解锁您的完整学习潜力！";
-"paywall.personalized_subtitle_study" = "掌握%@词汇以获得学术成功并在学习中脱颖而出！";
-"paywall.personalized_subtitle_work" = "用专业%@词汇和沟通技能推进您的职业生涯！";
-"paywall.personalized_subtitle_travel" = "在旅行时自信地说%@并与世界各地的人联系！";
-"paywall.personalized_subtitle_business" = "在%@商务沟通和专业环境中脱颖而出！";
-"paywall.personalized_subtitle_default" = "加入数千名掌握%@词汇的%@！";
-"paywall.personalized_for_you" = "为您量身定制";
-"paywall.perfect_for_your_goals" = "完美适合您的%@目标";
-"paywall.features_tailored_to_journey" = "为您的%@与%@之旅量身定制的功能";
-"paywall.visual_learning_mode" = "视觉学习模式";
-"paywall.visual_learning_description" = "通过图像、视觉联想和记忆技巧学习";
-"paywall.what_our_users_say" = "我们的用户怎么说";
-"paywall.join_thousands_satisfied" = "加入数千名满意的学习者";
-"paywall.choose_your_plan" = "选择您的计划";
-"paywall.start_free_upgrade_when_needed" = "免费开始，需要高级功能时升级";
-"paywall.start_free_trial" = "开始免费试用";
-"paywall.continue_free" = "继续免费";
-"paywall.achievement_master_words" = "在第一周掌握%d个新的%@单词";
-"paywall.achievement_academic_writing" = "提高您的%@学术写作和阅读理解";
-"paywall.achievement_professional_communication" = "提高您的%@专业沟通技能";
-"paywall.achievement_travel_confidence" = "自信地导航任何%@国家";
-"paywall.achievement_business_communication" = "在%@商务沟通和专业环境中脱颖而出";
-"paywall.achievement_tech_vocabulary" = "掌握%@技术词汇和行业术语";
-"paywall.achievement_business_contexts" = "在%@商务环境和专业沟通中脱颖而出";
-"paywall.days" = "天";
-"paywall.words_goal" = "单词目标";
-"paywall.new" = "新";
-"paywall.your_personalized_journey" = "您的个性化7天之旅";
-"paywall.start_free_trial" = "开始您的7天免费试用";
-"paywall.free" = "免费";
-"paywall.recommended" = "推荐";
-"paywall.skip_for_now" = "暂时跳过";
-"paywall.start_my_free_trial_now" = "立即开始我的免费试用";
-"paywall.start_free_trial_save" = "开始免费试用 - 节省%@";
-"paywall.app_store_rating" = "App Store评分";
-"paywall.total_ratings" = "总评分";
-"paywall.reviews" = "评论";
 

@@ -7,5 +7,7 @@
 "practice_vocabulary_today" = "No olvides practicar tu vocabulario hoy.";
 "practice_difficult_words" = "Practica Tus Palabras Difíciles 📚";
 "difficult_words_challenge" = "Tienes palabras que necesitan más práctica. ¿Listo para un desafío?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nEjemplo: %@";
 "test_dictionary_invitation" = "Invitación al Diccionario de Prueba";
 "test_dictionary_invitation_body" = "Alguien te agregó a 'Diccionario de Prueba'";

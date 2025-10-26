@@ -34,6 +34,8 @@
 "download_successful" = "Tải xuống thành công";
 "daily_reminders_description" = "Nhận nhắc nhở nếu bạn chưa mở ứng dụng";
 "difficult_words_description" = "Nhận nhắc nhở để luyện tập các từ khó";
+"word_study_reminders" = "Nhắc nhở Học Từ";
+"word_study_reminders_description" = "Nhận từ vựng ngẫu nhiên trong thời gian học của bạn";
 "free_users_export_limit" = "Người dùng gói miễn phí có thể xuất tối đa %d từ";
 "app_version" = "Phiên bản ứng dụng:";
 "about_app_description" = "Tôi đã tạo ứng dụng này vì tôi không thể tìm thấy thứ mình cần.\n\nĐây là một trình quản lý danh sách từ đơn giản cho phép bạn tìm kiếm từ và thêm định nghĩa mà không cần dịch sang ngôn ngữ mẹ đẻ.\n\nTôi tin rằng đây là cách tốt nhất để học tiếng Anh. Hy vọng bạn thấy nó hữu ích.\n\nNếu bạn có câu hỏi hoặc đề xuất tính năng, hãy liên hệ với tôi qua các liên kết dưới đây. Cảm ơn bạn đã sử dụng ứng dụng của tôi!";

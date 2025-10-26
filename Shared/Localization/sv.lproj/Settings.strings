@@ -34,6 +34,8 @@
 "download_successful" = "Nedladdning lyckades";
 "daily_reminders_description" = "Få en påminnelse om du inte har öppnat appen";
 "difficult_words_description" = "Få en påminnelse för att öva svåra ord";
+"word_study_reminders" = "Ordstudie Påminnelser";
+"word_study_reminders_description" = "Få slumpmässigt ordförråd under din studietid";
 "free_users_export_limit" = "Användare med gratisplan kan exportera upp till %d ord";
 "app_version" = "Appversion:";
 "about_app_description" = "Jag skapade denna app eftersom jag inte hittade vad jag letade efter.\n\nDet är en enkel ordlistehanterare som låter dig söka ord och lägga till definitioner utan att översätta till ditt modersmål.\n\nJag tror att detta är det bästa sättet att lära sig engelska. Jag hoppas att du finner den användbar.\n\nOm du har frågor eller vill föreslå funktioner, kontakta mig via länkarna nedan. Tack för att du använder min app!";

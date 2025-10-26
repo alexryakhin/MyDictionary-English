@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Ne felejts el ma gyakorolni a szókincsedet.";
 "practice_difficult_words" = "Gyakorold a nehéz szavakat 📚";
 "difficult_words_challenge" = "Vannak szavaid, amelyek további gyakorlást igényelnek. Készen állsz a kihívásra?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nPélda: %@";
 "test_dictionary_invitation" = "Teszt szótár meghívó";
 "test_dictionary_invitation_body" = "Valaki hozzáadott téged a 'Teszt szótár'-hoz";
 

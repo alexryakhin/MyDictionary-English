@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "Jangan lupa berlatih kosa kata anda hari ini.";
 "practice_difficult_words" = "Berlatih perkataan sukar 📚";
 "difficult_words_challenge" = "Anda mempunyai perkataan yang memerlukan lebih latihan. Bersedia untuk cabaran?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nContoh: %@";
 "test_dictionary_invitation" = "Jemputan Kamus Ujian";
 "test_dictionary_invitation_body" = "Seseorang telah menambah anda ke 'Kamus Ujian'";
 

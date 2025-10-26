@@ -7,6 +7,8 @@
 "practice_vocabulary_today" = "No oblidis practicar el teu vocabulari avui.";
 "practice_difficult_words" = "Practica les teves paraules difícils 📚";
 "difficult_words_challenge" = "Tens paraules que necessiten més pràctica. Preparat per al repte?";
+"word_study_title" = "📚 %@";
+"word_study_body" = "%@\nExemple: %@";
 "test_dictionary_invitation" = "Invitació al diccionari de prova";
 "test_dictionary_invitation_body" = "Algú t'ha afegit al 'Diccionari de prova'";
 

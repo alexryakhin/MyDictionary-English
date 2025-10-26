@@ -180,42 +180,4 @@
 "profile_found" = "Znaleziono Profil!";
 "profile_found_message" = "Znaleźliśmy Twój profil z innego urządzenia. Twoje ustawienia i preferencje są gotowe!";
 
-// MARK: - Personalized Paywall
-"paywall.personalized_title" = "%@, odblokuj swój pełny potencjał nauki!";
-"paywall.personalized_subtitle_study" = "Opanuj słownictwo %@ dla sukcesu akademickiego i wyróżnij się w nauce!";
-"paywall.personalized_subtitle_work" = "Rozwijaj swoją karierę z profesjonalnym słownictwem %@ i umiejętnościami komunikacyjnymi!";
-"paywall.personalized_subtitle_travel" = "Mów %@ z pewnością podczas podróży i łącz się z ludźmi na całym świecie!";
-"paywall.personalized_subtitle_business" = "Wyróżnij się w komunikacji biznesowej %@ i kontekstach profesjonalnych!";
-"paywall.personalized_subtitle_default" = "Dołącz do tysięcy %@s, które opanowały słownictwo %@!";
-"paywall.personalized_for_you" = "Spersonalizowane dla Ciebie";
-"paywall.perfect_for_your_goals" = "Idealne dla Twoich celów %@";
-"paywall.features_tailored_to_journey" = "Funkcje dostosowane do Twojej podróży %@ z %@";
-"paywall.visual_learning_mode" = "Tryb Nauki Wizualnej";
-"paywall.visual_learning_description" = "Ucz się z obrazami, skojarzeniami wizualnymi i technikami pamięci";
-"paywall.what_our_users_say" = "Co Mówią Nasi Użytkownicy";
-"paywall.join_thousands_satisfied" = "Dołącz do tysięcy zadowolonych uczniów";
-"paywall.choose_your_plan" = "Wybierz swój Plan";
-"paywall.start_free_upgrade_when_needed" = "Rozpocznij za darmo i uaktualnij, gdy potrzebujesz zaawansowanych funkcji";
-"paywall.start_free_trial" = "Rozpocznij Bezpłatny Okres Próbny";
-"paywall.continue_free" = "Kontynuuj Za Darmo";
-"paywall.achievement_master_words" = "Opanuj %d nowych słów %@ w pierwszym tygodniu";
-"paywall.achievement_academic_writing" = "Popraw swoje pisanie akademickie %@ i rozumienie czytania";
-"paywall.achievement_professional_communication" = "Popraw swoje umiejętności komunikacji profesjonalnej w %@";
-"paywall.achievement_travel_confidence" = "Nawiguj z pewnością w każdym kraju mówiącym %@";
-"paywall.achievement_business_communication" = "Wyróżnij się w komunikacji biznesowej %@ i kontekstach profesjonalnych";
-"paywall.achievement_tech_vocabulary" = "Opanuj słownictwo technologiczne %@ i terminologię branżową";
-"paywall.achievement_business_contexts" = "Wyróżnij się w kontekstach biznesowych %@ i komunikacji profesjonalnej";
-"paywall.days" = "Dni";
-"paywall.words_goal" = "Cel Słów";
-"paywall.new" = "NOWY";
-"paywall.your_personalized_journey" = "Twoja Spersonalizowana 7-Dniowa Podróż";
-"paywall.start_free_trial" = "Rozpocznij swój 7-Dniowy Bezpłatny Okres Próbny";
-"paywall.free" = "ZA DARMO";
-"paywall.recommended" = "POLECANE";
-"paywall.skip_for_now" = "Pomiń na Razie";
-"paywall.start_my_free_trial_now" = "Rozpocznij Mój Bezpłatny Okres Próbny Teraz";
-"paywall.start_free_trial_save" = "Rozpocznij Bezpłatny Okres Próbny - Oszczędź %@";
-"paywall.app_store_rating" = "Ocena App Store";
-"paywall.total_ratings" = "Łączne Oceny";
-"paywall.reviews" = "Recenzje";
 

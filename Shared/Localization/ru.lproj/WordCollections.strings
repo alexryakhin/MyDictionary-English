@@ -18,7 +18,7 @@
 "contains" = "Содержит:";
 "from_collection" = "Из коллекции";
 "add_all" = "Добавить все";
-"add_to_my_dictionary" = "Добавить в Мой Словарь";
+"add_to_my_dictionary" = "Добавить в мой словарь";
 "translate_definitions" = "Перевести определения";
 "import_complete" = "Импорт завершен";
 "import_success_with_duplicates" = "Успешно добавлено %@ в ваш словарь. %@ пропущено, так как уже было в вашем словаре.";

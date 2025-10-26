@@ -20,6 +20,7 @@ final class SettingsViewModel: BaseViewModel {
 
     @AppStorage(UDKeys.dailyRemindersEnabled) var dailyRemindersEnabled: Bool = false
     @AppStorage(UDKeys.difficultWordsAlertsEnabled) var difficultWordsEnabled: Bool = false
+    @AppStorage(UDKeys.wordStudyNotificationsEnabled) var wordStudyNotificationsEnabled: Bool = false
     @AppStorage(UDKeys.selectedTTSRegion) var selectedTTSRegion: CountryRegion = .unitedStates
 
     @Published var isImporting = false
@@ -146,7 +147,7 @@ final class SettingsViewModel: BaseViewModel {
 
     func updateNotificationSettings() {
         // Only request permission and schedule notifications if user enables a toggle
-        if dailyRemindersEnabled || difficultWordsEnabled {
+        if dailyRemindersEnabled || difficultWordsEnabled || wordStudyNotificationsEnabled {
             Task {
                 let granted = await notificationService.requestPermission()
                 if granted {
@@ -156,6 +157,7 @@ final class SettingsViewModel: BaseViewModel {
                     await MainActor.run {
                         dailyRemindersEnabled = false
                         difficultWordsEnabled = false
+                        wordStudyNotificationsEnabled = false
 
                         // Show alert with options to cancel or open settings
                         AlertCenter.shared.showAlert(
@@ -177,7 +179,7 @@ final class SettingsViewModel: BaseViewModel {
                 }
             }
         } else {
-            // If both toggles are off, cancel all notifications
+            // If all toggles are off, cancel all notifications
             notificationService.cancelAllNotifications()
         }
     }
