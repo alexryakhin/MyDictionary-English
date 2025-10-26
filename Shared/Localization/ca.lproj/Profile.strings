@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Perfil";
+"account_linking" = "Enllaç de Comptes";
+"account_linking_description" = "Per accedir a la teva subscripció a dispositius Android, necessites enllaçar un compte de Google. Per compartir subscripcions entre plataformes, enllaça ambdós comptes.";
+"link_google_for_android" = "Enllaça Compte de Google";
+"link_apple_for_cross_platform" = "Enllaça Apple ID";
+"cross_platform_button_description" = "Per compartir subscripcions entre plataformes";
+"current_account" = "Compte Actual";
+"linked_accounts" = "Comptes Enllaçats";
+"no_linked_accounts" = "Cap compte enllaçat";
+
+// MARK: - Nickname
+"nickname" = "Sobrenom";
+"nickname_current" = "Sobrenom actual";
+"nickname_not_set" = "Sobrenom no establert";
+"nickname_description" = "Estableix un sobrenom únic que altres poden utilitzar per trobar-te i afegir-te a diccionaris compartits. És més còmode que utilitzar adreces de correu electrònic.";
+"edit_nickname" = "Editar sobrenom";
+"nickname_cannot_be_empty" = "El sobrenom no pot estar buit";
+"nickname_already_taken" = "Aquest sobrenom ja està en ús. Tria un altre.";
+"nickname_invalid_format" = "El sobrenom només pot contenir lletres, números i guions baixos.";
+
+// MARK: - User Search
+"search_method" = "Mètode de cerca";
+"find_user_by_email" = "Troba un usuari per correu electrònic";
+"find_user_by_nickname" = "Troba un usuari per sobrenom";
+"enter_email_address" = "Introdueix l'adreça de correu electrònic";
+"enter_nickname" = "Introdueix el sobrenom";
+"enter_name" = "Introdueix el nom";
+"search_by" = "Cerca per";
+"unknown_user" = "Usuari desconegut";
+"email" = "Correu electrònic";
+"apple_id" = "Apple ID";
+"google_account" = "Compte de Google";
+"cancel" = "Cancel·lar";
+"save" = "Desar";
+"found_user" = "Usuari trobat";
+"user_not_found" = "Usuari no trobat.";
+"user_not_found_message" = "No s'ha trobat cap usuari amb la informació proporcionada. Comprova la cerca i torna-ho a provar.";

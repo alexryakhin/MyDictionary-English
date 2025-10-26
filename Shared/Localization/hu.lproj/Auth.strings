@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "Bejelentkezés szükséges a Pro funkciók, például a(z) %@ eléréséhez.";
 "sign_in_failed" = "A bejelentkezés sikertelen. Kérlek, próbáld újra.";
 "sign_out_failed" = "A kijelentkezés sikertelen. Kérlek, próbáld újra.";
-"user_not_found" = "Felhasználó nem található.";
 "network_error" = "Hálózati hiba. Ellenőrizd a kapcsolatodat.";
 "account_linking_failed" = "A fiók összekapcsolása sikertelen. Kérlek, próbáld újra.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Előfizetés Hozzáférés Korlátozott";
 "subscription_associated_different_account" = "Ez az előfizetés egy másik fiókhoz kapcsolódik. Kérlek, jelentkezz be azzal a fiókkal, amely megvásárolta ezt az előfizetést a Pro funkciók eléréséhez.";
-
-// Profile
-"profile" = "Profil";
-"account_linking" = "Fiók Összekapcsolása";
-"account_linking_description" = "Az előfizetésedhez való hozzáféréshez Android eszközökön Google fiókot kell összekapcsolnod. Az előfizetések platformok közötti megosztásához kapcsold össze mindkét fiókot.";
-"link_google_for_android" = "Google Fiók Összekapcsolása";
-"link_apple_for_cross_platform" = "Apple ID Összekapcsolása";
-"current_account" = "Jelenlegi Fiók";
-"linked_accounts" = "Összekapcsolt Fiókok";
-"no_linked_accounts" = "Nincsenek összekapcsolt fiókok";
-
-"cross_platform_button_description" = "Platformok közötti előfizetés megosztásához";
-"nickname" = "Becenév";
-"nickname_current" = "Jelenlegi becenév";
-"nickname_not_set" = "Becenév nincs beállítva";
-"nickname_description" = "Állítson be egy egyedi becenevet, amelyet mások használhatnak, hogy megtalálják és hozzáadják Önt a megosztott szótárakhoz. Ez kényelmesebb, mint az e-mail címek használata.";
-"edit_nickname" = "Becenév szerkesztése";
-"nickname_cannot_be_empty" = "A becenév nem lehet üres";
-"nickname_already_taken" = "Ez a becenév már foglalt. Válasszon másikat.";
-"nickname_invalid_format" = "A becenév csak betűket, számokat és aláhúzásokat tartalmazhat.";
-"search_method" = "Keresési módszer";
-"find_user_by_email" = "Felhasználó keresése e-mail alapján";
-"find_user_by_nickname" = "Felhasználó keresése becenév alapján";
-"enter_email_address" = "Adja meg az e-mail címet";
-"enter_nickname" = "Adja meg a becenevet";
-"found_user" = "Felhasználó megtalálva";
-"user_not_found" = "Felhasználó nem található";
-"user_not_found_message" = "Nem található felhasználó a megadott információkkal. Ellenőrizze a keresést és próbálja újra.";
-
-"enter_name" = "Adja meg a nevét";
-"search_by" = "Keresés alapján";
-"unknown_user" = "Ismeretlen felhasználó";
-"email" = "E-mail";
-"apple_id" = "Apple ID";
-"google_account" = "Google fiók";
-"cancel" = "Mégse";
-"save" = "Mentés";
-
-

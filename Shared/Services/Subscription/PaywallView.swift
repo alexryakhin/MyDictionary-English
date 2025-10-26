@@ -71,12 +71,14 @@ struct PaywallView: View {
                 selectedPlan = subscriptionService.defaultPlan
             }
         }
-        .safari(url: $safariURL)
         .alert(Loc.Subscription.Paywall.restoreSubscription, isPresented: $showingRestoreAlert) {
             Button(Loc.Actions.ok) { }
         } message: {
             Text(restoreMessage)
         }
+        #if os(iOS)
+        .safari(url: $safariURL)
+        #endif
     }
 
     // MARK: - Hero Section

@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "需要登錄以訪問專業功能，如 %@。";
 "sign_in_failed" = "登錄失敗。請重試。";
 "sign_out_failed" = "登出失敗。請重試。";
-"user_not_found" = "未找到用戶。";
 "network_error" = "網絡錯誤。請檢查你的連接。";
 "account_linking_failed" = "帳戶關聯失敗。請重試。";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "訂閱訪問受限";
 "subscription_associated_different_account" = "此訂閱與不同帳戶關聯。請使用購買此訂閱的帳戶登錄以訪問專業功能。";
-
-// Profile
-"profile" = "個人資料";
-"account_linking" = "帳戶關聯";
-"account_linking_description" = "要在Android設備上訪問你的訂閱，你需要關聯Google帳戶。要在平台間共享訂閱，請關聯兩個帳戶。";
-"link_google_for_android" = "關聯Google帳戶";
-"link_apple_for_cross_platform" = "關聯Apple ID";
-"current_account" = "當前帳戶";
-"linked_accounts" = "已關聯帳戶";
-"no_linked_accounts" = "暫無已關聯帳戶";
-
-"cross_platform_button_description" = "用於跨平台訂閱共享";
-"nickname" = "暱稱";
-"nickname_current" = "當前暱稱";
-"nickname_not_set" = "未設置暱稱";
-"nickname_description" = "設置一個獨特的暱稱，供他人查找並將您添加到共享詞典中。這比使用電子郵件地址更方便。";
-"edit_nickname" = "編輯暱稱";
-"nickname_cannot_be_empty" = "暱稱不能為空";
-"nickname_already_taken" = "此暱稱已被使用。請另選一個。";
-"nickname_invalid_format" = "暱稱只能包含字母、數字和下劃線。";
-"search_method" = "搜尋方式";
-"find_user_by_email" = "通過電子郵件查找用戶";
-"find_user_by_nickname" = "通過暱稱查找用戶";
-"enter_email_address" = "輸入電子郵件地址";
-"enter_nickname" = "輸入暱稱";
-"found_user" = "找到用戶";
-"user_not_found" = "未找到用戶";
-"user_not_found_message" = "未找到與提供信息匹配的用戶。請檢查搜尋並重試。";
-
-"enter_name" = "輸入姓名";
-"search_by" = "搜尋方式";
-"unknown_user" = "未知用戶";
-"email" = "電子郵件";
-"apple_id" = "Apple ID";
-"google_account" = "Google帳戶";
-"cancel" = "取消";
-"save" = "儲存";
-
-

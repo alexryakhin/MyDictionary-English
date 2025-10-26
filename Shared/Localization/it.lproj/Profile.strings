@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Profilo";
+"account_linking" = "Collegamento Account";
+"account_linking_description" = "Per accedere al tuo abbonamento sui dispositivi Android, devi collegare un account Google. Per la condivisione di abbonamenti multipiattaforma, collega entrambi gli account.";
+"link_google_for_android" = "Collega Account Google";
+"link_apple_for_cross_platform" = "Collega Apple ID";
+"cross_platform_button_description" = "Per la condivisione di abbonamenti multipiattaforma";
+"current_account" = "Account Corrente";
+"linked_accounts" = "Account Collegati";
+"no_linked_accounts" = "Nessun account collegato";
+
+// MARK: - Nickname
+"nickname" = "Nickname";
+"nickname_current" = "Nickname attuale";
+"nickname_not_set" = "Nickname non impostato";
+"nickname_description" = "Imposta un nickname univoco che altri possono usare per trovarti e aggiungerti ai dizionari condivisi. È più conveniente che usare indirizzi email.";
+"edit_nickname" = "Modifica nickname";
+"nickname_cannot_be_empty" = "Il nickname non può essere vuoto";
+"nickname_already_taken" = "Questo nickname è già in uso. Scegline un altro.";
+"nickname_invalid_format" = "Il nickname può contenere solo lettere, numeri e trattini bassi.";
+
+// MARK: - User Search
+"search_method" = "Metodo di ricerca";
+"find_user_by_email" = "Trova utente per email";
+"find_user_by_nickname" = "Trova utente per nickname";
+"enter_email_address" = "Inserisci indirizzo email";
+"enter_nickname" = "Inserisci nickname";
+"enter_name" = "Inserisci nome";
+"search_by" = "Cerca per";
+"unknown_user" = "Utente sconosciuto";
+"email" = "Email";
+"apple_id" = "Apple ID";
+"google_account" = "Account Google";
+"cancel" = "Annulla";
+"save" = "Salva";
+"found_user" = "Utente trovato";
+"user_not_found" = "Utente non trovato.";
+"user_not_found_message" = "Nessun utente trovato con le informazioni fornite. Controlla la tua ricerca e riprova.";

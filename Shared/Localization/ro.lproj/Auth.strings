@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "Conectarea este necesară pentru a accesa funcționalitățile Pro, cum ar fi %@.";
 "sign_in_failed" = "Conectare eșuată. Încearcă din nou.";
 "sign_out_failed" = "Deconectare eșuată. Încearcă din nou.";
-"user_not_found" = "Utilizator negăsit.";
 "network_error" = "Eroare de rețea. Verifică-ți conexiunea.";
 "account_linking_failed" = "Conectarea contului a eșuat. Încearcă din nou.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Accesul la Abonament Restricționat";
 "subscription_associated_different_account" = "Acest abonament este asociat cu un cont diferit. Te rog să te conectezi cu contul care a cumpărat acest abonament pentru a accesa funcționalitățile Pro.";
-
-// Profile
-"profile" = "Profil";
-"account_linking" = "Conectarea Conturilor";
-"account_linking_description" = "Pentru a accesa abonamentul tău pe dispozitive Android, trebuie să conectezi un cont Google. Pentru a partaja abonamentele între platforme, conectează ambele conturi.";
-"link_google_for_android" = "Conectează Contul Google";
-"link_apple_for_cross_platform" = "Conectează Apple ID";
-"current_account" = "Contul Actual";
-"linked_accounts" = "Conturi Conectate";
-"no_linked_accounts" = "Niciun cont conectat";
-
-"cross_platform_button_description" = "Pentru partajarea abonamentului între platforme";
-"nickname" = "Poreclă";
-"nickname_current" = "Poreclă actuală";
-"nickname_not_set" = "Porecla nu este setată";
-"nickname_description" = "Setați o poreclă unică pe care alții o pot folosi pentru a vă găsi și a vă adăuga în dicționarele partajate. Este mai convenabil decât utilizarea adreselor de e-mail.";
-"edit_nickname" = "Editați porecla";
-"nickname_cannot_be_empty" = "Porecla nu poate fi goală";
-"nickname_already_taken" = "Această poreclă este deja luată. Alegeți alta.";
-"nickname_invalid_format" = "Porecla poate conține doar litere, cifre și linii de subliniere.";
-"search_method" = "Metodă de căutare";
-"find_user_by_email" = "Găsiți utilizatorul prin e-mail";
-"find_user_by_nickname" = "Găsiți utilizatorul prin poreclă";
-"enter_email_address" = "Introduceți adresa de e-mail";
-"enter_nickname" = "Introduceți porecla";
-"found_user" = "Utilizator găsit";
-"user_not_found" = "Utilizator negăsit";
-"user_not_found_message" = "Nu s-a găsit niciun utilizator cu informațiile furnizate. Verificați căutarea și încercați din nou.";
-
-"enter_name" = "Introduceți numele";
-"search_by" = "Căutați după";
-"unknown_user" = "Utilizator necunoscut";
-"email" = "E-mail";
-"apple_id" = "Apple ID";
-"google_account" = "Cont Google";
-"cancel" = "Anulează";
-"save" = "Salvează";
-
-

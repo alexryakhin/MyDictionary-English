@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "الملف الشخصي";
+"account_linking" = "ربط الحساب";
+"account_linking_description" = "للوصول إلى اشتراكك على أجهزة Android، تحتاج إلى ربط حساب Google. لمشاركة الاشتراكات عبر المنصات، اربط كلا الحسابين.";
+"link_google_for_android" = "ربط حساب Google";
+"link_apple_for_cross_platform" = "ربط Apple ID";
+"cross_platform_button_description" = "لمشاركة الاشتراك عبر المنصات";
+"current_account" = "الحساب الحالي";
+"linked_accounts" = "الحسابات المرتبطة";
+"no_linked_accounts" = "لا توجد حسابات مرتبطة";
+
+// MARK: - Nickname
+"nickname" = "اللقب";
+"nickname_current" = "اللقب الحالي";
+"nickname_not_set" = "لم يتم تعيين اللقب";
+"nickname_description" = "قم بتعيين لقب فريد يمكن للآخرين استخدامه للعثور عليك وإضافتك إلى القواميس المشتركة. هذا أكثر ملاءمة من استخدام عناوين البريد الإلكتروني.";
+"edit_nickname" = "تعديل اللقب";
+"nickname_cannot_be_empty" = "لا يمكن أن يكون اللقب فارغًا";
+"nickname_already_taken" = "هذا اللقب مستخدم بالفعل. يرجى اختيار واحد آخر.";
+"nickname_invalid_format" = "يمكن أن يحتوي اللقب على حروف وأرقام وشرطات سفلية فقط.";
+
+// MARK: - User Search
+"search_method" = "طريقة البحث";
+"find_user_by_email" = "ابحث عن مستخدم عبر البريد الإلكتروني";
+"find_user_by_nickname" = "ابحث عن مستخدم عبر اللقب";
+"enter_email_address" = "أدخل عنوان البريد الإلكتروني";
+"enter_nickname" = "أدخل اللقب";
+"enter_name" = "أدخل الاسم";
+"search_by" = "البحث بواسطة";
+"unknown_user" = "مستخدم غير معروف";
+"email" = "البريد الإلكتروني";
+"apple_id" = "Apple ID";
+"google_account" = "حساب Google";
+"cancel" = "إلغاء";
+"save" = "حفظ";
+"found_user" = "تم العثور على المستخدم";
+"user_not_found" = "لم يتم العثور على المستخدم.";
+"user_not_found_message" = "لم يتم العثور على مستخدم بالمعلومات المقدمة. يرجى التحقق من البحث والمحاولة مرة أخرى.";

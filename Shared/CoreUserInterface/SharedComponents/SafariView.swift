@@ -5,6 +5,7 @@
 //  Created by Alexander Riakhin on 10/23/25.
 //
 
+#if os(iOS)
 import SwiftUI
 import SafariServices
 
@@ -43,4 +44,4 @@ extension View {
         }
     }
 }
-
+#endif

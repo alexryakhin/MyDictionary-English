@@ -50,7 +50,7 @@ struct ProfileView: View {
             .padding(.vertical, 20)
         } navigationBar: {
             NavigationBarView(
-                title: Loc.Auth.profile
+                title: Loc.Profile.profile
             )
         }
         .groupedBackground()
@@ -74,7 +74,7 @@ struct ProfileView: View {
                 if isEditingName {
                     // Inline editing
                     VStack(spacing: 8) {
-                        TextField(Loc.Auth.enterName, text: $editedName)
+                        TextField(Loc.Profile.enterName, text: $editedName)
                             .textFieldStyle(.roundedBorder)
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -138,7 +138,7 @@ struct ProfileView: View {
 
     private var accountInformationSection: some View {
         CustomSectionView(
-            header: Loc.Auth.currentAccount
+            header: Loc.Profile.currentAccount
         ) {
             VStack(spacing: 12) {
                 // Current sign-in method
@@ -147,10 +147,10 @@ struct ProfileView: View {
                         .foregroundStyle(.accent)
 
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(authenticationService.hasAppleAccount ? Loc.Auth.appleId : Loc.Auth.googleAccount)
+                        Text(authenticationService.hasAppleAccount ? Loc.Profile.appleId : Loc.Profile.googleAccount)
                             .font(.body)
                             .fontWeight(.medium)
-                        Text(Loc.Auth.currentAccount)
+                        Text(Loc.Profile.currentAccount)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -166,14 +166,14 @@ struct ProfileView: View {
                 // Linked accounts
                 if authenticationService.hasGoogleAccount || authenticationService.hasAppleAccount {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(Loc.Auth.linkedAccounts)
+                        Text(Loc.Profile.linkedAccounts)
                             .font(.body)
                             .fontWeight(.medium)
                             .frame(maxWidth: .infinity, alignment: .leading)
 
                         HStack {
                             if authenticationService.hasGoogleAccount {
-                                Label(Loc.Auth.googleAccount, systemImage: "globe")
+                                Label(Loc.Profile.googleAccount, systemImage: "globe")
                                     .font(.caption)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
@@ -183,7 +183,7 @@ struct ProfileView: View {
                             }
 
                             if authenticationService.hasAppleAccount {
-                                Label(Loc.Auth.appleId, systemImage: "applelogo")
+                                Label(Loc.Profile.appleId, systemImage: "applelogo")
                                     .font(.caption)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
@@ -204,14 +204,14 @@ struct ProfileView: View {
     
     private var nicknameSection: some View {
         CustomSectionView(
-            header: Loc.Auth.nickname,
-            footer: Loc.Auth.nicknameDescription
+            header: Loc.Profile.nickname,
+            footer: Loc.Profile.nicknameDescription
         ) {
             if isEditingNickname {
                 // Inline editing
                 VStack(spacing: 8) {
                     HStack(spacing: 8) {
-                        TextField(Loc.Auth.enterNickname, text: $editedNickname)
+                        TextField(Loc.Profile.enterNickname, text: $editedNickname)
                             .textFieldStyle(.plain)
                             .font(.body)
                             .fontWeight(.medium)
@@ -242,11 +242,11 @@ struct ProfileView: View {
                             .foregroundColor(.orange)
                     }
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(authenticationService.nickname ?? Loc.Auth.nicknameNotSet)
+                        Text(authenticationService.nickname ?? Loc.Profile.nicknameNotSet)
                             .font(.body)
                             .fontWeight(.medium)
 
-                        Text(Loc.Auth.nicknameCurrent)
+                        Text(Loc.Profile.nicknameCurrent)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -323,8 +323,8 @@ struct ProfileView: View {
 
     private var accountLinkingSection: some View {
         CustomSectionView(
-            header: Loc.Auth.accountLinking,
-            footer: Loc.Auth.accountLinkingDescription
+            header: Loc.Profile.accountLinking,
+            footer: Loc.Profile.accountLinkingDescription
         ) {
             VStack(spacing: 12) {
                 // Link Google Account (for Android compatibility)
@@ -341,11 +341,11 @@ struct ProfileView: View {
                                 .frame(width: 20, height: 20)
 
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(Loc.Auth.linkGoogleForAndroid)
+                                Text(Loc.Profile.linkGoogleForAndroid)
                                     .font(.body)
                                     .fontWeight(.medium)
                                     .foregroundStyle(.primary)
-                                Text(Loc.Auth.crossPlatformButtonDescription)
+                                Text(Loc.Profile.crossPlatformButtonDescription)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -377,11 +377,11 @@ struct ProfileView: View {
                                 .foregroundStyle(.black)
 
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(Loc.Auth.linkAppleForCrossPlatform)
+                                Text(Loc.Profile.linkAppleForCrossPlatform)
                                     .font(.body)
                                     .fontWeight(.medium)
                                     .foregroundStyle(.primary)
-                                Text(Loc.Auth.crossPlatformButtonDescription)
+                                Text(Loc.Profile.crossPlatformButtonDescription)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -504,7 +504,7 @@ struct ProfileView: View {
     private func saveNickname() async {
         let trimmedNickname = editedNickname.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedNickname.isEmpty else {
-            nicknameErrorMessage = Loc.Auth.nicknameCannotBeEmpty
+            nicknameErrorMessage = Loc.Profile.nicknameCannotBeEmpty
             return
         }
 

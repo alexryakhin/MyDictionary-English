@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Profil";
+"account_linking" = "Link Akaun";
+"account_linking_description" = "Untuk mengakses langganan anda di peranti Android, anda perlu link akaun Google. Untuk berkongsi langganan merentas platform, link kedua-dua akaun.";
+"link_google_for_android" = "Link Akaun Google";
+"link_apple_for_cross_platform" = "Link Apple ID";
+"cross_platform_button_description" = "Untuk perkongsian langganan merentas platform";
+"current_account" = "Akaun Semasa";
+"linked_accounts" = "Akaun Berlink";
+"no_linked_accounts" = "Tiada akaun berlink";
+
+// MARK: - Nickname
+"nickname" = "Nama samaran";
+"nickname_current" = "Nama samaran semasa";
+"nickname_not_set" = "Nama samaran belum ditetapkan";
+"nickname_description" = "Tetapkan nama samaran unik yang boleh digunakan oleh orang lain untuk mencari dan menambahkan anda ke dalam kamus berkongsi. Ini lebih mudah daripada menggunakan alamat e-mel.";
+"edit_nickname" = "Edit nama samaran";
+"nickname_cannot_be_empty" = "Nama samaran tidak boleh kosong";
+"nickname_already_taken" = "Nama samaran ini sudah digunakan. Pilih yang lain.";
+"nickname_invalid_format" = "Nama samaran hanya boleh mengandungi huruf, nombor, dan garis bawah.";
+
+// MARK: - User Search
+"search_method" = "Kaedah carian";
+"find_user_by_email" = "Cari pengguna melalui e-mel";
+"find_user_by_nickname" = "Cari pengguna melalui nama samaran";
+"enter_email_address" = "Masukkan alamat e-mel";
+"enter_nickname" = "Masukkan nama samaran";
+"enter_name" = "Masukkan nama";
+"search_by" = "Cari mengikut";
+"unknown_user" = "Pengguna tidak dikenali";
+"email" = "E-mel";
+"apple_id" = "Apple ID";
+"google_account" = "Akaun Google";
+"cancel" = "Batal";
+"save" = "Simpan";
+"found_user" = "Pengguna ditemui";
+"user_not_found" = "Pengguna tidak ditemui.";
+"user_not_found_message" = "Tiada pengguna ditemui dengan maklumat yang diberikan. Semak carian anda dan cuba lagi.";

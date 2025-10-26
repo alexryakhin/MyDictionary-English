@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "Masuk diperlukan untuk mengakses fitur Pro seperti %@.";
 "sign_in_failed" = "Gagal masuk. Silakan coba lagi.";
 "sign_out_failed" = "Gagal keluar. Silakan coba lagi.";
-"user_not_found" = "Pengguna tidak ditemukan.";
 "network_error" = "Kesalahan jaringan. Periksa koneksi Anda.";
 "account_linking_failed" = "Penautan akun gagal. Silakan coba lagi.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Akses Langganan Dibatasi";
 "subscription_associated_different_account" = "Langganan ini terkait dengan akun yang berbeda. Silakan masuk dengan akun yang membeli langganan ini untuk mengakses fitur Pro.";
-
-// Profile
-"profile" = "Profil";
-"account_linking" = "Penautan Akun";
-"account_linking_description" = "Untuk mengakses langganan Anda di perangkat Android, Anda perlu menautkan akun Google. Untuk berbagi langganan antar platform, tautkan kedua akun.";
-"link_google_for_android" = "Tautkan Akun Google";
-"link_apple_for_cross_platform" = "Tautkan Apple ID";
-"current_account" = "Akun Saat Ini";
-"linked_accounts" = "Akun Tertaut";
-"no_linked_accounts" = "Tidak ada akun tertaut";
-
-"cross_platform_button_description" = "Untuk berbagi langganan lintas platform";
-"nickname" = "Nama panggilan";
-"nickname_current" = "Nama panggilan saat ini";
-"nickname_not_set" = "Nama panggilan belum diatur";
-"nickname_description" = "Atur nama panggilan unik yang dapat digunakan orang lain untuk menemukan dan menambahkan Anda ke kamus bersama. Ini lebih nyaman daripada menggunakan alamat email.";
-"edit_nickname" = "Edit nama panggilan";
-"nickname_cannot_be_empty" = "Nama panggilan tidak boleh kosong";
-"nickname_already_taken" = "Nama panggilan ini sudah digunakan. Pilih yang lain.";
-"nickname_invalid_format" = "Nama panggilan hanya boleh berisi huruf, angka, dan garis bawah.";
-"search_method" = "Metode pencarian";
-"find_user_by_email" = "Temukan pengguna melalui email";
-"find_user_by_nickname" = "Temukan pengguna melalui nama panggilan";
-"enter_email_address" = "Masukkan alamat email";
-"enter_nickname" = "Masukkan nama panggilan";
-"found_user" = "Pengguna ditemukan";
-"user_not_found" = "Pengguna tidak ditemukan";
-"user_not_found_message" = "Tidak ada pengguna yang ditemukan dengan informasi yang diberikan. Periksa pencarian Anda dan coba lagi.";
-
-"enter_name" = "Masukkan nama";
-"search_by" = "Cari berdasarkan";
-"unknown_user" = "Pengguna tidak dikenal";
-"email" = "Email";
-"apple_id" = "Apple ID";
-"google_account" = "Akun Google";
-"cancel" = "Batal";
-"save" = "Simpan";
-
-

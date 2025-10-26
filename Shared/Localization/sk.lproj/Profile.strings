@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Profil";
+"account_linking" = "Prepojenie Účtov";
+"account_linking_description" = "Na prístup k predplatnému na zariadeniach Android potrebujete prepojiť účet Google. Na zdieľanie predplatných medzi platformami prepojte oba účty.";
+"link_google_for_android" = "Prepojiť Účet Google";
+"link_apple_for_cross_platform" = "Prepojiť Apple ID";
+"cross_platform_button_description" = "Na zdieľanie predplatného naprieč platformami";
+"current_account" = "Aktuálny Účet";
+"linked_accounts" = "Prepojené Účty";
+"no_linked_accounts" = "Žiadne prepojené účty";
+
+// MARK: - Nickname
+"nickname" = "Prezývka";
+"nickname_current" = "Aktuálna prezývka";
+"nickname_not_set" = "Prezývka nie je nastavená";
+"nickname_description" = "Nastavte si jedinečnú prezývku, ktorú môžu ostatní použiť na vyhľadanie a pridanie vás do zdieľaných slovníkov. Je to pohodlnejšie ako používanie e-mailových adries.";
+"edit_nickname" = "Upraviť prezývku";
+"nickname_cannot_be_empty" = "Prezývka nemôže byť prázdna";
+"nickname_already_taken" = "Táto prezývka je už obsadená. Vyberte inú.";
+"nickname_invalid_format" = "Prezývka môže obsahovať iba písmená, čísla a podčiarknutia.";
+
+// MARK: - User Search
+"search_method" = "Spôsob vyhľadávania";
+"find_user_by_email" = "Nájsť používateľa podľa e-mailu";
+"find_user_by_nickname" = "Nájsť používateľa podľa prezývky";
+"enter_email_address" = "Zadajte e-mailovú adresu";
+"enter_nickname" = "Zadajte prezývku";
+"enter_name" = "Zadajte meno";
+"search_by" = "Hľadať podľa";
+"unknown_user" = "Neznámy používateľ";
+"email" = "E-mail";
+"apple_id" = "Apple ID";
+"google_account" = "Účet Google";
+"cancel" = "Zrušiť";
+"save" = "Uložiť";
+"found_user" = "Používateľ nájdený";
+"user_not_found" = "Používateľ nenájdený.";
+"user_not_found_message" = "Nenašiel sa žiadny používateľ s poskytnutými informáciami. Skontrolujte vyhľadávanie a skúste znova.";

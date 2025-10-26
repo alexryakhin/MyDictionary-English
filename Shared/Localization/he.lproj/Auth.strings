@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "נדרשת התחברות כדי לגשת לתכונות Pro כגון %@.";
 "sign_in_failed" = "ההתחברות נכשלה. אנא נסה שוב.";
 "sign_out_failed" = "ההתנתקות נכשלה. אנא נסה שוב.";
-"user_not_found" = "משתמש לא נמצא.";
 "network_error" = "שגיאת רשת. בדוק את החיבור שלך.";
 "account_linking_failed" = "קישור החשבון נכשל. אנא נסה שוב.";
 
@@ -41,43 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "גישה למנוי מוגבלת";
 "subscription_associated_different_account" = "מנוי זה מקושר לחשבון אחר. אנא התחבר עם החשבון שרכש מנוי זה כדי לגשת לתכונות Pro.";
-
-// Profile
-"profile" = "פרופיל";
-"account_linking" = "קישור חשבונות";
-"account_linking_description" = "כדי לגשת למנוי שלך במכשירי Android, עליך לקשר חשבון Google. כדי לשתף מנויים בין פלטפורמות, קשר את שני החשבונות.";
-"link_google_for_android" = "קישור חשבון Google";
-"link_apple_for_cross_platform" = "קישור Apple ID";
-"current_account" = "חשבון נוכחי";
-"linked_accounts" = "חשבונות מקושרים";
-"no_linked_accounts" = "אין חשבונות מקושרים";
-
-"cross_platform_button_description" = "לשיתוף מנוי בין פלטפורמות";
-"nickname" = "כינוי";
-"nickname_current" = "כינוי נוכחי";
-"nickname_not_set" = "כינוי לא מוגדר";
-"nickname_description" = "הגדר כינוי ייחודי שמשתמשים אחרים יכולים להשתמש בו כדי למצוא אותך ולהוסיף אותך למילונים משותפים. זה נוח יותר משימוש בכתובות דואל.";
-
-"edit_nickname" = "ערוך כינוי";
-"nickname_cannot_be_empty" = "הכינוי לא יכול להיות ריק";
-"nickname_already_taken" = "כינוי זה כבר תפוס. אנא בחר כינוי אחר.";
-"nickname_invalid_format" = "הכינוי יכול להכיל אותיות, מספרים וקווים תחתונים בלבד.";
-"search_method" = "שיטת חיפוש";
-"find_user_by_email" = "מצא משתמש לפי דואל";
-"find_user_by_nickname" = "מצא משתמש לפי כינוי";
-"enter_email_address" = "הזן כתובת דואל";
-"enter_nickname" = "הזן כינוי";
-"found_user" = "משתמש נמצא";
-"user_not_found" = "משתמש לא נמצא";
-"user_not_found_message" = "לא נמצא משתמש עם המידע שסופק. אנא בדוק את החיפוש ונסה שוב.";
-
-"enter_name" = "הזן שם";
-"search_by" = "חפש לפי";
-"unknown_user" = "משתמש לא ידוע";
-"email" = "דואל";
-"apple_id" = "Apple ID";
-"google_account" = "חשבון Google";
-"cancel" = "ביטול";
-"save" = "שמור";
-
-

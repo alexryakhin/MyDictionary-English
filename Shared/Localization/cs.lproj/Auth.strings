@@ -22,19 +22,9 @@
 "sign_in_required_for_pro_features" = "Pro přístup k funkcím Pro, jako je %@, je nutné se přihlásit.";
 "sign_in_failed" = "Přihlášení selhalo. Zkuste to znovu.";
 "sign_out_failed" = "Odhlášení selhalo. Zkuste to znovu.";
-"user_not_found" = "Uživatel nenalezen.";
 "network_error" = "Chyba sítě. Zkontrolujte své připojení.";
 "account_linking_failed" = "Propojení účtu selhalo. Zkuste to znovu.";
 
-// Profile
-"profile" = "Profil";
-"account_linking" = "Propojení Účtů";
-"account_linking_description" = "Pro přístup k vašemu předplatnému na zařízeních Android musíte propojit účet Google. Pro sdílení předplatného mezi platformami propojte oba účty.";
-"link_google_for_android" = "Propojit Účet Google";
-"link_apple_for_cross_platform" = "Propojit Apple ID";
-"current_account" = "Aktuální Účet";
-"linked_accounts" = "Propojené Účty";
-"no_linked_accounts" = "Žádné propojené účty";
 
 "registration_benefits" = "Výhody Registrace";
 "access_subscription_all_devices" = "Přístup k vašemu předplatnému na všech vašich zařízeních";
@@ -49,32 +39,3 @@
 
 "subscription_access_restricted" = "Přístup k Předplatnému Omezen";
 "subscription_associated_different_account" = "Toto předplatné je spojeno s jiným účtem. Přihlaste se prosím s účtem, který zakoupil toto předplatné, pro přístup k Pro funkcím.";
-
-"cross_platform_button_description" = "Pro sdílení předplatného napříč platformami";
-"nickname" = "Přezdívka";
-"nickname_current" = "Aktuální přezdívka";
-"nickname_not_set" = "Přezdívka není nastavena";
-"nickname_description" = "Nastavte si jedinečnou přezdívku, kterou mohou ostatní použít k nalezení a přidání vás do sdílených slovníků. To je pohodlnější než používání e-mailových adres.";
-"edit_nickname" = "Upravit přezdívku";
-"nickname_cannot_be_empty" = "Přezdívka nemůže být prázdná";
-"nickname_already_taken" = "Tato přezdívka je již obsazena. Vyberte jinou.";
-"nickname_invalid_format" = "Přezdívka může obsahovat pouze písmena, číslice a podtržítka.";
-"search_method" = "Metoda vyhledávání";
-"find_user_by_email" = "Najít uživatele podle e-mailu";
-"find_user_by_nickname" = "Najít uživatele podle přezdívky";
-"enter_email_address" = "Zadejte e-mailovou adresu";
-"enter_nickname" = "Zadejte přezdívku";
-"found_user" = "Uživatel nalezen";
-"user_not_found" = "Uživatel nenalezen";
-"user_not_found_message" = "Žádný uživatel nebyl nalezen s poskytnutými informacemi. Zkontrolujte vyhledávání a zkuste to znovu.";
-
-"enter_name" = "Zadejte jméno";
-"search_by" = "Hledat podle";
-"unknown_user" = "Neznámý uživatel";
-"email" = "E-mail";
-"apple_id" = "Apple ID";
-"google_account" = "Účet Google";
-"cancel" = "Zrušit";
-"save" = "Uložit";
-
-

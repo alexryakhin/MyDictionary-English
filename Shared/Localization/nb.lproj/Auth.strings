@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "Innlogging kreves for å få tilgang til Pro-funksjoner som %@.";
 "sign_in_failed" = "Innlogging mislyktes. Prøv igjen.";
 "sign_out_failed" = "Utlogging mislyktes. Prøv igjen.";
-"user_not_found" = "Bruker ikke funnet.";
 "network_error" = "Nettverksfeil. Sjekk tilkoblingen din.";
 "account_linking_failed" = "Kobling av konto mislyktes. Prøv igjen.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Abonnementstilgang Begrenset";
 "subscription_associated_different_account" = "Dette abonnementet er knyttet til en annen konto. Vennligst logg inn med kontoen som kjøpte dette abonnementet for å få tilgang til Pro-funksjoner.";
-
-// Profile
-"profile" = "Profil";
-"account_linking" = "Kontokobling";
-"account_linking_description" = "For å få tilgang til abonnementet ditt på Android-enheter, må du koble til en Google-konto. For å dele abonnementer på tvers av plattformer, koble til begge kontoer.";
-"link_google_for_android" = "Koble til Google-konto";
-"link_apple_for_cross_platform" = "Koble til Apple ID";
-"current_account" = "Gjeldende Konto";
-"linked_accounts" = "Koblede Kontoer";
-"no_linked_accounts" = "Ingen koblede kontoer";
-
-"cross_platform_button_description" = "For deling av abonnement på tvers av plattformer";
-"nickname" = "Kallenavn";
-"nickname_current" = "Nåværende kallenavn";
-"nickname_not_set" = "Kallenavn er ikke satt";
-"nickname_description" = "Sett et unikt kallenavn som andre kan bruke for å finne og legge deg til i delte ordbøker. Dette er mer praktisk enn å bruke e-postadresser.";
-"edit_nickname" = "Rediger kallenavn";
-"nickname_cannot_be_empty" = "Kallenavn kan ikke være tomt";
-"nickname_already_taken" = "Dette kallenavnet er allerede tatt. Velg et annet.";
-"nickname_invalid_format" = "Kallenavn kan bare inneholde bokstaver, tall og understreker.";
-"search_method" = "Søkemetode";
-"find_user_by_email" = "Finn bruker via e-post";
-"find_user_by_nickname" = "Finn bruker via kallenavn";
-"enter_email_address" = "Skriv inn e-postadresse";
-"enter_nickname" = "Skriv inn kallenavn";
-"found_user" = "Bruker funnet";
-"user_not_found" = "Bruker ikke funnet";
-"user_not_found_message" = "Ingen bruker funnet med den oppgitte informasjonen. Sjekk søket ditt og prøv igjen.";
-
-"enter_name" = "Skriv inn navn";
-"search_by" = "Søk etter";
-"unknown_user" = "Ukjent bruker";
-"email" = "E-post";
-"apple_id" = "Apple ID";
-"google_account" = "Google-konto";
-"cancel" = "Avbryt";
-"save" = "Lagre";
-
-

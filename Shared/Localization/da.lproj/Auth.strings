@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "Log ind er påkrævet for at få adgang til Pro-funktioner som %@.";
 "sign_in_failed" = "Log ind mislykkedes. Prøv igen.";
 "sign_out_failed" = "Udlogning mislykkedes. Prøv igen.";
-"user_not_found" = "Bruger ikke fundet.";
 "network_error" = "Netværksfejl. Tjek din forbindelse.";
 "account_linking_failed" = "Kontolinkning mislykkedes. Prøv igen.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Abonnementsadgang Begrænset";
 "subscription_associated_different_account" = "Dette abonnement er tilknyttet en anden konto. Log venligst ind med kontoen, der købte dette abonnement, for at få adgang til Pro-funktioner.";
-
-// Profile
-"profile" = "Profil";
-"account_linking" = "Kontolinkning";
-"account_linking_description" = "For at få adgang til dit abonnement på Android-enheder skal du linke en Google-konto. For at dele abonnementer på tværs af platforme, link begge konti.";
-"link_google_for_android" = "Link Google-konto";
-"link_apple_for_cross_platform" = "Link Apple ID";
-"current_account" = "Nuværende Konto";
-"linked_accounts" = "Linkede Konti";
-"no_linked_accounts" = "Ingen linkede konti";
-
-"cross_platform_button_description" = "Til deling af abonnement på tværs af platforme";
-"nickname" = "Kælenavn";
-"nickname_current" = "Nuværende kælenavn";
-"nickname_not_set" = "Kælenavn er ikke sat";
-"nickname_description" = "Indstil et unikt kælenavn, som andre kan bruge til at finde og tilføje dig til delte ordbøger. Dette er mere praktisk end at bruge e-mailadresser.";
-"edit_nickname" = "Rediger kælenavn";
-"nickname_cannot_be_empty" = "Kælenavn må ikke være tomt";
-"nickname_already_taken" = "Dette kælenavn er allerede taget. Vælg et andet.";
-"nickname_invalid_format" = "Kælenavn må kun indeholde bogstaver, tal og understreger.";
-"search_method" = "Søgemetode";
-"find_user_by_email" = "Find bruger via e-mail";
-"find_user_by_nickname" = "Find bruger via kælenavn";
-"enter_email_address" = "Indtast e-mailadresse";
-"enter_nickname" = "Indtast kælenavn";
-"found_user" = "Bruger fundet";
-"user_not_found" = "Bruger ikke fundet";
-"user_not_found_message" = "Ingen bruger fundet med de angivne oplysninger. Tjek din søgning og prøv igen.";
-
-"enter_name" = "Indtast navn";
-"search_by" = "Søg efter";
-"unknown_user" = "Ukendt bruger";
-"email" = "E-mail";
-"apple_id" = "Apple ID";
-"google_account" = "Google-konto";
-"cancel" = "Annuller";
-"save" = "Gem";
-
-

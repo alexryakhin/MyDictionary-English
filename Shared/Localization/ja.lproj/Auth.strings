@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "%@などのPro機能にアクセスするにはサインインが必要です。";
 "sign_in_failed" = "サインインに失敗しました。もう一度お試しください。";
 "sign_out_failed" = "サインアウトに失敗しました。もう一度お試しください。";
-"user_not_found" = "ユーザーが見つかりません。";
 "network_error" = "ネットワークエラー。接続を確認してください。";
 "account_linking_failed" = "アカウントのリンクに失敗しました。もう一度お試しください。";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "サブスクリプションアクセス制限";
 "subscription_associated_different_account" = "このサブスクリプションは別のアカウントに関連付けられています。Pro機能にアクセスするには、このサブスクリプションを購入したアカウントでサインインしてください。";
-
-// Profile
-"profile" = "プロフィール";
-"account_linking" = "アカウントリンク";
-"account_linking_description" = "Androidデバイスでサブスクリプションにアクセスするには、Googleアカウントをリンクする必要があります。クロスプラットフォームサブスクリプション共有の場合は、両方のアカウントをリンクしてください。";
-"link_google_for_android" = "Googleアカウントをリンク";
-"link_apple_for_cross_platform" = "Apple IDをリンク";
-"current_account" = "現在のアカウント";
-"linked_accounts" = "リンクされたアカウント";
-"no_linked_accounts" = "リンクされたアカウントなし";
-
-"cross_platform_button_description" = "クロスプラットフォームサブスクリプション共有用";
-"nickname" = "ニックネーム";
-"nickname_current" = "現在のニックネーム";
-"nickname_not_set" = "ニックネームが設定されていません";
-"nickname_description" = "他のユーザーがあなたを見つけて共有辞書に追加するために使用できるユニークなニックネームを設定してください。メールアドレスを使用するよりも便利です。";
-"edit_nickname" = "ニックネームを編集";
-"nickname_cannot_be_empty" = "ニックネームは空にできません";
-"nickname_already_taken" = "このニックネームは既に使用されています。別のものを選択してください。";
-"nickname_invalid_format" = "ニックネームには文字、数字、アンダースコアのみ含めることができます。";
-"search_method" = "検索方法";
-"find_user_by_email" = "メールでユーザーを検索";
-"find_user_by_nickname" = "ニックネームでユーザーを検索";
-"enter_email_address" = "メールアドレスを入力";
-"enter_nickname" = "ニックネームを入力";
-"found_user" = "ユーザーが見つかりました";
-"user_not_found" = "ユーザーが見つかりません";
-"user_not_found_message" = "提供された情報でユーザーが見つかりませんでした。検索を確認して再試行してください。";
-
-"enter_name" = "名前を入力";
-"search_by" = "検索方法";
-"unknown_user" = "不明なユーザー";
-"email" = "メール";
-"apple_id" = "Apple ID";
-"google_account" = "Googleアカウント";
-"cancel" = "キャンセル";
-"save" = "保存";
-
-

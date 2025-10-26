@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "Cần đăng nhập để truy cập các tính năng Pro, ví dụ như %@.";
 "sign_in_failed" = "Đăng nhập thất bại. Vui lòng thử lại.";
 "sign_out_failed" = "Đăng xuất thất bại. Vui lòng thử lại.";
-"user_not_found" = "Không tìm thấy người dùng.";
 "network_error" = "Lỗi mạng. Vui lòng kiểm tra kết nối của bạn.";
 "account_linking_failed" = "Liên kết tài khoản thất bại. Vui lòng thử lại.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Truy cập Gói đăng ký Bị hạn chế";
 "subscription_associated_different_account" = "Gói đăng ký này được liên kết với tài khoản khác. Vui lòng đăng nhập bằng tài khoản đã mua gói đăng ký này để truy cập tính năng Pro.";
-
-// Profile
-"profile" = "Hồ sơ";
-"account_linking" = "Liên kết Tài khoản";
-"account_linking_description" = "Để truy cập gói đăng ký của bạn trên thiết bị Android, bạn cần liên kết tài khoản Google. Để chia sẻ gói đăng ký giữa các nền tảng, hãy liên kết cả hai tài khoản.";
-"link_google_for_android" = "Liên kết Tài khoản Google";
-"link_apple_for_cross_platform" = "Liên kết Apple ID";
-"current_account" = "Tài khoản Hiện tại";
-"linked_accounts" = "Tài khoản Đã liên kết";
-"no_linked_accounts" = "Không có tài khoản đã liên kết";
-
-"cross_platform_button_description" = "Để chia sẻ đăng ký giữa các nền tảng";
-"nickname" = "Biệt danh";
-"nickname_current" = "Biệt danh hiện tại";
-"nickname_not_set" = "Biệt danh chưa được đặt";
-"nickname_description" = "Đặt một biệt danh độc đáo mà người khác có thể sử dụng để tìm và thêm bạn vào từ điển chia sẻ. Điều này tiện lợi hơn so với việc sử dụng địa chỉ email.";
-"edit_nickname" = "Chỉnh sửa biệt danh";
-"nickname_cannot_be_empty" = "Biệt danh không được để trống";
-"nickname_already_taken" = "Biệt danh này đã được sử dụng. Vui lòng chọn một biệt danh khác.";
-"nickname_invalid_format" = "Biệt danh chỉ có thể chứa chữ cái, số và dấu gạch dưới.";
-"search_method" = "Phương thức tìm kiếm";
-"find_user_by_email" = "Tìm người dùng qua email";
-"find_user_by_nickname" = "Tìm người dùng qua biệt danh";
-"enter_email_address" = "Nhập địa chỉ email";
-"enter_nickname" = "Nhập biệt danh";
-"found_user" = "Đã tìm thấy người dùng";
-"user_not_found" = "Không tìm thấy người dùng";
-"user_not_found_message" = "Không tìm thấy người dùng với thông tin được cung cấp. Vui lòng kiểm tra tìm kiếm và thử lại.";
-
-"enter_name" = "Nhập tên";
-"search_by" = "Tìm kiếm theo";
-"unknown_user" = "Người dùng không xác định";
-"email" = "Email";
-"apple_id" = "Apple ID";
-"google_account" = "Tài khoản Google";
-"cancel" = "Hủy";
-"save" = "Lưu";
-
-

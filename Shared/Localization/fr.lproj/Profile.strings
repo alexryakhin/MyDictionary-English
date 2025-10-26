@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Profil";
+"account_linking" = "Liaison de Compte";
+"account_linking_description" = "Pour accéder à votre abonnement sur les appareils Android, vous devez lier un compte Google. Pour partager les abonnements entre plateformes, liez les deux comptes.";
+"link_google_for_android" = "Lier le Compte Google";
+"link_apple_for_cross_platform" = "Lier l'Apple ID";
+"cross_platform_button_description" = "Pour le partage de l'abonnement entre plateformes";
+"current_account" = "Compte Actuel";
+"linked_accounts" = "Comptes Liés";
+"no_linked_accounts" = "Aucun compte lié";
+
+// MARK: - Nickname
+"nickname" = "Pseudo";
+"nickname_current" = "Pseudo actuel";
+"nickname_not_set" = "Le pseudo n'est pas défini";
+"nickname_description" = "Définissez un pseudo unique que d'autres peuvent utiliser pour vous trouver et vous ajouter à des dictionnaires partagés. C'est plus pratique que d'utiliser des adresses e-mail.";
+"edit_nickname" = "Modifier le pseudo";
+"nickname_cannot_be_empty" = "Le pseudo ne peut pas être vide";
+"nickname_already_taken" = "Ce pseudo est déjà pris. Veuillez en choisir un autre.";
+"nickname_invalid_format" = "Le pseudo ne peut contenir que des lettres, des chiffres et des traits de soulignement.";
+
+// MARK: - User Search
+"search_method" = "Méthode de recherche";
+"find_user_by_email" = "Trouver un utilisateur par e-mail";
+"find_user_by_nickname" = "Trouver un utilisateur par pseudo";
+"enter_email_address" = "Entrez l'adresse e-mail";
+"enter_nickname" = "Entrez le pseudo";
+"enter_name" = "Entrez le nom";
+"search_by" = "Rechercher par";
+"unknown_user" = "Utilisateur inconnu";
+"email" = "E-mail";
+"apple_id" = "Identifiant Apple";
+"google_account" = "Compte Google";
+"cancel" = "Annuler";
+"save" = "Enregistrer";
+"found_user" = "Utilisateur trouvé";
+"user_not_found" = "Utilisateur non trouvé.";
+"user_not_found_message" = "Aucun utilisateur trouvé avec les informations fournies. Veuillez vérifier votre recherche et réessayer.";

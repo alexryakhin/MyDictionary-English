@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "You need to sign in to access Pro features like %@.";
 "sign_in_failed" = "Failed to sign in. Please try again.";
 "sign_out_failed" = "Failed to sign out. Please try again.";
-"user_not_found" = "User not found.";
 "network_error" = "Network error. Please check your connection.";
 "account_linking_failed" = "Failed to link accounts. Please try again.";
 
@@ -41,38 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Subscription Access Restricted";
 "subscription_associated_different_account" = "This subscription is associated with a different account. Please sign in with the account that purchased this subscription to access Pro features.";
-
-// Profile
-"profile" = "Profile";
-"account_linking" = "Account Linking";
-"account_linking_description" = "To access your subscription on Android devices, you need to link a Google account. For cross-platform subscription sharing, link both accounts.";
-"link_google_for_android" = "Link Google Account";
-"link_apple_for_cross_platform" = "Link Apple ID";
-"cross_platform_button_description" = "For cross-platform subscription sharing";
-"current_account" = "Current Account";
-"linked_accounts" = "Linked Accounts";
-"no_linked_accounts" = "No linked accounts";
-"nickname" = "Nickname";
-"nickname_current" = "Current nickname";
-"nickname_not_set" = "Nickname is not set";
-"nickname_description" = "Set a unique nickname that others can use to find and add you to shared dictionaries. This is more convenient than using email addresses.";
-"edit_nickname" = "Edit Nickname";
-"nickname_cannot_be_empty" = "Nickname cannot be empty";
-"nickname_already_taken" = "This nickname is already taken. Please choose a different one.";
-"nickname_invalid_format" = "Nickname can only contain letters, numbers, and underscores.";
-"search_method" = "Search Method";
-"find_user_by_email" = "Find User by Email";
-"find_user_by_nickname" = "Find User by Nickname";
-"enter_email_address" = "Enter email address";
-"enter_nickname" = "Enter nickname";
-"enter_name" = "Enter name";
-"search_by" = "Search by";
-"unknown_user" = "Unknown User";
-"email" = "Email";
-"apple_id" = "Apple ID";
-"google_account" = "Google Account";
-"cancel" = "Cancel";
-"save" = "Save";
-"found_user" = "Found User";
-"user_not_found" = "User not found";
-"user_not_found_message" = "No user found with the provided information. Please check your search and try again.";

@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "פרופיל";
+"account_linking" = "קישור חשבונות";
+"account_linking_description" = "כדי לגשת למנוי שלך במכשירי Android, עליך לקשר חשבון Google. כדי לשתף מנויים בין פלטפורמות, קשר את שני החשבונות.";
+"link_google_for_android" = "קישור חשבון Google";
+"link_apple_for_cross_platform" = "קישור Apple ID";
+"cross_platform_button_description" = "לשיתוף מנוי בין פלטפורמות";
+"current_account" = "חשבון נוכחי";
+"linked_accounts" = "חשבונות מקושרים";
+"no_linked_accounts" = "אין חשבונות מקושרים";
+
+// MARK: - Nickname
+"nickname" = "כינוי";
+"nickname_current" = "כינוי נוכחי";
+"nickname_not_set" = "כינוי לא מוגדר";
+"nickname_description" = "הגדר כינוי ייחודי שמשתמשים אחרים יכולים להשתמש בו כדי למצוא אותך ולהוסיף אותך למילונים משותפים. זה נוח יותר משימוש בכתובות דואל.";
+"edit_nickname" = "ערוך כינוי";
+"nickname_cannot_be_empty" = "הכינוי לא יכול להיות ריק";
+"nickname_already_taken" = "כינוי זה כבר תפוס. אנא בחר כינוי אחר.";
+"nickname_invalid_format" = "הכינוי יכול להכיל אותיות, מספרים וקווים תחתונים בלבד.";
+
+// MARK: - User Search
+"search_method" = "שיטת חיפוש";
+"find_user_by_email" = "מצא משתמש לפי דואל";
+"find_user_by_nickname" = "מצא משתמש לפי כינוי";
+"enter_email_address" = "הזן כתובת דואל";
+"enter_nickname" = "הזן כינוי";
+"enter_name" = "הזן שם";
+"search_by" = "חפש לפי";
+"unknown_user" = "משתמש לא ידוע";
+"email" = "דואל";
+"apple_id" = "Apple ID";
+"google_account" = "חשבון Google";
+"cancel" = "ביטול";
+"save" = "שמור";
+"found_user" = "משתמש נמצא";
+"user_not_found" = "משתמש לא נמצא.";
+"user_not_found_message" = "לא נמצא משתמש עם המידע שסופק. אנא בדוק את החיפוש ונסה שוב.";

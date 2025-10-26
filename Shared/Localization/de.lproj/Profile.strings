@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Profil";
+"account_linking" = "Kontoverknüpfung";
+"account_linking_description" = "Um auf Ihr Abonnement auf Android-Geräten zuzugreifen, müssen Sie ein Google-Konto verknüpfen. Für plattformübergreifende Abonnementfreigabe verknüpfen Sie beide Konten.";
+"link_google_for_android" = "Google-Konto verknüpfen";
+"link_apple_for_cross_platform" = "Apple ID verknüpfen";
+"cross_platform_button_description" = "Für plattformübergreifende Abonnementfreigabe";
+"current_account" = "Aktuelles Konto";
+"linked_accounts" = "Verknüpfte Konten";
+"no_linked_accounts" = "Keine verknüpften Konten";
+
+// MARK: - Nickname
+"nickname" = "Spitzname";
+"nickname_current" = "Aktueller Spitzname";
+"nickname_not_set" = "Spitzname ist nicht gesetzt";
+"nickname_description" = "Legen Sie einen eindeutigen Spitznamen fest, den andere verwenden können, um Sie zu finden und zu geteilten Wörterbüchern hinzuzufügen. Das ist praktischer als E-Mail-Adressen zu verwenden.";
+"edit_nickname" = "Spitzname bearbeiten";
+"nickname_cannot_be_empty" = "Spitzname darf nicht leer sein";
+"nickname_already_taken" = "Dieser Spitzname ist bereits vergeben. Bitte wählen Sie einen anderen.";
+"nickname_invalid_format" = "Spitzname darf nur Buchstaben, Zahlen und Unterstriche enthalten.";
+
+// MARK: - User Search
+"search_method" = "Suchmethode";
+"find_user_by_email" = "Benutzer per E-Mail finden";
+"find_user_by_nickname" = "Benutzer per Spitzname finden";
+"enter_email_address" = "E-Mail-Adresse eingeben";
+"enter_nickname" = "Spitzname eingeben";
+"enter_name" = "Namen eingeben";
+"search_by" = "Suchen nach";
+"unknown_user" = "Unbekannter Benutzer";
+"email" = "E-Mail";
+"apple_id" = "Apple ID";
+"google_account" = "Google-Konto";
+"cancel" = "Abbrechen";
+"save" = "Speichern";
+"found_user" = "Benutzer gefunden";
+"user_not_found" = "Benutzer nicht gefunden.";
+"user_not_found_message" = "Mit den bereitgestellten Informationen wurde kein Benutzer gefunden. Bitte überprüfen Sie Ihre Suche und versuchen Sie es erneut.";

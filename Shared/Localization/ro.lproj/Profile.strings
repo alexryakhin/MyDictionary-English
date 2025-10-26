@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Profil";
+"account_linking" = "Conectarea Conturilor";
+"account_linking_description" = "Pentru a accesa abonamentul tău pe dispozitive Android, trebuie să conectezi un cont Google. Pentru a partaja abonamentele între platforme, conectează ambele conturi.";
+"link_google_for_android" = "Conectează Contul Google";
+"link_apple_for_cross_platform" = "Conectează Apple ID";
+"cross_platform_button_description" = "Pentru partajarea abonamentului între platforme";
+"current_account" = "Contul Actual";
+"linked_accounts" = "Conturi Conectate";
+"no_linked_accounts" = "Niciun cont conectat";
+
+// MARK: - Nickname
+"nickname" = "Poreclă";
+"nickname_current" = "Poreclă actuală";
+"nickname_not_set" = "Porecla nu este setată";
+"nickname_description" = "Setați o poreclă unică pe care alții o pot folosi pentru a vă găsi și a vă adăuga în dicționarele partajate. Este mai convenabil decât utilizarea adreselor de e-mail.";
+"edit_nickname" = "Editați porecla";
+"nickname_cannot_be_empty" = "Porecla nu poate fi goală";
+"nickname_already_taken" = "Această poreclă este deja luată. Alegeți alta.";
+"nickname_invalid_format" = "Porecla poate conține doar litere, cifre și linii de subliniere.";
+
+// MARK: - User Search
+"search_method" = "Metodă de căutare";
+"find_user_by_email" = "Găsiți utilizatorul prin e-mail";
+"find_user_by_nickname" = "Găsiți utilizatorul prin poreclă";
+"enter_email_address" = "Introduceți adresa de e-mail";
+"enter_nickname" = "Introduceți porecla";
+"enter_name" = "Introduceți numele";
+"search_by" = "Căutați după";
+"unknown_user" = "Utilizator necunoscut";
+"email" = "E-mail";
+"apple_id" = "Apple ID";
+"google_account" = "Cont Google";
+"cancel" = "Anulează";
+"save" = "Salvează";
+"found_user" = "Utilizator găsit";
+"user_not_found" = "Utilizator negăsit.";
+"user_not_found_message" = "Nu s-a găsit niciun utilizator cu informațiile furnizate. Verificați căutarea și încercați din nou.";

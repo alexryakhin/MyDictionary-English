@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "Требуется вход для доступа к Pro-функциям, таким как %@.";
 "sign_in_failed" = "Не удалось войти. Пожалуйста, попробуйте снова.";
 "sign_out_failed" = "Не удалось выйти. Пожалуйста, попробуйте снова.";
-"user_not_found" = "Пользователь не найден.";
 "network_error" = "Ошибка сети. Пожалуйста, проверьте соединение.";
 "account_linking_failed" = "Не удалось связать аккаунт. Пожалуйста, попробуйте снова.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Доступ к подписке ограничен";
 "subscription_associated_different_account" = "Эта подписка связана с другим аккаунтом. Пожалуйста, войдите с аккаунтом, который купил эту подписку, для доступа к Pro-функциям.";
-
-// Profile
-"profile" = "Профиль";
-"account_linking" = "Связывание аккаунтов";
-"account_linking_description" = "Для доступа к подписке на устройствах Android вам нужно связать аккаунт Google. Для кроссплатформенного обмена подписками свяжите оба аккаунта.";
-"link_google_for_android" = "Связать аккаунт Google";
-"link_apple_for_cross_platform" = "Связать Apple ID";
-"current_account" = "Текущий аккаунт";
-"linked_accounts" = "Связанные аккаунты";
-"no_linked_accounts" = "Нет связанных аккаунтов";
-
-"cross_platform_button_description" = "Для кроссплатформенного обмена подписками";
-"nickname" = "Никнейм";
-"nickname_current" = "Текущий никнейм";
-"nickname_not_set" = "Никнейм не установлен";
-"nickname_description" = "Установите уникальный никнейм, который другие могут использовать для поиска и добавления вас в общие словари. Это удобнее, чем использовать адреса электронной почты.";
-"edit_nickname" = "Редактировать никнейм";
-"nickname_cannot_be_empty" = "Никнейм не может быть пустым";
-"nickname_already_taken" = "Этот никнейм уже занят. Пожалуйста, выберите другой.";
-"nickname_invalid_format" = "Никнейм может содержать только буквы, цифры и подчеркивания.";
-"search_method" = "Метод поиска";
-"find_user_by_email" = "Найти пользователя по email";
-"find_user_by_nickname" = "Найти пользователя по никнейму";
-"enter_email_address" = "Введите адрес электронной почты";
-"enter_nickname" = "Введите никнейм";
-"found_user" = "Пользователь найден";
-"user_not_found" = "Пользователь не найден";
-"user_not_found_message" = "Пользователь с предоставленной информацией не найден. Пожалуйста, проверьте поиск и попробуйте снова.";
-
-"enter_name" = "Введите имя";
-"search_by" = "Искать по";
-"unknown_user" = "Неизвестный пользователь";
-"email" = "Email";
-"apple_id" = "Apple ID";
-"google_account" = "Аккаунт Google";
-"cancel" = "Отмена";
-"save" = "Сохранить";
-
-

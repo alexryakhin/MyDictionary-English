@@ -48,7 +48,7 @@ enum AuthenticationError: Error, LocalizedError {
         case .signOutFailed:
             return Loc.Auth.signOutFailed
         case .userNotFound:
-            return Loc.Auth.userNotFound
+            return Loc.Profile.userNotFound
         case .networkError:
             return Loc.Auth.networkError
         case .accountLinkingFailed:
@@ -60,11 +60,11 @@ enum AuthenticationError: Error, LocalizedError {
         case .appleSignInNotAuthorized:
             return "Apple Sign In not authorized"
         case .nicknameEmpty:
-            return Loc.Auth.nicknameCannotBeEmpty
+            return Loc.Profile.nicknameCannotBeEmpty
         case .nicknameInvalidFormat:
-            return Loc.Auth.nicknameInvalidFormat
+            return Loc.Profile.nicknameInvalidFormat
         case .nicknameAlreadyTaken:
-            return Loc.Auth.nicknameAlreadyTaken
+            return Loc.Profile.nicknameAlreadyTaken
         }
     }
 }

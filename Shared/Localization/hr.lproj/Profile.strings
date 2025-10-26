@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Profil";
+"account_linking" = "Povezivanje Računa";
+"account_linking_description" = "Za pristup vašoj pretplati na Android uređajima, trebate povezati Google račun. Za dijeljenje pretplata kroz platforme, povežite oba računa.";
+"link_google_for_android" = "Poveži Google Račun";
+"link_apple_for_cross_platform" = "Poveži Apple ID";
+"cross_platform_button_description" = "Za dijeljenje pretplate između platformi";
+"current_account" = "Trenutni Račun";
+"linked_accounts" = "Povezani Računi";
+"no_linked_accounts" = "Nema povezanih računa";
+
+// MARK: - Nickname
+"nickname" = "Nadimak";
+"nickname_current" = "Trenutni nadimak";
+"nickname_not_set" = "Nadimak nije postavljen";
+"nickname_description" = "Postavite jedinstveni nadimak koji drugi mogu koristiti kako bi vas pronašli i dodali u zajedničke rječnike. To je praktičnije od korištenja adresa e-pošte.";
+"edit_nickname" = "Uredi nadimak";
+"nickname_cannot_be_empty" = "Nadimak ne može biti prazan";
+"nickname_already_taken" = "Ovaj nadimak je već zauzet. Odaberite drugi.";
+"nickname_invalid_format" = "Nadimak može sadržavati samo slova, brojeve i donje crte.";
+
+// MARK: - User Search
+"search_method" = "Metoda pretrage";
+"find_user_by_email" = "Pronađi korisnika putem e-pošte";
+"find_user_by_nickname" = "Pronađi korisnika putem nadimka";
+"enter_email_address" = "Unesite adresu e-pošte";
+"enter_nickname" = "Unesite nadimak";
+"enter_name" = "Unesite ime";
+"search_by" = "Pretraži po";
+"unknown_user" = "Nepoznati korisnik";
+"email" = "E-pošta";
+"apple_id" = "Apple ID";
+"google_account" = "Google račun";
+"cancel" = "Odustani";
+"save" = "Spremi";
+"found_user" = "Korisnik pronađen";
+"user_not_found" = "Korisnik nije pronađen.";
+"user_not_found_message" = "Nije pronađen korisnik s priloženim informacijama. Provjerite pretragu i pokušajte ponovno.";

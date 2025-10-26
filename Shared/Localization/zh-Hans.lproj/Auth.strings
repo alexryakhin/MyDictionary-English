@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "需要登录才能访问Pro功能，如%@。";
 "sign_in_failed" = "登录失败。请重试。";
 "sign_out_failed" = "退出登录失败。请重试。";
-"user_not_found" = "未找到用户。";
 "network_error" = "网络错误。请检查您的连接。";
 "account_linking_failed" = "账户关联失败。请重试。";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "订阅访问受限";
 "subscription_associated_different_account" = "此订阅与不同的账户关联。请使用购买此订阅的账户登录以访问Pro功能。";
-
-// Profile
-"profile" = "个人资料";
-"account_linking" = "账户关联";
-"account_linking_description" = "要在Android设备上访问您的订阅，您需要关联Google账户。对于跨平台订阅共享，请关联两个账户。";
-"link_google_for_android" = "关联Google账户";
-"link_apple_for_cross_platform" = "关联Apple ID";
-"current_account" = "当前账户";
-"linked_accounts" = "关联账户";
-"no_linked_accounts" = "无关联账户";
-
-"cross_platform_button_description" = "用于跨平台订阅共享";
-"nickname" = "昵称";
-"nickname_current" = "当前昵称";
-"nickname_not_set" = "昵称未设置";
-"nickname_description" = "设置一个唯一的昵称，其他人可以用它来找到您并添加到共享词典中。这比使用电子邮件地址更方便。";
-"edit_nickname" = "编辑昵称";
-"nickname_cannot_be_empty" = "昵称不能为空";
-"nickname_already_taken" = "此昵称已被使用。请选择其他昵称。";
-"nickname_invalid_format" = "昵称只能包含字母、数字和下划线。";
-"search_method" = "搜索方法";
-"find_user_by_email" = "通过电子邮件查找用户";
-"find_user_by_nickname" = "通过昵称查找用户";
-"enter_email_address" = "输入电子邮件地址";
-"enter_nickname" = "输入昵称";
-"found_user" = "找到用户";
-"user_not_found" = "未找到用户";
-"user_not_found_message" = "未找到提供信息的用户。请检查您的搜索并重试。";
-
-"enter_name" = "输入姓名";
-"search_by" = "搜索方式";
-"unknown_user" = "未知用户";
-"email" = "电子邮件";
-"apple_id" = "Apple ID";
-"google_account" = "Google账户";
-"cancel" = "取消";
-"save" = "保存";
-
-

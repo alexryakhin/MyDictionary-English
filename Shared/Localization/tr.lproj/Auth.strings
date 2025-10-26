@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "Pro özelliklerine erişmek için oturum açılması gerekiyor, örneğin %@.";
 "sign_in_failed" = "Oturum açma başarısız. Tekrar deneyin.";
 "sign_out_failed" = "Oturum kapatma başarısız. Tekrar deneyin.";
-"user_not_found" = "Kullanıcı bulunamadı.";
 "network_error" = "Ağ hatası. Bağlantınızı kontrol edin.";
 "account_linking_failed" = "Hesap bağlama başarısız. Tekrar deneyin.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Abonelik Erişimi Kısıtlandı";
 "subscription_associated_different_account" = "Bu abonelik farklı bir hesapla ilişkilidir. Pro özelliklerine erişmek için lütfen bu aboneliği satın alan hesapla giriş yapın.";
-
-// Profile
-"profile" = "Profil";
-"account_linking" = "Hesap Bağlama";
-"account_linking_description" = "Android cihazlarda aboneliğinize erişmek için Google hesabı bağlamanız gerekir. Platformlar arası abonelik paylaşımı için her iki hesabı da bağlayın.";
-"link_google_for_android" = "Google Hesabı Bağla";
-"link_apple_for_cross_platform" = "Apple ID Bağla";
-"current_account" = "Mevcut Hesap";
-"linked_accounts" = "Bağlı Hesaplar";
-"no_linked_accounts" = "Bağlı hesap yok";
-
-"cross_platform_button_description" = "Platformlar arası abonelik paylaşımı için";
-"nickname" = "Takma ad";
-"nickname_current" = "Mevcut takma ad";
-"nickname_not_set" = "Takma ad belirlenmedi";
-"nickname_description" = "Başkalarının sizi bulması ve paylaşılan sözlüklere eklemesi için kullanılabilecek benzersiz bir takma ad belirleyin. Bu, e-posta adreslerini kullanmaktan daha uygundur.";
-"edit_nickname" = "Takma adı düzenle";
-"nickname_cannot_be_empty" = "Takma ad boş olamaz";
-"nickname_already_taken" = "Bu takma ad zaten alınmış. Lütfen başka bir tane seçin.";
-"nickname_invalid_format" = "Takma ad yalnızca harf, rakam ve alt çizgi içerebilir.";
-"search_method" = "Arama yöntemi";
-"find_user_by_email" = "E-posta ile kullanıcı bul";
-"find_user_by_nickname" = "Takma ad ile kullanıcı bul";
-"enter_email_address" = "E-posta adresini gir";
-"enter_nickname" = "Takma ad gir";
-"found_user" = "Kullanıcı bulundu";
-"user_not_found" = "Kullanıcı bulunamadı";
-"user_not_found_message" = "Sağlanan bilgilerle kullanıcı bulunamadı. Lütfen aramanızı kontrol edin ve tekrar deneyin.";
-
-"enter_name" = "İsim gir";
-"search_by" = "Şuna göre ara";
-"unknown_user" = "Bilinmeyen kullanıcı";
-"email" = "E-posta";
-"apple_id" = "Apple ID";
-"google_account" = "Google hesabı";
-"cancel" = "İptal";
-"save" = "Kaydet";
-
-

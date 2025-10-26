@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Профиль";
+"account_linking" = "Связывание аккаунтов";
+"account_linking_description" = "Для доступа к подписке на устройствах Android вам нужно связать аккаунт Google. Для кроссплатформенного обмена подписками свяжите оба аккаунта.";
+"link_google_for_android" = "Связать аккаунт Google";
+"link_apple_for_cross_platform" = "Связать Apple ID";
+"cross_platform_button_description" = "Для кроссплатформенного обмена подписками";
+"current_account" = "Текущий аккаунт";
+"linked_accounts" = "Связанные аккаунты";
+"no_linked_accounts" = "Нет связанных аккаунтов";
+
+// MARK: - Nickname
+"nickname" = "Никнейм";
+"nickname_current" = "Текущий никнейм";
+"nickname_not_set" = "Никнейм не установлен";
+"nickname_description" = "Установите уникальный никнейм, который другие могут использовать для поиска и добавления вас в общие словари. Это удобнее, чем использовать адреса электронной почты.";
+"edit_nickname" = "Редактировать никнейм";
+"nickname_cannot_be_empty" = "Никнейм не может быть пустым";
+"nickname_already_taken" = "Этот никнейм уже занят. Пожалуйста, выберите другой.";
+"nickname_invalid_format" = "Никнейм может содержать только буквы, цифры и подчеркивания.";
+
+// MARK: - User Search
+"search_method" = "Метод поиска";
+"find_user_by_email" = "Найти пользователя по email";
+"find_user_by_nickname" = "Найти пользователя по никнейму";
+"enter_email_address" = "Введите адрес электронной почты";
+"enter_nickname" = "Введите никнейм";
+"enter_name" = "Введите имя";
+"search_by" = "Искать по";
+"unknown_user" = "Неизвестный пользователь";
+"email" = "Email";
+"apple_id" = "Apple ID";
+"google_account" = "Аккаунт Google";
+"cancel" = "Отмена";
+"save" = "Сохранить";
+"found_user" = "Пользователь найден";
+"user_not_found" = "Пользователь не найден.";
+"user_not_found_message" = "Пользователь с предоставленной информацией не найден. Пожалуйста, проверьте поиск и попробуйте снова.";

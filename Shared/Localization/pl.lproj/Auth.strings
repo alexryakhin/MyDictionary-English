@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "Logowanie wymagane do uzyskania dostępu do funkcji Pro, takich jak %@.";
 "sign_in_failed" = "Logowanie nie powiodło się. Spróbuj ponownie.";
 "sign_out_failed" = "Wylogowanie nie powiodło się. Spróbuj ponownie.";
-"user_not_found" = "Nie znaleziono użytkownika.";
 "network_error" = "Błąd sieci. Sprawdź swoje połączenie.";
 "account_linking_failed" = "Połączenie konta nie powiodło się. Spróbuj ponownie.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Dostęp do Subskrypcji Ograniczony";
 "subscription_associated_different_account" = "Ta subskrypcja jest powiązana z innym kontem. Zaloguj się na konto, które kupiło tę subskrypcję, aby uzyskać dostęp do funkcji Pro.";
-
-// Profile
-"profile" = "Profil";
-"account_linking" = "Łączenie Kont";
-"account_linking_description" = "Aby uzyskać dostęp do swojej subskrypcji na urządzeniach Android, musisz połączyć konto Google. Aby udostępniać subskrypcje między platformami, połącz oba konta.";
-"link_google_for_android" = "Połącz Konto Google";
-"link_apple_for_cross_platform" = "Połącz Apple ID";
-"current_account" = "Aktualne Konto";
-"linked_accounts" = "Połączone Konta";
-"no_linked_accounts" = "Brak połączonych kont";
-
-"cross_platform_button_description" = "Do udostępniania subskrypcji między platformami";
-"nickname" = "Pseudonim";
-"nickname_current" = "Aktualny pseudonim";
-"nickname_not_set" = "Pseudonim nie został ustawiony";
-"nickname_description" = "Ustaw unikalny pseudonim, który inni mogą użyć, aby Cię znaleźć i dodać do współdzielonych słowników. Jest to wygodniejsze niż używanie adresów e-mail.";
-"edit_nickname" = "Edytuj pseudonim";
-"nickname_cannot_be_empty" = "Pseudonim nie może być pusty";
-"nickname_already_taken" = "Ten pseudonim jest już zajęty. Wybierz inny.";
-"nickname_invalid_format" = "Pseudonim może zawierać tylko litery, cyfry i podkreślenia.";
-"search_method" = "Metoda wyszukiwania";
-"find_user_by_email" = "Znajdź użytkownika przez e-mail";
-"find_user_by_nickname" = "Znajdź użytkownika przez pseudonim";
-"enter_email_address" = "Wprowadź adres e-mail";
-"enter_nickname" = "Wprowadź pseudonim";
-"found_user" = "Użytkownik znaleziony";
-"user_not_found" = "Użytkownik nie znaleziony";
-"user_not_found_message" = "Nie znaleziono użytkownika z podanymi informacjami. Sprawdź wyszukiwanie i spróbuj ponownie.";
-
-"enter_name" = "Wprowadź imię";
-"search_by" = "Szukaj według";
-"unknown_user" = "Nieznany użytkownik";
-"email" = "E-mail";
-"apple_id" = "Apple ID";
-"google_account" = "Konto Google";
-"cancel" = "Anuluj";
-"save" = "Zapisz";
-
-

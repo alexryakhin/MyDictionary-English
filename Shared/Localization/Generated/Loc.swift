@@ -293,10 +293,6 @@ public enum Loc {
   public enum Auth {
     /// Access your subscription on all your devices
     public static let accessSubscriptionAllDevices = Loc.tr("Auth", "access_subscription_all_devices", fallback: "Access your subscription on all your devices")
-    /// Account Linking
-    public static let accountLinking = Loc.tr("Auth", "account_linking", fallback: "Account Linking")
-    /// To access your subscription on Android devices, you need to link a Google account. For cross-platform subscription sharing, link both accounts.
-    public static let accountLinkingDescription = Loc.tr("Auth", "account_linking_description", fallback: "To access your subscription on Android devices, you need to link a Google account. For cross-platform subscription sharing, link both accounts.")
     /// Failed to link accounts. Please try again.
     public static let accountLinkingFailed = Loc.tr("Auth", "account_linking_failed", fallback: "Failed to link accounts. Please try again.")
     /// Account Registration
@@ -307,72 +303,22 @@ public enum Loc {
     public static let activeSubscriptionNotification = Loc.tr("Auth", "active_subscription_notification", fallback: "You have an active subscription!")
     /// All your vocabulary words, definitions, and progress will remain on this device. You can continue using the app offline.
     public static let allVocabularyRemainDevice = Loc.tr("Auth", "all_vocabulary_remain_device", fallback: "All your vocabulary words, definitions, and progress will remain on this device. You can continue using the app offline.")
-    /// Apple ID
-    public static let appleId = Loc.tr("Auth", "apple_id", fallback: "Apple ID")
     /// Backup your data securely in the cloud
     public static let backupDataSecurely = Loc.tr("Auth", "backup_data_securely", fallback: "Backup your data securely in the cloud")
     /// You can always sign in later from Settings
     public static let canAlwaysSignInLater = Loc.tr("Auth", "can_always_sign_in_later", fallback: "You can always sign in later from Settings")
-    /// Cancel
-    public static let cancel = Loc.tr("Auth", "cancel", fallback: "Cancel")
     /// Cloud sync will be disabled
     public static let cloudSyncDisabled = Loc.tr("Auth", "cloud_sync_disabled", fallback: "Cloud sync will be disabled")
-    /// For cross-platform subscription sharing
-    public static let crossPlatformButtonDescription = Loc.tr("Auth", "cross_platform_button_description", fallback: "For cross-platform subscription sharing")
-    /// Current Account
-    public static let currentAccount = Loc.tr("Auth", "current_account", fallback: "Current Account")
-    /// Edit Nickname
-    public static let editNickname = Loc.tr("Auth", "edit_nickname", fallback: "Edit Nickname")
-    /// Email
-    public static let email = Loc.tr("Auth", "email", fallback: "Email")
-    /// Enter email address
-    public static let enterEmailAddress = Loc.tr("Auth", "enter_email_address", fallback: "Enter email address")
-    /// Enter name
-    public static let enterName = Loc.tr("Auth", "enter_name", fallback: "Enter name")
-    /// Enter nickname
-    public static let enterNickname = Loc.tr("Auth", "enter_nickname", fallback: "Enter nickname")
-    /// Find User by Email
-    public static let findUserByEmail = Loc.tr("Auth", "find_user_by_email", fallback: "Find User by Email")
-    /// Find User by Nickname
-    public static let findUserByNickname = Loc.tr("Auth", "find_user_by_nickname", fallback: "Find User by Nickname")
-    /// Found User
-    public static let foundUser = Loc.tr("Auth", "found_user", fallback: "Found User")
-    /// Google Account
-    public static let googleAccount = Loc.tr("Auth", "google_account", fallback: "Google Account")
     /// Link additional accounts
     public static let linkAdditionalAccounts = Loc.tr("Auth", "link_additional_accounts", fallback: "Link additional accounts")
     /// Link Apple
     public static let linkApple = Loc.tr("Auth", "link_apple", fallback: "Link Apple")
-    /// Link Apple ID
-    public static let linkAppleForCrossPlatform = Loc.tr("Auth", "link_apple_for_cross_platform", fallback: "Link Apple ID")
     /// Link Google
     public static let linkGoogle = Loc.tr("Auth", "link_google", fallback: "Link Google")
-    /// Link Google Account
-    public static let linkGoogleForAndroid = Loc.tr("Auth", "link_google_for_android", fallback: "Link Google Account")
-    /// Linked Accounts
-    public static let linkedAccounts = Loc.tr("Auth", "linked_accounts", fallback: "Linked Accounts")
     /// Network error. Please check your connection.
     public static let networkError = Loc.tr("Auth", "network_error", fallback: "Network error. Please check your connection.")
-    /// Nickname
-    public static let nickname = Loc.tr("Auth", "nickname", fallback: "Nickname")
-    /// This nickname is already taken. Please choose a different one.
-    public static let nicknameAlreadyTaken = Loc.tr("Auth", "nickname_already_taken", fallback: "This nickname is already taken. Please choose a different one.")
-    /// Nickname cannot be empty
-    public static let nicknameCannotBeEmpty = Loc.tr("Auth", "nickname_cannot_be_empty", fallback: "Nickname cannot be empty")
-    /// Current nickname
-    public static let nicknameCurrent = Loc.tr("Auth", "nickname_current", fallback: "Current nickname")
-    /// Set a unique nickname that others can use to find and add you to shared dictionaries. This is more convenient than using email addresses.
-    public static let nicknameDescription = Loc.tr("Auth", "nickname_description", fallback: "Set a unique nickname that others can use to find and add you to shared dictionaries. This is more convenient than using email addresses.")
-    /// Nickname can only contain letters, numbers, and underscores.
-    public static let nicknameInvalidFormat = Loc.tr("Auth", "nickname_invalid_format", fallback: "Nickname can only contain letters, numbers, and underscores.")
-    /// Nickname is not set
-    public static let nicknameNotSet = Loc.tr("Auth", "nickname_not_set", fallback: "Nickname is not set")
-    /// No linked accounts
-    public static let noLinkedAccounts = Loc.tr("Auth", "no_linked_accounts", fallback: "No linked accounts")
     /// No worries! We won't remove your words.
     public static let noWorriesWontRemoveWords = Loc.tr("Auth", "no_worries_wont_remove_words", fallback: "No worries! We won't remove your words.")
-    /// Profile
-    public static let profile = Loc.tr("Auth", "profile", fallback: "Profile")
     /// You can register anytime from Settings to enable these features
     public static let registerAnytimeFromSettings = Loc.tr("Auth", "register_anytime_from_settings", fallback: "You can register anytime from Settings to enable these features")
     /// Register to access your subscription across all your devices and sync your progress
@@ -383,12 +329,6 @@ public enum Loc {
     public static let registerToUnlockCrossPlatform = Loc.tr("Auth", "register_to_unlock_cross_platform", fallback: "Register to unlock cross-platform access")
     /// Registration Benefits
     public static let registrationBenefits = Loc.tr("Auth", "registration_benefits", fallback: "Registration Benefits")
-    /// Save
-    public static let save = Loc.tr("Auth", "save", fallback: "Save")
-    /// Search by
-    public static let searchBy = Loc.tr("Auth", "search_by", fallback: "Search by")
-    /// Search Method
-    public static let searchMethod = Loc.tr("Auth", "search_method", fallback: "Search Method")
     /// Sign in before subscribing
     public static let signInBeforeSubscribing = Loc.tr("Auth", "sign_in_before_subscribing", fallback: "Sign in before subscribing")
     /// Failed to sign in. Please try again.
@@ -421,12 +361,6 @@ public enum Loc {
     public static let subscriptionAssociatedDifferentAccount = Loc.tr("Auth", "subscription_associated_different_account", fallback: "This subscription is associated with a different account. Please sign in with the account that purchased this subscription to access Pro features.")
     /// Sync your progress across iOS and Android
     public static let syncProgressCrossPlatform = Loc.tr("Auth", "sync_progress_cross_platform", fallback: "Sync your progress across iOS and Android")
-    /// Unknown User
-    public static let unknownUser = Loc.tr("Auth", "unknown_user", fallback: "Unknown User")
-    /// User not found
-    public static let userNotFound = Loc.tr("Auth", "user_not_found", fallback: "User not found")
-    /// No user found with the provided information. Please check your search and try again.
-    public static let userNotFoundMessage = Loc.tr("Auth", "user_not_found_message", fallback: "No user found with the provided information. Please check your search and try again.")
     /// Your vocabulary will stay on this device. If you sign in with another account, your data will be combined.
     public static let vocabularyStayOnDevice = Loc.tr("Auth", "vocabulary_stay_on_device", fallback: "Your vocabulary will stay on this device. If you sign in with another account, your data will be combined.")
     /// Word lists and shared data will be cleared. If you sign in with another account, your local words will be combined with the new account's data.
@@ -1215,6 +1149,74 @@ public enum Loc {
         return Loc.tr("Plurals", "words.words_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
       }
     }
+  }
+  public enum Profile {
+    /// Account Linking
+    public static let accountLinking = Loc.tr("Profile", "account_linking", fallback: "Account Linking")
+    /// To access your subscription on Android devices, you need to link a Google account. For cross-platform subscription sharing, link both accounts.
+    public static let accountLinkingDescription = Loc.tr("Profile", "account_linking_description", fallback: "To access your subscription on Android devices, you need to link a Google account. For cross-platform subscription sharing, link both accounts.")
+    /// Apple ID
+    public static let appleId = Loc.tr("Profile", "apple_id", fallback: "Apple ID")
+    /// Cancel
+    public static let cancel = Loc.tr("Profile", "cancel", fallback: "Cancel")
+    /// For cross-platform subscription sharing
+    public static let crossPlatformButtonDescription = Loc.tr("Profile", "cross_platform_button_description", fallback: "For cross-platform subscription sharing")
+    /// Current Account
+    public static let currentAccount = Loc.tr("Profile", "current_account", fallback: "Current Account")
+    /// Edit Nickname
+    public static let editNickname = Loc.tr("Profile", "edit_nickname", fallback: "Edit Nickname")
+    /// Email
+    public static let email = Loc.tr("Profile", "email", fallback: "Email")
+    /// Enter email address
+    public static let enterEmailAddress = Loc.tr("Profile", "enter_email_address", fallback: "Enter email address")
+    /// Enter name
+    public static let enterName = Loc.tr("Profile", "enter_name", fallback: "Enter name")
+    /// Enter nickname
+    public static let enterNickname = Loc.tr("Profile", "enter_nickname", fallback: "Enter nickname")
+    /// Find User by Email
+    public static let findUserByEmail = Loc.tr("Profile", "find_user_by_email", fallback: "Find User by Email")
+    /// Find User by Nickname
+    public static let findUserByNickname = Loc.tr("Profile", "find_user_by_nickname", fallback: "Find User by Nickname")
+    /// Found User
+    public static let foundUser = Loc.tr("Profile", "found_user", fallback: "Found User")
+    /// Google Account
+    public static let googleAccount = Loc.tr("Profile", "google_account", fallback: "Google Account")
+    /// Link Apple ID
+    public static let linkAppleForCrossPlatform = Loc.tr("Profile", "link_apple_for_cross_platform", fallback: "Link Apple ID")
+    /// Link Google Account
+    public static let linkGoogleForAndroid = Loc.tr("Profile", "link_google_for_android", fallback: "Link Google Account")
+    /// Linked Accounts
+    public static let linkedAccounts = Loc.tr("Profile", "linked_accounts", fallback: "Linked Accounts")
+    /// Nickname
+    public static let nickname = Loc.tr("Profile", "nickname", fallback: "Nickname")
+    /// This nickname is already taken. Please choose a different one.
+    public static let nicknameAlreadyTaken = Loc.tr("Profile", "nickname_already_taken", fallback: "This nickname is already taken. Please choose a different one.")
+    /// Nickname cannot be empty
+    public static let nicknameCannotBeEmpty = Loc.tr("Profile", "nickname_cannot_be_empty", fallback: "Nickname cannot be empty")
+    /// Current nickname
+    public static let nicknameCurrent = Loc.tr("Profile", "nickname_current", fallback: "Current nickname")
+    /// Set a unique nickname that others can use to find and add you to shared dictionaries. This is more convenient than using email addresses.
+    public static let nicknameDescription = Loc.tr("Profile", "nickname_description", fallback: "Set a unique nickname that others can use to find and add you to shared dictionaries. This is more convenient than using email addresses.")
+    /// Nickname can only contain letters, numbers, and underscores.
+    public static let nicknameInvalidFormat = Loc.tr("Profile", "nickname_invalid_format", fallback: "Nickname can only contain letters, numbers, and underscores.")
+    /// Nickname is not set
+    public static let nicknameNotSet = Loc.tr("Profile", "nickname_not_set", fallback: "Nickname is not set")
+    /// No linked accounts
+    public static let noLinkedAccounts = Loc.tr("Profile", "no_linked_accounts", fallback: "No linked accounts")
+    /// Profile
+    public static let profile = Loc.tr("Profile", "profile", fallback: "Profile")
+    /// Save
+    public static let save = Loc.tr("Profile", "save", fallback: "Save")
+    /// Search by
+    public static let searchBy = Loc.tr("Profile", "search_by", fallback: "Search by")
+    /// Search Method
+    public static let searchMethod = Loc.tr("Profile", "search_method", fallback: "Search Method")
+    /// Unknown User
+    public static let unknownUser = Loc.tr("Profile", "unknown_user", fallback: "Unknown User")
+    /// User not found.
+    public static let userNotFound = Loc.tr("Profile", "user_not_found", fallback: "User not found.")
+    /// No user found with the provided information. Please check your search and try again.
+    public static let userNotFoundMessage = Loc.tr("Profile", "user_not_found_message", fallback: "No user found with the provided information. Please check your search and try again.")
   }
   public enum Quizzes {
     /// Accuracy

@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Profil";
+"account_linking" = "Propojení Účtů";
+"account_linking_description" = "Pro přístup k vašemu předplatnému na zařízeních Android musíte propojit účet Google. Pro sdílení předplatného mezi platformami propojte oba účty.";
+"link_google_for_android" = "Propojit Účet Google";
+"link_apple_for_cross_platform" = "Propojit Apple ID";
+"cross_platform_button_description" = "Pro sdílení předplatného napříč platformami";
+"current_account" = "Aktuální Účet";
+"linked_accounts" = "Propojené Účty";
+"no_linked_accounts" = "Žádné propojené účty";
+
+// MARK: - Nickname
+"nickname" = "Přezdívka";
+"nickname_current" = "Aktuální přezdívka";
+"nickname_not_set" = "Přezdívka není nastavena";
+"nickname_description" = "Nastavte si jedinečnou přezdívku, kterou mohou ostatní použít k nalezení a přidání vás do sdílených slovníků. To je pohodlnější než používání e-mailových adres.";
+"edit_nickname" = "Upravit přezdívku";
+"nickname_cannot_be_empty" = "Přezdívka nemůže být prázdná";
+"nickname_already_taken" = "Tato přezdívka je již obsazena. Vyberte jinou.";
+"nickname_invalid_format" = "Přezdívka může obsahovat pouze písmena, číslice a podtržítka.";
+
+// MARK: - User Search
+"search_method" = "Metoda vyhledávání";
+"find_user_by_email" = "Najít uživatele podle e-mailu";
+"find_user_by_nickname" = "Najít uživatele podle přezdívky";
+"enter_email_address" = "Zadejte e-mailovou adresu";
+"enter_nickname" = "Zadejte přezdívku";
+"enter_name" = "Zadejte jméno";
+"search_by" = "Hledat podle";
+"unknown_user" = "Neznámý uživatel";
+"email" = "E-mail";
+"apple_id" = "Apple ID";
+"google_account" = "Účet Google";
+"cancel" = "Zrušit";
+"save" = "Uložit";
+"found_user" = "Uživatel nalezen";
+"user_not_found" = "Uživatel nenalezen.";
+"user_not_found_message" = "Žádný uživatel nebyl nalezen s poskytnutými informacemi. Zkontrolujte vyhledávání a zkuste to znovu.";

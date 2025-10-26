@@ -195,8 +195,8 @@ final class QuizzesListViewModel: BaseViewModel {
         Task { @MainActor in
             showAlert(
                 withModel: .init(
-                    title: Loc.Errors.oops,
-                    message: Loc.Ai.AiError.proRequired,
+                    title: Loc.Subscription.ProFeatures.aiQuizzes,
+                    message: Loc.Subscription.ProFeatures.aiQuizzesDescription,
                     actionText: Loc.Actions.ok,
                     additionalActionText: Loc.Subscription.Paywall.upgradeToPro,
                     action: {},

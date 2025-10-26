@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "Inloggen is vereist om toegang te krijgen tot Pro-functies zoals %@.";
 "sign_in_failed" = "Inloggen mislukt. Probeer opnieuw.";
 "sign_out_failed" = "Uitloggen mislukt. Probeer opnieuw.";
-"user_not_found" = "Gebruiker niet gevonden.";
 "network_error" = "Netwerkfout. Controleer je verbinding.";
 "account_linking_failed" = "Accountkoppeling mislukt. Probeer opnieuw.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Abonnementstoegang Beperkt";
 "subscription_associated_different_account" = "Dit abonnement is gekoppeld aan een ander account. Log in met het account dat dit abonnement heeft gekocht om toegang te krijgen tot Pro-functies.";
-
-// Profile
-"profile" = "Profiel";
-"account_linking" = "Accountkoppeling";
-"account_linking_description" = "Om toegang te krijgen tot je abonnement op Android-apparaten, moet je een Google-account koppelen. Om abonnementen tussen platforms te delen, koppel beide accounts.";
-"link_google_for_android" = "Google-account Koppelen";
-"link_apple_for_cross_platform" = "Apple ID Koppelen";
-"current_account" = "Huidig Account";
-"linked_accounts" = "Gekoppelde Accounts";
-"no_linked_accounts" = "Geen gekoppelde accounts";
-
-"cross_platform_button_description" = "Voor het delen van abonnementen tussen platforms";
-"nickname" = "Bijnaam";
-"nickname_current" = "Huidige bijnaam";
-"nickname_not_set" = "Bijnaam is niet ingesteld";
-"nickname_description" = "Stel een unieke bijnaam in die anderen kunnen gebruiken om je te vinden en toe te voegen aan gedeelde woordenboeken. Dit is handiger dan het gebruik van e-mailadressen.";
-"edit_nickname" = "Bijnaam bewerken";
-"nickname_cannot_be_empty" = "Bijnaam mag niet leeg zijn";
-"nickname_already_taken" = "Deze bijnaam is al in gebruik. Kies een andere.";
-"nickname_invalid_format" = "Bijnaam mag alleen letters, cijfers en underscores bevatten.";
-"search_method" = "Zoekmethode";
-"find_user_by_email" = "Gebruiker vinden via e-mail";
-"find_user_by_nickname" = "Gebruiker vinden via bijnaam";
-"enter_email_address" = "Voer e-mailadres in";
-"enter_nickname" = "Voer bijnaam in";
-"found_user" = "Gebruiker gevonden";
-"user_not_found" = "Gebruiker niet gevonden";
-"user_not_found_message" = "Geen gebruiker gevonden met de opgegeven informatie. Controleer je zoekopdracht en probeer opnieuw.";
-
-"enter_name" = "Voer naam in";
-"search_by" = "Zoeken op";
-"unknown_user" = "Onbekende gebruiker";
-"email" = "E-mail";
-"apple_id" = "Apple ID";
-"google_account" = "Google-account";
-"cancel" = "Annuleren";
-"save" = "Opslaan";
-
-

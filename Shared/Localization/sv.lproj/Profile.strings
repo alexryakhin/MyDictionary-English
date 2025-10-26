@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Profil";
+"account_linking" = "Kontolänkning";
+"account_linking_description" = "För att få tillgång till din prenumeration på Android-enheter behöver du länka ett Google-konto. För att dela prenumerationer mellan plattformar, länka båda kontona.";
+"link_google_for_android" = "Länka Google-konto";
+"link_apple_for_cross_platform" = "Länka Apple ID";
+"cross_platform_button_description" = "För delning av abonnemang över plattformar";
+"current_account" = "Aktuellt Konto";
+"linked_accounts" = "Länkade Konton";
+"no_linked_accounts" = "Inga länkade konton";
+
+// MARK: - Nickname
+"nickname" = "Smeknamn";
+"nickname_current" = "Nuvarande smeknamn";
+"nickname_not_set" = "Smeknamn är inte inställt";
+"nickname_description" = "Ställ in ett unikt smeknamn som andra kan använda för att hitta och lägga till dig i delade ordböcker. Detta är bekvämare än att använda e-postadresser.";
+"edit_nickname" = "Redigera smeknamn";
+"nickname_cannot_be_empty" = "Smeknamn får inte vara tomt";
+"nickname_already_taken" = "Detta smeknamn är redan taget. Välj ett annat.";
+"nickname_invalid_format" = "Smeknamn får endast innehålla bokstäver, siffror och understreck.";
+
+// MARK: - User Search
+"search_method" = "Sökmetod";
+"find_user_by_email" = "Hitta användare via e-post";
+"find_user_by_nickname" = "Hitta användare via smeknamn";
+"enter_email_address" = "Ange e-postadress";
+"enter_nickname" = "Ange smeknamn";
+"enter_name" = "Ange namn";
+"search_by" = "Sök efter";
+"unknown_user" = "Okänd användare";
+"email" = "E-post";
+"apple_id" = "Apple ID";
+"google_account" = "Google-konto";
+"cancel" = "Avbryt";
+"save" = "Spara";
+"found_user" = "Användare hittades";
+"user_not_found" = "Användare hittades inte.";
+"user_not_found_message" = "Ingen användare hittades med den angivna informationen. Kontrollera din sökning och försök igen.";

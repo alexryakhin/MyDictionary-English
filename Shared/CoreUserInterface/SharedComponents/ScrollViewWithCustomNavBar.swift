@@ -27,7 +27,7 @@ struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
 
     @ViewBuilder
     var body: some View {
-        if #available(iOS 26, *) {
+        if #available(iOS 26, macOS 26, *) {
             ScrollViewWithReader(scrollOffset: $scrollOffset) {
                 content()
             }

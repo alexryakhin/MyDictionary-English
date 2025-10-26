@@ -1,0 +1,38 @@
+// MARK: - Profile
+"profile" = "Προφίλ";
+"account_linking" = "Σύνδεση Λογαριασμών";
+"account_linking_description" = "Για πρόσβαση στη συνδρομή σου σε συσκευές Android, πρέπει να συνδέσεις έναν λογαριασμό Google. Για κοινή χρήση συνδρομών διαπλατφορμικά, συνδέστε και τους δύο λογαριασμούς.";
+"link_google_for_android" = "Σύνδεση Λογαριασμού Google";
+"link_apple_for_cross_platform" = "Σύνδεση Apple ID";
+"cross_platform_button_description" = "Για κοινή χρήση συνδρομής μεταξύ πλατφορμών";
+"current_account" = "Τρέχων Λογαριασμός";
+"linked_accounts" = "Συνδεδεμένοι Λογαριασμοί";
+"no_linked_accounts" = "Κανένας συνδεδεμένος λογαριασμός";
+
+// MARK: - Nickname
+"nickname" = "Ψευδώνυμο";
+"nickname_current" = "Τρέχον ψευδώνυμο";
+"nickname_not_set" = "Το ψευδώνυμο δεν έχει οριστεί";
+"nickname_description" = "Ορίστε ένα μοναδικό ψευδώνυμο που μπορούν να χρησιμοποιήσουν άλλοι για να σας βρουν και να σας προσθέσουν σε κοινόχρηστα λεξικά. Είναι πιο βολικό από τη χρήση διευθύνσεων email.";
+"edit_nickname" = "Επεξεργασία ψευδωνύμου";
+"nickname_cannot_be_empty" = "Το ψευδώνυμο δεν μπορεί να είναι κενό";
+"nickname_already_taken" = "Αυτό το ψευδώνυμο είναι ήδη κατειλημμένο. Επιλέξτε άλλο.";
+"nickname_invalid_format" = "Το ψευδώνυμο μπορεί να περιέχει μόνο γράμματα, αριθμούς και κάτω παύλες.";
+
+// MARK: - User Search
+"search_method" = "Μέθοδος αναζήτησης";
+"find_user_by_email" = "Βρείτε χρήστη μέσω email";
+"find_user_by_nickname" = "Βρείτε χρήστη μέσω ψευδωνύμου";
+"enter_email_address" = "Εισαγάγετε διεύθυνση email";
+"enter_nickname" = "Εισαγάγετε ψευδώνυμο";
+"enter_name" = "Εισαγάγετε όνομα";
+"search_by" = "Αναζήτηση με";
+"unknown_user" = "Άγνωστος χρήστης";
+"email" = "Email";
+"apple_id" = "Apple ID";
+"google_account" = "Λογαριασμός Google";
+"cancel" = "Ακύρωση";
+"save" = "Αποθήκευση";
+"found_user" = "Ο χρήστης βρέθηκε";
+"user_not_found" = "Ο χρήστης δεν βρέθηκε.";
+"user_not_found_message" = "Δεν βρέθηκε χρήστης με τις παρεχόμενες πληροφορίες. Ελέγξτε την αναζήτησή σας και δοκιμάστε ξανά.";

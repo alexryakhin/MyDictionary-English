@@ -22,7 +22,6 @@
 "sign_in_required_for_pro_features" = "É necessário iniciar sessão para aceder a funcionalidades Pro, como %@.";
 "sign_in_failed" = "Falha ao iniciar sessão. Tente novamente.";
 "sign_out_failed" = "Falha ao terminar sessão. Tente novamente.";
-"user_not_found" = "Utilizador não encontrado.";
 "network_error" = "Erro de rede. Verifique a sua ligação.";
 "account_linking_failed" = "Falha ao associar conta. Tente novamente.";
 
@@ -41,42 +40,3 @@
 // Subscription Security
 "subscription_access_restricted" = "Acesso à Subscrição Restrito";
 "subscription_associated_different_account" = "Esta subscrição está associada a uma conta diferente. Inicie sessão com a conta que comprou esta subscrição para aceder às funcionalidades Pro.";
-
-// Profile
-"profile" = "Perfil";
-"account_linking" = "Associação de Contas";
-"account_linking_description" = "Para aceder à sua subscrição em dispositivos Android, precisa de associar uma conta Google. Para partilhar subscrições entre plataformas, associe ambas as contas.";
-"link_google_for_android" = "Associar Conta Google";
-"link_apple_for_cross_platform" = "Associar Apple ID";
-"current_account" = "Conta Actual";
-"linked_accounts" = "Contas Associadas";
-"no_linked_accounts" = "Nenhuma conta associada";
-
-"cross_platform_button_description" = "Para compartilhamento de assinatura entre plataformas";
-"nickname" = "Apelido";
-"nickname_current" = "Apelido atual";
-"nickname_not_set" = "Apelido não definido";
-"nickname_description" = "Defina um apelido único que outros possam usar para encontrá-lo e adicioná-lo a dicionários compartilhados. É mais conveniente do que usar endereços de e-mail.";
-"edit_nickname" = "Editar apelido";
-"nickname_cannot_be_empty" = "O apelido não pode estar vazio";
-"nickname_already_taken" = "Este apelido já está em uso. Escolha outro.";
-"nickname_invalid_format" = "O apelido só pode conter letras, números e sublinhados.";
-"search_method" = "Método de pesquisa";
-"find_user_by_email" = "Encontrar usuário por e-mail";
-"find_user_by_nickname" = "Encontrar usuário por apelido";
-"enter_email_address" = "Digite o endereço de e-mail";
-"enter_nickname" = "Digite o apelido";
-"found_user" = "Usuário encontrado";
-"user_not_found" = "Usuário não encontrado";
-"user_not_found_message" = "Nenhum usuário encontrado com as informações fornecidas. Verifique sua pesquisa e tente novamente.";
-
-"enter_name" = "Digite o nome";
-"search_by" = "Pesquisar por";
-"unknown_user" = "Usuário desconhecido";
-"email" = "E-mail";
-"apple_id" = "Apple ID";
-"google_account" = "Conta Google";
-"cancel" = "Cancelar";
-"save" = "Guardar";
-
-

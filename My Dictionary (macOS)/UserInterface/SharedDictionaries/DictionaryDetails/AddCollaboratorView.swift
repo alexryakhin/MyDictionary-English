@@ -29,9 +29,9 @@ struct AddCollaboratorView: View {
         var localizedName: String {
             switch self {
             case .email:
-                return Loc.Auth.email
+                return Loc.Profile.email
             case .nickname:
-                return Loc.Auth.nickname
+                return Loc.Profile.nickname
             }
         }
     }
@@ -40,8 +40,8 @@ struct AddCollaboratorView: View {
         ScrollViewWithCustomNavBar {
             VStack(spacing: 16) {
                 // Search Mode Selection
-                CustomSectionView(header: Loc.Auth.searchMethod) {
-                    Picker(Loc.Auth.searchBy, selection: $searchMode) {
+                CustomSectionView(header: Loc.Profile.searchMethod) {
+                    Picker(Loc.Profile.searchBy, selection: $searchMode) {
                         ForEach(SearchMode.allCases, id: \.self) { mode in
                             Text(mode.localizedName).tag(mode)
                         }
@@ -50,11 +50,11 @@ struct AddCollaboratorView: View {
                 }
                 
                 // Search Section
-                CustomSectionView(header: searchMode == .email ? Loc.Auth.findUserByEmail : Loc.Auth.findUserByNickname) {
+                CustomSectionView(header: searchMode == .email ? Loc.Profile.findUserByEmail : Loc.Profile.findUserByNickname) {
                     VStack(spacing: 12) {
                         HStack {
                             TextField(
-                                searchMode == .email ? Loc.Auth.enterEmailAddress : Loc.Auth.enterNickname,
+                                searchMode == .email ? Loc.Profile.enterEmailAddress : Loc.Profile.enterNickname,
                                 text: $searchQuery
                             )
                             .autocorrectionDisabled()
@@ -88,7 +88,7 @@ struct AddCollaboratorView: View {
                 
                 // Found User Section
                 if let foundUser = foundUser {
-                    CustomSectionView(header: Loc.Auth.foundUser) {
+                    CustomSectionView(header: Loc.Profile.foundUser) {
                         VStack(spacing: 12) {
                             HStack {
                                 Image(systemName: "person.circle.fill")
@@ -96,7 +96,7 @@ struct AddCollaboratorView: View {
                                     .foregroundStyle(.accent)
                                 
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text(foundUser.displayName ?? Loc.Auth.unknownUser)
+                                    Text(foundUser.displayName ?? Loc.Profile.unknownUser)
                                         .font(.body)
                                         .fontWeight(.medium)
                                     
@@ -180,7 +180,7 @@ struct AddCollaboratorView: View {
 
     private func addCollaborator() async throws {
         guard let foundUser = foundUser else {
-            showAlertWithMessage(Loc.Auth.userNotFound)
+            showAlertWithMessage(Loc.Profile.userNotFound)
             return
         }
 
