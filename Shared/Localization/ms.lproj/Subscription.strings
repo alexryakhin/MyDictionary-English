@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Dasar Privasi";
 "paywall.upgrade_to_pro" = "Naik Taraf ke Pro";
 "paywall.restore_purchases" = "Pulihkan Pembelian";
+"paywall.restore_subscription" = "Pulihkan Langganan";
 "paywall.track_progress" = "Jejaki Kemajuan";
 "paywall.see_your_improvement" = "Lihat peningkatan anda";
 "paywall.collaborate" = "Bekerjasama";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Tiada langganan aktif ditemui. Semak akaun App Store anda.";
 "paywall.failed_to_restore_purchases" = "Gagal memulihkan pembelian: %@";
 "paywall.save_percentage" = "Jimat %@";
+"paywall.and_conjunction" = "dan";
+"paywall.planAutoRenews" = "Pelan diperbaharui secara automatik untuk %@/%@ sehingga dibatalkan.";
+"paywall.annually" = "tahunan";
+"paywall.monthly" = "bulanan";
+"paywall.bestValue" = "NILAI TERBAIK";
+
+"period.day" = "hari";
+"period.week" = "minggu";
+"period.month" = "bulan";
+"period.year" = "tahun";
 
 // MARK: - Pro Features
 

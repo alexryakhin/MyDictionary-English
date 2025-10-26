@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Яка ваша вікова група?";
 
 // Learning Goals
-"why_are_you_learning" = "Чому ви вивчаєте мови?";
-"select_up_to_three" = "Виберіть 1-3 цілі";
-"learning_goal_career" = "Розвиток кар'єри";
-"learning_goal_travel" = "Подорожі та туризм";
-"learning_goal_education" = "Освіта";
-"learning_goal_personal_growth" = "Особистісний розвиток";
-"learning_goal_immigration" = "Імміграція";
-"learning_goal_family" = "Сім'я та друзі";
+"learning_goal.why_are_you_learning" = "Чому ви вивчаєте мови?";
+"learning_goal.select_up_to_three" = "Виберіть 1-3 цілі";
+"learning_goal.career" = "Розвиток кар'єри";
+"learning_goal.travel" = "Подорожі та туризм";
+"learning_goal.education" = "Освіта";
+"learning_goal.personal_growth" = "Особистісний розвиток";
+"learning_goal.immigration" = "Імміграція";
+"learning_goal.family" = "Сім'я та друзі";
 
 // Languages to Study
 "which_languages_to_learn" = "Які мови ви хочете вивчати?";

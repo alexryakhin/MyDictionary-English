@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Politica de Confidențialitate";
 "paywall.upgrade_to_pro" = "Actualizează la Pro";
 "paywall.restore_purchases" = "Restaurează Achizițiile";
+"paywall.restore_subscription" = "Restaurează Abonamentul";
 "paywall.track_progress" = "Urmărește Progresul";
 "paywall.see_your_improvement" = "Vezi-ți îmbunătățirile";
 "paywall.collaborate" = "Colaborează";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Niciun abonament activ găsit. Verifică-ți contul în App Store.";
 "paywall.failed_to_restore_purchases" = "Eșec la restaurarea achizițiilor: %@";
 "paywall.save_percentage" = "Economisește %@";
+"paywall.and_conjunction" = "și";
+"paywall.planAutoRenews" = "Planul se reînnoiește automat pentru %@/%@ până la anulare.";
+"paywall.annually" = "anual";
+"paywall.monthly" = "lunar";
+"paywall.bestValue" = "CEA MAI BUNĂ VALOARE";
+
+"period.day" = "zi";
+"period.week" = "săptămână";
+"period.month" = "lună";
+"period.year" = "an";
 
 // MARK: - Pro Features
 

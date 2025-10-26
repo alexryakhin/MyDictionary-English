@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Aká je vaša veková skupina?";
 
 // Learning Goals
-"why_are_you_learning" = "Prečo sa učíte jazyky?";
-"select_up_to_three" = "Vyberte 1-3 ciele";
-"learning_goal_career" = "Rast kariéry";
-"learning_goal_travel" = "Cestovanie a turistika";
-"learning_goal_education" = "Vzdelávanie";
-"learning_goal_personal_growth" = "Osobný rast";
-"learning_goal_immigration" = "Imigrácia";
-"learning_goal_family" = "Rodina a priatelia";
+"learning_goal.why_are_you_learning" = "Prečo sa učíte jazyky?";
+"learning_goal.select_up_to_three" = "Vyberte 1-3 ciele";
+"learning_goal.career" = "Rast kariéry";
+"learning_goal.travel" = "Cestovanie a turistika";
+"learning_goal.education" = "Vzdelávanie";
+"learning_goal.personal_growth" = "Osobný rast";
+"learning_goal.immigration" = "Imigrácia";
+"learning_goal.family" = "Rodina a priatelia";
 
 // Languages to Study
 "which_languages_to_learn" = "Ktoré jazyky sa chcete učiť?";

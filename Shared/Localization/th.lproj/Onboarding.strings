@@ -69,14 +69,14 @@
 "whats_your_age_group" = "คุณอยู่ในกลุ่มอายุใด?";
 
 // Learning Goals
-"why_are_you_learning" = "ทำไมคุณถึงเรียนภาษา?";
-"select_up_to_three" = "เลือก 1-3 เป้าหมาย";
-"learning_goal_career" = "การเติบโตในอาชีพ";
-"learning_goal_travel" = "การเดินทางและการท่องเที่ยว";
-"learning_goal_education" = "การศึกษา";
-"learning_goal_personal_growth" = "การเติบโตส่วนตัว";
-"learning_goal_immigration" = "การย้ายถิ่นฐาน";
-"learning_goal_family" = "ครอบครัวและเพื่อน";
+"learning_goal.why_are_you_learning" = "ทำไมคุณถึงเรียนภาษา?";
+"learning_goal.select_up_to_three" = "เลือก 1-3 เป้าหมาย";
+"learning_goal.career" = "การเติบโตในอาชีพ";
+"learning_goal.travel" = "การเดินทางและการท่องเที่ยว";
+"learning_goal.education" = "การศึกษา";
+"learning_goal.personal_growth" = "การเติบโตส่วนตัว";
+"learning_goal.immigration" = "การย้ายถิ่นฐาน";
+"learning_goal.family" = "ครอบครัวและเพื่อน";
 
 // Languages to Study
 "which_languages_to_learn" = "คุณต้องการเรียนภาษาอะไร?";

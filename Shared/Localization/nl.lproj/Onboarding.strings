@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Wat is je leeftijdsgroep?";
 
 // Learning Goals
-"why_are_you_learning" = "Waarom leer je talen?";
-"select_up_to_three" = "Selecteer 1-3 doelen";
-"learning_goal_career" = "Carrièregroei";
-"learning_goal_travel" = "Reizen en Toerisme";
-"learning_goal_education" = "Onderwijs";
-"learning_goal_personal_growth" = "Persoonlijke Groei";
-"learning_goal_immigration" = "Immigratie";
-"learning_goal_family" = "Familie en Vrienden";
+"learning_goal.why_are_you_learning" = "Waarom leer je talen?";
+"learning_goal.select_up_to_three" = "Selecteer 1-3 doelen";
+"learning_goal.career" = "Carrièregroei";
+"learning_goal.travel" = "Reizen en Toerisme";
+"learning_goal.education" = "Onderwijs";
+"learning_goal.personal_growth" = "Persoonlijke Groei";
+"learning_goal.immigration" = "Immigratie";
+"learning_goal.family" = "Familie en Vrienden";
 
 // Languages to Study
 "which_languages_to_learn" = "Welke talen wil je leren?";

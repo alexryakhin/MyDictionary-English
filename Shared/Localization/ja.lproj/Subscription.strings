@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "プライバシーポリシー";
 "paywall.upgrade_to_pro" = "プロにアップグレード";
 "paywall.restore_purchases" = "購入を復元";
+"paywall.restore_subscription" = "サブスクリプションを復元";
 "paywall.track_progress" = "進捗を追跡";
 "paywall.see_your_improvement" = "あなたの進歩を確認";
 "paywall.collaborate" = "コラボレーション";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "アクティブなサブスクリプションが見つかりません。App Storeアカウントを確認してください。";
 "paywall.failed_to_restore_purchases" = "購入の復元に失敗しました：%@";
 "paywall.save_percentage" = "%@節約";
+"paywall.and_conjunction" = "と";
+"paywall.planAutoRenews" = "プランはキャンセルするまで%@/%@で自動更新されます。";
+"paywall.annually" = "年間";
+"paywall.monthly" = "月額";
+"paywall.bestValue" = "最高値";
+
+"period.day" = "日";
+"period.week" = "週";
+"period.month" = "月";
+"period.year" = "年";
 
 // MARK: - Pro Features
 

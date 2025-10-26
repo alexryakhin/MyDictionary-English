@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Nhóm tuổi của bạn là gì?";
 
 // Learning Goals
-"why_are_you_learning" = "Tại sao bạn học ngôn ngữ?";
-"select_up_to_three" = "Chọn 1-3 mục tiêu";
-"learning_goal_career" = "Phát triển sự nghiệp";
-"learning_goal_travel" = "Du lịch & Khách sạn";
-"learning_goal_education" = "Giáo dục";
-"learning_goal_personal_growth" = "Phát triển cá nhân";
-"learning_goal_immigration" = "Nhập cư";
-"learning_goal_family" = "Gia đình & Bạn bè";
+"learning_goal.why_are_you_learning" = "Tại sao bạn học ngôn ngữ?";
+"learning_goal.select_up_to_three" = "Chọn 1-3 mục tiêu";
+"learning_goal.career" = "Phát triển sự nghiệp";
+"learning_goal.travel" = "Du lịch & Khách sạn";
+"learning_goal.education" = "Giáo dục";
+"learning_goal.personal_growth" = "Phát triển cá nhân";
+"learning_goal.immigration" = "Nhập cư";
+"learning_goal.family" = "Gia đình & Bạn bè";
 
 // Languages to Study
 "which_languages_to_learn" = "Bạn muốn học ngôn ngữ nào?";

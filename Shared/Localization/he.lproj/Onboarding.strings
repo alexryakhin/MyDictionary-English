@@ -69,14 +69,14 @@
 "whats_your_age_group" = "מה קבוצת הגיל שלך?";
 
 // Learning Goals
-"why_are_you_learning" = "למה אתה לומד שפות?";
-"select_up_to_three" = "בחר 1-3 מטרות";
-"learning_goal_career" = "צמיחה בקריירה";
-"learning_goal_travel" = "נסיעות ותיירות";
-"learning_goal_education" = "חינוך";
-"learning_goal_personal_growth" = "צמיחה אישית";
-"learning_goal_immigration" = "הגירה";
-"learning_goal_family" = "משפחה וחברים";
+"learning_goal.why_are_you_learning" = "למה אתה לומד שפות?";
+"learning_goal.select_up_to_three" = "בחר 1-3 מטרות";
+"learning_goal.career" = "צמיחה בקריירה";
+"learning_goal.travel" = "נסיעות ותיירות";
+"learning_goal.education" = "חינוך";
+"learning_goal.personal_growth" = "צמיחה אישית";
+"learning_goal.immigration" = "הגירה";
+"learning_goal.family" = "משפחה וחברים";
 
 // Languages to Study
 "which_languages_to_learn" = "אילו שפות אתה רוצה ללמוד?";

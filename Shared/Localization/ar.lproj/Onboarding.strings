@@ -69,14 +69,14 @@
 "whats_your_age_group" = "ما هي فئتك العمرية؟";
 
 // Learning Goals
-"why_are_you_learning" = "لماذا تتعلم اللغات؟";
-"select_up_to_three" = "اختر 1-3 أهداف";
-"learning_goal_career" = "النمو المهني";
-"learning_goal_travel" = "السفر والسياحة";
-"learning_goal_education" = "التعليم";
-"learning_goal_personal_growth" = "النمو الشخصي";
-"learning_goal_immigration" = "الهجرة";
-"learning_goal_family" = "العائلة والأصدقاء";
+"learning_goal.why_are_you_learning" = "لماذا تتعلم اللغات؟";
+"learning_goal.select_up_to_three" = "اختر 1-3 أهداف";
+"learning_goal.career" = "النمو المهني";
+"learning_goal.travel" = "السفر والسياحة";
+"learning_goal.education" = "التعليم";
+"learning_goal.personal_growth" = "النمو الشخصي";
+"learning_goal.immigration" = "الهجرة";
+"learning_goal.family" = "العائلة والأصدقاء";
 
 // Languages to Study
 "which_languages_to_learn" = "أي اللغات تريد تعلمها؟";

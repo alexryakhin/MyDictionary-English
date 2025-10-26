@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Datenschutzrichtlinie";
 "paywall.upgrade_to_pro" = "Auf Pro upgraden";
 "paywall.restore_purchases" = "Käufe wiederherstellen";
+"paywall.restore_subscription" = "Abonnement wiederherstellen";
 "paywall.track_progress" = "Fortschritt verfolgen";
 "paywall.see_your_improvement" = "Sehen Sie Ihre Verbesserung";
 "paywall.collaborate" = "Zusammenarbeiten";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Keine aktiven Abonnements gefunden. Überprüfen Sie Ihr App Store-Konto.";
 "paywall.failed_to_restore_purchases" = "Wiederherstellung der Käufe fehlgeschlagen: %@";
 "paywall.save_percentage" = "Sparen Sie %@";
+"paywall.and_conjunction" = "und";
+"paywall.planAutoRenews" = "Plan verlängert sich automatisch für %@/%@ bis zur Kündigung.";
+"paywall.annually" = "jährlich";
+"paywall.monthly" = "monatlich";
+"paywall.bestValue" = "BESTER WERT";
+
+"period.day" = "Tag";
+"period.week" = "Woche";
+"period.month" = "Monat";
+"period.year" = "Jahr";
 
 // MARK: - Pro Features
 

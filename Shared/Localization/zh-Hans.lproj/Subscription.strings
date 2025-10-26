@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "隐私政策";
 "paywall.upgrade_to_pro" = "升级到专业版";
 "paywall.restore_purchases" = "恢复购买";
+"paywall.restore_subscription" = "恢复订阅";
 "paywall.track_progress" = "跟踪进度";
 "paywall.see_your_improvement" = "查看你的进步";
 "paywall.collaborate" = "协作";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "未找到活跃订阅。请检查你的应用商店账户。";
 "paywall.failed_to_restore_purchases" = "无法恢复购买：%@";
 "paywall.save_percentage" = "节省 %@";
+"paywall.and_conjunction" = "和";
+"paywall.planAutoRenews" = "计划将按 %@/%@ 自动续订，直到取消。";
+"paywall.annually" = "年";
+"paywall.monthly" = "月";
+"paywall.bestValue" = "最超值";
+
+"period.day" = "天";
+"period.week" = "周";
+"period.month" = "月";
+"period.year" = "年";
 
 // MARK: - Pro Features
 

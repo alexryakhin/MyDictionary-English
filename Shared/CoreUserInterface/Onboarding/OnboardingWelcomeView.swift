@@ -16,55 +16,39 @@ extension OnboardingFlow {
         @State private var showPulse = false
 
         var body: some View {
-            ScrollView {
-                VStack(spacing: 24) {
-                    Spacer()
-                        .frame(height: 20)
+            VStack(spacing: 24) {
+                Spacer()
 
-                    // App icon with animation
-                    ZStack {
-                        Circle()
-                            .fill(Color.accentColor.opacity(0.1))
-                            .frame(width: 130, height: 130)
-                            .scaleEffect(showPulse ? 1.1 : 1.0)
+                Image(.illustrationReadingTime)
+                    .resizable()
+                    .scaledToFit()
+                    .scaleEffect(animateContent ? 1.0 : 0.5)
 
-                        Image(.iconRounded)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 100)
-                            .scaleEffect(animateContent ? 1.0 : 0.5)
-                            .rotationEffect(.degrees(animateContent ? 0 : -180))
-                    }
-                    .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateContent)
-                    .animation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true), value: showPulse)
+                Spacer()
 
-                    // Title section
-                    VStack(spacing: 16) {
-                        Text(Loc.Onboarding.welcomeTo)
-                            .font(.title2)
-                            .foregroundStyle(.secondary)
-                            .opacity(animateContent ? 1 : 0)
-                            .offset(y: animateContent ? 0 : 20)
+                // Title section
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(Loc.Onboarding.welcomeTo)
+                        .font(.title2)
+                        .foregroundStyle(.secondary)
+                        .opacity(animateContent ? 1 : 0)
+                        .offset(y: animateContent ? 0 : 20)
 
-                        Text(Loc.Onboarding.myDictionary)
-                            .font(.system(size: 42, weight: .bold, design: .rounded))
-                            .foregroundStyle(.primary)
-                            .opacity(animateContent ? 1 : 0)
-                            .offset(y: animateContent ? 0 : 20)
+                    Text(Loc.Onboarding.myDictionary)
+                        .font(.system(size: 42, weight: .bold, design: .rounded))
+                        .foregroundStyle(.primary)
+                        .opacity(animateContent ? 1 : 0)
+                        .offset(y: animateContent ? 0 : 20)
 
-                        Text(Loc.Onboarding.personalVocabularyCompanion)
-                            .font(.title3)
-                            .foregroundStyle(.secondary)
-                            .opacity(animateContent ? 1 : 0)
-                            .offset(y: animateContent ? 0 : 20)
-                    }
-                    .multilineTextAlignment(.center)
+                    Text(Loc.Onboarding.personalVocabularyCompanion)
+                        .font(.title3)
+                        .foregroundStyle(.secondary)
+                        .opacity(animateContent ? 1 : 0)
+                        .offset(y: animateContent ? 0 : 20)
                 }
-                .frame(maxWidth: .infinity)
-                .padding(vertical: 12, horizontal: 16)
-            }
-            .withGradientBackground()
-            .safeAreaBarIfAvailable {
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
+
                 VStack(spacing: 8) {
                     cloudProfileStatusView
                         .multilineTextAlignment(.center)
@@ -77,8 +61,10 @@ extension OnboardingFlow {
                     )
                     .disabled(onboardingService.isLoadingFromCloud)
                 }
-                .padding(vertical: 12, horizontal: 16)
             }
+            .frame(maxWidth: .infinity)
+            .padding(vertical: 12, horizontal: 16)
+            .withGradientBackground()
             .onAppear {
                 withAnimation(.easeInOut(duration: 1.0)) {
                     animateContent = true
@@ -153,4 +139,8 @@ extension OnboardingFlow {
             }
         }
     }
+}
+
+#Preview {
+    OnboardingFlow.WelcomeView(viewModel: .init(isNewUser: true))
 }

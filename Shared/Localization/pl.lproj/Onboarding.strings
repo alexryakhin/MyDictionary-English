@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Jaka jest Twoja grupa wiekowa?";
 
 // Learning Goals
-"why_are_you_learning" = "Dlaczego uczysz się języków?";
-"select_up_to_three" = "Wybierz 1-3 cele";
-"learning_goal_career" = "Rozwój Kariery";
-"learning_goal_travel" = "Podróże i Turystyka";
-"learning_goal_education" = "Edukacja";
-"learning_goal_personal_growth" = "Rozwój Osobisty";
-"learning_goal_immigration" = "Imigracja";
-"learning_goal_family" = "Rodzina i Przyjaciele";
+"learning_goal.why_are_you_learning" = "Dlaczego uczysz się języków?";
+"learning_goal.select_up_to_three" = "Wybierz 1-3 cele";
+"learning_goal.career" = "Rozwój Kariery";
+"learning_goal.travel" = "Podróże i Turystyka";
+"learning_goal.education" = "Edukacja";
+"learning_goal.personal_growth" = "Rozwój Osobisty";
+"learning_goal.immigration" = "Imigracja";
+"learning_goal.family" = "Rodzina i Przyjaciele";
 
 // Languages to Study
 "which_languages_to_learn" = "Jakich języków chcesz się uczyć?";

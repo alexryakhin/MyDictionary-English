@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Gizlilik Politikası";
 "paywall.upgrade_to_pro" = "Pro'ya Yükselt";
 "paywall.restore_purchases" = "Satın Almaları Geri Yükle";
+"paywall.restore_subscription" = "Aboneliği Geri Yükle";
 "paywall.track_progress" = "İlerlemeyi Takip Et";
 "paywall.see_your_improvement" = "Gelişiminizi Görün";
 "paywall.collaborate" = "İşbirliği Yap";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Aktif abonelik bulunamadı. App Store hesabınızı kontrol edin.";
 "paywall.failed_to_restore_purchases" = "Satın alımları geri yükleme başarısız: %@";
 "paywall.save_percentage" = "%@ Tasarruf Edin";
+"paywall.and_conjunction" = "ve";
+"paywall.planAutoRenews" = "Plan iptal edilene kadar %@/%@ fiyatıyla otomatik yenilenir.";
+"paywall.annually" = "yıllık";
+"paywall.monthly" = "aylık";
+"paywall.bestValue" = "EN İYİ DEĞER";
+
+"period.day" = "gün";
+"period.week" = "hafta";
+"period.month" = "ay";
+"period.year" = "yıl";
 
 // MARK: - Pro Features
 

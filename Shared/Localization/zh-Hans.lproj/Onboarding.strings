@@ -69,14 +69,14 @@
 "whats_your_age_group" = "您的年龄组是什么？";
 
 // Learning Goals
-"why_are_you_learning" = "您为什么学习语言？";
-"select_up_to_three" = "选择1-3个目标";
-"learning_goal_career" = "职业发展";
-"learning_goal_travel" = "旅行和旅游";
-"learning_goal_education" = "教育";
-"learning_goal_personal_growth" = "个人成长";
-"learning_goal_immigration" = "移民";
-"learning_goal_family" = "家庭和朋友";
+"learning_goal.why_are_you_learning" = "您为什么学习语言？";
+"learning_goal.select_up_to_three" = "选择1-3个目标";
+"learning_goal.career" = "职业发展";
+"learning_goal.travel" = "旅行和旅游";
+"learning_goal.education" = "教育";
+"learning_goal.personal_growth" = "个人成长";
+"learning_goal.immigration" = "移民";
+"learning_goal.family" = "家庭和朋友";
 
 // Languages to Study
 "which_languages_to_learn" = "您想学习哪些语言？";

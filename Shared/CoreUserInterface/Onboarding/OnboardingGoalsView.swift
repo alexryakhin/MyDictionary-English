@@ -34,11 +34,11 @@ extension OnboardingFlow {
 
                     // Title
                     VStack(spacing: 12) {
-                        Text(Loc.Onboarding.whyAreYouLearning)
+                        Text(Loc.Onboarding.LearningGoal.whyAreYouLearning)
                             .font(.system(.title, design: .rounded, weight: .bold))
                             .multilineTextAlignment(.center)
 
-                        Text(Loc.Onboarding.selectUpToThree)
+                        Text(Loc.Onboarding.LearningGoal.selectUpToThree)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }

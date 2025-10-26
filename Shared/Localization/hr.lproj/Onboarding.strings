@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Koja je vaša dobna skupina?";
 
 // Learning Goals
-"why_are_you_learning" = "Zašto učite jezike?";
-"select_up_to_three" = "Odaberite 1-3 cilja";
-"learning_goal_career" = "Rast karijere";
-"learning_goal_travel" = "Putovanje i turizam";
-"learning_goal_education" = "Obrazovanje";
-"learning_goal_personal_growth" = "Osobni rast";
-"learning_goal_immigration" = "Imigracija";
-"learning_goal_family" = "Obitelj i prijatelji";
+"learning_goal.why_are_you_learning" = "Zašto učite jezike?";
+"learning_goal.select_up_to_three" = "Odaberite 1-3 cilja";
+"learning_goal.career" = "Rast karijere";
+"learning_goal.travel" = "Putovanje i turizam";
+"learning_goal.education" = "Obrazovanje";
+"learning_goal.personal_growth" = "Osobni rast";
+"learning_goal.immigration" = "Imigracija";
+"learning_goal.family" = "Obitelj i prijatelji";
 
 // Languages to Study
 "which_languages_to_learn" = "Koje jezike želite učiti?";

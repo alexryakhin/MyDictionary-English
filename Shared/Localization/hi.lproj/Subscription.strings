@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "गोपनीयता नीति";
 "paywall.upgrade_to_pro" = "प्रो में अपग्रेड करें";
 "paywall.restore_purchases" = "खरीदारी पुनर्स्थापित करें";
+"paywall.restore_subscription" = "सदस्यता पुनर्स्थापित करें";
 "paywall.track_progress" = "प्रगति ट्रैक करें";
 "paywall.see_your_improvement" = "अपना सुधार देखें";
 "paywall.collaborate" = "सहयोग";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "कोई सक्रिय सदस्यता नहीं मिली। कृपया अपने ऐप स्टोर खाते की जांच करें।";
 "paywall.failed_to_restore_purchases" = "खरीदारी पुनर्स्थापित करने में विफल: %@";
 "paywall.save_percentage" = "%@ बचाएं";
+"paywall.and_conjunction" = "और";
+"paywall.planAutoRenews" = "योजना रद्द होने तक %@/%@ पर स्वचालित रूप से नवीनीकृत होती है।";
+"paywall.annually" = "वार्षिक";
+"paywall.monthly" = "मासिक";
+"paywall.bestValue" = "सर्वोत्तम मूल्य";
+
+"period.day" = "दिन";
+"period.week" = "सप्ताह";
+"period.month" = "महीना";
+"period.year" = "वर्ष";
 
 // MARK: - Pro Features
 

@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "سياسة الخصوصية";
 "paywall.upgrade_to_pro" = "الترقية إلى المحترف";
 "paywall.restore_purchases" = "استعادة المشتريات";
+"paywall.restore_subscription" = "استعادة الاشتراك";
 "paywall.track_progress" = "تتبع التقدم";
 "paywall.see_your_improvement" = "شاهد تحسنك";
 "paywall.collaborate" = "التعاون";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "لم يتم العثور على اشتراكات نشطة. تحقق من حساب متجر التطبيقات.";
 "paywall.failed_to_restore_purchases" = "فشل في استعادة المشتريات: %@";
 "paywall.save_percentage" = "وفر %@";
+"paywall.and_conjunction" = "و";
+"paywall.planAutoRenews" = "تتم التجديد تلقائياً للخطة بسعر %@/%@ حتى الإلغاء.";
+"paywall.annually" = "سنوياً";
+"paywall.monthly" = "شهرياً";
+"paywall.bestValue" = "أفضل قيمة";
+
+"period.day" = "يوم";
+"period.week" = "أسبوع";
+"period.month" = "شهر";
+"period.year" = "سنة";
 
 // MARK: - Pro Features
 

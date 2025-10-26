@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Политика конфиденциальности";
 "paywall.upgrade_to_pro" = "Обновить до Pro";
 "paywall.restore_purchases" = "Восстановить покупки";
+"paywall.restore_subscription" = "Восстановить подписку";
 "paywall.track_progress" = "Отслеживать прогресс";
 "paywall.see_your_improvement" = "Посмотрите свои улучшения";
 "paywall.collaborate" = "Сотрудничать";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Активные подписки не найдены. Проверьте ваш аккаунт в App Store.";
 "paywall.failed_to_restore_purchases" = "Не удалось восстановить покупки: %@";
 "paywall.save_percentage" = "Сэкономьте %@";
+"paywall.and_conjunction" = "и";
+"paywall.planAutoRenews" = "План автоматически продлевается за %@/%@ до отмены.";
+"paywall.annually" = "ежегодно";
+"paywall.monthly" = "ежемесячно";
+"paywall.bestValue" = "ЛУЧШАЯ ЦЕНА";
+
+"period.day" = "день";
+"period.week" = "неделя";
+"period.month" = "месяц";
+"period.year" = "год";
 
 // MARK: - Pro Features
 

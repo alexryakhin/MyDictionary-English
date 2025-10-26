@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Ποια είναι η ηλικιακή σου ομάδα;";
 
 // Learning Goals
-"why_are_you_learning" = "Γιατί μαθαίνεις γλώσσες;";
-"select_up_to_three" = "Επίλεξε 1-3 στόχους";
-"learning_goal_career" = "Καριερακή Ανάπτυξη";
-"learning_goal_travel" = "Ταξίδια και Τουρισμός";
-"learning_goal_education" = "Εκπαίδευση";
-"learning_goal_personal_growth" = "Προσωπική Ανάπτυξη";
-"learning_goal_immigration" = "Μετανάστευση";
-"learning_goal_family" = "Οικογένεια και Φίλοι";
+"learning_goal.why_are_you_learning" = "Γιατί μαθαίνεις γλώσσες;";
+"learning_goal.select_up_to_three" = "Επίλεξε 1-3 στόχους";
+"learning_goal.career" = "Καριερακή Ανάπτυξη";
+"learning_goal.travel" = "Ταξίδια και Τουρισμός";
+"learning_goal.education" = "Εκπαίδευση";
+"learning_goal.personal_growth" = "Προσωπική Ανάπτυξη";
+"learning_goal.immigration" = "Μετανάστευση";
+"learning_goal.family" = "Οικογένεια και Φίλοι";
 
 // Languages to Study
 "which_languages_to_learn" = "Ποιες γλώσσες θέλεις να μάθεις;";

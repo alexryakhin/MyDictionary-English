@@ -40,7 +40,7 @@ extension OnboardingFlow {
                             .opacity(animateContent ? 1 : 0)
                             .offset(y: animateContent ? 0 : 20)
 
-                        Text(Loc.Onboarding.readyToLearnLanguages(viewModel.studyLanguages.count))
+                        Text(Loc.Onboarding.readyToLearnLanguages(Loc.Plurals.Onboarding.languagesCount(viewModel.studyLanguages.count)))
                             .font(.title3)
                             .foregroundStyle(.secondary)
                             .opacity(animateContent ? 1 : 0)

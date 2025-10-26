@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Berapa kelompok usia Anda?";
 
 // Learning Goals
-"why_are_you_learning" = "Mengapa Anda belajar bahasa?";
-"select_up_to_three" = "Pilih 1-3 tujuan";
-"learning_goal_career" = "Pertumbuhan Karier";
-"learning_goal_travel" = "Perjalanan & Pariwisata";
-"learning_goal_education" = "Pendidikan";
-"learning_goal_personal_growth" = "Pertumbuhan Pribadi";
-"learning_goal_immigration" = "Imigrasi";
-"learning_goal_family" = "Keluarga & Teman";
+"learning_goal.why_are_you_learning" = "Mengapa Anda belajar bahasa?";
+"learning_goal.select_up_to_three" = "Pilih 1-3 tujuan";
+"learning_goal.career" = "Pertumbuhan Karier";
+"learning_goal.travel" = "Perjalanan & Pariwisata";
+"learning_goal.education" = "Pendidikan";
+"learning_goal.personal_growth" = "Pertumbuhan Pribadi";
+"learning_goal.immigration" = "Imigrasi";
+"learning_goal.family" = "Keluarga & Teman";
 
 // Languages to Study
 "which_languages_to_learn" = "Bahasa apa yang ingin Anda pelajari?";

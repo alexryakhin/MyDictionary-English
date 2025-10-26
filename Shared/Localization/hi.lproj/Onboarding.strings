@@ -69,14 +69,14 @@
 "whats_your_age_group" = "आपकी आयु समूह क्या है?";
 
 // Learning Goals
-"why_are_you_learning" = "आप भाषाएं क्यों सीख रहे हैं?";
-"select_up_to_three" = "1-3 लक्ष्य चुनें";
-"learning_goal_career" = "करियर विकास";
-"learning_goal_travel" = "यात्रा और पर्यटन";
-"learning_goal_education" = "शिक्षा";
-"learning_goal_personal_growth" = "व्यक्तिगत विकास";
-"learning_goal_immigration" = "प्रवास";
-"learning_goal_family" = "परिवार और मित्र";
+"learning_goal.why_are_you_learning" = "आप भाषाएं क्यों सीख रहे हैं?";
+"learning_goal.select_up_to_three" = "1-3 लक्ष्य चुनें";
+"learning_goal.career" = "करियर विकास";
+"learning_goal.travel" = "यात्रा और पर्यटन";
+"learning_goal.education" = "शिक्षा";
+"learning_goal.personal_growth" = "व्यक्तिगत विकास";
+"learning_goal.immigration" = "प्रवास";
+"learning_goal.family" = "परिवार और मित्र";
 
 // Languages to Study
 "which_languages_to_learn" = "आप कौन सी भाषाएं सीखना चाहते हैं?";

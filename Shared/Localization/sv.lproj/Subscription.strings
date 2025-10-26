@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Integritetspolicy";
 "paywall.upgrade_to_pro" = "Uppgradera till Pro";
 "paywall.restore_purchases" = "Återställ köp";
+"paywall.restore_subscription" = "Återställ prenumeration";
 "paywall.track_progress" = "Spåra framsteg";
 "paywall.see_your_improvement" = "Se dina förbättringar";
 "paywall.collaborate" = "Samarbeta";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Inga aktiva prenumerationer hittades. Kontrollera ditt konto i App Store.";
 "paywall.failed_to_restore_purchases" = "Misslyckades med att återställa köp: %@";
 "paywall.save_percentage" = "Spara %@";
+"paywall.and_conjunction" = "och";
+"paywall.planAutoRenews" = "Planen förnyas automatiskt för %@/%@ tills den avbryts.";
+"paywall.annually" = "årligen";
+"paywall.monthly" = "månadsvis";
+"paywall.bestValue" = "BÄSTA VÄRDET";
+
+"period.day" = "dag";
+"period.week" = "vecka";
+"period.month" = "månad";
+"period.year" = "år";
 
 // MARK: - Pro Features
 

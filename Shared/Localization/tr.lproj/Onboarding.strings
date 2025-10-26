@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Yaş grubunuz nedir?";
 
 // Learning Goals
-"why_are_you_learning" = "Neden dil öğreniyorsunuz?";
-"select_up_to_three" = "1-3 hedef seçin";
-"learning_goal_career" = "Kariyer Gelişimi";
-"learning_goal_travel" = "Seyahat ve Turizm";
-"learning_goal_education" = "Eğitim";
-"learning_goal_personal_growth" = "Kişisel Gelişim";
-"learning_goal_immigration" = "Göç";
-"learning_goal_family" = "Aile ve Arkadaşlar";
+"learning_goal.why_are_you_learning" = "Neden dil öğreniyorsunuz?";
+"learning_goal.select_up_to_three" = "1-3 hedef seçin";
+"learning_goal.career" = "Kariyer Gelişimi";
+"learning_goal.travel" = "Seyahat ve Turizm";
+"learning_goal.education" = "Eğitim";
+"learning_goal.personal_growth" = "Kişisel Gelişim";
+"learning_goal.immigration" = "Göç";
+"learning_goal.family" = "Aile ve Arkadaşlar";
 
 // Languages to Study
 "which_languages_to_learn" = "Hangi dilleri öğrenmek istiyorsunuz?";

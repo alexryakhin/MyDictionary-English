@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Політика конфіденційності";
 "paywall.upgrade_to_pro" = "Оновити до Pro";
 "paywall.restore_purchases" = "Відновити покупки";
+"paywall.restore_subscription" = "Відновити підписку";
 "paywall.track_progress" = "Відстежувати прогрес";
 "paywall.see_your_improvement" = "Побачте свій прогрес";
 "paywall.collaborate" = "Співпрацювати";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Активних підписок не знайдено. Перевірте свій обліковий запис App Store";
 "paywall.failed_to_restore_purchases" = "Не вдалося відновити покупки: %@";
 "paywall.save_percentage" = "Заощаджуйте %@";
+"paywall.and_conjunction" = "і";
+"paywall.planAutoRenews" = "План автоматично продовжується на %@/%@ до скасування.";
+"paywall.annually" = "щороку";
+"paywall.monthly" = "щомісяця";
+"paywall.bestValue" = "НАЙКРАЩА ЦІНА";
+
+"period.day" = "день";
+"period.week" = "тиждень";
+"period.month" = "місяць";
+"period.year" = "рік";
 
 // MARK: - Pro Features
 

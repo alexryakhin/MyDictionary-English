@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Tietosuojakäytäntö";
 "paywall.upgrade_to_pro" = "Päivitä Pro-versioon";
 "paywall.restore_purchases" = "Palauta ostokset";
+"paywall.restore_subscription" = "Palauta tilaus";
 "paywall.track_progress" = "Seuraa edistymistä";
 "paywall.see_your_improvement" = "Näe parannuksesi";
 "paywall.collaborate" = "Tee yhteistyötä";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Aktiivisia tilauksia ei löytynyt. Tarkista App Store -tilisi.";
 "paywall.failed_to_restore_purchases" = "Ostosten palauttaminen epäonnistui: %@";
 "paywall.save_percentage" = "Säästä %@";
+"paywall.and_conjunction" = "ja";
+"paywall.planAutoRenews" = "Suunnitelma uusitaan automaattisesti %@/%@ kunnes peruutetaan.";
+"paywall.annually" = "vuosittain";
+"paywall.monthly" = "kuukausittain";
+"paywall.bestValue" = "PARAS ARVO";
+
+"period.day" = "päivä";
+"period.week" = "viikko";
+"period.month" = "kuukausi";
+"period.year" = "vuosi";
 
 // MARK: - Pro Features
 

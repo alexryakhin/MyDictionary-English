@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "מדיניות פרטיות";
 "paywall.upgrade_to_pro" = "שדרג ל-Pro";
 "paywall.restore_purchases" = "שחזור רכישות";
+"paywall.restore_subscription" = "שחזור מנוי";
 "paywall.track_progress" = "מעקב אחר התקדמות";
 "paywall.see_your_improvement" = "ראה את השיפור שלך";
 "paywall.collaborate" = "שיתוף פעולה";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "לא נמצאו מנויים פעילים. בדוק את חשבונך בחנות האפליקציות.";
 "paywall.failed_to_restore_purchases" = "שחזור הרכישות נכשל: %@";
 "paywall.save_percentage" = "חסוך %@";
+"paywall.and_conjunction" = "ו";
+"paywall.planAutoRenews" = "התוכנית מתחדשת אוטומטית תמורת %@/%@ עד לביטול.";
+"paywall.annually" = "שנתי";
+"paywall.monthly" = "חודשי";
+"paywall.bestValue" = "הערך הטוב ביותר";
+
+"period.day" = "יום";
+"period.week" = "שבוע";
+"period.month" = "חודש";
+"period.year" = "שנה";
 
 // MARK: - Pro Features
 

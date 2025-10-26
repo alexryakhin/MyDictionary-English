@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Care este grupa ta de vârstă?";
 
 // Learning Goals
-"why_are_you_learning" = "De ce înveți limbi străine?";
-"select_up_to_three" = "Selectează 1-3 obiective";
-"learning_goal_career" = "Creșterea Carierei";
-"learning_goal_travel" = "Călătorii și Turism";
-"learning_goal_education" = "Educație";
-"learning_goal_personal_growth" = "Creșterea Personală";
-"learning_goal_immigration" = "Imigrare";
-"learning_goal_family" = "Familie și Prieteni";
+"learning_goal.why_are_you_learning" = "De ce înveți limbi străine?";
+"learning_goal.select_up_to_three" = "Selectează 1-3 obiective";
+"learning_goal.career" = "Creșterea Carierei";
+"learning_goal.travel" = "Călătorii și Turism";
+"learning_goal.education" = "Educație";
+"learning_goal.personal_growth" = "Creșterea Personală";
+"learning_goal.immigration" = "Imigrare";
+"learning_goal.family" = "Familie și Prieteni";
 
 // Languages to Study
 "which_languages_to_learn" = "Ce limbi vrei să înveți?";

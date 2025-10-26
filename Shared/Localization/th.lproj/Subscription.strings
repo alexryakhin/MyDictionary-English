@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "นโยบายความเป็นส่วนตัว";
 "paywall.upgrade_to_pro" = "อัปเกรดเป็น Pro";
 "paywall.restore_purchases" = "กู้คืนการซื้อ";
+"paywall.restore_subscription" = "กู้คืนการสมัครสมาชิก";
 "paywall.track_progress" = "ติดตามความคืบหน้า";
 "paywall.see_your_improvement" = "ดูการพัฒนาของคุณ";
 "paywall.collaborate" = "ร่วมงาน";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "ไม่พบการสมัครสมาชิกที่ใช้งาน ตรวจสอบบัญชี App Store ของคุณ";
 "paywall.failed_to_restore_purchases" = "ไม่สามารถกู้คืนการซื้อ: %@";
 "paywall.save_percentage" = "ประหยัด %@";
+"paywall.and_conjunction" = "และ";
+"paywall.planAutoRenews" = "แผนจะต่ออายุอัตโนมัติที่ %@/%@ จนกว่าจะยกเลิก";
+"paywall.annually" = "รายปี";
+"paywall.monthly" = "รายเดือน";
+"paywall.bestValue" = "มูลค่าดีที่สุด";
+
+"period.day" = "วัน";
+"period.week" = "สัปดาห์";
+"period.month" = "เดือน";
+"period.year" = "ปี";
 
 // MARK: - Pro Features
 

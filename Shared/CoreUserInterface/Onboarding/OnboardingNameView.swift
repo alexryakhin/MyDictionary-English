@@ -23,7 +23,7 @@ extension OnboardingFlow {
                     Image(.illustrationName)
                         .resizable()
                         .scaledToFit()
-                        .frame(maxHeight: 120)
+                        .frame(maxHeight: 160)
                         .scaleEffect(animateContent ? 1.0 : 0.5)
                         .animation(.spring(response: 1.0, dampingFraction: 0.8), value: animateContent)
 

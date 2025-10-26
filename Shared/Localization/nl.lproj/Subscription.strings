@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Privacybeleid";
 "paywall.upgrade_to_pro" = "Upgraden naar Pro";
 "paywall.restore_purchases" = "Aankopen herstellen";
+"paywall.restore_subscription" = "Abonnement herstellen";
 "paywall.track_progress" = "Voortgang volgen";
 "paywall.see_your_improvement" = "Zie je verbetering";
 "paywall.collaborate" = "Samenwerken";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Geen actieve abonnementen gevonden. Controleer je App Store-account.";
 "paywall.failed_to_restore_purchases" = "Herstellen van aankopen mislukt: %@";
 "paywall.save_percentage" = "Bespaar %@";
+"paywall.and_conjunction" = "en";
+"paywall.planAutoRenews" = "Plan verlengt automatisch voor %@/%@ tot opzeggen.";
+"paywall.annually" = "jaarlijks";
+"paywall.monthly" = "maandelijks";
+"paywall.bestValue" = "BESTE WAARDE";
+
+"period.day" = "dag";
+"period.week" = "week";
+"period.month" = "maand";
+"period.year" = "jaar";
 
 // MARK: - Pro Features
 

@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Πολιτική Απορρήτου";
 "paywall.upgrade_to_pro" = "Αναβάθμιση σε Pro";
 "paywall.restore_purchases" = "Επαναφορά Αγορών";
+"paywall.restore_subscription" = "Επαναφορά Συνδρομής";
 "paywall.track_progress" = "Παρακολούθηση Προόδου";
 "paywall.see_your_improvement" = "Δες τη Βελτίωσή σου";
 "paywall.collaborate" = "Συνεργασία";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Δεν βρέθηκαν ενεργές συνδρομές. Ελέγξτε τον λογαριασμό σας στο App Store.";
 "paywall.failed_to_restore_purchases" = "Αποτυχία επαναφοράς αγορών: %@";
 "paywall.save_percentage" = "Εξοικονόμησε %@";
+"paywall.and_conjunction" = "και";
+"paywall.planAutoRenews" = "Το πλάνο ανανεώνεται αυτόματα για %@/%@ έως την ακύρωση.";
+"paywall.annually" = "ετήσια";
+"paywall.monthly" = "μηνιαία";
+"paywall.bestValue" = "ΚΑΛΥΤΕΡΗ ΑΞΙΑ";
+
+"period.day" = "ημέρα";
+"period.week" = "εβδομάδα";
+"period.month" = "μήνας";
+"period.year" = "έτος";
 
 // MARK: - Pro Features
 

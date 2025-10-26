@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Chính sách bảo mật";
 "paywall.upgrade_to_pro" = "Nâng cấp lên Pro";
 "paywall.restore_purchases" = "Khôi phục giao dịch mua";
+"paywall.restore_subscription" = "Khôi phục đăng ký";
 "paywall.track_progress" = "Theo dõi tiến độ";
 "paywall.see_your_improvement" = "Xem sự tiến bộ của bạn";
 "paywall.collaborate" = "Cộng tác";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Không tìm thấy gói đăng ký hoạt động. Vui lòng kiểm tra tài khoản App Store của bạn.";
 "paywall.failed_to_restore_purchases" = "Khôi phục giao dịch mua thất bại: %@";
 "paywall.save_percentage" = "Tiết kiệm %@";
+"paywall.and_conjunction" = "và";
+"paywall.planAutoRenews" = "Gói tự động gia hạn với giá %@/%@ cho đến khi hủy.";
+"paywall.annually" = "hàng năm";
+"paywall.monthly" = "hàng tháng";
+"paywall.bestValue" = "GIÁ TRỊ TỐT NHẤT";
+
+"period.day" = "ngày";
+"period.week" = "tuần";
+"period.month" = "tháng";
+"period.year" = "năm";
 
 // MARK: - Pro Features
 

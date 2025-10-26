@@ -47,9 +47,6 @@ final class OnboardingService: ObservableObject {
         try profile.saveToCoreData()
         self.userProfile = profile
         
-        // Clear AI paywall cache when profile changes significantly
-        PaywallContentService.shared.clearCache()
-        
         // Sync to Firestore if user is authenticated
         if AuthenticationService.shared.authenticationState == .signedIn {
             Task {

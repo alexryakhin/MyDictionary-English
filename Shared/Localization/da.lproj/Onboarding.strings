@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Hvad er din aldersgruppe?";
 
 // Learning Goals
-"why_are_you_learning" = "Hvorfor lærer du sprog?";
-"select_up_to_three" = "Vælg 1-3 mål";
-"learning_goal_career" = "Karrierevækst";
-"learning_goal_travel" = "Rejse og Turisme";
-"learning_goal_education" = "Uddannelse";
-"learning_goal_personal_growth" = "Personlig Vækst";
-"learning_goal_immigration" = "Immigration";
-"learning_goal_family" = "Familie og Venner";
+"learning_goal.why_are_you_learning" = "Hvorfor lærer du sprog?";
+"learning_goal.select_up_to_three" = "Vælg 1-3 mål";
+"learning_goal.career" = "Karrierevækst";
+"learning_goal.travel" = "Rejse og Turisme";
+"learning_goal.education" = "Uddannelse";
+"learning_goal.personal_growth" = "Personlig Vækst";
+"learning_goal.immigration" = "Immigration";
+"learning_goal.family" = "Familie og Venner";
 
 // Languages to Study
 "which_languages_to_learn" = "Hvilke sprog vil du lære?";

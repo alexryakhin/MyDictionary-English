@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Mikä on ikäryhmäsi?";
 
 // Learning Goals
-"why_are_you_learning" = "Miksi opettelet kieliä?";
-"select_up_to_three" = "Valitse 1-3 tavoitetta";
-"learning_goal_career" = "Urakehitys";
-"learning_goal_travel" = "Matkailu ja turismi";
-"learning_goal_education" = "Koulutus";
-"learning_goal_personal_growth" = "Henkilökohtainen kasvu";
-"learning_goal_immigration" = "Maahanmuutto";
-"learning_goal_family" = "Perhe ja ystävät";
+"learning_goal.why_are_you_learning" = "Miksi opettelet kieliä?";
+"learning_goal.select_up_to_three" = "Valitse 1-3 tavoitetta";
+"learning_goal.career" = "Urakehitys";
+"learning_goal.travel" = "Matkailu ja turismi";
+"learning_goal.education" = "Koulutus";
+"learning_goal.personal_growth" = "Henkilökohtainen kasvu";
+"learning_goal.immigration" = "Maahanmuutto";
+"learning_goal.family" = "Perhe ja ystävät";
 
 // Languages to Study
 "which_languages_to_learn" = "Mitä kieliä haluat oppia?";

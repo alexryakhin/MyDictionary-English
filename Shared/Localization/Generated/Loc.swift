@@ -672,330 +672,6 @@ public enum Loc {
     /// Words that need more practice will appear here
     public static let wordsNeedMorePractice = Loc.tr("FilterDisplay", "words_need_more_practice", fallback: "Words that need more practice will appear here")
   }
-  public enum Learning {
-    public enum CommonActions {
-      /// Back
-      public static let back = Loc.tr("Learning", "common_actions.back", fallback: "Back")
-      /// Continue
-      public static let `continue` = Loc.tr("Learning", "common_actions.continue", fallback: "Continue")
-      /// Done
-      public static let done = Loc.tr("Learning", "common_actions.done", fallback: "Done")
-      /// Finish
-      public static let finish = Loc.tr("Learning", "common_actions.finish", fallback: "Finish")
-      /// Next
-      public static let next = Loc.tr("Learning", "common_actions.next", fallback: "Next")
-      /// Skip
-      public static let skip = Loc.tr("Learning", "common_actions.skip", fallback: "Skip")
-    }
-    public enum CurrentLevel {
-      /// Help us understand where you're starting from
-      public static let helpUsUnderstand = Loc.tr("Learning", "current_level.help_us_understand", fallback: "Help us understand where you're starting from")
-      /// Select your current level
-      public static let selectYourLevel = Loc.tr("Learning", "current_level.select_your_level", fallback: "Select your current level")
-      /// What's your current level?
-      public static let whatIsYourCurrentLevel = Loc.tr("Learning", "current_level.what_is_your_current_level", fallback: "What's your current level?")
-    }
-    public enum InterestCategory {
-      /// Business
-      public static let business = Loc.tr("Learning", "interest_category.business", fallback: "Business")
-      /// Culture
-      public static let culture = Loc.tr("Learning", "interest_category.culture", fallback: "Culture")
-      /// Education
-      public static let education = Loc.tr("Learning", "interest_category.education", fallback: "Education")
-      /// Entertainment
-      public static let entertainment = Loc.tr("Learning", "interest_category.entertainment", fallback: "Entertainment")
-      /// Food
-      public static let food = Loc.tr("Learning", "interest_category.food", fallback: "Food")
-      /// Health
-      public static let health = Loc.tr("Learning", "interest_category.health", fallback: "Health")
-      /// Lifestyle
-      public static let lifestyle = Loc.tr("Learning", "interest_category.lifestyle", fallback: "Lifestyle")
-      /// Sports
-      public static let sports = Loc.tr("Learning", "interest_category.sports", fallback: "Sports")
-      /// Technology
-      public static let technology = Loc.tr("Learning", "interest_category.technology", fallback: "Technology")
-      /// Travel
-      public static let travel = Loc.tr("Learning", "interest_category.travel", fallback: "Travel")
-    }
-    public enum Interests {
-      /// Adventure
-      public static let adventure = Loc.tr("Learning", "interests.adventure", fallback: "Adventure")
-      /// Art
-      public static let art = Loc.tr("Learning", "interests.art", fallback: "Art")
-      /// Baking
-      public static let baking = Loc.tr("Learning", "interests.baking", fallback: "Baking")
-      /// Basketball
-      public static let basketball = Loc.tr("Learning", "interests.basketball", fallback: "Basketball")
-      /// Beauty
-      public static let beauty = Loc.tr("Learning", "interests.beauty", fallback: "Beauty")
-      /// Books
-      public static let books = Loc.tr("Learning", "interests.books", fallback: "Books")
-      /// Business
-      public static let business = Loc.tr("Learning", "interests.business", fallback: "Business")
-      /// Coffee
-      public static let coffee = Loc.tr("Learning", "interests.coffee", fallback: "Coffee")
-      /// Cooking
-      public static let cooking = Loc.tr("Learning", "interests.cooking", fallback: "Cooking")
-      /// Culture
-      public static let culture = Loc.tr("Learning", "interests.culture", fallback: "Culture")
-      /// Entrepreneurship
-      public static let entrepreneurship = Loc.tr("Learning", "interests.entrepreneurship", fallback: "Entrepreneurship")
-      /// Fashion
-      public static let fashion = Loc.tr("Learning", "interests.fashion", fallback: "Fashion")
-      /// Finance
-      public static let finance = Loc.tr("Learning", "interests.finance", fallback: "Finance")
-      /// Fitness
-      public static let fitness = Loc.tr("Learning", "interests.fitness", fallback: "Fitness")
-      /// Gaming
-      public static let gaming = Loc.tr("Learning", "interests.gaming", fallback: "Gaming")
-      /// Help us make your lessons more engaging by selecting topics you love
-      public static let helpUsMakeLessonsEngaging = Loc.tr("Learning", "interests.help_us_make_lessons_engaging", fallback: "Help us make your lessons more engaging by selecting topics you love")
-      /// History
-      public static let history = Loc.tr("Learning", "interests.history", fallback: "History")
-      /// Home & Decor
-      public static let home = Loc.tr("Learning", "interests.home", fallback: "Home & Decor")
-      /// Lifestyle
-      public static let lifestyle = Loc.tr("Learning", "interests.lifestyle", fallback: "Lifestyle")
-      /// Literature
-      public static let literature = Loc.tr("Learning", "interests.literature", fallback: "Literature")
-      /// Marketing
-      public static let marketing = Loc.tr("Learning", "interests.marketing", fallback: "Marketing")
-      /// Medicine
-      public static let medicine = Loc.tr("Learning", "interests.medicine", fallback: "Medicine")
-      /// Mental Health
-      public static let mentalHealth = Loc.tr("Learning", "interests.mental_health", fallback: "Mental Health")
-      /// Movies
-      public static let movies = Loc.tr("Learning", "interests.movies", fallback: "Movies")
-      /// Music
-      public static let music = Loc.tr("Learning", "interests.music", fallback: "Music")
-      /// Nutrition
-      public static let nutrition = Loc.tr("Learning", "interests.nutrition", fallback: "Nutrition")
-      /// Philosophy
-      public static let philosophy = Loc.tr("Learning", "interests.philosophy", fallback: "Philosophy")
-      /// Photography
-      public static let photography = Loc.tr("Learning", "interests.photography", fallback: "Photography")
-      /// Programming
-      public static let programming = Loc.tr("Learning", "interests.programming", fallback: "Programming")
-      /// Science
-      public static let science = Loc.tr("Learning", "interests.science", fallback: "Science")
-      /// Select your interests (optional)
-      public static let selectInterests = Loc.tr("Learning", "interests.select_interests", fallback: "Select your interests (optional)")
-      /// Soccer
-      public static let soccer = Loc.tr("Learning", "interests.soccer", fallback: "Soccer")
-      /// Social Media
-      public static let socialMedia = Loc.tr("Learning", "interests.social_media", fallback: "Social Media")
-      /// Swimming
-      public static let swimming = Loc.tr("Learning", "interests.swimming", fallback: "Swimming")
-      /// Technology
-      public static let technology = Loc.tr("Learning", "interests.technology", fallback: "Technology")
-      /// Tennis
-      public static let tennis = Loc.tr("Learning", "interests.tennis", fallback: "Tennis")
-      /// Travel
-      public static let travel = Loc.tr("Learning", "interests.travel", fallback: "Travel")
-      /// What interests you?
-      public static let whatInterestsYou = Loc.tr("Learning", "interests.what_interests_you", fallback: "What interests you?")
-      /// Wine
-      public static let wine = Loc.tr("Learning", "interests.wine", fallback: "Wine")
-    }
-    public enum LanguageLevel {
-      /// Advanced
-      public static let advanced = Loc.tr("Learning", "language_level.advanced", fallback: "Advanced")
-      /// I can express myself fluently in most situations
-      public static let advancedDescription = Loc.tr("Learning", "language_level.advanced_description", fallback: "I can express myself fluently in most situations")
-      /// Beginner
-      public static let beginner = Loc.tr("Learning", "language_level.beginner", fallback: "Beginner")
-      /// I know a few words or phrases
-      public static let beginnerDescription = Loc.tr("Learning", "language_level.beginner_description", fallback: "I know a few words or phrases")
-      /// Elementary
-      public static let elementary = Loc.tr("Learning", "language_level.elementary", fallback: "Elementary")
-      /// I can understand and use simple phrases
-      public static let elementaryDescription = Loc.tr("Learning", "language_level.elementary_description", fallback: "I can understand and use simple phrases")
-      /// Intermediate
-      public static let intermediate = Loc.tr("Learning", "language_level.intermediate", fallback: "Intermediate")
-      /// I can have conversations on familiar topics
-      public static let intermediateDescription = Loc.tr("Learning", "language_level.intermediate_description", fallback: "I can have conversations on familiar topics")
-      /// Native
-      public static let native = Loc.tr("Learning", "language_level.native", fallback: "Native")
-      /// I speak this language fluently
-      public static let nativeDescription = Loc.tr("Learning", "language_level.native_description", fallback: "I speak this language fluently")
-      /// Upper Intermediate
-      public static let upperIntermediate = Loc.tr("Learning", "language_level.upper_intermediate", fallback: "Upper Intermediate")
-      /// I can discuss complex topics with some difficulty
-      public static let upperIntermediateDescription = Loc.tr("Learning", "language_level.upper_intermediate_description", fallback: "I can discuss complex topics with some difficulty")
-    }
-    public enum LearningGoals {
-      /// Business
-      public static let business = Loc.tr("Learning", "learning_goals.business", fallback: "Business")
-      /// I need this for business communication
-      public static let businessDescription = Loc.tr("Learning", "learning_goals.business_description", fallback: "I need this for business communication")
-      /// Culture
-      public static let culture = Loc.tr("Learning", "learning_goals.culture", fallback: "Culture")
-      /// I'm interested in the culture and traditions
-      public static let cultureDescription = Loc.tr("Learning", "learning_goals.culture_description", fallback: "I'm interested in the culture and traditions")
-      /// Exam
-      public static let exam = Loc.tr("Learning", "learning_goals.exam", fallback: "Exam")
-      /// I'm preparing for a language exam
-      public static let examDescription = Loc.tr("Learning", "learning_goals.exam_description", fallback: "I'm preparing for a language exam")
-      /// Family
-      public static let family = Loc.tr("Learning", "learning_goals.family", fallback: "Family")
-      /// I want to communicate with family members
-      public static let familyDescription = Loc.tr("Learning", "learning_goals.family_description", fallback: "I want to communicate with family members")
-      /// Help us customize your course to match your objectives
-      public static let helpUsCustomizeYourCourse = Loc.tr("Learning", "learning_goals.help_us_customize_your_course", fallback: "Help us customize your course to match your objectives")
-      /// Hobby
-      public static let hobby = Loc.tr("Learning", "learning_goals.hobby", fallback: "Hobby")
-      /// I'm learning as a hobby
-      public static let hobbyDescription = Loc.tr("Learning", "learning_goals.hobby_description", fallback: "I'm learning as a hobby")
-      /// Migration
-      public static let migration = Loc.tr("Learning", "learning_goals.migration", fallback: "Migration")
-      /// I'm planning to move to a country where this language is spoken
-      public static let migrationDescription = Loc.tr("Learning", "learning_goals.migration_description", fallback: "I'm planning to move to a country where this language is spoken")
-      /// Personal
-      public static let personal = Loc.tr("Learning", "learning_goals.personal", fallback: "Personal")
-      /// I'm learning for personal interest
-      public static let personalDescription = Loc.tr("Learning", "learning_goals.personal_description", fallback: "I'm learning for personal interest")
-      /// Select your goals
-      public static let selectGoals = Loc.tr("Learning", "learning_goals.select_goals", fallback: "Select your goals")
-      /// Study
-      public static let study = Loc.tr("Learning", "learning_goals.study", fallback: "Study")
-      /// I need this language for academic purposes
-      public static let studyDescription = Loc.tr("Learning", "learning_goals.study_description", fallback: "I need this language for academic purposes")
-      /// Travel
-      public static let travel = Loc.tr("Learning", "learning_goals.travel", fallback: "Travel")
-      /// I want to communicate while traveling
-      public static let travelDescription = Loc.tr("Learning", "learning_goals.travel_description", fallback: "I want to communicate while traveling")
-      /// What are your learning goals?
-      public static let whatAreYourGoals = Loc.tr("Learning", "learning_goals.what_are_your_goals", fallback: "What are your learning goals?")
-      /// Work
-      public static let work = Loc.tr("Learning", "learning_goals.work", fallback: "Work")
-      /// I need this language for my career
-      public static let workDescription = Loc.tr("Learning", "learning_goals.work_description", fallback: "I need this language for my career")
-    }
-    public enum LearningStyle {
-      /// Auditory
-      public static let auditory = Loc.tr("Learning", "learning_style.auditory", fallback: "Auditory")
-      /// I learn best by listening and speaking
-      public static let auditoryDescription = Loc.tr("Learning", "learning_style.auditory_description", fallback: "I learn best by listening and speaking")
-      /// Balanced
-      public static let balanced = Loc.tr("Learning", "learning_style.balanced", fallback: "Balanced")
-      /// I enjoy a mix of different learning methods
-      public static let balancedDescription = Loc.tr("Learning", "learning_style.balanced_description", fallback: "I enjoy a mix of different learning methods")
-      /// Help us adapt the learning experience to your preferences
-      public static let helpUsAdaptToYou = Loc.tr("Learning", "learning_style.help_us_adapt_to_you", fallback: "Help us adapt the learning experience to your preferences")
-      /// Kinesthetic
-      public static let kinesthetic = Loc.tr("Learning", "learning_style.kinesthetic", fallback: "Kinesthetic")
-      /// I learn best through hands-on activities
-      public static let kinestheticDescription = Loc.tr("Learning", "learning_style.kinesthetic_description", fallback: "I learn best through hands-on activities")
-      /// Reading
-      public static let reading = Loc.tr("Learning", "learning_style.reading", fallback: "Reading")
-      /// I learn best through reading and writing
-      public static let readingDescription = Loc.tr("Learning", "learning_style.reading_description", fallback: "I learn best through reading and writing")
-      /// Select your learning style
-      public static let selectLearningStyle = Loc.tr("Learning", "learning_style.select_learning_style", fallback: "Select your learning style")
-      /// Visual
-      public static let visual = Loc.tr("Learning", "learning_style.visual", fallback: "Visual")
-      /// I learn best with images, charts, and visual content
-      public static let visualDescription = Loc.tr("Learning", "learning_style.visual_description", fallback: "I learn best with images, charts, and visual content")
-      /// What's your learning style?
-      public static let whatIsYourLearningStyle = Loc.tr("Learning", "learning_style.what_is_your_learning_style", fallback: "What's your learning style?")
-    }
-    public enum Motivation {
-      /// Academic Success
-      public static let academic = Loc.tr("Learning", "motivation.academic", fallback: "Academic Success")
-      /// I need this for my studies
-      public static let academicDescription = Loc.tr("Learning", "motivation.academic_description", fallback: "I need this for my studies")
-      /// Challenge
-      public static let challenge = Loc.tr("Learning", "motivation.challenge", fallback: "Challenge")
-      /// I love challenging myself
-      public static let challengeDescription = Loc.tr("Learning", "motivation.challenge_description", fallback: "I love challenging myself")
-      /// Cultural Understanding
-      public static let cultural = Loc.tr("Learning", "motivation.cultural", fallback: "Cultural Understanding")
-      /// I want to understand different cultures
-      public static let culturalDescription = Loc.tr("Learning", "motivation.cultural_description", fallback: "I want to understand different cultures")
-      /// Help us keep you motivated throughout your journey
-      public static let helpUsKeepYouMotivated = Loc.tr("Learning", "motivation.help_us_keep_you_motivated", fallback: "Help us keep you motivated throughout your journey")
-      /// Personal Growth
-      public static let personal = Loc.tr("Learning", "motivation.personal", fallback: "Personal Growth")
-      /// I want to grow as a person
-      public static let personalDescription = Loc.tr("Learning", "motivation.personal_description", fallback: "I want to grow as a person")
-      /// Professional Development
-      public static let professional = Loc.tr("Learning", "motivation.professional", fallback: "Professional Development")
-      /// I want to advance my career
-      public static let professionalDescription = Loc.tr("Learning", "motivation.professional_description", fallback: "I want to advance my career")
-      /// Select your motivation
-      public static let selectMotivation = Loc.tr("Learning", "motivation.select_motivation", fallback: "Select your motivation")
-      /// Social Connection
-      public static let social = Loc.tr("Learning", "motivation.social", fallback: "Social Connection")
-      /// I want to connect with more people
-      public static let socialDescription = Loc.tr("Learning", "motivation.social_description", fallback: "I want to connect with more people")
-      /// What motivates you to learn?
-      public static let whatMotivatesYou = Loc.tr("Learning", "motivation.what_motivates_you", fallback: "What motivates you to learn?")
-    }
-    public enum Onboarding {
-      /// Get Started
-      public static let getStarted = Loc.tr("Learning", "onboarding.get_started", fallback: "Get Started")
-      /// Let's get to know you better to create the perfect learning experience
-      public static let letUsGetToKnowYou = Loc.tr("Learning", "onboarding.let_us_get_to_know_you", fallback: "Let's get to know you better to create the perfect learning experience")
-      /// Your personalized language course
-      public static let personalizedLanguageCourse = Loc.tr("Learning", "onboarding.personalized_language_course", fallback: "Your personalized language course")
-      /// Welcome to Learning
-      public static let welcomeToLearning = Loc.tr("Learning", "onboarding.welcome_to_learning", fallback: "Welcome to Learning")
-    }
-    public enum Progress {
-      /// Progress
-      public static let progress = Loc.tr("Learning", "progress.progress", fallback: "Progress")
-      /// Step %d of %d
-      public static func stepOf(_ p1: Int, _ p2: Int) -> String {
-        return Loc.tr("Learning", "progress.step_of", p1, p2, fallback: "Step %d of %d")
-      }
-    }
-    public enum Summary {
-      /// Here's what we learned about you
-      public static let hereIsWhatWeLearned = Loc.tr("Learning", "summary.here_is_what_we_learned", fallback: "Here's what we learned about you")
-      /// Let's begin your personalized learning journey
-      public static let letSBeginYourJourney = Loc.tr("Learning", "summary.let_s_begin_your_journey", fallback: "Let's begin your personalized learning journey")
-      /// Ready to Start Learning
-      public static let readyToStart = Loc.tr("Learning", "summary.ready_to_start", fallback: "Ready to Start Learning")
-      /// Your Learning Profile
-      public static let yourLearningProfile = Loc.tr("Learning", "summary.your_learning_profile", fallback: "Your Learning Profile")
-    }
-    public enum Tabbar {
-      /// Learn
-      public static let learn = Loc.tr("Learning", "tabbar.learn", fallback: "Learn")
-    }
-    public enum TargetLanguage {
-      /// Choose Your Target Language
-      public static let chooseTargetLanguage = Loc.tr("Learning", "target_language.choose_target_language", fallback: "Choose Your Target Language")
-      /// This will be the language we'll teach you
-      public static let thisWillBeTheLanguage = Loc.tr("Learning", "target_language.this_will_be_the_language", fallback: "This will be the language we'll teach you")
-      /// Which language do you want to learn?
-      public static let whichLanguageDoYouWantToLearn = Loc.tr("Learning", "target_language.which_language_do_you_want_to_learn", fallback: "Which language do you want to learn?")
-    }
-    public enum TimeCommitment {
-      /// Casual
-      public static let casual = Loc.tr("Learning", "time_commitment.casual", fallback: "Casual")
-      /// 10 minutes per day - perfect for busy schedules
-      public static let casualDescription = Loc.tr("Learning", "time_commitment.casual_description", fallback: "10 minutes per day - perfect for busy schedules")
-      /// Help us plan your learning schedule
-      public static let helpUsPlanYourSchedule = Loc.tr("Learning", "time_commitment.help_us_plan_your_schedule", fallback: "Help us plan your learning schedule")
-      /// How much time can you commit?
-      public static let howMuchTime = Loc.tr("Learning", "time_commitment.how_much_time", fallback: "How much time can you commit?")
-      /// Intensive
-      public static let intensive = Loc.tr("Learning", "time_commitment.intensive", fallback: "Intensive")
-      /// 45 minutes per day - fast progress
-      public static let intensiveDescription = Loc.tr("Learning", "time_commitment.intensive_description", fallback: "45 minutes per day - fast progress")
-      /// Intensive+
-      public static let intensivePlus = Loc.tr("Learning", "time_commitment.intensive_plus", fallback: "Intensive+")
-      /// 90+ minutes per day - maximum progress
-      public static let intensivePlusDescription = Loc.tr("Learning", "time_commitment.intensive_plus_description", fallback: "90+ minutes per day - maximum progress")
-      /// Regular
-      public static let regular = Loc.tr("Learning", "time_commitment.regular", fallback: "Regular")
-      /// 20 minutes per day - steady progress
-      public static let regularDescription = Loc.tr("Learning", "time_commitment.regular_description", fallback: "20 minutes per day - steady progress")
-      /// Select your time commitment
-      public static let selectTimeCommitment = Loc.tr("Learning", "time_commitment.select_time_commitment", fallback: "Select your time commitment")
-    }
-  }
   public enum Migration {
     /// Your data is being safely upgraded and will remain intact
     public static let dataSafeUpgradeMessage = Loc.tr("Migration", "data_safe_upgrade_message", fallback: "Your data is being safely upgraded and will remain intact")
@@ -1153,18 +829,6 @@ public enum Loc {
     public static let interestTravel = Loc.tr("Onboarding", "interest_travel", fallback: "Travel")
     /// Learn and practice idioms and expressions from around the world
     public static let learnPracticeIdioms = Loc.tr("Onboarding", "learn_practice_idioms", fallback: "Learn and practice idioms and expressions from around the world")
-    /// Career Growth
-    public static let learningGoalCareer = Loc.tr("Onboarding", "learning_goal_career", fallback: "Career Growth")
-    /// Education
-    public static let learningGoalEducation = Loc.tr("Onboarding", "learning_goal_education", fallback: "Education")
-    /// Family & Friends
-    public static let learningGoalFamily = Loc.tr("Onboarding", "learning_goal_family", fallback: "Family & Friends")
-    /// Immigration
-    public static let learningGoalImmigration = Loc.tr("Onboarding", "learning_goal_immigration", fallback: "Immigration")
-    /// Personal Growth
-    public static let learningGoalPersonalGrowth = Loc.tr("Onboarding", "learning_goal_personal_growth", fallback: "Personal Growth")
-    /// Travel & Tourism
-    public static let learningGoalTravel = Loc.tr("Onboarding", "learning_goal_travel", fallback: "Travel & Tourism")
     /// Loading from iCloud...
     public static let loadingFromIcloud = Loc.tr("Onboarding", "loading_from_icloud", fallback: "Loading from iCloud...")
     /// Maybe Later
@@ -1247,8 +911,6 @@ public enum Loc {
     public static let selectAtLeastOneLanguage = Loc.tr("Onboarding", "select_at_least_one_language", fallback: "Select at least one language")
     /// Select proficiency level
     public static let selectProficiencyLevel = Loc.tr("Onboarding", "select_proficiency_level", fallback: "Select proficiency level")
-    /// Select 1-3 goals
-    public static let selectUpToThree = Loc.tr("Onboarding", "select_up_to_three", fallback: "Select 1-3 goals")
     /// Share dictionaries with friends and family
     public static let shareDictionaries = Loc.tr("Onboarding", "share_dictionaries", fallback: "Share dictionaries with friends and family")
     /// Cloud backup
@@ -1359,8 +1021,6 @@ public enum Loc {
     public static let whichBestDescribesYou = Loc.tr("Onboarding", "which_best_describes_you", fallback: "Which best describes you?")
     /// Which languages do you want to learn?
     public static let whichLanguagesToLearn = Loc.tr("Onboarding", "which_languages_to_learn", fallback: "Which languages do you want to learn?")
-    /// Why are you learning languages?
-    public static let whyAreYouLearning = Loc.tr("Onboarding", "why_are_you_learning", fallback: "Why are you learning languages?")
     /// %d words/week
     public static func wordsPerWeek(_ p1: Int) -> String {
       return Loc.tr("Onboarding", "words_per_week", p1, fallback: "%d words/week")
@@ -1372,6 +1032,24 @@ public enum Loc {
     /// You're all set, %@!
     public static func youreAllSetName(_ p1: Any) -> String {
       return Loc.tr("Onboarding", "youre_all_set_name", String(describing: p1), fallback: "You're all set, %@!")
+    }
+    public enum LearningGoal {
+      /// Career Growth
+      public static let career = Loc.tr("Onboarding", "learning_goal.career", fallback: "Career Growth")
+      /// Education
+      public static let education = Loc.tr("Onboarding", "learning_goal.education", fallback: "Education")
+      /// Family & Friends
+      public static let family = Loc.tr("Onboarding", "learning_goal.family", fallback: "Family & Friends")
+      /// Immigration
+      public static let immigration = Loc.tr("Onboarding", "learning_goal.immigration", fallback: "Immigration")
+      /// Personal Growth
+      public static let personalGrowth = Loc.tr("Onboarding", "learning_goal.personal_growth", fallback: "Personal Growth")
+      /// Select 1-3 goals
+      public static let selectUpToThree = Loc.tr("Onboarding", "learning_goal.select_up_to_three", fallback: "Select 1-3 goals")
+      /// Travel & Tourism
+      public static let travel = Loc.tr("Onboarding", "learning_goal.travel", fallback: "Travel & Tourism")
+      /// Why are you learning languages?
+      public static let whyAreYouLearning = Loc.tr("Onboarding", "learning_goal.why_are_you_learning", fallback: "Why are you learning languages?")
     }
     public enum Paywall {
       /// Improve your %@ academic writing and reading comprehension
@@ -2369,24 +2047,6 @@ public enum Loc {
       public static let upgradeToPro = Loc.tr("Subscription", "paywall.upgrade_to_pro", fallback: "Upgrade to Pro")
       /// Words Added
       public static let wordsAdded = Loc.tr("Subscription", "paywall.words_added", fallback: "Words Added")
-      public enum Generic {
-        /// Get personalized quizzes and smart word suggestions
-        public static let benefit1Description = Loc.tr("Subscription", "paywall.generic.benefit1_description", fallback: "Get personalized quizzes and smart word suggestions")
-        /// AI-Powered Learning
-        public static let benefit1Title = Loc.tr("Subscription", "paywall.generic.benefit1_title", fallback: "AI-Powered Learning")
-        /// Natural-sounding pronunciation in multiple languages
-        public static let benefit2Description = Loc.tr("Subscription", "paywall.generic.benefit2_description", fallback: "Natural-sounding pronunciation in multiple languages")
-        /// Premium Voice Synthesis
-        public static let benefit2Title = Loc.tr("Subscription", "paywall.generic.benefit2_title", fallback: "Premium Voice Synthesis")
-        /// Access curated vocabulary sets for every topic
-        public static let benefit3Description = Loc.tr("Subscription", "paywall.generic.benefit3_description", fallback: "Access curated vocabulary sets for every topic")
-        /// Unlimited Word Collections
-        public static let benefit3Title = Loc.tr("Subscription", "paywall.generic.benefit3_title", fallback: "Unlimited Word Collections")
-        /// Master any language faster with AI-powered tools
-        public static let subtitle = Loc.tr("Subscription", "paywall.generic.subtitle", fallback: "Master any language faster with AI-powered tools")
-        /// Unlock Premium Features
-        public static let title = Loc.tr("Subscription", "paywall.generic.title", fallback: "Unlock Premium Features")
-      }
     }
     public enum Period {
       /// day

@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Adatvédelmi irányelvek";
 "paywall.upgrade_to_pro" = "Frissítés Pro-ra";
 "paywall.restore_purchases" = "Vásárlások visszaállítása";
+"paywall.restore_subscription" = "Előfizetés visszaállítása";
 "paywall.track_progress" = "Haladás nyomon követése";
 "paywall.see_your_improvement" = "Lásd a fejlődésedet";
 "paywall.collaborate" = "Együttműködés";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Nem találtunk aktív előfizetéseket. Ellenőrizd az App Store fiókodat.";
 "paywall.failed_to_restore_purchases" = "A vásárlások visszaállítása sikertelen: %@";
 "paywall.save_percentage" = "%@ megtakarítás";
+"paywall.and_conjunction" = "és";
+"paywall.planAutoRenews" = "A terv automatikusan megújul %@/%@ áron lemondásig.";
+"paywall.annually" = "évente";
+"paywall.monthly" = "havonta";
+"paywall.bestValue" = "LEGJOBB ÉRTÉK";
+
+"period.day" = "nap";
+"period.week" = "hét";
+"period.month" = "hónap";
+"period.year" = "év";
 
 // MARK: - Pro Features
 

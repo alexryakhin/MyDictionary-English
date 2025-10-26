@@ -69,14 +69,14 @@
 "whats_your_age_group" = "あなたの年齢層は？";
 
 // Learning Goals
-"why_are_you_learning" = "なぜ言語を学んでいますか？";
-"select_up_to_three" = "1-3つの目標を選択";
-"learning_goal_career" = "キャリア成長";
-"learning_goal_travel" = "旅行と観光";
-"learning_goal_education" = "教育";
-"learning_goal_personal_growth" = "個人成長";
-"learning_goal_immigration" = "移住";
-"learning_goal_family" = "家族と友人";
+"learning_goal.why_are_you_learning" = "なぜ言語を学んでいますか？";
+"learning_goal.select_up_to_three" = "1-3つの目標を選択";
+"learning_goal.career" = "キャリア成長";
+"learning_goal.travel" = "旅行と観光";
+"learning_goal.education" = "教育";
+"learning_goal.personal_growth" = "個人成長";
+"learning_goal.immigration" = "移住";
+"learning_goal.family" = "家族と友人";
 
 // Languages to Study
 "which_languages_to_learn" = "どの言語を学びたいですか？";

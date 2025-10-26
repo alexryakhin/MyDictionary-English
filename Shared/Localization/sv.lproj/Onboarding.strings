@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Vilken är din åldersgrupp?";
 
 // Learning Goals
-"why_are_you_learning" = "Varför lär du dig språk?";
-"select_up_to_three" = "Välj 1-3 mål";
-"learning_goal_career" = "Karriärutveckling";
-"learning_goal_travel" = "Resor & Turism";
-"learning_goal_education" = "Utbildning";
-"learning_goal_personal_growth" = "Personlig Utveckling";
-"learning_goal_immigration" = "Invandring";
-"learning_goal_family" = "Familj & Vänner";
+"learning_goal.why_are_you_learning" = "Varför lär du dig språk?";
+"learning_goal.select_up_to_three" = "Välj 1-3 mål";
+"learning_goal.career" = "Karriärutveckling";
+"learning_goal.travel" = "Resor & Turism";
+"learning_goal.education" = "Utbildning";
+"learning_goal.personal_growth" = "Personlig Utveckling";
+"learning_goal.immigration" = "Invandring";
+"learning_goal.family" = "Familj & Vänner";
 
 // Languages to Study
 "which_languages_to_learn" = "Vilka språk vill du lära dig?";

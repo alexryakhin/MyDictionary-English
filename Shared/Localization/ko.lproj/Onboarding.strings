@@ -69,14 +69,14 @@
 "whats_your_age_group" = "당신의 연령대는?";
 
 // Learning Goals
-"why_are_you_learning" = "왜 언어를 배우고 있나요?";
-"select_up_to_three" = "1-3개의 목표를 선택하세요";
-"learning_goal_career" = "경력 성장";
-"learning_goal_travel" = "여행과 관광";
-"learning_goal_education" = "교육";
-"learning_goal_personal_growth" = "개인 성장";
-"learning_goal_immigration" = "이민";
-"learning_goal_family" = "가족과 친구";
+"learning_goal.why_are_you_learning" = "왜 언어를 배우고 있나요?";
+"learning_goal.select_up_to_three" = "1-3개의 목표를 선택하세요";
+"learning_goal.career" = "경력 성장";
+"learning_goal.travel" = "여행과 관광";
+"learning_goal.education" = "교육";
+"learning_goal.personal_growth" = "개인 성장";
+"learning_goal.immigration" = "이민";
+"learning_goal.family" = "가족과 친구";
 
 // Languages to Study
 "which_languages_to_learn" = "어떤 언어를 배우고 싶나요?";

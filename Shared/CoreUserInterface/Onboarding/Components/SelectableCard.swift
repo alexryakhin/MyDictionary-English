@@ -38,11 +38,13 @@ extension OnboardingFlow {
                     
                     VStack(spacing: 4) {
                         Text(title)
+                            .lineLimit(1, reservesSpace: true)
                             .font(.headline)
                             .multilineTextAlignment(.center)
                         
                         if let subtitle = subtitle {
                             Text(subtitle)
+                                .lineLimit(2, reservesSpace: true)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)

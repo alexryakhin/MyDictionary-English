@@ -69,14 +69,14 @@
 "whats_your_age_group" = "Melyik korosztályba tartozol?";
 
 // Learning Goals
-"why_are_you_learning" = "Miért tanulsz nyelveket?";
-"select_up_to_three" = "Válassz 1-3 célt";
-"learning_goal_career" = "Karrierfejlesztés";
-"learning_goal_travel" = "Utazás és turizmus";
-"learning_goal_education" = "Oktatás";
-"learning_goal_personal_growth" = "Személyes fejlődés";
-"learning_goal_immigration" = "Bevándorlás";
-"learning_goal_family" = "Család és barátok";
+"learning_goal.why_are_you_learning" = "Miért tanulsz nyelveket?";
+"learning_goal.select_up_to_three" = "Válassz 1-3 célt";
+"learning_goal.career" = "Karrierfejlesztés";
+"learning_goal.travel" = "Utazás és turizmus";
+"learning_goal.education" = "Oktatás";
+"learning_goal.personal_growth" = "Személyes fejlődés";
+"learning_goal.immigration" = "Bevándorlás";
+"learning_goal.family" = "Család és barátok";
 
 // Languages to Study
 "which_languages_to_learn" = "Mely nyelveket szeretnél megtanulni?";

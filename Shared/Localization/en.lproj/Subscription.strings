@@ -61,22 +61,8 @@
 "pro_features.ai_definitions_description" = "Get intelligent, context-aware definitions powered by advanced AI technology";
 "pro_features.ai_quizzes" = "AI Quizzes";
 "pro_features.ai_quizzes_description" = "Practice your vocabulary with personalized AI quizzes that adapt to your learning style.";
-"pro_features.images" = "Visual Learning with Images";
-"pro_features.images_description" = "Add beautiful, relevant images to your words for better memory retention and visual learning";
-"pro_features.word_collections" = "Word Collections";
-"pro_features.word_collections_description" = "Organize your vocabulary into themed collections for better learning and organization";
 
 // MARK: - Pro Upgrade Messages
 "pro_upgrade.upgrade_to_pro_progress_details" = "Upgrade to Pro to see full progress details.";
 "pro_upgrade.upgrade_to_pro_vocabulary_growth" = "Upgrade to Pro to see full vocabulary growth details.";
 "pro_upgrade.time_period" = "Time Period";
-
-// MARK: - Generic Paywall (No AI/Profile)
-"paywall.generic.title" = "Unlock Premium Features";
-"paywall.generic.subtitle" = "Master any language faster with AI-powered tools";
-"paywall.generic.benefit1_title" = "AI-Powered Learning";
-"paywall.generic.benefit1_description" = "Get personalized quizzes and smart word suggestions";
-"paywall.generic.benefit2_title" = "Premium Voice Synthesis";
-"paywall.generic.benefit2_description" = "Natural-sounding pronunciation in multiple languages";
-"paywall.generic.benefit3_title" = "Unlimited Word Collections";
-"paywall.generic.benefit3_description" = "Access curated vocabulary sets for every topic";

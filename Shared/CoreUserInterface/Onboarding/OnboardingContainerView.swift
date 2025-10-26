@@ -76,7 +76,9 @@ enum OnboardingFlow {
             case .notifications:
                 OnboardingFlow.NotificationsView(viewModel: viewModel)
             case .paywall:
-                OnboardingFlow.PaywallView(viewModel: viewModel)
+                PaywallView(onSubscriptionChange: {
+                    viewModel.navigate(to: .success)
+                })
             case .success:
                 OnboardingFlow.SuccessView(viewModel: viewModel)
             }

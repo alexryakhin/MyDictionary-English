@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Privatlivspolitik";
 "paywall.upgrade_to_pro" = "Opgrader til Pro";
 "paywall.restore_purchases" = "Gendan køb";
+"paywall.restore_subscription" = "Gendan abonnement";
 "paywall.track_progress" = "Spor fremskridt";
 "paywall.see_your_improvement" = "Se din forbedring";
 "paywall.collaborate" = "Samarbejd";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Ingen aktive abonnementer fundet. Tjek din App Store-konto.";
 "paywall.failed_to_restore_purchases" = "Gendannelse af køb mislykkedes: %@";
 "paywall.save_percentage" = "Spar %@";
+"paywall.and_conjunction" = "og";
+"paywall.planAutoRenews" = "Planen fornyes automatisk for %@/%@ indtil annullering.";
+"paywall.annually" = "årligt";
+"paywall.monthly" = "månedligt";
+"paywall.bestValue" = "BEDSTE VÆRDI";
+
+"period.day" = "dag";
+"period.week" = "uge";
+"period.month" = "måned";
+"period.year" = "år";
 
 // MARK: - Pro Features
 

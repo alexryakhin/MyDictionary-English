@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Zásady ochrany osobních údajů";
 "paywall.upgrade_to_pro" = "Upgradovat na Pro";
 "paywall.restore_purchases" = "Obnovit nákupy";
+"paywall.restore_subscription" = "Obnovit předplatné";
 "paywall.track_progress" = "Sledovat pokrok";
 "paywall.see_your_improvement" = "Podívejte se na své zlepšení";
 "paywall.collaborate" = "Spolupracovat";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Nenalezeny žádné aktivní předplatné. Zkontrolujte svůj účet v App Store.";
 "paywall.failed_to_restore_purchases" = "Obnovení nákupů selhalo: %@";
 "paywall.save_percentage" = "Ušetřete %@";
+"paywall.and_conjunction" = "a";
+"paywall.planAutoRenews" = "Plán se automaticky prodlužuje za %@/%@ do zrušení.";
+"paywall.annually" = "ročně";
+"paywall.monthly" = "měsíčně";
+"paywall.bestValue" = "NEJLEPŠÍ HODNOTA";
+
+"period.day" = "den";
+"period.week" = "týden";
+"period.month" = "měsíc";
+"period.year" = "rok";
 
 // MARK: - Pro Features
 

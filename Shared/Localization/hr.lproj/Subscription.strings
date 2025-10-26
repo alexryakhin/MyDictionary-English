@@ -3,6 +3,7 @@
 "paywall.privacy_policy" = "Politika privatnosti";
 "paywall.upgrade_to_pro" = "Nadogradi na Pro";
 "paywall.restore_purchases" = "Vrati kupnje";
+"paywall.restore_subscription" = "Vrati pretplatu";
 "paywall.track_progress" = "Prati napredak";
 "paywall.see_your_improvement" = "Pogledajte svoje poboljšanje";
 "paywall.collaborate" = "Suradnja";
@@ -23,6 +24,16 @@
 "paywall.no_active_subscriptions_found" = "Nema pronađenih aktivnih pretplata. Provjerite svoj račun na App Storeu.";
 "paywall.failed_to_restore_purchases" = "Vraćanje kupnji nije uspjelo: %@";
 "paywall.save_percentage" = "Uštedite %@";
+"paywall.and_conjunction" = "i";
+"paywall.planAutoRenews" = "Plan se automatski obnavlja za %@/%@ do otkazivanja.";
+"paywall.annually" = "godišnje";
+"paywall.monthly" = "mjesečno";
+"paywall.bestValue" = "NAJBOLJA VRIJEDNOST";
+
+"period.day" = "dan";
+"period.week" = "tjedan";
+"period.month" = "mjesec";
+"period.year" = "godina";
 
 // MARK: - Pro Features
 

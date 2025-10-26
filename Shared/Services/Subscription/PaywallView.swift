@@ -1,5 +1,5 @@
 //
-//  SimplifiedPaywallView.swift
+//  PaywallView.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin on 3/9/25.
@@ -8,7 +8,7 @@
 import SwiftUI
 import RevenueCat
 
-struct SimplifiedPaywallView: View {
+struct PaywallView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.openURL) var openURL
 
@@ -17,63 +17,52 @@ struct SimplifiedPaywallView: View {
     @StateObject private var paywallContentService = PaywallContentService.shared
 
     @State private var selectedPlan: SubscriptionPlan?
-    @State private var isLoading = false
     @State private var showingRestoreAlert = false
     @State private var restoreMessage = ""
     @State private var safariURL: URL?
 
+    private let onSubscriptionChange: VoidHandler?
+
+    init(onSubscriptionChange: VoidHandler? = nil) {
+        self.onSubscriptionChange = onSubscriptionChange
+    }
+
     // MARK: - Content Properties
 
     private var title: String {
-        paywallContentService.aiContent?.title ?? Loc.Subscription.Paywall.Generic.title
+        paywallContentService.aiContent?.title ?? Loc.Subscription.Paywall.upgradeToPro
     }
 
     private var subtitle: String {
-        paywallContentService.aiContent?.subtitle ?? Loc.Subscription.Paywall.Generic.subtitle
+        paywallContentService.aiContent?.subtitle ?? Loc.Subscription.Paywall.joinThousandsUsers
     }
 
     private var benefits: [PaywallBenefit] {
         if let aiBenefits = paywallContentService.aiContent?.benefits {
             return aiBenefits.map { PaywallBenefit(from: $0) }
         } else {
-            return [
-                PaywallBenefit(
-                    title: Loc.Subscription.Paywall.Generic.benefit1Title,
-                    description: Loc.Subscription.Paywall.Generic.benefit1Description,
-                    icon: "sparkles"
-                ),
-                PaywallBenefit(
-                    title: Loc.Subscription.Paywall.Generic.benefit2Title,
-                    description: Loc.Subscription.Paywall.Generic.benefit2Description,
-                    icon: "speaker.wave.3"
-                ),
-                PaywallBenefit(
-                    title: Loc.Subscription.Paywall.Generic.benefit3Title,
-                    description: Loc.Subscription.Paywall.Generic.benefit3Description,
-                    icon: "folder.fill"
-                )
-            ]
+            return [SubscriptionFeature.aiDefinitions, .aiQuizzes, .images, .advancedAnalytics, .premiumTTS]
+                .map { feature in
+                    PaywallBenefit(
+                        title: feature.displayName,
+                        description: feature.description,
+                        icon: feature.iconName
+                    )
+                }
         }
     }
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 32) {
+            VStack(spacing: 24) {
                 heroSection
                 benefitsSection
                 plansSection
                 termsSection
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 32)
+            .padding(vertical: 12, horizontal: 16)
         }
         .withGradientBackground()
-        .safeAreaBarIfAvailable(edge: .top, alignment: .trailing) {
-            HeaderButton(icon: "xmark") {
-                paywallService.dismissPaywall()
-            }
-            .padding(12)
-        }
         .safeAreaBarIfAvailable {
             actionButtonsSection
         }
@@ -154,7 +143,14 @@ struct SimplifiedPaywallView: View {
 
     private var actionButtonsSection: some View {
         VStack(spacing: 8) {
-            // Subscribe button - shows "Try for Free" if trial is available
+            if let selectedPlan {
+                Text(Loc.Subscription.Paywall.planAutoRenews(selectedPlan.price, selectedPlan.period.displayName))
+                    .foregroundStyle(.secondary)
+                    .font(.caption)
+                    .multilineTextAlignment(.center)
+            }
+
+            // Subscribe button
             AsyncActionButton(
                 Loc.Subscription.Paywall.startProSubscription,
                 systemImage: "book.fill",
@@ -187,8 +183,11 @@ struct SimplifiedPaywallView: View {
                 #endif
             }
             .buttonStyle(.plain)
+            .foregroundStyle(.accent)
+
             Text(Loc.Subscription.Paywall.andConjunction)
                 .foregroundStyle(.secondary)
+
             Button(Loc.Subscription.Paywall.privacyPolicy) {
                 #if os(macOS)
                 openURL(GlobalConstant.privacyPolicy)
@@ -197,7 +196,10 @@ struct SimplifiedPaywallView: View {
                 #endif
             }
             .buttonStyle(.plain)
+            .foregroundStyle(.accent)
+            .lineLimit(1)
         }
+        .lineLimit(1)
         .font(.caption)
         .padding(.horizontal, 16)
     }
@@ -210,25 +212,19 @@ struct SimplifiedPaywallView: View {
             return
         }
 
-        isLoading = true
-
         do {
             try await subscriptionService.purchasePlan(plan)
             // Only call handlePurchaseCompleted if purchase was successful
             paywallService.handlePurchaseCompleted()
-            dismiss()
+            onSubscriptionChange?()
         } catch {
             // Purchase failed or was cancelled - call handlePurchaseFailed
             paywallService.handlePurchaseFailed()
             errorReceived(error)
         }
-
-        isLoading = false
     }
 
     private func restoreSubscription() async {
-        isLoading = true
-
         let success = await paywallService.handleRestorePurchases()
         if success {
             paywallService.handlePurchaseCompleted()
@@ -237,132 +233,119 @@ struct SimplifiedPaywallView: View {
             restoreMessage = Loc.Subscription.Paywall.noActiveSubscriptionsFound
             showingRestoreAlert = true
         }
-
-        isLoading = false
     }
 
-    private func openTerms() {
-        if let url = URL(string: "https://mydictionary.app/terms") {
-            safariURL = url
-        }
-    }
+    // MARK: - Supporting Views
 
-    private func openPrivacy() {
-        if let url = URL(string: "https://mydictionary.app/privacy") {
-            safariURL = url
-        }
-    }
-}
+    struct BenefitCard: View {
+        let benefit: PaywallBenefit
+        let index: Int
 
-// MARK: - Supporting Views
-
-struct BenefitCard: View {
-    let benefit: PaywallBenefit
-    let index: Int
-
-    var body: some View {
-        HStack(spacing: 16) {
-            // Icon
-            Image(systemName: benefit.icon)
-                .font(.title2)
-                .foregroundColor(.accentColor)
-                .frame(width: 32, height: 32)
-
-            // Content
-            VStack(alignment: .leading, spacing: 4) {
-                Text(benefit.title)
-                    .font(.headline)
-                    .fontWeight(.semibold)
-
-                Text(benefit.description)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
-
-            Spacer()
-        }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 16)
-        .background(Color(.systemBackground))
-        .cornerRadius(12)
-        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
-    }
-}
-
-struct PlanCard: View {
-    let plan: SubscriptionPlan
-    let isSelected: Bool
-    let action: VoidHandler
-
-    var body: some View {
-        Button(action: action) {
-            HStack(spacing: 8) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(plan.displayName)
-                        .font(.headline)
-                        .foregroundStyle(.primary)
-
-                    if let pricePerMonth = plan.pricePerMonth {
-                        Text(pricePerMonth + "/" + Loc.Subscription.Period.month)
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                    }
-
-                    if plan.period == .year {
-                        TagView(text: Loc.Subscription.Paywall.bestValue)
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-                VStack(alignment: .trailing, spacing: 4) {
-                    Text(plan.price)
-                        .font(.headline)
-                        .foregroundStyle(.primary)
-                    Text(
-                        plan.period == .year
-                        ? Loc.Subscription.Paywall.annually
-                        : Loc.Subscription.Paywall.monthly
-                    )
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                }
-
-                Image(systemName: isSelected ? "inset.filled.circle" : "circle")
+        var body: some View {
+            HStack(spacing: 16) {
+                // Icon
+                Image(systemName: benefit.icon)
                     .font(.title2)
-                    .foregroundStyle(isSelected ? Color.accentColor : .secondary)
+                    .foregroundColor(.accentColor)
+                    .frame(width: 32, height: 32)
+
+                // Content
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(benefit.title)
+                        .font(.headline)
+                        .fontWeight(.semibold)
+
+                    Text(benefit.description)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+
+                Spacer()
             }
-            .padding(18)
-            .background(
-                RoundedRectangle(cornerRadius: 14)
-                    .fill(isSelected ? Color.accentColor.opacity(0.1) : Color.secondarySystemGroupedBackground)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 14)
-                            .stroke(isSelected ? Color.accentColor : Color.clear, lineWidth: 2)
-                    )
-            )
+            .padding(.horizontal, 20)
+            .padding(.vertical, 16)
+            .background(Color(.systemBackground))
+            .cornerRadius(12)
+            .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
         }
-        .buttonStyle(.plain)
-        .scaleEffect(isSelected ? 1.02 : 1.0)
-        .animation(.spring(response: 0.3, dampingFraction: 0.8), value: isSelected)
-    }
-}
-
-// MARK: - Supporting Models
-
-struct PaywallBenefit {
-    let title: String
-    let description: String
-    let icon: String
-
-    init(title: String, description: String, icon: String) {
-        self.title = title
-        self.description = description
-        self.icon = icon
     }
 
-    init(from aiBenefit: AIPaywallBenefit) {
-        self.title = aiBenefit.feature.displayName
-        self.description = aiBenefit.personalizedDescription
-        self.icon = aiBenefit.feature.iconName
+    struct PlanCard: View {
+        let plan: SubscriptionPlan
+        let isSelected: Bool
+        let action: VoidHandler
+
+        var body: some View {
+            Button(action: action) {
+                HStack(spacing: 8) {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(plan.displayName)
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+
+                        if let pricePerMonth = plan.pricePerMonth {
+                            Text(pricePerMonth + "/" + Loc.Subscription.Period.month)
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        if plan.period == .year {
+                            TagView(text: Loc.Subscription.Paywall.bestValue)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    VStack(alignment: .trailing, spacing: 4) {
+                        Text(plan.price)
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+                        Text(
+                            plan.period == .year
+                            ? Loc.Subscription.Paywall.annually
+                            : Loc.Subscription.Paywall.monthly
+                        )
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    }
+
+                    Image(systemName: isSelected ? "inset.filled.circle" : "circle")
+                        .font(.title2)
+                        .foregroundStyle(isSelected ? Color.accentColor : .secondary)
+                }
+                .padding(18)
+                .background(
+                    RoundedRectangle(cornerRadius: 14)
+                        .fill(isSelected ? Color.accentColor.opacity(0.1) : Color.secondarySystemGroupedBackground)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(isSelected ? Color.accentColor : Color.clear, lineWidth: 2)
+                        )
+                )
+            }
+            .buttonStyle(.plain)
+            .scaleEffect(isSelected ? 1.02 : 1.0)
+            .animation(.spring(response: 0.3, dampingFraction: 0.8), value: isSelected)
+        }
     }
+
+    // MARK: - Supporting Models
+
+    struct PaywallBenefit {
+        let title: String
+        let description: String
+        let icon: String
+
+        init(title: String, description: String, icon: String) {
+            self.title = title
+            self.description = description
+            self.icon = icon
+        }
+
+        init(from aiBenefit: AIPaywallBenefit) {
+            self.title = aiBenefit.feature.displayName
+            self.description = aiBenefit.personalizedDescription
+            self.icon = aiBenefit.feature.iconName
+        }
+    }
+
 }
