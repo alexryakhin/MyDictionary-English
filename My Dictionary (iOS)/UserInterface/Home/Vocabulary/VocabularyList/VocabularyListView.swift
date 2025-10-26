@@ -126,7 +126,7 @@ struct VocabularyListView: View {
             ) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
-                        ForEach(collectionsManager.collections.filter(\.isFeatured).prefix(10)) { collection in
+                        ForEach(personalizedFeaturedCollections.prefix(10)) { collection in
                             WordCollectionPreviewCard(collection: collection)
                         }
                     }
@@ -295,6 +295,18 @@ struct VocabularyListView: View {
                 }
             }
         }
+    }
+    
+    // MARK: - Personalized Collections
+    
+    private var personalizedFeaturedCollections: [WordCollection] {
+        guard let userProfile = onboardingService.userProfile else {
+            // Fallback to all featured collections if no user profile
+            return collectionsManager.featuredCollections()
+        }
+        
+        let userLanguages = userProfile.studyLanguages.map { $0.language }
+        return collectionsManager.personalizedFeaturedCollections(for: userLanguages)
     }
 }
 

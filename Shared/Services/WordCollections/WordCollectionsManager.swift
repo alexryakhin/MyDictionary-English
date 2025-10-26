@@ -114,6 +114,45 @@ final class WordCollectionsManager: ObservableObject {
         return collections.filter { $0.languageCode == languageCode && $0.isFeatured }
     }
     
+    /// Returns personalized featured collections based on user's study languages
+    func personalizedFeaturedCollections(for userLanguages: [InputLanguage]) -> [WordCollection] {
+        // If user has no study languages, return all featured collections
+        guard !userLanguages.isEmpty else {
+            return featuredCollections()
+        }
+        
+        // Get featured collections for user's languages
+        let userLanguageCodes = userLanguages.map { $0.rawValue }
+        let personalizedCollections = collections.filter { 
+            $0.isFeatured && userLanguageCodes.contains($0.languageCode) 
+        }
+        
+        // If we found collections for user's languages, return them
+        if !personalizedCollections.isEmpty {
+            return personalizedCollections
+        }
+        
+        // Fallback to all featured collections if no personalized ones found
+        return featuredCollections()
+    }
+    
+    /// Returns personalized featured collections for a specific language based on user's study languages
+    func personalizedFeaturedCollections(for languageCode: String, userLanguages: [InputLanguage]) -> [WordCollection] {
+        // If user has no study languages, return featured collections for the language
+        guard !userLanguages.isEmpty else {
+            return featuredCollections(for: languageCode)
+        }
+        
+        // Check if the requested language is in user's study languages
+        let userLanguageCodes = userLanguages.map { $0.rawValue }
+        if userLanguageCodes.contains(languageCode) {
+            return featuredCollections(for: languageCode)
+        }
+        
+        // If the language is not in user's study languages, return empty array
+        return []
+    }
+    
     /// Returns collections grouped by featured status
     func collectionsGroupedByFeatured() -> (featured: [WordCollection], regular: [WordCollection]) {
         let featured = collections.filter { $0.isFeatured }

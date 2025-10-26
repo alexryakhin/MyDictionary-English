@@ -18,6 +18,7 @@ struct WordCollectionsView: View {
     // MARK: - Properties
     
     @StateObject private var collectionsManager = WordCollectionsManager.shared
+    @StateObject private var onboardingService = OnboardingService.shared
     @State private var selectedLanguage: String = "all"
     @State private var selectedLevel: WordLevel?
     @State private var searchText = ""
@@ -251,15 +252,15 @@ struct WordCollectionsView: View {
     }
     
     private var featuredCollections: [WordCollection]? {
-        // Return collections marked as featured using the new isFeatured flag
-        let featured = collectionsManager.featuredCollections()
-        return featured.isEmpty ? nil : Array(featured.prefix(10))
+        // Return personalized featured collections based on user's study languages
+        let personalized = personalizedFeaturedCollections
+        return personalized.isEmpty ? nil : Array(personalized.prefix(10))
     }
     
     private var featuredCollectionsForSelectedLanguage: [WordCollection]? {
-        // Return featured collections for the selected language
-        let featured = collectionsManager.featuredCollections(for: selectedLanguage)
-        return featured.isEmpty ? nil : Array(featured.prefix(3))
+        // Return personalized featured collections for the selected language
+        let personalized = personalizedFeaturedCollectionsForLanguage(selectedLanguage)
+        return personalized.isEmpty ? nil : Array(personalized.prefix(3))
     }
     
     private func filteredCollections(for languageCode: String) -> [WordCollection] {
@@ -289,6 +290,28 @@ struct WordCollectionsView: View {
             // Sort by title alphabetically
             return collection1.title.localizedCaseInsensitiveCompare(collection2.title) == .orderedAscending
         }
+    }
+    
+    // MARK: - Personalized Collections
+    
+    private var personalizedFeaturedCollections: [WordCollection] {
+        guard let userProfile = onboardingService.userProfile else {
+            // Fallback to all featured collections if no user profile
+            return collectionsManager.featuredCollections()
+        }
+        
+        let userLanguages = userProfile.studyLanguages.map { $0.language }
+        return collectionsManager.personalizedFeaturedCollections(for: userLanguages)
+    }
+    
+    private func personalizedFeaturedCollectionsForLanguage(_ languageCode: String) -> [WordCollection] {
+        guard let userProfile = onboardingService.userProfile else {
+            // Fallback to featured collections for the language if no user profile
+            return collectionsManager.featuredCollections(for: languageCode)
+        }
+        
+        let userLanguages = userProfile.studyLanguages.map { $0.language }
+        return collectionsManager.personalizedFeaturedCollections(for: languageCode, userLanguages: userLanguages)
     }
 }
 
