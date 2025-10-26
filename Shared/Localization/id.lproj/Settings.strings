@@ -58,6 +58,11 @@
 "import_export_note" = "Perhatikan bahwa impor dan ekspor hanya berfungsi dengan file yang dibuat oleh aplikasi ini.";
 "buy_me_a_coffee" = "Beli Saya Kopi";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Aplikasi Lain Saya";
+"flippin_title" = "Flippin: Kartu Bahasa";
+"flippin_description" = "18 Bahasa + Audio, Gambar. Belajar bahasa dengan kartu indah dan terjemahan otomatis.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Pemeliharaan Data";
 "data_maintenance_description" = "Bersihkan kata dan makna duplikat untuk meningkatkan kinerja aplikasi";

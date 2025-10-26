@@ -1645,6 +1645,10 @@ public enum Loc {
     public static let exportWordsTitle = Loc.tr("Settings", "export_words_title", fallback: "Export Words")
     /// Features
     public static let features = Loc.tr("Settings", "features", fallback: "Features")
+    /// 18 Languages + Audio, Images. Learn languages with beautiful flashcards and automatic translation.
+    public static let flippinDescription = Loc.tr("Settings", "flippin_description", fallback: "18 Languages + Audio, Images. Learn languages with beautiful flashcards and automatic translation.")
+    /// Flippin: Language Flashcards
+    public static let flippinTitle = Loc.tr("Settings", "flippin_title", fallback: "Flippin: Language Flashcards")
     /// Free Plan
     public static let freePlan = Loc.tr("Settings", "free_plan", fallback: "Free Plan")
     /// Free users can export up to %d words
@@ -1675,6 +1679,8 @@ public enum Loc {
     public static let manageTags = Loc.tr("Settings", "manage_tags", fallback: "Manage Tags")
     /// Manual sync mode: Use buttons below to upload/download your word lists to Google. Available to all users.
     public static let manualSyncModeDescription = Loc.tr("Settings", "manual_sync_mode_description", fallback: "Manual sync mode: Use buttons below to upload/download your word lists to Google. Available to all users.")
+    /// My Other Apps
+    public static let myOtherApps = Loc.tr("Settings", "my_other_apps", fallback: "My Other Apps")
     /// No Duplicates
     public static let noDuplicates = Loc.tr("Settings", "no_duplicates", fallback: "No Duplicates")
     /// No duplicate words, meanings, or tags were found in your dictionary.

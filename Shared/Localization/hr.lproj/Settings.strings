@@ -58,6 +58,11 @@
 "import_export_note" = "Imajte na umu da uvoz i izvoz funkcioniraju samo s datotekama stvorenima ovom aplikacijom.";
 "buy_me_a_coffee" = "Časti me kavom";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Moje Ostale Aplikacije";
+"flippin_title" = "Flippin: Jezične Kartice";
+"flippin_description" = "18 Jezika + Audio, Slike. Učite jezike s lijepim karticama i automatskim prijevodom.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Održavanje podataka";
 "data_maintenance_description" = "Očistite duplikate riječi i značenja za poboljšanje performansi aplikacije";

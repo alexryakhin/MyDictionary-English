@@ -58,6 +58,11 @@
 "import_export_note" = "참고: 가져오기 및 내보내기는 이 앱에서 생성된 파일에서만 작동합니다.";
 "buy_me_a_coffee" = "커피 한 잔 사주세요";
 
+// MARK: - My Other Apps
+"my_other_apps" = "내 다른 앱";
+"flippin_title" = "Flippin: 언어 플래시카드";
+"flippin_description" = "18개 언어 + 오디오, 이미지. 아름다운 카드와 자동 번역으로 언어를 배우세요.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "데이터 유지보수";
 "data_maintenance_description" = "앱 성능 향상을 위해 중복된 단어와 의미를 정리하세요";

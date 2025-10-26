@@ -58,6 +58,11 @@
 "import_export_note" = "请注意，导入和导出仅适用于此应用创建的文件。";
 "buy_me_a_coffee" = "请我喝杯咖啡";
 
+// MARK: - My Other Apps
+"my_other_apps" = "我的其他应用";
+"flippin_title" = "Flippin: 语言闪卡";
+"flippin_description" = "18种语言 + 音频、图片。用精美的卡片和自动翻译学习语言。";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "数据维护";
 "data_maintenance_description" = "清理重复的单词和含义以提高应用性能";

@@ -58,6 +58,11 @@
 "import_export_note" = "Bitte beachten Sie, dass Importieren und Exportieren nur mit Dateien funktioniert, die von dieser App erstellt wurden.";
 "buy_me_a_coffee" = "Kaufen Sie mir einen Kaffee";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Meine Anderen Apps";
+"flippin_title" = "Flippin: Sprachkarten";
+"flippin_description" = "18 Sprachen + Audio, Bilder. Lernen Sie Sprachen mit schönen Karten und automatischer Übersetzung.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Datenwartung";
 "data_maintenance_description" = "Bereinigen Sie doppelte Wörter und Bedeutungen, um die App-Leistung zu verbessern";

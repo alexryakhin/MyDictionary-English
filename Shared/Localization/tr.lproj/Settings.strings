@@ -58,6 +58,11 @@
 "import_export_note" = "Not: İçe ve dışa aktarma yalnızca bu uygulama tarafından oluşturulan dosyalarla çalışır.";
 "buy_me_a_coffee" = "Bana Kahve Ismarla";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Diğer Uygulamalarım";
+"flippin_title" = "Flippin: Dil Kartları";
+"flippin_description" = "18 Dil + Ses, Görseller. Güzel kartlar ve otomatik çeviri ile dilleri öğrenin.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Veri Bakımı";
 "data_maintenance_description" = "Uygulama performansını artırmak için yinelenen kelimeleri ve anlamları temizleyin";

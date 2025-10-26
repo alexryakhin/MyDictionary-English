@@ -58,6 +58,11 @@
 "import_export_note" = "Houd er rekening mee dat importeren en exporteren alleen werken met bestanden die door deze app zijn gemaakt.";
 "buy_me_a_coffee" = "Koop een koffie voor mij";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Mijn Andere Apps";
+"flippin_title" = "Flippin: Taal Flashkaarten";
+"flippin_description" = "18 Talen + Audio, Afbeeldingen. Leer talen met mooie kaarten en automatische vertaling.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Gegevensonderhoud";
 "data_maintenance_description" = "Ruim dubbele woorden en betekenissen op om de app-prestaties te verbeteren";

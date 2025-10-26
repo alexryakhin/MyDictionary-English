@@ -58,6 +58,11 @@
 "import_export_note" = "Figyelmeztetés: az importálás és exportálás csak az alkalmazás által létrehozott fájlokkal működik.";
 "buy_me_a_coffee" = "Vegyél nekem egy kávét";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Egyéb Alkalmazásaim";
+"flippin_title" = "Flippin: Nyelvi Kártyák";
+"flippin_description" = "18 Nyelv + Hang, Képek. Tanulj nyelveket szép kártyákkal és automatikus fordítással.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Adatok karbantartása";
 "data_maintenance_description" = "Tisztítsd meg a duplikált szavakat és jelentéseket az alkalmazás teljesítményének javítása érdekében";

@@ -58,6 +58,11 @@
 "import_export_note" = "Notera: Import och export fungerar endast med filer skapade av denna app.";
 "buy_me_a_coffee" = "Köp mig en kaffe";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Mina Andra Appar";
+"flippin_title" = "Flippin: Språkkort";
+"flippin_description" = "18 Språk + Ljud, Bilder. Lär dig språk med vackra kort och automatisk översättning.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Dataunderhåll";
 "data_maintenance_description" = "Rensa duplicerade ord och betydelser för att förbättra appens prestanda";

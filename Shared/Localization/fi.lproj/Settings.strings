@@ -58,6 +58,11 @@
 "import_export_note" = "Huomaa, että tuonti ja vienti toimivat vain tämän sovelluksen luomien tiedostojen kanssa.";
 "buy_me_a_coffee" = "Osta minulle kahvi";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Muut Sovellukseni";
+"flippin_title" = "Flippin: Kielikortit";
+"flippin_description" = "18 Kieltä + Ääni, Kuvat. Opi kieliä kauniilla korteilla ja automaattisella käännöksellä.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Tietojen ylläpito";
 "data_maintenance_description" = "Puhdista päällekkäiset sanat ja merkitykset parantaaksesi sovelluksen suorituskykyä";

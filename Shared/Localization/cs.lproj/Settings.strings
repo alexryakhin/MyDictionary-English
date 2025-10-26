@@ -58,6 +58,11 @@
 "import_export_note" = "Vezměte prosím na vědomí, že import a export fungují pouze se soubory vytvořenými touto aplikací.";
 "buy_me_a_coffee" = "Kupte mi kávu";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Moje Ostatní Aplikace";
+"flippin_title" = "Flippin: Jazykové Kartičky";
+"flippin_description" = "18 Jazyků + Audio, Obrázky. Učte se jazyky s krásnými kartičkami a automatickým překladem.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Údržba dat";
 "data_maintenance_description" = "Vyčistit duplicitní slova a významy pro zlepšení výkonu aplikace";

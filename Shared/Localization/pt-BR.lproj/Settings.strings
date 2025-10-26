@@ -58,6 +58,11 @@
 "import_export_note" = "Nota: Importação e exportação funcionam apenas com arquivos criados por este aplicativo.";
 "buy_me_a_coffee" = "Me Pague um Café";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Minhas Outras Aplicações";
+"flippin_title" = "Flippin: Cartões de Idioma";
+"flippin_description" = "18 Idiomas + Áudio, Imagens. Aprenda idiomas com belos cartões e tradução automática.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Manutenção de Dados";
 "data_maintenance_description" = "Limpe palavras e significados duplicados para melhorar o desempenho do aplicativo";

@@ -58,6 +58,11 @@
 "import_export_note" = "หมายเหตุ: การนำเข้าและส่งออกใช้ได้เฉพาะกับไฟล์ที่สร้างโดยแอปนี้";
 "buy_me_a_coffee" = "ซื้อกาแฟให้ฉัน";
 
+// MARK: - My Other Apps
+"my_other_apps" = "แอปอื่นๆ ของฉัน";
+"flippin_title" = "Flippin: บัตรคำภาษา";
+"flippin_description" = "18 ภาษา + เสียง, รูปภาพ เรียนภาษาด้วยบัตรคำสวยงามและการแปลอัตโนมัติ";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "การบำรุงรักษาข้อมูล";
 "data_maintenance_description" = "ล้างคำศัพท์และความหมายที่ซ้ำกันเพื่อปรับปรุงประสิทธิภาพของแอป";

@@ -58,6 +58,11 @@
 "import_export_note" = "שימו לב שייבוא וייצוא עובדים רק עם קבצים שנוצרו על ידי אפליקציה זו.";
 "buy_me_a_coffee" = "קנה לי קפה";
 
+// MARK: - My Other Apps
+"my_other_apps" = "האפליקציות האחרות שלי";
+"flippin_title" = "Flippin: כרטיסי שפה";
+"flippin_description" = "18 שפות + אודיו, תמונות. למד שפות עם כרטיסים יפים ותרגום אוטומטי.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "תחזוקת נתונים";
 "data_maintenance_description" = "נקה מילים ומשמעויות כפולות כדי לשפר את ביצועי האפליקציה";

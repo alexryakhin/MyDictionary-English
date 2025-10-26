@@ -58,6 +58,11 @@
 "import_export_note" = "Lưu ý: Nhập và xuất chỉ hoạt động với các tệp do ứng dụng này tạo ra.";
 "buy_me_a_coffee" = "Mua cà phê cho tôi";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Ứng Dụng Khác Của Tôi";
+"flippin_title" = "Flippin: Thẻ Ngôn Ngữ";
+"flippin_description" = "18 Ngôn Ngữ + Âm Thanh, Hình Ảnh. Học ngôn ngữ với thẻ đẹp và dịch tự động.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Bảo trì dữ liệu";
 "data_maintenance_description" = "Dọn dẹp các từ và nghĩa trùng lặp để cải thiện hiệu suất ứng dụng";

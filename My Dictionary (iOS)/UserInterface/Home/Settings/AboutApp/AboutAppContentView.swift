@@ -44,6 +44,9 @@ struct AboutAppContentView: View {
                         }
                     }
 
+                    // MARK: - My Other Apps Section
+                    myOtherAppsSection
+
                     // MARK: - Support section
 
                     CustomSectionView(header: Loc.Settings.contactMe) {
@@ -103,6 +106,55 @@ struct AboutAppContentView: View {
             .onAppear {
                 AnalyticsService.shared.logEvent(.aboutAppScreenOpened)
             }
+        }
+    }
+    
+    // MARK: - My Other Apps Section
+    private var myOtherAppsSection: some View {
+        CustomSectionView(
+            header: Loc.Settings.myOtherApps
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
+                // Flippin App
+                Button {
+                    openFlippin()
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(.flippinIcon)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 64, height: 64)
+                            .clipShape(.rect(cornerRadius: 16))
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(Loc.Settings.flippinTitle)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.primary)
+                            
+                            Text(Loc.Settings.flippinDescription)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(3)
+                                .multilineTextAlignment(.leading)
+                        }
+                        
+                        Spacer()
+                        
+                        Image(systemName: "arrow.up.right")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .buttonStyle(.plain)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+    
+    private func openFlippin() {
+        if let url = URL(string: "https://www.flippin.app") {
+            openURL(url)
         }
     }
     

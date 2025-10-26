@@ -61,6 +61,11 @@
 "import_export_note" = "يرجى ملاحظة أن الاستيراد والتصدير يعملان فقط مع الملفات التي أنشأها هذا التطبيق.";
 "buy_me_a_coffee" = "اشترِ لي قهوة";
 
+// MARK: - My Other Apps
+"my_other_apps" = "تطبيقاتي الأخرى";
+"flippin_title" = "Flippin: بطاقات اللغة";
+"flippin_description" = "18 لغة + صوت، صور. تعلم اللغات ببطاقات جميلة وترجمة تلقائية.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "صيانة البيانات";
 "data_maintenance_description" = "تنظيف الكلمات والمعاني المكررة لتحسين أداء التطبيق";

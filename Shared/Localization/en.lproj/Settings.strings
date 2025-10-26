@@ -61,6 +61,11 @@
 "import_export_note" = "Please note that import and export only work with files created by this app.";
 "buy_me_a_coffee" = "Buy Me a Coffee";
 
+// MARK: - My Other Apps
+"my_other_apps" = "My Other Apps";
+"flippin_title" = "Flippin: Language Flashcards";
+"flippin_description" = "18 Languages + Audio, Images. Learn languages with beautiful flashcards and automatic translation.";
+
 "about_my_dictionary" = "About My Dictionary";
 "import_successful" = "Import successful";
 "import_successful_message" = "%@ have been imported successfully";

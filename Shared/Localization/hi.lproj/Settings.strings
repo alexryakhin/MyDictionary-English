@@ -58,6 +58,11 @@
 "import_export_note" = "नोट करें कि आयात और निर्यात केवल इस ऐप द्वारा बनाए गए फ़ाइलों के साथ काम करते हैं।";
 "buy_me_a_coffee" = "मुझे एक कॉफी खरीदें";
 
+// MARK: - My Other Apps
+"my_other_apps" = "मेरे अन्य ऐप्स";
+"flippin_title" = "Flippin: भाषा फ्लैशकार्ड";
+"flippin_description" = "18 भाषाएं + ऑडियो, छवियां। सुंदर कार्ड और स्वचालित अनुवाद के साथ भाषाएं सीखें।";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "डेटा रखरखाव";
 "data_maintenance_description" = "ऐप के प्रदर्शन में सुधार के लिए डुप्लिकेट शब्दों और अर्थों को साफ़ करें";

@@ -58,6 +58,11 @@
 "import_export_note" = "Tingues en compte que la importació i exportació només funcionen amb fitxers creats per aquesta aplicació.";
 "buy_me_a_coffee" = "Compra'm un cafè";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Les Meves Altres Aplicacions";
+"flippin_title" = "Flippin: Targetes de Llengua";
+"flippin_description" = "18 Llengües + Àudio, Imatges. Apreneu llengües amb targetes boniques i traducció automàtica.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Manteniment de dades";
 "data_maintenance_description" = "Neteja paraules i significats duplicats per millorar el rendiment de l'aplicació";

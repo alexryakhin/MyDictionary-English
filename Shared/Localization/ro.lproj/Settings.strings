@@ -58,6 +58,11 @@
 "import_export_note" = "Notă: Importul și exportul funcționează doar cu fișiere create de această aplicație.";
 "buy_me_a_coffee" = "Cumpără-mi o Cafea";
 
+// MARK: - My Other Apps
+"my_other_apps" = "Alte Aplicații ale Mele";
+"flippin_title" = "Flippin: Carduri de Limbă";
+"flippin_description" = "18 Limbi + Audio, Imagini. Învață limbi cu carduri frumoase și traducere automată.";
+
 // MARK: - Data Maintenance
 "data_maintenance" = "Întreținerea Datelor";
 "data_maintenance_description" = "Curăță cuvinte și semnificații duplicate pentru a îmbunătăți performanța aplicației";
