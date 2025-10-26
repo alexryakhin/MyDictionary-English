@@ -60,7 +60,14 @@ extension CDWord: Quizable {
     }
     
     var quiz_definition: String {
-        // Use primary meaning if available, fallback to legacy definition
+        // Randomly select from available meanings to provide variety in quizzes
+        let availableMeanings = self.meaningsArray
+        if !availableMeanings.isEmpty {
+            // Randomly select a meaning for quiz variety
+            let randomMeaning = availableMeanings.randomElement()!
+            return randomMeaning.definition ?? ""
+        }
+        // Fallback to primary meaning if no meanings available
         return self.primaryDefinition ?? self.definition ?? ""
     }
     

@@ -312,7 +312,11 @@ final class FillInTheBlankQuizViewModel: BaseViewModel {
             do {
                 let word = item.quiz_text.trimmed.lowercased()
                 let wordLanguage = item.quiz_languageCode
-                let story = try await aiService.generateSingleFillInTheBlankStory(word: word, wordLanguage: wordLanguage)
+                let story = try await aiService.generateSingleFillInTheBlankStory(
+                    word: word, 
+                    wordLanguage: wordLanguage,
+                    meaning: item.quiz_definition
+                )
                 
                 await MainActor.run {
                     if !Task.isCancelled {
@@ -377,7 +381,11 @@ final class FillInTheBlankQuizViewModel: BaseViewModel {
                 let firstItem = items.first!
                 let firstWord = firstItem.quiz_text.lowercased()
                 let wordLanguage = firstItem.quiz_languageCode
-                let story = try await aiService.generateSingleFillInTheBlankStory(word: firstWord, wordLanguage: wordLanguage)
+                let story = try await aiService.generateSingleFillInTheBlankStory(
+                    word: firstWord, 
+                    wordLanguage: wordLanguage,
+                    meaning: firstItem.quiz_definition
+                )
 
                 await MainActor.run {
                     self.allStories = [story]
@@ -427,7 +435,11 @@ final class FillInTheBlankQuizViewModel: BaseViewModel {
                 // Don't change loading status to prefetching - keep current item visible
                 let nextWord = nextItem.quiz_text.trimmed.lowercased()
                 let wordLanguage = nextItem.quiz_languageCode
-                let story = try await aiService.generateSingleFillInTheBlankStory(word: nextWord, wordLanguage: wordLanguage)
+                let story = try await aiService.generateSingleFillInTheBlankStory(
+                    word: nextWord, 
+                    wordLanguage: wordLanguage,
+                    meaning: nextItem.quiz_definition
+                )
                 
                 await MainActor.run {
                     if !Task.isCancelled {

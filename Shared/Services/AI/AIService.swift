@@ -170,7 +170,8 @@ final class AIService: ObservableObject {
     
     func generateSingleFillInTheBlankStory(
         word: String,
-        wordLanguage: String
+        wordLanguage: String,
+        meaning: String? = nil
     ) async throws -> AIFillInTheBlankStory {
         guard reachabilityService.isOffline == false else {
             throw AIError.networkError
@@ -191,7 +192,8 @@ final class AIService: ObservableObject {
                 prompt: buildSingleFillInTheBlankStoryPrompt(
                     word: word,
                     wordLanguage: wordLanguage,
-                    userLanguage: getCurrentAppLanguage()
+                    userLanguage: getCurrentAppLanguage(),
+                    meaning: meaning
                 ),
                 responseType: AIFillInTheBlankStory.self
             )
@@ -440,15 +442,23 @@ final class AIService: ObservableObject {
     private func buildSingleFillInTheBlankStoryPrompt(
         word: String,
         wordLanguage: String,
-        userLanguage: String
+        userLanguage: String,
+        meaning: String? = nil
     ) -> String {
-        return """
+        var prompt = """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a multiple-choice fill-in-the-blank story for vocabulary practice.
         
         Word Language: \(wordLanguage)
         User Language: \(userLanguage)
         
         Word to create story for: '\(word)' (in \(wordLanguage))
+        """
+        
+        if let meaning = meaning, !meaning.isEmpty {
+            prompt += "\n\nSpecific meaning to focus on: '\(meaning)'"
+        }
+        
+        prompt += """
         
         Create one story with 4 options.
         
@@ -461,6 +471,8 @@ final class AIService: ObservableObject {
         6. Story should be appropriate for language learning
         7. The correct word should be the best choice for the blank
         """
+        
+        return prompt
     }
 }
 
