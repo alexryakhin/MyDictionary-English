@@ -136,7 +136,8 @@ final class AIService: ObservableObject {
 
     func generateSingleContextQuestion(
         word: String,
-        wordLanguage: String
+        wordLanguage: String,
+        partOfSpeech: String? = nil
     ) async throws -> AIContextQuestion {
         guard reachabilityService.isOffline == false else {
             throw AIError.networkError
@@ -157,7 +158,8 @@ final class AIService: ObservableObject {
                 prompt: buildSingleContextQuestionPrompt(
                     word: word,
                     wordLanguage: wordLanguage,
-                    userLanguage: getCurrentAppLanguage()
+                    userLanguage: getCurrentAppLanguage(),
+                    partOfSpeech: partOfSpeech
                 ),
                 responseType: AIContextQuestion.self
             )
@@ -171,7 +173,8 @@ final class AIService: ObservableObject {
     func generateSingleFillInTheBlankStory(
         word: String,
         wordLanguage: String,
-        meaning: String? = nil
+        meaning: String? = nil,
+        partOfSpeech: String? = nil
     ) async throws -> AIFillInTheBlankStory {
         guard reachabilityService.isOffline == false else {
             throw AIError.networkError
@@ -193,7 +196,8 @@ final class AIService: ObservableObject {
                     word: word,
                     wordLanguage: wordLanguage,
                     userLanguage: getCurrentAppLanguage(),
-                    meaning: meaning
+                    meaning: meaning,
+                    partOfSpeech: partOfSpeech
                 ),
                 responseType: AIFillInTheBlankStory.self
             )
@@ -414,15 +418,23 @@ final class AIService: ObservableObject {
     private func buildSingleContextQuestionPrompt(
         word: String,
         wordLanguage: String,
-        userLanguage: String
+        userLanguage: String,
+        partOfSpeech: String? = nil
     ) -> String {
-        return """
+        var prompt = """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a multiple choice question to test understanding of word usage in context.
         
         Word Language: \(wordLanguage)
         User Language: \(userLanguage)
         
         Word to create question for: '\(word)' (in \(wordLanguage))
+        """
+        
+        if let partOfSpeech = partOfSpeech, !partOfSpeech.isEmpty {
+            prompt += "\nPart of Speech: \(partOfSpeech)"
+        }
+        
+        prompt += """
         
         Create one question with 4 options.
         
@@ -436,14 +448,18 @@ final class AIService: ObservableObject {
         7. Make the question challenging but fair
         8. Consider different meanings and contexts of the word in \(wordLanguage)
         9. Ensure the correct answer is clearly the best choice
+        10. Use the word as a \(partOfSpeech ?? "word") in all sentences - maintain proper grammatical usage
         """
+        
+        return prompt
     }
     
     private func buildSingleFillInTheBlankStoryPrompt(
         word: String,
         wordLanguage: String,
         userLanguage: String,
-        meaning: String? = nil
+        meaning: String? = nil,
+        partOfSpeech: String? = nil
     ) -> String {
         var prompt = """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a multiple-choice fill-in-the-blank story for vocabulary practice.
@@ -453,6 +469,10 @@ final class AIService: ObservableObject {
         
         Word to create story for: '\(word)' (in \(wordLanguage))
         """
+        
+        if let partOfSpeech = partOfSpeech, !partOfSpeech.isEmpty {
+            prompt += "\nPart of Speech: \(partOfSpeech)"
+        }
         
         if let meaning = meaning, !meaning.isEmpty {
             prompt += "\n\nSpecific meaning to focus on: '\(meaning)'"
@@ -470,6 +490,7 @@ final class AIService: ObservableObject {
         5. Each option should have a clear explanation in \(userLanguage)
         6. Story should be appropriate for language learning
         7. The correct word should be the best choice for the blank
+        8. Use the word as a \(partOfSpeech ?? "word") in the story - maintain proper grammatical usage
         """
         
         return prompt

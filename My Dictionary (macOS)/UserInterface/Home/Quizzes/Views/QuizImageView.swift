@@ -20,8 +20,8 @@ struct QuizImageView: View {
                 image
                     .resizable()
                     .scaledToFit()
-                    .frame(maxHeight: 100)
                     .clipShape(.rect(cornerRadius: 12))
+                    .frame(maxHeight: 120)
             } else {
                 // Fallback to web URL if local fails
                 if let webUrl = webUrl, let url = URL(string: webUrl) {
@@ -29,12 +29,12 @@ struct QuizImageView: View {
                         image
                             .resizable()
                             .scaledToFit()
-                            .frame(maxHeight: 100)
                             .clipShape(.rect(cornerRadius: 12))
+                            .frame(maxHeight: 120)
                     } placeholder: {
                         RoundedRectangle(cornerRadius: 12)
                             .fill(Color.gray.opacity(0.3))
-                            .frame(height: 100)
+                            .frame(height: 120)
                             .overlay {
                                 ProgressView()
                             }
