@@ -90,6 +90,7 @@ struct PaywallView: View {
         .withGradientBackground()
         .safeAreaBarIfAvailable {
             actionButtonsSection
+                .materialBackgroundIfNoGlassAvailable()
         }
         .onAppear {
             if selectedPlan == nil {
