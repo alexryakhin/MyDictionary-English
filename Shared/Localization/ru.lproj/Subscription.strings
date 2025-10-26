@@ -29,6 +29,8 @@
 "paywall.annually" = "ежегодно";
 "paywall.monthly" = "ежемесячно";
 "paywall.bestValue" = "ЛУЧШАЯ ЦЕНА";
+"paywall.try_for_free" = "Попробовать Бесплатно";
+"paywall.trialThenAutoRenews" = "Бесплатная пробная версия на %d дней, затем %@/%@ до отмены.";
 
 "period.day" = "день";
 "period.week" = "неделя";

@@ -29,6 +29,8 @@
 "paywall.annually" = "anualment";
 "paywall.monthly" = "mensualment";
 "paywall.bestValue" = "MILLOR VALOR";
+"paywall.try_for_free" = "Provar Gratis";
+"paywall.trialThenAutoRenews" = "Prova gratuïta de %d dies, després %@/%@ fins a cancel·lar.";
 
 "period.day" = "dia";
 "period.week" = "setmana";

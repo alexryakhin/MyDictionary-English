@@ -29,6 +29,8 @@
 "paywall.annually" = "ročne";
 "paywall.monthly" = "mesačne";
 "paywall.bestValue" = "NAJLEPŠIA HODNOTA";
+"paywall.try_for_free" = "Vyskúšať Zdarma";
+"paywall.trialThenAutoRenews" = "%d-dňová bezplatná skúšobná verzia, potom %@/%@ do zrušenia.";
 
 "period.day" = "deň";
 "period.week" = "týždeň";

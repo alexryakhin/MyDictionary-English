@@ -29,6 +29,8 @@
 "paywall.annually" = "vuosittain";
 "paywall.monthly" = "kuukausittain";
 "paywall.bestValue" = "PARAS ARVO";
+"paywall.try_for_free" = "Kokeile Ilmaiseksi";
+"paywall.trialThenAutoRenews" = "%d päivän ilmainen kokeilu, sitten %@/%@ kunnes peruutetaan.";
 
 "period.day" = "päivä";
 "period.week" = "viikko";

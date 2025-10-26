@@ -29,6 +29,8 @@
 "paywall.annually" = "tahunan";
 "paywall.monthly" = "bulanan";
 "paywall.bestValue" = "NILAI TERBAIK";
+"paywall.try_for_free" = "Cuba Percuma";
+"paywall.trialThenAutoRenews" = "Percubaan percuma %d hari, kemudian %@/%@ sehingga dibatalkan.";
 
 "period.day" = "hari";
 "period.week" = "minggu";

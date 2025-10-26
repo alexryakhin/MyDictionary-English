@@ -29,6 +29,8 @@
 "paywall.annually" = "वार्षिक";
 "paywall.monthly" = "मासिक";
 "paywall.bestValue" = "सर्वोत्तम मूल्य";
+"paywall.try_for_free" = "मुफ्त में आज़माएं";
+"paywall.trialThenAutoRenews" = "%d दिन का मुफ्त परीक्षण, फिर %@/%@ रद्द होने तक।";
 
 "period.day" = "दिन";
 "period.week" = "सप्ताह";

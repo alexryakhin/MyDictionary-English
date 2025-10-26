@@ -29,6 +29,8 @@
 "paywall.annually" = "年";
 "paywall.monthly" = "月";
 "paywall.bestValue" = "最超值";
+"paywall.try_for_free" = "免費試用";
+"paywall.trialThenAutoRenews" = "%d天免費試用，然後%@/%@直到取消。";
 
 "period.day" = "天";
 "period.week" = "週";

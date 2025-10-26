@@ -29,6 +29,8 @@
 "paywall.annually" = "รายปี";
 "paywall.monthly" = "รายเดือน";
 "paywall.bestValue" = "มูลค่าดีที่สุด";
+"paywall.try_for_free" = "ลองใช้ฟรี";
+"paywall.trialThenAutoRenews" = "ทดลองใช้ฟรี %d วัน จากนั้น %@/%@ จนกว่าจะยกเลิก";
 
 "period.day" = "วัน";
 "period.week" = "สัปดาห์";

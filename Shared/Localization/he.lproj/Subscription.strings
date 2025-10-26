@@ -29,6 +29,8 @@
 "paywall.annually" = "שנתי";
 "paywall.monthly" = "חודשי";
 "paywall.bestValue" = "הערך הטוב ביותר";
+"paywall.try_for_free" = "נסה בחינם";
+"paywall.trialThenAutoRenews" = "ניסיון חינם של %d ימים, ואז %@/%@ עד לביטול.";
 
 "period.day" = "יום";
 "period.week" = "שבוע";

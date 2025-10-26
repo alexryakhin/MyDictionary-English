@@ -29,6 +29,8 @@
 "paywall.annually" = "年間";
 "paywall.monthly" = "月額";
 "paywall.bestValue" = "最高値";
+"paywall.try_for_free" = "無料で試す";
+"paywall.trialThenAutoRenews" = "%d日間の無料トライアル、その後%@/%@までキャンセル。";
 
 "period.day" = "日";
 "period.week" = "週";

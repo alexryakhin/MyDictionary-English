@@ -2073,8 +2073,14 @@ public enum Loc {
       public static let termsOfService = Loc.tr("Subscription", "paywall.terms_of_service", fallback: "Terms of Service")
       /// Track Progress
       public static let trackProgress = Loc.tr("Subscription", "paywall.track_progress", fallback: "Track Progress")
+      /// %d-day free trial, then %@/%@ until cancelled.
+      public static func trialThenAutoRenews(_ p1: Int, _ p2: Any, _ p3: Any) -> String {
+        return Loc.tr("Subscription", "paywall.trialThenAutoRenews", p1, String(describing: p2), String(describing: p3), fallback: "%d-day free trial, then %@/%@ until cancelled.")
+      }
       /// Trusted by learners worldwide
       public static let trustedByLearnersWorldwide = Loc.tr("Subscription", "paywall.trusted_by_learners_worldwide", fallback: "Trusted by learners worldwide")
+      /// Try for Free
+      public static let tryForFree = Loc.tr("Subscription", "paywall.try_for_free", fallback: "Try for Free")
       /// Upgrade to Pro
       public static let upgradeToPro = Loc.tr("Subscription", "paywall.upgrade_to_pro", fallback: "Upgrade to Pro")
       /// Words Added

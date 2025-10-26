@@ -95,22 +95,21 @@ extension OnboardingFlow {
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .opacity(animateContent ? 1 : 0)
                 .offset(y: animateContent ? 0 : 20)
                 .animation(.easeInOut(duration: 0.8).delay(0.5), value: animateContent)
             } else if onboardingService.hasFoundCloudProfile {
                 // Profile found state
-                VStack(spacing: 8) {
+                VStack(alignment: .leading, spacing: 8) {
                     Label(Loc.Onboarding.profileFound, systemImage: "checkmark.circle.fill")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    
+                        .font(.headline)
                     Text(Loc.Onboarding.profileFoundMessage)
-                        .font(.body)
+                        .font(.caption)
                         .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 32)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
                 .opacity(animateContent ? 1 : 0)
                 .offset(y: animateContent ? 0 : 20)
                 .animation(.easeInOut(duration: 0.8).delay(0.5), value: animateContent)

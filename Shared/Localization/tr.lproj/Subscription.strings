@@ -29,6 +29,8 @@
 "paywall.annually" = "yıllık";
 "paywall.monthly" = "aylık";
 "paywall.bestValue" = "EN İYİ DEĞER";
+"paywall.try_for_free" = "Ücretsiz Dene";
+"paywall.trialThenAutoRenews" = "%d günlük ücretsiz deneme, sonra %@/%@ iptal edilene kadar.";
 
 "period.day" = "gün";
 "period.week" = "hafta";

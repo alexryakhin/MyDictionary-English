@@ -27,6 +27,31 @@ struct PaywallView: View {
         self.onSubscriptionChange = onSubscriptionChange
     }
 
+    // MARK: - Trial Detection
+
+    private var hasFreeTrial: Bool {
+        guard let plan = selectedPlan else { return false }
+        return plan.product.introductoryDiscount != nil
+    }
+
+    private var trialDays: Int? {
+        guard let plan = selectedPlan,
+              let introDiscount = plan.product.introductoryDiscount else { return nil }
+        
+        // Check if it's a free trial (price should be 0)
+        if introDiscount.price == 0 {
+            if introDiscount.subscriptionPeriod.unit == .day {
+                return introDiscount.subscriptionPeriod.value
+            } else if introDiscount.subscriptionPeriod.unit == .week {
+                return 7 * introDiscount.subscriptionPeriod.value
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
+    }
+
     // MARK: - Content Properties
 
     private var title: String {
@@ -146,15 +171,22 @@ struct PaywallView: View {
     private var actionButtonsSection: some View {
         VStack(spacing: 8) {
             if let selectedPlan {
-                Text(Loc.Subscription.Paywall.planAutoRenews(selectedPlan.price, selectedPlan.period.displayName))
-                    .foregroundStyle(.secondary)
-                    .font(.caption)
-                    .multilineTextAlignment(.center)
+                if hasFreeTrial, let trialDays = trialDays {
+                    Text(Loc.Subscription.Paywall.trialThenAutoRenews(trialDays, selectedPlan.price, selectedPlan.period.displayName))
+                        .foregroundStyle(.secondary)
+                        .font(.caption)
+                        .multilineTextAlignment(.center)
+                } else {
+                    Text(Loc.Subscription.Paywall.planAutoRenews(selectedPlan.price, selectedPlan.period.displayName))
+                        .foregroundStyle(.secondary)
+                        .font(.caption)
+                        .multilineTextAlignment(.center)
+                }
             }
 
             // Subscribe button
             AsyncActionButton(
-                Loc.Subscription.Paywall.startProSubscription,
+                hasFreeTrial ? Loc.Subscription.Paywall.tryForFree : Loc.Subscription.Paywall.startProSubscription,
                 systemImage: "book.fill",
                 style: .borderedProminent
             ) {

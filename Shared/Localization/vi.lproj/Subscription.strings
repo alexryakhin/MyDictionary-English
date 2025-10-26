@@ -29,6 +29,8 @@
 "paywall.annually" = "hàng năm";
 "paywall.monthly" = "hàng tháng";
 "paywall.bestValue" = "GIÁ TRỊ TỐT NHẤT";
+"paywall.try_for_free" = "Dùng Thử Miễn Phí";
+"paywall.trialThenAutoRenews" = "Dùng thử miễn phí %d ngày, sau đó %@/%@ cho đến khi hủy.";
 
 "period.day" = "ngày";
 "period.week" = "tuần";

@@ -29,6 +29,8 @@
 "paywall.annually" = "anual";
 "paywall.monthly" = "lunar";
 "paywall.bestValue" = "CEA MAI BUNĂ VALOARE";
+"paywall.try_for_free" = "Încearcă Gratuit";
+"paywall.trialThenAutoRenews" = "Perioadă de probă gratuită de %d zile, apoi %@/%@ până la anulare.";
 
 "period.day" = "zi";
 "period.week" = "săptămână";

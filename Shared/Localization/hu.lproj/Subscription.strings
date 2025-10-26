@@ -29,6 +29,8 @@
 "paywall.annually" = "évente";
 "paywall.monthly" = "havonta";
 "paywall.bestValue" = "LEGJOBB ÉRTÉK";
+"paywall.try_for_free" = "Ingyenes Kipróbálás";
+"paywall.trialThenAutoRenews" = "%d napos ingyenes próbaidő, majd %@/%@ lemondásig.";
 
 "period.day" = "nap";
 "period.week" = "hét";

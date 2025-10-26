@@ -29,6 +29,8 @@
 "paywall.annually" = "ετήσια";
 "paywall.monthly" = "μηνιαία";
 "paywall.bestValue" = "ΚΑΛΥΤΕΡΗ ΑΞΙΑ";
+"paywall.try_for_free" = "Δοκιμάστε Δωρεάν";
+"paywall.trialThenAutoRenews" = "Δωρεάν δοκιμή %d ημερών, μετά %@/%@ μέχρι ακύρωση.";
 
 "period.day" = "ημέρα";
 "period.week" = "εβδομάδα";

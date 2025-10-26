@@ -29,6 +29,8 @@
 "paywall.annually" = "godišnje";
 "paywall.monthly" = "mjesečno";
 "paywall.bestValue" = "NAJBOLJA VRIJEDNOST";
+"paywall.try_for_free" = "Isprobaj Besplatno";
+"paywall.trialThenAutoRenews" = "%d-dnevni besplatni probni period, zatim %@/%@ do otkazivanja.";
 
 "period.day" = "dan";
 "period.week" = "tjedan";

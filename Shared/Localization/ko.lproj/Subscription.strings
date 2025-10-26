@@ -29,6 +29,8 @@
 "paywall.annually" = "연간";
 "paywall.monthly" = "월간";
 "paywall.bestValue" = "최고 가치";
+"paywall.try_for_free" = "무료로 체험하기";
+"paywall.trialThenAutoRenews" = "%d일 무료 체험, 그 후 %@/%@까지 취소.";
 
 "period.day" = "일";
 "period.week" = "주";
