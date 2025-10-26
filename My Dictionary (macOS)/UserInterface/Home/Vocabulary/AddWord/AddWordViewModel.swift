@@ -34,7 +34,6 @@ final class AddWordViewModel: BaseViewModel {
     @Published private(set) var selectedImageUrl: String?
     @Published private(set) var selectedImageLocalPath: String?
     @AppStorage(UDKeys.inputLanguage) var selectedInputLanguage: InputLanguage = .english
-    private var detectedLanguageCode: String?
     
     // AI Access control
     var canUseAI: Bool {
@@ -151,7 +150,6 @@ final class AddWordViewModel: BaseViewModel {
                     } else {
                         // Use original input for multi-word phrases
                         wordToSearch = inputWord
-                        self.detectedLanguageCode = "en" // Assume English for multi-word phrases
                         shouldRequestPronunciation = true // Always request for multi-word phrases
                     }
                 }
@@ -207,8 +205,8 @@ final class AddWordViewModel: BaseViewModel {
         
         if !inputWord.isEmpty, hasDefinitions {
             do {
-                // Get the detected language code from the translation response
-                let languageCode = detectedLanguageCode ?? "en"
+                // Use the selected input language instead of detected language
+                let languageCode = selectedInputLanguage.rawValue
 
                 if let dictionaryId = dictionaryId {
                     // Save to shared dictionary
@@ -229,7 +227,9 @@ final class AddWordViewModel: BaseViewModel {
                             phonetic: pronunciation,
                             meanings: meaningData,
                             tags: selectedTags,
-                            languageCode: languageCode
+                            languageCode: languageCode,
+                            imageUrl: selectedImageUrl,
+                            imageLocalPath: selectedImageLocalPath
                         )
                     } else {
                         // Fallback to old method for manual definition
@@ -240,7 +240,9 @@ final class AddWordViewModel: BaseViewModel {
                             phonetic: pronunciation,
                             examples: selectedDefinition?.examples ?? [],
                             tags: selectedTags,
-                            languageCode: languageCode
+                            languageCode: languageCode,
+                            imageUrl: selectedImageUrl,
+                            imageLocalPath: selectedImageLocalPath
                         )
                     }
                     AnalyticsService.shared.logEvent(.wordAdded)
