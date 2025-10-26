@@ -254,11 +254,9 @@ struct ContextMultipleChoiceQuizContentView: View {
                 .disabled(ttsPlayer.isPlaying || question.isEmpty)
             }
             
-            Text(question)
-                .font(.body)
-                .lineSpacing(4)
-                .multilineTextAlignment(.leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            InteractiveText(
+                text: question
+            )
 
             // Word Image (if available)
             if let imageLocalPath = viewModel.currentItem?.quiz_imageLocalPath {
@@ -321,12 +319,13 @@ struct ContextMultipleChoiceQuizContentView: View {
                                 .fontWeight(.medium)
                                 .foregroundStyle(.secondary)
                             
-                            Text(option.text)
-                                .font(.body)
-                                .lineSpacing(2)
-                                .multilineTextAlignment(.leading)
-                                .foregroundStyle(optionColor(for: index))
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                            InteractiveText(
+                                text: option.text
+                            )
+                            .font(.body)
+                            .lineSpacing(2)
+                            .foregroundStyle(optionColor(for: index))
+                            .frame(maxWidth: .infinity, alignment: .leading)
 
                             Image(systemName: "checkmark.circle.fill")
                                 .foregroundStyle(.accent)

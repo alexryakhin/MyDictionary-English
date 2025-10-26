@@ -265,11 +265,9 @@ struct FillInTheBlankQuizContentView: View {
                 }
             }
             
-            Text(story.story)
-                .font(.body)
-                .lineSpacing(4)
-                .multilineTextAlignment(.leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            InteractiveText(
+                text: story.story
+            )
         }
         .padding(20)
         .background(Color.secondarySystemGroupedBackground)
