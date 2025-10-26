@@ -69,10 +69,23 @@ struct AddCollectionToDictionaryView: View {
                     HeaderButton(Loc.Actions.cancel, size: .small) {
                         dismiss()
                     }
-                    HeaderButton(Loc.Actions.add + " (\(selectedWords.count))", size: .small, style: .borderedProminent) {
-                        addSelectedWords()
+                    if selectedWords.isEmpty {
+                        AsyncHeaderButton(
+                            Loc.WordCollections.addAll,
+                            size: .small,
+                            style: .borderedProminent
+                        ) {
+                            try await addAllWords()
+                        }
+                    } else {
+                        AsyncHeaderButton(
+                            Loc.Actions.add + " (\(selectedWords.count))",
+                            size: .small,
+                            style: .borderedProminent
+                        ) {
+                            try await addSelectedWords()
+                        }
                     }
-                    .disabled(selectedWords.count == 0)
                 },
                 bottomContent: {
                     Text(Loc.WordCollections.selectWordsDescription(collection.title))
@@ -102,34 +115,67 @@ struct AddCollectionToDictionaryView: View {
         }
     }
     
-    private func addSelectedWords() {
-        isAdding = true
-        
-        Task {
-            do {
-                let result = try await WordCollectionImportService.shared.importWords(
-                    from: collection,
-                    selectedWordIds: selectedWords
-                )
-                
-                await MainActor.run {
-                    addedWordsCount = result.addedCount
-                    duplicateWordsCount = result.duplicateCount
-                    isAdding = false
-                    showSuccessAlert = true
-                }
-            } catch {
-                await MainActor.run {
-                    isAdding = false
-                    // Handle error - could show error alert
-                    print("Error importing words: \(error)")
-                }
-            }
+    // MARK: - Actions
+
+    private func addAllWords() async throws {
+        AnalyticsService.shared.logEvent(.wordCollectionImportStarted, parameters: [
+            "collection_id": collection.id,
+            "collection_title": collection.title,
+            "word_count": collection.words.count,
+            "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+        ])
+
+        let result = try await WordCollectionImportService.shared.importAllWords(from: collection)
+
+        await MainActor.run {
+            addedWordsCount = result.addedCount
+            duplicateWordsCount = result.duplicateCount
+            isAdding = false
+            showSuccessAlert = true
         }
+
+        // Log import completion analytics
+        AnalyticsService.shared.logEvent(.wordCollectionImportCompleted, parameters: [
+            "collection_id": collection.id,
+            "collection_title": collection.title,
+            "words_added": result.addedCount,
+            "duplicates_found": result.duplicateCount,
+            "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+        ])
     }
-    
+
+    private func addSelectedWords() async throws {
+        AnalyticsService.shared.logEvent(.wordCollectionImportStarted, parameters: [
+            "collection_id": collection.id,
+            "collection_title": collection.title,
+            "word_count": selectedWords.count,
+            "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+        ])
+
+        let result = try await WordCollectionImportService.shared.importWords(
+            from: collection,
+            selectedWordIds: selectedWords
+        )
+
+        await MainActor.run {
+            addedWordsCount = result.addedCount
+            duplicateWordsCount = result.duplicateCount
+            isAdding = false
+            showSuccessAlert = true
+        }
+
+        // Log import completion analytics
+        AnalyticsService.shared.logEvent(.wordCollectionImportCompleted, parameters: [
+            "collection_id": collection.id,
+            "collection_title": collection.title,
+            "words_added": result.addedCount,
+            "duplicates_found": result.duplicateCount,
+            "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
+        ])
+    }
+
     // MARK: - Review Request Logic
-    
+
     private func requestReviewIfAppropriate() {
         // Don't request if user has already rated
         guard !hasRatedApp else { return }

@@ -18,58 +18,55 @@
   ],
   "settings" : {
     "_applicationInternalID" : "1588418793",
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
     "_developerTeamID" : "69S862NXBP",
+    "_disableDialogs" : false,
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 777227040.36749494,
+    "_lastSynchronizedDate" : 783148474.05723405,
     "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
     "_storefront" : "USA",
     "_storeKitErrors" : [
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Load Products"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Purchase"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Verification"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "App Store Sync"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Subscription Status"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "App Transaction"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Manage Subscriptions Sheet"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Refund Request Sheet"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Offer Code Redeem Sheet"
       }
-    ]
+    ],
+    "_timeRate" : 0
   },
   "subscriptionGroups" : [
     {
@@ -108,11 +105,6 @@
               "locale" : "vi"
             },
             {
-              "description" : "Κοινά λεξικά, ετικέτες και αναλύσεις",
-              "displayName" : "Μηνιαίο Pro",
-              "locale" : "el"
-            },
-            {
               "description" : "Общие словари, теги и аналитика",
               "displayName" : "Pro Ежемесячный",
               "locale" : "ru"
@@ -143,9 +135,19 @@
               "locale" : "zh_Hant"
             },
             {
+              "description" : "Shared dictionaries, tags, and analytics!",
+              "displayName" : "Monthly Pro",
+              "locale" : "en_AU"
+            },
+            {
               "description" : "Paylaşımlı sözlükler, etiketler ve analitik",
               "displayName" : "Aylık Pro",
               "locale" : "tr"
+            },
+            {
+              "description" : "Κοινά λεξικά, ετικέτες και αναλύσεις",
+              "displayName" : "Μηνιαίο Pro",
+              "locale" : "el"
             },
             {
               "description" : "공유 사전, 태그, 분석!",
@@ -173,11 +175,6 @@
               "locale" : "de"
             },
             {
-              "description" : "Shared dictionaries, tags, and analytics!",
-              "displayName" : "Monthly Pro",
-              "locale" : "en_AU"
-            },
-            {
               "description" : "Dicționare partajate, etichete și analize",
               "displayName" : "Pro Lunar",
               "locale" : "ro"
@@ -188,14 +185,19 @@
               "locale" : "th"
             },
             {
-              "description" : "Delade ordböcker, taggar och analys",
-              "displayName" : "Pro Månadsvis",
-              "locale" : "sv"
+              "description" : "Dictionnaires partagés, étiquettes et analyse",
+              "displayName" : "Pro Mensuel",
+              "locale" : "fr"
             },
             {
               "description" : "Współdzielone słowniki, tagi i analiza",
               "displayName" : "Pro Miesięczne",
               "locale" : "pl"
+            },
+            {
+              "description" : "Delade ordböcker, taggar och analys",
+              "displayName" : "Pro Månadsvis",
+              "locale" : "sv"
             },
             {
               "description" : "Shared dictionaries, tags, and analytics!",
@@ -215,7 +217,7 @@
             {
               "description" : "Dictionnaires partagés, étiquettes et analyse",
               "displayName" : "Pro Mensuel",
-              "locale" : "fr"
+              "locale" : "fr_CA"
             },
             {
               "description" : "साझा शब्दकोश, टैग्स और विश्लेषण",
@@ -228,29 +230,14 @@
               "locale" : "en_GB"
             },
             {
-              "description" : "Dictionnaires partagés, étiquettes et analyse",
-              "displayName" : "Pro Mensuel",
-              "locale" : "fr"
-            },
-            {
               "description" : "共享词典、标签和分析！",
               "displayName" : "月度Pro",
               "locale" : "zh_Hans"
             },
             {
-              "description" : "Zdieľané slovníky, značky a analýzy",
-              "displayName" : "Pro Mesačný",
-              "locale" : "sk"
-            },
-            {
               "description" : "מילונים משותפים, תגיות וניתוחים",
               "displayName" : "Pro חודשי",
               "locale" : "he"
-            },
-            {
-              "description" : "Спільні словники, теги та аналітика!",
-              "displayName" : "Місячний Pro",
-              "locale" : "uk"
             },
             {
               "description" : "Dicionários compartilhados, tags e análise",
@@ -278,9 +265,19 @@
               "locale" : "id"
             },
             {
+              "description" : "Zdieľané slovníky, značky a analýzy",
+              "displayName" : "Pro Mesačný",
+              "locale" : "sk"
+            },
+            {
               "description" : "Dizionari condivisi, tag e analisi",
               "displayName" : "Pro Mensile",
               "locale" : "it"
+            },
+            {
+              "description" : "Спільні словники, теги та аналітика!",
+              "displayName" : "Місячний Pro",
+              "locale" : "uk"
             }
           ],
           "productID" : "com.dor.My_Dictionary.Monthly",
@@ -316,11 +313,6 @@
               "locale" : "fr"
             },
             {
-              "description" : "Delte ordbøger, tags og analyse",
-              "displayName" : "Pro Årlig",
-              "locale" : "da"
-            },
-            {
               "description" : "Gemeinsame Wörterbücher, Tags und Analyse",
               "displayName" : "Jährliches Pro",
               "locale" : "de"
@@ -329,6 +321,11 @@
               "description" : "قواميس مشتركة، علامات، وتحليلات",
               "displayName" : "Pro سنوي",
               "locale" : "ar"
+            },
+            {
+              "description" : "Delte ordbøger, tags og analyse",
+              "displayName" : "Pro Årlig",
+              "locale" : "da"
             },
             {
               "description" : "Zajednički rječnici, oznake i analitika",
@@ -361,9 +358,9 @@
               "locale" : "id"
             },
             {
-              "description" : "공유 사전, 태그, 분석",
-              "displayName" : "연간 Pro",
-              "locale" : "ko"
+              "description" : "Megosztott szótárak, címkék és elemzések",
+              "displayName" : "Éves Pro",
+              "locale" : "hu"
             },
             {
               "description" : "พจนานุกรมที่ใช้ร่วมกัน แท็ก และการวิเคราะห์",
@@ -401,9 +398,9 @@
               "locale" : "ja"
             },
             {
-              "description" : "Megosztott szótárak, címkék és elemzések",
-              "displayName" : "Éves Pro",
-              "locale" : "hu"
+              "description" : "공유 사전, 태그, 분석",
+              "displayName" : "연간 Pro",
+              "locale" : "ko"
             },
             {
               "description" : "Paylaşımlı sözlükler, etiketler ve analitik",
@@ -411,24 +408,24 @@
               "locale" : "tr"
             },
             {
-              "description" : "Delade ordböcker, taggar och analys",
-              "displayName" : "Pro Årlig",
-              "locale" : "sv"
-            },
-            {
               "description" : "Dicționare partajate, etichete și analize",
               "displayName" : "Pro Anual",
               "locale" : "ro"
             },
             {
-              "description" : "Diccionarios compartidos etiquetas y análisis",
-              "displayName" : "Pro Anual",
-              "locale" : "es_MX"
-            },
-            {
               "description" : "Sdílené slovníky, štítky a analýzy",
               "displayName" : "Pro Roční",
               "locale" : "cs"
+            },
+            {
+              "description" : "Delade ordböcker, taggar och analys",
+              "displayName" : "Pro Årlig",
+              "locale" : "sv"
+            },
+            {
+              "description" : "Diccionarios compartidos etiquetas y análisis",
+              "displayName" : "Pro Anual",
+              "locale" : "es_MX"
             },
             {
               "description" : "Общие словари, теги и аналитика",
@@ -451,29 +448,9 @@
               "locale" : "vi"
             },
             {
-              "description" : "Shared dictionaries, tags, and analytics",
-              "displayName" : "Yearly Pro",
-              "locale" : "en_CA"
-            },
-            {
-              "description" : "Zdieľané slovníky, značky a analýzy",
-              "displayName" : "Pro Ročný",
-              "locale" : "sk"
-            },
-            {
-              "description" : "Shared dictionaries, tags, and analytics",
-              "displayName" : "Yearly Pro",
-              "locale" : "en_US"
-            },
-            {
               "description" : "מילונים משותפים, תגיות וניתוחים",
               "displayName" : "Pro שנתי",
               "locale" : "he"
-            },
-            {
-              "description" : "Dictionnaires partagés, étiquettes et analyse",
-              "displayName" : "Pro Annuel",
-              "locale" : "fr"
             },
             {
               "description" : "Diccionaris compartits, etiquetes i anàlisi",
@@ -486,14 +463,34 @@
               "locale" : "es_ES"
             },
             {
+              "description" : "Shared dictionaries, tags, and analytics",
+              "displayName" : "Yearly Pro",
+              "locale" : "en_CA"
+            },
+            {
               "description" : "共享词典、标签和分析",
               "displayName" : "年度Pro",
               "locale" : "zh_Hans"
             },
             {
+              "description" : "Zdieľané slovníky, značky a analýzy",
+              "displayName" : "Pro Ročný",
+              "locale" : "sk"
+            },
+            {
+              "description" : "Shared dictionaries, tags, and analytics",
+              "displayName" : "Yearly Pro",
+              "locale" : "en_US"
+            },
+            {
               "description" : "Dicionários partilhados, etiquetas e análise",
               "displayName" : "Pro Anual",
               "locale" : "pt_PT"
+            },
+            {
+              "description" : "Dictionnaires partagés, étiquettes et analyse",
+              "displayName" : "Pro Annuel",
+              "locale" : "fr_CA"
             }
           ],
           "productID" : "com.dor.My_Dictionary.Yearly",

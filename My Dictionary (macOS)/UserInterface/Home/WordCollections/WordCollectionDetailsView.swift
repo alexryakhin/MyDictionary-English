@@ -64,22 +64,6 @@ struct WordCollectionDetailsView: View {
                 title: viewModel.collection.title,
                 mode: .inline,
                 showsDismissButton: false,
-                trailingContent: {
-                    HeaderButton(
-                        Loc.WordCollections.addAll,
-                        size: .small,
-                        style: .borderedProminent
-                    ) {
-                        AnalyticsService.shared.logEvent(.wordCollectionImportStarted, parameters: [
-                            "collection_id": originalCollection.id,
-                            "collection_title": originalCollection.title,
-                            "word_count": originalCollection.words.count,
-                            "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
-                        ])
-                        addAllWords()
-                    }
-                    .disabled(isAddingAll)
-                },
                 bottomContent: {
                     InputView.searchView(
                         Loc.WordCollections.searchWords,
@@ -150,24 +134,26 @@ struct WordCollectionDetailsView: View {
                         Spacer()
                     }
                 }
-                
-                // Add to dictionary button
-                ActionButton(
-                    Loc.WordCollections.addToMyDictionary,
-                    systemImage: "plus.circle.fill",
-                    style: .borderedProminent
-                ) {
-                    showAddToDictionary = true
-                }
-                
-                // Translation button (only show if locale is not English)
-                if Locale.current.language.languageCode?.identifier != viewModel.collection.languageCode {
-                    AsyncActionButton(
-                        Loc.WordCollections.translateDefinitions,
-                        systemImage: "globe",
-                        style: .bordered
+
+                VStack(spacing: 8) {
+                    // Add to dictionary button
+                    ActionButton(
+                        Loc.WordCollections.addToMyDictionary,
+                        systemImage: "plus.circle.fill",
+                        style: .borderedProminent
                     ) {
-                        await viewModel.translateDefinitions()
+                        showAddToDictionary = true
+                    }
+
+                    // Translation button (only show if locale is not English)
+                    if Locale.current.language.languageCode?.identifier != viewModel.collection.languageCode {
+                        AsyncActionButton(
+                            Loc.WordCollections.translateDefinitions,
+                            systemImage: "globe",
+                            style: .bordered
+                        ) {
+                            await viewModel.translateDefinitions()
+                        }
                     }
                 }
             }
@@ -204,41 +190,7 @@ struct WordCollectionDetailsView: View {
             }
         }
     }
-    
-    // MARK: - Actions
-    
-    private func addAllWords() {
-        isAddingAll = true
-        
-        Task {
-            do {
-                let result = try await WordCollectionImportService.shared.importAllWords(from: viewModel.collection)
-                
-                await MainActor.run {
-                    addedWordsCount = result.addedCount
-                    duplicateWordsCount = result.duplicateCount
-                    isAddingAll = false
-                    showSuccessAlert = true
-                    
-                    // Log import completion analytics
-                    AnalyticsService.shared.logEvent(.wordCollectionImportCompleted, parameters: [
-                        "collection_id": originalCollection.id,
-                        "collection_title": originalCollection.title,
-                        "words_added": result.addedCount,
-                        "duplicates_found": result.duplicateCount,
-                        "user_subscription_status": SubscriptionService.shared.isProUser ? "pro" : "free"
-                    ])
-                }
-            } catch {
-                await MainActor.run {
-                    isAddingAll = false
-                    // Handle error - could show error alert
-                    print("Error importing all words: \(error)")
-                }
-            }
-        }
-    }
-    
+
     // MARK: - Computed Properties
     
     private var filteredWords: [WordCollectionItem] {
