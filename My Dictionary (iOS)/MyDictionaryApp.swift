@@ -87,17 +87,30 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     // Handle notification tap
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping VoidHandler) {
         let userInfo = response.notification.request.content.userInfo
+        print("🔔 [AppDelegate] Notification tapped with userInfo: \(userInfo)")
 
         // Handle different notification types
         if let type = userInfo["type"] as? String {
+            print("🔔 [AppDelegate] Notification type: \(type)")
             switch type {
             case "collaborator_invitation":
                 if let dictionaryId = userInfo["dictionaryId"] as? String {
+                    print("🔔 [AppDelegate] Handling collaborator invitation for dictionary: \(dictionaryId)")
                     handleCollaboratorInvitation(dictionaryId: dictionaryId)
                 }
+            case "word_study":
+                if let wordId = userInfo["wordId"] as? String {
+                    print("🔔 [AppDelegate] Handling word study notification for word ID: \(wordId)")
+                    handleWordStudyNotification(wordId: wordId)
+                } else {
+                    print("🔔 [AppDelegate] Word study notification missing wordId")
+                }
             default:
+                print("🔔 [AppDelegate] Unknown notification type: \(type)")
                 break
             }
+        } else {
+            print("🔔 [AppDelegate] Notification missing type in userInfo")
         }
 
         completionHandler()
@@ -113,8 +126,39 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
             }
         }
     }
-
-
+    
+    private func handleWordStudyNotification(wordId: String) {
+        print("🔔 [AppDelegate] Looking for word with ID: \(wordId)")
+        // Find the word by ID and navigate to word details
+        DispatchQueue.main.async {
+            if let word = self.findWord(by: wordId) {
+                print("🔔 [AppDelegate] Found word: \(word.wordItself ?? "Unknown"), navigating to details")
+                NavigationManager.shared.navigationPath.append(NavigationDestination.wordDetails(word))
+            } else {
+                print("🔔 [AppDelegate] Word not found with ID: \(wordId)")
+            }
+        }
+    }
+    
+    private func findWord(by id: String) -> CDWord? {
+        print("🔔 [AppDelegate] Converting string ID to UUID: \(id)")
+        guard let uuid = UUID(uuidString: id) else { 
+            print("🔔 [AppDelegate] Failed to convert string to UUID: \(id)")
+            return nil 
+        }
+        
+        let request = CDWord.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", uuid as CVarArg)
+        
+        do {
+            let words = try CoreDataService.shared.context.fetch(request)
+            print("🔔 [AppDelegate] Found \(words.count) words with ID \(id)")
+            return words.first
+        } catch {
+            print("🔔 [AppDelegate] Error finding word with ID \(id): \(error)")
+            return nil
+        }
+    }
 
     // MARK: - Simulator Testing
 

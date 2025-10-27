@@ -475,9 +475,22 @@ struct DebugView: View {
         content.title = Loc.Notifications.wordStudyTitle(randomWord.wordItself ?? "Unknown")
         
         let definition = randomWord.primaryDefinition ?? "No definition available"
-        let example = randomWord.primaryMeaning?.examplesDecoded.first ?? "No example available"
-        content.body = Loc.Notifications.wordStudyBody(definition, example)
+        let examples = randomWord.primaryMeaning?.examplesDecoded ?? []
+        let example = examples.first ?? ""
+        
+        // Only include example if it exists
+        if !example.isEmpty {
+            content.body = Loc.Notifications.wordStudyBody(definition, example)
+        } else {
+            content.body = definition
+        }
         content.sound = .default
+        
+        // Add word ID to notification data for deep linking
+        content.userInfo = [
+            "type": "word_study",
+            "wordId": randomWord.id?.uuidString ?? ""
+        ]
         
         // Schedule for 1 minute from now
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)

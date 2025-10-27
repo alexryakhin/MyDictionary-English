@@ -68,7 +68,7 @@ final class AIService: ObservableObject {
     
     func generateWordInformation(
         for word: String,
-        maxDefinitions: Int = 10,
+        maxDefinitions: Int = 5,
         inputLanguage: InputLanguage
     ) async throws -> AIWordResponse {
         guard reachabilityService.isOffline == false else {
@@ -373,13 +373,14 @@ final class AIService: ObservableObject {
         7. Include idiomatic uses, slang, and colloquial expressions when applicable
         8. Keep definitions concise (1-3 sentences) and examples practical (1-2 sentences each)
         9. Provide up to \(maxDefinitions) distinct definitions
-        10. Each definition should have 2-3 examples
+        10. Each definition should have 1-3 examples
         11. If the word/phrase has multiple distinct meanings, prioritize the most commonly used ones in everyday language
         12. For religious names/phrases, also include their use as exclamations, expressions of surprise, or in casual speech
         13. Include both formal and informal usage contexts
         14. As this is for educational purposes, include ALL meanings including slang, profanity, and informal expressions when they exist
         15. Provide accurate linguistic information regardless of content sensitivity - this helps language learners understand real-world usage
         16. CRITICAL: Definitions should NOT mention the input word itself - they should explain the concept without using the word being defined (this is essential for quiz functionality), but examples should include the word so a student will see a real usage.
+        17. Don't provide duplicate definitions that basically mean the same thing but in different words.
         """
     }
     
@@ -480,7 +481,7 @@ final class AIService: ObservableObject {
         
         prompt += """
         
-        Create one story with 4 options.
+        Create one story with 4 answer options.
         
         IMPORTANT RULES:
         1. Provide exactly 4 options: 1 correct and 3 incorrect
@@ -491,6 +492,7 @@ final class AIService: ObservableObject {
         6. Story should be appropriate for language learning
         7. The correct word should be the best choice for the blank
         8. Use the word as a \(partOfSpeech ?? "word") in the story - maintain proper grammatical usage
+        9. Don't put blanks inside answers. Only the story can have it.
         """
         
         return prompt

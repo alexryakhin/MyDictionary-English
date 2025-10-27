@@ -101,8 +101,15 @@ final class NotificationService {
             
             // Get definition and example
             let definition = word.primaryDefinition ?? ""
-            let example = word.primaryMeaning?.examplesDecoded.first ?? ""
-            content.body = Loc.Notifications.wordStudyBody(definition, example)
+            let examples = word.primaryMeaning?.examplesDecoded ?? []
+            let example = examples.first ?? ""
+            
+            // Only include example if it exists
+            if !example.isEmpty {
+                content.body = Loc.Notifications.wordStudyBody(definition, example)
+            } else {
+                content.body = definition
+            }
             content.sound = .default
             
             // Create trigger for specific time today
@@ -115,6 +122,12 @@ final class NotificationService {
             
             let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: finalDate)
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+            
+            // Add word ID to notification data for deep linking
+            content.userInfo = [
+                "type": "word_study",
+                "wordId": word.id?.uuidString ?? ""
+            ]
             
             let request = UNNotificationRequest(
                 identifier: "word-study-\(index)",

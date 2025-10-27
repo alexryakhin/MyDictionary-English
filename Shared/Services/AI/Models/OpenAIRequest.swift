@@ -170,7 +170,7 @@ struct AIFillInTheBlankStory: Codable, JSONSchemaConvertible {
     static let example: Self = {
         .init(
             word: "library",
-            story: "Sarah spent her afternoon at the _____, reading books and studying for her upcoming exam.",
+            story: "Sarah spent her afternoon at the _, reading books and studying for her upcoming exam.",
             options: [
                 AIFillInTheBlankOption.example,
                 AIFillInTheBlankOption(
