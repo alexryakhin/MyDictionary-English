@@ -141,6 +141,17 @@ final class TTSPlayer: NSObject, ObservableObject {
     }
 
     private func playWithGoogle(text: String, targetLanguage: String) async throws {
+        // Check cache first
+        let cacheKey = generateCacheKey(text: text, language: targetLanguage, provider: .google, voice: nil)
+        if let cachedURL = getCachedAudioFile(for: cacheKey) {
+            print("🎵 [TTSPlayer] Using cached Google TTS audio for: \(text.prefix(20))...")
+#if os(iOS)
+            let _ = try setupAudioSession()
+#endif
+            try await play(from: cachedURL)
+            return
+        }
+        
         let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=\(escapedText)&tl=\(targetLanguage)"
         guard let url = URL(string: urlString) else { return }
@@ -150,10 +161,25 @@ final class TTSPlayer: NSObject, ObservableObject {
 #endif
 
         let temporaryDownloadURL = try await temporaryDownloadURL(for: url)
+        
+        // Cache the downloaded file
+        cacheAudioFile(url: temporaryDownloadURL, for: cacheKey)
+        
         try await play(from: temporaryDownloadURL)
     }
 
     private func playWithSpeechify(text: String, voice: String, targetLanguage: String) async throws {
+        // Check cache first
+        let cacheKey = generateCacheKey(text: text, language: targetLanguage, provider: .speechify, voice: voice)
+        if let cachedURL = getCachedAudioFile(for: cacheKey) {
+            print("🎵 [TTSPlayer] Using cached Speechify TTS audio for: \(text.prefix(20))...")
+#if os(iOS)
+            let _ = try setupAudioSession()
+#endif
+            try await play(from: cachedURL)
+            return
+        }
+        
         let request = TTSRequest(
             text: text,
             language: targetLanguage,
@@ -166,7 +192,11 @@ final class TTSPlayer: NSObject, ObservableObject {
         let response = try await speechifyService.synthesizeSpeech(request: request)
 
         // Save audio data to temporary file and play
-        let tempURL = try saveAudioDataToTempFile(response.audioData)
+        let tempURL = try saveAudioDataToTempFile(response.audioData, cacheKey: cacheKey)
+        
+#if os(iOS)
+        let _ = try setupAudioSession()
+#endif
         try await play(from: tempURL)
     }
 
@@ -174,6 +204,10 @@ final class TTSPlayer: NSObject, ObservableObject {
         guard let synthesizer = speechSynthesizer else {
             throw CoreError.internalError(.cannotSetupAudioSession)
         }
+
+#if os(iOS)
+        let _ = try setupAudioSession()
+#endif
 
         // Stop any current speech
         if synthesizer.isSpeaking {
@@ -199,9 +233,10 @@ final class TTSPlayer: NSObject, ObservableObject {
         synthesizer.speak(utterance)
     }
 
-    private func saveAudioDataToTempFile(_ audioData: Data) throws -> URL {
+    private func saveAudioDataToTempFile(_ audioData: Data, cacheKey: String? = nil) throws -> URL {
         let tempDir = FileManager.default.temporaryDirectory
-        let tempFile = tempDir.appendingPathComponent("speechify_audio_\(UUID().uuidString).wav")
+        let filename = cacheKey != nil ? "\(cacheKey!).wav" : "speechify_audio_\(UUID().uuidString).wav"
+        let tempFile = tempDir.appendingPathComponent(filename)
         print("✅ [TTSPlayer] Successfully saved temporary file to \(tempFile.path)")
 
         try audioData.write(to: tempFile)
@@ -226,12 +261,41 @@ final class TTSPlayer: NSObject, ObservableObject {
 #if os(iOS)
     private func setupAudioSession() throws -> AVAudioSession {
         let session = AVAudioSession.sharedInstance()
+        
+        // Check if audio session is already configured correctly
+        if session.category == .playback && session.isOtherAudioPlaying == false {
+            print("🔊 [TTSPlayer] Audio session already configured correctly")
+            return session
+        }
+        
         do {
-            try session.setCategory(.playback)
-            try session.setActive(true)
+            // Configure audio session to play even in silent mode
+            // Use .playback category with .mixWithOthers to allow playing in silent mode
+            try session.setCategory(.playback, mode: .default, options: [.mixWithOthers])
+            
+            // Only activate if not already active
+            if !session.isOtherAudioPlaying {
+                try session.setActive(true)
+            }
+            
+            print("🔊 [TTSPlayer] Audio session configured successfully")
             return session
         } catch {
-            throw CoreError.internalError(.cannotSetupAudioSession)
+            print("❌ [TTSPlayer] Failed to setup audio session: \(error.localizedDescription)")
+            // Try a simpler configuration as fallback
+            do {
+                try session.setCategory(.playback)
+                if !session.isOtherAudioPlaying {
+                    try session.setActive(true)
+                }
+                print("🔊 [TTSPlayer] Audio session configured with fallback settings")
+                return session
+            } catch {
+                print("❌ [TTSPlayer] Fallback audio session setup also failed: \(error.localizedDescription)")
+                // Don't throw error, just return the session as-is
+                print("⚠️ [TTSPlayer] Continuing with existing audio session configuration")
+                return session
+            }
         }
     }
 #endif
@@ -282,6 +346,55 @@ final class TTSPlayer: NSObject, ObservableObject {
         player?.stop()
         speechSynthesizer?.stopSpeaking(at: .immediate)
         isPlaying = false
+    }
+    
+    // MARK: - Caching Methods
+    
+    private func generateCacheKey(text: String, language: String, provider: TTSProvider, voice: String?) -> String {
+        let voicePart = voice != nil ? "_\(voice!)" : ""
+        let keyString = "\(provider.rawValue)_\(language)\(voicePart)_\(text)"
+        return keyString.data(using: .utf8)?.base64EncodedString().replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: "+", with: "-") ?? UUID().uuidString
+    }
+    
+    private func getCachedAudioFile(for cacheKey: String) -> URL? {
+        let tempDir = FileManager.default.temporaryDirectory
+        let cachedFile = tempDir.appendingPathComponent("\(cacheKey).wav")
+        
+        // Check if file exists and is not too old (7 days)
+        if FileManager.default.fileExists(atPath: cachedFile.path) {
+            do {
+                let attributes = try FileManager.default.attributesOfItem(atPath: cachedFile.path)
+                if let creationDate = attributes[.creationDate] as? Date {
+                    let age = Date().timeIntervalSince(creationDate)
+                    if age < 30 * 24 * 60 * 60 { // 30 days
+                        return cachedFile
+                    } else {
+                        // File is too old, remove it
+                        try FileManager.default.removeItem(at: cachedFile)
+                    }
+                }
+            } catch {
+                print("⚠️ [TTSPlayer] Error checking cached file: \(error)")
+            }
+        }
+        
+        return nil
+    }
+    
+    private func cacheAudioFile(url: URL, for cacheKey: String) {
+        let tempDir = FileManager.default.temporaryDirectory
+        let cachedFile = tempDir.appendingPathComponent("\(cacheKey).wav")
+        
+        do {
+            // Copy the temporary file to the cached location
+            if FileManager.default.fileExists(atPath: cachedFile.path) {
+                try FileManager.default.removeItem(at: cachedFile)
+            }
+            try FileManager.default.copyItem(at: url, to: cachedFile)
+            print("💾 [TTSPlayer] Cached audio file: \(cacheKey)")
+        } catch {
+            print("⚠️ [TTSPlayer] Failed to cache audio file: \(error)")
+        }
     }
 }
 
